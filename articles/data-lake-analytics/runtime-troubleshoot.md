@@ -1,22 +1,20 @@
 ---
 title: Azure Data Lake Analytics U SQL 런타임 오류 문제를 해결 하는 방법
 description: U-SQL 런타임 오류 문제를 해결 하는 방법에 대해 알아봅니다.
-services: data-lake-analytics
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
-ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475263"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241610"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>런타임 변경으로 인 한 U-SQL 런타임 오류 문제를 해결 하는 방법 알아보기
 
-컴파일러, 최적화 프로그램 및 작업 관리자를 비롯 한 Azure Data Lake U-sql 런타임은 사용자의 U-SQL 코드를 처리 합니다.
+컴파일러, 최적화 프로그램 및 작업 관리자를 비롯한 Azure Data Lake U-SQL 런타임은 U-SQL 코드를 처리합니다.
 
 ## <a name="choosing-your-u-sql-runtime-version"></a>사용자의 U-SQL 런타임 버전 선택
 
@@ -25,7 +23,7 @@ Visual Studio, ADL SDK 또는 Azure Data Lake Analytics 포털에서 U-SQL 작�
 사용자 지정 런타임 버전을 선택할 수도 있습니다. 새 업데이트를 시도 하려고 하기 때문에 이전 버전의 런타임을 유지 하거나 일반적인 새 업데이트를 기다릴 수 없는 보고 된 문제에 대 한 핫픽스를 제공 해야 합니다.
 
 > [!CAUTION]
-> 기본값과 다른 런타임을 선택 하면 U-SQL 작업이 중단 될 수 있습니다. 이러한 다른 버전은 테스트에만 사용 합니다.
+> 기본값과 다른 런타임을 선택하면 U-SQL 작업이 중단될 수 있습니다. 이러한 다른 버전은 테스트에만 사용 합니다.
 
 드문 경우 지만 Microsoft 지원 다른 버전의 런타임을 계정의 기본값으로 고정할 수 있습니다. 이 pin은 가능한 한 빨리 되돌려야 합니다. 해당 버전에 고정 된 상태를 유지 하는 경우 나중에 만료 됩니다.
 
@@ -34,8 +32,8 @@ Visual Studio, ADL SDK 또는 Azure Data Lake Analytics 포털에서 U-SQL 작�
 Visual Studio의 작업 브라우저 또는 Azure Portal의 작업 기록을 통해 계정 작업 기록에서 이전 작업을 사용한 런타임 버전의 기록을 볼 수 있습니다.
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **모든 작업 보기**를 선택 합니다. 계정에서 모든 활성 및 최근에 완료 된 작업 목록이 표시 됩니다.
-3. 필요에 따라 **필터**를 클릭하여 **시간 범위**, **작업 이름** 및 **작성자** 값을 기준으로 작업을 찾을 수 있습니다.
+2. **모든 작업 보기** 를 선택 합니다. 계정에서 모든 활성 및 최근에 완료 된 작업 목록이 표시 됩니다.
+3. 필요에 따라 **필터** 를 클릭하여 **시간 범위**, **작업 이름** 및 **작성자** 값을 기준으로 작업을 찾을 수 있습니다.
 4. 완료 된 작업에 사용 된 런타임을 볼 수 있습니다.
 
 ![이전 작업의 런타임 버전 표시](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
@@ -51,11 +49,25 @@ release_YYYYMMDD_adl_buildno [_modifier]
 
 발생할 수 있는 런타임 버전에는 두 가지 문제가 있을 수 있습니다.
 
-1. 스크립트나 일부 사용자 코드는 릴리스 간에 동작을 변경 합니다. 이러한 주요 변경 내용은 릴리스 정보 게시와 함께 일반적으로 미리 전달 됩니다. 이러한 주요 변경 사항이 발생 하는 경우 Microsoft 지원에 문의 하 여이 주요 동작 (아직 문서화 되지 않은 경우)을 보고 하 고 이전 런타임 버전에 대해 작업을 제출 하세요.
+1. 스크립트나 일부 사용자 코드는 릴리스 간에 동작을 변경 합니다. 이러한 주요 변경 내용은 릴리스 정보 게시와 함께 일반적으로 미리 전달 됩니다. 이러한 주요 변경 사항이 발생 하는 경우 Microsoft 지원에 문의 하 여 이러한 주요 동작 (아직 문서화 되지 않은 경우)을 보고 하 고 이전 런타임 버전에 대해 작업을 제출 합니다.
 
-2. 기본이 아닌 런타임을 사용 하 여 계정에 고정 된 경우 명시적으로 또는 암시적으로 사용 하 고, 런타임이 일정 시간 후에 제거 되었습니다. 누락 된 런타임이 발생 한 경우 현재 기본 런타임으로 실행 되도록 스크립트를 업그레이드 하세요. 추가 시간이 필요한 경우에 문의 하세요 Microsoft 지원
+2. 기본이 아닌 런타임을 사용 하 여 계정에 고정 된 경우 명시적으로 또는 암시적으로 사용 하 고, 런타임이 일정 시간 후에 제거 되었습니다. 누락 된 런타임이 발생 하면 현재 기본 런타임을 사용 하 여 실행 되도록 스크립트를 업그레이드 합니다. 추가 시간이 필요한 경우에는에 문의 하세요 Microsoft 지원
 
-## <a name="see-also"></a>참고 항목
+## <a name="known-issues"></a>알려진 문제
+
+* SCRIPT.USQL 스크립트에서 파일 버전 12.0.3에 대 한 Newtonsoft.Js를 참조 하면 다음과 같은 컴파일 오류가 발생 합니다.
+
+    *"죄송 합니다. Data Lake Analytics 계정에서 실행 되는 작업은 더 느리게 실행 되거나 완료 되지 않을 수 있습니다. 예기치 않은 문제로 인해이 기능이 Azure Data Lake Analytics 계정으로 자동으로 복원 되지 않습니다. Azure Data Lake 엔지니어가 조사를 위해 연락 했습니다. "*  
+
+    호출 스택에는 다음이 포함 됩니다.  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **해결** 방법: 파일 v 12.0.2에서 Newtonsoft.Js를 사용 하세요.
+
+
+## <a name="see-also"></a>추가 정보
 
 - [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 - [Azure Portal를 사용 하 여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)

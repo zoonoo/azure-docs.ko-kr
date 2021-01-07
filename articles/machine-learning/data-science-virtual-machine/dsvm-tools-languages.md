@@ -12,10 +12,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 8a73336ba0a324c65ee0de764d81a8e69ab6079c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87843269"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
@@ -72,7 +72,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 | ------------- | ------------- |
 | 지원 되는 언어 버전 | Python 2.7 및 3.5 |
 | 지원 되는 DSVM 버전      | Linux   |
-| DSVM에 구성/설치 방법  | 두 개의 글로벌 `conda` 환경을 만듭니다. <br /> * `root`에 있는 환경은 `/anaconda/` Python 2.7입니다. <br/> * `py35`에 있는 환경은 `/anaconda/envs/py35` Python 3.5입니다.       |
+| DSVM에 구성/설치 방법  | 두 개의 글로벌 `conda` 환경을 만듭니다. <br /> * `root` 에 있는 환경은 `/anaconda/` Python 2.7입니다. <br/> * `py35` 에 있는 환경은 `/anaconda/envs/py35` Python 3.5입니다.       |
 | 샘플에 대한 링크      | Python 용 샘플 Jupyter 노트북이 포함 되어 있습니다.     |
 | DSVM의 관련 도구      | PySpark, R, Julia      |
 

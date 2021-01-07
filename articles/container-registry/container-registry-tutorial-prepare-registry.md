@@ -4,16 +4,16 @@ description: Azure Container Registry를 만들고 지리적 복제를 구성하
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6abf1b7a524bc7dd28f1704a362749ac84de2389
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259518"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826080"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
 
-Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 프라이빗 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 애플리케이션을 두 개의 [Web Apps for Containers](../app-service/containers/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
+Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 프라이빗 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 애플리케이션을 두 개의 [Web Apps for Containers](../app-service/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
 
 총 3부 중 1부인 이 자습서에서는 다음을 수행합니다.
 
@@ -44,7 +44,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-**리소스 만들기** > **컨테이너** > **Azure Container Registry**를 선택합니다.
+**리소스 만들기** > **컨테이너** > **Azure Container Registry** 를 선택합니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
@@ -55,11 +55,11 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 * **위치**: `West US`
 * **SKU**: `Premium` (지역에서 복제에 필요)
 
-**검토 + 만들기**를 선택한 다음, **만들기**를 선택하여 레지스트리 인스턴스를 만듭니다.
+**검토 + 만들기** 를 선택한 다음, **만들기** 를 선택하여 레지스트리 인스턴스를 만듭니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Azure Portal에서 컨테이너 레지스트리 구성":::
 
-이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름**의 자리 표시자로 `<acrName>`을 사용합니다.
+이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름** 의 자리 표시자로 `<acrName>`을 사용합니다.
 
 > [!TIP]
 > Azure Container Registry는 일반적으로 여러 컨테이너 호스트에서 사용되는 수명이 긴 리소스이기 때문에 자체 리소스 그룹에 레지스트리를 만드는 것이 좋습니다. 지리적 복제 레지스트리와 webhook를 구성할 때 이러한 추가 리소스는 동일한 리소스 그룹에 배치됩니다.
@@ -68,7 +68,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 프리미엄 레지스트리가 있으니 이제 지역에서 복제를 구성할 수 있습니다. 두 지역에서 실행되도록 다음 자습서에서 구성하는 웹앱은 가장 가까운 레지스트리에서 컨테이너 이미지를 끌어올 수 있습니다.
 
-Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스** 아래에서 **복제**를 선택합니다.
+Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스** 아래에서 **복제** 를 선택합니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Azure Portal 컨테이너 레지스트리 UI의 복제":::
 
@@ -76,11 +76,11 @@ Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스*
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Azure Portal의 지역 지도":::
 
-녹색 육각형을 선택하여 미국 동부 지역에 레지스트리를 복제한 다음 **복제 만들기**에서 **만들기**를 선택합니다.
+녹색 육각형을 선택하여 미국 동부 지역에 레지스트리를 복제한 다음 **복제 만들기** 에서 **만들기** 를 선택합니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Azure Portal에서 복제 UI 만들기":::
 
-복제가 완료되면 포털에서 두 영역 모두에 *준비*가 반영됩니다. **새로 고침** 단추를 사용하여 복제 상태를 새로 고치세요. 복제본을 만들고 동기화하는 데 1~2분 정도 걸릴 수 있습니다.
+복제가 완료되면 포털에서 두 영역 모두에 *준비* 가 반영됩니다. **새로 고침** 단추를 사용하여 복제 상태를 새로 고치세요. 복제본을 만들고 동기화하는 데 1~2분 정도 걸릴 수 있습니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Azure Portal의 복제 상태 UI":::
 
@@ -89,7 +89,7 @@ Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스*
 
 후속 자습서에서는 레지스트리의 컨테이너 이미지를 Web App for Containers에 직접 배포합니다. 이 기능을 사용하도록 설정하려면 레지스트리의 [관리자 계정](container-registry-authentication.md#admin-account)도 사용하도록 설정해야 합니다.
 
-Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **설정** 아래에서 **액세스 키**를 선택합니다. **관리 사용자**에서 **사용**을 선택합니다.
+Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **설정** 아래에서 **액세스 키** 를 선택합니다. **관리 사용자** 에서 **사용** 을 선택합니다.
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Azure Portal에서 관리자 계정 사용":::
 
@@ -123,19 +123,19 @@ cd acr-helloworld
 
 ## <a name="update-dockerfile"></a>Dockerfile 업데이트
 
-샘플에 포함된 Dockerfile은 컨테이너가 어떻게 작성되었는지 보여줍니다. 공식 [aspnetcore][dockerhub-aspnetcore] 이미지에서 시작하여 애플리케이션 파일을 컨테이너에 복사하고, 종속성을 설치하고, 공식 [aspnetcore-build][dockerhub-aspnetcore-build] 이미지를 사용하여 출력을 컴파일하고 마지막으로 최적화된 aspnetcore 이미지를 만듭니다.
+샘플에 포함된 Dockerfile은 컨테이너가 어떻게 작성되었는지 보여줍니다. 공식 ASP.NET Core 런타임 이미지에서 시작하여 애플리케이션 파일을 컨테이너에 복사하고, 종속성을 설치하고, 공식 .NET Core SDK 이미지를 사용하여 출력을 컴파일하고 마지막으로 최적화된 aspnetcore 이미지를 빌드합니다.
 
 [Dockerfile][dockerfile]은 복제된 원본의 `./AcrHelloworld/Dockerfile`에 있습니다.
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
 ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
@@ -169,7 +169,7 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-다음으로, 레지스트리의 로그인 서버의 FQDN으로 `ENV DOCKER_REGISTRY` 줄을 업데이트합니다. 이 예제에서는 예제 레지스트리 이름, *uniqueregistryname*을 반영합니다.
+다음으로, 레지스트리의 로그인 서버의 FQDN으로 `ENV DOCKER_REGISTRY` 줄을 업데이트합니다. 이 예제에서는 예제 레지스트리 이름, *uniqueregistryname* 을 반영합니다.
 
 ```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
@@ -187,8 +187,8 @@ Docker 이미지가 빌드되면 여러 줄의 출력이 표시됩니다(여기�
 
 ```bash
 Sending build context to Docker daemon  523.8kB
-Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
-2.0: Pulling from microsoft/aspnetcore
+Step 1/18 : FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+2.2: Pulling from mcr.microsoft.com/dotnet/core/aspnet
 3e17c6eae66c: Pulling fs layer
 
 [...]
@@ -245,6 +245,4 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
 [aspnet-core]: https://dot.net
-[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
-[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

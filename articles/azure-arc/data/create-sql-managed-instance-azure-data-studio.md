@@ -4,17 +4,17 @@ description: Azure Data Studio를 사용 하 여 Azure SQL 관리 되는 인스�
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 989496885445a8a0a8d3bbc1a789975a2875c6e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 651811384a8e831c41c48ca8c4849e5ee3852054
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939916"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280478"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>SQL 관리 되는 인스턴스 만들기-Azure Data Studio를 사용 하 여 Azure Arc
 
@@ -48,7 +48,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - 시작 Azure Data Studio
 - 연결 탭에서 왼쪽 위에 있는 세 개의 점을 클릭 하 고 "새 배포"를 선택 합니다.
 - 배포 옵션에서 **AZURE SQL 관리 되는 인스턴스-Azure Arc** 를 선택 합니다. 
-  > **참고:** Azdata CLI가 현재 설치 되어 있지 않으면 여기에 설치 하 라는 메시지가 표시 될 수 있습니다.
+  > [!NOTE]
+  > 현재 설치 되어 있지 않으면 여기를 설치할지 묻는 메시지가 표시 될 수 있습니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .
 - 개인 정보 및 사용 조건에 동의 하 고 맨 아래에서 **선택** 을 클릭 합니다.
 
 

@@ -1,67 +1,74 @@
 ---
-title: 'Cognitive Services docs: 2020 년 8 월 1 일-2020의 새로운 기능'
-description: 2020 년 8 월 1 일 Cognitive Services 문서에 있는 새로운 기능 (2020 년 8 월 31 일)
+title: 'Cognitive Services: 문서의 새로운 기능'
+description: 2020 년 12 월 1 일-2020 년 12 월 1 일 Cognitive Services 문서의 새로운 기능
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 09/08/2020
-ms.openlocfilehash: a48efed2444a6d2210a24a7f25ad8dce8ae32940
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.date: 01/05/2021
+ms.openlocfilehash: dad3cf9ce79ade827e77e442a38b3404ee35bfb3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567965"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913127"
 ---
-# <a name="cognitive-services-docs-whats-new-for-august-1-2020---august-31-2020"></a>Cognitive Services docs: 2020 년 8 월 1 일-2020의 새로운 기능
+# <a name="cognitive-services-docs-whats-new-for-december-1-2020---december-31-2020"></a>Cognitive Services docs: 2020 년 12 월 1 일, 2020 년 12 월 31 일의 새로운 기능
 
-2020 년 8 월 1 일부 터 2020 년 8 월 31 일까 지 Cognitive Services 문서에 대 한 새로운 기능을 환영 합니다. 해당 기간 동안 이루어진 문서의 주요 변경 사항을 소개합니다.
+2020 년 12 월 1 일부 터 2020 년 12 월 31 일까 지 Cognitive Services 문서에 대 한 새로운 기능을 환영 합니다. 해당 기간 동안 이루어진 문서의 주요 변경 사항을 소개합니다.
 
-## <a name="computer-vision"></a>Computer Vision
+## <a name="cognitive-services"></a>Cognitive Services
 
 ### <a name="new-articles"></a>새 문서
 
-- [Computer Vision API v2.0 및 v2.1에서 v3.0으로 업그레이드](/azure/cognitive-services/computer-vision/upgrade-api-versions)
+- [Azure Cognitive Services에 대 한 비용 계획 및 관리](plan-manage-costs.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Cognitive Services 가상 네트워크 구성](cognitive-services-virtual-networks.md)
+
+## <a name="anomaly-detector"></a>Anomaly Detector
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [변칙 탐지기 REST API 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/quickstarts/client-libraries?tabs=windows&pivots=rest-api)
+
+## <a name="bing-visual-search"></a>Bing Visual Search
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Insights 토큰을 사용 하 여 이미지에 대 한 통찰력 얻기](/azure/cognitive-services/bing-visual-search/use-insights-token.md)
 
 ## <a name="containers"></a>컨테이너
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Azure Cognitive Services 컨테이너 이미지 태그](/azure/cognitive-services/containers/container-image-tags)
+- [Azure Container Instance에서 컨테이너 배포 및 실행](/azure/cognitive-services/containers/azure-container-instance-recipe.md)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
-### <a name="new-articles"></a>새 문서
+### <a name="updated-articles"></a>업데이트된 문서
 
-- [명함 개념](/azure/cognitive-services/form-recognizer/concept-business-cards)
-- [수신 개념](/azure/cognitive-services/form-recognizer/concept-receipts)
-- [빠른 시작: Python과 함께 Form Recognizer REST API를 사용하여 명함 데이터 추출](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
+- [폼 인식기 방문 페이지](/azure/cognitive-services/form-recognizer/index.yml)
+- [빠른 시작: Form Recognizer 클라이언트 라이브러리 사용](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
+
+## <a name="text-analytics"></a>텍스트 분석
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출](/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract)
-- [빠른 시작: REST API 및 Python을 사용 하 여 레이블을 사용 하 여 양식 인식기 모델 학습](/azure/cognitive-services/form-recognizer/quickstarts/python-labeled-data)
-- [빠른 시작: Python과 Form Recognizer REST API를 사용하여 텍스트 및 레이아웃 정보 추출](/azure/cognitive-services/form-recognizer/quickstarts/python-layout)
-- [빠른 시작: Python에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출](/azure/cognitive-services/form-recognizer/quickstarts/python-train-extract)
-
-## <a name="speech-service"></a>Speech Service
-
-### <a name="new-articles"></a>새 문서
-
-- [음성 서비스 할당량 및 한도](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits)
-
-### <a name="updated-articles"></a>업데이트된 문서
-
-- [긴 오디오 API (미리 보기)](/azure/cognitive-services/speech-service/long-audio-api)
+- [텍스트 분석 API v3 언어 지원](/azure/cognitive-services/text-analytics/language-support.md)
+- [텍스트 분석 REST API를 호출하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [예: Text Analytics을 사용 하 여 키 구를 추출 하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-keyword-extraction.md)
+- [텍스트 분석 API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs](/azure/cognitive-services/text-analytics/index.yml)
+- [빠른 시작: Text Analytics 클라이언트 라이브러리 및 REST API 사용](/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api.md)
 
 ## <a name="community-contributors"></a>커뮤니티 기여자
 
-이 기간 동안 Cognitive Services 문서에 적용 되는 사용자는 다음과 같습니다. 감사합니다! 
+이 기간 동안 Cognitive Services 문서에 적용 되는 사용자는 다음과 같습니다. 감사합니다!
 
-- [hyoshioka0128](https://github.com/hyoshioka0128) -Hiroshi Yoshioka (2)
-- [anwesh-b](https://github.com/anwesh-b) -anwesh Budhathoki (1)
-- [jangelfdez](https://github.com/jangelfdez) -José Ángel Fernández (1)
-- [xhan742](https://github.com/xhan742) (1)
+- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka(1)
+- [pymia](https://github.com/pymia) -Mia//Huai-Wen 파일과 (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

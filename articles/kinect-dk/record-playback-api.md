@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, 센서, sdk, 깊이, rgb, 레코드, 재생, matroska, .mkv
 ms.openlocfilehash: fe403f314c1df415537d090433f34627eb1249e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276915"
 ---
 # <a name="the-azure-kinect-playback-api"></a>Azure Kinect 재생 API
@@ -134,13 +134,13 @@ else
 
 태그가 없으면 기본값을 갖는 것으로 간주 됩니다.
 
-| 태그 이름                     | 기본값      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html)필드가 | 참고     |
+| 태그 이름                     | 기본값      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) 필드가 | 메모     |
 |------------------------------|--------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `K4A_COLOR_MODE`             | 해제              | `color_format` / `color_resolution`  | 가능한 값: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P" 등                                      |
 | `K4A_DEPTH_MODE`             | 해제              | `depth_mode` / `depth_track_enabled` | 가능한 값: "OFF," NFOV_UNBINNED "," PASSIVE_IR "등                                                |
 | `K4A_IR_MODE`                | 해제              | `depth_mode` / `ir_track_enabled`    | 가능한 값: "OFF", "ACTIVE", "PASSIVE"                                                                    |
 | `K4A_IMU_MODE`               | 해제              | `imu_track_enabled`                  | 가능한 값: "ON", "OFF"                                                                                   |
-| `K4A_CALIBRATION_FILE`       | "calibration.js" | 해당 없음                                  | 확인해[`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
+| `K4A_CALIBRATION_FILE`       | "calibration.js" | 해당 없음                                  | [`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) 참조 |
 | `K4A_DEPTH_DELAY_NS`         | "0"                | `depth_delay_off_color_usec`         | 값이 나노초로 저장 된 경우 API는 마이크로초를 제공 합니다.                                                        |
 | `K4A_WIRED_SYNC_MODE`        | 실행형       | `wired_sync_mode`                    | 가능한 값: "독립형", "MASTER", "하위"                                                         |
 | `K4A_SUBORDINATE_DELAY_NS`   | "0"                | `subordinate_delay_off_master_usec`  | 값이 나노초로 저장 된 경우 API는 마이크로초를 제공 합니다.                                                        |

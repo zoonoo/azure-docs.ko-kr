@@ -1,29 +1,33 @@
 ---
-title: Azure Maps Indoor Maps 모듈 사용
+title: Microsoft Creator services (미리 보기)에서 Azure Maps 실내 맵 모듈 사용
 description: Microsoft Azure Maps Indoor Maps 모듈을 사용하여 모듈의 JavaScript 라이브러리를 포함하여 맵을 렌더링하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4bfb017bb085d22c187e8074ba4f2b026d17f442
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.custom: devx-track-js
+ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815949"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905284"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Azure Maps Indoor Maps 모듈 사용
 
-Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다. *Azure Maps Indoor* 모듈을 사용하면 Azure Maps Creator에서 만든 실내 맵을 렌더링할 수 있습니다.
+> [!IMPORTANT]
+> Azure Maps 작성자 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+Azure Maps Web SDK에는 *Azure Maps Indoor* 모듈이 포함되어 있습니다. *Azure Maps 실내* 모듈을 사용 하면 Azure Maps Creator Services (미리 보기)에서 만든 실내 지도를 렌더링할 수 있습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
-2. [Creator 리소스를 만듭니다](how-to-manage-creator.md).
+2. [작성자 (미리 보기) 리소스 만들기](how-to-manage-creator.md)
 3. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 4. [실내 맵 만들기 자습서](tutorial-creator-indoor-maps.md)를 완료하여 `tilesetId`와 `statesetId`를 확보합니다.
  Azure Maps Indoor Maps 모듈을 사용하여 실내 맵을 렌더링하려면 이러한 식별자를 사용해야 합니다.
@@ -77,7 +81,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Indoor Manager 인스턴스화
 
-실내 타일 세트와 타일의 맵 스타일을 로드하려면 *Indoor Manager*를 인스턴스화해야 합니다. *Map* 개체 및 해당 `tilesetId`를 제공하여 *Indoor Manager*를 인스턴스화합니다. [동적 맵 스타일 지정](indoor-map-dynamic-styling.md)을 지원하려면 `statesetId`를 전달해야 합니다. `statesetId` 변수 이름은 대/소문자를 구분합니다. 코드는 아래 JavaScript와 같아야 합니다.
+실내 타일 세트와 타일의 맵 스타일을 로드하려면 *Indoor Manager* 를 인스턴스화해야 합니다. *Map* 개체 및 해당 `tilesetId`를 제공하여 *Indoor Manager* 를 인스턴스화합니다. [동적 맵 스타일 지정](indoor-map-dynamic-styling.md)을 지원하려면 `statesetId`를 전달해야 합니다. `statesetId` 변수 이름은 대/소문자를 구분합니다. 코드는 아래 JavaScript와 같아야 합니다.
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +111,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Indoor Level Picker 컨트롤
 
- *Indoor Level Picker* 컨트롤을 사용하여 렌더링된 맵의 수준을 변경할 수 있습니다. 필요에 따라 *Indoor Manager*를 통해 *Indoor Level Picker* 컨트롤을 초기화할 수 있습니다. Level Control Picker를 초기화하는 코드는 다음과 같습니다.
+ *Indoor Level Picker* 컨트롤을 사용하여 렌더링된 맵의 수준을 변경할 수 있습니다. 필요에 따라 *Indoor Manager* 를 통해 *Indoor Level Picker* 컨트롤을 초기화할 수 있습니다. Level Control Picker를 초기화하는 코드는 다음과 같습니다.
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -147,7 +151,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 4. *Map* 개체를 초기화합니다. *Map* 개체는 다음과 같은 옵션을 지원합니다.
     - `Subscription key`는 Azure Maps 기본 구독 키입니다.
     - `center`는 실내 맵 가운데 위치의 위도와 경도를 정의합니다. `bounds` 값을 제공하지 않으려면 `center` 값을 제공합니다. 형식은 `center`: [-122.13315, 47.63637]과 같이 표시되어야 합니다.
-    - `bounds`는 타일 세트 맵 데이터가 포함된 가장 작은 직사각형 모양입니다. `center` 값을 설정하지 않으려면 `bounds` 값을 설정합니다. [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview)를 호출하여 맵 경계를 찾을 수 있습니다. Tileset List API는 `bbox`를 반환하며, 이것을 파싱하여 `bounds`에 할당할 수 있습니다. 형식은 `bounds` [# 서 부, # 남부, # 동부, # 북부]로 표시 되어야 합니다.
+    - `bounds`는 타일 세트 맵 데이터가 포함된 가장 작은 직사각형 모양입니다. `center` 값을 설정하지 않으려면 `bounds` 값을 설정합니다. [Tileset List API](/rest/api/maps/tileset/listpreview)를 호출하여 맵 경계를 찾을 수 있습니다. Tileset List API는 `bbox`를 반환하며, 이것을 파싱하여 `bounds`에 할당할 수 있습니다. 형식은 `bounds` [# 서 부, # 남부, # 동부, # 북부]로 표시 되어야 합니다.
     - `style`을 사용하면 배경색을 설정할 수 있습니다. 흰색 배경을 표시하려면 `style`을 "blank"로 정의합니다.
     - `zoom`을 사용하면 맵의 최소 및 최대 확대/축소 수준을 지정할 수 있습니다.
 
@@ -237,7 +241,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
   </html>
   ```
 
-실내 맵을 보려면 웹 브라우저에 로드합니다. 아래 이미지와 같은 모양입니다. 계단 공간을 클릭하면 *수준 선택기*가 오른쪽 위 모서리에 나타납니다.
+실내 맵을 보려면 웹 브라우저에 로드합니다. 아래 이미지와 같은 모양입니다. 계단 공간을 클릭하면 *수준 선택기* 가 오른쪽 위 모서리에 나타납니다.
 
   ![실내 맵 이미지](media/how-to-use-indoor-module/indoor-map-graphic.png)
 
@@ -249,7 +253,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 > [드로잉 패키지 요구 사항](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [실내 맵용 Creator](creator-indoor-maps.md)
+> [실내 지도의 작성자 (미리 보기)](creator-indoor-maps.md)
 
 맵에 데이터를 더 추가하는 방법을 알아봅니다.
 
@@ -257,4 +261,4 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 > [Indoor Maps 동적 스타일 지정](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)

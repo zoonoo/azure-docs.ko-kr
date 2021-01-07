@@ -4,10 +4,10 @@ description: Azure Event Grid를 사용한 Azure Maps 이벤트에 대해 제공
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461989"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Maps
@@ -20,7 +20,7 @@ ms.locfileid: "87461989"
 
 Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | 수신된 좌표가 지정된 지오펜스 외부에서 내부로 이동한 경우에 발생합니다. |
 | Microsoft.Maps.GeofenceExited | 수신된 좌표가 지정된 지오펜스 내부에서 외부로 이동한 경우에 발생합니다. |
@@ -100,7 +100,7 @@ Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -113,23 +113,23 @@ Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | apiCategory | 문자열 | 이벤트의 API 범주입니다. |
 | apiName | 문자열 | 이벤트의 API 이름입니다. |
 | issues | object | 처리 중에 발생한 문제를 나열합니다. 문제가 반환되면 응답과 함께 기하 도형이 반환되지 않습니다. |
-| responseCode | 숫자 | HTTP 응답 코드 |
+| responseCode | number | HTTP 응답 코드 |
 | geometries | object | 좌표 위치를 포함하거나 위치 주위의 searchBuffer와 겹치는 펜스 기하 도형을 나열합니다. |
 
 Maps API에서 오류가 발생하면 오류 개체가 반환됩니다. 오류 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| 오류 | ErrorDetails |Maps API에서 오류가 발생하면 이 개체가 반환됩니다.  |
+| error | ErrorDetails |Maps API에서 오류가 발생하면 이 개체가 반환됩니다.  |
 
 Maps API에서 오류가 발생하면 ErrorDetails 개체가 반환됩니다. ErrorDetails 또는 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | code | 문자열 | HTTP 상태 코드입니다. |
 | message | 문자열 | 사용 가능한 경우, 사용자가 읽을 수 있는 오류 설명입니다. |
@@ -137,24 +137,24 @@ Maps API에서 오류가 발생하면 ErrorDetails 개체가 반환됩니다. Er
 
 InnerError는 오류에 대한 서비스 특정 정보가 포함된 개체입니다. InnerError 개체의 속성은 다음과 같습니다. 
 
-| 속성 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | code | 문자열 | 오류 메시지입니다. |
 
 기하 도형 개체는 요청의 사용자 시간을 기준으로, 만료된 지오펜스의 기하 도형 ID를 나열합니다. 기하 도형 개체에 포함된 기하 도형 항목의 속성은 다음과 같습니다. 
 
-| 속성 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 |:-------- |:---- |:----------- |
 | deviceId | 문자열 | 디바이스의 ID입니다. |
 | distance | 문자열 | <p>좌표에서 가장 가까운 지오펜스 경계까지의 거리입니다. 양수는 좌표가 지오펜스 외부에 있음을 의미합니다. 좌표가 지오펜스 외부에 있지만 가장 가까운 지오펜스 경계에서 searchBuffer 값보다 멀리 떨어진 경우의 값은 999입니다. 음수는 좌표가 지오펜스 내부에 있음을 의미합니다. 좌표가 다각형 내부에 있지만 가장 가까운 지오펜싱 경계에서 searchBuffer 값보다 멀리 떨어진 경우의 값은 -999입니다. 값 999는 좌표가 지오펜스 외부에 있다는 신뢰도가 높음을 의미합니다. 값 -999는 좌표가 지오펜스 내부에 있다는 신뢰도가 높음을 의미합니다.<p> |
 | geometryid |문자열 | 고유 ID는 지오펜스 기하 도형을 식별합니다. |
-| nearestlat | 숫자 | 기하 도형에서 가장 가까운 지점의 위도입니다. |
-| nearestlon | 숫자 | 기하 도형에서 가장 가까운 지점의 경도입니다. |
+| nearestlat | number | 기하 도형에서 가장 가까운 지점의 위도입니다. |
+| nearestlon | number | 기하 도형에서 가장 가까운 지점의 경도입니다. |
 | udId | 문자열 | 지오펜스를 업로드할 때 사용자 업로드 서비스에서 반환되는 고유 ID입니다. 지오펜싱 POST API에는 포함되지 않습니다. |
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | string[] | 요청의 사용자 시간을 기준으로, 만료된 지오펜스의 기하 도형 ID 목록입니다. |
 | geometries | geometries[] |좌표 위치를 포함하거나 위치 주위의 searchBuffer와 겹치는 펜스 기하 도형을 나열합니다. |
@@ -162,7 +162,7 @@ InnerError는 오류에 대한 서비스 특정 정보가 포함된 개체입니
 | isEventPublished | boolean | 하나 이상의 이벤트가 Azure Maps 이벤트 구독자에 게시된 경우에는 true이고, Azure Maps 이벤트 구독자에 이벤트가 게시되지 않은 경우에는 false입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [Event Grid를 사용하여 Azure Maps 이벤트에 대응](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid와 Azure Maps 통합에 관한 개요입니다. |
 | [자습서: 지 오를 설정 합니다.](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. Azure Event Grid를 사용하여 지오펜스 결과를 스트림하고, 지오펜스 결과를 기반으로 하는 알림을 설정합니다. |

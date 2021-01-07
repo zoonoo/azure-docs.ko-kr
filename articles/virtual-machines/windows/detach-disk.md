@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: cynthn
-ms.openlocfilehash: 02192850dd9103b6c1783baf42c184ee16fe299f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f3c1e305024eb255a85aa470105d99edd3c26982
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500687"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201310"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 
 가상 머신에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 머신에서 디스크가 제거되지만, 스토리지에서는 제거되지 않습니다.
 
 > [!WARNING]
-> 디스크를 분리해도 자동으로 삭제되지 않습니다. Premium Storage를 구독하는 경우 디스크에 대한 스토리지 요금이 계속 부과됩니다. 자세한 내용은 [Premium Storage 사용 시 가격 책정 및 청구](disks-types.md#billing)를 참조하세요.
+> 디스크를 분리해도 자동으로 삭제되지 않습니다. Premium Storage를 구독하는 경우 디스크에 대한 스토리지 요금이 계속 부과됩니다. 자세한 내용은 [Premium Storage 사용 시 가격 책정 및 청구](../disks-types.md#billing)를 참조하세요.
 
 디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 가상 머신에 다시 연결할 수 있습니다.
 
@@ -53,8 +53,7 @@ Update-AzVM `
 1. 왼쪽 메뉴에서 **Virtual Machines**을 선택합니다.
 1. 분리할 데이터 디스크가 있는 가상 머신을 선택합니다.
 1. **설정** 아래에서 **디스크**를 선택합니다.
-1. **디스크** 창 상단에서 **편집**을 선택합니다.
-1. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 **분리**를 선택합니다.
+1. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 **X** 삭제 단추를 클릭 합니다.
 1. 페이지 맨 위에 있는 **저장**을 선택하여 변경 내용을 저장합니다.
 
 디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.

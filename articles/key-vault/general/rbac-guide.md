@@ -9,25 +9,25 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972257"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936246"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Azure 역할 기반 액세스 제어 (미리 보기)를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
 
 > [!NOTE]
-> Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리 되는 hsm**이라는 두 가지 리소스 유형을 지원 합니다. 이 문서에서 설명 하는 액세스 제어는 **자격 증명 모음**에만 적용 됩니다. 관리 되는 HSM에 대 한 액세스 제어에 대해 자세히 알아보려면 [관리 되는 hsm 액세스 제어](../managed-hsm/access-control.md)를 참조 하세요.
+> Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리 되는 hsm** 이라는 두 가지 리소스 유형을 지원 합니다. 이 문서에서 설명 하는 액세스 제어는 **자격 증명 모음** 에만 적용 됩니다. 관리 되는 HSM에 대 한 액세스 제어에 대해 자세히 알아보려면 [관리 되는 hsm 액세스 제어](../managed-hsm/access-control.md)를 참조 하세요.
 
-Azure RBAC (역할 기반 access control)는 Azure 리소스에 대 한 세분화 된 액세스 관리를 제공 하는 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 을 기반으로 하는 권한 부여 시스템입니다.
+Azure RBAC (역할 기반 access control)는 Azure 리소스에 대 한 세분화 된 액세스 관리를 제공 하는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 을 기반으로 하는 권한 부여 시스템입니다.
 
 Azure RBAC를 통해 사용자는 키, 암호 및 인증서 권한을 관리할 수 있습니다. 모든 주요 자격 증명 모음에 대 한 모든 사용 권한을 관리 하는 한 곳을 제공 합니다. 
 
 Azure RBAC 모델은 관리 그룹, 구독, 리소스 그룹 또는 개별 리소스의 다양 한 범위 수준에서 사용 권한을 설정 하는 기능을 제공 합니다.  키 자격 증명 모음에 대 한 Azure RBAC는 개별 키, 암호 및 인증서에 대 한 별도의 권한을 제공 하는 기능도 제공 합니다.
 
-자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 참조 하세요.
+자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 참조 하세요.
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>개별 키, 암호 및 인증서에 대 한 모범 사례
 
@@ -37,14 +37,16 @@ Azure RBAC 모델은 관리 그룹, 구독, 리소스 그룹 또는 개별 리�
 
 -   계층 간에 액세스 제어를 분리 해야 하는 다중 계층 응용 프로그램
 
--   응용 프로그램에서 해당 키 자격 증명 모음에 있는 암호의 하위 집합에 액세스 해야 하는 경우 공통 비밀이 포함 된 공유 키 자격 증명 모음
+-   여러 응용 프로그램 간에 개별 암호 공유
 
 Azure Key Vault 관리 지침에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Azure Key Vault 모범 사례](best-practices.md)
+- [Azure Key Vault 보안 개요](security-overview.md)
 - [Azure Key Vault 서비스 제한 사항](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Key Vault 데이터 평면 작업을 위한 Azure 기본 제공 역할 (미리 보기)
+> [!NOTE]
+> `Key Vault Contributor` 역할은 주요 자격 증명 모음을 관리 하는 관리 평면 작업에 대 한 역할입니다. 키, 암호 및 인증서에 대 한 액세스를 허용 하지 않습니다.
 
 | 기본 제공 역할 | Description | ID |
 | --- | --- | --- |
@@ -57,11 +59,18 @@ Azure Key Vault 관리 지침에 대 한 자세한 내용은 다음을 참조 �
 | Key Vault 비밀 책임자 (미리 보기)| 권한 관리를 제외한 key vault의 비밀에 대 한 작업을 수행 합니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다. | b86a8fe4-4948-aee5-eccb2c155cd7 |
 | Key Vault 비밀 사용자 (미리 보기)| 비밀 콘텐츠를 읽습니다. ' Azure 역할 기반 액세스 제어 ' 권한 모델을 사용 하는 키 자격 증명 모음에만 적용 됩니다. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 참조 하세요.
+Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Key Vault에서 Azure RBAC 비밀, 키 및 인증서 사용 권한 사용
 
 키 자격 증명 모음에 대 한 새 Azure RBAC 권한 모델은 자격 증명 모음 액세스 정책 권한 모델에 대 한 대안을 제공 합니다. 
+
+### <a name="prerequisites"></a>사전 요구 사항
+
+역할 할당을 추가하려면 다음이 필요합니다.
+
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 또는 [소유자](../../role-based-access-control/built-in-roles.md#owner))
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Key Vault에 대 한 Azure RBAC 사용 권한 설정
 
@@ -70,11 +79,11 @@ Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 �
 
 1.  새 키 자격 증명 모음에 대 한 Azure RBAC 사용 권한 설정:
 
-    ![RBAC 권한 사용-새 자격 증명 모음](../media/rbac/image-1.png)
+    ![Azure RBAC 권한 사용-새 자격 증명 모음](../media/rbac/image-1.png)
 
 2.  기존 키 자격 증명 모음에 대 한 Azure RBAC 사용 권한 설정:
 
-    ![RBAC 권한 사용-기존 자격 증명 모음](../media/rbac/image-2.png)
+    ![Azure RBAC 권한 사용-기존 자격 증명 모음](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>역할 할당
 
@@ -185,7 +194,7 @@ az role assignment create --role "Key Vault Secrets Officer (preview)" --assigne
 
 ### <a name="creating-custom-roles"></a>사용자 지정 역할 만들기 
 
-[az role definition create 명령](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
+[az role definition create 명령](/cli/azure/role/definition#az-role-definition-create)
 
 **(CLI bash 스크립트)</br>**
 ```azurecli
@@ -207,7 +216,7 @@ az role definition create --role-definition '{ \
 
 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-[Azure 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+[Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)
 
 ## <a name="known-limits-and-performance"></a>알려진 제한 및 성능
 
@@ -217,5 +226,5 @@ az role definition create --role-definition '{ \
 
 ## <a name="learn-more"></a>자세한 정보
 
-- [Azure RBAC 개요](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [사용자 지정 역할 자습서](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Azure RBAC 개요](../../role-based-access-control/overview.md)
+- [사용자 지정 역할 자습서](../../role-based-access-control/tutorial-custom-role-cli.md)

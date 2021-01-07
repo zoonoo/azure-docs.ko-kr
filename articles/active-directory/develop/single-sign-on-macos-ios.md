@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881251"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>방법: macOS 및 iOS에서 SSO 구성
@@ -97,8 +97,8 @@ App3 리디렉션 URI: `msauth.com.contoso.mytestapp3://auth`
 #### <a name="add-a-new-keychain-group"></a>새 키 집합 그룹 추가
 
 프로젝트 **기능**에 새 키 집합 그룹을 추가 합니다. 키 집합 그룹은 다음과 같아야 합니다.
-* `com.microsoft.adalcache`iOS 
-* `com.microsoft.identity.universalstorage`macOS에서.
+* `com.microsoft.adalcache` iOS 
+* `com.microsoft.identity.universalstorage` macOS에서.
 
 ![키 집합 예제](media/single-sign-on-macos-ios/keychain-example.png)
 
@@ -145,7 +145,7 @@ MSAL은 Microsoft Authenticator를 사용 하 여 조정 된 인증을 지원 �
 
 다음 단계는 앱에 대 한 인증 브로커를 사용 하 여 SSO를 사용 하도록 설정 하는 방법입니다.
 
-1. 앱의 info.plist에서 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식은 `msauth.<app.bundle.id>://auth` 입니다. '<app.bundle.id>' '을 (를) 응용 프로그램의 번들 ID로 바꿉니다. 예를 들어:
+1. 앱의 info.plist에서 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식은 `msauth.<app.bundle.id>://auth` 입니다. '<app.bundle.id>' '을 (를) 응용 프로그램의 번들 ID로 바꿉니다. 예를 들면 다음과 같습니다.
 
     ```xml
     <key>CFBundleURLSchemes</key>

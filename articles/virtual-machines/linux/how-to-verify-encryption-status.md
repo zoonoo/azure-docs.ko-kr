@@ -2,17 +2,18 @@
 title: Linux의 암호화 상태 확인 - Azure Disk Encryption
 description: 이 문서에서는 플랫폼 및 OS 수준에서 암호화 상태를 확인하는 방법을 설명합니다.
 author: kailashmsft
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e39a230c71cf48422220768adfa8de91cbaa6692
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7f51aae39c2cb60d8b60d4fb496f74eadb91b33b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072845"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487656"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Linux의 암호화 상태 확인 
 

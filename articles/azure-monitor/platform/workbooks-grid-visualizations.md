@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: 114245030ba2356861b83a580f103d3b84c0eae3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664280"
 ---
 # <a name="grid-visualizations"></a>그리드 시각화
@@ -36,7 +36,7 @@ ms.locfileid: "89664280"
 
 ## <a name="log-chart-parameters"></a>로그 차트 매개 변수
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | ------------- |:-------------|:-------------|
 | `Query Type` | 사용할 쿼리 유형입니다. | 로그, Azure 리소스 그래프 등 |
 | `Resource Type` | 대상으로 할 리소스 형식입니다. | Application Insights, Log Analytics 또는 Azure-first |
@@ -154,7 +154,7 @@ Author에서 열이 날짜/시간 렌더러에서 설정 된 것으로 지정 �
 
 최소/최대 너비는 없으며,이는 작성자의 판단에 따라 좌우 됩니다. 숨겨진 열에 대해 사용자 지정 열 너비 필드를 사용할 수 없습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="spark-lines-and-bar-underneath"></a>아래 Spark 선 및 막대
 
@@ -238,7 +238,7 @@ requests
    
     | 연산자 | 값   | 아이콘   |
     |----------|---------|---------|
-    | ==       | warning | 경고 |
+    | ==       | warning | Warning |
     | ==       | error   | Failed  |
 
     ![위의 설정이 있는 열 설정 편집 탭의 스크린샷](./media/workbooks-grid-visualizations/column-settings.png)

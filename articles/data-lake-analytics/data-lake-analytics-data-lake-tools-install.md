@@ -1,24 +1,22 @@
 ---
 title: Azure Data Lake Tools for Visual Studio 설치
 description: 이 문서에서는 Azure Data Lake Tools for Visual Studio를 설치하는 방법을 알아봅니다.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: df3bf715f8571659d0e622729562055428ab5c97
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cb0183ae229c328588a31c2c0549e7e93fd19b78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125941"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019007"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구 설치
 
 Visual Studio를 사용 하 여 Azure Data Lake Analytics 계정을 만드는 방법에 대해 알아봅니다. [U-SQL](data-lake-analytics-u-sql-get-started.md) 에서 작업을 정의 하 고 작업을 Data Lake Analytics 서비스로 제출할 수 있습니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **Visual Studio**: Express를 제외한 모든 버전이 지원됩니다.
 

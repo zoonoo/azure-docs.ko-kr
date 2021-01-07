@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400520"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182753"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -80,11 +80,11 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 제한 된 시간 동안 Windows 가상 컴퓨터의 노출을 승인 된 IP 주소로 제한할 수 있습니다. 또한 NSG 구성에 대 한 적응 네트워크 강화 권장 사항을 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트 및 원본 Ip를 제한 합니다.
 
-* [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+* [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 * [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 * [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -150,7 +150,7 @@ Azure 청사진을 사용 하 여 azure 리소스 관리자 템플릿, Azure RBA
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 * [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
@@ -220,7 +220,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 * [연결된 Log Analytics 작업 영역에 대해 지원되는 지역](./how-to/region-mappings.md)
 
-* [업데이트 관리 로그 쿼리](./update-management/update-mgmt-query-logs.md)
+* [업데이트 관리 로그 쿼리](./update-management/query-logs.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -270,7 +270,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 * [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Azure Monitor의 로그 쿼리 이해](../azure-monitor/log-query/get-started-portal.md)
+* [Azure Monitor의 로그 쿼리 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -438,7 +438,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 **지침**: Azure AD를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다. Hybrid Runbook Worker를 사용 하는 경우 실행 계정 대신 관리 되는 id를 활용 하 여 보다 원활한 보안 권한을 사용할 수 있습니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
 
 * [관리 id로 runbook 인증 사용](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
@@ -520,7 +520,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -600,7 +600,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스크는 서버 쪽 암호화 또는 ADE (Azure disk encryption)를 사용 하 여 미사용에 암호화 됩니다. Azure disk encryption은 Windows의 BitLocker 기능을 활용 하 여 게스트 VM 내에서 고객 관리 키를 사용 하 여 관리 디스크를 암호화 합니다. 고객 관리형 키를 사용하는 서버 쪽 암호화는 스토리지 서비스의 데이터를 암호화하여 VM에 대한 모든 OS 유형 및 이미지를 사용할 수 있도록 설정하여 ADE에서 향상됩니다.
 
-* [Azure managed disks의 서버 쪽 암호화](../virtual-machines/windows/disk-encryption.md)
+* [Azure managed disks의 서버 쪽 암호화](../virtual-machines/disk-encryption.md)
 
 * [Windows Vm에 대 한 Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -646,9 +646,9 @@ Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스�
 
 Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하는 경우 Azure 업데이트 관리를 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리 합니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하 여 WSUS (Windows Server Update Services)에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-* [Azure의 업데이트 관리](./update-management/update-mgmt-overview.md)
+* [Azure의 업데이트 관리](./update-management/overview.md)
 
-* [Vm에 대 한 업데이트 및 패치 관리](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Vm에 대 한 업데이트 및 패치 관리](./update-management/manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -660,9 +660,9 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하는 경우 Azure 업데이트 관리를 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하면 사용자 지정 업데이트를 WSUS (Windows Server Update Services)에 게시할 수 있습니다. 이 시나리오를 통해 업데이트 관리은 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어로 업데이트 리포지토리로 패치할 수 있습니다.
 
-* [Azure의 업데이트 관리 솔루션](./update-management/update-mgmt-overview.md)
+* [Azure의 업데이트 관리 솔루션](./update-management/overview.md)
 
-* [Azure VM에 대한 업데이트 및 패치 관리](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Azure VM에 대한 업데이트 및 패치 관리](./update-management/manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -720,7 +720,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -752,7 +752,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 * [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -854,7 +854,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 * [Azure 웹 응용 프로그램 방화벽 개요](../web-application-firewall/overview.md)
 
-* [네트워크 보안 그룹](../virtual-network/security-overview.md)
+* [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)
 
@@ -882,7 +882,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 * [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 * [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -920,7 +920,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center 권�
 
 * [Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 배포](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -984,7 +984,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 권한 있는 사용자만 
 
 * [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1014,7 +1014,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center를 �
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1040,7 +1040,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프
 
 * [관리 id로 runbook 인증 사용](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
+* [Key Vault를 만드는 방법](../key-vault/general/quick-create-portal.md)
 
 * [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 
@@ -1280,11 +1280,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+**지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft 관리형 클라우드 인프라, 서비스 및 애플리케이션에 대한 Microsoft의 전략과 Red Teaming 및 라이브 사이트 침투 테스트의 실행을 사용합니다.
 
-* [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

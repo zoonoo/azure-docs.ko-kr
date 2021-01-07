@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1f89e23d7bb279e7cce5c104060cc7898517f8b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889190"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009367"
 ---
 # <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>디바이스 시뮬레이션 솔루션 가속기에서 기존 IoT Hub 사용
 
@@ -25,9 +25,9 @@ IoT Hub가 없는 경우에는 [Azure Portal](https://portal.azure.com)에서 �
 
 기존 IoT Hub를 사용하려면 **iothubowner** 공유 액세스 정책에 대한 연결 문자열이 필요합니다. 이 연결 문자열은 [Azure Portal](https://portal.azure.com)에서 가져올 수 있습니다.
 
-1. 포털의 허브 구성 페이지에서 **공유 액세스 정책**을 클릭합니다.
+1. 포털의 허브 구성 페이지에서 **공유 액세스 정책** 을 클릭합니다.
 
-1. **iothubowner**를 클릭합니다.
+1. **iothubowner** 를 클릭합니다.
 
 1. 기본 또는 보조 연결 문자열을 복사합니다.
 

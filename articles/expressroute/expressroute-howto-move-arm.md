@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532548"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
@@ -92,7 +92,7 @@ Resource Manager 환경에 로그인하고 새 리소스 그룹을 만듭니다.
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-클래식 모드에서 ExpressRoute 회로에는 지역에 연결되는 개념이 없습니다. 그렇지만 Resource Manager에서 모든 리소스를 Azure 지역에 매핑해야 합니다. AzExpressRouteCircuit cmdlet에 지정 된 지역은 기술적으로 모든 지역이 될 수 있습니다. 조직 용도로 피어링 위치를 가장 잘 나타내는 지역을 선택할 수 있습니다.
+클래식 모드에서 ExpressRoute 회로에는 지역에 연결되는 개념이 없습니다. 그렇지만 Resource Manager에서 모든 리소스를 Azure 지역에 매핑해야 합니다. Move-AzExpressRouteCircuit cmdlet에 지정 된 지역은 기술적으로 모든 지역이 될 수 있습니다. 조직 용도로 피어링 위치를 가장 잘 나타내는 지역을 선택할 수 있습니다.
 
 > [!NOTE]
 > * 클래식 Express 경로 회로를 리소스 관리자 배포 모델로 이동한 후에는 기본적으로 클래식 및 리소스 관리자 배포 모델에 모두 액세스할 수 있습니다.

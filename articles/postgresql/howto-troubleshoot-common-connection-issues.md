@@ -2,17 +2,17 @@
 title: 연결 문제 해결-Azure Database for PostgreSQL-단일 서버
 description: Azure Database for PostgreSQL 단일 서버에 대 한 연결 문제를 해결 하는 방법을 알아봅니다.
 keywords: PostgreSQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: c97e8e0d55a99e0b022bdc6e97edc778d7b6588a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107600"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014621"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 연결 문제 해결
 
@@ -48,7 +48,7 @@ ms.locfileid: "86107600"
 
 * 서버 방화벽 구성: 프록시 서버 및 게이트웨이를 포함 하 여 클라이언트의 연결을 허용 하도록 Azure Database for PostgreSQL 서버 방화벽이 구성 되어 있는지 확인 합니다.
 * 클라이언트 방화벽 구성: 클라이언트의 방화벽은 데이터베이스 서버에 대 한 연결을 허용 해야 합니다. 일부 방화벽에서 PostgreSQL과 같은 애플리케이션 이름뿐만 아니라 연결할 수 없는 서버의 IP 주소 및 포트도 허용되어야 합니다.
-* 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 누락 된 * \@ servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
+* 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 누락 된 *\@ servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
 * _Ipv6 연결을 허용 하도록 서버가 구성 되어 있지 않습니다_. 라는 오류 메시지가 표시 되 면 기본 계층이 VNet 서비스 끝점을 지원 하지 않습니다. 기본 서버에 연결 하려는 서브넷에서 Microsoft .Sql 끝점을 제거 해야 합니다.
 * _Ssl 지원을 오류로 컴파일하지 않을 때 연결 오류 sslmode 값 "* * *"이 잘못_ 된 경우 POSTGRESQL 클라이언트가 ssl을 지원 하지 않음을 의미 합니다. 대부분의 경우 클라이언트 쪽 libpq는 "--openssl" 플래그를 사용 하 여 컴파일되지 않은 것입니다. SSL이 지원 되는 PostgreSQL 클라이언트와의 연결을 시도 하세요. 
 

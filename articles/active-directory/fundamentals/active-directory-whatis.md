@@ -9,14 +9,14 @@ ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 06/05/2020
 ms.author: ajburnle
-ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
+ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d66e8b15b7af73517a7f838186821248bffeccc
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: e773be4331be3170a04c8cf5221200589dd13689
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566112"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029031"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 
@@ -26,7 +26,7 @@ Azure AD(Azure Active Directory)는 직원들이 로그인하여 다음 리소�
 
 - 조직에서 자체 개발한 클라우드 앱과 함께 회사 네트워크와 인트라넷의 앱 같은 내부 리소스. 조직의 테넌트를 만드는 방법에 대한 자세한 내용은 [빠른 시작을 참조하세요. Azure Active Directory에서 새 테넌트 만들기](active-directory-access-create-new-tenant.md)
 
-Azure AD와 Active Directory Domain Services 간의 차이점에 대한 자세한 내용은 [Active Directory와 Azure Active Directory 비교](active-directory-compare-azure-ad-to-ad.md)를 참조하세요. 다양한 [Microsoft Cloud for Enterprise Architects 시리즈](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) 포스터를 사용하여 Azure, Azure AD 및 Microsoft 365의 핵심 ID 서비스를 보다 잘 이해할 수 있습니다.
+Azure AD와 Active Directory Domain Services 간의 차이점에 대한 자세한 내용은 [Active Directory와 Azure Active Directory 비교](active-directory-compare-azure-ad-to-ad.md)를 참조하세요. 다양한 [Microsoft Cloud for Enterprise Architects 시리즈](/microsoft-365/solutions/cloud-architecture-models) 포스터를 사용하여 Azure, Azure AD 및 Microsoft 365의 핵심 ID 서비스를 보다 잘 이해할 수 있습니다.
 
 ## <a name="who-uses-azure-ad"></a>누가 Azure AD를 사용하나요?
 
@@ -73,7 +73,7 @@ Azure AD 라이선스를 선택하면 조직에서 사용 가능한 다음 기�
 |조건부 액세스|클라우드 앱에 대한 액세스 관리 자세한 내용은 [Azure AD 조건부 액세스 설명서](../conditional-access/index.yml)를 참조하세요.|
 |디바이스 관리|클라우드 또는 온-프레미스 디바이스가 회사 데이터에 액세스하는 방법을 관리합니다. 자세한 내용은 [Azure AD 디바이스 관리 설명서](../devices/index.yml)를 참조하세요.|
 |도메인 서비스|도메인 컨트롤러를 사용하지 않고 도메인에 Azure 가상 머신을 조인합니다. 자세한 내용은 [Azure AD Domain Services 설명서](../../active-directory-domain-services/index.yml)를 참조하세요.|
-|Enterprise 사용자|그룹 및 관리자 역할을 사용하여 라이선스를 할당하고, 앱에 액세스하고, 대리자를 설정합니다. 자세한 내용은 [Azure Active Directory 사용자 관리 설명서](../users-groups-roles/index.yml)를 참조하세요.|
+|Enterprise 사용자|그룹 및 관리자 역할을 사용하여 라이선스를 할당하고, 앱에 액세스하고, 대리자를 설정합니다. 자세한 내용은 [Azure Active Directory 사용자 관리 설명서](../enterprise-users/index.yml)를 참조하세요.|
 |하이브리드 ID|Azure Active Directory Connect 및 Connect Health를 사용하여 위치(클라우드 또는 온-프레미스)에 관계 없이 모든 리소스를 인증하고 권한을 부여할 수 있는 단일 사용자 ID를 제공합니다. 자세한 내용은 [하이브리드 ID 설명서](../hybrid/index.yml)를 참조하세요.|
 |ID 거버넌스|직원, 비즈니스 파트너, 공급업체, 서비스 및 앱 액세스 컨트롤을 통해 조직의 ID를 관리합니다. 액세스 검토를 수행할 수도 있습니다. 자세한 내용은 [Azure AD ID 거버넌스 설명서](../governance/identity-governance-overview.md) 및 [Azure AD 액세스 검토](../governance/access-reviews-overview.md)를 참조하세요.|
 |ID 보호|조직의 ID에 영향을 미치는 잠재적 취약점을 검색하고, 의심스러운 작업에 대응하는 정책을 구성하고, 문제를 해결하기 위한 적절한 조치를 취합니다. 자세한 내용은 [Azure AD ID 보호](../identity-protection/index.yml)를 참조하세요.|
@@ -93,7 +93,7 @@ Azure AD 및 설명서를 보다 정확하게 이해하려면 다음 용어를 �
 |계정 관리자|이 클래식 구독 관리자 역할은 개념적으로 구독의 청구 소유자입니다. 이 역할은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 액세스할 수 있으며 계정의 모든 구독을 관리할 수 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
 |서비스 관리자|이 클래식 구독 관리자 역할은 액세스를 포함하여 모든 Azure 리소스를 관리할 수 있습니다. 이 역할은 구독 범위에서 소유자 역할이 할당된 사용자와 동일한 액세스 권한을 갖습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
 |소유자|이 역할은 액세스를 포함하여 모든 Azure 리소스를 관리할 수 있습니다. 이 역할은 Azure 리소스에 대한 세밀한 액세스 관리를 제공하는 Azure RBAC(Azure 역할 기반 액세스 제어)라고 하는 최신 권한 부여 시스템 기반입니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
-|Azure AD 전역 관리자|이 관리자 역할은 Azure AD 테넌트를 만든 모든 사람에게 자동으로 할당됩니다. 글로벌 관리자는 Exchange Online, SharePoint Online, 비즈니스용 Skype Online 등의 서비스에 페더레이션되는 서비스 및 Azure AD에 대한 모든 관리 기능을 수행할 수 있습니다. 글로벌 관리자를 여러 명 둘 수 있지만, 글로벌 관리자만이 사용자에게 관리자 역할을 할당(다른 글로벌 관리자 할당 포함)할 수 있습니다. 이 관리자 역할은 Azure Portal에서 전역 관리자라고 하지만 Microsoft Graph API 및 Azure AD PowerShell에서 **회사 관리자**라고 합니다. 다양한 관리자 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 사용 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.|
+|Azure AD 전역 관리자|이 관리자 역할은 Azure AD 테넌트를 만든 모든 사람에게 자동으로 할당됩니다. 글로벌 관리자는 Exchange Online, SharePoint Online, 비즈니스용 Skype Online 등의 서비스에 페더레이션되는 서비스 및 Azure AD에 대한 모든 관리 기능을 수행할 수 있습니다. 글로벌 관리자를 여러 명 둘 수 있지만, 글로벌 관리자만이 사용자에게 관리자 역할을 할당(다른 글로벌 관리자 할당 포함)할 수 있습니다. 이 관리자 역할은 Azure Portal에서는 전역 관리자라고 하지만 Microsoft Graph API, Azure AD PowerShell에서는 **회사 관리자** 라고 합니다. 다양한 관리자 역할에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.|
 |Azure 구독| Azure 클라우드 서비스 요금을 지불하는 데 사용됩니다. 여러 구독을 한 신용 카드에 연결할 수 있습니다.|
 |Azure 테넌트| 조직이 Microsoft Azure, Microsoft Intune 또는 Microsoft 365 같은 Microsoft 클라우드 서비스 구독에 등록할 때 자동으로 생성되는 Azure AD의 신뢰할 수 있는 전용 인스턴스입니다. 한 Azure 테넌트는 단일 조직을 나타냅니다.|
 |단일 테넌트| 전용 환경의 다른 서비스에 액세스하는 Azure 테넌트는 단일 테넌트로 간주됩니다.|

@@ -3,20 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 DateTimeDiff
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimeDiff에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 09b801c48bf2998a2d8926009cae76287c1ac9b6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446379"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342269"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
-
-*지정 된 서 수* 와 *EndDate*사이에 지정 된 DateTimePart 경계의 수를 부호 있는 정수 값으로 반환 합니다.
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+*지정 된 서 수* 와 *EndDate* 사이에 지정 된 DateTimePart 경계의 수를 부호 있는 정수 값으로 반환 합니다.
   
 ## <a name="syntax"></a>구문
   
@@ -31,8 +32,8 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
-| 년         | "year", "yyyy", "yy" |
-| 월        | "month", "mm", "m"   |
+| Year         | "year", "yyyy", "yy" |
+| Month        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
@@ -44,14 +45,14 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 *StartDate*  
     UTC 날짜 및 시간 ISO 8601 문자열 값 (형식 `YYYY-MM-DDThh:mm:ss.fffffffZ` :
   
-  |서식|Description|
+  |서식|설명|
   |-|-|
   |YYYY|네 자리 연도|
   |MM|두 자리 월 (01 = 1 월 등)|
   |DD|월 (01-31)의 2 자리 숫자 일|
   |T|시간 요소 시작에 대 한 signifier|
   |hh|두 자리 시간 (00-23)|
-  |MM|두 자리 분 (00-59)|
+  |mm|두 자리 분 (00-59)|
   |ss|두 자리 초 (00-59)|
   |. fffffff|7 자리 소수 자릿수 초|
   |Z|UTC (협정 세계시) 지정자||
@@ -59,7 +60,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   ISO 8601 형식에 대 한 자세한 내용은을 참조 하십시오 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 *EndDate*  
-   형식의 UTC 날짜 및 시간 ISO 8601 문자열 값`YYYY-MM-DDThh:mm:ss.fffffffZ`
+   형식의 UTC 날짜 및 시간 ISO 8601 문자열 값 `YYYY-MM-DDThh:mm:ss.fffffffZ`
 
 ## <a name="return-types"></a>반환 형식
 
@@ -74,7 +75,7 @@ DateTimeDiff는 `undefined` 다음과 같은 이유로를 반환 합니다.
 
 DateTimeDiff는 항상 부호 있는 정수 값을 반환 하 고 시간 간격을 측정 하는 것이 아니라 DateTimePart 경계의 수를 측정 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
 다음 예에서는와 사이의 날짜 경계 수를 계산 합니다 `2020-01-01T01:02:03.1234527Z` `2020-01-03T01:02:03.1234567Z` .
 

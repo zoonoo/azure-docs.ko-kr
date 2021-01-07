@@ -7,19 +7,22 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bac476cfbe78ad6fcf73b6a2319581cc60524a57
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432564"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537852"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
 Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 제공할 수 있습니다. 자세한 내용은 [Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)을 참조하세요.
 
 이 문서에서는 Azure Portal, Azure CLI 또는 PowerShell을 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정하는 방법을 보여 줍니다.
+
+> [!NOTE]
+> 범용 v2 Standard storage 계정을 만들어야 합니다. 정적 웹 사이트는 다른 유형의 스토리지 계정에서 사용할 수 없습니다.
 
 ## <a name="enable-static-website-hosting"></a>정적 웹 사이트 호스팅 사용
 
@@ -31,9 +34,9 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CS
 
 2. 스토리지 계정을 찾아 계정 개요를 표시합니다.
 
-3. **정적 웹 사이트**를 선택하여 정적 웹 사이트에 대한 구성 페이지를 표시합니다.
+3. **정적 웹 사이트** 를 선택하여 정적 웹 사이트에 대한 구성 페이지를 표시합니다.
 
-4. **사용**을 선택하여 스토리지 계정에서 정적 웹 사이트를 호스팅할 수 있습니다.
+4. **사용** 을 선택하여 스토리지 계정에서 정적 웹 사이트를 호스팅할 수 있습니다.
 
 5. **인덱스 문서 이름** 필드에서 기본 인덱스 페이지(예: *index.html*)를 지정합니다. 
 
@@ -43,7 +46,7 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CS
 
    기본 오류 페이지는 사용자가 정적 웹 사이트에서 존재하지 않는 페이지로 이동하려고 할 때 표시됩니다.
 
-7. **저장**을 클릭합니다. 이제 Azure Portal에는 정적 웹 사이트 엔드포인트가 표시됩니다. 
+7. **저장** 을 클릭합니다. 이제 Azure Portal에는 정적 웹 사이트 엔드포인트가 표시됩니다. 
 
     ![스토리지 계정에서 정적 웹 사이트 호스팅 설정](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -51,9 +54,9 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CS
 
 <a id="cli"></a>
 
-CLI([Azure 명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
+CLI([Azure 명령줄 인터페이스)](/cli/azure/?view=azure-cli-latest)를 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
 
-1. 먼저 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)을 열거나 Azure CLI를 로컬로 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
+1. 먼저 [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli?view=azure-cli-latest)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
 2. ID가 둘 이상의 구독과 연결된 경우 정적 웹 사이트를 호스트하는 스토리지 계정의 구독으로 활성 구독을 설정합니다.
 
@@ -133,7 +136,7 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-이 지침에서는 Azure Portal에 표시되는 Storage Explorer 버전을 사용하여 파일을 업로드하는 방법을 보여 줍니다. 그러나 Azure Portal 외부에서 실행되는 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 버전을 사용할 수도 있습니다. [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI 또는 계정의 **$web** 컨테이너에 파일을 업로드할 수 있는 사용자 지정 애플리케이션을 사용할 수 있습니다. Visual Studio 코드를 사용하여 파일을 업로드하는 단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스트](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)를 완료하세요.
+이 지침에서는 Azure Portal에 표시되는 Storage Explorer 버전을 사용하여 파일을 업로드하는 방법을 보여 줍니다. 그러나 Azure Portal 외부에서 실행되는 [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 버전을 사용할 수도 있습니다. [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI 또는 계정의 **$web** 컨테이너에 파일을 업로드할 수 있는 사용자 지정 애플리케이션을 사용할 수 있습니다. Visual Studio 코드를 사용하여 파일을 업로드하는 단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스트](./storage-blob-static-website-host.md)를 완료하세요.
 
 1. **Storage Explorer(미리 보기)** 를 선택합니다.
 
@@ -148,7 +151,7 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
    ![콘텐츠 형식 확인](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > Storage Explorer는 `.html`과 같은 일반적으로 인식되는 확장에 대해 이 속성을 자동으로 `text/html`로 설정합니다. 그러나 이를 직접 설정해야 하는 경우도 있습니다. 이 속성을 `text/html`로 설정하지 않으면 브라우저에서 사용자에게 콘텐츠를 렌더링하지 않고 파일을 다운로드하라는 메시지를 표시합니다. 이 속성을 설정하려면 파일을 마우스 오른쪽 단추로 클릭한 다음, **속성**을 클릭합니다.
+   > Storage Explorer는 `.html`과 같은 일반적으로 인식되는 확장에 대해 이 속성을 자동으로 `text/html`로 설정합니다. 그러나 이를 직접 설정해야 하는 경우도 있습니다. 이 속성을 `text/html`로 설정하지 않으면 브라우저에서 사용자에게 콘텐츠를 렌더링하지 않고 파일을 다운로드하라는 메시지를 표시합니다. 이 속성을 설정하려면 파일을 마우스 오른쪽 단추로 클릭한 다음, **속성** 을 클릭합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -170,7 +173,7 @@ az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-
 > [!NOTE]
 > Azure CLI의 위치 설치를 사용하는 경우 로컬 컴퓨터의 모든 위치에 대한 경로를 사용할 수 있습니다(예: `C:\myFolder`).
 >
-> Azure Cloud Shell을 사용하는 경우 Cloud Shell에 표시되는 파일 공유를 참조해야 합니다. 이 위치는 클라우드 공유 자체의 파일 공유 또는 Cloud Shell에서 탑재한 기존 파일 공유일 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Cloud Shell에서 파일 유지](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)를 참조하세요.
+> Azure Cloud Shell을 사용하는 경우 Cloud Shell에 표시되는 파일 공유를 참조해야 합니다. 이 위치는 클라우드 공유 자체의 파일 공유 또는 Cloud Shell에서 탑재한 기존 파일 공유일 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Cloud Shell에서 파일 유지](../../cloud-shell/persisting-shell-storage.md)를 참조하세요.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -201,7 +204,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-스토리지 계정의 계정 개요 페이지 옆에 표시되는 창에서 **정적 웹 사이트**를 선택합니다. **기본 엔드포인트** 필드에 사이트의 URL이 표시됩니다.
+스토리지 계정의 계정 개요 페이지 옆에 표시되는 창에서 **정적 웹 사이트** 를 선택합니다. **기본 엔드포인트** 필드에 사이트의 URL이 표시됩니다.
 
 ![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -238,7 +241,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 메트릭을 사용하도록 설정하면 **$web** 컨테이너의 파일에 대한 트래픽 통계가 메트릭 대시보드에 보고됩니다.
 
-1. 스토리지 계정 메뉴의 **모니터** 섹션에서 **메트릭**을 클릭합니다.
+1. 스토리지 계정 메뉴의 **모니터** 섹션에서 **메트릭** 을 클릭합니다.
 
    > [!div class="mx-imgBorder"]
    > ![메트릭 링크](./media/storage-blob-static-website/metrics-link.png)
@@ -246,23 +249,23 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
    > [!NOTE]
    > 여러 메트릭 API에 연결하여 메트릭 데이터가 생성됩니다. 데이터를 반환하는 멤버에만 집중하기 위해 특정 시간 프레임에 사용된 API 멤버만 포털에 표시됩니다. 필요한 API 멤버를 선택할 수 있도록 가장 먼저 할 일은 시간 프레임을 확장하는 것입니다.
 
-2. 시간 프레임 단추를 클릭하고, 시간 프레임을 선택한 다음, **적용**을 클릭합니다.
+2. 시간 프레임 단추를 클릭하고, 시간 프레임을 선택한 다음, **적용** 을 클릭합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 시간 범위](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
-3. *네임스페이스* 드롭다운에서 **Blob**을 선택합니다.
+3. *네임스페이스* 드롭다운에서 **Blob** 을 선택합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 네임스페이스](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
 
 4. 그런 다음, **송신** 메트릭을 선택합니다.
 
-   ![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Azure Storage 정적 websites 송신 메트릭을 보여 주는 스크린샷](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. *집계* 선택기에서 **합계**를 선택합니다.
+5. *집계* 선택기에서 **합계** 를 선택합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 집계](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. **필터 추가** 단추를 클릭하고 *속성* 선택기에서 **API 이름**을 선택합니다.
+6. **필터 추가** 단추를 클릭하고 *속성* 선택기에서 **API 이름** 을 선택합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 API 이름](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
@@ -276,4 +279,3 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 ## <a name="next-steps"></a>다음 단계
 
 * 정적 웹 사이트에서 사용자 지정 도메인을 구성하는 방법을 알아봅니다. [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)을 참조하세요.
-

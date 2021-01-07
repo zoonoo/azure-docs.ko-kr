@@ -9,12 +9,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b1e044c6f61e51de1d8f2ba07f64918307109e46
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ce6e20e5e4866bc4daa3f331fa2a8612ac6c260
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494726"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184164"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Azure Cache for Redis 삭제
 
@@ -34,11 +34,11 @@ ms.locfileid: "87494726"
 
 | 명령 | 메모 |
 |---|---|
-| [az redis delete](https://docs.microsoft.com/cli/azure/redis) | Azure Cache for Redis 인스턴스를 삭제합니다. |
+| [az redis delete](/cli/azure/redis) | Azure Cache for Redis 인스턴스를 삭제합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 Azure Cache for Redis CLI 스크립트 샘플은 [Azure Cache for Redis 설명서](../cli-samples.md)에서 찾을 수 있습니다.

@@ -3,17 +3,19 @@ title: Azure Cosmos DB에서 배열 및 개체 작업
 description: Azure Cosmos DB에서 배열 및 개체를 만드는 SQL 구문에 대해 알아봅니다. 또한이 문서에서는 배열 개체에 대 한 작업을 수행 하는 몇 가지 예제를 제공 합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/08/2020
 ms.author: tisande
-ms.openlocfilehash: 2b882e1e39f035d27fc6d09d1a9d0c04691b499c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f65d179baa2c0a08e2c1dca1716c9691797fc242
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426251"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106313"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB SQL API의 주요 기능은 배열 및 개체 만들기입니다.
 
@@ -52,9 +54,9 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
-## <a name="iteration"></a><a id="Iteration"></a>반복
+## <a name="iteration"></a><a id="Iteration"></a>반복기
 
-SQL API는 JSON 배열에 대 한 반복을 지원 하며, FROM 소스에 있는 [in 키워드](sql-query-keywords.md#in) 를 통해 새 구문을 추가 합니다. 다음 예제에서,
+SQL API는 JSON 배열에 대 한 반복을 지원 하며, FROM 소스에 있는 [in 키워드](sql-query-keywords.md#in) 를 통해 새 구문을 추가 합니다. 다음 예제에서는
 
 ```sql
 SELECT *
@@ -141,7 +143,7 @@ WHERE c.grade = 8
 배열 반복의 결과를 집계할 수도 있습니다. 예를 들어 다음 쿼리는 모든 패밀리에서 자식의 수를 계산 합니다.
 
 ```sql
-SELECT COUNT(child)
+SELECT COUNT(1) AS Count
 FROM child IN Families.children
 ```
 
@@ -150,7 +152,7 @@ FROM child IN Families.children
 ```json
 [
   {
-    "$1": 3
+    "Count": 3
   }
 ]
 ```

@@ -2,36 +2,76 @@
 title: Azure 사용자 지정 역할-Azure RBAC
 description: Azure 리소스에 대 한 세분화 된 액세스 관리를 위해 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/15/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124156"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617326"
 ---
 # <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
 
 > [!IMPORTANT]
-> 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
+> `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 기본 제공 역할과 마찬가지로 관리 그룹, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다.
 
 동일한 Azure AD 디렉터리를 신뢰 하는 구독 간에 사용자 지정 역할을 공유할 수 있습니다. 디렉터리 당 사용자 지정 역할은 **5000** 개로 제한 됩니다. (Azure 독일 및 Azure 중국 21Vianet의 경우 제한은 2000 사용자 지정 역할입니다.) Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
+
+## <a name="steps-to-create-a-custom-role"></a>사용자 지정 역할을 만드는 단계
+
+사용자 지정 역할을 만드는 기본 단계는 다음과 같습니다.
+
+1. 필요한 권한을 결정 합니다.
+
+    사용자 지정 역할을 만들 때 사용 권한을 정의 하는 데 사용할 수 있는 작업을 알고 있어야 합니다. 일반적으로 기존 기본 제공 역할로 시작한 다음, 필요에 따라 수정합니다. `Actions` `NotActions` [역할 정의](role-definitions.md)의 또는 속성에 작업을 추가 합니다. 데이터 작업을 수행 하는 경우 또는 속성에 해당 작업을 추가 합니다 `DataActions` `NotDataActions` .
+
+    자세한 내용은 다음 섹션에서 [필요한 권한을 결정 하는 방법](#how-to-determine-the-permissions-you-need)을 참조 하세요.
+
+1. 사용자 지정 역할을 만들 방법을 결정 합니다.
+
+    [Azure Portal](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md)또는 [REST API](custom-roles-rest.md)를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
+
+1. 사용자 지정 역할을 만듭니다.
+
+    가장 쉬운 방법은 Azure Portal를 사용 하는 것입니다. Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 방법에 대 한 단계는 [Azure Portal를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md)를 참조 하세요.
+
+1. 사용자 지정 역할을 테스트 합니다.
+
+    사용자 지정 역할이 있으면 해당 역할을 테스트하여 예상대로 작동하는지 확인해야 합니다. 나중에 조정해야 하는 경우 사용자 지정 역할을 업데이트할 수 있습니다.
+
+## <a name="how-to-determine-the-permissions-you-need"></a>필요한 권한을 확인 하는 방법
+
+Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수천 개의 권한이 있습니다. 사용자 지정 역할에 추가 하려는 권한을 결정 하는 데 도움이 되는 몇 가지 방법은 다음과 같습니다.
+
+- 기존 [기본 제공 역할](built-in-roles.md)을 확인 합니다.
+
+    기존 역할을 수정 하거나 여러 역할에 사용 되는 사용 권한을 조합할 수 있습니다.
+
+- 액세스 권한을 부여 하려는 Azure 서비스를 나열 합니다.
+
+- [Azure 서비스에 매핑되는 리소스 공급자](../azure-resource-manager/management/azure-services-resource-providers.md)를 결정 합니다.
+
+    Azure 서비스는 [리소스 공급자](../azure-resource-manager/management/overview.md)를 통해 해당 기능 및 사용 권한을 노출 합니다. 예를 들어, Microsoft. Compute 리소스 공급자는 가상 머신 리소스를 제공 하 고 Microsoft 청구 리소스 공급자는 구독 및 청구 리소스를 제공 합니다. 리소스 공급자를 알면 사용자 지정 역할에 필요한 권한을 제한 하 고 결정 하는 데 도움이 될 수 있습니다.
+
+    Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 경우 키워드를 검색 하 여 리소스 공급자를 결정할 수도 있습니다. 이 검색 기능은 [Azure Portal를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md#step-4-permissions)에 설명 되어 있습니다.
+
+    ![리소스 공급자를 사용 하 여 권한 창 추가](./media/custom-roles-portal/add-permissions-provider.png)
+
+- 사용 [가능한 권한을](resource-provider-operations.md) 검색 하 여 포함 하려는 사용 권한을 찾습니다.
+
+    Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 경우 키워드를 사용 하 여 사용 권한을 검색할 수 있습니다. 예를 들어 *가상 컴퓨터* 또는 *청구* 권한을 검색할 수 있습니다. 모든 사용 권한을 CSV 파일로 다운로드 한 다음이 파일을 검색할 수도 있습니다. 이 검색 기능은 [Azure Portal를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md#step-4-permissions)에 설명 되어 있습니다.
+
+    ![권한 목록 추가](./media/custom-roles-portal/add-permissions-list.png)
 
 ## <a name="custom-role-example"></a>사용자 지정 역할 예제
 
@@ -125,7 +165,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 | `NotActions`</br>`notActions` | 예 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
 | `DataActions`</br>`dataActions` | 예 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 를 사용 하 여 사용자 지정 역할을 만드는 경우 `DataActions` 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [Dataactions](role-definitions.md#dataactions)를 참조 하세요. |
 | `NotDataActions`</br>`notDataActions` | 예 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
-| `AssignableScopes`</br>`assignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
+| `AssignableScopes`</br>`assignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
 
 ## <a name="wildcard-permissions"></a>와일드 카드 사용 권한
 
@@ -151,26 +191,6 @@ Microsoft.CostManagement/exports/*
 Microsoft.CostManagement/*/query/*
 ```
 
-## <a name="steps-to-create-a-custom-role"></a>사용자 지정 역할을 만드는 단계
-
-사용자 지정 역할을 만들려면 따라야 하는 기본 단계는 다음과 같습니다.
-
-1. 사용자 지정 역할을 만들 방법을 결정 합니다.
-
-    Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다.
-
-1. 필요한 권한을 결정 합니다.
-
-    사용자 지정 역할을 만들 때 사용 권한을 정의 하는 데 사용할 수 있는 작업을 알고 있어야 합니다. 작업 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)을 참조 하세요. `Actions` `NotActions` [역할 정의](role-definitions.md)의 또는 속성에 작업을 추가 합니다. 데이터 작업을 수행 하는 경우 또는 속성에 해당 작업을 추가 합니다 `DataActions` `NotDataActions` .
-
-1. 사용자 지정 역할을 만듭니다.
-
-    일반적으로 기존 기본 제공 역할로 시작한 다음, 필요에 따라 수정합니다. 가장 쉬운 방법은 Azure Portal를 사용 하는 것입니다. Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 방법에 대 한 단계는 [Azure Portal를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md)를 참조 하세요.
-
-1. 사용자 지정 역할을 테스트 합니다.
-
-    사용자 지정 역할이 있으면 해당 역할을 테스트하여 예상대로 작동하는지 확인해야 합니다. 나중에 조정해야 하는 경우 사용자 지정 역할을 업데이트할 수 있습니다.
-
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자
 
 기본 제공 역할과 마찬가지로, `AssignableScopes` 속성은 할당에 사용할 수 있는 역할에 대한 범위를 지정합니다. 또한 사용자 지정 역할에 대한 `AssignableScopes` 속성은 사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자도 제어합니다.
@@ -188,7 +208,8 @@ Microsoft.CostManagement/*/query/*
 - 각 디렉터리에는 최대 **5000** 개의 사용자 지정 역할이 있을 수 있습니다.
 - Azure 독일 및 Azure 중국 21Vianet에는 각 디렉터리에 대해 최대 2000 개의 사용자 지정 역할이 있을 수 있습니다.
 - `AssignableScopes`루트 범위 ()로 설정할 수 없습니다 `"/"` .
-- 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
+- 에서는 와일드 카드 ()를 사용할 수 없습니다 `*` `AssignableScopes` . 이 와일드 카드 제한은 사용자가 역할 정의를 업데이트 하 여 범위에 대 한 액세스 권한을 얻을 수 없도록 하는 데 도움이 됩니다.
+- 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 - 를 사용 하는 사용자 지정 역할 `DataActions` 은 관리 그룹 범위에서 할당할 수 없습니다.
 - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인 하지 않습니다.
 

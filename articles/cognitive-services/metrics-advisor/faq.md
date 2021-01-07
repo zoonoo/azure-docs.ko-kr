@@ -3,19 +3,19 @@ title: 메트릭 관리자에 게 질문과 대답
 titleSuffix: Azure Cognitive Services
 description: 메트릭 관리자 서비스에 대 한 질문과 대답입니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 0fde9a0f46073a2f3a24962ea58431581455f474
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 11/05/2020
+ms.author: mbullwin
+ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939044"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420962"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>메트릭 관리자에 게 질문과 대답
 
@@ -23,15 +23,11 @@ ms.locfileid: "90939044"
 
 현재 미리 보기 중에는 인스턴스를 사용 하는 데 비용이 들지 않습니다.
 
-### <a name="why-is-the-demo-website-readonly"></a>데모 웹 사이트가 readonly 인 이유는 무엇 인가요?
-
-[데모 웹 사이트](https://anomaly-detector.azurewebsites.net/) 는 공개적으로 사용할 수 있습니다. 이 인스턴스는 데이터의 실수로 인 한 업로드를 방지 하기 위해 읽기 전용으로 설정 됩니다.
-
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>리소스를 만들 수 없는 이유는 무엇입니까? "가격 책정 계층"을 사용할 수 없으며 "이미이 구독에 대해 S0 1 개를 만들었습니다." 라는 메시지가 표시 되나요?
 
 :::image type="content" source="media/pricing.png" alt-text="F0 리소스가 이미 있는 경우의 메시지":::
 
-공개 미리 보기 기간 중에는 한 지역의 한 구독에서 메트릭 관리자의 인스턴스를 하나만 만들 수 있습니다.
+공개 미리 보기 중에는 구독에서 지역 마다 메트릭 관리자의 인스턴스를 하나만 만들 수 있습니다.
 
 동일한 구독을 사용 하 여 동일한 지역에서 만든 인스턴스가 이미 있는 경우 다른 지역 또는 다른 구독을 시도 하 여 새 인스턴스를 만들 수 있습니다. 기존 인스턴스를 삭제 하 여 새 인스턴스를 만들 수도 있습니다.
 
@@ -74,9 +70,26 @@ ms.locfileid: "90939044"
 
 ### <a name="more-concepts-and-technical-terms"></a>추가 개념 및 기술 조건
 
-자세한 내용을 보려면 [용어집](glossary.md) 으로 이동 하세요.
+자세한 내용은 [용어집](glossary.md) 을 참조 하십시오.
 
-## <a name="how-do-i-detect-such-kinds-of-anomalies"></a>이러한 종류의 변칙을 검색 어떻게 할까요?? 
+###  <a name="how-do-i-write-a-valid-query-for-ingesting-my-data"></a>수집 내 데이터에 대 한 올바른 쿼리를 작성 어떻게 할까요?  
+
+메트릭 관리자가 데이터를 수집 하려면 단일 타임 스탬프에서 데이터의 크기를 반환 하는 쿼리를 만들어야 합니다. 메트릭 관리자는이 쿼리를 여러 번 실행 하 여 각 타임 스탬프에서 데이터를 가져옵니다. 
+
+쿼리는 지정 된 타임 스탬프에서 각 차원 조합에 대해 최대 하나의 레코드를 반환 해야 합니다. 반환 된 모든 레코드의 타임 스탬프는 동일 해야 합니다. 쿼리에서 반환 된 중복 레코드가 없어야 합니다.
+
+예를 들어 일별 메트릭에 대해 아래 쿼리를 만든다고 가정 합니다. 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+시계열에 대해 정확한 세분성을 사용 해야 합니다. 시간별 메트릭에 대해 다음을 사용 합니다. 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+이러한 쿼리는 단일 타임 스탬프로 데이터만 반환 하 고 메트릭 관리자가 수집 하는 모든 차원 조합을 포함 합니다. 
+
+:::image type="content" source="media/query-result.png" alt-text="하나의 타임 스탬프를 포함 하는 쿼리 결과" lightbox="media/query-result.png":::
+
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>비정상 상태에서 급증 & dip를 검색 어떻게 할까요??
 
@@ -92,7 +105,53 @@ ms.locfileid: "90939044"
 데이터가 정상적으로 안정적이 고 변동 되지 않으며, 너무 안정적으로 전환 되거나 평평한 선 일 때 경고를 표시 하려는 경우 변경이 너무 작은 경우 이러한 데이터 요소를 검색 하도록 "변경 임계값"을 구성할 수 있습니다.
 자세한 내용은 [변칙 검색 구성](how-tos/configure-metrics.md#anomaly-detection-methods) 을 참조 하세요.
 
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>전자 메일 설정을 설정 하 고 전자 메일로 경고를 사용 하도록 설정 하는 방법
+
+1.  구독 관리자 또는 리소스 그룹 관리자 권한이 있는 사용자는 Azure Portal에서 만든 메트릭 관리자 리소스를 탐색 하 고 **액세스 제어 (IAM)** 탭을 선택 해야 합니다. 
+2.  **역할 할당 추가** 선택
+3.  **Cognitive Services 메트릭 관리자 관리자** 의 역할을 선택 하 고 아래 이미지와 같이 계정을 선택 합니다.
+4.  **저장** 단추를 클릭 하면 메트릭 관리자 리소스의 관리자로 성공적으로 추가 된 것입니다. 위의 모든 작업은 구독 관리자 또는 리소스 그룹 관리자가 수행 해야 합니다. 
+
+:::image type="content" source="media/access-control.png" alt-text="역할 할당 추가가 선택 된 상태에서 선택 된 Cognitive Services 사용자에 게 액세스 권한을 할당 하는 상자, 사용자를 검색 하 고 특정 수준의 액세스 권한을 추가 하는 단계를 보여 주기 위해 선택 된 UI의 저장 단추를 차례로 선택 하 여 액세스 제어 (IAM) 메뉴 페이지를 선택 합니다." lightbox="media/access-control.png":::
+
+
+5.  권한을 전파 하는 데 최대 1 분 정도 걸릴 수 있습니다. 그런 다음 메트릭 Advisor 작업 영역을 선택 하 고 왼쪽 탐색 패널에서 **전자 메일 설정** 옵션을 선택 합니다. 필요한 항목 (특히 SMTP 관련 정보)을 입력 합니다. 
+6.  **저장** 을 선택 하면 모두 전자 메일 구성으로 설정 됩니다. 새 후크를 만들고 거의 실시간 경고에 대 한 메트릭 이상 상태를 구독할 수 있습니다. 
+
+## <a name="advanced-concepts"></a>고급 개념
+
+### <a name="how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics"></a>메트릭 관리자는 다차원 메트릭에 대 한 인시던트 트리를 어떻게 작성 하나요?
+
+메트릭은 차원을 통해 여러 시간 계열로 분할 될 수 있습니다. 예를 들어 메트릭은 `Response latency` 팀에서 소유 하는 모든 서비스에 대해 모니터링 됩니다. `Service`범주는 메트릭을 보강 하는 차원으로 사용 될 수 있으므로 `Response latency` `Service1` , 등으로 분할 `Service2` 됩니다. 각 서비스는 여러 데이터 센터의 여러 컴퓨터에 배포 될 수 있으므로 메트릭은 및로 추가로 분할 될 수 `Machine` 있습니다 `Data center` .
+
+|서비스| 데이터 센터| 컴퓨터  | 
+|----|------|----------------   |
+| S1 |  DC1 |   M1 |
+| S1 |  DC1 |   M2 |
+| S1 |  DC2 |   M3 |
+| S1 |  DC2 |   M4 |
+| S2 |  DC1 |   M1 |
+| S2 |  DC1 |   M2 |
+| S2 |  DC2 |   M5 |
+| S2 |  DC2 |   M6 |
+| ...|      |      |
+
+합계부터 시작 하 `Response latency` 여, 및로 메트릭을 드릴 다운할 수 있습니다 `Service` `Data center` `Machine` . 그러나 서비스 소유자가 경로를 사용 하는 것이 더 적합할 수도 `Service`  ->  `Data center`  ->  `Machine` 있고 인프라 엔지니어가 경로를 사용 하는 것이 더 적합할 `Data Center`  ->  `Machine`  ->  `Service` 수도 있습니다. 이는 사용자의 개별 비즈니스 요구 사항에 따라 달라 집니다. 
+
+메트릭 관리자에서 사용자는 계층 토폴로지의 한 노드에서 드릴 다운 하거나 롤업할 경로를 지정할 수 있습니다. 보다 정확 하 게, 계층 토폴로지는 트리 구조가 아니라 방향이 지정 된 비순환 그래프입니다. 다음과 같이 모든 잠재적 차원 조합으로 구성 된 전체 계층 토폴로지가 있습니다. 
+
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="계층 토폴로지 다이어그램은 여러 개의 차원이 포함 된 여러 개의 interconnecting 꼭 짓 점 및 가장자리로 구성 되며 1 ~ 6 범위의 해당 하는 숫자를 포함 합니다." lightbox="media/dimension-combinations-view.png":::
+
+이론적으로 차원에 고유한 값이 있고 차원에 고유한 값이 있으며 차원에 고유한 값이 있는 경우 `Service` `Ls` `Data center` `Ldc` `Machine` `Lm` `(Ls + 1) * (Ldc + 1) * (Lm + 1)` 계층 구조 토폴로지에서 차원 조합이 있을 수 있습니다. 
+
+그러나 일반적으로 일부 차원 조합은 유효 하지 않으므로 복잡성을 크게 줄일 수 있습니다. 현재 사용자가 메트릭 자체를 집계 하는 경우 차원 수를 제한 하지 않습니다. 메트릭 관리자가 제공 하는 롤업 기능을 사용 해야 하는 경우 차원 수는 6 보다 커야 합니다. 그러나 메트릭에 대 한 차원으로 확장 되는 시계열 수를 1만 미만으로 제한 합니다.
+
+진단 페이지의 **인시던트 트리** 도구는 전체 토폴로지가 아닌 변칙이 검색 된 노드만 표시 합니다. 이는 현재 문제에 초점을 맞출 수 있도록 하기 위한 것입니다. 또한 메트릭 내에 모든 비정상을 표시 하지 않을 수도 있으며, 대신 기여에 따라 상위 변칙을 표시 합니다. 이러한 방식으로 비정상적인 데이터의 영향, 범위 및 확산 경로를 빠르게 확인할 수 있습니다. 이로 인해 초점을 맞춰야 하는 변칙 수가 현저 하 게 감소 하 고 사용자가 주요 문제를 이해 하 고 찾을 수 있습니다. 
+ 
+예를 들어에서 변칙이 발생 하는 경우 변칙 `Service = S2 | Data Center = DC2 | Machine = M5` 의 편차는 부모 노드에 영향 `Service= S2` 을 주므로 비정상을 감지 했지만 이상에서는의 전체 데이터 센터 및 모든 서비스에 영향을 주지 않습니다 `DC2` `M5` . 인시던트 트리는 아래 스크린샷에 나와 있는 것 처럼 작성 되 고, 상위 변칙은에서 캡처되고 `Service = S2` , 근본 원인은 모두로 이어지는 두 경로에서 분석할 수 있습니다 `Service = S2 | Data Center = DC2 | Machine = M5` .
+
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 개의 서로 다른 경로를 포함 하는 꼭 짓 점 레이블이 S2 인 공통 노드를 사용 하 여 연결 합니다. Top 변칙은 Service = S2에서 캡처되고, 근본 원인은 서비스 = S2로 이어지는 두 경로에서 분석할 수 있습니다. 데이터 센터 = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
+
 ## <a name="next-steps"></a>다음 단계
 - [Metrics Advisor 개요](overview.md)
-- [데모 사이트 사용해 보기](quickstarts/explore-demo.md)
 - [웹 포털 사용](quickstarts/web-portal.md)

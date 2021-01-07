@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f966492dd8a231db92f607438bb9ba2d3be71389
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: devx-track-js
+ms.openlocfilehash: d5a1d810c357aa83b8069023b00d76352da124df
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906769"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844798"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기의 사용자 정보 액세스
 
@@ -116,23 +116,28 @@ C # 함수에서 사용자 정보는 `x-ms-client-principal` `ClaimsPrincipal` �
 
     public static ClaimsPrincipal Parse(HttpRequest req)
     {
-        var header = req.Headers["x-ms-client-principal"];
-        var data = header.Value[0];
-        var decoded = System.Convert.FromBase64String(data);
-        var json = System.Text.ASCIIEncoding.ASCII.GetString(decoded);
-        var principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-  
-        principal.UserRoles = principal.UserRoles.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
-  
-        if (!principal.UserRoles.Any())
+        var principal = new ClientPrincipal();
+
+        if (req.Headers.TryGetValue("x-ms-client-principal", out var header))
+        {
+            var data = header[0];
+            var decoded = Convert.FromBase64String(data);
+            var json = Encoding.ASCII.GetString(decoded);
+            principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+
+        principal.UserRoles = principal.UserRoles?.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
+
+        if (!principal.UserRoles?.Any() ?? true)
         {
             return new ClaimsPrincipal();
         }
-  
+
         var identity = new ClaimsIdentity(principal.IdentityProvider);
         identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, principal.UserId));
         identity.AddClaim(new Claim(ClaimTypes.Name, principal.UserDetails));
         identity.AddClaims(principal.UserRoles.Select(r => new Claim(ClaimTypes.Role, r)));
+
         return new ClaimsPrincipal(identity);
     }
   }

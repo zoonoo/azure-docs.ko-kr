@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: d994df4d56f4958784256ff9cd92ce1e6f3b3e50
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 5d866729d428e7667cd2225a5d37836b3fd75fa7
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642166"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680331"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>하이브리드 가상 컴퓨터에 대 한 VM용 Azure Monitor 사용
 이 문서에서는 온-프레미스 및 기타 클라우드 환경을 포함 하 여 Azure 외부에서 가상 머신에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
@@ -19,7 +19,7 @@ ms.locfileid: "88642166"
 > [!IMPORTANT]
 > 하이브리드 Vm을 사용 하도록 설정 하는 권장 방법은 먼저 [서버에 대해 Azure Arc](../../azure-arc/servers/overview.md) 를 사용 하도록 설정 하 여 azure vm과 유사한 프로세스를 사용 하 VM용 Azure Monitor vm을 사용할 수 있도록 하는 것입니다. 이 문서에서는 Azure Arc를 사용 하지 않도록 선택 하는 경우 하이브리드 Vm을 등록 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - [Log Analytics 작업 영역을 만들고 구성](vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
@@ -43,8 +43,8 @@ Log Analytics 에이전트에 대 한 방화벽 요구 사항은 [Log Analytics 
 
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.5.10940 | C27A56D0BE9CF162DF73292DFBB2083F5FF749F2B80FCAD2545BC8B14B64A8D7  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.5.10940 | 71B4E1DA5116E61E03317C49C6702B5069F01A0C9A7CB860F6ACFAF5C198740E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.7.12710 | CA29CC328F991D7301FD0360F4F56DF78275545BB8CDA853679899CA885E96F0  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.7.12710 | 98380DBEB2E2A5848F2202BC22422C68B20B62090C1BFC1DECAB37ED5451ED8C |
 
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Windows에 종속성 에이전트 설치
@@ -60,7 +60,7 @@ Log Analytics 에이전트에 대 한 방화벽 요구 사항은 [Log Analytics 
 
 예를 들어 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 `/?` **InstallDependencyAgent-Windows.exe/?** 를 입력 합니다.
 
-Windows Dependency Agent에 대한 파일은 기본적으로 *C:\Program Files\Microsoft Dependency Agent*에 설치됩니다. 설치가 완료 된 후 종속성 에이전트를 시작 하지 못한 경우 자세한 오류 정보는 로그를 확인 하십시오. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs*입니다.
+Windows Dependency Agent에 대한 파일은 기본적으로 *C:\Program Files\Microsoft Dependency Agent* 에 설치됩니다. 설치가 완료 된 후 종속성 에이전트를 시작 하지 못한 경우 자세한 오류 정보는 로그를 확인 하십시오. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs* 입니다.
 
 ### <a name="powershell-script"></a>PowerShell 스크립트
 다음 샘플 PowerShell 스크립트를 사용 하 여 에이전트를 다운로드 하 고 설치 합니다.
@@ -74,7 +74,7 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 
 ## <a name="install-the-dependency-agent-on-linux"></a>Linux에 Dependency Agent 설치
 
-Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *InstallDependencyAgent-Linux64.bin*을 사용하여 Linux 서버에 설치됩니다. `sh`를 사용하여 파일을 실행하거나 파일 자체에 실행 권한을 추가할 수 있습니다.
+Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *InstallDependencyAgent-Linux64.bin* 을 사용하여 Linux 서버에 설치됩니다. `sh`를 사용하여 파일을 실행하거나 파일 자체에 실행 권한을 추가할 수 있습니다.
 
 >[!NOTE]
 > 에이전트를 설치 또는 구성하려면 루트 액세스가 필요합니다.
@@ -86,9 +86,9 @@ Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *Insta
 | -S | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
 | --check | 권한 및 운영 체제를 확인하지만 에이전트는 설치하지 않습니다. |
 
-예를 들어 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 `-help` **installdependencyagent-linux64.bin-help**를 입력 합니다. 명령을 실행 하 여 루트로 Linux 종속성 에이전트를 설치 합니다 `sh InstallDependencyAgent-Linux64.bin` .
+예를 들어 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 `-help` **installdependencyagent-linux64.bin-help** 를 입력 합니다. 명령을 실행 하 여 루트로 Linux 종속성 에이전트를 설치 합니다 `sh InstallDependencyAgent-Linux64.bin` .
 
-Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 */var/opt/microsoft/dependency-agent/log*입니다.
+Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 */var/opt/microsoft/dependency-agent/log* 입니다.
 
 Dependency Agent에 대한 파일은 다음 디렉터리에 있습니다.
 

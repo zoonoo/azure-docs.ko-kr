@@ -3,14 +3,14 @@ title: 질문과 대답
 description: Azure Container Registry 서비스와 관련된 질문과 대답입니다.
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245369"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606286"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -19,7 +19,7 @@ ms.locfileid: "88245369"
 레지스트리 문제 해결에 대 한 지침은 다음을 참조 하세요.
 * [레지스트리 로그인 문제 해결](container-registry-troubleshoot-login.md)
 * [레지스트리의 네트워크 문제 해결](container-registry-troubleshoot-access.md)
-* [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
+* [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>리소스 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "88245369"
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR에서 이미지를 검사하는 보안 취약성이 있나요?
 
-예. [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 및 [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) 설명서를 참조하세요.
+예. [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 및 [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry) 설명서를 참조하세요.
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Azure Container Registry를 사용하여 Kubernetes를 구성하려면 어떻게 하나요?
 
@@ -111,6 +111,7 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 - [레지스트리 리소스를 관리할 수 있는 권한 없이 이미지를 풀하거나 푸시할 수 있는 액세스 권한을 부여하려면 어떻게 하나요?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [자동 이미지 격리를 레지스트리에 사용하도록 설정하려면 어떻게 하나요?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [익명 풀 액세스를 사용하도록 설정하려면 어떻게 하나요?](#how-do-i-enable-anonymous-pull-access)
+- [배포 되지 않은 계층을 레지스트리에 푸시할 어떻게 할까요? 있나요?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Docker 레지스트리 HTTP API V2에 액세스하려면 어떻게 하나요?
 
@@ -259,10 +260,38 @@ ACR은 다양한 수준의 권한을 제공하는 [사용자 지정 역할](cont
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>익명 풀 액세스를 사용하도록 설정하려면 어떻게 하나요?
 
-익명(퍼블릭) 풀 액세스에 대한 Azure 컨테이너 레지스트리 설정은 현재 미리 보기 기능입니다. 레지스트리에 [범위 맵 (사용자) 또는 토큰 리소스가](https://aka.ms/acr/repo-permissions) 있는 경우 지원 티켓을 발생 시키기 전에 삭제 하십시오 (시스템 범위 맵은 무시 될 수 있음). 퍼블릭 액세스를 사용하도록 설정하려면 https://aka.ms/acr/support/create-ticket 에서 지원 티켓을 여세요. 자세한 내용은 [Azure 피드백 포럼](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries)을 참조하세요.
+익명(퍼블릭) 풀 액세스에 대한 Azure 컨테이너 레지스트리 설정은 현재 미리 보기 기능입니다. 레지스트리에 [범위 맵 (사용자) 또는 토큰 리소스가](./container-registry-repository-scoped-permissions.md) 있는 경우 지원 티켓을 발생 시키기 전에 삭제 하십시오 (시스템 범위 맵은 무시 될 수 있음). 퍼블릭 액세스를 사용하도록 설정하려면 https://aka.ms/acr/support/create-ticket 에서 지원 티켓을 여세요. 자세한 내용은 [Azure 피드백 포럼](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries)을 참조하세요.
 
+> [!NOTE]
+> * 알려진 이미지를 가져오는 데 필요한 Api만 익명으로 액세스할 수 있습니다. 태그 목록 또는 리포지토리 목록과 같은 작업에 대 한 다른 Api는 익명으로 액세스할 수 없습니다.
+> * 익명 끌어오기 작업을 시도 하기 전에를 실행 `docker logout` 하 여 기존 Docker 자격 증명을 모두 지울 수 있도록 합니다.
 
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>배포 되지 않은 계층을 레지스트리에 푸시할 어떻게 할까요? 있나요?
 
+매니페스트의 배포할 수 없는 계층에는 콘텐츠를 가져올 수 있는 URL 매개 변수가 포함 되어 있습니다. 배포 되지 않은 계층 푸시를 사용 하도록 설정 하는 몇 가지 가능한 사용 사례는 네트워크 제한 된 레지스트리, 제한 된 액세스 권한이 있는 gapped 레지스트리 또는 인터넷에 연결 되지 않은 레지스트리에 대 한 것입니다.
+
+예를 들어 VM이 Azure container registry 에서만 이미지를 끌어올 수 있도록 NSG 규칙을 설정한 경우 Docker는 외부/배포 불가능 계층에 대 한 오류를 가져옵니다. 예를 들어 Windows Server Core 이미지는 매니페스트의 Azure container registry에 대 한 외래 계층 참조를 포함 하 고이 시나리오에서 끌어오기에 실패 합니다.
+
+배포 불가능 한 계층 푸시를 사용 하도록 설정 하려면 다음을 수행 합니다.
+
+1. `daemon.json` `/etc/docker/` Linux 호스트 및 Windows Server의에 있는 파일을 편집 합니다 `C:\ProgramData\docker\config\daemon.json` . 파일이 이전에 비어 있는 것으로 가정 하 고 다음 내용을 추가 합니다.
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > 값은 쉼표로 구분 된 레지스트리 주소 배열입니다.
+
+2. 파일을 저장하고 종료합니다.
+
+3. Docker를 다시 시작 합니다.
+
+목록에서 레지스트리에 이미지를 푸시할 때 배포 되지 않은 레이어가 레지스트리에 푸시됩니다.
+
+> [!WARNING]
+> 배포할 수 없는 아티팩트에는 일반적으로 배포 및 공유할 수 있는 방법과 위치에 대 한 제한이 있습니다. 이 기능을 사용 하 여 아티팩트를 개인 레지스트리로 푸시할 수 있습니다. 배포 되지 않은 아티팩트 재배포를 다루는 용어를 준수 하는지 확인 합니다.
 
 ## <a name="diagnostics-and-health-checks"></a>진단 및 상태 검사
 
@@ -443,7 +472,7 @@ Microsoft Edge/IE 브라우저를 사용하는 경우 최대 100개의 리포지
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>허용되지 않은 작업으로 인해 풀 또는 푸시 요청이 실패하는 이유는 무엇인가요?
 
 작업이 허용될 수 없는 몇 가지 시나리오는 다음과 같습니다.
-* 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](https://aka.ms/acr/skus)으로 업그레이드하세요.
+* 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](/cli/azure/acr#az-acr-update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](./container-registry-skus.md)으로 업그레이드하세요.
 * 이미지 또는 리포지토리가 잠겨 있어 삭제하거나 업데이트할 수 없습니다. [az acr show repository](./container-registry-image-lock.md) 명령을 사용하여 현재 특성을 볼 수 있습니다.
 * 이미지가 격리 모드에 있는 경우 일부 작업이 허용되지 않습니다. [격리](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)에 대해 자세히 알아보세요.
 * 레지스트리가 [저장소 용량 한도](container-registry-skus.md#service-tier-features-and-limits)에 도달 했을 수 있습니다.

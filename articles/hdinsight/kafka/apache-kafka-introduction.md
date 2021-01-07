@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6209ae985f8e59e1acae2d8fd6a1c821acae5a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651338"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449554"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka란?
 
@@ -33,7 +33,9 @@ ms.locfileid: "88651338"
 
     자세한 내용은 [HDInsight에서 Apache Kafka의 고가용성](apache-kafka-high-availability.md)을 참조하세요.
 
-* HDInsight를 통해 클러스터를 만든 후 작업자 노드 수(Kafka-브로커를 호스트하는)를 변경할 수 있습니다. 크기 조정은 Azure Portal, Azure PowerShell 및 기타 Azure 관리 인터페이스에서 수행할 수 있습니다. Kafka의 경우 크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 파티션 균형을 다시 조정하면 Kafka가 새 작업자 노드 수를 활용할 수 있습니다.
+* HDInsight를 통해 클러스터를 만든 후 작업자 노드 수(Kafka-브로커를 호스트하는)를 변경할 수 있습니다. 상향 크기 조정은 Azure Portal, Azure PowerShell 및 기타 Azure 관리 인터페이스에서 수행할 수 있습니다. Kafka의 경우 크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 파티션 균형을 다시 조정하면 Kafka가 새 작업자 노드 수를 활용할 수 있습니다.
+
+   HDInsight Kafka는 클러스터 내의 브로커 수를 줄이거나 축소하는 것을 지원하지 않습니다. 노드 수를 줄이려고 하면 `InvalidKafkaScaleDownRequestErrorCode` 오류가 반환됩니다.
 
     자세한 내용은 [HDInsight에서 Apache Kafka의 고가용성](apache-kafka-high-availability.md)을 참조하세요.
 
@@ -67,7 +69,7 @@ Kafka는 **토픽**에 레코드(데이터)를 저장합니다. **생산자**에
 |수평적 확장|Kafka는 HDInsight 클러스터의 노드에서 스트림을 분할합니다. 소비자 프로세스는 개별 파티션에 연결하여 레코드를 소비할 때 부하 분산을 제공할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.|
 |순차적 전달|각 파티션 내에서 레코드는 수신된 순서로 스트림에 저장됩니다. 파티션마다 소비자 프로세스를 하나씩 연결하여 레코드가 순서대로 처리되도록 보장할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.|
 |메시징|Kafka는 게시-구독 메시지 패턴을 지원하기 때문에 메시지 브로커로 자주 사용됩니다.|
-|활동 추적|Kafka는 순서대로 레코드 로그를 기록하기 때문에 활동을 추적하고 다시 만드는 데 사용할 수 있습니다. 예를 들어 웹 사이트 또는 애플리케이션에서의 사용자 작업이 여기에 해당합니다.|
+|작업 추적|Kafka는 순서대로 레코드 로그를 기록하기 때문에 활동을 추적하고 다시 만드는 데 사용할 수 있습니다. 예를 들어 웹 사이트 또는 애플리케이션에서의 사용자 작업이 여기에 해당합니다.|
 |집계|스트림 처리를 사용하여 결합할 서로 다른 스트림의 정보를 한데 모으고 중앙에서 이 정보를 운영 데이터로 집중적으로 처리할 수 있습니다.|
 |변환|스트림 처리를 사용하여 여러 입력 토픽의 데이터를 하나 이상의 출력 토픽으로 결합하고 보강할 수 있습니다.|
 

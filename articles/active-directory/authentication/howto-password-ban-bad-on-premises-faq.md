@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003476"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741901"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 질문과 대답
 
@@ -32,9 +32,9 @@ ms.locfileid: "89003476"
 
 **Q: 온-프레미스 Azure AD 암호 보호는 공용이 아닌 클라우드에서 지원 되나요?**
 
-아니요 - 온-프레미스 Azure AD 암호 보호는 퍼블릭 클라우드에서만 지원됩니다. 비퍼블릭 클라우드가 지원되는 날짜는 발표되지 않았습니다.
+온-프레미스 Azure AD 암호 보호는 공용 클라우드와 Arlington 클라우드에서 지원 됩니다. 다른 클라우드의 가용성에 대 한 날짜가 발표 되지 않았습니다.
 
-Azure AD 포털에서는 공용이 아닌 클라우드에서 온-프레미스 관련 "Windows Server Active Directory에 대 한 암호 보호" 구성을 수정할 수 있습니다. 이러한 변경 내용은 지속 되지만 그렇지 않은 경우에는 적용 되지 않습니다. 공용이 아닌 클라우드 자격 증명을 사용 하는 경우 온-프레미스 프록시 에이전트 또는 포리스트의 등록이 지원 되지 않으므로 이러한 등록 시도는 항상 실패 합니다.
+Azure AD portal은 지원 되지 않는 클라우드에서도 온-프레미스 관련 "Windows Server Active Directory에 대 한 암호 보호" 구성을 수정할 수 있습니다. 이러한 변경 내용은 지속 되지만 그렇지 않은 경우에는 적용 되지 않습니다. 지원 되지 않는 클라우드에서 온-프레미스 프록시 에이전트 또는 포리스트 등록이 지원 되지 않으므로 이러한 등록 시도는 항상 실패 합니다.
 
 **Q: 온-프레미스 사용자의 하위 집합에 Azure AD 암호 보호 혜택을 적용 하려면 어떻게 해야 하나요?**
 

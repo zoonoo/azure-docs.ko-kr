@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 69b52be3a3eca2ab48ed09f6401780ea033f223c
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 2e13762698efd8d5df42ab6315c990d4096168cf
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723982"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145534"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>DTDL 파서 라이브러리를 사용 하 여 모델 구문 분석 및 유효성 검사
 
@@ -20,11 +20,11 @@ Azure Digital Twins의 [모델](concepts-models.md) 은 JSON-LD 기반 디지털
 
 이 작업을 수행 하는 데 도움이 되도록 NuGet: [**DigitalTwins**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/)에 .net 클라이언트 쪽 dtdl 구문 분석 라이브러리가 제공 됩니다. 
 
-파서 라이브러리를 c # 코드에서 직접 사용 하거나, 파서 라이브러리: [**Dtdl Validator 샘플**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)에서 빌드된 언어 독립적인 코드 샘플 프로젝트를 사용할 수 있습니다.
+파서 라이브러리를 c # 코드에서 직접 사용 하거나, 파서 라이브러리: [**Dtdl Validator 샘플**](/samples/azure-samples/dtdl-validator/dtdl-validator)에서 빌드된 언어 독립적인 코드 샘플 프로젝트를 사용할 수 있습니다.
 
 ## <a name="use-the-dtdl-validator-sample"></a>DTDL 유효성 검사기 샘플 사용
 
-[**Dtdl 유효성 검사기**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) 는 dtdl이 유효한 지 확인 하기 위해 모델 문서의 유효성을 검사할 수 있는 샘플 프로젝트입니다. 이 클래스는 .NET 파서 라이브러리를 기반으로 하며 언어를 독립적으로 제공 합니다. 샘플 링크의 *ZIP 다운로드* 단추를 사용 하 여 가져올 수 있습니다.
+[**Dtdl 유효성 검사기**](/samples/azure-samples/dtdl-validator/dtdl-validator) 는 dtdl이 유효한 지 확인 하기 위해 모델 문서의 유효성을 검사할 수 있는 샘플 프로젝트입니다. 이 클래스는 .NET 파서 라이브러리를 기반으로 하며 언어를 독립적으로 제공 합니다. 샘플 링크의 *ZIP 다운로드* 단추를 사용 하 여 가져올 수 있습니다.
 
 소스 코드는 파서 라이브러리를 사용 하는 방법에 대 한 예제를 보여 줍니다. Validator 샘플을 명령줄 유틸리티로 사용 하 여 DTDL 파일의 디렉터리 트리의 유효성을 검사할 수 있습니다. 또한 대화형 모드를 제공 합니다.
 
@@ -36,7 +36,7 @@ DTDL Validator 샘플 폴더에서 *readme.md* 파일을 참조 하 여 샘플�
 DTDLValidator
 ```
 
-이 샘플에서는 기본 옵션을 사용 하 여 `*.json` 현재 디렉터리와 모든 하위 디렉터리에서 파일을 검색 합니다. 다음 옵션을 추가 하 여 지정 된 디렉터리 및 확장명이 *dtdl*인 파일의 모든 하위 디렉터리에서 샘플 검색을 수행할 수도 있습니다.
+이 샘플에서는 기본 옵션을 사용 하 여 `*.json` 현재 디렉터리와 모든 하위 디렉터리에서 파일을 검색 합니다. 다음 옵션을 추가 하 여 지정 된 디렉터리 및 확장명이 *dtdl* 인 파일의 모든 하위 디렉터리에서 샘플 검색을 수행할 수도 있습니다.
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
@@ -77,32 +77,50 @@ DTDLValidator -i
 
 아래의 파서 코드 예제를 지원 하려면 Azure Digital Twins 인스턴스에 정의 된 몇 가지 모델을 고려 하세요.
 
-> [!TIP] 
-> `dtmi:com:contoso:coffeeMaker`모델은 *기능 모델* 구문을 사용 하며,이는 해당 모델을 노출 하는 PnP 장치를 연결 하 여 서비스에 설치 되었음을 의미 합니다.
-
 ```json
-{
-  "@id": " dtmi:com:contoso:coffeeMaker",
-  "@type": "CapabilityModel",
-  "implements": [
-        { "name": "coffeeMaker", "schema": " dtmi:com:contoso:coffeeMakerInterface" }
-  ]    
-}
-{
-  "@id": " dtmi:com:contoso:coffeeMakerInterface",
-  "@type": "Interface",
-  "contents": [
-      { "@type": "Property", "name": "waterTemp", "schema": "double" }  
-  ]
-}
-{
-  "@id": " dtmi:com:contoso:coffeeBar",
-  "@type": "Interface",
-  "contents": [
-        { "@type": "relationship", "contains": " dtmi:com:contoso:coffeeMaker" },
-        { "@type": "property", "name": "capacity", "schema": "integer" }
-  ]    
-}
+[
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMaker;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Component",
+        "name": "coffeeMaker",
+        "schema": "dtmi:com:contoso:coffeeMakerInterface;1"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMakerInterface;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "waterTemp",
+        "schema": "double"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeBar;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Relationship",
+        "name": "foo",
+        "target": "dtmi:com:contoso:coffeeMaker;1"
+      },
+      {
+        "@type": "Property",
+        "name": "capacity",
+        "schema": "integer"
+      }
+    ]
+  }
+]
 ```
 
 다음 코드에서는 파서 라이브러리를 사용 하 여 c #에서 이러한 정의를 반영 하는 방법의 예를 보여 줍니다.
@@ -112,10 +130,10 @@ async void ParseDemo(DigitalTwinsClient client)
 {
     try
     {
-        AsyncPageable<ModelData> mdata = client.GetModelsAsync(null, true);
+        AsyncPageable<DigitalTwinsModelData> mdata = client.GetModelsAsync(new GetModelsOptions { IncludeModelDefinition = true });
         List<string> models = new List<string>();
-        await foreach (ModelData md in mdata)
-            models.Add(md.Model);
+        await foreach (DigitalTwinsModelData md in mdata)
+            models.Add(md.DtdlModel);
         ModelParser parser = new ModelParser();
         IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM = await parser.ParseAsync(models);
 

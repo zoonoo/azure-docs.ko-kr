@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021785"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029898"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 애플리케이션
 
@@ -52,7 +52,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
 
-첫 번째 단계에서는 *네임스페이스*를 만들고 해당 네임스페이스에 대한 [SAS(공유 액세스 서명)](service-bus-sas.md) 키를 얻습니다. 네임스페이스는 Service Bus를 통해 노출되는 각 애플리케이션에 대한 애플리케이션 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 이름 및 SAS 키 조합은 Service Bus에 자격 증명을 제공하여 애플리케이션에 대한 액세스를 인증합니다.
+첫 번째 단계에서는 *네임스페이스* 를 만들고 해당 네임스페이스에 대한 [SAS(공유 액세스 서명)](service-bus-sas.md) 키를 얻습니다. 네임스페이스는 Service Bus를 통해 노출되는 각 애플리케이션에 대한 애플리케이션 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 이름 및 SAS 키 조합은 Service Bus에 자격 증명을 제공하여 애플리케이션에 대한 액세스를 인증합니다.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -63,32 +63,32 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-1. 관리자 권한을 사용하여 Visual Studio 시작: **Visual Studio** 프로그램 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭합니다. 이 문서의 뒷부분에서 설명하는 Azure 컴퓨팅 에뮬레이터를 사용하려면 Visual Studio를 관리자 권한으로 실행해야 합니다.
+1. 관리자 권한을 사용하여 Visual Studio 시작: **Visual Studio** 프로그램 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행** 을 클릭합니다. 이 문서의 뒷부분에서 설명 하는 Azure Compute 에뮬레이터를 사용 하려면 Visual Studio를 관리자 권한으로 시작 해야 합니다.
    
-   Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음, **프로젝트**를 클릭합니다.
-2. **설치된 템플릿**의 **Visual C#** 에서 **클라우드**를 클릭한 다음 **Azure Cloud Service**를 클릭합니다. 프로젝트의 이름을 **MultiTierApp**으로 지정합니다. 그런 다음 **확인**을 클릭합니다.
+   Visual Studio의 **파일** 메뉴에서 **새로 만들기** 를 클릭한 다음, **프로젝트** 를 클릭합니다.
+2. **설치된 템플릿** 의 **Visual C#** 에서 **클라우드** 를 클릭한 다음 **Azure Cloud Service** 를 클릭합니다. 프로젝트의 이름을 **MultiTierApp** 으로 지정합니다. 그런 후 **OK** 를 클릭합니다.
    
    ![클라우드가 선택 된 새 프로젝트 대화 상자의 스크린샷 및 Azure 클라우드 서비스 Visual c #이 강조 표시 되어 빨간색으로 표시 되어 있습니다.][9]
-3. **역할** 창에서 **ASP.NET 웹 역할**을 두 번 클릭합니다.
+3. **역할** 창에서 **ASP.NET 웹 역할** 을 두 번 클릭합니다.
    
    ![ASP.NET 웹 역할이 선택 되 고 WebRole1도 선택 된 새 Microsoft Azure 클라우드 서비스 대화 상자의 스크린샷][10]
-4. **Azure Cloud Service 솔루션**에서 **WebRole1**을 마우스로 가리키고 연필 아이콘을 클릭한 다음 웹 역할의 이름을 **FrontendWebRole**로 변경합니다. 그런 다음 **확인**을 클릭합니다. "FrontEnd"가 아니라 소문자 "e"를 사용하여 "Frontend"를 입력해야 합니다.
+4. **Azure Cloud Service 솔루션** 에서 **WebRole1** 을 마우스로 가리키고 연필 아이콘을 클릭한 다음 웹 역할의 이름을 **FrontendWebRole** 로 변경합니다. 그런 후 **OK** 를 클릭합니다. "FrontEnd"가 아니라 소문자 "e"를 사용하여 "Frontend"를 입력해야 합니다.
    
    ![솔루션이 FrontendWebRole로 이름이 변경 된 새 Microsoft Azure 클라우드 서비스 대화 상자의 스크린샷][11]
-5. **새 ASP.NET 프로젝트** 대화 상자의 **템플릿 선택** 목록에서 **MVC**를 클릭합니다.
+5. **새 ASP.NET 프로젝트** 대화 상자의 **템플릿 선택** 목록에서 **MVC** 를 클릭합니다.
    
    ![MVC가 강조 표시 되 고 빨간색으로 강조 표시 된 새 ASP.NET 프로젝트 대화 상자와 빨강으로 요약 된 인증 변경 옵션을 Screenshotof.][12]
-6. **새 ASP.NET 프로젝트** 대화 상자에서 **인증 변경** 단추를 클릭합니다. **인증 변경** 대화 상자에서 **인증 없음**을 선택했는지 확인한 다음 **확인**을 클릭합니다. 이 자습서의 경우 사용자 로그인이 필요하지 않은 앱을 배포하고 있습니다.
+6. **새 ASP.NET 프로젝트** 대화 상자에서 **인증 변경** 단추를 클릭합니다. **인증 변경** 대화 상자에서 **인증 없음** 을 선택했는지 확인한 다음 **확인** 을 클릭합니다. 이 자습서의 경우 사용자 로그인이 필요하지 않은 앱을 배포하고 있습니다.
    
     ![인증 안 함 옵션이 선택 되 고 빨간색으로 윤곽이 설정 된 인증 변경 대화 상자의 스크린샷][16]
-7. **새 ASP.NET 프로젝트** 대화 상자로 돌아와서 **확인**을 클릭하여 프로젝트를 만듭니다.
-8. **FrontendWebRole** 프로젝트의 **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-9. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. **WindowsAzure.ServiceBus** 패키지를 선택하고 **설치**를 클릭하고 사용 약관에 동의합니다.
+7. **새 ASP.NET 프로젝트** 대화 상자로 돌아와서 **확인** 을 클릭하여 프로젝트를 만듭니다.
+8. **FrontendWebRole** 프로젝트의 **솔루션 탐색기** 에서 **참조** 를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리** 를 클릭합니다.
+9. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus** 를 검색합니다. **WindowsAzure.ServiceBus** 패키지를 선택하고 **설치** 를 클릭하고 사용 약관에 동의합니다.
    
    ![ServiceBus가 강조 표시 된 NuGet 패키지 관리 대화 상자와 빨강으로 표시 된 설치 옵션의 스크린샷 Windowsazure.servicebus.][13]
    
    이제 필요한 클라이언트 어셈블리가 참조되고 몇 가지 새 코드 파일이 추가되었습니다.
-10. **솔루션 탐색기**에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에 **OnlineOrder.cs**라는 이름을 입력합니다. 그런 다음, **추가**를 클릭합니다.
+10. **솔루션 탐색기** 에서 **모델** 을 마우스 오른쪽 단추로 클릭하고 **추가** 를 클릭한 다음 **클래스** 를 클릭합니다. **이름** 상자에 **OnlineOrder.cs** 라는 이름을 입력합니다. 그런 다음, **추가** 를 클릭합니다.
 
 ### <a name="write-the-code-for-your-web-role"></a>웹 역할에 대한 코드 작성
 이 섹션에서는 애플리케이션에서 표시하는 다양한 페이지를 만듭니다.
@@ -105,7 +105,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
        }
    }
    ```
-2. **솔루션 탐색기**에서 **Controllers\HomeController.cs**를 두 번 클릭합니다. 파일 맨 위에 다음 **using** 문을 추가하여 Service Bus뿐만 아니라 방금 만든 모델에 대한 네임스페이스를 포함합니다.
+2. **솔루션 탐색기** 에서 **Controllers\HomeController.cs** 를 두 번 클릭합니다. 파일 맨 위에 다음 **using** 문을 추가하여 Service Bus뿐만 아니라 방금 만든 모델에 대한 네임스페이스를 포함합니다.
    
    ```csharp
    using FrontendWebRole.Models;
@@ -164,20 +164,20 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
        }
    }
    ```
-4. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 지금까지의 작업에 대한 정확성을 테스트합니다.
-5. 이제 위에서 만든 `Submit()` 메서드에 대한 보기를 만듭니다. `Submit()` 메서드(매개 변수를 사용하지 않는 `Submit()`의 오버로드) 내에서 마우스 오른쪽 단추로 클릭한 다음 **보기 추가**를 선택합니다.
+4. **빌드** 메뉴에서 **솔루션 빌드** 를 클릭하여 지금까지의 작업에 대한 정확성을 테스트합니다.
+5. 이제 위에서 만든 `Submit()` 메서드에 대한 보기를 만듭니다. `Submit()` 메서드(매개 변수를 사용하지 않는 `Submit()`의 오버로드) 내에서 마우스 오른쪽 단추로 클릭한 다음 **보기 추가** 를 선택합니다.
    
    ![보기 추가 옵션이 강조 표시 된 전송 메서드 및 드롭다운 목록에 포커스가 있는 코드의 스크린샷][14]
-6. 보기를 만들 수 있는 대화 상자가 나타납니다. **템플릿** 목록에서 **만들기**를 선택합니다. **모델 클래스** 목록에서 **OnlineOrder** 클래스를 선택합니다.
+6. 보기를 만들 수 있는 대화 상자가 나타납니다. **템플릿** 목록에서 **만들기** 를 선택합니다. **모델 클래스** 목록에서 **OnlineOrder** 클래스를 선택합니다.
    
    ![템플릿 및 모델 클래스 드롭다운 목록이 빨간색으로 표시 된 뷰 추가 대화 상자의 스크린샷][15]
-7. **추가**를 클릭합니다.
-8. 이제 애플리케이션의 표시 이름을 변경합니다. **솔루션 탐색기**에서 **Views\Shared\\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
-9. **내 ASP.NET 애플리케이션**과 일치하는 모든 항목을 **Northwind Traders 제품**으로 바꿉니다.
+7. **추가** 를 클릭합니다.
+8. 이제 애플리케이션의 표시 이름을 변경합니다. **솔루션 탐색기** 에서 **Views\Shared\\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+9. **내 ASP.NET 애플리케이션** 과 일치하는 모든 항목을 **Northwind Traders 제품** 으로 바꿉니다.
 10. **홈**, **정보** 및 **연락처** 링크를 제거합니다. 강조 표시된 코드를 삭제합니다.
     
     ![3 줄의 H T M L 작업 링크 코드가 강조 표시 된 코드의 스크린샷][28]
-11. 마지막으로 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기**에서 **Views\Home\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. `<h2>Submit</h2>` 뒤에 다음 줄을 추가합니다. 이제 `ViewBag.MessageCount`은(는) 비어 있습니다. 나중에 채웁니다.
+11. 마지막으로 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기** 에서 **Views\Home\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. `<h2>Submit</h2>` 뒤에 다음 줄을 추가합니다. 이제 `ViewBag.MessageCount`은(는) 비어 있습니다. 나중에 채웁니다.
     
     ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
@@ -189,9 +189,9 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 ### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Service Bus 큐에 항목을 제출하는 코드 작성
 이제 큐에 항목을 제출하는 코드를 추가합니다. 먼저 Service Bus 큐 연결 정보를 포함하는 클래스를 만듭니다. 그런 다음 Global.aspx.cs에서 연결을 초기화합니다. 끝으로, 앞에서 만든 제출 코드를 HomeController.cs에서 업데이트하여 항목을 Service Bus 큐에 실제로 제출합니다.
 
-1. **솔루션 탐색기**에서 **FrontendWebRole**을 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭). **추가**를 클릭한 후 **클래스**를 클릭합니다.
-2. 클래스 이름을 **QueueConnector.cs**로 지정합니다. **추가**를 클릭하여 클래스를 만듭니다.
-3. 이제 연결 정보를 캡슐화하고 Service Bus 큐에 대한 연결을 초기화하는 코드를 추가합니다. QueueConnector.cs의 전체 내용을 다음 코드로 바꾸고 `your Service Bus namespace`(네임스페이스 이름) 및 `yourKey`의 값을 입력합니다. 이는 Azure Portal에서 이전에 가져온 **기본 키**입니다.
+1. **솔루션 탐색기** 에서 **FrontendWebRole** 을 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭). **추가** 를 클릭한 후 **클래스** 를 클릭합니다.
+2. 클래스 이름을 **QueueConnector.cs** 로 지정합니다. **추가** 를 클릭하여 클래스를 만듭니다.
+3. 이제 연결 정보를 캡슐화하고 Service Bus 큐에 대한 연결을 초기화하는 코드를 추가합니다. QueueConnector.cs의 전체 내용을 다음 코드로 바꾸고 `your Service Bus namespace`(네임스페이스 이름) 및 `yourKey`의 값을 입력합니다. 이는 Azure Portal에서 이전에 가져온 **기본 키** 입니다.
    
    ```csharp
    using System;
@@ -252,13 +252,13 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
        }
    }
    ```
-4. 이제 **Initialize** 메서드가 호출되는지 확인합니다. **솔루션 탐색기**에서 **Global.asax\Global.asax.cs**를 두 번 클릭합니다.
+4. 이제 **Initialize** 메서드가 호출되는지 확인합니다. **솔루션 탐색기** 에서 **Global.asax\Global.asax.cs** 를 두 번 클릭합니다.
 5. 다음 코드 줄을 **Application_Start** 메서드의 끝에 추가합니다.
    
    ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
-6. 끝으로, 앞에서 만든 웹 코드를 업데이트하여 항목을 큐에 제출합니다. **솔루션 탐색기**에서 **Controllers\HomeController.cs**를 두 번 클릭합니다.
+6. 끝으로, 앞에서 만든 웹 코드를 업데이트하여 항목을 큐에 제출합니다. **솔루션 탐색기** 에서 **Controllers\HomeController.cs** 를 두 번 클릭합니다.
 7. 다음과 같이 `Submit()` 메서드(매개 변수를 사용하지 않는 오버로드)를 업데이트하여 큐에 대한 메시지 수를 가져옵니다.
    
    ```csharp
@@ -303,22 +303,22 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 이제 주문 제출을 처리하는 작업자 역할을 만듭니다. 이 예제에서는 **Service Bus 큐가 있는 작업자 역할** Visual Studio 프로젝트 템플릿을 사용합니다. 포털에서 필요한 자격 증명을 이미 가져왔습니다.
 
 1. Visual Studio를 Azure 계정에 연결해야 합니다.
-2. Visual Studio의 **솔루션 탐색기**에서 **MultiTierApp** 프로젝트 아래의 **역할** 폴더를 마우스 오른쪽 단추로 클릭합니다.
-3. **추가**와 **새 작업자 역할 프로젝트**를 차례로 클릭합니다. **새 역할 프로젝트 추가** 대화 상자가 나타납니다.
+2. Visual Studio의 **솔루션 탐색기** 에서 **MultiTierApp** 프로젝트 아래의 **역할** 폴더를 마우스 오른쪽 단추로 클릭합니다.
+3. **추가** 와 **새 작업자 역할 프로젝트** 를 차례로 클릭합니다. **새 역할 프로젝트 추가** 대화 상자가 나타납니다.
    
    ![새 작업자 역할 프로젝트 옵션과 추가 옵션이 강조 표시 된 솔루션 탐색기 창의 스크린샷][26]
-4. **새 역할 프로젝트 추가** 대화 상자에서 **Service Bus 큐가 있는 작업자 역할**을 클릭합니다.
+4. **새 역할 프로젝트 추가** 대화 상자에서 **Service Bus 큐가 있는 작업자 역할** 을 클릭합니다.
    
    ![Service Bus 큐 옵션이 있는 작업자 역할이 강조 표시 되 고 빨간색으로 표시 된 Ad 새 역할 프로젝트 대화 상자의 스크린샷][23]
-5. **이름** 상자에 프로젝트 이름으로 **OrderProcessingRole**을 입력합니다. 그런 다음, **추가**를 클릭합니다.
+5. **이름** 상자에 프로젝트 이름으로 **OrderProcessingRole** 을 입력합니다. 그런 다음, **추가** 를 클릭합니다.
 6. "Service Bus 네임스페이스 만들기" 섹션의 9단계에서 얻은 연결 문자열을 클립보드에 복사합니다.
-7. **솔루션 탐색기**에서, 5단계에서 만든 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭합니다. 이때 클래스가 아니라 **역할**에서 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭해야 합니다. **속성**을 클릭합니다.
-8. **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString**의 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 엔드포인트 값을 붙여 넣습니다.
+7. **솔루션 탐색기** 에서, 5단계에서 만든 **OrderProcessingRole** 을 마우스 오른쪽 단추로 클릭합니다. 이때 클래스가 아니라 **역할** 에서 **OrderProcessingRole** 을 마우스 오른쪽 단추로 클릭해야 합니다. **속성** 을 클릭합니다.
+8. **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString** 의 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 엔드포인트 값을 붙여 넣습니다.
    
    ![설정 탭이 선택 되 고 ServiceBus 테이블 행이 빨간색으로 표시 된 속성 대화 상자의 스크린샷][25]
-9. **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. **솔루션 탐색기**에서 **OrderProcessingRole** 클래스를 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 클래스 아이콘을 마우스 오른쪽 단추로 클릭). **추가**와 **기존 항목**을 차례로 클릭합니다.
-10. **FrontendWebRole\Models**의 하위 폴더로 이동하고 **OnlineOrder.cs**를 두 번 클릭하여 이 프로젝트에 추가합니다.
-11. **WorkerRole.cs**에서 다음 코드와 같이 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`(으)로 변경합니다.
+9. **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. **솔루션 탐색기** 에서 **OrderProcessingRole** 클래스를 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 클래스 아이콘을 마우스 오른쪽 단추로 클릭). **추가** 와 **기존 항목** 을 차례로 클릭합니다.
+10. **FrontendWebRole\Models** 의 하위 폴더로 이동하고 **OnlineOrder.cs** 를 두 번 클릭하여 이 프로젝트에 추가합니다.
+11. **WorkerRole.cs** 에서 다음 코드와 같이 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`(으)로 변경합니다.
     
     ```csharp
     // The name of your queue.
@@ -338,7 +338,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
     Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
     receivedMessage.Complete();
     ```
-14. 애플리케이션을 완성했습니다. 솔루션 탐색기에서 MultiTierApp 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택한 후 F5 키를 눌러 전체 애플리케이션을 테스트할 수 있습니다. 작업자 역할에서 큐의 항목을 처리하고 완료로 표시하므로 메시지 수가 증가하지 않습니다. Azure Compute 에뮬레이터 UI를 표시하여 작업자 역할의 추적 출력을 확인할 수 있습니다. 이 작업은 작업 표시줄의 알림 영역에 있는 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 에뮬레이터 UI 표시**를 선택하여 수행할 수 있습니다.
+14. 애플리케이션을 완성했습니다. 솔루션 탐색기에서 MultiTierApp 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택한 후 F5 키를 눌러 전체 애플리케이션을 테스트할 수 있습니다. 작업자 역할에서 큐의 항목을 처리하고 완료로 표시하므로 메시지 수가 증가하지 않습니다. Azure Compute 에뮬레이터 UI를 표시하여 작업자 역할의 추적 출력을 확인할 수 있습니다. 이 작업은 작업 표시줄의 알림 영역에 있는 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 에뮬레이터 UI 표시** 를 선택하여 수행할 수 있습니다.
     
     ![에뮬레이터 아이콘을 클릭할 때 표시 되는 항목의 스크린샷 계산 에뮬레이터 UI 표시는 옵션 목록에 있습니다.][19]
     

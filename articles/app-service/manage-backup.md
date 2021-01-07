@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987836"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91827458"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 백업이 무기한 보존되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
@@ -70,13 +70,13 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 
 3. **백업 구성** 페이지에서 **스토리지 구성되지 않음**을 클릭하여 스토리지 계정을 구성합니다.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="저장소 구성 안 함 설정이 선택 된 백업 저장소 섹션의 스크린샷":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="백업 및 복원 기능에 액세스 하기 위해 App Service 계획을 업그레이드 하는 메시지가 포함 된 배너의 스크린샷":::
 
 4. **Storage 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 스토리지 계정은 백업할 앱이 있는 동일한 구독에 속해야 합니다. 필요한 경우 각 페이지에서 새 스토리지 계정이 나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
 
 5. 남아 있는 **백업 구성** 페이지에서 **백업 데이터베이스**를 구성한 다음 백업에 포함할 데이터베이스 (SQL Database 또는 MySQL)를 선택 하 고 **확인**을 클릭 합니다.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="백업 선택에 포함 된 항목을 보여 주는 Backup Database 섹션의 스크린샷":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="백업 및 복원 기능에 액세스 하기 위해 App Service 계획을 업그레이드 하는 메시지가 포함 된 배너의 스크린샷":::
 
     > [!NOTE]
     > 이 목록에 표시될 데이터베이스의 경우 연결 문자열은 앱의 **애플리케이션 설정** 페이지에서 **연결 문자열** 섹션에 있어야 합니다. 
@@ -92,7 +92,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 
     백업 프로세스를 수행하는 동안 진행 메시지가 표시됩니다.
 
-스토리지 계정과 컨테이너가 구성되면 언제든지 수동 백업을 시작할 수 있습니다.
+스토리지 계정과 컨테이너가 구성되면 언제든지 수동 백업을 시작할 수 있습니다. 수동 백업은 무기한 보존 됩니다.
 
 <a name="automatedbackups"></a>
 
@@ -141,7 +141,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 > [!NOTE]
 > [정기 백업을 복원](web-sites-restore.md)할 때와 동일한 방법으로 사이트의 부분 백업을 복원합니다. 복원 프로세스는 올바르게 수행됩니다.
 > 
-> 전체 백업이 복원되면 해당 사이트의 모든 콘텐츠가 백업에 있는 항목들로 대체됩니다. 파일이 사이트에 있지만 백업에 없는 경우 해당 파일은 삭제됩니다. 하지만 부분 백업이 복원되면 블랙 리스트 디렉터리에 위치한 모든 콘텐츠 또는 블랙 리스트에 포함된 모든 파일이 그대로 유지됩니다.
+> 전체 백업이 복원되면 해당 사이트의 모든 콘텐츠가 백업에 있는 항목들로 대체됩니다. 파일이 사이트에 있지만 백업에 없는 경우 해당 파일은 삭제됩니다. 하지만 부분 백업이 복원 되 면 제한 된 디렉터리나 제한 된 파일 중 하나에 있는 모든 콘텐츠는 그대로 유지 됩니다.
 > 
 
 

@@ -3,26 +3,28 @@ title: Azure Cosmos DB 및 Active Directory를 사용 하는 인증서 기반 �
 description: Azure Cosmos DB에서 키에 액세스 하는 인증서 기반 인증을 위해 Azure AD id를 구성 하는 방법에 대해 알아봅니다.
 author: voellm
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: ea8d4180a6e820e72f5ca0ce7e7acaf13348ae67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0913351d40cd75da17d16cca119b4ad5ce20de0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262500"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334721"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정의 키에 액세스 하기 위해 Azure AD id에 대 한 인증서 기반 인증
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 인증서 기반 인증을 사용하면 클라이언트 인증서와 함께 Azure AD(Azure Active Directory)를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure의 온-프레미스 컴퓨터 또는 가상 머신과 같이 ID가 필요한 컴퓨터에서 인증서 기반 인증을 수행할 수 있습니다. 응용 프로그램은 응용 프로그램에 직접 키를 포함 하지 않고 Azure Cosmos DB 키를 읽을 수 있습니다. 이 문서에서는 샘플 Azure AD 응용 프로그램을 만들고, 인증서 기반 인증에 대해 구성 하 고, 새 응용 프로그램 id를 사용 하 여 Azure에 로그인 하 고, Azure Cosmos 계정에서 키를 검색 하는 방법을 설명 합니다. 이 문서에서는 Azure PowerShell를 사용 하 여 id를 설정 하 고, Azure Cosmos 계정에서 키를 인증 하 고 액세스 하는 c # 샘플 앱을 제공 합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [최신 버전](/powershell/azure/install-az-ps) 의 Azure PowerShell를 설치 합니다.
 
-* [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+* [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 ## <a name="register-an-app-in-azure-ad"></a>Azure AD에 앱 등록
 
@@ -30,7 +32,7 @@ ms.locfileid: "85262500"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. Azure **Active Directory** 창을 열고 **앱 등록** 창으로 이동 하 여 **새 등록**을 선택 합니다. 
+1. Azure **Active Directory** 창을 열고 **앱 등록** 창으로 이동 하 여 **새 등록** 을 선택 합니다. 
 
    :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Active Directory의 새 응용 프로그램 등록":::
 
@@ -44,7 +46,7 @@ ms.locfileid: "85262500"
 
 1. 양식을 채운 후 **등록** 을 선택 합니다.
 
-1. 앱을 등록 한 후에 **응용 프로그램 (클라이언트) id** 와 **개체 id**를 적어 둡니다. 다음 단계에서 이러한 세부 정보를 사용 합니다. 
+1. 앱을 등록 한 후에 **응용 프로그램 (클라이언트) id** 와 **개체 id** 를 적어 둡니다. 다음 단계에서 이러한 세부 정보를 사용 합니다. 
 
    :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="응용 프로그램 및 개체 Id 가져오기":::
 
@@ -63,7 +65,7 @@ ms.locfileid: "85262500"
    Set-AzContext $context 
    ```
 
-1. [AzureAD](/powershell/module/azuread/?view=azureadps-2.0) 모듈 설치 및 가져오기
+1. [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) 모듈 설치 및 가져오기
 
    ```powershell
    Install-Module AzureAD
@@ -72,7 +74,7 @@ ms.locfileid: "85262500"
 
 ## <a name="sign-into-your-azure-ad"></a>Azure AD에 로그인
 
-응용 프로그램을 등록 한 Azure AD에 로그인 합니다. AzureAD 명령을 사용 하 여 계정에 로그인 하 고, 팝업 창에 Azure 계정 자격 증명을 입력 합니다. 
+응용 프로그램을 등록 한 Azure AD에 로그인 합니다. Connect-AzureAD 명령을 사용 하 여 계정에 로그인 하 고, 팝업 창에 Azure 계정 자격 증명을 입력 합니다. 
 
 ```powershell
 Connect-AzureAD 
@@ -107,7 +109,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 1. Azure Cosmos 계정으로 이동 하 여 **액세스 제어 (IAM)** 블레이드를 엽니다.
 
-1. **추가** 및 **역할 할당 추가**를 선택 합니다. 다음 스크린샷에 표시 된 것 처럼, **참가자** 역할을 사용 하 여 이전 단계에서 만든 sampleapp.exe를 추가 합니다.
+1. **추가** 및 **역할 할당 추가** 를 선택 합니다. 다음 스크린샷에 표시 된 것 처럼, **참가자** 역할을 사용 하 여 이전 단계에서 만든 sampleapp.exe를 추가 합니다.
 
    :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="새 id를 사용 하도록 Azure Cosmos 계정 구성":::
 
@@ -123,9 +125,9 @@ Azure Portal에서 Azure AD의 클라이언트 응용 프로그램과 인증서 
 
 1. Azure **Active Directory** 창을 열고 **앱 등록** 창으로 이동 하 여 이전 단계에서 만든 샘플 앱을 엽니다. 
 
-1. **인증서 & 암호** 를 선택 하 고 **인증서를 업로드**합니다. 이전 단계에서 만든 인증서 파일을 검색 하 여 업로드 합니다.
+1. **인증서 & 암호** 를 선택 하 고 **인증서를 업로드** 합니다. 이전 단계에서 만든 인증서 파일을 검색 하 여 업로드 합니다.
 
-1. **추가**를 선택합니다. 인증서를 업로드 한 후에는 지문, 시작 날짜 및 만료 값이 표시 됩니다.
+1. **추가** 를 선택합니다. 인증서를 업로드 한 후에는 지문, 시작 날짜 및 만료 값이 표시 됩니다.
 
 ## <a name="access-the-keys-from-powershell"></a>PowerShell에서 키 액세스
 
@@ -148,7 +150,7 @@ Azure Portal에서 Azure AD의 클라이언트 응용 프로그램과 인증서 
       -Type "Keys"
    ```
 
-이전 명령은 Azure Cosmos 계정의 기본 및 보조 마스터 키를 표시 합니다. Azure Cosmos 계정의 활동 로그를 확인 하 여 키 가져오기 요청이 성공 했으며 이벤트가 "Sampleapp.exe" 응용 프로그램에 의해 시작 되었는지 확인할 수 있습니다.
+이전 명령에는 Azure Cosmos 계정의 기본 및 보조 기본 키가 표시 됩니다. Azure Cosmos 계정의 활동 로그를 확인 하 여 키 가져오기 요청이 성공 했으며 이벤트가 "Sampleapp.exe" 응용 프로그램에 의해 시작 되었는지 확인할 수 있습니다.
 
 :::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Azure AD에서 키 가져오기 호출의 유효성을 검사 합니다.":::
 
@@ -236,7 +238,7 @@ namespace TodoListDaemonWithCert
 }
 ```
 
-이 스크립트는 다음 스크린샷에 표시 된 대로 기본 및 보조 마스터 키를 출력 합니다.
+이 스크립트는 다음 스크린샷에 표시 된 대로 기본 및 보조 기본 키를 출력 합니다.
 
 :::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="csharp 응용 프로그램 출력":::
 

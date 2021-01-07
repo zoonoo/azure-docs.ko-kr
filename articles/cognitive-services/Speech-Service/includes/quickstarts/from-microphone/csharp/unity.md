@@ -10,12 +10,12 @@ ms.custom: devx-track-csharp
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 8307cfee90fdf65d119bbc1e55eabb0533a4a6ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 974f147492877f481616b43d67146a03814ada16
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926444"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377352"
 ---
 > [!NOTE]
 > Unity용 Speech SDK는 Windows 데스크톱(x86 및 x64) 또는 유니버설 Windows 플랫폼(x86, x64, ARM/ARM64), Android(x86, ARM32/64) 및 iOS(x64 시뮬레이터, ARM32 및 ARM64)를 지원합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "88926444"
 시작하기 전에:
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경을 설정하고 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 

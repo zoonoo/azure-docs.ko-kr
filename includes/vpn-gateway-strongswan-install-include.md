@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2d0e171807985deaebe8faa625d6b767c2a3efd7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f02fa49b62a2e3d617617a20518810209d3879b7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218336"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027250"
 ---
 다음 구성은 아래 단계에 사용 되었습니다.
 
@@ -41,4 +41,4 @@ sudo apt install libstrongswan-extra-plugins
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-[Azure CLI를 설치 하는 방법에 대 한 추가 지침](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+[Azure CLI를 설치 하는 방법에 대 한 추가 지침](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)

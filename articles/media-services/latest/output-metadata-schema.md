@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 출력 메타데이터 스키마 | Microsoft 문서
-description: 이 문서에서는 Azure Media Services 출력 메타 데이터 스키마에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 Azure Media Services v3 출력 메타 데이터 스키마에 대 한 개요를 제공 합니다.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289374"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336414"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 1542bba53b51ffdf2129953a81e5d13975ade434
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939244"
 ---
 # <a name="scale-operations-in-flexible-server"></a>유연한 서버에서 작업 확장
@@ -43,20 +43,20 @@ ms.locfileid: "90939244"
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="compute + 저장소 뷰":::
 
 4.  계산 클래스를 선택 하 여 안정적인, 범용 및 메모리 최적화 계층 사이에서 선택할 수 있습니다.
-   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="계산 계층 나열":::
+   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="compute + 저장소 뷰":::
 
 
 5.  기본 vCores 및 메모리 크기에 적합 한 경우 다음 단계를 건너뛸 수 있습니다.
 
 6.  VCores 수를 변경 하려는 경우 **계산 크기** 의 드롭다운을 클릭 하 고 목록에서 원하는 Vcores/메모리 수를 클릭 하면 됩니다.
     
-    - 삼 계층 계산 계층: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="안정적인 계산":::
+    - 삼 계층 계산 계층: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="compute + 저장소 뷰":::
 
-    - 범용 계산 계층: 범용 :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="계산":::
+    - 범용 계산 계층: 범용 :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="compute + 저장소 뷰":::
 
-    - 메모리 액세스에 최적화 된 계산 계층: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="메모리 최적화 계산":::
+    - 메모리 액세스에 최적화 된 계산 계층: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="compute + 저장소 뷰":::
 
-7.  **저장**을 클릭합니다. 
+7.  **Save**을 클릭합니다. 
 8.  확인 메시지가 표시됩니다. 계속 하려면 **확인** 을 클릭 합니다. 
 9.  진행 중인 크기 조정 작업에 대 한 알림입니다.
 
@@ -70,12 +70,12 @@ ms.locfileid: "90939244"
 
 3.  현재 설정이 있는 페이지가 표시 됩니다.
    
-:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="compute + storage를 클릭 합니다.":::
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="compute + 저장소 뷰":::
 4.  슬라이드 막대가 있는 **GiB의 필드 저장소 크기** 는 현재 크기로 표시 됩니다.
 
 5.  막대를 원하는 크기로 밉니다. 해당 IOPS 수가 표시 됩니다. IOPS는 계산 계층 및 크기에 따라 달라 집니다. 비용 정보도 표시 됩니다. 
 
- :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="저장소 확장":::
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="compute + 저장소 뷰":::
 
 6.  저장소 크기에 적합 한 경우 **저장**을 클릭 합니다. 
 7.  확인 메시지가 표시됩니다. 계속 하려면 **확인** 을 클릭 합니다. 

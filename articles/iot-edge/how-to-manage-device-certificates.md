@@ -8,16 +8,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669035"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044142"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 장치에서 인증서 관리
 
-모든 IoT Edge 장치는 인증서를 사용 하 여 런타임과 장치에서 실행 되는 모듈 간에 보안 연결을 만듭니다. 게이트웨이로 작동 하는 IoT Edge 장치는 이러한 동일한 인증서를 사용 하 여 다운스트림 장치에도 연결 합니다.
+모든 IoT Edge 디바이스는 인증서를 사용하여 런타임과 디바이스에서 실행되는 모듈 간에 보안 연결을 만듭니다. 게이트웨이로 작동 하는 IoT Edge 장치는 이러한 동일한 인증서를 사용 하 여 다운스트림 장치에도 연결 합니다.
 
 ## <a name="install-production-certificates"></a>프로덕션 인증서 설치
 
@@ -33,10 +33,13 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 
 ### <a name="prerequisites"></a>전제 조건
 
-* [Windows](how-to-install-iot-edge-windows.md) 또는 [Linux](how-to-install-iot-edge-linux.md)에서 실행 되는 IoT Edge 장치
+* IoT Edge 장치입니다.
+
+  IoT Edge 장치를 설정 하지 않은 경우 Azure 가상 머신에서 만들 수 있습니다. 빠른 시작 문서 중 하나에 있는 단계에 따라 [가상 Linux 장치를 만들거나](quickstart-linux.md) [가상 Windows 장치를 만듭니다](quickstart.md).
+
 * 루트 CA (인증 기관) 인증서가 Baltimore, Verisign, DigiCert 또는 GlobalSign과 같은 신뢰할 수 있는 상용 인증 기관에서 구매한 CA (인증 기관) 인증서가 있어야 합니다.
 
-루트 인증 기관이 아직 없지만 프로덕션 인증서 (예: 게이트웨이 시나리오)가 필요한 IoT Edge 기능을 사용해 보려는 경우 [데모 인증서를 만들어 IoT Edge 장치 기능을 테스트할](how-to-create-test-certificates.md)수 있습니다.
+  루트 인증 기관이 아직 없지만 프로덕션 인증서 (예: 게이트웨이 시나리오)가 필요한 IoT Edge 기능을 사용해 보려는 경우 [데모 인증서를 만들어 IoT Edge 장치 기능을 테스트할](how-to-create-test-certificates.md)수 있습니다.
 
 ### <a name="create-production-certificates"></a>프로덕션 인증서 만들기
 
@@ -57,7 +60,7 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 
 IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 하도록 IoT Edge 런타임을 구성 합니다.
 
-예를 들어 샘플 스크립트를 사용 하 여 [데모 인증서를 만든](how-to-create-test-certificates.md)경우 다음 파일을 IoT Edge 장치에 복사 합니다.
+예를 들어 샘플 스크립트를 사용 하 여 [데모 인증서를 만든](how-to-create-test-certificates.md)경우 다음 파일을 IoT-Edge 장치에 복사 합니다.
 
 * 장치 CA 인증서: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * 장치 CA 개인 키: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
@@ -65,14 +68,14 @@ IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 �
 
 1. 3 개의 인증서 및 키 파일을 IoT Edge 장치에 복사 합니다.
 
-   [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.  IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
+   [Azure Key Vault](../key-vault/index.yml) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.  IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
 
 1. IoT Edge 보안 디먼 구성 파일을 엽니다.
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 다음은 그 예입니다. 
+1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예:
 
    * Windows:
 

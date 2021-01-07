@@ -3,17 +3,17 @@ title: JavaScript를 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. JavaScript/Node.js 스토리지 클라이언트 라이브러리를 사용하여 Blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/19/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 466a1318dbe0a9299eebb9259ef8e0fe9bbbc0e7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: d21c92d6595d2db3f9fb01ee5ddc3669a0564bab
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433091"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359750"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>v12 JavaScript 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -428,4 +428,5 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 * .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
 * Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
 * Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
+* C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
 * 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

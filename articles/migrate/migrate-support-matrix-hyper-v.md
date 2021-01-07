@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate의 Hyper-v 평가 지원
 description: Azure Migrate Server 평가를 통한 Hyper-v 평가 지원에 대해 알아봅니다.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 5b5c85b599f02cedc3bb1bda84c28ef2169c8e2d
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641826"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754048"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Hyper-v 평가를 위한 지원 매트릭스
 
@@ -46,7 +49,7 @@ Hyper-v VM 평가를 설정 하려면 Azure Migrate 프로젝트를 만들고 �
 | :----------------------------- | :------------------- |
 | **운영 체제** | 모든 운영 체제의 마이그레이션을 평가할 수 있습니다.  |
 | **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
-
+| **스토리지** | 로컬 디스크, DAS, JBOD, 저장소 공간, CSV, SMB VHD/VHDX를 저장 하는 이러한 Hyper-v 호스트 저장소는 지원 됩니다. <br/> IDE 및 SCSI 가상 컨트롤러가 지원 됩니다.| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항
 
@@ -63,7 +66,7 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 **디바이스** | **연결**
 --- | ---
 **어플라이언스** | 어플라이언스에 대한 원격 데스크톱 연결을 허용하기 위한 TCP 포트 3389에서 인바운드 연결<br/><br/> URL ``` https://<appliance-ip-or-name>:44368 ```을 사용하여 어플라이언스 관리 앱에 원격으로 액세스하기 위한 포트 44368에서 인바운드 연결<br/><br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443 (HTTPS)의 아웃 바운드 연결
-**Hyper-v 호스트/클러스터** | CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v Vm에 대 한 메타 데이터 및 성능 데이터를 가져오기 위해 WinRM 포트 5985 (HTTP)에 대 한 인바운드 연결입니다.
+**Hyper-v 호스트/클러스터** | CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v Vm에 대 한 메타 데이터 및 성능 데이터를 가져오기 위해 WinRM 포트 5985 (HTTP) 또는 5986 (HTTPS)에서 인바운드 연결을 사용 합니다.
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>에이전트 기반 종속성 분석 요구 사항
 
@@ -83,4 +86,4 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 
 ## <a name="next-steps"></a>다음 단계
 
-[Hyper-v VM 평가 준비](tutorial-prepare-hyper-v.md)
+[Hyper-v VM 평가 준비](./tutorial-discover-hyper-v.md)

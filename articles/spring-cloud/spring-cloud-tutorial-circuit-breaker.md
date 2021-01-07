@@ -6,15 +6,18 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 8cc8f347330904bfab980b79cf5c5f351ce16629
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 53884c2f6d9f2e8cbb5676e9ac10e8fb15ed919e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089484"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024282"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Azure Spring Cloud를 사용하는 회로 차단기 대시보드 사용
+
+**이 문서는 다음에 적용됩니다.** ✔️ Java
+
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine)은 여러 [Hystrix](https://github.com/Netflix/Hystrix) 메트릭 스트림을 집계하는 데 널리 사용되므로 Hystrix 대시보드를 사용하여 단일 뷰에서 스트림을 모니터링할 수 있습니다. 이 자습서에서는 Azure Spring Cloud에서 이를 사용하는 방법을 설명합니다.
 > [!NOTE]
 > Netflix Hystrix는 기존의 많은 Spring Cloud 앱에서 널리 사용되고 있지만 실제 개발에는 더 이상 사용되지 않습니다. 새 프로젝트를 개발하는 경우 [resilience4j](https://github.com/resilience4j/resilience4j)와 같은 Spring Cloud 회로 차단기 구현을 대신 사용합니다. 이 자습서에 표시된 Turbine과는 달리, 새 Spring Cloud 회로 차단기 프레임워크는 메트릭 데이터 파이프라인의 모든 구현을 마이크로미터로 통합합니다. Azure Spring Cloud에서 마이크로미터를 지원하기 위한 작업은 아직 진행 중이므로 이 자습서에서는 다루지 않습니다.
@@ -38,10 +41,10 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 ## <a name="provision-your-azure-spring-cloud-instance"></a>Azure Spring Cloud 인스턴스 프로비저닝
-[Azure CLI에서 서비스 인스턴스 프로비저닝](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli) 절차를 따르세요.
+[Azure CLI에서 서비스 인스턴스 프로비저닝](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud) 절차를 따르세요.
 
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>Azure Spring Cloud에 애플리케이션 배포
-이러한 앱은 **구성 서버**를 사용하지 않으므로 Azure Spring Cloud용 **구성 서버**를 설정할 필요가 없습니다.  다음과 같이 만들고 배포합니다.
+이러한 앱은 **구성 서버** 를 사용하지 않으므로 Azure Spring Cloud용 **구성 서버** 를 설정할 필요가 없습니다.  다음과 같이 만들고 배포합니다.
 ```azurecli
 az spring-cloud app create -n user-service --is-public
 az spring-cloud app create -n recommendation-service
@@ -64,7 +67,7 @@ az spring-cloud app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/
 
 ![Hystrix 대시보드](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 
-텍스트 상자에 Turbine 스트림 URL `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default`를 복사하고 **스트림 모니터링**을 클릭합니다.  그러면 대시보드가 표시됩니다. 뷰어에 아무것도 표시되지 않는 경우 `user-service` 엔드포인트를 눌러 스트림을 생성합니다.
+텍스트 상자에 Turbine 스트림 URL `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default`를 복사하고 **스트림 모니터링** 을 클릭합니다.  그러면 대시보드가 표시됩니다. 뷰어에 아무것도 표시되지 않는 경우 `user-service` 엔드포인트를 눌러 스트림을 생성합니다.
 
 ![Hystrix 스트림](media/spring-cloud-circuit-breaker/hystrix-stream.png) 이제 회로 차단기 대시보드를 사용해 볼 수 있습니다.
 > [!NOTE] 
@@ -78,5 +81,6 @@ az spring-cloud app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/
 웹앱인 Hystrix 대시보드는 `test-endpoint`에서 작동해야 합니다. 제대로 작동하지 않을 경우 두 가지 이유가 있을 수 있습니다. 첫 번째는 `test-endpoint`를 사용해서 기본 URL이 `/ to /<APP-NAME>/<DEPLOYMENT-NAME>`에서 변경된 경우이고, 두 번째는 웹앱이 정적 리소스의 절대 경로를 사용하는 경우입니다. `test-endpoint`에서 작동하도록 프런트 엔드 파일에서 <base>를 수동으로 편집해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CLI에서 서비스 인스턴스 프로비저닝](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
-* [Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [Azure CLI에서 서비스 인스턴스 프로비저닝](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
+* [Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비](./spring-cloud-tutorial-prepare-app-deployment.md)
+

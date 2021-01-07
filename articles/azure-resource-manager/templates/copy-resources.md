@@ -1,26 +1,26 @@
 ---
 title: 리소스의 여러 인스턴스 배포
-description: Azure Resource Manager 템플릿에서 복사 작업 및 배열을 사용 하 여 리소스 형식을 여러 번 배포 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)의 복사 작업 및 배열을 사용 하 여 리소스 형식을 여러 번 배포 합니다.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/21/2020
+ms.openlocfilehash: c9bcb22ec53129520fd9574d0eb58b1e5777531e
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583389"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724496"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 템플릿의 리소스 반복
 
-이 문서에서는 Azure Resource Manager (ARM) 템플릿에 리소스의 인스턴스를 둘 이상 만드는 방법을 보여 줍니다. 템플릿의 리소스 섹션에 **copy** 요소를 추가 하 여 배포할 리소스의 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 리소스의 여러 인스턴스를 만드는 방법을 보여 줍니다. `copy`템플릿의 리소스 섹션에 요소를 추가 하 여 배포할 리소스의 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
 
-[속성](copy-properties.md), [변수](copy-variables.md) 및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
+`copy` [속성](copy-properties.md), [변수](copy-variables.md)및 [출력과](copy-outputs.md)함께를 사용할 수도 있습니다.
 
 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](conditional-resource-deployment.md)를 참조하세요.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
-Copy 요소의 일반적인 형식은 다음과 같습니다.
+요소에는 `copy` 다음과 같은 일반 형식이 있습니다.
 
 ```json
 "copy": {
@@ -31,9 +31,9 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 }
 ```
 
-**Name** 속성은 루프를 식별 하는 값입니다. **Count** 속성은 리소스 종류에 대해 원하는 반복 횟수를 지정 합니다.
+`name`속성은 루프를 식별 하는 값입니다. `count`속성은 리소스 형식에 대해 원하는 반복 횟수를 지정 합니다.
 
-**Mode** 및 **batchSize** 속성을 사용 하 여 리소스를 병렬로 배포할지 또는 순차적으로 배포할지를 지정 합니다. 이러한 속성은 [직렬 또는 병렬](#serial-or-parallel)에 설명 되어 있습니다.
+`mode`및 속성을 사용 `batchSize` 하 여 리소스를 병렬로 배포할지 또는 순차적으로 배포할지를 지정 합니다. 이러한 속성은 [직렬 또는 병렬](#serial-or-parallel)에 설명 되어 있습니다.
 
 ## <a name="copy-limits"></a>복사 제한
 
@@ -52,7 +52,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 ## <a name="resource-iteration"></a>리소스 반복
 
-다음 예에서는 **Storagecount** 매개 변수에 지정 된 저장소 계정의 수를 만듭니다.
+다음 예에서는 매개 변수에 지정 된 저장소 계정의 수를 만듭니다 `storageCount` .
 
 ```json
 {
@@ -97,7 +97,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 * storage1
 * storage2
 
-인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 반복 횟수가 copy 요소에 계속 지정 되어 있지만 copyIndex의 값이 지정 된 값 만큼 오프셋 됩니다. 따라서 예제는 다음과 같습니다.
+인덱스 값을 오프셋하려면 `copyIndex()` 함수에 값을 전달하면 됩니다. 반복 횟수가 copy 요소에 계속 지정 되어 있지만의 값은 `copyIndex` 지정 된 값으로 오프셋 됩니다. 따라서 예제는 다음과 같습니다.
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -154,7 +154,9 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 기본적으로 Resource Manager는 병렬로 리소스를 만듭니다. 템플릿에 있는 리소스의 총 800 제한 수를 제외 하 고 병렬로 배포 되는 리소스의 수에는 제한이 없습니다. 생성되는 순서는 정해져 있지 않습니다.
 
-그러나 그 결과로 리소스가 배포되도록 지정하려고 합니다. 예를 들어 프로덕션 환경을 업데이트할 때 특정 수를 한 번에 업데이트하도록 업데이트를 늦추려고 할 수 있습니다. 리소스의 여러 인스턴스를 직렬로 배포하려면 `mode`를 **직렬**로 설정하고 `batchSize`를 한 번에 배포할 인스턴스 수로 설정합니다. Resource Manager는 직렬 모드에서 루프에 이전 인스턴스의 종속성을 만듭니다. 따라서 이전 일괄 처리가 완료될 때까지 하나의 일괄 처리를 시작하지 않습니다.
+그러나 그 결과로 리소스가 배포되도록 지정하려고 합니다. 예를 들어 프로덕션 환경을 업데이트할 때 특정 수를 한 번에 업데이트하도록 업데이트를 늦추려고 할 수 있습니다. 리소스의 여러 인스턴스를 직렬로 배포하려면 `mode`를 **직렬** 로 설정하고 `batchSize`를 한 번에 배포할 인스턴스 수로 설정합니다. Resource Manager는 직렬 모드에서 루프에 이전 인스턴스의 종속성을 만듭니다. 따라서 이전 일괄 처리가 완료될 때까지 하나의 일괄 처리를 시작하지 않습니다.
+
+의 값은 `batchSize` copy 요소의 값을 초과할 수 없습니다 `count` .
 
 예를 들어 스토리지 계정을 한 번에 두 개씩 직렬로 배포하려면 다음을 사용합니다.
 
@@ -185,44 +187,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 }
 ```
 
-모드 속성은 기본 값인 **병렬**을 수용합니다.
-
-## <a name="depend-on-resources-in-a-loop"></a>루프의 리소스에 따라 달라짐
-
-`dependsOn` 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정합니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 dependsOn 요소에 복사 루프의 이름을 제공합니다. 다음 예제에서는 가상 컴퓨터를 배포 하기 전에 저장소 계정 3 개를 배포 하는 방법을 보여 줍니다. 전체 가상 머신 정의는 표시 되지 않습니다. Copy 요소의 이름이로 설정 되어 `storagecopy` 있고 가상 컴퓨터에 대 한 dependsOn 요소도로 설정 되어 있는지 확인 합니다 `storagecopy` .
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 3
-      },
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
-      "dependsOn": ["storagecopy"],
-      ...
-    }
-  ],
-  "outputs": {}
-}
-```
+`mode`속성은 기본값 인 **parallel** 도 허용 합니다.
 
 ## <a name="iteration-for-a-child-resource"></a>자식 리소스에 대한 반복
 
@@ -284,17 +249,14 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 |[저장소 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |이름의 인덱스 번호를 사용하여 여러 스토리지 계정을 배포합니다. |
 |[스토리지 직렬 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |여러 스토리지 계정을 한 번에 하나씩 배포합니다. 이름에는 인덱스 번호가 포함됩니다. |
 |[배열을 사용하여 스토리지 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |여러 스토리지 계정을 배포합니다. 이름에는 배열의 값이 포함됩니다. |
-|[가변적인 수의 데이터 디스크를 사용한 VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |가상 머신을 사용하여 여러 데이터 디스크를 배포합니다. |
-|[다중 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)을 참조합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
+* 복사 루프에서 만들어진 리소스에 대 한 종속성을 설정 하려면 [ARM 템플릿에서 리소스를 배포 하는 순서 정의](define-resource-dependency.md)를 참조 하세요.
 * 자습서를 진행 하려면 [자습서: ARM 템플릿을 사용 하 여 여러 리소스 인스턴스 만들기](template-tutorial-create-multiple-instances.md)를 참조 하세요.
+* 리소스 복사를 다루는 Microsoft Learn 모듈은 [고급 ARM 템플릿 기능을 사용 하 여 복잡 한 클라우드 배포 관리](/learn/modules/manage-deployments-advanced-arm-template-features/)를 참조 하세요.
 * Copy 요소의 다른 용도는 다음을 참조 하세요.
   * [ARM 템플릿의 속성 반복](copy-properties.md)
   * [ARM 템플릿의 변수 반복](copy-variables.md)
   * [ARM 템플릿의 출력 반복](copy-outputs.md)
 * 중첩 된 템플릿과 함께 복사를 사용 하는 방법에 대 한 자세한 내용은 [Copy 사용](linked-templates.md#using-copy)을 참조 하세요.
-* 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿 제작](template-syntax.md)을 참조 하세요.
-* 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [ARM 템플릿을 사용 하 여 응용 프로그램 배포](deploy-powershell.md)를 참조 하세요.
-

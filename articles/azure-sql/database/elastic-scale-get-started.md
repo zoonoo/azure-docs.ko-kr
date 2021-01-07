@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8a7efdee772c3a871fb8f26655dfc1160c275959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84029884"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786720"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84029884"
 
 ## <a name="elastic-database-tools-for-java"></a>Java용 Elastic Database 도구
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 * JDK(Java Developer Kit) 버전 1.8 이상
 * [Maven](https://maven.apache.org/download.cgi)
@@ -58,7 +58,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
     ![Progress-java][5]
 
-지금까지 Azure SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 사용 하 여 데이터베이스에 연결 하 고, 샘플에서 만든 분할에 대해 간략히 살펴보겠습니다. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
+축하합니다! Azure SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 사용 하 여 데이터베이스에 연결 하 고, 샘플에서 만든 분할에 대해 간략히 살펴보겠습니다. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
 
 클라이언트 라이브러리를 자신의 Maven 프로젝트에 추가하려면 POM 파일에 다음 종속성을 추가합니다.
 
@@ -72,7 +72,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 ## <a name="elastic-database-tools-for-net"></a>.Net용 Elastic Database 도구
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 * C#이 있는 Visual Studio 2012 이상. [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)에서 무료 버전을 다운로드하세요.
 * NuGet 2.7 이상. 최신 버전을 설치하려면 [NuGet 설치](https://docs.nuget.org/docs/start-here/installing-nuget)를 참조하세요.
@@ -95,26 +95,26 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
    ![진행률][4]
 
-지금까지 SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 사용 하 여 데이터베이스에 연결 하 고, 샘플에서 만든 분할에 대해 간략히 살펴보겠습니다. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
+축하합니다! SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 사용 하 여 데이터베이스에 연결 하 고, 샘플에서 만든 분할에 대해 간략히 살펴보겠습니다. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure 및 SQL Database에 대한 업데이트와 동기화된 상태를 유지하도록 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+> Azure 및 SQL Database에 대한 업데이트와 동기화된 상태를 유지하도록 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="key-pieces-of-the-code-sample"></a>코드 샘플의 주요 부분
 
-* **분할된 데이터베이스 및 분할된 데이터베이스 맵 관리**: 코드는 *ShardManagementUtils.cs* 파일에서 분할된 데이터베이스, 범위 및 매핑으로 작업하는 방법을 보여 줍니다. 자세한 내용은 [분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장](https://go.microsoft.com/?linkid=9862595)을 참조하세요.  
+* **분할된 데이터베이스 및 분할된 데이터베이스 맵 관리** : 코드는 *ShardManagementUtils.cs* 파일에서 분할된 데이터베이스, 범위 및 매핑으로 작업하는 방법을 보여 줍니다. 자세한 내용은 [분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장](https://go.microsoft.com/?linkid=9862595)을 참조하세요.  
 
-* **데이터 종속 라우팅**: 적절한 분할로의 트랜잭션 라우팅은 *DataDependentRoutingSample.cs* 파일에 나와 있습니다. 자세한 내용은 [데이터 종속 라우팅](https://go.microsoft.com/?linkid=9862596)을 참조하세요.
+* **데이터 종속 라우팅** : 적절한 분할로의 트랜잭션 라우팅은 *DataDependentRoutingSample.cs* 파일에 나와 있습니다. 자세한 내용은 [데이터 종속 라우팅](https://go.microsoft.com/?linkid=9862596)을 참조하세요.
 
-* **여러 분할된 데이터베이스에 대한 쿼리**: 여러 분할된 데이터베이스에 대한 쿼리 방법은 *MultiShardQuerySample.cs* 파일에서 설명합니다. 자세한 내용은 [다중 분할 쿼리](https://go.microsoft.com/?linkid=9862597)를 참조하세요.
+* **여러 분할된 데이터베이스에 대한 쿼리** : 여러 분할된 데이터베이스에 대한 쿼리 방법은 *MultiShardQuerySample.cs* 파일에서 설명합니다. 자세한 내용은 [다중 분할 쿼리](https://go.microsoft.com/?linkid=9862597)를 참조하세요.
 
-* **비어 있는 분할 추가**: *CreateShardSample.cs* 파일의 코드를 사용하여 비어 있는 새 분할을 반복적으로 추가할 수 있습니다. 자세한 내용은 [분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장](https://go.microsoft.com/?linkid=9862595)을 참조하세요.
+* **비어 있는 분할 추가** : *CreateShardSample.cs* 파일의 코드를 사용하여 비어 있는 새 분할을 반복적으로 추가할 수 있습니다. 자세한 내용은 [분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장](https://go.microsoft.com/?linkid=9862595)을 참조하세요.
 
 ## <a name="other-elastic-scale-operations"></a>기타 탄력적인 확장 작업
 
-* **기존의 분할된 데이터베이스 분할**: 분할/병합 도구를 통해 분할된 데이터베이스를 분할하는 기능이 제공됩니다. 자세한 내용은 [확장된 클라우드 데이터베이스 간 데이터 이동](elastic-scale-overview-split-and-merge.md)을 참조하세요.
+* **기존의 분할된 데이터베이스 분할** : 분할/병합 도구를 통해 분할된 데이터베이스를 분할하는 기능이 제공됩니다. 자세한 내용은 [확장된 클라우드 데이터베이스 간 데이터 이동](elastic-scale-overview-split-and-merge.md)을 참조하세요.
 
-* **기존의 분할된 데이터베이스 병합**: 분할 병합도 분할/병합 도구를 사용하여 수행할 수 있습니다. 자세한 내용은 [확장된 클라우드 데이터베이스 간 데이터 이동](elastic-scale-overview-split-and-merge.md)을 참조하세요.
+* **기존의 분할된 데이터베이스 병합** : 분할 병합도 분할/병합 도구를 사용하여 수행할 수 있습니다. 자세한 내용은 [확장된 클라우드 데이터베이스 간 데이터 이동](elastic-scale-overview-split-and-merge.md)을 참조하세요.
 
 ## <a name="cost"></a>비용
 
@@ -134,7 +134,7 @@ Elastic Database 도구에 대한 자세한 내용은 다음 페이지를 참조
   * [스크립트 센터의 분할된 데이터베이스 탄력성](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * 블로그: [탄력적인 확장 발표](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * 채널 9: [탄력적인 확장 개요 비디오](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* 토론 포럼: [Microsoft Q&Azure SQL Database에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* 토론 포럼: [Microsoft Q&Azure SQL Database에 대 한 질문 페이지](/answers/topics/azure-sql-database.html)
 * 성능 측정을 위한: [분할된 맵 관리자에 대한 성능 카운터](elastic-database-client-library.md)
 
 <!--Anchors-->

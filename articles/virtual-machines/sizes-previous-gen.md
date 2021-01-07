@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
-ms.author: jushiman
-ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 11/01/2020
+ms.author: mimckitt
+ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298915"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500294"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -76,11 +76,9 @@ NVv2 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 
 | Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |
 | Standard_NV24s_v2 | 24 | 448 | 1280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 ## <a name="older-generations-of-virtual-machine-sizes"></a>가상 컴퓨터 크기의 이전 세대
 
-이 섹션에서는 가상 머신 크기의 이전 세대에 대 한 정보를 제공 합니다. 이러한 크기는 계속 지원 되지만 추가 용량을 받지 않습니다. 일반적으로 사용할 수 있는 새로운 또는 대체 크기가 있습니다. 필요에 가장 적합 한 VM 크기를 선택 하려면 [Azure에서 Linux 가상 머신 크기](./sizes.md) 를 참조 하세요.  
+이 섹션에서는 가상 머신 크기의 이전 세대에 대 한 정보를 제공 합니다. 이러한 크기는 계속 지원 되지만 추가 용량을 받지 않습니다. 일반적으로 사용할 수 있는 새로운 또는 대체 크기가 있습니다. 사용자 요구에 가장 적합 한 VM 크기를 선택 하려면 [Azure의 가상 머신 크기](./sizes.md) 를 참조 하세요.  
 
 Linux VM의 크기를 조정 하는 방법에 대 한 자세한 내용은 [LINUX Vm 크기 조정](linux/change-vm-size.md)을 참조 하세요.  
 
@@ -151,7 +149,7 @@ Premium Storage:  지원되지 않음
 
 Premium Storage 캐싱:  지원되지 않음
 
-A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다.  
+A8-A11 및 H 시리즈는 *계산 집약적 인스턴스* 라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다.  
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수|
 |---|---|---|---|---|---|---|
@@ -163,7 +161,7 @@ A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. �
 <sup>1</sup>MPI 애플리케이션의 경우 초단기 대기 시간 및 고대역폭을 제공하는 FDR InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.  
 
 > [!NOTE]
-> A8 ~ A11 VM은 2021년 3월에 사용 중지될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
+> [A8 – A11 vm은 3/2021에서 사용 중지 될 예정](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/)입니다. 새 A8 – A11 Vm을 만들지 않는 것이 좋습니다. 더 나은 가격을 위해 D, E, F 등의 범용 계산 VM 크기 뿐만 아니라 H, HB, HC, HBv2 등의 강력 하 고 강력한 고성능 컴퓨팅 VM 크기로 기존 A8 – A11 Vm을 마이그레이션합니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조하세요.
 
 <br>
 
@@ -209,7 +207,7 @@ Premium Storage 캐싱:  지원되지 않음
 
 <br>
 
-## <a name="preview-dc-series"></a>미리 보기: DC 시리즈
+### <a name="preview-dc-series"></a>미리 보기: DC 시리즈
 
 **최신 크기 권장 사항**: [DCsv2 시리즈](dcv2-series.md)
 
@@ -226,7 +224,7 @@ DC 시리즈는 SGX 기술이 포함 된 최신 버전의 3.7 g h z Intel XEON E
 
 > [!IMPORTANT]
 >
-> DC 시리즈 Vm은 [2 세대 vm](./linux/generation-2.md#creating-a-generation-2-vm) 이며 `Gen2` 이미지만 지원 합니다.
+> DC 시리즈 Vm은 [2 세대 vm](./generation-2.md#creating-a-generation-2-vm) 이며 `Gen2` 이미지만 지원 합니다.
 
 
 ### <a name="ds-series"></a>DS 시리즈  
@@ -344,7 +342,7 @@ Premium Storage 캐싱:  지원되지 않음
 <sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 <br>
 
-## <a name="nv-series"></a>NV 시리즈
+### <a name="nv-series"></a>NV 시리즈
 **최신 크기 권장 사항**: [NVv3 시리즈](nvv3-series.md) 및 [NVv4 시리즈](nvv4-series.md)
 
 NV 시리즈 가상 머신은 고객이 해당 데이터 또는 시뮬레이션을 시각화할 수 있는 데스크톱 가속화 애플리케이션 및 가상 데스크톱용 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 NVIDIA GRID 기술로 구동됩니다. 사용자는 NV 인스턴스에서 그래픽 집약적인 워크플로를 시각화하여 뛰어난 그래픽 기능을 가져오고 인코딩 및 렌더링 등의 단정밀도 작업을 추가적으로 실행할 수 있습니다. NV 시리즈 Vm은 Intel Xeon E5-2690 v3 (Haswell) Cpu도 지원 합니다.
@@ -368,14 +366,86 @@ Premium Storage 캐싱:  지원되지 않음
 1 GPU = M60 카드 절반.
 <br>
 
-## <a name="other-sizes"></a>기타 크기
+### <a name="nc-series"></a>NC 시리즈
+**최신 크기 권장 사항**: [NC T4 v3 시리즈](nct4-v3-series.md)
 
-* [범용](sizes-general.md)
-* [컴퓨팅 최적화](sizes-compute.md)
-* [메모리에 최적화](sizes-memory.md)
-* [Storage에 최적화](sizes-storage.md)
-* [GPU](sizes-gpu.md)
-* [고성능 컴퓨팅](sizes-hpc.md)
+NC 시리즈 Vm은 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) 카드 및 Intel Xeon E5-2690 V3 (haswell) 프로세서를 기반으로 합니다. 사용자는 에너지 탐색 애플리케이션, 충돌 시뮬레이션, 광선 추적 렌더링, 딥러닝 등에 CUDA를 활용하여 데이터를 더 빠르게 처리할 수 있습니다. NC24r 구성은, 긴밀하게 결합된 병렬 컴퓨팅 워크로드용으로 최적화된 대기 시간이 짧고 처리량이 높은 네트워크 인터페이스를 제공합니다.
+
+[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대<br>
+<br>
+
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 |
+|---|---|---|---|---|---|---|---|
+| Standard_NC6    | 6  | 56  | 340  | 1 | 12 | 24 | 1 |
+| Standard_NC12   | 12 | 112 | 680  | 2 | 24 | 48 | 2 |
+| Standard_NC24   | 24 | 224 | 1440 | 4 | 48 | 64 | 4 |
+| Standard_NC24r* | 24 | 224 | 1440 | 4 | 48 | 64 | 4 |
+
+1 GPU = K80 카드의 절반.
+
+*RDMA 지원
+
+
+<br>
+
+
+### <a name="ncv2-series"></a>NCv2 시리즈
+**최신 크기 권장 사항**: [nc T4 V3 시리즈](nct4-v3-series.md) 및 [nc V100 v3 시리즈](ncv3-series.md)
+
+NCv2 시리즈 VM은 NVIDIA Tesla P100 GPU로 구동됩니다. 이러한 GPU는 NC 시리즈보다 2배를 초과하는 계산 성능을 제공할 수 있습니다. 고객은 저수지 모델링, DNA 배열, 단백질 분석, 몬테카를로 시뮬레이션 등 기존 HPC 워크로드에 이러한 업데이트된 GPU를 활용할 수 있습니다. Gpu 외에도 NCv2 시리즈 Vm은 Intel Xeon E5-2690 v4 (Broadwell) Cpu로 구동 됩니다.
+
+NC24rs v2 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화된 짧은 대기 시간과 높은 처리량의 네트워크 인터페이스를 제공합니다.
+
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+
+> 이 VM 시리즈의 경우 구독에서 vCPU (코어) 할당량은 초기에 각 지역에서 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md) 합니다.
+>
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+|---|---|---|---|---|---|---|---|---|
+| Standard_NC6s_v2    | 6  | 112 | 736  | 1 | 16 | 12 | 20000/200 | 4 |
+| Standard_NC12s_v2   | 12 | 224 | 1474 | 2 | 32 | 24 | 40000/400 | 8 |
+| Standard_NC24s_v2   | 24 | 448 | 2948 | 4 | 64 | 32 | 80000/800 | 8 |
+| Standard_NC24rs_v2* | 24 | 448 | 2948 | 4 | 64 | 32 | 80000/800 | 8 |
+
+한 개의 GPU = 한 개의 P100 카드
+
+*RDMA 지원
+
+<br>
+
+### <a name="nd-series"></a>ND 시리즈
+**최신 크기 권장 사항**: [NDv2 시리즈](ndv2-series.md) 및 [NC V100 v3 시리즈](ncv3-series.md)
+
+ND 시리즈 가상 머신은 AI 및 딥러닝 워크로드용으로 설계된 GPU 제품군에 새로 추가됩니다. 이 가상 머신은 교육 및 유추에 우수한 성능을 제공합니다. ND 인스턴스는 [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) Gpu 및 Intel Xeon E5-2690 V4 (Broadwell) cpu에 의해 구동 됩니다. 이 인스턴스는 단정밀도 부동 소수점 작업, Microsoft Cognitive Toolkit, TensorFlow, Caffe 및 기타 프레임워크를 활용하는 AI 워크로드에 우수한 성능을 제공합니다. ND 시리즈는 훨씬 큰 GPU 메모리 크기(24GB)도 제공하므로 더 큰 규모의 신경망 모델에도 적합합니다. NC 시리즈와 마찬가지로 ND 시리즈는 RDMA를 통한 대기 시간이 낮고 처리량이 높은 보조 네트워크 및 InfiniBand 연결과 함께 구성할 수 있으므로 여러 GPU를 사용한 대규모 교육 작업을 실행할 수 있습니다.
+
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+
+> 이 VM 시리즈의 경우 구독에서 지역별 vCPU (코어) 할당량은 처음에 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md) 합니다.
+>
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+|---|---|---|---|---|---|---|---|---|
+| Standard_ND6s    | 6  | 112 | 736  | 1 | 24 | 12 | 20000/200 | 4 |
+| Standard_ND12s   | 12 | 224 | 1474 | 2 | 48 | 24 | 40000/400 | 8 |
+| Standard_ND24s   | 24 | 448 | 2948 | 4 | 24 | 32 | 80000/800 | 8 |
+| Standard_ND24rs* | 24 | 448 | 2948 | 4 | 96 | 32 | 80000/800 | 8 |
+
+한 개의 GPU = 한 개의 P40 카드
+
+*RDMA 지원
+
+<br>
 
 ## <a name="next-steps"></a>다음 단계
 

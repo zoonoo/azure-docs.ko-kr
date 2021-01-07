@@ -2,15 +2,13 @@
 title: Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 description: 이 문서에서는 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서 사용할 수 없는 경우 가용성 테스트를 만들 수 있습니다.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320632"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945654"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
@@ -32,7 +30,7 @@ ms.locfileid: "87320632"
 
             ![기존 Application Insights 리소스 선택](media/availability-azure-functions/app-insights-resource.png)
 
-        - **검토 + 만들기** 선택
+        - **검토 + 만들기**를 선택합니다.
 - 타이머 트리거 함수에 대해 아직 Application Insights 리소스가 생성 되지 않은 경우:
     - 기본적으로 Azure Functions 응용 프로그램을 만들 때 Application Insights 리소스를 만들게 됩니다.
     - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](../../azure-functions/functions-create-scheduled-function.md) 방법에 대 한 지침을 따르세요 (정리 전 중지).
@@ -135,7 +133,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" /> <!-- Ensure you’re using the latest version -->
+        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version -->
     </ItemGroup>
 </Project>
 
@@ -183,7 +181,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 >![가용성 결과](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![종속성](media/availability-azure-functions/dependencies.png)
+>![50로 제한 된 종속성이 있는 새 쿼리 탭을 보여 주는 스크린샷](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>다음 단계
 

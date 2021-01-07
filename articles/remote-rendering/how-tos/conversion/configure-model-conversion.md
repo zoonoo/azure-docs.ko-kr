@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967210"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205322"
 ---
 # <a name="configure-the-model-conversion"></a>모델 변환 구성
 
@@ -33,7 +33,6 @@ ms.locfileid: "90967210"
         "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
         "recenterToOrigin" : { "type" : "boolean", "default" : false },
         "opaqueMaterialDefaultSidedness" : { "type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
-        "material-override" : { "type" : "string", "default" : "" },
         "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
         "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
         "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
@@ -85,10 +84,6 @@ ms.locfileid: "90967210"
 
 * `opaqueMaterialDefaultSidedness` - 렌더링 엔진은 불투명 재질을 양면으로 가정합니다.
 이러한 가정이 특정 모델에 대해 true가 아니면이 매개 변수를 "SingleSided"로 설정 해야 합니다. 자세한 내용은 [ :::no-loc text="single sided"::: 렌더링](../../overview/features/single-sided-rendering.md)을 참조 하세요.
-
-### <a name="material-overrides"></a>재질 재정의
-
-* `material-override` - 이 매개 변수를 사용하면 [변환 동안 재질 처리를 사용자 지정](override-materials.md)할 수 있습니다.
 
 ### <a name="material-de-duplication"></a>재질 중복 제거
 
@@ -200,7 +195,7 @@ ms.locfileid: "90967210"
 
 형식의 메모리 공간은 다음과 같습니다.
 
-| 형식 | 설명 | 바이트 당 바이트 :::no-loc text="vertex"::: |
+| 형식 | Description | 바이트 당 바이트 :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|2분 부동 소수점 배정밀도|8
 |16_16_FLOAT|2분 부동 소수점 단정밀도|4
@@ -263,7 +258,7 @@ ms.locfileid: "90967210"
 ### <a name="texture-sizes"></a>질감 크기
 
 시나리오 유형에 따라 텍스처 데이터의 양은 메시 데이터에 사용 되는 메모리 보다 클 수 있습니다. Photogrammetry 모델은 후보입니다.
-변환 구성은 질감을 자동으로 축소 하는 방법을 제공 하지 않습니다. 필요한 경우 질감 크기 조정을 클라이언트 쪽 전처리 단계로 수행 해야 합니다. 그러나 변환 단계에서는 적절 한 [질감 압축 형식을](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)선택 합니다.
+변환 구성은 질감을 자동으로 축소 하는 방법을 제공 하지 않습니다. 필요한 경우 질감 크기 조정을 클라이언트 쪽 전처리 단계로 수행 해야 합니다. 그러나 변환 단계에서는 적절 한 [질감 압축 형식을](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)선택 합니다.
 
 * `BC1` 불투명 한 색 질감
 * `BC7` 알파 채널이 있는 소스 색 질감
@@ -305,6 +300,8 @@ ms.locfileid: "90967210"
 
 비 모델 관련 파일 이름을 사용 하는 설정을 제공 하 `conversionSettings.json` 는 것은 계속 지원 되지만 사용 되지 않습니다.
 모델 관련 파일 이름을 대신 사용 하세요 `<modelName>.ConversionSettings.json` .
+
+`material-override`변환 설정 파일에서 [재질 재정의 파일](override-materials.md) 을 식별 하는 설정을 사용 하는 것은 여전히 지원 되지만 사용 되지 않습니다. 모델 관련 파일 이름을 대신 사용 하세요 `<modelName>.MaterialOverrides.json` .
 
 ## <a name="next-steps"></a>다음 단계
 

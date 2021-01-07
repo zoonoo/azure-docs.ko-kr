@@ -3,18 +3,18 @@ title: Azure Resource Manager 템플릿을 사용하여 서비스 배포
 titleSuffix: Azure Cognitive Search
 description: Azure Resource Manager 템플릿을 사용하여 Azure Cognitive Search 서비스 인스턴스를 빠르게 배포할 수 있습니다.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/15/2020
-ms.openlocfilehash: c7d11b9e699ec4cba59d2af9e411692cbce35278
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.date: 11/17/2020
+ms.openlocfilehash: 12aa7f123ec5e417d710636f2afb4c60231cefc1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640177"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746553"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Search 배포
 

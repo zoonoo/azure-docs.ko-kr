@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979888"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996647"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 액세스 요청
 
@@ -51,19 +51,19 @@ Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 �
 
 **필수 역할:** 요청
 
-1. 목록에서 액세스 패키지를 찾습니다.  필요한 경우 검색 문자열을 입력 하 고 **이름**, **카탈로그**또는 **리소스** 필터를 선택 하 여 검색할 수 있습니다.
+1. 목록에서 액세스 패키지를 찾습니다.  필요한 경우 검색 문자열을 입력 하 고 **이름**, **카탈로그** 또는 **리소스** 필터를 선택 하 여 검색할 수 있습니다.
 
     ![내 액세스 포털-리소스 검색](./media/entitlement-management-request-access/my-access-resource-search.png)
 
 1. 확인 표시를 클릭 하 여 액세스 패키지를 선택 합니다.
 
-1. **액세스 요청**을 클릭하여 액세스 요청 창을 엽니다.
+1. **액세스 요청** 을 클릭하여 액세스 요청 창을 엽니다.
 
     ![내 액세스 포털 - 액세스 패키지](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
 1. **비즈니스 근거** 상자가 표시 되 면 액세스를 필요로 하는 근거를 입력 합니다.
 
-1. **특정 기간에 대 한 요청** 을 사용 하도록 설정 되어 있으면 **예** 또는 **아니요**를 선택 합니다.
+1. **특정 기간에 대 한 요청** 을 사용 하도록 설정 되어 있으면 **예** 또는 **아니요** 를 선택 합니다.
 
 1. 필요한 경우 시작 날짜와 종료 날짜를 지정 합니다.
 

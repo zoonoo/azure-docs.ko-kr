@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697693"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
 이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다.  
 
-## <a name="general-best-practices"></a>일반 모범 사례
+## <a name="general-best-practices"></a>일반적인 유용한 정보
 
 Azure Functions를 사용하여 서버가 없는 솔루션을 빌드하고 설계하는 방법의 모범 사례는 다음과 같습니다.
 
@@ -44,7 +44,7 @@ Service Bus 토픽은 메시지를 처리하기 전에 필터링해야 하는 �
 
 ### <a name="write-functions-to-be-stateless"></a>상태 비저장 함수 작성 
 
-함수는 가능하면 상태 비저장이며 idempotent여야 합니다. 필요한 모든 상태 정보를 사용자 데이터에 연결합니다. 예를 들어 처리할 주문에 연결된 `state` 멤버가 있을 수 있습니다. 함수는 주문을 해당 상태에 따라 처리하며 함수 자체는 비저장 상태로 남아 있을 수 있습니다. 
+함수는 가능하면 상태 비저장이며 idempotent여야 합니다. 필요한 상태 정보를 데이터와 연결합니다. 예를 들어 처리할 주문에 연결된 `state` 멤버가 있을 수 있습니다. 함수는 주문을 해당 상태에 따라 처리하며 함수 자체는 비저장 상태로 남아 있을 수 있습니다. 
 
 Idempotent 함수는 특히 타이머 트리거 사용이 권장됩니다. 예를 들어, 하루에 한 번 실행 해야 하는 항목이 있는 경우 동일한 결과를 사용 하 여 하루 중에 언제 든 지 실행할 수 있도록 작성 합니다. 특정 날짜에 대 한 작업이 없으면 함수를 종료할 수 있습니다. 또한 이전 실행이 완료되지 못한 경우 다음 실행은 중단되었던 부분으로 돌아가야 합니다.
 
@@ -114,7 +114,7 @@ C # 함수의 경우 형식을 강력한 형식의 배열로 변경할 수 있�
 
 host.json 파일의 설정은 함수의 *단일 인스턴스* 내에서 앱 내의 모든 함수에 적용 됩니다. 예를 들어 두 개의 HTTP 함수를 사용 하는 함수 앱과 [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) 요청이 25로 설정 된 경우 http 트리거 중 하나에 대 한 요청은 공유 25 개의 동시 요청에 계산 됩니다.  해당 함수 앱의 크기가 10 개의 인스턴스로 조정 된 경우 두 함수는 250 동시 요청을 효과적으로 허용 합니다 (10 개 인스턴스 * 인스턴스당 동시 요청 25 개). 
 
-기타 호스트 구성 옵션은 [구성의host.js문서](functions-host-json.md)에 있습니다.
+기타 호스트 구성 옵션은 [ 구성의host.js문서](functions-host-json.md)에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

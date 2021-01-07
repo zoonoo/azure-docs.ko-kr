@@ -9,10 +9,10 @@ ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815473"
 ---
 디스크에 대해 고객이 관리 하는 키를 설정 하려면 특정 순서로 리소스를 만들어야 합니다 .이 작업을 처음 수행 하는 경우에는이 작업을 수행 해야 합니다. 먼저 Azure Key Vault를 만들고 설정 해야 합니다.
@@ -65,7 +65,7 @@ ms.locfileid: "88815473"
 1. **키를 선택 하려면 클릭**하십시오 .를 선택 합니다.
 1. 이전에 만든 키 자격 증명 모음 및 키와 버전을 선택 합니다.
 1. **선택**을 누릅니다.
-1. **검토 + 만들기** 및 **만들기**를 차례로 선택 합니다.
+1. **검토 + 만들기**, **만들기**를 차례로 선택합니다.
 
     ![디스크 암호화 생성 블레이드의 스크린샷 구독, 리소스 그룹, 디스크 암호화 집합 이름, 지역 및 키 자격 증명 모음 + 키 선택기를 표시 합니다.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 

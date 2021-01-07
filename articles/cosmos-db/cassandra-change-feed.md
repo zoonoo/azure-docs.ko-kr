@@ -7,56 +7,54 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 417a1dbc72c3b3c35c501351dcc8bda9dc95a78d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10f037dddcce43a1e023982af816660bd325d57f
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431599"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605096"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Cassandra에 대 한 Azure Cosmos DB API의 변경 피드
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-Cassandra에 대 한 Azure Cosmos DB API의 [변경 피드](change-feed.md) 지원은 CQL (Cassandra query Language)의 쿼리 조건자를 통해 사용할 수 있습니다. 이러한 조건자 조건을 사용 하 여 변경 피드 API를 쿼리할 수 있습니다. 응용 프로그램은 CQL에 필요한 기본 키 (파티션 키 라고도 함)를 사용 하 여 테이블에 대 한 변경 내용을 가져올 수 있습니다. 그런 다음 결과에 따라 추가 작업을 수행할 수 있습니다. 테이블의 행에 대 한 변경 내용은 수정 시간 순서 대로 캡처되고 파티션 키 당 정렬 순서가 보장 됩니다.
+Cassandra에 대 한 Azure Cosmos DB API의 [변경 피드](change-feed.md) 지원은 CQL (Cassandra query Language)의 쿼리 조건자를 통해 사용할 수 있습니다. 이러한 조건자 조건을 사용 하 여 변경 피드 API를 쿼리할 수 있습니다. 응용 프로그램은 CQL에 필요한 기본 키 (파티션 키 라고도 함)를 사용 하 여 테이블에 대 한 변경 내용을 가져올 수 있습니다. 그런 다음 결과에 따라 추가 작업을 수행할 수 있습니다. 테이블의 행에 대 한 변경 내용은 수정 시간 순서와 파티션 키 당 정렬 순서 대로 캡처됩니다.
 
-다음 예에서는 .NET을 사용 하 여 Cassandra API Keyspace 테이블의 모든 행에 대 한 변경 피드를 가져오는 방법을 보여 줍니다. 조건자 COSMOS_CHANGEFEED_START_TIME ()는 지정 된 시작 시간 (이 경우 현재 날짜/시간)에서 변경 피드의 항목을 쿼리 하기 위해 CQL 내에서 직접 사용 됩니다. [여기에서 c #](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) 에 대 한 전체 샘플 및 Java를 다운로드할 [수 있습니다.](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java)
+다음 예에서는 .NET을 사용 하 여 Cassandra API Keyspace 테이블의 모든 행에 대 한 변경 피드를 가져오는 방법을 보여 줍니다. 조건자 COSMOS_CHANGEFEED_START_TIME ()는 지정 된 시작 시간 (이 경우 현재 날짜/시간)에서 변경 피드의 항목을 쿼리 하기 위해 CQL 내에서 직접 사용 됩니다. [여기에서 c #](/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) 에 대 한 전체 샘플 및 Java를 다운로드할 [수 있습니다.](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java)
 
 각 반복에서 페이징 상태를 사용 하 여 마지막 요소 변경 내용을 읽은 후 쿼리를 다시 시작 합니다. Keyspace에서 테이블에 대 한 새 변경 내용의 연속 스트림을 볼 수 있습니다. 삽입 되거나 업데이트 되는 행에 대 한 변경 내용이 표시 됩니다. Cassandra API에서 변경 피드를 사용 하는 삭제 작업에 대 한 감시는 현재 지원 되지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
-        Session cassandraSession = utils.getSession();
+    Session cassandraSession = utils.getSession();
 
-        try {
-              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-               LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
-               String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
-                    + dtf.format(now)+ "'";
-               
-             byte[] token=null; 
-             System.out.println(query); 
-             while(true)
-             {
-                 SimpleStatement st=new  SimpleStatement(query);
-                 st.setFetchSize(100);
-                 if(token!=null)
-                     st.setPagingStateUnsafe(token);
-                 
-                 ResultSet result=cassandraSession.execute(st) ;
-                 token=result.getExecutionInfo().getPagingState().toBytes();
-                 
-                 for(Row row:result)
-                 {
-                     System.out.println(row.getString("user_name"));
-                 }
-             }
-                    
-
-        } finally {
-            utils.close();
-            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+    try {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+        String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+            + dtf.format(now)+ "'";
+        
+        byte[] token=null; 
+        System.out.println(query); 
+        while(true)
+        {
+            SimpleStatement st=new  SimpleStatement(query);
+            st.setFetchSize(100);
+            if(token!=null)
+                st.setPagingStateUnsafe(token);
+            
+            ResultSet result=cassandraSession.execute(st) ;
+            token=result.getExecutionInfo().getPagingState().toBytes();
+            
+            for(Row row:result)
+            {
+                System.out.println(row.getString("user_name"));
+            }
         }
-
+    } finally {
+        utils.close();
+        LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+    }
 ```
 
 # <a name="c"></a>[C#](#tab/csharp)
@@ -126,7 +124,7 @@ Cassandra에 대 한 Azure Cosmos DB API의 [변경 피드](change-feed.md) 지�
 
 ```java
     String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
-                    + dtf.format(now)+ "'";
+                       + dtf.format(now)+ "'";
     SimpleStatement st=new  SimpleStatement(query);
 ```
 ---
@@ -146,4 +144,4 @@ Cassandra API에서 변경 피드를 사용 하는 경우 다음과 같은 오�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Cassandra API 리소스 관리](manage-cassandra-with-resource-manager.md)
+* [Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB Cassandra API 리소스 관리](./templates-samples-cassandra.md)

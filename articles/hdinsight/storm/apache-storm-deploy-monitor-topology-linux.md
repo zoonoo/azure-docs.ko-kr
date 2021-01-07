@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085738"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995593"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
 이 문서에서는 HDInsight의 Storm 클러스터에서 실행되는 [Apache Storm](https://storm.apache.org/) 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
+* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 
 * 필드 SSH (Secure Shell) 및 SCP (Secure Copy)에 대해 잘 알고 있어야 합니다. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -40,22 +40,22 @@ Visual Studio 용 Data Lake 도구를 사용 하 여 c # 또는 하이브리드 
 
 1. Visual Studio를 시작합니다.
 
-1. **시작** 창에서 **새 프로젝트 만들기**를 선택합니다.
+1. **시작** 창에서 **새 프로젝트 만들기** 를 선택합니다.
 
-1. **새 프로젝트 만들기** 창에서 검색 상자를 선택 하 고을 입력 `Storm` 합니다. 그런 다음 결과 목록에서 **스톰 샘플** 을 선택 하 고 **다음**을 선택 합니다.
+1. **새 프로젝트 만들기** 창에서 검색 상자를 선택 하 고을 입력 `Storm` 합니다. 그런 다음 결과 목록에서 **스톰 샘플** 을 선택 하 고 **다음** 을 선택 합니다.
 
-1. **새 프로젝트 구성** 창에서 **프로젝트 이름을**입력 하 고로 이동 하거나 새 프로젝트를 저장할 **위치** 를 만듭니다. 그런 다음 **만들기**를 선택합니다.
+1. **새 프로젝트 구성** 창에서 **프로젝트 이름을** 입력 하 고로 이동 하거나 새 프로젝트를 저장할 **위치** 를 만듭니다. 그런 다음 **만들기** 를 선택합니다.
 
     ![새 프로젝트 창 구성, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
-1. **서버 탐색기**에서 **Azure** 를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결 ...을** 선택 하 여 로그인 프로세스를 완료 합니다.
+1. **서버 탐색기** 에서 **Azure** 를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결 ...을** 선택 하 여 로그인 프로세스를 완료 합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight의 스톰에 제출을**선택 합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight의 스톰에 제출을** 선택 합니다.
 
     > [!NOTE]  
     > 메시지가 표시되면 Azure 구독에 대한 로그인 자격 증명을 입력합니다. 하나 이상의 구독이 있는 경우 HDInsight 클러스터의 Storm을 포함하는 자격 증명으로 로그인합니다.
 
-1. **토폴로지 제출** 대화 상자의 **스톰 클러스터** 드롭다운 목록에서 HDInsight 클러스터의 스톰을 선택 하 고 **제출**을 선택 합니다. **출력** 창을 확인 하 여 전송의 성공 여부를 모니터링할 수 있습니다.
+1. **토폴로지 제출** 대화 상자의 **스톰 클러스터** 드롭다운 목록에서 HDInsight 클러스터의 스톰을 선택 하 고 **제출** 을 선택 합니다. **출력** 창을 확인 하 여 전송의 성공 여부를 모니터링할 수 있습니다.
 
 ## <a name="submit-a-topology-using-ssh-and-the-storm-command"></a>SSH 및 스톰 명령을 사용 하 여 토폴로지 제출
 
@@ -80,7 +80,7 @@ Visual Studio 용 Data Lake 도구를 사용 하 여 c # 또는 하이브리드 
 
 ## <a name="submit-a-topology-programmatically"></a>프로그래밍 방식으로 토폴로지 제출
 
-Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)Nimbus 서비스를 통해 토폴로지를 배포 하 고 시작 하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공 합니다.
+Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) Nimbus 서비스를 통해 토폴로지를 배포 하 고 시작 하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공 합니다.
 
 ## <a name="monitor-and-manage-a-topology-in-visual-studio"></a>Visual Studio에서 토폴로지 모니터링 및 관리
 
@@ -89,7 +89,7 @@ Visual Studio를 사용 하 여 토폴로지를 제출 하면 **스톰 토폴로
 ![모니터 토폴로지, 스톰 토폴로지 보기 창, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
-> **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다. **Azure**  >  **hdinsight**를 확장 하 고 hdinsight 클러스터의 스톰을 마우스 오른쪽 단추로 클릭 한 다음 **스톰 토폴로지 보기**를 선택 합니다.
+> **서버 탐색기** 에서 **Storm 토폴로지** 를 볼 수도 있습니다. **Azure**  >  **hdinsight** 를 확장 하 고 hdinsight 클러스터의 스톰을 마우스 오른쪽 단추로 클릭 한 다음 **스톰 토폴로지 보기** 를 선택 합니다.
 
 이러한 구성 요소에 대한 정보를 보려면 Spout 또는 Bolt에 대한 셰이프를 선택합니다. 선택한 항목에 대 한 구성 요소 정보가 포함 된 도구 설명이 표시 됩니다.
 
@@ -163,7 +163,7 @@ storm rebalance TOPOLOGYNAME
 
 ## <a name="monitor-and-manage-a-topology-using-the-storm-ui"></a>스톰 UI를 사용 하 여 토폴로지 모니터링 및 관리
 
-스톰 UI는 실행 중인 토폴로지를 사용 하기 위한 웹 인터페이스를 제공 하며 HDInsight 클러스터에 포함 되어 있습니다. Storm UI를 보려면 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net/stormui`를 엽니다. 여기서 *CLUSTERNAME*은 클러스터의 이름입니다.
+스톰 UI는 실행 중인 토폴로지를 사용 하기 위한 웹 인터페이스를 제공 하며 HDInsight 클러스터에 포함 되어 있습니다. Storm UI를 보려면 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net/stormui`를 엽니다. 여기서 *CLUSTERNAME* 은 클러스터의 이름입니다.
 
 > [!NOTE]  
 > 사용자 이름 및 암호를 입력 하 라는 메시지가 표시 되 면 클러스터를 만들 때 사용한 클러스터 관리자 사용자 이름 및 암호를 입력 합니다.
@@ -226,7 +226,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 | Spout stats 또는 볼트 통계 | Spout 또는 Bolt에 대한 통계입니다. 이 섹션의 항목에 대 한 시간 프레임을 설정 하려면 **창** 열에서 해당 링크를 선택 합니다. |
 | (볼트 전용)<br/>입력 통계 *(시간 프레임)* | Bolt에서 사용하는 입력 스트림에 대한 정보입니다. |
 | 출력 통계 *(시간 프레임)* | Spout 또는 Bolt가 내보낸 스트림에 대한 정보입니다. |
-| 프로 파일링 및 디버깅 | 이 페이지에서 구성 요소를 프로 파일링 및 디버깅 하는 컨트롤입니다. **상태/시간 제한 (분)** 값을 설정 하 고 **jstack**, **Restart Worker**및 **Heap**에 대 한 단추를 선택할 수 있습니다. |
+| 프로 파일링 및 디버깅 | 이 페이지에서 구성 요소를 프로 파일링 및 디버깅 하는 컨트롤입니다. **상태/시간 제한 (분)** 값을 설정 하 고 **jstack**, **Restart Worker** 및 **Heap** 에 대 한 단추를 선택할 수 있습니다. |
 | 실행자 *(시간 프레임)* | Spout 또는 Bolt의 인스턴스에 대한 정보입니다. 이 인스턴스에 대해 생성 된 진단 정보 로그를 보려면 특정 실행자에 대 한 **포트** 항목을 선택 합니다. 또한 **호스트** 열에서 해당 링크를 선택 하 여 특정 실행자와 연결 된 작업자 리소스를 볼 수 있습니다. |
 | 오류 | Spout 또는 Bolt에 대한 오류 정보입니다. |
 
@@ -249,15 +249,15 @@ Linux 기반 HDInsight 클러스터의 REST API에 대 한 기본 URI는 URL 주
 
 여러 가지 방법으로 클러스터 헤드 노드에 대 한 FQDN (정규화 된 도메인 이름)을 찾을 수 있습니다.
 
-| FQDN 검색 방법 | 설명 |
+| FQDN 검색 방법 | Description |
 | --- | --- |
 | SSH 세션 | SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다. |
-| Ambari 웹 | Ambari cluster 웹 페이지 ()의 `https://CLUSTERNAME.azurehdinsight.net` 페이지 위쪽에서 **서비스** 를 선택 하 고 **스톰**을 선택 합니다. **요약** 탭에서 **Storm UI 서버**를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다. |
+| Ambari 웹 | Ambari cluster 웹 페이지 ()의 `https://CLUSTERNAME.azurehdinsight.net` 페이지 위쪽에서 **서비스** 를 선택 하 고 **스톰** 을 선택 합니다. **요약** 탭에서 **Storm UI 서버** 를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다. |
 | Ambari REST API | `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 명령을 사용하여 Storm UI 및 REST API가 실행 중인 노드에 관한 정보를 검색합니다. *CLUSTERNAME* 의 두 인스턴스를 클러스터 이름으로 바꿉니다. 메시지가 표시 되 면 사용자 (관리자) 계정에 대 한 암호를 입력 합니다. 응답에서 JSON 출력의 "host_name" 항목에는 노드의 FQDN이 포함 되어 있습니다. |
 
 ### <a name="authentication"></a>인증
 
-REST API에 대 한 요청은 *기본 인증*을 사용 해야 하므로 HDInsight 클러스터에 대 한 관리자 이름과 암호를 사용 해야 합니다.
+REST API에 대 한 요청은 *기본 인증* 을 사용 해야 하므로 HDInsight 클러스터에 대 한 관리자 이름과 암호를 사용 해야 합니다.
 
 > [!NOTE]  
 > 기본 인증은 일반 텍스트로 전송되기 때문에 클러스터와의 안전한 통신을 위해서는 *항상* HTTPS를 사용해야 합니다.

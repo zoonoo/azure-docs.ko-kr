@@ -1,17 +1,17 @@
 ---
 title: 비즈니스 연속성-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL를 사용 하는 경우 비즈니스 연속성 (지정 시간 복원, 데이터 센터 중단, 지역 복원, 복제본)을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612024"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423048"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버를 사용한 비즈니스 연속성 개요
 
@@ -19,16 +19,24 @@ ms.locfileid: "89612024"
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 기능
 
-Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 복원을 시작할 수 있는 기능을 포함하는 비즈니스 연속성 기능이 제공됩니다. 이러한 기능은 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성이 있습니다. ERT (예상 복구 시간)는 복원/장애 조치 (failover) 요청 후 데이터베이스가 완전 하 게 작동 하는 데 예상 되는 기간입니다. 이러한 옵션을 이해하면 적절한 옵션을 선택하여 다양한 시나리오에 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
+비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
 
-다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
+Azure Database for PostgreSQL는 지역에서 복원을 시작 하 고 다른 지역에 읽기 복제본을 배포할 수 있는 지역 중복 백업을 포함 하는 비즈니스 연속성 기능을 제공 합니다. 각에는 복구 시간과 잠재적 데이터 손실에 대 한 다양 한 특성이 있습니다. [지역 복원](concepts-backup.md) 기능을 사용 하면 다른 지역에서 복제 된 백업 데이터를 사용 하 여 새 서버를 만들 수 있습니다. 복원 및 복구 하는 데 걸리는 전체 시간은 데이터베이스의 크기와 복구할 로그의 양에 따라 달라 집니다. 서버를 설정 하는 전체 시간은 몇 분에서 몇 시간까지 다릅니다. [읽기 복제본](concepts-read-replicas.md)을 사용 하는 경우 주 데이터베이스의 트랜잭션 로그는 복제본으로 비동기적으로 스트리밍됩니다. 영역 수준 또는 지역 수준 오류로 인해 주 데이터베이스가 중단 되는 경우 복제본에 대 한 장애 조치 (failover)는 더 짧은 RTO를 제공 하 고 데이터 손실을 줄입니다.
 
-| **기능** | **기본** | **일반 용도** | **메모리에 최적화** |
+> [!NOTE]
+> 주 서버와 복제본 사이의 지연은 사이트 간의 대기 시간, 전송할 데이터의 양 및 주 서버의 쓰기 작업에 가장 중요 한 시간에 따라 달라 집니다. 많은 쓰기 작업에서 상당한 지연 시간을 생성할 수 있습니다. 
+>
+> 읽기 복제본에 사용 되는 복제의 비동기 특성 때문에 더 높은 지연 시간이 더 높은 RTO 및 RPO를 의미할 수 있으므로 HA (고가용성) 솔루션으로 간주 **되어서는** 안 됩니다. 지연 시간이 작업의 피크 및 피크 시간 보다 더 작게 유지 되는 워크 로드의 경우에만 읽기 복제본이 HA로 동작할 수 있습니다. 그렇지 않으면 읽기 복제본은 준비 된 많은 워크 로드 및 (재해 복구) DR 시나리오에 대 한 진정한 읽기 규모를 위한 것입니다.
+
+다음 표에서는 **일반적인 워크 로드** 시나리오에서 RTO 및 RPO를 비교 합니다.
+
+| **기능** | **기본** | **범용** | **메모리에 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
-| 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
+| 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | RTO-다양 <br/>RPO < 1시간 | RTO-다양 <br/>RPO < 1시간 |
+| 읽기 복제본 | RTO-분 * <br/>RPO < 5 분 * | RTO-분 * <br/>RPO < 5 분 *| RTO-분 * <br/>RPO < 5 분 *|
 
-또한 [읽기 복제본](concepts-read-replicas.md)을 사용 하는 것을 고려할 수 있습니다.
+ \* 사이트 간 대기 시간, 전송 되는 데이터의 양 및 중요 한 주 데이터베이스 쓰기 작업을 비롯 한 다양 한 요인에 따라 RTO 및 RPO가 **훨씬 더 높아질 수 있습니다** . 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>사용자 또는 애플리케이션 오류가 발생한 후 서버 복구
 
@@ -53,7 +61,7 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 > 지역 복원은 지역 중복 백업 스토리지로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 pg_dump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.
 
 ## <a name="cross-region-read-replicas"></a>영역 간 읽기 복제본
-지역 간 읽기 복제본을 사용 하 여 비즈니스 연속성 및 재해 복구 계획을 향상할 수 있습니다. 읽기 복제본은 PostgreSQL의 물리적 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다. 복제본 읽기, 사용 가능한 지역 및 장애 조치 (failover) 방법에 대 한 자세한 내용은 [복제본 읽기 개념 문서](concepts-read-replicas.md)를 참조 하세요. 
+지역 간 읽기 복제본을 사용 하 여 비즈니스 연속성 및 재해 복구 계획을 향상할 수 있습니다. 읽기 복제본은 PostgreSQL의 물리적 복제 기술을 사용 하 여 비동기적으로 업데이트 되며 주 복제본이 지연 될 수 있습니다. 복제본 읽기, 사용 가능한 지역 및 장애 조치 (failover) 방법에 대 한 자세한 내용은 [복제본 읽기 개념 문서](concepts-read-replicas.md)를 참조 하세요. 
 
 ## <a name="faq"></a>FAQ
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>어디에서 고객 데이터를 저장 Azure Database for PostgreSQL?

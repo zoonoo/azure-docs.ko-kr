@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 80299b66b614e3d31778902c86e8e43f9f1b95de
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: b15ee7091a68f7fcc79c71877c4af28b511b84de
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086116"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680138"
 ---
 # <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
@@ -31,9 +31,9 @@ ms.locfileid: "90086116"
 > [!TIP]
 > 열 지도 계층은 기본적으로 데이터 원본에 있는 모든 기 하 도형의 좌표를 렌더링 합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 속성을로 설정 `['==', ['geometry-type'], 'Point']` 합니다. MultiPoint 기능도 포함 하려면 `filter` 계층의 속성을로 설정 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 합니다.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
 
 ## <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
@@ -103,7 +103,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="일관 된 확대/열 지도" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()를 기준으로 펜 일치 확대/ <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>열 지도</a> 를 볼 수 <a href='https://codepen.io/azuremaps'>@azuremaps</a> 있습니다. <a href='https://codepen.io'>CodePen</a>
+CodePen의 Azure Maps ()를 기준으로 펜 일치 확대/ <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>열 지도</a> 를 볼 수 <a href='https://codepen.io/azuremaps'>@azuremaps</a> 있습니다. <a href='https://codepen.io'></a>
 </iframe>
 
 > [!TIP]
@@ -120,10 +120,10 @@ CodePen의 Azure Maps ()를 기준으로 펜 일치 확대/ <a href='https://cod
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 

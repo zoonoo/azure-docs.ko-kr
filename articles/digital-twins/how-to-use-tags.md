@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 59f68909e2f3704fea5c38e3f1535f5996b284ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2620b52c426871b0ec85e3db237be2d373d42f1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099173"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458704"
 ---
 # <a name="add-tags-to-digital-twins"></a>디지털 쌍에 태그 추가 
 
@@ -69,13 +69,13 @@ entity-03: "tags": { "red": true, "large": true }
 "Red"로 태그가 지정 된 모든 쌍을 가져오는 쿼리는 다음과 같습니다. 
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
 ```
 
 더 복잡 한 쿼리에 대 한 태그를 결합할 수도 있습니다. 다음은 빨간색이 아닌 라운드 된 모든 쌍을 가져오는 쿼리입니다. 
 
 ```sql
-select * from digitaltwins where not is_defined(tags.red) and is_defined(tags.round) 
+SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND is_defined(tags.round) 
 ```
 
 ## <a name="value-tags"></a>값 태그 
@@ -127,13 +127,13 @@ entity-03: "tags": { "red": "", "size": "small" }
 위의 예제에서 `red` 는 표식 태그로 사용 됩니다. "Red"로 태그가 지정 된 모든 쌍을 가져오는 쿼리는 다음과 같습니다. 
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+SELECT * FROM digitaltwins WHERE is_defined(tags.red) 
 ```
 
 다음은 작은 (값 태그) 인 모든 엔터티를 가져오는 쿼리 이며 빨간색은 아닙니다. 
 
 ```sql
-select * from digitaltwins where not is_defined(tags.red) and tags.size = 'small' 
+SELECT * FROM digitaltwins WHERE NOT is_defined(tags.red) AND tags.size = 'small' 
 ```
 
 ## <a name="next-steps"></a>다음 단계

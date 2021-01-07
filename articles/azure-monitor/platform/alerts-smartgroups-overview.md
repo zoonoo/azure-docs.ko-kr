@@ -4,12 +4,12 @@ description: 스마트 그룹은 경고 노이즈를 줄이는 데 도움이 되
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 743bd1a674c034cd6a0350f959289ac3ecb568de
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665496"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186612"
 ---
 # <a name="smart-groups"></a>스마트 그룹
 
@@ -23,17 +23,17 @@ ms.locfileid: "77665496"
 
 ## <a name="smart-group-state"></a>스마트 그룹 상태
 
-스마트 그룹 상태는 경고 상태와 유사한 개념으로, 스마트 그룹 수준에서 해결 프로세스를 관리할 수 있습니다. 경고 상태와 유사하게, 스마트 그룹을 만들 때는 **새로 만들기** 상태이며, **확인됨** 또는 **닫힘**으로 변경될 수 있습니다.
+스마트 그룹 상태는 경고 상태와 유사한 개념으로, 스마트 그룹 수준에서 해결 프로세스를 관리할 수 있습니다. 경고 상태와 유사하게, 스마트 그룹을 만들 때는 **새로 만들기** 상태이며, **확인됨** 또는 **닫힘** 으로 변경될 수 있습니다.
 
 다음 스마트 그룹 상태가 지원됩니다.
 
-| 시스템 상태 | 설명 |
+| 시스템 상태 | Description |
 |:---|:---|
 | 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
-| 확인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
-| 종결 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
+| 승인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
+| 해결됨 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
 
-[스마트 그룹의 상태를 변경하는 방법을 알아보세요.](https://aka.ms/managing-alert-smart-group-states)
+[스마트 그룹의 상태를 변경하는 방법을 알아보세요.](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 > [!NOTE]
 >  스마트 그룹의 상태를 변경해도 개별 멤버 경고의 상태는 변경되지 않습니다.
@@ -58,7 +58,5 @@ ms.locfileid: "77665496"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스마트 그룹 관리](https://aka.ms/managing-smart-groups)
-- [경고 및 스마트 그룹 상태 변경](https://aka.ms/managing-alert-smart-group-states)
-
-
+- [스마트 그룹 관리](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [경고 및 스마트 그룹 상태 변경](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)

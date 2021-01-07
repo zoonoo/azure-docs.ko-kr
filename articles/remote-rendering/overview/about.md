@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021445"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91650462"
 ---
 # <a name="about-azure-remote-rendering"></a>Azure Remote Rendering 정보
 
@@ -20,7 +20,7 @@ ms.locfileid: "84021445"
 
 *ARR(Azure Remote Rendering)* 은 클라우드에서 고품질의 대화형 3D 콘텐츠를 렌더링하고 HoloLens 2와 같은 디바이스에서 실시간으로 스트리밍할 수 있는 서비스입니다.
 
-![샘플 모델](../media/arr-engine.png)
+![렌더링된 고품질 대화형 3D 자동차 엔진 예제를 보여주는 다이어그램.](../media/arr-engine.png)
 
 테더링되지 않은 디바이스는 복잡한 모델을 렌더링하는 컴퓨팅 성능이 제한적입니다. 하지만 많은 애플리케이션에서는 어떤 형태로든 시각적 충실도를 낮추는 것이 용납되지 않습니다. 다음 스크린샷에서는 일반적인 콘텐츠 생성 도구를 사용하여 손상된 모델과 전체 정보가 있는 모델을 비교합니다.
 

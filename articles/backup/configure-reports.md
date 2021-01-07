@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0ede2c8507032811eda26cfcb4d90f18578f3700
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180289"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325250"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -18,17 +18,20 @@ ms.locfileid: "89180289"
 - 백업 및 복원을 감사합니다.
 - 여러 세분성 수준에서 주요 추세를 확인합니다.
 
-현재 Azure Backup은 [Azure Monitor 로그](../azure-monitor/log-query/get-started-portal.md) 및 [Azure 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 사용하는 보고 솔루션을 제공합니다. 이러한 리소스를 통해 전체 백업 자산의 백업에 대한 풍부한 인사이트를 얻을 수 있습니다. 이 문서에서는 Azure Backup 보고서를 구성하고 보는 방법을 설명합니다.
+현재 Azure Backup은 [Azure Monitor 로그](../azure-monitor/log-query/log-analytics-tutorial.md) 및 [Azure 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 사용하는 보고 솔루션을 제공합니다. 이러한 리소스를 통해 전체 백업 자산의 백업에 대한 풍부한 인사이트를 얻을 수 있습니다. 이 문서에서는 Azure Backup 보고서를 구성하고 보는 방법을 설명합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
 - Azure VM, Azure VM의 SQL, Azure VM의 SAP HANA, MARS(Microsoft Azure Recovery Services) 에이전트, MABS(Microsoft Azure Backup Server) 및 System Center DPM(Data Protection Manager)에서 Backup 보고서가 지원됩니다. Azure 파일 공유 백업의 경우 2020 년 6 월 1 일 이후에 생성 된 모든 레코드에 대해 데이터가 표시 됩니다.
+- Azure 파일 공유 백업에서 보호 된 인스턴스의 데이터는 현재 보고서에 표시 되지 않습니다. 모든 백업 항목에 대해 기본값은 0입니다.
 - DPM 워크로드의 경우 DPM 버전 5.1.363.0 이상 및 에이전트 버전 2.0.9127.0 이상에서 Backup 보고서가 지원됩니다.
 - MABS 워크로드의 경우 MABS 버전 13.0.415.0 이상 및 에이전트 버전 2.0.9170.0 이상에서 Backup 보고서가 지원됩니다.
 - 사용자가 액세스할 수 있는 Log Analytics 작업 영역으로 데이터가 전송되는 모든 백업 항목, 자격 증명 모음, 구독 및 지역에서 Backup 보고서를 볼 수 있습니다. 자격 증명 모음 집합에 대한 보고서를 보려면 자격 증명 모음이 데이터를 보내는 Log Analytics 작업 영역에 대한 읽기 권한만 있으면 됩니다. 개별 자격 증명 모음에 대한 액세스 권한은 필요 없습니다.
 - 고객의 구독에 대한 위임된 액세스 권한이 있는 [Azure Lighthouse](../lighthouse/index.yml) 사용자인 경우 Azure Lighthouse에서 이러한 보고서를 사용하여 모든 테넌트의 보고서를 볼 수 있습니다.
 - 현재는 최대 100개 Log Analytics 작업 영역(테넌트 전체)에서 Backup 보고서를 통해 데이터를 볼 수 있습니다.
 - 로그 백업 작업에 대한 데이터는 현재 보고서에 표시되지 않습니다.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="get-started"></a>시작하기
 
@@ -46,7 +49,7 @@ Log Analytics 작업 영역을 설정하려면 [Azure Portal에서 Log Analytics
 
 Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소스는 예약된 작업과 사용자가 트리거한 작업에 대한 정보를 진단 데이터로 기록합니다.
 
-Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설정**을 선택하고 Recovery Services 자격 증명 모음의 진단 데이터 대상을 지정합니다. 진단 이벤트 사용에 대한 자세한 내용은 [Recovery Services 자격 증명 모음에 진단 설정 사용](./backup-azure-diagnostic-events.md)을 참조하세요.
+Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설정** 을 선택하고 Recovery Services 자격 증명 모음의 진단 데이터 대상을 지정합니다. 진단 이벤트 사용에 대한 자세한 내용은 [Recovery Services 자격 증명 모음에 진단 설정 사용](./backup-azure-diagnostic-events.md)을 참조하세요.
 
 ![진단 설정 창](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
@@ -57,7 +60,7 @@ Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Azure Portal에서 보고서 보기
 
-Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후에는 자격 증명 모음 창으로 이동하고 **Backup 보고서**를 선택하여 Backup 보고서를 봅니다.
+Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후에는 자격 증명 모음 창으로 이동하고 **Backup 보고서** 를 선택하여 Backup 보고서를 봅니다.
 
 ![자격 증명 모음 대시보드](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
@@ -82,7 +85,7 @@ Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후
 
    ![Backup 항목 탭](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-##### <a name="usage"></a>사용량
+##### <a name="usage"></a>사용
 
 이 탭을 사용 하 여 백업에 대 한 주요 청구 매개 변수를 볼 수 있습니다. 이 탭에 표시되는 정보는 청구 엔터티(보호된 컨테이너) 수준에 있습니다. 예를 들어 DPM 서버를 Azure에 백업 하는 경우 DPM 서버에 사용 되는 보호 된 인스턴스 및 클라우드 저장소의 추세를 볼 수 있습니다. 마찬가지로 Azure Backup에서 SQL을 사용하거나 Azure Backup에서 SAP HANA를 사용하는 경우 이 탭은 이러한 데이터베이스가 들어 있는 가상 머신 수준에서 사용 관련 정보를 제공합니다.
 
@@ -154,10 +157,10 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 - 필터는 각 탭의 왼쪽에서 오른쪽으로, 위쪽에서 아래쪽으로 적용됩니다. 즉, 필터는 해당 필터의 오른쪽 또는 해당 필터의 아래쪽에 있는 모든 위젯에 적용됩니다.
 - 색이 지정된 타일을 선택하면 해당 타일의 값과 관련된 레코드에 대한 타일 아래의 위젯이 필터링됩니다. 예를 들어 **Backup 항목** 탭에서 **보호 중지됨** 타일을 선택하면 [보호 중지 됨] 상태의 백업 항목에 대한 데이터를 표시하도록 그 아래의 그리드와 차트가 필터링됩니다.
 - 색이 지정 되지 않은 타일은 선택할 수 없습니다.
-- 당일 데이터는 보고서에 표시되지 않습니다. 따라서 **시간 범위** 값을 **지난 7일**로 선택하면 날짜가 완전히 지난 7일의 레코드가 보고서에 표시됩니다. 당일은 포함되지 않습니다.
+- 당일 데이터는 보고서에 표시되지 않습니다. 따라서 **시간 범위** 값을 **지난 7일** 로 선택하면 날짜가 완전히 지난 7일의 레코드가 보고서에 표시됩니다. 당일은 포함되지 않습니다.
 - 보고서에는 선택한 시간 범위에서 *트리거된* 작업(로그 작업과 별개)의 세부 정보가 표시됩니다.
-- **클라우드 스토리지** 및 **보호된 인스턴스**에 대해 표시되는 값은 선택한 시간 범위의 *끝*에 있습니다.
-- 보고서에 표시되는 Backup 항목은 선택한 시간 범위의 *끝*에 있는 항목입니다. 선택한 시간 범위 도중에 삭제된 Backup 항목은 표시되지 않습니다. Backup 정책에도 동일한 규칙이 적용됩니다.
+- **클라우드 스토리지** 및 **보호된 인스턴스** 에 대해 표시되는 값은 선택한 시간 범위의 *끝* 에 있습니다.
+- 보고서에 표시되는 Backup 항목은 선택한 시간 범위의 *끝* 에 있는 항목입니다. 선택한 시간 범위 도중에 삭제된 Backup 항목은 표시되지 않습니다. Backup 정책에도 동일한 규칙이 적용됩니다.
 
 ## <a name="query-load-times"></a>쿼리 로드 시간
 

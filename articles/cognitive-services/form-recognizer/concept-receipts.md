@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751981"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845467"
 ---
 # <a name="receipt-concepts"></a>수신 개념
 
@@ -29,7 +29,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 수신 API는 OCR (광학 문자 인식) 및 미리 작성 된 수신 모델을 사용 하 여 이러한 수신 처리 시나리오를 지원 하 고, 전송 업체 이름, 팁, 합계, 품목 등의 수신 데이터에서 데이터를 추출 합니다. 이 API를 사용 하 여 모델을 학습 하지 않아도 됩니다. 확인을 분석 수신 API로 보내고 데이터를 추출 합니다.
 
-![샘플 수신](./media/contoso-receipt-small.png)
+![샘플 영수증](./media/contoso-receipt-small.png)
 
 ## <a name="what-does-the-receipt-api-do"></a>수신 API는 무엇을 하나요? 
 
@@ -57,6 +57,13 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 * OCR 원시 텍스트 (전체 수신에 대 한 OCR 추출 된 텍스트 출력)
 * 각 값, 줄 및 단어에 대 한 경계 상자
 
+## <a name="try-it-out"></a>사용해 보기
+
+양식 인식기 수신 서비스를 사용해 보려면 온라인 샘플 UI 도구로 이동 합니다.
+
+> [!div class="nextstepaction"]
+> [미리 빌드된 모델 사용해보기](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>입력 요구 사항
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 ## <a name="supported-locales"></a>지원 되는 로캘 
 
 * GA ( **미리 작성 된 수신** )는 en-us 로캘의 판매 영수증을 지원 합니다.
-* **미리 작성 된 수령 v 2.1-preview. 1** (공개 미리 보기)에는 다음 EN 수신 로캘에 대 한 추가 지원이 추가 되었습니다. 
+* **미리 작성 된 수령 v 2.1-preview. 2** (공개 미리 보기)는 다음 EN 수신 로캘에 대 한 추가 지원을 추가 합니다. 
   * EN-오스트레일리아 
   * EN-CA 
   * EN-US 
@@ -73,15 +80,12 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
   > [!NOTE]
   > 언어 입력 
   >
-  > 미리 작성 된 수신 v 2.1-preview. 1에는 추가 영어 시장에서 수신 로캘을 지정 하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아 (EN-US), 캐나다 (EN-US), 뛰어난 Britain (en-us) 및 인도 (EN-US)의 영어로 판매 영수증을 위해 로캘을 지정 하 여 향상 된 결과를 얻을 수 있습니다. V 2.1-preview. 1에 지정 된 로캘이 없으면 모델은 기본적으로 EN-US 모델로 지정 됩니다.
-  
- ### <a name="input-requirements"></a>입력 요구 사항 
+  > 미리 작성 된 수신 v 2.1-preview. 2에는 추가 영어 시장에서 수신 로캘을 지정 하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아 (EN-US), 캐나다 (EN-US), 뛰어난 Britain (en-us) 및 인도 (EN-US)의 영어로 판매 영수증을 위해 로캘을 지정 하 여 향상 된 결과를 얻을 수 있습니다. V 2.1-preview. 2에서 로캘이 지정 되지 않은 경우 모델은 기본적으로 EN-US 모델로 지정 됩니다.
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-receipt-operation"></a>분석 확인 작업
 
-[분석 확인](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) 은 확인의 이미지나 PDF를 입력으로 사용 하 여 intrest 및 텍스트의 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
+[분석 확인](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) 은 확인의 이미지나 PDF를 입력으로 사용 하 고 관심 및 텍스트의 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
@@ -89,7 +93,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>수신 결과 분석 가져오기 작업
 
-두 번째 단계는 [분석 수신 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) 작업을 호출 하는 것입니다. 이 작업은 확인 분석 작업으로 만들어진 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
+두 번째 단계는 [분석 수신 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) 작업을 호출 하는 것입니다. 이 작업은 확인 분석 작업으로 만들어진 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
 |필드| Type | 가능한 값 |
 |:-----|:----:|:----|
@@ -440,7 +444,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 비즈니스 경비를 확인 하는 것은 종종 수신 이미지에서 데이터를 수동으로 입력 하는 시간을 지출 합니다. 수신 API를 사용 하면 추출 된 필드를 사용 하 여이 프로세스를 부분적으로 자동화 하 고 확인을 신속 하 게 분석할 수 있습니다.  
 
-수신 API에는 간단한 JSON 출력이 있으므로 추출 된 필드 값을 여러 가지 방법으로 사용할 수 있습니다. 내부 비용 응용 프로그램과 통합 하 여 경비 보고서를 미리 채웁니다. 이 시나리오에 대 한 자세한 내용은 Acumatica에서 수신 API를 활용 하 여 [비용을 보고](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure)하는 프로세스를 확인 하는 방법을 참조 하세요.  
+수신 API에는 간단한 JSON 출력이 있으므로 추출 된 필드 값을 여러 가지 방법으로 사용할 수 있습니다. 내부 비용 응용 프로그램과 통합 하 여 경비 보고서를 미리 채웁니다. 이 시나리오에 대 한 자세한 내용은 Acumatica에서 수신 API를 활용 하 여 [비용을 보고](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)하는 프로세스를 확인 하는 방법을 참조 하세요.  
 
 ### <a name="auditing-and-accounting"></a>감사 및 계정 
 
@@ -452,11 +456,13 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 수신 확인에는 소비자 동작 및 쇼핑 추세를 분석 하는 데 사용할 수 있는 유용한 데이터가 포함 되어 있습니다.
 
-수신 API는 또한 [AIBuilder 수신 처리 기능](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing)을 향상 시킵니다.
+또한 수신 API는 [AI 작성기 수신 처리 기능](/ai-builder/prebuilt-receipt-processing)을 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 빠른 시작에서 [수신 API Python 빠른](./quickstarts/python-receipts.md)시작을 참조 하세요.
-- [양식 인식기 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)에 대해 알아봅니다.
-- [폼 인식기](overview.md)에 대해 자세히 알아보세요.
+- 양식 인식기를 사용 하 여 사용자가 선택한 언어로 수신 처리 앱을 작성 하기 시작 하려면 [양식 인식기 빠른](quickstarts/client-library.md) 시작을 완료 하세요.
 
+## <a name="see-also"></a>참조
+
+* [Form Recognizer란?](./overview.md)
+* [REST API 참조 문서](./index.yml)

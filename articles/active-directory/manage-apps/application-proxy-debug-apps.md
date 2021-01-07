@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: e61ea30f01e8ae141d24c9bd91b08edef4dbe74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85555063"
 ---
 # <a name="debug-application-proxy-application-issues"></a>애플리케이션 프록시 디버그 애플리케이션 이슈 
@@ -44,7 +44,7 @@ ms.locfileid: "85555063"
 |1 | 브라우저를 열고 앱에 액세스 한 다음 자격 증명을 입력 합니다. | 자격 증명을 사용 하 여 앱에 로그인 하 고, [이 회사 앱에 액세스할 수 없는](application-proxy-sign-in-bad-gateway-timeout-error.md)경우와 같은 사용자 관련 오류를 확인 하세요. |
 |2 | 앱에 대 한 사용자 할당 확인 | 사용자 계정에 회사 네트워크 내부에서 앱에 액세스할 수 있는 권한이 있는지 확인 한 다음 [응용 프로그램 테스트](application-proxy-add-on-premises-application.md#test-the-application)의 단계를 수행 하 여 앱에 대 한 로그인을 테스트 합니다. 로그인 문제가 지속 되 [는 경우 로그인 오류 문제를 해결 하는 방법](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요.  |
 |3 | 브라우저를 열고 앱에 액세스를 시도 합니다. | 오류가 즉시 표시 되 면 응용 프로그램 프록시가 올바르게 구성 되어 있는지 확인 하십시오. 특정 오류 메시지에 대 한 자세한 내용은 [응용 프로그램 프록시 문제 및 오류 메시지 문제 해결](application-proxy-troubleshoot.md)을 참조 하세요.  |
-|4 | 사용자 지정 도메인 설정을 확인 하거나 오류를 해결 하십시오. | 페이지가 전혀 표시 되지 않으면 사용자 지정 도메인에 대 한 [작업](application-proxy-configure-custom-domain.md)을 검토 하 여 사용자 지정 도메인이 올바르게 구성 되어 있는지 확인 합니다.<br></br>페이지가 로드 되지 않고 오류 메시지가 표시 되 면 [응용 프로그램 프록시 문제 및 오류 메시지 문제 해결](application-proxy-troubleshoot.md)을 참조 하 여 오류를 해결 하십시오. <br></br>오류 메시지를 표시 하는 데 20 초 이상이 소요 되는 경우 연결 문제가 있을 수 있습니다. [디버그 응용 프로그램 프록시 커넥터](application-proxy-debug-connectors.md) 문제 해결 문서로 이동 합니다.  |
+|4 | 사용자 지정 도메인 설정을 확인 하거나 오류를 해결 하십시오. | 페이지가 전혀 표시 되지 않으면 사용자 지정 도메인에 대 한 [작업](application-proxy-configure-custom-domain.md)을 검토 하 여 사용자 지정 도메인이 올바르게 구성 되어 있는지 확인 합니다.<br></br>페이지가 로드 되지 않고 오류 메시지가 표시 되 면  [응용 프로그램 프록시 문제 및 오류 메시지 문제 해결](application-proxy-troubleshoot.md)을 참조 하 여 오류를 해결 하십시오. <br></br>오류 메시지를 표시 하는 데 20 초 이상이 소요 되는 경우 연결 문제가 있을 수 있습니다. [디버그 응용 프로그램 프록시 커넥터](application-proxy-debug-connectors.md) 문제 해결 문서로 이동 합니다.  |
 |5 | 문제가 지속 되 면 커넥터 디버깅으로 이동 합니다. | 프록시와 커넥터 사이 또는 커넥터와 백 엔드 사이에 연결 문제가 있을 수 있습니다. [디버그 응용 프로그램 프록시 커넥터](application-proxy-debug-connectors.md) 문제 해결 문서로 이동 합니다. |
 |6 | 모든 리소스를 게시 하 고, 브라우저 개발자 도구를 확인 하 고, 링크를 수정 합니다. | 응용 프로그램에 필요한 모든 이미지, 스크립트 및 스타일 시트가 게시 경로에 포함 되어 있는지 확인 합니다. 자세한 내용은 [AZURE AD에 온-프레미스 앱 추가](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)를 참조 하세요. <br></br>브라우저의 개발자 도구 (Internet Explorer 또는 Microsoft Edge의 F12 도구)를 사용 하 여 [응용 프로그램 페이지가 제대로 표시 되지 않음](application-proxy-page-appearance-broken-problem.md)에 설명 된 대로 게시 문제를 확인 합니다. <br></br>페이지의 링크에서 끊어진 링크를 확인 [하는 옵션은 작동 하지 않습니다](application-proxy-page-links-broken-problem.md). |
 |7 | 네트워크 대기 시간 확인 | 페이지가 느리게 로드 되는 경우 [대기 시간을 줄이도록](application-proxy-network-topology.md#considerations-for-reducing-latency)네트워크 대기 시간을 최소화 하는 방법에 대해 알아보세요. | 

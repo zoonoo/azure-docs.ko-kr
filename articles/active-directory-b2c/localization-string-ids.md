@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/10/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428122"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108674"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -25,36 +25,50 @@ ms.locfileid: "87428122"
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>등록 또는 로그인 페이지 요소
 
-ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 같습니다.
+ID가 인 콘텐츠 정의 `api.signuporsignin` 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 사용 되는 id는 다음과 같습니다.
 
-| ID | 기본값 |
-| -- | ------------- |
-| **local_intro_email** | 기존 계정으로 로그인 |
-| **logonIdentifier_email** | 메일 주소 |
-| **requiredField_email** | 이메일을 입력하세요. |
-| **invalid_email** | 올바른 이메일 주소를 입력하세요. |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
-| **local_intro_username** | 사용자 이름으로 로그인 |
-| **logonIdentifier_username** | 사용자 이름 |
-| **requiredField_username** | 사용자 이름을 입력하세요. |
-| **password** | 암호 |
-| **requiredField_password** | 암호를 입력하세요. |
-| **invalid_password** | 입력한 암호의 형식이 잘못되었습니다. |
-| **forgotpassword_link** | 암호를 잊으셨습니까? |
-| **createaccount_intro** | 아직 계정이 없으세요? |
-| **createaccount_link** | 지금 등록하십시오. |
-| **divider_title** | 또는 |
-| **cancel_message** | 사용자가 암호를 잊음 |
-| **button_signin** | 로그인 |
-| **social_intro** | 소셜 계정으로 로그인 |
-  **remember_me** |로그인 유지|
-| **unknown_error** | 로그인하는 동안 문제가 발생했습니다. 나중에 다시 시도하세요. |
+| ID | 기본값 | 페이지 레이아웃 버전 |
+| -- | ------------- | ------ |
+| **forgotpassword_link** | 암호를 잊으셨습니까? | `All` |
+| **createaccount_intro** | 아직 계정이 없으세요? | `All` |
+| **button_signin** | 로그인 | `All` |
+| **social_intro** | 소셜 계정으로 로그인 | `All` |
+| **remember_me** |로그인 상태를 유지 합니다. | `All` |
+| **unknown_error** | 로그인하는 동안 문제가 발생했습니다. 나중에 다시 시도하세요. | `All` |
+| **divider_title** | 또는 | `All` |
+| **local_intro_email** | 기존 계정으로 로그인 | `< 2.0.0` |
+| **logonIdentifier_email** | 메일 주소 | `< 2.0.0` |
+| **requiredField_email** | 이메일을 입력하세요. | `< 2.0.0` |
+| **invalid_email** | 올바른 이메일 주소를 입력하세요. | `< 2.0.0` |
+| **email_pattern** | ^ [A-za-z0-9.! # $% & ' ' \* +/=? ^ \_ \` { \| } ~-] + @ [a-za-z0-9-] + (?: \\ . [ A-za-z0-9-] +) \* $ |`< 2.0.0` |
+| **local_intro_username** | 사용자 이름으로 로그인 | `< 2.0.0` |
+| **logonIdentifier_username** | 사용자 이름 | `< 2.0.0` |
+| **requiredField_username** | 사용자 이름을 입력하세요. | `< 2.0.0` |
+| **password** | 암호 | `< 2.0.0` |
+| **requiredField_password** | 암호를 입력하세요. | `< 2.0.0` |
+| **createaccount_link** | 지금 등록하십시오. | `< 2.0.0` |
+| **cancel_message** | 사용자가 암호를 잊음 | `< 2.0.0` |
+| **invalid_password** | 입력한 암호의 형식이 잘못되었습니다. | `< 2.0.0` |
+| **createaccount_one_link** | 지금 등록하십시오. | `>= 2.0.0` |
+| **createaccount_two_links** | 또는을 사용 하 여 등록 {0}{1} | `>= 2.0.0` |
+| **createaccount_three_links** | {0}, 또는를 사용 하 여 등록 {1}{2} | `>= 2.0.0` |
+| **local_intro_generic** | 을 사용 하 여 로그인 {0} | `>= 2.1.0` |
+| **requiredField_generic** | 다음을 입력 하세요. {0} | `>= 2.1.0` |
+| **invalid_generic** | 올바른를 입력 하세요. {0} | `>= 2.1.1` |
+| **스타일** | 로그인 | `>= 2.1.1` |
+
+
+> [!NOTE]
+> * 와 같은 자리 표시자 {0} 는 값을 사용 하 여 자동으로 채워집니다 `DisplayName` `ClaimType` . 
+> * 지역화 하는 방법에 대 `ClaimType` 한 자세한 내용은 [등록 또는 로그인 예](#signupsigninexample)를 참조 하세요.
 
 다음 예제에서는 등록 또는 로그인 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![등록 또는 로그인 페이지 UX 요소](./media/localization-string-ids/localization-susi.png)
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="등록 또는 로그인 페이지 U X 요소를 표시 하는 스크린샷":::
 
-ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩니다. ID 공급자의 제목을 지역화하려는 경우 **ElementType**은 `ClaimsProvider`로 설정하고 **StringId**는 `ClaimsExchange`의 ID로 설정합니다.
+### <a name="sign-up-or-sign-in-identity-providers"></a>등록 또는 로그인 id 공급자
+
+ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩니다. ID 공급자의 제목을 지역화하려는 경우 **ElementType** 은 `ClaimsProvider`로 설정하고 **StringId** 는 `ClaimsExchange`의 ID로 설정합니다.
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -84,6 +98,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | ID | 기본값 |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | 암호가 올바르지 않습니다. |
+| **UserMessageIfPasswordExpired**| 암호가 만료되었습니다.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 계정을 찾을 수 없는 것 같습니다. |
 | **UserMessageIfOldPasswordUsed** | 이전 암호를 사용한 것 같습니다. |
 | **DefaultMessage** | 잘못된 사용자 이름 또는 암호 |
@@ -91,9 +106,44 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **UserMessageIfUserAccountLocked** | 권한 없는 사용을 방지하기 위해 계정이 일시적으로 잠겨 있습니다. 나중에 다시 시도하십시오. |
 | **AADRequestsThrottled** | 현재 요청이 너무 많습니다. 잠시 기다린 후에 다시 시도하세요. |
 
+<a name="signupsigninexample"></a>
+### <a name="sign-up-or-sign-in-example"></a>등록 또는 로그인 예
+
+```xml
+<LocalizedResources Id="api.signuporsignin.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
+    <!-- Uncomment the remember_me only if the keep me signed in is activated. 
+    <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
+    <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked to prevent unauthorized use. Try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>등록 및 자체 어설션된 페이지 사용자 인터페이스 요소
 
-아래에는 ID가 `api.localaccountsignup`인 콘텐츠 정의 또는 `api.selfasserted`로 시작하는 모든 콘텐츠 정의(예: `api.selfasserted.profileupdate` 및 `api.localaccountpasswordreset`)의 ID가 나와 있습니다.
+다음은 ID가 인 콘텐츠 정의의 Id `api.localaccountsignup` 또는로 시작 하는 콘텐츠 정의 ( `api.selfasserted` 예: `api.selfasserted.profileupdate` 및) `api.localaccountpasswordreset` 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)입니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -152,10 +202,61 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 ![등록 페이지 이메일 확인 UX 요소](./media/localization-string-ids/localization-email-verification.png)
 
+## <a name="sign-up-and-self-asserted-pages-example"></a>등록 및 자체 어설션된 페이지 예제
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New Password</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="UserHelpText">Enter new password</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm New Password</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="UserHelpText">Confirm new password</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="PatternHelpText">#8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="DisplayName">Display Name</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="UserHelpText">Your display name.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="DisplayName">Surname</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="UserHelpText">Your surname (also known as family name or last name).</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="DisplayName">Given Name</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="UserHelpText">Your given name (also known as first name).</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_continue">Create</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_fieldIncorrect">One or more fields are filled out incorrectly. Please check your entries and try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_passwordEntryMismatch">The password entry fields do not match. Please enter the same password in both fields and try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_requiredFieldMissing">A required field is missing. Please fill out all required fields and try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="helplink_text">What is this?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="initial_intro">Please provide the following details.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="preloader_alt">Please wait</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="required_field">This information is required.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send verification code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_fail_code_expired">That code is expired. Please request a new code.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_fail_no_retry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">That code is incorrect. Please try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_fail_server">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_fail_throttled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_info_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_input">Verification code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="ver_success_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="ServiceThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">A user with the specified ID already exists. Please choose a different one.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfIncorrectPattern">Incorrect pattern for: {0}</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidInput">{0} has invalid input.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>전화 인증 페이지 사용자 인터페이스 요소
 
-ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
+ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-profile.md)의 콘텐츠 정의 id는 다음과 같습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -190,22 +291,103 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 | **number_label** | 전화 번호 |
 | **error_tryagain** | 제공한 전화 번호가 통화 중이거나 사용될 수 없습니다. 번호를 확인 후 다시 시도하세요. |
 | **error_incorrect_code** | 입력한 확인 코드가 레코드와 일치하지 않습니다. 다시 시도하거나 새 코드를 요청하세요. |
-| **countryList** | [국가 목록을](#countries-list)참조 하십시오. |
+| **countryList** | [국가 목록을](#phone-factor-authentication-page-example)참조 하십시오. |
 | **error_448** | 제공한 전화 번호에 연결할 수 없습니다. |
 | **error_449** | 사용자가 다시 시도 횟수를 초과했습니다. |
 | **verification_code_input_placeholder_text** | 확인 코드 |
 
 다음 예제에서는 MFA 등록 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![등록 페이지 이메일 확인 UX 요소](./media/localization-string-ids/localization-mfa1.png)
+![전화 요소 인증 등록 UX 요소](./media/localization-string-ids/localization-mfa1.png)
 
 다음 예제에서는 MFA 유효성 검사 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![등록 페이지 이메일 확인 UX 요소](./media/localization-string-ids/localization-mfa2.png)
+![전화 요소 인증 유효성 검사 UX 요소](./media/localization-string-ids/localization-mfa2.png)
+
+## <a name="phone-factor-authentication-page-example"></a>전화 요소 인증 페이지 예제
+
+```xml
+<LocalizedResources Id="api.phonefactor.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="UxElement" StringId="button_verify">Call Me</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="country_code_label">Country Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has canceled multi-factor authentication</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="text_button_send_second_code">Send a new code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="code_pattern">\d{6}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_mixed">We have the following number on record for you. We can send a code via SMS or phone to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_mixed_p">We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_verify_code">Verify Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_code">Please enter the verification code you received</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_code">Please enter the 6-digit code you received</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_number_input_placeholder_text">Phone number</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_retry">Retry</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="alternative_text">I don't have my phone</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_phone_p">We have the following numbers on record for you. Choose a number that we can phone to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_phone">We have the following number on record for you. We will phone to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="enter_code_text_intro">Enter your verification code below, or</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_entry_phone">Enter a number below that we can phone to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_entry_sms">Enter a number below that we can send a code via SMS to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_send_code">Send Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_number">Please enter a valid phone number</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_sms">We have the following number on record for you. We will send a code via SMS to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_entry_mixed">Enter a number below that we can send a code via SMS or phone to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="number_pattern">^\+(?:[0-9][\x20-]?){6,14}[0-9]$</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="intro_sms_p">We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_countryCode">Please select your country code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_number">Please enter your phone number</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="country_code_input_placeholder_text">Country or region</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="number_label">Phone Number</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_tryagain">The phone number you provided is busy or unavailable. Please check the number and try again.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_incorrect_code">The verification code you have entered does not match our records. Please try again, or request a new code.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="countryList">{"DEFAULT":"Country/Region","AF":"Afghanistan","AX":"Åland Islands","AL":"Albania","DZ":"Algeria","AS":"American Samoa","AD":"Andorra","AO":"Angola","AI":"Anguilla","AQ":"Antarctica","AG":"Antigua and Barbuda","AR":"Argentina","AM":"Armenia","AW":"Aruba","AU":"Australia","AT":"Austria","AZ":"Azerbaijan","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesh","BB":"Barbados","BY":"Belarus","BE":"Belgium","BZ":"Belize","BJ":"Benin","BM":"Bermuda","BT":"Bhutan","BO":"Bolivia","BQ":"Bonaire","BA":"Bosnia and Herzegovina","BW":"Botswana","BV":"Bouvet Island","BR":"Brazil","IO":"British Indian Ocean Territory","VG":"British Virgin Islands","BN":"Brunei","BG":"Bulgaria","BF":"Burkina Faso","BI":"Burundi","CV":"Cabo Verde","KH":"Cambodia","CM":"Cameroon","CA":"Canada","KY":"Cayman Islands","CF":"Central African Republic","TD":"Chad","CL":"Chile","CN":"China","CX":"Christmas Island","CC":"Cocos (Keeling) Islands","CO":"Colombia","KM":"Comoros","CG":"Congo","CD":"Congo (DRC)","CK":"Cook Islands","CR":"Costa Rica","CI":"Côte d'Ivoire","HR":"Croatia","CU":"Cuba","CW":"Curaçao","CY":"Cyprus","CZ":"Czech Republic","DK":"Denmark","DJ":"Djibouti","DM":"Dominica","DO":"Dominican Republic","EC":"Ecuador","EG":"Egypt","SV":"El Salvador","GQ":"Equatorial Guinea","ER":"Eritrea","EE":"Estonia","ET":"Ethiopia","FK":"Falkland Islands","FO":"Faroe Islands","FJ":"Fiji","FI":"Finland","FR":"France","GF":"French Guiana","PF":"French Polynesia","TF":"French Southern Territories","GA":"Gabon","GM":"Gambia","GE":"Georgia","DE":"Germany","GH":"Ghana","GI":"Gibraltar","GR":"Greece","GL":"Greenland","GD":"Grenada","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guinea","GW":"Guinea-Bissau","GY":"Guyana","HT":"Haiti","HM":"Heard Island and McDonald Islands","HN":"Honduras","HK":"Hong Kong SAR","HU":"Hungary","IS":"Iceland","IN":"India","ID":"Indonesia","IR":"Iran","IQ":"Iraq","IE":"Ireland","IM":"Isle of Man","IL":"Israel","IT":"Italy","JM":"Jamaica","JP":"Japan","JE":"Jersey","JO":"Jordan","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","KR":"Korea","KW":"Kuwait","KG":"Kyrgyzstan","LA":"Laos","LV":"Latvia","LB":"Lebanon","LS":"Lesotho","LR":"Liberia","LY":"Libya","LI":"Liechtenstein","LT":"Lithuania","LU":"Luxembourg","MO":"Macao SAR","MK":"North Macedonia","MG":"Madagascar","MW":"Malawi","MY":"Malaysia","MV":"Maldives","ML":"Mali","MT":"Malta","MH":"Marshall Islands","MQ":"Martinique","MR":"Mauritania","MU":"Mauritius","YT":"Mayotte","MX":"Mexico","FM":"Micronesia","MD":"Moldova","MC":"Monaco","MN":"Mongolia","ME":"Montenegro","MS":"Montserrat","MA":"Morocco","MZ":"Mozambique","MM":"Myanmar","NA":"Namibia","NR":"Nauru","NP":"Nepal","NL":"Netherlands","NC":"New Caledonia","NZ":"New Zealand","NI":"Nicaragua","NE":"Niger","NG":"Nigeria","NU":"Niue","NF":"Norfolk Island","KP":"North Korea","MP":"Northern Mariana Islands","NO":"Norway","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"Palestinian Authority","PA":"Panama","PG":"Papua New Guinea","PY":"Paraguay","PE":"Peru","PH":"Philippines","PN":"Pitcairn Islands","PL":"Poland","PT":"Portugal","PR":"Puerto Rico","QA":"Qatar","RE":"Réunion","RO":"Romania","RU":"Russia","RW":"Rwanda","BL":"Saint Barthélemy","KN":"Saint Kitts and Nevis","LC":"Saint Lucia","MF":"Saint Martin","PM":"Saint Pierre and Miquelon","VC":"Saint Vincent and the Grenadines","WS":"Samoa","SM":"San Marino","ST":"São Tomé and Príncipe","SA":"Saudi Arabia","SN":"Senegal","RS":"Serbia","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapore","SX":"Sint Maarten","SK":"Slovakia","SI":"Slovenia","SB":"Solomon Islands","SO":"Somalia","ZA":"South Africa","GS":"South Georgia and South Sandwich Islands","SS":"South Sudan","ES":"Spain","LK":"Sri Lanka","SH":"St Helena, Ascension, Tristan da Cunha","SD":"Sudan","SR":"Suriname","SJ":"Svalbard","SZ":"Swaziland","SE":"Sweden","CH":"Switzerland","SY":"Syria","TW":"Taiwan","TJ":"Tajikistan","TZ":"Tanzania","TH":"Thailand","TL":"Timor-Leste","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad and Tobago","TN":"Tunisia","TR":"Turkey","TM":"Turkmenistan","TC":"Turks and Caicos Islands","TV":"Tuvalu","UM":"U.S. Outlying Islands","VI":"U.S. Virgin Islands","UG":"Uganda","UA":"Ukraine","AE":"United Arab Emirates","GB":"United Kingdom","US":"United States","UY":"Uruguay","UZ":"Uzbekistan","VU":"Vanuatu","VA":"Vatican City","VE":"Venezuela","VN":"Vietnam","WF":"Wallis and Futuna","YE":"Yemen","ZM":"Zambia","ZW":"Zimbabwe"}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_448">The phone number you provided is unreachable.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="error_449">User has exceeded the number of retry attempts.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_code_input_placeholder_text">Verification code</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="strongAuthenticationPhoneNumber" StringId="DisplayName">Phone Number</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+
+```
 
 ## <a name="verification-display-control-user-interface-elements"></a>확인 표시 컨트롤 사용자 인터페이스 요소
 
-[확인 표시 컨트롤](display-control-verification.md)에 대한 ID는 다음과 같습니다.
+다음은 [페이지 레이아웃 버전이](page-layout.md) 2.1.0 이상인 [확인 표시 컨트롤](display-control-verification.md) 에 대 한 id입니다.
+
+| ID | 기본값 |
+| -- | ------------- |
+|intro_msg| 확인이 필요합니다. [보내기] 단추를 클릭하세요.|
+|success_send_code_msg | 받은 편지함으로 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요.|
+|failure_send_code_msg | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 유효한 이메일 주소를 입력하고 다시 시도하세요.|
+|success_verify_code_msg | 이메일 주소를 확인했습니다. 이제 계속할 수 있습니다.|
+|failure_verify_code_msg | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 다시 시도하세요.|
+|but_send_code | 확인 코드 보내기|
+|but_verify_code | 코드 확인|
+|but_send_new_code | 새 코드 전송|
+|but_change_claims | 이메일 변경|
+
+### <a name="verification-display-control-example"></a>확인 표시 컨트롤 예제
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+   <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>확인 표시 컨트롤 사용자 인터페이스 요소 (사용 되지 않음)
+
+다음은 [페이지 레이아웃 버전](page-layout.md) 2.0.0을 사용 하는 [확인 표시 컨트롤](display-control-verification.md) 에 대 한 id입니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -217,7 +399,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 |verification_control_but_verify_code |코드 확인 |
 |verification_control_code_sent| 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요. |
 
-### <a name="example"></a>예제
+### <a name="verification-display-control-example-deprecated"></a>확인 표시 제어 예제 (사용 되지 않음)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -239,13 +421,13 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
-|DefaultUserMessageIfRequestFailed | Restful service 끝점에 대 한 연결을 설정 하지 못했습니다. Restful 서비스 URL:{0} |
-|UserMessageIfCircuitOpen | {0}Restful 서비스 URL:{1} |
-|UserMessageIfDnsResolutionFailed | Restful 서비스 끝점의 호스트 이름을 확인 하지 못했습니다. Restful 서비스 URL:{0} |
-|UserMessageIfRequestTimeout | 제한 시간 (초) 내에 restful 서비스 끝점에 대 한 연결을 설정 하지 못했습니다 {0} . Restful 서비스 URL:{1} |
+|DefaultUserMessageIfRequestFailed | Restful service 끝점에 대 한 연결을 설정 하지 못했습니다. Restful 서비스 URL: {0} |
+|UserMessageIfCircuitOpen | {0} Restful 서비스 URL: {1} |
+|UserMessageIfDnsResolutionFailed | Restful 서비스 끝점의 호스트 이름을 확인 하지 못했습니다. Restful 서비스 URL: {0} |
+|UserMessageIfRequestTimeout | 제한 시간 (초) 내에 restful 서비스 끝점에 대 한 연결을 설정 하지 못했습니다 {0} . Restful 서비스 URL: {1} |
 
 
-### <a name="example"></a>예제
+### <a name="restful-service-example"></a>Restful 서비스 예제
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -258,9 +440,9 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 </LocalizedResources>
 ```
 
-## <a name="azure-mfa-error-messages"></a>Azure MFA 오류 메시지
+## <a name="azure-ad-mfa-error-messages"></a>Azure AD MFA 오류 메시지
 
-[Azure MFA 기술 프로필](multi-factor-auth-technical-profile.md) 오류 메시지에 대한 ID는 다음과 같습니다.
+다음은 [AZURE AD MFA 기술 프로필](multi-factor-auth-technical-profile.md) 오류 메시지의 id입니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -271,7 +453,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 |UserMessageIfThrottled | 요청이 제한되었습니다. 나중에 다시 시도하세요.|
 |UserMessageIfWrongCodeEntered|잘못된 코드를 입력했습니다. 다시 시도하세요.|
 
-### <a name="example"></a>예제
+### <a name="azure-ad-mfa-example"></a>Azure AD MFA 예제
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -299,7 +481,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 |UserMessageIfVerificationFailedRetryAllowed | 확인 하지 못했습니다. 다시 시도 하세요.|
 
 
-### <a name="example"></a>예제
+### <a name="azure-ad-sspr-example"></a>Azure AD SSPR 예제
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -325,13 +507,13 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 |UserMessageIfInvalidCode |확인을 위해 제공한 일회용 암호가 잘못되었습니다. |
 |UserMessageIfVerificationFailedRetryAllowed |해당 코드가 잘못되었습니다. 나중에 다시 시도하세요. | 
 
-### <a name="example"></a>예제
+### <a name="one-time-password-example"></a>일회성 암호 예
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
@@ -349,7 +531,7 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | 클레임 값을 비교하지 못했습니다. 제공된 왼쪽 피연산자가 오른쪽 피연산자보다 큽니다.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | StringComparison "OrdinalIgnoreCase"를 사용하여 클레임 값을 비교하지 못했습니다.|
 
-### <a name="example"></a>예제
+### <a name="claims-transformations-example"></a>클레임 변환 예
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -361,17 +543,9 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 </LocalizedResources>
 ```
 
-## <a name="countries-list"></a>국가 목록
-
-다음은 multi-factor authentication에서 사용 되는 countryList 값입니다.
-
-```JSON
-{"DEFAULT":"Country/Region","AF":"Afghanistan","AX":"Åland Islands","AL":"Albania","DZ":"Algeria","AS":"American Samoa","AD":"Andorra","AO":"Angola","AI":"Anguilla","AQ":"Antarctica","AG":"Antigua and Barbuda","AR":"Argentina","AM":"Armenia","AW":"Aruba","AU":"Australia","AT":"Austria","AZ":"Azerbaijan","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesh","BB":"Barbados","BY":"Belarus","BE":"Belgium","BZ":"Belize","BJ":"Benin","BM":"Bermuda","BT":"Bhutan","BO":"Bolivia","BQ":"Bonaire","BA":"Bosnia and Herzegovina","BW":"Botswana","BV":"Bouvet Island","BR":"Brazil","IO":"British Indian Ocean Territory","VG":"British Virgin Islands","BN":"Brunei","BG":"Bulgaria","BF":"Burkina Faso","BI":"Burundi","CV":"Cabo Verde","KH":"Cambodia","CM":"Cameroon","CA":"Canada","KY":"Cayman Islands","CF":"Central African Republic","TD":"Chad","CL":"Chile","CN":"China","CX":"Christmas Island","CC":"Cocos (Keeling) Islands","CO":"Colombia","KM":"Comoros","CG":"Congo","CD":"Congo (DRC)","CK":"Cook Islands","CR":"Costa Rica","CI":"Côte d'Ivoire","HR":"Croatia","CU":"Cuba","CW":"Curaçao","CY":"Cyprus","CZ":"Czech Republic","DK":"Denmark","DJ":"Djibouti","DM":"Dominica","DO":"Dominican Republic","EC":"Ecuador","EG":"Egypt","SV":"El Salvador","GQ":"Equatorial Guinea","ER":"Eritrea","EE":"Estonia","ET":"Ethiopia","FK":"Falkland Islands","FO":"Faroe Islands","FJ":"Fiji","FI":"Finland","FR":"France","GF":"French Guiana","PF":"French Polynesia","TF":"French Southern Territories","GA":"Gabon","GM":"Gambia","GE":"Georgia","DE":"Germany","GH":"Ghana","GI":"Gibraltar","GR":"Greece","GL":"Greenland","GD":"Grenada","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guinea","GW":"Guinea-Bissau","GY":"Guyana","HT":"Haiti","HM":"Heard Island and McDonald Islands","HN":"Honduras","HK":"Hong Kong SAR","HU":"Hungary","IS":"Iceland","IN":"India","ID":"Indonesia","IR":"Iran","IQ":"Iraq","IE":"Ireland","IM":"Isle of Man","IL":"Israel","IT":"Italy","JM":"Jamaica","JP":"Japan","JE":"Jersey","JO":"Jordan","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","KR":"Korea","KW":"Kuwait","KG":"Kyrgyzstan","LA":"Laos","LV":"Latvia","LB":"Lebanon","LS":"Lesotho","LR":"Liberia","LY":"Libya","LI":"Liechtenstein","LT":"Lithuania","LU":"Luxembourg","MO":"Macao SAR","MK":"North Macedonia","MG":"Madagascar","MW":"Malawi","MY":"Malaysia","MV":"Maldives","ML":"Mali","MT":"Malta","MH":"Marshall Islands","MQ":"Martinique","MR":"Mauritania","MU":"Mauritius","YT":"Mayotte","MX":"Mexico","FM":"Micronesia","MD":"Moldova","MC":"Monaco","MN":"Mongolia","ME":"Montenegro","MS":"Montserrat","MA":"Morocco","MZ":"Mozambique","MM":"Myanmar","NA":"Namibia","NR":"Nauru","NP":"Nepal","NL":"Netherlands","NC":"New Caledonia","NZ":"New Zealand","NI":"Nicaragua","NE":"Niger","NG":"Nigeria","NU":"Niue","NF":"Norfolk Island","KP":"North Korea","MP":"Northern Mariana Islands","NO":"Norway","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"Palestinian Authority","PA":"Panama","PG":"Papua New Guinea","PY":"Paraguay","PE":"Peru","PH":"Philippines","PN":"Pitcairn Islands","PL":"Poland","PT":"Portugal","PR":"Puerto Rico","QA":"Qatar","RE":"Réunion","RO":"Romania","RU":"Russia","RW":"Rwanda","BL":"Saint Barthélemy","KN":"Saint Kitts and Nevis","LC":"Saint Lucia","MF":"Saint Martin","PM":"Saint Pierre and Miquelon","VC":"Saint Vincent and the Grenadines","WS":"Samoa","SM":"San Marino","ST":"São Tomé and Príncipe","SA":"Saudi Arabia","SN":"Senegal","RS":"Serbia","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapore","SX":"Sint Maarten","SK":"Slovakia","SI":"Slovenia","SB":"Solomon Islands","SO":"Somalia","ZA":"South Africa","GS":"South Georgia and South Sandwich Islands","SS":"South Sudan","ES":"Spain","LK":"Sri Lanka","SH":"St Helena, Ascension, Tristan da Cunha","SD":"Sudan","SR":"Suriname","SJ":"Svalbard","SZ":"Swaziland","SE":"Sweden","CH":"Switzerland","SY":"Syria","TW":"Taiwan","TJ":"Tajikistan","TZ":"Tanzania","TH":"Thailand","TL":"Timor-Leste","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad and Tobago","TN":"Tunisia","TR":"Turkey","TM":"Turkmenistan","TC":"Turks and Caicos Islands","TV":"Tuvalu","UM":"U.S. Outlying Islands","VI":"U.S. Virgin Islands","UG":"Uganda","UA":"Ukraine","AE":"United Arab Emirates","GB":"United Kingdom","US":"United States","UY":"Uruguay","UZ":"Uzbekistan","VU":"Vanuatu","VA":"Vatican City","VE":"Venezuela","VN":"Vietnam","WF":"Wallis and Futuna","YE":"Yemen","ZM":"Zambia","ZW":"Zimbabwe"}
-```
-
 ## <a name="next-steps"></a>다음 단계
 
 지역화 예제는 다음 문서를 참조 하세요.
 
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 언어 사용자 지정](custom-policy-localization.md)
-- [Azure Active Directory B2C에서 사용자 흐름을 사용 하 여 언어 사용자 지정](user-flow-language-customization.md)
+- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 언어 사용자 지정](language-customization.md)
+- [Azure Active Directory B2C에서 사용자 흐름을 사용 하 여 언어 사용자 지정](language-customization.md)

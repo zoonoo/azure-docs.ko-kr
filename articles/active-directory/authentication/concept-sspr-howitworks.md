@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.date: 12/07/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052777"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779365"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -52,7 +52,7 @@ SSPR 포털이 필수 언어로 표시 되 면 사용자에 게 사용자 ID를 
     * 인증 방법이 구성 되지 않은 경우 사용자는 자신의 암호를 재설정 하기 위해 관리자에 게 연락 하는 것이 좋습니다.
   * 정책에 두 가지 방법이 필요한 경우 관리자 정책에서 사용 하도록 설정 된 하나 이상의 인증 방법에 대해 정의 된 적절 한 데이터가 사용자에 게 있는지 확인 합니다.
     * 인증 방법이 구성 되지 않은 경우 사용자는 자신의 암호를 재설정 하기 위해 관리자에 게 연락 하는 것이 좋습니다.
-  * Azure 관리자 역할이 사용자에게 할당된 경우에는 강력한 2-게이트 암호 정책이 적용됩니다. 자세한 내용은 [관리자 정책 재설정 정책 차이점](concept-sspr-policy.md#administrator-reset-policy-differences)을 참조 하세요.
+  * Azure 관리자 역할이 사용자에게 할당된 경우에는 강력한 2-게이트 암호 정책이 적용됩니다. 자세한 내용은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences)을 참조하세요.
 * Azure AD 테 넌 트가 페더레이션된, 통과 인증 또는 암호 해시 동기화를 사용 하는 경우와 같이 사용자의 암호가 온-프레미스에서 관리 되는지 확인 합니다.
   * SSPR 쓰기 저장이 구성 되어 있고 사용자의 암호가 온-프레미스에서 관리 되는 경우 사용자는 인증을 진행 하 고 암호를 다시 설정할 수 있습니다.
   * SSPR 쓰기 저장이 배포 되지 않고 사용자의 암호가 온-프레미스에서 관리 되는 경우 사용자에 게 관리자에 게 문의 하 여 암호를 다시 설정 하 라는 메시지가 표시 됩니다.
@@ -69,11 +69,8 @@ SSPR을 시작 하려면 다음 자습서를 완료 하세요.
 > [!div class="nextstepaction"]
 > [자습서: 셀프 서비스 암호 재설정 사용 (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>등록 옵션
 
-사용자가 SSPR를 사용 하 여 암호를 다시 설정 하거나 변경 하려면 먼저 해당 사용자를 등록 하 고 사용할 인증 방법을 등록 해야 합니다. 이전 섹션에서 설명한 것 처럼 SSPR에 대해 사용자를 등록 하 고 적절 한 라이선스를 적용 해야 합니다.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>사용자가 로그인 시 등록하도록 요구하시겠습니까?
+## <a name="require-users-to-register-when-they-sign-in"></a>사용자가 로그인 시 등록하도록 요구하시겠습니까?
 
 Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용자가 SSPR 등록을 완료 하도록 요구 하는 옵션을 사용 하도록 설정할 수 있습니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
@@ -92,7 +89,7 @@ Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용
 >
 > SSPR에 등록 하는이 인터럽트는 이미 로그인 되어 있는 경우 사용자의 연결을 중단 하지 않습니다.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>사용자가 인증 정보를 다시 확인하도록 요청받을 때까지의 기간(일) 설정
+## <a name="reconfirm-authentication-information"></a>다시 확인 인증 정보
 
 암호를 재설정 하거나 변경 해야 하는 경우 인증 방법이 올바른지 확인 하려면 일정 기간 후 사용자에 게 정보 등록 정보를 확인 하도록 요구할 수 있습니다. 이 옵션은 **로그인 할 때 사용자가 등록 해야** 함 옵션을 사용 하도록 설정한 경우에만 사용할 수 있습니다.
 
@@ -120,7 +117,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 
 ### <a name="number-of-authentication-methods-required"></a>필수 인증 방법의 수
 
-사용자가 암호를 재설정 하거나 잠금 해제 하기 위해 제공 해야 하는 사용 가능한 인증 방법의 수를 구성할 수 있습니다. 이 값은 *1* 또는 *2*로 설정할 수 있습니다.
+사용자가 암호를 재설정 하거나 잠금 해제 하기 위해 제공 해야 하는 사용 가능한 인증 방법의 수를 구성할 수 있습니다. 이 값은 *1* 또는 *2* 로 설정할 수 있습니다.
 
 사용자는 여러 인증 방법을 등록 하 고 등록할 수 있습니다. 두 개 이상의 인증 방법을 등록 하는 것이 좋습니다. 필요한 경우 한 가지 방법으로 액세스할 수 없는 경우에도 더 유연 하 게 사용할 수 있습니다.
 
@@ -166,23 +163,23 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 1. 관리자는 더 이상 보안 질문을 사용하지 않도록 정책을 변경하지만 휴대폰 및 보조 메일은 사용하도록 허용합니다.
 1. 휴대폰 또는 대체 전자 메일 필드를 입력 하지 않은 사용자는 이제 암호를 재설정할 수 없습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 SSPR를 사용 하 여 암호 이벤트의 인식을 향상 시키기 위해 사용자 및 id 관리자에 대 한 알림을 구성할 수 있습니다.
 
 ### <a name="notify-users-on-password-resets"></a>사용자에게 암호 재설정에 대해 알림
 
-이 옵션을 **예**로 설정 하면 암호를 다시 설정 하는 사용자가 암호를 변경 했음을 알리는 전자 메일을 받습니다. 전자 메일은 SSPR 포털을 통해 Azure AD에 저장 된 기본 및 대체 전자 메일 주소로 전송 됩니다. 누구도 재설정 이벤트의 알림을 받지 않습니다.
+이 옵션을 **예** 로 설정 하면 암호를 다시 설정 하는 사용자가 암호를 변경 했음을 알리는 전자 메일을 받습니다. 전자 메일은 SSPR 포털을 통해 Azure AD에 저장 된 기본 및 대체 전자 메일 주소로 전송 됩니다. 누구도 재설정 이벤트의 알림을 받지 않습니다.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>다른 관리자가 암호를 재설정하면 모든 관리자에게 알림
 
-이 옵션을 **예**로 설정 하면 다른 모든 azure 관리자는 azure AD에 저장 된 기본 전자 메일 주소로 전자 메일을 받습니다. 전자 메일은 사용자에게 다른 관리자가 SSPR을 사용하여 암호를 변경했음을 알려줍니다.
+이 옵션을 **예** 로 설정 하면 다른 모든 azure 관리자는 azure AD에 저장 된 기본 전자 메일 주소로 전자 메일을 받습니다. 전자 메일은 사용자에게 다른 관리자가 SSPR을 사용하여 암호를 변경했음을 알려줍니다.
 
 다음 예제 시나리오를 살펴보십시오.
 
 * 환경에 4명의 관리자가 있습니다.
 * 관리자 *는* SSPR를 사용 하 여 암호를 다시 설정 합니다.
-* 관리자 *B*, *C*및 *D* 는 암호 재설정을 알리는 전자 메일을 받습니다.
+* 관리자 *B*, *C* 및 *D* 는 암호 재설정을 알리는 전자 메일을 받습니다.
 
 ## <a name="on-premises-integration"></a>온-프레미스 통합
 
@@ -195,9 +192,9 @@ Azure AD는 현재 하이브리드 연결을 확인 하 고 Azure Portal에 다�
 * 온-프레미스 쓰기 저장 클라이언트가 실행 중입니다.
 * Azure AD는 온라인 상태이며 온-프레미스 쓰기 저장 클라이언트에 연결되어 있습니다. 그러나 설치된 Azure AD Connect 버전이 만료된 것 같습니다. 최신 연결 기능을 사용하고 중요한 버그가 수정되도록 [Azure AD Connect 업그레이드](../hybrid/how-to-upgrade-previous-version.md)를 수행하는 것이 좋습니다.
 * 그러나 설치 된 Azure AD Connect 버전이 최신 버전이 아니기 때문에 온-프레미스 쓰기 저장 클라이언트 상태를 확인할 수 없습니다. 연결 상태를 확인할 수 있도록 [Azure AD Connect를 업그레이드](../hybrid/how-to-upgrade-previous-version.md)합니다.
-* 현재 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. [Azure AD Connect 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)을 통해 연결을 복원합니다.
+* 현재 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. [Azure AD Connect 문제 해결](./troubleshoot-sspr-writeback.md)을 통해 연결을 복원합니다.
 * 비밀번호 쓰기 저장이 올바르게 구성되지 않았으므로 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. [비밀번호 쓰기 저장 구성](./tutorial-enable-sspr-writeback.md)으로 연결을 복원합니다.
-* 현재 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. 일시적인 문제로 인한 것일 수 있습니다. 문제가 지속되면 [Azure AD Connect 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)을 통해 연결을 복원합니다.
+* 현재 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. 일시적인 문제로 인한 것일 수 있습니다. 문제가 지속되면 [Azure AD Connect 문제 해결](./troubleshoot-sspr-writeback.md)을 통해 연결을 복원합니다.
 
 SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
 
@@ -208,15 +205,15 @@ SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
 
 Azure Portal를 사용 하 여 비밀 번호 쓰기 저장을 사용 하도록 설정할 수 있습니다. Azure AD Connect를 다시 구성할 필요 없이 일시적으로 비밀 번호 쓰기 저장을 사용 하지 않도록 설정할 수도 있습니다.
 
-* 옵션을 **예**로 설정 하면 쓰기 저장을 사용할 수 있습니다. 페더레이션된, 통과 인증 또는 암호 해시 동기화 된 사용자는 암호를 다시 설정할 수 있습니다.
-* 옵션을 **아니요**로 설정 하면 쓰기 저장을 사용할 수 없습니다. 페더레이션된, 통과 인증 또는 암호 해시 동기화 된 사용자는 암호를 재설정할 수 없습니다.
+* 옵션을 **예** 로 설정 하면 쓰기 저장을 사용할 수 있습니다. 페더레이션된, 통과 인증 또는 암호 해시 동기화 된 사용자는 암호를 다시 설정할 수 있습니다.
+* 옵션을 **아니요** 로 설정 하면 쓰기 저장을 사용할 수 없습니다. 페더레이션된, 통과 인증 또는 암호 해시 동기화 된 사용자는 암호를 재설정할 수 없습니다.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>사용자가 해당 암호를 재설정하지 않고 계정의 잠금을 해제할 수 있음
 
 기본적으로 Azure AD는 암호 재설정을 수행할 때 계정을 잠금 해제합니다. 유연성을 제공 하기 위해 사용자가 암호를 재설정 하지 않고도 온-프레미스 계정의 잠금을 해제할 수 있도록 선택할 수 있습니다. 이러한 두 작업을 구분 하려면이 설정을 사용 합니다.
 
-* **예**로 설정 된 경우 사용자에 게 암호를 재설정 하 고 계정의 잠금을 해제 하거나 암호를 다시 설정 하지 않고 계정의 잠금을 해제할 수 있는 옵션이 제공 됩니다.
-* **아니요**로 설정 하면 사용자는 결합 된 암호 재설정 및 계정 잠금 해제 작업만 수행할 수 있습니다.
+* **예** 로 설정 된 경우 사용자에 게 암호를 재설정 하 고 계정의 잠금을 해제 하거나 암호를 다시 설정 하지 않고 계정의 잠금을 해제할 수 있는 옵션이 제공 됩니다.
+* **아니요** 로 설정 하면 사용자는 결합 된 암호 재설정 및 계정 잠금 해제 작업만 수행할 수 있습니다.
 
 ### <a name="on-premises-active-directory-password-filters"></a>온-프레미스 Active Directory 암호 필터
 
@@ -227,7 +224,7 @@ SSPR은 Active Directory에서 관리자가 시작한 암호 재설정에 해당
 암호 재설정 및 변경은 모든 B2B(기업 간 전자 상거래) 구성에서 완전히 지원됩니다. B2B 사용자 암호 재설정은 다음 세 가지 경우에 지원됩니다.
 
 * **기존 AZURE ad 테 넌 트를 사용 하는 파트너 조직의 사용자**: 파트너를 사용 하는 조직에 기존 azure ad 테 넌 트가 있는 경우 해당 테 넌 트에서 사용 하도록 설정 된 모든 암호 재설정 정책을 적용 합니다. 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Microsoft 365 고객에 게는 추가 요금이 부과 되지 않습니다.
-* 셀프 서비스 등록을 **통해 등록** 하는 사용자: 파트너가 파트너에 게 제공 하는 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용 하 여 테 넌 트에 등록 하는 경우 등록 한 전자 메일을 사용 하 여 암호를 다시 설정할 수 있습니다.
+* 셀프 서비스 등록을 **통해 등록** 하는 사용자: 파트너가 파트너에 게 제공 하는 [셀프 서비스 등록](../enterprise-users/directory-self-service-signup.md) 기능을 사용 하 여 테 넌 트에 등록 하는 경우 등록 한 전자 메일을 사용 하 여 암호를 다시 설정할 수 있습니다.
 * **B2B 사용자**: 새 [Azure AD B2B 기능](../external-identities/what-is-b2b.md) 을 사용 하 여 만든 모든 새 b2b 사용자는 초대 프로세스 중에 등록 한 전자 메일을 사용 하 여 암호를 재설정할 수도 있습니다.
 
 이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 https://passwordreset.microsoftonline.com으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.

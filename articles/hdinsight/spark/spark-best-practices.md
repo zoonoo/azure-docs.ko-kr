@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a93b3e0da7b881b80f7613907e40af509bffadbd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82562341"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545568"
 ---
 # <a name="apache-spark-guidelines"></a>Apache Spark 지침
 
@@ -56,14 +56,14 @@ ms.locfileid: "82562341"
 | HDInsight의 Apache Hive | [Hive Warehouse 커넥터를 사용하여 Apache Spark 및 Apache Hive 통합](../interactive-query/apache-hive-warehouse-connector.md) |
 | HDInsight의 Apache HBase | [Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기](../hdinsight-using-spark-query-hbase.md) |
 | HDInsight의 Apache Kafka | [자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Azure Cosmos DB: Azure 플랫폼에 람다 아키텍처 구현](../../cosmos-db/lambda-architecture.md) |
+| Azure Cosmos DB | [Microsoft Azure Cosmos DB용 Azure Synapse Link](../../cosmos-db/synapse-link.md) |
 
 ## <a name="what-are-my-storage-options"></a>내 저장소 옵션은 무엇 인가요?
 
 | 옵션 | 문서 |
 |---|---|
-| Data Lake Storage Gen2 | [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-| Data Lake Storage Gen1 | [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight-hadoop-use-data-lake-store.md) |
+| Azure Data Lake Storage Gen2 | [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+| Azure Data Lake Storage Gen1 | [Azure HDInsight 클러스터에서 Azure Data Lake Storage Gen1 사용](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
 | Azure Blob Storage | [Azure HDInsight 클러스터에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,20 +1,19 @@
 ---
 title: Azure의 Red Hat 워크로드 개요 | Microsoft Docs
 description: Azure에서 제공되는 Red Hat 제품에 대해 알아봅니다.
-services: virtual-machines-linux
 author: asinn826
-manager: borisb2015
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052110"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830652"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Azure의 Red Hat 워크로드
 
@@ -37,7 +36,7 @@ Azure는 다양한 RHEL 종량제 이미지를 제공합니다. 이러한 이미
 ### <a name="red-hat-gold-images"></a>Red Hat Gold 이미지
 
 Azure는 Red Hat Gold 이미지도 제공합니다(`rhel-byos`). 이러한 이미지는 기존 Red Hat 구독을 보유하고 있으며 Azure에서 기존 구독을 사용하려는 고객에게 유용할 수 있습니다. Azure에서 사용하려면 먼저 Red Hat Cloud Access에 대한 기존 Red Hat 구독을 활성화해야 합니다. 이러한 이미지에 대한 액세스 권한은 Red Hat 구독을 Cloud Access에 사용하도록 설정하고 자격 요구 사항을 충족할 때 자동으로 부여됩니다. 이러한 이미지를 사용하면 고객은 종량제 이미지를 사용할 때 발생할 수 있는 이중 청구를 방지할 수 있습니다.
-* [Azure를 사용하여 Cloud Access에 Red Hat 구독을 사용하도록 설정](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs)하는 방법을 알아봅니다.
+* [Azure를 사용하여 Cloud Access에 Red Hat 구독을 사용하도록 설정](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access)하는 방법을 알아봅니다.
 * [Azure Portal, Azure CLI 또는 PowerShell Cmdlet에서 Red Hat Gold 이미지를 찾는](./byos.md) 방법을 알아봅니다.
 
 > [!NOTE]
@@ -45,7 +44,7 @@ Azure는 Red Hat Gold 이미지도 제공합니다(`rhel-byos`). 이러한 이�
 
 ### <a name="generation-2-images"></a>2세대 이미지
 
-2세대 VM(가상 머신)은 1세대 VM에 비해 몇 가지 최신 기능을 제공합니다. 자세한 내용은 [2세대 설명서](../../linux/generation-2.md)를 참조하세요. RHEL 이미지 관점의 주요 차이점은, 2세대 VM이 BIOS 펌웨어 인터페이스 대신 UEFI를 사용한다는 것입니다. 또한 부팅 시 MBR(마스터 부트 레코드) 대신 GPT(GUID 파티션 테이블)를 사용합니다. GPT를 사용하면 2TB보다 큰 OS 디스크 크기를 사용할 수 있습니다. 또한 [Mv2 시리즈 VM](../../mv2-series.md)은 2세대 이미지에서만 실행됩니다.
+2세대 VM(가상 머신)은 1세대 VM에 비해 몇 가지 최신 기능을 제공합니다. 자세한 내용은 [2세대 설명서](../../generation-2.md)를 참조하세요. RHEL 이미지 관점의 주요 차이점은, 2세대 VM이 BIOS 펌웨어 인터페이스 대신 UEFI를 사용한다는 것입니다. 또한 부팅 시 MBR(마스터 부트 레코드) 대신 GPT(GUID 파티션 테이블)를 사용합니다. GPT를 사용하면 2TB보다 큰 OS 디스크 크기를 사용할 수 있습니다. 또한 [Mv2 시리즈 VM](../../mv2-series.md)은 2세대 이미지에서만 실행됩니다.
 
 RHEL 2세대 이미지는 Azure Marketplace에서 구입할 수 있습니다. Azure CLI를 사용할 때 표시되는 모든 이미지 목록에서 이미지 SKU의 "gen2"를 찾습니다. VM 배포 프로세스에서 **고급** 탭으로 이동하여 2세대 VM을 배포합니다.
 

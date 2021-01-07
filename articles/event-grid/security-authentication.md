@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Grid에서 이벤트 처리기에 �
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: abe16c9598c8c10caa832150aafac997dd7f1624
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87460646"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>이벤트 처리기에 대 한 이벤트 배달 인증 (Azure Event Grid)
@@ -16,7 +16,7 @@ ms.locfileid: "87460646"
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>이벤트 배달에 시스템 할당 id 사용
 토픽 또는 도메인에 대해 시스템 할당 관리 id를 사용 하도록 설정 하 고이 id를 사용 하 여 Service Bus 큐 및 토픽, event hubs, 저장소 계정 등의 지원 되는 대상으로 이벤트를 전달할 수 있습니다.
 
-수행하는 단계는 다음과 같습니다. 
+단계는 다음과 같습니다. 
 
 1. 시스템이 할당 한 id를 사용 하 여 토픽 또는 도메인을 만들거나, id를 사용 하도록 기존 토픽 또는 도메인을 업데이트 합니다. 
 1. 대상의 적절 한 역할 Service Bus (예: Service Bus 큐)에 id를 추가 합니다.

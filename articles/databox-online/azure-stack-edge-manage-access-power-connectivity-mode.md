@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: e0e2ac43ce0157b4917e9c45f6a02ace63432137
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6455e4c9fa9460e47e3be7c860f89be540a514b0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904420"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453080"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -35,25 +35,25 @@ Azure Stack Edge Pro 장치에 대 한 액세스는 장치 암호를 사용 하 
 
 로컬 UI에서 다음 단계를 수행 하 여 장치 암호를 변경 합니다.
 
-1. 로컬 웹 UI에서 **유지 관리 > 암호 변경**으로 이동합니다.
+1. 로컬 웹 UI에서 **유지 관리 > 암호 변경** 으로 이동합니다.
 2. 현재 암호를 입력한 다음, 새 암호를 입력합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. 새 암호를 확인합니다.
 
     ![암호 변경](media/azure-stack-edge-manage-access-power-connectivity-mode/change-password-1.png)
 
-3. **암호 변경**을 선택합니다.
+3. **암호 변경** 을 선택합니다.
  
 ### <a name="reset-device-password"></a>장치 암호 다시 설정
 
 재설정 워크플로에서는 사용자가 이전 암호를 기억할 필요가 없으며 암호를 분실했을 때 유용합니다. 이 워크플로는 Azure Portal에서 수행합니다.
 
-1. Azure Portal에서 **개요 > 관리자 암호 재설정**으로 이동합니다.
+1. Azure Portal에서 **개요 > 관리자 암호 재설정** 으로 이동합니다.
 
     ![암호 재설정](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
-2. 새 암호를 입력하고 확인합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. **재설정**을 선택합니다.
+2. 새 암호를 입력하고 확인합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. **재설정** 을 선택합니다.
 
-    ![암호 재설정](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![암호 다시 설정 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>리소스 액세스 관리
 
@@ -68,7 +68,7 @@ Azure Stack Edge Pro 장치에 대 한 정품 인증 키를 생성 하거나 자
 
 `User`가능 하면 Active Directory 테 넌 트에 대 한 액세스 권한이 있어야 합니다 `Read all directory objects` . 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects` . 게스트 인 경우 활성화 키 생성, Azure Stack Edge Pro 장치에서 공유 만들기, 사용자 만들기, Edge 계산 역할의 구성, 장치 암호 다시 설정 등의 작업이 모두 실패 합니다.
 
-Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
+Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](/graph/permissions-reference)를 참조 하세요.
 
 ### <a name="register-resource-providers"></a>리소스 공급자 등록
 
@@ -113,8 +113,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 
 디바이스 모드를 변경하려면 다음 단계를 수행합니다.
 
-1. 디바이스의 로컬 웹 UI에서 **구성 > 클라우드 설정**으로 이동합니다.
-2. 드롭다운 목록에서 장치를 작동 하는 데 사용할 모드를 선택 합니다. **전체 연결 됨**, **부분적으로 연결 됨**및 **완전히 분리**됨에서 선택할 수 있습니다. 부분적으로 연결이 끊긴 모드에서 디바이스를 실행하려면 **Azure Portal 관리**를 사용하도록 설정합니다.
+1. 디바이스의 로컬 웹 UI에서 **구성 > 클라우드 설정** 으로 이동합니다.
+2. 드롭다운 목록에서 장치를 작동 하는 데 사용할 모드를 선택 합니다. **전체 연결 됨**, **부분적으로 연결 됨** 및 **완전히 분리** 됨에서 선택할 수 있습니다. 부분적으로 연결이 끊긴 모드에서 디바이스를 실행하려면 **Azure Portal 관리** 를 사용하도록 설정합니다.
 
     ![연결 모드](media/azure-stack-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  
@@ -122,7 +122,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 
 로컬 웹 UI를 사용하여 물리적 디바이스를 종료하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 데이터 서버에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이 작업을 수행하면 데이터 손상 가능성이 최소화됩니다.
 
-1. 로컬 웹 UI에서 **유지 관리 > 전원 설정**으로 이동합니다.
+1. 로컬 웹 UI에서 **유지 관리 > 전원 설정** 으로 이동합니다.
 2. 수행 하려는 작업에 따라 **종료** 또는 **다시 시작** 을 선택 합니다.
 
     ![전원 설정](media/azure-stack-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)

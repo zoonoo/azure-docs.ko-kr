@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86132316"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
 SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 애플리케이션이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 응용 프로그램에 대 한 재해 복구를 설정 하는 경우에는 다른 응용 프로그램의 기능을 복구 하기 위해 다른 응용 프로그램 구성 요소를 복구 하기 전에 Active Directory 및 DNS (도메인 이름 시스템)를 복구 해야 하는 경우가 많습니다.
 
-[Site Recovery](site-recovery-overview.md)를 사용하여 Active Directory에 대한 재해 복구 계획을 만들 수 있습니다. 중단되는 경우 장애 조치(failover)를 시작할 수 있습니다. 몇 분 안에 Active Directory를 가동 및 실행할 수 있습니다. 주 사이트에서 SharePoint 및 SAP와 같은 여러 애플리케이션에 Active Directory를 배포한 경우 전체 사이트를 장애 조치(failover)할 수 있습니다. 먼저 Site Recovery를 사용하여 Active Directory를 장애 조치(failover)합니다. 그런 다음, 애플리케이션별 복구 계획을 사용하여 다른 애플리케이션을 장애 조치(failover)합니다.
+[Site Recovery](site-recovery-overview.md)를 사용하여 Active Directory에 대한 재해 복구 계획을 만들 수 있습니다. 중단되는 경우 장애 조치(failover)를 시작할 수 있습니다. 몇 분 안에 Active Directory를 실행할 수 있습니다. 주 사이트에서 SharePoint 및 SAP와 같은 여러 애플리케이션에 Active Directory를 배포한 경우 전체 사이트를 장애 조치(failover)할 수 있습니다. 먼저 Site Recovery를 사용하여 Active Directory를 장애 조치(failover)합니다. 그런 다음, 애플리케이션별 복구 계획을 사용하여 다른 애플리케이션을 장애 조치(failover)합니다.
 
 이 문서에서는 Active Directory에 대한 재해 복구 솔루션을 만드는 방법을 설명합니다. 필수 구성 요소 및 장애 조치(failover) 지침을 포함합니다. 시작하기 전에 Active Directory와 Site Recovery에 대해 잘 알고 있어야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure에 복제하는 경우 구독, Azure Virtual Network, 스토리지 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
-- 모든 구성 요소에 대 한 [지원 요구 사항을](./vmware-physical-azure-support-matrix.md) 검토 합니다.
+- 모든 구성 요소에 대한 [지원 요구 사항](./vmware-physical-azure-support-matrix.md)을 검토합니다.
 
 ## <a name="replicate-the-domain-controller"></a>도메인 컨트롤러 복제
 
@@ -79,7 +79,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 1. 격리된 네트워크를 만듭니다. Azure에서 만드는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 주소 범위를 프로덕션 네트워크에서 사용하는 IP 주소 범위와 동일하게 사용하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
 1. 격리된 네트워크의 DNS IP 주소를 제공합니다. DNS 가상 머신을 가져올 것으로 예상되는 IP 주소를 사용합니다. Azure로 복제하는 경우 장애 조치(failover)에 사용되는 가상 머신의 IP 주소를 제공합니다. IP 주소를 입력하려면 복제된 가상 머신의 **컴퓨팅 및 네트워크** 설정에서 **대상 IP** 설정을 선택합니다.
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Azure 테스트 네트워크":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Azure 네트워크":::
 
    > [!TIP]
    > Site Recovery는 가상 머신의 **컴퓨팅 및 네트워크** 설정에서 제공한 것과 동일한 IP 주소를 사용하여 동일한 이름의 서브넷에 테스트 가상 머신을 만들려고 시도합니다. 테스트 장애 조치(failover)에 제공된 Azure Virtual Network에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 머신이 만들어집니다.
@@ -118,21 +118,21 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
 - **Vm-generationid** 값은 다음과 같이 변경 됩니다.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Generation ID 변경":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Azure 네트워크":::
 
 - **InvocationID** 값은 다음과 같이 변경 됩니다.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="호출 ID 변경":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Azure 네트워크":::
 
-- `SYSVOL`폴더 및 `NETLOGON` 공유를 사용할 수 없습니다.
+- `SYSVOL` 폴더 및 `NETLOGON` 공유를 사용할 수 없습니다.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="SYSVOL 폴더 공유":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Azure 네트워크":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="NtFrs SYSVOL 폴더":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Azure 네트워크":::
 
 - DFSR 데이터베이스가 삭제됩니다.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="DFSR 데이터베이스가 삭제됩니다.":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Azure 네트워크":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>테스트 장애 조치(failover)를 수행하는 동안 도메인 컨트롤러 문제 해결
 

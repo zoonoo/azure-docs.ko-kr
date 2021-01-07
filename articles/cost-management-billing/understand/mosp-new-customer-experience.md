@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 27a6f8f0ed0d58deb64f768d2e47bafebc910edb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7bec455b804d1f4b13ab7e13677092077214a121
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690428"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965853"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -42,7 +42,7 @@ ms.locfileid: "88690428"
 
 청구 프로필의 역할에는 청구서 및 결제 방법을 보고 관리할 수 있는 권한이 있습니다. 조직의 회계 팀원처럼 청구서 대금을 결제하는 사용자에게 이러한 역할을 할당해야 합니다. 자세한 내용은 [청구 프로필 역할 및 작업](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요. 
 
-계정이 업데이트되면 다른 사람에게 [청구서 보기](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice) 권한을 부여한 각 구독에서 소유자, 기여자, 읽기 권한자 또는 청구 읽기 권한자 Azure RBAC 역할이 있는 사용자에게 해당 청구 프로필에 대한 읽기 권한자 역할이 부여됩니다.
+계정이 업데이트되면 다른 사람에게 [청구서 보기](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice) 권한을 부여한 각 구독에서 소유자, 기여자, 읽기 권한자 또는 청구 읽기 권한자 Azure 역할이 있는 사용자에게 해당 청구 프로필에 대한 읽기 권한자 역할이 부여됩니다.
 
 ## <a name="invoice-sections"></a>청구서 섹션
 
@@ -104,8 +104,8 @@ Cost Management 또는 청구 API를 사용하여 청구 또는 비용 데이터
 
 |API | 변경  |
 |---------|---------|
-|[청구 계정 - 나열](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | 청구 계정 - 나열 API에서 이전 청구 계정의 agreementType은 **MicrosoftOnlineServiceProgram**이고, 새 청구 계정의 agreementType은 **MicrosoftCustomerAgreement**입니다. agreementType을 사용하는 경우 업데이트하세요. |
-|[청구서 - 청구 구독별 나열](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | 이 API는 계정이 업데이트되기 전에 생성된 청구서만 반환합니다. 새 청구 계정에서 생성된 청구서를 가져오려면 [청구서 - 청구서 계정별 나열](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API를 사용해야 합니다. |
+|[청구 계정 - 나열](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | 청구 계정 - 나열 API에서 이전 청구 계정의 agreementType은 **MicrosoftOnlineServiceProgram** 이고, 새 청구 계정의 agreementType은 **MicrosoftCustomerAgreement** 입니다. agreementType을 사용하는 경우 업데이트하세요. |
+|[청구서 - 청구 구독별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | 이 API는 계정이 업데이트되기 전에 생성된 청구서만 반환합니다. 새 청구 계정에서 생성된 청구서를 가져오려면 [청구서 - 청구서 계정별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API를 사용해야 합니다. |
 
 ## <a name="additional-information"></a>추가 정보
 
@@ -113,7 +113,7 @@ Cost Management 또는 청구 API를 사용하여 청구 또는 비용 데이터
 
 **서비스 가동 중지 시간 없음** 구독에 포함된 Azure 서비스는 중단 없이 계속 실행됩니다. 청구 환경만 업데이트됩니다. 기존 리소스, 리소스 그룹 또는 관리 그룹에는 영향이 없습니다.
 
-**Azure 리소스에는 변화 없음** Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리소스 액세스는 업데이트의 영향을 받지 않습니다.
+**Azure 리소스에는 변화 없음** Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure 리소스 액세스는 업데이트의 영향을 받지 않습니다.
 
 **새 환경에서 이전 청구서 사용 가능** 계정을 업데이트하기 전에 생성된 청구서가 Azure Portal에 계속 제공됩니다.
 

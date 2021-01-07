@@ -5,11 +5,11 @@ author: ecfan
 ms.author: estfan
 ms.date: 03/02/2018
 ms.openlocfilehash: 1aabc1b33722c571c6519b6620fb62211a44c2e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789747"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999548"
 ---
 1. [Azure Portal](https://portal.azure.com)에서 빈 논리 앱을 만듭니다. 
 
@@ -22,7 +22,7 @@ ms.locfileid: "74789747"
    > [!NOTE]
    > 모든 논리 앱 워크플로에서 트리거를 시작해야 합니다. 논리 워크플로에서 트리거를 이미 시작한 경우에만 작업을 선택할 수 있습니다. 
 
-4. 이전에 연결을 만들지 않은 경우 **로그인**을 선택하여 메시지가 표시될 때 GitHub 자격 증명을 제공할 수 있습니다.  
+4. 이전에 연결을 만들지 않은 경우 **로그인** 을 선택하여 메시지가 표시될 때 GitHub 자격 증명을 제공할 수 있습니다.  
 
    ![GitHub 자격 증명으로 로그인](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
 

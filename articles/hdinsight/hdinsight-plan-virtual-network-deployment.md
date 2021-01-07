@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight에 대 한 가상 네트워크 계획
+title: Azure HDInsight에 대한 가상 네트워크 계획
 description: Azure Virtual Network 배포를 계획 하 여 다른 클라우드 리소스 또는 데이터 센터의 리소스에 HDInsight를 연결 하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
-ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d6d18cc73c02d3139074555fdd22a40c797ce40
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82786617"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825146"
 ---
-# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
+# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대한 가상 네트워크 계획
 
 이 문서에서는 Azure HDInsight와 함께 [azure vnet (가상 네트워크](../virtual-network/virtual-networks-overview.md) )를 사용 하는 방법에 대 한 배경 정보를 제공 합니다. 또한 HDInsight 클러스터에 대 한 가상 네트워크를 구현 하기 위해 수행 해야 하는 디자인 및 구현 결정에 대해 설명 합니다. 계획 단계가 완료 되 면 [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 계속할 수 있습니다. NSGs (네트워크 보안 그룹) 및 사용자 정의 경로를 올바르게 구성 하는 데 필요한 HDInsight 관리 IP 주소에 대 한 자세한 내용은 [hdinsight 관리 ip 주소](hdinsight-management-ip-addresses.md)를 참조 하세요.
 
@@ -84,7 +84,7 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
         자세한 내용은 [네트워크 보안 그룹 문제 해결](../virtual-network/diagnose-network-traffic-filter-problem.md) 문서를 참조하세요.
 
         > [!IMPORTANT]  
-        > 네트워크 보안 그룹 규칙은 규칙 우선 순위에 따라 적용됩니다. 트래픽 패턴과 일치하는 첫 번째 규칙이 적용되고 해당 트래픽에 대해서는 다른 규칙이 적용되지 않습니다. 가장 허용적인 것부터 가장 허용적이지 않은 것 순서로 규칙을 정렬합니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/security-overview.md) 문서를 참조하세요.
+        > 네트워크 보안 그룹 규칙은 규칙 우선 순위에 따라 적용됩니다. 트래픽 패턴과 일치하는 첫 번째 규칙이 적용되고 해당 트래픽에 대해서는 다른 규칙이 적용되지 않습니다. 가장 허용적인 것부터 가장 허용적이지 않은 것 순서로 규칙을 정렬합니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/network-security-groups-overview.md) 문서를 참조하세요.
 
     * 사용자 정의 경로
 
@@ -118,7 +118,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 * 인터넷에서 사용할 수 있는 모든 리소스. 예: microsoft.com, windowsupdate.com.
 
-* 리소스의 __내부 DNS 이름__을 사용하여 동일한 Azure Virtual Network에 있는 모든 리소스. 예를 들어 기본 이름 확인을 사용 하는 경우 HDInsight worker 노드에 할당 된 내부 DNS 이름의 예는 다음과 같습니다.
+* 리소스의 __내부 DNS 이름__ 을 사용하여 동일한 Azure Virtual Network에 있는 모든 리소스. 예를 들어 기본 이름 확인을 사용 하는 경우 HDInsight worker 노드에 할당 된 내부 DNS 이름의 예는 다음과 같습니다.
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
@@ -210,6 +210,6 @@ HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다.
 * 코드 샘플 및 Azure 가상 네트워크 만들기 예제는 [Azure HDInsight 클러스터에 대한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 참조하세요.
 * 온-프레미스 네트워크에 연결하기 위해 HDInsight를 구성하는 엔드투엔드 예제는 [HDInsight를 온-프레미스 네트워크에 연결](./connect-on-premises-network.md)을 참조하세요.
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
-* 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
+* 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 참조하세요.
 * 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
-* 트래픽을 제어 하는 방법에 대 한 자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.
+* 방화벽 통합을 포함 하 여 트래픽을 제어 하는 방법에 대 한 자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.

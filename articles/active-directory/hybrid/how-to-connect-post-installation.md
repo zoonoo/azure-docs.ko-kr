@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657121"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
@@ -56,12 +56,12 @@ Azure Portal을 사용하여 동기화 상태를 확인합니다.
 동기화 작업을 실행 해야 하는 경우 다음을 수행할 수 있습니다.
 
 1. Azure AD Connect 바탕 화면 바로 가기를 두 번 클릭 하 여 마법사를 시작 합니다.
-2. **구성**을 클릭합니다.
+2. **Configure**를 클릭합니다.
 3. 작업 화면에서 **동기화 옵션 사용자 지정** 을 선택 하 고 **다음** 을 클릭 합니다.
 4. Azure AD 자격 증명 입력
 5. **다음**을 클릭합니다. **다음**을 클릭합니다.  **다음**을 클릭합니다.
 5.  **구성 준비** 완료 화면에서 **구성이 완료 되 면 동기화 프로세스를 시작** 합니다. 확인란을 선택 했는지 확인 합니다.
-6.  **구성**을 클릭합니다.
+6.  **Configure**를 클릭합니다.
 
 Azure AD Connect sync Scheduler에 대 한 자세한 내용은 [scheduler Azure AD Connect](how-to-connect-sync-feature-scheduler.md)를 참조 하세요.
 
@@ -72,7 +72,7 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 
 ![추가 작업 목록](./media/how-to-connect-post-installation/addtasks2.png)
 
-| 추가 작업 | Description |
+| 추가 작업 | 설명 |
 | --- | --- |
 |**개인 정보 설정**|Microsoft와 공유 되는 원격 분석 데이터를 확인 합니다.|
 |**현재 구성 보기**|현재 Azure AD Connect 솔루션을 봅니다.  일반 설정, 동기화된 디렉토리 및 동기화 설정을 포함합니다. |

@@ -3,23 +3,25 @@ title: Azure Cosmos DB에서 컨테이너 쿼리
 description: 파티션 내 및 파티션 간 쿼리를 사용 하 여 Azure Cosmos DB에서 컨테이너를 쿼리 하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261259"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335894"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 쿼리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB에서 컨테이너(컬렉션, 그래프, 테이블)를 쿼리하는 방법을 설명합니다. 특히 Azure Cosmos DB에서 파티션 및 파티션 간 쿼리를 사용 하는 방법을 설명 합니다.
 
 ## <a name="in-partition-query"></a>파티션 내 쿼리
 
-컨테이너에서 데이터를 쿼리하면 쿼리에 파티션 키 필터가 지정 된 경우 Azure Cosmos DB 자동으로 쿼리를 최적화 합니다. 필터에 지정 된 파티션 키 값에 해당 하는 [실제 파티션으로](partition-data.md#physical-partitions) 쿼리를 라우팅합니다.
+컨테이너에서 데이터를 쿼리하면 쿼리에 파티션 키 필터가 지정 된 경우 Azure Cosmos DB 자동으로 쿼리를 최적화 합니다. 필터에 지정 된 파티션 키 값에 해당 하는 [실제 파티션으로](partitioning-overview.md#physical-partitions) 쿼리를 라우팅합니다.
 
 예를 들어에 같음 필터를 사용 하는 아래 쿼리를 살펴보세요 `DeviceId` . 에서 분할 된 컨테이너에 대해이 쿼리를 실행 하는 경우 `DeviceId` 이 쿼리는 단일 실제 파티션으로 필터링 됩니다.
 
@@ -57,11 +59,11 @@ Azure Cosmos DB SDK 1.9.0 이상은 병렬 쿼리 실행 옵션을 지원합니�
 
 다음 매개 변수를 조정하여 병렬 쿼리 실행을 관리할 수 있습니다.
 
-- **Maxconcurrency**: 컨테이너의 파티션에 대 한 최대 동시 네트워크 연결 수를 설정 합니다. 이 속성을로 설정 하면 `-1` SDK가 병렬 처리 수준을 관리 합니다.  `MaxConcurrency`로 설정 된 경우 `0` 컨테이너 파티션에 단일 네트워크 연결이 있습니다.
+- **Maxconcurrency** : 컨테이너의 파티션에 대 한 최대 동시 네트워크 연결 수를 설정 합니다. 이 속성을로 설정 하면 `-1` SDK가 병렬 처리 수준을 관리 합니다.  `MaxConcurrency`로 설정 된 경우 `0` 컨테이너 파티션에 단일 네트워크 연결이 있습니다.
 
-- **MaxBufferedItemCount**: 쿼리 대기 시간과 클라이언트 쪽 메모리 사용률을 조정합니다. 이 매개 변수를 생략하거나 -1로 설정하는 경우 SDK는 병렬 쿼리 실행 중에 버퍼링된 항목 수를 관리합니다.
+- **MaxBufferedItemCount** : 쿼리 대기 시간과 클라이언트 쪽 메모리 사용률을 조정합니다. 이 매개 변수를 생략하거나 -1로 설정하는 경우 SDK는 병렬 쿼리 실행 중에 버퍼링된 항목 수를 관리합니다.
 
-파티션 간 쿼리를 병렬화 하는 Azure Cosmos DB의 기능으로 인해, 일반적으로 시스템에서 [실제 파티션을](partition-data.md#physical-partitions)추가할 때 쿼리 대기 시간이 효과적으로 조정 됩니다. 그러나 총 물리적 파티션 수가 증가 함에 따라 과도 한 요금은 현저 하 게 증가 합니다.
+파티션 간 쿼리를 병렬화 하는 Azure Cosmos DB의 기능으로 인해, 일반적으로 시스템에서 [실제 파티션을](partitioning-overview.md#physical-partitions)추가할 때 쿼리 대기 시간이 효과적으로 조정 됩니다. 그러나 총 물리적 파티션 수가 증가 함에 따라 과도 한 요금은 현저 하 게 증가 합니다.
 
 파티션 간 쿼리를 실행 하는 경우에는 기본적으로 개별 실제 파티션당 별도의 쿼리를 수행 합니다. 파티션 간 쿼리 쿼리는 인덱스를 사용 하는 반면, 사용 가능한 경우에는 파티션 내 쿼리와는 거의 비효율적입니다.
 

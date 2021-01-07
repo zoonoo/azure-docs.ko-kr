@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 86f9f92810cff241f816dadfc6e1e8ca120f1f4a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686652"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344490"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
 
 Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 문제가 발생할 수 있습니다. 이 짧은 가이드에서는 등록 프로세스를 안내하고 각 단계에서는 몇 가지 일반적인 문제에 대해 설명합니다.
 
 > [!NOTE]
-> 이미 기존 계정이 있고 로그인 문제를 해결하기 위한 지침을 찾고 있는 경우 [Azure 구독 로그인 문제 해결](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)을 참조하세요.
+> 이미 기존 계정이 있고 로그인 문제를 해결하기 위한 지침을 찾고 있는 경우 [Azure 구독 로그인 문제 해결](./troubleshoot-sign-in-issue.md)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -54,7 +54,7 @@ Azure 등록 환경은 다음 네 개의 섹션으로 구성됩니다.
 이 문제를 해결하려면 다음 단계를 따릅니다.
 
 1.  계정 관리자 자격 증명을 사용하여 [Azure 계정 센터](https://account.azure.com/Profile)에 로그인합니다.
-1.  **세부 정보 편집**을 선택합니다.
+1.  **세부 정보 편집** 을 선택합니다.
 1.  모든 주소 필드가 완료되었고 유효한지 확인합니다.
 1.  Azure 구독에 등록할 때 신용 카드 등록을 위한 청구 주소가 은행 기록과 일치하는지 확인합니다.
 
@@ -76,8 +76,8 @@ InPrivate 브라우징 방법
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>'현재 계정 유형이 지원되지 않습니다.' 메시지가 표시됩니다.
 
-이 문제는 계정이 [관리되지 않는 Azure AD 디렉터리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup)에 등록되어 있고 조직의 Azure AD 디렉터리에 없는 경우에 발생할 수 있습니다.
-이 문제를 해결하려면 다른 계정을 사용하여 Azure 계정을 등록하거나 관리되지 않는 AD 디렉터리를 인수하세요. 자세한 내용은 [Azure Active Directory에서 관리자 권한으로 관리되지 않는 디렉터리 인수](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)를 참조하세요.
+이 문제는 계정이 [관리되지 않는 Azure AD 디렉터리](../../active-directory/enterprise-users/directory-self-service-signup.md)에 등록되어 있고 조직의 Azure AD 디렉터리에 없는 경우에 발생할 수 있습니다.
+이 문제를 해결하려면 다른 계정을 사용하여 Azure 계정을 등록하거나 관리되지 않는 AD 디렉터리를 인수하세요. 자세한 내용은 [Azure Active Directory에서 관리자 권한으로 관리되지 않는 디렉터리 인수](../../active-directory/enterprise-users/domains-admin-takeover.md)를 참조하세요.
 
 ## <a name="identity-verification-by-phone"></a>전화로 ID 검증
 
@@ -107,7 +107,7 @@ InPrivate 브라우징 방법
 
 #### <a name="credit-card-declined-or-not-accepted"></a>신용 카드가 거부되거나 승인되지 않습니다.
 
-가상 카드, 선불 카드 또는 직불 카드는 Azure 구독의 지불 옵션으로 허용되지 않습니다. 카드가 거부될 수 있는 다른 항목을 확인 하려면 [Azure 등록에서 거부된 카드 문제 해결](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)을 참조하세요.
+가상 카드, 선불 카드 또는 직불 카드는 Azure 구독의 지불 옵션으로 허용되지 않습니다. 카드가 거부될 수 있는 다른 항목을 확인 하려면 [Azure 등록에서 거부된 카드 문제 해결](./troubleshoot-declined-card.md)을 참조하세요.
 
 #### <a name="credit-card-form-doesnt-support-my-billing-address"></a>신용 카드 양식이 내 청구 주소를 지원하지 않습니다.
 
@@ -120,18 +120,18 @@ InPrivate 브라우징 방법
 다음 단계를 사용하여 브라우저의 쿠키 설정을 업데이트하세요.
 
 1. 쿠키 설정을 업데이트하세요.
-   - **Chrome**을 사용하는 경우:
-     - **설정** > **고급 설정 표시** > **개인 정보** > **콘텐츠 설정**을 선택합니다. **타사 쿠키 및 사이트 데이터 차단**을 선택 해제합니다.
+   - **Chrome** 을 사용하는 경우:
+     - **설정** > **고급 설정 표시** > **개인 정보** > **콘텐츠 설정** 을 선택합니다. **타사 쿠키 및 사이트 데이터 차단** 을 선택 해제합니다.
 
-   - **Microsoft Edge**를 사용하는 경우:
-     - **설정** > **고급 설정 보기** > **쿠키** > **쿠키를 차단하지 않음**을 선택합니다.
+   - **Microsoft Edge** 를 사용하는 경우:
+     - **설정** > **고급 설정 보기** > **쿠키** > **쿠키를 차단하지 않음** 을 선택합니다.
 
 1. Azure 등록 페이지를 새로 고친 다음, 문제가 해결되었는지 여부를 확인합니다.
 1. 새로 고쳐도 문제가 해결되지 않으면 브라우저를 종료했다가 다시 시작한 후 다시 시도하세요.
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>평가판 계정에 요금이 부과되었습니다.
 
-등록한 후에는 신용 카드 계정에 소액의 확인용 금액이 표시될 수 있습니다. 이 표시는 3~5일 내에 제거됩니다. 비용 관리가 염려되는 경우 [예상치 못한 비용 방지](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started)에 대해 자세히 알아봅니다.
+등록한 후에는 신용 카드 계정에 소액의 확인용 금액이 표시될 수 있습니다. 이 표시는 3~5일 내에 제거됩니다. 비용 관리가 염려되는 경우 [예상치 못한 요금 분석](../understand/analyze-unexpected-charges.md)에 대해 자세히 알아봅니다.
 
 ## <a name="agreement"></a>규약
 
@@ -144,7 +144,7 @@ InPrivate 브라우징 방법
 올바른 로그인 자격 증명을 사용하고 있는지 확인합니다. 그런 다음, 혜택 프로그램에서 자격이 있는지 확인합니다.
 - MSDN
   - [MSDN 계정 페이지](https://msdn.microsoft.com/subscriptions/manage/default.aspx)에서 자격 상태를 확인합니다.
-  - 자신의 상태를 확인할 수 없는 경우 [MSDN 구독 고객 서비스 센터](https://msdn.microsoft.com/library/aa493452.aspx)에 문의하세요.
+  - 자신의 상태를 확인할 수 없는 경우 [MSDN 구독 고객 서비스 센터](/previous-versions/mappoint/aa493452(v=msdn.10))에 문의하세요.
 - Microsoft for Startups
   - [Microsoft for Startups 포털](https://startups.microsoft.com/#start-two)에 로그인하여 Microsoft for Startups에 대한 자격 상태를 확인합니다.
   - 자신의 상태를 확인할 수 없는 경우에는 [Microsoft for Startups 포럼](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups)에서 도움을 받을 수 있습니다.
@@ -161,10 +161,10 @@ Azure In Open 구독을 만들려면 하나 이상의 Azure In Open 토큰이 �
 
 Azure 청구 및 구독에 대한 기타 문제 해결 문서
 
-- [거부된 카드](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [구독 로그인 문제](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [구독을 찾을 수 없음](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Enterprise 비용 보기 사용 안 함](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [거부된 카드](./troubleshoot-declined-card.md)
+- [구독 로그인 문제](./troubleshoot-sign-in-issue.md)
+- [구독을 찾을 수 없음](./no-subscriptions-found.md)
+- [Enterprise 비용 보기 사용 안 함](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## <a name="contact-us-for-help"></a>도움이 필요한 경우 문의처
 
@@ -172,4 +172,4 @@ Azure 청구 및 구독에 대한 기타 문제 해결 문서
 
 ## <a name="find-out-more-about-azure-cost-management"></a>Azure Cost Management에 대해 자세히 알아보세요.
 
-- [Azure Cost Management 및 청구 설명서](https://docs.microsoft.com/azure/cost-management-billing)
+- [Azure Cost Management 및 청구 설명서](../index.yml)

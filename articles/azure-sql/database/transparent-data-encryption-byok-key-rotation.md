@@ -5,19 +5,19 @@ description: PowerShell 및 Azure CLI를 사용 하 여 Azure SQL Database 및 A
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: b2729975db154fbaf4569afc5aa9b5eaab358146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37931aee24e2dbcab03bca400d58f236601c87e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321357"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321421"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>TDE (투명한 데이터 암호화) 보호기 회전
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,23 +28,23 @@ ms.locfileid: "84321357"
 이 가이드에서는 서버에서 TDE 보호기를 회전하는 두 가지 옵션을 설명합니다.
 
 > [!NOTE]
-> 일시 중지 된 Azure Synapse Analytics SQL 풀은 키 회전 전에 다시 시작 해야 합니다.
+> Azure Synapse Analytics에서 일시 중지 된 전용 SQL 풀은 키를 회전 하기 전에 다시 시작 해야 합니다.
 
 > [!IMPORTANT]
 > 롤오버 후에는 이전 버전의 키를 삭제 하지 마십시오. 키가 롤오버될 때 구 데이터베이스 백업 같은 일부 데이터는 이전 키로 계속 암호화되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 방법 가이드에서는 Azure Key Vault의 키를 Azure SQL Database 또는 Azure Synapse Analytics의 TDE 보호기로 이미 사용 한다고 가정 합니다. [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
 - Azure PowerShell 설치 되 고 실행 중 이어야 합니다.
-- [권장 선택 사항] HSM(하드웨어 보안 모듈)이나 로컬 키 저장소의 TDE 보호기에 대한 키 자료를 먼저 만들고 키 자료를 Azure Key Vault로 가져옵니다. [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)에 따라 자세히 알아봅니다.
+- [권장 선택 사항] HSM(하드웨어 보안 모듈)이나 로컬 키 저장소의 TDE 보호기에 대한 키 자료를 먼저 만들고 키 자료를 Azure Key Vault로 가져옵니다. [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../../key-vault/general/overview.md)에 따라 자세히 알아봅니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요.
+Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 자세한 내용은 [AzureRM](/powershell/module/AzureRM.Sql/)를 참조 하세요.
 
 > [!IMPORTANT]
-> RM (PowerShell Azure Resource Manager) 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
+> PowerShell Azure RM(Resource Manager) 모듈은 여전히 지원되지만 향후 모든 개발은 Az.Sql 모듈을 위한 것입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

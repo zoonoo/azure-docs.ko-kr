@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74687292"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021659"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>자동 크기 조정 및 App Service Environment v1
 
@@ -20,7 +20,7 @@ ms.locfileid: "74687292"
 > 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대 한 자세한 내용은 [App Service Environment 소개](intro.md)부터 시작 합니다.
 > 
 
-Azure App Service 환경은 *자동 크기 조정*을 지원합니다. 메트릭 또는 일정에 따라 개별 작업자 풀을 자동 크기 조정할 수 있습니다.
+Azure App Service 환경은 *자동 크기 조정* 을 지원합니다. 메트릭 또는 일정에 따라 개별 작업자 풀을 자동 크기 조정할 수 있습니다.
 
 ![작업자 풀에 대한 자동 크기 조정 옵션입니다.][intro]
 

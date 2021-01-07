@@ -1,14 +1,16 @@
 ---
 title: 모델 및 학습 설정 관리-Personalizer
 description: 컴퓨터에서 학습 한 모델 및 학습 설정은 자신의 원본 제어 시스템에서 백업용으로 내보낼 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 59af5a64ea5752ec03fb44df91440e8d395e3782
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 48e954eab9da5dfc638f93a7c4e55c675c4f2ac9
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344359"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797250"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>모델 및 학습 설정을 관리 하는 방법
 
@@ -16,13 +18,13 @@ ms.locfileid: "84344359"
 
 ## <a name="export-the-personalizer-model"></a>Personalizer 모델 내보내기
 
-**모델 및 학습 설정**에 대 한 리소스 관리 섹션에서 모델 생성 및 마지막 업데이트 날짜를 검토 하 고 현재 모델을 내보냅니다. Azure Portal 또는 Personalizer API를 사용하여 보관을 위해 모델 파일을 내보낼 수 있습니다.
+**모델 및 학습 설정** 에 대 한 리소스 관리 섹션에서 모델 생성 및 마지막 업데이트 날짜를 검토 하 고 현재 모델을 내보냅니다. Azure Portal 또는 Personalizer API를 사용하여 보관을 위해 모델 파일을 내보낼 수 있습니다.
 
 ![현재 Personalizer 모델 내보내기](media/settings/export-current-personalizer-model.png)
 
 ## <a name="clear-data-for-your-learning-loop"></a>학습 루프의 데이터 지우기
 
-1. Azure Portal에서 Personalizer 리소스에 대해 **모델 및 학습 설정** 페이지에서 **데이터 지우기**를 선택 합니다.
+1. Azure Portal에서 Personalizer 리소스에 대해 **모델 및 학습 설정** 페이지에서 **데이터 지우기** 를 선택 합니다.
 1. 모든 데이터를 지우고 학습 루프를 원래 상태로 다시 설정 하려면 3 개의 확인란을 모두 선택 합니다.
 
     ![Azure Portal에서 Personalizer 리소스의 데이터를 지웁니다.](./media/settings/clear-data-from-personalizer-resource.png)
@@ -53,4 +55,4 @@ ms.locfileid: "84344359"
 
 ## <a name="next-steps"></a>다음 단계
 
-[학습 정책을 관리 하는 방법 알아보기](how-to-manage-model.md)
+[오프 라인 평가를 사용 하 여 학습 루프 분석](how-to-offline-evaluation.md)

@@ -1,18 +1,21 @@
 ---
 title: 모범 사례
-description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
-ms.date: 08/12/2020
+description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146541"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934291"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
-이 문서에서는 실제의 Batch 환경을 기반으로 하여 Azure Batch 서비스를 효과적이고 효율적으로 사용하기 위한 모범 사례 모음에 대해 설명합니다. 이 문서를 참조하여 Batch를 개발하고 사용하면서 설계 문제, 잠재적 성능 문제 및 안티패턴을 방지합니다.
+이 문서에서는 Batch의 실제 경험을 기반으로 Azure Batch 서비스를 효과적으로 사용 하기 위한 모범 사례 및 유용한 팁의 컬렉션을 설명 합니다. 이러한 팁은 Azure Batch 솔루션에서 성능을 향상 시키고 디자인 문제를 방지 하는 데 도움이 됩니다.
+
+> [!TIP]
+> Azure Batch의 보안에 대 한 지침은 [Batch 보안 및 규정 준수 모범 사례](security-best-practices.md)를 참조 하세요.
 
 ## <a name="pools"></a>풀
 
@@ -20,7 +23,10 @@ ms.locfileid: "89146541"
 
 ### <a name="pool-configuration-and-naming"></a>풀 구성 및 이름 지정
 
-- **풀 할당 모드** Batch 계정을 만들 때 **Batch 서비스** 및 **사용자 구독**의 두 가지 풀 할당 모드 중에서 선택할 수 있습니다. 대부분의 경우 풀이 Batch 관리형 구독에서 내부적으로 할당되는 기본 Batch 서비스를 사용해야 합니다. 대체 사용자 구독 모드인 경우 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. 사용자 구독 계정은 주로 시나리오의 중요하지만 작은 하위 세트를 사용하도록 설정하는 데 사용됩니다. 사용자 구독 모드에 대한 자세한 내용은 [사용자 구독 모드에 대한 추가 구성](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)에서 확인할 수 있습니다.
+- **풀 할당 모드** Batch 계정을 만들 때 **Batch 서비스** 및 **사용자 구독** 의 두 가지 풀 할당 모드 중에서 선택할 수 있습니다. 대부분의 경우 풀이 Batch 관리형 구독에서 내부적으로 할당되는 기본 Batch 서비스를 사용해야 합니다. 대체 사용자 구독 모드인 경우 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. 사용자 구독 계정은 주로 시나리오의 중요하지만 작은 하위 세트를 사용하도록 설정하는 데 사용됩니다. 사용자 구독 모드에 대한 자세한 내용은 [사용자 구독 모드에 대한 추가 구성](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)에서 확인할 수 있습니다.
+
+- **' cloudServiceConfiguration ' 또는 ' virtualMachineConfiguration '입니다.**
+    ' virtualMachineConfiguration '을 사용 해야 합니다. 모든 Batch 기능은 ' virtualMachineConfiguration ' 풀에서 지원 됩니다. 모든 기능이 ' cloudServiceConfiguration ' 풀에 대해 지원 되는 것은 아니므로 새 기능을 계획 하 고 있지 않습니다.
 
 - **작업-풀 매핑을 결정할 때 작업 및 태스크 실행 시간을 고려합니다.**
     주로 단기 실행 태스크로 구성된 작업이 있고 예상 총 태스크 수가 작으므로 전체 예상 작업 실행 시간이 길지 않은 경우 새 풀을 각 작업에 할당하지 않습니다. 노드의 할당 시간은 작업 실행 시간을 줄입니다.
@@ -38,10 +44,10 @@ ms.locfileid: "89146541"
 
 ### <a name="pool-lifetime-and-billing"></a>풀 수명 및 청구
 
-풀 수명은 풀 구성에 적용되는 할당 방법 및 옵션에 따라 달라질 수 있습니다. 풀의 수명은 임의로 지정할 수 있으며, 풀의 컴퓨팅 노드 수는 언제든지 달라질 수 있습니다. 사용자가 풀의 컴퓨팅 노드를 명시적으로 관리하거나 서비스에서 제공하는 기능(자동 크기 조정 또는 자동 풀)을 통해 관리해야 합니다.
+풀 수명은 풀 구성에 적용되는 할당 방법 및 옵션에 따라 달라질 수 있습니다. 풀의 수명은 임의로 지정할 수 있으며, 풀의 컴퓨팅 노드 수는 언제든지 달라질 수 있습니다. 풀의 계산 노드를 명시적으로 관리 하거나 서비스에서 제공 하는 기능 ([자동 크기 조정](nodes-and-pools.md#automatic-scaling-policy) 또는 [자동 풀](nodes-and-pools.md#autopools))을 통해 관리 하는 것은 사용자의 책임입니다.
 
 - **풀을 새로 유지합니다.**
-    최신 노드 에이전트 업데이트 및 버그 수정을 얻으려면 몇 개월마다 풀 크기를 0으로 조정해야 합니다. 풀을 다시 만들거나 풀 크기를 0개의 컴퓨팅 노드로 조정하지 않으면 풀에서 노드 에이전트 업데이트를 받지 않습니다. 풀을 다시 만들거나 크기를 조정하기 전에 [노드](#nodes) 섹션에서 설명한 대로 디버깅을 위해 노드 에이전트 로그를 다운로드하는 것이 좋습니다.
+    [최신 노드 에이전트 업데이트 및 버그 수정을](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md)얻으려면 몇 개월 마다 풀 크기를 0으로 조정 합니다. 풀을 다시 만들거나 풀 크기를 0개의 컴퓨팅 노드로 조정하지 않으면 풀에서 노드 에이전트 업데이트를 받지 않습니다. 풀을 다시 만들거나 크기를 조정하기 전에 [노드](#nodes) 섹션에서 설명한 대로 디버깅을 위해 노드 에이전트 로그를 다운로드하는 것이 좋습니다.
 
 - **풀 다시 만들기** 마찬가지로 매일 풀을 삭제하고 다시 만드는 것은 추천되지 않습니다. 대신 새 풀을 만들고 기존 작업에서 새 풀을 가리키도록 업데이트합니다. 모든 태스크가 새 풀로 이동되었으면 이전 풀을 삭제합니다.
 
@@ -63,7 +69,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 
 ### <a name="third-party-images"></a>타사 이미지
 
-풀은 Azure Marketplace에 게시 된 타사 이미지를 사용 하 여 만들 수 있습니다. 사용자 구독 모드 Batch 계정을 사용 하면 특정 타사 이미지를 사용 하 여 풀을 만들 때 "marketplace 구매 자격 확인으로 인해 할당 하지 못했습니다." 라는 오류가 표시 될 수 있습니다. 이 오류를 해결 하려면 이미지 게시자가 설정한 약관에 동의 합니다. [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms)를 사용 하 여이 작업을 수행할 수 있습니다.
+풀은 Azure Marketplace에 게시 된 타사 이미지를 사용 하 여 만들 수 있습니다. 사용자 구독 모드 Batch 계정을 사용 하면 특정 타사 이미지를 사용 하 여 풀을 만들 때 "marketplace 구매 자격 확인으로 인해 할당 하지 못했습니다." 라는 오류가 표시 될 수 있습니다. 이 오류를 해결 하려면 이미지 게시자가 설정한 약관에 동의 합니다. [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) 또는 [Azure CLI](/cli/azure/vm/image/terms)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 ### <a name="azure-region-dependency"></a>Azure 지역 종속성
 
@@ -93,7 +99,7 @@ Batch 작업의 수명은 시스템에서 해당 작업이 삭제될 때까지 �
 
 ### <a name="save-task-data"></a>태스크 데이터 저장
 
-컴퓨팅 노드는 기본적으로 사용 후에 삭제됩니다. Batch에는 노드를 쉽게 숨길 수 있는 자동 풀, 자동 크기 조정과 같은 다양한 기능이 있습니다. 크기 조정 또는 풀 삭제로 인해 노드가 풀을 벗어나면 해당 노드의 모든 파일도 삭제됩니다. 따라서 태스크는 완료되기 전에 해당 출력을 실행 중인 노드에서 지속형 저장소로 이동해야 합니다. 마찬가지로, 태스크가 실패하면 실패를 진단하는 데 필요한 로그를 지속형 저장소로 이동해야 합니다.
+컴퓨팅 노드는 기본적으로 사용 후에 삭제됩니다. 노드를 쉽게 사라지게 할 수 있는 [자동 풀](nodes-and-pools.md#autopools) 및 [자동 크기](nodes-and-pools.md#automatic-scaling-policy) 조정과 같은 많은 기능이 배치에 있습니다. 크기 조정 또는 풀 삭제로 인해 노드가 풀을 벗어나면 해당 노드의 모든 파일도 삭제 됩니다. 따라서 태스크는 완료되기 전에 해당 출력을 실행 중인 노드에서 지속형 저장소로 이동해야 합니다. 마찬가지로, 태스크가 실패하면 실패를 진단하는 데 필요한 로그를 지속형 저장소로 이동해야 합니다.
 
 Batch는 [OutputFiles](batch-task-output-files.md) 및 다양한 공유 파일 시스템을 통해 데이터를 업로드할 수 있도록 Azure Storage 지원을 통합했거나 태스크에서 업로드를 직접 수행할 수 있습니다.
 
@@ -109,7 +115,7 @@ Batch는 [OutputFiles](batch-task-output-files.md) 및 다양한 공유 파일 �
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>노드당 최대 태스크 수를 적절하게 설정
 
-Batch는 노드에 대한 과도한 구독 태스크를 지원합니다(노드에 있는 코어 수보다 더 많은 작업을 실행함). 사용자는 풀의 노드에 "적합"한 태스크가 되도록 해야 합니다. 예를 들어 각각 하나의 노드에서 25%의 CPU 사용량을 소비하는 8개의 태스크를 예약하려고 하면(`maxTasksPerNode = 8`인 풀의 경우) 성능이 저하될 수 있습니다.
+Batch는 노드에 대한 과도한 구독 태스크를 지원합니다(노드에 있는 코어 수보다 더 많은 작업을 실행함). 사용자는 풀의 노드에 "적합"한 태스크가 되도록 해야 합니다. 예를 들어 각각 하나의 노드에서 25%의 CPU 사용량을 소비하는 8개의 태스크를 예약하려고 하면(`taskSlotsPerNode = 8`인 풀의 경우) 성능이 저하될 수 있습니다.
 
 ### <a name="design-for-retries-and-re-execution"></a>다시 시도 및 다시 실행 디자인
 
@@ -140,6 +146,10 @@ Batch는 태스크를 자동으로 다시 시도할 수 있습니다. 사용자 
 ### <a name="idempotent-start-tasks"></a>idempotent 시작 태스크
 
 다른 태스크와 마찬가지로 노드가 부팅될 때마다 다시 실행되므로 노드 [시작 태스크](jobs-and-tasks.md#start-task)도 idempotent여야 합니다. idempotent 태스크는 여러 번 실행될 때 일관된 결과를 생성하는 태스크일 뿐입니다.
+
+### <a name="isolated-nodes"></a>격리 된 노드
+
+규정 준수 또는 규정 요구 사항을 준수 하는 워크 로드에 대해 격리 된 VM 크기 사용을 고려 합니다. 가상 컴퓨터 구성 모드에서 지원 되는 격리 된 크기는 `Standard_E80ids_v4` ,,,, `Standard_M128ms` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` 및 `Standard_E64i_v3` 입니다. 격리 된 VM 크기에 대 한 자세한 내용은 [Azure의 가상 머신 격리](https://docs.microsoft.com/azure/virtual-machines/isolation)를 참조 하세요.
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>운영 체제 서비스 인터페이스를 통해 장기 실행 서비스 관리
 
@@ -175,7 +185,7 @@ Resource Manager 및 템플릿에 대한 자세한 내용은 [빠른 시작: Azu
 
 ## <a name="connectivity"></a>연결
 
-Batch 솔루션의 연결을 고려하는 경우 다음 지침을 검토합니다.
+Batch 솔루션의 연결과 관련 된 다음 지침을 검토 합니다.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)
 
@@ -198,6 +208,10 @@ Batch 서비스 클라이언트에는 서비스 유지 관리 기간 동안만�
 
 일반적으로 Batch 풀의 가상 머신은 풀의 수명 동안 변경 될 수 있는 공용 IP 주소를 통해 액세스 됩니다. 이를 통해 특정 IP 주소에 대 한 액세스를 제한 하는 데이터베이스 또는 다른 외부 서비스와 상호 작용 하기가 어려울 수 있습니다. 풀의 공용 IP 주소가 예기치 않게 변경 되지 않도록 하려면 제어 하는 고정 공용 IP 주소 집합을 사용 하 여 풀을 만들 수 있습니다. 자세한 내용은 [지정 된 공용 IP 주소를 사용 하 여 Azure Batch 풀 만들기](create-pool-public-ip.md)를 참조 하세요.
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Cloud Services 구성을 사용 하 여 연결 테스트
+
+Azure 부하 분산 장치를 통해 ICMP 프로토콜이 허용 되지 않기 때문에 클라우드 서비스에서 일반적인 "ping"/ICMP 프로토콜을 사용할 수 없습니다. 자세한 내용은 [Azure Cloud Services에 대 한 연결 및 네트워킹](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service)을 참조 하세요.
+
 ## <a name="batch-node-underlying-dependencies"></a>Batch 노드 기본 종속성
 
 Batch 솔루션을 설계하는 경우 고려해야 할 종속성 및 제한 사항은 다음과 같습니다.
@@ -206,17 +220,23 @@ Batch 솔루션을 설계하는 경우 고려해야 할 종속성 및 제한 사
 
 Azure Batch는 VM에서 사용자 및 그룹 세트를 만들고 관리합니다. 이러한 사용자 및 그룹 세트는 변경할 수 없습니다. 다음과 같습니다.
 
-#### <a name="windows"></a>Windows
+Windows:
 
 - **PoolNonAdmin** 사용자
 - **WATaskCommon** 사용자 그룹
 
-#### <a name="linux"></a>Linux
+Linux:
 
 - **_azbatch** 사용자
 
 ### <a name="file-cleanup"></a>파일 정리
 
-보존 시간이 만료되면 Batch에서 태스크가 실행되는 작업 디렉터리를 적극적으로 정리하려고 시도합니다. 이 디렉터리 외부에 작성된 파일은 디스크 공간을 채우지 않도록 [사용자가 정리](#manage-task-lifetime)해야 합니다. 
+보존 시간이 만료되면 Batch에서 태스크가 실행되는 작업 디렉터리를 적극적으로 정리하려고 시도합니다. 이 디렉터리 외부에 작성된 파일은 디스크 공간을 채우지 않도록 [사용자가 정리](#manage-task-lifetime)해야 합니다.
 
 startTask 작업 디렉터리에서 Windows의 서비스를 실행하는 경우 폴더가 아직 사용 중이므로 작업 디렉터리에 대한 자동화된 정리가 차단됩니다. 이로 인해 성능이 저하됩니다. 이 문제를 해결하려면 해당 서비스의 디렉터리를 Batch에서 관리하지 않는 별도의 디렉터리로 변경합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Portal을 사용하여 Azure Batch 계정을 만듭니다](batch-account-create-portal.md).
+- 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
+- [기본 Azure Batch 할당량, 제한 및 제약 조건 및 할당량을 요청 하는 방법](batch-quota-limit.md)에 대해 알아봅니다.

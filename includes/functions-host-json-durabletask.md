@@ -7,41 +7,17 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89094177"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013730"
 ---
-[지속형 함수](../articles/azure-functions/durable-functions-overview.md)에 대한 구성 설정입니다.
+[지속형 함수](../articles/azure-functions/durable/durable-functions-overview.md)에 대한 구성 설정입니다.
 
-### <a name="durable-functions-1x"></a>Durable Functions 1.x
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub",
-    "controlQueueBatchSize": 32,
-    "partitionCount": 4,
-    "controlQueueVisibilityTimeout": "00:05:00",
-    "workItemQueueVisibilityTimeout": "00:05:00",
-    "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
-    "maxQueuePollingInterval": "00:00:30",
-    "azureStorageConnectionStringName": "AzureWebJobsStorage",
-    "trackingStoreConnectionStringName": "TrackingStorage",
-    "trackingStoreNamePrefix": "DurableTask",
-    "traceInputsAndOutputs": false,
-    "logReplayEvents": false,
-    "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "eventGridKeySettingName":  "EventGridKey",
-    "eventGridPublishRetryCount": 3,
-    "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
-  }
-}
-```
+> [!NOTE]
+> Durable Functions의 모든 주요 버전은 모든 버전의 Azure Functions 런타임에서 지원됩니다. 그러나 host.json 구성의 스키마는 사용 중인 Azure Functions 런타임 및 Durable Functions 확장 버전에 따라 약간 다릅니다. 다음 예제는 Azure Functions 2.0 및 3.0과 함께 사용하기 위한 것입니다. 두 예제 모두에서 Azure Functions 1.0을 사용하는 경우 사용 가능한 설정은 동일하지만 host.json의 "durableTask" 섹션은 "extensions" 아래의 필드가 아닌 host.json 구성의 루트에 있어야 합니다.
 
 ### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
 
@@ -92,11 +68,40 @@ ms.locfileid: "89094177"
 
 ```
 
-작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub**입니다. 자세한 내용은 [작업 허브](../articles/azure-functions/durable-functions-task-hubs.md)를 참조하세요.
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10,
+      "maxQueuePollingInterval": "00:00:30",
+      "azureStorageConnectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask",
+      "traceInputsAndOutputs": false,
+      "logReplayEvents": false,
+      "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+      "eventGridKeySettingName":  "EventGridKey",
+      "eventGridPublishRetryCount": 3,
+      "eventGridPublishRetryInterval": "00:00:30",
+      "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+    }
+  }
+}
+```
+
+작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub** 입니다. 자세한 내용은 [작업 허브](../articles/azure-functions/durable/durable-functions-task-hubs.md)를 참조하세요.
 
 |속성  |기본값 | Description |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|여러 Durable Functions 애플리케이션이 동일한 스토리지 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable-functions-task-hubs.md) 이름을 사용하면 이러한 애플리케이션을 서로 구분할 수 있습니다.|
+|hubName|DurableFunctionsHub|여러 Durable Functions 애플리케이션이 동일한 스토리지 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable/durable-functions-task-hubs.md) 이름을 사용하면 이러한 애플리케이션을 서로 구분할 수 있습니다.|
 |controlQueueBatchSize|32|제어 큐에서 한 번에 끌어올 메시지의 수입니다.|
 |controlQueueBufferThreshold|256|메모리에 한 번에 버퍼링할 수 있는 컨트롤 큐 메시지의 수입니다. 이 시점에 디스패처는 추가 메시지를 큐에서 제거할 때까지 대기합니다.|
 |partitionCount |4|제어 큐에 대한 파티션 수입니다. 1에서 16 사이의 양의 정수일 수 있습니다.|
@@ -119,4 +124,4 @@ ms.locfileid: "89094177"
 |useLegacyPartitionManagement|true|`false`로 설정하면, 확장 시 중복 함수 실행 가능성을 줄이는 파티션 관리 알고리즘을 사용합니다.  v2.3.0부터 사용할 수 있습니다. 향후 릴리스에서는 기본 값이 `false`로 변경됩니다.|
 |useGracefulShutdown|false|(미리 보기) 정상적인 종료를 사용하도록 설정하여 호스트 종료가 in-process 함수 실행에 실패할 가능성을 줄입니다.|
 
-이러한 설정의 대부분은 성능 최적화를 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](../articles/azure-functions/durable-functions-perf-and-scale.md)을 참조하세요.
+이러한 설정의 대부분은 성능 최적화를 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](../articles/azure-functions/durable/durable-functions-perf-and-scale.md)을 참조하세요.

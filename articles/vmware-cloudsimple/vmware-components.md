@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142505"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
@@ -48,7 +48,7 @@ vCenter server 어플라이언스 (VCSA)는 CloudSimple로 VMware 솔루션에 �
 
 ### <a name="vcenter-single-sign-on"></a>vCenter Single Sign-On
 
-VCSA의 Embedded Platform Services 컨트롤러는 **VCenter Single sign-on 도메인**에 연결 됩니다.  도메인 이름은 **cloudsimple. local**입니다.  VCenter에 액세스할 수 있는 기본 사용자 **CloudOwner@cloudsimple.com** 가 만들어집니다.  [VCenter에 대 한](set-vcenter-identity.md)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
+VCSA의 포함 된 Platform Services 컨트롤러는 **VCenter 단일 Sign-On 도메인**에 연결 됩니다.  도메인 이름은 **cloudsimple. local**입니다.  VCenter에 액세스할 수 있는 기본 사용자 **CloudOwner@cloudsimple.com** 가 만들어집니다.  [VCenter에 대 한](set-vcenter-identity.md)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
 
 ## <a name="vsan-storage"></a>vSAN 저장소
 

@@ -3,25 +3,29 @@ title: gRPC 확장 프로토콜 - Azure
 description: 이 문서에서는 gRPC 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 사용자 지정 확장 간에 메시지를 보내는 방법에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 288dcd1a11c7c42d8796d3b17f2bfd56f562aaf1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 7f21ff358b8dd5ac540de8c39c37c52e98977e59
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89448073"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401630"
 ---
 # <a name="grpc-extension-protocol"></a>gRPC 확장 프로토콜
 
+IoT Edge의 Live Video Analytics를 사용하면 [그래프 확장 노드](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update)를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다. gRPC 확장 프로세서를 확장 노드로 사용하는 경우 Live Video Analytics 모듈과 AI 또는 CV 모듈 간의 통신은 gRPC 기반의 고성능 구조화된 프로토콜을 통해 이루어집니다.
+
 이 문서에서는 gRPC 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 사용자 지정 확장 간에 메시지를 보내는 방법에 대해 알아봅니다.
 
-gRPC는 모든 환경에서 실행되는 최신 오픈 소스 고성능 RPC 프레임워크입니다. gRPC 전송 서비스는 다음 사이에 HTTP/2 양방향 스트리밍을 사용합니다.
+gRPC는 모든 환경에서 실행되고 플랫폼 간 및 언어 간 통신을 지원하는 최신 오픈 소스 고성능 RPC 프레임워크입니다. gRPC 전송 서비스는 다음 사이에 HTTP/2 양방향 스트리밍을 사용합니다.
 
 * gRPC 클라이언트(IoT Edge 모듈의 Live Video Analytics) 및 
 * gRPC 서버(사용자 지정 확장)
 
 gRPC 세션은 TCP/TLS 포트를 통해 gRPC 클라이언트에서 gRPC 서버로 연결되는 단일 연결입니다. 
 
-단일 세션에서: 클라이언트는 gRPC 스트림 세션을 통해 미디어 스트림 설명자, 다음으로 비디오 프레임을 [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) 메시지로 서버에 보냅니다. 서버는 스트림 설명자의 유효성을 검사하고, 비디오 프레임을 분석하고, 유추 결과를 protobuf 메시지로 반환합니다.
+단일 세션에서: 클라이언트는 gRPC 스트림 세션을 통해 미디어 스트림 설명자, 다음으로 비디오 프레임을 [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) 메시지로 서버에 보냅니다. 서버는 스트림 설명자의 유효성을 검사하고, 비디오 프레임을 분석하고, 유추 결과를 protobuf 메시지로 반환합니다. 
+
+[유추 메타데이터 스키마 개체 모델](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update)에 따라 정의된 미리 설정된 스키마에 따라 유효한 JSON 문서를 사용하여 응답을 반환하는 것이 좋습니다. 이렇게 하면 다른 구성 요소와의 상호 운용성과 Live Video Analytics 모듈에 추가되는 향후 기능이 보다 효과적으로 보장됩니다.
 
 ![gRPC 확장 계약](./media/grpc-extension-protocol/grpc.png)
 
@@ -32,9 +36,10 @@ gRPC 세션은 TCP/TLS 포트를 통해 gRPC 클라이언트에서 gRPC 서버�
 사용자 지정 확장은 다음 gRPC 서비스를 구현해야 합니다.
 
 ```
-service MediaGraphExtension {
-  rpc ProcessMediaStream(stream MediaStreamMessage) returns (stream MediaStreamMessage);
-}
+service MediaGraphExtension
+    {
+        rpc ProcessMediaStream(stream MediaStreamMessage) returns (stream MediaStreamMessage);
+    }
 ```
 
 이를 호출하면 gRPC 확장과 Live Video Analytics 그래프 간에 메시지를 전달하는 양방향 스트림이 열립니다. 각 파티에서 이 스트림에 보내는 첫 번째 메시지에는 다음 MediaSample에서 보내는 정보를 정의하는 MediaStreamDescriptor가 포함됩니다.
@@ -45,18 +50,23 @@ service MediaGraphExtension {
  {
     "sequence_number": 1,
     "ack_sequence_number": 0,
-    "media_stream_descriptor": {
-        "graph_identifier": {
+    "media_stream_descriptor": 
+    {
+        "graph_identifier": 
+        {
             "media_services_arm_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/microsoft.media/mediaservices/mediaAccountName",
             "graph_instance_name": "mediaGraphName",
             "graph_node_name": "grpcExtension"
         },
-        "media_descriptor": {
+        "media_descriptor": 
+        {
             "timescale": 90000,
-            "video_frame_sample_format": {
+            "video_frame_sample_format": 
+            {
                 "encoding": "RAW",
                 "pixel_format": "RGB24",
-                "dimensions": {
+                "dimensions": 
+                {
                     "width": 416,
                     "height": 416
                 },
@@ -73,13 +83,17 @@ service MediaGraphExtension {
 {
     "sequence_number": 1,
     "ack_sequence_number": 1,
-    "media_stream_descriptor": {
-        "extension_identifier": "customExtensionName"    }
+    "media_stream_descriptor": 
+    {
+        "extension_identifier": "customExtensionName"    
+    }
 }
 ```
 
 이제 양쪽 모두에서 미디어 설명자를 교환했으므로 Live Video Analytics에서 프레임을 확장으로 전송하기 시작합니다.
 
+> [!NOTE]
+> gRPC 서버 쪽 구현은 선택한 프로그래밍 언어로 수행할 수 있습니다.
 ### <a name="sequence-numbers"></a>시퀀스 번호
 
 gRPC 확장 노드와 사용자 지정 확장은 모두 메시지에 할당된 별도의 시퀀스 번호 세트를 유지 관리합니다. 이 시퀀스 번호는 1부터 시작하여 단조롭게 증가해야 합니다. 메시지를 승인하지 않는 경우 `ack_sequence_number`를 무시할 수 있습니다. 이는 첫 번째 메시지를 보낼 때 발생할 수 있습니다.
@@ -106,7 +120,8 @@ gRPC 확장 노드와 사용자 지정 확장은 모두 메시지에 할당된 �
 ```
 {
     "timestamp": 143598615750000,
-    "content_reference": {
+    "content_reference": 
+    {
         "address_offset": 519168,
         "length_bytes": 173056
     }
@@ -123,25 +138,27 @@ Live Video Analytics 컨테이너에서 공유 메모리를 통해 통신하려�
 위의 첫 번째 옵션을 사용하는 디바이스 쌍에서 이는 다음과 같을 수 있습니다.
 
 ```
-"liveVideoAnalytics": {
+"liveVideoAnalytics": 
+{
   "version": "1.0",
   "type": "docker",
   "status": "running",
   "restartPolicy": "always",
-  "settings": {
+  "settings": 
+  {
     "image": "mcr.microsoft.com/media/live-video-analytics:1",
     "createOptions": 
-      "HostConfig": {
+      "HostConfig": 
+      {
         "IpcMode": "host"
       }
-    }
   }
 }
 ```
 
 IPC 모드에 대한 자세한 내용은 https://docs.docker.com/engine/reference/run/#ipc-settings---ipc 를 참조하세요.
 
-## <a name="media-graph-grpc-extension-contract-definitions"></a>미디어 그래프 gRPC 확장 계약 정의
+## <a name="mediagraph-grpc-extension-contract-definitions"></a>MediaGraph gRPC 확장 계약 정의
 
 이 섹션에서는 데이터 흐름을 정의하는 gRPC 계약을 정의합니다.
 
@@ -159,10 +176,12 @@ IPC 모드에 대한 자세한 내용은 https://docs.docker.com/engine/referenc
 {
   "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
   "name": "{moduleIdentifier}",
-  "endpoint": {
+  "endpoint": 
+  {
     "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
     "url": "tcp://customExtension:8081",
-    "credentials": {
+    "credentials": 
+    {
       "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
       "username": "username",
       "password": "password"
@@ -175,6 +194,35 @@ IPC 모드에 대한 자세한 내용은 https://docs.docker.com/engine/referenc
 gRPC 요청을 보내면 HTTP 기본 인증을 모방한 다음 헤더가 요청 메타데이터에 포함됩니다.
 
 `x-ms-authentication: Basic (Base64 Encoded username:password)`
+
+
+## <a name="configuring-inference-server-for-each-mediagraph-over-grpc-extension"></a>gRPC 확장을 통한 각 MediaGraph에 대한 유추 서버 구성
+유추 서버를 구성하는 경우 유추 서버 내에 패키징된 모든 AI 모델에 대해 노드를 노출하지 않아도 됩니다. 대신, 그래프 인스턴스의 경우 `MediaGraphGrpcExtension` 노드의 `extensionConfiguration` 속성을 사용하고 AI 모델을 선택하는 방법을 정의할 수 있습니다. 실행 중에 LVA는 이 문자열을 유추 서버로 전달하여 원하는 AI 모델을 호출하는 데 사용할 수 있습니다. 이 `extensionConfiguration` 속성은 선택적 속성이며 서버마다 다릅니다. 속성은 다음과 같이 사용할 수 있습니다.
+```
+{
+  "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+  "name": "{moduleIdentifier}",
+  "endpoint": 
+  {
+    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+    "url": "${grpcExtensionAddress}",
+    "credentials": 
+    {
+      "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+      "username": "${grpcExtensionUserName}",
+      "password": "${grpcExtensionPassword}"
+    }
+  },
+    // Optional server configuration string. This is server specific 
+  "extensionConfiguration": "{Optional extension specific string}",
+  "dataTransfer": 
+  {
+    "mode": "sharedMemory",
+    "SharedMemorySizeMiB": "5"
+  }
+    //Other fields omitted
+}
+```
 
 ## <a name="using-grpc-over-tls"></a>TLS를 통한 gRPC 사용
 

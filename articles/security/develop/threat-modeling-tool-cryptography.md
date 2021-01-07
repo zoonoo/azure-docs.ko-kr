@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 6af4fba8ddf50b795d847a2c7b4e2fbc02fe593f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539954"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587182"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 
@@ -109,7 +109,7 @@ ms.locfileid: "87539954"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | <p>제품에서는 SHA-2 해시 알고리즘 제품군(SHA256, SHA384 및 SHA512)을 사용해야 합니다. 짧은 MD5 해시를 고려하여 설계된 데이터 구조에 맞추기 위해 128비트 출력 길이와 같이 더 짧은 해시가 필요한 경우 제품 팀이 SHA2 해시 중 하나(일반적으로 SHA256)를 자를 수 있습니다. SHA384는 SHA512의 잘린 버전입니다. 보안을 위해 암호화 해시를 128비트 미만으로 자르는 것은 허용되지 않습니다. 새 코드에서는 MD2, MD4, MD5, SHA-0, SHA-1 또는 RIPEMD 해시 알고리즘을 사용하면 안됩니다. 해시 충돌은 이러한 알고리즘에 대해 컴퓨터를 통해 실행 가능하며 효과적으로 해독할 수 있습니다.</p><p>관리되는 암호화 민첩성을 위해 허용되는 .NET 해시 알고리즘(기본 설정 순서대로)</p><ul><li>SHA512Cng(FIPS 규격)</li><li>SHA384Cng(FIPS 규격)</li><li>SHA256Cng(FIPS 규격)</li><li>SHA512Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 알고리즘 이름으로 SHA512 사용)</li><li>SHA384Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 알고리즘 이름으로 SHA384 사용)</li><li>SHA256Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 SHA256을 알고리즘 이름으로 사용)</li><li>SHA512CryptoServiceProvider(FIPS 규격)</li><li>SHA256CryptoServiceProvider(FIPS 규격)</li><li>SHA384CryptoServiceProvider(FIPS 규격)</li></ul>| 
+| **단계** | <p>제품에서는 SHA-2 해시 알고리즘 제품군(SHA256, SHA384 및 SHA512)을 사용해야 합니다. 짧은 MD5 해시를 고려하여 설계된 데이터 구조에 맞추기 위해 128비트 출력 길이와 같이 더 짧은 해시가 필요한 경우 제품 팀이 SHA2 해시 중 하나(일반적으로 SHA256)를 자를 수 있습니다. SHA384는 SHA512의 잘린 버전입니다. 보안을 위해 암호화 해시를 128비트 미만으로 자르는 것은 허용되지 않습니다. 새 코드에서는 MD2, MD4, MD5, SHA-0, SHA-1 또는 RIPEMD 해시 알고리즘을 사용하면 안됩니다. 해시 충돌은 이러한 알고리즘에 대해 컴퓨터를 통해 실행 가능하며 효과적으로 해독할 수 있습니다.</p><p>관리되는 암호화 민첩성을 위해 허용되는 .NET 해시 알고리즘(기본 설정 순서대로)</p><ul><li>SHA512Cng(FIPS 규격)</li><li>SHA384Cng(FIPS 규격)</li><li>SHA256Cng(FIPS 규격)</li><li>SHA512Managed(비 FIPS 규격) - HashAlgorithm.Create 또는 CryptoConfig.CreateFromName에 대한 호출에서 알고리즘 이름으로 SHA512 사용</li><li>SHA384Managed(비 FIPS 규격) - HashAlgorithm.Create 또는 CryptoConfig.CreateFromName에 대한 호출에서 알고리즘 이름으로 SHA384 사용</li><li>SHA256Managed(비 FIPS 규격) - HashAlgorithm.Create 또는 CryptoConfig.CreateFromName에 대한 호출에서 알고리즘 이름으로 SHA256 사용</li><li>SHA512CryptoServiceProvider(FIPS 규격)</li><li>SHA256CryptoServiceProvider(FIPS 규격)</li><li>SHA384CryptoServiceProvider(FIPS 규격)</li></ul>| 
 
 ## <a name="use-strong-encryption-algorithms-to-encrypt-data-in-the-database"></a><a id="strong-db"></a>강력한 암호화 알고리즘을 사용하여 데이터베이스 데이터 암호화
 
@@ -119,7 +119,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [암호화 알고리즘 선택](https://technet.microsoft.com/library/ms345262(v=sql.130).aspx) |
+| **참조**              | [암호화 알고리즘 선택](/sql/relational-databases/security/encryption/choose-an-encryption-algorithm) |
 | **단계** | 암호화 알고리즘은 권한이 없는 사용자가 쉽게 바꿀 수 없는 데이터 변환을 정의합니다. SQL Server를 사용하면 관리자와 개발자가 DES, 3중 DES, TRIPLE_DES_3KEY, RC2, RC4, 128비트 RC4, DESX, 128비트 AES, 192비트 AES 및 256비트 AES를 포함한 여러 알고리즘 중에서 선택할 수 있습니다. |
 
 ## <a name="ssis-packages-should-be-encrypted-and-digitally-signed"></a><a id="ssis-signed"></a>암호화되고 디지털 서명되어야 하는 SSIS 패키지
@@ -130,7 +130,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [디지털 서명을 사용하여 패키지 원본 확인](https://msdn.microsoft.com/library/ms141174.aspx), [위협 요소 및 취약성 완화(Integration Services)](https://msdn.microsoft.com/library/bb522559.aspx) |
+| **참조**              | [디지털 서명을 사용하여 패키지 원본 확인](/sql/integration-services/security/identify-the-source-of-packages-with-digital-signatures), [위협 요소 및 취약성 완화(Integration Services)](/sql/integration-services/security/security-overview-integration-services) |
 | **단계** | 패키지 원본은 해당 패키지를 만든 개인이나 조직입니다. 알 수 없거나 신뢰할 수 없는 원본의 패키지를 실행하는 것은 위험할 수 있습니다. SSIS 패키지의 무단 변조를 방지하려면 디지털 서명을 사용해야 합니다. 또한 스토리지/전송 중에 패키지의 기밀성을 보장하려면 SSIS 패키지를 암호화해야 합니다. |
 
 ## <a name="add-digital-signature-to-critical-database-securables"></a><a id="securables-db"></a>중요한 데이터베이스 보안 개체에 디지털 서명 추가
@@ -141,7 +141,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [ADD SIGNATURE(Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
+| **참조**              | [ADD SIGNATURE(Transact-SQL)](/sql/t-sql/statements/add-signature-transact-sql) |
 | **단계** | 중요한 데이터베이스 보안 개체의 무결성을 확인해야 하는 경우 디지털 서명을 사용해야 합니다. 저장 프로시저, 함수, 어셈블리 또는 트리거와 같은 데이터베이스 보안 개체는 디지털로 서명할 수 있습니다. 이러한 디지털 서명이 유용할 수 있는 경우의 예로, ISV(Independent Software Vendor)에서 고객 중 한 사람에게 전달되는 소프트웨어에 대한 지원을 제공한다고 가정해 보겠습니다. ISV는 지원을 제공하기 전에 소프트웨어의 데이터베이스 보안 개체가 실수로 또는 악의적으로 변조되지 않았는지 확인하려고 합니다. 보안 개체가 디지털 서명된 경우 ISV는 해당 디지털 서명을 확인하고 무결성의 유효성을 검사할 수 있습니다.| 
 
 ## <a name="use-sql-server-ekm-to-protect-encryption-keys"></a><a id="ekm-keys"></a>SQL 서버 EKM을 사용하여 암호화 키 보호
@@ -152,7 +152,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [SQL Server EKM(확장 가능 키 관리)](https://msdn.microsoft.com/library/bb895340), [Azure Key Vault(SQL Server)를 사용한 확장 가능 키 관리](https://msdn.microsoft.com/library/dn198405) |
+| **참조**              | [SQL Server EKM(확장 가능 키 관리)](/sql/relational-databases/security/encryption/extensible-key-management-ekm), [Azure Key Vault(SQL Server)를 사용한 확장 가능 키 관리](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) |
 | **단계** | SQL Server EKM(확장 가능 키 관리)을 사용하면 데이터베이스 파일을 보호하는 암호화 키를 스마트 카드, USB 디바이스 또는 EKM/HSM 모듈과 같은 외부 디바이스에 저장할 수 있습니다. 데이터베이스 관리자(sysadmin 그룹의 멤버 제외)로부터 데이터를 보호할 수도 있습니다. 즉, 외부 EKM/HSM 모듈에서 데이터베이스 사용자만 액세스할 수 있는 암호화 키를 사용하여 데이터를 암호화할 수 있습니다. |
 
 ## <a name="use-alwaysencrypted-feature-if-encryption-keys-should-not-be-revealed-to-database-engine"></a><a id="keys-engine"></a>데이터베이스 엔진에 암호화 키를 공개하지 않아야 하는 경우 AlwaysEncrypted 기능 사용
@@ -163,7 +163,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure, 온-프레미스 |
 | **특성**              | SQL 버전 - V12, MsSQL2016 |
-| **참조**              | [Always Encrypted(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865) |
+| **참조**              | [Always Encrypted(데이터베이스 엔진)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
 | **단계** | 상시 암호화는 Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호하기 위해 고안된 기능입니다. 상시 암호화를 사용하면 클라이언트에서 클라이언트 애플리케이션 내의 중요한 데이터를 암호화하고 데이터베이스 엔진(SQL Database 또는 SQL Server)에 암호화 키를 공개하지 않을 수 있습니다. 따라서 상시 암호화는 데이터를 소유하고 볼 수 있는 사용자와 데이터를 관리하지만 액세스 권한이 없는 사용자를 구별합니다. |
 
 ## <a name="store-cryptographic-keys-securely-on-iot-device"></a><a id="keys-iot"></a>IoT 디바이스에 안전하게 암호화 키 저장
@@ -174,7 +174,7 @@ ms.locfileid: "87539954"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 디바이스 OS - Windows IoT Core, 디바이스 연결 - Azure IoT 디바이스 SDK |
-| **참조**              | [Windows IoT Core의 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)(영문), [Windows IoT Core에서 TPM 설정](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm)(영문), [Azure IoT 디바이스 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
+| **참조**              | [Windows IoT Core의 TPM](/windows/iot-core/secure-your-device/TPM)(영문), [Windows IoT Core에서 TPM 설정](/windows/iot-core/secure-your-device/setuptpm)(영문), [Azure IoT 디바이스 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
 | **단계** | 대칭 또는 인증서 프라이빗 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 스토리지에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
 
 ### <a name="example"></a>예제

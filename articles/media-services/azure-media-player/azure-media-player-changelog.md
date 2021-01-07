@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432665"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370579"
 ---
-# <a name="changelog"></a>Changelog #
+# <a name="changelog"></a>Changelog
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6(공식 업데이트 2020년 9월 21일)
+
+### <a name="features-236"></a>기능 2.3.6
+
+azureHtml5JS 기술(대시)에 대한 오디오 전용 지원 추가됨. 라이브 기록의 늦은 시작 지원 라이브 기록의 언어 변경 지원
+
+### <a name="bug-fixes-236"></a>버그 수정 2.3.6
+
+Apple 디바이스의 HLS 재생에서 "playsinline"을 사용하는 경우 "라이브" 단추를 클릭하면 비디오에서 다시 시작합니다. AMP 포스터 이미지는 경우에 따라 예외를 발생시킵니다. HLS FairPlay를 재생할 때 볼륨 버튼이 사라졌습니다. [접근성] 키보드를 사용하는 경우 단추에 대해 도구 설명이 정의되지 않았습니다. [접근성] 광도 비율이 진행률 표시줄에 대해 1.3:1보다 작습니다. [접근성] 키보드 포커스가 비디오 품질 단추로 돌아오지 않는 경우도 있습니다. [접근성] 컨트롤이 비디오 화면에 표시되지 않아 내레이터가 이러한 항목을 찾을 수 없도록 합니다.
+
+### <a name="changes-236"></a>변경된 기능 2.3.6
+
+호출 애플리케이션에 의미 있는 KeyDelivery 오류 반환
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5(2020년 6월 1일 공식 업데이트)
 
@@ -184,7 +198,7 @@ Chromium Edge 브라우저의 DASH 재생을 위한 PlayReady 지원이 추가�
 
 ### <a name="changes"></a>변경 ###
 
-- [변경][라이브 캡션] CEA 캡션에 대한 API 이름이 608에서 708로 변경됨. 자세한 내용은 [CEA708 캡션 설정](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->을 참조하세요.
+- [변경][라이브 캡션] CEA 캡션에 대한 API 이름이 608에서 708로 변경됨. 자세한 내용은 [CEA708 캡션 설정](/javascript/api/azuremediaplayer/cea708captionssettings)-->을 참조하세요.
 
 ## <a name="220-official-release"></a>2.2.0(공식 릴리스) ##
 
@@ -713,7 +727,7 @@ Chromium Edge 브라우저의 DASH 재생을 위한 PlayReady 지원이 추가�
 - [버그 수정] UI 로드 환경이 자동 재생 모드로 업데이트됨
 - [버그 수정] AMD 로더 문제 및 메서드 충돌 정의
 - [버그 수정] WP 8.1 Cordova 앱 로드 문제
-- [버그 수정] 보호된 콘텐츠에서 플랫폼/기술 지원 ProtectionType을 쿼리하여 재생에 적합한 기술을 선택합니다.  이전에 '_Chrome(데스크톱)/Safari 8(OSX Yosemite)의 PlayReady 콘텐츠가 현재 Silverlight 플레이어로 대체되지 않습니다._ '라고 알려진 문제가 해결되었습니다.
+- [버그 수정] 보호된 콘텐츠에서 플랫폼/기술 지원 ProtectionType을 쿼리하여 재생에 적합한 기술을 선택합니다.  이전에 ' _Chrome(데스크톱)/Safari 8(OSX Yosemite)의 PlayReady 콘텐츠가 현재 Silverlight 플레이어로 대체되지 않습니다._ '라고 알려진 문제가 해결되었습니다.
 - [버그 수정] 해당 머신에 기본적으로 설치되지 않은 미디어 파운데이션으로 인해 WinServer 2012 R2에서 catch되지 않은 예외가 발생합니다.  구현되지 않은 HTML 비디오 태그 API를 사용하려고 하면 오류가 throw됩니다. 현재 완화 방법은 해당 오류를 catch하여 오류를 throw하는 대신 false를 반환하는 것입니다.
 - [버그 수정] 재생 중에 결함을 방지하기 위해 검색 또는 HTTP 실패 후에 항상 초기화 세그먼트를 가져옵니다.
 - [버그 수정] 오류가 발생한 경우 시뮬레이션된 진행률 및 시간 업데이트 추적을 해제합니다.

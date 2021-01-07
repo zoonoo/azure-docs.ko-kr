@@ -3,13 +3,13 @@ title: OS 및 런타임 패치 주기
 description: OS 및 런타임, 앱의 런타임 및 패치 수준, 업데이트 공지를 가져오는 방법 Azure App Service 업데이트 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 02/02/2018
-ms.custom: seodec18
-ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961519"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558490"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
 
@@ -51,7 +51,7 @@ Azure는 App Service 리소스를 실행하는 2개의 수준, 즉 물리적 서
 
 ### <a name="new-patch-updates"></a>새 패치 업데이트
 
-.NET, PHP, Java SDK 또는 Tomcat/Jetty 버전에 대한 패치 업데이트는 기존 설치를 새 버전으로 덮어쓰는 방법으로 자동으로 적용됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://azure.microsoft.com/blog/azure-web-sites-extensions/)을 통해 기본 제공 python 설치와 함께 수동으로 설치할 수 있습니다.
+.NET, PHP, Java SDK 또는 Tomcat 버전에 대 한 패치 업데이트는 기존 설치를 최신 버전으로 덮어써서 자동으로 적용 됩니다. Node.js 패치 업데이트는 기존 버전과 병렬로 설치됩니다(다음 섹션의 주 및 부 버전과 유사). 새 Python 패치 버전은 [사이트 확장](https://azure.microsoft.com/blog/azure-web-sites-extensions/)을 통해 기본 제공 python 설치와 함께 수동으로 설치할 수 있습니다.
 
 ### <a name="new-major-and-minor-versions"></a>새 주 버전 및 부 버전
 
@@ -75,7 +75,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 다음 표에서는 앱을 실행하는 언어 런타임의 Windows 버전을 확인하는 방법을 보여 줍니다.
 
-| 정보 산업 | 찾는 위치 | 
+| 정보 | 찾는 위치 | 
 |-|-|
 | Windows 버전 | `https://<appname>.scm.azurewebsites.net/Env.cshtml` 참조(시스템 정보 아래에 제공됨) |
 | .NET 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
@@ -90,7 +90,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 >
 >
 
-## <a name="more-resources"></a>기타 참고 자료
+## <a name="more-resources"></a>추가 리소스
 
 [보안 센터: 보안](https://www.microsoft.com/en-us/trustcenter/security)  
 [Azure App Service의 64비트 ASP.NET Core](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

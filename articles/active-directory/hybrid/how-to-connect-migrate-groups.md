@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85358585"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Azure AD Connect 위해 한 포리스트에서 다른 포리스트로 그룹 마이그레이션
@@ -25,7 +25,7 @@ ms.locfileid: "85358585"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD Connect 버전 1.5.18.0 이상
-- 원본 앵커 특성이로 설정 됩니다.`mS-DS-ConsistencyGuid`
+- 원본 앵커 특성이로 설정 됩니다. `mS-DS-ConsistencyGuid`
 
 ## <a name="migrate-groups"></a>그룹 마이그레이션
 

@@ -8,11 +8,11 @@ ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181751"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016236"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
@@ -28,7 +28,7 @@ ms.locfileid: "89181751"
 
 다음 샘플에서는 예제 매개 변수 이름(예: *myResourceGroup* 및 *myVM*)을 사용자의 고유한 값으로 바꿉니다.
 
-1. VM이 실행되고 있으면 가상 하드 디스크에 대한 작업을 수행할 수 없습니다. [az vm deallocate](/cli/azure/vm#az-vm-deallocate)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *Myvm*에서 *MYVM* 이라는 VM의 할당을 취소 합니다.
+1. VM이 실행되고 있으면 가상 하드 디스크에 대한 작업을 수행할 수 없습니다. [az vm deallocate](/cli/azure/vm#az-vm-deallocate)를 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *Myvm* 에서 *MYVM* 이라는 VM의 할당을 취소 합니다.
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -37,7 +37,7 @@ ms.locfileid: "89181751"
     > [!NOTE]
     > VM 할당을 취소하여 가상 하드 디스크를 확장해야 합니다. `az vm stop`을 사용하여 VM을 중지해도 컴퓨팅 리소스는 해제되지 않습니다. 컴퓨팅 리소스를 릴리스하려면 `az vm deallocate`을 사용합니다.
 
-1. 이제 [az disk list](/cli/azure/disk#az-disk-list)를 사용하여 리소스 그룹에서 Managed Disks 목록을 봅니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*의 Managed Disks 목록을 표시합니다.
+1. 이제 [az disk list](/cli/azure/disk#az-disk-list)를 사용하여 리소스 그룹에서 Managed Disks 목록을 봅니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 의 Managed Disks 목록을 표시합니다.
 
     ```azurecli
     az disk list \
@@ -46,7 +46,7 @@ ms.locfileid: "89181751"
         --output table
     ```
 
-    [az disk update](/cli/azure/disk#az-disk-update)를 사용하여 필요한 디스크를 확장합니다. 다음 예제에서는 *myDataDisk*라는 관리 디스크를 *200*GB로 확장합니다.
+    [az disk update](/cli/azure/disk#az-disk-update)를 사용하여 필요한 디스크를 확장합니다. 다음 예제에서는 *myDataDisk* 라는 관리 디스크를 *200* GB로 확장합니다.
 
     ```azurecli
     az disk update \
@@ -58,7 +58,7 @@ ms.locfileid: "89181751"
     > [!NOTE]
     > 관리 디스크를 확장하면 업데이트된 크기가 가장 가까운 관리 디스크의 크기로 반올림됩니다. 사용 가능한 Managed Disk 크기 및 계층의 테이블은 [Azure Managed Disks 개요 - 가격 책정 및 청구](../managed-disks-overview.md)를 참조하세요.
 
-1. [az vm start](/cli/azure/vm#az-vm-start)를 사용하여 VM을 시작합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 시작합니다.
+1. [az vm start](/cli/azure/vm#az-vm-start)를 사용하여 VM을 시작합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 에서 *myVM* 이라는 VM을 시작합니다.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -105,7 +105,7 @@ ms.locfileid: "89181751"
         1      0.00B  107GB  107GB  ext4
     ```
 
-    c. `resizepart`를 사용하여 파티션을 확장합니다. 파티션 수 *1*과 새 파티션에 대한 크기를 입력합니다.
+    다. `resizepart`를 사용하여 파티션을 확장합니다. 파티션 수 *1* 과 새 파티션에 대한 크기를 입력합니다.
 
     ```bash
     (parted) resizepart

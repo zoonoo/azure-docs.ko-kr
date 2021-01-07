@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923690"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919933"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Azure Key Vault 인증서 정보
 
@@ -44,8 +44,17 @@ Key Vault 인증서가 만들어지면 PFX 또는 PEM 형식의 프라이빗 키
 
 주소 지정이 가능한 키는 내보낼 수 없는 KV 인증서와 더 관련이 있습니다. 주소 지정 가능한 KV 키의 작업은 KV 인증서를 만드는 데 사용되는 KV 인증서 정책의 *keyusage* 필드에서 매핑됩니다.  
 
- - 지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) Exportable은 RSA, EC에서만 사용할 수 있습니다. HSM 키는 내보낼 수 없습니다.
+인증서에 대해 지원되는 키 쌍 유형
 
+ - 지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) Exportable은 RSA, EC에서만 사용할 수 있습니다. HSM 키는 내보낼 수 없습니다.
+
+|키 유형|정보|보안|
+|--|--|--|
+|**RSA**| "소프트웨어 보호" RSA 키|FIPS 140-2 수준 1|
+|**RSA-HSM**| "HSM 보호" RSA 키(프리미엄 SKU에만 해당)|FIPS 140-2 수준 2 HSM|
+|**EC**| "소프트웨어 보호" 타원 곡선 키|FIPS 140-2 수준 1|
+|**EC-HSM**| "HSM 보호" 타원 곡선 키(프리미엄 SKU에만 해당)|FIPS 140-2 수준 2 HSM|
+|||
 
 ## <a name="certificate-attributes-and-tags"></a>인증서 특성 및 태그
 
@@ -57,7 +66,7 @@ Key Vault 인증서에는 인증서 메타데이터, 주소 지정 가능한 키
 
 Key Vault 인증서에 포함되는 특성은 다음과 같습니다.  
 
--   *enabled*: 부울, 선택 사항, 기본값은 **true**입니다. 인증서 데이터를 비밀로 검색할 수 있는지 또는 키로 작동할 수 있는지 여부를 나타내기 위해 지정할 수 있습니다. 또한 *nbf*과 *exp* 사이에 작업이 발생할 때 *nbf* 및 *exp*와 함께 사용되며, enabled가 true로 설정된 경우에만 허용됩니다. *nbf* 및 *exp* 시간 범위에 속하지 않은 작업은 자동으로 허용되지 않습니다.  
+-   *enabled*: 부울, 선택 사항, 기본값은 **true** 입니다. 인증서 데이터를 비밀로 검색할 수 있는지 또는 키로 작동할 수 있는지 여부를 나타내기 위해 지정할 수 있습니다. 또한 *nbf* 과 *exp* 사이에 작업이 발생할 때 *nbf* 및 *exp* 와 함께 사용되며, enabled가 true로 설정된 경우에만 허용됩니다. *nbf* 및 *exp* 시간 범위에 속하지 않은 작업은 자동으로 허용되지 않습니다.  
 
 응답에 포함되는 추가 읽기 전용 특성은 다음과 같습니다.
 
@@ -82,11 +91,11 @@ Key Vault 인증서에 포함되는 특성은 다음과 같습니다.
 
 Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해야 합니다. 정책은 이 Key Vault 인증서 버전 또는 그 다음 Key Vault 인증서 버전을 만드는 방법을 지정합니다. 일단 정책이 설정되면 이후 버전에 대한 연속 만들기 작업에는 해당 정책이 필요하지 않습니다. Key Vault 인증서의 모든 버전에 대한 정책 인스턴스는 하나만 있습니다.  
 
-크게 보자면, 인증서 정책에는 다음 정보가 포함됩니다(해당 정의는 [여기](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)에서 찾을 수 있음).  
+크게 보자면, 인증서 정책에는 다음 정보가 포함됩니다(해당 정의는 [여기](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)에서 찾을 수 있음).  
 
 -   X509 인증서 속성: 주체 이름, 주체 대체 이름, x509 인증서 요청을 만드는 데 사용되는 기타 속성을 포함합니다.  
 -   키 속성: 키 유형, 키 길이, 내보낼 수 있는 ReuseKeyOnRenewal 필드를 포함합니다. 이러한 필드는 키를 생성하는 방법을 키 자격 증명 모음에 지시합니다. 
-     - 지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) 
+     - 지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) 
 -   비밀 속성: 인증서를 비밀 번호로 검색하기 위해 비밀 값을 생성하기 위한 주소 지정 가능한 비밀의 콘텐츠 형식과 같은 비밀 속성을 포함합니다.  
 -   수명 작업: KV 인증서에 대한 수명 작업을 포함합니다. 각 수명 작업에 포함되는 항목은 다음과 같습니다.  
 
@@ -133,7 +142,7 @@ Key Vault에 인증서 발급자를 만들려면 먼저 다음 필수 조건 1 �
 
     -   공급자의 발급자 개체를 만드는 데 사용할 구성을 키 자격 증명 모음에 제공합니다.  
 
-인증서 포털에서 발급자 개체를 만드는 방법에 대한 자세한 내용은 [Key Vault 인증서 블로그](https://aka.ms/kvcertsblog)를 참조하세요.  
+인증서 포털에서 발급자 개체를 만드는 방법에 대한 자세한 내용은 [Key Vault 인증서 블로그](/archive/blogs/kv/manage-certificates-via-azure-key-vault)를 참조하세요.  
 
 Key Vault를 사용하면 서로 다른 발급자 구성으로 여러 발급자 개체를 만들 수 있습니다. 발급자 개체가 만들어지면 하나 또는 여러 개의 증명서 정책에서 해당 이름을 참조할 수 있습니다. 발행자 개체를 참조하면 인증서를 만들고 갱신하는 동안 CA 공급자로부터 x509 인증서를 요청할 때 발행자 개체에서 지정한 대로 구성을 사용하도록 Key Vault에 지시합니다.  
 
@@ -141,42 +150,11 @@ Key Vault를 사용하면 서로 다른 발급자 구성으로 여러 발급자 
 
 ## <a name="certificate-contacts"></a>인증서 연락처
 
-인증서 연락처에는 인증서 수명 이벤트에서 트리거된 알림을 보내도록 연락처 정보가 포함됩니다. 연락처 정보는 키 자격 증명 모음의 모든 인증서에서 공유합니다. 알림은 키 자격 증명 모음의 모든 인증서에 대한 이벤트에 대해 지정한 모든 연락처로 보내집니다.  
-
-인증서를 자동으로 갱신하도록 정책이 설정되는 경우 알림을 보내는 이벤트는 다음과 같습니다.  
-
-- 인증서 갱신 전
-- 인증서 갱신 후 - 인증서가 성공적으로 갱신된 경우에 시작되거나, 오류가 있는 경우 인증서를 수동으로 갱신해야 합니다.  
-
-  인증서를 수동으로(이메일을 통해서만) 갱신하는 정책을 설정하는 경우 인증서를 갱신할 시간이 되면 알림이 전송됩니다.  
+인증서 연락처에는 인증서 수명 이벤트에서 트리거된 알림을 보내도록 연락처 정보가 포함됩니다. 연락처 정보는 키 자격 증명 모음의 모든 인증서에서 공유합니다. 알림은 키 자격 증명 모음의 모든 인증서에 대한 이벤트에 대해 지정한 모든 연락처로 보내집니다. 인증서 연락처를 설정하는 방법에 대한 자세한 내용은 [여기](overview-renew-certificate.md#steps-to-set-certificate-notifications)를 참조하세요.  
 
 ## <a name="certificate-access-control"></a>인증서 액세스 제어
 
- 인증서에 대한 액세스 제어는 Key Vault를 통해 관리되고, 해당 인증서를 포함하는 Key Vault를 통해 제공됩니다. 인증서에 대한 액세스 제어 정책은 동일한 Key Vault의 키 및 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 인증서를 보관할 하나 이상의 자격 증명 모음을 만들어서 시나리오를 적절하게 세분화하고 인증서를 관리할 수 있습니다.  
-
- 키 자격 증명 모음의 비밀 액세스 제어 항목에서 보안 주체별로 사용할 수 있고 비밀 개체에 허용되는 작업과 매우 비슷한 권한은 다음과 같습니다.  
-
-- 인증서 관리 작업에 필요한 권한
-  - *get*: 현재 인증서 버전 또는 모든 인증서 버전 가져오기 
-  - *list*: 현재 인증서 또는 인증서 버전 나열  
-  - *update*: 인증서 업데이트
-  - *create*: Key Vault 인증서 만들기
-  - *import*: 인증서 자료를 Key Vault 인증서로 가져오기
-  - *delete*: 인증서, 해당 정책 및 모든 해당 버전 삭제  
-  - *recover*: 삭제된 인증서 복구
-  - *backup*: 인증서를 키 자격 증명 모음에 백업
-  - *restore*: 키 자격 증명 모음에 백업된 인증서 복원
-  - *managecontacts*: Key Vault 인증서 연락처 관리  
-  - *manageissuers*: Key Vault 인증서 기관/발급자 관리
-  - *getissuers*: 인증서 기관/발급자 가져오기
-  - *listissuers*: 인증서 기관/발급자 나열  
-  - *setissuers*: Key Vault 인증서의 기관/발급자 만들기 또는 업데이트  
-  - *deleteissuers*: Key Vault 인증서의 기관/발급자 삭제  
- 
-- 권한 있는 작업에 필요한 권한
-  - *purge*: 삭제된 인증서 제거(영구적으로 삭제)
-
-자세한 내용은 [Key Vault REST API 참조에서 인증서 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
+ 인증서에 대한 액세스 제어는 Key Vault를 통해 관리되고, 해당 인증서를 포함하는 Key Vault를 통해 제공됩니다. 인증서에 대한 액세스 제어 정책은 동일한 Key Vault의 키 및 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 인증서를 보관할 하나 이상의 자격 증명 모음을 만들어서 시나리오를 적절하게 세분화하고 인증서를 관리할 수 있습니다.  인증서 액세스 제어에 대한 자세한 내용은 [여기](certificate-access-control.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

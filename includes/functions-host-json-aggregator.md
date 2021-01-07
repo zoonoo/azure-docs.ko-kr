@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: ggailey777
 ms.service: azure-functions
@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 9c51ce726545d1c64d69c86c36fc69ea43c3b882
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: c63cee1c451918569e9b7aa2e76209e8069d86ac
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76279472"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167658"
 ---
-[Application Insights에 대한 메트릭을 계산](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator)할 때 집계되는 함수 호출 수를 지정합니다. 
+[Application Insights에 대한 메트릭을 계산](../articles/azure-functions/configure-monitoring.md#configure-the-aggregator)할 때 집계되는 함수 호출 수를 지정합니다. 
 
 ```json
 {

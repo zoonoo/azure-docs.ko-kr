@@ -8,39 +8,48 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 1fd2b8461bd66c826dc4890c331b740c4703f896
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462550"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903992"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
-[연결 된 팩터리 관련 faq](iot-accelerators-faq-cf.md) 및 [원격 모니터링 관련 faq](iot-accelerators-faq-rm-v2.md) 도 참조 하세요.
+[연결 된 팩터리 관련 FAQ](iot-accelerators-faq-cf.md)도 참조 하세요.
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>어디에서 솔루션 가속기에 대한 소스 코드를 찾을 수 있나요?
 
 소스 코드는 다음 GitHub 리포지토리에 저장됩니다.
 
-* [원격 모니터링 솔루션 가속기(.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [원격 모니터링 솔루션 가속기(Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [예측 유지 관리 솔루션 가속기](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [연결된 팩터리 솔루션 가속기](https://github.com/Azure/azure-iot-connected-factory)
+* [장치 시뮬레이션 솔루션 가속기](https://github.com/Azure/device-simulation-dotnet)
+
+### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>원격 모니터링 및 예측 유지 관리 솔루션 가속기는 어디서 찾을 수 있나요?
+
+2020 년 12 월 10 일까 지 [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators) 사이트에서 원격 모니터링 및 예측 유지 관리 가속기가 제거 되었으며 새 배포에 더 이상 사용할 수 없습니다. 두 액셀러레이터에 대 한 GitHub 리포지토리가 보관 되었습니다. 모든 사용자가 코드를 계속 사용할 수 있지만 리포지토리가 새로운 기여를 취하지 않습니다.
+
+### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>기존 원격 모니터링 및 예측 유지 관리 배포는 어떻게 되나요?
+
+기존 배포는 원격 모니터링 및 예측 유지 관리 솔루션 가속기 제거의 영향을 받지 않으며 계속 작동 합니다. 분기 리포지토리는 영향을 받지 않습니다. GitHub의 마스터 리포지토리가 보관 되었습니다.
+
+### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>장치 시뮬레이션 솔루션 가속기를 배포 어떻게 할까요??
+
+장치 시뮬레이션 솔루션 가속기를 배포 하려면 [장치 시뮬레이션](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) GitHub 리포지토리를 참조 하세요.
+
+### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>제거 된 솔루션 가속기에 대 한 정보는 어디서 찾을 수 있나요?
+
+이전 버전 사이트에서 다음 페이지를 참조 하세요.
+
+* [원격 모니터링](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [예측 유지 관리](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>솔루션 가속기에 대한 디바이스 클라이언트를 개발하는 데 어떤 SDK를 사용할 수 있나요?
 
 [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 다른 언어(C, .NET, Java, Node.js, Python) IoT 디바이스 SDK에 대한 링크를 확인할 수 있습니다.
 
 DevKit 디바이스를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub 리포지토리에서 리소스 및 샘플을 확인할 수 있습니다.
-
-### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>세 가지 솔루션 가속기 모두에 새로운 마이크로 서비스 아키텍처를 사용할 수 있나요?
-
-현재 원격 모니터링 솔루션은 가장 광범위한 시나리오를 다루는 마이크로 서비스 아키텍처를 사용합니다.
-
-### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>새 업데이트의 새로운 오픈 소스 마이크로 서비스 기반 아키텍처는 어떤 이점을 제공하나요?
-
-지난 2년 동안 클라우드 아키텍처는 크게 발전했습니다. 마이크로 서비스는 개발 속도를 저하시키지 않으면서 규모와 유연성을 달성하는 훌륭한 패턴으로 부상했습니다. 이 아키텍처 패턴은 일부 Microsoft 서비스에 내부적으로 사용되어 뛰어난 안정성과 확장성을 제공하고 있습니다. Microsoft는 고객이 혜택을 받을 수 있도록 이러한 학습 내용을 솔루션 가속기에 적용합니다.
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>서비스 관리자가 구독과 특정 Azure AD 테넌트 간의 디렉터리 매핑을 변경하고자 합니다. 이 태스크를 완료하려면 어떻게 해야 하나요?
 
@@ -63,14 +72,6 @@ DevKit 디바이스를 사용하는 경우 [IoT DevKit SDK](https://github.com/M
 
 Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑의 유효성을 검사하고 드롭다운에 올바른 테넌트가 선택되어 있는지 확인하세요. 테넌트가 맞는다는 것을 확인했으면, 이전의 다이어그램에 따라서 구독과 이 Azure AD 테넌트 매핑의 유효성을 검사합니다.
 
-### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>원격 모니터링 솔루션의 이전 버전 관련 정보는 어디서 확인할 수 있나요?
-
-원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. 에서 보관 된 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) .
-
-### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>기존 솔루션과 동일한 지역에서 새로운 솔루션 가속기를 사용할 수 있나요?
-
-예, 새로운 원격 모니터링을 동일한 지역에서 사용할 수 있습니다.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure Portal에서 리소스 그룹을 삭제 하 고 azureiotsolutions.com의 솔루션 가속기에서 삭제를 클릭 하는 경우의 차이점은 무엇 인가요?
 
 * [Azureiotsolutions.com](https://www.azureiotsolutions.com/)에서 솔루션 가속기를 삭제 하는 경우 솔루션 가속기를 만들 때 배포 된 모든 리소스를 삭제 합니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
@@ -88,10 +89,6 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 50개입니다. [Azure 지원 티켓](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 만들어서 이 한도를 높일 수 있지만, 기본적으로 구독당 Cosmos DB 인스턴스를 50개만 프로비전할 수 있습니다.
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 무료 Bing 지도 API는 몇 개인가요?
-
-2개입니다. 두 개의 Enterprise용 내부 트랜잭션 Level 1 Bing Maps 계획을 Azure 구독에서 만들 수 있습니다. 원격 모니터링 솔루션이 내부 트랜잭션 Level 1 계획을 사용하여 기본으로 프로비저닝됩니다. 결과적으로 구독에 원격 모니터링 솔루션을 가감 없이 2개까지만 프로비전할 수 있습니다.
-
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>DreamSpark용 Microsoft Azure가 있는 경우 솔루션 가속기를 만들 수 있나요?
 
 > [!NOTE]
@@ -101,13 +98,11 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 ### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Azure AD 테넌트를 삭제하려면 어떻게 하나요?
 
-Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant)을 참조하세요.
+Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant)을 참조하세요.
 
 ### <a name="next-steps"></a>다음 단계
 
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [원격 모니터링 솔루션 가속기의 기능 살펴보기](quickstart-remote-monitoring-deploy.md)
-* [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
 * [연결된 팩터리 솔루션 가속기 배포](quickstart-connected-factory-deploy.md)
-* [처음부터 IoT 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up)
+* [처음부터 IoT 보안을 고려](../iot-fundamentals/iot-security-ground-up.md)

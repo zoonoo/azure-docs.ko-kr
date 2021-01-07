@@ -1,17 +1,17 @@
 ---
 title: Node.js 앱 구성
 description: Azure App Service에서 네이티브 Windows 인스턴스 또는 미리 빌드된 Linux 컨테이너의 Node.js 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080116"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696016"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Node.js 앱 구성
 
@@ -85,6 +85,36 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ::: zone-end
 
+## <a name="get-port-number"></a>포트 번호 가져오기
+
+들어오는 요청을 수신 하려면 앱이 올바른 포트를 수신 대기 해야 Node.js 합니다.
+
+::: zone pivot="platform-windows"  
+
+Windows에서 App Service Node.js 앱은 [Iisnode](https://github.com/Azure/iisnode)를 사용 하 여 호스트 되 고 Node.js 앱은 변수에 지정 된 포트를 수신 대기 해야 합니다 `process.env.PORT` . 다음 예제에서는 간단한 Express 앱에서이 작업을 수행 하는 방법을 보여 줍니다.
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+App Service은 Node.js 컨테이너에 환경 변수를 설정 하 `PORT` 고 들어오는 요청을 해당 포트 번호의 컨테이너에 전달 합니다. 요청을 받으려면 앱이를 사용 하 여 해당 포트를 수신 대기 해야 합니다 `process.env.PORT` . 다음 예제에서는 간단한 Express 앱에서이 작업을 수행 하는 방법을 보여 줍니다.
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
 ::: zone pivot="platform-linux"
 
 ## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
@@ -93,12 +123,12 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 1. `PRE_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
 1. `npm install`Npm `preinstall` 및 스크립트를 포함 `postinstall` 하 고도 설치 하는 플래그 없이를 실행 `devDependencies` 합니다.
-1. `npm run build` *package.js*에 빌드 스크립트가 지정 된 경우를 실행 합니다.
-1. `npm run build:azure`빌드 시 실행: azure script가 *package.js*에 지정 되어 있습니다.
+1. `npm run build` *package.js* 에 빌드 스크립트가 지정 된 경우를 실행 합니다.
+1. `npm run build:azure`빌드 시 실행: azure script가 *package.js* 에 지정 되어 있습니다.
 1. `POST_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
 
 > [!NOTE]
-> [Npm docs](https://docs.npmjs.com/misc/scripts)에 설명 된 것 처럼, `prebuild` 및 스크립트는 `postbuild` `build` 각각 지정 된 경우 및 이후에 실행 됩니다. `preinstall`및 `postinstall` 는 각각 전후에 실행 `install` 됩니다.
+> [Npm docs](https://docs.npmjs.com/misc/scripts)에 설명 된 것 처럼, `prebuild` 및 스크립트는 `postbuild` `build` 각각 지정 된 경우 및 이후에 실행 됩니다. `preinstall` 및 `postinstall` 는 각각 전후에 실행 `install` 됩니다.
 
 `PRE_BUILD_COMMAND` 및 `POST_BUILD_COMMAND`는 기본적으로 비어 있는 환경 변수입니다. 빌드 전 명령을 실행하려면 `PRE_BUILD_COMMAND`를 정의합니다. 빌드 후 명령을 실행하려면 `POST_BUILD_COMMAND`를 정의합니다.
 
@@ -123,7 +153,7 @@ Node.js 컨테이너는 프로덕션 프로세스 관리자 인 [PM2](https://pm
 
 ### <a name="run-custom-command"></a>사용자 지정 명령 실행
 
-*Run.sh*같은 실행 파일과 같은 사용자 지정 명령을 사용 하 여 앱을 시작할 수 App Service. 예를 들어를 실행 하려면 `npm run start:prod` [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
+*Run.sh* 같은 실행 파일과 같은 사용자 지정 명령을 사용 하 여 앱을 시작할 수 App Service. 예를 들어를 실행 하려면 `npm run start:prod` [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -131,7 +161,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Npm start 실행
 
-를 사용 하 여 앱을 시작 하려면 `npm start` `start` 스크립트가 파일 *에package.js* 있는지 확인 합니다. 예를 들면 다음과 같습니다.
+를 사용 하 여 앱을 시작 하려면 `npm start` `start` 스크립트가 파일 *에package.js* 있는지 확인 합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -177,9 +207,9 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > 원격 디버깅은 현재 미리 보기로 제공 됩니다.
 
-PM2를 사용 하 여 [실행](#run-with-pm2)하도록 구성 하는 경우 * .config.js, * .yml 또는 *.yaml*을 사용 하 여 실행 하는 경우를 제외 하 고는 [Visual Studio Code](https://code.visualstudio.com/) 에서 원격으로 Node.js 앱을 디버그할 수 있습니다.
+PM2를 사용 하 여 [실행](#run-with-pm2)하도록 구성 하는 경우 * .config.js, * .yml 또는 *.yaml* 을 사용 하 여 실행 하는 경우를 제외 하 고는 [Visual Studio Code](https://code.visualstudio.com/) 에서 원격으로 Node.js 앱을 디버그할 수 있습니다.
 
-대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 앱이 파일 (기본값 또는 사용자 지정) *에서process.js* 를 사용 하 여 실행 되는 경우 `script` JSON 루트에 속성이 있어야 합니다. 예를 들면 다음과 같습니다.
+대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 앱이 파일 (기본값 또는 사용자 지정) *에서process.js* 를 사용 하 여 실행 되는 경우 `script` JSON 루트에 속성이 있어야 합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -191,9 +221,9 @@ PM2를 사용 하 여 [실행](#run-with-pm2)하도록 구성 하는 경우 * .c
 
 원격 디버깅에 대 한 Visual Studio Code를 설정 하려면 [App Service 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)을 설치 합니다. 확장 페이지의 지침에 따라 Visual Studio Code에서 Azure에 로그인 합니다.
 
-Azure 탐색기에서 디버그할 앱을 찾아 마우스 오른쪽 단추로 클릭 하 고 **원격 디버깅 시작**을 선택 합니다. **예** 를 클릭 하 여 앱에 대해 사용 하도록 설정 합니다. App Service는 터널 프록시를 시작 하 고 디버거를 연결 합니다. 그런 다음 앱에 대 한 요청을 수행 하 고 디버거가 중단점에서 일시 중지 되는 것을 볼 수 있습니다.
+Azure 탐색기에서 디버그할 앱을 찾아 마우스 오른쪽 단추로 클릭 하 고 **원격 디버깅 시작** 을 선택 합니다. **예** 를 클릭 하 여 앱에 대해 사용 하도록 설정 합니다. App Service는 터널 프록시를 시작 하 고 디버거를 연결 합니다. 그런 다음 앱에 대 한 요청을 수행 하 고 디버거가 중단점에서 일시 중지 되는 것을 볼 수 있습니다.
 
-디버깅이 완료 되 면 **연결 끊기**를 선택 하 여 디버거를 중지 합니다. 메시지가 표시 되 면 **예** 를 클릭 하 여 원격 디버깅을 사용 하지 않도록 설정 해야 합니다. 나중에 사용 하지 않도록 설정 하려면 Azure 탐색기에서 앱을 다시 마우스 오른쪽 단추로 클릭 하 고 **원격 디버깅 사용 안 함**을 선택 합니다.
+디버깅이 완료 되 면 **연결 끊기** 를 선택 하 여 디버거를 중지 합니다. 메시지가 표시 되 면 **예** 를 클릭 하 여 원격 디버깅을 사용 하지 않도록 설정 해야 합니다. 나중에 사용 하지 않도록 설정 하려면 Azure 탐색기에서 앱을 다시 마우스 오른쪽 단추로 클릭 하 고 **원격 디버깅 사용 안 함** 을 선택 합니다.
 
 ::: zone-end
 
@@ -209,7 +239,7 @@ process.env.NODE_ENV
 
 기본적으로 빌드 자동화 `npm install --production` 는 빌드 자동화를 사용 하 여 Git 또는 Zip 배포를 통해 배포 된 Node.js 앱을 인식할 때 실행 App Service. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우이를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) 를 제공 해야 합니다.
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 예를 들면 다음과 같습니다.
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 다음은 그 예입니다.
 
 ```json
 "dependencies": {
@@ -227,7 +257,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-이제 리포지토리 루트에 *배포* 및 *deploy.sh*의 두 가지 추가 파일이 있습니다.
+이제 리포지토리 루트에 *배포* 및 *deploy.sh* 의 두 가지 추가 파일이 있습니다.
 
 *Deploy.sh* 을 열고 `Deployment` 다음과 같은 섹션을 찾습니다.
 
@@ -318,7 +348,7 @@ if (req.secure) {
 
 - [로그 스트림에 액세스](#access-diagnostic-logs)합니다.
 - 프로덕션 모드에서 로컬 상태로 앱을 테스트합니다. App Service가 프로덕션 모드에서 Node.js 앱을 실행하므로 프로젝트가 프로덕션 모드에서 로컬 상태로 예상과 같이 작동하는지 확인해야 합니다. 예를 들면 다음과 같습니다.
-    - *package.js*에 따라 프로덕션 모드 ( `dependencies` vs)에 대해 서로 다른 패키지를 설치할 수 있습니다 `devDependencies` .
+    - *package.js* 에 따라 프로덕션 모드 ( `dependencies` vs)에 대해 서로 다른 패키지를 설치할 수 있습니다 `devDependencies` .
     - 특정 웹 프레임워크는 프로덕션 모드에서 다른 고정 파일을 배포할 수 있습니다.
     - 특정 웹 프레임워크는 프로덕션 모드에서 실행될 때 사용자 지정 시작 스크립트를 사용합니다.
 - 개발 모드의 App Service에서 앱을 실행 합니다. 예를 들어 [MEAN.js](https://meanjs.org/)에서 [ `NODE_ENV` 앱 설정을 설정](configure-common.md)하 여 런타임 시 앱을 개발 모드로 설정할 수 있습니다.

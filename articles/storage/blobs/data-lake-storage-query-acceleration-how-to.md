@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659866"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912776"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링
 
@@ -22,11 +22,11 @@ ms.locfileid: "89659866"
 
 쿼리 가속을 사용 하면 응용 프로그램 및 분석 프레임 워크에서 지정 된 작업을 수행 하는 데 필요한 데이터만 검색 하 여 데이터 처리를 현저 하 게 최적화할 수 있습니다. 자세히 알아보려면 [쿼리 가속 Azure Data Lake Storage](data-lake-storage-query-acceleration.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-- 범용 **v2** 저장소 계정입니다. [저장소 계정 만들기를](../common/storage-quickstart-create-account.md)참조 하세요.
+- 범용 **v2** 저장소 계정입니다. [저장소 계정 만들기를](../common/storage-account-create.md)참조 하세요.
 
 - SDK 관련 필수 구성 요소를 보려면 탭을 선택 합니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "89659866"
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 열거나 Azure CLI를 로컬로 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
+1. [Azure Cloud Shell](../../cloud-shell/overview.md)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
 2. Id가 둘 이상의 구독과 연결 된 경우 활성 구독을 저장소 계정의 구독으로 설정 합니다.
 
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-비동기 메서드는 쿼리 `BlobQuickQueryClient.QueryAsync` 가속 API로 쿼리를 전송 하 고 결과를 [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream) 개체로 응용 프로그램에 다시 스트리밍합니다.
+비동기 메서드는 쿼리 `BlobQuickQueryClient.QueryAsync` 가속 API로 쿼리를 전송 하 고 결과를 [Stream](/dotnet/api/system.io.stream) 개체로 응용 프로그램에 다시 스트리밍합니다.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

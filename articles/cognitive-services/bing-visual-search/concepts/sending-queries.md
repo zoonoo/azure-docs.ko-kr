@@ -10,20 +10,25 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: d9be654b014b00a9d906210f484c2620e688838d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 37d9352b6384ee2b5e95903f35d531bd672b25b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169137"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490978"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>검색 쿼리를 Bing Visual Search API로 보내기
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 이 문서에서는 응답 개체뿐만 아니라 Bing Visual Search API로 전송된 요청의 매개 변수와 특성에 대해서도 설명합니다. 
 
 다음 세 가지 방법으로 이미지에 대한 인사이트를 가져올 수 있습니다.
 
-- [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 끝점 중 하나에 대 한 이전 호출의 이미지에서 가져온 정보 토큰을 사용 합니다.
+- [Bing Image Search API](/rest/api/cognitiveservices/bing-images-api-v7-reference) 끝점 중 하나에 대 한 이전 호출의 이미지에서 가져온 정보 토큰을 사용 합니다.
 - 이미지의 URL 보내기
 - 이미지 업로드 (이진 형식)
 
@@ -73,7 +78,7 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 
 다음은 요청에서 지정해야 하는 쿼리 매개 변수입니다. 최소한 쿼리 매개 변수를 포함 해야 합니다 `mkt` .
 
-| 속성 | 값 | Type | 필수 |
+| Name | 값 | 형식 | 필수 |
 | --- | --- | --- | --- |
 | <a name="cc"></a>cc  | 결과를 가져올 위치를 나타내는 두 자리 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [](#mkt)mkt&mdash; 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | String | 아니요       |
 | <a name="mkt"></a>mkt   | 결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알려진 경우 항상 시장을 지정 해야 합니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [](#cc)cc&mdash; 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | String | 예      |
@@ -148,7 +153,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Content-Type: image/jpeg
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -175,7 +180,7 @@ Content-Disposition: form-data; name="image"; filename="image"
 Content-Type: image/jpeg
 
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -465,7 +470,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-- [Bing Visual Search API 이란?](../overview.md)
+- [Bing Visual Search API란?](../overview.md)
 - [자습서: Visual Search 단일 페이지 웹앱 만들기](../tutorial-bing-visual-search-single-page-app.md)

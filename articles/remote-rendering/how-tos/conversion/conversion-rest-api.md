@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985617"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445611"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>모델 변환 REST API 사용
 
@@ -20,13 +20,13 @@ ms.locfileid: "87985617"
 
 요청을 보낼 기본 Url에 대 한 [사용 가능한 지역 목록을](../../reference/regions.md) 참조 하세요.
 
-## <a name="common-headers"></a>공용 헤더
+## <a name="common-headers"></a>일반 헤더
 
 ### <a name="common-request-headers"></a>일반 요청 헤더
 
 모든 요청에 대해 다음 헤더를 지정 해야 합니다.
 
-- **권한 부여** 헤더의 값은 "전달자 [*token*]" 이어야 합니다. 여기서 [*token*]은 [서비스 액세스 토큰](../tokens.md)입니다.
+- **권한 부여** 헤더의 값은 "전달자 [ *token* ]" 이어야 합니다. 여기서 [ *token* ]은 [서비스 액세스 토큰](../tokens.md)입니다.
 
 ### <a name="common-response-headers"></a>일반적인 응답 헤더
 
@@ -47,14 +47,14 @@ Azure 원격 렌더링 계정에는 [저장소 계정을 연결](../create-an-ac
 
 | 엔드포인트 | 메서드 |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/create | POST |
+| /v1/accounts/ **accountID** /conversions/create | POST |
 
 JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 이름은 "conversionId"입니다.
 
 #### <a name="request-body"></a>요청 본문
 
 > [!NOTE]
-> 아래의 모든 항목 `input.folderPath` 을 검색 하 여 Azure에서 변환을 수행 합니다. `input.folderPath`을 지정 하지 않으면 컨테이너의 전체 콘텐츠가 검색 됩니다. 검색 된 모든 blob 및 폴더에는 [유효한 Windows 파일 이름이](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions)있어야 합니다.
+> 아래의 모든 항목 `input.folderPath` 을 검색 하 여 Azure에서 변환을 수행 합니다. `input.folderPath`을 지정 하지 않으면 컨테이너의 전체 콘텐츠가 검색 됩니다. 검색 된 모든 blob 및 폴더에는 [유효한 Windows 파일 이름이](/windows/win32/fileio/naming-a-file#naming-conventions)있어야 합니다.
 
 ```json
 {
@@ -79,19 +79,19 @@ ARR 계정이 저장소 계정에 연결 되지 않은 경우이 REST 인터페�
 
 | 엔드포인트 | 메서드 |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
+| /v1/accounts/ **accountID** /conversions/createWithSharedAccessSignature | POST |
 
 JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 `conversionId` 이름이 인 경우
 
 #### <a name="request-body"></a>요청 본문
 
-요청 본문은 위의 create REST 호출에서와 동일 하지만 입력 및 출력에는 *SAS (공유 액세스 서명) 토큰이*포함 되어 있습니다. 이러한 토큰은 입력을 읽고 변환 결과를 쓸 수 있도록 저장소 계정에 대 한 액세스를 제공 합니다.
+요청 본문은 위의 create REST 호출에서와 동일 하지만 입력 및 출력에는 *SAS (공유 액세스 서명) 토큰이* 포함 되어 있습니다. 이러한 토큰은 입력을 읽고 변환 결과를 쓸 수 있도록 저장소 계정에 대 한 액세스를 제공 합니다.
 
 > [!NOTE]
 > 이러한 SAS URI 토큰은 쿼리 문자열이 며 전체 URI가 아닙니다. 
 
 > [!NOTE]
-> 아래의 모든 항목 `input.folderPath` 을 검색 하 여 Azure에서 변환을 수행 합니다. `input.folderPath`을 지정 하지 않으면 컨테이너의 전체 콘텐츠가 검색 됩니다. 검색 된 모든 blob 및 폴더에는 [유효한 Windows 파일 이름이](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions)있어야 합니다.
+> 아래의 모든 항목 `input.folderPath` 을 검색 하 여 Azure에서 변환을 수행 합니다. `input.folderPath`을 지정 하지 않으면 컨테이너의 전체 콘텐츠가 검색 됩니다. 검색 된 모든 blob 및 폴더에는 [유효한 Windows 파일 이름이](/windows/win32/fileio/naming-a-file#naming-conventions)있어야 합니다.
 
 ```json
 {
@@ -120,7 +120,7 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 
 
 | 엔드포인트 | 메서드 |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/**conversionId** | GET |
+| /v1/accounts/ **accountID** /conversions/ **conversionId** | GET |
 
 다음 값을 가질 수 있는 "status" 필드가 포함 된 JSON 문서를 반환 합니다.
 
@@ -130,6 +130,21 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 
 - 실패로
 
 상태가 "오류" 인 경우 오류 정보를 포함 하는 "message" 하위 필드가 있는 추가 "오류" 필드가 나타납니다. 추가 로그가 출력 컨테이너에 업로드 됩니다.
+
+## <a name="list-conversions"></a>목록 변환
+
+계정에 대 한 모든 변환 목록을 가져오려면 인터페이스를 사용 합니다.
+
+| 엔드포인트 | 메서드 |
+|-----------|:-----------|
+| /v1/accounts/ **accountID** /변환? skiptoken = **skiptoken** | GET |
+
+| 매개 변수 | 필수 |
+|-----------|:-----------|
+| accountID | 예 |
+| skiptoken | 아니요 |
+
+변환 배열 및 해당 세부 정보를 포함 하는 json 문서를 반환 합니다. 이 쿼리는 한 번에 최대 50 변환을 반환 합니다. 검색할 변환이 많을 경우 응답에는 다음 결과 집합을 검색 하기 위해 쿼리할 수 있는 skipToken을 포함 하는 **nextLink** 속성이 포함 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 09/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 8ac8cf172a13e7198233170634ee4a3954793cd2
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526955"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743431"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -29,7 +29,7 @@ ms.locfileid: "90526955"
 
 ## <a name="requirements"></a>요구 사항
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md) 사용
 - 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN에는 Windows 10 버전 1903 이상이 필요 합니다. * *
@@ -38,7 +38,7 @@ ms.locfileid: "90526955"
 
 ## <a name="prepare-devices-for-preview"></a>미리 보기용으로 장치 준비
 
-를 사용 하 여 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1909 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
+Azure AD 가입 장치에 대 한 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
 
 하이브리드 Azure AD 조인 장치는 Windows 10 버전 2004 이상을 실행 해야 합니다.
 
@@ -52,23 +52,23 @@ ms.locfileid: "90526955"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory**  >  **보안**  >  **인증 방법**  >  **인증 방법 정책 (미리 보기)** 으로 이동 합니다.
-1. Method **FIDO2 Security 키**아래에서 다음 옵션을 선택 합니다.
+1. Method **FIDO2 Security 키** 아래에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
    1. **대상** -모든 사용자 또는 사용자 선택
 1. 구성을 **저장** 합니다.
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>FIDO2 보안 키의 사용자 등록 및 관리
 
-1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com)으로 이동합니다.
+1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 으로 이동합니다.
 1. 아직 로그인 하지 않은 경우 로그인 합니다.
-1. **보안 정보**를 클릭 합니다.
-   1. 사용자가 이미 하나 이상의 Azure Multi-Factor Authentication 메서드를 등록 한 경우 FIDO2 보안 키를 즉시 등록할 수 있습니다.
-   1. 하나 이상의 Azure Multi-Factor Authentication 메서드를 등록 하지 않은 경우 하나를 추가 해야 합니다.
-1. **메서드 추가** 를 클릭 하 고 **보안 키**를 선택 하 여 FIDO2 보안 키를 추가 합니다.
-1. **USB 장치** 또는 **NFC 장치**를 선택 합니다.
-1. 키를 준비 하 고 **다음**을 선택 합니다.
+1. **보안 정보** 를 클릭 합니다.
+   1. 사용자가 이미 하나 이상의 Azure AD Multi-Factor Authentication 메서드를 등록 한 경우 FIDO2 보안 키를 즉시 등록할 수 있습니다.
+   1. 하나 이상의 Azure AD Multi-Factor Authentication 메서드를 등록 하지 않은 경우에는 하나를 추가 해야 합니다.
+1. **메서드 추가** 를 클릭 하 고 **보안 키** 를 선택 하 여 FIDO2 보안 키를 추가 합니다.
+1. **USB 장치** 또는 **NFC 장치** 를 선택 합니다.
+1. 키를 준비 하 고 **다음** 을 선택 합니다.
 1. 상자가 표시 되 고 사용자에 게 보안 키에 대 한 PIN을 만들어 입력 하 라는 메시지가 표시 되 면 생체 인식 또는 터치를 사용 하 여 키에 대 한 필수 제스처를 수행 합니다.
-1. 사용자는 결합 된 등록 환경으로 반환 되 고 키에 대 한 의미 있는 이름을 입력 하 라는 메시지가 표시 되므로 사용자가 여러 항목을 식별할 수 있습니다. **다음**을 클릭합니다.
+1. 사용자는 결합 된 등록 환경으로 반환 되 고 키에 대 한 의미 있는 이름을 입력 하 라는 메시지가 표시 되므로 사용자가 여러 항목을 식별할 수 있습니다. **다음** 을 클릭합니다.
 1. **완료** 를 클릭 하 여 프로세스를 완료 합니다.
 
 ## <a name="sign-in-with-passwordless-credential"></a>암호 없는 자격 증명을 사용 하 여 로그인
@@ -105,4 +105,4 @@ ms.locfileid: "90526955"
 
 [장치 등록에 대 한 자세한 정보](../devices/overview.md)
 
-[Azure Multi-Factor Authentication에 대해 자세히 알아보기](../authentication/howto-mfa-getstarted.md)
+[Azure AD Multi-Factor Authentication에 대 한 자세한 정보](../authentication/howto-mfa-getstarted.md)

@@ -3,12 +3,12 @@ title: IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석-Azure
 description: 이 항목에서는 IoT Edge 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대 한 라이브 비디오 분석의 릴리스 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0bdf11cd99d99067dc53dde7d55fd37b96a382c9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882720"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400848"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석
 
@@ -23,9 +23,23 @@ ms.locfileid: "90882720"
 
 <hr width=100%>
 
-## <a name="september-22-2020"></a>2020 년 9 월 22 일
+## <a name="december-14-2020"></a>2020 년 12 월 14 일
+이 릴리스는 IoT Edge에 대 한 라이브 비디오 분석의 공개 미리 보기 새로 고침 릴리스입니다. 릴리스 태그는
 
-모듈의 9 월 2020 새로 고침에 대 한이 릴리스 태그는 다음과 같습니다.
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### <a name="module-updates"></a>모듈 업데이트
+* 두 개 이상의 HTTP 확장 프로세서를 사용 하 고 그래프 토폴로지에서 gRPC 확장 프로세서를 사용 하기 위한 지원이 추가 되었습니다.
+* 싱크 노드에 대 한 디스크 공간 관리에 대 한 지원이 추가 되었습니다.
+* `MediaGraphGrpcExtension` 이제 노드는 단일 gRPC 서버 내에서 여러 AI 모델을 사용 하기 위한 [Extensionconfiguration](grpc-extension-protocol.md) 속성을 지원 합니다.
+* [프로메테우스 형식의](https://prometheus.io/docs/practices/naming/) 라이브 비디오 분석 모듈 메트릭 수집에 대 한 지원이 추가 됨 
+* 프레임 요금 필터 프로세서가 **사용 되지** 않습니다.  
+    * 이제 그래프 확장 프로세서 노드 자체에서 프레임 주기 관리를 사용할 수 있습니다.
+
+## <a name="september-22-2020"></a>2020년 9월 22일
+
+이 릴리스 태그는 모듈의 9 월 2020 새로 고침에 대 한 것입니다.
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.4
@@ -36,7 +50,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ### <a name="module-updates"></a>모듈 업데이트
 
-* 새 그래프 확장 노드인 [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) 는 Cognitive Services에서 [공간 분석 모듈](spatial-analysis-tutorial.md)(미리 보기)과 통합 하는 데 사용할 수 있습니다.
+* 새 그래프 확장 노드인 [MediaGraphCognitiveServicesVisionExtension](spatial-analysis-tutorial.md) 는 Cognitive Services에서 [공간 분석](/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview)(미리 보기) 모듈과 통합할 수 있습니다.
 * Linux ARM64 장치에 대 한 지원이 추가 됨-이러한 장치에 배포 하는 데 [수동 단계](deploy-iot-edge-device.md) 를 사용 합니다.
 
 ### <a name="documentation-updates"></a>설명서 업데이트
@@ -48,7 +62,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ## <a name="august-19-2020"></a>2020 년 8 월 19 일
 
-모듈의 8 월 2020 새로 고침에 대 한이 릴리스 태그는 다음과 같습니다.
+이 릴리스 태그는 모듈의 8 월 2020 새로 고침에 대 한 것입니다.
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.3
@@ -67,13 +81,13 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### <a name="bug-fixes"></a>버그 수정 
 
-* 설정 스크립트에서 사용 되지 않는 azure 확장의 사용을 제거 합니다.
+* 설정 스크립트에서 사용 되지 않는 Azure 확장의 사용을 제거 합니다.
 
 <hr width=100%>
 
 ## <a name="july-13-2020"></a>2020 년 7 월 13 일
 
-모듈의 7 월 2020 새로 고침에 대 한이 릴리스 태그는 다음과 같습니다.
+이 릴리스 태그는 모듈의 7 월 2020 새로 고침에 대 한 것입니다.
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.2

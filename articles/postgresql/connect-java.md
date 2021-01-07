@@ -1,31 +1,31 @@
 ---
-title: Azure Database for PostgreSQL에서 Java 및 JDBC 사용
-description: Azure Database for PostgreSQL에서 Java 및 JDBC를 사용하는 방법을 알아봅니다.
+title: '빠른 시작: Azure Database for PostgreSQL에서 Java 및 JDBC 사용'
+description: 이 빠른 시작에서는 Azure Database for PostgreSQL에서 Java 및 JDBC를 사용하는 방법을 알아봅니다.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 66a3b4919903f739ed5afef0a02b501f00ff248f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545440"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184708"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 Java 및 JDBC 사용
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>빠른 시작: Azure Database for PostgreSQL에서 Java 및 JDBC 사용
 
-이 항목에서는 Java 및 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity)를 사용하여 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)에 정보를 저장하고 검색하는 애플리케이션 샘플을 만드는 방법을 보여줍니다.
+이 항목에서는 Java 및 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity)를 사용하여 [Azure Database for PostgreSQL](./index.yml)에 정보를 저장하고 검색하는 애플리케이션 샘플을 만드는 방법을 보여줍니다.
 
 JDBC는 기존 관계형 데이터베이스에 연결하는 표준 Java API입니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) 또는 [Azure CLI](/cli/azure/install-azure-cli). 자동으로 로그인되고 필요한 모든 도구에 액세스할 수 있는 Azure Cloud Shell을 권장합니다.
-- 지원되는 [Java Development Kit](https://aka.ms/azure-jdks) 버전 8(Azure Cloud Shell에 포함됨)입니다.
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) 또는 [Azure CLI](/cli/azure/install-azure-cli). 자동으로 로그인되고 필요한 모든 도구에 액세스할 수 있는 Azure Cloud Shell을 권장합니다.
+- 지원되는 [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) 버전 8(Azure Cloud Shell에 포함됨)입니다.
 - [Apache Maven](https://maven.apache.org/) 빌드 도구.
 
 ## <a name="prepare-the-working-environment"></a>작업 환경 준비
@@ -67,7 +67,7 @@ az group create \
 먼저 관리형 PostgreSQL 서버를 만듭니다.
 
 > [!NOTE]
-> PostgreSQL 서버 만들기에 관한 자세한 정보는 [Azure portal을 사용하여 Azure Database for PostgreSQL 서버 만들기](/azure/postgresql/quickstart-create-server-database-portal)에서 확인할 수 있습니다.
+> PostgreSQL 서버 만들기에 관한 자세한 정보는 [Azure portal을 사용하여 Azure Database for PostgreSQL 서버 만들기](./quickstart-create-server-database-portal.md)에서 확인할 수 있습니다.
 
 [Azure Cloud Shell](https://shell.azure.com/)에서 다음 명령을 실행합니다.
 
@@ -485,7 +485,7 @@ deleteData(todo, connection);
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>결론 및 리소스 정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 축하합니다! JDBC를 사용하여 Azure Database for PostgreSQL에서 데이터를 저장하고 검색하는 Java 애플리케이션을 만들었습니다.
 

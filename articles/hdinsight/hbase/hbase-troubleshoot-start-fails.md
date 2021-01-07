@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 032c25969bf477e1163b8db2aca631044c457939
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75887209"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539975"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase Master (HMaster) 시작 실패
 
@@ -20,7 +20,7 @@ ms.locfileid: "75887209"
 
 ## <a name="scenario-atomic-renaming-failure"></a>시나리오: 원자성 이름 바꾸기 실패
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 시작 프로세스 중에 식별 된 예기치 않은 파일입니다.
 
@@ -42,7 +42,7 @@ HMaster는 WAL 폴더에서 기본 목록 명령을 수행 합니다. 언제든�
 
 ## <a name="scenario-no-server-address-listed"></a>시나리오: 나열 된 서버 주소 없음
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 테이블이 온라인 상태가 아님을 나타내는 메시지가 표시 될 수 있습니다 `hbase: meta` . 를 실행 `hbck` `hbase: meta table replicaId 0 is not found on any region.` 하면 hmaster 로그에이 표시 될 수 있습니다. 메시지가 표시 될 수 있습니다 `No server address listed in hbase: meta for region hbase: backup <region name>` .  
 
@@ -73,7 +73,7 @@ HBase를 다시 시작한 후 HMaster를 초기화할 수 없습니다.
 
 ## <a name="scenario-javaioioexception-timedout"></a>시나리오: Timedout.
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 HMaster는와 유사한 예외를 제외 하 고 시간 초과 `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned` 됩니다.
 
@@ -83,7 +83,7 @@ HMaster 서비스를 다시 시작할 때 플러시되지 않은 많은 테이�
 
 ### <a name="resolution"></a>해결 방법
 
-1. Apache Ambari UI에서 **HBase**  >  **Configs**로 이동 합니다. 사용자 지정 `hbase-site.xml` 파일에서 다음 설정을 추가 합니다.
+1. Apache Ambari UI에서 **HBase**  >  **Configs** 로 이동 합니다. 사용자 지정 `hbase-site.xml` 파일에서 다음 설정을 추가 합니다.
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -95,7 +95,7 @@ HMaster 서비스를 다시 시작할 때 플러시되지 않은 많은 테이�
 
 ## <a name="scenario-frequent-region-server-restarts"></a>시나리오: 잦은 영역 서버 다시 시작
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 노드가 주기적으로 재부팅 됩니다. 지역 서버 로그에서 다음과 유사한 항목이 표시 될 수 있습니다.
 
@@ -113,7 +113,7 @@ HMaster 서비스를 다시 시작할 때 플러시되지 않은 많은 테이�
 
 설정 뿐만 아니라 `hbase-site` `zookeeper.session.timeout` 사육 사 설정도 변경 해야 하는 경우를 제외 하 고, 사육 아웃 세션 제한 시간을 변경 `zoo.cfg` `maxSessionTimeout` 합니다.
 
-1. Ambari UI에 액세스 하 고, **HBase-> Configs-> 설정**으로 이동 하 고, 시간 제한 섹션에서 사육 아웃 세션 제한 시간 값을 변경 합니다.
+1. Ambari UI에 액세스 하 고, **HBase-> Configs-> 설정** 으로 이동 하 고, 시간 제한 섹션에서 사육 아웃 세션 제한 시간 값을 변경 합니다.
 
 1. Ambari UI에 액세스 하 고, **Configs-> Custom으로 >** 이동 하 고 `zoo.cfg` , 다음 설정을 추가/변경 합니다. 값이 HBase와 동일한 지 확인 합니다 `zookeeper.session.timeout` .
 
@@ -127,7 +127,7 @@ HMaster 서비스를 다시 시작할 때 플러시되지 않은 많은 테이�
 
 ## <a name="scenario-log-splitting-failure"></a>시나리오: 로그 분할 실패
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 HMasters를 HBase 클러스터에서 가져오지 못했습니다.
 
@@ -149,4 +149,4 @@ Ambari에서 hbase를 설정 wasb://@.blob.core.windows.net/hbase 하 고 서비
 
 * [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

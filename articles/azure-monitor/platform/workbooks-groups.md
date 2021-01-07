@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82892083"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>통합 문서에서 그룹을 사용 하는 방법
@@ -22,9 +22,9 @@ ms.locfileid: "82892083"
 
 통합 문서에 있는 그룹은 다음과 같은 몇 가지 경우에 유용 합니다.
 
-- Layout
+- 레이아웃
   - 항목을 세로로 구성 하려는 시나리오에서는 모든 개별 항목에 대해 백분율 너비를 설정 하는 대신 모든 항목을 스택에 표시 하 고 그룹의 스타일을 백분율 너비로 설정 하는 항목 그룹을 만들 수 있습니다.
-- 표시 유형
+- 가시 거리
   - 여러 항목을 숨기 거 나 표시 하려는 시나리오에서는 각 개별 항목에 대 한 표시 유형 설정을 설정 하는 대신 전체 항목 그룹의 표시 유형을 설정할 수 있습니다. 이는 그룹을 탭의 콘텐츠로 사용할 수 있고 선택 된 탭으로 설정 된 매개 변수를 기반으로 전체 그룹을 숨기 거 나 표시할 수 있으므로 탭을 사용 하는 템플릿에서 유용할 수 있습니다.
 - 성능
   - 많은 섹션 또는 탭이 포함 된 매우 큰 템플릿이 있는 경우 각 섹션을 자체 하위 템플릿으로 변환 하 고 그룹을 사용 하 여 최상위 템플릿 내에서 모든 하위 템플릿을 로드할 수 있습니다. 하위 템플릿의 콘텐츠는 사용자가 해당 그룹을 표시 하도록 만들 때까지 로드 되거나 실행 되지 않습니다. 많은 템플릿을 [여러 템플릿으로 분할 하는 방법](#how-to-split-a-large-template-into-many-templates)에 대해 자세히 알아보세요.
@@ -68,7 +68,7 @@ ms.locfileid: "82892083"
 
 템플릿에서 만든 그룹의 경우 템플릿의 내용이 검색 되지 않으며 그룹의 항목은 그룹이 표시 될 때까지 생성 되지 않습니다. 콘텐츠를 검색 하는 동안 사용자에 게 전체 그룹에 대 한 진행률 회전자 표시 됩니다.
 
-### <a name="explicit"></a>Explicit
+### <a name="explicit"></a>명시적
 
 이 모드에서 단추는 그룹이 될 위치에 표시 되 고 사용자가 명시적으로 단추를 클릭 하 여 콘텐츠를 로드할 때까지 콘텐츠를 검색 하거나 만들지 않습니다. 이는 콘텐츠가 계산에 비용이 많이 들고 거의 사용 되지 않는 시나리오에서 유용 합니다. 작성자는 단추에 표시할 텍스트를 지정할 수 있습니다.
 
@@ -98,8 +98,8 @@ ms.locfileid: "82892083"
 
 맨 위에 두 개의 매개 변수가 있는 템플릿을 고려해 보세요.
 
-- `TimeRange`-시간 범위 매개 변수입니다.
-- `Filter`-텍스트 매개 변수입니다.
+- `TimeRange` -시간 범위 매개 변수입니다.
+- `Filter` -텍스트 매개 변수입니다.
 
 ![매개 변수 항목 편집: "최상위 매개 변수"](./media/workbooks-groups/groups-top-level-params.png)
 
@@ -113,12 +113,12 @@ ms.locfileid: "82892083"
 
 맨 위에 두 개의 매개 변수가 있는 그룹의 템플릿을 고려 합니다.
 
-- `TimeRange`-시간 범위 매개 변수입니다.
-- `FilterB`-텍스트 매개 변수 `Filter` 입니다. 최상위 템플릿과는 동일 하지 않습니다.
+- `TimeRange` -시간 범위 매개 변수입니다.
+- `FilterB` -텍스트 매개 변수 `Filter` 입니다. 최상위 템플릿과는 동일 하지 않습니다.
 
 ![매개 변수 결과로 병합 된 그룹 항목 편집](./media/workbooks-groups/groups-wont-merge-away.png)
 
-그룹의 item's이 로드 되 면 `TimeRange` 매개 변수가 그룹 외부로 병합 됩니다. 그런 다음 통합 문서는 및의 초기 매개 변수 단계를 포함 `TimeRange` `Filter` 하 고, 그룹의 매개 변수 단계에만 포함 됩니다.`FilterB`
+그룹의 item's이 로드 되 면 `TimeRange` 매개 변수가 그룹 외부로 병합 됩니다. 그런 다음 통합 문서는 및의 초기 매개 변수 단계를 포함 `TimeRange` `Filter` 하 고, 그룹의 매개 변수 단계에만 포함 됩니다. `FilterB`
 
 ![외부에 병합 되지 않는 매개 변수 결과](./media/workbooks-groups/groups-wont-merge-away-result.png)
 

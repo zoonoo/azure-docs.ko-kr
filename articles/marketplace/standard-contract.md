@@ -4,15 +4,15 @@ description: 파트너 센터의 Azure Marketplace 및 AppSource에 대한 표�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 05/20/2020
-ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 20a257bde6022249fd7b2ab875b94f356234b490
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121557"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488879"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스 표준 계약
 
@@ -21,7 +21,7 @@ Microsoft는 Microsoft 상업용 마켓플레이스에 대한 표준 계약을 �
 제품의 사용 약관은 파트너 센터에서 제품을 만들 때 정의됩니다. 사용자 지정 약관을 제공하는 대신 Microsoft 상업용 마켓플레이스에 대한 표준 계약을 사용하도록 선택할 수 있습니다.
 
 >[!Note]
->Microsoft 상업용 마켓플레이스 표준 계약을 사용하여 제품을 게시한 후에는 사용자 지정 약관을 사용할 수 없습니다. 이는 "또는" 시나리오입니다. 표준 계약 *또는* 게시자 고유 사용 약관에 따라 솔루션을 제공합니다. 표준 계약의 조건을 수정하려면 표준 계약 수정을 통해 이 작업을 수행할 수 있습니다.
+>Microsoft 상업적 marketplace에 대 한 표준 계약을 사용 하 여 제품을 게시 하면 사용자 고유의 사용자 지정 약관을 사용할 수 없습니다. 표준 계약 *또는* 게시자 고유 사용 약관에 따라 솔루션을 제공합니다. 사용자 지정 약관은 제품 수준에서 정의 되 고 모든 요금제에 적용 됩니다. 파트너 센터의 제품 **속성** 페이지에서 사용자 지정 약관을 작성 합니다. 표준 계약의 조건을 수정 하려면 표준 계약 개정을 통해이 작업을 수행할 수 있습니다.
 
 ## <a name="standard-contract-amendments"></a>표준 계약 수정
 
@@ -34,7 +34,7 @@ Microsoft는 Microsoft 상업용 마켓플레이스에 대한 표준 계약을 �
 * 사용자 지정 수정: 이러한 수정은 Azure 테넌트 ID를 통해 특정 고객만을 대상으로 하는 표준 계약 특별 수정입니다. 게시자는 대상으로 지정할 테넌트를 선택할 수 있습니다. 테넌트의 고객만 제품의 구매 흐름에 사용자 지정 수정 조건이 표시됩니다.  고객은 제품을 사용하기 전에 표준 계약 및 수정 내용에 동의해야 합니다.
 
 >[!Note]
->이러한 두 가지 유형의 수정은 누적됩니다. 사용자 지정 수정을 대상으로 하는 고객은 구매 중 표준 계약에 대한 범용 수정도 적용받게 됩니다.
+>이러한 두 가지 유형의 수정은 누적됩니다. 사용자 지정 수정을 대상으로 하는 고객은 구매 중 표준 계약에 대한 범용 수정도 적용받게 됩니다. 개정는 공백을 포함 하 여 4000 자로 제한 됩니다.
 
 Microsoft 상업적 마켓플레이스에 대한 표준 계약은  Azure 애플리케이션(솔루션 템플릿 및 관리형 애플리케이션), Virtual Machines 및 SaaS와 같은 제품 유형에 활용할 수 있습니다.
 

@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어에서 바꾸기
 description: Azure Cosmos DB의 SQL 시스템 함수 대체에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 758ac13530752df481d27e7e253f025f5c8d6430
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9b7ffdf8395944cf75dabbbf4c42cea0e0c9b3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302205"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341623"
 ---
 # <a name="replace-azure-cosmos-db"></a>REPLACE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다.  
   
 ## <a name="syntax"></a>구문
@@ -32,7 +35,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
    찾을 문자열 식입니다.  
   
 *str_expr3*  
-   *Str_expr1*에서 *str_expr2* 항목을 대체 하는 문자열 식입니다.  
+   *Str_expr1* 에서 *str_expr2* 항목을 대체 하는 문자열 식입니다.  
   
 ## <a name="return-types"></a>반환 형식
   

@@ -1,6 +1,6 @@
 ---
 title: Linux 용 Azure 직렬 콘솔 | Microsoft Docs
-description: Azure Virtual Machines 및 Virtual Machine Scale Sets용 양방향 직렬 콘솔
+description: Linux 예제를 사용 하 여 Azure Virtual Machines 및 Virtual Machine Scale Sets 직렬 콘솔을 Bi-Directional 합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 25e3a9cb363ae4e64b953aeb7a6da4e2e66c9fc7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423459"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977102"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux용 Azure Serial Console
 
@@ -60,7 +60,7 @@ Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](./serial-cons
 > [!NOTE]
 > 직렬 콘솔에 아무 것도 표시되지 않으면 VM에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다. **Enter 키** 를 누르면 직렬 콘솔에 아무것도 표시 되지 않는 문제를 해결 하는 경우가 많습니다.
 
-분포      | 직렬 콘솔 액세스
+배포      | 직렬 콘솔 액세스
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 CentOS      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
@@ -71,9 +71,9 @@ SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 직렬 콘�
 Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 
 ### <a name="custom-linux-images"></a>사용자 지정 Linux 이미지
-사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예를 들면 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`과 다음과 같습니다. TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여이 작업을 수행할 수 있습니다 `systemctl start serial-getty@ttyS0.service` .
+사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여이 작업을 수행할 수 있습니다 `systemctl start serial-getty@ttyS0.service` .
 
-또한 직렬 출력의 대상으로 ttys0을 추가 하려고 합니다. 직렬 콘솔을 사용 하도록 사용자 지정 이미지를 구성 하는 방법에 대 한 자세한 내용은 [Azure에서 LINUX VHD 만들기 및 업로드](https://aka.ms/createuploadvhd#general-linux-system-requirements)에서 일반적인 시스템 요구 사항을 참조 하세요.
+또한 직렬 출력의 대상으로 ttys0을 추가 하려고 합니다. 직렬 콘솔을 사용 하도록 사용자 지정 이미지를 구성 하는 방법에 대 한 자세한 내용은 [Azure에서 LINUX VHD 만들기 및 업로드](../linux/create-upload-generic.md#general-linux-system-requirements)에서 일반적인 시스템 요구 사항을 참조 하세요.
 
 사용자 지정 커널을 빌드하는 경우 `CONFIG_SERIAL_8250=y` 및 `CONFIG_MAGIC_SYSRQ_SERIAL=y` 커널 플래그를 사용하는 것이 좋습니다. 일반적으로 구성 파일은 */boot/* 경로에 위치합니다.
 
@@ -111,7 +111,7 @@ SSH 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 
 > [!CAUTION]
 > 즉, 연결을 끊은 사용자는 로그 아웃 되지 않습니다. 연결을 끊을 때 (SITHE UP 또는 유사한 메커니즘을 사용 하 여) 로그 아웃을 적용 하는 기능은 로드맵에 있습니다. Windows의 경우 SAC(특별 관리 콘솔)에 자동 시간 제한을 사용하도록 설정되어 있지만 Linux에서는 터미널 시간 제한 설정을 구성할 수 있습니다. 이렇게 하려면 사용자 콘솔에 로그인하는 데 사용하는 사용자에게 *.bash_profile* 또는 *.profile* 파일에서 `export TMOUT=600`을 추가합니다. 이 설정으로 인해 10분 후에 세션이 시간 초과하게 됩니다.
 
-## <a name="accessibility"></a>액세스 가능성
+## <a name="accessibility"></a>접근성
 접근성은 Azure 직렬 콘솔에 대 한 주요 중심입니다. 이를 위해 직렬 콘솔에 완전히 액세스할 수 있는지 확인했습니다.
 
 ### <a name="keyboard-navigation"></a>키보드 탐색
@@ -128,7 +128,7 @@ SSH 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 
 연결 배너에서 로그인 프롬프트가 표시되지 않으면 **Enter** 키를 누릅니다. | GRUB를 올바르게 구성 하지 못할 수 있습니다. `grub2-mkconfig -o /etc/grub2-efi.cfg`및/또는 명령을 실행 `grub2-mkconfig -o /etc/grub2.cfg` 합니다. 자세한 내용은 [Enter를 누르면 아무 작업도 수행되지 않습니다](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)를 참조하세요. 이 문제는 Linux가 직렬 포트에 연결 하지 못하는 사용자 지정 VM, 확정 된 어플라이언스 또는 GRUB 구성을 실행 하는 경우 발생할 수 있습니다.
 직렬 콘솔 텍스트는 화면 크기의 일부만 차지합니다(종종 텍스트 편집기를 사용한 이후). | 직렬 콘솔은 창 크기([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt))에 대한 협상을 지원하지 않습니다. 즉, 화면 크기를 업데이트하기 위해 전송된 SIGWINCH 신호가 없으며, VM은 사용자 터미널 크기를 모른다는 것입니다. `resize` 명령에서 제공된 xterm 또는 유사한 유틸리티를 설치한 다음, `resize`를 실행합니다.
 긴 문자열을 붙여넣는 작업이 작동하지 않습니다. | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한하여 직렬 포트 대역폭을 오버로드하지 않도록 방지합니다.
-SLES BYOS 이미지의 키보드 입력이 비정상적입니다. 키보드 입력은 산발적 으로만 인식 됩니다. | Plymouth 패키지에 문제가 있습니다. Plymouth는 시작 화면이 필요 하지 않으므로 Azure에서 실행 해서는 안 되며, Plymouth는 직렬 콘솔을 사용 하는 플랫폼 기능을 방해 합니다. Plymouth를 제거한 `sudo zypper remove plymouth` 후 다시 부팅 합니다. 또는 `plymouth.enable=0` 줄의 끝에를 추가 하 여 GRUB 구성의 커널 줄을 수정 합니다. [부팅 시 부팅 항목을 편집](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)하거나에서 GRUB_CMDLINE_LINUX 줄을 편집 하 고를 사용 하 여 GRUB를 `/etc/default/grub` 다시 빌드하고 다시 부팅 하 여이 작업을 수행할 수 있습니다 `grub2-mkconfig -o /boot/grub2/grub.cfg` .
+SLES BYOS 이미지의 키보드 입력이 비정상적입니다. 키보드 입력은 산발적 으로만 인식 됩니다. | Plymouth 패키지에 문제가 있습니다. Plymouth는 시작 화면이 필요 하지 않으므로 Azure에서 실행 해서는 안 되며, Plymouth는 직렬 콘솔을 사용 하는 플랫폼 기능을 방해 합니다. Plymouth를 제거한 `sudo zypper remove plymouth` 후 다시 부팅 합니다. 또는 `plymouth.enable=0` 줄의 끝에를 추가 하 여 GRUB 구성의 커널 줄을 수정 합니다. [부팅 시 부팅 항목을 편집](./serial-console-grub-single-user-mode.md#single-user-mode-in-suse-sles)하거나에서 GRUB_CMDLINE_LINUX 줄을 편집 하 고를 사용 하 여 GRUB를 `/etc/default/grub` 다시 빌드하고 다시 부팅 하 여이 작업을 수행할 수 있습니다 `grub2-mkconfig -o /boot/grub2/grub.cfg` .
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -141,18 +141,18 @@ A. https://aka.ms/serialconsolefeedback에서 GitHub 문제를 만들어 피드�
 
 A. 예. **Ctrl**+**Shift**+**C** 및 **Ctrl**+**Shift**+**V**를 사용하여 복사하고 터미널에 붙여넣습니다.
 
-**Q. SSH 연결 대신 직렬 콘솔을 사용할 수 있나요?**
+**대답. SSH 연결 대신 직렬 콘솔을 사용할 수 있나요?**
 
 A. 이렇게 사용하는 것이 기술적으로는 가능해 보일 수 있지만, 직렬 콘솔은 SSH를 통한 연결이 가능하지 않은 상황에서 문제 해결 도구로 주로 사용하도록 디자인되었습니다. 다음 이유 때문에 직렬 콘솔을 SSH 대신 사용하는 것이 좋습니다.
 
 - 직렬 콘솔에는 SSH와 같은 대역폭이 없습니다. 텍스트 전용 연결이므로 추가로 많은 GUI 작업 상호 작용이 어렵습니다.
 - 직렬 콘솔 액세스는 현재 사용자 이름 및 암호를 사용해서만 가능합니다. SSH 키는 사용자 이름/암호 조합보다 훨씬 더 안전하기 때문에 로그인 보안 관점에서는 직렬 콘솔보다 SSH를 사용하는 것이 좋습니다.
 
-**Q. 내 구독에 대해 직렬 콘솔을 사용 하거나 사용 하지 않도록 설정할 수 있는 사용자는 누구 인가요?**
+**대답. 내 구독에 직렬 콘솔을 사용 하거나 사용 하지 않도록 설정할 수 있는 사용자는 누구 인가요?**
 
 A. 전체 구독 수준에서 직렬 콘솔을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 쓰기 권한이 있는 역할에는 관리자 또는 소유자 역할이 포함됩니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
-**Q. 내 v m/가상 머신 확장 집합에 대 한 직렬 콘솔에 액세스할 수 있는 사람은 누구 인가요?**
+**대답. 내 v m/가상 머신 확장 집합에 대 한 직렬 콘솔에 액세스할 수 있는 사용자는 누구 인가요?**
 
 A. VM 또는 가상 머신 확장 집합에 대 한 가상 머신 참가자 역할이 있어야 직렬 콘솔에 액세스할 수 있습니다.
 
@@ -164,7 +164,7 @@ A. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성되�
 
 A. 예, 사용할 수 있습니다. [Virtual Machine Scale Sets용 직렬 콘솔](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)을 참조하세요.
 
-**Q. SSH 키 인증만 사용 하 여 VM 또는 가상 머신 확장 집합을 설정 하는 경우 여전히 직렬 콘솔을 사용 하 여 내 v m/가상 머신 확장 집합 인스턴스에 연결할 수 있나요?**
+**대답. SSH 키 인증만 사용 하 여 VM 또는 가상 머신 확장 집합을 설정 하는 경우 여전히 직렬 콘솔을 사용 하 여 내 v m/가상 머신 확장 집합 인스턴스에 연결할 수 있나요?**
 
 A. 예. 직렬 콘솔에 SSH 키가 필요하지 않기 때문에 사용자 이름/암호 조합을 설정하는 수밖에 없습니다. Azure Portal에서 **암호 재설정**을 선택하고 직렬 콘솔에 로그인하는 데 해당 자격 증명을 사용하여 수행할 수 있습니다.
 

@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362043"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Microsoft 보안 코드 분석 릴리스 및 로드맵
@@ -51,7 +51,7 @@ ms.locfileid: "85362043"
 
 ## <a name="binskim-v160-released-in-april-2020"></a>BinSkim v 1.6.0:4 월 2020 릴리스
 
-### <a name="improvements"></a>향상 된 기능
+### <a name="improvements"></a>개선 사항
 
 - 기능: 최종 SARIF v2 (버전 2.1.16)로 업데이트 합니다. 이 업데이트를 통해 명령줄에서--해시를 전달할 때 결과 캐싱이 가능 하 고, 검색 대상의 여러 복사본을 사용 하 여 디렉터리를 반복적으로 분석할 때 성능이 크게 향상 됩니다.
 - 버그 수정: BA2021의 오타를 수정 합니다. DoNotMarkWritableSectionsAsExecutable 출력입니다.

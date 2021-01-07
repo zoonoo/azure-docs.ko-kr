@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d33403f49429398d9bc006187c23bb8091d9b4a1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8ffb3a0948267ea40a5d0511de63a80ad23584d1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885350"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454664"
 ---
 # <a name="cetas-with-synapse-sql"></a>Synapse SQL의 CETAS
 
-SQL 풀 또는 SQL 주문형(미리 보기)에서 CREATE EXTERNAL TABLE AS SELECT (CETAS)를 사용하여 다음 작업을 완료할 수 있습니다.  
+전용 SQL 풀 또는 서버리스 SQL 풀에서 CETAS(CREATE EXTERNAL TABLE AS SELECT)를 사용하여 다음 작업을 완료할 수 있습니다.  
 
 - 외부 테이블 만들기
 - Transact-SQL SELECT 문의 결과를 다음 위치에 병렬로 내보내기:
@@ -27,14 +27,13 @@ SQL 풀 또는 SQL 주문형(미리 보기)에서 CREATE EXTERNAL TABLE AS SELEC
   - Azure Storage Blob
   - Azure Data Lake Storage Gen2
 
-## <a name="cetas-in-sql-pool"></a>SQL 풀의 CETAS
+## <a name="cetas-in-dedicated-sql-pool"></a>전용 SQL 풀의 CETAS
 
-SQL 풀 CETAS 사용 및 구문에 대한 자세한 내용은 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요. SQL 풀을 사용하는 CTAS에 대한 지침은 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요.
-SQL 풀 CETAS 사용 및 구문에 대한 자세한 내용은 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요. SQL 풀을 사용하는 CTAS에 대한 지침은 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요.
+전용 SQL 풀, CETAS 사용 및 구문에 대해서는 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 확인하세요. 또한 전용 SQL 풀을 사용하는 CTAS에 대한 지침은 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요.
 
-## <a name="cetas-in-sql-on-demand"></a>SQL 주문형의 CETAS
+## <a name="cetas-in-serverless-sql-pool"></a>서버리스 SQL 풀의 CETAS
 
-SQL 주문형을 사용하는 경우 CETAS는 외부 테이블을 만들고 쿼리 결과를 Azure Storage Blob 또는 Azure Data Lake Storage Gen2로 내보내는 데 사용됩니다.
+서버리스 SQL 풀을 사용하는 경우 CETAS는 외부 테이블을 만들고 쿼리 결과를 Azure Storage Blob 또는 Azure Data Lake Storage Gen2로 내보내는 데 사용됩니다.
 
 ## <a name="syntax"></a>구문
 
@@ -57,7 +56,7 @@ CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] 
 
 *[ [ *database_name* . [ *schema_name* ] . ] | *schema_name* . ] *table_name**
 
-만들려는 테이블의 한 부분에서 세 부분으로 이루어진 이름입니다. 외부 테이블의 경우 SQL 주문형은 테이블 메타데이터만 저장합니다. SQL 주문형에서는 실제 데이터가 이동하거나 저장되지 않습니다.
+만들려는 테이블의 한 부분에서 세 부분으로 이루어진 이름입니다. 외부 테이블의 경우 서버리스 SQL 풀은 테이블 메타데이터만 저장합니다. 서버리스 SQL 풀에서는 실제 데이터가 이동하거나 저장되지 않습니다.
 
 LOCATION = *'path_to_folder'*
 
@@ -69,7 +68,7 @@ DATA_SOURCE = *external_data_source_name*
 
 FILE_FORMAT = *external_file_format_name*
 
-외부 데이터 파일에 대한 형식을 포함하는 외부 파일 형식 개체의 이름을 지정합니다. 외부 파일 형식을 만들려면 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format)을 사용합니다. 현재는 FORMAT_TYPE=PARQUET 및 FORMAT_TYPE=DELIMITEDTEXT인 외부 파일 형식만 지원합니다.
+외부 데이터 파일에 대한 형식을 포함하는 외부 파일 형식 개체의 이름을 지정합니다. 외부 파일 형식을 만들려면 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format)을 사용합니다. 현재는 FORMAT_TYPE=PARQUET 및 FORMAT_TYPE=DELIMITEDTEXT인 외부 파일 형식만 지원합니다. DELIMITEDTEXT 형식에 대한 GZip 압축은 지원되지 않습니다.
 
 WITH *<common_table_expression>*
 
@@ -77,7 +76,7 @@ CTE(공통 테이블 식)라고도 하는 임시로 이름이 지정된 결과 �
 
 SELECT <select_criteria>
 
-새 테이블을 SELECT 문의 결과로 채웁니다. *select_criteria*는새 테이블에 복사할 데이터를 결정하는 SELECT 문의 본문입니다. SELECT 문에 대한 자세한 내용은 [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
+새 테이블을 SELECT 문의 결과로 채웁니다. *select_criteria* 는새 테이블에 복사할 데이터를 결정하는 SELECT 문의 본문입니다. SELECT 문에 대한 자세한 내용은 [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 > [!NOTE]
 > SELECT 문의 ORDER BY 절은 CETAS에서 지원되지 않습니다.
@@ -145,32 +144,30 @@ CETAS를 사용하여 다음 SQL 데이터 형식으로 결과 세트를 저장�
 - varbinary
 - char
 - varchar
+- nchar
+- nvarchar
+- smalldate
 - date
-- time
+- Datetime
 - datetime2
+- datetimeoffset
+- time
 - decimal
 - numeric
 - float
 - real
 - bigint
-- int
-- smallint
 - tinyint
+- smallint
+- int
+- bigint
 - bit
-
-> [!NOTE]
-> LOB는 CETAS와 함께 사용할 수 없습니다.
-
-다음 데이터 형식은 CETAS의 SELECT 부분에 사용할 수 없습니다.
-
-- nchar
-- nvarchar
-- Datetime
-- smalldatetime
-- datetimeoffset
 - money
 - smallmoney
 - uniqueidentifier
+
+> [!NOTE]
+> 1MB보다 큰 LOB는 CETAS와 함께 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

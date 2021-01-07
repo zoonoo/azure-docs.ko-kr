@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: d81550f5c6906e409675002fde670db3734de883
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 12/01/2020
+ms.openlocfilehash: 69bebcf872f55055117acf5cef410d1f89eafe34
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885052"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446903"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 Advanced Threat Protection 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,18 +31,20 @@ ms.locfileid: "90885052"
 ##  <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com)에 로그인 합니다. 
-2. 보호할 SQL Managed Instance 인스턴스의 구성 페이지로 이동 합니다. **보안**아래에서 **security center**를 선택 합니다.
+2. 보호할 SQL Managed Instance 인스턴스의 구성 페이지로 이동 합니다. **보안** 에서 **Security Center** 을 선택 합니다.
 3. Azure Defender for SQL 구성 페이지에서
    - SQL 용 Azure Defender **를** 켭니다.
-   - 비정상적인 데이터베이스 활동이 감지 되 면 보안 경고를 수신 하도록 **전자 메일 목록을** 구성 합니다.
-   - 비정상적인 위협 감사 레코드가 저장되는 **Azure Storage 계정**을 선택합니다.
+   - 비정상적인 데이터베이스 활동이 감지 되 면 보안 경고를 받도록 전자 메일 주소로 **알림 보내기** 를 구성 합니다.
+   - 비정상적인 위협 감사 레코드가 저장되는 **Azure Storage 계정** 을 선택합니다.
    - 구성할 **고급 위협 방지 유형을** 선택 합니다. [Advanced Threat Protection 경고](../database/threat-detection-overview.md)에 대해 자세히 알아보세요.
 4. **저장** 을 클릭 하 여 새로운 또는 업데이트 된 SQL 정책 용 Azure Defender를 저장 합니다.
+
+   :::image type="content" source="../database/media/azure-defender-for-sql/set-up-advanced-threat-protection-mi.png" alt-text="advanced threat protection 설정":::
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Advanced Threat Protection](../database/threat-detection-overview.md)에 대해 자세히 알아보세요.
 - 관리 되는 인스턴스에 대 한 자세한 내용은 [AZURE SQL Managed Instance 정의](sql-managed-instance-paas-overview.md)를 참조 하세요.
 - [Azure SQL Database에 대 한 Advanced Threat Protection](../database/threat-detection-configure.md)에 대해 자세히 알아보세요.
-- [SQL Managed Instance 감사](https://go.microsoft.com/fwlink/?linkid=869430)에 대해 자세히 알아보세요.
-- [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아보세요.
+- [SQL Managed Instance 감사](./auditing-configure.md)에 대해 자세히 알아보세요.
+- [Azure security center](../../security-center/security-center-introduction.md)에 대해 자세히 알아보세요.

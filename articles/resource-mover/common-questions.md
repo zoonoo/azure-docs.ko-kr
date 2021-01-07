@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
 ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600656"
 ---
 # <a name="common-questions"></a>일반적인 질문
@@ -34,16 +34,16 @@ ms.locfileid: "90600656"
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>리소스 이동 기를 사용 하 여 지역 간에 이동할 수 있는 리소스는 무엇 인가요?
 
-리소스 이동 기를 사용 하 여 현재 지역 간에 다음 리소스를 이동할 수 있습니다.
+현재 Resource Mover를 사용하면 지역 간에 다음 리소스를 이동할 수 있습니다.
 
-- Azure Vm 및 연결 된 디스크
+- Azure VM 및 연결된 디스크
 - NIC
 - 가용성 집합 
 - Azure 가상 네트워크 
 - 공용 IP 주소
-- NSG(네트워크 보안 그룹)
+- NSG(네트워크 보안 그룹)::
 - 내부 및 공용 부하 분산 장치 
-- Azure SQL database 및 탄력적 풀
+- Azure SQL 데이터베이스 및 탄력적 풀
 
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>지역 간에 이동할 때 구독 간에 리소스를 이동할 수 있나요?
@@ -71,12 +71,12 @@ Azure [Cosmos](../cosmos-db/database-encryption-at-rest.md) 데이터베이스 �
 
 ### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>리소스 이동 기가 필요한 관리 되는 id 권한은 무엇 인가요?
 
-Azure 리소스 이동 기 관리 id에는 적어도 다음 권한이 필요 합니다. 
+Azure Resource Mover 관리되는 ID에는 적어도 다음 권한이 필요합니다. 
 
 - *참가자* 역할과 함께 사용할 수 있는 사용자 구독에서 리소스를 작성/만들 수 있는 권한입니다. 
-- 역할 할당을 만들 수 있는 권한입니다. 일반적으로 *소유자* 또는 *사용자 액세스 관리자* 역할을 사용 하거나 *Microsoft. 권한 부여/역할 할당/쓰기 권한이* 할당 된 사용자 지정 역할을 사용 하 여 사용할 수 있습니다. 데이터 공유 리소스의 관리 id에 이미 Azure 데이터 저장소에 대 한 액세스 권한이 부여 된 경우에는이 권한이 필요 하지 않습니다. 
+- 역할 할당을 만들 수 있는 권한. 일반적으로 *소유자* 또는 *사용자 액세스 관리자* 역할을 사용 하거나 *Microsoft. 권한 부여/역할 할당/쓰기 권한이* 할당 된 사용자 지정 역할을 사용 하 여 사용할 수 있습니다. 데이터 공유 리소스의 관리 id에 이미 Azure 데이터 저장소에 대 한 액세스 권한이 부여 된 경우에는이 권한이 필요 하지 않습니다. 
  
-포털의 리소스 이동 기 허브에서 리소스를 추가 하는 경우 사용자에 게 위에서 설명한 권한이 있으면 자동으로 권한이 처리 됩니다. PowerShell을 사용 하 여 리소스를 추가 하는 경우 사용 권한을 수동으로 할당 합니다.
+포털의 Resource Mover 허브에서 리소스를 추가하는 경우 사용자에게 위에서 설명한 사용 권한이 있으면 자동으로 사용 권한이 처리됩니다. PowerShell을 사용 하 여 리소스를 추가 하는 경우 사용 권한을 수동으로 할당 합니다.
 
 > [!IMPORTANT]
 > Id 역할 할당을 수정 하거나 제거 하지 않는 것이 좋습니다. 
@@ -96,4 +96,4 @@ Azure 리소스 이동 기 관리 id에는 적어도 다음 권한이 필요 합
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스 이동 구성 요소 및 이동 프로세스에 [대해 자세히 알아보세요](about-move-process.md) .
+Resource Mover 구성 요소 및 이동 프로세스에 대해 [자세히 알아봅니다](about-move-process.md).

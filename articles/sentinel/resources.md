@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 2465cf74dbf4fbf074aed8f8e4097a236e628425
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461734"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660647"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -36,7 +36,7 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 
 다음과 같은 지원 되는 작업을 감사할 수 있습니다.
 
-|작업 이름|    리소스 종류|
+|작업 이름|    리소스 유형|
 |----|----|
 |통합 문서 만들기 또는 업데이트  |Microsoft Insights/통합 문서|
 |통합 문서 삭제    |Microsoft Insights/통합 문서|
@@ -62,7 +62,17 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 Azure 활동 로그에서 Azure 센티널로 스트리밍 하 여이 데이터를 볼 수 있습니다. 그런 다음 연구 및 분석을 수행할 수 있습니다.
 
 1. [Azure 활동](connect-azure-activity.md) 데이터 원본에 연결 합니다. 이 작업을 수행한 후에 감사 이벤트는 AzureActivity 라는 **로그** 화면에서 새 테이블로 스트리밍됩니다.
-2. 그런 다음 다른 테이블과 같이 KQL를 사용 하 여 데이터를 쿼리 합니다.
+
+1. 그런 다음 다른 테이블과 같이 KQL를 사용 하 여 데이터를 쿼리 합니다.
+
+    예를 들어 특정 분석 규칙을 편집 하는 마지막 사용자를 확인 하려면 다음 쿼리를 사용 합니다 (를 확인 하려는 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 규칙의 규칙 ID로 대체).
+
+    ```kusto
+    AzureActivity
+    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
+    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    | project Caller , TimeGenerated , Properties
+    ```
 
 
 
@@ -82,4 +92,4 @@ Azure 센티널의 [TechCommunity 공간](https://techcommunity.microsoft.com/t5
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 센티널로 작업 하는 경우 유용한 리소스 목록을 얻었습니다. Azure 보안 및 규정 준수에 대 한 추가 정보는 [Microsoft Azure 보안 및 규정 준수 블로그](https://docs.microsoft.com/archive/blogs/azuresecurity/)에서 확인할 수 있습니다.
+이 문서에서는 Azure 센티널로 작업 하는 경우 유용한 리소스 목록을 얻었습니다. Azure 보안 및 규정 준수에 대 한 추가 정보는 [Microsoft Azure 보안 및 규정 준수 블로그](/archive/blogs/azuresecurity/)에서 확인할 수 있습니다.

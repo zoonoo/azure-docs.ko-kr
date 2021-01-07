@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203438"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994845"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -300,7 +300,7 @@ ms.locfileid: "85203438"
 | InputParameter | stringFormat | 문자열 | {0} 매개 변수를 포함하는 문자열 형식입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식](string-transformations.md#string-claim-transformations-expressions)을 지원합니다.  |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
-매개 변수 {0} 하나가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 **userPrincipalName**을 만듭니다. `Facebook-OAUTH` 등의 모든 소셜 ID 공급자 기술 프로필은 **CreateUserPrincipalName**을 호출하여 **userPrincipalName**을 생성합니다.
+매개 변수 {0} 하나가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 **userPrincipalName** 을 만듭니다. `Facebook-OAUTH` 등의 모든 소셜 ID 공급자 기술 프로필은 **CreateUserPrincipalName** 을 호출하여 **userPrincipalName** 을 생성합니다.
 
 ```xml
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -336,7 +336,7 @@ ms.locfileid: "85203438"
 | InputParameter | stringFormat | 문자열 | {0} 및 {1} 매개 변수를 포함하는 문자열 형식입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식](string-transformations.md#string-claim-transformations-expressions)을 지원합니다.   |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
-두 매개 변수({0} 및 {1})가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제는 지정된 형식으로 **displayName**을 만듭니다.
+두 매개 변수({0} 및 {1})가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제는 지정된 형식으로 **displayName** 을 만듭니다.
 
 ```xml
 <ClaimsTransformation Id="CreateDisplayNameFromFirstNameAndLastName" TransformationMethod="FormatStringMultipleClaims">
@@ -411,7 +411,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 </Localization>
 ```
 
-클레임 변환은 `StringId` *email_subject* 값을 사용하여 클레임 형식 *subject*의 값을 설정합니다.
+클레임 변환은 `StringId` *email_subject* 값을 사용하여 클레임 형식 *subject* 의 값을 설정합니다.
 
 ```xml
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -464,7 +464,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -787,7 +787,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 |InputParameter|ignoreCase|문자열|이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다.|
 | OutputClaim | outputClaim | 문자열 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. 입력 클레임 내에서 substring이 발생하는 경우의 부울 표시기입니다. |
 
-이 클레임 변환을 사용하여 문자열 클레임 형식에 substring이 포함되어 있는지 확인합니다. 다음 예에서는 `roles` 문자열 클레임 형식이 **admin**의 값을 포함하는지 확인합니다.
+이 클레임 변환을 사용하여 문자열 클레임 형식에 substring이 포함되어 있는지 확인합니다. 다음 예에서는 `roles` 문자열 클레임 형식이 **admin** 의 값을 포함하는지 확인합니다.
 
 ```xml
 <ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
@@ -886,7 +886,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
     - **inputClaim**: "+164-411-452-054"
 - 입력 매개 변수:
     - **oldValue**: "-"
-    - **length**:  ""
+    - **newValue**: ""
 - 출력 클레임:
     - **outputClaim**: "+164411452054"
 

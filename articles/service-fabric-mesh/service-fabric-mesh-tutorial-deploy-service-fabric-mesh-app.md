@@ -1,17 +1,17 @@
 ---
 title: 자습서- Service Fabric Mesh 애플리케이션 배포
 description: Visual Studio를 사용하여 백 엔드 웹 서비스와 통신하는 ASP.NET Core 웹 사이트로 구성된 Azure Service Fabric Mesh 애플리케이션을 게시하는 방법을 알아봅니다.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 3f0dca5aa9e430fa21d09509121a7ad26feda446
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.author: gwallace
+ms.custom: mvc, devcenter , devx-track-azurecli
+ms.openlocfilehash: 51e5fd29d16c3f927dc9b89d9c7145a16f4fd49f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261333"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748236"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 애플리케이션 배포
 
@@ -53,19 +53,19 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 
 ## <a name="publish-to-azure"></a>Azure에 게시
 
-Service Fabric Mesh 프로젝트를 Azure에 게시하려면 Visual Studio에서 **todolistapp**을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
+Service Fabric Mesh 프로젝트를 Azure에 게시하려면 Visual Studio에서 **todolistapp** 을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 
 그러면 **Service Fabric 애플리케이션 게시** 대화 상자가 표시됩니다.
 
 ![Visual Studio의 Service Fabric Mesh 게시 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Azure 계정과 구독을 선택합니다. **위치**를 선택합니다. 이 문서에서는 **미국 동부**를 사용합니다.
+Azure 계정과 구독을 선택합니다. **위치** 를 선택합니다. 이 문서에서는 **미국 동부** 를 사용합니다.
 
-**리소스 그룹**에서 **\<Create New Resource Group...>** 를 선택합니다. 새 리소스 그룹을 만드는 대화 상자가 표시됩니다. 이 문서에서는 **미국 동부** 위치를 사용하고, 그룹 이름을 **sfmeshTutorial1RG**로 지정합니다(조직에서 여러 사용자가 동일한 구독을 사용하는 경우 고유한 그룹 이름을 선택함).  **만들기**를 눌러 리소스 그룹을 만들고, 게시 대화 상자로 돌아갑니다.
+**리소스 그룹** 에서 **\<Create New Resource Group...>** 를 선택합니다. 새 리소스 그룹을 만드는 대화 상자가 표시됩니다. 이 문서에서는 **미국 동부** 위치를 사용하고, 그룹 이름을 **sfmeshTutorial1RG** 로 지정합니다(조직에서 여러 사용자가 동일한 구독을 사용하는 경우 고유한 그룹 이름을 선택함).  **만들기** 를 눌러 리소스 그룹을 만들고, 게시 대화 상자로 돌아갑니다.
 
 ![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-**Service Fabric 애플리케이션 게시** 대화 상자로 돌아가서 **Azure Container Registry**에서 **\<Create New Container Registry...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다(이 자습서에서는 **미국 동부** 사용). 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU**를 **기본**으로 설정한 후 **만들기**를 눌러 프라이빗 Azure 컨테이너 레지스트리를 만들고 게시 대화 상자로 돌아갑니다.
+**Service Fabric 애플리케이션 게시** 대화 상자로 돌아가서 **Azure Container Registry** 에서 **\<Create New Container Registry...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름** 에 대해 고유한 이름을 사용합니다. **위치** 를 지정합니다(이 자습서에서는 **미국 동부** 사용). 이전 단계에서 만든 **리소스 그룹** (예: **sfmeshTutorial1RG** )을 드롭다운에서 선택합니다. **SKU** 를 **기본** 으로 설정한 후 **만들기** 를 눌러 프라이빗 Azure 컨테이너 레지스트리를 만들고 게시 대화 상자로 돌아갑니다.
 
 ![Visual Studio Service Fabric Mesh 새 컨테이너 레지스트리 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 

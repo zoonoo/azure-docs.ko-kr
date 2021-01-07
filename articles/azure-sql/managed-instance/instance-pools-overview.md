@@ -10,21 +10,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: bc345509db1c2a14afb0ae781eccad8f77395c18
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658729"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347067"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Azure SQL Managed Instance 풀 (미리 보기) 이란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스턴스를 대규모로 클라우드로 마이그레이션하는 데 편리 하 고 비용 효율적인 방법을 제공 합니다.
 
-인스턴스 풀을 사용하면 총 마이그레이션 요구 사항에 따라 계산 리소스를 미리 프로비전할 수 있습니다. 그런 다음 미리 프로비전된 계산 수준까지 여러 개의 개별 관리되는 인스턴스를 배포할 수 있습니다. 예를 들어 vCores 8 개를 사전 프로 비전 하는 경우 2 개 Vcores와 4 Vcores 인스턴스를 배포한 다음 데이터베이스를 이러한 인스턴스로 마이그레이션할 수 있습니다. 인스턴스 풀을 사용할 수 있기 전에는 더 작고 적은 계산 집약적인 워크 로드를 클라우드로 마이그레이션할 때 더 큰 관리 되는 인스턴스로 통합 해야 하는 경우가 많습니다. 데이터베이스 그룹을 대형 인스턴스로 마이그레이션하려면 일반적으로 용량 계획 및 리소스 관리, 추가 보안 고려 사항 및 인스턴스 수준에서의 추가 데이터 통합 작업을 수행 해야 합니다.
+인스턴스 풀을 사용하면 총 마이그레이션 요구 사항에 따라 계산 리소스를 미리 프로비전할 수 있습니다. 그런 다음 미리 프로비전된 계산 수준까지 여러 개의 개별 관리되는 인스턴스를 배포할 수 있습니다. 예를 들어 vCores 8 개를 사전 프로 비전 하는 경우 2 2-Vcores 및 1 4-Vcores 인스턴스를 배포 하 고 데이터베이스를 이러한 인스턴스로 마이그레이션할 수 있습니다. 인스턴스 풀을 사용할 수 있기 전에는 더 작고 적은 계산 집약적인 워크 로드를 클라우드로 마이그레이션할 때 더 큰 관리 되는 인스턴스로 통합 해야 하는 경우가 많습니다. 데이터베이스 그룹을 대형 인스턴스로 마이그레이션하려면 일반적으로 용량 계획 및 리소스 관리, 추가 보안 고려 사항 및 인스턴스 수준에서의 추가 데이터 통합 작업을 수행 해야 합니다.
 
 또한 인스턴스 풀은 기본 VNet 통합을 지원 하므로 동일한 서브넷에 여러 인스턴스 풀 및 여러 개의 단일 인스턴스를 배포할 수 있습니다.
 
@@ -32,7 +32,7 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 
 인스턴스 풀은 다음과 같은 이점을 제공 합니다.
 
-1. 2 vCore 인스턴스를 호스트할 수 있습니다. * \* 인스턴스 풀의 인스턴스에만 해당*됩니다.
+1. 2 vCore 인스턴스를 호스트할 수 있습니다. *\* 인스턴스 풀의 인스턴스에만 해당* 됩니다.
 2. 예측 가능 하 고 빠른 인스턴스 배포 시간 (최대 5 분)
 3. 최소 IP 주소 할당.
 
@@ -59,9 +59,9 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 
 ## <a name="architecture"></a>Architecture
 
-인스턴스 풀은 일반 (*단일*) 관리 되는 인스턴스의 아키텍처와 유사 합니다.  [Azure 가상 네트워크 내에서 배포](../../virtual-network/virtual-network-for-azure-services.md)를 지원 하   고 고객에 대 한 격리 및 보안을 제공 하기 위해 인스턴스 풀은 [가상 클러스터](connectivity-architecture-overview.md#high-level-connectivity-architecture)에도 의존 합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타냅니다.
+인스턴스 풀은 일반 (*단일*) 관리 되는 인스턴스의 아키텍처와 유사 합니다. [Azure 가상 네트워크 내에서 배포](../../virtual-network/virtual-network-for-azure-services.md) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공 하기 위해 인스턴스 풀은 [가상 클러스터](connectivity-architecture-overview.md#high-level-connectivity-architecture)에도 의존 합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타냅니다.
 
-두 배포 모델의 주요 차이점은 인스턴스 풀이 [Windows 작업 개체](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)를 사용 하 여 리소스를 관리 하는 동일한 가상 컴퓨터 노드에서 여러 SQL Server 프로세스 배포를 허용 하는 반면 단일 인스턴스는 항상 가상 컴퓨터 노드에 있는 경우입니다.
+두 배포 모델의 주요 차이점은 인스턴스 풀이 [Windows 작업 개체](/windows/desktop/ProcThread/job-objects)를 사용 하 여 리소스를 관리 하는 동일한 가상 컴퓨터 노드에서 여러 SQL Server 프로세스 배포를 허용 하는 반면 단일 인스턴스는 항상 가상 컴퓨터 노드에 있는 경우입니다.
 
 다음 다이어그램에서는 인스턴스 풀과 동일한 서브넷에 배포 된 두 개의 개별 인스턴스를 보여 주고 두 배포 모델에 대 한 주요 아키텍처 세부 정보를 보여 줍니다.
 
@@ -76,9 +76,12 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 - 인스턴스 풀은 Gen5 하드웨어 에서만 사용할 수 있습니다.
 - 풀 내의 관리 되는 인스턴스에는 전용 CPU와 RAM이 있으므로 모든 인스턴스의 집계 된 vCores 수는 풀에 할당 된 vCores의 수보다 작거나 같아야 합니다.
 - 모든 [인스턴스 수준 제한은](resource-limits.md#service-tier-characteristics) 풀 내에 생성 된 인스턴스에 적용 됩니다.
-- 인스턴스 수준 제한 외에도 *인스턴스 풀 수준에*적용 되는 두 가지 제한이 있습니다.
+- 인스턴스 수준 제한 외에도 *인스턴스 풀 수준에* 적용 되는 두 가지 제한이 있습니다.
   - 풀 당 총 저장소 크기 (8TB)
-  - 풀 당 총 데이터베이스 수 (100)입니다.
+  - 풀 당 총 사용자 데이터베이스 수입니다. 이 제한은 풀 vCores 값에 따라 달라 집니다.
+    - 8 vCores 풀은 최대 200 개의 데이터베이스를 지원 합니다.
+    - 16 개 vCores 풀은 최대 400 개의 데이터베이스를 지원 합니다.
+    - 24 개 이상 vCores 풀은 최대 500 개의 데이터베이스를 지원 합니다.
 - 인스턴스 풀 내에 배포 된 인스턴스에 대해 AAD 관리자를 설정할 수 없으므로 AAD 인증을 사용할 수 없습니다.
 
 모든 인스턴스의 전체 저장소 할당과 데이터베이스 수는 인스턴스 풀에 의해 노출 되는 한도 보다 낮거나 같아야 합니다.
@@ -88,6 +91,7 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 - 풀 내의 관리 되는 인스턴스는 다음을 제외 하 고 32 GB에서 8TB 사이의 저장소 크기를 지원 합니다.
   - 2 vCore 인스턴스는 32 GB와 640 GB 사이의 크기를 지원 합니다.
   - 4 vCore 인스턴스는 32 GB에서 2tb 사이의 크기를 지원 합니다.
+- 풀 내의 관리 되는 인스턴스는 인스턴스당 최대 100 개의 사용자 데이터베이스를 지 50 원하는 2 개의 vCore 인스턴스를 제외 하 고 인스턴스당 최대 개의 사용자 데이터베이스를 제한 합니다.
 
 [서비스 계층 속성](resource-limits.md#service-tier-characteristics) 은 인스턴스 풀 리소스와 연결 되므로 풀의 모든 인스턴스는 풀의 서비스 계층과 동일한 서비스 계층 이어야 합니다. 이번에는 범용 서비스 계층만 사용할 수 있습니다 (현재 미리 보기의 제한 사항에 대해서는 다음 섹션 참조).
 
@@ -152,10 +156,10 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 ## <a name="next-steps"></a>다음 단계
 
 - 인스턴스 풀을 시작 하려면 [SQL Managed Instance 풀 방법 가이드](instance-pools-configure.md)를 참조 하세요.
-- 첫 번째 관리 되는 인스턴스를 만드는 방법을 알아보려면 [빠른 시작 가이드](instance-create-quickstart.md)를 참조 하세요.
+- 첫 번째 Managed Instance를 만드는 방법을 알아보려면 [빠른 시작 가이드](instance-create-quickstart.md)를 참조하세요.
 - 기능 및 비교 목록은 [AZURE SQL 일반 기능](../database/features-comparison.md)을 참조 하세요.
-- VNet 구성에 대 한 자세한 내용은 [SQL Managed Instance vnet 구성](connectivity-architecture-overview.md)을 참조 하세요.
-- 관리 되는 인스턴스를 만들고 백업 파일에서 데이터베이스를 복원 하는 빠른 시작은 [관리 되는 인스턴스 만들기](instance-create-quickstart.md)를 참조 하세요.
-- 마이그레이션을 위해 Azure Database Migration Service를 사용 하는 방법에 대 한 자습서는 [Database Migration Service를 사용 하 여 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조 하세요.
-- 기본 제공 되는 문제 해결 인텔리전스를 사용 하 여 SQL Managed Instance 데이터베이스 성능에 대 한 고급 모니터링은 [Azure SQL 분석를 사용 하 여 AZURE sql Managed Instance 모니터링](../../azure-monitor/insights/azure-sql.md)을 참조 하세요.
+- VNet 구성에 대한 자세한 내용은 [SQL Managed Instance VNet 구성](connectivity-architecture-overview.md)을 참조하세요.
+- 백업 파일에서 관리형 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [관리형 인스턴스 만들기](instance-create-quickstart.md)를 참조하세요.
+- Azure Database Migration Service를 사용하여 마이그레이션하는 방법에 대한 자습서는 [Database Migration Service를 사용한 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+- 기본 제공 문제 해결 인텔리전스를 사용하는 SQL Managed Instance 데이터베이스의 고급 성능 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Managed Instance 모니터링](../../azure-monitor/insights/azure-sql.md)을 참조하세요.
 - 가격 책정 정보는 [SQL Managed Instance 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조 하세요.

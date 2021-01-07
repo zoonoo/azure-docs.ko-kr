@@ -1,20 +1,21 @@
 ---
 title: Azure Cosmos DB Gremlin API 소개
 description: Azure Cosmos DB를 사용하여 Apache TinkerPop의 Gremlin 그래프 쿼리 언어로 대기 시간을 단축하면서 대량의 그래프를 저장하고 쿼리하고 트래버스하는 방법을 알아봅니다.
-author: LuisBosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: 3dc534d1cbb195cd93ede091503222b297b17059
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 11/25/2020
+ms.author: chrande
+ms.openlocfilehash: c2165ea6273ad90cfb95242dfe72538c0a5ef64c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523743"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350061"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API 소개
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 [Azure Cosmos DB](introduction.md) 는 중요 업무용 애플리케이션에 사용할 수 있도록 Microsoft에서 제공하는 전역 분산 다중 모델 데이터베이스 서비스입니다. 문서, 키-값, 그래프 및 열 패밀리 데이터 모델을 지원하는 다중 모델 데이터베이스입니다. "Azure Cosmos DB는 모든 규모에 맞게 설계된 완전 관리형 데이터베이스 서비스에서 Gremlin API를 통해 그래프 데이터베이스 서비스를 제공합니다.  
 
@@ -24,6 +25,9 @@ ms.locfileid: "86523743"
 
 Azure Cosmos DB의 Gremlin API는 그래프 데이터베이스 알고리즘의 기능을 확장성 높은 관리형 인프라와 결합하여 유연성과 관계형 접근 방식이 결여되어 발생하는 대부분의 일반적인 데이터 문제에 대한 고유하고 유연한 솔루션을 제공합니다.
 
+> [!NOTE]
+> 이제 Azure Cosmos DB의 Gremlin API에서 [서버리스 용량 모드](serverless.md)를 사용할 수 있습니다.
+
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Azure Cosmos DB의 Gremlin API 기능
  
 Azure Cosmos DB는 전역 배포, 스토리지 및 처리량의 탄력적인 확장, 자동 인덱싱 및 쿼리, 튜닝 가능한 일관성 수준을 제공하고 TinkerPop 표준을 지원하는 완전히 관리되는 그래프 데이터베이스입니다.
@@ -32,7 +36,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
 * **탄력적으로 확장 가능한 처리량 및 스토리지**
 
-  실제 사용되는 그래프는 단일 서버의 용량을 초과하여 확장되어야 합니다. Azure Cosmos DB는 거의 제한 없이 스토리지 및 프로비저닝된 처리량을 제공하도록 수평적으로 확장할 수 있는 그래프 데이터베이스를 지원합니다. 그래프 데이터베이스 규모가 증가하면 데이터는 [그래프 분할](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning)을 사용하여 자동으로 분산됩니다.
+  실제 사용되는 그래프는 단일 서버의 용량을 초과하여 확장되어야 합니다. Azure Cosmos DB는 거의 제한 없이 스토리지 및 프로비저닝된 처리량을 제공하도록 수평적으로 확장할 수 있는 그래프 데이터베이스를 지원합니다. 그래프 데이터베이스 규모가 증가하면 데이터는 [그래프 분할](./graph-partitioning.md)을 사용하여 자동으로 분산됩니다.
 
 * **다중 지역 복제**
 
@@ -48,11 +52,11 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
   Azure Cosmos DB는 데이터베이스 및 컴퓨터 리소스를 관리할 필요가 없습니다. 대부분의 기존 그래프 데이터베이스 플랫폼은 인프라의 제한 사항이 적용되며 운영을 보장하기 위해 높은 수준의 유지 관리가 필요합니다. 
   
-  완전 관리형 서비스인 Cosmos DB는 가상 머신을 관리하고, 런타임 소프트웨어를 업데이트하고, 분할 또는 복제를 관리하고, 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 그래프가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 이와 같은 보장을 통해 개발자는 그래프 데이터베이스를 운영하고 관리하는 대신 애플리케이션의 가치를 실현하는 데 집중할 수 있습니다. 
+  완전 관리형 서비스인 Cosmos DB는 가상 머신을 관리하고, 런타임 소프트웨어를 업데이트하고, 분할 또는 복제를 관리하고, 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 그래프가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 이를 통해 개발자는 그래프 데이터베이스를 운영하고 관리하는 대신 애플리케이션의 가치를 실현하는 데 집중할 수 있습니다. 
 
 * **자동 인덱싱**:
 
-  기본적으로 Azure Cosmos DB는 그래프에서 노드(꼭짓점이라고도 함) 및 에지 내의 모든 속성을 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. [Azure Cosmos DB의 인덱싱](https://docs.microsoft.com/azure/cosmos-db/index-overview)에 대해 자세히 알아봅니다.
+  기본적으로 Azure Cosmos DB는 그래프에서 노드(꼭짓점이라고도 함) 및 에지 내의 모든 속성을 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. [Azure Cosmos DB의 인덱싱](./index-overview.md)에 대해 자세히 알아봅니다.
 
 * **Apache TinkerPop과의 호환성**
 
@@ -124,7 +128,7 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 * **사용**: 사람이 사용하는 디바이스를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
 * **located**: 디바이스에 액세스하는 위치를 나타내려면
 
-Gremlin 콘솔은 Apache TinkerPop에서 제공하는 대화형 터미널이며 이 터미널은 그래프 데이터와 상호 작용하는 데 사용됩니다. 자세한 내용은 [Gremlin 콘솔을 사용하는 방법](create-graph-gremlin-console.md)의 빠른 시작 문서를 참조하세요. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다. 다음 예제에서는 Gremlin 콘솔을 사용하여 이 그래프 데이터에 대해 쿼리를 실행하는 방법을 보여줍니다.
+Gremlin 콘솔은 Apache TinkerPop에서 제공하는 대화형 터미널이며, 이 터미널은 그래프 데이터와 상호 작용하는 데 사용됩니다. 자세한 내용은 [Gremlin 콘솔을 사용하는 방법](create-graph-gremlin-console.md)의 빠른 시작 문서를 참조하세요. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다. 다음 예제에서는 Gremlin 콘솔을 사용하여 이 그래프 데이터에 대해 쿼리를 실행하는 방법을 보여줍니다.
 
 먼저 CRUD를 살펴보겠습니다. 다음 Gremlin 문은 "Thomas" 꼭짓점을 그래프에 삽입합니다.
 

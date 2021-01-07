@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008630"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Windows 가상 데스크톱 (클래식) 세션 호스트 가상 컴퓨터 구성
@@ -114,7 +114,7 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 
 Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource Manager 템플릿 및 PowerShell DSC를 통해 세션 호스트 Vm에 설치 되 면 등록 토큰을 제공 합니다. 다음 섹션에서는 Windows 가상 데스크톱 에이전트 및 토큰에 적용 되는 문제를 해결 하는 방법에 대해 설명 합니다.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>오류: RdsSessionHost cmdlet에 있는 상태는 상태를 사용할 수 없음으로 표시 합니다.
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>오류: Get-RdsSessionHost cmdlet에 표시 된 상태는 상태를 사용할 수 없음으로 표시 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![RdsSessionHost cmdlet은 상태를 사용할 수 없음으로 표시 합니다.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
@@ -140,7 +140,7 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 2. Rds-NewRegistrationInfo를 사용 하 여 새 토큰을 생성 합니다.
 3. -ExpriationHours 매개 변수가 72 (최대값은 99999)로 설정 되어 있는지 확인 합니다.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>오류: Windows 가상 데스크톱 에이전트가 RdsSessionHost을 실행 하는 경우 하트 비트를 보고 하지 않습니다.
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>오류: Windows 가상 데스크톱 에이전트가 Get-RdsSessionHost를 실행 하는 동안 하트 비트를 보고 하지 않습니다.
 
 **원인 1:** RDAgentBootLoader 서비스가 중지 되었습니다.
 

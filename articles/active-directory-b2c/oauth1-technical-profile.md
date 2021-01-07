@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a2cbca8c02dcbfc0e59d31040d1fca7a790cd35
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204084"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936661"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
@@ -68,7 +68,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | ProviderName | 아니요 | ID 공급자의 이름입니다. |
@@ -82,29 +82,14 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다.   |
 
 ## <a name="redirect-uri"></a>리디렉션 URI
 
-ID 공급자의 리디렉션 URL을 구성할 때 `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`를 입력합니다. **tenant**를 테넌트의 이름(예: contosob2c.onmicrosoft.com)으로 바꾸고 **policyId**를 정책 식별자(예: b2c_1_policy)로 바꿔야 합니다. 리디렉션 URI는 모두 소문자여야 합니다. Id 공급자 로그인을 사용 하는 모든 정책에 대 한 리디렉션 URL을 추가 합니다.
+ID 공급자의 리디렉션 URI를 구성할 때 `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp`를 입력합니다. 을 `{tenant-name}` 테 넌 트 이름 (예: contosob2c)으로 바꾸고을 `{policy-id}` 정책의 식별자로 바꿔야 합니다 (예: b2c_1a_policy). 리디렉션 URI는 모두 소문자여야 합니다. Id 공급자 로그인을 사용 하는 모든 정책에 대 한 리디렉션 URL을 추가 합니다.
 
-**login.microsoftonline.com** 대신 **b2clogin.com** 도메인을 사용하는 경우 login.microsoftonline.com 대신 b2clogin.com을 사용해야 합니다.
+예제:
 
-예:
-
-- [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](identity-provider-twitter-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](identity-provider-twitter.md)

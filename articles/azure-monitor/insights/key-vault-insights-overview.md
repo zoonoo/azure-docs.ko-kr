@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894504"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088100"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Key Vault에 대 한 Azure Monitor를 사용 하 여 주요 자격 증명 모음 서비스 모니터링
 Key Vault Azure Monitor는 Key Vault 요청, 성능, 실패 및 대기 시간에 대 한 통합 보기를 제공 하 여 주요 자격 증명 모음에 대 한 종합적인 모니터링을 제공 합니다.
@@ -21,25 +21,10 @@ Key Vault Azure Monitor는 Key Vault 요청, 성능, 실패 및 대기 시간에
 
 이 환경을 살펴보기 전에, 이 환경에서 어떤 방식으로 정보가 제공되고 시각화되는지 이해해야 합니다.
 -    **규모의 관점에서** 요청, 오류 분석, 작업 및 대기 시간의 개요를 기반으로 성능에 대한 스냅샷 보기를 표시합니다.
--   특정 키 자격 증명 모음의 **드릴다운 분석**을 통해 자세히 분석합니다.
--    **사용자 지정이 가능**하므로 표시할 메트릭을 변경하고, 제한에 맞도록 임계값을 수정 또는 설정하고, 사용자 고유의 통합 문서를 저장할 수 있습니다. 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.
+-   특정 키 자격 증명 모음의 **드릴다운 분석** 을 통해 자세히 분석합니다.
+-    **사용자 지정이 가능** 하므로 표시할 메트릭을 변경하고, 제한에 맞도록 임계값을 수정 또는 설정하고, 사용자 고유의 통합 문서를 저장할 수 있습니다. 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.
 
 Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. 모든 사용자가 메트릭 기반 모니터링 데이터에 액세스할 수 있지만, 로그 기반 시각화를 포함하려면 사용자가 [Azure Key Vault 로깅을 사용하도록 설정](../../key-vault/general/logging.md)해야 할 수도 있습니다.
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>모니터링할 키 자격 증명 모음 구성
-
-> [!NOTE]
-> 로그 사용은 추가 모니터링 기능을 제공하는 유료 서비스입니다.
-
-1. [작업 및 대기 시간] 탭은 어떤 키 자격 증명 모음을 몇 개나 사용할 것인지 결정하는 데 도움이 됩니다. 수집을 시작하려면 **사용** 단추를 선택합니다. 그러면 진단 로그를 사용하도록 설정해야 하는 키 자격 증명 모음을 나열하는 별도의 통합 문서가 열립니다.
-
-    ![파란색 [사용] 단추가 표시된 [작업 및 대기 시간] 탭의 스크린샷](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. 진단 로그를 사용하도록 설정하려면 작업 열 아래에서 **사용** 링크를 클릭하고, Log Analytics 작업 영역으로 로그를 보내는 새 진단 설정을 만듭니다. 모든 로그를 동일한 작업 영역으로 보내는 것이 좋습니다.
-
-3. 진단 설정이 저장되면 Key Vault 인사이트 아래에서 모든 로그 기반 차트와 시각화를 볼 수 있습니다. 로그 채우기가 시작될 때까지 몇 분에서 몇 시간이 걸릴 수 있습니다.
-
-4. Key Vault 서비스에 진단 로그를 사용하도록 설정하는 방법에 대한 추가 지원은 [전체 가이드](../../key-vault/general/logging.md)를 참조하세요.
 
 ## <a name="view-from-azure-monitor"></a>Azure Monitor에서 보기
 
@@ -49,7 +34,7 @@ Azure Monitor에서 구독에 속한 여러 키 자격 증명 모음의 요청, 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 창에서 **모니터** 를 선택 하 고, Insights 섹션 아래에서 **Key**vault를 선택 합니다.
+2. Azure Portal의 왼쪽 창에서 **모니터** 를 선택 하 고, Insights 섹션 아래에서 **Key** vault를 선택 합니다.
 
 ![여러 그래프가 있는 개요 환경의 스크린샷](./media/key-vaults-insights-overview/overview.png)
 
@@ -67,7 +52,7 @@ Azure Monitor에서 구독에 속한 여러 키 자격 증명 모음의 요청, 
 
 ## <a name="failures-workbook"></a>실패 통합 문서
 
-페이지 맨 위에서 **실패**를 선택하면 [실패] 탭이 열립니다. 이 탭에는 특정 응답 코드의 양과 함께 API 적중 횟수, 시간에 따른 빈도가 표시됩니다.
+페이지 맨 위에서 **실패** 를 선택하면 [실패] 탭이 열립니다. 이 탭에는 특정 응답 코드의 양과 함께 API 적중 횟수, 시간에 따른 빈도가 표시됩니다.
 
 ![실패 통합 문서의 스크린샷](./media/key-vaults-insights-overview/failures.png)
 
@@ -95,7 +80,7 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 - 서비스 가용성, 키 자격 증명 모음 리소스에 대한 총 트랜잭션 수, 전체 대기 시간이 강조 표시된 메트릭 및 상태 타일
 
-**실패** 또는 **작업**에 대한 다른 탭을 선택하면 해당 통합 문서가 열립니다.
+**실패** 또는 **작업** 에 대한 다른 탭을 선택하면 해당 통합 문서가 열립니다.
 
 ![실패 보기의 스크린샷](./media/key-vaults-insights-overview/resource-failures.png)
 
@@ -105,7 +90,7 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 작업 통합 문서를 통해 사용자는 모든 트랜잭션의 전체 세부 정보를 심층적으로 파악할 수 있으며, 이 정보는 최상위 타일을 사용하여 결과 상태별로 필터링할 수 있습니다.
 
-![작업 보기의 스크린샷](./media/key-vaults-insights-overview/info.png)
+![모든 트랜잭션에 대 한 전체 세부 정보를 포함 하는 운영 통합 문서를 보여 주는 스크린샷](./media/key-vaults-insights-overview/info.png)
 
 또한 사용자는 아래쪽 테이블을 동적으로 업데이트하는 위쪽 테이블의 보기를 트랜잭션 유형별로 자세히 살펴볼 수 있으며, 사용자는 팝업 컨텍스트 창에서 전체 작업 세부 정보를 볼 수 있습니다.
 
@@ -141,10 +126,10 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 다음 단계를 수행하여 실행할 때마다 범위를 특정 구독 또는 키 자격 증명 모음으로 지정하도록 여러 구독 및 키 자격 증명 모음 개요 또는 용량 통합 문서를 구성할 수 있습니다.
 
 1. 포털에서 **모니터** 를 선택 하 고 왼쪽 창에서 **키 자격 증명 모음** 을 선택 합니다.
-2. **개요** 통합 문서의 명령 모음에서 **편집**을 선택합니다.
+2. **개요** 통합 문서의 명령 모음에서 **편집** 을 선택합니다.
 3. **구독** 드롭다운 목록에서 기본값으로 사용할 구독을 하나 이상 선택합니다. 통합 문서에서 최대 10개의 구독을 선택할 수 있습니다.
 4. **키 자격 증명 모음** 드롭다운 목록에서 기본값으로 사용할 계정을 하나 이상 선택합니다. 통합 문서에서 최대 200개의 스토리지 계정을 선택할 수 있습니다.
-5. 명령 모음에서 **다른 이름으로 저장**을 선택하여 사용자 지정 항목이 있는 통합 문서의 복사본을 저장한 다음, **편집 완료**를 클릭하여 읽기 모드로 돌아갑니다.
+5. 명령 모음에서 **다른 이름으로 저장** 을 선택하여 사용자 지정 항목이 있는 통합 문서의 복사본을 저장한 다음, **편집 완료** 를 클릭하여 읽기 모드로 돌아갑니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -165,10 +150,6 @@ Key Vault Azure Monitor에서 식별 하는 주요 자격 증명 모음 관련 �
 선택한 구독 필터에서 선택한 구독이 포함된 구독만 표시됩니다. 구독 필터는 Azure Portal 헤더의 "디렉터리 + 구독"에서 선택합니다.
 
 ![구독 필터의 스크린샷](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>"쿼리가 허용 되는 최대 작업 영역/영역을 초과 했습니다." 라는 오류 메시지가 표시 됩니다.
-
-현재 25개 지역과 200개 작업 영역으로 제한되어 있으므로, 데이터를 보려면 구독 및/또는 리소스 그룹의 수를 줄여야 합니다.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Key Vault 정보를 변경 하거나 시각화를 추가 하려면 어떻게 해야 하나요?
 

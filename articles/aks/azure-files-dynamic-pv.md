@@ -5,12 +5,12 @@ description: Azure Files를 사용하여 AKS(Azure Kubernetes Service)에서 여
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 0c11748c6faa0b94ff84dfc944e475116a2a1bd4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611401"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744912"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -22,24 +22,25 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="create-a-storage-class"></a>스토리지 클래스 만들기
 
-스토리지 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 스토리지 계정은 Azure 파일 공유를 보관할 스토리지 클래스에서 사용할 수 있도록 자동으로 [노드 리소스 그룹][node-resource-group]에 생성됩니다. *skuName*에서 다음 [Azure Storage 중복성][storage-skus] 중 하나를 선택합니다.
+스토리지 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 스토리지 계정은 Azure 파일 공유를 보관할 스토리지 클래스에서 사용할 수 있도록 자동으로 [노드 리소스 그룹][node-resource-group]에 생성됩니다. *skuName* 에서 다음 [Azure Storage 중복성][storage-skus] 중 하나를 선택합니다.
 
 * *Standard_LRS* - 표준 LRS(로컬 중복 스토리지)
 * *Standard_GRS* - 표준 GRS(지역 중복 스토리지)
 * *Standard_ZRS* - 표준 ZRS(영역 중복 스토리지)
 * *Standard_RAGRS* - 표준 RA-GRS(읽기 액세스 지역 중복 스토리지)
 * *Premium_LRS* - 프리미엄 LRS(로컬 중복 스토리지)
+* *Premium_ZRS* -프리미엄 ZRS (영역 중복 저장소)
 
 > [!NOTE]
 > Azure Files는 Kubernetes 1.13 이상을 실행하는 AKS 클러스터의 프리미엄 스토리지를 지원하며, 프리미엄 파일 공유의 최소 크기는 100GB입니다.
 
 Azure Files의 Kubernetes 스토리지 클래스에 대한 자세한 내용은 [Kubernetes 스토리지 클래스][kubernetes-storage-classes]를 참조하세요.
 
-`azure-file-sc.yaml` 파일을 만들고 다음 예제 매니페스트를 복사합니다. *mountOptions*에 대한 자세한 내용은 [탑재 옵션][mount-options] 섹션을 참조하세요.
+`azure-file-sc.yaml` 파일을 만들고 다음 예제 매니페스트를 복사합니다. *mountOptions* 에 대한 자세한 내용은 [탑재 옵션][mount-options] 섹션을 참조하세요.
 
 ```yaml
 kind: StorageClass
@@ -54,6 +55,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```
@@ -66,9 +68,9 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
-PVC(영구적 볼륨 클레임)는 스토리지 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다. 다음 YAML을 사용하여 크기가 *5GB*이고 *ReadWriteMany* 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조하세요.
+PVC(영구적 볼륨 클레임)는 스토리지 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다. 다음 YAML을 사용하여 크기가 *5GB* 이고 *ReadWriteMany* 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조하세요.
 
-이제 `azure-file-pvc.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다. *storageClassName*이 마지막 단계에서 만든 스토리지 클래스와 일치하는지 확인합니다.
+이제 `azure-file-pvc.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다. *storageClassName* 이 마지막 단계에서 만든 스토리지 클래스와 일치하는지 확인합니다.
 
 ```yaml
 apiVersion: v1
@@ -85,7 +87,7 @@ spec:
 ```
 
 > [!NOTE]
-> 스토리지 클래스에 *Premium_LRS* SKU를 사용하는 경우 ‘스토리지’의 최솟값은 *100Gi*여야 합니다.
+> 스토리지 클래스에 *Premium_LRS* SKU를 사용하는 경우 ‘스토리지’의 최솟값은 *100Gi* 여야 합니다.
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 영구 볼륨 클레임을 만듭니다.
 
@@ -104,9 +106,9 @@ my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        R
 
 ## <a name="use-the-persistent-volume"></a>영구적 볼륨 사용
 
-다음 YAML은 영구 볼륨 클레임 *내 azurefile* 을 사용 하 여 */Mnt/azure* 경로에 Azure 파일 공유를 탑재 하는 pod를 만듭니다. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath*를 지정합니다.
+다음 YAML은 영구 볼륨 클레임 *내 azurefile* 을 사용 하 여 */Mnt/azure* 경로에 Azure 파일 공유를 탑재 하는 pod를 만듭니다. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath* 를 지정합니다.
 
-`azure-pvc-files.yaml` 파일을 만들고 다음 YAML에 복사합니다. *claimName*이 마지막 단계에서 만든 PVC와 일치하는지 확인합니다.
+`azure-pvc-files.yaml` 파일을 만들고 다음 YAML에 복사합니다. *claimName* 이 마지막 단계에서 만든 PVC와 일치하는지 확인합니다.
 
 ```yaml
 kind: Pod
@@ -116,7 +118,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -145,7 +147,7 @@ kubectl apply -f azure-pvc-files.yaml
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Fri, 01 Mar 2019 23:56:16 +0000
@@ -164,7 +166,7 @@ Volumes:
 
 ## <a name="mount-options"></a>탑재 옵션
 
-*fileMode* 및 *dirMode*의 기본값은 Kubernetes 버전 1.13.0 이상의 경우 *0777*입니다. 스토리지 클래스를 사용하여 동적으로 영구적 볼륨을 만드는 경우 스토리지 클래스 개체에서 탑재 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777*을 설정합니다.
+*fileMode* 및 *dirMode* 의 기본값은 Kubernetes 버전 1.13.0 이상의 경우 *0777* 입니다. 스토리지 클래스를 사용하여 동적으로 영구적 볼륨을 만드는 경우 스토리지 클래스 개체에서 탑재 옵션을 지정할 수 있습니다. 다음 예제에서는 *0777* 을 설정합니다.
 
 ```yaml
 kind: StorageClass
@@ -179,6 +181,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```

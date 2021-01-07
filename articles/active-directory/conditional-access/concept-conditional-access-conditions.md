@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ea9259e701e2ad9a4026401f5aef39c0ecfa51
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601829"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904038"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -50,11 +50,14 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 **다른 클라이언트** 상태를 사용 하 여 레거시 인증을 차단 하는 경우 장치 플랫폼 조건을 설정할 수도 있습니다.
 
+> [!IMPORTANT]
+> 지원 되지 않는 장치 플랫폼에 대 한 조건부 액세스 정책을 사용 하는 것이 좋습니다. 예를 들어 Linux 또는 기타 지원 되지 않는 클라이언트에서 회사 리소스에 대 한 액세스를 차단 하려면 모든 장치를 포함 하는 장치 플랫폼 조건으로 정책을 구성 하 고 지원 되는 장치 플랫폼을 제외 하 고 액세스를 차단 하도록 컨트롤 집합을 부여 해야 합니다.
+
 ## <a name="locations"></a>위치
 
 위치를 조건으로 구성 하는 경우 조직에서 위치를 포함 하거나 제외 하도록 선택할 수 있습니다. 이러한 명명 된 위치에는 공용 IPv4 네트워크 정보, 국가 또는 지역 또는 특정 국가나 지역에 매핑되지 않는 알 수 없는 영역도 포함 될 수 있습니다. IP 범위만 신뢰할 수 있는 위치로 표시할 수 있습니다.
 
-**모든 위치**를 포함 하는 경우이 옵션에는 명명 된 위치를 구성 하는 것이 아니라 인터넷의 모든 IP 주소가 포함 됩니다. 모든 **위치**를 선택 하는 경우 관리자는 **신뢰할 수 있는** 위치나 **선택한 위치**를 모두 제외 하도록 선택할 수 있습니다.
+**모든 위치** 를 포함 하는 경우이 옵션에는 명명 된 위치를 구성 하는 것이 아니라 인터넷의 모든 IP 주소가 포함 됩니다. 모든 **위치** 를 선택 하는 경우 관리자는 **신뢰할 수 있는** 위치나 **선택한 위치** 를 모두 제외 하도록 선택할 수 있습니다.
 
 예를 들어, 일부 조직에서는 사용자가 실제 본사와 같은 신뢰할 수 있는 위치에서 네트워크에 연결 된 경우 multi-factor authentication을 요구 하지 않도록 선택할 수 있습니다. 관리자는 모든 위치를 포함 하지만 본사 네트워크에 대해 선택한 위치를 제외 하는 정책을 만들 수 있습니다.
 
@@ -116,6 +119,9 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
+> [!NOTE]
+> Edge 85 이상에서는 장치 id를 올바르게 전달 하기 위해 사용자에 게 브라우저에 로그인 해야 합니다. 그렇지 않으면 계정 확장이 없는 Chrome 처럼 동작 합니다. 이 로그인은 하이브리드 Azure AD 조인 시나리오에서 자동으로 발생 하지 않을 수 있습니다. 
+
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>브라우저에 인증서 프롬프트가 표시 되는 이유는 무엇 인가요?
 
 Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 때 프로 비전 되는 클라이언트 인증서를 사용 하 여 장치를 식별 합니다.  사용자가 브라우저를 통해 처음으로 로그인 하면 사용자에 게 인증서를 선택 하 라는 메시지가 표시 됩니다. 사용자는 브라우저를 사용 하기 전에이 인증서를 선택 해야 합니다.
@@ -126,14 +132,14 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 이 확장을 Chrome 브라우저에 자동으로 배포하려면 다음 레지스트리 키를 만듭니다.
 
-- \Software\Policies\Google\Chrome\ExtensionInstallForcelist 경로 HKEY_LOCAL_MACHINE
+- 경로 HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist
 - 이름 1
 - 형식 REG_SZ (문자열)
 - 데이터 ppnbnpeolgkicgegkbkbjmhlideopiji; https \: //clients2.google.com/service/update2/crx
 
-**Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
+**Windows 8.1 및 7** 에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
 
-- \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls 경로 HKEY_LOCAL_MACHINE
+- 경로 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
 - 이름 1
 - 형식 REG_SZ (문자열)
 - Data {"pattern": " https://device.login.microsoftonline.com ", "filter": {"ISSUER": {"CN": "MS-조직 액세스"}}}
@@ -168,27 +174,27 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 ### <a name="exchange-activesync-clients"></a>Exchange ActiveSync 클라이언트
 
-- 조직에서는 사용자 또는 그룹에 정책을 할당 하는 경우에만 Exchange ActiveSync 클라이언트를 선택할 수 있습니다. 모든 **사용자**, 모든 **게스트 및 외부 사용자**또는 **디렉터리 역할** 을 선택 하면 모든 사용자가 차단 됩니다.
+- 조직에서는 사용자 또는 그룹에 정책을 할당 하는 경우에만 Exchange ActiveSync 클라이언트를 선택할 수 있습니다. 모든 **사용자**, 모든 **게스트 및 외부 사용자** 또는 **디렉터리 역할** 을 선택 하면 모든 사용자가 차단 됩니다.
 - Exchange ActiveSync 클라이언트에 할당 된 정책을 만들 때 **Exchange Online** 이 정책에 할당 된 유일한 클라우드 응용 프로그램 이어야 합니다. 
 - 조직에서는 **장치 플랫폼** 상태를 사용 하 여 특정 플랫폼에 대해이 정책의 범위를 좁힐 수 있습니다.
 
-정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요**를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication** 이 필요한 경우 기본 인증에서 multi-factor authentication을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
+정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요** 를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication** 이 필요한 경우 기본 인증에서 multi-factor authentication을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [조건부 액세스를 사용 하 여 레거시 인증 차단](block-legacy-authentication.md)
 - [조건부 액세스를 사용 하 여 승인 된 클라이언트 앱 요구](app-based-conditional-access.md)
 
 ### <a name="other-clients"></a>기타 클라이언트
 
-**다른 클라이언트**를 선택하여 IMAP, MAPI, POP, SMTP 및 최신 인증을 사용하지 않는 이전 Office 앱과 같은 메일 프로토콜과 함께 기본 인증을 사용하는 앱에 영향을 미치는 조건을 지정할 수 있습니다.
+**다른 클라이언트** 를 선택하여 IMAP, MAPI, POP, SMTP 및 최신 인증을 사용하지 않는 이전 Office 앱과 같은 메일 프로토콜과 함께 기본 인증을 사용하는 앱에 영향을 미치는 조건을 지정할 수 있습니다.
 
 ## <a name="device-state-preview"></a>디바이스 상태(미리 보기)
 
 장치 상태 조건은 하이브리드 Azure AD에 가입 된 장치와 조직의 조건부 액세스 정책에서 Microsoft Intune 준수 정책을 준수 하는 것으로 표시 된 장치를 제외 하는 데 사용할 수 있습니다.
 
-예를 들어 모든 장치 상태를 포함 하는 *Microsoft Azure 관리* 클라우드 앱에 액세스 하는 *모든 사용자* 는 장치 **하이브리드 Azure AD 조인** 된 장치를 제외한 **모든 장치 상태** 와 **규격으로 표시 된 장치** 및 *액세스 제어*를 **차단**합니다. 
-   - 이 예제에서는 하이브리드 Azure AD에 가입 된 장치 에서만 Microsoft Azure 관리에 대 한 액세스를 허용 하는 정책 및/또는 호환 되는 것으로 표시 된 장치를 만듭니다.
+예를 들어 모든 장치 상태를 포함 하는 *Microsoft Azure 관리* 클라우드 앱에 액세스 하는 *모든 사용자* 는 장치 **하이브리드 Azure AD 조인** 된 장치를 제외한 **모든 장치 상태** 와 **규격으로 표시 된 장치** 및 *액세스 제어* 를 **차단** 합니다. 
+   - 이 예제에서는 하이브리드 Azure AD에 가입 된 장치 또는 규격으로 표시 된 장치 에서만 Microsoft Azure 관리에 대 한 액세스를 허용 하는 정책을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 01/03/2021
 ms.author: guybo
-ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 9d278582840404702bfef3e5fc9af395f659d844
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607009"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898082"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure에서 Linux 배포판 보증
 
@@ -36,10 +36,10 @@ Azure Linux 에이전트는 이미 Azure Marketplace 이미지에 미리 설치 
 | --- | --- | --- | --- |
 | Rogue Wave 소프트웨어로 CentOS |CentOS .x, 4.x, 4.x |CentOS 6.3: [LIS 다운로드](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: 커널에 있음 |패키지: "WALinuxAgent"의 [리포지토리](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS는 이제 2020 년 5 월 26 일에 [수명이 종료](https://coreos.com/os/eol/) 됩니다. |더 이상 사용할 수 없음 | | |
-| Debian by Credativ |8.x, 9.x |커널에 있음 |패키지: "waagent"에서 리포지토리의 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Kinvolk에의 한 Flatcar Container Linux| Stable, Edge| | |
+| Debian by Credativ |8.x, 4.x, 10. x |커널에 있음 |패키지: "waagent"에서 리포지토리의 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
+|Kinvolk에의 한 Flatcar Container Linux| Pro, 안정적인 베타| 커널에 있음 | wa-linux-에이전트가 이미/usr/share/oem/bin/waagent에 설치 되어 있습니다. |
 | Oracle에서 Oracle Linux |6.x, 7.x, 8.x |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| [Red Hat에서 Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat에서 Red Hat Enterprise Linux](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise by SUSE |SLES/SLES for SAP 11.x, 4.x, 4.x <br/> [SUSE 공용 클라우드 이미지 수명 주기](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |커널에 있음 |패키지:<p> 11의 경우 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<br>12의 경우 "python-azure-agent" 아래의 "퍼블릭 클라우드" 모듈에 포함됨<br/>소스 코드: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | SUSE 별 openSUSE |openSUSE Leap 15.x |커널에 있음 |패키지: "python-azure-agent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | 정식 Ubuntu |Ubuntu 서버 및 Pro. 16.x, 18.x, 20.x<p>Ubuntu 12.04 및 14.04에 대 한 확장 지원에 대 한 정보는 [Ubuntu 확장 보안 유지 관리](https://www.ubuntu.com/esm)에서 찾을 수 있습니다. |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -50,14 +50,15 @@ Azure를 사용 하려면 보증 Linux 배포판의 게시자가 분기별 또�
 
 ## <a name="azure-tuned-kernels"></a>Azure 조정 커널
 
-Azure는 다양 한 보증 Linux 배포판과 긴밀 하 게 협력 하 여 Azure Marketplace에 게시 된 이미지를 최적화 합니다. 이 공동 작업의 한 가지 측면은 Azure 플랫폼에 최적화 되 고 Linux 배포판의 완전히 지원 되는 구성 요소로 제공 되는 "조정 된" Linux 커널을 개발 하는 것입니다. Azure에 의해 조정 되는 커널에는 배포에서 사용할 수 있는 기본 또는 일반 커널을 비교 하 여 새로운 기능과 성능이 개선 되 고 더 빠르게 (일반적으로 분기별) 주기가 통합 됩니다.
+Azure는 다양 한 보증 Linux 배포판과 긴밀 하 게 협력 하 여 Azure Marketplace에 게시 된 이미지를 최적화 합니다. 이 공동 작업의 한 가지 측면은 Azure 플랫폼에 최적화 되 고 Linux 배포판의 완전히 지원 되는 구성 요소로 제공 되는 "조정 된" Linux 커널을 개발 하는 것입니다. Azure-Tuned 커널에서는 배포에서 사용할 수 있는 기본 또는 일반 커널에 비해 새로운 기능 및 성능 향상과 더 빠르게 (일반적으로 분기별) 흐름을 통합 합니다.
 
-대부분의 경우 이러한 커널은 Azure Marketplace의 기본 이미지에 미리 설치 되어 있으므로 고객이 이러한 최적화 된 커널의 이점을 즉시 얻을 수 있습니다. 이러한 Azure 조정 커널에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다.
+대부분의 경우 이러한 커널은 Azure Marketplace의 기본 이미지에 미리 설치 되어 있으므로 고객이 이러한 최적화 된 커널의 이점을 즉시 얻을 수 있습니다. 이러한 Azure-Tuned 커널에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다.
 
-- [CentOS Azure 튜닝 된 커널-CentOS 가상화 SIG를 통해 사용 가능](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+- [CentOS Azure-Tuned 커널-CentOS 가상화 SIG를 통해 사용 가능](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Debian 클라우드 커널-Azure의 Debian 10 및 Debian 9 "backports" 이미지에서 사용할 수 있음](https://wiki.debian.org/Cloud/MicrosoftAzure)
-- [SLES Azure 튜닝 커널](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
-- [Ubuntu Azure 조정 커널](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [SLES Azure-Tuned 커널](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+- [Ubuntu Azure-Tuned 커널](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Flatcar Container Linux Pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
 
 ## <a name="partners"></a>파트너
 
@@ -69,11 +70,11 @@ Microsoft에는 CoreOS 사용자를 위한 2 개의 마이그레이션 채널이
 - Flatcar by Kinvolk ("Flatcar Container Linux by Kinvolk" 항목 참조)
 - [Fedora CORE OS](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-azure/) (고객은 자신의 이미지를 업로드 해야 합니다. [마이그레이션 설명서](https://docs.fedoraproject.org/en-US/fedora-coreos/migrate-cl/)는 다음과 같습니다.
 
-### <a name="credativ"></a>Credativ
+### <a name="credativ"></a>credativ
 
-[https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+[https://www.credativ.de/en/portfolio/support/open-source-support-center/](https://www.credativ.de/en/portfolio/support/open-source-support-center/)
 
-Credativ는 독립적인 컨설팅 및 서비스 회사로, 주요 사업 분야는 무료 소프트웨어를 사용하여 전문 솔루션을 개발하고 구현하는 것입니다. 시장을 선도하는 오픈 소스 전문 회사인 Credative는 지원을 받는 많은 IT 부서들로부터 국제적인 명성을 얻고 있습니다. 현재 Credativ는 Microsoft와 협력 관계를 맺고 Debian 8(Jessie) 및 Debian 7(Wheezy) 이전 버전에 해당하는 Debian 이미지를 준비 중입니다. 두 이미지 모두 Azure에서 실행하도록 특별히 설계되었으며 플랫폼을 통해 쉽게 관리할 수 있습니다. Credativ는 또한 자체적인 오픈 소스 지원 센터를 통해 장기적인 유지 및 Azure의 Debian 이미지 업데이트를 지원합니다.
+credativ는 무료 소프트웨어를 사용 하 여 전문적인 솔루션의 개발 및 구현을 전문적으로 하는 독립적인 컨설팅 및 서비스 회사입니다. 최첨단 오픈 소스 전문가로 서, credativ는 지원 서비스를 사용 하는 많은 IT 부서가 국제 인식을 제공 합니다. Microsoft와 함께 credativ는 Debian 이미지를 준비 하 고 있습니다. 이미지는 Azure에서 실행 되도록 특별히 설계 되었으며 플랫폼을 통해 쉽게 관리할 수 있습니다. 또한 credativ는 오픈 소스 지원 센터를 통해 장기적인 유지 및 Azure 용 Debian 이미지 업데이트를 지원 합니다.
 
 ### <a name="kinvolk"></a>Kinvolk
 [https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)

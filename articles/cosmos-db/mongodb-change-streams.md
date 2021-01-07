@@ -7,15 +7,16 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 47f1fb4414b26ca9edbd992826a383ca65772ae7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003816"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359237"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 변경 스트림
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB의 API for MongoDB의 [변경 피드](change-feed.md) 지원은 변경 스트림 API를 사용하여 제공됩니다. 변경 스트림 API를 사용하여 애플리케이션에서 컬렉션 또는 단일 분할된 데이터베이스의 항목에 대한 변경 내용을 가져올 수 있습니다. 나중에 결과에 따라 추가 작업을 수행할 수 있습니다. 컬렉션의 항목에 대한 변경 내용은 수정 시간 순서대로 캡처되고 분할된 데이터베이스 키당 정렬 순서가 보장됩니다.
 
@@ -66,7 +67,7 @@ enumerator.Dispose();
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 Java에서 스트림 변경 기능을 사용 하는 방법을 보여 줍니다. 전체 예제는이 [GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)를 참조 하세요. 또한이 예제에서는 메서드를 사용 하 여 `resumeAfter` 마지막 읽기부터 모든 변경 내용을 검색 하는 방법을 보여 줍니다. 
+다음 예제에서는 Java에서 스트림 변경 기능을 사용 하는 방법을 보여 줍니다. 전체 예제는이 [GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/main/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)를 참조 하세요. 또한이 예제에서는 메서드를 사용 하 여 `resumeAfter` 마지막 읽기부터 모든 변경 내용을 검색 하는 방법을 보여 줍니다. 
 
 ```java
 Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));

@@ -1,14 +1,16 @@
 ---
 title: 문서 형식 가져오기 지침-QnA Maker
 description: 문서 가져오기에 대 한 지침을 사용 하 여 콘텐츠에 대 한 최상의 결과를 얻을 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: b94c8b3fd4d4c082e0bc49c6bd42d3b37e963988
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530780"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352238"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>가져온 문서와 Url에 대 한 형식 지침
 
@@ -20,7 +22,7 @@ ms.locfileid: "90530780"
 
 기술 자료에서 직접 콘텐츠를 추가 하거나 편집 하는 경우 **markdown 서식 지정** 을 사용 하 여 서식 있는 텍스트 콘텐츠를 만들거나 답변에 이미 있는 markdown 서식 콘텐츠를 변경 합니다. QnA Maker는 풍부한 텍스트 기능을 콘텐츠에 제공 하는 많은 markdown 형식을 지원 합니다. 그러나 채팅 봇과 같은 클라이언트 응용 프로그램은 동일한 markdown 형식 집합을 지원 하지 않을 수 있습니다. 클라이언트 응용 프로그램의 답변 표시를 테스트 하는 것이 중요 합니다.
 
-[콘텐츠 형식 및 예제](./Concepts/content-types.md#file-and-url-data-types)에 대 한 전체 목록을 확인 하세요.
+[콘텐츠 형식 및 예제](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)에 대 한 전체 목록을 확인 하세요.
 
 ## <a name="basic-document-formatting"></a>기본 문서 서식 지정
 
@@ -116,4 +118,4 @@ Answer2
 
 ## <a name="next-steps"></a>다음 단계
 
-[콘텐츠 형식 및 예제의](./Concepts/content-types.md#file-and-url-data-types) 전체 목록 보기
+[콘텐츠 형식 및 예제의](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base) 전체 목록 보기

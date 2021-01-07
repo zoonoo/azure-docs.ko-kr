@@ -8,13 +8,13 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 47e175a47d3548962f63e283c80abe8333e9ecc4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421623"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854684"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>DevOps Starter를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포
 
@@ -167,6 +167,4 @@ DevOps Starter는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 필
 > * Git에 변경 내용 커밋 및 자동으로 Azure에 배포
 > * 리소스 정리
 
-자세한 내용과 다음 단계는 [다단계 CD(지속적인 배포) 파이프라인 정의](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts)를 참조하세요.
-
-
+자세한 내용과 다음 단계는 [다단계 CD(지속적인 배포) 파이프라인 정의](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts)를 참조하세요.

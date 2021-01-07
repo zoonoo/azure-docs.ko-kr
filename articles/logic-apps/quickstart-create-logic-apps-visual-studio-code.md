@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/25/2019
-ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.date: 10/28/2020
+ms.openlocfilehash: c4d4c659fd1c33c9ffc1b833b92d0727b5c17bf7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131483"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922886"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "87131483"
 
 [Azure Portal](https://portal.azure.com) 및 Visual Studio에서 이러한 동일 작업을 수행할 수도 있지만, 논리 앱 정의를 이미 숙지하고 있으며 코드에서 직접 작업하려는 경우 Visual Studio Code를 사용하면 작업을 더 빨리 시작할 수 있습니다. 예를 들어 이미 생성된 논리 앱을 사용하거나 사용하지 않도록 설정하고 삭제하고 새로 고칠 수 있습니다. 또한 Linux, Windows 및 Mac과 같은 Visual Studio Code가 실행되는 모든 개발 플랫폼의 논리 앱 및 통합 계정에서 작업할 수 있습니다.
 
-이 문서의 경우 기본적인 개념에 대해 더 중점적으로 설명하는 [빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)에서 동일한 논리 앱을 만들 수 있습니다. Visual Studio Code에서 논리 앱은 다음 예제와 같이 표시됩니다.
+이 문서의 경우 기본적인 개념에 대해 더 중점적으로 설명하는 [빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)에서 동일한 논리 앱을 만들 수 있습니다. 또한 [Visual Studio에서 예제 앱을 만드는 방법에 대해 학습](quickstart-create-logic-apps-with-visual-studio.md)하고 [Azure CLI(Azure 명령줄 인터페이스)를 통해 앱을 만들고 관리하는 방법을 학습할 수 있습니다](quickstart-logic-apps-azure-cli.md). Visual Studio Code에서 논리 앱은 다음 예제와 같이 표시됩니다.
 
 ![논리 앱 워크플로 정의 예제](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
@@ -58,23 +58,23 @@ ms.locfileid: "87131483"
 
    ![Visual Studio Code 도구 모음에서 Azure 아이콘을 선택합니다.](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. Azure 창의 **Logic Apps** 아래에서 **Azure에 로그인**을 선택합니다. Microsoft 로그인 페이지에서 로그인하라는 메시지가 표시되면 Azure 계정으로 로그인합니다.
+1. Azure 창의 **Logic Apps** 아래에서 **Azure에 로그인** 을 선택합니다. Microsoft 로그인 페이지에서 로그인하라는 메시지가 표시되면 Azure 계정으로 로그인합니다.
 
    ![“Azure에 로그인” 선택](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
-   1. 로그인 시간이 평소보다 더 오래 걸리면 Visual Studio Code에서 디바이스 코드를 제공하여 Microsoft 인증 웹 사이트를 통해 로그인하라는 메시지를 표시합니다. 코드를 사용하여 대신 로그인하려면 **디바이스 코드 사용**을 선택합니다.
+   1. 로그인 시간이 평소보다 더 오래 걸리면 Visual Studio Code에서 디바이스 코드를 제공하여 Microsoft 인증 웹 사이트를 통해 로그인하라는 메시지를 표시합니다. 코드를 사용하여 대신 로그인하려면 **디바이스 코드 사용** 을 선택합니다.
 
       ![디바이스 코드를 대신 사용하여 계속](./media/quickstart-create-logic-apps-visual-studio-code/use-device-code-prompt.png)
 
-   1. 코드를 복사하려면 **복사 후 열기**를 선택합니다.
+   1. 코드를 복사하려면 **복사 후 열기** 를 선택합니다.
 
       ![Azure 로그인 코드 복사](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
-   1. 새 브라우저 창을 열고 인증 웹 사이트로 이동하려면 **링크 열기**를 선택합니다.
+   1. 새 브라우저 창을 열고 인증 웹 사이트로 이동하려면 **링크 열기** 를 선택합니다.
 
       ![브라우저 열기 및 인증 웹 사이트로 이동 확인](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
 
-   1. **계정에 로그인** 페이지에서 인증 코드를 입력하고, **다음**을 선택합니다.
+   1. **계정에 로그인** 페이지에서 인증 코드를 입력하고, **다음** 을 선택합니다.
 
       ![Azure 로그인용 인증 코드 입력](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "87131483"
 
 1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
 
-1. Visual Studio Code의 **Logic Apps** 아래에서 구독의 바로 가기 메뉴를 열고 **로그 앱 만들기**를 선택합니다.
+1. Visual Studio Code의 **Logic Apps** 아래에서 구독의 바로 가기 메뉴를 열고 **로그 앱 만들기** 를 선택합니다.
 
    ![구독 메뉴에서 "논리 앱 만들기" 선택](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
@@ -130,7 +130,7 @@ ms.locfileid: "87131483"
    예를 들어 RSS 트리거 및 Office 365 Outlook 작업으로 시작하는 논리 앱 워크플로 정의 샘플은 다음과 같습니다. 일반적으로 JSON 요소는 각 섹션에서 사전순으로 표시됩니다. 그러나 이 샘플은 이러한 요소들을 로직 앱의 단계가 설계자에 나타나는 순서대로 대략적으로 보여줍니다.
 
    > [!IMPORTANT]
-   > 이 논리 앱 정의 샘플을 다시 사용하려면 Office 365 조직 계정 (예 : @fabrikam.com)이 필요합니다. 가상 이메일 주소를 사용자 고유의 이메일 주소로 바꾸어야 합니다. Outlook.com 또는 Gmail과 같은 다른 이메일 커넥터를 사용하려면 `Send_an_email_action` 작업을 [Azure Logic Apps에서 지원하는 이메일 커넥터](../connectors/apis-list.md)에서 사용할 수 있는 비슷한 작업으로 바꿉니다.
+   > 이 논리 앱 정의 샘플을 다시 사용하려면 조직 계정(예 : @fabrikam.com)이 필요합니다. 가상 이메일 주소를 사용자 고유의 이메일 주소로 바꾸어야 합니다. Outlook.com 또는 Gmail과 같은 다른 이메일 커넥터를 사용하려면 `Send_an_email_action` 작업을 [Azure Logic Apps에서 지원하는 이메일 커넥터](../connectors/apis-list.md)에서 사용할 수 있는 비슷한 작업으로 바꿉니다.
    >
    > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. 
    > Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 
@@ -194,7 +194,7 @@ ms.locfileid: "87131483"
 
 1. 완료되면 논리 앱의 워크플로 정의를 저장합니다. (파일 메뉴 > 저장 또는 Ctrl+S 누르기)
 
-1. 논리 앱을 Azure 구독에 업로드하라는 메시지가 표시되면 **업로드**를 선택합니다.
+1. 논리 앱을 Azure 구독에 업로드하라는 메시지가 표시되면 **업로드** 를 선택합니다.
 
    이 단계에서는 논리 앱을 [Azure Portal](https://portal.azure.com)에 게시합니다. 그러면 논리가 활성 상태가 되어 Azure에서 실행될 수 있습니다.
 
@@ -204,7 +204,7 @@ ms.locfileid: "87131483"
 
 Visual Studio Code에서는 논리 앱을 읽기 전용 디자인 보기에서 열 수 있습니다. 디자이너에서 논리 앱을 편집할 수는 없지만 디자이너 보기를 사용하여 논리 앱의 워크플로를 시각적으로 확인할 수 있습니다.
 
-Azure 창의 **Logic Apps** 아래에서 논리 앱의 바로 가기 메뉴를 열고 **디자이너에서 열기**를 선택합니다.
+Azure 창의 **Logic Apps** 아래에서 논리 앱의 바로 가기 메뉴를 열고 **디자이너에서 열기** 를 선택합니다.
 
 읽기 전용 디자이너가 별도의 창에서 열려 논리 앱의 워크플로가 표시됩니다. 예를 들어 다음과 같습니다.
 
@@ -230,11 +230,11 @@ Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용�
 
 1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
 
-   1. 원하는 논리 앱을 사용하지 않도록 설정하려면 논리 앱의 메뉴를 열고 **사용 안 함**을 선택합니다.
+   1. 원하는 논리 앱을 사용하지 않도록 설정하려면 논리 앱의 메뉴를 열고 **사용 안 함** 을 선택합니다.
 
       ![논리 앱 사용 안 함](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
 
-   1. 논리 앱을 다시 활성화할 준비가 되면 논리 앱의 메뉴를 열고 **사용**을 선택합니다.
+   1. 논리 앱을 다시 활성화할 준비가 되면 논리 앱의 메뉴를 열고 **사용** 을 선택합니다.
 
       ![논리 앱 사용](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
 
@@ -251,7 +251,7 @@ Visual Studio Code에서는 이미 배포된 Azure 논리 앱의 워크플로 �
 
 1. Azure 창의 **Logic Apps** 아래에서 Azure 구독을 확장하고 원하는 논리 앱을 선택합니다.
 
-1. 논리 앱의 메뉴를 열고, **편집기에서 열기**를 선택합니다. 또는 논리 앱의 이름 옆에 있는 편집 아이콘을 선택합니다.
+1. 논리 앱의 메뉴를 열고, **편집기에서 열기** 를 선택합니다. 또는 논리 앱의 이름 옆에 있는 편집 아이콘을 선택합니다.
 
    ![기존 논리 앱에 대한 편집기 열기](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -263,7 +263,7 @@ Visual Studio Code에서는 이미 배포된 Azure 논리 앱의 워크플로 �
 
 1. 완료되면 변경 사항을 저장합니다. (파일 메뉴 > 저장 또는 Ctrl+S 누르기)
 
-1. Azure Portal에서 변경 내용을 업로드하고 기존 논리 앱을 *덮어쓰라는* 메시지가 표시되면 **업로드**를 선택합니다.
+1. Azure Portal에서 변경 내용을 업로드하고 기존 논리 앱을 *덮어쓰라는* 메시지가 표시되면 **업로드** 를 선택합니다.
 
    이 단계에서는 [Azure Portal](https://portal.azure.com)에서 논리 앱에 대한 업데이트를 게시합니다.
 
@@ -278,7 +278,7 @@ Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 
 
 1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
 
-1. 구독 아래에서 논리 앱, **버전**을 차례로 펼칩니다.
+1. 구독 아래에서 논리 앱, **버전** 을 차례로 펼칩니다.
 
    **버전** 목록에서 논리 앱의 이전 버전(있는 경우)이 표시됩니다.
 
@@ -286,19 +286,19 @@ Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 
 
 1. 이전 버전을 보려면 다음 단계 중 하나를 선택합니다.
 
-   * JSON 정의를 보려면 **버전** 아래에서 해당 정의의 버전 번호를 선택합니다. 또는 해당 버전의 바로 가기 메뉴를 열고 **편집기에서 열기**를 선택합니다.
+   * JSON 정의를 보려면 **버전** 아래에서 해당 정의의 버전 번호를 선택합니다. 또는 해당 버전의 바로 가기 메뉴를 열고 **편집기에서 열기** 를 선택합니다.
 
      로컬 컴퓨터에서 새 파일이 열리고 해당 버전의 JSON 정의가 표시됩니다.
 
-   * 읽기 전용 디자이너 보기에서 버전을 보려면 해당 버전의 바로 가기 메뉴를 열고 **디자이너에서 열기**를 선택합니다.
+   * 읽기 전용 디자이너 보기에서 버전을 보려면 해당 버전의 바로 가기 메뉴를 열고 **디자이너에서 열기** 를 선택합니다.
 
 1. 이전 버전을 현재 버전으로 승격하려면 다음 단계를 수행합니다.
 
-   1. **버전** 아래에서 이전 버전의 바로 가기 메뉴를 열고 **승격**을 선택합니다.
+   1. **버전** 아래에서 이전 버전의 바로 가기 메뉴를 열고 **승격** 을 선택합니다.
 
       ![이전 버전 승격](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
 
-   1. Visual Studio Code에서 확인을 요청하는 메시지가 표시된 후 계속하려면 **예**를 선택합니다.
+   1. Visual Studio Code에서 확인을 요청하는 메시지가 표시된 후 계속하려면 **예** 를 선택합니다.
 
       ![이전 버전 승격 확인](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 
@@ -307,4 +307,4 @@ Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+> [Visual Studio Code(미리 보기)에서 상태 저장 및 상태 비저장 논리 앱 만들기](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

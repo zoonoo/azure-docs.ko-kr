@@ -9,11 +9,11 @@ ms.date: 05/18/2020
 ms.author: derekol
 Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ms.openlocfilehash: abbe69ebbaed56ed416f85fafa7b77a1740fabe7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "84870555"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022499"
 ---
 # <a name="tutorial-measure-peering-service-connection-telemetry"></a>자습서: Peering Service 연결 원격 분석 측정
 
@@ -28,7 +28,7 @@ Peering Service 연결 원격 분석을 측정하려면 Azure Portal에서 Peeri
 
 특정 Peering Service 연결에 대한 대기 시간 보고서를 보려면 다음 단계를 수행합니다.
 
-1. 왼쪽 창에서 **모든 리소스**를 선택하고, Peering Service 연결을 선택합니다. 그런 다음, **접두사**에서 **열기**를 선택합니다. 
+1. 왼쪽 창에서 **모든 리소스** 를 선택하고, Peering Service 연결을 선택합니다. 그런 다음, **접두사** 에서 **열기** 를 선택합니다. 
 
    ![Peering Service 연결 선택](./media/peering-service-measure/peering-service-measure-menu.png)
 
@@ -36,9 +36,9 @@ Peering Service 연결 원격 분석을 측정하려면 Azure Portal에서 Peeri
 
       ![대기 시간 보고서 페이지](./media/peering-service-measure/peering-service-latency-report.png)
 
-3. 기본적으로 이 페이지에 표시되는 매시간에 대한 보고서가 업데이트됩니다. 다른 타임라인에 대한 보고서를 보려면 **마지막 데이터 표시**에서 적절한 옵션을 선택합니다. 
+3. 기본적으로 이 페이지에 표시되는 매시간에 대한 보고서가 업데이트됩니다. 다른 타임라인에 대한 보고서를 보려면 **마지막 데이터 표시** 에서 적절한 옵션을 선택합니다. 
 
-4. 특정 접두사에 대한 이벤트를 보려면 접두사 이름을 선택하고 왼쪽 창에서 **접두사 이벤트**를 선택합니다. 캡처한 이벤트가 표시됩니다.
+4. 특정 접두사에 대한 이벤트를 보려면 접두사 이름을 선택하고 왼쪽 창에서 **접두사 이벤트** 를 선택합니다. 캡처한 이벤트가 표시됩니다.
 
 
    ![접두사 이벤트](./media/peering-service-measure/peering-service-prefix-event.png)

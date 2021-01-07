@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 0701e9c6428283d45cf4b4a2e24c8de99d9a286b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265901"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services 원격 분석  
@@ -75,7 +75,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 원격 분석 데이터는 단일 테이블 "TelemetryMetrics20160321"에 집계되어 저장됩니다. 여기서 "20160321"은 생성된 테이블의 날짜입니다. 원격 분석 시스템은 00:00 UTC 기반으로 각 날마다 별도의 테이블을 만듭니다. 이 테이블은 지정된 기간 내의 수집 비트 전송률, 보낸 바이트 수 등의 되풀이 값을 저장하는 데 사용됩니다. 
 
-속성|Value|예제/참고 사항
+속성|값|예제/참고 사항
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>계정 ID는 여러 Media Services 계정이 동일한 스토리지 계정에 기록되는 워크플로를 간소화하기 위해 파티션 키에 포함됩니다.
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>행 키는 파티션 내의 상위 n개 스타일 쿼리를 허용하기 위해 자정까지 남은 시간(초)부터 시작됩니다. 자세한 내용은 [이](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) 문서를 참조하세요. 
@@ -96,7 +96,7 @@ ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 
 **스트리밍 엔드포인트**
 
-속성|Value|예
+속성|값|예제
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -115,7 +115,7 @@ E2ELatency|평균 엔드투엔드 대기 시간|250
 
 **라이브 채널**
 
-속성|Value|예제/참고 사항
+속성|값|예제/참고 사항
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -140,12 +140,12 @@ UnexpectedBitrate|오디오/비디오 트랙의 계산된/실제 비트 전송�
 
 **라이브 보관**
 
-속성|Value|예제/참고 사항
+속성|값|예제/참고 사항
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 타임스탬프|타임스탬프|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
-유형|유형|보관
+유형|유형|아카이브
 Name|Name|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|서비스 ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761647"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 IBM Informix 데이터베이스 리소스 관리
@@ -60,7 +60,7 @@ ms.locfileid: "88761647"
 
    | 작업 | 설명 | 속성 및 설명 |
    |--------|-------------|-----------------------------|
-   | **테이블 가져오기** | Informix CALL 문을 실행 하 여 데이터베이스 테이블을 나열 합니다. | None |
+   | **테이블 가져오기** | Informix CALL 문을 실행 하 여 데이터베이스 테이블을 나열 합니다. | 없음 |
    | **행 가져오기** | Informix 문을 실행 하 여 지정 된 테이블의 모든 행을 인출 `SELECT *` 합니다. | **테이블 이름**: 원하는 Informix 테이블의 이름 <p><p>이 작업에 다른 속성을 추가 하려면 **새 매개 변수 추가** 목록에서 해당 속성을 선택 합니다. 자세한 내용은 [커넥터의 참조 항목](/connectors/informix/)을 참조 하세요. |
    | **행 가져오기** | Informix 문을 실행 하 여 지정 된 테이블에서 행을 인출 `SELECT WHERE` 합니다. | - **테이블 이름**: 원하는 Informix 테이블의 이름 <br>- **행 id**: 행의 고유 id입니다 (예:). `9999` |
    | **행 삽입** | Informix 문을 실행 하 여 지정 된 Informix 테이블에 행을 추가 `INSERT` 합니다. | - **테이블 이름**: 원하는 Informix 테이블의 이름 <br>- **item**: 추가할 값이 있는 행입니다. |
@@ -84,8 +84,8 @@ ms.locfileid: "88761647"
    | 서버 | `server` | 예 | Pnrp `informixdemo.cloudapp.net:9089` <br>-온-프레미스: `informixdemo:9089` | IPv4 또는 IPv6 형식으로 입력 하 고 그 뒤에 콜론 및 TCP/IP 포트 번호를 입력 하는 TCP/IP 주소 또는 별칭 |
    | 데이터베이스 | `database` | 예 | `nwind` | DRDA 관계형 데이터베이스 이름 (RDBNAM) 또는 Informix 데이터베이스 이름 (dbname)입니다. Informix는 128 바이트 문자열을 허용 합니다. |
    | 인증 | `authentication` | 온-프레미스 전용 | **기본** 또는 **Windows** (kerberos) | Informix 데이터베이스에 필요한 인증 유형입니다. 이 속성은 **온-프레미스 데이터 게이트웨이를 통해 연결**을 선택 하는 경우에만 표시 됩니다. |
-   | 사용자 이름 | `username` | 예 | <*데이터베이스-사용자-이름*> | 데이터베이스의 사용자 이름입니다. |
-   | 암호 | `password` | 예 | <*데이터베이스-암호*> | 데이터베이스에 대 한 암호 |
+   | 사용자 이름 | `username` | 아니요 | <*데이터베이스-사용자-이름*> | 데이터베이스의 사용자 이름입니다. |
+   | 암호 | `password` | 아니요 | <*데이터베이스-암호*> | 데이터베이스에 대 한 암호 |
    | 게이트웨이 | `gateway` | 온-프레미스 전용 | -<*Azure-구독*> <br>-<Azure-온- *프레미스-데이터-게이트웨이-리소스*> | Azure Portal에서 만든 온-프레미스 데이터 게이트웨이에 대 한 Azure 구독 및 Azure 리소스 이름입니다. **게이트웨이** 속성 및 하위 속성은 **온-프레미스 데이터 게이트웨이를 통해 연결**을 선택 하는 경우에만 표시 됩니다. |
    ||||||
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: chrpap
 ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163580"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Service Fabric 노드 유형을 제거 하는 방법
@@ -183,7 +183,7 @@ Bronze 노드 유형을 제거하면 노드 유형의 모든 노드가 즉시 �
     - 템플릿의 노드 유형과 관련 된 가상 머신 확장 집합 및 기타 리소스를 제거 합니다.
     - 변경 내용을 배포합니다.
 
-    그런 다음:
+    그렇다면
     - 배포가 완료 될 때까지 기다립니다.
     
 10. 더 이상 사용 하지 않는 노드 유형과 관련 된 리소스를 제거 합니다. 예 Load Balancer 및 공용 IP. 

@@ -3,15 +3,15 @@ title: PowerShell을 사용 하 여 RDP 속성 사용자 지정-Azure
 description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱에 대 한 RDP 속성을 사용자 지정 하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: cc3a08f383368b189e41bebd204707f2483e77c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462227"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018310"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>호스트 풀의 RDP (원격 데스크톱 프로토콜) 속성 사용자 지정
 
@@ -20,7 +20,7 @@ ms.locfileid: "89462227"
 
 다중 모니터 환경 및 오디오 리디렉션과 같은 RDP (호스트 풀의 원격 데스크톱 프로토콜) 속성을 사용자 지정 하면 요구 사항에 따라 사용자에 게 최적의 환경을 제공할 수 있습니다. Azure Portal를 사용 하거나 **AzWvdHostPool** cmdlet의 *-customrdpproperty* 매개 변수를 사용 하 여 WINDOWS 가상 데스크톱에서 RDP 속성을 사용자 지정할 수 있습니다.
 
-지원 되는 속성 및 해당 기본값의 전체 목록은 [지원 되는 RDP 파일 설정](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) 을 참조 하세요.
+지원 되는 속성 및 해당 기본값의 전체 목록은 [지원 되는 RDP 파일 설정](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext) 을 참조 하세요.
 
 ## <a name="default-rdp-file-properties"></a>기본 RDP 파일 속성
 
@@ -28,8 +28,8 @@ RDP 파일에는 기본적으로 다음 속성이 있습니다.
 
 |RDP 속성|바탕 화면|RemoteApp으로|
 |---|---|---|
-|다중 모니터 모드|사용|해당 없음|
-|드라이브 리디렉션 사용|드라이브, 클립보드, 프린터, COM 포트, USB 장치 및 스마트 카드|드라이브, 클립보드 및 프린터|
+|다중 모니터 모드|사용 안 함|사용|
+|드라이브 리디렉션 사용|드라이브, 클립보드, 프린터, COM 포트 및 스마트 카드|드라이브, 클립보드 및 프린터|
 |원격 오디오 모드|로컬로 재생|로컬로 재생|
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -42,11 +42,12 @@ Azure Portal에서 RDP 속성을 구성 하려면 다음을 수행 합니다.
 
 1. <https://portal.azure.com> 에서 Azure에 로그인합니다.
 2. 검색 창에 **windows 가상 데스크톱** 을 입력 합니다.
-3. 서비스에서 **Windows 가상 데스크톱**을 선택 합니다.
+3. 서비스에서 **Windows 가상 데스크톱** 을 선택 합니다.
 4. Windows 가상 데스크톱 페이지의 화면 왼쪽에 있는 메뉴에서 **호스트 풀** 을 선택 합니다.
 5. 업데이트 하려는 **호스트 풀의 이름을** 선택 합니다.
-6. 화면 왼쪽의 메뉴에서 **속성** 을 선택 합니다.
-7. **속성** 탭에서 rdp **설정** 으로 이동 하 여 rdp 속성 편집을 시작 합니다. 속성은 PowerShell 예제와 같이 세미콜론으로 구분 된 형식 이어야 합니다.
+6. 화면 왼쪽의 메뉴에서 **RDP 속성** 을 선택 합니다.
+7. 원하는 속성을 설정 합니다.
+   - 또는 **고급** 탭을 열고 다음 섹션의 PowerShell 예제와 같이 세미콜론으로 구분 된 형식으로 RDP 속성을 추가할 수 있습니다.
 8. 완료 되 면 **저장** 을 선택 하 여 변경 내용을 저장 합니다.
 
 다음 섹션에서는 PowerShell에서 사용자 지정 RDP 속성을 수동으로 편집 하는 방법을 설명 합니다.

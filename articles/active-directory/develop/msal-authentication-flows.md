@@ -13,10 +13,10 @@ ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437873"
 ---
 # <a name="authentication-flows"></a>인증 흐름
@@ -136,7 +136,7 @@ MSAL 기반 응용 프로그램은 먼저 토큰을 *자동*으로 획득 한 �
 
 많은 최신 웹 응용 프로그램은 JavaScript로 작성 된 클라이언트 쪽의 SPA (단일 페이지 응용 프로그램) 또는 각도, Vue.js, React.js 등의 SPA 프레임 워크로 빌드됩니다. 이러한 애플리케이션은 웹 브라우저에서 실행되며 기존 서버 쪽 웹 애플리케이션과 다른 인증 특징이 있습니다. Microsoft ID 플랫폼을 사용하면 암시적 권한 부여 흐름을 사용하여 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스할 수 있습니다. 암시적 흐름을 사용하면 애플리케이션에서 ID 토큰을 가져와 인증된 사용자를 나타낼 수 있으며, 보호된 API를 호출하는 데 필요한 토큰에도 액세스할 수 있습니다.
 
-이 인증 흐름에는 기본 플랫폼과의 상호 작용을 위한 추가 기능이 필요 하므로 전자/반자와 같은 플랫폼 간 JavaScript 프레임 워크를 사용 하는 응용 프로그램 시나리오가 포함 되지 않습니다.
+이 인증 흐름에는 기본 플랫폼과의 상호 작용을 위한 추가 기능이 필요 하기 때문에 전자 또는 React-Native 같은 플랫폼 간 JavaScript 프레임 워크를 사용 하는 응용 프로그램 시나리오가 포함 되지 않습니다.
 
 암시적 흐름 모드를 통해 발급 된 토큰은 URL로 브라우저에 반환 되므로 **길이 제한이** 있습니다 `response_mode` . 여기서는 `query` 또는입니다 `fragment` . 일부 브라우저는 브라우저 모음에서 URL의 길이를 제한 하 고 너무 길면 실패 합니다. 따라서 이러한 암시적 흐름 토큰은 또는 클레임을 포함 하지 않습니다 `groups` `wids` .
 

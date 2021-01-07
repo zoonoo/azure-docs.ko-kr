@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285274"
 ---
 # <a name="azcopy-login"></a>azcopy login
@@ -41,7 +41,7 @@ azcopy login [flags]
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 일반으로 설정 된 기본 AAD 테 넌 트 ID로 대화형으로 로그인 합니다.
 
@@ -95,7 +95,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 `/path/to/my/cert`PEM 또는 PKCS12 파일의 경로로 처리 합니다. AzCopy는 인증서를 가져오기 위해 시스템 인증서 저장소에 도달 하지 않습니다.
 
-`--certificate-path`인증서 기반 서비스 주체 인증을 수행할 때 반드시 필요 합니다.
+`--certificate-path` 인증서 기반 서비스 주체 인증을 수행할 때 반드시 필요 합니다.
 
 ## <a name="options"></a>옵션
 
@@ -105,7 +105,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 **--certificate-** SPN 인증을 위한 인증서의 경로 문자열 경로입니다. 인증서 기반 서비스 주체 인증에 필요 합니다.
 
-**--** 명령에 대 한 도움말 도움말 `azcopy login` 입니다.
+**--**   명령에 대 한 도움말 도움말 `azcopy login` 입니다.
 
 **--id**   MSI (관리 서비스 id) 라고도 하는 가상 컴퓨터의 id를 사용 하 여 로그인 합니다.
 

@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: genemi
+ms.topic: how-to
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: a4747fcd3a68c91e10d13a03adcbc4930bd9d759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5717c2479c1d894117bae44826a814c3cfeaa98a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345260"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493392"
 ---
-# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 메모리 내 OLTP 저장소 모니터링
+# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 In-Memory OLTP 저장소 모니터링
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 [메모리 내 OLTP](in-memory-oltp-overview.md)를 사용하는 경우 메모리 최적화 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 스토리지에 상주합니다.
@@ -65,7 +65,7 @@ ms.locfileid: "84345260"
 - 메모리 최적화 테이블에서 유지하는 데 필요한 데이터에 대한 충분한 메모리 내 스토리지가 있는 서비스 계층을 업그레이드합니다.
 
 > [!NOTE]
-> 드문 경우지만 오류 41823 및 41840은 일시적일 수 있습니다. 즉, 메모리 내 OLTP 스토리지 용량이 충분하고 작업을 다시 시도하면 성공할 수 있습니다. 따라서 사용 가능한 전체 메모리 내 OLTP 스토리지를 모니터링하고 처음 41823 또는 41840 오류가 발생하는 경우에는 다시 시도하는 것이 좋습니다. 다시 시도 논리에 대한 자세한 내용은 [메모리 내 OLTP를 통해 충돌 검색 및 다시 시도 논리](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic)를 참조하세요.
+> 드문 경우지만 오류 41823 및 41840은 일시적일 수 있습니다. 즉, 메모리 내 OLTP 스토리지 용량이 충분하고 작업을 다시 시도하면 성공할 수 있습니다. 따라서 사용 가능한 전체 메모리 내 OLTP 스토리지를 모니터링하고 처음 41823 또는 41840 오류가 발생하는 경우에는 다시 시도하는 것이 좋습니다. 다시 시도 논리에 대한 자세한 내용은 [메모리 내 OLTP를 통해 충돌 검색 및 다시 시도 논리](/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

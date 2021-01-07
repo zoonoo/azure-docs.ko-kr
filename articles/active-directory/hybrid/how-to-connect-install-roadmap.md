@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662146"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873270"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
 
@@ -29,7 +29,7 @@ ms.locfileid: "89662146"
 
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
 
-| 솔루션 | 시나리오 |
+| 해결 방법 | 시나리오 |
 | --- | --- |
 | 시작하기 전에 - [하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md) |<li>Azure AD Connect 설치를 시작하기 전에 완료할 단계입니다.</li> |
 | [Express 설정](how-to-connect-install-express.md) |<li>단일 포리스트 AD가 있는 경우 사용하도록 권장되는 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li> |
@@ -143,12 +143,12 @@ Azure AD Connect Health를 시작하려면 다음 단계를 수행하세요.
 * Azure AD Connect Health에 대한 [요구 사항을 충족](how-to-connect-health-agent-install.md#requirements)해야 합니다.
 * AD FS용 Azure AD Connect Health 사용 시작
     * [AD FS용 Azure AD Connect Health Agent 다운로드.](https://go.microsoft.com/fwlink/?LinkID=518973)
-    * [설치 지침을 참조](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)하세요.
+    * [설치 지침을 참조](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)하세요.
 * 동기화용 Azure AD Connect Health 사용 시작
     * [최신 버전의 Azure AD Connect 다운로드 및 설치](https://go.microsoft.com/fwlink/?linkid=615771). 동기화용 Health 에이전트는 Azure AD Connect의 일부로 설치됩니다(버전 1.0.9125.0 이상).
 * AD DS용 Azure AD Connect Health 사용 시작
     * [AD DS에 대 한 Azure AD Connect Health 에이전트를 다운로드](https://go.microsoft.com/fwlink/?LinkID=820540)합니다.
-    * [설치 지침을 참조](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds)하세요.
+    * [설치 지침을 참조](how-to-connect-health-agent-install.md#install-the-agent-for-azure-ad-ds)하세요.
 
 
 ## <a name="azure-ad-connect-health-portal"></a>Azure AD Connect Health 포털
@@ -159,13 +159,13 @@ Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사�
     
 ![Azure AD Connect Health 포털](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
-* **빠른 시작**: 이 옵션을 선택하면 **빠른 시작** 블레이드가 열립니다. **도구 가져오기**를 선택하여 Azure AD Connect Health 에이전트를 다운로드할 수 있습니다. 설명서에 액세스하고 피드백을 제공할 수도 있습니다.
+* **빠른 시작**: 이 옵션을 선택하면 **빠른 시작** 블레이드가 열립니다. **도구 가져오기** 를 선택하여 Azure AD Connect Health 에이전트를 다운로드할 수 있습니다. 설명서에 액세스하고 피드백을 제공할 수도 있습니다.
 * **Azure Active Directory Connect(동기화)**: 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 Azure AD Connect 서버를 표시합니다. **동기화 오류** 항목에는 범주별 첫 번째 온보드된 동기화 서비스의 기본 동기화 오류가 표시됩니다. **동기화 서비스** 항목을 선택하면 열리는 블레이드에 Azure AD Connect 서버에 대한 정보가 표시됩니다. [동기화용 Azure AD Connect Health 사용](how-to-connect-health-sync.md)에서 기능에 대해 자세히 알아보세요.
 * **Active Directory Federation Services**: 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 모든 AD FS 서비스를 표시합니다. 인스턴스를 선택하면 열리는 블레이드에 해당 서비스 인스턴스에 대한 정보가 표시됩니다. 개요, 속성, 경고, 모니터링 및 사용량 현황 분석이 이러한 정보에 포함됩니다. [Azure AD Connect Health를 AD FS와 함께 사용](how-to-connect-health-adfs.md)에서 기능에 대해 자세히 알아보세요.
 * **Active Directory Domain Services**: 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 모든 AD DS 포리스트를 표시합니다. 포리스트를 선택하면 열리는 블레이드에 해당 포리스트에 대한 정보가 표시됩니다. 이 정보에는 중요한 정보의 개요, 도메인 컨트롤러 대시보드, 복제 상태 대시보드, 경고 및 모니터링이 포함됩니다. [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)에서 기능에 대해 자세히 알아보세요.
 * **구성**: 이 섹션에는 다음 기능을 켜거나 끄는 옵션이 포함되어 있습니다.
 
-   - Azure AD Connect Health 에이전트를 최신 버전으로 **자동 업데이트** : Azure AD Connect Health 에이전트가 새 버전을 사용할 수 있을 때마다 자동으로 업데이트 됩니다. 이 옵션은 기본적으로 사용됩니다.
+   - Azure AD Connect Health 에이전트를 최신 버전으로 **자동 업데이트** : Azure AD Connect Health 에이전트가 새 버전을 사용할 수 있을 때마다 자동으로 업데이트 됩니다. 기본적으로 이 옵션은 사용하도록 설정됩니다.
    - 문제 해결을 위해 Microsoft에서 제공 하는 Azure AD 디렉터리 무결성의 **데이터에** 대 한 액세스:이 옵션을 사용 하도록 설정 하면 microsoft는 사용자가 본 동일한 데이터에 액세스할 수 있습니다. 이 정보는 문제를 해결 하 고 필요한 지원을 제공 하는 데 유용할 수 있습니다. 이 옵션은 기본적으로 사용 되지 않습니다.
 * **역할 기반 액세스 제어(IAM)** 섹션은 기본 역할에서 Connect Health 데이터에 대한 액세스를 관리합니다. 
 

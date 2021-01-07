@@ -13,13 +13,14 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-- devx-track-javascript
-ms.openlocfilehash: f3dad81a5cba9dd817e0d4e75590d374fe059358
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+- devx-track-azurecli
+ms.openlocfilehash: 9ec2c51f01d6b13f33bc2d537a8f73a6721967d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424106"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572527"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -27,7 +28,7 @@ ms.locfileid: "87424106"
 
 디바이스에서 원격 분석을 받는 것뿐만 아니라 백 엔드 서비스에서 디바이스를 구성해야 할 수도 있습니다. 원하는 구성을 디바이스로 보내면 해당 디바이스에서 상태 및 준수 업데이트를 받을 수도 있습니다. 예를 들어 디바이스의 대상 작동 온도 범위를 설정하거나 디바이스의 펌웨어 버전 정보를 수집할 수 있습니다.
 
-디바이스와 IoT 허브 간에 상태 정보를 동기화하려면 _디바이스 쌍_을 사용합니다. [디바이스 쌍](iot-hub-devguide-device-twins.md)은 특정 디바이스와 관련된 JSON 문서이며, IoT Hub를 통해 [쿼리](iot-hub-devguide-query-language.md)할 수 있는 클라우드에 저장됩니다. 디바이스 쌍에는 _desired 속성_, _reported 속성_ 및 _태그_가 있습니다. desired 속성은 백 엔드 애플리케이션에서 설정하고 디바이스에서 읽습니다. reported 속성은 디바이스에서 설정하고 백 엔드 애플리케이션에서 읽습니다. 태그는 백 엔드 애플리케이션에서 설정하고 디바이스로 보내지 않습니다. 태그를 사용하여 디바이스를 구성합니다. 이 자습서에서는 desired 속성과 reported 속성을 사용하여 상태 정보를 동기화하는 방법을 보여 줍니다.
+디바이스와 IoT 허브 간에 상태 정보를 동기화하려면 _디바이스 쌍_ 을 사용합니다. [디바이스 쌍](iot-hub-devguide-device-twins.md)은 특정 디바이스와 관련된 JSON 문서이며, IoT Hub를 통해 [쿼리](iot-hub-devguide-query-language.md)할 수 있는 클라우드에 저장됩니다. 디바이스 쌍에는 _desired 속성_, _reported 속성_ 및 _태그_ 가 있습니다. desired 속성은 백 엔드 애플리케이션에서 설정하고 디바이스에서 읽습니다. reported 속성은 디바이스에서 설정하고 백 엔드 애플리케이션에서 읽습니다. 태그는 백 엔드 애플리케이션에서 설정하고 디바이스로 보내지 않습니다. 태그를 사용하여 디바이스를 구성합니다. 이 자습서에서는 desired 속성과 reported 속성을 사용하여 상태 정보를 동기화하는 방법을 보여 줍니다.
 
 ![쌍 요약](media/tutorial-device-twins/DeviceTwins.png)
 
@@ -38,11 +39,9 @@ ms.locfileid: "87424106"
 > * desired 속성을 사용하여 시뮬레이션된 디바이스에 상태 정보를 보냅니다.
 > * reported 속성을 사용하여 시뮬레이션된 디바이스에서 상태 정보를 받습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
 
@@ -62,7 +61,7 @@ node --version
 
 이 자습서를 완료하려면 Azure 구독에 디바이스 ID 레지스트리에 디바이스가 추가된 IoT 허브가 있어야 합니다. 디바이스 ID 레지스트리의 항목을 사용하면 이 자습서에서 실행하는 시뮬레이션된 디바이스를 허브에 연결할 수 있습니다.
 
-구독에 아직 IoT 허브를 설정하지 않은 경우 다음 CLI 스크립트를 사용하여 하나의 IoT 허브를 설정할 수 있습니다. 다음 스크립트는 IoT 허브에 대해 **tutorial-iot-hub**라는 이름을 사용하므로 실행할 때는 이 이름을 사용자의 고유 이름으로 바꿔야 합니다. 이 스크립트의 경우 **미국 중부** 지역에 리소스 그룹과 허브를 만들지만, 가장 가까운 지역으로 변경할 수 있습니다. 그리고 백 엔드 샘플에서 IoT 허브에 연결하는 데 사용하는 IoT 허브 서비스 연결 문자열을 검색합니다.
+구독에 아직 IoT 허브를 설정하지 않은 경우 다음 CLI 스크립트를 사용하여 하나의 IoT 허브를 설정할 수 있습니다. 다음 스크립트는 IoT 허브에 대해 **tutorial-iot-hub** 라는 이름을 사용하므로 실행할 때는 이 이름을 사용자의 고유 이름으로 바꿔야 합니다. 이 스크립트의 경우 **미국 중부** 지역에 리소스 그룹과 허브를 만들지만, 가장 가까운 지역으로 변경할 수 있습니다. 그리고 백 엔드 샘플에서 IoT 허브에 연결하는 데 사용하는 IoT 허브 서비스 연결 문자열을 검색합니다.
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -82,7 +81,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-이 자습서에서는 **MyTwinDevice**라는 시뮬레이션된 디바이스를 사용합니다. 다음 스크립트는 이 디바이스를 ID 레지스트리에 추가하고 해당 연결 문자열을 검색합니다.
+이 자습서에서는 **MyTwinDevice** 라는 시뮬레이션된 디바이스를 사용합니다. 다음 스크립트는 이 디바이스를 ID 레지스트리에 추가하고 해당 연결 문자열을 검색합니다.
 
 ```azurecli-interactive
 # Set the name of your IoT hub:
@@ -119,7 +118,7 @@ desired 속성을 받는 시뮬레이션된 디바이스 샘플 코드를 보려
 
 ### <a name="sample-desired-properties"></a>desired 속성 샘플
 
-애플리케이션에 편리한 방식으로 desired 속성을 구조화할 수 있습니다. 다음 예제에서는 **fanOn**이라는 최상위 속성 하나를 사용하고, 나머지 속성은 별도의 **components**에 그룹화합니다. 다음 JSON 코드 조각에서는 이 자습서에서 사용하는 desired 속성의 구조를 보여 줍니다.
+애플리케이션에 편리한 방식으로 desired 속성을 구조화할 수 있습니다. 다음 예제에서는 **fanOn** 이라는 최상위 속성 하나를 사용하고, 나머지 속성은 별도의 **components** 에 그룹화합니다. 다음 JSON 코드 조각에서는 이 자습서에서 사용하는 desired 속성의 구조를 보여 줍니다.
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
@@ -135,13 +134,13 @@ JSON 계층 구조의 여러 수준에서 업데이트에 응답하는 desired �
 
 ### <a name="handlers-for-multiple-properties"></a>여러 속성에 대한 처리기
 
-앞서의 desired 속성 JSON 예제에서 **components** 아래의 **climate** 노드에는 **minTemperature** 및 **maxTemperature**의 두 속성이 있습니다.
+앞서의 desired 속성 JSON 예제에서 **components** 아래의 **climate** 노드에는 **minTemperature** 및 **maxTemperature** 의 두 속성이 있습니다.
 
-디바이스의 로컬 **쌍** 개체는 desired 속성과 reported 속성의 전체 집합을 저장합니다. 백 엔드에서 보낸 **delta**는 desired 속성의 일부만 업데이트할 수 있습니다. 다음 코드 조각에서는 시뮬레이션된 디바이스에서 **minTemperature** 및 **maxTemperature** 중 하나에 대한 업데이트를 받으면 다른 값에 대한 로컬 쌍의 값을 사용하여 디바이스를 구성합니다.
+디바이스의 로컬 **쌍** 개체는 desired 속성과 reported 속성의 전체 집합을 저장합니다. 백 엔드에서 보낸 **delta** 는 desired 속성의 일부만 업데이트할 수 있습니다. 다음 코드 조각에서는 시뮬레이션된 디바이스에서 **minTemperature** 및 **maxTemperature** 중 하나에 대한 업데이트를 받으면 다른 값에 대한 로컬 쌍의 값을 사용하여 디바이스를 구성합니다.
 
 [!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
-로컬 **쌍** 개체는 desired 속성과 reported 속성의 전체 집합을 저장합니다. 백 엔드에서 보낸 **delta**는 desired 속성의 일부만 업데이트할 수 있습니다.
+로컬 **쌍** 개체는 desired 속성과 reported 속성의 전체 집합을 저장합니다. 백 엔드에서 보낸 **delta** 는 desired 속성의 일부만 업데이트할 수 있습니다.
 
 ### <a name="handle-insert-update-and-delete-operations"></a>삽입, 업데이트 및 삭제 작업 처리
 
@@ -161,7 +160,7 @@ desired 속성을 받는 시뮬레이션된 디바이스 샘플 코드를 보려
 
 [!code-javascript[Create registry and get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=getregistrytwin&highlight=2,6 "Create registry and get twin")]
 
-다음 코드 조각에서는 백 엔드 애플리케이션에서 디바이스로 보내는 여러 가지 desired 속성 *패치*를 보여 줍니다.
+다음 코드 조각에서는 백 엔드 애플리케이션에서 디바이스로 보내는 여러 가지 desired 속성 *패치* 를 보여 줍니다.
 
 [!code-javascript[Patches sent to device](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=patches&highlight=2,12,26,41,56 "Patches sent to device")]
 
@@ -191,11 +190,11 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션의 출력을 보여 주고, **maxTemperature** desired 속성에 대한 업데이트를 처리하는 방법을 강조 표시하고 있습니다. 최상위 처리기와 climate component(기후 구성 요소) 처리기가 모두 실행되는 방식을 확인할 수 있습니다.
 
-![시뮬레이션된 디바이스](./media/tutorial-device-twins/SimulatedDevice1.png)
+![최상위 처리기와 기후 구성 요소 처리기가 모두 실행되는 방식을 보여주는 스크린샷.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여 주고, **maxTemperature** desired 속성에 대한 업데이트를 보내는 방법을 강조 표시하고 있습니다.
 
-![백 엔드 애플리케이션](./media/tutorial-device-twins/BackEnd1.png)
+![백 엔드 애플리케이션의 출력을 표시하고 업데이트를 보내는 방법을 강조 표시하는 스크린샷.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## <a name="receive-state-information"></a>상태 정보 받기
 
@@ -251,7 +250,7 @@ node ServiceClient.js "{your service connection string}"
 
 다음 자습서를 완료하려면 리소스 그룹과 IoT 허브를 그대로 두고 나중에 다시 사용합니다.
 
-더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT 허브가 포함된 **tutorial-iot-hub-rg** 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT 허브가 포함된 **tutorial-iot-hub-rg** 리소스 그룹을 선택하고 **삭제** 를 클릭합니다.
 
 또는 CLI를 사용합니다.
 

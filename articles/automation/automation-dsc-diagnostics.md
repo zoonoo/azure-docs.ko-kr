@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f66c710901b129cb6b138fff126e67615c790714
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015156"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183671"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Azure Monitor 로그와 통합
 
@@ -36,7 +36,7 @@ Automation State Configuration 보고서를 Azure Monitor 로그로 보내려면
 
 - [Azure PowerShell](/powershell/azure/)의 2016년 11월(v2.3.0) 이후 릴리스
 - Azure Automation 계정. 자세한 내용은 [Azure Automation에 대한 소개](automation-intro.md)를 참조하세요.
-- Automation & Control 서비스를 제공하는 Log Analytics 작업 영역 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조하세요.
+- Automation & Control 서비스를 제공하는 Log Analytics 작업 영역 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md)을 참조하세요.
 - 적어도 하나 이상의 Azure Automation 상태 구성 노드 자세한 내용은 [Azure Automation State Configuration을 통해 관리를 위한 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.
 - [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) 모듈, 버전 2.7.0.0 이상 설치 단계는 [Azure Automation Desired State Configuration 문제 해결](./troubleshoot/desired-state-configuration.md)을 참조하세요.
 
@@ -73,7 +73,7 @@ Azure Automation State Configuration에서 Azure Monitor 로그로 데이터 가
 
 ## <a name="view-the-state-configuration-logs"></a>상태 구성 로그 보기
 
-Automation State Configuration 데이터에 대한 Azure Monitor 로그와의 통합을 설정한 후에는 DSC(State configuration) 페이지의 왼쪽 창에 있는 **모니터링** 섹션에서 **로그**를 선택하여 볼 수 있습니다.
+Automation State Configuration 데이터에 대한 Azure Monitor 로그와의 통합을 설정한 후에는 DSC(State configuration) 페이지의 왼쪽 창에 있는 **모니터링** 섹션에서 **로그** 를 선택하여 볼 수 있습니다.
 
 ![로그](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
@@ -99,11 +99,11 @@ Automation 계정 리소스로 범위가 지정된 쿼리 영역으로 로그 �
 
 경고 규칙을 만들려면 경고를 호출해야 하는 State Configuration 보고서 레코드에 대한 로그 검색을 만들어 시작합니다. **새 경고 규칙** 단추를 클릭하여 경고 규칙을 만들고 구성합니다.
 
-1. Log Analytics 작업 영역 개요 페이지에서 **로그**를 클릭합니다.
+1. Log Analytics 작업 영역 개요 페이지에서 **로그** 를 클릭합니다.
 1. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
    둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. `DscNodeStatusData` 레코드 검색의 `Resource` 필드에서 Automation 계정 이름을 파생합니다.
-1. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **새 경고 규칙**을 클릭합니다. 
+1. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **새 경고 규칙** 을 클릭합니다. 
 
 경고 구성 옵션에 자세한 내용은 [경고 규칙 만들기](../azure-monitor/platform/alerts-metric.md)를 참조하세요.
 
@@ -111,7 +111,7 @@ Automation 계정 리소스로 범위가 지정된 쿼리 영역으로 로그 �
 
 Azure Monitor 로그를 사용할 때의 한 가지 이점은 노드에서 실패한 검사를 검색할 수 있다는 것입니다. 실패한 DSC 리소스의 모든 인스턴스를 찾으려면 다음을 수행합니다.
 
-1. Log Analytics 작업 영역 개요 페이지에서 **로그**를 클릭합니다.
+1. Log Analytics 작업 영역 개요 페이지에서 **로그** 를 클릭합니다.
 1. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`.
 
 ### <a name="view-historical-dsc-node-status"></a>DSC 노드 상태 기록 보기

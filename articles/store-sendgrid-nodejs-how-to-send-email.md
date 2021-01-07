@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60931720"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015430"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Node.js에서 SendGrid를 사용하여 메일을 보내는 방법
 
@@ -36,7 +36,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 문의 전달
 * 애플리케이션의 전자 메일 알림
 
-자세한 내용은 [https://sendgrid.com](https://sendgrid.com)를 참조하세요.
+자세한 내용은 [https://sendgrid.com](https://sendgrid.com)을(를) 참조하세요.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 
@@ -57,7 +57,7 @@ var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 ```
 
 SendGrid 모듈은 **SendGrid** 및 **Email** 함수를 내보냅니다.
-**SendGrid**는 Web API를 통해 전자 메일을 보내는 역할을 맡고, **Email**은 전자 메일 메시지를 캡슐화합니다.
+**SendGrid** 는 Web API를 통해 전자 메일을 보내는 역할을 맡고, **Email** 은 전자 메일 메시지를 캡슐화합니다.
 
 ## <a name="how-to-create-an-email"></a>방법: 전자 메일 만들기
 
@@ -72,7 +72,7 @@ var email = new sendgrid.Email({
 });
 ```
 
-또한 html 속성을 설정하여 HTML 메시지를 지원하는 클라이언트를 위해 HTML 메시지를 지정할 수도 있습니다. 예:
+또한 html 속성을 설정하여 HTML 메시지를 지원하는 클라이언트를 위해 HTML 메시지를 지정할 수도 있습니다. 예들 들어 다음과 같습니다.
 
 ```javascript
 html: This is a sample <b>HTML<b> email message.
@@ -96,7 +96,7 @@ sendgrid.send(email, function(err, json){
 ```
 
 > [!NOTE]
-> 위 예제에서는 email 개체 및 콜백 함수를 전달하고 있지만, email 속성을 직접 지정하여 send 함수를 바로 호출할 수도 있습니다. 예:  
+> 위 예제에서는 email 개체 및 콜백 함수를 전달하고 있지만, email 속성을 직접 지정하여 send 함수를 바로 호출할 수도 있습니다. 예들 들어 다음과 같습니다.  
 > 
 > ```javascript
 > sendgrid.send({
@@ -188,7 +188,7 @@ sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>방법: 전자 메일 속성 업데이트
 
-일부 전자 메일 속성은 **setProperty** 를 사용 하 여 덮어쓰거나 **addProperty**를 사용 하 여 추가할 수 있습니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
+일부 전자 메일 속성은 **setProperty** 를 사용 하 여 덮어쓰거나 **addProperty** 를 사용 하 여 추가할 수 있습니다. 예를 들어 다음을 사용하여 받는 사람을 더 추가할 수 있습니다.
 
 ```javascript
 email.addTo('jeff@contoso.com');
@@ -213,7 +213,7 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 
 * SendGrid Node.js 모듈 리포지토리: [sendgrid-nodejs][sendgrid-nodejs]
 * SendGrid API 설명서: <https://sendgrid.com/docs>
-* Azure 고객을 위한 SendGrid 특별 제안:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Azure 고객을 위한 SendGrid 특별 제안: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

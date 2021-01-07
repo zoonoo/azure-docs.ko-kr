@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 9247ae6e6cfc276c871689df826935c519620573
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908143"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978971"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 대역폭 일정을 관리 합니다.  
 
@@ -66,7 +66,7 @@ Azure Portal를 통해 Azure Stack Edge Pro의 대역폭 일정을 추가, 수�
 
 4. 일정이 수정된 후 일정 목록이 업데이트되어 수정된 일정이 반영됩니다.
 
-    ![사용자 수정](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![사용자 수정 2](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>일정 삭제

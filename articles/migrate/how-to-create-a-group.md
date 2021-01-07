@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate를 사용하여 평가할 컴퓨터 그룹화 | Microsoft Docs
 description: Azure Migrate 서비스를 사용하여 평가를 실행하기 전에 컴퓨터를 그룹화하는 방법을 설명합니다.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/17/2019
-ms.author: hamusa
-ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 364b5949e944a4317aa25f1f1b12545122881cec
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549917"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752110"
 ---
 # <a name="create-a-group-for-assessment"></a>평가를 위한 그룹 만들기
 
@@ -35,14 +35,14 @@ ms.locfileid: "85549917"
 
 평가를 만드는 외부에서 그룹을 수동으로 만들려면 다음을 수행 합니다.
 
-1. Azure Migrate 프로젝트 > **개요**에서 **서버 평가 및 마이그레이션**을 클릭 합니다. **Azure Migrate: 서버 평가**에서 **그룹** 을 클릭 합니다.
-    - Azure Migrate: 서버 평가 도구를 아직 추가 하지 않은 경우 클릭 하 여 추가 합니다. [자세히 알아보기](how-to-assess.md).
-    - Azure Migrate 프로젝트를 아직 만들지 않은 경우 자세히 [알아보세요](how-to-add-tool-first-time.md).
+1. Azure Migrate 프로젝트 > **개요** 에서 **서버 평가 및 마이그레이션** 을 클릭 합니다. **Azure Migrate: 서버 평가** 에서 **그룹** 을 클릭 합니다.
+    - Azure Migrate: 서버 평가 도구를 아직 추가 하지 않은 경우 클릭 하 여 추가 합니다. [자세히 알아봅니다](how-to-assess.md).
+    - Azure Migrate 프로젝트를 아직 만들지 않은 경우 자세히 [알아보세요](./create-manage-projects.md).
 
     ![그룹 선택](./media/how-to-create-a-group/select-groups.png)
 
 2. **그룹** 아이콘을 클릭 합니다.
-3. **만들기 그룹**에서 그룹 이름을 지정 하 고, **어플라이언스 이름**에서 컴퓨터 검색에 사용 중인 Azure Migrate 어플라이언스를 선택 합니다.
+3. **만들기 그룹** 에서 그룹 이름을 지정 하 고, **어플라이언스 이름** 에서 컴퓨터 검색에 사용 중인 Azure Migrate 어플라이언스를 선택 합니다.
 4. 컴퓨터 목록에서 그룹에 추가 하려는 컴퓨터를 선택 > **만듭니다**.
 
     ![그룹 만들기](./media/how-to-create-a-group/create-group.png)
@@ -58,15 +58,15 @@ ms.locfileid: "85549917"
 
 이미 [종속성 매핑을 설정](how-to-create-group-machine-dependencies.md)하 고 기존 그룹을 구체화 하려면 다음을 수행 합니다.
 
-1. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **그룹**을 클릭 합니다.
+1. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **그룹** 을 클릭 합니다.
 2. 구체화 하려는 그룹을 클릭 합니다.
-    - 종속성 매핑을 아직 설정 하지 않은 경우 **종속성** 열에는 **설치 필요** 상태가 표시 됩니다. 종속성을 시각화 하려는 각 VM에 대해 **설치 필요**를 클릭 합니다. 각 VM에 두 개의 에이전트를 설치 하 여 컴퓨터 종속성을 매핑해야 합니다. [자세히 알아보기](how-to-create-group-machine-dependencies.md).
+    - 종속성 매핑을 아직 설정 하지 않은 경우 **종속성** 열에는 **설치 필요** 상태가 표시 됩니다. 종속성을 시각화 하려는 각 VM에 대해 **설치 필요** 를 클릭 합니다. 각 VM에 두 개의 에이전트를 설치 하 여 컴퓨터 종속성을 매핑해야 합니다. [자세히 알아봅니다](how-to-create-group-machine-dependencies.md).
 
         ![종속성 매핑 추가](./media/how-to-create-a-group/add-dependency-mapping.png)
 
     - 이미 종속성 매핑을 설정한 경우 그룹 페이지에서 **종속성 보기** 를 클릭 하 여 그룹 종속성 맵을 엽니다.
 
-3. **종속성 보기**를 클릭 하면 그룹 종속성 맵에 다음이 표시 됩니다.
+3. **종속성 보기** 를 클릭 하면 그룹 종속성 맵에 다음이 표시 됩니다.
 
     - 종속성 에이전트가 설치 된 그룹의 모든 컴퓨터와의 인바운드 (클라이언트) 및 아웃 바운드 (서버) TCP 연결
     - 종속성 에이전트가 설치 되어 있지 않은 종속 컴퓨터는 포트 번호로 그룹화 됩니다.
@@ -89,4 +89,3 @@ ms.locfileid: "85549917"
 ## <a name="next-steps"></a>다음 단계
 
 [종속성 매핑을](how-to-create-group-machine-dependencies.md) 설정 하 고 사용 하 여 높은 신뢰도 그룹을 만드는 방법에 대해 알아봅니다.
-

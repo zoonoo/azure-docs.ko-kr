@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 6400cfe7e524dcc16e08c2bba7dfba4a62d00b2e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232562"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Azure Logic Apps의 B2B 오류 및 해결 방법
@@ -31,7 +31,7 @@ ms.locfileid: "86232562"
 
 **오류 설명**: id가 ' AS2Identity ':: ' Partner1 ' and'AS2Identity ':: ' Partner3 ' 인 규약을 찾을 수 없습니다.
 
-**사용자 동작**: 규약에 대해 잘못 된 As2-FROM 또는 As2-로 구성 되었습니다. AS2 메시지 헤더의 AS2 ID가 규약 구성과 일치하도록 AS2 메시지의 "AS2-From" 또는 "AS2-To" 헤더나 규약을 수정합니다.
+**사용자 작업**: 규약에 대해 구성 된 AS2-From 또는 AS2-To 잘못 되었습니다. AS2 메시지 헤더의 AS2 ID가 규약 구성과 일치하도록 AS2 메시지의 "AS2-From" 또는 "AS2-To" 헤더나 규약을 수정합니다.
 
 ## <a name="as2"></a>AS2
 
@@ -39,7 +39,7 @@ ms.locfileid: "86232562"
 
 **오류 설명**: AS2 헤더가 잘못 되었습니다. "AS2-To" 또는 "AS2-From" 헤더 중 하나가 비어 있습니다.
 
-**사용자 작업**: As2 메시지에서 as2 또는 As2-To 또는 both 헤더를 포함 하지 않는 메시지를 받았습니다. AS2 메시지 AS2-From 및 AS2-To 헤더를 확인하고 규약 구성에 따라 수정합니다.
+**사용자 작업**: AS2-From 또는 AS2-To 또는 두 헤더를 포함 하지 않은 AS2 메시지가 수신 되었습니다. AS2 메시지 AS2-From 및 AS2-To 헤더를 확인하고 규약 구성에 따라 수정합니다.
 
 ### <a name="missing-as2-message-body-and-headers"></a>누락된 AS2 메시지 본문 및 헤더    
 

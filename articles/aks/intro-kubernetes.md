@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003208"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681553"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -26,11 +26,11 @@ Kubernetes 기본 사항에 대한 자세한 내용은 [AKS의 Kubernetes 핵심
 
 ## <a name="access-security-and-monitoring"></a>액세스, 보안 및 모니터링
 
-향상된 보안 및 관리를 위해 AKS를 사용하면 Azure Active Directory와 통합하고 Kubernetes RBAC(역할 기반 액세스 제어)를 사용할 수 있습니다. 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다.
+향상된 보안 및 관리를 위해 AKS를 사용하면 Azure Active Directory와 통합하고 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 사용할 수 있습니다. 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다.
 
 ### <a name="identity-and-security-management"></a>ID 및 보안 관리
 
-클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC(역할 기반 액세스 제어)][kubernetes-rbac]를 지원합니다. RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 대한 액세스와 해당 리소스에 대한 권한을 제어할 수 있습니다. Azure AD(Active Directory)와 통합하도록 AKS 클러스터를 구성할 수도 있습니다. Azure AD 통합을 사용하여 Kubernetes 액세스는 기존 ID 및 그룹 멤버 자격에 따라 구성될 수 있습니다. 기존 Azure AD 사용자 및 그룹에 AKS 리소스에 대한 액세스와 통합된 로그인 환경을 제공할 수 있습니다.
+클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)][kubernetes-rbac]를 지원합니다. Kubernetes RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 대한 액세스와 해당 리소스에 대한 권한을 제어할 수 있습니다. Azure AD(Active Directory)와 통합하도록 AKS 클러스터를 구성할 수도 있습니다. Azure AD 통합을 사용하여 Kubernetes 액세스는 기존 ID 및 그룹 멤버 자격에 따라 구성될 수 있습니다. 기존 Azure AD 사용자 및 그룹에 AKS 리소스에 대한 액세스와 통합된 로그인 환경을 제공할 수 있습니다.
 
 ID에 대한 자세한 내용은 [AKS에 대한 액세스 및 ID 옵션][concepts-identity]을 참조하세요.
 
@@ -63,6 +63,12 @@ Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에�
 AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단일 또는 여러 GPU 사용 VM을 제공합니다. GPU 사용 VM은 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다.
 
 자세한 내용은 [AKS에서 GPU 사용][aks-gpu]을 참조하세요.
+
+### <a name="confidential-computing-nodes-public-preview"></a>기밀 컴퓨팅 노드(공개 미리 보기)
+
+AKS는 Intel SGX 기반 기밀 컴퓨팅 노드 풀(DCSv2 VM) 생성을 지원합니다. 기밀 컴퓨팅 노드를 통해 하드웨어 기반의 신뢰할 수 있는 격리된 실행 환경(enclaves)에서 컨테이너를 실행할 수 있습니다. 증명을 통해 코드 무결성과 결합된 컨테이너 간의 격리는 심층 방어 컨테이너 보안 전략에 도움이 될 수 있습니다. 기밀 컴퓨팅 노드는 기밀 컨테이너(기존 docker 앱)와 enclave 인식 컨테이너를 모두 지원합니다.
+
+자세한 내용은 [AKS의 기밀 컴퓨팅 노드][conf-com-node]를 참조하세요.
 
 ### <a name="storage-volume-support"></a>스토리지 볼륨 지원
 
@@ -140,6 +146,7 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

@@ -4,15 +4,15 @@ description: Azure 방화벽과 통합하여 App Service 환경 내에서 아웃
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 09/24/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: e79381c156247efafa55de51f7e2e0154dbc1b51
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e5f9cd361d4f130d725f608614159d67fb7b56d1
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962505"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026363"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -61,11 +61,11 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
    
    ![애플리케이션 규칙 추가][1]
    
-1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 IP 주소에서 이름을 제공 하 고, 프로토콜을 선택 하 고 **, 원본**및 대상 주소를 설정 하 고, 포트를 123으로 설정 합니다. 이 규칙은 시스템이 NTP를 사용하여 클록 동기화를 수행할 수 있게 합니다. 시스템 문제를 분류하기 위해 포트 12000과 동일한 방식으로 다른 규칙을 만듭니다. 
+1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 IP 주소에서 이름을 제공 하 고, 프로토콜을 선택 하 고 **, 원본** 및 대상 주소를 설정 하 고, 포트를 123으로 설정 합니다. 이 규칙은 시스템이 NTP를 사용하여 클록 동기화를 수행할 수 있게 합니다. 시스템 문제를 분류하기 위해 포트 12000과 동일한 방식으로 다른 규칙을 만듭니다. 
 
    ![NTP 네트워크 규칙 추가][3]
    
-1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 서비스 태그 아래에서 이름을 입력하고, **임의**프로토콜을 선택하고, 원본 주소에 *를 설정하고, AzureMonitor의 서비스 태그를 선택한 후 포트를 80, 443으로 설정합니다. 이 규칙을 통해 시스템에서 Azure Monitor에 상태 및 메트릭 정보를 제공할 수 있습니다.
+1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 서비스 태그 아래에서 이름을 입력하고, **임의** 프로토콜을 선택하고, 원본 주소에 *를 설정하고, AzureMonitor의 서비스 태그를 선택한 후 포트를 80, 443으로 설정합니다. 이 규칙을 통해 시스템에서 Azure Monitor에 상태 및 메트릭 정보를 제공할 수 있습니다.
 
    ![NTP 서비스 태그 네트워크 규칙 추가][6]
    
@@ -155,6 +155,9 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |wdcpalt.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |ocsp.msocsp.com:443 |
+|ocsp.msocsp.com:80 |
+|oneocsp.microsoft.com:80 |
+|oneocsp.microsoft.com:443 |
 |mscrl.microsoft.com:443 |
 |mscrl.microsoft.com:80 |
 |crl.microsoft.com:443 |
@@ -162,6 +165,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |www.thawte.com:443 |
 |crl3.digicert.com:80 |
 |ocsp.digicert.com:80 |
+|ocsp.digicert.com:443 |
 |csc3-2009-2.crl.verisign.com:80 |
 |crl.verisign.com:80 |
 |ocsp.verisign.com:80 |
@@ -222,6 +226,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |rteventservice.trafficmanager.net:443 |
 |ctldl.windowsupdate.com:80 |
 |ctldl.windowsupdate.com:443 |
+|global-dsms.dsms.core.windows.net:443 |
 
 #### <a name="wildcard-httphttps-dependencies"></a>Wildcard HTTP/HTTPS dependencies 
 
@@ -250,6 +255,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
+| \*. data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*. data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
@@ -350,10 +356,9 @@ Linux는 US Gov 지역에서 사용할 수 없으므로 선택적 구성으로 �
 |management.core.usgovcloudapi.net:80 |
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
-|mscrl.microsoft.com
-|ocsp.digicert.0 |
-|ocsp.msocsp.co|
-|ocsp.verisign.0 |
+|mscrl.microsoft.com:80
+|ocsp.digicert.com:80 |
+|ocsp.verisign.com:80 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -392,6 +397,7 @@ Linux는 US Gov 지역에서 사용할 수 없으므로 선택적 구성으로 �
 |definitionupdates.microsoft.com:443 |
 |download.windowsupdate.com:443 |
 |fairfax.warmpath.usgovcloudapi.net:443 |
+|gcs.monitoring.core.usgovcloudapi.net:443 |
 |flighting.cp.wd.microsoft.com:443 |
 |gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
 |gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
@@ -411,6 +417,9 @@ Linux는 US Gov 지역에서 사용할 수 없으므로 선택적 구성으로 �
 |mscrl.microsoft.com:443 |
 |ocsp.digicert.com:443 |
 |ocsp.msocsp.com:443 |
+|ocsp.msocsp.com:80 |
+|oneocsp.microsoft.com:80 |
+|oneocsp.microsoft.com:443 |
 |ocsp.verisign.com:443 |
 |rteventservice.trafficmanager.net:443 |
 |settings-win.data.microsoft.com:443 |
@@ -422,6 +431,7 @@ Linux는 US Gov 지역에서 사용할 수 없으므로 선택적 구성으로 �
 |www.microsoft.com:443 |
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
+|global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

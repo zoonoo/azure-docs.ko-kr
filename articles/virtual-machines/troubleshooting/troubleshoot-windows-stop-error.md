@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005908"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Windows 중지 오류 - 메모리 없음 상태
@@ -143,7 +143,7 @@ ms.locfileid: "87005908"
    1. **HKEY_LOCAL_MACHINE >> BROKENSYSTEM >> Select**로 이동 합니다.
    1. 나열 된 키에서 Current의 데이터 값을 확인 합니다. 예를 들어이 값이 **1** 또는 **0x00000001 (1)** 이면 컨트롤 집합은 ControlSet001가 됩니다.
 1. 페이지 파일 만들기가 구성 된 위치를 확인 합니다.
-   1. HKEY_LOCAL_MACHINE \BROKENSYSTEM에서 4 단계에서 확인 한 ControlSet 번호와 일치 하는 디렉터리 (예: **ControlSet001**)를 확장 합니다.
+   1. HKEY_LOCAL_MACHINE\BROKENSYSTEM 중에 4 단계에서 식별 한 ControlSet 수와 일치 하는 디렉터리 (예: **ControlSet001**)를 확장 합니다.
    1. ** >> 세션 관리자 >> 메모리 관리** 로 이동 하 여 **existingpagefiles** 키의 위치를 확인 합니다.
    1. 이 키는 임시 드라이브의 기본 Azure 위치에 있어야 합니다. 데이터 디스크 드라이브 또는 OS 드라이브와 같은 다른 위치에 있는 VHD가 없는 경우에는 삭제 해야 합니다.
    1. 파일 탐색기에서 해당 위치로 이동한 다음 **pagefile.sys** 파일을 삭제 합니다.

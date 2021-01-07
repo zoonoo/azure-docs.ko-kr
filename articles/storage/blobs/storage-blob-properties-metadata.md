@@ -4,21 +4,21 @@ description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storag
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/12/2020
+ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1501b61e930b7554063356335b967583c0a3ff5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008440"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521532"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>.NET을 사용 하 여 blob 속성 및 메타 데이터 관리
 
-Blob은 포함 된 데이터 외에 시스템 속성과 사용자 정의 메타 데이터를 지원 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 시스템 속성 및 사용자 정의 메타 데이터를 관리 하는 방법을 보여 줍니다.
+Blob은 포함 된 데이터 외에 시스템 속성과 사용자 정의 메타 데이터를 지원 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용 하 여 시스템 속성 및 사용자 정의 메타 데이터를 관리 하는 방법을 보여 줍니다.
 
 ## <a name="about-properties-and-metadata"></a>속성 및 메타 데이터 정보
 
@@ -126,7 +126,7 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-메타 데이터 이름/값 쌍은 유효한 HTTP 헤더 이며 HTTP 헤더를 관리 하는 모든 제한 사항을 준수 해야 합니다. 메타 데이터 이름은 유효한 HTTP 헤더 이름 및 유효한 c # 식별자 여야 하며, ASCII 문자만 포함할 수 있고 대/소문자를 구분 하지 않는 것으로 처리 되어야 합니다. ASCII가 아닌 문자를 포함 하는 메타 데이터 값을 [Base64 인코딩](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) 또는 [URL 인코딩합니다](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) .
+메타 데이터 이름/값 쌍은 유효한 HTTP 헤더 이며 HTTP 헤더를 관리 하는 모든 제한 사항을 준수 해야 합니다. 메타 데이터 이름은 유효한 HTTP 헤더 이름 및 유효한 c # 식별자 여야 하며, ASCII 문자만 포함할 수 있고 대/소문자를 구분 하지 않는 것으로 처리 되어야 합니다. ASCII가 아닌 문자를 포함 하는 메타 데이터 값을 [Base64 인코딩](/dotnet/api/system.convert.tobase64string) 또는 [URL 인코딩합니다](/dotnet/api/system.web.httputility.urlencode) .
 
 메타데이터의 이름은 C# 식별자에 대한 명명 규칙을 준수해야 합니다. 메타 데이터 이름은 생성 될 때 사용 되는 대/소문자를 유지 하지만 설정 하거나 읽을 때 대/소문자를 구분 하지 않습니다. 동일한 이름을 사용 하는 두 개 이상의 메타 데이터 헤더가 리소스에 대해 제출 되는 경우 Azure Blob storage는 HTTP 오류 코드 400 (잘못 된 요청)을 반환 합니다.
 
@@ -168,7 +168,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-메타 데이터를 검색 하려면 blob 또는 컨테이너에서 [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) 또는 [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) 메서드를 호출 하 여 [메타 데이터](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) 컬렉션을 채운 다음 아래 예제와 같이 값을 읽습니다.
+메타 데이터를 검색 하려면 blob 또는 컨테이너에서 [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) 또는 [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) 메서드를 호출 하 여 [메타 데이터](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) 컬렉션을 채운 다음 아래 예제와 같이 값을 읽습니다. **GetProperties** 메서드는 단일 호출로 blob 속성 및 메타 데이터를 검색 합니다. 이는 [Blob 속성을 가져오고](/rest/api/storageservices/get-blob-properties) [blob 메타 데이터를 가져오기](/rest/api/storageservices/get-blob-metadata)위해 별도의 호출이 필요한 REST api와 다릅니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
@@ -208,7 +208,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Blob 속성 설정 작업](/rest/api/storageservices/set-blob-properties)
 - [Blob 속성 가져오기 작업](/rest/api/storageservices/get-blob-properties)

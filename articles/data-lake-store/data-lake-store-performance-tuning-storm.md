@@ -1,17 +1,17 @@
 ---
 title: 성능 조정-Azure Data Lake Storage Gen1를 사용 하 여 스톰
 description: 일반적인 문제 해결을 포함 하 여 Azure 스톰 토폴로지의 성능을 조정할 때 고려해 야 하는 요인을 이해 합니다.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: twooley
+ms.openlocfilehash: 95619c75d332ec1bf68af97fc3dddbc67b6706ed
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192811"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725040"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Storm 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
@@ -22,8 +22,8 @@ Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소�
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 * Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
-* **Data Lake Storage Gen1에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 스톰](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조 하세요.
-* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요.  
+* **Data Lake Storage Gen1에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 스톰](../hdinsight/storm/apache-storm-overview.md)을 참조 하세요.
+* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](./data-lake-store-performance-tuning-guidance.md)을 참조하세요.  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>토폴로지의 병렬 처리 조정
 
@@ -89,7 +89,7 @@ I/O 집약적인 토폴로지에서 각 Bolt 스레드는 자체 파일에 기�
 
 Storm에서 Spout는 튜플이 Bolt에 의해 명시적으로 승인될 때까지 튜플을 계속 사용합니다. 튜플을 Bolt에서 읽었지만 아직 승인되지 않은 경우 Spout는 Data Lake Storage Gen1 백 엔드에 유지되지 않을 수 있습니다. 튜플이 승인된 후에 Spout에서 Bolt의 지속성을 보장할 수 있고 읽어 오는 원본이 무엇이든지 원본 데이터를 삭제할 수 있습니다.  
 
-최상의 Data Lake Storage Gen1 성능을 위해 Bolt가 4MB의 튜플 데이터를 버퍼링합니다. 그런 다음 Data Lake Storage Gen1 백 엔드에 하나의 4mb 쓰기로 씁니다. hflush()를 호출하여 저장소에 데이터를 성공적으로 기록한 후에 Bolt가 데이터를 Spout으로 다시 승인할 수 있습니다. 여기에 제공된 Bolt 예제에서 이 작업을 수행합니다. 또한 hflush() 호출을 수행하고 튜플을 승인하기 전에 많은 수의 튜플을 보유하는 것도 가능합니다. 하지만 이 경우 Spout이 보유해야 하는 진행 중인 튜플 수가 증가하므로 JVM당 필요한 메모리 양이 늘어납니다.
+최상의 Data Lake Storage Gen1 성능을 위해 Bolt가 4MB의 튜플 데이터를 버퍼링합니다. 그런 다음 Data Lake Storage Gen1 백 엔드에 1 4 쓰기로 씁니다. hflush()를 호출하여 저장소에 데이터를 성공적으로 기록한 후에 Bolt가 데이터를 Spout으로 다시 승인할 수 있습니다. 여기에 제공된 Bolt 예제에서 이 작업을 수행합니다. 또한 hflush() 호출을 수행하고 튜플을 승인하기 전에 많은 수의 튜플을 보유하는 것도 가능합니다. 하지만 이 경우 Spout이 보유해야 하는 진행 중인 튜플 수가 증가하므로 JVM당 필요한 메모리 양이 늘어납니다.
 
 > [!NOTE]
 > 애플리케이션에는 기타 성능 이외의 이유로 더욱 자주(4MB 미만의 데이터 크기로) 튜플을 승인하도록 요청해야 합니다. 그러나 스토리지 백 엔드에 대한 I/O 처리량에 영향을 줄 수 있습니다. Bolt의 I/O 성능에 대해 이러한 균형 유지를 신중하게 평가합니다.
@@ -126,10 +126,10 @@ Data Lake Storage Gen1에서 제공하는 대역폭 한계에 도달한 경우 �
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정합니다.
 
-1. **Ambari**  >  **스톰**  >  **구성**  >  **고급 스톰-log4j**에서 ** &lt; root level = "info" &gt; ** 를 ** &lt; root level = "debug" &gt; **로 변경 합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
+1. **Ambari**  >  **스톰**  >  **구성**  >  **고급 스톰-log4j** 에서 **&lt; root level = "info" &gt;** 를 **&lt; root level = "debug" &gt;** 로 변경 합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
 2. 작업자 노드의 storm 토폴로지 로그에서 Data Lake Storage Gen1 제한 예외를 모니터링합니다(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래).
 
 ## <a name="next-steps"></a>다음 단계
-[이 블로그에서](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)는 스톰의 추가 성능 튜닝을 참조할 수 있습니다.
+[이 블로그에서](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)는 스톰의 추가 성능 튜닝을 참조할 수 있습니다.
 
 추가 예제를 실행하려면 [GitHub에서 이 항목](https://github.com/hdinsight/storm-performance-automation)을 참조하세요.

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70d1caacfd655c956d4fcc36e3f0d3848d8f0fe
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230571"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96180458"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure AD 로그 통합
 
@@ -46,6 +46,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 * **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
 * **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
+* **프로 비전 로그**: [프로 비전 로그](../app-provisioning/application-provisioning-log-analytics.md)를 사용 하 여 모든 타사 응용 프로그램에서 생성, 업데이트 및 삭제 된 사용자를 모니터링할 수 있습니다. 
 
 > [!NOTE]
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
@@ -57,7 +58,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 * Azure 구독 Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure AD 테넌트.
-* Azure AD 테 넌 트의 *전역 관리자* 또는 *보안 관리자* 인 사용자입니다.
+* Azure AD 테넌트의 *글로벌 관리자* 또는 *보안 관리자* 인 사용자.
 * Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](../../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
 ## <a name="licensing-requirements"></a>라이선싱 요구 사항
@@ -68,9 +69,9 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **Azure Active Directory**  >  **진단 설정**  ->  **추가 진단**설정 Azure Active Directory 선택 합니다. 또한 **감사 로그** 또는 **로그인 페이지**에서 **설정 내보내기**를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
+2. **Azure Active Directory**  >  **진단 설정**  ->  **추가 진단** 설정 Azure Active Directory 선택 합니다. 또한 **감사 로그** 또는 **로그인 페이지** 에서 **설정 내보내기** 를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
     
-3. **진단 설정** 메뉴에서 **Log Analytics 작업 영역에 보내기** 확인란을 선택한 다음, **구성**을 선택합니다.
+3. **진단 설정** 메뉴에서 **Log Analytics 작업 영역에 보내기** 확인란을 선택한 다음, **구성** 을 선택합니다.
 
 4. 로그를 보내려는 Log Analytics 작업 영역을 선택하거나, 제공된 대화 상자에서 새 작업 영역을 만듭니다.  
 
@@ -78,7 +79,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
     * Log Analytics 작업 영역에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
     * Log Analytics 작업 영역에 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
 
-6. **저장**을 선택하여 설정을 저장합니다.
+6. **저장** 을 선택하여 설정을 저장합니다.
 
     ![진단 설정](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 

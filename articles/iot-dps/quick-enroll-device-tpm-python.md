@@ -1,5 +1,5 @@
 ---
-title: Python을 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록
+title: 빠른 시작 - Python을 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록
 description: 빠른 시작 - Python 프로비저닝 서비스 SDK를 사용하여 Azure IoT Hub DPS(Device Provisioning Service)에 TPM 디바이스를 등록합니다. 이 빠른 시작에서는 개별 등록을 사용합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: dd34806cbfeeccadbaac247a9ea4d019cc22fc57
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 96bd1e85de45ac36515580025dfc392e931643f3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323766"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>빠른 시작: Python 프로비전 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 

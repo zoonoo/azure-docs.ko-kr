@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: a4c551a6e9b8d79fdeb7b5219f311c7c7c969757
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986460"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505361"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API의 예제 사용자 시나리오
 
@@ -41,7 +41,7 @@ Text Analytics API는 텍스트에 대한 고급 자연어 처리를 제공하�
 
 ## <a name="monitor-your-products-social-media-feeds"></a>제품의 소셜 미디어 피드 모니터링
 
-제품의 twitter 또는 Facebook 페이지에서 사용자 제품 피드백을 모니터링 합니다. 데이터를 사용하여 신제품 출시를 위해 고객 감정을 분석하고, 기능 및 기능 요청에 대한 핵심 구를 추출하고, 발생하는 고객 불만 사항을 해결합니다. 예제 [Microsoft Flow 템플릿](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)을 참조하세요.
+제품의 twitter 또는 Facebook 페이지에서 사용자 제품 피드백을 모니터링 합니다. 데이터를 사용하여 신제품 출시를 위해 고객 감정을 분석하고, 기능 및 기능 요청에 대한 핵심 구를 추출하고, 발생하는 고객 불만 사항을 해결합니다. [Microsoft Power 자동화 템플릿](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)예제를 참조 하세요.
 
 ![핵심 구 추출을 사용하여 소셜 미디어의 제품 및 회사 피드백을 모니터링하는 방법을 설명하는 이미지](media/use-cases/social-feed.svg)
 
@@ -61,4 +61,4 @@ Text Analytics API는 텍스트에 대한 고급 자연어 처리를 제공하�
 ## <a name="next-steps"></a>다음 단계
 
 * [텍스트 분석 API란?](overview.md)
-* [클라이언트 라이브러리를 사용하여 Text Analytics API로 요청 보내기](quickstarts/text-analytics-sdk.md)
+* [클라이언트 라이브러리를 사용하여 Text Analytics API로 요청 보내기](quickstarts/client-libraries-rest-api.md)

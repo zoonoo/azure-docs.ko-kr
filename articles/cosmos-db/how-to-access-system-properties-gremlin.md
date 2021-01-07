@@ -5,16 +5,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/10/2019
-author: luisbosquez
-ms.author: lbosq
-ms.openlocfilehash: a0feac9bbd98dc4c67464e84e9a3204bd9730355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: SnehaGunda
+ms.author: sngun
+ms.openlocfilehash: 61814082ebe9828a08da1e8786890b500c239082
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390349"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081844"
 ---
 # <a name="system-document-properties"></a>시스템 문서 속성
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB에 [system properties](/rest/api/cosmos-db/databases) 는 ```_ts``` ```_self``` ```_attachments``` ```_rid``` ```_etag``` 모든 문서에,,, 및와 같은 시스템 속성이 있습니다. 또한 Gremlin 엔진이 모서리에 ```inVPartition``` 및 ```outVPartition``` 속성을 추가합니다. 기본적으로 이러한 속성은 통과에 사용할 수 없습니다. 그러나 Gremlin 통과에 특정 속성이나 모든 속성을 포함할 수 있습니다.
 

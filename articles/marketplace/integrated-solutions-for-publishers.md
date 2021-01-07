@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119534"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621351"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
-이 문서에서는 상업용 Marketplace에 통합 솔루션을 게시하기 위한 전체 프로세스 및 요구 사항을 설명합니다. 단일 번들로 제공되는 제품의 통합 솔루션에서는 소프트웨어 공급업체의 포인트 솔루션 기술을 서비스 파트너의 배포 및 지원과 결합합니다. 서비스 파트너는 Microsoft AppSource 또는 Azure Marketplace에 제품을 [컨설팅 서비스](./consulting-services.md)로 나열합니다.
+이 문서에서는 상업용 Marketplace에 통합 솔루션을 게시하기 위한 전체 프로세스 및 요구 사항을 설명합니다. 단일 번들로 제공되는 제품의 통합 솔루션에서는 소프트웨어 공급업체의 포인트 솔루션 기술을 서비스 파트너의 배포 및 지원과 결합합니다. 서비스 파트너는 Microsoft AppSource 또는 Azure Marketplace에 제품을 [컨설팅 서비스](./plan-consulting-service-offer.md)로 나열합니다.
 
 통합 솔루션은 특정 고객의 요구 또는 시나리오를 해결하는 것을 목표로 합니다. 공급자는 업계의 당면 과제나 불만 사항을 파악하는 것으로 시작합니다. 그런 다음 두 개 이상의 최상의 기술을 통합하여 고객을 위한 통합 및 반복 가능한 배포 환경을 만듭니다. 공급자는 고객이 신속하게 적용하여 실행하도록 합니다. 관련한 사용자 지정, 컨설팅 및 솔루션 지원을 제공하는 단일 연락 지점을 고객에게 제공합니다. 이를 통해 기술 및 서비스를 포함하는 통합 솔루션이 제공됩니다.
 
@@ -32,18 +32,17 @@ ms.locfileid: "86119534"
 ## <a name="eligibility-criteria"></a>자격 기준
 
 * 참여하는 파트너는 MPN ID가 있어야 합니다.
-* 참여하는 서비스 공급자는 공동 판매를 준비해야 합니다.
-* 참여 소프트웨어 공급업체는 IP 공동 판매를 준비해야 합니다.
+* 참여 하는 서비스 공급자는 [공동 판매 준비](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 해야 합니다.
+* 참여 소프트웨어 공급 업체는 [IP 공동 판매 준비](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 해야 합니다.
 * 하나 이상의 참여 파트너는 다음 영역 중 하나에서 골드 역량이 있어야 합니다.
-
-    * 애플리케이션 개발
-    * 애플리케이션 통합
-    * 애플리케이션 수명 주기 관리.
-    * 클라우드 플랫폼
-    * 데이터 분석
-    * 데이터 센터
-    * 데이터 플랫폼
-    * DevOps
+    - 애플리케이션 개발
+    - 애플리케이션 통합
+    - 애플리케이션 수명 주기 관리.
+    - 클라우드 플랫폼
+    - 데이터 분석
+    - 데이터 센터
+    - 데이터 플랫폼
+    - DevOps
 
 * 솔루션에는 완벽한 고객 솔루션 및 환경을 위해 IP와 서비스를 함께 제공하는 파트너 조직이 두 개 이상 포함되어야 합니다.
 * 파트너 IP는 Azure, Dynamics 365 또는 Power Platform에 구축되어야 합니다.
@@ -52,7 +51,7 @@ ms.locfileid: "86119534"
 
 ## <a name="submit-a-nomination"></a>추천 제출
 
-프로그램에 참여하려는 파트너는 함께 작업할 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 양식](https://aka.ms/AA5qicu)을 작성해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 기준 10일 이내에 처리합니다. 팀에서 승인하고 다음 단계로 진행합니다.
+프로그램에 참여하려는 파트너는 함께 작업할 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 폼](https://aka.ms/AA5qicu)을 완료 해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 기준 10일 이내에 처리합니다. 팀에서 승인하고 다음 단계로 진행합니다.
 
 ## <a name="develop-an-integrated-solution"></a>통합 솔루션 개발
 
@@ -104,7 +103,7 @@ ms.locfileid: "86119534"
 
 ## <a name="publish-your-integrated-solution"></a>통합 솔루션을 게시합니다.
 
-기술 통합 및 마케팅 참고 자료를 작성한 후 [Microsoft AppSource 및 Azure Marketplace를 위한 컨설팅 서비스](./consulting-services.md)에 대한 게시자 가이드를 참조하세요. 이 리소스를 사용하여 솔루션을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 결정합니다. 또한 가이드를 사용하여 게시 아티팩트를 준비하고 게시 프로세스를 완료합니다.
+기술 통합 및 마케팅 참고 자료를 작성한 후 [Microsoft AppSource 및 Azure Marketplace를 위한 컨설팅 서비스](./plan-consulting-service-offer.md)에 대한 게시자 가이드를 참조하세요. 이 리소스를 사용하여 솔루션을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 결정합니다. 또한 가이드를 사용하여 게시 아티팩트를 준비하고 게시 프로세스를 완료합니다.
 
 컨설팅 서비스 제품에는 5가지 서비스 유형을 사용할 수 있지만 통합 솔루션은 개념 증명 또는 전체 구현이어야 합니다.
 
@@ -114,4 +113,4 @@ ms.locfileid: "86119534"
 
 ## <a name="next-steps"></a>다음 단계
 
-Marketplace에서 통합 솔루션을 구매하는 방법에 대한 자세한 내용은 [통합 솔루션](./integrated-solutions.md)을 참조하세요.
+- [통합 솔루션 추천 양식](https://aka.ms/AA5qicu)

@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0a3665f1719c7a5f8ed9bd6acf518b642e06320d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400061"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461824"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>시나리오: Vnet에 대 한 사용자 지정 격리
 
@@ -23,13 +23,13 @@ ms.locfileid: "89400061"
 
 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 이 시나리오에서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타내는 다음과 같습니다.
 
-| 시작 | 대상:| *파란색 Vnet* | *레드 Vnet* | *분기*|
+| From | 아래와 같이 변경합니다.| *파란색 Vnet* | *레드 Vnet* | *분기*|
 |---|---|---|---|---|
-| **파란색 Vnet** |   &#8594;|      X        |               |       X      |
-| **레드 Vnet**  |   &#8594;|              |       X       |       X      |
-| **분기**   |   &#8594;|     X        |       X       |       X      |
+| **파란색 Vnet** |   &#8594;|   직접     |           |  직접 |
+| **레드 Vnet**  |   &#8594;|              |   직접  |  직접 |
+| **분기**   |   &#8594;|   직접     |   직접  |  직접 |
 
-위의 표에 나와 있는 각 셀은 가상 wan 연결 (흐름의 "From" 쪽, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사를 학습 하는지 여부를 설명 합니다. 여기서 "X"는 가상 WAN에서 연결이 제공 됨을 의미 합니다.
+위의 표에 나와 있는 각 셀은 가상 WAN 연결 (흐름의 "From" 쪽에서 행 머리글)이 대상과 통신 하는지 여부를 설명 합니다 (흐름의 "To" 쪽에서 열 머리글은 기울임꼴로). 이 시나리오에는 방화벽이 나 네트워크 가상 어플라이언스가 없으므로 통신이 가상 WAN을 통해 직접 흐릅니다 (따라서 테이블의 "Direct" 라는 단어).
 
 다른 행 패턴의 수는이 시나리오에서 필요한 경로 테이블 수입니다. 이 경우 가상 네트워크에 대 한 **RT_BLUE** 및 **RT_RED** 를 호출 하는 세 개의 경로 경로 테이블과 분기에 대 한 **기본값이** 제공 됩니다. 분기는 항상 기본 라우팅 테이블에 연결 되어야 합니다.
 

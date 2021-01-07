@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: functions
 author: nzthiago
@@ -9,15 +9,15 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: eca2d3359614875e5bff0c9bb67f006f0a8cdba1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77198329"
 ---
 ## <a name="function-app-timeout-duration"></a><a name="timeout"></a>함수 앱 시간 제한 기간 
 
-함수 앱의 제한 시간은 `functionTimeout` 프로젝트 파일 [의host.js](../articles/azure-functions/functions-host-json.md#functiontimeout) 에 있는 속성에 의해 정의 됩니다. 다음 표에서는 계획 및 다양 한 런타임 버전에 대 한 기본 및 최대 값 (분)을 보여 줍니다.
+함수 앱의 시간 제한 기간은 [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) 프로젝트 파일의 `functionTimeout` 속성에 의해 정의됩니다. 다음 표는 두 계획 및 다른 런타임 버전에 대한 기본 및 최댓값을 분 단위로 보여줍니다.
 
 | 계획 | 런타임 버전 | 기본값 | 최대 |
 |------|---------|---------|---------|
@@ -32,4 +32,4 @@ ms.locfileid: "77198329"
 | App Service | 3.x | 30 | 제한 없음 |
 
 > [!NOTE] 
-> 함수 앱 제한 시간 설정에 관계 없이, 230 초는 HTTP 트리거된 함수가 요청에 응답 하는 데 사용할 수 있는 최대 시간입니다. 이는 [Azure Load Balancer의 기본 유휴 시간 제한](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds)으로 인해 발생 합니다. 처리 시간이 길면 [비동기 Durable Functions 패턴](../articles/azure-functions/durable/durable-functions-overview.md#async-http) 을 사용 하거나 [실제 작업을 지연 시키고 즉각적인 응답을 반환](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions)하는 것이 좋습니다.
+> 함수 앱 시간 제한 설정에 관계없이 230초는 HTTP 트리거 함수가 요청에 응답하는 데 걸리는 최대 시간입니다. 이는 [Azure Load Balancer의 기본 유휴 시간 제한](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) 때문입니다. 처리 시간을 늘리려면 [Durable Functions 비동기 패턴](../articles/azure-functions/durable/durable-functions-overview.md#async-http) 사용을 고려하거나 [실제 작업을 연기하고 즉각적인 응답을 반환합니다](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions).

@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030993"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362402"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
 
@@ -73,7 +73,7 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](https://aka.ms/deploymentplans)합니다. 또한 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 하 여 프로젝트의 관련자 역할을 잘 이해 해야 합니다.
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](../fundamentals/active-directory-deployment-plans.md)합니다. 또한 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 하 여 프로젝트의 관련자 역할을 잘 이해 해야 합니다.
 
 ### <a name="plan-communications"></a>통신 계획
 
@@ -91,15 +91,15 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 ## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Azure AD 보고 및 모니터링 배포 계획
 
-보고 및 모니터링은 비즈니스 요구 사항을 충족 하 고, 사용 패턴에 대 한 통찰력을 얻고, 조직 보안 상태를 높이는 데 사용 됩니다.
+보고 및 모니터링은 비즈니스 요구 사항을 충족 하 고, 사용 패턴에 대 한 통찰력을 확보 하 고, 조직의 보안 상태를 늘리는 데 사용 됩니다.
 
 ### <a name="business-use-cases"></a>비즈니스 사용 사례
 
 * 비즈니스 요구를 충족 하는 솔루션에 필요 합니다.
 * 비즈니스 요구를 충족 하는 데 유용 합니다.
-* 해당 없음
+* 적용할 수 없음
 
-|영역 |Description |
+|영역 |설명 |
 |-|-|
 |보존| **30 일 넘게 로그 보존** 법률 또는 비즈니스 요구 사항으로 인해 Azure AD의 감사 로그 및 로그인 로그를 30 일 보다 길게 저장 해야 합니다. |
 |분석| **로그를 검색할 수 있어야**합니다. 저장 된 로그는 분석 도구를 사용 하 여 검색할 수 있어야 합니다. |
@@ -133,7 +133,7 @@ Azure AD 활동 로그에 대해 미리 작성 된 보기를 설치 하 여 로�
 
 로그를 Azure 이벤트 허브로 라우팅하는 경우 타사 SIEM 도구와 통합할 수 있습니다. 이 통합을 통해 Azure AD 활동 로그 데이터를 SIEM에서 관리하는 다른 데이터와 결합하여 환경에 보다 풍부한 인사이트를 얻을 수 있습니다. 
 
-[로그를 이벤트 허브로 스트리밍](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)하는 방법을 알아보세요.
+[로그를 이벤트 허브로 스트리밍](./tutorial-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아보세요.
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Azure AD 보고 및 모니터링을 위한 계획 작업 및 보안
 
@@ -151,7 +151,7 @@ Azure AD 역할을 사용 하면 사용자의 역할에 따라 Azure AD 보고�
 
 * 보고서 읽기 권한자
 
-[AZURE AD 관리 역할](../users-groups-roles/directory-assign-admin-roles.md)에 대해 자세히 알아보세요.
+[AZURE AD 관리 역할](../roles/permissions-reference.md)에 대해 자세히 알아보세요.
 
 *계정 손상의 위험을 줄이려면 항상 최소 권한 개념을 적용*합니다. [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 구현 하 여 조직의 보안을 강화 하는 것이 좋습니다.
 

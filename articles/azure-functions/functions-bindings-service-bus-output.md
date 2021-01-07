@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212153"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040931"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 출력 바인딩
 
 Azure Service Bus 출력 바인딩을 사용하여 큐 또는 토픽 메시지를 보냅니다.
 
-설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-service-bus-output.md)를 참조하세요.
+설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-service-bus.md)를 참조하세요.
 
 ## <a name="example"></a>예제
 
@@ -175,7 +175,7 @@ Service Bus 바인딩 정의는 *형식이* 로 설정 된 *function.js* 에 정
 }
 ```
 
-Py에서는 값을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다 * _ \_ _ \_ *. `set`
+Py에서는 값을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다 *_\__ \_* . `set`
 
 ```python
 import azure.functions as func
@@ -346,7 +346,7 @@ C # 함수를 사용 하는 경우:
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참조 |
+| 바인딩 | 참고 |
 |---|---|
 | Service Bus | [Service Bus 오류 코드](../service-bus-messaging/service-bus-messaging-exceptions.md) |
 | Service Bus | [Service Bus 한도](../service-bus-messaging/service-bus-quotas.md) |

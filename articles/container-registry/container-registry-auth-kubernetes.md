@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 05/28/2020
 ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84309818"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Azure container registry에서 Kubernetes 클러스터로 이미지 끌어오기
@@ -45,7 +45,7 @@ kubectl create secret docker-registry <secret-name> \
     --docker-username=<service-principal-ID> \
     --docker-password=<service-principal-password>
 ```
-다음은 각 문자에 대한 설명입니다.
+여기서
 
 | 값 | 설명 |
 | :--- | :--- |
@@ -57,7 +57,7 @@ kubectl create secret docker-registry <secret-name> \
 
 ## <a name="use-the-image-pull-secret"></a>이미지 끌어오기 비밀 사용
 
-이미지 끌어오기 암호를 만든 후에는이를 사용 하 여 Kubernetes pod 및 배포를 만들 수 있습니다. 배포 파일의에서 비밀의 이름을 제공 `imagePullSecrets` 합니다. 예를 들어:
+이미지 끌어오기 암호를 만든 후에는이를 사용 하 여 Kubernetes pod 및 배포를 만들 수 있습니다. 배포 파일의에서 비밀의 이름을 제공 `imagePullSecrets` 합니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 apiVersion: v1
@@ -74,7 +74,7 @@ spec:
     - name: acr-secret
 ```
 
-위의 예제에서 `my-awesome-app:v1` 는 Azure container registry에서 끌어올 이미지의 이름이 고 `acr-secret` 은 레지스트리에 액세스 하기 위해 만든 끌어오기 암호의 이름입니다. Pod를 배포할 때 Kubernetes는 클러스터에 아직 없는 경우 레지스트리에서 이미지를 자동으로 끌어옵니다.
+위의 예제에서 `my-awesome-app:v1` 는 Azure container registry에서 끌어올 이미지의 이름이 고  `acr-secret` 은 레지스트리에 액세스 하기 위해 만든 끌어오기 암호의 이름입니다. Pod를 배포할 때 Kubernetes는 클러스터에 아직 없는 경우 레지스트리에서 이미지를 자동으로 끌어옵니다.
 
 
 ## <a name="next-steps"></a>다음 단계

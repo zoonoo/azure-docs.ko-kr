@@ -3,20 +3,18 @@ title: Node.js를 사용하여 발언 가져오기 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS 작성 API를 사용하여 CSV 형식의 기존 데이터에서 프로그래밍 방식으로 LUIS 앱을 빌드하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
-ms.author: diberry
-ms.openlocfilehash: 3df1ccadb69f02272c44a0ba574805c816151dc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520943"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91541047"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
@@ -24,7 +22,7 @@ LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트에서 수행하는 모�
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-how-to-azure-subscription.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
@@ -191,7 +189,7 @@ upload done
 > [!div class="nextstepaction"]
 > [LUIS 웹 사이트에서 앱 테스트 및 학습](luis-interactive-test.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 이 애플리케이션 예제에서는 다음 LUIS API를 사용합니다.
 - [앱 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)

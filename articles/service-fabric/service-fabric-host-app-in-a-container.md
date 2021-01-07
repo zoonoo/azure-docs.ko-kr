@@ -3,12 +3,12 @@ title: Azure Service Fabric에 컨테이너의 .NET 앱 배포
 description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8be9de495fa6bc5689a2dba5384f5df3112cbb38
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258872"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485538"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
@@ -30,7 +30,7 @@ ms.locfileid: "86258872"
 1. Azure 구독이 없는 경우 [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Windows 10에서 컨테이너를 실행할 수 있도록 [Windows용 Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 설치합니다.
 3. [Service Fabric 런타임 버전 6.2 이상](service-fabric-get-started.md) 및 [Service Fabric SDK 버전 3.1](service-fabric-get-started.md) 이상을 설치합니다.
-4. **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 16.1](https://www.visualstudio.com/) 이상을 설치합니다.
+4. **Azure 개발** 과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 16.1](https://www.visualstudio.com/) 이상을 설치합니다.
 5. [Azure Powershell][link-azure-powershell-install] 설치
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter를 다운로드하여 실행
@@ -39,15 +39,15 @@ ms.locfileid: "86258872"
 
 2. Fabrikam Fiber CallCenter 애플리케이션이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다.  F5 키를 눌러 애플리케이션을 디버그하고 실행합니다.
 
-   ![Fabrikam 웹 샘플][fabrikam-web-page]
+   ![로컬 호스트에서 실행되는 Fabrikam Fiber CallCenter 애플리케이션 홈 페이지의 스크린샷. 이 페이지에는 지원 호출 목록이 포함된 대시보드가 표시됩니다.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>애플리케이션 컨테이너화
 
-1. **FabrikamFiber.Web** 프로젝트 > **추가** > **컨테이너 Orchestrator 지원**을 마우스 오른쪽 단추로 클릭합니다.  **Service Fabric**을 컨테이너 오케스트레이터로 선택하고 **확인**을 클릭합니다.
+1. **FabrikamFiber.Web** 프로젝트 > **추가** > **컨테이너 Orchestrator 지원** 을 마우스 오른쪽 단추로 클릭합니다.  **Service Fabric** 을 컨테이너 오케스트레이터로 선택하고 **확인** 을 클릭합니다.
 
-2. **예**를 클릭하여 이제 Docker를 Windows 컨테이너로 전환합니다.
+2. 메시지가 표시되면 **예** 를 클릭하여 지금 Docker를 Windows 컨테이너로 전환합니다.
 
-   새 프로젝트 Service Fabric 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication**이 솔루션에서 만들어집니다.  Dockerfile이 **FabrikamFiber.Web** 기존 프로젝트에 추가됩니다.  **PackageRoot** 디렉터리도 **FabrikamFiber.Web** 프로젝트에 추가되며, 이는 새 FabrikamFiber.Web 서비스에 대한 서비스 매니페스트 및 설정을 포함하는 프로젝트입니다.
+   새 프로젝트 Service Fabric 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication** 이 솔루션에서 만들어집니다.  Dockerfile이 **FabrikamFiber.Web** 기존 프로젝트에 추가됩니다.  **PackageRoot** 디렉터리도 **FabrikamFiber.Web** 프로젝트에 추가되며, 이는 새 FabrikamFiber.Web 서비스에 대한 서비스 매니페스트 및 설정을 포함하는 프로젝트입니다.
 
    이제 컨테이너를 빌드하고 Service Fabric 애플리케이션에 패키지할 준비가 되었습니다. 컴퓨터에서 컨테이너 이미지를 빌드한 후 컨테이너 레지스트리에 푸시하고 실행할 호스트로 끌어올 수 있습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "86258872"
 
 Fabrikam Fiber CallCenter 애플리케이션을 프로덕션 환경에서 실행하는 경우 데이터는 데이터베이스에 유지돼야 합니다. 현재는 컨테이너에 데이터를 유지할 수 있는 방법이 없으므로 프로덕션 데이터를 컨테이너로 SQL Server에 저장할 수 없습니다.
 
-[Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP*는 개발 컴퓨터의 IP 주소입니다. 스크립트에서 출력되는 서버의 이름을 적어 두세요.
+[Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP* 는 개발 컴퓨터의 IP 주소입니다. 스크립트에서 출력되는 서버의 이름을 적어 두세요.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>웹 구성 업데이트
 
-**FabrikamFiber.Web** 프로젝트로 돌아가 **web.config** 파일의 연결 문자열이 컨테이너의 SQL Server를 가리키도록 업데이트합니다.  연결 문자열의 *서버* 부분을 이전 스크립트에서 만든 서버 이름으로 업데이트합니다. "fab-fiber-751718376.database.windows.net"와 같은 형식입니다.
+**FabrikamFiber.Web** 프로젝트로 돌아가 **web.config** 파일의 연결 문자열이 컨테이너의 SQL Server를 가리키도록 업데이트합니다.  연결 문자열의 *서버* 부분을 이전 스크립트에서 만든 서버 이름으로 업데이트합니다. "fab-fiber-751718376.database.windows.net"와 같은 형식입니다. 다음 XML에서는 `connectionString` 특성만 업데이트해야 합니다. `providerName` 및 `name` 특성은 변경할 필요가 없습니다.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -118,11 +118,11 @@ Write-Host "Server name is $servername"
 ```
 
 >[!NOTE]
->호스트에서 연결할 수 있기만 하면 어떤 SQL Server든지 로컬 디버깅에 사용할 수 있습니다. 그러나 **localdb**는 `container -> host` 통신을 지원하지 않습니다. 웹 애플리케이션의 릴리스 버전을 빌드할 때 다른 SQL 데이터베이스를 사용하려면 *web.release.config* 파일에 다른 연결 문자열을 추가합니다.
+>호스트에서 연결할 수 있기만 하면 어떤 SQL Server든지 로컬 디버깅에 사용할 수 있습니다. 그러나 **localdb** 는 `container -> host` 통신을 지원하지 않습니다. 웹 애플리케이션의 릴리스 버전을 빌드할 때 다른 SQL 데이터베이스를 사용하려면 *web.release.config* 파일에 다른 연결 문자열을 추가합니다.
 
 ## <a name="run-the-containerized-application-locally"></a>컨테이너화된 애플리케이션을 로컬로 실행
 
-**F5** 키를 눌러 로컬 Service Fabric 개발 클러스터에서 컨테이너의 애플리케이션을 실행하고 디버그합니다. 'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
+**F5** 키를 눌러 로컬 Service Fabric 개발 클러스터에서 컨테이너의 애플리케이션을 실행하고 디버그합니다. 'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예** 를 클릭합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -151,13 +151,13 @@ Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또
 
 이 자습서는 테스트 시나리오에 적합한 Visual Studio에서 클러스터를 만듭니다. 어떤 다른 방법으로 클러스터를 만들거나 기존 클러스터를 사용하는 경우 연결 엔트포인트를 복사해 붙여넣거나 구독에서 선택할 수 있습니다.
 
-시작하기 전에 솔루션 탐색기에서 FabrikamFiber.Web->PackageRoot->ServiceManifest.xml을 엽니다. **엔드포인트**에 나열된 웹 프런트 엔드에 대한 포트를 적어 두세요.
+시작하기 전에 솔루션 탐색기에서 FabrikamFiber.Web->PackageRoot->ServiceManifest.xml을 엽니다. **엔드포인트** 에 나열된 웹 프런트 엔드에 대한 포트를 적어 두세요.
 
 클러스터를 만드는 경우 다음을 수행합니다.
 
-1. 솔루션 탐색기에서 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+1. 솔루션 탐색기에서 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication** 를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 2. Azure 계정을 사용하여 로그인하면 구독 정보에 액세스할 수 있습니다.
-3. **연결 엔드포인트**에 대한 드롭다운을 선택하고 **새 클러스터 만들기...** 옵션을 선택합니다.
+3. **연결 엔드포인트** 에 대한 드롭다운 아래에서 **새 클러스터 만들기...** 옵션을 선택합니다.
 4. **클러스터 만들기** 대화 상자에서 다음 설정을 수정합니다.
 
     a. **클러스터 이름** 필드에서 클러스터의 이름뿐만 아니라 사용하려는 구독과 위치도 지정합니다. 클러스터 리소스 그룹의 이름을 적어 두세요.
@@ -169,7 +169,7 @@ Service Fabric 애플리케이션은 네트워크에 연결된 가상 머신 또
     d. **VM 세부 정보** 탭을 선택합니다. 클러스터를 구성하는 VM(Virtual Machines)에 사용할 암호를 지정합니다. 사용자 이름과 암호를 사용하여 VM에 원격으로 연결할 수 있습니다. 또한 VM 컴퓨터 크기를 선택해야 하며, 필요한 경우 VM 이미지를 변경할 수도 있습니다.
 
     > [!IMPORTANT]
-    > 실행 중인 컨테이너를 지원하는 SKU를 선택합니다. 클러스터 노드의 Windows Server OS는 컨테이너의 Windows Server OS와 호환되어야 합니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 기본적으로 이 자습서에서는 Windows Server 2016 LTSC를 기반으로 하는 Docker 이미지를 만듭니다. 이 이미지를 기반으로 하는 컨테이너는 컨테이너로 Windows Server 2016 Datacenter를 사용하여 만든 클러스터에서 실행됩니다. 그러나 클러스터를 만들거나 컨테이너로 Windows Server Datacenter 코어 1709를 기반으로 하는 기존 클러스터를 사용하는 경우 컨테이너가 기반으로 하는 Windows Server OS 이미지를 변경해야 합니다. **FabrikamFiber.Web** 프로젝트에서 **Dockerfile**을 열고, 기존 `FROM` 문을 주석으로 처리하고(`windowsservercore-ltsc`에 따라) `windowsservercore-1709`에 따라 `FROM` 문의 주석 처리를 제거합니다.
+    > 실행 중인 컨테이너를 지원하는 SKU를 선택합니다. 클러스터 노드의 Windows Server OS는 컨테이너의 Windows Server OS와 호환되어야 합니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 기본적으로 이 자습서에서는 Windows Server 2016 LTSC를 기반으로 하는 Docker 이미지를 만듭니다. 이 이미지를 기반으로 하는 컨테이너는 컨테이너로 Windows Server 2016 Datacenter를 사용하여 만든 클러스터에서 실행됩니다. 그러나 클러스터를 만들거나 다른 버전의 Windows Server를 기반으로 하는 기존 클러스터를 사용하는 경우 컨테이너가 기반으로 하는 OS 이미지를 변경해야 합니다. **FabrikamFiber.Web** 프로젝트에서 **dockerfile** 을 열고, 이전 버전의 Windows Server를 기반으로 하는 기존 `FROM` 문을 주석 처리하고, [Windows Server Core DockerHub 페이지](https://hub.docker.com/_/microsoft-windows-servercore)에서 원하는 버전의 태그를 기반으로 `FROM` 문을 추가합니다. Windows Server Core 릴리스, 지원 타임라인 및 버전 관리에 대한 추가 정보는 [Windows Server Core 릴리스 정보](/windows-server/get-started/windows-server-release-info)를 참조하세요. 
 
     e. **고급** 탭에서 클러스터를 배포하는 경우 부하 분산 장치에서 열려는 애플리케이션 포트를 나열합니다. 이 포트는 클러스터를 만들기 전에 적어 둔 포트입니다. 또한 애플리케이션 로그 파일을 라우팅하는 데 사용할 기존 Application Insights 키를 추가할 수도 있습니다.
 
@@ -229,13 +229,13 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
-애플리케이션이 준비되면 Visual Studio에서 직접 Azure의 클러스터에 배포할 수 있습니다.  솔루션 탐색기에서 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.  **연결 엔트포인트**에서 이전에 만든 클러스터의 엔드포인트를 선택합니다.  **Azure Container Registry**에서 이전에 만든 컨테이너 레지스트리를 선택합니다.  Azure에서 애플리케이션을 클러스터에 배포하려면 **게시**를 클릭합니다.
+애플리케이션이 준비되면 Visual Studio에서 직접 Azure의 클러스터에 배포할 수 있습니다.  솔루션 탐색기에서 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication** 를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.  **연결 엔트포인트** 에서 이전에 만든 클러스터의 엔드포인트를 선택합니다.  **Azure Container Registry** 에서 이전에 만든 컨테이너 레지스트리를 선택합니다.  Azure에서 애플리케이션을 클러스터에 배포하려면 **게시** 를 클릭합니다.
 
 ![애플리케이션 게시][publish-app]
 
 출력 창의 배포 진행률을 따릅니다. 애플리케이션을 배포할 때 클러스터 주소와 애플리케이션 포트에서 브라우저와 유형을 엽니다. 예들 들어 `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`입니다.
 
-![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
+![azure.com에서 실행되는 Fabrikam Fiber CallCenter 애플리케이션 홈 페이지의 스크린샷. 이 페이지에는 지원 호출 목록이 포함된 대시보드가 표시됩니다.][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Service Fabric 클러스터와의 CI/CD(지속적인 통합 및 지속적인 배포) 설정
 

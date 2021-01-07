@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f70cbacf686210c1188cb0a87e6116af8ed4b01
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559406"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763168"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 관리 되는 id
 
@@ -26,9 +26,9 @@ Azure Portal에서 관리 되는 id를 설정 하려면 먼저 Azure SignalR Ser
 
 1. 평소 처럼 포털에서 Azure SignalR Service 인스턴스를 만듭니다. 포털에서 찾습니다.
 
-2. **ID**를 선택합니다.
+2. **ID** 를 선택합니다.
 
-4. **시스템 할당 됨** 탭에서 **상태** 를 **켜기**로 전환 합니다. **저장**을 선택합니다.
+4. **시스템 할당 됨** 탭에서 **상태** 를 **켜기** 로 전환 합니다. **저장** 을 선택합니다.
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="포털에서 시스템 할당 id 추가":::
 
@@ -40,11 +40,11 @@ Azure Portal에서 관리 되는 id를 설정 하려면 먼저 Azure SignalR Ser
 
 2. 평소 처럼 포털에서 Azure SignalR Service 인스턴스를 만듭니다. 포털에서 찾습니다.
 
-3. **ID**를 선택합니다.
+3. **ID** 를 선택합니다.
 
-4. **사용자 할당 됨** 탭에서 **추가**를 선택 합니다.
+4. **사용자 할당 됨** 탭에서 **추가** 를 선택 합니다.
 
-5. 이전에 만든 id를 검색 하 여 선택 합니다. **추가**를 선택합니다.
+5. 이전에 만든 id를 검색 하 여 선택 합니다. **추가** 를 선택합니다.
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="포털에서 사용자 할당 id 추가":::
 
@@ -56,26 +56,60 @@ Azure SignalR Service는 완전히 관리 되는 서비스 이므로 관리 되�
 
 1. 시스템이 할당 한 id 또는 사용자 할당 id를 추가 합니다.
 
-2. 업스트림 설정을 구성 하 고 **인증** 설정으로 **microsoft.managedidentity** 을 사용 합니다. 인증을 사용 하 여 업스트림 설정을 만드는 방법을 알아보려면 [업스트림 설정](concept-upstream.md)을 참조 하세요.
+2. 업스트림 설정 하나를 추가 하 고 별표를 클릭 하 여 아래와 같이 상세 페이지로 이동 합니다.
+    :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="msi-설정":::
+    
+    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="msi-설정":::
 
-3. 관리 되는 id 인증 설정에서 **리소스**에 대해 대상 리소스를 지정할 수 있습니다. 리소스는 `aud` 획득 된 액세스 토큰의 클레임이 되며 업스트림 끝점에서 유효성 검사의 일부로 사용할 수 있습니다. 리소스는 다음 중 하나일 수 있습니다.
+3. 관리 되는 id 인증 설정에서 **리소스** 에 대해 대상 리소스를 지정할 수 있습니다. 리소스는 `aud` 획득 된 액세스 토큰의 클레임이 되며 업스트림 끝점에서 유효성 검사의 일부로 사용할 수 있습니다. 리소스는 다음 중 하나일 수 있습니다.
     - Empty
     - 서비스 주체의 응용 프로그램 (클라이언트) ID
     - 서비스 주체의 응용 프로그램 ID URI
-    - [Azure 서비스의 리소스 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [Azure 서비스의 리소스 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > 서비스에서 직접 액세스 토큰의 유효성을 검사 하는 경우 리소스 형식 중 하나를 선택할 수 있습니다. **인증** 설정에서 **리소스** 값과 유효성 검사가 일치 하는지 확인 합니다. 데이터 평면에 RBAC (역할 기반 액세스 제어)를 사용 하는 경우 서비스 공급자가 요청 하는 리소스를 사용 해야 합니다.
+    > 서비스에서 직접 액세스 토큰의 유효성을 검사 하는 경우 리소스 형식 중 하나를 선택할 수 있습니다. **인증** 설정에서 **리소스** 값과 유효성 검사가 일치 하는지 확인 합니다. 데이터 평면에 Azure RBAC (역할 기반 액세스 제어)를 사용 하는 경우 서비스 공급자가 요청 하는 리소스를 사용 해야 합니다.
 
 ### <a name="validate-access-tokens"></a>액세스 토큰 유효성 검사
 
-헤더의 토큰은 `Authorization` [Microsoft id 플랫폼 액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens)입니다.
+헤더의 토큰은 `Authorization` [Microsoft id 플랫폼 액세스 토큰](../active-directory/develop/access-tokens.md#validating-tokens)입니다.
 
 액세스 토큰의 유효성을 검사 하기 위해 앱은 대상 및 서명 토큰의 유효성도 검사 해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 [테 넌 트 독립적 버전의 문서](https://login.microsoftonline.com/common/.well-known/openid-configuration)를 참조 하세요.
 
-Azure Active Directory (Azure AD) 미들웨어는 액세스 토큰의 유효성을 검사 하기 위한 기본 제공 기능을 제공 합니다. [샘플](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) 을 탐색 하 여 선택한 언어로 찾을 수 있습니다.
+Azure Active Directory (Azure AD) 미들웨어는 액세스 토큰의 유효성을 검사 하기 위한 기본 제공 기능을 제공 합니다. [샘플](../active-directory/develop/sample-v2-code.md) 을 탐색 하 여 선택한 언어로 찾을 수 있습니다.
 
-토큰 유효성 검사를 처리하는 방법을 보여 주는 라이브러리와 코드 샘플이 제공됩니다. JWT (JSON Web Token) 유효성 검사에 사용할 수 있는 몇 가지 오픈 소스 파트너 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대 한 옵션은 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대 한 자세한 내용은 [Microsoft id 플랫폼 인증 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries)를 참조 하세요.
+토큰 유효성 검사를 처리하는 방법을 보여 주는 라이브러리와 코드 샘플이 제공됩니다. JWT (JSON Web Token) 유효성 검사에 사용할 수 있는 몇 가지 오픈 소스 파트너 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대 한 옵션은 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대 한 자세한 내용은 [Microsoft id 플랫폼 인증 라이브러리](../active-directory/develop/reference-v2-libraries.md)를 참조 하세요.
+
+#### <a name="authentication-in-function-app"></a>함수 앱 인증
+
+함수 앱에서 액세스 토큰 유효성 검사 설정은 코드가 작동 하지 않고 쉽고 효율적입니다.
+
+1. **인증/권한 부여** 페이지에서 **App Service 인증** 을 **켜기** 로 전환 합니다.
+
+2. **요청이 인증 되지 않은 경우 수행할 작업** 에서 **Azure Active Directory 사용 하 여 로그인** 을 선택 합니다.
+
+3. 인증 공급자에서 into를 클릭 **Azure Active Directory**
+
+4. 새 페이지에서 **Express** 를 선택 하 고 **새 AD 앱을 만든** 다음 **확인** :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="함수 Aad"::: 를 클릭 합니다.
+
+5. SignalR Service로 이동 하 여 시스템 할당 id 또는 사용자 할당 id를 추가 하는 [단계](howto-use-managed-identity.md#add-a-system-assigned-identity) 를 수행 합니다.
+
+6. SignalR Service에서 **업스트림 설정** 으로 이동 하 고 **관리 되는 id 사용** 을 선택 하 고 **기존 응용 프로그램에서 선택** 합니다. 이전에 만든 응용 프로그램을 선택 합니다.
+
+이러한 설정 후 함수 앱는 헤더에 액세스 토큰이 없는 요청을 거부 합니다.
+
+## <a name="use-a-managed-identity-for-key-vault-reference"></a>Key Vault 참조에 관리 id 사용
+
+SignalR Service는 관리 되는 id를 사용 하 여 암호를 가져오기 위해 Key Vault에 액세스할 수 있습니다.
+
+1. Azure SignalR Service에 대 한 시스템 할당 id 또는 사용자 할당 id를 추가 합니다.
+
+2. Key Vault의 액세스 정책에서 관리 되는 id에 대 한 비밀 읽기 권한을 부여 합니다. [Azure Portal를 사용 하 여 Key Vault 액세스 정책 할당을](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) 참조 하세요.
+
+현재이 기능은 다음과 같은 시나리오에서 사용할 수 있습니다.
+
+- [업스트림 URL 패턴의 참조 암호](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings)
+
 
 ## <a name="next-steps"></a>다음 단계
 

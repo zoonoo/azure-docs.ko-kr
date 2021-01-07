@@ -7,17 +7,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056060"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072716"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Azure Cloud Services (클래식)에 대 한 Resource Health Check (RHC) 지원
 이 문서에서는 [Microsoft Azure Cloud Services (클래식)](https://azure.microsoft.com/services/cloud-services) 에 대 한 RHC (Resource Health Check) 지원에 대해 설명 합니다.
 
-클라우드 서비스에 대 한 [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) 를 통해 클라우드 서비스 배포, 역할 & 역할 인스턴스에 영향을 주는 서비스 문제를 진단 하 고 지원을 받을 수 있습니다. 배포, 역할 & 역할 인스턴스 수준에서 클라우드 서비스의 현재 및 과거 상태를 보고 합니다.
+클라우드 서비스에 대 한 [Azure Resource Health](../service-health/resource-health-overview.md) 를 통해 클라우드 서비스 배포, 역할 & 역할 인스턴스에 영향을 주는 서비스 문제를 진단 하 고 지원을 받을 수 있습니다. 배포, 역할 & 역할 인스턴스 수준에서 클라우드 서비스의 현재 및 과거 상태를 보고 합니다.
 
 Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 대해 보고 합니다. Resource Health는 리소스의 상태에 대 한 개인 설정 된 대시보드를 제공 합니다. Resource Health는 Azure 서비스 문제로 인해 리소스를 사용할 수 없었던 모든 시간을 보여 줍니다. 이 데이터를 사용 하면 SLA를 위반 했는지 쉽게 확인할 수 있습니다.
 
@@ -30,7 +30,7 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 리소스 상태 검사는 프로덕션 슬롯 배포에 대해서만 작동 합니다. 스테이징 슬롯 배포는 아직 지원 되지 않습니다. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>응용 프로그램의 상태를 확인 하 고 있는지도 확인 Resource Health?
-아니요, 상태 검사는 역할 인스턴스에만 발생 하며 응용 프로그램 상태를 모니터링 하지 않습니다. 예를 들어 3 개 중 1 개 역할 인스턴스가 비정상 이더라도 응용 프로그램을 계속 사용할 수 있습니다. RHC는 [부하 분산 장치 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) 또는 게스트 에이전트 프로브를 사용 하지 않습니다. 따라서 고객은 계속 해 서 부하 분산 장치 프로브를 사용 하 여 응용 프로그램의 상태를 모니터링 해야 합니다. 
+아니요, 상태 검사는 역할 인스턴스에만 발생 하며 응용 프로그램 상태를 모니터링 하지 않습니다. 예를 들어 3 개 중 1 개 역할 인스턴스가 비정상 이더라도 응용 프로그램을 계속 사용할 수 있습니다. RHC는 [부하 분산 장치 프로브](../load-balancer/load-balancer-custom-probe-overview.md) 또는 게스트 에이전트 프로브를 사용 하지 않습니다. 따라서 고객은 계속 해 서 부하 분산 장치 프로브를 사용 하 여 응용 프로그램의 상태를 모니터링 해야 합니다. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>Cloud Services에 대 한 주석은 무엇입니까?
 주석은 배포 또는 역할의 상태입니다. 상태, 상태 변경 이유 등을 기준으로 다양 한 주석이 있습니다. 
@@ -45,10 +45,10 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 역할 인스턴스는 기본적으로 Vm이 고 Vm에 대 한 상태 검사는 역할 인스턴스에 재사용 되므로 VM 용어는 역할 인스턴스를 나타내는 데 사용 됩니다. 
 
 ## <a name="cloud-services-deployment-level-annotations--their-meanings"></a>해당 의미를 & Cloud Services (배포 수준) 주석
-| 주석 | Description | 
+| Annotation | 설명 | 
 | --- | --- | 
 | 사용 가능| 이 클라우드 서비스 배포에 영향을 미치는 알려진 Azure 플랫폼 문제가 없습니다. |
-| Unknown | 현재이 클라우드 서비스 배포의 상태를 확인할 수 없습니다. | 
+| 알 수 없음 | 현재이 클라우드 서비스 배포의 상태를 확인할 수 없습니다. | 
 | Resource Health 설정 | 이 리소스에 대 한 리소스 상태를 설정 합니다. 리소스 상태는 Azure 리소스를 감시 하 여 영향을 받은 진행 중인 이벤트와 과거 이벤트에 대 한 세부 정보를 제공 합니다.|
 | 성능 저하됨 | 클라우드 서비스 배포 성능이 저하됩니다. 클라우드 서비스 배포를 자동으로 복구하고 문제의 원인을 파악하기 위한 작업이 진행 중입니다. 지금은 추가 작업이 필요 하지 않습니다. |
 | Unhealthy | {0} {1} 역할 인스턴스를 사용할 수 없기 때문에 클라우드 서비스 배포가 비정상 상태입니다. |
@@ -58,10 +58,10 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 | 알 수 없음 및 영향을 받을 수 있음 | 현재이 클라우드 서비스 배포의 상태를 확인할 수 없습니다. 이는이 가상 머신에 영향을 줄 수 있는 진행 중인 Azure 서비스 중단으로 인해 발생할 수 있으며,이는 중단이 해결 될 때 자동으로 복구 됩니다. |
 
 ## <a name="cloud-services-role-instance-level-annotations--their-meanings"></a>Cloud Services (역할 인스턴스 수준) 주석 & 의미
-| 주석 | Description | 
+| Annotation | 설명 | 
 | --- | --- | 
 | 사용 가능 | 이 가상 컴퓨터에 영향을 미치는 알려진 Azure 플랫폼 문제가 없습니다. | 
-| Unknown | 현재이 가상 컴퓨터의 상태를 확인할 수 없습니다. |
+| 알 수 없음 | 현재이 가상 컴퓨터의 상태를 확인할 수 없습니다. |
 | 중지 및 할당 취소 | 권한 있는 사용자 또는 프로세스의 요청으로 이 가상 머신을 중지하고 할당을 취소하고 있습니다. |
 | Resource Health 설정 | 이 리소스에 대 한 리소스 상태를 설정 합니다. 리소스 상태는 Azure 리소스를 감시 하 여 영향을 받은 진행 중인 이벤트와 과거 이벤트에 대 한 세부 정보를 제공 합니다. |
 | 사용할 수 없음 | 가상 머신을 사용할 수 없습니다. 가상 머신을 자동으로 복구하고 문제의 원인을 파악하기 위한 작업이 진행 중입니다. 지금은 추가 작업이 필요 하지 않습니다. |

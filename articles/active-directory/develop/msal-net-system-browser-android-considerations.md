@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 8f755b42249a88a2d37117003d561f79aea6b170
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165994"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>MSAL.NET 사용에 대 한 Xamarin Android 시스템 브라우저 고려 사항
@@ -44,8 +44,8 @@ MSAL.NET 2.4.0 Preview부터 MSAL.NET는 Chrome 이외의 브라우저를 지원
 
 | 디바이스 | 브라우저     |  결과  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/One + | Chrome\* | 합격|
-| Huawei/One + | Microsoft Edge\* | 합격|
+| Huawei/One + | 크롬\* | 합격|
+| Huawei/One + | Edge\* | 합격|
 | Huawei/One + | Firefox\* | 합격|
 | Huawei/One + | 감\* | 합격|
 | 1 + | Ecosia\* | 합격|

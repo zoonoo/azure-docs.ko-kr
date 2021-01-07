@@ -4,13 +4,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/08/2020
 ms.author: trbye
-ms.openlocfilehash: 9c2c46040dd741253e9a68855c4dca89c1dc9a9a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 905eacc3751b3d5d6c66a2fdb0e1391a747ab895
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327129"
 ---
+Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech CLI를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## <a name="speech-to-text-from-microphone"></a>마이크에서 음성을 텍스트로 변환

@@ -3,29 +3,33 @@ title: 실제 예제를 사용 하 여 Azure Cosmos DB에서 데이터 모델링
 description: Azure Cosmos DB Core API를 사용하여 실제 예제를 모델링하고 분할하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d5809d7475759450a513153abf641f7943163d98
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422218"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616249"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서는 [데이터 모델링](modeling-data.md), [분할](partitioning-overview.md)및 [프로 비전 된 처리량](request-units.md) 과 같은 여러 가지 Azure Cosmos DB 개념을 기반으로 하 여 실제 데이터 디자인 연습을 처리 하는 방법을 보여 줍니다.
 
 일반적으로 관계형 데이터베이스를 사용하는 경우 데이터 모델을 설계하는 방법에 대한 습관과 직관을 구축했을 수 있습니다. 특정 제약 조건뿐만 아니라 Azure Cosmos DB의 고유한 장점으로 인해 이러한 모범 사례의 대부분은 제대로 변환되지 않고 최적이 아닌 솔루션으로 끌어들일 수 있습니다. 이 문서의 목표는 항목 모델링에서 엔터티 공동 배치 및 컨테이너 분할에 이르기까지 Azure Cosmos DB의 실제 사용 사례를 모델링하는 전체 프로세스를 안내하는 것입니다.
 
+이 문서의 개념을 설명 하는 [커뮤니티에서 생성 된 소스 코드를 다운로드 하거나 봅니다](https://github.com/jwidmer/AzureCosmosDbBlogExample) . 이 코드 샘플은 커뮤니티 참가자가 제공 했으며 Azure Cosmos DB 팀이 유지 관리를 지원 하지 않습니다.
+
 ## <a name="the-scenario"></a>시나리오
 
-이 연습에서는 *사용자*가 *게시물*을 만들 수 있는 블로깅 플랫폼의 도메인을 고려합니다. 사용자는 이러한 게시물에 대해 *좋아요*를 표시하고 *댓글*을 추가할 수도 있습니다.
+이 연습에서는 *사용자* 가 *게시물* 을 만들 수 있는 블로깅 플랫폼의 도메인을 고려합니다. 사용자는 이러한 게시물에 대해 *좋아요* 를 표시하고 *댓글* 을 추가할 수도 있습니다.
 
 > [!TIP]
-> *기울임꼴*의 몇 가지 단어를 강조했습니다. 이러한 단어는 모델에서 조작해야 하는 "상황(things)"의 종류를 식별합니다.
+> *기울임꼴* 의 몇 가지 단어를 강조했습니다. 이러한 단어는 모델에서 조작해야 하는 "상황(things)"의 종류를 식별합니다.
 
 사양에 추가해야 하는 요구 사항은 다음과 같습니다.
 
@@ -52,9 +56,9 @@ ms.locfileid: "87422218"
 - **[Q4]** 게시물의 설명을 나열 합니다.
 - **[C4]** 게시물에 대한 좋아요 표시
 - **[Q5]** 게시물에 대한 좋아요 나열
-- **[Q6]** 최근에 만든 *x*개 게시물을 약식으로 나열(피드)
+- **[Q6]** 최근에 만든 *x* 개 게시물을 약식으로 나열(피드)
 
-이 단계에서는 각 엔터티(사용자, 게시물 등)에 포함된 항목에 대한 세부 정보를 고려하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 디자인할 때 첫 번째 단계 중 하나는 테이블, 열, 외래 키 등을 기준으로 엔터티가 어떻게 변환 되는지 파악 해야 하기 때문에 세울. 쓰기 시 스키마를 적용 하지 않는 문서 데이터베이스의 경우에는 훨씬 더 중요 하지 않습니다.
+이 단계에서는 각 엔터티 (사용자, 게시물 등)에 대 한 세부 정보를 고려 하지 않았습니다. 이 단계는 일반적으로 관계형 저장소에 대해 디자인할 때 첫 번째 단계 중 하나는 테이블, 열, 외래 키 등을 기준으로 엔터티가 어떻게 변환 되는지 파악 해야 하기 때문에 세울. 쓰기 시 스키마를 적용 하지 않는 문서 데이터베이스의 경우에는 훨씬 더 중요 하지 않습니다.
 
 액세스 패턴을 처음부터 파악하는 것이 중요한 주된 이유는 이 요청 목록이 테스트 도구 모음이 되기 때문입니다. 데이터 모델을 반복할 때마다 각 요청을 검토하고 성능과 확장성을 확인합니다.
 
@@ -291,7 +295,7 @@ ms.locfileid: "87422218"
 
 달성하고자 하는 것은 댓글이나 좋아요를 추가할 때마다 해당 게시물에서 `commentCount` 또는 `likeCount`도 증분시키는 것입니다. `posts` 컨테이너가 `postId`로 분할되므로 새 항목(댓글 또는 좋아요)과 해당 게시물은 동일한 논리 파티션에 배치됩니다. 따라서 [저장 프로시저](stored-procedures-triggers-udfs.md)를 사용하여 해당 작업을 수행할 수 있습니다.
 
-이제 댓글(**[C3]**)을 만들 때 `posts` 컨테이너에 새 항목을 추가하는 대신 해당 컨테이너에 대해 다음과 같은 저장 프로시저를 호출합니다.
+이제 댓글( **[C3]** )을 만들 때 `posts` 컨테이너에 새 항목을 추가하는 대신 해당 컨테이너에 대해 다음과 같은 저장 프로시저를 호출합니다.
 
 ```javascript
 function createComment(postId, comment) {
@@ -327,7 +331,7 @@ function createComment(postId, comment) {
 - 게시물 대체
 - 새 댓글 추가
 
-저장 프로시저가 원자성 트랜잭션으로 실행되므로 `commentCount`의 값과 실제 댓글 수는 항상 동기화 상태로 유지됩니다.
+저장 프로시저는 원자성 트랜잭션으로 실행 되므로의 값 `commentCount` 과 실제 주석 수는 항상 동기화 된 상태를 유지 합니다.
 
 새 좋아요를 추가하여 `likeCount`를 증분시킬 때도 분명히 이와 비슷한 저장 프로시저를 호출합니다.
 
@@ -411,7 +415,7 @@ function updateUsernames(userId, username) {
 
 이 요청은 이미 V2에서 도입된 향상된 기능의 이점으로 인해 추가 쿼리를 줄일 수 있습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="사용자에 대한 모든 게시물 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="사용자의 게시물을 약식으로 나열 하는 쿼리를 보여 주는 다이어그램입니다." border="false":::
 
 그러나 나머지 쿼리에서는 아직 `posts` 컨테이너의 파티션 키를 필터링하지 않습니다.
 
@@ -469,7 +473,7 @@ function updateUsernames(userId, username) {
 
 여기서 비슷한 상황을 처리해야 합니다. V2에 도입된 비정규화에서 남겨진 불필요한 추가 쿼리를 줄인 후에도 나머지 쿼리에서는 컨테이너의 파티션 키를 필터링하지 않습니다.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="최근 게시물 검색" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="약식으로 만들어진 x 가장 최근 게시물을 나열 하는 쿼리를 보여 주는 다이어그램입니다." border="false":::
 
 동일한 접근 방식에 따라 이 요청의 성능과 확장성을 최대화하려면 하나의 파티션만 적중해야 합니다. 이는 제한된 수의 항목만 반환해야 하므로 고려할 수 있습니다. 블로깅 플랫폼의 홈페이지를 채우기 위해 전체 데이터 세트에 대해 페이지를 매길 필요 없이 100개의 최근 게시물을 가져오기만 하면 됩니다.
 
@@ -586,6 +590,6 @@ function truncateFeed() {
 
 실제적인 데이터 모델링 및 분할에 대한 소개를 살펴보았으면 다음 문서를 확인하여 지금까지 다룬 개념을 검토할 수 있습니다.
 
-- [데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md)
+- [데이터베이스, 컨테이너 및 항목 작업](account-databases-containers-items.md)
 - [Azure Cosmos DB에서 분할](partitioning-overview.md)
 - [Azure Cosmos DB에서 피드 변경](change-feed.md)

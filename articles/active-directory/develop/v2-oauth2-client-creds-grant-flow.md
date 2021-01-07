@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/27/2020
+ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 89a4c62044e3be849650de703d2daa9ca3e2a975
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759073"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932586"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
-애플리케이션의 ID를 사용하여 웹 호스팅 리소스에 액세스하기 위해 RFC 6749에 명시된 [OAuth 2.0 클라이언트 자격 증명 권한 부여](https://tools.ietf.org/html/rfc6749#section-4.4)(때로는 *2단계 OAuth*라고도 함)를 사용할 수 있습니다. 이 유형의 권한 부여는 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 응용 프로그램은 종종 *디먼* 또는 *서비스 계정*이라고 합니다.
+애플리케이션의 ID를 사용하여 웹 호스팅 리소스에 액세스하기 위해 RFC 6749에 명시된 [OAuth 2.0 클라이언트 자격 증명 권한 부여](https://tools.ietf.org/html/rfc6749#section-4.4)(때로는 *2단계 OAuth*라고도 함)를 사용할 수 있습니다. 이 유형의 부여는 일반적으로 사용자와의 즉각적인 상호 작용 없이 백그라운드에서 실행되어야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 응용 프로그램은 종종 *디먼* 또는 *서비스 계정*이라고 합니다.
 
 이 문서에서는 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다. 가능하다면 [토큰을 획득하고 보안 웹 API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
 
@@ -52,8 +52,11 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비
 
 이 종류의 권한 부여는 개인 Microsoft 계정을 가진 소비자 사용자가 소유한 데이터에 액세스해야 하는 디먼 및 서비스 계정에 일반적입니다. 조직에서 소유한 데이터의 경우 애플리케이션 사용 권한을 통해 필요한 권한 부여를 획득하는 것이 좋습니다.
 
-> [!NOTE]
-> 이 ACL 기반 권한 부여 패턴을 사용 하도록 설정 하기 위해 Azure AD에서는 응용 프로그램에 다른 응용 프로그램에 대 한 토큰을 가져올 수 있는 권한이 필요 하지 않으므로 클레임 없이 앱 전용 토큰을 발급할 수 있습니다 `roles` . Api를 노출 하는 응용 프로그램은 토큰을 허용 하기 위해 권한 확인을 구현 해야 합니다.
+#### <a name="controlling-tokens-without-the-roles-claim"></a>클레임 없이 토큰 제어 `roles`
+
+이 ACL 기반 권한 부여 패턴을 사용 하도록 설정 하기 위해 Azure AD에서는 응용 프로그램에 다른 응용 프로그램에 대 한 토큰을 가져올 수 있는 권한이 필요 하지 않습니다. 따라서 클레임 없이 앱 전용 토큰을 발급할 수 있습니다 `roles` . Api를 노출 하는 응용 프로그램은 토큰을 허용 하기 위해 권한 확인을 구현 해야 합니다.
+
+응용 프로그램에서 응용 프로그램에 대 한 역할 없는 앱 전용 액세스 토큰을 가져오지 못하게 하려면 [앱에 대 한 사용자 할당 요구 사항을 사용 하도록 설정](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment)해야 합니다. 이렇게 하면 할당 된 역할이 없는 사용자와 응용 프로그램이이 응용 프로그램에 대 한 토큰을 가져올 수 없게 됩니다. 
 
 ### <a name="application-permissions"></a>애플리케이션 사용 권한
 
@@ -258,7 +261,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph
 
 Microsoft 인증 라이브러리에서 [클라이언트 자격 증명 개요 설명서](https://aka.ms/msal-net-client-credentials)를 읽어보세요.
 
-| 샘플 | 플랫폼 |설명 |
+| 예제 | 플랫폼 |설명 |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2.1 콘솔 | 사용자를 대신하지 않고 애플리케이션의 ID를 사용하여 Microsoft Graph를 쿼리하는 테넌트의 사용자를 표시하는 간단한 .NET Core 애플리케이션입니다. 샘플에는 인증에 인증서를 사용하는 다양한 사례도 설명되어 있습니다. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | 사용자를 대신하지 않고 애플리케이션의 ID를 사용하여 Microsoft Graph에서 데이터를 동기화하는 웹 애플리케이션입니다. |

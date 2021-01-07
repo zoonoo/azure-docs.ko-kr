@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 0c64a38295754e4754326dec126bfbc36e1bef61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523335"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638298"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Azure Integration Runtime IP 주소
 
@@ -27,16 +27,16 @@ Azure Integration Runtime 사용 하는 IP 주소는 Azure Integration Runtime�
 > [!IMPORTANT]  
 > 관리 Virtual Network를 사용 하도록 설정 하는 데이터 흐름 및 Azure Integration Runtime 고정 IP 범위의 사용을 지원 하지 않습니다.
 >
-> 이러한 IP 범위는 데이터 이동, 파이프라인 및 외부 활동 실행에 사용할 수 있습니다. 이러한 IP 범위는 Azure Integration runtime에서 인바운드 액세스를 위해 데이터 저장소/n a m e 보안 그룹 (NSG)/방화벽의 허용 목록에 사용할 수 있습니다. 
+> 이러한 IP 범위는 데이터 이동, 파이프라인 및 외부 활동 실행에 사용할 수 있습니다. 이러한 IP 범위는 Azure Integration runtime에서 인바운드 액세스를 위해 데이터 저장소/n e t i n g (네트워크 보안 그룹)/방화벽에서 필터링 하는 데 사용할 수 있습니다. 
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Azure Integration Runtime IP 주소: 특정 지역
 
-리소스가 있는 특정 Azure 지역에서 Azure Integration runtime에 대해 나열 된 IP 주소의 트래픽을 허용 합니다. 서비스 태그 [ip 범위 다운로드 링크](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)에서 서비스 태그의 ip 범위 목록을 가져올 수 있습니다. 예를 들어 Azure 지역이 **AustraliaEast**인 경우 **DATAFACTORY AustraliaEast**에서 IP 범위 목록을 가져올 수 있습니다.
+리소스가 있는 특정 Azure 지역에서 Azure Integration runtime에 대해 나열 된 IP 주소의 트래픽을 허용 합니다. 서비스 태그 [ip 범위 다운로드 링크](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)에서 서비스 태그의 ip 범위 목록을 가져올 수 있습니다. 예를 들어 Azure 지역이 **AustraliaEast** 인 경우 **DATAFACTORY AustraliaEast** 에서 IP 범위 목록을 가져올 수 있습니다.
 
 
 ## <a name="known-issue-with-azure-storage"></a>Azure Storage의 알려진 문제
 
-* Azure Storage 계정에 연결할 때 IP 네트워크 규칙은 저장소 계정과 동일한 지역의 Azure integration runtime에서 시작 된 요청에 영향을 주지 않습니다. 자세한 내용은 [이 문서를 참조](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)하세요. 
+* Azure Storage 계정에 연결할 때 IP 네트워크 규칙은 저장소 계정과 동일한 지역의 Azure integration runtime에서 시작 된 요청에 영향을 주지 않습니다. 자세한 내용은 [이 문서를 참조](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)하세요. 
 
   대신 [Azure Storage에 연결 하는 동안 신뢰할 수 있는 서비스](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)를 사용 하는 것이 좋습니다. 
 

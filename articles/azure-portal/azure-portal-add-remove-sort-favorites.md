@@ -1,29 +1,23 @@
 ---
-title: Azure Portal에서 즐겨찾기 추가, 제거 및 정렬 Microsoft Docs
+title: Azure Portal에서 즐겨찾기 추가, 제거 및 정렬
 description: 즐겨찾기 목록에서 항목을 추가 또는 제거 하 고 항목 순서를 다시 정렬 하는 방법에 대해 알아봅니다.
-services: azure-portal
 keywords: 즐겨찾기, 포털
-author: mgblythe
-ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: how-to
-ms.service: azure-portal
-ms.custom: ''
-manager: mtillman
-ms.openlocfilehash: 359a544df906a277a89333e3aee2f6203a707f8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ed34c2e72890c6aeeef9371312825273722ac6
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764131"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745794"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>즐겨찾기 추가, 제거 및 다시 정렬
 
-자주 사용 하는 서비스로 빠르게 이동할 수 있도록 **즐겨찾기** 목록에서 항목을 추가 하거나 제거 합니다. **즐겨찾기** 목록에 몇 가지 공통 서비스를 이미 추가 했지만 사용자 지정 하려고 할 가능성이 있습니다. **즐겨찾기에**대 한 변경 내용을 사용자에 게 표시 하는 유일한 사용자입니다.
+자주 사용 하는 서비스로 빠르게 이동할 수 있도록 **즐겨찾기** 목록에서 항목을 추가 하거나 제거 합니다. **즐겨찾기** 목록에 몇 가지 공통 서비스를 이미 추가 했지만 사용자 지정 하려고 할 가능성이 있습니다. **즐겨찾기에** 대 한 변경 내용을 사용자에 게 표시 하는 유일한 사용자입니다.
 
 ## <a name="add-a-favorite"></a>즐겨찾기 추가
 
-**즐겨찾기** 아래에 나열 된 항목은 **모든 서비스**에서 선택 됩니다. 서비스 이름 위로 마우스를 이동 하 여 서비스와 관련 된 정보 및 리소스를 표시 합니다. 서비스 이름 옆에 채워진 별 아이콘이 채워진 별 ![ 아이콘이 ](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) **즐겨찾기** 목록에 표시 됨을 나타냅니다. **즐겨찾기** 목록에 서비스를 추가 하려면 별표 아이콘을 선택 합니다.
+**즐겨찾기** 아래에 나열 된 항목은 **모든 서비스** 에서 선택 됩니다. 서비스 이름 위로 마우스를 이동 하 여 서비스와 관련 된 정보 및 리소스를 표시 합니다. 서비스 이름 옆에 채워진 별 아이콘이 채워진 별 ![ 아이콘이 ](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) **즐겨찾기** 목록에 표시 됨을 나타냅니다. **즐겨찾기** 목록에 서비스를 추가 하려면 별표 아이콘을 선택 합니다.
 
 ### <a name="add-cost-management--billing-to-favorites"></a>즐겨찾기에 Cost Management + 청구 추가
 
@@ -53,7 +47,7 @@ ms.locfileid: "84764131"
 
 ## <a name="rearrange-favorites"></a>즐겨찾기 다시 정렬
 
-즐겨 찾는 서비스가 나열 되는 순서를 변경할 수 있습니다. 메뉴 항목을 **즐겨찾기**아래의 다른 위치로 끌어 놓습니다.
+즐겨 찾는 서비스가 나열 되는 순서를 변경할 수 있습니다. 메뉴 항목을 **즐겨찾기** 아래의 다른 위치로 끌어 놓습니다.
 
 ### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Cost Management + 결제를 즐겨찾기 맨 위로 이동
 

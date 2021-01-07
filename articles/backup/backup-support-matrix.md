@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985005"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008370"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -25,7 +25,7 @@ ms.locfileid: "90985005"
 
 ## <a name="vault-support"></a>자격 증명 모음 지원
 
-Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을 오케스트레이션 및 관리합니다. 또한 자격 증명 모음을 사용하여 백업 데이터를 저장합니다.
+Azure Backup는 Recovery Services vault를 사용 하 여 azure Vm, azure vm의 SQL, azure Vm의 SQL SAP HANA, azure 파일 공유 및 Azure Backup 에이전트를 사용 하는 온-프레미스 작업, Azure Backup Server 및 System Center DPM을 사용 하 여 백업을 오케스트레이션 하 고 관리 합니다. 또한 Recovery Services 자격 증명 모음을 사용 하 여 이러한 워크 로드에 대 한 백업 데이터를 저장 합니다.
 
 다음 표에서는 Recovery Services 자격 증명 모음의 기능을 설명합니다.
 
@@ -39,6 +39,7 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 **자격 증명 모음 이동** | 구독 간에 또는 동일한 구독의 리소스 그룹 간에 [자격 증명 모음을 이동](./backup-azure-move-recovery-services-vault.md)할 수 있습니다. 그러나 자격 증명 모음을 지역 간에 이동하는 것은 지원되지 않습니다.
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간의 백업된 데이터 이동은 지원되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 백업을 저장하기 전에 자격 증명 모음에 대한 스토리지 복제 유형(지역 중복 스토리지 또는 로컬 중복 스토리지)을 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
+**ZRS(영역 중복 스토리지)** | UKS (영국 남부) 및 남부 동아시아 (바다) 지역에서 사용할 수 있습니다.
 
 ## <a name="on-premises-backup-support"></a>온-프레미스 백업 지원
 
@@ -66,7 +67,7 @@ Azure VM을 백업하려는 경우 지원되는 사항은 다음과 같습니다
 
 **머신** | **백업 대상** | **위치** | **기능**
 --- | --- | --- | ---
-**VM 확장을 사용한 Azure VM 백업** | 전체 VM | 자격 증명 모음에 백업합니다. | VM에 백업을 사용하도록 설정할 때 설치된 확장<br/><br/> 하루에 한 번 백업합니다.<br/><br/> Windows VM의 경우 앱 인식 백업이고, Linux VM의 경우 파일 일치 백업입니다. 사용자 지정 스크립트를 사용하여 Linux 머신에 대한 앱 일관성을 구성할 수 있습니다.<br/><br/> VM 또는 디스크를 복원합니다.<br/><br/> 온-프레미스 위치에 Azure VM을 백업할 수 없습니다.
+**VM 확장을 사용한 Azure VM 백업** | 전체 VM | 자격 증명 모음에 백업합니다. | VM에 백업을 사용하도록 설정할 때 설치된 확장<br/><br/> 하루에 한 번 백업합니다.<br/><br/> Windows VM의 경우 앱 인식 백업이고, Linux VM의 경우 파일 일치 백업입니다. 사용자 지정 스크립트를 사용하여 Linux 머신에 대한 앱 일관성을 구성할 수 있습니다.<br/><br/> VM 또는 디스크를 복원합니다.<br/><br/>[Active Directory 도메인 컨트롤러의 백업 및 복원이](active-directory-backup-restore.md) 지원 됩니다.<br><br> 온-프레미스 위치에 Azure VM을 백업할 수 없습니다.
 **MARS 에이전트를 사용한 Azure VM 백업** | 파일, 폴더, 시스템 상태 | 자격 증명 모음에 백업합니다. | 하루에 세 번 백업합니다.<br/><br/> 전체 VM이 아닌 특정 파일 또는 폴더를 백업하려는 경우 MARS 에이전트는 VM 확장을 실행할 수 있습니다.
 **Azure VM(DPM 사용)** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | DPM을 실행하는 Azure VM의 로컬 스토리지에 백업합니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대한 전체 세분성<br/><br/> Linux는 VM(Hyper-V/VMware)에 지원됨<br/><br/> Oracle은 지원되지 않음
 **Azure VM(MABS 사용)** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS를 실행하는 Azure VM의 로컬 스토리지에 백업합니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대한 전체 세분성<br/><br/> Linux는 VM(Hyper-V/VMware)에 지원됨<br/><br/> Oracle은 지원되지 않음
@@ -108,7 +109,7 @@ Azure Backup은 전송 중 및 정지 상태의 데이터에 대한 암호화를
 - 백업 데이터는 암호화된 형식으로 Recovery Services 자격 증명 모음에 저장됩니다.
 - MARS 에이전트를 사용 하 여 온-프레미스 서버에서 데이터를 백업 하는 경우 Azure Backup 업로드 하기 전에 암호를 사용 하 여 데이터를 암호화 한 후 Azure Backup에서 다운로드 한 후에만 암호를 해독 합니다.
 - Azure VM을 백업하고 있다면 가상 머신 *내에서* 암호화를 설정해야 합니다.
-- Azure Backup은 Azure Disk Encryption을 지원하며, Windows 가상 머신의 BitLocker와 Linux 가상 머신의 **dm-crypt**를 사용합니다.
+- Azure Backup은 Azure Disk Encryption을 지원하며, Windows 가상 머신의 BitLocker와 Linux 가상 머신의 **dm-crypt** 를 사용합니다.
 - 백 엔드에서 Azure Backup는 [Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 사용하여 미사용 데이터를 보호합니다.
 
 **머신** | **전송 중** | **저장**
@@ -149,10 +150,10 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하기 위�
 
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | 예.   4TB 미만의 디스크를 사용하는 암호화된 VM 및 VM 지원됨 | 모든 Azure 공용 지역 및 소 버린 클라우드.  |
-| SQL/SAP HANA | 예                                                          | 모든 Azure 공용 지역 및 소 버린 클라우드.             |
+| Azure VM               | 예.   4TB 미만의 디스크를 사용하는 암호화된 VM 및 VM 지원됨 | 모든 Azure 공용 지역입니다.  |
+| SQL/SAP HANA | 예                                                          | 프랑스를 제외한 모든 공용 지역 |
 | MARS 에이전트/온-프레미스  | 예                                                           | 해당 없음               |
-| AFS                    | 예                                                           | 해당 없음               |
+| AFS (Azure 파일 공유)                 | 예                                                           | 해당 없음               |
 
 ## <a name="next-steps"></a>다음 단계
 

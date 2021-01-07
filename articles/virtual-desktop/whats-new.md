@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319817"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533964"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -25,6 +25,96 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 - 버그 수정
 
 이 문서는 매월 업데이트됩니다. 새 업데이트를 유지하려면 이 문서를 다시 확인하세요.
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="azure-portal-experience"></a>Azure Portal 환경
+
+Azure Portal 사용자 환경에서 다음과 같은 두 가지 버그를 해결했습니다.
+
+- 데스크톱 애플리케이션 이름을 "VM 추가" 워크플로에서 더 이상 덮어쓰지 않습니다.
+- 이제 세션 호스트가 확장 집합의 일부인 경우 세션 호스트 탭이 로드됩니다.
+
+### <a name="fslogix-client-version-2009"></a>FSLogix 클라이언트 버전 2009 
+
+여러 수정 및 개선 사항이 있는 새 버전의 FSLogix 클라이언트를 출시했습니다. [블로그 게시물](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix)에서 자세히 알아보세요.
+
+### <a name="rdp-shortpath-public-preview"></a>RDP Shortpath 공개 미리 보기
+
+RDP Shortpath는 지점 및 사이트 간과 사이트 간 VPN 및 ExpressRoute를 사용하여 Windows Virtual Desktop 세션 호스트에 직접 연결하는 것을 소개합니다. URCP 전송 프로토콜도 소개합니다. RDP Shortpath는 사용자 환경을 개선하기 위해 대기 시간과 네트워크 홉을 줄이도록 설계되었습니다. [Windows Virtual Desktop RDP Shortpath](shortpath.md)에서 자세히 알아보세요.
+
+### <a name="azdesktopvirtualization-version-201"></a>Az.DesktopVirtualization 버전 2.0.1
+
+Windows Virtual Desktop cmdlet 2.0.1을 출시했습니다. 이 업데이트에는 MSIX 앱 연결을 관리할 수 있는 cmdlet이 포함되어 있습니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1)에서 새 버전을 다운로드할 수 있습니다.
+
+### <a name="azure-advisor-updates"></a>Azure Advisor 업데이트
+
+이제 Azure Advisor는 Windows Virtual Desktop의 근접 지침에 대한 새로운 권장 사항을 제공합니다. [Azure 웹 사이트](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/)에서 자세히 알아보세요.
+
+## <a name="october-2020"></a>2020년 10월
+
+2020년 10월에 변경된 내용은 다음과 같습니다.
+
+### <a name="improved-performance"></a>성능 향상
+
+- 다음 Azure 지역에서 연결 대기 시간을 줄여 성능을 최적화했습니다.
+    - 스위스
+    - 캐나다
+
+이제 [환경 측정기](https://azure.microsoft.com/services/virtual-desktop/assessment/)를 사용하여 이러한 영역에서 사용자 환경 품질을 추정할 수 있습니다.
+
+### <a name="azure-government-cloud-availability"></a>Azure Government 클라우드 가용성
+
+이제 Azure Government 클라우드가 일반 공급됩니다. [블로그 게시물](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/)에서 자세히 알아보세요.
+
+### <a name="windows-virtual-desktop-azure-portal-updates"></a>Windows Virtual Desktop Azure Portal 업데이트
+
+Windows Virtual Desktop Azure Portal에 대한 몇 가지 업데이트를 수행했습니다.
+
+- 사용자가 "세션" 탭을 열 수 없도록 하는 resourceID 오류를 수정했습니다.
+- "세션 호스트" 탭에서 UI를 간소화했습니다.
+- RDP 속성에서 "기본값", "유용성" 및 "기본값 복원" 설정을 수정했습니다.
+- 모든 탭에서 일관된 "제거" 및 "삭제" 함수를 만들었습니다.
+- 이제 포털에서 "앱 추가" 워크플로의 앱 이름 유효성을 검사합니다.
+- 세션 호스트 내보내기 데이터가 열에 정렬되지 않은 문제를 해결했습니다.
+- 포털이 사용자 세션을 검색할 수 없는 문제를 해결했습니다.
+- 다른 리소스 그룹에서 가상 머신을 생성할 때 발생하는 세션 호스트 검색 문제를 해결했습니다.
+- 활성 세션과 연결이 끊긴 세션을 모든 나열하도록 "세션 호스트" 탭을 업데이트했습니다.
+- 이제 "애플리케이션" 탭에 페이지가 있습니다.
+- "명령줄 필요" 텍스트가 "애플리케이션 목록" 탭에 올바르게 표시되지 않는 문제를 해결했습니다.
+- 독일어 버전의 공유 이미지 갤러리를 사용하는 동안 포털에서 호스트 풀 또는 가상 머신을 배포할 수 없는 문제를 해결했습니다.
+
+### <a name="client-updates-for-october-2020"></a>2020년 10월 클라이언트 업데이트
+
+새 버전의 클라이언트를 릴리스했습니다. 자세한 내용은 다음 문서를 참조하세요.
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+기타 클라이언트에 대한 자세한 내용은 [클라이언트 업데이트](#client-updates)를 참조하세요.
+
+## <a name="september-2020"></a>2020년 9월
+
+2020년 9월에 변경된 내용은 다음과 같습니다.
+
+- 다음 Azure 지역에서 연결 대기 시간을 줄여 성능을 최적화했습니다.
+    - 독일
+    - 남아프리카(유효성 검사 환경에만 해당)
+
+이제 [환경 측정기](https://azure.microsoft.com/services/virtual-desktop/assessment/)를 사용하여 이러한 영역에서 사용자 환경 품질을 추정할 수 있습니다.
+
+- Windows Virtual Desktop용 Windows Desktop 클라이언트의 버전 1.2.1364를 출시했습니다. 이 업데이트에서는 다음과 같이 변경했습니다.
+    - Windows 7에서 SSO(Single Sign-On)가 작동하지 않는 문제가 해결되었습니다.
+    - 다른 앱에서 오디오 스트림이 전용 모드로 열려 있는 동안 팀에 대한 미디어 최적화를 사용하도록 설정한 사용자가 팀 회의를 호출하거나 조인하려고 할 때 클라이언트의 연결이 끊어지는 문제를 해결했습니다.
+    - 팀에 대한 미디어 최적화를 사용하도록 설정한 경우 팀에서 오디오나 비디오 디바이스를 열거하지 않는 문제를 해결했습니다.
+    - "설정과 관련하여 도움이 필요한가요?" 링크가 데스크톱 설정 페이지에 추가되었습니다.
+    - 고대비 어두운 테마를 사용할 때 발생하는 "구독" 단추와 관련된 문제가 해결되었습니다.
+    
+- 사용자의 놀라운 도움 덕분에 Microsoft Store 원격 데스크톱 클라이언트에 대한 두 가지 중요한 문제를 해결했습니다. 클라이언트의 단계별 릴리스를 전 세계의 더 많은 사용자에게 확대함에 따라 계속해서 피드백을 검토하고 문제를 해결할 것입니다.
+    
+- Azure Portal에서 VM을 배포에 추가하기 위한 워크플로의 일부로 VM 위치, 이미지, 리소스 그룹, 접두사 이름, 네트워크 구성을 변경할 수 있는 새로운 기능을 추가했습니다.
+
+- IT 전문가는 이제 Microsoft Endpoint Manager를 사용하여 하이브리드 Azure Active Directory에 조인된 Windows 10 Enterprise VM을 관리할 수 있습니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048)을 참조하세요.
 
 ## <a name="august-2020"></a>2020년 8월
 
@@ -45,7 +135,7 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 
 - Azure Advisor는 이제 Windows Virtual Desktop의 일부입니다. Azure Portal을 통해 Windows Virtual Desktop에 액세스하면 Windows Virtual Desktop 환경을 최적화하기 위한 권장 사항을 확인할 수 있습니다. [Azure Advisor](azure-advisor.md)에서 자세히 알아보세요.
 
-- 이제 Azure CLI는 Windows Virtual Desktop 배포를 자동화하는 데 도움이 되는 Windows Virtual Desktop(`az desktopvirtualization`)을 지원합니다. 확장 명령 목록은 [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest)을 체크 아웃하세요.
+- 이제 Azure CLI는 Windows Virtual Desktop 배포를 자동화하는 데 도움이 되는 Windows Virtual Desktop(`az desktopvirtualization`)을 지원합니다. 확장 명령 목록은 [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true)을 체크 아웃하세요.
 
 - Windows Virtual Desktop Azure Resource Manager 인터페이스와 완벽하게 호환되도록 배포 템플릿을 업데이트했습니다. [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates)에서 템플릿을 찾을 수 있습니다.
 
@@ -74,7 +164,7 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 
 ### <a name="diagnostics"></a>진단
 
-Log Analytics 작업 영역에 대해 미리 작성된 새로운 쿼리를 릴리스했습니다. 쿼리에 액세스하려면 **로그**로 이동하고 **범주**에서 **Windows Virtual Desktop**을 선택합니다. [진단 기능에 대해 Log Analytics 사용](diagnostics-log-analytics.md)에서 자세히 알아보세요.
+Log Analytics 작업 영역에 대해 미리 작성된 새로운 쿼리를 릴리스했습니다. 쿼리에 액세스하려면 **로그** 로 이동하고 **범주** 에서 **Windows Virtual Desktop** 을 선택합니다. [진단 기능에 대해 Log Analytics 사용](diagnostics-log-analytics.md)에서 자세히 알아보세요.
 
 ### <a name="update-for-remote-desktop-client-for-android"></a>Android용 원격 데스크톱 클라이언트 업데이트
 
@@ -102,7 +192,7 @@ Windows Virtual Desktop에 대한 Microsoft Teams에 개선 사항이 있습니�
 
 - 이전 버전의 Windows Virtual Desktop에는 테넌트 또는 호스트 풀에 할당할 수 있는 네 가지 기본 제공 관리자 역할이 있습니다. 이러한 역할은 이제 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)에 있습니다. 모든 Windows Virtual Desktop Azure Resource Manager 개체에 이러한 역할을 적용할 수 있으며, 이를 통해 완전하고 다양한 위임 모델을 사용할 수 있습니다.
 
-- 이 업데이트에서는 더 이상 호스트 풀을 확장하기 위해 Azure Marketplace 또는 GitHub 템플릿을 반복적으로 실행할 필요가 없습니다. 호스트 풀을 확장하려면 Azure Portal의 호스트 풀로 이동하고 **+ 추가**를 선택하여 추가 세션 호스트를 배포하기만 하면 됩니다.
+- 이 업데이트에서는 더 이상 호스트 풀을 확장하기 위해 Azure Marketplace 또는 GitHub 템플릿을 반복적으로 실행할 필요가 없습니다. 호스트 풀을 확장하려면 Azure Portal의 호스트 풀로 이동하고 **+ 추가** 를 선택하여 추가 세션 호스트를 배포하기만 하면 됩니다.
 
 - 이제 호스트 풀 배포가 [Azure 공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md)와 완전히 통합되었습니다. 공유 이미지 갤러리는 이미지 버전 관리를 비롯한 VM(가상 머신) 이미지 정의를 저장하는 별도의 Azure 서비스입니다. 또한 글로벌 복제를 사용하여 로컬 배포를 위해 이미지를 복사하여 다른 Azure 지역으로 보낼 수 있습니다.
 
@@ -110,14 +200,13 @@ Windows Virtual Desktop에 대한 Microsoft Teams에 개선 사항이 있습니�
 
 - 더 이상 Windows Virtual Desktop을 사용하도록 Azure AD(Azure Active Directory) 동의를 완료할 필요가 없습니다. 이 업데이트에서 Azure 구독의 Azure AD 테넌트는 사용자를 인증하고 관리자를 위한 Azure RBAC 제어를 제공합니다.
 
-
 ### <a name="powershell-support"></a>PowerShell 지원
 
 이 업데이트를 통해 Azure PowerShell Az 모듈에 새 AzWvd cmdlet을 추가했습니다. 이 새 모듈은 .NET Core에서 실행되는 PowerShell Core에서 지원됩니다.
 
 모듈을 설치하려면 [Windows Virtual Desktop용 PowerShell 모듈 설치](powershell-module.md)에 나온 지침을 따르세요.
 
-[AzWvd PowerShell 참조](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization)에서 사용 가능한 명령 목록을 확인할 수도 있습니다.
+[AzWvd PowerShell 참조](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true)에서 사용 가능한 명령 목록을 확인할 수도 있습니다.
 
 새 기능에 대한 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245)을 확인하세요.
 
@@ -144,4 +233,3 @@ Windows Virtual Desktop에 대한 Microsoft Teams에 몇 가지 개선 사항이
 ## <a name="next-steps"></a>다음 단계
 
 [Microsoft 365 Windows Virtual Desktop 로드맵](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop)에서 향후 계획에 대해 알아봅니다.
-

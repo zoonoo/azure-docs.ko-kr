@@ -1,14 +1,16 @@
 ---
 title: Chat bot에 LUIS과 함께 NLP 사용
-description: Cognitive Services는 두 가지 자연어 처리 서비스, Language Understanding 및 QnA Maker를 제공 하며 각각 다른 용도로 사용 됩니다. 각 서비스를 사용 해야 하는 시기와 각 서비스를 어떻게 서로 어떻게 보완 하는지 이해 합니다.
+description: Language Understanding를 사용 하는 시기 및 QnA Maker를 사용 하는 시기와 사용 시기를 알아봅니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: beaa8b7033aeff3958632b3703323754e5ad5084
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b674fcb60ed2b4116b641ed14ff6d51ebfda3816
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524474"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777352"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>NLP (자연어 처리)와 Cognitive Services를 사용 하 여 봇 대화를 보강 합니다.
 

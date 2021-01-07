@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894112"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 계산 네트워크를 사용 하도록 설정
@@ -27,7 +27,7 @@ ms.locfileid: "90894112"
 
 이 자습서에서는 웹 서버 앱 모듈을 사용 하 여 시나리오를 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음이 필요 합니다.
 

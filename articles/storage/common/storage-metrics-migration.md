@@ -4,21 +4,21 @@ description: 스토리지 분석 메트릭 (클래식 메트릭)에서 Azure Mon
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: f0357c153a068b1f857e4595fa17a9ac6bc22104
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500269"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781926"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Azure Monitor에서 메트릭으로 전환
 
-**2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조 하세요. 클래식 메트릭을 사용 하는 경우 해당 날짜 이전의 Azure Monitor의 메트릭으로 전환 해야 합니다. 이 문서는 전환을 수행 하는 데 도움이 됩니다. 
+**2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용하는 경우 해당 날짜 이전의 Azure Monitor의 메트릭으로 전환해야 합니다. 이 문서는 전환을 수행하는 데 도움이 됩니다. 
 
 ## <a name="steps-to-complete-the-transition"></a>전환을 완료 하는 단계
 
@@ -30,12 +30,12 @@ Azure Monitor에서 메트릭으로 전환 하려면 다음 방법을 사용 하
 
 3. [Azure Monitor에서](#metrics-mapping-between-old-metrics-and-new-metrics) 현재 사용 하는 메트릭과 동일한 데이터를 제공 하는 메트릭을 식별 합니다. 
    
-4. [차트](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) 또는 [대시보드](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) 를 만들어 메트릭 데이터를 봅니다.
+4. [차트](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) 또는 [대시보드](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) 를 만들어 메트릭 데이터를 봅니다.
 
    > [!NOTE]
    > Azure Monitor 메트릭은 기본적으로 사용 하도록 설정 되어 있으므로 메트릭을 캡처하기 시작 하기 위해 수행 해야 할 작업이 없습니다. 그러나 이러한 메트릭을 보려면 차트나 대시보드를 만들어야 합니다. 
  
-5. 클래식 저장소 메트릭을 기반으로 하는 경고 규칙을 만든 경우 Azure Monitor의 메트릭을 기반으로 하는 [경고 규칙을 만듭니다](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) . 
+5. 클래식 저장소 메트릭을 기반으로 하는 경고 규칙을 만든 경우 Azure Monitor의 메트릭을 기반으로 하는 [경고 규칙을 만듭니다](../../azure-monitor/platform/alerts-overview.md) . 
 
 6. Azure Monitor의 모든 메트릭을 볼 수 있게 되 면 클래식 로깅을 해제할 수 있습니다. 
 
@@ -47,11 +47,13 @@ Azure Monitor에서 메트릭으로 전환 하려면 다음 방법을 사용 하
 
 주요 차이점은 메트릭을 관리 하는 방법에 있습니다. 클래식 메트릭은 Azure Storage에서 관리 하지만 Azure Monitor 메트릭은 Azure Monitor에서 관리 됩니다. Azure Storage 기본 메트릭을 사용 하 여 메트릭 값을 수집 하 고 집계 한 후 저장소 계정에 있는 테이블에 저장 합니다. Azure Monitor에서 메트릭을 사용 하 Azure Storage는 메트릭 데이터를 Azure Monitor 백 엔드에서 보냅니다. Azure Monitor는 Azure Portal 데이터 뿐만 아니라 수집 데이터를 포함 하는 통합 모니터링 환경을 제공 합니다. 
 
+클래식 메트릭은 Azure storage 계정에 전송 되 고 저장 됩니다. Azure Monitor 메트릭은 여러 위치로 전송 될 수 있습니다. 저장소 계정은 이러한 위치 중 하나일 수 있지만 필수는 아닙니다.  
+
 메트릭이 지원 되는 것 처럼 클래식 메트릭은 Azure Blob 저장소에 대 한 **용량** 메트릭만 제공 합니다. Azure Monitor 메트릭은 Blob, 테이블, 파일, 큐 및 premium storage에 대 한 용량 메트릭을 제공 합니다. 클래식 메트릭은 Blob, 테이블, Azure 파일 및 큐 저장소에 대 한 **트랜잭션** 메트릭을 제공 합니다. Azure Monitor에서 메트릭은 premium storage를 해당 목록에 추가 합니다.
 
 계정의 활동이 메트릭을 트리거하지 않는 경우 클래식 메트릭은 해당 메트릭에 대해 0 값을 표시 합니다. Azure Monitor 메트릭은 데이터를 완전히 생략 하 여 클리너 보고서를 발생 시킵니다. 예를 들어 클래식 메트릭을 사용 하는 경우 서버 시간 제한 오류가 보고 되지 않으면 `ServerTimeoutError` 메트릭 테이블의 값이 0으로 설정 됩니다. 차원이와 같은 메트릭 값을 쿼리할 때 Azure Monitor는 데이터를 반환 하지 않습니다 `Transactions` `ResponseType` `ServerTimeoutError` . 
 
-Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)을 참조 하세요.
+Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](../../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -68,7 +70,7 @@ Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메�
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
-> 또한 클래식 메트릭으로 사용할 수 없는 몇 가지 새로운 용량 메트릭이 있습니다. 전체 목록을 보려면 [메트릭](../common/monitor-storage-reference.md#metrics)을 참조 하세요.
+> 또한 클래식 메트릭으로 사용할 수 없는 몇 가지 새로운 용량 메트릭이 있습니다. 전체 목록을 보려면 [메트릭](../blobs/monitor-blob-storage-reference.md#metrics)을 참조 하세요.
 
 **트랜잭션 메트릭**
 
@@ -115,5 +117,4 @@ Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Azure Monitor의 스토리지 메트릭](./storage-metrics-in-azure-monitor.md)
+* [Azure Monitor](../../azure-monitor/overview.md)

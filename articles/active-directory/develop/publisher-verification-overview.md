@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089754"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308784"
 ---
 # <a name="publisher-verification"></a>게시자 확인
 
-게시자 확인은 관리자와 최종 사용자가 Microsoft id 플랫폼과 통합 되는 응용 프로그램 개발자의 신뢰성을 이해 하는 데 도움이 됩니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership) 계정을 사용하여 [확인](/partner-center/verification-responses) 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 
+게시자 확인은 관리자와 최종 사용자가 Microsoft id 플랫폼과 통합 되는 응용 프로그램 개발자의 신뢰성을 이해 하는 데 도움이 됩니다. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership) 계정을 사용하여 [확인](/partner-center/verification-responses) 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 
 
 다음과 같이 파란색 "확인" 배지가 Azure AD 동의 확인 프롬프트 및 다른 화면에 표시됩니다. ![동의 확인 프롬프트](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -33,9 +37,10 @@ ms.locfileid: "90089754"
 
 - **브랜드 이미지 향상** - Azure AD [동의 확인 프롬프트](application-consent-experience.md), 엔터프라이즈 앱 페이지, 최종 사용자 및 관리자가 사용하는 추가 UX 화면에 "확인" 배지가 표시됩니다. 
 
-- 보다 **원활한 엔터프라이즈 도입**-관리자는 기본 정책 조건 중 하나로 게시자 확인 상태를 사용 하 여 [사용자 동의 정책을](../manage-apps/configure-user-consent.md)구성할 수 있습니다. 
+- 보다 **원활한 엔터프라이즈 도입** -관리자는 기본 정책 조건 중 하나로 게시자 확인 상태를 사용 하 여 [사용자 동의 정책을](../manage-apps/configure-user-consent.md)구성할 수 있습니다.
 
-- **위험 평가 향상** - Microsoft의 "위험한" 동의 요청 감지에 게시자 확인이 신호로 포함됩니다. 
+> [!NOTE]
+> 11 월 2020부터 최종 사용자는 확인 된 게시자 없이는 새로 등록 된 다중 테 넌 트 앱에 더 이상 동의를 부여할 수 없습니다. 이는 2020 년 11 월 8 일 이후에 등록 된 앱에 적용 되 고, OAuth 2.0을 사용 하 여 기본 로그인 및 읽기 사용자 프로필 이상의 권한을 요청 하 고, 앱이 등록 된 것과 다른 테 넌 트의 사용자 동의를 요청 합니다. 승인 화면에 표시 되는 경고는 사용자에 게 이러한 앱이 위험 하 고 확인 되지 않은 게시자의 것인지를 알려 줍니다.    
 
 ## <a name="requirements"></a>요구 사항
 게시자 확인을 사용하려면 몇 가지 필수 구성 요소가 필요하며, 그 중 일부는 이미 여러 Microsoft 파트너가 완료했습니다. 다음은 필수 구성 요소입니다. 
@@ -48,7 +53,7 @@ ms.locfileid: "90089754"
 
 -  확인을 수행하는 사용자는 Azure AD의 앱 등록과 파트너 센터의 MPN 계정을 변경할 수 있는 권한이 있어야 합니다. 
 
-    -  Azure AD에서이 사용자는 응용 프로그램 관리, 클라우드 응용 프로그램 관리자 또는 전역 관리자 [역할](../users-groups-roles/directory-assign-admin-roles.md)중 하나의 구성원 이어야 합니다. 
+    -  Azure AD에서이 사용자는 응용 프로그램 관리, 클라우드 응용 프로그램 관리자 또는 전역 관리자 [역할](../roles/permissions-reference.md)중 하나의 구성원 이어야 합니다. 
 
     -  파트너 센터에서 이 사용자는 [역할](/partner-center/permissions-overview)로 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할) 중 하나가 할당되어야 합니다.
     
@@ -69,7 +74,7 @@ ms.locfileid: "90089754"
 
   또한 Microsoft 365와 통합하는 개발자는 이러한 프로그램의 추가 혜택을 얻을 수 있습니다. 자세한 내용은 [Microsoft 365 게시자 증명](/microsoft-365-app-certification/docs/attestation) 및 [Microsoft 365 앱 인증](/microsoft-365-app-certification/docs/certification)을 참조하세요. 
 
-- **Azure AD 애플리케이션 갤러리와 똑같은 것인가요?** 아니요, 게시자 확인은 [Azure Active Directory 애플리케이션 갤러리](../azuread-dev/howto-app-gallery-listing.md)를 보완하기는 하지만 별개의 프로그램입니다. 위의 조건을 충족하는 개발자는 해당 프로그램 참여 여부에 관계없이 게시자 확인 프로세스를 완료해야 합니다. 
+- **Azure AD 애플리케이션 갤러리와 똑같은 것인가요?** 아니요, 게시자 확인은 [Azure Active Directory 애플리케이션 갤러리](v2-howto-app-gallery-listing.md)를 보완하기는 하지만 별개의 프로그램입니다. 위의 조건을 충족하는 개발자는 해당 프로그램 참여 여부에 관계없이 게시자 확인 프로세스를 완료해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [앱을 게시자 확인으로 표시](mark-app-as-publisher-verified.md)하는 방법을 알아봅니다.

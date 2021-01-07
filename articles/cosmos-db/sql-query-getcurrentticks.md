@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 GetCurrentTicks
 description: Azure Cosmos DB의 SQL 시스템 함수 GetCurrentTicks에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2ca76d75edba6688dbe93f11a51a0ad67942677a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 610c545bf25822d27e0a641a1b2631f899502420
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606936"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340161"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 00:00:00 목요일부터 1 월 1 1970 일에 경과한 100 나노초 틱 수를 반환 합니다.
   
@@ -34,7 +36,7 @@ GetCurrentTicks ()은 비결 정적 함수입니다. 반환 된 결과는 UTC (�
 
 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음은 틱 단위로 측정 되는 현재 시간을 반환 하는 예입니다.
 

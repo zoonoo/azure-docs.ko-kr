@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261936"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896228"
 ---
-# <a name="add-a-bubble-layer"></a>거품형 계층 추가
+# <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 
 **거품형 계층** 은 지도에서 크기 조정 된 원으로 위치 데이터를 렌더링 합니다.
 
@@ -49,15 +49,15 @@ ms.locfileid: "86261936"
 |---------------------|--------------|
 | 최소 크기            | 데이터 크기를 조정할 때 최소 거품 크기입니다.|
 | 최대 크기            | 데이터 크기를 조정할 때의 최대 거품 크기입니다.|
-| 크기 조정 방법 | 상대적 거품형 크기를 결정 하는 데 사용 되는 크기 조정 알고리즘입니다.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• 선형-최소 및 최대 크기에 선형으로 매핑되는 입력 데이터의 범위입니다. (기본값)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• 로그-최소 및 최대 크기에 매핑되는 입력 데이터 로그의 범위입니다.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• 3 차원-베 지 어-사용자 지정 크기 조정 메서드를 만들려면 입방 형 3 차원 곡선의 X1, Y1, X2, Y2 값을 지정 합니다. |
+| 크기 조정 방법 | 상대적 거품형 크기를 결정 하는 데 사용 되는 크기 조정 알고리즘입니다.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• 선형-최소 및 최대 크기에 선형으로 매핑되는 입력 데이터의 범위입니다. (기본값)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• 로그-최소 및 최대 크기에 매핑되는 입력 데이터 로그의 범위입니다.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier-Cubic-Bezier 곡선의 X1, Y1, X2, Y2 값을 지정 하 여 사용자 지정 크기 조정 메서드를 만듭니다. |
 
-**크기 조정 방법이** **Log**로 설정 된 경우 다음 옵션을 사용할 수 있습니다.
+**크기 조정 방법이** **Log** 로 설정 된 경우 다음 옵션을 사용할 수 있습니다.
 
 | 설정   | 설명      |
 |-----------|------------------|
 | 로그 눈금 | 거품의 크기를 계산할 때 적용할 로그 눈금 간격입니다. |
 
-**크기 조정 방법을** **입방-Bezier**로 설정 하면 크기 조정 곡선을 사용자 지정 하기 위해 다음 옵션을 사용할 수 있게 됩니다.
+**크기 조정 방법을** **입방-Bezier** 로 설정 하면 크기 조정 곡선을 사용자 지정 하기 위해 다음 옵션을 사용할 수 있게 됩니다.
 
 | 설정 | 설명                           |
 |---------|---------------------------------------|
@@ -67,22 +67,22 @@ ms.locfileid: "86261936"
 | Y2      | 입방 형 3 차원 곡선의 Y2 매개 변수입니다. |
 
 > [!TIP]
-> [https://cubic-bezier.com/](https://cubic-bezier.com/)에는 입방 형 3 차원 곡선에 대 한 매개 변수를 만드는 데 유용한 도구가 있습니다.
+> [https://cubic-bezier.com/](https://cubic-bezier.com/) 에는 Cubic-Bezier 곡선에 대 한 매개 변수를 만드는 데 유용한 도구가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 지도에 데이터가 표시 되는 방식을 변경 합니다.
 
 > [!div class="nextstepaction"]
-> [가로 막대형 차트 계층 추가](power-bi-visual-add-bar-chart-layer.md)
+> [가로 막대형 차트 레이어 추가](power-bi-visual-add-bar-chart-layer.md)
 
 맵에 컨텍스트를 더 추가 합니다.
 
 > [!div class="nextstepaction"]
-> [참조 계층 추가](power-bi-visual-add-reference-layer.md)
+> [참조 레이어 추가](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
-> [타일 계층 추가](power-bi-visual-add-tile-layer.md)
+> [타일 레이어 추가](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
 > [실시간 트래픽 표시](power-bi-visual-show-real-time-traffic.md)
@@ -90,7 +90,7 @@ ms.locfileid: "86261936"
 시각적 개체를 사용자 지정 합니다.
 
 > [!div class="nextstepaction"]
-> [Power BI의 색 서식을 위한 팁과 힌트](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Power BI의 색 서식을 위한 팁과 힌트](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [시각화 제목, 배경 및 범례 사용자 지정](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [시각화 제목, 배경 및 범례 사용자 지정](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

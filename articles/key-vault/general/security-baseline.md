@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 7d116010d5e6fea5e1ba8a66431b874194506283
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400469"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843454"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Key Vault에 대한 Azure 보안 기준
 
 Key Vault에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 그룹: 네트워크 보안](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 그룹: 네트워크 보안](../../security/benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Virtual Network에서 네트워크 보안 그룹 또는 Azure Firewall을 사용하여 리소스 보호
 
@@ -189,7 +189,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 그룹: 로깅 및 모니터링](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 그룹: 로깅 및 모니터링](../../security/benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
@@ -321,7 +321,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 ## <a name="identity-and-access-control"></a>ID 및 Access Control
 
-*자세한 내용은 [보안 그룹: ID 및 액세스 제어](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 그룹: ID 및 액세스 제어](../../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: 기본 암호 변경(해당하는 경우)
 
-**지침**: 해당 사항 없음 Azure Key Vault는 Active Directory에서 제공 하는 인증 및 역할 기반 액세스 제어를 사용 하 여 보안이 설정 됨에 따라 기본 암호 개념이 없습니다.
+**지침**: 해당 사항 없음 Active Directory에서 인증을 제공 하 고 azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 보호 하므로 Azure Key Vault는 기본 암호의 개념이 없습니다.
 
 
 **Azure Security Center 모니터링**: 해당 없음
@@ -382,7 +382,7 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **지침**: Azure Active Directory Multi-Factor Authentication를 사용 하도록 설정 하 고 Azure Security Center Id 및 액세스 관리 (현재 미리 보기) 권장 사항을 따라 이벤트 허브 사용 리소스를 보호 합니다.
 
-클라우드 기반 Azure Multi-Factor Authentication 배포 계획:
+클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -397,11 +397,11 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
 
-**지침**: Azure MULTI-FACTOR AUTHENTICATION (MFA)로 구성 된 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Key Vault 사용 리소스에 로그인 하 고 구성 합니다. 
+**지침**: MFA (Azure AD Multi-Factor Authentication)로 구성 된 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Key Vault 사용 리소스에 로그인 하 고 구성 합니다. 
 
 권한 있는 액세스 워크스테이션: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
-클라우드 기반 Azure Multi-Factor Authentication 배포 계획: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 
@@ -445,7 +445,7 @@ Azure Active Directory 조건부 액세스의 위치 조건은 무엇입니까?:
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: Key Vault와 같은 azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (azure AD)를 사용 합니다. 이를 통해 RBAC (역할 기반 액세스 제어)가 중요 한 리소스를 관리할 수 있습니다.
+**지침**: Key Vault와 같은 azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (azure AD)를 사용 합니다. Azure RBAC (역할 기반 액세스 제어)를 통해 중요 한 리소스를 관리할 수 있습니다.
 
  
 
@@ -518,7 +518,7 @@ Azure 센티널을 등록 하는 방법:  https://docs.microsoft.com/azure/senti
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 그룹: 데이터 보호](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 그룹: 데이터 보호](../../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
@@ -566,7 +566,9 @@ Azure Key Vault 로깅: https://docs.microsoft.com/azure/key-vault/key-vault-log
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: 전송 중인 모든 중요한 정보 암호화
 
-**지침**: 인증, 관리 및 데이터 평면 액세스를 위해 Azure Key Vault에 대 한 모든 트래픽은 암호화 되며 HTTPS: 포트 443을 통해 전달 됩니다. 그러나 CRL의 경우에 따라 HTTP [포트 80] 트래픽이 발생 합니다. 
+**지침**: 인증, 관리 및 데이터 평면 액세스를 위해 Azure Key Vault에 대 한 모든 트래픽은 암호화 되며 HTTPS: 포트 443을 통해 전달 됩니다. 그러나 CRL의 경우에 따라 HTTP [포트 80] 트래픽이 발생 합니다. Azure Key Vault는 TLS 1.1 및 TLS 1.0 데이터를 수집 하는 것을 계속 허용 합니다. 클라이언트 쪽에서 구성을 통해 TLS 1.2로 데이터를 제한할 수 있습니다.
+
+
 
 방화벽 뒤에 Azure Key Vault 액세스: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
@@ -621,7 +623,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 지원 설명서:
 
-- [암호화 모델 및 키 관리 테이블](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-model-and-key-management-table)
+- [암호화 모델 및 키 관리 테이블](../../security/fundamentals/encryption-atrest.md)
 
 
 **Azure Security Center 모니터링**: 해당 없음
@@ -644,7 +646,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 
 ## <a name="vulnerability-management"></a>취약성 관리
 
-*자세한 내용은 [보안 그룹: 취약성 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 그룹: 취약성 관리](../../security/benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
@@ -695,7 +697,7 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 그룹: 인벤토리 및 자산 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 그룹: 인벤토리 및 자산 관리](../../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Azure 자산 검색 사용
 
@@ -863,7 +865,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 그룹: 보안 구성](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 그룹: 보안 구성](../../security/benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -1029,7 +1031,7 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
   
 
-* [Azure 관리 Id와 통합 하는 방법](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Azure 관리 Id와 통합 하는 방법](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 * [Key Vault를 만드는 방법](quick-create-portal.md)
 
@@ -1053,7 +1055,7 @@ https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 그룹: 맬웨어 방어](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 그룹: 맬웨어 방어](../../security/benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리형 맬웨어 방지 소프트웨어 사용
 
@@ -1087,19 +1089,19 @@ Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지�
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 그룹: 데이터 복구](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 그룹: 데이터 복구](../../security/benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
 **지침**: 다음 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 자동 백업을 정기적으로 수행 하는지 확인 합니다.
 
-- 백업-AzKeyVaultCertificate
+- Backup-AzKeyVaultCertificate
 
-- 백업-AzKeyVaultKey
+- Backup-AzKeyVaultKey
 
-- 백업-AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
-- 백업-AzKeyVaultSecret
+- Backup-AzKeyVaultSecret
 
 필요에 따라 Azure Backup 내에 Key Vault 백업을 저장할 수 있습니다.
 
@@ -1123,13 +1125,13 @@ Azure Backup를 사용 하도록 설정 하는 방법: https://docs.microsoft.co
 
 **지침**: 다음 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 백업을 수행 합니다.
 
-- 백업-AzKeyVaultCertificate
+- Backup-AzKeyVaultCertificate
 
-- 백업-AzKeyVaultKey
+- Backup-AzKeyVaultKey
 
-- 백업-AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
-- 백업-AzKeyVaultSecret
+- Backup-AzKeyVaultSecret
 
 필요에 따라 Azure Backup 내에 Key Vault 백업을 저장할 수 있습니다.
 
@@ -1153,13 +1155,13 @@ Azure Backup를 사용 하도록 설정 하는 방법: https://docs.microsoft.co
 
 **지침**: 다음 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다.
 
-- 복원-AzKeyVaultCertificate
+- Restore-AzKeyVaultCertificate
 
-- 복원-AzKeyVaultKey
+- Restore-AzKeyVaultKey
 
-- 복원-AzKeyVaultManagedStorageAccount
+- Restore-AzKeyVaultManagedStorageAccount
 
-- 복원-AzKeyVaultSecret
+- Restore-AzKeyVaultSecret
 
 Key Vault 인증서를 복원 하는 방법:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
 
@@ -1188,7 +1190,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 그룹: 인시던트 대응](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 그룹: 인시던트 대응](../../security/benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -1283,7 +1285,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 그룹: 침투 테스트 및 레드 팀 연습](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 그룹: 침투 테스트 및 레드 팀 연습](../../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Azure 리소스에 대한 침투 테스트를 정기적으로 수행 및 모든 중요한 보안 결과를 60일 이내에 수정
 
@@ -1303,5 +1305,5 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](https://docs.microsoft.com/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6eb44c1efd683b6febe9a355ef72c80cc6f2e40d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078131"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746629"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 보고서 및 로그 보기
 
@@ -37,15 +37,15 @@ Azure AD 자격 관리 보고서 및 Azure AD 감사 로그는 사용자가 액�
 
 **필수 역할:** 전역 관리자 또는 사용자 관리자
 
-1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **보고서**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **보고서** 를 클릭 합니다.
 
-1. **사용자에 대 한 패키지 액세스**를 클릭 합니다.
+1. **사용자에 대 한 패키지 액세스** 를 클릭 합니다.
 
 1. **사용자 선택** 을 클릭 하 여 사용자 선택 창을 엽니다.
 
-1. 목록에서 사용자를 찾은 다음 **선택**을 클릭 합니다.
+1. 목록에서 사용자를 찾은 다음 **선택** 을 클릭 합니다.
 
     **요청 가능** 탭에는 사용자가 요청할 수 있는 액세스 패키지 목록이 표시 됩니다. 이 목록은 액세스 패키지에 대해 정의 된 [요청 정책](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) 에 따라 결정 됩니다. 
 
@@ -61,15 +61,15 @@ Azure AD 자격 관리 보고서 및 Azure AD 감사 로그는 사용자가 액�
 
 **필수 역할:** 전역 관리자 또는 사용자 관리자
 
-1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **보고서**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **보고서** 를 클릭 합니다.
 
-1. **사용자에 대 한 리소스 할당**을 클릭 합니다.
+1. **사용자에 대 한 리소스 할당** 을 클릭 합니다.
 
 1. **사용자 선택** 을 클릭 하 여 사용자 선택 창을 엽니다.
 
-1. 목록에서 사용자를 찾은 다음 **선택**을 클릭 합니다.
+1. 목록에서 사용자를 찾은 다음 **선택** 을 클릭 합니다.
 
     현재 사용자에 게 할당 된 리소스 목록이 표시 됩니다. 이 목록에는 액세스에 대 한 시작 및 종료 날짜와 함께 리소스 역할을 받은 액세스 패키지 및 정책도 표시 됩니다.
     
@@ -81,15 +81,15 @@ Azure AD 자격 관리 보고서 및 Azure AD 감사 로그는 사용자가 액�
 
 사용자가 액세스 패키지에 대 한 액세스를 요청 하 고 수신 하는 방법에 대 한 자세한 내용을 보려면 Azure AD 감사 로그를 사용할 수 있습니다. 특히 및 범주의 로그 레코드를 사용 `EntitlementManagement` `UserManagement` 하 여 각 요청에 대 한 처리 단계에 대 한 추가 정보를 가져올 수 있습니다.  
 
-1. **Azure Active Directory** 클릭 하 고 **감사 로그**를 클릭 합니다.
+1. **Azure Active Directory** 클릭 하 고 **감사 로그** 를 클릭 합니다.
 
-1. 위쪽에서 **Category** `EntitlementManagement` `UserManagement` 검색 하려는 감사 레코드에 따라 범주를 또는로 변경 합니다.  
+1. 위쪽에서  `EntitlementManagement` `UserManagement` 검색 하려는 감사 레코드에 따라 범주를 또는로 변경 합니다.  
 
-1. **적용**을 클릭합니다.
+1. **적용** 을 클릭합니다.
 
-1. 로그를 다운로드 하려면 **다운로드**를 클릭 합니다.
+1. 로그를 다운로드 하려면 **다운로드** 를 클릭 합니다.
 
-Azure AD가 새 요청을 받으면 **범주가** 이 `EntitlementManagement` 고 **활동이** 일반적으로 인 감사 레코드를 작성 `User requests access package assignment` 합니다.  Azure Portal에서 생성 된 직접 할당의 경우 감사 레코드의 **작업** 필드는이 `Administrator directly assigns user to access package` 고 할당을 수행 하는 사용자는 **ActorUserPrincipalName**로 식별 됩니다.
+Azure AD가 새 요청을 받으면 **범주가** 이 `EntitlementManagement` 고 **활동이** 일반적으로 인 감사 레코드를 작성 `User requests access package assignment` 합니다.  Azure Portal에서 생성 된 직접 할당의 경우 감사 레코드의 **작업** 필드는이 `Administrator directly assigns user to access package` 고 할당을 수행 하는 사용자는 **ActorUserPrincipalName** 로 식별 됩니다.
 
 다음을 포함 하 여 요청이 진행 되는 동안 Azure AD에서 추가 감사 레코드를 작성 합니다.
 

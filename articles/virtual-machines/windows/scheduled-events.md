@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41e8f6f3e3562654edcc4ba347abe57e300af511
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8a0dd7f020c9a8e720aacf34b1719ee2094fa223
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074228"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788811"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
 
@@ -134,11 +134,11 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예제: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 몇 초 동안 Virtual Machine을 일시 중지하도록 예약됩니다. CPU와 네트워크 연결이 일시 중단될 수 있지만 메모리나 열려 있는 파일에는 영향을 미치지 않습니다.<li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 스폿 가상 머신을 삭제하고 있습니다(임시 디스크가 손실됨). <li> `Terminate`: 가상 머신을 삭제하도록 예약합니다. |
 | ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값 <ul><li>`VirtualMachine`|
-| 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 이 목록은 하나의 [업데이트 도메인](manage-availability.md)에서 컴퓨터를 포함하도록 보장하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 이 목록은 하나의 [업데이트 도메인](../manage-availability.md)에서 컴퓨터를 포함하도록 보장하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공되지 않았습니다. 이벤트가 완료되면 더 이상 반환되지 않습니다.
 | NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
-| 설명 | 이 이벤트에 대 한 설명입니다. <br><br> 예: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
-| EventSource | 이벤트의 개시자입니다. <br><br> 예: <br><ul><li> `Platform`:이 이벤트는 플랫폼에 의해 시작 됩니다. <li>`User`:이 이벤트는 사용자가 시작 합니다. |
+| Description | 이 이벤트에 대 한 설명입니다. <br><br> 예제: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
+| EventSource | 이벤트의 개시자입니다. <br><br> 예제: <br><ul><li> `Platform`:이 이벤트는 플랫폼에 의해 시작 됩니다. <li>`User`:이 이벤트는 사용자가 시작 합니다. |
 
 ### <a name="event-scheduling"></a>이벤트 예약
 각 이벤트는 이벤트 유형에 따라 향후 최소한의 시간으로 예약됩니다. 이 시간은 이벤트의 `NotBefore` 속성에 반영됩니다. 
@@ -153,6 +153,10 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 > [!NOTE] 
 > 경우에 따라 Azure는 저하된 하드웨어로 인한 호스트 오류를 예측할 수 있으며, 마이그레이션을 예약하여 서비스 중단 완화를 시도합니다. 영향을 받는 가상 머신은 `NotBefore`(일반적으로 며칠 후)로 예약된 이벤트를 수신합니다. 실제 시간은 예상 오류 위험 평가에 따라 다릅니다. Azure는 가능한 경우 7일 전에 통지하려고 하지만, 실제 시간은 다르며, 하드웨어 오류가 곧 발생할 가능성이 높은 경우에는 이보다 빨리 통지할 수 있습니다. 시스템이 마이그레이션을 시작하기 전에 하드웨어에 장애가 발생하는 경우 서비스 위험을 최소화하기 위해 가능한 한 빨리 가상 머신을 자체 재배포하는 것이 좋습니다.
+
+### <a name="polling-frequency"></a>폴링 빈도
+
+끝점은 원하는 만큼 자주 또는 자주 업데이트 하지 않는 방식으로 폴링할 수 있습니다. 그러나 요청 간의 시간이 길수록 예정 된 이벤트에 반응 하는 데 더 많은 시간이 소요 됩니다. 대부분의 이벤트에는 5 ~ 15 분의 사전 알림이 있습니다. 하지만 일부 경우에는 미리 알림이 30 초 정도 걸릴 수 있습니다. 완화 작업을 수행할 수 있는 시간이 충분 한지 확인 하려면 초당 한 번 서비스를 폴링하는 것이 좋습니다.
 
 ### <a name="start-an-event"></a>이벤트 시작 
 

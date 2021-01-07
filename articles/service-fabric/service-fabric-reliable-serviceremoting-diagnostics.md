@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245928"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting에 대한 진단 및 성능 모니터링
@@ -74,7 +74,7 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 
 Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | Description |
 | --- | --- | --- |
 | Service Fabric 서비스 메서드 |초당 호출 수 |초당 서비스 메서드가 호출되는 횟수 |
 | Service Fabric 서비스 메서드 |호출당 평균 시간(밀리초) |서비스 메서드를 실행하는 데 걸린 시간(밀리초) |
@@ -83,7 +83,7 @@ Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다�
 ### <a name="service-request-processing-performance-counters"></a>서비스 요청 처리 성능 카운터
 클라이언트가 서비스 프록시 개체를 통해 메서드를 호출하면 요청 메시지가 네트워크를 통해 서비스 서비스에 전송됩니다. 서비스는 요청 메시지를 처리하고 응답을 다시 클라이언트로 보냅니다. Reliable ServiceRemoting 런타임은 서비스 요청 처리와 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | Description |
 | --- | --- | --- |
 | Service Fabric 서비스 |미해결 요청 수 |서비스에서 처리 중인 요청 수 |
 | Service Fabric 서비스 |요청당 평균 시간(밀리초) |서비스에서 요청을 처리하는 데 걸린 시간(밀리초) |
@@ -91,5 +91,5 @@ Reliable Service 런타임은 서비스 메서드의 실행과 관련하여 다�
 | Service Fabric 서비스 |요청 serialization에 걸린 평균 시간(밀리초) |응답이 클라이언트로 전송되기 전에 서비스에서 서비스 응답 메시지를 직렬화하는 데 걸린 시간(밀리초) |
 
 ## <a name="next-steps"></a>다음 단계
-* [예제 코드](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
+* [샘플 코드](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [PerfView의 EventSource 공급자](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

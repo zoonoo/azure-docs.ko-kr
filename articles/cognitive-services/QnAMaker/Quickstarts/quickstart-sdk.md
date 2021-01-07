@@ -1,16 +1,18 @@
 ---
 title: '빠른 시작: SDK를 사용하여 기술 자료 만들기 및 관리 - QnA Maker'
 description: 이 빠른 시작에서는 클라이언트 SDK를 사용하여 기술 자료를 만들고 관리하는 방법을 보여줍니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: 1517b84b38aaf1878b63d85c3e2f867bcd8e6586
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9e984d4384b59fa13bc59e09e29939457dad37c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982740"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351055"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>빠른 시작: QnA Maker 클라이언트 라이브러리
 
@@ -50,9 +52,8 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[자습서: 배치 파일을 사용하여 기술 자료 테스트](./batch-testing.md)
+>[자습서: 배치 파일을 사용하여 기술 자료 테스트](../index.yml)
 
 * [QnA Maker API란?](../Overview/overview.md)
 * [기술 자료 편집](../how-to/edit-knowledge-base.md)
 * [사용량 현황 분석 가져오기](../how-to/get-analytics-knowledge-base.md)
-

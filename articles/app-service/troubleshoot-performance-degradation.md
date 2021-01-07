@@ -7,17 +7,17 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: a9d3de5d4a88c782ad541ceb4916ec90a3bdd7b5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958255"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763811"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
-이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
+이 문서에서는 [Azure App Service](./overview.md)의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 이동한 다음 **지원 받기**를 클릭합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 이동한 다음 **지원 받기** 를 클릭합니다.
 
 ## <a name="symptom"></a>증상
 앱을 탐색할 때, 페이지 로딩이 느려지거나 멈춤
@@ -75,14 +75,14 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 또한, 엔드포인트 모니터링의 비디오에 대해서는 [Azure 웹 사이트 가동 및 엔드포인트 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>확장을 사용하여 애플리케이션 성능 모니터링
-*사이트 확장*을 사용하여 애플리케이션 성능을 모니터링할 수도 있습니다.
+*사이트 확장* 을 사용하여 애플리케이션 성능을 모니터링할 수도 있습니다.
 
 각 App Service 앱은 사이트 확장처럼 사용할 수 있는 배포된 강력한 도구 세트인 확장 가능한 관리 엔드포인트를 제공합니다. 확장은 다음을 포함합니다. 
 
 - [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)와 같은 소스 코드 편집기. 
 - 앱에 연결된 MySQL 데이터베이스와 같은 연결된 리소스에 대한 관리 도구
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 애플리케이션의 성능 모니터링](../azure-monitor/app/web-monitor-performance.md)을 참조하세요.
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 애플리케이션의 성능 모니터링](../azure-monitor/app/app-insights-overview.md)을 참조하세요.
 
 <a name="collect"></a>
 
@@ -121,10 +121,10 @@ Azure App Service에서 웹앱, API 앱, 모바일 백 엔드 및 WebJob을 원�
 #### <a name="use-the-diagnostics-tool"></a>진단 도구 사용
 App Service는 앱 문제를 해결하는 데 도움이 되는 지능적인 대화형 환경으로, 구성이 필요하지 않습니다. 앱에서 문제가 발생하면 진단 도구는 무엇이 문제인지를 표시하여 문제를 더 쉽고 빠르게 확인하고 해결하기 위한 올바른 정보로 안내합니다.
 
-App Service 진단에 액세스하려면 [Azure Portal](https://portal.azure.com)의 App Service 앱 또는 App Service 환경으로 이동합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결**을 클릭합니다.
+App Service 진단에 액세스하려면 [Azure Portal](https://portal.azure.com)의 App Service 앱 또는 App Service 환경으로 이동합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결** 을 클릭합니다.
 
 #### <a name="use-the-kudu-debug-console"></a>Kudu 디버그 콘솔 사용
-App Service는 사용자 환경에 대한 정보를 얻을 수 있는 JSON 엔드포인트 및 파일 디버그, 탐색, 업로드에 사용할 수 있는 디버그 콘솔과 함께 제공됩니다. 이 콘솔은 *Kudu 콘솔* 또는 사용자 앱에서는 *SCM 대시보드*라고 합니다.
+App Service는 사용자 환경에 대한 정보를 얻을 수 있는 JSON 엔드포인트 및 파일 디버그, 탐색, 업로드에 사용할 수 있는 디버그 콘솔과 함께 제공됩니다. 이 콘솔은 *Kudu 콘솔* 또는 사용자 앱에서는 *SCM 대시보드* 라고 합니다.
 
 **https://&lt;Your app name>.scm.azurewebsites.net/** 링크로 이동해서 대시보드에 액세스할 수 있습니다.
 
@@ -133,7 +133,7 @@ Kudu가 제공하는 것은 다음과 같습니다.
 * 애플리케이션에 대한 환경 설정
 * 로그 스트림
 * 진단 덤프
-* Powershell cmdlet 및 기본 DOS 명령을 실행할 수 있는 콘솔을 디버깅합니다.
+* PowerShell cmdlet 및 기본 DOS 명령을 실행할 수 있는 디버그 콘솔
 
 Kudu의 또 다른 유용한 기능은 애플리케이션에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅샷이며 앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
 
@@ -161,4 +161,4 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
  ![앱을 다시 시작하여 성능 문제 해결](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-또한 Azure Powershell을 사용하여 앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)을 참조하세요.
+Azure PowerShell를 사용 하 여 앱을 관리할 수도 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)을 참조하세요.

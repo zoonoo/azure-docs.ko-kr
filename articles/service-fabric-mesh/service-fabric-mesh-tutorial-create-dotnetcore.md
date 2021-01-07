@@ -1,17 +1,17 @@
 ---
 title: Service Fabric Mesh에 다중 서비스 앱 생성, 배포
 description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 애플리케이션을 만듭니다.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 4a64d1999f13ee09cf92633fd188bfc7ed0e4856
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fa15432072f6478100a378fdbdb697556fdf1dc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011212"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842549"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>자습서: 다중 서비스 Service Fabric Mesh 앱 만들기, 디버그, 배포 및 업그레이드
 
@@ -59,7 +59,7 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 **솔루션 디렉터리 만들기**가 선택되어 있는지 확인하고 **확인**을 클릭하여 Service Fabric Mesh 프로젝트를 만듭니다.
 
-![Visual Studio의 새 Service Fabric Mesh 프로젝트 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Service Fabric Mesh 프로젝트를 만드는 방법을 보여주는 스크린샷.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 그러면 **새 Service Fabric 서비스** 대화 상자가 표시됩니다.
 
@@ -73,7 +73,7 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 그러면, 새 ASP.NET Core 웹 애플리케이션 대화 상자가 표시됩니다. **웹 애플리케이션**을 선택하고 **확인**을 클릭합니다.
 
-![Visual Studio의 새 ASP.NET Core 애플리케이션](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![웹 애플리케이션 템플릿을 강조 표시하는 스크린샷.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 이제 Service Fabric Mesh 애플리케이션이 만들어졌습니다. 다음으로, 할 일 정보에 대한 모델을 만들겠습니다.
 

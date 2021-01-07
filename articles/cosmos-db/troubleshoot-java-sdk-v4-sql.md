@@ -9,14 +9,15 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 67813aa36b0e0824db3ed89c7b7dbc06c3fd46d8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321040"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683121"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Java SDK v4를 사용하는 경우 발생하는 문제 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -38,6 +39,13 @@ Azure Cosmos DB Java SDK v4는 Azure Cosmos DB SQL API에 액세스하기 위한
 * Azure Cosmos DB Java SDK v4에 대한 [성능 팁](performance-tips-java-sdk-v4-sql.md)을 검토하고 제안된 사례를 따릅니다.
 * 솔루션을 찾지 못한 경우 이 문서의 나머지 부분을 읽어봅니다. 그런 후, [GitHub 문제](https://github.com/Azure/azure-sdk-for-java/issues)를 제출합니다. GitHub 문제에 태그를 추가하는 옵션이 있는 경우 *cosmos:v4-item* 태그를 추가합니다.
 
+### <a name="retry-logic"></a>다시 시도 논리 <a id="retry-logics"></a>
+SDK에서 재시도를 가능한 경우 IO 오류의 Cosmos DB SDK가 실패 한 작업을 다시 시도 합니다. 모든 오류에 대 한 재시도를 수행 하는 것이 좋은 방법 이지만 구체적으로 처리 하 고 다시 시도 하는 것이 반드시 필요 합니다. 재시도 논리가 지속적으로 개선 되므로 최신 SDK를 사용 하는 것이 좋습니다.
+
+1. 읽기 및 쿼리 IO 오류는 SDK에서 최종 사용자에 게 표시 하지 않고 다시 시도 됩니다.
+2. 쓰기 (Create, Upsert, Replace, Delete)는 "not" idempotent 이므로 SDK는 항상 실패 한 쓰기 작업을 무조건 다시 시도할 수 없습니다. 사용자의 응용 프로그램 논리에서 오류를 처리 하 고 다시 시도 해야 합니다.
+3. [Sdk 가용성 문제](troubleshoot-sdk-availability.md) 는 다중 지역 Cosmos DB 계정의 재시도에 대해 설명 합니다.
+
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>일반적인 문제 및 해결 방법
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>네트워크 문제, Netty 읽기 시간 제한 오류, 낮은 처리량, 높은 대기 시간
@@ -46,7 +54,7 @@ Azure Cosmos DB Java SDK v4는 Azure Cosmos DB SQL API에 액세스하기 위한
 최상의 성능을 얻으려면:
 * 앱이 Azure Cosmos DB 계정과 동일한 지역에서 실행되고 있는지 확인합니다. 
 * 앱이 실행되는 호스트에서 CPU 사용량을 확인합니다. CPU 사용량이 50% 이상인 경우 더 높은 구성을 사용해서 호스트에서 앱을 실행합니다. 또는 더 많은 컴퓨터에서 부하를 분산할 수 있습니다.
-    * Azure Kubernetes Service에서 애플리케이션이 실행 중인 경우 [Azure Monitor를 사용하여 CPU 사용률을 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze)할 수 있습니다.
+    * Azure Kubernetes Service에서 애플리케이션이 실행 중인 경우 [Azure Monitor를 사용하여 CPU 사용률을 모니터링](../azure-monitor/insights/container-insights-analyze.md)할 수 있습니다.
 
 #### <a name="connection-throttling"></a>연결 제한
 연결 제한은 [호스트 컴퓨터의 연결 제한] 또는 [Azure SNAT(PAT) 포트 고갈] 중 하나로 인해 발생할 수 있습니다.
@@ -62,13 +70,13 @@ ulimit -a
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Azure SNAT(PAT) 포트 고갈
 
-공용 IP 주소 없이 앱이 Azure Virtual Machines에 배포되는 경우 기본적으로 [Azure SNAT 포트](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)으로 제한됩니다.
+공용 IP 주소 없이 앱이 Azure Virtual Machines에 배포되는 경우 기본적으로 [Azure SNAT 포트](../load-balancer/load-balancer-outbound-connections.md#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](../load-balancer/load-balancer-outbound-connections.md#preallocatedports)으로 제한됩니다.
 
  Azure SNAT 포트는 VM에 개인 IP 주소 및 VM에서 공용 IP 주소에 연결하려고 하는 프로세스가 있는 경우에만 사용됩니다. Azure SNAT 제한을 피하는 두 가지 해결 방법이 있습니다.
 
-* Azure Virtual Machines 가상 네트워크의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 자세한 내용은 [Azure Virtual Network 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 참조하세요. 
+* Azure Virtual Machines 가상 네트워크의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 자세한 내용은 [Azure Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요. 
 
-    서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
+    서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](/previous-versions/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
 * Azure VM에 공용 IP를 할당합니다.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>서비스에 연결할 수 없음 - 방화벽
@@ -119,9 +127,9 @@ Netty IO 스레드는 비차단 Netty IO 작업에만 사용해야 합니다. SD
 
     성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터 연결 오류
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터에 연결 하지 못했습니다.
 
-Azure Cosmos DB 에뮬레이터 HTTPS 인증서는 자체 서명입니다. SDK를 에뮬레이터와 함께 사용하려면 에뮬레이터 인증서를 Java TrustStore로 가져와야 합니다. 자세한 내용은 [Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)를 참조하세요.
+Azure Cosmos DB Emulator HTTPS 인증서는 자체 서명 됩니다. SDK를 에뮬레이터와 함께 사용하려면 에뮬레이터 인증서를 Java TrustStore로 가져와야 합니다. 자세한 내용은 [Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)를 참조 하세요.
 
 ### <a name="dependency-conflict-issues"></a>종속성 충돌 문제
 
@@ -135,7 +143,7 @@ mvn dependency:tree
 ```
 자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조하세요.
 
-이전 버전에 종속된 프로젝트 종속성을 아는 경우, 아래 예와 같이 pom 파일에서 해당 lib에 대한 종속성을 수정하고 전이적 종속성을 제외할 수 있습니다(*reactor-core*는 오래된 종속성이라고 가정).
+이전 버전에 종속된 프로젝트 종속성을 아는 경우, 아래 예와 같이 pom 파일에서 해당 lib에 대한 종속성을 수정하고 전이적 종속성을 제외할 수 있습니다(*reactor-core* 는 오래된 종속성이라고 가정).
 
 ```xml
 <dependency>
@@ -177,12 +185,12 @@ log4j 구성도 추가합니다.
 ```
 # this is a sample log4j configuration
 
-# Set root logger level to DEBUG and its only appender to A1.
+# Set root logger level to INFO and its only appender to A1.
 log4j.rootLogger=INFO, A1
 
-log4j.category.com.microsoft.azure.cosmosdb=DEBUG
-#log4j.category.io.netty=INFO
-#log4j.category.io.reactivex=INFO
+log4j.category.com.azure.cosmos=INFO
+#log4j.category.io.netty=OFF
+#log4j.category.io.projectreactor=OFF
 # A1 is set to be a ConsoleAppender.
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 
@@ -217,5 +225,3 @@ Azure Cosmos DB 엔드포인트에 대한 많은 연결이 `CLOSE_WAIT` 상태�
 [Enable client SDK logging]: #enable-client-sice-logging
 [호스트 컴퓨터의 연결 제한]: #connection-limit-on-host
 [Azure SNAT(PAT) 포트 고갈]: #snat
-
-

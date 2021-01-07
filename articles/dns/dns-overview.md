@@ -6,18 +6,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7c3aa5505ca15238b2f9e84069de58ab6b700521
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924277"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608490"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 
-Azure DNS를 사용하여 도메인 이름을 구매할 수 없습니다. 연간 요금의 경우 [App Service 도메인](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) 또는 타사 도메인 이름 등록자를 사용하여 도메인 이름을 구매할 수 있습니다. 그러면 Azure DNS에 도메인을 호스트하여 레코드 관리에 사용할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
+Azure DNS를 사용하여 도메인 이름을 구매할 수 없습니다. 연간 요금의 경우 [App Service 도메인](../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain) 또는 타사 도메인 이름 등록자를 사용하여 도메인 이름을 구매할 수 있습니다. 그러면 Azure DNS에 도메인을 호스트하여 레코드 관리에 사용할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
 다음 기능이 Azure DNS에 포함됩니다.
 
@@ -29,11 +29,11 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
  Azure DNS에서 Azure Resource Manager를 기반으로 하여 제공하는 기능은 다음과 같습니다.
 
-* [Azure RBAC(Azure 역할 기반 액세스 제어)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) - 조직에 대한 특정 작업에 액세스하는 사람을 제어할 수 있습니다.
+* [Azure RBAC(Azure 역할 기반 액세스 제어)](../azure-resource-manager/management/overview.md) - 조직에 대한 특정 작업에 액세스하는 사람을 제어할 수 있습니다.
 
-* [활동 로그](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) - 문제를 해결할 때 조직의 사용자가 리소스를 수정한 방법을 모니터링하거나 오류를 찾을 수 있습니다.
+* [활동 로그](../azure-resource-manager/management/overview.md) - 문제를 해결할 때 조직의 사용자가 리소스를 수정한 방법을 모니터링하거나 오류를 찾을 수 있습니다.
 
-* [리소스 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) - 구독, 리소스 그룹 또는 리소스를 잠급니다. 잠금은 조직의 다른 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다.
+* [리소스 잠금](../azure-resource-manager/management/lock-resources.md) - 구독, 리소스 그룹 또는 리소스를 잠급니다. 잠금은 조직의 다른 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다.
 
 자세한 내용은 [DNS 영역 및 레코드를 보호하는 방법](dns-protect-zones-recordsets.md)을 참조하세요. 
 
@@ -67,6 +67,6 @@ Azure DNS는 별칭 레코드 집합을 지원합니다. 별칭 레코드 세트
 
 * DNS 영역 및 레코드에 대해 알아보려면 [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하세요.
 
-* Azure DNS에 영역을 만드는 방법을 알아보려면 [DNS 영역 만들기](./dns-getstarted-create-dnszone-portal.md)를 참조하세요.
+* Azure DNS에 영역을 만드는 방법을 알아보려면 [DNS 영역 만들기](./dns-getstarted-portal.md)를 참조하세요.
 
 * Azure DNS에 대한 질문과 대답을 보려면 [Azure DNS FAQ](dns-faq.md)를 참조하세요.

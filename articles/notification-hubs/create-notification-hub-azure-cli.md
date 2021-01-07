@@ -14,14 +14,14 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1829b6d8ab7b2cab0734ffd3cbab295e6c39678
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 6c565be3aea43fc4dc86fd793e0dc2dea0b08d4c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761096"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563752"
 ---
-# <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 알림 허브 만들기
+# <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure 알림 허브 만들기
 
 Azure Notification Hubs는 모든 백 엔드(클라우드 또는 온-프레미스)에서 모든 플랫폼(iOS, Android, Windows, Kindle, Baidu 등)에 알림을 보낼 수 있도록 하는 사용하기 쉬운 스케일 아웃 푸시 엔진을 제공합니다. 서비스에 대한 자세한 내용은 [Azure Notification Hubs란?](notification-hubs-push-notification-overview.md)을 참조하세요.
 
@@ -29,37 +29,20 @@ Azure Notification Hubs는 모든 백 엔드(클라우드 또는 온-프레미�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합니다. `az --version`을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 설치하거나 업그레이드하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+> [!IMPORTANT]
+> Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합니다. [az version](/cli/azure/reference-index#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index#az_upgrade)를 실행합니다.
 
-## <a name="prepare-your-environment"></a>환경 준비
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-1. 로컬에 설치된 CLI를 사용하는 경우 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 로그인합니다.
+모든 Azure 리소스와 마찬가지로 Azure Notification Hubs는 리소스 그룹에 배포해야 합니다.  리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.  리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager란?](../azure-resource-manager/management/overview.md)을 참조하세요.
 
-    ```azurecli
-    az login
-    ```
+이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 **eastus** 위치에 **spnhubrg** 라는 리소스 그룹을 만듭니다.
 
-    터미널에 표시된 단계에 따라 인증 프로세스를 완료합니다.
-
-2. Azure CLI에 대한 확장 참조를 사용하는 경우 먼저 확장을 설치해야 합니다. Azure CLI 확장은 아직 핵심 CLI의 일부로 제공되지 않는 실험적 명령과 시험판 명령에 대한 액세스를 제공합니다. 확장 업데이트 및 제거를 포함하여 확장에 대해 자세한 내용을 보려면 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
-
-   다음 명령을 실행하여 [Notification Hubs에 대한 확장](/cli/azure/ext/notification-hub/notification-hub)을 설치합니다.
-
-    ```azurecli
-    az extension add --name notification-hub
-   ```
-
-3. 리소스 그룹을 만듭니다.
-
-   모든 Azure 리소스와 마찬가지로 Azure Notification Hubs는 리소스 그룹에 배포해야 합니다. 리소스 그룹을 사용하면 관련 Azure 리소스를 구성하고 관리할 수 있습니다.
-
-   이 빠른 시작에서는 다음과 같이 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 _eastus_ 위치에 _spnhubrg_라는 리소스 그룹을 만듭니다.
-
-   ```azurecli
-   az group create --name spnhubrg --location eastus
-   ```
+```azurecli
+az group create --name spnhubrg --location eastus
+```
 
 ## <a name="create-a-notification-hubs-namespace"></a>Notification Hubs 네임스페이스 만들기
 
@@ -109,7 +92,7 @@ Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합
 
 2. 네임스페이스의 목록을 가져옵니다.
 
-   새 네임스페이스에 대한 세부 정보를 보려면 [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) 명령을 사용합니다. 구독에 대한 모든 네임스페이스를 확인하려는 경우 `--resource-group` 매개 변수는 선택 사항입니다.
+   새 네임스페이스에 대한 세부 정보를 보려면 [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list) 명령을 사용합니다. 구독에 대한 모든 네임스페이스를 확인하려는 경우 `--resource-group` 매개 변수는 선택 사항입니다.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -135,7 +118,7 @@ Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합
 
 3. 알림 허브 목록을 가져옵니다.
 
-   Azure CLI는 각 명령이 실행될 때마다 성공 또는 오류 메시지를 반환합니다. 그러나 알림 허브 목록을 쿼리할 수 있으면 안심할 수 있습니다. [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) 명령은 이 목적을 위해 설계되었습니다.
+   Azure CLI는 각 명령이 실행될 때마다 성공 또는 오류 메시지를 반환합니다. 그러나 알림 허브 목록을 쿼리할 수 있으면 안심할 수 있습니다. [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) 명령은 이 목적을 위해 설계되었습니다.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

@@ -4,10 +4,10 @@ description: Service Fabric 클러스터에 배포할 수 있도록 기존 애�
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259267"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
@@ -33,7 +33,7 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
      * `CodePackage`는 작업 디렉터리가 애플리케이션 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조에 표시된 `GuestService1Pkg`).
      * `Work`는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
 4. 서비스에 이름을 지정하고 **확인**을 클릭합니다.
-5. 서비스에서 통신에 엔드포인트가 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. 서비스에서 통신에 엔드포인트가 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
 6. 이제 패키지를 사용하고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 애플리케이션을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 7. Service Fabric Explorer에서 실행 중인 게스트 실행 파일 서비스를 보는 방법을 보려면 [실행 중인 애플리케이션 확인](#check-your-running-application)을 참조하세요.
 
@@ -138,7 +138,7 @@ Service Fabric은 애플리케이션 루트 디렉터리의 내용에 대한 `xc
 ```
 
 * `ServiceTypeName`의 이름을 자유롭게 선택할 수 있습니다. 이 값은 `ApplicationManifest.xml` 파일에서 서비스를 식별하는 데 사용됩니다.
-* `UseImplicitHost="true"`를 지정합니다. 이 특성은 서비스가 자체 포함된 앱을 기반으로 하므로 모든 서비스 패브릭이 응용 프로그램을 프로세스로 실행하여 상태를 모니터링해야 한다는 사실을 서비스 패브릭에 전달합니다.
+* `UseImplicitHost="true"`을 지정합니다. 이 특성은 서비스가 자체 포함된 앱을 기반으로 하므로 모든 서비스 패브릭이 응용 프로그램을 프로세스로 실행하여 상태를 모니터링해야 한다는 사실을 서비스 패브릭에 전달합니다.
 
 #### <a name="update-codepackage"></a>CodePackage 업데이트
 CodePackage 요소는 서비스 코드의 위치(및 버전)을 지정합니다.
@@ -178,7 +178,7 @@ SetupEntryPoint가 하나밖에 없으므로 애플리케이션의 설치에 여
 
 서비스 매니페스트 파일의 `EntryPoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다.
 
-`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 정의합니다(예: `<ExeHost IsExternalExecutable="true">`).
+`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 예: `<ExeHost IsExternalExecutable="true">`
 
 * `Program`은 서비스를 시작해야 하는 실행 파일의 이름을 지정합니다.
 * `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.

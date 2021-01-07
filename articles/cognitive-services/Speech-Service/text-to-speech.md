@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401183"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024520"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -31,7 +31,7 @@ ms.locfileid: "89401183"
 
 ## <a name="core-features"></a>핵심 기능
 
-* 음성 합성-표준, 신경망 또는 사용자 지정 음성을 사용 하 여 텍스트를 음성으로 변환 하려면 [음성 SDK](quickstarts/text-to-speech-audio-file.md) 또는 [REST API](rest-text-to-speech.md) 을 사용 합니다.
+* 음성 합성-표준, 신경망 또는 사용자 지정 음성을 사용 하 여 텍스트를 음성으로 변환 하려면 [음성 SDK](./get-started-text-to-speech.md) 또는 [REST API](rest-text-to-speech.md) 을 사용 합니다.
 
 * 긴 오디오의 비동기 합성- [긴 오디오 API](long-audio-api.md) 를 사용 하 여 10 분 (예: 오디오 서적 또는 강의) 보다 긴 텍스트 음성 변환 파일을 비동기적으로 합성 합니다. 음성 SDK 또는 음성-텍스트 REST API를 사용 하 여 수행 하는 합성과 달리 응답은 실시간으로 반환 되지 않습니다. 요청이 비동기적으로 전송 되 고, 응답이 폴링 되며, 서비스에서 사용할 수 있게 되 면 합성 오디오가 다운로드 됩니다. 사용자 지정 신경망만 지원 됩니다.
 
@@ -77,5 +77,5 @@ ms.locfileid: "89401183"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [무료 음성 서비스 구독 가져오기](get-started.md)
+- [무료 음성 서비스 구독 가져오기](overview.md#try-the-speech-service-for-free)
 - [Speech SDK 가져오기](speech-sdk.md)

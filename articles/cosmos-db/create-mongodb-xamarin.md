@@ -6,17 +6,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2020
+ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d5e8643abf41a488dd5f9b8cbc39c3f1bac1c0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 339c6177de6e83f463efbc97e88a36ed4c52d97b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005040"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349098"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -89,12 +90,9 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
 * Mongo 클라이언트를 초기화합니다.
     ```cs
-    MongoClientSettings settings = MongoClientSettings.FromUrl(
-        new MongoUrl(APIKeys.ConnectionString)
-    );
+    MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(APIKeys.ConnectionString));
 
-    settings.SslSettings =
-        new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+    settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
 
     settings.RetryWrites = false;
 
@@ -108,7 +106,8 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
     var db = mongoClient.GetDatabase(dbName);
 
-    var collectionSettings = new MongoCollectionSettings {
+    var collectionSettings = new MongoCollectionSettings 
+    {
         ReadPreference = ReadPreference.Nearest
     };
 
@@ -165,7 +164,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 화면의 오른쪽에서 복사 단추를 사용하여 다음 단계에서 기본 연결 문자열을 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열** 을 클릭한 다음 **읽기-쓰기 키** 를 클릭합니다. 화면의 오른쪽에서 복사 단추를 사용하여 다음 단계에서 기본 연결 문자열을 복사합니다.
 
 2. **TaskList.Core** 프로젝트의 **Helpers** 디렉터리에서 **APIKeys.cs** 파일을 엽니다.
 
@@ -182,12 +181,12 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-1. Visual Studio의 **솔루션 탐색기**에서 각 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
-2. **모든 NuGet 패키지 복원**을 클릭합니다.
-3. **TaskList.Android**를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
+1. Visual Studio의 **솔루션 탐색기** 에서 각 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 클릭합니다.
+2. **모든 NuGet 패키지 복원** 을 클릭합니다.
+3. **TaskList.Android** 를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다.
 4. F5 키를 눌러 애플리케이션 디버깅을 시작합니다.
-5. iOS에서 실행하려는 경우 먼저 컴퓨터는 Mac에 연결됩니다(수행하는 방법에 대한 [지침](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)은 다음과 같음).
-6. **TaskList.iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
+5. iOS에서 실행하려는 경우 먼저 컴퓨터는 Mac에 연결됩니다(수행하는 방법에 대한 [지침](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)은 다음과 같음).
+6. **TaskList.iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다.
 7. F5 키를 클릭하여 애플리케이션 디버깅을 시작합니다.
 
 ### <a name="visual-studio-for-mac"></a>Mac용 Visual Studio
@@ -208,4 +207,4 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, MongoDB의 API를 사용하여 Xamarin.Forms 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB의 MongoDB API로 구성된 Azure Cosmos DB로 데이터 가져오기](mongodb-migrate.md)
+> [Azure Cosmos DB의 MongoDB API로 구성된 Azure Cosmos DB로 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

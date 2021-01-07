@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274512"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012564"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 autovacuum 최적화
 
@@ -21,7 +21,7 @@ ms.locfileid: "86274512"
 
 PostgreSQL은 MVCC(다중 버전 동시성 제어)를 사용하여 데이터베이스 동시성을 향상합니다. 업데이트할 때마다 삽입 및 삭제가 발생하고, 삭제할 때마다 행이 삭제되도록 소프트 표시됩니다. 소프트 표시는 나중에 제거할 데드 튜플을 식별합니다. 이러한 작업을 수행하기 위해 PostgreSQL은 진공 작업을 실행합니다.
 
-진공 작업은 수동 또는 자동으로 트리거할 수 있습니다. 데이터베이스에서 많은 업데이트 또는 삭제 작업이 발생하는 경우 데드 튜플이 더 많습니다. 데이터베이스가 유휴 상태일 때 데드 튜플이 더 적습니다. 데이터베이스 부하가 많은 경우 더 자주 진공해야 하므로 ‘수동으로’ 진공 작업을 실행하는 것이 불편합니다.**
+진공 작업은 수동 또는 자동으로 트리거할 수 있습니다. 데이터베이스에서 많은 업데이트 또는 삭제 작업이 발생하는 경우 데드 튜플이 더 많습니다. 데이터베이스가 유휴 상태일 때 데드 튜플이 더 적습니다. 데이터베이스 부하가 많은 경우 더 자주 진공해야 하므로 ‘수동으로’ 진공 작업을 실행하는 것이 불편합니다.
 
 자동 진공은 구성할 수 있으며 튜닝의 이점을 활용할 수 있습니다. PostgreSQL이 제공하는 기본값은 모든 종류의 디바이스에서 제품이 작동하도록 합니다. 이러한 디바이스에는 Raspberry Pi가 포함됩니다. 이상적인 구성 값은 다음에 따라 다릅니다.
 
@@ -54,7 +54,7 @@ SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRa
 
 이전 질문에 따라 업데이트할 수 있는 일부 자동 진공 구성 매개 변수와 몇 가지 지침은 다음과 같습니다.
 
-매개 변수|설명|기본값
+매개 변수|Description|기본값
 ---|---|---
 autovacuum_vacuum_threshold|한 테이블에서 진공 작업을 트리거하는 데 필요한 업데이트 또는 삭제된 튜플의 최소 개수를 지정합니다. 기본값은 50개 튜플입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|50
 autovacuum_vacuum_scale_factor|진공 작업을 트리거할지 여부를 결정할 때 autovacuum_vacuum_threshold에 추가할 테이블 크기의 비율을 지정합니다. 기본값은 0.2로, 테이블 크기의 20%입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|0.2

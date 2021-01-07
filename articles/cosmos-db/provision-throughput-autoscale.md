@@ -5,21 +5,21 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/11/2020
+ms.custom: seo-nov-2020
+ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791149"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368667"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>자동 크기 조정 처리량을 사용하여 Azure Cosmos 컨테이너 및 데이터베이스 만들기
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준(수동) 또는 자동 크기 조정 프로비저닝된 처리량을 설정할 수 있습니다. 이 문서에서는 자동 크기 조정 프로비저닝된 처리량의 이점과 사용 사례에 대해 설명합니다. 
+Azure Cosmos DB에서 데이터베이스 및 컨테이너에 대 한 표준 (수동) 또는 자동 크기 조정 프로 비전 된 처리량을 구성할 수 있습니다. Azure Cosmos DB에서 프로 비전 된 처리량 자동 크기 조정 기능을 사용 하면 **데이터베이스 또는 컨테이너의 처리량 (r u/초)을 자동으로 즉시 확장할** 수 있습니다. 처리량은 작업의 가용성, 대기 시간, 처리량 또는 성능에 영향을 주지 않고 사용량을 기준으로 크기가 조정 됩니다.
 
-자동 크기 조정 프로비저닝된 처리량은 변수 또는 예측할 수 없는 트래픽 패턴이 있는 중요 업무용 워크로드에 적합하며 고성능과 규모에 대한 SLA가 필요합니다. 
-
-자동 크기 조정을 사용하면 Azure Cosmos DB는 워크로드의 가용성, 대기 시간, 처리량 또는 성능에 영향을 주지 않고 사용량에 따라 데이터베이스 또는 컨테이너의 **처리량(RU/s)을 자동으로 즉시 크기 조정**합니다. 
+자동 크기 조정 프로비저닝된 처리량은 변수 또는 예측할 수 없는 트래픽 패턴이 있는 중요 업무용 워크로드에 적합하며 고성능과 규모에 대한 SLA가 필요합니다. 이 문서에서는 자동 크기 조정 프로비저닝된 처리량의 이점과 사용 사례에 대해 설명합니다.
 
 ## <a name="benefits-of-autoscale"></a>자동 크기 조정의 이점
 
@@ -59,7 +59,7 @@ Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준
 
 ## <a name="enable-autoscale-on-existing-resources"></a>기존 리소스에서 자동 크기 조정 사용
 
-[Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container)을 사용하여 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정합니다. 언제든지 자동 크기 조정과 표준(수동) 프로비저닝된 처리량 사이를 전환할 수 있습니다. 자세한 내용은 이 [설명서](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work)를 참조하세요. 현재 모든 Api에 대해 Azure Portal를 사용 하 여 기존 리소스에 자동 크기 조정을 사용 하도록 설정할 수 있습니다.
+[Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), [Azure Resource Manager 템플릿](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) 또는 [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) 을 사용 하 여 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용 하도록 설정 합니다. 언제든지 자동 크기 조정과 표준(수동) 프로비저닝된 처리량 사이를 전환할 수 있습니다. 자세한 내용은 이 [설명서](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work)를 참조하세요.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> 자동 크기 조정에 대한 처리량 및 스토리지 제한
 
@@ -77,7 +77,7 @@ Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준
 | **프로비저닝된 처리량(RU/s)** | 수동으로 프로비저닝됨 | 워크로드 사용량 패턴을 기반으로 자동으로 즉시 크기 조정됩니다. |
 | **요청/작업의 속도 제한(429)**  | 소비가 프로비저닝된 용량을 초과하는 경우 발생할 수 있습니다. | 설정한 자동 크기 조정 처리량 범위 내에서 RU/s를 사용하는 경우에는 발생하지 않습니다.    |
 | **용량 계획** |  용량 계획을 수행하고 필요한 정확한 처리량을 프로비저닝해야 합니다. |    시스템은 용량 계획 및 용량 관리를 자동으로 처리합니다. |
-| **가격** | [시간당 표준(수동) RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간당 수동 프로비저닝된 RU/s에 대해 요금을 지불합니다. | 시스템이 해당 시간 내로 확장된 최대 RU/s에 대해 시간당 요금이 청구됩니다. <br/><br/> 단일 쓰기 지역 계정의 경우 [시간당 자동 크기 조정 RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간 단위로 사용되는 RU/s에 대해 요금을 지불합니다. <br/><br/>여러 쓰기 지역이 있는 계정의 경우에는 자동 크기 조정에 대한 추가 요금이 부과되지 않습니다. 동일한 [시간당 다중 마스터 RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간 단위로 사용되는 처리량에 대해 요금이 청구됩니다. |
+| **가격** | [시간당 표준(수동) RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간당 수동 프로비저닝된 RU/s에 대해 요금을 지불합니다. | 시스템이 해당 시간 내로 확장된 최대 RU/s에 대해 시간당 요금이 청구됩니다. <br/><br/> 단일 쓰기 지역 계정의 경우 [시간당 자동 크기 조정 RU/s 비율](https://azure.microsoft.com/pricing/details/cosmos-db/)을 사용하여 시간 단위로 사용되는 RU/s에 대해 요금을 지불합니다. <br/><br/>여러 쓰기 지역이 있는 계정의 경우에는 자동 크기 조정에 대한 추가 요금이 부과되지 않습니다. 동일한 [다중 지역 쓰기/시간 급여](https://azure.microsoft.com/pricing/details/cosmos-db/)를 사용 하 여 시간별로 사용 된 처리량에 대 한 비용을 지불 합니다. |
 | **워크로드 유형에 가장 적합함** |  예측 가능하고 안정적인 워크로드|   예측 불가능하고 가변적인 워크로드  |
 
 ## <a name="next-steps"></a>다음 단계
@@ -85,6 +85,6 @@ Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준
 * [자동 크기 조정 FAQ](autoscale-faq.md)를 검토합니다.
 * [수동 및 자동 크기 조정 처리량 중 선택하는 방법](how-to-choose-offer.md)을 알아봅니다.
 * [Azure Cosmos 데이터베이스 또는 컨테이너에서 자동 크기 조정 처리량을 프로비저닝](how-to-provision-autoscale-throughput.md)하는 방법을 알아봅니다.
-* Azure Cosmos DB의 [분할](partition-data.md)에 대해 자세히 알아봅니다.
+* Azure Cosmos DB의 [분할](partitioning-overview.md)에 대해 자세히 알아봅니다.
 
 

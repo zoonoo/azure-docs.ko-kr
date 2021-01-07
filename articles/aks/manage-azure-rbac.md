@@ -1,34 +1,33 @@
 ---
-title: Azure에서 Kubernetes의 RBAC 관리
+title: Azure에서 Kubernetes의 Azure RBAC 관리
 titleSuffix: Azure Kubernetes Service
 description: AKS (Azure Kubernetes Service)에서 Kubernetes 권한 부여를 위해 Azure RBAC를 사용 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c1222f671c95d4475de93b9c9e085a94f864b2ae
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003082"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684222"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
 
 현재 [Azure Active Directory (AZURE AD)와 AKS 간에 통합 인증](managed-aad.md)을 이미 활용할 수 있습니다. 이 통합을 사용 하도록 설정 하면 고객이 Azure AD 사용자, 그룹 또는 서비스 사용자를 Kubernetes RBAC의 제목으로 사용할 수 있습니다. 자세한 내용은 [여기](azure-ad-rbac.md)를 참조 하세요.
-이 기능을 사용 하면 Kubernetes에 대 한 사용자 id와 자격 증명을 별도로 관리할 필요가 없습니다. 그러나 Azure RBAC 및 Kubernetes RBAC를 별도로 설정 하 고 관리 해야 합니다. 인증, 권한 부여 및 RBAC에 대 한 자세한 내용은 [여기](concepts-identity.md)를 참조 하세요. AKS.
+이 기능을 사용 하면 Kubernetes에 대 한 사용자 id와 자격 증명을 별도로 관리할 필요가 없습니다. 그러나 Azure RBAC 및 Kubernetes RBAC를 별도로 설정 하 고 관리 해야 합니다. AKS에서 RBAC를 사용 하 여 인증 및 권한 부여에 대 한 자세한 내용은 [여기](concepts-identity.md)를 참조 하세요.
 
 이 문서에서는 Azure 리소스, AKS 및 Kubernetes 리소스에서 통합 관리 및 액세스 제어를 허용 하는 새로운 접근 방식을 설명 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure에서 Kubernetes 리소스에 대 한 RBAC를 관리 하는 기능을 통해 Azure 또는 기본 Kubernetes 메커니즘을 사용 하 여 클러스터 리소스에 대 한 RBAC를 관리할 수 있습니다. 사용 하도록 설정 되 면 azure AD 보안 주체는 Azure RBAC에 의해 독점적으로 유효성이 검사 되 고, regular Kubernetes 사용자 및 서비스 계정은 Kubernetes RBAC에 의해 독점적으로 유효성이 검사 됩니다. 인증, 권한 부여 및 RBAC에 대 한 자세한 내용은 [여기](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)를 참조 하세요. AKS.
+Azure에서 Kubernetes 리소스에 대 한 RBAC를 관리 하는 기능을 통해 Azure 또는 기본 Kubernetes 메커니즘을 사용 하 여 클러스터 리소스에 대 한 RBAC를 관리할 수 있습니다. 사용 하도록 설정 되 면 azure AD 보안 주체는 Azure RBAC에 의해 독점적으로 유효성이 검사 되 고, regular Kubernetes 사용자 및 서비스 계정은 Kubernetes RBAC에 의해 독점적으로 유효성이 검사 됩니다. AKS에서 RBAC를 사용 하 여 인증 및 권한 부여에 대 한 자세한 내용은 [여기](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)를 참조 하세요.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### <a name="prerequisites"></a>필수 구성 요소 
-- 미리 보기에 등록 <https://aka.ms/aad-rbac-sign-up-form> 합니다.
+### <a name="prerequisites"></a>사전 요구 사항 
 - Azure CLI 버전 2.9.0 이상 인지 확인 합니다.
 - `EnableAzureRBACPreview`기능 플래그를 사용 하도록 설정 했는지 확인 합니다.
 - `aks-preview` [CLI 확장][az-extension-add] v 0.4.55 이상을 설치 했는지 확인 합니다.
@@ -44,7 +43,7 @@ Kubernetes 권한 부여를 위해 Azure RBAC를 사용 하는 AKS 클러스터�
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
-플래그가 성공적으로 등록 되려면 위의 미리 보기 양식을 제출한 후 승인을 받아야 합니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+ [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
@@ -73,9 +72,9 @@ az extension update --name aks-preview
 - [관리 되는 AZURE AD 통합](managed-aad.md)이 필요 합니다.
 - 미리 보기 중에는 Kubernetes 권한 부여에 대 한 Azure RBAC를 기존 클러스터에 통합할 수 없지만 GA (일반 공급)를 사용할 수 있습니다.
 - [Kubectl v 1.18.3 +][az-aks-install-cli]를 사용 합니다.
-- 미리 보기 중에는 Azure CLI를 통해 *네임 스페이스 수준* 사용 권한만 추가할 수 있습니다.
 - CRDs가 있는 경우 사용자 지정 역할 정의를 제공 하는 유일한 방법은를 제공 하는 것입니다 `Microsoft.ContainerService/managedClusters/*/read` . AKS는 CRDs에 대 한 보다 세부적인 사용 권한을 제공 하기 위해 작업 중입니다. 나머지 개체의 경우 특정 API 그룹 (예:)을 사용할 수 있습니다 `Microsoft.ContainerService/apps/deployments/read` .
 - 새 역할 할당은 전파 하는 데 최대 5 분이 걸릴 수 있으며 권한 부여 서버에서 업데이트 됩니다.
+- 인증을 위해 구성 된 Azure AD 테 넌 트가 AKS 클러스터를 보유 하는 구독에 대 한 테 넌 트와 동일 해야 합니다. 
 
 ## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>Azure RBAC 및 관리 되는 Azure AD 통합을 사용 하 여 새 클러스터 만들기
 
@@ -188,7 +187,7 @@ az role definition create --role-definition @deploy-view.json
 az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Kubernetes 권한 부여에 Azure RBAC 사용`kubectl`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Kubernetes 권한 부여에 Azure RBAC 사용 `kubectl`
 
 > [!NOTE]
 > 아래 명령을 실행 하 여 최신 kubectl 있는지 확인 합니다.
@@ -222,7 +221,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Kubernetes 권한 부여에 Azure RBAC 사용`kubelogin`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Kubernetes 권한 부여에 Azure RBAC 사용 `kubelogin`
 
 비 대화형 로그인, 이전 `kubectl` 버전 또는 새 클러스터에 로그인 할 필요 없이 여러 클러스터에서 SSO를 활용 하는 등의 추가 시나리오를 차단 해제 하 여 토큰이 여전히 유효 하다 고 AKS는 이라는 exec 플러그 인을 만들었습니다 [`kubelogin`](https://github.com/Azure/kubelogin) .
 
@@ -273,7 +272,7 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-- AKS 인증, 권한 부여 및 RBAC에 대 한 자세한 내용은 [여기](concepts-identity.md)를 참조 하세요.
+- AKS 인증, 권한 부여, Kubernetes RBAC 및 Azure RBAC에 대 한 자세한 내용은 [여기](concepts-identity.md)를 참조 하세요.
 - Azure RBAC에 대 한 자세한 내용은 [여기](../role-based-access-control/overview.md)를 참조 하세요.
 - Kubernetes [권한 부여](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)에 대 한 사용자 지정 Azure 역할을 세부적으로 정의 하는 데 사용할 수 있는 모든 작업에 대해 자세히 알아보세요.
 
@@ -285,4 +284,4 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true

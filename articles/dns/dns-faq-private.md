@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: d6faf5bd42c90ea1510d454a2ab7939f121b3d0d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925008"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952389"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 프라이빗 DNS FAQ
 
@@ -20,7 +20,7 @@ Azure 개인 DNS에 대 한 질문과 대답은 다음과 같습니다.
 
 ## <a name="does-azure-dns-support-private-domains"></a>Azure DNS에서는 프라이빗 도메인을 지원하나요?
 
-개인 도메인은 Azure 사설 DNS 영역 기능을 사용 하 여 지원 됩니다. 사설 DNS 영역은 지정 된 가상 네트워크 내 에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조하세요.
+개인 도메인은 Azure 사설 DNS 영역 기능을 사용 하 여 지원 됩니다. 사설 DNS 영역은 지정 된 가상 네트워크 내 에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조 하세요.
 
 Azure의 다른 내부 DNS 옵션에 대 한 자세한 내용은 [vm 및 역할 인스턴스에 대 한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조 하세요.
 
@@ -28,13 +28,13 @@ Azure의 다른 내부 DNS 옵션에 대 한 자세한 내용은 [vm 및 역할 
 
 예. 프라이빗 영역에서는 Azure 지역의 가상 네트워크 간 DNS 확인이 지원됩니다. 프라이빗 영역은 가상 네트워크를 명시적으로 피어링하지 않아도 작동합니다. 모든 가상 네트워크는 개인 DNS 영역에 연결 되어야 합니다.
 
-## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>프라이빗 영역을 위해 가상 네트워크에서 인터넷에 연결되어야 하나요?
+## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>사설 영역에 필요한 가상 네트워크에서 인터넷에 연결 되어 있나요?
 
 아니요. 프라이빗 영역은 가상 네트워크에서 작동합니다. 이를 사용 하 여 가상 네트워크 내의 가상 머신 또는 기타 리소스에 대 한 도메인을 관리할 수 있습니다. 이름 확인을 위해 인터넷 연결이 필요하지는 않습니다.
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>확인을 위해 여러 가상 네트워크에서 동일한 프라이빗 영역을 사용할 수 있나요?
 
-예. 수천 개의 가상 네트워크와 개인 DNS 영역을 연결할 수 있습니다. 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
+예. 수천 개의 가상 네트워크와 개인 DNS 영역을 연결할 수 있습니다. 자세한 내용은 [Azure DNS 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) 을 참조 하세요.
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>다른 구독에 속한 가상 네트워크를 개인 영역에 연결할 수 있나요?
 
@@ -43,6 +43,14 @@ Azure의 다른 내부 DNS 옵션에 대 한 자세한 내용은 [vm 및 역할 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>가상 컴퓨터를 삭제 하면 자동으로 등록 된 가상 컴퓨터 DNS 레코드가 개인 영역에 자동으로 삭제 됩니까?
 
 예. 이라고를 사용 하는 연결 된 가상 네트워크 내에서 가상 머신을 삭제 하면 등록 된 레코드가 자동으로 삭제 됩니다.
+
+## <a name="ive-reconfigured-the-os-in-my-virtual-machine-to-have-a-new-host-name-or-static-ip-address-why-dont-i-see-that-change-reflected-in-the-private-zone"></a>가상 컴퓨터의 OS를 새 호스트 이름 또는 고정 IP 주소로 다시 구성 했습니다. 변경 내용이 개인 영역에 반영 되지 않는 이유는 무엇 인가요?
+
+개인 영역 레코드는 Azure DHCP 서비스에서 채워집니다. 클라이언트 등록 메시지는 무시 됩니다. 고정 IP 주소를 구성 하 여 VM에서 DHCP 클라이언트 지원을 사용 하지 않도록 설정한 경우 VM의 호스트 이름 또는 고정 IP에 대 한 변경 내용이 영역에 반영 되지 않습니다.
+
+## <a name="i-have-configured-a-preferred-dns-suffix-in-my-windows-virtual-machine-why-are-my-records-still-registered-in-the-zone-linked-to-the-virtual-network"></a>Windows 가상 머신에서 기본 설정 DNS 접미사를 구성 했습니다. 가상 네트워크에 연결 된 영역에 내 레코드가 여전히 등록 된 이유는 무엇 인가요?
+
+Azure DHCP 서비스는 개인 DNS 영역을 등록할 때 DNS 접미사를 무시 합니다. 예를 들어 가상 컴퓨터가 `contoso.com` 주 dns 접미사로 구성 되었지만 가상 네트워크가 개인 dns 영역에 연결 된 경우 가상 `fabrikam.com` 컴퓨터의 등록이 `fabrikam.com` 개인 dns 영역에 나타납니다.
 
 ## <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-linked-virtual-network-be-deleted-manually"></a>연결 된 가상 네트워크에서 개인 영역에 자동으로 등록 된 가상 머신 레코드를 수동으로 삭제할 수 있나요?
 
@@ -67,11 +75,11 @@ Azure의 다른 내부 DNS 옵션에 대 한 자세한 내용은 [vm 및 역할 
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>연결된 가상 네트워크 내의 가상 머신에 사용되는 DNS 접미사가 프라이빗 영역의 DNS 접두사로 변경되나요?
 
 아니요. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 프라이빗 영역의 DNS 접미사로 수동으로 변경할 수 있습니다.
-이 접미사를 변경 하는 방법에 대 한 지침은 [동적 dns를 사용 하 여 자체 DNS 서버에 호스트 이름 등록](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients) 을 참조 하세요.
+이 접미사를 변경 하는 방법에 대 한 지침은 [동적 dns를 사용 하 여 자체 DNS 서버에 호스트 이름 등록](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients) 을 참조 하세요.
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Azure DNS 개인 영역에 대 한 사용 제한은 무엇 인가요?
 
-Azure DNS 전용 영역에 대 한 사용 제한에 대 한 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
+Azure DNS 전용 영역에 대 한 사용 제한에 대 한 자세한 내용은 [Azure DNS 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) 을 참조 하세요.
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>기존 개인 DNS 영역이 새 포털 환경에 표시 되지 않는 이유는 무엇 인가요?
 

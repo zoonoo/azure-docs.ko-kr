@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2abd5882e310b17c633a82009f44624fad156f14
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132350"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221131"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>U SQL 개발자를 위한 Apache Spark 코드 이해
 
@@ -160,14 +160,14 @@ U-SQL의 핵심 언어가 행 집합을 변환 하 고 있으며 SQL을 기반�
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ 집계 +`HAVING`/`ORDER BY`+`FETCH`
 - `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN`식
 - `CROSS`/`OUTER``APPLY`식
-- `PIVOT`/`UNPIVOT`산술식
-- `VALUES`행 집합 생성자
+- `PIVOT`/`UNPIVOT` 산술식
+- `VALUES` 행 집합 생성자
 
-- 식 설정`UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
+- 식 설정 `UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
 
 또한 U-SQL은와 같은 다양 한 SQL 기반 스칼라 식을 제공 합니다.
 
-- `OVER`창 화 식
+- `OVER` 창 화 식
 - 다양 한 기본 제공 집계 및 순위 함수 ( `SUM` 등 `FIRST` )
 - 가장 익숙한 SQL 스칼라 식 중 일부는 `CASE` , `LIKE` , ( `NOT` ), 등 `IN` `AND` `OR` 입니다.
 
@@ -214,8 +214,8 @@ Spark의 비용 기반 쿼리 최적화 프로그램은 힌트를 제공 하 고
 ## <a name="next-steps"></a>다음 단계
 
 - [U SQL 개발자를 위한 Spark 데이터 형식 이해](understand-spark-data-formats.md)
-- [Apache Spark용 .NET](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
-- [빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드](../storage/blobs/data-lake-storage-upgrade.md)
+- [Apache Spark용 .NET](/dotnet/spark/what-is-apache-spark-dotnet)
+- [빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
 - [Azure Data Factory에서 Spark 작업을 사용하여 데이터 변환](../data-factory/transform-data-using-spark.md)
 - [Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환](../data-factory/transform-data-using-hadoop-hive.md)
 - [Azure HDInsight에서 Apache Spark란](../hdinsight/spark/apache-spark-overview.md)

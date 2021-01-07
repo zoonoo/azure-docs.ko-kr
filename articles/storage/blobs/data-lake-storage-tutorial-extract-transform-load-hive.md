@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7640b7a6053532360da4c908089aecfe163bd3de
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045300"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912657"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>자습서: Azure HDInsight를 사용하여 데이터 추출, 변환 및 로드
 
@@ -32,15 +32,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * **HDInsight에 대해 구성된 Azure Data Lake Storage Gen2 스토리지 계정**
 
-    [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)을 참조하세요.
+    [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조하세요.
 
 * **HDInsight의 Linux 기반 Hadoop 클러스터**
 
-    [빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)을 참조하세요.
+    [빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)을 참조하세요.
 
-* **Azure SQL Database**: Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database에 데이터베이스가 없는 경우 [Azure Portal의 Azure SQL Database에서 데이터베이스 만들기](../../sql-database/sql-database-get-started.md)를 참조하세요.
+* **Azure SQL Database**: Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database에 데이터베이스가 없는 경우 [Azure Portal의 Azure SQL Database에서 데이터베이스 만들기](../../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 
-* **Azure CLI**: 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+* **Azure CLI**: 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 * **SSH(보안 셸) 클라이언트**: 자세한 내용은 [SSH를 사용하여 HDInsight(Hadoop)에 연결](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    
    기타 모든 필드를 지웁니다.
 
-3. **다운로드**를 선택합니다. 선택한 데이터 필드와 함께 .zip 파일을 가져옵니다.
+3. **다운로드** 를 선택합니다. 선택한 데이터 필드와 함께 .zip 파일을 가져옵니다.
 
 ## <a name="extract-and-upload-the-data"></a>데이터 추출 및 업로드
 
@@ -120,9 +120,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 섹션에서는 Beeline을 사용하여 Apache Hive 작업을 실행합니다.
 
-Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apache Hive 테이블로 가져옵니다.
+Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays** 라는 Apache Hive 테이블로 가져옵니다.
 
-1. HDInsight 클러스터에 대해 이미 있는 SSH 프롬프트에서 다음 명령을 사용하여 **flightdelays.hql**이라는 새 파일을 만들고 편집합니다.
+1. HDInsight 클러스터에 대해 이미 있는 SSH 프롬프트에서 다음 명령을 사용하여 **flightdelays.hql** 이라는 새 파일을 만들고 편집합니다.
 
    ```bash
    nano flightdelays.hql
@@ -228,7 +228,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
-2. **SQL Databases**를 선택합니다.
+2. **SQL Databases** 를 선택합니다.
 
 3. 사용하려는 데이터베이스의 이름을 필터링합니다. 서버 이름은 **서버 이름** 열에 나열됩니다.
 
@@ -280,7 +280,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
 
 8. `GO` 문을 입력하면 이전 문이 평가됩니다.
 
-   이 쿼리는 클러스터형 인덱스가 있는 **delays**라는 테이블을 만듭니다.
+   이 쿼리는 클러스터형 인덱스가 있는 **delays** 라는 테이블을 만듭니다.
 
 9. 다음 쿼리를 사용하여 테이블이 생성되었는지 확인합니다.
 
@@ -344,4 +344,4 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
 HDInsight에서 데이터를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: e8aabcd1c68272a78b3c1fe88913c5a62496f681
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88225838"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Azure CLI를 사용 하 여 다른 갤러리에서 이미지 복사
@@ -84,7 +84,7 @@ az sig image-definition show \
    --gallery-image-definition myImageDefinition
 ```
 
-출력은 다음과 비슷할 것입니다.
+출력은 다음과 같이 표시됩니다.
 
 ```output
 {

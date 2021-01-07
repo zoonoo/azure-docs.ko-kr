@@ -8,18 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: f007ddf2625bf9e8b9d4365902ac1511ea95fa81
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 98b8cca95b8815b32fb5de6567adcf4f150551eb
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904100"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561973"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
+
+## <a name="october-2020"></a>2020년 10월
+
+### <a name="computer-vision-api-v31-ga"></a>Computer Vision API v3.1 GA
+
+일반 공급의 Computer Vision API v3.1로 업그레이드되었습니다.
 
 ## <a name="september-2020"></a>2020년 9월
 
@@ -74,7 +80,7 @@ Computer Vision API v3.0에서 [읽기 API](concept-recognizing-text.md)에 대�
 * 추출된 각 단어에 대한 신뢰도 점수
 * 추가 언어 매개 변수를 사용하여 스페인어 및 영어 모두 지원
 
-3\.0 API 사용을 시작하려면 [텍스트 추출 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3)을 따르세요.
+3\.0 API 사용을 시작하려면 [텍스트 추출 빠른 시작](./quickstarts/csharp-hand-text.md?tabs=version-3)을 따르세요.
 
 ## <a name="cognitive-service-updates"></a>Cognitive Service 업데이트
 

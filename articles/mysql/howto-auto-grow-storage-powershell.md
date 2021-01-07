@@ -1,24 +1,24 @@
 ---
 title: 저장소 자동 증가-Azure PowerShell-Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL에서 PowerShell을 사용 하 여 저장소 자동 증가를 사용 하도록 설정 하는 방법을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d355e7557ff38c52872a89941025d33d01bd92d8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e8c9f6f66e484fbd9ebe5c15934936d6e5c59073
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503313"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542034"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MySQL 서버에서 저장소 자동 증가
 
 이 문서에서는 워크 로드에 영향을 주지 않고 확장 되도록 Azure Database for MySQL server 저장소를 구성 하는 방법을 설명 합니다.
 
-저장소 자동 증가 [는 서버가 저장소 제한에 도달](/azure/mysql/concepts-pricing-tiers#reaching-the-storage-limit) 하 고 읽기 전용이 되지 않도록 합니다. 100 GB 이하의 서버가 프로 비전 된 저장소의 경우 사용 가능한 공간이 10% 미만이 면 크기가 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버의 경우 사용 가능한 공간이 10gb 미만이 면 크기가 5% 증가 합니다. 최대 저장소 제한은 [Azure Database for MySQL 가격 책정 계층](/azure/mysql/concepts-pricing-tiers#storage)의 저장소 섹션에 지정 된 대로 적용 됩니다.
+저장소 자동 증가 [는 서버가 저장소 제한에 도달](./concepts-pricing-tiers.md#reaching-the-storage-limit) 하 고 읽기 전용이 되지 않도록 합니다. 100 GB 이하의 서버가 프로 비전 된 저장소의 경우 사용 가능한 공간이 10% 미만이 면 크기가 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버의 경우 사용 가능한 공간이 10gb 미만이 면 크기가 5% 증가 합니다. 최대 저장소 제한은 [Azure Database for MySQL 가격 책정 계층](./concepts-pricing-tiers.md#storage)의 저장소 섹션에 지정 된 대로 적용 됩니다.
 
 > [!IMPORTANT]
 > 저장소는 다운 되지 않고 확장만 가능 합니다.

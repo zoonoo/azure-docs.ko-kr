@@ -1,22 +1,24 @@
 ---
-title: 자습서 - terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
+title: Terraform을 사용하여 Azure Spring Cloud 인스턴스를 프로비저닝
 description: Terraform을 사용하여 Azure Spring Cloud 인스턴스를 프로비저닝합니다.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f2e4ddc2d2cfbbfb7f95e5ae6b1af7a76eece85
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426353"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533794"
 ---
-# <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>자습서: Terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
+# <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
 
-이 자습서에서는 Terraform을 사용하여 Azure Spring Cloud 인스턴스를 만듭니다. 이 절차에서는 다음 리소스를 만드는 과정을 안내합니다.
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
+
+이 예제에서는 Terraform을 사용하여 Azure Spring Cloud 인스턴스를 만듭니다. 이 절차에서는 다음 리소스를 만드는 과정을 안내합니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹
@@ -37,7 +39,7 @@ ms.locfileid: "89426353"
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. [Azure Cloud Shell](https://docs.microsoft.com/azure/app-service/quickstart-java#use-azure-cloud-shell)을 엽니다.
+1. [Azure Cloud Shell](../app-service/quickstart-java.md#use-azure-cloud-shell)을 엽니다.
 
 1. Cloud Shell 편집기를 시작합니다.
 
@@ -159,7 +161,7 @@ ms.locfileid: "89426353"
 
 더 이상 필요하지 않은 경우 이 문서에서 만든 리소스를 삭제합니다.
 
-[terraform destroy](https://www.terraform.io/docs/commands/destroy.html) 명령을 실행하여 이 자습서에서 만든 Azure 리소스를 제거합니다.
+[terraform destroy](https://www.terraform.io/docs/commands/destroy.html) 명령을 실행하여 이 연습에서 만든 Azure 리소스를 제거합니다.
 
 ```bash
 terraform destroy -auto-approve
@@ -168,4 +170,4 @@ terraform destroy -auto-approve
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Terraform을 설치하고 구성하여 Azure 리소스를 프로비저닝합니다](https://docs.microsoft.com/azure/developer/terraform/getting-started-cloud-shell).
+> [Terraform을 설치하고 구성하여 Azure 리소스를 프로비저닝합니다](/azure/developer/terraform/getting-started-cloud-shell).

@@ -3,17 +3,19 @@ title: Azure Cosmos DB의 GROUP BY 절
 description: Azure Cosmos DB의 GROUP BY 절에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: b602b56d37cec0e23d31318f6675d031bdd6bcdb
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: d9cafc100ddd4b553577c447e82334e6ee7d1b6d
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700995"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545454"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 GROUP BY 절
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 GROUP BY 절은 하나 이상의 지정된 속성 값에 따라 쿼리의 결과를 나눕니다.
 
@@ -39,7 +41,7 @@ GROUP BY 절은 하나 이상의 지정된 속성 값에 따라 쿼리의 결과
 
 ## <a name="remarks"></a>설명
   
-  쿼리에서 GROUP BY 절을 사용하는 경우 SELECT 절은 GROUP BY 절에 포함된 속성 및 시스템 함수의 일부만 포함할 수 있습니다. 한 가지 예외는 GROUP BY 절에 포함되지 않고 SELECT 절에 나타날 수 있는 [집계 시스템 함수](sql-query-aggregates.md)입니다. SELECT 절에는 항상 리터럴 값을 포함할 수도 있습니다.
+  쿼리에서 GROUP BY 절을 사용하는 경우 SELECT 절은 GROUP BY 절에 포함된 속성 및 시스템 함수의 일부만 포함할 수 있습니다. 한 가지 예외는 GROUP BY 절에 포함 되지 않고 SELECT 절에 나타날 수 있는 [집계 함수](sql-query-aggregate-functions.md)입니다. SELECT 절에는 항상 리터럴 값을 포함할 수도 있습니다.
 
   GROUP BY 절은 SELECT, FROM 및 WHERE 절 뒤와 OFFSET LIMIT 절 앞에 와야 합니다. 현재, GROUP BY 절을 ORDER BY 절과 함께 사용할 수 없으며 이러한 특성은 계획된 것입니다.
 
@@ -190,4 +192,4 @@ GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 
 - [시작](sql-query-getting-started.md)
 - [SELECT 절](sql-query-select.md)
-- [집계 함수](sql-query-aggregates.md)
+- [집계 함수](sql-query-aggregate-functions.md)

@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7567302be8d717cda3627af303128bfb704bd014
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2b6001932b6f53a60eda76b6136611a10011391a
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170142"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928684"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 IDology 구성에 대 한 자습서 
 
 이 샘플 자습서에서는 [IDology](https://www.idology.com/solutions/)와 Azure AD B2C를 통합 하는 방법에 대 한 지침을 제공 합니다. IDology는 여러 솔루션을 포함 하는 id 확인 및 교정 공급자입니다. 이 샘플에서는 IDology에서 제공 하는 모든 문제를 해결 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -41,7 +41,7 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![IDology 아키텍처 다이어그램](media/partner-idology/idology-architecture-diagram.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |------|------|
 |1     | 사용자가 로그인 페이지에 도착 합니다. |
 |2     | 사용자가 등록 옵션을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다. |
@@ -67,15 +67,15 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 ### <a name="part-1---deploy-the-api"></a>1 부-API 배포
 
-제공 된 API 코드를 Azure 서비스에 배포 합니다. 이러한 [지침](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) 를 Azure 서비스에 배포 합니다. 이러한 [지침](/visualstudio/deployment/quickstart-deploy-to-azure)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 
 필요한 설정을 사용 하 여 Azure AD를 구성 하려면 배포 된 서비스의 URL이 필요 합니다.
 
 ### <a name="part-2---configure-the-api"></a>2 부-API 구성 
 
-[Azure의 App Service에서](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)응용 프로그램 설정을 구성할 수 있습니다. 이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
+[Azure의 App Service에서](../app-service/configure-common.md#configure-app-settings)응용 프로그램 설정을 구성할 수 있습니다. 이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 참고 |
+| 애플리케이션 설정 | 원본 | 메모 |
 | :-------- | :------------| :-----------|
 |IdologySettings: ApiUsername | IDology 계정 구성 |     |
 |IdologySettings: ApiPassword | IDology 계정 구성 |     |
@@ -119,17 +119,17 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. Azure AD B2C 테 넌 트를 열고 **정책**아래에서 **사용자 흐름**을 선택 합니다.
+1. Azure AD B2C 테 넌 트를 열고 **정책** 아래에서 **사용자 흐름** 을 선택 합니다.
 
-2. 이전에 만든 **사용자 흐름**을 선택 합니다.
+2. 이전에 만든 **사용자 흐름** 을 선택 합니다.
 
 3. **사용자 흐름 실행** 을 선택 하 고 설정을 선택 합니다.
 
    1. **응용 프로그램** -등록 된 앱을 선택 합니다 (JWT는 샘플).
 
-   1. **회신 url** - **리디렉션 url**을 선택 합니다.
+   1. **회신 url** - **리디렉션 url** 을 선택 합니다.
 
-   1. **사용자 흐름 실행**을 선택합니다.
+   1. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름을 진행 하 고 계정을 만듭니다.
 
@@ -137,7 +137,7 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 6. 로그인 흐름을 진행 합니다.
 
-7. **Continue**를 입력 하면 IDology 퍼즐이 표시 됩니다.
+7. **Continue** 를 입력 하면 IDology 퍼즐이 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -145,5 +145,4 @@ IDology 통합에는 다음 구성 요소가 포함 됩니다.
 
 - [Azure AD B2C의 사용자 지정 정책](custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md?tabs=applications) 
-
+- [Azure AD B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md?tabs=applications)

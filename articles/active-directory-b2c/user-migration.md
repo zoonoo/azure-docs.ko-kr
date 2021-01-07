@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383974"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509617"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>사용자를 Azure AD B2C으로 마이그레이션
 
@@ -45,12 +45,12 @@ ms.locfileid: "85383974"
 
 원활한 마이그레이션 흐름은 계속 해 서 사용자 계정을 미리 마이그레이션해야 하지만 사용자 [지정 정책을](custom-policy-get-started.md) 사용 하 여 처음 로그인 할 때 각 사용자의 암호를 설정 하는 [REST API](custom-policy-rest-api-intro.md) (사용자가 만드는)를 쿼리 합니다.
 
-따라서 원활한 마이그레이션 흐름에는 *마이그레이션 전* 및 *자격 증명 설정*의 두 단계가 있습니다.
+따라서 원활한 마이그레이션 흐름에는 *마이그레이션 전* 및 *자격 증명 설정* 의 두 단계가 있습니다.
 
 ### <a name="phase-1-pre-migration"></a>1 단계: 마이그레이션 전
 
 1. 마이그레이션 응용 프로그램은 이전 id 공급자에서 사용자 계정을 읽습니다.
-1. 마이그레이션 응용 프로그램은 Azure AD B2C 디렉터리에 해당 사용자 계정을 만들지만 암호를 *설정 하지*는 않습니다.
+1. 마이그레이션 응용 프로그램은 Azure AD B2C 디렉터리에 해당 사용자 계정을 만들지만 암호를 *설정 하지* 는 않습니다.
 
 ### <a name="phase-2-set-credentials"></a>2 단계: 자격 증명 설정
 
@@ -90,7 +90,7 @@ ms.locfileid: "85383974"
 
 마이그레이션 프로세스를 시작 하기 전에 디렉터리를 정리할 수 있는 기회를 얻을 수 있습니다.
 
-- Azure AD B2C에 저장할 사용자 특성 집합을 확인 하 고 필요한 항목만 마이그레이션합니다. 필요한 경우 사용자에 대 한 추가 데이터를 저장 하는 [사용자 지정 특성](custom-policy-custom-attributes.md) 을 만들 수 있습니다.
+- Azure AD B2C에 저장할 사용자 특성 집합을 확인 하 고 필요한 항목만 마이그레이션합니다. 필요한 경우 사용자에 대 한 추가 데이터를 저장 하는 [사용자 지정 특성](user-flow-custom-attributes.md) 을 만들 수 있습니다.
 - 여러 인증 소스가 있는 환경에서 마이그레이션하는 경우 (예: 각 응용 프로그램에 고유한 사용자 디렉터리가 있는 경우) Azure AD B2C의 통합 계정으로 마이그레이션합니다.
 - 여러 응용 프로그램에 다른 사용자 이름이 있는 경우 id 컬렉션을 사용 하 여 모든 응용 프로그램을 Azure AD B2C 사용자 계정에 저장할 수 있습니다. 암호와 관련 하 여 사용자가 암호를 선택 하 고 디렉터리에 설정 하도록 합니다. 예를 들어 원활한 마이그레이션에서는 선택한 암호만 Azure AD B2C 계정에 저장 해야 합니다.
 - 마이그레이션 전에 사용 하지 않는 사용자 계정을 제거 하거나 오래 된 계정을 마이그레이션하지 마십시오.

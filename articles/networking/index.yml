@@ -11,13 +11,13 @@ metadata:
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 03/17/2020
-  ms.openlocfilehash: 55340e52505498f2475487567f141437347c3d10
-  ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+  ms.date: 09/28/2020
+  ms.openlocfilehash: e348e1e93506a668f448e834ad1eaa5ce0c36d4a
+  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89290381"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92900302"
 highlightedContent:
   items:
   - title: Azure 네트워킹이란?
@@ -32,9 +32,9 @@ highlightedContent:
   - title: Azure의 허브-스포크 네트워크 토폴로지
     itemType: architecture
     url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-  - title: 라우팅 기본 설정이란?
+  - title: Azure Orbital이란?
     itemType: concept
-    url: ../virtual-network/routing-preference-overview.md
+    url: azure-orbital-overview.md
   - title: Azure 서비스를 사용하여 원격으로 작업
     itemType: concept
     url: working-remotely-support.md
@@ -268,17 +268,17 @@ conceptualContent:
       text: 자세히 보기
   - title: DDoS Protection
     links:
-    - url: ../virtual-network/ddos-protection-overview.md
+    - url: ../ddos-protection/ddos-protection-overview.md
       itemType: overview
       text: Azure DDoS Protection 표준이란?
-    - url: ../virtual-network/manage-ddos-protection.md
+    - url: ../ddos-protection/manage-ddos-protection.md
       itemType: how-to-guide
       text: DDoS Protection 관리
-    - url: ../virtual-network/ddos-protection-partner-onboarding.md
+    - url: ../ddos-protection/ddos-protection-partner-onboarding.md
       itemType: concept
       text: 온보딩 파트너
     footerLink:
-      url: https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices
+      url: ../ddos-protection/index.yml
       text: 자세히 보기
   - title: Content Delivery Network
     links:

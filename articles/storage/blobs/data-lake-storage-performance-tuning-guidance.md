@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905408"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814468"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>성능을 위해 Azure Data Lake Storage Gen2 최적화
 
@@ -21,13 +21,13 @@ Azure Data Lake Storage Gen2는 I/O 집약적 분석 및 데이터 이동에 대
 
 ![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2는 모든 분석 시나리오에 필요한 처리량을 제공하도록 크기를 조정할 수 있습니다. 기본적으로 Data Lake Storage Gen2 계정은 다양한 범주의 사용 사례에 대한 요구 사항을 충족할 수 있을 만큼 충분한 처리량을 자동으로 제공합니다. 고객이 기본 제한을 초과하는 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하여 더 많은 처리량을 제공하도록 Data Lake Storage Gen2 계정을 구성할 수 있습니다.
+Data Lake Storage Gen2를 확장 하 여 모든 분석 시나리오에 필요한 처리량을 제공할 수 있습니다. 기본적으로 Data Lake Storage Gen2 계정은 다양 한 사용 사례 범주에 대 한 요구를 충족 하기 위해 기본 구성에서 충분 한 처리량을 제공 합니다. 고객이 기본 제한을 초과하는 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하여 더 많은 처리량을 제공하도록 Data Lake Storage Gen2 계정을 구성할 수 있습니다.
 
 ## <a name="data-ingestion"></a>데이터 수집
 
-원본 시스템의 데이터를 Data Lake Storage Gen2에 수집하는 경우 원본 하드웨어, 원본 네트워크 하드웨어 및 Data Lake Storage Gen2에 대한 네트워크 연결에서 병목 상태가 발생할 수 있다는 점을 고려해야 합니다.  
+원본 시스템의 데이터를 Data Lake Storage Gen2 수집 때 원본 하드웨어, 원본 네트워크 하드웨어 또는 Data Lake Storage Gen2에 대 한 네트워크 연결이 병목이 될 수 있다는 것을 고려 하는 것이 중요 합니다.  
 
-![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![원본 시스템의 데이터를 Data Lake Storage Gen2 하는 경우 고려해 야 할 요소를 보여 주는 다이어그램 수집.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 데이터 이동이 이러한 요인에 의해 영향을 받지 않도록 하는 것이 중요합니다.
 
@@ -37,17 +37,17 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 
 ### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Data Lake Storage Gen2에 대한 네트워크 연결
 
-원본 데이터와 Data Lake Storage Gen2 간의 네트워크 연결에서 병목 상태가 발생하는 경우도 있습니다. 원본 데이터가 온-프레미스인 경우 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)와 함께 전용 링크를 사용하는 것이 좋습니다. 원본 데이터가 Azure에 있는 경우 데이터가 Data Lake Storage Gen2 계정과 동일한 Azure 지역에 있을 때 성능이 가장 좋습니다.
+원본 데이터와 Data Lake Storage Gen2 간의 네트워크 연결에서 병목 상태가 발생하는 경우도 있습니다. 원본 데이터가 온-프레미스 인 경우 [Azure express](https://azure.microsoft.com/services/expressroute/)경로와 전용 링크를 사용 하는 것이 좋습니다. 원본 데이터가 Azure에 있는 경우 데이터가 Data Lake Storage Gen2 계정과 동일한 Azure 지역에 있을 때 성능이 가장 좋습니다.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>최대 병렬 처리를 위한 데이터 수집 도구 구성
 
 위의 원본 하드웨어 및 네트워크 연결 병목 상태를 해결했으면 수집 도구를 구성할 준비가 되었습니다. 다음 표에는 몇 가지 일반적인 수집 도구에 대한 주요 설정이 요약되어 있으며, 각 도구에 대한 심층 분석 성능 튜닝 문서가 제공됩니다.  시나리오에 사용할 도구에 대한 자세한 내용은 이 [문서](data-lake-storage-data-scenarios.md)를 참조하세요.
 
-| 도구               | 설정     | 자세한 정보                                                                 |
+| 도구               | 설정 | 자세한 정보                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m(mapper)   | [링크](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure 데이터 팩터리| parallelCopies    | [링크](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m(mapper)    |   [링크](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m(mapper)    |   [링크](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>데이터 집합 구성
 
@@ -57,7 +57,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 
 일반적으로 HDInsight, Azure Data Lake Analytics 등의 분석 엔진에서는 파일당 오버헤드가 발생합니다. 데이터를 많은 작은 파일로 저장하는 경우 성능이 저하될 수 있습니다. 일반적으로 더 나은 성능을 얻으려면 데이터를 더 큰 크기의 파일(256MB ~ 100GB)로 구성합니다. 일부 엔진과 애플리케이션에서 100GB를 초과하는 파일을 효율적으로 처리하는 데 어려움을 겪을 수 있습니다.
 
-때로는 다수의 작은 파일로 이루어진 원시 데이터에 대한 데이터 파이프라인의 제어가 제한됩니다. 다운스트림 애플리케이션에 사용할 더 큰 파일을 생성하는 "처리" 프로세스를 포함하는 것이 좋습니다.
+때로는 다수의 작은 파일로 이루어진 원시 데이터에 대한 데이터 파이프라인의 제어가 제한됩니다. 일반적으로 시스템에는 다운스트림 응용 프로그램에서 사용 하기 위해 작은 파일을 더 큰 값으로 집계 하는 일종의 프로세스를 사용 하는 것이 좋습니다.
 
 ### <a name="organizing-time-series-data-in-folders"></a>폴더에 시계열 데이터 구성
 
@@ -107,7 +107,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **더 많은 노드 및/또는 더 큰 VM으로 클러스터를 실행합니다.**  더 큰 클러스터를 사용하면 아래 그림과 같이 더 많은 YARN 컨테이너를 실행할 수 있습니다.
 
-![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![더 큰 클러스터를 사용 하 여 더 많은 YARN 컨테이너를 실행 하는 방법을 보여 주는 다이어그램입니다.](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
 **더 많은 네트워크 대역폭을 가진 VM을 사용합니다.**  네트워크 대역폭이 Data Lake Storage Gen2 처리량보다 작으면 네트워크 대역폭 크기로 인해 병목 상태가 발생할 수 있습니다.  VM마다 각기 다른 네트워크 대역폭 크기를 갖게 됩니다.  가능한 가장 큰 네트워크 대역폭을 가진 VM 유형을 선택합니다.
 
@@ -115,7 +115,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **더 작은 YARN 컨테이너를 사용합니다.**  각 YARN 컨테이너의 크기를 줄여 동일한 리소스 양으로 더 많은 컨테이너를 만듭니다.
 
-![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![컨테이너를 추가로 만들 수 있도록 각 YARN 컨테이너의 크기를 줄이는 경우의 결과를 보여 주는 다이어그램입니다.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 워크로드에 따라 항상 필요한 최소 YARN 컨테이너 크기가 있습니다. 너무 작은 컨테이너를 선택하면 작업에서 메모리 부족 문제가 발생합니다. 일반적으로 YARN 컨테이너는 1GB 이상이어야 합니다. 3GB YARN 컨테이너도 흔히 볼 수 있습니다. 일부 워크로드의 경우 더 큰 YARN 컨테이너가 필요할 수도 있습니다.  
 
@@ -125,18 +125,18 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **사용 가능한 모든 컨테이너를 이용합니다.**  모든 리소스가 활용되도록 태스크 수를 사용 가능한 컨테이너 수보다 크거나 같도록 설정합니다.
 
-![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![모든 컨테이너를 사용 하는 방법을 보여 주는 다이어그램입니다.](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
 **실패한 태스크는 비용이 많이 듭니다.** 각 태스크에서 많은 양의 데이터를 처리하는 경우 태스크 실패 시 다시 시도하는 데 많은 비용이 듭니다.  따라서 각각 적은 양의 데이터를 처리하는 태스크를 더 많이 만드는 것이 좋습니다.
 
 위의 일반적인 지침 외에도 각 애플리케이션마다 특정 애플리케이션에 대해 튜닝할 수 있는 다른 매개 변수가 있습니다. 아래 표에는 각 애플리케이션에 대한 성능 튜닝을 시작하기 위한 몇 가지 매개 변수 및 링크가 나와 있습니다.
 
-| 워크로드 | 작업을 설정하는 매개 변수 |
+| 작업 | 작업을 설정하는 매개 변수 |
 |----------|------------------------|
 | [HDInsight의 Spark](data-lake-storage-performance-tuning-spark.md) | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [HDInsight의 Hive](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
 | [HDInsight의 MapReduce](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-storage-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen2 개요](data-lake-storage-introduction.md)

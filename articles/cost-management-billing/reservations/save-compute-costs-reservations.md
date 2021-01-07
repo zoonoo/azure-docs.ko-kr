@@ -1,23 +1,23 @@
 ---
 title: Azure Reservations란?
-description: 가상 머신, SQL Database, Azure Cosmos DB 및 기타 리소스 비용을 절약하기 위한 Azure 예약 및 가격 책정 정보에 대해 알아봅니다.
+description: 가상 머신, SQL 데이터베이스, Azure Cosmos DB 및 기타 리소스 비용에 대한 예약 인스턴스를 절약하기 위한 Azure 예약 및 가격 책정에 대해 알아봅니다.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682589"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560494"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
-Azure Reservations는 여러 제품의 1년 또는 3년 플랜에 따라 비용을 절감하는 데 도움이 됩니다. 약정하면 사용하는 리소스 요금에 대한 할인을 받을 수 있습니다. 예약을 사용하면 리소스 비용이 종량제 가격의 최대 72%까지 줄일 수 있습니다. 예약은 청구 할인을 제공하며, 리소스의 런타임 상태에 영향을 주지 않습니다. 예약을 구매한 후 일치하는 리소스에 할인이 자동으로 적용됩니다.
+Azure Reservations는 여러 제품의 1년 또는 3년 플랜에 따라 비용을 절감하는 데 도움이 됩니다. 약정하면 사용하는 리소스 요금에 대한 할인을 받을 수 있습니다. 예약을 사용하면 종량제 가격에서 최대 72%까지 리소스 비용을 크게 줄일 수 있습니다. 예약은 청구 할인을 제공하며, 리소스의 런타임 상태에 영향을 주지 않습니다. 예약을 구매한 후 일치하는 리소스에 할인이 자동으로 적용됩니다.
 
 예약 요금을 선결제할 수도 있고 매달 결제할 수도 있습니다. 선불과 월별 예약의 총 비용은 동일하며, 매달 지불하기로 선택하면 추가 요금이 청구되지 않습니다. 월간 결제는 타사 제품이 아닌 Azure 예약에 사용할 수 있습니다.
 
@@ -50,21 +50,22 @@ Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관
 
 Azure Portal, API, PowerShell 및 CLI에서 예약을 구매할 수 있습니다. 
 
-구매하려면 Azure Portal(https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 로 이동 
+구매하려면 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs)로 이동합니다.
 
-자세한 내용은  [예약 구매](prepare-buy-reservation.md)를 참조하세요. 
+자세한 내용은  [예약 구매](prepare-buy-reservation.md)를 참조하세요.
 
 ## <a name="how-is-a-reservation-billed"></a>예약 요금은 어떻게 청구되나요? 
 
 예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. 가능한 경우, 예액 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액으로 예약 비용이 해결되지 않는 경우 초과분에 대한 요금이 청구됩니다. 종량제 요금을 사용하는 개별 플랜의 구독이 있는 경우 계정에 등록된 신용 카드로 선결제 요금이 즉시 청구됩니다. 월간 결제 금액이 청구서에 표시되며 매월 신용 카드로 요금이 청구됩니다. 요금 청구를 청구서로 받는 경우 다음 달 청구서에 요금이 표시됩니다. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>예약 보기 및 관리 권한 할당 
+## <a name="who-can-manage-a-reservation-by-default"></a>기본적으로 예약을 관리할 수 있는 사용자
 
-예약을 구매한 사용자와 예약 대금 청구에 사용된 구독의 계정 관리자에게는 예약 주문 및 예약에 대한 소유자 역할이 부여됩니다.
+기본적으로 다음 사용자는 예약을 보고 관리할 수 있습니다.
 
-예약 주문 또는 예약에 대한 역할에 사용자를 추가하여 예약 관리를 위임할 수 있습니다. Azure Portal 또는 API와 PowerShell을 사용하여 역할을 할당합니다. 
+- 예약을 구매하는 사용자와 예약 구매에 사용한 청구 구독의 계정 관리자가 예약 주문에 추가됩니다.
+- 기업계약 및 Microsoft 고객 계약 청구 관리자.
 
-자세한 내용은  [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 참조하세요. 
+다른 사용자가 예약을 관리할 수 있도록 하려면 [Azure 리소스에 대한 예약 관리](manage-reserved-vm-instance.md)를 참조하세요.
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>구매 후 예약 세부 정보 및 사용률 가져오기
 
@@ -90,7 +91,7 @@ Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 �
 - **예약 Virtual Machine 인스턴스** - 예약에는 가상 머신 및 클라우드 서비스 컴퓨팅 비용만 포함됩니다. 추가 소프트웨어, Windows, 네트워킹 또는 스토리지 요금은 포함되지 않습니다.
 - **Azure Storage 예약 용량** - 예약에는 Blob 스토리지 또는 Azure Data Lake Gen2 스토리지의 표준 스토리지 계정에 대한 스토리지 용량이 포함됩니다. 예약에는 대역폭 또는 트랜잭션 요금이 포함되지 않습니다.
 - **Azure Cosmos DB 예약 용량** - 리소스에 프로비저닝된 처리량이 포함됩니다. 스토리지 및 네트워킹 요금은 포함하지 않습니다.
-- **SQL Database 예약 vCore** - 컴퓨팅 비용만 예약에 포함됩니다. SQL 라이선스는 별도로 청구됩니다.
+- **SQL Database 예약 vCore** - SQL Managed Instance와 SQL Database 탄력적 풀/단일 데이터베이스를 모두 포함합니다. 컴퓨팅 비용만 예약에 포함됩니다. SQL 라이선스는 별도로 청구됩니다. 
 - **Azure Synapse Analytics** - 예약에는 cDWU 사용이 포함됩니다. Azure Synapse Analytics 사용과 관련된 스토리지 또는 네트워킹 요금은 포함되지 않습니다.
 - **Azure Databricks** - 예약에는 DBU 사용량만 포함됩니다. 컴퓨팅, 스토리지 및 네트워킹과 같은 기타 요금은 별도로 적용됩니다.
 - **App Service 스탬프 요금** - 예약에 스탬프 사용이 포함됩니다. 예약은 작업자에게 적용되지 않으므로 스탬프와 연결된 다른 모든 리소스에는 별도의 요금이 청구됩니다.
@@ -106,7 +107,7 @@ Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 �
 
 - **SUSE Linux** - 예약에는 소프트웨어 계획 비용이 포함됩니다. 할인은 SUSE 미터에만 적용되며 가상 머신 사용량에는 적용되지 않습니다.
 - **Red Hat 플랜** - 예약에는 소프트웨어 계획 비용이 포함됩니다. 할인은 RedHat 미터에만 적용되며 가상 머신 사용량에는 적용되지 않습니다.
-- **Azure VMware Solution by CloudSimple** - 예약에는 VMWare CloudSimple 노드가 포함됩니다. 추가 소프트웨어 비용이 여전히 적용됩니다.
+- **Azure VMware Solution by CloudSimple** - 예약에는 VMware CloudSimple 노드가 포함됩니다. 추가 소프트웨어 비용이 여전히 적용됩니다.
 - **Azure Red Hat OpenShift** - 예약은 Azure 인프라 비용이 아닌 OpenShift 비용에 적용됩니다.
 
 Windows 가상 머신 및 SQL Database의 경우, 예약 할인은 소프트웨어 비용에 적용되지 않습니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 라이선스 비용을 처리할 수 있습니다.
@@ -125,9 +126,9 @@ Windows 가상 머신 및 SQL Database의 경우, 예약 할인은 소프트웨�
     - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](/partner-center/azure-reservations)
 
 - 다음과 같은 서비스 플랜 예약에 대해 자세히 알아보세요.
-    - [Azure Reserved VM Instances를 사용하는 Virtual Machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Azure Reserved VM Instances를 사용하는 Virtual Machines](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB 예약 용량을 사용하는 Azure Cosmos DB 리소스](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [Azure SQL Database 예약 용량을 사용하는 SQL Database 컴퓨팅 리소스](../../azure-sql/database/reserved-capacity-overview.md)
     - [Azure Cache for Redis 예약 용량을 사용하는 Azure Cache for Redis 리소스](../../azure-cache-for-redis/cache-reserved-pricing.md) 다음과 같은 소프트웨어 플랜 예약에 대해 자세히 알아보세요.
-    - [Azure 예약의 Red Hat 소프트웨어 플랜](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [Azure 예약의 Red Hat 소프트웨어 플랜](../../virtual-machines/linux/prepay-suse-software-charges.md)
     - [Azure 예약의 SUSE 소프트웨어 플랜](../../virtual-machines/linux/prepay-suse-software-charges.md)

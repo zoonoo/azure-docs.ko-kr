@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75371782"
 ---
 SAS (공유 액세스 서명)를 사용 하면 저장소 계정의 컨테이너 및 blob에 대 한 제한 된 액세스 권한을 부여할 수 있습니다. SAS를 만들 때 클라이언트에서 액세스할 수 있는 Azure Storage 리소스, 해당 리소스에 대 한 사용 권한 및 SAS의 유효 기간을 포함 하 여 해당 제약 조건을 지정 합니다.

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: feee3a0d6de97ac6aaa1f9a92f20860f3f461ae3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827234"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91371255"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -39,7 +39,7 @@ ms.locfileid: "87827234"
 3. **추가**를 선택합니다.
 4. 다음 값을 입력합니다.
 
-   - **구독**: Azure 구독을 선택 합니다. 
+   - **구독**: Azure 구독을 선택합니다. 
    - **리소스 그룹**: 새 리소스 그룹 이름을 입력합니다. 
    - **지역**: **미국 중부**와 같은 Azure 위치를 선택 합니다.
 
@@ -105,7 +105,7 @@ ms.locfileid: "87827234"
 
 ## <a name="manage-access-to-resource-groups"></a>리소스 그룹에 대 한 액세스 관리
 
-Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

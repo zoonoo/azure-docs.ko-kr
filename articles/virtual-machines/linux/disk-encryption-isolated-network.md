@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0cc54bcc23e354ae8cc807e63a0039286e295181
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1d7e019e7759e22e945bddee477a4cb77f17350b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970959"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913826"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>격리 된 네트워크에서 Azure Disk Encryption
 
@@ -25,12 +25,12 @@ Azure Disk Encryption은 일반적으로 ADE를 사용할 때 설치 되는 구�
 
 각 배포에 필요한 패키지는 다음과 같습니다. 지원 되는 배포판 및 볼륨 유형의 전체 목록은 [지원 되는 vm 및 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems)를 참조 하세요.
 
-- **Ubuntu 14.04, 16.04, 18.04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-6, procps
-- **CentOS 7.2-7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-전송, pyparted, procps-, util-linux
-- **CentOS 6.8**: lsscsi, psmisc, lvm2, uuid, at, cryptsetup-전송, pyparted, python-6
-- **Redhat 7.2-7.7**: lsscsi, psmisc,, uuid, at, patch, cryptsetup, cryptsetup-전송, procps-기능-linux
-- **Redhat 6.8**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-전송
-- **openSUSE 42.3, SLES 12-SP4, 12-SP3**: lsscsi, cryptsetup
+- **Ubuntu 14.04, 16.04, 18.04** : lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-6, procps, grub-pc-bin
+- **CentOS 7.2-7.7** : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-전송, pyparted, procps-, util-linux
+- **CentOS 6.8** : lsscsi, psmisc, lvm2, uuid, at, cryptsetup-전송, pyparted, python-6
+- **Redhat 7.2-7.7** : lsscsi, psmisc,, uuid, at, patch, cryptsetup, cryptsetup-전송, procps-기능-linux
+- **Redhat 6.8** : lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-전송
+- **openSUSE 42.3, SLES 12-SP4, 12-SP3** : lsscsi, cryptsetup
 
 Red Hat에서 프록시가 필요한 경우 subscription-manager와 yum이 올바르게 설정되었는지 확인해야 합니다. 자세한 내용은 [구독 관리자 및 yum 문제를 해결하는 방법](https://access.redhat.com/solutions/189533)을 참조하세요.  
 
@@ -43,7 +43,7 @@ Red Hat에서 프록시가 필요한 경우 subscription-manager와 yum이 올�
 
 [AZURE AD (이전 버전)와 Azure Disk Encryption](disk-encryption-overview-aad.md)를 사용 하는 경우에는 [위에 나와](#package-management)있는 것 처럼 배포판에 적합 한 패키지 외에도 모든 배포판에 대해 [Azure Active Directory 라이브러리](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) 를 수동으로 설치 해야 합니다.
 
-[Azure AD 자격 증명](disk-encryption-linux-aad.md)에 암호화가 사용하도록 설정된 경우 대상 VM은 Azure Active Directory 엔드포인트 및 Key Vault 엔드포인트 모두에 대한 연결을 허용해야 합니다. 현재 Azure Active Directory 인증 엔드포인트는 [Office 365 URL 및 IP 주소 범위](/office365/enterprise/urls-and-ip-address-ranges) 설명서의 56 및 59 섹션에서 유지 관리됩니다. Key Vault 지침은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](../../key-vault/general/access-behind-firewall.md)하는 방법에 관한 설명서에서 제공됩니다.
+[Azure AD 자격 증명](disk-encryption-linux-aad.md)에 암호화가 사용하도록 설정된 경우 대상 VM은 Azure Active Directory 엔드포인트 및 Key Vault 엔드포인트 모두에 대한 연결을 허용해야 합니다. 현재 Azure Active Directory 인증 끝점은 [Microsoft 365 url 및 IP 주소 범위](/microsoft-365/enterprise/urls-and-ip-address-ranges) 설명서의 56 및 59 섹션에서 유지 관리 됩니다. Key Vault 지침은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](../../key-vault/general/access-behind-firewall.md)하는 방법에 관한 설명서에서 제공됩니다.
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 

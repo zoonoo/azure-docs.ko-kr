@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e46cf78c76e873bcb78af4942f42a5c4be45391
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172248"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955589"
 ---
-# <a name="public-ip-addresses"></a>공용 IP 주소
+# <a name="public-ip-addresses"></a>퍼블릿 IP 주소
 
 공용 IP 주소를 통해 인터넷 리소스가 Azure 리소스에 대한 인바운드와 통신할 수 있습니다. 공용 IP 주소를 사용 하면 Azure 리소스가 인터넷 및 공용 Azure 서비스와 통신할 수 있습니다. 주소는 사용자가 할당을 해제 하기 전까지 리소스 전용입니다. 공용 IP가 할당 되지 않은 리소스는 아웃 바운드 통신할 수 있습니다. Azure는 리소스 전용으로 사용 가능한 IP 주소를 동적으로 할당 합니다. Azure에서 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -39,6 +39,8 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 
 ## <a name="sku"></a>SKU
 
+SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](../virtual-network/virtual-network-public-ip-address-upgrade.md)를 참조 하세요.
+
 공용 IP 주소는 다음 SKU 중 하나로 만들어집니다.
 
 >[!IMPORTANT]
@@ -52,7 +54,8 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 - 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.
 - 기본적으로 안전 하 게 보호 하 고 인바운드 트래픽에 대해 닫힘. [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용 하 여 인바운드 트래픽 나열을 허용 합니다.
 - 네트워크 인터페이스, 표준 공용 부하 분산 장치 또는 응용 프로그램 게이트웨이에 할당 됩니다. 표준 부하 분산 장치에 대 한 자세한 내용은 [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
-- 영역 중복 또는 영역 일 수 있습니다 (특정 가용성 영역에서 영역 및 보증을 만들 수 있음). 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+- 영역 중복 (모든 3 개 영역에서 advertized) 또는 영역 (특정 가용성 영역에서 영역을 만들고 보장할 수 있음) 일 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **영역 중복 Ip는 [3 개의 가용성 영역이 있는 지역](https://docs.microsoft.com/azure/availability-zones/az-region) 에서만 만들 수 있습니다.** 영역을 라이브 상태로 만들기 전에 만들어진 Ip는 영역 중복이 아닙니다.
+- [영역 간 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) (미리 보기 기능)의 애니캐스트 프런트 엔드 ip로 사용할 수 있습니다.
  
 > [!NOTE]
 > [네트워크 보안 그룹](security-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신할 수 있습니다.
@@ -91,12 +94,12 @@ Sku를 소개 하 고 공용 IP 주소를 원하는 SKU를 지정 합니다.
 
 리소스를 중지(또는 삭제)하면 IP 주소가 해제됩니다.  
 
-예를 들어 **리소스 a**라는 리소스에서 공용 IP 리소스를 해제 합니다. **리소스 A** 는 공용 ip 리소스를 다시 할당 하는 경우 시작 시 다른 IP를 수신 합니다.
+예를 들어 **리소스 a** 라는 리소스에서 공용 IP 리소스를 해제 합니다. **리소스 A** 는 공용 ip 리소스를 다시 할당 하는 경우 시작 시 다른 IP를 수신 합니다.
 
-할당 방법이 **정적** 에서 **동적**으로 변경 되 면 IP 주소가 해제 됩니다. 연결 된 리소스에 대 한 IP 주소가 동일 하 게 유지 되도록 하려면 할당 메서드를 명시적으로 **정적**으로 설정 합니다. 고정 IP 주소가 즉시 할당됩니다.
+할당 방법이 **정적** 에서 **동적** 으로 변경 되 면 IP 주소가 해제 됩니다. 연결 된 리소스에 대 한 IP 주소가 동일 하 게 유지 되도록 하려면 할당 메서드를 명시적으로 **정적** 으로 설정 합니다. 고정 IP 주소가 즉시 할당됩니다.
 
 > [!NOTE]
-> 할당 방법을 **고정**으로 설정한 경우에도 공용 IP 주소 리소스에 할당된 실제 IP 주소를 지정할 수 없습니다. Azure는 리소스가 생성된 Azure 위치에서 사용 가능한 IP 주소 풀의 IP 주소를 할당됩니다.
+> 할당 방법을 **고정** 으로 설정한 경우에도 공용 IP 주소 리소스에 할당된 실제 IP 주소를 지정할 수 없습니다. Azure는 리소스가 생성된 Azure 위치에서 사용 가능한 IP 주소 풀의 IP 주소를 할당됩니다.
 >
 
 정적 공용 IP 주소는 일반적으로 다음과 같은 시나리오에서 사용됩니다.
@@ -114,7 +117,7 @@ Sku를 소개 하 고 공용 IP 주소를 원하는 SKU를 지정 합니다.
 
 공용 IP 리소스에 대 한 DNS 도메인 이름 레이블을 지정 하는 옵션을 선택 합니다. 
 
-이렇게 선택 하면 **domainnamelabel**에 대 한 매핑이 만들어집니다. cloudapp.azure.com는 Azure에서 관리 되는 DNS의 공용 IP에 대 한 **위치**입니다. 
+이렇게 선택 하면 **domainnamelabel** 에 대 한 매핑이 만들어집니다. cloudapp.azure.com는 Azure에서 관리 되는 DNS의 공용 IP에 대 한 **위치** 입니다. 
 
 예를 들어 다음을 사용 하 여 공용 IP를 만듭니다.
 
@@ -137,7 +140,7 @@ DNS 레코드에 대 한 [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2f
 
 ## <a name="virtual-machines"></a>가상 머신
 
-공용 IP 주소를 **네트워크 인터페이스**에 할당하여 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 
+공용 IP 주소를 **네트워크 인터페이스** 에 할당하여 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 
 
 공용 IP 주소에 대해 **동적** 또는 **정적** 을 선택 합니다. [네트워크 인터페이스에 IP 주소를 할당](virtual-network-network-interface-addresses.md)하는 방법에 대해 자세히 알아봅니다.
 
@@ -160,10 +163,17 @@ Azure [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure
 
 ## <a name="application-gateways"></a>애플리케이션 게이트웨이
 
-공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 
+공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway** 와 연결할 수 있습니다. 
 
 * 응용 프로그램 게이트웨이 V1 프런트 엔드 구성에 **동적** 기본 공용 IP를 할당 합니다. 
 * V2 프런트 엔드 구성에 **정적** 표준 SKU 주소를 할당 합니다.
+
+## <a name="azure-firewall"></a>Azure Firewall
+
+[Azure 방화벽](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 을 통해 구독 및 가상 네트워크에서 응용 프로그램 및 네트워크 연결 정책을 만들고, 적용 하 고, 기록할 수 있습니다.
+
+**정적** 표준 공용 IP 주소만 방화벽과 연결할 수 있습니다. 이렇게 하면 외부 방화벽에서 가상 네트워크에서 시작 되는 트래픽을 식별할 수 있습니다. 
+
 
 ## <a name="at-a-glance"></a>요약
 
@@ -171,10 +181,11 @@ Azure [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure
 
 | 최상위 리소스 | IP 주소 연결 | 동적 | 정적 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |예 |예 |
+| 가상 머신 |네트워크 인터페이스 |예 |예 |
 | 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
-| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |아니요 |
+| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |예 |
 | 프런트 엔드 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) |
+| Azure Firewall | 프런트 엔드 구성 | 예 | 예|
 
 ## <a name="limits"></a>제한
 

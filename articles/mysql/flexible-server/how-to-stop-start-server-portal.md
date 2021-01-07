@@ -1,27 +1,26 @@
 ---
 title: 중지/시작-Azure Portal-유연한 서버 Azure Database for MySQL
 description: 이 문서에서는 Azure Portal를 통해 Azure Database for MySQL에서 작업을 중지/시작 하는 방법을 설명 합니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: b9f406035d32a9af9ba2f5b085bcaca1b51e9d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/29/2020
+ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937280"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241925"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 중지/시작 (미리 보기)
-
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 유연한 서버를 중지 하 고 시작 하는 단계별 절차를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -32,6 +31,12 @@ ms.locfileid: "90937280"
 1.  [Azure Portal](https://portal.azure.com/)에서 중지 하려는 유연한 서버를 선택 합니다.
 
 2.  **개요** 페이지의 도구 모음에서 **중지** 단추를 클릭 합니다.
+    
+    :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="유연한 서버를 중지 합니다."::: 
+
+3.  **예** 를 클릭 하 여 서버 중지를 확인 합니다.
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="유연한 서버 중지를 확인 합니다."::: 
 
 > [!NOTE]
 > 서버를 중지 한 후에는 다른 관리 작업을 유연한 서버에서 사용할 수 없습니다.
@@ -40,7 +45,9 @@ ms.locfileid: "90937280"
 
 1.  [Azure Portal](https://portal.azure.com/)에서 시작 하려는 유연한 서버를 선택 합니다.
 
-2.  **개요** 페이지의 도구 모음에서 **중지** 단추를 클릭 합니다.
+2.  **개요** 페이지의 도구 모음에서 **시작** 단추를 클릭 합니다.
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="유연한 서버를 시작 합니다.":::  
 
 > [!NOTE]
 > 서버를 시작한 후에는 이제 유연한 서버에서 모든 관리 작업을 사용할 수 있습니다.

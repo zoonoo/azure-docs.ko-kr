@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89661448"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Microsoft 365 및 Azure Active Directory에 대 한 페더레이션 인증서 갱신
@@ -167,7 +167,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 1. Windows PowerShell용 Microsoft Azure Active Directory 모듈을 엽니다.
 2. $cred=Get-Credential을 실행합니다. 이 cmdlet에서 자격 증명을 물어보면 클라우드 서비스 관리자 계정 자격 증명을 입력합니다.
-3. Connect-msolservice – Credential $cred를 실행 합니다. 이 cmdlet은 클라우드 서비스에 연결 합니다. 도구를 통해 설치되는 추가 cmdlet을 실행하려면 먼저 클라우드 서비스에 연결되는 컨텍스트를 만들어야 합니다.
+3. Connect-MsolService – Credential $cred를 실행 합니다. 이 cmdlet은 클라우드 서비스에 연결 합니다. 도구를 통해 설치되는 추가 cmdlet을 실행하려면 먼저 클라우드 서비스에 연결되는 컨텍스트를 만들어야 합니다.
 4. AD FS 기본 페더레이션 서버가 아닌 컴퓨터에서 이러한 명령을 실행하는 경우 Set-MSOLAdfscontext -Computer &lt;AD FS 주 서버&gt;를 실행합니다. 여기서 &lt;AD FS 주 서버&gt;는 기본 AD FS 서버의 내부 FQDN 이름입니다. 이 cmdlet은 AD FS에 연결되는 컨텍스트를 만듭니다.
 5. Update-MSOLFederatedDomain –DomainName &lt;도메인&gt;을 실행합니다. 이 cmdlet은 AD FS에서 클라우드 서비스로 설정을 업데이트하고 둘 사이의 트러스트 관계를 구성합니다.
 

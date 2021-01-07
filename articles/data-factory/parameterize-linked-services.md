@@ -6,45 +6,57 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/21/2020
-author: djpmsft
-ms.author: daperlov
+ms.date: 12/09/2020
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: b3aadab1b4af80f98c57a279b69606a02846e996
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: da38dd99d0f27d83d5810a664d0c05f979f47080
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716846"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920069"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이제 연결된 서비스를 매개 변수화하고 런타임에 동적 값을 전달할 수 있습니다. 예를 들어 동일한 논리 SQL server의 다른 데이터베이스에 연결 하려는 경우 이제 연결 된 서비스 정의에서 데이터베이스 이름을 매개 변수화 할 수 있습니다. 이렇게 하면 논리 SQL server의 각 데이터베이스에 대해 연결 된 서비스를 만들 필요가 없습니다. 예를 들어 연결된 서비스 정의에서 *사용자 이름*과 같은 기타 속성을 매개 변수화할 수 있습니다.
+이제 연결된 서비스를 매개 변수화하고 런타임에 동적 값을 전달할 수 있습니다. 예를 들어 동일한 논리 SQL server의 다른 데이터베이스에 연결 하려는 경우 이제 연결 된 서비스 정의에서 데이터베이스 이름을 매개 변수화 할 수 있습니다. 이렇게 하면 논리 SQL server의 각 데이터베이스에 대해 연결 된 서비스를 만들 필요가 없습니다. 예를 들어 연결된 서비스 정의에서 *사용자 이름* 과 같은 기타 속성을 매개 변수화할 수 있습니다.
 
 Azure Portal 또는 프로그래밍 인터페이스에서 Data Factory UI를 사용 하 여 연결 된 서비스를 매개 변수화 할 수 있습니다.
 
 > [!TIP]
-> 암호니 비밀은 매개 변수화하지 않는 것이 좋습니다. 대신, Azure Key Vault의 모든 연결 문자열을 저장하고 *비밀 이름*을 매개 변수화합니다.
+> 암호니 비밀은 매개 변수화하지 않는 것이 좋습니다. 대신, Azure Key Vault의 모든 연결 문자열을 저장하고 *비밀 이름* 을 매개 변수화합니다.
 
 7분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>지원되는 데이터 저장소
+## <a name="supported-linked-service-types"></a>지원 되는 연결 된 서비스 유형
 
-이번에는 다음 데이터 저장소에 대 한 Data Factory UI에서 연결 된 서비스 매개 변수화가 지원 됩니다. 다른 모든 데이터 저장소의 경우, **연결** 탭에서 **코드** 아이콘을 선택하고 JSON 편집기를 사용하여 연결된 서비스를 매개 변수화할 수 있습니다.
+모든 유형의 연결 된 서비스를 매개 변수화 할 수 있습니다.
+UI에서 연결 된 서비스를 제작할 때 Data Factory는 다음과 같은 유형의 연결 된 서비스에 대 한 기본 제공 매개 변수화 환경을 제공 합니다. 연결 된 서비스 만들기/편집 블레이드에서 새 매개 변수에 대 한 옵션을 찾고 동적 콘텐츠를 추가할 수 있습니다.
 
 - Amazon Redshift
-- Azure Cosmos DB (SQL API)
+- Amazon S3
+- Azure Cosmos DB(SQL API)
 - Azure Database for MySQL
+- Azure Databricks
 - Azure SQL Database
-- Azure Synapse Analytics(이전의 SQL DW)
+- Azure SQL Managed Instance
+- Azure Synapse Analytics 
 - MySQL
 - Oracle
 - SQL Server
 - 일반 HTTP
 - 일반 REST
+
+위의 목록에 없는 다른 연결 된 서비스 유형의 경우 UI에서 JSON을 편집 하 여 연결 된 서비스를 매개 변수화 할 수 있습니다.
+
+- 연결 된 서비스 만들기/편집 블레이드에서 "고급"을 확장 하 고, "JSON 형식의 동적 콘텐츠 지정" 확인란을 선택 하 고, 연결 된 서비스 JSON 페이로드를 지정 > > > 합니다. 
+- 또는 매개 변수화를 사용 하지 않고 연결 된 서비스를 만든 후 [관리 허브](author-visually.md#management-hub) -> 연결 된 서비스-> 특정 연결 된 서비스를 찾을 수 있습니다. > "코드" (단추 " {} ")를 클릭 하 여 JSON을 편집 합니다. 
+
+를 사용 하 여 매개 변수를 정의 하 고 매개 변수를 참조 하려면 [JSON 샘플](#json) 을 추가 하려면 섹션을 참조 ` parameters` ` @{linkedService().paraName} ` 하세요.
 
 ## <a name="data-factory-ui"></a>Data Factory UI
 

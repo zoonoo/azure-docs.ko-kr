@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
-ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67659503"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397175"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Azure 애플리케이션 Gateway Resource Health 개요
 
@@ -31,7 +31,7 @@ Application Gateway 상태는 다음 상태 중 하나로 표시 됩니다.
 
 ![사용 가능한 상태](media/resource-health-overview/available-full.png)
 
-## <a name="unavailable"></a>사용할 수 없음
+## <a name="unavailable"></a>Unavailable
 
 **사용할 수** 없는 상태는 서비스에서 게이트웨이의 상태에 영향을 주는 진행 중인 플랫폼 또는 비-플랫폼 이벤트를 검색 했음을 의미 합니다.
 
@@ -61,4 +61,4 @@ Resource Health에는 이벤트 및 복구 프로세스에 대한 추가 세부 
 
 ## <a name="next-steps"></a>다음 단계
 
-WAF (웹 응용 프로그램 방화벽) Application Gateway 문제 해결에 대해 알아보려면 [Azure 애플리케이션 게이트웨이의 WAF (웹 응용 프로그램 방화벽) 문제 해결](web-application-firewall-troubleshoot.md)을 참조 하세요.
+WAF (웹 응용 프로그램 방화벽) Application Gateway 문제 해결에 대해 알아보려면 [Azure 애플리케이션 게이트웨이의 WAF (웹 응용 프로그램 방화벽) 문제 해결](../web-application-firewall/ag/web-application-firewall-troubleshoot.md)을 참조 하세요.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120578"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005387"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -64,7 +64,7 @@ App Service는 DevOps를 염두에 두고 설계되었습니다. 게시 및 연�
 
 > **사용 시기**: 기존 웹 응용 프로그램을 Azure로 마이그레이션하는 경우 및 웹 앱에 대해 완전히 관리 되는 호스팅 플랫폼이 필요한 경우에 App Service를 사용 합니다. 앱에서 모바일 클라이언트를 지원하거나 REST API를 노출해야 하는 경우에도 App Service를 사용할 수 있습니다.
 >
-> **시작하기**: App Service를 사용하면 첫 번째 [웹앱](../../app-service/quickstart-dotnetcore.md), [모바일 앱](../../app-service-mobile/app-service-mobile-ios-get-started.md) 또는 [API 앱](../../app-service/app-service-web-tutorial-rest-api.md)을 쉽게 만들고 배포할 수 있습니다.
+> **시작하기**: App Service를 사용하면 첫 번째 [웹앱](../../app-service/quickstart-dotnetcore.md), [모바일 앱](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started) 또는 [API 앱](../../app-service/app-service-web-tutorial-rest-api.md)을 쉽게 만들고 배포할 수 있습니다.
 >
 > **지금 사용해 보기**: App Service를 사용하면 Azure 계정에 등록하지 않고도 사용 시간이 짧은 앱을 프로비전하여 플랫폼을 사용해 볼 수 있습니다. 플랫폼을 사용해 보고 [Azure App Service 앱을 만듭니다](https://tryappservice.azure.com/).
 
@@ -72,7 +72,7 @@ App Service는 DevOps를 염두에 두고 설계되었습니다. 게시 및 연�
 
 IaaS(infrastructure-as-a-Service) 공급자로 Azure를 사용하면 Windows 또는 Linux VM에 애플리케이션을 배포하거나 마이그레이션할 수 있습니다. Azure Virtual Network와 함께 Azure Virtual Machines는 Azure에 Windows 또는 Linux VM의 배포를 지원합니다. VM에서는 사용자가 컴퓨터의 구성을 완전히 제어할 수 있습니다. VM을 사용하는 경우 사용자가 모든 서버 소프트웨어 설치, 구성, 유지 관리 및 운영 체제 패치를 담당합니다.
 
-VM에 대한 제어 수준으로 인해 Azure에서 PaaS 모델에 적합하지 않은 광범위한 서버 워크로드를 실행할 수 있습니다. 이러한 워크로드에는 데이터베이스 서버, Windows Server Active Directory 및 Microsoft SharePoint가 포함됩니다. 자세한 내용은 [Linux용](/azure/virtual-machines/linux/) 또는 [Windows용](/azure/virtual-machines/windows/) Virtual Machines 설명서를 참조하세요.
+VM에 대한 제어 수준으로 인해 Azure에서 PaaS 모델에 적합하지 않은 광범위한 서버 워크로드를 실행할 수 있습니다. 이러한 워크로드에는 데이터베이스 서버, Windows Server Active Directory 및 Microsoft SharePoint가 포함됩니다. 자세한 내용은 [Linux용](../../virtual-machines/linux/index.yml) 또는 [Windows용](../../virtual-machines/windows/index.yml) Virtual Machines 설명서를 참조하세요.
 
 > **사용 시기**: 애플리케이션 인프라를 완전히 제어하거나 온-프레미스 애플리케이션 워크로드를 변경할 필요 없이 Azure에 마이그레이션하려는 경우 Virtual Machines를 사용합니다.
 >
@@ -100,11 +100,11 @@ Azure Service Fabric는 분산 시스템 플랫폼입니다. 이 플랫폼을 �
 
 컴퓨터의 공유 풀에서 실행하는 앱은 작게 시작하고 필요에 따라 수백 또는 수천 대의 컴퓨터로 확장할 수 있습니다.
 
-Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용하여 WebAPI를 지원합니다. Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 구축하는 SDK를 제공합니다. Service Fabric에 대해 알아보려면 [Service Fabric 설명서](https://docs.microsoft.com/azure/service-fabric/)를 참조하세요.
+Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용하여 WebAPI를 지원합니다. Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 구축하는 SDK를 제공합니다. Service Fabric에 대해 알아보려면 [Service Fabric 설명서](../../service-fabric/index.yml)를 참조하세요.
 
 > **사용 시기:** Service Fabric은 애플리케이션을 만들거나 마이크로 서비스 아키텍처를 사용하도록 기존 애플리케이션을 다시 작성하는 경우에 적합합니다. 기본 인프라에 대한 더 많은 제어 기능 또는 직접 액세스가 필요한 경우에 Service Fabric을 사용합니다.
 >
-> **시작하기:** [첫 번째 Azure Service Fabric 애플리케이션을 만듭니다](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+> **시작하기:** [첫 번째 Azure Service Fabric 애플리케이션을 만듭니다](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Azure 서비스를 사용하여 애플리케이션 개선
 
@@ -124,13 +124,13 @@ Azure는 응용 프로그램 호스팅 기능과 더불어 기능을 향상 시�
 
   > **사용 시기**: 앱이 키-값 쌍(테이블), Blob, 파일 공유 또는 메시지(큐)와 같은 비관계형 데이터를 저장하는 경우
   >
-  > **시작 하기**: [blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [테이블](../../cosmos-db/table-storage-how-to-use-dotnet.md), [큐](../../storage/queues/storage-dotnet-how-to-use-queues.md)또는 [파일](../../storage/files/storage-dotnet-how-to-use-files.md)유형 저장소 중 하나를 선택 합니다.
+  > **시작 하기**: [blob](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [테이블](../../cosmos-db/tutorial-develop-table-dotnet.md), [큐](../../storage/queues/storage-dotnet-how-to-use-queues.md)또는 [파일](../../storage/files/storage-dotnet-how-to-use-files.md)유형 저장소 중 하나를 선택 합니다.
 
 - **Azure SQL Database**: 클라우드에서 관계형 표 형식 데이터를 저장하기 위한 Azure 기반 Microsoft SQL Server 엔진 버전입니다. SQL Database는 예측 가능한 성능, 가동 중지 시간이 없는 확장성, 무중단 업무 방식, 데이터 보호 기능을 제공합니다.
 
   > **사용 시기**: 애플리케이션에 참조 무결성 데이터 스토리지, 트랜잭션 지원 및 TSQL 쿼리 지원이 필요한 경우
   >
-  > **시작 하기**: [Azure Portal를 사용 하 여 몇 분 안에 Azure SQL Database에서 데이터베이스를 만듭니다](../../sql-database/sql-database-get-started.md).
+  > **시작 하기**: [Azure Portal를 사용 하 여 몇 분 안에 Azure SQL Database에서 데이터베이스를 만듭니다](../../azure-sql/database/single-database-create-quickstart.md).
 
 
 [Azure Data Factory](../../data-factory/introduction.md)를 사용하여 기존 온-프레미스 데이터를 Azure로 이동할 수 있습니다. 데이터를 클라우드로 이동할 준비가 되지 않은 경우 Azure App Service에서 [하이브리드 연결](../../app-service/app-service-hybrid-connections.md) 하 여 App Service 호스팅된 앱을 온-프레미스 리소스에 연결할 수 있습니다. 온-프레미스 애플리케이션에서 Azure 데이터 및 스토리지 서비스에 연결할 수도 있습니다.
@@ -156,7 +156,7 @@ Azure는 애플리케이션에서 컨테이너를 사용하는 여러 방법을 
 
   > **사용 시기**: Linux의 웹앱을 Docker 이미지로 배포할 경우
   >
-  > **시작하기**: [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용합니다](../../app-service/containers/quickstart-docker-go.md).
+  > **시작하기**: [Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용합니다](../../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux).
 
 ### <a name="authentication"></a>인증
 
@@ -186,7 +186,7 @@ Azure의 보안 모범 사례에 대해 알아보려면 [Azure 보안 모범 사
 
 -   **Azure Monitor**: Azure 인프라 및 리소스를 사용 하 여 생성 하는 메트릭과 로그를 시각화, 쿼리, 라우팅, 보관 및 조치 하는 데 도움이 되는 서비스입니다. Monitor는 Azure 리소스를 모니터링 하는 단일 원본 이며 Azure Portal에 표시 되는 데이터 뷰를 제공 합니다.
 
-    >**시작하기**: [Azure Monitor를 시작합니다](../../monitoring-and-diagnostics/monitoring-get-started.md).
+    >**시작하기**: [Azure Monitor를 시작합니다](../../azure-monitor/overview.md).
 
 ### <a name="devops-integration"></a>DevOps 통합
 
@@ -217,7 +217,7 @@ Azure를 사용하는 이점 중 하나는 전 세계 여러 데이터 센터에
 
 발생할 가능성이 없지만 전체 데이터 센터가 자연 재해 또는 인터넷 오류와 같은 이벤트로 인해 오프라인으로 전환될 수도 있습니다. 최대 가용성을 제공하기 위해 둘 이상의 데이터 센터에서 중요한 비즈니스 애플리케이션을 호스트하는 것이 좋습니다. 여러 지역을 사용하면 로컬 사용자에게 대기 시간을 줄여주고 애플리케이션을 업데이트할 때 유연성에 대한 추가 기회를 제공할 수 있습니다.
 
-Virtual Machine 및 App Services와 같은 일부 서비스는 [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 가용성이 높은 엔터프라이즈 애플리케이션을 지원하기 위해 지역 간 장애 조치(failover)로 다중 지역 지원을 사용할 수 있습니다. 예를 들어 [Azure 참조 아키텍처: 여러 지역에서 웹 애플리케이션 실행](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)을 참조하세요.
+Virtual Machine 및 App Services와 같은 일부 서비스는 [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 가용성이 높은 엔터프라이즈 애플리케이션을 지원하기 위해 지역 간 장애 조치(failover)로 다중 지역 지원을 사용할 수 있습니다. 예를 들어 [Azure 참조 아키텍처: 여러 지역에서 웹 애플리케이션 실행](/azure/architecture/reference-architectures/app-service-web-app/multi-region)을 참조하세요.
 
 >**사용 시기**: 장애 조치(failover) 및 복제를 활용하는 엔터프라이즈 및 가용성이 높은 애플리케이션을 보유한 경우
 
@@ -229,9 +229,9 @@ Azure는 프로그래밍 방식으로 및 [Azure Portal](https://portal.azure.co
 
 Azure는 명령줄에서 응용 프로그램 및 서비스를 관리 하는 두 가지 방법을 제공 합니다. Bash, 터미널, 명령 프롬프트 또는 선택 하는 명령줄 도구와 같은 도구를 사용할 수 있습니다. 일반적으로 가상 컴퓨터, 가상 네트워크, 웹 앱 및 기타 서비스를 만들고 구성 하는 것과 같은 Azure Portal와 동일한 작업을 명령줄에서 수행할 수 있습니다.
 
--   [Azure CLI(명령줄 인터페이스)](../../xplat-cli-install.md): Azure 구독에 연결하고 명령줄에서 Azure 리소스에 대한 다양한 작업을 프로그래밍할 수 있습니다.
+-   [Azure CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli): Azure 구독에 연결하고 명령줄에서 Azure 리소스에 대한 다양한 작업을 프로그래밍할 수 있습니다.
 
--   [Azure PowerShell](../../powershell-install-configure.md): Windows PowerShell을 사용하여 Azure 리소스를 관리할 수 있도록 하는 cmdlet이 포함된 모듈 집합을 제공합니다.
+-   [Azure PowerShell](/powershell/azure/): Windows PowerShell을 사용하여 Azure 리소스를 관리할 수 있도록 하는 cmdlet이 포함된 모듈 집합을 제공합니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -239,27 +239,27 @@ Azure는 명령줄에서 응용 프로그램 및 서비스를 관리 하는 두 
 
 * 구성 가능한 대시보드
 * Azure 리소스 관리 도구
-* 구독 설정 및 청구 정보에 대 한 액세스. 자세한 내용은 [Azure Portal 개요](../../azure-portal-overview.md)를 참조하세요.
+* 구독 설정 및 청구 정보에 대 한 액세스. 자세한 내용은 [Azure Portal 개요](https://azure.microsoft.com/features/azure-portal/)를 참조하세요.
 
 ### <a name="rest-apis"></a>REST API
 
-Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 디바이스에서 Azure 리소스와 애플리케이션을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 전체 REST API 설명서를 보려면 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/)를 참조하세요.
+Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 디바이스에서 Azure 리소스와 애플리케이션을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 전체 REST API 설명서를 보려면 [Azure REST SDK 참조](/rest/api/)를 참조하세요.
 
 ### <a name="apis"></a>API
 
 REST Api와 함께 많은 Azure 서비스를 사용 하면 다음과 같은 개발 플랫폼용 Sdk를 비롯 한 플랫폼별 Azure Sdk를 사용 하 여 응용 프로그램에서 리소스를 프로그래밍 방식으로 관리할 수 있습니다.
 
--   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](https://docs.microsoft.com/azure/developer/javascript/)
--   [Java](https://docs.microsoft.com/java/azure)
+-   [.NET](/dotnet/api/)
+-   [Node.JS](/azure/developer/javascript/)
+-   [Java](/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](https://docs.microsoft.com/azure/go)
+-   [Go](/azure/go)
 
-[Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) 및 [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md)와 같은 서비스는 웹 및 모바일 클라이언트 앱에서 서비스에 액세스할 수 있도록 해주는 클라이언트 쪽 SDK를 제공합니다.
+[Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library) 및 [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md)와 같은 서비스는 웹 및 모바일 클라이언트 앱에서 서비스에 액세스할 수 있도록 해주는 클라이언트 쪽 SDK를 제공합니다.
 
-### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Azure에서 앱을 실행 하는 경우 여러 Azure 서비스를 사용 하는 것이 포함 될 수 있습니다. 이러한 서비스는 동일한 수명 주기를 따르고 논리적 단위로 간주할 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
@@ -269,7 +269,7 @@ JSON 형식 문서인 Azure Resource Manager 템플릿을 사용하여 이러한
 
 > **사용 시기**: REST API, Azure CLI 및 Azure PowerShell을 사용하여 프로그래밍 방식으로 관리할 수 있는 앱에 대해 템플릿 기반으로 배포하려는 경우 Resource Manager 템플릿을 사용합니다.
 >
-> **시작하기**: 템플릿을 사용하려면 [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)을 참조하세요.
+> **시작하기**: 템플릿을 사용하려면 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>계정, 구독 및 청구 이해
 
@@ -281,7 +281,7 @@ Azure 구독을 만들거나 사용 하려면 Azure 계정이 있어야 합니�
 
 모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 디바이스를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-Azure AD에서 *그룹* 을 정의 하는 것은 물론, *사용자*라고도 하는 개별 azure 계정 id를 정의할 수 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
+Azure AD에서 *그룹* 을 정의 하는 것은 물론, *사용자* 라고도 하는 개별 azure 계정 id를 정의할 수 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/enterprise-users/groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
 
 ### <a name="manage-your-subscriptions"></a>구독 관리
 
@@ -291,23 +291,23 @@ Azure AD에서 *그룹* 을 정의 하는 것은 물론, *사용자*라고도 �
 
 새로운 Azure 서비스를 프로비전할 때 지정된 구독에서 수행할 수 있습니다. 리소스라고도 하는 개별 Azure 서비스가 리소스 그룹의 컨텍스트에서 생성됩니다. 리소스 그룹을 사용하면 애플리케이션의 리소스를 보다 쉽게 배포 및 관리할 수 있습니다. 리소스 그룹은 하나의 단위로 작업할 애플리케이션에 대한 모든 리소스를 포함해야 합니다. 리소스 그룹 간 및 서로 다른 구독으로도 리소스를 이동할 수 있습니다. 리소스 이동에 대해 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
-Azure Resource Explorer는 구독에서 이미 만든 리소스를 시각화하는 데 유용한 도구입니다. 자세한 내용은 [Azure Resource Explorer를 사용하여 리소스 보기 및 수정](../../resource-manager-resource-explorer.md)을 참조하세요.
+Azure Resource Explorer는 구독에서 이미 만든 리소스를 시각화하는 데 유용한 도구입니다. 자세한 내용은 [Azure Resource Explorer를 사용하여 리소스 보기 및 수정](/rest/api/)을 참조하세요.
 
 #### <a name="grant-access-to-resources"></a>리소스에 대한 액세스 권한 부여
 
 Azure 리소스에 대 한 액세스를 허용 하는 경우 항상 지정 된 작업을 수행 하는 데 필요한 최소 권한을 사용자에 게 제공 하는 것이 좋습니다.
 
-- **RBAC(역할 기반 액세스 제어)**: Azure에서 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)에서 사용자 계정(주체)에 액세스 권한을 부여할 수 있습니다. RBAC를 사용 하면 리소스를 리소스 그룹에 배포 하 고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스로만 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어 란? (AZURE RBAC)?](../../role-based-access-control/overview.md)를 참조 하세요.
+- Azure **RBAC (역할 기반 액세스 제어)**: azure에서 지정 된 범위 (구독, 리소스 그룹 또는 개별 리소스)의 사용자 계정 (주체)에 대 한 액세스 권한을 부여할 수 있습니다. Azure RBAC를 사용 하면 리소스를 리소스 그룹에 배포 하 고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스로만 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어 란? (AZURE RBAC)?](../../role-based-access-control/overview.md)를 참조 하세요.
 
   > **사용 가능한 상황**: 사용자와 그룹의 액세스를 세부적으로 관리해야 하거나 특정 사용자를 구독 소유자로 지정해야 하는 경우
   >
-  > **시작**: 자세히 알아보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+  > **시작** 하기: 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 - **서비스 주체 개체**: 사용자 계정 및 그룹에 대 한 액세스를 제공 하는 것과 함께 서비스 주체에 대 한 동일한 액세스 권한을 부여할 수 있습니다.
 
   > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 애플리케이션에 대한 액세스 권한을 부여하는 경우 자세한 내용은 [Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>태그
 
 Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태그를 할당할 수 있습니다. 키-값 쌍인 태그는 청구 또는 모니터링에 대한 리소스를 구성해야 하는 경우에 유용할 수 있습니다. 태그는 여러 리소스 그룹에서 리소스를 추적하는 방법을 제공합니다. 태그는 다음과 같은 방식으로 할당할 수 있습니다.
 
@@ -317,7 +317,7 @@ Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태�
 * Azure CLI 사용
 * PowerShell 사용
 
-각 리소스에 여러 태그를 할당할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../../resource-group-using-tags.md)을 참조하세요.
+각 리소스에 여러 태그를 할당할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
 ### <a name="billing"></a>결제
 

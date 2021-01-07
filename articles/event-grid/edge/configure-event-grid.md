@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 632227579fd021a0d2ce1d0b1bb0b8a8288c5f47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171672"
 ---
 # <a name="event-grid-configuration"></a>Event Grid 구성
@@ -65,7 +65,7 @@ Event Grid는 환경 마다 수정할 수 있는 다양 한 구성을 제공 합
 | 속성 이름 | 설명 |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | 이벤트를 전달할 최대 시도 횟수입니다. 기본값은 30입니다.
-| `broker__defaultEventTimeToLiveInSeconds` | 배달 되지 않은 경우 이벤트를 삭제 하는 시간 (초)의 TTL (time to live)입니다. 기본값은 **7200** 초입니다.
+| `broker__defaultEventTimeToLiveInSeconds` | 배달 되지 않은 경우 이벤트를 삭제 하는 시간 (초)의 TTL (time to live)입니다. 기본값은  **7200** 초입니다.
 
 ## <a name="output-batching"></a>출력 일괄 처리
 

@@ -4,10 +4,10 @@ description: Azure Resource Manager 서비스를 평가 하기 위한 기본 제
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.openlocfilehash: bb8742c38fae88dc1fd1fd1ec175b248f30df3a0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86054460"
 ---
 # <a name="security-controls-for-azure-resource-manager"></a>Azure Resource Manager에 대 한 보안 제어
@@ -30,7 +30,7 @@ ms.locfileid: "86054460"
 
 | 보안 컨트롤 | 예/아니요 | 메모 |
 |---|---|--|
-| 서비스 엔드포인트 지원| 아니요 | |
+| 서비스 엔드포인트 지원| 예 | |
 | VNet 삽입 지원| 예 | |
 | 네트워크 격리 및 방화벽 지원| 예 |  |
 | 강제 터널링 지원| 아니요 |  |

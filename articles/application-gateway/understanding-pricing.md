@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
-ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460748"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601614"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽에 대 한 가격 책정 이해
 
@@ -57,7 +57,7 @@ Application Gateway와 관련 된 사전 비용이 나 종료 비용은 없습�
 |              Application Gateway 형식             |  비용 ($/시간)  |
 | ------------------------------------------------- | ---------------|
 |                     작음                         |    $0.025      |
-|                     중간                        |    $0.07       |
+|                     중형                        |    $0.07       |
 |                     큼                         |    $0.32       |
 
 예상 월별 가격은 월 730 시간의 사용량을 기준으로 합니다.
@@ -83,7 +83,7 @@ Application Gateway와 관련 된 사전 비용이 나 종료 비용은 없습�
 |              Application Gateway 형식             |  비용 ($/시간)  |
 | ------------------------------------------------- | ---------------|
 |                     작음                         |       해당 없음       |
-|                     중간                        |     $0.126     |
+|                     중형                        |     $0.126     |
 |                     큼                         |     $0.448     |
 
 예상 월별 가격은 월 730 시간의 사용량을 기준으로 합니다.
@@ -254,9 +254,19 @@ CUs는 88.8 Mbps = 88.8/2.22 = 40를 처리 하는 데 필요 합니다.
 
 고정 가격 = $0.246 * 730 (시간) = $179.58
 
-가변 비용 = $0.008 * (3 (인스턴스 단위) * 10 (용량 단위) + 5 (추가 용량 단위)) * 730 (시간) = $204.4
+가변 비용 = $0.008 * (3 (인스턴스 단위) * 10 (용량 단위) + 10 (추가 용량 단위)) * 730 (시간) = $233.6
 
-총 비용 = $179.58 + $204.4 = $383.98
+총 비용 = $179.58 + $233.6 = $413.18
+
+그러나 3 개의 예약 된 인스턴스 내에서 7 개의 추가 CUs를 사용 하는 것과 동일한 처리 용량을 사용할 수 있습니다.
+이 시나리오에서 Application Gateway 리소스는 크기가 조정 되 고 잠재적으로 대기 시간이 증가 하거나 요청이 삭제 될 수 있습니다.
+
+고정 가격 = $0.246 * 730 (시간) = $179.58
+
+가변 비용 = $0.008 * (3 (인스턴스 단위) * 10 (용량 단위) + 7 (추가 용량 단위)) * 730 (시간) = $216.08
+
+총 비용 = $179.58 + $216.08 = $395.66
+
 
 ![수동 확장 2의 다이어그램입니다.](./media/pricing/manual-scale-2.png)
 

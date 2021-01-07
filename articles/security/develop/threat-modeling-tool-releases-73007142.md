@@ -1,17 +1,17 @@
 ---
 title: Microsoft Threat Modeling Tool 릴리스 07/14/2020-Azure
-description: Threat Modeling Tool 릴리스 정보 문서화
+description: 위협 모델링 도구 릴리스 7.3.00714.2에 대 한 릴리스 정보를 문서화 합니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 741d8c96059d379ae453f7ac1da1d5a02127a680
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 60ab9290dd204b9e65fcc612d1b590785450ebed
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839897"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516869"
 ---
 # <a name="threat-modeling-tool-update-release-73007142---07142020"></a>Threat Modeling Tool 업데이트 릴리스 7.3.00714.2-07/14/2020
 
@@ -30,7 +30,7 @@ TMT (Microsoft Threat Modeling Tool 버전 7.3.00714.2)는 7 월 14 2020에 출�
 
 ## <a name="documentation-and-feedback"></a>문서 및 피드백
 
-- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)에 있으며 [도구 사용](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)에 대한 정보를 포함합니다.
+- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](./threat-modeling-tool.md)에 있으며 [도구 사용](./threat-modeling-tool-getting-started.md)에 대한 정보를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

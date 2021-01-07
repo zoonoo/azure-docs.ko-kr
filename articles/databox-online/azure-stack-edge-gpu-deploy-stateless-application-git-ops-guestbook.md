@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899553"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882962"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램 배포
 
@@ -25,12 +25,17 @@ ms.locfileid: "90899553"
 
 배포는 Azure Stack Edge Pro 장치의 Arc enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 수행 됩니다. 
 
-이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
+이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](../azure-arc/kubernetes/overview.md)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 상태 비저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ### <a name="for-device"></a>디바이스의 경우
 
@@ -44,7 +49,7 @@ ms.locfileid: "90899553"
 
 1. Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
   
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     
@@ -77,35 +82,34 @@ Azure Portal를 통해 GitOps 구성을 배포 하도록 Azure Arc 리소스를 
 
     ![Azure Arc 리소스로 이동](media/azure-stack-edge-gpu-connect-powershell-interface/verify-azure-arc-enabled-1.png)
 
-1. **구성** 으로 이동 하 여 **+ 구성 추가**를 선택 합니다.
+1. **구성** 으로 이동 하 여 **+ 구성 추가** 를 선택 합니다.
 
-    ![구성으로 이동](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![구성 추가가 선택 된 Azure Arc enabled Kubernetes 클러스터를 보여 주는 스크린샷](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. **구성 추가**에서 필드에 적절 한 값을 입력 하 고 **적용**을 선택 합니다.
+1. **구성 추가** 에서 필드에 적절 한 값을 입력 하 고 **적용** 을 선택 합니다.
 
-    |매개 변수  |설명 |
+    |매개 변수  |Description |
     |---------|---------|
     |구성 이름     | 구성 리소스의 이름입니다.        |
     |Operator 인스턴스 이름     |특정 구성을 식별 하는 운영자의 인스턴스 이름입니다. Name은 소문자, 영숫자, 하이픈 및 마침표만 가능 해야 하는 최대 253 자의 문자열입니다.         |
     |Operator 네임 스페이스     | 이는 배포에 지정 된 네임 스페이스와 일치 하므로 **demotestguestbook** 으로 설정 `yaml` 합니다. <br> 필드는 운영자가 설치 되는 네임 스페이스를 정의 합니다. Name은 소문자, 영숫자, 하이픈 및 마침표만 가능 해야 하는 최대 253 자의 문자열입니다.         |
     |리포지토리 URL     |<br>`http://github.com/username/repo` `git://github.com/username/repo` GitOps 구성이 있는 또는 형식의 git 리포지토리에 대 한 경로입니다.         |
-    |연산자 범위     | **네임 스페이스**를 선택 합니다. <br>이는 운영자가 설치 되는 범위를 정의 합니다. 네임 스페이스로이를 선택 합니다. 운영자는 배포 yaml 파일에 지정 된 네임 스페이스에 설치 됩니다.       |
+    |연산자 범위     | **네임 스페이스** 를 선택 합니다. <br>이는 운영자가 설치 되는 범위를 정의 합니다. 네임 스페이스로이를 선택 합니다. 운영자는 배포 yaml 파일에 지정 된 네임 스페이스에 설치 됩니다.       |
     |연산자 유형     | 기본값을 그대로 둡니다. <br>이는 기본적으로 flux로 설정 되는 연산자의 유형을 지정 합니다.        |
     |연산자 params     | 이 필드를 비워 둡니다. <br>이 필드에는 flux 연산자에 전달할 매개 변수가 포함 되어 있습니다.        |
-    |Helm     | **사용 안 함**으로 설정 합니다. <br>차트 기반 배포를 수행 하는 경우이 옵션을 사용 하도록 설정 합니다.        |
+    |Helm     | **사용 안 함** 으로 설정 합니다. <br>차트 기반 배포를 수행 하는 경우이 옵션을 사용 하도록 설정 합니다.        |
 
 
     ![구성 추가](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
 
 
-1. 구성 배포가 시작 되 고 **운영자 상태가** **보류 중**으로 표시 됩니다. 
+1. 구성 배포가 시작 되 고 **운영자 상태가** **보류 중** 으로 표시 됩니다. 
 
-    ![구성으로 이동](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![스크린샷을 새로 고치면 Azure Arc enabled Kubernetes 클러스터가 보류 중 상태로 표시 됩니다.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
-1. 배포에는 몇 분이 걸립니다. 배포가 완료 되 면 **운영자 상태** 는 **설치**됨으로 표시 됩니다.
+1. 배포에는 몇 분이 걸립니다. 배포가 완료 되 면 **운영자 상태** 는 **설치** 됨으로 표시 됩니다.
 
-    ![구성으로 이동](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
-
+    ![설치 된 상태의 Azure Arc enabled Kubernetes 클러스터를 보여 주는 스크린샷](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 ## <a name="verify-deployment"></a>배포 확인
 
@@ -154,7 +158,7 @@ GitOps 구성을 통한 배포는 `demotestguestbook` git 리포지토리에 있
 배포를 삭제 하려면 Azure Portal에서 구성을 삭제할 수 있습니다. 그러면 배포 및 서비스를 포함 하 여 만든 개체가 삭제 됩니다.
 
 1. Azure Portal에서 Azure Arc 리소스 > 구성으로 이동 합니다. 
-1. 삭제 하려는 구성을 찾습니다. ...를 선택 합니다. 상황에 맞는 메뉴를 호출 하 고 **삭제**를 선택 합니다.
+1. 삭제 하려는 구성을 찾습니다. ...를 선택 합니다. 상황에 맞는 메뉴를 호출 하 고 **삭제** 를 선택 합니다.
     ![구성 삭제](media/azure-stack-edge-gpu-connect-powershell-interface/delete-configuration-1.png)
 
 구성을 삭제 하는 데 몇 분 정도 걸릴 수 있습니다.

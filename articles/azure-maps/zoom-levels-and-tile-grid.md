@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ced524080df87468116a538d9b7c8e91fb178a41
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 21c2329ec58e414ebfedaa4c49d5f690f47cac72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035878"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913894"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 
@@ -28,41 +28,41 @@ Azure Maps에서는 구면 메르카토르 도법 구면좌표계를 사용합�
 
 확대/축소 수준 1은 4개의 타일을 사용하여 전 세계를 2x2 사각형으로 렌더링합니다.
 
-:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="2x2 지도 타일 레이아웃":::
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="세계 지도 타일":::
 
 각 추가 확대/축소 수준 4는 이전 타일의 타일을 분할 하 여 2<sup>줌</sup> x 2<sup>확대/축소</sup>그리드를 만듭니다. 확대/축소 수준 22는 2<sup>22</sup> x 2<sup>22</sup> 그리드 또는 4,194,304 x 4,194,304 타일(총 17,592,186,044,416개)입니다.
 
 웹 및 Android에 대 한 대화형 맵 컨트롤 Azure Maps 25 개의 확대/축소 수준 (0-24)을 지원 합니다. 타일을 사용할 수 있는 경우의 확대/축소 수준 에서만도로 데이터를 사용할 수 있습니다.
 
-다음 표에서는 타일 크기가 512 픽셀 정사각형 인 확대/축소 수준에 대 한 값의 전체 목록을 제공 합니다.
+다음 표에서는 위도 0에서 타일 크기가 512 픽셀 정사각형 인 확대/축소 수준에 대 한 값의 전체 목록을 제공 합니다.
 
 |확대/축소 수준|미터/픽셀|미터/타일 측|
 |--- |--- |--- |
-|0|156543|40075008|
-|1|78271.5|20037504|
-|2|39135.8|10018764.8|
-|3|19567.9|5009382.4|
-|4|9783.9|2504678.4|
-|5|4892|1252352|
-|6|2446|626176|
-|7|1223|313088|
-|8|611.5|156544|
-|9|305.7|78259.2|
-|10|152.9|39142.4|
-|11|76.4|19558.4|
-|12|38.2|9779.2|
-|13|19.1|4889.6|
-|14|9.6|2457.6|
-|15|4.8|1228.8|
-|16|2.4|614.4|
-|17|1.2|307.2|
-|18|0.6|152.8|
-|19|0.3|76.4|
-|20|0.15|38.2|
-|21|0.075|19.1|
-|22|0.0375|9.55|
-|23|0.01875|4.775|
-|24|0.009375|2.3875|
+| 0 | 156543 | 40075017 |
+| 1 | 78271.5 | 20037508 |
+| 2 | 39135.8 | 10018754 |
+| 3 | 19567.88 | 5009377.1 |
+| 4 | 9783.94 | 2504688.5 |
+| 5 | 4891.97 | 1252344.3 |
+| 6 | 2445.98 | 626172.1 |
+| 7 | 1222.99 | 313086.1 |
+| 8 | 611.5 | 156543 |
+| 9 | 305.75 | 78271.5 |
+| 10 | 152.87 | 39135.8 |
+| 11 | 76.44 | 19567.9 |
+| 12 | 38.219 | 9783.94 |
+| 13 | 19.109 | 4891.97 |
+| 14 | 9.555 | 2445.98 |
+| 15 | 4.777 | 1222.99 |
+| 16 | 2.3887 | 611.496 |
+| 17 | 1.1943 | 305.748 |
+| 18 | 0.5972 | 152.874 |
+| 19 | 0.14929 | 76.437 |
+| 20 | 0.14929 | 38.2185 |
+| 21 | 0.074646 | 19.10926 |
+| 22 | 0.037323 | 9.55463 |
+| 23 | 0.0186615 | 4.777315 |
+| 24 | 0.00933075 | 2.3886575 |
 
 ## <a name="pixel-coordinates"></a>픽셀 좌표
 
@@ -74,9 +74,9 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-각 확대/축소 수준에서 지도 너비와 높이가 다르기 때문에 픽셀 좌표가 됩니다. 맵의 왼쪽 위 모퉁이에 있는 픽셀에는 항상 픽셀 좌표 (0, 0)가 있습니다. 지도의 오른쪽 아래 모퉁이에 있는 픽셀의 픽셀 좌표 *(너비-1, 높이-1)* 또는 이전 섹션의 방정식 *(tileSize \* 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)* 을 참조 합니다. 예를 들어 수준 2에서 512 정사각형 타일을 사용 하는 경우 픽셀 좌표는 (0, 0)에서 (2047, 2047)와 같이 범위를 조정 합니다.
+각 확대/축소 수준에서 지도 너비와 높이가 다르기 때문에 픽셀 좌표가 됩니다. 맵의 왼쪽 위 모퉁이에 있는 픽셀에는 항상 픽셀 좌표 (0, 0)가 있습니다. 지도의 오른쪽 아래 모퉁이에 있는 픽셀의 픽셀 좌표 *(너비-1, 높이-1)* 또는 이전 섹션의 방정식 *(tileSize \* 2 <sup>zoom</sup>– 1, tileSize \* 2 <sup>zoom</sup>– 1)* 을 참조 합니다. 예를 들어 수준 2에서 512 정사각형 타일을 사용 하는 경우 픽셀 좌표는 (0, 0)에서 (2047, 2047)와 같이 범위를 조정 합니다.
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="픽셀 차원을 표시 하는 맵":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="세계 지도 타일":::
 
 지정 된 위도 및 경도 (도) 및 세부 정보 수준에서 픽셀 XY 좌표는 다음과 같이 계산 됩니다.
 
@@ -100,9 +100,9 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-각 타일에는 오른쪽 아래에서 (0, 0) 왼쪽 위에서 ( *2<sup>확대/축소</sup>– 1, 2<sup>줌</sup>– 1)* 까지의 XY 좌표가 지정 됩니다. 예를 들어 확대/축소 수준 2에서 타일은 (0, 0)에서 (7, 7) 사이의 범위를 다음과 같이 조정 합니다.
+각 타일에는 오른쪽 아래에서 (0, 0) 왼쪽 위에서 ( *2 <sup>확대/축소</sup>– 1, 2 <sup>줌</sup>– 1)* 까지의 XY 좌표가 지정 됩니다. 예를 들어 확대/축소 수준 3에서 타일은 (0, 0)에서 (7, 7) 사이의 범위를 다음과 같이 조정 합니다.
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="타일 좌표의 맵":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="세계 지도 타일":::
 
 픽셀 XY 좌표 쌍이 지정 된 경우 해당 픽셀이 포함 된 타일의 타일 XY 좌표를 쉽게 확인할 수 있습니다.
 
@@ -116,13 +116,13 @@ var tileY = Math.floor(pixelY / tileSize);
 
 사용할 확대/축소 수준을 결정 하는 경우 각 위치는 해당 타일의 고정 위치에 있습니다. 결과적으로, 지정 된 expanse 영토를 표시 하는 데 필요한 타일 수는 세계 지도의 확대/축소 그리드의 특정 배치에 따라 달라 집니다. 예를 들어 900미터 떨어진 두 개의 지점이 있는 경우 확대/축소 수준 17에서 서로 간에 경로를 표시하기 위해 세 개의 타일만을 사용할 *수* 있습니다. 그러나 서쪽 지점이 해당 타일의 오른쪽에 있고 동쪽 지점이 해당 타일의 왼쪽에 있는 경우 4개의 타일이 필요할 수 있습니다.
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="확대/축소 데모 크기 조정":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="세계 지도 타일":::
 
 확대/축소 수준이 결정되면 x 및 y 값을 계산할 수 있습니다. 각 확대/축소 모눈의 왼쪽 위 타일은 x = 0, y = 0;입니다. 오른쪽 아래에 있는 타일은 x = 2<sup>확대/축소-1</sup>, y = 2<sup>확대/축소-1</sup>입니다.
 
 확대/축소 수준 1에서 확대/축소 그리드는 다음과 같습니다.
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="확대/축소 수준 1에서 확대/축소 그리드":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="세계 지도 타일":::
 
 ## <a name="quadkey-indices"></a>Quadkey 인덱스
 
@@ -136,14 +136,14 @@ var tileY = Math.floor(pixelY / tileSize);
 ```
 tileX = 3 = 011 (base 2)
 
-tileY = 5 = 1012 (base 2)
+tileY = 5 = 101 (base 2)
 
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`몇 가지 흥미로운 속성이 있습니다. 첫째,의 길이 (숫자 `quadkey` 수)는 해당 타일의 확대/축소 수준과 같습니다. 둘째, `quadkey` 모든 타일의는 `quadkey` 부모 타일 (이전 수준에서 포함 하는 타일)의로 시작 합니다. 아래 예제와 같이 타일 2는 20부터 23까지 타일의 부모입니다.
+`Qquadkeys` 몇 가지 흥미로운 속성이 있습니다. 첫째,의 길이 (숫자 `quadkey` 수)는 해당 타일의 확대/축소 수준과 같습니다. 둘째, `quadkey` 모든 타일의는 `quadkey` 부모 타일 (이전 수준에서 포함 하는 타일)의로 시작 합니다. 아래 예제와 같이 타일 2는 20부터 23까지 타일의 부모입니다.
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Quadkey 타일 피라미드":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="세계 지도 타일":::
 
 마지막으로, `quadkeys` 일반적으로 XY 공간에서 타일의 근접성을 유지 하는 1 차원 인덱스 키를 제공 합니다. 즉, 인접 한 XY 좌표를 포함 하는 두 타일은 일반적으로 `quadkeys` 함께 비교적 가깝습니다. 이는 데이터베이스 성능을 최적화 하는 데 중요 합니다. 인접 한 타일은 종종 그룹에서 요청 되므로 디스크 읽기 수를 최소화 하기 위해 이러한 타일을 동일한 디스크 블록에 보관 하는 것이 좋습니다.
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > Azure Maps SDK의 대화형 맵 컨트롤에는 지리 공간적 위치와 뷰포트 픽셀 간을 변환 하기 위한 도우미 함수가 있습니다. 
-> - [웹 SDK: 지도 픽셀 및 위치 계산](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [웹 SDK: 지도 픽셀 및 위치 계산](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Maps REST 서비스에서 지도 타일에 직접 액세스 합니다.
 
 > [!div class="nextstepaction"]
-> [지도 타일 가져오기](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [지도 타일 가져오기](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [트래픽 흐름 타일 가져오기](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [트래픽 흐름 타일 가져오기](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [트래픽 인시던트 타일 가져오기](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [트래픽 인시던트 타일 가져오기](/rest/api/maps/traffic/gettrafficincidenttile)
 
 지리 공간적 개념에 대해 자세히 알아보세요.
 

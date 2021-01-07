@@ -1,19 +1,19 @@
 ---
 title: Azure Files 네트워크 엔드포인트 구성 | Microsoft Docs
-description: Azure Files의 네트워킹 옵션에 대한 개요입니다.
+description: Azure 파일 네트워크 끝점을 구성 하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a38528e32061f57e3239ef4be26cdd437f4f8746
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078595"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621334"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Azure Files 네트워크 엔드포인트 구성
 
@@ -31,15 +31,15 @@ Azure Files는 Azure 파일 공유에 액세스하기 위한 다음과 같은 �
 
 - 이 문서에서는 독자들이 이미 Azure 구독을 만들었다고 가정합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 문서에서는 온-프레미스에서 연결 하려는 저장소 계정에 Azure 파일 공유를 이미 만들었다고 가정 합니다. Azure 파일 공유를 만드는 방법을 알아보려면 [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)를 참조하세요.
-- Azure PowerShell을 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)하세요.
-- Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
+- Azure PowerShell을 사용하려면 [최신 버전을 설치](/powershell/azure/install-az-ps)하세요.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli)하세요.
 
 ## <a name="endpoint-configurations"></a>끝점 구성
 
 저장소 계정에 대 한 네트워크 액세스를 제한 하도록 끝점을 구성할 수 있습니다. 스토리지 계정에 대한 액세스를 가상 네트워크로 제한하는 두 가지 방법은 다음과 같습니다.
 
 - [스토리지 계정에 대한 하나 이상의 프라이빗 엔드포인트를 만들고](#create-a-private-endpoint), 모든 액세스를 퍼블릭 엔드포인트로 제한합니다. 이렇게 하면 원하는 가상 네트워크 내에서 시작된 트래픽만 스토리지 계정 내의 Azure 파일 공유에 액세스할 수 있습니다.
-- [공용 끝점을 하나 이상의 가상 네트워크로 제한](#restrict-public-endpoint-access)합니다. 이는 *서비스 엔드포인트*라는 가상 네트워크의 기능을 사용하여 작동합니다. 서비스 끝점을 통해 저장소 계정에 대 한 트래픽을 제한 하는 경우에도 공용 IP 주소를 통해 저장소 계정에 액세스 하는 중이지만 구성에서 지정 하는 위치 에서만 액세스할 수 있습니다.
+- [공용 끝점을 하나 이상의 가상 네트워크로 제한](#restrict-public-endpoint-access)합니다. 이는 *서비스 엔드포인트* 라는 가상 네트워크의 기능을 사용하여 작동합니다. 서비스 끝점을 통해 저장소 계정에 대 한 트래픽을 제한 하는 경우에도 공용 IP 주소를 통해 저장소 계정에 액세스 하는 중이지만 구성에서 지정 하는 위치 에서만 액세스할 수 있습니다.
 
 ### <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
 
@@ -54,6 +54,17 @@ Azure Files는 Azure 파일 공유에 액세스하기 위한 다음과 같은 �
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
+---
+
+## <a name="verify-connectivity"></a>연결 확인
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 가상 네트워크 내에 가상 머신이 있거나 [Azure 파일용 DNS 전달 구성](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우, PowerShell, 명령줄 또는 터미널에서 다음 명령을 실행하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다(Windows, Linux 또는 macOS에서 작동). 다음과 같이 `<storage-account-name>`을 적절한 스토리지 계정 이름으로 바꿔야 합니다.
 
@@ -74,7 +85,6 @@ Aliases:  storageaccount.file.core.windows.net
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
 가상 네트워크 내에 가상 머신이 있거나 [Azure 파일용 전달 DNS 구성](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우, 다음 명령을 사용하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다.
 
@@ -101,7 +111,6 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
 가상 네트워크 내에 가상 머신이 있거나 [Azure 파일용 전달 DNS 구성](storage-files-networking-dns.md)에 설명된 대로 DNS 전달을 구성한 경우, 다음 명령을 사용하여 프라이빗 엔드포인트가 올바르게 설정되었는지 테스트할 수 있습니다.
 
@@ -127,10 +136,9 @@ storageaccount.file.core.windows.net      canonical name = storageaccount.privat
 Name:   storageaccount.privatelink.file.core.windows.net
 Address: 192.168.0.5
 ```
-
 ---
 
-### <a name="restrict-public-endpoint-access"></a>공용 끝점 액세스 제한
+## <a name="restrict-public-endpoint-access"></a>공용 끝점 액세스 제한
 
 공용 끝점 액세스를 제한 하려면 먼저 공용 끝점에 대 한 일반 액세스를 사용 하지 않도록 설정 해야 합니다. 공용 끝점에 대 한 액세스를 사용 하지 않도록 설정 해도 전용 끝점에는 영향을 주지 않습니다. 공용 끝점을 사용 하지 않도록 설정한 후에는 특정 네트워크 또는 IP 주소를 선택 하 여 계속 액세스할 수 있습니다. 일반적으로 저장소 계정에 대 한 대부분의 방화벽 정책은 하나 이상의 가상 네트워크에 대 한 네트워킹 액세스를 제한 합니다.
 
@@ -151,7 +159,7 @@ Address: 192.168.0.5
 
 #### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>퍼블릭 엔드포인트에 대한 액세스를 특정 가상 네트워크로 제한
 
-스토리지 계정을 특정 가상 네트워크로 제한하면 지정된 가상 네트워크 내에서 퍼블릭 엔드포인트에 요청하는 것을 허용하는 것입니다. 이는 *서비스 엔드포인트*라는 가상 네트워크의 기능을 사용하여 작동합니다. 이 방법에 프라이빗 엔드포인트를 사용해도 되고 사용하지 않아도 됩니다.
+스토리지 계정을 특정 가상 네트워크로 제한하면 지정된 가상 네트워크 내에서 퍼블릭 엔드포인트에 요청하는 것을 허용하는 것입니다. 이는 *서비스 엔드포인트* 라는 가상 네트워크의 기능을 사용하여 작동합니다. 이 방법에 프라이빗 엔드포인트를 사용해도 되고 사용하지 않아도 됩니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-restrict-portal](../../../includes/storage-files-networking-endpoints-public-restrict-portal.md)]

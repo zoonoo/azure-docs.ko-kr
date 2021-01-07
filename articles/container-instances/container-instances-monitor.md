@@ -2,13 +2,13 @@
 title: 컨테이너 인스턴스 모니터링
 description: Azure Container Instances에서 컨테이너의 CPU 및 메모리와 같은 컴퓨팅 리소스의 소비를 모니터링하는 방법입니다.
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 12/17/2020
+ms.openlocfilehash: 83a8a5ab2c8c49f4044564c2d899685914103b0b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526700"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916089"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
 
@@ -27,11 +27,11 @@ ms.locfileid: "90526700"
 
 Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭][supported-metrics]을 제공합니다. 이러한 메트릭은 컨테이너 그룹 및 개별 컨테이너에 사용할 수 있습니다. 기본적으로 메트릭은 평균으로 집계 됩니다.
 
-* **CPU 사용량** - **밀리코어** 단위로 측정됩니다. 한 millicore CPU 코어의 1/1000th 이므로 500 millicores는 0.5 CPU 코어의 사용량을 나타냅니다.
-
-* **메모리 사용량** (바이트)입니다.
-
-* 초당 **수신한 네트워크 바이트** 및 초당 **전송 된 네트워크 바이트**수입니다. 
+- **Millicores** 에서 **CPU 사용량** 을 측정 했습니다. 
+  - 한 millicore CPU 코어의 1/1000th 이므로 500 millicores는 0.5 CPU 코어의 사용량을 나타냅니다.
+- **메모리 사용량** (바이트)
+- 초당 **받은 네트워크 바이트** 수
+- 초당 **전송 된 네트워크 바이트** 수 
 
 ## <a name="get-metrics---azure-portal"></a>메트릭 가져오기 - Azure Portal
 
@@ -39,10 +39,10 @@ Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭
 
 ![이중 차트][dual-chart]
 
-여러 컨테이너를 포함하는 컨테이너 그룹에서 [차원][monitor-dimension]을 사용하여 컨테이너별로 메트릭을 표시합니다. 개별 컨테이너 메트릭이 있는 차트를 만들려면 다음 단계를 수행합니다.
+여러 컨테이너가 포함 된 컨테이너 그룹에서 [차원을][monitor-dimension] 사용 하 여 컨테이너 별로 메트릭을 표시 합니다. 개별 컨테이너 메트릭이 있는 차트를 만들려면 다음 단계를 수행합니다.
 
-1. **개요** 페이지에서 **CPU**와 같은 메트릭 차트 중 하나를 선택합니다. 
-1. **분할 적용** 단추를 선택하고 **컨테이너 이름**을 선택합니다.
+1. **개요** 페이지에서 **CPU** 와 같은 메트릭 차트 중 하나를 선택합니다. 
+1. **분할 적용** 단추를 선택하고 **컨테이너 이름** 을 선택합니다.
 
 ![화면 캡처는 선택한 분할 적용 및 컨테이너 이름이 선택 된 컨테이너 인스턴스에 대 한 메트릭을 보여 줍니다.][dimension]
 
@@ -64,18 +64,11 @@ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output t
 ```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
-2019-04-23 22:59:00  CPU Usage
-2019-04-23 23:00:00  CPU Usage
-2019-04-23 23:01:00  CPU Usage  0.0
-2019-04-23 23:02:00  CPU Usage  0.0
-2019-04-23 23:03:00  CPU Usage  0.5
-2019-04-23 23:04:00  CPU Usage  0.5
-2019-04-23 23:05:00  CPU Usage  0.5
-2019-04-23 23:06:00  CPU Usage  1.0
-2019-04-23 23:07:00  CPU Usage  0.5
-2019-04-23 23:08:00  CPU Usage  0.5
-2019-04-23 23:09:00  CPU Usage  1.0
-2019-04-23 23:10:00  CPU Usage  0.5
+2020-12-17 23:34:00  CPU Usage
+. . .
+2020-12-18 00:25:00  CPU Usage
+2020-12-18 00:26:00  CPU Usage  0.4
+2020-12-18 00:27:00  CPU Usage  0.0
 ```
 
 명령에서 `--metric` 매개 변수의 값을 변경하여 다른 [지원되는 메트릭][supported-metrics]을 가져옵니다. 예를 들어 **메모리** 사용량 메트릭을 가져오려면 다음 명령을 사용합니다. 

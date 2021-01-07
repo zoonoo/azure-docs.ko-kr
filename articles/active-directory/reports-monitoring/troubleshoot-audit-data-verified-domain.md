@@ -16,10 +16,10 @@ ms.date: 07/22/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3c9ec3b1e96e47dbf46c6acb2c81147b614d069
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117435"
 ---
 # <a name="troubleshoot-audit-data-on-verified-domain-change"></a>문제 해결: 확인 된 도메인 변경에 대 한 감사 데이터 
@@ -39,7 +39,7 @@ Azure AD 감사 로그를 확인 하 고 Azure AD 테 넌 트에서 발생 하�
 
 #### <a name="what-does-userprincipalname-consistency-mean"></a>UserPrincipalName 일관성은 무엇을 의미 하나요? 
 
-클라우드 전용 사용자의 경우 일관성은 **UserPrincipalName** 확인 된 도메인 접미사로 설정 됨을 의미 합니다. 일치 하지 않는 **UserPrincipalName** 처리 되 면 **proxycalc** 는 다음과 같은 기본 onmicrosoft.com 접미사로 변환 합니다.username@Contoso.onmicrosoft.com 
+클라우드 전용 사용자의 경우 일관성은 **UserPrincipalName** 확인 된 도메인 접미사로 설정 됨을 의미 합니다. 일치 하지 않는 **UserPrincipalName** 처리 되 면 **proxycalc** 는 다음과 같은 기본 onmicrosoft.com 접미사로 변환 합니다. username@Contoso.onmicrosoft.com 
 
 동기화 된 사용자의 경우 일관성은 **UserPrincipalName** 이 확인 된 도메인 접미사로 설정 되 고 온-프레미스 **UserPrincipalName** 값 (ShadowUserPrincipalName)과 일치 함을 의미 합니다. 일치 하지 않는 **UserPrincipalName** 처리 되 면 **Proxycalc** 가 **ShadowUserPrincipalName** 와 동일한 값으로 되돌아가고, 도메인 접미사가 테 넌 트에서 제거 된 경우는 기본 *. onmicrosoft.com 도메인 접미사로 변환 합니다. 
 
@@ -47,7 +47,7 @@ Azure AD 감사 로그를 확인 하 고 Azure AD 테 넌 트에서 발생 하�
 
 #### <a name="what-does-proxy-address-consistency-mean"></a>프록시 주소 일관성은 무엇을 의미 하나요? 
 
-클라우드 전용 사용자의 경우 일관성은 프록시 주소가 확인 된 도메인 접미사와 일치 하는 것을 의미 합니다. 일치 하지 않는 프록시 주소를 처리 하는 경우 **Proxycalc** 는이를 기본 *. onmicrosoft.com 도메인 접미사로 변환 합니다. 예를 들면 다음과 같습니다.SMTP:username@Contoso.onmicrosoft.com 
+클라우드 전용 사용자의 경우 일관성은 프록시 주소가 확인 된 도메인 접미사와 일치 하는 것을 의미 합니다. 일치 하지 않는 프록시 주소를 처리 하는 경우 **Proxycalc** 는이를 기본 *. onmicrosoft.com 도메인 접미사로 변환 합니다. 예를 들면 다음과 같습니다. SMTP:username@Contoso.onmicrosoft.com 
 
 동기화 된 사용자의 경우 일관성은 프록시 주소가 온-프레미스 프록시 주소 (즉, ShadowProxyAddresses). **ProxyAddresses** 는 **ShadowProxyAddresses**와 동기화 되어야 합니다. 동기화 된 사용자에 게 Exchange 라이선스가 할당 된 경우 프록시 주소는 온-프레미스 프록시 주소 값과 일치 해야 하며 확인 된 도메인 접미사와도 일치 해야 합니다. 이 시나리오에서 **Proxycalc** 는 확인 되지 않은 도메인 접미사로 일치 하지 않는 프록시 주소를 삭제 하 고 Azure AD의 개체에서 제거 됩니다. 확인 되지 않은 도메인을 나중에 확인 하는 경우 **Proxycalc** 는 다시 계산 하 고 **ShadowProxyAddresses** 의 프록시 주소를 Azure AD의 개체에 다시 추가 합니다.  
 

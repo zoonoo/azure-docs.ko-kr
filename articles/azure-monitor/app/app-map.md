@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: 642a382f2ec5da7821c9d709bd27d592ced31c8d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3383b4a3c2eab1f62d180c31e278f07b92c649c5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974033"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853518"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -44,7 +44,7 @@ ms.locfileid: "90974033"
 
 ### <a name="investigate-failures"></a>오류 조사
 
-**오류 조사**를 선택하여 오류 창을 실행합니다.
+**오류 조사** 를 선택하여 오류 창을 실행합니다.
 
 ![오류 조사 단추 스크린샷](media/app-map/investigate-failures.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "90974033"
 
 ### <a name="investigate-performance"></a>성능 조사
 
-성능 문제를 해결 하려면 **성능 조사**를 선택 합니다.
+성능 문제를 해결 하려면 **성능 조사** 를 선택 합니다.
 
 ![성능 조사 단추 스크린샷](media/app-map/investigate-performance.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "90974033"
 
 ### <a name="alerts"></a>경고
 
-경고가 트리거될 수 있는 활성 경고 및 기본 규칙을 보려면 **경고**를 선택합니다.
+경고가 트리거될 수 있는 활성 경고 및 기본 규칙을 보려면 **경고** 를 선택합니다.
 
 ![경고 단추 스크린샷](media/app-map/alerts.png)
 
@@ -165,10 +165,8 @@ ApplicationInsights.config:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "roleName": "my cloud role name"
-    }
+  "role": {
+    "name": "my cloud role name"
   }
 }
 ```
@@ -194,7 +192,7 @@ Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경
 
 스프링 부팅 스타터는 spring.application.name 속성에 대해 사용자가 입력 한 값에 클라우드 역할 이름을 자동으로 할당 합니다.
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -229,7 +227,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>응용 프로그램 맵의 컨텍스트 내에서 클라우드 역할 이름 이해
 
-**클라우드 역할 이름**에 대해 생각 하는 것과 같이 여러 개의 클라우드 역할 이름이 있는 응용 프로그램 맵을 살펴보면 도움이 될 수 있습니다.
+**클라우드 역할 이름** 에 대해 생각 하는 것과 같이 여러 개의 클라우드 역할 이름이 있는 응용 프로그램 맵을 살펴보면 도움이 될 수 있습니다.
 
 ![애플리케이션 맵 스크린샷](media/app-map/cloud-rolename.png)
 

@@ -1,21 +1,22 @@
 ---
-title: Azure Cosmos DB의 역할 기반 액세스 제어
-description: Azure Cosmos DB RBAC (Active directory 통합)를 사용 하 여 데이터베이스 보호를 제공 하는 방법에 대해 알아봅니다.
+title: Azure Cosmos DB의 Azure 역할 기반 액세스 제어
+description: Azure RBAC (Active directory 통합)를 사용 Azure Cosmos DB 하 여 데이터베이스 보호 기능을 제공 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 950a3c03d5c2c76ad417634833c473ee65adb9b9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530574"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636642"
 ---
-# <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 역할 기반 액세스 제어
+# <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 Azure 역할 기반 액세스 제어
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC (역할 기반 액세스 제어)를 제공 합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다. 역할 할당은 제어 평면 액세스 전용으로 범위가 지정 됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스가 포함 됩니다.
+Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 한 azure RBAC (역할 기반 액세스 제어)를 기본적으로 제공 합니다. Azure Active Directory에 프로필이 있는 개인은 이러한 Azure 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Cosmos DB 리소스에 대 한 작업을 수행할 수 있습니다. 역할 할당은 제어 평면 액세스 전용으로 범위가 지정 됩니다. 여기에는 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스가 포함 됩니다.
 
 ## <a name="built-in-roles"></a>기본 제공 역할
 
@@ -25,21 +26,24 @@ Azure Cosmos DB에서 지 원하는 기본 제공 역할은 다음과 같습니�
 |---------|---------|
 |[DocumentDB 계정 기여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다.|
 |[Cosmos DB 계정 판독기](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있음.|
-|[Cosmos Backup 운영자](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Azure Cosmos 데이터베이스 또는 컨테이너에 대 한 복원 요청을 제출할 수 있습니다.|
-|[Cosmos DB 운영자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|는 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로 비전 할 수 있지만 데이터에 액세스 하는 데 필요한 키에는 액세스할 수 없습니다.|
+|[Cosmos Backup 운영자](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Azure Cosmos 데이터베이스 또는 컨테이너에 대 한 복원 요청을 제출할 수 있습니다. 데이터에 액세스 하거나 데이터 탐색기를 사용할 수 없습니다.|
+|[Cosmos DB 운영자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로 비전 할 수 있습니다. 데이터에 액세스 하거나 데이터 탐색기를 사용할 수 없습니다.|
 
 > [!IMPORTANT]
-> Azure Cosmos DB의 RBAC 지원은 제어 평면 작업에만 적용 됩니다. 데이터 평면 작업은 마스터 키 또는 리소스 토큰을 사용 하 여 보호 됩니다. 자세한 내용은 [Azure Cosmos DB의 데이터에 안전](secure-access-to-data.md) 하 게 액세스를 참조 하세요.
+> Azure Cosmos DB의 Azure RBAC 지원은 제어 평면 작업에만 적용 됩니다. 데이터 평면 작업은 기본 키 또는 리소스 토큰을 사용 하 여 보호 됩니다. 자세한 내용은 [Azure Cosmos DB의 데이터에 안전](secure-access-to-data.md) 하 게 액세스를 참조 하세요.
 
 ## <a name="identity-and-access-management-iam"></a>Id 및 액세스 관리 (IAM)
 
-Azure Portal의 **액세스 제어 (IAM)** 창은 Azure Cosmos 리소스에 대 한 역할 기반 액세스 제어를 구성 하는 데 사용 됩니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다. 다음 스크린샷은 Azure Portal의 IAM (access control)을 사용한 RBAC (Active Directory 통합)를 보여 줍니다.
+Azure Portal의 **액세스 제어 (IAM)** 창은 azure Cosmos 리소스에 대 한 azure 역할 기반 액세스 제어를 구성 하는 데 사용 됩니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다. 다음 스크린샷은 Azure Portal의 액세스 제어 (IAM)를 사용 하는 Active Directory 통합 (Azure RBAC)을 보여 줍니다.
 
 :::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Azure Portal에서 액세스 제어(IAM) - 데이터베이스 보안 설명":::
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 
 사용자는 기본 제공 역할 외에도 Azure에서 [사용자 지정 역할](../role-based-access-control/custom-roles.md) 을 만들고 해당 Active Directory 테 넌 트 내의 모든 구독에서 서비스 주체에 이러한 역할을 적용할 수 있습니다. 사용자 지정 역할은 사용자가 리소스 공급자 작업의 사용자 지정 집합을 사용 하 여 Azure 역할 정의를 만드는 방법을 제공 합니다. Azure Cosmos DB에 대 한 사용자 지정 역할을 빌드하는 데 사용할 수 있는 작업에 대 한 자세한 내용은 [Azure Cosmos DB 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb) 을 참조 하세요.
+
+> [!TIP]
+> Cosmos DB 내에 저장 된 데이터에 액세스 하거나 Azure Portal에서 데이터 탐색기를 사용 해야 하는 사용자 지정 역할은 작업을 수행 해야 합니다 `Microsoft.DocumentDB/databaseAccounts/listKeys/*` .
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Azure Cosmos DB Sdk에서 변경 방지
 
@@ -64,7 +68,7 @@ Azure Portal의 **액세스 제어 (IAM)** 창은 Azure Cosmos 리소스에 대 
 
 - 저장 프로시저, 트리거 또는 사용자 정의 함수 수정
 
-응용 프로그램 (또는 Azure Portal를 통한 사용자)이 이러한 작업을 수행 하는 경우 [ARM 템플릿](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST 또는 [Azure 관리 라이브러리](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행 하려면 마이그레이션해야 합니다. Azure Management는 [여러 언어로](https://docs.microsoft.com/azure/?product=featured#languages-and-tools)제공 됩니다.
+응용 프로그램 (또는 Azure Portal를 통한 사용자)이 이러한 작업을 수행 하는 경우 [ARM 템플릿](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST 또는 [Azure 관리 라이브러리](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행 하려면 마이그레이션해야 합니다. Azure Management는 [여러 언어로](/azure/?product=featured#languages-and-tools)제공 됩니다.
 
 ### <a name="set-via-arm-template"></a>ARM 템플릿을 통해 설정
 

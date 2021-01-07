@@ -1,17 +1,17 @@
 ---
 title: 고객 관리 키를 사용 하 여 구성 데이터 암호화
 description: 고객 관리 키를 사용 하 여 구성 데이터 암호화
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/18/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8942c93b7346613b8cfdc97d9afe09f1c473fb10
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 46a1e99a7bc75efa85fcb5eff649c14af5abd17b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384874"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930503"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>고객 관리 키를 사용 하 여 앱 구성 데이터 암호화
 Azure 앱 구성은 [휴지 상태의 중요 한 정보를 암호화](../security/fundamentals/encryption-atrest.md)합니다. 고객 관리 키를 사용 하면 암호화 키를 관리 하도록 허용 하 여 향상 된 데이터 보호 기능을 제공 합니다.  관리 키 암호화를 사용 하는 경우 앱 구성의 모든 중요 한 정보는 사용자 제공 Azure Key Vault 키로 암호화 됩니다.  이를 통해 요청 시 암호화 키를 회전할 수 있습니다.  또한 키에 대 한 앱 구성 인스턴스의 액세스를 취소 하 여 중요 한 정보에 대 한 Azure 앱 구성의 액세스를 취소 하는 기능을 제공 합니다.

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326055"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004911"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -77,20 +77,20 @@ Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리
 * 계정에 SQL sysadmin 권한이 없는 경우, [스크립트](#sql-script-to-grant-granular-permissions-to-the-run-as-account)를 실행하여 하나 또는 모든 Operations Manager 데이터베이스를 호스팅하는 각각의 SQL Server 인스턴스에 대해 세부 권한을 계정에 부여합니다.
 
 1. Operations Manager 콘솔에서 **관리** 탐색 버튼을 선택합니다.
-2. **실행 구성**에서 **계정**을 클릭합니다.
-3. **실행 계정 만들기** 마법사의 **소개** 페이지에서 **다음**을 클릭합니다.
-4. **일반 속성** 페이지의 **실행 계정 형식:** 목록에서 **Windows**를 선택합니다.
-5. **표시 이름** 텍스트 상자에 표시 이름을 입력하고 선택적으로 **설명** 상자에 설명을 입력한 다음 **다음**을 클릭합니다.
-6. **배포 보안** 페이지에서 **더 안전**을 선택합니다.
-7. **만들기**를 클릭합니다.  
+2. **실행 구성** 에서 **계정** 을 클릭합니다.
+3. **실행 계정 만들기** 마법사의 **소개** 페이지에서 **다음** 을 클릭합니다.
+4. **일반 속성** 페이지의 **실행 계정 형식:** 목록에서 **Windows** 를 선택합니다.
+5. **표시 이름** 텍스트 상자에 표시 이름을 입력하고 선택적으로 **설명** 상자에 설명을 입력한 다음 **다음** 을 클릭합니다.
+6. **배포 보안** 페이지에서 **더 안전** 을 선택합니다.
+7. **만들기** 를 클릭합니다.  
 
 실행 계정을 만들었으므로 관리 그룹에서 관리 서버를 대상으로 지정하고 워크플로가 자격 증명을 사용하여 실행되도록 미리 정의된 실행 프로필과 연결되어야 합니다.  
 
-1. **실행 구성**, **계정**의 결과 창에서 이전에 만든 계정을 두 번 클릭합니다.
-2. **배포** 탭에서 **선택된 컴퓨터** 상자에 대해 **추가**를 클릭하고 계정을 배포할 관리 서버를 추가합니다.  **확인**을 두 번 클릭하여 변경 내용을 저장합니다.
-3. **실행 구성**에서 **프로필**을 클릭합니다.
-4. *SCOM 평가 프로필*을 검색합니다.
-5. 프로필 이름은 *Microsoft System Center Operations Manager 상태 검사 실행 프로필*이어야 합니다.
+1. **실행 구성**, **계정** 의 결과 창에서 이전에 만든 계정을 두 번 클릭합니다.
+2. **배포** 탭에서 **선택된 컴퓨터** 상자에 대해 **추가** 를 클릭하고 계정을 배포할 관리 서버를 추가합니다.  **확인** 을 두 번 클릭하여 변경 내용을 저장합니다.
+3. **실행 구성** 에서 **프로필** 을 클릭합니다.
+4. *SCOM 평가 프로필* 을 검색합니다.
+5. 프로필 이름은 *Microsoft System Center Operations Manager 상태 검사 실행 프로필* 이어야 합니다.
 6. 오른쪽 클릭하여 속성을 업데이트하고 앞에서 만든 실행 계정을 추가합니다.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>실행 계정에 대한 세부적인 사용 권한을 부여하는 SQL 스크립트
@@ -145,17 +145,17 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>상태 검사 규칙 구성
 
-System Center Operations Manager 상태 검사 솔루션의 관리 팩에는 *Microsoft System Center Operations Manager 상태 검사 규칙 실행*이라는 규칙이 포함 되어 있습니다. 이 규칙은 상태 검사의 실행을 담당합니다. 규칙을 사용하도록 설정하고 빈도를 구성하려면 아래 절차를 사용합니다.
+System Center Operations Manager 상태 검사 솔루션의 관리 팩에는 *Microsoft System Center Operations Manager 상태 검사 규칙 실행* 이라는 규칙이 포함 되어 있습니다. 이 규칙은 상태 검사의 실행을 담당합니다. 규칙을 사용하도록 설정하고 빈도를 구성하려면 아래 절차를 사용합니다.
 
 기본적으로 Microsoft System Center Operations Manager Run Health Check Rule은 사용 하지 않도록 설정 되어 있습니다. 상태 검사를 실행하려면 관리 서버에서 규칙을 사용하도록 설정해야 합니다. 다음 단계를 사용하세요.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>특정 관리 서버에 대한 규칙을 사용하도록 설정
 
 1. Operations Manager 운영 콘솔의 **제작** 작업 영역에서 **규칙** 창의 *Microsoft System Center Operations Manager Health Check rule 실행* 규칙을 검색 합니다.
-2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
-3. 규칙을 마우스 오른쪽 단추로 클릭 한 다음 **Overrides**  >  **클래스의 특정 개체: 관리 서버에 대해**재정의를 클릭 합니다.
+2. 검색 결과에서 *유형: 관리 서버* 라는 텍스트를 포함하는 항목을 선택합니다.
+3. 규칙을 마우스 오른쪽 단추로 클릭 한 다음 **Overrides**  >  **클래스의 특정 개체: 관리 서버에 대해** 재정의를 클릭 합니다.
 4.  사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.  앞에서 실행 계정에 연결하도록 구성한 것과 같은 관리 서버여야 합니다.
-5.  **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.<br><br> ![재정의 매개 변수](./media/scom-assessment/rule.png)
+5.  **사용** 매개 변수 값에 대한 재정의 값을 **참** 으로 변경해야 합니다.<br><br> ![재정의 매개 변수](./media/scom-assessment/rule.png)
 
     이 창에 있는 동안 다음 절차를 사용하여 실행 빈도를 구성합니다.
 
@@ -164,8 +164,8 @@ System Center Operations Manager 상태 검사 솔루션의 관리 팩에는 *Mi
 평가는 기본적으로 10,080분(또는 7일) 주기로 실행되도록 구성됩니다. 값을 최소값인 1440분(또는 1일)으로 재정의할 수 있습니다. 이 값은 연속적인 평가 실행 사이에 필요한 최소 시간 간격을 나타냅니다. 간격을 재정의하려면 아래 단계를 사용합니다.
 
 1. Operations Manager 콘솔의 **제작** 작업 영역에서 **규칙** 섹션의 *Microsoft System Center Operations Manager Health Check rule 실행* 규칙을 검색 합니다.
-2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
-3. 규칙을 마우스 오른쪽 단추로 클릭 한 다음 **Override the Rule**다음  >  **클래스의 모든 개체에 대 한 규칙 재정의: Management Server**를 클릭 합니다.
+2. 검색 결과에서 *유형: 관리 서버* 라는 텍스트를 포함하는 항목을 선택합니다.
+3. 규칙을 마우스 오른쪽 단추로 클릭 한 다음 **Override the Rule** 다음  >  **클래스의 모든 개체에 대 한 규칙 재정의: Management Server** 를 클릭 합니다.
 4. **간격** 매개 변수 값을 원하는 간격 값으로 변경합니다. 아래 예의 경우 값이 1440분(1일)으로 설정되어 있습니다.<br><br> ![간격 매개 변수](./media/scom-assessment/interval.png)<br>  
 
     값이 1440분 미만으로 설정되면 규칙이 하루 간격으로 실행됩니다. 이 예의 경우 규칙이 간격 값을 무시하고 하루 빈도로 실행됩니다.
@@ -209,12 +209,12 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
 1. Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
-2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택 합니다.
+2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스** 를 클릭합니다. 리소스 목록에서 **Log Analytics** 를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics** 를 선택합니다.
 3. Log Analytics 구독 창에서 작업 영역을 선택한 다음, **작업 영역 요약** 메뉴 항목을 클릭합니다.  
 4. **개요** 페이지에서 **System Center Operations Manager Health Check** 타일을 클릭합니다.
 5. **System Center Operations Manager Health Check** 페이지에서 주요 영역 블레이드 중 하나의 요약 정보를 검토한 다음 주요 영역 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 6. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.<br><br> ![주요 영역](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
-7. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목의 주소가 지정되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
+7. **권장 조치** 에 제안된 올바른 조치를 수행할 수 있습니다. 항목의 주소가 지정되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체** 로 나타납니다.
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083103"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542304"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -27,7 +27,7 @@ HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은
 Azure 지역은 클러스터가 물리적으로 프로 비전 되는 위치를 결정 합니다. 읽기 및 쓰기 대기 시간을 최소화하려면 클러스터가 데이터와 동일한 지역에 있어야 합니다.
 
 **저장소 위치 및 크기**  
-기본 저장소는 클러스터와 동일한 지역에 있어야 합니다.48-노드 클러스터의 경우 4 ~ 8 개의 저장소 계정을 포함 하는 것이 좋습니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 컴퓨팅 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 스토리지 계정이 여러 개 있는 경우 각 스토리지 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 스토리지 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 스토리지 계정당 하나의 컨테이너만 사용합니다.
+기본 저장소는 클러스터와 동일한 지역에 있어야 합니다. 48-노드 클러스터의 경우 4 ~ 8 개의 저장소 계정을 포함 하는 것이 좋습니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 컴퓨팅 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 스토리지 계정이 여러 개 있는 경우 각 스토리지 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 스토리지 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 스토리지 계정당 하나의 컨테이너만 사용합니다.
 
 **VM 크기 및 유형 (이제 G 시리즈 지원)**  
 클러스터 유형마다 노드 유형 집합이 있으며 각 노드 유형은 VM 크기 및 유형에 대한 특정 옵션을 제공합니다. VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시간에 따라 결정됩니다. 각 노드 유형에 대한 최적의 VM 크기 및 유형을 결정하는 데 시뮬레이트된 워크로드를 사용할 수 있습니다.
@@ -52,35 +52,35 @@ Azure 지역은 클러스터가 물리적으로 프로 비전 되는 위치를 �
 |**애플리케이션**|**통합**
 |---|---|
 |기류|IaaS 또는 HDInsight에 지 노드
-|Alluxio|IaaS  
-|Arcadia|IaaS 
+|Alluxio|IaaS  
+|Arcadia|IaaS 
 |Atlas|없음(HDP만)
 |Datameer|HDInsight에 지 노드
 |Datastax(Cassandra)|IaaS(CosmosDB Azure에서 대체)
-|DataTorrent|IaaS 
-|Drill|IaaS 
+|DataTorrent|IaaS 
+|Drill|IaaS 
 |Ignite|IaaS
-|Jethro|IaaS 
-|Mapador|IaaS 
+|Jethro|IaaS 
+|Mapador|IaaS 
 |Mongo|IaaS(CosmosDB Azure에서 대체)
-|NiFi|IaaS 
+|NiFi|IaaS 
 |Presto|IaaS 또는 HDInsight에 지 노드
-|Python 2|PaaS 
-|Python 3|PaaS 
-|R|PaaS 
-|SAS|IaaS 
+|Python 2|PaaS 
+|Python 3|PaaS 
+|R|PaaS 
+|SAS|IaaS 
 |Vertica|IaaS(SQLDW Azure에서 대체)
-|Tableau|IaaS 
+|Tableau|IaaS 
 |Waterline|HDInsight에 지 노드
-|StreamSets|HDInsight edge 
-|Palantir|IaaS 
-|Sailpoint|Iaas 
+|StreamSets|HDInsight edge 
+|Palantir|IaaS 
+|Sailpoint|Iaas 
 
 자세한 내용은 [각 HDInsight 버전에서 제공되는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) 문서 참조
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정
 
-HDInsight는 **스크립트 동작**이라는 클러스터 구성의 메서드를 제공합니다. 스크립트 동작은 HDInsight 클러스터의 노드에서 실행되는 Bash 스크립트이며 추가 구성 요소를 설치하고 구성 설정을 변경하는 데 사용할 수 있습니다.
+HDInsight는 **스크립트 동작** 이라는 클러스터 구성의 메서드를 제공합니다. 스크립트 동작은 HDInsight 클러스터의 노드에서 실행되는 Bash 스크립트이며 추가 구성 요소를 설치하고 구성 설정을 변경하는 데 사용할 수 있습니다.
 
 스크립트 동작은 HDInsight 클러스터에서 액세스할 수 있는 URI에 저장되어야 합니다. 클러스터를 만드는 동안 또는 만든 후 사용할 수 있으며 특정 노드 형식에서만 실행되도록 제한될 수도 있습니다.
 
@@ -109,7 +109,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 구성 사용자 지정
 
-`core-site.xml`, `hive-site.xml` 및 `oozie-env.xml`과 같은 구성 파일에서 구성에 대한 변경 내용은 부트스트랩을 사용하여 만들 수 있습니다. 다음 스크립트는 PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)을 사용 하는 예입니다.
+`core-site.xml`, `hive-site.xml` 및 `oozie-env.xml`과 같은 구성 파일에서 구성에 대한 변경 내용은 부트스트랩을 사용하여 만들 수 있습니다. 다음 스크립트는 PowerShell [AZ module](/powershell/azure/new-azureps-module-az) cmdlet [AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster)을 사용 하는 예입니다.
 
 ```powershell
 # hive-site.xml configuration

@@ -10,12 +10,12 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 01/02/2020
-  ms.openlocfilehash: 15cd46ba2758fd1a56f7d19791713eae72bac1d2
-  ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+  ms.openlocfilehash: ba787d1ec1cd3283ab76d631c6ca79281b9cf599
+  ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/07/2020
-  ms.locfileid: "86057656"
+  ms.lasthandoff: 12/01/2020
+  ms.locfileid: "96433897"
 landingContent:
 - title: 관리형 애플리케이션 정보
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
     - text: 정의 파일 만들기
       url: publish-service-catalog-app.md
     - text: 마켓플레이스 애플리케이션 게시
-      url: publish-marketplace-app.md
+      url: ../../marketplace/create-new-azure-apps-offer.md
     - text: 사용자 지정 공급자를 사용하여 관리되는 애플리케이션 만들기
       url: tutorial-create-managed-app-with-custom-provider.md
   - linkListType: how-to-guide

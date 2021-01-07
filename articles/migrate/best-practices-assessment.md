@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate Server 평가의 평가 모범 사례
 description: Azure Migrate Server 평가를 사용 하 여 평가를 만들기 위한 팁입니다.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 8694b766d98c6240d7745b814d13358debe714e8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c1fff5b5b7f6450ad8d1977e55a1f6b255f3d668
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387050"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754320"
 ---
 # <a name="best-practices-for-creating-assessments"></a>평가 만들기에 대 한 모범 사례
 
@@ -102,11 +102,11 @@ AVS에서 사용 되는 저장소 엔진은 vSAN입니다. vSAN 스토리지 정
 
 ###  <a name="out-of-sync-assessments"></a>동기화 되지 않은 평가
 
-평가를 만든 후 그룹에서 컴퓨터를 추가 하거나 제거 하는 경우 사용자가 만든 평가가 **동기화**되지 않은 것으로 표시 됩니다. 평가를 다시 실행 하 여 그룹 변경 내용을 반영 합니다 (**다시 계산**).
+평가를 만든 후 그룹에서 컴퓨터를 추가 하거나 제거 하는 경우 사용자가 만든 평가가 **동기화** 되지 않은 것으로 표시 됩니다. 평가를 다시 실행 하 여 그룹 변경 내용을 반영 합니다 (**다시 계산**).
 
 ### <a name="outdated-assessments"></a>오래 된 평가
 
-평가 된 그룹에 있는 Vm에 대 한 온-프레미스 변경 내용이 있는 경우 평가는 **오래**된 것으로 표시 됩니다. 아래 속성의 변경 내용 중 하나 이상으로 인해 평가를 "오래 된" 것으로 표시할 수 있습니다.
+평가 된 그룹에 있는 Vm에 대 한 온-프레미스 변경 내용이 있는 경우 평가는 **오래** 된 것으로 표시 됩니다. 아래 속성의 변경 내용 중 하나 이상으로 인해 평가를 "오래 된" 것으로 표시할 수 있습니다.
 
 - 프로세서 코어 수
 - 할당 된 메모리
@@ -132,7 +132,7 @@ AVS에서 사용 되는 저장소 엔진은 vSAN입니다. vSAN 스토리지 정
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>AVS 평가를 위한 마이그레이션 도구 지침
 
 AVS(Azure VMware 솔루션) 평가에 대한 Azure 준비 상태 보고서에서 다음과 같은 권장 도구를 확인할 수 있습니다. 
-- **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **VMWARE hcx 또는 Enterprise**: vmware 컴퓨터의 경우 온-프레미스 워크 로드를 Azure vmware 솔루션 (AVS) 사설 클라우드로 마이그레이션하기 위한 제안 된 마이그레이션 도구인 Vmware 하이브리드 클라우드 확장 (hcx) 솔루션이 제안 됩니다. [자세한 정보](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 - **알 수 없음**: CSV 파일을 통해 가져온 컴퓨터의 경우 기본 마이그레이션 도구를 알 수 없습니다. 그러나 VMware 컴퓨터의 경우에는 VMware 하이브리드 클라우드 확장 (HCX) 솔루션을 사용 하는 것이 좋습니다.
 
 

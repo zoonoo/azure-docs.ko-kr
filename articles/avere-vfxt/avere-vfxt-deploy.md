@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272776"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342419"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
@@ -64,7 +64,7 @@ Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 후 *
 
 * **컨트롤러 사용자 이름** -클러스터 컨트롤러 VM에 대 한 루트 사용자 이름을 설정 합니다.
 
-* **인증 유형** - 컨트롤러에 연결하는 데 사용할 인증 유형(암호 또는 SSH 공개 키 인증)을 선택합니다. SSH 공개 키 방법을 사용하는 것이 좋습니다. 도움이 필요한 경우 [SSH 키를 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)을 참조하세요.
+* **인증 유형** - 컨트롤러에 연결하는 데 사용할 인증 유형(암호 또는 SSH 공개 키 인증)을 선택합니다. SSH 공개 키 방법을 사용하는 것이 좋습니다. 도움이 필요한 경우 [SSH 키를 만들고 사용하는 방법](../virtual-machines/linux/ssh-from-windows.md)을 참조하세요.
 
 * **암호** 또는 **SSH 공개 키** - 선택한 인증 유형에 따라 다음 필드에 RSA 공개 키 또는 암호를 입력해야 합니다. 앞에서 입력한 사용자 이름과 함께 이 자격 증명을 사용합니다.
 
@@ -74,7 +74,7 @@ Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 후 *
 
 * **위치** - 클러스터와 리소스의 Azure 위치를 선택합니다.
 
-완료 되 면 **확인을** 클릭 합니다.
+작업이 완료되면 **확인**을 클릭합니다.
 
 > [!NOTE]
 > 클러스터 컨트롤러에 공용 IP 주소를 사용하려는 경우 기존 네트워크를 선택하는 대신 클러스터용으로 새 가상 네트워크를 만듭니다. 이 설정은 2페이지에 있습니다.

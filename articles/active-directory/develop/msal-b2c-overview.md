@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev devx-track-js
+ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119793"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107875"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>JavaScript 용 Microsoft 인증 라이브러리를 사용 하 여 Azure AD B2C 작업
 
@@ -56,16 +56,22 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>3 단계: 인증 구성
 
-1. 샘플에서 `config.js` 파일을 엽니다.
+1. 샘플에서 파일 *에config.js* 를 엽니다.
 
-2. 응용 프로그램을 등록 하는 동안 이전에 가져온 응용 프로그램 자격 증명을 사용 하 여 샘플을 구성 합니다. 값을 clientID, 호스트, tenantId 및 정책 이름의 이름으로 바꿔 다음 코드 줄을 변경 합니다.
+2. 응용 프로그램을 등록 하는 동안 이전에 가져온 응용 프로그램 자격 증명을 사용 하 여 샘플을 구성 합니다. 값을 테 넌 트 이름, 클라이언트 ID 및 정책 이름으로 바꿔 다음 코드 줄을 변경 합니다.
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
 자세한 내용은이 [Node.js B2C WEB API 샘플](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)을 확인 하세요.
 
@@ -163,7 +169,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>2 단계: 로그인 메서드에서 인증 오류 Catch 및 처리
 
-사용자가 **암호 잊음**를 선택 하면 응용 프로그램에서 오류를 throw 하 고 코드에서 catch 한 다음 적절 한 사용자 흐름을 제시 하 여를 처리 합니다. 이 경우 `b2c_1_reset` 암호 다시 설정 흐름입니다.
+사용자가 **암호 잊음** 를 선택 하면 응용 프로그램에서 오류를 throw 하 고 코드에서 catch 한 다음 적절 한 사용자 흐름을 제시 하 여를 처리 합니다. 이 경우 `b2c_1_reset` 암호 다시 설정 흐름입니다.
 
 1. 다음과 같이 로그인 방법을 확장 합니다.
 
@@ -203,7 +209,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Azure AD B2C 표시 된 암호 다시 설정 흐름 화면" border="false":::
 
-    오류 코드 및 예외 처리에 대 한 자세한 내용은 [Msal 오류 및 예외 코드](msal-handling-exceptions.md)를 참조 하세요.
+    오류 코드 및 예외 처리에 대 한 자세한 내용은 [Msal 오류 및 예외 코드](msal-error-handling-js.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -211,4 +217,4 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 - [사용자 흐름](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [사용자 지정 정책](../../active-directory-b2c/custom-policy-get-started.md)
-- [UX 사용자 지정](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [UX 사용자 지정](../../active-directory-b2c/configure-user-input.md)

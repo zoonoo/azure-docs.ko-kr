@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705863"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453604"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -34,7 +34,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -49,13 +49,13 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 ### <a name="get-an-azure-government-subscription"></a>Azure Government 구독 가져오기
 
-Azure Government 구독을 가져오려면 [Azure Government에서 구독 관리 및 연결](../../azure-government/documentation-government-manage-subscriptions.md)을 참조 하세요.
+Azure Government 구독을 가져오려면 [Azure Government에서 구독 관리 및 연결](../../azure-government/compare-azure-government-global-azure.md)을 참조 하세요.
 
 Azure Government 구독이 없는 경우 시작 하기 전에 [무료 계정](https://azure.microsoft.com/global-infrastructure/government/request/) 을 만듭니다.
 
 특정 프로그래밍 언어에서 국가 클라우드를 사용 하는 방법에 대 한 자세한 내용은 해당 언어와 일치 하는 탭을 선택 합니다.
 
-## <a name="net"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 고 국가별 클라우드에서 Microsoft Graph API를 호출할 수 있습니다.
 
@@ -77,13 +77,13 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 1. 계정이 둘 이상의 테 넌 트에 대 한 액세스를 제공 하는 경우 오른쪽 위 모서리에서 사용자의 계정을 선택 하 고 포털 세션을 원하는 Azure AD 테 넌 트로 설정 합니다.
 1. 개발자를 위한 Microsoft id 플랫폼의 [앱 등록](https://aka.ms/ra/ff) 페이지로 이동 합니다.
 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
-1. **지원되는 계정 유형**에서 **모든 조직 디렉터리의 계정**을 선택합니다.
+1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정** 을 선택합니다.
 1. **리디렉션 URI** 섹션에서 **웹** 플랫폼을 선택 하 고 웹 서버에 따라 응용 프로그램의 URL로 값을 설정 합니다. Visual Studio 및 노드에서 리디렉션 URL을 설정 하 고 가져오는 방법에 대 한 지침은 다음 섹션을 참조 하세요.
-1. **등록**을 선택합니다.
+1. **등록** 을 선택합니다.
 1. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-1. 이 자습서에서는 [암시적 부여 흐름](v2-oauth2-implicit-grant-flow.md)을 사용 하도록 설정 해야 합니다. 등록된 애플리케이션의 왼쪽 창에서 **인증**을 선택합니다.
-1. **고급 설정**의 **암시적 허용**에서 **ID 토큰** 및 **액세스 토큰** 확인란을 선택합니다. ID 토큰 및 액세스 토큰은이 앱이 사용자에 게 로그인 하 고 API를 호출 해야 하기 때문에 필요 합니다.
-1. **저장**을 선택합니다.
+1. 이 자습서에서는 [암시적 부여 흐름](v2-oauth2-implicit-grant-flow.md)을 사용 하도록 설정 해야 합니다. 등록된 애플리케이션의 왼쪽 창에서 **인증** 을 선택합니다.
+1. **고급 설정** 의 **암시적 허용** 에서 **ID 토큰** 및 **액세스 토큰** 확인란을 선택합니다. ID 토큰 및 액세스 토큰은이 앱이 사용자에 게 로그인 하 고 API를 호출 해야 하기 때문에 필요 합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>2 단계: 웹 서버 또는 프로젝트 설정
 
@@ -124,8 +124,8 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 - `Enter_the_Application_Id_here` 등록 한 응용 프로그램에 대 한 **응용 프로그램 (클라이언트) ID** 값입니다.
 - `Enter_the_Tenant_Info_Here` 는 다음 옵션 중 하나로 설정됩니다.
-    - 응용 프로그램이 **이 조직 디렉터리에서 계정을**지 원하는 경우이 값을 테 넌 트 ID 또는 테 넌 트 이름 (예: contoso.microsoft.com)으로 바꿉니다.
-    - 응용 프로그램에서 **조직 디렉터리의 계정을**지 원하는 경우이 값을로 바꿉니다 `organizations` .
+    - 응용 프로그램이 **이 조직 디렉터리에서 계정을** 지 원하는 경우이 값을 테 넌 트 ID 또는 테 넌 트 이름 (예: contoso.microsoft.com)으로 바꿉니다.
+    - 응용 프로그램에서 **조직 디렉터리의 계정을** 지 원하는 경우이 값을로 바꿉니다 `organizations` .
 
     모든 국가별 클라우드의 인증 끝점을 찾으려면 [AZURE AD 인증 끝점](./authentication-national-cloud.md#azure-ad-authentication-endpoints)을 참조 하세요.
 
@@ -150,9 +150,9 @@ const myMSALObj = new UserAgentApplication(msalConfig);
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Microsoft graph를 호출 하려면 사용 중인 클라우드에 따라 달라 지는 특정 그래프 끝점 URL이 필요 합니다. 모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [Microsoft Graph 및 그래프 탐색기 서비스 루트 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
+- Microsoft Graph API를 호출 하려면 사용 중인 클라우드와 관련 된 끝점 URL이 필요 합니다. 모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [Microsoft Graph 및 그래프 탐색기 서비스 루트 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
 
-    다음은 범위를 포함 하는 그래프 끝점의 예입니다.
+    다음은 범위가 있는 Microsoft Graph 끝점의 예입니다.
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -173,7 +173,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Microsoft graph를 호출 하려면 사용 중인 클라우드에 따라 달라 지는 특정 그래프 끝점 URL이 필요 합니다. 모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [Microsoft Graph 및 그래프 탐색기 서비스 루트 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
+- Microsoft Graph API를 호출 하려면 사용 중인 클라우드와 관련 된 끝점 URL이 필요 합니다. 모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [Microsoft Graph 및 그래프 탐색기 서비스 루트 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
 
 다음은 범위를 포함 하는 그래프 끝점의 예입니다.
 
@@ -222,9 +222,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>다음 단계
 
-다음에 대해 자세히 알아봅니다.
+각 클라우드의 Azure Portal Url 및 토큰 끝점 목록은 [국가별 클라우드 인증 끝점](authentication-national-cloud.md) 을 참조 하세요.
 
-- [국가별 클라우드의 인증](authentication-national-cloud.md)
+국가별 클라우드 설명서:
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure 독일](../../germany/index.yml)

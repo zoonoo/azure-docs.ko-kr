@@ -1,7 +1,7 @@
 ---
-title: 'PCA 기반 변칙 검색: 모듈 참조'
+title: 'PCA-Based 변칙 검색: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: PCA 기반 변칙 검색 모듈을 사용 하 여 PCA (주 구성 요소 분석)를 기반으로 변칙 검색 모델을 만드는 방법에 대해 알아봅니다.
+description: PCA-Based 변칙 검색 모듈을 사용 하 여 PCA (주 구성 요소 분석)를 기반으로 변칙 검색 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898461"
 ---
-# <a name="pca-based-anomaly-detection-module"></a>PCA 기반 변칙 검색 모듈
+# <a name="pca-based-anomaly-detection-module"></a>PCA-Based 변칙 검색 모듈
 
-이 문서에서는 Azure Machine Learning designer에서 PCA 기반 변칙 검색 모듈을 사용 하 여 PCA (주 구성 요소 분석)를 기반으로 변칙 검색 모델을 만드는 방법을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너에서 PCA-Based 변칙 검색 모듈을 사용 하 여 PCA (주 구성 요소 분석)를 기반으로 변칙 검색 모델을 만드는 방법을 설명 합니다.
 
 이 모듈을 사용 하면 유효한 트랜잭션과 같은 한 클래스에서 학습 데이터를 쉽게 가져올 수 있지만 대상 변칙의 충분 한 샘플을 얻는 것이 어려운 시나리오에서 모델을 빌드할 수 있습니다. 
 
-예를 들어 사기성 트랜잭션을 검색 하기 위해 학습을 위한 충분 한 사기 행위 예는 없는 경우가 많습니다. 하지만 좋은 트랜잭션의 많은 예가 있을 수 있습니다. PCA 기반 변칙 검색 모듈은 "일반" 클래스를 구성 하는 항목을 확인 하기 위해 사용 가능한 기능을 분석 하 여 문제를 해결 합니다. 그런 다음 모듈은 거리 메트릭을 적용 하 여 비정상을 나타내는 사례를 식별 합니다. 이 접근 방식을 사용 하면 기존 불균형 데이터를 사용 하 여 모델을 학습 시킬 수 있습니다.
+예를 들어 사기성 트랜잭션을 검색 하기 위해 학습을 위한 충분 한 사기 행위 예는 없는 경우가 많습니다. 하지만 좋은 트랜잭션의 많은 예가 있을 수 있습니다. PCA-Based 변칙 검색 모듈은 "normal" 클래스를 구성 하는 항목을 확인 하기 위해 사용 가능한 기능을 분석 하 여 문제를 해결 합니다. 그런 다음 모듈은 거리 메트릭을 적용 하 여 비정상을 나타내는 사례를 식별 합니다. 이 접근 방식을 사용 하면 기존 불균형 데이터를 사용 하 여 모델을 학습 시킬 수 있습니다.
 
 ## <a name="more-about-principal-component-analysis"></a>주 구성 요소 분석에 대 한 자세한 정보
 
@@ -38,7 +38,7 @@ PCA 작동 방식에 대 한 자세한 내용과 변칙 검색의 구현에 대 
 
 - [임의성을 사용 하 여 구조 찾기: 대략적인 행렬 Decompositions](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF 다운로드), Halko, Martinsson 및 Tropp를 구성 하기 위한 확률 알고리즘
 
-## <a name="how-to-configure-pca-based-anomaly-detection"></a>PCA 기반 변칙 검색을 구성 하는 방법
+## <a name="how-to-configure-pca-based-anomaly-detection"></a>PCA-Based 변칙 검색을 구성 하는 방법
 
 1. 디자이너에서 사용자의 파이프라인에 **PCA 기반 변칙 검색** 모듈을 추가 합니다. **변칙 검색** 범주에서이 모듈을 찾을 수 있습니다.
 

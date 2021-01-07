@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a642f7dfc470a695f96967cad0ed738d45b11efb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0445126046a6f4140dd68b2969221b196b8bef8b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90881928"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740456"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Azure Data Lake Storage Gen 1 출력
 
@@ -35,8 +35,8 @@ Stream Analytics의 Azure Data Lake Storage 출력은 Azure 중국 21Vianet 및 
 | 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다. JSON, CSV 및 Avro를 지원합니다.|
 | Encoding | CSV 또는 JSON 형식을 사용하는 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.|
 | 구분 기호 | CSV 직렬화에만 적용됩니다. Stream Analytics는 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.|
-| 형식 | JSON 직렬화에만 적용됩니다. **줄로 구분됨**은 각 JSON 개체를 새 줄로 구분된 형식의 출력이 되도록 지정합니다. **줄로 구분됨**을 선택하는 경우 JSON에서 한 번에 하나의 개체를 읽습니다. 전체 콘텐츠 자체는 유효한 JSON이 아닙니다.  **배열**은 JSON 개체 배열 형식의 출력이 되도록 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로 출력 파일을 쓰는 동안 특별한 처리가 필요하지 않으므로 줄로 구분된 JSON을 사용하는 것이 좋습니다.|
-| 인증 모드 | [관리 ID](stream-analytics-managed-identities-adls.md) 또는 사용자 토큰을 사용하여 Data Lake Storage 계정에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한이 부여되면 사용자 계정 암호를 변경하거나, 이 작업에 대한 Data Lake Storage 출력을 삭제하거나, Stream Analytics 작업을 삭제하여 액세스 권한을 철회할 수 있습니다. |
+| 형식 | JSON 직렬화에만 적용됩니다. **줄로 구분됨** 은 각 JSON 개체를 새 줄로 구분된 형식의 출력이 되도록 지정합니다. **줄로 구분됨** 을 선택하는 경우 JSON에서 한 번에 하나의 개체를 읽습니다. 전체 콘텐츠 자체는 유효한 JSON이 아닙니다.  **배열** 은 JSON 개체 배열 형식의 출력이 되도록 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로 출력 파일을 쓰는 동안 특별한 처리가 필요하지 않으므로 줄로 구분된 JSON을 사용하는 것이 좋습니다.|
+| 인증 모드 | [관리 id](stream-analytics-managed-identities-adls.md) (미리 보기) 또는 사용자 토큰을 사용 하 여 Data Lake Storage 계정에 대 한 액세스 권한을 부여할 수 있습니다. 액세스 권한이 부여되면 사용자 계정 암호를 변경하거나, 이 작업에 대한 Data Lake Storage 출력을 삭제하거나, Stream Analytics 작업을 삭제하여 액세스 권한을 철회할 수 있습니다. |
 
 ## <a name="partitioning"></a>분할
 
@@ -44,13 +44,9 @@ Stream Analytics의 Azure Data Lake Storage 출력은 Azure 중국 21Vianet 및 
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
-최대 메시지 크기는 [Data Lake Storage 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits)을 참조 하세요. 일괄 처리 크기를 최적화 하려면 쓰기 작업당 최대 4mb를 사용 합니다.
+최대 메시지 크기는 [Data Lake Storage 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits)을 참조 하세요. 일괄 처리 크기를 최적화 하려면 쓰기 작업당 최대 4mb를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+* [관리 되는 id를 사용 하 여 Azure Data Lake Storage Gen1에 Stream Analytics 인증 (미리 보기)](stream-analytics-managed-identities-adls.md)
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
-* [빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-cli.md)
-* [빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-resource-manager.md)
-* [빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
-* [빠른 시작: Visual Studio를 사용하여 Azure Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)

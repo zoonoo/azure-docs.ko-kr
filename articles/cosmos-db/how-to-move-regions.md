@@ -3,18 +3,20 @@ title: Azure Cosmos DB 계정을 다른 지역으로 이동
 description: Azure Cosmos DB 계정을 다른 지역으로 이동 하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: b34bc81f48b806b1016fbbd19d3ebc8bfef908c2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 29b5c5d3cf55cd11fe505c0d9ab9b894dc2ad267
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090536"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342031"
 ---
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>Azure Cosmos DB 계정을 다른 지역으로 이동
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 다음 중 하나를 수행 하는 방법을 설명 합니다.
 

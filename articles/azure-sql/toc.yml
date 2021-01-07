@@ -1,7 +1,11 @@
 - name: Azure SQL 설명서
   href: index.yml
-- name: Azure SQL란?
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: Azure SQL
+  items:
+    - name: Azure SQL란?
+      href: azure-sql-iaas-vs-paas-what-is-overview.md
+    - name: Azure SQL로 마이그레이션
+      href: migration-guides/index.yml
 - name: 공유 SQL DB & SQL MI 문서
   items:
     - name: 구매 모델
@@ -37,6 +41,8 @@
           href: database/scale-resources.md
         - name: 읽기 확장
           href: database/read-scale-out.md
+        - name: 분산 트랜잭션
+          href: database/elastic-transactions-overview.md
         - name: 보안
           items:
             - name: 개요
@@ -49,8 +55,6 @@
               href: ./database/security-controls-policy.md
             - name: 보안 기준
               href: database/security-baseline.md
-            - name: 보안 특성
-              href: database/security-controls.md
             - name: Azure Defender for SQL
               href: database/azure-defender-for-sql.md
             - name: Advanced Threat Protection
@@ -65,7 +69,9 @@
                   href: database/sql-vulnerability-assessment.md
                 - name: 취약성 평가 규칙
                   href: database/sql-database-vulnerability-assessment-rules.md
-                - name: 스토리지에 취약성 검색 저장
+                - name: 취약성 평가 규칙 changelog
+                  href: database/sql-database-vulnerability-assessment-rules-changelog.md
+                - name: 스토리지에 취약성 검사 저장
                   href: database/sql-database-vulnerability-assessment-storage.md
             - name: '로그인, 사용자 계정, 역할 및 사용 권한'
               href: database/logins-create-manage.md
@@ -118,7 +124,7 @@
             - name: 인텔리전스 Insights
               href: database/intelligent-insights-overview.md
             - name: SQL 분석
-              href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/azure-sql/toc.json
+              href: ../azure-monitor/insights/azure-sql.md?toc=%2fazure%2fazure-sql%2ftoc.json
             - name: 자동 조정
               href: database/automatic-tuning-overview.md
             - name: 메모리 내 OLTP
@@ -202,15 +208,15 @@
             - name: Spark 커넥터 사용
               href: database/spark-connector.md
             - name: ASP.NET App Service 사용
-              href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/azure-sql/toc.json
+              href: ../app-service/app-service-web-tutorial-dotnet-sqldatabase.md?toc=%2fazure%2fazure-sql%2ftoc.json
             - name: Azure Functions 사용
-              href: /azure/azure-functions/functions-scenario-database-table-cleanup?toc=/azure/azure-sql/toc.json
+              href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=%2fazure%2fazure-sql%2ftoc.json
             - name: Azure Logic Apps 사용
-              href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/azure-sql/toc.json
+              href: ../connectors/connectors-create-api-sqlazure.md?toc=%2fazure%2fazure-sql%2ftoc.json
             - name: Azure Cognitive Search를 사용하여 인덱싱
-              href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/azure-sql/toc.json
+              href: ../search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md?toc=%2fazure%2fazure-sql%2ftoc.json
             - name: 서버 쪽 CLR/.NET 통합
-              href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json'
+              href: /sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=%2fazure%2fazure-sql%2ftoc.json
             - name: Java
               items:
                 - name: Java 및 JDBC 사용
@@ -261,6 +267,8 @@
           items:
             - name: 서버 수준 IP 방화벽 규칙
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: GitHub 작업
+          href: database/connect-github-actions-sql-db.md
     - name: 자습서
       items:
         - name: 데이터베이스 설계
@@ -299,6 +307,16 @@
               href: database/sql-data-sync-sql-server-configure.md
             - name: 서버리스로 SQLite 마이그레이션
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+    - name: 마이그레이션 가이드
+      items:
+        - name: DB2에서
+          href: migration-guides/database/db2-to-sql-database-guide.md
+        - name: SQL Server에서
+          items:
+            - name: 개요
+              href: migration-guides/database/sql-server-to-sql-database-overview.md
+            - name: Migrate
+              href: migration-guides/database/sql-server-to-sql-database-guide.md
     - name: 개념
       items:
         - name: 연결 아키텍처
@@ -359,7 +377,7 @@
               href: database/network-access-controls-overview.md
             - name: DNS 별칭
               href: database/dns-alias-overview.md
-            - name: vNet 엔드포인트
+            - name: VNet 엔드포인트
               href: database/vnet-service-endpoint-rule-overview.md
             - name: Private Link
               href: database/private-endpoint-overview.md
@@ -497,12 +515,8 @@
               href: database/database-copy.md
             - name: SQL Database에 복제
               href: database/replication-to-sql-database.md
-            - name: SQL 데이터 동기화
-              items:
-                - name: 스키마 변경 내용 복제
-                  href: database/sql-data-sync-update-sync-schema.md
-                - name: OMS로 모니터링
-                  href: database/sql-data-sync-monitor-sync.md
+            - name: 스키마 변경 내용 복제(데이터 동기화)
+              href: database/sql-data-sync-update-sync-schema.md
         - name: 분할된 데이터베이스
           items:
             - name: 클라이언트 라이브러리 업그레이드
@@ -605,7 +619,7 @@
                           items:
                             - name: SQL Database 사용
                               href: database/saas-tenancy-tenant-analytics.md
-                            - name: Azure Synapse Analytics(이전의 SQL Data Warehouse) 사용
+                            - name: Azure Synapse Analytics 사용
                               href: database/saas-tenancy-tenant-analytics-adf.md
                     - name: 지역 복원을 사용하여 재해 복구
                       href: database/saas-dbpertenant-dr-geo-restore.md
@@ -698,6 +712,18 @@
               href: managed-instance/replication-between-two-instances-configure-tutorial.md
             - name: 'MI 게시, MI 배포, SQL 구독'
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
+    - name: 마이그레이션 가이드
+      items:
+        - name: DB2에서
+          href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+        - name: SQL Server에서
+          items:
+            - name: 개요
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+            - name: Migrate
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+            - name: 성능 기준선
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
     - name: 개념
       items:
         - name: 리소스 한계
@@ -729,25 +755,25 @@
                 - name: Python
                   items:
                     - name: Python 스크립트 실행
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: 데이터 구조 및 개체
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/tutorials/quickstart-python-data-structures?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: Python 함수
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/tutorials/quickstart-python-functions?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: 모델 학습 및 점수 매기기
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/tutorials/quickstart-python-train-score-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: ONNX 모델 배포
-                      href: /azure/azure-sql-edge/deploy-onnx?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+                      href: ../azure-sql-edge/deploy-onnx.md?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                 - name: R
                   items:
                     - name: R 스크립트 실행
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: 데이터 형식 및 개체
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: R 함수
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/tutorials/quickstart-r-functions?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: 모델 학습 및 점수 매기기
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/tutorials/quickstart-r-train-score-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 자습서
               items:
                 - name: Python
@@ -755,69 +781,69 @@
                     - name: 스키 대여(선형 회귀)
                       items:
                         - name: 1 - 소개
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 2 - 데이터 준비
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 3 - 모델 학습
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 4 - 모델 배포
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: 고객 분류(K-Means 클러스터링)
                       items:
                         - name: 1 - 소개
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-clustering-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 2 - 데이터 준비
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 3-모델 만들기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-clustering-model-build?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 4 - 모델 배포
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-clustering-model-deploy?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: NYC 택시 팁(분류)
                       items:
                         - name: 1 - 소개
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-taxi-classification-introduction?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 2 - 데이터 살펴보기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-taxi-classification-explore-data?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 3 - 기능 엔지니어링
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-taxi-classification-create-features?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 4 - 학습 및 배포
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-taxi-classification-train-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 5 - 예측
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/python-taxi-classification-deploy-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                 - name: R
                   items:
                     - name: 스키 대여(의사 결정 트리)
                       items:
                         - name: 1 - 소개
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-predictive-model-introduction?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 2 - 데이터 준비
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 3 - 모델 학습
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-predictive-model-train?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 4 - 모델 배포
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-predictive-model-deploy?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: 고객 분류(K-Means 클러스터링)
                       items:
                         - name: 1 - 소개
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-clustering-model-introduction?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 2 - 데이터 준비
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 3-모델 만들기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-clustering-model-build?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 4 - 모델 배포
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-clustering-model-deploy?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: NYC 택시 팁(분류)
                       items:
                         - name: 1 - 소개
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-taxi-classification-introduction?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 2 - 데이터 살펴보기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 3 - 기능 엔지니어링
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-taxi-classification-create-features?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 4 - 학습 및 배포
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-taxi-classification-train-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: 5 - 예측
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 방법
               items:
                 - name: 데이터 탐색 및 모델링
@@ -825,47 +851,81 @@
                     - name: Python
                       items:
                         - name: Python에서 히스토그램 그리기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-plot-histogram?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/data-exploration/python-plot-histogram?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: pandas 데이터 프레임으로 데이터 가져오기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/data-exploration/python-dataframe-pandas?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: SQL에 데이터 프레임 삽입
-                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/data-exploration/python-dataframe-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                - name: 데이터 형식 변환
+                  items:
+                    - name: Python to SQL
+                      href: /sql/machine-learning/python/python-libraries-and-data-types?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                    - name: R to SQL
+                      href: /sql/machine-learning/r/r-libraries-and-data-types?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                - name: 배포
+                  items:
+                    - name: 저장 프로시저를 사용하여 운영
+                      href: /sql/machine-learning/r/operationalizing-your-r-code?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                    - name: SQL Server에 대한 R 코드 변환
+                      href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                    - name: sqlrutils를 사용하여 저장 프로시저 만들기
+                      href: /sql/machine-learning/r/how-to-create-a-stored-procedure-using-sqlrutils?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                 - name: 예측
                   items:
                     - name: PREDICT T-SQL로 네이티브 점수 매기기
-                      href: 'https://docs.microsoft.com/sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                      href: /sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                 - name: 패키지 관리
                   items:
                     - name: 새 Python 패키지 설치
                       items:
                         - name: Python 패키지 정보 가져오기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/package-management/python-package-information?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: sqlmlutils를 사용하여 설치
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                     - name: 새 R 패키지 설치
                       items:
                         - name: R 패키지 정보 가져오기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/package-management/r-package-information?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: sqlmlutils를 사용하여 설치
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: miniCRAN 리포지토리 만들기
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
                         - name: R 패키지 사용 팁
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                          href: /sql/machine-learning/package-management/tips-for-using-r-packages?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                - name: 관리
+                  items:
+                    - name: 모니터
+                      items:
+                        - name: SSMS 보고서를 사용한 모니터링
+                          href: /sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-custom-reports-management-studio?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                        - name: DMV를 사용하여 모니터링
+                          href: /sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-dynamic-management-views?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                        - name: 확장 이벤트
+                          items:
+                            - name: 확장 이벤트를 사용하여 모니터링
+                              href: /sql/machine-learning/administration/extended-events?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                            - name: PREDICT T-SQL 모니터링
+                              href: /sql/machine-learning/administration/extended-events-predict-tsql?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+                - name: 보안
+                  items:
+                    - name: 사용자에게 사용 권한 제공
+                      href: /sql/machine-learning/security/user-permission?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: 기능
           items:
             - name: 연결된 서버
-              href: 'https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/azure-sql/toc.json'
+              href: /sql/relational-databases/linked-servers/linked-servers-database-engine?toc=%2fazure%2fazure-sql%2ftoc.json
             - name: Service Broker
-              href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json'
+              href: /sql/database-engine/configure-windows/sql-server-service-broker?toc=%2fazure%2fazure-sql%2ftoc.json
             - name: 데이터베이스 메일
-              href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json'
+              href: /sql/relational-databases/database-mail/database-mail?toc=%2fazure%2fazure-sql%2ftoc.json
         - name: 보안
           items:
             - name: 보안 공용 엔드포인트
               href: managed-instance/public-endpoint-overview.md
             - name: 감사
               href: managed-instance/auditing-configure.md
+            - name: 서버 트러스트 그룹
+              href: managed-instance/server-trust-group-overview.md
     - name: 방법
       items:
         - name: 개요
@@ -945,7 +1005,7 @@
                   href: virtual-machines/windows/backup-restore.md
                 - name: 백업용 Azure Storage
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
-                - name: Always On 가용성 그룹
+                - name: AG(가용성 그룹)
                   href: virtual-machines/windows/availability-group-overview.md
                 - name: 장애 조치(Failover) 클러스터 인스턴스
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
@@ -961,6 +1021,8 @@
                   href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: 관리
               items:
+                - name: SQL IaaS 에이전트 확장
+                  href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
                 - name: 전용 호스트
                   href: virtual-machines/windows/dedicated-host.md
                 - name: SQL 2008 및 R2에 대한 지원 확장
@@ -989,23 +1051,23 @@
                   href: virtual-machines/windows/change-sql-server-version.md
                 - name: 스토리지
                   href: virtual-machines/windows/storage-configuration.md
+                - name: 자동화된 패치
+                  href: virtual-machines/windows/automated-patching.md
                 - name: Azure Key Vault 통합
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: 스토리지를 UltraSSD로 마이그레이션
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: SQL VM RP에 등록
-                  displayName: 'resource provider, registration'
+                - name: SQL 취약성 평가 사용
+                  href: virtual-machines/windows/sql-vulnerability-assessment-enable.md
+                - name: SQL IaaS 에이전트 확장 설치
+                  displayName: 'resource provider, registration, sql vm rp'
                   items:
+                    - name: 자동 등록
+                      href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
                     - name: 단일 VM
-                      href: virtual-machines/windows/sql-vm-resource-provider-register.md
+                      href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
                     - name: 여러 VM 대량 등록
-                      href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-                - name: 관리 작업 자동화
-                  items:
-                    - name: SQL Server IaaS 에이전트 확장 사용
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: 자동화된 패치
-                      href: virtual-machines/windows/automated-patching.md
+                      href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
             - name: 마이그레이션
               items:
                 - name: SQL Server 데이터베이스를 VM으로 마이그레이션
@@ -1020,28 +1082,40 @@
                       href: virtual-machines/windows/automated-backup.md
                     - name: 자동화된 백업(SQL 2014)
                       href: virtual-machines/windows/automated-backup-sql-2014.md
-                - name: Always On 가용성 그룹
+                - name: AG(가용성 그룹)
                   items:
-                    - name: Azure portal
-                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
-                    - name: PowerShell 또는 Az CLI
-                      href: virtual-machines/windows/availability-group-az-commandline-configure.md
-                    - name: Azure 빠른 시작 템플릿
-                      href: virtual-machines/windows/availability-group-quickstart-template-configure.md
-                    - name: 다중 영역
-                      href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
-                    - name: 도메인 독립형(작업 그룹)
-                      href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-                    - name: 수동으로 구성
+                    - name: AG 만들기
                       items:
-                        - name: 사전 요구 사항
-                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-                        - name: 자습서
-                          href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
-                        - name: 부하 분산 장치 - Azure Portal
-                          href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
-                        - name: 부하 분산 장치 - Azure PowerShell
-                          href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                        - name: Azure portal
+                          href: virtual-machines/windows/availability-group-azure-portal-configure.md
+                        - name: PowerShell 또는 Az CLI
+                          href: virtual-machines/windows/availability-group-az-commandline-configure.md
+                        - name: Azure 빠른 시작 템플릿
+                          href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+                        - name: 다중 영역
+                          href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                        - name: 도메인 독립형(작업 그룹)
+                          href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+                        - name: 수동으로 구성
+                          items:
+                            - name: 필수 구성 요소
+                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+                            - name: 자습서
+                              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                            - name: 부하 분산 장치 - Azure Portal
+                              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+                            - name: 부하 분산 장치 - Azure PowerShell
+                              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                    - name: 연결 구성
+                      items:
+                        - name: VNN 수신기
+                          displayName: virtual network name
+                          href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+                        - name: DNN 수신기
+                          displayName: distributed network name
+                          href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+                        - name: DNN 상호 운용성
+                          href: virtual-machines/windows/availability-group-dnn-interoperability.md
                 - name: 장애 조치 클러스터 인스턴스(FCI)
                   items:
                     - name: FCI용 VM 준비
@@ -1054,16 +1128,14 @@
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
                         - name: 프리미엄 파일 공유(Win2012+)
                           href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-                    - name: DNN(분산 네트워크 이름)
+                    - name: 연결 구성
                       items:
-                        - name: FCI용 DNN 만들기
-                          href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: FCI DNN 및 SQL Server 기능
+                        - name: VNN(가상 네트워크 이름)
+                          href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
+                        - name: DNN(분산 네트워크 이름)
+                          href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
+                        - name: DNN 상호 운용성
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
-                - name: 연결 구성
-                  items:
-                    - name: VNN(가상 네트워크 이름)
-                      href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
         - name: 참조
           items:
             - name: Azure PowerShell
@@ -1071,9 +1143,9 @@
             - name: Azure CLI
               href: /cli/azure/
             - name: T-SQL
-              href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+              href: /sql/t-sql/language-reference
             - name: SQL Server 드라이버
-              href: 'https://docs.microsoft.com/sql/connect/sql-connection-libraries'
+              href: /sql/connect/sql-connection-libraries
             - name: REST (영문)
               href: /rest/api/
             - name: Azure Policy 기본 제공 기능
@@ -1088,11 +1160,11 @@
             - name: 보관된 클래식 RM 문서
               href: /previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create
             - name: SSDT(SQL Server Data Tools)
-              href: '/https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
+              href: /sql/ssdt/download-sql-server-data-tools-ssdt
             - name: SSMS(SQL Server Management Studio)
-              href: 'https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms'
+              href: /sql/ssms/download-sql-server-management-studio-ssms
             - name: SQL Server 도구
-              href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
+              href: /sql/tools/overview-sql-tools
             - name: Azure 로드맵
               href: 'https://azure.microsoft.com/roadmap/?category=compute'
             - name: MSDN 포럼
@@ -1120,15 +1192,23 @@
             - name: FAQ
               href: virtual-machines/linux/frequently-asked-questions-faq.md
             - name: Linux의 SQL Server 설명서
-              href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-overview'
+              href: /sql/linux/sql-server-linux-overview
             - name: SSDT(SQL Server Data Tools)
-              href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
+              href: /sql/ssdt/download-sql-server-data-tools-ssdt
             - name: SQL Server 도구
-              href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
+              href: /sql/tools/overview-sql-tools
             - name: Azure 로드맵
               href: 'https://azure.microsoft.com/roadmap/?category=compute'
             - name: Stack Overflow
               href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
+    - name: 마이그레이션 가이드
+      items:
+        - name: 개요
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
+        - name: SQL Server에서
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+        - name: DB2에서
+          href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
 - name: 참조
   items:
     - name: T-SQL 언어 참조
@@ -1150,14 +1230,14 @@
       href: /sql/tools/overview-sql-tools
     - name: SSMS(SQL Server Management Studio)
       href: /sql/ssms/download-sql-server-management-studio-ssms
-    - name: SQL Server Data Tools(SSDT)
+    - name: SSDT(SQL Server Data Tools)
       href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
       href: /sql/tools/bcp-utility
     - name: SQLCMD
       href: /sql/tools/sqlcmd-utility
     - name: SqlPackage
-      href: 'https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/azure-sql/toc.json'
+      href: /sql/tools/sqlpackage?toc=%2fazure%2fazure-sql%2ftoc.json
     - name: SQL Database 관리 라이브러리 패키지
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
     - name: SQL 연결 드라이버
@@ -1210,6 +1290,8 @@
           href: database/database-import-export-hang.md
     - name: 서비스 업데이트
       items:
+        - name: SSL 루트 인증서 만료
+          href: updates/ssl-root-certificate-expiring.md
         - name: 게이트웨이 IP 주소 업데이트
           href: database/gateway-migration.md
         - name: 정기적인 유지 관리 이벤트

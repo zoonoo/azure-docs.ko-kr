@@ -4,18 +4,20 @@ description: Azure Cosmos DB의 API for MongoDB를 사용하여 일정 기간이
 author: sivethe
 ms.author: sivethe
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f2168338031b8c5b81fd1998f71adf47dcadc44e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 6ef3092c611e1eede2be1e0994ce69959a46f1d7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020714"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340926"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 만료
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 TTL(Time to Live) 기능을 통해 자동으로 데이터를 만료시킬 수 있습니다. Azure Cosmos DB의 API for MongoDB는 Cosmos DB의 핵심 TTL 기능을 활용합니다. 전체 컬렉션에 기본 TTL 값을 설정하는 모드와 각 문서의 개별 TTL 값을 설정하는 두 가지 모드가 지원됩니다. Cosmos DB의 API for MongoDB에서 TTL 인덱스 및 문서별 TTL 값을 제어하는 논리는 [Cosmos DB와 동일합니다](../cosmos-db/mongodb-indexing.md).
 
@@ -37,7 +39,7 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 위 예제의 명령은 TTL 기능을 사용하여 인덱스를 만듭니다. 인덱스가 만들어지면 데이터베이스는 마지막 10초 후에 수정되지 않은 컬렉션의 모든 문서를 자동으로 삭제합니다. 
 
 > [!NOTE]
-> **_ts**는 Cosmos DB 전용 필드이며 MongoDB 클라이언트에서 액세스할 수 없습니다. 문서의 마지막 수정의 타임스탬프를 포함하는 예약된(시스템) 속성입니다.
+> **_ts** 는 Cosmos DB 전용 필드이며 MongoDB 클라이언트에서 액세스할 수 없습니다. 문서의 마지막 수정의 타임스탬프를 포함하는 예약된(시스템) 속성입니다.
 >
     
 또한 C# 예제는 다음과 같습니다. 

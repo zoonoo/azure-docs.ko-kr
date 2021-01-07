@@ -1,5 +1,5 @@
 ---
-title: 자습서 - IoT Edge 라이브 비디오 분석 모듈 수정
+title: 자습서 - Azure IoT Edge 라이브 비디오 분석 모듈 수정
 description: 이 자습서에서는 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿에서 사용하는 라이브 비디오 분석 게이트웨이 모듈을 수정하고 빌드하는 방법을 보여 줍니다.
 services: iot-central
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: d21eb8d8d79ec04f0f7e766b4eeb370811553e64
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037995"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124897"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>자습서: 라이브 비디오 분석 게이트웨이 모듈 수정 및 빌드
 
@@ -28,8 +28,8 @@ ms.locfileid: "88037995"
 * [Node.js](https://nodejs.org/en/download/) v10 이상
 * [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) 확장이 설치된 [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Docker](https://www.docker.com/products/docker-desktop) 엔진
-* 모듈 버전을 호스트하는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)
-* [Azure Media Services](https://docs.microsoft.com/azure/media-services/) 계정 이전 자습서를 완료한 경우 이전에 만든 자습서를 다시 사용할 수 있습니다.
+* 모듈 버전을 호스트하는 [Azure Container Registry](../../container-registry/index.yml)
+* [Azure Media Services](../../media-services/index.yml) 계정 이전 자습서를 완료한 경우 이전에 만든 자습서를 다시 사용할 수 있습니다.
 
 ## <a name="clone-the-repository"></a>리포지토리 복제
 
@@ -50,7 +50,7 @@ VS Code를 사용하여 로컬 *live-video-analytics* 리포지토리 폴더를 
 1. `LvaEdgeGatewayModule` 모듈 섹션을 편집하여 `env:amsAccountName:value`에 이미지 이름과 AMS 계정 이름을 추가합니다.
 1. `lvaYolov3` 모듈 섹션을 편집하고 이미지의 이름을 추가합니다.
 1. `lvaEdge` 모듈 섹션을 편집하고 이미지의 이름을 추가합니다.
-1. 구성을 완료하는 방법에 대한 자세한 내용은 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](tutorial-video-analytics-create-app.md)를 참조하세요.
+1. 구성을 완료하는 방법에 대한 자세한 내용은 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](tutorial-video-analytics-create-app-yolo-v3.md)를 참조하세요.
 
 ## <a name="build-the-code"></a>코드 빌드
 

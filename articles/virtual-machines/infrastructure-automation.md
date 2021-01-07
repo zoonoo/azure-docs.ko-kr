@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: dfa0efaa49fbca0b927bfd32511348f3ded7e6c7
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830549"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96302804"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 
@@ -53,13 +53,13 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 방법 배우기:
 
-- [Azure Marketplace에서 Puppet 배포(영문)](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview)
+- [퍼핏를 배포](https://puppet.com/docs/puppet/5.5/install_windows.html)합니다.
 
 
 ## <a name="cloud-init"></a>Cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io)는 처음 부팅 시 Linux VM을 사용자 지정하는 데 널리 사용되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 호출되므로 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.  `#cloud-config` 파일의 형식을 제대로 지정하는 방법에 대한 자세한 내용은 [cloud-init 설명서 사이트](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)를 참조하세요.  `#cloud-config` 파일은 base64로 인코딩된 텍스트 파일입니다.
 
-Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install**은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
+Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install** 은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
 
 Azure Marketplace에서 클라우드 초기화 사용 이미지를 사용할 수 있도록 보증 Linux 배포판 파트너와 적극적으로 작업 하 고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다.
 Azure의 cloud-Init에 대한 자세한 정보
@@ -124,7 +124,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/)는 코드 공유 및 추적, 자동화된 빌드 사용 및 완전한 CI/CD(연속 통합 및 연속 개발) 파이프라인 만들기를 지원하는 도구 모음입니다. Azure DevOps Services는 Visual Studio 및 다른 편집기와 통합되어 사용을 간소화합니다. 또한 Azure DevOps Services로 Azure VM을 만들고 구성한 다음, Azure VM에 코드를 배포할 수도 있습니다.
 
-다음에 대해 자세히 알아봅니다.
+다음에 대해 자세히 알아보세요.
 
 - [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
 
@@ -134,7 +134,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기](/azure/developer/jenkins/pipeline-with-github-and-docker)
+- [Jenkins, GitHub 및 Docker를 사용 하 여 Azure에서 LINUX VM에 개발 인프라를 만듭니다](/azure/developer/jenkins/pipeline-with-github-and-docker).
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿

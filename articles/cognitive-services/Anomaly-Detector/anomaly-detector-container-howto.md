@@ -1,44 +1,49 @@
 ---
-title: 변칙 탐지기 API를 사용 하기 위해 컨테이너를 설치 하 고 실행 하는 방법
+title: 변칙 탐지기 API에 대 한 Docker 컨테이너를 설치 하 고 실행 합니다.
 titleSuffix: Azure Cognitive Services
-description: 변칙 탐지기 API의 고급 알고리즘을 사용 하기 위해 컨테이너를 설치 하 고 사용 하는 방법에 대해 알아봅니다.
+description: Docker 컨테이너를 사용 하 여 온-프레미스 데이터의 비정상 상태를 찾으려면 변칙 탐지기 API의 알고리즘을 사용 합니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/28/2020
+ms.author: mbullwin
+ms.custom: cog-serv-seo-aug-2020
+keywords: 온-프레미스, Docker, 컨테이너, 스트리밍, 알고리즘
+ms.openlocfilehash: 70e5950f6577ce2cca2f28be070f3ba372d46a7e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903558"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862301"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Anomaly Detector 컨테이너 설치 및 실행 
+# <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>변칙 탐지기 API에 대 한 Docker 컨테이너를 설치 하 고 실행 합니다. 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-Anomaly Detector에는 다음과 같은 컨테이너 기능이 있습니다.
+컨테이너를 사용 하면 사용자 고유의 환경을 사용 하 여 변칙 탐지기 API를 사용할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 변칙 탐지기 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대해 알아봅니다.
 
-| 함수 | 기능 |
-|--|--|
-| 변칙 감지기 | <li> 는 실시간으로 발생 하는 변칙을 검색 합니다. <li> 일괄 처리로 데이터 집합 전체에서 변칙을 검색 합니다. <li> 데이터 집합에서 일괄 처리로 추세 변경 점을 검색 합니다.<li> 데이터의 정상적인 범위를 유추 합니다. <li> 데이터에 더 잘 맞도록 변칙 검색 민감도 조정을 지원 합니다. |
+변칙 탐지기는 API 온-프레미스를 사용 하기 위한 단일 Docker 컨테이너를 제공 합니다. 컨테이너를 사용 하 여 다음을 수행 합니다.
+* 데이터에 변칙 탐지기 알고리즘 사용
+* 스트리밍 데이터를 모니터링 하 고 실시간으로 발생 하는 변칙을 검색 합니다.
+* 일괄 처리로 데이터 세트 전체의 변칙을 검색합니다. 
+* 데이터 집합의 추세 변경 사항을 일괄 처리로 검색 합니다.
+* 변칙 검색 알고리즘의 민감도를 데이터에 맞게 조정 합니다.
 
-Api에 대 한 자세한 내용은 다음을 참조 하세요.
+API에 대 한 자세한 내용은 다음을 참조 하세요.
 * [변칙 탐지기 API 서비스에 대 한 자세한 정보](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 변칙 탐지기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
 |필수|목적|
 |--|--|
-|Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
+|Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
 |변칙 탐지기 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결 된 API 키와 끝점 URI를 가져오는 Azure _변칙 탐지기_ 리소스입니다. 두 값은 모두 Azure Portal의 **변칙 탐지기** 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}**: **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}**: **개요** 페이지에 제공 된 끝점입니다.|
 
@@ -48,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-<!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
+<!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
@@ -169,10 +174,6 @@ ApiKey={API_KEY}
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](anomaly-detector-container-configuration.md)을 참조하세요.
-
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>요약
 

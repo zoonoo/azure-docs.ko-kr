@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: ggailey777
 ms.service: azure-functions
@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a925076dfccd30c73febb2aadc8692667ea01525
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 218e98e65c7c78272f32f75a0fdb93e4d87e6948
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76279473"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167725"
 ---
-[Application Insights에서 샘플링 기능](../articles/azure-functions/functions-monitoring.md#configure-sampling)을 제어합니다.
+[Application Insights에서 샘플링 기능](../articles/azure-functions/configure-monitoring.md#configure-sampling)을 제어합니다.
 
 ```json
 {

@@ -4,12 +4,12 @@ description: Visual Studio 2019 용 Azure Functions 도구를 사용 하 여 Azu
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 0ee5d270db2149be0cfbf6bf06f87a5d0133c6ef
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612812"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655818"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -42,7 +42,7 @@ Visual Studio는 함수를 개발할 때 다음과 같은 이점을 제공 합�
 
 ### <a name="check-your-tools-version-in-visual-studio-2017"></a><a name="check-your-tools-version"></a>Visual Studio 2017에서 도구 버전 확인
 
-1. **도구** 메뉴에서 **확장 및 업데이트**를 선택합니다. **설치 된**  >  **도구**를 확장 한 다음 **Azure Functions 및 웹 작업 도구**를 선택 합니다.
+1. **도구** 메뉴에서 **확장 및 업데이트** 를 선택합니다. **설치 된**  >  **도구** 를 확장 한 다음 **Azure Functions 및 웹 작업 도구** 를 선택 합니다.
 
     ![함수 도구 버전 확인](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
@@ -52,15 +52,15 @@ Visual Studio는 함수를 개발할 때 다음과 같은 이점을 제공 합�
 
 ### <a name="update-your-tools-in-visual-studio-2017"></a>Visual Studio 2017에서 도구 업데이트
 
-1. **확장명 및 업데이트** 대화 상자에서 **업데이트** > **Visual Studio Marketplace**를 확장하고, **Azure Functions 및 웹 작업 도구**를 선택하고 **업데이트**를 선택합니다.
+1. **확장명 및 업데이트** 대화 상자에서 **업데이트** > **Visual Studio Marketplace** 를 확장하고, **Azure Functions 및 웹 작업 도구** 를 선택하고 **업데이트** 를 선택합니다.
 
     ![함수 도구 버전 업데이트](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
-1. 도구 업데이트가 다운로드 되 면 **닫기**를 선택 하 고 Visual Studio를 닫고 VSIX 설치 관리자를 사용 하 여 도구 업데이트를 트리거합니다.
+1. 도구 업데이트가 다운로드 되 면 **닫기** 를 선택 하 고 Visual Studio를 닫고 VSIX 설치 관리자를 사용 하 여 도구 업데이트를 트리거합니다.
 
 1. VSIX 설치 관리자에서 **수정** 을 선택 하 여 도구를 업데이트 합니다. 
 
-1. 업데이트가 완료 되 면 **닫기**를 선택 하 고 Visual Studio를 다시 시작 합니다.
+1. 업데이트가 완료 되 면 **닫기** 를 선택 하 고 Visual Studio를 다시 시작 합니다.
 
 > [!NOTE]  
 > Visual Studio 2019 이상에서 Azure Functions 도구 확장은 Visual Studio의 일부로 업데이트 됩니다.  
@@ -76,7 +76,7 @@ Azure Functions 프로젝트를 만든 후 프로젝트 템플릿은 c # 프로�
 * **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 실행 하는 경우에는 사용 되지 않습니다. 자세한 내용은 [로컬 설정 파일](#local-settings-file)을 참조 하세요.
 
     >[!IMPORTANT]
-    >파일의 local.settings.js는 암호를 포함할 수 있으므로 프로젝트 소스 제어에서 제외 해야 합니다. 이 파일의 **출력 디렉터리로 복사** 설정이 **새 버전이 면 복사**로 설정 되어 있는지 확인 합니다. 
+    >파일의 local.settings.js는 암호를 포함할 수 있으므로 프로젝트 소스 제어에서 제외 해야 합니다. 이 파일의 **출력 디렉터리로 복사** 설정이 **새 버전이 면 복사** 로 설정 되어 있는지 확인 합니다. 
 
 자세한 내용은 [Functions 클래스 라이브러리 프로젝트](functions-dotnet-class-library.md#functions-class-library-project)를 참조하세요.
 
@@ -86,15 +86,27 @@ Visual Studio는 프로젝트를 게시할 때 local.settings.js의 설정을 �
 
 코드에서 함수 앱 설정 값을 환경 변수로 읽을 수도 있습니다. 자세한 내용은 [환경 변수](functions-dotnet-class-library.md#environment-variables)를 참조하세요.
 
+## <a name="configure-your-build-output-settings"></a>빌드 출력 설정 구성
+
+Azure Functions 프로젝트를 빌드할 때 빌드 도구는 함수 런타임과 공유 되는 어셈블리의 복사본 하나만 유지 되도록 출력을 최적화 합니다. 결과는 최대한 많은 공간을 절약 하는 최적화 된 빌드입니다. 그러나 더 최신 버전의 프로젝트 어셈블리로 이동 하면 빌드 도구에서 이러한 어셈블리를 유지 해야 한다는 것을 알지 못할 수 있습니다. 이러한 어셈블리가 최적화 프로세스 중에 유지 되는지 확인 하려면 `FunctionsPreservedDependencies` 프로젝트 (.csproj) 파일의 요소를 사용 하 여 해당 어셈블리를 지정할 수 있습니다.
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
+
 ## <a name="configure-the-project-for-local-development"></a>로컬 개발에 대한 프로젝트 구성
 
 함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹 후크가 아닌 모든 트리거 형식에 대해 `Values.AzureWebJobsStorage` 키를 유효한 Azure Storage 계정 연결 문자열로 설정 합니다. 함수 앱은 프로젝트에 필요한 연결 설정에 [Azure Storage 에뮬레이터](../storage/common/storage-use-emulator.md) 를 사용할 수도 있습니다 `AzureWebJobsStorage` . 에뮬레이터를 사용 하려면 값을 `AzureWebJobsStorage` 로 설정 `UseDevelopmentStorage=true` 합니다. 배포 하기 전에이 설정을 실제 저장소 계정 연결 문자열로 변경 합니다.
 
 스토리지 계정 연결 문자열을 설정하려면 다음을 수행합니다.
 
-1. Visual Studio에서 **뷰**  >  **클라우드 탐색기**를 선택 합니다.
+1. Visual Studio에서 **뷰**  >  **클라우드 탐색기** 를 선택 합니다.
 
-2. **클라우드 탐색기**에서 **저장소 계정**을 확장 하 고 저장소 계정을 선택 합니다. **속성** 탭에서 **기본 연결 문자열** 값을 복사 합니다.
+2. **클라우드 탐색기** 에서 **저장소 계정** 을 확장 하 고 저장소 계정을 선택 합니다. **속성** 탭에서 **기본 연결 문자열** 값을 복사 합니다.
 
 2. 프로젝트에서 파일에 local.settings.js을 열고 키 값을 `AzureWebJobsStorage` 복사한 연결 문자열로 설정 합니다.
 
@@ -104,11 +116,11 @@ Visual Studio는 프로젝트를 게시할 때 local.settings.js의 설정을 �
 
 C # 클래스 라이브러리 함수에서 함수에 사용 되는 바인딩은 코드에서 특성을 적용 하 여 정의 됩니다. 제공 된 템플릿에서 함수 트리거를 만들 때 트리거 특성이 적용 됩니다. 
 
-1. **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭 하 고 **Add**  >  **새 항목**추가를 선택 합니다. 
+1. **솔루션 탐색기** 에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭 하 고   >  **새 항목** 추가를 선택 합니다. 
 
-2. **Azure Function**을 선택 하 고 클래스의 **이름을** 입력 한 다음 **추가**를 선택 합니다.
+2. **Azure Function** 을 선택 하 고 클래스의 **이름을** 입력 한 다음 **추가** 를 선택 합니다.
 
-3. 트리거를 선택 하 고 바인딩 속성을 설정한 다음 **확인**을 선택 합니다. 다음 예에서는 Queue storage 트리거 함수를 만드는 설정을 보여 줍니다. 
+3. 트리거를 선택 하 고 바인딩 속성을 설정한 다음 **확인** 을 선택 합니다. 다음 예에서는 Queue storage 트리거 함수를 만드는 설정을 보여 줍니다. 
 
     ![Queue storage 트리거 함수 만들기](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
@@ -216,7 +228,7 @@ Azure에서 함수 앱에 필요한 설정을 업로드 하는 가장 쉬운 방
 
 ![애플리케이션 설정](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
-**Local** 은 파일에 대 한 local.settings.js설정 값을 표시 하 고, **원격** 은 Azure의 함수 앱에 현재 설정 값을 표시 합니다. **설정 추가**를 선택하여 새로운 앱 설정을 만듭니다. **로컬 값 삽입** 링크를 사용하여 **원격** 필드에 설정 값을 복사합니다. **확인**을 선택하면 보류 중인 변경 내용이 로컬 설정 파일 및 함수 앱에 기록됩니다.
+**Local** 은 파일에 대 한 local.settings.js설정 값을 표시 하 고, **원격** 은 Azure의 함수 앱에 현재 설정 값을 표시 합니다. **설정 추가** 를 선택하여 새로운 앱 설정을 만듭니다. **로컬 값 삽입** 링크를 사용하여 **원격** 필드에 설정 값을 복사합니다. **확인** 을 선택하면 보류 중인 변경 내용이 로컬 설정 파일 및 함수 앱에 기록됩니다.
 
 > [!NOTE]
 > 기본적으로 파일에 local.settings.js는 소스 제어에 체크 인 되지 않습니다. 즉, 소스 제어에서 로컬 함수 프로젝트를 복제 하는 경우 프로젝트에는 파일에 대 한 local.settings.js없습니다. 이 경우 **응용 프로그램 설정** 대화 상자가 정상적으로 작동 하도록 프로젝트 루트에서 파일에 local.settings.js를 수동으로 만들어야 합니다. 
@@ -229,11 +241,9 @@ Azure에서 함수 앱에 필요한 설정을 업로드 하는 가장 쉬운 방
 
 ## <a name="monitoring-functions"></a>함수 모니터링
 
-함수 실행을 모니터링할 때는 Azure Application Insights와 함수 앱을 통합하는 방식을 사용하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Visual Studio 게시 중에 함수 앱을 만들 때는 Azure에서 함수 앱 통합이 수행되지 않습니다.
+함수 실행을 모니터링할 때는 Azure Application Insights와 함수 앱을 통합하는 방식을 사용하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Visual Studio 게시 중에 함수 앱을 만들 때는 Azure에서 함수 앱 통합이 수행되지 않습니다. Application Insights 함수 앱에 연결 하는 방법에 대 한 자세한 내용은 [Application Insights 통합 사용](configure-monitoring.md#enable-application-insights-integration)을 참조 하세요.
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+Application Insights를 사용 하 여 모니터링 하는 방법에 대 한 자세한 내용은 [Monitor Azure Functions](functions-monitoring.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 6f13a465aa43f0c45fa99d2ea396a5ca92d75d66
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 47cf0a1f1d40b9e8358d6bdb4a3ea6a501b67da2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446286"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439207"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Azure Portal을 사용하여 Log Analytics 작업 영역에 Azure 활동 로그 보내기
 활동 로그는 구독 수준 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Log Analytics 작업 영역 및 Azure Monitor Logs에 활동 로그를 보내는 진단 설정을 만드는 방법을 보여 줍니다. Azure Monitor Logs에서는 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 활동 로그를 분석하고 [로그 경고](../platform/alerts-log-query.md) 및 [통합 문서](../platform/workbooks-overview.md)와 같은 다른 기능을 사용할 수 있습니다. 
@@ -24,7 +24,7 @@ ms.locfileid: "85446286"
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 Azure Portal에서 **Log Analytics 작업 영역**을 검색한 다음, 선택합니다. 
 
-![Azure portal](media/quick-create-workspace/azure-portal-01.png)
+![검색 상자의 "로그 분석 작업 영역"과 서비스 아래에 강조 표시된 Log Analytics 작업 영역을 보여주는 Azure Portal의 스크린샷.](media/quick-create-workspace/azure-portal-01.png)
   
 **추가**를 클릭한 다음, **리소스 그룹**, 작업 영역 **이름** 및 **위치**에 대한 값을 제공합니다. 작업 영역 이름은 모든 Azure 구독에서 고유해야 합니다.
 
@@ -36,7 +36,7 @@ Azure Portal에서 **Log Analytics 작업 영역**을 검색한 다음, 선택�
 ## <a name="create-diagnostic-setting"></a>진단 설정 만들기
 Azure Portal에서 **모니터**를 검색한 다음, 선택합니다. 
 
-![Azure portal](media/quick-collect-activity-log/azure-portal-monitor.png)
+![검색 상자에 "모니터"가 있고 서비스 아래에 모니터가 강조 표시된 Azure Portal의 스크린샷.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 **활동 로그**를 선택합니다. 현재 구독에 대한 최근 이벤트를 확인해야 합니다. **진단 설정**을 클릭하여 구독에 대한 진단 설정을 봅니다.
 

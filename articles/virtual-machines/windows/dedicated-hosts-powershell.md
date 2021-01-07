@@ -5,19 +5,19 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/01/2019
+ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 599d13daac2e062c8f71f5f7d7133646a1447123
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f8f2d9eb14e1272af126c9a6d6663f41aaee33f
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266591"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005089"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Azure PowerShell를 사용 하 여 전용 호스트에 Vm 배포
 
-이 문서에서는 VM(가상 머신)을 호스팅하는 Azure [전용 호스트](dedicated-hosts.md)를 만드는 방법을 안내합니다. 
+이 문서에서는 VM(가상 머신)을 호스팅하는 Azure [전용 호스트](../dedicated-hosts.md)를 만드는 방법을 안내합니다. 
 
 Azure PowerShell 버전 2.8.0 이상을 설치 했는지 확인 하 고를 사용 하 여의 Azure 계정에 로그인 `Connect-AzAccount` 합니다. 
 
@@ -28,7 +28,7 @@ Azure PowerShell 버전 2.8.0 이상을 설치 했는지 확인 하 고를 사�
 
 ## <a name="create-a-host-group"></a>호스트 그룹 만들기
 
-**호스트 그룹**은 전용 호스트의 모음을 나타내는 리소스입니다. 영역 및 가용성 영역에서 호스트 그룹을 만들고 여기에 호스트를 추가합니다. 고가용성을 계획할 때 추가 옵션을 사용할 수 있습니다. 전용 호스트에서 다음 옵션 중 하나 또는 둘 다를 사용할 수 있습니다. 
+**호스트 그룹** 은 전용 호스트의 모음을 나타내는 리소스입니다. 영역 및 가용성 영역에서 호스트 그룹을 만들고 여기에 호스트를 추가합니다. 고가용성을 계획할 때 추가 옵션을 사용할 수 있습니다. 전용 호스트에서 다음 옵션 중 하나 또는 둘 다를 사용할 수 있습니다. 
 - 여러 가용성 영역으로 확장. 이 경우에는 사용하려는 각 영역에 호스트 그룹이 있어야 합니다.
 - 실제 랙에 매핑된 여러 장애 도메인으로 확장. 
  
@@ -49,6 +49,10 @@ $hostGroup = New-AzHostGroup `
    -ResourceGroupName $rgName `
    -Zone 1
 ```
+
+
+`-SupportAutomaticPlacement true`호스트 그룹 내에서 vm 및 확장 집합 인스턴스가 호스트에 자동으로 배치 되도록 매개 변수를 추가 합니다. 자세한 내용은 [수동 및 자동 배치 ](../dedicated-hosts.md#manual-vs-automatic-placement)를 참조 하세요.
+
 
 ## <a name="create-a-host"></a>호스트 만들기
 
@@ -165,6 +169,27 @@ Location               : eastus
 Tags                   : {}
 ```
 
+## <a name="create-a-scale-set"></a>확장 집합 만들기 
+
+확장 집합을 배포 하는 경우 호스트 그룹을 지정 합니다.
+
+```azurepowershell-interactive
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myDHScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"`
+  -HostGroupId $hostGroup.Id
+```
+
+확장 집합을 배포할 호스트를 수동으로 선택 하려면 `--host` 및 호스트의 이름을 추가 합니다.
+
+
+
 ## <a name="add-an-existing-vm"></a>기존 VM 추가 
 
 전용 호스트에 기존 VM을 추가할 수 있지만 VM은 먼저 Stop\Deallocated. VM을 전용 호스트로 이동 하기 전에 VM 구성이 지원 되는지 확인 합니다.
@@ -244,4 +269,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 샘플 템플릿을 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에서 확인할 수 있습니다.
 
-- [Azure Portal](dedicated-hosts-portal.md)를 사용 하 여 전용 호스트를 배포할 수도 있습니다.
+- [Azure Portal](../dedicated-hosts-portal.md)를 사용 하 여 전용 호스트를 배포할 수도 있습니다.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87309293"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Azure Application Insights와 Azure Diagnostics 통합을 사용하여 Azure Cloud Services의 문제에 대한 경고
@@ -91,7 +91,7 @@ Application Insights 리소스 내 탐색 메뉴에서 **경고**로 이동한 �
 **쿼리 검색** 상자에서 이전 단계에서 준비한 결합된 쿼리를 붙여넣습니다.
 
 그런 다음, **임계값** 상자로 이동하여 해당 값을 0으로 설정합니다. 필요에 따라 **기간** 및 주파수 **필드**를 수정할 수도 있습니다.
-**Done**을 클릭합니다.
+**완료**를 클릭합니다.
 
 ![신호 논리 구성 쿼리의 스크린샷](./media/proactive-cloud-services/003.png)
 

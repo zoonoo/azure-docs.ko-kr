@@ -1,36 +1,36 @@
 ---
-title: Azure MFA 사용자 데이터 수집-Azure Active Directory
-description: Azure Multi-Factor Authentication에서 사용자를 인증하는 데 사용되는 정보
+title: Azure AD MFA 사용자 데이터 수집-Azure Active Directory
+description: Azure AD Multi-Factor Authentication에서 사용자를 인증 하는 데 도움이 되는 정보는 무엇 인가요?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2124ca9fae76d87a695a2c453f7b222e7a08794
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653625"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742796"
 ---
-# <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
+# <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Azure AD Multi-Factor Authentication 사용자 데이터 수집
 
-이 문서에서는 Azure MFA 서버(Azure Multi-Factor Authentication 서버) 및 Azure MFA(클라우드 기반)에서 수집된 사용자 정보를 찾아 제거하는 방법에 대해 설명합니다.
+이 문서에서는 제거할 이벤트에서 Azure Multi-Factor Authentication 서버 (MFA 서버) 및 Azure AD MFA (클라우드 기반)에 의해 수집 된 사용자 정보를 찾는 방법을 설명 합니다.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="information-collected"></a>수집된 정보
 
-MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다음 정보를 수집하고 90일 동안 저장합니다.
+MFA 서버, NPS 확장 및 Windows Server 2016 Azure AD MFA AD FS 어댑터는 90 일에 대 한 다음 정보를 수집 하 고 저장 합니다.
 
 인증 시도(보고 및 문제 해결에 사용):
 
-- 타임스탬프
+- Timestamp
 - 사용자 이름
 - 이름
 - 성
@@ -71,7 +71,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 활성화(Microsoft Authenticator 모바일 앱에서 계정을 활성화하기 위한 시도):
 - 사용자 이름
 - 계정 이름
-- 타임스탬프
+- Timestamp
 - 활성화 코드 결과 가져오기
 - 활성화 성공
 - 활성화 오류
@@ -89,7 +89,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 국가 코드
 - 전화 번호
 - 서식이 지정된 전화 번호
-- 확장명
+- 내선 번호
 - 새 내선 번호
 - 차단
 - 차단 이유
@@ -109,7 +109,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 국가 코드
 - 전화 번호
 - 서식이 지정된 전화 번호
-- 확장명
+- 내선 번호
 - 새 내선 번호
 - 바이패스 이유
 - 완료 타임스탬프
@@ -163,26 +163,26 @@ MFA 서버 명령줄에서 해당 설치에 따라 경로를 변경하여 `C:\Pr
 
 - 데이터를 완전히 제거하는 데 최대 30일까지 걸릴 수 있습니다.
 
-## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Windows Server 2016 Azure MFA AD FS 어댑터에서 데이터 수집
+## <a name="gather-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Windows Server 2016 Azure AD MFA AD FS 어댑터에서 데이터 수집
 
 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 내보내기에 대한 요청을 수행합니다. 
 
 - 내보내기에 포함된 MFA 정보는 완료하는 데 몇 시간 또는 며칠이 걸릴 수 있습니다.
 - AD FS 추적/디버그 이벤트 로그(사용하도록 설정된 경우)에서 사용자 이름의 항목은 내보내기에 제공된 정보에 대한 작동 및 중복 항목으로 간주됩니다.
 
-## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Windows Server 2016 Azure MFA AD FS 어댑터에서 데이터 삭제
+## <a name="delete-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Windows Server 2016 Azure AD MFA AD FS 어댑터에서 데이터 삭제
 
 이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 계정 닫기를 요청합니다.
 
 - 데이터를 완전히 제거하는 데 최대 30일까지 걸릴 수 있습니다.
 
-## <a name="gather-data-for-azure-mfa"></a>Azure MFA용 데이터 수집
+## <a name="gather-data-for-azure-ad-mfa"></a>Azure AD MFA에 대 한 데이터 수집
 
 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 내보내기에 대한 요청을 수행합니다.
 
 - 내보내기에 포함된 MFA 정보는 완료하는 데 몇 시간 또는 며칠이 걸릴 수 있습니다.
 
-## <a name="delete-data-for-azure-mfa"></a>Azure MFA용 데이터 삭제
+## <a name="delete-data-for-azure-ad-mfa"></a>Azure AD MFA에 대 한 데이터 삭제
 
 이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 계정 닫기를 요청합니다.
 

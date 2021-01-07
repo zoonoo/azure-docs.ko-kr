@@ -1,26 +1,26 @@
 ---
 title: Azure VM에서 실행 되는 SQL Server에 대 한 Azure Backup
 description: 이 문서에서는 Azure 가상 머신에서 실행 되는 SQL Server에 Azure Backup를 등록 하는 방법에 대해 알아봅니다.
-services: backup
 author: dcurwin
 manager: carmonm
-ms.service: backup
+ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66675f77d480ce8d9f21e5ffb507c475337c9dab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511180"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490733"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure VM에서 실행 되는 SQL Server에 대 한 Azure Backup
 
 Azure Backup는 다른 서비스에서 Azure Vm에서 실행 되는 SQL Server와 같은 워크 로드를 백업 하는 기능을 제공 합니다. SQL 응용 프로그램은 Azure VM 내에서 실행 되므로 backup 서비스에는 응용 프로그램에 액세스 하 고 필요한 세부 정보를 가져올 수 있는 권한이 필요 합니다.
 이렇게 하려면 Azure Backup 사용자가 트리거한 등록 프로세스 중에 SQL Server 실행 중인 VM에 **Azurebackupwindowsworkload 로드** 확장을 설치 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 지원 되는 시나리오 목록은 Azure Backup에서 지 원하는 지원 [가능성 매트릭스](../../backup/sql-support-matrix.md#scenario-support) 를 참조 하세요.
 

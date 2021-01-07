@@ -6,13 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
+ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
-ms.openlocfilehash: de8b69cbe3117a3ec248cee4808b676b39c56658
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8d591bb9c4b2ef8100946082f19115b99b30dde1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324797"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027495"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
 
@@ -29,29 +30,29 @@ Azure Stream Analytics 작업을 모니터링하여 작업이 문제 없이 계�
 
 2. **작업** 페이지에서 **모니터링** 섹션으로 이동합니다.  
 
-3. **메트릭**을 선택한 다음, **새 경고 규칙**을 선택합니다.
+3. **메트릭** 을 선택한 다음, **새 경고 규칙** 을 선택합니다.
 
    ![Azure Portal Stream Analytics 경고 설정](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-4. Stream Analytics 작업 이름이 **리소스** 아래에 자동으로 나타납니다. **조건 추가**를 클릭하고 **신호 논리 구성**에서 **모든 관리 작업**을 선택합니다.
+4. Stream Analytics 작업 이름이 **리소스** 아래에 자동으로 나타납니다. **조건 추가** 를 클릭하고 **신호 논리 구성** 에서 **모든 관리 작업** 을 선택합니다.
 
    ![Stream Analytics 경고에 대한 신호 이름 선택](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. **신호 논리 구성**에서 **이벤트 수준**을 **모두**로 변경하고 **상태**를 **실패**로 변경합니다. **이벤트를 시작한 사람**은 비어 있는 상태로 두고 **완료**를 선택합니다.
+5. **신호 논리 구성** 에서 **이벤트 수준** 을 **모두** 로 변경하고 **상태** 를 **실패** 로 변경합니다. **이벤트를 시작한 사람** 은 비어 있는 상태로 두고 **완료** 를 선택합니다.
 
    ![Stream Analytics 경고에 대한 신호 논리 구성](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
-6. 기존 작업 그룹을 선택하거나 새 그룹을 만듭니다. 이 예제에서는 **소유자** Azure Resource Manager 역할을 가진 사용자에게 이메일을 보내는 **이메일** 작업으로 **TIDashboardGroupActions**라는 새로운 작업 그룹이 생성되었습니다.
+6. 기존 작업 그룹을 선택하거나 새 그룹을 만듭니다. 이 예제에서는 **소유자** Azure Resource Manager 역할을 가진 사용자에게 이메일을 보내는 **이메일** 작업으로 **TIDashboardGroupActions** 라는 새로운 작업 그룹이 생성되었습니다.
 
    ![Azure Streaming Analytics 작업에 대한 경고 설정](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. **리소스**, **조건** 및 **작업 그룹**에 각 항목이 있어야 합니다. 정의된 조건이 경고 발생 순서대로 충족되어야 합니다. 예를 들어 5분마다 지난 15분의 메트릭 평균 값을 측정할 수 있습니다.
+7. **리소스**, **조건** 및 **작업 그룹** 에 각 항목이 있어야 합니다. 정의된 조건이 경고 발생 순서대로 충족되어야 합니다. 예를 들어 5분마다 지난 15분의 메트릭 평균 값을 측정할 수 있습니다.
 
-   ![Stream Analytics 경고 규칙 만들기](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![스크린샷 리소스, 조건 및 작업 그룹을 포함 하는 규칙 만들기 대화 상자를 표시 합니다.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   **경고 규칙 이름**, **설명** 및 **리소스 그룹**을 **경고 세부 정보**에 추가하고 **경고 규칙 만들기**를 클릭하여 Stream Analytics 작업에 대한 규칙을 만듭니다.
+   **경고 규칙 이름**, **설명** 및 **리소스 그룹** 을 **경고 세부 정보** 에 추가하고 **경고 규칙 만들기** 를 클릭하여 Stream Analytics 작업에 대한 규칙을 만듭니다.
 
-   ![Stream Analytics 경고 규칙 만들기](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![스크린샷 경고 정보를 포함 하는 규칙 만들기 대화 상자를 표시 합니다.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
 ## <a name="scenarios-to-monitor"></a>모니터링할 시나리오
 
@@ -67,5 +68,4 @@ Stream Analytics 작업의 성능 모니터링에 대해 다음 경고를 사용
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-
+* [Azure  Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)

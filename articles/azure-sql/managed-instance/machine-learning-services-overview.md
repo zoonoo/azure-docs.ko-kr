@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: garyericson
 ms.author: garye
-ms.reviewer: carlrab, davidph
+ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: ad25a9a62757e1e031ce8b93a44e6f2ada4d9964
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689510"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96324519"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance (미리 보기)의 Machine Learning Services
 
@@ -44,7 +44,7 @@ Azure SQL Managed Instance에서 R/Python 지원과 함께 Machine Learning Serv
 
 - **저장 프로시저에서 프로덕션에 모델 및 스크립트 배포** -스크립트 및 학습 된 모델은 단순히 t-sql 저장 프로시저에 포함 하 여 조작 가능한 수 있습니다. Azure SQL Managed Instance에 연결 하는 앱은 저장 프로시저를 호출 하 여 이러한 모델에서 예측 및 인텔리전스의 이점을 누릴 수 있습니다. 또한 네이티브 T-sql PREDICT 함수를 사용 하 여 매우 동시 실시간 점수 매기기 시나리오에서 빠른 점수 매기기를 위한 모델을 운영 수 있습니다.
 
-Python 및 R의 기본 배포판은 Machine Learning Services에 포함되어 있습니다. Microsoft 패키지 [revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-revoscalepy) 및 [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-microsoftml)(Python용), [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr) 및 [sqlrutils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils)(R용) 외에 PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 패키지 및 프레임워크를 설치하고 사용할 수 있습니다.
+Python 및 R의 기본 배포판은 Machine Learning Services에 포함되어 있습니다. Microsoft 패키지 [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) 및 [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml)(Python용), [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](/sql/advanced-analytics/r/ref-r-olapr) 및 [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils)(R용) 외에 PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 패키지 및 프레임워크를 설치하고 사용할 수 있습니다.
 
 <a name="signup"></a>
 
@@ -54,21 +54,29 @@ Python 및 R의 기본 배포판은 Machine Learning Services에 포함되어 �
 
 미리 보기 프로그램에 참여 하 고 이러한 조건에 동의 하는 경우에서 Azure 지원 티켓을 만들어 등록을 요청할 수 있습니다 [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
+1. **지원 티켓 만들기** 페이지에서 **인시던트 만들기** 를 클릭 합니다.
+
+1. **도움말 + 지원** 페이지에서 **새 지원 요청** 을 클릭 하 여 새 티켓을 만듭니다.
+
 1. 다음 옵션을 선택합니다.
    - 문제 유형- **기술**
    - 구독- *구독 선택*
-   - 서비스- **SQL Database Managed Instance**
+   - 서비스- **SQL Managed Instance**
+   - 리소스- *관리 되는 인스턴스를 선택 합니다* .
    - 요약-요청에 대 한 *간단한 설명을 입력 합니다* .
    - 문제 유형- **SQL Managed Instance에 대 한 Machine Learning Services (미리 보기)**
    - 문제 하위 유형- **기타 문제 또는 "방법" 질문**
 
-1. **다음: 솔루션**을 클릭 합니다.
+1. **다음: 솔루션** 을 클릭 합니다.
 
-1. 미리 보기에 대 한 정보를 읽고 **자세히**를 클릭 합니다.
+1. 미리 보기에 대 한 정보를 읽고 **다음: 세부 정보** 를 클릭 합니다.
 
-1. 설명에 미리 보기에 등록할 논리 서버 이름, 지역 및 구독 ID를 포함 하 여 요청에 대 한 세부 **정보**를 입력 합니다. 다른 세부 정보를 적절 하 게 입력 합니다.
+1. 이 페이지에서 다음을 수행합니다.
+   - **미리 보기에 등록 하려고** 하는 질문에 대해 **예** 를 선택 합니다. 
+   - 설명에는 미리 보기에 등록할 논리 서버 이름, 지역 및 구독 ID를 포함 하 여 요청에 대 한 세부 **정보** 를 입력 합니다. 다른 세부 정보를 적절 하 게 입력 합니다.
+   - 선호 하는 연락 방법을 선택 합니다. 
 
-1. 작업이 완료 되 면 **다음: 검토 + 만들기**를 클릭 한 다음 **만들기**를 클릭 합니다.
+1. 작업이 완료 되 면 **다음: 검토 + 만들기** 를 클릭 한 다음 **만들기** 를 클릭 합니다.
 
 프로그램에 등록되면 Microsoft에서 사용자가 공개 미리 보기에 온보딩되고 기존 또는 새 데이터베이스에 대해 Machine Learning Services를 사용하도록 설정됩니다.
 
@@ -77,6 +85,6 @@ Python 및 R의 기본 배포판은 Machine Learning Services에 포함되어 �
 ## <a name="next-steps"></a>다음 단계
 
 - [SQL Server Machine Learning Services의 주요 차이점](machine-learning-services-differences.md)을 참조 하세요.
-- Machine Learning Services에서 Python을 사용 하는 방법에 대 한 자세한 내용은 [python 스크립트 실행](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15)을 참조 하세요.
-- Machine Learning Services에서 R을 사용 하는 방법에 대 한 자세한 내용은 [r 스크립트 실행](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15)을 참조 하세요.
-- 다른 SQL 플랫폼의 기계 학습에 대 한 자세한 내용은 [sql machine learning 설명서](https://docs.microsoft.com/sql/machine-learning/)를 참조 하세요.
+- Machine Learning Services에서 Python을 사용 하는 방법에 대 한 자세한 내용은 [python 스크립트 실행](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15)을 참조 하세요.
+- Machine Learning Services에서 R을 사용 하는 방법에 대 한 자세한 내용은 [r 스크립트 실행](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15)을 참조 하세요.
+- 다른 SQL 플랫폼의 기계 학습에 대 한 자세한 내용은 [sql machine learning 설명서](/sql/machine-learning/)를 참조 하세요.

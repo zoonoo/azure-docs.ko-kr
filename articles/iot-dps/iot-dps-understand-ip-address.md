@@ -8,17 +8,17 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f6afd5c4cc5aa0215f943979ae91389b39d449f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79284929"
 ---
 # <a name="iot-hub-dps-ip-addresses"></a>IoT Hub DPS IP 주소
 
 IoT Hub Device Provisioning Service (DPS)의 공용 끝점에 대 한 IP 주소 접두사는 주기적으로 _AzureIoTHub_ [Service 태그](../virtual-network/service-tags-overview.md)아래에 게시 됩니다. 이러한 IP 주소 접두사를 사용 하 여 다양 한 네트워크 격리 목표를 구현 하기 위해 IoT DPS 인스턴스와 장치 또는 네트워크 자산 간의 연결을 제어할 수 있습니다.
 
-| Goal | 접근 방식 |
+| 목표 | 접근 방식 |
 |------|----------|
 | 장치 및 서비스가 IoT Hub DPS 끝점과만 통신 하는지 확인 | _AzureIoTHub_ service 태그를 사용 하 여 IoT Hub DPS 인스턴스를 검색 합니다. 해당 IP 주소 접두사에 대 한 장치 및 서비스의 방화벽 설정에 대 한 허용 규칙을 적절 하 게 구성 합니다. 장치 또는 서비스와 통신 하지 않으려는 다른 대상 IP 주소에 대 한 트래픽을 삭제 하는 규칙을 구성 합니다. |
 | IoT Hub DPS 끝점이 장치 및 네트워크 자산 에서만 연결을 수신 하는지 확인 합니다. | IoT DPS [IP 필터 기능](iot-dps-ip-filtering.md) 을 사용 하 여 장치 및 DPS 서비스 api에 대 한 필터 규칙을 만듭니다. 이러한 필터 규칙을 사용 하 여 장치와 네트워크 자산 IP 주소의 연결만 허용할 수 있습니다 ( [제한](#limitations-and-workarounds) 섹션 참조). | 

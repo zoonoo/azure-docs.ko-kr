@@ -1,32 +1,32 @@
 ---
-ms.openlocfilehash: 4277007938f664592432080ec9799b5b64d98f5c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 304f62def117d1b1a803b2f604151c5e52dbe7be
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684251"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531945"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>샘플 파일 검사 및 편집
 
 필수 구성 요소의 일부로 샘플 코드를 폴더에 다운로드했습니다. 다음 단계에 따라 샘플 파일을 검사하고 편집합니다.
 
-1. Visual Studio Code에서 *src/edge*로 이동합니다. *env* 파일 및 몇 가지 배포 템플릿 파일이 표시됩니다.
+1. Visual Studio Code에서 *src/edge* 로 이동합니다. *env* 파일 및 몇 가지 배포 템플릿 파일이 표시됩니다.
 
     배포 템플릿은 에지 디바이스에 대한 배포 매니페스트를 나타냅니다. 일부 자리 표시자 값을 포함합니다. *.env* 파일에는 이러한 변수에 대한 값이 포함되어 있습니다.
 1. *src/cloud-to-device-console-app* 폴더로 이동합니다. 여기에는 *appsettings.json* 파일 및 몇 가지 다른 파일이 표시됩니다.
 
-    * ***c2d-console-app.csproj*** - Visual Studio Code에 대한 프로젝트 파일
-    * ***operations.json*** - 프로그램을 실행하려는 작업의 목록입니다.
-    * ***Program.cs*** - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
+    * ***c2d-console-app.csproj** _ - Visual Studio Code에 대한 프로젝트 파일입니다.
+    _ ***operations.json** _ - 프로그램을 실행하려는 작업의 목록입니다.
+    _ ***Program.cs** _ - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
 
-        * 앱 설정을 로드합니다.
+        _ 앱 설정을 로드합니다.
         * Live Video Analytics on IoT Edge 모듈에서 공개하는 직접 메서드를 호출합니다. 모듈을 사용하여 해당 [직접 메서드](../../../direct-methods.md)를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다.
         * **터미널** 창에서 프로그램의 출력을 검사하고, **출력** 창에서 모듈에서 생성된 이벤트를 검사할 수 있도록 일시 중지합니다.
         * 리소스를 정리하는 직접 메서드를 호출합니다.
 1. *operations.json* 파일을 편집합니다.
     * 그래프 토폴로지의 링크를 변경합니다.
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * `GraphInstanceSet` 아래에서 이전 링크의 값과 일치하도록 그래프 토폴로지의 이름을 편집합니다.
 
@@ -38,27 +38,27 @@ ms.locfileid: "88684251"
 
 ### <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>IoT Edge 배포 매니페스트 생성 및 배포
 
-1. 마우스 오른쪽 단추로 *src/edge/ deployment.yolov3.template.json* 파일을 클릭하고, **IoT Edge 배포 매니페스트 생성**을 클릭합니다.
+1. 마우스 오른쪽 단추로 *src/edge/ deployment.yolov3.template.json* 파일을 클릭하고, **IoT Edge 배포 매니페스트 생성** 을 클릭합니다.
 
     ![IoT Edge 배포 매니페스트 생성](../../../media/quickstarts/generate-iot-edge-deployment-manifest-yolov3.png)  
 
     *deployment.yolov3.amd64.json* 매니페스트 파일은 *src/edge/config* 폴더에 만들어집니다.
 1. [동작 감지 및 이벤트 내보내기](../../../detect-motion-emit-events-quickstart.md) 빠른 시작을 완료한 경우 이 단계를 건너뜁니다. 
 
-    그렇지 않으면 왼쪽 아래 모서리의 **Azure IoT Hub** 창 근처에서 **기타 작업** 아이콘을 선택한 다음, **IoT Hub 연결 문자열 설정**을 선택합니다. *appsettings.json* 파일에서 문자열을 복사할 수 있습니다. 또는 Visual Studio Code 내에서 적절한 IoT 허브를 구성했는지 확인하려면 [IoT 허브 선택 명령](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)을 사용합니다.
+    그렇지 않으면 왼쪽 아래 모서리의 **Azure IoT Hub** 창 근처에서 **기타 작업** 아이콘을 선택한 다음, **IoT Hub 연결 문자열 설정** 을 선택합니다. *appsettings.json* 파일에서 문자열을 복사할 수 있습니다. 또는 Visual Studio Code 내에서 적절한 IoT 허브를 구성했는지 확인하려면 [IoT 허브 선택 명령](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)을 사용합니다.
     
     ![IoT Hub 연결 문자열 설정](../../../media/quickstarts/set-iotconnection-string.png)
-1. 마우스 오른쪽 단추로 *src/edge/config/ deployment.yolov3.amd64.json*을 클릭하고, **단일 디바이스용 배포 만들기**를 선택합니다. 
+1. 마우스 오른쪽 단추로 *src/edge/config/ deployment.yolov3.amd64.json* 을 클릭하고, **단일 디바이스용 배포 만들기** 를 선택합니다. 
 
     ![단일 디바이스용 배포 만들기](../../../media/quickstarts/create-deployment-single-device.png)
-1. IoT Hub 디바이스를 선택하라는 메시지가 표시되면 **lva-sample-device**를 선택합니다.
+1. IoT Hub 디바이스를 선택하라는 메시지가 표시되면 **lva-sample-device** 를 선택합니다.
 1. 약 30초 후 창의 왼쪽 아래 모서리에서 Azure IoT Hub를 새로 고칩니다. 이제 에지 디바이스에 다음과 같은 배포된 모듈이 표시됩니다.
 
     * 이름이 `lvaEdge`인 Live Video Analytics 모듈.
     * `rtspsim` 모듈 - RTSP 서버를 시뮬레이션하고 라이브 비디오 피드의 원본 역할을 합니다.
 
         > [!NOTE]
-        > 설치 스크립트를 통해 프로비저닝된 에지 디바이스 대신 사용자 고유의 에지 디바이스를 사용하는 경우 에지 디바이스로 이동하고, **관리자 권한**으로 다음 명령을 실행하여 이 빠른 시작에 사용되는 샘플 비디오 파일을 가져와 저장합니다.  
+        > 설치 스크립트를 통해 프로비저닝된 에지 디바이스 대신 사용자 고유의 에지 디바이스를 사용하는 경우 에지 디바이스로 이동하고, **관리자 권한** 으로 다음 명령을 실행하여 이 빠른 시작에 사용되는 샘플 비디오 파일을 가져와 저장합니다.  
         
         ```
         mkdir /home/lvaadmin/samples
@@ -72,9 +72,18 @@ ms.locfileid: "88684251"
 
 ### <a name="prepare-to-monitor-events"></a>이벤트 모니터링 준비
 
-마우스 오른쪽 단추로 Live Video Analytics 디바이스를 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다. 이 단계는 Visual Studio Code의 **출력** 창에서 IoT Hub 이벤트를 모니터링하는 데 필요합니다. 
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누르고) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
-![모니터링 시작](../../../media/quickstarts/start-monitoring-iothub-events.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="확장 설정":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="자세한 정보 메시지 표시":::
+1. 마우스 오른쪽 단추로 Live Video Analytics 디바이스를 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다. 이 단계는 Visual Studio Code의 **출력** 창에서 IoT Hub 이벤트를 모니터링하는 데 필요합니다. 
+
+   ![모니터링 시작](../../../media/quickstarts/start-monitoring-iothub-events.png) 
 
 ### <a name="run-the-sample-program"></a>샘플 프로그램 실행
 
@@ -86,7 +95,7 @@ ms.locfileid: "88684251"
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -104,7 +113,7 @@ ms.locfileid: "88684251"
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

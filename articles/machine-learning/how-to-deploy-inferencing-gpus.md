@@ -10,13 +10,13 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3874f2126354b9ecbd453d00c86b647b0f7f3dcc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, devx-track-python, deploy
+ms.openlocfilehash: 8480a0b8722fbfff0f1d8a8fafc1a64f38d21d6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889981"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307212"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 
@@ -26,7 +26,7 @@ ms.locfileid: "90889981"
 유추 또는 모델 점수 매기기는 배포 된 모델을 사용 하 여 예측을 수행 하는 단계입니다. Cpu 대신 Gpu를 사용 하면 매우 병렬화 계산에서 성능상의 이점이 있습니다.
 
 > [!IMPORTANT]
-> 웹 서비스 배포의 경우 GPU 유추는 Azure Kubernetes Service 에서만 지원 됩니다. __기계 학습 파이프라인__을 사용 하는 유추의 경우 gpu는 Azure Machine Learning 계산 에서만 지원 됩니다. ML 파이프라인 사용에 대 한 자세한 내용은 [일괄 처리 예측 실행](how-to-use-parallel-run-step.md)을 참조 하세요. 
+> 웹 서비스 배포의 경우 GPU 유추는 Azure Kubernetes Service 에서만 지원 됩니다. __기계 학습 파이프라인__ 을 사용 하는 유추의 경우 gpu는 Azure Machine Learning 계산 에서만 지원 됩니다. ML 파이프라인 사용에 대 한 자세한 내용은 [자습서: 일괄 처리 점수 매기기를 위한 Azure Machine Learning 파이프라인 빌드](tutorial-pipeline-batch-scoring-classification.md)를 참조 하세요. 
 
 > [!TIP]
 > 이 문서의 코드 조각에서는 TensorFlow 모델을 사용 하지만 Gpu를 지 원하는 모든 기계 학습 프레임 워크에 정보를 적용할 수 있습니다.
@@ -38,7 +38,7 @@ ms.locfileid: "90889981"
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
-* Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 참조 하세요.  
+* Azure Machine Learning SDK가 설치 된 Python 개발 환경. 자세한 내용은 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 참조 하세요.  
 
 * GPU를 사용 하는 등록 된 모델입니다.
 
@@ -176,7 +176,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-자세한 내용은 AksService에 대 한 참조 설명서를 참조 하세요 [deploy_configuration.](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-)
+자세한 내용은 [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="define-the-inference-configuration"></a>유추 구성 정의
 
@@ -192,7 +192,7 @@ inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
 환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
-자세한 내용은 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true)에 대 한 참조 설명서를 참조 하세요.
+자세한 내용은 [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="deploy-the-model"></a>모델 배포
 
@@ -217,7 +217,7 @@ aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
 
-자세한 내용은 [모델](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true)에 대 한 참조 설명서를 참조 하세요.
+자세한 내용은 [모델](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
 
 ## <a name="issue-a-sample-query-to-your-service"></a>서비스에 대 한 샘플 쿼리 실행
 

@@ -4,10 +4,10 @@ description: 컨테이너 그룹을 구성 하는 Azure Container Instances에�
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: d0ec8d13eebba1c60f5a52f8c43bdd8b90eeb913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084763"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>YAML 참조: Azure Container Instances
@@ -172,7 +172,7 @@ properties: # Properties of container group
 
 |  Name | 유형 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  형식 | enum | 아니요 | 컨테이너 그룹에 사용 되는 id 유형입니다. ' SystemAssigned 됨, UserAssigned 됨 ' 형식에는 암시적으로 생성 된 id와 사용자 할당 id 집합이 모두 포함 됩니다. ' 없음 ' 유형은 컨테이너 그룹에서 모든 id를 제거 합니다. -SystemAssigned 됨, UserAssigned 됨, SystemAssigned 됨, UserAssigned 안 함 |
+|  type | enum | 아니요 | 컨테이너 그룹에 사용 되는 id 유형입니다. ' SystemAssigned 됨, UserAssigned 됨 ' 형식에는 암시적으로 생성 된 id와 사용자 할당 id 집합이 모두 포함 됩니다. ' 없음 ' 유형은 컨테이너 그룹에서 모든 id를 제거 합니다. -SystemAssigned 됨, UserAssigned 됨, SystemAssigned 됨, UserAssigned 안 함 |
 |  userAssignedIdentities | object | 아니요 | 컨테이너 그룹과 연결 된 사용자 id 목록입니다. 사용자 id 사전 키 참조는 '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName} ' 형식으로 리소스 Id를 Azure Resource Manager 됩니다. |
 
 
@@ -224,7 +224,7 @@ properties: # Properties of container group
 |  Name | 유형 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  ports | array | 예 | 컨테이너 그룹에 노출 된 포트 목록입니다. - [포트 개체](#port-object) |
-|  형식 | enum | 예 | IP가 공용 인터넷 또는 개인 VNET에 노출 되는지 여부를 지정 합니다. -공용 또는 개인 |
+|  type | enum | 예 | IP가 공용 인터넷 또는 개인 VNET에 노출 되는지 여부를 지정 합니다. -공용 또는 개인 |
 |  ip | 문자열 | No | 공용 인터넷에 노출 되는 IP입니다. |
 |  dnsNameLabel | 문자열 | No | IP의 Dns 이름 레이블입니다. |
 
@@ -308,7 +308,7 @@ properties: # Properties of container group
 |  Name | 유형 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | 아니요 | 포트와 연결 된 프로토콜입니다. -TCP 또는 UDP |
-|  포트 | integer | 예 | 포트 번호. |
+|  포트 | 정수 | 예 | 포트 번호. |
 
 
 
@@ -359,7 +359,7 @@ properties: # Properties of container group
 |  Name | 유형 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | 아니요 | 포트와 연결 된 프로토콜입니다. -TCP 또는 UDP |
-|  포트 | integer | 예 | 컨테이너 그룹 내에서 노출 되는 포트 번호입니다. |
+|  포트 | 정수 | 예 | 컨테이너 그룹 내에서 노출 되는 포트 번호입니다. |
 
 
 
@@ -402,11 +402,11 @@ properties: # Properties of container group
 |  ---- | ---- | ---- | ---- |
 |  exec | object | 아니요 | [ContainerExec 개체](#containerexec-object) 에 대 한 실행 명령 |
 |  httpGet | object | 아니요 | [ContainerHttpGet 개체](#containerhttpget-object) 에 대 한 Http 설정 가져오기 |
-|  initialDelaySeconds | integer | 아니요 | 초기 지연 시간 (초)입니다. |
-|  periodSeconds | integer | 아니요 | 기간 (초)입니다. |
-|  카운터가 failurethreshold | integer | 아니요 | 오류 임계값입니다. |
-|  successThreshold | integer | 아니요 | 성공 임계값입니다. |
-|  timeoutSeconds | integer | 아니요 | 시간 제한 (초)입니다. |
+|  initialDelaySeconds | 정수 | 아니요 | 초기 지연 시간 (초)입니다. |
+|  periodSeconds | 정수 | 아니요 | 기간 (초)입니다. |
+|  카운터가 failurethreshold | 정수 | 아니요 | 오류 임계값입니다. |
+|  successThreshold | 정수 | 아니요 | 성공 임계값입니다. |
+|  timeoutSeconds | 정수 | 아니요 | 시간 제한 (초)입니다. |
 
 
 
@@ -447,7 +447,7 @@ properties: # Properties of container group
 |  Name | 유형 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  path | 문자열 | No | 프로브 경로입니다. |
-|  포트 | integer | 예 | 프로브 할 포트 번호입니다. |
+|  포트 | 정수 | 예 | 프로브 할 포트 번호입니다. |
 |  scheme | enum | 아니요 | 체계입니다. -http 또는 https |
 
 
@@ -457,7 +457,7 @@ properties: # Properties of container group
 
 |  Name | 유형 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  개수 | integer | 예 | GPU 리소스의 수입니다. |
+|  count() | 정수 | 예 | GPU 리소스의 수입니다. |
 |  sku | enum | 예 | GPU 리소스의 SKU입니다. -K80, P100, V100 |
 
 

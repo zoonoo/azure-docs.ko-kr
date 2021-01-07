@@ -4,10 +4,10 @@ description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 �
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: bf61457b9c8cff40eb3fee2c93c7184fbaae6db5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091150"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Azure 및 Red Hat OpenShift v4 클러스터의 모니터링을 중지 하는 방법
@@ -35,7 +35,7 @@ Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4.x 클러스터의 모니�
 
     `helm delete <releaseName>`
 
-    예:
+    예제:
 
     `helm delete azmon-containers-release-1`
 

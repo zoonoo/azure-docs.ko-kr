@@ -9,16 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 74321bc75fa760727e7896f47cdfc5b2929047e5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706135"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366091"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 동의 프레임워크
 
@@ -50,7 +49,7 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 1. 사용자가 동의를 부여하면 권한 부여 코드가 애플리케이션에 반환되며, 이것을 교환하여 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다. 이 흐름에 대 한 자세한 내용은 [OAuth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 참조 하세요.
 
-1. 관리자로 테넌트의 모든 사용자를 대신하여 애플리케이션의 위임된 권한에 동의할 수도 있습니다. 관리자 동의를 사용 하면 테 넌 트의 모든 사용자에 게 동의 대화 상자가 표시 되지 않으며, 사용자가 관리자 역할을 사용 하 여 [Azure Portal](https://portal.azure.com) 에서 수행할 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+1. 관리자로 테넌트의 모든 사용자를 대신하여 애플리케이션의 위임된 권한에 동의할 수도 있습니다. 관리자 동의를 사용 하면 테 넌 트의 모든 사용자에 게 동의 대화 상자가 표시 되지 않으며, 사용자가 관리자 역할을 사용 하 여 [Azure Portal](https://portal.azure.com) 에서 수행할 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
     **앱의 위임된 권한에 동의하려면**
 
@@ -64,5 +63,4 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [앱을 다중 테넌트로 변환하는 방법](howto-convert-app-to-be-multi-tenant.md) 참조
-* 좀 더 깊이 있는 이해를 위해 [인증 코드 권한 부여 흐름 동안 OAuth 2.0 프로토콜 계층에서 동의가 지원되는 방식](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code) 알아보기
+[앱을 다중 테넌트로 변환하는 방법](howto-convert-app-to-be-multi-tenant.md) 참조

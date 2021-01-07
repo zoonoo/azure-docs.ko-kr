@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: d74a2c45c1d2b2b03c35e7235994980a64cba979
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072114"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368783"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -33,7 +33,7 @@ HTTP를 통해 노출 되는 모든 Cognitive Services 끝점은 TLS 1.2을 적�
 
 ## <a name="authentication"></a>인증
 
-인증에 대해 논의할 때 몇 가지 일반적인 오해 있습니다. 인증 및 권한 부여는 서로 혼동 되는 경우가 많습니다. 또한 id는 보안의 주요 구성 요소입니다. Id는 <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">보안 주체 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 대 한 정보 컬렉션입니다. IdP (id 공급자)는 인증 서비스에 id를 제공 합니다. 인증은 사용자의 id를 확인 하는 동작입니다. 권한 부여는 지정 된 id에 대 한 리소스에 대 한 액세스 권한 및 권한을 지정 하는 것입니다. 몇 가지 Cognitive Services 제공에는 RBAC (역할 기반 액세스 제어)가 포함 됩니다. RBAC는 수동으로 보안 주체를 관리 하는 것과 관련 된 일부 공식 절차를 간소화 하는 데 사용할 수 있습니다. 자세한 내용은 [Azure 리소스에 대 한 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조 하세요.
+인증에 대해 논의할 때 몇 가지 일반적인 오해 있습니다. 인증 및 권한 부여는 서로 혼동 되는 경우가 많습니다. 또한 id는 보안의 주요 구성 요소입니다. Id는 <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">보안 주체 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 대 한 정보 컬렉션입니다. IdP (id 공급자)는 인증 서비스에 id를 제공 합니다. 인증은 사용자의 id를 확인 하는 동작입니다. 권한 부여는 지정 된 id에 대 한 리소스에 대 한 액세스 권한 및 권한을 지정 하는 것입니다. 몇 가지 Cognitive Services 제공에는 azure 역할 기반 access control (Azure RBAC)이 포함 되어 있습니다. Azure RBAC는 수동으로 보안 주체를 관리 하는 것과 관련 된 일부 공식 절차를 간소화 하는 데 사용할 수 있습니다. 자세한 내용은 azure [리소스에 대 한 azure 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조 하세요.
 
 구독 키, 액세스 토큰 및 AAD (Azure Active Directory) 인증에 대 한 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Azure Cognitive Services <span class="docon docon-navigate-external x-hidden-focus"></span> 에 대 한 요청 인증</a>을 참조 하세요.
 
@@ -60,7 +60,7 @@ HTTP를 통해 노출 되는 모든 Cognitive Services 끝점은 TLS 1.2을 적�
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-**명령 프롬프트**의 새 인스턴스에서 환경 변수를 읽습니다.
+**명령 프롬프트** 의 새 인스턴스에서 환경 변수를 읽습니다.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-**Windows PowerShell**의 새 인스턴스에서 환경 변수를 읽습니다.
+**Windows PowerShell** 의 새 인스턴스에서 환경 변수를 읽습니다.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-**Bash**의 새 인스턴스에서 환경 변수를 읽습니다.
+**Bash** 의 새 인스턴스에서 환경 변수를 읽습니다.
 
 ```Bash
 # Prints the env var value
@@ -113,7 +113,7 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
+자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
+자세한 내용은 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
+자세한 내용은 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```java
 import java.lang.*;
@@ -162,9 +162,9 @@ public class Program {
 }
 ```
 
-# <a name="nodejs"></a>[Node.JS](#tab/node-js)
+# <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-자세한 내용은 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
+자세한 내용은 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은 <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
+자세한 내용은 <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-자세한 내용은 <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
+자세한 내용은 <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -197,11 +197,11 @@ NSString* value =
 
 ## <a name="customer-lockbox"></a>고객 Lockbox
 
-[Microsoft Azure에 대 한 고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md) 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스 해야 하는 경우에 사용 됩니다. 이후 검토 및 감사를 위해 고객 Lockbox 요청을 시작, 추적 및 저장 하는 방법에 대 한 자세한 내용은 [고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)을 참조 하세요. 
+[Microsoft Azure에 대 한 고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md) 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스해야 하는 경우에 사용됩니다. 이후 검토 및 감사를 위해 고객 Lockbox 요청을 시작, 추적 및 저장 하는 방법에 대 한 자세한 내용은 [고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)을 참조 하세요. 
 
 이 인식 서비스에 대해 고객 Lockbox를 사용할 수 있습니다.
 
-* Translator
+* 변환기
 
 다음 서비스의 경우 Microsoft 엔지니어가 E0 계층의 고객 데이터에 액세스 하지 않습니다. 
 
@@ -211,7 +211,7 @@ NSString* value =
 * Personalizer
 
 > [!IMPORTANT]
-> **양식 인식기**의 경우 Microsoft 엔지니어가 2020 년 7 월 10 일 이후에 생성 된 리소스에서 고객 데이터에 액세스 하지 않습니다.
+> **양식 인식기** 의 경우 Microsoft 엔지니어가 2020 년 7 월 10 일 이후에 생성 된 리소스에서 고객 데이터에 액세스 하지 않습니다.
 
 E0 SKU를 사용 하는 기능을 요청 하려면이 [요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. LUIS에서 E0 SKU를 사용 하도록 승인 되 면 Azure Portal에서 새 리소스를 만들고이를 가격 책정 계층으로 선택 해야 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
 
@@ -222,5 +222,5 @@ E0 SKU를 사용 하는 기능을 요청 하려면이 [요청 양식을](https
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다양 한 [Cognitive Services](welcome.md) 살펴보기
+* 다양 한 [Cognitive Services](./what-are-cognitive-services.md) 살펴보기
 * [Cognitive Services 가상 네트워크](cognitive-services-virtual-networks.md) 에 대 한 자세한 정보

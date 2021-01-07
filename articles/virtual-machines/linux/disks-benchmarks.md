@@ -1,18 +1,18 @@
 ---
 title: Azure 디스크 저장소에서 응용 프로그램 벤치마킹
-description: Azure에서 애플리케이션을 벤치마킹하는 프로세스를 알아봅니다.
+description: Azure Premium Storage 디스크로 프로 비전 된 표준 DS14 VM의 벤치마킹 예제를 검토 합니다.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 293164413c4c8ecec0295152cb6db3d73718e00d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: cc17ce49517a7af22dcc357fa5f050d28a8ed551
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690785"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91279691"
 ---
 # <a name="benchmark-your-application-on-azure-disk-storage"></a>Azure 디스크 저장소에서 응용 프로그램 벤치 마크
 

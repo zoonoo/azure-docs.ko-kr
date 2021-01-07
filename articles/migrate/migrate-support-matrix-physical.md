@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate의 물리적 서버 평가 지원
 description: Azure Migrate Server 평가를 사용 하 여 물리적 서버 평가 지원에 대해 알아봅니다.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2be77a47c4b111dd2f25a8fc9ca35690d1b2d80c
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660340"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796757"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>물리적 서버 평가를 위한 지원 매트릭스 
 
@@ -31,11 +34,21 @@ ms.locfileid: "89660340"
 
 ## <a name="physical-server-requirements"></a>물리적 서버 요구 사항
 
-| **지원**                | **세부 정보**               
-| :-------------------       | :------------------- |
-| **실제 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | **Windows:** 도메인에 가입된 컴퓨터에는 도메인 계정을 사용하고 도메인에 가입되지 않은 컴퓨터에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. <br/><br/> **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다. <br/> 또는 다음 명령을 사용 하 여 필요한 기능이 설정 되었는지 확인 합니다. <br/> setcap CAP_DAC_READ_SEARCH + eip/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + eip/sbin/fdisk (/usr/sbin/fdisk이 없는 경우) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + eip"/sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH + eip/usr/sbin/dmidecode <br/> chmod a + r/sys/class/dmi/id/product_uuid
-| **운영 체제** | 모든 Windows 및 Linux 운영 체제는 마이그레이션을 평가할 수 있습니다. |
+**물리적 서버 배포:** 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다.
+
+**운영 체제:** 모든 Windows 및 Linux 운영 체제는 마이그레이션을 평가할 수 있습니다.
+
+**사용 권한:**
+- Windows 서버의 경우 도메인에 가입된 머신에는 도메인 계정을 사용하고 도메인에 가입되지 않은 머신에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
+- Linux 서버의 경우, 검색하려는 Linux 서버의 루트 계정이 필요합니다. 또는 다음 명령을 사용하여 필요한 기능이 있는 비루트 계정을 설정할 수 있습니다.
+
+**명령** | **용도**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(/usr/sbin/fdisk가 없는 경우)_ | 디스크 구성 데이터를 수집하려면 다음을 수행합니다.
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | 디스크 성능 데이터를 수집하려면 다음을 수행합니다.
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | BIOS 일련 번호를 수집하려면 다음을 수행합니다.
+chmod a+r /sys/class/dmi/id/product_uuid | BIOS GUID를 수집하려면 다음을 수행합니다.
+
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Azure Migrate 어플라이언스 요구 사항
@@ -54,7 +67,7 @@ Azure Government에서 [이 스크립트를 사용 하 여](deploy-appliance-scr
 **디바이스** | **연결**
 --- | ---
 **어플라이언스** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하는 TCP 포트 3389에 대 한 인바운드 연결입니다.<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위해 포트 44368에서 인바운드 연결: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443 (HTTPS)의 아웃 바운드 연결
-**물리적 서버** | **Windows:** Windows 서버에서 구성 및 성능 메타 데이터를 가져오기 위한 WinRM 포트 5985 (HTTP)에 대 한 인바운드 연결입니다. <br/><br/> **Linux:**  Linux 서버에서 구성 및 성능 메타 데이터를 가져오기 위해 포트 22 (TCP)에서 인바운드 연결 |
+**물리적 서버** | **Windows:** Windows 서버에서 구성 및 성능 메타 데이터를 가져오기 위해 WinRM 포트 5985 (HTTP) 또는 5986 (HTTPS)에서 인바운드 연결 <br/><br/> **Linux:**  Linux 서버에서 구성 및 성능 메타 데이터를 가져오기 위해 포트 22 (TCP)에서 인바운드 연결 |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>에이전트 기반 종속성 분석 요구 사항
 
@@ -74,4 +87,4 @@ Azure Government에서 [이 스크립트를 사용 하 여](deploy-appliance-scr
 
 ## <a name="next-steps"></a>다음 단계
 
-[물리적 서버 평가를 준비](tutorial-prepare-physical.md)합니다.
+[물리적 서버 평가를 준비](./tutorial-discover-physical.md)합니다.

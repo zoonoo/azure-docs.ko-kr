@@ -1,19 +1,19 @@
 ---
 title: 지원 되는 Azure Resource Manager 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 Azure Resource Manager 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 09/15/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: fa5a5f5741f05e6f5f30a3d04958ba0b450a1bb7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600605"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988343"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
-Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager/management/overview.md)의 다음 **리소스 종류**를 지원합니다. 각 **리소스 종류**는 Resource Graph에 있는 **테이블**의 일부입니다.
+Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager/management/overview.md)의 다음 **리소스 종류** 를 지원합니다. 각 **리소스 종류** 는 Resource Graph에 있는 **테이블** 의 일부입니다.
 
 ## <a name="advisorresources"></a>advisorresources
 
@@ -30,14 +30,14 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 
 - guestconfiguration/guestconfigurationassignments
 
-## <a name="healthresources"></a>healthresources
-
-- microsoft.resourcehealth/events
-
 ## <a name="maintenanceresources"></a>maintenanceresources
 
 - microsoft.maintenance/configurationassignments
 - microsoft.maintenance/updates
+
+## <a name="policyresources"></a>policyresources
+
+- microsoft policyinsights/policyinsights
 
 ## <a name="resourcecontainers"></a>resourcecontainers
 
@@ -68,9 +68,11 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.aisupercomputer/accounts/jobgroups
 - microsoft.aisupercomputer/accounts/jobgroups/jobs
 - microsoft.alertsmanagement/actionrules
+- alertsmanagement/resourcehealthalertrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
 - microsoft.apimanagement/service
+- microsoft appassessment/migrateprojects
 - microsoft.appconfiguration/configurationstores
 - microsoft.appplatform/spring
 - microsoft.archive/collections
@@ -87,6 +89,10 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
 - azureactivedirectory/guestusages
+- microsoft azurearcdata/datacontrollers
+- microsoft azurearcdata/postgresinstances
+- microsoft azurearcdata/sqlmanagedinstances
+- microsoft azurearcdata/sqlserverinstances
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -102,11 +108,13 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.baremetal/consoleconnections
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
+- baremetalinfrastructure/baremetalinstances
 - microsoft.batch/batchaccounts
 - microsoft.batchai/clusters
 - microsoft.batchai/fileservers
 - microsoft.batchai/jobs
 - microsoft.batchai/workspaces
+- microsoft. r/계정
 - microsoft.bingmaps/mapapis
 - microsoft.biztalkservices/biztalk
 - microsoft.blockchain/blockchainmembers
@@ -119,6 +127,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.cdn/profiles
 - microsoft.cdn/profiles/endpoints
 - microsoft.certificateregistration/certificateorders
+- microsoft. 비정상/chaosexperiments
 - microsoft.classiccompute/domainnames
 - microsoft.classiccompute/virtualmachines
 - microsoft.classicnetwork/networksecuritygroups
@@ -128,12 +137,14 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.cloudes/accounts
 - microsoft.cloudsearch/indexes
 - microsoft cloudtest/accounts
+- microsoft cloudtest/hostedpools
 - microsoft cloudtest/images
 - microsoft cloudtest/풀
 - microsoft codespaces/요금제
 - microsoft.cognition/syntheticsaccounts
 - microsoft.cognitiveservices/accounts
 - microsoft.compute/availabilitysets
+- microsoft. compute/cloudservices
 - microsoft.compute/diskaccesses
 - microsoft.compute/diskencryptionsets
 - microsoft.compute/disks
@@ -173,6 +184,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.containerservice/openshiftmanagedclusters
 - microsoft. contoso/클러스터
 - microsoft.contoso/employees
+- microsoft. contoso/타워
 - microsoft.costmanagement/connectors
 - microsoft.customproviders/resourceproviders
 - d365customerinsights/인스턴스
@@ -201,6 +213,9 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.dbforpostgresql/servers
 - microsoft.dbforpostgresql/serversv2
 - microsoft.dbforpostgresql/singleservers
+- delegatednetwork/컨트롤러
+- delegatednetwork/delegatedsubnets
+- delegatednetwork/orchestratorinstances
 - microsoft.deploymentmanager/artifactsources
 - microsoft.deploymentmanager/rollouts
 - microsoft.deploymentmanager/servicetopologies
@@ -250,8 +265,10 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.healthcareapis/services/privateendpointconnections
 - microsoft.hybridcompute/machines
 - microsoft.hybridcompute/machines/extensions
+- hybridcompute/privatelinkscopes
 - microsoft.hybriddata/datamanagers
 - hybridnetwork/장치
+- hybridnetwork/networkfunctions
 - hybridnetwork/virtualnetworkfunctions
 - microsoft.importexport/jobs
 - industrydatalifecycle/basemodels
@@ -294,8 +311,11 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.machinelearning/workspaces
 - microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/workspaces
+- machinelearningservices/작업 영역/batchendpoints
 - machinelearningservices/작업 영역/inferenceendpoints
 - machinelearningservices/작업 영역/inferenceendpoints/배포
+- machinelearningservices/작업 영역/onlineendpoints
+- machinelearningservices/작업 영역/onlineendpoints/배포
 - microsoft.maintenance/maintenanceconfigurations
 - microsoft.maintenance/maintenancepolicies
 - microsoft.managedidentity/groups
@@ -306,6 +326,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.managednetwork/managednetworks/managednetworkgroups
 - microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
 - microsoft.maps/accounts
+- microsoft maps/계정/작성자
 - microsoft.maps/accounts/privateatlases
 - microsoft.marketplaceapps/classicdevservices
 - microsoft.media/mediaservices
@@ -379,6 +400,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.network/serviceendpointpolicies
 - microsoft.network/trafficmanagerprofiles
 - microsoft.network/virtualhubs
+- microsoft. network/virtualhubs/bgpconnections
+- microsoft. network/virtualhubs/ipconfigurations
 - microsoft.network/virtualnetworkgateways
 - microsoft.network/virtualnetworks
 - microsoft.network/virtualnetworktaps
@@ -394,12 +417,17 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.objectstore/osnamespaces
 - microsoft.offazure/hypervsites
 - microsoft.offazure/importsites
+- microsoft. offazure/mastersites
 - microsoft.offazure/serversites
 - microsoft.offazure/vmwaresites
+- openlogisticsplatform/작업 영역
 - microsoft.operationalinsights/clusters
+- operationalinsights/querypacks
 - microsoft.operationalinsights/workspaces
 - microsoft.operationsmanagement/solutions
 - microsoft.operationsmanagement/views
+- microsoft. 궤도/연락처 프로필
+- microsoft. 궤도/spacecrafts
 - microsoft.peering/peerings
 - microsoft.peering/peeringservices
 - microsoft.portal/dashboards
@@ -409,17 +437,23 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
 - microsoft.projectbabylon/accounts
+- 부서의 범위/계정
 - microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
 - microsoft.redhatopenshift/openshiftclusters
 - microsoft.relay/namespaces
 - microsoft.remoteapp/collections
+- microsoft. 복원 력/chaosexperiments
 - microsoft.resourcegraph/queries
 - microsoft.resources/deploymentscripts
 - microsoft.resources/templatespecs
 - microsoft.resources/templatespecs/versions
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
+- microsoft scvmm/클라우드
+- microsoft scvmm/virtualmachines
+- microsoft scvmm/virtualmachinetemplates
+- microsoft scvmm/virtualnetworks
 - microsoft scvmm/vmmservers
 - microsoft.search/searchservices
 - microsoft.security/automations
@@ -436,6 +470,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.servicefabricmesh/volumes
 - microsoft.serviceshub/connectors
 - microsoft.signalrservice/signalr
+- 특이성/계정
 - microsoft.solutions/appliancedefinitions
 - microsoft.solutions/appliances
 - microsoft.solutions/applicationdefinitions
@@ -463,6 +498,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft streamanalytics/클러스터
 - microsoft.streamanalytics/streamingjobs
 - swiftlet/virtualmachines
+- swiftlet/virtualmachinesnapshots
 - synapse/privatelinkhubs
 - microsoft.synapse/workspaces
 - microsoft.synapse/workspaces/bigdatapools
@@ -531,6 +567,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
 - wandisco/migrators
+- wandisco/migrators/livedatamigrations
 - wandisco/migrators/targets
 
 ## <a name="securityresources"></a>securityresources
@@ -544,6 +581,10 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
 - microsoft. security/securescores
 - microsoft. security/securescores/securescorecontrols
+
+## <a name="servicehealthresources"></a>servicehealthresources
+
+- microsoft.resourcehealth/events
 
 ## <a name="next-steps"></a>다음 단계
 

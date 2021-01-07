@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: b63d487d09679e64b5a2029284471c1aa3c3b769
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958307"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427092"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
@@ -35,7 +35,7 @@ ms.locfileid: "88958307"
 
 * 고유한 컴퓨터에 설치된 [Azure CLI](/cli/azure/overview) 
 * [Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## <a name="clone-the-sample-todo-app-and-prepare-the-repo"></a>샘플 TODO 앱 복제 및 리포지토리 준비
@@ -185,7 +185,7 @@ bash-3.2$ mvn package spring-boot:run
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.9.1</version>
+        <version>1.11.0</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -238,7 +238,7 @@ bash-3.2$ mvn package spring-boot:run
 
 ## <a name="deploy-to-app-service-on-linux"></a>Linux의 App Service에 배포
 
-`azure-webapp:deploy` Maven 목표를 사용하여 Linux의 Azure App Service에 할 일 앱을 배포합니다.
+`mvn azure-webapp:deploy` Maven 목표를 사용하여 Linux의 Azure App Service에 할 일 앱을 배포합니다.
 
 ```bash
 
@@ -250,7 +250,7 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.9.1:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:1.11.0:deploy (default-cli) @ spring-todo-app ---
 [INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
 [INFO] Subscription : xxxxxxxxx
 [INFO] Target Web App doesn't exist. Creating a new one...
@@ -275,7 +275,7 @@ bash-3.2$ mvn azure-webapp:deploy
 출력에는 배포된 애플리케이션의 URL이 포함됩니다(이 예제에서는 `https://spring-todo-app.azurewebsites.net`). 웹 브라우저에 이 URL을 복사하거나 터미널 창에서 다음 명령을 실행하여 앱을 로드할 수 있습니다.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 주소 표시줄에는 원격 URL에서 실행 중인 앱이 표시됩니다.
@@ -299,8 +299,8 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
-  
+다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
+  
 ```bash
 az group delete --name <your-azure-group-name>
 ```

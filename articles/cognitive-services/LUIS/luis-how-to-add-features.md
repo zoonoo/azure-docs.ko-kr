@@ -3,20 +3,18 @@ title: 기능을 사용 하 여 LUIS 단어 목록 개선
 titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding)를 사용하여 의도 및 엔터티의 감지 또는 예측을 향상시킬 수 있는 앱 기능을 해당 범주 및 패턴에 추가
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 25698fe2b05cbfb564e441e488bfa93221a9618a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999929"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>기능을 사용 하 여 단어 목록 신호 상승
 
@@ -26,11 +24,11 @@ ms.locfileid: "87075197"
 
 ## <a name="add-phrase-list-as-a-feature"></a>기능으로 문구 목록 추가
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
-1. **빌드**를 선택한 다음, 앱의 왼쪽 패널에서 **기능** 을 선택 합니다.
+1. **빌드** 를 선택한 다음, 앱의 왼쪽 패널에서 **기능** 을 선택 합니다.
 
-1. **기능** 페이지에서 **+ 만들기**를 선택 합니다.
+1. **기능** 페이지에서 **+ 만들기** 를 선택 합니다.
 
 1. **새 구 목록 기능 만들기** 대화 상자에서와 같은 이름을 입력 `Cities` 합니다. **값** 상자에와 같은 도시 예를 입력 `Seattle` 합니다. 한 번에 하나의 값을 입력하거나 쉼표로 구분해서 여러 개의 값을 입력한 후 **Enter** 키를 누릅니다.
 
@@ -43,7 +41,7 @@ ms.locfileid: "87075197"
 
 1. 구 목록은 **전역** 설정이 있는 전체 앱 또는 특정 모델 (의도 또는 엔터티)에 적용할 수 있습니다. 의도 또는 엔터티의 _기능_ 으로 문구 목록을 만드는 경우 toggle은 global에 대해 설정 되지 않습니다. 이 경우 설정/해제의 의미는 해당 기능이 해당 모델에 대해서만 로컬 이며 응용 프로그램에 대 한 _전역이 아니라_ 는 것입니다.
 
-1. **완료**를 선택합니다. 새 기능이 **ML 기능** 페이지에 추가 됩니다.
+1. **완료** 를 선택합니다. 새 기능이 **ML 기능** 페이지에 추가 됩니다.
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

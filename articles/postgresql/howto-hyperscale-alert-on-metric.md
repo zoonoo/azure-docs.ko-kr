@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907431"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026457"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 메트릭에 대 한 경고를 설정 합니다.
 
@@ -28,12 +28,12 @@ ms.locfileid: "90907431"
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
 * [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고**를 선택합니다.
+2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고** 를 선택합니다.
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="경고 규칙 선택":::
 
@@ -43,11 +43,11 @@ ms.locfileid: "90907431"
 
    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="메트릭 경고 양식 추가":::
 
-5. **조건** 섹션에서 **추가**를 선택 합니다.
+5. **조건** 섹션에서 **추가** 를 선택 합니다.
 
 6. 신호 목록에서 경고를 발생할 메트릭을 선택합니다. 이 예제에서는 "스토리지 비율"을 선택합니다.
    
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="메트릭 선택":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="여러 신호를 볼 수 있는 신호 논리 구성 페이지가 스크린샷으로 표시 됩니다.":::
 
 7. 경고 논리를 구성 합니다.
 
@@ -56,29 +56,29 @@ ms.locfileid: "90907431"
     * **집계 세분성** 경고를 트리거하기 전에 메트릭 규칙을 만족 해야 하는 시간 (예: "지난 30 분 동안")
     * 및 **평가 빈도** (예: "1 분")
    
-   완료되면 **완료**를 선택합니다.
+   완료되면 **완료** 를 선택합니다.
 
-   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="메트릭 선택":::
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="경고 논리를 구성할 수 있는 창이 스크린샷 화면에 표시 됩니다.":::
 
-8. **작업 그룹** 섹션에서 **새로 만들기**를 선택하여 경고 알림을 받을 새 그룹을 만듭니다.
+8. **작업 그룹** 섹션에서 **새로 만들기** 를 선택하여 경고 알림을 받을 새 그룹을 만듭니다.
 
 9. 이름, 약식 이름, 구독 및 리소스 그룹을 사용하여 "작업 그룹 추가" 양식을 채웁니다.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="작업 그룹":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="스크린샷에 설명 된 값을 입력할 수 있는 작업 그룹 추가 양식이 표시 됩니다.":::
 
 10. **이메일/SMS/푸시/음성** 작업 유형을 구성합니다.
     
     "전자 메일 Azure Resource Manager 역할"을 선택 하 여 구독 소유자, 참가자 및 읽기 권한자에 게 알림을 보냅니다.
    
-    완료되면 **확인**을 선택합니다.
+    완료되면 **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="작업 그룹":::
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="스크린샷에 전자 메일/S M S/푸시/음성 창이 표시 됩니다.":::
 
 11. 경고 규칙 이름, 설명 및 심각도를 지정합니다.
 
-    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="작업 그룹"::: 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="스크린샷 경고 세부 정보 창을 표시 합니다."::: 
 
-12. **경고 규칙 만들기**를 선택하여 경고를 만듭니다.
+12. **경고 규칙 만들기** 를 선택하여 경고를 만듭니다.
 
     앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "90907431"
 
 * 이 경고와 관련된 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 확인.
 * 경고 규칙을 **편집** 또는 **삭제**.
-* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용**으로 설정.
+* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용** 으로 설정.
 
 ## <a name="suggested-alerts"></a>제안 된 경고
 
@@ -101,8 +101,8 @@ ms.locfileid: "90907431"
 디스크가 공간 제한에 가까워지면 다음과 같은 방법으로 더 많은 여유 공간을 확보 하세요.
 
 * 데이터 보존 정책을 검토 합니다. 가능 하면 이전 데이터를 콜드 저장소로 이동 합니다.
-* 서버 그룹에 [노드를 추가](howto-hyperscale-scaling.md#add-worker-nodes) 하 고 분할 균형을 재조정 하는 것이 좋습니다. 균형을 재조정 하면 더 많은 컴퓨터에 데이터를 배포 합니다.
-* 작업자 노드의 [용량 증가를](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) 고려 합니다. 각 작업자에는 최대 2 TiB의 저장소가 있을 수 있습니다. 그러나 노드를 추가 하는 것이 더 빠르기 때문에 노드를 크기 조정 하기 전에 노드를 추가 하려고 합니다.
+* 서버 그룹에 [노드를 추가](howto-hyperscale-scale-grow.md#add-worker-nodes) 하 고 분할 균형을 재조정 하는 것이 좋습니다. 균형을 재조정 하면 더 많은 컴퓨터에 데이터를 배포 합니다.
+* 작업자 노드의 [용량 증가를](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) 고려 합니다. 각 작업자에는 최대 2 TiB의 저장소가 있을 수 있습니다. 그러나 노드를 추가 하는 것이 더 빠르기 때문에 노드를 크기 조정 하기 전에 노드를 추가 하려고 합니다.
 
 ### <a name="cpu-usage"></a>CPU 사용량
 
@@ -110,4 +110,4 @@ CPU 사용량 모니터링은 성능에 대 한 기준선을 설정 하는 데 �
 
 ## <a name="next-steps"></a>다음 단계
 * [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
-* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
+* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../azure-monitor/platform/data-platform.md) 의 개요를 살펴봅니다.

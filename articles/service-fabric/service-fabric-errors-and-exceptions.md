@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: gwallace
 ms.openlocfilehash: 7f3c3e072a3a2e4f7723f84b2c70ba0d0ddb9d03
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258844"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>FabricClient API로 작업하는 경우 일반적인 예외 및 오류
@@ -27,7 +27,7 @@ FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 
 
 일부 일반 [FabricErrorCode](/dotnet/api/system.fabric.fabricerrorcode) 오류는 [FabricException](/dotnet/api/system.fabric.fabricexception)으로 반환될 수 있습니다.
 
-| 오류 | 조건 |
+| Error | 조건 |
 | --- |:--- |
 | CommunicationError |통신 오류로 인해 작업이 실패했습니다. 작업을 다시 시도하세요. |
 | InvalidCredentialType |자격 증명 유형이 올바르지 않습니다. |

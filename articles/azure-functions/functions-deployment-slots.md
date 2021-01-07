@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: f84dc17c6c074fc4dbda8a13fad3586a397fdf10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 87d7d4676c604ca7219b7580eb3ce585282a7f11
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055427"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327243"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 배포 슬롯
 
@@ -28,7 +28,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 배포 슬롯을 사용 하면 여러 가지 이점이 있습니다. 다음 시나리오에서는 슬롯의 일반적인 용도를 설명 합니다.
 
-- **용도에**따라 다른 환경: 다른 슬롯을 사용 하면 프로덕션 또는 스테이징 슬롯으로 교환 하기 전에 앱 인스턴스를 구분할 수 있습니다.
+- **용도에** 따라 다른 환경: 다른 슬롯을 사용 하면 프로덕션 또는 스테이징 슬롯으로 교환 하기 전에 앱 인스턴스를 구분할 수 있습니다.
 - **사전 준비**: 프로덕션에 직접 배포 하는 대신 슬롯에 배포 하면 앱이 라이브 전환 전에 준비 될 수 있습니다. 또한 슬롯을 사용 하면 HTTP로 트리거되는 워크 로드에 대 한 대기 시간이 줄어듭니다. 인스턴스는 배포 전에 준비 새로 배포 된 함수에 대 한 콜드 시작이 줄어듭니다.
 - **간편한 대체**: 프로덕션을 사용한 교환 후 이전에 준비 된 앱이 있는 슬롯에는 이제 이전 프로덕션 앱이 있습니다. 프로덕션 슬롯으로 교환 되는 변경 내용이 원하는 대로 변경 되지 않은 경우 교체를 즉시 취소 하 여 "마지막으로 성공한 인스턴스"를 다시 가져올 수 있습니다.
 
@@ -53,11 +53,42 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 - 스테이징 슬롯을 프로덕션 슬롯과 교환 하려면 프로덕션 슬롯이 *항상* 대상 슬롯 인지 확인 합니다. 이러한 방식으로 교환 작업은 프로덕션 앱에 영향을 주지 않습니다.
 
-- *교환을 시작 하기 전에*이벤트 원본 및 바인딩과 관련 된 설정을 [배포 슬롯 설정](#manage-settings) 으로 구성 해야 합니다. 앞에 "고정"으로 표시 하면 이벤트와 출력이 적절 한 인스턴스로 전달 됩니다.
+- *교환을 시작 하기 전에* 이벤트 원본 및 바인딩과 관련 된 설정을 [배포 슬롯 설정](#manage-settings) 으로 구성 해야 합니다. 앞에 "고정"으로 표시 하면 이벤트와 출력이 적절 한 인스턴스로 전달 됩니다.
 
 ## <a name="manage-settings"></a>설정 관리
 
-[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
+일부 구성 설정은 슬롯과 관련이 있습니다. 다음 목록에서는 슬롯을 교환할 때 변경 되는 설정과 동일 하 게 유지 되는 설정에 대해 자세히 설명 합니다.
+
+**슬롯 특정 설정**:
+
+* 게시 엔드포인트
+* 사용자 지정 도메인 이름
+* 공용이 아닌 인증서 및 TLS/SSL 설정
+* 크기 조정 설정
+* WebJob 스케줄러
+* IP 제한
+* Always On
+* 진단 설정
+* CORS(원본 간 리소스 공유)
+
+**비 슬롯 특정 설정**:
+
+* 프레임 워크 버전, 32/64 비트, 웹 소켓 등의 일반 설정
+* 앱 설정(슬롯에 맞도록 구성할 수 있음)
+* 연결 설정(슬롯에 맞도록 구성할 수 있음)
+* 처리기 매핑
+* 공용 인증서
+* WebJob 콘텐츠
+* 하이브리드 연결 *
+* 가상 네트워크 통합 *
+* 서비스 끝점 *
+* Azure Content Delivery Network *
+
+별표 (*)로 표시 된 기능을 교환 하지 않도록 계획 합니다. 
+
+> [!NOTE]
+> 또한 스왑 되지 않은 설정에 적용 되는 특정 앱 설정은 교환 되지 않습니다. 예를 들어 진단 설정이 교환 되지 않으므로 및와 같은 관련 앱 설정은 `WEBSITE_HTTPLOGGING_RETENTION_DAYS` `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` 슬롯 설정으로 표시 되지 않는 경우에도 교환 되지 않습니다.
+>
 
 ### <a name="create-a-deployment-setting"></a>배포 설정 만들기
 
@@ -71,11 +102,11 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
-1. **구성**을 선택한 다음 현재 슬롯과 함께 사용할 설정 이름을 선택 합니다.
+1. **구성** 을 선택한 다음 현재 슬롯과 함께 사용할 설정 이름을 선택 합니다.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Azure Portal 슬롯에 대 한 응용 프로그램 설정을 구성 합니다." border="true":::
 
-1. **배포 슬롯 설정**을 선택 하 고 **확인**을 선택 합니다.
+1. **배포 슬롯 설정** 을 선택 하 고 **확인** 을 선택 합니다.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="배포 슬롯 설정을 구성 합니다." border="true":::
 
@@ -100,11 +131,11 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 1. 함수 앱으로 이동 합니다.
 
-1. **배포 슬롯**을 선택 하 고 **+ 슬롯 추가**를 선택 합니다.
+1. **배포 슬롯** 을 선택 하 고 **+ 슬롯 추가** 를 선택 합니다.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Azure Functions 배포 슬롯을 추가 합니다." border="true":::
 
-1. 슬롯의 이름을 입력 하 고 **추가**를 선택 합니다.
+1. 슬롯의 이름을 입력 하 고 **추가** 를 선택 합니다.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Azure Functions 배포 슬롯의 이름을로 합니다." border="true":::
 
@@ -113,9 +144,9 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 [CLI](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) 또는 포털을 통해 슬롯을 교환할 수 있습니다. 다음 단계에서는 포털에서 슬롯을 교환 하는 방법을 보여 줍니다.
 
 1. 함수 앱으로 이동합니다.
-1. **배포 슬롯**을 선택 하 고 **교환**을 선택 합니다.
+1. **배포 슬롯** 을 선택 하 고 **교환** 을 선택 합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="배포 슬롯을 교환 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="' 슬롯 추가 ' 작업을 선택한 ' 배포 슬롯 ' 페이지를 보여 주는 스크린샷" border="true":::
 
 1. 교환에 대 한 구성 설정을 확인 하 고 **교환** 을 선택 합니다.
     
@@ -135,11 +166,11 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
-1. **삭제**를 선택합니다.
+1. **삭제** 를 선택합니다.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Azure Portal에서 배포 슬롯을 삭제 합니다." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="' 삭제 ' 작업이 선택 된 ' 개요 ' 페이지를 보여 주는 스크린샷" border="true":::
 
-1. 삭제 하려는 배포 슬롯의 이름을 입력 하 고 **삭제**를 선택 합니다.
+1. 삭제 하려는 배포 슬롯의 이름을 입력 하 고 **삭제** 를 선택 합니다.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Azure Portal에서 배포 슬롯을 삭제 합니다." border="true":::
 
@@ -170,13 +201,13 @@ App Service 계획으로 실행 되는 함수 앱을 사용 하 여 슬롯에 �
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Azure Portal에서 슬롯을 찾습니다." border="true":::
 
-1. **App Service 계획**에서 **App Service 계획 변경**을 선택 합니다.
+1. **App Service 계획** 에서 **App Service 계획 변경** 을 선택 합니다.
 
 1. 업그레이드 하려는 계획을 선택 하거나 새 계획을 만듭니다.
 
     :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Azure Portal에서 App Service 계획을 변경 합니다." border="true":::
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ## <a name="limitations"></a>제한 사항
 

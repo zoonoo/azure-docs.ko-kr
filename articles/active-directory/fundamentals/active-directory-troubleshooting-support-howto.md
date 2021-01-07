@@ -16,10 +16,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322537"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Azure Active Directory에 대한 도움말 찾기 및 지원 티켓 열기
@@ -98,6 +98,6 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 
 ##  <a name="next-steps"></a>다음 단계
 
-* [Microsoft Tech Community](https://techcommunity.microsoft.com/)
+* [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/)
 
 * [Docs.microsoft.com의 기술 문서](../index.yml)

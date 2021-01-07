@@ -1,35 +1,35 @@
 ---
-title: SQL 주문형(미리 보기)을 사용하여 스토리지의 데이터 쿼리
-description: 이 문서에서는 Azure Synapse Analytics 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
+title: 서버리스 SQL 풀을 사용하여 데이터 스토리지 쿼리
+description: 이 문서에서는 Azure Synapse Analytics 내에서 서버리스 SQL 풀 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: stefanazaric
+ms.reviewer: jrasnick
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489744"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462658"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일 쿼리
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
-SQL 주문형(미리 보기)을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
+서버리스 SQL 풀을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
 
 - 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 노출 영역.
 - CREATE EXTERNAL TABLE AS SELECT([CETAS](develop-tables-cetas.md))는 [외부 테이블](develop-tables-external-tables.md)을 만든 다음, Transact-SQL SELECT 문의 결과를 Azure Storage에 병렬로 내보냅니다.
 
-현재 지원되는 항목과 지원되지 않는 항목에 대한 자세한 내용은 [SQL 주문형 개요](on-demand-workspace-overview.md) 문서 또는 다음 문서를 참조하세요.
+현재 지원되는 항목과 지원되지 않는 항목에 대한 자세한 내용은 [서버리스 SQL 풀 개요](on-demand-workspace-overview.md) 문서 또는 다음 문서를 참조하세요.
 - [External table](develop-tables-external-tables.md) 및 [OPENROWSET](develop-openrowset.md) 함수를 사용하여 스토리지의 데이터를 읽는 방법을 배울 수 있는 [스토리지 액세스 개발](develop-storage-files-overview.md)
 - SAS 인증 또는 작업 영역의 관리 ID를 사용하여 Synapse SQL이 스토리지에 액세스할 수 있게 설정하는 방법을 배울 수 있는 [스토리지 액세스 제어](develop-storage-files-storage-access-control.md)
 
 ## <a name="overview"></a>개요
 
-SQL 주문형은 Azure Storage 파일에 있는 데이터를 적절히 쿼리할 수 있는 원활한 환경을 지원하기 위해 다음과 같은 추가 기능을 통해 [OPENROWSET](develop-openrowset.md) 함수를 사용합니다.
+서버리스 SQL 풀은 Azure Storage 파일에 있는 데이터를 적절히 쿼리할 수 있는 원활한 환경을 지원하기 위해 다음과 같은 추가 기능을 통해 [OPENROWSET](develop-openrowset.md) 함수를 사용합니다.
 
 - [여러 파일 또는 폴더 쿼리](#query-multiple-files-or-folders)
 - [PARQUET 파일 형식](#query-parquet-files)
@@ -47,7 +47,7 @@ Parquet 원본 데이터를 쿼리하려면 FORMAT = 'PARQUET'를 사용합니�
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 사용 예제는 [Parquet 파일 쿼리](query-parquet-files.md) 문서를 검토하세요.
@@ -59,7 +59,7 @@ CSV 원본 데이터를 쿼리하려면 FORMAT = 'CSV'를 사용합니다. CSV �
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 구문 분석 규칙을 사용자 지정 CSV 형식으로 조정하는 데 사용할 수 있는 다음과 같은 추가 옵션이 있습니다.
@@ -85,7 +85,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -146,7 +146,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/myroot/*/mysubfolder/*
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>복합 형식 및 중첩되거나 반복되는 데이터 구조 작업
 
-[Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) 파일처럼 중첩되거나 반복되는 데이터 형식으로 저장된 데이터에 원활한 환경을 사용하도록 설정하기 위해, SQL 주문형에는 다음 확장이 추가되었습니다.
+[Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) 파일과 같이 중첩되거나 반복되는 데이터 형식으로 저장된 데이터에 원활한 환경을 사용하도록 설정하기 위해 서버리스 SQL 풀에는 다음 확장이 추가되었습니다.
 
 #### <a name="project-nested-or-repeated-data"></a>중첩되거나 반복되는 데이터 프로젝션
 
@@ -222,13 +222,13 @@ Array 또는 Map의 요소와 같은 반복된 열의 요소에 액세스하려�
 ### <a name="tools"></a>도구
 
 쿼리를 실행하는 데 필요한 도구:
-    - Azure Synapse Studio(미리 보기)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 
 ### <a name="demo-setup"></a>데모 설정
 
-첫 번째 단계는 쿼리를 실행할 **데이터베이스 만들기**입니다. 그런 다음, 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 
+첫 번째 단계는 쿼리를 실행할 **데이터베이스를 만드는** 것입니다. 그런 다음, 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 
 
 이 설치 스크립트는 이러한 샘플의 데이터를 읽는 데 사용되는 데이터 원본, 데이터베이스 범위 자격 증명 및 외부 파일 형식을 만듭니다.
 

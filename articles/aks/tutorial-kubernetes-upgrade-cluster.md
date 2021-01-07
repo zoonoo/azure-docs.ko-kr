@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 클러스터 업그레이드
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 기존 AKS 클러스터를 최신 Kubernetes 버전으로 업그레이드하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 02/25/2020
-ms.custom: mvc
-ms.openlocfilehash: a89e8bb42bec4323d2189ca93dfe73171c4a128c
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 09/30/2020
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 517172b919552a24e9cb12bbaad14eb8cb71b3fd
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887992"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007537"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 Kubernetes 업그레이드
 
@@ -37,7 +37,7 @@ ms.locfileid: "84887992"
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-다음 예제에서는 현재 버전이 *1.15.11*이며 사용 가능한 버전이 *업그레이드* 아래에 표시됩니다.
+다음 예제에서는 현재 버전이 *1.15.11* 이며 사용 가능한 버전이 *업그레이드* 아래에 표시됩니다.
 
 ```json
 {
@@ -80,9 +80,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> 부 버전을 한 번에 하나씩 업그레이드할 수 있습니다. 예를 들어 *1.14.x*에서 *1.15.x*로 업그레이드할 수 있지만, *1.14.x*에서 *1.16.x*로 직접 업그레이드할 수는 없습니다. *1.14.x*에서 *1.16.x*로 업그레이드하려면 먼저 *1.14.x*에서 *1.15.x*로 업그레이드한 다음, *1.15.x*에서 *1.16.x*로 업그레이드합니다.
+> 부 버전을 한 번에 하나씩 업그레이드할 수 있습니다. 예를 들어 *1.14.x* 에서 *1.15.x* 로 업그레이드할 수 있지만, *1.14.x* 에서 *1.16.x* 로 직접 업그레이드할 수는 없습니다. *1.14.x* 에서 *1.16.x* 로 업그레이드하려면 먼저 *1.14.x* 에서 *1.15.x* 로 업그레이드한 다음, *1.15.x* 에서 *1.16.x* 로 업그레이드합니다.
 
-압축된 다음 예제 출력에서는 *1.16.8*로 업그레이드한 결과를 보여줍니다. 이제 *kubernetesVersion*에서 *1.16.8*을 보고합니다.
+압축된 다음 예제 출력에서는 *1.16.8* 로 업그레이드한 결과를 보여줍니다. 이제 *kubernetesVersion* 에서 *1.16.8* 을 보고합니다.
 
 ```json
 {
@@ -115,7 +115,7 @@ az aks upgrade \
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.16.8*을 실행하는 것을 보여줍니다.
+다음 예제 출력에서는 AKS 클러스터에서 *KubernetesVersion 1.16.8* 을 실행하는 것을 보여줍니다.
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
@@ -143,10 +143,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > * Kubernetes 노드 업그레이드
 > * 성공적인 업그레이드의 유효성 검사
 
-AKS에 대해 자세히 알아보려면 다음 링크를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [AKS 개요][aks-intro]
+AKS에 대한 자세한 내용은 [AKS 개요][aks-intro]를 참조하세요. AKS를 사용하여 전체 솔루션을 만드는 방법에 대한 지침은 [AKS 솔루션 지침][aks-solution-guidance]을 참조하세요.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -160,3 +157,4 @@ AKS에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

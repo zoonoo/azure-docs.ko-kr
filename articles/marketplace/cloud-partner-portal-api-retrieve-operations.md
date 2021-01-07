@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271946"
 ---
 # <a name="retrieve-operations"></a>작업 검색
@@ -31,12 +31,12 @@ ms.locfileid: "87271946"
 
 ## <a name="uri-parameters"></a>URI 매개 변수
 
-|  **Name**          |      **설명**                                                                                           | **데이터 형식** |
+|  **이름**          |      **설명**                                                                                           | **데이터 형식** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  문자열       |
-|  offerId           |  제안 식별자입니다.                                                                                              |  문자열       |
-|  operationId       |  제품에 대한 작업을 고유하게 식별하는 GUID입니다. operationId는 이 API를 사용하여 검색할 수 있으며, [제품 게시](./cloud-partner-portal-api-publish-offer.md) API와 같은 장기 실행 작업에 대한 응답의 HTTP 헤더에도 반환됩니다.  |   Guid   |
-|  api-version       | 최신 버전 API |    Date      |
+|  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  String       |
+|  offerId           |  제안 식별자입니다.                                                                                              |  String       |
+|  operationId       |  제품에 대한 작업을 고유하게 식별하는 GUID입니다. operationId는 이 API를 사용하여 검색할 수 있으며, [제품 게시](./cloud-partner-portal-api-publish-offer.md) API와 같은 장기 실행 작업에 대한 응답의 HTTP 헤더에도 반환됩니다.  |   GUID   |
+|  api-version       | 최신 버전 API |    날짜      |
 |  |  |  |
 
 ## <a name="header"></a>헤더
@@ -169,25 +169,25 @@ ms.locfileid: "87271946"
 
 ### <a name="response-body-properties"></a>응답 본문 속성
 
-|  **Name**                    |  **설명**                                                                                  |
+|  **이름**                    |  **설명**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | 작업을 고유하게 식별하는 GUID입니다.                                                       |
 |  submissionType              | 제품에 대해 보고되는 작업 유형(예: `Publish/GoLive`)을 식별합니다.      |
 |  createdDateTime             | 작업이 만들어진 UTC 날짜/시간입니다.                                                       |
 |  lastActionDateTime          | 작업에 대한 마지막 업데이트가 수행된 UTC 날짜/시간입니다.                                       |
 |  상태                      | 작업의 상태 `not started` \| `running` \| `failed` \| `completed` 입니다. 한 번에 하나의 작업만 상태 `running`을 가질 수 있습니다. |
-|  오류                       | 실패한 작업에 대한 오류 메시지입니다.                                                               |
+|  error                       | 실패한 작업에 대한 오류 메시지입니다.                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>응답 단계 속성
 
-|  **Name**                    |  **설명**                                                                                  |
+|  **이름**                    |  **설명**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 | estimatedTimeFrame | 이 작업의 예상 기간입니다. |
 | id | 단계 프로세스에 대 한 고유 식별자입니다. |
 | description | 단계에 대한 설명입니다. |
 | stepName | 단계의 이름입니다. |
-| 상태 | 단계의 상태 이며 다음 중 하나 `notStarted` \| `running` \| `failed` \| 입니다.`completed` |
+| 상태 | 단계의 상태 이며 다음 중 하나 `notStarted` \| `running` \| `failed` \| 입니다. `completed` |
 | messages | 단계를 수행 하는 동안 발생 한 알림 또는 경고입니다. 문자열 배열 |
 | System.componentmodel.progresschangedeventargs.progresspercentage | 단계의 진행을 나타내는 0에서 100 사이의 정수입니다. |
 | | |

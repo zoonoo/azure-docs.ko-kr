@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-author: keferna
-ms.author: keferna
-ms.openlocfilehash: a7afaf0da3bbb021d76c2d109cb385d86fd7c860
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+author: trkeya
+ms.author: trkeya
+ms.openlocfilehash: 553eba3898a5ea42e5d478603e35e82c68abcab1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319850"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462894"
 ---
 # <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
@@ -22,15 +22,15 @@ Microsoft 상업적 marketplace의 시험 사용 옵션을 사용 하면 제품�
 
 ## <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
-이는 가상 머신 또는 Azure 앱 제안에 대 한 유일한 테스트 드라이브 옵션 이며 매우 세부적인 설정도 필요 합니다. [배포 구독 세부 정보](#deployment-subscription-details) 및 [테스트 드라이브 목록](#test-drive-listings)에 대 한 아래 섹션을 읽은 다음 [Azure Resource Manager 테스트 드라이브 구성](azure-resource-manager-test-drive.md)에 대 한 별도의 항목을 계속 진행 합니다.
+이는 가상 머신 또는 Azure 앱 제품에 대 한 유일한 테스트 드라이브 옵션 이며 매우 자세한 설정이 필요 합니다. [배포 구독 세부 정보](#deployment-subscription-details) 및 [테스트 드라이브 목록](#test-drive-listings)에 대 한 아래 섹션을 읽은 다음 [Azure Resource Manager 테스트 드라이브 구성](azure-resource-manager-test-drive.md)에 대 한 별도의 항목을 계속 진행 합니다.
 
 ## <a name="hosted-test-drive"></a>호스트 된 테스트 드라이브
 
-Microsoft는 이 유형의 시험 사용을 사용하는 서비스 프로비저닝 및 배포를 호스트하고 유지 관리하여 시험 사용의 복잡한 설치 과정을 제거할 수 있습니다. 이 유형의 호스트 된 테스트 드라이브에 대 한 구성은 테스트 드라이브가 Dynamics 365 비즈니스 중부, Dynamics 365 Customer Engagement 또는 Dynamics 365 작업 대상을 대상으로 하는지 여부에 관계 없이 동일 합니다.
+Microsoft는 서비스 프로 비전 및 프로 비전 해제를 호스트 하 고 유지 관리 하 여 테스트 드라이브를 설정 하는 복잡성을 제거할 수 있습니다. 이 유형의 테스트 드라이브에 대 한 구성은 테스트 드라이브가 Dynamics 365 Customer Engagement를 대상으로 하는지 또는 Dynamics 365 작업 대상을 대상으로 하는지 여부에 관계 없이 동일 합니다.
 
 - **최대 동시 시험 사용 수**(필수) – 시험 사용을 동시에 사용할 수 있는 최대 고객 수를 설정합니다. 테스트 드라이브가 활성화 된 상태에서 각 동시 사용자는 Dynamics 365 라이선스를 사용 하므로 최대 제한 집합을 지원할 수 있는 충분 한 라이선스가 있는지 확인 합니다. 권장 값은 3-5입니다.
 
-- **시험 사용 기간**(필수) – 시험 사용이 활성 상태로 유지되는 기간(시간)을 입력합니다. 이 시간이 지난 후에는 세션이 종료되고 더 이상 라이선스를 사용하지 않습니다. 권장 값은 제품의 복잡성에 따라 2~24시간입니다. 이 기간은 정수 시간으로만 설정할 수 있습니다(예: "2"시간은 유효하지만 "1.5"시간은 유효하지 않음). 시간이 만료된 후 시험 사용에 다시 액세스하려는 경우 새 세션을 요청할 수 있습니다.
+- **테스트 드라이브 기간** (필수) – 테스트 드라이브가 각 고객에 대해 활성 상태로 유지 되는 시간 (분)을 입력 합니다. 이 기간이 지나면 세션이 종료 되 고 더 이상 라이선스 중 하나를 사용 하지 않습니다. 권장 값은 제품의 복잡성에 따라 2~24시간입니다. 이 기간은 전체 시간에만 설정할 수 있습니다. 예를 들어 "2 시간"은 유효 합니다. "1.5 시간"은 그렇지 않습니다. 시간이 만료된 후 시험 사용에 다시 액세스하려는 경우 새 세션을 요청할 수 있습니다.
 
 - **인스턴스 URL**(필수) – 고객이 시험 사용을 시작하는 URL입니다. 일반적으로 샘플 데이터가 설치된 앱을 실행하는 Dynamics 365 인스턴스의 URL입니다(예: `https://testdrive.crm.dynamics.com`).
 
@@ -38,7 +38,9 @@ Microsoft는 이 유형의 시험 사용을 사용하는 서비스 프로비저�
 
 - **역할 이름**(필수) – 사용자 지정 Dynamics 365 시험 사용에서 정의한 보안 역할 이름을 제공합니다(예: test-drive-role). 시험 사용 중 사용자에게 이 역할이 할당됩니다.
 
-시험 사용을 위한 Dynamics 365 환경을 설정 하 고 테 넌 트에서 테스트 드라이브 사용자를 프로 비전 하 고 프로 비전 할 수 있는 AppSource 권한을 부여 하는 방법에 대 한 도움말을 보려면 [다음 지침](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md)을 따르세요.
+시험 사용을 위한 Dynamics 365 환경을 설정 하 고 테 넌 트에서 테스트 드라이브 사용자를 프로 비전 하 고 프로 비전 할 수 있는 AppSource 권한을 부여 하는 방법에 대 한 도움말을 보려면 [다음 지침](./test-drive-azure-subscription-setup.md)을 따르세요.
+
+호스팅된 테스트 드라이브를 나열 하 고 구성 하는 방법에 대 한 단계별 지침은 [호스팅된 테스트 드라이브에 대 한 자세한 구성](./test-drive-hosted-detailed-config.md) 페이지를 참조 하세요.
 
 ## <a name="logic-app-test-drive"></a>논리 앱 테스트 드라이브
 
@@ -50,7 +52,7 @@ Microsoft는 이 유형의 시험 사용을 사용하는 서비스 프로비저�
 
 - **시험 사용 기간**(필수) – 시험 사용이 활성 상태로 유지되는 기간(시간 단위)을 입력합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다.
 
-- **Azure 리소스 그룹 이름** (필수)-논리 앱 테스트 드라이브가 저장 되는 [azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)이름을 입력 합니다.
+- **Azure 리소스 그룹 이름** (필수)-논리 앱 테스트 드라이브가 저장 되는 [azure 리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)이름을 입력 합니다.
 
 - **Azure 논리 앱 이름**(필수) – 시험 사용을 사용자에게 할당하는 논리 앱의 이름을 입력합니다. 이 논리 앱은 위의 Azure 리소스 그룹에 저장되어야 합니다.
 
@@ -60,7 +62,7 @@ Microsoft는 이 유형의 시험 사용을 사용하는 서비스 프로비저�
 
 대화형 Power BI 시각적 개체를 시연하려는 제품은 포함된 링크를 사용하여 사용자 지정 빌드 대시보드를 시험 사용으로 공유할 수 있으며 추가 기술 구성은 필요하지 않습니다. 여기서는 포함 된 Power BI URL을 업로드 하기만 하면 됩니다.
 
-Power BI 앱을 설정 하는 방법에 대 한 자세한 내용은 [Power BI 앱 이란?](https://docs.microsoft.com/power-bi/service-template-apps-overview) 을 참조 하세요.
+Power BI 앱을 설정 하는 방법에 대 한 자세한 내용은 [Power BI 앱 이란?](/power-bi/service-template-apps-overview) 을 참조 하세요.
 
 ## <a name="deployment-subscription-details"></a>배포 구독 세부 정보
 
@@ -68,13 +70,13 @@ Microsoft가 사용자를 대신해서 시험 사용을 배포하도록 하려�
 
 - **Azure 구독 ID**(Azure Resource Manager 및 Logic Apps에 필요) - 리소스 사용량 보고 및 청구를 위해 Azure 계정 서비스에 대한 액세스 권한을 부여하는 구독 ID를 입력합니다. 아직 없는 경우 시험 사용에 사용할 [별도의 Azure 구독을 만드는 것](../cost-management-billing/manage/create-subscription.md)이 좋습니다. [Azure Portal](https://portal.azure.com/)에 로그인하여 왼쪽 메뉴의 **구독** 탭으로 이동하면 Azure 구독 ID를 확인할 수 있습니다. 이 탭을 선택하면 구독 ID(예: "a83645ac-1234-5ab6-6789-1h234g764ghty")가 표시됩니다.
 
-- **AZURE ad 테 넌 트 id** (필수) – ad (Azure Active Directory) [테 넌 트 id](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고 왼쪽 메뉴에서 Active Directory 탭을 선택하고 **속성**을 선택한 다음 나열된 **디렉터리 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. [https://www.whatismytenantid.com](https://www.whatismytenantid.com)에서 도메인 이름 주소를 사용하여 조직의 테넌트 ID를 조회할 수도 있습니다.
+- **AZURE ad 테 넌 트 id** (필수) – ad (Azure Active Directory) [테 넌 트 id](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고 왼쪽 메뉴에서 Active Directory 탭을 선택하고 **속성** 을 선택한 다음 나열된 **디렉터리 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. [https://www.whatismytenantid.com](https://www.whatismytenantid.com)에서 도메인 이름 주소를 사용하여 조직의 테넌트 ID를 조회할 수도 있습니다.
 
 - **Azure AD 테넌트 이름**(Dynamic 365에 필요) – Azure AD(Active Directory) 이름을 입력합니다. 이 이름을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 그러면 오른쪽 위 계정 이름 아래에 테넌트 이름이 나열됩니다.
 
-- **AZURE ad 앱 id** (필수) – AZURE ACTIVE DIRECTORY (AD) [응용 프로그램 id](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 왼쪽 메뉴에서 Active Directory 탭을 선택 하 고, **앱 등록**를 선택한 다음 나열 된 **응용 프로그램 ID** 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
+- **AZURE ad 앱 id** (필수) – AZURE ACTIVE DIRECTORY (AD) [응용 프로그램 id](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 왼쪽 메뉴에서 Active Directory 탭을 선택 하 고, **앱 등록** 를 선택한 다음 나열 된 **응용 프로그램 ID** 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
 
-- **AZURE ad 앱 클라이언트 암호** (필수) – azure ad 응용 프로그램 [클라이언트 암호](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 메뉴에서 **Azure Active Directory** 탭을 선택하고 **앱 등록**을 선택한 다음 시험 사용 앱을 선택합니다. 그런 다음, **인증서 및 암호**를 선택하고 **새 클라이언트 암호**선택하여 설명을 입력하고 **만료**에서 **안 함**을 선택한 다음, **추가**를 선택합니다. 이 값을 적어 두어야 합니다. 값을 복사 하기 전에 페이지에서 다른 곳으로 이동 하지 마세요.
+- **AZURE ad 앱 클라이언트 암호** (필수) – azure ad 응용 프로그램 [클라이언트 암호](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 메뉴에서 **Azure Active Directory** 탭을 선택 하 **앱 등록** 를 선택 하 고 테스트 드라이브 앱을 선택 합니다. 그런 다음 **인증서 및 비밀** 을 선택 하 고, **새 클라이언트 암호** 를 선택 하 고, 설명을 입력 하 고, **만료** 됨 **을 선택 하** 고, **추가** 를 선택 합니다. 이 값을 적어 두어야 합니다. 값을 복사 하기 전에 페이지에서 다른 곳으로 이동 하지 마세요.
 
 ## <a name="test-drive-listings"></a>테스트 드라이브 목록
 
@@ -93,6 +95,12 @@ Microsoft가 사용자를 대신해서 시험 사용을 배포하도록 하려�
 
 현재 파트너 센터에서 테스트 드라이브를 만들고 있는 경우 계속 하기 전에 **초안 저장** 을 선택 합니다.
 
-## <a name="next-step"></a>다음 단계
+호스팅된 테스트 드라이브를 나열 하 고 구성 하는 방법에 대 한 단계별 지침은 [호스팅된 테스트 드라이브에 대 한 자세한 구성](./test-drive-hosted-detailed-config.md) 페이지를 참조 하세요.
 
+## <a name="additional-resources"></a>추가 리소스
+
+## <a name="next-steps"></a>다음 단계
+
+- [시험 드라이브 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [개요](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF. 팝업 차단이 해제되어 있는지 확인)
 - [상업용 마켓플레이스에서 기존 제품 업데이트](partner-center-portal/update-existing-offer.md)

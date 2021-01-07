@@ -1,17 +1,17 @@
 ---
 title: 데이터 흐름 매핑 비디오 자습서
 description: 매핑 데이터 흐름 개념을 설명하는 비디오 자습서 목록
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/02/2020
-ms.openlocfilehash: 332eb274b7ae632a3496b9ff43439bb48cfed5e4
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.date: 11/02/2020
+ms.openlocfilehash: 605d740b56b4f1cd57ab705e442a8b3e3946fcff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419285"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490706"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -84,6 +84,10 @@ ms.locfileid: "89419285"
 [평면화 결합](https://youtu.be/VY2tFQJoAXE)
 
 [계층적 데이터 변환](https://youtu.be/oAEh21NFgWQ)
+
+[순위 변환](https://youtu.be/6XvgkbMtws0)
+
+[캐시된 조회](https://www.youtube.com/watch?v=HqCn42FaRJs)
 
 ## <a name="source-and-sink"></a>원본 및 싱크
 
@@ -172,3 +176,7 @@ ms.locfileid: "89419285"
 [데이터 품질 식](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [집계 함수 수집](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+## <a name="metadata"></a>메타데이터
+
+[메타데이터 유효성 검사 규칙](https://www.youtube.com/watch?v=E_UD3R-VpYE)

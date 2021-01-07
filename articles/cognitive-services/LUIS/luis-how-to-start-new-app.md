@@ -3,20 +3,18 @@ title: 새 앱 만들기-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding) 웹 페이지에서 애플리케이션을 만들고 관리합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.author: diberry
-ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144390"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018891"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또는 LUIS 제작 [API](developer-reference-resource.md)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -26,7 +24,7 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또�
 여러 가지 방법으로 포털에서 새 앱을 만들 수 있습니다.
 
 * 빈 앱으로 시작하고 의도, 발화 및 엔터티를 만듭니다.
-* 빈 앱으로 시작하고 [미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md)을 추가합니다.
+* 빈 앱으로 시작하고 [미리 빌드된 도메인](./howto-add-prebuilt-models.md)을 추가합니다.
 * `.lu` `.json` 의도, 길이 발언 및 엔터티가 이미 포함 된 또는 파일에서 LUIS 앱을 가져옵니다.
 
 ## <a name="using-the-authoring-apis"></a>작성 API 사용
@@ -45,7 +43,7 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또�
 
 ## <a name="create-new-app-in-luis"></a>LUIS에서 새 앱 만들기
 
-1. **내 앱** 페이지에서 **구독**을 선택 하 고 **리소스를 작성** 한 후 **+ 만들기**를 선택 합니다. 
+1. **내 앱** 페이지에서 **구독** 을 선택 하 고 **리소스를 작성** 한 후 **+ 만들기** 를 선택 합니다. 
 
 > [!div class="mx-imgBorder"]
 > ![LUIS 앱 목록](./media/create-app-in-portal.png)
@@ -54,7 +52,7 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또�
 
     ![새 앱 만들기 대화 상자](./media/create-pizza-tutorial-app-in-portal.png)
 
-1. 응용 프로그램 문화권을 선택한 다음 **완료**를 선택 합니다. 이 시점에서 설명 및 예측 리소스는 선택 사항입니다. 언제 든 지 포털의 **관리** 섹션에서 설정할 수 있습니다.
+1. 응용 프로그램 문화권을 선택한 다음 **완료** 를 선택 합니다. 이 시점에서 설명 및 예측 리소스는 선택 사항입니다. 언제 든 지 포털의 **관리** 섹션에서 설정할 수 있습니다.
 
     > [!NOTE]
     > 애플리케이션을 만든 후에는 문화권을 변경할 수 없습니다.
@@ -77,4 +75,4 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또�
 
 ## <a name="next-steps"></a>다음 단계
 
-앱 디자인에 의도 검색을 포함 하는 경우 [새 의도를 만들고](luis-how-to-add-intents.md)길이 발언 예제를 추가 합니다. 앱 디자인이 데이터 추출 인 경우 예를 길이 발언에 추가 하 고, [엔터티를 만들고](luis-how-to-add-example-utterances.md), 예제 길이 발언에 해당 엔터티로 레이블을 추가 합니다.
+앱 디자인에 의도 검색을 포함 하는 경우 [새 의도를 만들고](luis-how-to-add-intents.md)길이 발언 예제를 추가 합니다. 앱 디자인이 데이터 추출 인 경우 예를 길이 발언에 추가 하 고, [엔터티를 만들고](./luis-how-to-add-entities.md), 예제 길이 발언에 해당 엔터티로 레이블을 추가 합니다.

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 403a5b68e3320700e275c744210f480be2c88e84
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021326"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207532"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 
@@ -163,7 +163,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
     ```
 
     이 코드는 **RemoteRenderingCoordinator** 구성 요소에 세 개의 추가 문자열 변수를 추가합니다.
-    ![연결된 모델](./media/storage-account-linked-model.png)
+    ![RemoteRenderingCoordinator 구성 요소의 스토리지 계정 이름, Blob 컨테이너 이름 및 모델 경로를 강조 표시하는 스크린샷.](./media/storage-account-linked-model.png)
 
 1. **RemoteRenderingCoordinator** 구성 요소에 값을 추가합니다. [모델 변환을 위한 빠른 시작](../../../quickstarts/convert-model.md)을 완료하면 값이 다음과 같습니다.
 
@@ -188,11 +188,11 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
 
 ## <a name="azure-active-directory-azure-ad-authentication"></a>Azure AD(Azure Active Directory) 인증
 
-AAD 인증을 사용하면 보다 제어된 방식으로 ARR을 사용하는 개인 또는 그룹을 확인할 수 있습니다. ARR은 계정 키를 사용하는 대신 [액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)을 허용하는 기능을 기본적으로 제공합니다. 액세스 토큰은 요청된 특정 리소스의 특정 부분만 잠금 해제하는 시간이 제한된 사용자 관련 키로 생각하시면 됩니다.
+AAD 인증을 사용하면 보다 제어된 방식으로 ARR을 사용하는 개인 또는 그룹을 확인할 수 있습니다. ARR은 계정 키를 사용하는 대신 [액세스 토큰](../../../../active-directory/develop/access-tokens.md)을 허용하는 기능을 기본적으로 제공합니다. 액세스 토큰은 요청된 특정 리소스의 특정 부분만 잠금 해제하는 시간이 제한된 사용자 관련 키로 생각하시면 됩니다.
 
 **RemoteRenderingCoordinator** 스크립트에는 원격 세션 관리를 구성하는 데 사용되는 **AzureFrontendAccountInfo** 개체를 반환하는 메서드가 포함된 **ARRCredentialGetter**라는 대리자가 있습니다. **ARRCredentialGetter**에 다른 메서드를 할당하여 Azure 로그인 흐름을 사용하도록 허용하고, Azure 액세스 토큰을 포함하는 **AzureFrontendAccountInfo** 개체를 생성할 수 있습니다. 이 액세스 토큰은 로그인하는 사용자에게 적용됩니다.
 
-1. [방법: 인증 구성 - 배포된 애플리케이션에 대한 인증](../../../how-tos/authentication.md#authentication-for-deployed-applications)을 따르세요. 특히, Azure Spatial Anchors 설명서 [Azure AD 사용자 인증](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication)에 나열된 지침을 따릅니다. 여기에는 새 Azure Active Directory 애플리케이션을 등록하고 ARR 인스턴스에 대한 액세스를 구성하는 작업이 포함됩니다.
+1. [방법: 인증 구성 - 배포된 애플리케이션에 대한 인증](../../../how-tos/authentication.md#authentication-for-deployed-applications)을 따르세요. 특히, Azure Spatial Anchors 설명서 [Azure AD 사용자 인증](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication)에 나열된 지침을 따릅니다. 여기에는 새 Azure Active Directory 애플리케이션을 등록하고 ARR 인스턴스에 대한 액세스를 구성하는 작업이 포함됩니다.
 1. 새 AAD 애플리케이션을 구성한 후에는 AAD 애플리케이션이 다음 이미지와 비슷한지 확인합니다.
 
     **AAD 애플리케이션 -> 인증** ![앱 인증](./media/app-authentication-public.png)
@@ -361,7 +361,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
 
 이 코드는 먼저 **AquireTokenSilent**를 사용하여 토큰을 자동으로 가져오려고 시도합니다. 사용자가 이전에 이 애플리케이션을 인증했다면 이 작업이 성공합니다. 실패하면 사용자 개입이 더 많은 전략으로 넘어갑니다.
 
-이 코드에서는 [디바이스 코드 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code)을 사용하여 액세스 토큰을 가져옵니다. 이 흐름을 사용하면 사용자가 컴퓨터 또는 모바일 디바이스에서 자신의 Azure 계정에 로그인하여 결과 토큰을 HoloLens 애플리케이션으로 다시 보낼 수 있습니다.
+이 코드에서는 [디바이스 코드 흐름](../../../../active-directory/develop/v2-oauth2-device-code.md)을 사용하여 액세스 토큰을 가져옵니다. 이 흐름을 사용하면 사용자가 컴퓨터 또는 모바일 디바이스에서 자신의 Azure 계정에 로그인하여 결과 토큰을 HoloLens 애플리케이션으로 다시 보낼 수 있습니다.
 
 ARR 관점에서 이 클래스의 가장 중요한 부분은 다음 줄입니다.
 
@@ -392,12 +392,13 @@ Unity 편집기에서 AAD 인증이 활성화되면 애플리케이션을 시작
     * **Azure 테넌트 ID**는 AAD 앱 등록에서 찾을 수 있는 *디렉터리(테넌트) ID*입니다(아래 이미지 참조).
     * **Azure Remote Rendering 계정 ID**는 **RemoteRenderingCoordinator**에 사용했던 것과 동일한 **계정 ID**입니다.
 
-    ![AAD 인증 구성 요소](./media/app-overview-data.png)
+    ![애플리케이션(클라이언트) ID 및 디렉터리(테넌트) ID를 강조 표시하는 스크린샷.](./media/app-overview-data.png)
 
 1. Unity 편집기에서 재생을 누르고 세션 실행에 동의합니다.
     **AADAuthentication** 구성 요소에는 보기 컨트롤러가 있으므로, 세션 권한 부여 모달 패널 뒤에 프롬프트를 표시하도록 자동으로 연결됩니다.
 1. **AppMenu**의 오른쪽 패널에 있는 지침을 따르세요.
-    다음과 유사한 내용이 표시되어야 합니다. ![AAD 인증 구성 요소](./media/device-flow-instructions.png) 보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 요청 애플리케이션(여기서는 Unity 편집기)에 액세스 토큰이 반환됩니다.
+    다음과 유사한 내용이 표시되어야 합니다. ![AppMenu 오른쪽에 표시되는 명령 패널을 보여주는 그림.](./media/device-flow-instructions.png)
+    보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 요청 애플리케이션(여기서는 Unity 편집기)에 액세스 토큰이 반환됩니다.
 1. 이 시점 이후로 애플리케이션의 모든 것이 정상적으로 진행됩니다. 스테이지가 예상대로 진행되지 않으면 Unity 콘솔에서 오류를 확인합니다.
 
 ## <a name="build-to-device"></a>디바이스에 빌드

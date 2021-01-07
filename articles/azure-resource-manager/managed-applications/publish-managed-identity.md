@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82508135"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>관리 Id를 사용 하는 Azure 관리 되는 응용 프로그램
@@ -126,7 +126,7 @@ CreateUIDefinition은 관리 되는 기본 제공 [id 컨트롤](./microsoft-man
 
 ![관리 Id CreateUIDefinition](./media/publish-managed-identity/msi-cuid.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
+### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
 > [!NOTE]
 > Marketplace 관리 응용 프로그램 템플릿은 Azure Portal 만들기 환경을 통해 고객에 게 자동으로 생성 됩니다.
@@ -325,7 +325,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 요청 본문 매개 변수:
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 authorizationAudience | *아니요* | 대상 리소스의 앱 ID URI입니다. `aud`발급 된 토큰의 (대상) 클레임 이기도 합니다. 기본값은 ""입니다. https://management.azure.com/
 userAssignedIdentities | *아니요* | 토큰을 검색할 사용자 할당 관리 id 목록입니다. 지정 하지 않으면 `listTokens` 는 시스템 할당 관리 id에 대 한 토큰을 반환 합니다.
@@ -354,7 +354,7 @@ Content-Type: application/json
 
 응답은 속성 아래에 토큰 배열을 포함 합니다 `value` .
 
-매개 변수 | Description
+매개 변수 | 설명
 ---|---
 access_token | 요청된 액세스 토큰입니다.
 expires_in | 액세스 토큰이 유효한 시간 (초)입니다.

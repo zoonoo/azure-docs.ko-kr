@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 DateTimePart
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimePart에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 87663c18ddaa5da6740a0f54aa5f2812cbb06af8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 97eaff405086190b60279ac7d5cf8bf441c8f840
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227386"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336370"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 지정 된 날짜/시간 사이에 지정 된 DateTimePart의 값을 반환 합니다.
   
@@ -32,7 +34,7 @@ DateTimePart (<DateTimePart> , <DateTime>)
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
 | Year         | "year", "yyyy", "yy" |
-| 월        | "month", "mm", "m"   |
+| Month        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
@@ -57,7 +59,7 @@ DateTimePart는 `undefined` 다음과 같은 이유로를 반환 합니다.
 
 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음은 해당 월의 정수 값을 반환 하는 예입니다.
 

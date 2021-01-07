@@ -1,6 +1,6 @@
 ---
 title: 온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식 | Microsoft Docs
-description: 하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법에 대해 알아봅니다.
+description: 하이브리드 Azure Active Directory 연결 장치를 구성 하 여 SSO 환경을 확장 하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 149b01401cd6feb7610510efeb1ad9a3c69f3ecf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024046"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91256465"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식
 
@@ -24,7 +24,7 @@ Azure AD(Azure Active Directory) 조인 디바이스에서 SSO(Single Sign-On) �
 
 이 문서에서는 이러한 작동 방식에 대해 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
  Azure AD 조인 컴퓨터가 조직의 네트워크에 연결 되어 있지 않으면 VPN 또는 다른 네트워크 인프라가 필요 합니다. 온-프레미스 SSO에는 온-프레미스 AD DS 도메인 컨트롤러와의 시야 통신이 필요 합니다.
 

@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-dt-2019, sqldbrb=1
-ms.topic: conceptual
+ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: 19da4581ef44d7c7cc51eac839c7db018793e557
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 12/01/2020
+ms.openlocfilehash: 1425003c718ca52c0bea712e9d25cd3e4c035cf1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885131"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453971"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Azure SQL Database에 대 한 Advanced Threat Protection 구성
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,11 +29,13 @@ Azure SQL Database에 대 한 [Advanced Threat Protection](threat-detection-over
 ## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Azure Portal에서 Advanced Threat Protection 설정
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 보호 하려는 서버의 구성 페이지로 이동 합니다. 보안 설정에서 **security center**를 선택 합니다.
-3. **Azure Defender** 구성 페이지에서 다음을 수행 합니다.
+2. 보호 하려는 서버의 구성 페이지로 이동 합니다. 보안 설정에서 **Security Center** 를 선택 합니다.
+3. **Azure Defender FOR SQL** 구성 페이지에서 다음을 수행 합니다.
 
-   - 서버에서 Azure Defender를 사용 하도록 설정 합니다.
-   - **Advanced Threat Detection 설정**의 **경고 전송 대상** 텍스트 상자에 비정상적인 데이터베이스 활동 발견 시 보안 경고를 받을 이메일 목록을 입력합니다.
+   - 서버에서 **SQL 용 Azure Defender를** 사용 하도록 설정 합니다.
+   - **Advanced Threat Protection 설정** 에서 **경고 보내기** 텍스트 상자에서 비정상 데이터베이스 작업을 검색할 때 보안 경고를 받을 전자 메일 목록을 제공 합니다.
+   
+   :::image type="content" source="media/azure-defender-for-sql/set-up-advanced-threat-protection.png" alt-text="advanced threat protection 설정":::
 
 ## <a name="set-up-advanced-threat-protection-using-powershell"></a>PowerShell을 사용하여 Advanced Threat Protection 설정
 
@@ -45,5 +47,5 @@ Azure SQL Database에 대 한 [Advanced Threat Protection](threat-detection-over
 - [SQL Managed Instance의 Advanced Threat Protection](../managed-instance/threat-detection-configure.md)에 대해 자세히 알아보세요.  
 - [SQL 용 Azure Defender](azure-defender-for-sql.md)에 대해 자세히 알아보세요.
 - [감사](../../azure-sql/database/auditing-overview.md)에 대해 자세히 알아보기
-- [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro) 에 대 한 자세한 정보
-- 가격 책정에 대 한 자세한 내용은 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/) 를 참조 하세요.  
+- [Azure security center](../../security-center/security-center-introduction.md) 에 대 한 자세한 정보
+- 가격 책정에 대 한 자세한 내용은 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/) 를 참조 하세요.

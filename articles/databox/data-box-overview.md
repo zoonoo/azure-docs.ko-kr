@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206221"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336698"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -90,12 +90,12 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 * **Data Box 디바이스** - 기본 스토리지를 제공하고, 클라우드 스토리지와의 통신을 관리하고, 디바이스에 저장된 모든 데이터의 보안과 기밀성을 보장하는 데 도움을 주는 물리적 디바이스입니다. Data Box 디바이스에는 80TB의 사용 가능한 스토리지 용량이 있습니다. 
 
-    ![Data Box의 앞면 및 뒷면](media/data-box-overview/data-box-combined3.png)
+    ![Data Box의 앞면 및 뒷면](media/data-box-overview/data-box-combined.png)
 
     
 * **Data Box 서비스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Data Box 디바이스를 관리할 수 있는 Azure Portal의 확장입니다. Data Box 서비스를 사용하여 사용자의 Data Box 디바이스에 대한 일일 관리를 수행합니다. 서비스 작업에는 주문 만들기 및 관리, 경고 보기 및 관리, 공유 관리 방법이 포함됩니다.  
 
-    ![Azure Portal의 Data Box 서비스](media/data-box-overview/data-box-service1.png)
+    ![Azure Portal의 Data Box 서비스](media/data-box-overview/data-box-service.png)
 
     자세한 내용은 [Data Box 서비스를 사용하여 Data Box 디바이스 관리](data-box-portal-ui-admin.md)로 이동하세요.
 
@@ -144,7 +144,7 @@ Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/�
 
 - **서비스 가용성** - 가져오기 또는 내보내기 순서에 Data Box를 사용하는 경우 지역 가용성에 대한 정보를 가져오려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box의 내보내기 기능은 현재 미리 보기로 제공됩니다. 
 
-    가져오기 순서의 경우 Data Box는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요. 
+    가져오기 순서의 경우 Data Box는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](../azure-government/documentation-government-welcome.md)을 참조하세요. 
 
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 서비스를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.
 
@@ -154,7 +154,3 @@ Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/�
 - [Data Box 시스템 요구 사항](data-box-system-requirements.md)을 검토합니다.
 - [Data Box 제한](data-box-limits.md)을 알아봅니다.
 - Azure Portal에서 [Azure Data Box](data-box-quickstart-portal.md)를 빠르게 배포합니다.
-
-
-
-

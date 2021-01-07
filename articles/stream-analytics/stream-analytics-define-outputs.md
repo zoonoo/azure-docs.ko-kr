@@ -6,30 +6,31 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: contperf-fy21q1
+ms.date: 12/9/2020
+ms.openlocfilehash: c11e0702a7825b719417288c5ebbf93defde186c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907150"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029247"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure Stream Analytics 출력
 
-Azure Stream Analytics 작업은 입력, 쿼리 및 출력으로 구성됩니다. 변환 된 데이터를 보낼 수 있는 몇 가지 출력 형식이 있습니다. 이 문서에는 지원 되는 Stream Analytics 출력이 나와 있습니다. Stream Analytics 쿼리를 설계하는 경우 [INTO 절](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics)을 사용하여 출력의 이름을 참조합니다. 쿼리에 여러 개의 INTO 절을 추가 하 여 작업당 단일 출력 또는 스트리밍 작업당 여러 출력 (필요한 경우)을 사용할 수 있습니다.
+Azure Stream Analytics 작업은 입력, 쿼리 및 출력으로 구성됩니다. 변환 된 데이터를 보낼 수 있는 몇 가지 출력 형식이 있습니다. 이 문서에는 지원 되는 Stream Analytics 출력이 나와 있습니다. Stream Analytics 쿼리를 설계하는 경우 [INTO 절](/stream-analytics-query/into-azure-stream-analytics)을 사용하여 출력의 이름을 참조합니다. 쿼리에 여러 개의 INTO 절을 추가 하 여 작업당 단일 출력 또는 스트리밍 작업당 여러 출력 (필요한 경우)을 사용할 수 있습니다.
 
-Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 사용할 수 있습니다.
+Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), [REST API](/rest/api/streamanalytics/) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 사용할 수 있습니다.
 
 일부 출력 형식은 처리량을 최적화하기 위해 [분할](#partitioning) 및 다양한 [출력 일괄 처리 크기](#output-batch-size)를 지원합니다. 다음 표에서는 각 출력 형식에 대해 지원 되는 기능을 보여 줍니다.
 
 | 출력 형식 | 분할 | 보안 | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|예|Azure Active Directory 사용자 </br> MSI|
-|[Azure SQL Database](sql-database-output.md)|예, 사용하도록 설정해야 합니다.|SQL 사용자 인증 </br> MSI (미리 보기)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|예|SQL 사용자 인증|
-|[Blob storage 및 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|예|MSI </br> 액세스 키|
-|[Azure Event Hubs](event-hubs-output.md)|예|액세스 키|
-|[Power BI](power-bi-output.md)|아니요|Azure Active Directory 사용자 </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|예|Azure Active Directory 사용자 </br> , 관리 Id|
+|[Azure SQL Database](sql-database-output.md)|예, 선택 사항입니다.|SQL 사용자 인증, </br> 관리 ID(미리 보기)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|예|SQL 사용자 인증, </br> 관리 ID(미리 보기)|
+|[Blob storage 및 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|예|액세스 키, </br> 관리 ID(미리 보기)|
+|[Azure Event Hubs](event-hubs-output.md)|예, 출력 구성에서 파티션 키 열을 설정 해야 합니다.|액세스 키, </br> 관리 ID(미리 보기)|
+|[Power BI](power-bi-output.md)|아니요|사용자 Azure Active Directory </br> 관리 ID|
 |[Azure Table Storage](table-storage-output.md)|예|계정 키|
 |[Azure Service Bus 큐](service-bus-queues-output.md)|예|액세스 키|
 |[Azure Service Bus 항목](service-bus-topics-output.md)|예|액세스 키|
@@ -40,7 +41,7 @@ Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [A
 
 Stream Analytics는 Power BI를 제외 하 고 모든 출력에 대 한 파티션을 지원 합니다. 파티션 키 및 출력 작성기 수에 대 한 자세한 내용은 관심 있는 특정 출력 형식에 대 한 문서를 참조 하세요. 모든 출력 아티클은 이전 섹션에서 연결 됩니다.  
 
-쿼리에서 (INTO INTO) 절을 사용 하 여 출력 기록기의 수를 제어할 수 있습니다 `INTO <partition count>` .이 절은 원하는 작업 토폴로지를 달성 하는 데 도움이 될 수 있습니다. [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 출력 어댑터가 분할 되지 않은 경우 하나의 입력 파티션에 데이터가 없으면 지연 도착 시간이 지연 됩니다. 이러한 경우 출력이 단일 기록기에 병합되어 파이프라인에서 병목 현상이 발생할 수 있습니다. 지연 도착 정책에 대해 알아보려면 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)을 참조하세요.
+또한 파티션의 고급 튜닝을 위해 쿼리에서 (INTO INTO) 절을 사용 하 여 출력 기록기의 수를 제어할 수 있습니다 `INTO <partition count>` .이는 원하는 작업 토폴로지를 달성 하는 데 도움이 될 수 있습니다. [](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 출력 어댑터가 분할 되지 않은 경우 하나의 입력 파티션에 데이터가 없으면 지연 도착 시간이 지연 됩니다. 이러한 경우 출력이 단일 기록기에 병합되어 파이프라인에서 병목 현상이 발생할 수 있습니다. 지연 도착 정책에 대해 알아보려면 [Azure Stream Analytics 이벤트 순서 고려 사항](./stream-analytics-time-handling.md)을 참조하세요.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
@@ -58,7 +59,7 @@ Azure Resource Manager 템플릿 배포 또는 REST API를 사용 하는 경우 
 
    일괄 처리당 최소 행 수입니다. Parquet의 경우 모든 일괄 처리는 새 파일을 만듭니다. 현재 기본값은 2,000개 행이고, 허용되는 최댓값은 10,000개 행입니다.
 
-이러한 일괄 처리 창 속성은 API 버전 **2017-04-01-미리 보기**에서만 지원 됩니다. 다음은 REST API 호출에 대 한 JSON 페이로드의 예입니다.
+이러한 일괄 처리 창 속성은 API 버전 **2017-04-01-미리 보기** 에서만 지원 됩니다. 다음은 REST API 호출에 대 한 JSON 페이로드의 예입니다.
 
 ```json
 "type": "stream",
@@ -90,5 +91,5 @@ Azure Resource Manager 템플릿 배포 또는 REST API를 사용 하는 경우 
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

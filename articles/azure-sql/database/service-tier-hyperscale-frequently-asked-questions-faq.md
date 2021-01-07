@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488969"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459633"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,13 +40,13 @@ ms.locfileid: "89488969"
 
 VCore 기반 서비스 계층은 다음 표에 설명 된 것 처럼 데이터베이스 가용성 및 저장소 유형, 성능 및 최대 크기에 따라 구분 됩니다.
 
-| | 리소스 종류 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
+| | 리소스 유형 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
 |:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** |모두|예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.|대부분의 비즈니스 워크로드. 저장소 크기를 최대 100 TB, 빠른 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원으로 자동 크기 조정 합니다.|트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
 |  **리소스 종류** ||SQL Database/SQL Managed Instance | 단일 데이터베이스 | SQL Database/SQL Managed Instance |
 | **컴퓨팅 크기**|SQL Database * | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
 | **컴퓨팅 크기**|SQL Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
-| **스토리지 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
+| **저장소 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **스토리지 크기** | SQL Database *| 5GB~4TB | 최대 100TB | 5GB~4TB |
 | **스토리지 크기** | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
 | **IOPS** | 단일 데이터베이스 | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
@@ -118,7 +118,7 @@ Hyperscale은 모든 SQL Server 작업을 지원 하지만 주로 OLTP에 최적
 
 현재 데이터 웨어하우스로 SQL Server를 사용 하 여 대화형 분석 쿼리를 실행 하는 경우에는 저렴 한 비용으로 중소 규모의 데이터 웨어하우스 (예: 몇 TB에서 최대 100 TB)를 호스트할 수 있고, SQL Server 데이터 웨어하우스 워크 로드를 최소 T-sql 코드 변경으로 Hyperscale으로 마이그레이션할 수 있기 때문에 Hyperscale은 좋은 옵션입니다.
 
-복잡 한 쿼리를 사용 하 여 대규모 데이터 분석을 실행 하 고 있거나 100 m b/초 보다 높은 수집 속도를 사용 하거나 PDW (병렬 데이터 웨어하우스), Teradata 또는 다른 대규모 병렬 처리 (MPP) 데이터 웨어하우스를 사용 하는 경우 Azure Synapse 분석 (이전의 SQL Data Warehouse)이 가장 적합할 수 있습니다.
+복잡 한 쿼리를 사용 하 여 대규모 데이터 분석을 실행 하 고 있거나 100 m b/초 보다 높은 수집 속도를 사용 하는 경우 나 PDW (병렬 데이터 웨어하우스), Teradata 또는 다른 대규모 병렬 처리 (MPP) 데이터 웨어하우스를 사용 하는 경우 Azure Synapse Analytics를 선택 하는 것이 가장 적합할 수 있습니다.
   
 ## <a name="hyperscale-compute-questions"></a>분산 계산 질문
 
@@ -128,15 +128,15 @@ Hyperscale은 모든 SQL Server 작업을 지원 하지만 주로 OLTP에 최적
 
 ### <a name="can-i-provision-a-compute-replica-with-extra-ram-for-my-memory-intensive-workload"></a>메모리를 많이 사용 하는 워크 로드의 추가 RAM을 사용 하 여 계산 복제본을 프로 비전 할 수 있음
 
-아닙니다. RAM을 더 확보하려면 더 큰 컴퓨팅 크기로 업그레이드해야 합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 컴퓨팅 크기](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)를 참조하세요.
+아니요. RAM을 더 확보하려면 더 큰 컴퓨팅 크기로 업그레이드해야 합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 컴퓨팅 크기](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)를 참조하세요.
 
 ### <a name="can-i-provision-multiple-compute-replicas-of-different-sizes"></a>다른 크기의 여러 계산 복제본을 프로 비전 할 수 있습니다.
 
-아닙니다.
+아니요.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>지원 되는 읽기 확장 복제본 수
 
-Hyperscale 데이터베이스는 기본적으로 하나의 읽기 스케일 아웃 복제본 (주 복제본을 포함 하 여 두 개의 복제본)으로 만들어집니다. [Azure Portal](https://portal.azure.com) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)를 사용 하 여 0과 4 사이의 읽기 전용 복제본 수를 조정할 수 있습니다.
+Hyperscale 데이터베이스는 기본적으로 하나의 읽기 스케일 아웃 복제본 (주 복제본을 포함 하 여 두 개의 복제본)으로 만들어집니다. [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/sql/databases/createorupdate)를 사용 하 여 0과 4 사이의 읽기 전용 복제본 수를 조정할 수 있습니다.
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>고가용성을 위해 추가 계산 복제본을 프로 비전 해야 합니다.
 
@@ -178,11 +178,11 @@ Hyperscale 데이터베이스에서 데이터 복원 력이 저장소 수준에�
 
 ### <a name="can-i-manage-or-define-files-or-filegroups-with-hyperscale"></a>하이퍼스케일로 파일이나 파일 그룹을 관리하거나 정의할 수 있나요?
 
-아닙니다. 데이터 파일은 자동으로 추가 됩니다. 추가 파일 그룹을 만드는 일반적인 이유는 Hyperscale storage 아키텍처에서 적용 되지 않습니다.
+아니요. 데이터 파일은 자동으로 추가 됩니다. 추가 파일 그룹을 만드는 일반적인 이유는 Hyperscale storage 아키텍처에서 적용 되지 않습니다.
 
 ### <a name="can-i-provision-a-hard-cap-on-the-data-growth-for-my-database"></a>데이터베이스의 데이터 증가에 대해 하드 캡을 프로비전할 수 있나요?
 
-아닙니다.
+아니요.
 
 ### <a name="how-are-data-files-laid-out-with-hyperscale"></a>데이터 파일이 Hyperscale으로 배치 되는 방법
 
@@ -190,7 +190,7 @@ Hyperscale 데이터베이스에서 데이터 복원 력이 저장소 수준에�
 
 ### <a name="is-database-shrink-supported"></a>데이터베이스 축소가 지원되나요?
 
-아닙니다.
+아니요.
 
 ### <a name="is-data-compression-supported"></a>데이터 압축이 지원 됨
 
@@ -198,7 +198,7 @@ Hyperscale 데이터베이스에서 데이터 복원 력이 저장소 수준에�
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>거대한 테이블이 있는 경우 테이블 데이터가 여러 데이터 파일에 분산되나요?
 
-예. 주어진 테이블과 연결된 데이터 페이지는 모두 동일한 파일 그룹에 속하는 여러 데이터 파일에 분산될 수 있습니다. SQL Server는 [비례 채우기 전략](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) 을 사용 하 여 데이터 파일에 데이터를 배포 합니다.
+예. 주어진 테이블과 연결된 데이터 페이지는 모두 동일한 파일 그룹에 속하는 여러 데이터 파일에 분산될 수 있습니다. SQL Server는 [비례 채우기 전략](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) 을 사용 하 여 데이터 파일에 데이터를 배포 합니다.
 
 ## <a name="data-migration-questions"></a>데이터 마이그레이션 질문
 
@@ -210,7 +210,7 @@ Hyperscale 데이터베이스에서 데이터 복원 력이 저장소 수준에�
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>Hyperscale 데이터베이스를 다른 서비스 계층으로 이동할 수 있나요?
 
-아닙니다. 이번에는 Hyperscale 데이터베이스를 다른 서비스 계층으로 이동할 수 없습니다.
+아니요. 이번에는 Hyperscale 데이터베이스를 다른 서비스 계층으로 이동할 수 없습니다.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>하이퍼스케일 서비스 계층으로 마이그레이션한 후에 손실되는 기능이 있나요?
 
@@ -231,15 +231,15 @@ Hyperscale은 새로운/변경 된 데이터의 100 m b/초를 소비할 수 있
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Blob 저장소에서 데이터를 읽고 빠른 로드를 수행할 수 있습니다 (예: Azure Synapse Analytics의 Polybase).
 
-클라이언트 응용 프로그램이 Azure Storage에서 데이터를 읽고 데이터 로드를 하이퍼 확장 데이터베이스에 로드할 수 있습니다 (Azure SQL Database의 다른 데이터베이스와 마찬가지로). Polybase는 현재 Azure SQL Database에서 지원 되지 않습니다. 빠른 로드를 제공 하는 대신 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)를 사용 하거나 [SQL 용 spark 커넥터](spark-connector.md)를 사용 하 여 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) 에서 spark 작업을 사용할 수 있습니다. SQL에 대한 Spark 커넥터는 대량 삽입을 지원합니다.
+클라이언트 응용 프로그램이 Azure Storage에서 데이터를 읽고 데이터 로드를 하이퍼 확장 데이터베이스에 로드할 수 있습니다 (Azure SQL Database의 다른 데이터베이스와 마찬가지로). Polybase는 현재 Azure SQL Database에서 지원 되지 않습니다. 빠른 로드를 제공 하는 대신 [Azure Data Factory](../../data-factory/index.yml)를 사용 하거나 [SQL 용 spark 커넥터](spark-connector.md)를 사용 하 여 [Azure Databricks](/azure/azure-databricks/) 에서 spark 작업을 사용할 수 있습니다. SQL에 대한 Spark 커넥터는 대량 삽입을 지원합니다.
 
-BULK INSERT 또는 OPENROWSET: [Azure Blob Storage 데이터에 대 한 대량 액세스 예제](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)를 사용 하 여 Azure Blob 저장소에서 데이터를 대량으로 읽을 수도 있습니다.
+BULK INSERT 또는 OPENROWSET: [Azure Blob Storage 데이터에 대 한 대량 액세스 예제](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)를 사용 하 여 Azure Blob 저장소에서 데이터를 대량으로 읽을 수도 있습니다.
 
 하이퍼스케일에서는 단순 복구 또는 대량 로깅 모델이 지원되지 않습니다. 고가용성 및 지정 시간 복구를 제공 하려면 전체 복구 모델이 필요 합니다. 그러나 Hyperscale 로그 아키텍처는 다른 Azure SQL Database 서비스 계층에 비해 더 나은 데이터 수집 비율을 제공 합니다.
 
 ### <a name="does-hyperscale-allow-provisioning-multiple-nodes-for-parallel-ingesting-of-large-amounts-of-data"></a>Hyperscale을 사용 하면 대량의 데이터를 병렬 수집 하는 여러 노드를 프로 비전 할 수 있습니다.
 
-아닙니다. Hyperscale은 SMP (대칭적 다중 처리) 아키텍처 이며 MPP (대규모 parallel processing) 또는 다중 마스터 아키텍처가 아닙니다. 여러 개의 복제본을 만들어서 읽기 전용 워크로드 규모 확장할 수만 있습니다.
+아니요. Hyperscale은 SMP (대칭적 다중 처리) 아키텍처 이며 MPP (대규모 parallel processing) 또는 다중 마스터 아키텍처가 아닙니다. 여러 개의 복제본을 만들어서 읽기 전용 워크로드 규모 확장할 수만 있습니다.
 
 ### <a name="what-is-the-oldest-sql-server-version-supported-for-migration-to-hyperscale"></a>Hyperscale으로의 마이그레이션에 지원 되는 가장 오래 된 SQL Server 버전은 무엇 인가요?
 
@@ -273,11 +273,11 @@ RPO는 0 분입니다. 대부분의 복원 작업은 데이터베이스 크기�
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>데이터베이스 백업이 주 복제본 또는 보조 복제본의 계산 성능에 영향을 미칩니까?
 
-아닙니다. 백업은 저장소 하위 시스템에 의해 관리 되며 저장소 스냅숏을 활용 합니다. 사용자 작업에는 영향을 주지 않습니다.
+아니요. 백업은 저장소 하위 시스템에 의해 관리 되며 저장소 스냅숏을 활용 합니다. 사용자 작업에는 영향을 주지 않습니다.
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>하이퍼 확장 데이터베이스를 사용 하 여 지역 복원을 수행할 수 있습니다.
 
-예. 지역 복원은 완전히 지원 됩니다. 지정 시간 복원과 달리 지역 복원에는 데이터 크기의 작업이 필요 합니다. 데이터 파일은 병렬로 복사 되므로이 작업의 기간은 전체 데이터베이스 크기가 아니라 데이터베이스에 있는 가장 큰 파일의 크기에 따라 달라 집니다. 데이터베이스가 원본 데이터베이스의 지역과 [쌍을 이루는](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) Azure 지역에서 복원 되는 경우 지역 복원 시간이 훨씬 짧아집니다.
+예. 지역 복원은 완전히 지원 됩니다. 지정 시간 복원과 달리 지역 복원에는 데이터 크기의 작업이 필요 합니다. 데이터 파일은 병렬로 복사 되므로이 작업의 기간은 전체 데이터베이스 크기가 아니라 데이터베이스에 있는 가장 큰 파일의 크기에 따라 달라 집니다. 데이터베이스가 원본 데이터베이스의 지역과 [쌍을 이루는](../../best-practices-availability-paired-regions.md) Azure 지역에서 복원 되는 경우 지역 복원 시간이 훨씬 짧아집니다.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Hyperscale 데이터베이스를 사용 하 여 지역에서 복제를 설정할 수 있나요?
 
@@ -285,7 +285,7 @@ RPO는 0 분입니다. 대부분의 복원 작업은 데이터베이스 크기�
 
 ### <a name="can-i-take-a-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-on-sql-server-in-a-vm"></a>하이퍼 규모의 데이터베이스 백업을 사용 하 여 온-프레미스 서버 또는 VM의 SQL Server에 복원할 수 있나요?
 
-아닙니다. 하이퍼 규모의 데이터베이스에 대 한 저장소 형식은 SQL Server의 릴리스 버전과 다르며 백업을 제어 하거나 액세스할 수 없습니다. 하이퍼 규모의 데이터베이스에서 데이터를 가져오기 위해 데이터 이동 기술 (예: Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 데이터를 추출할 수 있습니다.
+아니요. 하이퍼 규모의 데이터베이스에 대 한 저장소 형식은 SQL Server의 릴리스 버전과 다르며 백업을 제어 하거나 액세스할 수 없습니다. 하이퍼 규모의 데이터베이스에서 데이터를 가져오기 위해 데이터 이동 기술 (예: Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 데이터를 추출할 수 있습니다.
 
 ## <a name="cross-feature-questions"></a>기능 간 질문
 
@@ -295,7 +295,7 @@ RPO는 0 분입니다. 대부분의 복원 작업은 데이터베이스 크기�
 
 ### <a name="will-polybase-work-with-hyperscale"></a>Polybase가 Hyperscale에서 작동 합니까?
 
-아닙니다. Polybase는 Azure SQL Database에서 지원 되지 않습니다.
+아니요. Polybase는 Azure SQL Database에서 지원 되지 않습니다.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>Hyperscale은 R 및 Python을 지원 합니다.
 
@@ -303,7 +303,7 @@ RPO는 0 분입니다. 대부분의 복원 작업은 데이터베이스 크기�
 
 ### <a name="are-compute-nodes-containerized"></a>계산 노드 컨테이너 화 된
 
-아닙니다. Hyperscale 프로세스는 컨테이너에 없는 Vm ( [Service Fabric](https://azure.microsoft.com/services/service-fabric/) 노드)에서 실행 됩니다.
+아니요. Hyperscale 프로세스는 컨테이너에 없는 Vm ( [Service Fabric](https://azure.microsoft.com/services/service-fabric/) 노드)에서 실행 됩니다.
 
 ## <a name="performance-questions"></a>성능 질문
 
@@ -317,7 +317,7 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>처리량이 백업의 영향을 받나요?
 
-아닙니다. 계산은 저장소 계층에서 분리 됩니다. 이렇게 하면 백업의 성능 영향을 제거 합니다.
+아니요. 계산은 저장소 계층에서 분리 됩니다. 이렇게 하면 백업의 성능 영향을 제거 합니다.
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-replicas"></a>추가 계산 복제본을 프로 비전 하면 처리량이 영향을 받습니다.
 
@@ -335,7 +335,7 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>강화 및 축소 작업을 진행하는 동안 데이터베이스는 오프라인 상태인가요?
 
-아닙니다. 강화 및 축소는 온라인 상태가 됩니다.
+아니요. 강화 및 축소는 온라인 상태가 됩니다.
 
 ### <a name="should-i-expect-connection-drop-when-the-scaling-operations-are-in-progress"></a>크기 조정 작업을 진행하는 동안 연결이 끊어질 수 있나요?
 
@@ -351,13 +351,13 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>다중 마스터 시스템과 같은 여러 기본 계산 복제본을 프로 비전 할 수 있습니다. 여러 기본 계산 헤드는 더 높은 수준의 동시성을 제공할 수 있습니다.
 
-아닙니다. 기본 계산 복제본만 읽기/쓰기 요청을 허용 합니다. 보조 계산 복제본은 읽기 전용 요청만 허용 합니다.
+아니요. 기본 계산 복제본만 읽기/쓰기 요청을 허용 합니다. 보조 계산 복제본은 읽기 전용 요청만 허용 합니다.
 
 ## <a name="read-scale-out-questions"></a>수평 확장 질문 읽기
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>프로 비전 할 수 있는 보조 계산 복제본의 수
 
-기본적으로 Hyperscale 데이터베이스에 대해 하나의 보조 복제본을 만듭니다. 복제본 수를 조정 하려는 경우 [Azure Portal](https://portal.azure.com) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)를 사용 하 여 수행할 수 있습니다.
+기본적으로 Hyperscale 데이터베이스에 대해 하나의 보조 복제본을 만듭니다. 복제본 수를 조정 하려는 경우 [Azure Portal](https://portal.azure.com) 또는 [REST API](/rest/api/sql/databases/createorupdate)를 사용 하 여 수행할 수 있습니다.
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>이러한 보조 계산 복제본에 연결 어떻게 할까요?
 
@@ -370,23 +370,23 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-a-read-scale-out-replica"></a>읽기 확장 복제본의 전용 끝점을 만들 수 있습니다.
 
-아닙니다. 을 지정 하 여 스케일 아웃 복제본을 읽을 수 있습니다 `ApplicationIntent=ReadOnly` .
+아니요. 을 지정 하 여 스케일 아웃 복제본을 읽을 수 있습니다 `ApplicationIntent=ReadOnly` .
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>시스템에서 읽기 워크로드에 대한 지능적인 부하 분산이 수행되나요?
 
-아닙니다. 읽기 전용 의도를 사용 하는 새 연결은 임의의 읽기 스케일 아웃 복제본으로 리디렉션됩니다.
+아니요. 읽기 전용 의도를 사용 하는 새 연결은 임의의 읽기 스케일 아웃 복제본으로 리디렉션됩니다.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-replicas-independently-of-the-primary-replica"></a>주 복제본과 독립적으로 보조 계산 복제본을 확장/축소할 수 있습니다.
 
-아닙니다. 보조 계산 복제본은 고가용성 장애 조치 (failover) 대상으로도 사용 되므로 장애 조치 (failover) 후 예상 되는 성능을 제공 하기 위해 주 복제본과 동일한 구성을 사용 해야 합니다.
+아니요. 보조 계산 복제본은 고가용성 장애 조치 (failover) 대상으로도 사용 되므로 장애 조치 (failover) 후 예상 되는 성능을 제공 하기 위해 주 복제본과 동일한 구성을 사용 해야 합니다.
 
 ### <a name="do-i-get-different-tempdb-sizing-for-my-primary-compute-and-my-additional-secondary-compute-replicas"></a>`tempdb`기본 계산 및 추가 보조 계산 복제본에 대해 다른 크기 조정을 수행 하나요?
 
-아닙니다. `tempdb`데이터베이스는 계산 크기 프로 비전에 따라 구성 되 고, 보조 계산 복제본은 기본 계산과 크기가 동일 합니다.
+아니요. `tempdb`데이터베이스는 계산 크기 프로 비전에 따라 구성 되 고, 보조 계산 복제본은 기본 계산과 크기가 동일 합니다.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-replicas"></a>보조 계산 복제본에 인덱스 및 뷰를 추가할 수 있습니다.
 
-아닙니다. Hyperscale 데이터베이스는 공유 저장소를 가집니다. 즉, 모든 계산 복제본이 동일한 테이블, 인덱스 및 보기를 볼 수 있습니다. 보조 복제본에 대 한 읽기에 최적화 된 추가 인덱스를 원하는 경우 주 데이터베이스에 추가 해야 합니다.
+아니요. Hyperscale 데이터베이스는 공유 저장소를 가집니다. 즉, 모든 계산 복제본이 동일한 테이블, 인덱스 및 보기를 볼 수 있습니다. 보조 복제본에 대 한 읽기에 최적화 된 추가 인덱스를 원하는 경우 주 데이터베이스에 추가 해야 합니다.
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>기본 및 보조 계산 복제본 사이에 있는 지연 시간
 

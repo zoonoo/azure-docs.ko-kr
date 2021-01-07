@@ -3,17 +3,19 @@ title: Azure Cosmos DB SQL 쿼리의 스칼라 식
 description: Azure Cosmos DB에 대 한 스칼라 식 SQL 구문에 대해 알아봅니다. 이 문서에서는 연산자를 사용 하 여 스칼라 식을 복합 식으로 결합 하는 방법에 대해서도 설명 합니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34df2d2f4a2209cca93c3f7ac12dcd203bf4a089
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74870737"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339634"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 쿼리의 스칼라 식
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [SELECT 절](sql-query-select.md) 은 스칼라 식을 지원 합니다. 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 스칼라 식의 예로는 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출 등이 있습니다. 스칼라 식은 연산자를 사용 하 여 복잡 한 식으로 결합 될 수 있습니다.
 
@@ -55,7 +57,7 @@ ms.locfileid: "74870737"
 - `input_alias`  
   
    `FROM` 절에 도입된 `input_alias`에서 정의된 값을 나타냅니다.  
-  이 값은 **undefined**가 되지 않도록 보장되며, 입력에 있는 **undefined** 값은 건너뜁니다.  
+  이 값은 **undefined** 가 되지 않도록 보장되며, 입력에 있는 **undefined** 값은 건너뜁니다.  
   
 - `<scalar_expression>.property_name`  
   

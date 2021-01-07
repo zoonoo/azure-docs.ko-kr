@@ -1,21 +1,21 @@
 ---
 title: Azure SQL Managed Instance와 SQL Server 간의 트랜잭션 복제 구성
-description: 프라이빗 DNS 영역 및 VPN 피어링과 같은 필수 네트워킹 구성 요소와 함께 Azure VM의 게시자 관리형 인스턴스, 배포자 관리형 인스턴스 및 SQL Server 구독자 간의 복제를 구성하는 자습서입니다.
+description: 프라이빗 DNS 영역 및 VNet 피어링과 같은 필수 네트워킹 구성 요소와 함께 Azure VM의 게시자 관리형 인스턴스, 배포자 관리형 인스턴스 및 SQL Server 구독자 간의 복제를 구성하는 자습서입니다.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 11/21/2019
-ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d2b45f5b51f4656294632aa46f679a7a09c06ed3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920146"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593929"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>자습서: Azure SQL Managed Instance와 SQL Server 간의 트랜잭션 복제 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "87920146"
 
 
 > [!NOTE]
-> 이 문서에서는 Azure SQL Managed Instance에서 [트랜잭션 복제](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication)를 사용하는 방법을 설명합니다. 개별 인스턴스의 전체 읽기 가능 복제본을 만들 수 있는 Azure SQL Managed Instance 기능인 [장애 조치(failover) 그룹](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group)과는 관련이 없습니다. [장애 조치(failover) 그룹을 사용하여 트랜잭션 복제](replication-transactional-overview.md#with-failover-groups)를 구성할 때 추가 고려 사항이 있습니다.
+> 이 문서에서는 Azure SQL Managed Instance에서 [트랜잭션 복제](/sql/relational-databases/replication/transactional/transactional-replication)를 사용하는 방법을 설명합니다. 개별 인스턴스의 전체 읽기 가능 복제본을 만들 수 있는 Azure SQL Managed Instance 기능인 [장애 조치(failover) 그룹](../database/auto-failover-group-overview.md)과는 관련이 없습니다. [장애 조치(failover) 그룹을 사용하여 트랜잭션 복제](replication-transactional-overview.md#with-failover-groups)를 구성할 때 추가 고려 사항이 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,10 +48,10 @@ ms.locfileid: "87920146"
 - 동일한 가상 네트워크 내에 두 개의 관리형 인스턴스를 배포하는 환경
 - SQL Server 구독자(온-프레미스 VM 또는 Azure VM). 이 자습서에서는 Azure VM을 사용합니다.  
 - [SSMS(SQL Server Management Studio) 18.0 이상](/sql/ssms/download-sql-server-management-studio-ssms).
-- 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0)
+- 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps)
 - 445 및 1433 포트는 Azure 방화벽과 Windows 방화벽 모두에서 SQL 트래픽을 허용합니다.
 
-## <a name="1---create-the-resource-group"></a>1 - 리소스 그룹 만들기
+## <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
 다음 PowerShell 코드 조각을 사용하여 새 리소스 그룹을 만듭니다.
 
@@ -64,21 +64,21 @@ $Location = "East US 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## <a name="2---create-two-managed-instances"></a>2 - 두 개의 관리형 인스턴스 만들기
+## <a name="create-two-managed-instances"></a>두 개의 관리되는 인스턴스 만들기
 
 [Azure Portal](https://portal.azure.com)을 사용하여 두 개의 관리형 인스턴스를 이 새 리소스 그룹 내에 만듭니다.
 
 - 게시자 관리형 인스턴스의 이름은 `sql-mi-publisher`(임의 지정의 경우 몇 개 문자 포함)여야 하며, 가상 네트워크 이름은 `vnet-sql-mi-publisher`여야 합니다.
-- 배포자 관리형 인스턴스의 이름은 `sql-mi-distributor`(임의 지정의 경우 몇 개 문자 포함)여야 하며, _게시자 관리형 인스턴스와 동일한 가상 네트워크_에 있어야 합니다.
+- 배포자 관리형 인스턴스의 이름은 `sql-mi-distributor`(임의 지정의 경우 몇 개 문자 포함)여야 하며, _게시자 관리형 인스턴스와 동일한 가상 네트워크_ 에 있어야 합니다.
 
    ![배포자에 게시자 VNet 사용](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
 관리형 인스턴스를 만드는 방법에 대한 자세한 내용은 [포털에서 관리형 인스턴스 만들기](instance-create-quickstart.md)를 참조하세요.
 
   > [!NOTE]
-  > 편의상 그리고 가장 일반적인 구성이므로 이 자습서에서는 배포자 관리형 인스턴스를 게시자와 동일한 가상 네트워크 내에 배치하는 것이 좋습니다. 그러나 배포자를 별도의 가상 네트워크에 만들 수 있습니다. 이렇게 하려면 게시자와 배포자의 가상 네트워크 간에 VPN 피어링을 구성한 다음, 배포자와 구독자의 가상 네트워크 간에 VPN 피어링을 구성해야 합니다.
+  > 편의상 그리고 가장 일반적인 구성이므로 이 자습서에서는 배포자 관리형 인스턴스를 게시자와 동일한 가상 네트워크 내에 배치하는 것이 좋습니다. 그러나 배포자를 별도의 가상 네트워크에 만들 수 있습니다. 이렇게 하려면 게시자와 배포자의 가상 네트워크 간에 VNet 피어링을 구성한 다음, 배포자와 구독자의 가상 네트워크 간에 VNet 피어링을 구성해야 합니다.
 
-## <a name="3---create-a-sql-server-vm"></a>3 - SQL Server VM 만들기
+## <a name="create-a-sql-server-vm"></a>SQL Server VM 만들기
 
 [Azure Portal](https://portal.azure.com)을 사용하여 SQL Server 가상 머신을 만듭니다. SQL Server 가상 머신의 특징은 다음과 같습니다.
 
@@ -89,9 +89,9 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 
 SQL Server VM을 Azure에 배포하는 방법에 대한 자세한 내용은 [빠른 시작: SQL Server VM 만들기](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)를 참조하세요.
 
-## <a name="4---configure-vpn-peering"></a>4 - VPN 피어링 구성
+## <a name="configure-vnet-peering"></a>VNet 피어링 구성
 
-두 개의 관리형 인스턴스의 가상 네트워크와 SQL Server의 가상 네트워크 간의 통신을 사용하도록 VPN 피어링을 구성합니다. 이렇게 하려면 다음 PowerShell 코드 조각을 사용합니다.
+두 개의 관리되는 인스턴스의 가상 네트워크와 SQL Server의 가상 네트워크 간의 통신을 사용하도록 VNet 피어링을 구성합니다. 이렇게 하려면 다음 PowerShell 코드 조각을 사용합니다.
 
 ```powershell-interactive
 # Set variables
@@ -110,13 +110,13 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
   -Name $subvNet  
 
-# Configure VPN peering from publisher to subscriber
+# Configure VNet peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
   -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
-# Configure VPN peering from subscriber to publisher
+# Configure VNet peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
   -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
@@ -136,53 +136,53 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-VPN 피어링이 설정되면 SQL Server에서 SSMS(SQL Server Management Studio)를 시작하고 두 개의 관리형 인스턴스에 연결하여 연결을 테스트합니다. SSMS를 사용하여 관리형 인스턴스에 연결하는 방법에 대한 자세한 내용은 [SSMS를 사용하여 SQL Managed Instance에 연결](point-to-site-p2s-configure.md#connect-with-ssms)을 참조하세요.
+VNet 피어링이 설정되면 SQL Server에서 SSMS(SQL Server Management Studio)를 시작하고 두 개의 관리되는 인스턴스에 연결하여 연결을 테스트합니다. SSMS를 사용하여 관리형 인스턴스에 연결하는 방법에 대한 자세한 내용은 [SSMS를 사용하여 SQL Managed Instance에 연결](point-to-site-p2s-configure.md#connect-with-ssms)을 참조하세요.
 
 ![관리형 인스턴스에 대한 연결 테스트](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-a-private-dns-zone"></a>5 - 프라이빗 DNS 영역 만들기
+## <a name="create-a-private-dns-zone"></a>프라이빗 DNS 영역 만들기
 
 프라이빗 DNS 영역을 사용하면 관리형 인스턴스와 SQL Server 간의 DNS 라우팅을 사용할 수 있습니다.
 
 ### <a name="create-a-private-dns-zone"></a>프라이빗 DNS 영역 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **리소스 만들기**를 선택하여 새 Azure 리소스를 만듭니다.
+1. **리소스 만들기** 를 선택하여 새 Azure 리소스를 만듭니다.
 1. Azure Marketplace에서 `private dns zone`을 검색합니다.
-1. Microsoft에서 게시한 **프라이빗 DNS 영역** 리소스를 선택한 다음, **만들기**를 선택하여 DNS 영역을 만듭니다.
+1. Microsoft에서 게시한 **프라이빗 DNS 영역** 리소스를 선택한 다음, **만들기** 를 선택하여 DNS 영역을 만듭니다.
 1. 드롭다운에서 구독 및 리소스 그룹을 선택합니다.
 1. DNS 영역에 대한 임의의 이름(예: `repldns.com`)을 제공합니다.
 
    ![프라이빗 DNS 영역 만들기](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. **검토 + 만들기**를 선택합니다. 프라이빗 DNS 영역에 대한 매개 변수를 검토한 다음, **만들기**를 선택하여 리소스를 만듭니다.
+1. **검토 + 만들기** 를 선택합니다. 프라이빗 DNS 영역에 대한 매개 변수를 검토한 다음, **만들기** 를 선택하여 리소스를 만듭니다.
 
 ### <a name="create-an-a-record"></a>A 레코드 만들기
 
-1. 새 **프라이빗 DNS 영역**으로 이동하여 **개요**를 선택합니다.
-1. **+ 레코드 집합**을 선택하여 새 A 레코드를 만듭니다.
+1. 새 **프라이빗 DNS 영역** 으로 이동하여 **개요** 를 선택합니다.
+1. **+ 레코드 집합** 을 선택하여 새 A 레코드를 만듭니다.
 1. SQL Server VM의 이름과 개인 내부 IP 주소를 입력합니다.
 
    ![A 레코드 구성](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-a-record.png)
 
-1. **확인**을 선택하여 A 레코드를 만듭니다.
+1. **확인** 을 선택하여 A 레코드를 만듭니다.
 
 ### <a name="link-the-virtual-network"></a>가상 네트워크 연결
 
-1. 새 **프라이빗 DNS 영역**으로 이동하여 **가상 네트워크 링크**를 선택합니다.
-1. **+추가**를 선택합니다.
+1. 새 **프라이빗 DNS 영역** 으로 이동하여 **가상 네트워크 링크** 를 선택합니다.
+1. **+추가** 를 선택합니다.
 1. 링크 이름(예: `Pub-link`)을 입력합니다.
 1. 드롭다운에서 구독을 선택한 다음, 게시자 관리형 인스턴스의 가상 네트워크를 선택합니다.
 1. **자동 등록 사용** 옆의 확인란을 선택합니다.
 
    ![VNet 링크 만들기](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-vnet-link.png)
 
-1. **확인**을 선택하여 가상 네트워크를 연결합니다.
+1. **확인** 을 선택하여 가상 네트워크를 연결합니다.
 1. `Sub-link`와 같은 이름을 사용하여 구독자 가상 네트워크에 대한 링크를 추가하려면 이러한 단계를 반복합니다.
 
-## <a name="6---create-an-azure-storage-account"></a>6 - Azure 스토리지 계정 만들기
+## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-작업 디렉터리에 대한 [Azure 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)을 만든 다음, 스토리지 계정 내에서 [파일 공유](../../storage/files/storage-how-to-create-file-share.md)를 만듭니다.
+작업 디렉터리에 대한 [Azure 스토리지 계정](../../storage/common/storage-account-create.md#create-a-storage-account)을 만든 다음, 스토리지 계정 내에서 [파일 공유](../../storage/files/storage-how-to-create-file-share.md)를 만듭니다.
 
 파일 공유 경로를 `\\storage-account-name.file.core.windows.net\file-share-name` 형식으로 복사합니다.
 
@@ -194,7 +194,7 @@ VPN 피어링이 설정되면 SQL Server에서 SSMS(SQL Server Management Studio
 
 자세한 내용은 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
 
-## <a name="7---create-a-database"></a>7 - 데이터베이스 만들기
+## <a name="create-a-database"></a>데이터베이스 만들기
 
 게시자 관리되는 인스턴스에서 새 데이터베이스를 만듭니다. 이렇게 하려면 다음 단계를 따르십시오.
 
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -242,7 +242,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="8---configure-distribution"></a>8 - 배포 구성
+## <a name="configure-distribution"></a>배포 구성
 
 연결이 설정되고 샘플 데이터베이스가 있으면 `sql-mi-distributor` 관리형 인스턴스에서 배포를 구성할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
@@ -277,28 +277,28 @@ GO
    EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
    ```
 
-## <a name="9---create-the-publication"></a>9 - 게시 만들기
+## <a name="create-the-publication"></a>게시 만들기
 
 배포가 구성되면 이제 게시를 만들 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
 1. SQL 서버에서 SQL Server Management Studio를 시작합니다.
 1. `sql-mi-publisher` 관리형 인스턴스에 연결합니다.
-1. **개체 탐색기**에서 **복제** 노드를 펼치고, 마우스 오른쪽 단추로 **로컬 게시** 폴더를 클릭합니다. **새 게시...** 를 선택합니다.
-1. **다음**을 선택하여 시작 페이지를 지나서 이동합니다.
-1. **게시 데이터베이스** 페이지에서 이전에 만든 `ReplTutorial` 데이터베이스를 선택합니다. **다음**을 선택합니다.
-1. **게시 유형** 페이지에서 **트랜잭션 게시**를 선택합니다. **다음**을 선택합니다.
-1. **문서** 페이지에서 **테이블** 옆의 확인란을 선택합니다. **다음**을 선택합니다.
-1. **테이블 행 필터** 페이지에서 필터를 추가하지 않고 **다음**을 선택합니다.
-1. **스냅샷 에이전트** 페이지에서 **즉시 스냅샷을 만들고 구독 초기화에 사용할 수 있도록 유지합니다.** 옆의 확인란을 선택합니다. **다음**을 선택합니다.
-1. **에이전트 보안** 페이지에서 **보안 설정...** 을 선택합니다. 스냅샷 에이전트에 사용할 SQL Server 로그인 자격 증명을 제공하고, 게시자에 연결합니다. **확인**을 선택하여 **스냅샷 에이전트 보안** 페이지를 닫습니다. **다음**을 선택합니다.
+1. **개체 탐색기** 에서 **복제** 노드를 펼치고, 마우스 오른쪽 단추로 **로컬 게시** 폴더를 클릭합니다. **새 게시...** 를 선택합니다.
+1. **다음** 을 선택하여 시작 페이지를 지나서 이동합니다.
+1. **게시 데이터베이스** 페이지에서 이전에 만든 `ReplTutorial` 데이터베이스를 선택합니다. **다음** 을 선택합니다.
+1. **게시 유형** 페이지에서 **트랜잭션 게시** 를 선택합니다. **다음** 을 선택합니다.
+1. **문서** 페이지에서 **테이블** 옆의 확인란을 선택합니다. **다음** 을 선택합니다.
+1. **테이블 행 필터** 페이지에서 필터를 추가하지 않고 **다음** 을 선택합니다.
+1. **스냅샷 에이전트** 페이지에서 **즉시 스냅샷을 만들고 구독 초기화에 사용할 수 있도록 유지합니다.** 옆의 확인란을 선택합니다. **다음** 을 선택합니다.
+1. **에이전트 보안** 페이지에서 **보안 설정...** 을 선택합니다. 스냅샷 에이전트에 사용할 SQL Server 로그인 자격 증명을 제공하고, 게시자에 연결합니다. **확인** 을 선택하여 **스냅샷 에이전트 보안** 페이지를 닫습니다. **다음** 을 선택합니다.
 
    ![스냅샷 에이전트 보안 구성](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
-1. **마법사 작업** 페이지에서 **게시 만들기**를 선택하고, 필요에 따라 이 스크립트를 나중에 저장하려면 **게시 생성 단계를 포함하는 스크립트 파일 생성**을 선택합니다.
-1. **마법사 완료** 페이지에서 게시 이름으로 `ReplTest`를 지정하고, **다음**을 선택하여 게시를 만듭니다.
-1. 게시가 만들어지면 **개체 탐색기**에서 **복제** 노드를 새로 고치고, **로컬 게시**를 펼쳐 새 게시를 확인합니다.
+1. **마법사 작업** 페이지에서 **게시 만들기** 를 선택하고, 필요에 따라 이 스크립트를 나중에 저장하려면 **게시 생성 단계를 포함하는 스크립트 파일 생성** 을 선택합니다.
+1. **마법사 완료** 페이지에서 게시 이름으로 `ReplTest`를 지정하고, **다음** 을 선택하여 게시를 만듭니다.
+1. 게시가 만들어지면 **개체 탐색기** 에서 **복제** 노드를 새로 고치고, **로컬 게시** 를 펼쳐 새 게시를 확인합니다.
 
-## <a name="10---create-the-subscription"></a>10 - 구독 만들기
+## <a name="create-the-subscription"></a>구독 만들기
 
 게시가 만들어지면 구독을 만들 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
@@ -331,7 +331,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## <a name="11---test-replication"></a>11 - 복제 테스트
+## <a name="test-replication"></a>복제 테스트
 
 복제가 구성되면 새 항목을 게시자에 삽입하고 구독자에 전파되는 변경 내용을 감시하여 이를 테스트할 수 있습니다.
 
@@ -352,10 +352,10 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## <a name="clean-up-resources"></a>리소스 정리
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동합니다.
-1. 관리형 인스턴스를 선택한 다음, **삭제**를 선택합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제**를 선택합니다. 이 프로세스는 백그라운드에서 완료하는 데 다소 시간이 걸릴 수 있으며, 완료될 때까지 *가상 클러스터* 또는 기타 종속 리소스를 삭제할 수 없습니다. **활동** 탭에서 삭제를 모니터링하여 관리되는 인스턴스가 삭제되었는지 확인합니다.
-1. 관리되는 인스턴스가 삭제되면 리소스 그룹에서 *가상 클러스터*를 선택한 다음, **삭제**를 선택하여 해당 클러스터를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제**를 선택합니다.
-1. 나머지 리소스를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제**를 선택합니다.
-1. **리소스 그룹 삭제**를 선택하고, 리소스 그룹 이름(`myResourceGroup`)을 입력한 다음, **삭제**를 선택하여 해당 리소스 그룹을 삭제합니다.
+1. 관리형 인스턴스를 선택한 다음, **삭제** 를 선택합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제** 를 선택합니다. 이 프로세스는 백그라운드에서 완료하는 데 다소 시간이 걸릴 수 있으며, 완료될 때까지 *가상 클러스터* 또는 기타 종속 리소스를 삭제할 수 없습니다. **활동** 탭에서 삭제를 모니터링하여 관리되는 인스턴스가 삭제되었는지 확인합니다.
+1. 관리되는 인스턴스가 삭제되면 리소스 그룹에서 *가상 클러스터* 를 선택한 다음, **삭제** 를 선택하여 해당 클러스터를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제** 를 선택합니다.
+1. 나머지 리소스를 삭제합니다. 텍스트 상자에서 `yes`를 입력하여 리소스를 삭제할지 확인한 다음, **삭제** 를 선택합니다.
+1. **리소스 그룹 삭제** 를 선택하고, 리소스 그룹 이름(`myResourceGroup`)을 입력한 다음, **삭제** 를 선택하여 해당 리소스 그룹을 삭제합니다.
 
 ## <a name="known-errors"></a>알려진 오류
 
@@ -363,7 +363,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 `Exception Message: Windows logins are not supported in this version of SQL Server.`
 
-에이전트가 Windows 로그인을 사용하여 구성되었으므로 SQL Server 로그인을 대신 사용해야 합니다. **게시 속성**의 **에이전트 보안** 페이지를 사용하여 로그인 자격 증명을 SQL Server 로그인으로 변경합니다.
+에이전트가 Windows 로그인을 사용하여 구성되었으므로 SQL Server 로그인을 대신 사용해야 합니다. **게시 속성** 의 **에이전트 보안** 페이지를 사용하여 로그인 자격 증명을 SQL Server 로그인으로 변경합니다.
 
 ### <a name="failed-to-connect-to-azure-storage"></a>Azure Storage에 연결하지 못함
 
@@ -393,7 +393,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 - 구독자를 만들 때 DNS 이름이 사용되었는지 확인합니다.
 - 가상 네트워크가 프라이빗 DNS 영역에 올바르게 연결되었는지 확인합니다.
 - A 레코드가 올바르게 구성되었는지 확인합니다.
-- VPN 피어링이 올바르게 구성되었는지 확인합니다.
+- VNet 피어링이 올바르게 구성되었는지 확인합니다.
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>구독할 수 있는 게시가 없음
 
@@ -414,7 +414,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 - [위협 감지](threat-detection-configure.md)
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)
 - [행 수준 보안](/sql/relational-databases/security/row-level-security)
-- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>SQL Managed Instance 기능
 

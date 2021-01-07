@@ -12,14 +12,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 79e5b5e0562c86668c276a94ab28835c13433eb8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c806780664576c424665d1d58c69d164f8504d3f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327245"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341923"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>빠른 시작: Bing Image Search API 및 Java를 사용하여 이미지 검색 
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 이 빠른 시작을 사용하여 Azure Cognitive Services의 Bing Image Search API로 검색 요청을 보내는 방법에 대해 알아봅니다. 이 Java 애플리케이션에서는 검색 쿼리를 API로 보내고 결과에 첫 번째 이미지의 URL을 표시합니다. 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
@@ -27,7 +32,7 @@ ms.locfileid: "87327245"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK(Java Development Kit)](https://aka.ms/azure-jdks)
+* [JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Gson 라이브러리](https://github.com/google/gson)
 
@@ -161,8 +166,8 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Image Search API란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Bing Image Search API란?](../overview.md)  
 * [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Bing Search API에 대한 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-* [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services).
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure Cognitive Services 설명서](../../index.yml).
+* [Bing Image Search API 참조](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

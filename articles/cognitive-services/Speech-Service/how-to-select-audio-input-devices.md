@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 80671a40b5933a89962fa07b267d7e99e475657f
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 48316d571eac835dd5d4ec7d225048f4fdcdf237
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406693"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026610"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: 음성 SDK를 사용 하 여 오디오 입력 장치 선택
 
@@ -135,6 +135,10 @@ void ListEndpoints()
 
         // Print endpoint friendly name and endpoint ID.
         printf("Endpoint %d: \"%S\" (%S)\n", i, varName.pwszVal, pwszID);
+
+        CoTaskMemFree(pwszID);
+        pwszID = NULL;
+        PropVariantClear(&varName);
     }
 
 Exit:
@@ -386,7 +390,7 @@ JavaScript에서는 [MediaDevices.enumerateDevices()](https://developer.mozilla.
 > [!div class="nextstepaction"]
 > [GitHub에서 샘플 살펴보기](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
-- [언어 모델 사용자 지정](how-to-customize-language-model.md)
+- [음향 모델 사용자 지정](./how-to-custom-speech-train-model.md)
+- [언어 모델 사용자 지정](./how-to-custom-speech-train-model.md)

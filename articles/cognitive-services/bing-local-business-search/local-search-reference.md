@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: d5de1cc606f97655427c0c86aea0c5c722e1bab8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171466"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487136"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 참조
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Local Business Search API는 Bing에 검색 쿼리를 전송하여 식당, 호텔 또는 기타 로컬 비즈니스를 포함하는 결과를 가져옵니다. 장소의 경우 쿼리에서 로컬 비즈니스의 이름 또는 범주를 지정할 수 있습니다(예: 근처의 식당). 엔터티 결과에는 사람, 장소 또는 사물이 포함됩니다. 이 컨텍스트의 위치는 비즈니스 엔터티, 주, 국가/지역 등입니다.  
 
@@ -29,7 +34,7 @@ Local Business Search API는 Bing에 검색 쿼리를 전송하여 식당, 호�
   
 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.
 
-허용되는 결과 사용 및 표시에 대한 자세한 내용은 [사용 및 표시 요구 사항](use-display-requirements.md)을 참조하세요.
+허용되는 결과 사용 및 표시에 대한 자세한 내용은 [사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 참조하세요.
 
 
   
@@ -71,12 +76,12 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 요청에 다음과 같은 쿼리 매개 변수를 포함할 수 있습니다. 필수 매개 변수는 필수 열을 참조하세요. 쿼리 매개 변수는 URL로 인코드해야 합니다.  
   
   
-|속성|값|Type|필수|  
+|Name|값|형식|필수|  
 |----------|-----------|----------|--------------|
 |<a name="count"></a>count|매개 변수로 지정 된 인덱스부터 시작 하 여 반환할 결과 수입니다 `offset` .|String|아니요|   
 |<a name="localCategories"></a>localCategories|비즈니스 범주별로 검색을 정의하는 옵션 목록입니다.  [로컬 비즈니스 범주 검색](local-categories.md) 참조|String|아니요|  
 |<a name="mkt"></a>mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 지역/국가 코드를 참조하세요.<br /><br /> **참고:** Local Business Search API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|String|예|
-|<a name="offset"></a>offset|`count` 매개 변수에서 지정된 결과를 시작하는 인덱스입니다.|정수|아니요|  
+|<a name="offset"></a>offset|`count` 매개 변수에서 지정된 결과를 시작하는 인덱스입니다.|정수|예|  
 |<a name="query"></a>q|사용자의 검색 용어입니다.|String|아니요|  
 |<a name="responseformat"></a>responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](https://json-ld.org/)를 참조하세요.|String|아니요|  
 |<a name="safesearch"></a>safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지 또는 비디오는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:**`site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |String|아니요|  
@@ -87,15 +92,15 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 다음은 응답에 포함할 수 있는 JSON 응답 개체입니다. 요청이 성공하는 경우 응답의 최상위 개체는 [SearchResponse](#searchresponse) 개체입니다. 요청이 실패할 경우 최상위 개체는 [ErrorResponse](#errorresponse) 개체입니다.
 
 
-|Object|Description|  
+|Object|설명|  
 |------------|-----------------|  
 |[Place](#place)|식당 또는 호텔과 같은 로컬 비즈니스에 대한 정보를 정의합니다.|  
 
   
-### <a name="error"></a>Error  
+### <a name="error"></a>오류  
 발생한 오류를 정의합니다.  
   
-|요소|설명|Type|  
+|요소|설명|형식|  
 |-------------|-----------------|----------|  
 |<a name="error-code"></a>code|오류 범주를 식별하는 오류 코드입니다. 가능한 코드 목록은 [오류 코드](#error-codes)를 참조하세요.|String|  
 |<a name="error-message"></a>message|오류에 대한 설명입니다.|String|  
@@ -108,7 +113,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="errorresponse"></a>ErrorResponse  
 요청이 실패할 경우 응답에 포함되는 최상위 개체입니다.  
   
-|속성|값|Type|  
+|Name|값|형식|  
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|String|  
 |<a name="errors"></a>errors|요청이 실패한 이유를 설명하는 오류 목록입니다.|[오류](#error)[]|  
@@ -118,7 +123,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="license"></a>라이선스  
 텍스트 또는 사진을 사용할 수 있는 라이선스를 정의합니다.  
   
-|속성|값|Type|  
+|Name|값|형식|  
 |----------|-----------|----------|  
 |name|라이선스의 이름입니다.|String|  
 |url|사용자가 라이선스에 대한 자세한 정보를 얻을 수 있는 웹 사이트의 URL입니다.<br /><br /> 하이퍼링크를 만들려면 이름 및 URL을 사용합니다.|String|  
@@ -127,11 +132,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="link"></a>링크  
 하이퍼링크의 구성 요소를 정의합니다.  
   
-|속성|값|Type|  
+|Name|값|형식|  
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|String|  
 |text|표시 텍스트입니다.|String|  
-|url|URL입니다. 하이퍼링크를 만들려면 URL과 표시 텍스트를 사용합니다.|String|  
+|url|URL. 하이퍼링크를 만들려면 URL과 표시 텍스트를 사용합니다.|String|  
   
 
 
@@ -141,7 +146,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 게시자는 자신의 이름, 웹 사이트 또는 둘 다를 제공할 수 있습니다.  
   
-|속성|값|Type|  
+|Name|값|형식|  
 |----------|-----------|----------|  
 |name|게시자의 이름입니다.|String|  
 |url|게시자 웹 사이트의 URL입니다.<br /><br /> 게시자가 웹 사이트를 제공하지 않을 수도 있습니다.|String|  
@@ -151,7 +156,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="place"></a>위치  
 식당 또는 호텔과 같은 로컬 비즈니스에 대한 정보를 정의합니다.  
   
-|속성|값|Type|  
+|Name|값|형식|  
 |----------|-----------|----------|  
 |_type|다음 중 하나로 설정할 수 있는 힌트를 입력합니다.<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>식당</ul><li>|String|  
 |address|엔터티가 위치한 우편 주소입니다.|PostalAddress|  
@@ -165,31 +170,31 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="querycontext"></a>QueryContext  
 Bing이 요청에 사용한 쿼리 컨텍스트를 정의합니다.  
   
-|요소|설명|Type|  
+|요소|설명|형식|  
 |-------------|-----------------|----------|  
-|adultIntent|지정한 쿼리에 성인 의도가 있는지 여부를 나타내는 부울 값입니다. 쿼리에 성인 의도가 있으면 값이 **true**이고, 없으면 **false**입니다.|Boolean|  
-|alterationOverrideQuery|Bing에서 원래 문자열을 사용하도록 강제하는 데 사용할 쿼리 문자열입니다. 예를 들어 쿼리 문자열이 *saling downwind*인 경우 대체 쿼리 문자열은 *+saling downwind*가 됩니다. 쿼리 문자열을 인코드하여 *%2Bsaling+downwind*로 만들어야 합니다.<br /><br /> 이 필드는 원래 쿼리 문자열에 오타가 있는 경우에만 포함됩니다.|String|  
+|adultIntent|지정한 쿼리에 성인 의도가 있는지 여부를 나타내는 부울 값입니다. 쿼리에 성인 의도가 있으면 값이 **true** 이고, 없으면 **false** 입니다.|부울|  
+|alterationOverrideQuery|Bing에서 원래 문자열을 사용하도록 강제하는 데 사용할 쿼리 문자열입니다. 예를 들어 쿼리 문자열이 *saling downwind* 인 경우 대체 쿼리 문자열은 *+saling downwind* 가 됩니다. 쿼리 문자열을 인코드하여 *%2Bsaling+downwind* 로 만들어야 합니다.<br /><br /> 이 필드는 원래 쿼리 문자열에 오타가 있는 경우에만 포함됩니다.|String|  
 |alteredQuery|Bing에서 쿼리를 수행하는 데 사용하는 쿼리 문자열입니다. Bing은 원래 쿼리 문자열에 오타가 포함된 경우 변경된 쿼리 문자열을 사용합니다. 예를 들어 쿼리 문자열이 `saling downwind`이면 변경된 쿼리 문자열은 `sailing downwind`가 됩니다.<br /><br /> 이 필드는 원래 쿼리 문자열에 오타가 있는 경우에만 포함됩니다.|String|  
-|askUserForLocation|Bing에서 정확한 결과를 제공하기 위해 사용자 위치가 필요한지 여부를 나타내는 부울 값입니다. [X-MSEdge-ClientIP](#clientip) 및 [X-Search-Location](#location) 헤더를 사용하여 사용자 위치를 지정한 경우에는 이 필드를 무시해도 됩니다.<br /><br /> 정확한 결과를 제공하기 위해 사용자 위치가 필요한 위치 인식 쿼리의 경우(예: “today's weather” 또는 “restaurants near me”) 이 필드가 **true**로 설정됩니다.<br /><br /> 위치를 포함하는 위치 인식 쿼리의 경우(예: “Seattle weather”) 이 필드가 **false**로 설정됩니다. “best sellers”와 같이 위치 인식이 아닌 쿼리의 경우에도 이 필드가 **false**로 설정됩니다.|Boolean|  
+|askUserForLocation|Bing에서 정확한 결과를 제공하기 위해 사용자 위치가 필요한지 여부를 나타내는 부울 값입니다. [X-MSEdge-ClientIP](#clientip) 및 [X-Search-Location](#location) 헤더를 사용하여 사용자 위치를 지정한 경우에는 이 필드를 무시해도 됩니다.<br /><br /> 정확한 결과를 제공하기 위해 사용자 위치가 필요한 위치 인식 쿼리의 경우(예: “today's weather” 또는 “restaurants near me”) 이 필드가 **true** 로 설정됩니다.<br /><br /> 위치를 포함하는 위치 인식 쿼리의 경우(예: “Seattle weather”) 이 필드가 **false** 로 설정됩니다. “best sellers”와 같이 위치 인식이 아닌 쿼리의 경우에도 이 필드가 **false** 로 설정됩니다.|부울|  
 |originalQuery|요청에 지정된 쿼리 문자열입니다.|String|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|속성|값|Type|  
+|Name|값|형식|  
 |-------------|-----------------|----------|
 |id|리소스 식별자|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 mainline과 같은 검색 결과 그룹을 정의합니다.
 
-|속성|값|Type|  
+|Name|값|형식|  
 |-------------|-----------------|----------|
 |items|그룹에 표시할 검색 결과 목록입니다.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 표시할 검색 결과 항목을 정의합니다.
 
-|속성|값|Type|  
+|Name|값|형식|  
 |-------------|-----------------|----------|
 |resultIndex|답변에서 표시할 항목의 0부터 시작 인덱스입니다. 항목에 이 필드가 없는 경우 답변에 있는 모든 항목을 표시합니다. 예를 들어 뉴스 답변에 있는 모든 뉴스 기사를 표시합니다.|정수|
 |answerType|표시할 항목이 포함된 답변입니다. 예를 들어 뉴스입니다.<br /><br />유형을 사용하여 SearchResponse 개체에서 답변을 찾습니다. 유형은 SearchResponse 필드의 이름입니다.<br /><br /> 그러나 이 개체에 value 필드가 포함된 경우에만 답변 유형을 사용합니다. value 필드가 없으면 무시합니다.|String|
@@ -199,7 +204,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 ### <a name="rankingresponse"></a>RankingResponse  
 검색 결과 페이지에서 콘텐츠를 배치할 위치와 순서를 정의합니다.  
   
-|속성|값|  
+|Name|값|  
 |----------|-----------|  
 |<a name="ranking-mainline"></a>mainline|mainline에 표시할 검색 결과입니다.|  
 |<a name="ranking-pole"></a>pole|가장 잘 보이도록 처리(예: 기본 줄과 사이드바 위에 표시)해야 하는 검색 결과입니다.|  
@@ -210,7 +215,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
   
 서비스에서 서비스 거부 공격을 의심할 경우 요청이 성공하지만(HTTP 상태 코드는 200 OK) 응답의 본문이 비어 있습니다.  
   
-|속성|값|Type|  
+|Name|값|형식|  
 |----------|-----------|----------|  
 |_type|SearchResponse로 설정되는 유형 힌트입니다.|String|  
 |장소|검색 쿼리와 관련 있는 엔터티 목록입니다.|JSON 개체|  

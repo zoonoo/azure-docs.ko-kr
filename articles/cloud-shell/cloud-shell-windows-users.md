@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: 27675cfbfb691120f7952a457f83f3a34adbafdd
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 109067899884c04cbd283b5eef1d7e0089556b07
+ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469442"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301720"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>Windows 사용자용 Azure Cloud Shell의 PowerShell
 
@@ -69,4 +69,4 @@ mkdir (Split-Path $profile.CurrentUserAllHosts)
 
 ## <a name="whats-new-in-powershell-core-6"></a>PowerShell Core 6의 새로운 기능
 
-PowerShell Core 6의 새로운 기능에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) 및 [PowerShell Core 시작](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) 블로그 게시물을 참조하세요.
+PowerShell Core 6의 새로운 기능에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1) 및 [PowerShell Core 시작](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) 블로그 게시물을 참조하세요.

@@ -13,6 +13,8 @@
       href: create-member.md
     - name: CLI를 사용하여 멤버 만들기
       href: create-member-cli.md
+    - name: Azure PowerShell을 사용하여 멤버 만들기
+      href: create-member-powershell.md
     - name: ARM 템플릿을 사용하여 멤버 만들기
       displayName: Resource Manager
       href: create-member-template.md
@@ -81,7 +83,7 @@
     - name: 커뮤니티 지원
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Stack Overflow 지원
-      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
+      href: 'https://stackoverflow.com/questions/tagged/azure-blockchain-service'
     - name: 제품 사용자 의견
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: 가격 책정

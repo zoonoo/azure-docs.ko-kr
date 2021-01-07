@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: 
-  ms.openlocfilehash: 7c643d10971d93a3c6194bc7390d2271c1ed561b
-  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.openlocfilehash: 9eeddfefe451eb524484df8a1986c7ec736c4c0f
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/24/2020
-  ms.locfileid: "88763768"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97674375"
 landingContent:
 - title: Azure Arc를 사용하여 Kubernetes 클러스터를 Azure에 연결
   linkLists:
@@ -36,3 +36,15 @@ landingContent:
       url: use-azure-policy.md
     - text: Azure IoT 에지 워크로드 배포
       url: deploy-azure-iot-edge-workloads.md
+- title: 개념 증명
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: 빠른 시작
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
+- title: 참조 아키텍처
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: 하이브리드 Kubernetes 클러스터의 배포 및 구성 관리
+      url: /azure/architecture/hybrid/arc-hybrid-kubernetes

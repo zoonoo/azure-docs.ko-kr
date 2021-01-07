@@ -1,18 +1,18 @@
 ---
 title: Azure Data Lake Storage Gen1에 대한 기본 제공 정책 정의
 description: Azure Data Lake Storage Gen1에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/16/2020
+ms.date: 11/20/2020
 ms.topic: reference
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9a0c4ade1628f224f4f62a06a53fd75a7cb8af64
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6c895c65e122154afeb2a29cb2d905460316538f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984027"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988449"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 Azure Policy 기본 제공 정의
 

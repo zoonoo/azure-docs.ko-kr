@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 04/06/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0b185d545e129c941d5df2e8ce86ee684174b666
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81008351"
 ---
 지금은 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 다른 디스크 크기는 다른 `maxShares` 제한 값을 가질 수 있습니다. 값을 설정 하는 경우에는이 값을 초과할 수 없습니다 `maxShares` . Premium Ssd의 경우 디스크 공유를 지 원하는 디스크 크기는 P15 이상입니다.

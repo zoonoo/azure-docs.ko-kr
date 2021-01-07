@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: af0cdb814433b739b15d79bec9cb399cf0a2fef7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e2007d8f0c558d35c0507b6e12bce6d6777fad52
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939928"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310908"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Azure Data Studio를 사용 하 여 Azure Arc enabled PostgreSQL Hyperscale 만들기
 
@@ -43,13 +43,26 @@ Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
-## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 만들기
+## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>OpenShift 사용자에 대 한 임시 및 임시 단계
+
+다음 단계로 이동 하기 전에이 단계를 구현 합니다. PostgreSQL Hyperscale 서버 그룹을 기본값이 아닌 프로젝트의 Red Hat OpenShift에 배포 하려면 클러스터에 대해 다음 명령을 실행 하 여 보안 제약 조건을 업데이트 해야 합니다. 이 명령은 PostgreSQL Hyperscale 서버 그룹을 실행 하는 서비스 계정에 필요한 권한을 부여 합니다. SCC (보안 컨텍스트 제약 조건) **_arc-데이터-scc_** 는 Azure arc 데이터 컨트롤러를 배포할 때 추가한 것입니다.
+
+```console
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+```
+
+_**서버 그룹 이름** 은 다음 단계에서 배포 하는 서버 그룹의 이름입니다._
+   
+OpenShift의 SCCs에 대 한 자세한 내용은 [openshift 설명서](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html)를 참조 하세요.
+이제 다음 단계를 구현할 수 있습니다.
+
+## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
 1. 시작 Azure Data Studio
 1. 연결 탭에서 왼쪽 위에 있는 세 개의 점을 클릭 하 고 "새 배포"를 선택 합니다.
 1. 배포 옵션에서 **PostgreSQL Hyperscale 서버 그룹-Azure Arc** 를 선택 합니다.
     >[!NOTE]
-    > `azdata`현재 설치 되어 있지 않은 경우 여기에 CLI를 설치 하 라는 메시지가 표시 될 수 있습니다.
+    > 현재 설치 되어 있지 않으면 여기를 설치할지 묻는 메시지가 표시 될 수 있습니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .
 1. 개인 정보 및 사용 조건에 동의 하 고 맨 아래에서 **선택** 을 클릭 합니다.
 1. PostgreSQL Hyperscale 서버 그룹 배포-Azure Arc 블레이드에서 다음 정보를 입력 합니다.
    - 서버 그룹의 이름을 입력 하십시오.
@@ -78,8 +91,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
     > \* 위의 문서에서 **Azure Portal에 로그인**섹션을 건너뛰고 **Azure Database for PostgreSQL-Hyperscale (Citus) & 만듭니다**. Azure Arc 배포의 나머지 단계를 구현 합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공 되는 Citus (Azure Database for PostgreSQL Hyperscale)에 고유 하지만, 문서의 다른 부분은 Azure Arc enabled PostgreSQL Hyperscale에 직접 적용할 수 있습니다.
 
-- [Azure Database for PostgreSQL 하이퍼 확장 서버 그룹 확장](scale-out-postgresql-hyperscale-server-group.md)
+- [Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-postgresql-hyperscale-server-group.md)
 - [저장소 구성 및 Kubernetes 저장소 개념](storage-configuration.md)
-- [영구적 볼륨 클레임 확장](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes 리소스 모델](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 

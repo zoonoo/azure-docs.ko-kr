@@ -2,24 +2,24 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 3d4cc17570057f5f37cf38685847afbe38ea6831
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606886"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026627"
 ---
-| 리소스 | 표준 파일 공유 | 프리미엄 파일 공유 |
+| 리소스 | 표준 파일 공유\* | 프리미엄 파일 공유 |
 |----------|---------------|------------------------------------------|
 | 파일 공유의 최소 크기 | 최솟값 없음, 종량제 | 100GiB, 프로비저닝됨 |
-| 파일 공유의 최대 크기 | 100TiB*, 5TiB | 100TiB |
+| 파일 공유의 최대 크기 | 100 TiB\*\*, 5 TiB | 100TiB |
 | 파일 공유의 최대 파일 크기 | 1TiB | 4TiB |
 | 파일 공유의 최소 파일 수 | 제한 없음 | 제한 없음 |
-| 공유당 최대 IOPS | 100ms에 10,000 IOPS*, 1,000 IOPS 또는 100개의 요청 | 100,000 IOPS |
+| 공유당 최대 IOPS | 100ms에 10,000 IOPS\*\*, 1,000 IOPS 또는 100개의 요청 | 100,000 IOPS |
 | 파일 공유당 저장된 액세스 정책의 최대 수 | 5 | 5 |
-| 단일 파일 공유에 대한 대상 처리량 | 최대 300MiB/초*, 최대 60MiB/초  | 프리미엄 파일 공유 수신 및 송신 값 참조|
+| 단일 파일 공유에 대한 대상 처리량 | 최대 300MiB/초\*\*, 최대 60MiB/초  | 프리미엄 파일 공유 수신 및 송신 값 참조|
 | 단일 파일 공유에 대한 최대 송신 속도 | 표준 파일 공유 대상 처리량 참조 | 최대 6,204MiB/초 |
 | 단일 파일 공유에 대한 최대 수신 속도 | 표준 파일 공유 대상 처리량 참조 | 최대 4,136MiB/초 |
 | 파일 또는 디렉터리당 최대 열린 핸들 수 | 2,000개의 열린 핸들 | 2,000개의 열린 핸들 |
@@ -27,5 +27,8 @@ ms.locfileid: "90606886"
 | 최대 개체(디렉터리 및 파일) 이름 길이 | 2,048자 | 2,048자 |
 | 최대 경로 이름 구성 요소(경로 \A\B\C\D의 각 문자가 구성 요소) | 255자 | 255자 |
 | 하드 링크 제한(NFS 전용) | N/A | 178 |
+| 최대 SMB 다중 채널 채널 수 | 해당 없음 | 4 |
 
-\* 표준 파일 공유의 기본값은 5TiB입니다. 표준 파일 공유 크기를 최대 100TiB까지 확장하는 방법에 대한 자세한 내용은 [대량 파일 공유 사용 및 만들기](../articles/storage/files/storage-files-how-to-create-large-file-share.md)를 참조하세요.
+\* 표준 파일 공유에 대한 제한은 표준 파일 공유에 사용할 수 있는 세 계층(트랜잭션 최적화, 핫 및 쿨) 모두에 적용됩니다.
+
+\*\* 표준 파일 공유의 기본값은 5TiB입니다. 표준 파일 공유 크기를 최대 100TiB까지 확장하는 방법에 대한 자세한 내용은 [대량 파일 공유 사용 및 만들기](../articles/storage/files/storage-files-how-to-create-large-file-share.md)를 참조하세요.

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0126c5348a2acaebea0400a94ca0a1d14a1bf6ff
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707546"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903533"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 새 액세스 패키지 만들기
 
@@ -59,15 +59,15 @@ ms.locfileid: "90707546"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **액세스 패키지**를 클릭합니다.
+1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭합니다.
 
-1. **새 액세스 패키지**를 클릭합니다.
+1. **새 액세스 패키지** 를 클릭합니다.
    
     ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>기본 사항
+## <a name="basics"></a>기본
 
 **기본 사항** 탭에서 액세스 패키지에 이름을 지정 하 고 액세스 패키지를 만들 카탈로그를 지정 합니다.
 
@@ -79,17 +79,17 @@ ms.locfileid: "90707546"
 
     ![액세스 패키지-기본 사항](./media/entitlement-management-access-package-create/basics.png)
 
-    전역 관리자, 사용자 관리자 또는 카탈로그 작성자 이며 나열 되지 않은 새 카탈로그에서 액세스 패키지를 만들려는 경우 **새 카탈로그 만들기**를 클릭 합니다. 카탈로그 이름 및 설명을 입력 하 고 **만들기**를 클릭 합니다.
+    전역 관리자, 사용자 관리자 또는 카탈로그 작성자 이며 나열 되지 않은 새 카탈로그에서 액세스 패키지를 만들려는 경우 **새 카탈로그 만들기** 를 클릭 합니다. 카탈로그 이름 및 설명을 입력 하 고 **만들기** 를 클릭 합니다.
 
     만든 액세스 패키지와 여기에 포함 된 리소스는 새 카탈로그에 추가 됩니다. 나중에 카탈로그 소유자를 더 추가할 수도 있습니다.
 
-1. **다음**을 클릭합니다.
+1. **다음** 을 클릭합니다.
 
 ## <a name="resource-roles"></a>리소스 역할
 
 **리소스 역할** 탭에서 액세스 패키지에 포함할 리소스를 선택 합니다. 액세스 패키지를 요청 하 고 수신 하는 사용자는 액세스 패키지의 모든 리소스 역할을 받게 됩니다.
 
-1. 추가 하려는 리소스 종류 (**그룹 및 팀**, **응용 프로그램**또는 **SharePoint 사이트**)를 클릭 합니다.
+1. 추가 하려는 리소스 종류 (**그룹 및 팀**, **응용 프로그램** 또는 **SharePoint 사이트**)를 클릭 합니다.
 
 1. 표시 되는 선택 창의 목록에서 하나 이상의 리소스를 선택 합니다.
 
@@ -105,7 +105,10 @@ ms.locfileid: "90707546"
 
     ![액세스 패키지-리소스 역할 선택](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. **다음**을 클릭합니다.
+1. **다음** 을 클릭합니다.
+
+>[!NOTE]
+>카탈로그 및 액세스 패키지에 동적 그룹을 추가할 수 있습니다. 그러나 액세스 패키지에서 동적 그룹 리소스를 관리 하는 경우에는 소유자 역할만 선택할 수 있습니다.
 
 ## <a name="requests"></a>요청
 
@@ -125,7 +128,7 @@ ms.locfileid: "90707546"
 
 1. 액세스 패키지의 설정 검토
 
-    ![액세스 패키지-정책-정책 설정 사용](./media/entitlement-management-access-package-create/review-create.png)
+    ![액세스 패키지-정책 설정 사용](./media/entitlement-management-access-package-create/review-create.png)
 
 1. **만들기** 를 클릭 하 여 액세스 패키지를 만듭니다.
 
@@ -135,11 +138,11 @@ ms.locfileid: "90707546"
 
 Microsoft Graph를 사용 하 여 액세스 패키지를 만들 수도 있습니다.  위임 된 권한이 있는 응용 프로그램을 사용 하 여 적절 한 역할의 사용자는 `EntitlementManagement.ReadWrite.All` API를 호출할 수 있습니다.
 
-1. [카탈로그에 accessPackageResources를 나열](https://docs.microsoft.com/graph/api/accesspackagecatalog-list?view=graph-rest-beta&tabs=http) 하 고 아직 카탈로그에 없는 리소스에 대 한 [accessPackageResourceRequest를 만듭니다](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&tabs=http) .
-1. AccessPackageCatalog에 있는 각 accessPackageResource의 [accessPackageResourceRoles를 나열](https://docs.microsoft.com/graph/api/accesspackage-list-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) 합니다. 그런 다음 accessPackageResourceRoleScope를 만들 때이 역할 목록을 사용 하 여 역할을 선택 합니다.
-1. [AccessPackage를 만듭니다](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
-1. [AccessPackageAssignmentPolicy를 만듭니다](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta&tabs=http).
-1. 액세스 패키지에 필요한 각 리소스 역할에 대해 [accessPackageResourceRoleScope를 만듭니다](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) .
+1. [카탈로그에 accessPackageResources를 나열](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta) 하 고 아직 카탈로그에 없는 리소스에 대 한 [accessPackageResourceRequest를 만듭니다](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta) .
+1. AccessPackageCatalog에 있는 각 accessPackageResource의 [accessPackageResourceRoles를 나열](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) 합니다. 그런 다음 accessPackageResourceRoleScope를 만들 때이 역할 목록을 사용 하 여 역할을 선택 합니다.
+1. [AccessPackage를 만듭니다](/graph/tutorial-access-package-api?view=graph-rest-beta).
+1. [AccessPackageAssignmentPolicy를 만듭니다](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta).
+1. 액세스 패키지에 필요한 각 리소스 역할에 대해 [accessPackageResourceRoleScope를 만듭니다](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) .
 
 ## <a name="next-steps"></a>다음 단계
 

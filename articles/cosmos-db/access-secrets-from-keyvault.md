@@ -4,19 +4,19 @@ description: Azure Key Vault를 사용하여 Azure Cosmos DB 연결 문자열, �
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262670"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359327"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 >[!IMPORTANT]
 > Azure Cosmos DB 키에 액세스 하기 위한 권장 솔루션은 [시스템 할당 관리 id](managed-identity-based-authentication.md)를 사용 하는 것입니다. 서비스에서 관리 되는 id를 활용할 수 없는 경우 [인증서 기반 솔루션](certificate-based-authentication.md)을 사용 합니다. 관리 id 솔루션과 인증서 기반 솔루션이 사용자의 요구를 충족 하지 않는 경우 아래 key vault 솔루션을 사용 하세요.
@@ -41,15 +41,15 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
    * **리소스 그룹** 아래에서 **새로 만들기** 를 선택 하 고 리소스 그룹 이름을 입력 합니다.  
    * 위치 풀 다운 메뉴에서 위치를 선택합니다.  
    * 다른 옵션은 기본값으로 그대로 둡니다.  
-4. 위의 정보를 제공한 후 **만들기**를 선택합니다.  
+4. 위의 정보를 제공한 후 **만들기** 를 선택합니다.  
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Key Vault에 Azure Cosmos DB 액세스 키를 추가합니다.
 1. 이전 단계에서 만든 Key Vault로 이동하고 **비밀** 탭을 엽니다.  
-2. **+ 생성/가져오기**를 선택 합니다. 
+2. **+ 생성/가져오기** 를 선택 합니다. 
 
-   * **업로드 옵션**에서 **수동** 을 선택 합니다.
-   * 비밀의 **이름**을 제공합니다.
-   * Cosmos DB 계정의 연결 문자열을 **값** 필드에 제공합니다. 그런 다음, **만들기**를 선택합니다.
+   * **업로드 옵션** 에서 **수동** 을 선택 합니다.
+   * 비밀의 **이름** 을 제공합니다.
+   * Cosmos DB 계정의 연결 문자열을 **값** 필드에 제공합니다. 그런 다음, **만들기** 를 선택합니다.
 
    :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="암호 만들기":::
 
@@ -59,16 +59,16 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ## <a name="create-an-azure-web-application"></a>Azure 웹 애플리케이션 만들기
 
-1. Azure 웹 애플리케이션을 만들거나 [GitHub 리포지토리](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo)에서 앱을 다운로드할 수 있습니다. 간단한 MVC 애플리케이션입니다.  
+1. Azure 웹 애플리케이션을 만들거나 [GitHub 리포지토리](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo)에서 앱을 다운로드할 수 있습니다. 간단한 MVC 애플리케이션입니다.  
 
 2. 다운로드한 애플리케이션의 압축을 풀고 **HomeController.cs** 파일을 엽니다. 다음 줄에서 비밀 ID를 업데이트합니다.
 
    `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
 
-3. 파일을 **저장**하고 솔루션을 **빌드**합니다.  
-4. 다음에는 Azure에 애플리케이션을 배포합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 새로운 앱 서비스 프로필(앱 이름을 WebAppKeyVault1로 지정할 수 있음)을 만들고 **게시**를 선택합니다.   
+3. 파일을 **저장** 하고 솔루션을 **빌드** 합니다.  
+4. 다음에는 Azure에 애플리케이션을 배포합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다. 새로운 앱 서비스 프로필(앱 이름을 WebAppKeyVault1로 지정할 수 있음)을 만들고 **게시** 를 선택합니다.   
 
-5. 일단 애플리케이션이 배포됩니다. Azure Portal에서 배포한 웹앱으로 이동하고 이 애플리케이션의 **관리 서비스 ID**를 설정합니다.  
+5. 일단 애플리케이션이 배포됩니다. Azure Portal에서 배포한 웹앱으로 이동하고 이 애플리케이션의 **관리 서비스 ID** 를 설정합니다.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="관리 서비스 ID":::
 
@@ -80,9 +80,9 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 이 섹션에서는 Azure Active Directory에 애플리케이션을 등록하고 애플리케이션이 Key Vault를 읽을 수 있는 권한을 부여합니다. 
 
-1. Azure Portal로 이동하고 이전 섹션에서 만든 **Key Vault**를 엽니다.  
+1. Azure Portal로 이동하고 이전 섹션에서 만든 **Key Vault** 를 엽니다.  
 
-2. **액세스 정책**을 열고 **+새로 추가**를 선택하여 배포된 웹앱을 찾은 다음, 권한을 선택하고 **확인**을 선택합니다.  
+2. **액세스 정책** 을 열고 **+새로 추가** 를 선택하여 배포된 웹앱을 찾은 다음, 권한을 선택하고 **확인** 을 선택합니다.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="액세스 정책 추가":::
 
@@ -90,9 +90,9 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 :::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="비밀로 배포된 앱":::
  
-마찬가지로, 키 자격 증명 모음에 액세스할 사용자를 추가할 수 있습니다. **액세스 정책**을 선택하여 자신을 Key Vault에 추가한 다음, Visual Studio에서 애플리케이션을 실행하는 데 필요한 모든 권한을 부여해야 합니다. 이 애플리케이션이 데스크톱에서 실행될 때 사용자의 ID를 사용합니다.
+마찬가지로, 키 자격 증명 모음에 액세스할 사용자를 추가할 수 있습니다. **액세스 정책** 을 선택하여 자신을 Key Vault에 추가한 다음, Visual Studio에서 애플리케이션을 실행하는 데 필요한 모든 권한을 부여해야 합니다. 이 애플리케이션이 데스크톱에서 실행될 때 사용자의 ID를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Cosmos DB에 대한 방화벽을 구성하려면 [방화벽 지원](firewall-support.md) 문서를 참조하세요.
-* 가상 네트워크 서비스 엔드포인트를 구성하려면 [VNet 서비스 엔드포인트를 사용하여 보안 액세스](vnet-service-endpoint.md)를 참조하세요.
+* Azure Cosmos DB에 대한 방화벽을 구성하려면 [방화벽 지원](how-to-configure-firewall.md) 문서를 참조하세요.
+* 가상 네트워크 서비스 엔드포인트를 구성하려면 [VNet 서비스 엔드포인트를 사용하여 보안 액세스](how-to-configure-vnet-service-endpoint.md)를 참조하세요.

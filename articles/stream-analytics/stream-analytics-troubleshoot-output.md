@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903190"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019840"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -25,8 +25,8 @@ ms.locfileid: "87903190"
 1. **모니터** 탭에서 [모니터링 메트릭](stream-analytics-monitoring.md)을 확인합니다. 값을 집계하기 때문에 메트릭이 몇 분 동안 지연됩니다.
 
    * **입력 이벤트** 값이 0보다 크면 작업에서 입력 데이터를 읽을 수 있습니다. **입력 이벤트** 값이 0보다 크지 않은 경우 작업의 입력에 문제가 있습니다. 자세한 내용은 [입력 연결 문제 해결](stream-analytics-troubleshoot-input.md)을 참조하세요. 작업에 참조 데이터 입력이 있는 경우 **입력 이벤트** 메트릭을 볼 때 논리적 이름으로 분할을 적용 합니다. 참조 데이터의 입력 이벤트만이 없으면이 입력 소스가 올바른 참조 데이터 집합을 인출 하도록 올바르게 구성 되지 않은 것일 수 있습니다.
-   * **데이터 변환 오류**가 값이 0보다 크고 증가하는 경우 데이터 변환 오류에 대한 자세한 내용은 [Azure Stream Analytics 데이터 오류](data-errors.md)를 참조하세요.
-   * **런타임 오류**가 값이 0보다 크면 작업에서 데이터를 받지만 쿼리를 처리하는 동안 오류가 생성됩니다. 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동한 다음, **실패** 상태를 필터링합니다.
+   * **데이터 변환 오류** 가 값이 0보다 크고 증가하는 경우 데이터 변환 오류에 대한 자세한 내용은 [Azure Stream Analytics 데이터 오류](data-errors.md)를 참조하세요.
+   * **런타임 오류** 가 값이 0보다 크면 작업에서 데이터를 받지만 쿼리를 처리하는 동안 오류가 생성됩니다. 오류를 찾으려면 [감사 로그](../azure-resource-manager/management/view-activity-logs.md)로 이동한 다음, **실패** 상태를 필터링합니다.
    * **입력 이벤트** 값이 0보다 크고 **출력 이벤트** 값이 0이면 다음 명령문 중 하나가 true입니다.
       * 쿼리 처리로 제로 출력 이벤트가 발생했습니다.
       * 이벤트 또는 필드가 잘못되어 쿼리 처리 후 제로 출력이 발생할 수 있습니다.
@@ -67,11 +67,11 @@ Stream Analytics 쿼리를 디자인할 때 주의해야 합니다. 작업의 �
 * 업스트림 소스의 제한 여부
 * 쿼리의 처리 논리에 계산이 많이 사용되는지 여부
 
-출력 세부 정보를 보려면 Azure Portal에서 스트리밍 작업을 선택한 다음, **작업 다이어그램**을 선택합니다. 각 입력에 대해 파티션당 백로그 이벤트 메트릭이 있습니다. 메트릭이 계속 증가하면 시스템 리소스에 제한이 있다는 표시입니다. 증가는 잠재적으로 출력 싱크 제한 또는 높은 CPU 사용량으로 인해 발생할 수 있습니다. 자세한 내용은 [작업 다이어그램을 사용하여 데이터 기반 디버그](stream-analytics-job-diagram-with-metrics.md)를 참조하세요.
+출력 세부 정보를 보려면 Azure Portal에서 스트리밍 작업을 선택한 다음, **작업 다이어그램** 을 선택합니다. 각 입력에 대해 파티션당 백로그 이벤트 메트릭이 있습니다. 메트릭이 계속 증가하면 시스템 리소스에 제한이 있다는 표시입니다. 증가는 잠재적으로 출력 싱크 제한 또는 높은 CPU 사용량으로 인해 발생할 수 있습니다. 자세한 내용은 [작업 다이어그램을 사용하여 데이터 기반 디버그](stream-analytics-job-diagram-with-metrics.md)를 참조하세요.
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL Database 출력을 사용하여 키 위반 경고
 
-Azure SQL 데이터베이스를 Stream Analytics 작업에 대한 출력으로 구성하면 대상 테이블에 레코드를 대량으로 삽입합니다. 일반적으로 Azure Stream Analytics는 출력 싱크에 [한 번 이상 배달](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)을 보장합니다. SQL 테이블에 고유한 제약 조건이 정의되어 있는 경우에도 여전히 SQL 출력에 대해 [정확히 한 번 배달을 얻을]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) 수 있습니다.
+Azure SQL 데이터베이스를 Stream Analytics 작업에 대한 출력으로 구성하면 대상 테이블에 레코드를 대량으로 삽입합니다. 일반적으로 Azure Stream Analytics는 출력 싱크에 [한 번 이상 배달](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)을 보장합니다. SQL 테이블에 고유한 제약 조건이 정의되어 있는 경우에도 여전히 SQL 출력에 대해 [정확히 한 번 배달을 얻을]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) 수 있습니다.
 
 SQL 테이블에 고유한 키 제약 조건을 설정하면 Azure Stream Analytics에서 중복 레코드를 제거합니다. 데이터를 일괄 처리로 분할하고 단일 중복 레코드가 발견될 때까지 일괄 처리를 반복해서 삽입합니다. 분할 및 삽입 프로세스는 한 번에 하나씩 중복 항목을 무시합니다. 중복 행이 많은 스트리밍 작업의 경우 프로세스는 비효율적이며 시간이 많이 소요됩니다. 이전 시간에 대해 활동 로그에서 여러 키 위반 경고 메시지가 표시된 경우 SQL 출력이 전체 작업 성능을 저하시킬 가능성이 있습니다.
 
@@ -81,20 +81,42 @@ SQL 테이블에 고유한 키 제약 조건을 설정하면 Azure Stream Analyt
 
 * 기본 키에서 IGNORE_DUP_KEY 또는 ALTER INDEX를 사용하는 고유한 제약 조건을 설정할 수 없습니다. 인덱스를 삭제하고 다시 만들어야 합니다.  
 * 고유 인덱스에 대해 ALTER INDEX를 사용하여 IGNORE_DUP_KEY를 설정할 수 있습니다. 이 인스턴스는 PRIMARY KEY/UNIQUE 제약 조건과 다르며 CREATE INDEX 또는 INDEX 정의를 사용하여 생성됩니다.  
-* 고유성을 적용할 수 없기 때문에 IGNORE_DUP_KEY 옵션은 열 저장소 인덱스에 적용되지 않습니다.  
+* 고유성을 적용할 수 없기 때문에 IGNORE_DUP_KEY 옵션은 열 저장소 인덱스에 적용되지 않습니다.
+
+## <a name="sql-output-retry-logic"></a>SQL 출력 다시 시도 논리
+
+SQL 출력을 사용 하는 Stream Analytics 작업에서 첫 번째 이벤트 일괄 처리를 수신 하면 다음 단계가 수행 됩니다.
+
+1. 작업은 SQL에 대 한 연결을 시도 합니다.
+2. 작업은 대상 테이블의 스키마를 페치합니다.
+3. 작업은 대상 테이블 스키마에 대 한 열 이름 및 유형의 유효성을 검사 합니다.
+4. 작업은 일괄 처리의 출력 레코드에서 메모리 내 데이터 테이블을 준비 합니다.
+5. 작업은 대량 복사 [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver)를 사용 하 여 SQL에 데이터 테이블을 작성 합니다.
+
+이러한 단계를 수행 하는 동안 SQL 출력에 다음과 같은 유형의 오류가 발생할 수 있습니다.
+
+* 지 수 백오프 재시도 전략을 사용 하 여 다시 시도 되는 일시적인 [오류](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others) 입니다. 최소 재시도 간격은 개별 오류 코드에 따라 다르지만 간격은 일반적으로 60 초 미만입니다. 상한 값은 최대 5 분이 될 수 있습니다. 
+
+   [로그인 실패](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531) 및 [방화벽 문제](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues) 는 이전 시도 후 5 분 이상 재시도 하 고 성공할 때까지 다시 시도 됩니다.
+
+* 캐스팅 오류 및 스키마 제약 조건 위반과 같은 데이터 오류는 출력 오류 정책을 통해 처리 됩니다. 이러한 오류는 오류를 발생 시키는 개별 레코드가 skip 또는 retry로 처리 될 때까지 이진 분할 일괄 처리를 다시 시도 하 여 처리 됩니다. 기본 고유 키 제약 조건 위반이 [항상 처리](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output)됩니다.
+
+* SQL 서비스 문제나 내부 코드 오류가 있으면 일시적이 지 않은 오류가 발생할 수 있습니다. 예를 들어 (코드 1132 Elastic Pool)와 같은 오류가 저장소 제한에 도달 하는 경우 다시 시도 해도 오류가 해결 되지 않습니다. 이러한 시나리오에서는 Stream Analytics 작업의 [성능이 저하](job-states.md)됩니다.
+* `BulkCopy` 시간 제한은 `BulkCopy` 5 단계에서 발생할 수 있습니다. `BulkCopy` 때때로 작업 시간 초과가 발생할 수 있습니다. 기본 최소 구성 제한 시간은 5 분 이며 연속적으로 적중 될 때 두 배가 됩니다.
+시간 제한이 15 분을 초과 하면 `BulkCopy` 일괄 처리 당 100 이벤트가 남아 있을 때까지 최대 일괄 처리 크기 힌트가 절반으로 줄어듭니다.
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>열 이름은 Azure Stream Analytics의 소문자입니다(1.0).
 
-원래 호환성 수준(1.0)을 사용하는 경우 Azure Stream Analytics는 열 이름을 소문자로 변경합니다. 이 동작은 이후 호환성 수준에서 수정되었습니다. 사례를 유지하려면 호환성 수준 1.1 이상으로 이동합니다. 자세한 내용은 [Stream Analytics 작업에 대한 호환성 수준](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)을 참조하세요.
+원래 호환성 수준(1.0)을 사용하는 경우 Azure Stream Analytics는 열 이름을 소문자로 변경합니다. 이 동작은 이후 호환성 수준에서 수정되었습니다. 사례를 유지하려면 호환성 수준 1.1 이상으로 이동합니다. 자세한 내용은 [Stream Analytics 작업에 대한 호환성 수준](./stream-analytics-compatibility-level.md)을 참조하세요.
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)를 사용해보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 관리 REST API 참조](/rest/api/streamanalytics/)

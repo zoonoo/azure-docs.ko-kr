@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 47262e0dc7247e1d514eeb64512c21ff1ae527ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462567"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534824"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
-HDInsight는 Azure Storage 및 Azure Data Lake Storage에 대 한 HDFS (Hadoop 분산 파일 시스템)를 제공 합니다. 이 저장소는 Gen1 및 Gen2를 포함 합니다. Azure Storage 및 Data Lake Storage Gen1 및 Gen2는 HDFS 확장으로 설계 되었습니다. 이를 통해 Hadoop 환경에서 구성 요소의 전체 집합이 관리 하는 데이터에 대해 직접 작동할 수 있습니다. Azure Storage, Data Lake Storage Gen1 및 Gen2는 별개의 파일 시스템입니다. 시스템은 데이터를 저장 하 고 해당 데이터를 계산 하는 데 최적화 되어 있습니다. Azure Storage 사용의 이점에 대 한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조 하세요. 또한 HDInsight에서 [Data Lake Storage Gen1 사용](hdinsight-hadoop-use-data-lake-store.md)및 [Hdinsight에서 Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조 하세요.
+HDInsight는 Azure Storage 및 Azure Data Lake Storage에 대 한 HDFS (Hadoop 분산 파일 시스템)를 제공 합니다. 이 저장소는 Gen1 및 Gen2를 포함 합니다. Azure Storage 및 Data Lake Storage Gen1 및 Gen2는 HDFS 확장으로 설계 되었습니다. 이를 통해 Hadoop 환경에서 구성 요소의 전체 집합이 관리 하는 데이터에 대해 직접 작동할 수 있습니다. Azure Storage, Data Lake Storage Gen1 및 Gen2는 별개의 파일 시스템입니다. 시스템은 데이터를 저장 하 고 해당 데이터를 계산 하는 데 최적화 되어 있습니다. Azure Storage 사용의 이점에 대 한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조 하세요. 또한 HDInsight에서 [Data Lake Storage Gen1 사용](hdinsight-hadoop-use-data-lake-storage-gen1.md)및 [Hdinsight에서 Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 요구 사항을 확인하세요.
 
 * Azure HDInsight 클러스터를 만듭니다. 자세한 지침은 [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
 * 다음 문서의 정보:
     * [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)
-    * [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-store.md)
+    * [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-storage-gen1.md)
     * [HDInsight에서 Data Lake Store Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Azure Storage에 데이터 업로드
@@ -58,7 +58,7 @@ Hadoop 명령을 사용 하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-lin
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-예를 들어 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+예, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/data/data.txt 실제로는 Azure Storage에 있습니다. 파일이 다음과 같을 수도 있습니다.
 
@@ -77,7 +77,7 @@ HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/
 
 Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 애플리케이션이 있습니다. 다음 테이블은 이러한 애플리케이션 중 일부의 목록입니다.
 
-| Client | Linux | OS X | Windows |
+| 클라이언트 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
@@ -88,7 +88,7 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Azure Storage를 로컬 드라이브로 탑재
 
-[Azure Storage를 로컬 드라이브로 탑재](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive)를 참조하세요.
+[Azure Storage를 로컬 드라이브로 탑재](/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive)를 참조하세요.
 
 ## <a name="upload-using-services"></a>서비스를 사용하여 업로드
 

@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383600"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 Azure AD SSPR 기술 프로필 정의
@@ -49,7 +49,7 @@ Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, C
     ...
 ```
 
-## <a name="send-email"></a>전자 메일 보내기
+## <a name="send-email"></a>이메일 보내기
 
 이 기술 프로필의 첫 번째 모드는 코드를 생성 하 고 보내는 것입니다. 이 모드에 대해 다음과 같은 옵션을 구성할 수 있습니다.
 
@@ -57,7 +57,7 @@ Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, C
 
 **Inputclaims** 요소는 AZURE AD SSPR에 보낼 클레임 목록을 포함 합니다. 클레임의 이름을 SSPR 기술 프로필에 정의 된 이름에 매핑할 수도 있습니다.
 
-| ClaimReferenceId | 필요한 공간 | 설명 |
+| ClaimReferenceId | 필수 | Description |
 | --------- | -------- | ----------- |
 | emailAddress | 예 | 전자 메일 주소를 소유 하는 사용자의 식별자입니다. `PartnerClaimType`입력 클레임의 속성을로 설정 해야 합니다 `emailAddress` . |
 
@@ -72,15 +72,15 @@ Azure AD SSPR 프로토콜 공급자는 **outputclaims**반환 되지 않으므�
 
 ### <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 연산 | 예 | **Sendcode**여야 합니다.  |
+| 작업(Operation) | 예 | **Sendcode**여야 합니다.  |
 
 #### <a name="ui-elements"></a>UI 요소
 
 다음 메타 데이터를 사용 하 여 SMS 오류를 보낼 때 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#azure-ad-sspr)될 수 있습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | UserMessageIfInternalError | 아니요 | 서버에 내부 오류가 발생 한 경우 사용자 오류 메시지입니다. |
 | UserMessageIfThrottled| 아니요 | 요청이 제한 된 경우 사용자 오류 메시지입니다.|
@@ -111,7 +111,7 @@ Azure AD SSPR 프로토콜 공급자는 **outputclaims**반환 되지 않으므�
 
 **Inputclaims** 요소는 AZURE AD SSPR에 보낼 클레임 목록을 포함 합니다. 클레임의 이름을 SSPR 기술 프로필에 정의 된 이름에 매핑할 수도 있습니다.
 
-| ClaimReferenceId | 필요한 공간 | 설명 |
+| ClaimReferenceId | 필수 | Description |
 | --------- | -------- | ----------- | ----------- |
 | emailAddress| 예 | 이전에 코드를 전송 하는 데 사용한 것과 동일한 전자 메일 주소입니다. 또한 전자 메일 확인 세션을 찾는 데 사용 됩니다. `PartnerClaimType`입력 클레임의 속성을로 설정 해야 합니다 `emailAddress` .|
 | verificationCode  | 예 | 사용자가 확인 하기 위해 제공한 확인 코드입니다. `PartnerClaimType`입력 클레임의 속성을로 설정 해야 합니다 `verificationCode` . |
@@ -126,15 +126,15 @@ Azure AD SSPR 프로토콜 공급자는 **outputclaims**반환 되지 않으므�
 
 ### <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 연산 | 예 | **Verifycode** 여야 합니다. |
+| 작업(Operation) | 예 | **Verifycode** 여야 합니다. |
 
 #### <a name="ui-elements"></a>UI 요소
 
 다음 메타 데이터를 사용 하 여 코드 확인 실패 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#azure-ad-sspr)될 수 있습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 |UserMessageIfChallengeExpired | 코드 확인 세션이 만료 된 경우 사용자에 게 표시할 메시지입니다. 코드가 만료 되었거나 지정 된 식별자에 대 한 코드가 생성 되지 않았습니다.|
 |UserMessageIfInternalError | 서버에 내부 오류가 발생 한 경우 사용자 오류 메시지입니다.|

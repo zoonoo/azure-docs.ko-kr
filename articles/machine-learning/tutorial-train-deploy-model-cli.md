@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 07edfa2bca25a9f3e8d985cfe36987ff04ca950f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 55221fa529688fbae1698a094ea31f6a3f765100
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906647"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796247"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
 
@@ -39,7 +39,7 @@ ms.locfileid: "90906647"
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* **로컬 환경**에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
+* **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)가 필요합니다.
 
     [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)을 사용하는 경우 CLI는 브라우저를 통해 액세스하고 클라우드에 있습니다.
 
@@ -128,7 +128,7 @@ az group create --name <resource-group-name> --location <location>
 }
 ```
 
-리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest)을 참조하세요.
+리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](/cli/azure/group?preserve-view=true&view=azure-cli-latest)을 참조하세요.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
@@ -307,10 +307,10 @@ runconfig 파일에는 학습 실행용 환경을 구성하는 데 사용되는 
 `cpu-cluster` 컴퓨팅 대상에서 학습 실행을 시작하려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive
-az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
+az ml run submit-script -c mnist -e tutorial-cli --source-directory scripts -t runoutput.json
 ```
 
-이 명령은 실험의 이름(`myexperiment`)을 지정합니다. 실험은 작업 영역에 이 실행에 대한 정보를 저장합니다.
+이 명령은 실험의 이름(`tutorial-cli`)을 지정합니다. 실험은 작업 영역에 이 실행에 대한 정보를 저장합니다.
 
 `-c mnist` 매개 변수는 `.azureml/mnist.runconfig` 파일을 지정합니다.
 
@@ -327,7 +327,7 @@ Accuracy is 0.9185
 
 학습 스크립트를 검사하면 `outputs/sklearn_mnist_model.pkl`에 학습된 모델을 저장할 때 알파 값도 사용됨을 알 수 있습니다.
 
-모델은 학습된 컴퓨팅 대상의 `./outputs` 디렉터리에 저장되었습니다. 이 경우에는 Azure 클라우드의 Azure Machine Learning 컴퓨팅 인스턴스입니다. 학습 프로세스는 학습이 수행되는 컴퓨팅 대상에서 Azure Machine Learning 작업 영역으로 `./outputs` 디렉터리의 내용을 자동으로 업로드합니다. 이는 실험의 일부로 저장됩니다(이 예에서는 `myexperiment`).
+모델은 학습된 컴퓨팅 대상의 `./outputs` 디렉터리에 저장되었습니다. 이 경우에는 Azure 클라우드의 Azure Machine Learning 컴퓨팅 인스턴스입니다. 학습 프로세스는 학습이 수행되는 컴퓨팅 대상에서 Azure Machine Learning 작업 영역으로 `./outputs` 디렉터리의 내용을 자동으로 업로드합니다. 이는 실험의 일부로 저장됩니다(이 예에서는 `tutorial-cli`).
 
 ## <a name="register-the-model"></a>모델 등록
 
@@ -345,13 +345,13 @@ az ml model register -n mymodel -f runoutput.json --asset-path "outputs/sklearn_
 {
   "createdTime": "2019-09-19T15:25:32.411572+00:00",
   "description": "",
-  "experimentName": "myexperiment",
+  "experimentName": "tutorial-cli",
   "framework": "Custom",
   "frameworkVersion": null,
   "id": "mymodel:1",
   "name": "mymodel",
   "properties": "",
-  "runId": "myexperiment_1568906070_5874522d",
+  "runId": "tutorial-cli_1568906070_5874522d",
   "tags": "",
   "version": 1
 }

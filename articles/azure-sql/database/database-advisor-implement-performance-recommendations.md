@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79ccf0f8aae7e915601081f875cea294de52d787
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254942"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500855"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Azure SQL Database에 대 한 Database Advisor 성능 권장 사항
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ Azure SQL Database는 실행 중인 쿼리를 지속적으로 모니터링 하 �
 
 Azure SQL Database는 시간이 지나면서 인덱스로 인한 성능 향상을 예상하여 신뢰도를 빌드합니다. 예상된 성능 향상에 따라 권장 사항은 높음, 보통, 낮음으로 분류됩니다.
 
-권장 사항을 사용하여 만든 인덱스에는 항상 자동 생성된 인덱스로 플래그가 지정됩니다. [Sys. 인덱스 뷰](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)를 살펴보면 자동으로 생성 되는 인덱스를 확인할 수 있습니다. 자동 생성 인덱스는 ALTER/RENAME 명령을 차단 하지 않습니다.
+권장 사항을 사용하여 만든 인덱스에는 항상 자동 생성된 인덱스로 플래그가 지정됩니다. [Sys. 인덱스 뷰](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)를 살펴보면 자동으로 생성 되는 인덱스를 확인할 수 있습니다. 자동 생성 인덱스는 ALTER/RENAME 명령을 차단 하지 않습니다.
 
 자동 생성된 인덱스가 있는 열을 삭제하려고 하면 명령이 성공합니다. 자동 생성된 인덱스도 이 명령으로 삭제됩니다. 일반 인덱스는 인덱싱된 열에 대한 ALTER/RENAME 명령을 차단합니다.
 
@@ -84,9 +84,9 @@ CPU, 데이터 IO 또는 로그 IO가 이전 30 분 동안 80% 보다 높은 경
 
 실행 계획을 생성 하려면 먼저 모든 쿼리를 컴파일해야 합니다. 생성된 각 계획은 계획 캐시에 추가됩니다. 이후에 동일한 쿼리를 실행할 때 캐시에서 이 계획을 다시 사용할 수 있으므로 추가 컴파일이 필요하지 않게 됩니다.
 
-매개 변수가 없는 값이 있는 쿼리의 경우 매개 변수가 없는 값이 다를 때마다 실행 계획이 다시 컴파일되므로 성능 오버헤드가 발생할 수 있습니다. 대체로 다른 매개 변수 값을 사용하는 동일한 쿼리는 동일한 실행 계획을 생성합니다. 그러나 이러한 계획은 여전히 계획 캐시에 개별적으로 추가됩니다.
+매개 변수화되지 않은 값이 있는 쿼리는 매개 변수화되지 않은 값이 다를 때마다 실행 플랜이 다시 컴파일되기 때문에 성능 오버헤드가 발생할 수 있습니다. 많은 경우에 매개 변수 값이 다른 동일한 쿼리는 동일한 실행 플랜을 생성합니다. 그러나 이러한 플랜은 여전히 플랜 캐시에 개별적으로 추가됩니다.
 
-실행 계획을 다시 컴파일하는 프로세스로 인해 데이터베이스 리소스가 사용되고, 쿼리 지속 시간이 늘어나며, 계획 캐시가 오버플로됩니다. 결국 이러한 이벤트로 인해 계획이 캐시에서 제거됩니다. 이 동작은 데이터베이스에 대해 강제 매개 변수화 옵션을 설정 하 여 변경할 수 있습니다.
+실행 플랜을 다시 컴파일하는 프로세스는 데이터베이스 리소스를 사용하고, 쿼리 기간을 늘리고, 플랜 캐시를 오버플로합니다. 이러한 이벤트로 인해 캐시에서 플랜이 제거됩니다. 이 동작은 데이터베이스에 대해 강제 매개 변수화 옵션을 설정 하 여 변경할 수 있습니다.
 
 이러한 권장 사항의 영향을 예측할 수 있도록 하기 위해 실제 CPU 사용량과 예상 CPU 사용량 간의 비교 결과가 제공됩니다(권장 사항을 적용했다고 가정). 이 권장 사항은 CPU를 절약하는 데 도움이 될 수 있습니다. 또한 쿼리 지속 기간 및 계획 캐시에 대한 오버헤드를 줄일 수 있으므로 캐시에 유지되고 다시 사용할 수 있는 계획이 더 많아집니다. **적용** 명령을 선택하여 이 권장 사항을 빠르게 적용할 수 있습니다.
 
@@ -114,7 +114,7 @@ CPU, 데이터 IO 또는 로그 IO가 이전 30 분 동안 80% 보다 높은 경
 
 ## <a name="custom-applications"></a>사용자 지정 애플리케이션
 
-개발자는 Azure SQL Database에 대 한 성능 권장 사항을 사용 하 여 사용자 지정 응용 프로그램을 개발할 수 있습니다. 데이터베이스 포털에 나열 된 모든 권장 사항은 [AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API를 통해 액세스할 수 있습니다.
+개발자는 Azure SQL Database에 대 한 성능 권장 사항을 사용 하 여 사용자 지정 응용 프로그램을 개발할 수 있습니다. 데이터베이스 포털에 나열 된 모든 권장 사항은 [AzSqlDatabaseRecommendedAction](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API를 통해 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

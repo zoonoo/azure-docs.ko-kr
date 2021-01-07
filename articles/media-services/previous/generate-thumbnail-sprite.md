@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: juliako
 ms.openlocfilehash: 1d05e73bc9aa51bf20121790de94b1b6d0e26615
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268573"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>썸네일 스프라이트 생성
@@ -35,7 +35,7 @@ Media Encoder Standard를 사용하여 썸네일 스프라이트를 생성하려
 
     1. SpriteColumn이 M >= 1로 설정된 경우 출력 이미지는 M 열이 있는 사각형입니다. #2를 통해 생성된 썸네일 이미지의 수가 M의 정확한 배수가 아닌 경우 마지막 행이 완전하지 않고 검은색 픽셀로 남습니다.  
 
-예를 들면 다음과 같습니다.
+다음은 예제입니다.
 
 ```json
 {

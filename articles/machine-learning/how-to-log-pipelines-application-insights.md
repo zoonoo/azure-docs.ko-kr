@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c0cb4527349b09ed8e794cc55dee6f9e54f8a7d4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897508"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937368"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>경고 및 디버깅을 위해 Application Insights에서 기계 학습 파이프라인 로그 파일 수집
 
@@ -34,11 +34,11 @@ ms.locfileid: "90897508"
   ```
 * [Application Insights 인스턴스](../azure-monitor/app/opencensus-python.md) 만들기 (이 문서에는 리소스에 대 한 연결 문자열을 가져오는 방법에 대 한 정보도 포함 되어 있습니다.)
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 이 섹션은 Azure Machine Learning 파이프라인에서 OpenCensus를 사용 하는 것과 관련 된 소개입니다. 자세한 자습서는 [OpenCensus Azure Monitor 내보내기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) 를 참조 하세요.
 
-Azure ML 파이프라인에 PythonScriptStep를 추가 합니다. Opencensus에 대 한 종속성을 사용 하 여 [Runconfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) 을 구성 합니다. `APPLICATIONINSIGHTS_CONNECTION_STRING`환경 변수를 구성 합니다.
+Azure ML 파이프라인에 PythonScriptStep를 추가 합니다. Opencensus에 대 한 종속성을 사용 하 여 [Runconfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) 을 구성 합니다. `APPLICATIONINSIGHTS_CONNECTION_STRING`환경 변수를 구성 합니다.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -134,7 +134,7 @@ custom_dimensions = {
 }
 
 # Assumes AzureLogHandler was already registered above
-logger.info("I will be sent to Application Insights with Custom Dimensions", custom_dimensions)
+logger.info("I will be sent to Application Insights with Custom Dimensions", extra= {"custom_dimensions":custom_dimensions})
 ```
 
 ## <a name="opencensus-python-logging-considerations"></a>OpenCensus Python 로깅 고려 사항
@@ -153,7 +153,7 @@ Application Insights 결과에는 로그 메시지 및 수준, 파일 경로 및
 
 ### <a name="additional-helpful-queries"></a>추가 유용한 쿼리
 
-아래 쿼리에서는 ' customDimensions. Level '을 사용 합니다. 이러한 심각도 수준은 Python 로그가 원래 전송 된 수준에 해당 합니다. 추가 쿼리 정보는 [Azure Monitor 로그 쿼리](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)를 참조 하세요.
+아래 쿼리에서는 ' customDimensions. Level '을 사용 합니다. 이러한 심각도 수준은 Python 로그가 원래 전송 된 수준에 해당 합니다. 추가 쿼리 정보는 [Azure Monitor 로그 쿼리](/azure/data-explorer/kusto/query/)를 참조 하세요.
 
 | 사용 사례                                                               | 쿼리                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -166,4 +166,4 @@ Application Insights 결과에는 로그 메시지 및 수준, 파일 경로 및
 
 Application Insights 인스턴스에 로그가 있으면 쿼리 결과에 따라 [Azure Monitor 경고](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) 를 설정 하는 데 사용할 수 있습니다.
 
-추가 정보를 얻기 위해 쿼리 결과를 [Azure 대시보드에](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) 추가할 수도 있습니다.
+추가 정보를 얻기 위해 쿼리 결과를 [Azure 대시보드에](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) 추가할 수도 있습니다.

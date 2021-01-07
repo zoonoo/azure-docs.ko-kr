@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
 ms.openlocfilehash: 4f14f006283b7430458d67d2bd3bee787c08411d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326021"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
@@ -30,7 +30,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../platform/om-agents.md)을 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 [솔루션 추가](solutions.md)에 설명된 프로세스를 사용하여 에이전트 상태 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.
 
 
@@ -90,7 +90,7 @@ Operations Manager management server에 보고 하는 각 에이전트는 두 �
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 다음 테이블은 이 솔루션에 의해 수집된 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-| 쿼리 | 설명 |
+| 쿼리 | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |에이전트의 총수 |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |지난 24시간 동안 응답하지 않는 에이전트 개수 |

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
 ms.openlocfilehash: 500d5242d5185a8014283918c1f3a22c5c22cf48
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325596"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012019"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
@@ -464,7 +464,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**:`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**요청 URI**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 예를 들어, 주어진 범위와 시간 조직 1시간에 대해 RunsSucceeded 메트릭 데이터를 검색하려면 요청은 다음과 같습니다.
 
@@ -582,9 +582,9 @@ Invoke-RestMethod -Uri $request `
 추가 접근 방식은 Windows 컴퓨터에서 [ARMClient](https://github.com/projectkudu/armclient)를 사용하는 것입니다. ARMClient는 자동으로 Azure AD 인증을 처리합니다(결과 JWT 토큰 포함). 다음 단계에서는 ARMClient를 사용하여 메트릭 데이터를 검색하는 방법을 개괄적으로 보여줍니다.
 
 1. [Chocolatey](https://chocolatey.org/) 및 [ARMClient](https://github.com/projectkudu/armclient)를 설치합니다.
-2. 터미널 창에서 *armclient.exe login*을 입력합니다. 그러면 Azure에 로그인하라는 메시지가 표시됩니다.
-3. *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*을 입력합니다.
-4. *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*을 입력합니다.
+2. 터미널 창에서 *armclient.exe login* 을 입력합니다. 그러면 Azure에 로그인하라는 메시지가 표시됩니다.
+3. *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01* 을 입력합니다.
+4. *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01* 을 입력합니다.
 
 예를 들어 특정 Logic App에 대한 메트릭 정의를 검색하려면 다음 명령을 실행합니다.
 

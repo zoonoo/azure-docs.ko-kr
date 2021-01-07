@@ -1,20 +1,23 @@
 ---
-title: 자습서 - 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
+title: 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
 description: 이 문서에서는 Microsoft Azure Portal 또는 Azure CLI를 사용하여 애플리케이션에 대한 자동 스케일링을 설정하는 방법에 대해 설명합니다.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 6e4494762c4652d3db66940dddebb13c3ab03af3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449470"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533828"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>자습서: 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
+# <a name="set-up-autoscale-for-microservice-applications"></a>마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
+
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
+
 자동 스케일링은 Azure Spring Cloud의 기본 제공 기능으로, 수요가 변할 때 마이크로서비스 애플리케이션의 성능을 최적화하는 데 도움이 됩니다. 여기에는 가상 CPU, 메모리 및 앱 인스턴스 수를 수정하는 작업이 포함됩니다. 이 문서에서는 Microsoft Azure Portal 또는 Azure CLI를 사용하여 애플리케이션에 대한 자동 스케일링을 설정하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -22,7 +25,7 @@ ms.locfileid: "87449470"
 이러한 절차를 따르려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)을 수행하여 시작하세요.
+* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](./spring-cloud-quickstart.md)을 수행하여 시작하세요.
 * 해당 서비스 인스턴스에서 이미 하나 이상의 애플리케이션이 생성되었습니다.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Azure Portal에서 자동 스케일링 페이지로 이동합니다.
@@ -31,7 +34,7 @@ ms.locfileid: "87449470"
 2. Azure Spring Cloud **개요** 페이지로 이동합니다.
 3. 서비스가 포함된 리소스 그룹을 선택합니다.
 4. 왼쪽 탐색 창에 있는 메뉴에서 **설정** 아래의 **앱** 탭을 선택합니다.
-5. 자동 스케일링을 구성하려는 애플리케이션을 선택합니다. 이 예제에서는 **demo**라는 애플리케이션을 선택합니다. 그러면 애플리케이션의 **개요** 페이지가 표시됩니다.
+5. 자동 스케일링을 구성하려는 애플리케이션을 선택합니다. 이 예제에서는 **demo** 라는 애플리케이션을 선택합니다. 그러면 애플리케이션의 **개요** 페이지가 표시됩니다.
 6. 왼쪽 탐색 창에 있는 메뉴에서 **설정** 아래의 **스케일 아웃** 탭으로 이동합니다.
 7. 자동 스케일링을 설정하려는 배포를 선택합니다. 자동 스케일링 옵션이 다음 섹션에 표시됩니다.
 
@@ -67,5 +70,5 @@ Azure CLI를 사용하여 자동 스케일링 모드를 설정할 수도 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft Azure 자동 스케일링의 개요](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Azure CLI 모니터링 자동 스케일링](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [Microsoft Azure 자동 스케일링의 개요](../azure-monitor/platform/autoscale-overview.md)
+* [Azure CLI 모니터링 자동 스케일링](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

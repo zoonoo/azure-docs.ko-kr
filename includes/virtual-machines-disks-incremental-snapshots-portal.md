@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: roygara
@@ -9,18 +9,18 @@ ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80628406"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002524"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
 ## <a name="regional-availability"></a>국가별 가용성
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
 
-### <a name="restrictions"></a>제한 사항
+### <a name="restrictions"></a>제한
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "80628406"
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="샷에. 스냅숏 블레이드를 만들고 이름을 입력 한 다음 증분을 선택 하 고 스냅숏을 만듭니다.":::
 
-1. **만들기**
+1. **만들기** 를 선택합니다.
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="샷에. 스냅숏에 대 한 유효성 검사 페이지에서 선택 사항을 확인 한 다음 스냅숏을 만듭니다.":::
 

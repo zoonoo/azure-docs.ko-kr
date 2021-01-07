@@ -1,8 +1,8 @@
 ---
 title: Azure Notification Hubs을 사용 하 여 특정 사용자에 게 푸시 알림 보내기 Microsoft Docs
-description: Azure Notification Hubs를 사용하여 특정 사용자에게 푸시 알림을 보내는 방법을 알아봅니다.
+description: Azure Notification Hubs를 사용 하 여 특정 iOS 사용자에 게 푸시 알림을 보내는 방법에 대해 알아봅니다.
 documentationcenter: ios
-author: sethm
+author: sethmanheim
 manager: femila
 services: notification-hubs
 ms.service: notification-hubs
@@ -14,12 +14,12 @@ ms.date: 08/07/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004171"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016954"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 특정 사용자에 게 푸시 알림 보내기
 
@@ -57,7 +57,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     ![Xcode interface builder에서 storyboard 편집][1]
 
    * **Username**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 결과 레이블 보내기를 지정하고 왼쪽 및 오른쪽 여백 및 보내기 결과 레이블 아래로 제한됩니다.
-   * **암호**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 사용자 이름 텍스트 필드 및 왼쪽 및 오른쪽 여백 및 사용자 이름 텍스트 필드 아래로 제한됩니다. **반환 키** 아래 특성 검사기에서 *텍스트 항목 보안*옵션을 선택합니다.
+   * **암호**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 사용자 이름 텍스트 필드 및 왼쪽 및 오른쪽 여백 및 사용자 이름 텍스트 필드 아래로 제한됩니다. **반환 키** 아래 특성 검사기에서 *텍스트 항목 보안* 옵션을 선택합니다.
    * **로그인**: 암호 텍스트 필드 바로 아래 레이블이 지정된 UIButton, *Control-Content* 아래 특성 검사기에서 **사용** 옵션의 선택을 취소합니다.
    * **WNS**: 허브에 설치된 경우 알림을 Windows 알림 서비스로 보낼 수 있는 레이블 및 스위치입니다. [Windows 시작](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서를 참조하세요.
    * **GCM**: 허브에 설치된 경우 알림을 Google 클라우드 메시징으로 보낼 수 있는 레이블 및 스위치입니다. [Android 시작](notification-hubs-android-push-notification-google-gcm-get-started.md) 자습서를 참조하세요.
@@ -479,16 +479,16 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 ## <a name="test-the-application"></a>애플리케이션 테스트
 
 1. XCode에서는 실제 iOS 디바이스에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
-2. iOS 앱 UI에서 사용자 이름과 암호에 동일한 값을 입력합니다. 그런 다음 **로그인**을 클릭 합니다.
+2. iOS 앱 UI에서 사용자 이름과 암호에 동일한 값을 입력합니다. 그런 다음 **로그인** 을 클릭 합니다.
 
     ![iOS 테스트 애플리케이션][2]
 
-3. 등록 성공을 알리는 팝업이 표시됩니다. **확인**을 클릭합니다.
+3. 등록 성공을 알리는 팝업이 표시됩니다. **확인** 을 클릭합니다.
 
     ![표시된 iOS 테스트 알림][3]
 
 4. **받는 사람 사용자 이름 태그* 텍스트 필드에 다른 디바이스에서 등록에 사용되는 사용자 이름 태그를 입력합니다.
-5. 알림 메시지를 입력하고 **알림 보내기**를 클릭합니다. 받는 사람 사용자 이름 태그로 등록된 디바이스만이 알림 메시지를 받습니다. 이러한 사용자에만 전송됩니다.
+5. 알림 메시지를 입력하고 **알림 보내기** 를 클릭합니다. 받는 사람 사용자 이름 태그로 등록된 디바이스만이 알림 메시지를 받습니다. 이러한 사용자에만 전송됩니다.
 
     ![태그가 지정된 iOS 테스트 알림][4]
 

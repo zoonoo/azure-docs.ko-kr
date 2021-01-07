@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 웹에서 Content Moderator 사용해 보기 - Content Moderator'
+title: '빠른 시작: 웹에서 Content Moderator 사용해 보기'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다.
 services: cognitive-services
@@ -8,20 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 09/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 550cec535343d48ad74dd35e6886af78bdd15701
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: cog-serv-seo-aug-2020
+keywords: 콘텐츠 조정자, 콘텐츠 조정
+ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563290"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905216"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>빠른 시작: 웹에서 Content Moderator 사용해 보기
 
-이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다. 이 서비스를 앱에 보다 신속하게 통합하려면 [다음 단계](#next-steps) 섹션에서 다른 빠른 시작을 참조하세요.
+이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다. 이 서비스를 콘텐츠 조정 앱에 보다 신속하게 통합하려면 [다음 단계](#next-steps) 섹션에서 다른 빠른 시작을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 웹 브라우저
 
@@ -32,39 +34,43 @@ Content Moderator 검토 도구는 사람 검토자가 의사를 결정할 때 �
 
 ## <a name="create-a-review-team"></a>검토 팀 만들기
 
-다음으로, 검토 팀을 만듭니다. 작업 시나리오에서는 서비스의 조정 결정을 수동으로 검토할 사람들의 그룹이 됩니다. 팀을 만들려면 **지역**을 선택하고 **팀 이름** 및 **팀 ID**를 입력해야 합니다. 동료를 팀에 초대하려면 여기에 이메일 주소를 입력하면 됩니다.
+다음으로, 검토 팀을 만듭니다. 작업 시나리오에서 이 팀은 서비스의 조정 결정을 수동으로 검토하는 사용자 그룹입니다. 팀을 만들려면 **지역** 을 선택하고 **팀 이름** 및 **팀 ID** 를 입력해야 합니다. 동료를 팀에 초대하려면 여기에 이메일 주소를 입력하면 됩니다.
 
 > [!NOTE]
-> **팀 이름**은 검토 팀의 식별 이름입니다. 이 이름은 Azure Portal에 표시됩니다. **팀 ID**는 검토 팀을 프로그래밍 방식으로 식별하는 데 사용됩니다.
+> **팀 이름** 은 검토 팀의 식별 이름입니다. 이 이름은 Azure Portal에 표시됩니다. **팀 ID** 는 검토 팀을 프로그래밍 방식으로 식별하는 데 사용됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![팀 구성원 초대](images/create-team.png)
 
-CMK(고객 관리형 키)를 사용하여 데이터를 암호화하도록 선택하면 E0 가격 책정 계층의 Content Moderator 리소스에 대한 **리소스 ID**를 묻는 메시지가 표시됩니다. 제공하는 리소스는 새 리소스여야 합니다. 
+CMK(고객 관리형 키)를 사용하여 데이터를 암호화하도록 선택하면 E0 가격 책정 계층의 Content Moderator 리소스에 대한 **리소스 ID** 를 묻는 메시지가 표시됩니다. 제공하는 리소스는 이 팀에 고유해야 합니다. 
 
 > [!div class="mx-imgBorder"]
 > ![CMK로 팀 구성원 초대](images/create-team-cmk.png)
 
-Content Moderator 리소스를 다시 사용하려고 시도하면 다음 경고가 표시됩니다. 
-
-> [!div class="mx-imgBorder"]
-> ![CMK 오류](images/create-team-cmk-fail.png)
-
 ## <a name="upload-sample-content"></a>샘플 콘텐츠 업로드
 
-이제 샘플 콘텐츠를 업로드할 준비가 완료되었습니다. **시도 > 이미지**, **시도 > 텍스트** 또는 **시도 > 비디오**를 선택합니다.
+이제 샘플 콘텐츠를 업로드할 준비가 완료되었습니다. **시도 > 이미지**, **시도 > 텍스트** 또는 **시도 > 비디오** 를 선택합니다.
 
-![이미지 또는 텍스트 조정 시도](images/tryimagesortext.png)
+> [!div class="mx-imgBorder"]
+> ![이미지 또는 텍스트 조정 시도](images/tryimagesortext.png)
 
-조정할 콘텐츠를 제출합니다. 내부적으로, 검토 도구는 조정 API를 호출하여 콘텐츠를 검사합니다. 검사가 완료되면 검토 대기 중인 결과가 있음을 알리는 메시지가 표시됩니다.
+조정할 콘텐츠를 제출합니다. 다음 샘플 텍스트 콘텐츠를 사용할 수 있습니다.
 
-![파일 조정](images/submitted.png)
+```
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
+```
+
+내부적으로, 검토 도구는 조정 API를 호출하여 콘텐츠를 검사합니다. 검사가 완료되면 검토 대기 중인 결과가 있음을 알리는 메시지가 표시됩니다.
+
+> [!div class="mx-imgBorder"]
+> ![파일 조정](images/submitted.png)
 
 ## <a name="review-moderation-tags"></a>조정 태그 검토
 
-적용된 조정 태그를 검토합니다. 콘텐츠에 적용된 태그와 각 범주의 점수를 볼 수 있습니다. [이미지](image-moderation-api.md), [텍스트](text-moderation-api.md) 및 [비디오](video-moderation-api.md) 조정 토픽을 참조하여 다른 콘텐츠 태그가 무엇을 나타내는지 자세히 알아보세요.
+적용된 조정 태그를 검토합니다. 콘텐츠에 적용된 태그와 각 범주의 점수를 볼 수 있습니다. [이미지](image-moderation-api.md), [텍스트](text-moderation-api.md) 및 [비디오](video-moderation-api.md) 조정 문서를 참조하여 다른 콘텐츠 태그가 무엇을 나타내는지 자세히 알아보세요.
 
-![결과 검토](images/reviewresults_text.png)
+<!-- ![Review results](images/reviewresults_text.png) -->
 
 검토 팀은 프로젝트에서 이러한 태그를 필요한 대로 변경하거나 추가할 수 있습니다. **다음** 단추를 사용하여 변경 내용을 제출합니다. 비즈니스 애플리케이션이 Moderator API를 호출하면 태그가 지정된 콘텐츠가 큐에 추가되고, 사람 검토 팀이 검토할 수 있게 됩니다. 이 방법을 사용하면 대량의 콘텐츠를 빠르게 검토할 수 있습니다.
 
@@ -82,6 +88,6 @@ Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알�
 ## <a name="next-steps"></a>다음 단계
 
 앱에서 Moderation API 자체를 사용하는 방법을 알아봅니다.
-- 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md)을 사용하거나 [.NET SDK 빠른 시작](dotnet-sdk-quickstart.md)에 따라 이미지를 검사하고 태그, 신뢰도 점수 및 기타 추출된 정보를 사용하여 잠재적인 성인 및 외설 콘텐츠를 검색합니다.
-- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md) 또는 [.NET SDK 빠른 시작](dotnet-sdk-quickstart.md)을 사용하여 텍스트 콘텐츠에 욕설, 원치 않는 기계 지원 텍스트 분류(미리 보기) 및 개인 데이터가 있는지 검사합니다.
+- 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md)을 사용하거나 [클라이언트 라이브러리 또는 REST API 빠른 시작](client-libraries.md)에 따라 이미지를 검사하고 태그, 신뢰도 점수 및 기타 추출된 정보를 사용하여 잠재적인 성인 및 외설 콘텐츠를 검색합니다.
+- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md)을 사용하거나 [클라이언트 라이브러리 또는 REST API 빠른 시작](client-libraries.md)에 따라 텍스트 콘텐츠에 욕설, 원치 않는 머신 지원 텍스트 분류(미리 보기) 및 개인 데이터가 있는지 검사합니다.
 - 비디오 조정을 구현합니다. [C#의 비디오 조정 방법 가이드](video-moderation-api.md)에 따라 비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. 

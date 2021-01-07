@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935214"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 데이터 가져오기 마법사
@@ -75,7 +75,7 @@ Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토
 
 마법사는 내부적으로 다음 개체를 만들고, 구성 하 고, 호출 합니다. 마법사를 실행 한 후 포털 페이지에서 해당 출력을 찾을 수 있습니다. 서비스의 개요 페이지에는 인덱스, 인덱서, 데이터 원본 및 기술력과 목록이 있습니다. 인덱스 정의는 포털의 전체 JSON에서 볼 수 있습니다. 다른 정의의 경우 [REST API](/rest/api/searchservice/) 를 사용 하 여 특정 개체를 가져올 수 있습니다.
 
-| Object | Description | 
+| Object | 설명 | 
 |--------|-------------|
 | [데이터 원본](/rest/api/searchservice/create-data-source)  | 자격 증명을 포함 하 여 원본 데이터에 대 한 연결 정보를 유지 합니다. 데이터 원본 개체는 인덱서에 독점적으로 사용 됩니다. | 
 | [Index](/rest/api/searchservice/create-index) | 전체 텍스트 검색 및 기타 쿼리에 사용 되는 실제 데이터 구조입니다. | 

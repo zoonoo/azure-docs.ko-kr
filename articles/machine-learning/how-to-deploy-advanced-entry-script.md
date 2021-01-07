@@ -1,31 +1,37 @@
 ---
 title: 고급 시나리오에 대 한 작성 항목 스크립트
 titleSuffix: Azure Machine Learning entry script authoring
+description: 배포 하는 동안 전처리 및 후 처리에 대 한 Azure Machine Learning 입력 스크립트를 작성 하는 방법을 알아봅니다.
 author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/17/2020
 ms.author: gopalv
-ms.openlocfilehash: c135d649feb42c8fa735e67ad6f3c3e51551d3e9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: 73211790557665ddb4cc4d28322a1ff14bc4c76a
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530287"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630720"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 
 이 문서에서는 특수 한 사용 사례에 대 한 입력 스크립트를 작성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 배포 하려는 학습 된 machine learning 모델이 이미 있다고 가정 합니다. 모델 배포에 대해 자세히 알아보려면 [이 자습서](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="automatically-generate-a-swagger-schema"></a>Swagger 스키마 자동 생성
 
-웹 서비스에 대 한 스키마를 자동으로 생성 하려면 정의 된 형식 개체 중 하나에 대 한 생성자에서 입력 및/또는 출력의 샘플을 제공 합니다. 유형 및 샘플은 스키마를 자동으로 만드는 데 사용 됩니다. 그런 다음 Azure Machine Learning는 배포 중에 웹 서비스에 대 한 [Openapi](https://swagger.io/docs/specification/about/) (Swagger) 사양을 만듭니다.
+웹 서비스에 대 한 스키마를 자동으로 생성 하려면 정의 된 형식 개체 중 하나에 대 한 생성자에서 입력 및/또는 출력의 샘플을 제공 합니다. 유형 및 샘플은 스키마를 자동으로 만드는 데 사용 됩니다. 그런 다음 Azure Machine Learning는 배포 중에 웹 서비스에 대 한 [Openapi](https://swagger.io/docs/specification/about/) (Swagger) 사양을 만듭니다. 
+
+> [!WARNING]
+> 샘플 입력 또는 출력에 중요 한 데이터 또는 개인 데이터를 사용 하지 않아야 합니다. AML에서 호스트 되는 추론의 Swagger 페이지는 샘플 데이터를 노출 합니다. 
 
 현재 지원 되는 형식은 다음과 같습니다.
 
@@ -34,16 +40,18 @@ ms.locfileid: "90530287"
 * `pyspark`
 * 표준 Python 개체
 
-스키마 생성을 사용 하려면 `inference-schema` 종속성 파일에 오픈 소스 패키지 버전 1.1.0을 포함 합니다. 이 패키지에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . 준수 하는 swagger 자동화 웹 서비스 사용을 생성 하기 위해 스크립트 실행 () 함수에는 다음과 같은 API 셰이프가 있어야 합니다.
-* PandasDataframeParameterTypes를 포함 하는 "StandardPythonParameterType" 형식의 첫 번째 매개 변수, 명명 된 입력입니다.
-* 형식이 "StandardPythonParameterType"이 고 중첩 되지 않은 GlobalParameter 라는 선택적인 두 번째 매개 변수입니다.
-* PandasDataFrameParameterTypes를 포함 하는 중첩 된 "StandardPythonParameterType" 형식의 사전을 반환 합니다.
+스키마 생성을 사용 하려면 `inference-schema` 종속성 파일에 오픈 소스 패키지 버전 1.1.0을 포함 합니다. 이 패키지에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . 자동화 된 웹 서비스 사용에 대 한 준수 swagger를 생성 하려면 스크립트 실행 () 함수에 다음의 API 셰이프를 사용 해야 합니다.
+* **입력 및 중첩** 된 "StandardPythonParameterType" 형식의 첫 번째 매개 변수입니다.
+* **Globalparameters** 라고 하는 "StandardPythonParameterType" 형식의 선택적 두 번째 매개 변수입니다.
+* "StandardPythonParameterType" 형식의 사전을 **결과** 와 중첩 된 형식으로 반환 합니다.
+
 `input_sample`및 `output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 `run()` 합니다. 다음 scikit 예제에서는 스키마 생성을 사용 합니다.
+
 
 
 ## <a name="power-bi-compatible-endpoint"></a>Power BI 호환 끝점 
 
-다음 예제에서는 위의 명령에 따라 API 셰이프를 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다. [Power BI에서 웹 서비스를 사용 하는 방법에 대해 자세히 알아보세요](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+다음 예제에서는 위의 명령에 따라 API 셰이프를 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다. [Power BI에서 웹 서비스를 사용 하는 방법에 대해 자세히 알아보세요](/power-bi/service-machine-learning-integration).
 
 ```python
 import json
@@ -67,25 +75,34 @@ def init():
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
-# providing 3 sample inputs for schema generation
-numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
-pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
-standard_sample_input = StandardPythonParameterType(0.0)
 
-# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
-sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+    # providing 3 sample inputs for schema generation
+    numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+    pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+    standard_sample_input = StandardPythonParameterType(0.0)
+
+    # This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+    sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
                                             'input2': pandas_sample_input, 
                                             'input3': standard_sample_input})
 
-sample_global_parameters = StandardPythonParameterType(1.0) #this is optional
-sample_output = StandardPythonParameterType([1.0, 1.0])
+    sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
+    sample_output = StandardPythonParameterType([1.0, 1.0])
+    outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
 
-@input_schema('inputs', sample_input)
-@input_schema('global_parameters', sample_global_parameters) #this is optional
-@output_schema(sample_output)
-def run(inputs, global_parameters):
+    @input_schema('Inputs', sample_input) 
+    # 'Inputs' is case sensitive
+    
+    @input_schema('GlobalParameters', sample_global_parameters) 
+    # this is optional, 'GlobalParameters' is case sensitive
+
+    @output_schema(outputs)
+
+def run(Inputs, GlobalParameters): 
+    # the parameters here have to match those in decorator, both 'Inputs' and 
+    # 'GlobalParameters' here are case sensitive
     try:
-        data = inputs['input1']
+        data = Inputs['input1']
         # data will be convert to target format
         assert isinstance(data, np.ndarray)
         result = model.predict(data)
@@ -105,30 +122,34 @@ def run(inputs, global_parameters):
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+from PIL import Image
+import json
 
 
 def init():
     print("This is init()")
-
+    
 
 @rawhttp
 def run(request):
     print("This is run()")
-    print("Request: [{0}]".format(request))
+    
     if request.method == 'GET':
         # For this example, just return the URL for GETs.
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
-        reqBody = request.get_data(False)
+        file_bytes = request.files["image"]
+        image = Image.open(file_bytes).convert('RGB')
         # For a real-world solution, you would load the data from reqBody
         # and send it to the model. Then return the response.
 
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
+        # For demonstration purposes, this example just returns the size of the image as the response..
+        return AMLResponse(json.dumps(image.size), 200)
     else:
         return AMLResponse("bad request", 500)
 ```
+
 
 > [!IMPORTANT]
 > `AMLRequest` 클래스가 `azureml.contrib` 네임스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
@@ -143,10 +164,13 @@ def run(request):
 
 ```python
 import requests
-# Load image data
-data = open('example.jpg', 'rb').read()
-# Post raw data to scoring URI
-res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+
+uri = service.scoring_uri
+image_path = 'test.jpg'
+files = {'image': open(image_path, 'rb').read()}
+response = requests.post(url, files=files)
+
+print(response.json)
 ```
 
 <a id="cors"></a>
@@ -162,6 +186,7 @@ CORS를 지원 하도록 모델 배포를 구성 하려면 `AMLResponse` 항목 
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
@@ -266,13 +291,23 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 메서드와 함께 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색할 수 있습니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리의 경로를 반환 합니다.
+모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 [Model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 메서드와 함께 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색 합니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리의 경로를 반환 합니다.
 
 모델을 등록할 때 이름을 지정 합니다. 이름은 모델을 로컬 또는 서비스 배포 중에 배치 하는 위치에 해당 합니다.
 
+## <a name="framework-specific-examples"></a>프레임 워크 관련 예제
+
+특정 machine learning 사용 사례에 대 한 추가 항목 스크립트 예제는 아래에서 찾을 수 있습니다.
+
+* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
+* [Tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
+* [Keras](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.yml)
+* [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
+* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
+
 ## <a name="next-steps"></a>다음 단계
 
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

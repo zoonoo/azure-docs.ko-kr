@@ -1,16 +1,14 @@
 ---
 title: Cloud Services와 Service Fabric의 차이점
 description: Cloud Services에서 서비스 패브릭으로 애플리케이션을 마이그레이션하기 위한 개념적 개요입니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c7e7d346b5a39a262d1d55265becadb1c718cc04
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836737"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575774"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>애플리케이션을 마이그레이션하기 전에 Cloud Services와 Service Fabric 간의 차이점에 대해 알아봅니다.
 Microsoft Azure Service Fabric은 확장성이 뛰어난 매우 안정적인 분산된 애플리케이션을 위한 차세대 클라우드 애플리케이션 플랫폼입니다. 분산된 클라우드 애플리케이션을 패키징, 배포, 업그레이드 및 관리하 위한 여러 가지 새로운 기능을 소개합니다. 
@@ -69,7 +67,7 @@ Service Fabric 애플리케이션은 완전한 애플리케이션에서 동일�
 
 서비스 패브릭은 서비스의 엔드포인트 주소를 확인하는 데 사용할 수 있는 이름 지정 서비스라고 하는 서비스 검색 메커니즘을 제공합니다. 
 
-![서비스 패브릭 직접 통신][6]
+![Service Fabric에서 서비스의 끝점 주소를 확인 하는 데 사용할 수 있는 Naming Service 라는 서비스 검색 메커니즘을 제공 하는 방법을 보여 주는 다이어그램입니다.][6]
 
 ### <a name="queues"></a>큐
 Cloud Services와 같은 상태 비저장 환경의 계층 간 일반 통신 메커니즘은 한 계층에서 다른 계층으로 작업 태스크를 지속적으로 저장하도록 외부 스토리지 큐를 사용하는 것입니다. 일반적인 시나리오는 작업자 역할 인스턴스가 작업을 큐에서 제거하고 처리할 수 있는 Azure 큐 또는 Service Bus에 작업을 전송하는 웹 계층입니다.
@@ -91,7 +89,7 @@ Cloud Services와 같은 상태 비저장 환경의 계층 간 일반 통신 메
 | RoleInstance | FabricClient. GetNodeList | NodeName에 대해 필터링 하 고 Upgrade 속성을 사용 합니다. |
 | RoleInstance. GetInstanceEndpoints | FabricRuntime GetActivationContext 또는 이름 지정 (ResolveService) | FabricRuntime에서 제공 하는 CodePackageActivationContext 및 GetActivationContext를 통해 복제본 내에서 제공 되는 것입니다. 초기 |
 | RoleEnvironment. GetRoles | FabricClient. GetNodeList | 유형별로 동일한 종류의 필터링을 수행 하려는 경우 FabricClient 매니페스트를 통해 클러스터 매니페스트에서 노드 형식 목록을 가져오고 여기에서 역할/노드 형식을 가져올 수 있습니다. |
-| RoleEnvironment. GetIsAvailable | WindowsFabricCluster 또는 특정 노드에 가리키는 FabricRuntime를 만듭니다. | * |
+| RoleEnvironment. GetIsAvailable | 특정 노드를 가리키는 FabricRuntime를 Connect-WindowsFabricCluster 하거나 만듭니다. | * |
 | RoleEnvironment. GetLocalResource | CodePackageActivationContext/Temp/Work | * |
 | RoleEnvironment. GetCurrentRoleInstance | CodePackageActivationContext/Temp/Work | * |
 | LocalResource. GetRootPath | CodePackageActivationContext/Temp/Work | * |

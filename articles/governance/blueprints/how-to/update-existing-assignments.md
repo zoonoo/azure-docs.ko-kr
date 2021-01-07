@@ -4,11 +4,11 @@ description: Azure 청사진의 포털에서 기존 청사진 할당을 업데�
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651375"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007191"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -20,17 +20,17 @@ ms.locfileid: "89651375"
 
 ## <a name="updating-assignments"></a>할당 업데이트
 
-1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
+1. 왼쪽 창에서 **모든 서비스** 를 선택합니다. **청사진** 을 검색하고 선택합니다.
 
-1. 왼쪽 페이지에서 **할당된 청사진**을 선택합니다.
+1. 왼쪽 페이지에서 **할당된 청사진** 을 선택합니다.
 
-1. 청사진 목록에서 청사진 할당을 선택 합니다. 그런 다음 **업데이트 할당** 단추를 사용 하거나 청사진 할당을 마우스 오른쪽 단추로 클릭 하 고 **할당 업데이트**를 선택 합니다.
+1. 청사진 목록에서 청사진 할당을 선택 합니다. 그런 다음 **업데이트 할당** 단추를 사용 하거나 청사진 할당을 마우스 오른쪽 단추로 클릭 하 고 **할당 업데이트** 를 선택 합니다.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="' 할당 업데이트 ' 단추가 강조 표시 된 청사진 할당 페이지의 스크린샷" border="false":::
 
 1. **청사진 할당** 페이지는 원래 할당의 모든 값으로 미리 채워져 있습니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당** 을 선택 합니다.
 
-1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금**을 추가했습니다.
+1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금** 을 추가했습니다.
 
    :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="잠금 모드가 변경 된 것을 보여 주는 업데이트 된 청사진 할당의 스크린샷" border="false":::
 
@@ -50,7 +50,7 @@ ms.locfileid: "89651375"
     이전에 배포된 정책 할당은 그대로 남아 있습니다.
   - 정책 할당 아티팩트를 청사진에서 제거해도 배포된 정책 할당은 그대로 남아 있습니다.
 - ARM 템플릿(Azure Resource Manager 템플릿)
-  - 템플릿은 Resource Manager를 통해 **PUT**으로 처리됩니다. 리소스 유형마다 이 작업을 처리하는 방법이 다르므로, 포함된 각 리소스의 설명서를 검토하여 Blueprints에서 실행할 때 이 작업이 미치는 영향을 확인해야 합니다.
+  - 템플릿은 Resource Manager를 통해 **PUT** 으로 처리됩니다. 리소스 유형마다 이 작업을 처리하는 방법이 다르므로, 포함된 각 리소스의 설명서를 검토하여 Blueprints에서 실행할 때 이 작업이 미치는 영향을 확인해야 합니다.
 
 ## <a name="possible-errors-on-updating-assignments"></a>할당 업데이트 시 발생 가능한 오류
 

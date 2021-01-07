@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046458"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023278"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경에서 문제 진단 및 해결
+
+> [!CAUTION]
+> 이는 Gen1 문서입니다.
 
 이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 문제를 설명 합니다. 이 문서에서는 잠재적인 원인 및 해결 방법을 제안합니다.
 
@@ -34,7 +37,7 @@ ms.locfileid: "87046458"
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>원인 A: 이벤트 원본 데이터가 JSON 형식이 아닙니다.
 
-Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
+Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원되는 JSON 셰이프](./concepts-json-flattening-escaping-rules.md)를 참조하세요.
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>원인 B: 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
@@ -66,8 +69,8 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 이벤트 원본에 이전 이벤트가 있는 경우 다음 두 가지 방법 중 하나로 제한에 접근할 수 있습니다.
 
-- Azure Time Series Insights에 표시 하지 않을 이전 이벤트를 제거 하는 데 도움이 되도록 이벤트 원본의 보존 제한을 변경 합니다.
-- 더 큰 크기의 환경(단위 수)을 프로비전하여 이전 이벤트의 처리량 늘리기. 앞의 예제에서 1 일 동안 동일한 S1 환경을 5 개 단위로 늘리면 환경은 하루 내에 처리 해야 합니다. 안정적인 상태 이벤트 프로덕션이 100만 이하인 이벤트 일 경우 Azure Time Series Insights를 처리 한 후 이벤트 용량을 한 단위로 줄일 수 있습니다.
+* Azure Time Series Insights에 표시 하지 않을 이전 이벤트를 제거 하는 데 도움이 되도록 이벤트 원본의 보존 제한을 변경 합니다.
+* 더 큰 크기의 환경(단위 수)을 프로비전하여 이전 이벤트의 처리량 늘리기. 앞의 예제에서 1 일 동안 동일한 S1 환경을 5 개 단위로 늘리면 환경은 하루 내에 처리 해야 합니다. 안정적인 상태 이벤트 프로덕션이 100만 이하인 이벤트 일 경우 Azure Time Series Insights를 처리 한 후 이벤트 용량을 한 단위로 줄일 수 있습니다.
 
 적용 되는 제한 제한은 환경의 SKU 유형 및 용량을 기반으로 합니다. 환경의 모든 이벤트 원본은 이 용량을 공유합니다. IoT hub 또는 이벤트 허브에 대 한 이벤트 원본이 적용 된 한도를 초과 하 여 데이터를 푸시하는 경우 제한 및 지연 시간이 발생 합니다.
 
@@ -82,7 +85,7 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 용량이 3인 S1 SKU 환경은 1분마다 2,100개 이벤트만 수신할 수 있습니다(일별 1백만개 이벤트 = 3 단위에서 분당 700개 이벤트 = 분당 2,100개 이벤트).
 
-평면화 논리 작동 방식에 대 한 개략적인 이해를 얻으려면 [지원 되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조 하세요.
+평면화 논리 작동 방식에 대 한 개략적인 이해를 얻으려면 [지원 되는 JSON 셰이프](./concepts-json-flattening-escaping-rules.md)를 참조 하세요.
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>과도한 제한에 대한 권장 해결 방법
 
@@ -108,32 +111,32 @@ Azure Time Series Insights 더 이상 데이터를 수집 않지만 이벤트가
 
 이 문제는 이벤트 원본을 만들 때 제공 된 키가 더 이상 유효 하지 않을 때 발생 합니다. 허브에 원격 분석이 표시 되지만 수신 수신 메시지는 Azure Time Series Insights에 표시 되지 않습니다. 키가 다시 생성 되었는지 확실 하지 않으면 이벤트 허브의 활동 로그에서 "네임 스페이스 권한 부여 규칙 만들기 또는 업데이트"를 검색할 수 있습니다. IoT hub의 경우 "IotHub 리소스 만들기 또는 업데이트"를 검색 합니다.
 
-새 키를 사용 하 여 Azure Time Series Insights 환경을 업데이트 하려면 Azure Portal에서 허브 리소스를 열고 새 키를 복사 합니다. Azure Time Series Insights 리소스로 이동 하 여 **이벤트 원본**을 선택 합니다.
+새 키를 사용 하 여 Azure Time Series Insights 환경을 업데이트 하려면 Azure Portal에서 허브 리소스를 열고 새 키를 복사 합니다. Azure Time Series Insights 리소스로 이동 하 여 **이벤트 원본** 을 선택 합니다.
 
    [![이벤트 원본 선택](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
 
-수집을 중지할 이벤트 원본 또는 소스를 선택 하 고 새 키를 붙여넣은 다음 **저장**을 선택 합니다.
+수집을 중지할 이벤트 원본 또는 소스를 선택 하 고 새 키를 붙여넣은 다음 **저장** 을 선택 합니다.
 
    [![새 키에 붙여넣기](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-the-event-sources-timestamp-property-name-setting-doesnt-work"></a>문제: 이벤트 원본의 타임 스탬프 속성 이름 설정이 작동 하지 않습니다.
 
-이벤트 원본에서 JSON 문자열로 제공 되는 타임 스탬프 속성 값이 _yyyy-mm-yyyy-mm-ddthh: MM: ss 형식 인지 확인 합니다. FFFFFFFK_입니다. 예를 들면 **2008-04-12T12:53Z**가 있습니다.
+이벤트 원본에서 JSON 문자열로 제공 되는 타임 스탬프 속성 값이 _yyyy-mm-yyyy-mm-ddthh: MM: ss 형식 인지 확인 합니다. FFFFFFFK_ 입니다. 예를 들면 **2008-04-12T12:53Z** 가 있습니다.
 
 타임 스탬프 속성 이름은 대/소문자를 구분 한다는 점에 유의 하세요.
 
-타임 스탬프 속성 이름이 캡처되고 제대로 작동 하는지 확인 하는 가장 쉬운 방법은 Azure Time Series Insights 탐색기를 사용 하는 것입니다. Azure Time Series Insights 탐색기에서 차트를 사용 하 여 타임 스탬프 속성 이름을 입력 한 후의 기간을 선택 합니다. 선택 영역을 마우스 오른쪽 단추로 클릭 한 다음 **이벤트 탐색**을 선택 합니다.
+타임 스탬프 속성 이름이 캡처되고 제대로 작동 하는지 확인 하는 가장 쉬운 방법은 Azure Time Series Insights 탐색기를 사용 하는 것입니다. Azure Time Series Insights 탐색기에서 차트를 사용 하 여 타임 스탬프 속성 이름을 입력 한 후의 기간을 선택 합니다. 선택 영역을 마우스 오른쪽 단추로 클릭 한 다음 **이벤트 탐색** 을 선택 합니다.
 
-첫 번째 열 머리글에는 타임스탬프 속성 이름에 있어야 합니다. **타임 스탬프**옆에 **($ts)** 가 표시 됩니다.
+첫 번째 열 머리글에는 타임스탬프 속성 이름에 있어야 합니다. **타임 스탬프** 옆에 **($ts)** 가 표시 됩니다.
 
 다음 값은 표시 되지 않습니다.
 
-- *(abc)*: Azure Time Series Insights에서 데이터 값을 문자열로 읽도록 지정 합니다.
-- *Calendar icon*: Azure Time Series Insights에서 데이터 값을 datetime 값으로 읽도록 지정 합니다.
-- *#*: Azure Time Series Insights에서 데이터 값을 정수로 읽도록 지정 합니다.
+* *(abc)*: Azure Time Series Insights에서 데이터 값을 문자열로 읽도록 지정 합니다.
+* *Calendar icon*: Azure Time Series Insights에서 데이터 값을 datetime 값으로 읽도록 지정 합니다.
+* *#*: Azure Time Series Insights에서 데이터 값을 정수로 읽도록 지정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Time Series Insights에서 대기 시간을 완화 하는 방법](time-series-insights-environment-mitigate-latency.md)에 대해 알아봅니다.
+* [Azure Time Series Insights에서 대기 시간을 완화 하는 방법](time-series-insights-environment-mitigate-latency.md)에 대해 알아봅니다.
 
-- [Azure Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.
+* [Azure Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.

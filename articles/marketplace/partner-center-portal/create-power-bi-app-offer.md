@@ -7,24 +7,24 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: f011f2703286cd7eb4e19588ae1ae1fe9319500f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646676"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693616"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
-이 문서에서는 Power BI 앱 제품을 만들고 Microsoft [AppSource](https://appsource.microsoft.com/)에 게시하는 방법을 설명합니다.
+이 문서에서는 [Microsoft AppSource](https://appsource.microsoft.com/)에 Power BI 앱 제품을 만들고 게시 하는 방법을 설명 합니다.
 
 시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요**를 선택합니다.
-3. 개요 페이지에서 **+ 새 제품** > **Power BI 서비스 앱**을 선택합니다.
+2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스** > **개요** 를 선택합니다.
+3. 개요 페이지에서 **+ 새 제품** > **Power BI 서비스 앱** 을 선택합니다.
 
    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-power-bi-app.png)
 
@@ -32,22 +32,22 @@ ms.locfileid: "89646676"
 > 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 온라인 매장에 표시 됩니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
 
 > [!IMPORTANT]
-> **Power BI 서비스 앱**이 표시되지 않거나 사용할 수 없는 경우 계정에 이 제품 유형을 만들 수 있는 권한이 없는 것입니다. 개발자 계정에 등록하는 것을 포함하여 이 제품 유형에 대한 모든 [요구 사항](create-power-bi-app-overview.md)이 충족되었는지 확인합니다.
+> **Power BI 서비스 앱** 이 표시되지 않거나 사용할 수 없는 경우 계정에 이 제품 유형을 만들 수 있는 권한이 없는 것입니다. 개발자 계정에 등록하는 것을 포함하여 이 제품 유형에 대한 모든 [요구 사항](create-power-bi-app-overview.md)이 충족되었는지 확인합니다.
 
 ## <a name="new-offer"></a>새 제안
 
-**제품 ID**를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
+**제품 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
 
 - 이 ID는 마켓플레이스 제품 및 Azure Resource Manager 템플릿의 웹 주소에서 고객에게 표시됩니다(해당하는 경우).
-- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 여기에 **test-offer-1**을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
-- **만들기**를 선택한 후에는 제품 ID를 변경할 수 없습니다.
+- 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 여기에 **test-offer-1** 을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+- **만들기** 를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
-**제품 별칭**을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
+**제품 별칭** 을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
 
 - 이 이름은 마켓플레이스에서 사용되지 않으며 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
-- **만들기**를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
+- **만들기** 를 선택한 후에는 제품 별칭을 변경할 수 없습니다.
 
-**만들기**를 선택하여 제품을 생성하고 계속합니다.
+**만들기** 를 선택하여 제품을 생성하고 계속합니다.
 
 ## <a name="offer-overview"></a>제품 개요
 
@@ -55,10 +55,10 @@ ms.locfileid: "89646676"
 
 사용자의 선택에 따라 이 제품에 대한 작업을 수행할 수 있는 링크가 포함되어 있습니다. 다음은 그 예입니다.
 
-- 제안이 초안 [삭제 제안](update-existing-offer.md#delete-a-draft-offer)인 경우
-- 제품이 live의 제품 판매를 [중지](update-existing-offer.md#stop-selling-an-offer-or-plan)하는 경우
-- 제품이 미리 보기 상태 이면 [라이브로 전환](publishing-status.md#publisher-approval)합니다.
-- 게시자 로그 아웃을 완료 하지 않은 경우 [게시 취소](update-existing-offer.md#cancel-publishing)
+- 제품이 초안 상태인 경우 - 초안 제품 삭제
+- 제품이 라이브 상태인 경우 - [제품 판매 중지](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- 제품이 미리 보기 상태인 경우 - [라이브 상태로 전환](../review-publish-offer.md#previewing-and-approving-your-offer)
+- 게시자 로그 아웃을 완료하지 않은 경우 - [게시 취소.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>제품 설정
 
@@ -73,7 +73,7 @@ ms.locfileid: "89646676"
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 [Https 엔드포인트](commercial-marketplace-lead-management-instructions-https.md)를 사용하여 잠재 고객 데이터를 저장한 다음 CRM 시스템으로 데이터를 내보냅니다.
+    > CRM 시스템이이 목록에 없는 경우 [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) 또는 및 [HTTPS 끝점](commercial-marketplace-lead-management-instructions-https.md) 을 사용 하 여 고객 리드 데이터를 저장 합니다. CRM 시스템으로 데이터를 내보냅니다.
 
 2. 파트너 센터에 게시할 때 제품을 잠재 고객 대상에 연결합니다.
 3. 잠재 고객 대상에 대한 연결이 제대로 구성되어 있는지 확인합니다. 파트너 센터에 게시하면 연결의 유효성이 검사되고 테스트 잠재 고객을 받을 수 있습니다. 제품을 라이브로 전환하기 전에 미리 볼 때 미리 보기 환경에서 직접 제품을 구매하여 잠재 고객 연결을 테스트할 수도 있습니다.
@@ -81,12 +81,12 @@ ms.locfileid: "89646676"
 
 다음은 몇 가지 추가 잠재 고객 관리 리소스입니다.
 
-- [잠재 고객 관리 개요](commercial-marketplace-get-customer-leads.md)
-- [리드 관리 faq](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [일반적인 리드 구성 오류](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF(팝업 차단이 해제되어 있는지 확인)
+- [상업용 Marketplace 제품의 잠재 고객](commercial-marketplace-get-customer-leads.md)
+- [잠재 고객 관리에 대한 일반적인 질문](../lead-management-faq.md#common-questions-about-lead-management)
+- [리드 구성 오류 문제 해결](../lead-management-faq.md#publishing-config-errors)
+- [잠재 고객 관리 개요](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF입니다(팝업 차단이 해제되어 있는지 확인).
 
-계속하기 전에 **초안 저장**을 선택합니다.
+계속하기 전에 **초안 저장** 을 선택합니다.
 
 ## <a name="properties"></a>속성
 
@@ -97,7 +97,7 @@ ms.locfileid: "89646676"
 범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
 
 - 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
-- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음**을 선택 합니다.
+- 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음** 을 선택 합니다.
 
 [제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 범주 및 하위 범주의 전체 목록을 참조 하세요.
 
@@ -109,11 +109,9 @@ ms.locfileid: "89646676"
 
 #### <a name="terms-and-conditions"></a>사용 약관
 
-사용자 고유의 사용자 지정 약관을 제공하려면 **사용 약관** 상자에서 최대 10,000자를 입력합니다. 사용 약관에 더 긴 설명이 필요한 경우 사용 약관으로 연결되는 단일 웹 링크를 입력합니다. 이 링크는 고객에게 활성 링크로 표시됩니다.
+사용자 고유의 사용자 지정 약관을 제공하려면 **사용 약관** 상자에서 최대 10,000자를 입력합니다. 고객은 이 약관에 동의해야 제품을 사용할 수 있습니다.
 
-고객은 이 약관에 동의해야 제품을 사용할 수 있습니다.
-
-다음 섹션인 제품 목록으로 진행하기 전에 **초안 저장**을 선택합니다.
+다음 섹션인 제품 목록으로 진행하기 전에 **초안 저장** 을 선택합니다.
 
 ## <a name="offer-listing"></a>제품 목록
 
@@ -186,13 +184,13 @@ ms.locfileid: "89646676"
 
 ### <a name="contact-information"></a>연락처 정보
 
-**지원 연락처** 및 **엔지니어링 연락처**의 이름, 메일 및 전화 번호를 제공해야 합니다. 이 정보는 고객에게 표시되지 않습니다. 이 정보는 Microsoft가 사용할 수 있으며, CSP(클라우드 솔루션 공급자) 파트너에게 제공될 수 있습니다.
+**지원 연락처** 및 **엔지니어링 연락처** 의 이름, 메일 및 전화 번호를 제공해야 합니다. 이 정보는 고객에게 표시되지 않습니다. 이 정보는 Microsoft가 사용할 수 있으며, CSP(클라우드 솔루션 공급자) 파트너에게 제공될 수 있습니다.
 
 - 지원 연락처(필수 사항): 일반적인 지원 질문을 처리할 담당자입니다.
 - 엔지니어링 연락처(필수 사항): 기술 관련 질문 및 인증 문제를 처리할 담당자입니다.
 - CSP 프로그램 연락처(선택 사항): CSP 프로그램과 관련된 재판매인 질문을 처리할 담당자입니다.
 
-**지원 연락처** 섹션에서 파트너가 제품에 대한 지원을 찾을 수 있는 **지원 웹 사이트**의 웹 주소를 제공합니다.
+**지원 연락처** 섹션에서 파트너가 제품에 대한 지원을 찾을 수 있는 **지원 웹 사이트** 의 웹 주소를 제공합니다.
 
 ### <a name="supporting-documents"></a>지원 문서
 
@@ -202,7 +200,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 제품에 사용할 로고 및 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 흐린 이미지는 거부됩니다.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 `https://upload.xboxlive.com` 서비스를 차단하지 않는지 확인하세요.
@@ -218,7 +216,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 
@@ -234,7 +232,7 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 ## <a name="technical-configuration"></a>기술 구성
 
-Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 설치할 수 있도록 지원하는 Power BI 앱 설치 관리자 링크를 제공합니다. 자세한 내용은 [대시보드와 보고서를 사용하여 Power BI에 앱 게시](https://docs.microsoft.com/power-bi/service-create-distribute-apps)를 참조하세요.
+Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 설치할 수 있도록 지원하는 Power BI 앱 설치 관리자 링크를 제공합니다. 자세한 내용은 [대시보드와 보고서를 사용하여 Power BI에 앱 게시](/power-bi/service-create-distribute-apps)를 참조하세요.
 
 ## <a name="supplemental-content"></a>추가 콘텐츠
 
@@ -248,7 +246,7 @@ Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 �
 
 제품의 필수 섹션을 모두 완료한 후에는 제품을 제출하여 검토하고 게시할 수 있습니다.
 
-포털의 오른쪽 위 모서리에서 **검토 및 게시**를 선택합니다.
+포털의 오른쪽 위 모서리에서 **검토 및 게시** 를 선택합니다.
 
 검토 페이지에서 다음을 수행할 수 있습니다.
 
@@ -258,6 +256,6 @@ Power BI Service에서 앱을 프로덕션으로 승격하고 고객이 앱을 �
   - **완료** - 섹션에 필요한 모든 데이터가 있고 오류가 없습니다. 제품을 제출하려면 제품의 모든 섹션이 완료되어야 합니다.
 - 앱이 올바르게 테스트되었는지 확인하기 위해 인증 팀에 테스트 지침을 제공합니다. 제품을 이해하는 데 유용한 보충 정보도 제공합니다.
 
-게시하기 위해 제품을 제출하려면 **게시**를 선택합니다.
+게시하기 위해 제품을 제출하려면 **게시** 를 선택합니다.
 
-Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다. 공개에 제품을 게시 하려면 파트너 센터로 이동 하 여 **라이브**를 선택 합니다.
+Microsoft에서 제품의 미리 보기 버전이 검토 및 승인 준비가 되었음을 알려 주는 메일을 보내 드립니다. 공개에 제품을 게시 하려면 파트너 센터로 이동 하 여 **라이브** 를 선택 합니다.

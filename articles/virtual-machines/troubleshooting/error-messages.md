@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831229"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리할 때 발생하는 일반적인 오류 메시지를 이해
@@ -179,7 +179,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. VM은 성공적으로 프로비전을 완료할 수 있습니다. 나중에 프로비전 상태를 확인합니다. 또한 이미지가 올바르게 준비되었는지 확인합니다(일반화됨).   <ul><li>[Windows]( ../windows/upload-generalized-managed.md)에 대 한 지침입니다.</li><li> [Linux](../linux/capture-image.md) 에 대 한 지침</li></ul>  |
 |  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. 그러나 VM 게스트 에이전트가 실행되는 것을 감지했습니다. 즉, 게스트 OS는 VM 이미지로 사용되도록 제대로 준비되지 않았습니다(CreateOption=FromImage를 사용하여). 이 문제를 해결하려면 CreateOption=Attach와 함께 VHD를 있는 그대로 사용하거나 이미지 형식으로 사용할 수 있도록 제대로 준비합니다.   <ul><li>Windows에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Linux에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  요청한 VM 크기를 선택한 위치에서 현재 사용할 수 없습니다.  |
-|  ResourceUpdateBlockedOnPlatformUpdate  |  지금은 진행 중인 플랫폼 업데이트로 인해 리소스를 업데이트할 수 없습니다. 나중에 다시 시도하십시오.  |
+|  ResourceUpdateBlockedOnPlatformUpdate  |  지금은 진행 중인 플랫폼 업데이트로 인해 리소스를 업데이트할 수 없습니다. 나중에 다시 시도하세요.  |
 |  StorageAccountLimitation  |  스토리지 계정 '{0}'은(는) 디스크를 만드는 데 필요한 페이지 Blob을 지원하지 않습니다.  |
 |  StorageAccountLimitation  |  스토리지 계정 '{0}'이(가) 할당된 할당량을 초과했습니다.  |
 |  StorageAccountLocationMismatch  |  스토리지 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 컴퓨팅 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |

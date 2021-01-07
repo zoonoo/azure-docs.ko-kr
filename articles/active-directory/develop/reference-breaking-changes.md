@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115036"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348724"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
 
@@ -69,9 +69,9 @@ Azure AD에 직접 로그인 하는 256 자 보다 긴 암호를 사용 하는 �
 
 로그인 로그의 오류는 AADSTS 50052: InvalidPasswordExceedsMaxLength이 됩니다.
 
-메시지:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+메시지: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-재구성
+수정:
 
 암호가 허용 된 최대 길이를 초과 하기 때문에 사용자가 로그인 할 수 없습니다. 암호를 재설정 하려면 관리자에 게 문의 해야 합니다. SSPR가 테 넌 트에 대해 사용 하도록 설정 된 경우 "암호 잊음" 링크를 따라 암호를 다시 설정할 수 있습니다.
 
@@ -127,7 +127,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 #### <a name="example-request"></a>요청 예
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`이 예제에서 리소스 테 넌 트 (기관)는 contoso.com이 고, 리소스 앱은 Contoso 테 넌 트에 대해 호출 되는 단일 테 넌 트 앱 이며, `gateway.contoso.com/api` 클라이언트 앱입니다 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` 이 예제에서 리소스 테 넌 트 (기관)는 contoso.com이 고, 리소스 앱은 Contoso 테 넌 트에 대해 호출 되는 단일 테 넌 트 앱 이며, `gateway.contoso.com/api` 클라이언트 앱입니다 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.
 
 그러나 Contoso 게이트웨이 앱이 다중 테 넌 트 응용 프로그램이 면 Contoso.com 내에서 서비스 사용자가 있는 클라이언트 앱에 관계 없이 요청이 계속 됩니다.
 

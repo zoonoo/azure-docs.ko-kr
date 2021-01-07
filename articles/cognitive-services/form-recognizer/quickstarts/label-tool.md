@@ -1,40 +1,59 @@
 ---
 title: '빠른 시작: 샘플 레이블 지정 도구를 사용하여 양식 레이블 지정, 모델 학습 및 양식 분석 - Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 레이블을 양식 문서에 수동으로 지정합니다. 그런 다음, 레이블이 지정된 문서를 사용하여 사용자 지정 모델을 학습시키고, 모델을 사용하여 키/값 쌍을 추출합니다.
+description: 이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 레이블을 양식 문서에 수동으로 지정합니다. 그런 다음, 레이블이 지정된 문서를 사용하여 사용자 지정 문서 처리 모델을 학습시키고, 모델을 사용하여 키/값 쌍을 추출합니다.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: 문서 처리
+ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418962"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009333"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
-이 빠른 시작에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 모델을 학습시킵니다. 이 기능에 대한 자세한 내용은 개요의 [레이블로 학습](../overview.md#train-with-labels) 섹션을 참조하세요.
+이 빠른 시작에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 문서 처리 모델을 학습시킵니다. Form Recognizer를 사용한 감독 학습에 대한 자세한 내용은 개요의 [레이블을 사용하여 학습](../overview.md#train-with-labels) 섹션을 참조하세요.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
-* 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. 표준 성능 계층 Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
+* 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. 이 빠른 시작에 대한 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)(*sample_data.zip* 다운로드 및 추출)를 사용할 수 있습니다. 표준 성능 계층 Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>사용해 보기
+
+온라인으로 Form Recognizer 샘플 레이블 지정 도구를 사용해 보려면 [FOTT 웹 사이트](https://fott-preview.azurewebsites.net/)로 이동합니다.
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+> [!div class="nextstepaction"]
+> [미리 빌드된 모델 사용해보기](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [미리 빌드된 모델 사용해보기](https://fott-preview.azurewebsites.net/)
+
+---
+
+Form Recognizer 서비스를 사용해보려면 Azure 구독([무료로 하나 생성](https://azure.microsoft.com/free/cognitive-services))과 [Form Recognizer 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 엔드포인트 및 키가 필요합니다. 
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 설정
 
@@ -58,8 +77,6 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 
 
-
-
 1. `docker pull` 명령을 사용하여 샘플 레이블 지정 도구 컨테이너를 가져옵니다.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
@@ -68,7 +85,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     ```
     # <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
@@ -81,12 +98,12 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     ```
     # <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
 
-   이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. `http://localhost:3000` 로 이동합니다.
+   이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. [https://editor.swagger.io](`http://localhost:3000`) 로 이동합니다.
 
 > [!NOTE]
 > Form Recognizer REST API를 사용하여 레이블을 문서에 지정하고 모델을 학습시킬 수도 있습니다. REST API를 사용하여 학습시키고 분석하려면 [REST API 및 Python을 사용하여 레이블로 학습](./python-labeled-data.md)을 참조하세요.
@@ -97,7 +114,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>CORS(도메인 간 리소스 공유) 구성
 
-스토리지 계정에서 CORS를 사용하도록 설정합니다. Azure Portal에서 스토리지 계정을 선택하고, 왼쪽 창에서 **CORS** 탭을 클릭합니다. 아래쪽 줄에서 다음 값을 입력합니다. 그런 다음, 위쪽에서 **저장**을 클릭합니다.
+스토리지 계정에서 CORS를 사용하도록 설정합니다. Azure Portal에서 스토리지 계정을 선택하고, 왼쪽 창에서 **CORS** 탭을 클릭합니다. 아래쪽 줄에서 다음 값을 입력합니다. 그런 다음, 위쪽에서 **저장** 을 클릭합니다.
 
 * 허용된 원본 = * 
 * 허용된 메서드 = \[모두 선택\]
@@ -120,7 +137,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 * **표시 이름** - 연결 표시 이름
 * **설명** - 프로젝트 설명
-* **SAS URL** - Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기**를 선택합니다. 서비스를 사용한 후 만료 시간을 특정 시간으로 설정합니다. **읽기**, **쓰기**, **삭제**및 **목록** 권한이 선택되어 있는지 확인하고 **만들기**를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+* **SAS URL** - Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기** 를 선택합니다. 서비스를 사용한 후 만료 시간을 특정 시간으로 설정합니다. **읽기**, **쓰기**, **삭제** 및 **목록** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="샘플 레이블 지정 도구의 연결 설정.":::
 
@@ -149,7 +166,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ### <a name="identify-text-elements"></a>텍스트 요소 식별
 
-왼쪽 창에서 **모든 파일에 대해 OCR 실행**을 클릭하여 각 문서에 대한 텍스트 레이아웃 정보를 가져옵니다. 레이블 지정 도구는 각 텍스트 요소 주위에 경계 상자를 그립니다.
+왼쪽 창에서 **모든 파일에 대해 OCR 실행** 을 클릭하여 각 문서에 대한 텍스트 레이아웃 정보를 가져옵니다. 레이블 지정 도구는 각 텍스트 요소 주위에 경계 상자를 그립니다.
 
 또한 자동으로 추출된 테이블을 보여줍니다. 문서의 왼쪽에 있는 테이블/그리드 아이콘을 클릭하여 추출된 테이블을 확인합니다. 이 빠른 시작에서는 테이블 콘텐츠가 자동으로 추출되므로 테이블 콘텐츠의 레이블을 지정하지 않고 자동화된 추출을 사용합니다.
 
@@ -183,7 +200,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
    1. **+** 를 클릭하여 새 태그를 만듭니다.
    1. 태그 이름을 입력합니다.
    1. Enter 키를 눌러 태그를 저장합니다.
-1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다. _v2.1 미리 보기_에서 클릭하여 라디오 단추 및 확인란과 같은 _선택 표시_를 키 값 쌍으로 선택할 수도 있습니다. Form Recognizer는 선택 표시가 값으로 "선택됨" 또는 "선택되지 않음"인지 여부를 식별합니다.
+1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다. _v2.1 preview.2_ 에서 라디오 단추 및 확인란과 같은 _선택 표시_ 를 클릭하여 키 값 쌍으로 선택할 수도 있습니다. Form Recognizer는 선택 표시가 값으로 "선택됨" 또는 "선택되지 않음"인지 여부를 식별합니다.
 1. 적용하려는 태그를 클릭하거나 해당 키보드 키를 누릅니다. 숫자 키는 처음 10개 태그에 대한 바로 가기 키로 할당됩니다. 태그 편집기 창에서 위쪽 및 아래쪽 화살표 아이콘을 사용하여 태그를 다시 정렬할 수 있습니다.
     > [!Tip]
     > 양식에 레이블을 지정할 때 다음 팁을 참조하세요.
@@ -306,7 +323,10 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 수동으로 레이블이 지정된 데이터로 모델을 학습하는 방법을 알아보았습니다. 레이블 지정 도구를 사용자 고유의 애플리케이션에 통합하려면 레이블이 지정된 데이터 학습을 처리하는 REST API를 사용합니다.
+이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 수동으로 레이블이 지정된 데이터로 모델을 학습하는 방법을 알아보았습니다. 고유한 유틸리티를 빌드하여 학습 데이터에 레이블을 지정하려면 레이블이 지정된 데이터 학습을 처리하는 REST API를 사용하세요.
 
 > [!div class="nextstepaction"]
 > [Python을 사용하여 레이블로 학습](./python-labeled-data.md)
+
+* [Form Recognizer란?](../overview.md)
+* [Form Recognizer 클라이언트 라이브러리 빠른 시작](client-library.md)

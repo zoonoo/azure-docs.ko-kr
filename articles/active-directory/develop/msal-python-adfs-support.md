@@ -14,10 +14,10 @@ ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: ad874a4b117b7a7ccecea0e1800ca18c6fce8aaa
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846210"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Python 용 MSAL에서 지원 Active Directory Federation Services
@@ -53,7 +53,7 @@ Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 
 
 ## <a name="connecting-directly-to-ad-fs"></a>AD FS에 직접 연결
 
-AD FS에 디렉터리를 연결 하는 경우 응용 프로그램을 빌드하는 데 사용 하려는 기관은 다음과 같습니다.`https://somesite.contoso.com/adfs/`
+AD FS에 디렉터리를 연결 하는 경우 응용 프로그램을 빌드하는 데 사용 하려는 기관은 다음과 같습니다. `https://somesite.contoso.com/adfs/`
 
 MSAL Python은 ADFS 2019를 지원 합니다.
 

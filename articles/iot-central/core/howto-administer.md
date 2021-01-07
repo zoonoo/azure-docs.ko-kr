@@ -3,17 +3,17 @@ title: Azure IoT Central 응용 프로그램 설정 변경 | Microsoft Docs
 description: 관리자는 응용 프로그램 이름을 변경 하 고, URL을 변경 하 고, 이미지를 업로드 하 고, 응용 프로그램을 삭제 하 여 Azure IoT Central 응용 프로그램을 관리 하는 방법
 author: viv-liu
 ms.author: viviali
-ms.date: 11/27/2019
+ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 37a3725fb7684a9e87f1936ef0ce8cc79de03894
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: ece77c2091e7c7c2aa09516bd4d3022bb6fcdfcc
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594665"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796961"
 ---
 # <a name="change-iot-central-application-settings"></a>IoT Central 응용 프로그램 설정 변경
 
@@ -25,7 +25,7 @@ ms.locfileid: "89594665"
 
 ## <a name="change-application-name-and-url"></a>애플리케이션 이름 및 URL 변경
 
-**애플리케이션 설정** 페이지에서 애플리케이션의 이름 및 URL을 변경한 다음, **저장**을 선택합니다.
+**애플리케이션 설정** 페이지에서 애플리케이션의 이름 및 URL을 변경한 다음, **저장** 을 선택합니다.
 
 ![애플리케이션 설정 페이지](media/howto-administer/image0-a.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "89594665"
 IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 이 작업을 수행 하면 응용 프로그램과 연결 된 모든 데이터가 영구적으로 삭제 됩니다.
 
 > [!Note]
-> 애플리케이션을 삭제하려면 애플리케이션을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
+> 애플리케이션을 삭제하려면 애플리케이션을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="manage-programmatically"></a>프로그래밍 방식 관리
 

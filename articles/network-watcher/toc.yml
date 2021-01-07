@@ -14,6 +14,7 @@
     - name: VM 트래픽 필터 문제 진단 - Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
     - name: ARM 템플릿을 사용하여 NSG 흐름 로그 구성
+      displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: 자습서
   items:
@@ -27,8 +28,8 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: 개념
   items:
-    - name: 연결 모니터(미리 보기)
-      href: connection-monitor-preview.md
+    - name: 연결 모니터
+      href: connection-monitor-overview.md
     - name: VM 네트워크 트래픽 필터 문제 진단
       href: network-watcher-ip-flow-verify-overview.md
     - name: NSG 규칙 및 트래픽 필터링 진단
@@ -45,7 +46,7 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: 네트워크 보안 그룹 보기
       href: network-watcher-security-group-view-overview.md
-    - name: 역할 기반 액세스 제어 권한
+    - name: Azure 역할 기반 액세스 제어 권한
       href: required-rbac-permissions.md
     - name: 보안
       items:
@@ -57,26 +58,28 @@
   items:
     - name: Network Watcher 구성
       href: network-watcher-create.md
-    - name: 연결 모니터 만들기(미리 보기)
+    - name: 연결 모니터 만들기
       items:
         - name: Azure Portal 사용
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: ARMClient 사용
-          href: connection-monitor-preview-create-using-arm-client.md
-    - name: 연결 모니터 마이그레이션(미리 보기)
+          href: connection-monitor-create-using-template.md
+        - name: PowerShell 사용
+          href: connection-monitor-create-using-powershell.md
+    - name: 연결 모니터로 마이그레이션
       items:
         - name: 네트워크 성능 모니터에서
-          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-        - name: 연결 모니터에서
-          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
+          href: migrate-to-connection-monitor-from-network-performance-monitor.md
+        - name: 연결 모니터에서(클래식)
+          href: migrate-to-connection-monitor-from-connection-monitor-classic.md
     - name: VM 네트워크 문제 진단
       items:
         - name: VM 확장 설치
           items:
             - name: Windows
-              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
             - name: Linux
-              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
         - name: 라우팅 문제 진단
           items:
             - name: Azure PowerShell
@@ -127,6 +130,8 @@
               href: network-watcher-nsg-flow-logging-rest.md
             - name: Azure 리소스 관리자
               href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+            - name: 기본 제공 정책
+              href: nsg-flow-logs-policy-portal.md
         - name: NSG 흐름 로그 스토리지 Blob 삭제
           href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: NSG 흐름 로그 분석
@@ -179,7 +184,7 @@
     - name: 위치와 Azure 지역 간의 상대적 대기 시간 결정
       href: view-relative-latencies.md
     - name: 네트워크 성능 모니터링
-      href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
     - name: 리소스 이동
       items:
         - name: Network Watcher 리소스 이동
@@ -209,7 +214,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: 서비스 업데이트

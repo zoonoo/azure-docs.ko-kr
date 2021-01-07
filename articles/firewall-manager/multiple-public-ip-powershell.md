@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 652c7cbfbe63ef2ae9a0d54e05407152ea300f1d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87007000"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses"></a>여러 공용 IP 주소를 사용 하 여 Azure 방화벽 배포

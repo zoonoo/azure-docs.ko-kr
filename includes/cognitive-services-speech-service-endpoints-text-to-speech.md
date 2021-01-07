@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80234248"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972654"
 ---
 ### <a name="standard-and-neural-voices"></a>표준 및 신경망
 
@@ -32,11 +32,14 @@ ms.locfileid: "80234248"
 | 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 동남 아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+
+> [!TIP]
+> [미리 보기의 음성](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) 은 미국 동부, 유럽 서부 및 동남 아시아의 3 개 지역 에서만 사용할 수 있습니다.
 
 ### <a name="custom-voices"></a>사용자 지정 음성
 

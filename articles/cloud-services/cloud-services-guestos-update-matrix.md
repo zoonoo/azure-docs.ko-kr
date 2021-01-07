@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 1/4/2021
 ms.author: yohaddad
-ms.openlocfilehash: d79fd60f4fe3786cfe3106329904d9d262078411
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 429e343a61e61b01fa07c37a6c2b702f6ef633d1
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024216"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882350"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. *Azure 게스트 OS 업데이트 설정* 의 설명에 따라 [자동][Azure Guest OS Update Settings]게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -41,6 +41,15 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 게스트 OS를 업데이트하는 방법에 대해 불확실한가요? [이것][cloud updates]을 확인하세요.
 
 ## <a name="news-updates"></a>새 업데이트
+
+###### <a name="december-19-2020"></a>**2020 년 12 월 19 일**
+11월 게스트 OS가 릴리스되었습니다. 
+
+###### <a name="november-17-2020"></a>**2020년 11월 17일**
+10월 게스트 OS가 릴리스되었습니다. 
+
+###### <a name="october-10-2020"></a>**2020 년 10 월 10 일**
+9월 게스트 OS가 릴리스되었습니다. 
 
 ###### <a name="september-5-2020"></a>**2020 년 9 월 5 일**
 8월 게스트 OS가 릴리스되었습니다. 
@@ -130,7 +139,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 >설치 단계:
 >1. MicrosoftAzureAuthoringTools*의 이전 버전을 제거 하세요.
 >2. [.Net 용 AZURE SDK-3.0][Windows Azure SDK] 설치
->3. 컴퓨터 다시 시작
+>3. 머신 다시 시작
 >4. 새 클라우드 서비스 프로젝트를 만들고 단일 작업자 역할을 추가 합니다.
 >5. OS 제품군을 6으로 변경 하 고 패키지를 빌드합니다.
 >6. Azure Portal 또는 Visual Studio를 사용 하 여 패키지를 Azure에 배포
@@ -140,8 +149,11 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-|  WA-게스트-OS-6.22 _202008-02  |  2020 년 9 월 5 일  |  6.24 게시  |  
-|  WA-게스트-OS-6.21 _202007-01  |  2020 년 8 월 17 일  |  6.23 게시  |  
+|  WA-게스트-OS-6.25 _202011-01 |  2020 년 12 월 19 일  |  6.27 게시  |  
+|  WA-게스트-OS-6.24 _202010-02 |  2020년 11월 17일  |  6.26 게시  |  
+|~~WA-게스트-OS-6.23 _202009-01~~|  2020 년 10 월 10 일  |  2020 년 12 월 19 일  |  
+|~~WA-게스트-OS-6.22 _202008-02~~|  2020 년 9 월 5 일  |  2020년 11월 17일  |  
+|~~WA-게스트-OS-6.21 _202007-01~~|  2020 년 8 월 17 일  |  2020 년 10 월 10 일  |  
 |~~WA-게스트-OS-6.20 _202006-02~~|  2020 년 8 월 10 일  |  2020 년 9 월 5 일  |  
 |~~WA-게스트-OS-6.19 _202005-02~~|  2020년 6월 2일  |  2020 년 8 월 17 일  |  
 |~~WA-게스트-OS-6.18 _202004-01~~|  5 월 4 일, 2020  |  2020 년 8 월 10 일  |  
@@ -175,8 +187,11 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-|  WA-게스트-OS-5.46 _202008-02  |  2020 년 9 월 5 일  |  5.48 게시  |  
-|  WA-게스트-OS-5.45 _202007-01  |  2020 년 8 월 17 일  |  5.47 게시  |  
+|  WA-게스트-OS-5.49 _202011-01  |  2020 년 12 월 19 일  |  5.51 게시  | 
+|  WA-게스트-OS-5.48 _202010-02  |  2020년 11월 17일  |  5.50 게시  | 
+|~~WA-게스트-OS-5.47 _202009-01~~|  2020 년 10 월 10 일  |  2020 년 12 월 19 일  | 
+|~~WA-게스트-OS-5.46 _202008-02~~|  2020 년 9 월 5 일  |  2020년 11월 17일  |  
+|~~WA-게스트-OS-5.45 _202007-01~~|  2020 년 8 월 17 일  |  2020 년 10 월 10 일  |  
 |~~WA-게스트-OS-5.44 _202006-02~~|  2020 년 8 월 10 일  |  2020 년 9 월 5 일  |  
 |~~WA-게스트-OS-5.43 _202005-02~~|  2020년 6월 2일  |  2020 년 8 월 17 일  |  
 |~~WA-게스트-OS-5.42 _202004-01~~|  5 월 4 일, 2020  |  2020 년 8 월 10 일  |  
@@ -207,8 +222,11 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-|  WA-게스트-OS-4.81 _202008-02  |  2020 년 9 월 5 일  |  4.83 게시  | 
-|  WA-게스트-OS-4.80 _202007-01  |  2020 년 8 월 17 일  |  4.82 게시  | 
+|  WA-게스트-OS-4.84 _202011-01  |  2020 년 12 월 19 일  |  4.86 게시  | 
+|  WA-게스트-OS-4.83 _202010-02  |  2020년 11월 17일  |  4.85 게시  | 
+|~~WA-게스트-OS-4.82 _202009-01~~|  2020 년 10 월 10 일  |  2020 년 12 월 19 일  | 
+|~~WA-게스트-OS-4.81 _202008-02~~|  2020 년 9 월 5 일  |  2020년 11월 17일  | 
+|~~WA-게스트-OS-4.80 _202007-01~~|  2020 년 8 월 17 일  |  2020 년 10 월 10 일  | 
 |~~WA-게스트-OS-4.79 _202006-02~~|  2020 년 8 월 10 일  |  2020 년 9 월 5 일  | 
 |~~WA-게스트-OS-4.78 _202005-02~~|  2020년 6월 2일  |  2020 년 8 월 17 일  |  
 |~~WA-게스트-OS-4.77 _202004-01~~|  5 월 4 일, 2020  |  2020 년 8 월 10 일  |  
@@ -239,8 +257,11 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-|  WA-게스트-OS-3.88 _202008-02  |  2020 년 9 월 5 일  |  3.90 게시  |  
-|  WA-게스트-OS-3.87 _202007-01  |  2020 년 8 월 17 일  |  3.89 게시  |  
+|  WA-게스트-OS-3.91 _202011-01  |  2020 년 12 월 19 일  |  3.93 게시  |  
+|  WA-게스트-OS-3.90 _202010-02  |  2020년 11월 17일  |  3.92 게시  |  
+|~~WA-게스트-OS-3.89 _202009-01~~|  2020 년 10 월 10 일  |  2020 년 12 월 19 일  |  
+|~~WA-게스트-OS-3.88 _202008-02~~|  2020 년 9 월 5 일  |  2020년 11월 17일  |  
+|~~WA-게스트-OS-3.87 _202007-01~~|  2020 년 8 월 17 일  |  2020 년 10 월 10 일  |  
 |~~WA-게스트-OS-3.86 _202006-02~~|  2020 년 8 월 10 일  |  2020 년 9 월 5 일  |  
 |~~WA-게스트-OS-3.85 _202005-02~~|  2020년 6월 2일  |  2020 년 8 월 17 일  |  
 |~~WA-게스트-OS-3.84 _202004-01~~|  5 월 4 일, 2020  |  2020 년 8 월 10 일  |  
@@ -271,8 +292,11 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-|  WA-게스트-OS-2.101 _202008-02  |  2020 년 9 월 5 일  |  2.103 게시  |  
-|  WA-게스트-OS-2.100 _202007-01  |  2020 년 8 월 17 일  |  2.102 게시  |  
+|  WA-게스트-OS-2.104 _202011-01  |  2020 년 12 월 19 일  |  2.106 게시  |  
+|  WA-게스트-OS-2.103 _202010-02  |  2020년 11월 17일  |  2.105 게시  |  
+|~~WA-게스트-OS-2.102 _202009-01~~|  2020 년 10 월 10 일  |  2020 년 12 월 19 일  |  
+|~~WA-게스트-OS-2.101 _202008-02~~|  2020 년 9 월 5 일  |  2020년 11월 17일 |    
+|~~WA-게스트-OS-2.100 _202007-01~~|  2020 년 8 월 17 일  |  2020 년 10 월 10 일  |  
 |~~WA-게스트-OS-2.99 _202006-02~~|  2020 년 8 월 10 일  | 2020 년 9 월 5 일  |  
 |~~WA-게스트-OS-2.98 _202005-02~~|  2020년 6월 2일  |  2020 년 8 월 17 일  |  
 |~~WA-게스트-OS-2.97 _202004-01~~|  5 월 4 일, 2020  |  2020 년 8 월 10 일  |  
@@ -352,26 +376,26 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 ## <a name="guest-os-supportability-and-retirement-policy"></a>게스트 OS 지원 가능성 및 사용 중지 정책
 게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
-[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: ./cloud-services-update-azure-service.md
 [게스트 OS 업데이트 RSS 피드]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: ./cloud-services-dotnet-install-dotnet.md?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
-[Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
+[Microsoft Security Advisory 3009008]: /security-updates/SecurityAdvisories/2015/3009008
 [ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
-[MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
-[MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
-[retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
+[MS14-066]: /security-updates/SecurityBulletins/2014/ms14-066
+[MS14-046]: /security-updates/SecurityBulletins/2014/ms14-046
+[retire policy sdk]: /previous-versions/azure/reference/dn479282(v=azure.100)
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: https://azure.microsoft.com/support/options/
 [net install pkg]: https://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
+[restarts]: /archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[fix]: /security-updates/SecurityBulletins/2017/ms17-010
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[more]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  
+[more]: ./applications-dont-support-tls-1-2.md

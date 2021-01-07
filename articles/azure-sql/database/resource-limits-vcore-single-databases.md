@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 07/21/2020
-ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.reviewer: ''
+ms.date: 10/15/2020
+ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566185"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882309"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|320|640|1280|1920|2560|
-|최대 로그 전송률 (MBps)|3.8|7.5|15|22.5|30|
+|최대 로그 전송률 (MBps)|4.5|9|18|27|36|
 |최대 동시 작업자(요청)|75|150|300|450|600|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|
@@ -65,7 +65,7 @@ ms.locfileid: "88566185"
 |컴퓨팅 크기(서비스 목표)|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
 |:--- | --: |--: |--: |--: |
 |컴퓨팅 세대|5세대|5세대|5세대|5세대|
-|최소-최대 vCores|1.25-10|1.50-12|1.75 g-14|2.00-16|
+|최소-최대 vCores|1.25-10|1.50-12|1.75-14|2.00-16|
 |최소-최대 메모리 (GB)|3.75-30|4.50-36|5.25-42|경우 6.00-48|
 |최소-최대 자동 일시 중지 지연 시간 (분)|60-10080|60-10080|60-10080|60-10080|
 |Columnstore 지원 여부|예|예|예|예|
@@ -76,7 +76,7 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|3200|3840|4480|5120|
-|최대 로그 전송률 (MBps)|30|30|30|30|
+|최대 로그 전송률 (MBps)|36|36|36|36|
 |최대 동시 작업자(요청)|750|900|1050|1200|
 |최대 동시 세션|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|
@@ -102,7 +102,7 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|5760|6400|7680|10240|12800|
-|최대 로그 전송률 (MBps)|30|30|30|30|30|
+|최대 로그 전송률 (MBps)|36|36|36|36|36|
 |최대 동시 작업자(요청)|1350|1500|1800|2400|3000|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|
@@ -225,7 +225,7 @@ ms.locfileid: "88566185"
 
 \* 로컬 SSD IO 외에도 작업은 원격 [페이지 서버](service-tier-hyperscale.md#page-server) io를 사용 합니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 Io 관리](resource-limits-logical-server.md#resource-governance)및 [리소스 사용률 통계의 데이터 io](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics)를 참조 하세요.
 
-#### <a name="notes"></a>메모
+#### <a name="notes"></a>참고
 
 **참고 1**: hyperscale은 별도의 계산 및 저장소 구성 요소를 포함 하는 다중 계층 아키텍처입니다. [대규모 서비스 계층 아키텍처](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -251,7 +251,7 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|320|640|960|1280|1600|1920|
-|최대 로그 전송률 (MBps)|3.75|7.5|11.25|15|18.75|22.5|
+|최대 로그 전송률 (MBps)|4.5|9|13.5|18|22.5|27|
 |최대 동시 작업자(요청)|200|400|600|800|1000|1200|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|1|
@@ -276,7 +276,7 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)
 |최대 데이터 IOPS *|2240|2560|2880|3200|5120|7680|
-|최대 로그 전송률 (MBps)|26.3|30|30|30|30|30|
+|최대 로그 전송률 (MBps)|31.5|36|36|36|36|36|
 |최대 동시 작업자(요청)|1400|1600|1800|2000|3200|4800|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|1|
@@ -303,11 +303,11 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|640|1280|1920|2560|3200|3840|4480|
-|최대 로그 전송률 (MBps)|7.5|15|22.5|30|30|30|30|
+|최대 로그 전송률 (MBps)|9|18|27|36|36|36|36|
 |최대 동시 작업자(요청)|200|400|600|800|1000|1200|1400|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|1|1|
-|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|다중 AZ|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
@@ -328,11 +328,11 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|5120|5760|6400|7680|10240|12800|12800|
-|최대 로그 전송률 (MBps)|30|30|30|30|30|30|30|
+|최대 로그 전송률 (MBps)|36|36|36|36|36|36|36|
 |최대 동시 작업자(요청)|1600|1800|2000|2400|3200|4000|8000|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|1|1|
-|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|다중 AZ|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[미리 보기에서 사용 가능](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
@@ -355,7 +355,7 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|2560|3200|3840|4480|5120|
-|최대 로그 전송률 (MBps)|30|30|30|30|30|
+|최대 로그 전송률 (MBps)|36|36|36|36|36|
 |최대 동시 작업자(요청)|400|500|600|700|800|
 |최대 동시 로그인|800|1000|1200|1400|1600|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|
@@ -381,7 +381,7 @@ ms.locfileid: "88566185"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|5760|6400|7680|10240|11520|23040|
-|최대 로그 전송률 (MBps)|30|30|30|30|30|30|
+|최대 로그 전송률 (MBps)|36|36|36|36|36|36|
 |최대 동시 작업자(요청)|900|1000|1200|1600|1800|3600|
 |최대 동시 로그인|1800|2000|2400|3200|3600|7200|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -525,7 +525,7 @@ ms.locfileid: "88566185"
 |최대 동시 로그인|800|1,000|1,200|1,400|1,600|1,800|
 |최대 동시 세션|30000|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|4|
-|다중 AZ|예|예|예|예|예|예|
+|다중 AZ|아니요|아니요|아니요|아니요|아니요|아니요|
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
@@ -554,7 +554,7 @@ ms.locfileid: "88566185"
 |최대 동시 로그인|2,000|2,400|3,200|6,400|12,800|
 |최대 동시 세션|30000|30000|30000|30000|30000|
 |복제본 수|4|4|4|4|4|
-|다중 AZ|예|예|예|예|예|
+|다중 AZ|아니요|아니요|아니요|아니요|아니요|
 |읽기 확장|예|예|예|예|예|
 |포함되는 백업 스토리지|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 

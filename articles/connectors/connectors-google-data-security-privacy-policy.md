@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288103"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400760"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Azure Logic Apps의 Google 커넥터에 대 한 데이터 보안 및 개인 정보 취급 방침
 
@@ -40,7 +40,7 @@ Gmail 커넥터를 사용 하는 논리 앱이 있는 경우 잠재적으로 영
 
 * Google 서비스: Gmail, Google 캘린더, Google 연락처, Google Drive, Google Sheets 및 Google 작업
 
-* 승인 된 Microsoft 서비스: Dynamics 365, Excel Online, Microsoft 팀, Office 365, OneDrive 및 SharePoint Online
+* 승인 된 Microsoft 서비스: Dynamics 365, Excel Online, Microsoft 팀, Microsoft 365, OneDrive 및 SharePoint Online
 
 * 고객이 관리 하는 데이터 원본에 대 한 커넥터: FTP, RSS, SFTP, SMTP 및 SQL Server
 

@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0b9b8ba555cddd56c49c750709e69ec180291c95
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440816"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91827295"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>지점 및 사이트 간 VPN 라우팅 정보
 
 이 문서는 Azure 지점 및 사이트 간 VPN 라우팅이 작동하는 방법을 이해하는 데 도움이 됩니다. P2S(지점 및 사이트 간) VPN 라우팅 동작은 클라이언트 OS, VPN 연결에 사용된 프로토콜 및 VNet(가상 네트워크)이 서로 연결된 방식에 따라 다릅니다.
 
-Azure는 현재 원격 액세스에 대해 두 가지 프로토콜, 즉 IKEv2 및 SSTP를 지원합니다. IKEv2는 Windows, Linux, MacOS, Android 및 iOS를 포함한 많은 클라이언트 운영 체제에서 지원됩니다. SSTP는 Windows에서만 지원됩니다. 네트워크의 토폴로지를 변경하고 Windows VPN 클라이언트를 사용하는 경우, 변경 내용을 클라이언트에 적용하기 위해 Windows 클라이언트용 VPN 클라이언트 패키지를 다운로드하여 다시 설치해야 합니다.
+Azure는 현재 원격 액세스에 대해 두 가지 프로토콜, 즉 IKEv2 및 SSTP를 지원합니다. IKEv2는 Windows, Linux, macOS, Android 및 iOS를 비롯 한 여러 클라이언트 운영 체제에서 지원 됩니다. SSTP는 Windows에서만 지원됩니다. 네트워크의 토폴로지를 변경하고 Windows VPN 클라이언트를 사용하는 경우, 변경 내용을 클라이언트에 적용하기 위해 Windows 클라이언트용 VPN 클라이언트 패키지를 다운로드하여 다시 설치해야 합니다.
 
 > [!NOTE]
 > 이 문서는 IKEv2에만 적용됩니다.
@@ -32,7 +32,7 @@ Azure는 현재 원격 액세스에 대해 두 가지 프로토콜, 즉 IKEv2 �
 
 이 예의 지점 및 사이트 간 VPN 게이트웨이 연결은 다른 가상 네트워크(VNet1)와 연결되거나 피어링되지 않은 VNet에 대한 연결입니다. 이 예제에서 클라이언트는 VNet1에 액세스할 수 있습니다.
 
-![isolated VNet 라우팅](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolated VNet 라우팅")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg" alt-text="Isolated VNet 라우팅" lightbox="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg":::
 
 ### <a name="address-space"></a>주소 공간
 
@@ -44,7 +44,7 @@ Azure는 현재 원격 액세스에 대해 두 가지 프로토콜, 즉 IKEv2 �
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>액세스 권한
 
 * Windows 클라이언트는 VNet1에 액세스할 수 있습니다.
 
@@ -56,7 +56,7 @@ Azure는 현재 원격 액세스에 대해 두 가지 프로토콜, 즉 IKEv2 �
 
 Windows를 사용하는 클라이언트는 피어링된 VNet에 직접 액세스할 수 있지만, VNet 피어링 또는 네트워크 토폴로지가 변경되면 VPN 클라이언트를 다시 다운로드해야 합니다. 비Windows 클라이언트는 피어링된 VNet에 직접 액세스할 수 있습니다. 액세스는 전이되지 않으며, 직접 피어링된 VNet으로만 제한됩니다.
 
-![여러 피어 링 Vnet](./media/vpn-gateway-about-point-to-site-routing/2.jpg "여러 피어 링 Vnet")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Isolated VNet 라우팅" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### <a name="address-space"></a>주소 공간
 
@@ -74,7 +74,7 @@ Windows를 사용하는 클라이언트는 피어링된 VNet에 직접 액세스
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>액세스 권한
 
 * Windows 클라이언트는 VNet1, VNet2 및 VNet4에 액세스할 수 있지만, 토폴로지 변경 내용을 적용하려면 VPN 클라이언트를 다시 다운로드해야 합니다.
 
@@ -86,7 +86,7 @@ Windows를 사용하는 클라이언트는 피어링된 VNet에 직접 액세스
 
 Windows 또는 지원되는 다른 OS를 사용하는 클라이언트는 VNet1에만 액세스할 수 있습니다. 추가 VNet에 액세스하려면 BGP를 사용해야 합니다.
 
-![여러 Vnet 및 S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "여러 Vnet 및 S2S")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Isolated VNet 라우팅" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### <a name="address-space"></a>주소 공간
 
@@ -102,7 +102,7 @@ Windows 또는 지원되는 다른 OS를 사용하는 클라이언트는 VNet1�
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>액세스 권한
 
 * Windows 클라이언트는 VNet1에만 액세스할 수 있습니다.
 
@@ -114,7 +114,7 @@ Windows 또는 지원되는 다른 OS를 사용하는 클라이언트는 VNet1�
 
 Windows 또는 지원되는 다른 OS를 사용하는 클라이언트는 사이트 간 VPN 연결을 사용하여 연결된 모든 VNet에 액세스할 수 있지만, 연결된 VNet에 대한 경로를 Windows 클라이언트에 수동으로 추가해야 합니다.
 
-![다중 Vnet 및 S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "여러 Vnet 및 S2S BGP")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Isolated VNet 라우팅" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### <a name="address-space"></a>주소 공간
 
@@ -130,7 +130,7 @@ Windows 또는 지원되는 다른 OS를 사용하는 클라이언트는 사이�
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>액세스 권한
 
 * Windows 클라이언트는 VNet1, VNet2 및 VNet3에 액세스할 수 있지만, VNet2 및 VNet3에 대한 경로를 수동으로 추가해야 합니다.
 
@@ -142,7 +142,7 @@ Windows 또는 지원되는 다른 OS를 사용하는 클라이언트는 사이�
 
 Windows 및 비Windows 클라이언트는 VNet1에만 액세스할 수 있습니다.
 
-![VNet 및 지점으로 라우팅](./media/vpn-gateway-about-point-to-site-routing/5.jpg "VNet 및 지점으로 라우팅")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Isolated VNet 라우팅" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### <a name="address-space"></a>주소 공간
 
@@ -156,7 +156,7 @@ Windows 및 비Windows 클라이언트는 VNet1에만 액세스할 수 있습니
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>액세스 권한
 
 * Windows 클라이언트는 VNet1에만 액세스할 수 있습니다.
 
@@ -168,7 +168,7 @@ Windows 및 비Windows 클라이언트는 VNet1에만 액세스할 수 있습니
 
 Windows 클라이언트는 VNet 및 지점(Site1)에 액세스할 수 있지만, Site1에 대한 경로를 클라이언트에 수동으로 추가해야 합니다. 비Windows 클라이언트는 VNet 및 온-프레미스 지점에 액세스할 수 있습니다.
 
-![단일 VNet 및 단일 지점 (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "단일 VNet 및 지점")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Isolated VNet 라우팅" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### <a name="address-space"></a>주소 공간
 
@@ -182,7 +182,7 @@ Windows 클라이언트는 VNet 및 지점(Site1)에 액세스할 수 있지만,
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>액세스 권한
 
 * Windows 클라이언트는 VNet1 및 Site1에 액세스할 수 있지만, Site1에 대한 경로를 수동으로 추가해야 합니다.
 
@@ -195,7 +195,7 @@ Windows 클라이언트는 VNet 및 지점(Site1)에 액세스할 수 있지만,
 
 모든 클라이언트는 VNet1에만 액세스할 수 있습니다.
 
-![다중 VNet S2S 및 지점](./media/vpn-gateway-about-point-to-site-routing/7.jpg "다중 VNet S2S 및 지점")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Isolated VNet 라우팅" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### <a name="address-space"></a>주소 공간
 
@@ -213,7 +213,7 @@ Windows 클라이언트는 VNet 및 지점(Site1)에 액세스할 수 있지만,
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>액세스 권한
 
 * Windows 클라이언트는 VNet1에만 액세스할 수 있습니다.
 
@@ -225,7 +225,7 @@ Windows 클라이언트는 VNet 및 지점(Site1)에 액세스할 수 있지만,
 
 Windows를 사용하는 클라이언트는 사이트 간 VPN 연결을 사용하여 연결된 VNet 및 사이트에 액세스할 수 있지만, VNet2, VNet3 및 Site1에 대한 경로를 클라이언트에 수동으로 추가해야 합니다. 비Windows 클라이언트는 수동 개입 없이 사이트 간 VPN 연결을 사용하여 연결된 VNet 및 사이트에 액세스할 수 있습니다. 액세스는 전이되며, 클라이언트는 연결된 모든 VNet 및 사이트(온-프레미스)의 리소스에 액세스할 수 있습니다.
 
-![다중 VNet S2S 및 지점](./media/vpn-gateway-about-point-to-site-routing/8.jpg "다중 VNet S2S 및 지점")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="Isolated VNet 라우팅" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### <a name="address-space"></a>주소 공간
 
@@ -243,7 +243,7 @@ Windows를 사용하는 클라이언트는 사이트 간 VPN 연결을 사용하
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
-### <a name="access"></a>Access
+### <a name="access"></a>액세스 권한
 
 * Windows 클라이언트는 VNet1, VNet2, VNet3 및 Site1에 액세스할 수 있지만, VNet2, VNet3 및 Site1에 대한 경로를 클라이언트에 수동으로 추가해야 합니다.
 

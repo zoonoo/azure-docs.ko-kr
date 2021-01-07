@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 호스트 풀 PowerShell 만들기 - Azure
 description: PowerShell cmdlet을 사용하여 Windows Virtual Desktop에서 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121156"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91667166"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 호스트 풀 만들기
 
@@ -100,6 +100,9 @@ Windows Virtual Desktop 에이전트를 설치하고 가상 머신을 Windows Vi
     >[!NOTE]
     > Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group)의 멤버이기도 한지 확인합니다.
 
+>[!IMPORTANT]
+>Windows Installer를 사용 하지 않도록 설정 하는 정책이 나 구성은 사용 하지 않는 것이 좋습니다. Windows Installer를 사용 하지 않도록 설정 하면 서비스에서 세션 호스트에 에이전트 업데이트를 설치할 수 없고 세션 호스트가 제대로 작동 하지 않습니다.
+
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Windows Virtual Desktop 호스트 풀에 가상 머신을 등록합니다.
 
 Windows Virtual Desktop 호스트 풀에 가상 머신을 등록하는 작업은 Windows Virtual Desktop 에이전트 설치만큼 간단합니다.
@@ -137,10 +140,10 @@ Windows Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 
    이러한 파일을 제거 하려면 각 파일 이름을 마우스 오른쪽 단추로 클릭 한 다음 **제거**를 선택 합니다.
 5. 필요에 따라 다음 레지스트리 설정을 제거할 수도 있습니다.
      
-     - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
-     - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
-6. 이러한 항목을 제거한 후에는 이전 호스트 풀과의 모든 연결을 제거 해야 합니다. 이 호스트를 서비스에 등록 하려면 [WIndows 가상 데스크톱 호스트 풀에 가상 컴퓨터 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침을 따르세요.
+6. 이러한 항목을 제거한 후에는 이전 호스트 풀과의 모든 연결을 제거 해야 합니다. 이 호스트를 서비스에 등록 하려면 [Windows 가상 데스크톱 호스트 풀에 가상 컴퓨터 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침을 따르세요.
 
 
 ## <a name="next-steps"></a>다음 단계

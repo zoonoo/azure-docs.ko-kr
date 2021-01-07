@@ -3,19 +3,19 @@ title: 메트릭 관리자 메트릭 그래프
 titleSuffix: Azure Cognitive Services
 description: 메트릭 그래프를 구성 하 고 데이터에서 관련 된 변칙을 시각화 하는 방법을 설명 합니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: aahi
-ms.openlocfilehash: 09ea16f07973757b169f21c7c3f909a24651daa4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: bcedef4a1339dacaff3fe841e97f985c42320819
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940648"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043156"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>방법: 메트릭 그래프를 작성 하 여 관련 메트릭 분석
 
@@ -35,7 +35,7 @@ ms.locfileid: "90940648"
 
 **관계 추가**를 클릭 하면 다른 메트릭을 선택 하 고 두 노드 간의 관계 유형을 지정할 수 있습니다. 특정 차원 필터를 적용할 수도 있습니다. 
 
-:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="노드 및 관계 추가":::
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="메트릭 선택":::
 
 위의 단계를 반복 하면 관련 된 모든 메트릭 간의 관계를 설명 하는 메트릭 그래프가 만들어집니다.
 **노드 색에 대 한 힌트**
@@ -50,7 +50,7 @@ ms.locfileid: "90940648"
 
 그래프 내에서 인시던트를 클릭 하 고 진단 정보 아래의 **교차 메트릭 분석**까지 아래로 스크롤합니다.
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="관련 메트릭 및 비정상 보기":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="메트릭 선택":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 
 description: 이 자습서에서는 Azure Live Video Analytics on Azure IoT Edge를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 05ee34770cacdcda270afced13373a61ba83e13a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 8f3ecdf7e4260d700f31663852abbb39474cd474
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568570"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401675"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생
 
@@ -52,7 +52,7 @@ ms.locfileid: "89568570"
 * Azure IoT Hub
 * Azure Storage 계정
 * Azure Media Services 계정
-* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge-linux.md)이 설치된 Azure의 Linux VM
+* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge.md)이 설치된 Azure의 Linux VM
 
 ## <a name="concepts"></a>개념
 
@@ -68,13 +68,13 @@ ms.locfileid: "89568570"
 이 다이어그램은 [미디어 그래프](media-graph-concept.md) 및 원하는 시나리오를 수행하는 추가 모듈을 그림으로 표현한 것입니다. 다음 4개의 IoT Edge 모듈이 포함되어 있습니다.
 
 * Live Video Analytics on IoT Edge 모듈
-* HTTP 엔드포인트 내부에서 AI 모델을 실행하는 에지 모듈. 이 AI 모듈은 다양한 형식의 개체를 감지할 수 있는 [YOLO v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) 모델을 사용합니다.
+* HTTP 엔드포인트 내부에서 AI 모델을 실행하는 에지 모듈. 이 AI 모듈은 다양한 형식의 개체를 감지할 수 있는 [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) 모델을 사용합니다.
 * 개체를 계산하고 필터링하는 사용자 지정 모듈(다이어그램에서는 개체 카운터라고 함). 이 자습서에서는 개체 카운터를 빌드하고 배포합니다.
 * RTSP 카메라를 시뮬레이션하는 [RTSP 시뮬레이터 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)
     
 다이어그램에서 볼 수 있듯이 미디어 그래프에서 [RTSP 원본](media-graph-concept.md#rtsp-source) 노드를 사용하여 고속도로에서 시뮬레이션된 라이브 교통 비디오를 캡처하고 해당 비디오를 두 개의 경로로 보냅니다.
 
-* 첫 번째 경로는 지정된(축소된) 프레임 속도로 비디오 프레임을 출력하는 [프레임 속도 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 노드의 경로입니다. 이러한 비디오 프레임은 HTTP 확장 노드로 보내집니다. 그런 다음, 노드에서 프레임을 이미지로 개체 감지기인 YOLO v3 AI 모듈에 릴레이합니다. 노드는 모델에서 감지된 개체(교통 차량)인 결과를 받습니다. 그런 다음, HTTP 확장 노드에서 IoT Hub 메시지 싱크 노드를 통해 결과를 IoT Edge 허브에 게시합니다.
+* 첫 번째 경로는 HTTP 확장 노드에 대한 것입니다. 노드는 `samplingOptions` 필드를 사용하여 사용자가 설정한 값으로 비디오 프레임을 샘플링한 다음, 프레임을 개체 감지기인 AI 모듈 YOLOv3에 이미지로 릴레이합니다. 노드는 모델에서 감지된 개체(교통 차량)인 결과를 받습니다. 그런 다음, HTTP 확장 노드에서 IoT Hub 메시지 싱크 노드를 통해 결과를 IoT Edge 허브에 게시합니다.
 * objectCounter 모듈이 IoT Edge 허브에서 메시지를 받도록 설정되며, 여기에는 개체 감지 결과(교통 차량)가 포함됩니다. 모듈은 이러한 메시지를 확인하고 설정을 통해 구성된 특정 형식의 개체를 찾습니다. 이러한 개체가 있으면 이 모듈에서 메시지를 IoT Edge 허브에 보냅니다. 이러한 "개체 발견" 메시지는 미디어 그래프의 IoT Hub 원본 노드로 라우팅됩니다. 이러한 메시지를 받으면 미디어 그래프의 IoT Hub 원본 노드에서 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor) 노드를 트리거합니다. 그러면 신호 게이트 프로세서 노드가 구성된 시간 동안 열립니다. 비디오는 이 시간 동안 게이트를 통과하여 자산 싱크 노드로 이동합니다. 그런 다음, 라이브 스트림의 해당 부분이 [자산 싱크](media-graph-concept.md#asset-sink) 노드를 통해 Azure Media Services 계정의 [자산](terminology.md#asset)에 기록됩니다.
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
@@ -93,7 +93,7 @@ ms.locfileid: "89568570"
 
 1. GitHub 링크(https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp )의 리포지토리를 복제합니다.
 1. Visual Studio Code를 시작하고, 리포지토리를 다운로드한 폴더를 엽니다.
-1. Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동하고, **appsettings.json**이라는 파일을 만듭니다. 이 파일에는 프로그램을 실행하는 데 필요한 설정이 포함되어 있습니다.
+1. Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동하고, **appsettings.json** 이라는 파일을 만듭니다. 이 파일에는 프로그램을 실행하는 데 필요한 설정이 포함되어 있습니다.
 1. ~/clouddrive/lva-sample/appsettings.json 파일의 콘텐츠를 복사합니다. 텍스트는 다음과 같습니다.
 
     ```
@@ -106,8 +106,8 @@ ms.locfileid: "89568570"
 
     IoT Hub 연결 문자열을 사용하면 Visual Studio Code를 사용하여 Azure IoT Hub를 통해 명령을 에지 모듈에 보낼 수 있습니다.
     
-1. 다음으로, src/edge 폴더로 이동하고, **.env**라는 파일을 만듭니다.
-1. ~/clouddrive/lva-sample/.env 파일의 콘텐츠를 복사합니다. 텍스트는 다음과 같습니다.
+1. 다음으로, src/edge 폴더로 이동하고, **.env** 라는 파일을 만듭니다.
+1. ~/clouddrive/lva-sample/edge-deployment/.env 파일의 콘텐츠를 복사합니다. 텍스트는 다음과 같습니다.
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -152,7 +152,7 @@ IoT Edge 배포 매니페스트에서 경로를 선언하는 방법은 [이 섹�
 
 배포 매니페스트는 에지 디바이스에 배포되는 모듈 및 해당 모듈의 구성 설정을 정의합니다. 다음 단계에 따라 템플릿 파일에서 매니페스트를 생성한 다음, 에지 디바이스에 배포합니다.
 
-Visual Studio Code를 사용하여 [이러한 지침](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution)에 따라 Docker에 로그인합니다. 그런 다음, **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 이 단계에서는 src/edge/deployment.objectCounter.template.json을 사용합니다.
+Visual Studio Code를 사용하여 [이러한 지침](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution)에 따라 Docker에 로그인합니다. 그런 다음, **IoT Edge 솔루션 빌드 및 푸시** 를 선택합니다. 이 단계에서는 src/edge/deployment.objectCounter.template.json을 사용합니다.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="IoT Edge 솔루션 빌드 및 푸시":::
@@ -161,7 +161,7 @@ Visual Studio Code를 사용하여 [이러한 지침](../../iot-edge/tutorial-de
 
 * .env 파일에 CONTAINER_REGISTRY_USERNAME_myacr 및 CONTAINER_REGISTRY_PASSWORD_myacr 환경 변수가 정의되었는지 확인합니다.
 
-이 단계에서는 IoT Edge 배포 매니페스트를 src/edge/config/deployment.objectCounter.amd64.json에 만듭니다. 마우스 오른쪽 단추로 해당 파일을 클릭하고 **단일 디바이스용 배포 만들기**를 선택합니다.
+이 단계에서는 IoT Edge 배포 매니페스트를 src/edge/config/deployment.objectCounter.amd64.json에 만듭니다. 마우스 오른쪽 단추로 해당 파일을 클릭하고 **단일 디바이스용 배포 만들기** 를 선택합니다.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="단일 디바이스용 배포 만들기":::
@@ -180,17 +180,25 @@ Live Video Analytics on IoT Edge와 관련된 첫 번째 자습서인 경우 Vis
 
 objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를 확인하려면 다음 단계를 수행합니다.
 
-1. Visual Studio Code에서 탐색기 창을 열고, 왼쪽 아래 모서리에서 **Azure IoT Hub**를 찾습니다.
+1. Visual Studio Code에서 탐색기 창을 열고, 왼쪽 아래 모서리에서 **Azure IoT Hub** 를 찾습니다.
 1. **디바이스** 노드를 펼칩니다.
-1. 마우스 오른쪽 단추로 lva-sample-device 파일을 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
+1. 마우스 오른쪽 단추로 lva-sample-device 파일을 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="기본 제공 이벤트 엔드포인트 모니터링 시작":::
     
-    ## <a name="run-the-program"></a>프로그램 실행
+## <a name="run-the-program"></a>프로그램 실행
 
-1. Visual Studio Code에서 src/cloud-to-device-console-app/operations.json으로 이동합니다.
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="확장 설정":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="자세한 정보 메시지 표시":::
+1. <!--In Visual Studio Code, go-->src/cloud-to-device-console-app/operations.json으로 이동합니다.
 1. **GraphTopologySet** 노드 아래에서 다음을 편집합니다.
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
@@ -198,8 +206,7 @@ objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를
 1. 다음으로, **GraphInstanceSet** 및 **GraphTopologyDelete** 노드 아래에서 다음을 편집합니다.
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
-1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 일부 메시지가 출력되어 표시됩니다.
-
+1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 일부 메시지가 출력됩니다.
 1. operations.json 파일이 GraphTopologyList 및 GraphInstanceList를 호출하여 시작됩니다. 이전 빠른 시작 또는 자습서가 완료된 후에 리소스를 정리한 경우 이 작업에서 빈 목록을 반환하고, 다음과 같이 **Enter** 키를 선택할 수 있도록 일시 중지합니다.
 
     ```
@@ -217,9 +224,8 @@ objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를
     Executing operation WaitForInput
     Press Enter to continue
     ```
-
 1. **터미널** 창에서 **Enter** 키가 선택되면 다음 직접 메서드 호출 세트가 수행됩니다.
-   * 이전 topologyUrl을 사용하여 GraphTopologySet에 대한 호출
+   * 이전 topologyUrl을 사용하여 GraphTopologySet 호출
    * 다음 본문을 사용하여 GraphInstanceSet에 대한 호출
      
         ```
@@ -250,24 +256,22 @@ objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를
    * 그래프 인스턴스를 시작하고 비디오 흐름을 시작하는 GraphInstanceActivate에 대한 호출
    * 그래프 인스턴스가 실행 중 상태임을 보여 주는 GraphInstanceList에 대한 두 번째 호출
      
-1. 이제 **터미널** 창의 출력이 **계속하려면 Enter 키를 누르세요**라는 메시지에서 일시 중지됩니다. 지금은 **Enter** 키를 선택하지 마세요. 위로 스크롤하여 호출한 직접 메서드에 대한 JSON 응답 페이로드를 확인합니다.
-
+1. 이제 **터미널** 창의 출력이 **계속하려면 Enter 키를 누르세요** 라는 메시지에서 일시 중지됩니다. 지금은 **Enter** 키를 선택하지 마세요. 위로 스크롤하여 호출한 직접 메서드에 대한 JSON 응답 페이로드를 확인합니다.
 1. 이제 Visual Studio Code에서 **출력** 창으로 전환하면 Live Video Analytics on IoT Edge 모듈에서 IoT Hub로 보내는 메시지가 표시됩니다.
 
    이러한 메시지에 대한 내용은 다음 섹션에서 다룹니다.
-     
 1. 그래프 인스턴스가 계속 실행되어 비디오를 녹화합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 다음 섹션에서 설명하는 메시지를 검토합니다. 그런 다음, 인스턴스를 중지하려면 **터미널** 창으로 돌아가서 **Enter** 키를 선택합니다. 다음과 같은 일련의 호출을 수행하여 리소스를 정리합니다.
 
-   * 그래프 인스턴스를 비활성화하는 GraphInstanceDeactivate에 대한 호출
-   * 인스턴스를 삭제하는 GraphInstanceDelete에 대한 호출
-   * 토폴로지를 삭제하는 GraphTopologyDelete에 대한 호출
-   * 이제 목록이 비어 있음을 보여 주는 GraphTopologyList에 대한 최종 호출
+   * 그래프 인스턴스를 비활성화하는 GraphInstanceDeactivate 호출
+   * 인스턴스를 삭제하는 GraphInstanceDelete 호출
+   * 토폴로지를 삭제하는 GraphTopologyDelete 호출
+   * 이제 목록이 비어 있음을 보여주는 마지막 GraphTopologyList 호출
 
 ## <a name="interpret-the-results"></a>결과 해석 
 
 미디어 그래프를 실행하면 Live Video Analytics on IoT Edge 모듈에서 특정 진단 및 작업 이벤트를 IoT Edge 허브에 보냅니다. 이러한 이벤트는 Visual Studio Code의 **출력** 창에 표시되는 메시지입니다. 여기에는 body 섹션 및 applicationProperties 섹션이 포함되어 있습니다. 이러한 섹션이 나타내는 내용을 이해하려면 [IoT Hub 메시지 작성 및 읽기](../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 
-다음 메시지에서 애플리케이션 속성 및 본문의 콘텐츠는 Live Video Analytics 모듈에서 정의됩니다.
+다음 메시지에서 애플리케이션 속성 및 body의 콘텐츠는 Live Video Analytics 모듈에서 정의됩니다.
 
 ## <a name="diagnostics-events"></a>진단 이벤트
 
@@ -293,7 +297,7 @@ objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를
 
 
 * 이 메시지는 진단 이벤트(MediaSessionEstablished)입니다. RTSP 원본 노드(주체)에서 RTSP 시뮬레이터와의 연결을 설정하고 라이브 피드(시뮬레이션된)를 받기 시작했음을 나타냅니다.
-* applicationProperties의 subject 섹션은 메시지가 생성된 그래프 토폴로지의 노드를 참조합니다. 이 경우 메시지는 RTSP 원본 노드에서 시작됩니다.
+* applicationProperties의 subject 섹션은 메시지가 생성된 그래프 토폴로지의 노드를 참조합니다. 여기서는 메시지가 RTSP 원본 노드에서 시작됩니다.
 * applicationProperties의 eventType 섹션은 진단 이벤트임을 나타냅니다.
 * eventTime 섹션은 이벤트가 발생한 시간을 나타냅니다. 이는 교통 비디오(MKV 파일)가 라이브 스트림으로 모듈에 도착하기 시작한 시간입니다.
 * body 섹션에는 진단 이벤트에 대한 데이터가 포함됩니다. 이 경우 [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) 세부 정보입니다.
@@ -394,30 +398,30 @@ Azure Portal에 로그인하여 비디오를 보면 그래프에서 만든 Media
 
 1. 웹 브라우저를 열고 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 1. 구독에 있는 리소스 중에서 Media Services 계정을 찾습니다. 계정 창을 엽니다.
-1. **Media Services** 목록에서 **자산**을 선택합니다.
+1. **Media Services** 목록에서 **자산** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="연속 비디오 녹화":::
 1. sampleAssetFromEVR-LVAEdge-{DateTime}이라는 이름으로 나열된 자산을 찾을 수 있습니다. 이는 RecordingStarted 이벤트의 outputLocation 속성에 제공된 이름입니다. 토폴로지의 assetNamePattern은 이름을 생성하는 방법을 결정합니다.
 1. 자산을 선택합니다.
-1. 자산 세부 정보 페이지의 **스트리밍 URL** 텍스트 상자 아래에서 **새로 만들기**를 선택합니다.
+1. 자산 세부 정보 페이지의 **스트리밍 URL** 텍스트 상자 아래에서 **새로 만들기** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="새 자산":::
-1. 열린 마법사에서 기본 옵션을 그대로 적용하고 **추가**를 선택합니다. 자세한 내용은 [비디오 재생](video-playback-concept.md)을 참조하세요.
+1. 열린 마법사에서 기본 옵션을 그대로 적용하고 **추가** 를 선택합니다. 자세한 내용은 [비디오 재생](video-playback-concept.md)을 참조하세요.
 
     > [!TIP]
     > [스트리밍 엔드포인트가 실행 중](../latest/streaming-endpoint-concept.md)인지 확인합니다.
-1. 플레이어에서 비디오를 로드해야 합니다. **재생**을 선택하여 봅니다.
+1. 플레이어에서 비디오를 로드해야 합니다. **재생** 을 선택하여 비디오를 봅니다.
 
 > [!NOTE]
 > 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 그래프 인스턴스를 활성화한 시간 및 비활성화한 시간과 관련이 있습니다. [여러 날 녹화본 재생](playback-multi-day-recordings-tutorial.md) 자습서에 기본 제공된 재생 컨트롤을 사용하면 화면에 표시되는 비디오에서 타임스탬프를 볼 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서를 사용하려면 여기서 만든 리소스를 그대로 유지합니다. 다른 자습서를 진행할 생각이 없으면 Azure Portal로 이동하여 해당하는 리소스 그룹을 찾고, 이 자습서를 실행한 리소스 그룹을 선택하고, 리소스 그룹을 삭제합니다.
+다른 자습서를 진행하려면 여기서 만든 리소스를 그대로 둡니다. 다른 자습서를 진행할 생각이 없으면 Azure Portal로 이동하여 해당하는 리소스 그룹을 찾고, 이 자습서를 실행한 리소스 그룹을 선택하고, 리소스 그룹을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * RTSP 시뮬레이터 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 프로필 G, S 또는 T를 준수하는 디바이스를 찾아 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다.
-* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 빠른 시작의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
+* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 빠른 시작의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.

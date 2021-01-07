@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하여 복제에서 디스크 제외
 description: Azure Site Recovery를 사용하여 Azure로 복제할 때 디스크를 제외하는 방법.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245401"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008262"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>재해 복구에서 디스크 제외
 
@@ -56,13 +56,13 @@ ms.locfileid: "86245401"
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>예제 1: SQL Server tempdb 디스크 제외
 
-tempdb를 제외하려는 원본 SQL Server Windows VM(**SalesDB***)에 대한 디스크 제외, 장애 조치(failover) 및 장애 복구를 처리하는 방법을 살펴보겠습니다. 
+Tempdb를 제외 하려는 원본 SQL Server Windows VM- **Salesdb** _의 디스크 제외, 장애 조치 (failover) 및 장애 조치 (failover)를 처리 하는 방법을 살펴보겠습니다. 
 
 ### <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 
 원본 Windows VM SalesDB에 다음과 같은 디스크가 있습니다.
 
-**디스크 이름** | **게스트 OS 디스크** | **드라이브 문자** | **디스크 데이터 형식**
+_ *디스크 이름** | **게스트 OS 디스크** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | 운영 체제 디스크.
 DB-Disk1| Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1.
@@ -207,7 +207,7 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 원본 VM의 페이징 파일 설정은 다음과 같습니다.
 
-![원본 가상 컴퓨터의 페이징 파일 설정](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![3000-7000의 페이징 파일 크기 (MB)를 보여 주는 D: 드라이브 [페이지 파일 볼륨] 선이 강조 표시 된 가상 메모리 대화의 스크린샷](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. VM에 대한 복제를 활성화합니다.
 2. DB-Disk1을 복제에서 제외합니다.
@@ -260,7 +260,7 @@ DB-Disk3 | Disk3 | F:\ | 사용자 데이터 2
 
 Azure VM의 페이징 파일 설정은 다음과 같습니다.
 
-![Azure Virtual Machine의 페이징 파일 설정](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+!["시스템 관리"의 페이징 파일 크기 설정을 보여 주는 C: 드라이브 회선이 강조 표시 된 가상 메모리 대화 상자 스크린샷](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>다음 단계

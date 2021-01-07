@@ -5,13 +5,13 @@ author: ashishnegi
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 86822c5a9cef84ff4b51bc94b6b2dd3dbdee91bf
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75497957"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702012"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Azure Service Fabric Mesh 애플리케이션에서 볼륨에 기반한 고가용성 Service Fabric Reliable Disk 탑재 
 컨테이너 앱을 사용하여 상태를 유지하는 일반적인 방법은Azure File Storage와 같은 원격 스토리지 또는 Azure Cosmos DB와 같은 데이터베이스를 사용하는 것입니다. 이 경우 원격 저장소에 대한 상당한 읽기 및 쓰기 네트워크 지연이 발생합니다.
@@ -23,7 +23,7 @@ Service Fabric Reliable Disk는 고가용성 Service Fabric 클러스터 내에�
 
 `counterService`는 주기적으로 파일에서 카운터 값을 읽고 이를 증분하여 파일에 다시 씁니다. 파일은 Service Fabric Reliable Disk에서 지원하는 볼륨에 탑재되는 폴더에 저장됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 작업을 완료할 수 있습니다. 이 문서에서 Azure CLI를 사용하려면 `az --version`이 `azure-cli (2.0.43)` 이상을 반환하는지 확인합니다.  다음 [지침](service-fabric-mesh-howto-setup-cli.md)에 따라 Azure Service Fabric Mesh CLI 확장 모듈을 설치 또는 업데이트합니다.
 
@@ -46,6 +46,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
+>[!NOTE]
+> 2020년 11월 2일부터 Docker Free 계획 계정에서 Docker Hub에 대한 익명 및 인증된 요청에 [다운로드 속도 제한이 적용](https://docs.docker.com/docker-hub/download-rate-limit/)되며 IP 주소에 의해 적용됩니다. 
+> 
+> 이 템플릿은 Docker 허브의 공용 이미지를 사용 합니다. 요금이 제한될 수 있다는 점에 유의하세요. 자세한 내용은 [Docker Hub를 사용하여 인증](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub)을 참조하세요.
+
 다음 명령은 [counter.sfreliablevolume.linux.json 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json)을 사용하여 Linux 애플리케이션을 배포합니다. Windows 애플리케이션을 배포하려면 [counter.sfreliablevolume.windows.json 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json)을 사용합니다. 컨테이너 이미지가 크면 배포 시간이 더 오래 걸릴 수 있습니다.
 
 ```azurecli-interactive
@@ -55,12 +60,12 @@ az mesh deployment create --resource-group myResourceGroup --template-uri https:
 명령을 사용하여 배포 상태를 확인할 수도 있습니다.
 
 ```azurecli-interactive
-az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
+az deployment group show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
 `Microsoft.ServiceFabricMesh/gateways`와 리소스 형식 같은 게이트웨이 리소스의 이름을 확인합니다. 이 앱의 공용 IP 주소 가져오는 데 사용됩니다.
 
-## <a name="open-the-application"></a>애플리케이션 열기
+## <a name="open-the-application"></a>애플리케이션을 엽니다.
 
 애플리케이션이 성공적으로 배포되면 앱에 대한 게이트웨이 리소스의 ipAddress를 가져옵니다. 위의 섹션에서 알게 게이트웨이 이름을 사용합니다.
 ```azurecli-interactive

@@ -6,17 +6,17 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: d14ed7e714eac175dc7a17bbccd2150f9bb01ef9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752736"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070659"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>AKS 클러스터에 영향을 주는 Resource Health 이벤트 확인 (미리 보기)
 
 
-AKS에서 컨테이너 워크 로드를 실행 하는 경우 작업의 가용성에 대 한 영향을 최소화 하기 위해 발생 하는 문제를 해결 하 고 문제를 해결할 수 있도록 합니다. [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) 를 사용 하면 AKS 클러스터를 사용할 수 없게 될 수 있는 다양 한 상태 이벤트를 볼 수 있습니다.
+AKS에서 컨테이너 워크 로드를 실행 하는 경우 작업의 가용성에 대 한 영향을 최소화 하기 위해 발생 하는 문제를 해결 하 고 문제를 해결할 수 있도록 합니다. [Azure Resource Health](../service-health/resource-health-overview.md) 를 사용 하면 AKS 클러스터를 사용할 수 없게 될 수 있는 다양 한 상태 이벤트를 볼 수 있습니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -33,7 +33,7 @@ AKS에서 컨테이너 워크 로드를 실행 하는 경우 작업의 가용성
 - 왼쪽 탐색에서 **Resource health** 를 선택 합니다.
 - 구독을 선택 하 고 리소스 종류를 Azure Kubernetes Service (AKS)로 설정 합니다.
 
-![리소스 상태-검사](./media/aks-resource-health/resource-health-check.png)
+![A K S 클러스터의 리소스 상태를 보여 주는 스크린샷](./media/aks-resource-health/resource-health-check.png)
 
 ## <a name="check-the-health-status"></a>상태 확인
 
@@ -49,7 +49,7 @@ Resource Health는 관리 클러스터에 대 한 신호를 수신 하 여 클�
 
 - **저하**됨: 작업을 요구 하는 상태 문제가 있는 경우 Resource Health 클러스터를 *저하*된 것으로 보고 합니다.
 
-각 상태에 표시 되는 사항에 대 한 자세한 내용은 [Resource Health 개요](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status)를 참조 하세요.
+각 상태에 표시 되는 사항에 대 한 자세한 내용은 [Resource Health 개요](../service-health/resource-health-overview.md#health-status)를 참조 하세요.
 
 ### <a name="view-historical-data"></a>기록 데이터 보기
 
@@ -57,4 +57,4 @@ Resource Health는 관리 클러스터에 대 한 신호를 수신 하 여 클�
 
 ## <a name="next-steps"></a>다음 단계
 
-[AKS 진단을](https://docs.microsoft.com/azure/aks/concepts-diagnostics)사용 하 여 클러스터 문제를 추가로 해결 하려면 클러스터에 대 한 검사를 실행 합니다.
+[AKS 진단을](./concepts-diagnostics.md)사용 하 여 클러스터 문제를 추가로 해결 하려면 클러스터에 대 한 검사를 실행 합니다.

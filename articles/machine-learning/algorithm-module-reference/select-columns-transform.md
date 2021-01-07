@@ -1,20 +1,20 @@
 ---
 title: '열 변환 선택: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 열 변형 선택 모듈을 사용 하 여 지정 된 데이터 집합에서와 동일한 열의 하위 집합을 선택 하는 변환을 만드는 방법을 알아봅니다.
+description: Azure Machine Learning 디자이너의 열 변형 선택 모듈을 사용 하 여 선택 변환을 수행 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: f03840e55366d7f105ca4b57bd60061c82833e72
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893632"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420719"
 ---
 # <a name="select-columns-transform"></a>열 변환 선택
 
@@ -46,8 +46,14 @@ ms.locfileid: "90893632"
 
    *입력 데이터 집합을 연결 하지 마십시오.* 대신, [변환 적용](apply-transformation.md) 모듈을 추가 하 고 기능 선택 변환의 출력을 연결 합니다.
 
+   파이프라인 구조는 다음과 같습니다.
+
+   > [!div class="mx-imgBorder"]
+   > ![샘플 파이프라인](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > [필터 기반 기능 선택](filter-based-feature-selection.md) 을 점수 매기기 데이터 집합에 적용 하 고 동일한 결과를 얻을 수는 없습니다. 기능 선택은 값을 기반으로 하기 때문에 다른 열 집합을 선택할 수 있으며,이로 인해 점수 매기기 작업이 실패 합니다.
+    
 7. 파이프라인을 제출합니다.
 
 열 선택을 저장 하 고 적용 하면 동일한 데이터 스키마를 학습 및 평가에 사용할 수 있습니다.

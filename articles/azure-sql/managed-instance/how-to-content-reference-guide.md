@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167983"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779767"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Azure SQL Managed Instance 콘텐츠 참조
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "88167983"
 
 - [Azure AD 인증 구성](../database/authentication-aad-configure.md)
 - [조건부 액세스 구성](../database/conditional-access-configure.md)
-- [Multi-factor Azure AD 인증](../database/authentication-mfa-ssms-overview.md)
+- [Multi-Factor Azure AD 인증](../database/authentication-mfa-ssms-overview.md)
 - [Multi-Factor Auth 구성](../database/authentication-mfa-ssms-configure.md)
 - [임시 보존 정책 구성](../database/temporal-tables-retention-policy.md)
 - [BYOK를 사용하여 TDE 구성](../database/transparent-data-encryption-byok-configure.md)
@@ -64,10 +64,10 @@ ms.locfileid: "88167983"
 
 - [수동 조정](../database/performance-guidance.md)
 - [DMV를 사용하여 성능 모니터링](../database/monitoring-with-dmvs.md)
-- [쿼리 저장소를 사용 하 여 성능 모니터링](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [쿼리 저장소를 사용 하 여 성능 모니터링](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Intelligent Insights로 성능 문제 해결](../database/intelligent-insights-troubleshoot-performance.md)
 - [Intelligent Insights 진단 로그 사용](../database/intelligent-insights-use-diagnostics-log.md)
-- [메모리 내 OLTP 공간 모니터링](../in-memory-oltp-monitor-space.md)
+- [OLTP 공간 In-Memory 모니터링](../in-memory-oltp-monitor-space.md)
 
 ### <a name="extended-events"></a>확장 이벤트
 
@@ -77,7 +77,7 @@ ms.locfileid: "88167983"
 
 ### <a name="alerting"></a>경고
 
-- [관리 되는 인스턴스에 대 한 경고 만들기](alerts-create.md)
+- [관리형 인스턴스에 대한 경고 만들기](alerts-create.md)
 
 ## <a name="operations"></a>작업
 

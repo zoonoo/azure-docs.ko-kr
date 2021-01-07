@@ -8,12 +8,12 @@ ms.author: tamram
 ms.topic: quickstart
 ms.date: 12/02/2019
 ms.subservice: tables
-ms.openlocfilehash: d592dd6ac705d0f1a0b3ed55e115d06023b0a511
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 93c6cb0f61185457ef0684d2a1ba691a0534aa13
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236270"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96326780"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Storage 테이블 만들기 
 
@@ -31,15 +31,15 @@ ms.locfileid: "88236270"
 
 1. 개요 > 테이블을 차례로 클릭합니다.
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
+   ![스토리지 계정인 vmamcgestorage에서 개요 탭이 강조 표시됩니다. 개요 창의 서비스 아래에서 테이블이 강조 표시됩니다.](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
 
-2. **+ 테이블**을 클릭합니다.
+2. **+ 테이블** 을 클릭합니다.
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
+   ![vmamcgestorage에 대한 Table service에서 + Table 옵션이 강조 표시됩니다.](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
 
-3. **테이블 이름** 상자에서 테이블 이름을 입력한 다음, **확인**을 클릭합니다. 
+3. **테이블 이름** 상자에서 테이블 이름을 입력한 다음, **확인** 을 클릭합니다. 
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
+   ![Table service의 테이블 추가 탭에서 내 테이블이 테이블 이름에 입력되고 강조 표시됩니다. 확인 단추가 선택되고 강조 표시됩니다.](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
 
 ## <a name="next-steps"></a>다음 단계
 

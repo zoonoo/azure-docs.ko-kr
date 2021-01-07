@@ -4,10 +4,10 @@ description: Azure DevTest Labs의 랩에서 VM에 대한 리소스 그룹을 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483366"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 가상 머신에 대한 리소스 그룹 지정
@@ -112,4 +112,4 @@ Azure Resource Manager 템플릿을 사용 하 여 랩을 만드는 경우 다�
 다음 문서를 참조하세요. 
 
 - [랩에 대한 정책 설정](devtest-lab-set-lab-policy.md)
-- [질문과 대답](devtest-lab-faq.md)
+- [자주 묻는 질문](devtest-lab-faq.md)

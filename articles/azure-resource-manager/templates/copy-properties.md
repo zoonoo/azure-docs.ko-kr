@@ -1,24 +1,24 @@
 ---
 title: 속성의 여러 인스턴스 정의
-description: Azure Resource Manager 템플릿에서 복사 작업을 사용 하 여 리소스에 대 한 속성을 만들 때 여러 번 반복 합니다.
+description: 리소스에 대 한 속성을 만들 때 Azure Resource Manager 템플릿 (ARM 템플릿)의 복사 작업을 사용 하 여 여러 번 반복 합니다.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605246"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905930"
 ---
 # <a name="property-iteration-in-arm-templates"></a>ARM 템플릿의 속성 반복
 
-이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 속성의 인스턴스를 둘 이상 만드는 방법을 보여 줍니다. 템플릿에서 리소스의 속성 섹션에 **copy** 요소를 추가 하 여 배포 중에 속성의 항목 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 속성의 인스턴스를 둘 이상 만드는 방법을 보여 줍니다. `copy`템플릿에서 리소스의 속성 섹션에 요소를 추가 하 여 배포 중에 속성의 항목 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
 
-속성에 복사본을 적용 하는 경우에도 최상위 리소스와 함께 복사를 사용할 수 있습니다. 자식 리소스를 최상위 수준 리소스로 변경 하는 방법에 대 한 자세한 내용은 [자식 리소스에 대 한 반복](copy-resources.md#iteration-for-a-child-resource)을 참조 하세요.
+`copy`속성에 적용 하는 경우에도 최상위 리소스 에서만를 사용할 수 있습니다 `copy` . 자식 리소스를 최상위 수준 리소스로 변경 하는 방법에 대 한 자세한 내용은 [자식 리소스에 대 한 반복](copy-resources.md#iteration-for-a-child-resource)을 참조 하세요.
 
 [리소스](copy-resources.md), [변수](copy-variables.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -32,11 +32,11 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 ]
 ```
 
-**이름**에 만들려는 리소스 속성의 이름을 입력 합니다.
+`name`에서 만들려는 리소스 속성의 이름을 제공 합니다.
 
-**Count** 속성은 속성에 대해 원하는 반복 횟수를 지정 합니다.
+`count`속성은 속성에 대해 원하는 반복 횟수를 지정 합니다.
 
-**입력** 속성은 반복할 속성을 지정 합니다. **Input** 속성의 값에서 생성 된 요소의 배열을 만듭니다.
+`input`속성은 반복할 속성을 지정 합니다. `input` 속성의 값에서 생성된 요소 배열을 만듭니다.
 
 ## <a name="copy-limits"></a>복사 제한
 
@@ -53,7 +53,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 
 ## <a name="property-iteration"></a>속성 반복
 
-다음 예제는 가상 머신에서 `copy`를 dataDisks 속성에 적용하는 방법을 보여 줍니다.
+다음 예제에서는 `copy` `dataDisks` 가상 컴퓨터의 속성에를 적용 하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -97,7 +97,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 }
 ```
 
-속성 반복 내에서 `copyIndex`를 사용하는 경우 반복의 이름을 제공해야 합니다. 또한 속성 반복은 offset 인수를 지원 합니다. 오프셋은 copyIndex (' dataDisks ', 1)와 같이 반복의 이름 뒤에와 야 합니다.
+속성 반복 내에서 `copyIndex`를 사용하는 경우 반복의 이름을 제공해야 합니다. 또한 속성 반복은 offset 인수를 지원 합니다. 오프셋은와 같은 반복의 이름 뒤에와 야 합니다 `copyIndex('dataDisks', 1)` .
 
 Resource Manager는 배포 중 `copy` 배열을 확장합니다. 배열 이름은 속성의 이름이 됩니다. 입력 값은 개체 속성이 됩니다. 배포된 템플릿은 다음과 같습니다.
 
@@ -188,7 +188,7 @@ Resource Manager는 배포 중 `copy` 배열을 확장합니다. 배열 이름�
 }
 ```
 
-copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 수 있습니다.
+`copy`요소는 배열 이므로 리소스에 대해 둘 이상의 속성을 지정할 수 있습니다.
 
 ```json
 {
@@ -265,6 +265,5 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
   * [ARM 템플릿의 리소스 반복](copy-resources.md)
   * [ARM 템플릿의 변수 반복](copy-variables.md)
   * [ARM 템플릿의 출력 반복](copy-outputs.md)
-* 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿 제작](template-syntax.md)을 참조 하세요.
-* 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [ARM 템플릿을 사용 하 여 응용 프로그램 배포](deploy-powershell.md)를 참조 하세요.
-
+* 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](deploy-powershell.md)을 참조 하세요.

@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380981"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746423"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>SaaS 제품에 대 한 미리 보기 대상을 추가 하는 방법
 
 파트너 센터에서 SaaS (software as a service) 제품을 만들 때 제품 목록이 라이브 되기 전에 검토할 수 있는 미리 보기 대상을 정의 해야 합니다. 이 문서에서는 미리 보기 대상 그룹을 구성 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 트랜잭션을 독립적으로 처리 하도록 선택 하면이 옵션이 표시 되지 않습니다. 대신 [SaaS 제품을 출시 하는 방법](create-new-saas-offer-marketing.md)으로 건너뛰십시오.
+> 트랜잭션을 독립적으로 처리 하도록 선택 하면이 옵션이 표시 되지 않습니다. 대신, [SaaS 제품을 판매 하는 방법](create-new-saas-offer-marketing.md)으로 건너뜁니다.
 
 ## <a name="define-a-preview-audience"></a>미리 보기 대상 정의
 
@@ -45,8 +45,8 @@ ms.locfileid: "89380981"
 1. **유형** 열에서 전자 메일 주소를 포함 하는 각 행에 **MixedAadMsaId** 를 추가 합니다.
 1. 로 파일을 저장 합니다. CSV 파일.
 1. **사용자 미리 보기** 페이지에서 **대상 그룹 가져오기 (csv)** 링크를 선택 합니다.
-1. **확인** 대화 상자에서 **예**를 선택 합니다.
-1. 을 선택 합니다. CSV 파일을 선택 하 고 **열기**를 선택 합니다.
+1. **확인** 대화 상자에서 **예** 를 선택 합니다.
+1. 을 선택 합니다. CSV 파일을 선택 하 고 **열기** 를 선택 합니다.
 1. 다음 탭을 계속 하기 전에 **초안 저장** 을 선택 합니다. **기술 구성**.
 
 ## <a name="next-steps"></a>다음 단계

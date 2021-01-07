@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
-ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594325"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032035"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -77,14 +77,15 @@ Azure AD 권한 관리는 이러한 문제를 해결하는 데 도움이 될 수
 
 또한 Azure AD 보안 그룹 또는 Microsoft 365 그룹을 사용하는 다른 리소스에 대한 액세스를 제어할 수 있습니다.  예를 들면 다음과 같습니다.
 
-- 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md)를 구성하여 사용자에게 Microsoft 365에 대한 라이선스를 제공할 수 있습니다.
+- 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [그룹 기반 라이선스](../enterprise-users/licensing-groups-assign.md)를 구성하여 사용자에게 Microsoft 365에 대한 라이선스를 제공할 수 있습니다.
 - 액세스 패키지에서 Azure AD 보안 그룹을 사용하고 해당 그룹에 대한 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 만들어 사용자에게 Azure 리소스를 관리할 수 있는 액세스 권한을 부여할 수 있습니다.
+- 액세스 패키지에서 Azure AD 역할에 할당할 수 있는 그룹을 사용하여 Azure AD 역할을 관리하고 [해당 그룹에 Azure AD 역할을 할당](../roles/groups-assign-role.md)하여 Azure AD 역할을 관리하는 액세스 권한을 사용자에게 부여할 수 있습니다.
 
 ## <a name="how-do-i-control-who-gets-access"></a>액세스 권한을 얻는 사용자를 제어하려면 어떻게 할까요?
 
 액세스 패키지를 사용하면 관리자 또는 위임된 액세스 패키지 관리자에서 리소스(그룹, 앱 및 사이트) 및 해당 리소스에 대해 사용자에게 필요한 역할을 나열합니다.
 
-또한 액세스 패키지에는 하나 이상의 *정책*이 포함됩니다. 정책은 액세스 패키지에 할당할 규칙 또는 가드 레일을 정의합니다. 각 정책을 사용하여 적절한 사용자만 액세스를 요청할 수 있고, 해당 요청에 대한 승인자가 있으며, 해당 리소스에 대한 액세스 시간이 제한되고, 갱신되지 않으면 만료되도록 보장할 수 있습니다.
+또한 액세스 패키지에는 하나 이상의 *정책* 이 포함됩니다. 정책은 액세스 패키지에 할당할 규칙 또는 가드 레일을 정의합니다. 각 정책을 사용하여 적절한 사용자만 액세스를 요청할 수 있고, 해당 요청에 대한 승인자가 있으며, 해당 리소스에 대한 액세스 시간이 제한되고, 갱신되지 않으면 만료되도록 보장할 수 있습니다.
 
 ![액세스 패키지 및 정책](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -96,8 +97,8 @@ Azure AD 권한 관리는 이러한 문제를 해결하는 데 도움이 될 수
 
 다음 다이어그램에서는 권한 관리의 다양한 요소에 대한 예를 보여 줍니다. 여기에는 두 개의 액세스 패키지 예가 포함된 하나의 카탈로그가 있습니다.
 
-- **액세스 패키지 1**에는 단일 그룹이 리소스로 포함되어 있습니다. 액세스는 디렉터리의 사용자 세트에서 액세스를 요청할 수 있도록 하는 정책으로 정의됩니다.
-- **액세스 패키지 2**에는 그룹, 애플리케이션 및 SharePoint Online 사이트가 리소스로 포함되어 있습니다. 액세스는 두 개의 서로 다른 정책으로 정의됩니다. 첫 번째 정책을 사용하면 디렉터리의 사용자 세트에서 액세스를 요청할 수 있습니다. 두 번째 정책을 사용하면 외부 디렉터리의 사용자가 액세스를 요청할 수 있습니다.
+- **액세스 패키지 1** 에는 단일 그룹이 리소스로 포함되어 있습니다. 액세스는 디렉터리의 사용자 세트에서 액세스를 요청할 수 있도록 하는 정책으로 정의됩니다.
+- **액세스 패키지 2** 에는 그룹, 애플리케이션 및 SharePoint Online 사이트가 리소스로 포함되어 있습니다. 액세스는 두 개의 서로 다른 정책으로 정의됩니다. 첫 번째 정책을 사용하면 디렉터리의 사용자 세트에서 액세스를 요청할 수 있습니다. 두 번째 정책을 사용하면 외부 디렉터리의 사용자가 액세스를 요청할 수 있습니다.
 
 ![권한 관리 개요](./media/entitlement-management-overview/elm-overview.png)
 
@@ -143,17 +144,22 @@ Azure 독일, Azure 중국 21Vianet과 같은 특수 클라우드는 현재 사�
 디렉터리에는 다음을 고려한 개수 이상의 Azure AD Premium P2 라이선스가 있어야 합니다.
 
 - 액세스 패키지를 **요청할 수 있는** 멤버 사용자의 수
-- 액세스 패키지를 요청하는 멤버 및 게스트 사용자의 수
-- 액세스 패키지에 대한 요청을 승인하는 멤버 및 게스트 사용자의 수
-- 액세스 패키지에 직접 할당된 멤버 및 게스트 사용자의 수
+- 액세스 패키지를 <u>요청</u>하는 멤버 사용자의 수.
+- 액세스 패키지에 대한 <u>요청을 승인</u>하는 멤버 사용자의 수.
+- 액세스 패키지에 대한 <u>할당을 검토</u>하는 멤버 사용자의 수. 
+- 액세스 패키지에 대한 <u>직접 할당</u>이 있는 멤버 사용자의 수.
+
+게스트 사용자의 경우 라이선스 요구 사항은 사용 중인 [라이선스 모델](../external-identities/external-identities-pricing.md)에 따라 달라집니다. 그러나 아래 게스트 사용자의 작업은 Azure AD Premium P2 사용으로 간주됩니다.
+- 액세스 패키지를 <u>요청</u>하는 게스트 사용자의 수. 
+- 액세스 패키지에 대한 <u>요청을 승인</u>하는 게스트 사용자의 수.
+- 액세스 패키지에 대한 <u>할당을 검토</u>하는 게스트 사용자의 수.
+- 액세스 패키지에 대한 <u>직접 할당</u>이 있는 게스트 사용자의 수. 
 
 Azure AD Premium P2 라이선스가 필요하지 **않은** 작업은 다음과 같습니다.
 
 - 초기 카탈로그, 패키지 및 정책을 설정하고 다른 사용자에게 관리 작업을 위임할 수 있는 전역 관리자 역할이 있는 사용자에게는 라이선스가 필요하지 않습니다.
 - 카탈로그 작성자, 카탈로그 소유자 및 액세스 패키지 관리자와 같은 관리 작업을 위임받은 사용자에게는 라이선스가 필요하지 않습니다.
 - 액세스 패키지를 **요청할 수 있지만** 액세스 패키지를 요청하지 않는 게스트에게는 라이선스가 필요하지 **않습니다**.
-
-Azure AD 외부 ID(게스트 사용자) 가격은 MAU(월간 활성 사용자)를 기반으로 하며, 이는 한 달 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 모델은 테넌트의 각 Azure AD Premium 라이선스에 대해 최대 5명의 게스트 사용자를 허용하는 1:5 비율 청구 모델을 대체합니다. 테넌트가 구독에 연결되어 있고 외부 ID 기능을 사용하여 게스트 사용자와 협업하는 경우 MAU 기반 청구 모델을 사용하여 자동으로 청구됩니다. 자세한 내용은 [Azure AD 외부 ID](../external-identities/external-identities-pricing.md)에 대한 청구 모델을 참조하세요.
 
 라이선스에 대한 자세한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
 

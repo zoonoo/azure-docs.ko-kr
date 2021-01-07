@@ -3,19 +3,19 @@ title: Anomaly Detector API를 사용하는 경우 모범 사례
 titleSuffix: Azure Cognitive Services
 description: 변칙 탐지기 API를 사용 하 여 변칙을 검색할 때 모범 사례에 대해 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.author: aahi
-ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: mbullwin
+ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67721631"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705152"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>변칙 탐지기 API 사용에 대 한 모범 사례
 
@@ -52,7 +52,7 @@ ms.locfileid: "67721631"
 
 ## <a name="data-preparation"></a>데이터 준비
 
-변칙 탐지기 API는 JSON 요청 개체에 형식이 지정 된 시계열 데이터를 허용 합니다. 시계열은 시간에 따라 순차적으로 기록 되는 모든 숫자 데이터를 사용할 수 있습니다. 시계열 데이터의 windows를 변칙 탐지기 API 끝점으로 보내 API의 성능을 향상 시킬 수 있습니다. 전송할 수 있는 데이터 요소의 최소 수는 12이 고 최대값은 8640입니다. [세분성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) 은 데이터가 샘플링 되는 속도로 정의 됩니다. 
+변칙 탐지기 API는 JSON 요청 개체에 형식이 지정 된 시계열 데이터를 허용 합니다. 시계열은 시간에 따라 순차적으로 기록 되는 모든 숫자 데이터를 사용할 수 있습니다. 시계열 데이터의 windows를 변칙 탐지기 API 끝점으로 보내 API의 성능을 향상 시킬 수 있습니다. 전송할 수 있는 데이터 요소의 최소 수는 12이 고 최대값은 8640입니다. [세분성](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) 은 데이터가 샘플링 되는 속도로 정의 됩니다. 
 
 변칙 탐지기 API로 전송 되는 데이터 요소에는 유효한 UTC (협정 세계시) 타임 스탬프 및 숫자 값이 있어야 합니다. 
 
@@ -72,7 +72,7 @@ ms.locfileid: "67721631"
 }
 ```
 
-데이터가 비표준 시간 간격으로 샘플링 되는 경우 요청에 `customInterval` 특성을 추가 하 여 지정할 수 있습니다. 예를 들어 계열이 5 분 마다 샘플링 되는 경우 JSON 요청에 다음을 추가할 수 있습니다.
+데이터가 비표준 시간 간격으로 샘플링 되는 경우 요청에 특성을 추가 하 여 지정할 수 있습니다 `customInterval` . 예를 들어 계열이 5 분 마다 샘플링 되는 경우 JSON 요청에 다음을 추가할 수 있습니다.
 
 ```json
 {
@@ -93,9 +93,9 @@ ms.locfileid: "67721631"
 
 시계열 데이터에 일정 한 간격으로 발생 하는 계절 패턴이 있는 경우 정확도 및 API 응답 시간을 향상 시킬 수 있습니다. 
 
-JSON 요청 `period` 을 생성할 때를 지정 하면 변칙 검색 대기 시간을 최대 50%까지 줄일 수 있습니다. 는 `period` 시계열이 패턴을 반복 하는 데 걸리는 대략적인 데이터 요소 수를 지정 하는 정수입니다. 예를 들어, 하루에 한 개의 데이터 요소를 포함 하는 시계열 `period` 에 `7`는가 포함 되 고 시간당 한 지점을 포함 하는 시계열 (주간 패턴은 동일)은 `period` 의 `7*24`이 됩니다. 데이터의 패턴을 잘 모를 경우에는이 매개 변수를 지정할 필요가 없습니다.
+`period`JSON 요청을 생성할 때를 지정 하면 변칙 검색 대기 시간을 최대 50%까지 줄일 수 있습니다. 는 `period` 시계열이 패턴을 반복 하는 데 걸리는 대략적인 데이터 요소 수를 지정 하는 정수입니다. 예를 들어, 하루에 한 개의 데이터 요소를 포함 하는 시계열에는가 포함 되 `period` `7` 고 시간당 한 지점을 포함 하는 시계열 (주간 패턴은 동일)은의이 됩니다 `period`  `7*24` . 데이터의 패턴을 잘 모를 경우에는이 매개 변수를 지정할 필요가 없습니다.
 
-최상의 결과를 위해 4 `period`가지 데이터 요소와 추가 데이터 요소를 제공 합니다. 예를 들어 위에서 설명한 대로 주간 패턴이 있는 매시간 데이터는 요청 본문 (`7 * 24 * 4 + 1`)에 673 데이터 요소를 제공 해야 합니다.
+최상의 결과를 위해 4 가지 `period` 데이터 요소와 추가 데이터 요소를 제공 합니다. 예를 들어 위에서 설명한 대로 주간 패턴이 있는 매시간 데이터는 요청 본문 ()에 673 데이터 요소를 제공 해야 합니다 `7 * 24 * 4 + 1` .
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>실시간 모니터링을 위한 데이터 샘플링
 
@@ -104,4 +104,4 @@ JSON 요청 `period` 을 생성할 때를 지정 하면 변칙 검색 대기 시
 ## <a name="next-steps"></a>다음 단계
 
 * [Anomaly Detector API란?](../overview.md)
-* [빠른 시작: 변칙 탐지기를 사용 하 여 시계열 데이터의 변칙 검색 REST API](../quickstarts/detect-data-anomalies-csharp.md)
+* [빠른 시작: 변칙 탐지기를 사용 하 여 시계열 데이터의 변칙 검색](../quickstarts/client-libraries.md)

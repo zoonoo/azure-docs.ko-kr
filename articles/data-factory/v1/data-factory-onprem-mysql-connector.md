@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281289"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872105"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -65,7 +65,7 @@ ms.locfileid: "79281289"
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 MySQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesMySql** |예 |
 | 서버 |MySQL 서버의 이름입니다. |예 |
@@ -81,7 +81,7 @@ ms.locfileid: "79281289"
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **RelationalTable** 형식의 데이터 세트(MySQL 데이터 세트를 포함)에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -311,23 +311,23 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | decimal |Decimal |
 | double precision |Double |
 | double |Double |
-| enum |String |
+| enum |문자열 |
 | float |Single |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
-| integer |Int32 |
+| 정수 |Int32 |
 | long varbinary |Byte[] |
-| long varchar |String |
+| long varchar |문자열 |
 | longblob |Byte[] |
-| longtext |String |
+| longtext |문자열 |
 | mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
 | mediumtext |String |
 | numeric |Decimal |
 | real |Double |
-| set |String |
+| set |문자열 |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
 | text |String |
@@ -336,9 +336,9 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
-| tinytext |String |
+| tinytext |문자열 |
 | varchar |String |
-| year |Int |
+| 연도 |Int |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.

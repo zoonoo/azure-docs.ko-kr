@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.openlocfilehash: 46b842994cbcf7efe66d5992c79246d77626e268
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907389"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Citus (Hyperscale) 고가용성 구성
@@ -29,7 +29,7 @@ HA를 사용 하도록 설정 하는 작업은 서버 그룹을 만들 때 또�
 
 서버 그룹에 대 한 **개요** 탭에는 각 노드에 대해 HA를 사용 하도록 설정 했는지 여부를 나타내는 **고가용성** 열과 함께 모든 노드와 해당 노드가 나열 됩니다.
 
-:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="서버 그룹 개요의 ha 열":::
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="ha 슬라이더":::
 
 ### <a name="next-steps"></a>다음 단계
 

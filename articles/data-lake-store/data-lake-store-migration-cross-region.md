@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen1 지역 간 마이그레이션 | Microsoft Do
 description: 새 지역에서 사용할 수 있게 되는 Azure Data Lake Storage Gen1에 대 한 마이그레이션을 계획 하 고 완료할 때 고려해 야 할 사항에 대해 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
-author: swums
+author: twooley
 manager: amitkul
 editor: swums
 ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
@@ -11,13 +11,13 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: stewu
-ms.openlocfilehash: ba28d767c11c15b2dd70eeed2b39e13b084a7500
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: twooley
+ms.openlocfilehash: c6520036f3ddb8799025129391330268b0604886
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191354"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723809"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>지역 간 Azure Data Lake Storage Gen1 마이그레이션
 

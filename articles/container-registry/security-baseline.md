@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 3fcbc386c60611493912fdfb17226490549cdc53
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89396814"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Azure Container Registry에 대 한 Azure 보안 기준
@@ -1088,9 +1088,9 @@ Azure에서 Azure Key Vault 키를 복원 하는 방법:  https://docs.microsoft
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객 관리형 키 보호 보장
 
-**지침**: 실수로 또는 악의적인 삭제 로부터 키를 보호 하기 위해 Azure Key Vault에서 일시 삭제를 사용 하도록 설정할 수 있습니다.
+**지침**: Azure Key Vault에서 Soft-Delete를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호할 수 있습니다.
 
-Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Key Vault에서 Soft-Delete를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 
 **Azure Security Center 모니터링**: 해당 없음

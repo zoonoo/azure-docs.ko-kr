@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986945"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497965"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Resource Health를 사용 하 여 Azure SQL Database 및 Azure SQL에 대 한 연결 문제를 해결 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 ### <a name="degraded"></a>성능 저하됨
 
-**저하** 됨 상태는 Resource Health에서 대부분의 성공한 로그인을 검색 했지만 일부 오류가 발생 했음을 의미 합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인해 발생 하는 연결 문제로 인 한 영향을 줄이려면 코드에서 [재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) 를 구현 합니다.
+**성능 저하됨** 상태는 Resource Health가 대부분의 성공적인 로그인을 감지했지만 일부 오류도 감지했음을 의미합니다. 이러한 오류는 일시적인 로그인 오류일 가능성이 높습니다. 일시적인 로그인 오류로 인해 발생 하는 연결 문제로 인 한 영향을 줄이려면 코드에서 [재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) 를 구현 합니다.
 
 ![성능 저하됨](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
 
@@ -47,7 +47,7 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 **사용할 수 없음** 상태는 Resource Health가 SQL 리소스에 대한 일관된 로그인 실패를 감지했음을 의미 합니다. 리소스가 오랜 시간 동안이 상태를 유지 하는 경우 지원 담당자에 게 문의 하세요.
 
-![사용할 수 없음](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
+![Unavailable](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
 
 ### <a name="unknown"></a>알 수 없음
 

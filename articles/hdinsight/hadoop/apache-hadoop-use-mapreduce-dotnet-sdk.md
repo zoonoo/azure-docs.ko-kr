@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: 3de7101eb998d0f9b3b57afba6d19595738cbb63
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ddb14c321962c65d09be420d8da15f1e547aa282
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020408"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489543"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 MapReduce 작업 실행
 
@@ -26,7 +26,7 @@ HDInsight .NET SDK를 사용하여 MapReduce 작업을 제출하는 방법을 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Hadoop 클러스터. [Azure Portal를 사용 하 여 Apache Hadoop 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조 하세요.
+* HDInsight의 Apache Hadoop 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 * [Visual Studio](https://visualstudio.microsoft.com/vs/community/)
 
@@ -169,10 +169,10 @@ HDInsight .NET SDK는 .net에서 HDInsight 클러스터로 더 쉽게 작업할 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
 
 * Hive 작업 제출에 대해서는 [HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행](apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요.
 * HDInsight 클러스터 만들기는 [HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 * HDInsight 클러스터 관리는 [HDInsight에서 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md)를 참조하세요.
-* HDInsight .NET SDK에 대한 내용은 [HDInsight .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 확인하세요.
+* HDInsight .NET SDK에 대한 내용은 [HDInsight .NET SDK 참조](/dotnet/api/overview/azure/hdinsight)를 확인하세요.
 * Azure에 대한 비대화형 인증은 [비대화형 인증 .NET HDInsight 애플리케이션 만들기](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.

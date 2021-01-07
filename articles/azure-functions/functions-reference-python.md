@@ -2,26 +2,30 @@
 title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: cf1d8f89de61a548f6c542d6d8a73fde93675e95
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642200"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895413"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
 이 문서에서는 Python을 사용하여 Azure Functions를 개발하는 방법을 소개합니다. 아래 내용은 [Azure Functions 개발자 가이드](functions-reference.md)를 이미 읽었다고 가정합니다.
 
-Python의 독립실행형 함수 프로젝트 샘플은 [Python Functions 샘플](/samples/browse/?products=azure-functions&languages=python)을 참조하세요.
+Python 개발자는 다음 문서 중 하나에 관심이 있을 수도 있습니다.
+
+| 시작 | 개념| 시나리오/샘플 |
+| -- | -- | -- | 
+| <ul><li>[Visual Studio Code를 사용 하는 Python 함수](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[터미널/명령 프롬프트를 사용 하는 Python 함수](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[PyTorch를 사용한 이미지 분류](machine-learning-pytorch.md)</li><li>[Azure automation 샘플](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[TensorFlow를 사용한 기계 학습](functions-machine-learning-tensorflow.md)</li><li>[Python 샘플 찾아보기](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
 Azure Functions의 함수는 입력을 처리하고 출력을 생성하는 Python 스크립트의 상태 비저장 메서드여야 합니다. 기본적으로 런타임은 메서드가 `__init__.py` 파일에서 `main()`이라는 글로벌 메서드로 구현될 것으로 예상합니다. [대체 진입점을 지정](#alternate-entry-point)할 수도 있습니다.
 
-트리거 및 바인딩의 데이터는 *function.json* 파일에 정의된 `name` 속성을 사용하여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어 아래의 _function.json_은 `req`라는 HTTP 요청에 의해 트리거되는 단순 함수를 설명합니다.
+트리거 및 바인딩의 데이터는 *function.json* 파일에 정의된 `name` 속성을 사용하여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어 아래의 _function.json_ 은 `req`라는 HTTP 요청에 의해 트리거되는 단순 함수를 설명합니다.
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
@@ -44,11 +48,11 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-[azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) 패키지에 포함된 Python 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다.
+[azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) 패키지에 포함된 Python 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다.
 
 ## <a name="alternate-entry-point"></a>대체 진입점
 
-필요한 경우 *function.json* 파일에서 `scriptFile` 및 `entryPoint` 속성을 지정하여 함수의 기본 동작을 변경할 수 있습니다. 예를 들어 아래의 _function.json_은 _main.py_ 파일의 `customentry()` 메서드를 Azure 함수의 진입점으로 사용하도록 런타임에 지시합니다.
+필요한 경우 *function.json* 파일에서 `scriptFile` 및 `entryPoint` 속성을 지정하여 함수의 기본 동작을 변경할 수 있습니다. 예를 들어 아래의 _function.json_ 은 _main.py_ 파일의 `customentry()` 메서드를 Azure 함수의 진입점으로 사용하도록 런타임에 지시합니다.
 
 ```json
 {
@@ -65,72 +69,70 @@ def main(req: azure.functions.HttpRequest) -> str:
 Python Functions 프로젝트에 권장하는 폴더 구조는 다음 예제와 같습니다.
 
 ```
- __app__
- | - my_first_function
+ <project_root>/
+ | - .venv/
+ | - .vscode/
+ | - my_first_function/
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - my_second_function
+ | - my_second_function/
  | | - __init__.py
  | | - function.json
- | - shared_code
+ | - shared_code/
+ | | - __init__.py
  | | - my_first_helper_function.py
  | | - my_second_helper_function.py
+ | - tests/
+ | | - test_my_second_function.py
+ | - .funcignore
  | - host.json
+ | - local.settings.json
  | - requirements.txt
  | - Dockerfile
- tests
 ```
-기본 프로젝트 폴더(\_\_app\_\_)에는 다음 파일이 포함될 수 있습니다.
+기본 프로젝트 폴더 (<project_root>)에는 다음 파일이 포함 될 수 있습니다.
 
 * *local.settings.json*: 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local.settings.file](functions-run-local.md#local-settings-file)을 참조하세요.
-* *requirements.txt*: Azure에 게시할 때 설치되는 패키지 목록이 포함됩니다.
+* *requirements.txt*: Azure에 게시할 때 시스템이 설치 하는 Python 패키지 목록을 포함 합니다.
 * *host.json*: 함수 앱의 모든 함수에 영향을 주는 글로벌 구성 옵션이 포함됩니다. 이 파일은 Azure에 게시됩니다. 로컬로 실행할 경우 일부 옵션이 지원되지 않습니다. 자세한 내용은 [host.json](functions-host-json.md)을 참조하세요.
-* *.funcignore*: (선택 사항) Azure에 게시하면 안 되는 파일을 선언합니다.
-* *Dockerfile*: (선택 사항) [사용자 지정 컨테이너](functions-create-function-linux-custom-image.md)에서 프로젝트를 게시할 때 사용됩니다.
+* *. vscode/*: (선택 사항) 저장소 vscode 구성을 포함 합니다. 자세히 알아보려면 [Vscode 설정](https://code.visualstudio.com/docs/getstarted/settings)을 참조 하세요.
+* *. venv/*: (선택 사항) 로컬 개발에 사용 되는 Python 가상 환경을 포함 합니다.
+* *Dockerfile*: (선택 사항) [사용자 지정 컨테이너](functions-create-function-linux-custom-image.md)에서 프로젝트를 게시할 때 사용 됩니다.
+* *테스트/*: (선택 사항) 함수 앱의 테스트 사례를 포함 합니다.
+* *. funcignore*: (선택 사항) Azure에 게시 되지 않아야 하는 파일을 선언 합니다. 일반적으로이 파일에는 `.vscode/` 편집기 설정을 무시 하 고, `.venv/` 로컬 Python 가상 환경을 무시 하 `tests/` 고, 테스트 사례를 무시 하 고, `local.settings.json` 로컬 앱 설정을 게시 하지 않도록 하는가 포함 됩니다.
 
 각 함수에는 자체 코드 파일과 바인딩 구성 파일(function.json)이 있습니다.
 
-Azure의 함수 앱에 프로젝트를 배포할 때 기본 프로젝트( *\_\_app\_\_* ) 폴더 자체가 아닌 폴더의 전체 내용을 패키지에 포함해야 합니다. 프로젝트 폴더와 다른 별도의 폴더에 테스트를 유지하는 것이 좋습니다(이 예제에서는 `tests`). 이렇게 하면 앱에서 테스트 코드를 배포하는 일이 없습니다. 자세한 내용은 [단위 테스트](#unit-testing)를 참조하세요.
+Azure의 함수 앱에 프로젝트를 배포할 때 주 프로젝트 (*<project_root>*) 폴더의 전체 콘텐츠는 패키지에 포함 되어야 합니다. 즉, `host.json` 패키지 루트에 있어야 합니다. 이 예제에서는 다른 함수와 함께 폴더의 테스트를 유지 관리 하는 것이 좋습니다 `tests/` . 자세한 내용은 [단위 테스트](#unit-testing)를 참조하세요.
 
 ## <a name="import-behavior"></a>가져오기 동작
 
-함수 코드에서 명시적 상대 참조와 절대 참조를 모두 사용하여 모듈을 가져올 수 있습니다. 위에 표시된 폴더 구조에 따라, 다음 가져오기는 함수 파일 *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py* 내부에서 작동합니다.
+절대 참조와 상대 참조를 모두 사용 하 여 함수 코드에서 모듈을 가져올 수 있습니다. 위에 표시 된 폴더 구조를 기반으로 다음 가져오기는 함수 파일 내에서 작업 *<project_root> \my \_ first \_ 함수 \\ _ \_ init \_ \_ . py*:
 
 ```python
-from . import example #(explicit relative)
+from shared_code import my_first_helper_function #(absolute)
 ```
 
 ```python
-from ..shared_code import my_first_helper_function #(explicit relative)
+import shared_code.my_second_helper_function #(absolute)
 ```
 
 ```python
-from __app__ import shared_code #(absolute)
+from . import example #(relative)
+```
+
+> [!NOTE]
+>  *Shared_code/* 폴더는 \_ \_ \_ \_ 절대 가져오기 구문을 사용할 때 Python 패키지로 표시 하는 py 파일을 포함 해야 합니다.
+
+다음 \_ \_ 앱 \_ \_ 가져오기 및 상위 수준 상대적 가져오기는 정적 형식 검사기에서 지원 되지 않고 Python 테스트 프레임 워크에서 지원 되지 않으므로 더 이상 사용 되지 않습니다.
+
+```python
+from __app__.shared_code import my_first_helper_function #(deprecated __app__ import)
 ```
 
 ```python
-import __app__.shared_code #(absolute)
-```
-
-다음 가져오기는 동일한 파일 내에서 *작동하지 않습니다*.
-
-```python
-import example
-```
-
-```python
-from example import some_helper_code
-```
-
-```python
-import shared_code
-```
-
-공유 코드는 *\_\_app\_\_* 에 있는 별도의 폴더에 보관해야 합니다. *shared\_code* 폴더의 모듈을 참조하려면 다음 구문을 사용합니다.
-
-```python
-from __app__.shared_code import my_first_helper_function
+from ..shared_code import my_first_helper_function #(deprecated beyond top-level relative import)
 ```
 
 ## <a name="triggers-and-inputs"></a>트리거 및 입력
@@ -185,7 +187,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_를 기반으로 Azure Blob Storage에서 검색되고 함수 본문에서 `obj`로 제공됩니다.  여기서 지정된 스토리지 계정은 AzureWebJobsStorage 앱 설정에 있는 연결 문자열로, 함수 앱에서 사용하는 것과 동일한 스토리지 계정입니다.
+함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_ 를 기반으로 Azure Blob Storage에서 검색되고 함수 본문에서 `obj`로 제공됩니다.  여기서 지정된 스토리지 계정은 AzureWebJobsStorage 앱 설정에 있는 연결 문자열로, 함수 앱에서 사용하는 것과 동일한 스토리지 계정입니다.
 
 
 ## <a name="outputs"></a>outputs
@@ -194,7 +196,7 @@ def main(req: func.HttpRequest,
 
 함수의 반환 값을 출력 바인딩의 값으로 사용하려면 바인딩의 `name` 속성을 `function.json`의 `$return`으로 설정해야 합니다.
 
-다중 출력을 생성하려면 [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) 인터페이스에서 제공하는 `set()` 메서드를 사용하여 바인딩에 값을 할당합니다. 예를 들어 다음 함수는 메시지를 큐로 푸시하고 HTTP 응답도 반환할 수 있습니다.
+다중 출력을 생성하려면 [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) 인터페이스에서 제공하는 `set()` 메서드를 사용하여 바인딩에 값을 할당합니다. 예를 들어 다음 함수는 메시지를 큐로 푸시하고 HTTP 응답도 반환할 수 있습니다.
 
 ```json
 {
@@ -295,47 +297,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 마찬가지로, 반환된 [HttpResponse] 개체의 응답 메시지에 대한 `status_code` 및 `headers`를 설정할 수 있습니다.
 
-## <a name="scaling-and-concurrency"></a>스케일링 및 동시성
+## <a name="scaling-and-performance"></a>크기 조정 및 성능
 
-기본적으로 Azure Functions는 애플리케이션의 부하를 자동으로 모니터링하면서 필요에 따라 Python에 사용할 추가 호스트 인스턴스를 만듭니다. Functions는 QueueTrigger에 대한 메시지 보존 기간, 큐 크기 등의 기본 제공(사용자 구성 불가능) 임계값을 여러 트리거 유형에 사용하여 인스턴스를 추가할 시기를 결정합니다. 자세한 내용은 [사용 계획 및 프리미엄 계획의 작동 방식](functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조하세요.
-
-이러한 스케일링 동작은 여러 애플리케이션을 지원하기에 충분합니다. 그러나 다음과 같은 특징을 가진 애플리케이션은 효과적으로 스케일링되지 않을 수 있습니다.
-
-- 애플리케이션에서 여러 개의 동시 호출을 처리해야 합니다.
-- 애플리케이션에서 대량의 I/O 이벤트를 처리합니다.
-- 애플리케이션이 I/O 바인딩되어 있습니다.
-
-이러한 경우에는 비동기 패턴과 여러 언어 작업자 프로세스를 사용하여 성능을 향상할 수 있습니다.
-
-### <a name="async"></a>Async
-
-Python은 단일 스레드 런타임이므로, Python에 대한 호스트 인스턴스는 한 번에 하나의 함수 호출만 처리할 수 있습니다. 대량의 I/O 이벤트를 처리하고/처리하거나 I/O 바인딩된 애플리케이션은 함수를 비동기적으로 실행하여 성능을 향상할 수 있습니다.
-
-함수를 비동기적으로 실행하려면 [asyncio](https://docs.python.org/3/library/asyncio.html)를 사용하여 함수를 직접 실행하는 `async def` 문을 사용하세요.
-
-```python
-async def main():
-    await some_nonblocking_socket_io_op()
-```
-
-`async` 키워드가 없는 함수는 asyncio 스레드 풀에서 자동으로 실행됩니다.
-
-```python
-# Runs in an asyncio thread-pool
-
-def main():
-    some_blocking_socket_io()
-```
-
-### <a name="use-multiple-language-worker-processes"></a>여러 언어 작업자 프로세스 사용
-
-기본적으로 모든 Functions 호스트 인스턴스에는 언어 작업자 프로세스가 하나만 있습니다. [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 애플리케이션 설정을 사용하여 호스트당 작업자 프로세스 수를 10개까지 늘릴 수 있습니다. 그러면 Azure Functions는 이러한 작업자 사이에 동시 함수 호출을 균등하게 분산하려고 시도합니다.
-
-요구 사항을 충족하기 위해 애플리케이션을 스케일 아웃할 때 Functions가 만드는 각 호스트에 FUNCTIONS_WORKER_PROCESS_COUNT가 적용됩니다.
+Python 함수 앱에 대 한 크기 조정 및 성능 모범 사례는 [python 규모 및 성능 문서](python-scale-performance-reference.md)를 참조 하세요.
 
 ## <a name="context"></a>Context
 
-실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 서명에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) 인수를 포함해야 합니다.
+실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 서명에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) 인수를 포함해야 합니다.
 
 다음은 그 예입니다.
 
@@ -348,7 +316,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-[**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) 클래스에는 다음과 같은 문자열 특성이 있습니다.
+[**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) 클래스에는 다음과 같은 문자열 특성이 있습니다.
 
 `function_directory` 함수가 실행되는 디렉터리입니다.
 
@@ -443,7 +411,7 @@ func azure functionapp publish <APP_NAME>
 
 `<APP_NAME>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다.
 
-[Visual Studio Code용 Azure Functions 확장](functions-create-first-function-vs-code.md#publish-the-project-to-azure) 역시 기본적으로 원격 빌드를 요청합니다.
+[Visual Studio Code용 Azure Functions 확장](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) 역시 기본적으로 원격 빌드를 요청합니다.
 
 ### <a name="local-build"></a>로컬 빌드
 
@@ -489,12 +457,14 @@ func azure functionapp publish <APP_NAME> --no-build
 
 Python으로 작성된 함수는 다른 Python 코드와 마찬가지로 표준 테스트 프레임워크를 사용하여 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지로 적절한 클래스 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. [`azure.functions`](https://pypi.org/project/azure-functions/) 패키지는 즉시 사용할 수 없으므로, 위의 [패키지 관리](#package-management) 섹션에서 설명한 대로 `requirements.txt` 파일을 통해 설치해야 합니다.
 
-예를 들어 다음은 HTTP 트리거 함수의 모의 테스트입니다.
+예제로 *my_second_function* 다음은 HTTP 트리거 함수의 모의 테스트입니다.
+
+먼저 *<project_root>/my_second_function/function.js파일에* 만들고이 함수를 http 트리거로 정의 해야 합니다.
 
 ```json
 {
   "scriptFile": "__init__.py",
-  "entryPoint": "my_function",
+  "entryPoint": "main",
   "bindings": [
     {
       "authLevel": "function",
@@ -515,106 +485,72 @@ Python으로 작성된 함수는 다른 Python 코드와 마찬가지로 표준 
 }
 ```
 
+이제 *my_second_function* 및 *shared_code _second_helper_function* 를 구현할 수 있습니다.
+
 ```python
-# __app__/HttpTrigger/__init__.py
+# <project_root>/my_second_function/__init__.py
 import azure.functions as func
 import logging
 
-def my_function(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+# Use absolute import to resolve shared_code modules
+from shared_code import my_second_helper_function
 
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
+# Define an http trigger which accepts ?value=<int> query parameter
+# Double the value and return the result in HttpResponse
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Executing my_second_function.')
 
-    if name:
-        return func.HttpResponse(f"Hello {name}")
-    else:
-        return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
-        )
+    initial_value: int = int(req.params.get('value'))
+    doubled_value: int = my_second_helper_function.double(initial_value)
+
+    return func.HttpResponse(
+      body=f"{initial_value} * 2 = {doubled_value}",
+      status_code=200
+    )
 ```
 
 ```python
-# tests/test_httptrigger.py
+# <project_root>/shared_code/__init__.py
+# Empty __init__.py file marks shared_code folder as a Python package
+```
+
+```python
+# <project_root>/shared_code/my_second_helper_function.py
+
+def double(value: int) -> int:
+  return value * 2
+```
+
+Http 트리거에 대 한 테스트 사례 작성을 시작할 수 있습니다.
+
+```python
+# <project_root>/tests/test_my_second_function.py
 import unittest
 
 import azure.functions as func
-from __app__.HttpTrigger import my_function
+from my_second_function import main
 
 class TestFunction(unittest.TestCase):
-    def test_my_function(self):
+    def test_my_second_function(self):
         # Construct a mock HTTP request.
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/api/HttpTrigger',
-            params={'name': 'Test'})
+            url='/api/my_second_function',
+            params={'value': '21'})
 
         # Call the function.
-        resp = my_function(req)
+        resp = main(req)
 
         # Check the output.
         self.assertEqual(
             resp.get_body(),
-            b'Hello Test',
+            b'21 * 2 = 42',
         )
 ```
 
-다음은 큐 트리거 함수를 사용하는 또 다른 예입니다.
+`.venv`Python 가상 환경 내에서 즐겨 사용 하는 python 테스트 프레임 워크 (예:)를 설치 `pip install pytest` 합니다. 단순히 `pytest tests` 를 실행 하 여 테스트 결과를 확인 합니다.
 
-```json
-{
-  "scriptFile": "__init__.py",
-  "entryPoint": "my_function",
-  "bindings": [
-    {
-      "name": "msg",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "python-queue-items",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-
-```python
-# __app__/QueueTrigger/__init__.py
-import azure.functions as func
-
-def my_function(msg: func.QueueMessage) -> str:
-    return f'msg body: {msg.get_body().decode()}'
-```
-
-```python
-# tests/test_queuetrigger.py
-import unittest
-
-import azure.functions as func
-from __app__.QueueTrigger import my_function
-
-class TestFunction(unittest.TestCase):
-    def test_my_function(self):
-        # Construct a mock Queue message.
-        req = func.QueueMessage(
-            body=b'test')
-
-        # Call the function.
-        resp = my_function(req)
-
-        # Check the output.
-        self.assertEqual(
-            resp,
-            'msg body: test',
-        )
-```
 ## <a name="temporary-files"></a>임시 파일
 
 `tempfile.gettempdir()` 메서드는 임시 폴더를 반환하며, 이 폴더는 Linux에서 `/tmp`입니다. 애플리케이션에서는 함수가 실행 중에 만들어서 사용하는 임시 파일을 이 디렉터리에 저장할 수 있습니다.
@@ -700,7 +636,7 @@ CORS는 Python 함수 앱을 완벽하게 지원합니다.
 
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure Functions 패키지 API 설명서](/python/api/azure-functions/azure.functions?view=azure-python)
+* [Azure Functions 패키지 API 설명서](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Blob Storage 바인딩](functions-bindings-storage-blob.md)
@@ -708,6 +644,8 @@ CORS는 Python 함수 앱을 완벽하게 지원합니다.
 * [Queue Storage 바인딩](functions-bindings-storage-queue.md)
 * [타이머 트리거](functions-bindings-timer.md)
 
+[문제가 있나요? 알려주세요.](https://aka.ms/python-functions-ref-survey)
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python
+
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true

@@ -4,19 +4,18 @@ summary: Azure Data Lake Analytics를 사용하면 방대한 데이터 세트로
 metadata:
   title: Azure 데이터 레이크 분석
   description: Azure Data Lake Analytics를 사용하면 방대한 데이터 세트로 확장되는 빅 데이터 분석 작업을 실행할 수 있습니다.
-  services: data-lake-analytics
   ms.service: data-lake-analytics
   ms.topic: landing-page
   ms.collection: collection
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 09/13/2019
-  ms.openlocfilehash: 5dadcad164a309a7251a1e4627cf1e78f6e927d4
-  ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+  ms.openlocfilehash: 014dbc3b2337238604cfd585ee1d39c4e8dab85b
+  ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87475722"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96511375"
 landingContent:
 - title: Data Lake Analytics 정보
   linkLists:
@@ -41,7 +40,7 @@ landingContent:
     - text: U-SQL 시작
       url: data-lake-analytics-u-sql-get-started.md
     - text: U-SQL 언어 참조
-      url: https://docs.microsoft.com/u-sql/
+      url: https://docs.microsoft.com/u-sql
     - text: U-SQL 카탈로그 시작
       url: data-lake-analytics-u-sql-catalog.md
     - text: 사용자 정의 연산자 사용

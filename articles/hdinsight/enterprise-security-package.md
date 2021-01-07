@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: d77d9877fbc49fbb147965b30e299b75b60ccce3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567098"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546656"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Azure HDInsight에 대 한 Enterprise Security Package
 
@@ -20,7 +20,7 @@ ms.locfileid: "89567098"
 
 * 인증을 위한 Active Directory와 통합
 
-    이전에는 로컬 관리자 사용자 및 로컬 SSH 사용자를 사용 하 여 HDInsight 클러스터를 만들었습니다. 로컬 관리 사용자는 모든 파일, 폴더, 테이블 및 열에 액세스할 수 있습니다.  Enterprise Security Package에서 HDInsight를 Azure Active Directory Domain Services와 통합 하 여 역할 기반 액세스 제어를 사용 하도록 설정 합니다.
+    이전에는 로컬 관리자 사용자 및 로컬 SSH 사용자를 사용 하 여 HDInsight 클러스터를 만들었습니다. 로컬 관리 사용자는 모든 파일, 폴더, 테이블 및 열에 액세스할 수 있습니다.  Enterprise Security Package를 사용 하 여 HDInsight를 Azure Active Directory Domain Services와 통합 하 여 Azure 역할 기반 액세스 제어를 사용 하도록 설정 합니다.
 
     자세한 내용은 다음을 참조하세요.
 
@@ -28,7 +28,7 @@ ms.locfileid: "89567098"
 
     * [HDInsight에서 Azure 도메인에 가입된 Apache Hadoop 클러스터 계획](./domain-joined/apache-domain-joined-architecture.md)
 
-    * [도메인 가입 샌드박스 환경 구성](./domain-joined/apache-domain-joined-configure.md)
+    * [도메인 가입 샌드박스 환경 구성](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
     * [Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 

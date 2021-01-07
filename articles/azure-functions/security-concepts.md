@@ -3,12 +3,12 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850715"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491327"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
@@ -24,11 +24,11 @@ ms.locfileid: "87850715"
 
 ### <a name="security-center"></a>Security Center
 
-Security Center는 포털의 함수 앱과 통합됩니다. 잠재적인 구성 관련 보안 취약성에 대한 빠른 평가를 무료로 제공합니다. 전용 계획에서 실행되는 함수 앱은 Security Center의 실시간 보안 기능을 사용할 수 있으며, 이 경우 추가 비용이 듭니다. 자세히 알아보려면 [Azure App Service 웹 앱 및 API 보호](../security-center/security-center-app-services.md)를 참조하세요. 
+Security Center는 포털의 함수 앱과 통합됩니다. 잠재적인 구성 관련 보안 취약성에 대한 빠른 평가를 무료로 제공합니다. 전용 계획에서 실행되는 함수 앱은 Security Center의 실시간 보안 기능을 사용할 수 있으며, 이 경우 추가 비용이 듭니다. 자세히 알아보려면 [Azure App Service 웹 앱 및 API 보호](../security-center/defender-for-app-service-introduction.md)를 참조하세요. 
 
 ### <a name="log-and-monitor"></a>로그 및 모니터
 
-작업 모니터링 작업 및 로그 분석을 통해 공격을 감지합니다. Functions는 함수 앱에 대한 로그, 성능 및 오류 데이터를 수집하는 Application Insights와 통합됩니다. Application Insights는 성능 이상을 자동으로 감지하며, 문제를 진단하고 함수가 어떻게 사용되는지 이해할 수 있는 강력한 분석 도구를 포함하고 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+공격을 검색 하는 한 가지 방법은 활동 모니터링 작업 및 로깅 분석을 통하는 것입니다. Functions는 함수 앱에 대한 로그, 성능 및 오류 데이터를 수집하는 Application Insights와 통합됩니다. Application Insights는 성능 이상을 자동으로 감지하며, 문제를 진단하고 함수가 어떻게 사용되는지 이해할 수 있는 강력한 분석 도구를 포함하고 있습니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
 Functions는 또한 더욱 쉬운 분석을 위해 함수 앱 로그를 시스템 이벤트와 통합할 수 있도록 Azure Monitor 로그와 통합됩니다. 진단 설정을 사용하여 Logs Analytics 작업 영역 등 사용자가 선택한 대상으로 함수에 대한 플랫폼 로그 및 메트릭의 스트리밍 내보내기를 구성할 수 있습니다. 자세한 내용은 [Azure Monitor 로그를 사용한 Azure Functions 모니터링](functions-monitor-log-analytics.md)을 참조하세요. 
 
@@ -76,11 +76,11 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 기본적으로 키는 설정에서 제공 하는 계정의 Blob 저장소 컨테이너에 저장 됩니다 `AzureWebJobsStorage` . 특정 응용 프로그램 설정을 사용 하 여이 동작을 재정의 하 고 다른 위치에 키를 저장할 수 있습니다.
 
-|위치  |Setting | 값 | 설명  |
+|위치  |설정 | 값 | 설명  |
 |---------|---------|---------|---------|
 |다른 저장소 계정     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | 제공 된 SAS URL에 따라 두 번째 저장소 계정의 Blob 저장소에 키를 저장 합니다. 키는 함수 앱에 고유한 암호를 사용 하 여 저장 하기 전에 암호화 됩니다. |
 |파일 시스템   | `AzureWebJobsSecretStorageType`   |  `files`       | 키는 함수 앱에 고유한 암호를 사용 하 여 저장소 전에 암호화 된 상태로 파일 시스템에 유지 됩니다. |
-|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | 자격 증명 모음에는 호스팅 리소스의 시스템 할당 관리 id에 해당 하는 액세스 정책이 있어야 합니다. 액세스 정책은 `Get` ,, `Set` `List` 및의 비밀 권한을 id에 부여 해야 `Delete` 합니다. <br/>로컬로 실행 하는 경우 개발자 id가 사용 되며, 설정은 [파일의local.settings.js](functions-run-local.md#local-settings-file)에 있어야 합니다. | 
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | 자격 증명 모음에는 호스팅 리소스의 시스템 할당 관리 id에 해당 하는 액세스 정책이 있어야 합니다. 액세스 정책은 `Get` ,, `Set` `List` 및의 비밀 권한을 id에 부여 해야 `Delete` 합니다. <br/>로컬로 실행 하는 경우 개발자 id가 사용 되며, 설정은 [ 파일의local.settings.js](functions-run-local.md#local-settings-file)에 있어야 합니다. | 
 |Kubernetes 비밀  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName`(선택 사항) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Kubernetes에서 함수 런타임을 실행 하는 경우에만 지원 됩니다. 가 `AzureWebJobsKubernetesSecretName` 설정 되지 않은 경우 리포지토리는 읽기 전용으로 간주 됩니다. 이 경우 값은 배포 전에 생성 되어야 합니다. Azure Functions Core Tools는 Kubernetes에 배포할 때 값을 자동으로 생성 합니다.|
 
 ### <a name="authenticationauthorization"></a>인증/권한 부여
@@ -129,6 +129,8 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 앱 설정 및 연결 문자열은 Azure에 암호화되어 저장됩니다. 앱이 시작될 때 앱의 프로세스 메모리에 삽입되기 전에만 암호 해독됩니다. 암호화 키는 정기적으로 회전합니다. 대신 비밀의 보안 스토리지를 관리하려면 앱 설정이 Azure Key Vault에 대한 참조여야 합니다. 
 
+로컬 컴퓨터에서 함수를 개발할 때 파일의 local.settings.js에서 기본적으로 설정을 암호화할 수도 있습니다. 자세히 알아보려면 `IsEncrypted` [로컬 설정 파일](functions-run-local.md#local-settings-file)에서 속성을 참조 하세요.  
+
 #### <a name="key-vault-references"></a>Key Vault 참조
 
 애플리케이션 설정은 대부분의 함수에 충분하지만 여러 서비스에서 동일한 비밀을 공유하고자 할 수 있습니다. 이 경우 비밀의 중복 스토리지로 인해 잠재적인 취약성이 발생합니다. 보다 안전한 방법은 중앙 비밀 스토리지 서비스와 비밀 대신 이 서비스에 대한 참조 사용입니다.      
@@ -151,7 +153,7 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 ### <a name="disable-remote-debugging"></a>원격 디버깅 사용 안 함
 
-함수를 적극적으로 디버깅하는 경우를 제외하고 원격 디버깅을 사용하지 않도록 설정되어 있는지 확인합니다. 포털에서 함수 앱 **구성**의 **일반 설정**에서 원격 디버깅을 사용하지 않도록 설정할 수 있습니다. 
+함수를 적극적으로 디버깅하는 경우를 제외하고 원격 디버깅을 사용하지 않도록 설정되어 있는지 확인합니다. 포털에서 함수 앱 **구성** 의 **일반 설정** 에서 원격 디버깅을 사용하지 않도록 설정할 수 있습니다. 
 
 ### <a name="restrict-cors-access"></a>CORS 액세스 제한
 

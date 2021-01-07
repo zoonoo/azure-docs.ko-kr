@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/11/2019
+ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 2a6516ad5f0fc8d9faefd7b7f89ddb1eaa3fd7d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 142d4504ab12e7df5cc1e009038554a5b90dff0c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374857"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188420"
 ---
 이 가이드에서는 64비트 Java 8 JRE용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려는 경우에는 Maven 중앙 리포지토리에 Java SDK가 없습니다. Gradle 또는 `pom.xml` 종속성 파일을 사용하는 경우 `https://csspeechstorage.blob.core.windows.net/maven/`을 가리키는 사용자 지정 리포지토리를 추가해야 합니다(패키지 이름은 아래 참조).
 
@@ -30,7 +30,7 @@ ms.locfileid: "87374857"
 - Java Speech SDK 패키지는 다음과 같은 운영 체 제용으로 제공됩니다.
   - Windows: 64비트 전용
   - Mac: macOS X 버전 10.13 이상
-  - Linux: 64비트 전용 Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8
+  - Linux; [지원되는 Linux 배포 및 대상 아키텍처](~/articles/cognitive-services/speech-service/speech-sdk.md)의 목록을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,19 +39,14 @@ ms.locfileid: "87374857"
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/)(Java 사전 설치 필요)
 - 지원되는 Linux 플랫폼에는 특정 라이브러리가 설치되어 있어야 합니다(보안 소켓 레이어 지원을 위한 `libssl` 및 사운드 지원을 위한 `libasound2`). 이러한 라이브러리의 올바른 버전을 설치하는 데 필요한 명령은 아래 배포를 참조하세요.
 
-  - Ubuntu에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
+  - Ubuntu/Debian에서 다음 명령을 실행하여 필요한 패키지를 설치합니다.
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - Debian 9에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    libssl1.0.0을 사용할 수 없는 경우 libssl1.0.x(여기서 x는 0보다 큼) 또는 libssl1.1을 대신 설치합니다.
 
   - RHEL/CentOS에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
 

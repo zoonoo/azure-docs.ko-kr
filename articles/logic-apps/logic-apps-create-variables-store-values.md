@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b486b94a74d98f5630bd0bf40ebf0864c2ec5ab8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753262"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333905"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Azure Logic Apps에서 변수를 사용하여 값 저장 및 관리
 
@@ -29,7 +29,7 @@ ms.locfileid: "84753262"
 > [!IMPORTANT]
 > 기본적으로 "For each" 루프의 주기는 병렬로 실행 됩니다. 루프에서 변수를 사용 하는 경우 변수가 예측 가능한 결과를 반환 하도록 루프를 [순차적](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) 으로 실행 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "84753262"
 
    * 마지막 단계에서 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-     ![작업 추가](./media/logic-apps-create-variables-store-values/add-action.png)
+     !["논리 앱 디자이너" 페이지에서 선택한 "새 단계" 작업을 보여 주는 스크린샷](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ()가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 **+** 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
@@ -68,11 +68,11 @@ ms.locfileid: "84753262"
    | 속성 | 필수 | 값 |  설명 |
    |----------|----------|-------|--------------|
    | **이름** | 예 | <*변수 이름*> | 증가할 변수의 이름입니다. |
-   | **Type** | 예 | <*변수 형식*> | 변수의 데이터 형식입니다. |
-   | **값** | 아니요 | <*시작-값*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
+   | **형식** | 예 | <*변수 형식*> | 변수의 데이터 형식입니다. |
+   | **값** | 예 | <*시작-값*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
    |||||
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ![변수 초기화](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -208,10 +208,10 @@ ms.locfileid: "84753262"
    | 속성 | 필수 | 값 |  설명 |
    |----------|----------|-------|--------------|
    | **이름** | 예 | <*변수 이름*> | 증가할 변수의 이름입니다. |
-   | **값** | 아니요 | <*증가값*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
+   | **값** | 예 | <*증가값*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
    ||||
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ![증가 값 예제](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -242,7 +242,7 @@ ms.locfileid: "84753262"
 
 1. 트리거에서 첨부 파일을 확인 하 고 해당 첨부 파일을 논리 앱의 워크플로에 전달 하려면 다음 속성에 대해 **예** 를 선택 합니다.
 
-   * **첨부 파일 포함**
+   * **첨부 파일 있음**
    * **첨부 파일 포함**
 
    ![첨부 파일 확인 및 포함](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
@@ -329,7 +329,7 @@ ms.locfileid: "84753262"
 | 속성 | 필수 | 값 |  설명 |
 |----------|----------|-------|--------------|
 | **이름** | 예 | <*변수 이름*> | 감소할 변수의 이름입니다. | 
-| **값** | 아니요 | <*증가값*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
+| **값** | 예 | <*증가값*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
 ||||| 
 
 디자이너에서 코드 뷰 편집기로 전환 하는 경우, 다음은 JSON 형식의 논리 앱 정의 내에 **감소 변수** 작업을 표시 하는 방법입니다.

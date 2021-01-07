@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 745ac3831def524326b5483eeb8da05cff701caf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4d61bc5d608b865802d216c0a056867a79eacb90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882004"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91376851"
 ---
-<Token>**적용 대상:** :::image type="content" source="../media/applies-to/yes.png" alt-text="예-단일 서버":::Azure Database for PostgreSQL-단일 서버 :::image type="content" source="../media/applies-to/yes.png" alt-text="예-유연한":::서버 Azure Database for PostgreSQL-유연한 서버 :::image type="content" source="../media/applies-to/yes.png" alt-text="예-hyperscale":::Azure Database for PostgreSQL-hyperscale</Token>
+<Token>**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL-단일 서버 :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL-유연한 서버 :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL-hyperscale</Token>

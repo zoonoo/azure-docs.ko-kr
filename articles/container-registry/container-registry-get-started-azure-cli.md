@@ -4,12 +4,12 @@ description: Azure CLI를 사용한 프라이빗 Docker 컨테이너 레지스�
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
-ms.openlocfilehash: f4e69616d30c6a7b853c5cc854adee147ebde206
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 226e50aec8f7c76a1b4c81d1a07d57583059ef0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486547"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020078"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
@@ -25,7 +25,7 @@ Azure Cloud Shell에는 필요한 Docker 구성 요소(`dockerd` 데몬) 중 일
 
 [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -35,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 이 빠른 시작에서는 Azure Container Registry에 대해 배우기 시작하는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 서비스 계층][container-registry-skus]을 참조하세요.
 
-[az acr create][az-acr-create] 명령을 사용하여 ACR 인스턴스를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry007*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
+[az acr create][az-acr-create] 명령을 사용하여 ACR 인스턴스를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry007* 을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```azurecli
 az acr create --resource-group myResourceGroup \
@@ -69,10 +69,16 @@ az acr create --resource-group myResourceGroup \
 
 ## <a name="log-in-to-registry"></a>레지스트리에 로그인
 
-컨테이너 이미지를 푸시하고 끌어오려면 레지스트리에 로그인해야 합니다. 이렇게 하려면 [az acr login][az-acr-login] 명령을 사용합니다.
+컨테이너 이미지를 푸시하고 끌어오려면 레지스트리에 로그인해야 합니다. 이렇게 하려면 [az acr login][az-acr-login] 명령을 사용합니다. Azure CLI를 사용하여 로그인할 때 레지스트리 이름만 지정합니다. `azurecr.io`와 같은 도메인 접미사가 포함된 로그인 서버 이름은 사용하지 마세요. 
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+예제:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 완료되면 이 명령은 `Login Succeeded` 메시지를 반환합니다.

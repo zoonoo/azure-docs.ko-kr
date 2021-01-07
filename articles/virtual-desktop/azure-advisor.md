@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 76b7f97b6020a3a0d5571a3a105d15f7d7893485
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89147536"
 ---
 # <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Windows 가상 데스크톱과 Azure Advisor 사용
@@ -32,7 +32,7 @@ Azure Portal에서 Azure 계정으로 시작 해야 합니다. 먼저 <https://p
 
 Azure Advisor 열면 다음 5 개의 범주가 표시 됩니다.
 
-- 비용
+- Cost
 - 보안
 - 안정성
 - 뛰어난 운영

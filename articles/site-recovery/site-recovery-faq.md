@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 주�
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950496"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109558"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
 
@@ -71,7 +71,7 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 
 Site Recovery를 사용하는 동안 [가격 계산기](https://aka.ms/asr_pricing_calculator)를 사용하여 비용을 예측할 수 있습니다.
 
-자세한 예상 비용을 보려면 배포 플래너 도구[VMware](https://aka.ms/siterecovery_deployment_planner) 또는 [Hyper-V](https://aka.ms/asr-deployment-planner)용 배포 플래너 도구를 실행하고 [비용 예상 보고서](https://aka.ms/asr_DP_costreport)를 사용합니다.
+자세한 예상 비용을 보려면 배포 플래너 도구[VMware](./site-recovery-deployment-planner.md) 또는 [Hyper-V](https://aka.ms/asr-deployment-planner)용 배포 플래너 도구를 실행하고 [비용 예상 보고서](./site-recovery-vmware-deployment-planner-cost-estimation.md)를 사용합니다.
 
 
 ### <a name="managed-disks-are-now-used-to-replicate-vmware-vms-and-physical-servers-do-i-incur-additional-charges-for-the-cache-storage-account-with-managed-disks"></a>이제 VMware VM 및 물리적 서버를 복제하는 데 관리 디스크를 사용합니다. 관리 디스크를 사용하는 캐시 스토리지 계정에 대해 추가 요금이 발생하나요?
@@ -224,7 +224,7 @@ LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나
 4. 루트 사용자에 대 한 execute 권한이 있는 "customscript.sh" 라는 bash 셸 스크립트를 만듭니다.<br>
     a. 스크립트는 "--pre" 및 "--post"를 지원 해야 합니다 (이중 대시 참고) 명령줄 옵션<br>
     b. 사전 옵션을 사용 하 여 스크립트를 호출 하는 경우 응용 프로그램 입/출력을 고정 하 고 사후 옵션을 사용 하 여 호출 하면 응용 프로그램 입/출력을 재개 해야 합니다.<br>
-    c. 샘플 템플릿-<br>
+    다. 샘플 템플릿-<br>
 
     `# cat customscript.sh`<br>
 
@@ -273,6 +273,9 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다.
 
 추가 콘텐츠로 인해, 애플리케이션 일관성이 있는 스냅샷은 가장 복잡하며 가장 오랜 시간이 걸립니다. 애플리케이션 일치 복구 지점은 데이터베이스 운영 체제와 SQL 서버 등의 애플리케이션에 권장됩니다.
 
+>[!Note]
+>64 개 이상의 볼륨이 있는 경우 Windows 컴퓨터에서 응용 프로그램 일치 복구 지점의 생성에 실패 합니다.
+
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>애플리케이션 일치 복구 지점이 애플리케이션 성능에 미치는 영향은 무엇입니까?
 
 애플리케이션 일치 복구 지점은 메모리에 있는 데이터와 처리 중인 모든 데이터를 캡처합니다. 복구 지점은 해당 데이터를 캡처하기 때문에 애플리케이션을 정지하려면 Windows에서 볼륨 섀도 복사본 서비스와 같은 프레임워크가 필요합니다. 캡처 프로세스가 빈번하게 발생하는 경우 워크로드가 이미 다른 작업을 진행 중이면 성능에 영향을 줄 수 있습니다. 비데이터베이스 워크로드의 경우 앱 일치 복구 지점을 자주 사용하는 것이 좋습니다. 데이터베이스 워크로드의 경우에도 1시간으로 충분합니다.
@@ -304,7 +307,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>VM에서 복제를 사용하도록 설정한 후 복제 정책을 변경하려면 어떻게 할까요?
 
-**Site Recovery 자격 증명 모음** > **Site Recovery 인프라** > **복제 정책**으로 이동합니다. 편집할 정책을 선택하고 변경 내용을 저장합니다. 변경 내용은 모든 기존 복제에도 적용됩니다.
+**Site Recovery 자격 증명 모음** > **Site Recovery 인프라** > **복제 정책** 으로 이동합니다. 편집할 정책을 선택하고 변경 내용을 저장합니다. 변경 내용은 모든 기존 복제에도 적용됩니다.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>모든 복구 지점이 VM의 전체 복사본인가요, 아니면 차등 복사본인가요?
 

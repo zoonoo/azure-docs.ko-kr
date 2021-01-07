@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87021463"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
@@ -61,7 +61,7 @@ Azure에서 다음을 준비해야 합니다.
 2. 장애 조치 (failover) 후 저장소 계정 또는 관리 디스크에서 만들 때 Azure Vm이 가입할 Azure 네트워크를 만듭니다.
 3. Site Recovery에 대한 Azure Recovery Services 자격 증명 모음을 설정합니다. 이 자격 증명 모음은 Azure Portal에 있고, 배포, 구성, 오케스트레이션, 모니터링 작업과 Site Recovery 배포 문제를 해결하는 데 사용됩니다.
 
-*도움이 더 필요 하세요?*
+*도움이 더 필요하세요?*
 
 [계정을 확인](tutorial-prepare-azure.md#verify-account-permissions)하 고, [네트워크](tutorial-prepare-azure.md#set-up-an-azure-network)를 만들고, [자격 증명 모음을 설정](tutorial-prepare-azure.md#create-a-recovery-services-vault)하 여 Azure를 설정 하는 방법을 알아봅니다.
 
@@ -79,7 +79,7 @@ Azure에서 다음을 준비해야 합니다.
 2. 아직 실행하지 않은 경우 VMware 인프라의 호환성을 확인해야 합니다.
 3. 장애 조치(Failover) 후 Azure VM에 연결할 수 있는지 확인합니다. 온-프레미스 Windows 컴퓨터에 RDP를 설치하거나 Linux 컴퓨터에 SSH를 설치합니다.
 
-*도움이 더 필요 하세요?*
+*도움이 더 필요하세요?*
 - [자동 검색](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) 및 [모바일 서비스 설치](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation)를 위한 계정을 준비합니다.
 - VMware 설정이 호환되는지 [확인](vmware-azure-tutorial-prepare-on-premises.md#check-vmware-requirements)합니다.
 - 장애 조치(Failover) 후에 Azure에 연결할 수 있도록 [준비](vmware-azure-tutorial-prepare-on-premises.md#prepare-to-connect-to-azure-vms-after-failover)합니다.
@@ -102,7 +102,7 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
 5. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅샷을 만들지 여부가 설정됩니다.
 6. **복제를 사용 하도록 설정**합니다. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다. 
 
-*도움이 더 필요 하세요?*
+*도움이 더 필요하세요?*
 
 - 이러한 단계를 빠르게 연습해보려면 [VMware 자습서](vmware-azure-tutorial.md)와 [실제 서버 연습](physical-azure-disaster-recovery.md)을 수행할 수 있습니다.
 - 원본 환경 설정에 대해 [자세히 알아봅니다](vmware-azure-set-up-source.md).

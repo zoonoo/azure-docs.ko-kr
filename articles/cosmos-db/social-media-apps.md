@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850695"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010319"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
+광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크** 의 일부가 된다는 것을 의미합니다. 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
 
 여러분이 엔지니어나 개발자라면 이러한 네트워크가 어떻게 사용자 데이터를 저장하고 상호 연결하는지 궁금하게 생각할 것입니다. 또는 특정 틈새 시장을 위한 새로운 소셜 네트워크를 만들거나 설계하는 일을 맡을 수도 있습니다. 특히 이 모든 데이터가 어떻게 저장되는지가 매우 궁금할 때 더욱 그렇습니다.
 
@@ -216,9 +217,9 @@ Azure Cosmos DB를 사용 하 고 있으므로 검색 프로세스 및 UI 이외
 
 이 프로세스는 왜 그렇게 쉬울까요?
 
-Azure Cognitive Search는 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx), 데이터 리포지토리를 연결 하는 백그라운드 프로세스 및 인덱스에서 개체를 추가, 업데이트 또는 제거 하는 자동으로를 구현 합니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행히도 [Azure Cosmos DB 인덱서](../search/search-howto-index-documentdb.md)를 지원합니다. Cosmos DB에서 Azure Cognitive Search로 정보를 전환 하는 것은 간단 합니다. 두 기술은 모두 정보를 JSON 형식으로 저장하므로 [인덱스를 만들고](../search/search-create-index-portal.md) 인덱싱할 문서에서 특성을 매핑하면 됩니다. 끝났습니다. 데이터의 크기에 따라, 모든 콘텐츠는 클라우드 인프라에서 최상의 Search-as-a-Service 솔루션을 통해 몇 분 내에 검색될 수 있습니다.
+Azure Cognitive Search는 [인덱서](/rest/api/searchservice/Indexer-operations), 데이터 리포지토리를 연결 하는 백그라운드 프로세스 및 인덱스에서 개체를 추가, 업데이트 또는 제거 하는 자동으로를 구현 합니다. Azure Search는 [Azure SQL Database 인덱서](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행히도 [Azure Cosmos DB 인덱서](../search/search-howto-index-cosmosdb.md)를 지원합니다. Cosmos DB에서 Azure Cognitive Search로 정보를 전환 하는 것은 간단 합니다. 두 기술은 모두 정보를 JSON 형식으로 저장하므로 [인덱스를 만들고](../search/search-what-is-an-index.md) 인덱싱할 문서에서 특성을 매핑하면 됩니다. 정말 간단하죠. 데이터의 크기에 따라, 모든 콘텐츠는 클라우드 인프라에서 최상의 Search-as-a-Service 솔루션을 통해 몇 분 내에 검색될 수 있습니다.
 
-Azure Cognitive Search에 대 한 자세한 내용은 Hitchhiker 가이드를 방문 [하 여 검색할](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)수 있습니다.
+Azure Cognitive Search에 대 한 자세한 내용은 Hitchhiker 가이드를 방문 [하 여 검색할](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search)수 있습니다.
 
 ## <a name="the-underlying-knowledge"></a>기본 지식
 
@@ -238,9 +239,9 @@ Azure Cognitive Search에 대 한 자세한 내용은 Hitchhiker 가이드를 �
 
 ## <a name="a-planet-scale-social-experience"></a>전 세계적인 규모의 소셜 환경
 
-마지막으로 해결해야 하는 중요한 사항은 **확장성**입니다. 아키텍처를 디자인할 때 각 구성 요소는 자체적으로 크기가 조정될 수 있어야 합니다. 결국 더 많은 데이터를 처리해야 하거나 더 큰 지리적 범위를 포괄하려고 할 수 있습니다. 다행스럽게도 Cosmos DB를 사용하여 **턴키 환경**에서 이러한 두 가지 작업을 모두 수행할 수 있습니다.
+마지막으로 해결해야 하는 중요한 사항은 **확장성** 입니다. 아키텍처를 디자인할 때 각 구성 요소는 자체적으로 크기가 조정될 수 있어야 합니다. 결국 더 많은 데이터를 처리해야 하거나 더 큰 지리적 범위를 포괄하려고 할 수 있습니다. 다행스럽게도 Cosmos DB를 사용하여 **턴키 환경** 에서 이러한 두 가지 작업을 모두 수행할 수 있습니다.
 
-Cosmos DB는 기본적으로 동적 분할을 지원합니다. 문서에 특성으로 정의되는 지정된 **파티션 키**를 기준으로 파티션을 자동으로 만듭니다. 올바른 파티션 키를 정의하는 작업은 디자인 타임에 수행해야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](partitioning-overview.md)을 참조하세요.
+Cosmos DB는 기본적으로 동적 분할을 지원합니다. 문서에 특성으로 정의되는 지정된 **파티션 키** 를 기준으로 파티션을 자동으로 만듭니다. 올바른 파티션 키를 정의하는 작업은 디자인 타임에 수행해야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](partitioning-overview.md)을 참조하세요.
 
 소셜 환경의 경우 쿼리 및 쓰기 방식에 따라 분할 전략을 조정해야 합니다. 예를 들어 동일한 파티션 내에서 읽기가 바람직한 경우 여러 파티션에 쓰기를 분산 하 여 "핫 스폿"을 방지 합니다. 몇 가지 옵션은 임시 키 (일/월/주)를 기반으로 하는 파티션, 콘텐츠 범주, 지리적 지역 또는 사용자별입니다. 실제로 소셜 환경에서의 데이터 쿼리 방식 및 표시 방식에 따라 옵션이 결정됩니다.
 
@@ -252,7 +253,7 @@ Cosmos DB는 모든 파티션에 투명하게 쿼리([집계](https://azure.micr
 
 상황이 계속 좋아질 수 있습니다. 다른 지역, 국가 또는 대륙의 사용자들이 여러분의 플랫폼을 알게 되고 사용하게 된다고 가정해보세요. 대단한 일이지요.
 
-그렇지만 잠시 기다리세요. 사용자가 해당 플랫폼을 최적 상태로 사용하고 있지 않다는 것을 알게 될 것입니다. 사용자들이 운영 지역에서 멀리 떨어져 있어서 대기 시간이 상당히 길 수 있습니다. 그렇다고 사용자들이 중단하는 것을 원하는 것은 아닐 것입니다. **글로벌 도달률을 확장**하는 쉬운 방법이 있다면 얼마나 좋을까요. 방법이 있습니다!
+그렇지만 잠시 기다리세요. 사용자가 해당 플랫폼을 최적 상태로 사용하고 있지 않다는 것을 알게 될 것입니다. 사용자들이 운영 지역에서 멀리 떨어져 있어서 대기 시간이 상당히 길 수 있습니다. 그렇다고 사용자들이 중단하는 것을 원하는 것은 아닐 것입니다. **글로벌 도달률을 확장** 하는 쉬운 방법이 있다면 얼마나 좋을까요. 방법이 있습니다!
 
 Cosmos DB를 사용하면 몇 번의 클릭으로 투명하게 [데이터를 전역으로 복제](../cosmos-db/tutorial-global-distribution-sql-api.md)하고 [클라이언트 코드](../cosmos-db/tutorial-global-distribution-sql-api.md)에서 사용 가능한 지역 중 하나를 자동으로 선택할 수 있습니다. 즉, 이 프로세스에서는 [여러 장애 조치(failover)
 지역](high-availability.md)을 사용할 수 있습니다.

@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093003"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009503"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 Durable Functions를 실행 하는 방법
 
@@ -33,7 +33,7 @@ WebJobs SDK의 버전 2.x에서 호스트는의 구현 `IHost` 이며, 버전 2.
 
 * **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](/visualstudio/install/)를 설치합니다.
 
-  Visual Studio가 이미 있지만 해당 워크 로드가 없는 경우 **도구**  >  **도구 및 기능 가져오기**를 선택 하 여 작업을 추가 합니다.
+  Visual Studio가 이미 있지만 해당 워크 로드가 없는 경우 **도구**  >  **도구 및 기능 가져오기** 를 선택 하 여 작업을 추가 합니다.
 
   (대신 [Visual Studio Code](https://code.visualstudio.com/)를 사용할 수 있지만 지침 중 일부는 Visual Studio에 국한됩니다.)
 
@@ -119,7 +119,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 WebJobs의 컨텍스트에서 Durable Functions는 Azure Functions 컨텍스트에서 Durable Functions는 약간 다릅니다. 코드를 작성할 때의 차이점을 파악 하는 것이 중요 합니다.
 

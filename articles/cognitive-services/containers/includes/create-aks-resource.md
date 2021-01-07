@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87298756"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017875"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Azure Kubernetes Service 클러스터 리소스 만들기
 
-1. [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks)로 이동 하 고 **만들기**를 선택 합니다.
+1. [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks)로 이동 하 고 **만들기** 를 선택 합니다.
 
-1. **기본 사항** 탭에서 다음 정보를 입력 합니다.
+1. **기본** 탭에서 다음 정보를 입력합니다.
 
     |설정|값|
     |--|--|
@@ -39,13 +39,13 @@ ms.locfileid: "87298756"
 
     |설정|값|
     |--|--|
-    |HTTP 애플리케이션 라우팅|아니요|
+    |HTTP 애플리케이션 라우팅|No|
     |네트워킹 구성|Basic|
 
-1. **통합** 탭에서 **컨테이너 모니터링** 이 **사용**으로 설정 되어 있는지 확인 하 고 **Log Analytics 작업 영역** 을 기본값으로 둡니다.
+1. **통합** 탭에서 **컨테이너 모니터링** 이 **사용** 으로 설정 되어 있는지 확인 하 고 **Log Analytics 작업 영역** 을 기본값으로 둡니다.
 1. **태그** 탭에서 이름/값 쌍을 비워 둡니다.
-1. **검토 및 만들기를**선택 합니다.
-1. 유효성 검사를 통과 한 후 **만들기**를 선택 합니다.
+1. **검토 및 만들기를** 선택 합니다.
+1. 유효성 검사를 통과 한 후 **만들기** 를 선택 합니다.
 
 > [!NOTE]
-> 유효성 검사가 실패 하는 경우 "서비스 주체" 오류 때문일 수 있습니다. **인증** 탭으로 돌아가서 유효성 검사를 실행 하 고를 전달 하는 **검토 + 만들기**로 돌아갑니다.
+> 유효성 검사가 실패 하는 경우 "서비스 주체" 오류 때문일 수 있습니다. **인증** 탭으로 돌아가서 유효성 검사를 실행 하 고를 전달 하는 **검토 + 만들기** 로 돌아갑니다.

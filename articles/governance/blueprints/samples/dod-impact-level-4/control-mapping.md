@@ -1,24 +1,23 @@
 ---
 title: DoD 영향 수준 4 청사진 샘플 컨트롤
-description: DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 06/30/2020
+description: DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 376ddd68373026a93eaf08774cee0a1f8ce06bec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923291"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019534"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑
 
 다음 문서에서는 Azure Blueprints DoD IL4(국방부 영향 수준 4) 청사진 샘플이 DoD 영향 수준 4 컨트롤에 매핑되는 방법을 자세히 설명합니다. 컨트롤에 대한 자세한 내용은 [DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf)를 참조하세요. DISA(방어 정보 시스템 기관)는 DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)를 개발하고 유지 관리하는 미국 DoD(국방부)의 기관입니다. SRG는 DoD 정보, 시스템 및 애플리케이션을 호스팅하는 CSP(클라우드 서비스 공급자)와 DoD의 클라우드 서비스 사용에 대한 기본 보안 요구 사항을 정의합니다.  
 
-다음 매핑은 **DoD 영향 수준 4** 컨트롤에 대한 것입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: DoD 영향 수준 4** 기본 제공 정책 이니셔티브를 찾아 선택합니다.
+다음 매핑은 **DoD 영향 수준 4** 컨트롤에 대한 것입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책** 을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: DoD 영향 수준 4** 기본 제공 정책 이니셔티브를 찾아 선택합니다.
 
 > [!IMPORTANT]
-> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수**는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다.
-> 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md)을 참조하세요.
+> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수** 는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md)을 참조하세요.
 
 ## <a name="ac-2-account-management"></a>AC-2 계정 관리
 
@@ -32,7 +31,7 @@ ms.locfileid: "87923291"
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) 계정 관리 | 역할 기반 체계
 
-Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 또한 이 청사진은 SQL Server 및 Service Fabric에 대한 Azure Active Directory 인증의 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 또한 이 청사진은 사용자 지정 RBAC 규칙의 사용을 감사하는 Azure Policy 정의를 할당합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
+Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 또한 이 청사진은 SQL Server 및 Service Fabric에 대한 Azure Active Directory 인증의 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 또한 이 청사진은 사용자 지정 Azure RBAC 규칙의 사용을 감사하는 Azure Policy 정의를 할당합니다. 사용자 지정 Azure RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 Azure RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
 
 - SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.
 - 사용자 지정 RBAC 규칙의 사용 감사
@@ -102,11 +101,11 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 영역에 저장되므로 중앙 집중식 구성 및 관리가 가능합니다. 이 청사진을 사용하면 Azure 가상 머신에서 Log Analytics 에이전트의 배포를 감사하고 적용하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 이벤트가 기록되도록 할 수 있습니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
-- \[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
-- \[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5 감사 처리 실패에 대한 응답
@@ -123,11 +122,11 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 영역에 저장되므로 중앙 집중식 보고 및 분석이 가능합니다. 이 청사진을 사용하면 Azure 가상 머신에서 Log Analytics 에이전트의 배포를 감사하고 적용하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 이벤트가 기록되도록 할 수 있습니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
-- \[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
-- \[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) 감사 검토, 분석 및 보고 | 통합/검색 및 모니터링 기능
@@ -144,7 +143,7 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 
 ## <a name="au-12-audit-generation"></a>AU-12 감사 생성
 
@@ -152,11 +151,11 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 뿐만 아니라 SQL 서버에 감사 및 Advanced Data Security가 구성됩니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
-- \[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
-- \[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 - 진단 설정 감사
 - SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
@@ -336,11 +335,8 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) 결함 수정 | 이전 버전의 소프트웨어/펌웨어 제거
 
-이 청사진은 애플리케이션에서 최신 버전의 .NET Framework, HTTP, Java, PHP, Python, TLS를 사용하도록 보장하는 데 유용한 정책 정의를 할당합니다. 또한 이 청사진은 Kubernetes Services가 취약하지 않은 버전으로 업그레이드되도록 하는 정책 정의를 할당합니다.
+이 청사진은 애플리케이션에서 최신 버전의 HTTP, Java, PHP, Python 및 TLS를 사용하도록 보장하는 데 유용한 정책 정의를 할당합니다. 또한 이 청사진은 Kubernetes Services가 취약하지 않은 버전으로 업그레이드되도록 하는 정책 정의를 할당합니다.
 
-- API 앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
-- 함수 앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
-- 웹앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
 - API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
@@ -348,7 +344,6 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
 - 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
 - API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
-- 함수 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
 - 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
 - API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
 - 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
@@ -356,7 +351,7 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - API 앱에서 최신 TLS 버전을 사용해야 합니다.
 - 함수 앱에서 최신 TLS 버전을 사용해야 합니다.
 - 웹앱에서 최신 TLS 버전을 사용해야 합니다.
-- \[미리 보기\]: Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함
+- Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함
 
 ## <a name="si-3-malicious-code-protection"></a>SI-3 악성 코드 방지
 
@@ -378,11 +373,11 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 이 청사진은 Azure 리소스에 로깅 및 데이터 보안을 적용하고 감사하여 시스템 모니터링을 도와줍니다. 특히, 이 정책은 Log Analytics 에이전트 배포를 감사 및 적용하고 SQL 데이터베이스, 스토리지 계정 및 네트워크 리소스의 보안 설정을 강화합니다. 이러한 기능은 비정상적인 동작과 공격 징후를 감지하여 적절한 조치를 취하도록 도와줍니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- 가상 머신 확장 집합에서 Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
-- \[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Linux 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
-- \[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포
+- Windows 가상 머신 확장 집합용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 - 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.

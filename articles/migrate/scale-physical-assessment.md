@@ -1,18 +1,17 @@
 ---
 title: Azure Migrate를 사용 하 여 Azure로의 마이그레이션에 대 한 다 수의 물리적 서버 평가 Microsoft Docs
 description: Azure Migrate 서비스를 사용 하 여 Azure로 마이그레이션하기 위해 많은 수의 물리적 서버를 평가 하는 방법을 설명 합니다.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 01/19/2020
-ms.author: hamusa
-ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081079"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753691"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 물리적 서버 평가
 
@@ -30,7 +29,7 @@ ms.locfileid: "85081079"
 
 
 > [!NOTE]
-> 규모를 평가 하기 전에 몇 가지 서버를 평가 하기 위해 개념 증명을 사용해 보려는 경우 [자습서 시리즈](tutorial-prepare-physical.md)를 따르세요.
+> 규모를 평가 하기 전에 몇 가지 서버를 평가 하기 위해 개념 증명을 사용해 보려는 경우 [자습서 시리즈](./tutorial-discover-physical.md)를 따르세요.
 
 ## <a name="plan-for-assessment"></a>평가 계획
 
@@ -64,7 +63,7 @@ ms.locfileid: "85081079"
 2. Azure Migrate와 상호 작용 하도록 Azure 계정에 대 한 사용 권한을 설정 합니다.
 3. 물리적 서버를 준비 합니다.
 
-[이 자습서](tutorial-prepare-physical.md) 의 지침에 따라 이러한 설정을 구성 합니다.
+[이 자습서](./tutorial-discover-physical.md) 의 지침에 따라 이러한 설정을 구성 합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -73,7 +72,7 @@ ms.locfileid: "85081079"
 1. Azure Migrate 프로젝트를 만듭니다.
 2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
 
-[자세한 정보](how-to-add-tool-first-time.md)
+[자세히 알아보기](./create-manage-projects.md)
 
 ## <a name="create-and-review-an-assessment"></a>평가 만들기 및 검토
 

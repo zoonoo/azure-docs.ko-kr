@@ -8,27 +8,27 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 23e7b0f8dcb0c64259627d5350511ebdc48d6fac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078982"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541998"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 스토리지 계정 추가
 
-스크립트 작업을 사용 하 여 HDInsight에 Azure Storage *계정을* 추가 하는 방법에 대해 알아봅니다. 이 문서의 단계는 기존 HDInsight 클러스터에 저장소 *계정을* 추가 합니다. 이 문서는 저장소 *계정* (기본 클러스터 저장소 계정이 아님)에 적용 되며, 및와 같은 추가 저장소는 적용 되지 않습니다 [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
+스크립트 작업을 사용 하 여 HDInsight에 Azure Storage *계정을* 추가 하는 방법에 대해 알아봅니다. 이 문서의 단계는 기존 HDInsight 클러스터에 저장소 *계정을* 추가 합니다. 이 문서는 저장소 *계정* (기본 클러스터 저장소 계정이 아님)에 적용 되며, 및와 같은 추가 저장소는 적용 되지 않습니다 [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
 
 > [!IMPORTANT]  
 > 이 문서의 정보는 클러스터를 만든 후 클러스터에 추가 저장소 계정을 추가 하는 방법에 대 한 것입니다. 클러스터를 만드는 동안 스토리지 계정을 추가하는 방법에 대한 자세한 내용은 [Apache Hadoop, Apache Spark, Apache Kafka 등으로 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 저장소 계정 이름 및 키입니다. [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조 하세요.
-* PowerShell을 사용 하는 경우 AZ module이 필요 합니다.  [Azure PowerShell 개요를](https://docs.microsoft.com/powershell/azure/)참조 하세요.
+* PowerShell을 사용 하는 경우 AZ module이 필요 합니다.  [Azure PowerShell 개요를](/powershell/azure/)참조 하세요.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 처리 하는 동안 스크립트는 다음 작업을 수행 합니다.
 
@@ -49,14 +49,14 @@ ms.locfileid: "87078982"
 
 [스크립트 작업](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) 을 사용 하 여 다음 사항을 고려 하 여 변경 내용을 적용 합니다.
 
-|속성 | Value |
+|속성 | 값 |
 |---|---|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |노드 유형|Head|
 |매개 변수|`ACCOUNTNAME``ACCOUNTKEY` `-p` (선택 사항)|
 
-* `ACCOUNTNAME`HDInsight 클러스터에 추가할 저장소 계정의 이름입니다.
-* `ACCOUNTKEY`는에 대 한 액세스 키입니다 `ACCOUNTNAME` .
+* `ACCOUNTNAME` HDInsight 클러스터에 추가할 저장소 계정의 이름입니다.
+* `ACCOUNTKEY` 는에 대 한 액세스 키입니다 `ACCOUNTNAME` .
 * `-p`는 선택 사항입니다. 지정 된 경우 키가 암호화 되지 않고 core-site.xml 파일에 일반 텍스트로 저장 됩니다.
 
 ## <a name="verification"></a>확인
@@ -97,7 +97,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-1. **HDFS**  >  **Configs**  >  **Advanced**  >  **Custom core-site**로 이동 합니다.
+1. **HDFS**  >  **Configs**  >  **Advanced**  >  **Custom core-site** 로 이동 합니다.
 
 1. 로 시작 하는 키를 관찰 `fs.azure.account.key` 합니다. 계정 이름은 다음 샘플 이미지에 표시 된 것 처럼 키의 일부가 됩니다.
 
@@ -107,7 +107,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-1. **HDFS**  >  **Configs**  >  **Advanced**  >  **Custom core-site**로 이동 합니다.
+1. **HDFS**  >  **Configs**  >  **Advanced**  >  **Custom core-site** 로 이동 합니다.
 
 1. 다음 키를 제거 합니다.
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +119,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 ### <a name="storage-firewall"></a>저장소 방화벽
 
-**선택한 네트워크**에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하도록 선택 하는 경우 HDInsight에서 저장소 계정에 액세스할 수 있도록 예외를 신뢰할 수 있는 **Microsoft 서비스 허용** 으로 설정 해야 합니다.`.`
+**선택한 네트워크** 에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하도록 선택 하는 경우 HDInsight에서 저장소 계정에 액세스할 수 있도록 예외를 신뢰할 수 있는 **Microsoft 서비스 허용** 으로 설정 해야 합니다.`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>키를 변경한 후 스토리지에 액세스할 수 없음
 

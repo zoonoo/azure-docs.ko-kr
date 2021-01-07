@@ -9,19 +9,20 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: 483ca63abbabaabd3b25446c9267a1b0540f60dd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: bf357dcc9c4790632a1131278edc41c13ac810b1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852976"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802612"
 ---
 # <a name="client-application-registration"></a>클라이언트 애플리케이션 등록
 이전 자습서에서는 Azure API for FHIR을 배포하고 설정했습니다. 이제 Azure API for FHIR을 설정했으므로 퍼블릭 클라이언트 애플리케이션을 등록합니다. 자세한 내용 또는 문제 해결에 대한 전체 [퍼블릭 클라이언트 앱 등록](register-public-azure-ad-client-app.md) 방법 가이드를 참조할 수 있지만 아래 이 자습서에 대한 주요 단계를 소개했습니다.
 
 1. Azure Active Directory로 이동
 1. **앱 등록** --> **새 등록** 선택
-1. 애플리케이션의 이름 설정 및 리디렉션 URI를 https://www.getpostman.com/oauth2/callback 으로 설정
+1. 애플리케이션의 이름을 지정합니다.
+1. **퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)** 를 선택하고 리디렉션 URI를 `https://www.getpostman.com/oauth2/callback` 으로 설정합니다.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="애플리케이션 등록 창의 스크린샷 및 애플리케이션 이름과 리디렉션 URL의 예입니다.":::
 
@@ -35,9 +36,9 @@ ms.locfileid: "87852976"
 
 Azure API for FHIR에 연결하기 위해 [웹앱을 작성](tutorial-web-app-write-web-app.md)한 경우 올바른 인증 옵션도 설정해야 합니다. 
 
-1. 왼쪽 메뉴의 **관리** 아래에서 **인증**을 선택합니다. 
+1. 왼쪽 메뉴의 **관리** 아래에서 **인증** 을 선택합니다. 
 
-1. 새 플랫폼 구성을 추가하려면 **웹**을 선택합니다.
+1. 새 플랫폼 구성을 추가하려면 **웹** 을 선택합니다.
 
 1. 이 자습서의 네 번째 부분에서 웹 애플리케이션을 만들 때를 준비하는 과정에서 리디렉션 URI를 설정합니다. 이렇게 하려면 리디렉션 URI 목록에 `https://\<WEB-APP-NAME>.azurewebsites.net`을 추가합니다. [웹앱을 작성](tutorial-web-app-write-web-app.md)하는 단계에서 다른 이름을 선택하는 경우 돌아가서 이를 업데이트해야 합니다.
 
@@ -49,9 +50,9 @@ Azure API for FHIR에 연결하기 위해 [웹앱을 작성](tutorial-web-app-wr
 
 이제 올바른 인증을 설정했으므로 API 사용 권한을 설정합니다.
 
-1. **API 사용 권한**을 선택하고 **사용 권한 추가**를 클릭합니다.
-1. **내 조직에서 사용하는 API**에서 Azure Healthcare API를 검색합니다.
-1. **user_impersonation**을 선택하고 **사용 권한 추가**를 클릭합니다.
+1. **API 사용 권한** 을 선택하고 **사용 권한 추가** 를 클릭합니다.
+1. **내 조직에서 사용하는 API** 에서 Azure Healthcare API를 검색합니다.
+1. **user_impersonation** 을 선택하고 **사용 권한 추가** 를 클릭합니다.
 
 :::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="API 사용 권한을 추가하는 단계가 강조 표시된 API 사용 권한 추가 블레이드의 스크린샷.":::
 

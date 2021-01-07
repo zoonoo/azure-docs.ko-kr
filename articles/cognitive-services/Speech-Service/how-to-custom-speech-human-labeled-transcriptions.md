@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4516bbddd3fda593021288a440e1b354d4d7f1e3
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74806065"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340240"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 작성 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "74806065"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | Substitution | 메모 |
+| 피할 문자 | 대체 | 참고 |
 | ------------------- | ------------ | ----- |
 | "Hello 세계" | "Hello world" | 여는 따옴표와 닫는 따옴표를 적절 한 ASCII 문자로 대체 했습니다. |
 | John의 날 | John의 날 | 아포스트로피를 적절 한 ASCII 문자로 대체 했습니다. |
@@ -76,7 +76,7 @@ ms.locfileid: "74806065"
 | 104 Elm Street                         | one oh four Elm street            |
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
-| It 비용 \$3.14                        | it costs three fourteen           |
+| It 비용 \$ 3.14                        | it costs three fourteen           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (zh-cn-CN)
 
@@ -84,7 +84,7 @@ ms.locfileid: "74806065"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | Substitution   | 메모 |
+| 피할 문자 | 대체   | 참고 |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | 여는 따옴표와 닫는 따옴표를 적절 한 문자로 대체 했습니다. |
 | 需要什么帮助? | 需要什么帮助？| 물음표를 적절 한 문자로 대체 했습니다. |
@@ -164,8 +164,8 @@ ms.locfileid: "74806065"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+- [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 - [데이터 검사](how-to-custom-speech-inspect-data.md)
 - [데이터 평가](how-to-custom-speech-evaluate-data.md)
 - [모델 학습](how-to-custom-speech-train-model.md)
-- [모델 배포](how-to-custom-speech-deploy-model.md)
+- [모델 배포](./how-to-custom-speech-train-model.md)

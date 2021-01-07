@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84629545"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518297"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 자동으로 가상 머신 확장 집합 크기 조정
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -25,15 +25,15 @@ ms.locfileid: "84629545"
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.29 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+- 이 문서에는 Azure CLI 버전 2.0.29 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. 
 
 
 ## <a name="define-an-autoscale-profile"></a>자동 크기 조정 프로필 정의
-*Microsoft.insights/autoscalesettings* 리소스 공급자를 사용하여 Azure 템플릿에 자동 크기 조정 프로필을 정의합니다. *프로필*은 확장 집합의 용량과 모든 관련 규칙을 자세히 설명합니다. 다음 예제에서는 *CPU 사용량 기준 백분율로 자동 크기 조정*이라는 프로필을 정의하고, VM 인스턴스의 기본 용량 및 최소 용량을 *2*, 최대 용량을 *10*으로 설정합니다.
+*Microsoft.insights/autoscalesettings* 리소스 공급자를 사용하여 Azure 템플릿에 자동 크기 조정 프로필을 정의합니다. *프로필* 은 확장 집합의 용량과 모든 관련 규칙을 자세히 설명합니다. 다음 예제에서는 *CPU 사용량 기준 백분율로 자동 크기 조정* 이라는 프로필을 정의하고, VM 인스턴스의 기본 용량 및 최소 용량을 *2*, 최대 용량을 *10* 으로 설정합니다.
 
 ```json
 {
@@ -137,7 +137,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 ## <a name="create-an-autoscaling-scale-set"></a>자동 크기 조정 확장 집합 만들기
 샘플 템플릿을 사용하여 확장 집합을 만들고 자동 크기 조정 규칙을 적용해 보겠습니다. [전체 템플릿을 검토](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json)하거나 [템플릿의 *Microsoft.insights/autoscalesettings* 리소스 공급자 섹션을 참조](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220)하세요.
 
-먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -180,7 +180,7 @@ SSH를 첫 번째 VM 인스턴스에 연결합니다. 앞의 명령과 같이 `-
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-로그인한 후 **stress** 유틸리티를 설치합니다. CPU 로드를 생성하는 *10*개 **stress** 작업자를 시작합니다. 이러한 작업자는 *420*초 동안 실행되어 자동 크기 조정 규칙에서 원하는 작업을 구현하는 데 충분합니다.
+로그인한 후 **stress** 유틸리티를 설치합니다. CPU 로드를 생성하는 *10* 개 **stress** 작업자를 시작합니다. 이러한 작업자는 *420* 초 동안 실행되어 자동 크기 조정 규칙에서 원하는 작업을 구현하는 데 충분합니다.
 
 ```console
 sudo apt-get update
@@ -188,15 +188,15 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-**stress**에서 *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
+**stress** 에서 *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* 와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
 
-**stress**에서 CPU 로드를 생성하는지 확인하려면 **top** 유틸리티를 사용하여 활성 시스템 로드를 검사합니다.
+**stress** 에서 CPU 로드를 생성하는지 확인하려면 **top** 유틸리티를 사용하여 활성 시스템 로드를 검사합니다.
 
 ```console
 top
 ```
 
-**top**을 종료한 다음, VM 인스턴스에 대한 연결을 닫습니다. **stress**가 VM 인스턴스에서 계속 실행됩니다.
+**top** 을 종료한 다음, VM 인스턴스에 대한 연결을 닫습니다. **stress** 가 VM 인스턴스에서 계속 실행됩니다.
 
 ```console
 Ctrl-c
@@ -209,23 +209,23 @@ exit
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
-**stress**를 설치하고 실행한 다음, 이 두 번째 VM 인스턴스에서 10개의 작업자를 시작합니다.
+**stress** 를 설치하고 실행한 다음, 이 두 번째 VM 인스턴스에서 10개의 작업자를 시작합니다.
 
 ```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-다시 **stress**에서 *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
+다시 **stress** 에서 *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* 와 비슷한 출력이 표시되면 *Enter* 키를 눌러 프롬프트로 돌아갑니다.
 
-두 번째 VM 인스턴스에 대한 연결을 닫습니다. **stress**가 VM 인스턴스에서 계속 실행됩니다.
+두 번째 VM 인스턴스에 대한 연결을 닫습니다. **stress** 가 VM 인스턴스에서 계속 실행됩니다.
 
 ```console
 exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>활성 자동 크기 조정 규칙 모니터링
-확장 집합의 VM 인스턴스 수를 모니터링하려면 **watch**를 사용합니다. 각 VM 인스턴스의 **stress**에서 생성된 CPU 로드에 응답하여 자동 크기 조정 규칙에서 규모 확장 프로세스를 시작하는 데 5분이 걸립니다.
+확장 집합의 VM 인스턴스 수를 모니터링하려면 **watch** 를 사용합니다. 각 VM 인스턴스의 **stress** 에서 생성된 CPU 로드에 응답하여 자동 크기 조정 규칙에서 규모 확장 프로세스를 시작하는 데 5분이 걸립니다.
 
 ```azurecli-interactive
 watch az vmss list-instances \
@@ -248,13 +248,13 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-**stress**가 초기 VM 인스턴스에서 중지되면 평균 CPU 로드가 정상으로 돌아갑니다. 또 다른 5분이 지나면 자동 크기 조정 규칙에서 VM 인스턴스 수를 축소합니다. 규모 감축 작업에서 가장 높은 ID가 있는 VM 인스턴스를 먼저 제거합니다. 확장 집합에서 가용성 집합 또는 가용성 영역을 사용하는 경우 규모 감축 작업은 해당 VM 인스턴스 간에 균등하게 분산됩니다. 다음 예제 출력에서는 확장 집합의 자동 크기를 확장하면서 삭제된 하나의 VM 인스턴스를 보여 줍니다.
+**stress** 가 초기 VM 인스턴스에서 중지되면 평균 CPU 로드가 정상으로 돌아갑니다. 또 다른 5분이 지나면 자동 크기 조정 규칙에서 VM 인스턴스 수를 축소합니다. 규모 감축 작업에서 가장 높은 ID가 있는 VM 인스턴스를 먼저 제거합니다. 확장 집합에서 가용성 집합 또는 가용성 영역을 사용하는 경우 규모 감축 작업은 해당 VM 인스턴스 간에 균등하게 분산됩니다. 다음 예제 출력에서는 확장 집합의 자동 크기를 확장하면서 삭제된 하나의 VM 인스턴스를 보여 줍니다.
 
 ```output
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-`Ctrl-c`을 사용하여 *watch*를 종료합니다. 확장 집합은 5분마다 계속 축소되며, 최소 인스턴스 수인 2에 도달할 때까지 하나의 VM 인스턴스를 제거합니다.
+`Ctrl-c`을 사용하여 *watch* 를 종료합니다. 확장 집합은 5분마다 계속 축소되며, 최소 인스턴스 수인 2에 도달할 때까지 하나의 VM 인스턴스를 제거합니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

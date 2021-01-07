@@ -1,18 +1,20 @@
 ---
 title: 좋은 예 길이 발언-LUIS
 description: 발언은 앱이 해석해야 하는 사용자의 입력입니다. 사용자가 입력할 것으로 생각되는 구를 수집합니다. 같은 내용을 의미하지만, 단어 길이 및 단어 배치가 다르게 구성된 발언을 포함합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685278"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019078"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
-**발언**은 앱이 해석해야 하는 사용자의 입력입니다. 여기에서 의도와 엔터티를 추출하도록 LUIS를 학습시키려면 각 의도에 대한 다양한 예제 발언을 캡처하는 것이 중요합니다. 적극적인 학습 또는 새로운 길이 발언을 계속 학습 하는 과정은 LUIS에서 제공 하는 기계 학습 인텔리전스에 필수적입니다.
+**발언** 은 앱이 해석해야 하는 사용자의 입력입니다. 여기에서 의도와 엔터티를 추출하도록 LUIS를 학습시키려면 각 의도에 대한 다양한 예제 발언을 캡처하는 것이 중요합니다. 적극적인 학습 또는 새로운 길이 발언을 계속 학습 하는 과정은 LUIS에서 제공 하는 기계 학습 인텔리전스에 필수적입니다.
 
 사용자가 입력할만한 발언을 수집합니다. 같은 의미를 갖지만 다르게 구성된 다양한 발언을 포함시킵니다.
 
@@ -20,14 +22,14 @@ ms.locfileid: "83685278"
 * 단어 길이 및 문구 길이
 * 단어 배치 - 발언의 시작, 중간 및 끝에 있는 엔터티
 * 문법
-* 복수화
+* 복수형
 * 형태소 분석
 * 명사 및 동사 선택
 * [문장 부호](luis-reference-application-settings.md#punctuation-normalization) -정확 하 고 잘못 된 문법 및 문법을 사용 하지 않는 다양 한 기능을 사용 합니다.
 
 ## <a name="how-to-choose-varied-utterances"></a>다양한 발언을 선택하는 방법
 
-LUIS 모델에 [예제 발언을 추가](luis-how-to-add-example-utterances.md)하여 처음 시작할 때 다음 원칙에 유의하세요.
+LUIS 모델에 [예제 발언을 추가](./luis-how-to-add-entities.md)하여 처음 시작할 때 다음 원칙에 유의하세요.
 
 ### <a name="utterances-arent-always-well-formed"></a>발언이 항상 올바른 형식인 것은 아닙니다.
 
@@ -70,7 +72,7 @@ LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적�
 
 Utterance 표준화는 학습 및 예측 중에 문장 부호 및 분음 부호와 같은 텍스트 형식의 효과를 무시 하는 프로세스입니다.
 
-Utterance 정규화 설정은 기본적으로 해제 되어 있습니다. 이러한 설정은 다음과 같습니다.
+Utterance 정규화 설정은 기본적으로 해제 되어 있습니다. 설정에는 다음이 포함됩니다.
 
 * Word 양식
 * 부호가
@@ -145,5 +147,4 @@ LUIS 포털, **관리** 섹션, **응용 프로그램 설정** 페이지 또는 
 
 
 ## <a name="next-steps"></a>다음 단계
-사용자 발언을 이해하도록 LUIS 앱을 학습하는 방법에 대한 내용은 [예제 발언 추가](luis-how-to-add-example-utterances.md)를 참조하세요.
-
+사용자 발언을 이해하도록 LUIS 앱을 학습하는 방법에 대한 내용은 [예제 발언 추가](./luis-how-to-add-entities.md)를 참조하세요.

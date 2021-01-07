@@ -1,6 +1,6 @@
 ---
 title: Media Services 이벤트에 대한 Azure Event Grid 스키마
-description: Azure Event Grid에서 Media Services 이벤트에 대해 제공되는 속성을 설명합니다.
+description: Azure Event Grid를 사용 하 여 Media Services 이벤트에 대해 제공 되는 속성에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7c9f3b000973868c003477e58de14634b139cae
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 47ba1af15101ae68cf5311ed73f7078bf9fc7f35
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267669"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336431"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services 이벤트에 대한 Azure Event Grid 스키마
 
@@ -446,7 +446,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다. |
-| bitrate | integer | 트랙의 비트 전송률입니다. |
+| bitrate | 정수 | 트랙의 비트 전송률입니다. |
 | timestamp | 문자열 | 데이터 청크의 타임스탬프가 삭제되었습니다. |
 | timescale | 문자열 | 타임스탬프의 시간 간격입니다. |
 | resultCode | 문자열 | 데이터 청크가 삭제된 이유입니다. **FragmentDrop_OverlapTimestamp** 또는 **FragmentDrop_NonIncreasingTimestamp**입니다. |
@@ -486,7 +486,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | integer | 트랙의 비트 전송률입니다. |
+| bitrate | 정수 | 트랙의 비트 전송률입니다. |
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |
 | encoderIp | 문자열  | 인코더의 IP입니다. |
 | encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
@@ -603,13 +603,13 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | integer | 트랙의 비트 전송률입니다. |
-| incomingBitrate | integer | 인코더에서 들어오는 데이터 청크에 기반하여 계산된 비트 전송률입니다. |
+| bitrate | 정수 | 트랙의 비트 전송률입니다. |
+| incomingBitrate | 정수 | 인코더에서 들어오는 데이터 청크에 기반하여 계산된 비트 전송률입니다. |
 | lastTimestamp | 문자열 | 마지막 20초 동안 한 트랙에 대해 받은 최신 타임스탬프입니다. |
 | timescale | 문자열 | 타임스탬프가 표시되는 시간 간격입니다. |
-| overlapCount | integer | 마지막 20초 동안 타임스탬프가 겹쳐진 데이터 청크의 수입니다. |
-| discontinuityCount | integer | 마지막 20초 동안 관찰된 불연속성의 수입니다. |
-| nonIncreasingCount | integer | 마지막 20초 동안 받은 과거의 타임스탬프가 있는 데이터 청크의 수입니다. |
+| overlapCount | 정수 | 마지막 20초 동안 타임스탬프가 겹쳐진 데이터 청크의 수입니다. |
+| discontinuityCount | 정수 | 마지막 20초 동안 관찰된 불연속성의 수입니다. |
+| nonIncreasingCount | 정수 | 마지막 20초 동안 받은 과거의 타임스탬프가 있는 데이터 청크의 수입니다. |
 | unexpectedBitrate | bool | 마지막 20초 동안 허용 한도를 초과하여 예상 및 실제 비트 전송률이 다릅니다. incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0인 경우에만 true입니다. |
 | state | 문자열 | 라이브 이벤트의 상태입니다. |
 | healthy | bool | 횟수 및 플래그에 기반하여 수집이 정상인지 여부를 나타냅니다. overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false이면 healthy가 true입니다. |
@@ -647,7 +647,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | integer | 트랙의 비트 전송률입니다. |
+| bitrate | 정수 | 트랙의 비트 전송률입니다. |
 | previousTimestamp | 문자열 | 이전 조각의 타임스탬프입니다. |
 | newTimestamp | 문자열 | 현재 조각의 타임스탬프입니다. |
 | discontinuityGap | 문자열 | 위의 두 타임스탬프 사이의 간격입니다. |

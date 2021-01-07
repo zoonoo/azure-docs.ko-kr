@@ -1,18 +1,18 @@
 ---
 title: Azure Migrate 문제 해결 | Microsoft Docs
 description: Azure Migrate 서비스의 알려진 문제에 대 한 개요 및 일반적인 오류에 대 한 문제 해결 팁을 제공 합니다.
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: hamusa
-ms.openlocfilehash: 433f3cc29e334a9034fa073d4ace735fc7e7e3ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00802f53f973ad9b5a80b265006943121a0fa763
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75725872"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753402"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "75725872"
 
 ## <a name="machines-arent-discovered"></a>컴퓨터가 검색 되지 않음
 
-일반적인 검색 문제를 검토 합니다.
+[일반적인 검색 문제](common-questions-discovery-assessment.md)를 검토 합니다.
 
 ## <a name="app-discovery-isnt-working"></a>앱 검색 작동 하지 않음
 

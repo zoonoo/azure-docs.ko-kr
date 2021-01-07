@@ -3,16 +3,17 @@ title: Azure Machine Learning에 대 한 Azure 보안 기준
 description: Azure Machine Learning 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f3f66209b2d0a1bae18364e38790c237952e729f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657355"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458262"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 
@@ -20,7 +21,7 @@ Microsoft Azure Machine Learning에 대 한 Azure 보안 기준에는 배포의 
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](/azure/security/benchmarks/security-control-network-security)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조 하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -70,11 +71,11 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 
 위협 인텔리전스 기반 필터링을 사용 하도록 설정 하 고 악의적인 네트워크 트래픽에 대해 "경고 및 거부"로 구성 된 각 조직의 네트워크 경계에서 Azure 방화벽을 배포 합니다.
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure Machine Learning 용 Azure 방화벽 뒤에 작업 영역 사용](how-to-access-azureml-behind-firewall.md)
 
-- [Azure Security Center 위협 검색에 대 한 자세한 내용은](/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center 위협 검색에 대 한 자세한 내용은](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -144,7 +145,7 @@ Azure Machine Learning 서비스는 복잡성을 최소화 하는 데 도움이 
 
 설명 필드를 지 원하는 Azure Machine Learning 가상 네트워크의 리소스에 대해이를 사용 하 여 네트워크에서 들어오고 나가는 트래픽을 허용 하는 규칙을 문서화 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -154,7 +155,7 @@ Azure Machine Learning 서비스는 복잡성을 최소화 하는 데 도움이 
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Machine Learning와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -164,7 +165,7 @@ Azure Machine Learning 서비스는 복잡성을 최소화 하는 데 도움이 
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](/azure/security/benchmarks/security-control-logging-monitoring)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조 하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
@@ -196,7 +197,7 @@ Azure Machine Learning 서비스는 복잡성을 최소화 하는 데 도움이 
 
 - [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
 
-- [Azure Machine Learning에서 로깅 사용](/azure/machine-learning/how-to-enable-logging)
+- [Azure Machine Learning에서 로깅 사용](./how-to-track-experiments.md)
 
 - [모니터링 Azure Machine Learning](monitor-azure-machine-learning.md)
 
@@ -236,11 +237,11 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 - [Log Analytics 작업 영역에서 Azure Machine Learning에 대 한 쿼리를 수행 하는 방법](monitor-azure-machine-learning.md#analyzing-log-data)
 
-- [Azure Machine Learning에서 로깅 사용](/azure/machine-learning/how-to-enable-logging)
+- [Azure Machine Learning에서 로깅 사용](./how-to-track-experiments.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -298,19 +299,19 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](/azure/security/benchmarks/security-control-identity-access-control)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조 하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: Azure Portal에서 리소스에 대 한 Id 및 액세스 관리 탭을 사용 하 여 RBAC (역할 기반 액세스 제어)를 구성 하 고 Azure Machine Learning 리소스에 대 한 인벤토리를 유지 관리할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다.
+**지침**: Azure Portal에서 리소스에 대 한 Id 및 액세스 관리 탭을 사용 하 여 azure RBAC (역할 기반 액세스 제어)를 구성 하 고 Azure Machine Learning 리소스에 대 한 인벤토리를 유지 관리할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다.
 
-Azure Machine Learning은 Azure Machine Learning의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC를 제공 합니다. Azure Active Directory (Azure AD)에 프로필이 있는 개인은 이러한 RBAC 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 Azure Machine Learning 리소스에 대 한 작업을 수행할 수 있습니다.
+Azure Machine Learning Azure Machine Learning의 일반적인 관리 시나리오에 대 한 기본 제공 역할을 제공 합니다. Azure Active Directory (Azure AD)에 프로필이 있는 개인은 이러한 역할을 사용자, 그룹, 서비스 주체 또는 관리 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Machine Learning 리소스에 대 한 작업에 대 한 액세스를 거부할 수 있습니다.
 
 또한 Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색할 수 있습니다.
 
-- [Azure Machine Learning의 역할 기반 액세스 제어 이해](how-to-assign-roles.md)
+- [Azure Machine Learning의 Azure 역할 기반 액세스 제어 이해](how-to-assign-roles.md)
 
-- [PowerShell을 사용 하 여 Azure Active Directory에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure Active Directory에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -326,13 +327,13 @@ Azure Machine Learning은 Azure Machine Learning의 일반적인 관리 시나�
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: 전용 관리 계정 사용
 
-**지침**Azure Machine Learning: 새 작업 영역을 만들 때 3 개의 기본 역할과 함께 제공 되며, 소유자 계정 사용에 대 한 표준 운영 절차를 만들 수 있습니다.
+**지침** Azure Machine Learning: 새 작업 영역을 만들 때 3 개의 기본 역할과 함께 제공 되며, 소유자 계정 사용에 대 한 표준 운영 절차를 만들 수 있습니다.
 
 Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하 여 관리 계정에 just-in-time 액세스를 사용 하도록 설정할 수도 있습니다. 
 
 - [기본 역할 Machine Learning 대 한 자세한 내용은](how-to-assign-roles.md#default-roles)
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center 모니터링**: 예
 
@@ -376,7 +377,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory 보안 보고서 및 모니터링을 사용 하 여 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 시기를 검색 합니다. Azure Security Center를 사용하여 ID 및 액세스 활동을 모니터링합니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
@@ -404,7 +405,7 @@ Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있�
 
 - [Azure Machine Learning 작업 영역에 대한 액세스 관리](how-to-assign-roles.md) 
  
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -416,11 +417,11 @@ Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있�
  
 환경에서 의심 스러운 작업이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고를 생성 하는 데 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-- [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
+- [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-- [Azure AD PIM(Privileged Identity Management) 배포](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Azure AD PIM(Privileged Identity Management) 배포](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -433,7 +434,7 @@ Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있�
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
  
  
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -443,7 +444,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure AD ID 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
  
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
  
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
  
@@ -463,13 +464,13 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](/azure/security/benchmarks/security-control-data-protection)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조 하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
  
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -479,11 +480,11 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure RBAC를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
  
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
  
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -493,7 +494,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: network 경계에서 Azure Marketplace의 타사 솔루션을 사용 하 여 중요 한 정보를 무단으로 전송 하는 행위를 모니터링 하 고 정보 보안 전문가에 게 경고 하는 동안 이러한 전송을 차단 합니다. 
 
-Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요 한 것으로 간주 하 고 고객 데이터 손실 및 노출을 방지 합니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다. 
+Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요한 것으로 간주하고, 고객 데이터 손실 및 노출로부터 보호합니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다. 
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
@@ -525,9 +526,10 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Azure RBAC를 사용 하 여 리소스에 대 한 액세스 관리
 
-**지침**: Azure Machine Learning에서는 Azure Active Directory (Azure AD)를 사용 하 여 Machine Learning 리소스에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용 하면 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
+**지침**: Azure Machine Learning에서는 Azure Active Directory (Azure AD)를 사용 하 여 Machine Learning 리소스에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
 
 - [Azure Machine Learning 작업 영역에 대한 액세스 관리](how-to-assign-roles.md)
+- [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -551,9 +553,9 @@ Microsoft는 Machine Learning에 대 한 기본 인프라를 관리 하 고, 고
 
 - [휴지 상태의 데이터 암호화 Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest)
 
-- [Azure에서 미사용 암호화 이해](../security/fundamentals/encryption-atrest.md)
+- [Azure의 저장 데이터 암호화 이해](../security/fundamentals/encryption-atrest.md)
 
-- [고객 관리 암호화 키를 구성 하는 방법](../storage/common/storage-encryption-keys-portal.md)
+- [고객 관리 암호화 키를 구성 하는 방법](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -571,7 +573,7 @@ Microsoft는 Machine Learning에 대 한 기본 인프라를 관리 하 고, 고
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 취약성 관리](/azure/security/benchmarks/security-control-vulnerability-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조 하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
@@ -579,7 +581,7 @@ Microsoft는 Machine Learning에 대 한 기본 인프라를 관리 하 고, 고
 
 Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 Azure virtual machines, 컨테이너 이미지 및 SQL server에서 취약성 평가를 수행 하기 위한 Azure Security Center의 권장 사항을 따릅니다.
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -591,9 +593,9 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 모든 계산 리소스의 경우 Azure Automation 업데이트 관리를 사용 하 여 최신 보안 업데이트가 Windows 및 Linux Vm에 설치 되어 있는지 확인 합니다. Windows Vm의 경우 Windows 업데이트를 사용 하도록 설정 하 고 자동으로 업데이트 하도록 설정 되어 있는지 확인 합니다.
 
-- [Azure에서 가상 머신에 대 한 업데이트 관리를 구성 하는 방법](/azure/automation/automation-update-management)
+- [Azure에서 가상 머신에 대 한 업데이트 관리를 구성 하는 방법](../automation/update-management/overview.md)
 
-- [Security Center에서 모니터링 하는 Azure 보안 정책 이해](../security-center/security-center-policy-definitions.md)
+- [Security Center에서 모니터링 하는 Azure 보안 정책 이해](../security-center/policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -611,7 +613,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 **지침**: Azure Machine Learning 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 Azure virtual machines, 컨테이너 이미지 및 SQL server에서 취약성 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다. 검색 결과는 일정 한 간격으로 내보내고 결과와 이전 검색을 비교 하 여 취약점이 재구성 되었는지 확인 합니다. Azure Security Center에서 제안 하는 취약성 관리 권장 사항을 사용 하는 경우 선택한 솔루션의 포털로 피벗 하 여 기록 검색 데이터를 볼 수 있습니다.
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -627,7 +629,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](/azure/security/benchmarks/security-control-inventory-asset-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조 하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
@@ -635,9 +637,9 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 클래식 Azure 리소스는 Azure 리소스 그래프 탐색기를 통해 검색할 수 있지만 앞으로 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
 
-- [Azure 리소스 그래프 탐색기를 사용 하 여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 보는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 보는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -649,7 +651,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 **지침**: Azure 리소스에 태그를 적용 하 고, 분류에 따라 논리적으로 구성 하는 메타 데이터를 추가 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -661,15 +663,15 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
  
  
  
-- [ 추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [ 추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
  
  
  
-- [ 관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [ 관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
  
  
  
-- [ 태그를 만들고 사용 하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [ 태그를 만들고 사용 하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -716,11 +718,11 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 권한이 없는 소프트웨어를 제거 하는 사용자 고유의 프로세스를 구현할 수 있습니다. 타사 솔루션을 사용 하 여 승인 되지 않은 소프트웨어를 식별할 수도 있습니다.
 
-더 이상 필요 하지 않은 경우 Azure 리소스를 제거 합니다.
+더 이상 필요하지 않은 Azure 리소스를 제거합니다.
 
-- [파일 무결성 모니터링을 사용 하는 방법](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [파일 무결성 모니터링을 사용 하는 방법](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Azure Automation 변경 내용 추적 및 인벤토리 이해](../automation/change-tracking.md)
+- [Azure Automation 변경 내용 추적 및 인벤토리 이해](../automation/change-tracking/overview.md)
 
 - [Azure 가상 컴퓨터 인벤토리를 사용 하도록 설정 하는 방법](../automation/automation-tutorial-installed-software.md)
 
@@ -783,7 +785,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 **지침**: Azure Machine Learning 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 스크립트 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 사용자가 Azure compute 리소스에서 스크립트를 실행 하는 기능을 제한할 수 있습니다.  Azure Security Center 적응 응용 프로그램 제어를 사용 하 여 권한 있는 소프트웨어만 실행 되 고 권한이 없는 모든 소프트웨어가 Azure Virtual Machines에서 실행 되지 않도록 차단할 수 있습니다.
 
-- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
 - [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../security-center/security-center-adaptive-application.md)
 
@@ -801,7 +803,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](/azure/security/benchmarks/security-control-secure-configuration)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조 하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -813,7 +815,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 Azure Machine Learning는 작업 추적을 위한 Git 리포지토리를 완벽 하 게 지원 합니다. 공유 작업 영역 파일 시스템에 직접 리포지토리를 복제 하 고, 로컬 워크스테이션에서 Git를 사용 하 고, 보안 구성이 Machine Learning 환경의 일부로 코드 리소스에 적용 되도록 할 수 있습니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
@@ -869,7 +871,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 Microsoft에서 게시 하는 Azure Marketplace 가상 컴퓨터 이미지는 Microsoft에서 관리 하 고 유지 관리 합니다. 
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 
 - [ARM 템플릿에서 Azure Virtual Machine을 만드는 방법](../virtual-machines/windows/ps-template.md)
 
@@ -891,9 +893,9 @@ Microsoft에서 게시 하는 Azure Marketplace 가상 컴퓨터 이미지는 Mi
 
 Azure Machine Learning는 작업 추적을 위한 Git 리포지토리를 완벽 하 게 지원 합니다. 공유 작업 영역 파일 시스템에 직접 리포지토리를 복제 하 고, 로컬 워크스테이션에서 Git를 사용 하 고, 보안 구성이 Machine Learning 환경의 일부로 코드 리소스에 적용 되도록 할 수 있습니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -901,15 +903,17 @@ Azure Machine Learning는 작업 추적을 위한 Git 리포지토리를 완벽 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: 사용자 지정 운영 체제 이미지를 안전하게 저장
 
-**지침**: Azure Machine Learning 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 권한 있는 사용자만 사용자 지정 이미지에 액세스할 수 있도록 합니다. Azure 공유 이미지 갤러리를 사용 하 여 조직 내의 다른 사용자, 서비스 주체 또는 Azure AD 그룹에 이미지를 공유할 수 있습니다. 컨테이너 이미지를 Azure Container Registry에 저장 하 고 RBAC를 사용 하 여 권한 있는 사용자만 액세스할 수 있도록 합니다.
+**지침**: Azure Machine Learning 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 권한 있는 사용자만 사용자 지정 이미지에 액세스할 수 있도록 합니다. Azure 공유 이미지 갤러리를 사용 하 여 조직 내의 다른 사용자, 서비스 주체 또는 Azure AD 그룹에 이미지를 공유할 수 있습니다. 컨테이너 이미지를 Azure Container Registry에 저장 하 고 Azure RBAC를 사용 하 여 권한이 있는 사용자만 액세스할 수 있도록 합니다.
 
-- [Azure의 RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Azure RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Container Registry에 대 한 RBAC 이해](../container-registry/container-registry-roles.md)
+- [Container Registry에 대 한 Azure RBAC 이해](../container-registry/container-registry-roles.md)
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [공유 이미지 갤러리 개요](../virtual-machines/windows/shared-image-galleries.md)
+
+- [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -957,7 +961,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 Azure Security Center 계산 앱을 사용 &amp; 하 고 vm 및 서버 및 컨테이너에 대 한 권장 사항을 따릅니다.
 
-- [Azure Security Center 컨테이너 권장 사항 이해](/azure/security-center/security-center-container-recommendations)
+- [Azure Security Center 컨테이너 권장 사항 이해](../security-center/container-security.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -977,11 +981,11 @@ Azure Key Vault를 사용 하 여 학습 스크립트에서 일반 텍스트 대
 
 - [Azure 리소스에 관리 되는 id를 사용 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Key Vault를 만드는 방법](/azure/key-vault/quick-create-portal)
+- [Key Vault를 만드는 방법](../key-vault/general/quick-create-portal.md)
 
-- [Key Vault에 인증 하는 방법](https://docs.microsoft.com/azure/key-vault/general/authentication)
+- [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 
-- [Key Vault 액세스 정책을 할당 하는 방법](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+- [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1012,7 +1016,7 @@ Azure Key Vault를 사용 하 여 학습 스크립트에서 일반 텍스트 대
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [Azure 보안 벤치 마크: 맬웨어 방어](/azure/security/benchmarks/security-control-malware-defense)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조 하세요.*
 
 ### <a name="81-use-centrally-managed-antimalware-software"></a>8.1: 중앙에서 관리 되는 맬웨어 방지 소프트웨어 사용
 
@@ -1022,7 +1026,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 - [Azure 용 Microsoft 맬웨어 방지를 구성 하는 방법](../security/fundamentals/antimalware.md)
 
-- [위협 방지 및 Azure Security Center](../security-center/threat-protection.md)
+- [위협 방지 및 Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -1052,7 +1056,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 복구](/azure/security/benchmarks/security-control-data-recovery)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조 하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
@@ -1069,7 +1073,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 **지침**: Machine Learning 서비스의 데이터 백업은 연결 된 데이터 저장소에 대 한 데이터 관리를 통해 수행 됩니다. Vm에 대 한 Azure Backup를 사용 하도록 설정 하 고 원하는 빈도 및 보존 기간을 구성 합니다. Azure Key Vault에서 고객이 관리 하는 키를 백업 합니다.
 
 - [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](../backup/backup-azure-restore-files-from-vm.md)
-- [Azure에서 Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 Key Vault 키를 복원 하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -1087,16 +1091,16 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
-**지침**: 온-프레미스 백업의 경우 Azure에 백업할 때 제공 하는 암호를 사용 하 여 미사용 암호화가 제공 됩니다. 역할 기반 액세스 제어를 사용 하 여 백업과 고객이 관리 하는 키를 보호 합니다. 
+**지침**: 온-프레미스 백업의 경우 Azure에 백업할 때 제공 하는 암호를 사용 하 여 미사용 암호화가 제공 됩니다. Azure 역할 기반 액세스 제어를 사용 하 여 백업과 고객이 관리 하는 키를 보호 합니다. 
 
 Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. 백업을 저장 하는 데 Azure Storage를 사용 하는 경우 blob 또는 blob 스냅숏이 삭제 될 때 일시 삭제를 사용 하 여 데이터를 저장 하 고 복구 합니다.
  
  
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
-- [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제 및 제거 보호를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Azure Blob 저장소에 대 한 일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Azure Blob 저장소에 대 한 일시 삭제](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -1104,7 +1108,7 @@ Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 �
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](/azure/security/benchmarks/security-control-incident-response)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -1128,7 +1132,7 @@ Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 �
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -1148,7 +1152,7 @@ Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 �
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-- [Azure Security Center 보안 연락처를 설정 하는 방법](../security-center/security-center-provide-security-contact-details.md)
+- [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -1178,15 +1182,15 @@ Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 �
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조 하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
-**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+**지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft의 전략과 Microsoft에서 관리하는 클라우드 인프라, 서비스, 애플리케이션에 대한 레드 팀 실행 및 실시간 사이트 침투 테스트를 사용합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -1194,5 +1198,5 @@ Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

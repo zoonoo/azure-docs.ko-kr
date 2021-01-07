@@ -1,16 +1,16 @@
 ---
 title: Azure Functions 핵심 도구 작업
-description: Azure Functions에서 실행하기 전에 로컬 머신의 명령 프롬프트 및 터미널에서 Azure Functions를 코딩하고 테스트하는 방법을 알아봅니다.
+description: Azure Functions에서 실행 하기 전에 로컬 컴퓨터에서 명령 프롬프트 또는 터미널의 Azure Functions 코딩 하 고 테스트 하는 방법에 대해 알아봅니다.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: efb91c7b26c67a3672abb3f9cc8992fd45971a25
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929495"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932458"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -35,11 +35,11 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
 
 + [**버전 3.x/**](#v2)2.x:는 [Azure Functions 런타임의 버전 3(sp3) 또는](functions-versions.md)2.x를 지원 합니다. 이러한 버전은 [Windows](?tabs=windows#v2), [Macos](?tabs=macos#v2)및 [Linux](?tabs=linux#v2) 를 지원 하 고 플랫폼별 패키지 관리자 또는 npm를 사용 하 여 설치 합니다.
 
-+ **버전**1.x: Azure Functions 런타임의 버전 1.X를 지원 합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
++ **버전** 1.x: Azure Functions 런타임의 버전 1.X를 지원 합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
 
 지정 된 컴퓨터에는 하나의 핵심 도구 버전만 설치할 수 있습니다. 별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 따라 달라 집니다. 즉, Azure Functions Core Tools에서 [Azure에 게시할](#publish) 수 있도록 [Azure CLI를 로컬로 설치](/cli/azure/install-azure-cli) 해야 합니다. 
 
@@ -155,7 +155,7 @@ Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
-함수 프로젝트 디렉터리에는 개별 함수에 대한 코드가 포함된 하위 폴더와 함께 [host.json](functions-host-json.md) 및 [local.settings.json](#local-settings-file) 파일이 포함됩니다. 이 디렉터리는 Azure의 함수 앱에 해당합니다. Functions 폴더 구조에 대한 자세한 내용은 [Azure Functions 개발자 가이드](functions-reference.md#folder-structure)를 참조하세요.
+함수 프로젝트 디렉터리는 개별 함수에 대 한 코드를 포함 하는 하위 폴더와 함께 [host.json](functions-host-json.md) 및 [local.settings.js에](#local-settings-file)대 한 파일을 포함 합니다. 이 디렉터리는 Azure의 함수 앱에 해당합니다. Functions 폴더 구조에 대한 자세한 내용은 [Azure Functions 개발자 가이드](functions-reference.md#folder-structure)를 참조하세요.
 
 버전 3.x/2.x의 경우 프로젝트를 초기화할 때 프로젝트에 대 한 기본 언어를 선택 해야 합니다. 버전 3.x/2.x에서 추가 된 모든 함수는 기본 언어 템플릿을 사용 합니다. 버전 1.x에서는 함수를 만들 때마다 언어를 지정합니다.
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java는 Maven 원형를 사용 하 여 첫 번째 HTTP 트리거된 함수와 함께 로컬 함수 프로젝트를 만듭니다. 다음 명령을 사용 하 여 Java 프로젝트를 만듭니다 `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Maven 원형를 사용 하는 예제는 [명령줄 빠른](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)시작을 참조 하세요.  
+> Java는 Maven 원형를 사용 하 여 첫 번째 HTTP 트리거된 함수와 함께 로컬 함수 프로젝트를 만듭니다. 다음 명령을 사용 하 여 Java 프로젝트를 만듭니다 `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Maven 원형를 사용 하는 예제는 [명령줄 빠른](./create-first-function-cli-java.md)시작을 참조 하세요.  
 
 프로젝트 이름을 제공하면 해당 이름을 사용한 새 폴더가 생성되고 초기화됩니다. 그렇지 않으면 현재 폴더는 초기화됩니다.  
 버전 3(sp3)/2.x에서 명령을 실행할 때 프로젝트에 대 한 런타임을 선택 해야 합니다. 
@@ -179,7 +179,7 @@ python
 powershell
 </pre>
 
-위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. JavaScript 또는 TypeScript 함수를 개발 하려는 경우에는 **노드**를 선택 하 고 언어를 선택 합니다. TypeScript에는 [몇 가지 추가 요구 사항이](functions-reference-node.md#typescript)있습니다. 
+위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. JavaScript 또는 TypeScript 함수를 개발 하려는 경우에는 **노드** 를 선택 하 고 언어를 선택 합니다. TypeScript에는 [몇 가지 추가 요구 사항이](functions-reference-node.md#typescript)있습니다. 
 
 출력은 JavaScript 프로젝트에 대한 다음 예제와 유사합니다.
 
@@ -228,7 +228,7 @@ HTTP 및 타이머 트리거를 제외 하 고 런타임 버전 2.x 이상에서
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish)`--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings**의 값은 게시되지 않습니다.
+기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish)`--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings** 의 값은 게시되지 않습니다.
 
 이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
 
@@ -247,13 +247,13 @@ HTTP 및 타이머 트리거를 제외 하 고 런타임 버전 2.x 이상에서
 
 개발에 Microsoft Azure Storage 에뮬레이터를 사용 하는 경우에도 실제 저장소 연결로 테스트 하는 것이 좋습니다. 이미 [스토리지 계정을 만든](../storage/common/storage-account-create.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 스토리지 연결 문자열을 가져올 수 있습니다.
 
-- [Azure Portal]에서 **저장소 계정**을 검색 하 고 선택 합니다. 
+- [Azure Portal]에서 **저장소 계정** 을 검색 하 고 선택 합니다. 
   ![Azure Portal에서 저장소 계정 선택](./media/functions-run-local/select-storage-accounts.png)
   
-  저장소 계정을 선택 하 고, **설정**에서 **액세스 키** 를 선택한 다음, **연결 문자열** 값 중 하나를 복사 합니다.
+  저장소 계정을 선택 하 고, **설정** 에서 **액세스 키** 를 선택한 다음, **연결 문자열** 값 중 하나를 복사 합니다.
   ![Azure Portal에서 연결 문자열 복사](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장 하 고 **저장소 계정**을 확장 한 다음 저장소 계정을 선택 하 고 기본 또는 보조 연결 문자열을 복사 합니다.
+- [Azure Storage Explorer](https://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기** 에서 구독을 확장 하 고 **저장소 계정** 을 확장 한 다음 저장소 계정을 선택 하 고 기본 또는 보조 연결 문자열을 복사 합니다.
 
   ![Storage Explorer에서 연결 문자열 복사](./media/functions-run-local/storage-explorer.png)
 
@@ -357,7 +357,7 @@ func start
 ```
 func start
 ```
-이 명령은 [가상 환경에서 실행](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv)해야 합니다.
+이 명령은 [가상 환경에서 실행](./create-first-function-cli-python.md)해야 합니다.
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -429,7 +429,7 @@ Functions 호스트가 수신 대기 중인 동일한 서버 이름 및 포트�
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 
-다음 예제는 요청 본문에서 _이름_을 전달하는 POST 요청에서 호출되는 동일한 함수입니다.
+다음 예제는 요청 본문에서 _이름_ 을 전달하는 POST 요청에서 호출되는 동일한 함수입니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 ```bash
@@ -543,7 +543,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 생성 되는 원반 폴더를 건너뜁니다. |
 | **`--build`**, **`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local` . |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예를 들어 `python3-dev libevent-dev`을 참조하십시오. |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | 게시 하는 동안 프로젝트가 빌드되지 않습니다. Python의 경우가 `pip install` 수행 되지 않습니다. |
@@ -574,15 +574,11 @@ func deploy
 
 ### <a name="application-insights-integration"></a>Application Insights 통합
 
-Azure에서 함수 앱을 만들 때 Application Insights 통합을 사용 하도록 설정 해야 합니다. 일부 이유로 함수 앱이 Application Insights 인스턴스에 연결 되지 않은 경우 Azure Portal에서이 통합을 쉽게 수행할 수 있습니다. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+Azure에서 함수 앱을 만들 때 Application Insights 통합을 사용 하도록 설정 해야 합니다. 일부 이유로 함수 앱이 Application Insights 인스턴스에 연결 되지 않은 경우 Azure Portal에서이 통합을 쉽게 수행할 수 있습니다. 자세히 알아보려면 [Application Insights 통합 사용](configure-monitoring.md#enable-application-insights-integration)을 참조 하세요.
 
 ### <a name="enable-streaming-logs"></a>스트리밍 로그 사용
 
 로컬 컴퓨터의 명령줄 세션에서 함수에 의해 생성 되는 로그 파일의 스트림을 볼 수 있습니다. 
-
-#### <a name="native-streaming-logs"></a>네이티브 스트리밍 로그
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 

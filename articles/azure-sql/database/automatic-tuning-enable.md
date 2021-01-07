@@ -6,29 +6,29 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981457"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500906"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Azure Portal에서 자동 조정 기능을 사용 하 여 쿼리를 모니터링 하 고 워크 로드 성능을 향상 시킵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 
-Azure SQL Database는 쿼리를 지속적으로 모니터링 하 고 워크 로드의 성능을 향상 시키기 위해 수행할 수 있는 작업을 식별 하는 데이터 서비스를 자동으로 관리 합니다. 권장 사항을 검토하고 수동으로 적용하거나 Azure SQL Database에서 정정 작업을 자동으로 적용하도록 할 수 있습니다. 이는 **자동 조정 모드**로 알려져 있습니다.
+Azure SQL Database는 쿼리를 지속적으로 모니터링 하 고 워크 로드의 성능을 향상 시키기 위해 수행할 수 있는 작업을 식별 하는 데이터 서비스를 자동으로 관리 합니다. 권장 사항을 검토하고 수동으로 적용하거나 Azure SQL Database에서 정정 작업을 자동으로 적용하도록 할 수 있습니다. 이는 **자동 조정 모드** 로 알려져 있습니다.
 
 다음을 통해 서버 또는 데이터베이스 수준에서 자동 조정을 사용 하도록 설정할 수 있습니다.
 
 - [Azure Portal](automatic-tuning-enable.md#azure-portal)
 - [REST API](automatic-tuning-enable.md#rest-api) 호출
-- [T-sql](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 명령
+- [T-sql](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) 명령
 
 > [!NOTE]
 > Azure SQL Managed Instance의 경우 지원 되는 옵션 FORCE_LAST_GOOD_PLAN [t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) 을 통해서만 구성할 수 있습니다. 이 문서에서 설명 하는 Azure Portal 기반 구성 및 자동 인덱스 튜닝 옵션은 Azure SQL Managed Instance에 적용 되지 않습니다.
@@ -56,13 +56,13 @@ Azure SQL Database [서버](logical-servers.md) 에서 자동 조정을 사용 �
 > [!NOTE]
 > 이 경우 **DROP_INDEX** 옵션은 파티션 전환 및 인덱스 힌트를 사용 하는 응용 프로그램과 호환 되지 않으므로 이러한 경우 사용 하도록 설정 하면 안 됩니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다.
 
-사용 하도록 설정할 자동 조정 옵션을 선택 하 고 **적용**을 선택 합니다.
+사용 하도록 설정할 자동 조정 옵션을 선택 하 고 **적용** 을 선택 합니다.
 
 서버의 자동 조정 옵션은 서버의 모든 데이터베이스에 적용됩니다. 기본적으로 모든 데이터베이스는 부모 서버에서 구성을 상속하지만 이는 각 데이터베이스에 대해 개별적으로 재정의되고 지정될 수 있습니다.
 
 ### <a name="rest-api"></a>REST API
 
-REST API를 사용 하 여 **서버**에서 자동 조정 기능을 사용 하는 방법에 대 한 자세한 내용은 [서버 자동 조정 업데이트 및 GET HTTP 메서드](/rest/api/sql/serverautomatictuning)를 참조 하세요.
+REST API를 사용 하 여 **서버** 에서 자동 조정 기능을 사용 하는 방법에 대 한 자세한 내용은 [서버 자동 조정 업데이트 및 GET HTTP 메서드](/rest/api/sql/serverautomatictuning)를 참조 하세요.
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>개별 데이터베이스에서 자동 조정 활성화
 
@@ -73,7 +73,7 @@ Azure SQL Database를 사용 하 여 각 데이터베이스에 대 한 자동 �
 
 ### <a name="azure-portal"></a>Azure portal
 
-**단일 데이터베이스**에서 자동 조정을 사용 하도록 설정 하려면 Azure Portal의 데이터베이스로 이동 하 고 **자동 조정**을 선택 합니다.
+**단일 데이터베이스** 에서 자동 조정을 사용 하도록 설정 하려면 Azure Portal의 데이터베이스로 이동 하 고 **자동 조정** 을 선택 합니다.
 
 개별 자동 조정 설정을 각 데이터베이스에 대해 별도로 구성할 수 있습니다. 개별 자동 조정 옵션을 수동으로 구성하거나 서버에서 해당 설정을 상속하는 옵션을 지정할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure SQL Database를 사용 하 여 각 데이터베이스에 대 한 자동 �
 
 현재 DROP_INDEX 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않으므로 이러한 경우에는 사용하도록 설정해서는 안 됩니다.
 
-원하는 구성을 선택한 후 **적용**을 클릭합니다.
+원하는 구성을 선택한 후 **적용** 을 클릭합니다.
 
 ### <a name="rest-api"></a>Rest API
 
@@ -109,7 +109,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 > [활성 지역 복제](auto-failover-group-overview.md)의 경우 주 데이터베이스에만 자동 튜닝을 구성 해야 합니다. 예를 들어 index create 또는 delete와 같은 자동으로 적용 되는 튜닝 작업은 읽기 전용 보조 데이터베이스에 자동으로 복제 됩니다. 읽기 전용 보조 데이터베이스에 다른 튜닝 구성을 적용하는 것은 지원되지 않으므로, 읽기 전용 보조 데이터베이스에서 T-SQL을 통한 자동 튜닝을 사용하도록 설정하려고 하면 실패합니다.
 >
 
-자동 튜닝을 구성 하는 섹션인 T-sql 옵션에 대 한 자세한 내용은 [ALTER DATABASE SET 옵션 (transact-sql)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)을 참조 하세요.
+자동 튜닝을 구성 하는 섹션인 T-sql 옵션에 대 한 자세한 내용은 [ALTER DATABASE SET 옵션 (transact-sql)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)을 참조 하세요.
 
 ## <a name="disabled-by-the-system"></a>시스템에서 비활성화됨
 

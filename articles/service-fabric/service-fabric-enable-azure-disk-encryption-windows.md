@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Resource Manager의 Azure Key Vault를 �
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78251810"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Windows에서 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화 사용 
@@ -31,7 +31,7 @@ ms.locfileid: "78251810"
 
 **자체 등록** 
 
-가상 머신 확장 집합에 대 한 디스크 암호화 미리 보기에는 자체 등록이 필요 합니다. 다음 단계를 따르십시오. 
+가상 머신 확장 집합에 대 한 디스크 암호화 미리 보기에는 자체 등록이 필요 합니다. 다음 단계를 사용합니다. 
 
 1. 먼저, 다음 명령을 실행 합니다.
     ```powershell
@@ -53,12 +53,12 @@ ms.locfileid: "78251810"
 
 | 명령 | 버전 |  원본  |
 | ------------- |-------------| ------------|
-| AzVmssDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |
-| AzVmssVMDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |
+| Get-AzVmssDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |
+| Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |
 | Disable-AzVmssDiskEncryption   | 1.0.0 이상 | Az.Compute |
-| AzVmssDiskEncryption   | 1.0.0 이상 | Az.Compute |
-| AzVmssVMDiskEncryption   | 1.0.0 이상 | Az.Compute |
-| AzVmssDiskEncryptionExtension   | 1.0.0 이상 | Az.Compute |
+| Get-AzVmssDiskEncryption   | 1.0.0 이상 | Az.Compute |
+| Get-AzVmssVMDiskEncryption   | 1.0.0 이상 | Az.Compute |
+| Set-AzVmssDiskEncryptionExtension   | 1.0.0 이상 | Az.Compute |
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>디스크 암호화에 지원되는 시나리오

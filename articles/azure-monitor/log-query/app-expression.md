@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
 ms.openlocfilehash: 7cb8073d048118e704dafb0c70fe7cdb6774344a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324542"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
@@ -29,7 +29,7 @@ ms.locfileid: "87324542"
 
 - *Identifier*: 아래 표에 있는 형식 중 하나를 사용하여 앱을 식별합니다.
 
-| ID | Description | 예제
+| ID | Description | 예
 |:---|:---|:---|
 | 리소스 이름 | 사람이 읽을 수 있는 앱 이름 ("구성 요소 이름"이 라고도 함) | app(“fabrikamapp”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 앱의 전체 이름 | app(‘AI-Prototype/Fabrikam/fabrikamapp’) |
@@ -44,7 +44,7 @@ ms.locfileid: "87324542"
 * 관련된 식 [작업 영역](workspace-expression.md)을 사용하여 Log Analytics 작업 영역 전체를 쿼리합니다.
 * 앱() 식은 현재 Application Insights 애플리케이션이 경고 규칙에 대한 리소스로 사용되지 않는 한 Azure Portal을 사용하여 [사용자 지정 로그 검색 경고 규칙](../platform/alerts-log.md)을 만들 때 검색 쿼리에서 지원되지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ```Kusto
 app("fabrikamapp").requests | count

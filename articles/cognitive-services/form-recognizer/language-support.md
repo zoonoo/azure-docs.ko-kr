@@ -6,31 +6,30 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: immersive-reader
+ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 04/13/2020
+ms.date: 11/23/2020
 ms.author: erhopf
-ms.openlocfilehash: 1554722308675a44a9c144059cc9886996fa3166
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3814f52034922c7814b1d45822ca1e9d5f248825
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918437"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844990"
 ---
 # <a name="language-support-for-form-recognizer"></a>Form Recognizer에 대한 언어 지원
 
-이 문서에서는 Form Recognizer(미리 보기) 서비스에서 지원하는 인간 언어를 나열합니다.
+이 표는 Form Recognizer 서비스에서 지원하는 인간 언어를 나열합니다.
 
 
-|언어| 언어 코드 | Form Recognizer v2.0 | Form Recognizer v2.1 공개 미리 보기*|
-|:-----|:----:|:-----:|:---:|:---:|
+|언어| 언어 코드 | Form Recognizer v2.0 | Form Recognizer v2.1 미리 보기|
+|:-----|:----:|:-----:|:---:|
 |중국어(간체) | `zh-Hans`| | ✔ |
-|네덜란드어 | `nl` | |✔ |
-|영어(인쇄 및 필기) | `en` |✔ |
-|프랑스어 | `fr` | |✔ |
-|독일어 | `de` | |✔ |
-|이탈리아어 | `it` | |✔ |
-|포르투갈어 | `pt` | |✔ |
-|스페인어 | `es` | |✔ |
-
-* Form Recognizer v2.1 공개 미리 보기는 레이아웃 및 사용자 지정을 위해 이러한 언어를 지원합니다. 미리 빌드된 영수증 및 미리 빌드된 명함은 영어로만 지원됩니다.
+|네덜란드어 | `nl` | | ✔ |
+|영어(인쇄 및 필기) | `en` | ✔ | ✔|
+|프랑스어 | `fr` | | ✔ |
+|독일어 | `de` | | ✔ |
+|이탈리아어 | `it` | | ✔ |
+|일본어 | `ja` |  | ✔|
+|포르투갈어 | `pt` | | ✔ |
+|스페인어 | `es` | | ✔ |

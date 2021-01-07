@@ -3,17 +3,17 @@ title: IoT Central |에서 개인 기본 설정 관리 Microsoft Docs
 description: IoT Central 응용 프로그램에서 언어와 테마를 변경 하는 등 개인 응용 프로그램 기본 설정을 관리 하는 방법입니다.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 07/10/2019
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e2b0dbe8b7738a8c4c551eccca72897bbf1594b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83d8c04765bf9aecc9029cdc8d12461231d191f2
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157894"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795958"
 ---
 # <a name="manage-your-personal-application-preferences"></a>개인 응용 프로그램 기본 설정 관리
 

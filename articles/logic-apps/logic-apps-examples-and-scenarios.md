@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090283"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317386"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
@@ -43,8 +43,8 @@ Azure Logic Apps에서 지 원하는 기능 및 패턴에 대 한 자세한 내�
 
     자세한 내용은 다음 항목을 참조하세요.<p>
 
-    * [자습서: Azure Logic Apps을 사용 하 여 자동화 된 승인 기반 워크플로 만들기](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
-    * [자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용 하 여 전자 메일을 처리 하는 작업을 자동화 합니다.](../logic-apps/tutorial-process-email-attachments-workflow.md)
+    * [자습서: Azure Logic Apps를 사용하여 자동화된 승인 기반 워크플로 만들기](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+    * [자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
   * Http [ **HTTP** 트리거](../connectors/connectors-native-http.md) 는 http 또는 HTTPS를 통해 서비스 끝점을 호출할 수 있습니다. 자세한 내용은 [호출, 트리거 또는 중첩 워크플로를 사용 하 여 HTTP 끝점](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
 
@@ -126,9 +126,9 @@ Visual Studio, Azure DevOps 또는 기타 소스 제어 및 자동화된 빌드 
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>콘텐츠 형식, 변환 및 변환 처리
 
-Azure Logic Apps [워크플로 정의 언어](https://aka.ms/logicappsdocs)의 다양한 함수를 사용하여 여러 콘텐츠 유형을 액세스, 변환 및 변형시킬 수 있습니다. 예를 들어, `@json()` 및 `@xml()` 워크플로 식을 사용하여 문자열, JSON 및 XML 간에 변환할 수 있습니다. Logic Apps 엔진은 서비스 간에 무손실 방식으로 콘텐츠 전송을 지원하는 콘텐츠 형식을 유지합니다.
+Azure Logic Apps [워크플로 정의 언어](./logic-apps-workflow-definition-language.md)의 다양한 함수를 사용하여 여러 콘텐츠 유형을 액세스, 변환 및 변형시킬 수 있습니다. 예를 들어, `@json()` 및 `@xml()` 워크플로 식을 사용하여 문자열, JSON 및 XML 간에 변환할 수 있습니다. Logic Apps 엔진은 서비스 간에 무손실 방식으로 콘텐츠 전송을 지원하는 콘텐츠 형식을 유지합니다.
 
-* [Azure Logic Apps에서 콘텐츠 형식](../logic-apps/logic-apps-content-type.md)(예: `application/` , `application/octet-stream` 및)을 처리 합니다.`multipart/formdata`
+* [Azure Logic Apps에서 콘텐츠 형식](../logic-apps/logic-apps-content-type.md)(예: `application/` , `application/octet-stream` 및)을 처리 합니다. `multipart/formdata`
 * [Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Azure Logic Apps에 대한 워크플로 정의 언어 스키마](../logic-apps/logic-apps-workflow-definition-language.md)
 

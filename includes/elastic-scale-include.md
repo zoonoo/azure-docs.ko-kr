@@ -4,12 +4,12 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: sstein
-ms.openlocfilehash: 1462f0dbeb45edeed964c24585b1fbc948f74233
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 05971b76c36da51b10bd1434e784c08b4903a0f5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013246"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025703"
 ---
 ## <a name="additional-resources"></a>추가 리소스
-아직 탄력적인 데이터베이스 도구를 사용 하지 않나요? [시작 가이드](../articles/azure-sql/database/elastic-scale-get-started.md)를 확인합니다.  질문이 있으면 [SQL Database에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-sql-database.html)에 문의하고, 기능 요청이 있는 경우 해당 기능을 [SQL Database 사용자 의견 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
+아직 탄력적인 데이터베이스 도구를 사용 하지 않나요? [시작 가이드](../articles/azure-sql/database/elastic-scale-get-started.md)를 확인합니다.  질문이 있으면 [SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html)에 문의하고, 기능 요청이 있는 경우 해당 기능을 [SQL Database 사용자 의견 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.

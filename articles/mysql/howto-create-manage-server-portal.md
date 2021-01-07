@@ -1,17 +1,17 @@
 ---
 title: 서버 관리-Azure Portal-Azure Database for MySQL
 description: Azure Portal에서 Azure Database for MySQL 서버를 관리 하는 방법을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a9dba7c85ded7add1a9f1494d88a3f8a1f62f175
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882455"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541456"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 서버 관리
 
@@ -33,9 +33,9 @@ Azure Database for MySQL 서버를 만들고 시작 하는 방법을 알아보�
 
 범용에서 메모리 액세스에 최적화 된 메모리 또는 그 반대로 확장할 수 있습니다. 서버를 만든 후 기본 계층에서로의 변경은 지원 되지 않습니다.
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층**을 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
 
-2. 크기를 조정 하는 대상에 따라 **범용** 또는 **메모리 최적화**를 선택 합니다.
+2. 크기를 조정 하는 대상에 따라 **범용** 또는 **메모리 최적화** 를 선택 합니다.
 
    :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Azure Database for MySQL에서 기본, 범용 또는 메모리 액세스에 최적화 된 계층을 선택 하는 Azure Portal의 스크린샷":::
 
@@ -46,7 +46,7 @@ Azure Database for MySQL 서버를 만들고 시작 하는 방법을 알아보�
 
 ### <a name="scale-vcores-up-or-down"></a>VCores 확장 또는 축소
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층**을 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
 
 2. 슬라이더를 원하는 값으로 이동하여 **vCore** 설정을 변경합니다.
 
@@ -59,7 +59,7 @@ Azure Database for MySQL 서버를 만들고 시작 하는 방법을 알아보�
 
 ### <a name="scale-storage-up"></a>저장소 크기 조정
 
-1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층**을 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **설정** 섹션에 있는 **가격 책정 계층** 을 선택 합니다.
 
 2. 슬라이더를 원하는 값으로 이동 하 여 **저장소** 설정을 변경 합니다.
 
@@ -74,7 +74,7 @@ Azure Database for MySQL 서버를 만들고 시작 하는 방법을 알아보�
 
 Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있습니다.
 
-1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **암호 재설정**을 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **암호 재설정** 을 선택 합니다.
 
    :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Azure Database for MySQL에서 암호를 다시 설정 하 Azure Portal의 스크린샷":::
 
@@ -88,7 +88,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 
 서버를 더 이상 필요 하지 않은 경우 삭제할 수 있습니다.
 
-1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **삭제**를 선택 합니다.
+1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **삭제** 를 선택 합니다.
 
    :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Azure Database for MySQL에서 서버를 삭제 Azure Portal의 스크린샷":::
 
@@ -99,7 +99,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
    > [!NOTE]
    > 서버 삭제는 취소할 수 없습니다.
 
-3. **삭제**를 선택합니다.
+3. **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 1e3c05e4cc3ccf34573b55d3729aded16e26d66e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76960842"
 ---
 # <a name="403006-devicemaximumactivefileuploadlimitexceeded"></a>403006 DeviceMaximumActiveFileUploadLimitExceeded
@@ -29,7 +29,7 @@ ms.locfileid: "76960842"
 
 장치에서 파일 업로드가 완료 되 면 IoT Hub에 알리지 않는 경우 제한을 쉽게 초과할 수 있습니다. 이 문제는 일반적으로 신뢰할 수 없는 장치 쪽 네트워크에 의해 발생 합니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 장치에서 [파일 업로드 완료 IoT Hub 즉시 알릴](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload)수 있는지 확인 합니다. 그런 다음 [파일 업로드 구성에 대해 SAS 토큰 TTL을 줄여](iot-hub-configure-file-upload.md)보세요.
 

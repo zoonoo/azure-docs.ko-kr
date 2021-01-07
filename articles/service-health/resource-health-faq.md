@@ -3,12 +3,12 @@ title: Azure Resource Health FAQ
 description: Azure Resource Health 개요
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 345724a28441e5a6b20863da8d2fd47be0a8d6f9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5ad8867b110039e4dcc34b20c8a61fccfd39eaf
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518948"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032867"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.
@@ -46,13 +46,12 @@ Resource Health 블레이드에서 지원 요청을 제출할 수 있습니다. 
 포털에서는 사용자가 시작한 작업이 파란색 알림 아이콘을 사용하여 표시되지만 계획 및 계획되지 않은 이벤트는 빨간색 경고 아이콘을 사용하여 표시됩니다. 자세한 내용은 [Resource Health 개요](Resource-health-overview.md)에 제공됩니다.  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Resource Health를 내 모니터링 도구에 통합할 수 있나요?
-리소스 상태는 활동 로그 기반 경고에 대 한 [미리 보기를 지원](resource-health-alert-arm-template-guide.md) 합니다. 활동 로그 경고는 [작업 그룹](../azure-monitor/platform/action-groups.md) 을 사용 하 여 경고가 트리거 되었음을 사용자에 게 알립니다. 작업 그룹은 전자 메일, SMS, 웹 후크, ITSM 작업 등의 다양 한 알림 채널을 지원 합니다.
+리소스 상태는 활동 로그 기반 경고를 [지원](resource-health-alert-arm-template-guide.md) 합니다. 활동 로그 경고는 [작업 그룹](../azure-monitor/platform/action-groups.md) 을 사용 하 여 경고가 트리거 되었음을 사용자에 게 알립니다. 작업 그룹은 전자 메일, SMS, 웹 후크, ITSM 작업 등의 다양 한 알림 채널을 지원 합니다.
 
 ## <a name="where-do-i-find-resource-health"></a>Resource Health는 어디서 찾을 수 있나요?
 Azure Portal에 로그인하면 여러 가지 방법으로 Resource Health에 액세스할 수 있습니다.
-- 리소스로 이동합니다. 왼쪽 탐색에서 **Resource Health**를 선택합니다.
-- Azure Service Health 블레이드로 이동합니다.  왼쪽 탐색에서 **Resource health**를 선택 합니다.
-- 포털 오른쪽 위 모서리에서 물음표를 선택하고 **도움말 + 지원**을 선택하여 **도움말 + 지원** 블레이드를 엽니다. 블레이드가 열리면 **Resource Health**를 선택합니다.
+- 리소스로 이동합니다. 왼쪽 탐색에서 **Resource Health** 를 선택합니다.
+- Azure Service Health 블레이드로 이동합니다.  왼쪽 탐색에서 **Resource health** 를 선택 합니다.
 
 Resource Health API를 사용하여 리소스 상태에 대한 정보를 얻을 수도 있습니다.
 
@@ -69,8 +68,6 @@ Resource Health를 통해 지원되는 상태 검사 및 리소스 유형 목록
 Resource Health에서 제공하는 정보는 Azure 상태 또는 Service Health 대시보드에서 제공하는 정보보다 더 구체적입니다.
 
 [Azure 상태](https://status.azure.com)와 Service Health 대시보드는 광범위한 고객 집합(예: Azure 지역)에 영향을 주는 서비스 문제를 알려주는 반면, Resource Health는 특정 리소스에만 관련된 더 세분화된 이벤트를 노출합니다. 예를 들어 호스트가 예기치 않게 재부팅되는 경우 Resource Health는 가상 머신이 해당 호스트에서 실행 중인 고객에게만 경고합니다.
-
-리소스에 영향을 주는 이벤트에 대한 충분한 가시성을 제공하는 것이 중요하며 Resource Health는 Service Health 대시보드에 게시된 이벤트를 표시합니다.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>각 리소스에 대해 Resource Health를 활성화해야 하나요?
 아니요, 상태 정보는 Resource Health를 통해 제공되는 모든 리소스 유형에 대해 사용 가능합니다. 

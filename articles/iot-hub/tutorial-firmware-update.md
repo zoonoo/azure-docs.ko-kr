@@ -13,19 +13,20 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-- devx-track-javascript
-ms.openlocfilehash: 2e2d66e113c855830f841761cb11a70e4f26c19d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+- devx-track-azurecli
+ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415077"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572340"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
 IoT Hub에 연결된 디바이스에서 펌웨어를 업데이트해야 합니다. 예를 들어 펌웨어에 새로운 기능을 추가하거나 보안 패치를 적용하려고 합니다. 여러 IoT 시나리오에서는 물리적으로 방문한 다음, 디바이스에 펌웨어 업데이트를 수동으로 적용하는 것은 실용적이지 않습니다. 이 자습서에서는 허브에 연결된 백 엔드 애플리케이션을 통해 원격으로 펌웨어 업데이트 프로세스를 시작하고 모니터링할 수 있는 방법을 보여줍니다.
 
-펌웨어 업데이트 프로세스를 만들고 모니터링하기 위해 이 자습서의 백 엔드 애플리케이션은 IoT Hub에서 _구성_을 만듭니다. IoT Hub [자동 디바이스 관리](iot-hub-auto-device-config.md)는 이 구성을 사용하여 모든 냉각기 디바이스에 대한 일련의 _디바이스 쌍 desired 속성_을 업데이트합니다. desired 속성은 필요한 펌웨어 업데이트의 세부 정보를 지정합니다. 냉각기 디바이스가 펌웨어 업데이트 프로세스를 실행하는 동안 _디바이스 쌍 reported 속성_을 사용하여 백 엔드 애플리케이션에 해당 상태를 보고합니다. 백 엔드 애플리케이션은 구성을 사용하여 디바이스에서 전송된 reported 속성을 모니터링하고 완료될 때까지 펌웨어 업데이트 프로세스를 추적할 수 있습니다.
+펌웨어 업데이트 프로세스를 만들고 모니터링하기 위해 이 자습서의 백 엔드 애플리케이션은 IoT Hub에서 _구성_ 을 만듭니다. IoT Hub [자동 디바이스 관리](./iot-hub-automatic-device-management.md)는 이 구성을 사용하여 모든 냉각기 디바이스에 대한 일련의 _디바이스 쌍 desired 속성_ 을 업데이트합니다. desired 속성은 필요한 펌웨어 업데이트의 세부 정보를 지정합니다. 냉각기 디바이스가 펌웨어 업데이트 프로세스를 실행하는 동안 _디바이스 쌍 reported 속성_ 을 사용하여 백 엔드 애플리케이션에 해당 상태를 보고합니다. 백 엔드 애플리케이션은 구성을 사용하여 디바이스에서 전송된 reported 속성을 모니터링하고 완료될 때까지 펌웨어 업데이트 프로세스를 추적할 수 있습니다.
 
 ![펌웨어 업데이트 프로세스](media/tutorial-firmware-update/Process.png)
 
@@ -37,11 +38,9 @@ IoT Hub에 연결된 디바이스에서 펌웨어를 업데이트해야 합니�
 > * 디바이스에서 펌웨어 업데이트 프로세스를 시뮬레이션합니다.
 > * 펌웨어 업데이트 과정이 진행되면 디바이스의 상태 업데이트를 수신합니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
 
@@ -61,7 +60,7 @@ node --version
 
 이 자습서를 완료하려면 Azure 구독에 디바이스 ID 레지스트리에 디바이스가 추가된 IoT Hub가 있어야 합니다. 디바이스 ID 레지스트리의 항목을 사용하면 이 자습서에서 실행하는 시뮬레이션된 디바이스를 허브에 연결할 수 있습니다.
 
-구독에 아직 IoT 허브를 설정하지 않은 경우 다음 CLI 스크립트를 사용하여 하나의 IoT 허브를 설정할 수 있습니다. 다음 스크립트는 IoT 허브에 대해 **tutorial-iot-hub**라는 이름을 사용하므로 실행할 때는 이 이름을 사용자의 고유 이름으로 바꿔야 합니다. 이 스크립트의 경우 **미국 중부** 지역에 리소스 그룹과 허브를 만들지만, 가장 가까운 지역으로 변경할 수 있습니다. 그리고 백 엔드 애플리케이션 예제에서 IoT Hub에 연결하는 데 사용하는 IoT Hub 서비스 연결 문자열을 검색합니다.
+구독에 아직 IoT 허브를 설정하지 않은 경우 다음 CLI 스크립트를 사용하여 하나의 IoT 허브를 설정할 수 있습니다. 다음 스크립트는 IoT 허브에 대해 **tutorial-iot-hub** 라는 이름을 사용하므로 실행할 때는 이 이름을 사용자의 고유 이름으로 바꿔야 합니다. 이 스크립트의 경우 **미국 중부** 지역에 리소스 그룹과 허브를 만들지만, 가장 가까운 지역으로 변경할 수 있습니다. 그리고 백 엔드 애플리케이션 예제에서 IoT Hub에 연결하는 데 사용하는 IoT Hub 서비스 연결 문자열을 검색합니다.
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -81,7 +80,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-이 자습서에서는 **MyFirmwareUpdateDevice**라는 시뮬레이션된 디바이스를 사용합니다. 다음 스크립트는 이 디바이스를 디바이스 ID 레지스트리에 추가하고, 태그 값을 설정하고, 해당 연결 문자열을 검색합니다.
+이 자습서에서는 **MyFirmwareUpdateDevice** 라는 시뮬레이션된 디바이스를 사용합니다. 다음 스크립트는 이 디바이스를 디바이스 ID 레지스트리에 추가하고, 태그 값을 설정하고, 해당 연결 문자열을 검색합니다.
 
 ```azurecli-interactive
 # Set the name of your IoT hub
@@ -103,7 +102,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>펌웨어 업데이트 시작
 
-백 엔드 애플리케이션에서 [자동 장치 관리 구성](iot-hub-automatic-device-management.md#create-a-configuration)을 만들어서 냉각기의 **devicetype**으로 태그로 지정된 모든 장치에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
+백 엔드 애플리케이션에서 [자동 장치 관리 구성](iot-hub-automatic-device-management.md#create-a-configuration)을 만들어서 냉각기의 **devicetype** 으로 태그로 지정된 모든 장치에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
 
 * 백 엔드 애플리케이션의 구성을 만듭니다.
 * 완료할 작업을 모니터링합니다.
@@ -184,7 +183,7 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여주고, 펌웨어 desired 속성을 업데이트하도록 구성을 만드는 방법을 강조 표시합니다.
 
-![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd1.png)
+![백 엔드 애플리케이션의 출력을 보여주는 스크린샷.](./media/tutorial-firmware-update/BackEnd1.png)
 
 다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여주고, 시뮬레이션된 디바이스의 펌웨어 업데이트 메트릭을 모니터링하는 방법을 강조 표시합니다.
 
@@ -198,7 +197,7 @@ node ServiceClient.js "{your service connection string}"
 
 다음 자습서를 완료하려면 리소스 그룹과 IoT 허브를 그대로 두고 나중에 다시 사용합니다.
 
-더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT 허브가 포함된 **tutorial-iot-hub-rg** 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT 허브가 포함된 **tutorial-iot-hub-rg** 리소스 그룹을 선택하고 **삭제** 를 클릭합니다.
 
 또는 CLI를 사용합니다.
 

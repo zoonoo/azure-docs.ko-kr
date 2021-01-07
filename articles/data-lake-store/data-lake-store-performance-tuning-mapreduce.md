@@ -1,17 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1 성능 조정-MapReduce
 description: 매개 변수, 지침, 예제 계산 및 제한 사항을 포함 하 여 Azure Data Lake Storage Gen1에서 MapReduce에 대 한 성능 조정에 대해 알아봅니다.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 03c35d0af97cf24d1683d0ff21f10a0371391616
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: twooley
+ms.openlocfilehash: 2549413241e422fb1e0e5e1f079c287e0b7cf005
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190206"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723731"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 MapReduce 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
@@ -20,14 +20,14 @@ ms.locfileid: "88190206"
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
 * Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
-* **HDInsight에서 MapReduce 사용**. 자세한 내용은 [HDInsight에서 Hadoop과 MapReduce 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)을 참조하세요.
-* **Data Lake Storage Gen1에 대 한 성능 조정 지침을 검토**합니다. 일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 을 참조 하세요.
+* **HDInsight에서 MapReduce 사용**. 자세한 내용은 [HDInsight에서 Hadoop과 MapReduce 사용](../hdinsight/hadoop/hdinsight-use-mapreduce.md)을 참조하세요.
+* **Data Lake Storage Gen1에 대 한 성능 조정 지침을 검토** 합니다. 일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](./data-lake-store-performance-tuning-guidance.md) 을 참조 하세요.
 
 ## <a name="parameters"></a>매개 변수
 
 MapReduce 작업을 실행할 때 Data Lake Storage Gen1에서 성능을 향상시키기 위해 구성할 수 있는 가장 중요한 매개 변수가 있습니다.
 
-|매개 변수      | 설명  |
+|매개 변수      | Description  |
 |---------|---------|
 |`Mapreduce.map.memory.mb`  |  각 매퍼에 할당할 메모리의 양입니다.  |
 |`Mapreduce.job.maps`     |  작업당 맵 태스크 수입니다.  |

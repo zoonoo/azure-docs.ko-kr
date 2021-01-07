@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319545"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842620"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
 
@@ -46,7 +46,7 @@ Azure는 일반화 및 특수화의 두 가지 기본 이미지 유형을 제공
 
 ### <a name="generalized-images"></a>일반화된 이미지
 
-일반화된 이미지는 처음 부팅할 때 설치를 완료해야 하는 이미지입니다. 예를 들어 처음 부팅할 때 호스트 이름, 관리 사용자 및 기타 VM 특정 구성을 설정합니다. 이는 이미지를 여러 번 다시 사용하려는 경우와 만드는 중에 매개 변수를 전달하려는 경우에 유용합니다. Azure 에이전트가 일반화된 이미지에 포함되는 경우 에이전트에서 매개 변수를 처리하고 초기 구성이 완료되었다는 신호를 플랫폼에 다시 보냅니다. 이 프로세스를 [프로비저닝](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning)이라고 합니다. 
+일반화된 이미지는 처음 부팅할 때 설치를 완료해야 하는 이미지입니다. 예를 들어 처음 부팅할 때 호스트 이름, 관리 사용자 및 기타 VM 특정 구성을 설정합니다. 이는 이미지를 여러 번 다시 사용하려는 경우와 만드는 중에 매개 변수를 전달하려는 경우에 유용합니다. Azure 에이전트가 일반화된 이미지에 포함되는 경우 에이전트에서 매개 변수를 처리하고 초기 구성이 완료되었다는 신호를 플랫폼에 다시 보냅니다. 이 프로세스를 [프로비저닝](./provisioning.md)이라고 합니다. 
 
 프로비저닝하려면 이미지에 구축 프로그램이 포함되어 있어야 합니다. 다음 두 가지 구축 프로그램이 있습니다.
 - [Azure Linux 에이전트](../extensions/agent-linux.md)
@@ -83,7 +83,7 @@ Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수
 - 글로벌 이미지 복제
 - 보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화
 - 가용성 영역을 지원하는 지역의 ZRS(영역 중복 스토리지)가 포함된 고가용성 이미지. ZRS는 영역 장애 발생 시 보다 나은 복원력을 제공합니다.
-- RBAC를 사용하여 구독 간에, 심지어 AD(Active Directory) 테넌트 간에 공유
+- Azure RBAC를 사용하여 구독 간은 물론 AD(Active Directory) 테넌트 간에도 공유합니다.
 - 각 지역에서 이미지 복제본으로 배포 스케일링
 
 대략적으로 SIG를 만들고 다음을 구성합니다.
@@ -94,7 +94,7 @@ Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수
 
 ## <a name="hyper-v-generation"></a>Hyper-V 세대
 
-Azure는 Hyper-V Gen1(1세대) 및 Gen2(2세대)를 지원하고, Gen2는 최신 세대이며 Gen1을 통해 추가 기능을 제공합니다. 예를 들어 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리) 등이 있습니다. 온-프레미스에서 실행되는 2세대 VM에는 아직 Azure에서 지원되지 않는 몇 가지 기능이 있습니다. 자세한 내용은 특징 및 기능 섹션을 참조하세요. 자세한 내용은 이 [문서](../windows/generation-2.md)를 참조하세요. 추가 기능이 필요한 경우 Gen2 이미지를 만듭니다.
+Azure는 Hyper-V Gen1(1세대) 및 Gen2(2세대)를 지원하고, Gen2는 최신 세대이며 Gen1을 통해 추가 기능을 제공합니다. 예를 들어 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리) 등이 있습니다. 온-프레미스에서 실행되는 2세대 VM에는 아직 Azure에서 지원되지 않는 몇 가지 기능이 있습니다. 자세한 내용은 특징 및 기능 섹션을 참조하세요. 자세한 내용은 이 [문서](../generation-2.md)를 참조하세요. 추가 기능이 필요한 경우 Gen2 이미지를 만듭니다.
 
 사용자 고유의 이미지를 만들어야 하는 경우에도 해당 이미지에서 [이미지 필수 구성 요소](./create-upload-generic.md)를 충족하는지 확인하고 Azure에 업로드합니다. 배포 관련 요구 사항:
 

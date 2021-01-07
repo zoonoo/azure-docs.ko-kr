@@ -1,5 +1,5 @@
 ---
-title: '자습서: SQL 풀을 사용하여 데이터 분석 시작'
+title: '자습서: 전용 SQL 풀을 사용하여 데이터 분석 시작'
 description: 이 자습서에서는 NYC Taxi 샘플 데이터를 사용하여 SQL 풀의 분석 기능을 탐색합니다.
 services: synapse-analytics
 author: saveenr
@@ -7,34 +7,79 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: e2e1d0479b8edacaae8816d74db061eeedb805a7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 11/17/2020
+ms.openlocfilehash: 9014469ca063ca52be0965ecbd4e8b21709d10a0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325222"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455162"
 ---
-# <a name="analyze-data-with-sql-pools"></a>SQL 풀을 사용하여 데이터 분석
+# <a name="analyze-data-with-dedicated-sql-pools"></a>전용 SQL 풀을 사용하여 데이터 분석
 
-Azure Synapse Analytics는 SQL 풀을 사용하여 데이터를 분석하는 기능을 제공합니다. 이 자습서에서는 NYC Taxi 샘플 데이터를 사용하여 SQL 풀의 분석 기능을 탐색합니다.
+Azure Synapse Analytics는 전용 SQL 풀을 사용하여 데이터를 분석하는 기능을 제공합니다. 이 자습서에서는 NYC Taxi 데이터를 사용하여 전용 SQL 풀의 기능을 탐색합니다.
 
-## <a name="load-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>SQLDB1 데이터베이스에 NYC 택시 샘플 데이터 로드
+## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>NYC Taxi 데이터를 SQLPOOL1에 로드
 
-1. Synapse Studio의 맨 위쪽의 파란색 메뉴에서 물음표( **?** ) 아이콘을 선택합니다.
-1. **시작** > **허브 시작**을 차례로 선택합니다.
-1. **쿼리 샘플 데이터**라는 레이블이 지정된 카드에서 **SQLDB1**이라는 SQL 풀을 선택합니다.
-1. **데이터 쿼리**를 선택합니다. "샘플 데이터 로드 중"이라는 알림이 잠시 표시됩니다. Synapse Studio 위쪽 근처의 연한 파란색 상태 표시줄에서 데이터가 SQLDB1에 로드되고 있음을 나타냅니다.
-1. 상태 표시줄이 녹색으로 바뀌면 해제합니다.
+1. Synapse Studio에서 **개발** 허브로 이동한 다음, 새 SQL 스크립트를 만듭니다.
+1. 스크립트의 '연결 대상' 섹션에서 'SQLPOOL1' 풀(이 자습서의 [1단계](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool)에서 만든 풀)을 선택합니다.
+1. 다음 코드를 입력합니다.
+    ```
+    CREATE TABLE [dbo].[Trip]
+    (
+        [DateID] int NOT NULL,
+        [MedallionID] int NOT NULL,
+        [HackneyLicenseID] int NOT NULL,
+        [PickupTimeID] int NOT NULL,
+        [DropoffTimeID] int NOT NULL,
+        [PickupGeographyID] int NULL,
+        [DropoffGeographyID] int NULL,
+        [PickupLatitude] float NULL,
+        [PickupLongitude] float NULL,
+        [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DropoffLatitude] float NULL,
+        [DropoffLongitude] float NULL,
+        [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [PassengerCount] int NULL,
+        [TripDurationSeconds] int NULL,
+        [TripDistanceMiles] float NULL,
+        [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [FareAmount] money NULL,
+        [SurchargeAmount] money NULL,
+        [TaxAmount] money NULL,
+        [TipAmount] money NULL,
+        [TollsAmount] money NULL,
+        [TotalAmount] money NULL
+    )
+    WITH
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    );
 
-## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>SQL 풀에서 NYC 택시 데이터 검색
+    COPY INTO [dbo].[Trip]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/QID6392_20171107_05910_0.txt.gz'
+    WITH
+    (
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = '|',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A',
+        COMPRESSION = 'GZIP'
+    )
+    OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
+    ```
+1. 이 스크립트는 약 60초 후에 완료됩니다. 2백만 행의 NYC Taxi 데이터를 **dbo.Trip** 이라는 테이블에 로드합니다.
+
+## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>전용 SQL 풀에서 NYC Taxi 데이터 검색
 
 1. Synapse Studio에서 **데이터** 허브로 이동합니다.
-1. **SQLDB1** > **테이블**로 차례로 이동합니다. 로드된 몇 가지 테이블이 표시됩니다.
-1. 마우스 오른쪽 단추로 **dbo.Trip** 테이블을 클릭하고, **새 SQL 스크립트** > **상위 100개 행 선택**을 차례로 선택합니다.
+1. **SQLPOOL1** > **테이블** 로 이동합니다. 로드된 몇 가지 테이블이 표시됩니다.
+1. 마우스 오른쪽 단추로 **dbo.Trip** 테이블을 클릭하고, **새 SQL 스크립트** > **상위 100개 행 선택** 을 차례로 선택합니다.
 1. 새 SQL 스크립트가 만들어져 실행될 때까지 기다립니다.
-1. SQL 스크립트의 위쪽에서 **연결 대상**이 자동으로 **SQLDB1**이라는 SQL 풀로 설정됩니다.
+1. SQL 스크립트의 위쪽에서 **연결 대상** 이 자동으로 **SQLPOOL1** 이라는 SQL 풀로 설정됩니다.
 1. SQL 스크립트의 텍스트를 다음 코드로 바꾸고 실행합니다.
 
     ```sql
@@ -48,9 +93,10 @@ Azure Synapse Analytics는 SQL 풀을 사용하여 데이터를 분석하는 기
     ```
 
     이 쿼리에서는 총 주행 거리 및 평균 주행 거리와 승객 수 간의 관계를 보여 줍니다.
-1. SQL 스크립트 결과 창에서 결과를 꺾은선형 차트로 시각화하려면 **보기**를 **차트**로 변경합니다.
-
-
+1. SQL 스크립트 결과 창에서 결과를 꺾은선형 차트로 시각화하려면 **보기** 를 **차트** 로 변경합니다.
+    
+    > [!NOTE]
+    > 작업 영역이 활성화된 전용 SQL 풀(이전의 SQL DW)은 데이터 허브의 도구 설명을 통해 식별할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

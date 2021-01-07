@@ -7,7 +7,7 @@
     - name: 빠른 시작
       href: quickstart-translator.md
     - name: 언어 지원
-      href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
+      href: language-support.md
     - name: 자습서
       items:
         - name: 'Translator용 WPF 앱 만들기, C#'
@@ -23,7 +23,7 @@
     - name: 방법 가이드
       items:
         - name: Translator에 등록
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: V3 텍스트 API로 마이그레이션
           href: migrate-to-v3.md
         - name: 불경한 언어 필터링 추가
@@ -56,34 +56,26 @@
       items:
         - name: v3 Translator 참조
           href: reference/v3-0-reference.md
-          items:
-            - name: 언어
-              href: reference/v3-0-languages.md
-            - name: Translate
-              href: reference/v3-0-translate.md
-            - name: Transliterate
-              href: reference/v3-0-transliterate.md
-            - name: Detect
-              href: reference/v3-0-detect.md
-            - name: BreakSentence
-              href: reference/v3-0-break-sentence.md
-            - name: 사전 조회
-              href: reference/v3-0-dictionary-lookup.md
-            - name: 사전 예제
-              href: reference/v3-0-dictionary-examples.md
-        - name: v2 Translator 참조(사용되지 않음)
-          href: reference/v2-0-reference.md
-          items:
-            - name: 텍스트 변환
-              href: transform-text.md
-            - name: CTF(Collaborative Translation Framework) 보고 사용 방법
-              href: ctf-reporting.md
-            - name: N-Best 번역 반환
-              href: return-n-best-translations.md
+        - name: 언어
+          href: reference/v3-0-languages.md
+        - name: Translate
+          href: reference/v3-0-translate.md
+        - name: Transliterate
+          href: reference/v3-0-transliterate.md
+        - name: Detect
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: 사전 조회
+          href: reference/v3-0-dictionary-lookup.md
+        - name: 사전 예제
+          href: reference/v3-0-dictionary-examples.md
         - name: 요청 제한
           href: request-limits.md
     - name: 리소스
       items:
+        - name: 지원 및 도움말 옵션
+          href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
         - name: GitHub의 코드 샘플
           href: 'https://aka.ms/TranslatorGitHub'
         - name: FAQ
@@ -94,8 +86,6 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: 규정 준수
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
 - name: Custom Translator
   items:
     - name: 개요
@@ -148,6 +138,8 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: 리소스
       items:
+        - name: 지원 및 도움말 옵션
+          href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
         - name: 용어
           href: custom-translator/glossary.md
         - name: FAQ
@@ -158,5 +150,3 @@
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: 암호화
           href: translator-encryption-of-data-at-rest.md
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

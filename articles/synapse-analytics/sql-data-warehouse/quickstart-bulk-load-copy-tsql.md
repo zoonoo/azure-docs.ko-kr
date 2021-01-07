@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 06/18/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213009"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024588"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>빠른 시작: COPY 문을 사용하여 데이터 대량 로드
 
-이 빠른 시작에서는 처리량이 높은 데이터 수집을 위해 간단하고 유연한 [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 문을 사용하여 SQL 풀로 데이터를 대량 로드합니다. COPY 문은 다음과 같은 기능을 제공하여 데이터를 원활하고 유연하게 로드할 수 있도록 권장되는 로드 유틸리티입니다.
+이 빠른 시작에서는 처리량이 높은 데이터 수집을 위해 간단하고 유연한 [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)을 사용하여 전용 SQL 풀로 데이터를 대량 로드합니다. COPY 문은 다음과 같은 기능을 제공하여 데이터를 원활하고 유연하게 로드할 수 있도록 권장되는 로드 유틸리티입니다.
 
 - 데이터 웨어하우스에 대한 엄격한 제어 권한이 없어도 권한이 낮은 사용자가 로드할 수 있도록 허용
 - 추가 데이터베이스 개체를 만들 필요 없이 단일 T-SQL 문만 활용합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "85213009"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 빠른 시작에서는 SQL 풀이 이미 있다고 가정합니다. SQL 풀을 만들지 않은 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md) 빠른 시작을 사용합니다.
+이 빠른 시작에서는 전용 SQL 풀이 이미 있다고 가정합니다. 전용 SQL 풀이 생성되지 않은 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md) 빠른 시작을 사용합니다.
 
 ## <a name="set-up-the-required-permissions"></a>필수 권한 설정
 

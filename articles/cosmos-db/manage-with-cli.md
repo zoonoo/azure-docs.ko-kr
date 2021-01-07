@@ -1,25 +1,32 @@
 ---
-title: Azure CLI를 사용하여 Azure Cosmos DB 리소스 관리
-description: Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다.
+title: Azure CLI를 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스 관리
+description: Azure CLI를 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스를 관리 합니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b13f5bfffced9afd80663d606e30e028e52643ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432834"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563840"
 ---
-# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos 리소스 관리
+# <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Cosmos Core (SQL) API 리소스 관리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너 관리를 자동화하는 일반 명령에 대해 설명합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/cosmosdb)에서 제공됩니다. 더 많은 예제는 [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 확인할 수 있습니다. 여기에는 MongoDB, Gremlin, Cassandra 및 Table API에 대한 Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기 및 관리 방법이 포함되어 있습니다.
+이 문서에서는 Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너 관리를 자동화하는 일반 명령에 대해 설명합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. 더 많은 예제는 [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 확인할 수 있습니다. 여기에는 MongoDB, Gremlin, Cassandra 및 Table API에 대한 Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기 및 관리 방법이 포함되어 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 항목에서는 Azure CLI 버전 2.9.1 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.12.1 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+
+다른 API에 대한 Azure CLI 샘플은 [Cassandra용 CLI 샘플](cli-samples-cassandra.md), [MongoDB API용 CLI 샘플](cli-samples-mongodb.md), [Gremlin용 CLI 샘플](cli-samples-gremlin.md), [Table용 CLI 샘플](cli-samples-table.md)을 참조하세요.
+
+> [!IMPORTANT]
+> Azure Cosmos DB 리소스는 Azure Resource Manager 리소스 Uri에서 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 계정
 
@@ -87,10 +94,10 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ### <a name="enable-multiple-write-regions"></a>여러 쓰기 영역 사용
 
-Cosmos 계정에 다중 마스터 사용
+Cosmos 계정에 대 한 다중 지역 쓰기 사용
 
 ```azurecli-interactive
-# Update an Azure Cosmos account from single to multi-master
+# Update an Azure Cosmos account from single write region to multiple write regions
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -148,7 +155,7 @@ az cosmosdb failover-priority-change --ids $accountId \
     --failover-policies 'East US 2=0' 'South Central US=1' 'West US 2=2'
 ```
 
-### <a name="list-all-account-keys"></a><a id="list-account-keys"></a>모든 계정 키 나열
+### <a name="list-all-account-keys"></a><a id="list-account-keys"></a> 모든 계정 키 나열
 
 Cosmos 계정에 대 한 모든 키를 가져옵니다.
 
@@ -211,8 +218,9 @@ az cosmosdb keys regenerate \
 
 * [데이터베이스 만들기](#create-a-database)
 * [공유 처리량이 있는 데이터베이스 만들기](#create-a-database-with-shared-throughput)
+* [자동 크기 조정 처리량으로 데이터베이스 마이그레이션](#migrate-a-database-to-autoscale-throughput)
 * [데이터베이스 처리량 변경](#change-database-throughput)
-* [데이터베이스에 대 한 잠금 관리](#manage-lock-on-a-database)
+* [데이터베이스가 삭제 되지 않도록 방지](#prevent-a-database-from-being-deleted)
 
 ### <a name="create-a-database"></a>데이터베이스 만들기
 
@@ -246,6 +254,29 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
+### <a name="migrate-a-database-to-autoscale-throughput"></a>자동 크기 조정 처리량으로 데이터베이스 마이그레이션
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql database throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql database throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -n $databaseName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
 ### <a name="change-database-throughput"></a>데이터베이스 처리량 변경
 
 Cosmos 데이터베이스의 처리량을 1000 o s/s로 늘립니다.
@@ -272,14 +303,14 @@ az cosmosdb sql database throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-database"></a>데이터베이스에 대 한 잠금 관리
+### <a name="prevent-a-database-from-being-deleted"></a>데이터베이스가 삭제 되지 않도록 방지
 
-데이터베이스에 삭제 잠금을 적용 합니다. 이를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#prevent-sdk-changes)를 참조 하세요.
+데이터베이스에 대 한 Azure 리소스 삭제 잠금을 설정 하 여 삭제 되지 않도록 합니다. 이 기능을 사용 하려면 데이터 평면 Sdk에서 Cosmos 계정을 변경 하지 못하도록 잠급니다. 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#prevent-sdk-changes)를 참조 하세요. Azure 리소스 잠금은 잠금 유형을 지정 하 여 리소스가 변경 되지 않도록 할 수도 있습니다 `ReadOnly` . Cosmos 데이터베이스의 경우 처리량이 변경 되는 것을 방지 하는 데 사용할 수 있습니다.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
+accountName='mycosmosaccount'
+databaseName='database1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -312,7 +343,8 @@ az lock delete --ids $lockid
 * [TTL이 설정 된 컨테이너 만들기](#create-a-container-with-ttl)
 * [사용자 지정 정책을 사용하여 컨테이너 만들기](#create-a-container-with-a-custom-index-policy)
 * [컨테이너 처리량 변경](#change-container-throughput)
-* [컨테이너의 잠금 관리](#manage-lock-on-a-container)
+* [자동 크기 조정 처리량으로 컨테이너 마이그레이션](#migrate-a-container-to-autoscale-throughput)
+* [컨테이너가 삭제 되지 않도록 방지](#prevent-a-container-from-being-deleted)
 
 ### <a name="create-a-container"></a>컨테이너 만들기
 
@@ -451,15 +483,41 @@ az cosmosdb sql container throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-container"></a>컨테이너에 대 한 잠금 관리
+### <a name="migrate-a-container-to-autoscale-throughput"></a>자동 크기 조정 처리량으로 컨테이너 마이그레이션
 
-컨테이너에 삭제 잠금을 추가 합니다. 이를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#prevent-sdk-changes)를 참조 하세요.
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql container throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $containerName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql container throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
+### <a name="prevent-a-container-from-being-deleted"></a>컨테이너가 삭제 되지 않도록 방지
+
+컨테이너에 Azure 리소스 삭제 잠금을 설정 하 여 삭제 되지 않도록 합니다. 이 기능을 사용 하려면 데이터 평면 Sdk에서 Cosmos 계정을 변경 하지 못하도록 잠급니다. 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#prevent-sdk-changes)를 참조 하세요. Azure 리소스 잠금은 잠금 유형을 지정 하 여 리소스가 변경 되지 않도록 할 수도 있습니다 `ReadOnly` . Cosmos 컨테이너의 경우이를 사용 하 여 처리량 또는 다른 속성이 변경 되는 것을 방지할 수 있습니다.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
-containerName='myContainer'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -488,6 +546,6 @@ az lock delete --ids $lockid
 
 Azure CLI에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure CLI 설치](/cli/azure/install-azure-cli)
-- [Azure CLI 참조](https://docs.microsoft.com/cli/azure/cosmosdb)
-- [Azure Cosmos DB에 대한 Azure CLI 추가 샘플](cli-samples.md)
+* [Azure CLI 설치](/cli/azure/install-azure-cli)
+* [Azure CLI 참조](/cli/azure/cosmosdb)
+* [Azure Cosmos DB에 대한 Azure CLI 추가 샘플](cli-samples.md)

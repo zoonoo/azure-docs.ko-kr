@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 2ee9d1edefb0e248d0eba13e2d0b9f1c651fdd42
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 81dee0c63db711b39ff8fd2123623a16b2b9cb91
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924515"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122792"
 ---
 # <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Azure로 데이터를 가져오는 Azure Data Box 시작
 
@@ -40,7 +40,7 @@ ms.locfileid: "87924515"
 
 - Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
     - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
-    - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
+    - CSP(클라우드 솔루션 공급자). [CSP 프로그램](/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
     - Microsoft Azure 스폰서쉽. [Azure 스폰서쉽 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)에 대해 자세히 알아보세요. 
 
 - Data Box 주문을 작성할 구독에 대한 소유자 또는 참가자 권한이 있는지 확인합니다.
@@ -131,7 +131,7 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
 
 이 작업을 완료하는 시간은 데이터 크기와 네트워크 속도에 따라 달라집니다.
  
-1. Windows 호스트를 사용하는 경우 Robocopy와 같은 SMB 호환 파일 복사 도구를 사용합니다. NFS 호스트의 경우에는 `cp` 명령 또는 `rsync`를 사용하여 데이터를 복사합니다. 디바이스에 도구를 연결하고 공유에 데이터를 복사하는 과정을 시작합니다. Robocopy를 사용하여 데이터를 복사하는 방법에 대한 자세한 내용을 확인하려면 [Robocopy](https://technet.microsoft.com/library/ee851678.aspx)를 방문하세요.
+1. Windows 호스트를 사용하는 경우 Robocopy와 같은 SMB 호환 파일 복사 도구를 사용합니다. NFS 호스트의 경우에는 `cp` 명령 또는 `rsync`를 사용하여 데이터를 복사합니다. 디바이스에 도구를 연결하고 공유에 데이터를 복사하는 과정을 시작합니다. Robocopy를 사용하여 데이터를 복사하는 방법에 대한 자세한 내용을 확인하려면 [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10))를 방문하세요.
 2. `\\<IP address of your device>\ShareName` 경로를 사용하여 공유에 연결합니다. 공유 액세스 자격 증명을 가져오려면 Data Box의 로컬 웹 UI에 있는 **연결 및 복사** 페이지로 이동합니다.
 3. 공유 및 폴더 이름과 데이터가 [Azure Storage 및 Data Box 서비스 제한](data-box-limits.md)에서 설명하는 지침을 따르는지 확인합니다.
 
@@ -170,5 +170,3 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
 > [Azure Portal을 사용하여 Data Box 관리](data-box-portal-admin.md)
 
 ::: zone-end
-
-

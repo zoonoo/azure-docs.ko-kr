@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246693"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207396"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
 
@@ -190,6 +190,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 TrackRestoreProgress를 통해 복원의 진행률을 추적할 수 있습니다.
 
+> [!NOTE]
+> Powershell을 사용 하 여 파티션을 복원할 때 backuplocation에 ' $ '가 있는 경우 ' ~ '를 사용 하 여 이스케이프 합니다.
+>
+
 ### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
 Service Fabric Explorer에서 복원을 트리거할 수 있습니다. Service Fabric Explorer 설정에서 고급 모드를 사용 하도록 설정 했는지 확인 합니다.
 1. 원하는 파티션을 선택 하 고 작업을 클릭 합니다. 
@@ -250,6 +254,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 TrackRestoreProgress를 사용하여 복원의 진행률을 추적할 수 있습니다.
+
+> [!NOTE]
+> Powershell을 사용 하 여 파티션을 복원할 때 backuplocation에 ' $ '가 있는 경우 ' ~ '를 사용 하 여 이스케이프 합니다.
+>
 
 ## <a name="track-restore-progress"></a>복원 진행률 추적
 

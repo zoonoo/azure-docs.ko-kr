@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971527"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358425"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결 설정
 
@@ -29,11 +29,11 @@ ms.locfileid: "90971527"
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
 
-시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중에 데이터 액세스를 허용하는 RBAC(역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
+시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중 데이터에 액세스할 수 있도록 하는 azure RBAC (역할 기반 액세스 제어) 할당에서이 id를 사용할 수 있습니다.
 
 ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 
-**저장**을 선택한 후 검색 서비스에 할당된 개체 ID가 표시됩니다.
+**저장** 을 선택한 후 검색 서비스에 할당된 개체 ID가 표시됩니다.
 
 ![개체 ID](./media/search-managed-identities/system-assigned-identity-object-id.png "개체 ID입니다.")
 
@@ -82,29 +82,29 @@ ms.locfileid: "90971527"
 
 1. Azure Portal에서 Azure SQL Server 페이지로 이동합니다.
 2. **액세스 제어(IAM)** 를 선택합니다.
-3. **추가**를 선택한 다음 **역할 할당 추가**를 선택합니다.
+3. **추가** 를 선택한 다음 **역할 할당 추가** 를 선택합니다.
 
     ![역할 할당 추가](./media/search-managed-identities/add-role-assignment-sql-server.png "역할 할당 추가")
 
 4. 적절한 **읽기 권한자** 역할을 선택합니다.
-5. **액세스 할당**을 **Azure AD 사용자, 그룹 또는 서비스 사용자**로 둡니다.
-6. 검색 서비스를 검색하고 선택한 다음 **저장**을 선택합니다.
+5. **액세스 할당** 을 **Azure AD 사용자, 그룹 또는 서비스 사용자** 로 둡니다.
+6. 검색 서비스를 검색하고 선택한 다음 **저장** 을 선택합니다.
 
     ![읽기 권한자 역할 할당 추가](./media/search-managed-identities/add-role-assignment-sql-server-reader-role.png "읽기 권한자 역할 할당 추가")
 
 ### <a name="5---create-the-data-source"></a>5 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/microsoft.azure.search.models.datasource) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
 
 [REST API](/rest/api/searchservice/create-data-source)를 사용 하 여 데이터 원본을 만들 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
-* **name**은 검색 서비스 내 데이터 원본의 고유 이름입니다.
-* **type**은 `azuresql`입니다.
+* **name** 은 검색 서비스 내 데이터 원본의 고유 이름입니다.
+* **type** 은 `azuresql`입니다.
 * **credentials**
     * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식이 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 초기 카탈로그 또는 데이터베이스 이름 및 계정 키 또는 암호가 없는 ResourceID를 제공합니다. ResourceId는 Azure SQL Database 구독 ID, SQL Database 리소스 그룹 및 SQL 데이터베이스의 이름을 포함 해야 합니다. 
     * 관리 ID 연결 문자열 형식:
-        * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹 이름**/providers/Microsoft.Sql/servers/**SQL Server 이름**/;Connection Timeout=**connection timeout length**;*
-* **container**에는 인덱싱할 테이블 또는 뷰의 이름을 지정합니다.
+        * *Initial Catalog|Database= **database name** ;ResourceId=/subscriptions/ **구독 ID** /resourceGroups/ **리소스 그룹 이름** /providers/Microsoft.Sql/servers/ **SQL Server 이름** /;Connection Timeout= **connection timeout length** ;*
+* **container** 에는 인덱싱할 테이블 또는 뷰의 이름을 지정합니다.
 
 다음은 [REST API](/rest/api/searchservice/create-data-source)를 사용하여 Azure SQL 데이터 원본 개체를 만드는 방법의 예입니다.
 

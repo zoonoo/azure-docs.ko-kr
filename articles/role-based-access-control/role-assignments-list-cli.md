@@ -11,26 +11,26 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9087722b54a805a0c217c236263bdcb39e5456e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e44437bb926e8d2d1ffcd3134bbc63538a112ff0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986258"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648313"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 역할 할당 나열
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]이 문서에서는 Azure CLI를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] 이 문서에서는 Azure CLI를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
+- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](../cloud-shell/overview.md)
 
 ## <a name="list-role-assignments-for-a-user"></a>사용자에 대한 역할 할당 목록
 
@@ -163,15 +163,15 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>관리 id에 대 한 역할 할당 나열
 
-1. 시스템 할당 또는 사용자 할당 관리 id의 개체 ID를 가져옵니다.
+1. 시스템 할당 또는 사용자 할당 관리 id의 보안 주체 ID를 가져옵니다.
 
-    사용자 할당 관리 id의 개체 ID를 가져오려면 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) 또는 [az identity list](/cli/azure/identity#az-identity-list)를 사용할 수 있습니다.
+    사용자 할당 관리 id의 보안 주체 ID를 가져오기 위해 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) 또는 [az identity list](/cli/azure/identity#az-identity-list)를 사용할 수 있습니다.
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    시스템 할당 관리 id의 개체 ID를 가져오려면 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용할 수 있습니다.
+    시스템 할당 관리 id의 보안 주체 ID를 가져오기 위해 [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list)를 사용할 수 있습니다.
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv
@@ -187,4 +187,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md)
+- [Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md)

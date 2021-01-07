@@ -1,7 +1,7 @@
 ---
 title: 아키텍처 및 주요 개념
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning를 구성 하는 아키텍처, 용어 및 개념에 대해 알아봅니다.
+description: 이 문서에서는 Azure Machine Learning를 구성 하는 아키텍처, 용어 및 개념에 대 한 개략적인 이해를 제공 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886322"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540199"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -47,15 +47,28 @@ ms.locfileid: "90886322"
 
 작업 영역을 다른 사용자와 공유할 수 있습니다.
 
+### <a name="create-workspace"></a>작업 영역 만들기
+
+다음 다이어그램은 작업 영역 생성 워크플로를 보여줍니다.
+
+* 지원되는 Azure Machine Learning 클라이언트(Azure CLI, Python SDK, Azure Portal) 중 하나에서 Azure AD에 로그인하고 적절한 Azure Resource Manager 토큰을 요청합니다.
+* Azure Resource Manager를 호출하여 작업 영역을 만듭니다. 
+* Azure Resource Manager는 Azure Machine Learning 리소스 공급자에게 연락하여 작업 영역을 프로비저닝합니다.
+* 기존 리소스를 지정 하지 않으면 구독에서 추가 필수 리소스가 생성 됩니다.
+
+필요에 따라 작업 영역 (예: Azure Kubernetes Service 또는 Vm)에 연결 된 다른 계산 대상을 프로 비전 할 수도 있습니다.
+
+[![작업 영역 생성 워크플로](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
+
 ## <a name="computes"></a>Computes
 
 <a name="compute-targets"></a>[계산 대상은](concept-compute-target.md) 교육 스크립트를 실행 하거나 서비스 배포를 호스트 하는 데 사용 하는 컴퓨터 또는 컴퓨터 집합입니다. 로컬 컴퓨터 또는 원격 계산 리소스를 계산 대상으로 사용할 수 있습니다.  계산 대상을 사용 하면 로컬 컴퓨터에서 교육을 시작한 다음 학습 스크립트를 변경 하지 않고 클라우드로 확장할 수 있습니다.
 
 Azure Machine Learning에는 Machine Learning 작업에 대해 구성 된 두 개의 완전히 관리 되는 클라우드 기반 VM (가상 머신)이 도입 되었습니다.
 
-* <a name="compute-instance"></a>**계산 인스턴스**: 계산 인스턴스는 기계 학습을 위해 설치 된 여러 도구 및 환경을 포함 하는 VM입니다. 계산 인스턴스는 주로 개발 워크스테이션에 사용 됩니다.  설치 하지 않아도 되는 샘플 노트북 실행을 시작할 수 있습니다. 계산 인스턴스를 학습 및 추론 작업에 대 한 계산 대상으로 사용할 수도 있습니다.
+* <a name="compute-instance"></a>**계산 인스턴스** : 계산 인스턴스는 기계 학습을 위해 설치 된 여러 도구 및 환경을 포함 하는 VM입니다. 계산 인스턴스는 주로 개발 워크스테이션에 사용 됩니다.  설치 하지 않아도 되는 샘플 노트북 실행을 시작할 수 있습니다. 계산 인스턴스를 학습 및 추론 작업에 대 한 계산 대상으로 사용할 수도 있습니다.
 
-* **계산 클러스터**: 계산 클러스터는 다중 노드 크기 조정 기능이 있는 vm의 클러스터입니다. 계산 클러스터는 대량 작업 및 프로덕션을 위한 계산 대상에 더 적합 합니다.  작업이 제출 되 면 클러스터가 자동으로 확장 됩니다.  를 학습 계산 대상으로 사용 하거나 개발/테스트 배포에 사용 합니다.
+* **계산 클러스터** : 계산 클러스터는 다중 노드 크기 조정 기능이 있는 vm의 클러스터입니다. 계산 클러스터는 대량 작업 및 프로덕션을 위한 계산 대상에 더 적합 합니다.  작업이 제출 되 면 클러스터가 자동으로 확장 됩니다.  를 학습 계산 대상으로 사용 하거나 개발/테스트 배포에 사용 합니다.
 
 계산 대상 학습에 대 한 자세한 내용은 [계산 대상 학습](concept-compute-target.md#train)을 참조 하세요.  배포 계산 대상에 대 한 자세한 내용은 [배포 대상](concept-compute-target.md#deploy)을 참조 하세요.
 
@@ -102,17 +115,11 @@ Azure Machine Learning은 모든 실행을 기록하고 실험에 다음 정보�
 
 [작업 영역](#workspace)  >  [실험](#experiments)  >  [실행](#runs)  >  **실행 구성**
 
-실행 구성은 지정된 컴퓨팅 대상에서 스크립트를 실행해야 하는 방법을 정의하는 지침 세트를 보여줍니다. 구성에는 기존 Python 환경을 사용할지 또는 사양에서 빌드되는 Conda 환경을 사용할지 여부와 같은 광범위한 동작 정의 세트가 포함됩니다.
+실행 구성은 지정 된 계산 대상에서 스크립트를 실행 하는 방법을 정의 합니다. 구성을 사용 하 여 실행할 스크립트, 계산 대상 및 Azure ML 환경, 모든 분산 작업 관련 구성 및 일부 추가 속성을 지정 합니다. 실행에 대 한 구성 가능한 전체 옵션 집합에 대 한 자세한 내용은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)를 참조 하세요.
 
 실행 구성은 학습 스크립트를 포함 하는 디렉터리 내의 파일에 보관 될 수 있습니다.   또는 메모리 내 개체로 생성 되 고 실행을 전송 하는 데 사용 될 수 있습니다.
 
-예제 실행 구성은 [계산 대상을 사용 하 여 모델 학습](how-to-set-up-training-targets.md)을 참조 하세요.
-
-### <a name="estimators"></a>예측 도구
-
-인기 있는 프레임워크를 사용하여 모델 학습을 용이하게 하기 위해 예측 도구 클래스를 사용하여 실행 구성을 쉽게 만들 수 있습니다. 제네릭 [예측 도구](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true)를 만들어서 사용하면 원하는 학습 프레임워크(예: scikit)를 사용하는 학습 스크립트를 제출할 수 있습니다.
-
-추정에 대 한 자세한 내용은 [추정를 사용 하 여 ML 모델 학습](how-to-train-ml-models.md)을 참조 하세요.
+예제 실행 구성은 [학습 실행 구성](how-to-set-up-training-targets.md)을 참조 하세요.
 
 ### <a name="snapshots"></a>스냅샷
 
@@ -120,6 +127,9 @@ Azure Machine Learning은 모든 실행을 기록하고 실험에 다음 정보�
 
 실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅샷으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅샷을 다운로드할 수 있습니다.
 
+다음 다이어그램은 코드 스냅샷 워크플로를 보여줍니다.
+
+[![코드 스냅샷 워크플로](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>로깅
 
@@ -133,9 +143,34 @@ Azure Machine Learning 표준 실행 메트릭을 자동으로 기록 합니다.
 
 ### <a name="git-tracking-and-integration"></a>Git 추적 및 통합
 
-원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 이 작업은 예측 도구, ML 파이프라인 또는 스크립트 실행을 사용하여 제출된 실행에 대해 진행됩니다. SDK 또는 Machine Learning CLI에서 제출된 실행에 대해서도 진행됩니다.
+원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 이는 스크립트 실행 구성 또는 ML 파이프라인을 사용 하 여 제출 된 실행에서 작동 합니다. SDK 또는 Machine Learning CLI에서 제출된 실행에 대해서도 진행됩니다.
 
 자세한 내용은 [Azure Machine Learning에 대한 Git 통합](concept-train-model-git-integration.md)을 참조하세요.
+
+### <a name="training-workflow"></a>학습 워크플로
+
+실험을 실행 하 여 모델을 학습 하는 경우 다음 단계가 수행 됩니다. 이러한 설정은 아래 학습 워크플로 다이어그램에 나와 있습니다.
+
+* Azure Machine Learning은 이전 섹션에서 저장한 코드 스냅샷의 스냅샷 ID를 사용하여 호출됩니다.
+* Azure Machine Learning은 실행 ID(선택 사항)와 Machine Learning Service 토큰을 만들며, 이것은 나중에 Machine Learning 컴퓨팅/VM과 같은 컴퓨팅 대상이 Machine Learning Service와 통신하는 데 사용됩니다.
+* 관리되는 컴퓨팅 대상(예: Machine Learning 컴퓨팅) 또는 관리되지 않는 컴퓨팅 대상(예: VM) 중 하나를 선택하여 학습 작업을 실행할 수 있습니다. 두 시나리오에 대한 데이터 흐름은 다음과 같습니다.
+   * VM/HDInsight에 Microsoft 구독의 키 자격 증명 모음에 있는 SSH 자격 증명을 사용하여 액세스합니다. Azure Machine Learning이 컴퓨팅 대상에서 관리 코드를 실행하여 다음이 수행됩니다.
+
+   1. 환경을 준비합니다. (Docker는 VM 및 로컬 컴퓨터에 대한 옵션입니다. Machine Learning 컴퓨팅에 대한 다음 단계를 참조하면 Docker 컨테이너에서 실험을 실행하는 방식을 이해할 수 있습니다.)
+   1. 코드를 다운로드합니다.
+   1. 환경 변수 및 구성을 설정합니다.
+   1. 사용자 스크립트를 실행합니다(이전 섹션에서 언급한 코드 스냅샷).
+
+   * Machine Learning 컴퓨팅, 작업 영역 관리 ID를 통해 액세스합니다.
+Machine Learning 컴퓨팅은 관리되는 컴퓨팅 대상(즉, Microsoft에서 관리됨)이므로 Microsoft 구독 하에 실행됩니다.
+
+   1. 원격 Docker 구성이 시작됩니다(필요한 경우).
+   1. 관리 코드가 사용자의 Azure Files 공유에 기록됩니다.
+   1. 컨테이너가 초기 명령으로 시작됩니다. 즉, 이전 단계에서 설명한 관리 코드입니다.
+
+* 실행이 완료 되 면 실행 및 메트릭을 쿼리할 수 있습니다. 이 단계는 아래 흐름 다이어그램에서 학습 컴퓨팅 대상이 실행 메트릭을 Cosmos DB 데이터베이스의 스토리지에서 Azure Machine Learning에 다시 쓸 때 발생합니다. 클라이언트는 Azure Machine Learning을 호출할 수 있습니다. Machine Learning은 Cosmos DB 데이터베이스에서 메트릭을 차례로 끌어와서 클라이언트에 다시 반환합니다.
+
+[![학습 워크플로](media/concept-azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
 ## <a name="models"></a>모델
 
@@ -185,9 +220,21 @@ Scikit를 사용 하 여 모델을 학습 하는 방법에 대 한 예제는 [�
 
 모델을 웹 서비스로 배포 하는 경우 끝점을 Azure Container Instances, Azure Kubernetes Service 또는 FPGAs에 배포할 수 있습니다. 모델, 스크립트 및 연결된 파일에서 서비스를 만듭니다. 이러한 이미지는 모델에 대 한 실행 환경을 포함 하는 기본 컨테이너 이미지에 배치 됩니다. 이미지에는 웹 서비스에 전송된 점수 매기기 요청을 수신하는 부하 분산된 HTTP 엔드포인트가 있습니다.
 
-Application Insights 원격 분석 또는 모델 원격 분석을 사용 하도록 설정 하 여 웹 서비스를 모니터링할 수 있습니다. 원격 분석 데이터는 사용자만 액세스할 수 있습니다.  Application Insights 및 저장소 계정 인스턴스에 저장 됩니다.
+Application Insights 원격 분석 또는 모델 원격 분석을 사용 하도록 설정 하 여 웹 서비스를 모니터링할 수 있습니다. 원격 분석 데이터는 사용자만 액세스할 수 있습니다.  Application Insights 및 저장소 계정 인스턴스에 저장 됩니다. 자동 크기 조정을 사용하도록 설정한 경우 Azure에서 배포 크기를 자동으로 조정합니다.
 
-자동 크기 조정을 사용하도록 설정한 경우 Azure에서 배포 크기를 자동으로 조정합니다.
+다음 다이어그램에서는 웹 서비스 끝점으로 배포 된 모델에 대 한 유추 워크플로를 보여 줍니다.
+
+세부 정보는 다음과 같습니다.
+
+* 사용자가 Azure Machine Learning SDK와 같은 클라이언트를 사용하여 모델을 등록합니다.
+* 사용자가 모델, 점수 파일 및 기타 모델 종속성을 사용하여 이미지를 만듭니다.
+* Docker 이미지가 생성되어 Azure Container Registry에 저장됩니다.
+* 이전 단계에서 생성된 이미지를 사용하여 웹 서비스가 컴퓨팅 대상(Container Instances/AKS)에 배포됩니다.
+* 채점 요청 정보가 사용자의 구독에 있는 Application Insights에 저장됩니다.
+* 원격 분석도 Microsoft/Azure 구독으로 푸시됩니다.
+
+[![유추 워크플로](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
+
 
 모델을 웹 서비스로 배포하는 예제는 [Azure Container Instance에 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조하세요.
 
@@ -221,6 +268,18 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 파이프라인 단계는 다시 사용할 수 있으며 해당 단계의 출력이 변경되지 않은 경우 이전 단계를 다시 실행하지 않고 실행할 수 있습니다. 예를 들어, 데이터가 변경되지 않은 경우 비용이 많이 드는 데이터 준비 단계를 다시 실행하지 않고 모델을 다시 학습할 수 있습니다. 파이프라인을 사용하여 데이터 과학자들은 기계 학습 워크플로의 개별 영역에서 작업하면서 협력할 수 있습니다.
 
+## <a name="monitoring-and-logging"></a>모니터링 및 로깅
+
+Azure Machine Learning는 다음과 같은 모니터링 및 로깅 기능을 제공 합니다.
+
+* __데이터 과학자__ 경우 학습 실행에서 실험을 모니터링 하 고 정보를 기록할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+   * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
+   * [학습 실행에 대한 메트릭 로그](how-to-track-experiments.md)
+   * [MLflow로 실험 추적](how-to-use-mlflow.md)
+   * [TensorBoard로 시각화 실행](how-to-monitor-tensorboard.md)
+* __관리자__ 의 경우 작업 영역에 대 한 정보, 관련 된 Azure 리소스 및 Azure Monitor를 사용 하 여 리소스 만들기 및 삭제와 같은 이벤트에 대 한 정보를 모니터링할 수 있습니다. 자세한 내용은 [Azure Machine Learning를 모니터링 하는 방법](monitor-azure-machine-learning.md)을 참조 하세요.
+* __Devops__ 또는 __mlops__ 의 경우, 웹 서비스 또는 IoT Edge 모듈로 배포 된 모델에 의해 생성 된 정보를 모니터링 하 여 배포 문제를 식별 하 고 서비스에 전송 된 데이터를 수집할 수 있습니다. 자세한 내용은 [Application Insights를 사용 하 여](how-to-enable-app-insights.md) [모델 데이터 수집](how-to-enable-data-collection.md) 및 모니터링을 참조 하세요.
+
 ## <a name="interacting-with-your-workspace"></a>작업 영역과 상호 작용
 
 ### <a name="studio"></a>스튜디오
@@ -240,10 +299,10 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 > 아래 표시 된 (미리 보기) 도구는 현재 공개 미리 보기로 제공 됩니다.
 > 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-+  [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
++  [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
 + R (미리 보기) [에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) 를 사용 하 여 모든 r 환경에서 서비스와 상호 작용 합니다.
 + [Azure Machine Learning 디자이너](concept-designer.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다. 
-+ 자동화에 [AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 를 사용 합니다.
++ 자동화에 [AZURE MACHINE LEARNING CLI](./reference-azure-machine-learning-cli.md) 를 사용 합니다.
 + [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

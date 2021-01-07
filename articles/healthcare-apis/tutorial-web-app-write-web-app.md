@@ -10,23 +10,23 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: bb9c206a17a11f0cf710ac4ee3ac7ccae0fa9eb9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848029"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023298"
 ---
 # <a name="write-azure-web-application-to-read-fhir-data"></a>Azure 웹 애플리케이션을 작성하여 FHIR 데이터 읽기
 이제 FHIR 서버 및 POST 데이터에 연결할 수 있으므로 FHIR 데이터를 읽을 웹 애플리케이션을 작성할 준비가 되었습니다. 자습서의 마지막 단계에서는 웹 애플리케이션을 작성하고 액세스하는 과정을 안내합니다.
 
 ## <a name="create-web-application"></a>웹 애플리케이션 만들기
-Azure에서 **리소스 만들기**를 선택하고 **웹앱**을 선택합니다. 클라이언트 애플리케이션에 대한 리디렉션 URI에 지정된 대로 웹 애플리케이션의 이름을 지정하거나 이전 단계로 이동하여 리디렉션 URI를 새 이름으로 업데이트해야 합니다. 
+Azure에서 **리소스 만들기** 를 선택하고 **웹앱** 을 선택합니다. 클라이언트 애플리케이션에 대한 리디렉션 URI에 지정된 대로 웹 애플리케이션의 이름을 지정하거나 이전 단계로 이동하여 리디렉션 URI를 새 이름으로 업데이트해야 합니다. 
 
 ![웹 애플리케이션 만들기](media/tutorial-web-app/create-web-app.png)
 
-웹 애플리케이션을 사용할 수 있게 되면 **리소스로 이동**합니다. 오른쪽의 개발 도구 아래에서 **App Service 편집기(미리 보기)** 를 선택한 다음, **이동**을 선택합니다. 이동을 선택하면 App Service 편집기가 열립니다. *탐색* 아래 회색 공간을 마우스 오른쪽 단추로 클릭하고 **index.html**이라는 새 파일을 만듭니다.
+웹 애플리케이션을 사용할 수 있게 되면 **리소스로 이동** 합니다. 오른쪽의 개발 도구 아래에서 **App Service 편집기(미리 보기)** 를 선택한 다음, **이동** 을 선택합니다. 이동을 선택하면 App Service 편집기가 열립니다. *탐색* 아래 회색 공간을 마우스 오른쪽 단추로 클릭하고 **index.html** 이라는 새 파일을 만듭니다.
 
-다음은 **index.html**에 입력할 수 있는 코드입니다. 다음 항목을 업데이트해야 합니다.
+다음은 **index.html** 에 입력할 수 있는 코드입니다. 다음 항목을 업데이트해야 합니다.
 * **clientId** - 클라이언트 애플리케이션 ID로 업데이트합니다. 이 ID는 토큰을 검색할 때 끌어온 ID와 동일합니다.
 * **authority** - Azure AD 테넌트 ID로 업데이트
 * **FHIRendpoint** - FHIR 서비스 이름을 갖도록 FHIRendpoint 업데이트

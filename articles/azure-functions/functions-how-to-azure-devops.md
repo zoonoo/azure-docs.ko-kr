@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d503d71cf44446f93fab3d292d4c26d9b7b0941d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a3f423a144738fdaa4462606de6ad4a4e34d6775
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210225"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563418"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트
 
@@ -234,7 +234,7 @@ Azure Pipelines에서 앱을 빌드하는 방법은 앱의 프로그래밍 언�
 
 #### <a name="javascript-apps"></a>JavaScript 앱
 
-JavaScript 앱이 Windows 네이티브 모듈에 의존 하는 경우 에이전트 풀 버전을 **호스트 된 VS2017**로 업데이트 해야 합니다.
+JavaScript 앱이 Windows 네이티브 모듈에 의존 하는 경우 에이전트 풀 버전을 **호스트 된 VS2017** 로 업데이트 해야 합니다.
 
 ![에이전트 풀 버전 업데이트](media/functions-how-to-azure-devops/change-agent.png)
 
@@ -256,9 +256,9 @@ Azure에서 빌드 파이프라인을 만들려면 `az functionapp devops-pipeli
 
     - Azure DevOps의 프로젝트 관리자 여야 합니다.
 
-    - 충분 한 권한이 있는 GitHub PAT (개인용 액세스 토큰)를 만들 수 있는 권한이 있어야 합니다. 자세한 내용은 [GITHUB PAT 권한 요구 사항](https://aka.ms/azure-devops-source-repos) 을 참조 하세요.
+    - 충분 한 권한이 있는 GitHub PAT (개인용 액세스 토큰)를 만들 수 있는 권한이 있어야 합니다. 자세한 내용은 [GITHUB PAT 권한 요구 사항](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication) 을 참조 하세요.
 
-    - 자동 생성 된 YAML 파일을 커밋할 수 있도록 GitHub 리포지토리에서 마스터 분기에 커밋할 수 있는 권한이 있어야 합니다.
+    - 자동 생성 된 YAML 파일을 커밋할 수 있도록 GitHub 리포지토리의 주 분기에 커밋할 수 있는 권한이 있어야 합니다.
 
 - 코드가 Azure Repos에 있는 경우:
 

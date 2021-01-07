@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 38532fba2be1fedd275ed2e7f9dfc1bf5752499d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86501656"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>유지 관리 제어 구성의 리소스를 다른 지역으로 이동
@@ -23,7 +23,7 @@ ms.locfileid: "86501656"
 - 유지 관리 제어 구성을 이동 하지만 구성과 관련 된 리소스는 이동 하지 않으려면 [다음 지침](move-region-maintenance-configuration.md)을 따르세요.
 - 유지 관리 구성과 연결 된 리소스를 모두 이동 하려면 먼저 [다음 지침](move-region-maintenance-configuration.md)을 따르세요. 그런 다음이 문서의 지침을 따릅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 유지 관리 제어 구성과 연결 된 리소스 이동을 시작 하기 전에 다음을 수행 합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "86501656"
 - 리소스에 대 한 구성을 검색 하는 경우:
     - Azure 전용 호스트 ID가 아닌 계정에 대 한 구독 ID를 사용 해야 합니다.
     - CLI:--output table 매개 변수는 가독성을 위해서만 사용 되며 삭제 하거나 변경할 수 있습니다.
-    - PowerShell: Format-Table Name 매개 변수는 가독성을 위해서만 사용 되며 삭제 하거나 변경할 수 있습니다.
+    - PowerShell: Format-Table Name 매개 변수는 읽기 전용으로 사용 되며 삭제 하거나 변경할 수 있습니다.
     - PowerShell을 사용 하는 경우 연결 된 구성이 없는 리소스에 대 한 구성을 나열 하려고 하면 오류가 발생 합니다. 오류는 "작업이 실패 했습니다 (상태: ' 찾을 수 없음 ')와 유사 합니다. 세부 정보: 404 클라이언트 오류: url을 찾을 수 없습니다. "
 
     

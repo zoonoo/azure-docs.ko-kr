@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4616f6c567b0bba13fe04aed56fd5e4ddc293f90
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4adf0b8a7c12abed9689b9ac0cc9c5d5c8c3f980
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008389"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488437"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>REST API에 대한 직렬화 형식
 
-모든 Stream Analytics 입력에는 **직렬화 형식**이 있습니다. 입력 옵션에 대한 자세한 내용은 [REST API 입력](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) 설명서를 참조하세요.
+모든 Stream Analytics 입력에는 **직렬화 형식** 이 있습니다. 입력 옵션에 대한 자세한 내용은 [REST API 입력](/rest/api/streamanalytics/2016-03-01/inputs) 설명서를 참조하세요.
 
 다음 Javascript 코드는 REST API를 사용할 때의 .NET 역직렬 변환기 직렬화 형식 예입니다.
 
@@ -239,7 +239,7 @@ namespace ExampleCustomCode.Serialization
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>이 기능은 언제 모든 Azure 지역에서 사용할 수 있나요?
 
-이 기능은 [6개의 지역](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support)에서 사용할 수 있습니다. 다른 지역에서 이 기능을 사용하는 데 관심이 있는 경우 [요청을 제출](https://aka.ms/ccodereqregion)할 수 있습니다. 모든 Azure 지역에 대한 지원은 로드맵에 있습니다.
+이 기능은 [6개의 지역](#region-support)에서 사용할 수 있습니다. 다른 지역에서 이 기능을 사용하는 데 관심이 있는 경우 [요청을 제출](https://aka.ms/ccodereqregion)할 수 있습니다. 모든 Azure 지역에 대한 지원은 로드맵에 있습니다.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>GetMetadataPropertyValue 함수와 유사한 내 입력의 MetadataPropertyValue에 액세스할 수 있나요?
 
@@ -249,9 +249,9 @@ namespace ExampleCustomCode.Serialization
 
 역직렬 변환기를 구현한 후 커뮤니티와 공유하여 다른 사용자를 도울 수 있습니다. [Azure Stream Analytics GitHub 리포지토리](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers)에 코드를 제출합니다.
 
-### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Stream Analytics에서 사용자 지정 역직렬 변환기를 사용하는 다른 제한은 무엇인가요?
+### <a name="what-are-the-other-limitations-of-using-custom-deserializers-in-stream-analytics"></a>Stream Analytics에서 사용자 지정 deserializers를 사용 하는 경우의 기타 제한은 무엇 인가요?
 
-입력이 MapField 유형을 포함하는 스키마를 사용하는 Protobuf 형식인 경우 사용자 지정 역직렬 변환기를 구현할 수 없습니다. 앞으로 이 유형을 지원하기 위해 노력하고 있습니다.
+형식이 포함 된 스키마를 사용 하 여 입력이 Protobuf 형식인 경우에는 `MapField` 사용자 지정 역직렬 변환기를 구현할 수 없습니다. 또한 사용자 지정 deserializers는 샘플 데이터 또는 미리 보기 데이터를 지원 하지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

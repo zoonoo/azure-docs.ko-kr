@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936710"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Azure Search .NET Management SDK 버전 업그레이드
@@ -54,7 +54,7 @@ ms.locfileid: "88936710"
 | [개인 링크 리소스](/rest/api/searchmanagement/privatelinkresources/) | Private Link | 개인 끝점 연결이 있는 검색 서비스의 경우 동일한 가상 네트워크에서 사용 되는 모든 서비스 목록을 가져옵니다. Azure 데이터 원본 (Azure Storage, Cosmos DB, Azure SQL)에서 끌어오거나 Cognitive Services 또는 Key Vault를 사용 하는 인덱서를 검색 솔루션에 포함 하는 경우 해당 리소스는 모두 가상 네트워크에서 끝점을 가져야 하며,이 API는 목록을 반환 해야 합니다. |
 | [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | 이 속성은 서비스 만들기 또는 업데이트 요청에 대 한 속성입니다. 사용 하지 않도록 설정 된 경우 개인 링크는 유일한 액세스 모달입니다. |
 
-### <a name="breaking-changes"></a>호환성이 손상되는 변경
+### <a name="breaking-changes"></a>주요 변경 내용
 
 [목록 쿼리 키](/rest/api/searchmanagement/querykeys/listbysearchservice) 요청에서 GET을 더 이상 사용할 수 없습니다. 이전 릴리스에서는이 릴리스에서 GET 또는 POST를 사용할 수 있으며, 앞으로 이동 하는 모든 릴리스에서는 POST만 지원 됩니다. 
 

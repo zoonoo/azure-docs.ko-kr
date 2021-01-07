@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 7a250eaeb8ac4d0c8cacfb1748855700c9986bf5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079453"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952950"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -38,12 +38,9 @@ Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP
 > * 웹앱에 사용자 지정 호스트 이름 추가
 > * 사용자 지정 호스트 이름 테스트
 
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,10 +49,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * Azure DNS에서 DNS 영역을 만들고 등록 기관의 영역을 Azure DNS로 위임합니다.
 
-   1. DNS 영역을 만들려면 [DNS 영역 만들기](dns-getstarted-create-dnszone.md)의 단계를 수행합니다.
+   1. DNS 영역을 만들려면 [DNS 영역 만들기](./dns-getstarted-powershell.md)의 단계를 수행합니다.
    2. 영역을 Azure DNS로 위임하려면 [DNS 도메인 위임](dns-delegate-domain-azure-dns.md)의 단계를 수행합니다.
 
 영역을 만들어서 Azure DNS에 위임한 후에는, 사용자 지정 도메인에 대한 레코드를 만들 수 있습니다.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-a-record-and-txt-record"></a>A 레코드 및 TXT 레코드 만들기
 
@@ -63,7 +62,7 @@ A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. �
 
 ### <a name="get-the-ipv4-address"></a>IPv4 주소 가져오기
 
-Azure Portal의 App Services 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 
+Azure Portal의 App Services 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인** 을 선택합니다. 
 
 ![사용자 지정 도메인 메뉴](../app-service/./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 

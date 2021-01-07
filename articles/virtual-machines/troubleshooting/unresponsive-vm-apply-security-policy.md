@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 6b50bffd1a44c0cf53f15650f5ff4d938f45df4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84908064"
 ---
 # <a name="azure-vm-is-unresponsive-while-applying-security-policy-to-the-system"></a>시스템에 보안 정책을 적용 하는 동안 Azure VM이 응답 하지 않습니다.
@@ -33,7 +33,7 @@ ms.locfileid: "84908064"
 
 :::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Windows Server 2012 R2 시작 화면의 스크린샷이 중지 되었습니다.":::
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="OS 시작 화면의 스크린샷이 중지 되었습니다.":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Windows Server 2012 R2 시작 화면의 스크린샷이 중지 되었습니다.":::
 
 ## <a name="cause"></a>원인
 
@@ -68,54 +68,7 @@ ms.locfileid: "84908064"
 
         명령에서를 \<BOOT PARTITON> 부팅 폴더를 포함 하는 연결 된 디스크의 파티션 문자로 바꿉니다.
 
-        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="다이어그램은 Windows 부팅 로더 아래에 식별자 번호를 나열 하는 1 세대 VM에 BCD 저장소를 나열 하는 출력을 보여 줍니다.":::
-
-     2. 2 세대 VM의 경우 다음 명령을 입력 하 고 나열 된 식별자를 확인 합니다.
-
-        ```console
-        bcdedit /store <LETTER OF THE EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /enum
-        ```
-
-        - 명령에서를 \<LETTER OF THE EFI SYSTEM PARTITION> EFI 시스템 파티션의 문자로 바꿉니다.
-        - 디스크 관리 콘솔을 시작 하 여 "EFI 시스템 파티션" 이라는 레이블이 지정 된 적절 한 시스템 파티션을 확인 하는 것이 유용할 수 있습니다.
-        - 식별자는 고유한 GUID 이거나 기본 "bootmgr" 일 수 있습니다.
-3. 다음 명령을 실행 하 여 직렬 콘솔을 사용 하도록 설정 합니다.
-
-    ```console
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
-    ```
-
-    ```console
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
-    ```
-
-    - 명령에서를 \<VOLUME LETTER WHERE THE BCD FOLDER IS> BCD 폴더의 문자로 바꿉니다.
-    - 명령에서을 \<BOOT LOADER IDENTIFIER> 이전 단계에서 찾은 식별자로 바꿉니다.
-4. OS 디스크의 사용 가능한 공간이 VM의 메모리 크기 (RAM) 보다 큰지 확인 합니다.
-
-    1. OS 디스크에 공간이 부족 한 경우 메모리 덤프 파일이 생성 될 위치를 변경 해야 합니다. OS 디스크에서 파일을 만드는 대신 사용 가능한 공간이 충분 한 VM에 연결 된 다른 데이터 디스크를 참조할 수 있습니다. 위치를 변경 하려면 아래 나열 된 명령에서 "% SystemRoot%"를 데이터 디스크의 드라이브 문자 (예: "F:")로 바꿉니다.
-    2. 아래 명령을 입력 합니다 (제안 덤프 구성).
-
-        손상된 OS 디스크 로드:
-
-        ```console
-        REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
-        ```
-
-        ControlSet001에서 사용:
-
-        ```console
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
-        ```
-
-        ControlSet002에서 사용:
-
-        ```console
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Windows Server 2012 R2 시작 화면의 스크린샷이 중지 되었습니다." /v NMICrashDump /t REG_DWORD /d 1 /f
         ```
 
         손상된 OS 디스크를 언로드합니다.

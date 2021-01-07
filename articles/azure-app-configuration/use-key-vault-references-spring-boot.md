@@ -3,23 +3,22 @@ title: Java Spring Boot 앱에서 Azure App Configuration Key Vault 참조를 �
 description: 이 자습서에서는 Java Spring Boot 앱에서 Azure App Configuration의 Key Vault 참조를 사용하는 방법을 알아봅니다.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: lcozzens
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 5977aced8354694a631cce05bf6d6b913ea79118
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/11/2020
+ms.author: alkemper
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: ede8203078a3d496975e208622ef61018997cf8d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121598"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929221"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>자습서: Java Spring 앱에서 Key Vault 참조 사용
 
@@ -44,53 +43,53 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* 버전 8 이상이 설치된 지원되는 [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk)
+* 버전 8 이상이 설치된 지원되는 [JDK(Java Development Kit)](/java/azure/jdk)
 * [Apache Maven](https://maven.apache.org/download.cgi) 버전 3.0 이상
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 옵션을 선택합니다.
 
-    ![Key Vault 만들기가 완료된 후 출력](./media/quickstarts/search-services.png)
-1. 검색 상자에 **Key Vault**를 입력합니다.
-1. 결과 목록의 왼쪽에서 **Key Vault**를 선택합니다.
-1. **Key Vault**에서 **추가**를 선택합니다.
-1. 오른쪽에 있는 **Key Vault 만들기**에서 다음 정보를 제공합니다.
-    * **구독**을 선택하여 구독을 선택합니다.
-    * **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
-    * **Key Vault 이름**에는 고유한 이름이 필요합니다. 이 자습서에서는 **Contoso-vault2**를 입력합니다.
+    ![스크린샷은 Azure Portal의 리소스 만들기 옵션을 보여줍니다.](./media/quickstarts/search-services.png)
+1. 검색 상자에 **Key Vault** 를 입력합니다.
+1. 결과 목록의 왼쪽에서 **Key Vault** 를 선택합니다.
+1. **Key Vault** 에서 **추가** 를 선택합니다.
+1. 오른쪽에 있는 **Key Vault 만들기** 에서 다음 정보를 제공합니다.
+    * **구독** 을 선택하여 구독을 선택합니다.
+    * **리소스 그룹** 에서 **새로 만들기** 를 선택하고 리소스 그룹 이름을 입력합니다.
+    * **Key Vault 이름** 에는 고유한 이름이 필요합니다. 이 자습서에서는 **Contoso-vault2** 를 입력합니다.
     * **지역** 드롭다운 목록에서 위치를 선택합니다.
 1. 다른 **Key Vault 만들기** 옵션은 기본값 그대로 둡니다.
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에 액세스할 권한이 있는 유일한 계정입니다.
 
-![Key Vault 만들기가 완료된 후 출력](./media/quickstarts/vault-properties.png)
+![스크린샷은 키 자격 증명 모음을 보여줍니다.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
-자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계를 수행해야 합니다. 이 경우 Key Vault 검색을 테스트하는 데 사용할 수 있는 메시지를 추가합니다. 메시지는 **Message**라고 하며 여기에 "Hello from Key Vault" 값을 저장합니다.
+자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계를 수행해야 합니다. 이 경우 Key Vault 검색을 테스트하는 데 사용할 수 있는 메시지를 추가합니다. 메시지는 **Message** 라고 하며 여기에 "Hello from Key Vault" 값을 저장합니다.
 
-1. Key Vault 속성 페이지에서 **비밀**을 선택합니다.
-1. **생성/가져오기**를 선택합니다.
+1. Key Vault 속성 페이지에서 **비밀** 을 선택합니다.
+1. **생성/가져오기** 를 선택합니다.
 1. **비밀 만들기** 창에서 다음 값을 입력합니다.
-    * **업로드 옵션**: **수동**을 입력합니다.
-    * **Name**: **Message**를 입력합니다.
-    * **값**: **Hello from Key Vault**를 입력합니다.
+    * **업로드 옵션**: **수동** 을 입력합니다.
+    * **Name**: **Message** 를 입력합니다.
+    * **값**: **Hello from Key Vault** 를 입력합니다.
 1. 다른 **비밀 만들기** 속성은 기본값 그대로 둡니다.
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>App Configuration에 Key Vault 참조 추가
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택한 다음, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스** 를 선택한 다음, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-1. **구성 탐색기**를 선택합니다.
+1. **구성 탐색기** 를 선택합니다.
 
-1. **+ 만들기** > **Key Vault 참조**를 선택하고 다음 값을 지정합니다.
-    * **키**: **/application/config.keyvaultmessage**를 선택합니다.
+1. **+ 만들기** > **Key Vault 참조** 를 선택하고 다음 값을 지정합니다.
+    * **키**: **/application/config.keyvaultmessage** 를 선택합니다.
     * **레이블**: 이 값은 빈 상태로 둡니다.
     * **구독**, **리소스 그룹** 및 **Key Vault**: 이전 섹션에서 만든 Key Vault의 값에 해당하는 값을 입력합니다.
-    * **비밀**: 이전 섹션에서 만든 **Message**라는 비밀을 선택합니다.
+    * **비밀**: 이전 섹션에서 만든 **Message** 라는 비밀을 선택합니다.
 
 ## <a name="connect-to-key-vault"></a>Key Vault에 연결
 
@@ -129,7 +128,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. 환경 변수 **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET** 및 **AZURE_TENANT_ID**를 만듭니다. 이전 단계에서 표시된 서비스 주체에 대한 값을 사용합니다. 명령줄에서 다음 명령을 실행하고 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. 환경 변수 **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET** 및 **AZURE_TENANT_ID** 를 만듭니다. 이전 단계에서 표시된 서비스 주체에 대한 값을 사용합니다. 명령줄에서 다음 명령을 실행하고 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
     ```cmd
     setx AZURE_CLIENT_ID "clientId"
@@ -159,16 +158,16 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Key Vault 참조를 사용하도록 코드 업데이트
 
-1. **APP_CONFIGURATION_ENDPOINT**라는 환경 변수를 만듭니다. 해당 값을 App Configuration 저장소의 엔드포인트로 설정합니다. Azure Portal의 **액세스 키** 블레이드에서 엔드포인트를 찾을 수 있습니다. 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다. 
+1. **APP_CONFIGURATION_ENDPOINT** 라는 환경 변수를 만듭니다. 해당 값을 App Configuration 저장소의 엔드포인트로 설정합니다. Azure Portal의 **액세스 키** 블레이드에서 엔드포인트를 찾을 수 있습니다. 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다. 
 
 
-1. *리소스* 폴더에서 *bootstrap.properties*를 엽니다. 이 파일을 업데이트하여 **APP_CONFIGURATION_ENDPOINT** 값을 사용합니다. 이 파일에서 연결 문자열에 대한 참조를 제거합니다. 
+1. *리소스* 폴더에서 *bootstrap.properties* 를 엽니다. 이 파일을 업데이트하여 **APP_CONFIGURATION_ENDPOINT** 값을 사용합니다. 이 파일에서 연결 문자열에 대한 참조를 제거합니다. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
 
-1. *MessageProperties.java*를 엽니다. 다음과 같이 *keyVaultMessage*라는 새 변수를 추가합니다.
+1. *MessageProperties.java* 를 엽니다. 다음과 같이 *keyVaultMessage* 라는 새 변수를 추가합니다.
 
     ```java
     private String keyVaultMessage;
@@ -182,7 +181,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     }
     ```
 
-1. *HelloController.java*를 엽니다. *getMessage* 메서드를 업데이트하여 Key Vault에서 검색한 메시지를 포함시킵니다.
+1. *HelloController.java* 를 엽니다. *getMessage* 메서드를 업데이트하여 Key Vault에서 검색한 메시지를 포함시킵니다.
 
     ```java
     @GetMapping
@@ -191,7 +190,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     }
     ```
 
-1. *AzureCredentials.java*라는 새 파일을 만들고 아래 코드를 추가합니다.
+1. *AzureCredentials.java* 라는 새 파일을 만들고 아래 코드를 추가합니다.
 
     ```java
     package com.example.demo;
@@ -220,7 +219,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     }
     ```
 
-1. *AppConfiguration.java*라는 새 파일을 만듭니다. 아래 코드를 추가합니다.
+1. *AppConfiguration.java* 라는 새 파일을 만듭니다. 아래 코드를 추가합니다.
 
     ```java
     package com.example.demo;
@@ -238,7 +237,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     }
     ```
 
-1. 리소스 META-INF 디렉터리에서 *spring.factories*라는 새 파일을 만들고 아래 코드를 추가합니다.
+1. 리소스 META-INF 디렉터리에서 *spring.factories* 라는 새 파일을 만들고 아래 코드를 추가합니다.
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
@@ -252,7 +251,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     mvn spring-boot:run
     ```
 
-1. 애플리케이션이 실행되면 *curl*을 사용하여 애플리케이션을 테스트합니다. 예를 들어 다음과 같습니다.
+1. 애플리케이션이 실행되면 *curl* 을 사용하여 애플리케이션을 테스트합니다. 예를 들어 다음과 같습니다.
 
       ```shell
       curl -X GET http://localhost:8080/

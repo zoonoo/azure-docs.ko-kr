@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 ARRAY_SLICE
 description: 배열 식의 일부를 반환 하 Azure Cosmos DB 배열 조각 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a98cb17d22f41776ff788d12ced6aa988ad0b10e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1808070f374614ae6cac9a27098ddf2f4d9d2d12
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303327"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332528"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  배열 식의 일부를 반환합니다.
   
 ## <a name="syntax"></a>구문

@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e261e8d5d9cd147f3157303b7a2a50db7c33e58
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660135"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123048"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장
 
-이 방법 가이드에서는 솔루션 개발자가 사용자 지정 분석 및 시각화를 사용 하 여 IoT Central 응용 프로그램을 확장 하는 방법을 보여 줍니다. 이 예제에서는 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) 작업 영역을 사용 하 여 IoT Central 원격 분석 스트림을 분석 하 고 [box 플롯](https://wikipedia.org/wiki/Box_plot)등의 시각화를 생성 합니다.
+이 방법 가이드에서는 솔루션 개발자가 사용자 지정 분석 및 시각화를 사용 하 여 IoT Central 응용 프로그램을 확장 하는 방법을 보여 줍니다. 이 예제에서는 [Azure Databricks](/azure/azure-databricks/) 작업 영역을 사용 하 여 IoT Central 원격 분석 스트림을 분석 하 고 [box 플롯](https://wikipedia.org/wiki/Box_plot)등의 시각화를 생성 합니다.
 
 이 방법 가이드에서는 [기본 제공 분석 도구](./howto-create-custom-analytics.md)를 사용 하 여 이미 수행할 수 있는 작업 이상의 IoT Central 확장 하는 방법을 보여 줍니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "84660135"
 * *연속 데이터 내보내기를*사용 하 여 IoT Central 응용 프로그램에서 원격 분석을 스트리밍합니다.
 * 장치 원격 분석을 분석 하 고 플롯 하는 Azure Databricks 환경을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 설정을 사용 하 여 [Azure IoT Central 응용 프로그램](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만듭니다.
 
-| Setting | 값 |
+| 설정 | 값 |
 | ------- | ----- |
 | 요금제 | 표준 |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 응용 프로그램 템플릿에는 원격 분석을 전송 하는 두 개의 시뮬레이션 된 자동 온도 조절기 장치가 포함 되어 있습니다.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>리소스 그룹
 
 Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **IoTCentralAnalysis** 라는 [리소스 그룹을 만듭니다](https://portal.azure.com/#create/Microsoft.ResourceGroup) . IoT Central 응용 프로그램과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -59,7 +59,7 @@ Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **IoTCen
 
 Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이스를 만듭니다](https://portal.azure.com/#create/Microsoft.EventHub) .
 
-| Setting | 값 |
+| 설정 | 값 |
 | ------- | ----- |
 | Name    | 네임 스페이스 이름 선택 |
 | 가격 책정 계층 | Basic |
@@ -72,7 +72,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 
 Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스를 만듭니다](https://portal.azure.com/#create/Microsoft.Databricks) .
 
-| Setting | 값 |
+| 설정 | 값 |
 | ------- | ----- |
 | 작업 영역 이름    | 작업 영역 이름 선택 |
 | Subscription | 사용자의 구독 |
@@ -106,7 +106,7 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
     | 사용 | 켜기 |
@@ -130,13 +130,13 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 다음 표의 정보를 사용 하 여 클러스터를 만듭니다.
 
-| Setting | 값 |
+| 설정 | 값 |
 | ------- | ----- |
 | 클러스터 이름 | centralanalysis |
 | 클러스터 모드 | 표준 |
 | Databricks Runtime 버전 | 5.5 LTS (Scala 2.11, Spark 2.4.3) |
 | Python 버전 | 3 |
-| 자동 크기 조정 사용 | 아니요 |
+| 자동 크기 조정 사용 | No |
 | 비활성 시간 (분) 후 종료 | 30 |
 | 작업자 유형 | Standard_DS3_v2 |
 | 작업자 | 1 |
@@ -172,7 +172,7 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 1. Databricks 환경의 **작업 영역** 페이지로 이동 합니다. 계정 이름 옆에 있는 드롭다운을 선택 하 고 **가져오기**를 선택 합니다.
 
-1. URL에서 가져오기를 선택 하 고 다음 주소를 입력 합니다.[https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. URL에서 가져오기를 선택 하 고 다음 주소를 입력 합니다. [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. 노트북을 가져오려면 **가져오기**를 선택 합니다.
 

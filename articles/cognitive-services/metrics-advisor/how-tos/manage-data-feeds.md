@@ -3,23 +3,23 @@ title: 메트릭 관리자에서 데이터 피드 관리
 titleSuffix: Azure Cognitive Services
 description: 메트릭 Advisor에 추가한 데이터 피드를 관리 하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: aahi
-ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: fb6eaf44967732d3a41ea92b0896540a40f694e3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937810"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184725"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>방법: 데이터 피드 관리
 
-메트릭 관리자에서 등록 데이터 피드를 관리 하는 방법에 대해 알아봅니다. 이 문서에서는 메트릭 모니터에서 데이터 피드를 관리 하는 과정을 안내 합니다.
+메트릭 관리자에서 등록 데이터 피드를 관리 하는 방법에 대해 알아봅니다. 이 문서에서는 메트릭 관리자에서 데이터 피드를 관리 하는 과정을 안내 합니다.
 
 ## <a name="edit-a-data-feed"></a>데이터 피드 편집
 
@@ -43,9 +43,9 @@ ms.locfileid: "90937810"
 
 1. 데이터 피드 목록 페이지에서 데이터 피드에서 **삭제** 를 클릭 합니다.
 
-2. 데이터 피드 세부 정보 페이지에서 **삭제**를 클릭 합니다.
+2. 데이터 피드 세부 정보 페이지에서 **삭제** 를 클릭 합니다.
 
-시작 시간을 변경 하는 경우 스키마를 다시 확인 해야 합니다. **매개 변수 편집**을 사용 하 여 변경할 수 있습니다.
+시작 시간을 변경 하는 경우 스키마를 다시 확인 해야 합니다. **매개 변수 편집** 을 사용 하 여 변경할 수 있습니다.
 
 ##  <a name="backfill-your-data-feed"></a>데이터 피드 백필
 
@@ -110,7 +110,7 @@ ms.locfileid: "90937810"
 
 작업 링크를 입력 한 후 인시던트 목록의 동작 옵션 및 인시던트 트리의 오른쪽 클릭 메뉴에서 **작업으로 이동 링크** 를 클릭 합니다. 작업 링크 템플릿의 자리 표시자를 변칙 또는 인시던트에 해당 하는 값으로 바꿉니다.
 
-| 자리표시자 | 예 | 의견 |
+| 자리표시자 | 예 | 설명 |
 | ---------- | -------- | ------- |
 | `%datafeed` | - | 데이터 피드 ID |
 | `%metric` | - | 메트릭 ID |

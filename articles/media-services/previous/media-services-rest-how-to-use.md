@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264286"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
@@ -90,11 +90,11 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 응답 헤더
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
-| 헤더 | 유형 | Value |
+| 헤더 | 유형 | 값 |
 | --- | --- | --- |
 | request-id |String |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
 | client-request-id |String |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
-| 날짜 |RFC 1123 날짜 |요청이 처리된 날짜/시간입니다. |
+| Date |RFC 1123 날짜 |요청이 처리된 날짜/시간입니다. |
 | 콘텐츠 형식 |상황에 따라 다름 |응답 본문의 콘텐츠 형식입니다. |
 | Content-Encoding |상황에 따라 다름 |Gzip 또는 deflate를 적절하게 합니다. |
 

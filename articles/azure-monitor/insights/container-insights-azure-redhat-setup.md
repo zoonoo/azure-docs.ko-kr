@@ -3,14 +3,23 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e462fb25672fa1912f7bb24efad4ea9a6d27d078
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5141ef3a96d39f16a2a9f005dd580b952046e7bf
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816646"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695663"
 ---
-# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성 
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성
+
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11은 6 월 2022에 사용 중지 됩니다.
+>
+> 2020 년 10 월에는 더 이상 새 3.11 클러스터를 만들 수 없습니다.
+> 기존 3.11 클러스터는 6 월 2022 일까 지 계속 작동 하지만 해당 날짜 이후에는 더 이상 지원 되지 않습니다.
+>
+> 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](../../openshift/tutorial-create-cluster.md).
+> 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:aro-feedback@microsoft.com).
 
 컨테이너에 대 한 Azure Monitor는 AKS (Azure Kubernetes Service) 및 AKS 엔진 클러스터에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 3 및 지원 되는 최신 버전 3 버전에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 여 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
 
@@ -30,11 +39,11 @@ ms.locfileid: "88816646"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
 
-    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
 - 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버 여야 하 고 컨테이너에 대 한 Azure Monitor로 구성 된 Log Analytics 작업 영역의 구성원 인 [*Log Analytics 참가자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
 
@@ -58,7 +67,7 @@ ms.locfileid: "88816646"
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-1. **SubscriptionId**의 값을 복사 합니다.
+1. **SubscriptionId** 의 값을 복사 합니다.
 
 1. 다음 명령을 실행 하 여 Log Analytics 작업 영역을 호스팅하는 구독으로 전환 합니다.
 
@@ -72,7 +81,7 @@ ms.locfileid: "88816646"
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. 출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID**로 복사 합니다.
+1. 출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID** 로 복사 합니다.
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 새 클러스터에서 사용
 
@@ -144,7 +153,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 5. 다음 단계에서는 Azure CLI를 사용 하 여 모니터링을 사용 하도록 설정 하 여 클러스터를 배포 합니다.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
 
     출력은 다음과 유사합니다.
@@ -161,11 +170,11 @@ Azure에 배포 된 Azure Red Hat OpenShift 클러스터의 모니터링을 사�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal 메뉴 또는 홈 페이지에서 **Azure Monitor**를 선택 합니다. **인사이트** 섹션에서 **컨테이너**를 선택합니다.
+2. Azure Portal 메뉴 또는 홈 페이지에서 **Azure Monitor** 를 선택 합니다. **인사이트** 섹션에서 **컨테이너** 를 선택합니다.
 
-3. **모니터 - 컨테이너** 페이지에서 **모니터링되지 않는 클러스터**를 선택합니다.
+3. **모니터 - 컨테이너** 페이지에서 **모니터링되지 않는 클러스터** 를 선택합니다.
 
-4. 모니터링 되지 않는 클러스터 목록에서 목록에서 클러스터를 찾고 **사용**을 클릭 합니다. 열 **클러스터 유형**아래의 값 **ARO** 를 검색 하 여 목록에서 결과를 식별할 수 있습니다.
+4. 모니터링 되지 않는 클러스터 목록에서 목록에서 클러스터를 찾고 **사용** 을 클릭 합니다. 열 **클러스터 유형** 아래의 값 **ARO** 를 검색 하 여 목록에서 결과를 식별할 수 있습니다.
 
 5. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너용 Azure Monitor에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.  
     목록은 구독에서 클러스터가 배포 되는 기본 작업 영역 및 위치를 preselects 합니다.
@@ -221,12 +230,12 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. **existingClusterParam.js** JSON 매개 변수 파일을 편집 하 고 *Aroresourceid* 및 *aroresourceid*값을 업데이트 합니다. **workspaceResourceId** 값은 Log Analytics 작업 영역의 전체 리소스 ID 이며, 작업 영역 이름을 포함합니다.
+5. **existingClusterParam.js** JSON 매개 변수 파일을 편집 하 고 *Aroresourceid* 및 *aroresourceid* 값을 업데이트 합니다. **workspaceResourceId** 값은 Log Analytics 작업 영역의 전체 리소스 ID 이며, 작업 영역 이름을 포함합니다.
 
 6. Azure CLI를 사용 하 여 배포 하려면 다음 명령을 실행 합니다.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     출력은 다음과 유사합니다.
@@ -244,4 +253,3 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 - 클러스터에서 프로메테우스 메트릭을 스크랩 하 고 분석 하려면 [프로메테우스 메트릭 구성](container-insights-prometheus-integration.md) 을 검토 하세요.
 
 - 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터 모니터링을 중지 하는 방법을 알아보려면 [Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법](./container-insights-optout-openshift-v3.md)을 참조 하세요.
-

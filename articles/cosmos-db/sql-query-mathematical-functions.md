@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 수치 연산 함수
 description: 인수로 제공 되는 입력 값을 기반으로 계산을 수행 하 고 숫자 값을 반환 하는 Azure Cosmos DB의 수치 연산 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bd53feb175c5be77f559a4d2e724a55e41df48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63d349c8cfff52932d51ce7143aba33521c43890
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562818"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549194"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>수치 연산 함수 (Azure Cosmos DB)  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 수치 연산 함수는 각각 인수로 제공된 입력 값에 따라 계산을 수행하고 숫자 값을 반환합니다.
 
@@ -42,20 +44,20 @@ ms.locfileid: "85562818"
 * [CEILING](sql-query-ceiling.md)
 * [COS](sql-query-cos.md)
 * [COT](sql-query-cot.md)
-* [도씩](sql-query-degrees.md)
-* [.EXP](sql-query-exp.md)
-* [평면](sql-query-floor.md)
-* [로깅할](sql-query-log.md)
+* [DEGREES](sql-query-degrees.md)
+* [EXP](sql-query-exp.md)
+* [FLOOR](sql-query-floor.md)
+* [LOG](sql-query-log.md)
 * [LOG10](sql-query-log10.md)
 * [PI](sql-query-pi.md)
 * [POWER](sql-query-power.md)
-* [각도](sql-query-radians.md)
+* [RADIANS](sql-query-radians.md)
 * [RAND](sql-query-rand.md)
-* [둥근](sql-query-round.md)
-* [로그인](sql-query-sign.md)
+* [ROUND](sql-query-round.md)
+* [SIGN](sql-query-sign.md)
 * [SIN](sql-query-sin.md)
 * [SQRT](sql-query-sqrt.md)
-* [대괄호](sql-query-square.md)
+* [SQUARE](sql-query-square.md)
 * [TAN](sql-query-tan.md)
 * [TRUNC](sql-query-trunc.md)
 
@@ -67,4 +69,4 @@ RAND를 제외한 모든 산술 함수는 결정적 함수입니다. 이는 지�
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)
 - [사용자 정의 함수](sql-query-udfs.md)
-- [집계](sql-query-aggregates.md)
+- [집계](sql-query-aggregate-functions.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e27c6661c34ab6d177feec11f8e9ec891987ab48
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005754"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485504"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
 배치 정책은 보다 덜 일반적인 일부 구체적인 시나리오에서 서비스 배치를 제어하는 데 사용할 수 있는 추가적인 규칙입니다. 이러한 시나리오의 몇 가지 예는 다음과 같습니다.
@@ -20,6 +20,7 @@ ms.locfileid: "89005754"
 - 사용자 환경이 지정학적 또는 법적 통제 또는 정책적 경계를 적용해야 하는 여러 영역에 확대되는 경우
 - 먼 거리 또는 보다 느리거나 덜 안정적인 네트워크 링크의 사용으로 인해 통신 성능 또는 대기 시간을 고려해야 할 경우
 - 특정 워크로드를 다른 워크로드와 함께 배치하거나 고객과 가까이에 배치해야 할 수도 있습니다.
+- 단일 노드에서 파티션의 상태 비저장 인스턴스가 여러 개 필요 합니다.
 
 이러한 요구 사항 대부분은 클러스터의 장애 도메인으로 표시되는 클러스터의 실제 레이아웃과 맞춰 조정합니다. 
 
@@ -29,6 +30,7 @@ ms.locfileid: "89005754"
 2. 필수 도메인
 3. 기본 설정 도메인
 4. 복제본 압축 불가
+5. 노드에서 여러 상태 비저장 인스턴스 허용
 
 다음 컨트롤은 대부분 노드 속성 및 배치 제약 조건을 통해 구성할 수 있지만 일부는 더 복잡합니다. Service Fabric Cluster Resource Manager는 좀 더 간단하게 이러한 추가 배치 정책을 제공합니다. 배치 정책은 명명된 서비스 인스턴스를 기준으로 구성됩니다. 동적으로 업데이트할 수도 있습니다.
 
@@ -96,7 +98,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 ## <a name="requiring-replica-distribution-and-disallowing-packing"></a>복제본 배포 요구 및 압축 허용 안 함
-복제본은 _일반적으로_ 클러스터가 정상 상태일 때 장애 및 업그레이드 도메인에 걸쳐 분산됩니다. 그러나 특정 파티션에 대해 둘 이상의 복제본이 단일 도메인으로 압축될 수 있는 경우가 있습니다. 예를 들어, 클러스터에 3개의 장애 도메인(fd:/0, fd:/1 및 fd:/2)에 있는 9개의 노드가 있고 서비스에 3개의 복제본이 있다고 가정하겠습니다. fd:/1 및 fd:/2의 해당 복제본에 사용되는 노드가 중단되었다고 가정하겠습니다. 일반적으로 Cluster Resource Manager는 이러한 동일한 장애 도메인에서 다른 노드를 기본으로 사용합니다. 이 경우에 용량 문제로 인해 해당 도메인의 다른 노드가 유효하지 않다고 가정하겠습니다. Cluster Resource Manager가 해당 복제본에 대한 대체 항목을 빌드하는 경우 fd:/0에서 노드를 선택해야 합니다. 그러나 _해당 작업_을 수행하면 장애 도메인 제약을 위반하는 상황이 발생합니다. 복제본을 압축하면 전체 복제본 세트가 가동 중단되거나 손실될 가능성도 높아집니다. 
+복제본은 _일반적으로_ 클러스터가 정상 상태일 때 장애 및 업그레이드 도메인에 걸쳐 분산됩니다. 그러나 특정 파티션에 대해 둘 이상의 복제본이 단일 도메인으로 압축될 수 있는 경우가 있습니다. 예를 들어, 클러스터에 3개의 장애 도메인(fd:/0, fd:/1 및 fd:/2)에 있는 9개의 노드가 있고 서비스에 3개의 복제본이 있다고 가정하겠습니다. fd:/1 및 fd:/2의 해당 복제본에 사용되는 노드가 중단되었다고 가정하겠습니다. 일반적으로 Cluster Resource Manager는 이러한 동일한 장애 도메인에서 다른 노드를 기본으로 사용합니다. 이 경우에 용량 문제로 인해 해당 도메인의 다른 노드가 유효하지 않다고 가정하겠습니다. Cluster Resource Manager가 해당 복제본에 대한 대체 항목을 빌드하는 경우 fd:/0에서 노드를 선택해야 합니다. 그러나 _해당 작업_ 을 수행하면 장애 도메인 제약을 위반하는 상황이 발생합니다. 복제본을 압축하면 전체 복제본 세트가 가동 중단되거나 손실될 가능성도 높아집니다. 
 
 > [!NOTE]
 > 제약 조건 및 제약 조건 우선 순위에 대한 자세한 내용은 [이 항목](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities)을 확인하세요.
@@ -122,6 +124,42 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 현재 지리적으로 분산되지 않은 클러스터의 서비스에 대해 이러한 구성을 사용할 수 있나요? 가능하지만 그럴 필요는 없습니다. 시나리오에서 꼭 필요한 경우가 아니면 유효하지 않은 필수 기본 도메인 구성은 피해야 합니다. 지정된 워크로드를 단일 랙에서 실행하거나 다른 로컬 클러스터의 일부 세그먼트를 기본으로 사용하려는 것은 바람직하지 않습니다. 여러 하드웨어 구성을 장애 도메인 간에 분산하고 일반 배치 제약 조건 및 노드 속성을 통해 처리해야 합니다.
+
+## <a name="placement-of-multiple-stateless-instances-of-a-partition-on-single-node"></a>단일 노드에서 파티션의 여러 상태 비저장 인스턴스 배치
+**AllowMultipleStatelessInstancesOnNode** 배치 정책을 사용 하면 단일 노드에서 파티션의 여러 상태 비저장 인스턴스를 배치할 수 있습니다. 기본적으로 단일 파티션의 여러 인스턴스는 노드에 배치할 수 없습니다. -1 서비스의 경우에도 지정 된 명명 된 서비스에 대해 클러스터의 노드 수를 초과 하는 인스턴스 수를 조정할 수 없습니다. 이 배치 정책은이 제한을 제거 하 고 InstanceCount를 노드 수보다 높게 지정할 수 있습니다.
+
+`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`와 같은 상태 메시지가 표시된 경우 이 조건 또는 비슷한 조건에 도달한 것입니다. 
+
+`AllowMultipleStatelessInstancesOnNode`서비스에서 정책을 지정 하 여 클러스터의 노드 수를 초과 하 여 InstanceCount를 설정할 수 있습니다.
+
+코드:
+
+```csharp
+ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription allowMultipleInstances = new ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription();
+serviceDescription.PlacementPolicies.Add(allowMultipleInstances);
+```
+
+PowerShell:
+
+```posh
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
+```
+
+> [!NOTE]
+> 배치 정책은 현재 미리 보기 상태 이며 `EnableUnsupportedPreviewFeatures` 클러스터 설정 뒤에 있습니다. 지금은 미리 보기 기능 이므로 미리 보기 구성을 설정 하면 클러스터가에서로 업그레이드 되지 않습니다. 즉, 기능을 사용해 보려면 새 클러스터를 만들어야 합니다.
+>
+
+> [!NOTE]
+> 현재이 정책은 ExclusiveProcess [서비스 패키지 활성화 모드](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)를 사용 하는 상태 비저장 서비스에 대해서만 지원 됩니다.
+>
+
+> [!WARNING]
+> 고정 포트 끝점과 함께 사용 하는 경우 정책이 지원 되지 않습니다. 둘 다를 함께 사용 하면 동일한 노드에서 여러 인스턴스로 비정상 클러스터가 이동 하 여 동일한 포트에 바인딩하려는 동시에 발생할 수 없습니다. 
+>
+
+> [!NOTE]
+> 이 배치 정책에 높은 값의 [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) 를 사용 하면 응용 프로그램 업그레이드가 중단 될 수 있습니다. 예를 들어 5 개 노드 클러스터가 있고 InstanceCount = 10을 설정 하는 경우 각 노드에 두 개의 인스턴스가 있습니다. MinInstanceCount = 9를 설정 하는 경우 시도 된 앱 업그레이드는 중단 될 수 있습니다. MinInstanceCount = 8 인 경우이를 방지할 수 있습니다.
+>
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스 구성에 대한 자세한 내용은 [서비스 구성에 대한 자세한 정보](service-fabric-cluster-resource-manager-configure-services.md)에서 알아봅니다.

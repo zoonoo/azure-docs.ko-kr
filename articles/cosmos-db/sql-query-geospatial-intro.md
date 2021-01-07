@@ -3,18 +3,20 @@ title: Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터
 description: Azure Cosmos DB 및 SQL API를 사용 하 여 공간 개체를 만드는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 25150722e2d42625731cb741be80b86645c857e0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420093"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336166"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos DB의 지리 공간 기능을 소개합니다. 현재 지리 공간적 데이터를 저장 하 고 액세스 하는 것은 Azure Cosmos DB SQL API 계정 에서만 지원 됩니다. 지리 공간적 인덱싱에 대 한 설명서를 읽은 후에는 다음 질문에 대답할 수 있습니다.
 
@@ -49,7 +51,7 @@ Azure Cosmos DB는 다음 공간 데이터 형식을 지원 합니다.
 
 - Point
 - LineString
-- 다각형
+- Polygon
 - MultiPolygon
 
 ### <a name="points"></a>점
@@ -110,7 +112,7 @@ Azure Cosmos DB는 WGS-84 참조 시스템을 기준으로 좌표를 해석합�
 
 ### <a name="polygons"></a>다각형
 
-**Polygon**은 닫힌 LineString을 형성하는 연결된 점의 경계입니다. 다각형은 일반적으로 호수와 같은 자연스러운 대형이나 구/군/시 및 시/도와 같은 정치적 관할지를 나타내는 데 사용됩니다. Azure Cosmos DB 다각형의 예는 다음과 같습니다.
+**Polygon** 은 닫힌 LineString을 형성하는 연결된 점의 경계입니다. 다각형은 일반적으로 호수와 같은 자연스러운 대형이나 구/군/시 및 시/도와 같은 정치적 관할지를 나타내는 데 사용됩니다. Azure Cosmos DB 다각형의 예는 다음과 같습니다.
 
 **GeoJSON의 다각형**
 
@@ -210,7 +212,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-위도 및 경도 정보가 없지만 실제 주소 또는 위치 이름 (예: 도시 또는 국가/지역)을 사용 하는 경우 Bing 지도 REST 서비스와 같은 지 오 코딩 서비스를 사용 하 여 실제 좌표를 조회할 수 있습니다. [여기](https://msdn.microsoft.com/library/ff701713.aspx)서 Bing 지도 지오코딩에 대해 자세히 알아보세요.
+위도 및 경도 정보가 없지만 실제 주소 또는 위치 이름 (예: 도시 또는 국가/지역)을 사용 하는 경우 Bing 지도 REST 서비스와 같은 지 오 코딩 서비스를 사용 하 여 실제 좌표를 조회할 수 있습니다. [여기](/bingmaps/rest-services/)서 Bing 지도 지오코딩에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

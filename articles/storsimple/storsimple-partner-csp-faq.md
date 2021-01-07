@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 36b96581d98465b860b630fe2f9a8aa64cf0f64f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279222"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964935"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급자 프로그램용 StorSimple: 질문과 대답
 
@@ -40,10 +40,10 @@ ms.locfileid: "87279222"
 
 자세한 내용은 [CSP 프로그램의 StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/)로 이동합니다. 
 
-### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>StorSimple은 사용량 기준 또는 Office 365 및 EMS(Enterprise Mobility Suite)와 같은 라이선스 기반입니까?
+### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-microsoft-365-and-enterprise-mobility-suite-ems"></a>StorSimple은 사용을 기반으로 하거나 Microsoft 365 및 EMS (Enterprise Mobility Suite)와 같은 사용자의 라이선스를 기반으로 하나요?
 StorSimple은 사용량 기준 서비스입니다. 가상 배열 및 Azure의 사용을 위해 CSP 경로를 통해 StorSimple 가상 배열을 조달하는 고객은 CSP 청구서에서 별도 라인 항목으로 청구됩니다. 
 
-### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-office-365-and-the-enterprise-mobility-suite"></a>StorSimple 비즈니스 모델은 Office 365 및 Enterprise Mobility Suite 등의 다른 서비스와 유사합니까? 
+### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-microsoft-365-and-the-enterprise-mobility-suite"></a>StorSimple 비즈니스 모델은 Microsoft 365 및 Enterprise Mobility Suite와 같은 다른 서비스와 유사 하나요? 
 예. 모델은 Azure의 다른 사용량 기준 서비스와 마찬가지로 도매 할인 모델입니다. StorSimple에 대한 도매 할인은 다른 Azure 서비스의 도매 할인과 유사합니다. 이 모델은 CSP 파트너가 StorSimple 가상 배열을 통해 더 많이 판매하고 Azure 소비를 이끌 기회를 제공합니다.  
 
 ### <a name="which-storsimple-skus-are-available-at-launch"></a>시작 시 사용할 수 있는 StorSimple SKU는 무엇입니까?
@@ -59,7 +59,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 다음과 같은 여러 솔루션이 있습니다.
 
 - 파트너는 StorSimple 가상 배열을 다시 판매할 수 있습니다. 
-- 파트너는 StorSimple을 구축하는 솔루션 및 다른 Azure 서비스 또는 타사 소프트웨어를 제공할 수 있습니다. 자세한 내용은 일부 가능한 [StorSimple에 존재하는 솔루션](https://aka.ms/storsimple-build-solutions)을 검토합니다.
+- 파트너는 StorSimple을 구축하는 솔루션 및 다른 Azure 서비스 또는 타사 소프트웨어를 제공할 수 있습니다. 자세한 내용은 일부 가능한 [StorSimple에 존재하는 솔루션](./storsimple-disaster-recovery-using-azure-site-recovery.md)을 검토합니다.
 - 관리되는 서비스를 제공하여 새로운 비즈니스 모델을 검색할 수도 있습니다.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>StorSimple CSP 파트너에 사용할 수 있는 인센티브는 무엇입니까? 모든 CSP 프로그램 인센티브에 대한 자격이 있습니까?
@@ -86,7 +86,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 ## <a name="support-for-storsimple-and-csp"></a>StorSimple 및 CSP에 대한 지원
 
 ### <a name="are-there-any-forums-to-get-additional-support-for-csp-partners-to-deploy-and-manage-storsimple"></a>CSP 파트너가 StorSimple을 배포하고 관리하는 데 추가 지원을 얻을 수 있는 포럼이 있습니까?
-CSP 포럼에서 StorSimple을 방문하여 몇 가지 자주 묻는 질문에 대한 답변을 얻을 수 있습니다. 먼저 [Azure Advisor Yammer 그룹](https://www.yammer.com/azureadvisors)에 가입해야 합니다. 다음으로 그룹 - **StorSimple 파트너 조언자**를 검색하고 가입합니다.
+CSP 포럼에서 StorSimple을 방문하여 몇 가지 자주 묻는 질문에 대한 답변을 얻을 수 있습니다. 먼저 [Azure Advisor Yammer 그룹](https://www.yammer.com/azureadvisors)에 가입해야 합니다. 다음으로 그룹 - **StorSimple 파트너 조언자** 를 검색하고 가입합니다.
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>CSP용 StorSimple에 대한 지원은 어떤 방식으로 이루어집니까? 
 CSP에서 StorSimple에 대한 지원 모델은 CSP의 다른 Azure 서비스의 지원 모델과 동일합니다. 자세한 내용은 [CSP에 대한 고객 지원](/partner-center/csp-overview)으로 이동합니다.

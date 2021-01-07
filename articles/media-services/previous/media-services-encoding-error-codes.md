@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269032"
 ---
 # <a name="encoding-error-codes"></a>Encoding 오류 코드
@@ -29,7 +29,7 @@ ms.locfileid: "89269032"
 
 | ErrorDetail.Code | 가능한 오류 원인 |
 | --- | --- |
-| 알 수 없음 |작업을 실행하는 동안 알 수 없는 오류입니다. |
+| Unknown |작업을 실행하는 동안 알 수 없는 오류입니다. |
 | ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가 0 인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
 | ErrorDownloadingInputAssetServiceFailure |다운로드하는 동안 발생하는 네트워크 또는 스토리지 오류 등 서비스 쪽의 문제를 포함하는 오류 범주입니다. |
 | ErrorParsingConfiguration |구성이 잘못된 시스템 기본 설정이거나 잘못된 XML이 포함된 경우 등 작업 \<see cref="MediaTask.PrivateData"/>(구성)가 잘못된 경우의 오류 범주입니다. |

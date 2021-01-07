@@ -2,19 +2,21 @@
 title: CouchBase에서 Azure Cosmos DB SQL API로 마이그레이션
 description: CouchBase에서 Azure Cosmos DB SQL API로 마이그레이션하기 위한 단계별 지침
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a15c6b5919f428b28daab86fea9c3b6473d19162
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366724"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606201"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>CouchBase에서 Azure Cosmos DB SQL API로 마이그레이션
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 확장 가능하고 전 세계적으로 분산되고 완전히 관리되는 데이터베이스입니다. 데이터에 대한 짧은 대기 시간 액세스를 보장합니다. Azure Cosmos DB에 대한 자세한 내용은 [개요](introduction.md) 문서를 참조하세요. 이 문서에서는 Couchbase에 연결된 Java 애플리케이션을 Azure Cosmos DB의 SQL API 계정으로 마이그레이션하는 방법에 대한 지침을 제공합니다.
 
@@ -22,18 +24,18 @@ Azure Cosmos DB는 확장 가능하고 전 세계적으로 분산되고 완전�
 
 다음은 Couchbase와 비교할 때 Azure Cosmos DB에서는 다르게 작동하는 주요 기능입니다.
 
-|   Couchbase     |   Azure Cosmos DB   |
-| ---------------|-------------------|
-|Couchbase 서버| 계정       |
-|버킷           | 데이터베이스      |
-|버킷           | 컨테이너/컬렉션 |
-|JSON 문서    | 항목/문서 |
+| Couchbase | Azure Cosmos DB |
+|--|--|
+| Couchbase 서버 | 계정 |
+| 버킷 | 데이터베이스 |
+| 버킷 | 컨테이너/컬렉션 |
+| JSON 문서 | 항목/문서 |
 
 ## <a name="key-differences"></a>주요 차이점
 
 * Azure Cosmos DB에는 문서 내에 "ID" 필드가 있고, Couchbase에서는 이 ID가 버킷의 일부입니다. "ID" 필드는 파티션 전체에서 고유합니다.
 
-* Azure Cosmos DB는 분할 기술을 사용하여 크기를 조정합니다. 즉, 데이터를 여러 분할 영역/파티션으로 분할합니다. 이러한 파티션/분할 영역은 사용자가 제공하는 파티션 키 속성을 기반으로 생성됩니다. 파티션 키를 선택하여 읽기 작업뿐 아니라 쓰기 작업 또는 읽기/쓰기도 최적화할 수 있습니다. 자세히 알아보려면 [분할](./partition-data.md) 문서를 참조하세요.
+* Azure Cosmos DB는 분할 기술을 사용하여 크기를 조정합니다. 즉, 데이터를 여러 분할 영역/파티션으로 분할합니다. 이러한 파티션/분할 영역은 사용자가 제공하는 파티션 키 속성을 기반으로 생성됩니다. 파티션 키를 선택하여 읽기 작업뿐 아니라 쓰기 작업 또는 읽기/쓰기도 최적화할 수 있습니다. 자세히 알아보려면 [분할](./partitioning-overview.md) 문서를 참조하세요.
 
 * Azure Cosmos DB에서는 컬렉션 이름이 이미 존재하기 때문에 최상위 계층 구조에서 컬렉션을 표시할 필요가 없습니다. 이 기능 덕분에 JSON 구조가 훨씬 간단해집니다. 다음은 데이터 모델에서 Couchbase와 Azure Cosmos DB 간 차이점을 보여 주는 예제입니다.
 
@@ -162,7 +164,7 @@ Azure Cosmos DB에는 다양한 Java 프레임워크를 지원하는 다음과 �
 
 ### <a name="insert-and-update-operations"></a>삽입 및 업데이트 작업
 
-여기서 *_repo*는 리포지토리의 개체이고 *doc*은 POJO 클래스의 개체입니다. `.save`를 사용하여 삽입하거나 upsert할 수 있습니다(지정된 ID의 문서가 있는 경우). 다음 코드 조각에서는 doc 개체를 삽입하거나 업데이트하는 방법을 보여 줍니다.
+여기서 *_repo* 는 리포지토리의 개체이고 *doc* 은 POJO 클래스의 개체입니다. `.save`를 사용하여 삽입하거나 upsert할 수 있습니다(지정된 ID의 문서가 있는 경우). 다음 코드 조각에서는 doc 개체를 삽입하거나 업데이트하는 방법을 보여 줍니다.
 
 ```_repo.save(doc);```
 
@@ -179,7 +181,7 @@ Azure Cosmos DB에는 다양한 Java 프레임워크를 지원하는 다음과 �
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-이것으로 끝입니다. 이제 Azure Cosmos DB에서 애플리케이션을 사용할 수 있습니다. 이 문서에서 설명하는 예제에 대한 전체 코드 샘플은 [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub 리포지토리에서 사용할 수 있습니다.
+이것으로 끝입니다. 이제 Azure Cosmos DB에서 애플리케이션을 사용할 수 있습니다. 이 문서에서 설명하는 예제에 대한 전체 코드 샘플은 [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/SpringCosmos) GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>문서 리포지토리로서의 Couchbase 및 N1QL 쿼리 사용
 
@@ -187,7 +189,7 @@ N1QL 쿼리는 Couchbase에서 쿼리를 정의하는 방법입니다.
 
 |N1QL 쿼리 | Azure CosmosDB 쿼리|
 |-------------------|-------------------|
-|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0   | SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
+|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 | SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 
 N1QL 쿼리에서 다음과 같이 변경된 내용을 확인할 수 있습니다.
 
@@ -219,12 +221,12 @@ N1QL 쿼리에서 다음과 같이 변경된 내용을 확인할 수 있습니�
    cp.connectionMode(ConnectionMode.DIRECT);
     
    if(client==null)
-    client= CosmosClient.builder()
-        .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
-        .connectionPolicy(cp)
-        .key(MasterKey)
-        .consistencyLevel(ConsistencyLevel.EVENTUAL)
-        .build();   
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
    
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
@@ -240,22 +242,22 @@ N1QL 쿼리에서 다음과 같이 변경된 내용을 확인할 수 있습니�
 ```java
 for(SqlQuerySpec query:queries)
 {
-    objFlux= container.queryItems(query, fo);
-    objFlux .publishOn(Schedulers.elastic())
-            .subscribe(feedResponse->
-                {
-                    if(feedResponse.results().size()>0)
-                    {
-                        _docs.addAll(feedResponse.results());
-                    }
-                
-                },
-                Throwable::printStackTrace,latch::countDown);
-    lstFlux.add(objFlux);
+   objFlux= container.queryItems(query, fo);
+   objFlux .publishOn(Schedulers.elastic())
+         .subscribe(feedResponse->
+            {
+               if(feedResponse.results().size()>0)
+               {
+                  _docs.addAll(feedResponse.results());
+               }
+            
+            },
+            Throwable::printStackTrace,latch::countDown);
+   lstFlux.add(objFlux);
 }
-                        
-        Flux.merge(lstFlux);
-        latch.await();
+                  
+      Flux.merge(lstFlux);
+      latch.await();
 }
 ```
 
@@ -265,7 +267,7 @@ for(SqlQuerySpec query:queries)
 
 문서를 삽입하려면 다음 코드를 실행합니다.
 
-```java 
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -276,13 +278,13 @@ CountDownLatch latch=new CountDownLatch(1);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-            if(resourceResponse.statusCode()!=successStatus)
-                {
-                    throw new RuntimeException(resourceResponse.toString());
-                }
-            },
+           if(resourceResponse.statusCode()!=successStatus)
+              {
+                 throw new RuntimeException(resourceResponse.toString());
+              }
+           },
         Throwable::printStackTrace,latch::countDown);
-latch.await();              
+latch.await();
 ```
 
 ### <a name="upsert-operation"></a>Upsert 작업
@@ -298,12 +300,12 @@ Mono<CosmosItemResponse> obs= container.upsertItem(doc, ro);
 
 다음 코드 조각은 삭제 작업을 수행합니다.
 
-```java     
+```java
 CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-그런 다음 Mono를 구독합니다. 삽입 작업에서 Mono 구독 코드 조각을 참조하세요. 전체 코드 샘플은 [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub 리포지토리에서 사용할 수 있습니다.
+그런 다음 Mono를 구독합니다. 삽입 작업에서 Mono 구독 코드 조각을 참조하세요. 전체 코드 샘플은 [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncInSpring) GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="couchbase-as-a-keyvalue-pair"></a>키/값 쌍으로서의 Couchbase
 
@@ -311,7 +313,7 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 
 1. "/ID"를 기본 키로 사용하는 것이 좋습니다. 이렇게 하면 특정 파티션에서 직접 조회 작업을 수행할 수 있습니다. 컬렉션을 만들고 "/ID"를 파티션 키로 지정합니다.
 
-1. 인덱싱을 완전히 해제합니다. 조회 작업을 실행할 것이므로 인덱싱 오버헤드를 전달할 필요가 없습니다. 인덱싱을 끄려면 Azure Portal에 로그인하여 Azure Cosmos DB 계정으로 이동합니다. **데이터 탐색기**를 열고 **데이터베이스** 및 **컨테이너**를 선택합니다. **크기 조정 및 설정** 탭을 열고 **인덱싱 정책**을 선택합니다. 현재 인덱싱 정책은 다음과 같습니다.
+1. 인덱싱을 완전히 해제합니다. 조회 작업을 실행할 것이므로 인덱싱 오버헤드를 전달할 필요가 없습니다. 인덱싱을 끄려면 Azure Portal에 로그인하여 Azure Cosmos DB 계정으로 이동합니다. **데이터 탐색기** 를 열고 **데이터베이스** 및 **컨테이너** 를 선택합니다. **크기 조정 및 설정** 탭을 열고 **인덱싱 정책** 을 선택합니다. 현재 인덱싱 정책은 다음과 같습니다.
     
    ```json
    {
@@ -348,12 +350,12 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
    cp.connectionMode(ConnectionMode.DIRECT);
    
    if(client==null)
-    client= CosmosClient.builder()
-        .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
-        .connectionPolicy(cp)
-        .key(MasterKey)
-        .consistencyLevel(ConsistencyLevel.EVENTUAL)
-        .build();
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
     
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
@@ -368,16 +370,16 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 CosmosItemRequestOptions ro=new CosmosItemRequestOptions();
 ro.partitionKey(new PartitionKey(documentId));
 CountDownLatch latch=new CountDownLatch(1);
-        
+      
 var objCosmosItem= container.getItem(documentId, documentId);
 Mono<CosmosItemResponse> objMono = objCosmosItem.read(ro);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-            if(resourceResponse.item()!=null)
-            {
-                doc= resourceResponse.properties().toObject(UserModel.class);
-            }
+           if(resourceResponse.item()!=null)
+           {
+              doc= resourceResponse.properties().toObject(UserModel.class);
+           }
         },
         Throwable::printStackTrace,latch::countDown);
 latch.await();
@@ -387,7 +389,7 @@ latch.await();
 
 항목을 삽입하려면 다음 코드를 실행할 수 있습니다.
 
-```java 
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -396,14 +398,14 @@ Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```java
 CountDownLatch latch=new CountDownLatch(1);
 objMono.subscribeOn(Schedulers.elastic())
-        .subscribe(resourceResponse->
-        {
-            if(resourceResponse.statusCode()!=successStatus)
-                {
-                    throw new RuntimeException(resourceResponse.toString());
-                }
-            },
-        Throwable::printStackTrace,latch::countDown);
+      .subscribe(resourceResponse->
+      {
+         if(resourceResponse.statusCode()!=successStatus)
+            {
+               throw new RuntimeException(resourceResponse.toString());
+            }
+         },
+      Throwable::printStackTrace,latch::countDown);
 latch.await();
 ```
 
@@ -420,12 +422,12 @@ Mono<CosmosItemResponse> obs= container.upsertItem(doc, ro);
 
 삭제 작업을 실행하려면 다음 코드 조각을 사용합니다.
 
-```java     
+```java
 CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-그런 다음 Mono를 구독합니다. 삽입 작업에서 Mono 구독 코드 조각을 참조하세요. 전체 코드 샘플은 [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub 리포지토리에서 사용할 수 있습니다.
+그런 다음 Mono를 구독합니다. 삽입 작업에서 Mono 구독 코드 조각을 참조하세요. 전체 코드 샘플은 [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncKeyValue) GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="data-migration"></a>데이터 마이그레이션
 

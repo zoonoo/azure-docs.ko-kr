@@ -9,15 +9,14 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: f1f83fdd73816e6e30c5cac7d193719591bb8dc1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3486b636325393f9c8e96669ba3d21e7d489efee
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80999014"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347985"
 ---
 # <a name="in-store-analytics-architecture"></a>매장 내 분석 아키텍처
-
 
 
 매장 내 분석 솔루션을 사용하면 소매점 환경 내의 다양한 조건을 모니터링할 수 있습니다. IoT Central 내의 애플리케이션 템플릿 중 하나와 아래의 아키텍처를 참조하여 이러한 솔루션을 빌드할 수 있습니다.

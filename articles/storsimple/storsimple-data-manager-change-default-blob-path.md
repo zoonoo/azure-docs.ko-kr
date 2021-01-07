@@ -6,18 +6,18 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183720"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011441"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
 
 StorSimple 데이터 관리자 서비스가 데이터를 변환하는 경우, 기본적으로 대상 리포지토리를 만드는 동안 지정된 대로, 변환된 Blob를 스토리지 컨테이너에 배치합니다. Blob이 이 위치에 도달하면 이러한 Blob을 다른 위치로 이동하려고 할 수 있습니다. 이 문서에서는 기본 Blob 파일 경로의 이름을 바꾸고 Blob을 다른 위치로 이동하도록 Azure 함수를 설정하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 StorSimple 데이터 관리자 서비스에서 작업 정의를 올바르게 구성했는지 확인합니다.
 
@@ -25,51 +25,51 @@ StorSimple 데이터 관리자 서비스에서 작업 정의를 올바르게 구
 
 Azure 함수를 만들려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
-2. **+ 리소스 만들기**를 클릭합니다. **검색** 상자에 **함수 앱**을 입력하고 **Enter**를 누릅니다. 표시되는 앱 목록에서 **함수 앱**을 선택한 후 클릭합니다.
+2. **+ 리소스 만들기** 를 클릭합니다. **검색** 상자에 **함수 앱** 을 입력하고 **Enter** 를 누릅니다. 표시되는 앱 목록에서 **함수 앱** 을 선택한 후 클릭합니다.
 
     ![검색 상자에 "함수 앱" 입력](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
-3. **만들기**를 클릭합니다.
+3. **만들기** 를 클릭합니다.
 
     ![함수 앱 창의 "만들기" 단추](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
 4. **함수 앱** 구성 블레이드에서 다음 단계를 수행합니다.
 
-    1. 고유한 **앱 이름**을 제공합니다.
-    2. 드롭다운 목록에서 **구독**을 선택 합니다. 이 구독은 데이터 StorSimple 데이터 관리자 서비스와 연결된 구독과 동일해야 합니다.
-    3. **새 리소스 그룹 만들기**를 선택합니다.
-    4. **호스팅 계획** 드롭다운 목록에서 **소비 계획**을 선택합니다.
+    1. 고유한 **앱 이름** 을 제공합니다.
+    2. 드롭다운 목록에서 **구독** 을 선택 합니다. 이 구독은 데이터 StorSimple 데이터 관리자 서비스와 연결된 구독과 동일해야 합니다.
+    3. **새 리소스 그룹 만들기** 를 선택합니다.
+    4. **호스팅 계획** 드롭다운 목록에서 **소비 계획** 을 선택합니다.
     5. 함수가 실행되는 위치를 지정합니다. StorSimple 데이터 관리자 서비스 및 작업 정의와 연결된 스토리지 계정이 있는 동일한 영역이 좋습니다.
     6. 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다. 스토리지 계정은 함수에 대해 내부적으로 사용됩니다.
 
         ![새 함수 앱 구성 데이터 입력](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
-    7. **만들기**를 클릭합니다. 함수 앱이 생성됩니다.
+    7. **만들기** 를 클릭합니다. 함수 앱이 생성됩니다.
      
         ![함수 앱이 생성됨](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
-5. **함수**를 선택하고 **+ 새 함수**를 클릭합니다.
+5. **함수** 를 선택하고 **+ 새 함수** 를 클릭합니다.
 
     ![+ 새 함수 클릭](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
 6. 언어로 **C#** 을 선택합니다. 템플릿 타일 배열의 **QueueTrigger-CSharp** 타일에서 **C#** 을 선택합니다.
 
-7. **큐 트리거**에서 다음을 수행합니다.
+7. **큐 트리거** 에서 다음을 수행합니다.
 
-    1. 함수의 **이름**을 입력합니다.
+    1. 함수의 **이름** 을 입력합니다.
     2. **큐 이름** 상자에 데이터 변환 작업 정의 이름을 입력합니다.
-    3. **Storage 계정 연결**에서 **새로 만들기**를 클릭합니다. 스토리지 계정 목록에서 작업 정의와 연결된 계정을 선택합니다. 연결 이름을 기록해 둡니다(강조 표시됨). 이 이름은 Azure 함수에서 나중에 필요합니다.
+    3. **Storage 계정 연결** 에서 **새로 만들기** 를 클릭합니다. 스토리지 계정 목록에서 작업 정의와 연결된 계정을 선택합니다. 연결 이름을 기록해 둡니다(강조 표시됨). 이 이름은 Azure 함수에서 나중에 필요합니다.
 
         ![새 C# 함수 만들기](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
-    4. **만들기**를 클릭합니다. **함수**가 만들어집니다.
+    4. **만들기** 를 클릭합니다. **함수** 가 만들어집니다.
 
      
 10. 함수 창에서 _.csx_ 파일을 실행합니다.
 
-    ![새 C# 함수 만들기](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![새 c # 함수 2 만들기](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     다음 단계를 수행합니다.
 
@@ -175,7 +175,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
         ```
 
-    2. 11번 줄에서 **STORAGE_CONNECTIONNAME**을 사용자의 스토리지 계정 연결로 바꿉니다(7c단계 참조).
+    2. 11번 줄에서 **STORAGE_CONNECTIONNAME** 을 사용자의 스토리지 계정 연결로 바꿉니다(7c단계 참조).
 
         ![스토리지 연결 이름 복사](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 
@@ -185,15 +185,15 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
 12. 함수를 완료하려면 다음 단계를 수행하여 파일을 하나 더 추가합니다.
 
-    1. **파일 보기**를 클릭합니다.
+    1. **파일 보기** 를 클릭합니다.
 
        ![“파일 보기” 링크](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
-    2. **+ 추가**를 클릭합니다.
+    2. **+ 추가** 를 클릭합니다.
         
-        ![“파일 보기” 링크](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![새 함수 추가 파일 추가](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. **에project.js**을 입력 하 고 **enter**키를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
+    3. **에project.js** 을 입력 하 고 **enter** 키를 누릅니다. **project.json** 파일에 다음 코드를 붙여 넣습니다.
 
         ```
         {
@@ -209,9 +209,9 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
         ```
 
     
-    4. **저장**을 클릭합니다.
+    4. **저장** 을 클릭합니다.
 
-        ![“파일 보기” 링크](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![새 함수 프로젝트 json](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Azure Function이 만들어졌습니다. 이 함수는 데이터 변환 작업에서 새 Blob이 생성될 때마다 트리거됩니다.
 

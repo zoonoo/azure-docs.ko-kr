@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80422550"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 게스트 OS 방화벽이 인바운드 트래픽 차단
@@ -41,7 +41,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 ![방화벽 설정](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은  [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 

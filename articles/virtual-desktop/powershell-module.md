@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c99aa1bdb246d242c4c1cbd33672367b66f923ea
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229975"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016814"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 PowerShell 모듈 설정
 
@@ -41,7 +41,8 @@ Install-Module -Name Az.DesktopVirtualization
 Connect-AzAccount
 ```
 
->! 중요 한 US Gov 포털에 연결 하는 경우 대신이 cmdlet을 실행 합니다.
+>[!IMPORTANT]
+>US Gov 포털에 연결 하는 경우 대신이 cmdlet을 실행 합니다.
 > 
 > ```powershell
 > Connect-AzAccount -EnvironmentName AzureUSGovernment
@@ -67,7 +68,7 @@ Youradminupn subscriptionname AzureADTenantID AzureCloud
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-또한 Out-GridView cmdlet을 사용 하 여 목록에서 하나를 선택할 수 있습니다.
+Out-GridView cmdlet을 사용 하 여 목록에서 하나를 선택할 수도 있습니다.
 
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
@@ -95,7 +96,7 @@ Get-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Resou
 Get-AzLocation
 ```
 
-**Get-AzLocation**에 대한 출력은 다음과 같습니다.
+**Get-AzLocation** 에 대한 출력은 다음과 같습니다.
 
 ```powershell
 Location : eastasia

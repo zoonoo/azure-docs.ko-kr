@@ -4,12 +4,12 @@ description: 5분 안에 Java Service Fabric Reliable Actors 애플리케이션�
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 28ddc4f0e47d853df6b026cf2495d710bebfa980
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7d87b72437f86d7dc1ca4e3cf9f3d67609691c70
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368934"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655954"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -20,7 +20,7 @@ ms.locfileid: "87368934"
 
 이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 애플리케이션을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 애플리케이션이 로컬 개발 클러스터에서 실행됩니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 [Linux 개발 환경](service-fabric-get-started-linux.md)에서 Service Fabric SDK, Service Fabric CLI, Yeoman을 설치하고, Java 개발 환경을 설정하고, 개발 클러스터를 설정합니다. Mac OS X을 사용하는 경우 [Docker를 사용하여 Mac에서 개발 환경 설정](service-fabric-get-started-mac.md)할 수 있습니다.
 
 [Service Fabric CLI](service-fabric-cli.md)도 설치합니다.
@@ -39,7 +39,7 @@ Reliable Actors를 시작하려면 몇 가지 기본 개념만 이해하면 됩�
 * **행위자 등록**. Reliable Services와 마찬가지로 Reliable Actor 서비스를 Service Fabric 런타임에 등록해야 합니다. 또한 행위자 형식을 행위자 런타임에 등록해야 합니다.
 * **행위자 인터페이스**. 행위자 인터페이스는 행위자에 대한 강력한 형식의 공용 인터페이스를 정의하는 데 사용됩니다. Reliable Actor 모델 용어에서 행위자 인터페이스는 행위자가 이해하고 처리할 수 있는 메시지의 유형을 정의합니다. 행위자 인터페이스는 다른 행위자 또는 클라이언트 애플리케이션에서 메시지를 행위자에게 "보내는"(비동기) 데 사용됩니다. Reliable Actors는 여러 인터페이스를 구현할 수 있습니다.
 * **ActorProxy 클래스**. ActorProxy 클래스는 클라이언트 애플리케이션에서 행위자 인터페이스를 통해 노출되는 메서드를 호출하는 데 사용됩니다. ActorProxy 클래스는 다음 두 가지 중요한 기능을 제공합니다.
-  
+
   * 이름 확인: 클러스터에서 행위자를 찾을 수 있습니다(호스트되는 클러스터의 노드 찾기).
   * 오류 처리: 메서드 호출을 다시 시도하고 행위자를 클러스터의 다른 노드로 재배치해야 하는 경우 등의 오류가 발생한 후 행위자의 위치를 다시 파악할 수 있습니다.
 
@@ -160,9 +160,9 @@ public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor 
 public class HelloWorldActorHost {
 
 private static final Logger logger = Logger.getLogger(HelloWorldActorHost.class.getName());
-    
+
 public static void main(String[] args) throws Exception {
-        
+
         try {
 
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
@@ -221,7 +221,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.  테스트 스크립트는 행위자의 `setCountAsync()` 메서드를 호출하여 카운터를 증가시키고 행위자의 `getCountAsync()` 메서드를 호출하여 새 카운터 값을 가져오고 해당 값을 콘솔에 표시합니다.
 
    MAC OS X의 경우 다음 추가 명령을 실행하여 HelloWorldTestClient 폴더를 컨테이너 내에서 동일한 위치에 복사해야 합니다.    
-    
+
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
      docker exec -it [first-four-digits-of-container-ID] /bin/bash
@@ -237,7 +237,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 
     ![Service Fabric Explorer에서 기본 복제본 찾기][sfx-primary]
 
-3. **노드**에서는 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 이 작업은 주 서비스 복제본을 실행하는 노드를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다.  해당 보조 복제본이 주 복제본으로 승격되면 다른 노드에서 다른 보조 복제본이 생성되며 주 복제본이 읽기/쓰기 작업을 수행하기 시작합니다. 노드가 다시 시작되면 테스트 클라이언트의 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
+3. **노드** 에서는 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)** 를 선택합니다. 이 작업은 주 서비스 복제본을 실행하는 노드를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다.  해당 보조 복제본이 주 복제본으로 승격되면 다른 노드에서 다른 보조 복제본이 생성되며 주 복제본이 읽기/쓰기 작업을 수행하기 시작합니다. 노드가 다시 시작되면 테스트 클라이언트의 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
 
 ## <a name="remove-the-application"></a>애플리케이션을 제거합니다.
 템플릿에 제공된 설치 제거 스크립트를 사용하여 애플리케이션 인스턴스를 제거하고 애플리케이션 패키지를 등록 취소하고 클러스터의 이미지 저장소에서 애플리케이션 패키지를 제거합니다.
@@ -249,7 +249,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 Service Fabric Explorer에서 애플리케이션이 표시되고 애플리케이션 형식이 **애플리케이션** 노드에 더 이상 표시되지 않습니다.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven의 Service Fabric Java 라이브러리
-Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프로젝트의 ``pom.xml`` 또는 ``build.gradle``에서 종속성을 추가하고 **mavenCentral**에서 Service Fabric Java 라이브러리를 사용할 수 있습니다. 
+Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프로젝트의 ``pom.xml`` 또는 ``build.gradle``에서 종속성을 추가하고 **mavenCentral** 에서 Service Fabric Java 라이브러리를 사용할 수 있습니다. 
 
 ### <a name="actors"></a>행위자
 
@@ -293,7 +293,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="others"></a>기타
+### <a name="others"></a>Others
 #### <a name="transport"></a>전송
 
 Service Fabric Java 애플리케이션에 대한 전송 계층 지원입니다. 전송 계층에서 프로그래밍하지 않으면 Reliable Actor 또는 Service 애플리케이션에 이 종속성을 명시적으로 추가할 필요가 없습니다.

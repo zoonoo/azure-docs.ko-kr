@@ -4,32 +4,33 @@ description: Azure Synapse Analytics의 Synapse SQL 사용 모델에 대해 알�
 services: synapse analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 0e3bbb2532340664d0fc54b29bea3ef3af75f9b6
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461768"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459166"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse SQL 리소스 사용
 
-이 문서에서는 Synapse SQL(미리 보기)의 리소스 사용 모델을 설명합니다.
+이 문서에서는 Synapse SQL의 리소스 사용 모델을 설명합니다.
 
-## <a name="sql-on-demand"></a>SQL 주문형
+## <a name="serverless-sql-pool"></a>서버리스 SQL 풀
 
-SQL 주문형은 적절한 크기를 선택할 필요가 없는 쿼리당 과금제 서비스입니다. 사용자의 요구 사항에 따라 시스템이 자동으로 조정되므로 인프라를 관리하고 솔루션에 적합한 크기를 선택해야 하는 업무 부담이 없습니다.
+서버리스 SQL 풀은 적절한 크기를 선택할 필요가 없는 쿼리당 과금제 서비스입니다. 사용자의 요구 사항에 따라 시스템이 자동으로 조정되므로 인프라를 관리하고 솔루션에 적합한 크기를 선택해야 하는 업무 부담이 없습니다.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>SQL 풀 - DWU(데이터 웨어하우스 단위) 및 cDWU(컴퓨팅 데이터 웨어하우스 단위)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>전용 SQL 풀 - DWU(데이터 웨어하우스 단위) 및 cDWU(컴퓨팅 데이터 웨어하우스 단위)
 
 가격 및 성능을 최적화하기 위한 이상적인 DWU(데이터 웨어하우스 단위) 수를 선택하는 방법에 대한 권장 사항 및 단위 수를 변경하는 방법을 안내합니다.
 
 ### <a name="data-warehouse-units"></a>데이터 웨어하우스 단위
 
-Synapse SQL 풀은 프로비저닝되는 분석 리소스 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 이러한 세 가지 리소스는 DWU(데이터 웨어하우스 단위)라는 컴퓨팅 규모 단위의 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경하면 시스템에서 사용 가능한 DWU 수를 변경하여 시스템의 성능과 비용이 조정됩니다.
+Synapse SQL 풀은 프로비저닝되는 분석 리소스 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 이러한 세 가지 리소스는 DWU(데이터 웨어하우스 단위)라는 컴퓨팅 규모 단위의 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경하면 시스템에 사용할 수 있는 DWU 수가 변경됩니다. 그러면 이 변경으로 인해 시스템의 성능과 비용이 조정됩니다.
 
 성능을 높이려면 데이터 웨어하우스 단위 수를 늘리면 됩니다. 성능을 낮추려면 데이터 웨어하우스 단위 수를 줄입니다. 스토리지 및 컴퓨팅 비용은 별도로 청구되므로 데이터 웨어하우스 단위를 변경해도 스토리지 비용에 영향을 미치지 않습니다.
 
@@ -49,12 +50,12 @@ DWU 늘리기:
 
 SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2에 대한 서비스 수준은 cDWU(컴퓨팅 데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c). Gen1 서비스 수준은 DWU로 측정됩니다(예: DW2000).
 
-SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 DWU(데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c).
+SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 전용 SQL 풀의 서비스 수준은 DWU(데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c).
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
-T-SQL에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준 및 성능 계층을 결정합니다.
+T-SQL에서 SERVICE_OBJECTIVE 설정은 전용 SQL 풀의 서비스 수준 및 성능 계층을 결정합니다.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -124,11 +125,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 DWU를 변경하는 방법은 다음과 같습니다.
 
-1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **크기 조정**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음, **크기 조정** 을 선택합니다.
 
-2. **크기 조정**에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
+2. **크기 조정** 에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
 
-3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
+3. **저장** 을 선택합니다. 확인 메시지가 표시됩니다. **예** 를 선택하여 확인하거나 **아니요** 를 선택하여 취소합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -203,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-이 DMV는 SQL 풀에서 수행되는 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)와 같은 다양한 관리 작업에 대한 정보를 반환합니다.
+이 DMV는 전용 SQL 풀에서 수행되는 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)와 같은 다양한 관리 작업에 대한 정보를 반환합니다.
 
 ### <a name="the-scaling-workflow"></a>크기 조정 워크플로
 

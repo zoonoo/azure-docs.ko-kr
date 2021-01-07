@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 날짜 및 시간 함수
 description: Azure Cosmos DB에서 날짜 및 시간 SQL 시스템 함수를 학습 하 여 DateTime 및 timestamp 작업을 수행 합니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1ea838224f9d91b000100d5fa9308289619fd963
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: cfa81b6ec5f10218a70de6b9b55e502d87898194
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605193"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549180"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>날짜 및 시간 함수 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 날짜 및 시간 함수를 사용 하 여 Azure Cosmos DB에서 DateTime 및 timestamp 작업을 수행할 수 있습니다.
 
@@ -44,4 +46,4 @@ ms.locfileid: "88605193"
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)
 - [사용자 정의 함수](sql-query-udfs.md)
-- [집계](sql-query-aggregates.md)
+- [집계](sql-query-aggregate-functions.md)

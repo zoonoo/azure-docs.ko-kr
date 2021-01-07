@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 6684c4269f14b91ded651dadff3f0a2e0878a4f2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346319"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026480"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
 사용자 지정 IPsec/IKE 정책은 기본 SKU를 제외한 모든 Azure SKU에서 지원됩니다.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>연결에서 얼마나 많은 정책을 지정할 수 있나요?
-지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
+지정된 연결에 대해 ***one** _ 정책 조합만 지정할 수 있습니다.
 
 ### <a name="can-i-specify-a-partial-policy-on-a-connection-for-example-only-ike-algorithms-but-not-ipsec"></a>연결에 대해 부분적 정책을 지정할 수 있나요? (예: IPsec을 제외하고 IKE 알고리즘만 해당)
 아니요, IKE(주 모드) 및 IPsec(빠른 모드) 모두에 대한 모든 알고리즘 및 매개 변수를 지정해야 합니다. 부분 정책 지정은 허용되지 않습니다.
@@ -27,11 +27,11 @@ ms.locfileid: "84346319"
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>사용자 지정 정책에서 지원되는 알고리즘과 키 강도는 어떻게 되나요?
 다음 표에는 고객이 구성 가능하도록 지원되는 암호화 알고리즘 및 키 강도가 나와 있습니다. 모든 필드에 대해 한 가지 옵션을 선택해야 합니다.
 
-| **IPsec/IKEv2**  | **옵션**                                                                   |
+| _ *IPsec/IKEv2**  | **옵션**                                                                   |
 | ---              | ---                                                                           |
 | IKEv2 암호화 | AES256, AES192, AES128, DES3, DES                                             |
 | IKEv2 무결성  | SHA384, SHA256, SHA1, MD5                                                     |
-| DH 그룹         | DHGroup24, ECP384, ECP256, DHGroup14(DHGroup2048), DHGroup2, DHGroup1, 없음 |
+| DH 그룹         | DHGroup24, ECP384, ECP256, DHGroup14(DHGroup2048), DHGroup2, DHGroup1, 없음  |
 | IPsec 암호화 | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음      |
 | IPsec 무결성  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | PFS 그룹        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, 없음                              |
@@ -40,7 +40,7 @@ ms.locfileid: "84346319"
 |                  |                                                                               |
 
 > [!IMPORTANT]
-> 1. DHGroup2048 및 PFS2048은 IKE 및 IPsec PFS의 Diffie-Hellman 그룹 **14**와 동일합니다. 전체 매핑은 [Diffie-Hellman 그룹](#DH)을 참조하세요.
+> 1. DHGroup2048 및 PFS2048은 IKE 및 IPsec PFS의 Diffie-Hellman 그룹 **14** 와 동일합니다. 전체 매핑은 [Diffie-Hellman 그룹](#DH)을 참조하세요.
 > 2. GCMAES 알고리즘의 경우 IPsec 암호화 및 무결성 모두에 대해 동일한 GCMAES 알고리즘 및 키 길이를 지정해야 합니다.
 > 3. IKEv2 주 모드 SA 수명은 Azure VPN Gateway에서 28,800초로 고정됩니다.
 > 4. QM SA 수명은 선택적 매개 변수입니다. 지정되지 않으면 기본값인 27,000초(7.5시간) 및 102,400,000KB(102GB)가 사용됩니다.
@@ -59,7 +59,7 @@ ms.locfileid: "84346319"
 
 SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 
-**UsePolicyBasedTrafficSelectors**를 사용하도록 설정한 경우 VPN 디바이스에 온-프레미스 네트워크(로컬 네트워크 게이트웨이) 접두사 및 Azure Virtual Network 접두사 간의 모든 조합으로 정의된 일치하는 트래픽 선택기가 있는지 확인해야 합니다. 예를 들어 온-프레미스 네트워크 접두사가 10.1.0.0/16 및 10.2.0.0/16이고 가상 네트워크 접두사가 192.168.0.0/16 및 172.16.0.0/16이면 다음 트래픽 선택기를 지정해야 합니다.
+**UsePolicyBasedTrafficSelectors** 를 사용하도록 설정한 경우 VPN 디바이스에 온-프레미스 네트워크(로컬 네트워크 게이트웨이) 접두사 및 Azure Virtual Network 접두사 간의 모든 조합으로 정의된 일치하는 트래픽 선택기가 있는지 확인해야 합니다. 예를 들어 온-프레미스 네트워크 접두사가 10.1.0.0/16 및 10.2.0.0/16이고 가상 네트워크 접두사가 192.168.0.0/16 및 172.16.0.0/16이면 다음 트래픽 선택기를 지정해야 합니다.
 * 10.1.0.0/16 <====> 192.168.0.0/16
 * 10.1.0.0/16 <====> 172.16.0.0/16
 * 10.2.0.0/16 <====> 192.168.0.0/16
@@ -100,11 +100,14 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>두 VNet 간 연결 리소스에 동일한 정책을 지정해야 하나요?
 예. Azure에서 VNet 간 터널은 두 개의 연결 리소스(각 방향당 하나씩)로 구성됩니다. 두 연결 리소스에 동일한 정책이 있어야 합니다. 그렇지 않으면 VNet 간 연결이 설정되지 않습니다.
 
+### <a name="what-is-the-default-dpd-timeout-value-can-i-specify-a-different-dpd-timeout"></a>기본 DPD 시간 제한 값이란 무엇인가요? 다른 DPD 시간 제한을 지정할 수 있나요?
+기본 DPD 시간 제한은 45초입니다. 각 IPsec 또는 VNet 간 연결에 9초에서 3600초 사이의 다른 DPD 시간 제한 값을 지정할 수 있습니다.
+
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>ExpressRoute 연결에서 사용자 지정 IPsec/IKE 정책이 작동하나요?
 아니요. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>IKEv1 또는 IKEv2 프로토콜 유형과의 연결을 어떻게 만드나요?
-IKEv1 연결은 기본 SKU, 표준 SKU 및 기타 [레거시 sku](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku)를 제외 하 고 모든 경로 기반 VPN 유형 sku에서 만들 수 있습니다. 연결을 만드는 동안 연결 프로토콜 유형(IKEv1 또는 IKEv2)을 지정할 수 있습니다. 연결 프로토콜 유형을 지정하지 않으면 해당하는 경우 기본 옵션으로 IKEv2가 사용됩니다. 자세한 내용은 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) 설명서를 참조하세요. SKU 유형 및 IKEv1/IKEv2 지원에 대한 내용은 [게이트웨이를 정책 기반 VPN 디바이스에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
+IKEv1 연결은 Basic SKU, Standard SKU, 기타 [레거시 SKU](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku)를 제외하고 모든 RouteBased VPN 유형 SKU에서 만들 수 있습니다. 연결을 만드는 동안 연결 프로토콜 유형(IKEv1 또는 IKEv2)을 지정할 수 있습니다. 연결 프로토콜 유형을 지정하지 않으면 해당하는 경우 기본 옵션으로 IKEv2가 사용됩니다. 자세한 내용은 [PowerShell cmdlet](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) 설명서를 참조하세요. SKU 유형 및 IKEv1/IKEv2 지원에 대한 내용은 [게이트웨이를 정책 기반 VPN 디바이스에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>IKEv1와 IKEv2 연결 간에 전송이 허용됩니까?
 예. IKEv1와 IKEv2 연결 간의 전송은 지원됩니다.

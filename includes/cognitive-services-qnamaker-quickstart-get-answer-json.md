@@ -1,21 +1,21 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: mrbullwinkle
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 11/12/2018
-ms.author: diberry
-ms.openlocfilehash: fd6a4a4e2d779047d252fdc5e3eae8e3fba8b507
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 12/29/2020
+ms.author: mrbullwin
+ms.openlocfilehash: 8269cd3905ec7ea3ad0ff2ab6bfa31cc95da5b4f
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67182503"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820792"
 ---
 ## <a name="request-and-response-json"></a>요청 및 응답 JSON
 

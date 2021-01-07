@@ -1,6 +1,6 @@
 ---
 title: Azure AD 등록 장치는 무엇 인가요?
-description: 디바이스 ID 관리가 사용자 환경의 리소스에 액세스하는 디바이스를 관리하는 데 어떻게 도움이 되는지 알아봅니다.
+description: Azure AD 등록 장치에서 사용자에 게 사용자 장치 (BYOD) 또는 모바일 장치 시나리오를 지 원하는 기능을 제공 하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72c40b7962090492f8b4b85e555a947130c3628d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554865"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91256441"
 ---
 # <a name="azure-ad-registered-devices"></a>Azure AD 등록 디바이스
 

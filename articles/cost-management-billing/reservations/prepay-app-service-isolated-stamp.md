@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: c80ed02e137ea092bae1346260dba71cd417bed9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: feb7be6ad5dbd0dfbd04b05836842d0476780d40
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688932"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151529"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>예약 용량으로 Azure App Service 격리 인지세 비용 절감
 
@@ -39,7 +39,7 @@ ms.locfileid: "88688932"
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>격리 스탬프 예약 용량 구매
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D)에서 격리 스탬프 예약 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](monthly-payments-reservations.md)로 처리할 수 있습니다. 예약 용량을 구매하려면 종량제 요금이 적용되는 하나 이상의 기업 구독 또는 개별 구독에 대한 소유자 역할이 있어야 합니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D)에서 격리 스탬프 예약 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](./prepare-buy-reservation.md)로 처리할 수 있습니다. 예약 용량을 구매하려면 종량제 요금이 적용되는 하나 이상의 기업 구독 또는 개별 구독에 대한 소유자 역할이 있어야 합니다.
 
 - Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 옵션을 활성화해야 합니다. 이 설정을 비활성화하려면 EA 관리자여야 합니다.
 - CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리 담당자 또는 판매 담당자가 Azure Synapse Analytics 예약 용량을 구매할 수 있습니다.

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d113ad7d3de3478fbbdcce32363e048b7a8a75ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681739"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149361"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 사용 약관 이해
 
@@ -90,8 +90,8 @@ PublisherType | 모두 | 게시자 유형(값: **Azure**, **AWS**, **Marketplace
 수량 | 모두 | 구매 또는 소비된 단위 수입니다.
 ReservationId | EA, MCA | 구매한 예약 인스턴스의 고유 식별자입니다.
 ReservationName | EA, MCA | 구매한 예약 인스턴스의 이름입니다.
-ResourceGroup | 모두 | 리소스가 속하는 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)의 이름입니다. 모든 요금이 리소스 그룹에 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 그룹이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음**으로 표시됩니다.
-ResourceId<sup>1</sup> | 모두 | [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) 리소스의 고유 식별자입니다.
+ResourceGroup | 모두 | 리소스가 속하는 [리소스 그룹](../../azure-resource-manager/management/overview.md)의 이름입니다. 모든 요금이 리소스 그룹에 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 그룹이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음**으로 표시됩니다.
+ResourceId<sup>1</sup> | 모두 | [Azure Resource Manager](/rest/api/resources/resources) 리소스의 고유 식별자입니다.
 ResourceLocation | 모두 | 리소스가 실행되고 있는 데이터 센터 위치입니다. Location을 참조하세요.
 ResourceName | EA, PAYG | 리소스의 이름입니다. 모든 요금이 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 유형이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음**으로 표시됩니다.
 ResourceType | MCA | 리소스 인스턴스의 유형입니다. 모든 요금이 배포된 리소스에서 발생하는 것은 아닙니다. 리소스 유형이 없는 요금은 null/empty, **기타** 또는 **적용되지 않음**으로 표시됩니다.

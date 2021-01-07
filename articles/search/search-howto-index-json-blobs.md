@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.openlocfilehash: 6a5a3634f1d5ddc7af2af2e27c2b1d7c8ce9a2af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917995"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697206"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 
@@ -45,25 +45,25 @@ Azure Cognitive Search에 동일한 지역 또는 위치를 사용 하 Azure Sto
 
 검색 서비스의 개요 페이지에 있는 명령 모음에서 [마법사를 시작할](search-import-data-portal.md) 수 있습니다.
 
-   ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd2.png" alt-text="포털에서 데이터 가져오기 명령" border="false":::
 
 ### <a name="3---set-the-data-source"></a>3 - 데이터 원본 설정
 
-**데이터 원본** 페이지에서 원본은 다음 사양을 가진 **Azure Blob 스토리지**여야 합니다.
+**데이터 원본** 페이지에서 원본은 다음 사양을 가진 **Azure Blob 스토리지** 여야 합니다.
 
-+ **추출할 데이터**는 *콘텐츠 및 메타데이터*여야 합니다. 이 옵션을 선택하면 마법사가 인덱스 스키마를 유추하고 가져올 필드를 매핑할 수 있습니다.
++ **추출할 데이터** 는 *콘텐츠 및 메타데이터* 여야 합니다. 이 옵션을 선택하면 마법사가 인덱스 스키마를 유추하고 가져올 필드를 매핑할 수 있습니다.
    
-+ **구문 분석 모드** 는 *json*, *json 배열* 또는 *json 줄*로 설정 되어야 합니다. 
++ **구문 분석 모드** 는 *json*, *json 배열* 또는 *json 줄* 로 설정 되어야 합니다. 
 
-  *JSON*은 각 Blob을 단일 검색 문서로 구분하여 검색 결과에서 개별 항목으로 표시합니다. 
+  *JSON* 은 각 Blob을 단일 검색 문서로 구분하여 검색 결과에서 개별 항목으로 표시합니다. 
 
-  *Json 배열은* 올바른 형식의 json 데이터를 포함 하는 blob에 대 한 것입니다. 올바른 형식의 json은 개체의 배열에 해당 하거나 개체의 배열인 속성을 포함 하 고 각 요소를 독립 실행형 독립 검색 문서로 구분 하려고 합니다. Blob이 복잡하고 *JSON 배열*을 선택하지 않을 경우 전체 Blob이 단일 문서로 수집됩니다.
+  *Json 배열은* 올바른 형식의 json 데이터를 포함 하는 blob에 대 한 것입니다. 올바른 형식의 json은 개체의 배열에 해당 하거나 개체의 배열인 속성을 포함 하 고 각 요소를 독립 실행형 독립 검색 문서로 구분 하려고 합니다. Blob이 복잡하고 *JSON 배열* 을 선택하지 않을 경우 전체 Blob이 단일 문서로 수집됩니다.
 
   *Json 줄* 은 새 줄로 구분 된 여러 JSON 엔터티로 구성 된 blob에 대 한 것입니다. 여기서 각 엔터티는 독립 실행형 독립 검색 문서로 구분 됩니다. Blob이 복잡 하 고 *JSON 줄* 구문 분석 모드를 선택 하지 않은 경우 전체 blob은 단일 문서로 수집 됩니다.
    
-+ **스토리지 컨테이너**는 스토리지 계정 및 컨테이너 또는 컨테이너로 확인되는 연결 문자열을 지정해야 합니다. Blob service 포털 페이지에서 연결 문자열을 가져올 수 있습니다.
++ **스토리지 컨테이너** 는 스토리지 계정 및 컨테이너 또는 컨테이너로 확인되는 연결 문자열을 지정해야 합니다. Blob service 포털 페이지에서 연결 문자열을 가져올 수 있습니다.
 
-   ![Blob 데이터 원본 정의](media/search-howto-index-json/import-wizard-json-data-source.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Blob 데이터 원본 정의" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-마법사에서 "콘텐츠 보강" 페이지 건너뛰기
 
@@ -81,7 +81,7 @@ Azure Cognitive Search에 동일한 지역 또는 위치를 사용 하 Azure Sto
 
 시간을 내서 선택 항목을 검토합니다. 마법사를 실행하면 실제 데이터 구조가 만들어지며, 모든 개체를 삭제했다가 다시 만들지 않으면 이러한 필드를 편집할 수 없습니다.
 
-   ![Blob 인덱스 정의](media/search-howto-index-json/import-wizard-json-index.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Blob 인덱스 정의" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - 인덱서 만들기
 
@@ -89,9 +89,9 @@ Azure Cognitive Search에 동일한 지역 또는 위치를 사용 하 Azure Sto
 
 인덱서에 익숙하지 않은 경우 *인덱서* 는 검색 가능한 콘텐츠를 위해 외부 데이터 원본을 탐색 하는 Azure Cognitive Search의 리소스입니다. **데이터 가져오기** 마법사의 출력은 JSON 데이터 원본을 탐색 하 고, 검색 가능한 콘텐츠를 추출 하 고, Azure Cognitive Search의 인덱스로 가져오는 인덱서입니다.
 
-   ![Blob 인덱서 정의](media/search-howto-index-json/import-wizard-json-indexer.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Blob 인덱서 정의" border="false":::
 
-**확인**을 클릭하여 마법사를 실행하고 모든 개체를 만듭니다. 인덱싱이 즉시 시작됩니다.
+**확인** 을 클릭하여 마법사를 실행하고 모든 개체를 만듭니다. 인덱싱이 즉시 시작됩니다.
 
 포털 페이지에서 데이터 가져오기를 모니터링할 수 있습니다. 진행률 알림은 인덱싱 상태 및 업로드된 문서 수를 나타냅니다. 
 
@@ -108,7 +108,7 @@ REST API를 사용 하면 Cognitive Search Azure의 모든 인덱서에 공통 �
 
 세 개체를 모두 만드는 방법을 보여 주는이 섹션의 끝부분에 있는 [REST 예제 코드](#rest-example) 를 검토할 수 있습니다. 이 섹션에는 [json 구문 분석 모드](#parsing-modes), [단일 blob](#parsing-single-blobs), [json 배열](#parsing-arrays)및 중첩 된 [배열](#nested-json-arrays)에 대 한 세부 정보도 포함 되어 있습니다.
 
-코드 기반 JSON 인덱싱의 경우 [Postman](search-get-started-postman.md) 및 REST API를 사용 하 여 이러한 개체를 만듭니다.
+코드 기반 JSON 인덱싱의 경우 [Postman 또는 Visual Studio Code](search-get-started-rest.md) 와 REST API를 사용 하 여 이러한 개체를 만듭니다.
 
 + [index](/rest/api/searchservice/create-index)
 + [데이터 원본](/rest/api/searchservice/create-data-source)
@@ -120,13 +120,13 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 | JSON 문서 | parsingMode | Description | 가용성 |
 |--------------|-------------|--------------|--------------|
-| Blob 당 하나 | `json` | JSON Blob을 텍스트의 단일 청크로 구문 분석합니다. 각 JSON blob은 단일 Azure Cognitive Search 문서가 됩니다. | [REST](/rest/api/searchservice/indexer-operations) API와 [.net](/dotnet/api/microsoft.azure.search.models.indexer) SDK에서 일반적으로 사용할 수 있습니다. |
-| Blob 당 여러 개 | `jsonArray` | Blob에서 JSON 배열을 구문 분석 합니다. 여기서 배열의 각 요소는 별도의 Azure Cognitive Search 문서가 됩니다.  | [REST](/rest/api/searchservice/indexer-operations) API와 [.net](/dotnet/api/microsoft.azure.search.models.indexer) SDK에서 일반적으로 사용할 수 있습니다. |
-| Blob 당 여러 개 | `jsonLines` | 여러 JSON 엔터티 ("배열")를 여러 줄로 구분 하 여 포함 하는 blob을 구문 분석 합니다. 여기서 각 엔터티는 별도의 Azure Cognitive Search 문서가 됩니다. | [REST](/rest/api/searchservice/indexer-operations) API와 [.net](/dotnet/api/microsoft.azure.search.models.indexer) SDK에서 일반적으로 사용할 수 있습니다. |
+| Blob 당 하나 | `json` | JSON Blob을 텍스트의 단일 청크로 구문 분석합니다. 각 JSON blob은 단일 Azure Cognitive Search 문서가 됩니다. | [REST](/rest/api/searchservice/indexer-operations) API와 [.net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK에서 일반적으로 사용할 수 있습니다. |
+| Blob 당 여러 개 | `jsonArray` | Blob에서 JSON 배열을 구문 분석 합니다. 여기서 배열의 각 요소는 별도의 Azure Cognitive Search 문서가 됩니다.  | [REST](/rest/api/searchservice/indexer-operations) API와 [.net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK에서 일반적으로 사용할 수 있습니다. |
+| Blob 당 여러 개 | `jsonLines` | 여러 JSON 엔터티 ("배열")를 여러 줄로 구분 하 여 포함 하는 blob을 구문 분석 합니다. 여기서 각 엔터티는 별도의 Azure Cognitive Search 문서가 됩니다. | [REST](/rest/api/searchservice/indexer-operations) API와 [.net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK에서 일반적으로 사용할 수 있습니다. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-요청에 대 한 입력을 조합 합니다.
 
-각 요청에 대해 Azure Cognitive Search (POST 헤더)에 대 한 서비스 이름 및 관리자 키와 blob storage의 저장소 계정 이름 및 키를 제공 해야 합니다. [Postman](search-get-started-postman.md) 을 사용 하 여 Azure COGNITIVE SEARCH에 HTTP 요청을 보낼 수 있습니다.
+각 요청에 대해 Azure Cognitive Search (POST 헤더)에 대 한 서비스 이름 및 관리자 키와 blob storage의 저장소 계정 이름 및 키를 제공 해야 합니다. [웹 API 테스트 도구](search-get-started-rest.md) 를 사용 하 여 Azure COGNITIVE SEARCH에 HTTP 요청을 보낼 수 있습니다.
 
 다음 4 개 값을 메모장에 복사 하 여 요청에 붙여 넣을 수 있습니다.
 
@@ -141,7 +141,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 2. 왼쪽 탐색 창에서 **키** 를 클릭 한 다음 기본 키 또는 보조 키 (해당 하는 항목)를 복사 합니다.
 
-3. 저장소 계정에 대 한 포털 페이지로 전환 합니다. 왼쪽 탐색 창의 **설정**에서 **액세스 키**를 클릭 합니다. 이 페이지는 계정 이름과 키를 모두 제공 합니다. 저장소 계정 이름 및 키 중 하나를 메모장에 복사 합니다.
+3. 저장소 계정에 대 한 포털 페이지로 전환 합니다. 왼쪽 탐색 창의 **설정** 에서 **액세스 키** 를 클릭 합니다. 이 페이지는 계정 이름과 키를 모두 제공 합니다. 저장소 계정 이름 및 키 중 하나를 메모장에 복사 합니다.
 
 ### <a name="2---create-a-data-source"></a>2-데이터 원본 만들기
 
@@ -280,10 +280,10 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 .NET SDK에는 REST API 전체 패리티가 있습니다. 개념, 워크플로 및 요구 사항을 알아보려면 이전 REST API 섹션을 검토하는 것이 좋습니다. 그런 후, 다음 .NET API 참조 설명서를 참조하여 관리되는 코드에서 JSON 인덱서를 구현할 수 있습니다.
 
-+ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [azure.search.documents. searchindexerdatasourceconnection.](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents. searchindexerdatasourcetype.](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) 
++ [ Uments 인덱스를azure.search.doc합니다.](/dotnet/api/azure.search.documents.indexes.models.searchindex) 
++ [azure.search.documents. searchindexer.](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="parsing-modes"></a>
 
@@ -329,7 +329,7 @@ Blob 인덱서는 JSON 문서를 단일 Azure Cognitive Search 문서로 구문 
 
 ## <a name="parse-json-arrays"></a>JSON 배열 구문 분석
 
-또는 JSON 배열 옵션을 사용할 수 있습니다. 이 옵션은 blob이 *올바른 형식의 JSON 개체 배열을*포함 하 고 각 요소가 별도의 Azure Cognitive Search 문서가 되도록 하려는 경우에 유용 합니다. 예를 들어 다음 JSON blob을 사용 하 여 Azure Cognitive Search 인덱스를 각각 "id" 및 "text" 필드가 있는 별도의 3 개 문서로 채울 수 있습니다.  
+또는 JSON 배열 옵션을 사용할 수 있습니다. 이 옵션은 blob이 *올바른 형식의 JSON 개체 배열을* 포함 하 고 각 요소가 별도의 Azure Cognitive Search 문서가 되도록 하려는 경우에 유용 합니다. 예를 들어 다음 JSON blob을 사용 하 여 Azure Cognitive Search 인덱스를 각각 "id" 및 "text" 필드가 있는 별도의 3 개 문서로 채울 수 있습니다.  
 
 ```text
     [
@@ -451,7 +451,9 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
 > [!NOTE]
 > 필드 매핑 경로의 원본 필드 이름이 JSON에 없는 속성을 참조하는 경우 해당 매핑은 오류 없이 건너뜁니다. 다른 스키마를 사용하여 문서를 지원할 수 있도록 이 작업을 수행합니다(일반적인 사용 사례). 유효성을 검사하지 않기 때문에 필드 매핑 사양에 오타가 발생하지 않도록 주의해야 합니다.
 >
->
+
+## <a name="help-us-make-azure-cognitive-search-better"></a>Azure Cognitive Search 향상에 도움을 주세요.
+요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search/)에서 입력을 제공하세요. 기존 기능을 사용 하는 데 도움이 필요 하면 [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870)에 질문을 게시 하세요.
 
 ## <a name="see-also"></a>참조
 

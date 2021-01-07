@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.openlocfilehash: c608f357eb1eff9fd36e583b98d26250a71cb923
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515683"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>DistCp를 사용 하 여 Azure Storage blob와 Azure Data Lake Storage Gen1 간에 데이터 복사
@@ -71,7 +71,7 @@ An HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터�
 
 DistCp 도구의 가장 낮은 세분성은 단일 파일이 기 때문에 Data Lake Storage Gen1에 대해 최적화 하기 위해 최대 동시 복사본 수를 설정 하는 것이 가장 중요 한 매개 변수입니다. 명령줄에서 매퍼 수 (' m ') 매개 변수를 설정 하 여 동시 복사의 수를 제어할 수 있습니다. 이 매개 변수는 데이터를 복사하는 데 사용되는 최대 매퍼 수를 지정합니다. 기본값은 20입니다.
 
-예:
+예제:
 
 ```
  hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder -m 100
@@ -87,7 +87,7 @@ DistCp 도구의 가장 낮은 세분성은 단일 파일이 기 때문에 Data 
 
    `m = (number of nodes * YARN memory for each node) / YARN container size`
 
-예:
+예제:
 
 클러스터에 4 개의 D14v2s 노드가 있고 10 개의 서로 다른 폴더에서 10TB의 데이터를 전송 하려는 경우를 가정해 보겠습니다. 각 폴더에는 다양한 크기의 데이터가 포함되어 있고 각 폴더 내의 파일 크기가 서로 다릅니다.
 
@@ -115,7 +115,7 @@ DistCp 도구의 가장 낮은 세분성은 단일 파일이 기 때문에 Data 
 
 * Azure Blob storage 계정에서 복사 하는 경우 복사 작업은 Blob storage 쪽에서 제한 될 수 있습니다. 따라서 복사 작업의 성능이 저하됩니다. Azure Blob storage의 제한에 대 한 자세한 내용은 [azure 구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)에서 Azure Storage 제한을 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Storage blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

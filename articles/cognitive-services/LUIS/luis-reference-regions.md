@@ -1,16 +1,20 @@
 ---
 title: 영역 & 끝점 게시-LUIS
 description: Azure Portal에 지정 된 지역은 LUIS 앱을 게시할 때와 동일한 지역에 대해 끝점 URL이 생성 됩니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/19/2019
-ms.openlocfilehash: 680887ecda0843bf770c62a4b9a4d88305ea9e73
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 11/09/2020
+ms.openlocfilehash: 5f65c5e1e1c8d306a70be3fdd7a07f18f8ebbd9f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590913"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368650"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>작성 및 게시 지역과 관련 키
+
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
 
 해당 LUIS 포털에서 3 가지 제작 지역을 지원 합니다. LUIS 앱을 둘 이상의 지역에 게시하려면 지역당 하나 이상의 키가 필요합니다.
 
@@ -21,18 +25,18 @@ ms.locfileid: "83590913"
 
 |LUIS|작성 지역|Azure 지역 이름|
 |--|--|--|
-|[www.luis.ai][www.luis.ai] <br>[previous.luis.ai](https://previous.luis.ai)|미국<br>유럽 이외<br>오스트레일리아 이외| `westus`|
-|[au.luis.ai][au.luis.ai] <br>[previous.au.luis.ai](https://previous.au.luis.ai)|오스트레일리아| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai] <br>[previous.eu.luis.ai](https://previous.eu.luis.ai)|유럽|`westeurope`|
+|[www.luis.ai][www.luis.ai] |미국<br>유럽 이외<br>오스트레일리아 이외| `westus`|
+|[au.luis.ai][au.luis.ai] |오스트레일리아| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] |유럽|`westeurope`|
 
-제작 지역에는 [페어링된 장애 조치 지역이](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)있습니다.
+제작 지역에는 [페어링된 장애 조치 지역이](../../best-practices-availability-paired-regions.md)있습니다.
 
 <a name="regions-and-azure-resources"></a>
 
 ## <a name="publishing-regions-and-azure-resources"></a>지역 및 Azure 리소스 게시
 앱은 LUIS 포털에 추가된 LUIS 리소스와 관련된 모든 지역에 게시됩니다. 예를 들어 [www.luis.ai][www.luis.ai]에서 만든 앱의 경우 **westus** 에서 luis 또는 인식 서비스 리소스를 만들고 [리소스로 앱에 추가](luis-how-to-azure-subscription.md)하는 경우 해당 지역에 앱이 게시 됩니다.
 
-## <a name="public-apps"></a>공용 앱
+## <a name="public-apps"></a>공개 앱
 공용 앱은 모든 지역에 게시되므로 지역 기반 LUIS 리소스 키를 가진 사용자가 해당 리소스 키와 연결된 지역에서 앱에 액세스할 수 있습니다.
 
 <a name="publishing-regions"></a>
@@ -80,7 +84,7 @@ https://www.luis.ai에서 만들어진 LUIS 앱은 [유럽](#publishing-to-europ
 | 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 일본 동부<br>`japaneast`     |   `https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 일본 서부<br>`japanwest`     |   `https://japanwest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 한국 중부<br>`koreacentral`     |   `https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
-| 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 동남아시아<br>`southeastasia`     |   `https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| 아시아 | `westus`<br>[www.luis.ai][www.luis.ai]| 동남 아시아<br>`southeastasia`     |   `https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 북아메리카 |`westus`<br>[www.luis.ai][www.luis.ai] | 캐나다 중부<br>`canadacentral`     |   `https://canadacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 북아메리카 |`westus`<br>[www.luis.ai][www.luis.ai] | 미국 중부<br>`centralus`     |   `https://centralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 북아메리카 |`westus`<br>[www.luis.ai][www.luis.ai] | 미국 동부<br>`eastus`      |  `https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
@@ -100,7 +104,7 @@ https://www.luis.ai에서 만들어진 LUIS 앱은 [유럽](#publishing-to-europ
 
 각 지역에는 장애 조치할 보조 지역이 있습니다. 유럽 및 오스트레일리아 내에서 유럽 장애 조치 (failover)는 오스트레일리아 내부에서 장애 조치 합니다.
 
-제작 지역에는 [페어링된 장애 조치 지역이](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)있습니다.
+제작 지역에는 [페어링된 장애 조치 지역이](../../best-practices-availability-paired-regions.md)있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279655"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
@@ -140,7 +140,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
 3. Azure AD 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
 
-4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 애플리케이션이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음** 을 클릭하여 계속합니다.
+4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 애플리케이션이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음**을 클릭하여 계속합니다.
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 4단계](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 

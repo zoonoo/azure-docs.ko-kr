@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 6922ab2aac8529da8ba55a98f465e3c0e3123b53
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d50ce842a1b2bca26ef14dfbc81aab90d4ac2d8c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940084"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97692035"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- 배포 된 통신 서비스 리소스입니다. [통신 서비스 리소스를 만듭니다](../../create-communication-resource.md).
-- `User Access Token`호출 클라이언트를 사용 하도록 설정 하는입니다. 을 [ `User Access Token` 다운로드 하는 방법](../../access-tokens.md) 에 대 한 자세한 내용은
+- 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
+- 호출 클라이언트를 사용하도록 설정하는 `User Access Token`입니다. [`User Access Token`를 가져오는 방법](../../access-tokens.md)에 대한 자세한 정보
 - 선택 사항: [응용 프로그램에 대 한 호출 추가를 시작](../getting-started-with-calling.md) 하기 위한 빠른 시작을 완료 합니다.
 
 ## <a name="setting-up"></a>설치
@@ -33,13 +33,13 @@ npm install @azure/communication-calling --save
 
 ## <a name="object-model"></a>개체 모델
 
-다음 클래스와 인터페이스는 클라이언트 라이브러리를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
+Azure Communication Services 통화 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
 | 이름                             | 설명                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient는 호출 하는 클라이언트 라이브러리에 대 한 주 진입점입니다.                                                                       |
-| CallAgent                        | CallAgent는 호출을 시작 하 고 관리 하는 데 사용 됩니다.                                                                                            |
-| AzureCommunicationUserCredential | AzureCommunicationUserCredential 클래스는 CallAgent를 인스턴스화하는 데 사용 되는 CommunicationUserCredential 인터페이스를 구현 합니다. |
+| CallClient                       | CallClient는 통화 클라이언트 라이브러리의 주 진입점입니다.                                                                       |
+| CallAgent                        | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다.                                                                                            |
+| AzureCommunicationUserCredential | AzureCommunicationUserCredential 클래스는 CallAgent를 인스턴스화하는 데 사용되는 CommunicationUserCredential 인터페이스를 구현합니다. |
 
 
 ## <a name="initialize-the-callclient-create-callagent-and-access-devicemanager"></a>CallClient를 초기화 하 고 Callclient를 만든 후 DeviceManager에 액세스 합니다.
@@ -53,7 +53,7 @@ npm install @azure/communication-calling --save
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationUserCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential);
+const callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
 const deviceManager = await callClient.getDeviceManager()
 ```
 
@@ -72,40 +72,70 @@ const oneToOneCall = callAgent.call([CommunicationUser]);
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>사용자 및 PSTN을 사용 하 여 1: n 호출
-> [!WARNING]
-> PSTN 호출은 현재 비공개 미리 보기 상태입니다. 액세스를 위해 [초기 도입자 프로그램에 적용](https://aka.ms/ACS-EarlyAdopter)합니다.
+
 사용자 및 PSTN 번호에 대 한 1: n 호출을 수행 하려면 두 개의 호출 수신자에 대해 CommunicationUser와 전화 번호를 지정 해야 합니다.
+
 PSTN 호출을 허용 하도록 통신 서비스 리소스를 구성 해야 합니다.
 ```js
 
 const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
-const groupCall = callClient.call([userCallee, pstnCallee], placeCallOptions);
+const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>비디오 카메라를 사용 하 여 1:1 호출
+### <a name="place-a-11-call-with-video-camera"></a>비디오 카메라를 사용 하 여 1:1 호출
 > [!WARNING]
 > 현재 나가는 로컬 비디오 스트림이 하나만 있을 수 있습니다.
 비디오 전화를 걸려면 deviceManager API를 사용 하 여 로컬 카메라를 열거 해야 `getCameraList` 합니다.
 원하는 카메라를 선택한 후에는이를 사용 하 여 인스턴스를 생성 하 `LocalVideoStream` 고이를 `videoOptions` 배열 내에 있는 항목으로 `localVideoStream` 메서드에 전달 `call` 합니다.
 전화를 연결 하면 선택한 카메라에서 다른 참가자로 비디오 스트림을 자동으로 보내기 시작 합니다.
+
+이는 Call () 비디오 옵션과 CallAgent. join () 비디오 옵션에도 적용 됩니다.
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const call = callClient.call(['acsUserId'], placeCallOptions);
+const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
-### <a name="join-a-group-call"></a>그룹 호출 조인
+### <a name="receiving-an-incoming-call"></a>들어오는 호출 받기
+```js
+callAgent.on('callsUpdated', e => {
+    e.added.forEach(addedCall => {
+        if(addedCall.isIncoming) {
+        addedCall.accept();
+    }
+    });
+})
+```
+
+### <a name="join-a-group-call"></a>그룹 통화 참가
 새 그룹 호출을 시작 하거나 진행 중인 그룹 호출을 조인 하려면 ' join ' 메서드를 사용 하 고 속성을 사용 하 여 개체를 전달 합니다 `groupId` . 값은 GUID 여야 합니다.
 ```js
 
-const context = { groupId: <GUID>}
-const call = callClient.join(context);
+const locator = { groupId: <GUID>}
+const call = callAgent.join(locator);
 
+```
+
+### <a name="join-a-teams-meeting"></a>팀 참여 모임
+팀에 참여 하려면 ' join ' 메서드를 사용 하 고 모임 링크 또는 모임의 좌표를 전달 합니다.
+```js
+// Join using meeting link
+const locator = { meetingLink: <meeting link>}
+const call = callAgent.join(locator);
+
+// Join using meeting coordinates
+const locator = {
+    threadId: <thread id>,
+    organizerId: <organizer id>,
+    tenantId: <tenant id>,
+    messageId: <message id>
+}
+const call = callAgent.join(locator);
 ```
 
 ## <a name="call-management"></a>호출 관리
@@ -113,19 +143,19 @@ const call = callClient.join(context);
 통화 속성에 액세스 하 고 비디오 및 오디오와 관련 된 설정을 관리 하는 호출 중에 다양 한 작업을 수행할 수 있습니다.
 
 ### <a name="call-properties"></a>호출 속성
-* 이 호출의 고유 Id를 가져옵니다.
+* 이 호출의 고유 ID (문자열)를 가져옵니다.
 ```js
 
 const callId: string = call.id;
 
 ```
 
-* 호출에서 다른 참가자에 대 한 자세한 내용을 보려면 인스턴스에서 컬렉션을 검사 합니다 `remoteParticipant` `call` .
+* 호출에서 다른 참가자에 대 한 자세한 내용을 보려면 인스턴스에서 컬렉션을 검사 합니다 `remoteParticipant` `call` . 배열에 목록 개체가 포함 되어 있습니다. `RemoteParticipant`
 ```js
-const remoteParticipants: RemoteParticipants = call.remoteParticipants;
+const remoteParticipants = call.remoteParticipants;
 ```
 
-* 호출이 들어오는 경우 호출자의 id입니다.
+* 호출이 들어오는 경우 호출자의 id입니다. Id는 다음 형식 중 하나입니다. `Identifier`
 ```js
 
 const callerIdentity = call.callerIdentity;
@@ -135,7 +165,7 @@ const callerIdentity = call.callerIdentity;
 * 호출의 상태를 가져옵니다.
 ```js
 
-const callState: CallState = call.state;
+const callState = call.state;
 
 ```
 호출의 현재 상태를 나타내는 문자열을 반환 합니다.
@@ -147,41 +177,46 @@ const callState: CallState = call.state;
 * ' Connected '-호출이 연결 되어 있습니다.
 * ' 보유 '-호출이 대기 중 이며, 로컬 끝점과 원격 참가자 간에 미디어가 전달 되지 않습니다.
 * ' 연결 끊기 '-호출이 ' Disconnected ' 상태가 되기 전에 전환 상태입니다.
-* ' Disconnected '-최종 호출 상태
+* ' Disconnected '-최종 호출 상태입니다.
+   * 네트워크 연결이 끊어지면 상태는 약 2 분 후에 ' 연결 끊김 '으로 이동 합니다.
 
 
 * 지정 된 호출이 종료 된 이유를 확인 하려면 속성을 검사 `callEndReason` 합니다.
 ```js
 
-const callEndReason: CallEndReason = call.callEndReason;
+const callEndReason = call.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* 현재 호출이 들어오는 호출 인지 확인 하려면 속성을 검사 하 여를 `isIncoming` 반환 `Boolean` 합니다.
+```js
+const isIncoming = call.isIncoming;
+```
+
+* 호출을 기록 하 고 있는지 확인 하려면 속성을 검사 하 여를 `isRecordingActive` 반환 `Boolean` 합니다.
+```js
+const isResordingActive = call.isRecordingActive;
+```
+
+*  현재 마이크가 음소거 되어 있는지 확인 하려면 속성을 검사 하 여를 `muted` 반환 `Boolean` 합니다.
+```js
+
+const muted = call.isMicrophoneMuted;
 
 ```
 
-* 현재 호출이 들어오는 호출 인지 확인 하려면 속성을 검사 합니다. `isIncoming`
+* 지정 된 끝점에서 화면 공유 스트림을 보내고 있는지 확인 하려면 속성을 확인 하 여를 `isScreenSharingOn` 반환 `Boolean` 합니다.
 ```js
 
-const isIncoming: boolean = call.isIncoming;
+const isScreenSharingOn = call.isScreenSharingOn;
 
 ```
 
-*  현재 마이크가 음소거 되어 있는지 확인 하려면 속성을 검사 합니다 `muted` .
+* 활성 비디오 스트림을 검사 하려면 `localVideoStreams` 컬렉션에 개체가 포함 되어 있는지 확인 합니다. `LocalVideoStream`
 ```js
 
-const muted: boolean = call.isMicrophoneMuted;
-
-```
-
-* 지정 된 끝점에서 화면 공유 스트림을 보내고 있는지 확인 하려면 속성을 확인 합니다 `isScreenSharingOn` .
-```js
-
-const isScreenSharingOn: boolean = call.isScreenSharingOn;
-
-```
-
-* 활성 비디오 스트림을 검사 하려면 컬렉션을 확인 합니다 `localVideoStreams` .
-```js
-
-const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
+const localVideoStreams = call.localVideoStreams;
 
 ```
 
@@ -194,7 +229,7 @@ const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
 //mute local device 
 await call.mute();
 
-//unmute device 
+//unmute local device 
 await call.unmute();
 
 ```
@@ -206,7 +241,7 @@ await call.unmute();
 
 
 ```js
-const localVideoStream = new SDK.LocalVideoStream(videoDeviceInfo);
+const localVideoStream = new LocalVideoStream(videoDeviceInfo);
 await call.startVideo(localVideoStream);
 
 ```
@@ -234,6 +269,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>FAQ
+ * 네트워크 연결이 끊어지면 통화 상태가 ' 연결 끊김 '으로 변경 됩니까?
+    * 예, 2 분 넘게 네트워크 연결이 끊어지면 호출은 연결이 끊긴 상태로 전환 되 고 호출이 종료 됩니다.
 
 ## <a name="remote-participants-management"></a>원격 참여자 관리
 
@@ -254,49 +292,50 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 * 이 원격 참가자에 대 한 식별자를 가져옵니다.
 Id는 ' Identifier ' 형식 중 하나입니다.
 ```js
-
-const identity: CommunicationUser | PhoneNumber | CallingApplication | UnknownIdentifier;
-
+const identifier = remoteParticipant.identifier;
+//It can be one of:
+// { communicationUserId: '<ACS_USER_ID'> } - object representing ACS User
+// { phoneNumber: '<E.164>' } - object representing phone number in E.164 format
 ```
 
 * 이 원격 참가자의 상태를 가져옵니다.
 ```js
 
-const state: RemoteParticipantState = remoteParticipant.state;
+const state = remoteParticipant.state;
 ```
 상태는 다음 중 하나일 수 있습니다.
 * ' Idle '-초기 상태
 * 참가자가 호출에 연결 하는 동안 ' 연결 중 '-전환 상태
 * ' 연결 됨 '-참가자가 호출에 연결 되었습니다.
 * ' 보유 '-참가자가 보류 중입니다.
-* ' EarlyMedia '-참가자가 호출에 연결 되기 전에 해당 상태를 재생 합니다.
-* ' Disconnected '-최종 상태-참가자가 호출에서 연결이 끊겼습니다.
+* ' EarlyMedia '-참가자가 호출에 연결 되기 전에 알림이 재생 됩니다.
+* ' Disconnected '-최종 상태-참가자가 호출에서 연결이 끊어졌습니다.
+   * 원격 참가자의 네트워크 연결이 끊어지면 원격 참가자 상태는 약 2 분 후에 ' 연결 끊김 '으로 이동 합니다.
 
 참가자가 전화를 떠난 이유를 알아보려면 속성을 검사 합니다 `callEndReason` .
 ```js
 
-const callEndReason: CallEndReason = remoteParticipant.callEndReason;
+const callEndReason = remoteParticipant.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* 이 원격 참가자가 음소거 되어 있는지 여부를 확인 하려면 속성을 검사 `isMuted` 합니다. `Boolean`
+```js
+const isMuted = remoteParticipant.isMuted;
+```
+
+* 이 원격 참가자가 말하는 지 여부를 확인 하려면 반환 하는 속성을 검사 `isSpeaking` 합니다. `Boolean`
+```js
+
+const isSpeaking = remoteParticipant.isSpeaking;
 
 ```
 
-* 이 원격 참가자가 음소거 되어 있는지 여부를 확인 하려면 속성을 검사 합니다 `isMuted` .
+* 지정 된 참가자가이 호출에서 보내는 모든 비디오 스트림을 검사 하려면 `videoStreams` 컬렉션에 개체가 포함 되어 있는지 확인 합니다. `RemoteVideoStream`
 ```js
 
-const isMuted: boolean = remoteParticipant.isMuted;
-
-```
-
-* 이 원격 참가자가 말하는 지 여부를 확인 하려면 속성을 검사 합니다 `isSpeaking` .
-```js
-
-const isSpeaking: boolean = remoteParticipant.isSpeaking;
-
-```
-
-* 이 호출에서 지정 된 참가자가 보내는 모든 비디오 스트림을 검사 하려면 컬렉션을 확인 합니다 `videoStreams` .
-```js
-
-const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
 
 ```
 
@@ -312,7 +351,6 @@ const userIdentifier = { communicationUserId: <ACS_USER_ID> };
 const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
 const remoteParticipant = call.addParticipant(pstnIdentifier);
-
 ```
 
 ### <a name="remove-participant-from-a-call"></a>호출에서 참가자 제거
@@ -333,7 +371,6 @@ await call.removeParticipant(pstnIdentifier);
 원격 참가자의 비디오 스트림과 화면 공유 스트림을 나열 하려면 다음 컬렉션을 검사 합니다 `videoStreams` .
 
 ```js
-
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.type;
 ```
@@ -365,7 +402,7 @@ if (remoteParticipantStream.isAvailable) {
 ### <a name="remote-video-stream-properties"></a>원격 비디오 스트림 속성
 원격 비디오 스트림에는 다음과 같은 속성이 있습니다.
 
-* `Id` -원격 비디오 스트림의 Id
+* `Id` -원격 비디오 스트림의 ID
 ```js
 const id: number = remoteVideoStream.id;
 ```
@@ -413,7 +450,9 @@ document.body.appendChild(rendererView.target);
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>FAQ
+* 원격 참가자의 네트워크 연결이 끊어지면 해당 상태가 ' 연결 끊김 '으로 변경 됩니까?
+    * 예, 원격 참가자가 2 분 넘게 네트워크 연결을 끊으면 해당 상태가 Disconnected로 전환 되 고 호출에서 제거 됩니다.
 ## <a name="device-management"></a>디바이스 관리
 
 `DeviceManager` 오디오/비디오 스트림을 전송 하는 호출에 사용할 수 있는 로컬 장치를 열거할 수 있습니다. 또한 네이티브 브라우저 API를 사용 하 여 사용자가 마이크 및 카메라에 액세스할 수 있는 권한을 요청할 수 있습니다.

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 11/26/2019
-ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 10/15/2020
+ms.reviewer: ''
+ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541705"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793180"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,16 +40,21 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |**작동 시간 SLA**|99.99%|99.99%|99.99%|
 |**최대 백업 보존**|7 일|35일|35일|
 |**CPU**|낮음|낮음, 보통, 높음|보통, 높음|
-|**IO 처리량(근사치)** |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
+|**IOPS (근사치)**\* |DTU 당 1-4 IOPS| DTU 당 1-4 IOPS | DTU 당 25iops|
 |**IO 대기 시간(근사치)**|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
 |**Columnstore 인덱싱** |해당 없음|S3 이상|지원됨|
-|**메모리 내 OLTP**|N/A|해당 없음|지원됨|
+|**메모리 내 OLTP**|해당 없음|해당 없음|지원됨|
+
+\* 백그라운드 IO (검사점 및 지연 기록기)를 포함 하 여 데이터 파일에 대 한 모든 읽기 및 쓰기 IOPS
 
 > [!IMPORTANT]
-> 기본, 표준 S0, S1 및 S2 서비스 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
+> 기본, S0, S1 및 S2 서비스 목표는 하나 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 목표를 사용 하는 것이 좋습니다. 
 >
->데이터 저장소와 관련 하 여 기본, 표준 S0 및 S1 서비스 계층은 표준 페이지 Blob에 배치 됩니다. 표준 페이지 Blob은 HDD (하드 디스크 드라이브) 기반 저장소 미디어를 사용 하며 성능 변동에 덜 민감한 개발, 테스트 및 자주 액세스 하지 않는 작업에 가장 적합 합니다.
+> 기본, S0 및 S1 서비스 목표에서 데이터베이스 파일은 HDD (하드 디스크 드라이브) 기반 저장소 미디어를 사용 하는 Azure Standard Storage에 저장 됩니다. 이러한 서비스 목표는 성능 변동에 덜 민감한 개발, 테스트 및 자주 액세스 하지 않는 작업에 가장 적합 합니다.
 >
+
+> [!TIP]
+> 데이터베이스 또는 탄력적 풀에 대 한 실제 [리소스 거 버 넌 스](resource-limits-logical-server.md#resource-governance) 제한을 보려면 [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 뷰를 쿼리 합니다.
 
 > [!NOTE]
 > Azure 무료 계정을 사용 하 여 Azure를 탐색 하는 기본 서비스 계층에서 Azure SQL Database의 무료 데이터베이스를 가져올 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
@@ -109,7 +114,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
-| 트랜잭션 유형 | 설명 |
+| 트랜잭션 유형 | Description |
 | --- | --- |
 | 적은 읽기 작업 |SELECT, 메모리 내, 읽기 전용 |
 | 중간 읽기 작업 |SELECT, 대부분 메모리 내, 읽기 전용 |
@@ -118,7 +123,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |UPDATE, 대부분 메모리 외, 읽기-쓰기 |
 | 적은 삽입 작업 |INSERT, 메모리 내, 읽기-쓰기 |
 | 많은 삽입 작업 |INSERT, 대부분 메모리 외, 읽기-쓰기 |
-| DELETE |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
+| 삭제 |DELETE, 메모리 내 및 메모리 외 혼합, 읽기-쓰기 |
 | 많은 CPU 사용 |SELECT, 메모리 내, 상대적으로 많은 CPU 부하, 읽기 전용 |
 
 ### <a name="workload-mix"></a>워크로드 혼합
@@ -134,7 +139,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 많은 업데이트 작업 |3 |
 | 적은 삽입 작업 |3 |
 | 많은 삽입 작업 |2 |
-| DELETE |2 |
+| 삭제 |2 |
 | 많은 CPU 사용 |10 |
 
 ### <a name="users-and-pacing"></a>사용자 및 속도
@@ -147,7 +152,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
    - 선택한 트랜잭션을 수행하고 응답 시간을 측정합니다.
    - 속도 지연을 기다립니다.
 3. 데이터베이스 연결을 종료합니다.
-4. 끝내기를 클릭합니다.
+4. 종료합니다.
 
 (2c 단계에서) 무작위이지만 평균 1.0초의 분포가 있는 속도 지연을 선택합니다. 따라서 각 사용자는 평균적으로 1초당 최대 1개의 트랜잭션을 생성할 수 있습니다.
 
@@ -170,9 +175,9 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 | 서비스 클래스 | 처리량 측정 | 응답 시간 요구 사항 |
 | --- | --- | --- |
-| Premium |초당 트랜잭션 수 |0.5초에서 95 백분위수 |
+| 프리미엄 |초당 트랜잭션 수 |0.5초에서 95 백분위수 |
 | Standard |분당 트랜잭션 수 |1.0초에서 90 백분위수 |
-| Basic |시간당 트랜잭션 수 |2.0초에서 80 백분위수 |
+| 기본 |시간당 트랜잭션 수 |2.0초에서 80 백분위수 |
 
 ## <a name="next-steps"></a>다음 단계
 

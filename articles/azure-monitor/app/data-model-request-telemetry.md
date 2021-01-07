@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320564"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
@@ -43,7 +43,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 최대 길이: 1024자
 
-## <a name="duration"></a>Duration
+## <a name="duration"></a>기간
 
 요청 기간은 `DD.HH:MM:SS.MMMMMM` 형식으로 나타냅니다. `1000`일보다 작은 양수여야 합니다. 요청 원격 분석은 처음과 끝이 있는 작업을 나타내므로 이 필드는 필수입니다.
 
@@ -53,7 +53,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 최대 길이: 1024자
 
-## <a name="success"></a>Success
+## <a name="success"></a>성공
 
 성공 또는 실패한 호출을 나타냅니다. 이 필드는 필수 필드입니다. 명시적으로 `false`로 설정되지 않은 경우 - 요청이 성공으로 간주됩니다. 작업이 예외에 의해 중단되었거나 오류 결과 코드를 반환한 경우 이 값을 `false`로 설정합니다.
 

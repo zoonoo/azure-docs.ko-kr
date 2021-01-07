@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 947dd125cf9c5f5874eed380b3d69cff11509e31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b598494500124ca4a70e8e2d7bfef023fbf7d498
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187248"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328779"
 ---
 # <a name="azure-data-lake-storage-gen1-overview-in-hdinsight"></a>HDInsight의 Azure Data Lake Storage Gen1 개요
 
@@ -33,7 +33,7 @@ Data Lake Storage Gen1에 저장 된 데이터는 Hadoop 분석 프레임 워크
 
 ## <a name="unlimited-storage-petabyte-files"></a>무제한 스토리지, 페타바이트 파일
 
-Data Lake Storage Gen1은 무제한 저장소를 제공 하 고 분석을 위해 다양 한 종류의 데이터를 저장 하는 데 적합 합니다. 계정 크기 또는 파일 크기에는 제한이 없습니다. Data lake에 저장 될 수 있는 데이터의 양입니다. 개별 파일의 크기는 킬로바이트에서 페타바이트으로 제한 Data Lake Storage Gen1 되므로 모든 형식의 데이터를 저장 하는 것이 좋습니다. 데이터는 여러 복사본을 만들어 지속적으로 저장 됩니다. 데이터를 data lake에 저장할 수 있는 기간에는 제한이 없습니다.
+Data Lake Storage Gen1은 무제한 저장소를 제공 하 고 분석을 위해 다양 한 종류의 데이터를 저장 하는 데 적합 합니다. 계정 크기 또는 파일 크기에는 제한이 없습니다. Data lake에 저장 될 수 있는 데이터의 양입니다. 개별 파일의 크기는 킬로바이트에서 페타바이트으로 제한 Data Lake Storage Gen1 되므로 모든 형식의 데이터를 저장 하는 것이 좋습니다. 데이터는 여러 복사본을 만들어 영구적으로 저장됩니다. 데이터를 data lake에 저장할 수 있는 기간에는 제한이 없습니다.
 
 ## <a name="performance-tuning-for-big-data-analytics"></a>빅 데이터 분석에 대한 성능 조정
 
@@ -57,7 +57,7 @@ Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용하�
 
 | **기능** | **설명** |
 | --- | --- |
-| 인증 |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(Azure AD)와 통합합니다. 이러한 통합으로 인해 Data Lake Storage Gen1은 모든 Azure AD 기능의 이점을 얻습니다. 이러한 기능에는 다단계 인증, 조건부 액세스 및 역할 기반 액세스 제어가 포함 됩니다. 또한 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등이 있습니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
+| 인증 |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(Azure AD)와 통합합니다. 이러한 통합으로 인해 Data Lake Storage Gen1은 모든 Azure AD 기능의 이점을 얻습니다. 이러한 기능에는 다단계 인증, 조건부 액세스 및 Azure 역할 기반 액세스 제어가 포함 됩니다. 또한 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등이 있습니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
 | Access Control |Data Lake Storage Gen1은 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Storage Gen1의 컨텍스트에서 ACL 작동 방식에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요. |
 | 암호화 |또한 Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화를 제공합니다. Data Lake Storage Gen1 계정을 만드는 동안 암호화 설정을 지정합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 자세한 내용은 [Data Lake Storage Gen1의 암호화](../data-lake-store/data-lake-store-encryption.md)를 참조하세요. 암호화 관련 구성을 제공하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조하세요. |
 

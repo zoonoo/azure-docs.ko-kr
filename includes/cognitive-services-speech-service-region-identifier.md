@@ -2,14 +2,14 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 12/10/2020
 ms.author: wolfma
-ms.openlocfilehash: c8e6c11771ae4cd216b3b1e43f3db7924dca81cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 329241c2660ff7828f57fb21daeb6de20caedc43
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168169"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504460"
 ---
 | Geography | 지역 | 영역 식별자 |
 | ----- | ----- | ----- |
@@ -24,7 +24,7 @@ ms.locfileid: "77168169"
 | 아메리카 | 캐나다 중부 | `canadacentral` |
 | 아메리카 | 브라질 남부 | `brazilsouth` |
 | 아시아 태평양 | 동아시아 | `eastasia` |
-| 아시아 태평양 | 동남아시아 | `southeastasia` |
+| 아시아 태평양 | 동남 아시아 | `southeastasia` |
 | 아시아 태평양 | 오스트레일리아 동부 | `australiaeast` |
 | 아시아 태평양 | 인도 중부 | `centralindia` |
 | 아시아 태평양 | 일본 동부 | `japaneast` |

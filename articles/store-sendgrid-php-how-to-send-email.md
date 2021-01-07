@@ -16,11 +16,11 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67870903"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023791"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>PHP에서 SendGrid 메일 서비스를 사용하는 방법
 
@@ -37,7 +37,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 고객 문의 전달
 * 애플리케이션의 전자 메일 알림
 
-자세한 내용은 [https://sendgrid.com][https://sendgrid.com]를 참조하세요.
+자세한 내용은 [https://sendgrid.com][https://sendgrid.com]을(를) 참조하세요.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 
@@ -53,7 +53,7 @@ SendGrid에서 제공하는 SMTP 또는 웹 API를 사용하여 전자 메일을
 
 ### <a name="smtp-api"></a>SMTP API
 
-SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 애플리케이션에서 메일을 보내기 위한 구성 요소 기반 라이브러리인 *Swift Mailer*를 사용합니다. [Swift Mailer 라이브러리](https://swiftmailer.symfony.com/) v5.3.0을 다운로드할 수 있습니다([Composer]를 사용하여 Swift Mailer 설치). 라이브러리를 사용하여 이메일을 보내려면 `Swift\_SmtpTransport`, `Swift\_Mailer` 및 `Swift\_Message` 클래스 인스턴스를 만들고, 적절한 속성을 설정하고, `Swift\_Mailer::send` 메서드를 호출해야 합니다.
+SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 애플리케이션에서 메일을 보내기 위한 구성 요소 기반 라이브러리인 *Swift Mailer* 를 사용합니다. [Swift Mailer 라이브러리](https://swiftmailer.symfony.com/) v5.3.0을 다운로드할 수 있습니다([Composer]를 사용하여 Swift Mailer 설치). 라이브러리를 사용하여 이메일을 보내려면 `Swift\_SmtpTransport`, `Swift\_Mailer` 및 `Swift\_Message` 클래스 인스턴스를 만들고, 적절한 속성을 설정하고, `Swift\_Mailer::send` 메서드를 호출해야 합니다.
 
 ```php
 <?php
@@ -299,7 +299,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
 
-SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공 합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다.
+SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공 합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다.
 
 필터는 filters 속성을 사용하여 메시지에 적용할 수 있습니다. 각 필터는 필터별 설정을 포함하는 해시에 의해 지정됩니다. 다음 예제에서는 바닥글 필터를 사용하도록 설정하고 메일 메시지의 맨 아래에 추가할 텍스트 메시지를 지정합니다. 이 예제의 경우 [sendgrid-php 라이브러리]를 사용합니다.
 

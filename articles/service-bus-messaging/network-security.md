@@ -3,12 +3,12 @@ title: Azure Service Bus에 대 한 네트워크 보안
 description: 이 문서에서는 서비스 태그, IP 방화벽 규칙, 서비스 끝점, 개인 끝점 등의 네트워크 보안 기능에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db0dd89d1f902699c27b724609505ba681757454
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341134"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310455"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Azure Service Bus에 대 한 네트워크 보안 
 이 문서에서는 Azure Service Bus에서 다음 보안 기능을 사용 하는 방법을 설명 합니다. 
@@ -16,13 +16,13 @@ ms.locfileid: "85341134"
 - 서비스 태그
 - IP 방화벽 규칙
 - 네트워크 서비스 끝점
-- 프라이빗 엔드포인트(미리 보기)
+- 프라이빗 엔드포인트
 
 
 ## <a name="service-tags"></a>서비스 태그
 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대 한 자세한 내용은 [서비스 태그 개요](../virtual-network/service-tags-overview.md)를 참조 하세요.
 
-서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에서 서비스 태그 이름 (예: **ServiceBus**)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
+서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본* 또는 *대상* 필드에서 서비스 태그 이름 (예: **ServiceBus**)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
 
 | 서비스 태그 | 목적 | 인바운드 또는 아웃바운드를 사용할 수 있나요? | 지역 범위를 지원할 수 있나요? | Azure Firewall에서 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -81,8 +81,6 @@ Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗
 
 > [!NOTE]
 > 이 기능은 Azure Service Bus의 **프리미엄** 계층에서 지원됩니다. 프리미엄 계층에 대한 자세한 내용은 [Service Bus 프리미엄 및 표준 메시징 계층](service-bus-premium-messaging.md) 문서를 참조하세요.
->
-> 이 기능은 현재 **미리 보기**로 제공됩니다. 
 
 
 자세한 내용은 [Service Bus 네임 스페이스에 대 한 개인 끝점을 구성 하는 방법](private-link-service.md) 을 참조 하세요.

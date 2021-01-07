@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921676"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108386"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -23,15 +23,15 @@ ms.locfileid: "87921676"
 
 ## <a name="azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트
 
-Azure AD B2C(Azure Active Directory B2C)에서 *테넌트*는 조직을 나타내며 사용자의 디렉터리입니다. 각 Azure AD B2C 테넌트는 서로 전혀 다르고 다른 Azure AD B2C 테넌트와 별개입니다. Azure AD B2C 테넌트는 이미 있을 수 있는 Azure Active Directory 테넌트와 다릅니다.
+Azure AD B2C(Azure Active Directory B2C)에서 *테넌트* 는 조직을 나타내며 사용자의 디렉터리입니다. 각 Azure AD B2C 테넌트는 서로 전혀 다르고 다른 Azure AD B2C 테넌트와 별개입니다. Azure AD B2C 테넌트는 이미 있을 수 있는 Azure Active Directory 테넌트와 다릅니다.
 
 Azure AD B2C 테넌트에서 사용하는 기본 리소스는 다음과 같습니다.
 
-* **디렉터리** - *디렉터리*는 Azure AD B2C에서 사용자의 자격 증명 및 프로필 데이터와 애플리케이션 등록을 저장하는 위치입니다.
+* **디렉터리** - *디렉터리* 는 Azure AD B2C에서 사용자의 자격 증명 및 프로필 데이터와 애플리케이션 등록을 저장하는 위치입니다.
 * **애플리케이션 등록** - ID 관리를 사용하도록 설정하기 위해 웹, 모바일 및 네이티브 애플리케이션을 Azure AD B2C에 등록합니다. 또한 Azure AD B2C를 사용하여 보호하려는 API도 있습니다.
 * **사용자 흐름** 및 **사용자 지정 정책** - 애플리케이션에 대한 기본 제공(사용자 흐름) 및 완전히 사용자 지정 가능한(사용자 지정 정책) ID 환경입니다.
-  * 가입, 로그인 및 프로필 편집과 같은 일반적인 ID 작업을 빠르게 구성하고 사용하도록 설정하려면 *사용자 흐름*을 사용합니다.
-  * 일반적인 ID 작업뿐만 아니라 조직, 고객, 직원, 파트너 및 시민 고유의 복잡한 ID 워크플로에 대한 지원 작성을 위한 사용자 환경을 사용하도록 설정하려면 *사용자 지정 정책*을 사용합니다.
+  * 가입, 로그인 및 프로필 편집과 같은 일반적인 ID 작업을 빠르게 구성하고 사용하도록 설정하려면 *사용자 흐름* 을 사용합니다.
+  * 일반적인 ID 작업뿐만 아니라 조직, 고객, 직원, 파트너 및 시민 고유의 복잡한 ID 워크플로에 대한 지원 작성을 위한 사용자 환경을 사용하도록 설정하려면 *사용자 지정 정책* 을 사용합니다.
 * **ID 공급자** - 다음 항목에 대한 페더레이션 설정입니다.
   * 애플리케이션에서 지원하려는 *소셜* ID 공급자(예: Facebook, LinkedIn 또는 Twitter).
   * 표준 ID 프로토콜을 지원하는 *외부* ID 공급자(예: OAuth 2.0, OpenID Connect 등).
@@ -87,21 +87,21 @@ Azure AD B2C의 확장 가능한 정책 프레임워크는 핵심 강점입니�
 
 Azure AD B2C에는 이러한 ID 환경을 제공하기 위해 수행할 수 있는 사용자 흐름과 사용자 지정 정책의 두 가지 기본 경로가 있습니다.
 
-* **사용자 흐름**은 Microsoft에서 제공하는 미리 정의되고 기본 제공되는 구성 가능한 정책이므로 가입, 로그인 및 정책 편집 환경을 몇 분 내에 만들 수 있습니다.
+* **사용자 흐름** 은 Microsoft에서 제공하는 미리 정의되고 기본 제공되는 구성 가능한 정책이므로 가입, 로그인 및 정책 편집 환경을 몇 분 내에 만들 수 있습니다.
 
-* **사용자 지정 정책**을 사용하면 복잡한 ID 환경 시나리오에 적합한 고유의 사용자 경험을 만들 수 있습니다.
+* **사용자 지정 정책** 을 사용하면 복잡한 ID 환경 시나리오에 적합한 고유의 사용자 경험을 만들 수 있습니다.
 
-사용자 흐름과 사용자 지정 정책은 모두 Azure AD B2C의 정책 오케스트레이션 엔진인 *Identity Experience Framework*를 통해 구동됩니다.
+사용자 흐름과 사용자 지정 정책은 모두 Azure AD B2C의 정책 오케스트레이션 엔진인 *Identity Experience Framework* 를 통해 구동됩니다.
 
 ### <a name="user-flow"></a>사용자 흐름
 
-가장 일반적인 ID 작업을 빠르게 설정하는 데 도움을 주기 위해 Azure Portal에는 *사용자 흐름*이라는 미리 정의되고 구성 가능한 몇 가지 정책이 있습니다.
+가장 일반적인 ID 작업을 빠르게 설정하는 데 도움을 주기 위해 Azure Portal에는 *사용자 흐름* 이라는 미리 정의되고 구성 가능한 몇 가지 정책이 있습니다.
 
 애플리케이션의 ID 환경 동작을 제어하기 위해 다음과 같은 사용자 흐름 설정을 구성할 수 있습니다.
 
 * 로그인에 사용되는 계정 유형(예: Facebook과 같은 소셜 계정 또는 로그인에 이메일 주소와 암호를 사용하는 로컬 계정)
 * 소비자로부터 수집할 특성(예: 이름, 우편 번호 또는 거주 국가/지역)
-* Azure MFA(Multi-Factor Authentication)
+* Azure AD MFA(Multi-Factor Authentication)
 * 사용자 인터페이스의 사용자 지정
 * 사용자가 사용자 흐름을 완료한 후에 애플리케이션에서 받는 토큰의 클레임 세트
 * 세션 관리
@@ -162,7 +162,7 @@ Azure AD B2C에서는 표시되는 페이지가 브랜드의 모양 및 느낌�
 
 ![브랜드가 사용자 지정된 가입 로그인 페이지의 스크린샷](media/technical-overview/seamless-ux.png)
 
-UI 사용자 지정에 대한 자세한 내용은 [Azure Active Directory B2C의 사용자 인터페이스 사용자 지정 정보](customize-ui-overview.md)를 참조하세요.
+UI 사용자 지정에 대한 자세한 내용은 [Azure Active Directory B2C의 사용자 인터페이스 사용자 지정 정보](customize-ui-with-html.md)를 참조하세요.
 
 ## <a name="localization"></a>지역화
 
@@ -170,7 +170,7 @@ Azure AD B2C의 사용자 언어 지정을 사용하면 고객의 요구 사항�
 
 ![서로 다른 언어의 UI 텍스트를 보여 주는 세 개의 가입 로그인 페이지](media/technical-overview/localization.png)
 
-지역화가 작동하는 방법은 [Azure Active Directory B2C의 사용자 언어 지정](user-flow-language-customization.md)을 참조하세요.
+지역화가 작동하는 방법은 [Azure Active Directory B2C의 사용자 언어 지정](language-customization.md)을 참조하세요.
 
 ## <a name="add-your-own-business-logic"></a>고유한 비즈니스 논리 추가
 
@@ -215,13 +215,13 @@ Azure AD B2C에서는 다음을 포함하여 특정 관리 작업을 수행할 �
 * Identity Experience Framework에서 신뢰 프레임워크 정책 만들기 및 관리(사용자 지정 정책)
 * Identity Experience Framework에서 페더레이션 및 암호화용 비밀 관리(사용자 지정 정책)
 
-Azure AD B2C 관리 역할 지원을 포함하여 Azure AD 역할에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+Azure AD B2C 관리 역할 지원을 포함하여 Azure AD 역할에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../active-directory/roles/permissions-reference.md)을 참조하세요.
 
 ### <a name="multi-factor-authentication-mfa"></a>MFA(다단계 인증)
 
 Azure AD B2C MFA(다단계 인증)를 사용하면 사용자의 편의를 유지하면서 데이터와 애플리케이션에 대한 액세스를 보호할 수 있습니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고, 사용하기 쉬운 다양한 인증 방법을 제공하여 강력한 인증을 제공합니다. 관리자로서 결정할 수 있는 구성에 따라 사용자에게 MFA에 대한 문제가 발생할 수도 있고 그렇지 않을 수도 있습니다.
 
-사용자 흐름에서 MFA를 사용하도록 설정하는 방법을 알아보려면 [Azure Active Directory B2C에서 다단계 인증 사용](custom-policy-multi-factor-authentication.md)을 참조하세요.
+사용자 흐름에서 MFA를 사용하도록 설정하는 방법을 알아보려면 [Azure Active Directory B2C에서 다단계 인증 사용](multi-factor-authentication.md)을 참조하세요.
 
 ### <a name="smart-account-lockout"></a>스마트 계정 잠금
 
@@ -235,7 +235,7 @@ Azure AD B2C MFA(다단계 인증)를 사용하면 사용자의 편의를 유지
 
 가입 또는 암호 재설정 중에 사용자는 복잡성 규칙을 충족하는 암호를 제공해야 합니다. 기본적으로 Azure AD B2C는 강력한 암호 정책을 적용합니다. 또한 Azure AD B2C는 고객이 사용하는 암호의 복잡성 요구 사항을 지정하는 구성 옵션도 제공합니다.
 
-암호 복잡성 요구 사항은 [사용자 흐름](user-flow-password-complexity.md) 및 [사용자 지정 정책](custom-policy-password-complexity.md) 모두에서 구성할 수 있습니다.
+암호 복잡성 요구 사항은 [사용자 흐름](password-complexity.md) 및 [사용자 지정 정책](password-complexity.md) 모두에서 구성할 수 있습니다.
 
 ## <a name="auditing-and-logs"></a>감사 및 로그
 

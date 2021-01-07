@@ -10,15 +10,20 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a45000c59f975a03f51aa5ee86846c772cbdfaaa
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 6a2c69735c36c06cdf72efc812aa1ac4020ff00a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406472"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96342229"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>자습서: 웹 페이지에서 검색 제안 가져오기
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 이 자습서에서는 사용자가 Bing Autosuggest API를 쿼리할 수 있는 웹 페이지를 빌드합니다.
 
@@ -119,7 +124,7 @@ getSubscriptionKeyLocalStorage 도우미 함수는 먼저 해당 쿠키를 조�
     }
 ```
 
-getSubscriptionKey 도우미 함수는 **invalidate** 매개 변수를 사용합니다. **invalidate**가 **true**이면 getSubscriptionKey는 Bing Autosuggest API 키가 포함된 쿠키를 삭제합니다. **invalidate**가 **false**이면 getSubscriptionKey는 Bing Autosuggest API 키 값을 반환합니다.
+getSubscriptionKey 도우미 함수는 **invalidate** 매개 변수를 사용합니다. **invalidate** 가 **true** 이면 getSubscriptionKey는 Bing Autosuggest API 키가 포함된 쿠키를 삭제합니다. **invalidate** 가 **false** 이면 getSubscriptionKey는 Bing Autosuggest API 키 값을 반환합니다.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -353,4 +358,4 @@ Bing 로고를 표시합니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용 및 표시 요구 사항](../UseAndDisplayRequirements.md)
+> [사용 및 표시 요구 사항](../../bing-web-search/use-display-requirements.md)

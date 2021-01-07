@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, v2, Azure Kinect, 비교, SDK, 차이점, 하드웨어, 소프트웨어
 ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87031578"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Azure Kinect and Kinect Windows v2 비교
@@ -27,12 +27,12 @@ Azure Kinect 진한 하드웨어 및 소프트웨어 개발 키트는 Windows v 
 | **오디오** | 세부 정보  | 7-mic 순환 배열 | 4-mic 선형 단계별 배열 |
 | **동작 센서** | 세부 정보 | 3 축가 속도계 3 축 gyro | 3 축가 속도계 |
 | **RGB 카메라**    | 세부 정보 | 3840 x 2160 px @30 fps | 1920 x 1080 px @30 fps |
-| **깊이 카메라**  | 메서드   | 비행 시간 | 비행 시간 |
+| **깊이 카메라**  | 방법   | 비행 시간 | 비행 시간 |
 |                   | 해결 방법 | 640 x 576 px @30 fps | 512 x 424 px @ 30fps |
 |                   |            | 512 x 512 px @30 fps |                       |
 |                   |            | 1024x1024 px @15 fps |                       |
 | **연결** | 데이터 | Usb 3.1 Gen 1 유형 (USB-C)  | USB 3.1 gen 1|
-|  | 전력 | 외부 PSU 또는 USB-C | 외부 PSU |
+|  | 전원 | 외부 PSU 또는 USB-C | 외부 PSU |
 |  | 동기화 | RGB & 깊이 내부, 외부 장치-장치| RGB & 깊이 내부용 |
 | **기계적** | 차원 | 103 x 39 x 126 mm | 249 x 66 x 67 mm |
 |  | 편지 | 440 g | 970 g |
@@ -71,7 +71,7 @@ Azure Kinect SDK 기능 집합은 아래에 설명 된 대로 Windows v2의 Kine
 | | BodyIndexFrame | 본문 추적 SDK  |
 | 좌표 매핑|CoordinateMapper| [센서 SDK-이미지 변환](use-image-transformation.md) |
 |얼굴 추적 | FaceFrame | [Cognitive Services: 얼굴](https://azure.microsoft.com/services/cognitive-services/face/)       |
-|    음성 인식    |    N/A                      |    [Cognitive Services: Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)     |
+|    음성 인식    |    해당 없음                      |    [Cognitive Services: Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)     |
 
 ## <a name="next-steps"></a>다음 단계
 

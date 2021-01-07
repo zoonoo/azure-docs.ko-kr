@@ -3,18 +3,20 @@ title: Cosmos DB에 대해 Azure Functions 트리거를 사용할 때 발생 하
 description: Cosmos DB에 대 한 Azure Functions 트리거를 사용 하는 경우 일반적인 문제, 해결 방법 및 진단 단계
 author: ealsur
 ms.service: cosmos-db
-ms.date: 03/13/2020
+ms.subservice: cosmosdb-sql
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b7b82ea07b7e00d281739011c9c9f83ab4dff73
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79365511"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825617"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 [Cosmos DB에 대 한 Azure Functions 트리거](change-feed-functions.md)를 사용 하는 경우 일반적인 문제, 해결 방법 및 진단 단계를 다룹니다.
 
@@ -31,7 +33,7 @@ Cosmos DB에 대 한 Azure Functions 트리거와 바인딩은 기본 Azure Func
 
 확장 패키지의 핵심 기능은 Cosmos DB에 대 한 Azure Functions 트리거와 바인딩을 지원 하기 위한 것입니다. 여기에는 트리거와 바인딩을 사용 하지 않고 프로그래밍 방식으로 Azure Cosmos DB와 상호 작용 하려는 경우에 유용한 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md)도 포함 되어 있습니다.
 
-Azure Cosmos DB SDK를 사용 하려면 다른 NuGet 패키지 참조를 프로젝트에 추가 하지 않아야 합니다. 대신 **Azure Functions의 확장 패키지를 통해 SDK 참조를 확인 하도록**합니다. 트리거 및 바인딩과 별도로 Azure Cosmos DB SDK 사용
+Azure Cosmos DB SDK를 사용 하려면 다른 NuGet 패키지 참조를 프로젝트에 추가 하지 않아야 합니다. 대신 **Azure Functions의 확장 패키지를 통해 SDK 참조를 확인 하도록** 합니다. 트리거 및 바인딩과 별도로 Azure Cosmos DB SDK 사용
 
 또한 [AZURE COSMOS DB SDK 클라이언트](./sql-api-sdk-dotnet-core.md)의 고유한 인스턴스를 수동으로 만드는 경우 [단일 패턴 접근 방법을 사용 하 여](../azure-functions/manage-connections.md#documentclient-code-example-c)클라이언트의 인스턴스를 하나만 포함 하는 패턴을 따라야 합니다. 이 프로세스를 수행 하면 작업에서 발생할 수 있는 소켓 문제가 발생 하지 않습니다.
 
@@ -43,7 +45,7 @@ Azure Function이 실패 하 고 "원본 컬렉션 ' 컬렉션 이름 ' (데이�
 
 즉, 트리거가 작동 하는 데 필요한 Azure Cosmos 컨테이너 중 하나 또는 둘 다가 존재 하지 않거나 Azure Function에 연결할 수 없습니다. 오류 자체는 사용자의 구성에 따라 **찾고 있는 트리거와 Azure Cosmos database 및 컨테이너를 알려 줍니다** .
 
-1. 특성을 확인 하 `ConnectionStringSetting` 고 **Azure 함수 앱에 있는 설정을 참조**하는지 확인 합니다. 이 특성의 값은 연결 문자열 자체가 아니라 구성 설정의 이름입니다.
+1. 특성을 확인 하 `ConnectionStringSetting` 고 **Azure 함수 앱에 있는 설정을 참조** 하는지 확인 합니다. 이 특성의 값은 연결 문자열 자체가 아니라 구성 설정의 이름입니다.
 2. `databaseName`및가 `collectionName` Azure Cosmos 계정에 있는지 확인 합니다. 패턴을 사용 하 여 자동 값 대체를 사용 하는 경우 `%settingName%` 설정의 이름이 Azure 함수 앱에 있는지 확인 합니다.
 3. 을 지정 하지 않으면 `LeaseCollectionName/leaseCollectionName` 기본값은 "임대"입니다. 이러한 컨테이너가 있는지 확인 합니다. 필요에 따라 `CreateLeaseCollectionIfNotExists` 트리거의 특성을로 설정 하 여 `true` 자동으로 만들 수 있습니다.
 4. Azure [Cosmos 계정의 방화벽 구성을](how-to-configure-firewall.md) 확인 하 여 azure 함수를 차단 하지 않는지 확인 합니다.
@@ -83,18 +85,20 @@ Azure Function이 실패 하 고 "원본 컬렉션 ' 컬렉션 이름 ' (데이�
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>일부 변경 내용이 내 트리거에서 누락 됨
 
-Azure Cosmos 컨테이너에서 발생 한 변경 내용 중 일부를 Azure Function에서 선택 하지 않은 경우에는 초기 조사 단계를 수행 해야 합니다.
+Azure Cosmos 컨테이너에서 발생 한 일부 변경 내용이 Azure 함수에 의해 선택 되지 않거나 대상에 일부 변경 내용이 없는 경우 아래 단계를 수행 하세요.
 
 Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으로 결과를 다른 대상으로 보낼 수 있습니다. 누락 된 변경 내용을 조사 하는 경우 수집 **지점에서 수신 되는 변경 내용** (Azure 함수가 시작 될 때)을 측정 하 여 대상이 아니라는 것을 측정 해야 합니다.
 
 대상에 일부 변경 내용이 없는 경우에는 변경 내용이 수신 된 후 Azure 함수를 실행 하는 동안 오류가 발생 하는 것을 의미할 수 있습니다.
 
-이 시나리오에서 가장 좋은 방법은 `try/catch` 코드에서 블록을 추가 하 고, 변경 내용을 처리 하는 루프 내에서 항목의 특정 하위 집합에 대 한 오류를 감지 하 여 적절 하 게 처리 하는 것입니다. 추가 분석을 위해 다른 저장소로 보내거나 다시 시도 하는 것이 좋습니다. 
+이 시나리오에서 가장 좋은 방법은 `try/catch` 코드에서 블록을 추가 하 고, 변경 내용을 처리 하는 루프 내에서 항목의 특정 하위 집합에 대 한 오류를 감지 하 여 적절 하 게 처리 하는 것입니다. 추가 분석을 위해 다른 저장소로 보내거나 다시 시도 하는 것이 좋습니다.
 
 > [!NOTE]
 > 코드를 실행하는 동안 처리되지 않은 예외가 발생하면 기본적으로 Cosmos DB에 대한 Azure Functions 트리거가 변경 내용 일괄 처리를 다시 시도하지 않습니다. 즉, 변경 내용이 대상에 도착 하지 않은 이유는 처리에 실패 하기 때문입니다.
 
-트리거에 의해 일부 변경 사항이 수신 되지 않은 경우 가장 일반적인 시나리오는 **다른 Azure 함수가 실행**되 고 있다는 것입니다. Azure에 배포 된 다른 Azure 함수 또는 **정확히 동일한 구성** (동일한 모니터링 및 임대 컨테이너)이 있는 개발자 컴퓨터에서 로컬로 실행 되는 azure 함수 일 수 있으며,이 azure 함수는 azure function에서 처리할 것으로 간주 되는 변경 내용의 하위 집합을 도용 합니다.
+대상이 다른 Cosmos 컨테이너이 고 항목을 복사 하는 Upsert 작업을 수행 하는 경우 **모니터링 된 컨테이너와 대상 컨테이너 모두의 파티션 키 정의가 동일한 지 확인** 합니다. Upsert 작업은이 구성 차이로 인해 대상에 여러 소스 항목을 저장할 수 있습니다.
+
+트리거에 의해 일부 변경 사항이 수신 되지 않은 경우 가장 일반적인 시나리오는 **다른 Azure 함수가 실행** 되 고 있다는 것입니다. Azure에 배포 된 다른 Azure 함수 또는 **정확히 동일한 구성** (동일한 모니터링 및 임대 컨테이너)이 있는 개발자 컴퓨터에서 로컬로 실행 되는 azure 함수 일 수 있으며,이 azure 함수는 azure function에서 처리할 것으로 간주 되는 변경 내용의 하위 집합을 도용 합니다.
 
 또한 실행 중인 Azure 함수 앱 인스턴스 수를 알고 있는 경우 시나리오의 유효성을 검사할 수 있습니다. 임대 컨테이너를 검사 하 고 내에서 임대 항목 수를 계산 하는 경우 해당 속성의 고유 값은 `Owner` 함수 앱 인스턴스의 수와 같아야 합니다. 알려진 Azure 함수 앱 인스턴스 보다 많은 소유자가 있는 경우 이러한 추가 소유자가 변경 내용을 "도용" 하는 것을 의미 합니다.
 

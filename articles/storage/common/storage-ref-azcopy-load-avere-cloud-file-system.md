@@ -10,10 +10,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 8f0a8903f90b134c35d9adb35a493d989d414b56
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294333"
 ---
 # <a name="azcopy-load-clfs"></a>azcopy load clfs
@@ -49,7 +49,7 @@ azcopy load clfs [local dir] [container URL] [flags]
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 CLFS 형식의 SAS를 사용 하 여 컨테이너에 전체 디렉터리를 로드 합니다.
 
@@ -61,7 +61,7 @@ azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[contai
 
 **--압축 형식** 문자열 전송에 사용할 압축 유형을 지정 합니다. 사용 가능한 값은 `DISABLED` , `LZ4` 입니다. (기본값 `LZ4` )
 
-**--** 명령에 대 한 도움말 도움말 `azcopy load clfs` 입니다.
+**--**    명령에 대 한 도움말 도움말 `azcopy load clfs` 입니다.
 
 **--로그 수준** 문자열 로그 파일의 자세한 정도를 정의 합니다. 사용 가능한 수준:,, `DEBUG` `INFO` `WARNING` , `ERROR` . (기본값 `INFO` )
 

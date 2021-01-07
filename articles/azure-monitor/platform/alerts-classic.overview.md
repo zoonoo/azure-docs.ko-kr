@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: c7dfbd60b7a668b849c3150bb16e40285c345634
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844116"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015352"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -68,7 +68,7 @@ Azure는 다음 용어를 사용하여 클래식 경고와 그 기능을 설명�
 ## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Azure Monitor 클래식 경고에서 알림을 받는 방법
 지금까지 다양한 서비스의 Azure 경고는 자체 기본 제공 알림 방법을 사용했습니다. 
 
-Azure Monitor에서 *작업 그룹*이라는 재사용 가능한 알림 그룹화를 만듭니다. 작업 그룹은 알림에 대한 받는 사람 집합을 지정합니다. 언제든지 작업 그룹을 참조하는 경고가 활성화되면 모든 받는 사람은 해당 알림을 받습니다. 작업 그룹을 통해 여러 경고 개체에서 수신자 그룹(예: 당직 엔지니어 목록)을 재사용할 수 있습니다. 작업 그룹은 메일 주소, SMS 번호 및 다양한 다른 작업 외에도 webhook URL 게시를 통한 알림도 지원합니다.  자세한 내용은 [작업 그룹](./action-groups.md)을 참조 하세요. 
+Azure Monitor에서 *작업 그룹* 이라는 재사용 가능한 알림 그룹화를 만듭니다. 작업 그룹은 알림에 대한 받는 사람 집합을 지정합니다. 언제든지 작업 그룹을 참조하는 경고가 활성화되면 모든 받는 사람은 해당 알림을 받습니다. 작업 그룹을 통해 여러 경고 개체에서 수신자 그룹(예: 당직 엔지니어 목록)을 재사용할 수 있습니다. 작업 그룹은 메일 주소, SMS 번호 및 다양한 다른 작업 외에도 webhook URL 게시를 통한 알림도 지원합니다.  자세한 내용은 [작업 그룹](./action-groups.md)을 참조 하세요. 
 
 이전 클래식 활동 로그 경고는 작업 그룹을 사용합니다.
 
@@ -93,7 +93,7 @@ Webhook는 다음 예시 항목을 사용하여 자동화 및 조치를 활성�
 * [활동 로그](platform-logs-overview.md) 에 대 한 자세한 정보
 * [Azure Portal을 통해 활동 로그 경고](activity-log-alerts.md) 구성
 * [Resource Manager를 통해 활동 로그 경고](alerts-activity-log.md) 구성
-* [활동 로그 경고 웹후크 스키마](activity-log-alerts-webhook.md) 검토
+* [활동 로그 경고 webhook 스키마](activity-log-alerts-webhook.md) 를 검토 합니다.
 * [작업 그룹](action-groups.md) 에 대 한 자세한 정보
 * [최신 경고](alerts-metric.md) 구성
 

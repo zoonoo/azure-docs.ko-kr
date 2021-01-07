@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 61efc7719b071ff4e8e5c0e07534b72a2883aff1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749094"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458873"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -79,7 +79,7 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 **참고:**  
 <a name="tab1400b">6</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.  
 <a name="sqlim">7</a> - 테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정하는 경우 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL(권장), SQL Server Native Client 11.0 또는 .NET Framework Data Provider for SQL Server를 지정합니다.  
-<a name="instgw">8</a> - MSOLEDBSQL을 데이터 공급자로 지정하는 경우 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 [Microsoft OLE DB Driver for SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server)를 다운로드하여 설치해야 할 수 있습니다.  
+<a name="instgw">8</a> - MSOLEDBSQL을 데이터 공급자로 지정하는 경우 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server)를 다운로드하여 설치해야 할 수 있습니다.  
 <a name="oracle">9</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Oracle Data Provider for .NET을 지정합니다. 구조적 데이터 원본으로 지정 하는 경우에 [는 Oracle 관리 공급자를 사용 하도록 설정](#enable-oracle-managed-provider)해야 합니다.   
 <a name="teradata">10</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Teradata Data Provider for .NET을 지정합니다.  
 <a name="filesSP">11</a> - 온-프레미스 SharePoint의 파일은 지원되지 않습니다.
@@ -88,21 +88,21 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 
 ## <a name="understanding-providers"></a>공급자 이해
 
-Visual Studio에서 테이블 형식 1400 이상 모델 프로젝트를 만들 때 기본적으로 **데이터 가져오기**를 사용하여 데이터 원본에 연결할 경우 데이터 공급자를 지정하지 않습니다. 테이블 형식 1400 이상 모델에서는 [파워 쿼리](/power-query/power-query-what-is-power-query) 커넥터를 사용하여 데이터 원본 및 Analysis Services 간의 연결, 데이터 쿼리 및 매시업을 관리합니다. 이와 같은 경우에는 연결 속성 설정이 사용자에게 맞게 설정되어 *구조적* 데이터 원본 연결이라고도 합니다. 그러나 Visual Studio에서 모델 프로젝트에 대한 레거시 데이터 원본을 사용하도록 설정할 수 있습니다. 설정된 경우 **테이블 가져오기 마법사**를 사용하여 테이블 형식 1200 이하 모델에서 *레거시* 또는 *공급자* 데이터 원본으로 일반적으로 지원되는 특정 데이터 원본에 연결할 수 있습니다. 공급자 데이터 원본으로 지정하는 경우 특정 데이터 공급자 및 기타 고급 연결 속성을 지정할 수 있습니다. 예를 들어 기존 데이터 원본으로 SQL Server 데이터 웨어하우스 인스턴스 또는 Azure SQL Database에 연결할 수 있습니다. 그런 다음 OLE DB Driver for SQL Server MSOLEDBSQL 데이터 공급자를 선택할 수 있습니다. 이 경우 OLE DB 데이터 공급자를 선택하면 파워 쿼리 커넥터보다 향상된 성능을 제공할 수 있습니다. 
+Visual Studio에서 테이블 형식 1400 이상 모델 프로젝트를 만들 때 기본적으로 **데이터 가져오기** 를 사용하여 데이터 원본에 연결할 경우 데이터 공급자를 지정하지 않습니다. 테이블 형식 1400 이상 모델에서는 [파워 쿼리](/power-query/power-query-what-is-power-query) 커넥터를 사용하여 데이터 원본 및 Analysis Services 간의 연결, 데이터 쿼리 및 매시업을 관리합니다. 이와 같은 경우에는 연결 속성 설정이 사용자에게 맞게 설정되어 *구조적* 데이터 원본 연결이라고도 합니다. 그러나 Visual Studio에서 모델 프로젝트에 대한 레거시 데이터 원본을 사용하도록 설정할 수 있습니다. 설정된 경우 **테이블 가져오기 마법사** 를 사용하여 테이블 형식 1200 이하 모델에서 *레거시* 또는 *공급자* 데이터 원본으로 일반적으로 지원되는 특정 데이터 원본에 연결할 수 있습니다. 공급자 데이터 원본으로 지정하는 경우 특정 데이터 공급자 및 기타 고급 연결 속성을 지정할 수 있습니다. 예를 들어 기존 데이터 원본으로 SQL Server 데이터 웨어하우스 인스턴스 또는 Azure SQL Database에 연결할 수 있습니다. 그런 다음 OLE DB Driver for SQL Server MSOLEDBSQL 데이터 공급자를 선택할 수 있습니다. 이 경우 OLE DB 데이터 공급자를 선택하면 파워 쿼리 커넥터보다 향상된 성능을 제공할 수 있습니다. 
 
 Visual Studio에서 테이블 가져오기 마법사를 사용하는 경우 데이터 원본에 연결하려면 데이터 공급자가 필요합니다. 기본 데이터 공급자가 선택됩니다. 필요한 경우 데이터 공급자를 변경할 수 있습니다. 선택한 공급자 유형에 따라 성능, 모델의 메모리 내 스토리지 또는 DirectQuery에서 사용 여부 및 모델을 배포하는 Analysis Services 플랫폼이 달라질 수 있습니다.
 
 ### <a name="specify-provider-data-sources-in-tabular-1400-and-higher-model-projects"></a>테이블 형식 1400 이상 모델 프로젝트에서 공급자 데이터 원본 지정
 
-공급자 데이터 원본을 사용하도록 설정하려면 Visual Studio에서 **도구** > **옵션** > **Analysis Services 테이블 형식** > **데이터 가져오기**를 클릭하고 **레거시 데이터 원본 사용**을 선택합니다.
+공급자 데이터 원본을 사용하도록 설정하려면 Visual Studio에서 **도구** > **옵션** > **Analysis Services 테이블 형식** > **데이터 가져오기** 를 클릭하고 **레거시 데이터 원본 사용** 을 선택합니다.
 
 ![레거시 데이터 원본 사용](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
 
-레거시 데이터 원본을 사용하도록 설정하는 경우 **테이블 형식 모델 탐색기**에서 **데이터 원본** > **데이터 원본(레거시)에서 가져오기**를 마우스 오른쪽 단추로 클릭합니다.
+레거시 데이터 원본을 사용하도록 설정하는 경우 **테이블 형식 모델 탐색기** 에서 **데이터 원본** > **데이터 원본(레거시)에서 가져오기** 를 마우스 오른쪽 단추로 클릭합니다.
 
 ![테이블 형식 모델 탐색기의 레거시 데이터 원본](media/analysis-services-datasource/aas-import-legacy-datasources.png)
 
-테이블 형식 1200 모델 프로젝트와 마찬가지로 **테이블 가져오기 마법사**를 사용하여 데이터 원본에 연결합니다. 연결 페이지에서 **고급**을 클릭합니다. **고급 속성 설정**에서 데이터 공급자 및 기타 연결 설정을 지정합니다.
+테이블 형식 1200 모델 프로젝트와 마찬가지로 **테이블 가져오기 마법사** 를 사용하여 데이터 원본에 연결합니다. 연결 페이지에서 **고급** 을 클릭합니다. **고급 속성 설정** 에서 데이터 공급자 및 기타 연결 설정을 지정합니다.
 
 ![레거시 데이터 원본 고급 속성](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
@@ -120,7 +120,7 @@ Visual Studio에서 테이블 가져오기 마법사를 사용하는 경우 데�
 
 ## <a name="oauth-credentials"></a>OAuth 자격 증명
 
-메모리 내 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure Synapse (이전의 SQL Data Warehouse), Dynamics 365 및 SharePoint 목록은 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대한 시간 제한을 방지하기 위해 OAuth 데이터 원본에 대한 토큰 새로 고침을 관리합니다. 유효한 토큰을 생성 하려면 파워 쿼리를 사용 하 여 자격 증명을 설정 합니다.
+메모리 내 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure Synapse, Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대한 시간 제한을 방지하기 위해 OAuth 데이터 원본에 대한 토큰 새로 고침을 관리합니다. 유효한 토큰을 생성 하려면 파워 쿼리를 사용 하 여 자격 증명을 설정 합니다.
 
 직접 쿼리 모드는 OAuth 자격 증명에서 지원되지 않습니다.
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ebe9f936e3d0dfafec23842fcdbfd225995d546b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719786"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510965"
 ---
 # <a name="common-errors"></a>일반 오류
 
@@ -61,10 +61,41 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`AdminUserName`@`ServerName`*/ /*!50003
 DELIMITER ;
 ```
+#### <a name="error-1227-42000-at-line-295-access-denied-you-need-at-least-one-of-the-super-or-set_user_id-privileges-for-this-operation"></a>줄 295의 오류 1227(42000): 액세스가 거부되었습니다. 이 작업에 대한 SUPER 또는 SET_USER_ID 권한이 필요합니다.
+
+덤프 파일을 가져오거나 스크립트를 실행하는 과정에서 DEFINER 문을 사용하여 CREATE VIEW를 실행하는 동안 위의 오류가 발생할 수 있습니다. Azure Database for MySQL은 모든 사용자에게 SUPER 권한 또는 SET_USER_ID 권한을 허용하지 않습니다. 
+
+**해결 방법**: 
+* 가능하면 정의자 사용자를 사용하여 CREATE VIEW를 실행합니다. 다른 권한이 있는 다른 정의자를 가진 많은 뷰가 있을 수 있으므로 실행 가능하지 않을 수 있습니다.  또는
+* 덤프 파일 또는 CREATE VIEW 스크립트를 편집하고 덤프 파일에서 DEFINER = 문을 제거하거나 
+* 덤프 파일 또는 CREATE VIEW 스크립트를 편집하고, 스크립트 파일을 가져오거나 실행하는 관리자 권한이 있는 사용자로 정의자 값을 바꿉니다.
+
+> [!Tip] 
+> sed 또는 perl을 사용하여 덤프 파일 또는 SQL 스크립트를 수정하여 DEFINER = 문을 바꿉니다.
+
+## <a name="common-connection-errors-for-server-admin-login"></a>서버 관리자 로그인에 대한 일반적인 연결 오류
+
+Azure Database for MySQL 서버를 만들면 서버를 만드는 동안 서버 관리자 로그인이 최종 사용자에게 제공됩니다. 서버 관리자 로그인을 통해 새 데이터베이스를 만들고, 새 사용자를 추가하고, 권한을 부여할 수 있습니다. 서버 관리자 로그인이 삭제되거나, 권한이 취소되거나, 해당 암호가 변경되면 연결 중에 애플리케이션에서 연결 오류가 표시될 수 있습니다. 다음은 몇 가지 일반적인 오류입니다.
+
+#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>오류 1045(28000): 사용자 'username'@'IP address'에 대한 액세스가 거부되었습니다(암호 사용: 예)
+
+위의 오류는 다음과 같은 경우에 발생합니다.
+
+* 사용자 이름이 존재하지 않습니다.
+* 사용자 이름이 삭제되었습니다.
+* 암호가 변경되거나 재설정됩니다.
+
+**해결 방법**: 
+* "사용자 이름"이 서버에 유효한 사용자로 존재하는지 또는 실수로 삭제되었는지 확인합니다. Azure Database for MySQL 사용자에 로그인하여 다음 쿼리를 실행할 수 있습니다.
+  ```sql
+  select user from mysql.user;
+  ```
+* 위의 쿼리를 실행하기 위해 MySQL에 로그인할 수 없는 경우 [Azure Portal을 사용하여 관리자 암호를 재설정](howto-create-manage-server-portal.md)하는 것이 좋습니다. Azure Portal의 암호 재설정 옵션을 사용하면 사용자를 다시 만들고, 암호를 다시 설정하고, 관리자 권한을 복원할 수 있습니다. 이를 통해 서버 관리자를 사용하여 로그인하고 추가 작업을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 원하는 답을 찾지 못한 경우 다음을 고려하세요.
-- [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)에 질문을 게시합니다.
+
+- [Microsoft Q&A 질문 페이지](/answers/topics/azure-database-mysql.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)에 질문을 게시합니다.
 - Azure Database for MySQL 팀 [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)에 이메일을 보냅니다. 이 이메일 주소는 기술 지원 별칭이 아닙니다.
 - Azure 지원에 문의하여 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
 - 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql)를 통해 항목을 만드세요.

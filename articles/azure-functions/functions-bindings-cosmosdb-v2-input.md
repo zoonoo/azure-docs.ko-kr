@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 42932d712d6c4a94cad28aec924b88fbc126662b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dec41a5e05d22891aae9d16280ebb6b0c8da3f20
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212798"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185116"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대 한 Azure Cosmos DB 입력 바인딩
 
@@ -20,7 +20,7 @@ Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azu
 설정 및 구성 세부 정보에 관한 내용은 [개요](./functions-bindings-cosmosdb-v2.md)를 참조하세요.
 
 > [!NOTE]
-> 컬렉션이 [분할](../cosmos-db/partition-data.md#logical-partitions)된 경우 조회 작업은 파티션 키 값도 지정 해야 합니다.
+> 컬렉션이 [분할](../cosmos-db/partitioning-overview.md#logical-partitions)된 경우 조회 작업은 파티션 키 값도 지정 해야 합니다.
 >
 
 <a id="example" name="example"></a>
@@ -212,7 +212,7 @@ namespace CosmosDBSamplesV2
 이 예제에서는 `SqlQuery` 매개 변수에서 바인딩 식을 사용하는 방법을 보여줍니다. 표시된 대로 경로 데이터를 `SqlQuery` 매개 변수에 전달할 수는 있지만 현재 [쿼리 문자열 값을 전달할 수 없습니다](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> ID를 기준으로 쿼리해야 하는 경우 [이전 예제](#http-trigger-look-up-id-from-query-string-c)와 같이 조회를 사용 하 여 [요청 단위](../cosmos-db/request-units.md)를 적게 사용 하는 것이 좋습니다. 요소 읽기 작업 (GET)은 ID로 쿼리 하는 것 보다 [더 효율적](../cosmos-db/optimize-cost-queries.md) 입니다.
+> ID를 기준으로 쿼리해야 하는 경우 [이전 예제](#http-trigger-look-up-id-from-query-string-c)와 같이 조회를 사용 하 여 [요청 단위](../cosmos-db/request-units.md)를 적게 사용 하는 것이 좋습니다. 요소 읽기 작업 (GET)은 ID로 쿼리 하는 것 보다 [더 효율적](../cosmos-db/optimize-cost-reads-writes.md) 입니다.
 >
 
 ```cs
@@ -1315,7 +1315,7 @@ public class DocByIdFromRoute {
 다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 경로 매개 변수를 사용 하 여 조회할 ID를 지정 하는 HTTP 요청에 의해 트리거됩니다. ID는 지정한 데이터베이스 및 컬렉션에서 문서를 검색한 후, 쿼리 조건에 따라 많은 문서가 반환될 수 있으므로 결과 세트를 ```ToDoItem[]```으로 변환하는 데 사용됩니다.
 
 > [!NOTE]
-> ID를 기준으로 쿼리해야 하는 경우 [이전 예제](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)와 같이 조회를 사용 하 여 [요청 단위](../cosmos-db/request-units.md)를 적게 사용 하는 것이 좋습니다. 요소 읽기 작업 (GET)은 ID로 쿼리 하는 것 보다 [더 효율적](../cosmos-db/optimize-cost-queries.md) 입니다.
+> ID를 기준으로 쿼리해야 하는 경우 [이전 예제](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)와 같이 조회를 사용 하 여 [요청 단위](../cosmos-db/request-units.md)를 적게 사용 하는 것이 좋습니다. 요소 읽기 작업 (GET)은 ID로 쿼리 하는 것 보다 [더 효율적](../cosmos-db/optimize-cost-reads-writes.md) 입니다.
 >
 
 ```java
@@ -1442,7 +1442,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**id**    | **ID** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. `id`및 **sqlQuery** 속성을 모두 설정 하지 마세요. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
 |**sqlQuery**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). 및 속성을 모두 설정 하지 마세요 `id` `sqlQuery` . 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다. |
-|**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다. [분할](../cosmos-db/partition-data.md#logical-partitions) 된 컬렉션에서 조회를 수행 하는 데 필요 합니다.|
+|**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다. [분할](../cosmos-db/partitioning-overview.md#logical-partitions) 된 컬렉션에서 조회를 수행 하는 데 필요 합니다.|
 |**preferredLocations**| **PreferredLocations**| 필드 Azure Cosmos DB 서비스에서 지역에서 복제 된 데이터베이스 계정에 대 한 기본 위치 (지역)를 정의 합니다. 값은 쉼표로 구분 해야 합니다. 예를 들면 "미국 동부, 미국 중 북부, 유럽 유럽"입니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

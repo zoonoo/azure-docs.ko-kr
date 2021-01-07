@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.custom: devx-track-ansible
-ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-ansible, devx-track-azurecli
+ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373575"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016066"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
@@ -70,23 +70,23 @@ az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.
 
 Azure Portal에서 다음을 수행합니다.
 
-1. **Azure Active Directory**  >  **앱 등록**을 선택 합니다.
+1. **Azure Active Directory**  >  **앱 등록** 을 선택 합니다.
 2. 앱 등록(예: OCPAzureAD)을 검색합니다.
 3. 결과에서 앱 등록을 클릭합니다.
-4. **설정**에서 **필요한 권한**을 선택합니다.
-5. **필요한 권한**에서 **추가**를 선택합니다.
+4. **설정** 에서 **필요한 권한** 을 선택합니다.
+5. **필요한 권한** 에서 **추가** 를 선택합니다.
 
    ![앱 등록](media/openshift-post-deployment/app-registration.png)
 
-6. 1단계: API 선택을 클릭한 다음 **Windows Azure Active Directory(Microsoft.Azure.ActiveDirectory)** 를 클릭합니다. 아래쪽에서 **선택**을 선택합니다.
+6. 1단계: API 선택을 클릭한 다음 **Windows Azure Active Directory(Microsoft.Azure.ActiveDirectory)** 를 클릭합니다. 아래쪽에서 **선택** 을 선택합니다.
 
    ![앱 등록 API 선택](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. 2단계: 권한 선택에서 **위임된 권한** 아래 **로그인 및 사용자 프로필 읽기**를 선택한 다음 **선택**을 클릭합니다.
+7. 2단계: 권한 선택에서 **위임된 권한** 아래 **로그인 및 사용자 프로필 읽기** 를 선택한 다음 **선택** 을 클릭합니다.
 
    ![앱 등록 액세스](media/openshift-post-deployment/app-registration-access.png)
 
-8. **완료**를 선택합니다.
+8. **완료** 를 선택합니다.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Azure AD 인증을 위한 OpenShift 구성
 

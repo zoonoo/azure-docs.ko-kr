@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 0800a287b747a8a421958d20f0b1ce56247d6d01
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362162"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024945"
 ---
 # <a name="what-is-custom-commands"></a>사용자 지정 명령이란?
 
@@ -28,7 +28,7 @@ ms.locfileid: "85362162"
 > [!TIP]
 > 의 방문 페이지에서 샘플 데모를 봅니다 [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) .
 
-복잡 한 대화형 앱을 빌드하는 데 관심이 있는 경우 [가상 길잡이 솔루션](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)을 사용 하 여 봇 프레임 워크를 사용해 보는 것이 좋습니다. 직접 줄 음성을 사용 하 여 모든 봇 프레임 워크 봇에 음성을 추가할 수 있습니다.
+복잡 한 대화형 앱을 빌드하는 데 관심이 있는 경우 [가상 길잡이 솔루션](/azure/bot-service/bot-builder-enterprise-template-overview)을 사용 하 여 봇 프레임 워크를 사용해 보는 것이 좋습니다. 직접 줄 음성을 사용 하 여 모든 봇 프레임 워크 봇에 음성을 추가할 수 있습니다.
 
 사용자 지정 명령에 적합 한 후보에는 잘 정의 된 변수 집합이 있는 고정 된 어휘가 있습니다. 예를 들어 자동 온도 조절기 제어와 같은 홈 자동화 작업은 이상적입니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "85362162"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [샘플에 대 한 GitHub의 음성 도우미 리포지토리 보기](https://aka.ms/speech/cc-samples)
 * [Speech Studio로 이동 하 여 사용자 지정 명령 사용해 보기](https://speech.microsoft.com/customcommands)
 * [Speech SDK 가져오기](speech-sdk.md)

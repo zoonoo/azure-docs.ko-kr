@@ -1,26 +1,26 @@
 ---
 title: 'R 스크립트 실행: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 R 스크립트 실행 모듈을 사용 하 여 R 코드를 실행 하는 방법을 알아봅니다.
+description: Azure Machine Learning designer에서 R 스크립트 실행 모듈을 사용 하 여 사용자 지정 R 코드를 실행 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 12/17/2020
+ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908001"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679106"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
 이 문서에서는 R 스크립트 실행 모듈을 사용 하 여 Azure Machine Learning 디자이너 파이프라인에서 R 코드를 실행 하는 방법을 설명 합니다.
 
-R을 사용 하면 기존 모듈이 현재 지원 하지 않는 다음과 같은 작업을 수행할 수 있습니다. 
+R을 사용 하면 다음과 같이 기존 모듈에서 지원 되지 않는 작업을 수행할 수 있습니다. 
 - 사용자 지정 데이터 변환 만들기
 - 고유한 메트릭을 사용 하 여 예측 평가
 - 디자이너에서 독립 실행형 모듈로 구현 되지 않는 알고리즘을 사용 하 여 모델 작성
@@ -51,6 +51,9 @@ azureml_main <- function(dataframe1, dataframe2){
 > [!NOTE]
 > 패키지를 설치할 때 CRAN 리포지토리를 지정 합니다 (예:) `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
 
+> [!WARNING]
+> Excute R 스크립트 모듈은 `qdap` c + +를 필요로 하는 JAVA 및 패키지를 필요로 하는 패키지와 같이 네이티브 컴파일이 필요한 패키지를 설치 하는 것을 지원 하지 않습니다 `drc` . 이 모듈은 비관리자 권한이 있는 사전 설치 된 환경에서 실행 되기 때문입니다.
+
 이 샘플은 동물원을 설치 하는 방법을 보여 줍니다.
 ```R
 # R version: 3.5.1
@@ -78,25 +81,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > 패키지를 설치 하기 전에 설치를 반복 하지 않도록 이미 존재 하는지 확인 합니다. 설치를 반복 하면 웹 서비스 요청 시간이 초과 될 수 있습니다.     
 
+## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
+
+다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>파일 업로드
 R 스크립트 실행 모듈은 Azure Machine Learning R SDK를 사용 하 여 파일 업로드를 지원 합니다.
 
 다음 샘플에서는 R 스크립트 실행에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -119,25 +124,9 @@ azureml_main <- function(dataframe1, dataframe2){
 > [!div class="mx-imgBorder"]
 > ![업로드 된 이미지 미리 보기](media/module/upload-image-in-r-script.png)
 
-## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
-
-다음 샘플 코드를 참조 하 여 작업 영역에서 [등록 된 데이터 집합에 액세스할](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) 수 있습니다.
-
-```R
-        azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성 하는 방법
 
-R 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는 샘플 코드가 포함 되어 있습니다. R 스크립트 실행 모듈을 구성 하려면 실행할 입력 및 코드 집합을 제공 합니다.
+R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
 
 ![R 모듈에 대 한 입력 다이어그램](media/module/execute-r-script.png)
 
@@ -194,9 +183,12 @@ R 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는 샘�
     > [!NOTE]
     > 기존 R 코드를 디자이너 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 디자이너에서 사용 되는 데이터 및 열 유형에 따라 달라 집니다.
 
-    스크립트가 16KB 보다 큰 경우 **스크립트 번들** 포트를 사용 하 여 *명령줄이 16597 문자 제한을 초과*하는 것과 같은 오류를 방지 합니다. 
+1. 스크립트가 16kb 보다 큰 경우 **스크립트 번들** 포트를 사용 하 여 *명령줄에서 16597 자 제한을 초과* 하는 오류를 방지 합니다. 
     
-    스크립트 및 기타 사용자 지정 리소스를 zip 파일에 번들 하 고 zip 파일을 **파일 데이터 집합** 으로 스튜디오에 업로드 합니다. 그런 다음 디자이너 제작 페이지의 왼쪽 모듈 창에 있는 *내 데이터* 집합 목록에서 데이터 집합 모듈을 끌 수 있습니다. **R 스크립트 실행** 모듈의 **스크립트 번들** 포트에 데이터 집합 모듈을 연결 합니다.
+    1. 스크립트 및 기타 사용자 지정 리소스를 zip 파일에 번들로 묶습니다.
+    1. **파일 데이터 집합** 으로 zip 파일을 스튜디오에 업로드 합니다. 
+    1. 디자이너 제작 페이지의 왼쪽 모듈 창에 *있는 데이터 집합 목록에서* 데이터 집합 모듈을 끌어 옵니다. 
+    1. **R 스크립트 실행** 모듈의 **스크립트 번들** 포트에 데이터 집합 모듈을 연결 합니다.
     
     스크립트 번들에서 스크립트를 사용 하는 샘플 코드는 다음과 같습니다.
 
@@ -213,13 +205,13 @@ R 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는 샘�
     }
     ```
 
-1.  **임의 초기값**의 경우 R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출하는 경우와 동일합니다.  
+1.  **임의 초기값** 의 경우 R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출하는 경우와 동일합니다.  
 
 1. 파이프라인을 제출합니다.  
 
 ## <a name="results"></a>결과
 
-R 스크립트 실행 모듈은 여러 출력을 반환할 수 있지만 R 데이터 프레임으로 제공 되어야 합니다. 데이터 프레임은 디자이너에서 다른 모듈과의 호환성을 위해 자동으로 데이터 집합으로 변환 됩니다.
+R 스크립트 실행 모듈은 여러 출력을 반환할 수 있지만 R 데이터 프레임으로 제공 되어야 합니다. 디자이너는 다른 모듈과의 호환성을 위해 데이터 프레임을 자동으로 데이터 집합으로 변환 합니다.
 
 R의 표준 메시지 및 오류는 모듈의 로그로 반환 됩니다.
 
@@ -234,9 +226,9 @@ R 스크립트에서 결과를 인쇄 해야 하는 경우 모듈의 오른쪽 �
 
 R 스크립트 실행 모듈은 임의의 R 스크립트 파일을 입력으로 지원 합니다. 이를 사용 하려면 .zip 파일의 일부로 작업 영역에 업로드 해야 합니다.
 
-1. R 코드가 포함 된 .zip 파일을 작업 영역에 업로드 하려면 **데이터 집합** 자산 페이지로 이동 합니다. **데이터 집합 만들기**를 선택한 다음 **로컬 파일에서** 를 선택 하 고 **파일** 데이터 집합 유형 옵션을 선택 합니다.  
+1. R 코드가 포함 된 .zip 파일을 작업 영역에 업로드 하려면 **데이터 집합** 자산 페이지로 이동 합니다. **데이터 집합 만들기** 를 선택한 다음 **로컬 파일에서** 를 선택 하 고 **파일** 데이터 집합 유형 옵션을 선택 합니다.  
 
-1. 왼쪽 모듈 트리의 **데이터 집합** 범주에 있는 **내 데이터 집합** 목록에서 zip 파일을 사용할 수 있는지 확인 합니다.
+1. 압축 된 파일이 왼쪽 모듈 트리의 **데이터 집합** 범주에 있는 **내 데이터 집합** 에 표시 되는지 확인 합니다.
 
 1.  데이터 집합을 **스크립트 번들** 입력 포트에 연결 합니다.
 
@@ -286,7 +278,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 이 샘플에서는 .zip 파일의 데이터 집합을 R 스크립트 실행 모듈에 대 한 입력으로 사용 하는 방법을 보여 줍니다.
 
-1. CSV 형식의 데이터 파일을 만들고 이름을 **mydatafile.csv**로 지정 합니다.
+1. CSV 형식의 데이터 파일을 만들고 이름을 **mydatafile.csv** 로 지정 합니다.
 1. .Zip 파일을 만들고 저장소에 CSV 파일을 추가 합니다.
 1. 압축 파일을 Azure Machine Learning 작업 영역에 업로드 합니다. 
 1. 결과 데이터 집합을 **R 스크립트 실행** 모듈의 **scriptbundle** 입력에 연결 합니다.
@@ -502,4 +494,4 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

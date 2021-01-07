@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 799699662b738804790e3fe18ce9bd579027808d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984395"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616318"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 
@@ -37,7 +37,7 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
    
 1. 앱 페이지의 왼쪽 메뉴에서 **Deployment Center** 를 선택 합니다.
    
-1. **Deployment Center** 페이지에서 **GitHub** 또는 **Bitbucket**를 선택 하 고 **권한 부여**를 선택 합니다. 
+1. **Deployment Center** 페이지에서 **GitHub** 또는 **Bitbucket** 를 선택 하 고 **권한 부여** 를 선택 합니다. 
    
    ![원본 제어 서비스를 선택 하 고 권한 부여를 선택 합니다.](media/app-service-continuous-deployment/github-choose-source.png)
    
@@ -51,38 +51,38 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
 
 기본 제공 Kudu App Service 빌드 서버를 사용 하 여 GitHub, Bitbucket 또는 Azure Repos에서 지속적으로 배포할 수 있습니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색 한 후 배포 하려는 App Service를 선택 합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색 한 후 배포 하려는 App Service를 선택 합니다. 
    
 1. 앱 페이지의 왼쪽 메뉴에서 **Deployment Center** 를 선택 합니다.
    
-1. **Deployment Center** 페이지에서 권한이 부여 된 원본 제어 공급자를 선택 하 고 **계속**을 선택 합니다. GitHub 또는 Bitbucket의 경우 **계정 변경** 을 선택 하 여 권한 있는 계정을 변경할 수도 있습니다. 
+1. **Deployment Center** 페이지에서 권한이 부여 된 원본 제어 공급자를 선택 하 고 **계속** 을 선택 합니다. GitHub 또는 Bitbucket의 경우 **계정 변경** 을 선택 하 여 권한 있는 계정을 변경할 수도 있습니다. 
    
    > [!NOTE]
    > Azure Repos을 사용 하려면 Azure DevOps Services 조직이 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)을 참조 하세요.
    
-1. GitHub 또는 Azure Repos의 경우 **빌드 공급자** 페이지에서 **App Service 빌드 서비스**를 선택 하 고 **계속**을 선택 합니다. Bitbucket는 항상 App Service 빌드 서비스를 사용 합니다.
+1. GitHub 또는 Azure Repos의 경우 **빌드 공급자** 페이지에서 **App Service 빌드 서비스** 를 선택 하 고 **계속** 을 선택 합니다. Bitbucket는 항상 App Service 빌드 서비스를 사용 합니다.
    
    ![App Service 빌드 서비스를 선택 하 고 계속을 선택 합니다.](media/app-service-continuous-deployment/choose-kudu.png)
    
 1. **구성** 페이지에서 다음을 수행 합니다.
    
-   - GitHub의 경우 계속 배포 하려는 **조직**, **리포지토리**및 **분기** 를 드롭다운 하 고 선택 합니다.
+   - GitHub의 경우 계속 배포 하려는 **조직**, **리포지토리** 및 **분기** 를 드롭다운 하 고 선택 합니다.
      
      > [!NOTE]
-     > 리포지토리가 표시 되지 않으면 GitHub에서 Azure App Service 권한을 부여 해야 할 수 있습니다. GitHub 리포지토리로 이동 하 고 **설정**  >  **응용 프로그램**  >  **권한 있는 OAuth 앱**으로 이동 합니다. **Azure App Service**를 선택 하 고 **Grant**를 선택 합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
+     > 리포지토리가 표시 되지 않으면 GitHub에서 Azure App Service 권한을 부여 해야 할 수 있습니다. GitHub 리포지토리로 이동 하 고 **설정**  >  **응용 프로그램**  >  **권한 있는 OAuth 앱** 으로 이동 합니다. **Azure App Service** 를 선택 하 고 **Grant** 를 선택 합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
      
-   - Bitbucket의 경우 지속적으로 배포 하려는 Bitbucket **팀**, **리포지토리**및 **분기** 를 선택 합니다.
+   - Bitbucket의 경우 지속적으로 배포 하려는 Bitbucket **팀**, **리포지토리** 및 **분기** 를 선택 합니다.
      
-   - Azure Repos의 경우 지속적으로 배포 하려는 **Azure DevOps 조직**, **프로젝트**, **리포지토리**및 **분기** 를 선택 합니다.
+   - Azure Repos의 경우 지속적으로 배포 하려는 **Azure DevOps 조직**, **프로젝트**, **리포지토리** 및 **분기** 를 선택 합니다.
      
      > [!NOTE]
      > Azure DevOps 조직이 나열되지 않은 경우 Azure 구독에 연결되어 있는지 확인하세요. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps Services 계정 설정](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)을 참조 하세요.
      
-1. **계속**을 선택합니다.
+1. **계속** 을 선택합니다.
    
    ![리포지토리 정보를 입력 한 다음 계속을 선택 합니다.](media/app-service-continuous-deployment/configure-kudu.png)
    
-1. 빌드 공급자를 구성한 후 **요약** 페이지에서 설정을 검토 한 다음 **마침**을 선택 합니다.
+1. 빌드 공급자를 구성한 후 **요약** 페이지에서 설정을 검토 한 다음 **마침** 을 선택 합니다.
    
 1. 선택한 리포지토리 및 분기의 새 커밋이 이제 App Service 앱에 지속적으로 배포됩니다. 커밋과 배포는 **배포 센터** 페이지에서 추적할 수 있습니다.
    
@@ -92,11 +92,11 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
 
 계정에 필요한 권한이 있는 경우 GitHub 또는 Azure Repos에서 지속적으로 배포 하도록 Azure Pipelines를 설정할 수 있습니다. Azure Pipelines를 통해 배포 하는 방법에 대 한 자세한 내용은 [Azure 앱 서비스에 웹 앱 배포](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)를 참조 하세요.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azure DevOps 조직에 다음 권한이 있어야 합니다. Azure App Service 
 
-- Azure 계정에는 Azure Active Directory에 대 한 쓰기 권한이 있어야 하 고 서비스를 만들 수 있습니다. 
+- Azure 계정에 Azure Active Directory에 쓰고 앱 등록을 만들 수 있는 권한이 있어야 합니다. 
   
 - Azure 계정에는 Azure 구독에 **소유자** 역할이 있어야 합니다.
 
@@ -104,28 +104,28 @@ Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azur
 
 #### <a name="github--azure-pipelines"></a>GitHub + Azure Pipelines
 
-1. [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색 한 후 배포 하려는 App Service를 선택 합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색 한 후 배포 하려는 App Service를 선택 합니다. 
    
 1. 앱 페이지의 왼쪽 메뉴에서 **Deployment Center** 를 선택 합니다.
 
-1. **Deployment Center** 페이지에서 **GitHub** 를 원본 제어 공급자로 선택 하 고 **계속**을 선택 합니다. **GitHub**의 경우 **계정 변경** 을 선택 하 여 권한 있는 계정을 변경할 수 있습니다.
+1. **Deployment Center** 페이지에서 **GitHub** 를 원본 제어 공급자로 선택 하 고 **계속** 을 선택 합니다. **GitHub** 의 경우 **계정 변경** 을 선택 하 여 권한 있는 계정을 변경할 수 있습니다.
 
     :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="App Service Deployment Center 페이지의 스크린샷":::
    
-1. **빌드 공급자** 페이지에서 **Azure Pipelines (미리 보기)** 를 선택 하 고 **계속**을 선택 합니다.
+1. **빌드 공급자** 페이지에서 **Azure Pipelines (미리 보기)** 를 선택 하 고 **계속** 을 선택 합니다.
 
     :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Azure Pipelines (미리 보기)가 선택 된 배포 센터 페이지를 보여 주는 스크린샷":::
    
-1. **구성** 페이지의 **코드** 섹션에서 지속적으로 배포 하려는 **조직**, **리포지토리**및 **분기** 를 선택 하 고 **계속**을 선택 합니다.
+1. **구성** 페이지의 **코드** 섹션에서 지속적으로 배포 하려는 **조직**, **리포지토리** 및 **분기** 를 선택 하 고 **계속** 을 선택 합니다.
      
      > [!NOTE]
-     > 리포지토리가 표시 되지 않으면 GitHub에서 Azure App Service 권한을 부여 해야 할 수 있습니다. GitHub 리포지토리로 이동 하 고 **설정**  >  **응용 프로그램**  >  **권한 있는 OAuth 앱**으로 이동 합니다. **Azure App Service**를 선택 하 고 **Grant**를 선택 합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
+     > 리포지토리가 표시 되지 않으면 GitHub에서 Azure App Service 권한을 부여 해야 할 수 있습니다. GitHub 리포지토리로 이동 하 고 **설정**  >  **응용 프로그램**  >  **권한 있는 OAuth 앱** 으로 이동 합니다. **Azure App Service** 를 선택 하 고 **Grant** 를 선택 합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
        
-    **빌드** 섹션에서 빌드 작업을 실행 하는 데 사용 해야 하 Azure Pipelines Azure Devops 조직, 프로젝트, 언어 프레임 워크를 지정 하 고 **계속**을 선택 합니다.
+    **빌드** 섹션에서 빌드 작업을 실행 하는 데 사용 해야 하 Azure Pipelines Azure Devops 조직, 프로젝트, 언어 프레임 워크를 지정 하 고 **계속** 을 선택 합니다.
 
    :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="필드의 예제 텍스트를 사용 하는 빌드 섹션의 스크린샷":::
 
-1. 빌드 공급자를 구성한 후 **요약** 페이지에서 설정을 검토 한 다음 **마침**을 선택 합니다.
+1. 빌드 공급자를 구성한 후 **요약** 페이지에서 설정을 검토 한 다음 **마침** 을 선택 합니다.
 
    :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="새로 고침 단추가 강조 표시 된 커밋 및 배포를 보여 주는 배포 센터 페이지의 스크린샷":::
    
@@ -135,28 +135,28 @@ Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azur
 
 #### <a name="azure-repos--azure-pipelines"></a>Azure Repos + Azure Pipelines
 
-1. [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색 한 후 배포 하려는 App Service를 선택 합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색 한 후 배포 하려는 App Service를 선택 합니다. 
    
 1. 앱 페이지의 왼쪽 메뉴에서 **Deployment Center** 를 선택 합니다.
 
-1. **Deployment Center** 페이지에서 원본 제어 공급자로 **Azure Repos** 를 선택 하 고 **계속**을 선택 합니다.
+1. **Deployment Center** 페이지에서 원본 제어 공급자로 **Azure Repos** 를 선택 하 고 **계속** 을 선택 합니다.
 
     :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="CI/CD (연속 배포) 선택 항목을 보여 주는 배포 센터 페이지의 스크린샷":::
 
-1. **빌드 공급자** 페이지에서 **Azure Pipelines (미리 보기)** 를 선택 하 고 **계속**을 선택 합니다.
+1. **빌드 공급자** 페이지에서 **Azure Pipelines (미리 보기)** 를 선택 하 고 **계속** 을 선택 합니다.
 
     :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Azure Pipelines (미리 보기)를 보여 주는 배포 센터의 스크린샷":::
 
-1. **구성** 페이지의 **코드** 섹션에서 지속적으로 배포 하려는 **조직**, **리포지토리**및 **분기** 를 선택 하 고 **계속**을 선택 합니다.
+1. **구성** 페이지의 **코드** 섹션에서 지속적으로 배포 하려는 **조직**, **리포지토리** 및 **분기** 를 선택 하 고 **계속** 을 선택 합니다.
 
    > [!NOTE]
    > 기존 Azure DevOps 조직이 나열 되지 않은 경우 Azure 구독에 연결 해야 할 수 있습니다. 자세한 내용은 [CD 릴리스 파이프라인 정의](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd)를 참조 하세요.
 
-   **빌드** 섹션에서 빌드 작업을 실행 하는 데 사용 해야 하 Azure Pipelines Azure Devops 조직, 프로젝트, 언어 프레임 워크를 지정 하 고 **계속**을 선택 합니다.
+   **빌드** 섹션에서 빌드 작업을 실행 하는 데 사용 해야 하 Azure Pipelines Azure Devops 조직, 프로젝트, 언어 프레임 워크를 지정 하 고 **계속** 을 선택 합니다.
 
    :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="예제로 채워진 Azure DevOps 조직 및 프로젝트 필드를 보여주는 빌드 섹션의 스크린샷":::
 
-1. 빌드 공급자를 구성한 후 **요약** 페이지에서 설정을 검토 한 다음 **마침**을 선택 합니다.  
+1. 빌드 공급자를 구성한 후 **요약** 페이지에서 설정을 검토 한 다음 **마침** 을 선택 합니다.  
      
    :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="요약 페이지에서 선택한 설정을 보여 주는 스크린샷":::
 

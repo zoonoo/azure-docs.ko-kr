@@ -9,11 +9,11 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323403"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020197"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Azure Monitor의 모니터링 사용량 및 예상 비용
 
@@ -65,7 +65,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 ![Azure Cost Management 스크린 샷](./media/usage-estimated-costs/010.png)
 
-여기에서 누적 비용 요약의 정보를 활용 하 여 "자원별 비용" 보기에서 보다 자세한 정보를 얻을 수 있습니다. 현재 가격 책정 계층에서 Azure 로그 데이터는 Log Analytics 또는 Application Insights에서 생성 된 것과 동일한 미터의 요금으로 청구 됩니다. Log Analytics 또는 Application Insights 사용량의 비용을 구분 하기 위해 **리소스 유형에**필터를 추가할 수 있습니다. 모든 Application Insights 비용을 보려면 리소스 종류를 "microsoft 인 사이트/구성 요소"로 필터링 하 고, Log Analytics 비용의 경우 리소스 종류를 "operationalinsights/작업 영역"으로 필터링 합니다. 
+여기에서 누적 비용 요약의 정보를 활용 하 여 "자원별 비용" 보기에서 보다 자세한 정보를 얻을 수 있습니다. 현재 가격 책정 계층에서 Azure 로그 데이터는 Log Analytics 또는 Application Insights에서 생성 된 것과 동일한 미터의 요금으로 청구 됩니다. Log Analytics 또는 Application Insights 사용량의 비용을 구분 하기 위해 **리소스 유형에** 필터를 추가할 수 있습니다. 모든 Application Insights 비용을 보려면 리소스 종류를 "microsoft 인 사이트/구성 요소"로 필터링 하 고, Log Analytics 비용의 경우 리소스 종류를 "operationalinsights/작업 영역"으로 필터링 합니다. 
 
 사용 현황에 대 한 자세한 내용은 [Azure Portal에서 사용을 다운로드](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal)하 여 확인할 수 있습니다. 다운로드한 스프레드시트에서 Azure 리소스별 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 먼저 “미터 범주” 열에서 필터링을 진행하여 “Application Insights” 및 “Log Analytics”를 표시한 다음, “microsoft.insights/components 포함”에 해당되는 “인스턴스 ID” 열에서 하나의 필터를 추가하면 Application Insights 리소스의 사용량을 확인할 수 있습니다.  모든 Azure Monitor 구성 요소에 대한 로그 백엔드는 하나이므로 대부분의 Application Insights 사용량이 Log Analytics의 미터 범주를 사용하여 미터로 보고됩니다.  레거시 가격 책정 계층이 적용되는 Application Insights 리소스와 다중 단계 웹 테스트만 Application Insights의 미터 범주를 사용하여 보고됩니다.  사용량은 “사용한 수량” 열에 표시되며 각 항목에 대한 단위는 “측정 단위” 열에 표시됩니다.  [Microsoft Azure 청구 방식을 이해](../../cost-management-billing/understand/review-individual-bill.md)하는 데 도움이 되는 자세한 정보도 준비되어 있습니다. 
 
@@ -74,7 +74,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 Azure Monitor 사용을 볼 수 있는 또 다른 옵션은 모니터 허브의 **사용량 및 예상 비용** 페이지입니다. 이는 [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)및 [Azure 애플리케이션 Insights](https://azure.microsoft.com/pricing/details/application-insights/)와 같은 핵심 모니터링 기능을 사용 하는 방법을 보여 줍니다. 2018년 4월 이전 제공된 요금제 고객의 경우 Insights 및 Analytics 제안을 통해 구매한 Log Analytics 사용량도 여기에 포함됩니다.
 
-사용자는 이 페이지에서 구독별로 집계된 지난 31일 간의 리소스 사용량을 볼 수 있습니다. `Drill-ins`31 일 동안의 사용량 추세를 표시 합니다. 예상치를 내기 위해서는 상당한 데이터를 취합해야 하므로 페이지 로드에 다소 시간이 소요됩니다.
+사용자는 이 페이지에서 구독별로 집계된 지난 31일 간의 리소스 사용량을 볼 수 있습니다. `Drill-ins` 31 일 동안의 사용량 추세를 표시 합니다. 예상치를 내기 위해서는 상당한 데이터를 취합해야 하므로 페이지 로드에 다소 시간이 소요됩니다.
 
 이 예에서는 모니터링 사용량과 그에 따른 비용의 추정치를 보여 줍니다.
 

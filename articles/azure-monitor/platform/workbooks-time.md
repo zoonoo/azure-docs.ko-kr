@@ -2,19 +2,17 @@
 title: Azure Monitor 통합 문서 시간 매개 변수
 description: 사용자가 분석의 시간 컨텍스트를 설정할 수 있도록 시간 매개 변수를 설정 하는 방법에 대해 알아봅니다. 시간 매개 변수는 거의 모든 보고서에서 사용 됩니다.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 37f2219313a0d4c533d587a765dd22d527a5910f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972874"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143451"
 ---
 # <a name="workbook-time-parameters"></a>통합 문서 시간 매개 변수
 
@@ -80,5 +78,5 @@ requests
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.
 * 통합 문서 리소스에 대 한 액세스를 [제어](workbooks-access-control.md) 하 고 공유 합니다.

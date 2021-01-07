@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b617ba8db8f9dbb1c25ac34aa879613c29c723b7
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086252"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340291"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 각 크기에 따라 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 입력할 ID가 있습니다. 각 크기의 가격은 [Cloud Services 가격](https://azure.microsoft.com/pricing/details/cloud-services/) 페이지에서 확인할 수 있습니다.
@@ -36,9 +36,9 @@ Azure에서 여러 표준 크기를 선택할 수 있습니다. 이러한 크기
 
 다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 
-* A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다. 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* A8-A11 및 H 시리즈는 *계산 집약적 인스턴스* 라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다. 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 컴퓨팅 VM 크기](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * Dv3 시리즈, Dv2 시리즈, D 시리즈, G 시리즈는 더 빠른 CPU와 더 좋은 로컬 디스크 성능을 요구하거나 더 높은 메모리 요구량을 가진 애플리케이션에 이상적입니다. 이들은 많은 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
-* Azure 데이터 센터의 일부 물리적 호스트는 A5 – A11과 같은 큰 크기의 가상 머신을 지원하지 않을 수 있습니다. 결과적으로, 기존 가상 머신의 크기를 새 크기로 조정하거나 2013년 4월 16일 이전에 만들어진 가상 네트워크에서 새 가상 머신을 만들거나 새 가상 머신을 기존 클라우드 서비스에 추가하려고 하면 **{machine name} 가상 머신을 구성하지 못했습니다** 또는 **{machine name} 가상 머신을 만들지 못했습니다**라는 오류 메시지가 표시될 수 있습니다. 각 배포 시나리오의 해결 방법에 대한 지원 포럼에서 [오류: "가상 머신을 구성하지 못했습니다."](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) 를 참조하세요.
+* Azure 데이터 센터의 일부 물리적 호스트는 A5 – A11과 같은 큰 크기의 가상 머신을 지원하지 않을 수 있습니다. 결과적으로, 기존 가상 머신의 크기를 새 크기로 조정하거나 2013년 4월 16일 이전에 만들어진 가상 네트워크에서 새 가상 머신을 만들거나 새 가상 머신을 기존 클라우드 서비스에 추가하려고 하면 **{machine name} 가상 머신을 구성하지 못했습니다** 또는 **{machine name} 가상 머신을 만들지 못했습니다** 라는 오류 메시지가 표시될 수 있습니다. 각 배포 시나리오의 해결 방법에 대한 지원 포럼에서 [오류: "가상 머신을 구성하지 못했습니다."](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) 를 참조하세요.
 * 구독에 따라서도 특정 크기 제품군에 배포할 수 있는 코어 수가 제한될 수 있습니다. 할당량을 늘리려면 Azure 지원에 문의하세요.
 
 ## <a name="performance-considerations"></a>성능 고려 사항
@@ -72,23 +72,23 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 
 * 스토리지 용량 단위는 GiB(1024^3바이트) 단위로 표시됩니다. GB(1000^3바이트) 단위로 측정된 디스크를 GiB(1024^3바이트) 단위로 측정된 디스크와 비교할 때는 GiB 단위의 용량 수치가 더 작게 표시될 수 있음에 유의해야 합니다. 예를 들어 1023GiB = 1098.4GB입니다.
 * 디스크 처리량은 IOPS(초당 입/출력 작업 수) 및 MBps로 측정되며, MBps = 10^6바이트/초입니다.
-* 데이터 디스크는 캐시된 모드 또는 캐시되지 않은 모드에서 작동할 수 있습니다. 캐시된 데이터 디스크 작업의 경우 호스트 캐시 모드가 **ReadOnly** 또는 **ReadWrite**로 설정됩니다. 캐시되지 않은 데이터 디스크 작업의 경우에는 호스트 캐시 모드가 **None**으로 설정됩니다.
+* 데이터 디스크는 캐시된 모드 또는 캐시되지 않은 모드에서 작동할 수 있습니다. 캐시된 데이터 디스크 작업의 경우 호스트 캐시 모드가 **ReadOnly** 또는 **ReadWrite** 로 설정됩니다. 캐시되지 않은 데이터 디스크 작업의 경우에는 호스트 캐시 모드가 **None** 으로 설정됩니다.
 * 최대 네트워크 대역폭은 VM 유형별로 할당되고 집계된 최대 집계 대역폭입니다. 최대 대역폭은 적절한 네트워크 용량을 사용할 수 있도록 하는 올바른 VM 유형을 선택하기 위한 지침을 제공합니다. 낮음, 보통, 높음, 매우 높음 간을 이동할 경우 그에 따라 처리량이 증가합니다. 실제 네트워크 성능은 네트워크 및 애플리케이션 부하, 애플리케이션 네트워크 설정을 비롯한 여러 요인에 따라 달라집니다.
 
 ## <a name="a-series"></a>A 시리즈
 | 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | 매우 작음      | 1         | 0.768        | 20                   | 1/낮음 |
-| 소형           | 1         | 1.75         | 225                  | 1/보통 |
+| 작음           | 1         | 1.75         | 225                  | 1/보통 |
 | 중간          | 2         | 3.5          | 490                  | 1/보통 |
-| 대형           | 4         | 7            | 1000                 | 2/높음 |
+| 큼           | 4         | 7            | 1000                 | 2/높음 |
 | 매우 큼      | 8         | 14           | 2040                 | 4/높음 |
 | A5              | 2         | 14           | 490                  | 1/보통 |
 | A6              | 4         | 28           | 1000                 | 2/높음 |
 | A7              | 8         | 56           | 2040                 | 4/높음 |
 
 ## <a name="a-series---compute-intensive-instances"></a>A-시리즈 - 계산 집약적 인스턴스
-이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 컴퓨팅 VM 크기](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 | 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -217,7 +217,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)에 대해 알아봅니다.
-* 자세한 내용은 HPC 워크로드의 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 알아보세요.
-
-
-
+* 자세한 내용은 HPC 워크로드의 [고성능 컴퓨팅 VM 크기](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 알아보세요.

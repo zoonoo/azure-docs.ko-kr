@@ -5,11 +5,11 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc, devx-track-azurepowershell
 ms.openlocfilehash: 91d4209ccf558bf7c8038d8a753ec038428bc484
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076466"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020015"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 다음으로, [New-AzContainerRegistry][New-AzContainerRegistry] 명령을 사용하여 새 리소스 그룹에 컨테이너 레지스트리를 만듭니다.
 
-레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음은 "myContainerRegistry007"이라는 레지스트리를 만드는 예제입니다. 명령에서 *myContainerRegistry007*을 원하는 대로 바꾸고 명령을 실행하여 레지스트리를 만듭니다.
+레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음은 "myContainerRegistry007"이라는 레지스트리를 만드는 예제입니다. 명령에서 *myContainerRegistry007* 을 원하는 대로 바꾸고 명령을 실행하여 레지스트리를 만듭니다.
 
 ```powershell
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic

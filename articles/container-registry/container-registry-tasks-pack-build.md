@@ -3,13 +3,13 @@ title: 클라우드 네이티브 Buildpack을 사용 하 여 이미지 빌드
 description: Az acr pack build 명령을 사용 하 여 앱에서 컨테이너 이미지를 빌드하고 Dockerfile을 사용 하지 않고 Azure Container Registry에 푸시합니다.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077223"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736636"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>클라우드 네이티브 Buildpack을 사용 하 여 앱에서 이미지 빌드 및 푸시
 
@@ -85,7 +85,7 @@ az acr pack build \
 az acr login --name myregistry
 ```
 
-이미지를 실행 하 고 *runid*에 대 한 이미지 태그를 대체 합니다.
+이미지를 실행 하 고 *runid* 에 대 한 이미지 태그를 대체 합니다.
 
 ```console
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 512776f2498a88f1fda9b5e7f0e2db0ddd32b955
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 36dfbf0fda060a8f273fee64098d6234b575088c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962331"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831842"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -27,14 +27,14 @@ ms.locfileid: "88962331"
 PHP 로깅을 켜려면:
 
 1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
-2. 상단 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
+2. 상단 메뉴에서 **디버그 콘솔**  >  **CMD** 를 선택 합니다.
 3. **Site** 폴더를 선택합니다.
 4. **wwwroot** 폴더를 선택합니다.
-5. **+** 아이콘을 선택 하 고 **새 파일**을 선택 합니다.
-6. 파일 이름을 **.user.ini**로 설정합니다.
+5. **+** 아이콘을 선택 하 고 **새 파일** 을 선택 합니다.
+6. 파일 이름을 **.user.ini** 로 설정합니다.
 7. **.user.ini** 옆에 있는 연필 아이콘을 선택합니다.
 8. 파일에 다음 코드를 추가합니다. `log_errors=on`
-9. **저장**을 선택합니다.
+9. **저장** 을 선택합니다.
 10. **wp-config.php** 옆에 있는 연필 아이콘을 선택합니다.
 11. 텍스트를 다음 코드로 변경합니다.
     ```php
@@ -52,16 +52,16 @@ PHP 로깅을 켜려면:
 
 Node.js 애플리케이션의 버전을 변경하려면 다음 옵션 중 하나를 사용합니다.
 
-* Azure Portal에서 **앱 설정**을 사용합니다.
+* Azure Portal에서 **앱 설정** 을 사용합니다.
   1. Azure Portal에서 웹앱으로 이동합니다.
-  2. **설정** 블레이드에서 **애플리케이션 설정**을 선택합니다.
-  3. **앱 설정**에서 WEBSITE_NODE_DEFAULT_VERSION을 키로 포함하고 원하는 Node.js 버전을 값으로 포함할 수 있습니다.
+  2. **설정** 블레이드에서 **애플리케이션 설정** 을 선택합니다.
+  3. **앱 설정** 에서 WEBSITE_NODE_DEFAULT_VERSION을 키로 포함하고 원하는 Node.js 버전을 값으로 포함할 수 있습니다.
   4. **Kudu console** ()로 이동 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
   5. Node.js 버전을 확인하려면 다음 명령을 입력합니다.  
      ```
      node -v
      ```
-* iisnode.yml 파일을 수정합니다. iisnode.yml 파일에서 Node.js 버전을 변경하면 iisnode에 사용되는 런타임 환경만 설정됩니다. Kudu cmd 등에서는 Azure Portal의 **앱 설정**에서 설정된 Node.js 버전을 사용합니다.
+* iisnode.yml 파일을 수정합니다. iisnode.yml 파일에서 Node.js 버전을 변경하면 iisnode에 사용되는 런타임 환경만 설정됩니다. Kudu cmd 등에서는 Azure Portal의 **앱 설정** 에서 설정된 Node.js 버전을 사용합니다.
 
   iisnode.yml을 수동으로 설정하려면 앱 루트 폴더에 iisnode.yml 파일을 만듭니다. 파일에 다음 줄을 포함합니다.
   ```yml
@@ -138,7 +138,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 
 1. app/lib 폴더에서 sqljdbc*.jar 파일을 제거합니다.
 2. 사용자 지정 Tomcat 또는 Azure Marketplace Tomcat 웹 서버를 사용하는 경우 이 .jar 파일을 Tomcat lib 폴더로 복사합니다.
-3. Azure Portal에서 java를 사용 하도록 설정 하는 경우 ( **java 1.8**  >  **Tomcat 서버**선택) 앱에 병렬 되는 폴더에 sqljdbc. * jar 파일을 복사 합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
+3. Azure Portal에서 java를 사용 하도록 설정 하는 경우 ( **java 1.8**  >  **Tomcat 서버** 선택) 앱에 병렬 되는 폴더에 sqljdbc. * jar 파일을 복사 합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
 
     ```xml
     <httpPlatform>
@@ -169,9 +169,9 @@ The process cannot access the file because it is being used by another process.
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>Jetty에 대한 로그 파일은 어디서 찾을 수 있나요?
 
-Marketplace 및 사용자 지정 배포의 경우 로그 파일은 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 폴더에 있습니다. 폴더 위치는 사용 중인 Jetty 버전에 따라 달라집니다. 예를 들어 여기에 제공된 경로는 Jetty 9.1.2에 해당합니다. jetty_*YYYY_MM_DD*.stderrout.log를 찾습니다.
+Marketplace 및 사용자 지정 배포의 경우 로그 파일은 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 폴더에 있습니다. 폴더 위치는 사용 중인 Jetty 버전에 따라 달라집니다. 예를 들어 여기에 제공된 경로는 Jetty 9.1.2에 해당합니다. jetty_ *YYYY_MM_DD*.stderrout.log를 찾습니다.
 
-포털 앱 설정 배포의 경우 로그 파일은 D:\home\LogFiles에 있습니다. *YYYY_MM_DD*jetty_를 찾습니다.
+포털 앱 설정 배포의 경우 로그 파일은 D:\home\LogFiles에 있습니다. *YYYY_MM_DD* jetty_를 찾습니다.
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>내 Azure 웹앱에서 메일을 보낼 수 있나요?
 
@@ -181,24 +181,24 @@ App Service에는 기본 제공 메일 기능이 없습니다. 앱에서 메일�
 
 최근에 Azure로 마이그레이션한 경우 WordPress가 이전 도메인 URL로 리디렉션될 수 있습니다. 이 문제의 원인은 MySQL 데이터베이스의 설정 때문입니다.
 
-WordPress Buddy+는 데이터베이스에서 직접 리디렉션 URL을 업데이트하는 데 사용할 수 있는 Azure 사이트 확장입니다. WordPress Buddy+ 사용에 대한 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
+WordPress Buddy+는 데이터베이스에서 직접 리디렉션 URL을 업데이트하는 데 사용할 수 있는 Azure 사이트 확장입니다. WordPress Buddy+ 사용에 대한 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
 
 또는 SQL 쿼리 또는 PHPMyAdmin을 사용하여 리디렉션 URL을 수동으로 업데이트하려면 [WordPress: Redirecting to wrong URL](/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url)(WordPress: 잘못된 URL로 리디렉션)을 참조하세요.
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>내 WordPress 로그인 암호를 어떻게 변경할 수 있나요?
 
-WordPress 로그인 암호를 기억하지 못하는 경우 WordPress Buddy+를 사용하여 암호를 업데이트할 수 있습니다. 암호를 다시 설정하려면 WordPress Buddy+ Azure 사이트 확장을 설치하고 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)에 설명된 단계를 완료합니다.
+WordPress 로그인 암호를 기억하지 못하는 경우 WordPress Buddy+를 사용하여 암호를 업데이트할 수 있습니다. 암호를 다시 설정하려면 WordPress Buddy+ Azure 사이트 확장을 설치하고 [WordPress tools and MySQL migration with WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)에 설명된 단계를 완료합니다.
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>WordPress에 로그인할 수 없습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
-최근에 플러그 인을 설치한 후 WordPress에서 잠긴 것을 알았다면 잘못된 플러그 인이 있을 수 있습니다. WordPress Buddy+는 WordPress에서 플러그 인을 사용하지 않도록 설정할 수 있는 Azure 사이트 확장입니다. 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
+최근에 플러그 인을 설치한 후 WordPress에서 잠긴 것을 알았다면 잘못된 플러그 인이 있을 수 있습니다. WordPress Buddy+는 WordPress에서 플러그 인을 사용하지 않도록 설정할 수 있는 Azure 사이트 확장입니다. 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>내 WordPress 데이터베이스를 마이그레이션하려면 어떻게 하나요?
 
 WordPress 웹 사이트에 연결된 MySQL 데이터베이스를 마이그레이션할 수 있는 다양한 옵션이 있습니다.
 
 * 개발자: [명령 프롬프트 또는 PHPMyAdmin](/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service) 사용
-* 비 개발자: [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) 사용
+* 비 개발자: [WordPress Buddy+](https://www.electrongeek.com/blog/2016/12/21/wordpress-buddy-site-extension-for-app-service-on-windows) 사용
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>WordPress의 보안을 강화하려면 어떻게 해야 하나요?
 

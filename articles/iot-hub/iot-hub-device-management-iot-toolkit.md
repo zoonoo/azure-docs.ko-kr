@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81688093"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리
@@ -43,7 +43,7 @@ ms.locfileid: "81688093"
 
 다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Tools를 실행합니다.
 
-## <a name="what-you-need"></a>필요한 항목
+## <a name="what-you-need"></a>필요한 작업
 
 * 활성화된 Azure 구독.
 * 구독 중인 Azure IoT Hub

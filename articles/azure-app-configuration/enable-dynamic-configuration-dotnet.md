@@ -2,19 +2,19 @@
 title: '.NET Framework 자습서: Azure App Configuration의 동적 구성'
 description: 이 자습서에서는 Azure App Configuration을 사용하여 .NET Framework 앱의 구성 데이터를 동적으로 업데이트하는 방법을 알아봅니다.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 10/21/2019
-ms.author: lcozzens
-ms.openlocfilehash: 49ab9090dd2f1860bed84d0494cb862212840e82
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 07/24/2020
+ms.author: alkemper
+ms.openlocfilehash: 03940a86176d0bc93c5066977fdc87de5c456060
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207042"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932764"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>자습서: .NET Framework에서 동적 구성 사용
 
@@ -39,28 +39,28 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **구성 탐색기** >  **+ 만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+7. **구성 탐색기** >  **+ 만들기** > **키-값** 을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
     | TestApp:Settings:Message | Azure App Configuration의 정보 |
 
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
-7. **적용**을 선택합니다.
+8. **적용** 을 선택합니다.
 
 ## <a name="create-a-net-framework-console-app"></a>.NET Framework 콘솔 앱 만들기
 
-1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
+1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트** 를 차례로 선택합니다.
 
-1. **새 프로젝트 만들기**에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음**을 클릭합니다.
+1. **새 프로젝트 만들기** 에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음** 을 클릭합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 입력합니다. **Framework**에서 **.NET Framework 4.7.1** 이상을 선택합니다. **만들기**를 클릭합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 입력합니다. **Framework** 에서 **.NET Framework 4.7.1** 이상을 선택합니다. **만들기** 를 클릭합니다.
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
-1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 *Microsoft.Extensions.Configuration.AzureAppConfiguration* NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다. **찾아보기** 탭에서 *Microsoft.Extensions.Configuration.AzureAppConfiguration* NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
 
-1. *Program.cs*를 열고, .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
+1. *Program.cs* 를 열고, .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -118,7 +118,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. **ConnectionString** 이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
     ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -136,9 +136,9 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
     ![로컬로 앱 시작](./media/dotnet-app-run.png)
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스** 를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-1. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
+1. **구성 탐색기** 를 선택하고, 다음 키의 값을 업데이트합니다.
 
     | 키 | 값 |
     |---|---|

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a8ea8d5f13f72b0da1e11a27b69da2570eda543
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079175"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913484"
 ---
 # <a name="limits-and-quotas"></a>한도 및 할당량
 
@@ -23,7 +23,7 @@ Custom Vision 서비스에는 두 가지 계층의 키가 있습니다. Azure Po
 
 프로젝트당 학습 이미지 수 및 프로젝트당 태그 수는 S0 프로젝트에서 시간이 지남에 따라 증가될 것으로 예상됩니다.
 
-|요소|**F0**|**S0**|
+|요인|**F0**|**S0**|
 |-----|-----|-----|
 |프로젝트|2|100|
 |프로젝트당 학습 이미지 |5,000|100,000|
@@ -39,11 +39,9 @@ Custom Vision 서비스에는 두 가지 계층의 키가 있습니다. Azure Po
 |[기타 API 호출](https://go.microsoft.com/fwlink/?linkid=865446)(초당 트랜잭션 수)|10|10|
 |허용 되는 이미지 형식|jpg, png, bmp, gif|jpg, png, bmp, gif|
 |최소 이미지 높이/너비 (픽셀)|256 (참고 참조)|256 (참고 참조)|
-|최대 이미지 높이/너비 (픽셀)|무제한|무제한|
+|최대 이미지 높이/너비 (픽셀)|10240|10240|
 |최대 이미지 크기(학습 이미지 업로드) |6 MB|6 MB|
 |최대 이미지 크기(예측)|4MB|4MB|
 |개체 검색 학습 이미지 당 최대 지역 수|300|300|
 |분류 이미지 당 최대 태그 수|100|100|
 
-> [!NOTE]
-> 256 픽셀 보다 작은 이미지는 허용 되지만 upscaled 조정 됩니다.

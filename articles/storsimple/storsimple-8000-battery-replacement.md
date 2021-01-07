@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 17a6a07d117557cdee23634bd211a14cf90d49e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508982"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023774"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>StorSimple 디바이스의 백업 배터리 모듈 교체
 
 ## <a name="overview"></a>개요
-Microsoft Azure StorSimple 디바이스의 기본 엔클로저 PCM(전원 및 냉각 모듈)에는 추가 배터리 팩이 있습니다. 이 팩은 기본 엔클로저에 대한 AC 전원이 끊어질 경우 StorSimple 디바이스가 데이터를 저장할 수 있도록 전원을 공급합니다. 이 배터리 팩은 *백업 배터리 모듈*이라고도 합니다. 백업 배터리 모듈은 StorSimple 디바이스의 기본 엔클로저에만 있습니다(EBOD 엔클로저에는 백업 배터리 모듈이 없음).
+Microsoft Azure StorSimple 디바이스의 기본 엔클로저 PCM(전원 및 냉각 모듈)에는 추가 배터리 팩이 있습니다. 이 팩은 기본 엔클로저에 대한 AC 전원이 끊어질 경우 StorSimple 디바이스가 데이터를 저장할 수 있도록 전원을 공급합니다. 이 배터리 팩은 *백업 배터리 모듈* 이라고도 합니다. 백업 배터리 모듈은 StorSimple 디바이스의 기본 엔클로저에만 있습니다(EBOD 엔클로저에는 백업 배터리 모듈이 없음).
 
 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
@@ -32,7 +32,7 @@ Microsoft Azure StorSimple 디바이스의 기본 엔클로저 PCM(전원 및 �
 StorSimple 디바이스에 대한 백업 배터리 모듈은 FRU(현장 교체 디바이스)입니다. PCM에 설치하기 전에는 원래 포장 안에 배터리 모듈을 보관해야 합니다. 백업 배터리를 꺼내려면 다음 단계를 수행합니다.
 
 #### <a name="to-remove-the-backup-battery-module"></a>백업 배터리 모듈을 꺼내려면
-1. Azure Portal에서 StorSimple 디바이스 관리자 서비스 블레이드로 이동합니다. **디바이스**로 이동한 후 디바이스 목록에서 디바이스를 선택합니다. **모니터**  >  **하드웨어 상태**로 이동 합니다. **공유 구성 요소**에서 배터리 상태를 확인합니다.
+1. Azure Portal에서 StorSimple 디바이스 관리자 서비스 블레이드로 이동합니다. **디바이스** 로 이동한 후 디바이스 목록에서 디바이스를 선택합니다. **모니터**  >  **하드웨어 상태** 로 이동 합니다. **공유 구성 요소** 에서 배터리 상태를 확인합니다.
 2. 배터리에서 오류가 발생한 PCM을 식별합니다. 그림 1은 StorSimple 디바이스의 뒷면의 보여 줍니다.
    
     ![디바이스 기본 엔클로저 모듈의 백플레인](./media/storsimple-battery-replacement/IC740994.png)
@@ -76,12 +76,12 @@ StorSimple 디바이스의 기본 엔클로저의 PCM에 교체 배터리 모듈
 1. 백업 배터리 모듈을 PCM에 올바른 방향으로 놓습니다.
 2. 배터리 모듈 핸들을 아래로 완전히 눌러 커넥터를 장착합니다.
 3. [StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md)의 지침에 따라 기본 엔클로저의 PCM을 교체합니다.
-4. 교체가 완료 되 면 장치로 이동한 다음 **Monitor**  >  Azure Portal에서**하드웨어 상태** 모니터링으로 이동 합니다. 설치가 성공적으로 수행되었는지 확인하려면 배터리 상태를 확인합니다. 녹색 상태는 배터리가 정상임을 나타냅니다.
+4. 교체가 완료 되 면 장치로 이동한 다음 **Monitor**  >  Azure Portal에서 **하드웨어 상태** 모니터링으로 이동 합니다. 설치가 성공적으로 수행되었는지 확인하려면 배터리 상태를 확인합니다. 녹색 상태는 배터리가 정상임을 나타냅니다.
 
 ## <a name="maintain-the-backup-battery-module"></a>백업 배터리 모듈 유지 관리
 StorSimple 디바이스에서 백업 배터리 모듈은 전원 손실 이벤트가 발생하는 동안 컨트롤러에 전원을 공급합니다. StorSimple 디바이스가 종료되기 전에 제어된 방식으로 중요한 데이터를 저장할 수 있게 합니다. PCM에 완전히 충전된 두 개의 배터리가 있으면 시스템이 두 번의 연속된 손실 이벤트를 처리할 수 있습니다.
 
-Azure Portal에서 **모니터** 블레이드의 **하드웨어 상태**는 배터리가 오작동하는지 또는 사용 기간 종료가 임박하는지 여부를 나타냅니다. 배터리 상태는 **공유 구성 요소**에서 **PCM 0의 배터리** 또는 **PCM 1의 배터리**에서 표시됩니다. 이 블레이드에서 사용 기간 종료가 임박한 경우 **DEGRADED** 상태가 표시되고 사용 기간이 종료된 경우 **FAILED** 상태가 표시됩니다.
+Azure Portal에서 **모니터** 블레이드의 **하드웨어 상태** 는 배터리가 오작동하는지 또는 사용 기간 종료가 임박하는지 여부를 나타냅니다. 배터리 상태는 **공유 구성 요소** 에서 **PCM 0의 배터리** 또는 **PCM 1의 배터리** 에서 표시됩니다. 이 블레이드에서 사용 기간 종료가 임박한 경우 **DEGRADED** 상태가 표시되고 사용 기간이 종료된 경우 **FAILED** 상태가 표시됩니다.
 
 > [!NOTE]
 > 단순히 충전이 필요한 경우 배터리에서 **FAILED** 를 보고할 수 있습니다.

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984156"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746570"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>데이터의 이중 암호화를 위해 인프라 암호화가 사용 하도록 설정 된 저장소 계정 만들기
 
@@ -95,7 +96,7 @@ PowerShell을 사용 하 여 인프라 암호화가 사용 하도록 설정 된 
 
 1. Azure Portal에서 **저장소 계정** 페이지로 이동 합니다.
 1. **추가** 단추를 선택 하 여 범용 v2 저장소 계정을 새로 추가 합니다.
-1. **고급** 탭에서 **인프라** 암호화를 찾은 다음 **사용**을 선택 합니다.
+1. **고급** 탭에서 **인프라** 암호화를 찾은 다음 **사용** 을 선택 합니다.
 1. **검토 + 만들기** 를 선택 하 여 저장소 계정 만들기를 완료 합니다.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="계정을 만들 때 인프라 암호화를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
@@ -178,9 +179,9 @@ az storage account create \
 Azure Portal를 사용 하 여 저장소 계정에 인프라 암호화가 사용 하도록 설정 되어 있는지 확인 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
-1. **설정**에서 **암호화**를 선택 합니다.
+1. **설정** 에서 **암호화** 를 선택 합니다.
 
-    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="계정에 대해 인프라 암호화가 사용 하도록 설정 되었는지 확인 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="계정을 만들 때 인프라 암호화를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

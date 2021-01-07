@@ -1,19 +1,19 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: multiple
 author: sharad4u
 ms.service: multiple
 ms.topic: include
-ms.date: 05/09/2019
+ms.date: 10/30/2020
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 9397c5f075c1d6653920d19766d5d6a740294ec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb3cc6a37e9116b2a28b72fc7a3779aafb2a1e21
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67330741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025463"
 ---
 다음은 고유의 인증서를 만들 때 허용되는 CA입니다.
 
@@ -23,6 +23,7 @@ ms.locfileid: "67330741"
 - AME Infra CA 02
 - Ameroot
 - APCA-DM3P
+- Atos를 통해 루트 2011
 - Autopilot Root CA
 - Baltimore CyberTrust Root
 - Class 3 Public Primary Certification Authority
@@ -31,6 +32,7 @@ ms.locfileid: "67330741"
 - D-TRUST Root Class 3 CA 2 2009
 - DigiCert Cloud Services CA-1
 - DigiCert Global Root CA
+- DigiCert Global Root G2
 - DigiCert High Assurance CA-3
 - DigiCert High Assurance EV Root CA
 - DigiCert SHA2 Extended Validation Server CA
@@ -52,8 +54,13 @@ ms.locfileid: "67330741"
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority - G2
 - Go Daddy Secure Certificate Authority - G2
+- 인증 기관 X3을 암호화 합니다.
+- 마이크로 초 e-Szigno 루트 CA 2009
 - QuoVadis Root CA2 G3
 - RapidSSL RSA CA 2018
+- 보안 통신 RootCA1
+- 보안 통신 RootCA2
+- 보안 통신 RootCA3
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4
 - Symantec Enterprise Mobile Root for Microsoft

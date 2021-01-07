@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: pafarley
-ms.openlocfilehash: f7259fe486a473f994d7795de5926b86717bb1b6
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 3724a7d515197c1f969bb051fc201b82bee64c42
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391709"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813499"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
 
@@ -41,7 +41,7 @@ ms.locfileid: "85391709"
 
 - Custom Vision Service Azure에서 일반 공급으로 전환 되었습니다.
 - 성능 향상을 위해 새 machine learning 백 엔드가 포함 된 고급 학습 기능이 추가 되었습니다. 특히 데이터 집합 및 세분화 된 분류의 경우 고급 교육을 통해 교육에 대 한 계산 시간 예산을 지정 Custom Vision 하 고 experimentally는 최상의 학습 및 확대 설정을 식별할 수 있습니다. 빠른 반복의 경우 기존 빠른 학습을 계속 사용할 수 있습니다.
-- 3.0 Api가 도입 되었습니다. 발표 된는 2019 년 10 월 1 일 3.0 Api의 사용 중단을 발표 했습니다. 시작 하는 방법에 대 한 예제는 [.net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [Node](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial)또는 [Go](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) 에 대 한 설명서를 참조 하세요.
+- 3.0 Api가 도입 되었습니다. 발표 된는 2019 년 10 월 1 일 3.0 Api의 사용 중단을 발표 했습니다. 시작 하는 방법에 대 한 예제는 설명서 [퀵 스타트](./quickstarts/image-classification.md) 를 참조 하세요.
 - 3.0 Api에서 "기본 반복"이 게시/게시 취소로 바뀌었습니다.
 - 새 모델 내보내기 대상이 추가 되었습니다. Dockerfile 내보내기가 Raspberry Pi 3의 ARM을 지원 하도록 업그레이드 되었습니다. 수출 지원이 [비전 AI Dev Kit](https://visionaidevkit.com/)에 추가 되었습니다.
 - S0 계층의 경우 프로젝트 당 500에 대 한 태그 제한이 증가 했습니다. S0 계층의 경우 10만에 대 한 프로젝트당 이미지 한도가 증가 합니다.

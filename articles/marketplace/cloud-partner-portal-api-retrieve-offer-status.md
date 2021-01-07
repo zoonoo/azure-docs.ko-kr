@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87272014"
 ---
 # <a name="retrieve-offer-status"></a>제안 상태 검색
@@ -27,9 +27,9 @@ ms.locfileid: "87272014"
 
 |  **이름**       |   **설명**                            |  **데이터 형식** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     문자열     |
-|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     문자열     |
-|  api-version    | 최신 버전 API                        |     Date       |
+|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     String     |
+|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     String     |
+|  api-version    | 최신 버전 API                        |     날짜       |
 |  |  |
 
 ## <a name="header"></a>헤더
@@ -130,8 +130,8 @@ ms.locfileid: "87272014"
 |  상태               | 단계의 상태입니다. 가능한 값 목록을 보려면 아래의 [단계 상태](#step-status)를 참조하세요.    |
 |  messages             | 단계와 관련된 메시지의 배열입니다.                                                          |
 |  processPercentage    | 단계의 완료율입니다.                                                              |
-|  previewLinks         | *현재 구현되지 않음*                                                                    |
-|  liveLinks            | *현재 구현되지 않음*                                                                    |
+|  previewLinks         | *현재 구현 되지 않음*                                                                    |
+|  liveLinks            | *현재 구현 되지 않음*                                                                    |
 |  notificationEmails   | 파트너 센터로 마이그레이션된 제안에는 사용 되지 않습니다. 마이그레이션된 제안에 대 한 알림 전자 메일은 계정 설정의 판매자 연락처 정보에 지정 된 메일에 전송 됩니다.<br><br>마이그레이션되지 않은 제품의 경우 작업 진행 상황에 대 한 알림이 표시 되는 쉼표로 구분 된 전자 메일 주소 목록입니다.        |
 |  |  |
 
@@ -154,7 +154,7 @@ ms.locfileid: "87272014"
 |  실행 중                     | 제안 제출을 처리 중입니다.                     |
 |  성공                   | 제안 제출 처리를 완료했습니다.               |
 |  취소됨                    | 제안 제출이 취소되었습니다.                           |
-|  실패                      | 제안 제출에 실패했습니다.                                 |
+|  Failed                      | 제안 제출에 실패했습니다.                                 |
 |  |  |
 
 ### <a name="step-status"></a>단계 상태

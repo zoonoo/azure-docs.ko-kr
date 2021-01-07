@@ -1,16 +1,16 @@
 ---
-title: Backup Center를 사용 하 여 백업 모니터링 및 작동
+title: Backup 센터를 사용한 백업 모니터링 및 운영
 description: 이 문서에서는 Backup Center를 사용 하 여 대규모로 백업을 모니터링 하 고 작동 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996675"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Backup Center를 사용 하 여 백업 모니터링 및 작동
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Backup 센터를 사용한 백업 모니터링 및 운영
 
 백업 관리자는 백업 센터를 단일 창으로 사용 하 여 작업 및 백업 인벤토리를 매일 모니터링할 수 있습니다. 또한 백업 센터를 사용 하 여 주문형 백업 요청에 대 한 응답, 백업 복원, 백업 정책 만들기 등의 일반 작업을 수행할 수 있습니다.
 

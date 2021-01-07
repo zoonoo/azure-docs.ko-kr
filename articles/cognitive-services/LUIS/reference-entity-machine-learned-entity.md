@@ -3,19 +3,17 @@ title: 기계 학습 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
 description: 기계 학습 엔터티는 LUIS 응용 프로그램을 빌드하기 위한 기본 엔터티입니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
-ms.author: diberry
-ms.openlocfilehash: ddaf5c921f92aeaefd8a8b0cb13602bc70a4dd5d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f16f3ec445af777c3bde1cb2ab0735df4b6614f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684567"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542243"
 ---
 # <a name="machine-learning-entity"></a>기계 학습 엔터티
 

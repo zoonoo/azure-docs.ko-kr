@@ -4,16 +4,18 @@ description: 일반적인 변경 피드 디자인 패턴 개요
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443d00e61e593daacca04a4451b90bb78cc7d854
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85118953"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334609"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 디자인 패턴
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 변경 피드를 통해 대량의 쓰기가 있는 큰 데이터 세트를 효율적으로 처리할 수 있습니다. 변경 피드는 또한 변경된 내용을 식별하기 위해 전체 데이터 세트를 쿼리하는 대안을 제공합니다. 이 문서에서는 일반적인 변경 피드 디자인 패턴, 디자인 장단점 및 변경 피드 제한 사항에 중점을 두고 있습니다.
 
@@ -52,7 +54,7 @@ Cosmos 컨테이너의 변경 피드에서 읽는 것 외에 Azure Cosmos DB에 
 
 ### <a name="high-availability"></a>고가용성
 
-Azure Cosmos DB는 최대 99.999% 읽기 및 쓰기 가용성을 제공합니다. 많은 메시지 큐와 달리 Azure Cosmos DB 데이터는 [RTO(복구 시간 목표)](consistency-levels-tradeoffs.md#rto)를 0으로 하여 쉽게 전역적으로 배포 및 구성할 수 있습니다.
+Azure Cosmos DB는 최대 99.999% 읽기 및 쓰기 가용성을 제공합니다. 많은 메시지 큐와 달리 Azure Cosmos DB 데이터는 [RTO(복구 시간 목표)](./consistency-levels.md#rto)를 0으로 하여 쉽게 전역적으로 배포 및 구성할 수 있습니다.
 
 변경 피드의 항목을 처리한 후 구체화된 뷰를 작성하고 집계된 값을 Azure Cosmos DB에 다시 유지할 수 있습니다. 예를 들어, Azure Cosmos DB를 사용하여 게임을 빌드하는 경우 변경 피드를 사용하여 완료된 게임의 점수에 따라 실시간 순위표를 구현할 수 있습니다.
 
@@ -73,7 +75,7 @@ Azure Cosmos DB는 최대 99.999% 읽기 및 쓰기 가용성을 제공합니다
 
 ## <a name="event-sourcing"></a>이벤트 소싱
 
-[이벤트 소싱 패턴](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)에는 추가 전용 저장소를 사용하여 해당 데이터에 대한 전체 작업을 기록하는 작업이 포함됩니다. Azure Cosmos DB의 변경 피드는 모든 데이터 수집이 쓰기(업데이트 또는 삭제 없음)로 모델링되는 이벤트 소싱 아키텍처의 중앙 데이터 저장소로 선택하는 것이 좋습니다. 이 경우 Azure Cosmos DB에 대한 각 쓰기는 "이벤트"이며, 사용자는 변경 피드의 과거 이벤트에 대한 전체 레코드를 갖게 됩니다. 중앙 이벤트 저장소에서 게시한 이벤트는 일반적으로 구체화된 뷰를 유지 관리하고 외부 시스템과 통합하는 데 사용됩니다. 변경 피드의 보존에 대한 시간 제한이 없기 때문에 Cosmos 컨테이너의 변경 피드의 시작 부분에서 읽어 이전 이벤트를 모두 재생할 수 있습니다.
+[이벤트 소싱 패턴](/azure/architecture/patterns/event-sourcing)에는 추가 전용 저장소를 사용하여 해당 데이터에 대한 전체 작업을 기록하는 작업이 포함됩니다. Azure Cosmos DB의 변경 피드는 모든 데이터 수집이 쓰기(업데이트 또는 삭제 없음)로 모델링되는 이벤트 소싱 아키텍처의 중앙 데이터 저장소로 선택하는 것이 좋습니다. 이 경우 Azure Cosmos DB에 대한 각 쓰기는 "이벤트"이며, 사용자는 변경 피드의 과거 이벤트에 대한 전체 레코드를 갖게 됩니다. 중앙 이벤트 저장소에서 게시한 이벤트는 일반적으로 구체화된 뷰를 유지 관리하고 외부 시스템과 통합하는 데 사용됩니다. 변경 피드의 보존에 대한 시간 제한이 없기 때문에 Cosmos 컨테이너의 변경 피드의 시작 부분에서 읽어 이전 이벤트를 모두 재생할 수 있습니다.
 
 [여러 변경 피드 소비자가 동일한 컨테이너의 변경 피드를 구독](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers)하도록 할 수 있습니다. [임대 컨테이너](change-feed-processor.md#components-of-the-change-feed-processor)의 프로비저닝된 처리량 외에도 변경 피드를 활용하는 비용이 없습니다. 변경 피드는 사용 여부에 관계없이 모든 컨테이너에서 사용할 수 있습니다.
 
@@ -102,7 +104,7 @@ Azure Cosmos DB는 가로 확장성 및 고가용성의 장점 때문에 이벤�
 3. 고객이 쇼핑 카트에서 항목 A를 제거합니다.
 4. 고객이 체크 아웃하고 쇼핑 카트 콘텐츠가 배송됩니다.
 
-현재 쇼핑 카트 콘텐츠의 구체화된 뷰는 각 고객에 대해 유지 관리됩니다. 이 애플리케이션은 이러한 이벤트를 발생 순서대로 처리해야 합니다. 예를 들어 항목 A가 제거되기 전에 카트 체크 아웃을 처리하면 고객이 원하는 항목 B가 아니라 항목 A가 배송될 수 있습니다. 이러한 4개의 이벤트가 발생 순서대로 처리되도록 보장하기 위해 동일한 파티션 키 값 내에 포함해야 합니다. **사용자 이름**(각 고객은 고유한 사용자 이름을 가짐)을 파티션 키로 선택하면 이러한 이벤트가 Azure Cosmos DB에 기록된 순서와 동일하게 변경 피드에 표시되도록 보장할 수 있습니다.
+현재 쇼핑 카트 콘텐츠의 구체화된 뷰는 각 고객에 대해 유지 관리됩니다. 이 애플리케이션은 이러한 이벤트를 발생 순서대로 처리해야 합니다. 예를 들어 항목 A가 제거되기 전에 카트 체크 아웃을 처리하면 고객이 원하는 항목 B가 아니라 항목 A가 배송될 수 있습니다. 이러한 4개의 이벤트가 발생 순서대로 처리되도록 보장하기 위해 동일한 파티션 키 값 내에 포함해야 합니다. **사용자 이름** (각 고객은 고유한 사용자 이름을 가짐)을 파티션 키로 선택하면 이러한 이벤트가 Azure Cosmos DB에 기록된 순서와 동일하게 변경 피드에 표시되도록 보장할 수 있습니다.
 
 ## <a name="examples"></a>예
 

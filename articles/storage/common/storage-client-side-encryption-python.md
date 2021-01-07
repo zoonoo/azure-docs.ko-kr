@@ -12,11 +12,11 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804911"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008936"
 ---
 # <a name="client-side-encryption-with-python"></a>Python을 사용 하는 클라이언트 쪽 암호화
 
@@ -54,7 +54,7 @@ ms.locfileid: "84804911"
 스토리지 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
 
 ### <a name="blobs"></a>Blob
-클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 특히 사용자가 **create*** 메서드를 사용할 때 암호화가 지원됩니다. 다운로드로는 전체 및 범위 다운로드가 지원되며, 업로드 및 다운로드의 병렬화를 사용할 수 있습니다.
+클라이언트 라이브러리는 현재 전체 blob 암호화만 지원합니다. 특히 사용자가 **create** _ 메서드를 사용할 때 암호화가 지원 됩니다. 다운로드로는 전체 및 범위 다운로드가 지원되며, 업로드 및 다운로드의 병렬화를 사용할 수 있습니다.
 
 암호화 하는 동안 클라이언트 라이브러리는 임의 IV (Initialization Vector) 32 바이트의 임의의 콘텐츠 암호화 키 (CEK)와 함께 16 바이트를 생성 하고 이 정보를 사용 여 blob 데이터의 봉투 (envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터 서비스에서 암호화 된 blob과 함께 메타 데이터를 blob으로 저장합니다.
 
@@ -63,9 +63,9 @@ ms.locfileid: "84804911"
 > 
 > 
 
-암호화 Blob 다운로드는 **get*** 편리한 메서드를 사용한 전체 Blob의 콘텐츠 검색을 포함합니다. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
+암호화 된 blob 다운로드에는 편리한 _*get* *_ 메서드를 사용 하 여 전체 blob의 콘텐츠를 검색 하는 작업이 포함 됩니다. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
 
-암호화된 Blob 내에서 임의의 범위를 다운로드할 경우(범위 매개 변수가 제공된**get*** 메서드) 요청된 범위를 성공적으로 암호를 해독하는 데 사용되는 소량의 추가 데이터를 얻기 위해 사용자가 제공하는 범위가 조정됩니다.
+암호화 된 blob에서 임의의 범위 (범위 매개 변수가 전달 된 _*get* *_ 메서드)를 다운로드 하는 데는 사용자가 제공 하는 범위를 조정 하 여 요청 된 범위를 성공적으로 암호를 해독 하는 데 사용할 수 있는 소량의 추가 데이터를 가져옵니다.
 
 이 스키마를 사용하여 블록 Blob 및 페이지 Blob만 암호화/암호 해독할 수 있습니다. 추가 Blob에 대한 암호화 지원은 현재 없습니다.
 
@@ -114,7 +114,7 @@ tableservice batch() 메서드를 통해 배치가 컨텍스트 관리자로 생
 > [!IMPORTANT]
 > 클라이언트 쪽 암호화를 사용할 때는 이러한 중요점을 유의하세요.
 > 
-> * 암호화된 blob에서 읽거나 여기에 쓸 때는 전체 blob 업로드 명령 및 범위/전체 blob 다운로드 명령을 사용하세요. 블록 배치, 블록 목록 배치, 페이지 쓰기나 페이지 지우기와 같은 프로토콜 작업을 사용하여 암호화된 blob에 쓰기를 피하십시오. 그렇지 않으면 암호화된 blob이 손상되어 읽지 못하게 될 수 있습니다.
+> _ 암호화 된 blob에서 읽거나 쓸 때 전체 blob 업로드 명령과 범위/전체 blob 다운로드 명령을 사용 합니다. 블록 배치, 블록 목록 배치, 페이지 쓰기나 페이지 지우기와 같은 프로토콜 작업을 사용하여 암호화된 blob에 쓰기를 피하십시오. 그렇지 않으면 암호화된 blob이 손상되어 읽지 못하게 될 수 있습니다.
 > * 테이블의 경우에는 유사한 제약 조건이 있습니다. 암호화 메타데이터를 업데이트하지 않고 암호화된 속성을 업데이트하지 않도록 주의해야 합니다.
 > * 암호화된 blob에서 메타데이터를 설정하는 경우 메타데이터의 설정은 가산적이 아니므로 암호 해독에 필요한 암호화 관련 메타데이터를 덮어쓸 수도 있습니다. 이것은 스냅샷에 대해서 마찬가지입니다. 암호화된 blob의 스냅샷을 생성하는 동안 메타데이터를 지정하지 않도록 하세요. 메타데이터가 설정되어야 하는 경우 먼저 **get_blob_metadata** 메서드를 호출하여 현재 암호화 메타데이터를 가져오고, 메타데이터가 설정되는 동안에는 동시 쓰기를 피합니다.
 > * 암호화된 데이터에만 작동해야 하는 사용자의 서비스 개체에 **require_encryption** 플래그를 사용하도록 설정합니다. 자세한 내용은 다음을 참조하세요.
@@ -197,7 +197,7 @@ retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
 
 ### <a name="table-service-encryption"></a>Table service 암호화
-암호화 정책을 생성하고 요청 옵션에 설정하는 것 외에도 **tableservice**에서 **encryption_resolver_function**을 지정하거나 EntityProperty에 대해 encrypt 특성을 설정해야 합니다.
+암호화 정책을 생성하고 요청 옵션에 설정하는 것 외에도 **tableservice** 에서 **encryption_resolver_function** 을 지정하거나 EntityProperty에 대해 encrypt 특성을 설정해야 합니다.
 
 ### <a name="using-the-resolver"></a>확인자를 사용하여
 

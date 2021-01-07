@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: duau
-ms.openlocfilehash: ac6fe619fc1c65b9ced18227d08cde50997eb7d7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 57c439cf8ac52d93d231d6ff33f72a5a942dec6a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395284"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351608"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute에 연결된 가상 네트워크를 클래식에서 Resource Manager로 마이그레이션
 
@@ -29,10 +29,10 @@ ms.locfileid: "89395284"
 * 리소스 관리자 배포 모델에 만든 리소스 그룹이 있는지 확인합니다.
 * 다음 리소스 마이그레이션 설명서를 검토합니다.
 
-    * [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+    * [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-overview.md)
     * [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
     * [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-faq.md)
-    * [가장 일반적인 마이그레이션 오류 및 완화 방법 검토](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+    * [가장 일반적인 마이그레이션 오류 및 완화 방법 검토](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="supported-and-unsupported-scenarios"></a>지원되는 및 지원되지 않는 시나리오
 
@@ -82,7 +82,7 @@ ExpressRoute 회로에 연결된 리소스를 마이그레이션하기 전에 Ex
    ```
 
 ## <a name="next-steps"></a>다음 단계
-* [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+* [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-overview.md)
 * [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
 * [FAQ: 클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/migration-classic-resource-manager-faq.md)
-* [가장 일반적인 마이그레이션 오류 및 완화 방법 검토](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [가장 일반적인 마이그레이션 오류 및 완화 방법 검토](../virtual-machines/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

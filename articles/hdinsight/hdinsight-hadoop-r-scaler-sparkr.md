@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c12398ceacf8495a05037422a6501dc8138abc10
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082278"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628697"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
-이 문서에서는 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공편 도착 지연을 예측하는 방법을 보여 줍니다. 이 예제에서는 **SparkR**을 사용하여 연결되는 항공편 지연과 날씨 데이터를 사용합니다.
+이 문서에서는 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공편 도착 지연을 예측하는 방법을 보여 줍니다. 이 예제에서는 **SparkR** 을 사용하여 연결되는 항공편 지연과 날씨 데이터를 사용합니다.
 
 두 패키지 모두 Apache Hadoop의 Spark 실행 엔진에서 실행 되지만 각각의 개별 Spark 세션이 필요 하므로 메모리 내 데이터 공유에서 차단 됩니다. ML Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환하는 것이 해결 방법입니다. 아래 지침은 이러한 요구 사항을 간단하게 달성할 수 있음을 보여줍니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "86082278"
 
 이 코드는 원래 Azure HDInsight 클러스터의 Spark에서 실행 중인 ML Server용으로 작성된 것입니다. 하지만 하나의 스크립트에서 SparkR과 ScaleR을 혼합하여 사용하는 개념도 온-프레미스 환경의 컨텍스트에서 유효합니다.
 
-이 문서의 단계에서는 사용자가 R 및 ML Server의 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 라이브러리에 대한 중간 수준의 지식을 보유하고 있다고 가정합니다. 이 시나리오를 진행 하는 동안 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) 에 도입 되었습니다.
+이 문서의 단계에서는 사용자가 R 및 ML Server의 [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) 라이브러리에 대한 중간 수준의 지식을 보유하고 있다고 가정합니다. 이 시나리오를 진행 하는 동안 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) 에 도입 되었습니다.
 
 ## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 세트
 
@@ -218,7 +218,7 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
 
 ## <a name="data-cleansing-and-transformation"></a>데이터 정리 및 변환
 
-다음으로, 열 이름을 변경하기 위해 가져온 항공기 데이터에 대한 일부 정리 작업을 수행합니다. 필요한 변수만을 유지하며, 출발 시 최신 날짜와 병합할 수 있도록 예정된 출발 시간을 가장 가까운 시간으로 받아 내립니다.
+다음으로 열 이름을 바꾸기 위해 가져온 항공편 데이터에 대 한 정리 작업을 수행 합니다. 필요한 변수만을 유지하며, 출발 시 최신 날짜와 병합할 수 있도록 예정된 출발 시간을 가장 가까운 시간으로 받아 내립니다.
 
 ```
 logmsg('clean the airline data') 
@@ -459,7 +459,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>로지스틱 회귀 모델 학습 및 테스트
 
-이제 모델을 빌드할 준비가 되었습니다. 도착 시간 지연에 날짜 데이터가 미치는 영향을 확인하기 위해 ScaleR의 로지스틱 회귀 루틴을 사용합니다. 이 루틴을 사용하여 15분 이상의 도착 지연이 출도착 공항의 날씨 영향을 받는지 모델링합니다.
+이제 모델을 빌드할 준비가 되었습니다. 도착 시 타이밍에 대 한 날씨 데이터의 영향을 확인 하려면 ScaleR의 로지스틱 회귀 루틴을 사용 합니다. 이 루틴을 사용하여 15분 이상의 도착 지연이 출도착 공항의 날씨 영향을 받는지 모델링합니다.
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -479,7 +479,7 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-이제 몇 가지 예측을 수행하고 ROC와 AUC를 살펴봄으로써 테스트 데이터에서 수행하는 방법을 알아보겠습니다.
+이제 몇 가지 예측을 수행 하 고 ROC 및 CC를 살펴보면 테스트 데이터에서 어떻게 수행 되는지 살펴보겠습니다.
 
 ```
 # Predict over test data (Logistic Regression).
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>다른 곳에서 점수 매기기
 
-또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일로 저장한 다음 전송하여 해당 RDS를 Microsoft SQL Server R Services 등의 대상 점수 매기기 환경으로 가져옵니다. 점수를 매길 데이터의 요소 수준이 모델이 작성 된 것과 일치 하는지 확인 하는 것이 중요 합니다. 이러한 일치는 ScaleR의 `rxCreateColInfo()` 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 세트의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
+또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일에 저장 한 다음 Microsoft SQL Server R Services와 같은 대상 점수 매기기 환경으로 RDS를 전송 하 고 가져옵니다. 점수를 매길 데이터의 요소 수준이 모델이 작성 된 것과 일치 하는지 확인 하는 것이 중요 합니다. ScaleR의 함수를 통해 모델링 데이터와 관련 된 열 정보를 추출 하 고 저장 한 `rxCreateColInfo()` 다음 예측을 위해 해당 열 정보를 입력 데이터 원본에 적용 하 여 이러한 일치를 달성할 수 있습니다. 다음 코드 예제에서는 테스트 데이터 집합의 몇 개 행을 저장 하 고 예측 스크립트에서이 샘플의 열 정보를 추출 하 여 사용 합니다.
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="next-steps-and-more-information"></a>다음 단계 및 자세한 정보
 
-- Apache Spark에서 ML Server 사용에 대한 자세한 내용은 [시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)를 참조하세요.
+- Apache Spark에서 ML Server 사용에 대한 자세한 내용은 [시작 가이드](/machine-learning-server/r/how-to-revoscaler-spark)를 참조하세요.
 
 - HDInsight의 ML 서비스에 대 한 자세한 내용은 [hdinsight의 Ml 서비스 개요](r-server/r-server-overview.md)를 참조 하세요.
 
@@ -543,4 +543,4 @@ SparkR 사용에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Apache SparkR 문서](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- Databricks에서 [개요를 SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) .
+- [SparkR 개요](/azure/databricks/spark/latest/sparkr/overview)

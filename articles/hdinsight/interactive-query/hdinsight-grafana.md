@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/27/2019
 ms.openlocfilehash: 7750544367044cab2a0243577c200025bb9ff693
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083035"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
@@ -24,7 +24,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Apache Hadoop 클러스터 만들기
 
-[Azure Portal를 사용 하 여 Apache Hadoop 클러스터 만들기를](../hdinsight-hadoop-create-linux-clusters-portal.md)참조 하세요. **클러스터 유형**에서 **Spark**, **Kafka**, **HBase**또는 **대화형 쿼리**를 선택 합니다.
+[Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요. **클러스터 유형**에서 **Spark**, **Kafka**, **HBase**또는 **대화형 쿼리**를 선택 합니다.
 
 ## <a name="access-the-grafana-dashboard"></a>Grafana 대시보드에 액세스
 

@@ -3,18 +3,18 @@ title: Microsoft ID 플랫폼 설명서
 summary: Microsoft ID 플랫폼은 인증 서비스, 오픈 소스 라이브러리 및 애플리케이션 관리 도구입니다. 빠른 시작, 자습서 및 코드 샘플을 사용하여 최신 표준 기반 인증 솔루션을 만드는 방법을 알아봅니다. 사용자 및 고객이 Microsoft ID 또는 소셜 계정을 사용하여 로그인하는 애플리케이션을 빌드하고 API 또는 Microsoft Graph와 같은 Microsoft API에 대한 액세스 권한을 부여합니다.
 metadata:
   ms.topic: landing-page
-  ms.date: 08/11/2020
+  ms.date: 10/07/2020
   author: mmacy
   ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: f6893522b66f20dd26905084e5b09d303cbfd5b3
-  ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+  ms.openlocfilehash: 954712c2056a4251bc92b71c5b7cd2f1309804b2
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/09/2020
-  ms.locfileid: "89612766"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91962023"
 landingContent:
 - title: Microsoft ID 플랫폼 정보
   linkLists:
@@ -64,8 +64,8 @@ landingContent:
       url: quickstart-v2-aspnet-webapp.md
     - text: ASP.NET Core
       url: quickstart-v2-aspnet-core-webapp.md
-    - text: Python
-      url: quickstart-v2-python-webapp.md
+    - text: Blazor 서버
+      url: tutorial-blazor-server.md
 - title: 모바일/네이티브 앱
   linkLists:
   - linkListType: get-started
@@ -83,7 +83,7 @@ landingContent:
     - text: ASP.NET
       url: quickstart-v2-dotnet-native-aspnet.md
     - text: ASP.NET Core
-      url: /samples/azure-samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/calling-a-web-api-in-an-aspnet-core-web-application-using-azure-ad/
+      url: quickstart-v2-aspnet-core-web-api.md
 - title: Microsoft Graph
   linkLists:
   - linkListType: get-started
@@ -120,17 +120,9 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
-    - text: '빠른 시작: 앱 등록(다시 쓰기)'
-      url: quickstart-register-app.md
-    - text: '빠른 시작: 웹 API 노출(다시 쓰기)'
-      url: quickstart-configure-app-expose-web-apis.md
-    - text: '빠른 시작: 웹 API 액세스(다시 쓰기)'
-      url: quickstart-configure-app-access-web-apis.md
-    - text: Xamarin Android 조정된 앱을 MSAL.NET으로 마이그레이션
-      url: msal-net-migration-android-broker.md
-    - text: 오류 및 예외 처리 - Android
-      url: msal-android-handling-exceptions.md
-    - text: 클레임의 디렉터리 스키마 확장 특성
-      url: active-directory-schema-extensions.md
-    - text: MSAL.js 2.0 인증 코드 + PKCE 및 CORS
-      url: quickstart-v2-javascript-auth-code.md
+    - text: Docs의 새로운 기능
+      url: whats-new-docs.md
+    - text: Microsoft Identity Web 라이브러리 개요
+      url: microsoft-identity-web.md
+    - text: '자습서: Blazor Server'
+      url: tutorial-blazor-server.md

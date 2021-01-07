@@ -19,10 +19,18 @@
   items:
     - name: 데이터 공유
       href: share-your-data.md
+      displayName: 'Azure CLI, az datashare account create, az datashare create'
     - name: 데이터 수락 및 받기
       href: subscribe-to-data-share.md
+      displayName: 'Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription'
 - name: 개념
   items:
+    - name: 보안
+      items:
+        - name: 보안 개요
+          href: security.md
+        - name: 보안 기준
+          href: security-baseline.md
     - name: Azure Data Share 용어
       href: terminology.md
     - name: 역할 및 요구 사항
@@ -31,8 +39,6 @@
       href: concepts-pricing.md
 - name: 샘플
   items:
-    - name: 코드 샘플
-      href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
     - name: Azure PowerShell
       href: samples-powershell.md
 - name: 방법 가이드
@@ -41,15 +47,11 @@
       items:
         - name: Azure Storage에서 공유
           href: how-to-share-from-storage.md
-        - name: Azure SQL Database 또는 Synapse Analytics에서 공유
+        - name: Azure SQL Database 또는 Azure Synapse Analytics에서 공유
           href: how-to-share-from-sql.md
         - name: Azure Data Explorer에서 공유
           href: /azure/data-explorer/data-share
           maintainContext: true
-    - name: 모니터
-      href: how-to-monitor.md
-    - name: 문제 해결
-      href: data-share-troubleshoot.md
     - name: 데이터 세트 추가
       href: how-to-add-datasets.md
     - name: 데이터 세트 매핑 구성
@@ -60,24 +62,26 @@
       href: how-to-delete-invitation.md
     - name: 공유 구독 철회
       href: how-to-revoke-share-subscription.md
-    - name: 보안
-      href: security.md
+    - name: 모니터
+      href: how-to-monitor.md
     - name: 재해 복구
       href: disaster-recovery.md
+    - name: 문제 해결
+      href: data-share-troubleshoot.md
 - name: 참조
   items:
     - name: .NET
       href: /dotnet/api/overview/azure/datashare
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0'
+      href: /powershell/module/az.datashare/?view=azps-2.6.0
     - name: REST API
       href: /rest/api/datashare
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest'
+      href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
 - name: 리소스
   items:
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-share.html'
+      href: /answers/topics/azure-data-share.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-share'
     - name: 블로그

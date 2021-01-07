@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320513"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985801"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>VM용 Azure Monitor의 맵 기능을 사용 하 여 응용 프로그램 구성 요소 이해
 VM용 Azure Monitor에서는 Azure 또는 사용자 환경에서 실행되는 Windows 및 Linux VM(가상 머신)에서 검색된 애플리케이션 구성 요소를 볼 수 있습니다. 두 가지 방법으로 Vm을 관찰할 수 있습니다. VM에서 직접 맵을 보거나 Azure Monitor에서 맵을 확인 하 여 Vm 그룹에서 구성 요소를 볼 수 있습니다. 이 문서는 이러한 두 가지 보기 방법과 지도 기능을 사용 하는 방법을 이해 하는 데 도움이 됩니다. 
@@ -87,41 +87,41 @@ Azure 경고 및 경고 규칙을 만드는 방법에 대 한 자세한 내용�
 
 VM에서 직접 VM용 Azure Monitor에 액세스 하려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **Virtual Machines**를 선택합니다. 
-2. 목록에서 VM을 선택 합니다. **모니터링** 섹션에서 **Insights**를 선택 합니다.  
+1. Azure Portal에서 **Virtual Machines** 를 선택합니다. 
+2. 목록에서 VM을 선택 합니다. **모니터링** 섹션에서 **Insights** 를 선택 합니다.  
 3. **맵** 탭을 선택합니다.
 
 맵은 지정 된 시간 범위 동안 활성 네트워크 연결을 포함 하는 실행 중인 프로세스 그룹과 프로세스를 검색 하 여 VM의 종속성을 시각화 합니다.  
 
 기본적으로 맵은 최근 30분을 보여줍니다. 이전에 종속성이 표시 되는 방식을 확인 하려는 경우 최대 1 시간의 기록 시간 범위를 쿼리할 수 있습니다. 쿼리를 실행 하려면 왼쪽 위 모퉁이에 있는 **TimeRange** 선택기를 사용 합니다. 예를 들어 인시던트 중 또는 변경 전 상태를 확인 하는 등의 쿼리를 실행할 수 있습니다.  
 
-![직접 VM 맵 개요](./media/vminsights-maps/map-direct-vm-01.png)
+![가상 컴퓨터 간의 종속성에 대 한 다이어그램을 보여 주는 Azure Portal의 모니터링 정보 섹션에 있는 맵 탭의 스크린샷](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 맵 보기
 
 가상 머신 확장 집합에서 직접 VM용 Azure Monitor에 액세스 하려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **가상 머신 확장 집합**을 선택합니다.
-2. 목록에서 VM을 선택 합니다. 그런 다음 **모니터링** 섹션에서 **Insights**를 선택 합니다.  
+1. Azure Portal에서 **가상 머신 확장 집합** 을 선택합니다.
+2. 목록에서 VM을 선택 합니다. 그런 다음 **모니터링** 섹션에서 **Insights** 를 선택 합니다.  
 3. **맵** 탭을 선택합니다.
 
 맵은 확장 집합의 모든 인스턴스를 그룹의 종속성과 함께 그룹 노드로 시각화 합니다. 확장 된 노드에 확장 집합의 인스턴스가 나열 됩니다. 이러한 인스턴스를 한 번에 10 개까지 스크롤할 수 있습니다. 
 
-특정 인스턴스에 대 한 맵을 로드 하려면 먼저 맵에서 해당 인스턴스를 선택 합니다. 그런 다음 오른쪽에 있는 **줄임표** 단추 (...)를 선택 하 고 **서버 맵 로드**를 선택 합니다. 표시 되는 맵에는 지정 된 시간 범위 동안 활성 네트워크 연결을 포함 하는 프로세스 그룹 및 프로세스가 표시 됩니다. 
+특정 인스턴스에 대 한 맵을 로드 하려면 먼저 맵에서 해당 인스턴스를 선택 합니다. 그런 다음 오른쪽에 있는 **줄임표** 단추 (...)를 선택 하 고 **서버 맵 로드** 를 선택 합니다. 표시 되는 맵에는 지정 된 시간 범위 동안 활성 네트워크 연결을 포함 하는 프로세스 그룹 및 프로세스가 표시 됩니다. 
 
 기본적으로 맵은 최근 30분을 보여줍니다. 이전에 종속성이 표시 되는 방식을 확인 하려는 경우 최대 1 시간의 기록 시간 범위를 쿼리할 수 있습니다. 쿼리를 실행 하려면 **TimeRange** 선택기를 사용 합니다. 예를 들어 인시던트 중 또는 변경 전 상태를 확인 하는 등의 쿼리를 실행할 수 있습니다.
 
-![직접 VM 맵 개요](./media/vminsights-maps/map-direct-vmss-01.png)
+![가상 머신 확장 집합 간의 종속성 다이어그램을 보여 주는 Azure Portal의 모니터링 Insights 섹션에 있는 맵 탭의 스크린샷](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->가상 머신 확장 집합에 대 한 **인스턴스** 보기에서 특정 인스턴스에 대 한 맵에 액세스할 수도 있습니다. **설정** 섹션에서 **인스턴스**  >  **정보**로 이동 합니다.
+>가상 머신 확장 집합에 대 한 **인스턴스** 보기에서 특정 인스턴스에 대 한 맵에 액세스할 수도 있습니다. **설정** 섹션에서 **인스턴스**  >  **정보** 로 이동 합니다.
 
 ## <a name="view-a-map-from-azure-monitor"></a>Azure Monitor에서 맵 보기
 
 Azure Monitor 맵 기능은 Vm 및 해당 종속성에 대 한 글로벌 보기를 제공 합니다. Azure Monitor에서 맵 기능에 액세스 하려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **모니터**를 선택합니다. 
-2. **Insights** 섹션에서 **Virtual Machines**을 선택 합니다.
+1. Azure Portal에서 **모니터** 를 선택합니다. 
+2. **Insights** 섹션에서 **Virtual Machines** 을 선택 합니다.
 3. **맵** 탭을 선택합니다.
 
    ![여러 Vm의 Azure Monitor 개요 맵](./media/vminsights-maps/map-multivm-azure-monitor-01.png)

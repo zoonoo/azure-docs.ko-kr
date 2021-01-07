@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d91e69d7d9eac9f8cae1a1a122a13afd19ef631
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882321"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443877"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>단일 페이지 응용 프로그램: API를 호출 하는 토큰 획득
 
@@ -70,7 +70,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 MSAL 각도 래퍼는 자동으로 액세스 토큰을 획득 하 고 Api에 대 한 HTTP 요청에 연결 하는 HTTP 인터셉터를 제공 합니다.
 
-구성 옵션에서 Api의 범위를 지정할 수 있습니다 `protectedResourceMap` . `MsalInterceptor`는 토큰을 자동으로 획득할 때 이러한 범위를 요청 합니다.
+구성 옵션에서 Api의 범위를 지정할 수 있습니다 `protectedResourceMap` . `MsalInterceptor` 는 토큰을 자동으로 획득할 때 이러한 범위를 요청 합니다.
 
 ```javascript
 // app.module.ts
@@ -198,5 +198,4 @@ myMSALObj.acquireTokenPopup(request);
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [웹 API 호출](scenario-spa-call-api.md)
+이 시나리오의 다음 문서로 이동 하 여 [WEB API를 호출](scenario-spa-call-api.md)합니다.

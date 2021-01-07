@@ -10,15 +10,20 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c2e0e907734f30010690817ddb7bb15527c93bbf
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 96a4b13d11e40e24e78d3aed8dfebcc88b41c525
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404033"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486881"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>자습서: Bing Visual Search API에 이미지 업로드
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Visual Search API를 사용하여 업로드하는 이미지와 유사한 이미지에 대한 웹을 검색할 수 있습니다. 이 자습서를 사용하여 이미지를 API에 보낼 수 있는 웹 애플리케이션을 만들고, 웹 페이지 내에 반환하는 인사이트를 표시합니다. 이 애플리케이션은 API를 사용하기 위해 모든 [Bing 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 준수하지 않습니다.
 
@@ -472,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>다양한 작업에 대한 인사이트 표시
 
-다음 함수는 다양한 작업에 대한 인사이트를 표시합니다. 함수는 클릭 가능한 이미지 또는 이미지에 대한 자세한 정보가 포함된 웹 페이지로 이동되는 클릭 가능한 링크를 제공합니다. 이 페이지는 Bing.com 또는 이미지의 원래 웹 사이트에서 호스트됩니다. 인사이트의 데이터 중 일부만 이 애플리케이션에 표시됩니다. 인사이트에 사용할 수 있는 모든 필드를 보려면 [이미지 - Visual Search](https://aka.ms/bingvisualsearchreferencedoc) 참고 자료를 참조하세요.
+다음 함수는 다양한 작업에 대한 인사이트를 표시합니다. 함수는 클릭 가능한 이미지 또는 이미지에 대한 자세한 정보가 포함된 웹 페이지로 이동되는 클릭 가능한 링크를 제공합니다. 이 페이지는 Bing.com 또는 이미지의 원래 웹 사이트에서 호스트됩니다. 인사이트의 데이터 중 일부만 이 애플리케이션에 표시됩니다. 인사이트에 사용할 수 있는 모든 필드를 보려면 [이미지 - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) 참고 자료를 참조하세요.
 
 > [!NOTE]
 > 페이지에 표시해야 하는 최소한의 인사이트 정보 양이 있습니다. 자세한 내용은 [Bing Search API 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 참조하세요.

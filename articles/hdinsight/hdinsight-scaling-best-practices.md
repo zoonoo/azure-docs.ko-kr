@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505015"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022771"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -32,9 +32,9 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 
 |유틸리티 | 설명|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell AzureRM](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Azure 클래식 CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창을 열고 왼쪽 메뉴에서 **클러스터 크기** 를 선택한 다음 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
@@ -43,8 +43,8 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 이러한 방법 중 하나를 사용하여 몇 분 만에 HDInsight 클러스터를 확장 또는 축소할 수 있습니다.
 
 > [!IMPORTANT]  
-> * Azure 클래식 CLI는 더 이상 사용 되지 않으며 클래식 배포 모델에만 사용 해야 합니다. 다른 모든 배포의 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 합니다.
-> * PowerShell AzureRM 모듈은 더 이상 사용 되지 않습니다.  가능 하면 [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 을 사용 하세요.
+> * Azure 클래식 CLI는 더 이상 사용 되지 않으며 클래식 배포 모델에만 사용 해야 합니다. 다른 모든 배포의 경우 [Azure CLI](/cli/azure/)를 사용 합니다.
+> * PowerShell AzureRM 모듈은 더 이상 사용 되지 않습니다.  가능 하면 [Az module](/powershell/azure/new-azureps-module-az) 을 사용 하세요.
 
 ## <a name="impact-of-scaling-operations"></a>크기 조정 작업의 영향
 
@@ -125,12 +125,12 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 1. 수동으로 작업을 종료 합니다.
 1. 크기 조정 작업이 완료 된 후 작업을 다시 전송 합니다.
 
-보류 중인 작업 및 실행 중인 작업 목록을 보려면 다음 단계를 수행 하 여 YARN **리소스 관리자 UI**를 사용할 수 있습니다.
+보류 중인 작업 및 실행 중인 작업 목록을 보려면 다음 단계를 수행 하 여 YARN **리소스 관리자 UI** 를 사용할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 디렉터리를 선택합니다.  클러스터가 새 포털 페이지에서 열립니다.
-2. 주 보기에서 **클러스터 대시보드**  >  **Ambari 홈**으로 이동 합니다. 클러스터 자격 증명을 입력 합니다.
+2. 주 보기에서 **클러스터 대시보드**  >  **Ambari 홈** 으로 이동 합니다. 클러스터 자격 증명을 입력 합니다.
 3. Ambari UI의 왼쪽 메뉴에 있는 서비스 목록에서 **YARN** 를 선택 합니다.  
-4. YARN 페이지에서 **빠른 링크** 를 선택 하 고 활성 헤드 노드 위로 마우스를 이동한 다음 **리소스 관리자 UI**를 선택 합니다.
+4. YARN 페이지에서 **빠른 링크** 를 선택 하 고 활성 헤드 노드 위로 마우스를 이동한 다음 **리소스 관리자 UI** 를 선택 합니다.
 
     ![Apache Ambari 빠른 링크 리소스 관리자 UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
@@ -146,7 +146,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-다음은 그 예입니다. 
+예들 들어 다음과 같습니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

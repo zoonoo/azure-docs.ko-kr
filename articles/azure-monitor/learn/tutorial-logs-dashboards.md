@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 880d173c6eef9d267e8860ebad805e071706de42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927371"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186153"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics 데이터의 대시보드 만들기 및 공유
 
@@ -30,7 +30,7 @@ Log Analytics 대시보드를 통해 저장된 모든 로그 쿼리를 시각화
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
 
 ## <a name="create-a-shared-dashboard"></a>공유 대시보드 만들기
-**대시보드**를 선택하여 기본 [대시보드](../../azure-portal/azure-portal-dashboards.md)를 엽니다. 대시보드가 아래 예제와는 다르게 보입니다.
+**대시보드** 를 선택하여 기본 [대시보드](../../azure-portal/azure-portal-dashboards.md)를 엽니다. 대시보드가 아래 예제와는 다르게 보입니다.
 
 ![Azure 포털 대시보드](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
@@ -48,22 +48,22 @@ Azure Log Analytics의 원격 분석을 포함하여, 모든 Azure 리소스에�
 
 ![Azure Portal에서 새 대시보드 만들기](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
 
-이 작업은 새 비어 있는 프라이빗 대시보드를 만들고 대시보드의 이름을 지정하고 타일을 추가하거나 다시 정렬할 수 있는 사용자 지정 모드를 설정합니다. 대시보드 이름을 편집하고 이 자습서에 대해 *샘플 대시보드*를 지정한 후 **사용자 지정 완료**를 선택합니다.<br><br> ![사용자 지정된 Azure 대시보드 저장](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+이 작업은 새 비어 있는 프라이빗 대시보드를 만들고 대시보드의 이름을 지정하고 타일을 추가하거나 다시 정렬할 수 있는 사용자 지정 모드를 설정합니다. 대시보드 이름을 편집하고 이 자습서에 대해 *샘플 대시보드* 를 지정한 후 **사용자 지정 완료** 를 선택합니다.<br><br> ![사용자 지정된 Azure 대시보드 저장](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
 
 대시보드를 만들 때 기본적으로 프라이빗입니다. 즉, 볼 수 있는 유일한 사람은 사용자입니다. 다른 사람이 볼 수 있도록 하려면 다른 대시보드 명령 옆에 나타나는 **공유** 단추를 사용합니다.
 
 ![Azure Portal에서 새 대시보드 공유](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-게시하려는 대시보드에 대한 구독 및 리소스 그룹을 선택하라는 메시지가 표시됩니다. 편의를 위해 포털의 게시 환경에서는 **대시보드**라는 리소스 그룹에 대시보드를 배치한 위치의 패턴을 안내합니다.  선택한 구독을 확인한 후 **게시**를 클릭합니다.  대시보드에 표시되는 정보에 대한 액세스는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)로 제어합니다.   
+게시하려는 대시보드에 대한 구독 및 리소스 그룹을 선택하라는 메시지가 표시됩니다. 편의를 위해 포털의 게시 환경에서는 **대시보드** 라는 리소스 그룹에 대시보드를 배치한 위치의 패턴을 안내합니다.  선택한 구독을 확인한 후 **게시** 를 클릭합니다.  대시보드에 표시되는 정보에 대한 액세스는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)로 제어합니다.   
 
 ## <a name="visualize-a-log-query"></a>로그 쿼리 시각화
-[Log Analytics](../log-query/get-started-portal.md)는 로그 쿼리 및 해당 결과로 작업하는 데 사용되는 전용 포털입니다. 여기에는 여러 줄, 선택적인 실행 코드, 상황에 맞는 중요한 Intellisense 및 스마트 분석에서 쿼리를 편집하는 기능이 포함됩니다. 이 자습서에서는 Log Analytics를 사용하여 성능 보기를 그래프 양식으로 만들고 이후 쿼리를 위해 저장하며 이전에 만든 공유 대시보드에 고정합니다.
+[Log Analytics](../log-query/log-analytics-tutorial.md)는 로그 쿼리 및 해당 결과로 작업하는 데 사용되는 전용 포털입니다. 여기에는 여러 줄, 선택적인 실행 코드, 상황에 맞는 중요한 Intellisense 및 스마트 분석에서 쿼리를 편집하는 기능이 포함됩니다. 이 자습서에서는 Log Analytics를 사용하여 성능 보기를 그래프 양식으로 만들고 이후 쿼리를 위해 저장하며 이전에 만든 공유 대시보드에 고정합니다.
 
-Azure Monitor 메뉴에서 **로그**를 선택하여 Log Analytics를 엽니다. 비어 있는 새 쿼리로 시작합니다.
+Azure Monitor 메뉴에서 **로그** 를 선택하여 Log Analytics를 엽니다. 비어 있는 새 쿼리로 시작합니다.
 
 ![홈 페이지](media/tutorial-logs-dashboards/homepage.png)
 
-다음 쿼리를 입력하여 Windows 및 Linux 컴퓨터에 대한 프로세서 사용률 레코드를 Computer 및 TimeGenerated로 그룹화하고, 시각적 차트로 표시하여 반환합니다. **실행**을 클릭하여 쿼리를 실행하고 결과 차트를 봅니다.
+다음 쿼리를 입력하여 Windows 및 Linux 컴퓨터에 대한 프로세서 사용률 레코드를 Computer 및 TimeGenerated로 그룹화하고, 시각적 차트로 표시하여 반환합니다. **실행** 을 클릭하여 쿼리를 실행하고 결과 차트를 봅니다.
 
 ```Kusto
 Perf 
@@ -76,13 +76,13 @@ Perf
 
 ![쿼리 저장](media/tutorial-logs-dashboards/save-query.png)
 
-**쿼리 저장** 제어판에서 이름(예: *Azure VM - 프로세서 사용률*) 및 범주(예: **대시보드**)를 제공한 다음 *저장*을 클릭합니다.  이러한 방식으로 일반 쿼리 라이브러리를 만들어 사용하고 수정할 수 있습니다.  마지막으로, 페이지 오른쪽 상단의 **대시보드에 고정** 단추를 선택한 다음, 대시보드 이름을 선택하여 이전에 만든 공유 대시보드에 이를 고정합니다.
+**쿼리 저장** 제어판에서 이름(예: *Azure VM - 프로세서 사용률*) 및 범주(예: **대시보드**)를 제공한 다음 *저장* 을 클릭합니다.  이러한 방식으로 일반 쿼리 라이브러리를 만들어 사용하고 수정할 수 있습니다.  마지막으로, 페이지 오른쪽 상단의 **대시보드에 고정** 단추를 선택한 다음, 대시보드 이름을 선택하여 이전에 만든 공유 대시보드에 이를 고정합니다.
 
 이제 대시보드에 쿼리가 고정되었으며 그 아래 일반적인 제목과 설명이 있음을 확인할 수 있습니다.
 
 ![Azure 대시보드 샘플](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
 
- 보는 사람이 쉽게 이해할 수 있는 의미있는 이름으로 바꾸어야 합니다.  편집 단추를 클릭하여 타일의 제목 및 부제목을 사용자 지정한 다음 **업데이트**를 클릭합니다.  변경 내용을 게시하거나 취소할지 묻는 배너가 표시됩니다.  **복사본 저장**을 클릭합니다.  
+ 보는 사람이 쉽게 이해할 수 있는 의미있는 이름으로 바꾸어야 합니다.  편집 단추를 클릭하여 타일의 제목 및 부제목을 사용자 지정한 다음 **업데이트** 를 클릭합니다.  변경 내용을 게시하거나 취소할지 묻는 배너가 표시됩니다.  **복사본 저장** 을 클릭합니다.  
 
 ![샘플 대시보드의 구성 완료됨](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 

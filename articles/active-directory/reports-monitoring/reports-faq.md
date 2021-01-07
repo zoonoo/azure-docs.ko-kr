@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015333"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935090"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -37,7 +37,7 @@ ms.locfileid: "90015333"
 
 **Q: 현재는 `https://graph.windows.net/<tenant-name>/reports/` 끝점 api를 사용 하 여 AZURE AD 보안 보고서 (특정 유형의 검색 (예: 누출 된 자격 증명 또는 익명 IP 주소에서의 로그인)를 프로그래밍 방식으로 보고 시스템으로 끌어옵니다. 어떻게 전환 해야 하나요?**
 
-**A:**  [Id 보호 위험 검색 API](../identity-protection/howto-identity-protection-graph-api.md)   를 사용 하 여 Microsoft Graph 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식을 사용 하면 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리 하는 방법에 더 많은 유연성을 제공 하 고, SIEMs 및 기타 데이터 수집 도구와 쉽게 통합 하기 위해 위험 검색을 한 가지 유형으로 표준화할 수 있습니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새 api는](/graph/api/resources/identityriskevent?view=graph-rest-beta)Microsoft 365 또는 Azure AD와 같은 api에 대 한 Microsoft 표준인 Microsoft Graph를 사용 합니다. 따라서 필요한 작업을 통해 현재 Microsoft Graph 투자를 연장 하거나이 새로운 표준 플랫폼으로의 전환을 시작할 수 있습니다.
+**A:** [Id 보호 위험 검색 API](../identity-protection/howto-identity-protection-graph-api.md) 를 사용 하 여 Microsoft Graph 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식을 사용 하면 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리 하는 방법에 더 많은 유연성을 제공 하 고, SIEMs 및 기타 데이터 수집 도구와 쉽게 통합 하기 위해 위험 검색을 한 가지 유형으로 표준화할 수 있습니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새 api는](/graph/api/resources/identityriskevent?view=graph-rest-beta)Microsoft 365 또는 Azure AD와 같은 api에 대 한 Microsoft 표준인 Microsoft Graph를 사용 합니다. 따라서 필요한 작업을 통해 현재 Microsoft Graph 투자를 연장 하거나이 새로운 표준 플랫폼으로의 전환을 시작할 수 있습니다.
 
 ---
 
@@ -49,7 +49,7 @@ ms.locfileid: "90015333"
 
 **Q: Premium 라이선스를 받은 후 활동 데이터를 보는 데 얼마나 걸리나요?**
 
-**A:** 기존에 무료 라이선스를 통해 수집한 활동 데이터가 있는 경우에는 해당 데이터를 즉시 볼 수 있습니다. 데이터가 없는 경우에는 보고서에 데이터가 나타나기까지 1~2일 정도 걸립니다.
+**A:** 기존에 무료 라이선스를 통해 수집한 활동 데이터가 있는 경우에는 해당 데이터를 즉시 볼 수 있습니다. 데이터가 없으면 보고서에 데이터가 표시 되는 데 최대 3 일이 소요 됩니다.
 
 ---
 
@@ -61,7 +61,7 @@ ms.locfileid: "90015333"
 
 **Q: Azure Portal의 활동 로그인을 보거나 API를 통해 데이터를 가져오려면 전역 관리자 권한이 필요한가요?**
 
-**A:** 아니요. 테넌트의 **보안 읽기 권한자** 또는 **보안 관리자**도 포털 또는 API를 통해 보고 데이터에 액세스할 수 있습니다. **전역 관리자**도 물론 이 데이터에 접근할 수 있습니다.
+**A:** 아니요. 테넌트의 **보안 읽기 권한자** 또는 **보안 관리자** 도 포털 또는 API를 통해 보고 데이터에 액세스할 수 있습니다. **전역 관리자** 도 물론 이 데이터에 접근할 수 있습니다.
 
 ---
 
@@ -143,8 +143,8 @@ ms.locfileid: "90015333"
 
 **A:** 조건부 액세스 상태는 다음과 같은 값을 가질 수 있습니다.
 
-* **적용되지 않음**: 범위 내 사용자 및 앱에 CA 정책이 없음을 의미합니다. 
-* **성공**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되었음을 의미합니다. 
+* **적용 되지 않음**: 범위 내 사용자 및 앱에 대 한 조건부 액세스 정책이 없음을 의미 합니다. 
+* **성공**:이는 범위 내에서 사용자와 앱에 대 한 조건부 액세스 정책이 있고 조건부 액세스 정책이 성공적으로 충족 되었음을 의미 합니다. 
 * **실패**: 로그인에서 하나 이상의 조건부 액세스 정책에 대 한 사용자 및 응용 프로그램 조건을 충족 하 고 grant 컨트롤이 충족 되지 않거나 액세스를 차단 하도록 설정 되었습니다.
     
 **Q: 조건부 액세스 정책 결과에 사용할 수 있는 모든 값은 무엇 인가요?**
@@ -158,7 +158,7 @@ ms.locfileid: "90015333"
     
 **Q: 모든 로그인 보고서의 정책 이름이 CA의 정책 이름과 일치 하지 않습니다. 이유는 무엇입니까?**
 
-**A:** 모든 로그인 보고서의 정책 이름은 로그인 시점의 CA 정책 이름을 기준으로 합니다. 나중, 즉 로그인 후에 정책 이름을 업데이트했다면 이 값이 CA의 정책 이름과 일관되지 않을 수 있습니다.
+**A:** 모든 로그인 보고서의 정책 이름은 로그인 시의 조건부 액세스 정책 이름을 기반으로 합니다. 나중, 즉 로그인 후에 정책 이름을 업데이트했다면 이 값이 CA의 정책 이름과 일관되지 않을 수 있습니다.
 
 **Q: 조건부 액세스 정책으로 인해 로그인이 차단 되었지만 로그인 활동 보고서에 로그인이 성공 했음을 표시 합니다. 굳이?**
 

@@ -1,24 +1,24 @@
 ---
-title: SQL 주문형(미리 보기)의 스토리지에서 파일에 액세스
-description: Synapse SQL 내에서 SQL 주문형(미리 보기) 리소스를 사용하여 스토리지 파일을 쿼리하는 방법을 설명합니다.
+title: 서버리스 SQL 풀의 스토리지에 있는 파일 액세스
+description: Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일을 쿼리하는 방법을 설명합니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.author: stefanazaric
+ms.reviewer: jrasnick
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986953"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446580"
 ---
-# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Synapse SQL(주문형)에서 외부 스토리지에 액세스
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 외부 스토리지에 액세스
 
-이 문서에서는 사용자가 Synapse SQL(주문형)의 Azure Storage에 저장된 파일의 데이터를 읽는 방법에 대해 설명합니다. 사용자는 다음과 같은 옵션을 사용하여 스토리지에 액세스할 수 있습니다.
+이 문서에서는 사용자가 서버리스 SQL 풀의 Azure Storage에 저장된 파일에서 데이터를 읽을 수 있는 방법을 설명합니다. 사용자는 다음과 같은 옵션을 사용하여 스토리지에 액세스할 수 있습니다.
 
 - [OPENROWSET](develop-openrowset.md) 함수 - Azure Storage의 파일에 대한 임시 쿼리를 사용할 수 있습니다.
 - [외부 테이블](develop-tables-external-tables.md) - 외부 파일 세트를 기반으로 미리 정의된 데이터 구조입니다.
@@ -27,7 +27,7 @@ ms.locfileid: "87986953"
 
 ## <a name="query-files-using-openrowset"></a>OPENROWSET를 사용하여 파일 쿼리
 
-OPENROWSET를 사용하면 스토리지에 대한 액세스 권한이 있는 사용자는 Azure 스토리지의 외부 파일을 쿼리할 수 있습니다. Synapse SQL 주문형 엔드포인트에 연결된 사용자는 다음 쿼리를 사용하여 Azure 스토리지의 파일 콘텐츠를 읽어야 합니다.
+OPENROWSET를 사용하면 사용자가 스토리지에 대한 액세스 권한이 있는 경우 Azure 스토리지의 외부 파일을 쿼리할 수 있습니다. 서버리스 SQL 풀에 연결된 사용자는 다음 쿼리를 사용하여 Azure 스토리지에 있는 파일 콘텐츠를 읽어야 합니다.
 
 ```sql
 SELECT * FROM
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 테이블 읽기 권한이 있는 사용자는 Azure Storage 폴더 및 파일 세트 위에 생성된 EXTERNAL TABLE을 사용하여 외부 파일에 액세스할 수 있습니다.
 
-[외부 테이블을 만드는 권한](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions)(예: CREATE TABLE 및 ALTER ANY CREDENTIAL 또는 REFERENCES DATABASE SCOPED CREDENTIAL)이 있는 사용자는 다음 스크립트를 사용하여 Azure Storage 데이터 원본 위에 테이블을 만들 수 있습니다.
+[외부 테이블을 만드는 권한](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true)(예: CREATE TABLE 및 ALTER ANY CREDENTIAL 또는 REFERENCES DATABASE SCOPED CREDENTIAL)이 있는 사용자는 다음 스크립트를 사용하여 Azure Storage 데이터 원본 위에 테이블을 만들 수 있습니다.
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

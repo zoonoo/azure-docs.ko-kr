@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center의 권장 사항 수정 | Microsoft Docs
-description: 이 문서에서는 리소스를 보호 하 고 보안 정책을 준수 하는 Azure Security Center의 권장 사항을 수정 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Security Center의 권장 사항에 응답 하 여 리소스를 보호 하 고 보안 정책을 충족 하는 방법을 설명 합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569138"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807993"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Azure Security Center의 권장 사항 교정
 
@@ -26,34 +26,41 @@ ms.locfileid: "89569138"
 
 ## <a name="remediation-steps"></a>수정 단계 <a name="remediation-steps"></a>
 
-모든 권장 사항을 검토 한 후 먼저 수정할 항목을 결정 합니다. [보안 점수 효과](security-center-recommendations.md#monitor-recommendations) 를 사용 하 여 먼저 수행할 작업의 우선 순위를 지정 하는 것이 좋습니다.
+모든 권장 사항을 검토 한 후 먼저 수정할 항목을 결정 합니다. 보안 점수를 높이기 위해 가장 높은 잠재력으로 보안 제어의 우선 순위를 지정 하는 것이 좋습니다.
 
-1. 목록에서 권장 사항을 클릭 합니다.
+1. 목록에서 권장 사항을 선택 합니다.
 
 1. **수정 단계** 섹션의 지침을 따릅니다. 각 권장 사항에는 고유한 지침 집합이 있습니다. 다음 스크린샷에서는 HTTPS를 통한 트래픽만 허용 하도록 응용 프로그램을 구성 하는 수정 단계를 보여 줍니다.
 
-    ![권장 사항 세부 정보](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="권장 사항에 대 한 수동 수정 단계" lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
 
-1. 작업이 완료 되 면 재구성에 성공 하면 알려 주는 알림이 표시 됩니다.
+1. 완료 되 면 문제가 해결 되었는지 알려 주는 알림이 표시 됩니다.
 
-## <a name="quick-fix-remediation"></a>빠른 수정 재구성<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>빠른 수정 재구성
 
-빠른 픽스를 사용 하면 여러 리소스에 대 한 권장 사항을 빠르게 수정할 수 있습니다. 특정 권장 사항에 대해서만 사용할 수 있습니다. 빠른 픽스를 사용 하면 수정을 간소화 하 고 보안 점수를 빠르게 늘리고 환경의 보안을 향상 시킬 수 있습니다.
+업데이트를 간소화 하 고 환경 보안을 개선 하기 위해 (그리고 보안 점수를 늘리기) 많은 권장 사항에 빠른 수정 옵션이 포함 되어 있습니다.
 
-빠른 수정 수정을 구현 하려면:
+빠른 픽스를 사용 하면 여러 리소스에 대 한 권장 사항을 빠르게 수정할 수 있습니다.
 
-1. **빠른 수정** 이 있는 권장 사항 목록에서 레이블, 권장 사항을 클릭 합니다.
+> [!TIP]
+> 빠른 수정 솔루션은 특정 권장 사항에 대해서만 사용할 수 있습니다. 사용 가능한 빠른 수정이 있는 권장 사항을 찾으려면 권장 사항 목록에 대해 **응답 작업** 필터를 사용 합니다.
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="권장 사항 목록 위의 필터를 사용 하 여 빠른 수정 옵션이 있는 권장 사항을 찾습니다.":::
 
-    [![빠른 수정을 선택 합니다.](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
+빠른 수정 솔루션을 구현 하려면 다음을 수행 합니다.
 
-1. **비정상 리소스** 탭에서 권장 구성을 구현 하려는 리소스를 선택 하 고 수정 **을 클릭 합니다**.
+1. **빠른 수정** 이 있는 권장 사항 목록에서 레이블, 권장 사항을 선택 합니다.
+
+    [![빠른 수정을 선택 합니다.](media/security-center-remediate-recommendations/security-center-quick-fix-select.png)](media/security-center-remediate-recommendations/security-center-quick-fix-select.png#lightbox)
+
+1. **비정상 리소스** 탭에서 권장 구성을 구현 하려는 리소스를 선택 하 고 **재구성** 을 선택 합니다.
 
     > [!NOTE]
     > 나열 된 리소스 중 일부를 수정할 수 있는 적절 한 권한이 없기 때문에 일부 리소스를 사용 하지 못할 수 있습니다.
 
 1. 확인 상자에서 수정 세부 정보 및 의미를 읽습니다.
 
-    ![빠른 수정](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![빠른 수정](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
     > 수정을 클릭 한 후 열리는 **리소스 재구성** 창에서 회색 상자에 의미가 **나열 됩니다.** 빠른 수정 수정을 진행할 때 발생 하는 변경 내용을 나열 합니다.
@@ -72,7 +79,7 @@ ms.locfileid: "89569138"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Security Center의 권장 사항을 수정 하는 방법을 보여 줍니다. Security Center에 대해 자세히 알아보려면 다음 항목을 참조 하세요.
+이 문서에서는 Security Center의 권장 사항을 수정 하는 방법을 보여 줍니다. Security Center에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

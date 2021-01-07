@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660645"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883370"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -51,7 +51,7 @@ ms.locfileid: "89660645"
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
 |실행된 검사|
 |---|
-|<ul><li>프로덕션 슬롯 배포가 모든 역할 인스턴스에 걸쳐 정상 상태 인가요?</li><li>모든 VM 인스턴스에서 역할이 정상 상태 인가요?</li><li>클라우드 서비스 역할 내에서 각 VM의 상태는 어떻습니까?</li><li>플랫폼 또는 고객이 시작한 작업으로 인해 VM 상태가 변경 되었습니까?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하되고 곧 오류가 발생하나요?</li><li>실행 되는 검사에 대 한 [자세한 정보](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services)</li></ul>|
+|<ul><li>프로덕션 슬롯 배포가 모든 역할 인스턴스에 걸쳐 정상 상태 인가요?</li><li>모든 VM 인스턴스에서 역할이 정상 상태 인가요?</li><li>클라우드 서비스 역할 내에서 각 VM의 상태는 어떻습니까?</li><li>플랫폼 또는 고객이 시작한 작업으로 인해 VM 상태가 변경 되었습니까?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하되고 곧 오류가 발생하나요?</li><li>실행 되는 검사에 대 한 [자세한 정보](../cloud-services/resource-health-for-cloud-services.md)</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |실행된 검사|
@@ -119,6 +119,11 @@ ms.locfileid: "89660645"
 |---|
 |<ul><li>IoT Hub가 실행되고 있는가?</li></ul>|
 
+## <a name="microsoftdigitaltwinsdigitaltwinsinstances"></a>DigitalTwins/DigitalTwinsInstances
+|실행된 검사|
+|---|
+|<ul><li>Azure Digital Twins 인스턴스가 작동 하 고 실행 되 고 있나요?</li></ul>|
+
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |실행된 검사|
 |---|
@@ -164,6 +169,11 @@ ms.locfileid: "89660645"
 |---|
 |<ul><li>Application Gateway 성능이 저하되나요?</li><li>Application Gateway를 사용할 수 있나요?</li></ul>|
 
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft. network/bastionhosts
+|실행된 검사|
+|---|
+|<ul><li>요새 호스트를 실행 하 고 있습니까?</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |실행된 검사|
 |---|
@@ -207,7 +217,7 @@ ms.locfileid: "89660645"
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |실행된 검사|
 |---|
-|<ul><li>용량 리소스가 실행 중인가요?</li><li>모든 워크노드가 실행 중인가요?</li></ul>|
+|<ul><li>용량 리소스가 실행 중인가요?</li><li>모든 워크노드가 실행 중인가요?</li></ul>
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |실행된 검사|
@@ -257,4 +267,4 @@ ms.locfileid: "89660645"
 ## <a name="next-steps"></a>다음 단계
 -  [Azure Service Health 대시보드 소개](service-health-overview.md) 및 [Azure Resource Health 소개](resource-health-overview.md)를 참조하여 자세한 내용을 확인합니다. 
 -  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.md)
-- 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health 이벤트에 대한 경고 구성](./alerts-activity-log-service-notifications-portal.md)을 참조하세요. 
+- 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health 이벤트에 대한 경고 구성](./alerts-activity-log-service-notifications-portal.md)을 참조하세요.

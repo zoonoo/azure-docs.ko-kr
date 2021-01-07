@@ -1,7 +1,7 @@
 ---
 title: 저장 & 쓰기 실험 파일
 titleSuffix: Azure Machine Learning
-description: 실험 입력 파일을 저장할 위치와 출력 파일을 작성 하 여 저장소 제한 오류 및 실험 대기 시간을 방지 하는 방법에 대해 알아봅니다.
+description: 저장소 제한 오류 및 실험 대기 시간을 방지 하기 위해 입력 및 출력 파일을 저장할 위치를 알아봅니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 548113a5f775595caf3a798d7b35eddfbc80674e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 49e1e9efbd6f59bd037a8033f83836bf7fc71c43
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886093"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630331"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Azure Machine Learning 실험을 위해 파일을 저장 하 고 작성 하는 위치
 
@@ -30,13 +30,13 @@ ms.locfileid: "90886093"
 
 계산 대상 또는 로컬 컴퓨터에서 실험을 시작 하려면 먼저 코드를 실행 해야 하는 종속성 파일 및 데이터 파일과 같이 해당 계산 대상에서 필요한 파일을 사용할 수 있는지 확인 해야 합니다.
 
-Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)를 사용 하 여 데이터에 액세스 합니다.
+Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)를 사용 하 여 데이터에 액세스 합니다.
 
 실험 스냅샷의 스토리지 용량 한도는 300MB 및/또는 2000개 파일입니다.
 
 이러한 이유로 다음을 수행 하는 것이 좋습니다.
 
-* **Azure Machine Learning [데이터 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)에 파일을 저장 합니다.** 이로 인해 실험 대기 시간 문제가 발생 하지 않으며 원격 계산 대상에서 데이터에 액세스 하는 이점이 있습니다. 즉, 인증 및 탑재는 Azure Machine Learning에서 관리 됩니다. 데이터 저장소를 원본 디렉터리로 지정 하 고 [데이터를 데이터 저장소에서 데이터 액세스 문서의 데이터](how-to-access-data.md) 저장소에 업로드 하는 방법에 대해 자세히 알아보세요.
+* **Azure Machine Learning [데이터 저장소](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)에 파일을 저장 합니다.** 이로 인해 실험 대기 시간 문제가 발생 하지 않으며 원격 계산 대상에서 데이터에 액세스 하는 이점이 있습니다. 즉, 인증 및 탑재는 Azure Machine Learning에서 관리 됩니다. 데이터 저장소를 원본 디렉터리로 지정 하 고 [데이터를 데이터 저장소에서 데이터 액세스 문서의 데이터](how-to-access-data.md) 저장소에 업로드 하는 방법에 대해 자세히 알아보세요.
 
 * **데이터 파일 및 종속성 스크립트가 몇 개만 필요 하 고 데이터 저장소를 사용할 수 없는 경우** 학습 스크립트와 동일한 폴더 디렉터리에 파일을 저장 합니다. 이 폴더 `source_directory` 를 학습 스크립트나 학습 스크립트를 호출 하는 코드에서 직접 지정 합니다.
 
@@ -69,7 +69,7 @@ Jupyter Notebook| 파일을 만들거나 `.amlignore` , 비어 있는 새 하위
 데이터 저장소가 필요 하지 않은 경우 `./outputs` 및/또는 폴더에 파일을 씁니다 `./logs` .
 
 >[!Important]
-> 두 개의 폴더, *출력* 및 *로그*는 Azure Machine Learning로 특수 처리를 수신 합니다. 학습 중에 및 폴더에 파일을 쓸 때 `./outputs` `./logs` 파일이 실행 기록에 자동으로 업로드 되므로 실행이 완료 되 면 파일에 액세스할 수 있습니다.
+> 두 개의 폴더, *출력* 및 *로그* 는 Azure Machine Learning로 특수 처리를 수신 합니다. 학습 중에 및 폴더에 파일을 쓸 때 `./outputs` `./logs` 파일이 실행 기록에 자동으로 업로드 되므로 실행이 완료 되 면 파일에 액세스할 수 있습니다.
 
 * **상태 메시지 또는 점수 매기기 결과와 같은 출력의** 경우 폴더에 파일을 기록 하 여 `./outputs` 실행 기록의 아티팩트로 유지 됩니다. 콘텐츠를 실행 기록에 업로드 하면 대기 시간이 발생할 수 있으므로이 폴더에 기록 되는 파일 수와 크기를 염두에 둘 수 있습니다. 대기 시간이 중요 한 경우 데이터 저장소에 파일을 기록 하는 것이 좋습니다.
 
@@ -79,4 +79,4 @@ Jupyter Notebook| 파일을 만들거나 `.amlignore` , 비어 있는 새 하위
 
 * [데이터 저장소에서 데이터에 액세스 하](how-to-access-data.md)는 방법에 대해 자세히 알아보세요.
 
-* [PYTHON SDK](how-to-create-attach-compute-sdk.md) 또는 [studio](how-to-create-attach-compute-studio.md)를 사용 하 여 계산 대상을 만드는 방법에 대해 자세히 알아보세요.
+* [모델 학습 및 배포를 위한 계산 대상 만들기](how-to-create-attach-compute-studio.md) 에 대 한 자세한 정보

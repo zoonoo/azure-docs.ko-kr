@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ec652c6e7ce8de003a464c6427439cf1519eab
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998938"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092672"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>메인프레임 계산을 Azure로 이동
 
@@ -29,7 +29,7 @@ Microsoft Azure에서 메인프레임 워크 로드를 실행 하려면 메인�
 
 ## <a name="mainframe-compute-at-a-glance"></a>메인프레임 컴퓨팅 한 눈에 보기
 
-Z14 메인프레임에서 프로세서는 최대 4 개의 *서랍*으로 정렬 됩니다. *서랍* 은 단순히 프로세서 및 칩셋의 클러스터입니다. 각 서랍에는 6 개의 액티브 중앙 프로세서 (CP) 칩이 있고 각 CP에는 10 개의 SC (시스템 컨트롤러) 칩이 있습니다. Intel x86 용어에는 서랍 당 6 개의 소켓, 소켓 당 10 개 코어 및 4 개의 서랍이 있습니다. 이 아키텍처는 z14에 대 한 24 소켓과 240 코어의 대략적인 값을 제공 합니다.
+Z14 메인프레임에서 프로세서는 최대 4 개의 *서랍* 으로 정렬 됩니다. *서랍* 은 단순히 프로세서 및 칩셋의 클러스터입니다. 각 서랍에는 6 개의 액티브 중앙 프로세서 (CP) 칩이 있고 각 CP에는 10 개의 SC (시스템 컨트롤러) 칩이 있습니다. Intel x86 용어에는 서랍 당 6 개의 소켓, 소켓 당 10 개 코어 및 4 개의 서랍이 있습니다. 이 아키텍처는 z14에 대 한 24 소켓과 240 코어의 대략적인 값을 제공 합니다.
 
 Fast z14 CP의 클록 속도는 5.2입니다. 일반적으로 z14는 모든 CPs와 함께 상자에 제공 됩니다. 필요에 따라 활성화 됩니다. 고객은 일반적으로 실제 사용량에도 불구 하 고 매달 4 시간 이상의 계산 시간에 대 한 요금이 부과 됩니다.
 
@@ -57,7 +57,7 @@ Azure Virtual Machines 다양 한 크기와 형식으로 계산 능력을 제공
 
 현재 Azure 가상 머신 크기 범위는 1 ~ 128 vCPUs를 제공 합니다. VM (가상 머신) 유형은 특정 워크 로드에 대해 최적화 됩니다. 예를 들어 다음 목록에는 VM 유형 (이 문서를 작성할 때 현재)과 권장 사용이 나와 있습니다.
 
-| Size     | 유형 및 설명                                                                 |
+| 크기     | 유형 및 설명                                                                 |
 |----------|--------------------------------------------------------------------------------------|
 | D 시리즈 | 64 vCPU 및 최대 3.5 GHz 클럭 속도를 사용 하는 일반적인 용도                           |
 | E 시리즈 | 최대 64 vCPUs로 최적화 된 메모리                                                 |
@@ -135,4 +135,4 @@ Azure 아키텍처에서 각 처리 계층을 최적화할 수 있습니다. 각
 ### <a name="more-migration-resources"></a>추가 마이그레이션 리소스
 
 - [Azure Virtual Data Center 리프트 앤 시프트 가이드](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
+- [GlusterFS iSCSI](https://glusterdocs.readthedocs.io/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

@@ -9,16 +9,16 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c2dd0ce3c3e9a0f1f699b58ed2657394ad9acbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939796"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107575"
 ---
 # <a name="azure-data-studio-dashboards"></a>대시보드 Azure Data Studio
 
-[Azure Data Studio](https://aka.ms/azuredatastudio) 는 Azure Arc 리소스에 대 한 정보를 보기 위한 Azure Portal와 유사한 환경을 제공 합니다.  이러한 보기를 **대시보드** 라고 하며, Azure Portal에서 지정 된 리소스에 대해 볼 수 있는 것과 유사한 레이아웃 및 옵션을 제공 하지만, Azure에 사용할 수 있는 연결이 없는 경우 사용자 환경에서 로컬로 해당 정보를 볼 수 있는 유연성을 제공 합니다.
+[Azure Data Studio](/sql/azure-data-studio/what-is) 는 Azure Arc 리소스에 대 한 정보를 보기 위한 Azure Portal와 유사한 환경을 제공 합니다.  이러한 보기를 **대시보드** 라고 하며, Azure Portal에서 지정 된 리소스에 대해 볼 수 있는 것과 유사한 레이아웃 및 옵션을 제공 하지만, Azure에 사용할 수 있는 연결이 없는 경우 사용자 환경에서 로컬로 해당 정보를 볼 수 있는 유연성을 제공 합니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "90939796"
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-- 다운로드 [Azure Data Studio](https://aka.ms/getazuredatastudio)
+- 다운로드 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - Azure Arc 확장이 설치 되었습니다.
 
 ### <a name="determine-the-data-controller-server-api-endpoint-url"></a>데이터 컨트롤러 서버 API 끝점 URL 확인
@@ -49,7 +49,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-LoadBalancer 유형을 사용 하는 경우 외부 IP 주소와 포트 번호 300080을 복사 하는 것이 좋습니다.  NodePort를 사용 하는 경우 Kubernetes API 서버의 IP 주소와 포트 열 아래에 나열 된 포트 번호를 사용 합니다.
+LoadBalancer 유형을 사용 하는 경우 외부 IP 주소와 포트 번호를 복사 합니다. NodePort를 사용 하는 경우 Kubernetes API 서버의 IP 주소와 포트 열 아래에 나열 된 포트 번호를 사용 합니다.
 
 이제 다음과 같이이 정보를 결합 하 여 끝점에 대 한 URL을 생성 합니다.
 
@@ -57,7 +57,7 @@ LoadBalancer 유형을 사용 하는 경우 외부 IP 주소와 포트 번호 30
 https://<ip address>:<port>
 
 Example:
-https://52.;154.152.24:30080
+https://52.154.152.24:30080
 ```
 
 다음 단계에서 사용할 때 사용 하는 IP 주소를 기록해 둡니다.

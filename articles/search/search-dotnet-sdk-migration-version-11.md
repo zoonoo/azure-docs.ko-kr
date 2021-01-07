@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c943de87cbf53d4971e5cbf58768221bf2cf248
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 260df85f3e380e40d153fc17ce77bd56ca068982
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462261"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532825"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Azure Cognitive Search .NET SDK 버전 11로 업그레이드
 
-버전 10.0 또는 이전 버전의 [.NET SDK](/dotnet/api/overview/azure/search)를 사용 하는 경우이 문서를 참조 하 여 버전 11로 업그레이드할 수 있습니다.
+버전 10.0 또는 이전 버전의 [.NET SDK](/dotnet/api/overview/azure/search)를 사용 하는 경우이 문서를 참조 하 여 버전 11 및 **Azure.Search.Documents** client 라이브러리로 업그레이드할 수 있습니다.
 
 버전 11은 Azure SDK development 팀에서 릴리스된 완전히 다시 디자인 된 클라이언트 라이브러리입니다 (이전 버전은 Azure Cognitive Search development 팀에서 생성 됨). 라이브러리는 다른 Azure 클라이언트 라이브러리와의 일관성을 유지 하기 위해 다시 디자인 되었으며, [azure](/dotnet/api/azure.core) 에 대 한 종속성을 가져오고, [System.Text.Js](/dotnet/api/system.text.json)하 고, 일반적인 작업을 위한 친숙 한 접근 방식을 구현 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "89462261"
 
 + [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-+ [클라이언트 라이브러리에 대 한 API 참조](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [클라이언트 라이브러리에 대 한 API 참조](/dotnet/api/overview/azure/search.documents-readme)
 
 ## <a name="client-differences"></a>클라이언트 차이점
 
@@ -75,7 +75,7 @@ ms.locfileid: "89462261"
 | [필드](/dotnet/api/microsoft.azure.search.models.field) | [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) |
 | [DataType](/dotnet/api/microsoft.azure.search.models.datatype) | [SearchFieldDataType](/dotnet/api/azure.search.documents.indexes.models.searchfielddatatype) |
 | [ItemError](/dotnet/api/microsoft.azure.search.models.itemerror) | [SearchIndexerError](/dotnet/api/azure.search.documents.indexes.models.searchindexererror) |
-| [분석기나](/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (도 `AnalyzerName` `LexicalAnalyzerName` ) |
+| [분석기](/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (도 `AnalyzerName` `LexicalAnalyzerName` ) |
 | [AnalyzeRequest](/dotnet/api/microsoft.azure.search.models.analyzerequest) | [AnalyzeTextOptions](/dotnet/api/azure.search.documents.indexes.models.analyzetextoptions) |
 | [StandardAnalyzer](/dotnet/api/microsoft.azure.search.models.standardanalyzer) | [LuceneStandardAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardanalyzer) |
 | [StandardTokenizer](/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (도 `StandardTokenizerV2` `LuceneStandardTokenizerV2` ) |
@@ -91,7 +91,7 @@ ms.locfileid: "89462261"
 |------------|-----------------------|
 | [인덱서](/dotnet/api/microsoft.azure.search.models.indexer) | [SearchIndexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer) |
 | [DataSource](/dotnet/api/microsoft.azure.search.models.datasource) | [SearchIndexerDataSourceConnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) |
-| [레벨](/dotnet/api/microsoft.azure.search.models.skill) | [SearchIndexerSkill](/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
+| [기술](/dotnet/api/microsoft.azure.search.models.skill) | [SearchIndexerSkill](/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
 | [기술 집합](/dotnet/api/microsoft.azure.search.models.skillset) | [SearchIndexerSkillset](/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
 | [DataSourceType](/dotnet/api/microsoft.azure.search.models.datasourcetype) | [SearchIndexerDataSourceType](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) |
 
@@ -170,11 +170,31 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
 
 1. 인덱서 관련 개체에 대 한 새 클라이언트 참조를 추가 합니다. 인덱서, 데이터 원본 또는 기술력과를 사용 하는 경우 [Searchindexerclient](/dotnet/api/azure.search.documents.indexes.searchindexerclient)에 대 한 클라이언트 참조를 변경 합니다. 이 클라이언트는 버전 11에서 새로 되었으며 선행 작업이 없습니다.
 
+1. 컬렉션 및 목록을 수정 합니다. 새 SDK에서는 목록에 null 값이 포함 된 경우 다운스트림 문제를 방지 하기 위해 모든 목록이 읽기 전용입니다. 코드를 변경 하는 것은 목록에 항목을 추가 하는 것입니다. 예를 들어 Select 속성에 문자열을 할당 하는 대신 다음과 같이 추가 합니다.
+
+   ```csharp
+   var options = new SearchOptions
+    {
+       SearchMode = SearchMode.All,
+       IncludeTotalCount = true
+    };
+
+    // Select fields to return in results.
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Tags");
+    options.Select.Add("Rooms");
+    options.Select.Add("Rating");
+    options.Select.Add("LastRenovationDate");
+   ```
+
+   Select, 패싯, SearchFields, SourceFields, ScoringParameters 및 OrderBy는 이제 재구성 해야 하는 모든 목록입니다.
+
 1. 쿼리 및 데이터 가져오기에 대 한 클라이언트 참조를 업데이트 합니다. [Searchindexclient](/dotnet/api/microsoft.azure.search.searchindexclient) 인스턴스는 [searchclient](/dotnet/api/azure.search.documents.searchclient)로 변경 해야 합니다. 이름 혼동을 방지 하려면 다음 단계로 진행 하기 전에 모든 인스턴스를 catch 해야 합니다.
 
-1. 인덱스, 인덱서, 동의어 맵 및 분석기 개체에 대 한 클라이언트 참조를 업데이트 합니다. [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) 인스턴스는 [searchindexclient](/dotnet/api/microsoft.azure.search.searchindexclient)로 변경 해야 합니다. 
+1. 인덱스, 동의어 맵 및 분석기 개체에 대 한 클라이언트 참조를 업데이트 합니다. [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) 인스턴스는 [searchindexclient](/dotnet/api/microsoft.azure.search.searchindexclient)로 변경 해야 합니다. 
 
-1. 가능 하면 클래스, 메서드 및 속성을 업데이트 하 여 새 라이브러리의 Api를 사용 합니다. [명명 차이점](#naming-differences) 섹션은 시작할 장소 이지만 [변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)를 검토할 수도 있습니다.
+1. 코드의 나머지 부분에서는 새 라이브러리의 Api를 사용 하도록 클래스, 메서드 및 속성을 업데이트 합니다. [명명 차이점](#naming-differences) 섹션은 시작할 장소 이지만 [변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)를 검토할 수도 있습니다.
 
    동일한 Api를 찾는 데 문제가 있는 경우 [https://github.com/MicrosoftDocs/azure-docs/issues](https://github.com/MicrosoftDocs/azure-docs/issues) 설명서를 개선 하거나 문제를 조사할 수 있도록 문제를 로깅하는 것이 좋습니다.
 
@@ -196,4 +216,4 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
 
 + [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [GitHub 샘플](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
-+ [Azure.Search.Document API 참조](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [Azure.Search.Document API 참조](/dotnet/api/overview/azure/search.documents-readme)

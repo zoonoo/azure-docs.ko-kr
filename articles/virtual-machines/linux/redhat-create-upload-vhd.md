@@ -1,39 +1,42 @@
 ---
 title: Red Hat Enterprise Linux VHD 만들기 및 Azure에서 사용하도록 업로드
 description: RedHat Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
-author: gbowerman
+author: danielsollondon
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 05/17/2019
-ms.author: guybo
-ms.openlocfilehash: cc8d4458de5f3bbf1eaf111aa10f1377f3c9d46a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 12/01/2020
+ms.author: danis
+ms.openlocfilehash: 065b4348675fcd48088fd26db0e0293eb2d7a387
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292292"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896467"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 머신을 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 머신) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)을 참조하세요. RHEL 이미지 빌드를 자동화 하는 방법은 [Azure 이미지 작성기](./image-builder-overview.md)를 참조 하세요.
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 Red Hat 기반 가상 머신 준비
+## <a name="hyper-v-manager"></a>Hyper-V 관리자
 
-### <a name="prerequisites"></a>전제 조건
+이 섹션에서는 Hyper-v 관리자를 사용 하 여 [RHEL 6](#rhel-6-using-hyper-v-manager) 또는 [RHEL 7](#rhel-7-using-hyper-v-manager) 가상 머신을 준비 하는 방법을 보여 줍니다.
+
+### <a name="prerequisites"></a>필수 조건
 이 섹션은 RedHat 웹 사이트에서 ISO 파일을 확보했으며 VHD(가상 하드 디스크)에 RHEL 이미지를 이미 설치한 것으로 가정합니다. Hyper-V 관리자를 사용하여 운영 체제 이미지를 설치하는 방법에 대한 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하세요.
 
 **RHEL 설치 참고 사항**
 
-* Azure는 VHDX 형식을 지원하지 않습니다. Azure는 고정 VHD만 지원합니다. Hyper-V 관리자를 사용하여 디스크를 VHD 형식으로 변환하거나, convert-vhd cmdlet을 사용할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본 동적 할다 옵션과 달리 **고정 크기**를 선택합니다.
+* Azure는 VHDX 형식을 지원하지 않습니다. Azure는 고정 VHD만 지원합니다. Hyper-V 관리자를 사용하여 디스크를 VHD 형식으로 변환하거나, convert-vhd cmdlet을 사용할 수 있습니다. VirtualBox를 사용하는 경우 디스크를 만들 때 기본 동적 할다 옵션과 달리 **고정 크기** 를 선택합니다.
 * Azure는 Gen1 (BIOS boot) & Gen2 (UEFI 부팅) 가상 머신을 지원 합니다.
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
 * LVM(논리 볼륨 관리자)이 지원되며 Azure 가상 머신의 OS 디스크 또는 데이터 디스크에 사용할 수 있습니다. 그러나 일반적으로 OS 디스크에서 LVM이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 동일한 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 설명서도 살펴보세요.
-* UDF(범용 디스크 형식) 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. Azure에서 처음 부팅 시 게스트에 연결된 UDF 형식 미디어는 프로비저닝 구성을 Linux 가상 머신에 전달합니다. Azure Linux 에이전트는 해당 구성을 읽고 가상 머신을 프로비전하기 위해 UDF 파일 시스템을 탑재할 수 있어야 합니다.
-* 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 다음 단계에서 확인할 수 있습니다.
+* **UDF (범용 디스크 형식) 파일 시스템을 탑재 하기 위한 커널 지원이 필요** 합니다. Azure에서 처음 부팅 시 게스트에 연결된 UDF 형식 미디어는 프로비저닝 구성을 Linux 가상 머신에 전달합니다. Azure Linux 에이전트는 UDF 파일 시스템을 탑재 하 여 구성을 읽고 가상 머신을 프로 비전 할 수 있어야 합니다 .이 경우에는 프로 비전이 실패 합니다.
+* 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. 여기에 대한 자세한 내용은 다음 단계에서 확인할 수 있습니다.
+
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 아래 단계에서 찾을 수 있습니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
-### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 RHEL 6 가상 머신 준비
+### <a name="rhel-6-using-hyper-v-manager"></a>Hyper-v 관리자를 사용 하 여 RHEL 6
 
 1. Hyper-V 관리자에서 가상 머신을 선택합니다.
 
@@ -153,10 +156,10 @@ ms.locfileid: "87292292"
     # logout
     ```
 
-1. **Action**  >  Hyper-v 관리자에서 작업**종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1.   >  Hyper-v 관리자에서 작업 **종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 
-### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 RHEL 7 가상 머신 준비
+### <a name="rhel-7-using-hyper-v-manager"></a>Hyper-v 관리자를 사용 하는 RHEL 7
 
 1. Hyper-V 관리자에서 가상 머신을 선택합니다.
 
@@ -235,25 +238,89 @@ ms.locfileid: "87292292"
     # sudo systemctl enable waagent.service
     ```
 
-1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
-
-    Azure Linux 에이전트는 Azure에서 가상 머신을 프로비전한 후에 가상 머신에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크 이며 가상 컴퓨터가 프로 비전 해제 경우 비울 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
+1. 프로 비전을 처리 하기 위해 클라우드 초기화를 설치 합니다.
 
     ```console
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
+
+    # Configure waagent for cloud-init
+    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+
+    echo "Adding mounts and disk_setup to init stage"
+    sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
+    sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
+    sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
+    sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
+
+    echo "Allow only Azure datasource, disable fetching network setting via IMDS"
+    cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
+    datasource_list: [ Azure ]
+    datasource:
+    Azure:
+        apply_network_config: False
+    EOF
+
+    if [[ -f /mnt/resource/swapfile ]]; then
+    echo Removing swapfile - RHEL uses a swapfile by default
+    swapoff /mnt/resource/swapfile
+    rm /mnt/resource/swapfile -f
+    fi
+
+    echo "Add console log file"
+    cat >> /etc/cloud/cloud.cfg.d/05_logging.cfg <<EOF
+
+    # This tells cloud-init to redirect its stdout and stderr to
+    # 'tee -a /var/log/cloud-init-output.log' so the user can see output
+    # there without needing to look on the console.
+    output: {all: '| tee -a /var/log/cloud-init-output.log'}
+    EOF
+
     ```
 
+1. 스왑 구성은 운영 체제 디스크에 스왑 공간을 만들지 않습니다.
+
+    이전에는 azure Linux 에이전트를 사용 하 여 Azure에서 가상 머신을 프로 비전 한 후 가상 머신에 연결 된 로컬 리소스 디스크를 사용 하 여 스왑 공간을 자동으로 구성 했습니다. 그러나이는 이제 클라우드 init에서 처리 됩니다. Linux 에이전트를 사용 하 여 리소스 디스크에서 스왑 파일을 만드는 형식을 지정 하지 않고 다음 매개 변수를 적절 하 게 수정 **해야 합니다** `/etc/waagent.conf` .
+
+    ```console
+    ResourceDisk.Format=n
+    ResourceDisk.EnableSwap=n
+    ```
+
+    탑재, 형식 지정 및 바꾸기를 원하는 경우 다음 중 하나를 수행할 수 있습니다.
+    * VM을 만들 때마다 클라우드 init 구성으로이를 전달 합니다.
+    * VM을 만들 때마다이를 수행 하는 이미지에 클라우드 init 지시어 구운를 사용 합니다.
+
+        ```console
+        cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+        #cloud-config
+        # Generated by Azure cloud image build
+        disk_setup:
+          ephemeral0:
+            table_type: mbr
+            layout: [66, [33, 82]]
+            overwrite: True
+        fs_setup:
+          - device: ephemeral0.1
+            filesystem: ext4
+          - device: ephemeral0.2
+            filesystem: swap
+        mounts:
+          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+        EOF
+        ```
 1. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
 
     ```console
     # sudo subscription-manager unregister
     ```
 
-1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+1. 프로비전 해제
+
+    다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     ```console
     # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
@@ -265,11 +332,14 @@ ms.locfileid: "87292292"
     # logout
     ```
 
-1. **Action**  >  Hyper-v 관리자에서 작업**종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1.   >  Hyper-v 관리자에서 작업 **종료** 를 클릭 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>KVM에서 RedHat 기반 가상 머신 준비
-### <a name="prepare-a-rhel-6-virtual-machine-from-kvm"></a>KVM에서 RHEL 6 가상 머신 준비
+## <a name="kvm"></a>KVM
+
+이 섹션에서는 KVM을 사용 하 여 Azure에 업로드할 [RHEL 6](#rhel-6-using-kvm) 또는 [RHEL 7](#rhel-7-using-kvm) 배포판을 준비 하는 방법을 보여 줍니다. 
+
+### <a name="rhel-6-using-kvm"></a>RHEL 6 (KVM 사용)
 
 1. Red Hat 웹 사이트에서 RHEL 6의 KVM 이미지를 다운로드합니다.
 
@@ -294,7 +364,7 @@ ms.locfileid: "87292292"
 
    루트 사용자의 두 번째 필드를 “!!”에서 암호화된 암호로 변경합니다.
 
-1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2**로 설정하고 가상 네트워크 인터페이스 디바이스 모델을 **virtio**로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
+1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2** 로 설정하고 가상 네트워크 인터페이스 디바이스 모델을 **virtio** 로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
 
 1. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
@@ -420,7 +490,12 @@ ms.locfileid: "87292292"
     ```console
     # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
     # skip the deprovision step
-    # waagent -force -deprovision
+    # sudo rm -rf /var/lib/waagent/
+    # sudo rm -f /var/log/waagent.log
+
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+    
 
     # export HISTSIZE=0
 
@@ -465,7 +540,7 @@ ms.locfileid: "87292292"
     ```
 
         
-### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>KVM에서 RHEL 7 가상 머신 준비
+### <a name="rhel-7-using-kvm"></a>RHEL 7 (KVM 사용)
 
 1. Red Hat 웹 사이트에서 RHEL 7의 KVM 이미지를 다운로드합니다. 이 절차에서는 RHEL 7을 예제로 사용합니다.
 
@@ -490,7 +565,7 @@ ms.locfileid: "87292292"
 
    루트 사용자의 두 번째 필드를 “!!”에서 암호화된 암호로 변경합니다.
 
-1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2**로 설정하고 가상 네트워크 인터페이스 디바이스 모델을 **virtio**로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
+1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2** 로 설정하고 가상 네트워크 인터페이스 디바이스 모델을 **virtio** 로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
 
 1. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
@@ -596,17 +671,13 @@ ms.locfileid: "87292292"
     # systemctl enable waagent.service
     ```
 
-1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
+1. 클라우드 설치-초기화 ' Hyper-v 관리자에서 RHEL 7 가상 머신 준비 ', 12 단계, ' 클라우드 설치-초기화를 처리 하는 방법 '의 단계를 따릅니다.
 
-    Azure Linux 에이전트는 Azure에서 가상 머신을 프로비전한 후에 가상 머신에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크 이며 가상 컴퓨터가 프로 비전 해제 경우 비울 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
+1. 구성 교환 
 
-    ```config-conf
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-    ```
+    운영 체제 디스크에 스왑 공간을 만들지 마세요.
+    ' Hyper-v 관리자에서 RHEL 7 가상 머신 준비 ', 13 단계, ' 구성 교환 '의 단계를 따르세요.
+
 
 1. 다음 명령을 실행하여 (필요한 경우) 구독에 대한 등록을 해제합니다.
 
@@ -614,17 +685,10 @@ ms.locfileid: "87292292"
     # subscription-manager unregister
     ```
 
-1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-    ```console
-    # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
-    # skip the deprovision step
-    # sudo waagent -force -deprovision
+1. 프로비전 해제
 
-    # export HISTSIZE=0
-
-    # logout
-    ```
+    ' Hyper-v 관리자에서 RHEL 7 가상 머신 준비 ', 15 단계, ' 프로 비전 해제 '의 단계를 따르세요.
 
 1. KVM의 가상 머신을 종료합니다.
 
@@ -663,15 +727,18 @@ ms.locfileid: "87292292"
     # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>VMware에서 RedHat 기반 가상 머신 준비
-### <a name="prerequisites"></a>전제 조건
+## <a name="vmware"></a>VMware
+
+이 섹션에서는 VMware에서 [RHEL 6](#rhel-6-using-vmware) 또는 [RHEL 7](#rhel-6-using-vmware)  배포판을 준비 하는 방법을 보여 줍니다.
+
+### <a name="prerequisites"></a>필수 조건
 이 섹션은 VMWare에 RHEL 가상 머신이 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 자세한 방법은 [VMWare 게스트 운영 체제 설치 가이드](https://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
 
 * Linux 운영 체제를 설치하는 경우 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.
 * 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. Linux 에이전트를 구성하여 임시 리소스 디스크에서 스왑 파일을 만들 수 있습니다. 여기에 대한 자세한 내용은 아래 단계에서 찾을 수 있습니다.
-* 가상 하드 디스크를 만들 때 **가상 디스크를 단일 파일로 저장**을 선택합니다.
+* 가상 하드 디스크를 만들 때 **가상 디스크를 단일 파일로 저장** 을 선택합니다.
 
-### <a name="prepare-a-rhel-6-virtual-machine-from-vmware"></a>VMWare에서 RHEL 6 가상 머신 준비
+### <a name="rhel-6-using-vmware"></a>RHEL 6 VMware 사용
 1. RHEL 6에서 NetworkManager는 Azure Linux 에이전트 작동을 방해할 수 있습니다. 다음 명령을 실행하여 이 패키지를 제거합니다.
 
     ```console
@@ -788,7 +855,12 @@ ms.locfileid: "87292292"
     ```console
     # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
     # skip the deprovision step
-    # sudo waagent -force -deprovision
+    # sudo rm -rf /var/lib/waagent/
+    # sudo rm -f /var/log/waagent.log
+
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+    
 
     # export HISTSIZE=0
 
@@ -830,7 +902,7 @@ ms.locfileid: "87292292"
     # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
     ```
 
-### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>VMWare에서 RHEL 7 가상 머신 준비
+### <a name="rhel-7-using-vmware"></a>RHEL 7 VMware 사용
 1. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
     ```config
@@ -918,17 +990,14 @@ ms.locfileid: "87292292"
     # sudo systemctl enable waagent.service
     ```
 
-1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
+1. 클라우드 설치-초기화
 
-    Azure Linux 에이전트는 Azure에서 가상 머신을 프로비전한 후에 가상 머신에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크 이며 가상 컴퓨터가 프로 비전 해제 경우 비울 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
+    ' Hyper-v 관리자에서 RHEL 7 가상 머신 준비 '의 단계를 수행 하 고 12 단계를 수행 하 여 프로 비전을 처리 합니다.
 
-    ```config-conf
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-    ```
+1. 구성 교환
+
+    운영 체제 디스크에 스왑 공간을 만들지 마세요.
+    ' Hyper-v 관리자에서 RHEL 7 가상 머신 준비 ', 13 단계, ' 구성 교환 '의 단계를 따르세요.
 
 1. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
 
@@ -936,17 +1005,10 @@ ms.locfileid: "87292292"
     # sudo subscription-manager unregister
     ```
 
-1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+1. 프로비전 해제
 
-    ```console
-    # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
-    # skip the deprovision step
-    # sudo waagent -force -deprovision
+    ' Hyper-v 관리자에서 RHEL 7 가상 머신 준비 ', 15 단계, ' 프로 비전 해제 '의 단계를 따르세요.
 
-    # export HISTSIZE=0
-
-    # logout
-    ```
 
 1. 가상 머신을 종료하고 VMDK 파일을 VHD 형식으로 변환합니다.
 
@@ -983,8 +1045,11 @@ ms.locfileid: "87292292"
     # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>자동으로 kickstart 파일을 사용하여 ISO에서 Red Hat 기반 가상 머신 준비
-### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>kickstart 파일에서 RHEL 7 가상 머신 준비
+## <a name="kickstart-file"></a>Kickstart 파일
+
+이 섹션에서는 kickstart 파일을 사용 하 여 ISO에서 RHEL 7 배포판을 준비 하는 방법을 보여 줍니다.
+
+### <a name="rhel-7-from-a-kickstart-file"></a>Kickstart 파일에서 RHEL 7
 
 1.  다음 콘텐츠를 포함하는 kickstart 파일을 만들고 저장합니다. Kickstart 설치에 대한 자세한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
 
@@ -1075,12 +1140,46 @@ ms.locfileid: "87292292"
     # Enable waaagent at boot-up
     systemctl enable waagent
 
+    # Install cloud-init
+    yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
+
+    # Configure waagent for cloud-init
+    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+
+    echo "Adding mounts and disk_setup to init stage"
+    sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
+    sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
+    sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
+    sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
+
     # Disable the root account
     usermod root -p '!!'
 
-    # Configure swap in WALinuxAgent
-    sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
-    sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
+    # Disabke swap in WALinuxAgent
+    ResourceDisk.Format=n
+    ResourceDisk.EnableSwap=n
+
+    # Configure swap using cloud-init
+    cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+    #cloud-config
+    # Generated by Azure cloud image build
+    disk_setup:
+    ephemeral0:
+        table_type: mbr
+        layout: [66, [33, 82]]
+        overwrite: True
+    fs_setup:
+    - device: ephemeral0.1
+        filesystem: ext4
+    - device: ephemeral0.2
+        filesystem: swap
+    mounts:
+    - ["ephemeral0.1", "/mnt"]
+    - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+    EOF
 
     # Set the cmdline
     sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
@@ -1105,18 +1204,25 @@ ms.locfileid: "87292292"
     EOF
 
     # Deprovision and prepare for Azure if you are creating a generalized image
-    waagent -force -deprovision
+    sudo cloud-init clean --logs --seed
+    sudo rm -rf /var/lib/cloud/
+    sudo rm -rf /var/lib/waagent/
+    sudo rm -f /var/log/waagent.log
+
+    sudo waagent -force -deprovision+user
+    rm -f ~/.bash_history
+    export HISTSIZE=0
 
     %end
     ```
 
 1. 설치 시스템에서 액세스할 수 있는 위치에 kickstart 파일을 배치합니다.
 
-1. Hyper-V 관리자에서 새 가상 머신을 만듭니다. **가상 하드 디스크 연결** 페이지에서 **나중에 가상 하드 디스크 연결**을 선택하고 새 Virtual Machine 마법사를 완료합니다.
+1. Hyper-V 관리자에서 새 가상 머신을 만듭니다. **가상 하드 디스크 연결** 페이지에서 **나중에 가상 하드 디스크 연결** 을 선택하고 새 Virtual Machine 마법사를 완료합니다.
 
 1. 가상 머신 설정을 엽니다.
 
-    a.  새 가상 하드 디스크를 가상 머신에 연결합니다. **VHD 형식** 및 **고정된 크기**를 선택하도록 합니다.
+    a.  새 가상 하드 디스크를 가상 머신에 연결합니다. **VHD 형식** 및 **고정된 크기** 를 선택하도록 합니다.
 
     b.  설치 ISO를 DVD 드라이브에 연결합니다.
 
@@ -1124,7 +1230,7 @@ ms.locfileid: "87292292"
 
 1. 가상 머신을 시작합니다. 설치 가이드가 나타나면 **Tab** 키를 눌러서 부팅 옵션을 구성합니다.
 
-1. 부팅 옵션 마지막에 `inst.ks=<the location of the kickstart file>` 을 입력하고 **Enter**키를 누릅니다.
+1. 부팅 옵션 마지막에 `inst.ks=<the location of the kickstart file>` 을 입력하고 **Enter** 키를 누릅니다.
 
 1. 설치가 완료될 때까지 기다립니다. 완료되면 가상 머신이 자동으로 종료됩니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 

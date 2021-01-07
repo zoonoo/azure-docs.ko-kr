@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 6a429c09b6f8082c95e29bcea62d27ec4fb46fd3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523386"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017307"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>데이터 카탈로그 및 데이터 자산에 대한 액세스를 보호하는 방법
 
@@ -24,7 +24,7 @@ Azure Data Catalog에서 데이터 카탈로그에 액세스할 수 있는 사�
 
 사용자나 그룹에 데이터 카탈로그에 대한 액세스 권한을 제공하고 사용 권한을 설정하는 방법은 다음과 같습니다.
 
-1. [데이터 카탈로그 홈페이지](https://www.azuredatacatalog.com)에서 도구 모음의 **설정**을 클릭합니다.
+1. [데이터 카탈로그 홈페이지](https://www.azuredatacatalog.com)에서 도구 모음의 **설정** 을 클릭합니다.
 
    ![Azure Data Catalog 홈 페이지 설정 단추](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 
@@ -32,9 +32,9 @@ Azure Data Catalog에서 데이터 카탈로그에 액세스할 수 있는 사�
 
    ![Azure Data Catalog 사용자 추가 단추](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
 
-3. **추가**를 클릭합니다.
+3. **추가** 를 클릭합니다.
 
-4. 정규화된 **사용자 이름**이나 카탈로그와 연결된 AAD(Azure Active Directory)의 **보안 그룹** 이름을 입력합니다. 사용자나 그룹을 둘 이상 추가하는 경우 쉼표(`,’)를 구분 기호로 사용합니다.
+4. 정규화된 **사용자 이름** 이나 카탈로그와 연결된 AAD(Azure Active Directory)의 **보안 그룹** 이름을 입력합니다. 사용자나 그룹을 둘 이상 추가하는 경우 쉼표(`,’)를 구분 기호로 사용합니다.
 
    ![Azure Data Catalog 사용자-사용자 또는 그룹](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 
@@ -50,7 +50,7 @@ Azure Data Catalog에서 데이터 카탈로그에 액세스할 수 있는 사�
 
 9. 사용자가 데이터 자산의 소유권을 가져오지 못하게 하려면 해당 사용자나 그룹의 **소유권 가져오기** 옵션을 선택 취소합니다. 
 
-10. 카탈로그 사용자에서 사용자/그룹을 삭제하려면 목록 아래쪽에서 사용자/그룹에 대해 **x**를 클릭합니다. 
+10. 카탈로그 사용자에서 사용자/그룹을 삭제하려면 목록 아래쪽에서 사용자/그룹에 대해 **x** 를 클릭합니다. 
 
    ![Azure Data Catalog 카탈로그 사용자-사용자 X 삭제 아이콘](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
 

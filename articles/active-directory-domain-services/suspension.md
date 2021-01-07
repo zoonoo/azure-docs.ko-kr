@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에서 일시 중단 된 도메인 | Microsoft Docs
 description: Azure AD DS 관리 되는 도메인에 대 한 다양 한 상태와 일시 중단 된 도메인을 복원 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 79b5f4492d05880e263f8d489a64ba0cc218d355
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: justinha
+ms.openlocfilehash: b0b48e7ad494386052e6d94c32d7215b3f4f0202
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223400"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618827"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 성능 상태를 이해 하 고 일시 중단 된 도메인을 해결 합니다.
 
@@ -34,14 +34,14 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 * [실행 중](#running-state)
 * [주의가 필요 함](#needs-attention-state)
-* [일시 중단](#suspended-state)
+* [일시 중지됨](#suspended-state)
 * [삭제됨](#deleted-state)
 
 ## <a name="running-state"></a>실행 상태
 
 올바르게 구성 되 고 문제가 없는 관리 되는 도메인은 *실행 중* 상태입니다. 이는 관리 되는 도메인에 대 한 원하는 상태입니다.
 
-### <a name="what-to-expect"></a>예상 프로그램
+### <a name="what-to-expect"></a>필요한 항목
 
 * Azure 플랫폼은 관리 되는 도메인의 상태를 정기적으로 모니터링할 수 있습니다.
 * 관리 되는 도메인의 도메인 컨트롤러는 패치 및 정기적으로 업데이트 됩니다.
@@ -54,11 +54,11 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 일부 경고는 일시적 이며 Azure 플랫폼에서 자동으로 해결 됩니다. 다른 경고의 경우 제공 된 해결 단계를 수행 하 여 문제를 해결할 수 있습니다. 중요 한 경고가 발생 하 고 추가 문제 해결 지원을 위해 [Azure 지원 요청을 여세요][azure-support] .
 
-경고의 한 가지 예는 제한적인 네트워크 보안 그룹이 있는 경우입니다. 이 구성에서 Azure 플랫폼은 관리 되는 도메인을 업데이트 하 고 모니터링 하지 못할 수 있습니다. 경고가 생성 되 고 상태가 *주의가 필요*로 변경 됩니다.
+경고의 한 가지 예는 제한적인 네트워크 보안 그룹이 있는 경우입니다. 이 구성에서 Azure 플랫폼은 관리 되는 도메인을 업데이트 하 고 모니터링 하지 못할 수 있습니다. 경고가 생성 되 고 상태가 *주의가 필요* 로 변경 됩니다.
 
 자세한 내용은 [관리 되는 도메인에 대 한 경고 문제를 해결 하는 방법][resolve-alerts]을 참조 하세요.
 
-### <a name="what-to-expect"></a>예상 프로그램
+### <a name="what-to-expect"></a>필요한 항목
 
 관리 되는 도메인이 *주의 필요* 상태에 있는 경우 Azure 플랫폼에서 정기적으로 데이터를 모니터링, 패치, 업데이트 또는 백업 하지 못할 수 있습니다. 잘못 된 네트워크 구성과 마찬가지로 관리 되는 도메인에 대 한 도메인 컨트롤러에 연결할 수 없는 경우도 있습니다.
 
@@ -79,7 +79,7 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 관리 되는 도메인은 Azure 플랫폼에서 도메인을 관리, 모니터링, 패치 또는 백업할 수 없을 때 일시 중단 됩니다. 관리 되는 도메인은 15 일 동안 *일시 중단* 된 상태로 유지 됩니다. 관리 되는 도메인에 대 한 액세스를 유지 하려면 중요 한 경고를 즉시 해결 합니다.
 
-### <a name="what-to-expect"></a>예상 프로그램
+### <a name="what-to-expect"></a>필요한 항목
 
 관리 되는 도메인이 *일시 중단* 상태에 있는 경우 다음과 같은 동작이 발생 합니다.
 
@@ -91,14 +91,14 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 ### <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>관리되는 도메인이 일시 중단되었는지 확인하려면 어떻게 하나요?
 
-Azure Portal의 Azure AD DS 상태 페이지에는 도메인이 일시 중단 되었음을 나타내는 [경고가][resolve-alerts] 표시 됩니다. 도메인의 상태에도 *일시 중단 됨*이 표시 됩니다.
+Azure Portal의 Azure AD DS 상태 페이지에는 도메인이 일시 중단 되었음을 나타내는 [경고가][resolve-alerts] 표시 됩니다. 도메인의 상태에도 *일시 중단 됨* 이 표시 됩니다.
 
 ### <a name="restore-a-suspended-domain"></a>일시 중단된 도메인 복원
 
 *일시 중단* 된 상태에 있는 관리 되는 도메인의 상태를 복원 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **도메인 서비스**를 검색 하 고 선택 합니다.
-1. 목록에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 하 고 **상태**를 선택 합니다.
+1. Azure Portal에서 **도메인 서비스** 를 검색 하 고 선택 합니다.
+1. 목록에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 하 고 **상태** 를 선택 합니다.
 1. 일시 중단 원인에 따라 경고 (예: *AADDS503* 또는 *AADDS504*)를 선택 합니다.
 1. 경고에 제공 된 해상도 링크를 선택 하 고 단계에 따라 문제를 해결 합니다.
 
@@ -110,7 +110,7 @@ Azure Portal의 Azure AD DS 상태 페이지에는 도메인이 일시 중단 �
 
 관리 되는 도메인은 15 일 동안 *일시 중단* 된 상태로 유지 되는 경우 삭제 됩니다. 이 프로세스는 복구할 수 없습니다.
 
-### <a name="what-to-expect"></a>예상 프로그램
+### <a name="what-to-expect"></a>필요한 항목
 
 관리 되는 도메인이 *삭제 됨* 상태가 되 면 다음과 같은 동작이 나타납니다.
 

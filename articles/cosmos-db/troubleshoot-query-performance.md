@@ -4,27 +4,28 @@ description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결하�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089992"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905114"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다.
+이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다. MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 [MongoDB 용 api 쿼리 문제 해결 가이드를 Azure Cosmos DB](mongodb-troubleshoot-query.md) 사용 해야 합니다.
 
-Azure Cosmos DB에서 쿼리 최적화를 광범위하게 분류할 수 있습니다.
+Azure Cosmos DB의 쿼리 최적화는 광범위 하 게 다음과 같이 분류 됩니다.
 
 - 쿼리의 RU(요청 단위) 비용을 낮추는 최적화
 - 단지 대기 시간을 단축하는 최적화
 
-쿼리의 RU 비용을 낮출 경우 거의 대부분 대기 시간도 단축됩니다.
+쿼리 비용을 줄이는 경우 일반적으로 대기 시간도 줄일 수 있습니다.
 
 이 문서에서는 [영양 데이터 집합](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)을 사용 하 여 다시 만들 수 있는 예제를 제공 합니다.
 
@@ -48,9 +49,9 @@ Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항�
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="쿼리 메트릭 가져오기" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
-쿼리 메트릭을 가져온 후 쿼리의 **검색된 문서 수**를 **출력 문서 수**와 비교합니다. 이 비교를 사용하여 이 문서에서 검토할 관련 섹션을 식별할 수 있습니다.
+쿼리 메트릭을 가져온 후 쿼리의 **검색된 문서 수** 를 **출력 문서 수** 와 비교합니다. 이 비교를 사용하여 이 문서에서 검토할 관련 섹션을 식별할 수 있습니다.
 
-**검색된 문서 수**는 쿼리 엔진이 로드해야 한 문서 수입니다. **출력 문서 수**는 쿼리 결과에 필요한 문서 수입니다. **검색된 문서 수**가 **출력 문서 수**보다 훨씬 큰 경우 적어도 쿼리의 일부가 검색을 수행하는 데 필요한 인덱스를 사용할 수 없었던 것입니다.
+**검색된 문서 수** 는 쿼리 엔진이 로드해야 한 문서 수입니다. **출력 문서 수** 는 쿼리 결과에 필요한 문서 수입니다. **검색된 문서 수** 가 **출력 문서 수** 보다 훨씬 큰 경우 적어도 쿼리의 일부가 검색을 수행하는 데 필요한 인덱스를 사용할 수 없었던 것입니다.
 
 시나리오와 관련된 쿼리 최적화를 이해하려면 다음 섹션을 참조하십시오.
 
@@ -92,7 +93,7 @@ Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항�
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>검색된 문서 수가 출력 문서 수를 초과하는 쿼리
 
- **검색된 문서 수**는 쿼리 엔진이 로드해야 한 문서 수입니다. **출력 문서 수**은 쿼리에서 반환된 문서 수입니다. **검색된 문서 수**가 **출력 문서 수**보다 훨씬 큰 경우 적어도 쿼리의 일부가 검색을 수행하는 데 필요한 인덱스를 사용할 수 없었던 것입니다.
+ **검색된 문서 수** 는 쿼리 엔진이 로드해야 한 문서 수입니다. **출력 문서 수** 은 쿼리에서 반환된 문서 수입니다. **검색된 문서 수** 가 **출력 문서 수** 보다 훨씬 큰 경우 적어도 쿼리의 일부가 검색을 수행하는 데 필요한 인덱스를 사용할 수 없었던 것입니다.
 
 다음은 인덱스에 의해 완전히 처리되지 않은 검색 쿼리의 예입니다.
 
@@ -191,13 +192,11 @@ WHERE c.description = "Malabar spinach, cooked"
 
 **RU 요금:** 2.98RU
 
-쓰기 가용성 또는 성능에 영향을 주지 않고 언제든지 인덱싱 정책에 속성을 추가할 수 있습니다. 인덱스에 새 속성을 추가하는 경우 해당 속성을 사용하는 쿼리는 새로 사용 가능한 인덱스를 즉시 사용합니다. 쿼리는 작성되는 동안에도 새 인덱스를 사용합니다. 따라서 인덱스를 다시 작성하는 동안 쿼리 결과가 일치하지 않을 수 있습니다. 새 속성이 인덱싱되는 경우 기존 인덱스만 사용하는 쿼리는 인덱스를 다시 작성하는 동안 영향을 받지 않습니다. [인덱스 변환 진행률을 추적](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)할 수 있습니다.
+쓰기 또는 읽기 가용성에 영향을 주지 않고 언제 든 지 인덱싱 정책에 속성을 추가할 수 있습니다. [인덱스 변환 진행률을 추적](./how-to-manage-indexing-policy.md#dotnet-sdk)할 수 있습니다.
 
 ### <a name="understand-which-system-functions-use-the-index"></a>인덱스를 사용하는 시스템 함수를 파악
 
-식을 문자열 값의 범위로 변환할 수 있는 경우 해당 식은 인덱스를 사용할 수 있습니다. 그렇지 않은 경우는 사용할 수 없습니다.
-
-인덱스를 사용할 수 있는 몇 가지 일반적인 문자열 함수 목록은 다음과 같습니다.
+대부분의 시스템 함수는 인덱스를 사용 합니다. 인덱스를 사용 하는 몇 가지 일반적인 문자열 함수 목록은 다음과 같습니다.
 
 - STARTSWITH(str_expr1, str_expr2, bool_expr)  
 - CONTAINS(str_expr, str_expr, bool_expr)
@@ -213,7 +212,26 @@ WHERE c.description = "Malabar spinach, cooked"
 
 ------
 
-시스템 함수에서는 사용하지 않더라도 쿼리의 다른 부분은 인덱스를 계속 사용할 수 있습니다.
+시스템 함수에서 인덱스를 사용 하 고 있는 경우에도 항상 높은 수준의 요금이 발생 하면 쿼리에 추가 해 볼 수 있습니다 `ORDER BY` . 경우에 따라를 추가 하면 `ORDER BY` 특히 쿼리가 장기 실행 되거나 여러 페이지에 걸쳐 있는 경우 시스템 함수 인덱스 사용률을 향상 시킬 수 있습니다.
+
+예를 들어를 사용 하는 다음 쿼리를 살펴보세요 `CONTAINS` . `CONTAINS` 는 인덱스를 사용 해야 하지만, 관련 인덱스를 추가한 후에도 아래 쿼리를 실행 하는 경우 매우 높은 수준의 요금이 계속 표시 된다고 가정해 보겠습니다.
+
+원본 쿼리:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+업데이트 된 쿼리 `ORDER BY` :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>인덱스를 사용하는 집계 쿼리를 파악
 
@@ -384,7 +402,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>검색된 문서 수와 출력 문서 수가 동일한 쿼리
 
-**검색된 문서 수**와 **출력 문서 수**가 거의 같으면 쿼리 엔진은 불필요하게 많은 문서를 검색할 필요가 없습니다. `TOP` 키워드를 사용하는 쿼리를 비롯한 많은 쿼리에서 **검색된 문서 수**는 **출력 문서 수**보다 1이 클 수 있습니다. 이에 대해서는 신경 쓰지 않아도 됩니다.
+**검색된 문서 수** 와 **출력 문서 수** 가 거의 같으면 쿼리 엔진은 불필요하게 많은 문서를 검색할 필요가 없습니다. `TOP` 키워드를 사용하는 쿼리를 비롯한 많은 쿼리에서 **검색된 문서 수** 는 **출력 문서 수** 보다 1이 클 수 있습니다. 이에 대해서는 신경 쓰지 않아도 됩니다.
 
 ### <a name="minimize-cross-partition-queries"></a>파티션 간 쿼리를 최소화
 
@@ -469,7 +487,7 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 
 ## <a name="optimizations-that-reduce-query-latency"></a>쿼리 대기 시간을 줄이는 최적화
 
-많은 경우에 RU 요금은 감수할만한 수준이지만 쿼리 대기 시간은 매우 높을 수 있습니다. 다음 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁을 개략적으로 설명합니다. 동일한 쿼리를 동일한 데이터 세트에서 여러 번 실행하는 경우 매번 RU 요금은 동일합니다. 하지만 쿼리 대기 시간은 쿼리 실행마다 다를 수 있습니다.
+많은 경우에 RU 요금은 감수할만한 수준이지만 쿼리 대기 시간은 매우 높을 수 있습니다. 다음 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁을 개략적으로 설명합니다. 동일한 쿼리를 동일한 데이터 집합에서 여러 번 실행 하는 경우에는 일반적으로 매번 동일한 실행 요금이 발생 합니다. 하지만 쿼리 대기 시간은 쿼리 실행마다 다를 수 있습니다.
 
 ### <a name="improve-proximity"></a>근접성 향상
 
@@ -491,5 +509,6 @@ Azure Cosmos DB에서 프로비전된 처리량은 RU(요청 단위)로 측정�
 쿼리당 RU를 측정하고 쿼리를 튜닝하기 위한 실행 통계를 가져오는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [.NET SDK를 사용하여 SQL 쿼리 실행 메트릭 가져오기](profile-sql-api-query.md)
-* [Azure Cosmos DB와 함께 쿼리 성능 튜닝](sql-api-sql-query-metrics.md)
+* [Azure Cosmos DB와 함께 쿼리 성능 튜닝](./sql-api-query-metrics.md)
 * [.NET SDK용 성능 팁](performance-tips.md)
+* [Java v4 SDK에 대 한 성능 팁](performance-tips-java-sdk-v4-sql.md)

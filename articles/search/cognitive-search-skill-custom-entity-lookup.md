@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936115"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844929"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>사용자 지정 엔터티 조회 인식 기술 (미리 보기)
 
@@ -41,7 +41,9 @@ Microsoft. 텍스트. CustomEntityLookupSkill
 | `entitiesDefinitionUri`    | 일치 시킬 대상 텍스트를 모두 포함 하는 JSON 또는 CSV 파일의 경로입니다. 이 엔터티 정의는 인덱서 실행이 시작 될 때 읽혀집니다. 이 파일 중간 실행에 대 한 모든 업데이트는 다음에 실행 될 때까지 인식 되지 않습니다. 이 구성은 HTTPS를 통해 액세스할 수 있어야 합니다. 필요한 CSV 또는 JSON 스키마는 아래에서 [사용자 지정 엔터티 정의](#custom-entity-definition-format) 형식을 참조 하세요.|
 |`inlineEntitiesDefinition` | 인라인 JSON 엔터티 정의입니다. 이 매개 변수는 있는 경우 entitiesDefinitionUri 매개 변수를 대체 합니다. 10 KB 이하의 구성은 인라인으로 제공 될 수 있습니다. 필요한 JSON 스키마는 아래의 [사용자 지정 엔터티 정의](#custom-entity-definition-format) 를 참조 하세요. |
 |`defaultLanguageCode` |    필드 입력 텍스트를 토큰화 하 고 설명 하는 데 사용 되는 입력 텍스트의 언어 코드입니다. 지원 되는 언어는 다음과 `da, de, en, es, fi, fr, it, ko, pt` 같습니다. 기본값은 영어 ( `en` )입니다. languagecode-countrycode 형식을 전달하는 경우 형식의 languagecode 부분만 사용됩니다.  |
-
+|`globalDefaultCaseSensitive` | 필드 기술에 대 한 대/소문자를 구분 하는 기본 값입니다. `defaultCaseSensitive`엔터티의 값이 지정 되지 않은 경우이 값은 `defaultCaseSensitive` 해당 엔터티의 값이 됩니다. |
+|`globalDefaultAccentSensitive` | 필드 기술에 대 한 기본 악센트 구분 값입니다. `defaultAccentSensitive`엔터티의 값이 지정 되지 않은 경우이 값은 `defaultAccentSensitive` 해당 엔터티의 값이 됩니다. |
+|`globalDefaultFuzzyEditDistance` | 필드 기술에 대 한 기본 유사 항목 편집 거리 값입니다. `defaultFuzzyEditDistance`엔터티의 값이 지정 되지 않은 경우이 값은 `defaultFuzzyEditDistance` 해당 엔터티의 값이 됩니다. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
@@ -69,7 +71,7 @@ Microsoft. 텍스트. CustomEntityLookupSkill
 
 ### <a name="csv-format"></a>CSV 형식
 
-파일에 대 한 경로를 제공 하 고 *Entif Definitionuri*  기술 매개 변수에서 설정 하 여 CSV (쉼표로 구분 된 값) 파일에서 찾을 사용자 지정 엔터티의 정의를 제공할 수 있습니다. 경로는 https 위치에 있어야 합니다. 정의 파일의 크기는 최대 10mb 일 수 있습니다.
+파일에 대 한 경로를 제공 하 고 *Entif Definitionuri*  기술 매개 변수에서 설정 하 여 CSV (Comma-Separated 값) 파일에서 찾을 사용자 지정 엔터티의 정의를 제공할 수 있습니다. 경로는 https 위치에 있어야 합니다. 정의 파일의 크기는 최대 10mb 일 수 있습니다.
 
 CSV 형식은 간단 합니다. 각 줄은 아래와 같이 고유한 엔터티를 나타냅니다.
 
@@ -103,7 +105,7 @@ JSON 파일 에서도 검색할 사용자 지정 엔터티의 정의를 제공�
 ]
 ```
 
-JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, 설명, 유형 및 하위 유형 뿐만 아니라 다른 *별칭*을 제공할 수 있습니다. 별칭 용어가 일치 하면 엔터티도 반환 됩니다.
+JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, 설명, 유형 및 하위 유형 뿐만 아니라 다른 *별칭* 을 제공할 수 있습니다. 별칭 용어가 일치 하면 엔터티도 반환 됩니다.
 
 ```json
 [ 
@@ -151,8 +153,10 @@ JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, �
 | `subtype` | 필드 이 필드는 일치 하는 텍스트에 대 한 사용자 지정 메타 데이터에 대 한 통과로 사용할 수 있습니다. 이 필드의 값은 해당 엔터티와 일치 하는 모든 항목이 기술 출력에 표시 됩니다. |
 | `id` | 필드 이 필드는 일치 하는 텍스트에 대 한 사용자 지정 메타 데이터에 대 한 통과로 사용할 수 있습니다. 이 필드의 값은 해당 엔터티와 일치 하는 모든 항목이 기술 출력에 표시 됩니다. |
 | `caseSensitive` | 필드 기본값은 false입니다. 엔터티 이름과 비교할 때 문자 대/소문자를 구분 해야 하는지 여부를 나타내는 부울 값입니다. "Microsoft"와 일치 하는 대/소문자를 구분 하지 않는 샘플은 microsoft, microsoft, MICROSOFT입니다. |
+| `accentSensitive` | 필드 기본값은 false입니다. ' É ' 및 ' e '와 같은 악센트가 있는 문자와 악센트가 없는 문자가 동일한 지 여부를 나타내는 부울 값입니다. |
 | `fuzzyEditDistance` | 필드 기본값은 0입니다. 최 댓 값은 5입니다. 여전히 엔터티 이름과 일치 하는 항목을 구성 하는 허용 되는 문자 수를 나타냅니다. 지정 된 일치 항목에 대해 가능한 최소 허용량이 반환 됩니다.  예를 들어, 편집 거리가 3으로 설정 된 경우 "Windows 10"은 여전히 "Windows", "Windows10" 및 "windows 7"과 일치 합니다. <br/> 대/소문자 구분이 false로 설정 된 경우 대/소문자 차이는 허용량 허용 오차에 계산 되지 않지만 그렇지 않은 경우에는 그렇지 않습니다. |
-| `defaultCaseSensitive` | 필드 이 엔터티에 대 한 기본 대/소문자 구분 값을 변경 합니다. 모든 별칭 caseSensitive 값의 기본값을 변경 하는 데 사용 됩니다. |
+| `defaultCaseSensitive` | 필드 이 엔터티에 대 한 기본 대/소문자 구분 값을 변경 합니다. 모든 별칭 caseSensitive 값의 기본값을 변경 하는 데 사용할 수 있습니다. |
+| `defaultAccentSensitive` | 필드 이 엔터티에 대 한 기본 악센트 구분 값을 변경 합니다. 모든 별칭 accentSensitive 값의 기본값을 변경 하는 데 사용할 수 있습니다.|
 | `defaultFuzzyEditDistance` | 필드 이 엔터티에 대 한 기본 유사 항목 편집 거리 값을 변경 합니다. 모든 별칭 fuzzyEditDistance 값의 기본값을 변경 하는 데 사용할 수 있습니다. |
 | `aliases` | 필드 루트 엔터티 이름에 대 한 대체 철자 또는 동의어를 지정 하는 데 사용할 수 있는 복합 개체의 배열입니다. |
 
@@ -160,6 +164,7 @@ JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, �
 |------------------|-------------|
 | `text`  | 일부 대상 엔터티 이름의 대체 철자 또는 표현입니다.  |
 | `caseSensitive` | 필드 위의 루트 엔터티 "caseSensitive" 매개 변수와 동일 하 게 작동 하지만이 별칭 하나에만 적용 됩니다. |
+| `accentSensitive` | 필드 위의 루트 엔터티 "accentSensitive" 매개 변수와 동일 하 게 작동 하지만이 별칭 하나에만 적용 됩니다. |
 | `fuzzyEditDistance` | 필드 위의 루트 엔터티 "fuzzyEditDistance" 매개 변수와 동일 하 게 작동 하지만이 별칭 하나에만 적용 됩니다. |
 
 

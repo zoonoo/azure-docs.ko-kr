@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279298"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349942"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
@@ -41,7 +41,7 @@ Azure AD Connect 기본 설치의 경우, 필요한 모든 권한을 사용하�
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/tutorial-enable-sspr-writeback.md)에 설명된 특성에 대한 읽기 및 쓰기 권한 |
 | 디바이스 쓰기 저장 |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에 설명된 디바이스 개체 및 컨테이너에 대한 읽기 및 쓰기 권한 |
-| 그룹 쓰기 저장 |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.|
+| 그룹 쓰기 저장 |동기화된 **Office 365 그룹** 에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>ADSyncConfig PowerShell 모듈 사용 
 ADSyncConfig 모듈에는 AD DS PowerShell 모듈과 도구에 따라 달라지므로 [AD DS용 RSAT(원격 서버 관리 도구)](/windows-server/remote/remote-server-administration-tools)가 필요합니다. AD DS용 RSAT를 설치하려면 '관리자 권한으로 실행'을 사용하여 Windows PowerShell 창을 열고 다음을 실행합니다. 
@@ -149,7 +149,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>MS-DS-Consistency-Guid 권한 구성 
-ms-Ds-Consistency-Guid 특성을 원본 앵커로 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면(즉, "Azure가 내 원본 앵커를 관리하도록 합니다." 옵션) 다음을 실행합니다. 
+M s s-일관성 Guid 특성을 원본 앵커로 사용 하는 경우 AD DS 커넥터 계정에 대 한 권한을 설정 하려면 ("나에 게 원본 앵커를 사용 하 여 Azure로 설정" 옵션)를 실행 합니다. 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

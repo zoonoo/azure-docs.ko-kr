@@ -1,23 +1,19 @@
 ---
 title: HC 시리즈 VM 크기 성능
 description: Azure에서 HC 시리즈 VM 크기에 대 한 성능 테스트 결과에 대해 알아봅니다.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
-ms.openlocfilehash: 0d63d9770dacf6a200e8b81e8d47d9f807a8a448
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.reviewer: cynthn
+ms.openlocfilehash: e1abe4b87bd5be98dad8e43d604f833eae3854e7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603441"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966958"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>HC 시리즈 가상 머신 크기
 
@@ -26,7 +22,7 @@ ms.locfileid: "90603441"
 | 작업                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | 스트림 조로 묶어                                    | 190 g b/초 (Intel MLC AVX-512)  |
-| HPL (고성능 Linpack)                  | 3520 GigaFLOPS (Rpeak), 2970 GigaFLOPS (Rpeak) |
+| High-Performance Linpack (HPL)                  | 3520 GigaFLOPS (Rpeak), 2970 GigaFLOPS (Rpeak) |
 | RDMA 대기 시간 & 대역폭                        | 1.05 마이크로초, 96.8 g b/초   |
 | 로컬 NVMe SSD의 FIO                           | 1.3 m b/초 읽기, 900 m b/초 쓰기 |  
 | IOR on 4 Azure 프리미엄 SSD (P30 Managed Disks, RAID0) * *  | 780 m b/초 읽기, 780 m b/쓰기 |

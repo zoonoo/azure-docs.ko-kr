@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524857"
 ---
 # <a name="move-an-app-service-resource-to-another-region"></a>App Service 리소스를 다른 지역으로 이동
@@ -19,7 +19,7 @@ App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할
 
 앱을 더 쉽게 복사 하기 위해 [개별 App Service 앱](app-service-web-app-cloning.md) 을 다른 지역의 App Service 계획에 복제할 수 있지만 특히 Linux 앱을 지원 하지 않는 [제한](app-service-web-app-cloning.md#current-restrictions)사항이 있습니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 - App Service 앱이 이동 하려는 Azure 지역에 있는지 확인 합니다.
 - 대상 지역이 리소스를 이동 하려는 App Service 및 관련 서비스를 지원 하는지 확인 합니다.

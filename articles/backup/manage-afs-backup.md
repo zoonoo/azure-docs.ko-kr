@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup에 의해 백업 되는 Azure 파�
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88757628"
 ---
 # <a name="manage-azure-file-share-backups"></a>Azure 파일 공유 백업 관리

@@ -23,6 +23,8 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
+        - name: Python
+          href: quickstart-python.md
         - name: ARM 템플릿
           href: quickstart-resource-manager.md
           displayName: 'ARM, azure resource manager template'
@@ -68,6 +70,8 @@
       items:
         - name: Azure Pipelines를 사용하여 푸시
           href: push-kv-devops-pipeline.md
+        - name: Azure Pipelines를 사용하여 끌어오기
+          href: pull-key-value-devops-pipeline.md
         - name: GitHub 작업을 사용하여 푸시
           href: concept-github-action.md
         - name: 내보낸 구성을 사용하여 프로젝트 빌드
@@ -98,14 +102,18 @@
           href: concept-enable-rbac.md
         - name: Azure 관리 ID 할당
           href: overview-managed-identity.md
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 고가용성
       items:
         - name: 복원력 및 재해 복구
           href: concept-disaster-recovery.md
 - name: 방법 가이드
   items:
-    - name: 사용자 하위 집합을 위한 기능 사용
+    - name: 사용자 비율에 따라 기능 사용
       href: howto-feature-filters-aspnet-core.md
+    - name: 지정된 사용자/그룹에 대해 기능 사용
+      href: howto-targetingfilter-aspnet-core.md
     - name: 환경별 구성에 레이블 사용
       href: howto-labels-aspnet-core.md
     - name: 구성 데이터 가져오기 또는 내보내기
@@ -123,9 +131,9 @@
     - name: 구성
       items:
         - name: Azure CLI
-          href: 'https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest'
+          href: /cli/azure/appconfig?view=azure-cli-latest
         - name: .NET Core 공급자
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: .NET Framework 작성기
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
         - name: Azure SDK for .NET
@@ -138,22 +146,66 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: JavaScript용 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: REST API
-          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: 기능 관리
       items:
         - name: .NET Core 라이브러리
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+          href: /dotnet/api/microsoft.featuremanagement
         - name: .NET Core 필터 라이브러리
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
+          href: /dotnet/api/microsoft.featuremanagement.featurefilters
     - name: 구성 저장소 관리
       items:
         - name: REST API
-          href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
+          href: /rest/api/appconfiguration/
         - name: PowerShell
-          href: 'https://docs.microsoft.com/powershell/module/az.appconfiguration/'
+          href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: REST API
+      items:
+        - name: 개요
+          href: rest-api.md
+        - name: 리소스
+          items:
+            - name: 구성
+              href: ./rest-api-keys.md
+            - name: 키-값
+              href: ./rest-api-key-value.md
+            - name: 레이블
+              href: ./rest-api-labels.md
+            - name: 잠금
+              href: ./rest-api-locks.md
+            - name: 수정 내용
+              href: ./rest-api-revisions.md
+        - name: 프로토콜
+          items:
+            - name: 인증
+              href: ./rest-api-authentication-index.md
+              items:
+                - name: Azure Active Directory 인증
+                  href: rest-api-authentication-azure-ad.md
+                - name: HMAC 인증
+                  href: rest-api-authentication-hmac.md
+            - name: 권한 부여
+              href: ./rest-api-authorization-index.md
+              items:
+                - name: Azure Active Directory 권한 부여
+                  href: rest-api-authorization-azure-ad.md
+                - name: HMAC 권한 부여
+                  href: rest-api-authorization-hmac.md
+            - name: 일관성 모델
+              href: ./rest-api-consistency.md
+            - name: 일반 헤더
+              href: ./rest-api-headers.md
+            - name: 스로틀
+              href: ./rest-api-throttling.md
+            - name: 버전 관리
+              href: ./rest-api-versioning.md
+        - name: 개발
+          items:
+            - name: Fiddler
+              href: ./rest-api-fiddler.md
+            - name: postman
+              href: ./rest-api-postman.md
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

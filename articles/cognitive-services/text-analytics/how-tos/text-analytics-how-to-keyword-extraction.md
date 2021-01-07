@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: c1ca14b8471ef6257c0603e61d78e789e846f0ae
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 91e10c25d2c3bef9c1ca20e3e5737a326d45997c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142404"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654781"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예: Text Analytics을 사용 하 여 키 구를 추출 하는 방법
 
@@ -23,10 +23,11 @@ ms.locfileid: "84142404"
 
 이 기능은 문서 컬렉션에서 주요 지점을 빠르게 식별해야 하는 경우에 유용합니다. 예를 들어 "음식이 맛있고 훌륭한 직원이 있었습니다"라는 입력 텍스트가 제공되면 서비스에서 "음식" 및 "훌륭한 직원"이라는 주요 논점을 반환합니다.
 
-자세한 내용은 [지원되는 언어](../text-analytics-supported-languages.md)를 참조하세요.
+자세한 내용은 [지원되는 언어](../language-support.md)를 참조하세요.
 
 > [!TIP]
-> Text Analytics는 핵심 구 추출을 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
+> * Text Analytics는 핵심 구 추출을 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
+> * 끝점을 사용 하 여이 기능을 [비동기적](text-analytics-how-to-call-api.md) 으로 사용할 수도 있습니다 `/analyze` .
 
 ## <a name="preparation"></a>준비
 
@@ -34,7 +35,12 @@ ms.locfileid: "84142404"
 
 ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
-문서 크기는 문서 당 5120 자이 하 여야 하 고 컬렉션 당 최대 1000 개 항목 (Id)을 사용할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 예제는 핵심 구 추출에 제출할 수 있는 콘텐츠에 대한 설명입니다.
+문서 크기는 문서 당 5120 자이 하 여야 하 고 컬렉션 당 최대 1000 개 항목 (Id)을 사용할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 예제는 핵심 구 추출에 제출할 수 있는 콘텐츠에 대한 설명입니다. 
+
+요청 및 응답 개체에 대 한 자세한 내용은 [텍스트 분석 API를 호출 하는 방법을](text-analytics-how-to-call-api.md) 참조 하세요.  
+
+### <a name="example-synchronous-request-object"></a>동기 요청 개체 예
+
 
 ```json
     {
@@ -68,20 +74,50 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
     }
 ```
 
+### <a name="example-asynchronous-request-object"></a>비동기 요청 개체 예제
+
+부터 `v3.1-preview.3` 끝점을 사용 하 여 NER 요청을 비동기적으로 보낼 수 있습니다 `/analyze` .
+
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "keyPhraseExtractionTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }],
+    }
+}
+```
+
 ## <a name="step-1-structure-the-request"></a>1단계: 요청 구성
 
 요청 정의에 대 한 자세한 내용은 [텍스트 분석 API 호출 하는 방법](text-analytics-how-to-call-api.md)을 참조 하세요. 편의상 다음 사항을 다시 설명합니다.
 
 + **POST** 요청을 만듭니다. 이 요청에 대 한 API 설명서를 검토 합니다. [핵심 구 api](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. URL에 `/text/analytics/v3.0/keyPhrases`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. API를 동기적으로 사용 하는 경우 URL에를 포함 해야 합니다 `/text/analytics/v3.0/keyPhrases` . 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
 + Text Analytics 작업에 대한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)가 포함되도록 요청 헤더를 설정합니다.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
 > [!Tip]
-> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
+> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)에서 **API 테스트 콘솔** 을 열어 요청을 구성하고, 서비스에 POST합니다.
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
@@ -95,58 +131,124 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 
-핵심 구 추출에 대한 출력 예제는 다음과 같습니다.
+V 3.1-preview. 2 끝점에서 키 구 추출에 대 한 출력의 예는 다음과 같습니다.
+
+### <a name="synchronous-result"></a>동기 결과
 
 ```json
     {
-        "documents": [
-            {
-                "keyPhrases": [
-                    "year",
-                    "trail",
-                    "trip",
-                    "views"
-                ],
-                "id": "1"
-            },
-            {
-                "keyPhrases": [
-                    "marked trails",
-                    "Worst hike",
-                    "goners"
-                ],
-                "id": "2"
-            },
-            {
-                "keyPhrases": [
-                    "trail",
-                    "small children",
-                    "family"
-                ],
-                "id": "3"
-            },
-            {
-                "keyPhrases": [
-                    "spectacular views",
-                    "trail",
-                    "area"
-                ],
-                "id": "4"
-            },
-            {
-                "keyPhrases": [
-                    "places",
-                    "beautiful views",
-                    "favorite trail"
-                ],
-                "id": "5"
-            }
-        ],
-        "errors": []
+       "documents":[
+          {
+             "id":"1",
+             "keyPhrases":[
+                "year",
+                "trail",
+                "trip",
+                "views",
+                "hike"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"2",
+             "keyPhrases":[
+                "marked trails",
+                "Worst hike",
+                "goners"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"3",
+             "keyPhrases":[
+                "trail",
+                "small children",
+                "family"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"4",
+             "keyPhrases":[
+                "spectacular views",
+                "trail",
+                "Worth",
+                "area"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"5",
+             "keyPhrases":[
+                "places",
+                "beautiful views",
+                "favorite trail",
+                "rest"
+             ],
+             "warnings":[]
+          }
+       ],
+       "errors":[],
+       "modelVersion":"2020-07-01"
     }
+
+```
+앞에서 설명한 것 처럼, 분석기는 중요 하지 않은 단어를 찾아서 삭제 하 고, 문장의 제목이 나 개체에 표시 되는 단일 용어나 구를 유지 합니다.
+
+### <a name="asynchronous-result"></a>비동기 결과
+
+비동기 작업에 끝점을 사용 하는 경우 `/analyze` API로 보낸 작업을 포함 하는 응답을 받게 됩니다.
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
 ```
 
-앞에서 설명한 것 처럼, 분석기는 중요 하지 않은 단어를 찾아서 삭제 하 고, 문장의 제목이 나 개체에 표시 되는 단일 용어나 구를 유지 합니다.
 
 ## <a name="summary"></a>요약
 
@@ -154,10 +256,10 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 + [핵심 구 추출 API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)는 선택한 언어로 사용할 수 있습니다.
 + 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
-+ POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)를 사용하여 `/keyphrases` 엔드포인트에 대해 수행됩니다.
++ POST 요청은 `/keyphrases` `/analyze` 개인 설정 된 [액세스 키와](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 구독에 유효한 끝점을 사용 하 여 또는 끝점에 대 한 POST 요청입니다.
 + 각 문서 ID에 대 한 키워드와 구를 구성 하는 응답 출력은 Excel 및 Power BI Microsoft Office를 포함 하 여 JSON을 허용 하는 모든 앱으로 스트리밍하 고 몇 가지 이름을 지정할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
  [Text Analytics 개요](../overview.md) [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
  [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712)
@@ -165,5 +267,5 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [Text Analytics 개요](../overview.md)
-* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/text-analytics-sdk.md)
+* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)

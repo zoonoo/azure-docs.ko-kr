@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 36c04480c46cea904b072c659c5c2642a28e1f27
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 71432dc2dd09381d39ca646d45c7f2bdd96012c6
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647565"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653438"
 ---
 # <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 Azure HDInsight 클러스터에서 Apache Oozie 실행
 
@@ -178,7 +178,7 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
 
 4. `clustername`을 클러스터의 이름으로 바꿉니다.
 
-5. 파일을 저장하려면 **Ctrl+X**를 선택합니다. **Y**를 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
+5. 파일을 저장하려면 **Ctrl+X** 를 선택합니다. **Y** 를 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
 
     워크플로는 두 부분으로 구분됩니다.
 
@@ -231,8 +231,8 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
    ```
 
    - Azure Data Lake Storage Gen1을 기본 클러스터 스토리지로 사용하는 경우 `nameNode` 속성에 대해 `adl://home` URI를 사용합니다. Azure Blob Storage를 사용하는 경우 이 값을 `wasb://home`으로 변경합니다. Azure Data Lake Storage Gen2를 사용하는 경우에는 `abfs://home`으로 변경합니다.
-   - `domainuser`를 도메인에 대한 사용자 이름으로 바꿉니다.  
-   - `ClusterShortName`을 클러스터의 약식 이름으로 바꿉니다. 예를 들어 클러스터 이름이 https:// *[예제 링크]* sechadoopcontoso.azurehdisnight.net인 경우 `clustershortname`은 클러스터의 첫 6자인 **sechad**입니다.  
+   - `domainuser`를 도메인에 대한 사용자 이름으로 바꿉니다.
+   - `ClusterShortName`을 클러스터의 약식 이름으로 바꿉니다. 예를 들어 클러스터 이름이 https:// *[예제 링크]* sechadoopcontoso.azurehdisnight.net인 경우 `clustershortname`은 클러스터의 첫 6자인 **sechad** 입니다.
    - `jdbcurlvalue`를 Hive 구성의 JDBC URL로 바꿉니다. 예를 들어 jdbc:hive2://headnodehost:10001/;transportMode=http입니다.
    - 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.
 
@@ -313,17 +313,17 @@ CoordAction ID: -
 
 Actions
 ------------------------------------------------------------------------------------------------
-ID                      Status  Ext ID          ExtStatus   ErrCode
+ID                        Status    Ext ID            ExtStatus                 ErrCode
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@:start:    OK  -           OK      -
+0000015-180626011240801-oozie-oozi-W@:start:    OK    -                         OK             -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@mr-test    OK  job_1529975666160_0051  SUCCEEDED   -
+0000015-180626011240801-oozie-oozi-W@mr-test    OK    job_1529975666160_0051    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@myHive2    OK  job_1529975666160_0053  SUCCEEDED   -
+0000015-180626011240801-oozie-oozi-W@myHive2    OK    job_1529975666160_0053    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@myHive OK  job_1529975666160_0055  SUCCEEDED   -
+0000015-180626011240801-oozie-oozi-W@myHive    OK     job_1529975666160_0055    SUCCEEDED      -
 ------------------------------------------------------------------------------------------------
-0000015-180626011240801-oozie-oozi-W@end    OK  -           OK      -
+0000015-180626011240801-oozie-oozi-W@end       OK     -                         OK             -
 -----------------------------------------------------------------------------------------------
 ```
 

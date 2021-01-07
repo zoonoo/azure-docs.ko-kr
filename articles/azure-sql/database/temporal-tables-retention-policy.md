@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/25/2018
-ms.openlocfilehash: 8c5ea1f7ef094944c3e5a20dd19bce6d8cce294d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985446"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91619392"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>보존 정책을 사용 하 여 Temporal 테이블의 기록 데이터 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-데이터베이스 플래그 **is_temporal_history_retention_enabled**는 기본적으로 ON으로 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 또한 이 플래그는 [특정 시점 복원](recovery-using-backups.md) 작업 후에 자동적으로 OFF로 설정됩니다. 데이터베이스에 대한 temporal 기록 보존 정리를 사용하도록 설정하려면 다음 문을 실행합니다.
+데이터베이스 플래그 **is_temporal_history_retention_enabled**는 기본적으로 ON으로 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 특정 [시점 복원](recovery-using-backups.md) 작업 후에도 자동으로 꺼짐으로 설정 됩니다. 데이터베이스에 대한 temporal 기록 보존 정리를 사용하도록 설정하려면 다음 문을 실행합니다.
 
 ```sql
 ALTER DATABASE <myDB>
@@ -110,7 +110,7 @@ rowstore(B-트리) 클러스터형 인덱스에 대한 정리 논리를 사용�
 
 ![클러스터형 columnstore 보존](./media/temporal-tables-retention-policy/cciretention.png)
 
-클러스터형 columnstore 인덱스는 데이터 압축이 뛰어나고 보존 정리가 효율적이므로 작업에서 대량의 기록 데이터를 빠르게 생성하는 시나리오에 적합합니다. 해당 패턴은 변경 내용 추적 및 감사, 추세 분석 또는 IoT 데이터 수집에 대해 [임시 테이블을 사용하는 집약적 트랜잭션 처리 워크로드](/sql/relational-databases/tables/temporal-table-usage-scenarios)에 일반적입니다.
+클러스터형 columnstore 인덱스는 데이터 압축이 뛰어나고 보존 정리가 효율적이므로 작업에서 대량의 기록 데이터를 빠르게 생성하는 시나리오에 적합합니다. 이 패턴은 변경 내용 추적 및 감사, 추세 분석 또는 IoT 데이터 수집에 [임시 테이블을 사용 하는 집약적 트랜잭션 처리 워크 로드](/sql/relational-databases/tables/temporal-table-usage-scenarios) 에 일반적입니다.
 
 ## <a name="index-considerations"></a>인덱스 고려 사항
 
@@ -120,7 +120,7 @@ Rowstore 클러스터형 인덱스가 있는 테이블에 대한 정리 작업�
 
 Azure SQL Database 및 Azure SQL Managed Instance에서 만든 기본 기록 테이블에는 보존 정책을 준수 하는 클러스터형 인덱스가 이미 있는지 확인 하는 것이 중요 합니다. 재방문 주기 기간이 한정된 테이블에서 해당 인덱스를 제거하려 하면 다음 오류와 함께 작업이 실패합니다.
 
-*메시지 13766, 수준 16, 상태 1은 (는) <br> </br> 오래 된 데이터의 자동 정리에 사용 되 고 있으므로 클러스터형 인덱스 ' IX_WebsiteUserInfoHistory WebsiteUserInfoHistory '를 삭제할 수 없습니다. 이 인덱스를 삭제 해야 하는 경우 해당 하는 시스템 버전 관리 된 temporal 테이블에서 HISTORY_RETENTION_PERIOD을 무한대로 설정 하는 것이 좋습니다.*
+*메시지 13766, 수준 16, 상태 1은 (는) <br> </br> 오래 된 데이터의 자동 정리에 사용 되 고 있으므로 클러스터형 인덱스 ' WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory '을 (를) 삭제할 수 없습니다. 이 인덱스를 삭제 해야 하는 경우 해당 하는 시스템 버전 관리 된 temporal 테이블에서 HISTORY_RETENTION_PERIOD을 무한대로 설정 하는 것이 좋습니다.*
 
 클러스터형 columnstore 인덱스 상의 정리는 기록 행이 오름차순(기간 열 끝의 순서로 정렬됨)으로 삽입된 경우 최적으로 작동합니다. 특히 기록 테이블이 SYSTEM_VERSIONIOING 메커니즘에 의해 단독으로 채워질 때 항상 그렇습니다. 기록 테이블의 행이 기간 열(기존 과거 데이터를 마이그레이션한 경우에 해당될 수 있음)의 끝을 기준으로 정렬되지 경우, 최적의 성능을 얻으려면 제대로 정렬된 B-트리 rowstore 인덱스 위에 클러스터형 columnstore 인덱스를 다시 만들어야 합니다.
 

@@ -3,13 +3,13 @@ title: 빠른 시작-Event Grid로 이벤트 보내기
 description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Grid 이벤트를 활성화한 다음, 애플리케이션 예제에 컨테이너 이미지 push 및 delete 이벤트를 전송합니다.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78403242"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694394"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
 
@@ -19,15 +19,15 @@ Azure Event Grid는 게시-구독 모델을 사용하여 균일한 이벤트 소
 
 ![수신된 이벤트 세 개로 샘플 웹 애플리케이션을 렌더링하는 웹 브라우저][sample-app-01]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-이 문서에서 Azure CLI 명령은 **Bash** 셸에서 실행하도록 형식이 지정됩니다. PowerShell 또는 명령 프롬프트와 같은 다른 셸을 사용하는 경우 줄 연속 문자 또는 변수 할당 줄을 적절히 조정해야 합니다. 이 문서에서는 변수를 사용하여 필요한 명령 편집 작업을 최소화합니다.
+- 이 문서에서 Azure CLI 명령은 **Bash** 셸에서 실행하도록 형식이 지정됩니다. PowerShell 또는 명령 프롬프트와 같은 다른 셸을 사용하는 경우 줄 연속 문자 또는 변수 할당 줄을 적절히 조정해야 합니다. 이 문서에서는 변수를 사용하여 필요한 명령 편집 작업을 최소화합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure 리소스 그룹은 Azure 리소스를 배포하고 관리하는 논리 컨테이너입니다. 다음 [az group create][az-group-create] 명령에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. 리소스 그룹에 다른 이름을 사용하려면 `RESOURCE_GROUP_NAME`을 다른 값으로 설정합니다.
+Azure 리소스 그룹은 Azure 리소스를 배포하고 관리하는 논리 컨테이너입니다. 다음 [az group create][az-group-create] 명령에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. 리소스 그룹에 다른 이름을 사용하려면 `RESOURCE_GROUP_NAME`을 다른 값으로 설정합니다.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -78,7 +78,7 @@ az acr create --resource-group $RESOURCE_GROUP_NAME --name $ACR_NAME --sku Basic
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -96,7 +96,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-registry-events"></a>레지스트리 이벤트 구독
 
-Event Grid에서 *항목*을 구독하여 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다. 다음 [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] 명령은 사용자가 생성한 컨테이너 레지스트리를 구독하고, 이벤트를 보내야 하는 엔드포인트로 사용자의 웹앱 URL을 지정합니다. 이전 섹션에서 채워진 환경 변수가 여기에 재사용되므로 편집이 필요 없습니다.
+Event Grid에서 *항목* 을 구독하여 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다. 다음 [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] 명령은 사용자가 생성한 컨테이너 레지스트리를 구독하고, 이벤트를 보내야 하는 엔드포인트로 사용자의 웹앱 URL을 지정합니다. 이전 섹션에서 채워진 환경 변수가 여기에 재사용되므로 편집이 필요 없습니다.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -200,7 +200,7 @@ Are you sure you want to continue? (y/n):
 
 ![ImagePushed 및 ImageDeleted 이벤트가 있는 샘플 앱을 보여주는 웹 브라우저][sample-app-03]
 
-지금까지 `ImagePushed` 및 `ImageDeleted` 이벤트를 보면 레지스트리가 Event Grid로 이벤트를 보내고 있고, Event Grid가 이러한 이벤트를 웹앱 엔드포인트로 전달하고 있습니다.
+축하합니다! `ImagePushed` 및 `ImageDeleted` 이벤트를 보면 레지스트리가 Event Grid로 이벤트를 보내고 있고, Event Grid가 이러한 이벤트를 웹앱 엔드포인트로 전달하고 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

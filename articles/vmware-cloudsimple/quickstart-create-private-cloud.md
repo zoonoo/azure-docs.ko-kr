@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073908"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
@@ -64,7 +64,7 @@ ms.locfileid: "87073908"
 
 ## <a name="launch-cloudsimple-portal"></a>CloudSimple 포털 시작
 
-Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSimple 포털은 SSO (Single Sign-on)를 사용 하 여 Azure 로그인 자격 증명으로 시작 됩니다.  CloudSimple 포털에 액세스 하려면 **Cloudsimple 서비스 권한 부여** 응용 프로그램에 권한을 부여 해야 합니다.  권한 부여에 대 한 자세한 내용은 [CloudSimple 서비스 권한 부여 응용 프로그램에 동의](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application)를 참조 하세요.
+Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSimple 포털은 SSO (Single Sign-On)를 사용 하 여 Azure 로그인 자격 증명으로 시작 됩니다.  CloudSimple 포털에 액세스 하려면 **Cloudsimple 서비스 권한 부여** 응용 프로그램에 권한을 부여 해야 합니다.  권한 부여에 대 한 자세한 내용은 [CloudSimple 서비스 권한 부여 응용 프로그램에 동의](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application)를 참조 하세요.
 
 1. **모든 서비스**를 선택합니다.
 2. **Cloudsimple 서비스**를 검색 합니다.
@@ -101,7 +101,7 @@ Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSi
 
     * **자동으로 추가** 옵션은이 게이트웨이에 대 한 전역 정책을 설정 합니다. 설정은 현재 게이트웨이에 적용 됩니다. 설정은 **선택** 영역에서 재정의할 수 있습니다.
     * **사설 클라우드의 관리 vlan/서브넷 추가**를 선택 합니다.
-    * 모든 사용자 정의 Vlan/서브넷을 추가 하려면 **사용자 정의 vlan/서브넷 추가**를 클릭 합니다.
+    * 모든 사용자 정의 Vlan/서브넷을 추가 하려면  **사용자 정의 vlan/서브넷 추가**를 클릭 합니다.
     * **Select** 설정은 **자동 추가**에서 전역 설정을 재정의 합니다.
 
 7. **다음** 을 클릭 하 여 설정을 검토 합니다. 편집 아이콘을 클릭 하 여 변경 합니다.
@@ -159,7 +159,7 @@ CloudSimple은 사설 클라우드에 대 한 Express 경로 회로를 제공 �
     ![VSphere 클라이언트 시작](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. VCenter에 액세스 하 고 사용자 이름 및 암호를 사용 하 여 로그인 할 기본 vSphere 클라이언트를 선택 합니다.  기본값은 다음과 같습니다.
-    * 사용자 이름:`CloudOwner@cloudsimple.local`
+    * 사용자 이름: `CloudOwner@cloudsimple.local`
     * 암호: `CloudSimple123!`
 
 다음 절차의 vCenter 화면은 vSphere (HTML5) 클라이언트에서 가져온 것입니다.

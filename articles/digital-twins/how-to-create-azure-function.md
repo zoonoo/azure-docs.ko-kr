@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a0f5a921ad9eba82f27b3a8945643737b6d76030
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 5352a95b865851be937af7b9f19268afd23148db
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614078"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280026"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
 
@@ -30,17 +30,21 @@ ms.locfileid: "89614078"
 4. Azure에 함수 앱 게시
 5. Azure 함수 앱에 대 한 [보안](concepts-security.md) 액세스 설정
 
+## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>필수 조건: Azure Digital Twins 인스턴스 설정
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Visual Studio에서 Azure Functions 앱 만들기
 
-Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure Functions_ 템플릿을 검색 한 후 _다음_을 선택 합니다.
+Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure Functions_ 템플릿을 검색 한 후 _다음_ 을 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-함수 앱의 이름을 지정 하 고 _만들기_를 선택 합니다.
+함수 앱의 이름을 지정 하 고 _만들기_ 를 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: 새 프로젝트 구성":::
 
-*트리거 Event Grid* 함수 앱의 유형을 선택 하 고 _만들기_를 선택 합니다.
+*트리거 Event Grid* 함수 앱의 유형을 선택 하 고 _만들기_ 를 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: Azure 함수 프로젝트 트리거 대화 상자":::
 
@@ -50,7 +54,7 @@ Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Event Grid 트리거를 사용 하 여 Azure 함수 작성
 
-함수 앱에 SDK를 추가 하 여 Azure 함수를 작성할 수 있습니다. 함수 앱은 [.net 용 Azure IoT 디지털 쌍 클라이언트 라이브러리 (c #)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)를 사용 하 여 Azure Digital twins와 상호 작용 합니다. 
+함수 앱에 SDK를 추가 하 여 Azure 함수를 작성할 수 있습니다. 함수 앱은 [Azure Digital TWINS SDK for .net (c #)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)을 사용 하 여 azure 디지털 쌍과 상호 작용 합니다. 
 
 SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니다. Visual studio NuGet 패키지 관리자를 사용 하 여 패키지를 설치 하거나 명령줄 도구를 사용 하 여 패키지를 추가할 수 있습니다 `dotnet` . 다음 방법 중 하나를 선택 합니다. 
 
@@ -155,14 +159,14 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Azure에 함수 앱 게시
 
-함수 앱을 Azure에 게시 하려면 솔루션 탐색기의 함수 프로젝트 (솔루션 아님)를 마우스 오른쪽 단추로 선택 하 고 **게시**를 선택 합니다.
+함수 앱을 Azure에 게시 하려면 솔루션 탐색기의 함수 프로젝트 (솔루션 아님)를 마우스 오른쪽 단추로 선택 하 고 **게시** 를 선택 합니다.
 
 > [!IMPORTANT] 
 > Azure function을 게시 하면 Azure Digital Twins와 무관 하 게 구독에 대 한 추가 요금이 발생 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: Azure 함수 게시 ":::
 
-게시 대상으로 **Azure** 를 선택 하 고 **다음**을 선택 합니다.
+게시 대상으로 **Azure** 를 선택 하 고 **다음** 을 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: Azure 함수 게시 대화 상자에서 Azure를 선택 합니다. ":::
 
@@ -186,26 +190,28 @@ namespace adtIngestFunctionSample
 
 이전 예제의 Azure function 기초에서는 Azure Digital Twins를 사용 하 여 인증할 수 있도록 전달자 토큰을 전달 해야 합니다. 이 전달자 토큰이 전달 되었는지 확인 하려면 함수 앱에 대해 [MSI (관리 서비스 ID)](../active-directory/managed-identities-azure-resources/overview.md) 를 설정 해야 합니다. 이 작업은 각 함수 앱에 대해 한 번만 수행 해야 합니다.
 
-시스템 관리 id를 만들고 Azure Digital Twins 인스턴스의 _Azure Digital Twins 소유자 (미리 보기)_ 역할에 함수 앱의 id를 할당할 수 있습니다. 이렇게 하면 인스턴스에서 데이터 평면 작업을 수행할 수 있는 함수 앱 권한이 제공 됩니다. 그런 다음 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 합니다.
+시스템 관리 id를 만들고 Azure Digital Twins 인스턴스의 _**Azure Digital Twins 데이터 소유자**_ 역할에 함수 앱의 id를 할당할 수 있습니다. 이렇게 하면 인스턴스에서 데이터 평면 작업을 수행할 수 있는 함수 앱 권한이 제공 됩니다. 그런 다음 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 합니다.
 
- [Azure Cloud Shell](https://shell.azure.com) 를 사용 하 여 명령을 실행 합니다.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+[Azure Cloud Shell](https://shell.azure.com) 를 사용 하 여 명령을 실행 합니다.
 
 다음 명령을 사용하여 시스템 관리 ID를 만듭니다. 출력에서 _principalId_ 필드를 기록해 둡니다.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-다음 명령에서 _Principalid_ 값을 사용 하 여 Azure Digital twins 인스턴스의 _Azure 디지털 쌍 소유자 (미리 보기)_ 역할에 함수 앱의 id를 할당 합니다.
+다음 명령에서 _principalid_ 값을 사용 하 여 Azure Digital twins 인스턴스의 _Azure Digital Twins 데이터 소유자_ 역할에 함수 앱의 id를 할당 합니다.
 
-```azurecli 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive 
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
-마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 환경 변수를 설정 하는 방법에 대 한 자세한 내용은 [*환경 변수*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables)를 참조 하세요. 
+마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 환경 변수를 설정 하는 방법에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 
 
 > [!TIP]
-> Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름*앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름* 앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
-```azurecli 
+```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>옵션 2: Azure Portal을 사용 하 여 Azure 함수 앱에 대 한 보안 액세스 설정
@@ -217,7 +223,7 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 :::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure Portal: 함수 앱 검색":::
 
 함수 앱 창의 왼쪽 탐색 모음에서 _id_ 를 선택 하 여 관리 되는 id를 사용 하도록 설정 합니다.
-_시스템 할당 됨_ 탭에서 _상태_ 를 켜기로 전환 하 고 _저장_ 합니다. _시스템 할당 관리 id를 사용 하도록 설정_하는 팝업이 표시 됩니다.
+_시스템 할당 됨_ 탭에서 _상태_ 를 켜기로 전환 하 고 _저장_ 합니다. _시스템 할당 관리 id를 사용 하도록 설정_ 하는 팝업이 표시 됩니다.
 _예_ 단추를 선택 합니다. 
 
 :::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal: 시스템 관리 id 사용":::
@@ -232,28 +238,28 @@ _예_ 단추를 선택 합니다.
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Azure Portal를 사용 하 여 액세스 역할 할당
 
-Azure _역할 할당 선택 단추_ 를 선택 하면 azure 역할 할당 페이지가 열립니다. 그런 다음 _+ 역할 할당 추가 (미리 보기)_ 를 선택 합니다.
+Azure 역할 _할당 단추를_ 선택 하면 *azure 역할 할당* 페이지가 열립니다. 그런 다음 _+ 역할 할당 추가 (미리 보기)_ 를 선택 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal: 역할 할당 추가":::
 
-열리는 _역할 할당 추가 (미리 보기)_ 창에서 다음을 선택 합니다.
+열리는 _역할 할당 추가 (미리 보기)_ 페이지에서 다음을 선택 합니다.
 
-* _범위_: 리소스 그룹
-* _구독_: Azure 구독을 선택 합니다.
-* _리소스 그룹_: 드롭다운에서 리소스 그룹을 선택 합니다.
-* _역할_: 드롭다운에서 _Azure Digital twins 소유자 (미리 보기)_ 를 선택 합니다.
+* _범위_ : 리소스 그룹
+* _구독_ : Azure 구독을 선택 합니다.
+* _리소스 그룹_ : 드롭다운에서 리소스 그룹을 선택 합니다.
+* _역할_ : 드롭다운에서 _Azure Digital Twins 데이터 소유자_ 를 선택 합니다.
 
-_저장_ 단추를 선택 하 여 세부 정보를 저장 합니다.
+_저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal: 역할 할당 추가 (미리 보기) ":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Azure Portal를 사용 하 여 응용 프로그램 설정 구성
 
-환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 이에 대 한 자세한 내용은 [*환경 변수*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables)를 참조 하세요. 응용 프로그램 설정은 디지털 쌍 인스턴스에 액세스 하기 위한 환경 변수로 표시 됩니다. 
+환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 이에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 응용 프로그램 설정은 디지털 쌍 인스턴스에 액세스 하기 위한 환경 변수로 표시 됩니다. 
 
 응용 프로그램 설정을 만들려면 ADT_INSTANCE_URL 필요 합니다.
 
-인스턴스 호스트 이름에 **_https://_** 를 추가 하 여 ADT_INSTANCE_URL를 가져올 수 있습니다. Azure Portal 검색 창에서 인스턴스를 검색 하 여 디지털 쌍 인스턴스 호스트 이름을 찾을 수 있습니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_확인 합니다. 응용 프로그램 설정을 만들려면이 값을 복사 합니다.
+인스턴스 호스트 이름에 **_https://_** 를 추가 하 여 ADT_INSTANCE_URL를 가져올 수 있습니다. Azure Portal 검색 창에서 인스턴스를 검색 하 여 디지털 쌍 인스턴스 호스트 이름을 찾을 수 있습니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_ 확인 합니다. 응용 프로그램 설정을 만들려면이 값을 복사 합니다.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal: 개요-_Value_ 필드에서 사용할 호스트 이름을 복사 > 합니다.":::
 

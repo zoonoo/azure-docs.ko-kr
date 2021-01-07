@@ -1,14 +1,16 @@
 ---
 title: '자습서: 의도 예측 - LUIS'
 description: 이 자습서의 발화(텍스트)를 기반으로 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 398324099f923a5141b172d61f9fd41a69dbf069
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959862"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025296"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 
@@ -30,7 +32,7 @@ ms.locfileid: "85959862"
 
 `I'd like to order a veggie pizza with a salad on the side.`
 
-이러한 의도는 **의도**로 분류됩니다.
+이러한 의도는 **의도** 로 분류됩니다.
 
 |Intent|목적|
 |--|--|
@@ -49,7 +51,7 @@ ms.locfileid: "85959862"
 
 발화를 분류하기 위해서는 이러한 의도로 분류해야 하는 사용자 발화의 예가 필요합니다.
 
-1. **빌드** 섹션의 **의도** 페이지에서 **+ 만들기**를 선택하여 새 의도를 만듭니다. 새 의도 이름 `OrderPizza`를 입력한 다음, **완료**를 선택합니다.
+1. **빌드** 섹션의 **의도** 페이지에서 **+ 만들기** 를 선택하여 새 의도를 만듭니다. 새 의도 이름 `OrderPizza`를 입력한 다음, **완료** 를 선택합니다.
 
     사용자가 피자를 주문하려는 경우 `OrderPizza` 의도가 예측됩니다.
 
@@ -67,7 +69,7 @@ ms.locfileid: "85959862"
     > [!div class="mx-imgBorder"]
     > ![의도 페이지의 LUIS 포털에서 예제 발화 추가 스크린샷](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    _예제 발화_을 입력하면 LUIS가 이 의도에 대해 예측해야 하는 발화의 종류를 학습하게 됩니다. 이는 올바른 예제입니다. 다른 모든 의도의 발화는 이 의도에 대한 잘못된 예제로 취급됩니다.
+    _예제 발화_ 을 입력하면 LUIS가 이 의도에 대해 예측해야 하는 발화의 종류를 학습하게 됩니다. 이는 올바른 예제입니다. 다른 모든 의도의 발화는 이 의도에 대한 잘못된 예제로 취급됩니다.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
@@ -114,7 +116,7 @@ ms.locfileid: "85959862"
     `get a medium vegetarian pizza for delivery`
 
   
-    쿼리 문자열 매개 변수는 `query`이며, 발화 **쿼리**는 URI에서 전달됩니다. 이 발화는 예제 발화 중 하나와 같지 않습니다. 이는 LUIS가 `OrderPizza` 의도를 최고 채점 의도로 학습하고 예측하는지 확인하기 위한 좋은 테스트여야 합니다.
+    쿼리 문자열 매개 변수는 `query`이며, 발화 **쿼리** 는 URI에서 전달됩니다. 이 발화는 예제 발화 중 하나와 같지 않습니다. 이는 LUIS가 `OrderPizza` 의도를 최고 채점 의도로 학습하고 예측하는지 확인하기 위한 좋은 테스트여야 합니다.
 
     ```JSON
     {
@@ -191,7 +193,7 @@ LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다
 * [학습 방법](luis-how-to-train.md)
 * [게시 방법](luis-how-to-publish-app.md)
 * [LUIS 포털에서 테스트하는 방법](luis-interactive-test.md)
-* [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot](/azure/bot-service/?view=azure-bot-service-4.0)
 
 
 ## <a name="next-steps"></a>다음 단계

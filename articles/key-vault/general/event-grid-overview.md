@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087439"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid"></a>Azure Event Grid를 사용하여 Key Vault 모니터링
@@ -46,5 +46,5 @@ Key Vault 이벤트를 처리하는 애플리케이션은 다음에 권장되는
 - [Azure Event Grid 개요](../../event-grid/overview.md)
 - 방법: [Automation Runbook으로 Key Vault 이벤트 라우팅](event-grid-tutorial.md)
 - 방법: [키 자격 증명 모음 비밀 변경 시 이메일 받기](event-grid-logicapps.md)
-- [Azure Key Vault에 대 한 Azure Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)
+- [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)
 - [Azure Automation 개요](../../automation/index.yml)

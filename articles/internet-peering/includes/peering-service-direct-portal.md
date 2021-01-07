@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 titleSuffix: Azure
 description: 포함 파일
 services: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: e5804aa1b005e670d8b430b1c0a3bd62efd0bb06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687039"
 ---
 1. Azure 피어 링 서비스를 사용 하도록 설정 하려는 피어 링 연결을 선택 합니다. 그런 후 **...를 선택**  >  합니다. **연결 편집**

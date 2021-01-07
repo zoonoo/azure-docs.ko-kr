@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894710"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346522"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -31,7 +31,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 조직에는 종종 동일한 프로세스를 정기적으로 실행 하는 컴퓨터 컬렉션이 있습니다. Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 되는 응용 프로그램을 분석 하 고 알려진 안전한 소프트웨어 목록을 만듭니다. 허용 목록은 특정 Azure 워크 로드를 기반으로 하며, 아래 지침을 사용 하 여 권장 사항을 추가로 사용자 지정할 수 있습니다.
 
-적응 응용 프로그램 제어를 사용 하도록 설정 하 고 구성 하면 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 보안 경고를 받게 됩니다.
+적응형 애플리케이션 제어를 사용하도록 설정하고 구성하면 안전한 것으로 정의한 애플리케이션이 아닌 다른 애플리케이션이 실행될 경우 보안 경고가 표시됩니다.
 
 
 ## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>적응 응용 프로그램 컨트롤의 이점은 무엇 인가요?
@@ -51,21 +51,21 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
-|지원 되는 컴퓨터:|![예, ](./media/icons/yes-icon.png) Windows 및 Linux를 실행 하는 azure 및 비 azure 컴퓨터<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) 컴퓨터|
-|필요한 역할 및 사용 권한:|**보안 판독기** 및 **읽기** 권한자 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 볼 수 있습니다.<br>**참가자** 및 **보안 관리자** 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 편집할 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
+|지원 되는 컴퓨터:|![예, ](./media/icons/yes-icon.png) Windows 및 Linux를 실행 하는 azure 및 비 azure 컴퓨터<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) 컴퓨터|
+|필요한 역할 및 권한:|**보안 판독기** 및 **읽기** 권한자 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 볼 수 있습니다.<br>**참가자** 및 **보안 관리자** 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 편집할 수 있습니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
 
 
 ## <a name="enable-application-controls-on-a-group-of-machines"></a>컴퓨터 그룹에서 응용 프로그램 제어 사용
 
-구독에서 유사한 응용 프로그램 집합을 일관 되 게 실행 하는 컴퓨터 그룹을 식별 한 Security Center 경우, **컴퓨터에서 안전 응용 프로그램을 정의 하기 위한 적응 응용 프로그램 제어를 사용 하도록 설정**하 라는 메시지가 표시 됩니다.
+구독에서 유사한 응용 프로그램 집합을 일관 되 게 실행 하는 컴퓨터 그룹을 식별 한 Security Center 경우, **컴퓨터에서 안전 응용 프로그램을 정의 하기 위한 적응 응용 프로그램 제어를 사용 하도록 설정** 하 라는 메시지가 표시 됩니다.
 
 권장 사항을 선택 하거나 적응 응용 프로그램 컨트롤 페이지를 열어 알려진 알려진 안전한 응용 프로그램 및 컴퓨터 그룹 목록을 봅니다.
 
-1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
 
     :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Azure 대시보드에서 적응 응용 프로그램 컨트롤 열기" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
@@ -85,7 +85,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
     - **권장 사항 없음** -정의 된 허용 응용 프로그램 목록이 없는 컴퓨터 이며 기능을 지원 하지 않습니다. 다음과 같은 이유로이 탭에 컴퓨터가 있을 수 있습니다.
       - Log Analytics 에이전트가 없습니다.
       - Log Analytics 에이전트가 이벤트를 보내지 않습니다.
-      - GPO 또는 로컬 보안 정책에서 사용 하도록 설정 된 기존 [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 정책을 사용 하는 Windows 컴퓨터입니다.
+      - GPO 또는 로컬 보안 정책에서 사용 하도록 설정 된 기존 [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 정책을 사용 하는 Windows 컴퓨터입니다.
 
       > [!TIP]
       > Security Center는 컴퓨터 그룹당 고유한 권장 사항을 정의 하기 위해 2 주 이상의 데이터가 필요 합니다. 최근에 만들었거나 Azure Defender를 사용 하 여 최근에 사용 하도록 설정 된 구독에 속하는 컴퓨터는 **권장 사항 없음** 탭 아래에 표시 됩니다.
@@ -112,7 +112,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
       > 
       > 응용 프로그램은 게시자에 의해 정의 됩니다. 응용 프로그램에 게시자 정보가 없는 경우 (서명 되지 않은 경우) 특정 응용 프로그램의 전체 경로에 대 한 경로 규칙이 만들어집니다.
 
-   1. 규칙을 적용 하려면 **감사**를 선택 합니다. 
+   1. 규칙을 적용 하려면 **감사** 를 선택 합니다. 
 
 
 
@@ -123,7 +123,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 컴퓨터 그룹에 대 한 규칙을 편집 하려면:
 
-1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
 
 1. **구성 됨** 탭에서 편집 하려는 규칙이 포함 된 그룹을 선택 합니다.
 
@@ -131,11 +131,11 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 1. 필요에 따라 하나 이상의 사용자 지정 규칙을 추가 합니다.
 
-   1. **규칙 추가**를 선택 합니다.
+   1. **규칙 추가** 를 선택 합니다.
 
       ![사용자 지정 규칙 추가](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. 알려진 안전한 경로를 정의 하는 경우 **규칙 유형을** ' 경로 '로 변경 합니다. 경로에 와일드 카드를 포함할 수 있습니다.
+   1. 알려진 안전한 경로를 정의 하는 경우 **규칙 유형을** ' 경로 '로 변경 하 고 단일 경로를 입력 합니다. 경로에 와일드 카드를 포함할 수 있습니다.
    
       > [!TIP]
       > 경로의 와일드 카드가 유용할 수 있는 몇 가지 시나리오는 다음과 같습니다.
@@ -145,10 +145,27 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
   
    1. 허용 되는 사용자 및 보호 된 파일 형식을 정의 합니다.
 
-   1. 규칙 정의를 완료 한 후 **추가**를 선택 합니다.
+   1. 규칙 정의를 완료 한 후 **추가** 를 선택 합니다.
 
-1. 변경 내용을 적용 하려면 **저장**을 선택 합니다.
+1. 변경 내용을 적용 하려면 **저장** 을 선택 합니다.
 
+
+## <a name="review-and-edit-a-groups-settings"></a>그룹 설정 검토 및 편집
+
+1. 그룹의 세부 정보 및 설정을 보려면 **그룹 설정** 을 선택 합니다.
+
+    이 창에는 그룹의 이름 (수정할 수 있음), OS 유형, 위치 및 기타 관련 정보를 표시 합니다.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="적응 응용 프로그램 컨트롤의 그룹 설정 페이지" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > 파일 형식 보호 모드 설정의 **적용** 옵션은 **모든** 시나리오에서 회색으로 표시 됩니다. 지금은 적용 옵션을 사용할 수 없습니다. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="파일 보호에 대 한 적용 모드는 영구적으로 회색으로 표시 됩니다. 적용 옵션을 사용할 수 없습니다.":::
+
+1. 필요에 따라 그룹의 이름 또는 파일 형식 보호 모드를 수정 합니다.
+
+1. **적용** 및 **저장** 을 선택 합니다.
 
 
 
@@ -164,14 +181,14 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 1. [컴퓨터 그룹에서 적응 응용 프로그램 제어 사용](#enable-application-controls-on-a-group-of-machines)에 설명 된 대로 **응용 프로그램 제어 규칙 구성** 페이지의 다양 한 섹션을 검토 합니다.
 
-1. 변경 내용을 적용 하려면 **감사**를 선택 합니다.
+1. 변경 내용을 적용 하려면 **감사** 를 선택 합니다.
 
 
 
 
 ## <a name="audit-alerts-and-violations"></a>감사 경고 및 위반
 
-1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
 
 1. 최근 경고가 있는 컴퓨터의 그룹을 확인 하려면 **구성 됨** 탭에 나열 된 그룹을 검토 합니다.
 
@@ -187,17 +204,17 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 컴퓨터를 한 그룹에서 다른 그룹으로 이동 하면 해당 컴퓨터에 적용 된 응용 프로그램 제어 정책이 사용자가 이동한 그룹의 설정으로 변경 됩니다. 구성 된 그룹에서 구성 되지 않은 그룹으로 컴퓨터를 이동할 수도 있습니다. 이렇게 하면 컴퓨터에 적용 된 모든 응용 프로그램 제어 규칙이 제거 됩니다.
 
-1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
 
 1. **적응 응용 프로그램 컨트롤** 페이지의 **구성 됨** 탭에서 이동할 컴퓨터를 포함 하는 그룹을 선택 합니다.
 
-1. **구성 된 컴퓨터**의 목록을 엽니다.
+1. **구성 된 컴퓨터** 의 목록을 엽니다.
 
-1. 행의 끝에 있는 세 개의 점으로 컴퓨터의 메뉴를 열고 **이동**을 선택 합니다. **컴퓨터를 다른 그룹으로 이동** 창이 열립니다.
+1. 행의 끝에 있는 세 개의 점으로 컴퓨터의 메뉴를 열고 **이동** 을 선택 합니다. **컴퓨터를 다른 그룹으로 이동** 창이 열립니다.
 
-1. 대상 그룹을 선택 하 고 **컴퓨터 이동**을 선택 합니다.
+1. 대상 그룹을 선택 하 고 **컴퓨터 이동** 을 선택 합니다.
 
-1. 변경 내용을 저장 하려면 **저장**을 선택 합니다.
+1. 변경 내용을 저장 하려면 **저장** 을 선택 합니다.
 
 
 
@@ -207,7 +224,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 적응 응용 프로그램 컨트롤을 프로그래밍 방식으로 관리 하려면 REST API을 사용 합니다. 
 
-전체 API 설명서는 [여기](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols)에 있습니다.
+전체 API 설명서는 [여기](/rest/api/securitycenter/adaptiveapplicationcontrols)에 있습니다.
 
 REST API에서 사용할 수 있는 일부 함수는 다음과 같습니다.
 
@@ -228,5 +245,5 @@ REST API에서 사용할 수 있는 일부 함수는 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 및 비 Azure 컴퓨터에서 실행 되는 응용 프로그램의 허용 목록을 정의 하는 방법을 배웠습니다. Security Center의 다른 클라우드 워크 로드 보호 기능에 대 한 자세한 내용은 다음을 참조 하세요.
 
-* [JIT (just-in-time) VM 액세스 이해](just-in-time-explained.md)
-* [Azure Kubernetes 클러스터 보안 설정](azure-kubernetes-service-integration.md)
+* [JIT(Just-In-Time) VM 액세스 이해](just-in-time-explained.md)
+* [Azure Kubernetes 클러스터 보안 설정](defender-for-kubernetes-introduction.md)

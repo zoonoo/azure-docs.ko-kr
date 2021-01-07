@@ -1,17 +1,17 @@
 ---
 title: 방화벽 규칙-Azure Database for MySQL
 description: Azure Database for MySQL 서버에 대 한 연결을 설정 하는 데 방화벽 규칙을 사용 하는 방법에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: eb178e38001e54ac39a269c8b8cdef12c77d74cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882662"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901952"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -37,7 +37,7 @@ Azure Database for MySQL 서버에 대한 모든 데이터베이스 액세스는
 ## <a name="connecting-from-azure"></a>Azure에서 연결
 응용 프로그램 또는 서비스의 나가는 IP 주소를 찾고 이러한 개별 IP 주소 또는 범위에 대 한 액세스를 명시적으로 허용 하는 것이 좋습니다. 예를 들어 Azure App Service의 나가는 IP 주소를 찾거나 가상 컴퓨터 또는 다른 리소스에 연결 된 공용 IP를 사용할 수 있습니다. 서비스 끝점을 통해 가상 컴퓨터의 개인 IP와 연결 하는 방법에 대 한 정보는 아래를 참조 하세요. 
 
-Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는 경우 모든 Azure 데이터 센터 IP 주소에서 연결을 사용 하도록 설정할 수 있습니다. 이 설정은 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 옵션을 **켜기** 로 설정 하 고 **저장**을 사용 하 여 Azure Portal에서 사용 하도록 설정할 수 있습니다. Azure CLI에서 시작 주소와 끝 주소가 0.0.0.0 인 방화벽 규칙 설정은 해당 하는 것을 의미 합니다. 연결 시도가 허용되지 않으면 해당 요청이 Azure Database for MySQL 서버에 도달하지 않습니다.
+Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는 경우 모든 Azure 데이터 센터 IP 주소에서 연결을 사용 하도록 설정할 수 있습니다. 이 설정은 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 옵션을 **켜기** 로 설정 하 고 **저장** 을 사용 하 여 Azure Portal에서 사용 하도록 설정할 수 있습니다. Azure CLI에서 시작 주소와 끝 주소가 0.0.0.0 인 방화벽 규칙 설정은 해당 하는 것을 의미 합니다. 연결 시도가 허용되지 않으면 해당 요청이 Azure Database for MySQL 서버에 도달하지 않습니다.
 
 > [!IMPORTANT]
 > **Azure 서비스에 대 한 액세스 허용** 옵션은 다른 고객의 구독에서 연결을 포함 하 여 azure에서 모든 연결을 허용 하도록 방화벽을 구성 합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
@@ -69,6 +69,8 @@ Microsoft Azure Database for MySQL 서버 서비스에 대한 액세스가 예�
 * **허용 되는 IP를 사용 하 여 Azure 리소스에서 연결할 수 없음:** 연결 하려는 서브넷에 대해 **Microsoft Sql** 서비스 끝점을 사용할 수 있는지 여부를 확인 합니다. **Microsoft .sql** 을 사용 하는 경우에는 해당 서브넷에서 [VNet 서비스 끝점 규칙만](concepts-data-access-and-security-vnet.md) 사용 합니다.
 
    예를 들어, **Microsoft Sql server** 를 사용 하지만 해당 VNet 규칙이 없는 서브넷의 Azure VM에서 연결 하는 경우 다음과 같은 오류가 표시 될 수 있습니다.  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
+* **방화벽 규칙을 IPv6 형식에 사용할 수 없습니다.** 방화벽 규칙은 IPv4 형식 이어야 합니다. IPv6 형식으로 방화벽 규칙을 지정 하는 경우 유효성 검사 오류가 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

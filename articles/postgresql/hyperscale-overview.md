@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 09/01/2020
-ms.openlocfilehash: e62d1bf0e9db5e80193cb0615d0a9d31e3041d63
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1734128384d63749d3c777cf6315278fced9d140
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945600"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025143"
 ---
 # <a name="what-is-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL - 하이퍼스케일(Citus)이란?
 
@@ -32,5 +32,5 @@ PostgreSQL용으로 빌드된 애플리케이션은 표준 [연결 라이브러�
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Database for PostgreSQL - 하이퍼스케일(Citus) 서버 그룹을 [먼저 만들고](./quickstart-create-hyperscale-portal.md) 시작합니다.
-- 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요. 하이퍼스케일(Citus)은 선불 예약 인스턴스 할인도 제공합니다. 자세한 내용은 [하이퍼스케일 RI 가격 책정](concepts-hyperscale-reserved-pricing.md) 페이지를 참조하세요.
-- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scaling.md#picking-initial-size) 결정
+- 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요. 하이퍼스케일(Citus)은 선불 예약 인스턴스 할인도 제공합니다. 자세한 내용은 [하이퍼스케일(Citus) RI 가격 책정](concepts-hyperscale-reserved-pricing.md) 페이지를 참조하세요.
+- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scale-initial.md) 결정

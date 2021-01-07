@@ -4,18 +4,18 @@ description: 가상 네트워크 및 방화벽 뒤의 스토리지 계정에서 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 6ba0a599bcb0b058ce4902882df9459b177fb6b5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530411"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348256"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>VNet 및 방화벽 뒤의 스토리지 계정에 대한 감사 작성
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 쓰도록 하는 감사의 �
 > [!div class="checklist"]
 >
 > * 범용 v2 스토리지 계정. 범용 v1 또는 Blob Storage 계정이 있는 경우 [범용 v2 스토리지 계정으로 업그레이드](../../storage/common/storage-account-upgrade.md)합니다. 자세한 정보는 [스토리지 계정 유형](../../storage/common/storage-account-overview.md#types-of-storage-accounts)을 참조하세요.
-> * 저장소 계정은 [논리 SQL server](logical-servers.md)와 동일한 구독 및 동일한 위치에 있어야 합니다.
+> * 저장소 계정은 [논리적 SQL Server](logical-servers.md)동일한 구독 및 동일한 위치에 있어야 합니다.
 > * Azure Storage 계정을 사용하려면 `Allow trusted Microsoft services to access this storage account`해야 합니다. 스토리지 계정의 **방화벽 및 가상 네트워크** 아래에서 이 설정을 수행합니다.
 > * 선택한 스토리지 계정에 대한 `Microsoft.Authorization/roleAssignments/write` 권한이 있어야 합니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
@@ -48,11 +48,11 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 쓰도록 하는 감사의 �
 
 사용자의 구독으로 [Azure Portal](https://portal.azure.com)에 연결합니다. 리소스 그룹 및 서버로 이동 합니다.
 
-1. 보안 제목 아래에서 **감사**를 클릭합니다. **켜기**를 선택합니다.
+1. 보안 제목 아래에서 **감사** 를 클릭합니다. **켜기** 를 선택합니다.
 
-2. **스토리지**를 선택합니다. 로그를 저장할 스토리지 계정을 선택합니다. 스토리지 계정은 [필수 구성 요소](#prerequisites)에 나열된 요구 사항을 준수해야 합니다.
+2. **스토리지** 를 선택합니다. 로그를 저장할 스토리지 계정을 선택합니다. 스토리지 계정은 [필수 구성 요소](#prerequisites)에 나열된 요구 사항을 준수해야 합니다.
 
-3. **스토리지 세부 정보**를 엽니다.
+3. **스토리지 세부 정보** 를 엽니다.
 
   > [!NOTE]
   > 선택한 스토리지 계정이 VNet 뒤에 있으면 다음과 같은 메시지가 표시됩니다.
@@ -61,9 +61,9 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 쓰도록 하는 감사의 �
   >
   >이 메시지가 표시되지 않으면 스토리지 계정이 VNet 뒤에 있지 않은 것입니다.
 
-4. 보존 기간에 대한 일 수를 선택합니다. 그런 후 **OK**를 클릭합니다. 보존 기간 보다 오래된 로그는 삭제됩니다.
+4. 보존 기간에 대한 일 수를 선택합니다. 그런 후 **OK** 를 클릭합니다. 보존 기간 보다 오래된 로그는 삭제됩니다.
 
-5. 감사 설정에서 **저장**을 선택합니다.
+5. 감사 설정에서 **저장** 을 선택합니다.
 
 VNet 또는 방화벽 뒤의 스토리지 계정에 쓰도록 감사를 구성했습니다.
 
@@ -77,7 +77,7 @@ Azure Portal을 사용하는 대신 REST 명령을 사용하여 VNet 및 방화�
 |:-----|:-----|
 |`<subscriptionId>`| Azure 구독 ID입니다.|
 |`<resource group>`| Resource group|
-|`<logical SQL server>`| 서버 이름|
+|`<logical SQL Server>`| 서버 이름|
 |`<administrator login>`| 관리자 계정 |
 |`<complex password>`| 관리자 계정에 대한 복잡한 암호|
 
@@ -93,7 +93,7 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 이벤트를 쓰도록 SQL �
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**REST API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**REST API**](/rest/api/sql/servers/createorupdate):
 
    샘플 요청
 
@@ -114,15 +114,16 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 이벤트를 쓰도록 SQL �
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 
-2. [Azure Portal](https://portal.azure.com)을 엽니다. 스토리지 계정으로 이동합니다. **액세스 제어(IAM)** 를 찾은 후, **역할 할당 추가**를 클릭합니다. 이전 단계에서와 같이 Azure Active Directory (Azure AD)에 등록 한 데이터베이스를 호스트 하는 서버에 **저장소 Blob 데이터 참가자** Azure 역할을 할당 합니다.
+2. [Azure Portal](https://portal.azure.com)을 엽니다. 스토리지 계정으로 이동합니다. **액세스 제어(IAM)** 를 찾은 후, **역할 할당 추가** 를 클릭합니다. 이전 단계에서와 같이 Azure Active Directory (Azure AD)에 등록 한 데이터베이스를 호스트 하는 서버에 **저장소 Blob 데이터 참가자** Azure 역할을 할당 합니다.
 
    > [!NOTE]
    > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. 다양 한 Azure 기본 제공 역할에 대 한 자세한 내용은 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
 
-3. *Storageaccountaccesskey*를 지정 하지 않고 [서버의 blob 감사 정책을](/rest/api/sql/server%20auditing%20settings/createorupdate)구성 합니다.
+3. *Storageaccountaccesskey* 를 지정 하지 않고 [서버의 blob 감사 정책을](/rest/api/sql/server%20auditing%20settings/createorupdate)구성 합니다.
 
    샘플 요청
 
@@ -153,7 +154,7 @@ VNet 또는 방화벽 뒤의 스토리지 계정에 이벤트를 쓰도록 SQL �
 > [!IMPORTANT]
 > 가상 네트워크 및 방화벽 뒤의 저장소 계정을 사용 하려면 **isStorageBehindVnet** 매개 변수를 true로 설정 해야 합니다.
 
-- [감사를 사용 하는 Azure SQL server를 배포 하 여 blob 저장소에 감사 로그 쓰기](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [감사 로그를 blob 저장소에 쓸 수 있는 감사를 사용 하 여 Azure SQL Server 배포](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
 
 > [!NOTE]
 > 연결 된 샘플은 외부 공용 리포지토리에 있으며 보증 없이 ' 있는 그대로 ' 제공 되며 Microsoft 지원 프로그램/서비스에서 지원 되지 않습니다.

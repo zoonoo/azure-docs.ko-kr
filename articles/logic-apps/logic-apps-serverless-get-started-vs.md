@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090249"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96749150"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 및 Azure Functions를 사용 하 여 첫 번째 서버 리스 앱 빌드
 
@@ -32,7 +32,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
     > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
 
   * [MICROSOFT AZURE SDK for .net (버전 2.9.1 이상)](https://azure.microsoft.com/downloads/). 
-  [Azure SDK for .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet)에 대해 자세히 알아보세요.
+  [Azure SDK for .NET](/dotnet/azure/intro)에 대해 자세히 알아보세요.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -44,7 +44,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Visual Studio Marketplace에서 Azure Logic Apps 도구를 직접 다운로드 하 여 설치 하거나 [Visual Studio 내에서이 확장을 설치 하는 방법을](/visualstudio/ide/finding-and-using-visual-studio-extensions)배울 수 있습니다. 
+    Visual Studio Marketplace에서 직접 Azure Logic Apps 도구를 다운로드해 설치하거나 [Visual Studio 내에서 이 확장을 설치하는 방법](/visualstudio/ide/finding-and-using-visual-studio-extensions)을 알아볼 수 있습니다. 
     설치를 완료하면 Visual Studio를 다시 시작하도록 합니다.
 
   * 로컬로 디버깅 하는 함수에 대 한 [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 입니다.
@@ -56,26 +56,26 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
 ## <a name="create-a-resource-group-project"></a>리소스 그룹 프로젝트 만들기
 
-시작하려면 서버리스 앱에 대한 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)를 만듭니다. Azure에서 단일 자산으로 전체 앱에 대 한 리소스를 구성, 관리 및 배포 하는 데 사용 하는 논리적 컬렉션인 *리소스 그룹*내에 리소스를 만듭니다. Azure에 있는 서버리스 앱의 경우 리소스 그룹에는 Azure Logic Apps 및 Azure Functions용 리소스가 포함되어 있습니다. [Azure 리소스 그룹 및 리소스](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.
+시작하려면 서버리스 앱에 대한 [Azure 리소스 그룹 프로젝트](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)를 만듭니다. Azure에서 단일 자산으로 전체 앱에 대 한 리소스를 구성, 관리 및 배포 하는 데 사용 하는 논리적 컬렉션인 *리소스 그룹* 내에 리소스를 만듭니다. Azure에 있는 서버리스 앱의 경우 리소스 그룹에는 Azure Logic Apps 및 Azure Functions용 리소스가 포함되어 있습니다. [Azure 리소스 그룹 및 리소스](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.
 
 1. Visual Studio를 시작 하 고 Azure 계정을 사용 하 여 로그인 합니다.
 
-1. **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다.
+1. **파일** 메뉴에서 **새로 만들기** > **프로젝트** 를 선택합니다.
 
    ![Visual Studio에서 새 프로젝트 만들기](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. **설치됨** 아래에서 **Visual C#** 또는 **Visual Basic**을 선택합니다. 그런 다음 **클라우드**  >  **Azure 리소스 그룹**을 선택 합니다.
+1. **설치됨** 아래에서 **Visual C#** 또는 **Visual Basic** 을 선택합니다. 그런 다음 **클라우드**  >  **Azure 리소스 그룹** 을 선택 합니다.
 
    > [!NOTE]
    > **클라우드** 범주 또는 **azure 리소스 그룹** 프로젝트가 없는 경우 Azure SDK for Visual Studio를 설치 했는지 확인 합니다.
 
    Visual Studio 2019를 사용하는 경우 다음 단계를 따르세요.
 
-   1. **새 프로젝트 만들기** 상자에서 Visual c # 또는 Visual Basic에 대 한 **Azure 리소스 그룹** 프로젝트 템플릿을 선택 하 고 **다음**을 선택 합니다.
+   1. **새 프로젝트 만들기** 상자에서 Visual c # 또는 Visual Basic에 대 한 **Azure 리소스 그룹** 프로젝트 템플릿을 선택 하 고 **다음** 을 선택 합니다.
 
-   1. Azure 리소스 그룹에 사용할 이름 및 기타 프로젝트 정보를 제공 합니다. 완료되면 **만들기**를 선택합니다.
+   1. Azure 리소스 그룹에 사용할 이름 및 기타 프로젝트 정보를 제공 합니다. 완료되면 **만들기** 를 선택합니다.
 
-1. 프로젝트 이름과 위치를 지정한 다음 **확인**을 선택 합니다.
+1. 프로젝트 이름과 위치를 지정한 다음 **확인** 을 선택 합니다.
 
    Visual Studio는 템플릿 목록에서 템플릿을 선택 하 라는 메시지를 표시 합니다. 
    이 예제에서는 Azure 빠른 시작 템플릿을 사용 하 여 논리 앱과 Azure function 호출을 포함 하는 서버 리스 앱을 빌드할 수 있습니다.
@@ -100,11 +100,11 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
 Visual Studio의 논리 앱 디자이너에서 논리 앱을 열려면 Azure에 이미 배포 된 Azure 리소스 그룹이 있어야 합니다. 그러면 디자이너에서 리소스 및 서비스에 대한 연결을 논리 앱에 만들 수 있습니다. 이 작업의 경우 다음 단계에 따라 Visual Studio에서 Azure Portal 솔루션을 배포 합니다.
 
-1. 솔루션 탐색기의 리소스 프로젝트 바로 가기 메뉴에서 새로 **배포**를 선택  >  **New**합니다.
+1. 솔루션 탐색기의 리소스 프로젝트 바로 가기 메뉴에서 새로 **배포** 를 선택  >  **New** 합니다.
 
    ![리소스 그룹에 대한 새 배포 만들기](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
-1. 아직 선택 하지 않은 경우 Azure 구독 및 배포 하려는 리소스 그룹을 선택 합니다. 그런 다음 **배포**를 선택 합니다.
+1. 아직 선택 하지 않은 경우 Azure 구독 및 배포 하려는 리소스 그룹을 선택 합니다. 그런 다음 **배포** 를 선택 합니다.
 
    ![배포 설정](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
@@ -119,14 +119,14 @@ Visual Studio의 논리 앱 디자이너에서 논리 앱을 열려면 Azure에 
 
 배포 후 논리 앱을 편집 하려면 Visual Studio에서 논리 앱 디자이너를 사용 하 여 논리 앱을 엽니다.
 
-1. 솔루션 탐색기에서 azuredeploy.js파일의 바로 가기 메뉴에서 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다.
+1. 솔루션 탐색기에서 azuredeploy.js파일의 바로 가기 메뉴에서 **논리 앱 디자이너를 사용 하 여 열기** 를 선택 합니다.
 
    ![논리 앱 디자이너에서 azuredeploy.js열기](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
    > [!TIP]
    > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.
 
-1. **논리 앱 속성** 상자가 표시 되 면 **구독**에서 Azure 구독을 선택 합니다 (아직 선택 하지 않은 경우). **리소스 그룹**에서 솔루션을 배포한 리소스 그룹 및 위치를 선택 하 고 **확인**을 선택 합니다.
+1. **논리 앱 속성** 상자가 표시 되 면 **구독** 에서 Azure 구독을 선택 합니다 (아직 선택 하지 않은 경우). **리소스 그룹** 에서 솔루션을 배포한 리소스 그룹 및 위치를 선택 하 고 **확인** 을 선택 합니다.
 
    ![논리 앱 속성](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
 
@@ -146,11 +146,11 @@ JavaScript, Python, F #, PowerShell, 일괄 처리 또는 Bash를 사용 하 여
 
 Azure에 이미 배포 된 논리 앱의 경우에도 Visual Studio에서 해당 앱을 편집 하 고, 관리 하 고, 실행 기록을 보고, 사용 하지 않도록 설정할 수 있습니다.
 
-1. Visual Studio의 **보기** 메뉴에서 **클라우드 탐색기**를 엽니다.
+1. Visual Studio의 **보기** 메뉴에서 **클라우드 탐색기** 를 엽니다.
 
-1. **모든 구독**에서 관리 하려는 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용**을 선택 합니다.
+1. **모든 구독** 에서 관리 하려는 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용** 을 선택 합니다.
 
-1. **Logic Apps** 아래에서 논리 앱을 선택합니다. 해당 앱의 바로 가기 메뉴에서 **논리 앱 편집기로 열기**를 선택합니다.
+1. **Logic Apps** 아래에서 논리 앱을 선택합니다. 해당 앱의 바로 가기 메뉴에서 **논리 앱 편집기로 열기** 를 선택합니다.
 
    > [!TIP]
    > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.

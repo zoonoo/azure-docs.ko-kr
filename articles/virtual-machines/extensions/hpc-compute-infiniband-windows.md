@@ -7,17 +7,18 @@ author: vermagit
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: ccc9df8078bb7fec8be7d72b0ae18ed416bb10ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0ec18ae4a7d6020299660adbeba6f993cd4eeca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097836"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966023"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Windows 용 InfiniBand 드라이버 확장
 
@@ -25,7 +26,7 @@ ms.locfileid: "87097836"
 
 [Linux vm](hpc-compute-infiniband-linux.md)에 대 한 InfiniBand 드라이버를 설치 하는 데에도 확장을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -33,11 +34,11 @@ ms.locfileid: "87097836"
 
 | 배포 | 버전 |
 |---|---|
-| Windows 10 | 핵심 |
-| Windows Server 2019 | 핵심 |
-| Windows Server 2016 | 핵심 |
-| Windows Server 2012 R2 | 핵심 |
-| Windows Server 2012 | 핵심 |
+| Windows 10 | 코어 |
+| Windows Server 2019 | 코어 |
+| Windows Server 2016 | 코어 |
+| Windows Server 2012 R2 | 코어 |
+| Windows Server 2012 | 코어 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -137,7 +138,7 @@ az vm extension set \
 
 ### <a name="add-extension-to-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 확장 추가
 
-다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.2 InfiniBandDriverWindows 확장을 설치 합니다.
+다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.2 InfiniBandDriverWindows 확장을 설치 합니다.
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"

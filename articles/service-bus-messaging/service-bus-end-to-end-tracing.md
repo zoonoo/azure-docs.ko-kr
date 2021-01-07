@@ -4,12 +4,12 @@ description: Service Bus 클라이언트 진단 및 종단 간 추적 (처리에
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b46f85e16370d15e3a8def98cdcdf8b3878208d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bc7dab21fc01b624e8ab122fe883be89ea8633f6
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021632"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832695"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -21,7 +21,7 @@ ms.locfileid: "89021632"
 Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 추적 컨텍스트를 전달하는 데 사용하는 페이로드 속성이 정의되어 있습니다.
 프로토콜은 [HTTP 상관관계 프로토콜](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)을 기반으로 합니다.
 
-| 속성 이름        | 설명                                                 |
+| 속성 이름        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | 큐에 대한 생산자의 외부 호출 고유 식별자입니다. 이유, 고려 사항 및 형식은 [HTTP 프로토콜의 Request-Id](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id)를 참조하세요. |
 |  Correlation-Context | 작업 처리에 관련된 모든 서비스에 전파되는 작업 컨텍스트입니다. 자세한 내용은 [HTTP 프로토콜의 Correlation-Context](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context)를 참조하세요. |
@@ -193,7 +193,7 @@ TaskStatus status = (TaskStatus)evnt.Value.GetProperty("Status");
 var tagsList = new StringBuilder();
 foreach (var tags in currentActivity.Tags)
 {
-    tagsList.Append($", "{tags.Key}={tags.Value}");
+    tagsList.Append($", {tags.Key}={tags.Value}");
 }
 
 serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, Duration={currentActivity.Duration}, Status={status}, Id={currentActivity.Id}, StartTime={currentActivity.StartTimeUtc}{tagsList}");

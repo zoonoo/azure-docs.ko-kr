@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Hubs 리소스에 액세스 하기 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c6b43cc48663be28d12fa788d92286be6f47ef08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010021"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993536"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 Azure Event Hubs [는 azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 Azure Active Directory (azure AD) 인증을 지원 합니다. Azure 리소스에 대 한 관리 id는 azure Virtual Machines (Vm), 함수 앱, Virtual Machine Scale Sets 및 기타 서비스에서 실행 되는 응용 프로그램의 Azure AD 자격 증명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여할 수 있습니다 Azure 리소스에 대 한 관리 되는 id를 Azure AD 인증과 함께 사용 하 여 클라우드에서 실행 되는 응용 프로그램에 자격 증명을 저장 하지 않을 수 있습니다.
@@ -26,20 +26,20 @@ Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 Event Hubs 리소
 - [Azure Resource Manager 클라이언트 라이브러리](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Azure AD에서 관리 되는 id에 대 한 사용 권한 부여
-응용 프로그램의 관리 되는 id에서 Event Hubs 서비스에 대 한 요청에 권한을 부여 하려면 먼저 관리 되는 id에 대 한 RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Event Hubs는 Event Hubs에서 전송 및 읽기 권한을 포함 하는 Azure 역할을 정의 합니다. Azure 역할이 관리 id에 할당 되 면 관리 되는 id에 적절 한 범위에서 Event Hubs 데이터에 대 한 액세스 권한이 부여 됩니다.
+응용 프로그램의 관리 되는 id에서 Event Hubs 서비스에 대 한 요청에 권한을 부여 하려면 먼저 해당 관리 되는 id에 대 한 Azure RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Event Hubs는 Event Hubs에서 전송 및 읽기 권한을 포함 하는 Azure 역할을 정의 합니다. Azure 역할이 관리 id에 할당 되 면 관리 되는 id에 적절 한 범위에서 Event Hubs 데이터에 대 한 액세스 권한이 부여 됩니다.
 
 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Event Hubs 리소스에 대 한 액세스를 위해 Azure Active Directory 인증](authorize-access-azure-active-directory.md)을 참조 하세요.
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Event Hubs에서 관리 ID 사용
-관리 id에 Event Hubs를 사용 하려면 id를 역할과 적절 한 범위에 할당 해야 합니다. 이 섹션의 절차에서는 관리 되는 id로 실행 되 고 Event Hubs 리소스에 액세스 하는 간단한 응용 프로그램을 사용 합니다.
+관리 id에 Event Hubs를 사용 하려면 id에 역할 및 적절 한 범위를 할당 해야 합니다. 이 섹션의 절차에서는 관리 되는 id로 실행 되 고 Event Hubs 리소스에 액세스 하는 간단한 응용 프로그램을 사용 합니다.
 
 여기서는 [Azure App Service](https://azure.microsoft.com/services/app-service/)에서 호스트 되는 샘플 웹 응용 프로그램을 사용 하 고 있습니다. 웹 응용 프로그램을 만드는 방법에 대 한 단계별 지침은 [Azure에서 ASP.NET Core 웹 앱 만들기](../app-service/quickstart-dotnetcore.md) 를 참조 하세요.
 
 응용 프로그램을 만든 후에는 다음 단계를 수행 합니다. 
 
-1. **설정** 으로 이동 하 여 **id**를 선택 합니다. 
+1. **설정** 으로 이동 하 여 **id** 를 선택 합니다. 
 1. **상태** **를 선택 합니다.** 
-1. **저장**을 선택하여 설정을 저장합니다. 
+1. **저장** 을 선택하여 설정을 저장합니다. 
 
     ![웹 앱에 대 한 관리 id](./media/authenticate-managed-identity/identity-web-app.png)
 
@@ -60,24 +60,24 @@ Event Hubs 리소스에 역할을 할당 하려면 Azure Portal에서 해당 리
 4.  **역할 할당 추가** 페이지에서 할당 하려는 Event Hubs 역할을 선택 합니다. 그런 다음를 검색 하 여 역할을 할당 하기 위해 등록 한 서비스 id를 찾습니다.
     
     ![역할 할당 추가 페이지](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  **저장**을 선택합니다. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 서비스 id가 데이터 소유자 Event Hubs 있음을 보여 줍니다.
+5.  **저장** 을 선택합니다. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 서비스 id가 데이터 소유자 Event Hubs 있음을 보여 줍니다.
     
     ![역할에 할당 된 id](./media/authenticate-managed-identity/role-assigned.png)
 
 역할을 할당 하면 웹 응용 프로그램은 정의 된 범위에서 Event Hubs 리소스에 액세스할 수 있습니다. 
 
 ### <a name="test-the-web-application"></a>웹 애플리케이션 테스트
-1. Event Hubs 네임 스페이스 및 이벤트 허브를 만듭니다. 
+1. Event Hubs 네임스페이스 및 이벤트 허브 만들기 
 2. Azure에 웹 앱을 배포 합니다. GitHub에서 웹 응용 프로그램에 대 한 링크는 다음 탭 섹션을 참조 하세요. 
 3. SendReceive .aspx가 웹 앱에 대 한 기본 문서로 설정 되었는지 확인 합니다. 
 3. 웹 앱에 대 한 **id** 를 사용 하도록 설정 합니다. 
 4. 이 id를 네임 스페이스 수준이 나 이벤트 허브 수준에서 **Event Hubs 데이터 소유자** 역할에 할당 합니다. 
-5. 웹 응용 프로그램을 실행 하 고, 네임 스페이스 이름 및 이벤트 허브 이름 및 메시지를 입력 하 고, **보내기**를 선택 합니다. 이벤트를 받으려면 **수신**을 선택 합니다. 
+5. 웹 응용 프로그램을 실행 하 고, 네임 스페이스 이름 및 이벤트 허브 이름 및 메시지를 입력 하 고, **보내기** 를 선택 합니다. 이벤트를 받으려면 **수신** 을 선택 합니다. 
 
 #### <a name="azuremessagingeventhubs-latest"></a>[EventHubs (최신)](#tab/latest)
 이제 웹 응용 프로그램을 시작 하 고 브라우저가 샘플 aspx 페이지를 가리키도록 할 수 있습니다. [GitHub 리포지토리의](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)Event Hubs 리소스에서 데이터를 보내고 받는 샘플 웹 응용 프로그램을 찾을 수 있습니다.
 
-[NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)에서 최신 패키지를 설치 하 고 **EventHubConsumerClient**를 사용 하 여 **EventHubProducerClient** 및 수신 이벤트를 사용 하 여 Event Hubs에 이벤트를 보내기 시작 합니다. 
+[NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)에서 최신 패키지를 설치 하 고 **EventHubConsumerClient** 를 사용 하 여 **EventHubProducerClient** 및 수신 이벤트를 사용 하 여 Event Hubs에 이벤트를 보내기 시작 합니다. 
 
 > [!NOTE]
 > 관리 id를 사용 하 여 이벤트 허브에 이벤트를 게시 하는 Java 샘플은 [GitHub에서 Azure identity 샘플을 사용 하 여 이벤트 게시](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)를 참조 하세요.

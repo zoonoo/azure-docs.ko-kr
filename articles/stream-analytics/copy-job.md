@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 67e28e8c5092f2b52a3a34053f81d8a00afb24ed
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892319"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683228"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업 복사 또는 백업
 
-Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Stream Analytics 작업을 복사 하거나 백업할 수 있습니다. 작업을 다른 지역으로 복사 하면 마지막 출력 시간이 복사 되지 않습니다. 따라서 복사 된 작업을 시작할 때 [**마지막으로 중지 된 경우**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) 에는이 옵션을 사용할 수 없습니다.
+Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Stream Analytics 작업을 복사 하거나 백업할 수 있습니다. 작업을 다른 지역으로 복사 하면 마지막 출력 시간이 복사 되지 않습니다. 따라서 복사 된 작업을 시작할 때 [**마지막으로 중지 된 경우**](./start-job.md#start-options) 에는이 옵션을 사용할 수 없습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -37,15 +37,13 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
     프로젝트를 선택 하 고 현재 작업 영역에 추가 된 폴더로 내보냅니다.
 
-    ![Visual Studio Code에서이 작업 내보내기](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
-
 3. 다른 이름을 사용 하 여 작업을 다른 지역 또는 백업에 게시 하려면 쿼리 편집기 (. script.asaql)에서 **게시할 구독에서 선택을** 선택 하 \* 고 지침을 따릅니다.
 
     ![Visual Studio Code에서 Azure에 게시](./media/quick-create-visual-studio-code/submit-job.png)
 
 ## <a name="visual-studio"></a>Visual Studio
 
-1. 배포 된 [Azure Stream Analytics 작업을 프로젝트에 내보내기 지침](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project)을 따릅니다.
+1. 배포 된 [Azure Stream Analytics 작업을 프로젝트에 내보내기 지침](./stream-analytics-vs-tools.md#export-jobs-to-a-project)을 따릅니다.
 
 2. \*쿼리 편집기에서 script.asaql 파일을 열고 스크립트 편집기에서 **Azure에 제출** 을 선택 하 고 지침에 따라 새 이름을 사용 하 여 작업을 다른 지역 또는 백업에 게시 합니다.
 
@@ -53,4 +51,3 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
 * [빠른 시작: Visual Studio Code를 사용 하 여 Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)
 * [빠른 시작: Visual Studio를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)

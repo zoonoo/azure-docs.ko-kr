@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 9bd98d69c9a941e8da08fc7ab798c37b1a22f0bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498414"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793112"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>인스턴스 풀에 Azure SQL Managed Instance 배포
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "86498414"
 |풀 내 인스턴스에서 데이터베이스 만들기|예|예|
 |SQL Managed Instance에서 데이터베이스 삭제|예|예|
 
-사용 가능한 [PowerShell 명령](https://docs.microsoft.com/powershell/module/az.sql/):
+사용 가능한 [PowerShell 명령](/powershell/module/az.sql/):
 
 |cmdlet |Description |
 |:---|:---|
@@ -52,7 +52,7 @@ ms.locfileid: "86498414"
 |[Get-AzSQLInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | SQL Managed Instance 풀 사용에 대 한 정보를 반환 합니다. |
 
 
-PowerShell을 사용하려면 [최신 버전의 PowerShell Core를 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)하고 지침에 따라 [Azure PowerShell 모듈을 설치합니다](https://docs.microsoft.com/powershell/azure/install-az-ps).
+PowerShell을 사용하려면 [최신 버전의 PowerShell Core를 설치](/powershell/scripting/install/installing-powershell#powershell)하고 지침에 따라 [Azure PowerShell 모듈을 설치합니다](/powershell/azure/install-az-ps).
 
 풀 및 단일 인스턴스 내부의 인스턴스와 모두 관련된 작업의 경우 표준 [관리되는 인스턴스 명령](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances)을 사용하지만 풀의 인스턴스에 대해 이러한 명령을 사용할 때는 ‘인스턴스 풀 이름’ 속성을 채워야 합니다.
 
@@ -256,8 +256,8 @@ $instanceOne | Set-AzSqlInstance -InstancePoolName "pool-mi-001" -PublicDataEndp
 ## <a name="next-steps"></a>다음 단계
 
 - 기능 및 비교 목록은 [SQL 일반 기능](../database/features-comparison.md)을 참조하세요.
-- VNet 구성에 대 한 자세한 내용은 [SQL Managed Instance vnet 구성](connectivity-architecture-overview.md)을 참조 하세요.
-- 관리 되는 인스턴스를 만들고 백업 파일에서 데이터베이스를 복원 하는 빠른 시작은 [관리 되는 인스턴스 만들기](instance-create-quickstart.md)를 참조 하세요.
-- 마이그레이션을 위해 Azure Database Migration Service를 사용 하는 방법에 대 한 자습서는 [Database Migration Service를 사용 하 여 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조 하세요.
-- 기본 제공 되는 문제 해결 인텔리전스를 사용 하 여 SQL Managed Instance 데이터베이스 성능에 대 한 고급 모니터링은 [Azure SQL 분석를 사용 하 여 AZURE sql Managed Instance 모니터링](../../azure-monitor/insights/azure-sql.md)을 참조 하세요.
+- VNet 구성에 대한 자세한 내용은 [SQL Managed Instance VNet 구성](connectivity-architecture-overview.md)을 참조하세요.
+- 백업 파일에서 관리형 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [관리형 인스턴스 만들기](instance-create-quickstart.md)를 참조하세요.
+- Azure Database Migration Service를 사용하여 마이그레이션하는 방법에 대한 자습서는 [Database Migration Service를 사용한 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+- 기본 제공 문제 해결 인텔리전스를 사용하는 SQL Managed Instance 데이터베이스의 고급 성능 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Managed Instance 모니터링](../../azure-monitor/insights/azure-sql.md)을 참조하세요.
 - 가격 책정 정보는 [SQL Managed Instance 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조 하세요.

@@ -3,12 +3,12 @@ title: 기능 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0730a5fa3abbc6b27cb96431125564a2475a90d1
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936234"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955651"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -16,34 +16,52 @@ Azure Event Hubs는 확장 가능한 처리 서비스로 대량의 이벤트 및
 
 이 문서는 [개요](./event-hubs-about.md) 문서의 정보를 기반으로 하며, Event Hubs 구성 요소 및 기능에 대한 기술 정보와 구현 정보를 제공합니다.
 
+> [!TIP]
+> [ **Apache Kafka** 클라이언트에 대 한 프로토콜 지원](event-hubs-for-kafka-ecosystem-overview.md)  (버전 >= 1.0)은 클라이언트와 Apache Kafka를 사용 하 여 빌드된 응용 프로그램이 Event Hubs를 사용할 수 있도록 하는 네트워크 끝점을 제공 합니다. 대부분의 기존 Kafka 응용 프로그램은 Kafka 클러스터 부트스트랩 서버 대신 Event Hub 네임 스페이스를 가리키도록 다시 구성 될 수 있습니다. 
+>
+>비용, 운영 활동 및 안정성의 관점에서 Azure Event Hubs는 고유한 Kafka 및 사육 아웃 클러스터를 배포 하 고 운영 하는 데 적합 하며, Azure에 기본 제공 되지 않는 Kafka 제공 서비스로 제공 됩니다. 
+>
+> Apache Kafka broker와 동일한 핵심 기능을 제공 하는 것 외에도, [Event Hubs 캡처](event-hubs-capture-overview.md), 자동 크기 조정 및 분산, 재해 복구, 비용 중립적인 가용성 영역 지원, 유연 하 고 안전한 네트워크 통합, 방화벽을 통해 제공 되는 Amqp-websocket 프로토콜을 포함 한 멀티 프로토콜 지원 등의 Azure Event Hub 기능에도 액세스할 수 있습니다.
+
+
 ## <a name="namespace"></a>네임스페이스
-Event Hubs 네임스페이스는 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)으로 참조되는 고유한 범위 지정 컨테이너를 제공하며, 하나 이상의 이벤트 허브 또는 Kafka 항목을 만듭니다. 
-
-## <a name="event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs
-
-[이 기능](event-hubs-for-kafka-ecosystem-overview.md)은 고객이 Kafka 프로토콜을 사용하여 Event Hubs에 지시할 수 있는 엔드포인트를 제공합니다. 이 통합에서는 고객에게 Kafka 엔드포인트를 제공합니다. 이를 통해 Event Hubs에 지시하도록 기존 Kafka 애플리케이션을 구성하여 고유한 Kafka 클러스터를 실행하는 대안을 제공할 수 있습니다. Apache Kafka용 Event Hubs는 Kafka 프로토콜 1.0 이상을 지원합니다. 
-
-이러한 통합을 통해 Kafka 클러스터를 실행 하거나 사육 아웃을 사용 하 여 관리할 필요가 없습니다. 캡처, 자동 확장 및 지리적 재해 복구 등의 까다로운 Event Hubs 기능 중 일부를 사용할 수도 있습니다.
-
-이 통합을 사용하면 Mirror Maker와 같은 애플리케이션 또는 Kafka Connect와 같은 프레임워크를 구성만 변경하여 클러스터 없이 작동시킬 수 있습니다. 
+Event Hubs 네임 스페이스는 DNS 통합 네트워크 끝점과 [IP 필터링](event-hubs-ip-filtering.md), [가상 네트워크 서비스 끝점](event-hubs-service-endpoints.md)및 [개인 링크](private-link-service.md) 와 같은 다양 한 액세스 제어 및 네트워크 통합 관리 기능을 제공 하며 여러 이벤트 허브 인스턴스 (또는 kafka 용어의 항목) 중 하나에 대 한 관리 컨테이너입니다.
 
 ## <a name="event-publishers"></a>이벤트 게시자
 
-Event Hub로 데이터를 전송하는 모든 엔터티는 이벤트 생산자 또는 *이벤트 게시자*입니다. 이벤트 게시자는 HTTPS 또는 AMQP 1.0 또는 Kafka 1.0 이상을 사용하여 이벤트를 게시할 수 있습니다. 이벤트 게시자는 SAS(공유 액세스 서명) 토큰을 사용하여 자신을 Event Hub로 식별하고 고유 ID를 구성하거나 일반적인 SAS 토큰을 사용합니다.
+이벤트 허브로 데이터를 전송 하는 모든 엔터티는 이벤트 *게시자* ( *이벤트 생산자* 에서 사용 되는 동의어 처럼 자주)입니다. 이벤트 게시자는 HTTPS 또는 AMQP 1.0 또는 Kafka 프로토콜을 사용 하 여 이벤트를 게시할 수 있습니다. 이벤트 게시자는 OAuth2에서 발급 한 JWT 토큰 또는 이벤트 허브 관련 SAS (공유 액세스 서명) 토큰 획득 게시 액세스를 사용 하 여 Azure Active Directory 기반 권한 부여를 사용 합니다.
 
 ### <a name="publishing-an-event"></a>이벤트 게시
 
-AMQP 1.0, Kafka 1.0 이상 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. Event Hubs는 .NET 클라이언트에서 Event Hub로 이벤트를 게시하기 위한 [클라이언트 라이브러리 및 클래스](./event-hubs-dotnet-framework-getstarted-send.md)를 제공합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](https://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 이벤트를 개별적으로 게시하거나 일괄처리할 수 있습니다. 단일 게시(이벤트 데이터 인스턴스)는 단일 이벤트 또는 일괄 처리인지에 관계 없이 1MB로 제한됩니다. 이 임계값보다 큰 이벤트를 게시하면 오류가 발생합니다. 게시자는 이벤트 허브 내에서 파티션을 인식 하지 못하고 *파티션 키* (다음 섹션에서 도입 된) 또는 해당 SAS 토큰을 통해 id를 지정 하는 것이 가장 좋습니다.
+AMQP 1.0, Kafka 프로토콜 또는 HTTPS를 통해 이벤트를 게시할 수 있습니다. Event Hubs 서비스는 이벤트 허브에 이벤트를 게시 하기 위한 [REST API](/rest/api/eventhub/) 및 [.net](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md)및 [Go](event-hubs-go-get-started-send.md) 클라이언트 라이브러리를 제공 합니다. 다른 런타임 및 플랫폼의 경우, [Apache Qpid](https://qpid.apache.org/)와 같은 모든 AMQP 1.0 클라이언트를 사용할 수 있습니다. 
 
-AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. 전송 수준 보안(TLS) 또는 SSL/TLS 외에 AMQP는 영구 양방향 소켓을 설정해야 합니다. AMQP는 세션을 초기화할 때 네트워크 비용이 더 많이 듭니다. 그러나 HTTPS를 사용 하려면 모든 요청에 대해 추가 TLS 오버 헤드가 필요 합니다. AMQP는 빈번한 게시자에게 더 높은 성능을 제공합니다.
+AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. 전송 수준 보안(TLS) 또는 SSL/TLS 외에 AMQP는 영구 양방향 소켓을 설정해야 합니다. AMQP는 세션을 초기화할 때 네트워크 비용이 더 많이 듭니다. 그러나 HTTPS를 사용 하려면 모든 요청에 대해 추가 TLS 오버 헤드가 필요 합니다. AMQP는 자주 사용 하는 게시자의 경우 성능이 훨씬 높고 비동기 게시 코드와 함께 사용 하는 경우 대기 시간이 훨씬 길어질 수 있습니다.
+
+개별적으로 또는 일괄 처리 된 이벤트를 게시할 수 있습니다. 단일 이벤트 또는 일괄 처리 인지에 관계 없이 단일 게시의 제한은 1mb입니다. 이 임계값 보다 큰 게시 이벤트는 거부 됩니다. 
+
+Event Hubs 처리량은 파티션 및 처리량-단위 할당을 사용 하 여 크기가 조정 됩니다 (아래 참조). 게시자는 이벤트 허브에 대해 선택한 특정 분할 모델을 인식 하지 않고 동일한 파티션에 관련 이벤트를 일관 되 게 할당 하는 데 사용 되는 *파티션 키* 만 지정 하는 것이 가장 좋습니다.
 
 ![파티션 키](./media/event-hubs-features/partition_keys.png)
 
-Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 파티션으로 순서대로 배달되도록 합니다. 파티션 키가 게시자 정책과 함께 사용되는 경우 게시자 ID와 파티션 키 값이 일치해야 합니다. 그렇지 않으면 오류가 발생합니다.
+Event Hubs 파티션 키 값을 공유 하는 모든 이벤트가 함께 저장 되 고 도착 순서 대로 배달 되도록 합니다. 파티션 키가 게시자 정책과 함께 사용되는 경우 게시자 ID와 파티션 키 값이 일치해야 합니다. 그렇지 않으면 오류가 발생합니다.
+
+### <a name="event-retention"></a>이벤트 보존
+
+게시 된 이벤트는 구성 가능한 시간 기반 보존 정책을 기반으로 이벤트 허브에서 제거 됩니다. 기본값 및 가능한 가장 짧은 보존 기간은 1 일 (24 시간)입니다. Event Hubs Standard의 경우 최대 보존 기간은 7 일입니다. Event Hubs Dedicated의 경우 최대 보존 기간은 90 일입니다.
+
+> [!NOTE]
+> Event Hubs은 실시간 이벤트 스트림 엔진 이며 데이터베이스 대신 사용 하거나 무한히 대기 이벤트 스트림에 대 한 영구 저장소로 사용 하도록 설계 되지 않았습니다. 
+> 
+> 이벤트 스트림에 대 한 더 깊은 기록이 제공 되므로 지정 된 스트림의 특정 기록 조각을 찾기 위해 보조 인덱스가 필요 합니다. 이벤트 페이로드 및 인덱싱 검사는 Event Hubs 또는 Apache Kafka의 기능 범위 내에 있지 않습니다. 따라서 [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) 및 [Azure Synapse](../synapse-analytics/overview-what-is.md) 같은 데이터베이스와 특수 분석 저장소 및 엔진은 기록 이벤트 저장에 훨씬 더 적합 합니다.
+>
+> [Event Hubs 캡처](event-hubs-capture-overview.md) 는 Azure Blob Storage 및 Azure Data Lake Storage와 직접 통합 되며, 이러한 통합을 통해 [Azure Synapse에 직접 이벤트](store-captured-data-data-warehouse.md)를 전달 하도록 합니다.
+>
+> 응용 프로그램에 대 한 [이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) 패턴을 사용 하려면 스냅숏 전략을 Event Hubs의 보존 제한과 맞춰야 합니다. 처음부터 시작 하 여 원시 이벤트에서 구체화 된 뷰를 다시 빌드하지 않습니다. 응용 프로그램이 잠시 동안 프로덕션 환경에 있는 경우 이러한 전략을 사용 하지 않는 것이 좋을 것입니다. 따라서 프로젝션 빌더는 최신 변경 내용에 대 한 변경을 시도 하는 동안 변화 이벤트의 변동 기간을 변동 해야 합니다. 
+
 
 ### <a name="publisher-policy"></a>게시자 정책
 
-Event Hubs는 *게시자 정책*을 통한 이벤트 게시자에 대한 세부적 제어를 사용합니다. 게시자 정책은 많은 수의 독립 이벤트 게시자를 지원하도록 설계된 런타임 기능입니다. 게시자 정책을 사용하여 다음 메커니즘을 사용하여 Event Hub로 이벤트를 게시하는 경우 각 게시자는 자체 고유 식별자를 사용합니다.
+Event Hubs는 *게시자 정책* 을 통한 이벤트 게시자에 대한 세부적 제어를 사용합니다. 게시자 정책은 많은 수의 독립 이벤트 게시자를 지원하도록 설계된 런타임 기능입니다. 게시자 정책을 사용하여 다음 메커니즘을 사용하여 Event Hub로 이벤트를 게시하는 경우 각 게시자는 자체 고유 식별자를 사용합니다.
 
 ```http
 //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
@@ -61,15 +79,15 @@ Event Hubs는 *게시자 정책*을 통한 이벤트 게시자에 대한 세부�
 
 ## <a name="sas-tokens"></a>SAS 토큰
 
-Event Hubs는 네임 스페이스 및 이벤트 허브 수준에서 사용할 수 있는 *공유 액세스 서명을*사용 합니다. SAS 토큰은 SAS 키에서 생성되고 특정 형식으로 인코딩된 URL의 SHA 해시입니다. 키(정책)와 토큰의 이름을 사용하는 경우 Event Hubs는 해시를 다시 생성하여 발신자를 인증할 수 있습니다. 일반적으로 이벤트 게시자에 대 한 SAS 토큰은 특정 이벤트 허브에 대 한 **송신** 권한만으로 만들어집니다. 이 SAS 토큰 URL 메커니즘은 게시자 정책에 도입된 게시자 ID에 대한 기반이 됩니다. SAS 작업에 대한 자세한 내용은 [Service Bus를 사용한 공유 액세스 서명 인증](../service-bus-messaging/service-bus-sas.md)을 참조하세요.
+Event Hubs는 네임 스페이스 및 이벤트 허브 수준에서 사용할 수 있는 *공유 액세스 서명을* 사용 합니다. SAS 토큰은 SAS 키에서 생성되고 특정 형식으로 인코딩된 URL의 SHA 해시입니다. 키(정책)와 토큰의 이름을 사용하는 경우 Event Hubs는 해시를 다시 생성하여 발신자를 인증할 수 있습니다. 일반적으로 이벤트 게시자에 대 한 SAS 토큰은 특정 이벤트 허브에 대 한 **송신** 권한만으로 만들어집니다. 이 SAS 토큰 URL 메커니즘은 게시자 정책에 도입된 게시자 ID에 대한 기반이 됩니다. SAS 작업에 대한 자세한 내용은 [Service Bus를 사용한 공유 액세스 서명 인증](../service-bus-messaging/service-bus-sas.md)을 참조하세요.
 
 ## <a name="event-consumers"></a>이벤트 소비자
 
-이벤트 허브에서 이벤트 데이터를 읽는 모든 엔터티는 *이벤트 소비자*입니다. 모든 Event Hubs 소비자는 AMQP 1.0 세션을 통해 연결되며, 사용 가능한 상태가 되면 이 세션을 통해 이벤트가 전달됩니다. 클라이언트는 데이터 가용성에 대해 폴링할 필요가 없습니다.
+이벤트 허브에서 이벤트 데이터를 읽는 모든 엔터티는 *이벤트 소비자* 입니다. 모든 Event Hubs 소비자는 AMQP 1.0 세션을 통해 연결되며, 사용 가능한 상태가 되면 이 세션을 통해 이벤트가 전달됩니다. 클라이언트는 데이터 가용성에 대해 폴링할 필요가 없습니다.
 
 ### <a name="consumer-groups"></a>소비자 그룹
 
-*소비자 그룹*을 통해 이벤트 허브의 게시/구독 메커니즘을 사용하도록 설정합니다. 소비자 그룹은 전체 Event Hub의 보기(상태, 위치, 또는 오프셋)입니다. 소비자 그룹은 여러 소비 애플리케이션을 사용하여 이벤트 스트림의 별도 보기가 있으며 자신의 속도 및 자신의 오프셋으로 독립적으로 스트림을 읽을 수 있습니다.
+*소비자 그룹* 을 통해 이벤트 허브의 게시/구독 메커니즘을 사용하도록 설정합니다. 소비자 그룹은 전체 Event Hub의 보기(상태, 위치, 또는 오프셋)입니다. 소비자 그룹은 여러 소비 애플리케이션을 사용하여 이벤트 스트림의 별도 보기가 있으며 자신의 속도 및 자신의 오프셋으로 독립적으로 스트림을 읽을 수 있습니다.
 
 스트림 처리 아키텍처에서 각 다운스트림 애플리케이션은 소비자 그룹에 해당합니다. 이벤트 데이터를 장기 스토리지에 기록하려는 경우, 해당 스토리지 기록기 애플리케이션은 소비자 그룹입니다. 복합 이벤트 처리는 별도의 다른 소비자 그룹에서 수행될 수 있습니다. 소비자 그룹을 통해서만 파티션을 액세스할 수 있습니다. Event Hub에는 항상 기본 소비자 그룹이 있으며 표준 계층 Event Hub에 대해 최대 20개의 소비자 그룹을 만들 수 있습니다.
 
@@ -90,7 +108,7 @@ Azure Sdk에서 제공 하는 일부 클라이언트는 각 파티션에 단일 
 
 ### <a name="stream-offsets"></a>스트림 오프셋
 
-*오프셋*은 파티션 내의 이벤트 위치입니다. 오프셋을 클라이언트 쪽 커서로 생각할 수 있습니다. 오프셋은 이벤트의 바이트 번호입니다. 오프셋을 사용하여 이벤트 소비자(판독기)가 이벤트를 읽기 시작할 이벤트 스트림의 위치를 지정할 수 있습니다. 타임스탬프 또는 오프셋 값으로 오프셋을 지정할 수 있습니다. 소비자는 Event Hubs 서비스 외부에 자신의 오프셋 값을 저장하는 일을 담당합니다. 파티션 내에서 각 이벤트는 오프셋을 포함합니다.
+*오프셋* 은 파티션 내의 이벤트 위치입니다. 오프셋을 클라이언트 쪽 커서로 생각할 수 있습니다. 오프셋은 이벤트의 바이트 번호입니다. 오프셋을 사용하여 이벤트 소비자(판독기)가 이벤트를 읽기 시작할 이벤트 스트림의 위치를 지정할 수 있습니다. 타임스탬프 또는 오프셋 값으로 오프셋을 지정할 수 있습니다. 소비자는 Event Hubs 서비스 외부에 자신의 오프셋 값을 저장하는 일을 담당합니다. 파티션 내에서 각 이벤트는 오프셋을 포함합니다.
 
 ![파티션 오프셋](./media/event-hubs-features/partition_offset.png)
 
@@ -102,7 +120,7 @@ Azure Sdk에서 제공 하는 일부 클라이언트는 각 파티션에 단일 
 
 > [!NOTE]
 > Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지 원하는 환경에서 검사점 저장소로 Azure Blob Storage을 사용 하는 경우, 코드를 사용 하 여 저장소 서비스 API 버전을 해당 환경에서 지 원하는 특정 버전으로 변경 해야 합니다. 예를 들어 [Azure Stack 허브 버전 2002에서 Event Hubs](/azure-stack/user/event-hubs-overview)를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우에는 코드를 사용 하 여 저장소 서비스 API 버전을 2017-11-09로 대상으로 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
-> - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) 또는  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)

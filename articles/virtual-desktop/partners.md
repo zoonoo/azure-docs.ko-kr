@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056460"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802714"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -62,7 +62,7 @@ Automai의 ScenarioBuilder 도구와 GUI 기반 워크플로 엔진을 사용 �
 Automai를 사용 하면 단일 플랫폼에서 성능 테스트, 기능 테스트, 성능 모니터링 및 로보틱 프로세스 자동화에 동일한 스크립트를 사용할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N)하세요.
-- [파트너 웹 사이트로 이동](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580)합니다.
+- [파트너 웹 사이트로 이동](https://www.automai.com/windows-virtual-desktop-performance-testing/)합니다.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -114,7 +114,7 @@ deviceTRUST는 회사 엔터프라이즈를 tsi 하는 Windows 가상 데스크�
 
 deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술로 확장 합니다. deviceTRUST를 사용 하면 보안 Windows 가상 데스크톱 액세스에 대 한 조건부 액세스, Windows 가상 데스크톱 내에서 조건부 응용 프로그램 액세스 및 추가 인프라 없이 조건부 Windows 가상 데스크톱 정책을 적용할 수 있습니다. DeviceTRUST를 사용 하면 모든 보안, 규정 준수 및 규정 요구 사항을 충족 하는 유연한 모바일 작업 영역을 사용할 수 있습니다.
 
-- [파트너 웹 사이트로 이동](https://devicetrust.com/wvd)합니다.
+- [파트너 웹 사이트로 이동](https://devicetrust.com/)합니다.
 
 ## <a name="ekran-system"></a>Ekran 시스템
 
@@ -236,7 +236,7 @@ Liquit 응용 프로그램 집계 및 배달 소프트웨어를 사용 하 여 �
 
 Nasuni Corp. 클라우드 파일 서비스 및 상위 Azure 전역 ISV 파트너의 선두 공급자는 최신 가상 데스크톱에 대 한 최신 파일 저장소 솔루션인 Nasuni software as a service 플랫폼을 제공 합니다. Nasuni와 Azure Blob Storage 함께 사용 하는 경우는 NAS (주 파일 저장소), 파일 백업, 재해 복구 및 지역 간 파일 동기화를 하나의 통합 된 솔루션으로 통합 합니다. Nasuni를 통해 기업은 더 많은 사용 사례와 더 많은 Azure 지역에서 Windows 가상 데스크톱을 배포 하 고, 관리를 간소화 하 고, 비즈니스 연속성을 보장할 수 있습니다. 
 
-최신 클라우드 VDI 솔루션인 Windows 가상 데스크톱에는 최신 클라우드 파일 저장소가 필요 합니다. 일반적으로 VDI 파일 저장소는 온-프레미스에 있는 NAS (네트워크 연결 저장소) 및 파일 서버 하드웨어와 파일 백업, 복원 및 재해 복구를 제공 하는 데 필요한 기술을 기반으로 합니다. 이러한 기존 방법은 비용이 많이 들고, 유지 관리 및 관리가 복잡 하며, 쉽게 확장할 수 없습니다. 또한 Azure 기반 데스크톱 및 온-프레미스 기반 파일 저장소 간의 실제 거리와 느린 WAN 연결로 인해 Windows 가상 데스크톱과 같은 최신 클라우드 VDI 솔루션과 함께 사용 하는 경우 대기 시간이 발생 합니다. Azure 용으로 특별히 빌드된 파일 서비스 플랫폼인 Nasuni는 무제한 파일 저장소 용량 및 고성능 파일 액세스를 제공 합니다. Nasuni는 단일 전역 네임 스페이스에 대 한 경제적이 고 고성능 파일 액세스를 제공 하기 위해 동일한 Azure 지역에 Windows 가상 데스크톱과 함께 배치할 수 있습니다. Nasuni는 기존 NAS와 Windows 파일 서버의 비용을 줄이고 Windows 가상 데스크톱 파일 저장소를 제공 하며, 비용을 더 줄이고 IT 리소스를 확보 하기 위한 기본 제공 백업 및 재해 복구를 포함 합니다.
+최신 클라우드 VDI 솔루션인 Windows 가상 데스크톱에는 최신 클라우드 파일 저장소가 필요 합니다. 일반적으로 VDI 파일 저장소는 온-프레미스에 있는 NAS (Network-Attached 저장소)와 파일 서버 하드웨어 및 파일 백업, 복원 및 재해 복구를 제공 하는 데 필요한 기술을 기반으로 합니다. 이러한 기존 방법은 비용이 많이 들고, 유지 관리 및 관리가 복잡 하며, 쉽게 확장할 수 없습니다. 또한 Azure 기반 데스크톱 및 온-프레미스 기반 파일 저장소 간의 실제 거리와 느린 WAN 연결로 인해 Windows 가상 데스크톱과 같은 최신 클라우드 VDI 솔루션과 함께 사용 하는 경우 대기 시간이 발생 합니다. Azure 용으로 특별히 빌드된 파일 서비스 플랫폼인 Nasuni는 무제한 파일 저장소 용량 및 고성능 파일 액세스를 제공 합니다. Nasuni는 단일 전역 네임 스페이스에 대 한 경제적이 고 고성능 파일 액세스를 제공 하기 위해 동일한 Azure 지역에 Windows 가상 데스크톱과 함께 배치할 수 있습니다. Nasuni는 기존 NAS와 Windows 파일 서버의 비용을 줄이고 Windows 가상 데스크톱 파일 저장소를 제공 하며, 비용을 더 줄이고 IT 리소스를 확보 하기 위한 기본 제공 백업 및 재해 복구를 포함 합니다.
 
 - [파트너 웹 사이트로 이동](https://www.nasuni.com/partner/microsoft/#wvd)합니다.
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS)하세요.
@@ -350,7 +350,7 @@ SSH2는 IT 팀이 소프트웨어를 사용 하 여 현재 플랫폼에서 Windo
 appCURE은 최종 사용자의 응용 프로그램에 영향을 줄 수 있는 모든 요소가 인식 되도록 실행 중인 응용 프로그램에서 응용 프로그램 세부 정보를 캡처합니다. 그런 다음 appCURE를 업데이트 하 고 새 Windows 가상 데스크톱에 전달 합니다. AppCURE는 현재 환경에 있는 모든 응용 프로그램 통합 요소를 캡처하여 IT 리소스를 최적화 하 고 이전 보다 더 빠르게 마이그레이션을 계획 하는 속도를 제공 하므로 조직에서 더 빠르게 프로덕션에 사용할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38)하세요.
-- [파트너 페이지로 이동](https://www.ssh2.xyz/windows-virtual-desktop/)합니다.
+- [파트너 페이지로 이동](#ssh2)합니다.
 
 ## <a name="thinprint"></a>ThinPrint
 

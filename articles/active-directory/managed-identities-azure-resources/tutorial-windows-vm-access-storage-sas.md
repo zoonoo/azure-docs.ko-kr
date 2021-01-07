@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa04247aca777612c05a7531dc5b36e7af40e60e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ba8c88f040bbd527b0d9f219a81fa090f53c84ed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255837"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590548"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 SAS 자격 증명으로 Azure Storage에 액세스
 
@@ -37,7 +37,11 @@ ms.locfileid: "89255837"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- 관리 ID에 대한 이해. Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](overview.md)를 참조하세요. 
+- Azure 계정, [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
+- 적절한 범위(사용자 구독 또는 리소스 그룹)에서 필요한 리소스 생성 및 역할 관리 단계를 수행할 수 있는 "소유자" 권한. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+- 시스템 할당 관리 ID가 활성화된 Windows 가상 머신도 필요합니다.
+  - 이 자습서에 대한 가상 머신을 만들어야 하는 경우 [시스템 할당 ID가 설정된 가상 머신 만들기](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)라는 제목의 문서를 수행하면 됩니다.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -46,11 +50,11 @@ ms.locfileid: "89255837"
 스토리지 계정이 아직 없는 경우 이제 하나 만들게 됩니다. 또한 이 단계를 건너뛰고 기존 스토리지 계정의 SAS 자격 증명에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여할 수 있습니다. 
 
 1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
-2. **스토리지**를 클릭하면 **스토리지 계정**, 새 “스토리지 계정 만들기” 패널이 표시됩니다.
+2. **스토리지** 를 클릭하면 **스토리지 계정**, 새 “스토리지 계정 만들기” 패널이 표시됩니다.
 3. 나중에 사용할 스토리지 계정에 대한 이름을 입력합니다.  
-4. **배포 모델** 및 **계정 종류**는 각각 “리소스 관리자” 및 “범용”으로 설정해야 합니다. 
-5. **구독** 및 **리소스 그룹**은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.
-6. **만들기**를 클릭합니다.
+4. **배포 모델** 및 **계정 종류** 는 각각 "Resource Manager" 및 "범용"으로 설정해야 합니다. 
+5. **구독** 및 **리소스 그룹** 은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.
+6. **만들기** 를 클릭합니다.
 
     ![새 스토리지 계정 만들기](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -60,8 +64,8 @@ ms.locfileid: "89255837"
 
 1. 새로 만든 스토리지 계정으로 다시 이동합니다.
 2. 왼쪽 패널에서 “Blob service” 아래에 있는 **컨테이너** 링크를 클릭합니다.
-3. 페이지 맨 위에 있는 **+ 컨테이너**를 클릭하면 “새 컨테이너” 패널이 나타납니다.
-4. 컨테이너에 이름을 지정하고 액세스 수준을 선택한 다음 **확인**을 클릭합니다. 지정한 이름은 이 자습서의 뒷부분에 사용됩니다. 
+3. 페이지 맨 위에 있는 **+ 컨테이너** 를 클릭하면 “새 컨테이너” 패널이 나타납니다.
+4. 컨테이너에 이름을 지정하고 액세스 수준을 선택한 다음 **확인** 을 클릭합니다. 지정한 이름은 이 자습서의 뒷부분에 사용됩니다. 
 
     ![스토리지 컨테이너 만들기](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
@@ -71,24 +75,24 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
 1. 새로 만든 스토리지 계정으로 다시 이동합니다.   
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
-3. 페이지의 위쪽에서 **+ 역할 할당 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
-4. 페이지 오른쪽에서 **역할**을 &quot;스토리지 계정 참가자&quot;로 설정합니다.  
-5. 다음 드롭다운에서 **다음에 대한 액세스 할당**을 “Virtual Machine” 리소스로 설정합니다.  
-6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인하고 **리소스 그룹**을 "모든 리소스 그룹"으로 설정합니다.  
-7. 마지막으로 **선택** 드롭다운에서 Windows Virtual Machine을 선택하고 **저장**을 클릭합니다. 
+3. 페이지의 위쪽에서 **+ 역할 할당 추가** 를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
+4. 페이지 오른쪽에서 **역할** 을 &quot;스토리지 계정 참가자&quot;로 설정합니다.  
+5. 다음 드롭다운에서 **다음에 대한 액세스 할당** 을 “Virtual Machine” 리소스로 설정합니다.  
+6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인하고 **리소스 그룹** 을 "모든 리소스 그룹"으로 설정합니다.  
+7. 마지막으로 **선택** 드롭다운에서 Windows Virtual Machine을 선택하고 **저장** 을 클릭합니다. 
 
     ![대체 이미지 텍스트](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 ID를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 ID를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용 
 
-자습서의 나머지 부분에서는 이전에 만든 VM에서 작업합니다.
+자습서의 나머지 부분에서는 VM에서 작업합니다.
 
 이 부분에서는 Azure Resource Manager PowerShell cmdlet을 사용해야 합니다.  설치하지 않은 경우 계속하기 전에 [최신 버전을 다운로드](/powershell/azure/)합니다.
 
-1. Azure Portal에서 **Virtual Machines**, Windows 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결**을 클릭합니다.
-2. Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
-3. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 PowerShell을 엽니다. 
-4. Powershell의 Invoke-WebRequest를 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져오도록 Azure 리소스 엔드포인트의 로컬 관리 ID에 요청합니다.
+1. Azure Portal에서 **Virtual Machines**, Windows 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결** 을 클릭합니다.
+2. Windows VM을 만들 때 추가한 **사용자 이름** 과 **암호** 를 입력합니다. 
+3. 이제 가상 머신과의 **원격 데스크톱 연결** 을 만들었습니다.
+4. 원격 세션에서 PowerShell을 열고 Invoke-WebRequest를 사용하여 Azure 리소스 엔드포인트의 로컬 관리 ID에서 Azure Resource Manager 토큰을 가져옵니다.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

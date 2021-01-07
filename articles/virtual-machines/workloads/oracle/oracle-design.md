@@ -1,25 +1,19 @@
 ---
 title: Azure에서 Oracle 데이터베이스 설계 및 구현 | Microsoft Docs
 description: Azure 환경에서 Oracle 데이터베이스를 설계하고 구현합니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: rgardler
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.author: kegorman
+ms.reviewer: cynthn
+ms.openlocfilehash: 5e9ddecd694a9051e746d07cbc1bee4d98bf5829
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510014"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484433"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -49,7 +43,7 @@ ms.locfileid: "88510014"
 | **네트워킹** |LAN/WAN  |SDN(소프트웨어 방식 네트워킹)|
 | **보안 그룹** |IP/포트 제한 도구 |[NSG (네트워크 보안 그룹)](https://azure.microsoft.com/blog/network-security-groups) |
 | **복원력** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
-| **계획된 유지 보수** |패치/업그레이드|[가용성 집합](../../windows/infrastructure-example.md)(Azure에서 관리되는 패치/업그레이드) |
+| **계획 된 유지 관리** |패치/업그레이드|[가용성 집합](/previous-versions/azure/virtual-machines/windows/infrastructure-example)(Azure에서 관리되는 패치/업그레이드) |
 | **리소스** |전용  |다른 클라이언트와 공유|
 | **지역** |데이터 센터 |[지역 쌍](../../regions.md#region-pairs)|
 | **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -108,11 +102,11 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 예를 들어 다음 다이어그램에서는 로그 파일 동기화가 맨 위에 있습니다. LGWR에서 로그 버퍼를 다시 실행 로그 파일에 쓰기 전에 필요한 대기 수를 나타냅니다. 이러한 결과는 더 효율적으로 수행되는 스토리지 또는 디스크가 필요함을 나타냅니다. 또한 다이어그램에서는 CPU(코어) 수와 메모리 양도 보여 줍니다.
 
-![AWR 보고서 페이지의 스크린샷](./media/oracle-design/cpu_memory_info.png)
+![테이블 맨 위에 있는 로그 파일 동기화를 보여 주는 스크린샷](./media/oracle-design/cpu_memory_info.png)
 
 다음 다이어그램에서는 읽기 및 쓰기의 총 I/O 수를 보여 줍니다. 보고서 시간 동안 59GB의 읽기 및 247.3GB의 쓰기가 있었습니다.
 
-![AWR 보고서 페이지의 스크린샷](./media/oracle-design/io_info.png)
+![읽기 및 쓰기의 총 i/o를 보여 주는 스크린샷](./media/oracle-design/io_info.png)
 
 #### <a name="2-choose-a-vm"></a>2. VM 선택
 
@@ -144,7 +138,7 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 - 네트워크 대기 시간은 온-프레미스 배포에 비해 더 높습니다. 네트워크 왕복 수를 줄이면 성능이 크게 향상될 수 있습니다.
 - 왕복을 줄이려면 동일한 가상 머신에서 트랜잭션이 많은 애플리케이션 또는 "채팅 가능한(chatty)" 앱을 통합합니다.
 - 네트워크 성능을 향상 시키려면 [가속화 된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md) 을 사용 하는 Virtual Machines를 사용 합니다.
-- 특정 Linux 배포판의 경우 [트리밍/매핑 해제 지원을](../../linux/configure-lvm.md#trimunmap-support)사용 하도록 설정 하는 것이 좋습니다.
+- 특정 Linux 배포판의 경우 [트리밍/매핑 해제 지원을](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support)사용 하도록 설정 하는 것이 좋습니다.
 - 별도의 가상 컴퓨터에 [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) 를 설치 합니다.
 - 기본적으로 큰 페이지는 linux에서 사용 하도록 설정 되지 않습니다. 큰 페이지를 사용 하도록 설정 하 고 Oracle DB에 설정 하는 것이 좋습니다 `use_large_pages = ONLY` . 이렇게 하면 성능을 향상 시킬 수 있습니다. 자세한 내용은 [여기](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)를 참조하세요.
 
@@ -158,7 +152,7 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 
 - *Premium Storage 디스크*: 이러한 디스크 유형은 프로덕션 워크로드에 가장 적합합니다. Premium Storage는 특정 크기 시리즈 VM(예: DS, DSv2, GS 및 F 시리즈 VM)에 연결할 수 있는 VM 디스크를 지원합니다. 다양한 크기로 제공되며 32GB에서 4,096GB까지 다양한 디스크를 선택할 수 있습니다. 디스크 크기마다 자체 성능 사양이 있습니다. 애플리케이션 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다.
 
-포털에서 새 관리 디스크를 만드는 경우 사용하려는 디스크 유형에 대한 **계정 유형**을 선택할 수 있습니다. 사용 가능한 모든 디스크가 드롭다운 메뉴에 표시되는 것은 아닙니다. 특정 VM 크기를 선택하면 해당 VM 크기를 기반으로 하여 사용할 수 있는 Premium Storage SKU만 메뉴에 표시됩니다.
+포털에서 새 관리 디스크를 만드는 경우 사용하려는 디스크 유형에 대한 **계정 유형** 을 선택할 수 있습니다. 사용 가능한 모든 디스크가 드롭다운 메뉴에 표시되는 것은 아닙니다. 특정 VM 크기를 선택하면 해당 VM 크기를 기반으로 하여 사용할 수 있는 Premium Storage SKU만 메뉴에 표시됩니다.
 
 ![관리되는 디스크 페이지의 스크린샷](./media/oracle-design/premium_disk01.png)
 
@@ -203,11 +197,11 @@ I/O 요구 사항에 대해 명확히 알고 있으면 이러한 요구 사항�
 
 처리량을 최대화 하려면 호스트 캐싱에 대해 **아무것도** 시작 하지 않는 것이 좋습니다. Premium Storage의 경우 **읽기 전용** 또는 **없음** 옵션을 사용하여 파일 시스템을 탑재할 때 "barrier"를 사용하지 않도록 설정해야 합니다. /etc/fstab 파일을 UUID로 디스크에 업데이트합니다.
 
-![관리되는 디스크 페이지의 스크린샷](./media/oracle-design/premium_disk02.png)
+![ReadOnly 및 None 옵션을 보여 주는 관리 디스크 페이지의 스크린샷](./media/oracle-design/premium_disk02.png)
 
 - OS 디스크의 경우 기본 **읽기/쓰기** 캐싱을 사용합니다.
-- 시스템, 임시 및 실행 취소 디스크의 경우 캐싱에 **없음**을 사용합니다.
-- 데이터 디스크의 경우 캐싱에 **없음**을 사용합니다. 그러나 데이터베이스가 읽기 전용이거나 읽기 집약적인 경우 **읽기 전용** 캐싱을 사용합니다.
+- 시스템, 임시 및 실행 취소 디스크의 경우 캐싱에 **없음** 을 사용합니다.
+- 데이터 디스크의 경우 캐싱에 **없음** 을 사용합니다. 그러나 데이터베이스가 읽기 전용이거나 읽기 집약적인 경우 **읽기 전용** 캐싱을 사용합니다.
 
 데이터 디스크 설정을 저장한 후에 OS 수준에서 드라이브를 분리한 다음 변경한 후에 다시 탑재하지 않는 한 호스트 캐시 설정은 변경할 수 없습니다.
 
@@ -230,7 +224,7 @@ Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 �
 - [Oracle ASM 구성](configure-oracle-asm.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)
 - [Oracle Golden Gate 구성](configure-oracle-golden-gate.md)
-- [Oracle 백업 및 복구](oracle-backup-recovery.md)
+- [Oracle 백업 및 복구](./oracle-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 

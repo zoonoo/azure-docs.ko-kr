@@ -2,20 +2,20 @@
 title: PowerShell을 사용 하 여 Azure AD Domain Services에 대해 범위 동기화 | Microsoft Docs
 description: Azure ad PowerShell을 사용 하 여 Azure AD에서 Azure Active Directory Domain Services 관리 되는 도메인으로 범위 동기화를 구성 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: iainfou
-ms.openlocfilehash: 197ae37b0c63b19ebe4dcdf2732169be0f357a07
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.author: justinha
+ms.openlocfilehash: c078117baf84d7dbfaaaa2b569abb8a5f5c67e6d
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294229"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619014"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Azure ad PowerShell을 사용 하 여 Azure AD에서 Azure Active Directory Domain Services로 범위 동기화 구성
 
@@ -160,7 +160,7 @@ Write-Output "******************************************************************
 
 1. 이제 관리 되는 도메인에 해당 사용자를 동기화 해야 하는 그룹 목록을 지정 합니다.
 
-    스크립트를 실행 `Select-GroupsToSync.ps1` 하 고 동기화 할 그룹 목록을 지정 합니다. 다음 예제에서 동기화 할 그룹은 *GroupName1* 및 *GroupName2*입니다.
+    스크립트를 실행 `Select-GroupsToSync.ps1` 하 고 동기화 할 그룹 목록을 지정 합니다. 다음 예제에서 동기화 할 그룹은 *GroupName1* 및 *GroupName2* 입니다.
 
     > [!WARNING]
     > 범위 동기화에 대 한 그룹 목록에 *AAD DC 관리자* 그룹을 포함 해야 합니다. 이 그룹을 포함 하지 않으면 관리 되는 도메인을 사용할 수 없습니다.
@@ -175,7 +175,7 @@ Write-Output "******************************************************************
 
 사용자가 관리 되는 도메인에 동기화 해야 하는 그룹 목록을 수정 하려면 스크립트를 실행 하 `Select-GroupsToSync.ps1` 고 동기화 할 새 그룹 목록을 지정 합니다.
 
-다음 예제에서는 동기화 할 그룹이 더 이상 *GroupName2*를 포함 하지 않으며 이제 *GroupName3*를 포함 합니다.
+다음 예제에서는 동기화 할 그룹이 더 이상 *GroupName2* 를 포함 하지 않으며 이제 *GroupName3* 를 포함 합니다.
 
 > [!WARNING]
 > 범위 동기화에 대 한 그룹 목록에 *AAD DC 관리자* 그룹을 포함 해야 합니다. 이 그룹을 포함 하지 않으면 관리 되는 도메인을 사용할 수 없습니다.

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184063"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953953"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C란?
 
@@ -79,23 +79,23 @@ WoodGrove Groceries는 고객이 매장과의 관계에 따라 다음과 같은 
 
 * **개별** 고객은 소셜 ID 공급자 또는 이메일 주소 및 암호와 같은 개별 계정으로 가입하거나 로그인할 수 있습니다.
 * **비즈니스** 고객은 엔터프라이즈 자격 증명으로 가입하거나 로그인할 수 있습니다.
-* **파트너** 및 공급자는 식료품점에 판매할 제품을 공급하는 개인입니다. 파트너 ID는 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md)에서 제공합니다.
+* **파트너** 및 공급자는 식료품점에 판매할 제품을 공급하는 개인입니다. 파트너 ID는 [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md)에서 제공합니다.
 
 ![개별(B2C), 비즈니스(B2C) 및 파트너(B2B) 로그인 페이지](./media/overview/woodgrove-overview.png)
 
 ### <a name="authenticate-individual-customers"></a>개별 고객 인증
 
-고객이 **개인 계정으로 로그인**을 선택하면 Azure AD B2C에서 호스팅하는 사용자 지정 로그인 페이지로 리디렉션됩니다. 다음 이미지에서는 WoodGrove Groceries 웹 사이트처럼 보이고 느껴지도록 UI(사용자 인터페이스)를 사용자 지정했음을 알 수 있습니다. WoodGrove의 고객은 Azure AD B2C에서 인증 환경을 호스팅하고 보호한다는 것을 인식하지 못합니다.
+고객이 **개인 계정으로 로그인** 을 선택하면 Azure AD B2C에서 호스팅하는 사용자 지정 로그인 페이지로 리디렉션됩니다. 다음 이미지에서는 WoodGrove Groceries 웹 사이트처럼 보이고 느껴지도록 UI(사용자 인터페이스)를 사용자 지정했음을 알 수 있습니다. WoodGrove의 고객은 Azure AD B2C에서 인증 환경을 호스팅하고 보호한다는 것을 인식하지 못합니다.
 
 ![Azure AD B2C에서 호스팅하는 사용자 지정 WoodGrove 로그인 페이지](./media/overview/sign-in.png)
 
-고객은 WoodGrove를 통해 Google, Facebook 또는 Microsoft 계정을 ID 공급자로 사용하여 가입하고 로그인할 수 있습니다. 또는 이메일 주소와 암호를 사용하여 *로컬 계정*이라는 항목을 만들어 가입할 수 있습니다.
+고객은 WoodGrove를 통해 Google, Facebook 또는 Microsoft 계정을 ID 공급자로 사용하여 가입하고 로그인할 수 있습니다. 또는 이메일 주소와 암호를 사용하여 *로컬 계정* 이라는 항목을 만들어 가입할 수 있습니다.
 
-고객이 **개인 계정으로 가입**, **지금 가입**을 차례로 선택하면 사용자 지정 가입 페이지가 표시됩니다.
+고객이 **개인 계정으로 가입**, **지금 가입** 을 차례로 선택하면 사용자 지정 가입 페이지가 표시됩니다.
 
 ![Azure AD B2C에서 호스팅하는 사용자 지정 WoodGrove 가입 페이지](./media/overview/sign-up.png)
 
-이메일 주소를 입력하고 **확인 코드 보내기**를 선택하면 Azure AD B2C에서 고객에게 코드를 보냅니다. 코드를 입력하고, **코드 확인**을 선택한 다음, 양식에 다른 정보를 입력하면 서비스 약관에도 동의해야 합니다.
+이메일 주소를 입력하고 **확인 코드 보내기** 를 선택하면 Azure AD B2C에서 고객에게 코드를 보냅니다. 코드를 입력하고, **코드 확인** 을 선택한 다음, 양식에 다른 정보를 입력하면 서비스 약관에도 동의해야 합니다.
 
 **만들기** 단추를 클릭하면 Azure AD B2C에서 사용자를 WoodGrove Groceries 웹 사이트로 다시 리디렉션합니다. 리디렉션되면 Azure AD B2C에서 OpenID Connect 인증 토큰을 WoodGrove 웹 애플리케이션에 전달합니다. 이제 사용자가 로그인되어 사용할 준비가 되었습니다. 표시 이름이 오른쪽 위 모서리에 표시되어 로그인되었음을 나타냅니다.
 
@@ -105,13 +105,13 @@ WoodGrove Groceries는 고객이 매장과의 관계에 따라 다음과 같은 
 
 고객이 **비즈니스 고객** 아래의 옵션 중 하나를 선택하면 WoodGrove Groceries 웹 사이트에서 개별 고객에 대해 호출하는 것과 다른 Azure AD B2C 정책을 호출합니다.
 
-이 정책은 사용자에게 가입 및 로그인에 회사 자격 증명을 사용할 수 있는 옵션을 제공합니다. WoodGrove 예에서는 사용자에게 Office 365 또는 Azure AD 계정으로 로그인하라는 메시지가 표시됩니다. 이 정책은 [다중 테넌트 Azure AD 애플리케이션](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) 및 `/common` Azure AD 엔드포인트를 사용하여 전 세계의 모든 Office 365 고객과 Azure AD B2C를 페더레이션합니다.
+이 정책은 사용자에게 가입 및 로그인에 회사 자격 증명을 사용할 수 있는 옵션을 제공합니다. WoodGrove 예제에서는 사용자에게 회사 또는 학교 계정으로 로그인하라는 메시지가 표시됩니다. 이 정책은 [다중 테넌트 Azure AD 애플리케이션](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) 및 `/common` Azure AD 엔드포인트를 사용하여 전 세계의 모든 Microsoft 365 고객과 Azure AD B2C를 페더레이션합니다.
 
 ### <a name="authenticate-partners"></a>파트너 인증
 
 **공급자 계정으로 로그인** 링크는 Azure Active Directory B2B의 협업 기능을 사용합니다. Azure AD B2B는 파트너 ID를 관리하기 위한 Azure Active Directory의 기능 제품군입니다. 이러한 ID는 Azure AD B2C로 보호되는 애플리케이션에 액세스하기 위해 Azure Active Directory에서 페더레이션할 수 있습니다.
 
-[Azure Active Directory B2B의 게스트 사용자 액세스란?](../active-directory/b2b/what-is-b2b.md)에서 Azure AD B2B에 대해 자세히 알아보세요.
+[Azure Active Directory B2B의 게스트 사용자 액세스란?](../active-directory/external-identities/what-is-b2b.md)에서 Azure AD B2B에 대해 자세히 알아보세요.
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code

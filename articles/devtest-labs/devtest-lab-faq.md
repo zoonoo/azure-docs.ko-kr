@@ -3,18 +3,18 @@ title: Azure DevTest Labs FAQ | Microsoft 문서
 description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대답)를 제공합니다.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289373"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590276"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
 
 ## <a name="blog-post"></a>블로그 게시물
-DevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니다. 
+DevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니다. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>이제부터 기능 업데이트는 어디에서 추적할 수 있나요?
 이제부터는 기능 업데이트와 유익한 블로그 게시물을 Azure 블로그와 Azure 업데이트에 게시할 예정입니다. 블로그 게시물은 필요할 때마다 설명서에도 연결됩니다.
@@ -22,7 +22,7 @@ DevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니
 [DevTest Labs Azure 블로그](https://azure.microsoft.com/blog/tag/azure-devtest-labs/)와 [DevTest Labs Azure 업데이트](https://azure.microsoft.com/updates/?product=devtest-lab)를 구독하면 DevTest Labs의 새로운 기능에 대한 정보가 제공됩니다.
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>기존 블로그 게시물은 어떻게 되나요?
-현재 기존 블로그 게시물(정지 업데이트 제외)을 [DevTest Labs 설명서](devtest-lab-overview.md)로 마이그레이션하고 있습니다. MSDN 블로그가 더 이상 사용되지 않으면 DevTest Labs의 설명서 개요로 리디렉션될 예정입니다. 리디렉션되면 '제목으로 필터링'에서 원하는 문서를 검색할 수 있습니다. 일부 게시물은 아직 마이그레이션되지 않았지만 이달 말까지 완료할 예정입니다. 
+현재 기존 블로그 게시물(정지 업데이트 제외)을 [DevTest Labs 설명서](devtest-lab-overview.md)로 마이그레이션하고 있습니다. MSDN 블로그가 더 이상 사용되지 않으면 DevTest Labs의 설명서 개요로 리디렉션될 예정입니다. 리디렉션되면 '제목으로 필터링'에서 원하는 문서를 검색할 수 있습니다. 일부 게시물은 아직 마이그레이션되지 않았지만 이달 말까지 완료할 예정입니다. 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>중단 업데이트는 어디에서 볼 수 있나요?
@@ -68,7 +68,7 @@ DevTest Labs는 무료 서비스입니다. 즉 DevTest Labs에서 랩을 만들�
 ## <a name="security"></a>보안
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs의 다른 보안 수준은 무엇인가요?
-보안 액세스는 RBAC(역할 기반 액세스 제어)를 통해 결정됩니다. 액세스의 작동 방식을 알아보기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 알아보는 데 도움을 줍니다.
+보안 액세스는 azure RBAC (역할 기반 액세스 제어)에 의해 결정 됩니다. 액세스가 작동 하는 방식을 알아보려면 Azure RBAC에서 정의한 대로 사용 권한, 역할 및 범위 간의 차이점을 파악 하는 것이 좋습니다.
 
 - **사용 권한**: 사용 권한은 특정 작업에 대해 정의된 액세스입니다. 예로 모든 VM에 대한 읽기 액세스가 있습니다.
 - **역할**: 역할은 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 세트입니다. 예를 들어 구독 소유자 역할이 있는 사용자는 구독 내의 모든 리소스에 대한 액세스를 보유합니다.
@@ -83,7 +83,7 @@ DevTest Labs에서 사용자 지정 역할을 만들 수도 있습니다. DevTes
 
 범위는 계층적이므로 사용자가 특정 범위에서 사용 권한을 가진 경우 범위의 모든 하위 수준 범위에서 해당 사용 권한이 자동으로 부여됩니다. 예를 들어 사용자가 구독 소유자의 역할에 할당되면 사용자는 구독의 모든 리소스에 대한 액세스를 갖게 됩니다. 이러한 리소스에는 VM, 가상 네트워크 및 랩이 포함됩니다. 구독 소유자는 자동으로 랩 소유자의 역할을 상속합니다. 그러나 반대의 경우는 적용되지 않습니다. 랩 소유자는 구독 수준보다 낮은 범위인 랩에 대한 액세스를 가집니다. 따라서 랩 소유자는 VM, 가상 네트워크 또는 랩 외부에 있는 다른 모든 리소스를 볼 수 없습니다.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>개발자/테스트 담당자가 해당 작업을 수행하는 동안 IT 부서에서 관리할 수 있도록 내 DevTest Labs의 역할 기반 액세스 제어를 정의하려면 어떻게 해야 하나요?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>DevTest Labs 환경에 대 한 Azure 역할 기반 액세스 제어를 정의 하 여 개발자/테스트에서 작업을 수행할 수 있는 동안 제어할 수 있는지 확인 합니다. 어떻게 할까요?
 광범위하게 적용되는 한 가지 패턴이 있지만 세부 사항은 조직에 따라 다릅니다.
 
 중앙 IT 부서는 필요한 사항만 소유하고 프로젝트 및 애플리케이션 팀이 필요한 수준의 제어 권한을 갖도록 하는 것이 좋습니다. 이에 따라 일반적으로 중앙 IT 부서는 구독을 소유하고 네트워킹 구성과 같은 핵심 IT 기능을 처리합니다. 구독의 **소유자** 집합은 소규모인 것이 좋습니다. 이러한 소유자는 필요할 때 추가 소유자를 지정하거나, 구독자 수준 정책(예: “공용 IP 없음”)을 적용할 수 있습니다.
@@ -92,7 +92,7 @@ DevTest Labs에서 사용자 지정 역할을 만들 수도 있습니다. DevTes
 
 DevTest Labs 리소스는 프로젝트/애플리케이션 팀에 가까운 소유자가 소유하는 것이 좋습니다. 머신 및 필수 소프트웨어에 대한 자신들의 요구 사항을 잘 이해하고 있기 때문입니다. 대부분의 조직에서 이 DevTest Labs 리소스의 소유자는 일반적으로 프로젝트/개발 책임자입니다. 이 소유자는 랩 환경 내에서 사용자 및 정책을 관리하고 DevTest Labs 환경에서 모든 VM을 관리할 수 있습니다.
 
-프로젝트/애플리케이션 팀 멤버를 **DevTest Labs 사용자** 역할에 추가하는 것이 좋습니다. 이러한 사용자는 가상 머신을 만들 수 있습니다(랩 및 구독 수준 정책에 따라). 또한 자신의 가상 머신을 관리할 수도 있습니다. 다른 사용자에게 속하는 가상 머신은 관리할 수 없습니다.
+프로젝트/응용 프로그램 팀 멤버는 **DevTest Labs 사용자** 역할에 추가 해야 합니다. 이러한 사용자는 가상 머신을 만들 수 있습니다(랩 및 구독 수준 정책에 따라). 또한 자신의 가상 머신을 관리할 수도 있습니다. 다른 사용자에게 속하는 가상 머신은 관리할 수 없습니다.
 
 자세한 내용은 [Azure 엔터프라이즈 스캐폴드: 규범적 구독 거버넌스](/azure/architecture/cloud-adoption/appendix/azure-scaffold) 설명서를 참조하세요.
 
@@ -145,7 +145,7 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 -   동일한 크기에 속하는 공유 IP 머신에 대한 리소스 그룹을 DevTest Labs가 만듭니다.
 
 공용 리소스 그룹 시나리오:
--   모든 가상 머신이 사용자가 지정한 공용 리소스 그룹에서 작동합니다. [랩에 대한 리소스 그룹 할당](https://aka.ms/RGControl)을 자세히 알아보세요.
+-   모든 가상 머신이 사용자가 지정한 공용 리소스 그룹에서 작동합니다. [랩에 대한 리소스 그룹 할당](./resource-group-control.md)을 자세히 알아보세요.
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>DevTest Labs 환경 전반에 걸쳐 명명 규칙을 유지 관리하려면 어떻게 해야 하나요?
 현재 엔터프라이즈 명명 규칙을 Azure 작업으로 확장 적용하고 DevTest Labs 환경에서도 일관되게 사용할 수 있습니다. DevTest Labs를 배포할 때는 구체적인 시작 정책을 결정하는 것이 좋습니다. 일관성을 유지하려면 중앙 스크립트와 JSON 템플릿을 사용하여 이러한 정책을 배포합니다. 구독 수준에서 적용된 Azure 정책을 통해 명명 정책을 구현할 수 있습니다. Azure Policy의 JSON 샘플은 [Azure Policy 샘플](../governance/policy/samples/index.md)을 참조하세요.
@@ -165,12 +165,12 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 Azure DevOps Projects 내에서 특정 프로젝트에 대해 랩을 사용할 수도 있습니다. 그리고 지정된 Azure Active Directory 그룹을 통해 보안을 적용하면 두 리소스 집합에 모두 액세스할 수 있습니다. 랩에 할당된 가상 네트워크가 사용자를 통합하는 또 다른 경계로 사용될 수도 있습니다.
 
 ### <a name="how-can-we-prevent-the-deletion-of-resources-within-a-lab"></a>랩 내에서 리소스 삭제를 방지하려면 어떻게 해야 하나요?
-권한이 부여된 사용자만 리소스를 삭제하거나 랩 정책을 변경할 수 있도록 랩 수준에서 적절한 권한을 설정하는 것이 좋습니다. 개발자는 **DevTest Labs 사용자** 그룹 내에 포함되어야 합니다. 수석 개발자 또는 인프라 책임자는 **DevTest Labs 소유자**여야 합니다. 랩 소유자는 두 명만 지정하는 것이 좋습니다. 손상 방지를 위해 이 정책은 코드 리포지토리로 확대 적용됩니다. 랩 사용자는 리소스를 사용할 수는 있지만 랩 정책을 업데이트할 수는 없습니다. 각 기본 그룹이 랩 내에서 소유하는 역할과 권한 목록이 나열된 [Azure DevTest Labs에 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md) 문서를 참조하세요.
+권한이 부여된 사용자만 리소스를 삭제하거나 랩 정책을 변경할 수 있도록 랩 수준에서 적절한 권한을 설정하는 것이 좋습니다. 개발자는 **DevTest Labs 사용자** 그룹 내에 포함되어야 합니다. 수석 개발자 또는 인프라 책임자는 **DevTest Labs 소유자** 여야 합니다. 랩 소유자는 두 명만 지정하는 것이 좋습니다. 손상 방지를 위해 이 정책은 코드 리포지토리로 확대 적용됩니다. 랩 사용자는 리소스를 사용할 수는 있지만 랩 정책을 업데이트할 수는 없습니다. 각 기본 그룹이 랩 내에서 소유하는 역할과 권한 목록이 나열된 [Azure DevTest Labs에 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md) 문서를 참조하세요.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>랩에 대한 직접 링크를 공유하려면 어떻게 합니까?
 
 1. [Azure Portal](https://portal.azure.com)에서 랩으로 이동합니다.
-2. 브라우저에서 **랩 URL**을 복사한 다음, 랩 사용자와 공유합니다.
+2. 브라우저에서 **랩 URL** 을 복사한 다음, 랩 사용자와 공유합니다.
 
 > [!NOTE]
 > 랩 사용자가 Microsoft 계정이 있지만 조직의 Active Directory 인스턴스의 구성원이 아닌 외부 사용자인 경우 공유 링크에 액세스하려고 할 때 사용자는 오류 메시지를 볼 수 있습니다. 외부 사용자가 오류 메시지를 확인하는 경우 사용자에게 먼저 Azure Portal의 오른쪽 위 모서리에서 해당 이름을 선택하도록 요청하세요. 그런 다음, 메뉴의 디렉터리 섹션에서 사용자는 랩이 있는 디렉터리를 선택할 수 있습니다.
@@ -200,7 +200,7 @@ DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한�
 예, 여러 개의 디스크를 VM에 연결할 수 있습니다.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Gen 2 이미지가 DevTest Labs에서 지원되나요?
-예. DevTest Labs 서비스는 [Gen 2 이미지](../virtual-machines/windows/generation-2.md)를 지원 합니다. 그러나 이미지에 Gen 1과 Gen 2 버전을 모두 사용할 수 있는 경우 DevTest Labs는 VM을 만들 때 이미지의 Gen 1 버전만 표시 합니다. 사용 가능한 Gen 2 버전만 있는 경우 이미지가 표시 됩니다. 
+예. DevTest Labs 서비스는 [Gen 2 이미지](../virtual-machines/generation-2.md)를 지원 합니다. 그러나 이미지에 Gen 1과 Gen 2 버전을 모두 사용할 수 있는 경우 DevTest Labs는 VM을 만들 때 이미지의 Gen 1 버전만 표시 합니다. 사용 가능한 Gen 2 버전만 있는 경우 이미지가 표시 됩니다. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>테스트에 Windows OS 이미지를 사용하려면 MSDN 구독을 구매해야 하나요?
 Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미지(Windows 7 이상 버전)를 사용하려면 다음 단계 중 하나를 수행하세요.
@@ -278,12 +278,12 @@ foreach($labVM in $labVMs)
 랩과 연결된 대상 스토리지 계정을 찾으려면:
 
 1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2.  왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+2.  왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 3.  랩과 연결된 리소스 그룹을 찾고 선택합니다.
 4.  **개요** 아래에서 스토리지 계정 중 하나를 선택합니다.
-5.  **Blob**을 선택합니다.
+5.  **Blob** 을 선택합니다.
 6.  목록에서 업로드를 찾습니다. 항목이 없으면 4단계로 돌아가서 다른 스토리지 계정을 시도합니다.
-7.  AzCopy 명령에서 대상으로 **URL**을 사용합니다.
+7.  AzCopy 명령에서 대상으로 **URL** 을 사용합니다.
 
 Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 각각 어떤 경우에 사용해야 하나요?
 
@@ -318,7 +318,7 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 - Azure 구독이 인증 및 권한 부여에 사용하는 동일한 Azure Active Directory 테넌트에 Azure Repos를 연결합니다.
 - Azure Active Directory에 중앙에서 관리되는 `All DevTest Labs Developers`라는 그룹을 만듭니다. 아티팩트 개발에 참여하는 모든 개발자는 이 그룹에 배치되어야 합니다.
 - 동일한 Azure Active Directory 그룹을 사용하여 Azure Repos 리포지토리 및 랩에 대한 액세스 권한을 부여할 수 있습니다.
-- Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절한 코드 검토 후에 끌어오기 요청을 통해서만 마스터 분기에 추가됩니다. 코드 검토자가 변경을 승인하면 마스터 분기의 유지 관리를 담당하는 수석 개발자가 업데이트된 코드를 병합합니다.
+- Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절 한 코드 검토 후 끌어오기 요청을 사용 하 여 주 분기에만 추가 됩니다. 코드 검토자가 변경 내용을 승인 하면 main 분기의 유지 관리를 담당 하는 리드 개발자가 업데이트 된 코드를 병합 합니다.
 
 ## <a name="cicd-integration"></a>CI/CD 통합
 

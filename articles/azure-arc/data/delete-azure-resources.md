@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c07a0d8279c8d2f8792f5df3e35d2d630b1a86bd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4c76b2c0109637ce34681d2fa5c8b29e1ff800a1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939904"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364374"
 ---
 # <a name="delete-resources-from-azure"></a>Azure에서 리소스 삭제
 
@@ -63,7 +63,7 @@ Azure CLI를 사용 하 여 특정 Azure Arc 사용 데이터 서비스 리소�
 
 Azure CLI를 사용 하 여 Azure에서 SQL 관리 되는 인스턴스 리소스를 삭제 하려면 아래 명령에서 자리 표시자 값을 바꾸고 실행 합니다.
 
-```console
+```azurecli
 az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
@@ -74,7 +74,7 @@ az resource delete --name <sql instance name> --resource-type Microsoft.AzureDat
 
 Azure CLI를 사용 하 여 Azure에서 PostgreSQL Hyperscale server 그룹 리소스를 삭제 하려면 아래 명령에서 자리 표시자 값을 바꾸고 실행 합니다.
 
-```console
+```azurecli
 az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
 
 #Example
@@ -88,7 +88,7 @@ az resource delete --name <postgresql instance name> --resource-type Microsoft.A
 
 Azure CLI 사용 하 여 Azure에서 Azure Arc 데이터 컨트롤러를 삭제 하려면 아래 명령에서 자리 표시자 값을 바꾸고 실행 합니다.
 
-```console
+```azurecli
 az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
 
 #Example
@@ -97,4 +97,4 @@ az resource delete --name <data controller name> --resource-type Microsoft.Azure
 
 ### <a name="delete-a-resource-group-using-the-azure-cli"></a>Azure CLI를 사용 하 여 리소스 그룹 삭제
 
-또한 Azure CLI를 사용 하 여 [리소스 그룹을 삭제할](/azure-resource-manager/management/delete-resource-group)수 있습니다.
+또한 Azure CLI를 사용 하 여 [리소스 그룹을 삭제할](../../azure-resource-manager/management/delete-resource-group.md)수 있습니다.

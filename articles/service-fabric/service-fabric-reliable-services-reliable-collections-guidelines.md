@@ -4,10 +4,10 @@ description: Azure Service Fabric 응용 프로그램에서 Service Fabric 신�
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260921"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
@@ -40,17 +40,17 @@ ms.locfileid: "86260921"
   즉, 단일 보조에서 읽은 데이터 버전은 거짓 처리될 수 있습니다.
   주에서 읽은 내용은 항상 안정적이며 거짓 처리될 수 없습니다.
 * 애플리케이션에서 유지되는 데이터의 보안/개인 정보 보호는 사용자가 결정하게 되며, 스토리지 관리에서 제공하는 보호 기능이 적용됩니다. 운영 체제 디스크 암호화는 미사용 데이터를 보호하는 데 사용될 수 있습니다.
-* `ReliableDictionary`열거는 키로 정렬 된 정렬 된 데이터 구조를 사용 합니다. 열거를 효율적으로 수행 하기 위해 커밋을 임시 hashtable에 추가 하 고 나중에 주에 정렬 된 데이터 구조를 검사점 게시로 이동 합니다. 추가/업데이트/삭제에는 키의 존재 여부에 대 한 유효성 검사를 수행 하는 경우 o (1) 및 O (로그 n)의 최악의 런타임 런타임이 있습니다. 최근 커밋에서 읽고 있는지 아니면 이전 커밋에서 읽고 있는지에 따라 O (1) 또는 O (로그 n) 일 수 있습니다.
+* `ReliableDictionary` 열거는 키로 정렬 된 정렬 된 데이터 구조를 사용 합니다. 열거를 효율적으로 수행 하기 위해 커밋을 임시 hashtable에 추가 하 고 나중에 주에 정렬 된 데이터 구조를 검사점 게시로 이동 합니다. 추가/업데이트/삭제에는 키의 존재 여부에 대 한 유효성 검사를 수행 하는 경우 o (1) 및 O (로그 n)의 최악의 런타임 런타임이 있습니다. 최근 커밋에서 읽고 있는지 아니면 이전 커밋에서 읽고 있는지에 따라 O (1) 또는 O (로그 n) 일 수 있습니다.
 
 ## <a name="volatile-reliable-collections"></a>휘발성 안정적인 컬렉션
 휘발성의 신뢰할 수 있는 컬렉션을 사용 하기로 결정 하는 경우 다음을 고려 하십시오.
 
-* ```ReliableDictionary```volatile 지원
-* ```ReliableQueue```volatile 지원
-* ```ReliableConcurrentQueue```volatile을 지원 하지 않습니다.
+* ```ReliableDictionary``` volatile 지원
+* ```ReliableQueue``` volatile 지원
+* ```ReliableConcurrentQueue``` volatile을 지원 하지 않습니다.
 * 지속형 서비스는 일시적으로 만들 수 없습니다. 플래그를 ```HasPersistedState``` 로 변경 하려면 ```false``` 전체 서비스를 처음부터 다시 만들어야 합니다.
 * 휘발성 서비스는 지속 될 수 없습니다. 플래그를 ```HasPersistedState``` 로 변경 하려면 ```true``` 전체 서비스를 처음부터 다시 만들어야 합니다.
-* ```HasPersistedState```는 서비스 수준 구성입니다. 즉, **모든** 컬렉션이 지속 되거나 휘발성이 됩니다. Volatile 및 지속형 컬렉션을 혼합할 수 없습니다.
+* ```HasPersistedState``` 는 서비스 수준 구성입니다. 즉, **모든** 컬렉션이 지속 되거나 휘발성이 됩니다. Volatile 및 지속형 컬렉션을 혼합할 수 없습니다.
 * 휘발성 파티션의 쿼럼 손실로 인해 전체 데이터 손실이 발생 합니다.
 * 휘발성 서비스에 대해 백업 및 복원을 사용할 수 없습니다.
 
@@ -62,6 +62,6 @@ ms.locfileid: "86260921"
   * [알림](service-fabric-reliable-services-notifications.md)
   * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
-* 기타
+* Others
   * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
   * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

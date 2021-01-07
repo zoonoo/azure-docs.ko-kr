@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976679"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558116"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Azure Cognitive Search에서 개념 기술
 
@@ -193,7 +193,7 @@ Azure Cognitive Search에서 인덱서는 생성 하는 출력을 저장 합니�
 
 필요에 따라 인덱서는 다른 도구나 프로세스에서 사용 하기 위해 출력을 [기술 자료 저장소](knowledge-store-concept-intro.md) 로 보낼 수도 있습니다. 기술 자료 저장소는 기술의 일부로 정의 됩니다. 이 정의는 보강 문서가 테이블이 나 개체 (파일 또는 blob)로 프로젝션 되는지 여부를 결정 합니다. 테이블 형식 프로젝션은 Power BI와 같은 도구의 대화형 분석에 적합 하지만 파일 및 blob은 일반적으로 데이터 과학 또는 유사한 프로세스에서 사용 됩니다. 이 섹션에서는 기술 컴퍼지션이 프로젝트 하려는 테이블 또는 개체를 어떻게 만들 수 있는지 알아봅니다.
 
-### <a name="projections"></a>프로젝션
+### <a name="projections"></a>프로젝션 수
 
 기술 자료 저장소를 대상으로 하는 콘텐츠의 경우 콘텐츠를 구조화 하는 방법을 고려해 야 합니다. *프로젝션* 은 보강 트리에서 노드를 선택 하 고 기술 자료 저장소에 실제 식을 만드는 프로세스입니다. 프로젝션은 문서의 사용자 지정 셰이프(콘텐츠 및 보강)이며 테이블 또는 개체 프로젝션 출력일 수 있습니다. 프로젝션 작업에 대한 자세한 내용은 [프로젝션 작업](knowledge-store-projection-overview.md)을 참조하세요.
 
@@ -222,8 +222,6 @@ Azure Cognitive Search에서 인덱서는 생성 하는 출력을 저장 합니�
 예제를 확장하려면 인라인 셰이핑을 제거하고 쉐이퍼 기술을 사용하여 핵심 문구에 대한 새 노드를 만들면 됩니다. `hotelReviewsDocument`, `hotelReviewsPages`, `hotelReviewsKeyPhrases`라는 세 개의 테이블에 프로젝션되는 셰이프를 만들기 위해, 다음 섹션에서 두 가지 옵션에 대해 설명합니다.
 
 #### <a name="shaper-skill-and-projection"></a>쉐이퍼 기술 및 프로젝션
-
-이 
 
 > [!Note]
 > 이 예제에서는 간단한 설명을 위해 문서 테이블의 일부 열을 제거했습니다.

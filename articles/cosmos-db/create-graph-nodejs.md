@@ -1,22 +1,23 @@
 ---
 title: Gremlin API를 사용하여 Azure Cosmos DB Node.js 애플리케이션 빌드
 description: Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 Node.js 코드 샘플을 제시합니다.
-author: luisbosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f1e619468ecbcd533c8cda725cb316d1e2a0e256
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.author: chrande
+ms.custom: devx-track-js
+ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420433"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360142"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용하여 Node.js 애플리케이션 빌드
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
@@ -95,7 +96,7 @@ ms.locfileid: "87420433"
 
     ```
 
-  구성은 모두 *config.js*에 있으며 [다음 섹션](#update-your-connection-string)에서 편집합니다.
+  구성은 모두 *config.js* 에 있으며 [다음 섹션](#update-your-connection-string)에서 편집합니다.
 
 * 다른 Gremlin 작업을 실행할 일련의 함수가 정의됩니다. 다음은 그 중 하나입니다.
 
@@ -151,13 +152,13 @@ ms.locfileid: "87420433"
 
 1. *config.js* 파일을 엽니다. 
 
-2. *config.js*에서 Azure Portal에 있는 Cosmos DB 계정의 **개요** 페이지에서 **Gremlin Endpoint** 값으로 `config.endpoint` 키를 입력합니다. 
+2. *config.js* 에서 Azure Portal에 있는 Cosmos DB 계정의 **개요** 페이지에서 **Gremlin Endpoint** 값으로 `config.endpoint` 키를 입력합니다. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Azure Portal, 개요 페이지에서 액세스 키 보기 및 복사":::
 
-3. *config.js*에서 Azure Portal에 있는 Cosmos DB 계정의 **키** 페이지에서 **기본 키** 값으로 config.primaryKey 값을 입력합니다. 
+3. *config.js* 에서 Azure Portal에 있는 Cosmos DB 계정의 **키** 페이지에서 **기본 키** 값으로 config.primaryKey 값을 입력합니다. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
@@ -191,9 +192,9 @@ module.exports = config;
 
 이제 Azure Portal의 [데이터 탐색기]로 다시 이동하여 새 그래프 데이터를 보고, 쿼리하고, 수정하고, 작업할 수 있습니다.
 
-[데이터 탐색기]에서 새 데이터베이스가 **그래프** 창에 표시됩니다. 데이터베이스에 이어 컨테이너를 확장한 다음, **그래프**를 선택합니다.
+[데이터 탐색기]에서 새 데이터베이스가 **그래프** 창에 표시됩니다. 데이터베이스에 이어 컨테이너를 확장한 다음, **그래프** 를 선택합니다.
 
-**필터 적용**을 선택하면 샘플 앱에서 생성한 데이터가 **그래프** 탭 내의 다음 창에 표시됩니다.
+**필터 적용** 을 선택하면 샘플 앱에서 생성한 데이터가 **그래프** 탭 내의 다음 창에 표시됩니다.
 
 `.has('firstName', 'Thomas')`로 `g.V()`를 완성하여 필터를 테스트해 보세요. 값은 대/소문자를 구분합니다.
 

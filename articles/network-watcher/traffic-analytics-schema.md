@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 015b8e400e9d386fff8f35756a77139e61bbaff1
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74666378"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809295"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>트래픽 분석에서 스키마 및 데이터 집계
 
@@ -39,11 +39,11 @@ ms.locfileid: "74666378"
 5. FlowStartTime_t 필드는 "FlowIntervalStartTime_t"와 "FlowIntervalEndTime_t" 사이의 흐름 로그 처리 간격에서 집계 된 흐름 (동일한 네 튜플)의 첫 번째 발생을 나타냅니다.
 6. TA의 모든 리소스에 대해 UI에 표시 된 흐름은 NSG에서 표시 되는 총 흐름 이지만 Log Analytics 사용자에 게 축소 된 단일 레코드만 표시 됩니다. 모든 흐름을 보려면 저장소에서 참조할 수 있는 blob_id 필드를 사용 합니다. 해당 레코드의 총 흐름 수는 blob에 표시 되는 개별 흐름과 일치 합니다.
 
-아래 쿼리는 지난 30 일 동안 온-프레미스의 모든 흐름 로그를 확인 하는 데 도움이 됩니다.
+아래 쿼리는 지난 30 일 동안 비 Azure 공용 Ip와 상호 작용 하는 모든 서브넷을 확인 하는 데 도움이 됩니다.
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet_s  
+| project Subnet1_s, Subnet2_s  
 ```
 위에서 언급 한 쿼리의 흐름에 대 한 blob 경로를 보려면 아래 쿼리를 사용 합니다.
 
@@ -96,7 +96,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 
 다음은 스키마의 필드 및 표시 되는 내용입니다.
 
-| 필드 | 서식 | 의견 |
+| 필드 | 형식 | 주석 |
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | 트래픽 분석 데이터에 대 한 테이블
 | SubType_s | FlowLog | 흐름 로그의 하위 형식입니다. "FlowLog"만 사용 하 고 SubType_s의 다른 값은 제품의 내부 작동에 사용 됩니다. |
@@ -110,7 +110,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | SrcIP_s | 원본 IP 주소 | AzurePublic 및 ExternalPublic 흐름이 있는 경우에는 비어 있습니다. |
 | DestIP_s | 대상 IP 주소 | AzurePublic 및 ExternalPublic 흐름이 있는 경우에는 비어 있습니다. |
 | VMIP_s | VM의 IP | AzurePublic 및 ExternalPublic 흐름에 사용 됩니다. |
-| PublicIP_s | 공용 IP 주소 | AzurePublic 및 ExternalPublic 흐름에 사용 됩니다. |
+| PublicIP_s | 퍼블릿 IP 주소 | AzurePublic 및 ExternalPublic 흐름에 사용 됩니다. |
 | DestPort_d | 대상 포트 | 트래픽이 들어오는 포트 |
 | L4Protocol_s  | * T <br> * U  | 전송 프로토콜입니다. T = TCP <br> U = UDP |
 | L7Protocol_s  | 프로토콜 이름 | 대상 포트에서 파생 |
@@ -151,7 +151,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | DeniedInFlows_d |  | 거부 된 인바운드 흐름의 수입니다. (흐름이 캡처된 네트워크 인터페이스에 대 한 인바운드) |
 | AllowedOutFlows_d | | 허용 된 아웃 바운드 흐름 수 (흐름이 캡처된 네트워크 인터페이스로의 아웃 바운드) |
 | DeniedOutFlows_d  | | 거부 된 아웃 바운드 흐름 수 (흐름이 캡처된 네트워크 인터페이스로 아웃 바운드) |
-| FlowCount_d | 사용되지 않습니다. 동일한 네 튜플을 일치 시킨 총 흐름입니다. 흐름 유형이 ExternalPublic 및 AzurePublic 인 경우 개수에는 다양 한 PublicIP 주소의 흐름이 포함 됩니다.
+| FlowCount_d | 더 이상 사용되지 않습니다. 동일한 네 튜플을 일치 시킨 총 흐름입니다. 흐름 유형이 ExternalPublic 및 AzurePublic 인 경우 개수에는 다양 한 PublicIP 주소의 흐름이 포함 됩니다.
 | InboundPackets_d | NSG 규칙이 적용 된 네트워크 인터페이스에서 캡처된 대로 받은 패킷 | NSG 흐름 로그 스키마의 버전 2에만 채워집니다. |
 | OutboundPackets_d  | NSG 규칙이 적용 된 네트워크 인터페이스에서 캡처되는 것으로 전송 된 패킷 | NSG 흐름 로그 스키마의 버전 2에만 채워집니다. |
 | InboundBytes_d |  NSG 규칙이 적용 된 네트워크 인터페이스에서 캡처된 대로 받은 바이트 수 | NSG 흐름 로그 스키마의 버전 2에만 채워집니다. |
@@ -161,7 +161,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | 막대로 구분 된 항목 |
 | DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | 막대로 구분 된 항목 |
 
-### <a name="notes"></a>참고
+### <a name="notes"></a>메모
 
 1. AzurePublic 및 ExternalPublic 흐름의 경우, 고객 소유 Azure VM IP는 VMIP_s 필드에 채워지며, 공용 IP 주소는 PublicIPs_s 필드에 채워집니다. 이러한 두 흐름 유형에 대해 SrcIP_s 및 DestIP_s 필드 대신 VMIP_s 및 PublicIPs_s를 사용 해야 합니다. AzurePublic 및 ExternalPublicIP 주소의 경우 고객 로그 분석 작업 영역에 수집 레코드 수가 최소화 되도록 추가로 집계 합니다. 이 필드는 곧 사용 되지 않으며, azure VM이 흐름의 원본 또는 대상 인지 여부에 따라 SrcIP_ 및 DestIP_s를 사용 해야 합니다.
 1. 흐름 유형에 대 한 세부 정보: 흐름에 포함 된 IP 주소에 따라 흐름을 다음 흐름 유형으로 분류 합니다.

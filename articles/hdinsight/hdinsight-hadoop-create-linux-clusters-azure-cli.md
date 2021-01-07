@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4d378151b72ab09e8b51467ce09ec9d43c517813
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080706"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657961"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
 
@@ -23,17 +23,13 @@ ms.locfileid: "86080706"
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에 나온 단계를 참조하세요.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 
-1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기**를 선택합니다. 그렇지 않은 경우 아래 명령을 입력합니다.
+1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기** 를 선택합니다. 그렇지 않은 경우 아래 명령을 입력합니다.
 
     ```azurecli-interactive
     az login
@@ -42,7 +38,7 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. 환경 변수를 설정합니다. 이 문서에서 변수를 사용 하는 것은 Bash를 기반으로 합니다. 다른 환경에서는 약간의 변형이 필요합니다. 클러스터 만들기에 사용할 수 있는 매개 변수의 전체 목록은 [az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 를 참조 하세요.
+2. 환경 변수를 설정합니다. 이 문서에서 변수를 사용 하는 것은 Bash를 기반으로 합니다. 다른 환경에서는 약간의 변형이 필요합니다. 클러스터 만들기에 사용할 수 있는 매개 변수의 전체 목록은 [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create) 를 참조 하세요.
 
     |매개 변수 | 설명 |
     |---|---|
@@ -68,7 +64,7 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
     export componentVersion=Hadoop=2.7
     ```
 
-3. 아래 명령을 입력 하 여 [리소스 그룹을 만듭니다](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) .
+3. 아래 명령을 입력 하 여 [리소스 그룹을 만듭니다](/cli/azure/group#az-group-create) .
 
     ```azurecli-interactive
     az group create \
@@ -78,7 +74,7 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
 
     유효한 위치 목록을 보려면 `az account list-locations` 명령을 사용한 다음 값의 위치 중 하나를 사용 `name` 합니다.
 
-4. 아래 명령을 입력 하 여 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) .
+4. 아래 명령을 입력 하 여 [Azure Storage 계정을 만듭니다](/cli/azure/storage/account#az-storage-account-create) .
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +87,7 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
         --sku Standard_LRS
     ```
 
-5. [Azure Storage 계정에서 기본 키를 추출](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) 하 고 아래 명령을 입력 하 여 변수에 저장 합니다.
+5. [Azure Storage 계정에서 기본 키를 추출](/cli/azure/storage/account/keys#az-storage-account-keys-list) 하 고 아래 명령을 입력 하 여 변수에 저장 합니다.
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +96,7 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
         --query [0].value -o tsv)
     ```
 
-6. 아래 명령을 입력 하 여 [Azure Storage 컨테이너를 만듭니다](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) .
+6. 아래 명령을 입력 하 여 [Azure Storage 컨테이너를 만듭니다](/cli/azure/storage/container#az-storage-container-create) .
 
     ```azurecli-interactive
     az storage container create \
@@ -109,7 +105,7 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. 다음 명령을 입력 하 여 [HDInsight 클러스터를 만듭니다](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) .
+7. 다음 명령을 입력 하 여 [HDInsight 클러스터를 만듭니다](/cli/azure/hdinsight#az-hdinsight-create) .
 
     ```azurecli-interactive
     az hdinsight create \

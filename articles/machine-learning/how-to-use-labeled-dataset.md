@@ -7,14 +7,14 @@ ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: 1293534849c98cee51349bbefd3073cc8b94f876
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647214"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987374"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
 
@@ -27,8 +27,8 @@ ms.locfileid: "89647214"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
-* [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 액세스합니다.
-    * [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py&preserve-view=true) 패키지 설치
+* [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 액세스합니다.
+    * [azure-contrib-dataset](/python/api/azureml-contrib-dataset/?preserve-view=true&view=azure-ml-py) 패키지 설치
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 * Azure Machine Learning 데이터 레이블 지정 프로젝트에 액세스합니다. 레이블 지정 프로젝트가 없는 경우[이러한 단계](how-to-create-labeling-projects.md)를 사용하여 만듭니다.
 
@@ -52,7 +52,7 @@ Azure Machine Learning 스튜디오의 **데이터 세트** 섹션에서 내보�
 
 ### <a name="pandas-dataframe"></a>pandas 데이터 프레임
 
-`azureml-contrib-dataset` 클래스에서 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 pandas 데이터 프레임에 로드할 수 있습니다. 다음 shell 명령을 사용하여 클래스를 설치합니다. 
+`azureml-contrib-dataset` 클래스에서 [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 pandas 데이터 프레임에 로드할 수 있습니다. 다음 shell 명령을 사용하여 클래스를 설치합니다. 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -61,13 +61,20 @@ pip install azureml-contrib-dataset
 >[!NOTE]
 >서비스 개선을 위해 노력하므로 azureml.contrib 네임스페이스는 자주 변경됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
 
-pandas 데이터 프레임으로 변환할 때 파일 스트림에 대해 다음과 같은 파일 처리 옵션을 제공합니다.
+Azure Machine Learning pandas 데이터 프레임로 변환할 때 파일 스트림에 대해 다음과 같은 파일 처리 옵션을 제공 합니다.
 * 다운로드: 데이터 파일을 로컬 경로로 다운로드합니다.
 * 탑재: 탑재 지점에 데이터 파일을 탑재합니다. 탑재는 Azure Machine Learning Notebook VM 및 Azure Machine Learning 컴퓨팅을 포함한 Linux 기반 컴퓨팅에서만 작동합니다.
 
+다음 코드에서 `animal_labels` 데이터 집합은 이전에 작업 영역에 저장 된 레이블 지정 프로젝트의 출력입니다.
+
 ```Python
+import azureml.core
 import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
 from azureml.contrib.dataset import FileHandlingOption
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe(file_handling_option=FileHandlingOption.DOWNLOAD, target_path='./download/', overwrite_download=True)
 
 import matplotlib.pyplot as plt
@@ -80,10 +87,20 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Torchvision 데이터 세트
 
-`azureml-contrib-dataset` 클래스에서도 [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#&preserve-view=trueto-torchvision--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 Torchvision 데이터 세트에 로드할 수 있습니다. 이 방법을 사용하려면 [PyTorch](https://pytorch.org/)가 설치되어 있어야 합니다. 
+`azureml-contrib-dataset` 클래스에서도 [to_torchvision()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-torchvision--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 Torchvision 데이터 세트에 로드할 수 있습니다. 이 방법을 사용하려면 [PyTorch](https://pytorch.org/)가 설치되어 있어야 합니다. 
+
+다음 코드에서 `animal_labels` 데이터 집합은 이전에 작업 영역에 저장 된 레이블 지정 프로젝트의 출력입니다.
 
 ```python
+import azureml.core
+import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
+from azureml.contrib.dataset import FileHandlingOption
+
 from torchvision.transforms import functional as F
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 
 # load animal_labels dataset into torchvision dataset
 pytorch_dataset = animal_labels.to_torchvision()

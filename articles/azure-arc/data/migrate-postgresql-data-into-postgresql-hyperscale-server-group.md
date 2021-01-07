@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 521fd61f18d6673e21c23dbca4cfc12d2ee4bf0b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939641"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>PostgreSQL database를 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹으로 마이그레이션
@@ -36,7 +36,7 @@ Azure Arc enabled PostgreSQL Hyperscale 서버 그룹은 PostgreSQL의 커뮤니
 - 서버 매개 변수 다시 설정
 - 보안 컨텍스트 다시 설정: 사용자, 역할 및 권한 다시 설정 ...
 
-이 백업/복원 작업을 수행 하기 위해 Postgres에 대해 백업/복원을 수행할 수 있는 모든 도구를 사용할 수 있습니다. 다음은 그 예입니다. 
+이 백업/복원 작업을 수행 하기 위해 Postgres에 대해 백업/복원을 수행할 수 있는 모든 도구를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 - Azure Data Studio 및 해당 Postgres 확장
 - `pgcli`
 - `pgAdmin`
@@ -53,20 +53,20 @@ Azure Arc enabled PostgreSQL Hyperscale 서버 그룹은 PostgreSQL의 커뮤니
 
 - **대상이**  
     Azure Arc 환경에서 실행 되 고 이름이 postgres01 인 Postgres server 버전 12입니다. 표준 Postgres 데이터베이스를 제외한 데이터베이스는 없습니다.  
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="마이그레이션-대상":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="마이그레이션-원본이":::
 
 
 ### <a name="take-a-backup-of-the-source-database-on-premises"></a>원본 데이터베이스의 백업을 온-프레미스로 가져오기
 
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="마이그레이션-원본-백업":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="마이그레이션-원본이":::
 
 구성:
 1. 파일 이름을 지정 합니다. **MySourceBackup**
 2. 형식을 **사용자 지정** 
- :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="마이그레이션-원본-백업-구성"::: 으로 설정 합니다.
+ :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="마이그레이션-원본이"::: 으로 설정 합니다.
 
 백업이 성공적으로 완료 됩니다.  
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="마이그레이션-원본-백업-완료 됨":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="마이그레이션-원본이":::
 
 ### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹의 대상 시스템에서 빈 데이터베이스를 만듭니다.
 
@@ -98,17 +98,17 @@ azdata arc postgres endpoint list -n postgres01
 :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="마이그레이션-대상-db-만들기"lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
 
 ### <a name="restore-the-database-in-your-arc-setup"></a>Arc 설정에서 데이터베이스 복원
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migratre-복원":::
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="마이그레이션-원본이":::
 
 복원 구성:
 1. 복원할 백업이 포함 된 파일을 가리킵니다. **MySourceBackup**
 2. **사용자 지정 또는 tar** 
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="마이그레이션-db-복원-구성"::: 으로 설정 된 서식 유지
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="마이그레이션-원본이"::: 으로 설정 된 서식 유지
 
-3. **복원**을 클릭 합니다.  
+3. **복원**을 클릭합니다.  
 
    복원에 성공 했습니다.  
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="마이그레이션-db-복원-완료 됨":::
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="마이그레이션-원본이":::
 
 ### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>데이터베이스가 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹에서 성공적으로 복원 되었는지 확인 합니다.
 
@@ -118,20 +118,7 @@ azdata arc postgres endpoint list -n postgres01
 
 Azure Arc 설정에서 호스트 되는 Postgres 인스턴스를 확장 합니다. 복원 된 데이터베이스에 테이블이 표시 되 고 데이터를 선택할 때 온-프레미스 인스턴스에 있는 것과 동일한 행을 표시 합니다.
 
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="마이그레이션-db-복원-확인":::
-
-**`psql`Azure Arc 설정 내에서:**  
-
-Arc 설정 내에서를 사용 하 여 `psql` Postgres 인스턴스에 연결 하 고, 데이터베이스 컨텍스트를로 설정 하 고, 데이터를 쿼리할 수 있습니다 `RESTORED_MyOnPremPostgresDB` .
-
-1. 연결 문자열에서 도움을 주는 끝점을 나열 합니다 `psql` .
-
-   ```console
-   azdata arc postgres endpoint list -n postgres01
-   [
-     {
-       "Description": "PostgreSQL Instance",
-       "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="마이그레이션-원본이"
      },
      {
        "Description": "Log Search Dashboard",
@@ -194,4 +181,4 @@ Arc 설정 내에서를 사용 하 여 `psql` Postgres 인스턴스에 연결 �
 
 > *이 문서에서는 **Azure Portal에 로그인**하는 섹션을 건너뛰고 **Postgres-Hyperscale (Citus)에 대 한 Azure 데이터베이스를 만듭니다**. Azure Arc 배포의 나머지 단계를 구현 합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공 되는 Citus (Azure Database for PostgreSQL Hyperscale)에 고유 하지만, 문서의 다른 부분은 Azure Arc enabled PostgreSQL Hyperscale에 직접 적용할 수 있습니다.
 
-- [Azure Database for PostgreSQL 하이퍼 확장 서버 그룹 확장](scale-out-postgresql-hyperscale-server-group.md)
+- [Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-postgresql-hyperscale-server-group.md)

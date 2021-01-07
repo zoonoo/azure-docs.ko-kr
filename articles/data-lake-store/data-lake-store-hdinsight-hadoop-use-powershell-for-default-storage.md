@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e899f28cf5b3c11ae5f935d7bc273c566214225
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075038"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606779"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>PowerShell을 통해 Azure Data Lake Storage Gen1을 기본 스토리지로 사용하여 HDInsight 클러스터 만들기
 
@@ -27,11 +27,11 @@ Data Lake Storage Gen1에서 HDInsight를 사용하는 경우 다음 중요 사�
 
 * 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5 및 3.6에서 사용할 수 있습니다.
 
-* 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight Premium 클러스터에서 ‘사용할 수 없습니다’.**
+* 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight Premium 클러스터에서 ‘사용할 수 없습니다’.
 
 PowerShell을 사용하여 Data Lake Storage Gen1을 사용하도록 HDInsight를 구성하려면 다음 5개 섹션의 지침을 따릅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -46,7 +46,7 @@ PowerShell을 사용하여 Data Lake Storage Gen1을 사용하도록 HDInsight�
     >Azure AD 관리자인 경우에만 서비스 주체를 만들 수 있습니다. Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Storage Gen1을 사용하는 HDInsight 클러스터를 만들 수 있습니다. [인증서를 사용하여 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 주체를 만들어야 합니다.
     >
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 만들기
+## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Azure Data Lake Storage Gen1 계정 만들기
 
 Data Lake Storage Gen1 계정을 만들려면 다음을 수행합니다.
 
@@ -67,7 +67,7 @@ Data Lake Storage Gen1 계정을 만들려면 다음을 수행합니다.
     ```
 
     > [!NOTE]
-    > Data Lake Storage Gen1 리소스 공급자를 등록하고 `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`와 유사한 오류가 발생하는 경우 구독을 Data Lake Storage Gen1의 허용 목록에 추가할 수 없습니다. Data Lake Storage Gen1에 Azure 구독을 사용하려면 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)의 지침에 따르세요.
+    > Data Lake Storage Gen1 리소스 공급자를 등록 하 고와 유사한 오류를 수신 하는 경우 `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` 구독이 Data Lake Storage Gen1 승인 되지 않았을 수 있습니다. Data Lake Storage Gen1에 Azure 구독을 사용하려면 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)의 지침에 따르세요.
     >
 
 2. Data Lake Storage Gen1 계정은 Azure 리소스 그룹과 연결됩니다. 리소스 그룹을 만들기 시작합니다.
@@ -77,7 +77,7 @@ Data Lake Storage Gen1 계정을 만들려면 다음을 수행합니다.
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    다음과 같은 출력이 표시됩니다.
+    다음과 유사한 출력이 표시됩니다.
 
     ```output
     ResourceGroupName : hdiadlgrp
@@ -113,7 +113,7 @@ Data Lake Storage Gen1 계정을 만들려면 다음을 수행합니다.
     Tags                        : {}
     ```
 
-4. Data Lake Storage Gen1을 기본 스토리지로 사용하면 클러스터를 만드는 동안 클러스터 관련 파일을 복사하는 루트 경로를 지정해야 합니다. 코드 조각에서 **/clusters/hdiadlcluster**라는 루트 경로를 만들려면 다음과 같은 cmdlet을 사용합니다.
+4. Data Lake Storage Gen1을 기본 스토리지로 사용하면 클러스터를 만드는 동안 클러스터 관련 파일을 복사하는 루트 경로를 지정해야 합니다. 코드 조각에서 **/clusters/hdiadlcluster** 라는 루트 경로를 만들려면 다음과 같은 cmdlet을 사용합니다.
 
     ```azurepowershell
     $myrootdir = "/"
@@ -128,7 +128,7 @@ Data Lake Storage Gen1 계정을 만들려면 다음을 수행합니다.
 Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 개의 섹션에 있는 작업을 수행해야 합니다.
 
 ### <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
-이 섹션의 단계를 진행하기 전에 [Windows SDK](https://dev.windows.com/en-us/downloads) 가 설치되어 있는지 확인합니다. 또한 인증서를 만든 *C:\mycertdir*과 같은 디렉터리를 만들었어야 합니다.
+이 섹션의 단계를 진행하기 전에 [Windows SDK](https://dev.windows.com/en-us/downloads) 가 설치되어 있는지 확인합니다. 또한 인증서를 만든 *C:\mycertdir* 과 같은 디렉터리를 만들었어야 합니다.
 
 1. PowerShell 창에서 Windows SDK를 설치한 위치로 이동(일반적으로 *C:\Program Files (x86)\Windows Kits\10\bin\x86*)하고 [MakeCert][makecert] 유틸리티를 사용하여 자체 서명된 인증서와 프라이빗 키를 만듭니다. 다음 명령을 사용합니다.
 
@@ -139,19 +139,19 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
     makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
     ```
 
-    프라이빗 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후에 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk**를 확인해야 합니다.
+    프라이빗 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후에 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk** 를 확인해야 합니다.
 2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령을 실행합니다.
 
     ```azurepowershell
     pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
     ```
 
-    메시지가 표시되면 이전에 지정한 프라이빗 키 암호를 입력합니다. **-po** 매개 변수에 대해 지정한 값은 .pfx 파일에 연관된 암호입니다. 또한 명령을 성공적으로 완료한 후에 지정한 인증서 디렉터리에서 **CertFile.pfx**를 확인해야 합니다.
+    메시지가 표시되면 이전에 지정한 프라이빗 키 암호를 입력합니다. **-po** 매개 변수에 대해 지정한 값은 .pfx 파일에 연관된 암호입니다. 또한 명령을 성공적으로 완료한 후에 지정한 인증서 디렉터리에서 **CertFile.pfx** 를 확인해야 합니다.
 
 ### <a name="create-an-azure-ad-and-a-service-principal"></a>Azure AD 및 서비스 주체 만들기
 이 섹션에서는 Azure AD 애플리케이션에 대한 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증합니다. Azure AD에서 애플리케이션을 만들려면 다음과 같은 명령을 실행합니다.
 
-1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. **-HomePage** 및 **-IdentiferUris**의 값은 자리 표시자이며 확인되지 않습니다.
+1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. **-HomePage** 및 **-IdentiferUris** 의 값은 자리 표시자이며 확인되지 않습니다.
 
     ```azurepowershell
     $certificateFilePath = "$certificateFileDir\CertFile.pfx"
@@ -207,8 +207,8 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
     # Set these variables
 
     $location = "East US 2"
-    $storageAccountName = $dataLakeStorageGen1Name                         # Data Lake Storage Gen1 account name
-        $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
+    $storageAccountName = $dataLakeStorageGen1Name    # Data Lake Storage Gen1 account name
+        $storageRootPath = "<Storage root path you specified earlier>"     # e.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
     $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
     $httpCredentials = Get-Credential
@@ -236,7 +236,7 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
     cmdlet이 성공적으로 완료된 후에 클러스터 세부 정보를 나열하는 출력이 표시됩니다.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>HDInsight 클러스터에서 테스트 작업을 실행하여 Data Lake Storage Gen1 사용
-HDInsight 클러스터를 구성한 후에 테스트 작업을 실행하여 Data Lake Storage Gen1에 액세스할 수 있는지 확인할 수 있습니다. 이렇게 하려면 샘플 Hive 작업을 실행 하 여 * \<cluster root> /example/data/sample.log*에서 Data Lake Storage Gen1에서 이미 사용할 수 있는 샘플 데이터를 사용 하는 테이블을 만듭니다.
+HDInsight 클러스터를 구성한 후에 테스트 작업을 실행하여 Data Lake Storage Gen1에 액세스할 수 있는지 확인할 수 있습니다. 이렇게 하려면 샘플 Hive 작업을 실행 하 여 *\<cluster root> /example/data/sample.log* 에서 Data Lake Storage Gen1에서 이미 사용할 수 있는 샘플 데이터를 사용 하는 테이블을 만듭니다.
 
 이 섹션에서는 사용자가 만든 HDInsight Linux 클러스터에 대한 SSH(보안 셸) 연결을 확인하고 샘플 Hive 쿼리를 실행합니다.
 
@@ -249,7 +249,7 @@ HDInsight 클러스터를 구성한 후에 테스트 작업을 실행하여 Data
     hive
     ```
 
-2. CLI를 통해 다음 문을 입력하여 Data Lake Storage Gen1에서 샘플 데이터를 사용한 **vehicles**라는 새 테이블을 만듭니다.
+2. CLI를 통해 다음 문을 입력하여 Data Lake Storage Gen1에서 샘플 데이터를 사용한 **vehicles** 라는 새 테이블을 만듭니다.
 
     ```azurepowershell
     DROP TABLE log4jLogs;
@@ -282,8 +282,8 @@ hdfs dfs -ls adl:///
 `hdfs dfs -put` 명령을 사용하여 일부 파일을 Data Lake Storage Gen1에 업로드한 다음, `hdfs dfs -ls`를 사용하여 파일이 성공적으로 업로드되었는지 여부를 확인할 수도 있습니다.
 
 ## <a name="see-also"></a>참고 항목
-* [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Azure Portal: HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[makecert]: /windows-hardware/drivers/devtest/makecert
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

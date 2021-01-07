@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 2a03b791f37868010e107214ddcb7cf42174e4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85833556"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법
@@ -87,7 +87,7 @@ TLS/SSL 인증서가 성공적으로 생성 되 고 base64 인코딩 문자열�
 * *existingAseLocation*: ILB ASE가 배포된 Azure 지역을 포함하는 텍스트 문자열입니다.  예를 들어 "미국 중남부"입니다.
 * *pfxBlobString*: .pfx 파일의 Base64 인코딩 문자열 표현입니다.  앞서 표시된 코드 조각을 사용하여 "exportedcert.pfx.b64"에 포함된 문자열을 복사한 후 *pfxBlobString* 특성의 값으로 붙여 넣습니다.
 * *암호*: .pfx 파일의 보안을 유지 하는 데 사용 되는 암호입니다.
-* *certificateThumbprint*: 인증서의 지문입니다.  PowerShell에서이 값을 검색 하는 경우 (예: *$certificate. *이전 코드 조각의 지문) 값을 그대로 사용할 수 있습니다.  그러나 Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다.  *CertificateThumbprint* 는 다음과 유사 하 게 표시 됩니다. AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateThumbprint*: 인증서의 지문입니다.  PowerShell에서이 값을 검색 하는 경우 (예: *$certificate. * 이전 코드 조각의 지문) 값을 그대로 사용할 수 있습니다.  그러나 Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다.  *CertificateThumbprint* 는 다음과 유사 하 게 표시 됩니다. AF3143EB61D43F6727842115BB7F17BBCECAECAE
 * *certificateName*: 인증서를 식별하는 데 사용되는 직접 선택한 친숙한 문자열 식별자입니다.  이 이름은 TLS/SSL 인증서를 나타내는 *Microsoft 웹/인증서* 엔터티에 대 한 고유 Azure Resource Manager 식별자의 일부로 사용 됩니다.  이름은 다음 접미사 \_yourASENameHere_InternalLoadBalancingASE와 함께 종료**해야** 합니다.  이 접미사는 포털에서 인증서가 ILB 지원 ASE 보안에 사용되는 표시기로 사용됩니다.
 
 *azuredeploy.parameters.json* 을 축약한 예는 다음과 같습니다.
@@ -119,7 +119,7 @@ TLS/SSL 인증서가 성공적으로 생성 되 고 base64 인코딩 문자열�
 }
 ```
 
-파일 *에azuredeploy.parameters.js* 입력 한 후에는 다음 PowerShell 코드 조각을 사용 하 여 기본 TLS/SSL 인증서를 구성할 수 있습니다.  컴퓨터에 Azure Resource Manager 템플릿 파일이 있는 위치와 일치 하도록 파일 경로를 변경 합니다.  또한 Azure Resource Manager 배포 이름 및 리소스 그룹 이름에 대해 고유한 값을 제공해야 합니다.
+파일 * 에azuredeploy.parameters.js* 입력 한 후에는 다음 PowerShell 코드 조각을 사용 하 여 기본 TLS/SSL 인증서를 구성할 수 있습니다.  컴퓨터에 Azure Resource Manager 템플릿 파일이 있는 위치와 일치 하도록 파일 경로를 변경 합니다.  또한 Azure Resource Manager 배포 이름 및 리소스 그룹 이름에 대해 고유한 값을 제공해야 합니다.
 
 ```azurepowershell-interactive
 $templatePath="PATH\azuredeploy.json"

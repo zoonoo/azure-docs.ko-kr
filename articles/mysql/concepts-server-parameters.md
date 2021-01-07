@@ -1,17 +1,17 @@
 ---
 title: 서버 매개 변수-Azure Database for MySQL
 description: 이 항목에서는 Azure Database for MySQL에서 서버 매개 변수를 구성 하기 위한 지침을 제공 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258558"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534911"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -31,7 +31,7 @@ Azure Database for MySQL는 [Azure Portal](./howto-server-parameters.md), [Azure
 
 ### <a name="thread-pools"></a>스레드 풀
 
-MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 할당 합니다. 동시 사용자 수가 증가 함에 따라 성능이 저하 됩니다. 많은 활성 스레드는 컨텍스트 전환 증가, 스레드 경합 및 CPU 캐시의 잘못 된 집약성으로 인해 성능에 크게 영향을 줄 수 있습니다.
+MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 할당 합니다. 동시 사용자 수가 증가 함에 따라 formance에 해당 하는 놓기가 있습니다. 많은 활성 스레드는 컨텍스트 전환 증가, 스레드 경합 및 CPU 캐시의 잘못 된 집약성으로 인해 성능에 크게 영향을 줄 수 있습니다.
 
 서버 쪽 기능이 며 연결 풀링과는 다른 스레드 풀은 서버에서 실행 되는 활성 스레드 수를 제한 하 고 스레드 변동 (code churn)을 최소화 하는 데 사용할 수 있는 작업자 스레드의 동적 풀을 도입 하 여 성능을 최대화 합니다. 이렇게 하면 연결 버스트로 인해 서버에서 리소스가 부족 하거나 메모리 부족 오류가 발생 하 여 작동이 중단 되지 않도록 할 수 있습니다. 스레드 풀은 OLTP 워크 로드와 같이 짧은 쿼리와 CPU 집약적 워크 로드에 가장 효율적입니다.
 
@@ -54,6 +54,12 @@ MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 �
 
 > [!IMPORTANT]
 > 프로덕션 환경에서 설정 하기 전에 스레드 풀을 테스트 하세요. 
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+Azure Database for MySQL 이진 로그는 항상 사용 하도록 설정 되어 있습니다. 즉, `log_bin` 가 ON으로 설정 되어 있습니다. 트리거를 사용 하려는 경우에는 *슈퍼 권한이 없고 이진 로깅이 사용 하도록 설정 된 `log_bin_trust_function_creators`* 것과 유사한 오류가 발생 합니다. 즉, 안전 하지 않은 변수를 사용 하는 것이 좋습니다. 
+
+이진 로깅 형식은 항상 **행** 이며 서버에 대 한 모든 연결은 **항상** 행 기반 이진 로깅을 사용 합니다. 행 기반 이진 로깅을 사용할 경우 보안 문제가 존재 하지 않으며 이진 로깅이 중단 되지 않으므로 안전 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) 하 게를 **TRUE** 로 설정할 수 있습니다.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -100,9 +106,9 @@ MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 �
 > [!NOTE]
 > `innodb_file_per_table` 은 범용 및 메모리 액세스에 최적화 된 가격 책정 계층 에서만 업데이트할 수 있습니다.
 
-MySQL은 테이블을 만드는 동안 제공된 구성에 따라 InnoDB 테이블을 다른 테이블스페이스에 저장합니다. [시스템 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html)는 InnoDB 데이터 사전의 스토리지 영역입니다. [file-per-table 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html)에는 단일 InnoDB 테이블에 대한 데이터 및 인덱스를 포함하며 파일 시스템에 자체 데이터 파일로 저장됩니다. 이 동작은 `innodb_file_per_table` 서버 매개 변수에 의해 제어됩니다. `innodb_file_per_table`을 `OFF`로 설정하면 InnoDB가 시스템 테이블스페이스에 테이블을 만듭니다. 아니면 InnoDB가 file-per-table 테이블스페이스에 테이블을 만듭니다.
+MySQL은 테이블을 만드는 동안 제공된 구성에 따라 InnoDB 테이블을 다른 테이블스페이스에 저장합니다. [시스템 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html)는 InnoDB 데이터 사전의 스토리지 영역입니다. [file-per-table 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html)에는 단일 InnoDB 테이블에 대한 데이터 및 인덱스를 포함하며 파일 시스템에 자체 데이터 파일로 저장됩니다. 이 동작은 `innodb_file_per_table` 서버 매개 변수에 의해 제어됩니다. `innodb_file_per_table`을 `OFF`로 설정하면 InnoDB가 시스템 테이블스페이스에 테이블을 만듭니다. 그렇지 않으면 InnoDB는 file-per-table 테이블스페이스에 테이블을 만듭니다.
 
-Azure Database for MySQL는 단일 데이터 파일에서 최대 **1TB**를 지원합니다. 데이터베이스 크기가 1TB보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 1TB보다 큰 경우에는 파티션 테이블을 사용해야 합니다.
+Azure Database for MySQL는 단일 데이터 파일에서 최대 **4 TB** 를 지원 합니다. 데이터베이스 크기가 2TB 보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블 스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 4 TB 보다 큰 경우 파티션 테이블을 사용 해야 합니다.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -209,12 +215,12 @@ Lower_case_table_name은 기본적으로 1로 설정 되며 MySQL 5.6 및 MySQL 
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-"행 크기 너무 큼 (> 8126)"과 유사한 오류가 표시 되는 경우 매개 변수 **innodb_strict_mode**를 해제할 수 있습니다. 행 데이터 크기가 8k 보다 크면 서버 매개 변수 **innodb_strict_mode** 를 서버 수준에서 전역적으로 수정할 수 없습니다. 데이터가 손실 될 수 있으므로 오류가 발생 하지 않고 데이터가 잘립니다. 페이지 크기 제한에 맞게 스키마를 수정 하는 것이 좋습니다. 
+"행 크기 너무 큼 (> 8126)"과 유사한 오류가 표시 되는 경우 매개 변수 **innodb_strict_mode** 를 해제할 수 있습니다. 행 데이터 크기가 8k 보다 크면 서버 매개 변수 **innodb_strict_mode** 를 서버 수준에서 전역적으로 수정할 수 없습니다. 데이터가 손실 될 수 있으므로 오류가 발생 하지 않고 데이터가 잘립니다. 페이지 크기 제한에 맞게 스키마를 수정 하는 것이 좋습니다. 
 
-이 매개 변수는를 사용 하 여 세션 수준에서 설정할 수 있습니다 `init_connect` . 세션 수준에서 **innodb_strict_mode** 설정 하려면 [나열 되지 않은 매개 변수 설정](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed)을 참조 하세요.
+이 매개 변수는를 사용 하 여 세션 수준에서 설정할 수 있습니다 `init_connect` . 세션 수준에서 **innodb_strict_mode** 설정 하려면 [나열 되지 않은 매개 변수 설정](./howto-server-parameters.md#setting-parameters-not-listed)을 참조 하세요.
 
 > [!NOTE]
-> 복제 서버를 복제 하는 경우 마스터 서버의 세션 수준에서 **innodb_strict_mode** 을 OFF로 설정 하면 복제가 중단 됩니다. 복제본을 읽은 경우 매개 변수를 OFF로 설정 하는 것이 좋습니다.
+> 복제 서버를 복제 하는 경우 원본 서버의 세션 수준에서 **innodb_strict_mode** 을 OFF로 설정 하면 복제가 중단 됩니다. 복제본을 읽은 경우 매개 변수를 OFF로 설정 하는 것이 좋습니다.
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 

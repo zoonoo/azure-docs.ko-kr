@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 특정 Android 앱에 푸시 알림 보내기
-description: Azure Notification Hubs를 사용하여 특정 사용자에게 푸시 알림을 보내는 방법을 알아봅니다.
+description: Azure Notification Hubs를 사용하여 특정 Android 앱에 푸시 알림을 보내는 방법을 알아봅니다.
 documentationcenter: android
 services: notification-hubs
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: fae8e4d57f8b0fc1b89309d68bf7e21dce86f3fa
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 870842074bb4a0012a48115586a8ad571275d470
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317521"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022414"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Android 앱에 푸시 알림 보내기
 
@@ -485,13 +485,13 @@ ms.locfileid: "87317521"
 
 1. Android Studio를 사용하여 디바이스 또는 에뮬레이터에서 애플리케이션을 실행합니다.
 2. Android 앱에서 사용자 이름과 암호를 입력합니다. 둘 다 동일한 문자열 값이어야 하며 공백이나 특수 문자를 포함해서는 안 됩니다.
-3. Android 앱에서 **로그인**을 클릭합니다. **로그인 및 등록됨**를 알리는 알림 메시지를 기다립니다. 이렇게 하면 **알림 보내기** 단추가 사용되도록 설정됩니다.
+3. Android 앱에서 **로그인** 을 클릭합니다. **로그인 및 등록됨** 를 알리는 알림 메시지를 기다립니다. 이렇게 하면 **알림 보내기** 단추가 사용되도록 설정됩니다.
 
     ![로그인 후 사용자에게 알릴 Notification Hubs 앱의 모양을 보여주는 에뮬레이터의 스크린샷.][A2]
 4. 토글 단추를 클릭하여 앱을 실행하고 사용자를 등록한 모든 플랫폼을 활성화합니다.
 5. 알림 메시지를 받을 사용자의 이름을 입력합니다. 대상 디바이스에 이 사용자에 대한 알림이 등록되어 있어야 합니다.
 6. 사용자가 푸시 알림 메시지로 받을 메시지를 입력합니다.
-7. **Send Notification**을 클릭합니다.  일치하는 사용자 이름 태그로 등록된 각 디바이스에 푸시 알림이 수신됩니다.
+7. **Send Notification** 을 클릭합니다.  일치하는 사용자 이름 태그로 등록된 각 디바이스에 푸시 알림이 수신됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

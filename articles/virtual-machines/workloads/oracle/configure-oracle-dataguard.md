@@ -1,25 +1,19 @@
 ---
 title: Azure Linux 가상 머신에서 Oracle Data Guard 구현 | Microsoft Docs
 description: Azure 환경에서 Oracle Data Guard를 신속하게 가동하고 실행합니다.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: rgardler
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.reviewer: cynthn
+ms.openlocfilehash: cc7579b48307325e25d8914ea4c722a9641883f3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083381"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952151"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에서 Oracle Data Guard 구현 
 
@@ -57,7 +51,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-가용성 집합 만들기는 선택 사항이지만 만드는 것이 좋습니다. 자세한 내용은 [Azure 가용성 집합 지침](../../windows/infrastructure-example.md)을 참조하세요.
+가용성 집합 만들기는 선택 사항이지만 만드는 것이 좋습니다. 자세한 내용은 [Azure 가용성 집합 지침](/previous-versions/azure/virtual-machines/windows/infrastructure-example)을 참조하세요.
 
 ```azurecli
 az vm availability-set create \
@@ -282,7 +276,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-플래시 백를 켜고 (복구를 훨씬 더 용이 하 게 함) 대기 \_ 파일 \_ 관리를 자동으로 설정 합니다. SQL * Plus를 종료 합니다.
+플래시 백 (복구를 훨씬 더 용이 하 게 함)를 켜고 대기 \_ 파일 \_ 관리를 자동으로 설정 합니다. 그런 다음 SQL * Plus를 종료 합니다.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;

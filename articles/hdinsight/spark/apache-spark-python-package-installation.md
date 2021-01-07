@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight에서 Jupyter를 사용한 Python 패키지용 스크립트 작업
-description: 스크립트 작업을 사용하여 HDInsight Spark 클러스터와 함께 제공되는 Jupyter 노트북에서 외부 python 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다.
+description: 스크립트 작업을 사용 하 여 HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 외부 python 패키지를 사용 하도록 구성 하는 방법에 대 한 단계별 지침입니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 21423f7200d25c9a5b3b63d2371e56977cd9d227
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060750"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821378"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
-HDInsight는 Spark 클러스터에서 두 개의 기본 제공 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 고객은 Python 환경을 사용자 지정해야 할 수 있습니다. 외부 Python 패키지 또는 다른 Python 버전을 설치하는 것과 같습니다. 여기서는 HDInsight에서 Apache Spark 클러스터에 대한 Python 환경을 안전하게 관리하는 모범 사례를 소개합니다.
+HDInsight는 Spark 클러스터에서 두 개의 기본 제공 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 고객은 외부 Python 패키지 설치와 같은 Python 환경을 사용자 지정 해야 할 수 있습니다. 여기서는 HDInsight에서 Apache Spark 클러스터에 대한 Python 환경을 안전하게 관리하는 모범 사례를 소개합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +37,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 > [!IMPORTANT]
 > HDInsight 클러스터에 제공되는 구성 요소는 완벽히 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하도록 도와줍니다.
 >
-> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원을 통해 문제를 해결할 수 있습니다. 또는 해당 기술에 대한 전문 지식이 있는 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요청할 수 있습니다. 예를 들어 [HDInsight에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), `https://stackoverflow.com` 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. 또한 Apache 프로젝트는 `https://apache.org`에 프로젝트 사이트가 있습니다.
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원을 통해 문제를 해결할 수 있습니다. 또는 해당 기술에 대한 전문 지식이 있는 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요청할 수 있습니다. 예를 들어 [HDInsight에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-hdinsight.html), `https://stackoverflow.com` 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. 또한 Apache 프로젝트는 `https://apache.org`에 프로젝트 사이트가 있습니다.
 
 ## <a name="understand-default-python-installation"></a>기본 Python 설치 이해
 
@@ -46,8 +46,8 @@ Anaconda 설치를 사용하여 HDInsight Spark 클러스터를 만듭니다. �
 |설정 |Python 2.7|Python 3.5|
 |----|----|----|
 |경로|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark 버전|2\.7로 기본 설정|해당 없음|
-|Livy 버전|2\.7로 기본 설정|해당 없음|
+|Spark 버전|2\.7로 기본 설정|Config를 3.5으로 변경할 수 있습니다.|
+|Livy 버전|2\.7로 기본 설정|Config를 3.5으로 변경할 수 있습니다.|
 |Jupyter|PySpark 커널|PySpark3 커널|
 
 ## <a name="safely-install-external-python-packages"></a>외부 Python 패키지를 안전하게 설치
@@ -81,7 +81,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
     - 또는 PyPi 리포지토리를 사용하고 `seaborn` 및 `py35new`를 이에 맞춰 변경합니다.
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
         ```
 
     특정 버전의 라이브러리를 설치하려면 아래 명령을 사용하세요.
@@ -98,7 +98,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
     - 또는 PyPi 리포지토리를 사용하고 `numpy==1.16.1` 및 `py35new`를 이에 맞춰 변경합니다.
 
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
         ```
 
     가상 환경 이름을 모르는 경우 클러스터의 헤드 노드로 SSH를 실행하고 `/usr/bin/anaconda/bin/conda info -e`를 실행하여 모든 가상 환경을 표시할 수 있습니다.
@@ -130,6 +130,24 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
         ![서비스 다시 시작](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
+    5. 작업이 업데이트 된 spark 구성 (및)을 가리키도록 하기 위해 Spark 세션에 두 속성을 설정 `spark.yarn.appMasterEnv.PYSPARK_PYTHON` 합니다 `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
+
+        터미널 또는 노트북을 사용 하 여 함수를 사용 `spark.conf.set` 합니다.
+
+        ```spark
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        ```
+
+        Livy를 사용 하는 경우 요청 본문에 다음 속성을 추가 합니다.
+
+        ```
+        “conf” : {
+        “spark.yarn.appMasterEnv.PYSPARK_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”,
+        “spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”
+        }
+        ```
+
 4. Jupyter에서 새로 만든 가상 환경을 사용하려는 경우 다음과 같이 합니다. Jupyter 구성을 변경하고 Jupyter를 다시 시작합니다. 아래의 문을 사용하여 모든 헤더 노드에서 스크립트 작업을 실행하여 Jupyter가 새로 생성된 가상 환경을 가리키도록 합니다. 가상 환경을 대상으로 지정한 접두사의 경로를 수정해야 합니다. 이 스크립트 작업을 실행한 후 Ambari UI를 통해 Jupyter 서비스를 다시 시작하여 이 변경 내용을 적용합니다.
 
     ```bash
@@ -149,5 +167,5 @@ Anaconda 버전을 확인하려면 클러스터 헤더 노드로 SSH를 실행�
 ## <a name="next-steps"></a>다음 단계
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
-* [Apache Spark에서 Jupyter Notebook을 사용하는 외부 패키지](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Apache Spark에서 Jupyter 노트북을 사용 하는 외부 패키지](apache-spark-jupyter-notebook-use-external-packages.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)

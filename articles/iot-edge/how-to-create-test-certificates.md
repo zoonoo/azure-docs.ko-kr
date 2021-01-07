@@ -8,14 +8,14 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430671"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927705"
 ---
-# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 장치 기능 테스트
+# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 
 IoT Edge 장치에는 런타임, 모듈 및 다운스트림 장치 간의 보안 통신용 인증서가 필요 합니다.
 필요한 인증서를 만들 수 있는 인증 기관이 없는 경우 데모 인증서를 사용 하 여 테스트 환경에서 IoT Edge 기능을 사용해 볼 수 있습니다.
@@ -32,9 +32,9 @@ IoT Edge 시나리오를 테스트 하기 위한 데모 인증서를 만들려�
 1. 장치에서 인증서를 생성 하는 [스크립트를 설정](#set-up-scripts) 합니다.
 2. 시나리오에 대 한 다른 모든 인증서에 서명 하는 데 사용 하는 [루트 CA 인증서를 만듭니다](#create-root-ca-certificate) .
 3. 테스트 하려는 시나리오에 필요한 인증서를 생성 합니다.
-   * IoT Hub Device Provisioning Service를 사용 하 여 자동 프로비저닝을 테스트 하려면 [IoT Edge 장치 id 인증서를 만듭니다](#create-iot-edge-device-identity-certificates) .
-   * 프로덕션 시나리오 또는 게이트웨이 시나리오를 테스트 하려면 [IoT Edge 장치 CA 인증서를 만듭니다](#create-iot-edge-device-ca-certificates) .
-   * 게이트웨이 시나리오에서 IoT Hub에 대 한 다운스트림 장치 인증을 테스트 하는 [다운스트림 장치 인증서를 만듭니다](#create-downstream-device-certificates) .
+   * IoT Hub Device Provisioning Service를 사용 하 여 자동 프로비저닝을 위한 [IoT Edge 장치 id 인증서를 만듭니다](#create-iot-edge-device-identity-certificates) .
+   * 게이트웨이 시나리오에서 IoT Edge 장치에 대 한 [IoT Edge 장치 CA 인증서를 만듭니다](#create-iot-edge-device-ca-certificates) .
+   * 게이트웨이 시나리오에서 다운스트림 장치를 인증 하기 위한 [다운스트림 장치 인증서를 만듭니다](#create-downstream-device-certificates) .
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -53,7 +53,7 @@ Windows 장치에서 데모 인증서를 만들려면 OpenSSL을 설치한 다�
 #### <a name="install-openssl"></a>OpenSSL 설치
 
 인증서를 생성하는 데 사용하는 머신에서 Windows용 OpenSSL을 설치합니다.
-Windows 장치에 OpenSSL가 이미 설치 되어 있는 경우이 단계를 건너뛸 수 있지만 PATH 환경 변수에서 openssl.exe를 사용할 수 있는지 확인 합니다.
+Windows 장치에 OpenSSL가 이미 설치 되어 있는 경우 PATH 환경 변수에서 openssl.exe를 사용할 수 있는지 확인 합니다.
 
 다음 옵션을 포함 하 여 OpenSSL를 설치 하는 몇 가지 방법이 있습니다.
 
@@ -163,7 +163,7 @@ Windows 장치에서 데모 인증서를 만들려면 생성 스크립트를 복
    New-CACertsCertChain rsa
    ```
 
-   이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서**를 요청 하는 경우 다음 파일을 사용 합니다.
+   이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서** 를 요청 하는 경우 다음 파일을 사용 합니다.
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,13 +177,13 @@ Windows 장치에서 데모 인증서를 만들려면 생성 스크립트를 복
    ./certGen.sh create_root_and_intermediate
    ```
 
-   이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서**를 요청 하는 경우 다음 파일을 사용 합니다.
+   이 스크립트 명령은 여러 인증서 및 키 파일을 만들지만, 아티클이 **루트 CA 인증서** 를 요청 하는 경우 다음 파일을 사용 합니다.
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>IoT Edge 장치 id 인증서 만들기
 
-장치 id 인증서는 [DPS (Azure IoT Hub 장치 프로 비전 서비스)](../iot-dps/index.yml)를 통해 IoT Edge 장치를 프로 비전 하는 데 사용 됩니다.
+장치 id 인증서는 DPS (Azure IoT Hub 장치 프로 비전 서비스)를 통해 IoT Edge 장치를 프로 비전 하는 데 사용 됩니다.
 
 장치 id 인증서는 IoT Edge 장치에서 config.xml 파일의 **프로 비전** 섹션으로 이동 합니다.
 
@@ -247,8 +247,6 @@ New-CACertsEdgeDeviceIdentity "<name>"
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
 **CACertsEdgeDevice** 명령에 전달 된 이름은 config.xml의 hostname 매개 변수 또는 IoT Hub의 장치 ID와 달라 야 합니다.
-이 스크립트는 사용자가 두 위치에서 같은 이름을 사용 하 여 IoT Edge를 설정 하는 경우 이름 충돌을 방지 하기 위해 ". ca" 문자열을 인증서 이름에 추가 하 여 문제를 방지 하는 데 도움이 됩니다.
-하지만 같은 이름은 사용하지 않는 것이 좋습니다.
 
 ### <a name="linux"></a>Linux
 
@@ -257,7 +255,7 @@ New-CACertsEdgeDeviceIdentity "<name>"
 2. 다음 명령을 사용 하 여 IoT Edge 장치 CA 인증서와 개인 키를 만듭니다. CA 인증서의 이름을 제공 합니다.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    이 스크립트 명령은 여러 인증서 및 키 파일을 만듭니다. 다음 인증서 및 키 쌍을 IoT Edge 장치에 복사 하 여 config.xml 파일에서 참조 해야 합니다.
@@ -265,9 +263,7 @@ New-CACertsEdgeDeviceIdentity "<name>"
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-**Create_edge_device_certificate** 명령으로 전달 되는 이름은 config.xml의 hostname 매개 변수 또는 IoT Hub의 장치 ID와 달라 야 합니다.
-이 스크립트는 사용자가 두 위치에서 같은 이름을 사용 하 여 IoT Edge를 설정 하는 경우 이름 충돌을 방지 하기 위해 ". ca" 문자열을 인증서 이름에 추가 하 여 문제를 방지 하는 데 도움이 됩니다.
-하지만 같은 이름은 사용하지 않는 것이 좋습니다.
+**Create_edge_device_ca_certificate** 명령으로 전달 되는 이름은 config.xml의 hostname 매개 변수 또는 IoT Hub의 장치 ID와 달라 야 합니다.
 
 ## <a name="create-downstream-device-certificates"></a>다운스트림 장치 인증서 만들기
 
@@ -293,7 +289,7 @@ IoT 장치에는 IoT Hub를 사용 하 여 인증할 수 있도록 장치 인증
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동 합니다.
 
-2. 다운스트림 장치에 대해 두 개의 인증서 (기본 및 보조)를 만듭니다. 사용 하기 쉬운 명명 규칙은 IoT 장치의 이름과 기본 또는 보조 레이블을 사용 하 여 인증서를 만드는 것입니다. 예를 들어:
+2. 다운스트림 장치에 대해 두 개의 인증서 (기본 및 보조)를 만듭니다. 사용 하기 쉬운 명명 규칙은 IoT 장치의 이름과 기본 또는 보조 레이블을 사용 하 여 인증서를 만드는 것입니다. 예를 들면 다음과 같습니다.
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -323,7 +319,7 @@ IoT 장치에는 IoT Hub를 사용 하 여 인증할 수 있도록 장치 인증
 
 1. 인증서 생성 스크립트 및 루트 CA 인증서가 있는 작업 디렉터리로 이동 합니다.
 
-2. 다운스트림 장치에 대해 두 개의 인증서 (기본 및 보조)를 만듭니다. 사용 하기 쉬운 명명 규칙은 IoT 장치의 이름과 기본 또는 보조 레이블을 사용 하 여 인증서를 만드는 것입니다. 예를 들어:
+2. 다운스트림 장치에 대해 두 개의 인증서 (기본 및 보조)를 만듭니다. 사용 하기 쉬운 명명 규칙은 IoT 장치의 이름과 기본 또는 보조 레이블을 사용 하 여 인증서를 만드는 것입니다. 예를 들면 다음과 같습니다.
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

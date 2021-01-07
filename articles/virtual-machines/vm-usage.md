@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b845d547224fb173d2a4b156575778783e0281fa
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322925"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488568"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
 Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../cost-management-billing/understand/review-individual-bill.md)로 이동합니다.
@@ -37,7 +37,7 @@ Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리�
 | 사용되는 서비스 | 사용한 Azure 플랫폼 서비스입니다.| `Microsoft.Compute`|
 | 리소스 그룹 | 배포된 리소스가 실행되는 리소스 그룹입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요.|`MyRG`|
 | 인스턴스 ID | 리소스에 대한 식별자입니다. 식별자를 만들 때 리소스에 대해 지정한 이름을 포함합니다. VM의 경우 인스턴스 ID는 SubscriptionId, ResourceGroupName 및 VMName(또는 확장 집합 사용에 대한 확장 집합 이름)을 포함합니다.| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>또는<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
-| 태그들| 리소스에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다. [CLI](./linux/tag.md) 또는 [PowerShell](./windows/tag.md) 을 사용 하 여 Virtual Machines 태그를 만드는 방법에 대해 알아봅니다 .이는 리소스 관리자 vm에만 사용할 수 있습니다.| `{"myDepartment":"RD","myUser":"myName"}`|
+| 태그들| 리소스에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다. [CLI](./tag-cli.md) 또는 [PowerShell](./tag-portal.md) 을 사용 하 여 Virtual Machines 태그를 만드는 방법에 대해 알아봅니다 .이는 리소스 관리자 vm에만 사용할 수 있습니다.| `{"myDepartment":"RD","myUser":"myName"}`|
 | 추가 정보 | 서비스 특정 메타데이터입니다. VM에 대해 추가 정보 필드에 다음 데이터를 채웁니다. <br><br> 이미지 형식 - 실행한 특정 이미지. 이미지 형식 아래에서 지원되는 문자열의 전체 목록을 찾습니다.<br><br> 서비스 형식: 배포한 크기입니다.<br><br> VMName: VM 이름입니다. 이 필드는 확장 집합 VM에 대해서만 채워집니다. 확장 집합 VM에 VM 이름이 필요한 경우 위의 인스턴스 ID 문자열에서 확인할 수 있습니다.<br><br> UsageType: 이 항목이 나타내는 사용 유형을 지정합니다.<br><br> ComputeHR은 Standard_D1_v2 같은 기본 VM의 컴퓨팅 시간 사용입니다.<br><br> ComputeHR_SW는 Microsoft R Server처럼 VM이 프리미엄 소프트웨어를 사용할 경우 프리미엄 소프트웨어 요금입니다. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>프리미엄 소프트웨어<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>이미지 형식
@@ -59,7 +59,7 @@ Azure 갤러리의 일부 이미지의 경우 추가 정보 필드에 이미지 
 - Windows Server 미리 보기 
 
 ## <a name="service-type"></a>서비스 유형
-추가 정보 필드에 있는 서비스 유형 필드는 배포한 정확한 VM 크기에 해당합니다. Premium Storage VM(SSD 기반) 및 비 Premium Storage VM(HDD 기반)은 같은 가격이 책정됩니다. 표준 d s 2 v 2와 같은 SSD 기반 크기를 배포 하는 경우 \_ \_ 미터 하위 범주 열에 비 ssd 크기 ()가 표시 되 `Standard\_D2\_v2 VM` 고 `Standard\_DS2\_v2` 추가 정보 필드에 ssd 크기 ()가 표시 됩니다.
+추가 정보 필드에 있는 서비스 유형 필드는 배포한 정확한 VM 크기에 해당합니다. Premium Storage VM(SSD 기반) 및 비 Premium Storage VM(HDD 기반)은 같은 가격이 책정됩니다. 표준 d s 2 v 2와 같은 SSD 기반 크기를 배포 하는 경우 \_ \_ 추가 정보 필드에는 ssd 크기 ( `Standard\_D2\_v2 VM` )가 측정기 Sub-Category 열에 표시 되 고 ssd 크기 ( `Standard\_DS2\_v2` )가 표시 됩니다.
 
 ## <a name="region-names"></a>지역 이름
 사용 세부 정보의 리소스 위치 필드에 채워진 지역 이름은 Azure Resource Manager에서 사용된 지역 이름마다 다릅니다. 지역 값 사이의 매핑은 다음과 같습니다.

@@ -4,16 +4,17 @@ description: Azure Cosmos DB에서 지역 추가, 처리량 업데이트, 지역
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: a0feaf4a984f40ddee7a30291fe0a8f671b6512a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462448"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636846"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure Cosmos DB 제어 평면 작업을 감사 하는 방법
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB의 컨트롤 평면은 Azure Cosmos 계정에서 다양 한 작업 집합을 수행할 수 있는 RESTful 서비스입니다. 리소스 모델에 대 한 작업을 수행 하기 위해 공용 리소스 모델 (예: 데이터베이스, 계정) 및 다양 한 작업을 노출 합니다. 제어 평면 작업에는 Azure Cosmos 계정 또는 컨테이너에 대 한 변경 내용이 포함 됩니다. 예를 들어 Azure Cosmos 계정 만들기, 지역 추가, 처리량 업데이트, 지역 장애 조치 (failover), VNet 추가 등의 작업은 제어 평면 작업 중 일부입니다. 이 문서에서는 Azure Cosmos DB에서 제어 평면 작업을 감사 하는 방법을 설명 합니다. Azure CLI, PowerShell 또는 Azure Portal를 사용 하 여 Azure Cosmos 계정에 대 한 제어 평면 작업을 실행할 수 있지만 컨테이너의 경우 Azure CLI 또는 PowerShell을 사용 합니다.
 
@@ -27,7 +28,7 @@ Azure Cosmos DB의 컨트롤 평면은 Azure Cosmos 계정에서 다양 한 작�
 
 ## <a name="disable-key-based-metadata-write-access"></a>키 기반 메타 데이터 쓰기 액세스 사용 안 함
 
-Azure Cosmos DB에서 제어 평면 작업을 감사 하기 전에 계정에 대 한 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 합니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하면 계정 키를 통해 Azure Cosmos 계정에 연결 하는 클라이언트가 계정에 액세스할 수 없습니다. 속성을 true로 설정 하 여 쓰기 액세스를 비활성화할 수 있습니다 `disableKeyBasedMetadataWriteAccess` . 이 속성을 설정한 후에는 적절 한 RBAC (역할 기반 액세스 제어) 역할 및 자격 증명을 사용 하는 사용자가 리소스에 대 한 변경 내용을 수행할 수 있습니다. 이 속성을 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#prevent-sdk-changes) 문서를 참조 하세요. 
+Azure Cosmos DB에서 제어 평면 작업을 감사 하기 전에 계정에 대 한 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 합니다. 키 기반 메타 데이터 쓰기 액세스를 사용 하지 않도록 설정 하면 계정 키를 통해 Azure Cosmos 계정에 연결 하는 클라이언트가 계정에 액세스할 수 없습니다. 속성을 true로 설정 하 여 쓰기 액세스를 비활성화할 수 있습니다 `disableKeyBasedMetadataWriteAccess` . 이 속성을 설정한 후에는 적절 한 Azure 역할 및 자격 증명이 있는 사용자가 모든 리소스에 대 한 변경 내용을 수행할 수 있습니다. 이 속성을 설정 하는 방법에 대 한 자세한 내용은 [sdk에서 변경 방지](role-based-access-control.md#prevent-sdk-changes) 문서를 참조 하세요. 
 
 `disableKeyBasedMetadataWriteAccess`가 설정 된 후 SDK 기반 클라이언트가 만들기 또는 업데이트 작업을 실행 하는 경우 *' ContainerNameorDatabaseName ' 리소스에 대 한 작업 ' POST '는 Azure Cosmos DB 끝점이 반환 될 수 없습니다* . 계정에 대 한 이러한 작업에 대 한 액세스를 설정 하거나 Azure Resource Manager, Azure CLI 또는 Azure PowerShell를 통해 만들기/업데이트 작업을 수행 해야 합니다. 다시 전환 하려면 [COSMOS SDK에서 변경 방지](role-based-access-control.md#prevent-sdk-changes) 문서에 설명 된 대로 Azure CLI를 사용 하 여 disableKeyBasedMetadataWriteAccess을 **false** 로 설정 합니다. 의 값을 `disableKeyBasedMetadataWriteAccess` true 대신 false로 변경 해야 합니다.
 
@@ -170,29 +171,29 @@ API 관련 작업의 경우 작업은 다음과 같은 형식으로 이름이 �
 다음은 제어 평면 작업에 대 한 진단 로그를 가져오는 몇 가지 예입니다.
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 컨테이너 삭제 작업을 시작한 호출자와 호출자를 가져오는 쿼리:
@@ -209,6 +210,21 @@ AzureActivity
 | summarize by Caller, HTTPRequest, activityId_g)
 on activityId_g
 | project Caller, activityId_g
+```
+
+인덱스 또는 ttl 업데이트를 가져오기 위한 쿼리입니다. 그런 다음이 쿼리의 출력을 이전 업데이트와 비교 하 여 인덱스 또는 ttl의 변경 내용을 확인할 수 있습니다.
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**출력**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
 ```
 
 ## <a name="next-steps"></a>다음 단계

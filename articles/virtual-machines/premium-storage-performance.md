@@ -4,15 +4,15 @@ description: Azure 프리미엄 SSD 관리 디스크를 사용하여 고성능 �
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: acdddcd95883d13393838a47281fb888ac2f9274
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650706"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500396"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -50,7 +50,7 @@ Premium Storage에서 실행되는 작업은 성능이 매우 중요하므로 �
 
 ## <a name="iops"></a>IOPS
 
-IOPS, 즉 초당 입/출력 작업은 애플리케이션에서 스토리지 디스크에 1초 동안 보내는 요청 수입니다. 입력/출력 작업은 읽기나 쓰기, 순차 또는 임의가 될 수 있습니다. 온라인 소매 웹 사이트와 같은 OLTP(온라인 트랜잭션 처리) 애플리케이션은 많은 동시 사용자 요청을 즉시 처리해야 합니다. 사용자 요청은 애플리케이션에서 신속하게 처리해야 할 삽입 및 업데이트 집약적 데이터베이스 트랜잭션입니다. 따라서 OLTP 애플리케이션에는 매우 높은 IOPS가 필요합니다. 이러한 애플리케이션에서는 수백만 개의 작고 임의의 IO 요청을 처리합니다. 이러한 애플리케이션을 사용하는 경우 IOPS에 대해 최적화하기 위해 애플리케이션 인프라를 설계해야 합니다. 이후 섹션 *애플리케이션 성능 최적화*에서 높은 IOPS를 얻기 위해는 고려해야 하는 모든 요소를 자세히 설명합니다.
+IOPS, 즉 초당 입/출력 작업은 애플리케이션에서 스토리지 디스크에 1초 동안 보내는 요청 수입니다. 입력/출력 작업은 읽기나 쓰기, 순차 또는 임의가 될 수 있습니다. 온라인 소매 웹 사이트와 같은 OLTP(온라인 트랜잭션 처리) 애플리케이션은 많은 동시 사용자 요청을 즉시 처리해야 합니다. 사용자 요청은 애플리케이션에서 신속하게 처리해야 할 삽입 및 업데이트 집약적 데이터베이스 트랜잭션입니다. 따라서 OLTP 애플리케이션에는 매우 높은 IOPS가 필요합니다. 이러한 애플리케이션에서는 수백만 개의 작고 임의의 IO 요청을 처리합니다. 이러한 애플리케이션을 사용하는 경우 IOPS에 대해 최적화하기 위해 애플리케이션 인프라를 설계해야 합니다. 이후 섹션 *애플리케이션 성능 최적화* 에서 높은 IOPS를 얻기 위해는 고려해야 하는 모든 요소를 자세히 설명합니다.
 
 높은 확장성의 VM에 Premium Storage에 디스크를 연결하는 경우 Azure는 디스크 사양에 따라 보장된 IOPS 수에 대해 프로비전합니다. 예를 들어 P50 디스크는 7500IOPS를 프로비전합니다. 각 높은 확장성의 VM 크기에는 유지할 수 있는 특정 IOPS 제한이 있습니다. 예를 들어 표준 GS5 VM에는 80,000 IOPS 제한이 있습니다.
 
@@ -64,11 +64,11 @@ Premium Storage 디스크를 대규모 VM에 연결하는 경우 Azure는 해당
 
 ![IOPS 및 처리량의 관계](linux/media/premium-storage-performance/image1.png)
 
-따라서 애플리케이션에 필요한 최적의 처리량 및 IOPS 값을 결정하는 것이 중요합니다. 하나를 최적화하려고 할 때 다른 하나도 영향을 받습니다. 이후 섹션 *애플리케이션 성능 최적화*에서 IOPS 및 처리량 최적화에 대한 자세한 정보에 대해 설명합니다.
+따라서 애플리케이션에 필요한 최적의 처리량 및 IOPS 값을 결정하는 것이 중요합니다. 하나를 최적화하려고 할 때 다른 하나도 영향을 받습니다. 이후 섹션 *애플리케이션 성능 최적화* 에서 IOPS 및 처리량 최적화에 대한 자세한 정보에 대해 설명합니다.
 
 ## <a name="latency"></a>대기 시간
 
-대기 시간은 애플리케이션이 단일 요청을 수신하고 이를 스토리지 디스크에 보내고 클라이언트에 응답을 보내는데 걸리는 시간입니다. 이는 IOPS 및 처리량 외에도 애플리케이션의 성능에 대한 중요한 측정입니다. Premium Storage 디스크의 대기 시간은 요청에 대한 정보를 검색하고 애플리케이션에게 다시 전달하는데 걸리는 시간입니다. Premium Storage는 일관된 낮은 대기 시간을 제공합니다. 프리미엄 디스크는 대부분의 IO 작업에 대한 한 자릿수 밀리초 대기 시간을 제공하도록 설계되었습니다. Premium Storage 디스크에 읽기 전용 호스트 캐싱을 사용하는 경우 훨씬 더 낮은 읽기 대기 시간을 얻을 수 있습니다. *애플리케이션 성능 최적화*의 이후 섹션에서 디스크 캐싱에 대해 자세히 설명합니다.
+대기 시간은 애플리케이션이 단일 요청을 수신하고 이를 스토리지 디스크에 보내고 클라이언트에 응답을 보내는데 걸리는 시간입니다. 이는 IOPS 및 처리량 외에도 애플리케이션의 성능에 대한 중요한 측정입니다. Premium Storage 디스크의 대기 시간은 요청에 대한 정보를 검색하고 애플리케이션에게 다시 전달하는데 걸리는 시간입니다. Premium Storage는 일관된 낮은 대기 시간을 제공합니다. 프리미엄 디스크는 대부분의 IO 작업에 대한 한 자릿수 밀리초 대기 시간을 제공하도록 설계되었습니다. Premium Storage 디스크에 읽기 전용 호스트 캐싱을 사용하는 경우 훨씬 더 낮은 읽기 대기 시간을 얻을 수 있습니다. *애플리케이션 성능 최적화* 의 이후 섹션에서 디스크 캐싱에 대해 자세히 설명합니다.
 
 더 높은 IOPS 및 처리량을 얻기 위해 애플리케이션을 최적화하는 경우 애플리케이션의 대기 시간에 영향을 줍니다. 애플리케이션 성능 튜닝 후 항상 애플리케이션의 대기 시간을 평가하여 예기치 않은 높은 대기 시간 동작을 방지합니다.
 
@@ -130,7 +130,7 @@ PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의
 | **최대 메모리** |애플리케이션을 원활하게 실행하는데 필요한 메모리의 양 |% 사용 중인 커밋된 바이트 |vmstat 사용 |
 | **최대 CPU** |애플리케이션을 원활하게 실행하는데 필요한 CPU 양 |% 프로세서 시간 |%util |
 
-[iostat](https://linux.die.net/man/1/iostat) 및 [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal)에 대해 자세히 알아봅니다.
+[iostat](https://linux.die.net/man/1/iostat) 및 [PerfMon](/windows/win32/perfctrs/performance-counters-portal)에 대해 자세히 알아봅니다.
 
 
 
@@ -293,7 +293,7 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 기본적으로 OS 디스크는 ReadWrite 캐싱을 사용하도록 설정합니다. 최근에 데이터 디스크에 ReadWrite 캐싱에 대한 지원을 추가했습니다. ReadWrite 캐싱을 사용하는 경우 영구 디스크에 캐시의 데이터를 기록하는 적절한 방법이 있어야 합니다. 예를 들어 SQL Server는 자체적으로 영구 스토리지 디스크에 캐시된 데이터 쓰기를 처리합니다. 필요한 데이터를 유지하도록 처리하지 않는 애플리케이션에 ReadWrite 캐시를 사용하면 VM이 충돌할 경우 데이터 손실이 발생할 수 있습니다.
 
 *없음*  
-현재 **None**은 데이터 디스크에서만 지원됩니다. OS 디스크에서는 지원되지 않습니다. OS 디스크에서 **None**을 설정하면 이를 내부적으로 재정의하고 이를 **ReadOnly**로 설정합니다.
+현재 **None** 은 데이터 디스크에서만 지원됩니다. OS 디스크에서는 지원되지 않습니다. OS 디스크에서 **None** 을 설정하면 이를 내부적으로 재정의하고 이를 **ReadOnly** 로 설정합니다.
 
 한 예로 다음을 수행하여 Premium Storage에서 실행 중인 SQL Server에 이러한 지침을 적용할 수 있습니다
 
@@ -305,45 +305,11 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 
 ## <a name="optimize-performance-on-linux-vms"></a>Linux VM의 성능 최적화
 
-캐시가 **ReadOnly** 또는 **None**으로 설정된 모든 프리미엄 SSD 또는 울트라 디스크의 경우 파일 시스템을 탑재할 때 “barrier(장벽)”를 사용하지 않도록 설정해야 합니다. Premium Storage 디스크에 쓰기는 이러한 캐시 설정에 대해 지속되기 때문에 이 시나리오에는 barrier(장벽)가 필요하지 않습니다. 쓰기 요청이 성공적으로 완료되면 데이터는 영구 저장소에 작성됩니다. “barrier(장벽)”를 사용하지 않도록 설정하려면 다음 방법 중 하나를 사용합니다. 파일 시스템에 대해 하나를 선택합니다.
-  
-* **reiserFS**에 대해 barrier를 사용하지 않도록 설정하려면 `barrier=none` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier=flush`를 사용합니다.)
-* **ext3/ext4**에 대해 barrier를 사용하지 않도록 설정하려면 `barrier=0` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier=1`를 사용합니다.)
-* **XFS**에 대해 barrier를 사용하지 않도록 설정하려면 `nobarrier` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier`를 사용합니다.)
-* **ReadWrite**으로 캐시가 설정된 Premium Storage 디스크의 경우 쓰기 지속성을 위해 barrier를 사용하도록 설정합니다.
-* 볼륨 레이블의 경우 VM을 다시 시작한 후 유지하려면 디스크에 UUID(Universally Unique Identifier) 참조로 /etc/fstab을 업데이트해야 합니다. 자세한 내용은 [관리 디스크를 Linux VM에 추가](./linux/add-disk.md)를 참조하세요.
+모든 프리미엄 Ssd 또는 ultra 디스크의 경우 데이터가 손실 될 수 있는 캐시가 없다는 것을 알고 있는 경우 성능을 향상 시키기 위해 디스크에서 파일 시스템에 대해 "장벽"을 사용 하지 않도록 설정할 수 있습니다.  Azure disk 캐싱이 ReadOnly로 설정 되거나 없음으로 설정 된 경우 장벽을 사용 하지 않도록 설정할 수 있습니다.  그러나 캐싱이 ReadWrite로 설정 된 경우에는 쓰기 내구성을 보장 하기 위해 장벽을 사용할 수 있도록 유지 해야 합니다.  장애물은 일반적으로 기본적으로 사용 하도록 설정 되지만 파일 시스템 유형에 따라 다음 방법 중 하나를 사용 하 여 장벽을 사용 하지 않도록 설정할 수 있습니다.
 
-다음 Linux 배포판은 프리미엄 SSD에 대해 유효성이 검사되었습니다. 프리미엄 SSD를 사용하여 성능 및 안정성을 개선하려면 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 
-
-버전 중 일부는 Azure용 최신 LIS(Linux 통합 서비스) v4.0이 필요합니다. 배포판을 다운로드하여 설치하려면 다음 표에 나와 있는 링크를 따라가세요. 유효성 검사가 완료됨에 따라 목록에 이미지가 추가됩니다. 유효성 검사 시 이미지마다 성능이 다른 것으로 나타납니다. 성능은 워크로드 특성 및 이미지 설정에 따라 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다.
-
-| 배포 | 버전 | 지원되는 커널 | 세부 정보 |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 이상| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 이상| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x, 8.x 이상| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 이상| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 이상| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ 이상| 3.18.4+ | &nbsp; |
-| CentOS | 6.5, 6.6, 6.7, 7.0 이상| &nbsp; | [LIS4 필요](https://www.microsoft.com/download/details.aspx?id=55106) <br> *다음 섹션의 참고를 참조하세요.* |
-| CentOS | 7.1+ 이상| 3.10.0-229.1.2.el7+ | [LIS4 권장](https://www.microsoft.com/download/details.aspx?id=55106) <br> *다음 섹션의 참고를 참조하세요.* |
-| RHEL(Red Hat Enterprise Linux) | 6.8+, 7.2+ 이상 | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ 이상 | &nbsp; | UEK4 또는 RHCK |
-| Oracle | 7.0-7.1 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6.7 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS용 LIS 드라이버
-
-OpenLogic CentOS VM을 실행하는 경우 다음 명령을 실행하여 최신 드라이버를 설치합니다.
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-경우에 따라 위의 명령을 통해 커널을 업그레이드할 수도 있습니다. 커널 업데이트가 필요한 경우에는 microsoft hyper-v 패키지를 완전히 설치하기 위해 재부팅한 후 위의 명령을 다시 실행해야 할 수 있습니다.
-
+* **Reiserfs** 의 경우 장벽 = 없음 탑재 옵션을 사용 하 여 장벽을 사용 하지 않도록 설정 합니다.  장애물을 명시적으로 사용 하도록 설정 하려면 장벽 = 플러시를 사용 합니다.
+* **Ext3/ext4** 의 경우 장벽 = 0 탑재 옵션을 사용 하 여 장벽을 사용 하지 않도록 설정 합니다.  장애물을 명시적으로 사용 하도록 설정 하려면 장벽 = 1을 사용 합니다.
+* **Xfs** 의 경우 nobarrier 탑재 옵션을 사용 하 여 장벽을 사용 하지 않도록 설정 합니다.  장애물을 명시적으로 사용 하도록 설정 하려면 장벽을 사용 합니다.  이후 Linux 커널 버전에서 XFS 파일 시스템의 디자인은 항상 내구성을 보장 하 고 장애물을 사용 하지 않도록 설정 해도 아무런 효과가 없습니다.  
 
 ## <a name="disk-striping"></a>디스크 스트라이프
 
@@ -353,7 +319,7 @@ Windows에서 스토리지 공간을 사용하여 디스크를 함께 스트라�
 
 중요: 서버 관리자 UI를 사용하여 스트라이프 볼륨에 대해 최대 8개까지 열의 총 수를 설정할 수 있습니다. 9개 이상의 디스크를 연결하는 경우 PowerShell을 사용하여 볼륨을 만듭니다. PowerShell을 사용하여 디스크 수와 동일한 열 수를 설정할 수 있습니다. 예를 들어 단일 스트라이프 집합에 16개의 디스크가 있는 경우 *New-VirtualDisk* PowerShell cmdlet의 *NumberOfColumns* 매개 변수에 16개의 열을 지정합니다.
 
-Linux에서 MDADM 유틸리티를 사용하여 디스크를 함께 스트라이프합니다. Linux에서 디스크 스트라이프에 대한 자세한 단계는 [Linux에서 소프트웨어 RAID 구성](linux/configure-raid.md)을 참조하세요.
+Linux에서 MDADM 유틸리티를 사용하여 디스크를 함께 스트라이프합니다. Linux에서 디스크 스트라이프에 대한 자세한 단계는 [Linux에서 소프트웨어 RAID 구성](/previous-versions/azure/virtual-machines/linux/configure-raid)을 참조하세요.
 
 *스트라이프 크기*  
 디스크 스트라이프에서 중요한 구성은 스트라이프 크기입니다. 스트라이프 크기 또는 블록 크기는 애플리케이션이 스트라이프 볼륨을 해결할 수 있는 데이터의 가장 작은 청크입니다. 구성한 스트라이프 크기는 애플리케이션 및 해당 요청 패턴의 형식에 따라 달라집니다. 잘못된 스트라이프 크기를 선택하는 경우 애플리케이션의 성능이 저하되는 IO 정렬 문제가 발생할 수 있습니다.
@@ -377,7 +343,7 @@ Azure는 대규모로 병렬되도록 Premium Storage 플랫폼을 설계합니�
 
 예를 들어 SQL Server를 사용하는 애플리케이션이 큰 쿼리와 인덱스 작업을 동시에 실행한다고 가정합니다. 인덱스 작업이 큰 쿼리보다 성능이 높아지길 원한다고 가정해 보겠습니다. 이러한 경우 쿼리에 대한 MAXDOP 값보다 높도록 인덱스 작업의 MAXDOP 값을 설정할 수 있습니다. 이러한 방식으로 SQL Server는 더 큰 쿼리에 사용할 수는 프로세서 수에 비해 인덱스 작업에 활용할 수 있는 더 많은 프로세서 수를 가집니다. SQL Server에서 각 작업에 사용할 스레드 수를 제어하지 않습니다. 다중 스레딩에 사용되는 프로세서의 최대 수를 제어할 수 있습니다.
 
-SQL Server에 [병렬 처리의 정도](https://technet.microsoft.com/library/ms188611.aspx) 에 대한 자세한 정보가 있습니다. 성능을 최적화하도록 애플리케이션의 다중 스레딩 및 해당 구성에 영향을 주는 설정을 확인합니다.
+SQL Server에 [병렬 처리의 정도](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) 에 대한 자세한 정보가 있습니다. 성능을 최적화하도록 애플리케이션의 다중 스레딩 및 해당 구성에 영향을 주는 설정을 확인합니다.
 
 ## <a name="queue-depth"></a>큐 크기
 

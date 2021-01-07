@@ -7,18 +7,18 @@ documentationcenter: na
 author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 46b3a782d93a55ed7f6eee6c76886f27c2652572
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 340ca07ba605359f71c1dbf23ca38abd75d84416
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469646"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937052"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -113,13 +113,13 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
   * `sudo zypper install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
   * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다. 
   * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다. 
-  * **/etc/sysconfig/network/config**를 편집하고 *NETCONFIG_DNS_FORWARDER=""* 를 *dnsmasq*로 변경합니다.
+  * **/etc/sysconfig/network/config** 를 편집하고 *NETCONFIG_DNS_FORWARDER=""* 를 *dnsmasq* 로 변경합니다.
   * 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf를 `netconfig update`로 업데이트합니다.
 * **CentOS (NetworkManager 사용)**:
   * `sudo yum install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
   * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다.
   * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다.
-  * **/Etc/dhclient-eth0.conf**에 *도메인 이름-서버 127.0.0.1* 을 추가 합니다.
+  * **/Etc/dhclient-eth0.conf** 에 *도메인 이름-서버 127.0.0.1* 을 추가 합니다.
   * 캐시를 로컬 DNS 확인자로 설정하기 위해 `service network restart`로 네트워크 서비스를 다시 시작합니다.
 
 > [!NOTE]
@@ -142,13 +142,13 @@ options timeout:1 attempts:5
 resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 없습니다. *options* 줄을 추가하는 구체적인 단계는 배포마다 다릅니다.
 
 * **Ubuntu** (resolvconf 사용):
-  1. *options* 줄을 **/etc/resolvconf/resolv.conf.d/tail**에 추가합니다.
+  1. *options* 줄을 **/etc/resolvconf/resolv.conf.d/tail** 에 추가합니다.
   2. `resolvconf -u`를 실행하여 업데이트합니다.
 * **SUSE** (netconf 사용):
-  1. **/Etc/sysconfig/network/config**의 *시간 제한: 1 회 시도: 5* 에서 **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** 매개 변수를 추가 합니다.
+  1. **/Etc/sysconfig/network/config** 의 *시간 제한: 1 회 시도: 5* 에서 **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** 매개 변수를 추가 합니다.
   2. `netconfig update`를 실행하여 업데이트합니다.
 * **CentOS** (networkmanager 사용):
-  1. *Echo "options timeout: 1 시도: 5"* 를 **/etc/NetworkManager/dispatcher.d/11-dhclient**에 추가 합니다.
+  1. *Echo "options timeout: 1 시도: 5"* 를 **/etc/NetworkManager/dispatcher.d/11-dhclient** 에 추가 합니다.
   2. `service network restart`로 업데이트합니다.
 
 ## <a name="name-resolution-that-uses-your-own-dns-server"></a>자체 DNS 서버를 사용하는 이름 확인
@@ -189,10 +189,10 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 > [!NOTE]
 > 최상의 성능을 위해 Azure VM을 DNS 서버로 사용할 경우 IPv6를 사용하지 않도록 설정해야 합니다.
 
-### <a name="web-apps"></a>웹앱
+### <a name="web-apps"></a>웹 앱
 가상 네트워크 또는 동일한 가상 네트워크의 VM에 연결된 App Service를 사용하여 빌드된 웹앱에서 이름 확인을 수행해야 한다고 가정합니다. Azure(가상 IP 168.63.129.16)로 쿼리를 전달하는 DNS 전달자가 있는 사용자 지정 DNS 서버를 설정하는 것 외에 다음 단계를 수행합니다.
 1. [가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 설명한 대로 웹앱에 대해 가상 네트워크 통합을 사용하도록 설정합니다(아직 수행하지 않은 경우).
-2. Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹**의 **가상 네트워크 통합**에서 **네트워크 동기화**를 선택합니다.
+2. Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹** 의 **가상 네트워크 통합** 에서 **네트워크 동기화** 를 선택합니다.
 
     ![가상 네트워크 이름 확인 스크린샷](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
@@ -202,7 +202,7 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 * VM에서 원본 가상 네트워크의 DNS 전달자를 설정합니다. 대상 가상 네트워크의 DNS 서버로 쿼리를 전달하도록 이 DNS 전달자를 구성합니다.
 * 원본 가상 네트워크의 설정에서 원본 DNS 서버를 구성 합니다.
 * [가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 지침에 따라 원본 가상 네트워크에 웹앱을 연결하기 위해 가상 네트워크 통합을 사용하도록 설정합니다.
-* Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹**의 **가상 네트워크 통합**에서 **네트워크 동기화**를 선택합니다.
+* Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹** 의 **가상 네트워크 통합** 에서 **네트워크 동기화** 를 선택합니다.
 
 ## <a name="specify-dns-servers"></a>DNS 서버 지정
 사용자 고유의 DNS 서버를 사용할 때 Azure는 가상 네트워크당 자체 DNS 서버를 지정할 수 있는 기능을 제공합니다. 또한 네트워크 인터페이스(Azure Resource Manager용) 또는 클라우드 서비스(클래식 배포 모델)당 여러 DNS 서버를 지정할 수도 있습니다. 네트워크 인터페이스 또는 클라우드 서비스에 대해 지정된 DNS 서버가 가상 네트워크에 대해 지정된 서버보다 우선적으로 사용됩니다.

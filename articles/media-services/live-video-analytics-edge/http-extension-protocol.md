@@ -3,16 +3,18 @@ title: HTTP 확장 프로토콜 - Azure
 description: 이 문서에서는 HTTP 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 모듈 간에 메시지를 보내는 방법에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: bfc8672185d284abc8f2985b44cea92000bc73db
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 52c98231780a2776f4ff67992f29b247eccb8bc2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89448064"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399148"
 ---
 # <a name="http-extension-protocol"></a>HTTP 확장 프로토콜
 
-이 문서에서는 HTTP 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 모듈 간에 메시지를 보내는 방법에 대해 알아봅니다.
+IoT Edge의 Live Video Analytics를 사용하면 [그래프 확장 노드](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update)를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다. HTTP 확장 프로세서를 확장 노드로 사용하는 경우 Live Video Analytics 모듈과 AI 또는 CV 모듈 간의 통신은 HTTP를 통해 이루어집니다.
+
+이 문서에서는 HTTP 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 모듈 간에 메시지를 보내는 방법에 대해 알아봅니다. 
 
 HTTP 계약은 다음 두 구성 요소 간에 정의됩니다.
 
@@ -85,19 +87,16 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-아래에 정의된 미리 설정된 스키마에 따라 유효한 JSON 문서를 사용하여 응답을 반환하는 것이 좋습니다. 이렇게 하면 다른 구성 요소와의 상호 운용성과 Live Video Analytics 모듈에 추가되는 향후 기능이 보다 효과적으로 보장됩니다.
+[유추 메타데이터 스키마 개체 모델](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update)에 따라 정의된 미리 설정된 스키마에 따라 유효한 JSON 문서를 사용하여 응답을 반환하는 것이 좋습니다. 이렇게 하면 다른 구성 요소와의 상호 운용성과 Live Video Analytics 모듈에 추가되는 향후 기능이 보다 효과적으로 보장됩니다.
 
 모듈에서 콘텐츠 형식이 "application/json"이 아닌 응답을 반환하는 경우 Live Video Analytics는 메시지를 기본 64 콘텐츠로 인코딩하고 불투명한 JSON 페이로드로 직렬화합니다.
 
-모듈에서 콘텐츠 형식이 "application/json"인 응답을 반환하지만 JSON 스키마가 아래에 설명된 유추 메타데이터 스키마를 따르지 않는 경우 메시지 페이로드는 파이프라인을 통해 전달되지만 상호 운용성은 감소됩니다.
+모듈에서 콘텐츠 형식이 "application/json"인 응답을 반환하지만 JSON 스키마가 아래에 설명된 유추 메타데이터 스키마를 따르지 않는 경우 메시지 페이로드는 파이프라인을 통해 전달되지만 상호 운용성은 감소됩니다. 유추 메타데이터 스키마에 대한 자세한 내용과 최신 정보는 [여기](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update)를 참조하세요.
 
 > [!NOTE]
 > 모듈이 결과를 생성하지 않는 경우 빈 응답 본문이 포함된 HTTP 204 상태 코드(콘텐츠 없음)를 반환해야 합니다. Live Video Analytics는 이를 빈 결과로 인식하고 파이프라인 전체에 이벤트를 전달하지 않습니다.
 
-## <a name="data-contracts---class-hierarchy"></a>데이터 계약 - 클래스 계층 구조
-
-![클래스 계층 구조](./media/http-extension-protocol/class-hierarchy.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[gRPC 데이터 계약](grpc-data-contract.md)
+[gRPC 확장 프로토콜](./grpc-extension-protocol.md)

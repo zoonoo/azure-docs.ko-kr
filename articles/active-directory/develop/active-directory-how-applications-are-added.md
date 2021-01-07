@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 1f6fd0160988802e198ff9388cfeb3232b34b100
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706186"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861122"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -104,7 +104,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
 * 서비스 주체 및 응용 프로그램 개체에 대 한 자세한 내용은 Microsoft Graph API 참조 설명서를 참조 하세요.
-  * [애플리케이션](/graph/api/resources/application?view=graph-rest-1.0)
+  * [애플리케이션](/graph/api/resources/application)
   * Service Principal
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?
@@ -118,6 +118,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 * 역할 기반 액세스 제어 - 애플리케이션 역할을 정의하는 디렉터리를 사용하여 애플리케이션에서 역할 기반 권한 부여 확인을 수행합니다.
 * OAuth 권한 부여 서비스-Microsoft 365 및 기타 Microsoft 응용 프로그램에서 Api/리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다.
 * 애플리케이션 게시 및 프록시 - 프라이빗 네트워크의 애플리케이션을 인터넷에 게시
+* 디렉터리 스키마 확장 특성-Azure AD에 추가 데이터를 저장 하도록 [서비스 사용자 및 사용자 개체의 스키마를 확장 합니다](active-directory-schema-extensions.md) . 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>애플리케이션을 Azure AD 인스턴스에 추가할 권한이 있는 사용자는?
 
@@ -137,14 +138,14 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 
 * 사용자가 자신을 대신하여 애플리케이션을 승인하지 못하도록 하려면 다음을 수행합니다.
   1. Azure Portal의 엔터프라이즈 애플리케이션에서 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) 섹션으로 이동합니다.
-  2. **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음**을 **아니요**로 변경합니다.
+  2. **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음** 을 **아니요** 로 변경합니다.
      
      > [!NOTE]
      > 사용자 동의를 해제하려는 경우 관리자는 사용자가 사용해야 하는 새 애플리케이션에 동의해야 합니다.
 
 * 사용자가 자신의 애플리케이션을 등록하지 못하도록 하려면 다음을 수행합니다.
   1. Azure Portal의 Azure Active Directory에서 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) 섹션으로 이동합니다.
-  2. **사용자가 애플리케이션을 등록할 수 있음**을 **아니요**로 변경합니다.
+  2. **사용자가 애플리케이션을 등록할 수 있음** 을 **아니요** 로 변경합니다.
 
 > [!NOTE]
 > Microsoft 자체는 사용자가 대신 애플리케이션을 등록하고 애플리케이션에 동의할 수 있는 기본 구성을 사용합니다.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 14abae6f6f72d724fffb1ccaa12f56fb6976f7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182203"
 ---
 다음 표에는 Windows 일반화 (gen) 및 특수 (사양) OS 이미지의 가능한 업로드 및 캡처 조합이 나와 있습니다. 오류 없이 처리되는 조합은 Y로, 오류가 발생하는 조합은 N으로 표시되어 있습니다. 사용자가 접하게 될 다양한 오류의 원인과 해결 방법이 아래 테이블에 준비되어 있습니다.

@@ -1,14 +1,16 @@
 ---
 title: 예제 발화의 엔터티에 레이블 지정
 description: LUIS 포털의 의도 세부 정보 페이지에서 utterance 예제에 있는 하위 엔터티를 사용 하 여 기계 학습 엔터티에 레이블을 만드는 방법을 알아봅니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610492"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019738"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>예 utterance에서 기계 학습 엔터티 레이블
 
@@ -22,7 +24,7 @@ ms.locfileid: "85610492"
 
 Utterance 내에서 엔터티 예를 레이블 하려면 utterance의 의도를 선택 합니다.
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스**를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
 1. **내 앱** 페이지에서 해당 이름을 선택 하 여 앱을 엽니다.
 1. 엔터티를 사용 하 여 추출 하기 위해 레이블을 지정할 길이 발언 예제를 포함 하는 의도를 선택 합니다.
 1. 레이블을 지정할 텍스트를 선택 하 고 엔터티를 선택 합니다.
@@ -37,7 +39,7 @@ Utterance 내에서 엔터티 예를 레이블 하려면 utterance의 의도를 
 
 [엔터티를 사용 하 여 스키마를 계획](luis-how-plan-your-app.md)한 후 레이블을 지정 하는 동안 **엔터티 팔레트** 를 계속 표시 합니다. **엔터티 팔레트** 는 추출 하려는 엔터티에 대 한 미리 알림입니다.
 
-**엔터티 팔레트**에 액세스 하려면 **@** 예제 utterance 목록 위의 상황별 도구 모음에서 기호를 선택 합니다.
+**엔터티 팔레트** 에 액세스 하려면 **@** 예제 utterance 목록 위의 상황별 도구 모음에서 기호를 선택 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![의도 세부 정보 페이지에서 엔터티 팔레트의 스크린샷](media/label-utterances/entity-palette-from-tool-bar.png)
@@ -53,7 +55,7 @@ Utterance 내에서 엔터티 예를 레이블 하려면 utterance의 의도를 
 3. 예제 발화에서 커서를 사용하여 엔터티를 _그립니다_.
 
     > [!div class="mx-imgBorder"]
-    > ![기계 학습 엔터티에 대 한 엔터티 팔레트](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![커서를 사용 하 여 그린 엔터티를 보여 주는 스크린샷](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>엔터티 팔레트의 기능으로 엔터티 추가
 
@@ -64,9 +66,9 @@ Utterance 내에서 엔터티 예를 레이블 하려면 utterance의 의도를 
 
 ## <a name="labeling-entity-roles"></a>엔터티 역할 레이블 지정
 
-엔터티 역할은 **엔터티 팔레트**를 사용 하 여 레이블이 지정 됩니다.
+엔터티 역할은 **엔터티 팔레트** 를 사용 하 여 레이블이 지정 됩니다.
 
-1. 의도 세부 정보 페이지의 컨텍스트 도구 모음에서 **엔터티 팔레트**를 선택합니다.
+1. 의도 세부 정보 페이지의 컨텍스트 도구 모음에서 **엔터티 팔레트** 를 선택합니다.
 1. 엔터티 팔레트가 열리면 엔터티 목록에서 엔터티를 선택합니다.
 1. 엔터티 목록 아래에서 기존 역할을 선택 합니다.
 1. 예제 발화 텍스트에서 엔터티 역할을 사용하여 텍스트에 레이블을 지정합니다.
@@ -91,7 +93,7 @@ Utterance 내에서 엔터티 예를 레이블 하려면 utterance의 의도를 
 
 ## <a name="confirm-predicted-entity"></a>예측된 엔터티 확인
 
-텍스트 범위 주위에 점선으로 구분 된 상자가 있는 경우 텍스트를 예측 했지만 _레이블이 아직 지정 되지_않았음을 나타냅니다. 예측을 레이블로 전환 하려면 utterance 행을 선택 하 고 상황별 도구 모음에서 **엔터티 확인** 을 선택 합니다.
+텍스트 범위 주위에 점선으로 구분 된 상자가 있는 경우 텍스트를 예측 했지만 _레이블이 아직 지정 되지_ 않았음을 나타냅니다. 예측을 레이블로 전환 하려면 utterance 행을 선택 하 고 상황별 도구 모음에서 **엔터티 확인** 을 선택 합니다.
 
 ## <a name="relabeling-over-existing-entities"></a>기존 엔터티를 통해 레이블 재지정
 

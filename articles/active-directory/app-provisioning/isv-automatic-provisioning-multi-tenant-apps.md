@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 617128640c4f4ae4ce5ac32803e459a9a3eb448f
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d4c6c5b51e00f7f2ed7e29c27aa8e8bb88a2ea94
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706458"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861360"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용
 
@@ -89,7 +89,7 @@ Azure AD 프로 비전 서비스 사용자의 SCIM 방법에 대 한 자세한 �
 
 ## <a name="microsoft-graph-for-provisioning"></a>프로 비전을 위한 Microsoft Graph
 
-프로 비전에 Microsoft Graph를 사용 하는 경우 Graph에서 사용할 수 있는 모든 리치 사용자 데이터에 액세스할 수 있습니다. 사용자 및 그룹의 세부 정보 외에도 사용자의 역할, 관리자 및 부하 직원, 소유 및 등록 된 장치, [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0)에서 사용할 수 있는 수백 개의 기타 데이터 부분과 같은 추가 정보를 가져올 수 있습니다. 
+프로 비전에 Microsoft Graph를 사용 하는 경우 Graph에서 사용할 수 있는 모든 리치 사용자 데이터에 액세스할 수 있습니다. 사용자 및 그룹의 세부 정보 외에도 사용자의 역할, 관리자 및 부하 직원, 소유 및 등록 된 장치, [Microsoft Graph](/graph/api/overview)에서 사용할 수 있는 수백 개의 기타 데이터 부분과 같은 추가 정보를 가져올 수 있습니다. 
 
 1500만 개 이상의 조직 및 fortune 500 회사의 90%는 Microsoft 365, Microsoft Azure 또는 Enterprise Mobility Suite와 같은 Microsoft 클라우드 서비스를 구독 하는 동안 Azure AD를 사용 합니다. Microsoft Graph를 사용 하 여 직원 온 보 딩 (종료), 프로필 유지 관리 등의 관리 워크플로와 앱을 통합할 수 있습니다. 
 
@@ -111,7 +111,7 @@ SAML JIT는 SAML 토큰의 클레임 정보를 사용 하 여 응용 프로그�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [응용 프로그램에 Single Sign-on 사용](../manage-apps/isv-sso-content.md)
+* [응용 프로그램에 Single Sign-on 사용](../develop/v2-howto-app-gallery-listing.md)
 
 * Microsoft의 사이트에 대 한 설명서를 만들려면 [응용 프로그램 목록과](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) 파트너를 Microsoft에 제출 하세요.
 

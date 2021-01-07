@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076998"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>PowerShell을 사용 하 여 Azure 파일 공유 백업
@@ -23,7 +23,7 @@ ms.locfileid: "87076998"
 > * Azure 파일 공유에 대 한 백업을 구성 합니다.
 > * 백업 작업을 실행 합니다.
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 * Recovery Services 자격 증명 모음에 대해 [자세히 알아보세요](backup-azure-recovery-services-vault-overview.md) .
 * Azure 라이브러리에서 Az. RecoveryServices [cmdlet 참조](/powershell/module/az.recoveryservices) 참조를 검토 합니다.

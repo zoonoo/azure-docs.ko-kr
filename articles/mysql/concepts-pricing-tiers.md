@@ -1,27 +1,27 @@
 ---
 title: 가격 책정 계층 - Azure Database for MySQL
 description: 계산 세대, 저장소 유형, 저장소 크기, vCores, 메모리 및 백업 보존 기간을 포함 하 여 Azure Database for MySQL에 대 한 다양 한 가격 책정 계층에 대해 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 10/14/2020
+ms.openlocfilehash: c70e4a097a56b76089a26510bcf33b4c7c24c266
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171012"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018718"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
 Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 가격 책정 계층은 프로비전할 수 있는 컴퓨팅의 vCore 수, vCore당 메모리 및 데이터를 저장하는 데 사용되는 스토리지 기술로 구분됩니다. 모든 리소스는 MySQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
-| 특성   | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
+| attribute   | **기본** | **범용** | **메모리 액세스에 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -29,7 +29,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 
 | 가격 책정 계층 | 대상 워크로드 |
 |:-------------|:-----------------|
-| 기본 | 간단한 컴퓨팅 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
+| Basic | 간단한 컴퓨팅 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
 | 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 애플리케이션이 있습니다.|
 | 메모리 최적화 | 빠른 트랜잭션 처리와 높은 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드. 예를 들어 실시간 데이터를 처리하는 서버 및 고성능 트랜잭션 또는 분석 앱이 있습니다.|
 
@@ -39,19 +39,19 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 
 컴퓨팅 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 중국 동부 1, 중국 북부 1, US DoD 중부 및 US DoD 동부는 Intel E5 2673 v3 (Haswell) 2.4 g h z 프로세서를 기반으로 하는 Gen 4 논리 Cpu를 활용 합니다. 다른 모든 지역은 Intel E5-2673 v4 (Broadwell) 2.3 g h z 프로세서를 기반으로 하는 Gen 5 논리 Cpu를 활용 합니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 프로비전하는 스토리지는 Azure Database for MySQL 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MySQL 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
-| 저장소 특성   | 기본 | 범용 가상 컴퓨터 | 메모리에 최적화 |
+| 저장소 특성   | Basic | 범용 가상 컴퓨터 | 메모리에 최적화 |
 |:---|:----------|:--------------------|:---------------------|
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
-| 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
+| 스토리지 증분 크기 | 1GB | 1GB | 1GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 
 > [!NOTE]
-> 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 동부, 미국 서 부 2 및 미국 서 부 2 지역에서 최대 16TB 및 2만 IOPS의 저장소를
+> 최대 16TB 및 2만 IOPS의 저장소는 다음 지역에서 지원 됩니다. 미국 동부, 미국 동부 2, 미국 중부, 브라질 남부, 미국 서 부, 미국 중 북부, 미국 서 부, 미국 중 북부, 미국 중 북부, 미국 중 북부, 일본 서 부, 한국 남부, 오스트레일리아 동부 동아시아 영국 서부 영국 남부 유럽 서부, 오스트레일리아 남부 동부, 미국 서 부 2, 미국 서 부 2, 미국 중부 중부 , 캐나다 동부 및 캐나다 중부.
 >
 > 다른 모든 지역은 최대 4TB의 저장소와 최대 6000 IOPS를 지원 합니다.
 >
@@ -59,7 +59,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 서버를 만드는 동안 및 후에 추가 저장소 용량을 추가 하 고 시스템에서 작업의 저장소 사용량에 따라 저장소를 자동으로 늘릴 수 있습니다. 
 
 >[!NOTE]
-> 저장소는 다운 되지 않고 확장만 가능 합니다.
+> 스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
 
 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 스토리지 크기와 3:1 비율로 조정됩니다.
 
@@ -97,7 +97,7 @@ vCore 수, 하드웨어 생성 또는 가격 책정 계층을 변경하면 새 �
 
 ## <a name="pricing"></a>가격 책정
 
-최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요. 원하는 구성 비용을 확인하려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer)에서 선택한 옵션에 따라 **가격 책정 계층** 탭에 월별 비용이 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가**를 선택하고, **데이터베이스** 범주를 확장하고, **Azure Database for MySQL**을 선택하여 옵션을 사용자 지정합니다.
+최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요. 원하는 구성 비용을 확인하려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer)에서 선택한 옵션에 따라 **가격 책정 계층** 탭에 월별 비용이 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택하고, **데이터베이스** 범주를 확장하고, **Azure Database for MySQL** 을 선택하여 옵션을 사용자 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

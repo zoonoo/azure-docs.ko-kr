@@ -3,20 +3,18 @@ title: 반복적인 앱 디자인-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: diberry
-ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 753d214b520affb59722bc29dbabc50c6e5968f6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057877"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91538724"
 ---
 # <a name="iterative-app-design-for-luis"></a>LUIS에 대 한 반복적인 앱 디자인
 
@@ -70,7 +68,7 @@ LUIS에는 각각의 **의도**에 몇 가지 예 길이 발언가 필요 합니
 
 각 예제 utterance는 **엔터티**를 사용 하 여 디자인 하 고 레이블을 지정 **하는 데 필요한 데이터** 를 포함 해야 합니다.
 
-|Key 요소|용도|
+|Key 요소|목적|
 |--|--|
 |Intent|사용자 길이 발언를 단일 의도 또는 작업으로 **분류** 합니다. 예에는 `BookFlight` 및 `GetWeather`가 포함됩니다.|
 |엔터티|Utterance에서 데이터를 **추출** 하 여 의도를 완료 해야 합니다. 예를 들면 여행 날짜와 시간 및 위치를 포함 합니다.|

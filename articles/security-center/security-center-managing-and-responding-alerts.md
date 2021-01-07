@@ -7,56 +7,65 @@ author: memildin
 manager: rkarlin
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2551a3c860dbdf27e7c9473e88c3a3293f575faa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3f319c35631f8c85cab4613df0f1c14f98356caa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883956"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563350"
 ---
-# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 응답
+# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 
-이 항목에서는 리소스를 보호 하기 위해 받은 경고를 확인 하 고 처리 하는 방법을 보여 줍니다. 
+> [!TIP]
+> 이 페이지의 정보는 보안 경고 페이지 맨 위에 있는 배너에서 제공 되는 새로운 (미리 보기) 경고 환경을 나타냅니다. 
+>
+> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="새 미리 보기 경고 환경에 대 한 링크가 포함 된 배너":::
 
-* 여러 유형의 경고에 대 한 자세한 내용은 [보안 경고 유형](alerts-reference.md)을 참조 하세요.
-* Security Center에서 경고를 생성 하는 방법에 대 한 개요는 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md)을 참조 하세요.
+이 항목에서는 Security Center의 경고를 확인 하 고 처리 하 고 리소스를 보호 하는 방법을 보여 줍니다.
 
-> [!NOTE]
-> 고급 검색을 사용 하도록 설정 하려면 Azure Defender를 사용 하도록 설정 합니다. 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](tutorial-security-policy.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
+보안 경고를 트리거하는 고급 검색은 Azure Defender 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. 업그레이드 하려면 [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)을 참조 하세요.
 
 ## <a name="what-are-security-alerts"></a>보안 경고란?
 보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다.
 
-> [!NOTE]
-> Security Center 검색 기능이 작동 하는 방식에 대 한 자세한 내용은 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md#detect-threats)을 참조 하세요.
+다양 한 유형의 경고에 대 한 자세한 내용은 [보안 경고-참조 가이드](alerts-reference.md)를 참조 하세요.
+
+Security Center에서 경고를 생성 하는 방법에 대 한 개요는 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md)을 참조 하세요.
+
 
 ## <a name="manage-your-security-alerts"></a>보안 경고 관리
 
-1. Security Center 대시보드에서  **위협 방지** 타일을 참조 하 여 경고를 확인 하 고 개요를 확인 합니다.
+1. Security Center의 개요 페이지에서 페이지 맨 위에 있는 **보안 경고** 타일 또는 사이드바의 링크를 선택 합니다.
 
-    ![보안 센터의 보안 경고 타일](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Azure Security Center의 개요 페이지에서 보안 경고 페이지로 가져오기":::
 
-1. 경고에 대 한 자세한 내용을 보려면 타일을 클릭 합니다.
+    보안 경고 페이지가 열립니다.
 
-   ![Security Center의 보안 경고](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center의 보안 경고 목록":::
 
-1. 표시 되는 경고를 필터링 하려면 **필터**를 클릭 하 고, 열리는 **필터** 블레이드에서 적용 하려는 필터 옵션을 선택 합니다. 목록은 선택한 필터에 따라 업데이트 됩니다. 필터링은 매우 유용할 수 있습니다. 예를 들어 시스템에서 잠재적 위반을 조사하고 있기 때문에 최근 24시간 동안 발생한 보안 경고를 해결하려고 할 수 있습니다.
+1. 경고 목록을 필터링 하려면 관련 필터를 선택 합니다. 필요에 따라 **필터 추가** 옵션을 사용 하 여 추가 필터를 추가할 수 있습니다.
 
-    ![보안 센터에서 경고 필터링](./media/security-center-managing-and-responding-alerts/security-center-filter-alerts.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="경고 보기에 필터 추가" lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
+
+    목록은 선택한 필터링 옵션에 따라 업데이트 됩니다. 필터링은 매우 유용할 수 있습니다. 예를 들어 시스템에서 잠재적 위반을 조사하고 있기 때문에 최근 24시간 동안 발생한 보안 경고를 해결하려고 할 수 있습니다.
+
 
 ## <a name="respond-to-security-alerts"></a>보안 경고에 대응
 
-1. **보안 경고** 목록에서 보안 경고를 클릭 합니다. 공격을 해결 하기 위해 수행 해야 하는 단계와 관련 리소스가 나와 있습니다.
+1. **보안 경고** 목록에서 경고를 선택 합니다. 사이드 창이 열리고 영향을 받는 모든 리소스 및 경고에 대 한 설명이 표시 됩니다. 
 
-    ![보안 경고에 대응](./media/security-center-managing-and-responding-alerts/security-center-alert.png)
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="보안 경고의 최소 세부 정보 보기":::
 
-1. 정보를 검토 한 후 공격을 받은 리소스를 클릭 합니다.
+    > [!TIP]
+    > 이 측면 창이 열려 있으면 키보드에서 위쪽 및 아래쪽 화살표를 사용 하 여 경고 목록을 신속 하 게 검토할 수 있습니다.
+
+1. 자세한 내용을 **보려면 전체 세부 정보 보기** 를 선택 합니다.
 
     보안 경고 페이지의 왼쪽 창에는 보안 경고의 제목, 심각도, 상태, 작업 시간, 의심 스러운 활동 설명 및 영향을 받는 리소스에 대 한 높은 수준의 정보가 표시 됩니다. 영향을 받는 리소스와 함께 리소스와 관련 된 Azure 태그가 있습니다. 이를 사용 하 여 경고를 조사할 때 리소스의 조직 컨텍스트를 유추 합니다.
 
@@ -75,9 +84,10 @@ ms.locfileid: "90883956"
 
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 이 문서에서는 보안 경고를 보는 방법에 대해 알아보았습니다. 관련 자료는 다음 페이지를 참조 하세요.
 
 - [경고 억제 규칙 구성](alerts-suppression-rules.md)
-- [워크플로 자동화를 사용 하 여 경고 및 권장 사항에 대 한 응답 자동화](workflow-automation.md)
+- [Security Center 트리거에 대 한 응답 자동화](workflow-automation.md)
+- [보안 경고 - 참조 가이드](alerts-reference.md)

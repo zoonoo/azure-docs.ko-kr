@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1dbf6478a62675c8b514298007a7663239d8f7cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 65163225853037ac4cb97a02c0bdaf554b509fb1
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084645"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822202"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에 대한 알려진 문제
 
@@ -75,13 +75,13 @@ HDInsight Spark 클러스터는 Spark-Phoenix 커넥터를 지원하지 않습�
 
 대신 Spark-HBase 커넥터를 사용해야 합니다. 자세한 내용은 [Spark-HBase 커넥터 사용 방법](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)을 참조하세요.
 
-## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter Notebook 관련 문제
+## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter 노트북과 관련 된 문제
 
-다음은 Jupyter Notebook과 관련된 몇 가지 알려진 문제입니다.
+다음은 Jupyter 노트북과 관련 된 몇 가지 알려진 문제입니다.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>파일 이름에 ASCII가 아닌 문자가 있는 Notebook
 
-Jupyter 노트북 파일 이름에는 비 ASCII 문자를 사용하지 마세요. Jupyter UI를 통해 ASCII가 아닌 파일 이름을 갖는 파일을 업로드하려고 하면 오류 메시지 없이 실패합니다. Jupyter에서는 해당 파일을 업로드할 수 없도록 하지만 보이는 오류를 throw하지 않습니다.
+Jupyter Notebook 파일 이름에 ASCII가 아닌 문자를 사용 하지 마세요. Jupyter UI를 통해 ASCII가 아닌 파일 이름을 갖는 파일을 업로드하려고 하면 오류 메시지 없이 실패합니다. Jupyter에서는 해당 파일을 업로드할 수 없도록 하지만 보이는 오류를 throw하지 않습니다.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>더 큰 Notebook을 로드하는 중 오류
 
@@ -100,15 +100,15 @@ SSH를 사용하여 클러스터에 연결한 경우 Notebook을 사용자의 �
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>노트북 초기 시작이 예상보다 오래 걸리는 경우
 
-Jupyter Notebook에서 Spark 매직을 사용한 첫 번째 코드 문의 경우 1분 이상이 걸릴 수 있습니다.  
+Spark magic을 사용 하 Jupyter Notebook 첫 번째 코드 문은 1 분 이상 걸릴 수 있습니다.  
 
 **보고**
 
 이는 첫 번째 코드 셀이 실행될 때 발생합니다. 백그라운드에서 세션 구성이 시작되고 Spark, SQL 및 Hive 컨텍스트가 설정됩니다. 이러한 컨텍스트가 설정된 후 첫 번째 문이 실행되므로 문이 완료되는 데 시간이 오래 걸린 것 같은 느낌이 듭니다.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>세션 만들기에서 Jupyter 노트북 시간 제한
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>세션을 만들 때 시간 초과 Jupyter Notebook
 
-Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark 및 PySpark 커널은 세션을 만들려고 할 때 시간 초과가 됩니다.
+Spark 클러스터에 리소스가 부족 한 경우 Jupyter Notebook의 Spark 및 PySpark 커널은 세션을 만들려고 시도 하는 시간을 초과 합니다.
 
 **조치**
 
@@ -140,7 +140,7 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
+* [HDInsight 용 Apache Spark 클러스터의 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 

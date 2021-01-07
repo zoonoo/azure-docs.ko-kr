@@ -3,16 +3,16 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 GPU 모니터링 
 description: 이 문서에서는 Kubernetes Azure Monitor 클러스터를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569699"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905590"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 GPU 모니터링 구성
 
-에이전트 버전 *ciprod03022019*부터 컨테이너 통합 에이전트는 이제 Gpu 인식 Kubernetes 클러스터 노드에서 gpu (그래픽 처리 단위) 사용 모니터링을 지원 하 고 gpu 리소스를 요청 하 고 사용 하는 pod/컨테이너를 모니터링 합니다.
+에이전트 버전 *ciprod03022019* 부터 컨테이너 통합 에이전트는 이제 Gpu 인식 Kubernetes 클러스터 노드에서 gpu (그래픽 처리 단위) 사용 모니터링을 지원 하 고 gpu 리소스를 요청 하 고 사용 하는 pod/컨테이너를 모니터링 합니다.
 
 ## <a name="supported-gpu-vendors"></a>지원 되는 GPU 공급 업체
 
@@ -39,7 +39,7 @@ ms.locfileid: "89569699"
 
 ## <a name="gpu-performance-charts"></a>GPU 성능 차트 
 
-컨테이너에 대 한 Azure Monitor에는 테이블 앞부분에 나열 된 메트릭에 대 한 미리 구성 된 차트가 모든 클러스터에 대 한 GPU 통합 문서로 포함 됩니다. 왼쪽 창에서 **통합 문서** 를 선택 하 고 정보에 있는 **통합 문서 보기** 드롭다운 목록에서 GPU 통합 문서 **노드 gpu** 를 직접 찾을 수 있습니다.
+컨테이너에 대 한 Azure Monitor에는 테이블 앞부분에 나열 된 메트릭에 대 한 미리 구성 된 차트가 모든 클러스터에 대 한 GPU 통합 문서로 포함 됩니다. 컨테이너에 대해 Azure Monitor 사용할 수 있는 통합 문서에 대 한 설명은 [Azure Monitor의 통합 문서](container-insights-reports.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

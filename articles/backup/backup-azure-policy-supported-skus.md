@@ -4,10 +4,10 @@ description: 백업에서 제공 하는 기본 제공 Azure 정책에 대해 지
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82183622"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Azure Policy에 지원되는 VM SKU
@@ -68,10 +68,10 @@ SUSE | SLES-HPC | 12. X
 SUSE | SLES-HPC-우선 순위 | 12. X
 SUSE | SLES-SAP | 12. X
 SUSE | SLES-SAP-BYOS | 12. X
-SUSE | SLES-우선 순위 | 12. X
+SUSE | SLES-Priority | 12. X
 SUSE | SLES BYOS | 12. X
 SUSE | SLES-SAPCAL | 12. X
-SUSE | SLES-표준 | 12. X
+SUSE | SLES-Standard | 12. X
 Canonical | UbuntuServer | 14.04.0-LTS
 Canonical | UbuntuServer | 14.04.1-LTS
 Canonical | UbuntuServer | 14.04.2-LTS

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135365"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336208"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -146,7 +146,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>원인 3: SQL Server 2016 및 2017의 알려진 문제
 **해결 방법**: 기술 자료 [문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)를 참조하세요.
 
-#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 앱 일관성을 사용 하도록 설정 하지 않음
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 App-Consistency 사용 하도록 설정 되지 않음
 **해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](./site-recovery-faq.md#replication) 같습니다.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>VSS 관련 문제로 인한 추가 원인:
@@ -169,7 +169,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음 - 오류 2147943458
 
-해결 방법: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 ID "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
+**해결 방법**: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 ID "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
 
 - VSS를 사용할 수 없는 경우
     - VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
@@ -192,6 +192,24 @@ VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는
         - VSS 서비스
         - Azure Site Recovery VSS 공급자
         - VDS 서비스
+
+## <a name="error-id-95001---insufficient-permissions-found"></a>오류 ID 95001-권한이 없음
+
+이 오류는 복제를 사용 하도록 설정 하려고 하는데 응용 프로그램 폴더에 충분 한 권한이 없는 경우에 발생 합니다.
+
+**해결 방법**:이 문제를 해결 하려면 아래에 언급 된 모든 폴더에 대해 IUSR 사용자에 게 소유자 역할이 있는지 확인 합니다.
+
+- *C\ProgramData\Microsoft Azure Site Recovery\private*
+- 설치 디렉터리입니다. 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
+    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems*
+- 설치 디렉터리의 *\pushinstallsvc* 폴더 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
+    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems\pushinstallsvc*
+- 설치 디렉터리의 *\ay폴더* 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
+    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems\etc*
+- *배열은*
+- *C:\thirdparty\php5nts*
+- 아래 경로 아래의 모든 항목-
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## <a name="next-steps"></a>다음 단계
 

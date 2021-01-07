@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure CLI 사용 하 여 시스템 항목을 �
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115046"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Azure CLI을 사용 하 여 Event Grid 시스템 항목 만들기, 보기 및 관리
@@ -18,14 +18,14 @@ Azure CLI의 경우 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)이
 
 Cloud Shell:
 
-- 이전에 확장을 설치한 경우 다음을 업데이트 합니다.`az extension update -n eventgrid`
-- 이전에 확장을 설치 하지 않은 경우 설치 합니다.`az extension add -n eventgrid`
+- 이전에 확장을 설치한 경우 다음을 업데이트 합니다. `az extension update -n eventgrid`
+- 이전에 확장을 설치 하지 않은 경우 설치 합니다.  `az extension add -n eventgrid`
 
 로컬 설치의 경우:
 
 1. [Azure CLI를 설치합니다](/cli/azure/install-azure-cli). `az --version`으로 확인하여 최신 버전이 있는지 알아봅니다.
-2. 이전 버전의 확장을 제거 합니다.`az extension remove -n eventgrid`
-3. 를 사용 하 여 event grid 확장 설치`az extension add -n eventgrid`
+2. 이전 버전의 확장을 제거 합니다. `az extension remove -n eventgrid`
+3. 를 사용 하 여 event grid 확장 설치 `az extension add -n eventgrid`
 
 ## <a name="create-a-system-topic"></a>시스템 항목 만들기
 

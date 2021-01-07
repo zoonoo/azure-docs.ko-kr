@@ -5,19 +5,19 @@ author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
-ms.custom: mvc
-ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 319107127b79383fc3b49f0eeb856a0e6c5b09f8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440901"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747774"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
 [Openfaas][open-faas] 는 컨테이너를 사용 하 여 서버 리스 함수를 빌드하기 위한 프레임 워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -132,9 +132,9 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 이제 OpenFaaS가 작동하므로 OpenFaas 포털을 사용하여 함수를 만듭니다.
 
-**새 함수 배포**를 클릭하고 **Figlet**을 검색합니다. Figlet 함수를 선택하고 **배포**를 클릭합니다.
+**새 함수 배포** 를 클릭하고 **Figlet** 을 검색합니다. Figlet 함수를 선택하고 **배포** 를 클릭합니다.
 
-![Figlet](media/container-service-serverless/figlet.png)
+![검색 줄에 텍스트가 표시 되는 새 함수 배포 대화 상자가 표시 됩니다.](media/container-service-serverless/figlet.png)
 
 Curl을 사용하여 함수를 호출합니다. 다음 예제의 IP 주소를 OpenFaas 게이트웨이의 IP 주소로 바꿉니다.
 

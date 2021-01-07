@@ -1,6 +1,6 @@
 ---
 title: 순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정
-description: 정렬 된 클러스터형 columnstore 인덱스를 사용 하 여 쿼리 성능을 향상 시킬 때 알아야 할 권장 사항 및 고려 사항입니다.
+description: 정렬 된 클러스터형 columnstore 인덱스를 사용 하 여 전용 SQL 풀에서 쿼리 성능을 향상 시킬 때 알아야 할 권장 사항 및 고려 사항입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795612"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460787"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정  
 
-사용자가 Synapse SQL 풀에서 columnstore 테이블을 쿼리하면 최적화 프로그램은 각 세그먼트에 저장 된 최소값과 최 댓 값을 확인 합니다.  쿼리 조건자의 범위 밖에 있는 세그먼트는 디스크에서 메모리로 읽지 않습니다.  읽을 세그먼트 수와 총 크기가 작은 경우 쿼리는 더 빠른 성능을 얻을 수 있습니다.   
+사용자가 전용 SQL 풀에서 columnstore 테이블을 쿼리 하는 경우 최적화 프로그램은 각 세그먼트에 저장 된 최소값과 최대값을 확인 합니다.  쿼리 조건자의 범위 밖에 있는 세그먼트는 디스크에서 메모리로 읽지 않습니다.  읽을 세그먼트 수와 총 크기가 작은 경우 쿼리는 더 빠른 성능을 얻을 수 있습니다.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>정렬 된 클러스터형 columnstore 인덱스 및 순서가 지정 되지 않은 클러스터형 columnstore 인덱스
 
 기본적으로 인덱스 옵션 없이 생성 된 각 테이블에 대해 내부 구성 요소 (인덱스 작성기)는 순서가 지정 되지 않은 클러스터형 columnstore 인덱스 (CCI)를 만듭니다.  각 열의 데이터는 별도의 CCI 행 그룹 세그먼트로 압축 됩니다.  각 세그먼트의 값 범위에 대 한 메타 데이터가 있으므로 쿼리 조건자의 범위 밖에 있는 세그먼트는 쿼리 실행 중에 디스크에서 읽지 않습니다.  CCI는 가장 높은 수준의 데이터 압축을 제공 하 고 읽을 세그먼트 크기를 줄여 쿼리가 더 빠르게 실행 될 수 있도록 합니다. 그러나 인덱스 작성기가 데이터를 세그먼트로 압축 하기 전에 정렬 하지 않으므로 값 범위가 겹치는 세그먼트가 발생 하 여 디스크에서 더 많은 세그먼트를 읽고 쿼리가 완료 되는 데 시간이 오래 걸릴 수 있습니다.  
 
-정렬 된 CCI를 만들 때 Synapse SQL 엔진은 인덱스 작성기가 인덱스 세그먼트로 압축 하기 전에 순서 키를 기준으로 메모리의 기존 데이터를 정렬 합니다.  정렬 된 데이터를 사용 하는 경우 쿼리를 더 효율적으로 분할 하 여 디스크에서 읽을 세그먼트 수가 줄어들기 때문에 더 효율적으로 세그먼트를 제거 하 여 성능을 향상 시킬 수 있습니다.  모든 데이터를 한 번에 메모리에서 정렬할 수 있는 경우 세그먼트 겹치기를 방지할 수 있습니다.  데이터 웨어하우스의 테이블이 많기 때문에이 시나리오는 자주 발생 하지 않습니다.  
+정렬 된 CCI를 만들 때 전용 SQL 풀 엔진은 인덱스 작성기가 인덱스 세그먼트로 압축 하기 전에 순서 키를 기준으로 메모리의 기존 데이터를 정렬 합니다.  정렬 된 데이터를 사용 하는 경우 쿼리를 더 효율적으로 분할 하 여 디스크에서 읽을 세그먼트 수가 줄어들기 때문에 더 효율적으로 세그먼트를 제거 하 여 성능을 향상 시킬 수 있습니다.  모든 데이터를 한 번에 메모리에서 정렬할 수 있는 경우 세그먼트 겹치기를 방지할 수 있습니다.  데이터 웨어하우스의 테이블이 많기 때문에이 시나리오는 자주 발생 하지 않습니다.  
 
 열에 대 한 세그먼트 범위를 확인 하려면 테이블 이름 및 열 이름으로 다음 명령을 실행 합니다.
 
@@ -49,11 +49,8 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 ```
 
->[!TIP]
-> Synapse SQL의 성능 향상을 위해 영구 사용자 테이블에서 **pdw_table_mappings** 대신 **pdw_permanent_table_mappings** 를 사용 하는 것이 좋습니다. 자세한 내용은 **[pdw_permanent_table_mappings &#40;transact-sql&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** 을 참조 하십시오.
-
 > [!NOTE] 
-> 순서가 지정 된 CCI 테이블에서 동일한 DML 또는 데이터 로드 작업 일괄 처리로 생성 되는 새 데이터는 해당 일괄 처리 내에서 정렬 되며 테이블의 모든 데이터에 대해 전역 정렬이 수행 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  Synapse SQL에서 columnstore 인덱스 다시 작성은 오프 라인 작업입니다.  분할 된 테이블의 경우 다시 작성은 한 번에 하나의 파티션으로 수행 됩니다.  다시 작성 되는 파티션의 데이터는 "오프 라인" 이며 해당 파티션에 대해 다시 작성이 완료 될 때까지 사용할 수 없습니다. 
+> 순서가 지정 된 CCI 테이블에서 동일한 DML 또는 데이터 로드 작업 일괄 처리로 생성 되는 새 데이터는 해당 일괄 처리 내에서 정렬 되며 테이블의 모든 데이터에 대해 전역 정렬이 수행 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  전용 SQL 풀에서 columnstore 인덱스 다시 작성은 오프 라인 작업입니다.  분할 된 테이블의 경우 다시 작성은 한 번에 하나의 파티션으로 수행 됩니다.  다시 작성 되는 파티션의 데이터는 "오프 라인" 이며 해당 파티션에 대해 다시 작성이 완료 될 때까지 사용할 수 없습니다. 
 
 ## <a name="query-performance"></a>쿼리 성능
 
@@ -98,7 +95,7 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 다음은 서로 다른 스키마를 사용 하는 테이블로 데이터를 로드 하는 경우의 성능 비교 예제입니다.
 
-![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![여러 스키마를 사용 하는 테이블로 데이터를 로드 하는 성능 비교를 보여 주는 막대 그래프입니다.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 다음은 CCI와 정렬 된 CCI 간의 쿼리 성능 비교 예제입니다.
@@ -112,7 +109,7 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 - 더 높은 DWU에서 xlargerc 리소스 클래스를 사용 하 여 인덱스 작성기가 데이터를 세그먼트로 압축 하기 전에 데이터 정렬에 더 많은 메모리를 사용할 수 있습니다.  인덱스 세그먼트에서 데이터의 물리적 위치를 변경할 수 없습니다.  세그먼트 또는 세그먼트 사이에는 데이터 정렬이 없습니다.  
 
-- MAXDOP = 1을 사용 하 여 정렬 된 CCI를 만듭니다.  순서가 지정 된 CCI 생성에 사용 되는 각 스레드는 데이터의 하위 집합에서 작동 하며 로컬로 정렬 됩니다.  여러 스레드에 의해 정렬 된 데이터에는 전역 정렬이 없습니다.  병렬 스레드를 사용 하면 정렬 된 CCI를 만드는 시간을 줄일 수 있지만 단일 스레드를 사용 하는 것 보다 더 겹치는 세그먼트를 생성 합니다.  현재 MAXDOP 옵션은 CREATE TABLE SELECT 명령으로 사용 하 여 정렬 된 CCI 테이블을 만드는 경우에만 지원 됩니다.  CREATE INDEX 또는 CREATE TABLE 명령을 통해 정렬 된 CCI를 만드는 것은 MAXDOP 옵션을 지원 하지 않습니다. 예를 들면 다음과 같습니다.
+- MAXDOP = 1을 사용 하 여 정렬 된 CCI를 만듭니다.  순서가 지정 된 CCI 생성에 사용 되는 각 스레드는 데이터의 하위 집합에서 작동 하며 로컬로 정렬 됩니다.  여러 스레드에 의해 정렬 된 데이터에는 전역 정렬이 없습니다.  병렬 스레드를 사용 하면 정렬 된 CCI를 만드는 시간을 줄일 수 있지만 단일 스레드를 사용 하는 것 보다 더 겹치는 세그먼트를 생성 합니다.  현재 MAXDOP 옵션은 CREATE TABLE SELECT 명령으로 사용 하 여 정렬 된 CCI 테이블을 만드는 경우에만 지원 됩니다.  CREATE INDEX 또는 CREATE TABLE 명령을 통해 정렬 된 CCI를 만드는 것은 MAXDOP 옵션을 지원 하지 않습니다. 예제:
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
@@ -139,7 +136,7 @@ OPTION (MAXDOP 1);
 
 ## <a name="examples"></a>예제
 
-**입니다. 순서가 지정 된 열 및 주문 서 수를 확인 하려면 다음을 수행 합니다.**
+**은. 정렬 된 열 및 주문 서 수를 확인 하려면:**
 
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
@@ -148,7 +145,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. 열 서 수를 변경 하려면 order 목록에서 열을 추가 또는 제거 하거나 CCI에서 정렬 된 CCI로 변경 합니다.**
+**B. 열 서 수를 변경 하려면 순서 목록에서 열을 추가 또는 제거 하거나 CCI에서 정렬 된 CCI로 변경 합니다.**
 
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales

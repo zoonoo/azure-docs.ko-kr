@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9dfce7b76eed5bfc9f4979c0e3041b6c65c28422
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88749381"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Azure Storage 탐색기를 사용 하 여 Azure managed disks 관리
 
 Storage 탐색기 1.10.0를 사용 하면 사용자가 관리 디스크를 업로드, 다운로드 및 복사 하 고 스냅숏을 만들 수 있습니다. 이러한 추가 기능으로 인해 Storage 탐색기를 사용 하 여 온-프레미스에서 Azure로 데이터를 마이그레이션하고 Azure 지역 간에 데이터를 마이그레이션할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료 하려면 다음이 필요 합니다.
 - Azure 구독

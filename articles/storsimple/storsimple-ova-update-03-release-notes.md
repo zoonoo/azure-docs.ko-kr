@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-ms.openlocfilehash: f56c36f18379449409f4989eab9510da1f686d0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8301b45fe778bd3df7fc665db2662ba81d3e644f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80397803"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966108"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>StorSimple 가상 배열 업데이트 0.3 릴리스 정보
 ## <a name="overview"></a>개요
@@ -27,7 +27,7 @@ ms.locfileid: "80397803"
 
 릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. StorSimple 가상 배열을 배포하기 전에 릴리스 정보에 포함된 정보를 주의 깊게 검토하세요.
 
-업데이트 0.3은 소프트웨어 버전 **10.0.10288.0**에 해당합니다.
+업데이트 0.3은 소프트웨어 버전 **10.0.10288.0** 에 해당합니다.
 
 > [!NOTE]
 > 업데이트는 작업 중단 업데이트이며 디바이스를 다시 시작합니다. I/O가 진행 중인 경우 디바이스에 가동 중지 시간이 발생합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "80397803"
 ## <a name="issues-fixed-in-the-update-03"></a>업데이트 0.3에서 해결된 문제
 다음 표에서는 이 릴리스에서 수정된 문제를 간략하게 설명합니다.
 
-| 아니요. | 기능 | 문제점 |
+| 아니요. | 기능 | 문제 |
 | --- | --- | --- |
 | 1 |Backup |이전 릴리스에서는 파일 공유에 대한 백업을 완료하지 못하는 문제가 있었습니다. 이 문제가 발생한 경우 백업 작업이 실패하고 StorSimple Manager 서비스에서 사용자에게 알리기 위한 중요 경고가 발생합니다. 이 문제는 공유의 데이터 또는 데이터에 대한 액세스에는 영향을 미치지 않습니다. 근본 원인이 파악되었고 이 릴리스에서 수정되었습니다. <br></br>  이 수정 사항은 이 문제가 이미 발생하고 있는 공유에 소급 적용되지 않습니다. 이 문제를 확인한 고객은 먼저 업데이트 0.3을 적용한 후 Microsoft 지원에 문의하여 전체 시스템 백업을 수행하여 문제를 해결합니다. Microsoft 지원에 문의하는 대신, 고객은 영향을 받는 공유에 대한 정상 백업에서 새 공유로 복원할 수도 있습니다. |
 | 2 |iSCSI |데이터를 StorSimple 가상 배열의 볼륨으로 복사할 때 볼륨이 사라지는 이전 릴리스에서 문제가 나타났습니다. 이 문제는 이 릴리스에서 해결되었습니다. <br></br>  이 수정 사항은 새로 만든 볼륨에만 적용됩니다. 이 수정 사항은 이 문제가 이미 발생한 볼륨에 소급 적용되지 않습니다. 고객은 Azure 클래식 포털을 통해 영향을 받는 볼륨을 온라인으로 전환하고 이러한 볼륨에 대해 백업을 수행한 후 이러한 볼륨을 새 볼륨으로 복원하는 것이 좋습니다. |
@@ -48,7 +48,7 @@ ms.locfileid: "80397803"
 ## <a name="known-issues-in-the-update-03"></a>업데이트 0.3의 알려진 문제
 다음 표에서는 이전 릴리스에서 언급된 문제 릴리스를 포함하여 StorSimple 가상 배열에 대해 알려진 문제를 간략하게 제공합니다. 
 
-| 아니요. | 기능 | 문제점 | 해결 방법/설명 |
+| 아니요. | 기능 | 문제 | 해결 방법/설명 |
 | --- | --- | --- | --- |
 | **1.** |업데이트 |미리 보기 릴리스에서 만든 가상 디바이스는 지원되는 일반 사용 가능 버전으로 업데이트될 수 없습니다. |이러한 가상 디바이스는 재해 복구(DR) 워크플로를 사용하여 일반 사용 가능 릴리스로 장애 조치되어야 합니다. |
 | **2.** |프로비전된 데이터 디스크 |특정한 크기의 데이터 디스크를 프로비전하고 해당 StorSimple 가상 디바이스를 만들고 나면, 데이터 크기를 확장하거나 축소하지 말아야 합니다. 이를 시도하면 디바이스의 로컬 계층에서 모든 데이터가 손실됩니다. | |
@@ -66,11 +66,10 @@ ms.locfileid: "80397803"
 | **14.** |파일 서버 |폴더의 파일에 연결된 ADS(대체 데이터 스트림)가 있는 경우 ADS는 재해 복구, 복제 및 항목 수준 복구를 통해 백업 또는 복원되지 않습니다. | |
 
 ## <a name="next-step"></a>다음 단계
-[업데이트 0.3을 설치](storsimple-ova-install-update-01.md) 합니다.
+[업데이트 0.3을 설치](./storsimple-virtual-array-install-update-06.md) 합니다.
 
 ## <a name="references"></a>참조
 이전 릴리스 정보를 찾으시나요? 다음으로 이동합니다. 
 
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
-* [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
-
+* [StorSimple 가상 배열 일반 공급 릴리스 정보](./storsimple-virtual-array-update-06-release-notes.md)

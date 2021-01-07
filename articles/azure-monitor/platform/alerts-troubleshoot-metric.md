@@ -3,15 +3,15 @@ title: Azure 메트릭 경고 문제 해결
 description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 한 일반적인 문제
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
-ms.date: 09/14/2020
+ms.topic: troubleshooting
+ms.date: 01/03/2021
 ms.subservice: alerts
-ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068765"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857344"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -44,7 +44,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 메트릭 경고가 발생 해서는 안 되는 것으로 판단 되 면 다음 단계를 통해 문제를 해결할 수 있습니다.
 
-1. 발생 한 경고 [목록을](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) 검토 하 여 발생 한 경고를 찾은 후 클릭 하 여 세부 정보를 확인 합니다. **이 경고가 발생 한 이유** 에서 제공 된 정보를 검토 하 여 경고가 트리거된 시점의 메트릭 차트, **메트릭 값**및 **임계값** 을 확인 하십시오.
+1. 발생 한 경고 [목록을](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) 검토 하 여 발생 한 경고를 찾은 후 클릭 하 여 세부 정보를 확인 합니다. **이 경고가 발생 한 이유** 에서 제공 된 정보를 검토 하 여 경고가 트리거된 시점의 메트릭 차트, **메트릭 값** 및 **임계값** 을 확인 하십시오.
 
     > [!NOTE] 
     > 동적 임계값 조건 유형을 사용 하 고 사용 된 임계값이 올바르지 않은 것으로 생각 되는 경우 찡그린 얼굴 보내기 아이콘을 사용 하 여 피드백을 제공 하세요. 이 피드백은 기계 학습 알고리즘 연구에 영향을 주므로 향후 검색을 개선 하는 데 도움이 됩니다.
@@ -72,14 +72,19 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 - [Linux VM의 경우](./collect-custom-metrics-linux-telegraf.md)
 
 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하는 방법에 대 한 자세한 내용은 [여기](../insights/monitor-vm-azure.md#guest-operating-system)를 참조 하세요.
-    
+
 > [!NOTE] 
 > Log Analytics 작업 영역으로 전송 되도록 게스트 메트릭을 구성한 경우 메트릭은 Log Analytics 작업 영역 리소스 아래에 표시 되 고이를 모니터링 하는 경고 규칙을 만든 후에 **만** 데이터를 표시 하기 시작 합니다. 이렇게 하려면 [로그에 대한 메트릭 경고를 구성](./alerts-metric-logs.md#configuring-metric-alert-for-logs)하는 단계를 수행합니다.
 
+> [!NOTE] 
+> 단일 경고 규칙을 사용 하 여 여러 가상 컴퓨터에 대 한 게스트 메트릭을 모니터링 하는 것은 현재 메트릭 경고에서 지원 되지 않습니다. [로그 경고 규칙](./alerts-unified-log.md)을 사용 하 여이를 달성할 수 있습니다. 이렇게 하려면 게스트 메트릭이 Log Analytics 작업 영역으로 수집 되는지 확인 하 고 작업 영역에서 로그 경고 규칙을 만듭니다.
+
 ## <a name="cant-find-the-metric-to-alert-on"></a>경고에 대 한 메트릭을 찾을 수 없음
 
-특정 메트릭에 대 한 경고를 찾고 리소스에 대 한 메트릭을 볼 수 없는 경우에는 해당 [리소스 유형이 메트릭 경고에 대해 지원 되는지 확인](./alerts-metric-near-real-time.md)합니다.
-리소스에 대 한 일부 메트릭을 볼 수 있지만 특정 메트릭을 찾을 수 없는 경우 [해당 메트릭을 사용할 수 있는지 여부를 확인](./metrics-supported.md)하 고, 해당 메트릭을 사용할 수 있는지 확인 하려면 메트릭 설명을 참조 하 여 리소스의 특정 버전이 나 버전 에서만 사용할 수 있는지 확인 합니다.
+특정 메트릭에 대한 경고를 찾고 있지만 경고 규칙을 만들 때 볼 수 없는 경우 다음을 확인합니다.
+- 리소스에 대한 메트릭이 표시되지 않는 경우 [메트릭 경고에 대해 리소스 유형이 지원되는지 확인](./alerts-metric-near-real-time.md)합니다.
+- 리소스에 대한 일부 메트릭을 볼 수 있지만 특정 메트릭을 찾을 수 없는 경우, [메트릭을 사용할 수 있는지 확인](./metrics-supported.md)하고 필요한 경우 메트릭 설명을 참조하여 리소스의 특정 버전에서만 사용할 수 있는지 확인합니다.
+- 메트릭을 리소스에 사용할 수 없는 경우 리소스 로그에서 사용할 수 있으며 로그 경고를 사용하여 모니터링할 수 있습니다. [Azure 리소스에서 리소스 로그를 수집하고 분석](../learn/tutorial-resource-logs.md)하는 방법에 대한 자세한 내용은 여기를 참조하세요.
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>경고에 대 한 메트릭 차원을 찾을 수 없습니다.
 
@@ -108,7 +113,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>아직 내보내지 않은 사용자 지정 메트릭에 대 한 경고 규칙을 정의 합니다.
 
-메트릭 경고 규칙을 만들 때 메트릭 [정의 API](/rest/api/monitor/metricdefinitions/list) 에 대 한 메트릭 이름 유효성을 검사 하 여 존재 하는지 확인 합니다. 경우에 따라 사용자 지정 메트릭에 대 한 경고 규칙을 만들 수도 있습니다. 예를 들어 리소스 관리자 템플릿을 사용 하 여 사용자 지정 메트릭을 내보내는 Application Insights 리소스를 만들고 해당 메트릭을 모니터링 하는 경고 규칙을 사용할 수 있습니다.
+메트릭 경고 규칙을 만들 때 메트릭 [정의 API](/rest/api/monitor/metricdefinitions/list) 에 대 한 메트릭 이름 유효성을 검사 하 여 존재 하는지 확인 합니다. 경우에 따라 사용자 지정 메트릭에 대 한 경고 규칙을 만들 수도 있습니다. 예를 들어 리소스 관리자 템플릿을 사용 하 여 사용자 지정 메트릭을 내보내는 Application Insights 리소스를 만들고 해당 메트릭을 모니터링 하는 경고 규칙을 만들 수 있습니다.
 
 사용자 지정 메트릭의 정의 유효성을 검사 하는 동안 배포가 실패 하지 않도록 하려면 경고 규칙의 조건 섹션에서 *skipMetricValidation* 매개 변수를 사용할 수 있습니다. 그러면 메트릭 유효성 검사가 생략 됩니다. 리소스 관리자 템플릿에서이 매개 변수를 사용 하는 방법은 아래 예제를 참조 하세요. 자세한 내용은 [메트릭 경고 규칙을 만들기 위한 전체 리소스 관리자 템플릿 예제](./alerts-metric-create-templates.md)를 참조 하세요.
 
@@ -117,17 +122,17 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
     "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
         "allOf": [
             {
-                    "name" : "condition1",
-                        "metricName": "myCustomMetric",
+                "name" : "condition1",
+                "metricName": "myCustomMetric",
                 "metricNamespace": "myCustomMetricNamespace",
-                        "dimensions":[],
-                        "operator": "GreaterThan",
-                        "threshold" : 10,
-                        "timeAggregation": "Average",
-                    "skipMetricValidation": true
-        }
-              ]
-        }
+                "dimensions":[],
+                "operator": "GreaterThan",
+                "threshold" : 10,
+                "timeAggregation": "Average",
+                "skipMetricValidation": true
+            }
+        ]
+    }
 ```
 
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Azure Portal를 통해 메트릭 경고 규칙의 Azure Resource Manager 템플릿을 내보냅니다.
@@ -137,7 +142,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 2. 개요 섹션에서 **숨겨진 형식 표시** 확인란을 선택 합니다.
 3. **유형** 필터에서 *microsoft metricalerts/* 를 선택 합니다.
 4. 관련 경고 규칙을 선택 하 여 세부 정보를 확인 합니다.
-5. **설정**아래에서 **템플릿 내보내기**를 선택 합니다.
+5. **설정** 아래에서 **템플릿 내보내기** 를 선택 합니다.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>메트릭 경고 규칙 할당량이 너무 작음
 
@@ -160,7 +165,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ### <a name="from-the-azure-portal"></a>Azure Portal에서
 
-1. **경고** 화면을 열고 **경고 규칙 관리**를 클릭합니다.
+1. **경고** 화면을 열고 **경고 규칙 관리** 를 클릭합니다.
 2. **구독** 드롭다운 컨트롤을 사용 하 여 관련 구독으로 필터링
 3. 특정 리소스 그룹, 리소스 유형 또는 리소스로 필터링 하지 않도록 합니다.
 4. **신호 형식** 드롭다운 컨트롤에서 **메트릭** 을 선택 합니다.
@@ -223,7 +228,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 메트릭 경고 규칙을 만들려면 다음과 같은 사용 권한이 있어야 합니다.
 
 - 경고 규칙의 대상 리소스에 대 한 읽기 권한
-- 경고 규칙이 생성 되는 리소스 그룹에 대 한 쓰기 권한 (Azure Portal에서 경고 규칙을 만드는 경우 대상 리소스가 있는 동일한 리소스 그룹에서 경고 규칙을 만듦)
+- 경고 규칙이 생성 되는 리소스 그룹에 대 한 쓰기 권한 (Azure Portal에서 경고 규칙을 만드는 경우 경고 규칙이 대상 리소스가 있는 리소스 그룹에 기본적으로 생성 됨)
 - 경고 규칙에 연결 된 모든 작업 그룹에 대 한 읽기 권한 (해당 하는 경우)
 
 
@@ -236,6 +241,8 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 메트릭 경고 규칙 이름에는 * # & +:  < >  문자를 사용할 수 없습니다. @ % { } \ / 
 - 메트릭 경고 규칙 이름은 공백 또는 마침표로 끝날 수 없습니다.
 
+> [!NOTE] 
+> 경고 규칙 이름에 영문자 또는 숫자가 아닌 문자가 포함 된 경우 (예: 공백, 문장 부호 또는 기호) 이러한 문자는 특정 클라이언트에서 검색할 때 URL로 인코딩될 수 있습니다.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>여러 조건이 있는 메트릭 경고 규칙에서 차원을 사용할 때의 제한 사항
 
@@ -252,6 +259,29 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
     - 첫 번째 조건을 업데이트 하 고 **Apiname** 차원이 *"getblob"* 과 일치 하는 트랜잭션만 모니터링 하 고 싶습니다.
     - **트랜잭션과** **SuccessE2ELatency** 메트릭은 모두 **apiname** 차원을 지원 하므로 두 조건을 모두 업데이트 해야 하며 둘 다 *"Getblob"* 값을 가진 **apiname** 차원을 지정 해야 합니다.
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>경고 규칙의 기간 및 빈도 설정
+
+다음 경우에 추가 된 시계열의 첫 번째 평가가 누락 될 가능성을 줄이기 위해 *평가 빈도* 보다 큰 *집계 세분성 (기간)* 을 선택 하는 것이 좋습니다.
+-   여러 차원을 모니터링 하는 메트릭 경고 규칙-새 차원 값 조합이 추가 된 경우
+-   여러 리소스를 모니터링 하는 메트릭 경고 규칙-범위에 새 리소스를 추가 하는 경우
+-   연속으로 내보내지 않는 메트릭을 모니터링 하는 메트릭 경고 규칙 (스파스 메트릭) – 시간을 내보내지 않은 24 시간 보다 오래 된 메트릭을 내보내는 경우
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>동적 임계값 테두리가 데이터에 맞지 않는 것 같습니다.
+
+메트릭 동작이 최근에 변경 된 경우에는 변경 내용이 동적 임계값 테두리 (상한 및 하 한 범위)에 즉시 반영 되지 않을 수 있습니다 .이는 지난 10 일 동안의 메트릭 데이터를 기반으로 계산 됩니다. 지정 된 메트릭에 대 한 동적 임계값 테두리를 볼 때 최근 시간 또는 일 뿐만 아니라 지난 주에 메트릭 추세를 확인 해야 합니다.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>동적 임계값으로 매주 계절성 검색 되지 않는 이유는 무엇 인가요?
+
+주간 계절성을 식별 하기 위해 동적 임계값 모델에는 3 주 이상의 기록 데이터가 필요 합니다. 기록 데이터를 충분히 사용할 수 있게 되 면 메트릭 데이터에 있는 주간 계절성 식별 되며 모델은 그에 따라 조정 됩니다. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>메트릭에 항상 양수 값이 있는 경우에도 동적 임계값은 메트릭에 대 한 음수 하한값을 표시 합니다.
+
+메트릭이 큰 변동을을 나타내는 경우 동적 임계값은 메트릭 값을 중심으로 더 넓은 모델을 생성 하며,이로 인해 아래쪽 테두리가 0이 됩니다. 특히 다음과 같은 경우에 이러한 상황이 발생할 수 있습니다.
+1. 민감도를 낮음으로 설정 합니다. 
+2. 중앙값은 0에 가깝습니다.
+3. 메트릭은 분산이 높은 불규칙 한 동작을 보여 주는 것입니다 (데이터에 스파이크 또는 dip가 있는 경우).
+
+하 한 값이 음수 값을 갖는 경우 메트릭이 불규칙 한 동작을 감안 하 여 0 값에 도달 하는 것을 타당 것을 의미 합니다. 모델을 작성 하는 데 사용 되는 기록 데이터에서 최근 irregulaity를 제외 하기 위해 더 높은 민감도 또는 더 큰 집계 세분성 (기간)을 선택 하 여 모델의 중요도를 높이 거 나 더 큰 *집계 세분성 (기간)* 을 선택 *하는 것* 이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

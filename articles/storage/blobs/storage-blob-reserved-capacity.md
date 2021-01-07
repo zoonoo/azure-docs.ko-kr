@@ -1,19 +1,20 @@
 ---
-title: 예약 된 용량을 사용 하 여 Blob 저장소에 대 한 비용 최적화-Azure Storage
+title: 예약된 용량으로 Blob 스토리지에 대한 비용 최적화
+titleSuffix: Azure Storage
 description: 블록 blob 및 Azure Data Lake Storage Gen2 리소스에 대 한 비용을 절감 하기 위해 예약 된 Azure Storage 용량을 구매 하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c957330fbd54660367fa350d6985929f0bbd3d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259204"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531392"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>예약된 용량으로 Blob 스토리지에 대한 비용 최적화
 
@@ -29,7 +30,7 @@ Azure Storage 예약 가격 책정에 대한 자세한 내용은 [블록 Blob �
 
 ### <a name="reservation-capacity"></a>예약 용량
 
-1 년 또는 3 년 기간 동안 100 TB와 매월 1 PB 단위로 Azure Storage 예약 된 용량을 구매할 수 있습니다.
+1 년 또는 3 년 기간 동안 매월 100 TiB 및 1 개의 PiB 단위로 예약 된 용량 Azure Storage 구매할 수 있습니다.
 
 ### <a name="reservation-scope"></a>예약 범위
 
@@ -37,7 +38,7 @@ Azure Storage 예약 가격 책정에 대한 자세한 내용은 [블록 Blob �
 
 Azure Storage 예약 된 용량을 구입 하는 경우 블록 blob 및 Azure Data Lake Storage Gen2 데이터에 대 한 예약을 사용할 수 있습니다. 예약은 구매한 범위 내 사용량에 적용 되며, 구독 내의 특정 저장소 계정, 컨테이너 또는 개체로 제한 될 수 없습니다.
 
-Azure Storage 예약은 구독 또는 공유 리소스 그룹에 저장 된 데이터의 양만 포함 합니다. 초기 삭제, 작업, 대역폭 및 데이터 전송 요금은 예약에 포함 되지 않습니다. 예약을 구매 하는 즉시, 예약 특성과 일치 하는 용량 요금은 종 량 제 요금이 아닌 할인 요금으로 청구 됩니다. Azure 예약에 대 한 자세한 내용은 [Azure Reservations?](/azure/billing/billing-save-compute-costs-reservations)을 참조 하세요.
+Azure Storage 예약은 구독 또는 공유 리소스 그룹에 저장 된 데이터의 양만 포함 합니다. 초기 삭제, 작업, 대역폭 및 데이터 전송 요금은 예약에 포함 되지 않습니다. 예약을 구매 하는 즉시, 예약 특성과 일치 하는 용량 요금은 종 량 제 요금이 아닌 할인 요금으로 청구 됩니다. Azure 예약에 대 한 자세한 내용은 [Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)을 참조 하세요.
 
 ### <a name="supported-account-types-tiers-and-redundancy-options"></a>지원 되는 계정 유형, 계층 및 중복성 옵션
 
@@ -62,11 +63,11 @@ Azure Storage reserved capacity는 범용 v2 (GPv2) 및 Blob storage 계정을 �
 
 Azure Storage 예약을 구매할 때 예약에 대 한 지역, 액세스 계층 및 중복성 옵션을 선택 해야 합니다. 예약은 해당 지역, 액세스 계층 및 중복성 수준에 저장 된 데이터에 대해서만 유효 합니다. 예를 들어 ZRS (영역 중복 저장소)를 사용 하 여 핫 계층에 대 한 미국 서 부에 데이터에 대 한 예약을 구매 한다고 가정 합니다. 미국 동부, 보관 계층의 데이터 또는 GRS (지역 중복 저장소)의 데이터에 대해 동일한 예약을 사용할 수 없습니다. 그러나 추가 요구 사항에 대 한 다른 예약을 구매할 수 있습니다.  
 
-예약은 현재 100 TB 또는 1 pb 블록에 대해 제공 되며, 1 PB 블록에 대해 더 높은 할인이 제공 됩니다. Azure Portal에서 예약을 구매 하는 경우 Microsoft는 이전 사용량을 기준으로 권장 사항을 제공 하 여 구매할 예약을 결정할 수 있습니다.
+예약은 현재 100 TiB 또는 1 pib 블록에 대해 제공 되며, 1 PiB 블록에 대해 더 높은 할인이 제공 됩니다. Azure Portal에서 예약을 구매 하는 경우 Microsoft는 이전 사용량을 기준으로 권장 사항을 제공 하 여 구매할 예약을 결정할 수 있습니다.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Azure Storage 예약 된 용량 구입
 
-[Azure Portal](https://portal.azure.com)를 통해 Azure Storage 예약 된 용량을 구매할 수 있습니다. 예약 요금은 사전 결제 또는 월별 결제로 처리할 수 있습니다. 월간 지불로 구매 하는 방법에 대 한 자세한 내용은 [앞으로 또는 매월 지불 하 여 Azure 예약 구매](/azure/billing/billing-monthly-payments-reservations)를 참조 하세요.
+[Azure Portal](https://portal.azure.com)를 통해 Azure Storage 예약 된 용량을 구매할 수 있습니다. 예약 요금은 사전 결제 또는 월별 결제로 처리할 수 있습니다. 월간 지불로 구매 하는 방법에 대 한 자세한 내용은 [앞으로 또는 매월 지불 하 여 Azure 예약 구매](../../cost-management-billing/reservations/prepare-buy-reservation.md)를 참조 하세요.
 
 시나리오에 적합 한 예약 약관을 식별 하는 데 도움이 필요 하면 [Azure Storage reserved capacity 할인율 이해](../../cost-management-billing/reservations/understand-storage-charges.md)를 참조 하세요.
 
@@ -80,14 +81,14 @@ Azure Storage 예약을 구매할 때 예약에 대 한 지역, 액세스 계층
 
    |필드  |설명  |
    |---------|---------|
-   |**범위**   |  예약과 관련 된 청구 혜택을 사용할 수 있는 구독 수를 나타냅니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다. <br/><br/> **공유**를 선택 하면 청구 컨텍스트 내의 모든 구독에서 Azure Storage 용량에 예약 할인이 적용 됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종 량 제 고객의 경우 공유 범위에는 계정 관리자가 만든 종 량 제 요금이 포함 된 모든 개별 구독이 포함 됩니다.  <br/><br/>  **단일 구독**을 선택 하면 선택한 구독의 Azure Storage 용량에 예약 할인이 적용 됩니다. <br/><br/> **단일 리소스 그룹**을 선택 하는 경우 예약 할인이 선택한 구독의 Azure Storage 용량과 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다. <br/><br/> 예약을 구매한 후 예약 범위를 변경할 수 있습니다.  |
+   |**범위**   |  예약과 관련 된 청구 혜택을 사용할 수 있는 구독 수를 나타냅니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다. <br/><br/> **공유** 를 선택 하면 청구 컨텍스트 내의 모든 구독에서 Azure Storage 용량에 예약 할인이 적용 됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종 량 제 고객의 경우 공유 범위에는 계정 관리자가 만든 종 량 제 요금이 포함 된 모든 개별 구독이 포함 됩니다.  <br/><br/>  **단일 구독** 을 선택 하면 선택한 구독의 Azure Storage 용량에 예약 할인이 적용 됩니다. <br/><br/> **단일 리소스 그룹** 을 선택 하는 경우 예약 할인이 선택한 구독의 Azure Storage 용량과 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다. <br/><br/> 예약을 구매한 후 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Storage 예약에 대해 지불 하는 데 사용 되는 구독입니다. 선택한 구독의 결제 방법을 사용 하 여 비용을 청구 합니다. 구독은 다음 형식 중 하나 여야 합니다. <br/><br/>  기업계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p): Enterprise 구독의 경우 요금 청구는 등록의 금액 약정 잔액에서 공제 되거나 초과분로 청구 됩니다. <br/><br/> 종 량 제 요금이 있는 개별 구독 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0023P): 종 량 제 요금이 있는 개별 구독의 경우 요금 청구는 구독에 대 한 신용 카드나 청구서 지불 방법으로 청구 됩니다.    |
    | **지역** | 예약이 적용 되는 지역입니다. |
-   | **액세스 계층** | 예약이 적용 되는 액세스 계층입니다. *핫*, *쿨*또는 *Archive*옵션을 포함 합니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조 하세요. |
-   | **중복성** | 예약에 대 한 중복성 옵션입니다. 옵션에는 *LRS*, *ZRS*, *GRS*, *GZRS*, *ra-GRS*및 *RA-GZRS*가 포함 됩니다. 중복성 옵션에 대 한 자세한 내용은 [Azure Storage 중복성](../common/storage-redundancy.md)을 참조 하세요. |
-   | **청구 빈도** | 예약에 대 한 계정 청구 빈도를 나타냅니다. 옵션에는 *월별* 또는 *선행*이 포함 됩니다. |
-   | **크기** | 예약이 적용 되는 지역입니다. |
-   |**용어**  | 1년 또는 3년입니다.   |
+   | **액세스 계층** | 예약이 적용 되는 액세스 계층입니다. *핫*, *쿨* 또는 *Archive* 옵션을 포함 합니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조 하세요. |
+   | **중복성** | 예약에 대 한 중복성 옵션입니다. 옵션에는 *LRS*, *ZRS*, *GRS*, *GZRS*, *ra-GRS* 및 *RA-GZRS* 가 포함 됩니다. 중복성 옵션에 대 한 자세한 내용은 [Azure Storage 중복성](../common/storage-redundancy.md)을 참조 하세요. |
+   | **청구 빈도** | 예약에 대 한 계정 청구 빈도를 나타냅니다. 옵션에는 *월별* 또는 *선행* 이 포함 됩니다. |
+   | **크기** | 예약할 용량의 양입니다. |
+   |**기간**  | 1년 또는 3년입니다.   |
 
 1. 예약에 대 한 매개 변수를 선택 하면 Azure Portal에 비용이 표시 됩니다. 또한 포털은 종 량 제 요금 청구에 대 한 할인율을 보여 줍니다.
 
@@ -101,7 +102,7 @@ Azure Storage 예약을 구매할 때 예약에 대 한 지역, 액세스 계층
 
 특정 제한 사항을 사용 하 여 예약을 교환 하거나 환불 할 수 있습니다. 이러한 제한 사항은 다음 섹션에 설명 되어 있습니다.
 
-예약을 교환 하거나 환불 하려면 Azure Portal의 예약 세부 정보로 이동 합니다. **Exchange** 또는 **환불**을 선택 하 고 지침에 따라 지원 요청을 제출 합니다. 요청이 처리 되 면 Microsoft에서 요청 완료를 확인 하는 전자 메일을 보냅니다.
+예약을 교환 하거나 환불 하려면 Azure Portal의 예약 세부 정보로 이동 합니다. **Exchange** 또는 **환불** 을 선택 하 고 지침에 따라 지원 요청을 제출 합니다. 요청이 처리 되 면 Microsoft에서 요청 완료를 확인 하는 전자 메일을 보냅니다.
 
 Azure Reservations 정책에 대 한 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)를 참조 하세요.
 

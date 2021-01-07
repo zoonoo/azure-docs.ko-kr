@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8d9740e05bf4236f1b2b722c9a91b3644533fce
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e7d04a2941888592ffa37acfe6cba52a33fda528
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707903"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365513"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 PowerShell
 
@@ -54,7 +54,7 @@ ms.locfileid: "90707903"
     ![Azure AD 조직의 속성에서 조직 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
+> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
 
 ## <a name="retrieving-role-definitions"></a>역할 정의 검색
 
@@ -162,4 +162,4 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 - [Azure AD 사용자 지정 역할 할당](azure-ad-custom-roles-assign.md)
 - [Azure AD 사용자 지정 역할 할당 제거 또는 업데이트](azure-ad-custom-roles-update-remove.md)
 - [Azure AD 사용자 지정 역할 할당 구성](azure-ad-custom-roles-configure.md)
-- [Azure AD의 역할 정의](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD의 역할 정의](../roles/permissions-reference.md)

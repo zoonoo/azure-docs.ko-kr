@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 70b0f8178a94735a6ef37a225044984508cc2233
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833388"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617139"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>파일 수준의 SAP HANA Azure Backup
 
@@ -27,7 +28,7 @@ ms.locfileid: "87833388"
 
 Azure의 VM 유형에 따라 서로 다른 개수의 VHD를 연결할 수 있습니다. 정확한 세부 정보는 [Azure에서 Linux 가상 머신에 대한 크기](../../sizes.md)에 문서화되어 있습니다. 이 문서에서 참조 하는 테스트의 경우 64 연결 된 데이터 디스크를 허용 하는 GS5 Azure VM을 사용 했습니다. 대용량 SAP HANA 시스템의 경우 소프트웨어 스트라이프와 함께 이미 많은 수의 디스크를 데이터 및 로그 파일에 사용하여 디스크 IO 처리량을 최적화할 수 있습니다. Azure Vm에서 SAP HANA 배포에 대해 권장 되는 디스크 구성에 대 한 자세한 내용은 [azure virtual machine 저장소 구성 SAP HANA](./hana-vm-operations-storage.md)문서를 참조 하세요. 권장 사항에는 로컬 백업에 대한 디스크 공간 권장 사항도 포함됩니다.
 
-파일 수준에서 백업/복원을 관리하는 표준 방법은 SAP HANA Studio 또는 SAP HANA SQL 문을 통해 파일 기반 백업을 수행하는 것입니다. 자세한 내용은 [SQL 및 시스템 뷰 참조 SAP HANA](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf)문서를 참조 하세요.
+파일 수준에서 백업/복원을 관리하는 표준 방법은 SAP HANA Studio 또는 SAP HANA SQL 문을 통해 파일 기반 백업을 수행하는 것입니다. 자세한 내용은 [SQL 및 시스템 뷰 참조 SAP HANA](https://help.sap.com/viewer/4fe29514fd584807ac9f2a04f6754767/2.0.05/en-US/3859e48180bb4cf8a207e15cf25a7e57.html)문서를 참조 하세요.
 
 ![SAP HANA Studio 백업 메뉴 항목의 대화 상자를 보여 주는 그림](media/sap-hana-backup-file-level/backup-menue-dialog.png)
 
@@ -43,7 +44,7 @@ File Storage 공유는 표준 SMB 파일 공유이므로 Azure에서 실행되�
 
 ## <a name="azure-blobxfer-utility-details"></a>Azure blobxfer 유틸리티 정보
 
-Azure Storage에 디렉터리와 파일을 저장하려면 CLI 또는 PowerShell을 사용하거나 [Azure SDK](https://azure.microsoft.com/downloads/) 중 하나를 사용하여 도구를 개발할 수 있습니다. Azure storage로 데이터를 복사 하는 즉시 사용 가능한 유틸리티인 AzCopy도 있습니다. [AzCopy 명령줄 유틸리티를 사용 하 여 데이터 전송](../../../storage/common/storage-use-azcopy-v10.md)을 참조 하세요.
+Azure Storage에 디렉터리와 파일을 저장하려면 CLI 또는 PowerShell을 사용하거나 [Azure SDK](https://azure.microsoft.com/downloads/) 중 하나를 사용하여 도구를 개발할 수 있습니다. Azure storage로 데이터를 복사 하는 즉시 사용 가능한 유틸리티인 AzCopy도 있습니다. [AzCopy Command-Line 유틸리티를 사용 하 여 데이터 전송](../../../storage/common/storage-use-azcopy-v10.md)을 참조 하세요.
 
 따라서 blobxfer 유틸리티가 SAP HANA 백업 파일을 복사하는 데 사용되었습니다. 이 유틸리티는 프로덕션 환경에서 많은 고객이 사용하는 오픈 소스이며 [GitHub](https://github.com/Azure/blobxfer)에서 사용할 수 있습니다. Azure File Storage는 클라우드 기반 SMB 파일 공유를 제공하므로 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 신속하게 Azure로 마이그레이션할 수 있습니다. 또한 여러 파일을 사용 하 여 디렉터리를 복사할 때 md5 해시 또는 자동 병렬 처리와 같은 다양 한 유용한 기능을 제공 합니다.
 

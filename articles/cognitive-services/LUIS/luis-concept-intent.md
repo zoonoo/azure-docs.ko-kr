@@ -3,20 +3,18 @@ title: 의도 및 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 단일 의도는 사용자가 수행 하려는 작업 또는 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다. 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101079"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025911"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
 
@@ -29,12 +27,12 @@ ms.locfileid: "82101079"
  BookFlight     |   “Book me a flight to Rio next week” <br/> “Fly me to Rio on the 24th” <br/> “I need a plane ticket next Sunday to Rio de Janeiro”    |
  Greeting     |   “Hi” <br/>"Hello" <br/>“Good morning”  |
  CheckWeather | “What's the weather like in Boston?” <br/> “Show me the forecast for this weekend” |
- 없음         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
+ None         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
 
 모든 응용 프로그램에는 대체 의도 인 미리 정의 된 의도 "[None](#none-intent)"이 함께 제공 됩니다.
 
 ## <a name="prebuilt-domains-provide-intents"></a>미리 빌드된 도메인이 의도를 제공함
-를 정의 하는 것 외에도 미리 작성 된 [도메인](luis-how-to-use-prebuilt-domains.md)중 하나에서 미리 작성 된 의도를 사용할 수 있습니다.
+를 정의 하는 것 외에도 미리 작성 된 [도메인](./howto-add-prebuilt-models.md)중 하나에서 미리 작성 된 의도를 사용할 수 있습니다.
 
 ## <a name="return-all-intents-scores"></a>모든 의도의 점수 반환
 단일 의도에 하나의 발화를 할당합니다. LUIS에서 끝점에 대 한 utterance를 수신 하면 기본적으로 해당 utterance의 최상위 의도를 반환 합니다.
@@ -51,21 +49,21 @@ Utterance에 대 한 모든 의도의 점수를 원하는 경우 예측 API의 �
 
 <a name="how-do-intents-relate-to-entities"></a>
 
- 사용자의 ‘의도’가 클라이언트 애플리케이션에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다.__ 그런 다음 작업을 실행 하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다.
+ 사용자의 ‘의도’가 클라이언트 애플리케이션에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다. 그런 다음 작업을 실행 하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다.
 
 |Intent   | 엔터티 | 예제 발화   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | `Seattle` `tomorrow`무엇 인가요? |
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | 무엇 `Seattle` `tomorrow` 인가요? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` |
 ||||
 
 ## <a name="prebuilt-domain-intents"></a>미리 빌드된 도메인 의도
 
-[미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md) 은 길이 발언를 사용 하 여 의도를 제공 합니다.
+[미리 빌드된 도메인](./howto-add-prebuilt-models.md) 은 길이 발언를 사용 하 여 의도를 제공 합니다.
 
 ## <a name="none-intent"></a>None 의도
 
-**None** 의도가 생성되지만 고의로 비워 둡니다. **None** 의도는 필수 의도이며 삭제하거나 이름을 바꿀 수 없습니다. 이 의도를 도메인 외부에 있는 발화로 채웁니다.
+**None** 의도가 생성되지만 고의로 비워 둡니다. **없음** 의도는 필수 의도 이며 삭제 하거나 이름을 바꿀 수 없습니다. 이 의도를 도메인 외부에 있는 발화로 채웁니다.
 
 어떤 경우에 **도** 모든 앱에서 중요 한 대체 의도가 없으며 총 길이 발언의 10%가 있어야 합니다. 앱 도메인(주체 영역)에서 중요하지 않은 LUIS 발화를 학습시키는 데 사용됩니다. **None** 의도의 발화를 추가하지 않으면 LUIS는 도메인 외부에 있는 발화를 도메인 의도 중 하나에 적용합니다. 이로 인해 LUIS가 발화의 잘못된 의도를 학습하게 되어 예측 점수가 왜곡됩니다.
 

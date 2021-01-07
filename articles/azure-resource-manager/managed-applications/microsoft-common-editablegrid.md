@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: tomfitz
 ms.openlocfilehash: 04f86883a75110985d1cbe050fe3fd3e0582986a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893771"
 ---
 # <a name="microsoftcommoneditablegrid-ui-element"></a>EditableGrid UI 요소
@@ -128,7 +128,7 @@ ms.locfileid: "88893771"
 - `$rowIndex`변수는 그리드 열의 자식에 포함 된 식 에서만 유효 합니다. 요소의 상대 행 인덱스를 나타내는 정수 이며 개수는 1에서 시작 하 여 1 씩 증가 합니다. 스키마 섹션에 표시 된 것 처럼 `"columns":` 는 `$rowIndex` 유효성 검사에 사용 됩니다.
 - 변수를 사용 하 여 유효성 검사를 수행 하는 경우 `$rowIndex` 및 명령을 결합 하 여 현재 행의 값을 가져올 수 있습니다 `last()` `take()` .
 
-  예를 들면
+  예를 들면 다음과 같습니다.
 
   `last(take(<reference_to_grid>, $rowIndex))`
 

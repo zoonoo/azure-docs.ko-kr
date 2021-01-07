@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: hadr
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 7e62e414182d95a445f37c1c97cdef8aff6a587a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965551"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358013"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>FCI (Azure Vm에 SQL Server)에 대 한 가상 머신 준비
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +29,7 @@ ms.locfileid: "85965551"
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-- Microsoft Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
+- Microsoft Azure 구독. [무료로](https://azure.microsoft.com/free/)시작 하세요. 
 - Azure virtual machines의 Windows 도메인 또는 가상 네트워크 페어링을 사용 하 여 Azure로 확장 된 온-프레미스 데이터 센터.
 - Azure 가상 컴퓨터와 Active Directory에서 개체를 만들 수 있는 권한이 있는 계정입니다.
 - 다음 구성 요소를 위해 충분한 IP 주소 공간이 있는 Azure 가상 네트워크 및 서브넷:
@@ -47,17 +48,22 @@ ms.locfileid: "85965551"
 
 원하는 클러스터 구성과 일치 하는 VM 가용성 옵션을 신중 하 게 선택 합니다. 
 
- - **Azure 공유 디스크**: 장애 도메인 및 업데이트 도메인을 1로 설정 하 고 [근접 배치 그룹](../../../virtual-machines/windows/proximity-placement-groups-portal.md)내에 배치 하 여 [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 을 구성 합니다.
- - **프리미엄 파일 공유**: [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 또는 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). 가용성 영역을 Vm에 대 한 가용성 구성으로 선택 하는 경우 프리미엄 파일 공유는 유일한 공유 저장소 옵션입니다. 
- - **스토리지 공간 다이렉트**: [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)입니다.
+- **Azure 공유 디스크**: Premium Ssd 또는 UltraDisk를 사용 하는 경우 가용성 옵션은 다음과 같이 달라 집니다.
+   - 프리미엄 SSD: [근접 배치 그룹](../../../virtual-machines/windows/proximity-placement-groups-portal.md)내에 배치 된 프리미엄 ssd에 대해 서로 다른 장애/업데이트 도메인에 [가용성을 설정](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 합니다.
+   - Ultra Disk: [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) 이지만 vm은 클러스터의 가용성을 99.9%로 줄이는 동일한 가용성 영역에 배치 해야 합니다. 
+- **프리미엄 파일 공유**: [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 또는 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **스토리지 공간 다이렉트**: [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set)입니다.
 
->[!IMPORTANT]
->가상 머신을 만든 후에는 가용성 집합을 설정하거나 변경할 수 없습니다.
+> [!IMPORTANT]
+> 가상 머신을 만든 후에는 가용성 집합을 설정하거나 변경할 수 없습니다.
 
 ## <a name="create-the-virtual-machines"></a>가상 머신 만들기
 
 VM 가용성을 구성한 후에는 가상 머신을 만들 준비가 되었습니다. 이미 설치 되어 SQL Server 있거나 설치 되어 있지 않은 Azure Marketplace 이미지를 사용 하도록 선택할 수 있습니다. 그러나 Azure Vm에서 SQL Server 이미지를 선택 하는 경우 장애 조치 (failover) 클러스터 인스턴스를 구성 하기 전에 가상 머신에서 SQL Server을 제거 해야 합니다. 
 
+### <a name="considerations"></a>고려 사항
+
+Azure VM 게스트 장애 조치 (failover) 클러스터에서 서버당 단일 NIC (클러스터 노드) 및 단일 서브넷을 권장 합니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시해도 됩니다.
 
 두 가상 머신을 다음에 배치합니다.
 
@@ -71,45 +77,45 @@ VM 가용성을 구성한 후에는 가상 머신을 만들 준비가 되었습�
 
 ## <a name="uninstall-sql-server"></a>SQL Server 제거
 
-FCI 생성 프로세스의 일부로 장애 조치 (failover) 클러스터에 클러스터 된 인스턴스로 SQL Server를 설치 합니다. *SQL Server 하지 않고 Azure Marketplace 이미지를 사용 하 여 가상 컴퓨터를 배포한 경우이 단계를 건너뛸 수 있습니다.* SQL Server 사전 설치 된 이미지를 배포한 경우 SQL VM 리소스 공급자에서 SQL Server VM 등록을 취소 한 다음 SQL Server을 제거 해야 합니다. 
+FCI 생성 프로세스의 일부로 장애 조치 (failover) 클러스터에 클러스터 된 인스턴스로 SQL Server를 설치 합니다. *SQL Server 하지 않고 Azure Marketplace 이미지를 사용 하 여 가상 컴퓨터를 배포한 경우이 단계를 건너뛸 수 있습니다.* SQL Server 사전 설치 된 이미지를 배포한 경우 SQL IaaS 에이전트 확장에서 SQL Server VM 등록을 취소 한 다음 SQL Server을 제거 해야 합니다. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자에서 등록 취소
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장에서 등록 취소
 
-Azure Marketplace의 SQL Server VM 이미지는 SQL VM 리소스 공급자에 자동으로 등록 됩니다. 사전 설치 된 SQL Server 인스턴스를 제거 하기 전에 먼저 [SQL VM 리소스 공급자에서 각 SQL Server VM의 등록을 취소](sql-vm-resource-provider-register.md#unregister-from-rp)해야 합니다. 
+Azure Marketplace의 SQL Server VM 이미지는 SQL IaaS 에이전트 확장에 자동으로 등록 됩니다. 사전 설치 된 SQL Server 인스턴스를 제거 하기 전에 먼저 [SQL IaaS 에이전트 확장에서 각 SQL Server VM의 등록을 취소](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension)해야 합니다. 
 
 ### <a name="uninstall-sql-server"></a>SQL Server 제거
 
-리소스 공급자에서 등록을 취소 한 후 SQL Server를 제거할 수 있습니다. 각 가상 머신에서 다음 단계를 수행 합니다. 
+확장에서 등록을 취소 한 후 SQL Server를 제거할 수 있습니다. 각 가상 머신에서 다음 단계를 수행 합니다. 
 
 1. RDP를 사용 하 여 가상 머신에 연결 합니다.
 
-   RDP를 사용하여 가상 머신에 처음 연결하는 경우 네트워크에서 PC를 검색할 수 있도록 허용할지 묻는 메시지가 표시됩니다. **예**를 선택합니다.
+   RDP를 사용하여 가상 머신에 처음 연결하는 경우 네트워크에서 PC를 검색할 수 있도록 허용할지 묻는 메시지가 표시됩니다. **예** 를 선택합니다.
 
 1. SQL Server 기반 가상 머신 이미지 중 하나를 사용 하는 경우 SQL Server 인스턴스를 제거 합니다.
 
-   1. **프로그램 및 기능**에서 **Microsoft SQL Server 201_(64비트)** 을 마우스 오른쪽 단추로 클릭하고 **제거/변경**을 선택합니다.
-   1. **제거**를 선택합니다.
+   1. **프로그램 및 기능** 에서 **Microsoft SQL Server 201_(64비트)** 을 마우스 오른쪽 단추로 클릭하고 **제거/변경** 을 선택합니다.
+   1. **제거** 를 선택합니다.
    1. 기본 인스턴스를 선택합니다.
-   1. **데이터베이스 엔진 서비스**에서 모든 기능을 제거합니다. **공유 기능**에서 아무것도 제거 하지 마세요. 다음 스크린샷과 같은 출력이 표시됩니다.
+   1. **데이터베이스 엔진 서비스** 에서 모든 기능을 제거합니다. **공유 기능** 에서 아무것도 제거 하지 마세요. 다음 스크린샷과 같은 출력이 표시됩니다.
 
       ![기능 선택](./media/failover-cluster-instance-prepare-vm/03-remove-features.png)
 
-   1. **다음**을 선택한 다음, **제거**를 선택합니다.
+   1. **다음** 을 선택한 다음, **제거** 를 선택합니다.
    1. 인스턴스가 성공적으로 제거 되 면 가상 머신을 다시 시작 합니다. 
 
 ## <a name="open-the-firewall"></a>방화벽을 엽니다. 
 
 각 가상 컴퓨터에서 SQL Server 사용 하는 Windows 방화벽 TCP 포트를 엽니다. 기본적으로 포트 1433입니다. 하지만 Azure VM 배포에서 SQL Server 포트를 변경할 수 있으므로 사용자 환경에서 사용 하 SQL Server 포트를 엽니다. 이 포트는 Azure Marketplace에서 배포 된 SQL Server 이미지에서 자동으로 열립니다. 
 
-[부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md)를 사용 하는 경우 상태 프로브에서 사용 하는 포트도 열어야 합니다. 기본적으로 포트 59999입니다. 그러나 부하 분산 장치를 만들 때 지정 하는 모든 TCP 포트를 사용할 수 있습니다. 
+[부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md)를 사용 하는 경우 상태 프로브에서 사용 하는 포트도 열어야 합니다. 기본적으로 포트 59999입니다. 그러나 부하 분산 장치를 만들 때 지정 하는 모든 TCP 포트를 사용할 수 있습니다. 
 
 다음 표에서는 FCI 구성에 따라 열어야 할 수 있는 포트에 대해 자세히 설명 합니다. 
 
-   | 용도 | 포트 | 메모
+   | 목적 | 포트 | 메모
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다. </br> </br> **사용**: 모든 fci 구성. |
-   | 상태 프로브 | TCP 59999 | 모든 공개 TCP 포트입니다. 이 포트를 사용 하도록 부하 분산 장치 [상태 프로브](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) 및 클러스터를 구성 합니다. </br> </br> **사용**: 부하 분산 장치를 사용 하는 fci |
-   | 파일 공유 | UDP 445 | 파일 공유 서비스에서 사용 하는 포트입니다. </br> </br> Premium 파일 공유를 사용 하는 fci **에서 사용**됩니다. |
+   | 상태 프로브 | TCP 59999 | 모든 공개 TCP 포트입니다. 이 포트를 사용 하도록 부하 분산 장치 [상태 프로브](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) 및 클러스터를 구성 합니다. </br> </br> **사용**: 부하 분산 장치를 사용 하는 fci |
+   | 파일 공유 | UDP 445 | 파일 공유 서비스에서 사용 하는 포트입니다. </br> </br> Premium 파일 공유를 사용 하는 fci **에서 사용** 됩니다. |
 
 ## <a name="join-the-domain"></a>도메인 가입
 
@@ -133,4 +139,4 @@ Azure Marketplace에서 만든 가상 머신은 연결 된 저장소와 함께 �
 
 자세한 내용은 다음을 참조하세요. 
 - [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치 (failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

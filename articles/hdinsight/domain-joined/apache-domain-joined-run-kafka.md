@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85105942"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010132"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -46,11 +46,11 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 **sales_user** 및 **marketing_user** 사용자에 대해 Ranger 정책을 만듭니다.
 
-1. **Ranger 관리 UI**를 엽니다.
+1. **Ranger 관리 UI** 를 엽니다.
 
-2. **Kafka**에서 **\<ClusterName>_kafka**를 선택합니다. 미리 구성된 정책 하나가 나열될 수 있습니다.
+2. **Kafka** 에서 **\<ClusterName>_kafka** 를 선택합니다. 미리 구성된 정책 하나가 나열될 수 있습니다.
 
-3. **새 정책 추가**를 선택하고 다음 값을 입력합니다.
+3. **새 정책 추가** 를 선택하고 다음 값을 입력합니다.
 
    |설정  |제안 값  |
    |---------|---------|
@@ -66,11 +66,11 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
    ![Apache Ranger 관리 UI 정책 만들기1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
-   **사용자 선택**에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
+   **사용자 선택** 에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
 
-4. **추가**를 선택하여 정책을 저장합니다.
+4. **추가** 를 선택하여 정책을 저장합니다.
 
-5. **새 정책 추가**를 선택하고 다음 값을 입력합니다.
+5. **새 정책 추가** 를 선택하고 다음 값을 입력합니다.
 
    |설정  |제안 값  |
    |---------|---------|
@@ -81,7 +81,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
    ![Apache Ranger 관리 UI 정책 만들기2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
-6. **추가**를 선택하여 정책을 저장합니다.
+6. **추가** 를 선택하여 정책을 저장합니다.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>ESP를 사용하여 Kafka 클러스터에서 항목 만들기
 
@@ -123,9 +123,9 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 ## <a name="test-the-ranger-policies"></a>Ranger 정책 테스트
 
-구성한 Ranger 정책에 따라 **sales_user**는 `salesevents` 토픽은 생성/사용할 수 있지만 `marketingspend` 토픽은 생성/사용할 수 없습니다. 반면 **marketing_user**는 `marketingspend` 토픽은 생성/사용할 수 있지만 `salesevents` 토픽은 생성/사용할 수 없습니다.
+구성한 Ranger 정책에 따라 **sales_user** 는 `salesevents` 토픽은 생성/사용할 수 있지만 `marketingspend` 토픽은 생성/사용할 수 없습니다. 반면 **marketing_user** 는 `marketingspend` 토픽은 생성/사용할 수 있지만 `salesevents` 토픽은 생성/사용할 수 없습니다.
 
-1. 클러스터에 대한 새 SSH 연결을 엽니다. 다음 명령을 사용하여 **sales_user1**로 로그인합니다.
+1. 클러스터에 대한 새 SSH 연결을 엽니다. 다음 명령을 사용하여 **sales_user1** 로 로그인합니다.
 
    ```bash
    ssh sales_user1@CLUSTERNAME-ssh.azurehdinsight.net
@@ -139,12 +139,12 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
    예: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-3. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)를 사용하여 **sales_user**가 `kafka-producer-consumer.jar`도 사용할 수 있도록 합니다.
+3. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)를 사용하여 **sales_user** 가 `kafka-producer-consumer.jar`도 사용할 수 있도록 합니다.
 
    > [!NOTE]  
    > 이 자습서의 경우 "DomainJoined-Producer-Consumer" 프로젝트 아래의 kafka-producer-consumer.jar을 사용하세요(도메인에 조인되지 않은 시나리오를 위한 Producer-Consumer 프로젝트에서 제외).
 
-4. 다음 명령을 실행하여 **sales_user1**이 `salesevents` 토픽을 생성할 수 있는지 확인합니다.
+4. 다음 명령을 실행하여 **sales_user1** 이 `salesevents` 토픽을 생성할 수 있는지 확인합니다.
 
    ```bash
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
@@ -158,7 +158,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
    메시지를 읽을 수 있는지 확인합니다.
 
-6. **sales_user1**이 동일한 ssh 창에서 다음을 실행하여 `marketingspend` 항목을 생성할 수 없는지 확인합니다.
+6. **sales_user1** 이 동일한 ssh 창에서 다음을 실행하여 `marketingspend` 항목을 생성할 수 없는지 확인합니다.
 
    ```bash
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
@@ -166,9 +166,9 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
    권한 부여 오류가 발생하지만 무시해도 됩니다.
 
-7. **marketing_user1**은 `salesevents` 토픽을 사용할 수 없습니다.
+7. **marketing_user1** 은 `salesevents` 토픽을 사용할 수 없습니다.
 
-   이번에는 **marketing_user1**로 위의 1-3단계를 반복합니다.
+   이번에는 **marketing_user1** 로 위의 1-3단계를 반복합니다.
 
    다음 명령을 실행하여 `salesevents` 토픽을 사용해 봅니다.
 
@@ -219,10 +219,10 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 이 애플리케이션을 계속 사용할 계획이 없으면 다음 단계에 따라 생성된 Kafka 클러스터를 삭제합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 맨 위에 있는 **검색** 상자에 **HDInsight**를 입력합니다.
-1. **서비스**에서 **HDInsight 클러스터**를 선택합니다.
+1. 맨 위에 있는 **검색** 상자에 **HDInsight** 를 입력합니다.
+1. **서비스** 에서 **HDInsight 클러스터** 를 선택합니다.
 1. 표시되는 HDInsight 클러스터 목록에서 이 자습서용으로 만든 클러스터 옆에 있는 **...** 를 클릭합니다. 
-1. **삭제**를 클릭합니다. **예**를 클릭합니다.
+1. **삭제** 를 클릭합니다. **예** 를 클릭합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 kafka-producer-consumer.jar이 도메인 조인 클러스터에서 작동하지 않은 경우 "DomainJoined-Producer-Consumer" 프로젝트 아래의 kafka-producer-consumer.jar을 사용하고 있는지 확인하세요(도메인에 조인되지 않은 시나리오를 위한 Producer-Consumer 프로젝트에서 제외).

@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에서 동기화가 작동 하는 방식 | Microsoft Docs
 description: Azure AD 테 넌 트 또는 온-프레미스 Active Directory Domain Services 환경에서 관리 되는 Azure Active Directory Domain Services 도메인으로 개체 및 자격 증명에 대 한 동기화 프로세스가 작동 하는 방식을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -10,19 +10,21 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 10eec1527fb0ac5109822da398642613219771f6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: justinha
+ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039843"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618810"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에서 개체 및 자격 증명을 동기화 하는 방법
 
 Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인의 개체 및 자격 증명은 도메인 내에서 로컬로 만들거나 Azure Active Directory (Azure AD) 테 넌 트에서 동기화 할 수 있습니다. Azure AD DS를 처음 배포 하는 경우 Azure AD에서 개체를 복제 하기 위해 자동 단방향 동기화가 구성 되 고 시작 됩니다. 이 단방향 동기화는 azure AD에서 변경 내용을 적용 하 여 Azure AD DS 관리 되는 도메인을 최신 상태로 유지 하기 위해 백그라운드에서 계속 실행 됩니다. Azure AD DS에서 Azure AD로 다시 동기화가 수행 되지 않습니다.
 
 하이브리드 환경에서는 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 도메인의 개체 및 자격 증명을 Azure AD로 동기화 할 수 있습니다. 이러한 개체가 Azure AD에 성공적으로 동기화 되 면 자동 백그라운드 동기화를 통해 관리 되는 도메인을 사용 하는 응용 프로그램에서 해당 개체 및 자격 증명을 사용할 수 있습니다.
+
+온-프레미스 AD DS 및 Azure AD가 ADFS를 사용 하 여 페더레이션된 인증에 대해 구성 된 경우 Azure DS에서 사용할 수 있는 (현재/유효한) 암호 해시가 없습니다. 공급 인증을 위해 생성 하기 전에 만든 Azure AD 사용자 계정은 이전 암호 해시가 있지만이는 온-프레미스 암호의 해시와 일치 하지 않을 수 있습니다. 따라서 Azure AD DS 사용자 자격 증명의 유효성을 검사할 수 없습니다.
 
 다음 다이어그램에서는 Azure AD DS, Azure AD 및 선택적 온-프레미스 AD DS 환경 간에 동기화가 작동 하는 방법을 보여 줍니다.
 
@@ -40,7 +42,7 @@ Azure AD에서 사용자를 만들면 azure AD에서 사용자가 암호를 변�
 
 다음 표에서는 몇 가지 일반적인 특성 및 Azure AD DS에 동기화 되는 방법을 보여 줍니다.
 
-| Azure AD DS의 특성 | 원본 | 참고 |
+| Azure AD DS의 특성 | 원본 | 메모 |
 |:--- |:--- |:--- |
 | UPN | Azure AD 테 넌 트의 사용자 *UPN* 특성 | Azure AD 테 넌 트의 UPN 특성은 Azure AD DS와 동일 하 게 동기화 됩니다. 관리 되는 도메인에 로그인 하는 가장 신뢰할 수 있는 방법은 UPN을 사용 하는 것입니다. |
 | SAMAccountName | Azure AD 테 넌 트의 사용자 *mailNickname* 특성 또는 자동 생성 | *SAMAccountName* 특성은 Azure AD 테 넌 트의 *mailNickname* 특성을 기반으로 합니다. 여러 사용자 계정이 동일한 *mailNickname* 특성을 사용 하는 경우 *SAMAccountName* 이 자동으로 생성 됩니다. 사용자의 *mailNickname* 또는 *UPN* 접두사가 20 자 보다 길면 *samaccountname 특성의* 20 자 제한을 충족 하도록 *samaccountname* 이 자동으로 생성 됩니다. |

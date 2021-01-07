@@ -5,18 +5,18 @@ description: Azure SQL Database 및 SQL Managed Instance 할인에 기존 SQL Se
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4
+ms.custom: sqldbrb=4, devx-track-azurecli
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
-ms.openlocfilehash: b4af9fce3c5ca779866055d2835ebfebe9fbb9cf
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 872b36eae9142473885885d5bf5ad3fa10ae5ccb
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987021"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841600"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure 하이브리드 혜택-Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ VCore 기반 구매 모델의 프로 비전 된 계산 계층에서는 [Azure �
 > [!NOTE]
 > Azure 하이브리드 혜택로 변경 하는 경우 가동 중지 시간이 필요 하지 않습니다.
 
-![가격 책정](./media/azure-hybrid-benefit/pricing.png)
+![vcore 가격 책정 구조](./media/azure-hybrid-benefit/pricing.png)
 
 ## <a name="choose-a-license-model"></a>라이선스 모델 선택
 

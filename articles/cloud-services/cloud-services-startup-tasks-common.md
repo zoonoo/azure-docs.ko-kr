@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 77cea7ebd333b958675438aaeb5e0e2a326a5866
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920066"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075181"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
 이 문서에서는 클라우드 서비스에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다. 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다. 
@@ -52,7 +52,7 @@ ms.locfileid: "85920066"
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Appcmd.exe를 사용하여 IIS 시작을 구성합니다.
-[AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) 명령줄 도구는 Azure에서 시작 시 IIS 설정을 관리하는데 사용할 수 있습니다. *AppCmd.exe* 는 Azure에서 시작 작업에 사용하기 위한 구성 설정에 대한 편리한 명령줄 액세스를 제공합니다. *AppCmd.exe*를 사용하면 애플리케이션 및 사이트에 대해 웹사이트 설정을 추가, 수정하거나 제거할 수 있습니다.
+[AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) 명령줄 도구는 Azure에서 시작 시 IIS 설정을 관리하는데 사용할 수 있습니다. *AppCmd.exe* 는 Azure에서 시작 작업에 사용하기 위한 구성 설정에 대한 편리한 명령줄 액세스를 제공합니다. *AppCmd.exe*를 사용하면 애플리케이션 및 사이트에 대해 웹사이트 설정을 추가, 수정하거나 제거할 수 있습니다.
 
 그러나 시작 작업으로 *AppCmd.exe* 사용에 대해 주의해야 할 사항이 몇 가지 있습니다.
 
@@ -377,7 +377,7 @@ EXIT /B 0
 웹 또는 작업자 역할에 대한 작업을 구성할 때 따라야 하는 몇 가지 모범 사례는 다음과 같습니다.
 
 ### <a name="always-log-startup-activities"></a>항상 시작 작업 기록
-Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **% PathToApp1Install%** 디렉터리에서 setup.exe를 실행 하려면 다음을 수행 합니다.`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
+Visual Studio는 배치 파일을 통해 단계에 디버거를 제공하지 않으므로 배치 파일 작업 시 가능한 많은 데이터를 가져오는 것이 좋습니다. **stdout** 및 **stderr** 배치 파일의 출력 로깅은 배치 파일을 디버깅하고 수정하려고 할 때 중요한 정보를 제공할 수 있습니다. **stdout** 및 **stderr** 모두를 **%TEMP%** 환경 변수가 가리킨 디렉터리의 StartupLog.txt 파일에 로깅하려면 텍스트 `>>  "%TEMP%\\StartupLog.txt" 2>&1`을 로깅하려면 특정 줄의 끝에 추가합니다. 예를 들어 **% PathToApp1Install%** 디렉터리에서 setup.exe를 실행 하려면 다음을 수행 합니다. `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 xml을 단순화하기 위해 로깅과 함께 모든 시작 태스크를 호출하는 래퍼 *cmd* 파일을 만들고 동일한 환경 변수를 공유하는 각 하위 태스크를 확인할 수 있습니다.
 
@@ -499,14 +499,14 @@ EXIT %ERRORLEVEL%
 [만들고 배포하세요](cloud-services-how-to-create-deploy-portal.md) .
 
 [ServiceDefinition. .csdef]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-[RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[엔드포인트]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
-[LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
-[LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[Task]: /previous-versions/azure/reference/gg557552(v=azure.100)#Task
+[Startup]: /previous-versions/azure/reference/gg557552(v=azure.100)#Startup
+[Runtime]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime
+[환경]: /previous-versions/azure/reference/gg557552(v=azure.100)#Environment
+[변수]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
+[RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
+[RoleEnvironment]: /previous-versions/azure/reference/ee773173(v=azure.100)
+[엔드포인트]: /previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
+[LocalStorage]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalStorage
+[LocalResources]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalResources
+[RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue

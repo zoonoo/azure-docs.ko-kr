@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: 6f2f6aa4380fcf6909957118bf682275350ce68c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261212"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000269"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
 
@@ -36,7 +36,7 @@ RunToCompletion 의미 체계 [는 servicemanifest.xml를 가져올][application
 * **유형:** **runtocompletion** 는 현재이 특성에 허용 되는 유일한 값입니다.
 * **다시 시작:** 이 특성은 오류 발생 시 ServicePackage를 구성 하는 CodePackages에 적용 되는 다시 시작 정책을 지정 합니다. **0이 아닌 종료 코드로** 종료 하는 CodePackage는 실패 한 것으로 간주 됩니다. 이 특성에 허용 되는 값은 **onfailure** 이며 기본값은 **onfailure** 가 **아닙니다** .
 
-다시 시작 정책을 **Onfailure**로 설정 하면 CodePackage 실패 하는 경우 **(0이 아닌 종료 코드)** 다시 시작 되 고 반복 되는 오류 간의 백오프를 포함 합니다. 다시 시작 정책을 사용 **안 함**으로 설정 하면 CodePackage 실패 하는 경우 DeployedServicePackage의 배포 상태가 **Failed** 로 표시 되지만 다른 CodePackages는 실행을 계속할 수 있습니다. ServicePackage를 구성 하는 모든 CodePackages 성공적으로 완료 되 면 **(종료 코드 0)** DeployedServicePackage의 배포 상태는 **RanToCompletion**로 표시 됩니다. 
+다시 시작 정책을 **Onfailure** 로 설정 하면 CodePackage 실패 하는 경우 **(0이 아닌 종료 코드)** 다시 시작 되 고 반복 되는 오류 간의 백오프를 포함 합니다. 다시 시작 정책을 사용 **안 함** 으로 설정 하면 CodePackage 실패 하는 경우 DeployedServicePackage의 배포 상태가 **Failed** 로 표시 되지만 다른 CodePackages는 실행을 계속할 수 있습니다. ServicePackage를 구성 하는 모든 CodePackages 성공적으로 완료 되 면 **(종료 코드 0)** DeployedServicePackage의 배포 상태는 **RanToCompletion** 로 표시 됩니다. 
 
 ## <a name="complete-example-using-runtocompletion-semantics"></a>RunToCompletion 의미 체계를 사용 하는 전체 예제
 
@@ -47,7 +47,7 @@ RunToCompletion 의미 체계를 사용 하는 전체 예제를 살펴보겠습�
 >
 > 이 예제에서는 mcr.microsoft.com/windows/nanoserver:1809를 참조 합니다. Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 자세한 내용은 [Windows 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
 
-다음 ServiceManifest.xml는 컨테이너를 나타내는 두 CodePackages로 구성 된 ServicePackage에 대해 설명 합니다. *RunToCompletionCodePackage1* 는 **stdout** 에 메시지를 기록 하 고 종료 합니다. *RunToCompletionCodePackage2* 는 잠시 동안 루프백 주소를 ping 한 후 종료 코드 **0**, **1** 또는 **2**를 사용 하 여 종료 합니다.
+다음 ServiceManifest.xml는 컨테이너를 나타내는 두 CodePackages로 구성 된 ServicePackage에 대해 설명 합니다. *RunToCompletionCodePackage1* 는 **stdout** 에 메시지를 기록 하 고 종료 합니다. *RunToCompletionCodePackage2* 는 잠시 동안 루프백 주소를 ping 한 후 종료 코드 **0**, **1** 또는 **2** 를 사용 하 여 종료 합니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ RunToCompletion 의미 체계를 사용 하는 전체 예제를 살펴보겠습�
 </ServiceManifest>
 ```
 
-다음 ApplicationManifest.xml 위에서 설명한 ServiceManifest.xml 기반으로 하는 응용 프로그램을 설명 합니다. **Onfailure**의 다시 시작 정책으로 *WindowsRunToCompletionServicePackage* 에 대해 **runtocompletion** **set-executionpolicy** 를 지정 합니다. *WindowsRunToCompletionServicePackage*가 활성화 되 면 해당 구성 CodePackages 시작 됩니다. *RunToCompletionCodePackage1* 는 첫 번째 활성화에서 성공적으로 종료 됩니다. 그러나 *RunToCompletionCodePackage2* 가 실패할 수 있습니다 **(0이 아닌 종료 코드)**.이 경우 다시 시작 정책이 **onfailure**이므로 다시 시작 됩니다.
+다음 ApplicationManifest.xml 위에서 설명한 ServiceManifest.xml 기반으로 하는 응용 프로그램을 설명 합니다. **Onfailure** 의 다시 시작 정책으로 *WindowsRunToCompletionServicePackage* 에 대해 **runtocompletion** **set-executionpolicy** 를 지정 합니다. *WindowsRunToCompletionServicePackage* 가 활성화 되 면 해당 구성 CodePackages 시작 됩니다. *RunToCompletionCodePackage1* 는 첫 번째 활성화에서 성공적으로 종료 됩니다. 그러나 *RunToCompletionCodePackage2* 가 실패할 수 있습니다 **(0이 아닌 종료 코드)**.이 경우 다시 시작 정책이 **onfailure** 이므로 다시 시작 됩니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826063"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368267"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션
 
@@ -96,7 +96,7 @@ ms.locfileid: "83826063"
 
    예를 들어 URL로 요청을 전송하는 HTTP 작업 또는 Storage 큐, Service Bus 큐, Service Bus 토픽을 사용하는 작업을 포함할 수 있습니다.
 
-   ![HTTP 동작](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![스크린샷 후 작업 후 POST 메서드를 사용 하는 H T T P 작업이 오는 지연 시간을 보여 줍니다.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. 완료되면 논리 앱을 저장합니다.
 
@@ -133,7 +133,7 @@ ms.locfileid: "83826063"
 
 ## <a name="cancel-a-one-time-job"></a>일회성 작업 취소
 
-Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스로 실행됩니다. 일회성 작업을 취소하려면 Logic Apps REST API에서 [Workflow Runs - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel)을 사용하면 됩니다. 트리거 호출을 보낼 때 [워크플로 실행 ID](#workflow-run-id)를 제공해야 합니다.
+Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스로 실행됩니다. 일회성 작업을 취소하려면 Logic Apps REST API에서 [Workflow Runs - Cancel](/rest/api/logic/workflowruns/cancel)을 사용하면 됩니다. 트리거 호출을 보낼 때 [워크플로 실행 ID](#workflow-run-id)를 제공해야 합니다.
 
 ## <a name="schedule-recurring-jobs"></a>되풀이 작업 예약
 
@@ -155,7 +155,7 @@ Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스�
 
    예를 들어 URL로 요청을 전송하는 HTTP 작업 또는 Storage 큐, Service Bus 큐, Service Bus 토픽을 사용하는 작업을 포함할 수 있습니다.
 
-   ![HTTP 동작](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![스크린샷-POST 메서드를 사용 하는 H T T P 동작을 보여 줍니다.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. 완료되면 논리 앱을 저장합니다.
 
@@ -239,7 +239,7 @@ Azure 구독에 유료 지원 플랜이 있는 경우 Azure Portal에서 기술 
 
 **커뮤니티**
 
-* [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
+* [Azure Logic Apps에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-logic-apps.html)
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>다음 단계

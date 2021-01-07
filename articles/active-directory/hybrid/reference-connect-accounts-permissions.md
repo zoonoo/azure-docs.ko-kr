@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/18/2020
+ms.date: 01/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1b0771687aa7ccf9b749c107a6b1c507cb3ba08d
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662340"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881942"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -44,13 +44,13 @@ Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 �
 
 - **AD DS Enterprise 관리자 계정**: 필요에 따라 위의 "AD DS 커넥터 계정"을 만드는 데 사용됩니다.
 
-- **Azure AD 전역 관리자 계정**: Azure AD Connect 계정을 만들고 Azure AD를 구성하는 데 사용됩니다.
+- **Azure AD 전역 관리자 계정**: Azure AD Connect 계정을 만들고 Azure AD를 구성하는 데 사용됩니다.  Azure portal에서 전역 관리자 계정을 볼 수 있습니다.  [보기 역할](../../active-directory/roles/manage-roles-portal.md#view-all-roles)을 참조 하세요.
 
 - **SQL SA 계정(선택 사항)** : SQL Server의 전체 버전을 사용할 때 ADSync 데이터베이스를 만드는 데 사용됩니다.  이 SQL Server는 Azure AD Connect 설치의 로컬 또는 원격일 수 있습니다.  이 계정은 엔터프라이즈 관리자와 동일한 계정일 수 있습니다.  이제 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다.  이에 대한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.
 
 
 >[!IMPORTANT]
-> 빌드 1.4.###.#부터 엔터프라이즈 관리자 또는 도메인 관리자 계정을 AD DS Connector 계정으로 사용할 수 없습니다.  **기존 계정 사용**을 지정할 때 엔터프라이즈 관리자 또는 도메인 관리자 계정을 입력하려고 시도하면 오류가 표시됩니다.
+> 빌드 1.4.###.#부터 엔터프라이즈 관리자 또는 도메인 관리자 계정을 AD DS Connector 계정으로 사용할 수 없습니다.  **기존 계정 사용** 을 지정할 때 엔터프라이즈 관리자 또는 도메인 관리자 계정을 입력하려고 시도하면 오류가 표시됩니다.
 
 > [!NOTE]
 > ESAE 관리 포리스트("빨간색 포리스트" 라고도 함)에서 Azure AD Connect에 사용되는 관리 계정을 관리할 수 있습니다.
@@ -115,7 +115,7 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 
 다음은 사용자 지정 설치 마법사 페이지, 수집되는 자격 증명 및 용도를 요약한 것입니다.
 
-![기본 설치](./media/reference-connect-accounts-permissions/customize.png)
+![사용자 지정 설치 마법사 페이지를 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/customize.png)
 
 | 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
@@ -135,7 +135,7 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 >
 >자세한 내용은 [Azure AD Connect: AD DS 커넥터 계정 권한 구성](how-to-connect-configure-ad-ds-connector-account.md)을 참조하세요.
 
-**디렉터리에 연결** 페이지에서 지정할 계정은 설치 전에 Active Directory에 있어야 합니다.  Azure AD Connect 버전 1.1.524.0 이상에는 Azure AD Connect 마법사가 Active Directory에 연결하는 데 사용되는 **AD DS Connector 계정**을 만들 수 있는 옵션이 제공됩니다.  
+**디렉터리에 연결** 페이지에서 지정할 계정은 설치 전에 Active Directory에 있어야 합니다.  Azure AD Connect 버전 1.1.524.0 이상에는 Azure AD Connect 마법사가 Active Directory에 연결하는 데 사용되는 **AD DS Connector 계정** 을 만들 수 있는 옵션이 제공됩니다.  
 
 필요한 권한도 부여되어 있어야 합니다. 설치 마법사는 사용 권한을 확인하지 않고 문제는 동기화 중에 발견됩니다.
 
@@ -191,8 +191,8 @@ Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계
 
 범례:
 
-- **굵은 글꼴**은 기본 옵션 및 대부분의 경우 권장 옵션을 나타냅니다.
-- *기울임꼴*은 기본 옵션이 아닌 경우 권장 옵션을 나타냅니다.
+- **굵은 글꼴** 은 기본 옵션 및 대부분의 경우 권장 옵션을 나타냅니다.
+- *기울임꼴* 은 기본 옵션이 아닌 경우 권장 옵션을 나타냅니다.
 - 2008 - Windows Server 2008에 설치하는 경우 기본 옵션
 - 굵지 않은 글꼴 - 지원되는 옵션
 - 로컬 계정 - 서버의 로컬 사용자 계정
@@ -208,16 +208,16 @@ Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계
 #### <a name="virtual-service-account"></a>가상 서비스 계정
 가상 서비스 계정은 암호가 없고 Windows에 의해 관리되는 특수한 유형의 계정입니다.
 
-![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![VSA (가상 서비스 계정)를 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 사용됩니다. 원격 SQL을 사용하는 경우 대신 그룹 관리 서비스 계정을 사용하는 것이 좋습니다.
 
 이 기능을 사용하려면 Windows Server 2008 R2 이상이 필요합니다. Windows Server 2008에 Azure AD Connect를 설치하는 경우에는 설치가 [사용자 계정](#user-account)을 대신 사용하도록 대체됩니다.
 
 #### <a name="group-managed-service-account"></a>그룹 관리 서비스 계정
-원격 SQL Server를 사용하는 경우에는 **그룹 관리 서비스 계정**을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정에 대해 Active Directory를 준비하는 방법에 대한 자세한 내용은 [그룹 관리 서비스 계정 개요](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))를 참조하세요.
+원격 SQL Server를 사용하는 경우에는 **그룹 관리 서비스 계정** 을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정에 대해 Active Directory를 준비하는 방법에 대한 자세한 내용은 [그룹 관리 서비스 계정 개요](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))를 참조하세요.
 
-이 옵션을 사용하려면 [필수 구성 요소 설치](how-to-connect-install-custom.md#install-required-components) 페이지에서 **기존 서비스 계정 사용**을 선택하고 **관리 서비스 계정**을 선택합니다.  
+이 옵션을 사용하려면 [필수 구성 요소 설치](how-to-connect-install-custom.md#install-required-components) 페이지에서 **기존 서비스 계정 사용** 을 선택하고 **관리 서비스 계정** 을 선택합니다.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
 [독립 실행형 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))을 사용하는 것도 지원됩니다. 하지만 이 계정은 로컬 컴퓨터에서만 사용할 수 있기 때문에 기본 가상 서비스 계정 대신 이 계정을 사용할만한 장점이 없습니다.
 
@@ -241,7 +241,7 @@ VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 
 ### <a name="azure-ad-connector-account"></a>Azure AD Connect 계정
 Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계정은 표시 이름으로 식별할 수 있습니다.
 
-![AD 계정](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Azure AD 계정을 보여 주는 스크린샷](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 DC1입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다.
 
@@ -252,7 +252,7 @@ Azure AD에서 동기화 서비스 계정은 20개로 제한됩니다. Azure AD�
 사용하지 않는 Azure AD 서비스 계정을 제거하려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->위의 PowerShell 명령을 사용하려면 먼저 [Azure Active Directory PowerShell for Graph 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module)을 설치하고 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)를 사용하여 Azure AD의 인스턴스에 연결해야 합니다.
+>위의 PowerShell 명령을 사용하려면 먼저 [Azure Active Directory PowerShell for Graph 모듈](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module)을 설치하고 [Connect-AzureAD](/powershell/module/azuread/connect-azuread)를 사용하여 Azure AD의 인스턴스에 연결해야 합니다.
 
 Azure AD Connector 계정의 암호를 관리하거나 다시 설정하는 방법에 대한 자세한 내용은 [Azure AD Connect 계정 관리](how-to-connect-azureadaccount.md)를 참조하세요.
 

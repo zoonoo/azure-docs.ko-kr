@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 7098744fe012c994e311696a376cd7ed0dc9ac53
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076619"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499750"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
 
@@ -21,7 +21,7 @@ ms.locfileid: "89076619"
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>VM에 새 디스크 연결
 
-VM에 새 빈 데이터 디스크를 추가하려는 경우 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) 명령에 `--new` 매개 변수를 사용합니다. VM이 가용성 영역에 있는 경우 VM과 동일한 영역에 디스크가 자동으로 생성됩니다. 자세한 내용은 [가용성 영역 개요](../../availability-zones/az-overview.md)를 참조하세요. 다음 예제에서는 크기가 50GB이고 이름이 *myDataDisk*인 디스크를 만듭니다.
+VM에 새 빈 데이터 디스크를 추가하려는 경우 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) 명령에 `--new` 매개 변수를 사용합니다. VM이 가용성 영역에 있는 경우 VM과 동일한 영역에 디스크가 자동으로 생성됩니다. 자세한 내용은 [가용성 영역 개요](../../availability-zones/az-overview.md)를 참조하세요. 다음 예제에서는 크기가 50GB이고 이름이 *myDataDisk* 인 디스크를 만듭니다.
 
 ```azurecli
 az vm disk attach \
@@ -34,7 +34,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>기존 디스크 연결
 
-기존 디스크를 연결하려면 디스크 ID를 찾아 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) 명령에 ID를 전달합니다. 다음 예제에서는 *myResourceGroup*에서 이름이 *myDataDisk*인 디스크를 쿼리한 다음 이름이 *myVM*인 VM에 연결합니다.
+기존 디스크를 연결하려면 디스크 ID를 찾아 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) 명령에 ID를 전달합니다. 다음 예제에서는 *myResourceGroup* 에서 이름이 *myDataDisk* 인 디스크를 쿼리한 다음 이름이 *myVM* 인 VM에 연결합니다.
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -44,7 +44,7 @@ az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 
 ## <a name="format-and-mount-the-disk"></a>디스크 포맷 및 탑재
 
-Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용 하 여 *10.123.123.25* 의 공용 IP 주소를 사용 하 여 VM에 연결 합니다.
+Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser* 를 사용 하 여 *10.123.123.25* 의 공용 IP 주소를 사용 하 여 VM에 연결 합니다.
 
 ```bash
 ssh azureuser@10.123.123.25
@@ -70,7 +70,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-여기서 `sdc` 는 50G 이기 때문에 원하는 디스크입니다. 크기를 기준으로 하는 디스크가 무엇 인지 확실 하지 않은 경우 포털에서 VM 페이지로 이동 하 여 **디스크**를 선택 하 고 **데이터 디스크**에서 디스크의 LUN 번호를 확인할 수 있습니다. 
+여기서 `sdc` 는 50G 이기 때문에 원하는 디스크입니다. 크기를 기준으로 하는 디스크가 무엇 인지 확실 하지 않은 경우 포털에서 VM 페이지로 이동 하 여 **디스크** 를 선택 하 고 **데이터 디스크** 에서 디스크의 LUN 번호를 확인할 수 있습니다. 
 
 
 ### <a name="format-the-disk"></a>디스크 포맷
@@ -154,7 +154,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail  
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
-* */etc/fstab*에 `discard` 탑재 옵션을 사용합니다. 예:
+* */etc/fstab* 에 `discard` 탑재 옵션을 사용합니다. 예:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
@@ -182,4 +182,4 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 ## <a name="next-steps"></a>다음 단계
 
 * Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](optimization.md) 권장 사항을 검토합니다.
-* 디스크를 추가하여 스토리지 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](configure-raid.md)합니다.
+* 디스크를 추가하여 스토리지 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](/previous-versions/azure/virtual-machines/linux/configure-raid)합니다.

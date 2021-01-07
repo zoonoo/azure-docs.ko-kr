@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 20a9fb6a158134ffc18dc5bbb7eddd34d2b79562
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682011"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545607"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업계약 예약 비용 및 사용량 가져오기
 
@@ -31,7 +31,7 @@ ms.locfileid: "88682011"
 
 ## <a name="reservation-charges-in-azure-usage-data"></a>Azure 사용량 데이터의 예약 요금
 
-데이터는 다음과 같은 두 가지 데이터 세트로 나뉩니다. 하나는 _실제 비용_이고 다른 하나는 _분할 상환 비용_입니다. 두 데이터 세트의 차이점은 다음과 같습니다.
+데이터는 다음과 같은 두 가지 데이터 세트로 나뉩니다. 하나는 _실제 비용_ 이고 다른 하나는 _분할 상환 비용_ 입니다. 두 데이터 세트의 차이점은 다음과 같습니다.
 
 **실제 비용** - 월별 청구서를 조정하는 데이터를 제공합니다. 이 데이터에는 예약 구매 비용 및 예약 적용 세부 정보가 포함되어 있습니다. 이 데이터를 사용하면 특정 날짜에 예약 할인을 받는 구독, 리소스 그룹 또는 리소스를 알 수 있습니다. 예약 할인을 받은 사용량의 EffectivePrice는 0입니다.
 
@@ -55,7 +55,7 @@ Azure 사용량 데이터에 제공되는 다른 정보가 변경되었습니다
 - Term - 12개월 또는 36개월입니다.
 - RINormalizationRatio - AdditionalInfo에서 사용할 수 있습니다. 사용량 레코드에 예약이 적용되는 비율입니다. 예약에 인스턴스 크기 유연성을 사용하도록 설정한 경우 다른 크기에 적용될 수 있습니다. 이 값은 사용량 레코드에 예약이 적용된 비율을 보여줍니다.
 
-[필드 정의 참조](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+[필드 정의 참조](/rest/api/consumption/usagedetails/list#definitions)
 
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>API를 사용하여 Azure 소비 및 예약 사용량 데이터 가져오기
 
@@ -71,7 +71,7 @@ API를 사용하여 데이터를 가져오거나 Azure Portal에서 데이터를
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
-{enrollmentId} 및 {billingPeriodId}에 대한 자세한 내용은 [사용량 세부 정보 – 나열](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API 문서를 참조하세요.
+{enrollmentId} 및 {billingPeriodId}에 대한 자세한 내용은 [사용량 세부 정보 – 나열](/rest/api/consumption/usagedetails/list) API 문서를 참조하세요.
 
 메트릭 및 필터에 대한 다음 표의 정보는 일반적인 예약 문제를 해결하는 데 도움이 될 수 있습니다.
 
@@ -92,10 +92,10 @@ EA 관리자는 Azure Portal에서 새로운 사용량 데이터가 포함된 CS
 Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts)로 이동합니다.
 
 1. 청구 계정을 선택합니다.
-2. **사용량 + 요금**을 클릭합니다.
-3. **다운로드**를 클릭합니다.  
+2. **사용량 + 요금** 을 클릭합니다.
+3. **다운로드** 를 클릭합니다.  
 ![Azure Portal에서 CSV 사용량 데이터 파일을 다운로드하는 위치를 보여주는 예제](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. **사용량 및 요금 다운로드**의 **사용량 세부 정보 버전 2**에서 **모든 요금(사용량 및 구매)** 을 선택한 다음, [다운로드]를 클릭합니다. **분할 상환 요금(사용량 및 구매)** 반복
+4. **사용량 및 요금 다운로드** 의 **사용량 세부 정보 버전 2** 에서 **모든 요금(사용량 및 구매)** 을 선택한 다음, [다운로드]를 클릭합니다. **분할 상환 요금(사용량 및 구매)** 반복
 
 다운로드한 CSV 파일에는 실제 비용과 분할 상환 비용이 포함되어 있습니다.
 
@@ -105,15 +105,15 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 
 ### <a name="get-reservation-purchase-costs"></a>예약 구매 비용 가져오기
 
-예약 구매 비용은 실제 비용 데이터에서 사용할 수 있습니다. _ChargeType = Purchase_로 필터링합니다. 구매의 예약 주문을 확인하려면 ProductOrderID를 참조하세요.
+예약 구매 비용은 실제 비용 데이터에서 사용할 수 있습니다. _ChargeType = Purchase_ 로 필터링합니다. 구매의 예약 주문을 확인하려면 ProductOrderID를 참조하세요.
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>사용률이 낮은 예약 수량 및 비용 가져오기
 
-분할 상환 비용 데이터를 가져오고 _ChargeType_ _= UnusedReservation_으로 필터링합니다. 사용하지 않는 날짜별 예약 수량 및 비용을 가져옵니다. _ReservationId_ 또는 _ProductOrderId_를 사용하여 각각 예약 또는 예약 주문에 대한 데이터를 필터링할 수 있습니다. 예약 사용률이 100%이면 레코드의 수량은 0입니다.
+분할 상환 비용 데이터를 가져오고 _ChargeType_ _= UnusedReservation_ 으로 필터링합니다. 사용하지 않는 날짜별 예약 수량 및 비용을 가져옵니다. _ReservationId_ 또는 _ProductOrderId_ 를 사용하여 각각 예약 또는 예약 주문에 대한 데이터를 필터링할 수 있습니다. 예약 사용률이 100%이면 레코드의 수량은 0입니다.
 
 ### <a name="amortize-reservation-costs"></a>예약 비용 분할
 
-분할 상환 비용 데이터를 가져오고, _ProductOrderID_로 예약 주문을 필터링하여 예약의 날짜별 분할 상환 비용을 가져옵니다.
+분할 상환 비용 데이터를 가져오고, _ProductOrderID_ 로 예약 주문을 필터링하여 예약의 날짜별 분할 상환 비용을 가져옵니다.
 
 ### <a name="chargeback-for-a-reservation"></a>예약 사용 요금 차지백
 
@@ -130,7 +130,7 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 
 ### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>인스턴스 크기 유연성에 대한 최적 예약 사용 감사
 
-수량과 AdditionalInfo의 _RINormalizationRatio_를 곱합니다. 그 결과는 사용량 레코드에 적용된 예약 사용 시간을 나타냅니다.
+수량과 AdditionalInfo의 _RINormalizationRatio_ 를 곱합니다. 그 결과는 사용량 레코드에 적용된 예약 사용 시간을 나타냅니다.
 
 ### <a name="determine-reservation-savings"></a>예약 절감액 확인
 
@@ -140,9 +140,11 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 2. 예약 비용을 구합니다. _Cost_ 값을 합산하여 예약 인스턴스에 대해 지불한 금전적 가치를 구합니다. 여기에는 사용된 예약 및 사용되지 않은 예약 비용이 포함됩니다.
 3. 예상 종량제 비용에서 예약 비용을 빼서 예상 절감액을 구합니다.
 
+미달 사용 예약이 있는 경우 _ChargeType_ 에 대한 _UnusedReservation_ 항목이 고려해야 할 요인이 됩니다. 완전히 활용된 예약이 있으면 최대한의 절감 효과를 얻을 수 있습니다. _UnusedReservation_ 수량에서는 절감이 줄여듭니다.
+
 ## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>비용 분석의 예약 구매 및 분할 상환
 
-예약 비용은 [비용 분석](https://aka.ms/costanalysis)에서 사용할 수 있습니다. 기본적으로 비용 분석은 **실제 비용**을 표시하며, 이 방식으로 청구서에 비용이 표시됩니다. 혜택을 사용한 리소스와 연결된 예약 구매를 항목별로 살펴보려면 **분할 상환**으로 전환합니다.
+예약 비용은 [비용 분석](https://aka.ms/costanalysis)에서 사용할 수 있습니다. 기본적으로 비용 분석은 **실제 비용** 을 표시하며, 이 방식으로 청구서에 비용이 표시됩니다. 혜택을 사용한 리소스와 연결된 예약 구매를 항목별로 살펴보려면 **분할 상환** 으로 전환합니다.
 
 ![비용 분석에서 분할 상환 비용을 선택하는 위치를 보여주는 예제](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
@@ -157,7 +159,7 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
-- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../azure-sql/database/reserved-capacity-overview.md)
 - [Azure Reservations 관리](manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](../manage/understand-vm-reservation-charges.md)

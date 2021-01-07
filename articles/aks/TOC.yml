@@ -4,10 +4,12 @@
   items:
     - name: AKS 정보
       href: intro-kubernetes.md
+    - name: 솔루션 아키텍처
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: 빠른 시작
   expanded: true
   items:
-    - name: AKS 클러스터 만들기
+    - name: AKS 클러스터 배포
       expanded: true
       items:
         - name: Azure CLI 사용
@@ -48,6 +50,8 @@
       href: concepts-identity.md
     - name: 보안
       items:
+        - name: 보안 기준
+          href: security-baseline.md
         - name: 애플리케이션 및 클러스터에 대한 보안
           href: concepts-security.md
         - name: Azure Policy의 보안 컨트롤
@@ -138,18 +142,24 @@
           href: upgrade-cluster.md
         - name: 작동 시간 SLA 사용
           href: uptime-sla.md
-        - name: 근접 배치 그룹 사용(미리 보기)
+        - name: 근접 배치 그룹 사용
           href: reduce-latency-ppg.md
         - name: 노드 이미지 업그레이드
           href: node-image-upgrade.md
+        - name: GitHub Actions를 사용하여 노드 이미지를 자동으로 업그레이드
+          href: node-upgrade-github-actions.md
         - name: 프로세스 노드 OS 업데이트
           href: node-updates-kured.md
         - name: AKS 클러스터 구성
           href: cluster-configuration.md
+        - name: 사용자 지정 노드 구성(미리 보기)
+          href: custom-node-configuration.md
         - name: ACR을 AKS 클러스터와 통합
           href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기
           items:
+            - name: 가상 노드 사용
+              href: virtual-nodes.md
             - name: Azure CLI 사용
               href: virtual-nodes-cli.md
             - name: Azure Portal 사용
@@ -162,14 +172,14 @@
           items:
             - name: 여러 노드 풀 사용
               href: use-multiple-node-pools.md
-            - name: Spot 노드 풀 사용(미리 보기)
+            - name: 스폿 노드 풀 사용(미리 보기)
               href: spot-node-pool.md
             - name: 시스템 노드 풀 사용
               href: use-system-pools.md
         - name: Terraform을 사용하여 AKS 배포
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Kubernetes 리소스 뷰어 사용(미리 보기)
+        - name: Azure Portal Kubernetes 리소스 뷰
           href: kubernetes-portal.md
         - name: Kubernetes 대시보드 사용
           href: kubernetes-dashboard.md
@@ -246,11 +256,13 @@
           href: kubernetes-service-principal.md
         - name: 관리 ID 사용
           href: use-managed-identity.md
+        - name: AAD Pod ID(미리 보기) 사용
+          href: use-azure-ad-pod-identity.md
         - name: 클러스터 구성 파일에 대한 액세스 제한
           href: control-kubeconfig-access.md
         - name: 네트워크 정책을 사용하여 Pod 트래픽 보안
           href: use-network-policies.md
-        - name: Azure Policy를 사용하여 Pod 보안(미리 보기)
+        - name: Azure Policy로 포드 보안
           href: use-pod-security-on-azure-policy.md
         - name: Pod 보안 정책(미리 보기) 사용
           href: use-pod-security-policies.md
@@ -321,8 +333,10 @@
           href: spark-job.md
         - name: GPU 사용
           href: gpu-cluster.md
-        - name: Azure Database for PostgreSQL 사용
-          href: ../postgresql/concepts-aks.md
+        - name: PostgreSQL을 사용하여 앱 빌드
+          href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+        - name: MySQL을 사용하여 앱 빌드
+          href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
         - name: Azure API Management 사용
           href: ../api-management/api-management-kubernetes.md
@@ -354,10 +368,10 @@
     - name: DevOps
       items:
         - name: Ansible을 사용하여 AKS 클러스터 만들기
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Jenkins 연속 배포
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Azure DevOps 프로젝트
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true

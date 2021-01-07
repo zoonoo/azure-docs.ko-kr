@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061610"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542816"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>자습서: Azure SQL Database 리소스를 다른 지역으로 이동
 
@@ -43,22 +43,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 -  이동하려는 리소스가 포함된 구독에 대한 *소유자* 액세스 권한이 있는지 확인합니다.
     - Azure 구독에서 특정 원본 및 대상 쌍에 대한 리소스를 처음 추가하는 경우 Resource Mover를 통해 구독에서 신뢰할 수 있는 [시스템이 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)(이전에는 MSI(관리되는 서비스 ID)라고 함)를 만듭니다.
     - ID를 만들고 필요한 역할(원본 구독의 기여자 또는 사용자 액세스 관리자)을 할당하려면 구독에 대한 *소유자* 권한이 리소스를 추가하는 데 사용하는 계정에 필요합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
-- 구독에는 대상 지역에서 이동하는 리소스를 만드는 데 충분한 할당량이 필요합니다. 할당량이 없는 경우 [추가 제한](/azure/azure-resource-manager/management/azure-subscription-service-limits)을 요청합니다.
+- 구독에는 대상 지역에서 이동하는 리소스를 만드는 데 충분한 할당량이 필요합니다. 할당량이 없는 경우 [추가 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 요청합니다.
 - 리소스를 이동하는 대상 지역과 관련된 가격 책정 및 요금을 확인합니다. [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 사용자를 도와줍니다.
     
 
 ## <a name="check-sql-requirements"></a>SQL 요구 사항 확인
 
 1. 다른 지역으로 이동하는 데 지원되는 데이터베이스/탄력적 풀 기능을 [확인](support-matrix-move-region-sql.md)합니다.
-2. 대상 지역에서 각 원본 서버에 대한 대상 서버를 만듭니다. [자세히 알아보기](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users).
+2. 대상 지역에서 각 원본 서버에 대한 대상 서버를 만듭니다. [자세히 알아보기](../azure-sql/database/active-geo-replication-security-configure.md#how-to-configure-logins-and-users).
 4. 데이터베이스가 TDE(투명한 데이터 암호화)를 사용하여 암호화되어 있고 Azure Key Vault에서 사용자 고유의 암호화 키를 사용하는 경우 키 자격 증명 모음을 다른 지역으로 [이동하는 방법을 알아봅니다](../key-vault/general/move-region.md).
 5. SQL 데이터 동기화를 사용하도록 설정되면 멤버 데이터베이스 이동이 지원됩니다. 이동 후에는 새 대상 데이터베이스에 대한 SQL 데이터 동기화를 설정해야 합니다.
-6. Advanced Data Security 설정을 제거한 후에 이동합니다. 이동 후 대상 지역의 SQL Server 수준에서 [설정을 구성합니다](/azure/sql-database/sql-database-advanced-data-security).
-7. 감사를 사용하도록 설정되면 이동 후 정책이 기본값으로 다시 설정됩니다. 이동 후 [감사를 다시 설정합니다](/azure/sql-database/sql-database-auditing).
-7. 원본 데이터베이스에 대한 백업 보존 정책은 대상 데이터베이스로 전달됩니다. 이동 후 설정을 수정하는 방법에 대해 [자세히 알아보세요](/azure/sql-database/sql-database-long-term-backup-retention-configure ).
-8. 서버 수준 방화벽 규칙을 제거한 후에 이동합니다. 데이터베이스 수준 방화벽 규칙은 이동 중에 원본 서버에서 대상 서버로 복사됩니다. 이동 후 대상 지역에서 SQL Server에 대한 [방화벽 규칙을 설정합니다](/azure/sql-database/sql-database-server-level-firewall-rule).
-9. 자동 튜닝 설정을 제거한 후에 이동합니다. 이동 후 [자동 튜닝을 다시 설정합니다](/azure/sql-database/sql-database-automatic-tuning-enable).
-10. 데이터베이스 경고 설정을 제거한 후에 이동합니다. 이동 후 [다시 설정합니다](/azure/sql-database/sql-database-insights-alerts-portal).
+6. Advanced Data Security 설정을 제거한 후에 이동합니다. 이동 후 대상 지역의 SQL Server 수준에서 [설정을 구성합니다](../azure-sql/database/azure-defender-for-sql.md).
+7. 감사를 사용하도록 설정되면 이동 후 정책이 기본값으로 다시 설정됩니다. 이동 후 [감사를 다시 설정합니다](../azure-sql/database/auditing-overview.md).
+7. 원본 데이터베이스에 대한 백업 보존 정책은 대상 데이터베이스로 전달됩니다. 이동 후 설정을 수정하는 방법에 대해 [자세히 알아보세요](../azure-sql/database/long-term-backup-retention-configure.md).
+8. 서버 수준 방화벽 규칙을 제거한 후에 이동합니다. 데이터베이스 수준 방화벽 규칙은 이동 중에 원본 서버에서 대상 서버로 복사됩니다. 이동 후 대상 지역에서 SQL Server에 대한 [방화벽 규칙을 설정합니다](../azure-sql/database/firewall-create-server-level-portal-quickstart.md).
+9. 자동 튜닝 설정을 제거한 후에 이동합니다. 이동 후 [자동 튜닝을 다시 설정합니다](../azure-sql/database/automatic-tuning-enable.md).
+10. 데이터베이스 경고 설정을 제거한 후에 이동합니다. 이동 후 [다시 설정합니다](../azure-sql/database/alerts-insights-configure-portal.md).
     
 ## <a name="select-resources"></a>리소스 선택
 
@@ -67,33 +67,33 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 선택한 원본 지역의 모든 리소스 그룹에서 지원되는 리소스 종류를 선택할 수 있습니다.
 - 리소스를 원본 지역과 동일한 구독의 대상 지역으로 이동합니다. 구독을 변경하려면 리소스를 이동한 후에 변경할 수 있습니다.
 
-1. Azure Portal에서 *리소스 이동기*를 검색합니다. 그런 다음, **서비스** 아래에서 **Azure Resource Mover**를 선택합니다.
+1. Azure Portal에서 *리소스 이동기* 를 검색합니다. 그런 다음, **서비스** 아래에서 **Azure Resource Mover** 를 선택합니다.
 
      ![Azure Portal의 리소스 이동기에 대한 검색 결과](./media/tutorial-move-region-sql/search.png)
 
-2. **개요**에서 **시작**을 클릭합니다.
+2. **개요** 에서 **시작** 을 클릭합니다.
 
     ![다른 지역으로 이동할 리소스를 추가하는 단추](./media/tutorial-move-region-sql/get-started.png)
 
-3. **리소스 이동** > **원본 + 대상**에서 원본 구독과 지역을 선택합니다.
-4. **대상**에서 리소스를 이동하려는 지역을 선택합니다. 그런 다음 **다음**을 클릭합니다.
+3. **리소스 이동** > **원본 + 대상** 에서 원본 구독과 지역을 선택합니다.
+4. **대상** 에서 리소스를 이동하려는 지역을 선택합니다. 그런 다음 **다음** 을 클릭합니다.
 
     ![원본 및 대상 지역을 선택하는 페이지](./media/tutorial-move-region-sql/source-target.png)
 
-6. **이동할 리소스**에서 **리소스 선택**을 클릭합니다.
-7. **리소스 선택**에서 리소스를 선택합니다. 이동에 지원되는 리소스만 추가할 수 있습니다. **완료**를 클릭합니다.
+6. **이동할 리소스** 에서 **리소스 선택** 을 클릭합니다.
+7. **리소스 선택** 에서 리소스를 선택합니다. 이동에 지원되는 리소스만 추가할 수 있습니다. **완료** 를 클릭합니다.
 
     ![이동할 SQL 리소스를 선택하는 페이지](./media/tutorial-move-region-sql/select-resources.png)
 
-8. **이동할 리소스**에서 **다음**을 클릭합니다.
+8. **이동할 리소스** 에서 **다음** 을 클릭합니다.
 
-9. **검토 + 추가**에서 원본 및 대상 설정을 확인합니다. 이동에 대한 메타데이터가 저장을 목적으로 생성된 메타데이터 지역의 리소스 그룹에 저장된다는 것을 이해해야 합니다.
+9. **검토 + 추가** 에서 원본 및 대상 설정을 확인합니다. 이동에 대한 메타데이터가 저장을 목적으로 생성된 메타데이터 지역의 리소스 그룹에 저장된다는 것을 이해해야 합니다.
 
 
     ![설정을 검토하고 이동을 계속하는 페이지](./media/tutorial-move-region-sql/review.png)
 
-10. **계속**을 클릭하여 리소스 추가를 시작합니다.
-11. 추가 프로세스가 성공적으로 완료되면 알림 아이콘에서 **이동할 리소스 추가 중**을 클릭합니다.
+10. **계속** 을 클릭하여 리소스 추가를 시작합니다.
+11. 추가 프로세스가 성공적으로 완료되면 알림 아이콘에서 **이동할 리소스 추가 중** 을 클릭합니다.
 12. 알림을 클릭한 후 **지역 간** 페이지에서 리소스를 검토합니다.
 
 
@@ -106,12 +106,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="resolve-dependencies"></a>종속성 오류 해결
 
 
-1. **지역 간**에서 리소스의 **문제** 열에 *종속성 유효성 검사* 메시지가 표시되는 경우 **종속성 유효성 검사** 단추를 클릭합니다. 유효성 검사 프로세스가 시작됩니다.
-2. 종속성이 있으면 **종속성 추가**를 클릭합니다.
+1. **지역 간** 에서 리소스의 **문제** 열에 *종속성 유효성 검사* 메시지가 표시되는 경우 **종속성 유효성 검사** 단추를 클릭합니다. 유효성 검사 프로세스가 시작됩니다.
+2. 종속성이 있으면 **종속성 추가** 를 클릭합니다.
 
     ![종속성을 추가하는 단추](./media/tutorial-move-region-sql/add-dependencies.png)
    
-3. **종속성 추가**에서 종속 리소스 > **종속성 추가**를 차례로 선택합니다. 알림에서 진행률을 모니터링합니다.
+3. **종속성 추가** 에서 종속 리소스 > **종속성 추가** 를 차례로 선택합니다. 알림에서 진행률을 모니터링합니다.
 
 4. 필요한 경우 추가 종속성을 추가하고 종속성의 유효성을 다시 검사합니다. 
 
@@ -127,19 +127,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="assign-a-target-sql-server"></a>대상 SQL Server 할당
 
-1. **지역 간**의 SQL Server 리소스에 대한 **대상 구성** 열에서 **리소스 할당 안 됨**을 클릭합니다.
+1. **지역 간** 의 SQL Server 리소스에 대한 **대상 구성** 열에서 **리소스 할당 안 됨** 을 클릭합니다.
 2. 대상 지역에서 기존 SQL Server 리소스를 선택합니다. 
     
     ![이동 커밋 보류 중으로 설정된 SQL Server 상태를 보여 주는 항목](./media/tutorial-move-region-sql/sql-server-commit-move-pending.png) 
 
     
 > [!NOTE]
-> 원본 SQL Server 상태가 *이동 커밋 보류 중*으로 변경됩니다. 
+> 원본 SQL Server 상태가 *이동 커밋 보류 중* 으로 변경됩니다. 
 
 ### <a name="commit-the-sql-server-move"></a>SQL Server 이동 커밋
 
-1. **지역 간**에서 SQL Server를 선택한 다음, **이동 커밋**을 클릭합니다.
-2. **리소스 커밋**에서 **커밋**을 클릭합니다.
+1. **지역 간** 에서 SQL Server를 선택한 다음, **이동 커밋** 을 클릭합니다.
+2. **리소스 커밋** 에서 **커밋** 을 클릭합니다.
 
     ![SQL Server 이동을 커밋하는 페이지](./media/tutorial-move-region-sql/commit-sql-server.png)
 
@@ -155,24 +155,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prepare-an-elastic-pool"></a>탄력적 풀 준비
 
-1. **지역 간**에서 원본 탄력적 풀(이 연습의 경우 demo-test1-elasticpool)을 선택한 다음, **준비**를 클릭합니다.
+1. **지역 간** 에서 원본 탄력적 풀(이 연습의 경우 demo-test1-elasticpool)을 선택한 다음, **준비** 를 클릭합니다.
 
     ![리소스를 준비하는 단추](./media/tutorial-move-region-sql/prepare-elastic.png)
 
-2. **리소스 준비**에서 **준비**를 클릭합니다.
-3. 준비 프로세스에 성공했다는 알림이 표시되면 **새로 고침**을 클릭합니다.
+2. **리소스 준비** 에서 **준비** 를 클릭합니다.
+3. 준비 프로세스에 성공했다는 알림이 표시되면 **새로 고침** 을 클릭합니다.
 
 > [!NOTE]
 > 이제 탄력적 풀은 *이동 시작 보류 중* 상태입니다.
 
 ## <a name="prepare-a-single-database"></a>단일 데이터베이스 준비
 
-1. **지역 간**에서 단일 데이터베이스(탄력적 풀에 없음)를 선택한 다음, **준비**를 클릭합니다.
+1. **지역 간** 에서 단일 데이터베이스(탄력적 풀에 없음)를 선택한 다음, **준비** 를 클릭합니다.
 
     ![선택한 리소스를 준비하는 단추](./media/tutorial-move-region-sql/prepare-db.png)
 
-2. **리소스 준비**에서 **준비**를 클릭합니다.
-3. 준비 프로세스에 성공했다는 알림이 표시되면 **새로 고침**을 클릭합니다.
+2. **리소스 준비** 에서 **준비** 를 클릭합니다.
+3. 준비 프로세스에 성공했다는 알림이 표시되면 **새로 고침** 을 클릭합니다.
 
 > [!NOTE]
 > 이제 데이터베이스는 *이동 시작 보류 중* 상태이고 대상 지역에 만들어졌습니다.
@@ -184,22 +184,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 #### <a name="initiate-move---elastic-pool"></a>이동 시작 - 탄력적 풀
 
-1. **지역 간**에서 원본 탄력적 풀(이 연습의 경우 demo-test1-elasticpool)을 선택한 다음, **이동 시작**을 클릭합니다.
-2. **리소스 이동**에서 **이동 시작**을 클릭합니다.
+1. **지역 간** 에서 원본 탄력적 풀(이 연습의 경우 demo-test1-elasticpool)을 선택한 다음, **이동 시작** 을 클릭합니다.
+2. **리소스 이동** 에서 **이동 시작** 을 클릭합니다.
 
     
     ![탄력적 풀의 이동을 시작하는 단추](./media/tutorial-move-region-sql/initiate-elastic.png)
 
 1. 알림 표시줄에서 이동 진행률을 추적합니다.
-1. 성공적으로 이동되었다는 알림이 표시되면 **새로 고침**을 클릭합니다.
+1. 성공적으로 이동되었다는 알림이 표시되면 **새로 고침** 을 클릭합니다.
 
 > [!NOTE]
 > 이제 탄력적 풀은 *이동 커밋 보류 중* 상태입니다.
 
 #### <a name="prepare-database"></a>데이터베이스 준비
 
-1. **지역 간**에서 데이터베이스(이 연습의 경우 demo-test2-sqldb)를 선택한 다음, **준비**를 클릭합니다.
-2. **리소스 준비**에서 **준비**를 클릭합니다.
+1. **지역 간** 에서 데이터베이스(이 연습의 경우 demo-test2-sqldb)를 선택한 다음, **준비** 를 클릭합니다.
+2. **리소스 준비** 에서 **준비** 를 클릭합니다.
 
     ![탄력적 풀에서 데이터베이스를 준비하는 단추](./media/tutorial-move-region-sql/prepare-database-elastic.png) 
 
@@ -210,8 +210,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="move-databases"></a>데이터베이스 이동
 
 데이터베이스 이동을 시작합니다.
-1. **지역 간**에서 **이동 시작 보류 중** 상태인 리소스를 선택합니다. 그런 다음, **이동 시작**을 클릭합니다.
-2. **리소스 이동**에서 **이동 시작**을 클릭합니다.
+1. **지역 간** 에서 **이동 시작 보류 중** 상태인 리소스를 선택합니다. 그런 다음, **이동 시작** 을 클릭합니다.
+2. **리소스 이동** 에서 **이동 시작** 을 클릭합니다.
 
     ![이동을 시작하는 페이지](./media/tutorial-move-region-sql/initiate-move.png)
 
@@ -233,8 +233,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음과 같이 이동을 취소할 수 있습니다.
 
-1. **지역 간**에서 **이동 커밋 보류 중** 상태인 리소스를 선택하고, **이동 취소**를 클릭합니다.
-2. **이동 취소**에서 **취소**를 클릭합니다.
+1. **지역 간** 에서 **이동 커밋 보류 중** 상태인 리소스를 선택하고, **이동 취소** 를 클릭합니다.
+2. **이동 취소** 에서 **취소** 를 클릭합니다.
 3. 알림 표시줄에서 이동 진행률을 추적합니다.
 
 
@@ -254,8 +254,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. SQL Server가 *원본 삭제 보류 중* 상태인지 확인합니다.
 2. 커밋하기 전에 데이터베이스 연결 문자열을 대상 지역으로 업데이트합니다.
-3. **지역 간**에서 SQL 리소스를 선택한 다음, **이동 커밋**을 클릭합니다.
-4. **리소스 커밋**에서 **커밋**을 클릭합니다.
+3. **지역 간** 에서 SQL 리소스를 선택한 다음, **이동 커밋** 을 클릭합니다.
+4. **리소스 커밋** 에서 **커밋** 을 클릭합니다.
 
     ![이동 커밋](./media/tutorial-move-region-sql/commit-sql-resources.png)
 
@@ -272,8 +272,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이동 후 필요에 따라 원본 지역에서 리소스를 삭제할 수 있습니다. 
 
-1. **지역 간**에서 삭제하려는 각 원본 리소스의 이름을 클릭합니다.
-2. 각 리소스에 대한 속성 페이지에서 **삭제**를 선택합니다.
+1. **지역 간** 에서 삭제하려는 각 원본 리소스의 이름을 클릭합니다.
+2. 각 리소스에 대한 속성 페이지에서 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

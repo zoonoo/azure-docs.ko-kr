@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502517"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563123"
 ---
 Azure 공유 디스크는 여러 Vm (가상 컴퓨터)에 관리 디스크를 동시에 연결할 수 있도록 하는 Azure managed disks에 대 한 새로운 기능입니다. 관리 디스크를 여러 VM에 연결하면 새 클러스터된 애플리케이션을 배포하거나 기존 클러스터된 애플리케이션을 Azure로 마이그레이션할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 공유 디스크는 여러 Vm (가상 컴퓨터)에 관리 디스크를 �
 
 ### <a name="windows"></a>Windows
 
-Azure 공유 디스크는 Windows Server 2008 이상에서 지원 됩니다. 대부분의 Windows 기반 클러스터링은 클러스터 노드 통신용 핵심 인프라를 모두 처리 하 여 응용 프로그램이 병렬 액세스 패턴을 활용할 수 있도록 하는 WSFC를 기반으로 합니다. WSFC를 사용하면 Windows Server 버전에 따라 CSV 기반 옵션과 CSV 기반이 아닌 옵션을 모두 사용할 수 있습니다. 자세한 내용은 [장애 조치(failover) 클러스터 만들기](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster)를 참조하세요.
+Azure 공유 디스크는 Windows Server 2008 이상에서 지원 됩니다. 대부분의 Windows 기반 클러스터링은 클러스터 노드 통신용 핵심 인프라를 모두 처리 하 여 응용 프로그램이 병렬 액세스 패턴을 활용할 수 있도록 하는 WSFC를 기반으로 합니다. WSFC를 사용하면 Windows Server 버전에 따라 CSV 기반 옵션과 CSV 기반이 아닌 옵션을 모두 사용할 수 있습니다. 자세한 내용은 [장애 조치(failover) 클러스터 만들기](/windows-server/failover-clustering/create-failover-cluster)를 참조하세요.
 
 WSFC에서 실행되는 인기 있는 일부 애플리케이션은 다음과 같습니다.
 
@@ -54,10 +54,10 @@ WSFC에서 실행되는 인기 있는 일부 애플리케이션은 다음과 같
 ### <a name="linux"></a>Linux
 
 Azure 공유 디스크는 다음에서 지원 됩니다.
-- [SUSE SLE for SAP and SUSE SLE HA 15 SP1 이상](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [SUSE SLE for SAP and SUSE SLE HA 15 SP1 이상](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18.04 이상](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [RHEL 8 버전의 RHEL developer preview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [RHEL 8 버전의 RHEL developer preview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Linux 클러스터는 [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker)와 같은 클러스터 관리자를 활용할 수 있습니다. Pacemaker는 [Corosync](http://corosync.github.io/corosync/)를 기반으로 하며, 고가용성 환경에 배포된 애플리케이션에 클러스터 통신을 사용하도록 설정합니다. 몇 가지 일반적인 클러스터된 파일 시스템으로는 [ocfs2](https://oss.oracle.com/projects/ocfs2/) 및 [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2)가 있습니다. Scsi 영구 예약 (SCSI PR) 및/또는 STONITH SBD (Block Device) 기반 클러스터링 모델을 사용 하 여 디스크에 대 한 arbitrating 액세스를 수행할 수 있습니다. SCSI PR을 사용 하는 경우 [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) , [sg_persist](https://linux.die.net/man/8/sg_persist)등의 유틸리티를 사용 하 여 예약 및 등록을 조작할 수 있습니다.
 

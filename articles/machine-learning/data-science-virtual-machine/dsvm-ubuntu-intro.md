@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254704"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109847"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux(Ubuntu)용 Data Science Virtual Machine 설정
 
@@ -33,7 +33,7 @@ Data Science Virtual Machine Ubuntu 18.04의 인스턴스를 만드는 단계는
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 아직 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시될 수 있습니다.
 1. "데이터 과학 가상 머신"을 입력하고 "Data Science Virtual Machine - Ubuntu 18.04"를 선택하여 가상 머신 목록을 찾습니다.
 
-1. 다음 창에서 **만들기**를 선택합니다.
+1. 다음 창에서 **만들기** 를 선택합니다.
 
 1. "가상 머신 만들기" 블레이드로 리디렉션됩니다.
    
@@ -46,7 +46,7 @@ Data Science Virtual Machine Ubuntu 18.04의 인스턴스를 만드는 단계는
        * **가상 머신 이름**: 가상 머신의 이름을 입력합니다. 이 이름은 Azure Portal에서 사용됩니다.
        * **지역**: 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
        * **이미지**: 기본값을 그대로 둡니다.
-       * **Size**: 이 옵션은 일반 워크로드에 적합한 크기로 자동 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
+       * **Size**: 이 옵션은 일반 워크로드에 적합한 크기로 자동 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/sizes.md)에 대해 자세히 읽어보세요.
        * **인증 형식**: 더 빨리 설치하려면 "암호"를 선택합니다. 
          
          > [!NOTE]
@@ -59,10 +59,10 @@ Data Science Virtual Machine Ubuntu 18.04의 인스턴스를 만드는 단계는
 
        * **암호**: 가상 머신에 로그인하는 데 사용할 암호를 입력합니다.    
     
-   1. **검토 + 만들기**를 선택합니다.
+   1. **검토 + 만들기** 를 선택합니다.
    1. **검토+만들기**
       * 입력한 모든 정보가 올바른지 확인합니다. 
-      * **만들기**를 선택합니다.
+      * **만들기** 를 선택합니다.
     
     프로비전에는 약 5분이 걸립니다. 상태가 Azure Portal에 표시됩니다.
 
@@ -73,8 +73,6 @@ Ubuntu DSVM에는 다음 세 가지 방법 중 하나를 사용하여 액세스�
   * 터미널 세션에 대한 SSH
   * 그래픽 세션에 대한 X2Go
   * Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
-
-또한 Data Science Virtual Machine을 Azure Notebooks에 연결하여 VM에서 Jupyter Notebook을 실행하고 체험 서비스 계층의 제한을 무시할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
 
 ### <a name="ssh"></a>SSH
 
@@ -99,15 +97,15 @@ Linux VM은 이미 X2Go 서버와 함께 프로비저닝되었고 클라이언�
      * **호스트**: 앞서 기록해 둔 VM의 IP 주소를 입력합니다.
      * **로그인**: Linux VM에서 사용자 이름을 입력합니다.
      * **SSH 포트**: 기본값 22를 그대로 사용합니다.
-     * **세션 유형**: 값을 **XFCE**로 변경합니다. 현재 Linux VM은 XFCE 데스크톱만 지원합니다.
+     * **세션 유형**: 값을 **XFCE** 로 변경합니다. 현재 Linux VM은 XFCE 데스크톱만 지원합니다.
    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
    * **공유 폴더**: 이 탭을 사용하여 VM에 탑재할 클라이언트 머신 디렉터리를 추가합니다. 
 
    ![X2go 구성](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 1. X2Go 창의 오른쪽 창에 있는 상자를 클릭하여 VM의 로그인 화면을 표시합니다.
 1. VM의 암호를 입력합니다.
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 1. 연결을 마치려면 방화벽을 우회할 수 있는 X2Go 권한을 부여해야 할 수도 있습니다.
 1. 이제 Ubuntu DSVM의 그래픽 인터페이스가 표시됩니다. 
 
@@ -121,12 +119,16 @@ Ubuntu DSVM은 다중 사용자 Jupyter 서버인 [JupyterHub](https://github.co
 
    1. 로컬 머신에서 웹 브라우저를 열고 https:\//your-vm-ip:8000으로 이동합니다. "your-vm-ip"는 앞에서 기록해 둔 IP 주소로 대체해야 합니다.
    1. 브라우저에서 인증서 오류가 있음을 알리는 페이지를 직접 열지 못할 수 있습니다. DSVM은 자체 서명된 인증서를 통해 보안을 제공합니다. 대부분의 브라우저는 이 경고 후에 클릭할 수 있습니다. 대부분의 브라우저는 웹 세션 전체에서 인증서에 대한 일종의 시각적 경고를 계속 제공합니다.
+
+      >[!NOTE]
+      > 브라우저에 `ERR_EMPTY_RESPONSE` 오류 메시지가 표시되는 경우 *HTTP* 또는 웹 주소만 사용하는 대신 *HTTPS* 프로토콜을 명시적으로 사용하여 머신에 액세스해야 합니다. 주소 줄에 `https://`가 없는 웹 주소를 입력하면 대부분의 브라우저는 기본적으로 `http`로 설정되며 이 오류가 표시됩니다.
+
    1. VM을 만드는 데 사용한 사용자 이름과 암호를 입력하여 로그인합니다. 
 
       ![Jupyter 로그인 입력](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
->[!NOTE]
-> 이 단계에서 500 오류가 표시되면 사용자 이름에 대문자를 사용했을 수 있습니다. 이는 Jupyter 허브와 사용하는 PAMAuthenticator 간의 알려진 상호 작용입니다. 
+      >[!NOTE]
+      > 이 단계에서 500 오류가 표시되면 사용자 이름에 대문자를 사용했을 수 있습니다. 이는 Jupyter 허브와 사용하는 PAMAuthenticator 간의 알려진 상호 작용입니다. "이 페이지에 연결할 수 없습니다."라는 오류가 표시되면 네트워크 보안 그룹 권한을 조정해야 할 수 있습니다. Azure Portal에서 리소스 그룹 내의 네트워크 보안 그룹 리소스를 찾습니다. 공용 인터넷에서 JupyterHub에 액세스하려면 포트 8000이 열려 있어야 합니다. (이미지는 이 VM이 Just-In-Time 액세스용으로 구성되어 있음을 보여주며, 이는 매우 권장됩니다. [Just-In-Time 액세스를 사용하여 관리 포트 보호](../../security-center/security-center-just-in-time.md)를 참조하세요.) ![네트워크 보안 그룹 구성](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. 사용 가능한 다양한 샘플 노트북을 찾아봅니다.
 
@@ -144,6 +146,6 @@ c.Spawner.default_url = '/lab'
 
 * [Linux용 Data Science Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md) 연습에서는 여기서 프로비저닝된 Linux DSVM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
 * 이 문서에서 설명하는 도구를 사용하여 DSVM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 머신 내의 셸에서 `dsvm-more-info`를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 정보에 대한 포인터를 확인할 수도 있습니다.  
-* [팀 데이터 과학 프로세스](https://aka.ms/tdsp)를 사용하여 분석 솔루션을 체계적으로 빌드하는 방법을 알아봅니다.
+* [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 분석 솔루션을 체계적으로 빌드하는 방법을 알아봅니다.
 * Azure AI 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI Gallery](https://gallery.azure.ai/)를 방문합니다.
 * 이 가상 머신에 적합한 [참조 설명서](./reference-ubuntu-vm.md)를 참조합니다.

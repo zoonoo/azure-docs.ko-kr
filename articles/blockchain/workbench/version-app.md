@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85209881"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Azure Blockchain 워크 벤치 미리 보기 응용 프로그램 버전 관리
@@ -27,7 +27,7 @@ ms.locfileid: "85209881"
 새 버전을 추가하려면 Blockchain Workbench에 새 구성 및 스마트 계약 파일을 업로드합니다.
 
 1. 웹 브라우저에서 Blockchain Workbench 웹 주소로 이동합니다. 예를 들어 `https://{workbench URL}.azurewebsites.net/` Blockchain Workbench 웹 주소를 찾는 방법에 대한 내용은 [Blockchain Workbench 웹 URL](deploy.md#blockchain-workbench-web-url)을 참조하세요.
-2. [Blockchain 워크 벤치 관리자 권한](manage-users.md#manage-blockchain-workbench-administrators)으로 로그인 합니다.
+2. [Blockchain Workbench 관리자](manage-users.md#manage-blockchain-workbench-administrators)로 로그인합니다.
 3. 다른 버전으로 업데이트하려는 블록체인 애플리케이션을 선택합니다.
 4. **버전 추가**를 선택합니다. **추가 버전** 창이 표시됩니다.
 5. 새 버전 계약 구성 및 업로드할 계약 코드 파일을 선택합니다. 구성 파일의 유효성이 자동으로 검사됩니다. 애플리케이션을 배포하기 전에 유효성 검사 오류를 수정합니다.

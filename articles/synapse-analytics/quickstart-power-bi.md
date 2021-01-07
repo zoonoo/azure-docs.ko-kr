@@ -5,20 +5,20 @@ services: synapse-analytics
 author: jocaplan
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
-ms.date: 04/29/2020
+ms.subservice: business-intelligence
+ms.date: 10/27/2020
 ms.author: jocaplan
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f9ae7b74c17bb330c2c7aa99903c62d4701f0a52
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.reviewer: jrasnick
+ms.openlocfilehash: 996233e2526b8b69c13abd4340ead4c5e2175916
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274189"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450683"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Power BI 작업 영역 연결
 
-이 빠른 시작에서는 Synapse Analytics 작업 영역에 Power BI 작업 영역을 연결하여 Synapse Studio(미리 보기)에서 새 Power BI 보고서 및 데이터 세트를 만드는 방법에 대해 설명합니다.
+이 빠른 시작에서는 Azure Synapse Analytics 작업 영역에 Power BI 작업 영역을 연결하여 Synapse Studio에서 새 Power BI 보고서 및 데이터 세트를 만드는 방법에 대해 설명합니다.
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -29,19 +29,19 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Synapse 작업 영역에 Power BI 작업 영역 연결
 
-1. Synapse Studio에서 시작하여 **관리**를 클릭합니다.
+1. Synapse Studio에서 시작하여 **관리** 를 클릭합니다.
 
     ![Synapse Studio에서 관리를 클릭합니다.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. **외부 연결**에서 **연결된 서비스**를 클릭합니다.
+2. **외부 연결** 에서 **연결된 서비스** 를 클릭합니다.
 
     ![강조 표시된 연결된 서비스입니다.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. **+새로 만들기**를 클릭합니다.
+3. **+새로 만들기** 를 클릭합니다.
 
     ![+ 새 연결된 서비스가 강조 표시됩니다.](media/quickstart-link-powerbi/new-highlighted.png)
 
-4. **Power BI**를 클릭하고 **계속**을 클릭합니다.
+4. **Power BI** 를 클릭하고 **계속** 을 클릭합니다.
 
     ![Power BI 연결된 서비스를 표시합니다.](media/quickstart-link-powerbi/powerbi-linked-service.png)
 
@@ -49,13 +49,13 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
     ![Power BI 연결된 서비스 설정을 표시합니다.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. **만들기**를 클릭합니다.
+6. **만들기** 를 클릭합니다.
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Synapse Studio에서 Power BI 작업 영역 보기
 
 작업 영역이 연결되면 Synapse Studio에서 Power BI 데이터 세트를 찾아보고, 새 Power BI 보고서를 편집/만들 수 있습니다.
 
-1. **개발**을 클릭합니다.
+1. **개발** 을 클릭합니다.
 
     ![Synapse Studio에서 개발을 클릭합니다.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
 

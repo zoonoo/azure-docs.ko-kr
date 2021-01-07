@@ -3,17 +3,19 @@ title: Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 쿼리
 description: Azure Cosmos DB를 사용 하 여 공간 데이터 쿼리
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9a0351b6f1de47f3687995c65060a23bdb2874
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764981"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336132"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하 여 지리 공간적 데이터 쿼리
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 SQL 및 LINQ를 사용 하 여 Azure Cosmos DB에서 지리 공간적 데이터를 쿼리 하는 방법을 다룹니다. 현재 지리 공간적 데이터를 저장 하 고 액세스 하는 것은 Azure Cosmos DB SQL API 계정 에서만 지원 됩니다. Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. SQL 언어의 전체 기본 제공 함수 집합에 대 한 자세한 내용은 [Azure Cosmos DB에서 시스템 함수 쿼리](sql-query-system-functions.md)를 참조 하세요.
 
@@ -49,7 +51,7 @@ ms.locfileid: "84764981"
 
 인덱싱 정책에 공간 인덱싱을 포함하면 "거리 쿼리"가 인덱스를 통해 효율적으로 처리됩니다. 공간 인덱스에 대 한 자세한 내용은 [지리 공간적 인덱싱](sql-query-geospatial-index.md)을 참조 하세요. 지정 된 경로에 대 한 공간 인덱스가 없는 경우 쿼리는 컨테이너에 대 한 검색을 수행 합니다.
 
-`ST_WITHIN`는 점이 다각형 내에 있는지 여부를 확인 하는 데 사용할 수 있습니다. 일반적으로 다각형은 우편 번호, 시/도 경계 또는 자연스러운 대형과 같은 경계를 나타내는 데 사용됩니다. 인덱싱 정책에 공간 인덱싱을 포함하면 "이내" 쿼리가 인덱스를 통해 효율적으로 처리됩니다.
+`ST_WITHIN` 는 점이 다각형 내에 있는지 여부를 확인 하는 데 사용할 수 있습니다. 일반적으로 다각형은 우편 번호, 시/도 경계 또는 자연스러운 대형과 같은 경계를 나타내는 데 사용됩니다. 인덱싱 정책에 공간 인덱싱을 포함하면 "이내" 쿼리가 인덱스를 통해 효율적으로 처리됩니다.
 
 의 Polygon 인수에는 `ST_WITHIN` 단일 링만 포함 될 수 있습니다. 즉, 다각형에는 구멍이 포함 되지 않아야 합니다.
 
@@ -73,7 +75,7 @@ ms.locfileid: "84764981"
 ```
 
 > [!NOTE]
-> Azure Cosmos DB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리가 결과를 반환 하지 않는 경우를 실행 `ST_ISVALIDDETAILED` 하 여 공간 형식이 잘못 된 이유를 디버깅 합니다.
+> Azure Cosmos DB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음** 으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리가 결과를 반환 하지 않는 경우를 실행 `ST_ISVALIDDETAILED` 하 여 공간 형식이 잘못 된 이유를 디버깅 합니다.
 >
 >
 
@@ -99,7 +101,7 @@ Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB
     }]
 ```
 
-`ST_ISVALID`및 `ST_ISVALIDDETAILED` 은 공간 개체가 유효한 지 여부를 확인 하는 데 사용할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. `ST_ISVALID`부울 값만 반환 하 고 `ST_ISVALIDDETAILED` 부울 및 잘못 된 것으로 간주 되는 이유를 포함 하는 문자열을 반환 합니다.
+`ST_ISVALID` 및 `ST_ISVALIDDETAILED` 은 공간 개체가 유효한 지 여부를 확인 하는 데 사용할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. `ST_ISVALID` 부울 값만 반환 하 고 `ST_ISVALIDDETAILED` 부울 및 잘못 된 것으로 간주 되는 이유를 포함 하는 문자열을 반환 합니다.
 
 **쿼리**
 

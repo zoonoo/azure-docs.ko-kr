@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852330"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424842"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 
@@ -414,7 +414,7 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, Service Bus 알림 태그 및 X W N S 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][3]
+![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, Service Bus 알림 태그 및 빨간색으로 윤곽이 지정 된 X W N S 형식 값이 포함 된 콘솔의 스크린샷][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>여러 태그를 지정하여 알림 보내기
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, Service Bus 알림 태그 및 X W N S 형식 값이 빨간색으로 표시 된 콘솔의 스크린샷][4]
+![H T T P 요청에 대 한 세부 정보 및 Service Bus 알림 형식, 여러 Service Bus 알림 태그 및 빨간색으로 요약 된 X W N S 형식 값이 포함 된 콘솔의 스크린샷][4]
 
 ### <a name="templated-notification"></a>템플릿 기반 알림
 
@@ -448,7 +448,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기서는 다음을 수행할 수 있습니다.
+이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음과 같은 작업을 할 수 있습니다.
 
 - 이 문서의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
 - [최신 뉴스 자습서] 의 Notification Hubs 태깅 기능에 대해 계속 학습

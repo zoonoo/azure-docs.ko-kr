@@ -34,6 +34,12 @@
           href: connect-macos.md
         - name: iOS 클라이언트와 연결
           href: connect-ios.md
+        - name: Microsoft Store 클라이언트와 연결
+          href: connect-microsoft-store.md
+        - name: Linux 디바이스와 연결
+          href: linux-overview.md
+    - name: 디바이스 리디렉션 구성
+      href: configure-device-redirections.md
     - name: PowerShell 모듈 설정
       href: powershell-module.md
     - name: 호스트 풀 및 세션 호스트 만들기
@@ -86,11 +92,21 @@
           href: diagnostics-log-analytics.md
     - name: 기본 제공 앱 게시
       href: publish-apps.md
-    - name: MSIX 앱 연결 설정
-      href: app-attach.md
+    - name: MSIX 앱 연결 사용
+      items:
+        - name: Azure Portal을 사용하여 MSIX 앱 연결 설정
+          href: app-attach-azure-portal.md
+        - name: PowerShell을 사용하여 MSIX 앱 연결 설정
+          href: app-attach-powershell.md
+        - name: PowerShell 스크립트 만들기
+          href: app-attach.md
+        - name: MSIX 이미지 준비
+          href: app-attach-image-prep.md
+        - name: 파일 공유 설정
+          href: app-attach-file-share.md
     - name: Microsoft Teams 사용
       href: teams-on-wvd.md
-    - name: Azure Multi-Factor Authentication 설정
+    - name: Azure AD Multi-Factor Authentication 설정
       href: set-up-mfa.md
     - name: 자동 업데이트 구성
       href: configure-automatic-updates.md
@@ -100,16 +116,32 @@
       href: azure-advisor.md
     - name: 해결 권장 사항
       href: azure-advisor-recommendations.md
+    - name: Azure Monitor for Windows Virtual Desktop 사용
+      href: azure-monitor.md
+    - name: 재해 복구 계획 설정
+      href: disaster-recovery.md
 - name: 개념
   items:
+    - name: 기본 제공 역할
+      href: rbac.md
     - name: 인증
       href: authentication.md
-    - name: 안전 URL 목록
-      href: safe-url-list.md
     - name: Windows Virtual Desktop 환경
       href: environment-setup.md
-    - name: 사용자 연결 대기 시간 확인
-      href: connection-latency.md
+    - name: 네트워크 연결
+      items:
+        - name: 네트워크 연결 이해
+          href: network-connectivity.md
+        - name: RDP Shortpath
+          href: shortpath.md
+        - name: QoS(서비스 품질) 구현
+          href: rdp-quality-of-service-qos.md
+        - name: 필수 URL 목록
+          href: safe-url-list.md
+        - name: 대역폭 고려 사항
+          href: rdp-bandwidth.md
+        - name: 사용자 연결 대기 시간 확인
+          href: connection-latency.md
     - name: Windows Virtual Desktop에서 위임된 액세스
       href: delegated-access-virtual-desktop.md
     - name: 호스트 풀 부하 분산 메서드
@@ -132,6 +164,8 @@
           href: app-attach-glossary.md
         - name: FAQ
           href: app-attach-faq.md
+    - name: Azure Monitor 용어집
+      href: azure-monitor-glossary.md
     - name: 데이터 위치
       href: data-locations.md
 - name: 문제 해결
@@ -152,6 +186,8 @@
       href: troubleshoot-powershell.md
     - name: 그래픽 성능 문제 진단
       href: remotefx-graphics-performance-counters.md
+    - name: Azure Monitor
+      href: troubleshoot-azure-monitor.md
 - name: 참조
   items:
     - name: 보안 모범 사례
@@ -160,8 +196,6 @@
       href: linux-overview.md
     - name: 지원되는 RDP 파일 설정
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: 네트워크 지침
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: 가상 머신 크기 조정 지침
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azure CLI(명령줄 인터페이스)

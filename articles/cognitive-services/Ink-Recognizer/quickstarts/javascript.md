@@ -10,13 +10,13 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: b8d8464fb9defb64c039ef9026812de89436091c
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.custom: devx-track-js
+ms.openlocfilehash: ca1c18fd1ea8507c8b6a58b5f786b9686b1f3a34
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050910"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369077"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>빠른 시작: Ink Recognizer REST API와 JavaScript로 디지털 잉크 인식
 
@@ -167,7 +167,7 @@ ms.locfileid: "89050910"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [REST API 참조](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API 참조](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 Ink Recognizer API가 디지털 잉크 입력 앱에서 어떻게 작동하는지 알아보려면 GitHub에서 다음 샘플 애플리케이션을 살펴보세요.
 * [C# 및 UWP(유니버설 Windows 플랫폼)](https://go.microsoft.com/fwlink/?linkid=2089803)  

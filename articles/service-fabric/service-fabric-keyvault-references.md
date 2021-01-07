@@ -3,16 +3,22 @@ title: Azure Service Fabric-Service Fabric 응용 프로그램 KeyVault 참조 �
 description: 이 문서에서는 응용 프로그램 암호에 대 한 service fabric KeyVaultReference 지원을 사용 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246166"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313787"
 ---
-#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원 (미리 보기)
+# <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원 (미리 보기)
 
 클라우드 응용 프로그램을 빌드할 때 일반적인 문제는 응용 프로그램에 필요한 비밀을 안전 하 게 저장 하는 방법입니다. 예를 들어, 컨테이너 리포지토리 자격 증명을 keyvault에 저장 하 고 응용 프로그램 매니페스트에서 참조할 수 있습니다. Service Fabric KeyVaultReference는 관리 Id Service Fabric를 사용 하며 keyvault 암호를 쉽게 참조할 수 있습니다. 이 문서의 나머지 부분에서는 Service Fabric KeyVaultReference를 사용 하는 방법에 대해 자세히 설명 하 고 몇 가지 일반적인 사용법을 포함 합니다.
+
+> [!IMPORTANT]
+> 프로덕션 환경에서는이 미리 보기 기능을 사용 하지 않는 것이 좋습니다.
+
+> [!NOTE]
+> KeyVault 참조 미리 보기 기능은 [버전이](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) 지정 된 암호만 지원 합니다. Versionless 비밀은 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -97,7 +103,7 @@ ms.locfileid: "86246166"
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- ApplicationManifest.xml의 새 섹션을 참조 하십시오.`<ConfigPackagePolicies>`
+- ApplicationManifest.xml의 새 섹션을 참조 하십시오. `<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>

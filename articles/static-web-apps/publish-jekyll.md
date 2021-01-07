@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797703"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000222"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Jekyll 사이트 게시
 
@@ -118,7 +118,7 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. _분기_에 대해 **마스터**를 선택합니다.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="완료된 GitHub 정보":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="세부 정보 입력":::
 
 ### <a name="build"></a>빌드
 
@@ -146,12 +146,9 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. 텍스트 편집기에서 Jekyll 앱을 열고 _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ 파일을 엽니다.
 
-1. `- uses: actions/checkout@v2` 블록 뒤에 나오는 구성 블록에 줄을 추가합니다.
+1. `- uses: actions/checkout@v2` 줄 뒤에 다음 구성 블록을 추가합니다.
 
     ```yml
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
@@ -174,7 +171,7 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. Azure Portal의 _개요_ 창에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="배포된 애플리케이션":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="세부 정보 입력":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

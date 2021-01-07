@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: a4c04033f3fb5ff523f0d80bb6c978955f4c9ec2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737515"
 ---
 # <a name="disable-network-policies-for-private-endpoints"></a>전용 끝점에 대 한 네트워크 정책 사용 안 함
 
-NSG (네트워크 보안 그룹)와 같은 네트워크 정책은 전용 끝점에 대해 지원 되지 않습니다. 지정 된 서브넷에 개인 끝점을 배포 하기 위해 해당 서브넷에 명시적 사용 안 함 설정이 필요 합니다. 이 설정은 개인 끝점에만 적용 됩니다. 서브넷의 다른 리소스에 대 한 액세스는 NSG (네트워크 보안 그룹) 보안 규칙 정의를 기반으로 제어 됩니다. 
+프라이빗 엔드포인트에는 NSG(네트워크 보안 그룹)와 같은 네트워크 정책이 지원되지 않습니다. 지정된 서브넷에 프라이빗 엔드포인트를 배포하려면 해당 서브넷에 명시적 비활성화 설정이 필요합니다. 이 설정은 개인 끝점에만 적용 됩니다. 서브넷의 다른 리소스에 대 한 액세스는 NSG (네트워크 보안 그룹) 보안 규칙 정의를 기반으로 제어 됩니다. 
  
 포털을 사용 하 여 개인 끝점을 만들 때이 설정은 만들기 프로세스의 일부로 자동으로 사용 하지 않도록 설정 됩니다. 다른 클라이언트를 사용 하는 배포에는이 설정을 변경 하는 추가 단계가 필요 합니다. Cloud shell을 사용 하 여 Azure PowerShell Azure CLI의 로컬 설치 또는 Azure Portal에서 설정을 사용 하지 않도록 설정 하거나 Azure Resource Manager 템플릿을 사용할 수 있습니다.  
  

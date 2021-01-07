@@ -1,6 +1,6 @@
 ---
 title: 데이터 로드 모범 사례
-description: Synapse SQL로 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
+description: 전용 SQL 풀 Azure Synapse Analytics로 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fe847dfa24e618d2e837943309475f0a436d3a44
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459303"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024030"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터웨어 하우징에 대한 데이터 로드 모범 사례
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>전용 SQL 풀로 데이터를 로드 하는 모범 사례 Azure Synapse Analytics
 
-데이터 로드에 대 한 권장 사항 및 성능 최적화
+이 문서에서는 데이터 로드에 대 한 권장 사항 및 성능 최적화를 찾을 수 있습니다.
 
 ## <a name="prepare-data-in-azure-storage"></a>Azure Storage에서 데이터 준비
 
-대기 시간을 최소화하려면 스토리지 계층과 데이터 웨어하우스를 함께 배치합니다.
+대기 시간을 최소화 하려면 저장소 계층과 전용 SQL 풀을 함께 배치 합니다.
 
 ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으면 Java 메모리 부족 오류가 발생할 수 있습니다. 이러한 제한 사항을 해결하려면 열의 하위 집합만 내보냅니다.
 
-PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드할 수 없습니다. Azure Blob Storage 또는 Azure Data Lake Store의 텍스트 파일에 데이터를 배치한 경우 데이터가 1,000,000바이트 미만이어야 합니다. 바이트 제한은 테이블 스키마에 관계없이 true입니다.
+PolyBase는 100만 바이트 이상의 데이터를 포함 하는 행을 로드할 수 없습니다. Azure Blob Storage 또는 Azure Data Lake Store의 텍스트 파일에 데이터를 배치한 경우 데이터가 1,000,000바이트 미만이어야 합니다. 바이트 제한은 테이블 스키마에 관계없이 true입니다.
 
 모든 파일 형식에는 서로 다른 성능 특성이 있습니다. 가장 빠르게 로드하려면 압축 구분 텍스트 파일을 사용합니다. UTF-8과 UTF-16의 성능 차이는 미미합니다.
 
@@ -36,13 +36,13 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
 
 ## <a name="run-loads-with-enough-compute"></a>계산이 충분 한 실행 로드
 
-로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 SQL 풀을 확장 하는 것이 좋습니다.
+로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 전용 SQL 풀을 확장 하는 것이 좋습니다.
 
 적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 리소스 클래스 또는 작업 그룹에 할당 합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
 
 ### <a name="create-a-loading-user"></a>로드 하는 사용자 만들기
 
-이 예제에서는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결**하고 로그인을 만드는 것입니다.
+이 예제에서는 staticrc20 리소스 클래스에 대한 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결** 하고 로그인을 만드는 것입니다.
 
 ```sql
    -- Connect to master
@@ -64,7 +64,7 @@ StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 
 
 ## <a name="allow-multiple-users-to-load"></a>여러 사용자가 로드 하도록 허용
 
-여러 사용자가 데이터 웨어하우스에 데이터를 로드해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 로드하려면 데이터베이스에 대한 CONTROL 권한이 필요합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다. 모든 로드 사용자가 모든 스키마에 대한 제어 액세스 권한을 갖는 것은 좋지 않습니다. 권한을 제한하려면 DENY CONTROL 문을 사용합니다.
+여러 사용자가 데이터 웨어하우스에 데이터를 로드해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 로드하려면 데이터베이스에 대한 CONTROL 권한이 필요합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다. 모든 로드 사용자가 모든 스키마에 대한 제어 액세스 권한을 갖는 것은 좋지 않습니다. 권한을 제한하려면 DENY CONTROL 문을 사용합니다.
 
 예를 들어, 데이터베이스 스키마, 부서 A에 대한 스키마_A 및 부서 B에 대한 스키마_B를 가정합니다. 데이터베이스 사용자, 사용자_A 및 사용자_B가 부서 A와 B 각각에서 PolyBase 로드에 대한 사용자가 되도록 합니다. 둘 모두 데이터베이스 CONTROL 권한을 부여 받습니다. 스키마 A와 B의 작성자는 이제 DENY를 사용하여 해당 스키마를 잠급니다.
 
@@ -83,14 +83,14 @@ User_A 및 user_B은 이제 다른 dept의 스키마에서 잠깁니다.
 
 ## <a name="load-to-a-columnstore-index"></a>Columnstore 인덱스에 로드
 
-columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 위해 대량의 메모리가 필요합니다. 최상의 압축 및 인덱스 효율성을 위해 columnstore 인덱스는 최대 1,048,576개의 행을 각 행 그룹으로 압축해야 합니다. 메모리 압박이 있는 경우 columnstore 인덱스는 최대 압축률을 달성하지 못할 수 있습니다. 쿼리 성능에 영향을 줍니다. 심층 분석은 [Columnstore 메모리 최적화](data-load-columnstore-compression.md)를 참조하세요
+columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 위해 대량의 메모리가 필요합니다. 최상의 압축 및 인덱스 효율성을 위해 columnstore 인덱스는 최대 1,048,576개의 행을 각 행 그룹으로 압축해야 합니다. 메모리 압박이 있는 경우 columnstore 인덱스는 최대 압축률을 달성하지 못할 수 있습니다. 이는 쿼리 성능에 영향을 미칠 것입니다. 심층 분석은 [Columnstore 메모리 최적화](data-load-columnstore-compression.md)를 참조하세요
 
 - 로드 사용자가 메모리를 최대 압축률을 충분히 달성할 수 있도록 하려면 중간 규모 또는 대규모 리소스 클래스의 멤버인 로드 사용자를 사용합니다.
-- 새로운 행 그룹을 완전히 채울 수 있는 충분한 행을 로드합니다. 대량 로드 중에는 행 수가 1,048,576이 될 때마다 전체 열 그룹으로 직접 columnstore에 압축됩니다. 로드하는 행 수가 102,400 미만인 경우에는 B-트리 인덱스에 행이 보유되는 deltastore에 행을 보냅니다. 너무 적은 행을 로드한 경우 모두 deltastore로 이동하여 columnstore 형식으로 즉시 압축되지 않을 수 있습니다.
+- 새로운 행 그룹을 완전히 채울 수 있는 충분한 행을 로드합니다. 대량 로드 중에 모든 1048576 행은 전체 행 그룹 columnstore로 직접 압축 됩니다. 로드하는 행 수가 102,400 미만인 경우에는 B-트리 인덱스에 행이 보유되는 deltastore에 행을 보냅니다. 너무 적은 행을 로드한 경우 모두 deltastore로 이동하여 columnstore 형식으로 즉시 압축되지 않을 수 있습니다.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SQLBulkCopy API 또는 BCP를 사용 하는 경우 일괄 처리 크기 늘리기
 
-앞서 언급 했 듯이 PolyBase를 사용 하 여 로드 하면 Synapse SQL 풀에서 가장 높은 처리량이 제공 됩니다. PolyBase를 사용 하 여 로드 하 고 SQLBulkCopy API (또는 BCP)를 사용 해야 하는 경우 처리량 향상을 위해 일괄 처리 크기를 늘려야 합니다. 좋은 방법은 100,000 개 행에서 100,000 개 사이의 일괄 처리 크기입니다.
+앞서 언급 했 듯이 PolyBase를 사용 하 여 로드 하면 Synapse SQL 풀에서 가장 높은 처리량이 제공 됩니다. PolyBase를 사용 하 여 로드 하 고 SQLBulkCopy API (또는 BCP)를 사용 해야 하는 경우 더 나은 처리량을 위해 일괄 처리 크기를 늘려야 합니다. 즉, 좋은 방법은 10만 개 행 사이의 일괄 처리 크기입니다.
 
 ## <a name="manage-loading-failures"></a>로드 오류 관리
 
@@ -100,13 +100,13 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="insert-data-into-a-production-table"></a>프로덕션 테이블에 데이터 삽입
 
-[INSERT 문](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하는 작은 테이블에 한 번만 로드하거나 정기적으로 조회를 다시 로드하는 경우, `INSERT INTO MyLookup VALUES (1, 'Type 1')`와 같은 명령문으로 충분히 수행할 수 있습니다.  하지만, singleton 삽입은 대량 로드 수행만큼 효율적이지 않습니다.
+[INSERT 문](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용하는 작은 테이블에 한 번만 로드하거나 정기적으로 조회를 다시 로드하는 경우, `INSERT INTO MyLookup VALUES (1, 'Type 1')`와 같은 명령문으로 충분히 수행할 수 있습니다.  그러나 singleton 삽입은 대량 로드 수행 만큼 효율적이 지 않습니다.
 
 하루 종일 수천 개 이상의 단일 삽입을 수행하는 경우 대량 로드할 수 있도록 로드를 일괄 처리합니다.  파일에 단일 삽입을 추가하는 프로세스를 개발하고 정기적으로 파일을 로드하는 다른 프로세스를 만듭니다.
 
 ## <a name="create-statistics-after-the-load"></a>로드 후 통계 만들기
 
-쿼리 성능을 개선하려면 데이터를 처음 로드하거나 데이터 내에 상당한 변화가 생긴 후에, 모든 테이블의 모든 열에서 통계를 만드는 것이 중요합니다.  수동으로이 작업을 수행 하거나 [자동 생성 통계](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용 하도록 설정할 수 있습니다.
+쿼리 성능을 향상 시키려면 첫 번째 로드 후에 모든 테이블의 모든 열에 대 한 통계를 만들거나 데이터에서 중요 한 변경이 발생 하는 것이 중요 합니다. Create statistics는 수동으로 수행 하거나 [자동 생성 통계](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용 하도록 설정할 수 있습니다.
 
 통계에 대한 자세한 설명은 [통계](develop-tables-statistics.md)를 참조하세요. 다음 예에서는 Customer_Speed 테이블의 5 개 열에 대 한 통계를 수동으로 만드는 방법을 보여 줍니다.
 
@@ -124,9 +124,9 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Azure Storage 계정 키를 회전하려면:
 
-키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 실행합니다.
+키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 실행합니다.
 
-예:
+예제:
 
 원래 키를 만드는 경우
 

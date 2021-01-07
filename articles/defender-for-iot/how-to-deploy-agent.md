@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 8e18b79cc14fe98879ec97361f6e275d8fd918bb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2634ed819b8818632c58b9e471b0f26190e5f16b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940925"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339968"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>IoT 장치에서 보안 에이전트 선택 및 배포
 
@@ -45,7 +45,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 | **오픈 소스** | [GitHub](https://aka.ms/iot-security-github-c) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 | [GitHub](https://aka.ms/iot-security-github-cs) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 |
 | **개발 언어**    | C | C# |
 | **지원 되는 Windows 플랫폼** | 예 | 예 |
-| **Windows 필수 조건** | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| **Windows 필수 조건** | --- | [WMI](/windows/desktop/wmisdk/) |
 | **지원 되는 Linux 플랫폼 인가요?** | 예, x64 및 x86 | 예, x64만 |
 | **Linux 필수 구성 요소** | libunwind8, libcurl3, uuid-runtime, auditd, audispd-플러그 인 | libunwind8, libcurl3, uuid-runtime, auditd, audispd-플러그 인, sudo, netstat, iptables |
 | **디스크 공간** | 10.5 M B | 90 M B |
@@ -57,7 +57,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 
 ## <a name="security-agent-installation-guidelines"></a>보안 에이전트 설치 지침
 
-**Windows**의 경우: 설치 SecurityAgent.ps1 스크립트는 관리자 PowerShell 창에서 실행 해야 합니다.
+**Windows** 의 경우: 설치 SecurityAgent.ps1 스크립트는 관리자 PowerShell 창에서 실행 해야 합니다.
 
 **Linux**: InstallSecurityAgent.sh은 수퍼유저로 실행 해야 합니다. 설치 명령에 "sudo"를 접두사로 사용 하는 것이 좋습니다.
 
@@ -65,7 +65,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 
 올바른 에이전트를 선택 하려면 IoT 장치에 대해 다음과 같은 질문에 답변 하세요.
 
-- _Windows Server_ 또는 _windows IoT Core_를 사용 하 고 있나요?
+- _Windows Server_ 또는 _windows IoT Core_ 를 사용 하 고 있나요?
 
     [Windows 용 c # 기반 보안 에이전트를 배포](how-to-deploy-windows-cs.md)합니다.
 

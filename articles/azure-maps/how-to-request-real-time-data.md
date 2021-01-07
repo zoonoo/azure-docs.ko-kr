@@ -1,24 +1,29 @@
 ---
-title: 실시간 공용 전송 데이터 요청 | Microsoft Azure 맵
-description: 전송 중지 시 도착 한와 같은 실시간 공용 전송 데이터를 요청 하는 방법에 대해 알아봅니다. 이 목적을 위해 Azure Maps 모바일 서비스를 사용 하는 방법을 참조 하세요.
+title: Microsoft Azure Maps 모바일 서비스를 사용 하 여 실시간 공용 전송 데이터 요청 (미리 보기)
+description: 전송 중지 시 도착 한와 같은 실시간 공용 전송 데이터를 요청 하는 방법에 대해 알아봅니다. 이 목적을 위해 Azure Maps 모바일 서비스 (미리 보기)를 사용 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
-ms.topic: conceptual
+ms.date: 12/07/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 71dc67d4c142f6fb84458cd6cd0b33452f2217b3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037289"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906049"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스를 사용 하 여 실시간 공용 전송 데이터 요청
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Azure Maps 모바일 서비스를 사용 하 여 실시간 공용 전송 데이터 요청 (미리 보기) 
 
-이 문서에서는 Azure Maps [모바일 서비스](https://aka.ms/AzureMapsMobilityService) 를 사용 하 여 실시간 공용 전송 데이터를 요청 하는 방법을 보여 줍니다.
+> [!IMPORTANT]
+> Azure Maps 모바일 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+
+이 문서에서는 Azure Maps [모바일 서비스](/rest/api/maps/mobility) 를 사용 하 여 실시간 공용 전송 데이터를 요청 하는 방법을 보여 줍니다.
 
 이 문서에서는 지정 된 중지 시간에 도착 하는 모든 줄에 대해 다음 실시간 도착 한를 요청 하는 방법을 알아봅니다.
 
@@ -30,13 +35,13 @@ Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 먼저 Azure 
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>중지에 대 한 실시간 도착 한 요청
 
-특정 공용 전송 중지의 실시간 도착 한 데이터를 요청 하려면 Azure Maps [모바일 서비스](https://aka.ms/AzureMapsMobilityService)의 [실시간 도착 한 API](https://aka.ms/AzureMapsMobilityRealTimeArrivals) 를 요청 해야 합니다. 요청을 완료 하려면 **metroID** 및 **stopid** 가 필요 합니다. 이러한 매개 변수를 요청 하는 방법에 대해 자세히 알아보려면 [공용 전송 경로를 요청](https://aka.ms/AMapsHowToGuidePublicTransitRouting)하는 방법에 대 한 가이드를 참조 하세요.
+특정 공용 전송 중지의 실시간 도착 한 데이터를 요청 하려면 Azure Maps [모바일 서비스 (미리 보기)](/rest/api/maps/mobility)의 [실시간 도착 한 API](/rest/api/maps/mobility/getrealtimearrivalspreview) 를 요청 해야 합니다. 요청을 완료 하려면 **metroID** 및 **stopid** 가 필요 합니다. 이러한 매개 변수를 요청 하는 방법에 대해 자세히 알아보려면 [공용 전송 경로를 요청](./how-to-request-transit-data.md)하는 방법에 대 한 가이드를 참조 하세요.
 
 "시애틀 – Tacoma – Bellevue, WA" 영역에 대 한 metro ID 인 metro ID로 "522"을 사용 하겠습니다. "522---2060603"를 중지 ID로 사용 합니다 .이 버스 중지는 "Ne 24 일 St & 162nd 평균 Ne, Bellevue WA"에 있습니다. 다음 5 개의 실시간 도착 한 데이터를 요청 하려면이 중지의 모든 다음 라이브 도착 한에 대해 다음 단계를 완료 합니다.
 
-1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. Postman 앱의 위쪽 근처에서 **새로 만들기**를 선택합니다. **새로 만들기** 창에서 **컬렉션**을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
+1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
 
-2. 요청을 만들려면 **새로 만들기**를 다시 선택합니다. **새로 만들기** 창에서 **요청**을 선택합니다. 요청에 대한 **요청 이름**을 입력합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음 **저장**을 선택합니다.
+2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 합니다. 그런 다음 **저장** 을 선택합니다.
 
     ![Postman에서 요청 만들기](./media/how-to-request-transit-data/postman-new.png)
 
@@ -113,12 +118,12 @@ Azure Maps 공용 전송 Api에 대 한 호출을 수행 하려면 먼저 Azure 
 
 ## <a name="next-steps"></a>다음 단계
 
-모바일 서비스를 사용 하 여 전송 데이터를 요청 하는 방법을 알아봅니다.
+모바일 서비스 (미리 보기)를 사용 하 여 전송 데이터를 요청 하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [전송 데이터를 요청 하는 방법](how-to-request-transit-data.md)
 
-Azure Maps 모바일 서비스 API 설명서를 탐색 합니다.
+Azure Maps 모바일 서비스 (미리 보기) API 설명서를 탐색 합니다.
 
 > [!div class="nextstepaction"]
-> [모바일 서비스 API 설명서](https://aka.ms/AzureMapsMobilityService)
+> [모바일 서비스 API 설명서](/rest/api/maps/mobility)

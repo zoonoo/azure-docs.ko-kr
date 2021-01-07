@@ -17,11 +17,11 @@ ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.custom: devx-track-java
 ms.openlocfilehash: 9ff006b74b6202b02a2767aee4d853b1206ce60d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304482"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015454"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Java의 SendGrid를 사용하여 메일을 보내는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
@@ -143,7 +143,7 @@ multipart.addBodyPart(attachmentPart);
 ```
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
-SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공 합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][Filter Settings](영문)을 참조하십시오.
+SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공 합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][Filter Settings](영문)을 참조하십시오.
 
 * 다음은 보내는 전자 메일 아래쪽에 HTML 텍스트가 표시되도록 하는 바닥글 필터 삽입 방법을 보여 줍니다.
 
@@ -176,7 +176,7 @@ SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공 합�
     ```
 
 ## <a name="how-to-update-email-properties"></a>방법: 전자 메일 속성 업데이트
-일부 이메일 속성은 **set Property**를 사용하여 덮어쓰거나 **add Property**를 사용하여 추가할 수 있습니다.
+일부 이메일 속성은 **set Property** 를 사용하여 덮어쓰거나 **add Property** 를 사용하여 추가할 수 있습니다.
 
 예를 들어 **ReplyTo** 주소를 지정하려면 다음을 사용하십시오.
 

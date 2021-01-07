@@ -1,17 +1,17 @@
 ---
 title: 자습서 - Azure Service Fabric Mesh에서 실행 중인 앱 제거
 description: 이 자습서에서는 Service Fabric Mesh에서 실행 중인 애플리케이션을 제거하고 리소스를 삭제하는 방법을 알아봅니다.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4780f81d23f0183837d2aafb9a8e5e2c41faa1cf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4aa2fd08491616c1202cc19fb1a6b9bc8e89853c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75351806"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826063"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>자습서: 애플리케이션 및 리소스 제거
 

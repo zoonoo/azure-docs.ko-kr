@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 12/29/2020
+ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235981"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814383"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -170,12 +170,12 @@ ms.locfileid: "88235981"
 > | galleries | 리소스 그룹 | 1-80 | 영숫자 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / applications | gallery | 1-80 | 영숫자, 하이픈 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / applications/versions | 애플리케이션 | 32비트 정수 | 숫자 및 마침표 |
-> | galleries / images | gallery | 1-80 | 영숫자, 하이픈 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
+> | galleries / images | gallery | 1-80 | 영숫자, 밑줄, 하이픈 및 마침표입니다.<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / images / versions | 이미지 | 32비트 정수 | 숫자 및 마침표 |
 > | images | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | 스냅샷 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 다음을 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
-> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 다음을 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Windows Vm에는 마침표를 포함 하거나 하이픈으로 끝날 수 없습니다.<br><br>Linux Vm은 마침표 또는 하이픈으로 종료할 수 없습니다. |
+> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 
 > [!NOTE]
 > Azure Virtual Machines에는 리소스 이름과 호스트 이름이라는 두 가지 고유한 이름이 있습니다. 포털에서 가상 머신을 만들 때 두 이름에 동일한 값이 사용됩니다. 위의 표에 나와 있는 제한은 호스트 이름에 대한 것입니다. 실제 리소스 이름은 최대 64자까지 가능합니다.
@@ -392,7 +392,7 @@ ms.locfileid: "88235981"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`/&%\?` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 > | components | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`%&\?/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
@@ -489,11 +489,12 @@ ms.locfileid: "88235981"
 > | azureFirewalls | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | bastionHosts | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | connections | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | dnsZones | 리소스 그룹 | 1-63자<br><br>2-34개 레이블<br><br>각 레이블은 마침표로 구분된 문자 세트입니다. 예를 들어 **contoso.com**에는 두 개의 레이블이 있습니다. | 각 레이블은 영숫자, 밑줄 및 하이픈을 포함할 수 있습니다.<br><br>각 레이블은 마침표로 구분됩니다. |
+> | dnsZones | 리소스 그룹 | 1-63자<br><br>2-34개 레이블<br><br>각 레이블은 마침표로 구분된 문자 세트입니다. 예를 들어 **contoso.com** 에는 두 개의 레이블이 있습니다. | 각 레이블은 영숫자, 밑줄 및 하이픈을 포함할 수 있습니다.<br><br>각 레이블은 마침표로 구분됩니다. |
 > | expressRouteCircuits | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | firewallPolicies | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | firewallPolicies / ruleGroups | 방화벽 정책 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | frontDoors | 글로벌 | 5-64 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
+> | frontdoorWebApplicationFirewallPolicies | 리소스 그룹 | 1-128 | 영숫자<br><br>문자로 시작합니다. |
 > | loadBalancers | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | loadBalancers / inboundNatRules | 부하 분산 장치 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | localNetworkGateways | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
@@ -501,7 +502,7 @@ ms.locfileid: "88235981"
 > | networkSecurityGroups | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | networkSecurityGroups / securityRules | 네트워크 보안 그룹 | 1-80 |  영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | networkWatchers | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | privateDnsZones | 리소스 그룹 | 1-63자<br><br>2-34개 레이블<br><br>각 레이블은 마침표로 구분된 문자 세트입니다. 예를 들어 **contoso.com**에는 두 개의 레이블이 있습니다. | 각 레이블은 영숫자, 밑줄 및 하이픈을 포함할 수 있습니다.<br><br>각 레이블은 마침표로 구분됩니다. |
+> | privateDnsZones | 리소스 그룹 | 1-63자<br><br>2-34개 레이블<br><br>각 레이블은 마침표로 구분된 문자 세트입니다. 예를 들어 **contoso.com** 에는 두 개의 레이블이 있습니다. | 각 레이블은 영숫자, 밑줄 및 하이픈을 포함할 수 있습니다.<br><br>각 레이블은 마침표로 구분됩니다. |
 > | privateDnsZones / virtualNetworkLinks | 프라이빗 DNS 영역 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | publicIPAddresses | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | publicIPPrefixes | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
@@ -536,7 +537,7 @@ ms.locfileid: "88235981"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | clusters | 리소스 그룹 | 4-63 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
-> | workspaces | 리소스 그룹 | 4-63 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
+> | workspaces | 글로벌 | 4-63 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -595,6 +596,7 @@ ms.locfileid: "88235981"
 > | resourcegroups | subscription | 1-90 | [regex 설명서](/rest/api/resources/resourcegroups/createorupdate)와 일치하는 영숫자, 밑줄, 괄호, 하이픈, 마침표 및 유니코드 문자<br><br>마침표로 끝날 수 없습니다. |
 > | tagNames | resource | 1-512 | 다음을 사용할 수 없습니다.<br>`<>%&\?/` |
 > | tagNames / tagValues | 태그 이름 | 1-256 | 모두 문자입니다. |
+> | templateSpecs | 리소스 그룹 | 1-90 | 영숫자, 밑줄, 괄호, 하이픈 및 마침표 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -604,7 +606,7 @@ ms.locfileid: "88235981"
 > | 네임스페이스 | 글로벌 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 문자 또는 숫자로 끝납니다.<br><br>자세한 내용은 [네임스페이스 만들기](/rest/api/servicebus/create-namespace)를 참조하세요. |
 > | namespaces / AuthorizationRules | 네임스페이스 | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자로 시작하고 끝납니다. |
 > | namespaces / disasterRecoveryConfigs | 글로벌 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작합니다. 영숫자로 끝납니다. |
-> | namespaces / migrationConfigurations | 네임스페이스 |  | 항상 **$default**여야 합니다. |
+> | namespaces / migrationConfigurations | 네임스페이스 |  | 항상 **$default** 여야 합니다. |
 > | namespaces / queues | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시<br><br>영숫자로 시작하고 끝납니다. |
 > | namespaces / queues / authorizationRules | queue | 1-50 | 영숫자, 마침표, 하이픈 및 밑줄<br><br>영숫자로 시작하고 끝납니다. |
 > | namespaces / topics | 네임스페이스 | 1-260 | 영숫자, 마침표, 하이픈, 밑줄 및 슬래시<br><br>영숫자로 시작하고 끝납니다. |

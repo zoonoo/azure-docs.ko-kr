@@ -4,10 +4,10 @@ description: Azure Active Directory 서비스 주체를 사용하여 프라이�
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259138"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>서비스 주체로 Azure Container Registry 인증
@@ -28,7 +28,7 @@ Azure AD 서비스 주체를 사용하면 프라이빗 컨테이너 레지스트
 
 ## <a name="when-to-use-a-service-principal"></a>서비스 주체를 사용하는 경우
 
-**헤드리스 시나리오**에서 레지스트리 액세스를 제공하려면 서비스 주체를 사용해야 합니다. 즉, 자동 또는 무인 방식으로 컨테이너 이미지를 푸시하거나 풀해야 하는 모든 애플리케이션, 서비스 또는 스크립트입니다. 예:
+**헤드리스 시나리오**에서 레지스트리 액세스를 제공하려면 서비스 주체를 사용해야 합니다. 즉, 자동 또는 무인 방식으로 컨테이너 이미지를 푸시하거나 풀해야 하는 모든 애플리케이션, 서비스 또는 스크립트입니다. 예를 들면 다음과 같습니다.
 
   * *끌어오기*: KUBERNETES, DC/OS 및 Docker Swarm를 포함 하 여 레지스트리의 컨테이너를 오케스트레이션 시스템에 배포 합니다. 컨테이너 레지스트리에서 [AKS (Azure Kubernetes Service)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml)등의 관련 azure 서비스로 끌어올 수도 있습니다.
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221134"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876161"
 ---
 # <a name="monitor-module-twins"></a>모듈 쌍 모니터링
 
 Azure IoT Hub의 모듈 쌍은 IoT Edge 배포의 연결 및 상태를 모니터링할 수 있도록 합니다. 모듈 쌍은 IoT hub에 실행 중인 모듈의 성능에 대 한 유용한 정보를 저장 합니다. [IoT Edge 에이전트](iot-edge-runtime.md#iot-edge-agent) 및 [IoT Edge 허브](iot-edge-runtime.md#iot-edge-hub) 런타임 모듈은 각각 해당 모듈 쌍을 유지 관리 합니다 `$edgeAgent` `$edgeHub` .
 
-* `$edgeAgent`IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈과 사용자 지정 모듈에 대 한 상태 및 연결 데이터를 포함 합니다. IoT Edge 에이전트는 모듈을 배포 하 고, 모니터링 하 고, Azure IoT hub에 연결 상태를 보고 하는 일을 담당 합니다.
-* `$edgeHub`장치에서 실행 되는 IoT Edge 허브와 Azure IoT hub 간의 통신에 대 한 데이터를 포함 합니다. 여기에는 다운스트림 장치에서 들어오는 메시지를 처리 하는 작업이 포함 됩니다. IoT Edge 허브는 Azure IoT Hub와 IoT Edge 장치 및 모듈 간의 통신 처리를 담당 합니다.
+* `$edgeAgent` IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈과 사용자 지정 모듈에 대 한 상태 및 연결 데이터를 포함 합니다. IoT Edge 에이전트는 모듈을 배포 하 고, 모니터링 하 고, Azure IoT hub에 연결 상태를 보고 하는 일을 담당 합니다.
+* `$edgeHub` 장치에서 실행 되는 IoT Edge 허브와 Azure IoT hub 간의 통신에 대 한 데이터를 포함 합니다. 여기에는 다운스트림 장치에서 들어오는 메시지를 처리 하는 작업이 포함 됩니다. IoT Edge 허브는 Azure IoT Hub와 IoT Edge 장치 및 모듈 간의 통신 처리를 담당 합니다.
 
 데이터는 모듈 쌍의 JSON 구조에서 desired 및 보고 된 속성 집합과 함께 메타 데이터 및 태그로 구성 됩니다. deployment.js파일에 지정 된 원하는 속성이 모듈 쌍에 복사 됩니다. IoT Edge 에이전트 및 IoT Edge 허브는 각 모듈에 대해 보고 된 속성을 업데이트 합니다.
 
@@ -168,15 +168,15 @@ JSON은 위쪽에서 시작 하 여 다음 섹션에서 설명할 수 있습니�
 
 사용자 지정 모듈의 연결에 대 한 정보는 IoT Edge 에이전트 모듈 쌍에서 유지 관리 됩니다. 사용자 지정 모듈에 대 한 모듈 쌍은 주로 솔루션에 대 한 데이터를 유지 관리 하는 데 사용 됩니다. 파일의 deployment.js에서 정의한 desired 속성은 모듈 쌍에 반영 되 고 모듈은 필요한 경우 보고 된 속성 값을 업데이트할 수 있습니다.
 
-[Azure IoT Hub 장치 sdk](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) 에서 선호 하는 프로그래밍 언어를 사용 하 여 모듈의 응용 프로그램 코드에 따라 모듈 쌍의 보고 된 속성 값을 업데이트할 수 있습니다. 다음 절차에서는 [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) 모듈의 코드를 사용 하 여 .Net 용 Azure SDK를 사용 합니다.
+[Azure IoT Hub 장치 sdk](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 에서 선호 하는 프로그래밍 언어를 사용 하 여 모듈의 응용 프로그램 코드에 따라 모듈 쌍의 보고 된 속성 값을 업데이트할 수 있습니다. 다음 절차에서는 [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) 모듈의 코드를 사용 하 여 .Net 용 Azure SDK를 사용 합니다.
 
-1. [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) 메서드를 사용 하 여 [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) 의 인스턴스를 만듭니다.
+1. [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) 메서드를 사용 하 여 [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) 의 인스턴스를 만듭니다.
 
-1. [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) 메서드를 사용 하 여 모듈 쌍의 속성 컬렉션을 가져옵니다.
+1. [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) 메서드를 사용 하 여 모듈 쌍의 속성 컬렉션을 가져옵니다.
 
-1. [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) 메서드를 사용 하 여 desired 속성의 변경 내용을 catch 하기 위해 수신기 (콜백 전달)를 만듭니다.
+1. [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) 메서드를 사용 하 여 desired 속성의 변경 내용을 catch 하기 위해 수신기 (콜백 전달)를 만듭니다.
 
-1. 콜백 메서드에서 [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) 메서드를 사용 하 여 모듈 쌍의 보고 된 속성을 업데이트 하 고 설정 하려는 속성 값의 [TwinCollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) 을 전달 합니다.
+1. 콜백 메서드에서 [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) 메서드를 사용 하 여 모듈 쌍의 보고 된 속성을 업데이트 하 고 설정 하려는 속성 값의 [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) 을 전달 합니다.
 
 ## <a name="access-the-module-twins"></a>모듈 쌍 액세스
 
@@ -213,7 +213,7 @@ Azure IoT Hub, Visual Studio Code 및 Azure CLI에서 모듈 쌍에 대 한 JSON
 
 IoT Edge 실행 중인지 확인 하려면 [az IoT hub invoke-module 메서드](how-to-edgeagent-direct-method.md#ping) 를 사용 하 여 IoT Edge 에이전트를 ping 합니다.
 
-[Az iot hub 모듈](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) 쌍 구조는 다음 명령을 제공 합니다.
+[Az iot hub 모듈](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) 쌍 구조는 다음 명령을 제공 합니다.
 
 * **az iot hub module-쌍 표시** -모듈 쌍 정의를 표시 합니다.
 * **az iot hub module-쌍 업데이트** -모듈 쌍 정의를 업데이트 합니다.

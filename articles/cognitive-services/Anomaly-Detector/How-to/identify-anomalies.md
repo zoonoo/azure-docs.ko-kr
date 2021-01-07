@@ -3,19 +3,19 @@ title: 시계열 데이터에서 변칙 탐지기 API를 사용 하는 방법
 titleSuffix: Azure Cognitive Services
 description: 일괄 처리 또는 스트리밍 데이터에서 데이터의 변칙을 검색 하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: aahi
-ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: mbullwin
+ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71840217"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703435"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 시계열 데이터에서 변칙 탐지기 API 사용  
 
@@ -47,7 +47,7 @@ ms.locfileid: "71840217"
 
 ## <a name="adjusting-lower-and-upper-anomaly-detection-boundaries"></a>하위 및 상위 변칙 검색 경계 조정
 
-기본적으로 변칙 검색의 상한 및 하 한 경계는, `expectedValue` `upperMargin`및 `lowerMargin`를 사용 하 여 계산 됩니다. 다른 경계가 필요한 경우 또는 `marginScale` `upperMargin` `lowerMargin`에를 적용 하는 것이 좋습니다. 경계는 다음과 같이 계산 됩니다.
+기본적으로 변칙 검색의 상한 및 하 한 경계는, 및를 사용 하 여 계산 됩니다 `expectedValue` `upperMargin` `lowerMargin` . 다른 경계가 필요한 경우 또는에를 적용 하는 것이 좋습니다 `marginScale` `upperMargin` `lowerMargin` . 경계는 다음과 같이 계산 됩니다.
 
 |경계  |계산  |
 |---------|---------|
@@ -71,4 +71,4 @@ ms.locfileid: "71840217"
 ## <a name="next-steps"></a>다음 단계
 
 * [Anomaly Detector API란?](../overview.md)
-* [빠른 시작: 변칙 탐지기를 사용 하 여 시계열 데이터의 변칙 검색 REST API](../quickstarts/detect-data-anomalies-csharp.md)
+* [빠른 시작: 변칙 탐지기를 사용 하 여 시계열 데이터의 변칙 검색](../quickstarts/client-libraries.md)

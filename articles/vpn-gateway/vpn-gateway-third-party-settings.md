@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: b87340fbb3f94eee106fc5d0d72117d30e331035
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e9544fb73c8599b219ef7a566032adfe5e33d08
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75862716"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658505"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "75862716"
 
 다음 표에는 몇 가지 일반적인 디바이스 및 관련 도움말이 나열되어 있습니다.
 
-|제품    |참고                                                |
+|제품    |참조                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[Azure VPN에 대해 커뮤니티에서 제안하는 Cisco ASA 솔루션](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Azure VPN에 대해 커뮤니티에서 제안하는 Cisco ISR 솔루션](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
@@ -41,7 +41,6 @@ ms.locfileid: "75862716"
 
 ## <a name="next-step"></a>다음 단계
 
-[Azure 게이트웨이 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
+[Azure 게이트웨이 설정](./vpn-gateway-about-vpn-devices.md)
 
-[알려진 호환 디바이스](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
-
+[알려진 호환 디바이스](./vpn-gateway-about-vpn-devices.md)

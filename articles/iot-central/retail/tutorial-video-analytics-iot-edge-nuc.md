@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 4ecce689e287673a3b08f8f90f87c28e021106d6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037938"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427992"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Intel NUC)
 
@@ -35,15 +35,15 @@ IoT Edge에서 이러한 서비스는 플랫폼 간 IoT 디바이스에서 직�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 시작하기 전에, 이전 [Azure IoT Central에서 라이브 비디오 분석 애플리케이션 만들기](./tutorial-video-analytics-create-app.md) 자습서를 먼저 완료해야 합니다.
+* 시작하기 전에, 이전 [Azure IoT Central(YOLO v3)에서 라이브 비디오 분석 애플리케이션 만들기](./tutorial-video-analytics-create-app-yolo-v3.md) 또는 [Azure IoT Central(OpenVINO&trade;)에서 비디오 분석 만들기](tutorial-video-analytics-create-app-openvino.md) 자습서를 완료해야 합니다.
 * Linux를 실행하는 Intel NUC와 같은 디바이스로, Docker 컨테이너를 실행할 수 있고, 비디오 분석을 실행하는 데 충분한 처리 능력이 있습니다.
-* [IoT Edge 런타임이 설치](../../iot-edge/how-to-install-iot-edge-linux.md)되어 있으며 디바이스에서 실행됩니다.
+* [IoT Edge 런타임이 설치](../../iot-edge/how-to-install-iot-edge.md)되어 있으며 디바이스에서 실행됩니다.
 * Windows 머신에서 IoT Edge 디바이스에 연결할 수 있으려면 [PuTTY SSH 클라이언트](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 또는 동등한 유틸리티가 필요합니다.
 * 또한 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 [Azure 가입 페이지](https://aka.ms/createazuresubscription)에서 무료로 만들 수 있습니다.
 
 ## <a name="configure-the-iot-edge-device"></a>IoT Edge 디바이스 구성
 
-IoT Edge 런타임이 Intel NUC 머신에 설치되어 있지 않은 경우에는 [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md) 지침을 참조하세요.
+IoT Edge 런타임이 Intel NUC 머신에 설치되어 있지 않은 경우에는 [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md) 지침을 참조하세요.
 
 IoT Edge 런타임을 업데이트하려면 다음을 수행합니다.
 
@@ -115,11 +115,11 @@ IoT Edge를 구성하여 IoT Central 애플리케이션에 등록하고 연결�
         symmetric_key: "{symmetric_key}"
     ```
 
-1. `{scope_id}`를 이전 자습서의 *scratchpad.txt* 파일에서 기록해 둔 **ID 범위**로 바꿉니다.
+1. `{scope_id}`를 이전 자습서의 *scratchpad.txt* 파일에서 기록해 둔 **ID 범위** 로 바꿉니다.
 
-1. `{registration_id}`를 이전 자습서에서 만든 게이트웨이 디바이스인 *lva-gateway-001*로 바꿉니다.
+1. `{registration_id}`를 이전 자습서에서 만든 디바이스인 *gateway-001* 로 바꿉니다.
 
-1. `{symmetric_key}`를 이전 자습서의 *scratchpad.txt* 파일에서 기록해 둔 파일에서 기록해 둔 **lva-gateway-001** 디바이스에 대한 **기본 키**로 바꿉니다.
+1. `{symmetric_key}`를 이전 자습서의 *scratchpad.txt* 파일에서 기록해 둔 **gateway-001** 디바이스에 대한 **기본 키** 로 바꿉니다.
 
 1. 다음 명령을 실행하여 IoT Edge 디먼을 다시 시작합니다.
 
@@ -140,7 +140,7 @@ IoT Edge를 구성하여 IoT Central 애플리케이션에 등록하고 연결�
 
 IoT Edge 모듈이 제대로 시작되지 않으면 [IoT Edge 디바이스 문제 해결](../../iot-edge/troubleshoot.md)을 참조하세요.
 
-## <a name="collect-the-rstp-stream-from-your-camera"></a>카메라에서 RSTP 스트림 수집
+## <a name="collect-the-rtsp-stream-from-your-camera"></a>카메라에서 RTSP 스트림 수집
 
 IoT Edge 디바이스에 연결된 카메라의 RTSP 스트림 URL을 식별합니다. 예를 들면 다음과 같습니다.
 

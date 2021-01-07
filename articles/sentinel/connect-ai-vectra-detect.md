@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
 ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87038225"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Azure 센티널에 AI Vectra 검색 연결
@@ -43,7 +43,7 @@ AI Vectra 검색 구성 [1 단계: 로그 전달자 배포](connect-cef-agent.md
     - 프로토콜을 **UDP** 로 설정
     - 형식을 **Cef** 로 설정 합니다.
     - 로그 유형 설정 (사용할 수 있는 모든 로그 유형 선택)
-    - **저장** 을 클릭 합니다.
+    - 설정 메뉴에서 **저장**
 
 2. **테스트** 단추를 클릭 하 여 일부 테스트 이벤트를 로그 전달자에 게 강제로 보낼 수 있습니다.
 

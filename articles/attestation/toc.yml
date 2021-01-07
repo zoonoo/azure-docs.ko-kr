@@ -7,12 +7,13 @@
 - name: 빠른 시작
   items:
     - name: ARM 템플릿
+      displayName: Resource Manager
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
 - name: 자습서
   items:
-    - name: 증명 정책 작성 및 서명
+    - name: 증명 정책 작성
       href: author-sign-policy.md
     - name: SGX 증명 코드 샘플
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -34,15 +35,25 @@
           href: claim-sets.md
     - name: 워크플로
       href: workflow.md
-- name: 참조
+    - name: 감사 로그 보기
+      href: audit-logs.md
+- name: 참조 항목
   items:
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation'
     - name: FAQ
       href: faq.md
     - name: REST (영문)
       href: /rest/api/attestation/
     - name: Azure PowerShell
-      href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+      href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
+    - name: Azure CLI
+      href: /cli/azure/ext/attestation/attestation?view=azure-cli-latest
     - name: Windows용 Azure DCAP 라이브러리
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Linux용 Azure DCAP 라이브러리
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: 문제 해결
+      href: troubleshoot-guide.md
+    - name: VBS 증명 프로토콜
+      href: virtualization-based-security-protocol.md

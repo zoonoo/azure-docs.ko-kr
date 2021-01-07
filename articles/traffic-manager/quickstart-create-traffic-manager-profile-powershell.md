@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f3ecdfb03a6e6d1aab355edf7c370b29240e0543
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9b34a17cc9add0bed4bffb7677aa81bb17f3125b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929519"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631565"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 고가용성 웹 애플리케이션을 위한 Traffic Manager 프로필 만들기
 
 이 빠른 시작에서는 웹 애플리케이션에 고가용성을 제공하는 Traffic Manager 프로필을 만드는 방법에 대해 설명합니다.
 
 여기서는 웹 애플리케이션의 두 인스턴스를 만듭니다. 각각 다른 Azure 지역에서 실행됩니다. [엔드포인트 우선 순위](traffic-manager-routing-methods.md#priority-traffic-routing-method)에 따라 Traffic Manager 프로필을 만듭니다. 프로필은 웹 애플리케이션을 실행하는 주 사이트로 사용자 트래픽을 보냅니다. Traffic Manager는 웹 애플리케이션을 지속적으로 모니터링합니다. 주 사이트를 사용할 수 없는 경우 백업 사이트에 자동 장애 조치를 제공합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
@@ -35,7 +37,6 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-
 
 # Variables
 $Location1="WestUS"
@@ -70,7 +71,7 @@ New-AzTrafficManagerProfile `
 이 빠른 시작에는 두 개의 서로 다른 Azure 지역(*미국 서부* 및 *미국 동부*)에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
 
 ### <a name="create-web-app-service-plans"></a>웹 App Service 계획 만들기
-서로 다른 두 Azure 지역에 배포할 두 웹 애플리케이션 인스턴스에 대해 [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan)을 사용하여 웹 App Service 계획을 만듭니다.
+서로 다른 두 Azure 지역에 배포할 두 웹 애플리케이션 인스턴스에 대해 [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan)을 사용하여 웹앱 서비스 계획을 만듭니다.
 
 ```azurepowershell-interactive
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56b0685dee518399ae8328ddac18f03e82918a38
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 303f02e0c6b72b7061a996b3ce8e70799954b435
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268420"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861054"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -88,43 +88,43 @@ WPAD를 사용하지 않는 경우 Windows 10 1709부터 컴퓨터에서 WinHTTP
 
 Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려면,
 
-1. Azure AD Connect를 시작한 다음, **구성**을 선택합니다.
+1. Azure AD Connect를 시작한 다음, **구성** 을 선택합니다.
 
    ![시작](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
 
-1. **추가 작업**에서 **디바이스 옵션 구성**, **다음**을 차례로 선택합니다.
+1. **추가 작업** 에서 **디바이스 옵션 구성**, **다음** 을 차례로 선택합니다.
 
    ![추가 작업](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
-1. **개요**에서 **다음**을 선택합니다.
+1. **개요** 에서 **다음** 을 선택합니다.
 
    ![개요](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
 
-1. **Azure AD에 연결**에서 Azure AD 테넌트에 대한 글로벌 관리자의 자격 증명을 입력합니다.  
+1. **Azure AD에 연결** 에서 Azure AD 테넌트에 대한 글로벌 관리자의 자격 증명을 입력합니다.  
 
    ![Azure에 연결](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
-1. **디바이스 옵션**에서 **하이브리드 Azure AD 조인 구성**, **다음**을 차례로 선택합니다.
+1. **디바이스 옵션** 에서 **하이브리드 Azure AD 조인 구성**, **다음** 을 차례로 선택합니다.
 
    ![디바이스 옵션](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
 
-1. **SCP 구성**에서 Azure AD Connect를 통해 SCP를 구성하려는 각 포리스트에 대해 다음 단계를 완료하고, **다음**을 선택합니다.
+1. **SCP 구성** 에서 Azure AD Connect를 통해 SCP를 구성하려는 각 포리스트에 대해 다음 단계를 완료하고, **다음** 을 선택합니다.
 
-   1. **포리스트**를 선택합니다.
-   1. **인증 서비스**를 선택합니다.
-   1. **추가**를 선택하여 엔터프라이즈 관리자 자격 증명을 입력합니다.
+   1. **포리스트** 를 선택합니다.
+   1. **인증 서비스** 를 선택합니다.
+   1. **추가** 를 선택하여 엔터프라이즈 관리자 자격 증명을 입력합니다.
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. **디바이스 운영 체제**에서 Active Directory 환경의 디바이스에서 사용하는 운영 체제를 선택하고, **다음**을 선택합니다.
+1. **디바이스 운영 체제** 에서 Active Directory 환경의 디바이스에서 사용하는 운영 체제를 선택하고, **다음** 을 선택합니다.
 
    ![디바이스 운영 체제](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
-1. **구성 준비 완료**에서 **구성**을 선택합니다.
+1. **구성 준비 완료** 에서 **구성** 을 선택합니다.
 
    ![구성 준비](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
 
-1. **구성 완료**에서 **끝내기**를 선택합니다.
+1. **구성 완료** 에서 **끝내기** 를 선택합니다.
 
    ![구성 완료](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
@@ -146,7 +146,7 @@ Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 완료�
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
 
-또한 사용자의 로컬 인트라넷 영역에서 **스크립트를 통한 상태 표시줄 업데이트 허용**을 사용하도록 설정해야 합니다.
+또한 사용자의 로컬 인트라넷 영역에서 **스크립트를 통한 상태 표시줄 업데이트 허용** 을 사용하도록 설정해야 합니다.
 
 ### <a name="configure-seamless-sso"></a>Seamless SSO 구성
 
@@ -168,25 +168,25 @@ Windows 하위 수준 디바이스를 등록하려면 조직에서 [비 Windows 
 
 1. Windows PowerShell을 엽니다.
 2. `dsregcmd /status`를 입력합니다.
-3. **AzureAdJoined** 및 **DomainJoined**가 모두 **예**로 설정되어 있는지 확인합니다.
-4. **DeviceId**를 사용하고 Azure Portal 또는 PowerShell을 사용하여 서비스의 상태를 비교할 수 있습니다.
+3. **AzureAdJoined** 및 **DomainJoined** 가 모두 **예** 로 설정되어 있는지 확인합니다.
+4. **DeviceId** 를 사용하고 Azure Portal 또는 PowerShell을 사용하여 서비스의 상태를 비교할 수 있습니다.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
 1. [직접 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)를 사용하여 디바이스 페이지로 이동합니다.
 2. 디바이스를 찾는 방법에 대한 정보는 [Azure Portal을 사용하여 디바이스 ID를 관리하는 방법](./device-management-azure-portal.md)에서 찾을 수 있습니다.
-3. **Registered** 열에 **보류 중**이 표시되면 하이브리드 Azure AD 조인이 완료되지 않은 것입니다.
-4. **Registered** 열에 **날짜/시간**이 포함되어 있으면 하이브리드 Azure AD 조인이 완료된 것입니다.
+3. **Registered** 열에 **보류 중** 이 표시되면 하이브리드 Azure AD 조인이 완료되지 않은 것입니다.
+4. **Registered** 열에 **날짜/시간** 이 포함되어 있으면 하이브리드 Azure AD 조인이 완료된 것입니다.
 
 ### <a name="using-powershell"></a>PowerShell 사용
 
-**[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** 를 사용하여 Azure 테넌트의 디바이스 등록 상태를 확인합니다. 이 cmdlet은 [Azure Active Directory PowerShell 모듈](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0)에 있습니다.
+**[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** 를 사용하여 Azure 테넌트의 디바이스 등록 상태를 확인합니다. 이 cmdlet은 [Azure Active Directory PowerShell 모듈](/powershell/azure/active-directory/install-msonlinev1)에 있습니다.
 
 **Get-MSolDevice** cmdlet을 사용하여 서비스 세부 정보를 확인하려는 경우 다음이 적용됩니다.
 
-- **디바이스 ID**가 Windows 클라이언트의 ID와 일치하는 개체가 있어야 합니다.
-- **DeviceTrustType** 값은 **Domain Joined**입니다. 이 설정은 Azure AD 포털에서 **디바이스** 페이지의 **하이브리드 Azure AD 조인**과 같습니다.
-- 조건부 액세스에 사용되는 디바이스의 경우 **Enabled** 값은 **True**이고, **DeviceTrustLevel**은 **Managed**입니다.
+- **디바이스 ID** 가 Windows 클라이언트의 ID와 일치하는 개체가 있어야 합니다.
+- **DeviceTrustType** 값은 **Domain Joined** 입니다. 이 설정은 Azure AD 포털에서 **디바이스** 페이지의 **하이브리드 Azure AD 조인** 과 같습니다.
+- 조건부 액세스에 사용되는 디바이스의 경우 **Enabled** 값은 **True** 이고, **DeviceTrustLevel** 은 **Managed** 입니다.
 
 1. 관리자 권한으로 Windows PowerShell을 엽니다.
 2. `Connect-MsolService`를 입력하여 Azure 테넌트에 연결합니다.
@@ -218,7 +218,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 #### <a name="list-details-of-a-single-device"></a>단일 디바이스의 세부 정보를 나열합니다.
 
 1. `get-msoldevice -deviceId <deviceId>`(디바이스에서 로컬로 가져온 **DeviceId**)를 입력합니다.
-2. **Enabled**가 **True**로 설정되어 있는지 확인인합니다.
+2. **Enabled** 가 **True** 로 설정되어 있는지 확인인합니다.
 
 ## <a name="troubleshoot-your-implementation"></a>구현 문제 해결
 

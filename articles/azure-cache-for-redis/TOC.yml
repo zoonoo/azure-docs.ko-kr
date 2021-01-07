@@ -4,6 +4,8 @@
   items:
     - name: Azure Cache for Redis 소개
       href: cache-overview.md
+    - name: 새로운 기능
+      href: cache-whats-new.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -38,50 +40,60 @@
     - name: Java Spring
       items:
         - name: Spring Boot Initializer 구성
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
+          href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
     - name: 순위표 만들기
       href: cache-web-app-cache-aside-leaderboard.md
+    - name: 기계 학습 모델 배포
+      href: cache-ml.md
     - name: Azure PowerShell로 관리
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI로 관리
       href: cli-samples.md
 - name: 개념
   items:
+    - name: 고가용성
+      href: cache-high-availability.md
     - name: 장애 조치(failover) 및 패치
       href: cache-failover.md
     - name: 모범 사례
       href: cache-best-practices.md
     - name: 보안
       items:
+        - name: 네트워크 격리 옵션
+          href: cache-network-isolation.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
     - name: 캐싱 아키텍처
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: 방법 가이드
   items:
     - name: 계획
       items:
         - name: 캐시 계층 선택
           href: cache-overview.md#choosing-the-right-tier
+        - name: Redis 버전 설정
+          href: cache-how-to-version.md
         - name: 클러스터링을 통해 캐시 배포
           href: cache-how-to-premium-clustering.md
         - name: Redis 데이터 지속성을 통해 캐시 지속
           href: cache-how-to-premium-persistence.md
+        - name: 복제본 더 추가
+          href: cache-how-to-multi-replicas.md
         - name: 가상 네트워크로 캐시 보호
           href: cache-how-to-premium-vnet.md
         - name: 캐시에 비공개로 연결
           href: cache-private-link.md
+        - name: 영역 중복성 사용
+          href: cache-how-to-zone-redundancy.md
         - name: 지리적 복제 설정
           href: cache-how-to-geo-replication.md
         - name: 예약 용량으로 저장
           href: cache-reserved-pricing.md
         - name: Azure Cache for Redis로 마이그레이션
           href: cache-migration-guide.md
-        - name: Managed Cache Service에서 마이그레이션(사용되지 않음)
-          href: cache-migrate-to-redis.md
         - name: 계획 FAQ
           href: cache-planning-faq.md
     - name: 빌드
@@ -157,7 +169,7 @@
     - name: Azure CLI
       href: /cli/azure/redis
     - name: REST (영문)
-      href: 'https://docs.microsoft.com/rest/api/redis/'
+      href: /rest/api/redis/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.cache/allversions
     - name: Azure Policy 기본 제공 기능
@@ -172,7 +184,7 @@
     - name: 동영상
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-cache-redis.html'
+      href: /answers/topics/azure-cache-redis.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Microsoft Learn을 통해 기술 쌓기

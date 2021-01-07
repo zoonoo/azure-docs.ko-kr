@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/18/2020
 ms.author: alzam
-ms.openlocfilehash: e2451796cb99f57501ed74aba1dc7a3077b51881
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441615"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656617"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>VPN Gateway에서 리소스 로그 이벤트에 대 한 경고 설정
 
@@ -20,20 +20,20 @@ ms.locfileid: "89441615"
 
 Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
-|***이름*** | ***설명*** |
-|---        | ---               |
+|***이름** _ | _*_Description_*_ |
+|--- | --- |
 |GatewayDiagnosticLog | 게이트웨이 구성 이벤트, 기본 변경 내용 및 유지 관리 이벤트에 대 한 리소스 로그를 포함 합니다. |
 |TunnelDiagnosticLog | 터널 상태 변경 이벤트를 포함 합니다. 해당 하는 경우 터널 연결/연결 끊기 이벤트에 상태 변경에 대 한 요약 된 이유가 있습니다. |
 |RouteDiagnosticLog | 게이트웨이에서 발생 하는 고정 경로 및 BGP 이벤트에 대 한 변경 내용을 기록 합니다. |
 |IKEDiagnosticLog | 게이트웨이에서 IKE 제어 메시지 및 이벤트를 로깅합니다. |
-|P2SDiagnosticLog | 게이트웨이에서 지점 및 사이트 제어 메시지 및 이벤트를 로깅합니다. 연결 원본 정보는 IKEv2 연결용 으로만 제공 됩니다. |
+|P2SDiagnosticLog | 게이트웨이에서 지점 및 사이트 제어 메시지 및 이벤트를 로깅합니다. 연결 원본 정보는 IKEv2 및 OpenVPN 연결에만 제공 됩니다. |
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Azure Portal에서 경고 설정
 
 다음 예제 단계는 사이트 간 VPN 터널이 포함 된 연결 끊기 이벤트에 대 한 경고를 만듭니다.
 
 
-1. Azure Portal에서 **모든 서비스** 아래 **Log Analytics** 를 검색 하 고 **Log Analytics 작업 영역**을 선택 합니다.
+1. Azure Portal의 **모든 서비스** 에서 _ *Log Analytics**를 검색 하 고 **Log Analytics 작업 영역** 을 선택 합니다.
 
    ![Log Analytics 작업 영역으로 이동 하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "생성")
 
@@ -45,11 +45,11 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
    ![Log Analytics 작업 영역을 만드는 방법에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "선택")
 
-4. **Monitor**  >  **진단 설정** 모니터링 블레이드에서 VPN gateway를 찾습니다.
+4.   >  **진단 설정** 모니터링 블레이드에서 VPN gateway를 찾습니다.
 
    ![진단 설정에서 VPN gateway를 찾기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "선택")
 
-5. 진단을 켜려면 게이트웨이를 두 번 클릭 한 다음 **진단 켜기**를 선택 합니다.
+5. 진단을 켜려면 게이트웨이를 두 번 클릭 한 다음 **진단 켜기** 를 선택 합니다.
 
    ![진단 켜기 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "선택")
 
@@ -69,7 +69,7 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
    ![작업 영역 및 리소스에 대 한 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "선택")
 
-9. **조건 추가**에서 신호 논리로 **사용자 지정 로그 검색** 을 선택 합니다.
+9. **조건 추가** 에서 신호 논리로 **사용자 지정 로그 검색** 을 선택 합니다.
 
    ![사용자 지정 로그 검색에 대 한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "선택")
 
@@ -86,11 +86,11 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
     | sort by TimeGenerated asc
     ```
 
-    임계값을 0으로 설정 하 고 **완료**를 선택 합니다.
+    임계값을 0으로 설정 하 고 **완료** 를 선택 합니다.
 
     ![쿼리 입력 및 임계값 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "선택")
 
-11. **규칙 만들기** 페이지의 **작업 그룹** 섹션에서 **새로 만들기** 를 선택 합니다. 세부 정보를 입력 하 고 **확인을**선택 합니다.
+11. **규칙 만들기** 페이지의 **작업 그룹** 섹션에서 **새로 만들기** 를 선택 합니다. 세부 정보를 입력 하 고 **확인을** 선택 합니다.
 
     ![새 작업 그룹에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "선택")
 

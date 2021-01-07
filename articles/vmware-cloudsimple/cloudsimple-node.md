@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140839"
 ---
 # <a name="cloudsimple-nodes-overview"></a>CloudSimple 노드 개요
@@ -38,7 +38,7 @@ ms.locfileid: "88140839"
 
 | SKU           | CS28-노드                 | CS36-노드                 | CS36m-노드                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Azure 지역        | 미국 동부, 미국 서부            | 미국 동부, 미국 서부            | 서유럽                 |
+| 지역        | 미국 동부, 미국 서부            | 미국 동부, 미국 서부            | 서유럽                 |
 | CPU           | 22.2 g h z, 28 코어 (56 HT) | 22.3 g h z, 36 코어 (72 HT) | 22.3 g h z, 36 코어 (72 HT) |
 | RAM           | 256GB                      | 512 GB                      | 576GB                      |
 | 캐시 디스크    | 1.6-TB NVMe                 | 3.2-TB NVMe                 | 3.2-TB NVMe                 |

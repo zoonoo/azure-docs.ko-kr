@@ -4,17 +4,17 @@ description: 데이터 대량 로드를 위한 인증 메커니즘 개요를 표
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f54a8993b602110e35c410338b6f0a51109738f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: de446209104c113b10346645f79b461239c3efab
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603889"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901280"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 
@@ -23,11 +23,14 @@ ms.locfileid: "88603889"
 
 다음 표에서는 각 파일 유형 및 스토리지 계정에 대해 지원되는 인증 방법을 설명합니다. 원본 스토리지 위치 및 오류 파일 위치에 적용됩니다.
 
-|                          |                CSV                |              Parquet               |                ORC                 |
-| :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
-|  **Azure Blob 스토리지**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY               |              SAS/KEY               |
-| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS(Blob 엔드포인트)/MSI(dfs 엔드포인트)/SERVICE PRINCIPAL/KEY/AAD | SAS(Blob 엔드포인트)/MSI(dfs 엔드포인트)/SERVICE PRINCIPAL/KEY/AAD |
+|                          |                CSV                |                      Parquet                       |                        ORC                         |
+| :----------------------: | :-------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
+|  **Azure Blob 스토리지**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |                      SAS/KEY                       |                      SAS/KEY                       |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS(blob<sup>1</sup>)/MSI(dfs<sup>2</sup>)/SERVICE PRINCIPAL/KEY/AAD | SAS(blob<sup>1</sup>)/MSI(dfs<sup>2</sup>)/SERVICE PRINCIPAL/KEY/AAD |
 
+1: 이 인증 방법에는 외부 위치 경로의 .blob 엔드포인트( **.blob**.core.windows.net)가 필요합니다.
+
+2: 이 인증 방법에는 외부 위치 경로의 .dfs 엔드포인트( **.dfs**.core.windows.net)가 필요합니다.
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. 행 종결자로 LF가 사용되는 스토리지 계정 키(Unix 스타일의 줄 바꿈)
 
@@ -74,22 +77,35 @@ WITH (
 1. [이 가이드](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 Azure PowerShell을 설치합니다.
 2. 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 범용 v2로 업그레이드해야 합니다.
 3. Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions)를 참조하세요.
+
 #### <a name="steps"></a>단계
 
-1. PowerShell에서 AAD(Azure Active Directory)에 **SQL Server를 등록**합니다.
+1. 독립 실행형 전용 SQL 풀이 있는 경우 PowerShell을 사용하여 AAD(Azure Active Directory)에 SQL 서버를 등록합니다. 
 
    ```powershell
    Connect-AzAccount
-   Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   Select-AzSubscription -SubscriptionId <subscriptionId>
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-2. 이 [가이드](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 **범용 v2 스토리지 계정**을 만듭니다.
+   Synapse 작업 영역 내의 전용 SQL 풀에는 이 단계가 필요하지 않습니다.
+
+1. Synapse 작업 영역이 있는 경우 작업 영역의 시스템 관리 ID를 등록합니다.
+
+   1. Azure Portal에서 Synapse 작업 영역으로 이동합니다.
+   2. 관리 ID 블레이드로 이동합니다. 
+   3. "파이프라인 허용" 옵션을 사용하도록 설정했는지 확인합니다.
+   
+   ![작업 영역 시스템 msi 등록](./media/quickstart-bulk-load-copy-tsql-examples/msi-register-example.png)
+
+1. 이 [가이드](../../storage/common/storage-account-create.md)를 사용하여 **범용 v2 스토리지 계정** 을 만듭니다.
 
    > [!NOTE]
-   > 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 **v2로 업그레이드**해야 합니다.
+   >
+   > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md)를 사용하여 **v2로 업그레이드** 해야 합니다.
+   > - Azure Data Lake Storage Gen2의 알려진 문제에 대해서는 이 [가이드](../../storage/blobs/data-lake-storage-known-issues.md)를 참조하세요.
 
-3. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 읽기 권한자** Azure 역할을 SQL Server에 할당합니다.
+1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가** 를 선택합니다. AAD(Azure Active Directory)에 등록한 전용 SQL 풀을 호스팅하는 서버 또는 작업 영역에 **Storage Blob 데이터 기여자** Azure 역할을 할당합니다.
 
    > [!NOTE]
    > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 기본 제공 역할에 대한 자세한 내용은 이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
@@ -97,7 +113,7 @@ WITH (
     > [!IMPORTANT]
     > **Storage** **Blob 데이터** 소유자, 기여자 또는 읽기 권한자 Azure 역할을 지정합니다. 이러한 역할은 소유자, 기여자 및 읽기 권한자로 구성되는 Azure 기본 제공 역할과 다릅니다. 
 
-    ![로드할 수 있는 RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![로드할 수 있는 Azure RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 4. 이제 "관리 ID"를 사용하여 COPY 문을 실행할 수 있습니다.
 
@@ -110,15 +126,15 @@ WITH (
     )
     ```
 
-## <a name="d-azure-active-directory-authentication-aad"></a>D. AAD(Azure Active Directory 인증)
+## <a name="d-azure-active-directory-authentication"></a>D. Azure Active Directory 인증
 #### <a name="steps"></a>단계
 
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 읽기 권한자** Azure 역할을 AAD 사용자에게 할당합니다. 
+1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가** 를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 리더** Azure 역할을 Azure AD 사용자에게 할당합니다. 
 
     > [!IMPORTANT]
     > **Storage** **Blob 데이터** 소유자, 기여자 또는 읽기 권한자 Azure 역할을 지정합니다. 이러한 역할은 소유자, 기여자 및 읽기 권한자로 구성되는 Azure 기본 제공 역할과 다릅니다.
 
-    ![로드할 수 있는 RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![로드할 수 있는 Azure RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. 다음 [문서](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server)에 따라 Azure AD 인증을 구성합니다. 
 
@@ -136,11 +152,11 @@ WITH (
 ## <a name="e-service-principal-authentication"></a>E. 서비스 주체 인증
 #### <a name="steps"></a>단계
 
-1. [AAD(Azure Active Directory) 애플리케이션 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
+1. [Azure Active Directory 애플리케이션 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
 2. [애플리케이션 ID 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
 3. [인증 키 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
 4. [V1 OAuth 2.0 토큰 엔드포인트 가져오기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. 스토리지 계정에서 [AAD 애플리케이션에 읽기, 쓰기 및 실행 권한 할당](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder)
+5. 스토리지 계정에서 [Azure AD 애플리케이션에 읽기, 쓰기 및 실행 권한 할당](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder)
 6. 이제 COPY 문을 실행할 수 있습니다.
 
     ```sql

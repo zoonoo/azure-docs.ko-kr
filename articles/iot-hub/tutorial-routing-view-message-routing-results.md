@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: fb86b25fc24ea505ae258cc44d5554a019723af6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019179"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149203"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>자습서: 2부 - 라우팅된 메시지 보기
 
@@ -82,7 +82,7 @@ Service Bus 큐는 중요한 것으로 지정된 메시지를 받는 데 사용�
 
    ![Office365 옵션](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. 연결을 설정할 Office 365 계정에 로그인합니다. 시간이 초과되면 다시 시도합니다. 이메일을 받는 사람에 대한 이메일 주소를 지정합니다. 또한 제목을 지정하고 본문에 받는 사람이 확인할 메시지를 입력합니다. 테스트를 위해 받는 사람으로 사용자의 이메일 주소를 입력합니다.
+8. 회사 또는 학교 계정에 로그인하여 연결을 설정합니다. 시간이 초과되면 다시 시도합니다. 이메일을 받는 사람에 대한 이메일 주소를 지정합니다. 또한 제목을 지정하고 본문에 받는 사람이 확인할 메시지를 입력합니다. 테스트를 위해 받는 사람으로 사용자의 이메일 주소를 입력합니다.
 
    **동적 콘텐츠 추가**를 선택하여 포함할 수 있는 메시지의 콘텐츠를 표시합니다. **콘텐츠**를 선택합니다. 이메일에 메시지가 포함됩니다.
 
@@ -280,7 +280,7 @@ Power BI 창 위쪽의 새로 고침 단추를 선택하면 차트를 새로 고
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Azure CLI를 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. `$resourceGroup`은 이 자습서의 시작 부분에서 **ContosoResources**로 다시 설정되었습니다.
+리소스 그룹을 제거하려면 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. `$resourceGroup`은 이 자습서의 시작 부분에서 **ContosoResources**로 다시 설정되었습니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -288,7 +288,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>PowerShell을 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다. `$resourceGroup`은 이 자습서의 시작 부분에서 **ContosoResources**로 다시 설정되었습니다.
+리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다. `$resourceGroup`은 이 자습서의 시작 부분에서 **ContosoResources**로 다시 설정되었습니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

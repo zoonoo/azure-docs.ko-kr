@@ -1,15 +1,16 @@
 ---
 title: Azure Functions 네트워킹 옵션
 description: Azure Functions에서 사용할 수 있는 모든 네트워킹 옵션에 대한 개요입니다.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 10/27/2020
+ms.author: jehollan
+ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530094"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936869"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -20,27 +21,45 @@ ms.locfileid: "90530094"
 다음 두 가지 방법으로 함수 앱을 호스트할 수 있습니다.
 
 * 다양한 수준의 가상 네트워크 연결 및 확장 옵션을 사용하여 다중 테넌트 인프라에서 실행되는 요금제 옵션 중에서 선택할 수 있습니다.
-    * [사용 계획](functions-scale.md#consumption-plan)은 부하에 대응하여 동적으로 확장되고 최소한의 네트워크 격리 옵션을 제공합니다.
-    * [프리미엄 계획](functions-scale.md#premium-plan)은 동적으로 확장되고 보다 포괄적인 네트워크 격리를 제공합니다.
-    * Azure [App Service 계획](functions-scale.md#app-service-plan)은 고정된 규모에서 작동하며 프리미엄 계획과 비슷한 네트워크 격리를 제공합니다.
+    * [사용 계획](consumption-plan.md)은 부하에 대응하여 동적으로 확장되고 최소한의 네트워크 격리 옵션을 제공합니다.
+    * [프리미엄 계획](functions-premium-plan.md)은 동적으로 확장되고 보다 포괄적인 네트워크 격리를 제공합니다.
+    * Azure [App Service 계획](dedicated-plan.md)은 고정된 규모에서 작동하며 프리미엄 계획과 비슷한 네트워크 격리를 제공합니다.
 * [App Service Environment](../app-service/environment/intro.md)에서 함수를 실행할 수 있습니다. 이 메서드는 가상 네트워크에 함수를 배포하고 전체 네트워크 제어 및 격리를 제공합니다.
 
 ## <a name="matrix-of-networking-features"></a>네트워킹 기능 매트릭스
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>인바운드 IP 제한
+## <a name="inbound-access-restrictions"></a>인바운드 액세스 제한
 
-IP 제한을 사용하여 앱 액세스가 허용 또는 거부되는 IP 주소의 목록을 우선 순위대로 정의할 수 있습니다. 목록에는 IPv4 및 IPv6 주소가 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 "모두 거부"가 표시됩니다. IP 제한은 모든 함수 호스팅 옵션에서 작동합니다.
+액세스 제한을 사용 하 여 앱에 대 한 액세스를 허용 하거나 거부 하는 우선 순위가 지정 된 IP 주소 목록을 정의할 수 있습니다. 이 목록에는 IPv4 및 IPv6 주소 또는 [서비스 끝점](#use-service-endpoints)을 사용 하는 특정 가상 네트워크 서브넷이 포함 될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 "모두 거부"가 표시됩니다. IP 제한은 모든 함수 호스팅 옵션에서 작동합니다.
+
+액세스 제한은 [프리미엄](functions-premium-plan.md), [소비](consumption-plan.md)및 [App Service](dedicated-plan.md)에서 사용할 수 있습니다.
 
 > [!NOTE]
-> 네트워크 제한을 사용하는 경우 가상 네트워크 내에서만 포털 편집기를 사용하거나, 사용 중인 컴퓨터의 IP 주소를 안전 수신자 목록의 Azure Portal에 액세스하는 데 사용할 수 있습니다. 하지만 모든 컴퓨터에서 **플랫폼 기능** 탭에 있는 기능에 액세스할 수 있습니다.
+> 네트워크 제한이 적용 된 상태에서, 가상 네트워크 내 에서만 배포 하거나, 사용 중인 컴퓨터의 IP 주소를 안전 받는 사람 목록에 Azure Portal 액세스 하는 데 사용 하는 컴퓨터의 IP 주소를 배치할 수 있습니다. 그러나 포털을 사용 하 여 함수를 관리할 수는 있습니다.
 
 자세히 알아보려면 [Azure App Service 정적 액세스 제한](../app-service/app-service-ip-restrictions.md)을 참조하세요.
 
-## <a name="private-site-access"></a>프라이빗 사이트 액세스
+### <a name="use-service-endpoints"></a>서비스 엔드포인트 사용
+
+서비스 끝점을 사용 하 여 선택한 Azure virtual network 서브넷에 대 한 액세스를 제한할 수 있습니다. 특정 서브넷에 대 한 액세스를 제한 하려면 **Virtual Network** 유형을 사용 하 여 제한 규칙을 만듭니다. 그런 다음 액세스를 허용 하거나 거부할 구독, 가상 네트워크 및 서브넷을 선택할 수 있습니다. 
+
+선택한 서브넷에 대해 서비스 끝점이 아직 Microsoft 웹에서 사용 하도록 설정 되지 않은 경우 **누락 된 microsoft. 웹 서비스 끝점 무시** 확인란을 선택 하지 않으면 자동으로 사용 하도록 설정 됩니다. 앱에서 서비스 끝점을 사용 하도록 설정 하 고 서브넷은 사용 하지 않을 수 있는 시나리오는 주로 서브넷에서 사용 하도록 설정할 수 있는 권한이 있는지 여부에 따라 달라 집니다. 
+
+다른 사용자가 서브넷에서 서비스 끝점을 사용 하도록 설정 해야 하는 경우 **누락 된 Microsoft 웹 서비스 끝점 무시** 확인란을 선택 합니다. 앱은 나중에 서브넷에서 사용 하도록 설정 하는 것을 예측 하 여 서비스 끝점에 대해 구성 됩니다. 
+
+![Virtual Network 유형이 선택 된 "IP 제한 추가" 창의 스크린샷](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+서비스 끝점을 사용 하 여 App Service Environment에서 실행 되는 앱에 대 한 액세스를 제한할 수 없습니다. 앱이 App Service Environment에 있는 경우 IP 액세스 규칙을 적용 하 여 해당 앱에 대 한 액세스를 제어할 수 있습니다. 
+
+서비스 끝점을 설정 하는 방법을 알아보려면 [Azure Functions 개인 사이트 액세스](functions-create-private-site-access.md)설정을 참조 하세요.
+
+## <a name="private-endpoint-connections"></a>개인 끝점 연결
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+저장소 또는 service bus와 같은 개인 끝점 연결이 있는 다른 서비스를 호출 하려면 [전용 끝점에 대 한 아웃 바운드 호출](#private-endpoints)을 수행 하도록 앱을 구성 해야 합니다.
 
 ## <a name="virtual-network-integration"></a>가상 네트워크 통합
 
@@ -66,11 +85,33 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>가상 네트워크 (미리 보기)에 대 한 저장소 계정 제한
 
-함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 현재 이 계정에 대한 가상 네트워크 제한을 사용할 수 없습니다. 함수 앱에 사용하는 스토리지 계정에서 가상 네트워크 서비스 엔드포인트를 구성하는 경우 해당 구성은 앱을 중단합니다.
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다.  이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다.  이 미리 보기 기능은 현재 유럽 서부의 Windows Premium 요금제 에서만 작동 합니다.  개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
 
-자세한 내용은 [스토리지 계정 요구 사항](./functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
+> [!NOTE]
+> 현재 유럽 서부에서 Windows를 사용 하는 프리미엄 기능에 대해서만 저장소 계정 제한
+
+1. 서비스 끝점이 사용 하도록 설정 되지 않은 저장소 계정을 사용 하 여 함수를 만듭니다.
+1. 가상 네트워크에 연결 하도록 함수를 구성 합니다.
+1. 다른 저장소 계정을 만들거나 구성 합니다.  서비스 끝점을 사용 하 여 보안을 설정 하 고 함수를 연결 하는 저장소 계정입니다.
+1. 보안 저장소 계정에서 [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md#create-file-share) .
+1. 저장소 계정에 대 한 서비스 끝점 또는 개인 끝점을 사용 하도록 설정 합니다.  
+    * 개인 끝점 연결을 사용 하는 경우 저장소 계정에는 및 하위 리소스에 대 한 개인 끝점이 필요 합니다 `file` `blob` .  Durable Functions와 같은 특정 기능을 사용 하는 경우 `queue` `table` 개인 끝점 연결을 통해 액세스 하 고 액세스할 수도 있습니다.
+    * 서비스 끝점을 사용 하는 경우 저장소 계정에 대 한 함수 앱 전용 서브넷을 사용 하도록 설정 합니다.
+1. 필드 함수 앱 저장소 계정에서 보안 저장소 계정 및 파일 공유로 파일 및 blob 콘텐츠를 복사 합니다.
+1. 이 저장소 계정에 대 한 연결 문자열을 복사 합니다.
+1. 함수 앱에 대 한 **구성** 아래의 **응용 프로그램 설정을** 다음으로 업데이트 합니다.
+    - `AzureWebJobsStorage` 보안 저장소 계정에 대 한 연결 문자열입니다.
+    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 보안 저장소 계정에 대 한 연결 문자열입니다.
+    - `WEBSITE_CONTENTSHARE` 보안 저장소 계정에 생성 된 파일 공유의 이름입니다.
+    - 의 이름과 값을 사용 하 여 새 설정을 만듭니다 `WEBSITE_CONTENTOVERVNET` `1` .
+    - 저장소 계정이 개인 끝점 연결을 사용 하는 경우 다음 설정을 확인 하거나 추가 합니다.
+        - `WEBSITE_VNET_ROUTE_ALL` 값을 가진 `1` 입니다.
+        - `WEBSITE_DNS_SERVER` 값이 `168.63.129.16` 
+1. 응용 프로그램 설정을 저장 합니다.  
+
+함수 앱이 다시 시작 되 고 이제 보안 저장소 계정에 연결 됩니다.
 
 ## <a name="use-key-vault-references"></a>Key Vault 참조 사용
 
@@ -87,7 +128,7 @@ Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions �
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용하는 프리미엄 계획
 
-프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 규모 모니터링** 설정은 **구성** [Azure portal](https://portal.azure.com)  >  **함수 런타임 설정**아래 Azure Portal에 있습니다.
+프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 규모 모니터링** 설정은 **구성** [](https://portal.azure.com)  >  **함수 런타임 설정** 아래 Azure Portal에 있습니다.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -96,6 +137,9 @@ Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions �
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
+
+> [!TIP]
+> 가상 네트워크 트리거를 사용 하도록 설정 하면 응용 프로그램 성능에 영향을 줄 수 있습니다. App Service 계획 인스턴스는 크기를 조정 하는 시기를 결정 하기 위해 트리거를 모니터링 해야 하기 때문입니다. 이러한 영향은 매우 작을 가능성이 높습니다.
 
 가상 네트워크 트리거는 Functions 런타임의 버전 2.x 이상에서 지원됩니다. 다음과 같은 비 HTTP 트리거 형식이 지원됩니다.
 
@@ -136,7 +180,7 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 ## <a name="automation"></a>Automation
 다음 Api를 사용 하면 프로그래밍 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
 
-+ **Azure CLI**: [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 지역 가상 네트워크 통합을 추가, 나열 또는 제거 하는 명령을 사용 합니다.  
++ **Azure CLI**: 명령을 사용 [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 하 여 지역 가상 네트워크 통합을 추가, 나열 또는 제거 합니다.  
 + **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결

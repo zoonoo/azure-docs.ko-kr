@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986428"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327154"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -57,6 +57,10 @@ ms.locfileid: "90986428"
 
 - ILR은 Azure VM 백업을 통해 백업한 Azure VM에 대해 지원됩니다. 자세한 내용은 [문서](backup-azure-restore-files-from-vm.md)를 참조하세요.
 - ILR (MABS) 또는 System Center DPM에서 Azure Backup Server 백업 된 온-프레미스 Vm의 온라인 복구 지점은 지원 되지 않습니다.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Recovery Services 자격 증명 모음에서 온-프레미스로 데이터를 이동 하려면 어떻게 해야 하나요?
+
+Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프레미스로 직접 데이터를 내보낼 수는 없습니다. 데이터를 저장소 계정으로 복원한 다음 [Data Box](../databox/data-box-overview.md) 또는 [Import/Export](../storage/common/storage-import-export-service.md)를 통해 온-프레미스로 이동할 수 있습니다.
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
 
@@ -174,7 +178,7 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 - 전체 지점은 스토리지를 *비효율적* 으로 사용하지만 복원은 쉽고 빠릅니다.
 - 증분 복사본은 저장소 *효율성이* 있지만 복구 시간에 영향을 주는 데이터 체인을 복원 해야 합니다.
 
-Azure Backup 스토리지 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 스토리지 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 방법을 사용하면 수신 및 발신 대역폭이 효율적으로 사용됩니다. 데이터를 복구하는 데 필요한 데이터 스토리지와 시간의 양이 최소로 유지됩니다. [증분 백업](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)에 대해 자세히 알아보세요.
+Azure Backup 스토리지 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 스토리지 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 방법을 사용하면 수신 및 발신 대역폭이 효율적으로 사용됩니다. 데이터를 복구하는 데 필요한 데이터 스토리지와 시간의 양이 최소로 유지됩니다. [증분 백업](backup-architecture.md#backup-types)에 대해 자세히 알아보세요.
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>만들 수 있는 복구 지점의 수에 제한이 있나요?
 

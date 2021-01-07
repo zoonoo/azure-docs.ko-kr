@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: BareMetal Infrastructure 설명서
+summary: BareMetal Infrastructure를 사용하여 Microsoft Azure에서 가상 머신을 만들고 배포하고 관리하는 방법을 알아보세요.
+metadata:
+  title: BareMetal Infrastructure 설명서
+  description: BareMetal Infrastructure를 사용하여 Microsoft Azure에서 가상 머신을 만들고 배포하고 관리하는 방법을 알아보세요.
+  services: virtual-machines
+  ms.service: baremetal-infrastructure
+  ms.topic: landing-page
+  author: shortpatti
+  ms.author: v-patsho
+  ms.date: 12/31/2020
+  ms.openlocfilehash: 496e995909b885e494ee289c436cda17f3d39367
+  ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 01/04/2021
+  ms.locfileid: "97861929"
+landingContent:
+- title: BareMetal Infrastructure 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure의 BareMetal Infrastructure란?
+      url: workloads/sap/baremetal-overview-architecture.md
+    - text: 용어 알아보기
+      url: know-baremetal-terms.md
+  - linkListType: reference
+    links:
+    - text: BareMetal 워크로드 유형
+      url: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+- title: BareMetal 인스턴스 단위
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure에서 BareMetal 인스턴스 단위 관리
+      url: workloads/sap/baremetal-infrastructure-portal.md

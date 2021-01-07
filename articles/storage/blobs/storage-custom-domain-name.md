@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: dcc6f3bca80cb5860679327226d3e034c3e9b14a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053629"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996868"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑
 
@@ -23,7 +23,7 @@ ms.locfileid: "88053629"
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> 이 매핑은 하위 도메인 (예:)에 대해서만 작동 `www.contoso.com` 합니다. 웹 끝점을 루트 도메인 (예:)에서 사용할 수 있도록 하려면 `contoso.com` Azure CDN를 사용 해야 합니다. 지침은이 문서의 HTTPS를 [사용 하 여 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 이 문서의 해당 섹션으로 이동 하 여 사용자 지정 도메인의 루트 도메인을 사용 하도록 설정 했기 때문에 HTTPS를 사용 하도록 설정 하는 단계는 선택 사항입니다. 
+> 이 매핑은 하위 도메인 (예:)에 대해서만 작동 `www.contoso.com` 합니다. 웹 끝점을 루트 도메인 (예:)에서 사용할 수 있도록 하려면 `contoso.com` Azure CDN를 사용 해야 합니다. 지침은이 문서의 HTTPS를 [사용 하 여 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 이 문서의 해당 섹션에서 사용자 지정 도메인의 루트 도메인을 사용 하도록 설정 하기 때문에 HTTPS를 사용 하도록 설정 하는 단계는 선택 사항입니다. 
 
 <a id="enable-http"></a>
 
@@ -58,7 +58,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-2. 메뉴 창의 **설정**에서 **속성**을 선택 합니다.  
+2. 메뉴 창의 **설정** 에서 **속성** 을 선택 합니다.  
 
 3. **주 Blob Service 끝점** 또는 **기본 정적 웹 사이트 끝점** 의 값을 텍스트 파일에 복사 합니다. 
 
@@ -79,11 +79,11 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 1. 도메인 등록자의 웹 사이트에 로그인 하 고 DNS 설정 관리 페이지로 이동 합니다.
 
-   **도메인 이름**, **DNS** 또는 **이름 서버 관리**라는 섹션에서 해당 페이지를 찾을 수 있습니다.
+   **도메인 이름**, **DNS** 또는 **이름 서버 관리** 라는 섹션에서 해당 페이지를 찾을 수 있습니다.
 
 2. CNAME 레코드 관리에 대 한 섹션을 찾습니다. 
 
-   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**을 찾아야 할 수 있습니다.
+   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인** 을 찾아야 할 수 있습니다.
 
 3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
 
@@ -97,7 +97,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
+2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인** 을 선택합니다.  
 
    ![사용자 지정 도메인 옵션](./media/storage-custom-domain-name/custom-domain-button.png "사용자 지정 도메인")
 
@@ -105,7 +105,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 3. **도메인 이름** 텍스트 상자에 하위 도메인을 포함 하 여 사용자 지정 도메인의 이름을 입력 합니다.  
    
-   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우을 입력 `www.contoso.com` 합니다. 하위 도메인이 *사진이*면을 입력 `photos.contoso.com` 합니다.
+   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www* 인 경우을 입력 `www.contoso.com` 합니다. 하위 도메인이 *사진이* 면을 입력 `photos.contoso.com` 합니다.
 
 4. 사용자 지정 도메인을 등록 하려면 **저장** 단추를 선택 합니다.
 
@@ -144,7 +144,7 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-2. 메뉴 창의 **설정**에서 **속성**을 선택 합니다.  
+2. 메뉴 창의 **설정** 에서 **속성** 을 선택 합니다.  
 
 3. **주 Blob Service 끝점** 또는 **기본 정적 웹 사이트 끝점** 의 값을 텍스트 파일에 복사 합니다. 
 
@@ -163,11 +163,11 @@ HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사�
 
 1. 도메인 등록자의 웹 사이트에 로그인 하 고 DNS 설정 관리 페이지로 이동 합니다.
 
-   **도메인 이름**, **DNS** 또는 **이름 서버 관리**라는 섹션에서 해당 페이지를 찾을 수 있습니다.
+   **도메인 이름**, **DNS** 또는 **이름 서버 관리** 라는 섹션에서 해당 페이지를 찾을 수 있습니다.
 
 2. CNAME 레코드 관리에 대 한 섹션을 찾습니다. 
 
-   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**을 찾아야 할 수 있습니다.
+   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인** 을 찾아야 할 수 있습니다.
 
 3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
 
@@ -189,7 +189,7 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
+2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인** 을 선택합니다.  
 
    ![사용자 지정 도메인 옵션](./media/storage-custom-domain-name/custom-domain-button.png "사용자 지정 도메인")
 
@@ -197,7 +197,7 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 3. **도메인 이름** 텍스트 상자에 하위 도메인을 포함 하 여 사용자 지정 도메인의 이름을 입력 합니다.  
    
-   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우을 입력 `www.contoso.com` 합니다. 하위 도메인이 *사진이*면을 입력 `photos.contoso.com` 합니다.
+   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www* 인 경우을 입력 `www.contoso.com` 합니다. 하위 도메인이 *사진이* 면을 입력 `photos.contoso.com` 합니다.
 
 4. **간접 CNAME 유효성 검사 사용** 확인란을 선택합니다.
 
@@ -211,11 +211,11 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 1. 도메인 등록자의 웹 사이트에 로그인 하 고 DNS 설정 관리 페이지로 이동 합니다.
 
-   **도메인 이름**, **DNS** 또는 **이름 서버 관리**라는 섹션에서 해당 페이지를 찾을 수 있습니다.
+   **도메인 이름**, **DNS** 또는 **이름 서버 관리** 라는 섹션에서 해당 페이지를 찾을 수 있습니다.
 
 2. CNAME 레코드 관리에 대 한 섹션을 찾습니다. 
 
-   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**을 찾아야 할 수 있습니다.
+   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인** 을 찾아야 할 수 있습니다.
 
 3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
 
@@ -239,7 +239,7 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
+2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인** 을 선택합니다.  
    **사용자 지정 도메인** 창이 열립니다.
 
 3. 사용자 지정 도메인 이름이 포함된 텍스트 상자의 콘텐츠를 지웁니다.
@@ -250,7 +250,7 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-사용자 지정 도메인 등록을 제거하려면 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI 명령을 사용한 다음, `--custom-domain` 인수 값에 빈 문자열(`""`)을 지정합니다.
+사용자 지정 도메인 등록을 제거하려면 [az storage account update](/cli/azure/storage/account) CLI 명령을 사용한 다음, `--custom-domain` 인수 값에 빈 문자열(`""`)을 지정합니다.
 
 * 명령 형식:
 
@@ -320,11 +320,11 @@ Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 
 
 4. 필드 다음 지침을 검토 합니다.
 
-   * [Azure CDN를 사용 하는 SAS (공유 액세스 서명) 토큰](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures)입니다.
+   * [Azure CDN를 사용 하는 SAS (공유 액세스 서명) 토큰](../../cdn/cdn-storage-custom-domain-https.md#shared-access-signatures)입니다.
 
-   * [Azure CDN를 사용 하는 HTTP에서 HTTPS로의 리디렉션](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection)입니다.
+   * [Azure CDN를 사용 하는 HTTP에서 HTTPS로의 리디렉션](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection)입니다.
 
-   * [Azure CDN에서 Blob Storage를 사용 하는 경우 가격 책정 및 청구](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection)
+   * [Azure CDN에서 Blob Storage를 사용 하는 경우 가격 책정 및 청구](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection)
 
 ## <a name="next-steps"></a>다음 단계
 

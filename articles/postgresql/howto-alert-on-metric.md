@@ -1,17 +1,17 @@
 ---
 title: 경고 구성-Azure Portal Azure Database for PostgreSQL 단일 서버
 description: 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL 단일 서버에 대 한 메트릭 경고를 구성 하 고 액세스 하는 방법을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 0866df5f4f78fff429e75d586450bce72faece63
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907547"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020112"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 메트릭에 대 한 경고를 설정 합니다.
 
@@ -27,12 +27,12 @@ ms.locfileid: "90907547"
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
 * [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고**를 선택합니다.
+2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고** 를 선택합니다.
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="경고 규칙 선택":::
 
@@ -42,7 +42,7 @@ ms.locfileid: "90907547"
 
    :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="메트릭 경고 양식 추가":::
 
-5. **조건** 섹션에서 **조건 추가**를 선택합니다.
+5. **조건** 섹션에서 **조건 추가** 를 선택합니다.
 
 6. 신호 목록에서 경고를 발생할 메트릭을 선택합니다. 이 예제에서는 "스토리지 비율"을 선택합니다.
    
@@ -50,11 +50,11 @@ ms.locfileid: "90907547"
 
 7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30 분") 및 **Frequency**.
    
-   완료되면 **완료**를 선택합니다.
+   완료되면 **완료** 를 선택합니다.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="메트릭 선택":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="경고 논리 섹션과 완료 단추를 강조 표시 하는 스크린샷":::
 
-8. **작업 그룹** 섹션에서 **새로 만들기**를 선택하여 경고 알림을 받을 새 그룹을 만듭니다.
+8. **작업 그룹** 섹션에서 **새로 만들기** 를 선택하여 경고 알림을 받을 새 그룹을 만듭니다.
 
 9. 이름, 약식 이름, 구독 및 리소스 그룹을 사용하여 "작업 그룹 추가" 양식을 채웁니다.
 
@@ -64,15 +64,15 @@ ms.locfileid: "90907547"
    
     필요에 따라 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
-    완료되면 **확인**을 선택합니다.
+    완료되면 **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="작업 그룹":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="새 작업 그룹을 추가 하는 방법을 보여 주는 스크린샷":::
 
 11. 경고 규칙 이름, 설명 및 심각도를 지정합니다.
 
     :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="작업 그룹"::: 
 
-12. **경고 규칙 만들기**를 선택하여 경고를 만듭니다.
+12. **경고 규칙 만들기** 를 선택하여 경고를 만듭니다.
 
     앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
@@ -81,8 +81,8 @@ ms.locfileid: "90907547"
 
 * 이 경고와 관련된 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 확인.
 * 경고 규칙을 **편집** 또는 **삭제**.
-* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용**으로 설정.
+* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용** 으로 설정.
 
 ## <a name="next-steps"></a>다음 단계
 * [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
-* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
+* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../azure-monitor/platform/data-platform.md) 의 개요를 살펴봅니다.

@@ -4,11 +4,11 @@ description: 이 문서에서는 서비스 패브릭 애플리케이션 업그�
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248087"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022992"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 응용 프로그램 업그레이드: 고급 항목
 
@@ -28,13 +28,13 @@ ms.locfileid: "86248087"
 
 서비스 쪽에서 지연을 구성 하는 방법에는 여러 가지가 있습니다.
 
- * **새 서비스를 만들 때**다음을 지정 합니다 `-InstanceCloseDelayDuration` .
+ * **새 서비스를 만들 때** 다음을 지정 합니다 `-InstanceCloseDelayDuration` .
 
     ```powershell
     New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
- * **응용 프로그램 매니페스트의 기본값 섹션에서 서비스를 정의 하는 동안**속성을 할당 합니다 `InstanceCloseDelayDurationSeconds` .
+ * **응용 프로그램 매니페스트의 기본값 섹션에서 서비스를 정의 하는 동안** 속성을 할당 합니다 `InstanceCloseDelayDurationSeconds` .
 
     ```xml
           <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
@@ -42,13 +42,13 @@ ms.locfileid: "86248087"
           </StatelessService>
     ```
 
- * **기존 서비스를 업데이트**하는 경우 다음을 지정 합니다 `-InstanceCloseDelayDuration` .
+ * **기존 서비스를 업데이트** 하는 경우 다음을 지정 합니다 `-InstanceCloseDelayDuration` .
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
     ```
 
- * **ARM 템플릿을 통해 기존 서비스를 만들거나 업데이트할 때**값을 지정 합니다 `InstanceCloseDelayDuration` (지원 되는 최소 API 버전: 2019-11-01-미리 보기).
+ * **ARM 템플릿을 통해 기존 서비스를 만들거나 업데이트할 때** 값을 지정 합니다 `InstanceCloseDelayDuration` (지원 되는 최소 API 버전: 2019-11-01-미리 보기).
 
     ```ARM template to define InstanceCloseDelayDuration of 30seconds
     {
@@ -100,7 +100,7 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 >
 
 > [!NOTE]
-> 클러스터 코드 버전이 7.1.XXX 이상인 경우 위에 설명 된 대로 Get-servicefabricservice cmdlet 또는 ARM 템플릿을 사용 하 여 기존 서비스에서이 기능을 구성할 수 있습니다.
+> 클러스터 코드 버전이 7.1.XXX 이상인 경우 위에 설명 된 대로 Update-ServiceFabricService cmdlet 또는 ARM 템플릿을 사용 하 여 기존 서비스에서이 기능을 구성할 수 있습니다.
 >
 >
 
@@ -112,9 +112,9 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 >
 >
 
-*Monitored* 모드에서는 업그레이드가 진행되는 동안 애플리케이션이 정상 상태를 유지하도록 Service Fabric에서 상태 정책을 적용합니다. 상태 정책을 위반하는 경우 지정된 *FailureAction*에 따라 업그레이드가 일시 중지되거나 자동으로 롤백됩니다.
+*Monitored* 모드에서는 업그레이드가 진행되는 동안 애플리케이션이 정상 상태를 유지하도록 Service Fabric에서 상태 정책을 적용합니다. 상태 정책을 위반하는 경우 지정된 *FailureAction* 에 따라 업그레이드가 일시 중지되거나 자동으로 롤백됩니다.
 
-*UnmonitoredManual* 모드에서는 애플리케이션 관리자가 업그레이드의 진행 상황을 총체적으로 제어합니다. 이 모드는 상태 모니터링을 우회하기 위해 사용자 지정 상태 평가 정책을 적용하거나 일반적이지 않은 업그레이드를 수행하는 경우에 유용합니다(예: 애플리케이션 데이터가 이미 손실). 이 모드에서 실행되는 업그레이드는 각 UD가 완료된 후 스스로 일시 중단되며 [Resume-servicefabricapplicationupgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 재개해야 합니다. 업그레이드가 일시 중단되고 사용자가 업그레이드를 다시 시작할 준비가 완료되면 업그레이드 상태가 *RollforwardPending*으로 표시됩니다([UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet) 참조).
+*UnmonitoredManual* 모드에서는 애플리케이션 관리자가 업그레이드의 진행 상황을 총체적으로 제어합니다. 이 모드는 상태 모니터링을 우회하기 위해 사용자 지정 상태 평가 정책을 적용하거나 일반적이지 않은 업그레이드를 수행하는 경우에 유용합니다(예: 애플리케이션 데이터가 이미 손실). 이 모드에서 실행되는 업그레이드는 각 UD가 완료된 후 스스로 일시 중단되며 [Resume-servicefabricapplicationupgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 재개해야 합니다. 업그레이드가 일시 중단되고 사용자가 업그레이드를 다시 시작할 준비가 완료되면 업그레이드 상태가 *RollforwardPending* 으로 표시됩니다([UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet) 참조).
 
 마지막으로, *UnmonitoredAuto* 모드는 사용자 입력이 필요 없고 애플리케이션 상태 정책을 평가하지 않으므로 서비스를 개발하거나 테스트하는 동안 빠른 업그레이드 반복을 수행하는 데 유용합니다.
 
@@ -205,9 +205,9 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>응용 프로그램 업그레이드 롤백
 
-업그레이드를 세 가지 모드(*Monitored*, *UnmonitoredAuto* 또는 *UnmonitoredManual*) 중 하나로 롤포워드할 수 있지만, 롤백은 *UnmonitoredAuto* 또는 *UnmonitoredManual* 모드에서만 가능합니다. *UnmonitoredAuto* 모드에서 수행하는 롤백은 *UpgradeReplicaSetCheckTimeout*의 기본값이 다르다는 점을 제외하고 롤포워드와 동일한 방식으로 작동합니다([애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조). *UnmonitoredManual* 모드에서 수행하는 롤백은 롤포워드와 동일한 방식으로 작동합니다. 롤백은 각 UD가 완료되면 자체적으로 일시 중단한 후 [ Resume-servicefabricapplicationupgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 다시 시작하고 롤백을 계속 진행해야 합니다.
+업그레이드를 세 가지 모드(*Monitored*, *UnmonitoredAuto* 또는 *UnmonitoredManual*) 중 하나로 롤포워드할 수 있지만, 롤백은 *UnmonitoredAuto* 또는 *UnmonitoredManual* 모드에서만 가능합니다. *UnmonitoredAuto* 모드에서 수행하는 롤백은 *UpgradeReplicaSetCheckTimeout* 의 기본값이 다르다는 점을 제외하고 롤포워드와 동일한 방식으로 작동합니다([애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조). *UnmonitoredManual* 모드에서 수행하는 롤백은 롤포워드와 동일한 방식으로 작동합니다. 롤백은 각 UD가 완료되면 자체적으로 일시 중단한 후 [ Resume-servicefabricapplicationupgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 다시 시작하고 롤백을 계속 진행해야 합니다.
 
-*Monitored* 모드에서 *롤백*의 *FailureAction*이 지정된 업그레이드 상태 정책을 위반하거나([애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조) 명시적으로 [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps)을 사용하는 경우 롤백을 자동으로 트리거할 수 있습니다.
+*Monitored* 모드에서 *롤백* 의 *FailureAction* 이 지정된 업그레이드 상태 정책을 위반하거나([애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조) 명시적으로 [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps)을 사용하는 경우 롤백을 자동으로 트리거할 수 있습니다.
 
 롤백 중에 언제든지 [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 *UpgradeReplicaSetCheckTimeout* 값과 모드를 변경할 수 있습니다.
 

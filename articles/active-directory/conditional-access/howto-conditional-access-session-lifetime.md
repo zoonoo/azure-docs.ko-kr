@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 10/23/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601676"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837467"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용하여 인증 세션 관리를 구성합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "90601676"
 
 사용자 로그인 빈도에 대 한 Azure Active Directory (Azure AD) 기본 구성은 90 일의 롤링 기간입니다. 사용자에 게 자격 증명을 요청 하는 것이 중요 한 것 처럼 보일 수 있지만,이 경우에는 사용자가 생각 하지 않고 자격 증명을 입력 하도록 학습 한 사용자가 실수로 악성 자격 증명 프롬프트에 해당 자격 증명을 제공할 수 있습니다.
 
-사용자에 게 다시 로그인 하 라는 메시지가 표시 되는 것을 오류가 심각한 증가 수 있습니다. 실제로 IT 정책 위반으로 인해 세션이 해지 됩니다. 암호 변경, incompliant 장치 또는 계정 비활성화를 비롯 한 몇 가지 예가 있습니다. [PowerShell을 사용 하 여 사용자 세션](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)을 명시적으로 해지할 수도 있습니다. Azure AD 기본 구성은 "세션의 보안 상태가 변경 되지 않은 경우 사용자에 게 자격 증명을 제공 하지 않습니다." 라는 메시지가 표시 됩니다.
+사용자에 게 다시 로그인 하 라는 메시지가 표시 되는 것을 오류가 심각한 증가 수 있습니다. 실제로 IT 정책 위반으로 인해 세션이 해지 됩니다. 암호 변경, incompliant 장치 또는 계정 비활성화를 비롯 한 몇 가지 예가 있습니다. [PowerShell을 사용 하 여 사용자 세션](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true)을 명시적으로 해지할 수도 있습니다. Azure AD 기본 구성은 "세션의 보안 상태가 변경 되지 않은 경우 사용자에 게 자격 증명을 제공 하지 않습니다." 라는 메시지가 표시 됩니다.
 
 로그인 빈도 설정은 표준에 따라 OAUTH2 또는 OIDC 프로토콜을 구현한 앱과 함께 작동 합니다. 다음 웹 응용 프로그램을 포함 하 여 Windows, Mac 및 모바일 용 Microsoft 네이티브 앱 대부분은 설정을 준수 합니다.
 
@@ -80,15 +80,17 @@ Azure AD 조인, 하이브리드 Azure AD 조인 또는 Azure AD 등록 장치�
 
 영구 브라우저 세션을 사용 하면 사용자가 브라우저 창을 닫았다가 다시 연 후 로그인 상태를 유지할 수 있습니다.
 
-브라우저 세션 지 속성의 Azure AD 기본값은 개인 장치의 사용자가 "로그인 상태 유지"를 표시 하 여 세션을 유지할지 여부를 선택할 수 있도록 허용 합니다. 인증 성공 후 확인. [AD FS Single Sign-on 설정](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-)문서에 있는 지침을 사용 하 여 AD FS에서 브라우저 지 속성을 구성 하는 경우 해당 정책을 준수 하 고 Azure AD 세션도 유지 합니다. 또한 테 넌 트의 사용자에 게 "로그인 상태 유지"가 표시 되는지 여부를 구성할 수 있습니다. [AZURE AD 로그인 페이지 사용자 지정](../fundamentals/customize-branding.md)문서에 있는 지침을 사용 하 Azure Portal의 회사 브랜딩 창에서 적절 한 설정을 변경 하 여 프롬프트를 표시 합니다.
+브라우저 세션 지 속성의 Azure AD 기본값은 개인 장치의 사용자가 "로그인 상태 유지"를 표시 하 여 세션을 유지할지 여부를 선택할 수 있도록 허용 합니다. 인증 성공 후 확인. [단일 Sign-On 설정 AD FS](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+)문서의 지침을 사용 하 여 AD FS에서 브라우저 지 속성을 구성 하는 경우 해당 정책을 준수 하 고 Azure AD 세션도 유지 합니다. 또한 테 넌 트의 사용자에 게 "로그인 상태 유지"가 표시 되는지 여부를 구성할 수 있습니다. [AZURE AD 로그인 페이지 사용자 지정](../fundamentals/customize-branding.md)문서에 있는 지침을 사용 하 Azure Portal의 회사 브랜딩 창에서 적절 한 설정을 변경 하 여 프롬프트를 표시 합니다.
 
 ## <a name="configuring-authentication-session-controls"></a>인증 세션 컨트롤 구성
 
 조건부 액세스는 Azure AD Premium 기능이 며 프리미엄 라이선스가 필요 합니다. 조건부 액세스에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스 란?](overview.md#license-requirements) 을 참조 하세요.
 
 > [!WARNING]
-> 현재 공개 미리 보기로 제공 되는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 기능을 사용 하는 경우 동일한 사용자 또는 앱 조합에 대해 두 개의 다른 정책 (이 기능을 사용 하는 경우, 다른 하나는 구성 가능한 토큰 수명 기능 포함)을 만들 수 없습니다. Microsoft는 2020 년 5 월 1 일에 구성 가능한 토큰 수명 기능을 사용 중지 하 고 조건부 액세스 인증 세션 관리 기능으로 바꿀 계획입니다.  
+> 현재 공개 미리 보기로 제공 되는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 기능을 사용 하는 경우 동일한 사용자 또는 앱 조합에 대해 두 개의 다른 정책 (이 기능을 사용 하는 경우, 다른 하나는 구성 가능한 토큰 수명 기능 포함)을 만들 수 없습니다. Microsoft는 2021 년 1 월 30 일에 새로 고침 및 세션 토큰 수명을 위해 구성 가능한 토큰 수명 기능을 사용 중지 하 고 조건부 액세스 인증 세션 관리 기능으로 바꿀 계획입니다.  
+>
+> 로그인 빈도를 설정 하기 전에 테 넌 트에서 다른 재인증 설정이 사용 되지 않도록 설정 되어 있는지 확인 합니다. "신뢰할 수 있는 장치에서 MFA를 기억할 것입니다."가 설정 되어 있으면 로그인 빈도를 사용 하기 전에 사용 하지 않도록 설정 해야 합니다 .이 두 설정을 함께 사용 하면 사용자에 게 예기치 않은 메시지가 표시 될 수 있습니다. 재인증 프롬프트 및 세션 수명에 대해 자세히 알아보려면 [재인증 프롬프트 최적화 및 AZURE AD Multi-Factor Authentication의 세션 수명 이해](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md)문서를 참조 하세요.
 
 ### <a name="policy-1-sign-in-frequency-control"></a>정책 1: 로그인 빈도 제어
 
@@ -126,15 +128,14 @@ Azure AD에서 등록 된 Windows 장치에는 장치에 로그인 하는 것으
 
 ## <a name="validation"></a>유효성 검사
 
-가상 도구를 사용 하 여 사용자의 로그인을 대상 응용 프로그램으로 시뮬레이션 하 고 정책을 구성한 방법에 따라 기타 조건을 사용 합니다. 인증 세션 관리 컨트롤이 도구의 결과에 표시 됩니다.
+What-If 도구를 사용 하 여 사용자의 로그인을 대상 응용 프로그램으로 시뮬레이션 하 고 정책을 구성한 방법에 따라 다른 조건을 시뮬레이트할 수 있습니다. 인증 세션 관리 컨트롤이 도구의 결과에 표시 됩니다.
 
 ![조건부 액세스 What If 도구 결과](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>정책 배포
 
-정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)문서를 참조 하세요.
+정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 [조건부 액세스 배포 계획](plan-conditional-access.md)문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 조건부 액세스 정책을 구성 하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용 하는 특정 앱에 대 한 MFA 필요](../authentication/tutorial-enable-azure-mfa.md)문서를 참조 하세요.
-* 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 된 경우 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)문서를 참조 하세요.
+* 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 되 면 [조건부 액세스 배포 계획](plan-conditional-access.md)문서를 참조 하세요.

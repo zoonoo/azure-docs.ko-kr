@@ -2,7 +2,6 @@
 title: Amazon Redshift에서 데이터 복사
 description: Azure Data Factory를 사용하여 Amazon Redshift에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
 manager: shwang
@@ -10,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 12/09/2020
+ms.openlocfilehash: b17c567b2e83bef3c37c8f1272091021a1943b15
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484547"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008329"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -24,7 +23,6 @@ ms.locfileid: "89484547"
 > * [현재 버전](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon Redshift에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
@@ -132,11 +130,11 @@ Amazon Redshift에서 데이터를 복사 하기 위해 지원 되는 속성은 
 
 ### <a name="amazon-redshift-as-source"></a>원본으로 Amazon Redshift
 
-Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AmazonRedshiftSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AmazonRedshiftSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 **AmazonRedshiftSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 type 속성을 **AmazonRedshiftSource** 로 설정해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "tableName"이 지정된 경우) |
 | redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니요 |
 | s3LinkedServiceName | “AmazonS3” 형식의 연결된 서비스 이름을 지정하여 중간 저장소로 사용하려는 Amazon S3을 참조합니다. | 예(UNLOAD를 사용하는 경우) |
@@ -164,9 +162,9 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 [UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html)는 쿼리의 결과를 Amazon S3(Amazon Simple Storage Service)의 하나 이상의 파일에 언로드할 수 있는 Amazon Redshift에서 제공하는 메커니즘입니다. Redshift에서 큰 데이터 집합을 복사하기 위해 Amazon에서 권장하는 방법입니다.
 
-**예: UNLOAD, 준비 된 복사 및 PolyBase를 사용 하 여 Amazon Redshift에서 Azure Synapse Analytics로 데이터 복사 (이전의 SQL Data Warehouse)**
+**예: UNLOAD, 준비 된 복사 및 PolyBase를 사용 하 여 Amazon Redshift에서 Azure Synapse Analytics로 데이터 복사**
 
-이 샘플 사용 사례의 경우 복사 작업은 "redshiftUnloadSettings"에 구성 된 대로 amazon Redshift에서 Amazon s 3으로 데이터를 언로드한 다음 "stagingSettings"에 지정 된 대로 Amazon s 3에서 Azure Blob으로 데이터를 복사 하 고, 마지막으로 PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 합니다 (이전에 SQL Data Warehouse). 모든 중간 형식은 복사 작업에서 제대로 처리됩니다.
+이 샘플 사용 사례에서 복사 작업은 "redshiftUnloadSettings"에 구성 된 대로 amazon Redshift에서 Amazon s 3으로 데이터를 언로드한 다음, "stagingSettings"에 지정 된 대로 Amazon s 3에서 Azure Blob으로 데이터를 복사 하 고, 마지막으로 PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 합니다. 모든 중간 형식은 복사 작업에서 제대로 처리됩니다.
 
 ![Redshift to Azure Synapse Analytics 복사 워크플로](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 

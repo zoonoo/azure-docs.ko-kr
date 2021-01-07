@@ -3,12 +3,12 @@ title: 컨테이너 그룹에서 관리 되는 id 사용
 description: 다른 Azure 서비스를 사용 하 여 인증할 수 있는 Azure Container Instances에서 관리 되는 id를 사용 하도록 설정 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259625"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558949"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -45,15 +45,15 @@ Azure Container Instances는 두 가지 유형의 Azure 관리 ID인 사용자 �
 * 현재는 가상 네트워크에 배포 된 컨테이너 그룹에서 관리 되는 id를 사용할 수 없습니다.
 * 컨테이너 그룹을 만들 때 관리 되는 id를 사용 하 여 Azure Container Registry에서 이미지를 끌어올 수 없습니다. Id는 실행 중인 컨테이너 내 에서만 사용할 수 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서는 Azure CLI 버전 2.0.49 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.49 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-an-azure-key-vault"></a>Azure key vault 만들기
 
 이 문서의 예제에서는 Azure Container Instances에서 관리 되는 id를 사용 하 여 Azure key vault 비밀에 액세스 합니다. 
 
-먼저, 다음 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저, 다음 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320105"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436388"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Azure 애플리케이션 제품에 대한 검토 피드백 처리
 
@@ -41,9 +41,9 @@ ms.locfileid: "87320105"
 
 1. (선택 사항) 창의 오른쪽에 있는 **정책** 섹션에서 문제 메시지(이 예제에서는 **정책 유효성 검사 실패**)를 선택하여 연관된 로그 파일을 비롯한 문제의 하위 수준 세부 정보를 조사합니다. 일반적으로 오류는 로그 파일의 맨 아래에 표시됩니다.
 
-1. 홈페이지의 왼쪽 메뉴에서 **파일**을 선택하여 이 제품의 기술 자산을 구성하는 목록 파일을 표시합니다. Microsoft 검토자가 발견된 심각한 문제를 설명하는 주석을 추가해 두었을 것입니다. 다음 예제에서는 두 가지 문제가 발견되었습니다.
+1. 홈페이지의 왼쪽 메뉴에서 **파일** 을 선택하여 이 제품의 기술 자산을 구성하는 목록 파일을 표시합니다. Microsoft 검토자가 발견된 심각한 문제를 설명하는 주석을 추가해 두었을 것입니다. 다음 예제에서는 두 가지 문제가 발견되었습니다.
 
-    [![끌어오기 요청 홈페이지](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![파일 및 검색 된 두 가지 문제를 강조 하는 스크린샷](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *펼치려면 이 이미지를 클릭하세요.*
 
 1. 왼쪽 트리에서 각 주석 노드를 선택하여 주변 코드 컨텍스트의 주석으로 이동합니다. 팀 프로젝트의 소스 코드를 수정하여 주석에서 설명된 문제를 해결합니다.
@@ -57,4 +57,4 @@ ms.locfileid: "87320105"
 
 ## <a name="next-steps"></a>다음 단계
 
-검토 PR에 문서화된 심각한 문제를 해결한 후에는 [Azure 앱 제품을 다시 게시](./create-new-azure-apps-offer.md#publish)해야 합니다.
+검토 PR에 문서화된 심각한 문제를 해결한 후에는 [Azure 앱 제품을 다시 게시](../create-new-azure-apps-offer.md)해야 합니다.

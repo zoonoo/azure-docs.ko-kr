@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 7a76ac3bbe62d48de67815d09e1c8d75f03caa36
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: af9b1f42140c5656c5f55a98c2d635d59e130db5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077901"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533736"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 아키텍처 모범 사례
 
@@ -36,16 +36,16 @@ Azure HDInsight 클러스터는 특정 유형의 컴퓨팅 용도로 설계되�
 
 다음 표는 HDInsight 클러스터를 만드는 데 사용할 수 있는 다양한 방법을 보여 줍니다.
 
-|도구|브라우저 기반|명령줄|REST API|SDK)|
+|도구|브라우저 기반|명령줄|REST API|SDK|
 |---|---|---|---|---|
 |[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Azure CLI(버전 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
-|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
+|[.NET SDK](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
+|[Python SDK](/python/api/overview/azure/hdinsight)||||X|
+|[Java SDK](/java/api/overview/azure/hdinsight)||||X|
 |[Azure 리소스 관리자 템플릿](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 자세한 내용은 [HDInsight의 클러스터 유형](../hadoop/apache-hadoop-introduction.md) 문서를 참조하세요.
@@ -103,11 +103,11 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
 - 사용자 지정 metastore를 정기적으로 백업합니다.
 - metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
 - Azure Portal 또는 Azure Monitor 로그와 같은 Azure SQL Database 모니터링 도구를 사용 하 여 성능 및 가용성에 대 한 metastore를 모니터링 합니다.
-- 필요에 `ANALYZE TABLE` 따라 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- 필요에 `ANALYZE TABLE` 따라 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. 정의합니다(예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`).
 
 ## <a name="best-practices-for-different-workloads"></a>다양한 워크로드에 대한 모범 사례
 
-- 응답 시간이 향상 된 대화형 Hive 쿼리에 LLAP 클러스터를 사용 하는 것이 좋습니다. [llap](https://cwiki.apache.org/confluence/display/Hive/LLAP)   은 쿼리의 메모리 내 캐싱을 허용 하는 Hive 2.0의 새로운 기능입니다. LLAP 덕분에 Hive 쿼리를 훨씬 빠르게,  [일부 경우에는 Hive 1.x보다 26배 더 빠르게](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/) 수행합니다.
+- 응답 시간이 향상 된 대화형 Hive 쿼리에 LLAP 클러스터를 사용 하는 것이 좋습니다. [llap](https://cwiki.apache.org/confluence/display/Hive/LLAP) 은 쿼리의 메모리 내 캐싱을 허용 하는 Hive 2.0의 새로운 기능입니다. LLAP 덕분에 Hive 쿼리를 훨씬 빠르게, [일부 경우에는 Hive 1.x보다 26배 더 빠르게](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/) 수행합니다.
 - Hive 작업 대신 Spark 작업을 사용합니다.
 - Impala 기반 쿼리를 LLAP 쿼리로 바꿉니다.
 - MapReduce 작업을 Spark 작업으로 바꿉니다.

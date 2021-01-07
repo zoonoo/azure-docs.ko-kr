@@ -2,19 +2,16 @@
 title: Azure Monitor 통합 문서 액세스 제어
 description: 역할 기반 access control을 사용 하 여 미리 작성 되 고 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고 간소화
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: dc6e1d738bf255fe7baa244556bad4519979b1df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539298"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534537"
 ---
 # <a name="access-control"></a>Access Control
 
@@ -35,10 +32,10 @@ ms.locfileid: "86539298"
 "통합 문서 참여자"는 공유 통합 문서를 저장 하기 위해 개체에 "통합 문서/쓰기" 권한을 추가 합니다.
 사용자가 볼 수 있는 전용 통합 문서를 저장 하는 데에는 특별 한 권한이 필요 하지 않습니다.
 
-사용자 지정 역할 기반 액세스 제어의 경우:
+사용자 지정 역할:
 
 `microsoft.insights/workbooks/write`공유 통합 문서를 저장 하려면를 추가 합니다. 자세한 내용은 [통합 문서 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.

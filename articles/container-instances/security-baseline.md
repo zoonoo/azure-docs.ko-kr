@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e0cf0f30d1110a58ff8087fd348c4916c34e4603
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393431"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351813"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Container Instances에 대 한 Azure 보안 기준
 
@@ -73,7 +73,7 @@ Container Instances에 대 한 Azure 보안 기준에는 배포의 보안 상태
 
 * [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 * [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -143,7 +143,7 @@ Container Instances에 대 한 Azure 보안 기준에는 배포의 보안 상태
 
 * [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md) 
 
-* [응용 프로그램 보안 그룹 이해 및 사용](../virtual-network/security-overview.md#application-security-groups)
+* [응용 프로그램 보안 그룹 이해 및 사용](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 * [가상 네트워크에 배포-Azure Container Instances](./container-instances-vnet.md)
 
@@ -159,7 +159,7 @@ Container Instances에 대 한 Azure 보안 기준에는 배포의 보안 상태
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 * [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
@@ -263,7 +263,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 * [Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅](./container-instances-log-analytics.md)
 
-* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -419,7 +419,7 @@ Azure Container Instances에서 Azure container registry를 사용 하는 경우
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -498,7 +498,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -582,7 +582,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **참고**: 기본적으로 Azure Container Instances의 모든 배포 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용으로 암호화 됩니다. 필요에 따라 사용자 고유의 키 (고객 관리 키)를 사용 하 여 암호화를 관리 합니다.
 
-* [Azure에서 미사용 암호화 이해](../security/fundamentals/encryption-atrest.md)
+* [Azure의 저장 데이터 암호화 이해](../security/fundamentals/encryption-atrest.md)
 
 * [Azure Container Instances를 사용 하 여 배포 데이터 암호화](./container-instances-encrypt-data.md)
 
@@ -613,7 +613,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [Azure Container Instances에 대 한 보안 고려 사항](./container-instances-image-security.md)
 
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -652,7 +652,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [Azure Container Instances에 대 한 보안 고려 사항](./container-instances-image-security.md)
 
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -664,7 +664,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [Azure Container Instances에 대 한 보안 고려 사항](./container-instances-image-security.md)
 
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -707,7 +707,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -750,12 +750,12 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅](./container-instances-log-analytics.md)
 
-* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
 * [Azure Container Instances에 대 한 보안 고려 사항](./container-instances-image-security.md)
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 
 
@@ -789,7 +789,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -825,7 +825,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [가상 네트워크에 배포-Azure Container Instances](./container-instances-vnet.md)
 
@@ -900,7 +900,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Container Instances에 대 한 컨테이너 모니터링 및 검색 보안 권장 사항](./container-instances-image-security.md)
 
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 * [Azure Container Registry 작업에 대 한 기본 이미지 업데이트 정보](../container-registry/container-registry-tasks-base-images.md)
 
 
@@ -1103,9 +1103,9 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Container Instances)�
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객 관리형 키 보호 보장
 
-**지침**: 실수로 또는 악의적인 삭제 로부터 키를 보호 하기 위해 Azure Key Vault에서 일시 삭제를 사용 하도록 설정할 수 있습니다.
+**지침**: Azure Key Vault에서 Soft-Delete를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호할 수 있습니다.
 
-* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1158,7 +1158,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Container Instances)�
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 고객 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-* [Azure Security Center 보안 연락처를 설정 하는 방법](../security-center/security-center-provide-security-contact-details.md)
+* [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1194,9 +1194,9 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Container Instances)�
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-* [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 
 **Azure Security Center 모니터링**: 해당 없음

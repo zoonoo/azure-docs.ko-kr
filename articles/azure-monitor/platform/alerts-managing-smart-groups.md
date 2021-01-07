@@ -4,16 +4,16 @@ description: 경고 인스턴스에 대해 생성된 스마트 그룹 관리
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/24/2018
-ms.openlocfilehash: a84e1ed514bce0f4dda496a5304cbfa0665c7c51
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 564440336bf6a90cbd40aba6c8284cbc6c5e3ff3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983074"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186051"
 ---
 # <a name="manage-smart-groups"></a>스마트 그룹 관리
 
-[스마트 그룹](https://aka.ms/smart-groups)은 기계 학습 알고리즘을 사용하여 동시 발생 또는 유사성을 기준으로 경고를 그룹화하므로, 이제 사용자가 각 경고를 개별적으로 관리하는 대신 스마트 그룹을 관리할 수 있습니다. 이 문서에서는 Azure Monitor에서 스마트 그룹을 액세스하고 사용하는 방법을 안내합니다.
+[스마트 그룹](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)은 기계 학습 알고리즘을 사용하여 동시 발생 또는 유사성을 기준으로 경고를 그룹화하므로, 이제 사용자가 각 경고를 개별적으로 관리하는 대신 스마트 그룹을 관리할 수 있습니다. 이 문서에서는 Azure Monitor에서 스마트 그룹을 액세스하고 사용하는 방법을 안내합니다.
 
 1. 경고 인스턴스에 대해 생성 된 스마트 그룹을 확인 하려면 다음 중 하나를 수행 하면 됩니다.
 

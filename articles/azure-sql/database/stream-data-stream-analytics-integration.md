@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 36a96a1927aeedb5f841083241d487e0c61d6813
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437074"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454024"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Azure Stream Analytics 통합 (미리 보기)을 사용 하 여 Azure SQL Database로 데이터 스트리밍
 
@@ -31,7 +31,7 @@ ms.locfileid: "89437074"
 - 미리 보기 데이터에 대 한 추가 사용 편의성: 선택한 테이블의 컨텍스트에서 이벤트 원본 (이벤트 허브/IoT Hub)에서 들어오는 데이터 미리 보기
 
 > [!IMPORTANT]
-> Azure Stream Analytics 작업은 Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 출력 될 수 있습니다. 자세한 내용은 [출력](../../stream-analytics/stream-analytics-define-outputs.md)을 참조 하세요.
+> Azure Stream Analytics 작업은 Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics로 출력할 수 있습니다. 자세한 내용은 [출력](../../stream-analytics/stream-analytics-define-outputs.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -48,11 +48,11 @@ ms.locfileid: "89437074"
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. 스트리밍 데이터를이 데이터베이스로 수집 시작 하려면 **만들기** 를 선택 하 고 스트리밍 작업에 이름을 지정한 후 **다음: 입력**을 선택 합니다.
+3. 스트리밍 데이터를이 데이터베이스로 수집 시작 하려면 **만들기** 를 선택 하 고 스트리밍 작업에 이름을 지정한 후 **다음: 입력** 을 선택 합니다.
 
     ![Stream Analytics 작업 기본 사항 구성](./media/stream-data-stream-analytics-integration/create-job.png)
 
-4. 이벤트 원본 정보를 입력 하 고 **다음: 출력**을 선택 합니다.
+4. 이벤트 원본 정보를 입력 하 고 **다음: 출력** 을 선택 합니다.
 
    - **입력 유형**: 이벤트 허브/IoT Hub
    - **입력 별칭**: 이벤트 원본을 식별 하는 이름을 입력 합니다.
@@ -66,10 +66,10 @@ ms.locfileid: "89437074"
 
      ![Stream Analytics 작업 출력 구성](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
-5. 스트리밍 데이터를 수집 하려는 테이블을 선택 합니다. 완료 되 면 **만들기**를 선택 합니다.
+5. 스트리밍 데이터를 수집 하려는 테이블을 선택 합니다. 완료 되 면 **만들기** 를 선택 합니다.
 
-   - **사용자 이름**, **암호**: SQL server 인증을 위한 자격 증명을 입력 합니다. **유효성 검사**를 선택합니다.
-   - **테이블**: **새로 만들기** 를 선택 하거나 기존 테이블을 **사용**합니다. 이 흐름에서 **만들기**를 선택 합니다. 그러면 stream Analytics 작업을 시작할 때 새 테이블이 생성 됩니다.
+   - **사용자 이름**, **암호**: SQL server 인증을 위한 자격 증명을 입력 합니다. **유효성 검사** 를 선택합니다.
+   - **테이블**: **새로 만들기** 를 선택 하거나 기존 테이블을 **사용** 합니다. 이 흐름에서 **만들기** 를 선택 합니다. 그러면 stream Analytics 작업을 시작할 때 새 테이블이 생성 됩니다.
 
      ![Stream Analytics 작업 만들기](./media/stream-data-stream-analytics-integration/create.png)
 
@@ -100,7 +100,7 @@ ms.locfileid: "89437074"
       - 새로 만들기: 5 단계에서이 옵션을 선택한 경우 스트리밍 작업을 시작할 때까지 아직 스키마가 표시 되지 않습니다. 새 테이블을 만들 때 적절 한 테이블 인덱스를 선택 합니다. 테이블 인덱싱에 대 한 자세한 내용은 [설명 된 클러스터형 및 비클러스터형 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described/)를 참조 하십시오.
       - 기존 항목 사용: 5 단계에서이 옵션을 선택한 경우 선택한 테이블의 스키마가 표시 됩니다.
 
-7. 쿼리를 테스트 하 & 작성을 완료 한 후 **쿼리 저장**을 선택 합니다. **시작 Stream Analytics 작업** 을 선택 하 여 변환 된 데이터를 SQL 테이블로 수집 시작 합니다. 다음 필드를 마무리 한 후 작업을 **시작** 합니다.
+7. 쿼리를 테스트 하 & 작성을 완료 한 후 **쿼리 저장** 을 선택 합니다. **시작 Stream Analytics 작업** 을 선택 하 여 변환 된 데이터를 SQL 테이블로 수집 시작 합니다. 다음 필드를 마무리 한 후 작업을 **시작** 합니다.
    - **출력 시작 시간**: 작업의 첫 번째 출력 시간을 정의 합니다.  
      - Now: 작업을 지금 시작 하 고 들어오는 새 데이터를 처리 합니다.
      - 사용자 지정: 작업은 지금 시작 되지만 특정 시점의 데이터를 처리 합니다 (이전 또는 이후 일 수 있음). 자세한 내용은 [Azure Stream Analytics 작업을 시작 하는 방법](../../stream-analytics/start-job.md)을 참조 하세요.
@@ -124,6 +124,5 @@ ms.locfileid: "89437074"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stream Analytics 설명서](https://docs.microsoft.com/azure/stream-analytics/)
+- [Azure Stream Analytics 설명서](../../stream-analytics/index.yml)
 - [Azure Stream Analytics 솔루션 패턴](../../stream-analytics/stream-analytics-solution-patterns.md)
- 

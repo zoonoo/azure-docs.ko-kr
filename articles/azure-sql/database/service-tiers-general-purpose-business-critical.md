@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
-ms.date: 01/30/2020
-ms.openlocfilehash: 37dd6881876df010b548a8bb48ca88bb72dab764
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.reviewer: sashan, moslake
+ms.date: 12/14/2020
+ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986606"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512031"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database 및 Azure SQL Managed Instance 서비스 계층
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Azure SQL Database에는 추가 서비스 계층이 있습니다.
 | **로그 쓰기 처리량** | SQL Database | [vCore 당 1.875 m b/초 (최대 30 m b/초)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100MB/초 | [vCore 당 6mb/s (최대 96 m b/초)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | SQL Managed Instance | [vCore 당 3MB/s (최대 22 m b/초)](../managed-instance/resource-limits.md#service-tier-characteristics) | 해당 없음 | [vcore 당 4mb/s (최대 48 m b/초)](../managed-instance/resource-limits.md#service-tier-characteristics) |
 |**가용성**|모두| 99.99% |  [보조 복제본이 하나인 99.95%, 추가 복제본이 있는 99.99%](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99.99% <br/> [영역 중복 단일 데이터베이스가 포함 된 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Backup**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
+|**Backup**|모두|RA-GRS, 7-35 일 (기본적으로 7 일) 기본 계층에 대 한 최대 보존 기간은 7 일입니다. | RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
 |**메모리 내 OLTP** | | 해당 없음 | 해당 없음 | 사용 가능 |
 |**읽기 전용 복제본**| | 0 기본 제공 <br> 0-4 [지역에서 복제](active-geo-replication-overview.md) 사용 | 0-4 기본 제공 | 1 기본 제공, 가격에 포함 <br> 0-4 [지역에서 복제](active-geo-replication-overview.md) 사용 |
 |**가격 책정/청구** | SQL Database | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. | [각 복제본 및 사용 된 저장소에 대 한 Vcore에](https://azure.microsoft.com/pricing/details/sql-database/single/) 는 요금이 부과 됩니다. <br/>IOPS는 아직 청구 되지 않습니다. | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. |
@@ -84,7 +84,7 @@ Azure SQL Database에는 추가 서비스 계층이 있습니다.
 > [!IMPORTANT]
 > MDF 및 LDF 파일에 대해 할당 된 총 저장소에 대 한 요금이 청구 됩니다.
 
-MDF 및 LDF 파일의 현재 총 크기를 모니터링 하려면 [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)을 사용 합니다. 개별 MDF 및 LDF 파일의 현재 크기를 모니터링하려면 [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)를 사용합니다.
+MDF 및 LDF 파일의 현재 총 크기를 모니터링 하려면 [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)을 사용 합니다. 개별 MDF 및 LDF 파일의 현재 크기를 모니터링하려면 [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)를 사용합니다.
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](file-space-manage.md)를 참조 하세요.
@@ -102,5 +102,4 @@ MDF 및 LDF 파일의 현재 총 크기를 모니터링 하려면 [sp_spaceused]
 
 - [Azure SQL Database에 대 한 Vcore 기반 리소스 제한](resource-limits-vcore-single-databases.md)입니다.
 - [Azure SQL Database의 풀링된 데이터베이스에 대 한 Vcore 기반 리소스 제한](resource-limits-vcore-elastic-pools.md)입니다.
-- [AZURE SQL Managed Instance에 대 한 Vcore 기반 리소스 제한](../managed-instance/resource-limits.md)입니다. 
-
+- [AZURE SQL Managed Instance에 대 한 Vcore 기반 리소스 제한](../managed-instance/resource-limits.md)입니다.

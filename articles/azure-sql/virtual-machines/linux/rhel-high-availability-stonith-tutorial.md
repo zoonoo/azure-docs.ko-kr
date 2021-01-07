@@ -2,18 +2,17 @@
 title: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 - Linux 가상 머신 | Microsoft Docs
 description: RHEL 클러스터 환경에서 고가용성을 설정하고 STONITH를 설정하는 방법을 알아봅니다.
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086798"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587216"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,9 +36,9 @@ ms.locfileid: "87086798"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-이 자습서에서 CLI를 로컬로 설치하여 사용하려면 Azure CLI 버전 2.0.30 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.30 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -242,7 +241,7 @@ az vm availability-set create \
     done
     ```
 
-위의 명령은 VM을 만들고, 해당 VM에 대한 기본 VNet을 만듭니다. 다른 구성에 대한 자세한 내용은 [az vm create](https://docs.microsoft.com/cli/azure/vm) 문서를 참조하세요.
+위의 명령은 VM을 만들고, 해당 VM에 대한 기본 VNet을 만듭니다. 다른 구성에 대한 자세한 내용은 [az vm create](/cli/azure/vm) 문서를 참조하세요.
 
 각 VM에 대한 명령이 완료되면 다음과 비슷한 결과를 얻습니다.
 
@@ -263,7 +262,7 @@ az vm availability-set create \
 > [!IMPORTANT]
 > 위의 명령으로 만든 기본 이미지는 기본적으로 32GB OS 디스크를 만듭니다. 이 기본 설치를 사용하면 공간이 부족할 수 있습니다. 위의 `az vm create` 명령에 추가된 `--os-disk-size-gb 128` 매개 변수를 사용하여 128GB의 OS 디스크를 만들 수 있습니다.
 >
-> 그런 다음, 적절한 폴더 볼륨을 확장하여 설치를 완료해야 하는 경우 [LVM(논리 볼륨 관리자)을 구성](../../../virtual-machines/linux/configure-lvm.md)할 수 있습니다.
+> 그런 다음, 적절한 폴더 볼륨을 확장하여 설치를 완료해야 하는 경우 [LVM(논리 볼륨 관리자)을 구성](/previous-versions/azure/virtual-machines/linux/configure-lvm)할 수 있습니다.
 
 ### <a name="test-connection-to-the-created-vms"></a>만든 VM에 대한 연결 테스트
 
@@ -304,7 +303,7 @@ ssh <username>@publicipaddress
 1. 다음 명령을 사용하여 모든 노드에서 Pacemaker 패키지를 업데이트하고 설치합니다.
 
     > [!NOTE]
-    > **nmap**는 네트워크에서 사용 가능한 IP 주소를 찾는 도구이며 이 명령 블록의 일부로 설치됩니다. **nmap**를 설치할 필요는 없지만 이는 자습서의 뒷부분에서 유용합니다.
+    > **nmap** 는 네트워크에서 사용 가능한 IP 주소를 찾는 도구이며 이 명령 블록의 일부로 설치됩니다. **nmap** 를 설치할 필요는 없지만 이는 자습서의 뒷부분에서 유용합니다.
 
     ```bash
     sudo yum update -y
@@ -324,7 +323,7 @@ ssh <username>@publicipaddress
     sudo vi /etc/hosts
     ```
 
-    **vi** 편집기에서 `i`를 입력하여 텍스트를 삽입하고, 해당 VM의 **개인 IP**를 빈 줄에 추가합니다. 그런 다음, IP 옆의 공백 뒤에 VM 이름을 추가합니다. 각 줄에는 별도의 항목이 있어야 합니다.
+    **vi** 편집기에서 `i`를 입력하여 텍스트를 삽입하고, 해당 VM의 **개인 IP** 를 빈 줄에 추가합니다. 그런 다음, IP 옆의 공백 뒤에 VM 이름을 추가합니다. 각 줄에는 별도의 항목이 있어야 합니다.
 
     ```output
     <IP1> <VM1>
@@ -373,7 +372,7 @@ ssh <username>@publicipaddress
 
     **RHEL8**
 
-    RHEL 8의 경우 노드를 별도로 인증해야 합니다. 메시지가 표시되면 **hacluster**의 사용자 이름 및 암호를 수동으로 입력합니다.
+    RHEL 8의 경우 노드를 별도로 인증해야 합니다. 메시지가 표시되면 **hacluster** 의 사용자 이름 및 암호를 수동으로 입력합니다.
 
     ```bash
     sudo pcs host auth <node1> <node2> <node3>
@@ -487,13 +486,13 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  1. [https://editor.swagger.io](https://portal.azure.com ) 으로 이동합니다.
  2. [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)를 엽니다. 속성으로 이동하여 Directory ID 기록 `tenant ID`입니다.
  3. [**앱 등록**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)을 클릭합니다.
- 4. **새 등록**을 클릭합니다.
- 5. **이름**(예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만**을 선택합니다.
- 6. **웹** 애플리케이션 유형을 선택하고, 로그온 URL(예: http://localhost) )을 입력하고, [추가]를 클릭합니다. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있습니다. 작업이 완료되면 **등록**을 클릭합니다.
- 7. 새 등록에 대해 **인증서 및 비밀**을 선택한 다음, **새 클라이언트 암호**를 클릭합니다.
- 8. 새 키(클라이언트 암호)에 대한 설명을 입력하고, **만료 기한 제한 없음**을 선택하고, **추가**를 클릭합니다.
+ 4. **새 등록** 을 클릭합니다.
+ 5. **이름**(예: `<resourceGroupName>-app`)을 입력하고, **이 조직 디렉터리의 계정만** 을 선택합니다.
+ 6. **웹** 애플리케이션 유형을 선택하고, 로그온 URL(예: http://localhost) )을 입력하고, [추가]를 클릭합니다. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있습니다. 작업이 완료되면 **등록** 을 클릭합니다.
+ 7. 새 등록에 대해 **인증서 및 비밀** 을 선택한 다음, **새 클라이언트 암호** 를 클릭합니다.
+ 8. 새 키(클라이언트 암호)에 대한 설명을 입력하고, **만료 기한 제한 없음** 을 선택하고, **추가** 를 클릭합니다.
  9. 비밀의 값을 적어 둡니다. 서비스 주체의 암호로 사용됩니다.
-10. **개요**를 선택합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 로그인 ID)으로 사용됩니다.
+10. **개요** 를 선택합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 로그인 ID)으로 사용됩니다.
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>펜스 에이전트에 대한 사용자 지정 역할 만들기
 
@@ -568,7 +567,7 @@ az role definition create --role-definition "<filename>.json"
 2. [모든 리소스 블레이드](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)를 엽니다.
 3. 첫 번째 클러스터 노드의 가상 머신 선택
 4. **액세스 제어(IAM)** 를 클릭합니다.
-5. **역할 할당 추가**를 클릭합니다.
+5. **역할 할당 추가** 를 클릭합니다.
 6. **역할** 목록에서 `Linux Fence Agent Role-<username>` 역할을 선택합니다.
 7. **선택** 목록에서 위에서 만든 애플리케이션의 이름(`<resourceGroupName>-app`)을 입력합니다.
 8. 페이지 맨 아래에 있는 **저장**
@@ -699,7 +698,7 @@ sudo systemctl restart mssql-server
 
 AG 엔드포인트에 대한 AD 인증은 현재 지원하지 않습니다. 따라서 인증서는 AG 엔드포인트 암호화에 사용해야 합니다.
 
-1. SSMS(SQL Server Management Studio) 또는 SQL CMD를 사용하여 **모든 노드**에 연결합니다. 다음 명령을 실행하여 AlwaysOn_health 세션을 사용하도록 설정하고 마스터 키를 만듭니다.
+1. SSMS(SQL Server Management Studio) 또는 SQL CMD를 사용하여 **모든 노드** 에 연결합니다. 다음 명령을 실행하여 AlwaysOn_health 세션을 사용하도록 설정하고 마스터 키를 만듭니다.
 
     > [!IMPORTANT]
     > SQL Server 인스턴스에 원격으로 연결하는 경우 방화벽에서 1433 포트가 열려 있어야 합니다. 또한 각 VM의 NSG에서 1433 포트에 대한 인바운드 연결을 허용해야 합니다. 자세한 내용은 인바운드 보안 규칙을 만드는 [보안 규칙 만들기](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)를 참조하세요.
@@ -908,7 +907,7 @@ GO
 
 1. 보조 복제본이 조인되면 **Always On 고가용성** 노드를 펼쳐서 SSMS 개체 탐색기에서 해당 복제본을 볼 수 있습니다.
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![스크린샷은 기본 및 보조 가용성 복제본을 보여줍니다.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### <a name="add-a-database-to-the-availability-group"></a>가용성 그룹에 데이터베이스 추가
 
@@ -946,6 +945,9 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Pacemaker 클러스터에서 가용성 그룹 리소스 만들기
 
 [Pacemaker 클러스터에서 가용성 그룹 리소스 만들기](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only)의 지침을 따릅니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ### <a name="create-the-ag-cluster-resource"></a>AG 클러스터 리소스 만들기
 
@@ -1132,6 +1134,34 @@ Daemon Status:
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   리소스를 원하는 노드로 이동하기 위해 만든 임시 제약 조건이 자동으로 비활성화되고 아래의 2단계와 3단계를 수행할 필요가 없도록 추가 옵션을 지정할 수도 있습니다.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   리소스 이동 명령 자체의 임시 제약 조건을 제거하는 아래의 2단계와 3단계를 자동화하는 또 다른 대안은 여러 명령을 한 줄로 결합하는 것입니다. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. 제약 조건을 다시 확인하면 수동 장애 조치로 인해 다른 제약 조건이 추가되었음을 알 수 있습니다.
     
     **RHEL 7**

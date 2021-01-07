@@ -4,11 +4,11 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 토픽 및 구�
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114886"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008959"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Event Grid 메시지 배달 모니터링 
 이 문서에서는 포털을 사용 하 여 토픽 및 구독 Event Grid에 대 한 메트릭을 확인 하 고이에 대 한 경고를 만드는 방법을 설명 합니다. 
@@ -38,7 +38,7 @@ ms.locfileid: "86114886"
 사용자 지정 항목을 게시한 경우 해당 메트릭을 볼 수 있습니다. 
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 항목의 검색 표시줄에 **Event Grid 항목**을 입력 한 다음 드롭다운 목록에서 **항목 Event Grid** 를 선택 합니다. 
+2. 항목의 검색 표시줄에 **Event Grid 항목** 을 입력 한 다음 드롭다운 목록에서 **항목 Event Grid** 를 선택 합니다. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Event Grid 토픽 검색 및 선택":::
 3. 항목 목록에서 사용자 지정 항목을 선택 합니다. 
@@ -65,19 +65,19 @@ ms.locfileid: "86114886"
 
     :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="이벤트 구독 선택":::    
 
-    Azure Portal의 검색 표시줄에서 **Event Grid 구독** 을 검색 하 고 **토픽 유형**, **구독**및 **위치** 를 선택 하 여 이벤트 구독을 확인할 수도 있습니다. 
+    Azure Portal의 검색 표시줄에서 **Event Grid 구독** 을 검색 하 고 **토픽 유형**, **구독** 및 **위치** 를 선택 하 여 이벤트 구독을 확인할 수도 있습니다. 
 
     :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Event Grid 구독 페이지에서 이벤트 구독을 선택 합니다.":::        
 
-    사용자 지정 항목의 경우 **토픽 형식**으로 **Event Grid 항목** 을 선택 합니다. 시스템 항목의 경우 **저장소 계정 (Blob, GPv2)** 과 같은 Azure 리소스의 유형을 선택 합니다. 
-3. 차트에서 구독의 홈 페이지에서 구독에 대 한 메트릭을 확인 하세요. 지난 1 시간, 6 시간, 12 시간, 1 일, 7 일 또는 30 일 동안 **일반**, **오류**, **대기 시간**및 **배달 못 한 편지** 메트릭을 볼 수 있습니다. 
+    사용자 지정 항목의 경우 **토픽 형식** 으로 **Event Grid 항목** 을 선택 합니다. 시스템 항목의 경우 **저장소 계정 (Blob, GPv2)** 과 같은 Azure 리소스의 유형을 선택 합니다. 
+3. 차트에서 구독의 홈 페이지에서 구독에 대 한 메트릭을 확인 하세요. 지난 1 시간, 6 시간, 12 시간, 1 일, 7 일 또는 30 일 동안 **일반**, **오류**, **대기 시간** 및 **배달 못 한 편지** 메트릭을 볼 수 있습니다. 
 
     :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="구독 홈 페이지의 메트릭":::    
 
 ## <a name="view-system-topic-metrics"></a>시스템 항목 메트릭 보기
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 항목의 검색 표시줄에 **Event Grid 시스템 항목**을 입력 한 다음 드롭다운 목록에서 **시스템 항목 Event Grid** 를 선택 합니다. 
+2. 항목의 검색 표시줄에 **Event Grid 시스템 항목** 을 입력 한 다음 드롭다운 목록에서 **시스템 항목 Event Grid** 를 선택 합니다. 
 
     :::image type="content" source="./media/monitor-event-delivery/search-system-topics.png" alt-text="Event Grid 시스템 항목을 검색 하 고 선택 합니다.":::
 3. 항목 목록에서 시스템 항목을 선택 합니다. 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 7e45537d0a9fbdd738d6a2142b9259a15498e9c9
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503808"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706935"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -29,6 +29,8 @@ Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](/do
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 패키지 버전 1.0.28 이상
+
+- [DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (현재 버전 2.x 및 이전 버전 에서만 지원 됨)
 
 ## <a name="register-services"></a>서비스 등록
 
@@ -92,7 +94,7 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, MyService service)
+        public MyHttpTrigger(HttpClient httpClient, IMyService service)
         {
             this._client = httpClient;
             this._service = service;
@@ -118,21 +120,21 @@ namespace MyNamespace
 
 Azure Functions 앱은 [ASP.NET 종속성 주입](/aspnet/core/fundamentals/dependency-injection#service-lifetimes)과 동일한 서비스 수명을 제공합니다. Functions 앱의 경우 서로 다른 서비스 수명이 다음과 같이 동작합니다.
 
-- **임시**: 임시 서비스는 서비스가 요청될 때마다 생성됩니다.
-- **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위 서비스는 1회 실행당 한 번 생성됩니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
+- **임시**: 임시 서비스는 서비스를 확인할 때마다 생성 됩니다.
+- **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위가 지정 된 서비스는 함수 실행 당 한 번 생성 됩니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
 - **싱글톤**: 싱글톤 서비스 수명은 호스트 수명과 일치하며 해당 인스턴스에서 함수를 실행할 때 다시 사용됩니다. `DocumentClient` 또는 `HttpClient` 인스턴스 같은 연결 및 클라이언트에는 싱글톤 수명 서비스가 권장됩니다.
 
 GitHub에서 [다양한 서비스 수명 샘플](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes)을 보거나 다운로드하세요.
 
 ## <a name="logging-services"></a>로깅 서비스
 
-사용자 고유의 로깅 공급자가 필요한 경우에는 사용자 지정 유형을 Microsoft의 인스턴스로 등록 합니다 .이 인스턴스는 Microsoft 확장명이. n a m a [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) NuGet 패키지를 통해 사용할 수 있습니다. [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)
+사용자 고유의 로깅 공급자가 필요한 경우에는 사용자 지정 유형을 Microsoft의 인스턴스로 등록 합니다 .이 인스턴스는 Microsoft 확장명이. n a m a [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) NuGet 패키지를 통해 사용할 수 있습니다. [](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)
 
 Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
 
 > [!WARNING]
-> - `AddApplicationInsightsTelemetry()`는 환경에서 제공하는 서비스와 충돌하는 서비스를 등록하므로 서비스 컬렉션에 추가하지 마세요.
-> - 기본 제공 Application Insights 기능을 사용하는 경우 자체 `TelemetryConfiguration` 또는 `TelemetryClient`를 등록하지 마세요. 자체 `TelemetryClient` 인스턴스를 구성해야 하는 경우에는 [Azure Functions 모니터링](./functions-monitoring.md#version-2x-and-later-2)에 나와 있는 것처럼 주입된 `TelemetryConfiguration`을 통해 만듭니다.
+> - `AddApplicationInsightsTelemetry()`환경에서 제공 하는 서비스와 충돌 하는 서비스를 등록 하는 서비스 컬렉션에를 추가 하지 마세요.
+> - `TelemetryConfiguration` `TelemetryClient` 기본 제공 Application Insights 기능을 사용 하는 경우에는 직접 등록 하지 마세요. 사용자 고유의 인스턴스를 구성 해야 하 `TelemetryClient` 는 경우 `TelemetryConfiguration` [c # 함수의 사용자 지정 원격 분석 로그](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions)에 표시 된 대로 삽입 된를 통해 하나를 만듭니다.
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> 및 ILoggerFactory
 
@@ -181,6 +183,8 @@ namespace MyNamespace
     }
 }
 ```
+
+로그 수준에 대 한 자세한 내용은 [로그 수준 구성](configure-monitoring.md#configure-log-levels)을 참조 하세요.
 
 ## <a name="function-app-provided-services"></a>함수 앱 제공 서비스
 
@@ -287,7 +291,7 @@ namespace MyNamespace
 }
 ```
 
-구성 공급자를 `ConfigurationBuilder` 의 속성에 추가 `IFunctionsConfigurationBuilder` 합니다. 구성 공급자 사용에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers)을 참조 하세요.
+구성 공급자를 `ConfigurationBuilder` 의 속성에 추가 `IFunctionsConfigurationBuilder` 합니다. 구성 공급자 사용에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/#configuration-providers)을 참조 하세요.
 
 는 `FunctionsHostBuilderContext` 에서 가져옵니다 `IFunctionsConfigurationBuilder.GetContext()` . 이 컨텍스트를 사용 하 여 현재 환경 이름을 검색 하 고 함수 앱 폴더에서 구성 파일의 위치를 확인 합니다.
 

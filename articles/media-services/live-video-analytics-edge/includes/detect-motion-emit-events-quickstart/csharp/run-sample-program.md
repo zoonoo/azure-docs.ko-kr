@@ -1,17 +1,26 @@
 ---
-ms.openlocfilehash: ed7be82146f38cc7ae57fd863bb0c1b8e6910fd2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 766dd13f58268c044435a22fb30c1de816d4d151
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691069"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531970"
 ---
 샘플 코드를 실행하려면 다음 단계를 수행합니다.
 
-1. Visual Studio Code에서 *src/cloud-to-device-console-app/operations.json*으로 이동합니다.
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누르고) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="확장 설정":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="자세한 정보 메시지 표시":::
+1. Visual Studio Code에서 *src/cloud-to-device-console-app/operations.json* 으로 이동합니다.
 1. **GraphTopologySet** 노드에서 다음 값이 표시되는지 확인합니다.
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"`
 1. **GraphInstanceSet** 및 **GraphTopologyDelete** 노드에서 `topologyName` 값이 그래프 토폴로지의 `name` 속성 값과 일치하는지 확인합니다.
 
     `"topologyName" : "MotionDetection"`
@@ -24,7 +33,7 @@ ms.locfileid: "88691069"
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-        "@apiVersion": "1.0"
+        "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -41,7 +50,7 @@ ms.locfileid: "88691069"
          
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph",
       "properties": {
         "topologyName": "MotionDetection",

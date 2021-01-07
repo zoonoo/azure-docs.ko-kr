@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 76f73df01b34cb20be48aefa3b5b3a6392a35b8b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87045195"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
@@ -45,7 +45,7 @@ Azure 진단 확장은 **데이터 싱크** 라는 기능을 사용 하 여 메�
 두 파일을 다운로드하고 로컬로 저장합니다. 
 
 ###  <a name="modify-azuredeployparametersjson"></a>azuredeploy.parameters.json을 수정합니다.
-파일 **에서azuredeploy.parameters.js** 를 엽니다.  
+파일 ** 에서azuredeploy.parameters.js** 를 엽니다.  
  
 - 배포할 **vmSKU**를 제공합니다. Standard_D2_v3을 사용하는 것이 좋습니다. 
 - 가상 머신 확장 집합에 사용하려는 **windowsOSVersion**을 지정합니다. 2016-Datacenter를 사용하는 것이 좋습니다. 
@@ -55,7 +55,7 @@ Azure 진단 확장은 **데이터 싱크** 라는 기능을 사용 하 여 메�
 
 
 ###  <a name="modify-azuredeployjson"></a>Azuredeploy.json을 수정합니다.
-파일 **에서azuredeploy.js** 를 엽니다. 
+파일 ** 에서azuredeploy.js** 를 엽니다. 
 
 Resource Manager 템플릿에서 스토리지 계정 정보를 보유하는 변수를 추가합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 Azure Monitor 메트릭 스토리지와 여기서 지정한 스토리지 계정 둘 다에 기록됩니다. 
 

@@ -3,20 +3,22 @@ title: Azure Cosmos DB에서 저장 프로시저, 트리거 및 Udf 작업
 description: 이 문서에서는 Azure Cosmos DB의 저장 프로시저, 트리거 및 사용자 정의 함수와 같은 개념을 소개합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82509672"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340705"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB는 JavaScript의 언어 통합형, 트랜잭션 실행을 제공합니다. Azure Cosmos DB에서 SQL API를 사용 하는 경우 JavaScript 언어로 **저장 프로시저**, **트리거**및 **udf (사용자 정의 함수)** 를 작성할 수 있습니다. 데이터베이스 엔진 내에서 실행되는 JavaScript로 논리를 작성할 수 있습니다. Azure Cosmos DB 또는 [COSMOS DB SQL API 클라이언트 sdk](how-to-use-stored-procedures-triggers-udfs.md) [의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) [Azure Portal](https://portal.azure.com/)를 사용 하 여 트리거, 저장 프로시저 및 udf를 만들고 실행할 수 있습니다.
+Azure Cosmos DB는 JavaScript의 언어 통합형, 트랜잭션 실행을 제공합니다. Azure Cosmos DB에서 SQL API를 사용 하는 경우 JavaScript 언어로 **저장 프로시저** , **트리거** 및 **udf (사용자 정의 함수)** 를 작성할 수 있습니다. 데이터베이스 엔진 내에서 실행되는 JavaScript로 논리를 작성할 수 있습니다. Azure Cosmos DB 또는 [COSMOS DB SQL API 클라이언트 sdk](how-to-use-stored-procedures-triggers-udfs.md) [의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) [Azure Portal](https://portal.azure.com/)를 사용 하 여 트리거, 저장 프로시저 및 udf를 만들고 실행할 수 있습니다.
 
 ## <a name="benefits-of-using-server-side-programming"></a>서버 쪽 프로그래밍 사용의 이점
 
@@ -24,7 +26,7 @@ JavaScript에서 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 
 * **절차적 논리:** JavaScript는 비즈니스 논리를 표현할 수 있는 풍부 하 고 친숙 한 인터페이스를 제공 하는 상위 수준의 프로그래밍 언어입니다. 데이터에 대해 복잡한 작업 시퀀스를 수행할 수 있습니다.
 
-* **원자성 트랜잭션:** Azure Cosmos DB는 단일 저장 프로시저 또는 트리거 내에서 수행 되는 데이터베이스 작업이 원자성을 보장 합니다. 이 원자성 기능을 사용하면 애플리케이션이 관련 작업을 단일 배치로 결합하여 모든 작업이 성공하거나 모두 실패하도록 할 수 있습니다.
+* **원자성 트랜잭션:** 단일 저장 프로시저 또는 트리거 내에서 수행 되는 Azure Cosmos DB 데이터베이스 작업은 원자성입니다. 이 원자성 기능을 사용하면 애플리케이션이 관련 작업을 단일 배치로 결합하여 모든 작업이 성공하거나 모두 실패하도록 할 수 있습니다.
 
 * **성능:** JSON 데이터는 본질적으로 JavaScript 언어 형식 시스템에 매핑됩니다. 이 매핑을 사용하면 버퍼 풀에 있는 JSON 문서의 지연 구체화, 실행 중인 코드에서 요청 시 사용 가능과 같은 다양한 최적화가 허용됩니다. 데이터베이스에 비즈니스 논리를 전달할 경우 다음과 같은 기타 성능상의 이점이 있습니다.
 
@@ -41,7 +43,7 @@ JavaScript에서 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 
 ## <a name="transactions"></a>트랜잭션
 
-일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서는 **ACID 속성 보장**을 제공합니다. ACID **는 tomicity,** **C**onsistency, **I** **등을**나타내는 잘 알려진 머리글자어입니다. 
+일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서는 **ACID 속성 보장** 을 제공합니다. ACID **는 tomicity,** **C** onsistency, **I** **등을** 나타내는 잘 알려진 머리글자어입니다. 
 
 * 원자성은 트랜잭션 내부에서 수행된 모든 작업이 하나의 단위로 처리되어 모두 커밋되거나 커밋되지 않도록 합니다. 
 
@@ -55,7 +57,7 @@ Azure Cosmos DB에서 JavaScript 런타임의 호스트는 데이터베이스 �
 
 ### <a name="scope-of-a-transaction"></a>트랜잭션의 범위
 
-저장 프로시저는 Azure Cosmos 컨테이너와 연결 되 고 저장 프로시저 실행 범위는 논리적 파티션 키로 지정 됩니다. 저장 프로시저는 실행 하는 동안 트랜잭션 범위에 대 한 논리 파티션을 정의 하는 논리적 파티션 키 값을 포함 해야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](partition-data.md) 문서를 참조하세요.
+저장 프로시저는 Azure Cosmos 컨테이너와 연결 되 고 저장 프로시저 실행 범위는 논리적 파티션 키로 지정 됩니다. 저장 프로시저는 실행 하는 동안 트랜잭션 범위에 대 한 논리 파티션을 정의 하는 논리적 파티션 키 값을 포함 해야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](partitioning-overview.md) 문서를 참조하세요.
 
 ### <a name="commit-and-rollback"></a>커밋 및 롤백
 
@@ -63,7 +65,7 @@ Azure Cosmos DB에서 JavaScript 런타임의 호스트는 데이터베이스 �
 
 ### <a name="data-consistency"></a>데이터 일관성
 
-저장 프로시저와 트리거는 항상 Azure Cosmos 컨테이너의 주 복제본에서 실행됩니다. 이 기능은 저장 프로시저의 읽기에서 [강력한 일관성](consistency-levels-tradeoffs.md)을 제공합니다. 사용자 정의 함수를 사용하는 쿼리는 주 또는 보조 복제본에서 실행할 수 있습니다. 저장 프로시저 및 트리거는 트랜잭션 쓰기를 지원하기 위한 것이지만, [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md)를 사용하는 애플리케이션 쪽 논리 및 쿼리가 데이터베이스 처리량의 범위를 제한하는 데 도움이 되므로 읽기 전용 논리가 가장 잘 구현됩니다. 
+저장 프로시저와 트리거는 항상 Azure Cosmos 컨테이너의 주 복제본에서 실행됩니다. 이 기능은 저장 프로시저의 읽기에서 [강력한 일관성](./consistency-levels.md)을 제공합니다. 사용자 정의 함수를 사용하는 쿼리는 주 또는 보조 복제본에서 실행할 수 있습니다. 저장 프로시저 및 트리거는 트랜잭션 쓰기를 지원하기 위한 것이지만, [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md)를 사용하는 애플리케이션 쪽 논리 및 쿼리가 데이터베이스 처리량의 범위를 제한하는 데 도움이 되므로 읽기 전용 논리가 가장 잘 구현됩니다. 
 
 > [!TIP]
 > 저장 프로시저 또는 트리거 내에서 실행 되는 쿼리에는 동일한 스크립트 트랜잭션에서 수행한 항목에 대 한 변경 내용이 표시 되지 않을 수 있습니다. 이 문은와 같은 SQL 쿼리와 통합 언어 쿼리 (예:)를 모두 적용 `getContent().getCollection.queryDocuments()` `getContext().getCollection().filter()` 합니다.

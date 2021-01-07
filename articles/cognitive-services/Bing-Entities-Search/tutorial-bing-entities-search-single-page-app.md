@@ -10,17 +10,22 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d14681e07518188deabd9f48a04b80a489d858b8
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407934"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366536"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
-Bing Entity Search API를 사용하면 *엔터티* 및 *장소*에 대한 정보를 웹에서 검색할 수 있습니다. 지정된 쿼리에서 두 종류의 결과 중 하나 또는 둘 다를 요청할 수 있습니다. 아래에는 장소 및 엔터티에 대한 정의가 나와 있습니다.
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
+
+Bing Entity Search API를 사용하면 *엔터티* 및 *장소* 에 대한 정보를 웹에서 검색할 수 있습니다. 지정된 쿼리에서 두 종류의 결과 중 하나 또는 둘 다를 요청할 수 있습니다. 아래에는 장소 및 엔터티에 대한 정의가 나와 있습니다.
 
 | 결과 | Description |
 |-|-|
@@ -52,7 +57,7 @@ API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다
 
 자습서 페이지는 완전히 독립적입니다. 즉, 외부 프레임워크, 스타일시트 또는 이미지 파일을 사용하지 않습니다. 이 페이지는 광범위하게 지원되는 JavaScript 언어 기능만 사용하며, 모든 주요 웹 브라우저의 현재 버전에서 작동합니다.
 
-이 자습서에서는 소스 코드의 선택된 부분에 대해서만 설명합니다. 전체 소스 코드는 [별도 페이지에서](tutorial-bing-entities-search-single-page-app-source.md) 확인할 수 있습니다. 텍스트 편집기에 이 코드를 복사 및 붙여넣고 `bing.html`로 저장합니다.
+이 자습서에서는 소스 코드의 선택된 부분에 대해서만 설명합니다. 전체 소스 코드는 [별도 페이지에서]() 확인할 수 있습니다. 텍스트 편집기에 이 코드를 복사 및 붙여넣고 `bing.html`로 저장합니다.
 
 > [!NOTE]
 > 이 자습서는 [단일 페이지 Bing Web Search 앱 자습서](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)와 대체로 비슷하지만, 엔터티 검색 결과만 처리합니다.
@@ -63,8 +68,8 @@ API를 통해 위치별로 결과의 우선 순위를 지정할 수 있습니다
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure 구독을 만든 후에는 다음을 수행합니다.
-  * Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
-  * Azure Portal에서 <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
+  * Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Bing Search 리소스 만들기"  target="_blank">Bing Search 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
+  * Azure Portal에서 <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 수행하여 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
 
 ## <a name="app-components"></a>앱 구성 요소
 
@@ -400,7 +405,7 @@ function handleBingResponse() {
 
 ## <a name="displaying-search-results"></a>검색 결과 표시
 
-Bing Entity Search API[에서는 지정된 순서로 결과를 표시해야 합니다](use-display-requirements.md). API가 두 가지 종류의 응답을 반환할 수 있으므로 JSON 응답에서 최상위 `Entities` 또는 `Places` 컬렉션을 반복하고 해당 결과를 표시하는 것으로는 충분하지 않습니다. 한 가지 유형의 결과만 표시하려면 `responseFilter` 쿼리 매개 변수를 사용합니다.
+Bing Entity Search API[에서는 지정된 순서로 결과를 표시해야 합니다](../bing-web-search/use-display-requirements.md). API가 두 가지 종류의 응답을 반환할 수 있으므로 JSON 응답에서 최상위 `Entities` 또는 `Places` 컬렉션을 반복하고 해당 결과를 표시하는 것으로는 충분하지 않습니다. 한 가지 유형의 결과만 표시하려면 `responseFilter` 쿼리 매개 변수를 사용합니다.
 
 대신, 검색 결과에서 `rankingResponse` 컬렉션을 사용하여 표시할 결과를 정렬합니다. 이 개체는 `Entitiess` 및/또는 `Places` 컬렉션의 항목을 나타냅니다.
 

@@ -2,14 +2,16 @@
 title: AI(인공 지능)
 description: LUIS은 AI (인공 지능)를 사용 하 여 사용자가 정의한 스키마에 따라 데이터에 대 한 언어 이해를 제공 합니다.
 ms.topic: conceptual
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: bdcede01ec6bab5f8b43d89ff40d588a011d5dfb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 39f73dd002091451ae832516d525499eae98564d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751353"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021374"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Language Understanding의 인공 지능 (LUIS)
 
@@ -36,10 +38,10 @@ NLU (자연 Language Understanding)는 NLP (자연어 처리)의 특정 하위 �
 * LUIS에서 구성 가능한 NLP 측면:
     * [토큰화](luis-language-support.md#tokenization)
     * 분음 부호, 문장 부호 및 word forms [API 설정을](luis-reference-application-settings.md) 통해 Morphology
-* Utterance와 같은 다른 [Cognitive Services](../Welcome.md) 에서 제공 하는 쿼리를 전처리 또는 후 처리 합니다.
-    * [변환](../translator/translator-info-overview.md)
+* Utterance와 같은 다른 [Cognitive Services](../what-are-cognitive-services.md) 에서 제공 하는 쿼리를 전처리 또는 후 처리 합니다.
+    * [번역](../translator/translator-info-overview.md)
 
-## <a name="natural-language-understanding-nlu"></a>NU (자연어 인식)
+## <a name="natural-language-understanding-nlu"></a>NLU(자연어 인식)
 
 NLU는 언어적 문을 사용자에 게 자연스럽 게 이해할 수 있도록 하는 표현으로 _변환_ 하는 기능입니다. 자연어를 이해 하는 것은 매우 어려운 문제 이며 _AI 하드_ 문제로 정의 됩니다.
 

@@ -6,26 +6,26 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 116446c2ca6512ac39b907e95a2c1ccdf70befda
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 88fe09199cb50d2a3796c3b638dca1a723016dc4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949289"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742020"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Azure MFA 서버 및 타사 VPN 솔루션을 사용한 고급 시나리오
 
 Azure Multi-Factor Authentication 서버 (Azure MFA 서버)를 사용 하 여 다양 한 타사 VPN 솔루션과 원활 하 게 연결할 수 있습니다. 이 문서에서는 Cisco의 &reg; vpn 어플라이언스, Citrix NETSCALER SSL vpn 어플라이언스 및 곱 향나무 네트워크 보안 액세스/Pulse Secure Connect SECURE SSL VPN 어플라이언스에 대해 집중적으로 설명 합니다. 이러한 세 가지 일반적인 어플라이언스를 해결하기 위해 구성 지침을 작성했습니다. Azure MFA 서버는 RADIUS, LDAP, IIS 또는 클레임 기반 인증을 사용 하 여 AD FS 하는 대부분의 다른 시스템과 통합할 수도 있습니다. 자세한 내용은 [AZURE MFA 서버 구성](howto-mfaserver-deploy.md#next-steps)에서 찾을 수 있습니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: Azure Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
 >
 > 클라우드 기반 MFA를 사용 하는 경우 [VPN 인프라를 AZURE MFA와 통합](howto-mfa-nps-extension-vpn.md)을 참조 하세요.
 >

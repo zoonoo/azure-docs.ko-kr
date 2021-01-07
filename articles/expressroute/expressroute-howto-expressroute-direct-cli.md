@@ -1,23 +1,23 @@
 ---
 title: 'Azure Express 경로: Express 경로 직접 구성: CLI'
-description: Azure CLI를 사용 하 여 전 세계에서 피어 링 위치에 있는 Microsoft 글로벌 네트워크에 직접 연결 하도록 Azure Express 경로 다이렉트를 구성 하는 방법을 알아봅니다.
+description: Azure CLI를 사용 하 여 Microsoft 글로벌 네트워크에 직접 연결 하도록 Azure Express 경로 다이렉트를 구성 하는 방법을 알아봅니다.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4eea79d6166ef4beae3b2d61e47e7df0bc82624c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 7931ad9e55d62d5fa2b1828d276e56f7c8cd02e1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395964"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286483"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 직접 구성
 
-Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결할 수 있습니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
+Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치를 통해 Microsoft의 글로벌 네트워크에 직접 연결 하는 기능을 제공 합니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
 
 ## <a name="create-the-resource"></a><a name="resources"></a>리소스 만들기
 
@@ -152,7 +152,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
    ```
 
    > [!NOTE]
-   > **Encapsulation** 특성을 **Dot1Q**로 설정할 수도 있습니다. 
+   > **Encapsulation** 특성을 **Dot1Q** 로 설정할 수도 있습니다. 
    >
 
    **예제 출력**
@@ -213,7 +213,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
 
 이 프로세스를 사용하여 계층 1 테스트를 수행합니다. 각 교차 연결을 기본 및 보조 포트의 각 라우터에 제대로 패치해야 합니다.
 
-1. 링크를 **사용**으로 설정합니다. 이 단계를 반복하여 각 링크를 **사용**으로 설정합니다.
+1. 링크를 **사용** 으로 설정합니다. 이 단계를 반복하여 각 링크를 **사용** 으로 설정합니다.
 
    링크[0]은 1차 포트이고 링크[1]은 2차 포트입니다.
 
@@ -287,7 +287,8 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
 
 지역, 표준 또는 프리미엄 일 **수 있습니다.**
 
-Unlimiteddata는 Express 경로 직접 지원 되지 않으므로 무제한으로 사용할 **수 있어야 합니다** .
+고가 Unlimiteddata **만 가능 합니다** . Express 경로 직접에서는 무제한이 지원 되지 않습니다.
+
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
   ```azurecli

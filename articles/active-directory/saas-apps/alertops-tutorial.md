@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d820a3fc9b12a36a76e2eb887b32d27acc156c76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094b1a029c8e10abce3ca282de0cc99be34d313a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522344"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318851"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>자습서: Azure Active Directory와 AlertOps 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "88522344"
 * 사용자가 자신의 Azure AD 계정으로 AlertOps에 자동으로 로그온되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -108,11 +108,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 왼쪽 탐색 패널에서 **계정 설정**을 클릭합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/configure1.png)
+    ![스크린샷은 계정 설정이 호출된 AlertOps 메뉴를 보여줍니다.](./media/alertops-tutorial/configure1.png)
 
 5. **구독 설정** 페이지에서 **SSO**를 선택하고 다음 단계를 수행합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/configure2.png)
+    ![스크린샷은 이 단계에서 설명한 대로 값이 입력된 SSO에 대한 구독 설정 창을 보여줍니다.](./media/alertops-tutorial/configure2.png)
 
     a. **SSO(Single Sign-On) 사용** 확인란을 선택합니다.
 
@@ -164,15 +164,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 왼쪽 탐색 패널에서 **사용자**를 클릭합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/user1.png)
+    ![스크린샷은 사용자가 호출된 AlertOps 메뉴를 보여줍니다.](./media/alertops-tutorial/user1.png)
 
 3. **사용자 추가**를 선택합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/user2.png)
+    ![스크린샷은 사용자 추가 단추가 있는 사용자 창을 보여줍니다.](./media/alertops-tutorial/user2.png)
 
 4. **사용자 추가** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/user3.png)
+    ![스크린샷은 이 단계에서 설명하는 대로 값이 입력된 사용자 추가 창을 보여줍니다.](./media/alertops-tutorial/user3.png)
 
     a. **로그인 사용자 이름** 텍스트 상자에 **Brittasimon**과 같은 사용자 이름을 입력합니다.
 
@@ -190,12 +190,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="test-sso"></a>SSO 테스트
 
-액세스 패널에서 AlertOps 타일을 선택하면 SSO를 설정한 AlertOps에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 AlertOps 타일을 선택하면 SSO를 설정한 AlertOps에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

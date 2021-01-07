@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634516"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146770"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -70,7 +70,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 1. Stream Analytics 작업을 엽니다.
 
-2. **작업 토폴로지**아래에서 **입력**을 선택 합니다.
+2. **작업 토폴로지**에서 **입력**을 선택합니다.
 
 3. **입력** 창에서 **스트림 입력 추가**를 선택 하 고 드롭다운 목록에서 **IoT Hub** 을 선택 합니다. 새 입력 창에서 다음 정보를 입력 합니다.
 
@@ -78,7 +78,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    **구독에서 IoT Hub 선택**:이 라디오 단추를 선택 합니다.
 
-   **구독**:이 자습서에 사용 중인 Azure 구독을 선택 합니다.
+   **구독**: 이 자습서를 위해 사용 중인 Azure 구독을 선택합니다.
 
    **IoT Hub**:이 자습서에 사용 하 고 있는 IoT Hub를 선택 합니다.
 
@@ -98,7 +98,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics 작업에 출력 추가
 
-1. **작업 토폴로지**에서 **출력**을 선택 합니다.
+1. **작업 토폴로지**에서 **출력**을 선택합니다.
 
 2. **출력** 창에서 **추가** 를 선택 하 고 **Power BI**합니다.
 
@@ -122,7 +122,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics 작업의 쿼리 구성
 
-1. **작업 토폴로지**아래에서 **쿼리**를 선택 합니다.
+1. **작업 토폴로지**에서 **쿼리**를 선택합니다.
 
 2. `[YourInputAlias]`를 작업의 입력 별칭으로 바꿉니다.
 
@@ -130,7 +130,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    ![Azure에서 Stream Analytics 작업에 쿼리 추가](./media/iot-hub-live-data-visualization-in-power-bi/add-query-to-stream-analytics-job.png)
 
-4. **쿼리 저장**을 선택 합니다.
+4. **쿼리 저장**을 선택합니다.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
@@ -140,9 +140,9 @@ Stream Analytics 작업에서 **개요**를 선택한 다음 시작 **시작**�
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Power BI 보고서를 만들고 게시하여 데이터 시각화
 
-다음 단계에서는 Power BI 서비스를 사용 하 여 보고서를 만들고 게시 하는 방법을 보여 줍니다. Power BI에서 "새 모양"을 사용 하려는 경우 다음 단계를 수행 하 여 수정할 수 있습니다. "새 모양"의 차이점 및 탐색 방법을 이해 하려면 [Power BI 서비스의 ' 새 모양 '](https://docs.microsoft.com/power-bi/consumer/service-new-look)을 참조 하세요.
+다음 단계에서는 Power BI 서비스를 사용 하 여 보고서를 만들고 게시 하는 방법을 보여 줍니다. Power BI에서 "새 모양"을 사용 하려는 경우 다음 단계를 수행 하 여 수정할 수 있습니다. "새 모양"의 차이점 및 탐색 방법을 이해 하려면 [Power BI 서비스의 ' 새 모양 '](/power-bi/consumer/service-new-look)을 참조 하세요.
 
-1. 애플리케이션 예제가 사용자 디바이스에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started)에 있는 자습서를 참조할 수 있습니다.
+1. 애플리케이션 예제가 사용자 디바이스에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](./iot-hub-raspberry-pi-kit-node-get-started.md)에 있는 자습서를 참조할 수 있습니다.
 
 2. [Power BI](https://powerbi.microsoft.com/en-us/) 계정에 로그인합니다.
 

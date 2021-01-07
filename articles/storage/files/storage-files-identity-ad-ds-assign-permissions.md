@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535096"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91716046"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>2 부: id에 공유 수준 권한 할당
 
@@ -47,12 +47,12 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 공유 수준 
 1. Azure Portal에서 파일 공유로 이동 하거나 [파일 공유를 만듭니다](storage-how-to-create-file-share.md).
 1. **Access Control(IAM)** 을 선택합니다.
 1. **역할 할당 추가** 선택
-1. **역할 할당 추가** 블레이드의 **역할** 목록에서 적절 한 기본 제공 역할 (저장소 파일 데이터 Smb 공유 판독기, 저장소 파일 데이터 smb 공유 참가자)을 선택 합니다. 기본 설정인 **AZURE AD 사용자, 그룹 또는 서비스 주체**에 대 한 **액세스 할당을** 그대로 둡니다. 이름 또는 전자 메일 주소를 기준으로 대상 Azure AD id를 선택 합니다. 선택한 Azure AD id는 하이브리드 id 여야 하며 클라우드 전용 id 일 수 없습니다. 즉, 동일한 id가 AD DS에도 표시 됩니다.
+1. **역할 할당 추가** 블레이드의 **역할** 목록에서 적절 한 기본 제공 역할 (저장소 파일 데이터 Smb 공유 판독기, 저장소 파일 데이터 smb 공유 참가자)을 선택 합니다. 기본 설정인 **AZURE AD 사용자, 그룹 또는 서비스 주체**에 대 한 **액세스 할당을** 그대로 둡니다. 이름 또는 전자 메일 주소를 기준으로 대상 Azure AD id를 선택 합니다. **선택한 Azure AD id는 하이브리드 id 여야 하며 클라우드 전용 id 일 수 없습니다.** 즉, 동일한 id가 AD DS에도 표시 됩니다.
 1. **저장** 을 선택 하 여 역할 할당 작업을 완료 합니다.
 
 ### <a name="powershell"></a>PowerShell
 
-다음 PowerShell 샘플은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 하는 방법을 보여 줍니다. PowerShell로 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC를 사용 하 여 액세스 관리 및 Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)을 참조 하세요.
+다음 PowerShell 샘플은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 하는 방법을 보여 줍니다. PowerShell로 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈을 사용 하 여 azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)를 참조 하세요.
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 사용자의 값으로 대체 합니다.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-다음 CLI 2.0 명령은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 합니다. Azure CLI와 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC 및 Azure CLI를 사용 하 여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
+다음 CLI 2.0 명령은 로그인 이름에 따라 azure AD id에 Azure 역할을 할당 합니다. Azure CLI로 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)를 참조 하세요. 
 
 다음 샘플 스크립트를 실행 하기 전에 대괄호를 포함 하 여 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 

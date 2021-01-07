@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230622"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013034"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
@@ -31,7 +31,7 @@ ms.locfileid: "89230622"
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 오른쪽 위 모서리에서 디렉터리를 선택한 다음, 왼쪽 탐색 창에서 **Azure Active Directory** 블레이드를 선택합니다.
-3. Azure Active Directory 블레이드의 **활동** 섹션에서 **감사 로그**를 선택합니다. 
+3. Azure Active Directory 블레이드의 **활동** 섹션에서 **감사 로그** 를 선택합니다. 
 
     ![감사 로그](./media/howto-find-activity-reports/482.png "감사 로그")
 
@@ -97,7 +97,7 @@ ms.locfileid: "89230622"
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 오른쪽 위 모서리에서 디렉터리를 선택한 다음, 왼쪽 탐색 창에서 **Azure Active Directory** 블레이드를 선택합니다.
-3. Azure Active Directory 블레이드의 **활동** 섹션에서 **로그인**을 선택합니다. 
+3. Azure Active Directory 블레이드의 **활동** 섹션에서 **로그인** 을 선택합니다. 
 
     ![로그인 보기](./media/howto-find-activity-reports/483.png "로그인 보기")
 
@@ -106,7 +106,7 @@ ms.locfileid: "89230622"
 
 로그인 보고서를 사용하여 사용자 이름 또는 애플리케이션 이름을 필터링하여 애플리케이션 사용량에 대한 세부 정보를 볼 수 있습니다.
 
-![로그인 이벤트 필터링 페이지](./media/howto-find-activity-reports/07.png "로그인 이벤트 필터링 페이지")
+![Sign-In 이벤트 필터링 페이지](./media/howto-find-activity-reports/07.png "Sign-In 이벤트 필터링 페이지")
 
 ## <a name="security-reports"></a>보안 보고서
 
@@ -147,9 +147,9 @@ ms.locfileid: "89230622"
 
 #### <a name="symptoms"></a>증상 
 
-활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 무엇일까요? 
+활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 
 
- ![보고](./media/troubleshoot-missing-data-download/01.png)
+ ![작업 보고서의 다운로드 단추를 보여 주는 스크린샷](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>원인
 
@@ -165,7 +165,7 @@ Azure Portal에서 활동 로그를 다운로드 하는 경우 가장 최근의 
 
 Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` 블레이드에서 해당 작업에 대한 감사 로그가 표시될 것을 예상했지만 찾을 수 없습니다.
 
- ![보고](./media/troubleshoot-missing-audit-data/01.png)
+ ![작업 보고서를 보여 주는 스크린샷](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>원인
 
@@ -186,7 +186,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 최근에 Azure Portal에 로그인했고 `Activity logs > Sign-ins` 블레이드에 이 작업에 대한 로그인 로그가 표시될 것으로 예상했지만 찾을 수 없습니다.
 
- ![보고](./media/troubleshoot-missing-audit-data/02.png)
+ ![Azure Active Directory에 대 한 로그인을 보여 주는 스크린샷](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>원인
 
@@ -205,9 +205,9 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 #### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 무엇일까요? 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
 
- ![보고](./media/troubleshoot-missing-audit-data/03.png)
+ ![스크린샷 날짜 메뉴를 표시 합니다.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>원인
 

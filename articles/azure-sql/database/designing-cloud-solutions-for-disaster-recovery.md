@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: be632ba06edc858e7eadcd6e57a4f7769f69f2cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405044"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91321682"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역적으로 사용 가능 서비스 디자인
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -169,7 +169,7 @@ Traffic Manager 지역 A에 대 한 연결 실패를 검색 하면 사용자 트
 
 ## <a name="next-steps"></a>다음 단계
 
-* 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+* 비즈니스 연속성 개요 및 시나리오는 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md) 를 참조 하세요.
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](active-geo-replication-overview.md)를 참조하세요.
 * 자동 장애 조치 그룹에 대 한 자세한 내용은 [자동 장애 조치 그룹](auto-failover-group-overview.md)을 참조 하세요.
 * 탄력적 풀의 활성 지역 복제에 대 한 자세한 내용은 [탄력적 풀 재해 복구 전략](disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조 하세요.

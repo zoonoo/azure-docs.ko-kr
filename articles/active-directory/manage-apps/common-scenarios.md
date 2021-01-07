@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ce3819ff1f9b0c61f7738f90ff17c2798fe888b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642115"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835495"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Azure AD를 사용하여 애플리케이션 관리 중앙 집중화
 
@@ -42,8 +42,8 @@ ms.locfileid: "88642115"
 
 |기능  | Description | 권장 |
 |---------|---------|---------|
-|SSO|신뢰할 수 있는 산업 표준을 사용하는 표준 기반 페더레이션 SSO입니다.|애플리케이션에서 [SAML/OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation)를 지원하는 경우 항상 SAML/OIDC를 사용하여 SSO를 설정합니다.|
-|내 앱|사용자에게 모든 애플리케이션을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 리소스에 대한 액세스를 관리하는 등의 셀프 서비스 기능을 통해 사용자 생산성을 높일 수 있습니다.| 앱을 SSO용 Azure AD와 통합한 후에는 조직에 [내 앱](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan)을 배포합니다.|
+|SSO|신뢰할 수 있는 산업 표준을 사용하는 표준 기반 페더레이션 SSO입니다.|애플리케이션에서 [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md)를 지원하는 경우 항상 SAML/OIDC를 사용하여 SSO를 설정합니다.|
+|내 앱|사용자에게 모든 애플리케이션을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 리소스에 대한 액세스를 관리하는 등의 셀프 서비스 기능을 통해 사용자 생산성을 높일 수 있습니다.| 앱을 SSO용 Azure AD와 통합한 후에는 조직에 [내 앱](./access-panel-deployment-plan.md)을 배포합니다.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>시나리오 2: 프로비저닝 및 프로비저닝 해제 자동화 
 
@@ -53,7 +53,7 @@ ms.locfileid: "88642115"
 
 |기능  |Description|권장 |
 |---------|---------|---------|
-|SCIM 프로비저닝|[SCIM](https://aka.ms/SCIMOverview)은 사용자 프로비저닝 자동화에 대한 업계 모범 사례입니다. 모든 SCIM 규격 애플리케이션을 Azure AD와 통합할 수 있습니다. CSV 파일, 사용자 지정 스크립트 또는 온-프레미스 솔루션을 유지할 필요 없이 사용자 계정을 자동으로 만들고, 업데이트하고, 삭제할 수 있습니다.|Azure AD 앱 갤러리에서 지속적으로 새 앱이 추가되고 있는 [사전 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 앱 목록을 확인하세요.|
+|SCIM 프로비저닝|[SCIM](https://aka.ms/SCIMOverview)은 사용자 프로비저닝 자동화에 대한 업계 모범 사례입니다. 모든 SCIM 규격 애플리케이션을 Azure AD와 통합할 수 있습니다. CSV 파일, 사용자 지정 스크립트 또는 온-프레미스 솔루션을 유지할 필요 없이 사용자 계정을 자동으로 만들고, 업데이트하고, 삭제할 수 있습니다.|Azure AD 앱 갤러리에서 지속적으로 새 앱이 추가되고 있는 [사전 통합](../saas-apps/tutorial-list.md) 앱 목록을 확인하세요.|
 |Microsoft Graph|Azure AD의 다양한 데이터를 활용하여 애플리케이션에 필요한 데이터로 애플리케이션을 보강합니다.|[Microsoft Graph](https://developer.microsoft.com/graph/)를 활용하여 Microsoft 에코시스템의 데이터를 가져옵니다. |
 
 
@@ -62,18 +62,18 @@ ID는 보안의 핵심입니다. ID가 손상되면 너무 늦지 않게 도미�
 
 |기능  |Description| 권장 |
 |---------|---------| ---------|
-|Azure MFA|Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure MFA는 간단한 로그인 프로세스에 대한 요구 사항을 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다.| 사용자에게 [MFA를 사용](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)합니다.  |
-|조건부 액세스|조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 구현할 수 있습니다.| 고객이 사용 중인 [보안 기본값](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) 및 [일반 정책](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)을 검토합니다. | 
-|ID 보호|Identity Protection은 사용자 보호를 위해 Microsoft가 Azure AD를 사용하는 조직, Microsoft 계정의 소비자 공간 및 Xbox를 이용한 게임 등에서 사용자 위치로부터 습득한 학습을 사용합니다. Microsoft는 하루 6조 5000억 개의 신호를 분석하여 고객을 위협으로부터 보호합니다.|서비스에서 제공하는 [기본 ID 보호 정책](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies)을 사용하도록 설정합니다. | 
+|Azure AD MFA|Azure AD MFA(Multi-Factor Authentication)는 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure AD MFA는 간단한 로그인 프로세스에 대한 요구 사항을 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다.| 사용자에게 [MFA를 사용](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)합니다.  |
+|조건부 액세스|조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 구현할 수 있습니다.| 고객이 사용 중인 [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md) 및 [일반 정책](../conditional-access/concept-conditional-access-policy-common.md)을 검토합니다. | 
+|ID 보호|Identity Protection은 사용자 보호를 위해 Microsoft가 Azure AD를 사용하는 조직, Microsoft 계정의 소비자 공간 및 Xbox를 이용한 게임 등에서 사용자 위치로부터 습득한 학습을 사용합니다. Microsoft는 하루 6조 5000억 개의 신호를 분석하여 고객을 위협으로부터 보호합니다.|서비스에서 제공하는 [기본 ID 보호 정책](../identity-protection/concept-identity-protection-policies.md)을 사용하도록 설정합니다. | 
 
 ## <a name="scenario-4-govern-access-to-your-applications"></a>시나리오 4: 애플리케이션 액세스 관리
 조직에서는 ID 거버넌스를 통해 생산성(사용자가 조직에 가입할 때처럼 필요한 애플리케이션에 액세스하는 속도)과 보안(고용 상태의 변화처럼 시간에 따른 사용자의 액세스 권한 변화) 간에 적절한 균형을 유지할 수 있습니다. 
 
 |기능  |Description|권장 |
 |---------|---------| ---------|
-|ELM|Azure AD 권한 관리는 조직 내부 및 외부의 사용자가 애플리케이션에 대한 액세스를 보다 효율적으로 관리하는 데 도움이 됩니다.| 관리자가 아닌 사용자가 [액세스 패키지](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-first)를 사용하여 애플리케이션 액세스를 관리할 수 있도록 허용합니다.|
-|액세스 검토|사용자의 앱 액세스를 정기적으로 검토하여 필요한 사람만 계속 액세스할 수 있게 합니다.| 가장 중요한 애플리케이션에 대한 [액세스를 검토](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)합니다. |
-|Log Analytics|누가 어떤 애플리케이션에 액세스하는지에 대한 보고서를 작성하여 원하는 SIEM 도구에 저장하고 시간에 따라 데이터 원본 간에 데이터를 상호 연결합니다.| [로그 분석](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)을 사용하도록 설정하고 애플리케이션과 관련된 중요 이벤트에 대한 경고를 설정합니다. |
+|ELM|Azure AD 권한 관리는 조직 내부 및 외부의 사용자가 애플리케이션에 대한 액세스를 보다 효율적으로 관리하는 데 도움이 됩니다.| 관리자가 아닌 사용자가 [액세스 패키지](../governance/entitlement-management-access-package-first.md)를 사용하여 애플리케이션 액세스를 관리할 수 있도록 허용합니다.|
+|액세스 검토|사용자의 앱 액세스를 정기적으로 검토하여 필요한 사람만 계속 액세스할 수 있게 합니다.| 가장 중요한 애플리케이션에 대한 [액세스를 검토](../governance/access-reviews-overview.md)합니다. |
+|Log Analytics|누가 어떤 애플리케이션에 액세스하는지에 대한 보고서를 작성하여 원하는 SIEM 도구에 저장하고 시간에 따라 데이터 원본 간에 데이터를 상호 연결합니다.| [로그 분석](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)을 사용하도록 설정하고 애플리케이션과 관련된 중요 이벤트에 대한 경고를 설정합니다. |
 
 
 ## <a name="scenario-5-hybrid-secure-access"></a>시나리오 5: 하이브리드 보안 액세스
@@ -81,14 +81,14 @@ ID는 보안의 핵심입니다. ID가 손상되면 너무 늦지 않게 도미�
 
 |기능  |Description|권장 |
 |---------|---------|---------|
-|애플리케이션 프록시|요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드 및 회사 앱 온-프레미스에서 SaaS 앱에 액세스해야 합니다. Azure AD 애플리케이션 프록시를 사용하면 비싸고 복잡한 VPN(가상 사설망) 또는 DMZ(경계 네트워크) 없이 견고한 액세스가 가능합니다.|온-프레미스 앱에 대한 [원격 액세스](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)를 설정합니다. |
-|F5, Akamai, Zscaler|기존 네트워킹 및 배달 컨트롤러를 사용하여 비즈니스 프로세스에 여전히 중요 하지만 이전에는 Azure AD로 보호할 수 없었는 레거시 애플리케이션을 쉽게 보호할 수 있습니다. 이러한 애플리케이션을 보호하는 데 필요한 모든 조건은 이미 충족되었을 것입니다.| Akamai, Citrix, F5 또는 Zscaler를 사용하고 있나요? 당사의 [미리 빌드된 솔루션](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)을 살펴보세요. | 
+|애플리케이션 프록시|요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드 및 회사 앱 온-프레미스에서 SaaS 앱에 액세스해야 합니다. Azure AD 애플리케이션 프록시를 사용하면 비싸고 복잡한 VPN(가상 사설망) 또는 DMZ(경계 네트워크) 없이 견고한 액세스가 가능합니다.|온-프레미스 앱에 대한 [원격 액세스](./application-proxy.md)를 설정합니다. |
+|F5, Akamai, Zscaler|기존 네트워킹 및 배달 컨트롤러를 사용하여 비즈니스 프로세스에 여전히 중요 하지만 이전에는 Azure AD로 보호할 수 없었는 레거시 애플리케이션을 쉽게 보호할 수 있습니다. 이러한 애플리케이션을 보호하는 데 필요한 모든 조건은 이미 충족되었을 것입니다.| Akamai, Citrix, F5 또는 Zscaler를 사용하고 있나요? 당사의 [미리 빌드된 솔루션](./secure-hybrid-access.md)을 살펴보세요. | 
 
 ## <a name="related-articles"></a>관련 문서
 
-- [애플리케이션 관리](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
-- [애플리케이션 프로비저닝](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
-- [하이브리드 보안 액세스](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [ID 거버넌스](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
-- [Microsoft ID 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
-- [ID 보안](https://docs.microsoft.com/azure/active-directory/conditional-access/index)
+- [애플리케이션 관리](./index.yml)
+- [애플리케이션 프로비저닝](../app-provisioning/user-provisioning.md)
+- [하이브리드 보안 액세스](./secure-hybrid-access.md)
+- [ID 거버넌스](../governance/identity-governance-overview.md)
+- [Microsoft ID 플랫폼](../develop/v2-overview.md)
+- [ID 보안](../conditional-access/index.yml)

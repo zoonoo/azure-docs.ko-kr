@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 7bdffa607a1cbe47b940590d19f6140238d31bf0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266496"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine 라이선스 템플릿 개요
@@ -69,7 +69,7 @@ Widevine 라이선스 요청 형식은 JSON 메시지입니다.
 | payload |Base64로 인코드된 문자열 |클라이언트에서 보낸 라이선스 요청입니다. |
 | content_id |Base64로 인코드된 문자열 |각 content_key_specs.track_type의 키 ID와 콘텐츠 키를 파생하는 데 사용되는 식별자입니다. |
 | provider |문자열 |콘텐츠 키 및 정책을 조회하는 데 사용합니다. Widevine 라이선스 배달에 Microsoft 키 배달을 사용하는 경우 이 매개 변수는 무시됩니다. |
-| policy_name |문자열 |이전에 등록된 정책의 이름입니다. 선택 사항입니다. |
+| policy_name |문자열 |이전에 등록된 정책의 이름입니다. (선택 사항) |
 | allowed_track_types |enum |SD_ONLY 또는 SD_HD. 라이선스에 포함되는 콘텐츠 키를 제어합니다. |
 | content_key_specs |JSON 구조 배열(“콘텐츠 키 사양” 섹션 참조).  |반환할 콘텐츠 키에 대한 보다 세분화된 제어. 자세한 내용은 “콘텐츠 키 사양” 섹션을 참조하세요. Allowed_track_types 및 content_key_specs 값 중 하나만 지정할 수 있습니다. |
 | use_policy_overrides_exclusively |Boolean, true 또는 false |policy_overrides로 지정된 정책 특성을 사용하고 이전에 저장된 모든 정책은 생략합니다. |
@@ -167,7 +167,7 @@ public enum Hdcp
 }
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 예제에서는 .NET API를 사용하여 간단한 Widevine 라이선스를 구성하는 방법을 보여 줍니다.
 
 ```dotnetcli
@@ -208,6 +208,6 @@ private static string ConfigureWidevineLicenseTemplate()
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)
 

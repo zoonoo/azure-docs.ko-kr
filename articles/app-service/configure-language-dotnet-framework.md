@@ -2,15 +2,15 @@
 title: ASP.NET apps 구성
 description: Azure App Service에서 ASP.NET 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961706"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744159"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Azure App Service에 대 한 ASP.NET 앱 구성
 
@@ -71,7 +71,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-App Service 및 *web.config*에서 동일한 이름을 사용 하 여 앱 설정을 구성 하는 경우 App Service 값이 *web.config* 값 보다 우선적으로 적용 됩니다. 로컬 *web.config* 값을 사용 하면 응용 프로그램을 로컬로 디버그할 수 있지만 App Service 값을 사용 하면 프로덕션 설정으로 제품에서 앱을 실행할 수 있습니다. 연결 문자열은 동일한 방식으로 작동 합니다. 이러한 방식으로 코드를 변경 하지 않고 응용 프로그램 비밀을 코드 리포지토리 외부에 유지 하 고 적절 한 값에 액세스할 수 있습니다.
+App Service 및 *web.config* 에서 동일한 이름을 사용 하 여 앱 설정을 구성 하는 경우 App Service 값이 *web.config* 값 보다 우선적으로 적용 됩니다. 로컬 *web.config* 값을 사용 하면 응용 프로그램을 로컬로 디버그할 수 있지만 App Service 값을 사용 하면 프로덕션 설정으로 제품에서 앱을 실행할 수 있습니다. 연결 문자열은 동일한 방식으로 작동 합니다. 이러한 방식으로 코드를 변경 하지 않고 응용 프로그램 비밀을 코드 리포지토리 외부에 유지 하 고 적절 한 값에 액세스할 수 있습니다.
 
 ## <a name="deploy-multi-project-solutions"></a>다중 프로젝트 솔루션 배포
 
@@ -83,7 +83,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="get-detailed-exceptions-page"></a>자세한 예외 페이지 가져오기
 
-ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만이 페이지는 일반 오류 메시지로 대체 App Service. App Service에서 자세한 예외 페이지를 표시 하려면 *Web.config* 파일을 열고 요소 아래에 요소를 추가 `<customErrors mode="Off"/>` `<system.web>` 합니다. 예를 들어:
+ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만이 페이지는 일반 오류 메시지로 대체 App Service. App Service에서 자세한 예외 페이지를 표시 하려면 *Web.config* 파일을 열고 요소 아래에 요소를 추가 `<customErrors mode="Off"/>` `<system.web>` 합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <system.web>
@@ -91,7 +91,7 @@ ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브�
 </system.web>
 ```
 
-업데이트 된 *Web.config*를 사용 하 여 앱을 다시 배포 합니다. 이제 동일한 자세한 예외 페이지가 표시 됩니다.
+업데이트 된 *Web.config* 를 사용 하 여 앱을 다시 배포 합니다. 이제 동일한 자세한 예외 페이지가 표시 됩니다.
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 

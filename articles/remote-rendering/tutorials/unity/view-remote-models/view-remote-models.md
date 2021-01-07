@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 834df29597abaaadad98b232ce75b32a6431cfc2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006468"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574737"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>자습서: 원격으로 렌더링된 모델 보기
 
@@ -46,10 +46,10 @@ Azure Remote Rendering 서비스에 액세스하려면 먼저 [계정을 만들�
 ## <a name="create-a-new-unity-project"></a>새 Unity 프로젝트 만들기
 
 > [!TIP]
-> [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering)에는 모든 자습서가 완료된 프로젝트가 포함되어 있으며 참조로 사용할 수 있습니다. 전체 Unity 프로젝트는 *Unity\Tutorial-Complete*에서 확인하세요.
+> [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering)에는 모든 자습서가 완료된 프로젝트가 포함되어 있으며 참조로 사용할 수 있습니다. 전체 Unity 프로젝트는 *Unity\Tutorial-Complete* 에서 확인하세요.
 
 Unity Hub에서 새 프로젝트를 만듭니다.
-다음 예에서는 프로젝트가 **RemoteRendering**이라는 폴더에 만들어진다고 가정합니다.
+다음 예에서는 프로젝트가 **RemoteRendering** 이라는 폴더에 만들어진다고 가정합니다.
 
 :::image type="content" source="./media/unity-new-project.PNG" alt-text="새 Unity 프로젝트":::
 
@@ -78,8 +78,8 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 :::image type="content" source="./media/confirm-packages.png" alt-text="패키지 가져오기 확인":::
 
-패키지가 로드되지 않으면 Unity 콘솔에서 오류가 있는지 확인합니다. 오류가 없지만 패키지가 여전히 **Packages** 폴더 아래에 표시되지 않으면 패키지 표시 유형 설정/해제 단추를 선택합니다.
-![Unity 카메라 속성](./media/unity-package-visibility.png)
+패키지가 로드되지 않으면 Unity 콘솔에서 오류가 있는지 확인합니다. 오류가 없지만 패키지가 여전히 **Packages** 폴더 아래에 표시되지 않으면 패키지 표시 유형 설정/해제 단추를 선택합니다.\
+![패키지 표시 유형 토글 단추를 가리키는 화살표가 있는 스크린샷.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>최신 버전의 패키지가 있는지 확인
 
@@ -87,10 +87,10 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 1. Unity 편집기의 위쪽 메뉴에서 *Window(창) -> Package Manager(패키지 관리자)* 를 차례로 엽니다.
 1. **Microsoft Azure Remote Rendering** 패키지를 선택합니다.
-1. **Microsoft Azure Remote Rendering** 패키지에 대한 패키지 관리자 페이지에서 **Update(업데이트)** 단추를 사용할 수 있는지 확인합니다. 사용할 수 있는 경우 해당 패키지를 클릭하여 패키지를 사용 가능한 최신 버전으로 업데이트합니다.
+1. **Microsoft Azure Remote Rendering** 패키지에 대한 패키지 관리자 페이지에서 **Update(업데이트)** 단추를 사용할 수 있는지 확인합니다. 사용할 수 있는 경우 해당 패키지를 클릭하여 패키지를 사용 가능한 최신 버전으로 업데이트합니다.\
 ![패키지 관리자의 ARR 패키지](./media/package-manager.png)
 1. 패키지를 업데이트하면 경우에 따라 콘솔 오류가 발생할 수 있습니다. 이 경우 프로젝트를 닫고 다시 열어 보세요.
-1. 패키지가 최신 상태이면 Package Manager에서 Update 단추 대신 **Up to date(최신)** 를 표시합니다.
+1. 패키지가 최신 상태이면 Package Manager에서 Update 단추 대신 **Up to date(최신)** 를 표시합니다.\
 ![최신 패키지](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>카메라 구성
 
@@ -106,7 +106,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
     ![색상표](./media/color-wheel-black.png)
 
-1. **Clipping Planes(클리핑 거리)** 를 *Near(근거리) = 0.3* 및 *Far(원거리) = 20*으로 설정합니다. 즉, 렌더링에서 30cm보다 더 가깝거나 20m보다 더 먼 기하 도형을 클리핑합니다.
+1. **Clipping Planes(클리핑 거리)** 를 *Near(근거리) = 0.3* 및 *Far(원거리) = 20* 으로 설정합니다. 즉, 렌더링에서 30cm보다 더 가깝거나 20m보다 더 먼 기하 도형을 클리핑합니다.
 
     ![Unity 카메라 속성](./media/camera-properties.png)
 
@@ -119,9 +119,9 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
     ![프로젝트 품질 설정 변경](./media/settings-quality.png)
 
 1. 왼쪽 목록 메뉴에서 **Graphics(그래픽)** 를 선택합니다.
-1. **Scriptable Rendering Pipeline(스크립트 가능한 렌더링 파이프라인)** 설정을 *HybridRenderingPipeline*으로 변경합니다.
-    ![프로젝트 그래픽 설정 변경](./media/settings-graphics-render-pipeline.png)\
-    경우에 따라 UI는 패키지에서 사용 가능한 파이프라인 유형 목록을 채우지 않습니다. 이 경우 *HybridRenderingPipeline* 자산을 필드로 수동으로 끌어야 합니다.
+1. **Scriptable Rendering Pipeline(스크립트 가능한 렌더링 파이프라인)** 설정을 *HybridRenderingPipeline* 으로 변경합니다.\
+    ![스크립트 가능한 렌더링 파이프라인 설정을 HybridRenderingPipeline으로 변경하는 위치를 가리키는 스크린샷.](./media/settings-graphics-render-pipeline.png)\
+    경우에 따라 UI는 패키지에서 사용 가능한 파이프라인 유형 목록을 채우지 않습니다. 이 경우 *HybridRenderingPipeline* 자산을 필드로 수동으로 끌어야 합니다.\
     ![프로젝트 그래픽 설정 변경](./media/hybrid-rendering-pipeline.png)
 
     > [!NOTE]
@@ -131,7 +131,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 1. Windows 아이콘으로 표시되는 **Universal Windows Platform settings(유니버설 Windows 플랫폼 설정)** 탭을 선택합니다.
 1. 아래와 같이 Windows Mixed Reality를 지원하도록 **XR Settings(XR 설정)** 를 변경합니다.
     1. **Virtual Reality Supported(가상 현실 지원됨)** 를 사용하도록 설정합니다.
-    1. '+' 단추를 누르고, **Windows Mixed Reality**를 추가합니다.
+    1. '+' 단추를 누르고, **Windows Mixed Reality** 를 추가합니다.
     1. **Depth Format(깊이 형식)** 을 *16-Bit Depth(16비트 깊이)* 로 설정합니다.
     1. **Depth Buffer Sharing(깊이 버퍼 공유)** 을 사용하도록 설정되었는지 확인합니다.
     1. **Stereo Rendering Mode(스테레오 렌더링 모드)** 를 *Single Pass Instanced(단일 패스 인스턴스화됨)* 로 설정합니다.
@@ -150,7 +150,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 1. *File(파일) -> Build Settings(빌드 설정)* 를 차례로 엽니다.
 1. **Universal Windows Platform(유니버설 Windows 플랫폼)** 을 선택합니다.
 1. 아래에 있는 설정과 일치하도록 설정을 구성합니다.
-1. **Switch Platform(플랫폼 전환)** 단추를 누릅니다.
+1. **Switch Platform(플랫폼 전환)** 단추를 누릅니다.\
 ![빌드 설정](./media/build-settings.png)
 1. Unity에서 플랫폼이 변경되면 빌드 패널을 닫습니다.
 
@@ -169,16 +169,16 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 ![ARR 스택 0](./media/remote-render-stack-0.png)
 
-1. *Project(프로젝트)* 창의 **Assets(자산)** 아래에서 *RemoteRenderingCore*라는 새 폴더를 만듭니다. 그런 다음, *RemoteRenderingCore* 내에서 *Scripts*라는 다른 폴더를 만듭니다.
+1. *Project(프로젝트)* 창의 **Assets(자산)** 아래에서 *RemoteRenderingCore* 라는 새 폴더를 만듭니다. 그런 다음, *RemoteRenderingCore* 내에서 *Scripts* 라는 다른 폴더를 만듭니다.
 
-1. **RemoteRenderingCoordinator**라는 [새 C# 스크립트](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html)를 만듭니다.
+1. **RemoteRenderingCoordinator** 라는 [새 C# 스크립트](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html)를 만듭니다.
 프로젝트는 다음과 같습니다.
 
     ![프로젝트 계층 구조](./media/project-structure.png)
 
     이 코디네이터 스크립트는 원격 렌더링 상태를 추적하고 관리합니다. 참고로, 이 코드 중 일부는 상태를 유지 관리하고, 기능을 다른 구성 요소에 공개하며, 이벤트를 트리거하고, Azure Remote Rendering과 *직접* 관련되지 않은 애플리케이션 특정 데이터를 저장하는 데 사용됩니다. 아래 코드를 시작 지점으로 사용하며, 자습서의 뒷부분에서는 특정 Azure Remote Rendering 코드를 처리하고 구현합니다.
 
-1. 코드 편집기에서 **RemoteRenderingCoordinator**를 열고, 전체 내용을 아래 코드로 바꿉니다.
+1. 코드 편집기에서 **RemoteRenderingCoordinator** 를 열고, 전체 내용을 아래 코드로 바꿉니다.
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -220,7 +220,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // For most people '<region>' is either 'westus2' or 'westeurope'
+    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
     [SerializeField]
     private string accountDomain = "westus2.mixedreality.azure.com";
     public string AccountDomain
@@ -536,8 +536,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
 원격 렌더링 코디네이터 및 해당 필수 스크립트(*ARRServiceUnity*)는 모두 장면에서 GameObject에 연결해야 하는 MonoBehaviour입니다. 원격 세션에 연결하고 관리하는 ARR의 많은 기능을 공개하기 위해 ARR에서 *ARRServiceUnity* 스크립트를 제공합니다.
 
-1. 장면에서 새 GameObject를 만들고(Ctrl+Shift+N 또는 *GameObject -> Create Empty(빈 항목 만들기)* ), 이름을 **RemoteRenderingCoordinator**로 지정합니다.
-1. *RemoteRenderingCoordinator* 스크립트를 **RemoteRenderingCoordinator** GameObject에 추가합니다.
+1. 장면에서 새 GameObject를 만들고(Ctrl+Shift+N 또는 *GameObject -> Create Empty(빈 항목 만들기)* ), 이름을 **RemoteRenderingCoordinator** 로 지정합니다.
+1. *RemoteRenderingCoordinator* 스크립트를 **RemoteRenderingCoordinator** GameObject에 추가합니다.\
 ![RemoteRenderingCoordinator 구성 요소 추가](./media/add-coordinator-script.png)
 1. 검사기에서 *Service(서비스)* 로 표시되는 *ARRServiceUnity* 스크립트가 GameObject에 자동으로 추가되는지 확인합니다. 이는 **RemoteRenderingCoordinator** 스크립트의 위쪽에 `[RequireComponent(typeof(ARRServiceUnity))]`가 있는 결과입니다.
 1. Azure Remote Rendering 자격 증명 및 계정 도메인을 코디네이터 스크립트에 추가합니다.
@@ -545,18 +545,18 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
 ## <a name="initialize-azure-remote-rendering"></a>Azure Remote Rendering 초기화
 
-이제 코디네이터에 대한 프레임워크가 있으므로 **Remote Rendering 초기화**를 시작하는 4가지 단계를 각각 구현합니다.
+이제 코디네이터에 대한 프레임워크가 있으므로 **Remote Rendering 초기화** 를 시작하는 4가지 단계를 각각 구현합니다.
 
 ![ARR 스택 1](./media/remote-render-stack-1.png)
 
-**초기화**는 렌더링에 사용할 카메라 개체를 Azure Remote Rendering에 알리고 상태 시스템을 **NotAuthorized**로 진행합니다. 즉, 초기화되었지만 아직 세션에 연결할 수 있는 권한이 없습니다. ARR 세션을 시작하면 비용이 발생하므로 사용자에게 계속 진행할지를 확인해야 합니다.
+**초기화** 는 렌더링에 사용할 카메라 개체를 Azure Remote Rendering에 알리고 상태 시스템을 **NotAuthorized** 로 진행합니다. 즉, 초기화되었지만 아직 세션에 연결할 수 있는 권한이 없습니다. ARR 세션을 시작하면 비용이 발생하므로 사용자에게 계속 진행할지를 확인해야 합니다.
 
-**NotAuthorized** 상태가 되면 **CheckAuthorization**이 호출됩니다. 이 경우 **RequestingAuthorization** 이벤트를 호출하고 사용할 계정 자격 증명을 결정합니다(**AccountInfo**는 클래스의 위쪽 근처에 정의되어 있으며, 위의 단계에서 Unity 검사기를 통해 정의한 자격 증명을 사용함).
+**NotAuthorized** 상태가 되면 **CheckAuthorization** 이 호출됩니다. 이 경우 **RequestingAuthorization** 이벤트를 호출하고 사용할 계정 자격 증명을 결정합니다(**AccountInfo** 는 클래스의 위쪽 근처에 정의되어 있으며, 위의 단계에서 Unity 검사기를 통해 정의한 자격 증명을 사용함).
 
    > [!NOTE]
    > 런타임 재컴파일은 ARR에서 지원하지 않습니다. 재생 모드가 활성화된 상태에서 스크립트를 수정하고 저장하면 Unity가 중지되고 작업 관리자를 통해 강제로 종료해야 할 수 있습니다. 스크립트를 편집하기 전에 항상 재생 모드를 중지했는지 확인하세요.
 
-1. **InitializeARR** 및 **InitializeSessionService**의 내용을 아래의 완성된 코드로 바꿉니다.
+1. **InitializeARR** 및 **InitializeSessionService** 의 내용을 아래의 완성된 코드로 바꿉니다.
 
  ```csharp
 /// <summary>
@@ -589,15 +589,15 @@ public async void InitializeSessionService()
 }
 ```
 
-**NotAuthorized**에서 **NoSession**으로 진행하기 위해 일반적으로 사용자가 선택할 수 있도록 모달 대화 상자가 제공됩니다(다른 챕터에서만 수행할 수 있음). 지금은 **RequestingAuthorization** 이벤트가 트리거되는 즉시 **ByPassAuthentication**을 호출하여 권한 부여 확인을 자동으로 무시합니다.
+**NotAuthorized** 에서 **NoSession** 으로 진행하기 위해 일반적으로 사용자가 선택할 수 있도록 모달 대화 상자가 제공됩니다(다른 챕터에서만 수행할 수 있음). 지금은 **RequestingAuthorization** 이벤트가 트리거되는 즉시 **ByPassAuthentication** 을 호출하여 권한 부여 확인을 자동으로 무시합니다.
 
 1. **RemoteRenderingCoordinator** GameObject를 선택하고, **RemoteRenderingCoordinator** 구성 요소의 검사기에 공개되는 **OnRequestingAuthorization** Unity 이벤트를 찾습니다.
 
 1. 오른쪽 아래에서 '+'를 눌러 새 이벤트를 추가합니다.
-1. 직접 참조할 수 있도록 구성 요소를 자체 이벤트로 끕니다.
+1. 직접 참조할 수 있도록 구성 요소를 자체 이벤트로 끕니다.\
 ![인증 무시](./media/bypass-authorization-add-event.png)\
-1. 드롭다운에서 **RemoteRenderingCoordinator -> BypassAuthorization**을 차례로 선택합니다.
-![인증 무시](./media/bypass-authorization-event.png)
+1. 드롭다운에서 **RemoteRenderingCoordinator -> BypassAuthorization** 을 차례로 선택합니다.\
+![선택된 RemoteRenderingCoordinator.BypassAuthorization 옵션을 보여주는 스크린샷.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>원격 세션 만들기 또는 조인
 
@@ -605,14 +605,14 @@ public async void InitializeSessionService()
 
 ![ARR 스택 2](./media/remote-render-stack-2.png)
 
-원격 세션은 모델을 렌더링하는 위치입니다. **JoinRemoteSession( )** 메서드는 **LastUsedSessionID** 속성으로 추적되거나, **SessionIDOverride**에 할당된 활성 세션 ID가 있는 경우 기존 세션에 조인하려고 시도합니다. **SessionIDOverride**는 디버깅 목적으로만 사용되며, 세션이 있음을 알고 있고 명시적으로 연결하려는 경우에만 사용해야 합니다.
+원격 세션은 모델을 렌더링하는 위치입니다. **JoinRemoteSession( )** 메서드는 **LastUsedSessionID** 속성으로 추적되거나, **SessionIDOverride** 에 할당된 활성 세션 ID가 있는 경우 기존 세션에 조인하려고 시도합니다. **SessionIDOverride** 는 디버깅 목적으로만 사용되며, 세션이 있음을 알고 있고 명시적으로 연결하려는 경우에만 사용해야 합니다.
 
 사용 가능한 세션이 없으면 새 세션이 만들어집니다. 그러나 새 세션을 만드는 경우 시간이 많이 걸립니다. 따라서 필요한 경우에만 세션을 만들고, 가능할 때마다 언제든지 다시 사용해야 합니다(세션을 관리하는 방법에 대한 자세한 내용은 [상용 준비: 세션 풀링, 예약 및 모범 사례](../commercial-ready/commercial-ready.md#fast-startup-time-strategies) 참조).
 
 > [!TIP]
 > **StopRemoteSession()** 은 활성 세션을 종료합니다. 불필요한 요금이 청구되지 않도록 방지하려면 더 이상 필요하지 않은 세션을 항상 중지해야 합니다.
 
-이제 상태 시스템에서 사용 가능한 세션에 따라 **ConnectingToNewRemoteSession** 또는 **ConnectingToExistingRemoteSession**으로 진행합니다. 기존 세션을 열거나 새 세션을 만드는 경우 모두 **ARRSessionService.OnSessionStatusChanged** 이벤트가 트리거되어 **OnRemoteSessionStatusChanged** 메서드를 실행합니다. 이 경우 상태 시스템을 **RemoteSessionReady**로 진행시키는 것이 좋습니다.
+이제 상태 시스템에서 사용 가능한 세션에 따라 **ConnectingToNewRemoteSession** 또는 **ConnectingToExistingRemoteSession** 으로 진행합니다. 기존 세션을 열거나 새 세션을 만드는 경우 모두 **ARRSessionService.OnSessionStatusChanged** 이벤트가 트리거되어 **OnRemoteSessionStatusChanged** 메서드를 실행합니다. 이 경우 상태 시스템을 **RemoteSessionReady** 로 진행시키는 것이 좋습니다.
 
 1. 새 세션에 조인하려면 코드를 수정하여 **JoinRemoteSession( )** 및 **StopRemoteSession( )** 메서드를 아래의 완성된 예제로 바꿉니다.
 
@@ -658,7 +658,7 @@ public void StopRemoteSession()
 }
 ```
 
-세션을 다시 사용하여 시간을 절약하려면 *ARRServiceUnity* 구성 요소에서 **Auto-Stop Session(세션 자동 중지)** 옵션을 비활성화해야 합니다. 이렇게 하면 세션이 연결되지 않은 경우에도 계속 실행됩니다. 세션은 서버에서 종료되기 전에 *MaxLeaseTime*만큼 오래 실행될 수 있습니다(*MaxLeaseTime* 값은 원격 렌더링 코디네이터의 *New Session Defaults(새 세션 기본값)* 아래에서 수정할 수 있음). 반면 연결을 끊을 때 모든 세션을 자동으로 종료하는 경우 매번 새 세션이 시작될 때까지 기다려야 하므로 다소 시간이 걸릴 수 있습니다.
+세션을 다시 사용하여 시간을 절약하려면 *ARRServiceUnity* 구성 요소에서 **Auto-Stop Session(세션 자동 중지)** 옵션을 비활성화해야 합니다. 이렇게 하면 세션이 연결되지 않은 경우에도 계속 실행됩니다. 세션은 서버에서 종료되기 전에 *MaxLeaseTime* 만큼 오래 실행될 수 있습니다(*MaxLeaseTime* 값은 원격 렌더링 코디네이터의 *New Session Defaults(새 세션 기본값)* 아래에서 수정할 수 있음). 반면 연결을 끊을 때 모든 세션을 자동으로 종료하는 경우 매번 새 세션이 시작될 때까지 기다려야 하므로 다소 시간이 걸릴 수 있습니다.
 
 > [!NOTE]
 > 세션 중지는 즉시 적용되며, 실행 취소할 수 없습니다. 중지되면 동일한 시작 오버헤드를 사용하여 새 세션을 만들어야 합니다.
@@ -669,7 +669,7 @@ public void StopRemoteSession()
 
 ![ARR 스택 3](./media/remote-render-stack-3.png)
 
-또한 애플리케이션에서 런타임과 현재 세션 간의 연결에 대한 이벤트를 수신 대기해야 합니다. 이러한 상태 변경은 **OnLocalRuntimeStatusChanged**에서 처리됩니다. 이 코드는 상태를 **ConnectingToRuntime**으로 진행시킵니다. **OnLocalRuntimeStatusChanged**에 연결되면 상태가 **RuntimeConnected**로 진행됩니다. 런타임에 연결하는 것은 코디네이터에서 관심을 갖는 마지막 상태입니다. 즉, 애플리케이션이 모든 공통 구성을 통해 수행되고, 모델을 로드하고 렌더링하는 세션 관련 작업을 시작할 준비가 되었다는 것입니다.
+또한 애플리케이션에서 런타임과 현재 세션 간의 연결에 대한 이벤트를 수신 대기해야 합니다. 이러한 상태 변경은 **OnLocalRuntimeStatusChanged** 에서 처리됩니다. 이 코드는 상태를 **ConnectingToRuntime** 으로 진행시킵니다. **OnLocalRuntimeStatusChanged** 에 연결되면 상태가 **RuntimeConnected** 로 진행됩니다. 런타임에 연결하는 것은 코디네이터에서 관심을 갖는 마지막 상태입니다. 즉, 애플리케이션이 모든 공통 구성을 통해 수행되고, 모델을 로드하고 렌더링하는 세션 관련 작업을 시작할 준비가 되었다는 것입니다.
 
  1. **ConnectRuntimeToRemoteSession( )** 및 **DisconnectRuntimeFromRemoteSession( )** 메서드를 아래의 완성된 버전으로 바꿉니다.
  1. **LateUpdate** Unity 메서드를 적어 두고, 현재 활성 세션을 업데이트해야 합니다. 이렇게 하면 현재 세션에서 메시지를 보내거나 받고, 프레임 버퍼를 원격 세션에서 받은 프레임으로 업데이트할 수 있습니다. 이는 ARR이 제대로 작동하는 데 매우 중요합니다.
@@ -718,13 +718,13 @@ private void LateUpdate()
 ```
 
 > [!NOTE]
-> 로컬 런타임을 원격 세션에 연결하는 것은 현재 활성 세션에서 호출되는 **Update(업데이트)** 에 따라 달라집니다. 애플리케이션이 **ConnectingToRuntime** 상태 이후로 진행되지 않는 경우 활성 세션에서 정기적으로 **Update**를 호출하고 있는지 확인하세요.
+> 로컬 런타임을 원격 세션에 연결하는 것은 현재 활성 세션에서 호출되는 **Update(업데이트)** 에 따라 달라집니다. 애플리케이션이 **ConnectingToRuntime** 상태 이후로 진행되지 않는 경우 활성 세션에서 정기적으로 **Update** 를 호출하고 있는지 확인하세요.
 
 ## <a name="load-a-model"></a>모델 로드
 
 필수 기본 요소가 제대로 갖추어지면 모델을 원격 세션에 로드하고 프레임 수신을 시작할 준비가 되었습니다.
 
-![ARR 스택 4](./media/remote-render-stack-4.png)
+![모델 로드 및 보기 준비를 위한 프로세스 흐름을 보여주는 다이어그램.](./media/remote-render-stack-4.png)
 
 **LoadModel** 메서드는 모델 경로, 진행률 처리기 및 부모 변환을 허용하도록 설계되었습니다. 이러한 인수는 모델을 원격 세션에 로드하고, 로드 진행 시 사용자를 업데이트하며, 부모 변환에 따라 원격으로 렌더링된 모델의 방향을 지정하는 데 사용됩니다.
 
@@ -828,12 +828,12 @@ private void LateUpdate()
 1. Unity 편집기에서 Play(재생) 단추를 눌러 Azure Remote Rendering에 연결하고 새 세션을 만드는 프로세스를 시작합니다.
 1. 게임 보기에는 거의 표시되지 않지만, 콘솔에는 애플리케이션의 변경 상태가 표시됩니다. `ConnectingToNewRemoteSession`으로 진행되며 최대 5분 정도 지속될 수 있습니다.
 1. **RemoteRenderingCoordinator** GameObject를 선택하여 검사기에서 연결된 해당 스크립트를 확인합니다. 초기화 및 연결 단계를 진행하면서 **Service(서비스)** 구성 요소 업데이트를 확인합니다.
-1. 콘솔 출력 모니터링 - 상태가 **RuntimeConnected**로 변경될 때까지 기다립니다.
-1. 런타임이 연결되면 검사기에서 마우스 오른쪽 단추로 **RemoteRenderingCoordinator**를 클릭하여 상황에 맞는 메뉴를 표시합니다. 그런 다음, 상황에 맞는 메뉴에서 위 코드의 `[ContextMenu("Load Test Model")]` 부분에 추가된 **Load Test Model(테스트 모델 로드)** 옵션을 클릭합니다.
+1. 콘솔 출력 모니터링 - 상태가 **RuntimeConnected** 로 변경될 때까지 기다립니다.
+1. 런타임이 연결되면 검사기에서 마우스 오른쪽 단추로 **RemoteRenderingCoordinator** 를 클릭하여 상황에 맞는 메뉴를 표시합니다. 그런 다음, 상황에 맞는 메뉴에서 위 코드의 `[ContextMenu("Load Test Model")]` 부분에 추가된 **Load Test Model(테스트 모델 로드)** 옵션을 클릭합니다.
 
     ![상황에 맞는 메뉴에서 로드](./media/load-test-model.png)
 
-1. 콘솔에서 **LoadModel** 메서드에 전달된 **ProgressHandler**의 출력을 확인합니다.
+1. 콘솔에서 **LoadModel** 메서드에 전달된 **ProgressHandler** 의 출력을 확인합니다.
 1. 원격으로 렌더링된 모델이 표시됩니다!
 
 > [!NOTE]

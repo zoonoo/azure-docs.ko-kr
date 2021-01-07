@@ -1,23 +1,24 @@
 ---
-title: '빠른 시작: Anomaly Detector 클라이언트 라이브러리 사용'
+title: '빠른 시작: Anomaly Detector 클라이언트 라이브러리를 사용한 변칙 검색'
 titleSuffix: Azure Cognitive Services
 description: Anomaly Detector API는 일괄 처리 또는 스트리밍 데이터로 데이터 계열의 변칙을 검색할 수 있는 클라이언트 라이브러리를 제공합니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
-zone_pivot_groups: programming-languages-set-seventeen
+zone_pivot_groups: anomaly-detector-quickstart
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
-ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 902a15f7186e49fe8b8e18ce3a152a5fa3cb8816
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.author: mbullwin
+keywords: 변칙 검색, 알고리즘
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+ms.openlocfilehash: dc6e0689a295798d7397e5e40c390b0e165984c0
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936914"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705044"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>빠른 시작: Anomaly Detector 클라이언트 라이브러리 사용
 
@@ -38,3 +39,10 @@ ms.locfileid: "88936914"
 [!INCLUDE [Python quickstart](../includes/quickstarts/anomaly-detector-client-library-python.md)]
 
 ::: zone-end
+
+::: zone pivot="rest-api"
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/anomaly-detector-rest-api.md)]
+
+::: zone-end
+

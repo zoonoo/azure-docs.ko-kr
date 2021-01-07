@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate에서 Hyper-v 마이그레이션이 어떻게 작동 하나요?
 description: Azure Migrate를 사용 하 여 Hyper-v 마이그레이션에 대해 알아보기
-author: rayne-wiselman
-ms.service: azure-migrate
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 239918cc19eefbef9e3c3f12d5ddd3bb5434b490
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74185870"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751022"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Hyper-v 복제는 어떻게 작동 하나요?
 
@@ -30,7 +30,7 @@ Azure Migrate Server 마이그레이션은 온-프레미스 워크 로드 및 �
 
 ## <a name="architectural-components"></a>아키텍처 구성 요소
 
-![Architecture](./media/hyper-v-replication-architecture/architecture.png)
+![다이어그램은 Microsoft Azure 하는 H T P S P S 데이터 채널이 있는 원본 Hyper-v 네트워크를 보여 줍니다. 자세한 내용은 테이블에 설명 되어 있습니다.](./media/hyper-v-replication-architecture/architecture.png)
 
 
 
@@ -70,9 +70,9 @@ Hyper-v에 대 한 복제 성능은 VM 크기, vm의 데이터 변경 률 (이�
 
 
 1. Hyper-v 호스트 또는 클러스터 노드에 로그인 합니다.
-2. **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**를 실행 하 여 WINDOWS Azure Backup MMC 스냅인을 엽니다.
-3. 스냅인에서 **속성 변경**을 선택합니다.
-4. **제한**에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택 합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 512Kbps~1,023Mbps입니다.
+2. **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc** 를 실행 하 여 WINDOWS Azure Backup MMC 스냅인을 엽니다.
+3. 스냅인에서 **속성 변경** 을 선택합니다.
+4. **제한** 에서 **백업 작업에 인터넷 대역폭 사용 제한 사용** 을 선택 합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 512Kbps~1,023Mbps입니다.
 I
 
 ### <a name="influence-upload-efficiency"></a>업로드 효율성에 영향을 줍니다.
@@ -80,7 +80,7 @@ I
 복제에 대 한 스페어 대역폭이 있고 업로드를 늘리려면 업로드 작업에 할당 된 스레드 수를 다음과 같이 늘릴 수 있습니다.
 
 1. Regedit를 사용 하 여 레지스트리를 엽니다.
-2. 키 HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM로 이동 합니다.
+2. 키로 이동 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
 3. 복제 하는 각 VM에 대 한 데이터 업로드에 사용 되는 스레드 수의 값을 늘립니다. 기본값은 4이 고 최대값은 32입니다. 
 
 

@@ -4,10 +4,10 @@ description: 이 자습서에서는 청사진 샘플을 사용하여 두 개의 
 ms.date: 08/27/2020
 ms.topic: tutorial
 ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89048735"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>자습서: 청사진 샘플을 사용하여 환경 만들기

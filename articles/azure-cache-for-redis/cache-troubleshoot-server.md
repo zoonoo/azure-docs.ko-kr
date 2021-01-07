@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008919"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Azure Cache for Redis 서버 쪽 문제 해결
@@ -35,12 +35,12 @@ ms.locfileid: "88008919"
 
 Redis는이 문제를 식별 하는 데 도움이 될 수 있는 [INFO](https://redis.io/commands/info) 명령을 통해 "used_memory" 및 "used_memory_rss"의 두 가지 통계를 노출 합니다. 포털을 사용 하 여 [이러한 메트릭을 볼](cache-how-to-monitor.md#view-metrics-with-azure-monitor) 수 있습니다.
 
-메모리 사용을 정상 상태로 유지 하기 위해 수행할 수 있는 몇 가지 변경 사항이 있습니다.
+메모리 사용량의 정상 유지를 위해 몇 가지 가능한 변경은 다음과 같습니다.
 
-- [메모리 정책을 구성](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 하고 키에 만료 시간을 설정합니다. 조각화가 있는 경우이 정책은 충분 하지 않을 수 있습니다.
-- [maxmemory-reserved 값을 구성합니다](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) .
+- [메모리 정책을 구성](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 하 고 키에 만료 시간을 설정 합니다. 조각화가 있을 경우 이 정책으로는 부족할 수 있습니다.
+- 메모리 조각화를 보정 하기에 충분 한 크기의 [maxmemory 예약 값을 구성](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 합니다.
 - 크게 캐시된 개체를 더 작은 관련 개체로 분할합니다.
-- 사용 중인 메모리와 같은 메트릭에 대 한 [경고를 만들어](cache-how-to-monitor.md#alerts) 잠재적 영향에 대해 조기에 알려 줍니다.
+- 사용 중인 메모리와 같은 메트릭에 대한 [경고를 생성](cache-how-to-monitor.md#alerts)하여 잠재적인 영향에 대해 조기에 알림을 받을 수 있습니다.
 - 메모리 용량이 더 큰 캐시 크기로 [확장](cache-how-to-scale.md) 합니다.
 
 ## <a name="high-cpu-usage-or-server-load"></a>높은 CPU 사용량 또는 서버 부하
@@ -70,7 +70,7 @@ CPU 또는 서버 부하와 같은 [메트릭을 모니터링](cache-how-to-moni
 네트워크 대역폭 사용량이 최대 용량에 근접 한 경우를 줄이려면 다음을 수행 합니다.
 
 - 네트워크 수요를 줄이기 위해 클라이언트 호출 동작을 변경 합니다.
-- 잠재적 영향에 대해 조기에 알리도록 캐시 읽기 또는 캐시 쓰기와 같은 메트릭에 대 한 [경고를 만듭니다](cache-how-to-monitor.md#alerts) .
+- 캐시 읽기 또는 캐시 쓰기와 같은 메트릭에 잠재적 영향을 초기에 알리도록 [경고를 만듭니다](cache-how-to-monitor.md#alerts).
 - 더 많은 네트워크 대역폭 용량을 사용 하 여 더 큰 캐시 크기로 [확장](cache-how-to-scale.md) 합니다.
 
 ## <a name="additional-information"></a>추가 정보

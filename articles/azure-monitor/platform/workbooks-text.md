@@ -2,19 +2,17 @@
 title: Azure Monitor 통합 문서 텍스트 매개 변수
 description: 미리 빌드된 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고를 간소화 합니다. 통합 문서 텍스트 매개 변수에 대해 자세히 알아보세요.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ac4c348b776cee2356f77424698b078947f4ad3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687338"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143568"
 ---
 # <a name="workbook-text-parameters"></a>통합 문서 텍스트 매개 변수
 
@@ -27,10 +25,10 @@ ms.locfileid: "81687338"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`SlowRequestThreshold`
-    2. 매개 변수 유형:`Text`
-    3. 필수:`checked`
-    4. 쿼리에서 기본값 가져오기:`unchecked`
+    1. 매개 변수 이름: `SlowRequestThreshold`
+    2. 매개 변수 유형: `Text`
+    3. 필수: `checked`
+    4. 쿼리에서 기본값 가져오기: `unchecked`
 5. 도구 모음에서 ' 저장 '을 선택 하 여 매개 변수를 만듭니다.
 
     ![텍스트 매개 변수 생성을 보여 주는 이미지](./media/workbooks-text/text-create.png)
@@ -67,10 +65,10 @@ ms.locfileid: "81687338"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`SlowRequestThreshold`
-    2. 매개 변수 유형:`Text`
-    3. 필수:`checked`
-    4. 쿼리에서 기본값 가져오기:`checked`
+    1. 매개 변수 이름: `SlowRequestThreshold`
+    2. 매개 변수 유형: `Text`
+    3. 필수: `checked`
+    4. 쿼리에서 기본값 가져오기: `checked`
 5. KQL 상자에 다음 코드 조각을 추가 합니다.
     ```kusto
     requests
@@ -87,5 +85,5 @@ ms.locfileid: "81687338"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.
 * 통합 문서 리소스에 대 한 액세스를 [제어](workbooks-access-control.md) 하 고 공유 합니다.

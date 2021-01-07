@@ -10,6 +10,12 @@
       href: overview-iot-central-developer.md
     - name: 최근 업데이트
       items:
+        - name: 2020년 11월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
+        - name: 2020년 10월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
+        - name: 2020년 9월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
         - name: 2020년 8월 새로운 기능 및 업데이트된 기능
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/'
         - name: 2020년 7월 새로운 기능 및 업데이트된 기능
@@ -43,10 +49,8 @@
   items:
     - name: 디바이스 연결 및 개발
       items:
-        - name: 디바이스 연결(Node.js)
-          href: tutorial-connect-device-nodejs.md
-        - name: 디바이스 연결(Python)
-          href: tutorial-connect-device-python.md
+        - name: 디바이스 만들기 및 연결
+          href: tutorial-connect-device.md
         - name: 게이트웨이 디바이스 템플릿 만들기
           href: tutorial-define-gateway-device-type.md
         - name: IoT Edge 디바이스 연결
@@ -60,7 +64,7 @@
         - name: 규칙 만들기
           href: tutorial-create-telemetry-rules.md
         - name: IoT Central API 살펴보기
-          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
+          href: /learn/modules/manage-iot-central-apps-with-rest-api/
 - name: 개념
   items:
     - name: Architecture
@@ -81,12 +85,16 @@
       items:
         - name: 디바이스 템플릿 설정
           href: howto-set-up-template.md
+        - name: 속성을 사용하는 방법
+          href: howto-use-properties.md
         - name: Azure Sphere DevKit 준비 및 연결
           href: howto-connect-sphere.md
         - name: RuuviTag 디바이스 준비 및 연결
           href: howto-connect-ruuvi.md
         - name: Rigado Cascade 500 준비 및 연결
           href: howto-connect-rigado-cascade-500.md
+        - name: X.509를 사용하여 디바이스 연결
+          href: how-to-connect-devices-x509.md
         - name: 다른 IoT 클라우드 연결
           href: howto-build-iotc-device-bridge.md
     - name: 연결 유지
@@ -166,9 +174,11 @@
             - name: 라이브 채팅 토글
               href: howto-show-hide-chat.md
     - name: 문제 해결
-      items: null
-      '-name': Device connections
-      href: troubleshoot-connection.md
+      items:
+        - name: 디바이스 연결
+          href: troubleshoot-connection.md
+    - name: FAQ
+      href: howto-faq.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -176,7 +186,7 @@
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../../iot-fundamentals/iot-support-help.md
     - name: 업계 애플리케이션 템플릿
       items:
         - name: 소매
@@ -190,32 +200,34 @@
     - name: Azure IoT 서비스
       items:
         - name: IoT Hub
-          href: /azure/iot-hub
+          href: ../../iot-hub/index.yml
         - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
+          href: ../../iot-dps/index.yml
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /microsoft-iot-central/
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: ../../iot-edge/index.yml
         - name: IoT 솔루션 가속기
-          href: /azure/iot-accelerators
+          href: ../../iot-accelerators/index.yml
         - name: IoT 플러그 앤 플레이
-          href: /azure/iot-pnp
+          href: ../../iot-pnp/index.yml
         - name: Azure Maps
-          href: /azure/azure-maps
+          href: ../../azure-maps/index.yml
         - name: Time Series Insights
-          href: /azure/time-series-insights
+          href: ../../time-series-insights/index.yml
     - name: Azure IoT SDK
       items:
         - name: IoT 서비스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: IoT 디바이스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: IoT Central API 참조
-      href: 'https://docs.microsoft.com/rest/api/iotcentral/'
+      href: /rest/api/iotcentral/
+    - name: 고객 데이터 보존
+      href: iot-central-customer-data-residency.md
     - name: 고객 데이터 요청
       href: iot-central-customer-data-requests.md
     - name: 지원되는 브라우저
       href: iot-central-supported-browsers.md
     - name: Azure IoT Central(레거시 템플릿)
-      href: 'https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central'
+      href: /previous-versions/azure/iot-central/core/overview-iot-central

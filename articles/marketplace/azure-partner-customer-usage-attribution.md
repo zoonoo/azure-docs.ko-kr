@@ -3,17 +3,17 @@ title: 상업적 마켓플레이스 파트너 및 고객 사용 특성
 description: Azure Marketplace 솔루션에 대한 고객 사용량을 추적하는 방법을 개략적으로 살펴봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320973"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436694"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -32,20 +32,23 @@ Azure Marketplace, 빠른 시작 리포지토리, 프라이빗 GitHub 리포지�
 >
 >- 고객 사용량 특성은 새 배포용이며 이미 배포된 기존 리소스의 태그 지정은 지원하지 않습니다.
 >
->- 고객 사용량 특성은 Azure Marketplace에 게시된 [Azure 애플리케이션](./partner-center-portal/create-new-azure-apps-offer.md) 제품에 필요합니다.
+>- 고객 사용량 특성은 Azure Marketplace에 게시된 [Azure 애플리케이션](./create-new-azure-apps-offer.md) 제품에 필요합니다.
+>
+>- 모든 Azure 서비스는 고객 사용 특성과 호환 되지 않습니다. AKS (Azure Kubernetes Services) 및 VM Scale Sets에는 사용 현황 보고를 야기 하는 알려진 문제가 있습니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-guids"></a>GUID 만들기
 
-GUID는 32자리의 16진수가 있는 고유 참조 식별자입니다. 추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. Azure Storage 팀은 [GUID 생성기 양식](https://aka.ms/StoragePartners)을 만든 후 이 양식을 통해 올바른 형식의 GUID를 이메일로 전달합니다. 이 GUID를 다른 추적 시스템에서 다시 사용할 수 있습니다.
+GUID는 32자리의 16진수가 있는 고유 참조 식별자입니다. 추적할 Guid를 만들려면 PowerShell을 통해 GUID 생성기를 사용 해야 합니다.
 
-> [!NOTE]
-> 그렇지만 [Azure Storage의 GUID 생성기 양식](https://aka.ms/StoragePartners)을 사용하여 GUID를 만드는 것이 좋습니다. 자세한 내용은 [FAQ](#faq)를 참조하세요.
+```powershell
+[guid]::NewGuid()
+```
 
 각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.
 
-템플릿을 사용 하 여 제품을 배포 하 고 Azure Marketplace 및 GitHub 모두에서 사용할 수 있는 경우 두 개의 고유 GUID를 만들어 등록할 수 있습니다.
+템플릿을 사용 하 여 제품을 배포 하 고 Azure Marketplace 및 GitHub 모두에서 사용할 수 있는 경우 두 개의 고유 Guid를 만들어 등록할 수 있습니다.
 
 - Azure Marketplace의 제품 A
 - GitHub의 제품 A
@@ -61,25 +64,25 @@ GUID는 32자리의 16진수가 있는 고유 참조 식별자입니다. 추적�
 GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 파트너 센터에 등록되면 향후 배포가 추적됩니다.
 
 > [!NOTE]
-> 파트너 센터를 통해 Azure Marketplace에 [Azure 애플리케이션](./partner-center-portal/create-new-azure-apps-offer.md) 제품을 게시 하는 경우 템플릿 내에서 사용 되는 모든 새 GUID는 템플릿이 업로드 될 때 파트너 센터 프로필에 자동으로 등록 됩니다.  
+> 파트너 센터를 통해 Azure Marketplace에 [Azure 애플리케이션](./create-new-azure-apps-offer.md) 제품을 게시 하는 경우 템플릿 내에서 사용 되는 모든 새 GUID는 템플릿이 업로드 될 때 파트너 센터 프로필에 자동으로 등록 됩니다.  
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
 
 1. [상업용 마켓플레이스 게시자](https://aka.ms/JoinMarketplace)로 등록합니다.
 
-   * 파트너는 [파트너 센터에 프로필을 가지고 있어야 합니다](become-publisher.md). Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다.
+   * 파트너는 [파트너 센터에 프로필을 가지고 있어야 합니다](./partner-center-portal/create-account.md). Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다.
    * 파트너는 여러 GUID를 등록할 수 있습니다.
    * 파트너는 마켓플레이스 이외의 솔루션 템플릿 및 제품에 대한 GUID를 등록할 수 있습니다.
 
-1. 오른쪽 상단 모서리에서 설정 기어 아이콘을 선택한 다음, **개발자 설정**을 선택합니다.
+1. 오른쪽 위 모서리에서 **설정** (기어 아이콘) > **계정 설정** 을 선택 합니다.
 
-1. **계정 설정 페이지**에서 **추적 GUID 추가**를 선택합니다.
+1. **조직 프로필**  >  **식별자** 에서 **추적 GUID 추가** 를 선택 합니다.
 
 1. **GUID** 상자에 추적 GUID를 입력합니다. 접두사 없이 GUID만 입력 합니다 `pid-` . **설명** 상자에 제품 이름 또는 설명을 입력합니다.
 
-1. 여러 GUID를 등록하려면 **추적 GUID 추가**를 다시 선택합니다. 추가 상자가 페이지에 표시됩니다.
+1. 여러 GUID를 등록하려면 **추적 GUID 추가** 를 다시 선택합니다. 추가 상자가 페이지에 표시됩니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
 많은 파트너 솔루션은 Azure Resource Manager 템플릿을 사용하여 배포됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 리소스 관리자 템플릿이 있는 경우 고객 사용 특성을 사용 하도록 템플릿을 수정 하는 프로세스가 바로 진행 됩니다.
@@ -87,7 +90,7 @@ GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 �
 > [!NOTE]
 > 솔루션 템플릿을 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 > * [첫 번째 Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
->* [Azure 애플리케이션 제안](./partner-center-portal/create-new-azure-apps-offer.md)
+>* [Azure 애플리케이션 제안](./create-new-azure-apps-offer.md)
 >* 비디오: [솔루션 템플릿 및 Azure Marketplace에 대 한 관리 되는 응용 프로그램 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603)
 
 
@@ -97,9 +100,9 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 
 1. Resource Manager 템플릿을 엽니다.
 
-1. 주 템플릿 파일에 [Microsoft .resources/배포](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) 유형의 새 리소스를 추가 합니다. 리소스는 **mainTemplate.json** 또는 **azuredeploy.json** 파일에만 있어야 하며, 중첩되거나 연결된 템플릿에 있으면 안됩니다.
+1. 주 템플릿 파일에 [Microsoft .resources/배포](/azure/templates/microsoft.resources/deployments) 유형의 새 리소스를 추가 합니다. 리소스는 **mainTemplate.json** 또는 **azuredeploy.json** 파일에만 있어야 하며, 중첩되거나 연결된 템플릿에 있으면 안됩니다.
 
-1. 접두사 뒤에 GUID 값을 입력 하 여 `pid-` 리소스의 이름으로 입력 합니다. 예를 들어 GUID가 eb7927c8-dd66-43e1-b0cf-c346a422063 인 경우 리소스 이름은 _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_가 됩니다.
+1. 접두사 뒤에 GUID 값을 입력 하 여 `pid-` 리소스의 이름으로 입력 합니다. 예를 들어 GUID가 eb7927c8-dd66-43e1-b0cf-c346a422063 인 경우 리소스 이름은 _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_ 가 됩니다.
 
 1. 템플릿에서 오류를 확인합니다.
 
@@ -132,7 +135,7 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 
 ## <a name="use-the-resource-manager-apis"></a>Resource Manager API 사용
 
-파트너가 Resource Manager REST API를 직접 호출하여 Azure 서비스를 배포하는 방법을 선호하는 경우도 있습니다. Azure는 이러한 호출을 사용하도록 설정하는 [여러 SDK를 지원](https://docs.microsoft.com/azure/?pivot=sdkstools)합니다. SDK 중 하나를 사용하거나, REST API를 직접 호출하여 리소스를 배포할 수 있습니다.
+파트너가 Resource Manager REST API를 직접 호출하여 Azure 서비스를 배포하는 방법을 선호하는 경우도 있습니다. Azure는 이러한 호출을 사용하도록 설정하는 [여러 SDK를 지원](../index.yml?pivot=sdkstools)합니다. SDK 중 하나를 사용하거나, REST API를 직접 호출하여 리소스를 배포할 수 있습니다.
 
 Resource Manager 템플릿을 사용하는 경우 앞에서 설명한 지침에 따라 솔루션에 태그를 지정해야 합니다. Resource Manager 템플릿을 사용하지 않고 API를 직접 호출하는 경우에도 Azure 리소스 사용량에 연결하도록 배포에 태그를 지정할 수 있습니다.
 
@@ -156,7 +159,7 @@ Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent�
 
 #### <a name="example-the-net-sdk"></a>예: .NET SDK
 
-.NET의 경우 사용자 에이전트를 설정 해야 합니다. [흐름](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) 라이브러리는 다음 코드를 사용 하 여 사용자 에이전트를 설정 하는 데 사용할 수 있습니다 (예: c #의 경우).
+.NET의 경우 사용자 에이전트를 설정 해야 합니다. [흐름](/dotnet/api/microsoft.azure.management.fluent) 라이브러리는 다음 코드를 사용 하 여 사용자 에이전트를 설정 하는 데 사용할 수 있습니다 (예: c #의 경우).
 
 ```csharp
 
@@ -180,10 +183,11 @@ Azure PowerShell을 통해 리소스를 배포하는 경우 다음 방법을 사
 
 Azure CLI를 사용하여 GUID를 추가하는 경우 **AZURE_HTTP_USER_AGENT** 환경 변수를 설정합니다. 이 변수는 스크립트의 범위 내에서 설정할 수 있습니다. 셸 범위에 대한 글로벌 변수를 설정할 수도 있습니다.
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-자세한 내용은 [Go용 Azure SDK](https://docs.microsoft.com/azure/developer/go/)를 참조하세요.
+
+자세한 내용은 [Go용 Azure SDK](/azure/developer/go/)를 참조하세요.
 
 ## <a name="use-terraform"></a>Terraform 사용
 
@@ -202,8 +206,7 @@ provider "azurerm" {
 Terraform을 통해 고객 사용량 특성으로 배포판을 추적하려는 파트너는 다음을 수행해야 합니다.
 
 * GUID 만들기(각 제품 또는 SKU의 GUID를 추가해야 함)
-* *partner_id*의 값을 GUID로 설정하도록 Azure 공급자를 업데이트합니다(GUID 앞에 "pid-"를 추가하지 말고 실제 GUID로 설정).
-
+* *partner_id* 의 값을 GUID로 설정하도록 Azure 공급자를 업데이트합니다(GUID 앞에 "pid-"를 추가하지 말고 실제 GUID로 설정).
 
 ## <a name="verify-the-guid-deployment"></a>GUID 배포 확인
 
@@ -248,11 +251,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>보고서
 
-파트너 센터 대시보드([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure))에서 고객 사용량 특성에 대한 보고서를 확인할 수 있습니다. 보고서를 보려면 파트너 센터 자격 증명을 사용하여 로그인해야 합니다. 보고서 또는 로그인 관련 문제가 발생할 경우 지원 받기 섹션의 지침에 따라 지원 요청을 만듭니다.
-
-파트너 연결 유형 드롭다운 목록에서 추적된 템플릿을 선택하여 보고서를 표시합니다.
-
-![고객 사용량 특성 보고서](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+파트너 센터 대시보드([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview))에서 고객 사용량 특성에 대한 보고서를 확인할 수 있습니다. 보고서를 보려면 파트너 센터 자격 증명을 사용하여 로그인해야 합니다. 보고서 또는 로그인에 문제가 발생 하는 경우 [지원 요청](#get-support)을 만듭니다.
 
 ## <a name="notify-your-customers"></a>고객에게 알림
 
@@ -260,47 +259,15 @@ foreach ($deployment in $deployments){
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Resource Manager 템플릿 배포에 대한 알림
 
-이 템플릿을 배포할 때 Microsoft는 배포 된 Azure 리소스를 사용 하 여 소프트웨어 설치를 식별할 수 있습니다 \<PARTNER> . Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter 에 있습니다.
+이 템플릿을 배포할 때 Microsoft는 배포 된 Azure 리소스를 사용 하 여 소프트웨어 설치를 식별할 수 있습니다 \<PARTNER> . Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는에 있는 Microsoft의 개인 정보 취급 방침에 의해 수집 되 고 관리 됩니다 [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>SDK 또는 API 배포 알림
 
-소프트웨어를 배포 하는 경우 \<PARTNER> Microsoft는 배포 된 Azure 리소스를 사용 하 여 소프트웨어 설치를 식별할 수 있습니다 \<PARTNER> . Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter 에 있습니다.
+소프트웨어를 배포 하는 경우 \<PARTNER> Microsoft는 배포 된 Azure 리소스를 사용 하 여 소프트웨어 설치를 식별할 수 있습니다 \<PARTNER> . Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는에 있는 Microsoft의 개인 정보 취급 방침에 의해 수집 되 고 관리 됩니다 [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ## <a name="get-support"></a>지원 받기
 
-문제에 따라 두 개의 지원 채널을 이용할 수 있습니다.
-
-파트너 센터에서 고객 사용량 특성 보고서 표시 또는 로그인 관련 문제가 발생하는 경우 여기([https://partner.microsoft.com/support](https://partner.microsoft.com/support))에서 파트너 센터 지원 팀과 함께 지원 요청을 만드세요.
-
-![지원 페이지의 스크린샷](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-마켓플레이스 등록 및/또는 고객 사용량 특성에 대한 일반적인 지원이 필요한 경우(예: 고객 사용량 특성을 설정하는 방법) 다음 단계를 수행합니다.
-
-1. [지원 페이지](https://go.microsoft.com/fwlink/?linkid=844975)로 이동합니다.
-
-1. **문제 유형** 아래에서 **Marketplace 온보딩**을 선택합니다.
-
-1. 다음과 같이 문제에 대한 **범주**를 선택합니다.
-
-   - 사용량 관련 문제의 경우 **기타**를 선택합니다.
-   - Azure Marketplace의 액세스 문제에 대해 **액세스 문제**를 선택 합니다.
-
-     ![문제 범주 선택](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. **요청 시작**을 선택합니다.
-
-1. 다음 페이지에서 필요한 값을 입력합니다. **계속**을 선택합니다.
-
-1. 다음 페이지에서 필요한 값을 입력합니다.
-
-   > [!IMPORTANT]
-   > **인시던트 제목** 상자에서 **ISV 사용량 추적**을 입력합니다. 문제를 자세히 설명하세요.
-
-   ![인시던트 제목에 대한 ISV 사용량 추적 입력](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. 양식을 완성한 다음, **제출**을 선택합니다.
-
-또한 기술 예약 판매, 배포 및 앱 개발 시나리오에 대한 Microsoft 파트너 기술 컨설턴트의 기술 지침을 받아 고객 사용량 특성을 이해하고 통합할 수도 있습니다.
+[파트너 센터에서 상업적 marketplace 프로그램 지원](support.md)의 지원 옵션에 대해 알아봅니다.
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>기술 상담 요청을 제출하는 방법
 
@@ -311,6 +278,7 @@ foreach ($deployment in $deployments){
     * 연락처 정보를 작성하거나 검토합니다.
     * 상담 세부 정보는 미리 채워져 있거나 파트너가 드롭다운 목록에서 선택할 수 있습니다.
     * 문제의 제목 및 설명을 입력합니다(가능한 한 많은 정보 제공).
+
 1. 제출을 클릭합니다.
 
 [기술 예약 판매 및 배포 서비스 사용](https://aka.ms/TechConsultInstructions)에서 스크린샷과 함께 단계별 지침을 확인하세요.
@@ -340,10 +308,6 @@ Microsoft는 고객의 솔루션 배포 및 영향을 받는 사용량에 대한
 **이 방법론은 DPOR(디지털 공식 파트너)과 유사한가요?**
 
 배포 및 사용량을 파트너 솔루션에 연결하는 이 새로운 방법은 파트너 솔루션을 Azure 사용량에 연결하는 메커니즘을 제공합니다. DPOR는 컨설팅(시스템 통합자) 또는 관리(관리 서비스 공급자) 파트너를 고객의 Azure 구독과 연결하기 위한 것입니다.
-
-**Azure Storage의 GUID 생성기 양식을 사용하면 어떤 이점이 있나요?**
-
-Azure Storage의 GUID 생성기 양식은 필요한 형식의 GUID를 생성하도록 보장합니다. 또한, Azure Storage의 데이터 평면 추적 방법을 사용하는 경우 Marketplace 제어 평면 추적에 동일한 GUID를 활용할 수 있습니다. 이렇게 하면 별도의 GUIDS를 유지하지 않고도 파트너 특성으로 단일 통합 GUID를 활용할 수 있습니다.
 
 **Azure Marketplace에서 솔루션 템플릿 제품에 프라이빗 사용자 지정 VHD를 사용할 수 있나요?**
 

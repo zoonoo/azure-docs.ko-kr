@@ -3,15 +3,21 @@ title: Java 웹 프로젝트에서 Application Insights 문제 해결
 description: 문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
+author: MS-jgol
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.author: jgol
+ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372521"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607901"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java용 Application Insights 문제 해결과 질문 및 답변
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK에 대 한 Application Insights 문제 해결 및 Q 및 A
+
+> [!IMPORTANT]
+> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+
 [Java의 Azure Application Insights][java]와 관련된 질문이나 문제가 있나요? 다음은 몇 가지 팁입니다.
 
 ## <a name="build-errors"></a>빌드 오류
@@ -27,7 +33,7 @@ ms.locfileid: "87372521"
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
 * 방화벽에서 dc.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다. 최신 버전은 [방화벽 예외의 전체 목록](./ip-addresses.md)
 * Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 애플리케이션 블레이드를 닫고 다시 엽니다.
-* [Turn on logging](#debug-data-from-the-sdk) `<SDKLogger />` 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml 파일의 루트 노드 아래에 요소를 추가 하 여 로깅을 설정 하 고 의심 스러운 로그의 AI: INFO/WARN/ERROR 앞에 있는 항목을 확인 합니다. 
+* [](#debug-data-from-the-sdk) `<SDKLogger />` 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml 파일의 루트 노드 아래에 요소를 추가 하 여 로깅을 설정 하 고 의심 스러운 로그의 AI: INFO/WARN/ERROR 앞에 있는 항목을 확인 합니다. 
 * 콘솔의 출력 메시지에서 “구성 파일을 찾았습니다”라는 문을 찾아 ApplicationInsights.xml 파일이 Java SDK에 의해 성공적으로 로드되었음을 확인합니다.
 * 구성 파일이 없으면 출력 메시지를 확인하여 구성 파일이 검색되고 있는 위치를 확인하고, ApplicationInsights.xml이 그러한 검색 위치 중 한 위치에 있는지 확인합니다. 일반적으로 구성 파일을 Application Insights SDK JAR 주위에 배치할 수 있습니다. 예: Tomcat에서는 WEB-INF/classes 폴더를 의미합니다. 개발 중에 웹 프로젝트의 리소스 폴더에 ApplicationInsights.xml을 배치할 수 있습니다.
 * SDK의 알려진 문제에 대해서는 [GitHub 문제 페이지](https://github.com/Microsoft/ApplicationInsights-Java/issues)를 참조하세요.
@@ -58,7 +64,6 @@ ms.locfileid: "87372521"
 
 동일한 계측 키를 사용하여 클라이언트 및 서버 원격 분석을 둘 다 설정합니다. 데이터가 동일한 Application Insights 리소스에 표시되며, 클라이언트와 서버의 이벤트에 상관 관계를 지정할 수 있습니다.
 
-
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 **원격 분석 수집을 사용하지 않도록 설정하려면 어떻게 해야 하나요?**
 
@@ -70,7 +75,7 @@ ms.locfileid: "87372521"
     config.setTrackingIsDisabled(true);
 ```
 
-**디스크나**
+**Or**
 
 ApplicationInsights.xml(프로젝트의 리소스 폴더에 있음)을 업데이트합니다. 루트 노드 아래에 다음을 추가합니다.
 
@@ -85,7 +90,7 @@ XML 메서드를 사용하여 값 변경 시 애플리케이션을 다시 시작
 **내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경 하려면 어떻게 해야 하나요?**
 
 * [새 리소스의 계측 키를 가져옵니다.][java]
-* Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고**Azure**, **Application Insights 구성**을 차례로 선택한 다음, 키를 변경합니다.
+* Azure Toolkit for Eclipse를 사용하여 프로젝트에 Application Insights를 추가한 경우 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure**, **Application Insights 구성** 을 차례로 선택한 다음, 키를 변경합니다.
 * 계측 키를 환경 변수로 구성한 경우, 환경 변수 값을 새 iKey로 업데이트합니다.
 * 그렇지 않으면 프로젝트의 리소스 폴더에 있는 ApplicationInsights.xml에서 키를 업데이트합니다.
 
@@ -177,7 +182,6 @@ Application Insights는 `org.apache.http`를 사용합니다. 이 모듈은 Appl
 
 >[!NOTE]
 >앱의 모든 네임스페이스에 대해 DEBUG 수준의 로깅을 사용하도록 설정하면 `org.apache.http`를 포함하여 실행 중인 모든 모듈이 `com.microsoft.applicationinsights.core.dependencies.http`로 이름이 바뀝니다. Application Insights는 로그 호출이 Apache 라이브러리에 의해 이루어지기 때문에 이러한 호출에 대해서는 필터링을 적용할 수 없습니다. DEBUG 수준 로깅은 상당한 양의 로그 데이터를 생성하므로 실제 프로덕션 인스턴스에는 권장되지 않습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 **내 Java 서버 앱에 대해 Application Insights를 설정했습니다. 다른 어떤 작업을 할 수 있나요?**

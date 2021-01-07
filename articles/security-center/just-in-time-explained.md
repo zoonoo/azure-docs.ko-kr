@@ -5,17 +5,17 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9a52596aa0dd5fa7b9a7226d2ae57259dab08d37
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833456"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285741"
 ---
-# <a name="understanding-just-in-time-jit-vm-access"></a>JIT (just-in-time) VM 액세스 이해
+# <a name="understanding-just-in-time-jit-vm-access"></a>JIT(Just-In-Time) VM 액세스 이해
 
 이 페이지에서는 Azure Security Center의 JIT (just-in-time) VM 액세스 기능 및 권장 구성의 논리에 대 한 원칙을 설명 합니다.
 
@@ -24,7 +24,7 @@ Azure Portal (Security Center 또는 Azure Virtual Machines)를 사용 하 여 V
 
 ## <a name="the-risk-of-open-management-ports-on-a-virtual-machine"></a>가상 머신에서 열린 관리 포트의 위험
 
-위협 행위자는 RDP 또는 SSH와 같은 개방형 관리 포트를 사용 하 여 액세스 가능한 컴퓨터를 적극적으로 사냥 합니다. 모든 가상 머신은 공격의 대상이 될 수 있습니다. VM이 성공적으로 손상 되 면 환경 내에서 추가 리소스를 공격 하는 진입점으로 사용 됩니다.
+위협 행위자는 RDP 또는 SSH와 같은 개방형 관리 포트를 사용 하 여 액세스 가능한 컴퓨터를 적극적으로 사냥 합니다. 모든 가상 머신은 공격의 대상이 될 수 있습니다. VM이 손상되면 사용자 환경 내 추가 리소스를 공격하는 진입점으로 사용됩니다.
 
 
 
@@ -40,14 +40,14 @@ Azure Portal (Security Center 또는 Azure Virtual Machines)를 사용 하 여 V
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>네트워크 보안 그룹 및 Azure 방화벽을 사용 하 여 JIT가 작동 하는 방법
 
-Just-in-time VM 액세스를 사용 하도록 설정 하면 인바운드 트래픽이 차단 될 VM의 포트를 선택할 수 있습니다. Security Center nsg ( [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ) 및 [Azure 방화벽 규칙](https://docs.microsoft.com/azure/firewall/rule-processing)에서 선택한 포트에 대해 "모든 인바운드 트래픽 거부" 규칙이 있는지 확인 합니다. 이러한 규칙은 Azure Vm의 관리 포트에 대 한 액세스를 제한 하 고 공격 으로부터 보호 합니다. 
+Just-in-time VM 액세스를 사용 하도록 설정 하면 인바운드 트래픽이 차단 될 VM의 포트를 선택할 수 있습니다. Security Center nsg ( [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) ) 및 [Azure 방화벽 규칙](../firewall/rule-processing.md)에서 선택한 포트에 대해 "모든 인바운드 트래픽 거부" 규칙이 있는지 확인 합니다. 이러한 규칙은 Azure Vm의 관리 포트에 대 한 액세스를 제한 하 고 공격 으로부터 보호 합니다. 
 
 선택한 포트에 대 한 다른 규칙이 이미 존재 하는 경우 기존 규칙은 새 "모든 인바운드 트래픽 거부" 규칙 보다 우선적으로 적용 됩니다. 선택한 포트에 기존 규칙이 없는 경우 새 규칙은 NSG 및 Azure 방화벽에서 가장 높은 우선 순위를 사용 합니다.
 
-사용자가 VM에 대 한 액세스를 요청 하면 Security Center 사용자에 게 해당 VM에 대 한 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 권한이 있는지 확인 합니다. 요청이 승인 되 면 지정 된 시간 동안 관련 IP 주소 또는 범위에서 선택한 포트에 대 한 인바운드 트래픽을 허용 하도록 NSGs와 Azure 방화벽을 구성 Security Center 합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 이미 설정 된 연결은 중단 되지 않습니다.
+사용자가 VM에 대 한 액세스를 요청 하면 Security Center 사용자에 게 해당 VM에 대 한 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 권한이 있는지 확인 합니다. 요청이 승인 되 면 지정 된 시간 동안 관련 IP 주소 또는 범위에서 선택한 포트에 대 한 인바운드 트래픽을 허용 하도록 NSGs와 Azure 방화벽을 구성 Security Center 합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 이미 설정 된 연결은 중단 되지 않습니다.
 
 > [!NOTE]
-> JIT는 [Azure 방화벽 관리자](https://docs.microsoft.com/azure/firewall-manager/overview)에서 제어 하는 azure 방화벽으로 보호 되는 vm을 지원 하지 않습니다.
+> JIT는 [Azure 방화벽 관리자](../firewall-manager/overview.md)에서 제어 하는 azure 방화벽으로 보호 되는 vm을 지원 하지 않습니다.
 
 
 
@@ -67,6 +67,10 @@ JIT를 활용 하 여 이점을 누릴 수 있는 컴퓨터를 찾을 Security C
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>JIT를 구성 하 고 사용 하는 데 필요한 권한은 무엇 인가요?
 
+JIT를 사용 하려면 구독에서 서버를 사용 하도록 설정 하기 [위해 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다. 
+
+**판독기** 및 **securityreader** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.
+
 JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 아래 표의 세부 정보가 필요 합니다.
 
 > [!TIP]
@@ -74,9 +78,9 @@ JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 아래 표�
 
 | 사용자가 다음을 수행할 수 있도록 설정: | 설정할 권한|
 | --- | --- |
-| VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> VM의 구독 또는 리소스 그룹의 범위: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+|VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> VM의 구독 또는 리소스 그룹의 범위: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |VM에 대한 JIT 액세스 요청 | *사용자에게 다음 작업을 할당합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
-|JIT 정책 읽기| *사용자에게 다음 작업을 할당합니다.*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|JIT 정책 읽기| *사용자에게 다음 작업을 할당합니다.*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Security/pricings/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
 |||
 
 

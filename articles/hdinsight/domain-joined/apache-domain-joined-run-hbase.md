@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "73044655"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993638"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성
 
@@ -45,7 +45,7 @@ ESP(Enterprise Security Package) Apache HBase 클러스터용 Apache Ranger 정�
 
 ## <a name="create-domain-users"></a>도메인 사용자 만들기
 
-[Enterprise Security Package를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)를 방문하여 **sales_user1** 및 **marketing_user1** 도메인 사용자를 만드는 방법을 확인합니다. 프로덕션 시나리오에서는 Active Directory 테 넌트에서 도메인 사용자가 제공됩니다.
+[Enterprise Security Package를 사용하여 HDInsight 클러스터 만들기](./apache-domain-joined-configure-using-azure-adds.md)를 방문하여 **sales_user1** 및 **marketing_user1** 도메인 사용자를 만드는 방법을 확인합니다. 프로덕션 시나리오에서는 Active Directory 테 넌트에서 도메인 사용자가 제공됩니다.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>HBase 테이블을 만들고 샘플 데이터 가져오기
 
@@ -95,11 +95,11 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 **sales_user1** 및 **marketing_user1** 사용자에 대해 Ranger 정책을 만듭니다.
 
-1. **Ranger 관리 UI**를 엽니다. **HBase** 아래의 **\<ClusterName>_hbase**를 클릭합니다.
+1. **Ranger 관리 UI** 를 엽니다. **HBase** 아래의 **\<ClusterName>_hbase** 를 클릭합니다.
 
    ![HDInsight Apache Ranger 관리 UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-2. **정책 목록** 화면에 이 클러스터에 대해 생성된 모든 Ranger 정책이 표시됩니다. 미리 구성된 정책 하나가 나열될 수 있습니다. **새 정책 추가**를 클릭합니다.
+2. **정책 목록** 화면에 이 클러스터에 대해 생성된 모든 Ranger 정책이 표시됩니다. 미리 구성된 정책 하나가 나열될 수 있습니다. **새 정책 추가** 를 클릭합니다.
 
     ![Apache Ranger HBase 정책 목록](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
@@ -123,11 +123,11 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    ![Apache Ranger 정책 sales 만들기](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
-   >**사용자 선택**에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
+   >**사용자 선택** 에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
 
 4. **추가** 를 클릭하여 정책을 저장합니다.
 
-5. **새 정책 추가**를 클릭하고 다음 값을 입력합니다.
+5. **새 정책 추가** 를 클릭하고 다음 값을 입력합니다.
 
    |**설정**  |**제안 값**  |
    |---------|---------|
@@ -145,7 +145,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 ## <a name="test-the-ranger-policies"></a>Ranger 정책 테스트
 
-구성된 Ranger 정책에 따라 **sales_user1**은 `Name` 및 `Contact` 열 패밀리의 열에 대한 모든 데이터를 볼 수 있습니다. **marketing_user1**은 `Contact` 열 패밀리의 데이터만 볼 수 있습니다.
+구성된 Ranger 정책에 따라 **sales_user1** 은 `Name` 및 `Contact` 열 패밀리의 열에 대한 모든 데이터를 볼 수 있습니다. **marketing_user1** 은 `Contact` 열 패밀리의 데이터만 볼 수 있습니다.
 
 ### <a name="access-data-as-sales_user1"></a>sales_user1로 데이터에 액세스
 
@@ -191,7 +191,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 ### <a name="access-data-as-marketing_user1"></a>marketing_user1로 데이터에 액세스
 
-1. 클러스터에 대한 새 SSH 연결을 엽니다. 다음 명령을 사용하여 **marketing_user1**로 로그인합니다.
+1. 클러스터에 대한 새 SSH 연결을 엽니다. 다음 명령을 사용하여 **marketing_user1** 로 로그인합니다.
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -236,10 +236,10 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 이 애플리케이션을 계속 사용할 계획이 없으면 다음 단계에 따라 생성된 HBase 클러스터를 삭제합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 맨 위에 있는 **검색** 상자에 **HDInsight**를 입력합니다. 
-1. **서비스**에서 **HDInsight 클러스터**를 선택합니다.
+2. 맨 위에 있는 **검색** 상자에 **HDInsight** 를 입력합니다. 
+1. **서비스** 에서 **HDInsight 클러스터** 를 선택합니다.
 1. 표시되는 HDInsight 클러스터 목록에서 이 자습서용으로 만든 클러스터 옆에 있는 **...** 를 클릭합니다. 
-1. **삭제**를 클릭합니다. **예**를 클릭합니다.
+1. **삭제** 를 클릭합니다. **예** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

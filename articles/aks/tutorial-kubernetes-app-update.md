@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 업데이트
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 애플리케이션 코드를 사용하여 기존 애플리케이션 배포를 AKS로 업데이트하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.custom: mvc
-ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 09/30/2020
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: c8401a81a36d86b871df9fc428c393007b97c400
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77593379"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833914"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
@@ -64,7 +64,7 @@ docker-compose up --build -d
 
 업데이트된 컨테이너 이미지에 변경 내용이 적용되었는지 확인하고, 로컬 웹 브라우저를 `http://localhost:8080`으로 엽니다.
 
-![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/vote-app-updated.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="로컬 웹 브라우저 및 로컬 호스트를 사용하여 연 업데이트된 컨테이너 이미지 Azure 투표 앱의 예를 보여주는 스크린샷.":::
 
 *config_file.cfg* 파일에 제공된 업데이트된 값은 실행 중인 애플리케이션에 표시됩니다.
 
@@ -76,10 +76,10 @@ docker-compose up --build -d
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-[docker tag][docker-tag]를 사용하여 이미지에 태그를 지정합니다. 다음과 같이 `<acrLoginServer>`를 ACR 로그인 서버 이름 또는 공용 레지스트리 호스트 이름으로 바꾸고, 이미지 버전을 *:v2*로 업데이트합니다.
+[docker tag][docker-tag]를 사용하여 이미지에 태그를 지정합니다. 다음과 같이 `<acrLoginServer>`를 ACR 로그인 서버 이름 또는 공용 레지스트리 호스트 이름으로 바꾸고, 이미지 버전을 *:v2* 로 업데이트합니다.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
 ```
 
 이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다.
@@ -145,7 +145,7 @@ kubectl get service azure-vote-front
 
 로컬 웹 브라우저를 서비스의 IP 주소로 엽니다.
 
-![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="로컬 웹 브라우저에서 열린 업데이트된 애플리케이션 Azure 투표 앱의 예를 보여주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

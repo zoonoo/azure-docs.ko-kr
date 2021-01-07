@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74793034"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Azure Logic Apps에서 AS2 메시지 설정에 대 한 참조 엔터프라이즈 통합 팩
@@ -25,7 +25,7 @@ ms.locfileid: "74793034"
 
 !["수신 설정"을 선택 합니다.](./media/logic-apps-enterprise-integration-as2-message-settings/receive-settings.png)
 
-| 속성 | 필수 | 설명 |
+| 속성 | 필수 | Description |
 |----------|----------|-------------|
 | **메시지 속성 재정의** | 아니요 | 들어오는 메시지의 속성을 속성 설정으로 재정의 합니다. |
 | **메시지 서명 필요** | 아니요 | 들어오는 모든 메시지를 디지털 서명 해야 하는지 여부를 지정 합니다. 서명이 필요한 경우 **인증서** 목록에서 메시지의 서명 유효성을 검사 하기 위한 기존 게스트 파트너 공용 인증서를 선택 합니다. 인증서가 없는 경우 [인증서 추가](../logic-apps/logic-apps-enterprise-integration-certificates.md)에 대해 자세히 알아보세요. |
@@ -44,7 +44,7 @@ ms.locfileid: "74793034"
 
 !["설정 보내기"를 선택 합니다.](./media/logic-apps-enterprise-integration-as2-message-settings/send-settings.png)
 
-| 속성 | 필수 | 설명 |
+| 속성 | 필수 | Description |
 |----------|----------|-------------|
 | **메시지 서명 사용** | 아니요 | 보내는 모든 메시지를 디지털 서명 해야 하는지 여부를 지정 합니다. 서명이 필요한 경우 다음 값을 선택 합니다. <p>- **서명 알고리즘** 목록에서 메시지에 서명 하는 데 사용할 알고리즘을 선택 합니다. <br>- **인증서** 목록에서 서명 메시지에 대 한 기존 호스트 파트너 개인 인증서를 선택 합니다. 인증서가 없는 경우 [인증서 추가](../logic-apps/logic-apps-enterprise-integration-certificates.md)에 대해 자세히 알아보세요. |
 | **메시지 암호화 사용** | 아니요 | 나가는 모든 메시지를 암호화 해야 하는지 여부를 지정 합니다. 암호화 해야 하는 경우 다음 값을 선택 합니다. <p>- **암호화 알고리즘** 목록에서 메시지를 암호화 하는 데 사용할 게스트 파트너 공용 인증서 알고리즘을 선택 합니다. <br>- **인증서** 목록에서 나가는 메시지를 암호화 하기 위한 기존 게스트 파트너 개인 인증서를 선택 합니다. 인증서가 없는 경우 [인증서 추가](../logic-apps/logic-apps-enterprise-integration-certificates.md)에 대해 자세히 알아보세요. |

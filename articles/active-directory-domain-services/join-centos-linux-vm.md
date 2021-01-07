@@ -2,7 +2,7 @@
 title: CentOS VM을 Azure AD Domain Services에 조인 | Microsoft Docs
 description: CentOS Linux 가상 머신을 구성 하 고 관리 되는 Azure Active Directory Domain Services 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
-ms.openlocfilehash: 9eb6a43557da43e8f792bcc3858e7123f2b6c607
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: justinha
+ms.openlocfilehash: 76fc11384b55337f581a74239d4a40b90b284f32
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005160"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619660"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>CentOS Linux 가상 머신을 Azure Active Directory Domain Services 관리 되는 도메인에 가입
 
@@ -86,7 +86,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 
 필요한 패키지가 VM에 설치 되었으므로 VM을 관리 되는 도메인에 가입 시킵니다.
 
-1. 명령을 사용 `realm discover` 하 여 관리 되는 도메인을 검색 합니다. 다음 예에서는 영역 *AADDSCONTOSO.COM*을 검색 합니다. 모든 대문자로 관리 되는 도메인 이름을 지정 합니다.
+1. 명령을 사용 `realm discover` 하 여 관리 되는 도메인을 검색 합니다. 다음 예에서는 영역 *AADDSCONTOSO.COM* 을 검색 합니다. 모든 대문자로 관리 되는 도메인 이름을 지정 합니다.
 
     ```console
     sudo realm discover AADDSCONTOSO.COM
@@ -130,7 +130,7 @@ VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경�
     sudo vi /etc/ssh/sshd_config
     ```
 
-1. *Passwordauthentication* 의 줄을 *예*로 업데이트 합니다.
+1. *Passwordauthentication* 의 줄을 *예* 로 업데이트 합니다.
 
     ```console
     PasswordAuthentication yes
@@ -146,7 +146,7 @@ VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경�
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>'AAD DC Administrators' 그룹 sudo 권한 부여
 
-*AAD DC 관리자* 의 구성원에 게 CentOS VM에 대 한 관리 권한을 부여 하려면 */etc/sudoers*에 항목을 추가 합니다. 추가 된 후에는 *AAD DC 관리자* 그룹의 구성원이 `sudo` CentOS VM에서 명령을 사용할 수 있습니다.
+*AAD DC 관리자* 의 구성원에 게 CentOS VM에 대 한 관리 권한을 부여 하려면 */etc/sudoers* 에 항목을 추가 합니다. 추가 된 후에는 *AAD DC 관리자* 그룹의 구성원이 `sudo` CentOS VM에서 명령을 사용할 수 있습니다.
 
 1. 편집할 *sudoers* 파일을 엽니다.
 
@@ -154,7 +154,7 @@ VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경�
     sudo visudo
     ```
 
-1. */Etc/sudoers* 파일의 끝에 다음 항목을 추가 합니다. *AAD DC Administrators* 그룹은 이름에 공백을 포함 하므로 그룹 이름에 백슬래시 이스케이프 문자를 포함 합니다. *Aaddscontoso.com*와 같은 고유한 도메인 이름을 추가 합니다.
+1. */Etc/sudoers* 파일의 끝에 다음 항목을 추가 합니다. *AAD DC Administrators* 그룹은 이름에 공백을 포함 하므로 그룹 이름에 백슬래시 이스케이프 문자를 포함 합니다. *Aaddscontoso.com* 와 같은 고유한 도메인 이름을 추가 합니다.
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
@@ -167,7 +167,7 @@ VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경�
 
 VM이 관리 되는 도메인에 성공적으로 가입 되었는지 확인 하려면 도메인 사용자 계정을 사용 하 여 새 SSH 연결을 시작 합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용 되었는지 확인 합니다.
 
-1. 콘솔에서 새 SSH 연결을 만듭니다. 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 고 (예:) `ssh -l` `contosoadmin@aaddscontoso.com` *CENTOS.AADDSCONTOSO.COM*와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
+1. 콘솔에서 새 SSH 연결을 만듭니다. 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 고 (예:) `ssh -l` `contosoadmin@aaddscontoso.com` *CENTOS.AADDSCONTOSO.COM* 와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
 
     ```console
     ssh -l contosoadmin@AADDSCONTOSO.com centos.aaddscontoso.com

@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: hadr
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955508"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359458"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>작업 그룹 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,20 +54,20 @@ ms.locfileid: "85955508"
 DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 
 1. 첫 번째 노드에 RDP를 서버 관리자를 엽니다. 
-1. **로컬 서버**를 선택하고 **컴퓨터 이름**에서 가상 머신의 이름을 선택합니다. 
+1. **로컬 서버** 를 선택하고 **컴퓨터 이름** 에서 가상 머신의 이름을 선택합니다. 
 1. **이 컴퓨터 이름을 바꾸려면...** 에서 **변경...** 을 선택합니다. 
 1. 작업 그룹 이름을 `AGWORKGROUP`과 같은 의미 있는 이름으로 변경합니다. 
 
    ![작업 그룹 이름 변경](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
 1. **자세히...** 를 선택하여 **DNS 접미사 및 NetBIOS 컴퓨터 이름** 대화 상자를 엽니다. 
-1. **이 컴퓨터의 주 DNS 접미사** 아래에 DNS 접미사의 이름(예: `ag.wgcluster.example.com`)을 입력하고 **확인**을 선택합니다. 
+1. **이 컴퓨터의 주 DNS 접미사** 아래에 DNS 접미사의 이름(예: `ag.wgcluster.example.com`)을 입력하고 **확인** 을 선택합니다. 
 
-   ![DNS 접미사 추가](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![스크린샷에는 값을 입력할 수 있는 D N S 접미사 및 NetBIOS 컴퓨터 이름 대화 상자가 표시 됩니다.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
-1. **전체 컴퓨터 이름**에 DNS 접미사가 표시되는지 확인하고 **확인**을 선택하여 변경 내용을 저장합니다. 
+1. **전체 컴퓨터 이름** 에 DNS 접미사가 표시되는지 확인하고 **확인** 을 선택하여 변경 내용을 저장합니다. 
 
-   ![DNS 접미사 추가](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![전체 컴퓨터 이름을 볼 수 있는 위치를 보여 주는 스크린샷](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. 지시에 따라 서버를 다시 부팅합니다. 
 1. 가용성 그룹에 사용할 다른 모든 노드에서 이 단계를 반복합니다. 
@@ -78,8 +79,8 @@ DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 호스트 파일을 편집하려면 다음 단계를 수행합니다.
 
 1. 의 RDP를 통해 가상 컴퓨터에 연결할 수 있습니다. 
-1. **파일 탐색기**를 사용하여 `c:\windows\system32\drivers\etc`로 이동합니다. 
-1. **호스트** 파일을 마우스 오른쪽 단추로 클릭하고 **메모장**이나 다른 텍스트 편집기로 파일을 엽니다.
+1. **파일 탐색기** 를 사용하여 `c:\windows\system32\drivers\etc`로 이동합니다. 
+1. **호스트** 파일을 마우스 오른쪽 단추로 클릭하고 **메모장** 이나 다른 텍스트 편집기로 파일을 엽니다.
 1. 파일 끝에 다음과 같이 `IP Address, DNS Suffix #comment` 형식으로 각 노드, 가용성 그룹 및 수신기에 대한 항목을 추가합니다. 
 
    ```
@@ -115,16 +116,16 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 클러스터가 만들어지면 고정 클러스터 IP 주소를 할당합니다. 이렇게 하려면 다음 단계를 따르십시오.
 
-1. 노드 중 하나에서 **장애 조치(failover) 클러스터 관리자**를 열고, 클러스터를 선택하고, **클러스터 코어 리소스**에서 **이름:\<ClusterNam>** 을 선택한 다음, **속성**을 선택합니다. 
+1. 노드 중 하나에서 **장애 조치(failover) 클러스터 관리자** 를 열고, 클러스터를 선택하고, **클러스터 코어 리소스** 에서 **이름:\<ClusterNam>** 을 선택한 다음, **속성** 을 선택합니다. 
 
    ![클러스터 이름의 시작 속성](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
-1. **IP 주소**에서 IP 주소를 선택하고 **편집**을 선택합니다. 
-1. **고정 주소 사용**을 선택하고 클러스터의 IP 주소를 제공한 다음, **확인**을 선택합니다. 
+1. **IP 주소** 에서 IP 주소를 선택하고 **편집** 을 선택합니다. 
+1. **고정 주소 사용** 을 선택하고 클러스터의 IP 주소를 제공한 다음, **확인** 을 선택합니다. 
 
    ![클러스터의 고정 IP 주소 제공](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 
-1. 설정이 올바른지 확인한 다음, **확인**을 선택하여 설정을 저장합니다.
+1. 설정이 올바른지 확인한 다음, **확인** 을 선택하여 설정을 저장합니다.
 
    ![클러스터 속성 확인](./media/availability-group-clusterless-workgroup-configure/7-verify-cluster-properties.png)
 
@@ -142,7 +143,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 첫 번째 노드를 구성하려면 다음 단계를 수행합니다. 
 
-1. **SQL Server Management Studio**를 열고 `AGNode1` 등의 첫 번째 노드에 연결합니다. 
+1. **SQL Server Management Studio** 를 열고 `AGNode1` 등의 첫 번째 노드에 연결합니다. 
 1. 복잡하고 안전한 암호로 업데이트한 후 **새 쿼리** 창을 열고 다음 T-SQL(Transact-SQL) 문을 실행합니다.
 
    ```sql
@@ -179,12 +180,12 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
    GO  
    ```
 
-1. **파일 탐색기**를 사용하여 인증서가 있는 파일 위치(예: `c:\certs`)로 이동합니다. 
+1. **파일 탐색기** 를 사용하여 인증서가 있는 파일 위치(예: `c:\certs`)로 이동합니다. 
 1. 첫 번째 노드에서 `AGNode1Cert.crt`와 같은 인증서의 사본을 수동으로 만들고 두 번째 노드의 동일한 위치로 전송합니다. 
 
 두 번째 노드를 구성하려면 다음 단계를 수행합니다. 
 
-1. **SQL Server Management Studio**를 사용하여 두 번째 노드(예: `AGNode2`)에 연결합니다. 
+1. **SQL Server Management Studio** 를 사용하여 두 번째 노드(예: `AGNode2`)에 연결합니다. 
 1. 복잡하고 안전한 암호로 업데이트한 후 **새 쿼리** 창에서 다음 T-SQL(Transact-SQL) 문을 실행합니다. 
 
    ```sql
@@ -220,7 +221,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
    GO  
    ```
 
-1. **파일 탐색기**를 사용하여 인증서가 있는 파일 위치(예: `c:\certs`)로 이동합니다. 
+1. **파일 탐색기** 를 사용하여 인증서가 있는 파일 위치(예: `c:\certs`)로 이동합니다. 
 1. 두 번째 노드에서 `AGNode2Cert.crt`와 같은 인증서의 사본을 수동으로 만들고 첫 번째 노드의 동일한 위치로 전송합니다. 
 
 클러스터에 다른 노드가 있는 경우 해당 인증서 이름을 수정하여 이 단계를 반복합니다. 
@@ -291,6 +292,4 @@ GO
 
 ## <a name="next-steps"></a>다음 단계
 
-[Az SQL VM CLI](availability-group-az-cli-configure.md)를 사용하여 가용성 그룹을 구성할 수도 있습니다. 
-
-
+[Az SQL VM CLI](./availability-group-az-commandline-configure.md)를 사용하여 가용성 그룹을 구성할 수도 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: cognitive-services
 manager: nitinme
@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 78b93c05621754ae499e4ae8ca6b66c5bbfaad1b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133876"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027552"
 ---
 Cognitive Services는 두 가지 자연어 처리 서비스, [Language Understanding](../luis/what-is-luis.md) 및 [QnA Maker](../qnamaker/overview/overview.md)를 제공 하며 각각 다른 용도로 사용 됩니다. 각 서비스를 사용 해야 하는 시기와 각 서비스를 어떻게 서로 어떻게 보완 하는지 이해 합니다.
 
@@ -33,7 +33,7 @@ Language Understanding (LUIS) 및 QnA Maker는 다른 문제를 해결 합니다
 |서비스|클라이언트 응용 프로그램 확인|
 |--|--|
 |LUIS|**사용자의 텍스트 의도를 결정** 합니다. 서비스에서 질문에 대 한 답을 반환 하지 않습니다. 예를 들어이 텍스트는 의도와 일치 하는 것으로 분류 됩니다 `FindLocation` .<br>|
-|QnA Maker|사용자 지정 기술 자료에서 **질문에 대 한 답변을 반환** 합니다. 예를 들어이 텍스트는의 정적 텍스트 대답이 있는 질문으로 결정 됩니다 `Get on the #9 bus and get off at Franklin street` .|
+|QnA Maker|사용자 지정 기술 자료에서 **질문에 대 한 답변을 반환** 합니다. 예를 들어이 텍스트는의 정적 텍스트 대답이 있는 질문으로 결정 됩니다  `Get on the #9 bus and get off at Franklin street` .|
 |||
 
 > [!div class="mx-imgBorder"]
@@ -71,9 +71,9 @@ QnA Maker 기술 자료를 구축 하 고 있지만 주체 도메인이 변경 �
 
 서비스에서 제공 하는 것 보다 많은 정보가 채팅 봇에 필요한 경우 의사 결정 트리를 계속 사용 하려면 두 서비스를 모두 사용 하 고 클라이언트 응용 프로그램에서 두 응답을 모두 처리 합니다.
 
-Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** 도구를 사용 하 여 두 서비스를 모두 사용 하는 프로세스를 빌드할 수 있습니다. 이 도구는 LUIS와 QnA Maker를 자식 앱으로 디스패치할 상위 LUIS 앱을 작성 합니다. LUIS, QnA Maker 및 봇 프레임 워크와의 통합에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) .
+Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** 도구를 사용 하 여 두 서비스를 모두 사용 하는 프로세스를 빌드할 수 있습니다. 이 도구는 LUIS와 QnA Maker를 자식 앱으로 디스패치할 상위 LUIS 앱을 작성 합니다. LUIS, QnA Maker 및 봇 프레임 워크와의 통합에 [대해 자세히 알아보세요](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0) .
 
-**NLP와 함께**봇 작성기 샘플, [c #](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 사용 하 여 이러한 유형의 채팅 봇을 구현 합니다.
+**NLP와 함께** 봇 작성기 샘플, [c #](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) 또는 [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)를 사용 하 여 이러한 유형의 채팅 봇을 구현 합니다.
 
 ## <a name="best-practices"></a>모범 사례
 
@@ -82,12 +82,12 @@ Bot framework **[디스패치 CLI](https://github.com/Microsoft/botbuilder-tools
 * [LUIS](../luis/luis-concept-best-practices.md) 모범 사례
 * [QnA Maker](../qnamaker/concepts/best-practices.md) 모범 사례
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
-* [Language Understanding (LUIS)](../luis/what-is-luis.md)
+* [언어 이해(LUIS)](../luis/what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)
 * [CLI 디스패치](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot framework 샘플](https://github.com/Microsoft/BotBuilder-Samples)
-* [Azure bot service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Azure bot service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 * [Azure 봇 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator)
 * [Bot framework 웹 채팅](https://github.com/microsoft/BotFramework-WebChat)

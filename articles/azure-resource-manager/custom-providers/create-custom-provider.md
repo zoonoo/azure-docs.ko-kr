@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368110"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888864"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>빠른 시작: 사용자 지정 공급자 만들기 및 사용자 지정 리소스 배포
 
@@ -23,18 +23,19 @@ ms.locfileid: "85368110"
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-- [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) 명령에는 확장이 필요합니다. 자세한 내용은 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
-- Azure CLI 예제에서는 `REST` 요청에 대해 `az rest`를 사용합니다. 자세한 내용은 [az rest](/cli/azure/reference-index#az-rest)를 참조하세요.
+Azure CLI에 대한 환경을 준비합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Azure CLI 예제에서는 `REST` 요청에 대해 `az rest`를 사용합니다. 자세한 내용은 [az rest](/cli/azure/reference-index#az-rest)를 참조하세요.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 - PowerShell 명령은 PowerShell 7 이상 및 Azure PowerShell 모듈을 사용하여 로컬로 실행됩니다. 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 - `REST` 작업을 위한 도구가 아직 없는 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. 이는 Azure Resource Manager API를 호출하여 간소화하는 오픈 소스 명령줄 도구입니다.
-- **ARMClient**를 설치한 후 `armclient.exe`를 입력하여 PowerShell 명령 프롬프트에서 사용 정보를 표시할 수 있습니다. 또는 [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki)로 이동합니다.
+- **ARMClient** 를 설치한 후 `armclient.exe`를 입력하여 PowerShell 명령 프롬프트에서 사용 정보를 표시할 수 있습니다. 또는 [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki)로 이동합니다.
 
 ---
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>사용자 지정 공급 기업 배포
 
@@ -86,7 +87,7 @@ Azure Portal에서 솔루션을 배포할 수도 있습니다. **Azure에 배포
 
 ## <a name="view-custom-provider-and-resource"></a>사용자 지정 공급 기업 및 리소스 보기
 
-포털에서 사용자 지정 공급 기업은 숨겨진 리소스 형식입니다. 리소스 공급자가 배포되었는지 확인하려면 리소스 그룹으로 이동합니다. 옵션을 **숨겨진 형식 표시**로 선택합니다.
+포털에서 사용자 지정 공급 기업은 숨겨진 리소스 형식입니다. 리소스 공급자가 배포되었는지 확인하려면 리소스 그룹으로 이동합니다. 옵션을 **숨겨진 형식 표시** 로 선택합니다.
 
 ![숨겨진 리소스 형식 표시](./media/create-custom-provider/show-hidden.png)
 

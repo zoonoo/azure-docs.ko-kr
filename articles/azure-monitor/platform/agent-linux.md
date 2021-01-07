@@ -1,19 +1,19 @@
 ---
-title: Linux 컴퓨터에 Log Analytics 에이전트 설치
+title: Linux 머신에 Log Analytics 에이전트 설치
 description: 이 문서에서는 다른 클라우드 또는 온-프레미스에서 호스트 되는 Linux 컴퓨터를 Linux 용 Log Analytics 에이전트와 Azure Monitor 연결 하는 방법을 설명 합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230469"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886841"
 ---
-# <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 컴퓨터에 Log Analytics 에이전트 설치
+# <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
 
 * GitHub에 호스트 된 [래퍼 스크립트를 사용 하 여 Linux 용 에이전트를 설치](#install-the-agent-using-wrapper-script) 합니다. 컴퓨터가 인터넷에 직접 연결 되어 있거나 프록시 서버를 통해 연결 되어 있는 경우 에이전트를 설치 하 고 업그레이드 하는 데 권장 되는 방법입니다.
@@ -30,28 +30,34 @@ Log Analytics 에이전트에서 지 원하는 Linux 배포 목록은 [Azure Mon
 
 >[!NOTE]
 >OpenSSL 1.1.0은 x86_x64 플랫폼(64비트)에서만 지원되고, OpenSSL 1.x 미만은 어떤 플랫폼에서도 지원되지 않습니다.
->
+
+>[!NOTE]
+>컨테이너에서 Log Analytics Linux 에이전트를 실행 하는 것은 지원 되지 않습니다. 컨테이너를 모니터링 해야 하는 경우 Docker 호스트의 [컨테이너 모니터링 솔루션](../insights/containers.md) 또는 Kubernetes의 [컨테이너에](../insights/container-insights-overview.md) 대 한 Azure Monitor를 활용 하세요.
+
 2018년 8월 이후에 출시된 버전부터 지원 모델이 다음과 같이 변경됩니다.  
 
 * 서버 버전만 지원되고 클라이언트 버전은 지원되지 않습니다.  
 * [Azure Linux 보증 배포](../../virtual-machines/linux/endorsed-distros.md)를 집중적으로 지원합니다. 새 배포/버전이 Azure Linux 보증 배포가 되고 Log Analytics Linux 에이전트에 대해 지원되는 데 약간의 지연이 있을 수 있습니다.
 * 나열된 각 주 버전의 모든 부 버전이 지원됩니다.
-* 제조업체의 지원 종료 날짜가 지난 버전은 지원되지 않습니다.  
+* 제조업체의 지원 종료 날짜가 지난 버전은 지원되지 않습니다.
+* VM 이미지만 지원 합니다. 컨테이너는 공식 배포판 게시자 이미지에서 파생 된 컨테이너를 포함 하 여 지원 되지 않습니다.
 * 새 AMI 버전은 지원되지 않습니다.  
 * 기본적으로 SSL 1.x를 실행하는 버전만 지원됩니다.
 
 >[!NOTE]
 >현재 지원되지 않고 Microsoft 지원 모델에 맞지 않는 배포판 또는 버전을 사용하는 경우 이 리포지토리를 포크하고, Microsoft 기술 지원에서 포크된 에이전트 버전에 대한 지원을 제공하지 않는다는 것을 확인하는 것이 좋습니다.
 
-### <a name="python-2-requirement"></a>Python 2 요구 사항
+### <a name="python-requirement"></a>Python 요구 사항
 
- Log Analytics 에이전트에는 Python 2가 필요 합니다. 가상 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.
+에이전트 버전 1.13.27부터 Linux 에이전트는 Python 2와 3을 모두 지원 합니다. 항상 최신 에이전트를 사용 하는 것이 좋습니다. 
+
+이전 버전의 에이전트를 사용 하는 경우 가상 머신에서 기본적으로 python 2를 사용 해야 합니다. 가상 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-Python2 실행 파일은 *python*으로 별칭을 지정 해야 합니다. 다음은이 별칭을 설정 하는 데 사용할 수 있는 한 가지 방법입니다.
+Python2 실행 파일은 *python* 으로 별칭을 지정 해야 합니다. 다음은이 별칭을 설정 하는 데 사용할 수 있는 한 가지 방법입니다.
 
 1. 다음 명령을 실행 하 여 기존 별칭을 제거 합니다.
  
@@ -71,7 +77,7 @@ OMS 에이전트는 Linux에 대해 제한 된 사용자 지정 지원을 제공
 현재 지원 되는 기능은 다음과 같습니다. 
 - 서명에
 
-다음은 계획 되었지만 아직 지원 되지 않습니다.
+다음 사항을 고려 하지만 아직 지원 되지 않습니다.
 - 들
 - SELINUX
 
@@ -100,12 +106,12 @@ Linux 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에�
 
 Linux 용 Log Analytics 에이전트는 여러 패키지로 구성 됩니다. 릴리스 파일에는 매개 변수와 함께 셸 번들을 실행 하 여 사용할 수 있는 다음과 같은 패키지가 포함 되어 있습니다 `--extract` .
 
-**패키지** | **Version** | **설명**
+**패키지** | **버전** | **설명**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | Linux 용 Log Analytics 에이전트
+omsagent | 1.13.9 | Linux 용 Log Analytics 에이전트
 omsconfig | 1.1.1 | Log Analytics 에이전트에 대 한 구성 에이전트
-omi | 1.6.3 | OMI (Open Management Infrastructure) – 경량 CIM 서버입니다. *OMI에는 서비스의 작동에 필요한 cron 작업을 실행 하는 데 필요한 루트 액세스가 필요 합니다.*
-scx | 1.6.3 | 운영 체제 성능 메트릭용 OMI CIM 공급자
+omi | 1.6.4 | OMI (Open Management Infrastructure) – 경량 CIM 서버입니다. *OMI에는 서비스의 작동에 필요한 cron 작업을 실행 하는 데 필요한 루트 액세스가 필요 합니다.*
+scx | 1.6.4 | 운영 체제 성능 메트릭용 OMI CIM 공급자
 apache-cimprov | 1.0.1 | OMI용 Apache HTTP 서버 성능 모니터링 공급자. Apache HTTP 서버가 감지되는 경우에만 설치됨.
 mysql-cimprov | 1.0.1 | OMI용 MySQL 서버 성능 모니터링 공급자. MySQL/MariaDB 서버가 감지되는 경우에만 설치됨.
 docker-cimprov | 1.0.0 | OMI용 Docker 공급자. Docker가 감지되는 경우에만 설치됨.
@@ -184,7 +190,7 @@ Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능�
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: 
+    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예를 들면 다음과 같습니다. 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -213,9 +219,9 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 버전 1.0.0-47부터 이전 버전에서 업그레이드 하는 것은 각 릴리스에서 지원 됩니다. 매개 변수를 사용 하 여 설치를 수행 `--upgrade` 하 여 에이전트의 모든 구성 요소를 최신 버전으로 업그레이드 합니다.
 
 ## <a name="cache-information"></a>캐시 정보
-Linux 용 Log Analytics 에이전트의 데이터가 Azure Monitor로 전송 되기 전에 *% STATE_DIR_WS/out_oms_common*. buffer *의 로컬 컴퓨터에 캐시 됩니다. 사용자 지정 로그 데이터가 *% STATE_DIR_WS %1 out_oms_blob*에 버퍼링 됩니다. *. 경로는 일부 [솔루션 및 데이터 형식](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=)에 대해 다를 수 있습니다.
+Linux 용 Log Analytics 에이전트의 데이터가 Azure Monitor로 전송 되기 전에 *% STATE_DIR_WS/out_oms_common*. buffer *의 로컬 컴퓨터에 캐시 됩니다. 사용자 지정 로그 데이터가 *% STATE_DIR_WS %1 out_oms_blob* 에 버퍼링 됩니다. *. 경로는 일부 [솔루션 및 데이터 형식](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=)에 대해 다를 수 있습니다.
 
-에이전트는 20 초 마다 업로드 하려고 합니다. 실패 하는 경우 성공할 때까지 계속 해 서 많은 시간 동안 대기 합니다. 두 번째 시도 전에 30 초 60, 다음, 120 초 전에 30 초 동안 대기 하 고 다시 연결할 때까지 다시 시도 하는 동안 최대 9 분이 소요 됩니다. 에이전트는 데이터의 지정 된 청크를 10 번만 다시 시도 하 고 다음으로 이동 합니다. 에이전트가 다시 업로드 될 때까지 계속 됩니다. 는 데이터를 삭제 하기 전에 8.5 시간까지 버퍼링 될 수 있음을 의미 합니다.
+에이전트는 20 초 마다 업로드 하려고 합니다. 실패 하는 경우 성공할 때까지 계속 해 서 점점 더 많은 시간이 소요 됩니다. 두 번째 시도 전 30 초, 120 초 전 60 초 다시 연결할 때까지 다시 시도 하는 최대 16 분까지 허용 됩니다. 에이전트는 지정 된 데이터 청크를 삭제 하 고 다음으로 이동 하기 전에 최대 6 회까지 다시 시도 합니다. 에이전트가 다시 업로드 될 때까지 계속 됩니다. 즉, 데이터를 삭제 하기 전에 약 30 분까지 버퍼링 될 수 있습니다.
 
 기본 캐시 크기는 10mb 이지만 [omsagent 파일](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf)에서 수정할 수 있습니다.
 

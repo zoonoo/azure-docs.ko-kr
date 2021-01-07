@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962522"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005234"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
 
@@ -28,11 +28,11 @@ ms.locfileid: "88962522"
 > 
 > 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 자습서는 App Service Environment를 만든 적이 있는 개발자를 대상으로 합니다. 만들어 본 적이 없는 경우 [App Service Environment 만들기](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
-1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기 > 웹 + 모바일 > 웹앱** 을 클릭합니다. 
    
     ![Azure Portal에서 웹 앱을 만들 위치를 보여 주는 스크린샷][1]
 2. 구독을 선택합니다.  
@@ -43,19 +43,19 @@ ms.locfileid: "88962522"
     *리소스 그룹* 을 사용 하면 관련 된 azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대 한 *azure RBAC (역할 기반 액세스 제어)* 규칙을 설정할 때 유용 합니다. 자세한 내용은 [Azure Resource Manager 개요][ResourceGroups]를 참조하세요. 
 4. App Service 계획을 선택하거나 만듭니다.
    
-    *App Service 계획*은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 컴퓨팅 인스턴스가 아니라 ASE에 할당된 컴퓨팅 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../overview-hosting-plans.md) 를 참조 하세요.
+    *App Service 계획* 은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 컴퓨팅 인스턴스가 아니라 ASE에 할당된 컴퓨팅 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../overview-hosting-plans.md) 를 참조 하세요.
    
     계획 이름에서 설명한 위치를 확인하여 ASE의 App Service 계획을 식별할 수 있습니다.  
    
     ![ASE에서 App Service 계획을 확인 하는 것을 보여 주는 스크린샷][5]
    
     App Service Environment에 이미 존재하는 App Service 계획을 사용하려는 경우 해당 계획을 선택합니다. 새로운 App Service 계획을 만들려는 경우 이 자습서의 다음 섹션인 [App Service Environment에서 App Service 계획 만들기](#createplan)를 참조하세요.
-5. 웹앱에 이름을 입력하고 **만들기**를 클릭합니다. 
+5. 웹앱에 이름을 입력하고 **만들기** 를 클릭합니다. 
    
     ASE에서 외부 VIP를 사용하는 경우 ASE의 앱 URL은 [*사이트 이름*].azurewebsites.net 대신 [*사이트 이름*].[*App Service Environment의 이름*].p.azurewebsites.net과 같습니다.
    
     ASE에서 내부 VIP를 사용하는 경우 해당 ASE에 있는 앱의 URL은 [*사이트 이름*].[*ASE 생성 중에 지정된 하위 도메인*]과 같습니다.   
-    ASE 생성 중에 ASP를 선택한 후 **이름**에서 하위 도메인 업데이트가 표시됩니다.
+    ASE 생성 중에 ASP를 선택한 후 **이름** 에서 하위 도메인 업데이트가 표시됩니다.
 
 ## <a name="create-an-app-service-plan"></a><a name="createplan"></a> App Service 계획 만들기
 App Service Environment에서 App Service 계획을 만들 때 ASE에 공유 작업자가 없기 때문에 작업자 선택이 다릅니다.  사용 해야 하는 작업자는 관리자가 ASE에 할당 한 작업자입니다.  즉, 새 계획을 만들려면 해당 작업자 풀에 이미 있는 모든 계획의 총 인스턴스 수보다 많은 작업 자가 ASE 작업자 풀에 할당 되어야 합니다.  ASE 작업자 풀의 작업자 수가 부족하여 계획을 만들 수 없는 경우 ASE 관리자와 함께 추가해야 합니다.
@@ -76,7 +76,7 @@ App Service Environment에서 호스팅되는 App Service 계획의 또 다른 �
     ![위치 선택에서 ASE를 선택한 후 ASE 시스템 세부 정보를 보여 주는 스크린샷][3]
 
 ### <a name="selecting-a-worker-pool"></a>작업자 풀 선택
-일반적으로 Azure App Service 내부와 App Service Environment 외부에는 전용 가격 계획을 선택할 때 사용할 수 있는 3가지 컴퓨팅 크기가 있습니다.  마찬가지로 ASE의 경우 최대 3개의 작업자 풀을 정의하고 해당 작업자 풀에 사용되는 컴퓨팅 크기를 지정할 수 있습니다.  ASE의 테넌트와 관련하여 App Service 계획에 대해 가격 책정 계획을 컴퓨팅 크기로 선택하는 대신 *작업자 풀*이라는 것을 선택합니다.  
+일반적으로 Azure App Service 내부와 App Service Environment 외부에는 전용 가격 계획을 선택할 때 사용할 수 있는 3가지 컴퓨팅 크기가 있습니다.  마찬가지로 ASE의 경우 최대 3개의 작업자 풀을 정의하고 해당 작업자 풀에 사용되는 컴퓨팅 크기를 지정할 수 있습니다.  ASE의 테넌트와 관련하여 App Service 계획에 대해 가격 책정 계획을 컴퓨팅 크기로 선택하는 대신 *작업자 풀* 이라는 것을 선택합니다.  
 
 작업자 풀 선택 UI에는 작업자 풀 이름 아래에 해당 작업자 풀에 사용되는 컴퓨팅 크기가 표시됩니다.  사용 가능한 양은 해당 풀에서 사용할 수 있는 컴퓨팅 인스턴스 수를 나타냅니다.  실제로 전체 풀에는 이보다 많은 인스턴스가 있을 수 있지만 이 값은 현재 사용 중이지 않은 개수를 나타냅니다.  App Service Environment를 조정하여 컴퓨팅 리소스를 추가해야 하는 경우 [App Service Environment 구성](app-service-web-configure-an-app-service-environment.md)을 참조하세요.
 

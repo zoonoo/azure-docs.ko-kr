@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510517"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368341"
 ---
 # <a name="how-to-manage-settings"></a>설정을 관리하는 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "88510517"
 
 구독이 없으면 다음 단계를 수행합니다.
 
-1. Translator 리소스 만들기를 구독 합니다. 번역기 [에 등록](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) 하 여 번역기 키를 구독 하 고 가져오는 방법을 따르세요.
+1. Translator 리소스 만들기를 구독 합니다. 번역기 [에 등록](../translator-how-to-signup.md) 하 여 번역기 키를 구독 하 고 가져오는 방법을 따르세요.
 2. Translator 구독의 키를 적어둡니다. Key1 또는 Key2가 허용됩니다.
 3. Custom Translator 포털로 다시 이동합니다.
 
@@ -51,6 +51,8 @@ ms.locfileid: "88510517"
 
     ![새 작업 영역 만들기 대화 상자](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>사용자 지정 변환기는 Translator Text API 리소스 (있는 경우)에 대 한 작업 영역 만들기를 지원 하지 않습니다. Azure 구독 키)를 [사용 하도록 설정](../../../api-management/api-management-using-with-vnet.md)합니다.
 
 ### <a name="modify-existing-key"></a>기존 키 수정
 
@@ -61,7 +63,7 @@ ms.locfileid: "88510517"
 
 3. 대화 상자에서 번역기 구독의 키를 입력 하 고 "저장" 단추를 클릭 합니다.
 
-    ![구독 키를 추가하는 방법](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![구독 키 대화 상자를 추가 하는 방법](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>작업 영역 관리
 

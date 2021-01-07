@@ -9,14 +9,16 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 05f81e4d93244db854bf8d0ec254ee647f81d9cc
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 7ff75bf9d45803dd96927bcf7c70e7c7912db979
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097161"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Core (SQL) API에 대 한 Azure Cosmos DB Apache Spark 커넥터: 릴리스 정보 및 리소스
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -26,14 +28,14 @@ ms.locfileid: "90069172"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
-> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 Core (SQL)에 대 한 Azure Cosmos DB Apache Spark Connector를 사용 하 여 빅 데이터 분석을 가속화할 수 있습니다. Spark 커넥터를 사용 하면 Azure Cosmos DB에 저장 된 데이터에서 [spark](https://spark.apache.org/) 작업을 실행할 수 있습니다. 일괄 처리 및 스트림 처리가 지원 됩니다.
@@ -42,7 +44,7 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 
 | 구성 요소 | 버전 |
 |---------|-------|
-| Apache Spark | 2.4.*x*, 2.3. *x*, 2.2. *x*및 2.1. *x* |
+| Apache Spark | 2.4. *x* , 2.3. *x* , 2.2. *x* 및 2.1. *x* |
 | Scala | 2.11 |
 | Azure Databricks (런타임 버전) | 3.4 이후 |
 
@@ -56,12 +58,20 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 
 | 리소스 | 링크 |
 |---|---|
-| **SDK 다운로드** | [Apache Spark에서 다운로드](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) |
+| **SDK 다운로드** | [최신 jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) 다운로드 |
 |**API 설명서** | [Spark 커넥터 참조]() |
 |**SDK에 기여** | [GitHub의 Apache Spark에 대 한 Azure Cosmos DB 커넥터](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**시작** | [Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
+|**시작** | [Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화](./spark-connector.md#bk_working_with_connector) <br> [Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>릴리스 기록
+
+### <a name="330"></a>3.3.0
+#### <a name="new-features"></a>새 기능
+- 새 구성 옵션인를 추가 합니다 .이 옵션을 `changefeedstartfromdatetime` 사용 하 여 플랫폼인 처리 되어야 하는 시작 시간을 지정할 수 있습니다. 자세한 내용은 [Config options](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references)를 참조 하세요.
+
+### <a name="320"></a>3.2.0
+#### <a name="key-bug-fixes"></a>핵심 버그 수정
+- 큰 결과 집합 (예: 수백만 개의 행)에 대해 실행자에서 과도 한 메모리 사용을 야기 하는 회귀를 수정 하 여 결국 오류가 발생 `java.lang.OutOfMemoryError: GC overhead limit exceeded` 합니다.
 
 ### <a name="311"></a>3.1.1
 #### <a name="key-bug-fixes"></a>핵심 버그 수정

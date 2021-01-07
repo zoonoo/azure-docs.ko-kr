@@ -4,8 +4,7 @@ titleSuffix: Azure App Configuration
 description: 이 자습서에서는 Azure App Configuration을 사용하여 애플리케이션과 별도로 기능 플래그를 관리하는 방법을 알아봅니다.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -13,18 +12,18 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0410a1cde12b9ef762d348a286d78b35f7b14bfd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209952"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932305"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>자습서: Azure App Configuration에서 기능 플래그 관리
 
-Azure App Configuration에 모든 기능 플래그를 저장한 후 한 곳에서 관리할 수 있습니다. App Configuration에는 기능 플래그용으로 특별히 디자인된 **기능 관리자**라는 포털 UI가 있습니다. 또한 App Configuration은 기본적으로 .NET Core 기능 플래그 데이터 스키마를 지원합니다.
+Azure App Configuration에 모든 기능 플래그를 저장한 후 한 곳에서 관리할 수 있습니다. App Configuration에는 기능 플래그용으로 특별히 디자인된 **기능 관리자** 라는 포털 UI가 있습니다. 또한 App Configuration은 기본적으로 .NET Core 기능 플래그 데이터 스키마를 지원합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -38,7 +37,7 @@ App Configuration의 Azure Portal에 있는 기능 관리자는 애플리케이�
 
 새 기능 플래그를 추가하려면
 
-1. **기능 관리자** >  **+추가**를 선택하여 기능 플래그를 추가합니다.
+1. **기능 관리자** >  **+추가** 를 선택하여 기능 플래그를 추가합니다.
 
     ![기능 플래그 목록](./media/azure-app-configuration-feature-flags.png)
 
@@ -46,16 +45,17 @@ App Configuration의 Azure Portal에 있는 기능 관리자는 애플리케이�
 
 1. 원한다면 기능 플래그에 설명을 제공합니다.
 
-1. 기능 플래그의 초기 상태를 설정합니다. 이 상태는 일반적으로 *해제* 또는 *설정*입니다. 기능 플래그에 대한 필터를 추가할 경우 *설정* 상태가 *조건부*로 변경됩니다.
+1. 기능 플래그의 초기 상태를 설정합니다. 이 상태는 일반적으로 *해제* 또는 *설정* 입니다. 기능 플래그에 대한 필터를 추가할 경우 *설정* 상태가 *조건부* 로 변경됩니다.
 
     ![기능 플래그 만들기](./media/azure-app-configuration-feature-flag-create.png)
 
-1. 상태가 *설정*이면 **+필터 추가**를 선택하여 상태를 충족할 추가 조건을 지정합니다. 기본 제공 또는 사용자 지정 필터 키를 입력한 다음, **+ 매개 변수 추가**를 선택하여 하나 이상의 매개 변수를 필터와 연결합니다. 기본 제공 필터는 다음과 같습니다.
+1. 상태가 *설정* 이면 **+필터 추가** 를 선택하여 상태를 충족할 추가 조건을 지정합니다. 기본 제공 또는 사용자 지정 필터 키를 입력한 다음, **+ 매개 변수 추가** 를 선택하여 하나 이상의 매개 변수를 필터와 연결합니다. 기본 제공 필터는 다음과 같습니다.
 
     | 키 | JSON 매개 변수 |
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100 percent} |
     | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |
+    | Microsoft.Targeting | { "Audience": 사용자, 그룹 및 롤아웃 비율을 정의하는 JSON Blob. [이 설정 파일](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json)의 `EnabledFor` 요소 아래에 있는 예제를 참조하세요.}
 
     ![기능 플래그 필터](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -63,9 +63,9 @@ App Configuration의 Azure Portal에 있는 기능 관리자는 애플리케이�
 
 기능 플래그의 상태 값을 변경하려면
 
-1. **기능 관리자**를 선택합니다.
+1. **기능 관리자** 를 선택합니다.
 
-1. 수정하려는 기능 플래그의 오른쪽에서 줄임표( **...** )를 선택한 다음, **편집**을 선택합니다.
+1. 수정하려는 기능 플래그의 오른쪽에서 줄임표(**...**)를 선택한 다음, **편집** 을 선택합니다.
 
 1. 기능 플래그에 새로운 상태를 설정합니다.
 

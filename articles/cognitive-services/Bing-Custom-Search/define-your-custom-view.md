@@ -10,16 +10,21 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183208"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338642"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Bing Custom Search 환경 구성
 
-Custom Search 인스턴스를 사용하면 사용자가 관심 있는 웹 사이트의 콘텐츠만 포함하도록 검색 환경을 조정할 수 있습니다. 웹 전체 검색을 수행하는 대신 Bing이 관심 있는 웹 조각만 검색합니다. 웹의 사용자 지정 보기를 만들려면 Bing Custom Search [포털](https://customsearch.ai)을 사용합니다.
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
+
+Custom Search 인스턴스를 사용하면 사용자가 관심 있는 웹 사이트의 콘텐츠만 포함하도록 검색 환경을 조정할 수 있습니다. 웹 전체 검색을 수행하는 대신 Bing이 관심 있는 웹 조각만 검색합니다. 웹의 사용자 지정 보기를 만들려면 Bing Custom Search [포털](https://www.customsearch.ai)을 사용합니다.
 
 포털을 사용하면 Bing에서 검색 또는 검색하지 않으려는 도메인, 하위 페이지 및 웹 페이지와 같은 웹 조각을 지정하는 검색 인스턴스를 만들 수 있습니다. 포털에서 포함하려는 콘텐츠를 제안할 수도 있습니다.
 
@@ -27,8 +32,8 @@ Custom Search 인스턴스를 사용하면 사용자가 관심 있는 웹 사이
 
 | 조각 이름 | 설명                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 도메인     | 도메인 조각에는 인터넷 도메인 내에서 찾은 모든 콘텐츠가 포함됩니다. 예를 들어 `www.microsoft.com`입니다. `www.`를 생략하면 Bing에서 도메인의 하위 도메인도 검색합니다. 예를 들어를 지정 하는 경우 `microsoft.com` Bing은 또는에서 결과를 반환 합니다 `support.microsoft.com` `technet.microsoft.com` . |
-| 하위 페이지    | 하위 페이지 조각에는 하위 페이지와 그 아래 경로에서 찾은 모든 콘텐츠가 포함됩니다. 경로에서 최대 두 개의 하위 페이지를 지정할 수 있습니다. 예를 들면 `www.microsoft.com/en-us/windows/`과 같습니다.                                                                                                                       |
+| 도메인     | 도메인 조각에는 인터넷 도메인 내에서 찾은 모든 콘텐츠가 포함됩니다. 예: `www.microsoft.com`. `www.`를 생략하면 Bing에서 도메인의 하위 도메인도 검색합니다. 예를 들어를 지정 하는 경우 `microsoft.com` Bing은 또는에서 결과를 반환 합니다 `support.microsoft.com` `technet.microsoft.com` . |
+| 하위 페이지    | 하위 페이지 조각에는 하위 페이지와 그 아래 경로에서 찾은 모든 콘텐츠가 포함됩니다. 경로에서 최대 두 개의 하위 페이지를 지정할 수 있습니다. 예, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | 웹 페이지    | 웹 페이지 조각은 사용자 지정 검색에 해당 웹 페이지만 포함할 수 있습니다. 하위 페이지를 포함할지 여부를 선택적으로 지정할 수 있습니다.                                                                                                                                                                                  |
 
 > [!IMPORTANT]
@@ -44,7 +49,7 @@ Custom Search 인스턴스를 사용하면 사용자가 관심 있는 웹 사이
 
 1. 미리 보기 창의 드롭다운 목록에서 “Bing”을 선택하고 검색 쿼리를 입력합니다.
 
-2. 포함하려는 결과 옆에 있는 **사이트 추가**를 클릭합니다. 그런 후 확인을 클릭합니다.
+2. 포함하려는 결과 옆에 있는 **사이트 추가** 를 클릭합니다. 그런 후 확인을 클릭합니다.
 
 >[!NOTE]
 > [!INCLUDE[publish or revert](./includes/publish-revert.md)]
@@ -70,21 +75,21 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>검색 환경에 대한 웹 사이트 제안 가져오기
 
-웹 조각을 **활성** 목록에 추가 하면 Bing Custom Search 포털에서 탭 아래쪽에 웹 사이트 및 하위 페이지 추천을 생성 합니다. Bing Custom Search는 포함 하려는 것으로 생각 하는 조각입니다. **새로 고침**을 클릭하여 사용자 지정 검색 인스턴스의 설정을 업데이트한 후 업데이트된 제안을 가져옵니다. 이 섹션은 제안을 사용할 수 있는 경우에만 표시됩니다.
+웹 조각을 **활성** 목록에 추가 하면 Bing Custom Search 포털에서 탭 아래쪽에 웹 사이트 및 하위 페이지 추천을 생성 합니다. Bing Custom Search는 포함 하려는 것으로 생각 하는 조각입니다. **새로 고침** 을 클릭하여 사용자 지정 검색 인스턴스의 설정을 업데이트한 후 업데이트된 제안을 가져옵니다. 이 섹션은 제안을 사용할 수 있는 경우에만 표시됩니다.
 
 ## <a name="search-for-images-and-videos"></a>이미지 및 비디오를 검색합니다.
 
-[Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) 또는 [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)를 사용하여 웹 콘텐츠와 마찬가지로 이미지와 비디오를 검색할 수 있습니다. 이러한 결과를 [호스트된 UI](hosted-ui.md) 또는 API와 함께 표시할 수 있습니다. 
+[Bing Custom Image Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) 또는 [Bing Custom Video Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)를 사용하여 웹 콘텐츠와 마찬가지로 이미지와 비디오를 검색할 수 있습니다. 이러한 결과를 [호스트된 UI](hosted-ui.md) 또는 API와 함께 표시할 수 있습니다. 
 
-이러한 API는 사용자 지정이 아닌 [Bing Image Search](../Bing-Image-Search/overview.md) 및 [Bing Video Search](../Bing-Video-Search/search-the-web.md) API와 비슷하지만 전체 웹을 검색하며 `customConfig` 쿼리 매개 변수가 필요하지 않습니다. 이미지 및 비디오 작업에 대한 자세한 내용은 해당 설명서 세트를 참조하세요. 
+이러한 API는 사용자 지정이 아닌 [Bing Image Search](../Bing-Image-Search/overview.md) 및 [Bing Video Search](../bing-video-search/overview.md) API와 비슷하지만 전체 웹을 검색하며 `customConfig` 쿼리 매개 변수가 필요하지 않습니다. 이미지 및 비디오 작업에 대한 자세한 내용은 해당 설명서 세트를 참조하세요. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>미리 보기 창에서 검색 인스턴스 테스트
 
 포털의 오른쪽 미리 보기 창을 사용하여 검색 인스턴스를 테스트하고 검색 쿼리를 제출하며 결과를 볼 수 있습니다. 
 
-1. 검색 상자 아래에서 **내 인스턴스**를 선택합니다. **Bing**을 선택하여 검색 환경의 결과를 Bing에 대해 비교할 수 있습니다. 
-2. 안전 검색 필터 및 검색할 지역/국가를 선택합니다([쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조).
-3. 쿼리를 입력하고 Enter 키를 누르거나, 검색 아이콘을 클릭하여 현재 구성의 결과를 확인합니다. 해당 결과를 가져오기 위해 **웹**, **이미지** 또는 **비디오**를 클릭하여 수행할 검색 유형을 변경할 수 있습니다. 
+1. 검색 상자 아래에서 **내 인스턴스** 를 선택합니다. **Bing** 을 선택하여 검색 환경의 결과를 Bing에 대해 비교할 수 있습니다. 
+2. 안전 검색 필터 및 검색할 지역/국가를 선택합니다([쿼리 매개 변수](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조).
+3. 쿼리를 입력하고 Enter 키를 누르거나, 검색 아이콘을 클릭하여 현재 구성의 결과를 확인합니다. 해당 결과를 가져오기 위해 **웹**, **이미지** 또는 **비디오** 를 클릭하여 수행할 검색 유형을 변경할 수 있습니다. 
 
 <a name="adjustrank"></a>
 
@@ -114,13 +119,13 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 
 ## <a name="pin-slices-to-the-top-of-search-results"></a>검색 결과의 맨 위에 조각 고정
 
-또한 포털을 사용 하면 **고정** 된 탭을 사용 하 여 특정 검색 용어에 대 한 검색 결과의 맨 위에 url을 고정할 수 있습니다. url 및 쿼리를 입력 하 여 상위 결과로 표시 될 웹 페이지를 지정 합니다. 검색 쿼리당 최대 하나의 웹 페이지를 고정할 수 있으며 인덱싱된 웹 페이지만 검색에 표시됩니다. 이미지 또는 비디오 검색에서는 결과 고정을 사용할 수 없습니다.
+또한 포털에서는 **고정** 된 탭을 사용 하 여 특정 검색 용어에 대 한 검색 결과의 맨 위에 url을 고정할 수 있습니다. URL 및 쿼리를 입력 하 여 상위 결과로 표시 될 웹 페이지를 지정 합니다. 검색 쿼리당 최대 하나의 웹 페이지를 고정할 수 있으며 인덱싱된 웹 페이지만 검색에 표시됩니다. 이미지 또는 비디오 검색에서는 결과 고정을 사용할 수 없습니다.
 
 두 가지 방법으로 웹 페이지를 맨 위에 고정할 수 있습니다.
 
 * **고정** 됨 탭에서 위쪽에 고정할 웹 페이지의 URL과 해당 쿼리를 입력 합니다.
 
-* **미리 보기** 창에서 검색 쿼리를 입력하고 [검색]을 클릭합니다. 쿼리에 대해 고정 하려는 웹 페이지를 찾고 **맨 위에 고정**을 클릭 합니다. 웹 페이지와 쿼리가 **고정됨** 목록에 추가됩니다.
+* **미리 보기** 창에서 검색 쿼리를 입력하고 [검색]을 클릭합니다. 쿼리에 대해 고정 하려는 웹 페이지를 찾고 **맨 위에 고정** 을 클릭 합니다. 웹 페이지와 쿼리가 **고정됨** 목록에 추가됩니다.
 
 ### <a name="specify-the-pins-match-condition"></a>핀의 일치 조건 지정
 
@@ -131,7 +136,7 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 
 | 값 | 설명                                                                          |
 |---------------|----------------------------------------------------------------------------------|
-| 시작 문자 | 사용자의 쿼리 문자열이 핀의 쿼리 문자열로 시작하면 핀이 일치합니다. |
+| 다음으로 시작 | 사용자의 쿼리 문자열이 핀의 쿼리 문자열로 시작하면 핀이 일치합니다. |
 | 끝 문자   | 사용자의 쿼리 문자열이 핀의 쿼리 문자열로 끝나면 핀이 일치합니다.  |
 | 포함    | 사용자의 쿼리 문자열이 핀의 쿼리 문자열을 포함하면 핀이 일치합니다.   |
 
@@ -160,4 +165,4 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 - [사용자 지정 검색 호출](./search-your-custom-view.md)
 - [호스트된 UI 환경 구성](./hosted-ui.md)
 - [장식 표식을 사용하여 텍스트를 강조 표시](../bing-web-search/hit-highlighting.md)
-- [웹 페이지 페이징](./page-webpages.md)
+- [웹 페이지 페이징](../bing-web-search/paging-search-results.md)

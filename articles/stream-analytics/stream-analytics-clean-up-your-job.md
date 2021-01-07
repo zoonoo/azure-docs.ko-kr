@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: f078ab217a5c4911fbd132338883504897db899f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2652b97c9392d3016bbc52209d4b2bda81c31706
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044603"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022084"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Azure Stream Analytics 작업을 중지 하거나 삭제 합니다.
 
@@ -30,7 +30,7 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 용 Azure 
 
 2. 실행 중인 Stream Analytics 작업을 찾아서 선택합니다.
 
-3. Stream Analytics 작업 페이지에서 **중지**를 선택하여 작업을 중지합니다. 
+3. Stream Analytics 작업 페이지에서 **중지** 를 선택하여 작업을 중지합니다. 
 
    ![Azure Stream Analytics 작업 중지](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
@@ -44,7 +44,7 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 용 Azure 
 
 2. 기존 Stream Analytics 작업을 찾아서 선택합니다.
 
-3. Stream Analytics 작업 페이지에서 **삭제**를 선택하여 작업을 삭제합니다. 
+3. Stream Analytics 작업 페이지에서 **삭제** 를 선택하여 작업을 삭제합니다. 
 
    ![Azure Stream Analytics 작업 삭제](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
@@ -53,12 +53,12 @@ Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 용 Azure 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-PowerShell을 사용 하 여 작업을 중지 하려면 [AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet을 사용 합니다. PowerShell을 사용 하 여 작업을 삭제 하려면 [AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet을 사용 합니다.
+PowerShell을 사용 하 여 작업을 중지 하려면 [AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet을 사용 합니다. PowerShell을 사용 하 여 작업을 삭제 하려면 [AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet을 사용 합니다.
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>.NET용 Azure SDK를 사용하여 작업 중지 또는 삭제
 
-.NET용 Azure SDK를 사용하여 작업을 중지하려면 [StreamingJobsOperationsExtensions.BeginStop](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet) 메서드를 사용합니다. .NET용 Azure SDK를 사용하여 작업을 삭제하려면 [StreamingJobsOperationsExtensions.BeginDelete](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet) 메서드를 사용합니다.
+.NET용 Azure SDK를 사용하여 작업을 중지하려면 [StreamingJobsOperationsExtensions.BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop) 메서드를 사용합니다. .NET용 Azure SDK를 사용하여 작업을 삭제하려면 [StreamingJobsOperationsExtensions.BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete) 메서드를 사용합니다.
 
 ## <a name="stop-or-delete-a-job-using-rest-api"></a>REST API를 사용하여 작업 중지 또는 삭제
 
-REST API를 사용하여 작업을 중지하려면 [중지](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#stop) 메서드를 참조합니다. REST API를 사용하여 작업을 삭제하려면 [삭제](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#delete) 메서드를 참조합니다.
+REST API를 사용하여 작업을 중지하려면 [중지](/rest/api/streamanalytics/2016-03-01/streamingjobs/stop) 메서드를 참조합니다. REST API를 사용하여 작업을 삭제하려면 [삭제](/rest/api/streamanalytics/2016-03-01/streamingjobs/delete) 메서드를 참조합니다.

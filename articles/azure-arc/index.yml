@@ -9,19 +9,22 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 08/21/2020
-  ms.openlocfilehash: a2bf337f5bcd5d4fb5810025b6d2aaa8da15201c
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.date: 09/23/2020
+  ms.openlocfilehash: 8536c583350e15e63f36a1f8adc3e6c51a9f28ac
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90908220"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97672528"
 highlightedContent:
   items:
   - title: Azure Arc 정보
     itemType: overview
     url: overview.md
-  - title: Azure Arc 사용 서버(미리 보기)
+  - title: 빠른 시작
+    itemType: sample
+    url: https://azurearcjumpstart.io/overview/
+  - title: Azure Arc 지원 서버
     itemType: overview
     url: ./servers/overview.md
   - title: Azure Arc 사용 Kubernetes(미리 보기)
@@ -32,7 +35,7 @@ highlightedContent:
     url: ./data/overview.md
   - title: Azure Arc 지원 SQL Server(미리 보기)
     itemType: overview
-    url: https://docs.microsoft.com/en-us/sql/sql-server/
+    url: /sql/sql-server/azure-arc/overview
 productDirectory:
   title: Azure Arc 지원 서비스
   summary: 어디서나 서비스를 실행하는 방법을 참조하세요.
@@ -48,7 +51,7 @@ productDirectory:
       text: PowerShell DSC를 사용하여 Azure에 머신 연결
     - url: ./servers/index.yml
       text: 자세히 보기...
-  - title: Azure Arc를 지원하는 Kubernetes
+  - title: Azure Arc 사용 Kubernetes(미리 보기)
     imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
     links:
     - url: ./kubernetes/connect-cluster.md
@@ -71,14 +74,14 @@ productDirectory:
   - title: Azure Arc 지원 SQL Server(미리 보기)
     imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
     links:
-    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+    - url: /sql/sql-server/azure-arc/assess
       text: SQL 인스턴스 평가
-    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+    - url: /sql/sql-server/azure-arc/overview
       text: 자세히 보기...
 conceptualContent:
   title: 시작
   items:
-  - title: Azure Arc 사용 서버(미리 보기)
+  - title: Azure Arc 지원 서버
     links:
     - url: ./servers/learn/quick-enable-hybrid-vm.md
       itemType: get-started
@@ -86,7 +89,7 @@ conceptualContent:
     - url: ./servers/learn/tutorial-enable-vm-insights.md
       itemType: tutorial
       text: VM용 Azure Monitor를 사용하여 하이브리드 머신 모니터링
-    - url: ./servers/policy-samples.md
+    - url: ./servers/policy-reference.md
       itemType: learn
       text: Azure Policy를 사용한 허용 제어 정책
     - url: ./servers/manage-vm-extensions.md

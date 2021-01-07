@@ -3,12 +3,12 @@ title: 가상 네트워크를 사용 하는 시나리오
 description: Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 시나리오, 리소스 및 제한 사항입니다.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569172"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882435"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스
 
@@ -41,6 +41,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 * 가상 네트워크에 배포 된 컨테이너 그룹에서 [관리 되는 id](container-instances-managed-identity.md) 를 사용할 수 없습니다.
 * 가상 네트워크에 배포 된 컨테이너 그룹에서 [선거의 프로브](container-instances-liveness-probe.md) 또는 [준비 프로브](container-instances-readiness-probe.md) 를 사용 하도록 설정할 수 없습니다.
 * 추가 네트워킹 리소스 때문에 가상 네트워크에 대 한 배포는 일반적으로 표준 컨테이너 인스턴스를 배포 하는 것 보다 느립니다.
+* 컨테이너 그룹을 Azure Storage 계정에 연결 하는 경우 해당 리소스에 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 추가 해야 합니다.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 

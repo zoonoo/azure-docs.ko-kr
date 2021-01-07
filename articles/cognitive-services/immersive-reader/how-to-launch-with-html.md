@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.author: metan
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fbe54b3bd6e0fc8c42b4dfc7401be74ae65ce6cd
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.author: metang
+ms.custom: devx-track-js
+ms.openlocfilehash: d028e9ef2087b866b3c168483d55556e38f9a7cd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406931"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636564"
 ---
 # <a name="how-to-launch-the-immersive-reader-with-html-content"></a>HTML 콘텐츠를 사용 하 여 몰입 형 판독기를 시작 하는 방법
 

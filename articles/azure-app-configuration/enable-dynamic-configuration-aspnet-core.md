@@ -4,23 +4,22 @@ titleSuffix: Azure App Configuration
 description: 이 자습서에서는 ASP.NET Core 앱의 구성 데이터를 동적으로 업데이트하는 방법을 알아봄
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: lcozzens
+ms.date: 09/1/2020
+ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1fd495083f5f9be367dd0f125883b181e3bed27b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300292"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930554"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -50,14 +49,14 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 ## <a name="add-a-sentinel-key"></a>Sentinel 키 추가
 
-*Sentinel 키*는 구성이 변경될 때 신호를 보내는 데 사용되는 특수 키입니다. 앱은 Sentinel 키에 대한 변경을 모니터링합니다. 변경이 검색되면 모든 구성 값을 새로 고칩니다. 이 방법은 모든 키의 변경을 모니터링하는 것과 비교하여 앱의 App Configuration에 대한 전체 요청 수를 줄입니다.
+*Sentinel 키* 는 구성이 변경될 때 신호를 보내는 데 사용되는 특수 키입니다. 앱은 Sentinel 키에 대한 변경을 모니터링합니다. 변경이 검색되면 모든 구성 값을 새로 고칩니다. 이 방법은 모든 키의 변경을 모니터링하는 것과 비교하여 앱의 App Configuration에 대한 전체 요청 수를 줄입니다.
 
-1. Azure Portal에서 **구성 탐색기 > 만들기 > 키-값**을 차례로 선택합니다.
-1. **키**에 대해 *TestApp:Settings:Sentinel*을 입력합니다. **값**에 대해 1을 입력합니다. **레이블** 및 **콘텐츠 형식**은 비워 둡니다.
-1. **적용**을 선택합니다.
+1. Azure Portal에서 **구성 탐색기 > 만들기 > 키-값** 을 차례로 선택합니다.
+1. **키** 에 대해 *TestApp:Settings:Sentinel* 을 입력합니다. **값** 에 대해 1을 입력합니다. **레이블** 및 **콘텐츠 형식** 은 비워 둡니다.
+1. **적용** 을 선택합니다.
 
 > [!NOTE]
-> 센티널 키를 사용하지 않는 경우 감시하려는 모든 키를 수동으로 등록해야 합니다.
+> 센티널 키를 사용하지 않는 경우 감시하려는 모든 키를 수동으로 등록해야 합니다.
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
@@ -67,7 +66,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. *Program.cs*를 열고, `CreateWebHostBuilder` 메서드를 업데이트하여 `config.AddAzureAppConfiguration()` 메서드를 추가합니다.
+1. *Program.cs* 를 열고, `CreateWebHostBuilder` 메서드를 업데이트하여 `config.AddAzureAppConfiguration()` 메서드를 추가합니다.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -138,7 +137,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     }
     ```
 
-3. *Startup.cs*를 열고 `ConfigureServices` 메서드에서 `IServiceCollection.Configure<T>`를 사용하여 구성 데이터를 `Settings` 클래스에 바인딩합니다.
+3. *Startup.cs* 를 열고 `ConfigureServices` 메서드에서 `IServiceCollection.Configure<T>`를 사용하여 구성 데이터를 `Settings` 클래스에 바인딩합니다.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -161,7 +160,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     ```
     ---
     > [!Tip]
-    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면  [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1)을 참조하세요.
+    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1)을 참조하세요.
 
 4. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 받는 동안 새로 고침을 위해 등록된 구성 설정을 업데이트할 수 있도록 `UseAzureAppConfiguration` 미들웨어를 추가합니다.
 
@@ -222,9 +221,12 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     
     미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청에 대해 새로 고침 작업이 트리거되고 클라이언트 라이브러리에서 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료되면 새로 고쳐집니다.
 
+    > [!NOTE]
+    > 구성을 새로 고치려면 애플리케이션의 다른 미들웨어에 의해 단락되지 않도록 요청 파이프라인에 적절하게 미들웨어를 추가합니다.
+
 ## <a name="use-the-latest-configuration-data"></a>최신 구성 데이터 사용
 
-1. 컨트롤러 디렉터리에서 *HomeController.cs*를 열고, `Microsoft.Extensions.Options` 패키지의 참조를 추가합니다.
+1. 컨트롤러 디렉터리에서 *HomeController.cs* 를 열고, `Microsoft.Extensions.Options` 패키지의 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Options;
@@ -286,7 +288,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 
 
-3. 보기 > 홈 디렉터리에서 *Index.cshtml*을 열고, 해당 콘텐츠를 다음 스크립트로 바꿉니다.
+3. 보기 > 홈 디렉터리에서 *Index.cshtml* 을 열고, 해당 콘텐츠를 다음 스크립트로 바꿉니다.
 
     ```html
     <!DOCTYPE html>
@@ -327,9 +329,9 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
     ![로컬로 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스** 를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-1. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
+1. **구성 탐색기** 를 선택하고, 다음 키의 값을 업데이트합니다.
 
     | 키 | 값 |
     |---|---|

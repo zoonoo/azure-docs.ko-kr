@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c5ca85c0dfe8d601821a78c02b2230c0909c8003
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67181914"
 ---
 서비스에서 앵커를 만든 후에는 앵커 위치를 업데이트할 수 없습니다. 새 앵커를 만들고 이전 앵커를 삭제하여 새 위치를 추적해야 합니다.

@@ -1,19 +1,19 @@
 ---
 title: FAQ-CloudSimple의 Azure VMware 솔루션
 description: CloudSimple에의 한 Azure VMware 솔루션에 대 한 질문과 대답에는 연결, 네트워킹, 보안, 저장소, Azure 통합 등이 있습니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0db8c13a7467ed864c0845319b37f958f60fa4d9
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3551327f9aa07fe218d3b05f73057e36f92abcad
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88140890"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895566"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>CloudSimple의 VMware 솔루션에 대 한 질문과 대답
 
@@ -56,8 +56,8 @@ CloudSimple은 예약 된 유지 관리 간격 전에 며칠 후에 알림을 �
 
 CloudSimple은 CloudSimple 영역 네트워크에 연결 하는 다음과 같은 연결 옵션을 제공 합니다. 여러 옵션을 동시에 사용할 수 있습니다.
 
-* **온-프레미스 데이터 센터에서 CloudSimple 영역 네트워크로의 express 경로 연결**입니다. 이는 Global Reach을 사용 하 여 CloudSimple Express 경로 회로에 온-프레미스 Express 경로 회로를 연결 하는 데 사용 되는 고속 및 대기 시간이 짧은 보안 개인 연결입니다. 연결 설정에 대 한 지침은 [express 경로를 사용 하 여 온-프레미스에서 CloudSimple로 연결](on-premises-connection.md)을 참조 하세요.
-* **Azure 가상 네트워크에서 CloudSimple 영역 네트워크로의 express 경로 연결**입니다. 이는 가상 네트워크 게이트웨이를 사용 하 여 Azure의 가상 네트워크를 CloudSimple Express 경로 회로에 연결 하는 고속, 낮은 대기 시간, 보안 개인 연결입니다. 연결 설정에 대 한 지침은 Express 경로를 [사용 하 여 CloudSimple 사설 클라우드 환경을 Azure virtual network에 연결](azure-expressroute-connection.md)을 참조 하세요.
+* **온-프레미스 데이터 센터에서 CloudSimple 영역 네트워크로의 express 경로 연결** 입니다. 이는 Global Reach을 사용 하 여 CloudSimple Express 경로 회로에 온-프레미스 Express 경로 회로를 연결 하는 데 사용 되는 고속 및 대기 시간이 짧은 보안 개인 연결입니다. 연결 설정에 대 한 지침은 [express 경로를 사용 하 여 온-프레미스에서 CloudSimple로 연결](on-premises-connection.md)을 참조 하세요.
+* **Azure 가상 네트워크에서 CloudSimple 영역 네트워크로의 express 경로 연결** 입니다. 이는 가상 네트워크 게이트웨이를 사용 하 여 Azure의 가상 네트워크를 CloudSimple Express 경로 회로에 연결 하는 고속, 낮은 대기 시간, 보안 개인 연결입니다. 연결 설정에 대 한 지침은 Express 경로를 [사용 하 여 CloudSimple 사설 클라우드 환경을 Azure virtual network에 연결](azure-expressroute-connection.md)을 참조 하세요.
 * **온-프레미스 데이터 센터에서 CloudSimple 영역 네트워크로의 사이트 간 VPN 연결**. 이는 온-프레미스 VPN 장치에서 CloudSimple 사설 클라우드 지역으로의 보안 가상 개인 네트워크입니다.  자세한 내용은 [CloudSimple network에서 VPN 게이트웨이 설정](vpn-gateway.md)을 참조 하세요.
 
 **사설 클라우드에 연결 어떻게 할까요??**
@@ -100,7 +100,7 @@ CloudSimple은 사설 클라우드 환경을 보호 하기 위한 다음과 같�
 * **네트워크 보안**. 사설 클라우드와 인터넷, 사설 클라우드 및 온-프레미스 환경 또는 사설 클라우드의 서브넷 내에서 적용 되는 방화벽 규칙을 사용 하 여 네트워크 트래픽 흐름을 제어 합니다.
 * **보안, 개인 연결**. 온-프레미스 네트워크와 Azure 구독 간에 안전한 개인 연결이 설정 됩니다.
 
-## <a name="compute"></a>컴퓨팅
+## <a name="compute"></a>Compute
 
 **어떤 종류의 호스트를 사용할 수 있나요?**
 
@@ -131,7 +131,7 @@ CloudSimple은 사설 클라우드의 모든 하드웨어 구성 요소를 지�
 
 **온-프레미스에서 응용 프로그램 및 데이터의 대규모 업로드 또는 마이그레이션을 수행할 어떻게 할까요? 있나요?**
 
-CloudSimple은 네이티브 VMware vSphere 솔루션을 제공 합니다.  대량 데이터 마이그레이션을 위한 모든 VMware 도구는 사설 클라우드와 함께 사용할 수 있습니다.  표시되는 옵션은 다음과 같습니다.
+CloudSimple은 네이티브 VMware vSphere 솔루션을 제공 합니다.  대량 데이터 마이그레이션을 위한 모든 VMware 도구는 사설 클라우드와 함께 사용할 수 있습니다.  다음 옵션을 사용할 수 있습니다.
 
 * 데이터를 대량으로 마이그레이션하기 위한 VMware HCX
 * 온-프레미스에서 CloudSimple로 저장소 vMotion를 사용 하 여 데이터의 콜드 마이그레이션.
@@ -150,7 +150,7 @@ CloudSimple은 사설 클라우드에 설치 된 응용 프로그램의 업그�
 
 **지원 되는 Azure 서비스는 무엇 인가요?**
 
-CloudSimple은 azure에서 구독에 대 한 Azure Express 경로 연결을 제공 합니다.  구독에서 실행 중인 모든 서비스는 사설 클라우드에 연결할 수 있습니다.  예제는 다음과 같습니다.
+CloudSimple은 azure에서 구독에 대 한 Azure Express 경로 연결을 제공 합니다.  구독에서 실행 중인 모든 서비스는 사설 클라우드에 연결할 수 있습니다.  다음은 이러한 템플릿의 예입니다.
 
 * CloudSimple vCenter의 id 원본으로 **Azure Active Directory** 합니다.
 * 사설 클라우드의 백업, 이미지 및 기타 데이터를 저장 하기 위한 **Azure 저장소** 입니다.

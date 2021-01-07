@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/22/2020
-  ms.openlocfilehash: 175c01423b9d7ae987b38913b0376c333f5c9ea9
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.date: 10/26/2020
+  ms.openlocfilehash: cef3c2ce0973436edf9406f9ef16b565735463ce
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90904070"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93102006"
 landingContent:
 - title: Azure Policy 정보
   linkLists:
@@ -47,20 +47,28 @@ landingContent:
       url: ./assign-policy-azurecli.md
     - text: 정책 할당(Azure PowerShell)
       url: ./assign-policy-powershell.md
+    - text: 정책 할당(.NET)
+      url: ./assign-policy-dotnet.md
+    - text: 정책 할당(JavaScript)
+      url: ./assign-policy-javascript.md
     - text: 정책 할당(Python)
       url: ./assign-policy-python.md
     - text: 정책 할당(REST)
       url: ./assign-policy-rest-api.md
     - text: 정책 할당(ARM 템플릿)
       url: ./assign-policy-template.md
+    - text: 정책 할당(Terraform)
+      url: ./assign-policy-terraform.md
   - linkListType: tutorial
     links:
     - text: 정책 만들기 및 관리
       url: ./tutorials/create-and-manage.md
     - text: VS Code 확장 사용
       url: ./how-to/extension-for-vscode.md
-    - text: 코드 워크플로서의 디자인 정책
+    - text: 코드 워크플로로 Azure Policy 디자인
       url: ./concepts/policy-as-code.md
+    - text: GitHub를 사용하여 코드로 Azure Policy 구현
+      url: ./tutorials/policy-as-code-github.md
   - linkListType: deploy
     links:
     - text: 정책 샘플의 인덱스
@@ -79,13 +87,15 @@ landingContent:
       url: ./how-to/programmatically-create.md
     - text: 배열에 대한 작성자 정책
       url: ./how-to/author-policies-for-arrays.md
+    - text: 리소스 내보내기
+      url: ./how-to/export-resources.md
   - linkListType: concept
     links:
     - text: 규정 준수
       url: ./concepts/regulatory-compliance.md
-    - text: Kubernetes에 대한 정책
+    - text: Kubernetes에 대한 Azure Policy
       url: ./concepts/policy-for-kubernetes.md
-    - text: VM용 정책
+    - text: VM용 Azure Policy
       url: ./concepts/guest-configuration.md
 - title: 리소스 검토 및 수정
   linkLists:
@@ -127,6 +137,8 @@ landingContent:
       url: /rest/api/resources/policyassignments
     - text: REST(정의)
       url: /rest/api/resources/policydefinitions
+    - text: REST(예외)
+      url: /rest/api/resources/policyexemptions
     - text: REST(이니셔티브)
       url: /rest/api/resources/policysetdefinitions
     - text: 리소스 관리자 템플릿

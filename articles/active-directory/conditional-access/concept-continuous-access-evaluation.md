@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601761"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860306"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -26,7 +26,9 @@ ms.locfileid: "90601761"
 
 정책 위반이 나 보안 문제에 대 한 시기 적절 한 응답에는 Azure AD와 같은 토큰 발급자와 Exchange Online과 같은 신뢰 당사자 간의 "대화"가 필요 합니다. 이 양방향 대화는 두 가지 중요 한 기능을 제공 합니다. 신뢰 당사자는 새 위치에서 들어오는 클라이언트와 같이 항목이 변경 된 경우를 확인할 수 있으며 토큰 발급자에 게 알립니다. 또한 토큰 발급자에 게 계정 손상, 비활성화 또는 기타 문제로 인해 지정 된 사용자에 대 한 토큰을 중지 하도록 신뢰 당사자에 게 지시 하는 방법을 제공 합니다. 이 대화에 대 한 메커니즘은 연속 액세스 평가 (CAE)입니다. 목표는 거의 실시간으로 응답 하기 위한 것 이지만, 경우에 따라 최대 15 분의 대기 시간은 이벤트 전파 시간으로 인해 관찰 될 수 있습니다.
 
-연속 액세스 평가의 초기 구현은 Exchange, 팀 및 SharePoint Online을 중심으로 합니다. 
+연속 액세스 평가의 초기 구현은 Exchange, 팀 및 SharePoint Online을 중심으로 합니다.
+
+CAE를 사용 하도록 응용 프로그램을 준비 하려면 [응용 프로그램에서 지속적인 액세스 평가 사용 api를 사용 하는 방법](/azure/active-directory/develop/app-resilience-continuous-access-evaluation)을 참조 하세요.
 
 ### <a name="key-benefits"></a>주요 이점
 
@@ -66,8 +68,8 @@ Exchange 및 SharePoint는 키 조건부 액세스 정책을 동기화 할 수 �
 
 | | Office web apps | Office Win32 앱 | IOS 용 Office | Android 용 Office | Mac용 Office |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | 지원됨 | 지원됨 | 지원되지 않음 | 지원됨 | 지원됨 |
-| **Exchange Online** | 지원됨 | 지원됨 | 지원되지 않음 | 지원됨 | 지원됨 |
+| **SharePoint Online** | 지원되지 않음 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+| **Exchange Online** | 지원되지 않음 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
 
 ### <a name="client-side-claim-challenge"></a>클라이언트 쪽 클레임 챌린지
 
@@ -103,7 +105,7 @@ CAE 지원 클라이언트를 사용 하지 않는 경우 [구성 가능한 토�
 
 1. CAE 지원 클라이언트는 일부 리소스에 대 한 액세스 토큰을 요청 하는 자격 증명 또는 새로 고침 토큰을 Azure AD에 제공 합니다.
 1. 액세스 토큰은 클라이언트에 대 한 다른 아티팩트와 함께 반환 됩니다.
-1. 관리자는 [사용자에 대 한 모든 새로 고침 토큰을](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)명시적으로 해지 합니다. Azure AD에서 리소스 공급자로 해지 이벤트가 전송 됩니다.
+1. 관리자는 [사용자에 대 한 모든 새로 고침 토큰을](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)명시적으로 해지 합니다. Azure AD에서 리소스 공급자로 해지 이벤트가 전송 됩니다.
 1. 액세스 토큰이 리소스 공급자에 게 표시 됩니다. 리소스 공급자는 토큰의 유효성을 평가 하 고 사용자에 대 한 해지 이벤트가 있는지 여부를 확인 합니다. 리소스 공급자는이 정보를 사용 하 여 리소스에 대 한 액세스 권한을 부여 하도록 결정 합니다.
 1. 이 경우 리소스 공급자는 액세스를 거부 하 고 401 + 클레임 챌린지를 다시 클라이언트에 보냅니다.
 1. CAE 지원 클라이언트는 401 + 클레임 챌린지를 이해 합니다. 캐시를 우회 하 고 1 단계로 돌아가서 클레임 챌린지와 함께 새로 고침 토큰을 Azure AD로 다시 보냅니다. 그러면 Azure AD는 모든 조건을 다시 평가 하 고이 경우 사용자에 게 다시 인증 하 라는 메시지를 표시 합니다.
@@ -126,8 +128,8 @@ CAE 지원 클라이언트를 사용 하지 않는 경우 [구성 가능한 토�
 ## <a name="enable-or-disable-cae-preview"></a>CAE 사용 또는 사용 안 함 (미리 보기)
 
 1. 조건부 액세스 관리자, 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **Azure Active Directory**  >  **보안**  >  **연속 액세스 평가**로 이동 합니다.
-1. **미리 보기 사용**을 선택 합니다.
+1. **Azure Active Directory**  >  **보안**  >  **연속 액세스 평가** 로 이동 합니다.
+1. **미리 보기 사용** 을 선택 합니다.
 
 이 페이지에서 필요에 따라 미리 보기에 적용 될 사용자 및 그룹을 제한할 수 있습니다.
 
@@ -140,7 +142,7 @@ CAE 지원 클라이언트를 사용 하지 않는 경우 [구성 가능한 토�
 CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공 합니다. [MFA 신뢰할 수 있는 ip](../authentication/howto-mfa-mfasettings.md#trusted-ips) 또는 국가 기반 위치와 같은 다른 위치 설정에 대 한 정보는 없습니다. 사용자가 mfa 신뢰할 수 있는 IP 또는 MFA 신뢰할 수 있는 IP 또는 국가 위치를 포함 하는 신뢰할 수 있는 위치에서 가져온 경우에는 사용자가 다른 위치로 이동한 후 CAE 적용 되지 않습니다. 이러한 경우에는 즉시 IP 적용 확인 없이 1 시간 CAE 토큰을 발급 합니다.
 
 > [!IMPORTANT]
-> 연속 액세스 평가를 위한 위치를 구성 하는 경우 [ip 기반 조건부 액세스 위치 조건만](../conditional-access/location-condition.md#preview-features) 사용 하 고 id 공급자 및 리소스 공급자가 볼 수 있는 **IPv4 및 IPv6 둘 다를 포함**한 모든 ip 주소를 구성 합니다. Azure Multi-Factor Authentication의 서비스 설정 페이지에서 사용할 수 있는 국가 위치 조건 또는 신뢰할 수 있는 ip 기능을 사용 하지 마세요.
+> 연속 액세스 평가를 위한 위치를 구성 하는 경우 [ip 기반 조건부 액세스 위치 조건만](../conditional-access/location-condition.md#preview-features) 사용 하 고 id 공급자 및 리소스 공급자가 볼 수 있는 **IPv4 및 IPv6 둘 다를 포함** 한 모든 ip 주소를 구성 합니다. Azure AD Multi-Factor Authentication의 서비스 설정 페이지에서 사용할 수 있는 국가 위치 조건 또는 신뢰할 수 있는 ip 기능을 사용 하지 마세요.
 
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
@@ -159,7 +161,7 @@ Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있�
 | 반기 엔터프라이즈 채널 | Enabled 또는 1로 설정 하면 CAE가 지원 되지 않습니다. | Enabled 또는 1로 설정 하면 CAE가 지원 되지 않습니다. |
 | 현재 채널 <br> 또는 <br> 월별 엔터프라이즈 채널 | CAE는 설정에 상관 없이 지원 됩니다. | CAE는 설정에 상관 없이 지원 됩니다. |
 
-Office 업데이트 채널에 대 한 자세한 내용은 [Microsoft 365 앱의 업데이트 채널 개요](https://docs.microsoft.com/deployoffice/overview-update-channels)를 참조 하세요. 조직에서는 WAM (웹 계정 관리자)를 사용 하지 않도록 설정 하는 것이 좋습니다.
+Office 업데이트 채널에 대 한 자세한 내용은 [Microsoft 365 앱의 업데이트 채널 개요](/deployoffice/overview-update-channels)를 참조 하세요. 조직에서는 WAM (웹 계정 관리자)를 사용 하지 않도록 설정 하는 것이 좋습니다.
 
 ### <a name="policy-change-timing"></a>정책 변경 타이밍
 
@@ -177,7 +179,7 @@ Azure AD와 리소스 공급자 간의 복제 지연이 발생할 수 있으므�
 
 사용 하지 않도록 설정한 후 사용자를 사용 하도록 설정 하는 경우 계정을 사용 하려면 약간의 대기 시간이 있습니다. SPO 및 팀은 15 분 지연 됩니다. EXO의 지연 시간은 35-40 분입니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 ### <a name="how-will-cae-work-with-sign-in-frequency"></a>CAE가 로그인 빈도로 어떻게 작동 하나요?
 

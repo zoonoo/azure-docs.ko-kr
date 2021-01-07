@@ -1,14 +1,16 @@
 ---
 title: 한도 및 경계 - QnA Maker
 description: QnA Maker에는 기술 자료 및 서비스 부분에 대해 제한이 있습니다. 테스트 및 게시하기 위해서는 기술 자료를 그러한 제한 내로 유지하는 것이 중요합니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 11/09/2020
+ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524440"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708943"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -32,12 +34,12 @@ ms.locfileid: "86524440"
 
 |문자 사용 안 함|
 |--|
-|작은따옴표`'`|
-|큰따옴표`"`|
+|작은따옴표 `'`|
+|큰따옴표 `"`|
 
 ### <a name="maximum-file-size"></a>최대 파일 크기
 
-|서식|최대 파일 크기 (MB)|
+|형식|최대 파일 크기 (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -48,6 +50,9 @@ ms.locfileid: "86524440"
 ### <a name="maximum-number-of-files"></a>최대 파일 수
 
 추출할 수 있는 최대 파일 수 및 최대 파일 크기는 **[QnA Maker 가격 책정 계층 제한](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** 에 따라 달라 집니다.
+
+> [!NOTE]
+> QnA Maker 관리 (미리 보기)는 추가 될 수 있는 원본 수에 제한이 없는 무료 서비스입니다. 현재 처리량은 관리 Api와 예측 Api 모두에서 초당 10 개의 트랜잭션으로 제한 됩니다.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>URL의 최대 딥 링크 수
 
@@ -71,17 +76,17 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 |항목|허용 되는 문자|Regex 패턴 일치|최대 문자|
 |--|--|--|--|
-|이름 (키)|수 있습니다<br>영숫자 (문자와 숫자)<br>`_`밑줄<br> 공백을 포함 하지 않아야 합니다.|`^[a-zA-Z0-9_]+$`|100|
-|값|제외한 모든 항목 허용<br>`:`탑재<br>`|`(수직 파이프)<br>하나의 값만 허용 됩니다.|`^[^:|]+$`|500|
+|이름 (키)|수 있습니다<br>영숫자 (문자와 숫자)<br>`_` 밑줄<br> 공백을 포함 하지 않아야 합니다.|`^[a-zA-Z0-9_]+$`|100|
+|값|제외한 모든 항목 허용<br>`:` 탑재<br>`|` (수직 파이프)<br>하나의 값만 허용 됩니다.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>기술 자료 콘텐츠 제한
 기술 자료에서 전반적인 콘텐츠 제한 사항은 아래와 같습니다.
-* 답변 텍스트 길이: 25,000
-* 질문 텍스트 길이: 1,000
-* 메타 데이터 키 텍스트의 길이: 100
-* 메타 데이터 값 텍스트의 길이: 500
-* 메타 데이터 이름에 대해 지원 되는 문자: 영문자, 숫자 및`_`
+* 대답 텍스트 길이: 25000 문자
+* 질문 텍스트 길이: 1000 문자
+* 메타 데이터 키 텍스트의 길이: 100 문자
+* 메타 데이터 값 텍스트의 길이: 500 문자
+* 메타 데이터 이름에 대해 지원 되는 문자: 영문자, 숫자 및 `_`
 * 메타 데이터 값에 대해 지원 되는 문자: 및를 제외한 모든 값 `:``|`
 * 파일 이름 길이: 200
 * 지원되는 파일 형식: “.tsv”, “.pdf”, “.txt”, “.docx”, “.xlsx”
@@ -90,15 +95,15 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 * URL/HTML 페이지: 100만 문자
 
 ## <a name="create-knowledge-base-call-limits"></a>기술 자료 호출 제한 만들기
-이는 각 기술 자료 만들기 작업(‘기술 자료 만들기’ 클릭 또는 CreateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.**
-* 답변 당 최대 대체 질문 수: 300
+이는 각 기술 자료 만들기 작업(‘기술 자료 만들기’ 클릭 또는 CreateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
+* 답변 당 추천 된 최대 질문 수: 300
 * 최대 URL 수: 10
 * 최대 파일 수: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>기술 자료 호출 제한 업데이트
-이는 각 업데이트 작업(‘저장 및 학습’ 클릭 또는 UpdateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.**
+이는 각 업데이트 작업(‘저장 및 학습’ 클릭 또는 UpdateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
 * 각 원본 이름 길이: 300
-* 추가 되거나 삭제 된 대체 질문의 최대 수: 300
+* 추가 되거나 삭제 된 추천 질문의 최대 수: 300
 * 추가 또는 삭제된 최대 메타데이터 필드 수: 10
 * 새로 고칠 수 있는 최대 URL 수: 5
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: 95abf403dfd4abd4c0533b6e8b4a2f83b33fa18b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 43b145f5a37ea4209947e54cb276e16ff55c1da1
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045555"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682810"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Visual Studio를 사용하여 Azure Stream Analytics 작업 보기
 
@@ -32,7 +32,7 @@ Visual Studio에서 작업 보기를 사용하여 Azure Stream Analytics 작업�
 
 ### <a name="open-the-job-view"></a>작업 보기 열기
 
-1. **서버 탐색기**에서 **Stream Analytics 작업**을 선택한 다음, **새로 고침**을 선택합니다. **Stream Analytics 작업** 아래에 작업이 표시됩니다.
+1. **서버 탐색기** 에서 **Stream Analytics 작업** 을 선택한 다음, **새로 고침** 을 선택합니다. **Stream Analytics 작업** 아래에 작업이 표시됩니다.
 
     ![Stream Analytics 서버 탐색기 목록](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
@@ -48,7 +48,7 @@ Visual Studio의 작업 보기에서 Azure Stream Analytics 작업을 완벽하�
 
 ## <a name="check-job-results"></a>작업 결과 확인
 
-Visual Studio용 Stream Analytics 도구는 현재 Azure Data Lake Storage 및 Blob Storage에 대한 출력 미리 보기를 지원합니다. 결과를 보려면 **작업 보기**에서 작업 다이어그램의 출력 노드를 두 번 클릭하고 적절한 자격 증명을 입력하면 됩니다.
+Visual Studio용 Stream Analytics 도구는 현재 Azure Data Lake Storage 및 Blob Storage에 대한 출력 미리 보기를 지원합니다. 결과를 보려면 **작업 보기** 에서 작업 다이어그램의 출력 노드를 두 번 클릭하고 적절한 자격 증명을 입력하면 됩니다.
 
    ![Stream Analytics 작업 BLOB 출력](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 
@@ -56,21 +56,21 @@ Visual Studio용 Stream Analytics 도구는 현재 Azure Data Lake Storage 및 B
 
 두 가지 방법으로 기존 작업을 프로젝트로 내보낼 수 있습니다.
 
-1. **서버 탐색기**의 Stream Analytics 작업 노드 아래에서 작업 노드를 마우스 오른쪽 단추로 클릭합니다. **새 Stream Analytics 프로젝트로 내보내기**를 선택합니다.
+1. **서버 탐색기** 의 Stream Analytics 작업 노드 아래에서 작업 노드를 마우스 오른쪽 단추로 클릭합니다. **새 Stream Analytics 프로젝트로 내보내기** 를 선택합니다.
     
    ![작업을 프로젝트로 내보내기](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-01.png)
     
-    **솔루션 탐색기**에서 생성된 프로젝트가 표시됩니다.
+    **솔루션 탐색기** 에서 생성된 프로젝트가 표시됩니다.
     
    ![솔루션 탐색기](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-02.png)
 
-2. 작업 보기에서 **프로젝트 생성**을 선택합니다.
+2. 작업 보기에서 **프로젝트 생성** 을 선택합니다.
     
    ![작업 보기에서 프로젝트 생성](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-export-job-03.png)
 
 ## <a name="test-connections"></a>연결 테스트
 
-**연결 테스트** 드롭다운에서 옵션을 선택하여 **작업 보기**에서 입력 및 출력 연결을 테스트할 수 있습니다.
+**연결 테스트** 드롭다운에서 옵션을 선택하여 **작업 보기** 에서 입력 및 출력 연결을 테스트할 수 있습니다.
 
    ![연결 테스트 드롭다운](./media/stream-analytics-vs-tools/stream-analytics-test-connection-dropdown.png)
 
@@ -82,5 +82,4 @@ Visual Studio용 Stream Analytics 도구는 현재 Azure Data Lake Storage 및 B
 
 * [Visual Studio를 사용하여 Azure Stream Analytics 작업 모니터링 및 관리](stream-analytics-monitor-jobs-use-vs.md)
 * [빠른 시작: Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [자습서: Azure Pipelines를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발](stream-analytics-tools-for-visual-studio-cicd.md)

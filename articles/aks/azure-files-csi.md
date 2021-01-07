@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 330c1b74a46b0f18af1068797d080e903f516ea6
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089873"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636983"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 CSI (Azure Files Container Storage Interface) 드라이버 사용
 
@@ -33,13 +33,13 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>기본 제공 저장소 클래스를 사용 하 여 동적으로 Azure Files PVs 만들기
 
-저장소 클래스는 Azure Files 공유를 만드는 방법을 정의 하는 데 사용 됩니다. 저장소 계정은 Azure Files 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복 sku][storage-skus] *에 대해 다음 중 하나를 선택*합니다.
+저장소 클래스는 Azure Files 공유를 만드는 방법을 정의 하는 데 사용 됩니다. 저장소 계정은 Azure Files 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복 sku][storage-skus] *에 대해 다음 중 하나를 선택* 합니다.
 
-* **Standard_LRS**: 표준 로컬 중복 저장소
-* **Standard_GRS**: 표준 지역 중복 저장소
-* **Standard_ZRS**: 표준 영역 중복 저장소
-* **Standard_RAGRS**: 표준 읽기 액세스 지역 중복 저장소
-* **Premium_LRS**: 프리미엄 로컬 중복 저장소
+* **Standard_LRS** : 표준 로컬 중복 저장소
+* **Standard_GRS** : 표준 지역 중복 저장소
+* **Standard_ZRS** : 표준 영역 중복 저장소
+* **Standard_RAGRS** : 표준 읽기 액세스 지역 중복 저장소
+* **Premium_LRS** : 프리미엄 로컬 중복 저장소
 
 > [!NOTE]
 > Azure Files는 Azure Premium Storage를 지원 합니다. 최소 프리미엄 파일 공유는 100 GB입니다.
@@ -194,16 +194,102 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
+
+## <a name="nfs-file-shares"></a>NFS 파일 공유
+[Azure Files 이제 NFS v 4.1 프로토콜을 지원](../storage/files/storage-files-how-to-create-nfs-shares.md)합니다. NFS 4.1에 대 한 지원 Azure Files는 완벽 하 게 관리 되는 NFS 파일 시스템을 사용 가능 하 고 내구성이 뛰어난 분산 복원 력 저장소 플랫폼에 구축 된 서비스로 제공 합니다.
+
+ 이 옵션은 내부 데이터 업데이트를 사용 하는 임의 액세스 워크 로드에 최적화 되며 전체 POSIX 파일 시스템 지원을 제공 합니다. 이 섹션에서는 AKS 클러스터에서 Azure 파일 CSI 드라이버를 사용 하 여 NFS 공유를 사용 하는 방법을 보여 줍니다.
+
+미리 보기 단계에서 [제한 사항](../storage/files/storage-files-compare-protocols.md#limitations) 및 [지역 가용성](../storage/files/storage-files-compare-protocols.md#regional-availability) 을 확인 해야 합니다.
+
+### <a name="register-the-allownfsfileshares-preview-feature"></a>`AllowNfsFileShares`미리 보기 기능 등록
+
+NFS 4.1를 활용 하는 파일 공유를 만들려면 `AllowNfsFileShares` 구독에서 기능 플래그를 사용 하도록 설정 해야 합니다.
+
+`AllowNfsFileShares`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
+```
+
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인 합니다.
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
+```
+
+준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *Microsoft 저장소* 리소스 공급자 등록을 새로 고칩니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Storage
+```
+
+### <a name="create-a-storage-account-for-the-nfs-file-share"></a>NFS 파일 공유에 대 한 저장소 계정 만들기
+
+[만들기 `Premium_LRS` ](../storage/files/storage-how-to-create-premium-fileshare.md) NFS 공유를 지원 하기 위해 다음 구성이 포함 된 Azure storage 계정:
+- 계정 종류: FileStorage
+- 보안 전송 필요 (HTTPS 트래픽만 사용): false
+- 방화벽 및 가상 네트워크에서 에이전트 노드의 가상 네트워크를 선택 합니다. 따라서 MC_ 리소스 그룹에서 저장소 계정을 만들 수 있습니다.
+
+### <a name="create-nfs-file-share-storage-class"></a>NFS 파일 공유 저장소 클래스 만들기
+
+`nfs-sc.yaml`각 자리 표시자 편집 아래에 매니페스트가 있는 파일을 저장 합니다.
+
+```yml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azurefile-csi-nfs
+provisioner: file.csi.azure.com
+parameters:
+  resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
+  storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
+  protocol: nfs
+```
+
+파일을 편집 하 고 저장 한 후에 [kubectl apply][kubectl-apply] 명령을 사용 하 여 저장소 클래스를 만듭니다.
+
+```console
+$ kubectl apply -f nfs-sc.yaml
+
+storageclass.storage.k8s.io/azurefile-csi created
+```
+
+### <a name="create-a-deployment-with-an-nfs-backed-file-share"></a>NFS 지원 파일 공유를 사용 하 여 배포 만들기
+Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` [kubectl apply][kubectl-apply] .
+
+ ```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
+
+statefulset.apps/statefulset-azurefile created
+```
+
+다음을 실행 하 여 볼륨 콘텐츠의 유효성을 검사 합니다.
+
+```console
+$ kubectl exec -it statefulset-azurefile-0 -- df -h
+
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1                                                                                 29G   11G   19G  37% /etc/hosts
+accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
+...
+```
+
+>[!NOTE]
+> NFS 파일 공유는 프리미엄 계정 이므로 최소 파일 공유 크기는 100GB입니다. 저장소 크기가 작은 PVC를 만들 경우 "파일 공유를 만들지 못했습니다." 오류가 발생할 수 있습니다. size (5) ... "
+
+
 ## <a name="windows-containers"></a>Windows 컨테이너
 
-Azure Files CSI 드라이버는 Windows 노드와 컨테이너도 지원 합니다. Windows 컨테이너를 사용 하려는 경우 windows [컨테이너 자습서](windows-container-cli.md) 에 따라 windows 노드 풀을 추가 합니다.
+Azure Files CSI 드라이버는 Windows 노드와 컨테이너도 지원 합니다. Windows 컨테이너를 사용 하려면 windows [컨테이너 자습서](windows-container-cli.md) 에 따라 windows 노드 풀을 추가 합니다.
 
 Windows 노드 풀을 만든 후와 같은 기본 제공 저장소 클래스를 사용 `azurefile-csi` 하거나 사용자 지정 저장소 클래스를 만듭니다. Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [Windows 기반 상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` . [kubectl apply][kubectl-apply]
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
 
-statefulset.apps/busybox-azuredisk created
+statefulset.apps/busybox-azurefile created
 ```
 
 다음을 실행 하 여 볼륨 콘텐츠의 유효성을 검사 합니다.
@@ -237,7 +323,7 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create
@@ -248,10 +334,10 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md

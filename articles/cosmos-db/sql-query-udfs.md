@@ -3,18 +3,20 @@ title: Azure Cosmos DB에서 Udf (사용자 정의 함수)
 description: Azure Cosmos DB의 사용자 정의 함수에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9be2a6c4497806370c4c53cbd41d9f48779f8472
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 98698264f0beb25a8b4f74861f1150ae889d7115
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419753"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546339"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Azure Cosmos DB에서 Udf (사용자 정의 함수)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 SQL API는 Udf (사용자 정의 함수)를 지원 합니다. 스칼라 Udf를 사용 하면 0 개 이상의 인수를 전달 하 고 단일 인수 결과를 반환할 수 있습니다. API는 각 인수를 올바른 JSON 값으로 확인 합니다.  
 
@@ -142,4 +144,4 @@ UDF 매개 변수에서 참조 하는 속성을 JSON 값에서 사용할 수 없
 
 - [Azure Cosmos DB 소개](introduction.md)
 - [시스템 함수](sql-query-system-functions.md)
-- [집계](sql-query-aggregates.md)
+- [집계](sql-query-aggregate-functions.md)

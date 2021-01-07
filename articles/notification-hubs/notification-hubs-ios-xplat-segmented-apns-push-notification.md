@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86530035"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 특정 iOS 장치에 푸시 알림 보내기
@@ -39,7 +39,7 @@ ms.locfileid: "86530035"
 > * 디바이스에서 알림 보내기
 > * 앱 실행 및 알림 생성
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 항목은 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]를 이미 완료해야 합니다.
 

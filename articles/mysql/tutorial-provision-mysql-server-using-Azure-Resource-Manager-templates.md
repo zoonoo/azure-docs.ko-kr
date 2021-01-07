@@ -7,19 +7,19 @@ ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
-ms.custom: mvc
-ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: fd5fa4e09dd3f73aa7a8f044ded04d504bd2f3dd
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74771103"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705475"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 
-[Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/)를 사용하면 DevOps 엔지니어가 Azure에서 관리형 MySQL 서버 및 데이터베이스의 프로비저닝, 구성 및 작업을 자동화하고 통합할 수 있습니다.  API를 통해 Azure Database for MySQL 서비스에서 MySQL 서버 및 데이터베이스를 생성, 열거, 관리 및 삭제할 수 있습니다.
+[Azure Database for MySQL REST API](/rest/api/mysql/)를 사용하면 DevOps 엔지니어가 Azure에서 관리형 MySQL 서버 및 데이터베이스의 프로비저닝, 구성 및 작업을 자동화하고 통합할 수 있습니다.  API를 통해 Azure Database for MySQL 서비스에서 MySQL 서버 및 데이터베이스를 생성, 열거, 관리 및 삭제할 수 있습니다.
 
-Azure Resource Manager는 기본 REST API를 활용하여 규모에 맞게 배포하는 데 필요한 Azure 리소스를 코드 개념으로 인프라에 맞춰 선언하고 프로그래밍합니다. 템플릿은 Azure 리소스 이름, SKU, 네트워크, 방화벽 구성 및 설정을 매개변수화하면서 템플릿을 한 번 만들어 여러 번 사용할 수 있게 합니다.  [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) 또는 [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI)를 사용하면 Azure Resource Manager 템플릿을 쉽게 만들 수 있습니다. 이 템플릿을 통해 애플리케이션 패키징, 표준화 및 배포 자동화를 사용할 수 있으며, DevOps CI/CD 파이프라인에 통합할 수 있습니다.  예를 들어 Azure Database for MySQL 백 엔드를 통해 웹앱을 신속하게 배포하려면 GitHub 갤러리에서 [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/)을 사용하여 엔드투엔드 배포를 수행할 수 있습니다.
+Azure Resource Manager는 기본 REST API를 활용하여 규모에 맞게 배포하는 데 필요한 Azure 리소스를 코드 개념으로 인프라에 맞춰 선언하고 프로그래밍합니다. 템플릿은 Azure 리소스 이름, SKU, 네트워크, 방화벽 구성 및 설정을 매개변수화하면서 템플릿을 한 번 만들어 여러 번 사용할 수 있게 합니다.  [Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) 또는 [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI)를 사용하면 Azure Resource Manager 템플릿을 쉽게 만들 수 있습니다. 이 템플릿을 통해 애플리케이션 패키징, 표준화 및 배포 자동화를 사용할 수 있으며, DevOps CI/CD 파이프라인에 통합할 수 있습니다.  예를 들어 Azure Database for MySQL 백 엔드를 통해 웹앱을 신속하게 배포하려면 GitHub 갤러리에서 [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/)을 사용하여 엔드투엔드 배포를 수행할 수 있습니다.
 
 이 자습서에서는 Azure Resource Manager 템플릿 및 다른 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -29,6 +29,8 @@ Azure Resource Manager는 기본 REST API를 활용하여 규모에 맞게 배�
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -106,7 +108,7 @@ Azure Resource Manager 템플릿에 익숙치 않은데 시도하려는 경우 �
 ```azurecli-interactive
 az login
 az group create -n ExampleResourceGroup  -l "West US2"
-az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
+az deployment group create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 
 ## <a name="get-the-connection-information"></a>연결 정보 가져오기
@@ -115,7 +117,7 @@ az group deployment create -g $ ExampleResourceGroup   --template-file $ {templa
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-결과는 JSON 형식입니다. **fullyQualifiedDomainName** 및 **administratorLogin**을 기록해 둡니다.
+결과는 JSON 형식입니다. **fullyQualifiedDomainName** 및 **administratorLogin** 을 기록해 둡니다.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -199,13 +201,47 @@ UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 SELECT * FROM inventory;
 ```
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다. 그러면 리소스 그룹의 리소스도 삭제됩니다.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 검색하여 선택합니다.
+
+2. 리소스 그룹 목록에서 리소스 그룹의 이름을 선택합니다.
+
+3. 리소스 그룹의 **개요** 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
+
+4. 확인 대화 상자에서 리소스 그룹의 이름을 입력한 다음, **삭제** 를 선택합니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 다음에 대해 알아보았습니다.
 > [!div class="checklist"]
 > * Azure Resource Manager 템플릿을 사용하여 VNet 서비스 엔드포인트에서 Azure Database for MySQL 서버 만들기
-> * [mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)를 사용하여 데이터베이스 만들기
+> * mysql 명령줄 도구를 사용하여 데이터베이스 만들기
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
-> 
+
+> [!div class="nextstepaction"]
 > [MySQL용 Azure Database에 애플리케이션을 연결하는 방법](./howto-connection-string.md)

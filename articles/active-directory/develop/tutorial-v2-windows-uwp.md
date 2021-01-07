@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 UWP 시작 | Azure
-description: UWP(유니버설 Windows 플랫폼) 애플리케이션이 Microsoft ID 플랫폼 엔드포인트에서 액세스 토큰이 필요한 API를 어떻게 호출하는지 알아봅니다.
+title: '자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 UWP(유니버설 Windows 플랫폼) 앱 만들기 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 UWP 애플리케이션을 빌드합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,26 +12,31 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: acdc23c664f84882916b91b8f8698ee36b1e6cd3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165552"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509464"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>자습서: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
-> [!div renderon="docs"]
-
-이 가이드에서는 네이티브 UWP(유니버설 Windows 플랫폼) 애플리케이션에서 액세스 토큰을 요청하는 방법에 대해 설명합니다. 그런 다음, 애플리케이션에서 Microsoft Graph API를 호출합니다. 이 가이드는 Microsoft ID 플랫폼 엔드포인트의 액세스 토큰이 필요한 다른 API에도 적용됩니다.
+이 자습서에서는 사용자를 로그인하고 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 네이티브 UWP(유니버설 Windows 플랫폼) 앱을 빌드합니다. 
 
 이 가이드의 끝에서 애플리케이션은 개인 계정을 사용하여 보호된 API를 호출합니다. outlook.com, live.com 및 기타를 예로 듭니다. 또한 애플리케이션은 Azure AD(Azure Active Directory)가 있는 회사 또는 조직의 회사 및 학교 계정을 호출합니다.
 
->[!NOTE]
-> 이 가이드에는 유니버설 Windows 플랫폼 개발이 설치된 Visual Studio가 필요합니다. 유니버설 Windows 플랫폼 앱을 개발하기 위해 Visual Studio를 다운로드하고 구성하는 방법에 대한 지침은 [설정](/windows/uwp/get-started/get-set-up)을 참조하세요.
+이 자습서에서는 다음을 수행합니다.
 
->[!NOTE]
-> Microsoft ID 플랫폼을 처음 접하는 경우 [UWP(유니버설 Windows 플랫폼) 애플리케이션에서 Microsoft Graph API 호출 빠른 시작](quickstart-v2-uwp.md)을 먼저 진행하세요.
+> [!div class="checklist"]
+> * Visual Studio에서 *UWP(유니버설 Windows 플랫폼)* 프로젝트 만들기
+> * Azure Portal에 애플리케이션 등록
+> * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
+> * Microsoft Graph API를 호출하는 코드 추가
+> * 앱 테스트
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* [유니버설 Windows 플랫폼 개발](/windows/uwp/get-started/get-set-up) 워크로드가 설치된 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-this-guide-works"></a>이 가이드의 작동 방식
 
@@ -58,16 +64,16 @@ ms.locfileid: "88165552"
 
 ### <a name="create-your-application"></a>애플리케이션 만들기
 
-1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다.
-1. **새 프로젝트 만들기**에서 C#용 **빈 앱(유니버설 Windows)** , **다음**을 차례로 선택합니다.
-1. **새 프로젝트 구성**에서 앱 이름을 지정하고 **만들기**를 선택합니다.
-1. 메시지가 표시되면 **새 유니버설 Windows 플랫폼 프로젝트**에서 **대상** 및 **최소** 버전에 대한 버전을 선택하고 **확인**을 선택합니다.
+1. Visual Studio를 열고 **새 프로젝트 만들기** 를 선택합니다.
+1. **새 프로젝트 만들기** 에서 C#용 **빈 앱(유니버설 Windows)** , **다음** 을 차례로 선택합니다.
+1. **새 프로젝트 구성** 에서 앱 이름을 지정하고 **만들기** 를 선택합니다.
+1. 메시지가 표시되면 **새 유니버설 Windows 플랫폼 프로젝트** 에서 **대상** 및 **최소** 버전에 대한 버전을 선택하고 **확인** 을 선택합니다.
 
    ![최소 및 대상 버전](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
 ### <a name="add-microsoft-authentication-library-to-your-project"></a>프로젝트에 Microsoft 인증 라이브러리 추가
 
-1. Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다.
+1. Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택합니다.
 1. **패키지 관리자 콘솔** 창에서 다음 명령을 복사하여 붙여넣습니다.
 
     ```powershell
@@ -80,7 +86,7 @@ ms.locfileid: "88165552"
 
 ### <a name="create-your-applications-ui"></a>애플리케이션 UI 만들기
 
-Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭니다. 이 파일을 연 다음, 애플리케이션의 **Grid** 노드를 다음 코드로 바꿉니다.
+Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml* 을 만듭니다. 이 파일을 연 다음, 애플리케이션의 **Grid** 노드를 다음 코드로 바꿉니다.
 
 ```xml
 <Grid>
@@ -101,7 +107,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
 
 이 섹션에서는 Microsoft 인증 라이브러리를 사용하여 Microsoft Graph API에 대한 토큰을 가져오는 방법을 보여줍니다. *MainPage.xaml.cs* 파일을 변경합니다.
 
-1. *MainPage.xaml.cs*에서 다음 참조를 추가합니다.
+1. *MainPage.xaml.cs* 에서 다음 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -115,7 +121,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
 
@@ -233,7 +239,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
 
 ### <a name="instantiate-the-microsoft-graph-service-client-by-obtaining-the-token-from-the-signinuserandgettokenusingmsal-method"></a>SignInUserAndGetTokenUsingMSAL 메서드에서 토큰을 획득하여 Microsoft Graph 서비스 클라이언트를 인스턴스화합니다.
 
-다음과 같은 새 메서드를 *MainPage.xaml.cs*에 추가합니다.
+다음과 같은 새 메서드를 *MainPage.xaml.cs* 에 추가합니다.
 
 ```csharp
       /// <summary>
@@ -258,7 +264,7 @@ Visual Studio는 프로젝트 템플릿의 일부로 *MainPage.xaml*을 만듭�
 
 ### <a name="add-a-method-to-sign-out-the-user"></a>사용자를 로그아웃하는 메서드 추가
 
-사용자를 로그아웃하려면 *MainPage.xaml.cs*에 다음 메서드를 추가합니다.
+사용자를 로그아웃하려면 *MainPage.xaml.cs* 에 다음 메서드를 추가합니다.
 
 ```csharp
 /// <summary>
@@ -316,11 +322,11 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 #### <a name="more-information"></a>자세한 정보<a name="more-information-1"></a>
 
-**OpenID Connect**를 사용하여 획득한 ID 토큰에는 사용자와 관련된 정보의 작은 하위 세트도 포함됩니다. `DisplayBasicTokenInfo`는 토큰에 포함된 기본 정보를 표시합니다. 이 정보에는 사용자의 표시 이름과 ID가 포함되어 있습니다. 또한 토큰의 만료 날짜와 액세스 토큰 자체를 나타내는 문자열도 포함되어 있습니다. **Microsoft Graph API 호출** 단추를 여러 번 선택하면 동일한 토큰이 이후의 요청에 다시 사용되었음을 알 수 있습니다. 또한 Microsoft 인증 라이브러리가 토큰을 갱신할 때가 되었다고 판단할 때 만료 날짜가 연장되는 것도 볼 수 있습니다.
+**OpenID Connect** 를 사용하여 획득한 ID 토큰에는 사용자와 관련된 정보의 작은 하위 세트도 포함됩니다. `DisplayBasicTokenInfo`는 토큰에 포함된 기본 정보를 표시합니다. 이 정보에는 사용자의 표시 이름과 ID가 포함되어 있습니다. 또한 토큰의 만료 날짜와 액세스 토큰 자체를 나타내는 문자열도 포함되어 있습니다. **Microsoft Graph API 호출** 단추를 여러 번 선택하면 동일한 토큰이 이후의 요청에 다시 사용되었음을 알 수 있습니다. 또한 Microsoft 인증 라이브러리가 토큰을 갱신할 때가 되었다고 판단할 때 만료 날짜가 연장되는 것도 볼 수 있습니다.
 
 ### <a name="display-message"></a>메시지 표시
 
-다음과 같은 새 메서드를 *MainPage.xaml.cs*에 추가합니다.
+다음과 같은 새 메서드를 *MainPage.xaml.cs* 에 추가합니다.
 
 ```csharp
 /// <summary>
@@ -341,31 +347,33 @@ private async Task DisplayMessageAsync(string message)
 이제 애플리케이션을 등록해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** > **앱 등록**을 선택합니다.
-1. **새 등록**을 선택합니다. 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: *UWP-App-calling-MSGraph*)을 입력합니다.
-1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다. 그런 다음, **등록**을 선택하여 계속합니다.
-1. 개요 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 복사합니다. Visual Studio로 돌아가서 *MainPage.xaml.cs*를 열고 `ClientId` 값을 이 값으로 바꿉니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `UWP-App-calling-MSGraph`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다. 
+1. **등록** 을 선택합니다.
+1. 개요 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 복사합니다. Visual Studio로 돌아가서 *MainPage.xaml.cs* 를 열고 `ClientId` 값을 이 값으로 바꿉니다.
 
 애플리케이션에 대한 인증을 구성합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 돌아가서 **관리** 아래에서 **인증**을 선택합니다.
-1. **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 https://login.microsoftonline.com/common/oauth2/nativeclient 를 확인합니다.
-1. **저장**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)로 돌아가 **관리** 에서 **인증** > **플랫폼 추가** 를 선택한 다음, **모바일 및 데스크톱 애플리케이션** 을 선택합니다.
+1. **리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
+1. **구성** 을 선택합니다.
 
 애플리케이션에 대한 API 권한을 구성합니다.
 
-1. **관리** 아래에서 **API 권한**을 선택합니다.
-1. **권한 추가**를 선택한 다음, **Microsoft API**를 선택했는지 확인합니다.
-1. **Microsoft Graph**를 선택합니다.
-1. **위임된 권한**을 선택하고, *Use.Read*를 검색하고, **User.Read**가 선택되어 있는지 확인합니다.
-1. 변경한 경우 **권한 추가**를 선택하여 저장합니다.
+1. **관리** 에서 **API 권한** > **권한 추가** 를 선택합니다.
+1. **Microsoft Graph** 를 선택합니다.
+1. **위임된 권한** 을 선택하고, *Use.Read* 를 검색하고, **User.Read** 가 선택되어 있는지 확인합니다.
+1. 변경한 경우 **권한 추가** 를 선택하여 저장합니다.
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>페더레이션된 도메인에서 통합된 인증을 사용하도록 설정(선택 사항)
 
 통합 Windows 인증을 페더레이션된 Azure AD 도메인에서 사용하는 경우 이를 사용하도록 설정하려면 애플리케이션 매니페스트에서 추가 기능을 사용하도록 설정해야 합니다. Visual Studio에서 애플리케이션으로 돌아갑니다.
 
-1. *Package.appxmanifest*를 엽니다.
-1. **기능**을 선택하고, 다음 설정을 사용하도록 설정합니다.
+1. *Package.appxmanifest* 를 엽니다.
+1. **기능** 을 선택하고, 다음 설정을 사용하도록 설정합니다.
 
    * **엔터프라이즈 인증**
    * **개인 네트워크(클라이언트 및 서버)**
@@ -378,7 +386,7 @@ private async Task DisplayMessageAsync(string message)
 
 현재 샘플에서는 `WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")` 메서드가 사용됩니다. `WithDefaultRedirectURI()`를 사용하려면 다음 단계를 완료합니다.
 
-1. 다음과 같이 *MainPage.XAML.cs*에서 `WithRedirectUri`를 `WithDefaultRedirectUri`로 바꿉니다.
+1. 다음과 같이 *MainPage.XAML.cs* 에서 `WithRedirectUri`를 `WithDefaultRedirectUri`로 바꿉니다.
 
    **현재 코드**
 
@@ -411,7 +419,7 @@ private async Task DisplayMessageAsync(string message)
        .Build();
    ```
 
-2.  *MainPage.xaml.cs*에서 `redirectURI` 필드를 추가하고 중단점을 설정하여 앱의 콜백 URI를 찾습니다.
+2.  *MainPage.xaml.cs* 에서 `redirectURI` 필드를 추가하고 중단점을 설정하여 앱의 콜백 URI를 찾습니다.
 
     ```csharp
 
@@ -427,27 +435,26 @@ private async Task DisplayMessageAsync(string message)
             }
            ...
     }
-  
+
     ```
 
-    앱을 실행하고, 중단점에 도달하면 `redirectUri` 값을 복사합니다. 이 값은 다음 값과 비슷한 형식입니다.  
-    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    앱을 실행하고, 중단점에 도달하면 `redirectUri` 값을 복사합니다. 이 값은 `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/` 값과 비슷한 형식입니다.
 
-    그런 다음, 값을 가져올 때 한 번만 필요한 이 코드 줄을 제거할 수 있습니다. 
+    그런 다음, 값을 가져올 때 한 번만 필요한 이 코드 줄을 제거할 수 있습니다.
 
-3. 앱 등록 포털에서, 반환된 값을 **인증** 창의 **RedirectUri**에 추가합니다.
-   
+3. 앱 등록 포털에서, 반환된 값을 **인증** 창의 **RedirectUri** 에 추가합니다.
+
 ## <a name="test-your-code"></a>코드 테스트
 
 애플리케이션을 테스트하려면 **F5** 키를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 아래와 같이 주 창이 표시됩니다.
 
 ![애플리케이션의 사용자 인터페이스](./media/tutorial-v2-windows-uwp/testapp-ui-vs2019.png)
 
-테스트할 준비가 되면 **Call Microsoft Graph API**를 선택합니다. live.com 또는 outlook.com 같은 Azure AD 조직 계정이나 Microsoft 계정을 사용하여 로그인합니다. 사용자가 이 테스트를 처음으로 실행하면 애플리케이션에서 사용자에게 로그인을 요청하는 창을 표시합니다.
+테스트할 준비가 되면 **Call Microsoft Graph API** 를 선택합니다. live.com 또는 outlook.com 같은 Azure AD 조직 계정이나 Microsoft 계정을 사용하여 로그인합니다. 사용자가 이 테스트를 처음으로 실행하면 애플리케이션에서 사용자에게 로그인을 요청하는 창을 표시합니다.
 
 ### <a name="consent"></a>동의
 
-애플리케이션에 처음으로 로그인하면 다음 이미지와 비슷한 동의 화면이 표시됩니다. 액세스하려면 **예**를 선택하여 명시적으로 동의합니다.
+애플리케이션에 처음으로 로그인하면 다음 이미지와 비슷한 동의 화면이 표시됩니다. 액세스하려면 **예** 를 선택하여 명시적으로 동의합니다.
 
 ![액세스 동의 화면](./media/tutorial-v2-windows-uwp/consentscreen-vs2019.png)
 
@@ -493,6 +500,13 @@ Microsoft Graph API는 `user.read` 범위가 있어야만 사용자 프로필을
 
 **원인:** 이 문제는 Windows 10 데스크톱에서 실행되는 UWP 애플리케이션의 웹 인증 broker에 대해 알려진 제한 사항입니다. Windows 10 Mobile에서 제대로 작동합니다.
 
-**해결 방법:** **기타 옵션으로 로그인**을 선택합니다. 그런 다음, **사용자 이름과 암호로 로그인**을 선택합니다. **암호 제공**을 선택합니다. 그런 다음, 전화 인증 프로세스로 진행합니다.
+**해결 방법:** **기타 옵션으로 로그인** 을 선택합니다. 그런 다음, **사용자 이름과 암호로 로그인** 을 선택합니다. **암호 제공** 을 선택합니다. 그런 다음, 전화 인증 프로세스로 진행합니다.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+.NET 애플리케이션에서 권한 부여 및 인증을 위해 MSAL(Microsoft 인증 라이브러리)을 사용하는 방법에 대해 자세히 알아보세요.
+
+> [!div class="nextstepaction"]
+> [MSAL(Microsoft 인증 라이브러리) 개요](msal-overview.md)

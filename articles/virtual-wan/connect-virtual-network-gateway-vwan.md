@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983753"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922969"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>가상 WAN에 VPN Gateway (가상 네트워크 게이트웨이) 연결
 
@@ -45,11 +45,11 @@ Azure Virtual Network
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>BGP 설정
 
-가상 네트워크 게이트웨이 **구성** 페이지에서 **BGP ASN**을 구성할 수 있습니다. BGP ASN을 변경 합니다. BGP ASN은 65515 일 수 없습니다. 66515는 Azure 가상 WAN에서 사용 됩니다.
+가상 네트워크 게이트웨이 **구성** 페이지에서 **BGP ASN** 을 구성할 수 있습니다. BGP ASN을 변경 합니다. BGP ASN은 65515 일 수 없습니다. 65515는 Azure 가상 WAN에서 사용 됩니다.
 
 ![스크린샷에 BGP ASN 구성이 선택 된 가상 네트워크 게이트웨이 구성 페이지를 보여 줍니다.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
-### <a name="public-ip-addresses"></a><a name="pip"></a>공용 IP 주소
+### <a name="public-ip-addresses"></a><a name="pip"></a>퍼블릿 IP 주소
 
 게이트웨이가 만들어지면 **속성** 페이지로 이동 합니다. 속성 및 구성 설정은 다음 예제와 유사 합니다. 게이트웨이에 사용 되는 두 개의 공용 IP 주소를 확인 합니다.
 
@@ -57,9 +57,9 @@ Azure Virtual Network
 
 ## <a name="2-create-virtual-wan-vpn-sites"></a><a name="vwansite"></a>2. 가상 WAN VPN 사이트 만들기
 
-가상 WAN VPN 사이트를 만들려면 가상 WAN으로 이동 하 고 **연결**에서 **VPN 사이트**를 선택 합니다. 이 섹션에서는 이전 섹션에서 만든 가상 네트워크 게이트웨이에 해당 하는 두 개의 가상 WAN VPN 사이트를 만듭니다.
+가상 WAN VPN 사이트를 만들려면 가상 WAN으로 이동 하 고 **연결** 에서 **VPN 사이트** 를 선택 합니다. 이 섹션에서는 이전 섹션에서 만든 가상 네트워크 게이트웨이에 해당 하는 두 개의 가상 WAN VPN 사이트를 만듭니다.
 
-1. **+ 사이트 만들기**를 선택 합니다.
+1. **+ 사이트 만들기** 를 선택 합니다.
 2. **VPN 사이트 만들기** 페이지에서 다음 값을 입력 합니다.
 
    * **Region** -Azure VPN Gateway 가상 네트워크 게이트웨이와 동일한 지역입니다.
@@ -67,7 +67,7 @@ Azure Virtual Network
    * **개인 주소 공간** -BGP를 사용 하는 경우 값을 입력 하거나 비워 둡니다.
    * **Border Gateway Protocol** -Azure VPN Gateway 가상 네트워크 게이트웨이에서 BGP를 사용 하도록 설정한 경우 **사용** 으로 설정 합니다.
    * **허브에 연결** -드롭다운에서 필수 구성 요소에서 만든 허브를 선택 합니다. 허브가 표시 되지 않으면 허브에 대 한 사이트 간 VPN gateway를 만들었는지 확인 합니다.
-3. **링크**에서 다음 값을 입력 합니다.
+3. **링크** 에서 다음 값을 입력 합니다.
 
    * **공급자 이름** -링크 이름 및 공급자 이름 (모든 이름)을 입력 합니다.
    * **속도** -속도 (임의 수)입니다.
@@ -81,9 +81,9 @@ Azure Virtual Network
 
 이 섹션에서는 이전 섹션에서 만든 각 사이트에 대 한 VPN 구성 파일을 다운로드 합니다.
 
-1. 가상 WAN **vpn 사이트** 페이지의 맨 위에서 **사이트**를 선택 하 고 **사이트 간 vpn 구성 다운로드**를 선택 합니다. Azure는 설정을 사용 하 여 구성 파일을 만듭니다.
+1. 가상 WAN **vpn 사이트** 페이지의 맨 위에서 **사이트** 를 선택 하 고 **사이트 간 vpn 구성 다운로드** 를 선택 합니다. Azure는 설정을 사용 하 여 구성 파일을 만듭니다.
 
-   ![구성 파일 다운로드](./media/connect-virtual-network-gateway-vwan/download.png "다운로드로 사용 가능한 제품 설명서에서 데이터 공급자 설치 섹션을 참조하세요")
+   !["사이트 간 VPN 구성 다운로드" 작업이 선택 된 "VPN 사이트" 페이지를 보여 주는 스크린샷](./media/connect-virtual-network-gateway-vwan/download.png "다운로드로 사용 가능한 제품 설명서에서 데이터 공급자 설치 섹션을 참조하세요")
 2. 구성 파일을 다운로드 하 여 엽니다.
 3. 두 번째 사이트에 대해 이러한 단계를 반복 합니다. 두 구성 파일을 모두 연 후에는 다음 섹션으로 진행할 수 있습니다.
 
@@ -98,7 +98,7 @@ Azure Virtual Network
    * **구독, 리소스 그룹 및 위치** 는 가상 WAN 허브의 경우와 동일 합니다.
 2. 로컬 네트워크 게이트웨이를 검토 하 고 만듭니다. 로컬 네트워크 게이트웨이는이 예제와 유사 하 게 표시 됩니다.
 
-   ![구성 파일 다운로드](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![IP 주소가 강조 표시 되 고 "BGP 설정 구성"이 선택 된 "구성" 페이지를 보여 주는 스크린샷](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. 다른 로컬 네트워크 게이트웨이를 만들려면이 단계를 반복 합니다. 그러나 이번에는 구성 파일에서 ' Instance0 ' 값 대신 ' Instance1 ' 값을 사용 합니다.
 
    ![구성 파일 다운로드](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")
@@ -107,7 +107,7 @@ Azure Virtual Network
 
 이 섹션에서는 VPN Gateway 로컬 네트워크 게이트웨이와 가상 네트워크 게이트웨이 간의 연결을 만듭니다. VPN Gateway 연결을 만드는 방법에 대 한 단계는 [연결 구성](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)을 참조 하세요.
 
-1. 포털에서 가상 네트워크 게이트웨이로 이동 하 고 **연결**을 클릭 합니다. 연결 페이지의 맨 위에 있는 **+추가**를 클릭하여 **연결 추가** 페이지를 엽니다.
+1. 포털에서 가상 네트워크 게이트웨이로 이동 하 고 **연결** 을 클릭 합니다. 연결 페이지의 맨 위에 있는 **+추가** 를 클릭하여 **연결 추가** 페이지를 엽니다.
 2. **연결 추가** 페이지에서 연결에 대해 다음 값을 구성 합니다.
 
    * **이름:** 연결의 이름을 지정합니다.
@@ -119,9 +119,9 @@ Azure Virtual Network
 3. **확인** 을 클릭하여 연결을 만듭니다.
 4. 가상 네트워크 게이트웨이의 **연결** 페이지에서 연결을 볼 수 있습니다.
 
-   ![연결](./media/connect-virtual-network-gateway-vwan/connect.png "연결")
+   ![연결](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
 5. 이전 단계를 반복 하 여 두 번째 연결을 만듭니다. 두 번째 연결의 경우 만든 다른 로컬 네트워크 게이트웨이를 선택 합니다.
-6. 연결이 BGP를 통해 연결 된 경우 연결을 만든 후 연결로 이동 하 여 **구성**을 선택 합니다. **구성** 페이지에서 **BGP**에 대해 **사용**을 선택 합니다. 그런 다음 **저장**을 클릭합니다. 두 번째 연결에 대해 반복 합니다.
+6. 연결이 BGP를 통해 연결 된 경우 연결을 만든 후 연결로 이동 하 여 **구성** 을 선택 합니다. **구성** 페이지에서 **BGP** 에 대해 **사용** 을 선택 합니다. 그런 다음 **저장** 을 클릭합니다. 두 번째 연결에 대해 반복 합니다.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. 연결 테스트
 
@@ -129,13 +129,13 @@ Azure Virtual Network
 
 1. Azure VPN Gateway (Test1-VNG)의 가상 네트워크 (Test1-VNet)에서 가상 컴퓨터를 만듭니다. 가상 컴퓨터를 만들지 마십시오.
 2. 가상 WAN에 연결 하는 데 다른 가상 네트워크를 만듭니다. 이 가상 네트워크의 서브넷에 가상 컴퓨터를 만듭니다. 이 가상 네트워크는 가상 네트워크 게이트웨이를 포함할 수 없습니다. [사이트 간 연결](virtual-wan-site-to-site-portal.md#vnet) 문서의 PowerShell 단계를 사용 하 여 가상 네트워크를 빠르게 만들 수 있습니다. Cmdlet을 실행 하기 전에 값을 변경 해야 합니다.
-3. 가상 WAN 허브에 VNet을 연결 합니다. 가상 WAN에 대 한 페이지에서 **가상 네트워크 연결**을 선택 하 고 **+ 연결 추가**를 선택 합니다. **연결 추가** 페이지에서 다음 필드를 채웁니다.
+3. 가상 WAN 허브에 VNet을 연결 합니다. 가상 WAN에 대 한 페이지에서 **가상 네트워크 연결** 을 선택 하 고 **+ 연결 추가** 를 선택 합니다. **연결 추가** 페이지에서 다음 필드를 채웁니다.
 
     * **연결 이름** - 연결의 이름을 지정합니다.
     * **허브** - 이 연결과 연결할 허브를 선택합니다.
     * **구독** - 구독을 확인합니다.
     * **가상 네트워크** - 이 허브에 연결할 가상 네트워크를 선택합니다. 가상 네트워크에는 기존의 가상 네트워크 게이트웨이를 사용할 수 없습니다.
-4. **확인**을 클릭하여 가상 네트워크 연결을 만듭니다.
+4. **확인** 을 클릭하여 가상 네트워크 연결을 만듭니다.
 5. 이제 Vm 간에 연결이 설정 됩니다. 통신을 차단 하는 방화벽이 나 기타 정책이 없는 한 VM 하나를 ping 할 수 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,10 +8,10 @@ author: amitbapat
 ms.author: ambapat
 ms.date: 09/15/2020
 ms.openlocfilehash: 37e2541d0b53c96fd3f85da31b2c0ce5b68b551a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997215"
 ---
 # <a name="about-the-managed-hsm-security-domain"></a>관리 되는 HSM 보안 도메인 정보
@@ -39,6 +39,6 @@ ms.locfileid: "90997215"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [관리 되는 HSM 개요](overview.md) 읽기
+- [관리형 HSM 개요](overview.md) 읽기
 - [Azure CLI에서 관리 되는 HSM을 관리 하는](key-management.md) 방법을 알아봅니다.
-- [관리 되는 HSM 모범 사례](best-practices.md) 검토
+- [관리형 HSM 모범 사례](best-practices.md) 검토

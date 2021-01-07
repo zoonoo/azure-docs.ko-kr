@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d6c954d6336a0b88f57ba1f70571263af5d1c583
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229806"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183756"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -98,9 +98,9 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 * [Azure Application Gateway 이해](../application-gateway/index.yml)
 
-* [DDoS Protection 표준을 구성하는 방법](../virtual-network/manage-ddos-protection.md)
+* [DDoS Protection 표준을 구성하는 방법](../ddos-protection/manage-ddos-protection.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -187,7 +187,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 **지침**: Azure API Management 배포와 관련된 네트워크 설정에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.ApiManagement" 및 "Microsoft.Network" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure API Management 배포 및 관련 리소스에 대한 네트워크 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. Azure Virtual Networks에 대해 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
 - DDoS Protection 표준을 사용하도록 설정해야 합니다.
 
-또한 Azure Blueprints에서 주요 환경 아티팩트(예: Azure Resource Manager 템플릿, RBAC(역할 기반 액세스 제어) 및 정책)를 단일 청사진 정의로 패키지하여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
+또한 Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 단일 청사진 정의의 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -301,7 +301,7 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
-* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure Application Insights와 통합하는 방법](./api-management-howto-app-insights.md)
 
@@ -323,7 +323,7 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 * [진단 설정을 Azure API Management에 사용하도록 설정하는 방법](./api-management-howto-use-azure-monitor.md#activity-logs)
 
-* [권한 없는 요청에 대한 경고 규칙을 구성하는 방법](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
+* [Azure API Management에 대 한 경고 규칙을 구성 하는 방법](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 * [Azure API Management 인스턴스의 용량 메트릭을 확인하는 방법](./api-management-capacity.md)
 
@@ -375,11 +375,11 @@ Azure AD(Active Directory)에는 명시적으로 할당되고 쿼리할 수 있�
 
 * [Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법](./api-management-role-based-access-control.md)
 
-* [Azure API Management 인스턴스에서 사용자 목록을 가져오는 방법](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [Azure API Management 인스턴스에서 사용자 목록을 가져오는 방법](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
-* [PowerShell을 사용하여 Azure AD에서 디렉터리 역할에 할당 된 사용자 목록을 가져오는 방법](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)
+* [PowerShell을 사용하여 Azure AD에서 디렉터리 역할에 할당 된 사용자 목록을 가져오는 방법](/powershell/module/az.resources/get-azroleassignment)
 
-* [PowerShell을 사용하여 Azure AD에서 디렉터리 역할 정의를 가져오는 방법](/powershell/module/az.resources/get-azroledefinition?view=azps-3.7.0)
+* [PowerShell을 사용하여 Azure AD에서 디렉터리 역할 정의를 가져오는 방법](/powershell/module/az.resources/get-azroledefinition)
 
 * [Azure Security Center의 ID 및 액세스 추천 사항 이해](../security-center/recommendations-reference.md#recs-identity)
 
@@ -480,7 +480,7 @@ Azure AD(Active Directory)에는 명시적으로 할당되고 쿼리할 수 있�
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: 가능하면 Azure AD를 중앙 인증 및 권한 부여 시스템으로 사용합니다. AAD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
+**지침**: 가능하면 Azure AD를 중앙 인증 및 권한 부여 시스템으로 사용합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
 Azure Active Directory를 사용하여 개발자 계정을 인증하도록 Azure API Management 개발자 포털을 구성합니다.
 
@@ -490,7 +490,7 @@ Azure AD(Active Directory)에서 OAuth 2.0 프로토콜을 사용하여 API를 �
 
 * [Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API를 보호하는 방법](./api-management-howto-protect-backend-with-aad.md)
 
-* [AAD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -506,7 +506,7 @@ Azure AD(Active Directory)에서 OAuth 2.0 프로토콜을 사용하여 API를 �
 
 * [Azure API Management에서 사용자 계정을 관리하는 방법](./api-management-howto-create-or-invite-developers.md)
 
-* [API Management 사용자 목록을 가져오는 방법](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [API Management 사용자 목록을 가져오는 방법](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 * [Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법](./api-management-howto-create-groups.md)
 
@@ -588,7 +588,7 @@ Azure AD 사용자 계정에 대한 진단 설정을 만들고, 감사 로그 �
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -614,7 +614,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 **지침**: 관리 평면 호출은 TLS를 통해 Azure Resource Manager에서 수행됩니다. 유효한 JSON 웹 토큰(JWT)이 필요합니다. 데이터 평면 호출은 TLS 및 지원되는 인증 메커니즘(예: 클라이언트 인증서 또는 JWT) 중 하나를 사용하여 보호할 수 있습니다.
 
-* [Azure API Management의 데이터 보호 이해](./api-management-security-controls.md#data-protection)
+* [Azure API Management의 데이터 보호 이해](#data-protection)
 
 * [Azure API Management에서 TLS 설정 관리](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -664,7 +664,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 **지침**: 명명된 인증서, 키 및 비밀 값과 같은 중요한 데이터는 서비스 인스턴스 키당 서비스 관리형 키를 사용하여 암호화됩니다. 모든 암호화 키는 서비스 인스턴스당 키이며 서비스에서 관리됩니다.
 
-* [Azure API Management를 사용한 저장 데이터 보호/암호화 이해](./api-management-security-controls.md#data-protection)
+* [Azure API Management를 사용한 저장 데이터 보호/암호화 이해](#data-protection)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -692,7 +692,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 구성 관련 취약성을 줄이기 위해 사용 가능한 보안 제어를 검토합니다.
 
-* [Azure API Management에서 사용할 수 있는 보안 제어 이해](./api-management-security-controls.md)
+* [Azure API Management에서 사용할 수 있는 보안 제어 이해]()
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -728,7 +728,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 �
 
 Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 서비스 구성 관련 취약성을 줄이기 위해 사용 가능한 보안 제어를 검토합니다.
 
-* [Azure API Management에서 사용할 수 있는 보안 제어 이해](./api-management-security-controls.md)
+* [Azure API Management에서 사용할 수 있는 보안 제어 이해]()
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -746,7 +746,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 �
 
 * [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription)
 
 * [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -774,7 +774,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 �
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -838,7 +838,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -888,7 +888,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Azure Policy를 사용하여 Azure API Management 서비스에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.ApiManagement" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure API Management 서비스의 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다.
 
-* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -928,11 +928,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 사용자 지정 Azure 정책 정의를 사용하는 경우 Azure DevOps 또는 Azure Repos를 사용하여 Azure API Management 서비스 구성을 안전하게 저장하고 관리합니다.
 
-* [파일을 Azure DevOps에 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [파일을 Azure DevOps에 저장하는 방법](/azure/devops/repos/git/gitworkflow)
 
-* [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
-
-* [Azure API Management DevOps 리소스 키트 이해](./api-management-security-controls.md#configuration-management)
+* [Azure Repos 설명서](/azure/devops/repos/index)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -971,8 +969,6 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 **지침**: Azure API Management DevOps 리소스 키트를 사용하여 Azure API Management에 대한 구성 관리를 수행합니다.
 
 또한 Azure Policy를 사용하여 Azure API Management 서비스에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.ApiManagement" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure API Management 인스턴스의 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. [거부] 및 [존재하지 않으면 배포] Azure 정책을 사용하여 보안 설정을 Azure 리소스 전체에 적용합니다.
-
-* [Azure API Management DevOps 리소스 키트 이해](./api-management-security-controls.md#configuration-management)
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1086,7 +1082,7 @@ API Management의 서비스 백업 및 복원 기능은 재해 복구 전략을 
 
 * [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-* [Azure Key Vault 인증서를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [Azure Key Vault 인증서를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1098,7 +1094,7 @@ API Management의 서비스 백업 및 복원 기능은 재해 복구 전략을 
 
 * [API Management 복원 작업을 호출하는 방법](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
-* [Azure Key Vault 인증서를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [Azure Key Vault 인증서를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1114,7 +1110,7 @@ API Management의 서비스 백업 및 복원 기능은 재해 복구 전략을 
 
 Key Vault에서 일시 삭제를 사용하도록 설정하여 실수로 또는 악의적으로 삭제되지 않도록 키를 보호합니다.
 
-* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 해당 없음
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16e232cedb13dc246bf7a568adfad401c1fe3eb8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89236656"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743533"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Azure AD의 하이브리드 FIDO2 보안 키에 대 한 배포 Faq (질문과 대답) (미리 보기)
 
@@ -111,7 +111,7 @@ Windows 10 클라이언트 장치에 올바른 도메인 가입 유형이 있는
 Dsregcmd/status
 ```
 
-다음 샘플 출력은 *AzureADJoined* 가 *YES*로 설정 된 것 처럼 장치가 Azure AD에 가입 된 것을 보여 줍니다.
+다음 샘플 출력은 *AzureADJoined* 가 *YES* 로 설정 된 것 처럼 장치가 Azure AD에 가입 된 것을 보여 줍니다.
 
 ```output
 +---------------------+
@@ -123,7 +123,7 @@ EnterpriseJoined: NO
 DomainedJoined: NO
 ```
 
-다음 샘플 출력은 *Domainedjoined* 도 *예*로 설정 되어 있으므로 장치가 하이브리드 Azure AD에 가입 되어 있음을 보여 줍니다. *DomainName* 도 표시 됩니다.
+다음 샘플 출력은 *Domainedjoined* 도 *예* 로 설정 되어 있으므로 장치가 하이브리드 Azure AD에 가입 되어 있음을 보여 줍니다. *DomainName* 도 표시 됩니다.
 
 ```output
 +---------------------+
@@ -160,7 +160,7 @@ Windows Server 2016 또는 2019 도메인 컨트롤러에서 다음 패치가 �
 
 아니요,이 기능은 온-프레미스 전용 장치에 대해서는 지원 되지 않습니다. FIDO2 자격 증명 공급자가 표시 되지 않습니다.
 
-### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>도메인 관리자 또는 기타 높은 권한 계정에 대해 FIDO2 보안 키 로그인이 작동 하지 않습니다. 그 이유는 무엇일까요?
+### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>도메인 관리자 또는 기타 높은 권한 계정에 대해 FIDO2 보안 키 로그인이 작동 하지 않습니다. 그 이유는
 
 기본 보안 정책은 온-프레미스 리소스에 대 한 높은 권한 계정에 로그인 할 수 있는 권한을 Azure AD에 부여 하지 않습니다.
 
@@ -185,7 +185,7 @@ Azure AD Kerberos 서버는 온-프레미스 AD DS 환경에서 DC (도메인 �
 
 * *CN = AzureADKerberos, OU = 도메인 컨트롤러\<domain-DN>*
     
-    AD DS의 RODC (읽기 전용 도메인 컨트롤러)를 나타내는 *컴퓨터* 개체입니다. 이 개체와 연결 된 컴퓨터가 없습니다. 대신 DC의 논리적 표현입니다.
+    AD DS의 RODC (Read-Only 도메인 컨트롤러)를 나타내는 *컴퓨터* 개체입니다. 이 개체와 연결 된 컴퓨터가 없습니다. 대신 DC의 논리적 표현입니다.
 
 * *CN = krbtgt_AzureAD, CN = Users,\<domain-DN>*
 
@@ -199,7 +199,7 @@ Azure AD Kerberos 서버는 온-프레미스 AD DS 환경에서 DC (도메인 �
 
 Azure AD Kerberos 서버는 *KerberosDomain* 개체로 서 azure ad에 표시 됩니다. 각 온-프레미스 AD DS 환경은 Azure AD 테 넌 트에서 단일 *KerberosDomain* 개체로 표현 됩니다.
 
-예를 들어 *contoso.com* 및 *fabrikam.com*과 같은 두 개의 도메인이 있는 AD DS 포리스트가 있을 수 있습니다. Azure AD에서 전체 포리스트에 대해 Kerberos Tgt (허용 티켓)를 발급 하도록 허용 하는 경우 Azure AD에는 두 개의 *KerberosDomain* 개체, *contoso.com* 에는 하나의 개체, *fabrikam.com*에는 1 개의 개체가 있습니다.
+예를 들어 *contoso.com* 및 *fabrikam.com* 과 같은 두 개의 도메인이 있는 AD DS 포리스트가 있을 수 있습니다. Azure AD에서 전체 포리스트에 대해 Kerberos Tgt (허용 티켓)를 발급 하도록 허용 하는 경우 Azure AD에는 두 개의 *KerberosDomain* 개체, *contoso.com* 에는 하나의 개체, *fabrikam.com* 에는 1 개의 개체가 있습니다.
 
 AD DS 포리스트가 여러 개인 경우 각 포리스트의 각 도메인에 대해 하나의 *KerberosDomain* 개체가 있습니다.
 
@@ -228,13 +228,13 @@ Azure AD Connect는 Azure AD에서 AD DS로 정보를 다시 쓰지 않습니다
 
 HTTP 요청은 표준 주 새로 고침 토큰 (PRT) 요청입니다. 이 PRT 요청은 Kerberos TGT (허용 티켓)가 필요 함을 나타내는 클레임을 포함 합니다.
 
-| 클레임 | 값 | Description                             |
+| 클레임 | 값 | 설명                             |
 |-------|-------|-----------------------------------------|
 | tgt   | true  | 클레임은 클라이언트에 TGT가 필요 함을 나타냅니다. |
 
 Azure AD는 암호화 된 클라이언트 키와 메시지 버퍼를 PRT 응답에 추가 속성으로 결합 합니다. 페이로드는 Azure AD 장치 세션 키를 사용 하 여 암호화 됩니다.
 
-| 필드              | 형식   | Description  |
+| 필드              | 형식   | 설명  |
 |--------------------|--------|--------------|
 | tgt_client_key     | 문자열 | Base64 인코딩된 클라이언트 키 (암호)입니다. 이 키는 TGT를 보호 하는 데 사용 되는 클라이언트 암호입니다. 이 암호 없는 시나리오에서 클라이언트 암호는 각 TGT 요청의 일부로 서버에서 생성 된 다음 응답에서 클라이언트로 반환 됩니다. |
 | tgt_key_type       | int    | 클라이언트 키와 KERB_MESSAGE_BUFFER에 포함 된 Kerberos 세션 키 모두에 사용 되는 온-프레미스 AD DS 키 유형입니다. |

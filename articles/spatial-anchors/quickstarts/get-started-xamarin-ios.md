@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Xamarin iOS 앱 만들기'
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 Xamarin 지원 iOS 앱을 빌드하는 방법을 알아봅니다.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 07/22/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 12fb644430d4bfd6444c6bbf09d37b4662ca6fd1
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b62ca4b02a1bd28d150f233adf1dfb621995e1c4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810108"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009741"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Xamarin iOS 앱 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "87810108"
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - macOS High Sierra(10.13) 이상을 실행하는 Mac:
   - [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)에서 설치된 최신 버전의 Xcode 및 iOS SDK
-  - 최신 버전의 <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Mac용 Visual Studio 8.1 이상</a>
+  - 최신 버전의 <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Mac용 Visual Studio 8.1 이상</a>
   - <a href="https://git-scm.com/download/mac" target="_blank">macOS용 Git</a>.
   - <a href="https://git-lfs.github.com/">Git LFS</a>.
 
@@ -61,13 +61,13 @@ Visual Studio에서 `Xamarin/SampleXamarin.sln`을 엽니다.
 
 iOS 디바이스의 전원을 켜고, 로그인하고, USB 케이블을 사용해 컴퓨터에 연결합니다.
 
-시작 프로젝트를 **SampleXamarin.iOS**로 설정하고, **솔루션 구성**을 **릴리스**로 변경하고, 디바이스 선택기 드롭다운에서 배포하려는 디바이스를 선택합니다.
+시작 프로젝트를 **SampleXamarin.iOS** 로 설정하고, **솔루션 구성** 을 **릴리스** 로 변경하고, 디바이스 선택기 드롭다운에서 배포하려는 디바이스를 선택합니다.
 
 ![Visual Studio 구성](./media/get-started-xamarin-iOS/visual-studio-macos-configuration.jpg)
 
-**실행** > **디버깅 없이 시작**을 선택하여 앱을 배포하고 시작합니다.
+**실행** > **디버깅 없이 시작** 을 선택하여 앱을 배포하고 시작합니다.
 
-앱에서 **기본**을 선택하여 데모를 실행하고 지침에 따라 앵커를 배치하고 회수합니다.
+앱에서 **기본** 을 선택하여 데모를 실행하고 지침에 따라 앵커를 배치하고 회수합니다.
 
 > ![스크린샷 1](./media/get-started-xamarin-ios/screenshot-1.jpg)
 > ![스크린샷 2](./media/get-started-xamarin-ios/screenshot-2.jpg)

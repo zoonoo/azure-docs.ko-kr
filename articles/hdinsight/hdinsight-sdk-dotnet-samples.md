@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019
-ms.openlocfilehash: 097323b4566daeda737428121bee4d64e9f7248b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c748c7c1887f46df6f2a49c0d92cfc91a94a90c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74951567"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080416"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: .NET 샘플
 
@@ -33,7 +33,7 @@ ms.locfileid: "74951567"
 
 ## <a name="prerequisite"></a>필수 요소
 
-[.NET용 Azure HDInsight SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
+[.NET용 Azure HDInsight SDK](/dotnet/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>클러스터 관리 - 만들기
 
@@ -46,4 +46,4 @@ ms.locfileid: "74951567"
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-이 추가 SDK 기능에 대한 코드 조각은 [.NET용 HDInsight SDK 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)에서 찾을 수 있습니다.
+이 추가 SDK 기능에 대한 코드 조각은 [.NET용 HDInsight SDK 참조 설명서](/dotnet/api/overview/azure/hdinsight)에서 찾을 수 있습니다.

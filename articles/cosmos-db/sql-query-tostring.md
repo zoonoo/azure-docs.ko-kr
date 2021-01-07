@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 ToString
 description: Azure Cosmos DB의 SQL 시스템 함수 ToString에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85406a1c4a8d5780354d4161581550b02262f36b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78304262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340756"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  스칼라 식의 문자열 표현을 반환합니다. 
   
 ## <a name="syntax"></a>구문

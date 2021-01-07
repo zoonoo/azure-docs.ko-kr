@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dc195f98310e63cbde06885effe86ea3c239249
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515153"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576101"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 
 이 문서에서는 **서비스 간 인증을 위한 Microsoft Azure Active Directory 웹 애플리케이션을 만드는** 방법에 대해 설명합니다. 최종 사용자 인증을 위해 Azure AD 애플리케이션 구성을 수행하는 방법은 [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>1단계: Active Directory 웹 애플리케이션 만들기
@@ -65,12 +65,12 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
     ![그룹 추가](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "그룹 추가")
 6. **사용 권한 선택**을 클릭하고 사용 권한 및 이러한 권한을 기본 ACL로 할당할지, 액세스 ALC로 할당할지 또는 둘 다로 할당할지 선택합니다. **확인**을 클릭합니다.
    
-    ![그룹에 권한 할당](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "그룹에 권한 할당")
+    ![사용 권한 선택 옵션을 포함 하는 사용자 지정 액세스 블레이드에 대 한 스크린샷 및 확인 옵션이 포함 된 권한 선택 블레이드를 호출 합니다.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "그룹에 권한 할당")
    
     Data Lake Storage Gen1의 사용 권한 및 기본/액세스 ACL에 대한 자세한 내용은 [Data Lake Storage Gen1에서 액세스 제어](data-lake-store-access-control.md)를 참조하세요.
 7. **사용자 지정 액세스 추가** 블레이드에서 **확인**을 클릭합니다. 연결 된 권한으로 새로 추가 된 그룹이 **액세스** 블레이드에서 나열 됩니다.
    
-    ![그룹에 권한 할당](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "그룹에 권한 할당")
+    ![사용자 지정 액세스 섹션에서 호출 되는 새로 추가 된 그룹을 포함 하는 액세스 블레이드의 스크린샷](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "그룹에 권한 할당")
 
 > [!NOTE]
 > Azure Active Directory 애플리케이션을 특정 폴더로 제한하려면 동일한 Azure Active Directory 애플리케이션에 루트에 대한 **실행** 권한도 부여하여 .NET SDK를 통한 파일 생성 액세스를 활성화해야 합니다.
@@ -88,11 +88,11 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
 
 3. 앱 등록 블레이드 맨 위에서 **엔드포인트**를 클릭합니다.
 
-    ![OAuth 토큰 끝점](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth 토큰 끝점")
+    ![앱 등록 옵션 및 out 이라는 끝점 옵션을 사용 하는 Active Directory의 스크린샷](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth 토큰 끝점")
 
 4. 엔드포인트 목록에서 OAuth 2.0 토큰 엔드포인트를 복사합니다.
 
-    ![OAuth 토큰 끝점](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth 토큰 끝점")   
+    ![O AUTH 2 point O TOKEN 끝점 복사 아이콘이 호출 된 끝점 블레이드의 스크린샷](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth 토큰 끝점")   
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure AD 웹 응용 프로그램을 만들고 .NET SDK, Java, Python, REST API 등을 사용 하 여 만든 클라이언트 응용 프로그램에 필요한 정보를 수집 했습니다. 이제 Azure AD 네이티브 응용 프로그램을 사용 하 여 Data Lake Storage Gen1를 먼저 인증 한 다음 저장소에서 다른 작업을 수행 하는 방법에 대해 설명 하는 다음 문서를 진행할 수 있습니다.

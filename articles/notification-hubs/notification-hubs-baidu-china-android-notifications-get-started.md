@@ -16,11 +16,11 @@ ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
 ms.custom: devx-track-java, devx-track-csharp
 ms.openlocfilehash: 13b05c17cc621660576913c08a1fdbc389365a53
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003969"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009129"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
 
@@ -30,7 +30,7 @@ Baidu 클라우드 푸시는 모바일 디바이스로 푸시 알림을 보내�
 
 Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없으므로 다른 앱 스토어 및 푸시 서비스를 사용해야 합니다. Baidu는 그 중 하나이며 현재 알림 허브에서 사용하는 것입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -49,7 +49,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. 알림 허브에서 **Notification Services**를 선택한 다음 **Baidu(Android China)** 를 선택합니다.
+&emsp;&emsp;6. 알림 허브에서 **Notification Services** 를 선택한 다음 **Baidu(Android China)** 를 선택합니다.
 
 &emsp;&emsp;&emsp;&emsp;![Azure Notification Hubs - Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
@@ -57,7 +57,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
 &emsp;&emsp;&emsp;&emsp;![Azure Notification Hubs - Baidu 비밀](./media/notification-hubs-baidu-get-started/NotificationHubBaiduConfigure.png)
 
-이제 알림 허브가 Baidu와 작동하도록 구성됩니다. 푸시 알림을 보내고 받도록 앱을 등록하는 **연결 문자열**을 갖습니다.
+이제 알림 허브가 Baidu와 작동하도록 구성됩니다. 푸시 알림을 보내고 받도록 앱을 등록하는 **연결 문자열** 을 갖습니다.
 
 액세스 연결 정보 창에서 `DefaultListenSharedAccessSignature` 및 `DefaultFullSharedAccessSignature`를 적어 둡니다.
 
@@ -113,7 +113,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
     ![Azure Notification Hubs - Baidu SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
-7. 프로젝트의 `libs` 폴더에서 `pushervice-x.y.z.jar` 파일을 마우스 오른쪽 단추로 클릭하고 **라이브러리로 추가**를 선택하여 프로젝트에서 이 라이브러리를 포함시킵니다.
+7. 프로젝트의 `libs` 폴더에서 `pushervice-x.y.z.jar` 파일을 마우스 오른쪽 단추로 클릭하고 **라이브러리로 추가** 를 선택하여 프로젝트에서 이 라이브러리를 포함시킵니다.
 
     ![Azure Notification Hubs - Baidu 라이브러리로 추가](./media/notification-hubs-baidu-get-started/BaiduAddAsALib.jpg)
 
@@ -138,7 +138,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
     ```
 
-9. 예를 들어 `com.example.BaiduTest`와 같은 *yourprojectname*을 대체하여 `.MainActivity` 작업 요소 뒤의 애플리케이션 요소 내에 다음 구성을 추가합니다.
+9. 예를 들어 `com.example.BaiduTest`와 같은 *yourprojectname* 을 대체하여 `.MainActivity` 작업 요소 뒤의 애플리케이션 요소 내에 다음 구성을 추가합니다.
 
     ```xml
     <activity
@@ -439,7 +439,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
     ![콘솔 응용 프로그램 Visual c # 옵션이 강조 표시 된 새 프로젝트 대화 상자의 스크린샷](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
-2. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 애플리케이션 프로젝트로 설정한 다음, 콘솔 창에서 다음 명령을 실행합니다.
+2. 패키지 관리자 콘솔 창에서 **기본 프로젝트** 를 새 콘솔 애플리케이션 프로젝트로 설정한 다음, 콘솔 창에서 다음 명령을 실행합니다.
 
     ```shell
     Install-Package Microsoft.Azure.NotificationHubs
@@ -477,7 +477,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 
 실제 휴대폰에서 이 앱을 테스트하려면 USB 케이블을 사용하여 휴대폰을 컴퓨터에 연결하면 됩니다. 이 작업은 연결된 전화기의 앱을 로드합니다.
 
-에뮬레이터를 사용하여 이 앱을 테스트하려면 Android Studio 상단 도구 모음에서 **실행**을 클릭하고 앱을 선택합니다. 그러면 에뮬레이터가 시작되고 앱이 로드되어 실행됩니다.
+에뮬레이터를 사용하여 이 앱을 테스트하려면 Android Studio 상단 도구 모음에서 **실행** 을 클릭하고 앱을 선택합니다. 그러면 에뮬레이터가 시작되고 앱이 로드되어 실행됩니다.
 
 앱이 Baidu 푸시 알림 서비스에서 `userId` 및 `channelId`를 검색하고 알림 허브에 등록합니다.
 

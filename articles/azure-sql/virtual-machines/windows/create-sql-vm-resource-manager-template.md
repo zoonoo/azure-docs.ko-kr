@@ -7,12 +7,13 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.subservice: deployment
+ms.openlocfilehash: a20cb27ac91a0b01ed9cc3a5ac4c5c57f90ceda1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660210"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359645"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 SQL Server VM 만들기
 
@@ -45,14 +46,14 @@ SQL Server VM ARM 템플릿을 사용하려면 다음이 필요합니다.
 - [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): 네트워크 보안 그룹을 만듭니다. 
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): 네트워크 인터페이스를 구성합니다. 
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Azure에서 가상 머신을 만듭니다. 
-- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): 가상 머신을 SQL VM 리소스 공급자에 등록합니다. 
+- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): SQL IaaS 에이전트 확장을 통해 가상 머신을 등록합니다. 
 
 더 많은 SQL Server Azure VM 템플릿 샘플은 [빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 의도한 SQL Server 버전이 설치된 가상 머신을 만들어서 SQL VM 리소스 공급자에 등록합니다. 
+1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 의도한 SQL Server 버전이 설치된 가상 머신을 만들어서 SQL IaaS 에이전트 확장에 등록합니다. 
 
    [![Azure에 배포](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -77,7 +78,7 @@ SQL Server VM ARM 템플릿을 사용하려면 다음이 필요합니다.
     * **로그 경로**:  SQL Server 로그 파일의 경로입니다. 
     * **위치**:  모든 리소스의 위치입니다. 이 값은 기본값인 `[resourceGroup().location]`으로 유지해야 합니다. 
 
-3. **검토 + 만들기**를 선택합니다. SQL Server VM이 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
+3. **검토 + 만들기** 를 선택합니다. SQL Server VM이 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
 
 Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../../../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
@@ -120,7 +121,7 @@ Write-Host "Press [ENTER] to continue..."
 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [ 자습서: 첫 번째 ARM 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ 자습서: 첫 번째 ARM 템플릿 만들기 및 배포](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 SQL Server VM을 배포하는 다른 방법은 다음 문서를 참조하세요. 
 - [Azure Portal](create-sql-vm-portal.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 485042c795fd94ef7daa8e00b9869190e9df61c8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018674"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678550"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
 
@@ -27,8 +27,8 @@ Azure에서 지역 및 가용성 영역에 대 한 이해를 돕기 위해 주�
 | region | 대기 시간이 정의 된 경계 내에 배포 되 고 전용 지역의 짧은 대기 시간 네트워크를 통해 연결 되는 데이터 센터 집합입니다. |
 | geography | 하나 이상의 Azure 지역이 포함 된 전 세계 영역입니다. 지리는 데이터 상주 및 준수 경계를 유지 하는 불연속 시장을 정의 합니다. 지리적 위치를 통해 특정 데이터 상주 및 준수 요구 사항이 있는 고객은 데이터와 애플리케이션을 가깝게 유지할 수 있습니다. 지리적 위치는 전용 고용량 네트워킹 인프라에 대 한 연결을 통해 전체 지역 장애를 견딜 수 있는 내결함성이 있습니다. |
 | 가용성 영역 | 지역 내의 고유한 실제 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. |
-| 권장 영역 | 가장 광범위 한 서비스 기능을 제공 하 고 가용성 영역 현재 또는 나중에 지원 하도록 설계 된 지역입니다. 이러한 설정은 **권장 사항**에 따라 Azure Portal에서 지정 됩니다. |
-| 대체 (기타) 지역 | 권장 지역이 있는 데이터 상주 경계 내에서 Azure의 공간을 확장 하는 지역입니다. 대체 지역은 대기 시간을 최적화 하 고 재해 복구 요구 사항에 대 한 두 번째 지역을 제공 하는 데 도움이 됩니다. Azure는 이러한 지역에 대 한 정기적인 평가를 수행 하 여 권장 지역이 되도록 하는 것은 아니지만 가용성 영역 지원 하도록 설계 되지 않았습니다. 이러한 설정은 Azure Portal에 **다른**것으로 지정 됩니다. |
+| 권장 영역 | 가장 광범위 한 서비스 기능을 제공 하 고 가용성 영역 현재 또는 나중에 지원 하도록 설계 된 지역입니다. 이러한 설정은 **권장 사항** 에 따라 Azure Portal에서 지정 됩니다. |
+| 대체 (기타) 지역 | 권장 지역이 있는 데이터 상주 경계 내에서 Azure의 공간을 확장 하는 지역입니다. 대체 지역은 대기 시간을 최적화 하 고 재해 복구 요구 사항에 대 한 두 번째 지역을 제공 하는 데 도움이 됩니다. Azure는 이러한 지역에 대 한 정기적인 평가를 수행 하 여 권장 지역이 되도록 하는 것은 아니지만 가용성 영역 지원 하도록 설계 되지 않았습니다. 이러한 설정은 Azure Portal에 **다른** 것으로 지정 됩니다. |
 | 기본 서비스 | 지역이 출시 될 때 모든 지역에서 사용할 수 있는 핵심 Azure 서비스입니다. |
 | 기본 서비스 | 대체 지역에서 지역/서비스 일반 공급 또는 수요 기반 가용성의 12 개월 내에 모든 권장 지역에서 사용할 수 있는 Azure 서비스입니다. |
 | 특수 서비스 | 사용자 지정/특수화 된 하드웨어에서 지원 되는 지역에 걸쳐 수요 중심의 가용성을 제공 하는 Azure 서비스입니다. |
@@ -37,7 +37,7 @@ Azure에서 지역 및 가용성 영역에 대 한 이해를 돕기 위해 주�
 
 ## <a name="regions"></a>영역
 
-지역은 대기 시간이 정의 된 경계 내에 배포 되 고 전용 지역의 짧은 대기 시간 네트워크를 통해 연결 되는 데이터 센터 집합입니다. Azure는 여러 지역에 걸쳐 지역 간 복원 력을 제공 하는 데 필요한 응용 프로그램을 유연 하 게 배포할 수 있도록 합니다. 자세한 내용은 [복원 력 기둥 개요](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)를 참조 하세요.
+지역은 대기 시간이 정의 된 경계 내에 배포 되 고 전용 지역의 짧은 대기 시간 네트워크를 통해 연결 되는 데이터 센터 집합입니다. Azure는 여러 지역에 걸쳐 지역 간 복원 력을 제공 하는 데 필요한 응용 프로그램을 유연 하 게 배포할 수 있도록 합니다. 자세한 내용은 [복원 력 기둥 개요](/azure/architecture/framework/resiliency/overview)를 참조 하세요.
 
 ## <a name="availability-zones"></a>가용성 영역
 
@@ -61,8 +61,8 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 지역에서 Azure 서비스를 사용 하는 방법에 대 한 azure의 접근 방식은 권장 지역 및 대체 지역에서 제공 되는 서비스를 표현 하는 것이 좋습니다.
 
-- **권장 지역** -가장 광범위 한 서비스 기능을 제공 하 고 가용성 영역 현재 또는 향후 지원 하도록 설계 된 지역입니다. 이러한 설정은 **권장 사항**에 따라 Azure Portal에서 지정 됩니다.
-- **대체 (기타) 지역** -권장 지역이 있는 데이터 상주 경계 내에서 Azure의 공간을 확장 하는 영역입니다. 대체 지역은 대기 시간을 최적화 하 고 재해 복구 요구 사항에 대 한 두 번째 지역을 제공 하는 데 도움이 됩니다. Azure는 이러한 지역에 대 한 정기적인 평가를 수행 하 여 권장 지역이 되도록 하는 것은 아니지만 가용성 영역 지원 하도록 설계 되지 않았습니다. 이러한 설정은 Azure Portal에 **다른**것으로 지정 됩니다.
+- **권장 지역** -가장 광범위 한 서비스 기능을 제공 하 고 가용성 영역 현재 또는 향후 지원 하도록 설계 된 지역입니다. 이러한 설정은 **권장 사항** 에 따라 Azure Portal에서 지정 됩니다.
+- **대체 (기타) 지역** -권장 지역이 있는 데이터 상주 경계 내에서 Azure의 공간을 확장 하는 영역입니다. 대체 지역은 대기 시간을 최적화 하 고 재해 복구 요구 사항에 대 한 두 번째 지역을 제공 하는 데 도움이 됩니다. Azure는 이러한 지역에 대 한 정기적인 평가를 수행 하 여 권장 지역이 되도록 하는 것은 아니지만 가용성 영역 지원 하도록 설계 되지 않았습니다. 이러한 설정은 Azure Portal에 **다른** 것으로 지정 됩니다.
 
 ### <a name="comparing-region-types"></a>지역 유형 비교
 
@@ -79,7 +79,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 | 영역 형식 | 비 지역별 | 기본 | 일반 | 특수화 | 가용성 영역 | 데이터 상주 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 권장 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 수요 중심 | :heavy_check_mark: | :heavy_check_mark: |
-| 또 | :heavy_check_mark: | :heavy_check_mark: | 수요 중심 | 수요 중심 | N/A | :heavy_check_mark: |
+| 또 | :heavy_check_mark: | :heavy_check_mark: | 수요 중심 | 수요 중심 | 해당 없음 | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>범주별 서비스
 
@@ -94,18 +94,18 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | 계정 저장소 | API Management | FHIR용 Azure API |
 > | Application Gateway | 앱 구성 | Azure Analysis Services |
 > | Azure Backup | App Service | Azure Blockchain 서비스 |
-> | Azure Cosmos DB | Automation | Azure Blueprints |
+> | Azure Cosmos DB | 자동화 | Azure Blueprints |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure Database for MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Azure 전용 HSM |
 > | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
 > | Cloud Services | Azure Cognitive Search | Azure Digital Twins |
-> | Cloud Services: Av2 시리즈 | Azure Data Explorer | Azure Lab Services |
-> | Cloud Services: Dv2 시리즈 | Azure Data Share | Azure NetApp Files |
-> | Cloud Services: Dv3 시리즈 | Azure Database for MySQL | Azure 퀀텀 |
-> | Cloud Services: Ev3 시리즈 | Azure Database for PostgreSQL | Azure 스프링 클라우드 서비스 |
+> | Cloud Services: Av2-Series | Azure Data Explorer | Azure Lab Services |
+> | Cloud Services: Dv2-Series | Azure Data Share | Azure NetApp Files |
+> | Cloud Services: Dv3-Series | Azure Database for MySQL | Azure 퀀텀 |
+> | Cloud Services: Ev3-Series | Azure Database for PostgreSQL | Azure 스프링 클라우드 서비스 |
 > | Cloud Services: 인스턴스 수준 Ip | Azure Database Migration Service | Azure Time Series Insights |
 > | Cloud Services: 예약된 IP | Azure Databricks | Azure VMware Solution by CloudSimple |
-> | Disk Storage | Azure DDoS Protection | Cloud Services: G 시리즈 |
+> | 디스크 스토리지 | Azure DDoS Protection | Cloud Services: G 시리즈 |
 > | Event Hubs | Azure DevTest Labs | Cloud Services: H 시리즈 |
 > | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | 부하 분산 장치 | Azure Firewall Manager | Cognitive Services: Speaker Recognition |
@@ -113,47 +113,47 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory V1 |
 > | Virtual Machines | AKS(Azure Kubernetes Service) | Data Lake Analytics |
-> | Virtual Machines: Av2 시리즈 | Azure Machine Learning | Machine Learning Studio |
-> | Virtual Machines: Bs 시리즈 | Azure Private Link | Microsoft Genomics |
-> | Virtual Machines: DSv2 시리즈 | Azure Red Hat OpenShift | Remote Rendering |
-> | Virtual Machines: DSv3 시리즈 | Azure SignalR Service | Spatial Anchors |
-> | Virtual Machines: Dv2 시리즈 | Azure Site Recovery | StorSimple |
-> | Virtual Machines: Dv3 시리즈 | Azure Stack Hub | 비디오 인덱서 |
-> | Virtual Machines: ESv3 시리즈 | Azure Stream Analytics | Virtual Machines: DASv4 시리즈 |
-> | Virtual Machines: Ev3 시리즈 | Azure Synapse Analytics | Virtual Machines: DAv4 시리즈 |
+> | Virtual Machines: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (클래식)|
+> | Virtual Machines: Bs-Series | Azure Private Link | Microsoft Genomics |
+> | Virtual Machines: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
+> | Virtual Machines: DSv3-Series | Azure SignalR Service | Spatial Anchors |
+> | Virtual Machines: Dv2-Series | Azure Site Recovery | StorSimple |
+> | Virtual Machines: Dv3-Series | Azure Stack Hub | Video Indexer |
+> | Virtual Machines: ESv3-Series | Azure Stream Analytics | Virtual Machines: DASv4-Series |
+> | Virtual Machines: Ev3-Series | Azure Synapse Analytics | Virtual Machines: DAv4-Series |
 > | Virtual Machines: F 시리즈 | Batch | Virtual Machines: DCsv2 시리즈 |
-> | Virtual Machines: FS 시리즈 | Cloud Services: M 시리즈 | Virtual Machines: EASv4 시리즈 |
-> | Virtual Machines: 인스턴스 수준 Ip | Cognitive Services | Virtual Machines: EAv4 시리즈 |
+> | Virtual Machines: FS-Series | Cloud Services: M 시리즈 | Virtual Machines: EASv4-Series |
+> | Virtual Machines: 인스턴스 수준 Ip | Cognitive Services | Virtual Machines: EAv4-Series |
 > | Virtual Machines: 예약된 IP | Cognitive Services: Computer Vision | Virtual Machines: G 시리즈 |
-> | Virtual Network | Cognitive Services: Content Moderator | Virtual Machines: GS 시리즈 |
-> | VPN Gateway | Cognitive Services: 얼굴 | Virtual Machines: HBv1 시리즈 |
-> |  | Cognitive Services: 폼 인식기 | Virtual Machines: HBv2 시리즈 |
-> |  | Cognitive Services: Language Understanding | Virtual Machines: HCv1 시리즈 |
+> | Virtual Network | Cognitive Services: Content Moderator | Virtual Machines: GS-Series |
+> | VPN Gateway | Cognitive Services: 얼굴 | Virtual Machines: HBv1-Series |
+> |  | Cognitive Services: 폼 인식기 | Virtual Machines: HBv2-Series |
+> |  | Cognitive Services: Language Understanding | Virtual Machines: HCv1-Series |
 > |  | Cognitive Services: QnA Maker | Virtual Machines: H 시리즈 |
-> |  | Cognitive Services: Speech Services | Virtual Machines: LS 시리즈 |
-> |  | Container Instances | Virtual Machines: LSv2 시리즈 |
-> |  | Container Registry | Virtual Machines: Mv2 시리즈 |
-> |  | Data Factory | Virtual Machines: NC 시리즈 |
-> |  | Event Grid | Virtual Machines: NCv2 시리즈 |
-> |  | HDInsight | Virtual Machines: NCv3 시리즈 |
-> |  | Logic Apps | Virtual Machines: NDs 시리즈 |
-> |  | Media Services | Virtual Machines: NDv2 시리즈 |
-> |  | Network Watcher | Virtual Machines: NV 시리즈 |
-> |  | Notification Hubs | Virtual Machines: NVv3 시리즈 |
-> |  | Power BI Embedded | Virtual Machines: NVv4 시리즈 |
+> |  | Cognitive Services: Speech Services | Virtual Machines: LS-Series |
+> |  | Container Instances | Virtual Machines: LSv2-Series |
+> |  | Container Registry | Virtual Machines: Mv2-Series |
+> |  | Data Factory | Virtual Machines: NC-Series |
+> |  | Event Grid | Virtual Machines: NCv2-Series |
+> |  | HDInsight | Virtual Machines: NCv3-Series |
+> |  | Logic Apps | Virtual Machines: NDs-Series |
+> |  | Media Services | Virtual Machines: NDv2-Series |
+> |  | Network Watcher | Virtual Machines: NV-Series |
+> |  | Notification Hubs | Virtual Machines: NVv3-Series |
+> |  | Power BI Embedded | Virtual Machines: NVv4-Series |
 > |  | 프리미엄 Blob Storage | Virtual Machines: Azure의 SAP HANA(대규모 인스턴스) |
 > |  | 프리미엄 파일 저장소 | Visual Studio App Center |
 > |  | 저장소: Archive Storage |  |
 > |  | 울트라 디스크 저장소 |  |
-> |  | Virtual Machines: Ddsv4 시리즈 |  |
-> |  | Virtual Machines: Ddv4 시리즈 |  |
-> |  | Virtual Machines: Dsv4 시리즈 |  |
-> |  | Virtual Machines: Dv4 시리즈 |  |
-> |  | Virtual Machines: Edsv4 시리즈 |  |
-> |  | Virtual Machines: Edv4 시리즈 |  |
-> |  | Virtual Machines: Esv4 시리즈 |  |
-> |  | Virtual Machines: Ev4 시리즈 |  |
-> |  | Virtual Machines: Fsv2 시리즈 |  |
+> |  | Virtual Machines: Ddsv4-Series |  |
+> |  | Virtual Machines: Ddv4-Series |  |
+> |  | Virtual Machines: Dsv4-Series |  |
+> |  | Virtual Machines: Dv4-Series |  |
+> |  | Virtual Machines: Edsv4-Series |  |
+> |  | Virtual Machines: Edv4-Series |  |
+> |  | Virtual Machines: Esv4-Series |  |
+> |  | Virtual Machines: Ev4-Series |  |
+> |  | Virtual Machines: Fsv2-Series |  |
 > |  | Virtual Machines: M 시리즈 |  |
 > |  | Virtual WAN |  |
 
@@ -170,10 +170,10 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 - [가상 머신 만들기](../virtual-machines/windows/create-portal-availability-zone.md)
 - [PowerShell을 사용하여 Managed Disk 추가](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [영역 중복 가상 머신 확장 집합 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM 부하 분산](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM 부하 분산](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [영역 중복 스토리지](../storage/common/storage-redundancy-zrs.md)
-- [SQL 데이터베이스](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
+- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM 부하 분산](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM 부하 분산](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [영역 중복 스토리지](../storage/common/storage-redundancy.md)
+- [SQL Database 범용 계층](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Event Hubs 지리적 재해 복구](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Service Bus 지리적 재해 복구](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [영역 중복 가상 네트워크 게이트웨이 만들기](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
@@ -181,6 +181,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 - [Redis 가용성 영역에 대 한 Azure 캐시 시작](https://aka.ms/redis/az/getstarted)
 - [Azure Active Directory Domain Services 인스턴스 만들기](../active-directory-domain-services/tutorial-create-instance.md)
 - [가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기](../aks/availability-zones.md)
+- [Azure Container Registry에서 영역 중복성 사용](../container-registry/zone-redundancy.md)
 
 ## <a name="next-steps"></a>다음 단계
 

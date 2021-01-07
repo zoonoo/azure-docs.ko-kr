@@ -1,17 +1,15 @@
 ---
 title: Azure의 Service Fabric 클러스터에 Java 앱 배포
 description: 이 자습서에서는 Azure Service Fabric 클러스터에 Java Service Fabric 애플리케이션을 배포하는 방법을 알아봅니다.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: suhuruli
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 50ae4d34cd7b238403ee95bd36a97ac82392f3ba
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: c2e2b2883bfa01d3a36de5d58425449f6f973010
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320734"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702160"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
@@ -116,10 +114,10 @@ ms.locfileid: "87320734"
 10. 다음 명령을 사용하여 Event Hubs 리소스를 만듭니다. 지시에 따라 namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule 및 receiveAuthorizationRule에 대한 세부 정보를 입력합니다.
 
     ```azurecli
-    az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
+    az deployment group create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
-    az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
+    az deployment group create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
     Please provide string value for 'consumerGroupName' (? for help): testeventhubconsumergroup
@@ -178,7 +176,7 @@ ms.locfileid: "87320734"
     }
     ```
 
-13. **sfdeploy.parameters.json**이 열립니다. 다음 매개 변수를 변경한 다음, 파일을 저장합니다.
+13. **sfdeploy.parameters.json** 이 열립니다. 다음 매개 변수를 변경한 다음, 파일을 저장합니다.
     - **clusterName**. 소문자와 숫자만 사용합니다.
     - **adminUserName**(빈 값이 아닌 값)
     - **adminPassword**(빈 값이 아닌 값)

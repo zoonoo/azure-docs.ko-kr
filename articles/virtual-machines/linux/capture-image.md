@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: 376d9d76633060f504454f85841b9c15bafc6685
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eacd1426b856de11a18b0da6c509d281b3bca94c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503041"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655172"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 관리형 이미지를 만드는 방법
 
@@ -50,38 +50,38 @@ Azure VM 에이전트를 사용하여 VM의 프로비전을 해제하여 머신�
    > [!NOTE]
    > 이미지로 캡처하려는 VM에서만 이 명령을 실행합니다. 이 명령이 이미지에서 중요한 정보가 모두 지워졌다거나 재배포에 적합하다는 것을 보장하지는 않습니다. 또한 `+user` 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. VM에 사용자 계정 자격 증명을 유지하려면 `-deprovision`만 사용합니다.
  
-3. 계속하려면 **y**를 입력합니다. `-force` 매개 변수를 추가하여 이 확인 단계를 피할 수 있습니다.
-4. 명령이 완료되면 **종료**를 입력하여 SSH 클라이언트를 닫습니다.  이 시점에서 VM은 계속 실행되고 있습니다.
+3. 계속하려면 **y** 를 입력합니다. `-force` 매개 변수를 추가하여 이 확인 단계를 피할 수 있습니다.
+4. 명령이 완료되면 **종료** 를 입력하여 SSH 클라이언트를 닫습니다.  이 시점에서 VM은 계속 실행되고 있습니다.
 
 ## <a name="step-2-create-vm-image"></a>2단계: VM 이미지 만들기
-Azure CLI를 사용하여 VM을 일반화된 항목으로 표시하고 이미지를 캡처합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
+Azure CLI를 사용하여 VM을 일반화된 항목으로 표시하고 이미지를 캡처합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM* 이 포함됩니다.
 
-1. [az vm deallocate](/cli/azure/vm)로 프로비전 해제한 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM의 할당을 취소합니다.  
+1. [az vm deallocate](/cli/azure/vm)로 프로비전 해제한 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 에서 *myVM* 이라는 VM의 할당을 취소합니다.  
    
     ```azurecli
     az vm deallocate \
-      --resource-group myResourceGroup \
-      --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
     
     계속하기 전에 VM이 완전히 할당 취소될 때까지 기다립니다. 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.  할당을 취소하는 동안 VM이 종료됩니다.
 
-2. [az vm generalize](/cli/azure/vm)를 사용하여 VM을 일반화된 항목으로 표시합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 일반화된 항목으로 표시합니다.
+2. [az vm generalize](/cli/azure/vm)를 사용하여 VM을 일반화된 항목으로 표시합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 에서 *myVM* 이라는 VM을 일반화된 항목으로 표시합니다.
    
     ```azurecli
     az vm generalize \
-      --resource-group myResourceGroup \
-      --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
 
     일반화된 VM은 더 이상 다시 시작할 수 없습니다.
 
-3. 이제 [az image create](/cli/azure/image#az-image-create)로 VM 리소스의 이미지를 만듭니다. 다음 예제에서는 *myVM*이라는 VM 리소스를 사용하여 *myResourceGroup*이라는 리소스 그룹에서 *myImage*라는 이미지를 만듭니다.
+3. 이제 [az image create](/cli/azure/image#az-image-create)로 VM 리소스의 이미지를 만듭니다. 다음 예제에서는 *myVM* 이라는 VM 리소스를 사용하여 *myResourceGroup* 이라는 리소스 그룹에서 *myImage* 라는 이미지를 만듭니다.
    
     ```azurecli
     az image create \
-      --resource-group myResourceGroup \
-      --name myImage --source myVM
+        --resource-group myResourceGroup \
+        --name myImage --source myVM
     ```
    
    > [!NOTE]
@@ -92,7 +92,7 @@ Azure CLI를 사용하여 VM을 일반화된 항목으로 표시하고 이미지
 이 명령은 VM 이미지를 설명하는 JSON을 반환합니다. 나중에 참조할 수 있도록 이 출력을 저장해 둡니다.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>3단계: 캡처한 이미지에서 VM 만들기
-[az vm create](/cli/azure/vm)로 만든 이미지를 사용하여 VM을 만듭니다. 다음 예제에서는 *myImage*라는 이미지에서 *myVMDeployed*라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)로 만든 이미지를 사용하여 VM을 만듭니다. 다음 예제에서는 *myImage* 라는 이미지에서 *myVMDeployed* 라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \

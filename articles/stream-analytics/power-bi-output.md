@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc48d26c217f52dfa52ac6cd3d7f18a806c93927
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891984"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740983"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Power BI
 
@@ -27,7 +27,7 @@ Stream Analytics의 Power BI 출력은 현재 Azure 중국 21Vianet 및 Azure �
 | 속성 이름 | Description |
 | --- | --- |
 | 출력 별칭 |쿼리에서 쿼리 출력을 이 Power BI 출력으로 보내는 데 사용되는 식별 이름입니다. |
-| 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 쓰지 않으려는 경우 **내 작업 영역**을 선택할 수 있습니다. 기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
+| 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 쓰지 않으려는 경우 **내 작업 영역** 을 선택할 수 있습니다. 기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
 | 데이터 세트 이름 |Power BI 출력에 사용할 데이터 세트 이름을 제공합니다. |
 | 테이블 이름 |Power BI 출력의 데이터 세트 아래에 테이블 이름을 제공합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 세트에 하나의 테이블만 있을 수 있습니다. |
 | 연결 권한 부여 | 출력 설정을 구성하려면 Power BI를 사용하여 권한을 부여해야 합니다. 이 출력에 대한 액세스 권한이 Power BI 대시보드에 부여되면 사용자 계정 암호를 변경하거나 작업 출력을 삭제하거나 Stream Analytics 작업을 삭제하여 액세스 권한을 철회할 수 있습니다. | 
@@ -44,11 +44,14 @@ Azure Stream Analytics는 사용자를 위한 Power BI 데이터 세트 및 테�
 
 Power BI는 FIFO(선입선출) 보존 정책을 사용합니다. 200,000개 행에 도달할 때까지 데이터가 테이블에 수집됩니다.
 
+> [!NOTE]
+> 여러 가지 문제를 일으킬 수 있으므로 동일한 데이터 집합에 쓰는 여러 출력을 사용 하지 않는 것이 좋습니다. 각 출력은 동일한 이름을 가진 여러 데이터 집합을 생성할 수 있는 Power BI 데이터 집합을 독립적으로 만들려고 시도 합니다. 또한 출력에 일관 된 스키마가 없는 경우 데이터 집합은 각 쓰기의 스키마를 변경 하 여 스키마 변경 요청이 너무 많이 발생 합니다. 이러한 문제를 방지 하는 경우에도 여러 출력은 병합 된 단일 출력 보다 성능이 떨어집니다.
+
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Stream Analytics에서 Power BI로 데이터 형식 변환
 
 Azure Stream Analytics는 출력 스키마가 변경되면 런타임 시 동적으로 데이터 모델을 업데이트합니다. 열 이름 변경, 열 형식 변경 및 열 추가 또는 제거 작업이 모두 추적됩니다.
 
-다음 표에서는 Power BI 데이터 세트 및 테이블이 없는 경우 데이터 형식을 [Stream Analytics 데이터 형식](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)에서 Power BI [EDM(엔터티 데이터 모델) 형식](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model)으로 변환하는 방법에 대해 설명합니다.
+다음 표에서는 Power BI 데이터 세트 및 테이블이 없는 경우 데이터 형식을 [Stream Analytics 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)에서 Power BI [EDM(엔터티 데이터 모델) 형식](/dotnet/framework/data/adonet/entity-data-model)으로 변환하는 방법에 대해 설명합니다.
 
 Stream Analytics에서 | Power BI로
 -----|-----
@@ -73,13 +76,9 @@ DateTime | String | String |  DateTime | String
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
-출력 일괄 처리 크기는 [Power BI REST API 제한](https://msdn.microsoft.com/library/dn950053.aspx)을 참조 하세요.
+출력 일괄 처리 크기는 [Power BI REST API 제한](/power-bi/developer/automation/api-rest-api-limitations)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
+* [관리 Id를 사용 하 여 Power BI에 Azure Stream Analytics 작업 인증 (미리 보기)](powerbi-output-managed-identity.md)
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
-* [빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-cli.md)
-* [빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-resource-manager.md)
-* [빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
-* [빠른 시작: Visual Studio를 사용하여 Azure Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)

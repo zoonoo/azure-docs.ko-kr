@@ -4,21 +4,21 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b827a80059cecadd7b76263f13dd4a0d141fc7a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182267"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556872"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>클라우드 어플라이언스를 만들려면
 
 1. Azure Portal에서 **StorSimple 디바이스 관리자** 서비스로 이동합니다.
-2. **디바이스** 블레이드로 이동합니다. 서비스 요약 블레이드의 명령 모음에서 **클라우드 어플라이언스 만들기**를 클릭합니다.
+2. **디바이스** 블레이드로 이동합니다. 서비스 요약 블레이드의 명령 모음에서 **클라우드 어플라이언스 만들기** 를 클릭합니다.
     ![StorSimple 클라우드 어플라이언스 만들기](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. **클라우드 어플라이언스 만들기** 블레이드에서 다음 정보를 지정합니다.
    
-    ![StorSimple 클라우드 어플라이언스 만들기](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![StorSimple 클라우드 어플라이언스 만들기 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **이름** – 클라우드 어플라이언스에 대한 고유 이름입니다.
    2. **모델** - 클라우드 어플라이언스의 모델을 선택합니다. 8010 디바이스는 30TB의 표준 스토리지를 제공하는 반면, 8020에는 64TB의 Premium Storage가 있습니다. 백업에서 항목 수준 검색 시나리오를 배포하려면 8010을 지정합니다. 성능이 높고 대기 시간이 짧은 워크로드를 배포하거나 재해 복구용 보조 디바이스로 사용하려면 8020을 선택합니다.
@@ -33,8 +33,7 @@ ms.locfileid: "67182267"
    7. 클라우드 어플라이언스에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다.
        * 물리적 디바이스만 사용하는 경우, 암호화 키는 사용자 디바이스와 함께 유지되므로 Microsoft는 해독할 수 없습니다.
 
-       * 클라우드 어플라이언스를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [클라우드 어플라이언스를 사용하기 위한 보안 고려 사항](../articles/storsimple/storsimple-security.md)을 참조하세요.
-   8. **만들기**를 클릭하여 클라우드 어플라이언스를 프로비전합니다. 디바이스를 프로비전하는 데 30분 정도 걸릴 수 있습니다. 클라우드 어플라이언스가 성공적으로 만들어지면 알림이 표시됩니다. 디바이스 블레이드로 이동하고 디바이스 목록을 새로 고치면 클라우드 어플라이언스가 표시됩니다. 어플라이언스의 상태는 **설정 준비 완료**입니다.
+       * 클라우드 어플라이언스를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [클라우드 어플라이언스를 사용하기 위한 보안 고려 사항](../articles/storsimple/storsimple-8000-security.md)을 참조하세요.
+   8. **만들기** 를 클릭하여 클라우드 어플라이언스를 프로비전합니다. 디바이스를 프로비전하는 데 30분 정도 걸릴 수 있습니다. 클라우드 어플라이언스가 성공적으로 만들어지면 알림이 표시됩니다. 디바이스 블레이드로 이동하고 디바이스 목록을 새로 고치면 클라우드 어플라이언스가 표시됩니다. 어플라이언스의 상태는 **설정 준비 완료** 입니다.
       
       ![StorSimple Cloud Appliance 설정 준비 완료](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-

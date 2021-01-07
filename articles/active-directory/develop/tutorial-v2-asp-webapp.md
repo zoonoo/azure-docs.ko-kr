@@ -1,7 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 ASP.NET 웹앱에 로그인 추가
+title: '자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 ASP.NET 웹앱 만들기 | Azure'
 titleSuffix: Microsoft identity platform
-description: 기존 웹 브라우저 기반 애플리케이션 및 OpenID Connect 표준을 사용하여 ASP.NET 솔루션에서 Microsoft 로그인을 구현합니다.
+description: 이 자습서에서는 Microsoft ID 플랫폼과 OWIN 미들웨어를 사용하여 사용자 로그인을 사용하도록 설정하는 ASP.NET 웹 애플리케이션을 빌드합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,23 +12,31 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165586"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507764"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Microsoft에 로그인을 ASP.NET 웹앱에 추가
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>자습서: Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
-이 가이드에서는 기존의 웹 브라우저 기반 애플리케이션과 OpenID Connect를 사용하여 ASP.NET MVC 솔루션을 통해 Microsoft에 로그인을 구현하는 방법을 보여 줍니다.
+이 자습서에서는 OWIN(Open Web Interface for .NET) 미들웨어 및 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하는 ASP.NET MVC 웹앱을 빌드합니다.
 
 이 가이드를 완료하면 애플리케이션이 outlook.com 및 live.com의 좋아요에서 개인 계정의 로그인을 허용할 수 있습니다. 또한 Microsoft ID 플랫폼과 통합된 회사 또는 조직의 회사 및 학교 계정에서 앱에 로그인할 수 있습니다.
 
-> 이 가이드에는 Microsoft Visual Studio 2019가 필요합니다.  이 프로그램이 아직 설치되어 있지 않나요?  [체험용 Visual Studio 2019를 다운로드](https://www.visualstudio.com/downloads/)합니다.
+이 자습서에서는 다음을 수행합니다.
 
->[!NOTE]
-> Microsoft ID 플랫폼을 처음 사용하는 경우 [ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가](quickstart-v2-aspnet-webapp.md)를 시작하는 것이 좋습니다.
+> [!div class="checklist"]
+> * Visual Studio에서 *ASP.NET 웹 애플리케이션* 프로젝트 만들기
+> * OWIN(Open Web Interface for .NET) 미들웨어 구성 요소 추가
+> * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
+> * Azure Portal에 앱 등록
+> * 앱 테스트
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* **ASP.NET 및 웹 개발** 워크로드가 설치되어 있는 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 
@@ -54,14 +62,14 @@ ms.locfileid: "88165586"
 
 ### <a name="create-your-aspnet-project"></a>ASP.NET 프로젝트 만들기
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**로 차례로 이동합니다.
-2. **Visual C#\Web**에서 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
-3. 애플리케이션의 이름을 지정하고 **확인**을 선택합니다.
-4. **비어 있음**을 선택한 다음, 확인란을 선택하여 **MVC** 참조를 추가합니다.
+1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 로 차례로 이동합니다.
+2. **Visual C#\Web** 에서 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
+3. 애플리케이션의 이름을 지정하고 **확인** 을 선택합니다.
+4. **비어 있음** 을 선택한 다음, 확인란을 선택하여 **MVC** 참조를 추가합니다.
 
 ## <a name="add-authentication-components"></a>인증 구성 요소 추가
 
-1. Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**로 차례로 이동합니다.
+1. Visual Studio에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 로 이동합니다.
 2. [패키지 관리자 콘솔] 창에 다음 내용을 입력하여 *OWIN 미들웨어 NuGet 패키지* 를 추가합니다.
 
     ```powershell
@@ -79,8 +87,8 @@ ms.locfileid: "88165586"
 
 > [!TIP]
 > 프로젝트의 루트 폴더에 `Startup.cs` 파일이 없는 경우:
-> 1. 마우스 오른쪽 단추로 프로젝트의 루트 폴더를 클릭한 다음, **추가** > **새 항목** > **OWIN Startup 클래스**를 차례로 선택합니다.<br/>
-> 2. 이름을 **Startup.cs**로 지정합니다.
+> 1. 마우스 오른쪽 단추로 프로젝트의 루트 폴더를 클릭한 다음, **추가** > **새 항목** > **OWIN Startup 클래스** 를 차례로 선택합니다.<br/>
+> 2. 이름을 **Startup.cs** 로 지정합니다.
 >
 >> 선택한 클래스가 표준 C# 클래스가 아니라 OWIN Startup 클래스인지 확인합니다. 이를 확인하려면 네임스페이스 위에 [assembly: OwinStartup(typeof({NameSpace}.Startup))]가 표시되는지 확인합니다.
 
@@ -171,16 +179,16 @@ ms.locfileid: "88165586"
 
 ### <a name="more-information"></a>자세한 정보
 
-*OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 애플리케이션이 Microsoft ID 플랫폼과 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에서 쿠키를 사용하므로 이전 코드와 같이 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에서 특정 조직에 대한 액세스를 제한하지 않도록 지시합니다.
+*OpenIDConnectAuthenticationOptions* 에 제공하는 매개 변수는 애플리케이션이 Microsoft ID 플랫폼과 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 백그라운드에서 쿠키를 사용하므로 이전 코드와 같이 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에서 특정 조직에 대한 액세스를 제한하지 않도록 지시합니다.
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>로그인 및 로그아웃 요청을 처리하는 컨트롤러 추가
 
 로그인 및 로그아웃 메서드를 공개하는 새 컨트롤러를 만들려면 다음 단계를 수행합니다.
 
-1.  마우스 오른쪽 단추로 **Controllers** 폴더를 클릭하고, **추가** > **컨트롤러**를 차례로 선택합니다.
-2.  **MVC(.NET 버전) 컨트롤러 - 비어 있음**을 선택합니다.
-3.  **추가**를 선택합니다.
-4.  이름을 **HomeController**로 지정한 다음, **추가**를 선택합니다.
+1.  마우스 오른쪽 단추로 **Controllers** 폴더를 클릭하고, **추가** > **컨트롤러** 를 차례로 선택합니다.
+2.  **MVC(.NET 버전) 컨트롤러 - 비어 있음** 을 선택합니다.
+3.  **추가** 를 선택합니다.
+4.  이름을 **HomeController** 로 지정한 다음, **추가** 를 선택합니다.
 5.  OWIN 참조를 클래스에 추가합니다.
 
     ```csharp
@@ -221,8 +229,8 @@ ms.locfileid: "88165586"
 
 Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보를 표시하는 새 보기를 만듭니다.
 
-1.  **Views\Home** 폴더를 마우스 오른쪽 단추로 클릭하고 **보기 추가**를 선택합니다.
-2.  새 보기 이름을 **Index**로 지정합니다.
+1.  **Views\Home** 폴더를 마우스 오른쪽 단추로 클릭하고 **보기 추가** 를 선택합니다.
+2.  새 보기 이름을 **Index** 로 지정합니다.
 3.  로그인 단추를 포함하는 다음 HTML을 파일에 추가합니다.
 
     ```html
@@ -264,15 +272,15 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
     ```
 
 ### <a name="more-information"></a>자세한 정보
-이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [브랜딩 지침](./howto-add-branding-in-azure-ad-apps.md "브랜딩 지침")으로 이동하세요.
+이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft에 로그인 단추](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [브랜딩 지침](./howto-add-branding-in-azure-ad-apps.md "브랜딩 지침")으로 이동하세요.
 
 ## <a name="add-a-controller-to-display-users-claims"></a>사용자의 클레임을 표시하는 컨트롤러 추가
 이 컨트롤러는 컨트롤러를 보호하는 `[Authorize]` 특성의 사용을 보여 줍니다. 이 특성은 인증된 사용자만 허용하여 컨트롤러에 대한 액세스를 제한합니다. 다음 코드에서는 특성을 사용하여 로그인의 일부로 검색된 사용자 클레임을 표시합니다.
 
-1.  마우스 오른쪽 단추로 **Controllers** 폴더를 클릭한 다음, **추가** > **컨트롤러**를 차례로 선택합니다.
-2.  **MVC{버전} 컨트롤러 - 비어 있음**을 선택합니다.
-3.  **추가**를 선택합니다.
-4.  이름을 **ClaimsController**로 지정합니다.
+1.  마우스 오른쪽 단추로 **Controllers** 폴더를 클릭한 다음, **추가** > **컨트롤러** 를 차례로 선택합니다.
+2.  **MVC{버전} 컨트롤러 - 비어 있음** 을 선택합니다.
+3.  **추가** 를 선택합니다.
+4.  이름을 **ClaimsController** 로 지정합니다.
 5.  컨트롤러 클래스의 코드를 다음 코드로 바꿉니다. 그러면 `[Authorize]` 특성이 클래스에 추가됩니다.
 
     ```csharp
@@ -287,7 +295,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -305,14 +313,14 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
     ```
 
 ### <a name="more-information"></a>자세한 정보
-`[Authorize]` 특성을 사용하므로 이 컨트롤러의 모든 메서드는 사용자가 인증된 경우에만 실행할 수 있습니다. 인증되지 않은 사용자가 컨트롤러에 액세스하려고 하면 OWIN에서 인증 질문을 시작하고 사용자에게 인증하도록 강제합니다. 위의 코드는 사용자의 ID 토큰에 포함된 특정 사용자 특성에 대한 클레임 목록을 살펴봅니다. 이러한 특성에는 사용자의 전체 이름과 사용자 이름 및 전역 사용자 식별자 주체가 포함됩니다. 사용자의 조직에 대한 ID를 나타내는 *테넌트 ID*도 포함됩니다.
+`[Authorize]` 특성을 사용하므로 이 컨트롤러의 모든 메서드는 사용자가 인증된 경우에만 실행할 수 있습니다. 인증되지 않은 사용자가 컨트롤러에 액세스하려고 하면 OWIN에서 인증 질문을 시작하고 사용자에게 인증하도록 강제합니다. 위의 코드는 사용자의 ID 토큰에 포함된 특정 사용자 특성에 대한 클레임 목록을 살펴봅니다. 이러한 특성에는 사용자의 전체 이름과 사용자 이름 및 전역 사용자 식별자 주체가 포함됩니다. 사용자의 조직에 대한 ID를 나타내는 *테넌트 ID* 도 포함됩니다.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>사용자의 클레임을 표시하는 보기 만들기
 
 Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이지에 표시합니다.
 
-1.  마우스 오른쪽 단추로 **Views\Claims** 폴더를 클릭한 다음, **보기 추가**를 선택합니다.
-2.  새 보기 이름을 **Index**로 지정합니다.
+1.  마우스 오른쪽 단추로 **Views\Claims** 폴더를 클릭한 다음, **보기 추가** 를 선택합니다.
+2.  새 보기 이름을 **Index** 로 지정합니다.
 3.  다음 HTML을 파일에 추가합니다.
 
     ```html
@@ -354,7 +362,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 애플리케이션을 빠르게 등록하려면 다음 단계를 수행합니다.
 
 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) 창으로 이동합니다.
-1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 1. 지침에 따라 한 번의 클릭으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
@@ -362,18 +370,19 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 
 1. Visual Studio를 열고 다음을 수행합니다.
-   1. 솔루션 탐색기에서 프로젝트를 선택하고, [속성] 창을 봅니다([속성] 창이 표시되지 않으면 F4 키를 누름).
+   1. 솔루션 탐색기에서 프로젝트를 선택하고, [속성] 창을 봅니다([속성] 창이 표시되지 않으면 F4를 누름).
    1. SSL 사용을 `True`로 변경합니다.
-   1. Visual Studio에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **속성**, **웹** 탭을 차례로 선택합니다. **서버** 섹션에서 **프로젝트 URL** 설정을 **SSL URL**로 변경합니다.
-   1. SSL URL을 복사합니다. 다음 단계에 나오는 등록 포털의 리디렉션 URL 목록에서 이 URL을 리디렉션 URL 목록에 추가합니다.<br/><br/>![프로젝트 속성](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. 회사 또는 학교 계정을 사용하거나 개인 Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 계정에서 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 계정을 선택하고 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
-1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-1. **새 등록**을 선택합니다.
-1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
-   1. **이름** 섹션에서 앱의 사용자에게 표시될 의미 있는 애플리케이션 이름(예: **ASPNET-Tutorial**)을 입력합니다.
-   1. 1단계에서 Visual Studio로부터 복사한 SSL URL(예: `https://localhost:44368/`)을 **회신 URL**에 추가하고, **등록**을 선택합니다.
-1. **인증** 메뉴를 선택하고, **암시적 허용** 아래에서 **ID 토큰**을 선택한 다음, **저장**을 선택합니다.
+   1. Visual Studio에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **속성**, **웹** 탭을 차례로 선택합니다. **서버** 섹션에서 **프로젝트 URL** 설정을 **SSL URL** 로 변경합니다.
+   1. SSL URL을 복사합니다. 다음 단계에 나오는 등록 포털의 리디렉션 URI 목록에서 이 URL을 리디렉션 URI 목록에 추가합니다.<br/><br/>![프로젝트 속성](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `ASPNET-Tutorial`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. 1단계에서 Visual Studio로부터 복사한 SSL URL(예: `https://localhost:44368/`)을 **리디렉션 URI** 에서 추가합니다.
+1. **등록** 을 선택합니다.
+1. **관리** 에서 **인증** 을 선택합니다.
+1. **암시적 권한 부여** 섹션에서 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
 1. 루트 폴더에 있는 web.config 파일의 `configuration\appSettings` 섹션에 다음을 추가합니다.
 
     ```xml
@@ -392,7 +401,7 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 
 테스트를 실행할 준비가 되면 Azure AD 계정(회사 또는 학교 계정) 또는 개인 Microsoft 계정(<span>live.</span>com 또는 <span>outlook.</span>com)을 사용하여 로그인합니다.
 
-![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![브라우저의 브라우저 로그온 페이지에 표시된 Microsoft에 로그인 단추](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Microsoft 계정으로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -400,8 +409,8 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 
 Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Microsoft ID 플랫폼을 사용하여 인증하면 애플리케이션에서 요청한 권한("기본 프로필 보기" 및 "사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
 
-- 애플리케이션 개발자가 **관리자 동의**가 필요한 추가 권한을 추가합니다.
-- 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정**에 구성되어 있습니다.
+- 애플리케이션 개발자가 **관리자 동의** 가 필요한 추가 권한을 추가합니다.
+- 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정** 에 구성되어 있습니다.
 
 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](./v2-permissions-and-consent.md)를 참조하세요.
 
@@ -417,7 +426,7 @@ Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리
 
 컨트롤러 뷰로 이동 후 사용자를 위한 기본 속성이 담긴 테이블을 확인해야 합니다.
 
-|속성 |값 |Description |
+|속성 |값 |설명 |
 |---|---|---|
 |**이름** |사용자의 전체 이름 | 사용자의 이름과 성
 |**사용자 이름** |user<span>@domain.com</span> | 사용자를 식별하는 데 사용되는 사용자 이름|
@@ -455,7 +464,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>옵션 1: 한 조직의 Active Directory 인스턴스에 속한 사용자만 애플리케이션에 로그인하도록 제한(단일 테넌트)
 
-이 옵션은 *LOB 애플리케이션*에 자주 사용됩니다. 애플리케이션에서 특정 Azure AD 인스턴스에 속한 계정의 로그인만 수락하도록 하려면(해당 인스턴스의 *게스트 계정* 포함) 다음 단계를 수행합니다.
+이 옵션은 *LOB 애플리케이션* 에 자주 사용됩니다. 애플리케이션에서 특정 Azure AD 인스턴스에 속한 계정의 로그인만 수락하도록 하려면(해당 인스턴스의 *게스트 계정* 포함) 다음 단계를 수행합니다.
 
 1. web.config 파일에서 `Tenant` 매개 변수의 값을 `Common`에서 조직의 테넌트 이름(예: `contoso.onmicrosoft.com`)으로 변경합니다.
 2. [OWIN 스타트업 클래스](#configure-the-authentication-pipeline)에서 `ValidateIssuer` 인수를 `true`로 설정합니다.
@@ -470,20 +479,11 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 **IssuerValidator** 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수를 사용하는 방법에 관한 자세한 내용은 [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters) 클래스를 참조하세요.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-웹앱에서 웹 API를 호출하는 방법을 알아봅니다.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에서 사용되는 애플리케이션을 만드는 방법 알아보기
-
-Microsoft ID 플랫폼을 사용하여 웹앱에서 웹 API를 호출하는 방법을 자세히 알아봅니다.
+Microsoft ID 플랫폼을 사용하여 웹앱에서 보호된 웹 API를 호출하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [앱 API를 호출하는 웹앱](scenario-web-app-sign-user-overview.md)
-
-Microsoft Graph를 호출하는 웹앱을 빌드하는 방법을 알아봅니다.
-
-> [!div class="nextstepaction"]
-> [Microsoft Graph ASP.NET 자습서](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317606"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679140"
 ---
 # <a name="power-bi-app-creation-overview"></a>Power BI 앱 만들기 개요
 
@@ -23,7 +23,7 @@ ms.locfileid: "87317606"
 상업용 마켓플레이스에 게시할 경우의 이점:
 
 - Microsoft 브랜드를 활용하여 회사를 홍보할 수 있습니다.
-- 잠재적으로 AppSource의 Office 365 및 Dynamics 365 사용자는 1억 명이 넘고, Azure Marketplace를 사용하는 조직은 200,000곳이 넘습니다.
+- Azure Marketplace을 통해 AppSource 및 20만 이상의 조직에서 1억 Microsoft 365 및 Dynamics 365 사용자에 게 도달할 수 있습니다.
 - 이러한 마켓플레이스에서 우량 잠재 고객을 확보할 수 있습니다.
 - Microsoft 필드 및 전화 영업 팀이 서비스를 승격 합니다.
 
@@ -33,36 +33,36 @@ ms.locfileid: "87317606"
 
 키 게시 단계는 다음과 같습니다.
 
-1. Power BI에서 응용 프로그램을 만듭니다. 제품에 대 한 주요 기술 자산은 패키지 설치 링크를 받게 됩니다. 파트너 센터에서 제품을 만들기 전에 사전 프로덕션으로 테스트 패키지를 보냅니다. 자세한 내용은 [Power BI 앱 이란?](https://docs.microsoft.com/power-bi/service-template-apps-overview)을 참조 하세요.
+1. Power BI에서 응용 프로그램을 만듭니다. 제품에 대 한 주요 기술 자산은 패키지 설치 링크를 받게 됩니다. 파트너 센터에서 제품을 만들기 전에 사전 프로덕션으로 테스트 패키지를 보냅니다. 자세한 내용은 [Power BI 앱 이란?](/power-bi/service-template-apps-overview) 을 참조 하세요.
 2. 공식 이름, 설명 및 로고와 같은 마케팅 자료를 추가 합니다.
 3. 사용 약관, 개인 정보 취급 방침, 지원 정책 및 사용자 도움말과 같은 제품의 법률 및 지원 문서를 포함 합니다.
 4. 제안 만들기 – 파트너 센터를 사용 하 여 제품 설명, 마케팅 자료, 법적 정보, 지원 정보 및 자산 사양을 비롯 한 세부 정보를 편집 합니다.
 5. 게시를 위해 제출 합니다.
 6. 파트너 센터에서 프로세스를 모니터링 합니다. 여기서 AppSource 온 보 딩 팀은 앱을 테스트 하 고, 유효성을 검사 하 고, 인증 합니다.
 7. 인증 된 후에는 해당 테스트 환경에서 앱을 검토 하 고 릴리스 합니다. 그러면 AppSource ("라이브")에 나열 됩니다.
-8. Power BI에서 패키지를 프로덕션 환경으로 보냅니다. 자세한 내용은 [Power BI 앱 릴리스 관리](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release)를 참조 하세요.
+8. Power BI에서 패키지를 프로덕션 환경으로 보냅니다. 자세한 내용은 [Power BI 앱 릴리스 관리](/power-bi/service-template-apps-create#manage-the-template-app-release)를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 템플릿, 팁 및 샘플을 제공 하는 아래 링크를 검토 합니다.
 
-- [Power BI 앱 만들기](https://docs.microsoft.com/power-bi/service-template-apps-create)
-- [Power BI 앱 제작을 위한 팁](https://docs.microsoft.com/power-bi/service-template-apps-tips)
-- [샘플](https://docs.microsoft.com/power-bi/service-template-apps-samples)
+- [Power BI 앱 만들기](/power-bi/service-template-apps-create)
+- [Power BI 앱 제작을 위한 팁](/power-bi/service-template-apps-tips)
+- [샘플](/power-bi/service-template-apps-samples)
 
 ## <a name="requirements"></a>요구 사항
 
 상용 marketplace에 게시 하려면 Power BI 앱 제품이 다음 기술 및 비즈니스 요구 사항을 충족 해야 합니다.
 
-### <a name="technical-requirements"></a>기술적인 요구 사항
+### <a name="technical-requirements"></a>기술 요구 사항
 
-필요한 주요 기술 자산은 [Power BI 앱](https://go.microsoft.com/fwlink/?linkid=2028636)입니다. 이는 기본 데이터 집합, 보고서 또는 대시보드의 모음입니다. 또한 이전에 [콘텐츠 팩](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction)으로 알려진 선택적인 연결 된 서비스 및 포함 된 데이터 집합을 포함 합니다. 이러한 유형의 앱을 개발 하는 방법에 대 한 자세한 내용은 [Power BI 앱 이란?](https://go.microsoft.com/fwlink/?linkid=2028636)을 참조 하세요.
+필요한 주요 기술 자산은 [Power BI 앱](/power-bi/connect-data/service-template-apps-overview)입니다. 이는 기본 데이터 집합, 보고서 또는 대시보드의 모음입니다. 또한 이전에 [콘텐츠 팩](/power-bi/service-organizational-content-pack-introduction)으로 알려진 선택적인 연결 된 서비스 및 포함 된 데이터 집합을 포함 합니다. 이러한 유형의 앱을 개발 하는 방법에 대 한 자세한 내용은 [Power BI 앱 이란?](/power-bi/connect-data/service-template-apps-overview)을 참조 하세요.
 
 #### <a name="get-an-installation-web-address"></a>설치 웹 주소 가져오기
 
 [Power BI](https://powerbi.microsoft.com/) 환경 내 에서만 Power BI 앱을 빌드할 수 있습니다.
 
-1. [Power BI Pro 라이선스](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro)를 사용 하 여 로그인 합니다.
+1. [Power BI Pro 라이선스](/power-bi/service-admin-purchasing-power-bi-pro)를 사용 하 여 로그인 합니다.
 2. Power BI에서 앱을 만들고 테스트 합니다.
 3. 앱 설치 웹 주소를 받으면 파트너 센터의 **기술 구성** 페이지에 추가 합니다.
 

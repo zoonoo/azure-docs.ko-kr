@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 6473b6b69ba45138c30e4f2c8a7f1ba1a7f2ae7e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9f10597023314aed8640ee5a7499a77f952c3694
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816850"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284442"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Azure HDInsight의 인증 문제
 
@@ -154,7 +154,7 @@ Kinit이 성공 하려면를 알아야 `sAMAccountName` 합니다 (영역이 없
 
 * 로컬 Ambari admin을 사용 하 여 Ambari에 로그인 할 수 있는 경우 사용자 목록을 확인 합니다.
 
-* 도메인에 가입 된 [windows 컴퓨터](../../active-directory-domain-services/manage-domain.md)를 사용 하는 경우 표준 windows AD 도구를 사용 하 여 찾아볼 수 있습니다. 이렇게 하려면 도메인에서 작업 계정이 필요 합니다.
+* 도메인에 가입 된 [windows 컴퓨터](../../active-directory-domain-services/tutorial-create-management-vm.md)를 사용 하는 경우 표준 windows AD 도구를 사용 하 여 찾아볼 수 있습니다. 이렇게 하려면 도메인에서 작업 계정이 필요 합니다.
 
 * 헤드 노드에서는 SAMBA 명령을 사용 하 여 검색할 수 있습니다. 이를 위해서는 유효한 Kerberos 세션 (성공한 kinit)이 필요 합니다. net ads 검색 "(userPrincipalName = bob *)"
 
@@ -214,10 +214,4 @@ Kinit 실패와 함께 실패 `Preauthentication` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
-
-* [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
-
-* [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
-
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -3,14 +3,14 @@ title: Python 및 Jupyter 노트북을 사용 하 여 데이터 과학을 교육
 description: Python 및 Jupyter 노트북을 사용 하 여 데이터 과학을 학습 하도록 랩을 설정 하는 방법을 알아봅니다.
 author: emaher
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 25fd090f76c0aa11617b34503ea18d1b45a0e1ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4034f889334bcf1e4eaa3710a32db60b6a9936b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445018"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648024"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Python 및 Jupyter 노트북을 사용 하 여 데이터 과학을 교육 하는 랩 설정
 이 문서에서는 학생 들에 게 [Jupyter 노트북](http://jupyter-notebook.readthedocs.io/)을 사용 하는 방법을 학습 하는 데 필요한 도구를 사용 하 여 랩 서비스에서 템플릿 vm (가상 머신)을 설정 하는 방법 및 학생이 vm (가상 머신)에서 노트북에 연결 하는 방법을 설명 합니다.
@@ -86,15 +86,15 @@ Mac 또는 Chromebook를 사용 하는 학생은 다음 문서의 지침에 따�
 다음 섹션에서는 Jupyter 노트북에 연결 하는 이러한 방법에 대 한 세부 정보를 제공 합니다. 
 
 #### <a name="ssh-to-virtual-machine"></a>가상 컴퓨터에 대 한 SSH
-학생은 터미널 세션에서 SSH를 통해 Linux Vm에 연결할 수 있습니다. 자세한 단계는 [교실 랩에 액세스 하는 방법](how-to-use-classroom-lab.md)을 참조 하세요. Windows 클라이언트 컴퓨터를 사용 하는 경우 [PuTTY](https://www.putty.org/) 를 다운로드 하거나 명령 프롬프트에서 [windows의 OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) 를 ssh로 사용 하도록 설정 하 여 ssh 클라이언트를 사용 하도록 설정 해야 합니다. 
+학생은 터미널 세션에서 SSH를 통해 Linux Vm에 연결할 수 있습니다. 자세한 단계는 [교실 랩에 액세스 하는 방법](how-to-use-classroom-lab.md)을 참조 하세요. Windows 클라이언트 컴퓨터를 사용 하는 경우 [PuTTY](https://www.putty.org/) 를 다운로드 하거나 명령 프롬프트에서 [windows의 OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse) 를 ssh로 사용 하도록 설정 하 여 ssh 클라이언트를 사용 하도록 설정 해야 합니다. 
 
 1.  VM을 시작합니다.
-2.  VM이 실행 되 면 **연결**을 클릭 합니다. 그러면 SSH 명령 문자열을 제공 하는 대화 상자가 표시 되 고 다음 샘플과 같이 표시 됩니다.
+2.  VM이 실행 되 면 **연결** 을 클릭 합니다. 그러면 SSH 명령 문자열을 제공 하는 대화 상자가 표시 되 고 다음 샘플과 같이 표시 됩니다.
     
      ```shell
     ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
      ```
-3.  명령 프롬프트 또는 터미널로 이동 하 여이 명령에 붙여넣은 다음 **enter**키를 누릅니다.
+3.  명령 프롬프트 또는 터미널로 이동 하 여이 명령에 붙여넣은 다음 **enter** 키를 누릅니다.
 4.  VM에 로그인 하려면 암호를 입력 하세요. 
 
 학생이 Vm에 연결 되 면 로컬에서 Jupyter 노트북에 액세스 하 여 실행할 수 있습니다.
@@ -104,7 +104,7 @@ Mac 또는 Chromebook를 사용 하는 학생은 다음 문서의 지침에 따�
 
 1.  클라이언트 플랫폼용 [X2Go 클라이언트](https://wiki.x2go.org/doku.php/doc:installation:x2goclient) 를 다운로드 하 여 설치 합니다.
 2.  [Azure Lab Services 포털](https://labs.azure.com)에서 연결 하려는 Linux VM이 시작 되었는지 확인 합니다.
-3.  VM이 실행 되 면 **연결**을 클릭 합니다. 그러면 SSH 명령 문자열을 제공 하는 대화 상자가 표시 됩니다 .이 대화 상자에는 다음 샘플과 같이 표시 됩니다.
+3.  VM이 실행 되 면 **연결** 을 클릭 합니다. 그러면 SSH 명령 문자열을 제공 하는 대화 상자가 표시 됩니다 .이 대화 상자에는 다음 샘플과 같이 표시 됩니다.
 
     ```
      ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
@@ -112,11 +112,11 @@ Mac 또는 Chromebook를 사용 하는 학생은 다음 문서의 지침에 따�
 4. 이 정보가 있으면 X2Go client 앱을 열고 새 세션을 만듭니다. 
 5.  **세션 기본 설정** 창에서 다음 값을 입력 합니다.
     - **세션 이름**: 원하는 대로 지정할 수 있지만 랩 VM의 이름을 사용 하는 것이 좋습니다.
-     - **호스트**:`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
+     - **호스트**: `ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
      - **로그인**: 학생
      - **SSH 포트**: 12345
      - **세션 유형**: xfce
-6. **확인**을 선택합니다. 
+6. **확인** 을 선택합니다. 
 
     > [!NOTE]
      > 새 X2Go 세션을 만들 때 RDP 포트가 **아닌** SSH 포트를 사용 해야 합니다.
@@ -134,7 +134,7 @@ Mac 또는 Chromebook를 사용 하는 학생은 다음 문서의 지침에 따�
 일부 학생이 자신의 로컬 컴퓨터에서 Vm 내부의 Jupyter 서버에 직접 연결 하는 것이 좋습니다. SSH 프로토콜을 사용 하면 서버의 특정 포트에서 실행 되는 응용 프로그램이 로컬 컴퓨터의 매핑 포트로 **터널링** 되도록 로컬 컴퓨터와 원격 서버 (이 경우에는 학생의 랩 VM) 사이에서 포트를 전달할 수 있습니다. 학생은 다음 단계를 수행 하 여 랩 Vm에서 Jupyter 서버에 대 한 SSH 터널을 수행 해야 합니다.
 
 1.  [Azure Lab Services 포털](https://labs.azure.com)에서 연결 하려는 Linux VM이 시작 되었는지 확인 합니다.
-2.  VM이 실행 되 면 **연결**을 클릭 합니다. 그러면 SSH 명령 문자열을 제공 하는 대화 상자가 표시 됩니다 .이 대화 상자에는 다음 문자열과 같이 표시 됩니다.
+2.  VM이 실행 되 면 **연결** 을 클릭 합니다. 그러면 SSH 명령 문자열을 제공 하는 대화 상자가 표시 됩니다 .이 대화 상자에는 다음 문자열과 같이 표시 됩니다.
 
     ```bash
      ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com

@@ -1,41 +1,41 @@
 ---
-title: 사용 가능한 Azure Files 프로토콜
-description: Azure 파일 공유를 만들기 전에 사용 가능한 프로토콜에 대해 알아보세요.
+title: 사용 가능한 Azure Files 프로토콜-NFS 및 SMB
+description: SMB (서버 메시지 블록) 및 NFS (네트워크 파일 시스템)를 포함 하 여 Azure 파일 공유를 만들기 전에 사용 가능한 프로토콜에 대해 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708141"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916510"
 ---
 # <a name="azure-file-share-protocols"></a>Azure 파일 공유 프로토콜
 
-Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 가지 프로토콜을 제공 합니다. [SMB (서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기) Azure Files는 현재 다중 프로토콜 액세스를 지원 하지 않으므로 공유는 NFS 공유 이거나 SMB 공유 일 수 있습니다. 이로 인해 Azure 파일 공유를 만들기 전에 요구 사항에 가장 적합 한 프로토콜을 결정 하는 것이 좋습니다.
+Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 가지 프로토콜을 제공 합니다. [SMB (서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS (네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System) (미리 보기) Azure Files는 현재 다중 프로토콜 액세스를 지원 하지 않으므로 공유는 NFS 공유 이거나 SMB 공유 일 수 있습니다. 이로 인해 Azure 파일 공유를 만들기 전에 요구 사항에 가장 적합 한 프로토콜을 결정 하는 것이 좋습니다.
 
 ## <a name="differences-at-a-glance"></a>한 눈에 차이점
 
 |기능  |NFS (미리 보기)  |SMB  |
 |---------|---------|---------|
 |액세스 프로토콜     |NFS 4.1         |SMB 2.1, SMB 3.0         |
-|지원되는 OS     |Linux 커널 버전 4.3 이상         |Windows 2008 R2 이상, Linux 커널 버전 4.11 이상         |
-|사용 가능한 계층     |Premium Storage         |Premium storage, standard storage, 핫, 쿨         |
-|복제     |LRS         |LRS, ZRS, GRS         |
+|권장 OS     |Linux 커널 버전 4.3 이상         |Windows 2008 R2 이상, Linux 커널 버전 4.11 이상         |
+|[사용 가능한 계층](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium storage, 트랜잭션 최적화, 핫, 쿨         |
+|[중복](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |인증     |호스트 기반 인증만        |Id 기반 인증, 사용자 기반 인증         |
 |사용 권한     |UNIX 스타일 사용 권한         |NTFS 스타일 사용 권한         |
 |파일 시스템 의미 체계     |POSIX 규격         |POSIX 규격이 아님         |
 |대/소문자 구분     |대/소문자 구분         |대/소문자 구분하지 않음         |
-|하드 링크 지원     |지원됨         |지원되지 않음         |
-|기호화 된 링크 지원     |지원됨         |지원되지 않음         |
-|열려 있는 파일 삭제 또는 수정     |지원됨         |지원되지 않음         |
-|잠금     |바이트 범위 advise 네트워크 잠금 관리자         |지원됨         |
-|공용 IP 안전 목록 | 지원되지 않음 | 지원됨|
+|하드 링크 지원     |지원 여부         |지원되지 않음         |
+|기호화 된 링크 지원     |지원 여부         |지원되지 않음         |
+|열려 있는 파일 삭제 또는 수정     |지원 여부         |지원되지 않음         |
+|잠금     |바이트 범위 advise 네트워크 잠금 관리자         |지원 여부         |
+|공용 IP 안전 목록 | 지원되지 않음 | 지원 여부|
 |프로토콜 interop| 지원되지 않음 | FileREST|
 
 ## <a name="nfs-shares-preview"></a>NFS 공유 (미리 보기)
@@ -64,7 +64,7 @@ Azure Files 있는 NFS는 다음과 같은 경우에 적합 합니다.
 - [개인 끝점](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [지점 및 사이트 간 (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
-    - [사이트 간](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [사이트 간](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [제한 된 공용 끝점](storage-files-networking-overview.md#storage-account-firewall-settings)
 

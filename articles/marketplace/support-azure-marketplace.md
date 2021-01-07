@@ -4,15 +4,15 @@ description: 파트너 센터의 Azure Marketplace 및 AppSource에 대한 지�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 04/14/2020
-ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 02e64c6c6e5ab2ef77f02959ada6f95d1042b76d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037510"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488760"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 지원
 
@@ -32,20 +32,19 @@ Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질�
 
 | 지원 채널 | Description |  
 |:--- |:--- |  
-| MSDN 포럼: [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure)에 있는 Marketplace | Microsoft Developer Network 포럼입니다. |  
+| MSDN 포럼: [Microsoft Q&A 질문 페이지](/answers/products/azure)에 있는 Marketplace | Microsoft Developer Network 포럼입니다. |  
 | 스택 오버플로: [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure)에 있는 Azure | Azure Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 스택 오버플로 환경입니다.<ul> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)에 있는 Azure Marketplace</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)에 있는 Azure Resource Manager</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)에 있는 Azure의 Virtual Machines</li> <li>스택 오버플로: [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)에 있는 Azure의 컨테이너</li> </ul> |
 
 ## <a name="marketing-resources"></a>마케팅 리소스  
 
 | 지원 채널 | Description | 가용성 |  
-|:--- |:--- |:--- |  
-| 메일: [cosell@microsoft.com](mailto:cosell@microsoft.com) | 온보딩 프로세스 및 공동 판매 프로그램 관련 질문에 대한 지원입니다. | 태평양 표준 시간대를 기준으로 합니다. |  
+|:--- |:--- |:--- |
 | 메일: [gtm@microsoft.com](mailto:gtm@microsoft.com) | GTM 혜택 및 프로그램 질문에 대한 지원입니다. | 태평양 표준 시간대의 근무 시간입니다. |  
 | 메일: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Azure 로고의 브랜드 사용과 브랜딩에 대한 질문과 답변을 제공합니다. |  |  
 
 ## <a name="next-steps"></a>다음 단계
 
 * [상업용 Marketplace 게시자 가이드 페이지](index.yml)를 참조하세요.
-* [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](partner-center-portal/support.md)에 대해 자세히 알아보세요.
+* [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](support.md)에 대해 자세히 알아보세요.
 
 ---

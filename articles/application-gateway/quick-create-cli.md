@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: d4b6fc296ae41667d271e243e9aca9b594e4a5b6
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961757"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886705"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
@@ -24,20 +24,17 @@ ms.locfileid: "88961757"
 
 [Azure PowerShell](quick-create-powershell.md) 또는 [Azure Portal](quick-create-portal.md)을 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure CLI 버전 2.0.4 이상](/cli/azure/install-azure-cli)(로컬로 Azure CLI를 실행하는 경우)
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
+- 이 문서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
 Azure에서 관련 리소스를 리소스 그룹에 할당합니다. `az group create`를 사용하여 리소스 그룹을 만듭니다. 
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroupAG* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -77,7 +74,7 @@ az network public-ip create \
 
 애플리케이션 게이트웨이가 성공적으로 만들어졌는지 확인할 수 있도록 가상 머신에 NGINX 웹 서버를 설치합니다. cloud-init 구성 파일을 사용하여 NGINX를 설치하고 Linux 가상 머신에서 "Hello World" Node.js 앱을 실행할 수 있습니다. cloud-init에 대한 자세한 내용은 [Azure의 가상 머신에 대한 Cloud-init 지원](../virtual-machines/linux/using-cloud-init.md)을 참조하세요.
 
-Azure Cloud Shell에서 다음 구성을 복사하여 *cloud-init.txt* 파일에 붙여넣습니다. *editor cloud-init.txt*를 입력하여 파일을 만듭니다.
+Azure Cloud Shell에서 다음 구성을 복사하여 *cloud-init.txt* 파일에 붙여넣습니다. *editor cloud-init.txt* 를 입력하여 파일을 만듭니다.
 
 ```yaml
 #cloud-config
@@ -165,9 +162,9 @@ Azure가 애플리케이션 게이트웨이를 만들 때까지 최대 30분이 
 
 - **appGatewayBackendPool**: **백 엔드 풀** 페이지에 있습니다. 필요한 백 엔드 풀을 지정합니다.
 - **appGatewayBackendHttpSettings**: **HTTP 설정** 페이지에 있습니다. 애플리케이션 게이트웨이가 통신에 포트 80 및 HTTP 프로토콜을 사용하도록 지정합니다.
-- **appGatewayHttpListener**: **수신기 페이지**에 있습니다. **appGatewayBackendPool**과 연결되는 기본 수신기를 지정합니다.
-- **appGatewayFrontendIP**: **프런트 엔드 IP 구성** 페이지에 있습니다. *myAGPublicIPAddress*를 **appGatewayHttpListener**에 할당합니다.
-- **rule1**: **규칙** 페이지에 있습니다. **appGatewayHttpListener**에 연결되는 기본 회람 규칙을 지정합니다.
+- **appGatewayHttpListener**: **수신기 페이지** 에 있습니다. **appGatewayBackendPool** 과 연결되는 기본 수신기를 지정합니다.
+- **appGatewayFrontendIP**: **프런트 엔드 IP 구성** 페이지에 있습니다. *myAGPublicIPAddress* 를 **appGatewayHttpListener** 에 할당합니다.
+- **rule1**: **규칙** 페이지에 있습니다. **appGatewayHttpListener** 에 연결되는 기본 회람 규칙을 지정합니다.
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 

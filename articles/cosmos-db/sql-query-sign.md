@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어 로그인
 description: SQL 시스템 함수 로그인 Azure Cosmos DB에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 84335acbee1e4166e5346f5c5cac6ef8dae11e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02fceb8ac594a8caff8942b8a7cb0c6bcd2a47e3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302069"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339614"
 ---
 # <a name="sign-azure-cosmos-db"></a>기호 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정한 숫자 식의 양수(+1), 0(0) 또는 음수(-1) 부호를 반환합니다.  
   
 ## <a name="syntax"></a>구문

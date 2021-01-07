@@ -1,22 +1,22 @@
 ---
 title: 변수의 여러 인스턴스 정의
-description: 변수를 만들 때 Azure Resource Manager 템플릿에서 복사 작업을 사용 하 여 여러 번 반복 합니다.
+description: 변수를 만들 때 Azure Resource Manager 템플릿 (ARM 템플릿)의 복사 작업을 사용 하 여 여러 번 반복 합니다.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678446"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905896"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>ARM 템플릿의 변수 반복
 
-이 문서에서는 Azure Resource Manager (ARM) 템플릿에서 변수 값을 두 개 이상 만드는 방법을 보여 줍니다. **복사** 요소를 템플릿의 변수 섹션에 추가 하 여 배포 하는 동안 변수에 대 한 항목 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 변수에 대 한 값을 두 개 이상 만드는 방법을 보여 줍니다. `copy`템플릿의 변수 섹션에 요소를 추가 하 여 배포 하는 동안 변수에 대 한 항목의 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
 
 [리소스](copy-resources.md), [리소스의 속성](copy-properties.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -30,9 +30,9 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 ]
 ```
 
-**Name** 속성은 루프를 식별 하는 값입니다. **Count** 속성은 변수에 대해 원하는 반복 횟수를 지정 합니다.
+`name`속성은 루프를 식별 하는 값입니다. `count`속성은 변수에 대해 원하는 반복 횟수를 지정 합니다.
 
-**입력** 속성은 반복할 속성을 지정 합니다. **Input** 속성의 값에서 생성 된 요소의 배열을 만듭니다. 단일 속성 (예: 문자열) 또는 여러 속성이 있는 개체 일 수 있습니다.
+`input`속성은 반복할 속성을 지정 합니다. `input` 속성의 값에서 생성된 요소 배열을 만듭니다. 단일 속성 (예: 문자열) 또는 여러 속성이 있는 개체 일 수 있습니다.
 
 ## <a name="copy-limits"></a>복사 제한
 
@@ -92,7 +92,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 ]
 ```
 
-다음 예제에서는 이름, diskSizeGB 및 diskIndex의 세 가지 속성을 사용 하 여 개체 배열을 만드는 방법을 보여 줍니다.
+다음 예제에서는, 및 라는 세 가지 속성을 사용 하 여 개체의 배열을 만드는 방법을 보여 줍니다 `name` `diskSizeGB` `diskIndex` .
 
 ```json
 {
@@ -160,10 +160,10 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 ```
 
 > [!NOTE]
-> 변수 반복은 오프셋 인수를 지원 합니다. 오프셋은 copyIndex (' diskNames ', 1)와 같이 반복의 이름 뒤에와 야 합니다. 오프셋 값을 제공 하지 않으면 첫 번째 인스턴스의 경우 기본값은 0입니다.
+> 변수 반복은 오프셋 인수를 지원 합니다. 오프셋은와 같은 반복의 이름 뒤에와 야 합니다 `copyIndex('diskNames', 1)` . 오프셋 값을 제공 하지 않으면 첫 번째 인스턴스의 경우 기본값은 0입니다.
 >
 
-변수 내에서 copy 요소를 사용할 수도 있습니다. 다음 예제에서는 배열을 해당 값 중 하나로 포함 하는 개체를 만듭니다.
+`copy`변수 내에서 요소를 사용할 수도 있습니다. 다음 예제에서는 배열을 해당 값 중 하나로 포함 하는 개체를 만듭니다.
 
 ```json
 {
@@ -236,7 +236,7 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 }
 ```
 
-다음 예에서는 변수를 사용 하 여 복사를 사용 하는 다양 한 방법을 보여 줍니다.
+다음 예제에서는 변수와 함께 사용할 수 있는 여러 가지 방법을 보여 줍니다 `copy` .
 
 ```json
 {
@@ -326,6 +326,5 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
   * [ARM 템플릿의 리소스 반복](copy-resources.md)
   * [ARM 템플릿의 속성 반복](copy-properties.md)
   * [ARM 템플릿의 출력 반복](copy-outputs.md)
-* 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿 제작](template-syntax.md)을 참조 하세요.
-* 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [ARM 템플릿을 사용 하 여 응용 프로그램 배포](deploy-powershell.md)를 참조 하세요.
-
+* 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](deploy-powershell.md)을 참조 하세요.

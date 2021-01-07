@@ -1,17 +1,15 @@
 ---
 title: Azure Cloud Services apps를 Service Fabric으로 변환
 description: 이 가이드에서는 Cloud Services에서 서비스 패브릭으로 마이그레이션할 수 있도록 Cloud Services 웹과 작업자 역할 및 서비스 패브릭 상태 비저장 서비스를 비교합니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cf593f793aabf2a0650684ed8d02fe02d756ec2b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002286"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575740"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
 이 문서에서는 Cloud Services 웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 마이그레이션하는 방법을 설명합니다. Cloud Services에서 전반적인 아키텍처를 대략적으로 동일하게 유지하는 애플리케이션에 대한 Service Fabric으로의 가장 간단한 마이그레이션 경로입니다.
@@ -43,7 +41,7 @@ ms.locfileid: "89002286"
 
 | **진입점** | **작업자 역할** | **Service Fabric 서비스** |
 | --- | --- | --- |
-| 처리 중 |`Run()` |`RunAsync()` |
+| 처리 |`Run()` |`RunAsync()` |
 | VM 시작 |`OnStart()` |N/A |
 | VM 중지 |`OnStop()` |N/A |
 | 클라이언트 요청에 대한 수신기 열기 |N/A |<ul><li> 상태 비저장인 경우 `CreateServiceInstanceListener()`</li><li>상태 저장인 경우 `CreateServiceReplicaListener()`</li></ul> |

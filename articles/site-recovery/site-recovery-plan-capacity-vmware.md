@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135455"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368029"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
 
@@ -20,7 +20,7 @@ ms.locfileid: "86135455"
 
 ## <a name="how-do-i-start-capacity-planning"></a>용량 계획을 시작하려면 어떻게 해야 하나요?
 
-Azure Site Recovery 인프라 요구 사항을 알아보려면 VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc)를 실행하여 자신의 복제 환경에 대한 정보를 수집하세요. 자세한 내용은 [VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보](site-recovery-deployment-planner.md)를 참조하세요. 
+Azure Site Recovery 인프라 요구 사항을 알아보려면 VMware 복제를 위해 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 실행하여 자신의 복제 환경에 대한 정보를 수집하세요. 자세한 내용은 [VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보](site-recovery-deployment-planner.md)를 참조하세요. 
 
 Site Recovery Deployment Planner는 호환 및 호환되지 않는 VM, VM당 디스크 및 디스크당 데이터 변동에 대한 전체 정보가 포함된 보고서를 제공합니다. 이 도구는 대상 RPO를 충족하기 위한 네트워크 대역폭 요구 사항과 성공적인 복제 및 테스트 장애 조치(failover)에 필요한 Azure 인프라에 대해서도 요약합니다.
 
@@ -36,7 +36,7 @@ Site Recovery Deployment Planner는 호환 및 호환되지 않는 VM, VM당 디
 
 기본 제공 프로세스 서버를 사용하여 워크로드를 보호하는 구성 서버는 다음 구성에 따라 최대 200개의 가상 머신을 처리할 수 있습니다.
 
-CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 머신
+CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 컴퓨터
 --- | --- | --- | --- | ---
 8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz) | 16GB | 300GB | 500GB 이하 | 100대 미만의 머신을 복제하는 데 사용됩니다.
 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) | 18GB | 600GB | 501GB~1TB | 100~150대의 머신을 복제하는 데 사용됩니다.
@@ -62,7 +62,7 @@ CPU | 메모리 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 머�
 * 스케일 아웃 프로세스 서버를 사용하도록 보호된 가상 머신을 구성했습니다.
 * 보호된 각 원본 머신마다 100GB 디스크가 3개씩 있습니다.
 
-추가 프로세스 서버 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 머신
+추가 프로세스 서버 | 캐시 디스크 크기 | 데이터 변경률 | 보호된 컴퓨터
 --- | --- | --- | ---
 4vCPU(소켓 2개 * 2코어 \@ 2.5GHz), 8GB 메모리 | 300GB | 250GB 이하 | 85개 이하의 머신을 복제하는 데 사용됩니다.
 8vCPU(소켓 2개 * 4코어 \@ 2.5GHz), 12GB 메모리 | 600GB | 251GB~1TB | 86~150개의 머신을 복제하는 데 사용됩니다.

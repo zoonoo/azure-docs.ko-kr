@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: 04abc051cec8a6fb38ce6aa8f5347ae06cb8bd1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688452"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019755"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure NSG (네트워크 보안 그룹)를 다른 지역으로 이동
 
@@ -20,7 +20,7 @@ ms.locfileid: "84688452"
 Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 NSG의 기존 구성 및 보안 규칙을 내보낼 수 있습니다.  그런 다음 NSG를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  리소스 관리자 및 템플릿에 대 한 자세한 내용은 [템플릿으로 리소스 그룹 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 네트워크 보안 그룹이 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -83,7 +83,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
     ```
 
 
-6. NSG 구성 및 보안 규칙이 이동 될 대상 지역을 편집 하려면 **리소스**에서 **위치** 속성을 변경 합니다.
+6. NSG 구성 및 보안 규칙이 이동 될 대상 지역을 편집 하려면 **리소스** 에서 **위치** 속성을 변경 합니다.
 
     ```json
             "resources": [
@@ -106,9 +106,9 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
     Get-AzLocation | format-table
     
     ```
-8. 또한를 선택 하는 경우에는 ** \<resource-group-name> json** 의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적으로 선택 해야 합니다.
+8. 또한를 선택 하는 경우에는 **\<resource-group-name> json** 의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적으로 선택 해야 합니다.
 
-    * **보안 규칙** - ** \<resource-group-name> Json** 파일의 **securityrules** 섹션에 규칙을 추가 하거나 제거 하 여 대상 nsg에 배포 되는 규칙을 편집할 수 있습니다.
+    * **보안 규칙** - **\<resource-group-name> Json** 파일의 **securityrules** 섹션에 규칙을 추가 하거나 제거 하 여 대상 nsg에 배포 되는 규칙을 편집할 수 있습니다.
 
         ```json
            "resources": [
@@ -144,7 +144,7 @@ Azure 보안 그룹은 한 지역에서 다른 지역으로 이동할 수 없습
             
         ```
 
-        대상 NSG에서 규칙의 추가 또는 제거를 완료 하려면 다음과 같은 형식으로 ** \<resource-group-name> json** 파일의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
+        대상 NSG에서 규칙의 추가 또는 제거를 완료 하려면 다음과 같은 형식으로 **\<resource-group-name> json** 파일의 끝에 있는 사용자 지정 규칙 유형도 편집 해야 합니다.
 
         ```json
            {

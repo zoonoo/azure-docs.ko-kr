@@ -4,10 +4,10 @@ description: REST API를 사용 하 여 Recovery Services 자격 증명 모음�
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88824868"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Rest API를 통해 Azure Backup를 사용 하 여 Azure 파일 공유 백업
@@ -421,7 +421,7 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105412Z:b55527fa-f473-4f09-b16
 Date : Mon, 27 Jan 2020 10:54:12 GMT
 ```
 
-그런 다음  *GET* 명령을 사용 하 여 location Header 또는 AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
+그런 다음  *GET* 명령을 사용 하 여 location 헤더 또는 Azure-AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/c3a52d1d-0853-4211-8141-477c65740264?api-version=2016-12-01
@@ -516,7 +516,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 'Content-Length': '0'
 ```
 
-그런 다음  *GET* 명령을 사용 하 여 location Header 또는 AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
+그런 다음  *GET* 명령을 사용 하 여 location 헤더 또는 Azure-AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/dc62d524-427a-4093-968d-e951c0a0726e?api-version=2016-12-01

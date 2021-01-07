@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: d9dea7cd0cc22cc8a1e0aa5c93ece76d689de0e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835445"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783762"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Azure Storage 탐색기 보안 가이드
 
@@ -42,15 +42,15 @@ Azure Storage 리소스에 가장 쉽고 안전 하 게 액세스 하는 방법�
 
 이 섹션에서는 저장소 리소스를 보호 하는 데 사용할 수 있는 두 가지 Azure AD 기반 기술을 설명 합니다.
 
-#### <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
+#### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
 
-Azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 는 azure 리소스에 대 한 세부적인 액세스 제어를 제공 합니다. Azure Portal에서 RBAC 역할 및 사용 권한을 관리할 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure 리소스에 대 한 세부적인 액세스 제어를 제공 합니다. Azure Portal에서 Azure 역할 및 사용 권한을 관리할 수 있습니다.
 
-Storage 탐색기는 저장소 계정, Blob 및 큐에 대 한 RBAC 액세스를 지원 합니다. 파일 공유 또는 테이블에 액세스 해야 하는 경우 저장소 계정 키를 나열 하는 권한을 부여 하는 RBAC 역할을 할당 해야 합니다.
+Storage 탐색기는 저장소 계정, Blob 및 큐에 대 한 Azure RBAC 액세스를 지원 합니다. 파일 공유 또는 테이블에 액세스 해야 하는 경우 저장소 계정 키를 나열 하는 권한을 부여 하는 Azure 역할을 할당 해야 합니다.
 
 #### <a name="access-control-lists-acls"></a>ACL(액세스 제어 목록)
 
-[Acl (액세스 제어 목록)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) 을 사용 하면 ADLS Gen2 blob 컨테이너에서 파일 및 폴더 수준 액세스를 제어할 수 있습니다. Storage 탐색기를 사용 하 여 Acl을 관리할 수 있습니다.
+[Acl (액세스 제어 목록)](../blobs/data-lake-storage-access-control.md) 을 사용 하면 ADLS Gen2 blob 컨테이너에서 파일 및 폴더 수준 액세스를 제어할 수 있습니다. Storage 탐색기를 사용 하 여 Acl을 관리할 수 있습니다.
 
 ### <a name="shared-access-signatures-sas"></a>SAS(공유 액세스 서명)
 
@@ -77,11 +77,11 @@ Storage 탐색기에서 SAS를 사용 하는 경우 다음 지침을 따르는 �
 
 ### <a name="storage-account-keys"></a>Storage 계정 키
 
-저장소 계정 키는 저장소 계정 내에서 서비스 및 리소스에 무제한으로 액세스할 수 있는 권한을 부여 합니다. 따라서 Storage 탐색기에서 리소스에 액세스할 때 키 사용을 제한 하는 것이 좋습니다. 대신 RBAC 기능 또는 SAS를 사용 하 여 액세스를 제공 합니다.
+저장소 계정 키는 저장소 계정 내에서 서비스 및 리소스에 무제한으로 액세스할 수 있는 권한을 부여 합니다. 따라서 Storage 탐색기에서 리소스에 액세스할 때 키 사용을 제한 하는 것이 좋습니다. 대신 Azure RBAC 기능 또는 SAS를 사용 하 여 액세스를 제공 합니다.
 
-일부 RBAC 역할은 저장소 계정 키를 검색할 수 있는 권한을 부여 합니다. 이러한 역할을 가진 개인은 RBAC에 의해 부여 되거나 거부 된 사용 권한을 효과적으로 피할 수 있습니다. 필요한 경우가 아니면이 사용 권한을 부여 하지 않는 것이 좋습니다.
+일부 Azure 역할은 저장소 계정 키를 검색할 수 있는 권한을 부여 합니다. 이러한 역할을 가진 개인은 Azure RBAC에서 부여 하거나 거부 한 권한을 효과적으로 피할 수 있습니다. 필요한 경우가 아니면이 사용 권한을 부여 하지 않는 것이 좋습니다.
 
-Storage 탐색기는 저장소 계정 키 (사용 가능한 경우)를 사용 하 여 요청을 인증 하려고 합니다. 설정 (**서비스 > 저장소 계정 > 키 사용을 사용 하지 않도록**설정)에서이 기능을 사용 하지 않도록 설정할 수 있습니다. 일부 기능은 클래식 저장소 계정 작업과 같은 RBAC를 지원 하지 않습니다. 이러한 기능에는 키가 필요 하지만이 설정의 영향을 받지 않습니다.
+Storage 탐색기는 저장소 계정 키 (사용 가능한 경우)를 사용 하 여 요청을 인증 하려고 합니다. 설정 ( **서비스 > 저장소 계정 > 키 사용을 사용 하지 않도록** 설정)에서이 기능을 사용 하지 않도록 설정할 수 있습니다. 일부 기능은 클래식 저장소 계정으로 작업 하는 등의 Azure RBAC를 지원 하지 않습니다. 이러한 기능에는 키가 필요 하지만이 설정의 영향을 받지 않습니다.
 
 키를 사용 하 여 저장소 리소스에 액세스 해야 하는 경우 다음 지침을 따르는 것이 좋습니다.
 
@@ -102,4 +102,4 @@ Blob 컨테이너에 대 한 공용 액세스를 사용 하도록 설정 하는 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [보안 권장 사항](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [보안 권장 사항](../blobs/security-recommendations.md)

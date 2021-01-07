@@ -7,18 +7,18 @@ author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4f7ddf94bbd077912cf0d7c2adef2eac548274ca
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078404"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532281"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
 
 > [!NOTE]
-> Azure Monitor는 2016년 9월 25일까지는 "Azure Insights"로 지칭했던 제품의 새로운 이름입니다. 하지만 네임스페이스와 다음 명령에는 단어 *insights*가 계속 포함되어 있습니다.
+> Azure Monitor는 2016년 9월 25일까지는 "Azure Insights"로 지칭했던 제품의 새로운 이름입니다. 하지만 네임스페이스와 다음 명령에는 단어 *insights* 가 계속 포함되어 있습니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -94,13 +94,13 @@ Get-AzLog -Caller 'myname@company.com'
 다음 명령은 활동 로그에서 마지막 1,000개 이벤트를 검색합니다.
 
 ```powershell
-Get-AzLog -MaxRecord 10
+Get-AzLog -MaxRecord 1000
 ```
 
 `Get-AzLog` 명령은 여러 다른 매개 변수를 지원합니다. 자세한 내용은 `Get-AzLog` 참조를 확인하세요.
 
 > [!NOTE]
-> `Get-AzLog` 명령은 15일 간의 기록만 제공합니다. **-MaxRecords** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
+> `Get-AzLog` 명령은 15일 간의 기록만 제공합니다. **-MaxRecords** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime** 을 포함하지 않으면 **EndTime** 에서 1시간을 뺀 값이 기본값입니다. **EndTime** 을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
 > 
 > 
 
@@ -187,7 +187,7 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "East US" -ResourceGroup myrg1 
 Get-AzAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
-지정된 속성에 대한 경고 규칙이 이미 있으면 경고 추가 cmdlet도 규칙을 업데이트합니다. 경고 규칙을 비활성화하려면 **-DisableRule**매개 변수를 포함하세요.
+지정된 속성에 대한 경고 규칙이 이미 있으면 경고 추가 cmdlet도 규칙을 업데이트합니다. 경고 규칙을 비활성화하려면 **-DisableRule** 매개 변수를 포함하세요.
 
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>경고에 사용 가능한 메트릭 목록 가져오기
 `Get-AzMetricDefinition` cmdlet을 사용하여 특정 리소스에 대한 모든 메트릭 목록을 볼 수 있습니다.
@@ -313,7 +313,7 @@ Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>활동 로그에 대한 로그 프로필 관리
-*로그 프로필*을 만들어 활동 로그에서 스토리지 계정으로 데이터를 내보내고 해당 데이터의 보존 기간을 구성할 수 있습니다. 필요에 따라 이벤트 허브로 데이터를 스트리밍할 수도 있습니다. 이 기능은 현재 미리 보기 버전이며 구독당 로그 프로필을 하나만 만들 수 있습니다. 현재 구독과 함께 다음 cmdlet을 사용하여 로그 프로필을 만들고 관리할 수 있습니다. 또한 특정 구독을 선택할 수 있습니다. PowerShell이 현재 구독의 기본값이지만 언제든지 `Set-AzContext`명령을 사용하여 변경할 수 있습니다. 해당 구독 내의 스토리지 계정 또는 이벤트 허브로 데이터를 라우팅하도록 활동 로그를 구성할 수 있습니다. 데이터는 JSON 형식의 blob 파일로 기록됩니다.
+*로그 프로필* 을 만들어 활동 로그에서 스토리지 계정으로 데이터를 내보내고 해당 데이터의 보존 기간을 구성할 수 있습니다. 필요에 따라 이벤트 허브로 데이터를 스트리밍할 수도 있습니다. 이 기능은 현재 미리 보기 버전이며 구독당 로그 프로필을 하나만 만들 수 있습니다. 현재 구독과 함께 다음 cmdlet을 사용하여 로그 프로필을 만들고 관리할 수 있습니다. 또한 특정 구독을 선택할 수 있습니다. PowerShell이 현재 구독의 기본값이지만 언제든지 `Set-AzContext`명령을 사용하여 변경할 수 있습니다. 해당 구독 내의 스토리지 계정 또는 이벤트 허브로 데이터를 라우팅하도록 활동 로그를 구성할 수 있습니다. 데이터는 JSON 형식의 blob 파일로 기록됩니다.
 
 ### <a name="get-a-log-profile"></a>로그 프로필 가져오기
 기존 로그 프로필을 가져오려면 `Get-AzLogProfile` cmdlet을 사용합니다.
@@ -392,7 +392,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-WorkspaceId 속성은 작업 영역의 *리소스 ID*를 사용합니다. 다음 명령을 사용하여 Log Analytics 작업 영역의 리소스 ID를 가져올 수 있습니다.
+WorkspaceId 속성은 작업 영역의 *리소스 ID* 를 사용합니다. 다음 명령을 사용하여 Log Analytics 작업 영역의 리소스 ID를 가져올 수 있습니다.
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId

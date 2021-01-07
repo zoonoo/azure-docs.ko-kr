@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
 ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115988"
 ---
 # <a name="accounts--tenant-profiles-android"></a>계정 및 테넌트 프로필(Android)
@@ -48,7 +48,7 @@ Microsoft id 플랫폼의 계정은 다음으로 구성 됩니다.
 - 하나 이상의 테 넌 트에 계정이 있을 수 있으므로 계정에는 프로필이 둘 이상 있을 수 있습니다.
 
 > [!NOTE]
-> MSAL은 Microsoft 계정 시스템 (Live, MSA)을 Microsoft id 플랫폼 내의 다른 테 넌 트로 처리 합니다. Microsoft 계정 테 넌 트의 테 넌 트 id는 다음과 같습니다.`9188040d-6c67-4c5b-b112-36a304b66dad`
+> MSAL은 Microsoft 계정 시스템 (Live, MSA)을 Microsoft id 플랫폼 내의 다른 테 넌 트로 처리 합니다. Microsoft 계정 테 넌 트의 테 넌 트 id는 다음과 같습니다. `9188040d-6c67-4c5b-b112-36a304b66dad`
 
 ## <a name="account-overview-diagram"></a>계정 개요 다이어그램
 
@@ -58,12 +58,12 @@ Microsoft id 플랫폼의 계정은 다음으로 구성 됩니다.
 
 - 이 계정은 `bob@contoso.com` 온-프레미스 Windows Server Active Directory (원본 온-프레미스 시스템 레코드)에 만들어집니다.
 - 계정이 `tom@live.com` Microsoft 계정 테 넌 트에 만들어집니다.
-- `bob@contoso.com`다음 Azure Active Directory 테 넌 트의 리소스 하나 이상에 대 한 액세스 권한이 있습니다.
+- `bob@contoso.com` 다음 Azure Active Directory 테 넌 트의 리소스 하나 이상에 대 한 액세스 권한이 있습니다.
   - contoso.com (레코드의 클라우드 시스템-온-프레미스 시스템에 연결 된 레코드의 클라우드 시스템)
   - fabrikam.com
   - woodgrovebank.com
   - 에 대 한 테 넌 트 프로필은 `bob@contoso.com` 이러한 각 테 넌 트에 존재 합니다.
-- `tom@live.com`에는 다음 Microsoft 테 넌 트의 리소스에 대 한 액세스 권한이 있습니다.
+- `tom@live.com` 에는 다음 Microsoft 테 넌 트의 리소스에 대 한 액세스 권한이 있습니다.
   - contoso.com
   - fabrikam.com
   - 에 대 한 테 넌 트 프로필은 `tom@live.com` 이러한 각 테 넌 트에 존재 합니다.
@@ -99,7 +99,7 @@ MSAL은 액세스 토큰을 요청 하는 것 외에도 항상 각 테 넌 트�
 - openid
 - profile
 
-ID 토큰에는 클레임 목록이 포함 되어 있습니다. `Claims`계정에 대 한 이름/값 쌍 이며, 요청을 만드는 데 사용 됩니다.
+ID 토큰에는 클레임 목록이 포함 되어 있습니다. `Claims` 계정에 대 한 이름/값 쌍 이며, 요청을 만드는 데 사용 됩니다.
 
 앞에서 설명한 것 처럼 계정이 존재 하는 각 테 넌 트는 작업 제목, 사무실 위치 등의 특성을 포함 하 되이에 제한 되지 않고 계정에 대 한 다른 정보를 저장할 수 있습니다.
 
@@ -140,7 +140,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 계정에 대 한 새로 고침 토큰은 B2C 정책 간에 공유 되지 않습니다. 따라서 토큰을 사용 하는 Single Sign-On를 사용할 수 없습니다. 이는 Single Sign-On 가능 하지 않음을 의미 하지 않습니다. Single Sign-On을 사용 하도록 설정 하는 데 쿠키를 사용할 수 있는 대화형 환경을 사용 해야 Single Sign-On 의미 합니다.
 
-즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 를 사용 하 여 토큰을 요청 하는 계정을 사용 하려는 경우 `acquireTokenSilent` 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예:
+즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 를 사용 하 여 토큰을 요청 하는 계정을 사용 하려는 경우 `acquireTokenSilent` 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예를 들어:
 
 ```java
 // Get Account For Policy

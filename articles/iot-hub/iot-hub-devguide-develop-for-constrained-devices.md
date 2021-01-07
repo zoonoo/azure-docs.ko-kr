@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a43eb2537ebc09ffcb524a4426d7a8c9bec560b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733198"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500005"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IoT C SDK를 사용하여 제한된 디바이스 개발
 
@@ -30,7 +30,10 @@ C SDK는 apt-get, NuGet 및 MBED의 패키지 형태로 사용할 수 있습니�
 
 제한된 디바이스에 대한 C SDK를 빌드합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 임베디드 C SDK는 사용자의 네트워크 (BYON) 접근 방식을 지 원하는 제한 된 장치에 대 한 대안입니다. IoT 개발자는 선택의 MQTT 클라이언트, TLS 및 소켓을 자유롭게 만들어 장치 솔루션을 만들 수 있습니다. [임베디드 C SDK에](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)대해 자세히 알아보세요.
+
+### <a name="prerequisites"></a>전제 조건
 
 이 [C SDK 설정 가이드](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)에 따라 C SDK를 빌드하기 위한 개발 환경을 준비합니다. cmake를 사용하여 빌드하는 단계를 시작하기 전에 cmake 플래그를 호출하여 사용하지 않는 기능을 제거할 수 있습니다.
 

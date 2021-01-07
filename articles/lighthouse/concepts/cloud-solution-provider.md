@@ -4,10 +4,10 @@ description: CSP 파트너의 경우 Azure 위임 리소스 관리를 통해 세
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 27bb1c4f82fe3c9ff8abe74b74bef19f16a8a874
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967159"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse 및 클라우드 솔루션 공급자 프로그램

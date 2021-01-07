@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 678b7571d54c8938c163801a584ad813c6e5963f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551169"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358215"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Concur 구성
 
@@ -35,7 +35,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Concur 앱에 대한 액세스가 필요한 사용자를 대표하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Concur 앱에 할당할 수 있습니다.
 
-[엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-concur"></a>Concur에 사용자 할당을 위한 주요 팁
 
@@ -72,47 +72,47 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 1. **Concur** 테넌트에 로그온합니다.
 
-2. **관리** 메뉴에서 **웹 서비스**를 선택합니다.
+2. **관리** 메뉴에서 **웹 서비스** 를 선택합니다.
    
     ![Concur 테넌트](./media/concur-provisioning-tutorial/IC721729.png "Concur 테넌트")
 
-3. **웹 서비스** 창의 왼쪽에서 **파트너 응용 프로그램 사용**을 선택합니다.
+3. **웹 서비스** 창의 왼쪽에서 **파트너 응용 프로그램 사용** 을 선택합니다.
    
     ![파트너 애플리케이션 사용](./media/concur-provisioning-tutorial/ic721730.png "파트너 애플리케이션 사용")
 
-4. **응용 프로그램 사용** 목록에서 **Azure Active Directory**를 선택하고 **사용**을 클릭합니다.
+4. **응용 프로그램 사용** 목록에서 **Azure Active Directory** 를 선택하고 **사용** 을 클릭합니다.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. **예**를 클릭하여 **작업 확인** 대화 상자를 닫습니다.
+5. **예** 를 클릭하여 **작업 확인** 대화 상자를 닫습니다.
    
     ![동작 확인](./media/concur-provisioning-tutorial/ic721732.png "동작 확인")
 
-6. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > Enterprise Apps > 모든 응용 프로그램** 섹션으로 이동 합니다.
+6. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
-7. Single Sign-On에 대한 Concur를 이미 구성한 경우 검색 필드를 사용하여 Concur의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Concur**를 검색합니다. 검색 결과에서 Concur를 선택하고 애플리케이션의 목록에 추가합니다.
+7. Single Sign-On에 대한 Concur를 이미 구성한 경우 검색 필드를 사용하여 Concur의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가** 를 선택하고 애플리케이션 갤러리에서 **Concur** 를 검색합니다. 검색 결과에서 Concur를 선택하고 애플리케이션의 목록에 추가합니다.
 
 8. Concur의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-9. **프로비전 모드**를 **자동**으로 설정합니다. 
+9. **프로비전 모드** 를 **자동** 으로 설정합니다. 
  
-    ![프로비전](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Azure Portal에서 Concur에 대한 프로비저닝 탭의 스크린샷 프로비저닝 모드를 자동으로 설정하고 연결 테스트 단추를 강조 표시합니다.](./media/concur-provisioning-tutorial/provisioning.png)
 
-10. **관리자 자격 증명** 섹션에서 Concur 관리자의 **사용자 이름** 및 **암호**를 입력합니다.
+10. **관리자 자격 증명** 섹션에서 Concur 관리자의 **사용자 이름** 및 **암호** 를 입력합니다.
 
-11. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Concur 앱에 연결되었는지 확인합니다. 연결에 실패하면 Concur 계정에 팀 관리자 권한이 있는지 확인합니다.
+11. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 Concur 앱에 연결되었는지 확인합니다. 연결에 실패하면 Concur 계정에 팀 관리자 권한이 있는지 확인합니다.
 
 12. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-13. **저장**을 클릭합니다.
+13. **저장** 을 클릭합니다.
 
-14. 매핑 섹션에서 **Azure Active Directory 사용자를 Concur에 동기화**를 선택합니다.
+14. 매핑 섹션에서 **Azure Active Directory 사용자를 Concur에 동기화** 를 선택합니다.
 
 15. **특성 매핑** 섹션에서 Azure AD에서 Concur로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Concur의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-16. Concur에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+16. Concur에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
-17. **저장**을 클릭합니다.
+17. **저장** 을 클릭합니다.
 
 이제 테스트 계정을 만들 수 있습니다. 이제 최대 20분 동안 기다린 후 계정이 Concur에 동기화되었는지 확인합니다.
 
@@ -120,5 +120,4 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-on 구성](concur-tutorial.md)
-
+* [Single Sign-On 구성](concur-tutorial.md)

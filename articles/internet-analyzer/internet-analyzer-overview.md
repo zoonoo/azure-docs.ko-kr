@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73488139"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360891"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>인터넷 분석기란? (미리 보기)
 
@@ -90,7 +90,7 @@ Internet Analyzer는 네트워킹 인프라 변경으로 인해 고객의 성능
 
 사용자가 웹 애플리케이션을 방문하면 JavaScript 클라이언트는 구성된 모든 테스트에서 측정할 두 개의 엔드포인트를 선택합니다. 클라이언트는 각 엔드포인트에 대해 _콜드_ 및 _웜_ 측정을 수행합니다. _콜드_ 측정은 사용자와 엔드포인트 간의 순수한 네트워크 대기 시간 외의 추가 대기 시간(예: DNS 확인, TCP 연결 핸드셰이크 및 SSL/TLS 협상)을 초래합니다. _웜_ 측정은 _콜드_ 측정이 완료된 직후에 수행되며, 최신 브라우저의 영구 TCP 연결 관리를 활용하여 종단 간 대기 시간을 정확하게 측정합니다. 사용자의 브라우저에서 지원되는 경우 W3C 리소스 타이밍 API를 사용하여 정확한 측정 타이밍을 맞춥니다. 현재는 웜 대기 시간 측정만 분석에 사용됩니다.
 
-![아키텍처](./media/ia-overview/architecture.png)
+![다이어그램은 여러 옵션에서 클라이언트가 포함된 애플리케이션 서버와 인터넷의 두 엔드포인트에 연결하는 최종 사용자를 보여줍니다. 사용자가 Internet Analyzer에 측정값을 업로드합니다.](./media/ia-overview/architecture.png)
 
 
 ## <a name="scorecards"></a>성과 기록표 

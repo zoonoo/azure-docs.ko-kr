@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 78236a334b6c75f823819c70c0cdbb75bb30191d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89257435"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
@@ -71,7 +71,7 @@ ms.locfileid: "89257435"
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
 | MPEG-1 |예 |
 | VC-1/WMV9 |예 |
-| Canopus HQ/HQX |예 |
+| Canopus HQ/HQX |아니요 |
 | Mpeg-4 2부 |예 |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |예 |
 | 압축되지 않은 YUV420 또는 mezzanine |예 |
@@ -95,10 +95,10 @@ ms.locfileid: "89257435"
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |예 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |
 | AMR(Adaptive Multi-Rate) |예 |
-| AES(SMPTE 331M 및 302M, AES3-2003) |예 |
-| Dolby® E |예 |
-| Dolby® Digital(AC3) |예 |
-| Dolby® Digital Plus(E-AC3) |예 |
+| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |
+| Dolby® E |아니요 |
+| Dolby® Digital(AC3) |아니요 |
+| Dolby® Digital Plus(E-AC3) |아니요 |
 
 ## <a name="output-formats-and-codecs"></a>출력 형식 및 코덱
 다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
@@ -114,7 +114,7 @@ ms.locfileid: "89257435"
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md)
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)

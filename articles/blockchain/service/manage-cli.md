@@ -5,10 +5,10 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 36b012c486c0c7d3303a81998e88f1605999c899
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87170855"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Blockchain 서비스 관리
@@ -39,7 +39,7 @@ CLI를 로컬로 설치 하 고 사용 하려면 [Azure CLI 설치](/cli/azure/i
 
     Azure CLI에 대한 확장 참조를 사용하는 경우 먼저 확장을 설치해야 합니다.  Azure CLI 확장은 아직 핵심 CLI의 일부로 제공되지 않는 실험적 명령과 시험판 명령에 대한 액세스를 제공합니다.  확장 업데이트 및 제거를 포함하여 확장에 대해 자세한 내용을 보려면 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
 
-    다음 명령을 실행 하 여 [Azure Blockchain 서비스에 대 한 확장](/cli/azure/ext/blockchain/blockchain) 을 설치 합니다.
+    다음 명령을 실행하여 [Azure Blockchain Service](/cli/azure/ext/blockchain/blockchain)를 설치합니다.
 
     ```azurecli-interactive
     az extension add --name blockchain
@@ -64,10 +64,10 @@ az blockchain member create \
 | 매개 변수 | Description |
 |---------|-------------|
 | **resource-group** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
-| **name** | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름입니다. 이 이름은 공용 엔드포인트 주소에 사용됩니다. 예: `myblockchainmember.blockchain.azure.com` |
+| **name** | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름입니다. 이 이름은 공용 엔드포인트 주소에 사용됩니다. 예들 들어 `myblockchainmember.blockchain.azure.com`입니다. |
 | **location** | 블록체인 멤버가 만들어지는 Azure 지역입니다. `eastus`)을 입력합니다. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. 기능은 일부 지역에서 사용하지 못할 수도 있습니다. |
 | **password** | 멤버의 기본 트랜잭션 노드에 대한 암호입니다. 블록체인 멤버의 기본 트랜잭션 노드 공용 엔드포인트에 연결할 때 기본 인증용 암호를 사용합니다. 암호는 다음 4 가지 요구 사항 중 세 가지를 충족 해야 합니다. 길이는 12 & 72 자, 소문자 1 자, 1 개의 대문자, 1 개의 숫자 및 1 개의 숫자 기호 (#), 백분율 (%), 쉼표 (,), 별표 (*), 백슬래시 ( \` ), 큰따옴표 ("), 작은따옴표 ('), 대시 (-), semicolumn (;)) 사이 여야 합니다.|
-| **protocol** | Blockchain 프로토콜입니다. 현재 *쿼럼* 프로토콜이 지원 됩니다. |
+| **protocol** | Blockchain 프로토콜입니다. 현재 *Quorum* 프로토콜이 지원됩니다. |
 | **컨소시엄** | 참가할 또는 만들 컨소시엄의 이름입니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요. |
 | **컨소시엄-관리-계정-암호** | 컨소시엄 계정 암호는 멤버 계정 암호라고도 합니다. 멤버 계정 암호는 멤버용으로 생성된 Ethereum 계정의 프라이빗 키를 암호화하는 데 사용됩니다. 컨소시엄 관리용 멤버 계정과 멤버 계정 암호를 사용합니다. |
 | **sku** | 계층 유형입니다. *표준* 또는 *기본*입니다. 개발, 테스트 및 개념 증명에 *기본* 계층을 사용합니다. 프로덕션 등급 배포에 *표준* 계층을 사용합니다. Blockchain Data Manager를 사용하거나 대량의 프라이빗 트랜잭션을 전송하는 경우 *표준* 계층도 사용해야 합니다. 멤버를 만든 후 기본과 표준 간의 가격 책정 계층 변경은 지원되지 않습니다. |
@@ -208,7 +208,7 @@ az role assignment create \
                             --scope /subscriptions/<subId>/resourceGroups/<groupName>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
 | **assignee** | Azure AD 사용자 ID입니다. 예, `user@contoso.com` |
@@ -244,7 +244,7 @@ az role assignment create \
                             --assignee-object-id <assignee_object_id>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
 | **담당자-개체-id** | Azure AD 그룹 ID 또는 응용 프로그램 ID입니다. |
@@ -270,7 +270,7 @@ az role assignment delete \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/<myResourceGroup>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>/transactionNodes/<myTransactionNode>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
 | **assignee** | Azure AD 사용자 ID입니다. 예, `user@contoso.com` |

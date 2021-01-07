@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530508"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187377"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답
 
@@ -40,15 +40,15 @@ Event Grid는 클라우드용 이벤트 서비스입니다. 이 가이드에서�
 
 1.  portal.azure.com으로 이동하여 구독에 로그인합니다.
 
-1.  검색 상자에 **Automation 계정**을 입력합니다.
+1.  검색 상자에 **Automation 계정** 을 입력합니다.
 
-1.  검색 창에 있는 드롭다운 목록의 **서비스** 섹션에서 **Automation 계정**을 선택합니다.
+1.  검색 창에 있는 드롭다운 목록의 **서비스** 섹션에서 **Automation 계정** 을 선택합니다.
 
-1.  **추가**를 선택합니다.
+1.  **추가** 를 선택합니다.
 
     ![Automation 계정 창](../media/event-grid-tutorial-2.png)
 
-1.  **Automation 계정 추가** 창에 필요한 정보를 입력한 다음, **만들기**를 선택합니다.
+1.  **Automation 계정 추가** 창에 필요한 정보를 입력한 다음, **만들기** 를 선택합니다.
 
 ## <a name="create-a-runbook"></a>Runbook 만들기
 
@@ -58,11 +58,11 @@ Automation 계정이 준비되면 Runbook을 만듭니다.
 
 1.  방금 만든 Automation 계정을 선택합니다.
 
-1.  **프로세스 자동화** 아래에서 **Runbook**을 선택합니다.
+1.  **프로세스 자동화** 아래에서 **Runbook** 을 선택합니다.
 
-1.  **Runbook 만들기**를 선택합니다.
+1.  **Runbook 만들기** 를 선택합니다.
 
-1.  runbook의 이름을 지정하고 runbook 유형으로 **PowerShell**을 선택합니다.
+1.  runbook의 이름을 지정하고 runbook 유형으로 **PowerShell** 을 선택합니다.
 
 1.  만든 Runbook을 선택한 다음, **편집** 단추를 선택합니다.
 
@@ -98,22 +98,22 @@ write-Error "No input data found."
 
 웹후크를 만들어서 새로 만든 Runbook을 트리거합니다.
 
-1.  방금 게시한 Runbook의 **리소스** 섹션에서 **Webhook**를 선택합니다.
+1.  방금 게시한 Runbook의 **리소스** 섹션에서 **Webhook** 를 선택합니다.
 
-1.  **Webhook 추가**를 선택합니다.
+1.  **Webhook 추가** 를 선택합니다.
 
     ![Webhook 추가 단추](../media/event-grid-tutorial-5.png)
 
-1.  **Webhook 만들기**를 선택합니다.
+1.  **Webhook 만들기** 를 선택합니다.
 
 1. 웹후크의 이름을 지정하고 만료 날짜를 설정하고 URL을 복사합니다.
 
     > [!IMPORTANT] 
     > URL을 만든 후에는 볼 수 없습니다. 이 가이드의 나머지 부분에서 액세스할 수 있는 안전한 위치에 복사본을 저장해야 합니다.
 
-1. **매개 변수 및 실행 설정**을 선택한 다음, **확인**을 선택합니다. 매개 변수를 입력하지 마십시오. 그러면 **만들기** 단추가 활성화됩니다.
+1. **매개 변수 및 실행 설정** 을 선택한 다음, **확인** 을 선택합니다. 매개 변수를 입력하지 마십시오. 그러면 **만들기** 단추가 활성화됩니다.
 
-1. **확인**을 선택한 다음, **만들기**를 선택합니다.
+1. **확인** 을 선택한 다음, **만들기** 를 선택합니다.
 
     ![새 Webhook UI 만들기](../media/event-grid-tutorial-6.png)
 
@@ -129,19 +129,19 @@ write-Error "No input data found."
 
 1.  구독에 대한 설명이 포함된 이름을 만듭니다.
 
-1.  **Event Grid 스키마**를 선택합니다.
+1.  **Event Grid 스키마** 를 선택합니다.
 
-1.  **항목 리소스**는 상태 변경을 모니터링하려는 키 자격 증명 모음이어야 합니다.
+1.  **항목 리소스** 는 상태 변경을 모니터링하려는 키 자격 증명 모음이어야 합니다.
 
-1.  **이벤트 형식 필터**의 경우 모든 옵션을 선택된 상태(**9개 선택됨**)로 둡니다.
+1.  **이벤트 형식 필터** 의 경우 모든 옵션을 선택된 상태(**9개 선택됨**)로 둡니다.
 
-1.  **엔드포인트 유형**으로 **Webhook**를 선택합니다.
+1.  **엔드포인트 유형** 으로 **Webhook** 를 선택합니다.
 
-1.  **엔드포인트 선택**을 선택합니다. 컨텍스트 창에서 [웹후크 만들기](#create-a-webhook) 단계의 웹후크 URL을 **구독자 엔드포인트** 필드에 붙여넣습니다.
+1.  **엔드포인트 선택** 을 선택합니다. 컨텍스트 창에서 [웹후크 만들기](#create-a-webhook) 단계의 웹후크 URL을 **구독자 엔드포인트** 필드에 붙여넣습니다.
 
-1.  컨텍스트 창에서 **선택 확인**을 선택합니다.
+1.  컨텍스트 창에서 **선택 확인** 을 선택합니다.
 
-1.  **만들기**를 선택합니다.
+1.  **만들기** 를 선택합니다.
 
     ![이벤트 구독 만들기](../media/event-grid-tutorial-8.png)
 

@@ -16,11 +16,11 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264813"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021149"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행
 
@@ -980,7 +980,7 @@ job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
 #### <a name="xml-preset"></a>XML 사전 설정
 
-XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition="InsertBlackIfNoVideoBottomLayerOnly"를 사용하고 **AACAudio**에 대한 특성으로 Condition="InsertSilenceIfNoAudio"를 사용합니다.
+XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition="InsertBlackIfNoVideoBottomLayerOnly"를 사용하고 **AACAudio** 에 대한 특성으로 Condition="InsertSilenceIfNoAudio"를 사용합니다.
 
 ```xml
 . . .
@@ -1026,7 +1026,7 @@ XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition
 
 #### <a name="xml-preset"></a>XML 사전 설정
 
-XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition="InsertBlackIfNoVideo"를 사용하고 **AACAudio**에 대한 특성으로 Condition="InsertSilenceIfNoAudio"를 사용합니다.
+XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition="InsertBlackIfNoVideo"를 사용하고 **AACAudio** 에 대한 특성으로 Condition="InsertSilenceIfNoAudio"를 사용합니다.
 
 ```xml
 . . .

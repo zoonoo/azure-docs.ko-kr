@@ -2,14 +2,14 @@
 title: Azure Batch 계정으로 프라이빗 엔드포인트 사용
 description: 개인 끝점을 사용 하 여 Azure Batch 계정에 비공개로 연결 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0fd16e4e11d0b3f08a7ba0e2f425785e3cce7927
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814113"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579558"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Azure Batch 계정으로 프라이빗 엔드포인트 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "88814113"
 개인 링크를 사용 하면 사용자가 가상 네트워크 또는 피어 링 가상 네트워크 내에서 Azure Batch 계정에 액세스할 수 있습니다. 개인 링크에 매핑된 리소스는 VPN 또는 [Azure express](../expressroute/expressroute-introduction.md)경로를 통해 개인 피어 링을 통해 온-프레미스 에서도 액세스할 수 있습니다. [자동 또는 수동 승인 방법을](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow)사용 하 여 개인 링크로 구성 된 Azure Batch 계정에 연결할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Batch의 개인 연결에 대 한 지원은 현재 미국 중부, 미국 중 북부, 미국 중 북부, 미국 서 부, 미국 서 부, 미국 동부 2, 미국 서 부, 미국 서 부 2, 동아시아, 프랑스 중부, 영국 남부, 유럽 서부 유럽 서 부, 일본 동부, 일본 서 부, 오스트레일리아 동부, 모든 US Gov 및 US DoD 지역에서 사용할 수 있습니다.
+> Azure Batch의 개인 연결에 대 한 지원은 현재 독일 중부 및 독일 북동쪽를 제외한 모든 공용 지역에서 사용할 수 있습니다.
 
 이 문서에서는 개인 일괄 처리 계정을 만들고 개인 끝점을 사용 하 여 액세스 하는 단계를 설명 합니다.
 
@@ -28,25 +28,30 @@ ms.locfileid: "88814113"
 
 Azure Portal를 사용 하 여 개인 배치 계정을 만들려면 다음 단계를 수행 합니다.
 
-1. **리소스 만들기** 창에서 **Batch 서비스** 를 선택한 다음 **만들기**를 선택 합니다.
-2. **기본 사항** 탭에 구독, 리소스 그룹, 지역 및 배치 계정 이름을 입력 하 고 **다음: 고급**을 선택 합니다.
-3. **고급** 탭에서 **공용 네트워크 액세스** 를 **사용 안 함**으로 설정 합니다.
-4. **설정**에서 **개인 끝점 연결** 을 선택 하 고 **+ 개인 끝점**을 선택 합니다.
+1. **리소스 만들기** 창에서 **Batch 서비스** 를 선택한 다음 **만들기** 를 선택 합니다.
+2. **기본 사항** 탭에 구독, 리소스 그룹, 지역 및 배치 계정 이름을 입력 하 고 **다음: 고급** 을 선택 합니다.
+3. **고급** 탭에서 **공용 네트워크 액세스** 를 **사용 안 함** 으로 설정 합니다.
+4. **설정** 에서 **개인 끝점 연결** 을 선택 하 고 **+ 개인 끝점** 을 선택 합니다.
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="개인 끝점 연결":::
-5. **기본 사항** 창에서 구독, 리소스 그룹, 개인 끝점 리소스 이름 및 지역 세부 정보를 입력 하거나 선택 하 고 **다음: 리소스**를 선택 합니다.
-6. **리소스** 창에서 **리소스 종류** 를 **ch/batchaccountsMicrosoft.Bat**로 설정 합니다. 액세스 하려는 개인 Batch 계정을 선택 하 고 **다음: 구성**을 선택 합니다.
+5. **기본 사항** 창에서 구독, 리소스 그룹, 개인 끝점 리소스 이름 및 지역 세부 정보를 입력 하거나 선택 하 고 **다음: 리소스** 를 선택 합니다.
+6. **리소스** 창에서 **리소스 종류** 를 **ch/batchaccountsMicrosoft.Bat** 로 설정 합니다. 액세스 하려는 개인 Batch 계정을 선택 하 고 **다음: 구성** 을 선택 합니다.
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="개인 끝점 만들기-리소스 창":::
 7. **구성** 창에서 다음 정보를 입력 하거나 선택 합니다.
-   - **가상 네트워크**: 가상 네트워크를 선택 합니다.
-   - **서브넷**: 서브넷을 선택 합니다.
-   - **개인 DNS 영역과 통합**: **예**를 선택 합니다. 프라이빗 엔드포인트에 비공개로 연결하려면 DNS 레코드가 필요합니다. 프라이빗 엔드포인트를 프라이빗 DNS 영역과 통합하는 것이 좋습니다. 자체 DNS 서버를 활용하거나 가상 머신의 호스트 파일을 사용하여 DNS 레코드를 만들 수도 있습니다.
-   - **사설 DNS 영역**: <region> privatelink를 선택 합니다. batch.azure.com. 프라이빗 DNS 영역은 자동으로 결정됩니다. Azure Portal을 사용하여 변경할 수 없습니다.
-8. **검토 + 만들기**를 선택한 다음 Azure에서 구성의 유효성을 검사할 때까지 기다립니다.
-9. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
+   - **가상 네트워크** : 가상 네트워크를 선택 합니다.
+   - **서브넷** : 서브넷을 선택 합니다.
+   - **개인 DNS 영역과 통합** : **예** 를 선택 합니다. 프라이빗 엔드포인트에 비공개로 연결하려면 DNS 레코드가 필요합니다. 프라이빗 엔드포인트를 프라이빗 DNS 영역과 통합하는 것이 좋습니다. 자체 DNS 서버를 활용하거나 가상 머신의 호스트 파일을 사용하여 DNS 레코드를 만들 수도 있습니다.
+   - **사설 DNS 영역** : \<region\> privatelink를 선택 합니다. batch.azure.com. 프라이빗 DNS 영역은 자동으로 결정됩니다. Azure Portal을 사용하여 변경할 수 없습니다.
+8. **검토 + 만들기** 를 선택한 다음 Azure에서 구성의 유효성을 검사할 때까지 기다립니다.
+9. **유효성 검사 통과** 메시지가 표시되면 **만들기** 를 선택합니다.
 
-개인 끝점이 프로 비전 되 면 개인 끝점을 사용 하 여 동일한 가상 네트워크의 Vm에서 Batch 계정에 액세스할 수 있습니다. Azure Portal에서 IP 주소를 보려면 다음을 수행 합니다.
+개인 끝점이 프로 비전 되 면 개인 끝점을 사용 하 여 동일한 가상 네트워크의 Vm에서 Batch 계정에 액세스할 수 있습니다.
 
-1. **모든 리소스**를 선택합니다.
+> [!IMPORTANT]
+> 개인 끝점이 프로 비전 되는 가상 네트워크 외부에서 작업을 수행 하면 Azure Portal에서 "AuthorizationFailure" 메시지가 생성 됩니다.
+
+Azure Portal에서 IP 주소를 보려면 다음을 수행 합니다.
+
+1. **모든 리소스** 를 선택합니다.
 2. 이전에 만든 프라이빗 엔드포인트를 검색합니다.
 3. **개요** 탭을 선택하여 DNS 설정 및 IP 주소를 확인합니다.
 
@@ -106,5 +111,6 @@ Azure Portal를 사용 하 여 개인 배치 계정을 만들려면 다음 단�
 ## <a name="next-steps"></a>다음 단계
 
 - [가상 네트워크에서 Batch 풀을 만드는](batch-virtual-network.md)방법에 대해 알아봅니다.
+- [공용 IP 주소를 사용 하지 않고 Batch 풀을 만드는](batch-pool-no-public-ip-address.md) 방법을 알아봅니다.
 - [지정 된 공용 IP 주소를 사용 하 여 Batch 풀을 만드는](create-pool-public-ip.md)방법을 알아봅니다.
 - [Azure 개인 링크](../private-link/private-link-overview.md)에 대해 알아봅니다.

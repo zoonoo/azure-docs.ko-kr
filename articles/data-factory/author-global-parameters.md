@@ -5,15 +5,15 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.date: 08/31/2020
-ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 676b954854fd0c2b0c4b12c654972e2e80cae781
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230836"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500175"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure Data Factory의 전역 매개 변수
 
@@ -25,13 +25,13 @@ ms.locfileid: "89230836"
 
 전역 매개 변수를 만들려면 [ *관리* ] 섹션의 [ *전역 매개 변수* ] 탭으로 이동 하세요. **새로** 만들기를 선택 하 여 만들기-탐색을 엽니다.
 
-![전역 매개 변수 만들기](media/author-global-parameters/create-global-parameter-1.png)
+![전역 매개 변수를 만들기 위해 선택한 새 단추를 강조 표시 하는 스크린샷](media/author-global-parameters/create-global-parameter-1.png)
 
 Side-by-side 탐색에서 이름을 입력 하 고, 데이터 형식을 선택 하 고, 매개 변수 값을 지정 합니다.
 
-![전역 매개 변수 만들기](media/author-global-parameters/create-global-parameter-2.png)
+![새 전역 매개 변수에 대 한 이름, 데이터 형식 및 값을 추가 하는 위치를 보여 주는 스크린샷](media/author-global-parameters/create-global-parameter-2.png)
 
-전역 매개 변수를 만든 후에는 매개 변수의 이름을 클릭 하 여 해당 매개 변수를 편집할 수 있습니다. 한 번에 여러 매개 변수를 변경 하려면 **모두 편집**을 선택 합니다.
+전역 매개 변수를 만든 후에는 매개 변수의 이름을 클릭 하 여 해당 매개 변수를 편집할 수 있습니다. 한 번에 여러 매개 변수를 변경 하려면 **모두 편집** 을 선택 합니다.
 
 ![전역 매개 변수 만들기](media/author-global-parameters/create-global-parameter-3.png)
 
@@ -52,13 +52,13 @@ Side-by-side 탐색에서 이름을 입력 하 고, 데이터 형식을 선택 �
 
 ![ARM 템플릿에 포함](media/author-global-parameters/include-arm-template.png)
 
-ARM 템플릿에 전역 매개 변수를 추가 하면 다른 환경에서 고객이 관리 하는 키 또는 git 구성과 같은 다른 팩터리 수준 설정을 재정의할 수 있는 팩터리 수준 설정이 추가 됩니다. UAT 또는 PROD와 같은 높은 수준의 환경에서 이러한 설정을 사용 하도록 설정한 경우 아래 강조 표시 된 단계에서 PowerShell 스크립트를 통해 전역 매개 변수를 배포 하는 것이 좋습니다.
+ARM 템플릿에 전역 매개 변수를 추가 하면 다른 환경에서 고객이 관리 하는 키 또는 git 구성과 같은 다른 팩터리 수준 설정을 재정의 하는 팩터리 수준 설정이 추가 됩니다. UAT 또는 PROD와 같은 높은 수준의 환경에서 이러한 설정을 사용 하도록 설정한 경우 아래 강조 표시 된 단계에서 PowerShell 스크립트를 통해 전역 매개 변수를 배포 하는 것이 좋습니다.
 
 ### <a name="deploying-using-powershell"></a>PowerShell을 사용 하 여 배포
 
 다음 단계에서는 PowerShell을 통해 전역 매개 변수를 배포 하는 방법을 간략하게 설명 합니다. 이는 대상 팩터리에 고객 관리 키와 같은 팩터리 수준 설정이 있는 경우에 유용 합니다.
 
-팩터리를 게시 하거나 전역 매개 변수를 사용 하 여 ARM 템플릿을 내보낼 때 *Globalparameters* 라는 폴더가 * 에your-factory-name_GlobalParameters.js*이라는 파일로 생성 됩니다. 이 파일은 게시 된 팩터리의 각 전역 매개 변수 형식 및 값을 포함 하는 JSON 개체입니다.
+팩터리를 게시 하거나 전역 매개 변수를 사용 하 여 ARM 템플릿을 내보낼 때 *Globalparameters* 라는 폴더가 *에your-factory-name_GlobalParameters.js* 이라는 파일로 생성 됩니다. 이 파일은 게시 된 팩터리의 각 전역 매개 변수 형식 및 값을 포함 하는 JSON 개체입니다.
 
 ![전역 매개 변수 게시](media/author-global-parameters/global-parameters-adf-publish.png)
 

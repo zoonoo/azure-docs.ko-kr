@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: e13164c3ec6049a8ae3954528a02d20e313dd883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711462"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008126"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 가상 네트워크를 다른 지역으로 이동
 
@@ -20,7 +20,7 @@ ms.locfileid: "84711462"
 Azure Resource Manager 템플릿을 사용 하 여 가상 네트워크를 다른 지역으로 이동 하는 것을 완료할 수 있습니다. 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여이 작업을 수행 합니다. 리소스 관리자 템플릿에 대 한 자세한 내용은 [템플릿으로 리소스 그룹 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 가상 네트워크가 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -60,7 +60,7 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹과 이름이 같습니다. 명령을 사용 하 여 내보낸 * \<resource-group-name> json* 파일을 찾아 편집기에서 엽니다.
+1. 다운로드 한 파일은 리소스를 내보낸 리소스 그룹과 이름이 같습니다. 명령을 사용 하 여 내보낸 *\<resource-group-name> json* 파일을 찾아 편집기에서 엽니다.
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,7 +105,7 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
     Get-AzLocation | format-table
     ```
 
-1. 필드 또한 요구 사항에 따라 * \<resource-group-name> json* 파일의 다른 매개 변수를 변경할 수도 있습니다.
+1. 필드 또한 요구 사항에 따라 *\<resource-group-name> json* 파일의 다른 매개 변수를 변경할 수도 있습니다.
 
     * **주소 공간**: 파일을 저장 하기 전에 **resources**  >  **addressSpace** 섹션을 수정 하 고 **addressPrefixes** 속성을 변경 하 여 가상 네트워크의 주소 공간을 변경할 수 있습니다.
 
@@ -201,7 +201,7 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 * \<resource-group-name> json* 파일을 배포 합니다.
+1. [AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 *\<resource-group-name> json* 파일을 배포 합니다.
 
     ```azurepowershell-interactive
 
@@ -252,5 +252,5 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 이 자습서에서는 PowerShell을 사용 하 여 가상 네트워크를 한 지역에서 다른 지역으로 이동한 다음 불필요 한 소스 리소스를 정리 했습니다. Azure에서 지역 및 재해 복구 간에 리소스를 이동 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- [리소스를 새 리소스 그룹 또는 구독으로 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [다른 지역으로 Azure 가상 머신 이동](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

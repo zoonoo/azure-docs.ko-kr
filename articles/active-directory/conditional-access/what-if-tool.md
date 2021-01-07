@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948201"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077645"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용하여 문제 해결
 
-[조건부 액세스](./overview.md) 는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있는 Azure AD (Azure Active Directory)의 기능입니다. 사용자 환경에서 조건부 액세스 정책에서 발생할 수 있는 작업을 어떻게 알 수 있나요? 이 질문에 대답 하기 위해 **조건부 액세스 What If 도구**를 사용할 수 있습니다.
+[조건부 액세스](./overview.md) 는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있는 Azure AD (Azure Active Directory)의 기능입니다. 사용자 환경에서 조건부 액세스 정책에서 발생할 수 있는 작업을 어떻게 알 수 있나요? 이 질문에 대답 하기 위해 **조건부 액세스 What If 도구** 를 사용할 수 있습니다.
 
 이 문서에서는이 도구를 사용 하 여 조건부 액세스 정책을 테스트 하는 방법을 설명 합니다.
 
@@ -30,13 +30,13 @@ ms.locfileid: "88948201"
 
 **What If** 도구는 특정 사용자에 게 적용 되는 정책을 신속 하 게 결정 하는 방법을 제공 합니다. 예를 들어 문제를 해결해야 하는 경우에 이 정보를 사용할 수 있습니다.    
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
-**조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 설정에는 다음이 포함됩니다.
+**조건부 액세스 What If 도구** 에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 설정에는 다음이 포함됩니다.
 
 - 테스트하려는 사용자 
 - 사용자가 액세스하려고 하는 클라우드 앱
-- 클라우드 구성 앱에 대한 액세스가 수행되는 조건
+- 구성 된 클라우드 앱에 대 한 액세스를 수행 하는 조건
      
 다음 단계로, 설정을 평가하는 시뮬레이션 실행을 시작할 수 있습니다. 사용하도록 설정된 정책만 평가 실행에 속합니다.
 
@@ -46,9 +46,9 @@ ms.locfileid: "88948201"
 
 **What If** 도구는 Azure Portal의 **[조건부 액세스 정책](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** 페이지에서 찾을 수 있습니다.
 
-도구를 시작 하려면 정책 목록 맨 위에 있는 도구 모음에서 **What If**를 클릭 합니다.
+도구를 시작 하려면 정책 목록 맨 위에 있는 도구 모음에서 **What If** 를 클릭 합니다.
 
-![What If](./media/what-if-tool/01.png)
+:::image type="content" source="./media/what-if-tool/01.png" alt-text="Azure Portal에서 조건부 액세스-정책 페이지의 스크린샷 도구 모음에서 항목을 강조 표시 합니다." border="false":::
 
 평가를 실행하려면 먼저 설정을 구성해야 합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "88948201"
 
 이 섹션에서는 시뮬레이션 실행의 설정에 대한 정보를 제공합니다.
 
-![What If](./media/what-if-tool/02.png)
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Azure Portal에서 조건부 액세스-정책 페이지의 스크린샷 도구 모음에서 항목을 강조 표시 합니다." border="false":::
 
 ### <a name="user"></a>사용자
 
@@ -64,7 +64,7 @@ ms.locfileid: "88948201"
 
 ### <a name="cloud-apps"></a>클라우드 앱
 
-이 설정의 기본값은 **모든 클라우드 앱**입니다. 기본 설정은 사용자 환경의 사용 가능한 모든 정책에 대한 평가를 수행합니다. 특정 클라우드 앱에 영향을 주는 정책으로 범위를 좁힐 수 있습니다.
+이 설정의 기본값은 **모든 클라우드 앱** 입니다. 기본 설정은 사용자 환경의 사용 가능한 모든 정책에 대한 평가를 수행합니다. 특정 클라우드 앱에 영향을 주는 정책으로 범위를 좁힐 수 있습니다.
 
 ### <a name="ip-address"></a>IP 주소
 
@@ -77,10 +77,10 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 ### <a name="client-apps"></a>클라이언트 앱
 
 이 설정은 [클라이언트 앱 조건](concept-conditional-access-conditions.md#client-apps)을 모방합니다.
-기본적으로 이 설정을 사용하면 **브라우저** 또는 **모바일 앱 및 데스크톱 클라이언트**가 따로 또는 둘 다 선택되어 있는 모든 정책이 평가됩니다. 또한 **EAS(Exchange ActiveSync)** 를 적용하는 정책도 감지됩니다. 다음을 선택하여 이 설정의 범위를 좁힐 수 있습니다.
+기본적으로 이 설정을 사용하면 **브라우저** 또는 **모바일 앱 및 데스크톱 클라이언트** 가 따로 또는 둘 다 선택되어 있는 모든 정책이 평가됩니다. 또한 **EAS(Exchange ActiveSync)** 를 적용하는 정책도 감지됩니다. 다음을 선택하여 이 설정의 범위를 좁힐 수 있습니다.
 
-- **브라우저**: 하나 이상의 **브라우저**가 선택된 모든 정책을 평가합니다. 
-- **모바일 앱 및 데스크톱 클라이언트**: 적어도 **모바일 앱 및 데스크톱 클라이언트**가 선택된 모든 정책을 평가합니다. 
+- **브라우저** : 하나 이상의 **브라우저** 가 선택된 모든 정책을 평가합니다. 
+- **모바일 앱 및 데스크톱 클라이언트** : 적어도 **모바일 앱 및 데스크톱 클라이언트** 가 선택된 모든 정책을 평가합니다. 
 
 ### <a name="sign-in-risk"></a>로그인 위험
 
@@ -88,9 +88,9 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 
 ## <a name="evaluation"></a>평가 
 
-**What If**를 클릭 하 여 평가를 시작 합니다. 평가 결과는 다음으로 구성된 보고서를 제공합니다. 
+**What If** 를 클릭 하 여 평가를 시작 합니다. 평가 결과는 다음으로 구성된 보고서를 제공합니다. 
 
-![What If](./media/what-if-tool/03.png)
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Azure Portal에서 조건부 액세스-정책 페이지의 스크린샷 도구 모음에서 항목을 강조 표시 합니다." border="false":::
 
 - 클래식 정책이 환경에 있는지 여부 표시
 - 사용자에게 적용되는 정책

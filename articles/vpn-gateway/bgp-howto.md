@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: f52d684d1e6ef63fdf4287c610608061f30395f8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996868"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Azure VPN gateway에서 BGP를 구성 하는 방법
@@ -35,7 +35,7 @@ Bgp의 이점에 대 한 자세한 내용 및 BGP 사용의 기술 요구 사항
 
 파트를 결합하여 필요에 따라 더 복잡한 다중 홉 전송 네트워크를 빌드할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 **다이어그램 2**
 
-:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="가상 네트워크 게이트웨이에 대 한 설정을 보여 주는 다이어그램" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램" border="false":::
 
 ### <a name="1-create-and-configure-testvnet1"></a>1. TestVNet1 만들기 및 구성
 
@@ -53,11 +53,11 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 * 가상 네트워크:
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="해당 주소 접두사가 있는 TestVNet1":::
+   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
 * 서브넷:
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="TestVNet1 서브넷":::
+   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
 ### <a name="2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>2. BGP 매개 변수를 사용 하 여 TestVNet1에 대 한 VPN 게이트웨이 만들기
 
@@ -67,11 +67,11 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 1. 아래와 같이 매개 변수를 입력 합니다.
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="VNG1 만들기":::
+   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
 1. 페이지의 선택 된 **BGP 구성** 섹션에서 다음 설정을 구성 합니다.
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="BGP 구성":::
+   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
    * Bgp **Configure BGP**  -  구성 섹션을 표시 하려면 bgp**사용** 구성을 선택 합니다.
 
@@ -96,7 +96,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 1. 가상 네트워크 게이트웨이 리소스로 이동 하 고 **구성** 페이지를 선택 하 여 다음 스크린샷에 표시 된 대로 BGP 구성 정보를 확인 합니다. 이 페이지에서는 azure VPN gateway의 모든 BGP 구성 정보를 볼 수 있습니다. ASN, 공용 IP 주소 및 Azure 측 (기본 및 APIPA)의 해당 BGP 피어 IP 주소입니다.
 
-   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="BGP 게이트웨이":::
+   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
 1. **구성** 페이지에서 다음과 같이 구성을 변경할 수 있습니다.
 
@@ -111,13 +111,13 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 **다이어그램 3**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="IPsec을 보여 주는 다이어그램" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램" border="false":::
 
 ### <a name="1-configure-bgp-on-the-local-network-gateway"></a>1. 로컬 네트워크 게이트웨이에서 BGP를 구성 합니다.
 
 이 단계에서는 로컬 네트워크 게이트웨이에서 BGP를 구성 합니다. 다음 스크린샷을 예로 사용 합니다. 스크린샷에는 다이어그램 3에 지정 된 매개 변수를 사용 하 여 로컬 네트워크 게이트웨이 (Site5)가 표시 됩니다.
 
-:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="로컬 네트워크 게이트웨이에 대 한 BGP 구성":::
+:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
 #### <a name="important-configuration-considerations"></a>중요 구성 고려 사항
 
@@ -130,7 +130,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 이 예제에서는 169.254.100.1 (APIPA 주소)를 온-프레미스 BGP 피어 IP 주소로 사용 합니다.
 
-:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="로컬 네트워크 게이트웨이 APIPA 및 BGP":::
+:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
 ### <a name="2-configure-a-s2s-connection-with-bgp-enabled"></a>2. BGP를 사용 하 여 S2S 연결 구성
 
@@ -140,13 +140,13 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 BGP를 사용 하 여 새 연결을 만들려면 **연결 추가** 페이지에서 값을 입력 한 다음 **bgp 사용** 옵션을 선택 하 여이 연결에 대해 bgp를 사용 하도록 설정 합니다. **확인**을 선택하여 연결을 만듭니다.
 
-:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="BGP를 사용 하 여 IPsec 크로스-프레미스 연결":::
+:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
 #### <a name="to-update-an-existing-connection"></a><a name ="update"></a>기존 연결을 업데이트 하려면
 
 연결에서 BGP 옵션을 변경 하려면 연결 리소스의 **구성** 페이지로 이동한 다음 다음 예제에서 강조 표시 된 대로 **bgp** 옵션을 설정/해제 합니다. **저장**을 선택하여 변경 내용을 저장합니다.
 
-:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="연결에 대 한 BGP 업데이트":::
+:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램":::
 
 ## <a name="part-3-configure-bgp-on-vnet-to-vnet-connections"></a><a name ="v2v"></a>3 부: VNet 간 연결에서 BGP 구성
 
@@ -160,7 +160,7 @@ TestVNet2와 TestVNet1 간에 BGP를 사용 하지 않도록 **설정 하는**�
 
 **다이어그램 4**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="전체 네트워크를 보여 주는 다이어그램" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="네트워크 아키텍처 및 설정을 보여 주는 다이어그램" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

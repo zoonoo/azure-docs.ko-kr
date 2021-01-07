@@ -7,12 +7,12 @@ ms.date: 11/07/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: 05f02fe5bd6d106e7187eea7600ffe0c7fc7e955
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1d343c952f01185d2360d6cf238dd3a7512849fb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828169"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912130"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure Blob Storage에 대한 Azure PowerShell 샘플
 
@@ -22,7 +22,7 @@ ms.locfileid: "87828169"
 |---|---|
 |**스토리지 계정**||
 | [스토리지 계정 만들기 및 액세스 키 검색/회전](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Storage 계정을 만들고 해당 액세스 키 중 하나를 검색 및 회전합니다. |
-| [Windows에서 AzCopy를 사용해 여러 스토리지 계정으로 Blob 마이그레이션](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Windows에서 AzCopy를 사용해 여러 Azure Storage 계정으로 Blob을 마이그레이션하는 방법을 설명합니다. |
+| [Windows에서 AzCopy를 사용해 여러 스토리지 계정으로 Blob 마이그레이션](/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts?toc=%2fpowershell%2fmodule%2ftoc.json)| Windows에서 AzCopy를 사용해 여러 Azure Storage 계정으로 Blob을 마이그레이션하는 방법을 설명합니다. |
 |**Blob Storage**||
 | [Blob Storage 컨테이너의 전체 크기 계산](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 컨테이너에 있는 모든 Blob의 전체 크기를 계산합니다. |
 | [청구 목적으로 Blob Storage 컨테이너 크기 계산](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 청구 비용을 예측하기 위해 Blob Storage에 있는 컨테이너의 크기를 계산합니다. |

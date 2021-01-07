@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
-ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b4455f21ae7243ab7a15e8d746d6674289f9fdb5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844629"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953021"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>자습서: Python 웹 애플리케이션에서 Azure AD B2C를 사용하여 인증 사용
 
@@ -49,26 +49,26 @@ ms.locfileid: "87844629"
 
 필수 조건의 일부로 완료한 두 번째 자습서에서 Azure AD B2C에 웹 애플리케이션을 등록했습니다. 이 자습서에서 코드 샘플과의 통신을 사용하도록 설정하려면 애플리케이션 등록에 회신 URL(리디렉트 URI라고도 함)을 추가해야 합니다.
 
-Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
+Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록**을 선택하고 **소유한 애플리케이션** 탭을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
-1. **관리**에서 **인증**을 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **앱 등록** 을 선택하고 **소유한 애플리케이션** 탭을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
+1. **관리** 에서 **인증** 을 선택합니다.
 1. **웹** 아래에서 **URI 추가** 링크를 선택한 다음, 텍스트 상자에 `http://localhost:5000/getAToken`을 입력합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **Azure AD B2C**를 검색하여 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **Azure AD B2C** 를 검색하여 선택합니다.
 1. **애플리케이션(레거시)** 을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
 1. **회신 URL** 아래에서 `http://localhost:5000/getAToken`을 추가합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 * * *
 
 ## <a name="get-the-sample-code"></a>샘플 코드 가져오기
@@ -87,18 +87,18 @@ git clone https://github.com/Azure-Samples/ms-identity-python-webapp.git
 
 프로젝트의 루트 디렉터리에서 다음을 수행합니다.
 
-1. *app_config* 파일의 이름을 *app_config.py.OLD*로 바꿉니다.
-1. *app_config_b2c.py*의 이름을 *app_config.py*로 바꿉니다.
+1. *app_config* 파일의 이름을 *app_config.py.OLD* 로 바꿉니다.
+1. *app_config_b2c.py* 의 이름을 *app_config.py* 로 바꿉니다.
 
-새로 이름이 바뀐 *app_config.py*를 필수 구성 요소의 일부로 만든 Azure AD B2C 테넌트 및 애플리케이션 등록 값으로 업데이트합니다.
+새로 이름이 바뀐 *app_config.py* 를 필수 구성 요소의 일부로 만든 Azure AD B2C 테넌트 및 애플리케이션 등록 값으로 업데이트합니다.
 
 1. 편집기에서 *app_config.py* 파일을 엽니다.
 1. `b2c_tenant` 값을 Azure AD B2C 테넌트의 이름으로 업데이트합니다(예: *contosob2c*).
 1. 필수 구성 요소의 일부로 만든 사용자 흐름의 이름과 일치하도록 각 `*_user_flow` 값을 업데이트합니다.
-1. `CLIENT_ID` 값을 필수 구성 요소의 일부로 등록한 웹 애플리케이션의 **애플리케이션(클라이언트) ID**로 업데이트합니다.
-1. `CLIENT_SECRET` 값을 필수 구성 요소에서 만든 **클라이언트 암호** 값으로 업데이트합니다. 보안 강화를 위해 설명에 권장된 대로 **환경 변수**에 대신 저장하는 것이 좋습니다.
+1. `CLIENT_ID` 값을 필수 구성 요소의 일부로 등록한 웹 애플리케이션의 **애플리케이션(클라이언트) ID** 로 업데이트합니다.
+1. `CLIENT_SECRET` 값을 필수 구성 요소에서 만든 **클라이언트 암호** 값으로 업데이트합니다. 보안 강화를 위해 설명에 권장된 대로 **환경 변수** 에 대신 저장하는 것이 좋습니다.
 
-*app_config.py*의 맨 위 섹션은 이제 다음 코드 조각과 유사하게 표시됩니다.
+*app_config.py* 의 맨 위 섹션은 이제 다음 코드 조각과 유사하게 표시됩니다.
 
 ```python
 import os
@@ -121,7 +121,7 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 ```
 
 > [!WARNING]
-> 코드 조각 설명에 나와 있는 것처럼 애플리케이션 코드에 **비밀을 일반 텍스트로 저장하지 않는 것**이 좋습니다. 하드 코딩된 변수는 *편의를 위해* 코드 샘플에서 사용됩니다. 환경 변수 또는 Azure Key Vault와 같은 비밀 저장소를 사용하는 것이 좋습니다.
+> 코드 조각 설명에 나와 있는 것처럼 애플리케이션 코드에 **비밀을 일반 텍스트로 저장하지 않는 것** 이 좋습니다. 하드 코딩된 변수는 *편의를 위해* 코드 샘플에서 사용됩니다. 환경 변수 또는 Azure Key Vault와 같은 비밀 저장소를 사용하는 것이 좋습니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
 
@@ -156,7 +156,7 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 
 이 샘플 애플리케이션은 가입, 로그인 및 암호 재설정을 지원합니다. 이 자습서에서는 이메일 주소를 사용하여 가입합니다.
 
-1. **로그인**을 선택하여 이전 단계에서 지정한 *B2C_1_signupsignin1* 사용자 흐름을 시작합니다.
+1. **로그인** 을 선택하여 이전 단계에서 지정한 *B2C_1_signupsignin1* 사용자 흐름을 시작합니다.
 1. Azure AD B2C에서 가입 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 가입** 링크를 선택합니다.
 1. 가입 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서는 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 
@@ -164,13 +164,13 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 
     :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Azure AD B2C 사용자 흐름에 표시된 가입 페이지":::
 
-1. **만들기**를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
+1. **만들기** 를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
 
-**만들기**를 선택하면 애플리케이션이 로그인한 사용자의 이름을 표시합니다.
+**만들기** 를 선택하면 애플리케이션이 로그인한 사용자의 이름을 표시합니다.
 
 :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="사용자가 로그인한 Python Flask 웹 애플리케이션을 보여 주는 웹 브라우저":::
 
-로그인을 테스트하려면 **로그아웃** 링크를 선택한 다음, **로그인**을 선택하고 가입할 때 입력한 이메일 주소와 암호를 사용하여 로그인합니다.
+로그인을 테스트하려면 **로그아웃** 링크를 선택한 다음, **로그인** 을 선택하고 가입할 때 입력한 이메일 주소와 암호를 사용하여 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

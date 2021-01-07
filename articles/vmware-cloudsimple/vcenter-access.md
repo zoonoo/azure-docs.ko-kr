@@ -1,19 +1,19 @@
 ---
 title: CloudSimple 액세스 vSphere 클라이언트에의 한 Azure VMware 솔루션
 description: 사설 클라우드의 vCenter에 액세스 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/30/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 18d9463bc512257034860e1188372879524924f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e62042a84f7ac2615762e3d9b036e4340bd8c73
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77022667"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899119"
 ---
 # <a name="access-your-private-cloud-vcenter-portal"></a>사설 클라우드 vCenter 포털 액세스
 
@@ -36,9 +36,9 @@ VCenter 포털에 액세스 하려면 네트워크 연결을 설정 하 고 DNS 
 
 Azure Portal에서 사설 클라우드의 vCenter 포털을 시작할 수 있습니다.
 
-1. **모든 서비스**를 선택합니다.
+1. **모든 서비스** 를 선택합니다.
 
-2. **Cloudsimple 서비스**를 검색 합니다.
+2. **Cloudsimple 서비스** 를 검색 합니다.
 
 3. 연결 하려는 사설 클라우드의 CloudSimple 서비스를 선택 합니다.
 
@@ -46,7 +46,7 @@ Azure Portal에서 사설 클라우드의 vCenter 포털을 시작할 수 있습
 
     ![CloudSimple 서비스 개요](media/cloudsimple-service-overview.png)
 
-5. 사설 클라우드 목록에서 사설 클라우드를 선택 하 고 **vSphere 클라이언트 시작**을 클릭 합니다.
+5. 사설 클라우드 목록에서 사설 클라우드를 선택 하 고 **vSphere 클라이언트 시작** 을 클릭 합니다.
 
     ![VSphere 클라이언트 시작](media/cloudsimple-service-launch-vsphere-client.png)
 
@@ -56,7 +56,7 @@ CloudSimple 포털에서 사설 클라우드의 vCenter 포털을 시작할 수 
 
 1. [Cloudsimple 포털](access-cloudsimple-portal.md)에 액세스 합니다.
 
-2. **리소스** 에서 액세스 하려는 사설 클라우드를 선택 하 고 **Vsphere 클라이언트 시작**을 클릭 합니다.
+2. **리소스** 에서 액세스 하려는 사설 클라우드를 선택 하 고 **Vsphere 클라이언트 시작** 을 클릭 합니다.
 
     ![VSphere 클라이언트 리소스를 시작 합니다.](media/cloudsimple-portal-resources-launch-vcenter.png)
 

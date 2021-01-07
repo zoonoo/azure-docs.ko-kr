@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs 및 Firebase SDK 버전 1.0.0-preview1을 사용하여 Android에 푸시 알림 보내기
-description: 이 자습서에서는 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스에 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스(버전 1.0.0-preview1)에 푸시 알림을 보내는 방법을 알아봅니다.
 author: sethmanheim
 ms.author: sethm
 ms.date: 5/28/2020
@@ -9,12 +9,12 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ae1d2dfaf7d83d3b2323812f637bddd91b9a2ea2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018232"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017256"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>자습서: Firebase SDK 버전 1.0.0-preview1을 사용하여 Android 디바이스에 푸시 알림 보내기
 
@@ -36,7 +36,7 @@ ms.locfileid: "89018232"
 
 또한 다음 항목이 필요합니다.
 
-- 최신 버전의  [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)를 권장합니다.
+- 최신 버전의 [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)를 사용하는 것이 좋습니다.
 - 최소 지원 버전은 API 레벨 16입니다.
 
 ## <a name="create-an-android-studio-project"></a>Android Studio 프로젝트 만들기
@@ -45,93 +45,93 @@ ms.locfileid: "89018232"
 
 1. Android Studio를 시작합니다.
 
-2.  **File**을 선택한 다음,  **New**, **New Project**를 차례로 선택합니다.
+2. **파일** 을 선택한 다음, **새로 만들기**, **새 프로젝트** 를 차례로 선택합니다.
 
-3.  **Choose your project** 페이지에서  **Empty Activity**를 선택한 후  **Next**를 선택합니다.
+3. **Choose your project** 페이지에서 **Empty Activity** 를 선택한 후 **Next** 를 선택합니다.
 
-4.  **Configure your project**  페이지에서 다음을 수행합니다.
+4. **프로젝트 구성** 페이지에서 다음을 수행합니다.
    1. 애플리케이션의 이름을 입력합니다.
    2. 프로젝트 파일을 저장할 위치를 지정합니다.
-   3.  **Finish**를 선택합니다.
+   3. **마침** 을 선택합니다.
 
    :::image type="content" source="media/android-sdk/configure-project.png" alt-text="프로젝트 구성":::
 
 ## <a name="create-a-firebase-project-that-supports-fcm"></a>FCM을 지원하는 Firebase 프로젝트 만들기
 
-1.  [Firebase 콘솔](https://firebase.google.com/console/)에 로그인합니다. 아직 없는 경우 새 Firebase 프로젝트를 만듭니다.
+1. [Firebase 콘솔](https://firebase.google.com/console/)에 로그인합니다. 아직 없는 경우 새 Firebase 프로젝트를 만듭니다.
 
-2. 프로젝트를 만든 후  **Android 앱에 Firebase 추가**를 선택합니다.
+2. 프로젝트를 만든 후 **Android 앱에 Firebase 추가** 를 선택합니다.
 
    :::image type="content" source="media/android-sdk/get-started.png" alt-text="Firebase 추가":::
 
-3.  **Android 앱에 Firebase 추가**  페이지에서 다음을 수행합니다.
+3. **Android 앱에 Firebase 추가** 페이지에서 다음을 수행합니다.
 
-   1.  **Android 패키지 이름**에서 애플리케이션의 **build.gradle** 파일에 있는 **applicationId** 값을 복사합니다. 이 예에서는  `com.fabrikam.fcmtutorial1app`입니다.
+   1. **Android 패키지 이름** 의 경우 애플리케이션의 **build.gradle** 파일에 있는 **applicationId** 값을 복사합니다. 이 예에서는 `com.fabrikam.fcmtutorial1app`입니다.
 
       :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="패키지 이름 지정":::
 
-   2.  **앱 등록**을 선택합니다.
+   2. **앱 등록** 을 선택합니다.
 
-4.  **google-services.json 다운로드**를 선택하고 프로젝트의  **app** 폴더에 파일을 저장한 후  **다음**을 선택합니다.
+4. **google-services.json 다운로드** 를 선택하고 프로젝트의 **app** 폴더에 파일을 저장한 후 **다음** 을 선택합니다.
 
    :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Google 서비스 다운로드":::
 
-5. Firebase 콘솔에서 프로젝트의 톱니바퀴를 선택합니다. 그런 후  **프로젝트 설정**을 선택합니다.
+5. Firebase 콘솔에서 프로젝트의 톱니바퀴를 선택합니다. 그런 후 **프로젝트 설정** 을 선택합니다.
 
    :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="프로젝트 설정":::
 
-6. Android Studio 프로젝트의  **app** 폴더에 **google-services.json** 파일을 다운로드하지 않은 경우 이 페이지에서 다운로드할 수 있습니다.
+6. Android Studio 프로젝트의 **app** 폴더에 **google-services.json** 파일을 다운로드하지 않은 경우 이 페이지에서 다운로드할 수 있습니다.
 
-7.  **클라우드 메시징** 탭으로 전환합니다.
+7. **클라우드 메시징** 탭으로 전환합니다.
 
-8. 나중에 사용하기 위해  **서버 키**를 복사하고 저장합니다. 이 값을 사용하여 허브를 구성합니다.
+8. 나중에 사용하기 위해 **서버 키** 를 복사하고 저장합니다. 이 값을 사용하여 허브를 구성합니다.
 
 ## <a name="configure-a-notification-hub"></a>알림 허브 구성
 
-1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. 왼쪽 메뉴에서  **모든 서비스**를 선택한 다음,  **모바일** 섹션에서  **Notification Hubs**를 선택합니다. 서비스 이름 옆의 별표 아이콘을 선택하여 서비스를 왼쪽 메뉴의  **즐겨찾기** 섹션에 추가합니다.  **Notification Hubs**를   **즐겨찾기**에 추가한 후 왼쪽 메뉴에서 선택합니다.
+2. 왼쪽 메뉴에서 **모든 서비스** 를 선택하고, **모바일** 섹션에서 **Notification Hubs** 를 선택합니다. 서비스 이름 옆의 별표 아이콘을 선택하여 서비스를 왼쪽 메뉴의 **즐겨찾기** 섹션에 추가합니다. **Notification Hubs** 를 **즐겨찾기** 에 추가한 후 왼쪽 메뉴에서 선택합니다.
 
-3.  **Notification Hubs** 페이지의 도구 모음에서 **추가**를 선택합니다.
+3. **Notification Hubs** 페이지의 도구 모음에서 **추가** 를 선택합니다.
 
    :::image type="content" source="media/android-sdk/add-hub.png" alt-text="허브 추가":::
 
-4.  **Notification Hubs** 페이지에서 다음을 수행합니다.
+4. **Notification Hubs** 페이지에서 다음을 수행합니다.
 
-   1.  **알림 허브**에 이름을 입력합니다.
+   1. **알림 허브** 에 이름을 입력합니다.
 
-   2.  **새 네임스페이스 만들기**에 이름을 입력합니다. 네임스페이스에는 하나 이상의 허브가 포함되어 있습니다.
+   2. **새 네임스페이스 만들기** 에 이름을 입력합니다. 네임스페이스에는 하나 이상의 허브가 포함되어 있습니다.
 
-   3.  **위치** 드롭다운에서 값을 선택합니다. 이 값은 허브를 만들려는 위치를 지정합니다.
+   3. **위치** 드롭다운에서 값을 선택합니다. 이 값은 허브를 만들려는 위치를 지정합니다.
 
-   4.  **리소스 그룹**에서 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+   4. **리소스 그룹** 에서 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
 
-   5.  **만들기**를 선택합니다.
+   5. **만들기** 를 선택합니다.
 
       :::image type="content" source="media/android-sdk/create-hub.png" alt-text="허브 만들기":::
 
-5.  **알림**(벨 아이콘)을 선택하고,  **리소스로 이동**을 선택합니다.  **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
+5. **알림**(벨 아이콘)을 선택하고, **리소스로 이동** 을 선택합니다. **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
 
    :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="허브 선택":::
 
-6. 목록에서  **액세스 정책**을 선택합니다. 사용할 수 있는 두 가지 연결 문자열을 적어 둡니다. 나중에 푸시 알림을 처리하는 데 필요합니다.
+6. 목록에서 **액세스 정책** 을 선택합니다. 사용할 수 있는 두 가지 연결 문자열을 적어 둡니다. 나중에 푸시 알림을 처리하는 데 필요합니다.
 
    :::image type="content" source="media/android-sdk/access-policies.png" alt-text="액세스 정책":::
 
    > [!IMPORTANT]
-   > 애플리케이션에서  **DefaultFullSharedAccessSignature** 정책을 사용하지 마세요. 이 정책은 앱 백 엔드에서만 사용됩니다.
+   > 애플리케이션에서 **DefaultFullSharedAccessSignature** 정책을 사용하지 마세요. 이 정책은 앱 백 엔드에서만 사용됩니다.
 
 ## <a name="configure-firebase-cloud-messaging-settings-for-the-hub"></a>허브에 대한 Firebase Cloud Messaging 설정 구성
 
-1.  **설정** 아래의 왼쪽 창에서  **Google(GCM/FCM)** 을 선택합니다.
+1. **설정** 아래의 왼쪽 창에서 **Google(GCM/FCM)** 을 선택합니다.
 
-2. 앞에서 저장한 FCM 프로젝트의  **서버 키**를 입력합니다.
+2. 앞에서 저장한 FCM 프로젝트의 **서버 키** 를 입력합니다.
 
-3. 도구 모음에서  **저장**을 선택합니다.
+3. 도구 모음에서 **저장** 을 선택합니다.
 
    :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="서버 키":::
 
-4. Azure Portal에서 허브가 업데이트되었다는 메시지를 표시합니다.  **저장** 단추를 사용할 수 없습니다.
+4. Azure Portal에서 허브가 업데이트되었다는 메시지를 표시합니다. **Save** 단추가 비활성화됩니다.
 
 이제 알림 허브가 Firebase Cloud Messaging과 함께 작동하도록 구성되었습니다. 디바이스에 알림을 보내고, 앱을 등록하여 알림을 수신하는 데 필요한 연결 문자열도 있습니다.
 
@@ -139,23 +139,23 @@ ms.locfileid: "89018232"
 
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
 
-1. Android Studio의 메뉴에서  **도구**를 선택하고,  **SDK Manager**를 선택합니다.
+1. Android Studio의 메뉴에서 **도구** 를 선택하고, **SDK Manager** 를 선택합니다.
 
-2. 프로젝트에서 사용되는 Android SDK의 대상 버전을 선택합니다. 그런 다음,  **패키지 세부 정보 표시**를 선택합니다.
+2. 프로젝트에서 사용되는 Android SDK의 대상 버전을 선택합니다. 그런 다음 **패키지 세부 정보 표시** 를 선택합니다.
 
    :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="SDK 관리자":::
 
-3.  **Google API**를 선택합니다(아직 설치되지 않은 경우).
+3. **Google API** 를 선택합니다(아직 설치되지 않은 경우).
 
    :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="API":::
 
-4.  **SDK Tools** 탭으로 전환합니다. Google Play 서비스를 아직 설치하지 않은 경우 다음 이미지처럼  **Google Play 서비스**를 선택합니다. 그런 다음, **적용**을 선택하여 설치합니다. 이후 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다.
+4. **SDK 도구** 탭으로 전환합니다. Google Play 서비스를 아직 설치하지 않은 경우 다음 이미지처럼 **Google Play 서비스** 를 선택합니다. 그런 다음 **적용** 을 선택하여 설치합니다. 이후 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다.
 
    :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Play 서비스":::
 
-5.  **변경 확인** 대화 상자가 나타나면 **확인**을 선택합니다. 구성 요소 설치 관리자가 요청된 구성 요소를 설치합니다. 구성 요소가 설치되면  **완료**를 선택합니다.
+5. **변경 확인** 대화 상자가 나타나면 **확인** 을 선택합니다. 구성 요소 설치 관리자가 요청된 구성 요소를 설치합니다. 구성 요소가 설치되면 **완료** 를 선택합니다.
 
-6.  **확인**을 선택하여  **새 프로젝트 설정** 대화 상자를 닫습니다.
+6. **확인** 을 선택하여 **새 프로젝트 설정** 대화 상자를 닫습니다.
 
 ### <a name="add-azure-notification-hubs-libraries"></a>Azure Notification Hubs 라이브러리 추가
 
@@ -188,7 +188,7 @@ ms.locfileid: "89018232"
    apply plugin: 'com.google.gms.google-services'
    ```
 
-2. 도구 모음에서  **지금 동기화**를 선택합니다.
+2. 도구 모음에서 **지금 동기화** 를 선택합니다.
 
 ### <a name="add-code"></a>코드 추가
 
@@ -215,7 +215,7 @@ ms.locfileid: "89018232"
    }
    ```
 
-2.  `MainActivity` 클래스의  `OnCreate` 메서드에서 활동이 생성되면 Notification Hubs 초기화 프로세스를 시작하는 다음 코드를 추가합니다.
+2. `MainActivity` 클래스의 `OnCreate` 메서드에서 활동이 생성되면 Notification Hubs 초기화 프로세스를 시작하는 다음 코드를 추가합니다.
 
    ```java
    @Override
@@ -229,7 +229,7 @@ ms.locfileid: "89018232"
    }
    ```
 
-3. Android Studio의 메뉴 모음에서  **빌드**, **프로젝트 다시 빌드**를 선택하여 코드에 오류가 없는지 확인합니다.  **ic_launcher** 아이콘에 대한 오류가 발생하는 경우 AndroidManifest.xml 파일에서 다음 명령문을 제거합니다.
+3. Android Studio의 메뉴 모음에서 **빌드** 를 선택한 다음, **프로젝트 다시 빌드** 를 선택하여 코드에 오류가 없는지 확인합니다. **ic_launcher** 아이콘에 대한 오류가 발생하는 경우 AndroidManifest.xml 파일에서 다음 명령문을 제거합니다.
 
    ```xml
    android:icon="@mipmap/ic_launcher"
@@ -248,13 +248,13 @@ ms.locfileid: "89018232"
 
 ## <a name="send-a-test-notification"></a>테스트 알림 보내기
 
-다음과 같이  [Azure Portal](https://portal.azure.com/)에서 알림 허브로 푸시 알림을 보낼 수 있습니다.
+다음과 같이 [Azure Portal](https://portal.azure.com/)에서 알림 허브로 푸시 알림을 보낼 수 있습니다.
 
-1. Azure Portal에서 허브에 대한 알림 허브 페이지의 **문제 해결** 섹션에서 **테스트 보내기**를 선택합니다.
+1. Azure Portal에서 허브에 대한 알림 허브 페이지의 **문제 해결** 섹션에서 **테스트 보내기** 를 선택합니다.
 
-2.  **플랫폼**에서  **Android**를 선택합니다.
+2. **플랫폼** 에서 **Android** 를 선택합니다.
 
-3.  **보내기**를 선택합니다. Android 디바이스에서 알림이 아직 보이지 않으면 모바일 앱을 실행하지 않았기 때문입니다. 모바일 앱을 실행한 후  **보내기** 단추를 다시 선택하여 알림 메시지를 표시합니다.
+3. **보내기** 를 선택합니다. Android 디바이스에서 알림이 아직 보이지 않으면 모바일 앱을 실행하지 않았기 때문입니다. 모바일 앱을 실행한 후 **보내기** 단추를 다시 선택하여 알림 메시지를 표시합니다.
 
 4. 포털 페이지의 맨 아래에 있는 목록에 작업의 결과가 표시됩니다.
 
@@ -266,9 +266,9 @@ ms.locfileid: "89018232"
 
 ## <a name="run-the-mobile-app-on-emulator"></a>에뮬레이터에서 모바일 앱 실행
 
-에뮬레이터 내부에서 푸시 알림을 테스트하기 전에 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지에서 네이티브 Google API를 지원하지 않으면  **SERVICE_NOT_AVAILABLE** 예외가 발생할 수 있습니다.
+에뮬레이터 내부에서 푸시 알림을 테스트하기 전에 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지에서 네이티브 Google API를 지원하지 않으면 **SERVICE_NOT_AVAILABLE** 예외가 발생할 수 있습니다.
 
-또한 **설정** > **계정**에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 FCM 등록 시 **AUTHENTICATION_FAILED** 예외가 발생할 수 있습니다.
+또한 **설정** > **계정** 에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 FCM 등록 시 **AUTHENTICATION_FAILED** 예외가 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -279,10 +279,10 @@ ms.locfileid: "89018232"
 
 알림 보내기에 대한 다른 자습서 목록은 다음과 같습니다.
 
-- Azure Mobile Apps: Notification Hubs와 통합된 Mobile Apps 백 엔드에서 알림을 보내는 방법에 대한 예제는 [iOS 앱에 푸시 알림 추가](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push)를 참조하세요.
+- Azure Mobile Apps: Notification Hubs와 통합된 Mobile Apps 백 엔드에서 알림을 보내는 방법에 대한 예제는 [iOS 앱에 푸시 알림 추가](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push)를 참조하세요.
 
-- ASP.NET: [Notification Hubs를 사용하여 사용자에게 푸시 알림 보내기](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)를 참조하세요.
+- ASP.NET: [Notification Hubs를 사용하여 사용자에게 푸시 알림을 보냅니다](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 
-- Azure Notification Hubs Java SDK: Java에서 알림을 보내는 방법은 [Java에서 Notification Hubs를 사용하는 방법](notification-hubs-java-push-notification-tutorial.md)을 참조하세요. 이는 Eclipse for Android Development에서 테스트되었습니다.
+- Azure Notification Hubs Java SDK: Java에서 알림을 보내는 방법은 [Java에서 Notification Hubs를 사용하는 방법](notification-hubs-java-push-notification-tutorial.md) 을 참조하세요. 이는 Eclipse for Android Development에서 테스트되었습니다.
 
-- PHP: [PHP에서 Notification Hubs를 사용하는 방법](notification-hubs-php-push-notification-tutorial.md)을 참조하세요.
+- PHP: [PHP에서 Notification Hubs를 사용하는 방법](notification-hubs-php-push-notification-tutorial.md)을 참조하세요.

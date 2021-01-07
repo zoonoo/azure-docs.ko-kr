@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 345535ae52b9a271bcee5ff7a2b651af144624f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b4d6502e49fdd30a68188a1e580a1c137984c89f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684714"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132383"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Azure REST API를 사용하여 구독 청구 검토
 
@@ -32,7 +32,7 @@ Authorization: Bearer
 
 `{subscriptionID}` 매개 변수는 필수이며 대상 구독을 식별합니다.
 
-`{billingPeriod}` 매개 변수는 필수이며 현재 [청구 기간](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)을 지정합니다.
+`{billingPeriod}` 매개 변수는 필수이며 현재 [청구 기간](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)을 지정합니다.
 
 `${startDate}` 및 `${endDate}` 매개 변수는 이 예에서는 필수이나 엔드포인트에서는 선택 사항입니다. YYYY-MM-DD 문자열 형식으로 날짜 범위를 지정합니다(예: `'20180501'` 및 `'20180615'`).
 
@@ -41,7 +41,7 @@ Authorization: Bearer
 |요청 헤더|Description|
 |--------------------|-----------------|
 |*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|
-|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
 
 ## <a name="response"></a>응답
 
@@ -85,7 +85,7 @@ Authorization: Bearer
 |**meterDetails** | 사용 관련 상세 정보 |
 |**nextLink**| 설정한 경우 세부 정보의 다음 "페이지" URL을 지정합니다. 페이지가 마지막이면 비어 있습니다. |
 
-이 예는 요약된 것입니다. 각 응답 필드에 대한 전체 설명은 [사용량 상세 정보 목록](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy)을 참조하세요.
+이 예는 요약된 것입니다. 각 응답 필드에 대한 전체 설명은 [사용량 상세 정보 목록](/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy)을 참조하세요.
 
 다른 상태 코드는 오류 조건을 나타냅니다. 이런 경우 응답 개체가 요청 실패 이유를 설명합니다.
 
@@ -101,6 +101,6 @@ Authorization: Bearer
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [기업 보고 개요](https://docs.microsoft.com/azure/billing/billing-enterprise-api) 검토
-- [기업 청구 REST API](https://docs.microsoft.com/rest/api/billing/) 살펴보기
-- [Azure REST API 시작하기](https://docs.microsoft.com/rest/api/azure/)
+- [기업 보고 개요](./enterprise-api.md) 검토
+- [기업 청구 REST API](/rest/api/billing/) 살펴보기
+- [Azure REST API 시작하기](/rest/api/azure/)

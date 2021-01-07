@@ -1,24 +1,27 @@
 ---
 title: 심층 학습 및 기계 학습
-titleSuffix: Azure
-description: 딥 러닝이 기계 학습 및 인공 지능과 어떻게 관련이 있는지 알아보세요. 심층 학습은 사기 감지, 음성 & 얼굴 인식, 감정 분석 및 시계열 예측과 같은 시나리오에서 사용 됩니다.
+titleSuffix: Azure Machine Learning
+description: 딥 러닝이 기계 학습 및 AI와 어떻게 관련이 있는지 알아보세요. Azure Machine Learning에서는 사기 감지, 개체 검색 등을 위해 심층 학습 모델을 사용 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
-ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 12/15/2020
+ms.custom: contperf-fy21q1,contperfq1
+ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905125"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617122"
 ---
-# <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
+# <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure Machine Learning의 심층 학습 및 기계 학습
 
-이 문서는 심층 학습 및 기계 학습을 비교 하는 데 도움이 됩니다. 두 개념을 비교 하는 방법 및 이러한 개념을 더 광범위 한 인공 지능 범주에 맞추는 방법에 대해 알아봅니다. 이 문서에서는 사기 감지, 음성 및 얼굴 인식, 감정 분석, 시계열 예측 등의 실제 시나리오에 딥 러닝을 적용할 수 있는 방법도 설명 합니다.
+이 문서에서는 심층 학습 vs machine learning과 이러한 기능이 더 광범위 한 인공 지능 범주에 어떻게 부합 하는지 설명 합니다. 사기 감지, 음성 및 얼굴 인식, 감정 분석 및 시계열 예측과 같은 Azure Machine Learning에서 빌드할 수 있는 심층 학습 솔루션에 대해 알아봅니다.
+
+솔루션에 대 한 알고리즘을 선택 하는 방법에 대 한 지침은 [Machine Learning Algorithm 참고 자료 시트](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri)를 참조 하세요.
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>심층 학습, 기계 학습 및 AI
 
@@ -37,7 +40,7 @@ ms.locfileid: "90905125"
 
 - <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>AI(인공 지능)<ept i="1000001">&lt;b}</ept>는 컴퓨터가 인간 지능을 모방할 수 있도록 하는 기술입니다. 여기에는 기계 학습이 포함됩니다. 
  
-AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요 합니다. 기계 학습은 인공 지능을 구현 하는 방법입니다. 기계 학습 및 심층 학습 기술을 사용 하 여 사용자 인텔리전스와 일반적으로 관련 된 작업을 수행 하는 컴퓨터 시스템과 응용 프로그램을 빌드할 수 있습니다. 이러한 작업에는 이미지 인식, 음성 인식 및 언어 번역이 포함 됩니다.
+기계 학습 및 심층 학습 기술을 사용 하 여 사용자 인텔리전스와 일반적으로 관련 된 작업을 수행 하는 컴퓨터 시스템과 응용 프로그램을 빌드할 수 있습니다. 이러한 작업에는 이미지 인식, 음성 인식 및 언어 번역이 포함 됩니다.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습 기술 
 
@@ -54,11 +57,21 @@ AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요
 |  **실행 시간** | 몇 초에서 몇 시간까지 학습 하는 데 비교적 적은 시간이 소요 됩니다. | 는 심층 학습 알고리즘에 많은 계층이 포함 되어 있기 때문에 일반적으로 학습 하는 데 시간이 오래 걸립니다. |
 |  **출력** | 출력은 일반적으로 점수 또는 분류와 같은 숫자 값입니다. | 출력에는 텍스트, 점수 또는 사운드와 같은 여러 형식이 있을 수 있습니다. |
 
+## <a name="transfer-learning"></a>이전 학습
+
+심층 학습 모델을 학습 하려면 많은 양의 학습 데이터, GPU (TPU) 및 학습 시간이 더 오래 걸립니다. 이러한 사용자에 게 제공 되는 것이 없는 시나리오에서 *전송 학습* 이라는 기법을 사용 하 여 학습 프로세스의 바로 가기를 만들 수 있습니다.
+
+이전 학습은 한 가지 문제를 해결 하기 위해 얻은 정보를 다른 문제에 적용 하는 기술입니다.
+
+신경망의 구조로 인해 첫 번째 계층 집합은 일반적으로 하위 수준의 기능을 포함 하는 반면, 최종 계층 집합에는 해당 도메인에 더 가까운 상위 수준의 기능이 포함 되어 있습니다. 새 도메인 또는 문제에 사용 하기 위해 최종 계층을 재활용 하 여 새 모델을 학습 하는 데 필요한 시간, 데이터 및 계산 리소스의 양을 크게 줄일 수 있습니다. 예를 들어 자동차를 인식 하는 모델이 이미 있는 경우 transfer learning을 사용 하 여 해당 모델을 사용 하 여 트럭, 오토바이 및 기타 종류의 차량도 인식할 수 있습니다.
+
+Azure Machine Learning에서 오픈 소스 프레임 워크를 사용 하 여 이미지 분류에 대해 전송 학습을 적용 하는 방법에 대해 알아봅니다. [Pytorch 모델을 사용 하 여 이미지를 분류](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)합니다.
+
 ## <a name="deep-learning-use-cases"></a>심층 학습 사용 사례
 
 인위적인 신경망 구조 때문에 심층 학습은 이미지, 사운드, 비디오 및 텍스트와 같은 구조화 되지 않은 데이터의 패턴을 식별 하는 데 뛰어나지만 합니다. 이러한 이유로 심층 학습은 의료, 에너지, 재무 및 교통를 비롯 한 많은 산업을 신속 하 게 변환 하 고 있습니다. 이러한 산업은 이제 기존 비즈니스 프로세스를 재고 합니다. 
 
-심층 학습을 위한 가장 일반적인 응용 프로그램 중 일부는 다음 단락에 설명 되어 있습니다.
+심층 학습을 위한 가장 일반적인 응용 프로그램 중 일부는 다음 단락에 설명 되어 있습니다. Azure Machine Learning에서는 오픈 소스 프레임 워크에서 작성 한 모델을 사용 하거나 제공 된 도구를 사용 하 여 모델을 빌드할 수 있습니다.
 
 ### <a name="named-entity-recognition"></a>명명 된 엔터티 인식
 
@@ -100,9 +113,9 @@ Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. F
 
 ### <a name="recurrent-neural-network"></a>되풀이 신경망
 
-되풀이 신경망은 널리 사용 되는 인공 신경망입니다. 이러한 네트워크는 계층의 출력을 저장 하 고 다시 입력 계층에 공급 하 여 계층의 결과를 예측 합니다. 되풀이 신경망에는 훌륭한 학습 기능이 있습니다. 시계열 예측, 필기 학습 및 언어 인식 등의 복잡 한 작업에 널리 사용 되 고 있습니다.
+되풀이 신경망은 널리 사용 되는 인공 신경망입니다. 이러한 네트워크는 계층의 출력을 저장 하 고 다시 입력 계층에 공급 하 여 계층의 결과를 예측 합니다. 되풀이 신경망에는 훌륭한 학습 기능이 있습니다. 시계열 예측, 필기 학습, 언어 인식 등의 복잡 한 작업에 널리 사용 되 고 있습니다.
 
-### <a name="convolutional-neural-networks"></a>나선형 신경망
+### <a name="convolutional-neural-network"></a>나선형 신경망
 
 나선형 신경망은 특히 효과적인 인공 신경망 이며 고유한 아키텍처를 제공 합니다. 계층은 너비, 높이 및 깊이의 3 차원으로 구성 됩니다. 한 계층의 뉴런는 다음 계층의 모든 뉴런에 연결 하는 것이 아니라 계층의 뉴런 작은 영역에만 연결 됩니다. 최종 출력은 깊이 차원을 따라 구성 된 확률 점수의 단일 벡터로 줄어듭니다. 
 
@@ -110,14 +123,11 @@ Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. F
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서는 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri)에서 심층 학습 기술을 사용 하는 방법을 보여 줍니다.
+다음 문서에서는 [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri)에서 오픈 소스 심층 학습 모델을 사용 하기 위한 추가 옵션을 보여 줍니다.
 
-- [TensorFlow 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
-- [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [TensorFlow 모델을 사용 하 여 필기 숫자 분류](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
-- [Pytorch 모델을 사용 하 여 이미지 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+- [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [체 이너 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-또한 [Machine Learning Algorithm 참고 자료 시트](algorithm-cheat-sheet.md) 를 사용 하 여 모델에 대 한 알고리즘을 선택 합니다.
+- [체 이너 모델을 사용 하 여 필기 숫자 분류](./how-to-set-up-training-targets.md)

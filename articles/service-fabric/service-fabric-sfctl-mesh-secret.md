@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 2c91a59e57613934c946e3cd56089b330893a51a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260341"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
@@ -21,7 +21,7 @@ ms.locfileid: "86260341"
 | --- | --- |
 | 삭제 | 비밀 리소스를 삭제합니다. |
 | list | 모든 비밀 리소스를 나열합니다. |
-| 표시 | 지정된 이름의 비밀 리소스를 가져옵니다. |
+| show | 지정된 이름의 비밀 리소스를 가져옵니다. |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl mesh secret delete
 비밀 리소스를 삭제합니다.

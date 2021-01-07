@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: eda648a4d00a0ab4a51c66510060ce16421972ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706254"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020013"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -49,7 +49,7 @@ Access Control의 구성 요소는 다음과 같습니다.
 - 관리 서비스: 포털의 기능을 자동화하는 데 사용할 수 있습니다.
 - 토큰 변환 규칙 엔진: Access Control에서 발행하는 토큰의 출력 형식을 조작하는 복잡한 로직을 정의하는 데 사용할 수 있습니다.
 
-이러한 구성 요소를 사용하려면 하나 이상의 Access Control 네임스페이스를 만들어야 합니다. *네임스페이스*는 애플리케이션 및 서비스가 통신하는 Access Control의 전용 인스턴스입니다. 네임스페이스는 다른 모든 Access Control 고객으로부터 격리됩니다. 다른 Access Control 고객은 자신의 네임스페이스를 사용합니다. Access Control의 네임스페이스에는 다음과 같은 전용 URL이 있습니다.
+이러한 구성 요소를 사용하려면 하나 이상의 Access Control 네임스페이스를 만들어야 합니다. *네임스페이스* 는 애플리케이션 및 서비스가 통신하는 Access Control의 전용 인스턴스입니다. 네임스페이스는 다른 모든 Access Control 고객으로부터 격리됩니다. 다른 Access Control 고객은 자신의 네임스페이스를 사용합니다. Access Control의 네임스페이스에는 다음과 같은 전용 URL이 있습니다.
 
 ```HTTP
 https://<mynamespace>.accesscontrol.windows.net
@@ -103,7 +103,7 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
     예를 들어, 네임스페이스 중 하나가 contoso-test이면 `https://contoso-test.accesscontrol.windows.net`으로 이동합니다.
 
-2. **신뢰 관계**에서 **신뢰 당사자 애플리케이션**을 선택하여 ACS 사용 중지에 의해 영향을 받는 애플리케이션 목록을 확인합니다.
+2. **신뢰 관계** 에서 **신뢰 당사자 애플리케이션** 을 선택하여 ACS 사용 중지에 의해 영향을 받는 애플리케이션 목록을 확인합니다.
 3. 가지고 있는 다른 모든 ACS 네임스페이스에 대해 1-2 단계를 반복합니다.
 
 ## <a name="retirement-schedule"></a>사용 중지 일정
@@ -214,7 +214,7 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 
 Azure AD가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 앱에 Azure AD를 통합하는 두 가지 방법을 모두 알고 있어야 합니다.
 
-WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러리 애플리케이션에 대한 페더레이션된 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)에 설명된 방법을 따르는 것이 좋습니다. 이 문서에서는 SAML 기반 Single Sign-On을 위해 Azure AD를 구성하는 방법을 설명하고 있지만, Ws-Federation을 구성할 때도 마찬가지 방법을 사용할 수 있습니다. 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. 이 방법에는 두 가지 이점이 있습니다.
+WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러리 애플리케이션에 대한 페더레이션된 Single Sign-On 구성](../manage-apps/configure-saml-single-sign-on.md)에 설명된 방법을 따르는 것이 좋습니다. 이 문서에서는 SAML 기반 Single Sign-On을 위해 Azure AD를 구성하는 방법을 설명하고 있지만, Ws-Federation을 구성할 때도 마찬가지 방법을 사용할 수 있습니다. 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. 이 방법에는 두 가지 이점이 있습니다.
 
 - Azure AD 토큰 사용자 지정의 유연성이 제공됩니다. Access Control에서 발행한 클레임과 일치하도록 Azure AD에서 발행한 클레임을 사용자 지정할 수 있습니다. 특히 사용자 ID 또는 이름 식별자 클레임이 포함됩니다. 기술을 변경한 다음에도 사용자들이 전과 동일하게 사용자 식별자를 받기 위해서는 Azure AD에서 발행한 사용자 ID가 Access Control에서 발생한 사용자 ID와 일치해야 합니다.
 - 사용자가 직접 수명을 제어하는 애플리케이션에 맞게 토큰 서명 인증서를 구성할 수 있습니다.
@@ -226,7 +226,7 @@ WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러�
 
 이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](../develop/active-directory-signing-key-rollover.md)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](/previous-versions/azure/dn641920(v=azure.100))를 참조하세요.
 
-OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](https://aka.ms/aaddev)에서 웹 애플리케이션에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
+OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](../develop/index.yml)에서 웹 애플리케이션에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Azure Active Directory B2C로 마이그레이션
 
@@ -266,7 +266,7 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 다음 리소스를 살펴보세요.
 
 - [Azure AD B2C 설명서](../../active-directory-b2c/overview.md)
-- [사용자 지정 정책 Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
+- [Azure AD B2C 사용자 지정 정책](../../active-directory-b2c/custom-policy-overview.md)
 - [Azure AD B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Ping ID 또는 Auth0로 마이그레이션
@@ -287,7 +287,7 @@ Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션
 
 ![이 이미지는 Ping Id 로고를 표시 합니다.](./media/active-directory-acs-migration/rsz-ping.png)
 
-[Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.
+[Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html)을 참조하세요.
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 
@@ -332,7 +332,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 
 서버-투-서버 시나리오를 구현하는 방법은 아래의 리소스를 참조하세요.
 
-- [AZURE AD 개발자 가이드](https://aka.ms/aaddev) 의 서비스 간 섹션
+- [AZURE AD 개발자 가이드](../develop/index.yml) 의 서비스 간 섹션
 - [단순한 암호 클라이언트 자격 증명을 사용한 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [인증서 클라이언트 자격 증명을 사용한 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
@@ -351,7 +351,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다.
 
 ![이 이미지는 Ping Id 로고 ](./media/active-directory-acs-migration/rsz-ping.png)
- [ping ID](https://www.pingidentity.com) 는 ACS와 유사한 두 가지 솔루션을 제공 합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요.
+ [ping ID](https://www.pingidentity.com) 는 ACS와 유사한 두 가지 솔루션을 제공 합니다. 하나는 ACS와 동일한 많은 기능을 지 원하는 클라우드 id 서비스이 고, 서비스는 더 많은 유연성을 제공 하는 온-프레미스 id 제품에서 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/posts/2017/migrating-from-microsoft-acs-to-ping-identity.html)을 참조하세요.
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 

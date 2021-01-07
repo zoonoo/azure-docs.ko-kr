@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 44b2cab814d4e51c4eb0c3ce3322b898f5b26414
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036813"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889769"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid를 사용하여 Azure Maps 이벤트에 대응
 
 Azure Maps는 사용자가 다른 서비스로 이벤트 알림을 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합 됩니다. 이 문서의 목적은 Azure Maps 이벤트를 수신 하도록 비즈니스 응용 프로그램을 구성 하는 데 도움이 됩니다. 이를 통해 사용자는 안정적이 고 확장 가능 하 고 안전한 방식으로 중요 한 이벤트에 대응할 수 있습니다. 예를 들어, 사용자가 응용 프로그램을 빌드하여 데이터베이스를 업데이트 하 고, 티켓을 만들고, 장치를 지 오로 가져갈 때마다 전자 메일 알림을 배달할 수 있습니다.
 
-Azure Event Grid는 게시-구독 모델을 사용 하는 완전히 관리 되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 및 [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview)와 같은 Azure 서비스에 대 한 지원이 기본적으로 제공 됩니다. 웹 후크를 사용 하 여 비 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](https://docs.microsoft.com/azure/event-grid/overview)를 참조하세요.
+Azure Event Grid는 게시-구독 모델을 사용하는 완전 관리형 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../azure-functions/functions-overview.md)와 같은 Azure 서비스에 대한 지원이 기본적으로 제공됩니다. 웹후크를 사용하여 비 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
 
 ![Azure Event Grid 기능 모델](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -28,7 +28,7 @@ Azure Event Grid는 게시-구독 모델을 사용 하는 완전히 관리 되�
 
 ## <a name="azure-maps-events-types"></a>Azure Maps 이벤트 형식
 
-Event Grid는 [이벤트 구독](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다. 
+Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다. 
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |

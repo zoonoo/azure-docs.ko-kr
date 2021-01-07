@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964688"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369038"
 ---
 # <a name="unsupported-language-deployments"></a>지원되지 않는 언어 배포
 
@@ -35,19 +35,19 @@ Microsoft Translator Hub의 출시 예정에 따라 Microsoft는 현재 허브�
 ## <a name="process"></a>프로세스
 배포 후보가 되는 허브에서 모델을 마이그레이션한 후에는 작업 영역에 대 한 **설정** 페이지로 이동 하 여 **지원 되지 않는 Translator 허브 학습** 섹션이 표시 되는 페이지의 끝으로 스크롤하여 해당 모델을 찾을 수 있습니다.  이 섹션은 위에서 언급 한 필수 조건을 충족 하는 프로젝트가 있는 경우에만 표시 됩니다.
 
-![허브에서 마이그레이션하는 방법](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![지원 되지 않는 Translator 허브 학습 섹션을 강조 표시 하는 스크린샷](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 **지원 되지 않는 변환기 허브 학습** 선택 페이지 내에서 **요청** 되지 않은 학습 탭은 배포에 적합 한 모델을 포함 합니다.  배포 하려는 모델을 선택 하 고 요청을 제출 합니다.   4 월 30 일 배포 최종 기한 이전에는 배포에 사용할 모델을 원하는 만큼 선택할 수 있습니다.
  
-![허브에서 마이그레이션하는 방법](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![요청 하지 않은 학습 탭을 보여 주는 스크린샷](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 제출한 후에는 요청 되지 않은 **학습** 탭에서 모델을 더 이상 사용할 수 없으며 **요청 된 학습** 탭에 대신 표시 됩니다.  언제 든 지 요청 된 학습를 볼 수 있습니다.
 
 ![허브에서 마이그레이션하는 방법](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
-## <a name="whats-next"></a>다음 단계
+## <a name="whats-next"></a>다음 작업
 
-배포 하도록 선택한 모델은 허브가 서비스 해제 되 고 모든 모델의 배포를 취소 한 후에 저장 됩니다.  지원 되지 않는 모델의 배포에 대 한 요청을 24 년 5 월까지 제출할 수 있습니다.  이 모델은 6 월 15 일에 배포 되며,이 시점에서 변환기 V3을 통해 액세스할 수 있습니다.  또한 7 월 1 일까 지 Translator V2를 통해 사용할 수 있습니다.  
+배포 하도록 선택한 모델은 허브가 서비스 해제 되 고 모든 모델의 배포를 취소 한 후에 저장 됩니다.  지원 되지 않는 모델의 배포에 대 한 요청을 24 년 5 월까지 제출할 수 있습니다.  이 모델은 6 월 15 일에 배포 되며,이 시점에서 변환기 V3 API를 통해 액세스할 수 있습니다.  또한 7 월 1 일까 지 V2 API를 통해 사용할 수 있습니다.  
 
 허브를 사용 하지 않는 경우 중요 한 날짜에 대 한 자세한 내용은 [여기](https://www.microsoft.com/translator/business/hub/)를 참조 하세요.
 배포 된 후에는 일반적인 호스팅 요금이 적용 됩니다.  자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) 을 참조 하세요.  
@@ -57,4 +57,4 @@ Microsoft Translator Hub의 출시 예정에 따라 Microsoft는 현재 허브�
 ## <a name="next-steps"></a>다음 단계
 
 - [모델을 학습](how-to-train-model.md)합니다.
-- [변환기 V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)을 통해 배포 된 사용자 지정 변환 모델 사용을 시작 합니다.
+- 배포된 사용자 지정 번역 모델을 [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl)를 통해 사용합니다.

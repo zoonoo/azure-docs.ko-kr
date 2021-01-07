@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 8363011187a4c2ef77681ece4bb8b1de73ec7a63
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87801646"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium-preview"></a>Azure Service Bus Premium (미리 보기)을 사용 하 여 Java 메시지 서비스 2.0 API 사용
@@ -47,7 +47,7 @@ Azure Service Bus 프리미엄 계층에서 사용할 수 있는 모든 기능�
 
 JMS 클라이언트를 사용 하 여 Azure Service Bus에 연결 하려면 **기본 연결 문자열**아래에 있는 [Azure Portal](https://portal.azure.com) 의 ' 공유 액세스 정책 '에서 사용할 수 있는 **연결 문자열이** 필요 합니다.
 
-1. 인스턴스화`ServiceBusJmsConnectionFactorySettings`
+1. 인스턴스화 `ServiceBusJmsConnectionFactorySettings`
 
     ```java
     ServiceBusJmsConnectionFactorySettings connFactorySettings = new ServiceBusJmsConnectionFactorySettings();
@@ -60,7 +60,7 @@ JMS 클라이언트를 사용 하 여 Azure Service Bus에 연결 하려면 **�
     ConnectionFactory factory = new ServiceBusJmsConnectionFactory(ServiceBusConnectionString, connFactorySettings);
     ```
 
-3. 을 (를) 사용 하 여를 `ConnectionFactory` 만든 `Connection` 다음`Session` 
+3. 을 (를) 사용 하 여를 `ConnectionFactory` 만든 `Connection` 다음 `Session` 
 
     ```java
     Connection connection = factory.createConnection();

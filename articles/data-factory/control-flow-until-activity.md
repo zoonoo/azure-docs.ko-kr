@@ -3,20 +3,20 @@ title: Azure Data Factory의 Until 작업
 description: Until 작업은 작업과 관련된 조건이 참으로 평가되거나 시간이 초과될 때까지 일단의 반복 작업을 실행합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab3644b11273017ea6e4e5a395a7d3cc3a201217
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417949"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486008"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,7 +56,7 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 name | `Until` 작업의 이름입니다. | String | 예
-type | **Until**로 설정해야 합니다. | String | 예
+type | **Until** 로 설정해야 합니다. | String | 예
 식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예
 시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니요
 활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예
@@ -67,7 +67,7 @@ type | **Until**로 설정해야 합니다. | String | 예
 > 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 ### <a name="pipeline-with-until-activity"></a>Until 작업이 포함된 파이프라인
-이 예제의 파이프라인에는 **Until** 및 **Wait**라는 두 개의 작업이 있습니다. Wait 작업은 반복의 웹 작업을 실행하기 전에 지정한 시간 동안 기다립니다. Data Factory 식 및 함수에 대한 자세한 내용은 [식 언어 및 함수](control-flow-expression-language-functions.md)를 참조하세요. 
+이 예제의 파이프라인에는 **Until** 및 **Wait** 라는 두 개의 작업이 있습니다. Wait 작업은 반복의 웹 작업을 실행하기 전에 지정한 시간 동안 기다립니다. Data Factory 식 및 함수에 대한 자세한 내용은 [식 언어 및 함수](control-flow-expression-language-functions.md)를 참조하세요. 
 
 ```json
 {
@@ -208,7 +208,7 @@ type | **Until**로 설정해야 합니다. | String | 예
 ```
 
 ### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>매개 변수화된 Azure Blob 데이터 세트(BlobDataset.json)
-파이프라인은 **folderPath**를 파이프라인의 **outputPath1** 또는 **outputPath2** 매개 변수 중 하나의 값으로 설정합니다. 
+파이프라인은 **folderPath** 를 파이프라인의 **outputPath1** 또는 **outputPath2** 매개 변수 중 하나의 값으로 설정합니다. 
 
 ```json
 {

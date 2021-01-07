@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75364954"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014043"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
 
@@ -39,7 +39,7 @@ ms.locfileid: "75364954"
 * 작업 영역에 대한 읽기 권한이 있어야 합니다.
 * 관련 식은 Application Insights 애플리케이션 전체에서 쿼리할 수 있는 `app`입니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ```Kusto
 workspace("contosoretail").Update | count

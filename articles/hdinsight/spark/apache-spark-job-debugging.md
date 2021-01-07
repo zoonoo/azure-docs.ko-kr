@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 817b8976f5d014d990945816c2df1c7e8ed729fb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 366c77ff94773163b71845b1ccbc6072c503734a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084888"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822304"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 
@@ -29,20 +29,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>YARN UI에서 애플리케이션 추적
 
-1. YARN UI를 시작합니다. **클러스터 대시보드**아래에서 **Yarn** 을 선택 합니다.
+1. YARN UI를 시작합니다. **클러스터 대시보드** 아래에서 **Yarn** 을 선택 합니다.
 
     ![YARN UI를 시작 Azure Portal](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
 
    > [!TIP]  
-   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작 하려면 **클러스터 대시보드**에서 **Ambari 홈** 을 선택 합니다. Ambari ui에서 **YARN**  >  **빠른 링크** 로 이동 하 여 활성 리소스 관리자 > **리소스 관리자 UI**> 합니다.
+   > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작 하려면 **클러스터 대시보드** 에서 **Ambari 홈** 을 선택 합니다. Ambari ui에서 **YARN**  >  **빠른 링크** 로 이동 하 여 활성 리소스 관리자 > **리소스 관리자 UI**> 합니다.
 
 2. Jupyter 노트북을 사용 하 여 Spark 작업을 시작 했으므로 응용 프로그램의 이름은 **remotesparkmagics** (노트북에서 시작 된 모든 응용 프로그램의 이름)입니다. 응용 프로그램 이름에 대 한 응용 프로그램 ID를 선택 하 여 작업에 대 한 자세한 정보를 가져옵니다. 이 작업을 수행 하면 응용 프로그램 보기가 시작 됩니다.
 
     ![Spark 기록 서버 Spark 응용 프로그램 ID 찾기](./media/apache-spark-job-debugging/find-application-id1.png)
 
-    Jupyter Notebook에서 시작된 이러한 애플리케이션의 경우 Notebook을 끝낼 때까지 상태는 항상 **실행 중** 입니다.
+    Jupyter 노트북에서 시작 되는 이러한 응용 프로그램의 경우 노트북을 종료할 때까지 상태는 항상 **실행 중** 입니다.
 
-3. 애플리케이션 보기에서 애플리케이션 및 로그 (stdout/stderr)와 연결된 컨테이너에 대해 알아보기 위해 더 자세히 살펴볼 수 있습니다. 아래와 같이 **추적 URL**에 해당하는 연결을 클릭하여 Spark UI를 시작할 수도 있습니다.
+3. 애플리케이션 보기에서 애플리케이션 및 로그 (stdout/stderr)와 연결된 컨테이너에 대해 알아보기 위해 더 자세히 살펴볼 수 있습니다. 아래와 같이 **추적 URL** 에 해당하는 연결을 클릭하여 Spark UI를 시작할 수도 있습니다.
 
     ![Spark 기록 서버 다운로드 컨테이너 로그](./media/apache-spark-job-debugging/download-container-logs.png)
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Spark UI에서 이전에 시작한 애플리케이션에 의해 생성된 Spark 작업을 더 자세히 살펴볼 수 있습니다.
 
-1. Spark UI를 시작 하려면 응용 프로그램 보기에서 위의 화면 캡처에 표시 된 것 처럼 **추적 URL**에 대 한 링크를 선택 합니다. Jupyter Notebook에서 실행 중인 애플리케이션에 의해 시작되는 모든 Spark 작업을 확인할 수 있습니다.
+1. Spark UI를 시작 하려면 응용 프로그램 보기에서 위의 화면 캡처에 표시 된 것 처럼 **추적 URL** 에 대 한 링크를 선택 합니다. Jupyter Notebook에서 실행 되는 응용 프로그램에 의해 시작 되는 모든 Spark 작업을 볼 수 있습니다.
 
     ![Spark 기록 서버 작업 탭](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 
@@ -93,12 +93,12 @@ Spark UI에서 이전에 시작한 애플리케이션에 의해 생성된 Spark 
 
 작업이 완료되면 작업에 대한 정보는 Spark 기록 서버에 유지됩니다.
 
-1. Spark 기록 서버를 시작 하려면 **개요** 페이지의 **클러스터 대시보드**아래에서 **spark 기록 서버** 를 선택 합니다.
+1. Spark 기록 서버를 시작 하려면 **개요** 페이지의 **클러스터 대시보드** 아래에서 **spark 기록 서버** 를 선택 합니다.
 
     ![Spark 기록 서버를 시작 Azure Portal](./media/apache-spark-job-debugging/launch-spark-history-server.png "Spark 기록 Server1 시작")
 
    > [!TIP]  
-   > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작 하려면 개요 블레이드에서 **클러스터 대시보드**아래의 **Ambari 홈** 을 선택 합니다. Ambari UI에서 **Spark2**  >  **Quick Links**  >  **Spark2 History Server UI**로 이동 합니다.
+   > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작 하려면 개요 블레이드에서 **클러스터 대시보드** 아래의 **Ambari 홈** 을 선택 합니다. Ambari UI에서 **Spark2**  >  **Quick Links**  >  **Spark2 History Server UI** 로 이동 합니다.
 
 2. 완료된 애플리케이션이 모두 표시됩니다. 응용 프로그램 ID를 선택 하 여 자세한 정보를 확인할 수 있습니다.
 

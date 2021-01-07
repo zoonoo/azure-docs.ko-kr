@@ -7,20 +7,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 937041bbb48f112e2c8ed7d222dc7c7ef7ea8d81
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115540"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631396"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
-*액세스 토큰*에는 API에 부여된 권한을 식별하기 위해 Azure AD B2C(Azure Active Directory B2C)에서 사용할 수 있는 클레임이 포함되어 있습니다. 리소스 서버를 호출할 때 액세스 토큰은 HTTP 요청에 있어야 합니다. 액세스 토큰은 Azure AD B2C의 응답에서 **access_token**으로 표시됩니다.
+*액세스 토큰* 에는 API에 부여된 권한을 식별하기 위해 Azure AD B2C(Azure Active Directory B2C)에서 사용할 수 있는 클레임이 포함되어 있습니다. 리소스 서버를 호출할 때 액세스 토큰은 HTTP 요청에 있어야 합니다. 액세스 토큰은 Azure AD B2C의 응답에서 **access_token** 으로 표시됩니다.
 
 이 문서에서는 웹 애플리케이션 및 Web API에 대한 액세스 토큰을 요청하는 방법을 보여 줍니다. Azure AD B2C의 토큰에 대한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](tokens-overview.md)를 참조하세요.
 
@@ -34,7 +34,7 @@ ms.locfileid: "87115540"
 
 ## <a name="scopes"></a>범위
 
-범위는 보호된 리소스에 대한 사용 권한을 관리하는 방법을 제공합니다. 액세스 토큰을 요청할 때 클라이언트 애플리케이션에서 요청의 **범위** 매개 변수에서 원하는 권한을 지정해야 합니다. 예를 들어 `https://contoso.onmicrosoft.com/api`의 **앱 ID URI**가 있는 API에 대한 **범위 값** `read`를 지정하기 위해 범위는 `https://contoso.onmicrosoft.com/api/read`가 됩니다.
+범위는 보호된 리소스에 대한 사용 권한을 관리하는 방법을 제공합니다. 액세스 토큰을 요청할 때 클라이언트 애플리케이션에서 요청의 **범위** 매개 변수에서 원하는 권한을 지정해야 합니다. 예를 들어 `https://contoso.onmicrosoft.com/api`의 **앱 ID URI** 가 있는 API에 대한 **범위 값** `read`를 지정하기 위해 범위는 `https://contoso.onmicrosoft.com/api/read`가 됩니다.
 
 범위는 웹 API에서 범위 기반 액세스 제어를 구현하는 데 사용됩니다. 예를 들어 웹 API 사용자가 읽기 및 쓰기 액세스 권한을 모두 갖고 있을 수도 있고, 읽기 권한만 갖고 있을 수도 있습니다. 같은 요청에 여러 권한을 얻기 위해 요청의 단일 **범위** 매개 변수에 공백으로 구분된 여러 항목을 추가할 수 있습니다.
 
@@ -50,10 +50,15 @@ scope=https://contoso.onmicrosoft.com/api/read openid offline_access
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-클라이언트 애플리케이션에 부여된 것보다 더 많은 범위가 필요한 경우 하나 이상의 사용 권한이 부여되면 호출이 성공합니다. 결과 액세스 토큰의 **scp** 클레임은 성공적으로 부여된 권한으로만 채워집니다. OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다음 범위는 사용자의 프로필에 액세스할 수 있는 권한을 나타냅니다.
+클라이언트 애플리케이션에 부여된 것보다 더 많은 범위가 필요한 경우 하나 이상의 사용 권한이 부여되면 호출이 성공합니다. 결과 액세스 토큰의 **scp** 클레임은 성공적으로 부여된 권한으로만 채워집니다. 
+
+### <a name="openid-connect-scopes"></a>OpenID Connect 범위
+
+OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다음과 같은 범위는 사용자 프로필에 액세스하기 위한 권한을 나타냅니다.
 
 - **openid** - ID 토큰을 요청합니다.
 - **offline_access** - [인증 코드 흐름](authorization-code-flow.md)을 사용하여 새로 고침 토큰을 요청합니다.
+- **00000000-0000-0000-0000-000000000000** -클라이언트 id를 범위로 사용 하는 것은 앱에 동일한 클라이언트 id로 표시 되는 고유한 서비스 또는 web API에 대해 사용할 수 있는 액세스 토큰이 필요 함을 나타냅니다.
 
 `/authorize` 요청의 **response_type** 매개 변수가 `token`을 포함하는 경우 **scope** 매개 변수는 권한이 부여될 하나 이상의 리소스 범위(`openid` 및 `offline_access` 이외)를 포함해야 합니다. 그렇지 않으면 `/authorize` 요청이 실패합니다.
 
@@ -66,10 +71,10 @@ scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_acce
 - `<tenant-name>` - Azure AD B2C 테넌트의 이름.
 - `<policy-name>` - 사용자 지정 정책 또는 사용자 흐름의 이름.
 - `<application-ID>` - 사용자 흐름을 지원하기 위해 등록한 웹 애플리케이션의 애플리케이션 식별자
-- `<redirect-uri>` - 클라이언트 애플리케이션을 등록할 때 입력한 **리디렉션 URI**.
+- `<redirect-uri>` - 클라이언트 애플리케이션을 등록할 때 입력한 **리디렉션 URI** .
 
 ```http
-GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms

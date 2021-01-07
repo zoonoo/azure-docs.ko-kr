@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4650df71acb088fafc1280d31d9abfb398e06741
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 27d962a2cf1a1c453d942d320d65b3e9b9a4b959
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284492"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357796"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows Vm에 대 한 Azure Disk Encryption 
 
@@ -37,7 +37,9 @@ Windows Vm은 [다양 한 크기로](../sizes-general.md)사용할 수 있습니
 
 Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
-Azure Disk Encryption [2 세대 vm](generation-2.md#generation-1-vs-generation-2-capabilities) 및 [Lsv2 시리즈 vm](../lsv2-series.md)에서 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-windows.md#unsupported-scenarios)를 참조하세요.
+[2 세대 vm](../generation-2.md#generation-1-vs-generation-2-capabilities)에서는 Azure Disk Encryption을 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-windows.md#unsupported-scenarios)를 참조하세요.
+
+임시 디스크 (Dv4, Dsv4, Ev4 및 Esv4)가 없는 VM 이미지에서는 Azure Disk Encryption를 사용할 수 없습니다.  [로컬 임시 디스크가 없는 AZURE VM 크기를](../azure-vms-no-temp-disk.md)참조 하세요.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -86,7 +88,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작-Azure CLI를 사용 하 여 Windows VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
+- [빠른 시작-Azure CLI를 사용 하 여 Windows VM 만들기 및 암호화 ](disk-encryption-cli-quickstart.md)
 - [빠른 시작-Azure Powershell을 사용 하 여 Windows VM 만들기 및 암호화](disk-encryption-powershell-quickstart.md)
 - [Windows VM에 대한 Azure Disk Encryption 시나리오](disk-encryption-windows.md)
 - [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started)

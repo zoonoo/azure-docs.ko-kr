@@ -1,22 +1,34 @@
 ---
-title: 변경 데이터 캡처에 대 한 Debezium를 사용 하 여 Azure Event Hubs (미리 보기)에 Apache Kafka 연결 통합
+title: 변경 데이터 캡처에 대 한 Debezium와 Azure Event Hubs Apache Kafka 연결 통합
 description: 이 문서에서는 Kafka에 대해 Azure Event Hubs와 함께 Debezium를 사용 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
-ms.date: 08/11/2020
-ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 01/06/2021
+ms.openlocfilehash: 0ad1df23e71e652f7d380ffbabb542b81954e038
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061685"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935175"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>변경 데이터 캡처에 대 한 Debezium를 사용 하 여 Azure Event Hubs (미리 보기)에 Apache Kafka 연결 지원 통합
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-with-debezium-for-change-data-capture"></a>변경 데이터 캡처에 대 한 Debezium와 Azure Event Hubs에서 Apache Kafka 연결 지원 통합
 
 **CDC (변경 데이터 캡처)** 는 만들기, 업데이트 및 삭제 작업에 대 한 응답으로 데이터베이스 테이블의 행 수준 변경 내용을 추적 하는 데 사용 되는 기술입니다. [Debezium](https://debezium.io/) 는 다양 한 데이터베이스 (예: [PostgreSQL의 논리적 디코딩](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html))에서 사용할 수 있는 변경 데이터 캡처 기능을 기반으로 구축 되는 분산 플랫폼입니다. 데이터베이스 테이블에서 행 수준 변경 내용을 탭 하 고이를 이벤트 스트림으로 변환한 후 [Apache Kafka](https://kafka.apache.org/)으로 전송 하는 [Kafka Connect 커넥터](https://debezium.io/documentation/reference/1.2/connectors/index.html) 집합을 제공 합니다.
 
-이 자습서에서는 azure [Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (Kafka 용), [Azure DB (PostgreSQL](../postgresql/overview.md) 및 Debezium)를 사용 하 여 azure에서 변경 데이터 캡처 기반 시스템을 설정 하는 방법을 안내 합니다. [Debezium PostgreSQL 커넥터](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) 를 사용 하 여 PostgreSQL의 데이터베이스 수정 내용을 Event Hubs Azure의 Kafka 토픽으로 스트리밍합니다.
+> [!WARNING]
+> Apache Kafka 연결 프레임 워크 뿐만 아니라 Debezium 플랫폼과 해당 커넥터를 사용 하는 것은 **Microsoft Azure를 통해 제품을 지원 하기에 적합 하지 않습니다**.
+>
+> Apache Kafka 연결에서는 동적 구성이 압축 된 항목으로 유지 되 고 그렇지 않은 경우에는 무제한 보존을 사용 한다고 가정 합니다. Azure Event Hubs는 [브로커 기능으로 압축을 구현 하지](event-hubs-federation-overview.md#log-projections) 않으며 항상 보존 된 이벤트에 시간 기반 보존 제한을 적용 합니다. azure Event Hubs는 장기 데이터 또는 구성 저장소가 아닌 실시간 이벤트 스트리밍 엔진입니다.
+>
+> Apache Kafka 프로젝트는 이러한 역할을 혼합 하는 데 적합할 수 있지만 Azure는 적절 한 데이터베이스 또는 구성 저장소에서 이러한 정보를 가장 잘 관리 하는 것으로 간주 합니다.
+>
+> 많은 Apache Kafka 연결 시나리오는 정상적으로 작동 하지만 Apache Kafka와 Azure Event Hubs의 보존 모델 간의 이러한 개념적 차이로 인해 특정 구성이 예상 대로 작동 하지 않을 수 있습니다. 
+
+이 자습서에서는 azure [Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (Kafka 용), [Azure DB (PostgreSQL](../postgresql/overview.md) 및 Debezium)를 사용 하 여 azure에서 변경 데이터 캡처 기반 시스템을 설정 하는 방법을 안내 합니다. [Debezium PostgreSQL 커넥터](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) 를 사용 하 여 PostgreSQL의 데이터베이스 수정 내용을 Event Hubs Azure의 Kafka 토픽으로 스트리밍합니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *허용 목록* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -98,6 +110,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";` 구성의 예는 다음과 같습니다.
+
 
 ### <a name="run-kafka-connect"></a>Kafka Connect 실행
 이 단계에서 Kafka Connect 작업자는 로컬에서 분산 모드로 시작되고, Event Hubs를 사용하여 클러스터 상태를 유지합니다.

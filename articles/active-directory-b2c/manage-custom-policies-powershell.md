@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387680"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928718"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure AD B2C 사용자 지정 정책 관리
 
@@ -29,15 +29,15 @@ Azure PowerShell은 Azure AD B2C 테 넌 트에서 명령줄 및 스크립트 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
+* [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
-* [Graph **preview 모듈인** Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [Graph **preview 모듈인** Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>B2C 테 넌 트에 PowerShell 세션 연결
 
 Azure AD B2C 테 넌 트에서 사용자 지정 정책에 대 한 작업을 수행 하려면 먼저 [AzureAD][Connect-AzureAD] 명령을 사용 하 여 PowerShell 세션을 테 넌 트에 연결 해야 합니다.
 
-`{b2c-tenant-name}`Azure AD B2C 테 넌 트의 이름으로 대체 하 여 다음 명령을 실행 합니다. 디렉터리에서 [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할이 할당 된 계정으로 로그인 합니다.
+`{b2c-tenant-name}`Azure AD B2C 테 넌 트의 이름으로 대체 하 여 다음 명령을 실행 합니다. 디렉터리에서 [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할이 할당 된 계정으로 로그인 합니다.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
@@ -191,15 +191,15 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-사용자 지정 정책 문제 해결에 대 한 자세한 내용은 [사용자 지정 정책 및 Id 경험 프레임 워크 Azure AD B2C 문제 해결](active-directory-b2c-guide-troubleshooting-custom.md)을 참조 하세요.
+사용자 지정 정책 문제 해결에 대 한 자세한 내용은 [사용자 지정 정책 및 Id 경험 프레임 워크 Azure AD B2C 문제 해결](./troubleshoot-custom-policies.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 PowerShell을 사용 하 여 CI/CD (지속적인 통합/지속적인 업데이트) 파이프라인의 일부로 사용자 지정 정책을 배포 하는 방법에 대 한 자세한 내용은 [Azure DevOps 파이프라인에서 사용자 지정 정책 배포](deploy-custom-policies-devops.md)를 참조 하세요.
 
 <!-- LINKS - External -->
-[Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[Get-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
-[New-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/new-azureadmstrustframeworkpolicy
-[Remove-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/remove-azureadmstrustframeworkpolicy
-[Set-AzureADMSTrustFrameworkPolicy]: https://docs.microsoft.com/powershell/module/azuread/set-azureadmstrustframeworkpolicy
+[Connect-AzureAD]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[Get-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/get-azureadmstrustframeworkpolicy
+[New-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/new-azureadmstrustframeworkpolicy
+[Remove-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/remove-azureadmstrustframeworkpolicy
+[Set-AzureADMSTrustFrameworkPolicy]: /powershell/module/azuread/set-azureadmstrustframeworkpolicy

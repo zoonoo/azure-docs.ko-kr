@@ -1,26 +1,26 @@
 ---
 title: 'Azure Express 경로: 회로 피어 링 다시 설정'
-description: Azure PowerShell를 사용 하 여 Azure Express 경로 회로의 피어 링을 사용 하지 않도록 설정 하 고 설정 하는 방법을 알아봅니다. 피어 링을 구성 하면 기본적으로 사용 하도록 설정 됩니다.
+description: Azure PowerShell를 사용 하 여 Azure Express 경로 회로에 대해 피어 링을 사용 하도록 설정 하 고 해제 하는 방법을 알아봅니다.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/13/2018
+ms.date: 12/15/2020
 ms.author: duau
-ms.openlocfilehash: f3b34966aa46ca8d663f83ab2aceafa4b0dda2eb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0bde96ae5f4a9aff6f4a16a4f1544d9b39e5cb66
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395743"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559576"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>ExpressRoute 회로 피어링 다시 설정
 
-이 문서에서는 PowerShell을 사용하여 ExpressRoute 회로의 피어링을 사용하거나 사용하지 않도록 설정하는 방법을 설명합니다. 피어링을 사용하지 않도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 종료됩니다. 이 피어링을 통한 Microsoft와의 연결이 손실됩니다. 피어링을 사용하도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 설정됩니다. 이 피어링을 통한 Microsoft와의 연결이 다시 설정됩니다. ExpressRoute 회로에서 Microsoft 피어링 및 Azure 프라이빗 피어링을 별도로 사용 및 사용하지 않도록 설정할 수 있습니다. ExpressRoute 회로에서 피어링을 처음 구성할 때는 피어링이 기본적으로 사용되도록 설정됩니다.
+이 문서에서는 PowerShell을 사용 하 여 Express 경로 회로의 피어 링을 사용 하거나 사용 하지 않도록 설정 하는 방법을 설명 합니다. 피어 링은 만들 때 기본적으로 사용 하도록 설정 됩니다. 피어 링을 사용 하지 않도록 설정 하면 Express 경로 회로의 기본 연결 및 보조 연결 모두에서 BGP 세션이 종료 됩니다. 이 피어 링은 Microsoft에 연결 되지 않습니다. 피어 링을 사용 하도록 설정 하면 Express 경로 회로의 기본 연결 및 보조 연결 모두에서 BGP 세션이 설정 됩니다. 이 피어 링에 대 한 Microsoft 연결이 복원 됩니다. Express 경로 회로에서 독립적으로 Microsoft 피어 링 및 Azure 개인 피어 링에 대 한 피어 링을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-ExpressRoute 피어링을 다시 설정하는 것이 도움이 되는 몇 가지 시나리오가 있습니다.
-* 재해 복구 디자인 및 구현을 테스트합니다. 예를 들어 두 개의 ExpressRoute 회로가 있습니다. 한 회로의 피어링은 사용하지 않도록 설정하고 네트워크 트래픽을 다른 회로로 강제로 장애 조치(Failover)할 수 있습니다.
-* Azure 개인 피어 링 또는 Express 경로 회로의 Microsoft 피어 링에서 BFD (양방향 전달 검색)를 사용 하도록 설정 합니다. 1 2018 년 1 10 2020 월 1 일 이후에 Express 경로 회로가 생성 된 경우 Microsoft 피어 링에서 Express 경로 및 Microsoft 피어 링 후에 Azure 개인 피어 링에서 BFD가 기본적으로 사용 하도록 설정 됩니다. 그 이전에 회로를 만들었으면 BFD가 사용되도록 설정되지 않습니다. 피어링을 사용하지 않도록 설정했다가 다시 사용하도록 설정하여 BFD를 사용하도록 설정할 수 있습니다. 
+Express 경로 피어 링을 다시 설정 하는 데 도움이 되는 두 가지 시나리오가 있습니다.
+* 재해 복구 디자인 및 구현을 테스트 하려는 경우 예를 들어 두 개의 ExpressRoute 회로가 있습니다. 한 회로에서 피어 링을 사용 하지 않도록 설정 하 고 네트워크 트래픽을 다른 회로에 장애 조치할 수 있습니다.
+* Azure 개인 피어 링 또는 Express 경로 회로의 Microsoft 피어 링에서 BFD (양방향 전달 검색)를 사용 하도록 설정 합니다. 2018 년 8 월 1 일 이후에는 Express 경로 회로를 만들고 2020 년 1 월 10 일 이후 Microsoft 피어 링에 대해 BFD가 기본적으로 사용 하도록 설정 됩니다. 표시 된 날짜 이전에 회로가 생성 된 경우 BFD를 사용 하려면 피어 링을 다시 설정 해야 합니다. 
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
@@ -30,7 +30,7 @@ ExpressRoute 피어링을 다시 설정하는 것이 도움이 되는 몇 가지
 
 ## <a name="reset-a-peering"></a>피어링 다시 설정
 
-1. PowerShell을 로컬로 실행하는 경우 상승된 권한으로 PowerShell 콘솔을 열고, 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
+1. PowerShell을 로컬로 실행 하는 경우 상승 된 권한으로 PowerShell 콘솔을 열고 계정에 연결 합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
    ```azurepowershell
    Connect-AzAccount
@@ -50,7 +50,7 @@ ExpressRoute 피어링을 다시 설정하는 것이 도움이 되는 몇 가지
    ```azurepowershell-interactive
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
    ```
-5. 사용하거나 사용하지 않도록 설정하려는 피어링을 식별합니다. *피어링*은 배열입니다. 다음 예제에서 피어링[0]은 Azure 프라이빗 피어링이고 피어링[1]은 Microsoft 피어 링입니다.
+5. 사용하거나 사용하지 않도록 설정하려는 피어링을 식별합니다. *피어링* 은 배열입니다. 다음 예제에서 피어링[0]은 Azure 프라이빗 피어링이고 피어링[1]은 Microsoft 피어 링입니다.
 
    ```azurepowershell-interactive
    Name                             : ExpressRouteARMCircuit
@@ -142,6 +142,6 @@ ExpressRoute 피어링을 다시 설정하는 것이 도움이 되는 몇 가지
    피어링은 설정한 상태를 유지합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-ExpressRoute 문제 해결에 도움이 필요한 경우 다음 문서를 확인합니다.
+Express 경로 문제를 해결 하는 데 도움이 필요한 경우 다음 문서를 참조 하세요.
 * [ExpressRoute 연결 확인](expressroute-troubleshooting-expressroute-overview.md)
 * [네트워크 성능 문제 해결](expressroute-troubleshooting-network-performance.md)

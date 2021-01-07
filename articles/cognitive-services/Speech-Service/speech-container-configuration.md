@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900293"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012172"
 ---
 # <a name="configure-speech-service-containers"></a>음성 서비스 컨테이너 구성
 
-음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 에지 위치를 활용하기 위해 최적화된 단일 음성 애플리케이션 아키텍처를 구축할 수 있습니다. 이제 지원 되는 다섯 가지 음성 컨테이너는 **음성 텍스트**, **사용자 지정 음성-텍스트**, **텍스트 음성 변환**, 텍스트 음성 **변환** 및 **사용자 지정 텍스트**음성 변환입니다.
+음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 에지 위치를 활용하기 위해 최적화된 단일 음성 애플리케이션 아키텍처를 구축할 수 있습니다. 이제 지원 되는 다섯 가지 음성 컨테이너는 **음성 텍스트**, **사용자 지정 음성-텍스트**, **텍스트 음성 변환**, 텍스트 음성 **변환** 및 **사용자 지정 텍스트** 음성 변환입니다.
 
 **음성** 컨테이너 런타임 환경은 명령 인수를 사용 하 여 구성 됩니다 `docker run` . 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "90900293"
 
 - Azure Portal: **음성의** 개요, 레이블 `Endpoint`
 
-| 필수 | 이름 | 데이터 형식 | 설명 |
+| 필수 | Name | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
 | 예 | `Billing` | String | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -78,9 +78,9 @@ ms.locfileid: "90900293"
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](speech-container-howto.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다.
 
-| 선택 사항 | 이름 | 데이터 형식 | Description |
+| 선택 사항 | Name | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
-| 허용되지 않음 | `Input` | 문자열 | 표준 음성 컨테이너는이를 사용 하지 않습니다. 사용자 지정 음성 컨테이너는 [볼륨 탑재](#volume-mount-settings)를 사용 합니다.                                                                                    |
+| 허용되지 않음 | `Input` | String | 표준 음성 컨테이너는이를 사용 하지 않습니다. 사용자 지정 음성 컨테이너는 [볼륨 탑재](#volume-mount-settings)를 사용 합니다.                                                                                    |
 | 선택 | `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>볼륨 탑재 설정

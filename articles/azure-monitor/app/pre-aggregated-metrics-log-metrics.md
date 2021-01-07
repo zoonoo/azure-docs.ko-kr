@@ -6,20 +6,20 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516943"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027162"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
-이 문서에서는 로그를 기반으로 하는 "기존" Application Insights 메트릭과 현재 공개 미리 보기로 제공 되는 미리 집계 된 메트릭을 설명 합니다. 두 메트릭 모두 Application Insights 사용자에게 제공되며 애플리케이션 상태 모니터링, 진단 및 분석에서 각기 고유의 장점이 있습니다. 애플리케이션을 계측하는 개발자는 애플리케이션 크기, 예상되는 원격 분석 데이터 크기, 메트릭 정확도 및 경고에 대한 비즈니스 요구 사항에 따라 특정 시나리오에 가장 적합한 메트릭 유형을 선택할 수 있습니다.
+이 문서에서는 로그를 기반으로 하는 "기존" Application Insights 메트릭과 미리 집계 된 메트릭을 설명 합니다. 두 메트릭 모두 Application Insights 사용자에게 제공되며 애플리케이션 상태 모니터링, 진단 및 분석에서 각기 고유의 장점이 있습니다. 애플리케이션을 계측하는 개발자는 애플리케이션 크기, 예상되는 원격 분석 데이터 크기, 메트릭 정확도 및 경고에 대한 비즈니스 요구 사항에 따라 특정 시나리오에 가장 적합한 메트릭 유형을 선택할 수 있습니다.
 
 ## <a name="log-based-metrics"></a>로그 기반 메트릭
 
-최근까지 Application Insights의 응용 프로그램 모니터링 원격 분석 데이터 모델은 요청, 예외, 종속성 호출, 페이지 보기 등의 몇 가지 미리 정의 된 이벤트 유형을 기반으로 합니다. 개발자는 sdk를 사용 하 여 SDK를 명시적으로 호출 하는 코드를 작성 하 여 이러한 이벤트를 수동으로 내보내거나 자동 계측의 자동 이벤트 수집을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고, 로그의 이벤트 기반 데이터를 시각화하기 위해 Azure Portal의 Application Insights 블레이드가 분석 및 진단 도구 역할을 합니다.
+과거에 Application Insights의 응용 프로그램 모니터링 원격 분석 데이터 모델은 요청, 예외, 종속성 호출, 페이지 보기 등의 몇 가지 미리 정의 된 이벤트 유형을 기반으로 합니다. 개발자는 sdk를 사용 하 여 SDK를 명시적으로 호출 하는 코드를 작성 하 여 이러한 이벤트를 수동으로 내보내거나 자동 계측의 자동 이벤트 수집을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고, 로그의 이벤트 기반 데이터를 시각화하기 위해 Azure Portal의 Application Insights 블레이드가 분석 및 진단 도구 역할을 합니다.
 
 일련의 이벤트 전체를 유지하기 위해 로그를 사용하면 뛰어난 분석 및 진단 값을 제공할 수 있습니다. 예를 들어, 특정 URL에 대한 정확한 요청 수와, 이러한 호출을 수행한 고유 사용자 수를 파악할 수 있습니다. 또는 사용자 세션에 대한 예외와 종속성 호출을 포함하여 상세 진단 추적을 얻을 수 있습니다. 이러한 정보 유형이 있으면 애플리케이션 상태 및 사용에 대한 가시성이 크게 향상되어 앱 문제 진단에 필요한 시간을 줄일 수 있습니다.
 
@@ -35,11 +35,33 @@ ms.locfileid: "86516943"
 > [!IMPORTANT]
 > Application Insights에는 로그 기반과 사전 집계 메트릭이 함께 있습니다. 두 가지를 구분 하기 위해 Application Insights UX에서는 미리 집계 된 메트릭을 "표준 메트릭 (미리 보기)" 이라고 하지만 이벤트의 기존 메트릭은 "로그 기반 메트릭"으로 이름이 변경 되었습니다.
 
-최신 SDK(.NET용 [Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK 이상)에서는 원격 분석 데이터 규모 절감 기법을 적용하기 전에 수집 중에 메트릭을 사전 집계합니다. 즉, 최신 Application Insights Sdk를 사용 하는 경우 샘플링 및 필터링이 새 메트릭의 정확도에 영향을 주지 않습니다.
+최신 Sdk (.NET 용[Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK 이상)는 수집 중에 사전 집계 메트릭을 수집 합니다. 이는  [기본적으로 전송 되는 표준 메트릭에](../platform/metrics-supported.md#microsoftinsightscomponents) 적용 되므로 정확성이 샘플링 또는 필터링의 영향을 받지 않습니다. 또한 [Getmetric](./api-custom-events-metrics.md#getmetric) 을 사용 하 여 전송 되는 사용자 지정 메트릭에도 적용 되어 데이터 수집 및 저렴 한 비용을 절감 합니다.
 
 사전 집계를 구현 하지 않는 Sdk의 경우 (즉, 이전 버전의 Application Insights Sdk 또는 브라우저 계측의 경우) Application Insights 백 엔드에서 Application Insights 이벤트 컬렉션 끝점에서 받은 이벤트를 집계 하 여 새 메트릭을 채웁니다. 즉, 네트워크를 통해 전송 되는 데이터의 양이 줄어드는 것은 아니지만 미리 집계 된 메트릭을 사용할 수 있으며 수집 하는 동안 메트릭을 사전 집계 하지 않는 Sdk를 사용 하 여 거의 실시간 차원 경고를 지원 합니다.
 
 컬렉션 엔드포인트는 수집 샘플링 이전에 사전 집계를 수행하므로, 애플리케이션에 사용 중인 SDK 버전에 관계없이 [수집 샘플링](./sampling.md)이 사전 집계 메트릭의 정확도에 영향을 미치지 않습니다.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>SDK 지원 미리 집계 된 메트릭 테이블
+
+| 현재 프로덕션 Sdk | 표준 메트릭 (SDK 사전 집계) | 사용자 지정 메트릭 (SDK 사전 집계 불포함) | 사용자 지정 메트릭 (SDK 사전 집계 사용)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core 및 .NET Framework | 지원 됨 (V 2.13.1 +)| 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| [Getmetric](get-metric.md) 을 통해 지원 됨 (v 2.7.2 이상) |
+| Java                         | 지원되지 않음       | 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| 지원되지 않음                           |
+| Node.js                      | 지원되지 않음       | 지 각 [메트릭을](api-custom-events-metrics.md#trackmetric) 통해 지원| 지원되지 않음                           |
+| Python                       | 지원되지 않음       | 지원됨                                 | [OpenCensus를](opencensus-python.md#metrics) 통해 지원 됨 |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>코드 없는 지원 미리 집계 된 메트릭 테이블
+
+| 현재 프로덕션 Sdk | 표준 메트릭 (SDK 사전 집계) | 사용자 지정 메트릭 (SDK 사전 집계 불포함) | 사용자 지정 메트릭 (SDK 사전 집계 사용)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | 지원 됨 <sup> 1<sup>    | 지원되지 않음                             | 지원되지 않음                           |
+| ASP.NET Core            | 지원 됨 <sup> 2<sup>    | 지원되지 않음                             | 지원되지 않음                           |
+| Java                    | 지원되지 않음            | 지원되지 않음                             | [지원됨](java-in-process-agent.md#metrics) |
+| Node.js                 | 지원되지 않음            | 지원되지 않음                             | 지원되지 않음                           |
+
+1. ASP.NET 코드 없는 attach on App Service는 "전체" 모니터링 모드 에서만 메트릭을 내보냅니다. App Service, v m/VMSS 및 온-프레미스의 ASP.NET 코드 없는 attach는 차원이 없는 표준 메트릭을 내보냅니다. SDK는 모든 차원에 필요 합니다.
+2. ASP.NET Core 코드 없는 attach on App Service는 차원이 없는 표준 메트릭을 내보냅니다. SDK는 모든 차원에 필요 합니다.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Application Insights 사용자 지정 메트릭에 사전 집계 사용
 

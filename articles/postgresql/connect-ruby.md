@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Ruby를 사용하여 - Azure Database for PostgreSQL - 단일 서버에 연결'
 description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 서버의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Ruby 코드 샘플을 제공합니다.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: e33e80a7363ac27bd7e0983a1ff3b65ee85b86b2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 20e45454284af230da74896d5b3f5e9da676dbb4
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882387"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831706"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Ruby를 사용하여 Azure Database for PostgreSQL에서 데이터 연결 및 쿼리 - 단일 서버
 
@@ -32,9 +32,9 @@ ms.locfileid: "90882387"
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
 3. 서버 이름을 클릭합니다.
-4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  :::image type="content" source="./media/connect-ruby/1-connection-string.png" alt-text="Azure Database for PostgreSQL 서버 이름":::
 
 > [!NOTE]
@@ -43,7 +43,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 ## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성
 **CREATE TABLE** SQL 문 다음에 테이블에 행을 추가하는 **INSERT INTO** SQL 문을 사용하여 테이블을 연결 및 생성하려면 다음 코드를 사용합니다.
 
-이 코드는 ```PG::Connection``` 개체와 ```new``` 생성자를 사용하여 Azure Database for PostgreSQL에 연결합니다. 그런 다음 ```exec()``` 메서드를 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 이 코드는 ```PG::Error``` 클래스를 사용하여 오류를 검사합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다. 이러한 클래스 및 메서드에 대한 자세한 내용은 [Ruby Pg 참조 설명서](https://www.rubydoc.info/gems/pg/PG)를 확인하세요.
+이 코드는 ```PG::Connection``` 개체와 ```new``` 생성자를 사용하여 Azure Database for PostgreSQL에 연결합니다. 그런 다음 ```exec()``` 메서드를 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 이 코드는 ```PG::Error``` 클래스를 사용하여 오류를 검사합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다. 이러한 클래스 및 메서드에 대한 자세한 내용은 Ruby Pg 참조 설명서를 확인하세요.
 
 `host`, `database`, `user` 및 `password` 문자열은 원하는 값으로 바꾸세요.
 
@@ -87,7 +87,7 @@ end
 ## <a name="read-data"></a>데이터 읽기
 **SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요.
 
-이 코드는 ```PG::Connection``` 개체와 ```new``` 생성자를 사용하여 PostgreSQL용 Azure Database에 연결합니다. 그런 다음 ```exec()``` 메서드를 호출하여 SELECT 명령을 실행하고 결과를 결과 집합에 보관합니다. 결과 집합 컬렉션이 `resultSet.each do` 루프를 사용하여 반복되고, 현재 행 값이 `row` 변수에 보관됩니다. 이 코드는 ```PG::Error``` 클래스를 사용하여 오류를 검사합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다. 이러한 클래스 및 메서드에 대한 자세한 내용은 [Ruby Pg 참조 설명서](https://www.rubydoc.info/gems/pg/PG)를 확인하세요.
+이 코드는 ```PG::Connection``` 개체와 ```new``` 생성자를 사용하여 PostgreSQL용 Azure Database에 연결합니다. 그런 다음 ```exec()``` 메서드를 호출하여 SELECT 명령을 실행하고 결과를 결과 집합에 보관합니다. 결과 집합 컬렉션이 `resultSet.each do` 루프를 사용하여 반복되고, 현재 행 값이 `row` 변수에 보관됩니다. 이 코드는 ```PG::Error``` 클래스를 사용하여 오류를 검사합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다. 이러한 클래스 및 메서드에 대한 자세한 내용은 Ruby Pg 참조 설명서를 확인하세요.
 
 `host`, `database`, `user` 및 `password` 문자열은 원하는 값으로 바꾸세요.
 
@@ -121,7 +121,7 @@ end
 ## <a name="update-data"></a>데이터 업데이트
 **UPDATE** SQL 문을 사용하여 데이터를 연결하고 업데이트하려면 다음 코드를 사용하세요.
 
-이 코드는 ```PG::Connection``` 개체와 ```new``` 생성자를 사용하여 PostgreSQL용 Azure Database에 연결합니다. 그런 다음 ```exec()``` 메서드를 호출하여 UPDATE 명령을 실행합니다. 이 코드는 ```PG::Error``` 클래스를 사용하여 오류를 검사합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다. 이러한 클래스 및 메서드에 대한 자세한 내용은 [Ruby Pg 참조 설명서](https://www.rubydoc.info/gems/pg/PG)를 확인하세요.
+이 코드는 ```PG::Connection``` 개체와 ```new``` 생성자를 사용하여 PostgreSQL용 Azure Database에 연결합니다. 그런 다음 ```exec()``` 메서드를 호출하여 UPDATE 명령을 실행합니다. 이 코드는 ```PG::Error``` 클래스를 사용하여 오류를 검사합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다. 이러한 클래스 및 메서드에 대한 자세한 내용은 [Ruby Pg 참조 설명서](https://rubygems.org/gems/pg)를 확인하세요.
 
 `host`, `database`, `user` 및 `password` 문자열은 원하는 값으로 바꾸세요.
 
@@ -185,9 +185,19 @@ ensure
 end
 ```
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작에서 사용된 모든 리소스를 정리하려면 다음 명령을 사용하여 리소스 그룹을 삭제합니다.
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./howto-migrate-using-export-and-import.md) <br/>
 > [!div class="nextstepaction"]
-> [Ruby Pg 참조 설명서](https://www.rubydoc.info/gems/pg/PG)
+> [Ruby Pg 참조 설명서](https://rubygems.org/gems/pg)

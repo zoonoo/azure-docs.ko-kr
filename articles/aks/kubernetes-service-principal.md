@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 Azure Ac
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298551"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614798"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -23,7 +23,7 @@ Azure AD 서비스 주체를 만들려면 Azure AD 테넌트에 애플리케이�
 
 다른 Azure AD 테 넌 트에서 서비스 주체를 사용 하는 경우 클러스터를 배포할 때 사용할 수 있는 사용 권한 관련 추가 고려 사항이 있습니다. 디렉터리 정보를 읽고 쓸 수 있는 적절 한 권한이 없을 수 있습니다. 자세한 내용은 [Azure Active Directory의 기본 사용자 권한은 무엇입니까?][azure-ad-permissions] 를 참조 하세요.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>자동으로 서비스 주체 만들기 및 사용
 
@@ -70,10 +70,10 @@ az aks create \
 > [!NOTE]
 > 사용자 지정 된 암호를 사용 하 여 기존 서비스 주체를 사용 하는 경우 암호는 190 바이트 보다 길지 않은지 확인 합니다.
 
-Azure Portal을 사용하여 AKS 클러스터를 배포하는 경우 **Kubernetes 클러스터 만들기** 대화 상자의 *인증* 페이지에서 **서비스 주체를 구성**하도록 선택합니다. **기존 항목 사용**을 선택하고, 다음 값을 지정합니다.
+Azure Portal을 사용하여 AKS 클러스터를 배포하는 경우 **Kubernetes 클러스터 만들기** 대화 상자의 *인증* 페이지에서 **서비스 주체를 구성** 하도록 선택합니다. **기존 항목 사용** 을 선택하고, 다음 값을 지정합니다.
 
-- **서비스 주체 클라이언트 ID**는 사용자의 *appId*입니다.
-- **서비스 주체 클라이언트 비밀**은 *암호* 값입니다.
+- **서비스 주체 클라이언트 ID** 는 사용자의 *appId* 입니다.
+- **서비스 주체 클라이언트 비밀** 은 *암호* 값입니다.
 
 ![Azure Vote로 이동하는 이미지](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
@@ -100,19 +100,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="networking"></a>네트워킹
 
-가상 네트워크와 서브넷 또는 공용 IP 주소가 다른 리소스 그룹에 있는 고급 네트워킹을 사용할 수 있습니다. 다음 역할 권한 집합 중 하나를 할당합니다.
-
-- [사용자 지정 역할][rbac-custom-role]을 만들고 다음 역할 권한을 정의합니다.
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft.Network/publicIPAddresses/read*
-  - *Microsoft.Network/publicIPAddresses/write*
-  - [Kubenet 클러스터에서 사용자 지정 경로 테이블을](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) 사용 하는 경우 다음과 같은 추가 권한을 추가 합니다.
-    - *Microsoft.Network/routeTables/write*
-    - *Microsoft. Network/routeTables/read*
-- 또는 가상 네트워크 내에서 서브넷에 [네트워크 기여자][rbac-network-contributor] 기본 제공 역할을 할당합니다.
+가상 네트워크와 서브넷 또는 공용 IP 주소가 다른 리소스 그룹에 있는 고급 네트워킹을 사용할 수 있습니다. 가상 네트워크 내의 서브넷에서 [네트워크 기여자][rbac-network-contributor] 기본 제공 역할을 할당 합니다. 또는 해당 리소스 그룹의 네트워크 리소스에 액세스할 수 있는 권한이 있는 [사용자 지정 역할][rbac-custom-role] 을 만들 수 있습니다. 자세한 내용은 [AKS service 사용 권한][aks-permissions] 을 참조 하세요.
 
 ### <a name="storage"></a>스토리지
 
@@ -125,22 +113,22 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도로 리소스 그룹에서 ACI(Azure Container Instances)를 실행하도록 선택하는 경우, AKS 서비스 주체에 ACI 리소스 그룹에 대한 ‘Contributor’ 권한을 부여해야 합니다.**
+Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도로 리소스 그룹에서 ACI(Azure Container Instances)를 실행하도록 선택하는 경우, AKS 서비스 주체에 ACI 리소스 그룹에 대한 ‘Contributor’ 권한을 부여해야 합니다.
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 유의하세요.
 
 - Kubernetes에 대한 서비스 주체는 클러스터 구성의 일부입니다. 그러나 클러스터를 배포하는 데에는 이 ID를 사용하지 마세요.
 - 기본적으로 서비스 주체 자격 증명은 1 년 동안 유효 합니다. 언제 든 지 [서비스 주체 자격 증명을 업데이트 하거나 회전할][update-credentials] 수 있습니다.
 - 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터의 서비스 주체를 유효한 Azure AD 응용 프로그램 이름 (예:)에 연결할 수 있습니다 *https://www.contoso.org/example* . 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
-- 서비스 주체 **클라이언트 ID**를 지정할 때 `appId` 값을 사용합니다.
-- Kubernetes 클러스터의 에이전트 노드 Vm에서 서비스 주체 자격 증명은 파일에 저장 됩니다.`/etc/kubernetes/azure.json`
+- 서비스 주체 **클라이언트 ID** 를 지정할 때 `appId` 값을 사용합니다.
+- Kubernetes 클러스터의 에이전트 노드 Vm에서 서비스 주체 자격 증명은 파일에 저장 됩니다. `/etc/kubernetes/azure.json`
 - [az aks create][az-aks-create] 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 머신의 `~/.azure/aksServicePrincipal.json` 파일에 기록됩니다.
 - 추가 AKS CLI 명령에서 서비스 주체를 특별히 전달 하지 않으면에 있는 기본 서비스 주체가 `~/.azure/aksServicePrincipal.json` 사용 됩니다.  
 - 필요에 따라 파일에서 aksServicePrincipal.js를 제거 하 고 AKS에서 새 서비스 주체를 만들 수도 있습니다.
 - [az aks create][az-aks-create]로 만든 AKS 클러스터를 삭제하는 경우 자동으로 생성된 서비스 주체는 삭제되지 않습니다.
-    - 서비스 주체를 삭제하려면 클러스터에 *servicePrincipalProfile.clientId*를 쿼리한 다음, [az ad app delete][az-ad-app-delete]로 삭제합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.
+    - 서비스 주체를 삭제하려면 클러스터에 *servicePrincipalProfile.clientId* 를 쿼리한 다음, [az ad app delete][az-ad-app-delete]로 삭제합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -189,3 +177,4 @@ Azure Active Directory 서비스 주체에 대 한 자세한 내용은 [응용 �
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19cec1deeef344ea5897061db0fec88066b90b05
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324399"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791769"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>콘텐츠 참조 구성 및 관리-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "84324399"
 
 - [Azure Active Directory (Azure AD) 인증 구성](authentication-aad-configure.md)
 - [조건부 액세스 구성](conditional-access-configure.md)
-- [Multi-factor Azure AD 인증](authentication-mfa-ssms-overview.md)
+- [Multi-Factor Azure AD 인증](authentication-mfa-ssms-overview.md)
 - [Multi-Factor Authentication 구성](authentication-mfa-ssms-configure.md)
 - [임시 보존 정책 구성](temporal-tables-retention-policy.md)
 - [BYOK를 사용하여 TDE 구성](transparent-data-encryption-byok-configure.md)
@@ -56,7 +56,7 @@ ms.locfileid: "84324399"
 
 - [수동 조정](performance-guidance.md)
 - [DMV를 사용하여 성능 모니터링](monitoring-with-dmvs.md)
-- [쿼리 저장소를 사용하여 성능 모니터링](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [쿼리 저장소를 사용하여 성능 모니터링](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [자동 튜닝을 사용하도록 설정](automatic-tuning-enable.md)하여 Azure SQL Database에서 워크로드의 성능을 최적화할 수 있도록 합니다.
 - [자동 튜닝에 대해 이메일 알림을 사용하도록 설정](automatic-tuning-email-notifications-configure.md)하여 튜닝 권장 구성에 대한 정보를 받습니다.
 - [성능 권장 사항을 적용](database-advisor-find-recommendations-portal.md)하고 데이터베이스를 최적화합니다.
@@ -84,7 +84,7 @@ ms.locfileid: "84324399"
 - [SQL 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)
 - [데이터 동기화 에이전트](sql-data-sync-agent-overview.md)
 - [스키마 변경 내용 복제](sql-data-sync-update-sync-schema.md)
-- [OMS로 모니터링](sql-data-sync-monitor-sync.md)
+- [OMS로 모니터링](./monitor-tune-overview.md)
 - [데이터 동기화의 모범 사례](sql-data-sync-best-practices.md)
 - [데이터 동기화 문제 해결](sql-data-sync-troubleshoot.md)
 

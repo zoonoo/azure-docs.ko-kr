@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133696"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369423"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
 
@@ -24,7 +24,7 @@ Site Recovery의 기능은 다음과 같습니다.
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용 하 여 SAP NetWeaver 응용 프로그램 배포를 보호할 수 있습니다. 이 문서에서는 Site Recovery를 사용 하 여 다른 Azure 데이터 센터에 복제 하는 경우 Azure에서 3 계층 SAP NetWeaver 배포를 보호 하기 위한 모범 사례를 설명 합니다. 이 문서에서는 지원 되는 시나리오 및 구성을 설명 하 고 테스트 장애 조치 (failover) 및 실제 장애 조치 (failover)를 수행 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -39,11 +39,11 @@ Site Recovery의 기능은 다음과 같습니다.
 
 다음과 같은 시나리오에서 Site Recovery를 사용하여 재해 복구 솔루션을 구현할 수 있습니다.
 * 하나의 Azure 데이터 센터에서 실행 되는 SAP 시스템을 보유 하 고 있으며 다른 Azure 데이터 센터 (Azure-Azure 재해 복구)에 복제 하 고 있습니다. 
-   자세한 내용은 [Azure-to-Azure 복제 아키텍처](https://aka.ms/asr-a2a-architecture)를 참조하세요.
+   자세한 내용은 [Azure-to-Azure 복제 아키텍처](./azure-to-azure-architecture.md)를 참조하세요.
 * 온-프레미스 VMware (또는 물리적) 서버에서 실행 되는 SAP 시스템을 보유 하 고 있습니다. 또한 SAP 시스템을 Azure 데이터 센터의 재해 복구 사이트로 복제 합니다 (VMware에서 Azure로의 재해 복구). 
-   이 시나리오에는 일부 추가 구성 요소가 필요합니다. 자세한 내용은 [VMware-to-Azure 복제 아키텍처](https://aka.ms/asr-v2a-architecture)를 참조하세요.
+   이 시나리오에는 일부 추가 구성 요소가 필요합니다. 자세한 내용은 [VMware-to-Azure 복제 아키텍처](./vmware-azure-architecture.md)를 참조하세요.
 * Hyper-v 온-프레미스에서 실행 되는 SAP 시스템을 보유 하 고 있습니다. 또한 SAP 시스템을 Azure 데이터 센터 (Hyper-v-Azure 재해 복구)의 재해 복구 사이트로 복제 하 고 있습니다.
-   이 시나리오에는 일부 추가 구성 요소가 필요합니다. 자세한 내용은 [Hyper-V-to-Azure 복제 아키텍처](https://aka.ms/asr-h2a-architecture)를 참조하세요.
+   이 시나리오에는 일부 추가 구성 요소가 필요합니다. 자세한 내용은 [Hyper-V-to-Azure 복제 아키텍처](./hyper-v-azure-architecture.md)를 참조하세요.
 
 이 문서에서는 **azure-azure** 재해 복구 시나리오를 사용 합니다. 이 시나리오에서는 Site Recovery의 SAP 재해 복구 기능을 보여 줍니다. Site Recovery 복제는 애플리케이션마다 달라지지 않으므로 여기에서 설명하는 프로세스를 다른 시나리오에도 적용할 수 있습니다.
 
@@ -101,7 +101,7 @@ Site Recovery를 사용 하 여 Azure 지역에서 전체 SAP 배포의 장애 �
 
 다음은이 예에 사용 된 각 계층의 재해 복구에 대 한 권장 사항입니다.
 
- **SAP 계층** | **추천 사항**
+ **SAP 계층** | **권장**
  --- | ---
 **SAP Web Dispatcher 풀** |  Site Recovery를 사용 하 여 복제 
 **SAP 애플리케이션 서버 풀** |  Site Recovery를 사용 하 여 복제 

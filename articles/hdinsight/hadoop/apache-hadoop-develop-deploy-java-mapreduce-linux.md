@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
-ms.openlocfilehash: 84d9253b865ddac6d97395af3d8632e29cc2ea24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8b80616806f846951ebbaffcb2bf31ad77b96266
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323811"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996035"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop용 Java MapReduce 프로그램 개발
 
 Apache Maven을 사용하여 Java 기반 MapReduce 애플리케이션을 만든 다음, Azure HDInsight의 Hadoop으로 실행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)입니다.
+* [JDK (Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)입니다.
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
@@ -38,13 +38,13 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Maven 프로젝트 만들기
 
-1. 다음 명령을 입력 하 여 **wordcountjava**라는 Maven 프로젝트를 만듭니다.
+1. 다음 명령을 입력 하 여 **wordcountjava** 라는 Maven 프로젝트를 만듭니다.
 
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    이 명령은 매개 변수에 지정 된 이름으로 디렉터리를 만듭니다 `artifactID` (이 예제에서는**wordcountjava** ). 이 디렉터리에는 다음 항목이 포함 됩니다.
+    이 명령은 매개 변수에 지정 된 이름으로 디렉터리를 만듭니다 `artifactID` (이 예제에서는 **wordcountjava** ). 이 디렉터리에는 다음 항목이 포함 됩니다.
 
     * `pom.xml` - [프로젝트 개체 모델(POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
     * src\main\java\org\apache\hadoop\examples: 응용 프로그램 코드를 포함 합니다.

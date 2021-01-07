@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 964d2b5d89fd91aca68e9b47b0049529fe284848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829002"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016406"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기
 
@@ -54,7 +54,7 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다.  
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus2* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 미국 동부 2는 가용성 영역을 지원하는 Azure 지역 중 하나입니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus2* 지역에 *myResourceGroupVM* 이라는 리소스 그룹을 만듭니다. 미국 동부 2는 가용성 영역을 지원하는 Azure 지역 중 하나입니다.
 
 ```azurecli 
 az group create --name myResourceGroupVM --location eastus2
@@ -66,7 +66,7 @@ az group create --name myResourceGroupVM --location eastus2
 
 [az vm create](/cli/azure/vm) 명령을 사용하여 가상 머신을 만듭니다. 
 
-가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 머신을 만듭니다. VM은 가용성 영역 *1*에서 생성됩니다. 기본적으로 VM은 *Standard_DS1_v2* 크기에서 생성됩니다.
+가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM* 이라는 가상 머신을 만듭니다. VM은 가용성 영역 *1* 에서 생성됩니다. 기본적으로 VM은 *Standard_DS1_v2* 크기에서 생성됩니다.
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
@@ -139,7 +139,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 }
 ```
 
-[az vm list-ip-addresses](/cli/azure/vm) 명령을 사용하여 *myVM*에서 공용 IP 주소 리소스의 이름을 반환합니다. 이 예제에서는 이름이 변수에 저장되고 이후 단계에서 사용됩니다.
+[az vm list-ip-addresses](/cli/azure/vm) 명령을 사용하여 *myVM* 에서 공용 IP 주소 리소스의 이름을 반환합니다. 이 예제에서는 이름이 변수에 저장되고 이후 단계에서 사용됩니다.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)

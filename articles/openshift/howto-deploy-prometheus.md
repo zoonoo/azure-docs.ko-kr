@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: 프로메테우스, aro, openshift, 메트릭, red hat
-ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996851"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에 독립 실행형 프로메테우스 인스턴스 배포
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11는 30 월 2022에 사용 중지 됩니다. 새 Azure Red Hat OpenShift 3.11 클러스터 만들기에 대 한 지원은 30 년 11 2020 월 30 일까 지 계속 됩니다. 사용 중지 후에는 나머지 Azure Red Hat OpenShift 3.11 클러스터가 종료 되어 보안 취약점을 방지 합니다.
+> 
+> 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](tutorial-create-cluster.md).
+> 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:arofeedback@microsoft.com).
 
 이 문서에서는 Azure Red Hat OpenShift 클러스터에서 서비스 검색을 사용 하는 독립 실행형 프로메테우스 인스턴스를 구성 하는 방법을 설명 합니다.
 
@@ -30,9 +36,9 @@ ms.locfileid: "80886891"
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>OC 도구를 사용 하 여 클러스터에 로그인
 
-1. 웹 브라우저를 열고 클러스터의 웹 콘솔로 이동 https://openshift 합니다.* 임의 id*입니다. azmosa.io *).*
+1. 웹 브라우저를 열고 클러스터의 웹 콘솔로 이동 https://openshift 합니다.*임의 id* 입니다. azmosa.io *).*
 2. Azure 자격 증명으로 로그인합니다.
-3. 오른쪽 위 모서리에서 사용자 이름을 선택 하 고 **로그인 명령 복사**를 선택 합니다.
+3. 오른쪽 위 모서리에서 사용자 이름을 선택 하 고 **로그인 명령 복사** 를 선택 합니다.
 4. 사용할 터미널에 사용자 이름을 붙여 넣습니다.
 
 > [!NOTE]
@@ -102,7 +108,7 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-다음 구성을 입력 하 여 Prom 경고 라는 비밀을 만듭니다.
+다음 구성을 입력 하 여 Prom-Alerts 라는 비밀을 만듭니다.
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
@@ -182,7 +188,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>선택 사항: 배포 예제 응용 프로그램
 
-모든 것이 작동 중이지만 메트릭 소스가 없습니다. 프로메테우스 URL (로 이동 https://prom-prometheus-project.apps 합니다.* 임의 id*입니다. azmosa.io/ *).* 다음 명령을 사용 하 여 찾을 수 있습니다.
+모든 것이 작동 중이지만 메트릭 소스가 없습니다. 프로메테우스 URL (로 이동 https://prom-prometheus-project.apps 합니다.*임의 id* 입니다. azmosa.io/ *).* 다음 명령을 사용 하 여 찾을 수 있습니다.
 
 ```
 oc get route prom -n prometheus-project
@@ -200,10 +206,10 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 새 응용 프로그램은 배포 후 30 초 내에 서비스 검색 페이지에 유효한 대상으로 나타나야 합니다.
 
-자세한 내용은 **상태**  >  **대상**을 선택 합니다.
+자세한 내용은 **상태**  >  **대상** 을 선택 합니다.
 
 > [!NOTE]
-> 모든 성공적인 스크랩 대상에 대해 프로메테우스는 위쪽 메트릭에 데이터 요소를 추가 합니다. 왼쪽 위 모서리에서 **프로메테우스** 를 선택 하 고 식으로 **를 입력 한** 다음 **실행**을 선택 합니다.
+> 모든 성공적인 스크랩 대상에 대해 프로메테우스는 위쪽 메트릭에 데이터 요소를 추가 합니다. 왼쪽 위 모서리에서 **프로메테우스** 를 선택 하 고 식으로 **를 입력 한** 다음 **실행** 을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

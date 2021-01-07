@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 11783ceae1b2a2f9782df74976d8ea6d66573a1c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086031"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891162"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>맵에 선 계층 추가
 
@@ -23,7 +23,7 @@ ms.locfileid: "90086031"
 > [!TIP]
 > 기본적으로 선 계층은 다각형의 좌표와 데이터 원본의 선을 렌더링합니다. LineString 피처만 렌더링하도록 계층을 제한하려면 계층의 `filter` 속성을 `['==', ['geometry-type'], 'LineString']`으로 설정하거나 MultiLineString 피처를 포함하려는 경우에는 `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]`으로 설정합니다.
 
-다음 코드는 선을 만드는 방법을 보여 줍니다. 데이터 원본에 줄을 추가한 다음, [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) 클래스를 사용하여 선 계층으로 렌더링합니다.
+다음 코드는 선을 만드는 방법을 보여 줍니다. 데이터 원본에 줄을 추가한 다음, [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) 클래스를 사용하여 선 계층으로 렌더링합니다.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -88,7 +88,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) 
+> [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) 
 
 > [!div class="nextstepaction"]
 > [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)

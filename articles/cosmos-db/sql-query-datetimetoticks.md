@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 DateTimeToTicks
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimeToTicks에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2e2c9e8f2bf0d4760bf030fb19a90737cdb54525
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ab81e2b6ef19e7a5dacb80186c5364a5848077f6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605141"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336336"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 지정 된 날짜/시간을 틱으로 변환 합니다. 단일 틱은 100 나노초 또는 1 10-1 1/1000000 초를 나타냅니다. 
 
@@ -39,7 +41,7 @@ DateTimeToTicks (<DateTime>)
 
 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 틱 수를 반환 하는 예는 다음과 같습니다.
 

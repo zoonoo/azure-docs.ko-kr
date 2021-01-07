@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184621"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009707"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Azure VM 확장 문제 해결
 
@@ -45,7 +45,7 @@ ms.locfileid: "88184621"
 
 이 오류는 가상 머신의 Azure 게스트 에이전트가 준비 상태가 아닌 경우에 발생할 수 있습니다.
 
-[Azure Portal](https://portal.azure.com/)에서 Azure 게스트 에이전트의 상태를 확인할 수 있습니다. 보호 하려는 가상 머신으로 이동 하 여 **VM**  >  **설정**  >  **속성**  >  **에이전트 상태**에서 상태를 확인 합니다. 대부분의 경우 가상 컴퓨터를 다시 부팅 한 후 에이전트의 상태가 준비 됩니다. 그러나 다시 부팅할 수 없거나 문제가 계속 발생 하는 경우 다음 문제 해결 단계를 완료 합니다.
+[Azure Portal](https://portal.azure.com/)에서 Azure 게스트 에이전트의 상태를 확인할 수 있습니다. 보호 하려는 가상 머신으로 이동 하 여 **VM**  >  **설정**  >  **속성**  >  **에이전트 상태** 에서 상태를 확인 합니다. 대부분의 경우 가상 컴퓨터를 다시 부팅 한 후 에이전트의 상태가 준비 됩니다. 그러나 다시 부팅할 수 없거나 문제가 계속 발생 하는 경우 다음 문제 해결 단계를 완료 합니다.
 
 - [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
@@ -67,7 +67,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 1. VM 서비스(services.msc)에서 Microsoft Azure 게스트 에이전트 서비스가 실행 중인지 확인합니다. Windows Azure 게스트 에이전트 서비스를 다시 시작 합니다.    
 1. Microsoft Azure 게스트 에이전트 서비스가 서비스에 표시 되지 않는 경우 제어판을 엽니다. **프로그램 및 기능** 으로 이동 하 여 Windows 게스트 에이전트 서비스가 설치 되어 있는지 확인 합니다.
-1. Microsoft Azure 게스트 에이전트가 **프로그램 및 기능**에 표시되면 Windows Azure 게스트 에이전트를 제거합니다.
+1. Microsoft Azure 게스트 에이전트가 **프로그램 및 기능** 에 표시되면 Windows Azure 게스트 에이전트를 제거합니다.
 1. [최신 버전의 에이전트 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하고 설치합니다. 설치를 완료 하려면 관리자 권한이 필요 합니다.
 1. Microsoft Azure 게스트 에이전트 서비스가 서비스에 표시 되는지 확인 합니다.
 1. 보호 작업을 다시 시작합니다.
@@ -82,7 +82,7 @@ Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이�
 1. [Linux VM 에이전트 업데이트](../virtual-machines/extensions/update-linux-agent.md)의 지침을 따르세요.
 
    > [!NOTE]
-   > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장*합니다. GitHub에서 직접 에이전트 코드를 다운로드 하 여 업데이트 하지 않는 것이 좋습니다. 배포에 대 한 최신 에이전트를 사용할 수 없는 경우 배포 지원에 문의 하 여 설치 방법에 대 한 지침을 제공 합니다. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
+   > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장* 합니다. GitHub에서 직접 에이전트 코드를 다운로드 하 여 업데이트 하지 않는 것이 좋습니다. 배포에 대 한 최신 에이전트를 사용할 수 없는 경우 배포 지원에 문의 하 여 설치 방법에 대 한 지침을 제공 합니다. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
 
 1. `ps -e` 명령을 실행하여 VM에 Azure 에이전트가 실행 중인지 확인합니다.
 
@@ -105,10 +105,10 @@ Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이�
 확장을 제거하려면
 
 1. [Azure Portal](https://portal.azure.com/)에서 백업 오류가 발생 한 VM으로 이동 합니다.
-1. **설정**을 선택합니다.
-1. **확장**을 섡택합니다.
-1. **Site Recovery 확장**을 선택합니다.
-1. **제거**를 선택합니다.
+1. **설정** 을 선택합니다.
+1. **확장** 을 섡택합니다.
+1. **Site Recovery 확장** 을 선택합니다.
+1. **제거** 를 선택합니다.
 
 Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시 되지 않으면 [Azure Linux 에이전트를 업데이트](../virtual-machines/extensions/update-linux-agent.md)합니다. 그런 다음 보호를 실행 합니다.
 

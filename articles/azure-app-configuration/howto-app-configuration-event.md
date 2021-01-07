@@ -2,20 +2,20 @@
 title: Azure 앱 구성을 사용 하 여 웹 끝점으로 이벤트 전송
 description: Azure 앱 구성 이벤트 구독을 사용 하 여 웹 끝점에 키-값 수정 이벤트를 보내는 방법에 대해 알아봅니다.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 02/25/2020
-ms.author: lcozzens
+ms.date: 03/04/2020
+ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc816f54a690a4c72c44d70ecbf2cc0156ac84ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4e005d2f929fd615080d22e93a102a7cc5c1174a
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498313"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696110"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Azure CLI를 사용하여 Azure App Configuration 이벤트를 웹 엔드포인트로 라우팅
 
@@ -64,7 +64,7 @@ az appconfig create \
 ```azurecli-interactive
 $sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group <resource_group_name> \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost

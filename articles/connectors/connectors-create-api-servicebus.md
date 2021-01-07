@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526530"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019715"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -47,20 +47,20 @@ ms.locfileid: "90526530"
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure 계정으로 로그인 합니다.
 
-1. Service Bus *네임스페이스*로 이동합니다. 네임스페이스 페이지의 **설정**에서 **공유 액세스 정책**을 선택합니다. **클레임**에서 해당 네임 스페이스에 대 한 **관리** 권한이 있는지 확인 합니다.
+1. Service Bus *네임스페이스* 로 이동합니다. 네임스페이스 페이지의 **설정** 에서 **공유 액세스 정책** 을 선택합니다. **클레임** 에서 해당 네임 스페이스에 대 한 **관리** 권한이 있는지 확인 합니다.
 
    ![Service Bus 네임 스페이스에 대 한 사용 권한 관리](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
 1. Service Bus 네임스페이스에 대한 연결 문자열을 가져옵니다. 논리 앱에서 연결 정보를 제공 하는 경우이 문자열이 필요 합니다.
 
-   1. **공유 액세스 정책** 창에서 **RootManageSharedAccessKey**를 선택 합니다.
+   1. **공유 액세스 정책** 창에서 **RootManageSharedAccessKey** 를 선택 합니다.
 
    1. 기본 연결 문자열 옆에 있는 복사 단추를 선택 합니다. 나중에 사용할 연결 문자열을 저장합니다.
 
       ![Service Bus 네임스페이스 연결 문자열 복사](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > 연결 문자열이 Service Bus 네임스페이스 또는 메시징 엔터티와 연결되어 있는지 확인하려면 연결 문자열을 검색하여 `EntityPath`  매개 변수를 찾습니다. 이 매개 변수를 찾은 경우 연결 문자열은 특정 엔터티에 대한 것이고 논리 앱에 사용할 올바른 문자열이 아닙니다.
+   > 연결 문자열이 Service Bus 네임스페이스 또는 메시징 엔터티와 연결되어 있는지 확인하려면 `EntityPath` 매개 변수에 대한 연결 문자열을 검색합니다. 이 매개 변수를 찾은 경우 연결 문자열은 특정 엔터티에 대한 것이고 논리 앱에 사용할 올바른 문자열이 아닙니다.
 
 ## <a name="add-service-bus-trigger"></a>Service Bus 트리거 추가
 
@@ -68,18 +68,22 @@ ms.locfileid: "90526530"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
-1. 검색 상자에 "azure service bus"를 필터로 입력 합니다. 트리거 목록에서 원하는 트리거를 선택 합니다.
+1. 포털 검색 상자에을 입력 `azure service bus` 합니다. 표시 되는 트리거 목록에서 원하는 트리거를 선택 합니다.
 
    예를 들어 Service Bus 큐에 새 항목이 전송 될 때 논리 앱을 트리거하려면 **큐에 메시지가 수신 되는 경우 (자동 완성)** 트리거에서를 선택 합니다.
 
    ![Service Bus 트리거 선택](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   모든 Service Bus 트리거는 *긴 폴링* 트리거입니다. 이 설명에서는 트리거가 발생 하면 트리거가 모든 메시지를 처리 한 다음, 큐 또는 토픽 구독에 더 많은 메시지가 표시 될 때까지 30 초 동안 기다립니다. 30초 동안 표시되는 메시지가 없으면 트리거 실행을 건너뜁니다. 그렇지 않으면 큐 또는 토픽 구독이 빈 상태가 될 때까지 트리거는 메시지를 계속 읽습니다. 다음 트리거 폴링은 트리거의 속성에 지정된 되풀이 간격을 기준으로 합니다.
+   Service Bus 트리거를 사용 하는 경우에 대 한 몇 가지 고려 사항은 다음과 같습니다.
 
-   **큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성)** 트리거와 같은 일부 트리거는 하나 이상의 메시지를 반환할 수 있습니다. 이러한 트리거는 발생 하면 1과 트리거의 **최대 메시지 수** 속성에 지정 된 메시지 수를 반환 합니다.
+   * 모든 Service Bus 트리거는 *긴 폴링* 트리거입니다. 이 설명에서는 트리거가 발생 하면 트리거가 모든 메시지를 처리 한 다음, 큐 또는 토픽 구독에 더 많은 메시지가 표시 될 때까지 30 초 동안 기다립니다. 30초 동안 표시되는 메시지가 없으면 트리거 실행을 건너뜁니다. 그렇지 않으면 큐 또는 토픽 구독이 빈 상태가 될 때까지 트리거는 메시지를 계속 읽습니다. 다음 트리거 폴링은 트리거의 속성에 지정된 되풀이 간격을 기준으로 합니다.
 
-    > [!NOTE]
-    > 자동 완성 트리거는 메시지를 자동으로 완성 하지만 완료는 다음 트리거 실행 시에만 수행 됩니다. 이 동작은 논리 앱의 디자인에 영향을 줄 수 있습니다. 예를 들어 논리 앱이 제한 된 상태로 전환 되는 경우이 변경으로 인해 중복 메시지가 나타날 수 있으므로 자동 완성 트리거의 동시성을 변경 하지 마십시오. 동시성 제어를 변경 하면 이러한 조건이 생성 됩니다. 즉, 제한 된 트리거는 코드를 사용 하 여 건너뛰고 `WorkflowRunInProgress` 완료 작업은 발생 하지 않으며 폴링 간격 후에 다음 트리거 실행이 수행 됩니다. Service bus 잠금 기간을 폴링 간격 보다 긴 값으로 설정 해야 합니다. 그러나이 설정에도 불구 하 고 논리 앱이 다음 폴링 간격으로 제한 된 상태로 유지 되는 경우에도 메시지는 완료 되지 않을 수 있습니다.
+   * **큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성)** 트리거와 같은 일부 트리거는 하나 이상의 메시지를 반환할 수 있습니다. 이러한 트리거는 발생 하면 1과 트리거의 **최대 메시지 수** 속성에 지정 된 메시지 수를 반환 합니다.
+
+     > [!NOTE]
+     > 자동 완성 트리거는 메시지를 자동으로 완성 하지만 다음에 Service Bus를 호출할 때만 완료 됩니다. 이 동작은 논리 앱의 디자인에 영향을 줄 수 있습니다. 예를 들어 논리 앱이 제한 된 상태로 전환 되는 경우이 변경으로 인해 중복 메시지가 나타날 수 있으므로 자동 완성 트리거의 동시성을 변경 하지 마십시오. 동시성 제어를 변경 하면 이러한 조건이 생성 됩니다. 즉, 제한 된 트리거는 코드를 사용 하 여 건너뛰고 `WorkflowRunInProgress` 완료 작업은 발생 하지 않으며 폴링 간격 후에 다음 트리거 실행이 수행 됩니다. Service bus 잠금 기간을 폴링 간격 보다 긴 값으로 설정 해야 합니다. 그러나이 설정에도 불구 하 고 논리 앱이 다음 폴링 간격으로 제한 된 상태로 유지 되는 경우에도 메시지는 완료 되지 않을 수 있습니다.
+
+   * Service Bus 트리거에 대해 [동시성 설정을 켜면](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 속성의 기본값은 `maximumWaitingRuns` 10입니다. 사용자의 논리 앱 인스턴스에 대 한 Service Bus 엔터티의 잠금 기간 설정 및 실행 기간에 따라이 기본값은 너무 커서 "잠금 손실" 예외가 발생할 수 있습니다. 시나리오에 적합 한 값을 찾으려면 속성에 대해 값 1 또는 2를 사용 하 여 테스트를 시작 `maximumWaitingRuns` 합니다. 대기 중인 최대 실행 값을 변경 하려면 [대기 중인 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조 하세요.
 
 1. 트리거가 Service Bus 네임 스페이스에 처음으로 연결 하는 경우 논리 앱 디자이너에서 연결 정보를 묻는 메시지가 표시 되 면 다음 단계를 수행 합니다.
 
@@ -87,9 +91,9 @@ ms.locfileid: "90526530"
 
       ![연결 이름을 제공 하 고 Service Bus 네임 스페이스를 선택 하는 것을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
-      연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력**을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
+      연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력** 을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
 
-   1. Service Bus 정책을 선택 하 고 **만들기**를 선택 합니다.
+   1. Service Bus 정책을 선택 하 고 **만들기** 를 선택 합니다.
 
       ![Service Bus 정책 선택을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
@@ -113,13 +117,13 @@ ms.locfileid: "90526530"
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 논리 앱 디자이너에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 작업을 추가 하려는 단계 아래에서 **새 단계**를 선택 합니다.
+1. 작업을 추가 하려는 단계 아래에서 **새 단계** 를 선택 합니다.
 
-   또는 단계 간에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 ()를 선택 **+** 하 고 **작업 추가**를 선택 합니다.
+   또는 단계 간에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 ()를 선택 **+** 하 고 **작업 추가** 를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자에 "azure service bus"를 필터로 입력 합니다. 작업 목록에서 원하는 작업을 선택 합니다. 
+1. **작업 선택** 아래의 검색 상자에 `azure service bus`을 입력합니다. 표시 되는 작업 목록에서 원하는 작업을 선택 합니다. 
 
    이 예에서는 **메시지 보내기** 작업을 선택 합니다.
 
@@ -131,9 +135,9 @@ ms.locfileid: "90526530"
 
       ![연결 이름을 제공 하 고 Service Bus 네임 스페이스를 선택 하는 것을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
-      연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력**을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
+      연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력** 을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
 
-   1. Service Bus 정책을 선택 하 고 **만들기**를 선택 합니다.
+   1. Service Bus 정책을 선택 하 고 **만들기** 를 선택 합니다.
 
       ![Service Bus 정책을 선택 하 고 만들기 단추를 선택 하는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
@@ -153,7 +157,7 @@ ms.locfileid: "90526530"
 
    예를 들어 전자 메일을 보내는 작업을 추가 하 여 메시지가 전송 되었는지 확인할 수 있습니다.
 
-1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 <a name="sequential-convoy"></a>
 
@@ -162,6 +166,10 @@ ms.locfileid: "90526530"
 관련 메시지를 특정 순서로 보내야 하는 경우에는 [Azure Service Bus 커넥터](../connectors/connectors-create-api-servicebus.md)를 사용 하 여 [ *순차 호위 (convoy* ) 패턴](/azure/architecture/patterns/sequential-convoy) 을 사용할 수 있습니다. 상관 관계가 지정 된 메시지에는 Service Bus [세션](../service-bus-messaging/message-sessions.md) 의 ID와 같은 해당 메시지 간의 관계를 정의 하는 속성이 있습니다.
 
 논리 앱을 만들 때 순차 호위 (convoy) 패턴을 구현 하는 **service bus 세션 템플릿을 사용 하 여 상관 관계가 지정 된 순서 대로 배달을** 선택할 수 있습니다. 자세한 내용은 [순서 대로 관련 메시지 보내기](../logic-apps/send-related-messages-sequential-convoy.md)를 참조 하세요.
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>논리 앱에 대 한 업데이트의 지연이 적용 됩니다.
+
+Service Bus 트리거의 폴링 간격이 작은 경우 (예: 10 초) 논리 앱에 대 한 업데이트가 최대 10 분 동안 적용 되지 않을 수 있습니다. 이 문제를 해결 하려면 논리 앱을 업데이트 하기 전에 폴링 간격을 일시적으로 더 큰 값 (예: 30 초 또는 1 분)으로 늘릴 수 있습니다. 업데이트를 수행한 후에는 폴링 간격을 원래 값으로 다시 설정할 수 있습니다. 
 
 <a name="connector-reference"></a>
 

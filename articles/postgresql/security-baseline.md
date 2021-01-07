@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fb27868a06e133f6f90d0a7a18d218b74aafdd69
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 830f58ea11ba84dd2aee81c0352b3ede4aa4929c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420050"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498254"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 용 Azure 보안 기준-단일 서버
 
@@ -74,7 +74,7 @@ DDoS 공격으로부터 보호하기 위해 Azure Database for PostgreSQL 인스
 
 - [Azure Database for PostgreSQL에 대 한 Advanced Threat Protection을 구성 하는 방법](howto-database-threat-protection-portal.md)
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -134,7 +134,7 @@ DDoS 공격으로부터 보호하기 위해 Azure Database for PostgreSQL 인스
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples)
+- [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/index.md)
 
 - [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
@@ -150,7 +150,7 @@ DDoS 공격으로부터 보호하기 위해 Azure Database for PostgreSQL 인스
 
 Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소스에 대한 작업을 조회하거나 수행할 수 있습니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -160,7 +160,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure 활동 로그를 사용하여 네트워크 리소스 구성을 모니터링하고 Azure Database for PostgreSQL 인스턴스와 관련된 네트워크 리소스에 대한 변경을 검색합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -202,7 +202,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure Database for PostgreSQL에 대 한 감사 로그를 구성 및 액세스 하는 방법](concepts-audit.md)
 
-- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -222,7 +222,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정에 리소스 로그 저장](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -234,7 +234,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics에 대 한 자세한 내용은](../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics에 대 한 자세한 내용은](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
@@ -254,7 +254,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure Database for PostgreSQL에 대 한 감사 로그를 구성 및 액세스 하는 방법](concepts-audit.md)
 
-- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/platform/activity-log.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -386,7 +386,7 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 - [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 탐지 이해](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -420,7 +420,7 @@ Azure AD 자격 증명은 PostgreSQL 관리자 계정을 제어하는 관리 평
 
 **지침**: Azure Active Directory 로그를 검토하여 Azure Database for PostgreSQL 관리 역할이 있는 계정을 포함할 수 있는 부실 계정을 검색할 수 있습니다. 또한 Azure ID 액세스 검토를 사용하여 그룹 멤버 자격, Azure Database for PostgreSQL에 액세스하는 데 사용할 수 있는 엔터프라이즈 애플리케이션에 대한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 적절한 사용자만 계속 액세스할 수 있도록 사용자 액세스를 90일마다 정기적으로 검토해야 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -438,7 +438,7 @@ Azure AD 자격 증명은 PostgreSQL 관리자 계정을 제어하는 관리 평
 
 - [Azure Database for PostgreSQL에 대 한 감사 로그를 구성 및 액세스 하는 방법](concepts-audit.md)
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -456,7 +456,7 @@ Azure Active Directory의 ID 보호 및 위험 검색 기능을 사용하여 탐
 
 - [Azure AD ID 보호 개요](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -482,7 +482,7 @@ Azure Active Directory의 ID 보호 및 위험 검색 기능을 사용하여 탐
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure Database for PostgreSQL 인스턴스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -492,9 +492,9 @@ Azure Active Directory의 ID 보호 및 위험 검색 기능을 사용하여 탐
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. Private Link, 서비스 엔드포인트 및/또는 방화벽 규칙의 조합을 사용하여 Azure Database for PostgreSQL 인스턴스에 대한 네트워크 액세스를 격리하고 제한합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 - [Azure Database for PostgreSQL에 대 한 개인 링크를 구성 하는 방법](howto-configure-privatelink-portal.md)
 
@@ -544,7 +544,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **책임**: 공유됨
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Database for PostgreSQL 제어 평면 (예: Azure Portal)에 대 한 액세스를 제어 합니다. 데이터 평면 액세스(데이터베이스 자체 내)의 경우 SQL 쿼리를 사용하여 사용자를 만들고 사용자 권한을 구성합니다. Azure RBAC는 데이터베이스 내의 사용자 권한에 영향을 주지 않습니다.
 
@@ -574,7 +574,7 @@ Microsoft는 Azure Database for PostgreSQL에 대한 기본 인프라를 관리�
 
 CMK(고객 관리형 키)를 Azure Database for PostgreSQL 단일 서버에 사용하는 데이터 암호화를 사용하면 저장 데이터 보호에 대한 고유한 키(BYOK)를 가져올 수 있습니다. 현재 이 기능을 사용하려면 액세스를 요청해야 합니다. 이렇게 하려면 다음에 문의하세요.
 
-AskAzureDBforPostgreSQL@service.microsoft.com입니다.
+AskAzureDBforPostgreSQL@service.microsoft.com.
 
 - [Azure Database for PostgreSQL에 대 한 미사용 암호화 이해](concepts-security.md)
 
@@ -654,7 +654,7 @@ Microsoft는 Azure Database for PostgreSQL을 지 원하는 기본 시스템에�
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -666,7 +666,7 @@ Microsoft는 Azure Database for PostgreSQL을 지 원하는 기본 시스템에�
 
 **지침**: 메타데이터를 제공하는 Azure Database for PostgreSQL 인스턴스 및 기타 관련 리소스에 태그를 적용하여 논리적인 분류 체계로 구성합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -676,11 +676,11 @@ Microsoft는 Azure Database for PostgreSQL을 지 원하는 기본 시스템에�
 
 **지침**: 해당하는 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용하여 Azure Database for PostgreSQL 인스턴스 및 관련 리소스를 구성하고 추적합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -746,7 +746,7 @@ Microsoft는 Azure Database for PostgreSQL을 지 원하는 기본 시스템에�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -798,7 +798,7 @@ Microsoft는 Azure Database for PostgreSQL을 지 원하는 기본 시스템에�
 
 - PostgreSQL 데이터베이스 서버에 대해 로그 연결을 사용하도록 설정해야 합니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -838,9 +838,9 @@ Microsoft는 Azure Database for PostgreSQL을 지 원하는 기본 시스템에�
 
 **지침**: 사용자 지정 Azure Policy 정의를 Azure Database for PostgreSQL 인스턴스 및 관련 리소스에 사용하는 경우 Azure Repos를 사용하여 코드를 안전하게 저장하고 관리합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -898,7 +898,7 @@ Microsoft는 Azure Database for PostgreSQL을 지 원하는 기본 시스템에�
 
 - [Key Vault를 만드는 방법](../key-vault/general/quick-create-portal.md)
 
-- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](/azure/key-vault/general/managed-identity)
+- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1050,7 +1050,7 @@ Azure Database for PostgreSQL 인스턴스의 복원을 정기적으로 테스�
 
 ### <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 프로시저 테스트
 
-**지침**: 시스템의 인시던트 대응 기능을 정기적으로 테스트합니다. 약점과 격차를 식별하고 필요에 따라 계획을 수정합니다.
+**지침**: 정기적으로 시스템의 인시던트 응답 기능을 테스트 하는 연습을 수행 합니다. 약점과 격차를 식별하고 필요에 따라 계획을 수정합니다.
 
 - [NIST의 게시물을 참조하세요. IT 계획 및 기능에 대한 테스트, 학습 및 연습 프로그램에 대한 안내](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1098,7 +1098,7 @@ Azure Database for PostgreSQL 인스턴스의 복원을 정기적으로 테스�
 
 **지침**: 다음 Microsoft 시행 규칙에 따라 침투 테스트에서 Microsoft 정책을 위반하지 않는지 확인합니다. https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-- [Microsoft에서 관리하는 클라우드 인프라, 서비스 및 애플리케이션에 대한 레드 팀 및 라이브 사이트 침투 테스트 실행에 대한 자세한 내용은 ](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 참조하세요.
+- [Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트에 대 한 자세한 내용은 Microsoft에서 확인할 수 있습니다.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1106,5 +1106,5 @@ Azure Database for PostgreSQL 인스턴스의 복원을 정기적으로 테스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

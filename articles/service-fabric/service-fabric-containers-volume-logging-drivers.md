@@ -4,10 +4,10 @@ description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azur
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247696"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Service Fabric에 대 한 Azure Files 볼륨 드라이버
@@ -18,7 +18,7 @@ Azure Files 볼륨 드라이버는 Docker 컨테이너에 대 한 [Azure Files](
 > Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 일반 공급으로 릴리스 되었습니다.
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다.
 
 * Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
 ms.openlocfilehash: 77eedbfc65b54ce128e1adbd93375bc624ef38cd
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187621"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 라이선스 사용자 지정 구성 요소 설치
@@ -32,7 +32,7 @@ Azure-SSIS Integration Runtime은 기본적으로 사용자 지정 구성 요소
 
 -   또한 노드 수를 언제든지 축소하거나 확장할 수 있으므로 Azure-SSIS IR도 축소하거나 확장할 수 있습니다.
 
-## <a name="the-solution"></a>해답
+## <a name="the-solution"></a>솔루션
 
 이전 섹션에서 설명된 기존 라이선스 방법에 대한 제한의 결과로 Azure SSIS IR은 새 솔루션을 제공합니다. 이 솔루션은 라이선스 바인딩 및 타사 구성 요소의 유효성 검사를 위한 Windows 환경 변수 및 SSIS 시스템 변수를 사용합니다. ISV는 이러한 변수를 사용하여 클러스터 ID 및 클러스터 노드 수 같은 Azure-SSIS IR에 대한 고유한 영구 정보를 얻을 수 있습니다. 이 정보를 사용하여 ISV는 구성 요소에 대한 라이선스를 *클러스터로* Azure SSIS IR에 바인딩할 수 있습니다. 이 바인딩은 고객이 어떤 방식으로든 Azure-SSIS IR을 시작 또는 중지, 강화 또는 약화, 감축 또는 확장 또는 다시 구성할 경우 변경되지 않는 ID를 사용합니다.
 
@@ -40,7 +40,7 @@ Azure-SSIS Integration Runtime은 기본적으로 사용자 지정 구성 요소
 
 ![라이선스 구성 요소의 설치](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
-## <a name="instructions"></a>지침
+## <a name="instructions"></a>Instructions
 1. ISV는 다양한 SKU 또는 계층의 라이선스 구성 요소(예: 단일 노드, 최대 5개 노드, 최대 10개 노드 등)를 제공할 수 있습니다. ISV는 고객이 제품을 구매할 때 해당 제품 키를 제공합니다. 또한 ISV는 ISV 설치 스크립트 및 관련 파일을 포함하는 Azure Storage Blob 컨테이너를 제공할 수도 있습니다. 고객은 자신의 스토리지 컨테이너에 이러한 파일을 복사하고 자체 제품 키로 수정할 수 있습니다(예: `IsvSetup.exe -pid xxxx-xxxx-xxxx`를 실행하여). 그런 후 고객은 컨테이너의 SAS URI를 매개 변수로 사용하여 Azure-SSIS IR을 프로비전하거나 다시 구성할 수 있습니다. 자세한 내용은 [Azure SSIS 통합 런타임에 대한 사용자 지정 설치](how-to-configure-azure-ssis-ir-custom-setup.md)를 참조하세요.
 
 2. Azure-SSIS IR이 프로비전되거나 다시 구성될 때 ISV 설치 프로그램이 각 노드에서 실행되어 Windows 환경 변수 `SSIS_CLUSTERID` 및 `SSIS_CLUSTERNODECOUNT`를 쿼리합니다. 그런 다음 Azure-SSIS IR은 라이선스 제품에 대한 클러스터 ID 및 제품 키를 ISV 정품 인증 서버에 제출하여 정품 인증 키를 생성합니다.

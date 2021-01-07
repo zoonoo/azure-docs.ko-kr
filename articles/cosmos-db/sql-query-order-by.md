@@ -3,17 +3,19 @@ title: Azure Cosmos DB의 ORDER BY 절
 description: Azure Cosmos DB에 대 한 SQL ORDER BY 절에 대해 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 887dc13eb5e351688718d2a221e69499557b23e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484331"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338303"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 ORDER BY 절
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 선택적 `ORDER BY` 절은 쿼리에서 반환 되는 결과에 대 한 정렬 순서를 지정 합니다.
 
@@ -45,7 +47,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   지정된 열의 값이 오름차순으로 정렬되는지 내림차순으로 정렬되는지를 지정합니다. `ASC`가장 낮은 값에서 가장 높은 값 순으로 정렬 합니다. `DESC`가장 큰 값에서 가장 작은 값으로 정렬 합니다. `ASC`는 기본 정렬 순서입니다. Null 값은 가능한 가장 작은 값으로 취급됩니다.  
+   지정된 열의 값이 오름차순으로 정렬되는지 내림차순으로 정렬되는지를 지정합니다. `ASC` 가장 낮은 값에서 가장 높은 값 순으로 정렬 합니다. `DESC` 가장 큰 값에서 가장 작은 값으로 정렬 합니다. `ASC` 는 기본 정렬 순서입니다. Null 값은 가능한 가장 작은 값으로 취급됩니다.  
   
 ## <a name="remarks"></a>설명  
   
@@ -79,7 +81,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-다음 쿼리는 항목을 `id` 만든 날짜 순으로 가족을 검색 합니다. 항목 `creationDate` 은 *epoch 시간*또는 경과 된 시간 (1 월 1 일 이후 1970 초)을 나타내는 숫자입니다.
+다음 쿼리는 항목을 `id` 만든 날짜 순으로 가족을 검색 합니다. 항목 `creationDate` 은 *epoch 시간* 또는 경과 된 시간 (1 월 1 일 이후 1970 초)을 나타내는 숫자입니다.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -102,7 +104,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-또한 여러 속성을 기준으로 순서를 지정할 수 있습니다. 여러 속성으로 정렬 하는 쿼리에는 [복합 인덱스가](index-policy.md#composite-indexes)필요 합니다. 다음 쿼리를 고려해 보세요.
+또한 여러 속성을 기준으로 순서를 지정할 수 있습니다. 여러 속성으로 정렬 하는 쿼리에는 [복합 인덱스가](index-policy.md#composite-indexes)필요 합니다. 다음과 같은 쿼리를 고려해 보세요.
 
 ```sql
     SELECT f.id, f.creationDate

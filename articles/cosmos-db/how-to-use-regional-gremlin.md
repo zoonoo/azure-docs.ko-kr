@@ -1,22 +1,24 @@
 ---
 title: Azure Cosmos DB 그래프 데이터베이스의 지역별 엔드포인트
 description: 애플리케이션에 가장 가까운 그래프 데이터베이스 엔드포인트에 연결하는 방법을 알아봅니다.
-author: luisbosquez
-ms.author: lbosq
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f9d46c2f5cce397c2aa6ebbcd38d7fbb5786412
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3e30252d8f5e80538139f8100f1070385c1b6016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997254"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361790"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB 그래프 계정의 지역별 엔드포인트
-Azure Cosmos DB 그래프 데이터베이스는 [전 세계에 분산](distribute-data-globally.md)되어 있으므로, 애플리케이션에서 여러 개의 읽기 엔드포인트를 사용할 수 있습니다. 여러 위치에서 쓰기 권한이 필요한 애플리케이션은 [다중 마스터](how-to-multi-master.md) 기능을 사용하도록 설정해야 합니다.
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
+Azure Cosmos DB 그래프 데이터베이스는 [전 세계에 분산](distribute-data-globally.md)되어 있으므로, 애플리케이션에서 여러 개의 읽기 엔드포인트를 사용할 수 있습니다. 여러 위치에서 쓰기 권한이 필요한 응용 프로그램은 [다중 지역 쓰기](how-to-multi-master.md) 기능을 사용 하도록 설정 해야 합니다.
 
 두 개 이상의 지역을 선택해야 하는 이유:
 1. **수평적 읽기 확장성** - 애플리케이션 부하가 증가함에 따라 읽기 트래픽을 여러 Azure 지역으로 라우팅하는 것이 바람직할 수 있습니다.
@@ -26,9 +28,9 @@ Cosmos DB 계정에 Azure Resource Manager 정책을 설정하면 **데이터 �
 
 ## <a name="traffic-routing"></a>트래픽 라우팅
 
-Cosmos DB 그래프 데이터베이스 엔진은 여러 지역에서 실행되고 있으며, 지역마다 여러 클러스터를 포함합니다. 각 클러스터에는 수백 개의 머신이 있습니다. Cosmos DB 그래프 계정 DNS CNAME *accountname.gremlin.cosmos.azure.com*은 클러스터의 DNS A 레코드로 확인됩니다. 부하 분산 장치의 단일 IP 주소는 내부 클러스터 토폴로지를 숨깁니다.
+Cosmos DB 그래프 데이터베이스 엔진은 여러 지역에서 실행되고 있으며, 지역마다 여러 클러스터를 포함합니다. 각 클러스터에는 수백 개의 머신이 있습니다. Cosmos DB 그래프 계정 DNS CNAME *accountname.gremlin.cosmos.azure.com* 은 클러스터의 DNS A 레코드로 확인됩니다. 부하 분산 장치의 단일 IP 주소는 내부 클러스터 토폴로지를 숨깁니다.
 
-Cosmos DB 그래프 계정의 모든 지역에 대해 지역별 DNS CNAME 레코드가 만들어집니다. 지역별 엔드포인트의 형식은 *accountname-region.gremlin.cosmos.azure.com*입니다. 지역별 엔드포인트의 지역 세그먼트는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions) 이름에서 모든 공백을 제거한 값입니다. 예를 들어 `"contoso"` 전역 데이터베이스 계정의 `"East US 2"` 지역에는 DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com*이 있어야 합니다.
+Cosmos DB 그래프 계정의 모든 지역에 대해 지역별 DNS CNAME 레코드가 만들어집니다. 지역별 엔드포인트의 형식은 *accountname-region.gremlin.cosmos.azure.com* 입니다. 지역별 엔드포인트의 지역 세그먼트는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions) 이름에서 모든 공백을 제거한 값입니다. 예를 들어 `"contoso"` 전역 데이터베이스 계정의 `"East US 2"` 지역에는 DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com* 이 있어야 합니다.
 
 TinkerPop Gremlin 클라이언트는 단일 서버에서 작동하도록 설계되었습니다. 애플리케이션은 읽기 및 쓰기 트래픽에 대해 전역 쓰기 가능 DNS CNAME을 사용할 수 있습니다. 지역 인식 애플리케이션은 읽기 트래픽에 대해 지역별 엔드포인트를 사용해야 합니다. 특정 지역이 쓰기를 허용하도록 구성된 경우에만 쓰기 트래픽에 대해 지역별 엔드포인트를 사용합니다. 
 

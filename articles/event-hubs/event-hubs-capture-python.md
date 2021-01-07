@@ -3,16 +3,16 @@ title: Python 앱(최신)에서 캡처한 Azure Event Hubs 데이터 읽기
 description: 이 문서에서는 이벤트 허브로 전송된 데이터를 캡처하고 Azure 스토리지 계정에서 캡처한 이벤트 데이터를 읽는 Python 코드를 작성하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: cb7165565516136a8425c4c77748c2e13715edb7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f513b35e300141f16ee4c4880bc54aaf37945d65
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927870"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109915"
 ---
-# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Python(azure-eventhub 버전 5)을 사용하여 Azure Storage에서 Event Hubs 데이터 캡처
+# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Azure Storage에서 Event Hubs 데이터를 캡처하고 Python(azure-eventhub)을 사용하여 읽기
 
-이벤트 허브로 전송된 데이터가 Azure 스토리지 계정 또는 Azure Data Lake Storage Gen 1 또는 Gen 2에서 캡처되도록 이벤트 허브를 구성할 수 있습니다. 이 문서에서는 이벤트 허브로 데이터를 보내고 **Azure Blob 스토리지**에서 캡처한 데이터를 읽는 Python 코드를 작성하는 방법을 보여줍니다. 이 기능에 대한 자세한 내용은 [Event Hubs 캡처 기능 개요](event-hubs-capture-overview.md)를 참조하세요.
+이벤트 허브로 전송된 데이터가 Azure 스토리지 계정 또는 Azure Data Lake Storage Gen 1 또는 Gen 2에서 캡처되도록 이벤트 허브를 구성할 수 있습니다. 이 문서에서는 이벤트 허브로 데이터를 보내고 **Azure Blob 스토리지** 에서 캡처한 데이터를 읽는 Python 코드를 작성하는 방법을 보여줍니다. 이 기능에 대한 자세한 내용은 [Event Hubs 캡처 기능 개요](event-hubs-capture-overview.md)를 참조하세요.
 
 이 빠른 시작에서는 [Azure Python SDK](https://azure.microsoft.com/develop/python/)를 사용하여 캡처 기능을 보여줍니다. *sender.py* 앱은 JSON 형식으로 이벤트 허브에 시뮬레이션된 환경 원격 분석을 보냅니다. Event Hub는 캡처 기능을 사용하여 이 데이터를 Blob Storage에 일괄적으로 쓰도록 구성되어 있습니다. *capturereader.py* 앱은 이러한 BLOB을 읽고 각 디바이스에 대한 추가 파일을 만듭니다. 그런 다음, CSV 파일에 데이터를 씁니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "88927870"
 - PIP가 설치 및 업데이트된 Python 2.7 및 3.5 이상.  
 - Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).  
 - 활성 Event Hubs 네임스페이스 및 이벤트 허브.
-[Event Hubs 네임스페이스를 만들고 이 네임스페이스에 이벤트 허브를 만듭니다](event-hubs-create.md). Event Hubs 네임스페이스의 이름, 이벤트 허브의 이름, 네임스페이스의 기본 액세스 키를 기록해 둡니다. 액세스 키를 얻는 방법은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)를 참조하세요. 기본 키 이름은 *RootManageSharedAccessKey*입니다. 이 빠른 시작에서는 기본 키만 필요합니다. 연결 문자열은 필요 없습니다.  
+[Event Hubs 네임스페이스를 만들고 이 네임스페이스에 이벤트 허브를 만듭니다](event-hubs-create.md). Event Hubs 네임스페이스의 이름, 이벤트 허브의 이름, 네임스페이스의 기본 액세스 키를 기록해 둡니다. 액세스 키를 얻는 방법은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)를 참조하세요. 기본 키 이름은 *RootManageSharedAccessKey* 입니다. 이 빠른 시작에서는 기본 키만 필요합니다. 연결 문자열은 필요 없습니다.  
 - Azure 스토리지 계정, 스토리지 계정의 BLOB 컨테이너, 스토리지 계정에 대한 연결 문자열. 이러한 항목이 없으면 다음을 수행합니다.  
     1. [Azure 스토리지 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [스토리지 계정에서 BLOB 컨테이너 만들기](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
@@ -43,8 +43,8 @@ ms.locfileid: "88927870"
 이 섹션에서는 이벤트 허브로 200개 이벤트(디바이스 10대 * 이벤트 20개)를 전송하는 Python 스크립트를 만듭니다. 이러한 이벤트는 JSON 형식으로 전송되는 샘플 환경 판독값입니다. 
 
 1. 선호하는 Python 편집기(예: [Visual Studio Code][Visual Studio Code])를 엽니다.
-2. *sender.py*라는 스크립트를 만듭니다. 
-3. 다음 코드를 *sender.py*에 붙여넣습니다. 
+2. *sender.py* 라는 스크립트를 만듭니다. 
+3. 다음 코드를 *sender.py* 에 붙여넣습니다. 
    
     ```python
     import time
@@ -87,8 +87,8 @@ ms.locfileid: "88927870"
 ## <a name="create-a-python-script-to-read-your-capture-files"></a>캡처 파일을 읽는 Python 스크립트 만들기
 이 예제에서는 캡처된 데이터가 Azure Blob 스토리지에 저장됩니다. 이 섹션의 스크립트는 Azure 스토리지 계정에서 캡처된 데이터 파일을 읽은 후, 개발자가 쉽게 열어서 볼 수 있도록 CSV 파일을 생성합니다. 애플리케이션의 현재 작업 디렉터리에 10개의 파일이 있습니다. 이러한 파일에는 10개 디바이스의 환경 판독값이 포함됩니다. 
 
-1. Python 편집기에서 *capturereader.py*라는 새 스크립트를 만듭니다. 이 스크립트는 캡처된 파일을 읽고, 디바이스마다 파일을 만들어 해당 디바이스에 대한 데이터만 씁니다.
-2. *capturereader.py*에 다음 코드를 붙여넣습니다. 
+1. Python 편집기에서 *capturereader.py* 라는 새 스크립트를 만듭니다. 이 스크립트는 캡처된 파일을 읽고, 디바이스마다 파일을 만들어 해당 디바이스에 대한 데이터만 씁니다.
+2. *capturereader.py* 에 다음 코드를 붙여넣습니다. 
    
     ```python
     import os
@@ -145,7 +145,7 @@ ms.locfileid: "88927870"
     
     startProcessing()    
     ```
-3. `AZURE STORAGE CONNECTION STRING`을 Azure 스토리지 계정의 연결 문자열로 바꿉니다. 이 빠른 시작에서 만든 컨테이너의 이름은 *capture*입니다. 컨테이너에 다른 이름을 사용한 경우 *capture*를 스토리지 계정의 컨테이너 이름으로 바꿉니다. 
+3. `AZURE STORAGE CONNECTION STRING`을 Azure 스토리지 계정의 연결 문자열로 바꿉니다. 이 빠른 시작에서 만든 컨테이너의 이름은 *capture* 입니다. 컨테이너에 다른 이름을 사용한 경우 *capture* 를 스토리지 계정의 컨테이너 이름으로 바꿉니다. 
 
 ## <a name="run-the-scripts"></a>스크립트 실행
 1. 해당 경로에 Python을 포함하는 명령 프롬프트를 열고 다음 명령을 실행하여 Python 필수 구성 요소 패키지를 설치합니다.
@@ -155,7 +155,7 @@ ms.locfileid: "88927870"
    pip install azure-eventhub
    pip install avro-python3
    ```
-2. 디렉터리를 *sender.py* 및 *capturereader.py*를 저장한 디렉터리로 변경하고, 다음 명령을 실행합니다.
+2. 디렉터리를 *sender.py* 및 *capturereader.py* 를 저장한 디렉터리로 변경하고, 다음 명령을 실행합니다.
    
    ```
    python sender.py

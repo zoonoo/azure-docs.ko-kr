@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 426e28048ae370919529ea710717a3a3867d999d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783691"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746255"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Azure AD 액세스 검토를 사용하여 조건부 액세스 정책에서 제외된 사용자 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "88783691"
 
 ![조건부 액세스의 명명된 위치](./media/conditional-access-exclusion/named-locations.png)
 
-일부 사용자는 이와 같이 차단된 국가/지역에서 로그인하는 타당한 이유가 있을 수 있습니다. 예를 들어 사용자가 출장 중에 회사 리소스에 액세스해야 할 수 있습니다. 이러한 경우 이러한 국가/지역을 차단하는 조건부 액세스 정책은 정책에서 제외된 사용자 전용 클라우드 보안 그룹을 사용할 수 있습니다. 여행하는 동안 액세스해야 하는 사용자는 [Azure AD 셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)를 사용하여 그룹에 자신을 추가할 수 있습니다.
+일부 사용자는 이와 같이 차단된 국가/지역에서 로그인하는 타당한 이유가 있을 수 있습니다. 예를 들어 사용자가 출장 중에 회사 리소스에 액세스해야 할 수 있습니다. 이러한 경우 이러한 국가/지역을 차단하는 조건부 액세스 정책은 정책에서 제외된 사용자 전용 클라우드 보안 그룹을 사용할 수 있습니다. 여행하는 동안 액세스해야 하는 사용자는 [Azure AD 셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)를 사용하여 그룹에 자신을 추가할 수 있습니다.
 
 또 다른 예로 [대부분의 사용자에 대해 레거시 인증을 차단하는](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/) 조건부 액세스 정책이 있는 경우를 들 수 있습니다. 그러나 일부 사용자가 반드시 레거시 인증 방법을 사용하여 Office 2010 또는 POP/IMAP/SMTP 기반 클라이언트를 통해 리소스에 액세스해야 하는 경우 이러한 사용자를 레거시 인증 방법을 차단하는 정책에서 제외할 수 있습니다.
 
@@ -65,15 +65,15 @@ Azure AD에서는 사용자 집합에 조건부 액세스 정책의 범위를 �
 
 1. Azure Portal에 로그인합니다.
 
-2. 왼쪽 탐색에서 **Azure Active Directory**를 클릭한 다음, **그룹**을 클릭합니다.
+2. 왼쪽 탐색에서 **Azure Active Directory** 를 클릭한 다음, **그룹** 을 클릭합니다.
 
-3. 위쪽 메뉴에서 **새 그룹**을 클릭하여 그룹 창을 엽니다.
+3. 위쪽 메뉴에서 **새 그룹** 을 클릭하여 그룹 창을 엽니다.
 
-4. **그룹 형식** 목록에서 **보안**을 선택합니다. 이름 및 설명을 지정합니다.
+4. **그룹 형식** 목록에서 **보안** 을 선택합니다. 이름 및 설명을 지정합니다.
 
-5. **멤버 자격** 형식을 **할당됨**으로 설정해야 합니다.
+5. **멤버 자격** 형식을 **할당됨** 으로 설정해야 합니다.
 
-6. 이 제외 그룹의 일부인 사용자를 선택한 다음, **만들기**를 클릭합니다.
+6. 이 제외 그룹의 일부인 사용자를 선택한 다음, **만들기** 를 클릭합니다.
 
 ![Azure Active Directory의 새로운 그룹 창](./media/conditional-access-exclusion/new-group.png)
 
@@ -81,17 +81,17 @@ Azure AD에서는 사용자 집합에 조건부 액세스 정책의 범위를 �
 
 이제 이 제외 그룹을 사용하는 조건부 액세스 정책을 만들 수 있습니다.
 
-1. 왼쪽 탐색에서 **Azure Active Directory**를 클릭한 다음, **조건부 액세스**를 클릭하여 **정책** 블레이드를 엽니다.
+1. 왼쪽 탐색에서 **Azure Active Directory** 를 클릭한 다음, **조건부 액세스** 를 클릭하여 **정책** 블레이드를 엽니다.
 
-2. **새 정책**을 클릭하여 **새로 만들기** 창을 엽니다.
+2. **새 정책** 을 클릭하여 **새로 만들기** 창을 엽니다.
 
 3. 이름을 지정합니다.
 
-4. 할당 아래에서 **사용자 및 그룹**을 클릭합니다.
+4. 할당 아래에서 **사용자 및 그룹** 을 클릭합니다.
 
-5. **포함** 탭에서 **모든 사용자**를 선택합니다.
+5. **포함** 탭에서 **모든 사용자** 를 선택합니다.
 
-6. **제외** 탭에서 **사용자 및 그룹**에 대한 확인 표시를 추가한 다음, **제외된 사용자 선택**을 클릭합니다.
+6. **제외** 탭에서 **사용자 및 그룹** 에 대한 확인 표시를 추가한 다음, **제외된 사용자 선택** 을 클릭합니다.
 
 7. 만든 제외 그룹을 선택합니다.
 
@@ -154,11 +154,11 @@ Azure AD에서는 사용자 집합에 조건부 액세스 정책의 범위를 �
 
 2. 제외 그룹을 관리하기 위해 만든 컨트롤 및 프로그램을 엽니다.
 
-3. **결과**를 클릭하여 목록에 유지되도록 승인된 사용자 및 제거된 사용자를 확인합니다.
+3. **결과** 를 클릭하여 목록에 유지되도록 승인된 사용자 및 제거된 사용자를 확인합니다.
 
     ![액세스 검토 결과는 승인된 사용자를 표시합니다.](./media/conditional-access-exclusion/access-reviews-results.png)
 
-4. 그런 다음, **감사 로그**를 클릭하여 검토하는 동안 수행된 작업을 확인합니다.
+4. 그런 다음, **감사 로그** 를 클릭하여 검토하는 동안 수행된 작업을 확인합니다.
 
     ![액세스 검토 감사 로그에 나열된 작업](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 

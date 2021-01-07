@@ -4,10 +4,10 @@ description: 이 항목에서는 기록 정책을 관리 하는 방법을 설명
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: d3a1be915dc1cc8714e49cc7b2fe68bbe9cad161
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87011484"
 ---
 # <a name="manage-recording-policy"></a>녹음/녹화 정책 관리

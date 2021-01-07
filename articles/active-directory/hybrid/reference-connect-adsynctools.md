@@ -5,18 +5,18 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f81af557242503c6380d0ff7bc1dfaed852cd908
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1652c52dcc6870e396d74a2f38fe63c304d37df5
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070686"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672271"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
@@ -27,7 +27,9 @@ ADSyncTools PowerShell 모듈을 설치 하려면 다음을 수행 합니다.
 1.  관리를 사용 하 여 Windows PowerShell 열기
 2.  다음을 입력 하거나 복사 하 여 붙여넣습니다. 
     ``` powershell
-    Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+        Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
     ```
 3.  Enter 키를 누릅니다.
 4.  모듈이 설치 되었는지 확인 하려면 다음을 입력 하거나 복사 하 여 붙여넣습니다.
@@ -554,8 +556,8 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 #Required Parameters
 ```
 
-$sourcePath = 읽기-호스트 프롬프트 "파일 이름이" # "인 로그 파일 경로를 입력 합니다." \<Source_Path\> $outputPath = 읽기-호스트-프롬프트 "파일 이름" # "을 (를) 사용 하 여 출력 파일 경로 입력 \<Out_Path\>
- 
+$sourcePath = Read-Host-프롬프트 "파일 이름이" # "인 로그 파일 경로를 입력 합니다." \<Source_Path\> $outputPath = Read-Host-프롬프트 "파일 이름이" # "인 파일 경로를 입력 합니다. \<Out_Path\>
+
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### <a name="example-2"></a>예제 2

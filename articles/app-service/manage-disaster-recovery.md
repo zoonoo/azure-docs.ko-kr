@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073734"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>App Service 앱을 다른 지역으로 이동
@@ -17,7 +17,7 @@ ms.locfileid: "87073734"
 
 App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할 수 없습니다. 앱을 다른 지역의 새 앱으로 복원한 다음 새 앱에 대 한 미러링 구성 또는 리소스를 만들어야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 없음 [스냅숏에서 복원은](app-service-web-restore-snapshots.md) 일반적으로 **프리미엄** 계층이 필요 하지만 재해 복구 모드에서 영향 받는 앱이 있는 계층에 관계 없이 영향을 받는 앱에 대해 자동으로 사용 하도록 설정 됩니다.
 
@@ -47,7 +47,7 @@ App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할
 
 1. **백업 복원** 페이지에서 다음 표에 따라 복원 작업을 구성 합니다. 완료되었으면 **확인**을 클릭합니다.
 
-   | 설정 | Value | 설명 |
+   | 설정 | 값 | 설명 |
    |-|-|-|
    | **스냅숏 (미리 보기)** | 스냅숏을 선택 합니다. | 가장 최근의 두 스냅숏이 제공 됩니다. |
    | **복원 대상** | **기존 앱** | 다음을 클릭 하 여 **복원 대상 앱을 변경** 하 고 대상 앱을 선택 합니다. 재해 시나리오에서는 다른 Azure 지역에 있는 앱에만 스냅숏을 복원할 수 있습니다. |
@@ -78,7 +78,7 @@ App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할
     3 개의 특성 값을 복사 합니다. 
         
     - `publishUrl`: FTP 호스트 이름
-    - `userName`및 `userPWD` : FTP 자격 증명
+    - `userName` 및 `userPWD` : FTP 자격 증명
 
 1. 원하는 FTP 클라이언트를 사용 하 여 호스트 이름 및 자격 증명을 사용 하 여 영향을 받는 앱의 FTP 호스트에 연결 합니다.
 

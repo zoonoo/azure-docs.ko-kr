@@ -5,13 +5,13 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.custom: devx-track-java
-ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 20792d58ab259f93d7725fbafda1507f9eddc740
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372453"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862159"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>자습서: Java에서 Event Hub 트리거 및 Azure Cosmos DB 출력 바인딩을 사용하여 함수 만들기
 
@@ -30,17 +30,14 @@ ms.locfileid: "87372453"
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
-* [Java Developer Kit](https://aka.ms/azure-jdks), 버전 8
-* [Apache Maven](https://maven.apache.org), 버전 3.0 이상
-* [Azure CLI](/cli/azure/install-azure-cli)(Cloud Shell을 사용하지 않으려는 경우)
-* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 버전 2.6.666 이상
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), 버전 8
+- [Apache Maven](https://maven.apache.org), 버전 3.0 이상
+- [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 버전 2.6.666 이상 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 `JAVA_HOME` 환경 변수를 JDK의 설치 위치로 설정해야 합니다.
 
 이 자습서의 코드를 직접 사용하려면 [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) 샘플 리포지토리를 참조하세요.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-azure-resources"></a>Azure 리소스 만들기
 
@@ -53,15 +50,13 @@ ms.locfileid: "87372453"
 
 다음 섹션에서는 Azure CLI를 사용하여 이러한 리소스를 만드는 방법을 보여 줍니다.
 
-### <a name="log-in-to-azure"></a>Azure에 로그인
-
-Cloud Shell을 사용하지 않는 경우 Azure CLI를 로컬로 사용하여 계정에 액세스해야 합니다. Bash 프롬프트의 `az login` 명령을 사용하여 브라우저 기반 로그인 환경을 시작합니다. 둘 이상의 Azure 구독에 액세스할 수 있는 경우 기본값을 구독 ID가 뒤에 나오는 `az account set --subscription`으로 설정합니다.
-
 ### <a name="set-environment-variables"></a>환경 변수 설정
 
 다음으로, 만들 리소스의 이름과 위치에 대한 몇 가지 환경 변수를 만듭니다. 다음 명령을 사용하여 `<value>` 자리 표시자를 선택한 값으로 바꿉니다. 값은 [Azure 리소스에 대한 명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 준수해야 합니다. `LOCATION` 변수의 경우 `az functionapp list-consumption-locations` 명령으로 생성되는 값 중 하나를 사용합니다.
 
-```azurecli-interactive
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```Bash
 RESOURCE_GROUP=<value>
 EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
@@ -72,6 +67,21 @@ FUNCTION_APP=<value>
 LOCATION=<value>
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+set RESOURCE_GROUP=<value>
+set EVENT_HUB_NAMESPACE=<value>
+set EVENT_HUB_NAME=<value>
+set EVENT_HUB_AUTHORIZATION_RULE=<value>
+set COSMOS_DB_ACCOUNT=<value>
+set STORAGE_ACCOUNT=<value>
+set FUNCTION_APP=<value>
+set LOCATION=<value>
+```
+
+---
+
 이 자습서의 나머지 부분에서는 이러한 변수를 사용합니다. 이러한 변수는 현재 Azure CLI 또는 Cloud Shell 세션이 지속되는 동안에만 유지됩니다. 다른 로컬 터미널 창을 사용하거나 Cloud Shell 세션 시간이 초과되면 이러한 명령을 다시 실행해야 합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -80,15 +90,29 @@ Azure는 리소스 그룹을 사용하여 계정의 모든 관련 리소스를 �
 
 다음 명령을 사용하여 리소스 그룹을 만듭니다.
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az group create \
     --name $RESOURCE_GROUP \
     --location $LOCATION
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az group create ^
+    --name %RESOURCE_GROUP% ^
+    --location %LOCATION%
+```
+
+---
+
 ### <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
 다음으로, 다음 명령을 사용하여 Azure Event Hubs 네임스페이스, 이벤트 허브 및 권한 부여 규칙을 만듭니다.
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az eventhubs namespace create \
@@ -107,33 +131,78 @@ az eventhubs eventhub authorization-rule create \
     --rights Listen Send
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az eventhubs namespace create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %EVENT_HUB_NAMESPACE%
+az eventhubs eventhub create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %EVENT_HUB_NAME% ^
+    --namespace-name %EVENT_HUB_NAMESPACE% ^
+    --message-retention 1
+az eventhubs eventhub authorization-rule create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %EVENT_HUB_AUTHORIZATION_RULE% ^
+    --eventhub-name %EVENT_HUB_NAME% ^
+    --namespace-name %EVENT_HUB_NAMESPACE% ^
+    --rights Listen Send
+```
+
+---
+
 Event Hubs 네임스페이스에는 실제 이벤트 허브 및 해당 권한 부여 규칙이 포함되어 있습니다. 권한 부여 규칙을 사용하면 함수에서 허브로 메시지를 보내고 해당 이벤트를 수신 대기할 수 있습니다. 한 함수에서 원격 분석 데이터를 나타내는 메시지를 보냅니다. 다른 함수에서는 이벤트를 수신 대기하고, 이벤트 데이터를 분석하고, 결과를 Azure Cosmos DB에 저장합니다.
 
 ### <a name="create-an-azure-cosmos-db"></a>Azure Cosmos DB 만들기
 
 다음으로, 다음 명령을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컬렉션을 만듭니다.
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az cosmosdb create \
     --resource-group $RESOURCE_GROUP \
     --name $COSMOS_DB_ACCOUNT
-az cosmosdb database create \
-    --resource-group-name $RESOURCE_GROUP \
-    --name $COSMOS_DB_ACCOUNT \
-    --db-name TelemetryDb
-az cosmosdb collection create \
-    --resource-group-name $RESOURCE_GROUP \
-    --name $COSMOS_DB_ACCOUNT \
-    --collection-name TelemetryInfo \
-    --db-name TelemetryDb \
+az cosmosdb sql database create \
+    --resource-group $RESOURCE_GROUP \
+    --account-name $COSMOS_DB_ACCOUNT \
+    --name TelemetryDb
+az cosmosdb sql container create \
+    --resource-group $RESOURCE_GROUP \
+    --account-name $COSMOS_DB_ACCOUNT \
+    --database-name TelemetryDb \
+    --name TelemetryInfo \
     --partition-key-path '/temperatureStatus'
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az cosmosdb create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %COSMOS_DB_ACCOUNT%
+az cosmosdb sql database create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --account-name %COSMOS_DB_ACCOUNT% ^
+    --name TelemetryDb
+az cosmosdb sql container create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --account-name %COSMOS_DB_ACCOUNT% ^
+    --database-name TelemetryDb ^
+    --name TelemetryInfo ^
+    --partition-key-path "/temperatureStatus"
+```
+
+---
 
 `partition-key-path` 값은 각 항목의 `temperatureStatus` 값을 기준으로 데이터를 분할합니다. 파티션 키를 사용하면 Cosmos DB에서 데이터를 독립적으로 액세스할 수 있는 고유한 하위 세트로 분할하여 성능을 향상시킬 수 있습니다.
 
 ### <a name="create-a-storage-account-and-function-app"></a>스토리지 계정 및 함수 앱 만들기
 
 다음으로, Azure Functions에 필요한 Azure Storage 계정을 만든 다음, 함수 앱을 만듭니다. 다음 명령을 사용합니다.
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az storage account create \
@@ -145,8 +214,27 @@ az functionapp create \
     --name $FUNCTION_APP \
     --storage-account $STORAGE_ACCOUNT \
     --consumption-plan-location $LOCATION \
-    --runtime java
+    --runtime java \
+    --functions-version 2
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az storage account create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %STORAGE_ACCOUNT% ^
+    --sku Standard_LRS
+az functionapp create ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %FUNCTION_APP% ^
+    --storage-account %STORAGE_ACCOUNT% ^
+    --consumption-plan-location %LOCATION% ^
+    --runtime java ^
+    --functions-version 2
+```
+
+---
 
 `az functionapp create` 명령은 함수 앱을 만들 때 동일한 이름의 Application Insights 리소스도 만듭니다. 함수 앱은 Application Insights에 연결하는 `APPINSIGHTS_INSTRUMENTATIONKEY`라는 설정을 통해 자동으로 구성됩니다. 이 자습서의 뒷부분에서 설명한 대로 함수가 Azure에 배포되면 앱 원격 분석을 볼 수 있습니다.
 
@@ -157,6 +245,8 @@ az functionapp create \
 ### <a name="retrieve-resource-connection-strings"></a>리소스 연결 문자열 검색
 
 다음 명령을 사용하여 스토리지, 이벤트 허브 및 Cosmos DB 연결 문자열을 검색하고 환경 변수에 저장합니다.
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 AZURE_WEB_JOBS_STORAGE=$( \
@@ -179,16 +269,45 @@ COSMOS_DB_CONNECTION_STRING=$( \
         --resource-group $RESOURCE_GROUP \
         --name $COSMOS_DB_ACCOUNT \
         --type connection-strings \
-        --query connectionStrings[0].connectionString \
+        --query 'connectionStrings[0].connectionString' \
         --output tsv)
 echo $COSMOS_DB_CONNECTION_STRING
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+FOR /F "delims=" %X IN (' ^
+    az storage account show-connection-string ^
+        --name %STORAGE_ACCOUNT% ^
+        --query connectionString ^
+        --output tsv') DO SET AZURE_WEB_JOBS_STORAGE=%X
+FOR /F "delims=" %X IN (' ^
+    az eventhubs eventhub authorization-rule keys list ^
+        --resource-group %RESOURCE_GROUP% ^
+        --name %EVENT_HUB_AUTHORIZATION_RULE% ^
+        --eventhub-name %EVENT_HUB_NAME% ^
+        --namespace-name %EVENT_HUB_NAMESPACE% ^
+        --query primaryConnectionString ^
+        --output tsv') DO SET EVENT_HUB_CONNECTION_STRING=%X
+FOR /F "delims=" %X IN (' ^
+    az cosmosdb keys list ^
+        --resource-group %RESOURCE_GROUP% ^
+        --name %COSMOS_DB_ACCOUNT% ^
+        --type connection-strings ^
+        --query connectionStrings[0].connectionString ^
+        --output tsv') DO SET COSMOS_DB_CONNECTION_STRING=%X
+```
+
+---
 
 이러한 변수는 Azure CLI 명령에서 검색된 값으로 설정됩니다. 각 명령은 JMESPath 쿼리를 사용하여 반환된 JSON 페이로드에서 연결 문자열을 추출합니다. 연결 문자열도 `echo`를 사용하여 표시되므로 성공적으로 검색되었는지 확인할 수 있습니다.
 
 ### <a name="update-your-function-app-settings"></a>함수 앱 설정 업데이트
 
 다음으로, 다음 명령을 사용하여 연결 문자열 값을 Azure Functions 계정의 앱 설정으로 전송합니다.
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli-interactive
 az functionapp config appsettings set \
@@ -200,6 +319,20 @@ az functionapp config appsettings set \
         CosmosDBConnectionString=$COSMOS_DB_CONNECTION_STRING
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az functionapp config appsettings set ^
+    --resource-group %RESOURCE_GROUP% ^
+    --name %FUNCTION_APP% ^
+    --settings ^
+        AzureWebJobsStorage=%AZURE_WEB_JOBS_STORAGE% ^
+        EventHubConnectionString=%EVENT_HUB_CONNECTION_STRING% ^
+        CosmosDBConnectionString=%COSMOS_DB_CONNECTION_STRING%
+```
+
+---
+
 이제 Azure 리소스가 만들어지고, 모두 제대로 작동하도록 구성되었습니다.
 
 ## <a name="create-and-test-your-functions"></a>함수 만들기 및 테스트
@@ -208,16 +341,29 @@ az functionapp config appsettings set \
 
 Cloud Shell을 사용하여 리소스를 만든 경우 Azure에 로컬로 연결되지 않습니다. 이 경우 `az login` 명령을 사용하여 브라우저 기반 로그인 프로세스를 시작합니다. 그런 다음, 필요한 경우 기본 구독을 구독 ID가 뒤에 나오는 `az account set --subscription`으로 설정합니다. 마지막으로, 다음 명령을 실행하여 로컬 머신에서 일부 환경 변수를 다시 만듭니다. `<value>` 자리 표시자를 이전에 사용한 것과 동일한 값으로 바꿉니다.
 
-```bash
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```Bash
 RESOURCE_GROUP=<value>
 FUNCTION_APP=<value>
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+set RESOURCE_GROUP=<value>
+set FUNCTION_APP=<value>
+```
+
+---
 
 ### <a name="create-a-local-functions-project"></a>로컬 함수 프로젝트 만들기
 
 다음 Maven 명령을 사용하여 함수 프로젝트를 만들고, 필요한 종속성을 추가합니다.
 
-```bash
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```Bash
 mvn archetype:generate --batch-mode \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype \
@@ -226,6 +372,20 @@ mvn archetype:generate --batch-mode \
     -DgroupId=com.example \
     -DartifactId=telemetry-functions
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn archetype:generate --batch-mode ^
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-archetype ^
+    -DappName=%FUNCTION_APP% ^
+    -DresourceGroup=%RESOURCE_GROUP% ^
+    -DgroupId=com.example ^
+    -DartifactId=telemetry-functions
+```
+
+---
 
 이 명령은 `telemetry-functions` 폴더 내에 다음과 같은 여러 파일을 생성합니다.
 
@@ -237,18 +397,39 @@ mvn archetype:generate --batch-mode \
 
 컴파일 오류를 방지하려면 테스트 파일을 삭제해야 합니다. 다음 명령을 실행하여 새 프로젝트 폴더로 이동하고, test 폴더를 삭제합니다.
 
-```bash
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```Bash
 cd telemetry-functions
 rm -r src/test
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+cd telemetry-functions
+rmdir /s /q src\test
+```
+
+---
 
 ### <a name="retrieve-your-function-app-settings-for-local-use"></a>로컬에서 사용할 함수 앱 설정 검색
 
 로컬 테스트의 경우 함수 프로젝트에는 이 자습서의 앞부분에서 Azure의 함수 앱에 추가한 연결 문자열이 필요합니다. 다음 Azure Functions Core Tools 명령을 사용합니다. 이 명령은 클라우드에 저장된 모든 함수 앱 설정을 검색하여 `local.settings.json` 파일에 추가합니다.
 
-```bash
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```Bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+func azure functionapp fetch-app-settings %FUNCTION_APP%
+```
+
+---
 
 ### <a name="add-java-code"></a>Java 코드 추가
 
@@ -394,10 +575,21 @@ public class TelemetryItem {
 
 다음 Maven 명령을 사용하여 함수를 빌드하고 실행합니다.
 
-```bash
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```Bash
 mvn clean package
 mvn azure-functions:run
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn clean package
+mvn azure-functions:run
+```
+
+---
 
 일부 빌드 및 시작 메시지 후에는 함수가 실행될 때마다 다음 예제와 비슷한 출력이 표시됩니다.
 
@@ -412,7 +604,7 @@ mvn azure-functions:run
 [10/22/19 4:01:38 AM] Executed 'Functions.processSensorData' (Succeeded, Id=1cf0382b-0c98-4cc8-9240-ee2a2f71800d)
 ```
 
-그런 다음, [Azure Portal](https://portal.azure.com), Azure Cosmos DB 계정으로 차례로 이동할 수 있습니다. **데이터 탐색기**를 선택하고, **TelemetryInfo**를 펼친 다음, **항목**을 선택하여 데이터가 도착하면 이를 확인합니다.
+그런 다음, [Azure Portal](https://portal.azure.com), Azure Cosmos DB 계정으로 차례로 이동할 수 있습니다. **데이터 탐색기** 를 선택하고, **TelemetryInfo** 를 펼친 다음, **항목** 을 선택하여 데이터가 도착하면 이를 확인합니다.
 
 ![Cosmos DB Data Explorer](media/functions-event-hub-cosmos-db/data-explorer.png)
 
@@ -422,9 +614,19 @@ mvn azure-functions:run
 
 다음 명령을 사용하여 프로젝트를 Azure에 배포합니다.
 
-```bash
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```Bash
 mvn azure-functions:deploy
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn azure-functions:deploy
+```
+
+---
 
 이제 함수가 Azure에서 실행되고, 데이터를 Azure Cosmos DB에 계속 누적합니다. 다음 스크린샷과 같이 Azure Portal에서 배포된 함수 앱을 보고, 연결된 Application Insights 리소스를 통해 앱 원격 분석을 볼 수 있습니다.
 
@@ -440,9 +642,19 @@ mvn azure-functions:deploy
 
 이 자습서에서 만든 Azure 리소스가 완료되면 다음 명령을 사용하여 해당 리소스를 삭제할 수 있습니다.
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az group delete --name %RESOURCE_GROUP%
+```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

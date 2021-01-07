@@ -7,19 +7,23 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
-ms.date: 05/21/2019
-ms.openlocfilehash: 70dbceb51ed030124d1b793d77c6bc287da91065
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 11/25/2020
+ms.openlocfilehash: 2a778c2e9a44bda148fd40112776858943cffe4e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687631"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188618"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 소개
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB Cassandra API는 [Apache Cassandra](https://cassandra.apache.org)용으로 작성된 앱의 데이터 저장소로 사용할 수 있습니다. 이는 CQLv4와 호환되는 기존의 [Apache 드라이버](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)를 사용하면 기존의 Cassandra 애플리케이션이 이제는 Azure Cosmos DB Cassandra API와 통신할 수 있음을 의미합니다. 대부분의 경우 연결 문자열을 변경하기만 하면 Apache Cassandra 사용에서 Azure Cosmos DB의 Cassandra API 사용으로 전환할 수 있습니다. 
 
 Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cassandra 기반 도구(예: cqlsh) 및 Cassandra 클라이언트 드라이버를 사용하여 Azure Cosmos DB에 저장된 데이터와 상호 작용할 수 있습니다.
+
+> [!NOTE]
+> 이제 Azure Cosmos DB의 Cassandra API에서 [서버리스 용량 모드](serverless.md)를 사용할 수 있습니다.
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB용 Apache Cassandra API를 사용하는 이점은 무엇인가요?
 
@@ -31,7 +35,7 @@ Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cas
 
 **기존 코드 및 도구 사용 가능**: Azure Cosmos DB는 기존 Cassandra SDK 및 도구와 유선 프로토콜 수준의 호환성을 제공합니다. 이 호환성을 통해 간단한 변경 사항이 있는 Azure Cosmos DB Cassandra API와 함께 기존 코드베이스를 사용할 수 있습니다.
 
-**처리량 및 스토리지 탄력성**: Azure Cosmos DB는 Azure Portal, PowerShell 또는 CLI 작업을 통해 지역 전체에서 보장된 처리량을 제공하여 프로비전된 처리량을 크기 조정할 수 있습니다. 예측 가능한 성능으로 필요에 따라 테이블에 대한 처리량 및 스토리지를 [탄력적으로 확장](manage-scale-cassandra.md)할 수 있습니다.
+**처리량 및 스토리지 탄력성**: Azure Cosmos DB는 Azure Portal, PowerShell 또는 CLI 작업을 통해 지역 전체에서 처리량을 제공하여 프로비저닝된 처리량을 확장할 수 있습니다. 예측 가능한 성능으로 필요에 따라 테이블에 대한 처리량 및 스토리지를 [탄력적으로 확장](manage-scale-cassandra.md)할 수 있습니다.
 
 **글로벌 배포 및 가용성**: Azure Cosmos DB는 전 세계 모든 Azure 지역에서 데이터를 전역적으로 배포하고 대기 시간이 짧은 데이터 액세스 및 높은 가용성을 보장하면서 데이터를 로컬로 제공하는 기능을 제공합니다. Azure Cosmos DB는 한 지역 내에서는 99.99%의 가용성을 제공하고 여러 지역에 걸쳐서는 작업 오버헤드 없이 99.999%의 읽기 및 쓰기 가용성을 제공합니다. [데이터를 글로벌 배포](distribute-data-globally.md) 문서에서 자세히 알아보세요. 
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3f2171d3271a4ffc4770dd0c9faea16c23e44d02
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 01f4f52acaa5b461e2b058f112f26dafda86dcb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005505"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025030"
 ---
 # <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)의 서비스 경고 설정
 
@@ -25,7 +25,7 @@ Azure Service Health를 사용하여 Windows Virtual Desktop에 대한 서비스
 > [!div class="checklist"]
 > * 서비스 경고를 만들고 구성합니다.
 
-Azure Service Health에 대한 자세한 내용은 [Azure Health 설명서](https://docs.microsoft.com/azure/service-health/)를 참조하세요.
+Azure Service Health에 대한 자세한 내용은 [Azure Health 설명서](../../service-health/index.yml)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,8 +51,8 @@ Azure Service Health에 대한 자세한 내용은 [Azure Health 설명서](http
 서비스 경고를 구성하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Service Health**를 선택합니다.
-3. [서비스 알림에 대한 활동 로그 경고 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal)의 지침을 사용하여 경고 및 알림을 설정합니다.
+2. **Service Health** 를 선택합니다.
+3. [서비스 알림에 대한 활동 로그 경고 만들기](../../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json)의 지침을 사용하여 경고 및 알림을 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

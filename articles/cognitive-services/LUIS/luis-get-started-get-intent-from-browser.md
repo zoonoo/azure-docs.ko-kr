@@ -1,16 +1,18 @@
 ---
-title: '빠른 시작: 브라우저를 사용한 예측 쿼리 - LUIS'
-description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 브라우저의 대화형 텍스트에서 사용자의 의도를 판단합니다.
-ms.topic: quickstart
-ms.date: 04/21/2020
-ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+title: 브라우저를 사용하여 예측을 쿼리하는 방법 - LUIS
+description: 이 문서에서는 사용 가능한 공용 LUIS 앱을 통해 브라우저의 대화형 텍스트에서 사용자의 의도를 판단합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 11/30/2020
+ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245998"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96436915"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>빠른 시작: 사용자 텍스트로 예측 런타임 쿼리
+# <a name="how-to-query-the-prediction-runtime-with-user-text"></a>사용자 텍스트로 예측 런타임을 쿼리하는 방법
 
 LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우저에서 예측 결과를 확인하세요.
 
@@ -20,7 +22,7 @@ LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우
 
 * LUIS(Language Understanding) 리소스 정보:
     * **예측 키** - [LUIS Portal](https://www.luis.ai/)에서 가져올 수 있습니다. 아직 키를 만들 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/cognitive-services)으로 등록할 수 있습니다.
-    * **예측 엔드 포인트 하위 도메인** - 하위 도메인은 LUIS 리소스의 **이름**이기도 합니다.
+    * **예측 엔드 포인트 하위 도메인** - 하위 도메인은 LUIS 리소스의 **이름** 이기도 합니다.
 * LUIS 앱 ID - `df67dcdb-c37d-46af-88e1-8b97951ca1c2`의 공용 IoT 앱 ID를 사용합니다. 빠른 시작 코드에 사용되는 사용자 쿼리는 해당 앱에만 적용됩니다.
 
 ## <a name="use-the-browser-to-see-predictions"></a>브라우저를 사용하여 예측 보기
@@ -95,7 +97,7 @@ LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우
 
     #### <a name="v3-prediction-endpoint"></a>[V3 예측 엔드포인트](#tab/V3-3-1)
 
-    QueryString의 끝에 `show-all-intents=true`를 추가하여 **모든 의도를 표시**합니다.
+    QueryString의 끝에 `show-all-intents=true`를 추가하여 **모든 의도를 표시** 합니다.
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true
@@ -128,7 +130,7 @@ LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우
 
     #### <a name="v2-prediction-endpoint"></a>[V2 예측 엔드포인트](#tab/V2)
 
-    QueryString의 끝에 `verbose=true`를 추가하여 **모든 의도를 표시**합니다.
+    QueryString의 끝에 `verbose=true`를 추가하여 **모든 의도를 표시** 합니다.
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&verbose=true

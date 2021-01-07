@@ -1,17 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1 성능 조정-PowerShell
 description: Azure Data Lake Storage Gen1에서 Azure PowerShell를 사용할 때 성능을 향상 시키는 방법에 대 한 팁
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/09/2018
-ms.author: stewu
-ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: 4ac2bbb21fd1a987d544a536d0f52628824e0bf4
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504698"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723816"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침
 
@@ -26,7 +26,7 @@ ms.locfileid: "85504698"
 | PerFileThreadCount  | 10      | 이 매개 변수로 각 파일의 업로드 또는 다운로드를 위한 병렬 스레드 수를 선택할 수 있습니다. 이 숫자는 파일당 할당할 수 있는 최대 스레드 수를 나타내지만 시나리오에 따라 스레드 수가 줄어들 수 있습니다 .예를 들어 1KB 파일을 업로드하는 경우 20개의 스레드를 요청해도 하나의 스레드만 발생합니다.  |
 | ConcurrentFileCount | 10      | 이 매개 변수는 특히 폴더 업로드 또는 다운로드를 위한 것입니다. 이 매개 변수는 업로드 또는 다운로드할 수 있는 동시 파일 수를 결정합니다. 이 숫자는 한 번에 업로드 또는 다운로드할 수 있는 최대 동시 파일 수를 나타내지만 시나리오에 따라 동시 수가 줄어들 수 있습니다. 예를 들어 두 개 파일을 업로드하는 경우 15개를 요청해도 두 개의 동시 파일 업로드가 발생합니다. |
 
-**예제:**
+**예:**
 
 이 명령은 파일당 20개의 스레드와 100개의 동시 파일을 사용하여 Data Lake Storage Gen1에서 사용자의 로컬 드라이브로 파일을 다운로드합니다.
 
@@ -48,7 +48,7 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
     `Total thread count = total physical cores * 6`
 
-    **예제:**
+    **예:**
 
     16개의 코어가 있는 D14 VM에서 PowerShell 명령을 실행 중이라고 가정합니다.
 
@@ -58,7 +58,7 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
     `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 
-    **예제:**
+    **예:**
 
     1GB ~ 10GB 범위의 파일 100개가 있다고 가정하면 수식에서 가장 큰 파일 크기로 10GB를 사용하며 다음과 같습니다.
 
@@ -68,13 +68,13 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
     `Total thread count = PerFileThreadCount * ConcurrentFileCount`
 
-    **예제:**
+    **예:**
 
     사용 중인 예제 값 기준
 
     `96 = 40 * ConcurrentFileCount`
 
-    따라서 **ConcurrentFileCount**는 **2.4**이고 **2**로 반올림할 수 있습니다.
+    따라서 **ConcurrentFileCount** 는 **2.4** 이고 **2** 로 반올림할 수 있습니다.
 
 ## <a name="further-tuning"></a>추가 조정
 
@@ -82,13 +82,13 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
 `PerFileThreadCount = 10 + ((5 GB - 2.5 GB) / 256 MB) = 20`
 
-즉, **ConcurrentFileCount**는 96/20(4.8)이 되고 **4**로 반올림됩니다.
+즉, **ConcurrentFileCount** 는 96/20(4.8)이 되고 **4** 로 반올림됩니다.
 
-파일 크기 분포에 따라 **PerFileThreadCount**를 늘리거나 줄여 이러한 설정을 계속해서 조정할 수 있습니다.
+파일 크기 분포에 따라 **PerFileThreadCount** 를 늘리거나 줄여 이러한 설정을 계속해서 조정할 수 있습니다.
 
 ### <a name="limitation"></a>제한 사항
 
-* **파일 수가 ConcurrentFileCount보다 작음**: 업로드 중인 파일 수가 계산한 **ConcurrentFileCount**보다 작은 경우 **ConcurrentFileCount**가 파일 수와 같도록 줄여야 합니다. 나머지 스레드를 사용하여 **PerFileThreadCount**를 늘릴 수 있습니다.
+* **파일 수가 ConcurrentFileCount보다 작음**: 업로드 중인 파일 수가 계산한 **ConcurrentFileCount** 보다 작은 경우 **ConcurrentFileCount** 가 파일 수와 같도록 줄여야 합니다. 나머지 스레드를 사용하여 **PerFileThreadCount** 를 늘릴 수 있습니다.
 
 * **스레드 수 너무 많음**: 클러스터 크기를 늘리지 않고 스레드 수를 너무 늘리면 성능 저하 위험이 있습니다. CPU에서 컨텍스트 전환 시 경합 문제가 발생할 수 있습니다.
 

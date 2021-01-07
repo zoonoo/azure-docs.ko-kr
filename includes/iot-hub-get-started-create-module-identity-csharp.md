@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: iot-hub
 author: chrissie926
@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68883798"
 ---
 ## <a name="create-a-module-identity"></a>모듈 ID 만들기
@@ -21,7 +21,7 @@ ms.locfileid: "68883798"
 
 이 콘솔 앱을 실행하면 디바이스 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 장치 및 모듈은 IoT Hub에 장치-클라우드 메시지를 보낼 때 이러한 값을 사용 하 여 자신을 식별 합니다. ID는 대/소문자를 구분합니다.
 
-1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택 합니다.
+1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다.
 
 1. **새 프로젝트 만들기**에서 **콘솔 앱 (.NET Framework)** 을 선택 합니다.
 

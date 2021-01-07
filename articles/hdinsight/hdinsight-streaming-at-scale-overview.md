@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a04ce77c7e81a3a73b87eaf5790b383dece35d86
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75435387"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022720"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight에서 대규모 스트리밍
 
 실시간 빅 데이터 솔루션은 동작 하는 데이터에 대해 작동 합니다. 일반적으로 이 데이터는 도착 시간에 가장 가치가 있습니다. 들어오는 데이터 스트림이 그 순간에 처리할 수 있는 것보다 큰 경우 리소스를 제한해야 할 수 있습니다. 또는 필요에 따라 노드를 추가하여 스트리밍 솔루션에 맞게 HDInsight 클러스터를 강화할 수 있습니다.
 
-스트리밍 애플리케이션에서 하나 이상의 데이터 원본이 유용한 정보를 삭제하지 않고 빠르게 수집해야 하는 이벤트(경우에 따라 수백만 개/초)를 생성합니다. 들어오는 이벤트는 서비스(예: [Apache Kafka](kafka/apache-kafka-introduction.md) 또는 [Event Hubs](https://azure.microsoft.com/services/event-hubs/))에서 ‘이벤트 큐’라고도 하는 ‘스트림 버퍼링’으로 처리됩니다.**** 이벤트가 수집되면 ‘스트림 처리’ 계층(예: [Apache Storm](storm/apache-storm-overview.md) 또는 [Apache Spark 스트리밍](spark/apache-spark-streaming-overview.md)) 내에서 실시간 분석 시스템을 사용하여 데이터를 분석할 수 있습니다.** 처리된 데이터는 장기 스토리지 시스템(예: [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/))에 저장될 수 있으며, 비즈니스 인텔리전스 대시보드(예: [Power BI](https://powerbi.microsoft.com), Tableau 또는 사용자 지정 웹 페이지)에 실시간으로 표시될 수 있습니다.
+스트리밍 애플리케이션에서 하나 이상의 데이터 원본이 유용한 정보를 삭제하지 않고 빠르게 수집해야 하는 이벤트(경우에 따라 수백만 개/초)를 생성합니다. 들어오는 이벤트는 서비스(예: [Apache Kafka](kafka/apache-kafka-introduction.md) 또는 [Event Hubs](https://azure.microsoft.com/services/event-hubs/))에서 ‘이벤트 큐’라고도 하는 ‘스트림 버퍼링’으로 처리됩니다. 이벤트가 수집되면 ‘스트림 처리’ 계층(예: [Apache Storm](storm/apache-storm-overview.md) 또는 [Apache Spark 스트리밍](spark/apache-spark-streaming-overview.md)) 내에서 실시간 분석 시스템을 사용하여 데이터를 분석할 수 있습니다. 처리된 데이터는 장기 스토리지 시스템(예: [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/))에 저장될 수 있으며, 비즈니스 인텔리전스 대시보드(예: [Power BI](https://powerbi.microsoft.com), Tableau 또는 사용자 지정 웹 페이지)에 실시간으로 표시될 수 있습니다.
 
 ![Azure HDInsight 스트리밍 패턴](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -35,11 +35,11 @@ Apache Storm은 내결함성이 있는 오픈 소스 분산형 계산 시스템�
 
 자세한 내용은 [Azure HDInsight의 Apache Storm이란?](storm/apache-storm-overview.md)을 참조하세요.
 
-## <a name="spark-streaming"></a>Spark 스트리밍
+## <a name="spark-streaming"></a>Spark Streaming
 
 Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하는 것과 동일한 코드를 재사용할 수 있도록 합니다. 일괄 처리 및 대화형 쿼리를 모두 동일한 애플리케이션에서 결합할 수 있습니다. 폭풍과 달리 Spark 스트리밍은 처리 의미 체계를 정확히 한 번만 제공 합니다. [Kafka DIRECT API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html)와 함께 사용 하는 경우 Spark 스트리밍이 모든 kafka 데이터를 정확히 한 번만 수신 하도록 하는 것은 완벽 하 게 한 번의 종단 간 달성할 수 있습니다. Spark 스트리밍의 장점 중 하나는 클러스터 내에서 여러 노드를 사용할 때 장애가 발생한 노드를 빠르게 복구하는 내결함성 기능입니다.
 
-자세한 내용은 [Apache Spark 스트리밍이란?](hdinsight-spark-streaming-overview.md)을 참조하세요.
+자세한 내용은 [Apache Spark 스트리밍이란?](./spark/apache-spark-streaming-overview.md)을 참조하세요.
 
 ## <a name="scaling-a-cluster"></a>클러스터 크기 조정
 
@@ -49,7 +49,7 @@ Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하�
 
 ### <a name="scale-the-stream-buffering-layer"></a>스트림 버퍼링 계층의 크기 조정
 
-스트림 버퍼링 기술인 Event Hubs와 Kafka는 모두 파티션을 사용하고, 소비자는 이러한 파티션을 읽습니다. 입력 처리량을 조정하려면 파티션 수를 강화해야 하며, 파티션을 추가하면 병렬 처리가 증가합니다. Event Hubs 배포 후에 파티션 수를 변경할 수 없으므로 대상 규모를 염두에 두어야 합니다. Kafka을 사용 하면 Kafka가 데이터를 처리 하는 동안에도 [파티션을 추가할](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)수 있습니다. Kafka는 파티션을 다시 할당하는 도구(`kafka-reassign-partitions.sh`)를 제공합니다. HDInsight는 [파티션 복제본 균형 조정 도구인](https://github.com/hdinsight/hdinsight-kafka-tools)를 제공 `rebalance_rackaware.py` 합니다. 이 재조정 도구는 각 복제본이 별도의 장애 도메인 및 업데이트 도메인에 있는 방식으로 `kafka-reassign-partitions.sh` 도구를 호출하여 Kafka 랙을 인식하고 내결함성을 향상시킵니다.
+스트림 버퍼링 기술인 Event Hubs와 Kafka는 모두 파티션을 사용하고, 소비자는 이러한 파티션을 읽습니다. 입력 처리량을 조정하려면 파티션 수를 강화해야 하며, 파티션을 추가하면 병렬 처리가 증가합니다. Event Hubs 배포 후에 파티션 수를 변경할 수 없으므로 대상 규모를 염두에 두어야 합니다. Kafka을 사용 하면 Kafka가 데이터를 처리 하는 동안에도 [파티션을 추가할](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)수 있습니다. Kafka는 파티션을 다시 할당하는 도구(`kafka-reassign-partitions.sh`)를 제공합니다. HDInsight는 [파티션 복제본 균형 조정 도구인](https://github.com/hdinsight/hdinsight-kafka-tools)를 제공  `rebalance_rackaware.py` 합니다. 이 재조정 도구는 각 복제본이 별도의 장애 도메인 및 업데이트 도메인에 있는 방식으로 `kafka-reassign-partitions.sh` 도구를 호출하여 Kafka 랙을 인식하고 내결함성을 향상시킵니다.
 
 ### <a name="scale-the-stream-processing-layer"></a>스트림 처리 계층의 크기 조정
 
@@ -57,7 +57,7 @@ Apache Storm과 Spark 스트리밍은 모두 데이터를 처리하는 동안에
 
 Storm 크기 조정을 통해 추가된 새 노드를 활용하려면, 클러스터 크기를 늘리기 전에 시작된 모든 Storm 토폴로지의 균형을 다시 조정해야 합니다. 이 재조정은 Storm 웹 UI 또는 CLI를 사용하여 수행할 수 있습니다. 자세한 내용은 [Apache Storm 설명서](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
 
-Apache Spark는 애플리케이션 요구 사항에 따라 환경을 구성하기 위한 세 가지 주요 매개 변수(`spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`)를 사용합니다. *실행기*는 Spark 애플리케이션에 대해 시작되는 프로세스입니다. 실행기는 작업자 노드에서 실행되며 애플리케이션의 작업을 수행해야 합니다. 실행기의 기본 수와 각 클러스터에 대한 실행기의 크기는 작업자 노드의 수와 크기에 따라 계산됩니다. 이러한 숫자는 각 클러스터 헤드 노드의 `spark-defaults.conf` 파일에 저장됩니다.
+Apache Spark는 애플리케이션 요구 사항에 따라 환경을 구성하기 위한 세 가지 주요 매개 변수(`spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`)를 사용합니다. *실행기* 는 Spark 애플리케이션에 대해 시작되는 프로세스입니다. 실행기는 작업자 노드에서 실행되며 애플리케이션의 작업을 수행해야 합니다. 실행기의 기본 수와 각 클러스터에 대한 실행기의 크기는 작업자 노드의 수와 크기에 따라 계산됩니다. 이러한 숫자는 각 클러스터 헤드 노드의 `spark-defaults.conf` 파일에 저장됩니다.
 
 이러한 세 매개 변수는 클러스터에서 실행되는 모든 애플리케이션에 대해 클러스터 수준에서 구성할 수 있으며, 각 애플리케이션별로 지정할 수도 있습니다. 자세한 내용은 [Apache Spark 클러스터용 리소스 관리](spark/apache-spark-resource-manager.md)를 참조하세요.
 

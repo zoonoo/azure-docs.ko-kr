@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 840c371e63aacf8ef410cbf84cc9f68137dd77df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477586"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL.js를 사용 하 여 인증 요청에서 사용자 지정 상태 전달
@@ -46,12 +46,12 @@ export type AuthenticationParameters = {
 
 > [!Note]
 > 캐시 된 토큰을 건너뛰고 서버로 이동 하려면 `forceRefresh` 로그인/토큰 요청을 수행 하는 데 사용 되는 AuthenticationParameters 개체에 부울을 전달 하세요.
-> `forceRefresh`응용 프로그램의 성능에 미치는 영향 때문에 기본적으로를 사용 하면 안 됩니다.
+> `forceRefresh` 응용 프로그램의 성능에 미치는 영향 때문에 기본적으로를 사용 하면 안 됩니다.
 > 캐시에 의존 하면 사용자에 게 더 나은 환경이 제공 됩니다.
 > 캐시를 건너뛰는 것은 현재 캐시 된 데이터에 최신 정보가 없다는 것을 알고 있는 경우에만 사용 해야 합니다.
 > 업데이트 된 역할이 있는 새 토큰을 가져와야 하는 사용자에 게 역할을 추가 하는 관리 도구입니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```javascript
 let loginRequest = {

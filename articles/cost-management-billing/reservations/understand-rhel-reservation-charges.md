@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 4314a52488473bcacd4aa62a0e8f44d88d2b75f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8e735d623cc991d2e3720e0ec418eee77aa8c46c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681603"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350860"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Azure에 Red Hat Linux Enterprise 소프트웨어 예약 요금제 할인이 적용되는 방식 이해
 
@@ -53,8 +53,8 @@ Azure Portal Marketplace 이름:
 예약에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
-- [Azure 예약에서 Red Hat 소프트웨어 요금제에 대한 선불](../../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure 예약에서 Red Hat 소프트웨어 요금제에 대한 선불](../../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Azure용 예약 관리](manage-reserved-vm-instance.md)
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)

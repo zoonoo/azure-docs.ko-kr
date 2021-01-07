@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1c4f47fd771cfb92b3896963c96b39d9eb7d97b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119881"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344881"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>B2C와 함께 Android 용 MSAL 사용
 
@@ -30,9 +30,9 @@ Android 용 MSAL에서 B2C 정책 (사용자 경험)은 개별 기관으로 구�
 
 두 개의 정책이 있는 B2C 응용 프로그램을 제공 합니다.
 - 등록/로그인
-    * 이름의`B2C_1_SISOPolicy`
+    * 이름의 `B2C_1_SISOPolicy`
 - 프로필 편집
-    * 이름의`B2C_1_EditProfile`
+    * 이름의 `B2C_1_EditProfile`
 
 앱에 대 한 구성 파일은 2를 선언 `authorities` 합니다. 각 정책에 대해 하나씩입니다. `type`각 기관의 속성은 `B2C` 입니다.
 
@@ -54,11 +54,11 @@ Android 용 MSAL에서 B2C 정책 (사용자 경험)은 개별 기관으로 구�
 }
 ```
 
-는 `redirect_uri` 앱 구성에 등록 되어 있어야 하며, `AndroidManifest.xml` [인증 코드 부여 흐름](../../active-directory-b2c/authorization-code-flow.md)동안 리디렉션을 지원 하기 위해에도 있어야 합니다.
+는 `redirect_uri` 앱 구성에 등록 되어 있어야 하며,  `AndroidManifest.xml` [인증 코드 부여 흐름](../../active-directory-b2c/authorization-code-flow.md)동안 리디렉션을 지원 하기 위해에도 있어야 합니다.
 
 ## <a name="initialize-ipublicclientapplication"></a>IPublicClientApplication 초기화
 
-`IPublicClientApplication`는 팩터리 메서드에서 생성 되어 응용 프로그램 구성을 비동기적으로 구문 분석할 수 있도록 합니다.
+`IPublicClientApplication` 는 팩터리 메서드에서 생성 되어 응용 프로그램 구성을 비동기적으로 구문 분석할 수 있도록 합니다.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -129,7 +129,7 @@ AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Build
 
         @Override
         public void onError(MsalException exception) {
-            // Token request was unsuccesful, inspect the exception
+            // Token request was unsuccessful, inspect the exception
         }
     })
     .build();
@@ -139,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>정책 지정
 
-B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예를 들면 다음과 같습니다.
+B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -235,7 +235,7 @@ B2C는 각 정책을 별도의 기관으로 처리 합니다. 따라서 각 정�
 
 각 정책은 `IAccount` 각 사용자의 캐시에를 추가 합니다. 사용자가 응용 프로그램에 로그인 하 고 두 개의 정책을 호출 하는 경우 두 개의를 갖게 됩니다 `IAccount` . 캐시에서이 사용자를 제거 하려면 `removeAccount()` 각 정책에 대해를 호출 해야 합니다.
 
-에서 정책에 대 한 토큰을 갱신 하는 경우 정책에 대 한 `acquireTokenSilent` `IAccount` 이전 호출에서 반환 된 것과 동일한를 제공 `AcquireTokenSilentParameters` 합니다. 다른 정책에서 반환 된 계정을 제공 하면 오류가 발생 합니다.
+에서 정책에 대 한 토큰을 갱신 하는 경우 정책에 대 한 `acquireTokenSilent` `IAccount` 이전 호출에서 반환 된 것과 동일한를 제공  `AcquireTokenSilentParameters` 합니다. 다른 정책에서 반환 된 계정을 제공 하면 오류가 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,15 +10,20 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cc73dcf6376dc5a222b1b68d67e4f02090258807
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: bcb82ffcf4c4ad861c6523f507c816c666a71772
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407866"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351387"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Image Search API를 사용하면 웹에서 고품질 관련 이미지를 검색할 수 있습니다. 이 자습서를 사용하여 검색 쿼리를 API에 보낼 수 있는 단일 페이지 웹 애플리케이션을 빌드하고 웹 페이지 내에 결과를 표시합니다. 이 자습서는 Bing Web Search에 대한 [해당 자습서](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)와 유사합니다.
 
@@ -117,7 +122,7 @@ bingSearchOptions(this), getSubscriptionKey())">
 
 ![[Bing Image Search 양식]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-Bing Image Search API는 검색 범위를 좁히고 검색 결과를 필터링하기 위한 여러 [필터 쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters)를 제공합니다. 이 애플리케이션의 HTML 양식은 다음 매개 변수 옵션을 사용하고 표시합니다.
+Bing Image Search API는 검색 범위를 좁히고 검색 결과를 필터링하기 위한 여러 [필터 쿼리 매개 변수](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters)를 제공합니다. 이 애플리케이션의 HTML 양식은 다음 매개 변수 옵션을 사용하고 표시합니다.
 
 | 옵션 | Description |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

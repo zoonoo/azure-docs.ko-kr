@@ -4,10 +4,10 @@ description: 가상 네트워크에서 컨테이너 그룹을 만들고 Azure ap
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260790"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>컨테이너 그룹에 대 한 고정 IP 주소 노출
@@ -29,7 +29,7 @@ ms.locfileid: "86260790"
 
 일반적인 경우에는 Azure 가상 네트워크가 이미 있을 수 있습니다. 아직 없는 경우 다음 예제 명령과 같이 만듭니다. 가상 네트워크에는 응용 프로그램 게이트웨이와 컨테이너 그룹에 대 한 별도의 서브넷이 필요 합니다.
 
-필요한 경우 Azure 리소스 그룹을 만듭니다. 예:
+필요한 경우 Azure 리소스 그룹을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```azureci
 az group create --name myResourceGroup --location eastus

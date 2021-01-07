@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb91a09ed31658c2d547a7b46cf2f986bfbd0e50
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707279"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508291"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -37,7 +37,7 @@ ms.locfileid: "84707279"
 
 SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 구성 요소를 설치합니다.
 - **데이터 관리 게이트웨이**: Data Factory 서비스는 데이터 관리 게이트웨이라는 구성 요소를 사용하여 온-프레미스 데이터 저장소(SAP Business Warehouse 포함)에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 게이트웨이는 SAP Business Warehouse가 Azure IaaS 가상 머신(VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
-- 게이트웨이 컴퓨터의 **SAP NetWeaver 라이브러리**. SAP Netweaver 라이브러리는 SAP 관리자를 통해 구하거나 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 바로 구할 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361**을 검색합니다. SAP NetWeaver 라이브러리(32비트 또는 64비트)의 아키텍처가 게이트웨이 설치와 일치하는지 확인합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
+- 게이트웨이 컴퓨터의 **SAP NetWeaver 라이브러리**. Sap 관리자 또는 sap [소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 직접 sap Netweaver 라이브러리를 가져올 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361** 을 검색합니다. SAP NetWeaver 라이브러리(32비트 또는 64비트)의 아키텍처가 게이트웨이 설치와 일치하는지 확인합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
 
 > [!TIP]
 > NetWeaver RFC SDK에서 추출된 dll을 system32 폴더에 넣습니다.
@@ -45,8 +45,8 @@ SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 �
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다. 
 
-- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
-- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
+- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
+- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -63,12 +63,12 @@ SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 �
 
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | string | 예
+서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 문자열 | 예
 systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | 예
 clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID. | 문자열로 표현되는 세 자리 10진수. | 예
-사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
-password | 사용자에 대한 암호입니다. | string | 예
-gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | string | 예
+사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | 예
+password | 사용자에 대한 암호입니다. | 문자열 | 예
+gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | 예
 encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -108,7 +108,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 첫 번째 단계로 데이터 관리 게이트웨이를 설정합니다. 해당 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서에 나와 있습니다.
 
 ### <a name="sap-business-warehouse-linked-service"></a>SAP Business Warehouse 연결된 서비스
-이 연결된 서비스는 SAP BW 인스턴스를 데이터 팩터리에 연결합니다. type 속성은 **SapBw**로 설정됩니다. typeProperties 섹션은 SAP BW 인스턴스에 대한 연결 정보를 제공합니다. 
+이 연결된 서비스는 SAP BW 인스턴스를 데이터 팩터리에 연결합니다. type 속성은 **SapBw** 로 설정됩니다. typeProperties 섹션은 SAP BW 인스턴스에 대한 연결 정보를 제공합니다. 
 
 ```json
 {
@@ -130,7 +130,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 ```
 
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
-이 연결된 서비스는 Azure Storage 계정을 데이터 팩터리에 연결합니다. type 속성은 **AzureStorage**로 설정됩니다. typeProperties 섹션은 Azure Storage 계정에 대한 연결 정보를 제공합니다.
+이 연결된 서비스는 Azure Storage 계정을 데이터 팩터리에 연결합니다. type 속성은 **AzureStorage** 로 설정됩니다. typeProperties 섹션은 Azure Storage 계정에 대한 연결 정보를 제공합니다.
 
 ```json
 {
@@ -145,7 +145,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 ```
 
 ### <a name="sap-bw-input-dataset"></a>SAP BW 입력 데이터 세트
-이 데이터 세트는 SAP Business Warehouse 데이터 세트를 정의합니다. Data Factory 데이터 세트의 type은 **RelationalTable**로 설정합니다. 현재 SAP BW 데이터 세트에 대한 type별 속성은 지정하지 않습니다. 활동 복사 정의의 쿼리는 SAP BW 인스턴스에서 읽을 데이터를 지정합니다. 
+이 데이터 세트는 SAP Business Warehouse 데이터 세트를 정의합니다. Data Factory 데이터 세트의 type은 **RelationalTable** 로 설정합니다. 현재 SAP BW 데이터 세트에 대한 type별 속성은 지정하지 않습니다. 활동 복사 정의의 쿼리는 SAP BW 인스턴스에서 읽을 데이터를 지정합니다. 
 
 external 속성을 true로 설정하면 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
 
@@ -230,7 +230,7 @@ frequency 및 interval 속성은 일정을 정의합니다. 이런 경우 SAP BW
 
 
 ### <a name="pipeline-with-copy-activity"></a>복사 작업을 포함하는 파이프라인
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고(SAP BW 원본의 경우) **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource** 로 설정되고(SAP BW 원본의 경우) **sink** 형식은 **BlobSink** 로 설정됩니다. **query** 속성에 지정된 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 ```json
 {
@@ -277,8 +277,6 @@ frequency 및 interval 속성은 일정을 정의합니다. 이런 경우 SAP BW
     }
 }
 ```
-
-
 
 ### <a name="type-mapping-for-sap-bw"></a>SAP BW에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.

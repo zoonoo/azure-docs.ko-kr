@@ -1,30 +1,30 @@
 ---
-title: Azure Powershell을 사용 하 여 요새 호스트 만들기 | Microsoft Docs
+title: Azure PowerShell를 사용 하 여 요새 호스트 만들기 Microsoft Docs
 description: 이 문서에서는 Azure 방호 호스트를 만드는 방법에 대해 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/03/2020
+ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: c62ac014513f3e93a04008af06ef8ffe5008ed2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba2716613a0e950cbae5c65add410ac8a8b38955
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744258"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077728"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 방호 호스트 만들기
 
 이 문서에서는 PowerShell을 사용 하 여 Azure 방호 호스트를 만드는 방법을 보여 줍니다. 가상 네트워크에서 Azure 방호 서비스를 프로 비전 한 후에는 동일한 가상 네트워크의 모든 Vm에서 원활한 RDP/SSH 환경을 사용할 수 있습니다. Azure Bastion 배포는 구독/계정 또는 가상 머신이 아닌 가상 네트워크별로 수행됩니다.
 
-필요에 따라 [Azure Portal](bastion-create-host-portal.md)를 사용 하 여 Azure 방호 호스트를 만들 수 있습니다.
+필요에 따라 [Azure Portal](./tutorial-create-host-portal.md)를 사용 하 여 Azure 방호 호스트를 만들 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Bastion 호스트 만들기
 
@@ -53,5 +53,4 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 ## <a name="next-steps"></a>다음 단계
 
 * 추가 정보는 [요새 FAQ](bastion-faq.md) 를 참조 하세요.
-
 * Azure Bastion 서브넷에서 네트워크 보안 그룹을 사용하려면 [NSG 사용](bastion-nsg.md)을 참조하세요.

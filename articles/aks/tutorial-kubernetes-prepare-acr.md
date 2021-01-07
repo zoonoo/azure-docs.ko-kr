@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 컨테이너 레지스트리 만들기
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry 인스턴스를 만들고 애플리케이션 예제 컨테이너 이미지를 업로드합니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.custom: mvc
-ms.openlocfilehash: 197e5c7bed569e67376f9c28fe0d2e050016cce8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/30/2020
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922407"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747071"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
@@ -34,7 +34,7 @@ ACR(Azure Container Registry)은 컨테이너 이미지를 위한 프라이빗 �
 
 Azure Container Registry를 만들려면 먼저 리소스 그룹이 필요합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -66,27 +66,27 @@ $ docker images
 위의 명령 출력에는 현재 로컬 이미지 목록이 표시됩니다.
 
 ```
-REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
-redis                        latest              a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
+REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
+mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 ACR에 *azure-vote-front* 컨테이너 이미지를 사용하려면 레지스트리의 로그인 서버 주소를 사용하여 이미지에 태그를 지정해야 합니다. 이 태그는 컨테이너 이미지를 이미지 레지스트리에 밀어넣을 때 라우팅에 사용됩니다.
 
-로그인 서버 주소를 가져오려면 다음과 같이 [az acr list][az-acr-list] 명령을 사용하여 *loginServer*를 쿼리합니다.
+로그인 서버 주소를 가져오려면 다음과 같이 [az acr list][az-acr-list] 명령을 사용하여 *loginServer* 를 쿼리합니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-이제 컨테이너 레지스트리의 *acrLoginServer* 주소를 사용하여 로컬 *azure-vote-front* 이미지에 태그를 지정합니다. 이미지 버전을 표시하려면 이미지 이름 끝에 *:v1*을 추가합니다.
+이제 컨테이너 레지스트리의 *acrLoginServer* 주소를 사용하여 로컬 *azure-vote-front* 이미지에 태그를 지정합니다. 이미지 버전을 표시하려면 이미지 이름 끝에 *:v1* 을 추가합니다.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v1
 ```
 
-태그가 적용되었는지 확인하려면 [docker images][docker-images] 명령을 다시 사용합니다. 
+태그가 적용되었는지 확인하려면 [docker images][docker-images] 명령을 다시 사용합니다.
 
 ```azurecli
 $ docker images
@@ -95,11 +95,11 @@ $ docker images
 ACR 인스턴스 주소와 버전 번호가 이미지의 태그로 지정되었습니다.
 
 ```
-REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
-azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
-redis                                                latest        a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313        8 months ago        694 MB
+REPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front    v1                  84b41c268ad9        16 minutes ago      944MB
+mycontainerregistry.azurecr.io/azure-vote-front v1                  84b41c268ad9        16 minutes ago      944MB
+mcr.microsoft.com/oss/bitnami/redis             6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                      python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 ## <a name="push-images-to-registry"></a>레지스트리에 이미지 푸시

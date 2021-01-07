@@ -11,11 +11,11 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016761"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006390"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 RuuviTag 센서 연결
 
@@ -31,7 +31,7 @@ RuuviTag는 매우 심한 (Bluetooth 저 에너지)를 통해 통신 하며, Azu
 
 Rigado Cascade 500 게이트웨이 장치를 설정 하려면 [여기의 지침](./howto-connect-rigado-cascade-500.md) 을 따르세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 RuuviTag 센서를 연결 하려면 다음 리소스가 필요 합니다.
 
@@ -45,10 +45,10 @@ RuuviTag 센서를 Azure IoT Central 응용 프로그램 인스턴스에 등록 
 
 RuuviTag 장치 템플릿을 추가 하려면:
 
-1. 왼쪽 창에서 ***장치 템플릿*** 탭으로 이동 하 고 **+ 새로**만들기를 선택 ![ 합니다. 새 장치 템플릿 만들기 ](./media/howto-connect-ruuvi/devicetemplate-new.png) 페이지에서 ***사용자 지정 템플릿을 만들거나*** ***미리 구성 된 장치 템플릿을 사용할*** 수 있는 옵션을 제공 합니다.
+1. 왼쪽 창에서 ***장치 템플릿** _ 탭으로 이동 하 여 _* + 새로 만들기 * *: ![ 새 장치 템플릿 만들기 ](./media/howto-connect-ruuvi/devicetemplate-new.png) 페이지에서 **_사용자 지정 템플릿 만들기_*_ 또는 _*_미리 구성 된 장치 템플릿 사용_*_ 옵션을 제공 합니다.
 1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 RuuviTag 장치 템플릿을 선택 합니다.  ![ RuuviTag 장치 템플릿 선택](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
-1. 다음 ***: 사용자 지정*** 을 선택 하 여 다음 단계를 계속 합니다.
-1. 다음 화면에서 ***만들기*** 를 선택 하 여 IoT Central 응용 프로그램에 C500 장치 템플릿을 등록 합니다.
+1. 다음 _*_: 사용자 지정_*_ 을 선택 하 여 다음 단계를 계속 합니다.
+1. 다음 화면에서 _*_만들기_*_ 를 선택 하 여 IoT Central 응용 프로그램에 C500 장치 템플릿을 등록 합니다.
 
 ## <a name="connect-a-ruuvitag-sensor"></a>RuuviTag 센서 연결
 
@@ -68,11 +68,11 @@ RuuviTag 장치 템플릿을 추가 하려면:
 
 시뮬레이션 된 RuuviTag을 만들려면 다음을 수행 합니다.
 
-1. **장치 > RuuviTag**를 선택 합니다.
-1. **+새로 만들기**를 선택합니다.
-1. 고유한 **장치 ID** 및 친숙 한 **장치 이름을**지정 합니다.  
+1. _ * 장치 > RuuviTag * *를 선택 합니다.
+1. **+새로 만들기** 를 선택합니다.
+1. 고유한 **장치 ID** 및 친숙 한 **장치 이름을** 지정 합니다.  
 1. **시뮬레이션된** 설정을 사용하도록 설정합니다.
-1. **만들기**를 선택합니다.  
+1. **만들기** 를 선택합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

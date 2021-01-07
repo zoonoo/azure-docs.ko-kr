@@ -9,21 +9,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: c6f766dcf69b398aea0978f42f5094809a3e2f6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038784"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782997"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대 한 장애 조치
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공합니다.
 
-- [활성 지리적 복제](active-geo-replication-overview.md)
+- [활성 지역 복제](active-geo-replication-overview.md)
 - [자동 장애 조치 그룹](auto-failover-group-overview.md)
 - [지역 복원](recovery-using-backups.md#point-in-time-restore)
 - [영역 중복 데이터베이스](high-availability-sla.md)
@@ -62,7 +62,7 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 
 가동 중지 시간에 대한 애플리케이션 허용 범위 및 가능한 비즈니스 책임에 따라 다음과 같은 복구 옵션을 고려할 수 있습니다.
 
-[Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*)를 사용하여 가장 최근의 지역에서 복제된 복원 지점을 가져옵니다.
+[Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* )를 사용하여 가장 최근의 지역에서 복제된 복원 지점을 가져옵니다.
 
 ## <a name="wait-for-service-recovery"></a>서비스 복구 대기
 

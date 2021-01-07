@@ -8,10 +8,10 @@ ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18, references_regions
 ms.openlocfilehash: 004b32118521f72c5b59ad7bab2d4e41244b85c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85833607"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Environment로 지역 분산된 규모
@@ -42,7 +42,7 @@ App Service 환경은 수평 확장을 위한 이상적인 플랫폼입니다. �
 * **도메인 Traffic Manager:** [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 만들 때 도메인 이름을 선택 합니다.  이 이름은 *trafficmanager.net* 접미사와 결합하여 Traffic Manager에서 관리되는 도메인 항목을 등록합니다.  샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다.  결과적으로 Traffic Manager에서 관리되는 전체 도메인 이름은 *scalable-ase-demo.trafficmanager.net*입니다.
 * **앱 공간을 크기 조정하는 전략:**  애플리케이션 공간이 단일 Azure 지역의 여러 App Service Environment에 분산되나요?  여러 영역?  두 방법을 혼합 및 일치?  고객 트래픽이 발생 하는 위치와 앱의 지원 백 엔드 인프라를 얼마나 잘 확장할 수 있는지에 대 한 결정을 기반으로 합니다.  예를 들어 100% 상태 비저장 응용 프로그램을 사용 하는 경우, 여러 Azure 지역에 배포 된 App Service 환경을 곱하여 각 Azure 지역에서 많은 App Service 환경의 조합을 사용 하 여 앱을 대규모 확장할 수 있습니다.  5 개 이상의 글로벌 Azure 지역에서 선택할 수 있으므로, 고객은 전 세계에 걸친 하이퍼 규모의 응용 프로그램 공간을 실제로 구축할 수 있습니다.  이 문서에 사용 되는 샘플 앱의 경우 단일 Azure 지역 (미국 중부)에서 3 개의 App Service 환경을 만들었습니다.
 * **App Service Environment에 대한 명명 규칙:**  각 App Service Environment에 고유한 이름이 필요합니다.  하나 또는 두 개의 App Service 환경을 넘어 각 App Service Environment를 식별 하는 데 도움이 되는 명명 규칙을 포함 하는 것이 좋습니다.  샘플 앱의 경우 간단한 명명 규칙을 사용 했습니다.  세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
-* **앱에 대한 명명 규칙:**  앱의 여러 인스턴스가 배포되기 때문에 배포된 앱의 인스턴스마다 이름이 필요합니다.  App Service 환경에서 가장 잘 알려지지 않지만 편리한 기능 중 하나는 동일한 앱 이름을 여러 App Service 환경에서 사용할 수 있다는 것입니다.  각 App Service Environment에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에서 정확히 동일한 앱 이름을 다시 사용 하도록 선택할 수 있습니다.  예를 들어 개발자에 게 이름이 *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*등 인 앱이 있을 수 있습니다.  그러나 샘플 앱의 경우 각 응용 프로그램 인스턴스도 고유한 이름을 갖습니다.  앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2* 및 *webfrontend3*입니다.
+* **앱에 대한 명명 규칙:**  앱의 여러 인스턴스가 배포되기 때문에 배포된 앱의 인스턴스마다 이름이 필요합니다.  App Service 환경에서 가장 잘 알려지지 않지만 편리한 기능 중 하나는 동일한 앱 이름을 여러 App Service 환경에서 사용할 수 있다는 것입니다.  각 App Service Environment에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에서 정확히 동일한 앱 이름을 다시 사용 하도록 선택할 수 있습니다.  예를 들어 개발자에 게 이름이  *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*등 인 앱이 있을 수 있습니다.  그러나 샘플 앱의 경우 각 응용 프로그램 인스턴스도 고유한 이름을 갖습니다.  앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2* 및 *webfrontend3*입니다.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Traffic Manager 프로필 설정
 여러 App Service Environment에서 앱의 여러 인스턴스를 배포하면 개별 앱 인스턴스는 Traffic Manager를 사용하여 등록할 수 있습니다.  샘플 앱의 경우 다음 배포 된 앱 인스턴스로 고객을 라우팅할 수 있는 *scalable-ase-demo.trafficmanager.net* 에 대 한 Traffic Manager 프로필이 필요 합니다.

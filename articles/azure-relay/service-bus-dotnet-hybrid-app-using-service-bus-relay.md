@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983894"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출
@@ -31,7 +31,7 @@ ms.locfileid: "90983894"
 > * Azure에 웹 앱을 배포 합니다.
 > * Azure에서 앱을 실행 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -230,7 +230,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 이 섹션에서는 제품 서비스에서 검색한 데이터를 표시하는 간단한 ASP.NET 애플리케이션을 빌드합니다.
 
-### <a name="create-the-project"></a>프로젝트를 만듭니다.
+### <a name="create-the-project"></a>프로젝트 만들기
 
 1. Visual Studio가 관리자 권한으로 실행 되 고 있는지 확인 합니다.
 1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다.

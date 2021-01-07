@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: c1028d0a4a458746c08fd6fa4f16aa952d9962a2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87282010"
 ---
 # <a name="azcopy-benchmark"></a>azcopy 벤치 마크
@@ -39,7 +39,7 @@ ms.locfileid: "87282010"
 
 모든 일반적인 인증 유형이 지원 됩니다. 그러나 벤치마킹 업로드에 대 한 가장 편리한 접근 방식은 일반적으로 SAS 토큰을 사용 하 여 빈 컨테이너를 만들고 SAS 인증을 사용 하는 것입니다. 다운로드 모드를 사용 하려면 대상 컨테이너에 테스트 데이터 집합이 있어야 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ```azcopy
 azcopy benchmark [destination] [flags]
@@ -81,7 +81,7 @@ azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-
 
 **--check length**  전송 후 대상에서 파일의 길이를 확인 합니다. 원본과 대상이 일치 하지 않는 경우 전송이 실패 한 것으로 표시 됩니다. (기본값 true)
 
-**----** --------데이터  True 이면 벤치 마크 실행이 끝날 때 벤치 마크 데이터가 삭제 됩니다.  데이터를 대상에 유지 하려는 경우 (예: 벤치 마크 모드 외부에서 수동 테스트에 사용 하려는 경우) false로 설정 합니다 (기본값 true).
+**----**  --------데이터  True 이면 벤치 마크 실행이 끝날 때 벤치 마크 데이터가 삭제 됩니다.  데이터를 대상에 유지 하려는 경우 (예: 벤치 마크 모드 외부에서 수동 테스트에 사용 하려는 경우) false로 설정 합니다 (기본값 true).
 
 **--파일 수** uint.  사용할 자동 생성 된 데이터 파일의 수입니다 (기본값 100).
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f67df45b6b663584e848983251031146cdf8df60
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945448"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247696"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Azure Stream Analytics 클러스터의 개요(미리 보기)
 
@@ -69,7 +69,7 @@ Stream Analytics 클러스터는 선택한 SU 용량을 기준으로 요금이 �
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>Stream Analytics 클러스터에서 개인적으로 연결할 수 있는 입력 및 출력은 무엇인가요?
 
-Stream Analytics는 다양한 입력 및 출력 형식을 지원합니다. Azure Private Link를 지원하는 이러한 서비스는 개인적으로 작업에 연결할 수 있습니다. 작업에서 입력 및 출력 리소스에 액세스할 수 있도록 클러스터에 [프라이빗 엔드포인트를 만들](private-endpoints.md) 수 있습니다.
+Stream Analytics는 다양한 입력 및 출력 형식을 지원합니다. 작업에서 입력 및 출력 리소스에 액세스할 수 있도록 클러스터에 [프라이빗 엔드포인트를 만들](private-endpoints.md) 수 있습니다. 현재 Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub 및 Azure Service Bus는 지원되는 서비스이며, 다른 유형은 곧 추가될 예정입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

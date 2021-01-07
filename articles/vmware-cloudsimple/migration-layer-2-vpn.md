@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 계층 2 네트워크 온-프레미스를 프라이빗 클라우드로 확장
 description: CloudSimple 프라이빗 클라우드의 NSX-T와 온-프레미스 독립 실행형 NSX Edge 클라이언트 간의 계층 2 VPN을 설정하는 방법을 설명합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 06446b6c36e36466fe891d7327d8151603cdecd2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651017"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899374"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
@@ -108,17 +108,17 @@ VMware NSX-T 2.3 릴리스 기준:
 
 다음 단계는 IPsec 및 L2VPN 서비스에 대한 Tier0 DR 논리 라우터 인스턴스의 logical-router ID를 가져오는 방법을 보여 줍니다. logical-router ID는 나중에 L2VPN을 구현할 때 필요합니다.
 
-1. NSX-T Manager `https://*nsx-t-manager-ip-address*`에 로그인하고 **네트워킹** > **라우터** > **공급자-LR** > **개요**를 선택합니다. **고가용성 모드**에 대해 **활성-대기**를 선택합니다. 이 작업을 수행하면 Tier0 라우터가 현재 활성 상태인 Edge VM을 보여 주는 팝업 창이 열립니다.
+1. NSX-T Manager `https://*nsx-t-manager-ip-address*`에 로그인하고 **네트워킹** > **라우터** > **공급자-LR** > **개요** 를 선택합니다. **고가용성 모드** 에 대해 **활성-대기** 를 선택합니다. 이 작업을 수행하면 Tier0 라우터가 현재 활성 상태인 Edge VM을 보여 주는 팝업 창이 열립니다.
 
     ![활성-대기 선택](media/l2vpn-fetch01.png)
 
-2. **패브릭** > **노드** > **Edge**를 선택합니다. 이전 단계에서 확인한 활성 Edge VM(Edge VM1)의 관리 IP 주소를 기록해 둡니다.
+2. **패브릭** > **노드** > **Edge** 를 선택합니다. 이전 단계에서 확인한 활성 Edge VM(Edge VM1)의 관리 IP 주소를 기록해 둡니다.
 
     ![관리 IP 기록](media/l2vpn-fetch02.png)
 
 3. Edge VM의 관리 IP 주소에 대한 SSH 세션을 엽니다. 사용자 이름 **admin** 및 암호 **CloudSimple 123!** 를 사용하여 ```get logical-router``` 명령을 실행합니다.
 
-    ![get logical-router 출력](media/l2vpn-fetch03.png)
+    ![열려 있는 SSH 세션을 보여 주는 스크린샷](media/l2vpn-fetch03.png)
 
 4. 'DR-Provider-LR' 항목이 표시되지 않으면 다음 단계를 완료합니다.
 
@@ -132,12 +132,12 @@ VMware NSX-T 2.3 릴리스 기준:
 
 7. Edge VM의 SSH 세션에 `get logical-router` 명령을 다시 실행합니다. 'DR-Provider-LR' 논리 라우터의 UUID가 표시됩니다. L2VPN을 구성할 때 필요한 UUID를 기록해 둡니다.
 
-    ![get logical-router 출력](media/l2vpn-fetch06.png)
+    ![논리 라우터의 UUID를 보여 주는 스크린샷](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>L2VPN에 필요한 logical-switch ID를 가져옵니다.
 
 1. NSX-T 관리자(`https://nsx-t-manager-ip-address`)에 로그인합니다.
-2. **네트워킹** > **전환** > **스위치** >  **<\논리 스위치\>**  > **개요**를 선택합니다.
+2. **네트워킹** > **전환** > **스위치** >  **<\논리 스위치\>**  > **개요** 를 선택합니다.
 3. L2VPN을 구성할 때 필요한 확장 논리 스위치의 UUID를 기록해 둡니다.
 
     ![get logical-router 출력](media/l2vpn-fetch-switch01.png)
@@ -154,20 +154,20 @@ NSX-T Tier0 라우터와 독립 실행형 NSX Edge 클라이언트 간에 IPsec 
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>루프백 인터페이스 IP를 언더레이 네트워크에 보급
 
-1. 루프백 인터페이스 네트워크에 대한 null 경로를 만듭니다. NSX-T Manager에 로그인하고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **고정 경로**를 선택합니다. **추가**를 클릭합니다. **네트워크**의 경우 루프백 인터페이스 IP 주소를 입력합니다. **다음 홉**의 경우 **추가**를 클릭하고 다음 홉에 'Null'을 지정하고, Admin Distance에 대해 기본값인 1을 유지합니다.
+1. 루프백 인터페이스 네트워크에 대한 null 경로를 만듭니다. NSX-T Manager에 로그인하고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **고정 경로** 를 선택합니다. **추가** 를 클릭합니다. **네트워크** 의 경우 루프백 인터페이스 IP 주소를 입력합니다. **다음 홉** 의 경우 **추가** 를 클릭하고 다음 홉에 'Null'을 지정하고, Admin Distance에 대해 기본값인 1을 유지합니다.
 
     ![고정 경로 추가](media/l2vpn-routing-security01.png)
 
-2. IP 접두사 목록을 만듭니다. NSX-T Manager에 로그인하고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **IP 접두사 목록**을 선택합니다. **추가**를 클릭합니다. 목록을 식별하는 이름을 입력합니다. **접두사**의 경우 **추가**를 두 번 클릭합니다. 첫 번째 줄에서 **네트워크**에 '0.0.0.0/0'을 입력하고 **작업**에 '거부'를 입력합니다. 두 번째 줄에서 **네트워크**에 **모두**를 선택하고 **작업**에 **허용**을 선택합니다.
+2. IP 접두사 목록을 만듭니다. NSX-T Manager에 로그인하고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **IP 접두사 목록** 을 선택합니다. **추가** 를 클릭합니다. 목록을 식별하는 이름을 입력합니다. **접두사** 의 경우 **추가** 를 두 번 클릭합니다. 첫 번째 줄에서 **네트워크** 에 '0.0.0.0/0'을 입력하고 **작업** 에 '거부'를 입력합니다. 두 번째 줄에서 **네트워크** 에 **모두** 를 선택하고 **작업** 에 **허용** 을 선택합니다.
 3. 두 BGP 인접 항목(TOR)에 IP 접두사 목록을 연결합니다. IP 접두사 목록을 BGP 인접 항목에 연결하면 BGP에서 기본 경로가 TOR 스위치로 보급되지 않습니다. 그러나 null 경로를 포함하는 다른 모든 경로는 루프백 인터페이스 IP 주소를 TOR 스위치에 보급합니다.
 
     ![IP 접두사 목록 만들기](media/l2vpn-routing-security02.png)
 
-4. NSX-T Manager에 로그인하고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **BGP** > **인접 항목**을 선택합니다. 첫 번째 인접 항목을 선택합니다. **편집** > **주소 패밀리**를 클릭합니다. IPv4 패밀리의 경우 **아웃 필터** 열을 편집하고 만든 IP 접두사 목록을 선택합니다. **저장**을 클릭합니다. 두 번째 인접 항목에 대해서도 이 단계를 반복합니다.
+4. NSX-T Manager에 로그인하고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **BGP** > **인접 항목** 을 선택합니다. 첫 번째 인접 항목을 선택합니다. **편집** > **주소 패밀리** 를 클릭합니다. IPv4 패밀리의 경우 **아웃 필터** 열을 편집하고 만든 IP 접두사 목록을 선택합니다. **저장** 을 클릭합니다. 두 번째 인접 항목에 대해서도 이 단계를 반복합니다.
 
     ![IP 접두사 목록 1 첨부](media/l2vpn-routing-security03.png) ![IP 접두사 목록 2 첨부](media/l2vpn-routing-security04.png)
 
-5. BGP에 null 고정 경로를 다시 배포합니다. 루프백 인터페이스 경로를 언더레이에 보급하려면 null 고정 경로를 BGP에 재배포해야 합니다. NSX-T Manager에 로그인하고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **경로 재배포** > **인접 항목**을 선택합니다. **Provider-LR-Route_Redistribution**을 선택하고 **편집**을 클릭합니다. **고정** 확인란을 선택하고 **저장**을 클릭합니다.
+5. BGP에 null 고정 경로를 다시 배포합니다. 루프백 인터페이스 경로를 언더레이에 보급하려면 null 고정 경로를 BGP에 재배포해야 합니다. NSX-T Manager에 로그인하고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **경로 재배포** > **인접 항목** 을 선택합니다. **Provider-LR-Route_Redistribution** 을 선택하고 **편집** 을 클릭합니다. **고정** 확인란을 선택하고 **저장** 을 클릭합니다.
 
     ![BGP에 null 고정 경로 재배포](media/l2vpn-routing-security05.png)
 
@@ -428,23 +428,23 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
     ![독립 실행형 NSX Edge 클라이언트 다운로드](media/l2vpn-deploy-client01.png)
 
-2. 추출된 파일이 모두 있는 폴더로 이동합니다. 모든 vmdks(큰 어플라이언스 크기의 경우 NSX-l2t-client-large.mf 및 NSX-l2t-client-large.ovf, 매우 큰 어플라이언스 크기의 경우 NSX-l2t-client-Xlarge.mf 및 NSX-l2t-client-Xlarge.ovf)를 선택합니다. **다음**을 클릭합니다.
+2. 추출된 파일이 모두 있는 폴더로 이동합니다. 모든 vmdks(큰 어플라이언스 크기의 경우 NSX-l2t-client-large.mf 및 NSX-l2t-client-large.ovf, 매우 큰 어플라이언스 크기의 경우 NSX-l2t-client-Xlarge.mf 및 NSX-l2t-client-Xlarge.ovf)를 선택합니다. **다음** 을 클릭합니다.
 
-    ![템플릿 선택](media/l2vpn-deploy-client02.png) ![템플릿 선택](media/l2vpn-deploy-client03.png)
+    ![](media/l2vpn-deploy-client02.png) ![ 선택한 vmdk 파일을 표시 하는 템플릿 스크린샷을 선택 합니다.](media/l2vpn-deploy-client03.png)
 
-3. NSX-T 독립 실행형 클라이언트의 이름을 입력하고 **다음**을 클릭합니다.
+3. NSX-T 독립 실행형 클라이언트의 이름을 입력하고 **다음** 을 클릭합니다.
 
     ![템플릿 이름 입력](media/l2vpn-deploy-client04.png)
 
-4. 필요에 따라 **다음**을 클릭하여 데이터 저장소 설정을 엽니다. NSX-T 독립 실행형 클라이언트에 적합한 데이터 저장소를 선택하고 **다음**을 클릭합니다.
+4. 필요에 따라 **다음** 을 클릭하여 데이터 저장소 설정을 엽니다. NSX-T 독립 실행형 클라이언트에 적합한 데이터 저장소를 선택하고 **다음** 을 클릭합니다.
 
     ![데이터 저장소 선택](media/l2vpn-deploy-client06.png)
 
-5. NSX-T 독립 실행형 클라이언트의 트렁크(트렁크 PG), 공용(업링크 PG) 및 HA 인터페이스(업링크 PG)에 대한 올바른 포트 그룹을 선택합니다. **다음**을 클릭합니다.
+5. NSX-T 독립 실행형 클라이언트의 트렁크(트렁크 PG), 공용(업링크 PG) 및 HA 인터페이스(업링크 PG)에 대한 올바른 포트 그룹을 선택합니다. **다음** 을 클릭합니다.
 
     ![포트 그룹 선택](media/l2vpn-deploy-client07.png)
 
-6. **템플릿 사용자 지정** 화면에서 다음 세부 정보를 입력하고 **다음**을 클릭합니다.
+6. **템플릿 사용자 지정** 화면에서 다음 세부 정보를 입력하고 **다음** 을 클릭합니다.
 
     L2T 확장:
 
@@ -463,7 +463,7 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
       ![템플릿 사용자 지정](media/l2vpn-deploy-client08.png)
        ![템플릿 사용자 지정 - 추가 정보](media/l2vpn-deploy-client09.png)
 
-7. 설정을 검토하고 **마침**을 클릭합니다.
+7. 설정을 검토하고 **마침** 을 클릭합니다.
 
     ![구성 완료](media/l2vpn-deploy-client10.png)
 

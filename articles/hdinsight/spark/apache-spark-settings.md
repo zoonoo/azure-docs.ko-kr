@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f74307cc7f074788ac12712b3722dc0ad7fa71b6
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188160"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821148"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
 
@@ -23,13 +23,13 @@ HDInsight Spark 클러스터에는 Apache Spark 라이브러리 설치가 포함
 
 ![Spark HDInsight 아키텍처](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-HDInsight 클러스터의 노드에 대 한 vm 수 및 VM 크기는 Spark 구성에 영향을 줄 수 있습니다. 기본이 아닌 HDInsight 구성 값을 사용하려면 종종 기본이 아닌 Spark 구성 값이 필요합니다. HDInsight Spark 클러스터를 만들 때 각 구성 요소에 대해 제안 된 VM 크기가 표시 됩니다. 현재, Azure에 대한 [메모리 최적화 Linux VM 크기](../../virtual-machines/linux/sizes-memory.md)는 D12 v2 이상입니다.
+HDInsight 클러스터의 노드에 대 한 vm 수 및 VM 크기는 Spark 구성에 영향을 줄 수 있습니다. 기본이 아닌 HDInsight 구성 값을 사용하려면 종종 기본이 아닌 Spark 구성 값이 필요합니다. HDInsight Spark 클러스터를 만들 때 각 구성 요소에 대해 제안 된 VM 크기가 표시 됩니다. 현재, Azure에 대한 [메모리 최적화 Linux VM 크기](../../virtual-machines/sizes-memory.md)는 D12 v2 이상입니다.
 
 ## <a name="apache-spark-versions"></a>Apache Spark 버전
 
 클러스터에 최적의 Spark 버전을 사용합니다.  HDInsight 서비스에는 여러 버전의 Spark 및 HDInsight가 포함되어 있습니다.  Spark의 각 버전에는 기본 클러스터 설정 집합이 포함됩니다.  
 
-새 클러스터를 만들 때 여러 Spark 버전 중에서 선택할 수 있습니다. 전체 목록은 [HDInsight 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)을 참조 하세요.
+새 클러스터를 만들 때 여러 Spark 버전 중에서 선택할 수 있습니다. 전체 목록은  [HDInsight 구성 요소 및 버전](../hdinsight-component-versioning.md)을 참조 하세요.
 
 > [!NOTE]  
 > HDInsight 서비스에서 Apache Spark의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 .NET SDK/Azure PowerShell 및 Azure 클래식 CLI를 사용하여 클러스터를 만들 때 특정 버전을 지정하는 것이 좋습니다.
@@ -60,7 +60,7 @@ spark.sql.files.openCostInBytes 1099511627776
 
 Apache Ambari 웹 UI가 표시 되 고 키 클러스터 리소스 사용 메트릭 대시보드가 표시 됩니다.  Ambari 대시보드는 Apache Spark 구성 및 기타 설치 된 서비스를 보여 줍니다. 대시보드에는 Spark를 비롯 하 여 설치 된 서비스에 대 한 정보를 볼 수 있는 **구성 기록** 탭이 포함 되어 있습니다.
 
-Apache Spark에 대한 구성 값을 표시하려면 **구성 기록**을 선택한 후 **Spark2**를 선택합니다.  **구성** 탭을 선택하고 서비스 목록에서 `Spark`(또는 사용 중인 버전에 따라 `Spark2`) 링크를 선택합니다.  클러스터에 대한 구성 값 목록을 확인합니다.
+Apache Spark에 대한 구성 값을 표시하려면 **구성 기록** 을 선택한 후 **Spark2** 를 선택합니다.  **구성** 탭을 선택하고 서비스 목록에서 `Spark`(또는 사용 중인 버전에 따라 `Spark2`) 링크를 선택합니다.  클러스터에 대한 구성 값 목록을 확인합니다.
 
 ![Spark 구성](./media/apache-spark-settings/spark-configurations.png)
 
@@ -85,12 +85,12 @@ Apache Spark에 대한 구성 값을 표시하려면 **구성 기록**을 선택
 
 Spark 작업은 작업자 리소스, 특히 메모리를 사용하므로, 작업자 노드 실행기에 대한 Spark 구성 값을 조정하는 것이 일반적입니다.
 
-애플리케이션 요구 사항을 개선하기 위해 Spark 구성 조정을 위해 수정되는 3가지 핵심 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 애플리케이션을 위해 시작된 프로세스입니다. 실행기는 작업자 노드에서 실행되며 애플리케이션에 대한 작업을 담당합니다. 작업자 노드 및 작업자 노드 크기의 수에 따라 실행 기 수와 실행자 크기가 결정 됩니다. 이러한 값은 `spark-defaults.conf` 클러스터 헤드 노드의에 저장 됩니다.  Ambari 웹 UI에서 **사용자 지정 spark-기본값** 을 선택 하 여 실행 중인 클러스터에서 이러한 값을 편집할 수 있습니다.  변경한 후에는 UI에 영향 받은 모든 서비스를 **다시 시작**하라는 메시지가 표시됩니다.
+애플리케이션 요구 사항을 개선하기 위해 Spark 구성 조정을 위해 수정되는 3가지 핵심 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 애플리케이션을 위해 시작된 프로세스입니다. 실행기는 작업자 노드에서 실행되며 애플리케이션에 대한 작업을 담당합니다. 작업자 노드 및 작업자 노드 크기의 수에 따라 실행 기 수와 실행자 크기가 결정 됩니다. 이러한 값은 `spark-defaults.conf` 클러스터 헤드 노드의에 저장 됩니다.  Ambari 웹 UI에서 **사용자 지정 spark-기본값** 을 선택 하 여 실행 중인 클러스터에서 이러한 값을 편집할 수 있습니다.  변경한 후에는 UI에 영향 받은 모든 서비스를 **다시 시작** 하라는 메시지가 표시됩니다.
 
 > [!NOTE]  
 > 이러한 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 애플리케이션의 경우) 클러스터 수준에서 구성될 수도 있고, 각 개별 애플리케이션에 대해 지정될 수도 있습니다.
 
-Spark 실행 기에서 사용 되는 리소스에 대 한 다른 정보 원본은 Spark 응용 프로그램 UI입니다.  UI에서 **실행자** 는 구성 및 사용 된 리소스의 요약 및 세부 정보 보기를 표시 합니다.  전체 클러스터 또는 특정 작업 실행에 대 한 실행자 값을 변경할 것인지 여부를 결정 합니다.
+Spark 실행 기에서 사용 되는 리소스에 대 한 다른 정보 원본은 Spark 응용 프로그램 UI입니다.  UI에서  **실행자** 는 구성 및 사용 된 리소스의 요약 및 세부 정보 보기를 표시 합니다.  전체 클러스터 또는 특정 작업 실행에 대 한 실행자 값을 변경할 것인지 여부를 결정 합니다.
 
 ![Spark 실행기](./media/apache-spark-settings/apache-spark-executors.png)
 
@@ -121,7 +121,7 @@ YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 
 
 ![YARN Spark 메모리 관리](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
-## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter 노트에서 실행 중인 애플리케이션에 대한 매개 변수 변경
+## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter Notebook에서 실행 되는 응용 프로그램에 대 한 매개 변수 변경
 
 기본적으로 HDInsight의 Spark 클러스터에는 다양한 구성 요소가 포함되어 있습니다. 이러한 각 구성 요소에는 필요에 따라 재정의될 수 있는 기본 구성 값이 포함되어 있습니다.
 
@@ -130,15 +130,15 @@ YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 
 |Spark 코어|Spark Core, Spark SQL, Spark 스트리밍 Api, GraphX 및 Apache Spark MLlib.|
 |Anaconda|Python 패키지 관리자입니다.|
 |Apache Livy|HDInsight Spark 클러스터에 원격 작업을 제출 하는 데 사용 되는 Apache Spark REST API입니다.|
-|Jupyter 및 Apache Zeppelin 노트북|Spark 클러스터와 상호 작용 하기 위한 대화형 브라우저 기반 UI입니다.|
+|Jupyter 노트북 및 Apache Zeppelin 노트북|Spark 클러스터와 상호 작용 하기 위한 대화형 브라우저 기반 UI입니다.|
 |ODBC 드라이버|HDInsight의 Spark 클러스터를 Microsoft Power BI 및 Tableau와 같은 BI (비즈니스 인텔리전스) 도구에 연결 합니다.|
 
-Jupyter 노트에서 실행되는 애플리케이션의 경우 `%%configure` 명령을 사용하여 노트 자체에서 구성을 변경합니다. 이러한 구성 변경 내용은 노트 인스턴스에서 실행되는 Spark 작업에 적용됩니다. 첫 번째 코드 셀을 실행 하기 전에 응용 프로그램의 시작 부분에서 이러한 변경을 수행 합니다. 변경된 구성은 생성된 Livy 세션에 적용됩니다.
+Jupyter Notebook에서 실행 되는 응용 프로그램의 경우 `%%configure` 명령을 사용 하 여 노트북 자체 내에서 구성을 변경할 수 있습니다. 이러한 구성 변경 내용은 노트 인스턴스에서 실행되는 Spark 작업에 적용됩니다. 첫 번째 코드 셀을 실행 하기 전에 응용 프로그램의 시작 부분에서 이러한 변경을 수행 합니다. 변경된 구성은 생성된 Livy 세션에 적용됩니다.
 
 > [!NOTE]  
 > 애플리케이션의 이후 단계에서 구성을 변경하려면 `-f`(force) 매개 변수를 사용합니다. 그러나 애플리케이션의 모든 진행 상태는 손실됩니다.
 
-다음 코드는 Jupyter 노트에서 실행 중인 애플리케이션에 대한 구성을 변경하는 방법을 보여 줍니다.
+아래 코드는 Jupyter Notebook에서 실행 되는 응용 프로그램에 대 한 구성을 변경 하는 방법을 보여 줍니다.
 
 ```
 %%configure

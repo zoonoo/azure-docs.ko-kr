@@ -4,10 +4,10 @@ description: REST API를 사용 하 여에서 만든 복원 지점에서 Azure �
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761800"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>REST API를 사용 하 여 Azure 파일 공유 복원
@@ -160,7 +160,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-Name |  Type   |   설명
+Name |  유형   |   설명
 --- | ---- | ----
 속성 | AzureFileShareRestoreRequest | RestoreRequestResource 속성
 
@@ -245,7 +245,7 @@ HTTP/1.1" 202
 'Date': 'Wed, 05 Feb 2020 07:43:47 GMT'
 ```
 
-그런 다음 GET 명령을 사용 하 여 location 헤더 또는 AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
+그런 다음 GET 명령을 사용 하 여 location 헤더 또는 Azure-AsyncOperation 헤더를 사용 하 여 결과 작업을 추적 합니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/68ccfbc1-a64f-4b29-b955-314b5790cfa9?api-version=2016-12-01
@@ -370,7 +370,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Azure 파일 공유에 대 한 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-Name |  Type   |   설명
+Name |  유형   |   설명
 --- | ---- | ----
 속성 | AzureFileShareRestoreRequest | RestoreRequestResource 속성
 

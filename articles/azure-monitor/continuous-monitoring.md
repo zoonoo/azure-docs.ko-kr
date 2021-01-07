@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1892afde42ccbcf1c28b7d6a757875772ee3ac5d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318133"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905607"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -28,7 +28,7 @@ ms.locfileid: "87318133"
 - [Azure DevOps Projects](../devops-project/overview.md)는 기존 코드와 Git 리포지토리가 포함된 간소화된 환경을 제공하거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만듭니다.
 - [DevOps 릴리스 파이프라인의 연속 모니터링](./app/continuous-monitoring.md)을 사용하면 모니터링 데이터를 기반으로 배포를 제어 또는 롤백할 수 있습니다.
 - [상태 모니터](./app/monitor-performance-live-website-now.md)를 사용하면 코드를 수정하거나 다시 배포하지 않고도 Azure Application Insights를 사용하여 Windows에서 라이브 .NET 앱을 계측할 수 있습니다.
-- 애플리케이션의 코드에 액세스할 수 있는 경우 [.NET](./learn/quick-monitor-portal.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md) 또는 [기타 프로그래밍 언어](./app/platforms.md)용 Azure Monitor Application Insights SDK를 설치하여 [Application Insights](./app/app-insights-overview.md)를 통해 전체 모니터링을 사용하도록 설정합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
+- 응용 프로그램에 대 한 코드에 액세스할 수 있는 경우 [.net](./app/asp-net.md), [.Net Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)또는 [기타 프로그래밍 언어](./app/platforms.md)에 대 한 Azure Monitor Application Insights SDK를 설치 하 여 [Application Insights](./app/app-insights-overview.md) 으로 전체 모니터링을 사용 하도록 설정 합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
 
 
 
@@ -43,7 +43,7 @@ ms.locfileid: "87318133"
 
 [코드로서의 인프라](/azure/devops/learn/what-is-infrastructure-as-code)는 DevOps 팀이 원본 코드에 사용하는 것과 동일한 버전 관리를 사용하여 설명 모델에서 인프라를 관리하는 기능입니다. 이 기능을 통해 환경에 안정성과 확장성이 추가되고 애플리케이션을 관리하는 데 사용되는 유사한 프로세스를 활용할 수 있습니다.
 
--  [Resource Manager 템플릿](platform/template-workspace-configuration.md)을 사용하여 모니터링을 사용하도록 설정하고 대규모 리소스 세트에 대한 경고를 구성합니다.
+-  [Resource Manager 템플릿](./samples/resource-manager-workspace.md)을 사용하여 모니터링을 사용하도록 설정하고 대규모 리소스 세트에 대한 경고를 구성합니다.
 - [Azure Policy](../governance/policy/overview.md)를 사용하여 리소스에 다양한 규칙을 적용합니다. 이렇게 하면 해당 리소스는 회사 표준 및 서비스 수준 계약을 계속 준수합니다. 
 
 
@@ -87,4 +87,3 @@ ms.locfileid: "87318133"
 
 - [Azure Monitor](overview.md)의 차이 구성 요소에 대해 알아봅니다.
 - 릴리스 파이프라인에 [연속 모니터링을 추가](./app/continuous-monitoring.md)합니다.
-

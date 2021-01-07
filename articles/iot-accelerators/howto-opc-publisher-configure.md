@@ -9,14 +9,17 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb27b4fec0d266bb9931b3942746b034ee3a645f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009953"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366958"
 ---
 # <a name="configure-opc-publisher"></a>OPC 게시자 구성
+
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 다음을 지정하도록 OPC 게시자를 구성할 수 있습니다.
 
@@ -141,7 +144,7 @@ OPC 게시자는 다음 IoT Hub 직접 메서드 호출을 구현합니다.
 - ExitApplication
 - GetInfo
 
-메서드 요청 및 응답의 JSON 페이로드 형식은 [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs)에 정의됩니다.
+메서드 요청 및 응답의 JSON 페이로드 형식은 [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher)에 정의됩니다.
 
 모듈에서 알 수 없는 메서드를 호출하면 메서드가 구현되지 않음을 나타내는 문자열이 표시됩니다. 모듈을 ping하는 방법으로 알 수 없는 메서드를 호출할 수 있습니다.
 

@@ -5,16 +5,16 @@ author: philmea
 ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: b41e3d729fa6e5b0be9a55cc45de38f81bed494b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9b3b30592237e1bbe1b08b0ed1d118131b15a26
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061125"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206053"
 ---
-# <a name="azure-iot-support-and-help-options"></a>Azure IoT 지원 및 도움말 옵션
+# <a name="what-are-the-azure-iot-support-and-help-options"></a>Azure IoT 지원 및 도움말 옵션에는 어떤 것이 있나요?
 
 Azure IoT 솔루션을 개발할 때 도움을 받을 수 있는 위치에 대한 제안 사항은 다음과 같습니다.
 
@@ -31,21 +31,21 @@ Azure IoT 솔루션을 개발할 때 도움을 받을 수 있는 위치에 대�
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Microsoft Q&A에 질문 게시
 
-Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 커뮤니티의 기술 제품 관련 질문에 대한 빠르고 안정적인 답변을 얻으려면 Azure가 커뮤니티 지원을 위해 선호하는 대상인 [Microsoft Q&A](https://aka.ms/azureqa)에 참여하세요. 
+Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 커뮤니티의 기술 제품 관련 질문에 대한 빠르고 안정적인 답변을 얻으려면 Azure가 커뮤니티 지원을 위해 선호하는 대상인 [Microsoft Q&A](/answers/products/azure)에 참여하세요. 
 
 검색을 사용하여 문제에 대한 답변을 찾을 수 없으면 Microsoft Q&A에 새 질문을 제출합니다. 질문을 할 때 다음 태그 중 하나를 사용합니다.
 
-- [Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot.html)
-- [Azure IoT Central](https://docs.microsoft.com/answers/topics/azure-iot-central.html)
-- [Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
-- [Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
-- [Azure IoT Hub DPS(Device Provisioning Service)](https://docs.microsoft.com/answers/topics/azure-iot-dps.html)
-- [Azure IoT SDK](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html)
-- [Azure Digital Twins](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
-- [Azure RTOS](https://docs.microsoft.com/answers/topics/azure-rtos.html)
-- [Azure Sphere](https://docs.microsoft.com/answers/topics/azure-sphere.html)
-- [Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
-- [Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Azure IoT](/answers/topics/azure-iot.html)
+- [Azure IoT Central](/answers/topics/azure-iot-central.html)
+- [Azure IoT Edge](/answers/topics/azure-iot-edge.html)
+- [Azure IoT Hub](/answers/topics/azure-iot-hub.html)
+- [Azure IoT Hub DPS(Device Provisioning Service)](/answers/topics/azure-iot-dps.html)
+- [Azure IoT SDK](/answers/topics/azure-iot-sdk.html)
+- [Azure Digital Twins](/answers/topics/azure-digital-twins.html)
+- [Azure RTOS](/answers/topics/azure-rtos.html)
+- [Azure Sphere](/answers/topics/azure-sphere.html)
+- [Azure Time Series Insights](/answers/topics/azure-time-series-insights.html)
+- [Azure Maps](/answers/topics/azure-maps.html)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Stack Overflow에 질문 게시
 
@@ -63,7 +63,7 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
  - [Azure IoT SDK](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
  - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
  - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
- - [Azure Sphere](https://stackoverflow.com/questions/tagged/azuresphere)
+ - [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
  - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
 
@@ -101,5 +101,4 @@ Azure IoT에 대한 뉴스와 정보는 [Azure 블로그](https://azure.microsof
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Azure IoT란?](iot-introduction.md)
+[Azure IoT란?](iot-introduction.md)

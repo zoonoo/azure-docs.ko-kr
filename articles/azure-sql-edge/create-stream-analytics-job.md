@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888099"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656345"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터 스트리밍 작업 만들기 
 
@@ -24,13 +24,13 @@ ms.locfileid: "90888099"
 
 T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하 여 스트리밍 작업의 외부 스트림 입력 및 출력과 관련 된 데이터 원본을 정의 합니다. 외부 스트림 입력 또는 출력 개체를 만들려면 다음 T-sql 명령을 사용 합니다.
 
-- [CREATE EXTERNAL FILE FORMAT(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [CREATE EXTERNAL FILE FORMAT(Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-- [CREATE EXTERNAL DATA SOURCE(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE(Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql)
 
 - [CREATE EXTERNAL STREAM(Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-또한 Azure SQL Edge, SQL Server 또는 Azure SQL Database를 출력 스트림으로 사용 하는 경우 [CREATE DATABASE 범위 자격 증명 (transact-sql)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)이 필요 합니다. 이 T-sql 명령은 데이터베이스에 액세스 하기 위한 자격 증명을 정의 합니다.
+또한 Azure SQL Edge, SQL Server 또는 Azure SQL Database를 출력 스트림으로 사용 하는 경우 [CREATE DATABASE 범위 자격 증명 (transact-sql)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)이 필요 합니다. 이 T-sql 명령은 데이터베이스에 액세스 하기 위한 자격 증명을 정의 합니다.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>지원 되는 입력 및 출력 스트림 데이터 원본
 
@@ -38,7 +38,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 
 | 데이터 원본 유형 | 입력 | 출력 | Description |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge 허브 | Y | Y | 스트리밍 데이터를 읽고 Azure IoT Edge 허브에 쓰기 위한 데이터 원본입니다. 자세한 내용은 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)를 참조 하세요.|
+| Azure IoT Edge 허브 | Y | Y | 스트리밍 데이터를 읽고 Azure IoT Edge 허브에 쓰기 위한 데이터 원본입니다. 자세한 내용은 [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub)를 참조 하세요.|
 | SQL Database | N | Y | SQL Database에 스트리밍 데이터를 쓰는 데이터 원본 연결입니다. 데이터베이스는 Azure SQL Edge의 로컬 데이터베이스 이거나 SQL Server 또는 Azure SQL Database의 원격 데이터베이스 일 수 있습니다.|
 | Kafka | Y | N | Kafka 토픽에서 스트리밍 데이터를 읽는 데이터 원본입니다. 이 어댑터는 현재 Intel 또는 AMD 버전의 Azure SQL Edge 에서만 사용할 수 있습니다. Azure SQL Edge의 ARM64 버전에는 사용할 수 없습니다.|
 
@@ -103,7 +103,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 
 3. CREATE EXTERNAL DATA SOURCE를 사용하여 외부 데이터 원본을 만듭니다. 다음 예제를 참조하세요.
 
-    * *Localsqloutput*이라는 외부 데이터 원본을 만듭니다.
+    * *Localsqloutput* 이라는 외부 데이터 원본을 만듭니다.
     * 외부 데이터 원본(LOCATION = '<vendor>://<server>[:<port>]')을 식별합니다. 이 예제에서는 Azure SQL Edge의 로컬 인스턴스를 가리킵니다.
     * 이전에 만든 자격 증명을 사용 합니다.
 
@@ -117,7 +117,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
     go
     ```
 
-4. 외부 스트림 개체를 만듭니다. 다음 예에서는 dbo 테이블을 가리키는 외부 stream 개체를 만듭니다 *. *데이터베이스 *MySQLDatabase*의 TemperatureMeasurements.
+4. 외부 스트림 개체를 만듭니다. 다음 예에서는 dbo 테이블을 가리키는 외부 stream 개체를 만듭니다 *.* 데이터베이스 *MySQLDatabase* 의 TemperatureMeasurements.
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -154,7 +154,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
     )
    ```
-    
+
 3. 외부 스트림 개체를 만듭니다. 다음 예에서는 Kafka 토픽을 가리키는 외부 stream 개체를 만듭니다 `*TemperatureMeasurement*` .
 
     ```sql
@@ -163,7 +163,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
     (  
         DATA_SOURCE = KafkaInput, 
         FILE_FORMAT = JsonGzipped,
-        LOCATION = 'TemperatureMeasurement',     
+        LOCATION = 'TemperatureMeasurement',
         INPUT_OPTIONS = 'PARTITIONS: 10' 
     ); 
     ```
@@ -173,7 +173,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
 `sys.sp_create_streaming_job`시스템 저장 프로시저를 사용 하 여 스트리밍 쿼리를 정의 하 고 스트리밍 작업을 만듭니다. `sp_create_streaming_job`저장 프로시저는 다음 매개 변수를 사용 합니다.
 
 - `job_name`: 스트리밍 작업의 이름입니다. 스트리밍 작업 이름은 인스턴스 전체에서 고유합니다.
-- `statement`: [쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)기반 스트리밍 쿼리 문을 Stream Analytics 합니다.
+- `statement`: [쿼리 언어](/stream-analytics-query/stream-analytics-query-language-reference)기반 스트리밍 쿼리 문을 Stream Analytics 합니다.
 
 다음 예에서는 하나의 스트리밍 쿼리를 사용 하 여 간단한 스트리밍 작업을 만듭니다. 이 쿼리는 IoT Edge 허브에서 입력을 읽고 데이터베이스의에 씁니다 `dbo.TemperatureMeasurements` .
 
@@ -233,14 +233,15 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```
 
 스트리밍 작업에는 다음 상태 중 하나를 사용할 수 있습니다.
 
-| Status | Description |
+| 상태 | Description |
 |--------| ------------|
 | 생성일 | 스트리밍 작업이 만들어졌지만 아직 시작 되지 않았습니다. |
 | 시작 중 | 스트리밍 작업이 시작 단계에 있습니다. |

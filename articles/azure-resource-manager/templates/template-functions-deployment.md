@@ -1,25 +1,27 @@
 ---
 title: 템플릿 함수-배포
-description: Azure Resource Manager 템플릿에서 배포 정보를 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
+description: 배포 정보를 검색 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 수 있는 함수에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/18/2020
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677817"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920515"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배포 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿의 현재 배포와 관련 된 값을 가져오기 위한 다음 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)의 현재 배포와 관련 된 값을 가져오기 위한 다음 함수를 제공 합니다.
 
 * [배포가](#deployment)
-* [개발](#environment)
+* [environment](#environment)(환경)
 * [parameters](#parameters)
 * [variables](#variables)
 
 리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 함수](template-functions-resource.md)를 참조하세요.
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="deployment"></a>배포
 
@@ -38,22 +40,21 @@ ms.locfileid: "84677817"
 
 ```json
 {
-    "name": "",
-    "properties": {
-        "template": {
-            "$schema": "",
-            "contentVersion": "",
-            "parameters": {},
-            "variables": {},
-            "resources": [
-            ],
-            "outputs": {}
-        },
-        "templateHash": "",
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-    }
+  "name": "",
+  "properties": {
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
 }
 ```
 
@@ -61,24 +62,24 @@ ms.locfileid: "84677817"
 
 ```json
 {
-    "name": "",
-    "properties": {
-        "templateLink": {
-            "uri": ""
-        },
-        "template": {
-            "$schema": "",
-            "contentVersion": "",
-            "parameters": {},
-            "variables": {},
-            "resources": [],
-            "outputs": {}
-        },
-        "templateHash": "",
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-    }
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "uri": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
 }
 ```
 
@@ -86,20 +87,20 @@ Azure 구독, 관리 그룹 또는 테 넌 트에 배포 하는 경우 반환 �
 
 ```json
 {
-    "name": "",
-    "location": "",
-    "properties": {
-        "template": {
-            "$schema": "",
-            "contentVersion": "",
-            "resources": [],
-            "outputs": {}
-        },
-        "templateHash": "",
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-    }
+  "name": "",
+  "location": "",
+  "properties": {
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
 }
 ```
 
@@ -107,11 +108,21 @@ Azure 구독, 관리 그룹 또는 테 넌 트에 배포 하는 경우 반환 �
 
 deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다른 템플릿에 연결할 수 있습니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "variables": {
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var sharedTemplateUrl = uri(deployment().prperties.templateLink.uri, 'shared-resources.json')
+```
+
+---
 
 포털의 배포 기록에서 템플릿을 다시 배포하는 경우 템플릿은 로컬 파일로 배포됩니다. `templateLink` 속성은 배포 함수에 반환되지 않습니다. 템플릿이 `templateLink`를 사용하여 다른 템플릿과의 링크를 설정하는 경우 포털을 사용하여 다시 배포하지 마세요. 대신 처음에 템플릿을 배포하는 데 사용한 명령을 사용하세요.
 
@@ -119,19 +130,29 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json)에서는 배포 개체를 반환합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "deploymentOutput": {
-            "value": "[deployment()]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "deploymentOutput": {
+      "type": "object",
+      "value": "[deployment()]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output deploymentOutput object = deployment()
+```
+
+---
 
 앞의 예제에서는 다음 개체를 반환합니다.
 
@@ -158,7 +179,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 }
 ```
 
-## <a name="environment"></a>환경
+## <a name="environment"></a>environment
 
 `environment()`
 
@@ -206,19 +227,29 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 다음 예제 템플릿에서는 환경 개체를 반환 합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "environmentOutput": {
-            "value": "[environment()]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "environmentOutput": {
+      "type": "object",
+      "value": "[environment()]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output environmentOutput object = environment()
+```
+
+---
 
 위의 예제는 글로벌 Azure에 배포 된 경우 다음 개체를 반환 합니다.
 
@@ -264,7 +295,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | Description |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | parameterName |예 |문자열 |반환할 매개 변수의 이름입니다. |
 
@@ -276,78 +307,122 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 일반적으로 매개 변수를 사용하여 리소스 값을 설정합니다. 다음 예제에서는 웹 사이트의 이름을 배포 중에 전달된 매개 변수 값으로 설정합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "parameters": {
   "siteName": {
-      "type": "string"
+    "type": "string"
   }
-},
-"resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "name": "[parameters('siteName')]",
-      "type": "Microsoft.Web/Sites",
-      ...
-   }
+}, "resources": [
+  {
+    "type": "Microsoft.Web/Sites",
+    "apiVersion": "2016-08-01",
+    "name": "[parameters('siteName')]",
+    ...
+  }
 ]
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param siteName string
+
+resource mySite 'Microsoft.Web/Sites@2016-08-01' = {
+  name: siteName
+  ...
+}
+```
+
+---
 
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json)에서는 매개 변수 함수의 간소화된 사용을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringParameter": {
-            "type" : "string",
-            "defaultValue": "option 1"
-        },
-        "intParameter": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "objectParameter": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b"}
-        },
-        "arrayParameter": {
-            "type": "array",
-            "defaultValue": [1, 2, 3]
-        },
-        "crossParameter": {
-            "type": "string",
-            "defaultValue": "[parameters('stringParameter')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
     },
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "stringOutput": {
-            "value": "[parameters('stringParameter')]",
-            "type" : "string"
-        },
-        "intOutput": {
-            "value": "[parameters('intParameter')]",
-            "type" : "int"
-        },
-        "objectOutput": {
-            "value": "[parameters('objectParameter')]",
-            "type" : "object"
-        },
-        "arrayOutput": {
-            "value": "[parameters('arrayParameter')]",
-            "type" : "array"
-        },
-        "crossOutput": {
-            "value": "[parameters('crossParameter')]",
-            "type" : "string"
-        }
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    },
+    "crossParameter": {
+      "type": "string",
+      "defaultValue": "[parameters('stringParameter')]"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "stringOutput": {
+      "value": "[parameters('stringParameter')]",
+      "type": "string"
+    },
+    "intOutput": {
+      "value": "[parameters('intParameter')]",
+      "type": "int"
+    },
+    "objectOutput": {
+      "value": "[parameters('objectParameter')]",
+      "type": "object"
+    },
+    "arrayOutput": {
+      "value": "[parameters('arrayParameter')]",
+      "type": "array"
+    },
+    "crossOutput": {
+      "value": "[parameters('crossParameter')]",
+      "type": "string"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringParameter string = 'option 1'
+param intParameter int = 1
+param objectParameter object = {
+  'one': 'a'
+  'two': 'b'
+}
+param arrayParameter array = [
+  1
+  2
+  3
+]
+param crossParameter string = stringParameter
+
+output stringOutput string = stringParameter
+output intOutput int = intParameter
+output objectOutput object = objectParameter
+output arrayOutput array = arrayParameter
+output crossOutput string = crossParameter
+```
+
+---
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
@@ -355,11 +430,11 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 | ---- | ---- | ----- |
 | stringOutput | String | 옵션 1 |
 | intOutput | Int | 1 |
-| objectOutput | Object | {“one”: “a”, “two”: “b”} |
+| objectOutput | 개체 | {“one”: “a”, “two”: “b”} |
 | arrayOutput | 배열 | [1, 2, 3] |
 | crossOutput | String | 옵션 1 |
 
-매개 변수 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
+매개 변수 사용에 대 한 자세한 내용은 [ARM 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
 
 ## <a name="variables"></a>variables
 
@@ -369,7 +444,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | variableName |예 |String |반환할 변수의 이름입니다. |
 
@@ -381,65 +456,111 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 일반적으로 복잡한 값을 한 번만 구성하여 템플릿을 간소화하기 위해 변수를 사용합니다. 다음 예제에서는 스토리지 계정에 대한 고유한 이름을 생성합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "variables": {
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
 },
 "resources": [
-    {
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "[variables('storageName')]",
-        ...
-    },
-    {
-        "type": "Microsoft.Compute/virtualMachines",
-        "dependsOn": [
-            "[variables('storageName')]"
-        ],
-        ...
-    }
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageName')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "dependsOn": [
+      "[variables('storageName')]"
+    ],
+    ...
+  }
 ],
+
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var storageName = concat('storage', uniqueString(resourceGroup().id))
+
+resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageName
+  ...
+}
+
+resource myVm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  ...
+}
+```
+
+---
 
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json)은 각기 다른 변수 값을 반환합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {
-        "var1": "myVariable",
-        "var2": [ 1,2,3,4 ],
-        "var3": "[ variables('var1') ]",
-        "var4": {
-            "property1": "value1",
-            "property2": "value2"
-          }
-    },
-    "resources": [],
-    "outputs": {
-        "exampleOutput1": {
-            "value": "[variables('var1')]",
-            "type" : "string"
-        },
-        "exampleOutput2": {
-            "value": "[variables('var2')]",
-            "type" : "array"
-        },
-        "exampleOutput3": {
-            "value": "[variables('var3')]",
-            "type" : "string"
-        },
-        "exampleOutput4": {
-            "value": "[variables('var4')]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "var1": "myVariable",
+    "var2": [ 1, 2, 3, 4 ],
+    "var3": "[ variables('var1') ]",
+    "var4": {
+      "property1": "value1",
+      "property2": "value2"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "exampleOutput1": {
+      "value": "[variables('var1')]",
+      "type": "string"
+    },
+    "exampleOutput2": {
+      "value": "[variables('var2')]",
+      "type": "array"
+    },
+    "exampleOutput3": {
+      "value": "[variables('var3')]",
+      "type": "string"
+    },
+    "exampleOutput4": {
+      "value": "[variables('var4')]",
+      "type": "object"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var var1 = 'myVariable'
+var var2 = [
+  1
+  2
+  3
+  4
+]
+var var3 = var1
+var var4 = {
+  'property1': 'value1'
+  'property2': 'value2'
+}
+
+output exampleOutput1 string = var1
+output exampleOutput2 array = var2
+output exampleOutput3 string = var3
+output exampleOutput4 object = var4
+```
+
+---
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
@@ -448,10 +569,10 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | 배열 | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Object | {“property1”: “value1”, “property2”: “value2”} |
+| exampleOutput4 |  개체 | {“property1”: “value1”, “property2”: “value2”} |
 
-변수를 사용 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿에서 변수](template-variables.md)를 참조 하세요.
+변수를 사용 하는 방법에 대 한 자세한 내용은 [ARM 템플릿의 변수](template-variables.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

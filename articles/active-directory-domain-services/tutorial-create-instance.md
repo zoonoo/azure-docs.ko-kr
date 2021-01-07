@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Azure Active Directory Domain Services 관리형 도메인 만들기 | Microsoft Docs
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Active Directory Domain Services 관리형 도메인을 만들고 구성하는 방법을 알아봅니다.
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: dc225cef2981bd6307a919d52b75d3e0791e46cf
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: justinha
+ms.openlocfilehash: 945c131394a0a3c6273f79044c8500a2feba70fe
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491003"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618147"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리형 도메인 만들기 및 구성
 
@@ -55,11 +55,11 @@ Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀�
 
 **Azure AD Domain Services** 마법사를 시작하려면 다음 단계를 완료합니다.
 
-1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
-1. 검색 창에서 *Domain Services*를 입력한 다음, 검색 제안에서 *Azure AD Domain Services*를 선택합니다.
-1. Azure AD Domain Services 페이지에서 **만들기**를 선택합니다. **Azure AD Domain Services 사용** 마법사가 시작됩니다.
-1. 관리되는 도메인을 만들려는 Azure **구독**을 선택합니다.
-1. 관리되는 도메인이 속해야 하는 **리소스 그룹**을 선택합니다. **새로 만들기** 또는 기존 리소스 그룹을 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
+1. 검색 창에서 *Domain Services* 를 입력한 다음, 검색 제안에서 *Azure AD Domain Services* 를 선택합니다.
+1. Azure AD Domain Services 페이지에서 **만들기** 를 선택합니다. **Azure AD Domain Services 사용** 마법사가 시작됩니다.
+1. 관리되는 도메인을 만들려는 Azure **구독** 을 선택합니다.
+1. 관리되는 도메인이 속해야 하는 **리소스 그룹** 을 선택합니다. **새로 만들기** 또는 기존 리소스 그룹을 선택합니다.
 
 관리되는 도메인을 만들 때 DNS 이름을 지정합니다. 이 DNS 이름을 선택할 때 고려해야 할 몇 가지 사항이 있습니다.
 
@@ -70,11 +70,11 @@ Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀�
 > [!TIP]
 > 사용자 지정 도메인 이름을 만드는 경우 기존 DNS 네임스페이스를 주의해야 합니다. 기존 Azure 또는 온-프레미스 DNS 네임스페이스와 별도의 도메인 이름을 사용하는 것이 좋습니다.
 >
-> 예를 들어 기존 DNS 네임스페이스가 *contoso.com*인 경우 사용자 지정 도메인 이름이 *aaddscontoso.com*인 관리되는 도메인을 만듭니다. 보안 LDAP을 사용해야 하는 경우 필요한 인증서를 생성하려면 이 사용자 지정 도메인 이름을 등록하고 소유해야 합니다.
+> 예를 들어 기존 DNS 네임스페이스가 *contoso.com* 인 경우 사용자 지정 도메인 이름이 *aaddscontoso.com* 인 관리되는 도메인을 만듭니다. 보안 LDAP을 사용해야 하는 경우 필요한 인증서를 생성하려면 이 사용자 지정 도메인 이름을 등록하고 소유해야 합니다.
 >
 > 환경의 다른 서비스에 대한 일부 추가 DNS 레코드를 만들거나 환경의 기존 DNS 네임스페이스 사이에 조건부 DNS 전달자를 만들어야 할 수 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
 >
-> 이러한 자습서 및 방법 문서에서는 *aaddscontoso.com*의 사용자 지정 도메인이 간단한 예제로 사용됩니다. 모든 명령에서 사용자 고유의 도메인 이름을 지정하세요.
+> 이러한 자습서 및 방법 문서에서는 *aaddscontoso.com* 의 사용자 지정 도메인이 간단한 예제로 사용됩니다. 모든 명령에서 사용자 고유의 도메인 이름을 지정하세요.
 
 다음 DNS 이름 제한도 적용됩니다.
 
@@ -86,18 +86,18 @@ Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀�
 
 Azure Portal의 *기본* 창에 있는 필드를 완료하여 관리되는 도메인을 만듭니다.
 
-1. 이전 사항을 고려하여 관리되는 도메인의 **DNS 도메인 이름**을 입력합니다.
-1. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다. Azure 가용성 영역을 지원하는 지역을 선택하면 Azure AD DS 리소스가 추가 중복성을 위해 여러 영역에 분산됩니다.
+1. 이전 사항을 고려하여 관리되는 도메인의 **DNS 도메인 이름** 을 입력합니다.
+1. 관리되는 도메인을 만들어야 하는 Azure **위치** 를 선택합니다. Azure 가용성 영역을 지원하는 지역을 선택하면 Azure AD DS 리소스가 추가 중복성을 위해 여러 영역에 분산됩니다.
 
     > [!TIP]
     > 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다.
     >
     > Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없습니다. Azure 플랫폼은 리소스의 영역 배포를 자동으로 처리합니다. 자세한 내용을 보고 지역 가용성을 확인하려면 [Azure에서 가용성 영역이란?][availability-zones]을 참조하세요.
 
-1. **SKU**는 만들 수 있는 성능, 백업 빈도 및 최대 포리스트 트러스트 수를 결정합니다. 비즈니스 요구나 요구 사항이 변경되면 관리되는 도메인이 만들어진 후 SKU를 변경할 수 있습니다. 자세한 내용은 [Azure AD DS SKU 개념][concepts-sku]을 참조하세요.
+1. **SKU** 는 만들 수 있는 성능, 백업 빈도 및 최대 포리스트 트러스트 수를 결정합니다. 비즈니스 요구나 요구 사항이 변경되면 관리되는 도메인이 만들어진 후 SKU를 변경할 수 있습니다. 자세한 내용은 [Azure AD DS SKU 개념][concepts-sku]을 참조하세요.
 
     이 자습서에서는 *표준* SKU를 선택합니다.
-1. *포리스트*는 Active Directory Domain Services에서 하나 이상의 도메인을 그룹화하는 데 사용되는 논리적 구문입니다. 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다.
+1. *포리스트* 는 Active Directory Domain Services에서 하나 이상의 도메인을 그룹화하는 데 사용되는 논리적 구문입니다. 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다.
 
     *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.
 
@@ -105,42 +105,42 @@ Azure Portal의 *기본* 창에 있는 필드를 완료하여 관리되는 도�
 
     ![Azure AD Domain Services 관리되는 도메인에 대한 기본 설정 구성](./media/tutorial-create-instance/basics-window.png)
 
-관리되는 도메인을 신속하게 만들려면 **검토 + 만들기**를 선택하여 추가 기본 구성 옵션을 적용합니다. 이 만들기 옵션을 선택하면 다음과 같은 기본값이 구성됩니다.
+관리되는 도메인을 신속하게 만들려면 **검토 + 만들기** 를 선택하여 추가 기본 구성 옵션을 적용합니다. 이 만들기 옵션을 선택하면 다음과 같은 기본값이 구성됩니다.
 
-* IP 주소 범위 *10.0.2.0/24*를 사용하는 *aadds-vnet*이라는 가상 네트워크를 만듭니다.
-* IP 주소 범위 *10.0.2.0/24*를 사용하는 *aadds-subnet*이라는 서브넷을 만듭니다.
+* IP 주소 범위 *10.0.2.0/24* 를 사용하는 *aadds-vnet* 이라는 가상 네트워크를 만듭니다.
+* IP 주소 범위 *10.0.2.0/24* 를 사용하는 *aadds-subnet* 이라는 서브넷을 만듭니다.
 * Azure AD의 *모든* 사용자를 관리되는 도메인으로 동기화합니다.
 
-**검토 + 만들기**를 선택하여 이러한 기본 구성 옵션을 적용합니다.
+**검토 + 만들기** 를 선택하여 이러한 기본 구성 옵션을 적용합니다.
 
 ## <a name="deploy-the-managed-domain"></a>관리되는 도메인을 배포합니다.
 
-마법사의 **요약** 페이지에서 관리되는 도메인의 구성 설정을 검토합니다. 임의의 마법사 단계로 돌아가서 변경할 수 있습니다. 이러한 구성 옵션을 사용하여 일관적인 방식으로 관리되는 도메인을 다른 Azure AD 테넌트에 재배포하려면 **자동화를 위한 템플릿을 다운로드**해도 됩니다.
+마법사의 **요약** 페이지에서 관리되는 도메인의 구성 설정을 검토합니다. 임의의 마법사 단계로 돌아가서 변경할 수 있습니다. 이러한 구성 옵션을 사용하여 일관적인 방식으로 관리되는 도메인을 다른 Azure AD 테넌트에 재배포하려면 **자동화를 위한 템플릿을 다운로드** 해도 됩니다.
 
-1. 관리형 도메인을 만들려면 **만들기**를 선택합니다. Azure AD DS 관리형 도메인을 만들고 나면 DNS 이름 또는 가상 네트워크와 같은 특정 구성 옵션을 변경할 수 없다는 주의 사항이 표시됩니다. 계속하려면 **확인**을 선택합니다.
+1. 관리형 도메인을 만들려면 **만들기** 를 선택합니다. Azure AD DS 관리형 도메인을 만들고 나면 DNS 이름 또는 가상 네트워크와 같은 특정 구성 옵션을 변경할 수 없다는 주의 사항이 표시됩니다. 계속하려면 **확인** 을 선택합니다.
 1. 관리되는 도메인을 프로비전하는 프로세스는 최대 한 시간 정도 걸릴 수 있습니다. 포털에 Azure AD DS 배포의 진행 상황을 보여 주는 알림이 표시됩니다. 알림을 선택하여 자세한 배포 진행 상황을 확인합니다.
 
     ![Azure Portal의 진행 중인 배포 알림](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. 이 페이지에는 디렉터리에 새 리소스를 만드는 것을 포함하여 배포 프로세스에 대한 업데이트가 로드됩니다.
-1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, Azure 리소스 목록에서 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다. **개요** 탭에서 관리되는 도메인이 현재 *배포 중*임을 보여 줍니다. 관리되는 도메인은 완전히 프로비저닝될 때까지 구성할 수 없습니다.
+1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, Azure 리소스 목록에서 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다. **개요** 탭에서 관리되는 도메인이 현재 *배포 중* 임을 보여 줍니다. 관리되는 도메인은 완전히 프로비저닝될 때까지 구성할 수 없습니다.
 
     ![프로비저닝 중 상태의 Domain Services 상태](./media/tutorial-create-instance/provisioning-in-progress.png)
 
-1. 관리되는 도메인이 완전히 프로비전되면 **개요** 탭에 도메인 상태가 *실행 중*으로 표시됩니다.
+1. 관리되는 도메인이 완전히 프로비전되면 **개요** 탭에 도메인 상태가 *실행 중* 으로 표시됩니다.
 
     ![성공적으로 프로비저닝된 Domain Services 상태](./media/tutorial-create-instance/successfully-provisioned.png)
 
 > [!IMPORTANT]
-> 관리되는 도메인이 Auzre AD 테넌트와 연결되어 있습니다. 프로비저닝 프로세스 중에 Azure AD DS는 *도메인 컨트롤러 서비스* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 Azure AD 테넌트에 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 이러한 애플리케이션을 삭제하지 마세요.
+> 관리되는 도메인이 Auzre AD 테넌트와 연결되어 있습니다. 프로비저닝 프로세스 중에 Azure AD DS는 *도메인 컨트롤러 서비스* 및 *AzureActiveDirectoryDomainControllerServices* 라는 두 개의 엔터프라이즈 애플리케이션을 Azure AD 테넌트에 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 이러한 애플리케이션을 삭제하지 마세요.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Azure 가상 네트워크에 대한 DNS 설정 업데이트
 
 Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플리케이션에서 관리되는 도메인을 사용할 수 있도록 가상 네트워크를 구성합니다. 이 연결을 제공하려면 관리되는 도메인이 배포된 두 개의 IP 주소를 가리키도록 가상 네트워크의 DNS 서버 설정을 업데이트합니다.
 
-1. 관리되는 도메인에 대한 **개요** 탭에는 몇 가지 **필수 구성 단계**가 표시됩니다. 첫 번째 구성 단계는 가상 네트워크에 대한 DNS 서버 설정을 업데이트하는 것입니다. DNS 설정이 올바르게 구성되면 이 단계가 더 이상 표시되지 않습니다.
+1. 관리되는 도메인에 대한 **개요** 탭에는 몇 가지 **필수 구성 단계** 가 표시됩니다. 첫 번째 구성 단계는 가상 네트워크에 대한 DNS 서버 설정을 업데이트하는 것입니다. DNS 설정이 올바르게 구성되면 이 단계가 더 이상 표시되지 않습니다.
 
-    나열된 주소는 가상 네트워크에서 사용할 도메인 컨트롤러입니다. 다음 예제에서 해당 주소는 *10.0.2.4* 및 *10.0.2.5*입니다. 이러한 IP 주소는 나중에 **속성** 탭에서 확인할 수 있습니다.
+    나열된 주소는 가상 네트워크에서 사용할 도메인 컨트롤러입니다. 다음 예제에서 해당 주소는 *10.0.2.4* 및 *10.0.2.5* 입니다. 이러한 IP 주소는 나중에 **속성** 탭에서 확인할 수 있습니다.
 
     ![Azure AD Domain Services IP 주소를 사용하여 가상 네트워크에 대한 DNS 설정 구성](./media/tutorial-create-instance/configure-dns.png)
 
@@ -176,13 +176,13 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 클라우드 전용 사용자의 암호를 변경하려면 다음 단계를 수행해야 합니다.
 
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)의 Azure AD 액세스 패널 페이지로 이동합니다.
-1. 오른쪽 위 모서리에서 이름을 선택한 다음, 드롭다운 메뉴에서 **프로필**을 선택합니다.
+1. 오른쪽 위 모서리에서 이름을 선택한 다음, 드롭다운 메뉴에서 **프로필** 을 선택합니다.
 
     ![프로필 선택](./media/tutorial-create-instance/select-profile.png)
 
-1. **프로필** 페이지에서 **암호 변경**을 선택합니다.
+1. **프로필** 페이지에서 **암호 변경** 을 선택합니다.
 1. **암호 변경** 페이지에서 기존(이전) 암호를 입력한 다음, 새 암호를 입력하고 확인합니다.
-1. **제출**을 선택합니다.
+1. **제출** 을 선택합니다.
 
 암호를 변경한 후 Azure AD DS에서 새 암호를 사용할 수 있고 관리되는 도메인에 조인한 컴퓨터에 성공적으로 로그인될 때까지 몇 분 정도 걸립니다.
 

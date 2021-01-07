@@ -4,19 +4,21 @@ description: Azure Cosmos 데이터베이스에 대 한 고유 키를 정의 하
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132656"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353105"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키 제약 조건
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-고유 키는 Azure Cosmos 컨테이너에 데이터 무결성 계층을 추가합니다. Azure Cosmos 컨테이너를 만들 때 고유 키 정책을 만듭니다. 고유 키를 사용하여 논리 파티션 내의 하나 이상 값이 고유한지 확인합니다. [파티션 키](partition-data.md)별로 고유성을 보장할 수도 있습니다.
+고유 키는 Azure Cosmos 컨테이너에 데이터 무결성 계층을 추가합니다. Azure Cosmos 컨테이너를 만들 때 고유 키 정책을 만듭니다. 고유 키를 사용하여 논리 파티션 내의 하나 이상 값이 고유한지 확인합니다. [파티션 키](partitioning-overview.md)별로 고유성을 보장할 수도 있습니다.
 
 고유 키 정책을 사용 하 여 컨테이너를 만든 후에는 unique key 제약 조건에 지정 된 대로 기존 항목의 새 또는 업데이트를 생성 하 여 논리적 파티션 내에서 중복이 발생 하지 않도록 방지 합니다. 파티션 키를 고유 키와 결합하면 컨테이너 범위 내에서 항목의 고유성이 보장됩니다.
 
@@ -43,7 +45,7 @@ Azure Cosmos 컨테이너를 만들 때만 고유 키를 정의할 수 있습니
 
 * 다른 고유 키를 사용하도록 기존 컨테이너를 업데이트할 수 없습니다. 다시 말해서, 고유 키 정책을 사용하여 컨테이너를 만든 후에는 정책을 변경할 수 없습니다.
 
-* 기존 컨테이너에 대해 고유 키를 설정하려면 고유 키 제약 조건을 사용하여 새 컨테이너를 만듭니다. 적절한 데이터 마이그레이션 도구를 사용하여 기존 컨테이너에서 새 컨테이너로 데이터를 이동합니다. SQL 컨테이너의 경우 데이터 [마이그레이션 도구](import-data.md) 를 사용 하 여 데이터를 이동 합니다. MongoDB 컨테이너의 경우 [mongoimport.exe 또는 mongorestore.exe](mongodb-migrate.md)를 사용하여 데이터를 이동합니다.
+* 기존 컨테이너에 대해 고유 키를 설정하려면 고유 키 제약 조건을 사용하여 새 컨테이너를 만듭니다. 적절한 데이터 마이그레이션 도구를 사용하여 기존 컨테이너에서 새 컨테이너로 데이터를 이동합니다. SQL 컨테이너의 경우 데이터 [마이그레이션 도구](import-data.md) 를 사용 하 여 데이터를 이동 합니다. MongoDB 컨테이너의 경우 [mongoimport.exe 또는 mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)를 사용하여 데이터를 이동합니다.
 
 * 고유 키 정책에 최대 16개의 경로 값을 사용할 수 있습니다. 예를 들어, 및 값을 사용할 수 있습니다 `/firstName` `/lastName` `/address/zipCode` . 각 고유 키 정책에는 최대 10개의 고유 키 제약 조건 또는 조합을 포함할 수 있습니다. 각 고유 인덱스 제약 조건에 대해 결합된 경로는 60바이트를 초과하지 않아야 합니다. 이전 예제에서는 이름, 성, 메일 주소가 결합되어 하나의 제약 조건이 되었습니다. 이 제약 조건은 사용 가능한 16개 경로 중 3개를 사용합니다.
 
@@ -55,5 +57,5 @@ Azure Cosmos 컨테이너를 만들 때만 고유 키를 정의할 수 있습니
 
 ## <a name="next-steps"></a>다음 단계
 
-* [논리 파티션에](partition-data.md) 대해 자세히 알아보기
+* [논리 파티션에](partitioning-overview.md) 대해 자세히 알아보기
 * 컨테이너를 만들 때 [고유한 키를 정의 하는 방법을](how-to-define-unique-keys.md) 알아봅니다.

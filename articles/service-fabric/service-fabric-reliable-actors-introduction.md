@@ -1,17 +1,15 @@
 ---
 title: Service Fabric Reliable Actors 개요
 description: 가상 행위자 패턴을 기반으로 하는 Service Fabric Reliable Actors 프로그래밍 모델을 소개 합니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adb15d995cd2a9fd604aa6b91360adc88a2804e6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1a8a7003a69deaf6b74d6fbb8a3cf84b0a78eecf
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007930"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576386"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 알아보기
 Reliable Actors는 [가상의 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 애플리케이션 프레임워크입니다. Reliable Actors API는 Service Fabric에서 보장하는 확장성과 안정성을 바탕으로 단일 스레드 프로그래밍 모델을 제공합니다.
@@ -43,7 +41,7 @@ Service Fabric의 행위자는 가상 행위자로 수명이 해당 인메모리
 * Reliable Actors가 생성하는 행위자 개체는 암시적인 형태이지만 행위자와 행위자의 상태를 삭제할 때에는 이를 구체적으로 지정할 수 있습니다.
 
 ## <a name="distribution-and-failover"></a>배포 및 장애 조치
-Service Fabric은 확장성과 안정성을 제공하기 위해 클러스터 전체에 행위자를 배포합니다. 또한, 필요에 따라 실패한 노드를 정상적인 노드로 자동 마이그레이션합니다. [분할된 상태 저장 Reliable Service](service-fabric-concepts-partitioning.md)에 대한 추상화합니다. 행위자가 *Actor Service*라는 상태 저장 Reliable Service 내에서 실행되기 때문에 배포, 확장성, 안정성 및 자동 장애 조치가 모두 제공됩니다.
+Service Fabric은 확장성과 안정성을 제공하기 위해 클러스터 전체에 행위자를 배포합니다. 또한, 필요에 따라 실패한 노드를 정상적인 노드로 자동 마이그레이션합니다. [분할된 상태 저장 Reliable Service](service-fabric-concepts-partitioning.md)에 대한 추상화합니다. 행위자가 *Actor Service* 라는 상태 저장 Reliable Service 내에서 실행되기 때문에 배포, 확장성, 안정성 및 자동 장애 조치가 모두 제공됩니다.
 
 행위자는 Actor Service의 파티션에 분산되고 이러한 파티션은 Service Fabric 클러스터의 노드에 분산됩니다. 각 서비스 파티션은 일련의 행위자를 포함합니다. Service Fabric은 서비스 파티션의 배포 및 장애 조치를 관리합니다.
 
@@ -124,13 +122,13 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 
 고려할 몇 가지 중요한 사항은 다음과 같습니다.
 
-* *Method1*이 클라이언트 요청 *xyz789*에 대한 응답으로 *ActorId2*를 대신하여 실행되는 동안 *ActorId2*에서 *Method1*을 실행해야 하는 다른 클라이언트 요청(*abc123*)이 도착합니다. 그러나 *Method1* 의 두 번째 실행은 이전 실행이 완료될 때까지 시작하지 않습니다. 비슷하게, *ActorId2*에서 등록한 미리 알림은 클라이언트 요청 *xyz789*에 대한 응답으로 *Method1*이 실행되는 동안 실행됩니다. 미리 알림 콜백은 두 *Method1* 의 실행이 완료된 후에만 실행됩니다. 모두가 *ActorId2*에 적용되는 턴 기반 동시성으로 인한 것입니다.
-* 마찬가지로, 턴 기반 동시성은 순차적으로 발생하는 *ActorId1* 대신 *Method1*, *Method2* 및 타이머 콜백을 실행하여 증명된 것처럼 *ActorId1*에 대해서도 적용됩니다.
-* *ActorId1*을 대신한 *Method1*의 실행은 *ActorId2*를 대신한 실행과 겹칩니다. 이는 턴 기반 동시성이 전체 행위자들이 아닌 하나의 행위자 내에만 적용되기 때문입니다.
+* *Method1* 이 클라이언트 요청 *xyz789* 에 대한 응답으로 *ActorId2* 를 대신하여 실행되는 동안 *ActorId2* 에서 *Method1* 을 실행해야 하는 다른 클라이언트 요청(*abc123*)이 도착합니다. 그러나 *Method1* 의 두 번째 실행은 이전 실행이 완료될 때까지 시작하지 않습니다. 비슷하게, *ActorId2* 에서 등록한 미리 알림은 클라이언트 요청 *xyz789* 에 대한 응답으로 *Method1* 이 실행되는 동안 실행됩니다. 미리 알림 콜백은 두 *Method1* 의 실행이 완료된 후에만 실행됩니다. 모두가 *ActorId2* 에 적용되는 턴 기반 동시성으로 인한 것입니다.
+* 마찬가지로, 턴 기반 동시성은 순차적으로 발생하는 *ActorId1* 대신 *Method1*, *Method2* 및 타이머 콜백을 실행하여 증명된 것처럼 *ActorId1* 에 대해서도 적용됩니다.
+* *ActorId1* 을 대신한 *Method1* 의 실행은 *ActorId2* 를 대신한 실행과 겹칩니다. 이는 턴 기반 동시성이 전체 행위자들이 아닌 하나의 행위자 내에만 적용되기 때문입니다.
 * 일부 메서드/콜백 실행에서 메서드/콜백에 의해 반환된 `Task`(C#)/`CompletableFuture`(Java)의 경우, 해당 메서드가 반환된 후에 완료됩니다. 다른 경우에 비동기 작업은 메서드/콜백이 반환되는 시점에 이미 완료되었습니다. 두 경우 모두 메서드/콜백이 반환되고 비동기 작업이 완료된 후에 행위자별 잠금이 해제됩니다.
 
 ### <a name="reentrancy"></a>다시 표시
-기본적으로 행위자 런타임은 다시 표시를 허용합니다. 따라서 *행위자 A*의 행위자 메서드가 *행위자 A*의 다른 메서드를 차례로 호출하는 *행위자 B*의 메서드를 호출하는 경우 해당 메서드를 실행할 수 있습니다. 즉, 동일한 논리 호출 체인 컨텍스트의 일부이기 때문입니다. 모든 타이머 및 미리 알림 호출은 새로운 논리 호출 컨텍스트에서 시작됩니다. 자세한 내용은 [Reliable Actors 다시 표시](service-fabric-reliable-actors-reentrancy.md)를 참조하세요.
+기본적으로 행위자 런타임은 다시 표시를 허용합니다. 따라서 *행위자 A* 의 행위자 메서드가 *행위자 A* 의 다른 메서드를 차례로 호출하는 *행위자 B* 의 메서드를 호출하는 경우 해당 메서드를 실행할 수 있습니다. 즉, 동일한 논리 호출 체인 컨텍스트의 일부이기 때문입니다. 모든 타이머 및 미리 알림 호출은 새로운 논리 호출 컨텍스트에서 시작됩니다. 자세한 내용은 [Reliable Actors 다시 표시](service-fabric-reliable-actors-reentrancy.md)를 참조하세요.
 
 ### <a name="scope-of-concurrency-guarantees"></a>동시성 보증의 범위
 행위자 런타임은 이러한 메서드의 호출을 제어하는 상황에서 이러한 동시성을 보증합니다. 예를 들어 타이머와 미리 알림 콜백 뿐만 아니라 클라이언트 요청에 대한 응답으로 수행되는 메서드 호출에 대해 이러한 보증을 제공합니다. 하지만 행위자 코드가 행위자 런타임에서 제공하는 메커니즘 외부에서 이러한 메서드를 호출하는 경우 런타임은 어떠한 동시성도 보장할 수 없습니다. 예를 들어, 행위자 메서드에서 반환된 작업과 연결되지 않은 일부 작업의 컨텍스트에서 메서드를 호출하는 경우 런타임은 동시성을 보장할 수 없습니다. 행위자가 자체적으로 만드는 스레드에서 메서드가 호출되는 경우 런타임은 동시성을 보장할 수 없습니다. 따라서 백그라운드 작업을 수행하려면 행위자가 턴 기반 동시성을 따르는 [행위자 타이머 및 행위자 미리 알림](service-fabric-reliable-actors-timers-reminders.md) 을 사용해야 합니다.

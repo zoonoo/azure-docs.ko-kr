@@ -12,10 +12,10 @@ ms.date: 01/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5e44e2e1eb37e808e60134a6fba5051552e84029
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389346"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Azure AD B2C에 대 한 쿠키 정의
@@ -39,7 +39,7 @@ Microsoft Azure AD B2C 서비스는 특성에 대 한 지원을 포함 하 여 S
 
 다음 표에서는 Azure AD B2C에 사용 되는 쿠키를 나열 합니다.
 
-| 이름 | 도메인 | 만료 | 용도 |
+| 속성 | 도메인 | 만료 | 목적 |
 | ----------- | ------ | -------------------------- | --------- |
 | `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | [브라우저 세션](session-behavior.md) 의 끝 | 테 넌 트 간에 사용자 멤버 자격 데이터를 저장 합니다. 사용자가 구성원 인 테 넌 트 (관리자 또는 사용자)입니다. |
 | `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 의 끝 | 요청을 적절 한 프로덕션 인스턴스로 라우팅하는 데 사용 됩니다. |

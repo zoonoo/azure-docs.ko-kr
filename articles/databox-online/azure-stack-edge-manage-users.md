@@ -1,23 +1,23 @@
 ---
-title: Azure Stack Edge Pro 사용자 관리 | Microsoft Docs
+title: Azure Stack Edge Pro FPGA 사용자 관리 | Microsoft Docs
 description: Azure Portal를 사용 하 여 Edge Pro Azure Stack 사용자를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/11/2019
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 3fb82e95d9d7dcfdf59bd05f91beff8e1184955e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27ca190f3bad7f75175e5206d48e13dae1f5687e
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904381"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913357"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Azure Stack Edge Pro의 사용자를 관리 합니다.
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro-fpga"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro FPGA의 사용자를 관리 합니다.
 
-이 문서에서는 Azure Stack Edge Pro에서 사용자를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 사용자를 추가, 수정 또는 삭제합니다.
+이 문서에서는 Azure Stack Edge Pro FPGA 장치에서 사용자를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 사용자를 추가, 수정 또는 삭제합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -39,18 +39,18 @@ ms.locfileid: "90904381"
 
 사용자를 추가하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **개요 > 사용자**로 이동 합니다. 명령 모음에서 **+ 사용자 추가** 를 선택 합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **사용자** 로 이동 합니다. 명령 모음에서 **+ 사용자 추가** 를 선택 합니다.
 
     ![사용자 추가 선택](media/azure-stack-edge-manage-users/add-user-1.png)
 
-2. 추가하려는 사용자에 대한 사용자 이름 및 암호를 지정합니다. 암호를 확인하고 **추가**를 선택합니다.
+2. 추가하려는 사용자에 대한 사용자 이름 및 암호를 지정합니다. 암호를 확인하고 **추가** 를 선택합니다.
 
     ![사용자 이름 및 암호 지정](media/azure-stack-edge-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > 다음과 같은 사용자는 시스템에 예약되어 있으므로 사용하지 말아야 합니다. Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
-3. 사용자 만들기가 시작되고 완료되면 알림이 표시됩니다. 사용자가 만들어지면 명령 모음에서 **새로 고침**을 선택하여 업데이트된 사용자 목록을 볼 수 있습니다.
+3. 사용자 만들기가 시작되고 완료되면 알림이 표시됩니다. 사용자가 만들어지면 명령 모음에서 **새로 고침** 을 선택하여 업데이트된 사용자 목록을 볼 수 있습니다.
 
 
 ## <a name="modify-user"></a>사용자 수정
@@ -65,11 +65,11 @@ ms.locfileid: "90904381"
 사용자를 삭제하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **개요 > 사용자**로 이동 합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **사용자** 로 이동 합니다.
 
     ![삭제할 사용자 선택](media/azure-stack-edge-manage-users/delete-user-1.png)
 
-2. 사용자 목록에서 사용자를 선택한 다음, **삭제**를 선택합니다.  
+2. 사용자 목록에서 사용자를 선택한 다음, **삭제** 를 선택합니다.  
 
    ![삭제 선택](media/azure-stack-edge-manage-users/delete-user-2.png)
 

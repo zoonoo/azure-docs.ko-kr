@@ -2,14 +2,14 @@
 title: Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정
 description: 풀의 컴퓨팅 노드 수를 동적으로 조정하려면 클라우드 풀에서 자동 크기 조정을 사용하도록 설정합니다.
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: e3e7a354e015ffa8a6164de59edcf572ab773319
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932324"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737295"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 컴퓨팅 노드의 크기를 조정하는 자동 수식 만들기
 
@@ -135,7 +135,10 @@ $NodeDeallocationOption = taskcompletion;
 > [!TIP]
 > 이러한 읽기 전용 서비스 정의 변수는 각각에 연결 된 데이터에 액세스 하는 다양 한 메서드를 제공 하는 *개체* 입니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [샘플 데이터 가져오기](#obtain-sample-data)를 참조하세요.
 
-## <a name="types"></a>유형
+> [!NOTE]
+> `$RunningTasks`특정 시점에 실행 되는 작업 수를 기준으로 크기를 조정 하거나 `$ActiveTasks` 실행을 위해 큐에 대기 중인 작업의 수에 따라 크기를 조정 하는 경우를 사용 합니다.
+
+## <a name="types"></a>형식
 
 자동 크기 조정 수식은 다음 형식을 지원 합니다.
 
@@ -186,7 +189,7 @@ $NodeDeallocationOption = taskcompletion;
 | timeinterval *operator* timeinterval |<, <=, ==, >=, >, != |double |
 | double *operator* double |&&, &#124;&#124; |double |
 
-3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true**이고 0은 **false**입니다.
+3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true** 이고 0은 **false** 입니다.
 
 ## <a name="functions"></a>Functions
 
@@ -214,11 +217,11 @@ $NodeDeallocationOption = taskcompletion;
 | time(string dateTime="") |timestamp |매개 변수가 전달 되지 않는 경우 현재 시간의 타임 스탬프를 반환 하 고, 전달 되는 경우 dateTime 문자열의 타임 스탬프를 반환 합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
 | val(doubleVec v, double i) |double |시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다. |
 
-앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 다음은 그 예입니다.
+앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec* 의 조합입니다. 다음은 그 예입니다.
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*doubleVecList* 값은 평가 전 단일 *doubleVec*으로 변환됩니다. 예를 들어 `v = [1,2,3]`의 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출과 동일합니다. `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출과 동일합니다.
+*doubleVecList* 값은 평가 전 단일 *doubleVec* 으로 변환됩니다. 예를 들어 `v = [1,2,3]`의 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출과 동일합니다. `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출과 동일합니다.
 
 ## <a name="metrics"></a>메트릭
 
@@ -287,7 +290,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
 | Count() |메트릭 기록에 있는 총 샘플 수를 반환합니다. |
 | HistoryBeginTime() |메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다. |
-| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예: `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )` 반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
+| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`)을 입력합니다. 반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
 
 ### <a name="samples"></a>샘플
 
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> 을 선택 하는 경우 수식 문자열에 주석과 줄 바꿈을 모두 포함할 수 있습니다.
+> 을 선택 하는 경우 수식 문자열에 주석과 줄 바꿈을 모두 포함할 수 있습니다. 또한 세미콜론을 생략 하면 평가 오류가 발생할 수 있습니다.
 
 ## <a name="automatic-scaling-interval"></a>자동 크기 조정 간격
 
@@ -423,7 +426,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> 자동 크기 조정 가능한 풀을 만들 때 **createpool**호출에서 _targetDedicatedNodes_ 매개 변수 또는 _targetLowPriorityNodes_ 매개 변수를 지정 하지 마세요. 대신 풀에 **AutoScaleEnabled** 및 **AutoScaleFormula** 속성을 지정합니다. 이러한 속성의 값은 각 노드 형식의 목표 수를 결정합니다.
+> 자동 크기 조정 가능한 풀을 만들 때 **createpool** 호출에서 _targetDedicatedNodes_ 매개 변수 또는 _targetLowPriorityNodes_ 매개 변수를 지정 하지 마세요. 대신 풀에 **AutoScaleEnabled** 및 **AutoScaleFormula** 속성을 지정합니다. 이러한 속성의 값은 각 노드 형식의 목표 수를 결정합니다.
 >
 > 자동 크기 조정 가능한 풀의 크기를 수동으로 조정 하려면 (예: [Batchclient. ResizePoolAsync](/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync)사용) 먼저 풀에서 자동 크기 조정을 사용 하지 않도록 설정한 다음 크기를 조정 해야 합니다.
 
@@ -625,7 +628,7 @@ Batch .NET에서 [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.clou
 
 REST API에서 [풀에 대한 정보 가져오기](/rest/api/batchservice/get-information-about-a-pool) 요청은 [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool) 속성에 마지막 자동 크기 조정 실행 정보가 포함된 풀 관련 정보를 반환합니다.
 
-다음 c # 예제에서는 Batch .NET 라이브러리를 사용 하 여 풀 _myPool_의 마지막 자동 크기 조정 실행에 대 한 정보를 인쇄 합니다.
+다음 c # 예제에서는 Batch .NET 라이브러리를 사용 하 여 풀 _myPool_ 의 마지막 자동 크기 조정 실행에 대 한 정보를 인쇄 합니다.
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -646,6 +649,24 @@ Result:
   $isWorkingWeekdayHour=0;
   $workHours=0
 Error:
+```
+
+## <a name="get-autoscale-run-history-using-pool-autoscale-events"></a>풀 자동 크기 조정 이벤트를 사용 하 여 자동 크기 조정 실행 기록 가져오기
+[PoolAutoScaleEvent](batch-pool-autoscale-event.md)를 쿼리하여 자동 크기 조정 기록을 확인할 수도 있습니다. 이 이벤트는 자동 크기 조정 수식 평가 및 실행의 각 항목을 기록 하기 위해 Batch 서비스에서 내보내집니다 .이는 잠재적 문제를 해결 하는 데 도움이 될 수 있습니다.
+
+PoolAutoScaleEvent에 대 한 샘플 이벤트:
+```json
+{
+    "id": "poolId",
+    "timestamp": "2020-09-21T23:41:36.750Z",
+    "formula": "...",
+    "results": "$TargetDedicatedNodes=10;$NodeDeallocationOption=requeue;$curTime=2016-10-14T18:36:43.282Z;$isWeekday=1;$isWorkingWeekdayHour=0;$workHours=0",
+    "error": {
+        "code": "",
+        "message": "",
+        "values": []
+    }
+}
 ```
 
 ## <a name="example-autoscale-formulas"></a>자동 크기 조정 수식 예제
@@ -691,7 +712,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>예 3: 병렬 작업용 계정
 
-이 c # 예제에서는 작업의 수에 따라 풀 크기를 조정 합니다. 이 수식은 또한 풀에 대해 설정된 [MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode) 값을 고려합니다. 이 방법은 [병렬 작업 실행](batch-parallel-node-tasks.md)이 풀에서 사용된 경우에 특히 유용합니다.
+이 c # 예제에서는 작업의 수에 따라 풀 크기를 조정 합니다. 또한이 수식은 풀에 대해 설정 된 [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) 값을 고려 합니다. 이 방법은 [병렬 작업 실행](batch-parallel-node-tasks.md)이 풀에서 사용된 경우에 특히 유용합니다.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -699,7 +720,7 @@ $NodeDeallocationOption = taskcompletion;
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
 // Set the number of nodes to add to one-fourth the number of active tasks
-// (theMaxTasksPerComputeNode property on this pool is set to 4, adjust
+// (the TaskSlotsPerNode property on this pool is set to 4, adjust
 // this number for your use case)
 $cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;

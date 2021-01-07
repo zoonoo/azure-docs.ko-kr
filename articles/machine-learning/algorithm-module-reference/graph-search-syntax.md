@@ -1,7 +1,7 @@
 ---
-title: Graph 검색 쿼리 구문
+title: 그래프 검색 쿼리 구문
 titleSuffix: Azure Machine Learning
-description: 검색 쿼리 구문을 사용 하 여 파이프라인 그래프의에서 노드를 검색 하는 방법을 알아봅니다.
+description: Azure Machine Learning designer에서 검색 쿼리 구문을 사용 하 여 파이프라인 그래프의에서 노드를 검색 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817552"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420770"
 ---
-# <a name="graph-search-query-syntax"></a>Graph 검색 쿼리 구문
+# <a name="graph-search-query-syntax"></a>그래프 검색 쿼리 구문
 
 이 문서에서는 Azure Machine Learning의 graph 검색 쿼리 구문에 대해 알아봅니다. 그래프 검색 기능을 사용 하면 이름 및 속성으로 노드를 검색할 수 있습니다. 
 
@@ -36,7 +36,7 @@ Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용
 
  
 - 및/또는
-- 와일드 **카드와 일치** 및 **\*** 연산자.
+- 와일드 **카드와 일치** 및 * *\** _ 연산자.
 
 ### <a name="examples"></a>예제
 
@@ -49,7 +49,7 @@ Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용
  
 - 와일드 카드 일치: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach_ing`
  
 >[!NOTE]
 > "*" 문자를 사용 하 여 Lucene 쿼리를 시작할 수 없습니다.
@@ -59,7 +59,7 @@ Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용
  
 필터 쿼리는 다음 패턴을 사용 합니다.
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 다음 노드 속성을 키로 사용할 수 있습니다.
@@ -83,7 +83,7 @@ Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용
  
  
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 기간 > 100;
 - {Failed, NotStarted}의 상태

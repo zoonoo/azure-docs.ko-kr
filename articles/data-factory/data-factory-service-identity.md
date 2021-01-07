@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 7134fc5d591fffdfb9aea13767e597dddc92b038
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 819f84eeb7540050fb001111690fb6d2ba484b2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434948"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452315"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -32,16 +32,16 @@ ms.locfileid: "89434948"
 Data Factory에 대 한 관리 id는 다음과 같은 기능을 제공 합니다.
 
 - [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다 .이 경우 데이터 팩터리 관리 id는 Azure Key Vault 인증에 사용 됩니다.
-- [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)및 [azure Synapse Analytics (이전의 SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)를 포함 하는 커넥터.
+- [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)및 [azure Synapse Analytics](connector-azure-sql-data-warehouse.md)를 포함 하는 커넥터.
 - [웹 활동](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>관리 id 생성
 
 Data Factory에 대 한 관리 id는 다음과 같이 생성 됩니다.
 
-- **Azure Portal 또는 PowerShell**을 통해 데이터 팩터리를 만들 때 관리 id는 항상 자동으로 만들어집니다.
-- **SDK**를 통해 데이터 팩터리를 만들 때 관리 id는 생성을 위해 팩터리 개체에 "identity = new FactoryIdentity ()"를 지정 하는 경우에만 생성 됩니다. [.NET 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md#create-a-data-factory)에서 예제를 참조하세요.
-- **REST API**를 통해 데이터 팩터리를 만들 때 요청 본문에 "identity" 섹션을 지정 하는 경우에만 관리 id가 만들어집니다. [REST 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md#create-a-data-factory)에서 예제를 참조하세요.
+- **Azure Portal 또는 PowerShell** 을 통해 데이터 팩터리를 만들 때 관리 id는 항상 자동으로 만들어집니다.
+- **SDK** 를 통해 데이터 팩터리를 만들 때 관리 id는 생성을 위해 팩터리 개체에 "identity = new FactoryIdentity ()"를 지정 하는 경우에만 생성 됩니다. [.NET 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md#create-a-data-factory)에서 예제를 참조하세요.
+- **REST API** 를 통해 데이터 팩터리를 만들 때 요청 본문에 "identity" 섹션을 지정 하는 경우에만 관리 id가 만들어집니다. [REST 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md#create-a-data-factory)에서 예제를 참조하세요.
 
 데이터 팩터리가 관리 [id를 검색](#retrieve-managed-identity) 하는 것과 관련 된 관리 id가 없는 경우 데이터 팩터리를 프로그래밍 방식으로 id 초기자로 업데이트 하 여 명시적으로 생성할 수 있습니다.
 
@@ -57,7 +57,7 @@ Data Factory에 대 한 관리 id는 다음과 같이 생성 됩니다.
 
 ### <a name="generate-managed-identity-using-powershell"></a>PowerShell을 사용 하 여 관리 되는 id 생성
 
-**AzDataFactoryV2** 명령을 다시 호출 합니다. 그러면 새로 생성 되는 "id" 필드가 표시 됩니다.
+**AzDataFactoryV2** 명령을 호출 하면 새로 생성 되는 "id" 필드가 표시 됩니다.
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -252,4 +252,4 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 - [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)
 - [Azure 리소스 인증을 위해 관리 ID를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)
 
-Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 배경 정보는 Azure 리소스에 대 한 [관리 Id 개요](/azure/active-directory/managed-identities-azure-resources/overview) 를 참조 하세요. 
+Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 배경 정보는 Azure 리소스에 대 한 [관리 Id 개요](../active-directory/managed-identities-azure-resources/overview.md) 를 참조 하세요.

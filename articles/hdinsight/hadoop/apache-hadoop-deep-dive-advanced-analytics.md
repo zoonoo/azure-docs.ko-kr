@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 13dd960cc7c900882acbcb9b17a5b8a1f32f956c
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89504352"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821505"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
 ## <a name="what-is-advanced-analytics-for-hdinsight"></a>HDInsight 고급 분석이란?
 
-HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 및 빠르게 이동하는 데이터로부터 가치 있는 통찰력을 얻을 수 있는 기능을 제공합니다. 고급 분석은 확장성 있는 아키텍처, 통계 및 기계 학습 모델 및 지능형 대시보드를 사용하여 의미 있는 통찰력을 제공합니다. 기계 학습 또는 *예측 분석*은 데이터의 관계를 식별하고 학습하여 예측을 수행하고 의사 결정을 안내하는 알고리즘을 사용합니다.
+HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 및 빠르게 이동하는 데이터로부터 가치 있는 통찰력을 얻을 수 있는 기능을 제공합니다. 고급 분석은 확장성 있는 아키텍처, 통계 및 기계 학습 모델 및 지능형 대시보드를 사용하여 의미 있는 통찰력을 제공합니다. 기계 학습 또는 *예측 분석* 은 데이터의 관계를 식별하고 학습하여 예측을 수행하고 의사 결정을 안내하는 알고리즘을 사용합니다.
 
 ## <a name="advanced-analytics-process"></a>고급 분석 프로세스
 
@@ -91,7 +91,7 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 
 1. Apache Spark 2.1.0 배포판을 사용하여 Azure HDInsight Hadoop 클러스터를 만듭니다.
 2. 사용자 지정 스크립트를 실행하여 Azure HDInsight Spark 클러스터의 모든 노드에 Microsoft Cognitive Toolkit를 설치합니다.
-3. HDInsight Spark 클러스터에 미리 작성된 Jupyter 노트북을 업로드하여 Spark Python API(PySpark)를 통해 학습된 Microsoft Cognitive Toolkit 딥 러닝 모델을 Azure Blob Storage 계정의 파일에 적용합니다.
+3. HDInsight Spark 클러스터에 미리 작성 된 Jupyter Notebook를 업로드 하 여 Spark Python API (PySpark)를 사용 하는 Azure Blob Storage 계정의 파일에 학습 된 Microsoft Cognitive Toolkit 심층 학습 모델을 적용 합니다.
 
 이 예에서는 Alex Krizhevsky, Vinod Nair 및 Geoffrey Hinton이 컴파일하고 배포한 CIFAR-10 이미지 집합을 사용합니다. CIFAR-10 데이터 세트에는 상호 배타적인 10개의 클래스에 속하는 60,000개의 32×32 컬러 이미지가 포함되어 있습니다.
 

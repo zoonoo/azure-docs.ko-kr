@@ -3,19 +3,21 @@ title: Azure Cosmos DB Async Java SDK v2에 대한 성능 팁
 description: Async Java SDK v2용 Azure Cosmos 데이터베이스 성능 향상을 위한 클라이언트 구성 옵션에 대한 자세한 정보
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-java, contperf-fy21q2
+ms.openlocfilehash: bd009ae4909c8cb016a31323294df3a359eb7c51
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067613"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033666"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Azure Cosmos DB Async Java SDK v2에 대한 성능 팁
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -26,7 +28,7 @@ ms.locfileid: "88067613"
 
 
 > [!IMPORTANT]  
-> Azure Cosmos DB의 최신 Java SDK가 ‘아닙니다’. [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)로 프로젝트를 업그레이드한 다음, Azure Cosmos DB Java SDK v4 [성능 팁 가이드](performance-tips-java-sdk-v4-sql.md)를 참조하세요. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
+> Azure Cosmos DB의 최신 Java SDK가 ‘아닙니다’. [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)로 프로젝트를 업그레이드한 다음, Azure Cosmos DB Java SDK v4 [성능 팁 가이드](performance-tips-java-sdk-v4-sql.md)를 참조하세요. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md) 가이드 및 [Reactor 및 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 가이드의 지침을 따르세요. 
 > 
 > 이 문서의 성능 팁은 Azure Cosmos DB Async Java SDK v2에만 해당됩니다. 자세한 내용은 Azure Cosmos DB Async Java SDK v2 [릴리스 정보](sql-api-sdk-async-java.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 및 Azure Cosmos DB Async Java SDK v2 [문제 해결 가이드](troubleshoot-java-async-sdk.md)를 참조하세요.
 >
@@ -39,14 +41,14 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 * **연결 모드: 직접 모드 사용**
     
-  클라이언트에서 Azure Cosmos DB에 연결하는 방법은 특히 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. *ConnectionMode*는 클라이언트 *ConnectionPolicy*를 구성하는 데 사용할 수 있는 핵심 구성 설정입니다. Azure Cosmos DB Async Java SDK v2의 경우 사용 가능한 두 ConnectionModes는 다음과 같습니다.  
+  클라이언트에서 Azure Cosmos DB에 연결하는 방법은 특히 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. *ConnectionMode* 는 클라이언트 *ConnectionPolicy* 를 구성하는 데 사용할 수 있는 핵심 구성 설정입니다. Azure Cosmos DB Async Java SDK v2의 경우 사용 가능한 두 ConnectionModes는 다음과 같습니다.  
       
   * [게이트웨이(기본값)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
   * [수동으로 설치](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
   
   게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본적으로 구성되는 옵션입니다. 응용 프로그램이 엄격한 방화벽 제한이 있는 회사 네트워크 내에서 실행 되는 경우 표준 HTTPS 포트 및 단일 끝점을 사용 하기 때문에 게이트웨이 모드를 선택 하는 것이 가장 좋습니다.   그러나 성능 향상은 Azure Cosmos DB에 데이터를 읽거나 쓸 때마다 게이트웨이 모드에 추가 네트워크 홉이 포함 된다는 것입니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
   
-  *ConnectionMode*는 *ConnectionPolicy* 매개 변수로 *DocumentClient* 인스턴스를 생성하는 동안 구성됩니다.
+  *ConnectionMode* 는 *ConnectionPolicy* 매개 변수로 *DocumentClient* 인스턴스를 생성하는 동안 구성됩니다.
 
 ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2(Maven com.microsoft.azure::azure-cosmosdb)
 
@@ -84,17 +86,17 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
   Azure Cosmos DB Async Java SDK v2에서 직접 모드는 대부분의 워크로드에서 데이터베이스 성능을 향상시키는 가장 좋은 방법입니다. 
 
-  * ***직접 모드 개요***
+  * ***직접 모드 개요** _
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="직접 모드 아키텍처의 그림" border="false":::
   
-  직접 모드에서 사용 되는 클라이언트 쪽 아키텍처를 사용 하면 예측 가능한 네트워크 사용률을 멀티플렉싱 Azure Cosmos DB 복제본에 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에 최대 10 개의 **채널** 을 할당 합니다. 채널은 요청 버퍼가 30 개 요청으로 이루어진 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 끝점**에서 필요에 따라 동적으로 할당 됩니다. 사용자가 직접 모드에서 요청을 실행 하는 경우 요청 **클라이언트** 는 파티션 키에 따라 적절 한 서비스 끝점으로 요청을 라우팅합니다. **요청 큐**는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
+  직접 모드에서 사용 되는 클라이언트 쪽 아키텍처를 사용 하면 예측 가능한 네트워크 사용률을 멀티플렉싱 Azure Cosmos DB 복제본에 액세스할 수 있습니다. 위의 다이어그램에서는 직접 모드에서 Cosmos DB 백 엔드를 통해 클라이언트 요청을 복제본으로 라우팅하는 방법을 보여 줍니다. 직접 모드 아키텍처는 DB 복제본 당 클라이언트 쪽에서 최대 10 _ *채널**을 할당 합니다. 채널은 요청 버퍼가 30 개 요청으로 이루어진 TCP 연결입니다. 복제본에 속하는 채널은 복제본의 **서비스 끝점** 에서 필요에 따라 동적으로 할당 됩니다. 사용자가 직접 모드에서 요청을 실행 하는 경우 요청 **클라이언트** 는 파티션 키에 따라 적절 한 서비스 끝점으로 요청을 라우팅합니다. **요청 큐** 는 서비스 엔드포인트 앞에 요청을 버퍼링합니다.
 
-  * ***직접 모드용 ConnectionPolicy 구성 옵션***
+  * ***직접 모드용 Connectionpolicy 구성 옵션** _
 
     첫 번째 단계로 다음과 같은 권장 구성 설정을 사용합니다. 이 특정 토픽에 대해 이슈가 발생하는 경우 [Azure Cosmos DB 팀](mailto:CosmosDBPerformanceSupport@service.microsoft.com)에 문의하세요.
 
-    Azure Cosmos DB를 참조 데이터베이스로 사용하는 경우, 즉 데이터베이스가 많은 지점 읽기 작업 및 적은 쓰기 작업에 사용되는 경우 *idleEndpointTimeout*을 0(시간 제한 없음)으로 설정하는 것이 허용될 수 있습니다.
+    참조 데이터베이스로 Azure Cosmos DB를 사용 하는 경우 (즉, 데이터베이스는 여러 시점 읽기 작업과 몇 가지 쓰기 작업에 사용 되는 경우) _idleEndpointTimeout *를 0 (시간 제한 없음)으로 설정 하는 것이 허용 될 수 있습니다.
 
 
     | 구성 옵션       | 기본값    |
@@ -113,13 +115,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     | sendHangDetectionTime      | "PT10S"    |
     | shutdownTimeout            | "PT15S"    |
 
-* ***직접 모드를 위한 프로그래밍 팁***
+* ***직접 모드에 대 한 프로그래밍 팁** _
 
   SDK 문제를 해결 하기 위한 기준으로 Azure Cosmos DB Async Java SDK v2 [문제 해결](troubleshoot-java-async-sdk.md) 문서를 검토 합니다.
   
   직접 모드를 사용하는 경우의 몇 가지 중요한 프로그래밍 팁:
   
-  * **효율적인 TCP 데이터 전송을 위해 응용 프로그램에서 다중 스레딩을 사용** 합니다. 요청을 수행한 후 응용 프로그램은 다른 스레드에서 데이터를 받도록 구독 해야 합니다. 이렇게 하지 않으면 의도 하지 않은 "반이중" 작업을 강제로 수행 하 고 이전 요청의 회신을 기다리는 후속 요청이 차단 됩니다.
+  _ **응용 프로그램에서 효율적인 TCP 데이터 전송을 위해 다중 스레딩을 사용** 합니다. 요청을 수행한 후 응용 프로그램은 다른 스레드에서 데이터를 받도록 구독 해야 합니다. 이렇게 하지 않으면 의도 하지 않은 "반이중" 작업을 강제로 수행 하 고 이전 요청의 회신을 기다리는 후속 요청이 차단 됩니다.
   
   * **전용 스레드에서 계산 집약적인 작업을 수행** 합니다. 이전 팁과 비슷한 이유로 복잡 한 데이터 처리와 같은 작업은 별도의 스레드에 배치 하는 것이 가장 좋습니다. 다른 데이터 저장소에서 데이터를 끌어오는 요청 (예: 스레드에서 Azure Cosmos DB 및 Spark 데이터 저장소를 동시에 활용 하는 경우)은 대기 시간이 증가 하 고 다른 데이터 저장소에서 응답을 기다립니다 추가 스레드를 생성 하는 것이 좋습니다.
   
@@ -131,19 +133,19 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
   Azure Cosmos DB Async Java SDK v2는 분할된 컬렉션을 병렬로 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다.
 
-  * ***setMaxDegreeOfParallelism 튜닝\:***
+  * ***튜닝 setMaxDegreeOfParallelism \:** _
     
     병렬 쿼리는 여러 파티션을 병렬로 쿼리하여 작동합니다. 그러나 개별 분할된 컬렉션의 데이터는 쿼리와 관련하여 순차적으로 가져오기 됩니다. 따라서 setMaxDegreeOfParallelism을 사용하여 파티션 수를 설정하면 다른 모든 시스템 조건을 동일하게 유지하는 동시에 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성을 극대화합니다. 파티션 수를 모르는 경우 setMaxDegreeOfParallelism을 사용하여 더 높은 값을 설정할 수 있습니다. 그러면 시스템에서 최소값(사용자가 제공한 입력인 파티션 수)을 최대 병렬 처리 수준으로 선택합니다.
 
     데이터가 쿼리와 관련하여 모든 파티션에 균등하게 분산되어 있는 경우 병렬 쿼리가 최고의 성능을 발휘한다는 것이 중요합니다. 쿼리에서 반환된 전체 또는 대부분의 데이터가 몇 개의 파티션(최악의 경우 하나의 파티션)에 집중되는 것처럼 분할된 컬렉션이 분할되는 경우 해당 파티션으로 인해 쿼리의 성능에는 장애가 발생합니다.
 
-  * ***setMaxBufferedItemCount 튜닝\:***
+  _ ***튜닝 setMaxBufferedItemCount \:** _
     
     병렬 쿼리는 클라이언트에서 현재 결과 일괄 처리를 처리하는 동안 결과를 프리페치하도록 설계되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. setMaxBufferedItemCount는 프리페치된 결과의 수를 제한합니다. setMaxBufferedItemCount를 설정하면 반환된 결과의 예상 수(또는 더 높은 수)로 설정하면 쿼리가 프리페치의 최대 이점을 얻을 수 있습니다.
 
     프리페치는 MaxDegreeOfParallelism에 관계없이 동일한 방식으로 작동하고 여기에는 모든 파티션의 데이터에 대한 단일 버퍼가 있습니다.
 
-* **getRetryAfterInMilliseconds 간격으로 백오프 구현**
+_ **GetRetryAfterInMilliseconds 간격으로 백오프 구현**
 
   성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다.
 
@@ -258,7 +260,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    자세한 내용은 [Azure Cosmos DB 인덱싱 정책](indexing-policies.md)을 참조하세요.
+    자세한 내용은 [Azure Cosmos DB 인덱싱 정책](./index-policy.md)을 참조하세요.
 
 ## <a name="throughput"></a><a id="measure-rus"></a>처리량
 
@@ -304,4 +306,4 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 ## <a name="next-steps"></a>다음 단계
 
-확장성 및 고성능을 위한 애플리케이션 설계 방법에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partition-data.md)을 참조하세요.
+확장성 및 고성능을 위한 애플리케이션 설계 방법에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partitioning-overview.md)을 참조하세요.

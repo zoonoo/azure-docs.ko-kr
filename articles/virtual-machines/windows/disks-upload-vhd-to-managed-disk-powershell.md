@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: ec765e2eb635449140d60ee98762e35aea12fe44
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 17b99a9d3fa6b2934705d913170f2f617c856998
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689612"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915762"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Azure에 VHD를 업로드 하거나 관리 디스크를 다른 지역에 복사-Azure PowerShell
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-Az-ps)합니다.
 - 온-프레미스에서 VHD를 업로드 하려는 경우: [Azure에 대해 준비](prepare-for-upload-vhd-image.md)된 고정 크기 VHD는 로컬에 저장 됩니다.
 - 또는 복사 작업을 수행 하려는 경우 Azure에서 관리 되는 디스크입니다.
 
-## <a name="getting-started"></a>시작
+## <a name="getting-started"></a>시작하기
 
 GUI를 통해 디스크를 업로드 하는 것을 선호 하는 경우 Azure Storage 탐색기를 사용 하 여이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Storage 탐색기를 사용 하 여 Azure managed disks 관리](../disks-use-storage-explorer-managed-disks.md) 를 참조 하세요.
 
@@ -44,7 +44,7 @@ Azure에 VHD를 업로드 하려면이 업로드 프로세스에 대해 구성 �
 
 업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 VHD의 파일 크기 (바이트)가 필요 합니다. 예제 코드는 사용자를 위한 것 이지만를 직접 수행 하려면를 사용 하면 `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` 됩니다. 이 값은 **-UploadSizeInBytes** 매개 변수를 지정할 때 사용 됩니다.
 
-이제 로컬 셸에서 **-createoption** 매개 변수의 **업로드** 설정과 [AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet의 **-UploadSizeInBytes** 매개 변수를 지정 하 여 업로드할 빈 표준 HDD를 만듭니다. 그런 다음 [AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) 를 호출 하 여 디스크를 만듭니다.
+이제 로컬 셸에서 **-createoption** 매개 변수의 **업로드** 설정과 [AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0&preserve-view=true) cmdlet의 **-UploadSizeInBytes** 매개 변수를 지정 하 여 업로드할 빈 표준 HDD를 만듭니다. 그런 다음 [AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0&preserve-view=true) 를 호출 하 여 디스크를 만듭니다.
 
 ,을 (를) 바꾼 `<yourdiskname>` `<yourresourcegroupname>` `<yourregion>` 후 다음 명령을 실행 합니다.
 
@@ -59,7 +59,7 @@ $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -Upload
 New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
-프리미엄 SSD 또는 표준 SSD를 업로드 하려면 **Standard_LRS** **Premium_LRS** 또는 **StandardSSD_LRS**으로 바꿉니다. Ultra 디스크는 아직 지원 되지 않습니다.
+프리미엄 SSD 또는 표준 SSD를 업로드 하려면 **Standard_LRS** **Premium_LRS** 또는 **StandardSSD_LRS** 으로 바꿉니다. Ultra 디스크는 아직 지원 되지 않습니다.
 
 업로드 프로세스를 위해 구성 된 빈 관리 디스크를 만들었으므로 이제 VHD를 업로드할 수 있습니다. 디스크에 VHD를 업로드 하려면 업로드할 대상으로 참조할 수 있도록 쓰기 가능한 SAS가 필요 합니다.
 
@@ -77,7 +77,7 @@ $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<your
 
 AzCopy v10를 사용 하 여 생성 한 SAS URI를 지정 하 여 로컬 VHD 파일을 관리 되는 디스크에 업로드 합니다.
 
-이 업로드는 동일한 [표준 HDD](disks-types.md#standard-hdd)와 동일한 처리량을 갖습니다. 예를 들어 S4와 동일한 크기의 경우 최대 60 s p s/s의 처리량이 있습니다. 그러나 S70에 해당 하는 크기의 경우 최대 500 m b/s의 처리량이 있습니다.
+이 업로드는 동일한 [표준 HDD](../disks-types.md#standard-hdd)와 동일한 처리량을 갖습니다. 예를 들어 S4와 동일한 크기의 경우 최대 60 s p s/s의 처리량이 있습니다. 그러나 S70에 해당 하는 크기의 경우 최대 500 m b/s의 처리량이 있습니다.
 
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob

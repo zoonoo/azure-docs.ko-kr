@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88605442"
 ---
-# <a name="tutorial-detect-threats-out-of-the-box"></a>자습서: 기본으로 위협 감지
+# <a name="tutorial-detect-threats-out-of-the-box"></a>자습서: 처음부터 위협 감지
 
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ ms.locfileid: "88605442"
 
 1. 기본 제공 템플릿을 사용 하려면 템플릿 이름을 클릭 한 다음 세부 정보 창에서 **규칙 만들기** 단추를 클릭 하 여 해당 템플릿을 기반으로 하는 새 활성 규칙을 만듭니다. 각 템플릿에는 필요한 데이터 원본 목록이 있습니다. 템플릿을 열면 데이터 원본의 가용성이 자동으로 검사 됩니다. 가용성 문제가 있는 경우 **규칙 만들기** 단추를 사용 하지 않도록 설정 하거나 해당 효과에 대 한 경고가 표시 될 수 있습니다.
   
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="검색 규칙 미리 보기 패널":::
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="기본 제공 탐지를 사용하여 Azure Sentinel로 위협 요소 찾기":::
  
 1. **규칙 만들기** 단추를 클릭 하면 선택한 템플릿에 따라 규칙 만들기 마법사가 열립니다. 모든 세부 정보는 자동으로 채워지며, **예약** 된 또는 **Microsoft 보안** 템플릿을 사용 하 여 논리 및 기타 규칙 설정을 사용자 지정 하 여 특정 요구 사항에 더 적합 하 게 만들 수 있습니다. 이 프로세스를 반복 하 여 기본 제공 템플릿을 기반으로 하는 추가 규칙을 만들 수 있습니다. 규칙 만들기 마법사의 단계를 완료 한 후에는 템플릿에 기반한 규칙 만들기를 완료 한 것입니다. **활성 규칙** 탭에 새 규칙이 표시 됩니다.
 

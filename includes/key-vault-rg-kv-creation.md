@@ -4,14 +4,14 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: 2917854da679816796a7f7748c3877c062995168
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: ccb69b4f0dc6090cc96849b09f7830c05aa77b73
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512811"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027635"
 ---
-이 빠른 시작에서는 미리 만든 Azure Key Vault를 사용합니다. [Azure CLI 빠른 시작](/azure/key-vault/general/quick-create-cli), [Azure PowerShell 빠른 시작](/azure/key-vault/general/quick-create-powershell) 또는 [Azure Portal 빠른 시작](/azure/key-vault/general/quick-create-portal)의 단계에 따라 키 자격 증명 모음을 만들 수 있습니다. 
+이 빠른 시작에서는 미리 만든 Azure Key Vault를 사용합니다. [Azure CLI 빠른 시작](../articles/key-vault/general/quick-create-cli.md), [Azure PowerShell 빠른 시작](../articles/key-vault/general/quick-create-powershell.md) 또는 [Azure Portal 빠른 시작](../articles/key-vault/general/quick-create-portal.md)의 단계에 따라 키 자격 증명 모음을 만들 수 있습니다. 
 
 또는 아래의 Azure CLI 또는 Azure PowerShell 명령을 실행하기만 하면 됩니다.
 

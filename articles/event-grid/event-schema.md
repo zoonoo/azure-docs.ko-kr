@@ -4,10 +4,10 @@ description: 모든 이벤트에 대해 제공 되는 속성 및 스키마에 �
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105883"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
@@ -75,21 +75,21 @@ Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 
 
 모든 이벤트에는 다음과 같은 동일한 최상위 수준 데이터가 있습니다.
 
-| 속성 | Type | 필수 | Description |
+| 속성 | 형식 | 필수 | Description |
 | -------- | ---- | -------- | ----------- |
 | 토픽 | 문자열 | 아니요, 포함 된 경우 Event Grid 토픽 Azure Resource Manager ID와 정확히 일치 해야 합니다. 포함 되지 않은 경우 Event Grid 이벤트에 스탬프를 제공 합니다. | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | 문자열 | Yes | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| eventType | 문자열 | Yes | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | 문자열 | Yes | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | 문자열 | Yes | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | object | No | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
+| subject | 문자열 | 예 | 게시자가 정의한 이벤트 주체의 경로입니다. |
+| eventType | 문자열 | 예 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | 문자열 | 예 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| id | 문자열 | 예 | 이벤트에 대한 고유 식별자입니다. |
+| 데이터 | object | 아니요 | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
 | dataVersion | 문자열 | 아니요. 하지만 빈 값으로 기록 됩니다. | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | 문자열 | 필수는 아니지만 포함 된 경우 Event Grid 스키마와 정확히 일치 해야 합니다 `metadataVersion` (현재는 `1` ). 포함 되지 않은 경우 Event Grid 이벤트에 스탬프를 제공 합니다. | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체의 속성에 대해 자세히 알아보려면 이벤트 원본을 참조하십시오.
 
 * [Azure 구독(관리 작업)](event-schema-subscriptions.md)
-* [컨테이너 레지스트리](event-schema-container-registry.md)
+* [Container Registry](event-schema-container-registry.md)
 * [Blob Storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)

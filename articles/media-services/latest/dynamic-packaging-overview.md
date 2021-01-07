@@ -2,7 +2,7 @@
 title: Azure Media Services v3의 동적 패키징
 titleSuffix: Azure Media Services
 description: 이 문서에서는 Azure Media Services의 동적 패키징에 대해 간략하게 설명합니다.
-author: IngridAtMicrosoft
+author: myoungerman
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: dfa87921bc6a5a6c34b4dec33f4aae1907507730
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291622"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016828"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -27,10 +27,10 @@ ms.locfileid: "89291622"
 
 Microsoft Azure Media Services를 사용하여 많은 미디어 원본 파일 형식을 인코딩할 수 있습니다. 모든 주요 디바이스(예: iOS 및 Android 디바이스)에 연결되는 콘텐츠 보호를 사용하거나 사용하지 않는 다양한 스트리밍 프로토콜을 통해 이러한 기능을 제공합니다. 이러한 클라이언트는 여러 다양한 프로토콜을 이해합니다. 예를 들어, iOS는 HLS(HTTP 라이브 스트리밍) 형식으로 스트림이 배달되어야 하 고 Android 디바이스는 HLS와 MPEG DASH를 모두 지원합니다.
 
-Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.md)(원본)는 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 앱에 직접 배달할 수 있는 원본 서비스와 동적(적시) 패키징을 나타냅니다. 또한 다음 섹션에 설명된 일반적인 스트리밍 미디어 프로토콜중 하나를 사용합니다. *동적 패키징*은 모든 스트리밍 엔드포인트(표준 또는 프리미엄)에 표준으로 제공되는 기능입니다.
+Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.md)(원본)는 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 앱에 직접 배달할 수 있는 원본 서비스와 동적(적시) 패키징을 나타냅니다. 또한 다음 섹션에 설명된 일반적인 스트리밍 미디어 프로토콜중 하나를 사용합니다. *동적 패키징*은 모든 스트리밍 엔드포인트에 표준으로 제공되는 기능입니다.
 
 > [!NOTE]
-> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
+> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](/rest/api/media/), [CLI](/cli/azure/ams) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>전송할 원본 파일 준비
 
@@ -56,6 +56,9 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+> [!NOTE]
+> Apple의 이전 지침에서는 낮은 대역폭 네트워크 대체를 권장했는데, 이는 오디오 전용 스트림을 제공하기 위한 것이었습니다.  현재 Media Services 인코더는 오디오 전용 트랙을 자동으로 생성합니다.  이제 Apple 지침에서는 Apple TV 배포의 경우 특히 오디오 전용 트랙을 포함하지 *않아야* 한다고 명시합니다.  플레이어가 기본적으로 오디오 전용 트랙을 사용하지 않도록 하려면 HLS에서 오디오 전용 렌디션을 제거하는 "audio-only=false" 태그를 URL에 사용하거나 HLS-V3를 사용하는 것이 좋습니다. 예들 들어 `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`입니다.
 
 ### <a name="mpeg-dash-protocol"></a>MPEG-DASH 프로토콜
 
@@ -85,7 +88,7 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 1. MP4, QuickTime/MOV 또는 기타 지원되는 파일 형식과 같은 [입력 파일을 업로드](job-input-from-http-how-to.md)합니다. 이 파일을 mezzanine 또는 원본 파일이라고도 합니다. 지원되는 형식의 목록은 [표준 인코더에서 지원하는 형식](media-encoder-standard-formats.md)을 참조하세요.
 1. Mezzanine 파일을 H.264/AAC MP4 적응 비트 전송률 세트로 [인코딩](#encode-to-adaptive-bitrate-mp4s)합니다.
 
-    인코딩된 파일이 이미 있고, 파일을 복사하고, 스트리밍하는 경우 다음을 사용합니다. [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) 및 [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) API. 결과적으로 스트리밍 매니페스트(.ism 파일)가 포함된 새 MP4 파일이 생성됩니다.
+    인코딩된 파일이 이미 있고, 파일을 복사하고, 스트리밍하는 경우 다음을 사용합니다. [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) 및 [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) API. 결과적으로 스트리밍 매니페스트(.ism 파일)가 포함된 새 MP4 파일이 생성됩니다.
 1. 적응 비트 전송률 MP4 세트가 포함된 출력 자산을 게시합니다. [스트리밍 로케이터](streaming-locators-concept.md)를 만들어 게시합니다.
 1. 다양한 형식(HLS, MPEG-DASH 및 부드러운 스트리밍)을 대상으로 하는 URL을 작성합니다. *스트리밍 엔드포인트*는 다양한 형식에 대한 정확한 매니페스트 및 요청의 서비스를 담당합니다.
     
@@ -132,7 +135,7 @@ Media Services v3의 라이브 스트리밍에 대 한 정보는 [라이브 스�
 동적 패키징은 MP4 컨테이너 파일 형식이며 [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC)(MPEG-4 AVC 또는 AVC1) 또는 [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding)(HEVC, hev1 또는 hvc1)로 인코딩된 비디오를 포함하고 있는 비디오 파일을 지원합니다.
 
 > [!NOTE]
-> 최대 4K의 해상도와 최대 60 프레임/초의 프레임 속도는 *동적 패키징*을 통해 테스트되었습니다. [프리미엄 인코더](../previous/media-services-encode-asset.md#media-encoder-premium-workflow)는 레거시 v2 API를 통해 H.265로의 인코딩을 지원합니다.
+> 최대 4K의 해상도와 최대 60 프레임/초의 프레임 속도는 *동적 패키징*을 통해 테스트되었습니다.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>동적 패키징으로 지원되는 오디오 코덱
 

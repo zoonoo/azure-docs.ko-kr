@@ -4,19 +4,19 @@ description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 �
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669295"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695999"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
 > [!WARNING]
-> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정 되며,** [AKS에 대 한 Azure Policy](use-pod-security-on-azure-policy.md)의 2021 년 2 월 1 일 이후에는 더 이상 사용할 수 없습니다. 사용 중단 날짜가 2020 년 10 월 15 일 이전 날짜에서 연장 되었습니다.
+> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정** 되며, [AKS의 Azure Policy](use-pod-security-on-azure-policy.md)에 2021 년 5 월 31 일까 지 더 이상 사용할 수 없습니다. 사용 중단 날짜가 2020 년 10 월 15 일 이전 날짜에서 연장 되었습니다.
 >
-> Pod 보안 정책 (미리 보기)이 더 이상 사용 되지 않는 경우에는 더 이상 사용 되지 않는 기능을 사용 하 여 기존 클러스터에서이 기능을 사용 하지 않도록 설정 해야 합니다.
+> Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후 클러스터 업그레이드를 수행하고 Azure 지원을 유지하려면 더 이상 사용되지 않는 기능을 사용하여 기존 클러스터에서 이 기능을 사용하지 않도록 설정해야 합니다.
 >
 > AKS에 대 한 Azure Policy를 사용 하 여 시나리오 테스트를 시작 하는 것이 좋습니다 .이는 기본 제공 정책을 사용 하 여 pod를 보호 하 고 기본 제공 이니셔티브를 사용 하 여 pod 보안 정책에 매핑합니다. [Pod 보안 정책 (미리 보기)에서 Azure Policy로 마이그레이션하](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy)는 방법에 대 한 자세한 내용을 보려면 여기를 클릭 하세요.
 
@@ -28,7 +28,7 @@ AKS 클러스터의 보안을 향상 시키기 위해 예약할 수 있는 pod�
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
@@ -52,13 +52,13 @@ Pod 보안 정책을 사용 하도록 AKS 클러스터를 만들거나 업데이
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
 ```
 
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -80,7 +80,7 @@ AKS 클러스터에서 pod 보안 정책을 사용 하도록 설정 하면 일�
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>AKS 클러스터에서 pod 보안 정책 사용
 
-[Az aks update][az-aks-update] 명령을 사용 하 여 pod 보안 정책을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹의 클러스터 이름 *myAKSCluster* 에서 pod 보안 정책을 사용 하도록 설정 합니다.
+[Az aks update][az-aks-update] 명령을 사용 하 여 pod 보안 정책을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹의 클러스터 이름 *myAKSCluster* 에서 pod 보안 정책을 사용 하도록 설정 합니다.
 
 > [!NOTE]
 > 실제 사용의 경우 사용자 고유의 사용자 지정 정책을 정의할 때까지 pod 보안 정책을 사용 하도록 설정 하지 마세요. 이 문서에서는 기본 정책이 pod 배포를 제한 하는 방법을 확인 하는 첫 번째 단계로 pod 보안 정책을 사용 하도록 설정 합니다.
@@ -94,7 +94,7 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>기본 AKS 정책
 
-Pod 보안 정책을 사용 하도록 설정 하는 경우 AKS은 *권한*있는 이라는 기본 정책 하나를 만듭니다. 기본 정책을 편집 하거나 제거 하지 마세요. 대신 제어 하려는 설정을 정의 하는 고유한 정책을 만듭니다. 먼저 이러한 기본 정책이 pod 배포에 영향을 주는 방식을 살펴보겠습니다.
+Pod 보안 정책을 사용 하도록 설정 하는 경우 AKS은 *권한* 있는 이라는 기본 정책 하나를 만듭니다. 기본 정책을 편집 하거나 제거 하지 마세요. 대신 제어 하려는 설정을 정의 하는 고유한 정책을 만듭니다. 먼저 이러한 기본 정책이 pod 배포에 영향을 주는 방식을 살펴보겠습니다.
 
 사용 가능한 정책을 보려면 다음 예제에 표시 된 것 처럼 [kubectl get psp][kubectl-get] 명령을 사용 합니다.
 
@@ -181,7 +181,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         privileged: true
 ```
@@ -216,7 +216,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
 ```
 
 [Kubectl apply][kubectl-apply] 명령을 사용 하 여 pod를 만들고 yaml 매니페스트의 이름을 지정 합니다.
@@ -249,7 +249,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         runAsUser: 2000
 ```
@@ -274,7 +274,7 @@ Pod는 일정 단계에 도달 하지 않으므로 이동 하기 전에 삭제�
 
 이제 기본 pod 보안 정책의 동작을 살펴보았으므로 *관리자가 아닌 사용자* 가 pod를 예약 하는 방법을 제공 하겠습니다.
 
-권한 있는 액세스를 요청 하는 pod를 거부 하는 정책을 만들어 보겠습니다. *RunAsUser* 또는 허용 된 *볼륨과*같은 기타 옵션은 명시적으로 제한 되지 않습니다. 이 유형의 정책은 권한 있는 액세스에 대 한 요청을 거부 하지만, 그렇지 않으면 클러스터에서 요청 된 pod을 실행할 수 있습니다.
+권한 있는 액세스를 요청 하는 pod를 거부 하는 정책을 만들어 보겠습니다. *RunAsUser* 또는 허용 된 *볼륨과* 같은 기타 옵션은 명시적으로 제한 되지 않습니다. 이 유형의 정책은 권한 있는 액세스에 대 한 요청을 거부 하지만, 그렇지 않으면 클러스터에서 요청 된 pod을 실행할 수 있습니다.
 
 이라는 파일을 만들고 `psp-deny-privileged.yaml` 다음 YAML 매니페스트를 붙여넣습니다.
 
@@ -315,7 +315,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>사용자 계정이 사용자 지정 pod 보안 정책을 사용할 수 있도록 허용
 
-이전 단계에서는 권한 있는 액세스를 요청 하는 pod를 거부 하는 pod 보안 정책을 만들었습니다. 정책을 사용할 수 있도록 허용 하려면 *역할* 또는 *ClusterRole*를 만듭니다. 그런 다음 *rolebinding* 또는 *clusterrolebinding*을 사용 하 여 이러한 역할 중 하나를 연결 합니다.
+이전 단계에서는 권한 있는 액세스를 요청 하는 pod를 거부 하는 pod 보안 정책을 만들었습니다. 정책을 사용할 수 있도록 허용 하려면 *역할* 또는 *ClusterRole* 를 만듭니다. 그런 다음 *rolebinding* 또는 *clusterrolebinding* 을 사용 하 여 이러한 역할 중 하나를 연결 합니다.
 
 이 예에서는 이전 단계에서 만든 *psp-거부 권한* 정책을 *사용할* 수 있는 ClusterRole를 만듭니다. 이라는 파일을 만들고 `psp-deny-privileged-clusterrole.yaml` 다음 YAML 매니페스트를 붙여넣습니다.
 
@@ -375,7 +375,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-Pod가 성공적으로 예약 되었습니다. [Kubectl get pod][kubectl-get] 명령을 사용 하 여 pod의 상태를 확인 하는 경우 Pod가 *실행 중*입니다.
+Pod가 성공적으로 예약 되었습니다. [Kubectl get pod][kubectl-get] 명령을 사용 하 여 pod의 상태를 확인 하는 경우 Pod가 *실행 중* 입니다.
 
 ```
 $ kubectl-nonadminuser get pods
@@ -394,7 +394,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Pod 보안 정책을 사용 하지 않도록 설정 하려면 [az aks update][az-aks-update] 명령을 다시 사용 합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹의 클러스터 이름 *myAKSCluster* 에서 pod 보안 정책을 사용 하지 않도록 설정 합니다.
+Pod 보안 정책을 사용 하지 않도록 설정 하려면 [az aks update][az-aks-update] 명령을 다시 사용 합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹의 클러스터 이름 *myAKSCluster* 에서 pod 보안 정책을 사용 하지 않도록 설정 합니다.
 
 ```azurecli-interactive
 az aks update \

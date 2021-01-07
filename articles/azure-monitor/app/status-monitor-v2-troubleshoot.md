@@ -5,18 +5,17 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 472a7f128ea19cdcc9df5a03d171f345c7d601de
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041394"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616833"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
 
 모니터링을 사용 하도록 설정 하면 데이터 수집을 방해 하는 문제가 발생할 수 있습니다.
 이 문서에서는 알려진 모든 문제를 나열 하 고 문제 해결 예제를 제공 합니다.
-여기에 나열 되지 않은 문제를 해결 하는 경우 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)에서 문의할 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -53,6 +52,11 @@ ms.locfileid: "87041394"
     0x0000000004d20000  0xb2000   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.Extensions.Base_x64.dll
     ```
 
+### <a name="powershell-versions"></a>PowerShell 버전
+이 제품은 PowerShell v 5.1을 사용 하 여 작성 및 테스트 되었습니다.
+이 모듈은 PowerShell 버전 6 또는 7과 호환 되지 않습니다.
+PowerShell v 5.1은 최신 버전과 함께 사용 하는 것이 좋습니다. 자세한 내용은 powershell [5.1과 함께 powershell 7 사용](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51)을 참조 하세요.
+
 ### <a name="conflict-with-iis-shared-configuration"></a>IIS 공유 구성과 충돌 합니다.
 
 웹 서버 클러스터가 있는 경우 [공유 구성을](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용할 수 있습니다.
@@ -72,12 +76,10 @@ Enable 명령을 실행 한 후 다음 단계를 완료 합니다.
 ### <a name="iis-nested-applications"></a>IIS 중첩 응용 프로그램
 
 1.0 버전에서 IIS의 중첩 된 응용 프로그램을 계측 하지 않습니다.
-[여기](https://github.com/microsoft/ApplicationInsights-Home/issues/369)에서이 문제를 추적 하 고 있습니다.
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>고급 SDK 구성을 사용할 수 없습니다.
 
 SDK 구성은 버전 1.0에서 최종 사용자에 게 노출 되지 않습니다.
-[여기](https://github.com/microsoft/ApplicationInsights-Home/issues/375)에서이 문제를 추적 하 고 있습니다.
 
     
     
@@ -131,29 +133,28 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>PerfView를 사용 하 여 ETW 로그 수집
 
-#### <a name="setup"></a>설정
+#### <a name="setup"></a>설치 프로그램
 
 1. [GitHub](https://github.com/Microsoft/perfview/releases)에서 PerfView.exe 및 PerfView64.exe를 다운로드 합니다.
 2. PerfView64.exe를 시작 합니다.
-3. **고급 옵션**을 확장합니다.
+3. **고급 옵션** 을 확장합니다.
 4. 다음 확인란의 선택을 취소 합니다.
     - **우편번호**
     - **병합**
     - **.NET 기호 컬렉션**
-5. 다음과 같은 **추가 공급자**를 설정 합니다.`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. 다음과 같은 **추가 공급자** 를 설정 합니다. `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>로그 수집
 
 1. 관리자 권한이 있는 명령 콘솔에서 명령을 실행 하 여 `iisreset /stop` IIS 및 모든 웹 앱을 해제 합니다.
-2. PerfView에서 **컬렉션 시작**을 선택 합니다.
+2. PerfView에서 **컬렉션 시작** 을 선택 합니다.
 3. 관리자 권한이 있는 명령 콘솔에서 명령을 실행 하 여 `iisreset /start` IIS를 시작 합니다.
 4. 앱으로 이동 해 보세요.
-5. 앱이 로드 된 후 PerfView로 돌아가서 **수집 중지**를 선택 합니다.
+5. 앱이 로드 된 후 PerfView로 돌아가서 **수집 중지** 를 선택 합니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [API 참조](status-monitor-v2-overview.md#powershell-api-reference) 를 검토 하 여 누락 된 매개 변수에 대해 알아보세요.
-- 여기에 나열 되지 않은 문제를 해결 하는 경우 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)에서 문의할 수 있습니다.

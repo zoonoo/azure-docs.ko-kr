@@ -2,7 +2,7 @@
 title: Azure AD DS을 사용 하 여 SharePoint 사용자 프로필 서비스 사용 | Microsoft Docs
 description: SharePoint Server에 대 한 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 관리 되는 도메인을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: aa66f7150e5c3ac4560d7f97cb73b1effb8eec89
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.author: justinha
+ms.openlocfilehash: 8fbde10ccf5a7f083f5fbddaadd6668d880a1fac
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749631"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619830"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>SharePoint Server에 대 한 사용자 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 구성
 
@@ -47,7 +47,7 @@ SharePoint Server에는 사용자 프로필을 동기화 하는 서비스가 포
 - 루트 DSE에 대 한 **디렉터리 변경 내용 복제** 권한
 - *구성* 명명 컨텍스트 (컨테이너)에 대 한 **디렉터리 변경 내용 복제** 권한 `cn=configuration` 입니다.
 
-또한 *AAD DC 서비스 계정* 보안 그룹은 기본 제공 그룹인 *Windows 이전 2000 호환 액세스*의 멤버입니다.
+또한 *AAD DC 서비스 계정* 보안 그룹은 기본 제공 그룹인 *Windows 이전 2000 호환 액세스* 의 멤버입니다.
 
 이 보안 그룹에 추가 하는 경우 SharePoint Server 사용자 프로필 동기화 서비스에 대 한 서비스 계정에는 제대로 작동 하는 데 필요한 권한이 부여 됩니다.
 
@@ -60,12 +60,12 @@ Azure AD DS management VM에서 다음 단계를 완료 합니다.
 > [!NOTE]
 > 관리 되는 도메인의 그룹 멤버 자격을 편집 하려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
-1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
+1. 시작 화면에서 **관리 도구** 를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. 그룹 멤버 자격을 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
 1. 왼쪽 창에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
 1. **사용자** OU를 선택 하 고 *AAD DC 서비스 계정* 보안 그룹을 선택 합니다.
-1. **멤버**를 선택 하 고 **추가 ...** 를 선택 합니다.
-1. SharePoint 서비스 계정의 이름을 입력 하 고 **확인**을 선택 합니다. 다음 예제에서 SharePoint 서비스 계정의 이름은 *spadmin*입니다.
+1. **멤버** 를 선택 하 고 **추가 ...** 를 선택 합니다.
+1. SharePoint 서비스 계정의 이름을 입력 하 고 **확인** 을 선택 합니다. 다음 예제에서 SharePoint 서비스 계정의 이름은 *spadmin* 입니다.
 
     ![AAD DC 서비스 계정 보안 그룹에 SharePoint 서비스 계정 추가](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 

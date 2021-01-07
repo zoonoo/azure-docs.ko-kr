@@ -3,12 +3,12 @@ title: Azure Application Insights에서 Power BI로 내보내기 | Microsoft Doc
 description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979159"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187003"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](./app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -31,12 +31,12 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)를 설치 합니다.
 
 ### <a name="export-an-analytics-query"></a>Analytics 쿼리 내보내기
-1. [Analytics 열기 및 쿼리 작성](../log-query/get-started-portal.md).
+1. [Analytics 열기 및 쿼리 작성](../log-query/log-analytics-tutorial.md).
 2. 결과에 만족할 때까지 쿼리를 테스트하고 수정합니다. 내보내기 전에 Analytics에서 쿼리가 제대로 실행되는지 확인합니다.
 3. **내보내기** 메뉴에서 **Power BI(M)** 를 선택합니다. 텍스트 파일을 저장합니다.
    
     ![내보내기 메뉴가 강조 표시된 Analytics 스크린샷](./media/export-power-bi/analytics-export-power-bi.png)
-4. Power BI Desktop에서 **데이터 가져오기**  >  **빈 쿼리**를 선택 합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
+4. Power BI Desktop에서 **데이터 가져오기**  >  **빈 쿼리** 를 선택 합니다. 그런 다음 쿼리 편집기의 **보기** 에서 **고급 편집기** 를 선택합니다.
 
     내보낸 M 언어 스크립트를 고급 편집기에 붙여넣습니다.
 
@@ -57,11 +57,11 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 ### <a name="export-a-funnel"></a>깔때기 내보내기
 1. [깔때기를 만드세요](./usage-funnels.md).
-2. **Power BI**를 선택합니다.
+2. **Power BI** 를 선택합니다.
 
    ![Power BI 단추 스크린샷](./media/export-power-bi/button.png)
 
-3. Power BI Desktop에서 **데이터 가져오기**  >  **빈 쿼리**를 선택 합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
+3. Power BI Desktop에서 **데이터 가져오기**  >  **빈 쿼리** 를 선택 합니다. 그런 다음 쿼리 편집기의 **보기** 에서 **고급 편집기** 를 선택합니다.
 
    ![쿼리 단추가 강조 표시된 Power BI Desktop 스크린샷](./media/export-power-bi/blankquery.png)
 
@@ -119,14 +119,14 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 ### <a name="get-the-adapter"></a>어댑터 가져오기
 1. [Power BI](https://app.powerbi.com/)에 로그인합니다.
-2. **데이터 가져오기** ![왼쪽 하단 모서리의 데이터 가져오기 아이콘 스크린샷](./media/export-power-bi/001.png), **서비스**를 엽니다.
+2. **데이터 가져오기** ![왼쪽 하단 모서리의 데이터 가져오기 아이콘 스크린샷](./media/export-power-bi/001.png), **서비스** 를 엽니다.
 
     ![스크린샷은 서비스 창에서 가져오기 단추를 표시 합니다.](./media/export-power-bi/002.png)
 
-3. Application Insights 아래에서 **지금 가져오기**를 선택합니다.
+3. Application Insights 아래에서 **지금 가져오기** 를 선택합니다.
 
    ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/export-power-bi/003.png)
-4. Application Insights 리소스의 세부 정보를 제공한 다음, **로그인**합니다.
+4. Application Insights 리소스의 세부 정보를 제공한 다음, **로그인** 합니다.
 
     ![Application Insights 창에 연결을 보여 주는 스크린샷](./media/export-power-bi/005.png)
 
@@ -146,5 +146,4 @@ Application Insights 차트를 다른 원본의 차트 및 Analytics 쿼리와 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Power BI - 알아보기](https://www.powerbi.com/learning/)
-* [Analytics 자습서](../log-query/get-started-portal.md)
-
+* [Analytics 자습서](../log-query/log-analytics-tutorial.md)

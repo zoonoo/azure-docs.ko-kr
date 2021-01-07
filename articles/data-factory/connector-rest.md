@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용 하 여 REST 원본에서 데이터 복사
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 클라우드 또는 온-프레미스 REST 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
+title: Azure Data Factory를 사용 하 여 REST 끝점에서 데이터 복사
+description: Azure Data Factory 파이프라인에서 복사 작업을 사용 하 여 클라우드 또는 온-프레미스 REST 원본에서 지원 되는 싱크 데이터 저장소로 또는 지원 되는 원본 데이터 저장소에서 REST 싱크로 데이터를 복사 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,41 +9,41 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852296"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931308"
 ---
-# <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
+# <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 REST 끝점에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 REST 엔드포인트에서 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 REST 끝점에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
 이 REST 커넥터, [HTTP 커넥터](connector-http.md)및 [웹 테이블 커넥터](connector-web-table.md) 간의 차이점은 다음과 같습니다.
 
 - **REST 커넥터** 는 RESTful api에서 데이터를 복사 하는 것을 구체적으로 지원 합니다. 
 - **Http 커넥터** 는 파일을 다운로드 하는 등 모든 http 끝점에서 데이터를 검색 하는 데 일반적입니다. 이 REST 커넥터를 사용할 수 있게 되기 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
-- **웹 테이블 커넥터**는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
+- **웹 테이블 커넥터** 는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
+REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원 되는 모든 원본 데이터 저장소의 데이터를 REST 싱크로 복사할 수도 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
 
 특히 이 일반 REST 커넥터는 다음을 지원합니다.
 
-- **GET** 또는 **POST** 메서드를 사용하여 REST 엔드포인트에서 데이터 검색
-- 다음 인증 중 하나를 사용 하 여 데이터 검색: **익명**, **기본**, **AAD 서비스 사용자**및 **Azure 리소스에 대 한 관리 id**입니다.
+- **Post**, **PUT** 또는 **PATCH** 메서드를 사용 하 여 **GET** 또는 **post** 메서드를 사용 하 고 rest 끝점으로 데이터를 복사 하 여 rest 끝점에서 데이터를 복사 합니다.
+- 다음 인증 중 하나를 사용 하 여 데이터를 복사 합니다. **익명**, **기본**, **AAD 서비스 사용자** 및 **Azure 리소스에 대 한 관리 되는 id** 입니다.
 - REST API의 **[페이지 매김](#pagination-support)**
-- REST JSON 응답을 [있는 그대로](#export-json-response-as-is) 복사하고 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)을 사용하여 붙여넣기 **JSON**의 응답 페이로드만 지원됩니다.
+- 원본으로 REST의 경우 REST JSON 응답을 있는 [그대로](#export-json-response-as-is) 복사 하거나 [스키마 매핑을](copy-activity-schema-and-type-mapping.md#schema-mapping)사용 하 여 구문 분석 합니다. **JSON** 의 응답 페이로드만 지원됩니다.
 
 > [!TIP]
 > Data Factory에서 REST 커넥터를 구성하기 전에 데이터 검색을 위한 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -57,19 +57,19 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 REST 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | **Type** 속성은 **RestService**로 설정 해야 합니다. | 예 |
+| type | **Type** 속성은 **RestService** 로 설정 해야 합니다. | 예 |
 | url | REST 서비스의 기본 URL입니다. | 예 |
-| enableServerCertificateValidation | 끝점에 연결할 때 서버 쪽 TLS/SSL 인증서의 유효성을 검사할지 여부입니다. | 아니요<br /> 기본값은 **true**입니다. |
-| authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용 되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal**및 **ManagedServiceIdentity**입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
+| enableServerCertificateValidation | 끝점에 연결할 때 서버 쪽 TLS/SSL 인증서의 유효성을 검사할지 여부입니다. | 아니요<br /> 기본값은 **true** 입니다. |
+| authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용 되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity** 입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 요소](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 ### <a name="use-basic-authentication"></a>기본 인증 사용
 
-**authenticationType** 속성을 **Basic**으로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
+**authenticationType** 속성을 **Basic** 으로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -100,15 +100,15 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="use-aad-service-principal-authentication"></a>AAD 서비스 주체 인증 사용
 
-**authenticationType** 속성을 **AadServicePrincipal**로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
+**authenticationType** 속성을 **AadServicePrincipal** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
 | aadResourceId | 권한 부여를 요청 하는 AAD 리소스 (예:)를 지정 `https://management.core.windows.net` 합니다.| 예 |
-| azureCloudType | 서비스 주체 인증의 경우 AAD 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부**및 **AzureGermany**입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
+| azureCloudType | 서비스 주체 인증의 경우 AAD 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부** 및 **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
 
 **예제**
 
@@ -138,9 +138,9 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Azure 리소스 인증에 관리 ID 사용
 
-**authenticationType** 속성을 **ManagedServiceIdentity**로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
+**authenticationType** 속성을 **ManagedServiceIdentity** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | aadResourceId | 권한 부여를 요청 하는 AAD 리소스 (예:)를 지정 `https://management.core.windows.net` 합니다.| 예 |
 
@@ -172,12 +172,12 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 **type** 속성을 **RestResource**로 설정해야 합니다. | 예 |
+| type | 데이터 세트의 **type** 속성을 **RestResource** 로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터는 결합 된 URL ()에서 데이터를 복사 `[URL specified in linked service]/[relative URL specified in dataset]` 합니다. | 아니요 |
 
-데이터 집합에서, 및를 설정 하는 경우 계속 해 서 `requestMethod` `additionalHeaders` 는 그대로 지원 되지만 `requestBody` `paginationRules` 작업 원본에서 새 모델을 사용 하는 것이 좋습니다.
+데이터 집합에서, 및를 설정 하는 경우 계속 해 서 `requestMethod` 는 그대로 지원 되지만 앞으로 `additionalHeaders` `requestBody` `paginationRules` 작업에서 새 모델을 사용 하는 것이 좋습니다.
 
 **예:**
 
@@ -200,7 +200,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 ## <a name="copy-activity-properties"></a>복사 활동 속성
 
-이 섹션에서는 REST 원본에서 지원하는 속성의 목록을 제공합니다.
+이 섹션에서는 REST 원본 및 싱크에서 지 원하는 속성의 목록을 제공 합니다.
 
 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md)을 참조하세요. 
 
@@ -208,15 +208,15 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **type** 속성은 **RestSource**로 설정해야 합니다. | 예 |
-| requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
+| type | 복사 작업 원본의 **type** 속성은 **RestSource** 로 설정해야 합니다. | 예 |
+| requestMethod | HTTP 메서드입니다. 허용 되는 값은 **GET** (기본값) 및 **POST** 입니다. | 아니요 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
 | requestBody | HTTP 요청의 본문입니다. | 아니요 |
 | paginationRules | 다음 페이지 요청을 작성하기 위한 페이지 매김 규칙입니다. 자세한 내용은 [페이지 매김 지원](#pagination-support)을 참조하세요. | 예 |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 아니요 |
-| requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01**입니다. |  아니요 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 아니요 |
+| requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01** 입니다. |  아니요 |
 
 >[!NOTE]
 >REST 커넥터는에 지정 된 "Accept" 헤더를 무시 `additionalHeaders` 합니다. REST 커넥터는 JSON의 응답만 지원 하므로의 헤더를 자동으로 생성 `Accept: application/json` 합니다.
@@ -293,9 +293,69 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 ]
 ```
 
+### <a name="rest-as-sink"></a>싱크로 REST
+
+복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
+
+| 속성 | Description | 필수 |
+|:--- |:--- |:--- |
+| type | 복사 작업 싱크의 **type** 속성은 **RestSink** 로 설정 해야 합니다. | 예 |
+| requestMethod | HTTP 메서드입니다. 허용 되는 값은 **POST** (기본값), **PUT** 및 **PATCH** 입니다. | 아니요 |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 데이터를 쓸 수 있는 시간 제한이 아니라 응답을 가져오기 위한 제한 시간입니다. 기본값은 **00:01:40** 입니다.  | 아니요 |
+| requestInterval | 여러 요청 간의 간격 시간 (밀리초)입니다. 요청 간격 값은 [10, 6만] 사이의 숫자 여야 합니다. |  아니요 |
+| httpCompressionType | 최적의 압축 수준으로 데이터를 전송 하는 동안 사용할 HTTP 압축 유형입니다. 허용 되는 값은 **none** 및 **gzip** 입니다. | 예 |
+| writeBatchSize | 일괄 처리당 REST 싱크에 쓸 레코드 수입니다. 기본값은 10000입니다. | 아니요 |
+
+싱크로 사용 되는 REST 커넥터는 JSON을 허용 하는 REST Api와 함께 작동 합니다. 데이터는 다음 패턴을 사용 하 여 JSON으로 전송 됩니다. 필요에 따라 복사 작업 [스키마 매핑을](copy-activity-schema-and-type-mapping.md#schema-mapping) 사용 하 여 REST API에서 필요한 페이로드를 따르도록 원본 데이터의 모양을 변경할 수 있습니다.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
+
+**예:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<REST output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "RestSink",
+                "requestMethod": "POST",
+                "httpRequestTimeout": "00:01:40",
+                "requestInterval": 10,
+                "writeBatchSize": 10000,
+                "httpCompressionType": "none",
+            },
+        }
+    }
+]
+```
+
 ## <a name="pagination-support"></a>페이지 매김 지원
 
-일반적으로 REST API은 적절 한 수의 단일 요청에 대 한 응답 페이로드 크기를 제한 합니다. 많은 양의 데이터를 반환 하는 경우 결과를 여러 페이지로 분할 하 고 호출자가 다음 결과 페이지를 가져오기 위해 연속 요청을 보내야 합니다. 보통 한 페이지에 대한 요청은 동적이고 이전 페이지의 응답에서 반환된 정보로 구성됩니다.
+일반적으로 REST Api에서 데이터를 복사 하는 경우 REST API은 적절 한 수의 단일 요청에 대 한 응답 페이로드 크기를 제한 합니다. 많은 양의 데이터를 반환 하는 경우 결과를 여러 페이지로 분할 하 고 호출자가 다음 결과 페이지를 가져오기 위해 연속 요청을 보내야 합니다. 보통 한 페이지에 대한 요청은 동적이고 이전 페이지의 응답에서 반환된 정보로 구성됩니다.
 
 이 일반 REST 커넥터는 다음 페이지 매김 패턴을 지원합니다. 
 
@@ -308,24 +368,24 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 **페이지 매김 규칙** 은 대/소문자를 구분 하는 키-값 쌍이 하나 이상 포함 된 데이터 집합의 사전으로 정의 됩니다. 이 구성은 두 번째 페이지에서 시작하는 요청을 생성하는 데 사용됩니다. 커넥터는 HTTP 상태 코드 204 (콘텐츠 없음)가 발생 하거나 "paginationRules"의 JSONPath 식이 null을 반환 하는 경우 반복을 중지 합니다.
 
-페이지 매김 규칙의 **지원되는 키**는 다음과 같습니다.
+페이지 매김 규칙의 **지원되는 키** 는 다음과 같습니다.
 
 | 키 | Description |
 |:--- |:--- |
-| AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 url 또는 상대 url**일 수 있습니다. |
+| AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 url 또는 상대 url** 일 수 있습니다. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에서 하나의 쿼리 매개 변수 이름을 참조 하는 사용자 정의입니다. |
 | Headers.*request_header* OR Headers['request_header'] | "request_header"는 다음 HTTP 요청에서 헤더 이름을 하나 참조 하는 사용자 정의입니다. |
 
-페이지 매김 규칙의 **지원되는 값**은 다음과 같습니다.
+페이지 매김 규칙의 **지원되는 값** 은 다음과 같습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 |:--- |:--- |
 | Headers.*response_header* OR Headers['response_header'] | "response_header"은 현재 HTTP 응답의 헤더 이름 하나를 참조 하는 사용자 정의입니다 .이 값은 다음 요청을 발급 하는 데 사용 됩니다. |
 | "$"(응답 본문의 루트를 나타냄)로 시작하는 JSONPath 식 | 응답 본문은 JSON 개체를 하나만 포함해야 합니다. JSONPath 식은 다음 요청을 실행하는 데 사용되는 단일 기본 값을 반환해야 합니다. |
 
 **예:**
 
-Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다음 페이지의 URL은 ***paging.next***에 표시됩니다.
+Facebook Graph API는 다음 구조의 응답을 반환 합니다 .이 경우 다음 페이지의 URL은 * paging에 표시 됩니다 *_. 다음_* _:
 
 ```json
 {
@@ -380,7 +440,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 ### <a name="about-the-solution-template"></a>솔루션 템플릿 정보
 
 템플릿에는 두 가지 작업이 포함 됩니다.
-- **웹** 작업은 전달자 토큰을 검색 한 다음 권한 부여로 후속 복사 작업에 전달 합니다.
+- _ *웹** 활동은 전달자 토큰을 검색 한 다음 권한 부여로 후속 복사 활동에 전달 합니다.
 - **복사** 작업은 REST에서 Azure Data Lake Storage로 데이터를 복사 합니다.
 
 이 템플릿은 다음 두 개의 매개 변수를 정의합니다.
@@ -394,24 +454,24 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
     다음은 새 연결 된 서비스 (REST) 설정에 대 한 주요 단계입니다.
     
-     1. **기본 url**에서 원본 REST 서비스에 대 한 url 매개 변수를 지정 합니다. 
-     2. **인증 유형**으로 *익명*을 선택 합니다.
+     1. **기본 url** 에서 원본 REST 서비스에 대 한 url 매개 변수를 지정 합니다. 
+     2. **인증 유형** 으로 *익명* 을 선택 합니다.
         ![새 REST 연결](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
 
 2. 대상 연결에 대 한 새 연결을 만듭니다.  
     ![새 Gen2 연결](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
 
-3. **이 템플릿 사용**을 선택합니다.
+3. **이 템플릿 사용** 을 선택합니다.
     ![이 템플릿 사용](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. 다음 예제와 같이 생성 된 파이프라인이 표시 됩니다. ![ 파이프라인](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. 다음 예제와 같이 생성 된 파이프라인이 표시 됩니다.  ![ 스크린샷은 템플릿에서 만든 파이프라인을 보여 줍니다.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
-5. **웹** 활동을 선택 합니다. **설정**에서 데이터를 복사 하려는 서비스의 로그인 API에서 OAuth 전달자 토큰을 검색할 해당 **URL**, **메서드**, **헤더**및 **본문** 을 지정 합니다. 템플릿의 자리 표시자는 AAD (Azure Active Directory) OAuth의 샘플을 보여 줍니다. 참고 AAD 인증은 기본적으로 REST 커넥터에서 지원 됩니다. 여기에는 OAuth flow에 대 한 예제만 있습니다. 
+5. **웹** 활동을 선택 합니다. **설정** 에서 데이터를 복사 하려는 서비스의 로그인 API에서 OAuth 전달자 토큰을 검색할 해당 **URL**, **메서드**, **헤더** 및 **본문** 을 지정 합니다. 템플릿의 자리 표시자는 AAD (Azure Active Directory) OAuth의 샘플을 보여 줍니다. 참고 AAD 인증은 기본적으로 REST 커넥터에서 지원 됩니다. 여기에는 OAuth flow에 대 한 예제만 있습니다. 
 
     | 속성 | 설명 |
     |:--- |:--- |:--- |
-    | URL |OAuth 전달자 토큰을 검색할 url을 지정 합니다. 예를 들어 여기 샘플에서는https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
-    | 메서드 | HTTP 메서드입니다. 허용 되는 값은 **Post** 및 **Get**입니다. | 
+    | URL |OAuth 전달자 토큰을 검색할 url을 지정 합니다. 예를 들어 여기 샘플에서는 https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | 메서드 | HTTP 메서드입니다. 허용 되는 값은 **Post** 및 **Get** 입니다. | 
     | 헤더 | 헤더는 HTTP 요청에서 헤더 이름을 하나 참조 하는 사용자 정의입니다. | 
     | 본문 | HTTP 요청의 본문입니다. | 
 
@@ -419,14 +479,14 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
 6. **데이터 복사** 작업에서 *원본* 탭을 선택 하면, 이전 단계에서 검색 된 전달자 토큰 (access_token)이 추가 헤더의 **권한 부여** 로 데이터 복사 작업에 전달 되는 것을 볼 수 있습니다. 파이프라인 실행을 시작 하기 전에 다음 속성의 설정을 확인 합니다.
 
-    | 속성 | 설명 |
+    | 속성 | Description |
     |:--- |:--- |:--- | 
-    | 요청 메서드 | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 
+    | 요청 메서드 | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post** 입니다. | 
     | 추가 헤더 | 추가 HTTP 요청 헤더입니다.| 
 
    ![원본 인증 복사](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
 
-7. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
+7. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.
    ![파이프라인 실행](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
 
 8. 파이프라인 실행이 성공적으로 완료 되 면 다음 예제와 유사한 결과가 표시 됩니다. ![ 파이프라인 실행 결과](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
@@ -445,7 +505,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
 ## <a name="export-json-response-as-is"></a>JSON 응답을 있는 그대로 내보내기
 
-이 REST 커넥터를 사용하여 REST API JSON 응답을 다양한 파일 기반 저장소에 있는 그대로 내보낼 수 있습니다. 이러한 스키마 독립적 복사를 완수하려면 데이터 세트 및 복사 작업의 스키마 매핑에서 "구조"(*스키마*라고도 함) 섹션을 건너뛰세요.
+이 REST 커넥터를 사용하여 REST API JSON 응답을 다양한 파일 기반 저장소에 있는 그대로 내보낼 수 있습니다. 이러한 스키마 독립적 복사를 완수하려면 데이터 세트 및 복사 작업의 스키마 매핑에서 "구조"(*스키마* 라고도 함) 섹션을 건너뛰세요.
 
 ## <a name="schema-mapping"></a>스키마 매핑
 

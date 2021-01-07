@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257474"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91447835"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
 
@@ -85,7 +85,7 @@ sudo chmod 700 <HostStoragePath>
 
 ## <a name="encrypted-data-in-module-storage"></a>모듈 저장소의 암호화 된 데이터
 
-모듈이 데이터를 암호화 하기 위해 IoT Edge 디먼의 작업 API를 호출 하는 경우 암호화 키는 모듈 ID 및 모듈의 생성 ID를 사용 하 여 파생 됩니다. 생성 ID는 배포에서 모듈이 제거 된 다음 동일한 모듈 ID의 다른 모듈이 나중에 동일한 장치에 배포 되는 경우 비밀을 보호 하는 데 사용 됩니다. Azure CLI 명령 [az iot hub module-identity show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show)를 사용 하 여 모듈의 생성 id를 볼 수 있습니다.
+모듈이 데이터를 암호화 하기 위해 IoT Edge 디먼의 작업 API를 호출 하는 경우 암호화 키는 모듈 ID 및 모듈의 생성 ID를 사용 하 여 파생 됩니다. 생성 ID는 배포에서 모듈이 제거 된 다음 동일한 모듈 ID의 다른 모듈이 나중에 동일한 장치에 배포 되는 경우 비밀을 보호 하는 데 사용 됩니다. Azure CLI 명령 [az iot hub module-identity show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show)를 사용 하 여 모듈의 생성 id를 볼 수 있습니다.
 
 세대에서 모듈 간에 파일을 공유 하려는 경우에는 암호를 포함 하지 않아야 하며 암호를 해독 하지 못합니다.
 

@@ -11,13 +11,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2d31f51c7af37ed6729900c5851113d8d1e9b587
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.custom: devx-track-js
+ms.openlocfilehash: c49672ad38ac8cf80214d03870b5876d741e76ec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401336"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994879"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Traffic Manager에 보내는 방법
 
@@ -35,8 +35,8 @@ Visual Studio Mobile Center를 사용하여 개발한 모바일 애플리케이�
 Azure Portal을 사용하여 RUM Key를 얻으려면 다음 절차를 수행합니다.
 1. 브라우저에서 Azure Portal에 로그인합니다. 아직 계정이 없는 경우 1개월 평가판에 등록할 수 있습니다.
 2. 포털의 검색 창에서 수정하려는 Traffic Manager 프로필 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
-3. Traffic Manager 프로필 페이지에서 **설정** 아래의 **실제 사용자 측정**을 클릭합니다.
-4. **키 생성**을 클릭하여 새 RUM 키를 만듭니다.
+3. Traffic Manager 프로필 페이지에서 **설정** 아래의 **실제 사용자 측정** 을 클릭합니다.
+4. **키 생성** 을 클릭하여 새 RUM 키를 만듭니다.
         
    ![실제 사용자 측정 키 생성](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 

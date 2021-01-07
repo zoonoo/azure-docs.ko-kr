@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442155"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030963"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
 
@@ -47,12 +47,12 @@ ms.locfileid: "89442155"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독**  필터 :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 클라이언트 앱의 등록이 포함된 테넌트를 선택합니다.
-1. **Azure Active Directory** > **앱 등록**을 차례로 선택한 다음, API의 앱 등록을 선택합니다.
-1. **API 표시** > **범위 추가**를 선택합니다.
+1. **Azure Active Directory** > **앱 등록** 을 차례로 선택한 다음, API의 앱 등록을 선택합니다.
+1. **API 표시** > **범위 추가** 를 선택합니다.
 
     :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="Azure Portal에 있는 앱 등록의 [API 표시] 창":::
 
-1. 아직 **애플리케이션 ID URI**를 구성하지 않은 경우 설정하라는 메시지가 표시됩니다.
+1. 아직 **애플리케이션 ID URI** 를 구성하지 않은 경우 설정하라는 메시지가 표시됩니다.
 
    앱 ID URI는 API 코드에서 참조할 범위의 접두사 역할을 하며 전역적으로 고유해야 합니다. `api://<application-client-id>` 형식으로 제공되는 기본값을 사용해도 되고, `https://contoso.com/api`처럼 좀 더 읽기 쉬운 URI를 지정해도 됩니다.
 
@@ -61,18 +61,18 @@ ms.locfileid: "89442155"
     | 필드 | Description | 예제 |
     |-------|-------------|---------|
     | **범위 이름** | 범위의 이름입니다. 일반적인 범위 명명 규칙은 `resource.operation.constraint`입니다. | `Employees.Read.All` |
-    | **동의할 수 있는 사람** | 이 범위를 사용자가 동의할 수 있는지 아니면 관리자 동의가 필요한지 여부를 지정합니다. 높은 권한을 적용하려면 **관리자만**을 선택합니다. | **관리자 및 사용자** |
+    | **동의할 수 있는 사람** | 이 범위를 사용자가 동의할 수 있는지 아니면 관리자 동의가 필요한지 여부를 지정합니다. 높은 권한을 적용하려면 **관리자만** 을 선택합니다. | **관리자 및 사용자** |
     | **관리자 동의 표시 이름** | 범위의 목적에 대한 간단한 설명으로 관리자에게만 표시됩니다. | `Read-only access to Employee records` |
     | **관리자 동의 설명** | 범위에서 부여하는 권한에 대한 자세한 설명으로 관리자에게만 표시됩니다. | `Allow the application to have read-only access to all Employee data.` |
-    | **사용자 동의 표시 이름** | 범위의 목적에 대한 간단한 설명입니다. **동의할 수 있는 사람**을 **관리자 및 사용자**로 설정한 경우에만 사용자에게 표시됩니다. | `Read-only access to your Employee records` |
-    | **사용자 동의 설명** | 범위에서 부여하는 권한에 대한 자세한 설명입니다. **동의할 수 있는 사람**을 **관리자 및 사용자**로 설정한 경우에만 사용자에게 표시됩니다. | `Allow the application to have read-only access to your Employee data.` |
+    | **사용자 동의 표시 이름** | 범위의 목적에 대한 간단한 설명입니다. **동의할 수 있는 사람** 을 **관리자 및 사용자** 로 설정한 경우에만 사용자에게 표시됩니다. | `Read-only access to your Employee records` |
+    | **사용자 동의 설명** | 범위에서 부여하는 권한에 대한 자세한 설명입니다. **동의할 수 있는 사람** 을 **관리자 및 사용자** 로 설정한 경우에만 사용자에게 표시됩니다. | `Allow the application to have read-only access to your Employee data.` |
 
-1. **상태**를 **사용**으로 설정한 다음, **범위 추가**를 선택합니다.
+1. **상태** 를 **사용** 으로 설정한 다음, **범위 추가** 를 선택합니다.
 
-1. (선택 사항) 관리자가 정의한 범위에 동의하도록 요청하는 메시지를 앱 사용자에게 표시하지 않으려면 웹 API에 액세스하도록 클라이언트 애플리케이션에 *미리 권한을 부여*하면 됩니다. 사용자에게는 동의를 거부할 기회가 없기 때문에 신뢰할 수 있는 클라이언트 애플리케이션*에만* 미리 권한을 부여해야 합니다.
-    1. **권한 있는 클라이언트 애플리케이션**에서 **클라이언트 애플리케이션 추가**를 선택합니다.
-    1. 미리 권한을 부여하려는 클라이언트 애플리케이션의 **애플리케이션(클라이언트) ID**를 입력합니다. 예를 들어 앞에서 등록한 웹 애플리케이션의 ID를 입력합니다.
-    1. **권한 있는 모든 범위**에서 동의 메시지를 표시하지 않을 범위를 선택한 다음, **애플리케이션 추가**를 선택합니다.
+1. (선택 사항) 관리자가 정의한 범위에 동의하도록 요청하는 메시지를 앱 사용자에게 표시하지 않으려면 웹 API에 액세스하도록 클라이언트 애플리케이션에 *미리 권한을 부여* 하면 됩니다. 사용자에게는 동의를 거부할 기회가 없기 때문에 신뢰할 수 있는 클라이언트 애플리케이션 *에만* 미리 권한을 부여해야 합니다.
+    1. **권한 있는 클라이언트 애플리케이션** 에서 **클라이언트 애플리케이션 추가** 를 선택합니다.
+    1. 미리 권한을 부여하려는 클라이언트 애플리케이션의 **애플리케이션(클라이언트) ID** 를 입력합니다. 예를 들어 앞에서 등록한 웹 애플리케이션의 ID를 입력합니다.
+    1. **권한 있는 모든 범위** 에서 동의 메시지를 표시하지 않을 범위를 선택한 다음, **애플리케이션 추가** 를 선택합니다.
 
     이 선택 사항을 수행한 경우 클라이언트 앱은 이제 PCA(미리 권한이 부여된 클라이언트 앱)이며, 사용자가 클라이언트 앱에 로그인할 때 동의 여부를 묻는 메시지가 표시되지 않습니다.
 
@@ -93,11 +93,11 @@ ms.locfileid: "89442155"
 
 ## <a name="verify-the-exposed-scopes"></a>공개된 범위 확인
 
-이전 섹션에서 설명한 두 가지 예제 범위를 모두 성공적으로 추가했다면 다음 이미지처럼 웹 API 앱 등록의 **API 표시**에 두 범위가 표시됩니다.
+이전 섹션에서 설명한 두 가지 예제 범위를 모두 성공적으로 추가했다면 다음 이미지처럼 웹 API 앱 등록의 **API 표시** 에 두 범위가 표시됩니다.
 
 :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="두 범위를 표시하는 [API 표시] 창의 스크린샷":::
 
-이미지에 표시된 것처럼 범위의 전체 문자열은 웹 API의 **애플리케이션 ID URI**와 범위의 **범위 이름**을 연결한 것입니다.
+이미지에 표시된 것처럼 범위의 전체 문자열은 웹 API의 **애플리케이션 ID URI** 와 범위의 **범위 이름** 을 연결한 것입니다.
 
 예를 들어 웹 API의 애플리케이션 ID URI가 `https://contoso.com/api`이고 범위 이름이 `Employees.Read.All`인 경우 전체 범위는 다음과 같습니다.
 

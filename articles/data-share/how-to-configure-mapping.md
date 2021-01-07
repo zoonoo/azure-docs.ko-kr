@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 08/14/2020
 ms.openlocfilehash: eed3e8275400a3e677df53b9d62cf0e0bc70271c
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88257844"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Azure 데이터 공유에서 수신 된 공유에 대 한 데이터 집합 매핑을 구성 하는 방법
@@ -29,7 +29,7 @@ Azure 데이터 공유 서비스에서 받은 공유로 이동 하 여 **데이�
 
 ## <a name="select-a-target-store"></a>대상 저장소 선택
 
-데이터를 가져올 대상 데이터 저장소 유형을 선택 합니다. 스냅숏 기반 공유의 경우 이전에 매핑한 저장소 계정에 이미 있는 모든 데이터는 자동으로 새 대상 저장소로 이동 하지 않습니다. 내부 공유의 경우 지정 된 위치에서 데이터 저장소를 선택 합니다. 위치는 데이터 공급자의 원본 데이터 저장소가 있는 Azure 데이터 센터입니다.
+데이터를 가져올 대상 데이터 저장소 유형을 선택합니다. 스냅숏 기반 공유의 경우 이전에 매핑한 저장소 계정에 이미 있는 모든 데이터는 자동으로 새 대상 저장소로 이동 하지 않습니다. 내부 공유의 경우 지정된 위치에서 데이터 저장소를 선택합니다. 위치는 데이터 공급자의 원본 데이터 저장소가 있는 Azure 데이터 센터입니다.
 
 ![대상 스토리지 계정](./media/dataset-map-target-sql.png "대상 스토리지") 
 

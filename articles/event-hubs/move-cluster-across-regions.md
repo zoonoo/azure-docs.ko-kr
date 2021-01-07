@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs 전용 클러스터를 현재 
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89380834"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Azure Event Hubs 전용 클러스터를 다른 지역으로 이동
@@ -15,7 +15,7 @@ ms.locfileid: "89380834"
 
 Event Hubs 클러스터를 포함 하는 Azure 리소스 그룹에 네임 스페이스 및 event hubs와 같은 다른 리소스가 있는 경우 모든 관련 된 리소스를 한 번에 새 지역으로 이동할 수 있도록 리소스 그룹 수준에서 템플릿을 내보낼 수 있습니다. 이 문서의 단계에서는 **Event Hubs 클러스터** 를 템플릿으로 내보내는 방법을 보여 줍니다. **리소스 그룹** 을 템플릿으로 내보내는 단계는 비슷합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 대상 지역에서 전용 클러스터를 만들 수 있는지 확인 합니다. 이를 확인 하는 가장 쉬운 방법은 Azure Portal를 사용 하 여 [Event Hubs 전용 클러스터를 만드는](event-hubs-dedicated-cluster-create-portal.md)것입니다. 클러스터를 만드는 시점에 지원 되는 지역 목록이 표시 됩니다. 
 
 ## <a name="prepare"></a>준비
@@ -50,7 +50,7 @@ Event Hubs 클러스터를 포함 하는 Azure 리소스 그룹에 네임 스페
     4. **설정** 섹션에서 다음 단계를 수행 합니다.    
         1. 새 **클러스터 이름을**입력 합니다. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="리소스 관리자 템플릿 배포":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="리소스 관리자 템플릿 다운로드":::
     5. 페이지 아래쪽에서 **검토 + 만들기**를 선택합니다. 
     1. **검토 + 만들기** 페이지에서 설정을 검토 한 다음 **만들기**를 선택 합니다.  
 

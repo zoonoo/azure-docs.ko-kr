@@ -4,12 +4,12 @@ description: Microsoft Azure의 자동 크기 조정
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073486"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505840"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Microsoft Azure의 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -61,11 +61,11 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 
 - **자동 크기 조정 설정** 은 자동 크기 조정 엔진에서 크기를 조정할지 여부를 결정하는 데 사용됩니다. 여기에는 하나 이상의 프로필, 대상 리소스에 대한 정보 및 알림 설정이 포함됩니다.
 
-  - **자동 크기 조정 프로필**은 다음 항목의 조합입니다.
+  - **자동 크기 조정 프로필** 은 다음 항목의 조합입니다.
 
-    - **용량 설정**은 인스턴스 수의 최소값, 최대값 및 기본값을 나타냅니다.
-    - **일련의 집합**은 각 트리거(시간 또는 미터법) 및 크기 조정 작업(위쪽 또는 아래쪽)을 포함합니다.
-    - **되풀이**는 자동 크기 조정에서 이 프로필을 적용할 시기를 지정합니다.
+    - **용량 설정** 은 인스턴스 수의 최소값, 최대값 및 기본값을 나타냅니다.
+    - **일련의 집합** 은 각 트리거(시간 또는 미터법) 및 크기 조정 작업(위쪽 또는 아래쪽)을 포함합니다.
+    - **되풀이** 는 자동 크기 조정에서 이 프로필을 적용할 시기를 지정합니다.
 
       여러 프로필을 설정하여 겹치는 다양한 요구 사항을 해결할 수 있습니다. 예를 들어 서로 다른 날짜 또는 요일에 대해 서로 다른 자동 크기 조정 프로필을 적용할 수 있습니다.
 
@@ -103,10 +103,13 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 | 가상 머신: Windows 확장 세트 |[Windows에서 가상 머신 확장 집합 크기 조정](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | 가상 머신: Linux 확장 세트 |[Linux에서 가상 머신 확장 집합 크기 조정](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | 가상 머신: Windows 예제 |[Resource Manager 템플릿을 사용하여 VM 확장 집합에 대한 고급 자동 크기 조정 구성](autoscale-virtual-machine-scale-sets.md) |
+| Azure App Service |[Azure App Service에서 앱 확대](../../app-service/manage-scale-up.md)|
 | API Management 서비스|[Azure API Management 인스턴스 자동 크기 조정](../../api-management/api-management-howto-autoscale.md)
 | Azure Data Explorer 클러스터|[변화하는 요구를 수용하기 위해 Azure Data Explorer 클러스터 크기 조정 관리](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure App Service |[Azure App Service에서 앱 확대](../../app-service/manage-scale-up.md)|
 | Logic Apps |[ISE(통합 서비스 환경) 용량 추가](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Service Bus |[Azure Service Bus 네임스페이스의 메시징 단위 자동 업데이트](../../service-bus-messaging/automate-update-messaging-units.md)|
+
 ## <a name="next-steps"></a>다음 단계
 자동 크기 조정에 대한 자세한 내용은 앞에 나열된 자동 크기 조정 연습을 사용하거나 다음 리소스를 참조하세요.
 

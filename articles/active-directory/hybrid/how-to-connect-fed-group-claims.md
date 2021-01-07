@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359962"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349353"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
@@ -58,7 +58,7 @@ AD FS에서 이동 된 앱에는 동일한 형식의 클레임이 필요 합니�
 
 - 응용 프로그램에서 권한 부여를 위해 그룹 멤버 자격을 사용 하는 경우에는 ObjectID 그룹을 사용 하는 것이 좋습니다. 그룹 ObjectID는 Azure Active Directory에서 고유 하며 모든 그룹에서 사용할 수 있습니다.
 - 권한 부여를 위해 온-프레미스 그룹 sAMAccountName을 사용 하는 경우 정규화 된 도메인 이름을 사용 합니다.  이름 충돌 방지에 대 한 기회가 줄어듭니다. sAMAccountName은 Active Directory 도메인 내에서 고유할 수 있지만 둘 이상의 Active Directory 도메인이 Azure Active Directory 테 넌 트와 동기화 되는 경우 두 개 이상의 그룹이 동일한 이름을 가질 가능성이 있습니다.
-- [응용 프로그램 역할](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) 을 사용 하 여 그룹 멤버 자격과 응용 프로그램 간의 간접 참조 계층을 제공 하는 것이 좋습니다.   그런 다음 응용 프로그램은 토큰의 역할 clams를 기반으로 하 여 내부 권한 부여 결정을 내립니다.
+- [응용 프로그램 역할](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) 을 사용 하 여 그룹 멤버 자격과 응용 프로그램 간의 간접 참조 계층을 제공 하는 것이 좋습니다.   그런 다음 응용 프로그램은 토큰의 역할 클레임에 따라 내부 권한 부여 결정을 내립니다.
 - Active Directory에서 동기화 되는 그룹 특성을 가져오도록 응용 프로그램을 구성 하 고 그룹에 해당 특성이 포함 되지 않은 경우 클레임에 포함 되지 않습니다.
 - 토큰의 그룹 클레임은 옵션을 사용 하 여 그룹 클레임을 응용 프로그램에 할당 된 그룹으로 제한 하는 경우를 제외 하 고 중첩 된 그룹을 포함 합니다.  사용자가 GroupB의 멤버이 고 GroupB가 GroupA의 멤버인 경우 사용자에 대 한 그룹 클레임은 GroupA와 GroupB를 모두 포함 합니다. 조직의 사용자에 게 다 수의 그룹 멤버 자격이 있는 경우 토큰에 나열 된 그룹 수가 토큰 크기를 늘릴 수 있습니다.  Azure Active Directory는 토큰에 내보낼 그룹의 수를 SAML 어설션의 경우 150, JWT의 경우 200로 제한 합니다.  사용자가 더 많은 그룹의 멤버인 경우 그룹을 생략 하 고 그룹 정보를 얻기 위한 그래프 끝점에 대 한 링크가 대신 포함 됩니다.
 
@@ -74,15 +74,15 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내도록 Azure Active
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>SSO 구성을 사용 하 여 SAML 응용 프로그램에 대 한 토큰에 그룹 클레임 추가
 
-갤러리 또는 비 갤러리 SAML 응용 프로그램에 대 한 그룹 클레임을 구성 하려면 **엔터프라이즈 응용 프로그램**을 열고 목록에서 응용 프로그램을 클릭 한 다음 **Single Sign on 구성**을 선택 하 고 **클레임 & 사용자 특성**을 선택 합니다.
+갤러리 또는 비 갤러리 SAML 응용 프로그램에 대 한 그룹 클레임을 구성 하려면 **엔터프라이즈 응용 프로그램** 을 열고 목록에서 응용 프로그램을 클릭 한 다음 **Single Sign on 구성** 을 선택 하 고 **클레임 & 사용자 특성** 을 선택 합니다.
 
 **그룹 클레임 추가** 를 클릭 합니다.  
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+!["그룹 클레임 추가"가 선택 된 "사용자 특성 & 클레임" 페이지를 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 라디오 단추를 사용 하 여 토큰에 포함 해야 하는 그룹을 선택 합니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+!["보안 그룹"이 선택 된 "그룹 클레임" 창을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | 선택 영역 | 설명 |
 |----------|-------------|
@@ -93,15 +93,15 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내도록 Azure Active
 
 예를 들어 사용자가 구성원으로 속한 모든 보안 그룹을 내보내려면 보안 그룹을 선택 합니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+!["보안 그룹"을 선택 하 고 "원본 특성" 드롭다운 메뉴를 열고 "그룹 클레임" 창을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory 특성을 사용 하 여 그룹을 내보내려면 드롭다운에서 필요한 형식을 선택 합니다. Active Directory에서 동기화 된 그룹만 클레임에 포함 됩니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+!["원본 특성" 드롭다운 메뉴를 표시 하는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 응용 프로그램에 할당 된 그룹만 내보내려면 **응용 프로그램에 할당 된 그룹** 을 선택 합니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+!["응용 프로그램에 할당 된 그룹"이 선택 된 "그룹 클레임" 창을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 응용 프로그램에 할당 된 그룹은 토큰에 포함 됩니다.  사용자가 멤버로 속해 있는 다른 그룹은 생략 됩니다.  이 옵션을 선택 하면 중첩 된 그룹이 포함 되지 않으며 사용자는 응용 프로그램에 할당 된 그룹의 직접 구성원 이어야 합니다.
 
@@ -115,11 +115,11 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 
 그룹 클레임 이름 사용자 지정: 선택 하는 경우 그룹 클레임에 대해 다른 클레임 유형을 지정할 수 있습니다.   이름 필드에 클레임 유형을 입력 하 고 네임 스페이스 필드에 클레임에 대 한 선택적 네임 스페이스를 입력 합니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+!["그룹 클레임 이름 사용자 지정"을 선택 하 고 "이름" 및 "네임 스페이스" 값을 입력 하 여 "고급 옵션" 섹션을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 일부 응용 프로그램에는 ' 역할 ' 클레임에 표시 되는 그룹 멤버 자격 정보가 필요 합니다. ' 그룹에 역할 클레임 내보내기 ' 상자를 선택 하 여 필요에 따라 사용자 그룹을 역할로 내보낼 수 있습니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+!["그룹 클레임 이름 사용자 지정" 및 "그룹을 역할 클레임으로 내보내기"가 선택 된 "고급 옵션" 섹션을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > 그룹 데이터를 역할로 내보내는 옵션이 사용 되 면 그룹만 역할 클레임에 표시 됩니다.  사용자가 할당 된 모든 응용 프로그램 역할은 역할 클레임에 표시 되지 않습니다.
@@ -144,8 +144,9 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 |----------|-------------|
 | **모두가** | 보안 그룹, 배포 목록 및 역할을 내보냅니다. |
 | **"SecurityGroup"** | 사용자가 구성원 인 보안 그룹을 그룹 클레임에 내보냅니다. |
-| **"DirectoryRole** | 사용자에 게 디렉터리 역할이 할당 된 경우 ' wids ' 클레임으로 내보내집니다. 그룹 클레임은 내보내지 않습니다. |
-| **"ApplicationGroup** | 응용 프로그램에 명시적으로 할당 되 고 사용자가 멤버인 그룹만 내보냅니다. |
+| **"DirectoryRole"** | 사용자에 게 디렉터리 역할이 할당 된 경우 ' wids ' 클레임으로 내보내집니다. 그룹 클레임은 내보내지 않습니다. |
+| **ApplicationGroup** | 응용 프로그램에 명시적으로 할당 되 고 사용자가 멤버인 그룹만 내보냅니다. |
+| **없음을** | 그룹이 반환 되지 않습니다. (대/소문자를 sensetive 하지 않으므로 응용 프로그램 매니페스트에서 직접 설정할 수 없습니다.) |
 
    예를 들면 다음과 같습니다.
 

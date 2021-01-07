@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 TimestampToDateTime
 description: Azure Cosmos DB의 SQL 시스템 함수 TimestampToDateTime에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 9d4b5179ea08d5d6eca03422db7dfc7c8c4b5c3e
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: af5e0eeb808835fd4f36a0eda79618f831248ad9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608837"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340773"
 ---
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimestampToDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 지정 된 타임 스탬프 값을 DateTime으로 변환 합니다.
   
@@ -41,7 +43,7 @@ UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합�
   |DD|월 (01-31)의 2 자리 숫자 일|
   |T|시간 요소 시작에 대 한 signifier|
   |hh|두 자리 시간 (00-23)|
-  |MM|두 자리 분 (00-59)|
+  |mm|두 자리 분 (00-59)|
   |ss|두 자리 초 (00-59)|
   |. fffffff|7 자리 소수 자릿수 초|
   |Z|UTC (협정 세계시) 지정자||
@@ -52,7 +54,7 @@ UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합�
 
 TimestampToDateTime는 `undefined` 지정 된 타임 스탬프 값이 잘못 된 경우를 반환 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
 다음 예에서는 타임 스탬프를 DateTime으로 변환 합니다.
 

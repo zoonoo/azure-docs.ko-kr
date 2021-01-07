@@ -1,32 +1,30 @@
 ---
 title: 레이블을 사용 하 여 쿼리 계측
-description: 솔루션 개발을 위해 레이블을 사용 하 여 Synapse SQL 풀에서 쿼리를 계측 하는 팁입니다.
+description: 레이블을 사용 하 여 Azure Synapse Analytics의 전용 SQL 풀에 대 한 쿼리를 계측 하기 위한 팁입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 7958caf71658dcdcbf31bac84697931e9049452f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459150"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462746"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Synapse SQL 풀에서 레이블을 사용 하 여 쿼리 계측
+# <a name="using-labels-to-instrument-queries-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>레이블을 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀에 대 한 쿼리 계측
 
-이 문서에는 SQL 풀에서 쿼리를 계측 하는 레이블을 사용 하 여 솔루션을 개발 하기 위한 팁이 포함 되어 있습니다.
-
-솔루션 개발을 위해 Azure Synapse Analytics에서 레이블을 사용 하 여 쿼리를 계측 하는 팁입니다.
+이 문서에는 전용 SQL 풀에서 쿼리를 계측 하는 레이블을 사용 하 여 솔루션을 개발 하기 위한 팁이 포함 되어 있습니다.
 
 ## <a name="what-are-labels"></a>레이블이란?
 
-SQL 풀은 쿼리 레이블 이라는 개념을 지원 합니다. 좀더 깊이 들어가기 전에 한 가지 예를 살펴보겠습니다.
+전용 SQL 풀은 쿼리 레이블 이라는 개념을 지원 합니다. 좀더 깊이 들어가기 전에 한 가지 예를 살펴보겠습니다.
 
 ```sql
 SELECT *

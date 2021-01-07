@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565857"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996664"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자의 로그인 페이지는 Azure AD를 id 공급자로 사용 하는 Microsoft 365와 같이 조직의 웹 기반 앱에 로그인 할 때 표시 됩니다.
 
 >[!NOTE]
->사용자 지정 브랜딩을 추가 하려면 Azure Active Directory Premium 1, Premium 2 또는 Basic 버전을 사용 하거나 Microsoft 365 라이선스를 사용 해야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 및 Basic 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Azure 서비스에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
+>사용자 지정 브랜딩을 추가 하려면 1 Azure Active Directory Premium 또는 Premium 2 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 버전은 전 세계의 Azure Active Directory 인스턴스를 사용 하 여 중국의 고객에 게 제공 됩니다. Azure AD Premium 버전은 현재 중국의 21Vianet에서 운영 하는 Azure 서비스에서 지원 되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD 로그인 페이지 사용자 지정
 사용자가 조직의 테넌트별 앱(예: `https://outlook.com/contoso.com`)에 로그인하거나 도메인 변수(예: `https://passwordreset.microsoftonline.com/?whr=contoso.com`)를 전달할 때 표시되는 Azure AD 로그인 페이지를 사용자 지정할 수 있습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "89565857"
 ### <a name="to-customize-your-branding"></a>브랜딩을 사용자 지정하려면
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택한 다음, **회사 브랜딩**을 선택하고, **구성**을 선택합니다.
+2. **Azure Active Directory** 를 선택한 다음, **회사 브랜딩** 을 선택하고, **구성** 을 선택합니다.
 
     ![Contoso - 구성 옵션이 강조 표시된 회사 브랜딩 페이지](media/customize-branding/company-branding-configure-button.png)
 
@@ -86,20 +86,20 @@ ms.locfileid: "89565857"
     
         - **사각형 로고 이미지, 어두운 테마** 위의 사각형 로고 이미지와 동일합니다. 이 로고 이미지는 기본 제공 환경(OOBE)에서 Windows 10 Azure AD 조인 화면을 사용하는 등 어두운 배경에서 사용될 때 사각형 로고 이미지를 대신합니다.  로고가 흰색, 진한 파랑 및 검은색 배경에 적합 한 경우이 이미지를 추가할 필요가 없습니다. 
         
-        - **로그인 상태를 유지하는 옵션 표시** 명시적으로 로그 아웃할 때까지 사용자가 Azure AD에 로그인 된 상태를 유지 하도록 선택할 수 있습니다. **아니요**를 선택 하는 경우이 옵션은 숨겨지고 브라우저를 닫았다가 다시 열 때마다 사용자가 로그인 해야 합니다.
+        - **로그인 상태를 유지하는 옵션 표시** 명시적으로 로그 아웃할 때까지 사용자가 Azure AD에 로그인 된 상태를 유지 하도록 선택할 수 있습니다. **아니요** 를 선택 하는 경우이 옵션은 숨겨지고 브라우저를 닫았다가 다시 열 때마다 사용자가 로그인 해야 합니다.
 
             이 기능은 특정 언어 관련 개체가 아닌 기본 브랜딩 개체 에서만 사용할 수 있습니다. 로그인 상태를 유지 하는 옵션을 구성 하 고 문제를 해결 하는 방법에 대 한 자세한 내용은 [AZURE AD 계정에 대 한 ' 로그인 유지 "프롬프트 구성](keep-me-signed-in.md) 을 참조 하세요.
         
             >[!NOTE]
-            >SharePoint Online과 Office 2010의 일부 기능은 로그인 상태를 유지하도록 선택할 수 있는 사용자에 따라 달라집니다. 이 옵션을 **아니요**로 설정하는 경우 사용자에게 로그인을 요청하는 예상치 못한 메시지가 추가로 표시될 수 있습니다.
+            >SharePoint Online과 Office 2010의 일부 기능은 로그인 상태를 유지하도록 선택할 수 있는 사용자에 따라 달라집니다. 이 옵션을 **아니요** 로 설정하는 경우 사용자에게 로그인을 요청하는 예상치 못한 메시지가 추가로 표시될 수 있습니다.
    
 
-3. 브랜딩 추가를 완료한 후에 **저장**을 선택합니다.
+3. 브랜딩 추가를 완료한 후에 **저장** 을 선택합니다.
 
     이 프로세스에서 첫 번째 사용자 지정 브랜딩 구성을 생성하면 테넌트에 대한 기본값이 됩니다. 추가 구성이 있는 경우 기본 구성을 선택할 수 있습니다.
     
     >[!IMPORTANT]
-    >회사 브랜딩을 테넌트에 더 추가하려면 **Contoso - 회사 브랜딩** 페이지에서 **새 언어**를 선택해야 합니다. 그러면 **구성 회사 브랜딩** 페이지가 열립니다. 여기서는 위와 동일한 단계를 따르면 됩니다.
+    >회사 브랜딩을 테넌트에 더 추가하려면 **Contoso - 회사 브랜딩** 페이지에서 **새 언어** 를 선택해야 합니다. 그러면 **구성 회사 브랜딩** 페이지가 열립니다. 여기서는 위와 동일한 단계를 따르면 됩니다.
 
 ## <a name="update-your-custom-branding"></a>사용자 지정 브랜딩 업데이트
 사용자 지정 브랜딩을 만든 후에 다시 돌아가서 원하는 대로 변경할 수 있습니다.
@@ -107,13 +107,13 @@ ms.locfileid: "89565857"
 ### <a name="to-edit-your-custom-branding"></a>사용자 지정 브랜딩을 편집하려면
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택한 다음, **회사 브랜딩**을 선택하고, **구성**을 선택합니다.
+2. **Azure Active Directory** 를 선택한 다음, **회사 브랜딩** 을 선택하고, **구성** 을 선택합니다.
 
     ![Contoso - 기본 구성이 표시된 회사 브랜딩 페이지](media/customize-branding/company-branding-default-config.png)
 
 3. **회사 브랜딩 구성** 페이지에서 이 문서에 있는 [Azure AD 로그인 페이지 사용자 지정](#customize-your-azure-ad-sign-in-page) 섹션의 설명에 따라 정보를 추가하거나, 제거하거나, 변경합니다.
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
    로그인 페이지 브랜딩의 변경 내용을 보려면 최대 1시간이 걸릴 수 있습니다.
 
@@ -124,13 +124,13 @@ ms.locfileid: "89565857"
 
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택한 다음, **회사 브랜딩**을 선택하고, **새 언어**를 선택합니다.
+2. **Azure Active Directory** 를 선택한 다음, **회사 브랜딩** 을 선택하고, **새 언어** 를 선택합니다.
 
     ![Contoso - 새 언어 옵션이 강조 표시된 회사 브랜딩 페이지](media/customize-branding/company-branding-new-language.png)
 
 3. **회사 브랜딩 구성** 페이지에서 언어(예: 프랑스어)를 선택한 다음, 이 문서에 있는 [Azure AD 로그인 페이지 사용자 지정](#customize-your-azure-ad-sign-in-page) 섹션의 설명에 따라 번역된 정보를 추가합니다.
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
     **Contoso - 회사 브랜딩** 페이지는 새로운 프랑스어 구성을 표시하도록 업데이트됩니다.
 

@@ -1,15 +1,16 @@
 ---
 title: 패턴 구문 참조-LUIS
 description: LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 추출 하는 엔터티를 만듭니다. 추출 된 데이터는 클라이언트 응용 프로그램에서 사용 됩니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684539"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91542192"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
 
@@ -22,17 +23,17 @@ ms.locfileid: "83684539"
 
 패턴 구문에서는 다음 구문을 지원 합니다.
 
-|기능|구문|중첩 수준|예제|
+|함수|구문|중첩 수준|예제|
 |--|--|--|--|
-|엔터티| {}-중괄호|2|{Entity-name} 형식은 어디에 있나요?|
-|선택적|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
+|엔터티| {} -중괄호|2|{Entity-name} 형식은 어디에 있나요?|
+|선택 사항|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
 |그룹화|()-괄호|2|is (a \| b)|
-|또는| \|-세로 막대 (파이프)<br><br>한 그룹의 세로 막대 (또는)에는 2 제한이 있습니다. |-|형식 ({form-name-short} &#x7c; {폼-이름-long} &#x7c; {폼 번호})|
+|또는| \| -세로 막대 (파이프)<br><br>한 그룹의 세로 막대 (또는)에는 2 제한이 있습니다. |-|형식 ({form-name-short} &#x7c; {폼-이름-long} &#x7c; {폼 번호})|
 |utterance의 시작 및/또는 끝|^-캐럿|-|^ utterance 시작<br>utterance가 완료 되었습니다.<br>^ ' number} 엔터티 ^의 전체 utterance의 엄격한 리터럴 일치 항목 ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>패턴의 중첩 구문
 
-대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form`. 이 예에서는 다음 길이 발언을 허용 합니다.
+대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form` 이 예에서는 다음 길이 발언을 허용 합니다.
 
 |중첩 된 선택적 utterance 예제|설명|
 |--|--|
@@ -40,7 +41,7 @@ ms.locfileid: "83684539"
 |새 양식|패턴의 외부 선택적 단어 및 선택적 단어가 아닌 단어를 찾습니다.|
 |새 양식|필수 단어만 찾습니다.|
 
-괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
+괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
 
 Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 위치인 경우 엔터티 2는 목록 엔터티 (RedWest-C)에서 알려진 빌딩 이름이 고, 다음 길이 발언는이 패턴에 매핑됩니다.
 
@@ -54,7 +55,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 
 **선택적** 구문의 **그룹화** 조합에는 중첩 수준 3 개로 제한 됩니다.
 
-|허용됨|예제|
+|허용|예제|
 |--|--|
 |예|([(test1 &#x7c; test2)] &#x7c; test3)|
 |아니요|([([test1] &#x7c; test2)] &#x7c; test3)|
@@ -63,7 +64,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 
 **Or** of 구문을 사용한 **grouping** 의 조합에는 세로 막대 2 개로 제한 됩니다.
 
-|허용됨|예제|
+|허용|예제|
 |--|--|
 |예|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
 |아니요|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
@@ -126,7 +127,7 @@ LUIS는 패턴에 따라 책 제목이 끝나는 위치를 알 수 있기 때문
 
 |선택적 텍스트 사용 패턴|의미|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find`및 `from {person}` 는 선택 사항입니다.|
+|`[find] email about {subject} [from {person}]`|`find` 및 `from {person}` 는 선택 사항입니다.|
 |' 도와 주세요. [?]|구두점 표시는 선택 사항입니다.|
 
 문장 부호 ( `?` , `!` , `.` )는 무시 해야 하며 패턴의 대괄호 구문을 사용 하 여 무시 해야 합니다.

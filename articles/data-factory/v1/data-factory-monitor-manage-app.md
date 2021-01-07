@@ -3,8 +3,8 @@ title: 데이터 파이프라인 모니터링 및 관리-Azure
 description: 모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846900"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495704"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.locfileid: "85846900"
 ![모니터링 및 관리 앱](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> 웹 브라우저가 "권한 부여..." 상태로 중지된 것을 확인하면 **Block third-party cookies and site data**(타사 쿠키 및 사이트 데이터 차단) 확인란 선택을 해제하거나 선택된 상태로 두고 **login.microsoftonline.com**에 대한 예외를 만든 다음 앱을 다시 열어봅니다.
+> 웹 브라우저가 "권한 부여..." 상태로 중지된 것을 확인하면 **Block third-party cookies and site data**(타사 쿠키 및 사이트 데이터 차단) 확인란 선택을 해제하거나 선택된 상태로 두고 **login.microsoftonline.com** 에 대한 예외를 만든 다음 앱을 다시 열어봅니다.
 
 
 가운데 창의 작업 창 목록에는 작업의 각 실행에 대한 작업 창이 표시됩니다. 예를 들어 5시간 동안 매시간 실행되도록 예약된 작업이 있는 경우 5개의 데이터 조각과 연결된 5개 작업 창이 표시됩니다. 아래쪽의 목록에 작업 창이 표시되지 않는 경우 다음을 수행합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "85846900"
 이러한 단계를 테스트할 데이터 팩터리 애플리케이션이 없는 경우 자습서: [데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 수행합니다.
 
 ## <a name="understand-the-monitoring-and-management-app"></a>모니터링 및 관리 앱 이해
-왼쪽에 **리소스 탐색기**, **Monitoring Views**(모니터링 뷰) 및 **경고**라는 세 개의 탭이 있습니다. 첫 번째 탭(**리소스 탐색기**)은 기본적으로 선택됩니다.
+왼쪽에 **리소스 탐색기**, **Monitoring Views**(모니터링 뷰) 및 **경고** 라는 세 개의 탭이 있습니다. 첫 번째 탭(**리소스 탐색기**)은 기본적으로 선택됩니다.
 
 ### <a name="resource-explorer"></a>리소스 탐색기
 다음이 표시됩니다.
@@ -124,9 +124,9 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 오른쪽 창에서 **활동 기간 탐색기** 탭으로 전환하여 자세한 내용을 봅니다.
 
-![작업 창 탐색기](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![작업 창 탐색기 탭에 액세스 하는 방법을 보여 주는 스크린샷](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-**Attempts**(시도) 섹션에서 활동의 각 실행 시도에 대한 **확인된 변수**도 볼 수 있습니다.
+**Attempts**(시도) 섹션에서 활동의 각 실행 시도에 대한 **확인된 변수** 도 볼 수 있습니다.
 
 ![확인된 변수](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
@@ -159,7 +159,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">상태</th><th align="left">Substatus</th><th align="left">설명</th>
+    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">설명</th>
 </tr>
 <tr>
     <td rowspan="8">대기</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
@@ -204,7 +204,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <tr>
 <td>-</td><td>활동 창이 생성되거나 유효성이 검사되지 못했습니다.</td>
 </tr>
-<td>Ready</td><td>-</td><td>작업 창을 사용할 준비가 되었습니다.</td>
+<td>준비</td><td>-</td><td>작업 창을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
 <td>건너뜀</td><td>-</td><td>활동 기간이 처리되지 않습니다.</td>
@@ -215,9 +215,9 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 </table>
 
 
-목록에서 활동 기간을 클릭하면 오른쪽에 있는 **속성** 창 또는 **활동 기간 탐색기**에 자세한 내용이 표시됩니다.
+목록에서 활동 기간을 클릭하면 오른쪽에 있는 **속성** 창 또는 **활동 기간 탐색기** 에 자세한 내용이 표시됩니다.
 
-![작업 창 탐색기](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![작업 창에 대 한 세부 정보를 보는 방법을 보여 주는 스크린샷](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>작업 창 새로 고침
 세부 정보는 자동으로 새로 고쳐지지 않으므로 명령 모음에서 새로 고침 단추(두 번째 단추)를 사용하여 수동으로 활동 기간 목록을 새로 고칩니다.  
@@ -252,9 +252,9 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 현재는 지원되는 세 가지 시스템 뷰가 있습니다. (가운데 창의 맨 아래에 있는)활동 기간 목록에서 최근 활동 기간, 실패한 활동 기간 또는 진행 중인 활동 기간을 보려면 옵션을 선택합니다.
 
-**Recent activity windows**(최근 활동 기간) 옵션을 선택하면 **마지막 시도 시간**의 내림차순으로 최근 활동 기간이 모두 표시됩니다.
+**Recent activity windows**(최근 활동 기간) 옵션을 선택하면 **마지막 시도 시간** 의 내림차순으로 최근 활동 기간이 모두 표시됩니다.
 
-**실패한 작업 창** 뷰를 사용하여 목록에서 실패한 작업 창을 모두 볼 수 있습니다. **속성** 창 또는 **활동 기간 탐색기**에서 이에 대한 자세한 내용을 보려면 목록에서 실패한 활동 기간을 선택하세요. 실패한 작업 창에 대한 로그를 다운로드할 수도 있습니다.
+**실패한 작업 창** 뷰를 사용하여 목록에서 실패한 작업 창을 모두 볼 수 있습니다. **속성** 창 또는 **활동 기간 탐색기** 에서 이에 대한 자세한 내용을 보려면 목록에서 실패한 활동 기간을 선택하세요. 실패한 작업 창에 대한 로그를 다운로드할 수도 있습니다.
 
 ## <a name="sort-and-filter-activity-windows"></a>활동 기간 정렬 및 필터링
 명령 모음에서 **시작 시간** 및 **종료 시간** 설정을 변경하여 작업 창을 필터링합니다. 시작 시간 및 종료 시간을 변경한 후에 활동 기간 목록을 새로 고치려면 종료 시간 옆에 있는 단추를 클릭합니다.
@@ -266,7 +266,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 >
 >
 
-**작업 창 목록**에서 열의 이름을 클릭합니다(예: 상태).
+**작업 창 목록** 에서 열의 이름을 클릭합니다(예: 상태).
 
 ![활동 기간 목록 열 메뉴](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -286,7 +286,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ## <a name="perform-batch-actions"></a>배치 작업 수행
 ### <a name="rerun-selected-activity-windows"></a>선택한 작업 창 다시 실행
-작업 창을 선택 하 고, 첫 번째 명령 모음 단추에 대해 아래쪽 화살표를 클릭 하 **Rerun**고,  /  **파이프라인에서 업스트림으로 다시 실행**을 선택 합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
+작업 창을 선택 하 고, 첫 번째 명령 모음 단추에 대해 아래쪽 화살표를 클릭 하 **Rerun** 고,  /  **파이프라인에서 업스트림으로 다시 실행** 을 선택 합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
     ![작업 창 다시 실행](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 또한 목록에서 여러 개의 작업 창을 선택하고 동시에 다시 실행할 수 있습니다. 상태를 기준으로 활동 기간을 필터링(예: **실패**)한 다음, 활동 기간에 실패를 일으키는 문제를 해결한 후에 실패한 활동 기간을 다시 실행할 수 있습니다. 목록에서 작업 창을 필터링하는 자세한 내용은 다음 섹션을 참조합니다.  

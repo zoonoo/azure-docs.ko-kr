@@ -2,13 +2,13 @@
 title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
-ms.date: 07/20/2020
-ms.openlocfilehash: 29850e89d1cccf7708e5cca8eaf58afee8157890
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 09/25/2020
+ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061410"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861335"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 사용자 고유의 Apache Kafka 클러스터를 실행 하는 대신 대부분의 기존 Apache Kafka 클라이언트 응용 프로그램에서 사용할 수 있는 Apache Kafka® 생산자 및 소비자 Api와 호환 되는 끝점을 제공 합니다. Event Hubs는 1.0 이상 버전에서 Apache Kafka의 생산자 및 소비자 Api 클라이언트를 지원 합니다.
@@ -60,9 +60,9 @@ Azure Event Hubs는 보안 리소스에 대 한 액세스 권한을 부여 하�
 - 공유 액세스 서명(SAS)
 
 #### <a name="oauth-20"></a>OAuth 2.0
-Event Hubs는 **OAuth 2.0** 호환 중앙 집중식 권한 부여 서버를 제공 하는 Azure Active Directory (Azure AD)와 통합 됩니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 클라이언트 id에 대 한 세분화 된 권한을 부여할 수 있습니다. 프로토콜에 대 한 **SASL_SSL** 를 지정 하 고 해당 메커니즘에 대 한  **oauthbearer** 를 지정 하 여이 기능을 kafka 클라이언트와 함께 사용할 수 있습니다. 범위 액세스에 대 한 Azure 역할 및 수준에 대 한 자세한 내용은 [AZURE AD를 사용 하 여 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조 하세요.
+Event Hubs는 **OAuth 2.0** 호환 중앙 집중식 권한 부여 서버를 제공 하는 Azure Active Directory (Azure AD)와 통합 됩니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 클라이언트 id에 대 한 세분화 된 권한을 부여할 수 있습니다. 프로토콜에 대 한 **SASL_SSL** 를 지정 하 고 해당 메커니즘에 대 한  **oauthbearer** 를 지정 하 여이 기능을 kafka 클라이언트와 함께 사용할 수 있습니다. 범위 액세스에 대 한 Azure 역할 및 수준에 대 한 자세한 내용은 [AZURE AD를 사용 하 여 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조 하세요.
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=OAUTHBEARER
@@ -73,15 +73,19 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
 #### <a name="shared-access-signature-sas"></a>공유 액세스 서명(SAS)
 또한 Event Hubs는 Kafka 리소스의 Event Hubs에 대 한 위임 된 액세스에 대 한 **SAS (공유 액세스 서명)** 를 제공 합니다. OAuth 2.0 토큰 기반 메커니즘을 사용 하 여 액세스 권한을 부여 하면 우수한 보안과 SAS를 통한 사용 편의성을 제공 합니다. 기본 제공 역할은 사용자가 유지 관리 하 고 관리 해야 하는 ACL 기반 권한 부여에 대 한 필요성을 없앨 수도 있습니다. 프로토콜에 대 한 **SASL_SSL** 를 지정 하 고 메커니즘에 **일반** 을 지정 하 여 kafka 클라이언트에서이 기능을 사용할 수 있습니다. 
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
+> [!IMPORTANT]
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";` 구성의 예는 다음과 같습니다.
+
 > [!NOTE]
 > Kafka 클라이언트에서 SAS 인증을 사용 하는 경우 SAS 키가 다시 생성 되 면 설정 된 연결의 연결이 끊깁니다. 
+
 
 #### <a name="samples"></a>샘플 
 이벤트 허브를 만들고 SAS 또는 OAuth를 사용 하 여 액세스 하는 방법에 대 한 단계별 지침이 포함 된 **자습서** 는 [빠른 시작: kafka 프로토콜을 사용 하 여 Event Hubs 데이터 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)을 참조 하세요.
@@ -114,9 +118,7 @@ Apache Kafka의 클라이언트 쪽 [압축](https://cwiki.apache.org/confluence
 
 ### <a name="log-compaction"></a>로그 압축
 
-Apache Kafka 로그 압축은 파티션에서 각 키의 마지막 레코드를 제외한 모든 레코드를 제거 하는 기능입니다 .이 기능을 사용 하면 Apache Kafka 항목을 키-값 저장소로 변환 하 여 마지막에 추가한 값이 이전 값을 재정의 합니다. 자주 업데이트 되는 경우에도 키-값 저장소 패턴은 [Azure Cosmos DB](../cosmos-db/introduction.md)같은 데이터베이스 서비스에서 훨씬 더 잘 지원 됩니다.
-
-로그 압축 기능은 Kafka Connect 및 Kafka Stream 클라이언트 프레임 워크에서 사용 됩니다.
+Apache Kafka 로그 압축은 파티션에서 각 키의 마지막 레코드를 제외한 모든 레코드를 제거 하는 기능입니다 .이 기능을 사용 하면 Apache Kafka 항목을 키-값 저장소로 변환 하 여 마지막에 추가한 값이 이전 값을 재정의 합니다. 이 기능은 현재 Azure Event Hubs에 의해 구현 되지 않습니다. 자주 업데이트 되는 경우에도 키-값 저장소 패턴은 [Azure Cosmos DB](../cosmos-db/introduction.md)같은 데이터베이스 서비스에서 훨씬 더 잘 지원 됩니다. 자세한 내용은 Event Hubs 페더레이션 지침의 [로그 프로젝션](event-hubs-federation-overview.md#log-projections) 항목을 참조 하세요. 
 
 ### <a name="kafka-streams"></a>Kafka 스트림
 
@@ -128,7 +130,7 @@ Azure Event Hubs 고객이 Kafka Stream 지원을 요청 하는 가장 일반적
 
 - [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
 - [Azure Synapse Analytics (Event Hubs 캡처를 통해)](../event-grid/event-grid-event-hubs-integration.md)
-- [Azure Databricks](/azure/databricks/scenarios/databricks-stream-from-eventhubs.md)
+- [Azure Databricks](/azure/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)

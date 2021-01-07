@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 68484d2047e09dc82d44e15e86b13c4c54c49b03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: 07c476c0de644ac63c577d466f4691b5cf415334
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533796"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357940"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 StarLeaf 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "88533796"
 * 관리자 권한이 있는 StarLeaf의 사용자 계정
 
 ## <a name="assign-users-to-starleaf"></a>StarLeaf에 사용자 할당
-Azure Active Directory는 할당이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 할당 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD에서 StarLeaf에 대 한 액세스 권한이 필요한 사용자 및 그룹을 결정 해야 합니다. 그런 다음 [이러한 지침](../manage-apps/assign-user-or-group-access-portal.md)에 따라 사용자 및 그룹을 starleaf에 할당할 수 있습니다.
 
@@ -50,17 +50,17 @@ Azure Active Directory는 할당이라는 개념을 사용하여 어떤 사용�
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 StarLeaf를 구성 하기 전에 StarLeaf에서 SCIM 프로 비전을 구성 해야 합니다.
 
-1. [Starleaf 관리 콘솔](https://portal.starleaf.com/#page=login)에 로그인 합니다. **통합**  >  **통합 추가**로 이동 합니다.
+1. [Starleaf 관리 콘솔](https://portal.starleaf.com/#page=login)에 로그인 합니다. **통합**  >  **통합 추가** 로 이동 합니다.
 
-    ![StarLeaf 추가 SCIM](media/starleaf-provisioning-tutorial/image00.png)
+    ![통합 및 추가 통합 옵션을 포함 하는 StarLeaf 관리 콘솔의 스크린샷](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Microsoft Azure Active Directory **형식을** 선택 합니다. **이름**에 적절 한 이름을 입력 합니다. **적용**을 클릭합니다.
+2. Microsoft Azure Active Directory **형식을** 선택 합니다. **이름** 에 적절 한 이름을 입력 합니다. **적용** 을 클릭합니다.
 
-    ![StarLeaf 추가 SCIM](media/starleaf-provisioning-tutorial/image01.png)
+    ![형식 및 이름 텍스트 상자가 out 인 통합 추가 대화 상자의 스크린샷](media/starleaf-provisioning-tutorial/image01.png)
 
 3.  그러면 **Scim 기준 URL** 및 **액세스 토큰** 값이 표시 됩니다. 이러한 값은 Azure Portal에서 StarLeaf 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다. 
 
-    ![StarLeaf 토큰 만들기](media/starleaf-provisioning-tutorial/image02.png)
+    ![형식, 이름 및 SCIM 기준 URL 텍스트 상자를 호출 하는 통합 편집 대화 상자의 스크린샷](media/starleaf-provisioning-tutorial/image02.png)
 
 ## <a name="add-starleaf-from-the-gallery"></a>갤러리에서 StarLeaf 추가
 
@@ -68,11 +68,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 StarLeaf를 구�
 
 **Azure AD 응용 프로그램 갤러리에서 StarLeaf를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -80,28 +80,28 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 StarLeaf를 구�
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **starleaf**를 입력 하 고 결과 패널에서 **starleaf** 를 선택 합니다.
+4. 검색 상자에서 **starleaf** 를 입력 하 고 결과 패널에서 **starleaf** 를 선택 합니다.
     ![결과 목록의 StarLeaf](common/search-new-app.png)
 
 ## <a name="configure-automatic-user-provisioning-to-starleaf"></a>StarLeaf에 대 한 자동 사용자 프로 비전 구성
 
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당을 기반으로 StarLeaf에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 응용 프로그램 목록에서 **Starleaf**를 선택 합니다.
+2. 응용 프로그램 목록에서 **Starleaf** 를 선택 합니다.
 
     ![응용 프로그램 목록의 StarLeaf 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. 관리자 자격 증명 섹션 아래에서 먼저 **테 넌 트 url** 및 **암호 토큰** 에서 검색 된 **Scim 기준 url** 및 **액세스 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 starleaf에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 StarLeaf 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
@@ -111,15 +111,15 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 StarLeaf를 구�
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **저장** 을 클릭합니다.
 
-8. **매핑** 섹션에서 **사용자 Azure Active Directory Starleaf에 동기화를**선택 합니다.
+8. **매핑** 섹션에서 **사용자 Azure Active Directory Starleaf에 동기화를** 선택 합니다.
 
-    ![StarLeaf 토큰 만들기](media/starleaf-provisioning-tutorial/usermapping.png)
+    ![StarLeaf에 Azure Active Directory 사용자 동기화 옵션을 보여 주는 매핑 섹션의 스크린샷](media/starleaf-provisioning-tutorial/usermapping.png)
 
 9. **특성 매핑** 섹션에서 Azure AD에서 starleaf로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 starleaf의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![StarLeaf 토큰 만들기](media/starleaf-provisioning-tutorial/userattribute.png)
+    ![9 개의 매핑을 표시 하는 특성 매핑 섹션의 스크린샷](media/starleaf-provisioning-tutorial/userattribute.png)
 
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
@@ -133,11 +133,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 StarLeaf를 구�
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Starleaf의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Starleaf의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로 비전 로그를 읽는 방법에 대 한 자세한 내용은 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md) 를 참조 하세요.
 

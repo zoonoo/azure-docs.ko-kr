@@ -4,10 +4,10 @@ description: Service Fabric Explorer를 사용하여 실행 중인 Service Fabri
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75458191"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Service Fabric 컨테이너 서비스에 대한 로그 보기
@@ -35,8 +35,8 @@ v6.2부터 [REST API](/rest/api/servicefabric/sfclient-index) 또는 [SFCTL(Serv
 
 설정 **RunInteractive**는 Docker의 `--interactive` 및 `tty` [플래그](https://docs.docker.com/engine/reference/commandline/run/#options)에 해당합니다. 매니페스트 파일에서 이 설정을 true로 지정하면 이러한 플래그가 컨테이너를 시작하는 데 사용됩니다.  
 
-### <a name="rest"></a>REST (영문)
-[노드에 배포된 컨테이너 로그 가져오기](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) 작업을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다. 컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다.  `&Previous=true`를 지정합니다. 응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
+### <a name="rest"></a>REST
+[노드에 배포된 컨테이너 로그 가져오기](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) 작업을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다. 컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다.  `&Previous=true`을 지정합니다. 응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
 
 요청 URI의 형식은 다음과 같습니다.
 

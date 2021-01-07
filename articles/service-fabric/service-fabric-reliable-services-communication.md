@@ -1,17 +1,15 @@
 ---
 title: Reliable Services 통신 개요
 description: 서비스에서 수신기 열기, 엔드포인트 확인 및 서비스 간 통신을 비롯한 Reliable Services 통신 모델의 개요입니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018640"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912617"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
 플랫폼인 Azure 서비스 패브릭은 서비스 간에 이루어지는 통신을 전혀 알 수 없습니다. UDP에서 HTTP까지 모든 프로토콜 및 스택이 허용됩니다. 서비스 개발자가 서비스가 통신하는 방법을 선택합니다. Reliable Services 애플리케이션 프레임워크는 사용자 지정 통신 구성 요소를 빌드하는 데 사용할 수 있는 API 뿐만 아니라 기본 제공 통신 스택을 제공합니다.
@@ -197,7 +195,7 @@ Service Fabric은 클라이언트 및 기타 서비스가 서비스 이름별로
 Reliable Services API는 서비스와 통신하는 클라이언트를 작성하도록 다음 라이브러리를 제공합니다.
 
 ### <a name="service-endpoint-resolution"></a>서비스 엔드포인트 확인
-서비스와 통신하는 첫 번째 단계는 통신하려는 서비스의 파티션 또는 인스턴스의 엔드포인트 주소를 확인하는 것입니다. ph x="1" /&gt; 유틸리티 클래스는 클라이언트가 런타임 시 서비스의 엔드포인트를 확인할 수 있게 도와주는 기본 항목입니다. 서비스 패브릭 용어로 서비스의 엔드포인트를 결정하는 프로세스를 *서비스 엔드포인트 확인*이라고 합니다.
+서비스와 통신하는 첫 번째 단계는 통신하려는 서비스의 파티션 또는 인스턴스의 엔드포인트 주소를 확인하는 것입니다. ph x="1" /&gt; 유틸리티 클래스는 클라이언트가 런타임 시 서비스의 엔드포인트를 확인할 수 있게 도와주는 기본 항목입니다. 서비스 패브릭 용어로 서비스의 엔드포인트를 결정하는 프로세스를 *서비스 엔드포인트 확인* 이라고 합니다.
 
 클러스터 내의 서비스에 연결하려면 기본 설정을 사용하여 ServicePartitionResolver를 만들 수 있습니다. 다음은 대부분의 상황에 대한 권장 사용법입니다.
 
@@ -208,7 +206,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 예를 들어:
+다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -290,7 +288,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-클라이언트 팩터리는 주로 통신 클라이언트를 만드는 작업을 담당합니다. HTTP 클라이언트와 같은 영구 연결을 유지하지 않는 클라이언트의 경우 팩터리는 클라이언트를 만들고 반환해야 합니다. 또한 일부 이진 프로토콜과 같은 영구 연결을 유지하는 다른 프로토콜은 팩터리를 통해 유효성을 검사하여 연결을 다시 만들어야 하는지 여부를 결정해야 합니다.  
+클라이언트 팩터리는 주로 통신 클라이언트를 만드는 작업을 담당합니다. HTTP 클라이언트와 같은 영구 연결을 유지하지 않는 클라이언트의 경우 팩터리는 클라이언트를 만들고 반환해야 합니다. 또한 일부 이진 프로토콜과 같은 영구 연결을 유지 하는 다른 프로토콜은 팩터리를 통해 유효성을 검사 `ValidateClient(string endpoint, MyCommunicationClient client)` 하 여 연결을 다시 만들어야 하는지 여부를 결정 해야 합니다.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
@@ -333,14 +331,14 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 }
 ```
 
-마지막으로 예외 처리기는 예외가 발생할 때 수행할 동작을 결정하는 작업을 담당합니다. 예외는 **다시 시도 가능** 및 **다시 시도 불가능**으로 분류됩니다.
+마지막으로 예외 처리기는 예외가 발생할 때 수행할 동작을 결정하는 작업을 담당합니다. 예외는 **다시 시도 가능** 및 **다시 시도 불가능** 으로 분류됩니다.
 
 * **다시 시도 불가능** 예외는 단순히 다시 호출자로 throw됩니다.
 * **다시 시도 가능** 예외는 **일시적** 및 **영구** 예외로 더 세분화됩니다.
   * **일시적** 예외는 서비스 엔드포인트 주소를 다시 확인하지 않고 다시 시도할 수 있는 예외입니다. 일시적인 네트워크 문제 또는 서비스 엔드포인트 주소가 존재하지 않음을 나타내는 것 이외의 서비스 오류 응답을 포함합니다.
   * **영구** 예외는 다시 확인할 서비스 엔드포인트 주소를 필요로 하는 예외입니다. 이는 서비스 엔드포인트에 도달하지 못했음을 나타내는 예외를 포함하며 이는 서비스가 다른 노드로 이동되었음을 나타냅니다.
 
-`TryHandleException` 은 주어진 예외에 대한 결정을 내립니다. 예외에 대해 어떤 결정을 내릴지 **모르는** 경우 **false**를 반환해야 합니다. 어떤 결정을 내릴지 **아는** 경우 결과를 적절하게 설정하여 **true**를 반환해야 합니다.
+`TryHandleException` 은 주어진 예외에 대한 결정을 내립니다. 예외에 대해 어떤 결정을 내릴지 **모르는** 경우 **false** 를 반환해야 합니다. 어떤 결정을 내릴지 **아는** 경우 결과를 적절하게 설정하여 **true** 를 반환해야 합니다.
 
 ```csharp
 class MyExceptionHandler : IExceptionHandler

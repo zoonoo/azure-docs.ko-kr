@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 0f3f9e7f4566800bdea6871cae1c5bafb3b37b95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939184"
 ---
-# <a name="supported-versions-of-postgres-with-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc를 사용 하는 Postgres의 지원 되는 버전 PostgreSQL Hyperscale
+# <a name="supported-versions-of-postgres-with-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에서 지원되는 Postgres 버전
 
 이 문서에서는 Azure Arc enabled PostgreSQL Hyperscale에서 사용할 수 있는 Postgres의 버전을 설명 합니다.
 지원 되는 버전 목록은 시간이 지남에 따라 진화 합니다. 현재 지원 되는 주 버전은 다음과 같습니다.

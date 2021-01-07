@@ -1,6 +1,6 @@
 ---
 title: Apache Kafka에서 Apache Spark 스트리밍 - Azure HDInsight
-description: DStreams를 사용하여 Apache Kafka 간에 데이터를 스트리밍하기 위해 Apache Spark를 사용하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
+description: DStreams를 사용하여 Apache Kafka 간에 데이터를 스트리밍하기 위해 Apache Spark를 사용하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook를 사용 하 여 데이터를 스트리밍합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: e2f4bbe6157e1affa4975f6dcee2ad0f1d98a71b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 88a62b2d1ebee3bf933729ab82bc9e37a3db066b
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086095"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821182"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 
@@ -53,9 +53,9 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     |속성 |값 |
     |---|---|
-    |Resource group|그룹을 만들거나 기존 그룹을 선택합니다.|
+    |리소스 그룹|그룹을 만들거나 기존 그룹을 선택합니다.|
     |위치|지리적으로 가까운 위치를 선택합니다.|
-    |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming**를 입력하면 __spark-hdistreaming__라는 Spark 클러스터와 **kafka-hdistreaming**라는 Kafka 클러스터가 생성됩니다.|
+    |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming** 를 입력하면 __spark-hdistreaming__ 라는 Spark 클러스터와 **kafka-hdistreaming** 라는 Kafka 클러스터가 생성됩니다.|
     |클러스터 로그인 사용자 이름|Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.|
     |클러스터 로그인 암호|Spark 및 Kafka 클러스터의 관리자 사용자 암호입니다.|
     |SSH 사용자 이름|Spark 및 Kafka 클러스터에 만들 SSH 사용자입니다.|
@@ -63,16 +63,16 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     ![HDInsight 사용자 지정 배포 매개 변수](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-1. 사용 **약관**을 읽은 다음 **위에 명시 된 사용 약관에 동의 함**을 선택 합니다.
+1. **사용 약관** 을 읽은 다음 **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 
-1. 마지막으로, **구매**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
+1. 마지막으로, **구매** 를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
 
 리소스를 만든 후에 요약 페이지가 나타납니다.
 
 ![VNet 및 클러스터에 대한 리소스 그룹 요약](./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png)
 
 > [!IMPORTANT]  
-> HDInsight 클러스터의 이름은 **spark-BASENAME** 및 **kafka-BASENAME**이며, 여기서 BASENAME은 템플릿에 제공된 이름입니다. 이후 단계에서 클러스터에 연결할 때 이러한 이름을 사용합니다.
+> HDInsight 클러스터의 이름은 **spark-BASENAME** 및 **kafka-BASENAME** 이며, 여기서 BASENAME은 템플릿에 제공된 이름입니다. 이후 단계에서 클러스터에 연결할 때 이러한 이름을 사용합니다.
 
 ## <a name="use-the-notebooks"></a>노트북 사용
 

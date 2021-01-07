@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 211e06695d3cabef8cfeb0a7bbf581835819345c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b03db9632f5f47a7600c5b9037d16b1cff6ccf69
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686210"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344252"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -21,9 +21,9 @@ Azure Reservations는 여러 Azure 리소스의 1년 또는 3년 플랜에 따�
 
 ## <a name="who-can-buy-a-reservation"></a>예약을 구입할 수 있는 사람
 
-플랜을 구매하려면 엔터프라이즈(MS-AZR-0017P 또는 MS-AZR-0148P), 종량제 구독(MS-AZR-0003P 또는 MS-AZR-0023P) 또는 Microsoft 고객 계약 구독의 구독 소유자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure Portal 또는  [파트너 센터](/partner-center/azure-reservations) 를 사용하여 Azure 예약을 구매할 수 있습니다.
+예약을 구매하려면 엔터프라이즈(MS-AZR-0017P 또는 MS-AZR-0148P), 종량제(MS-AZR-0003P 또는 MS-AZR-0023P) 또는 Microsoft 고객 계약 유형의 Azure 구독에 대한 소유자 역할 또는 예약 구매자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure Portal 또는  [파트너 센터](/partner-center/azure-reservations) 를 사용하여 Azure 예약을 구매할 수 있습니다.
 
-EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션을 해제하여 EA 관리자만 구매 가능하도록 제한할 수 있습니다. 예약을 구매하려면 EA 관리자가 하나 이상의 EA 구독에 대한 구독 소유자여야 합니다. 이 옵션은 중앙의 팀이 다양한 비용 센터의 예약을 대신 구매하도록 하려는 기업에 유용합니다. 구매 후에는 중앙의 팀이 예약에 비용 센터 소유자를 추가할 수 있습니다. 그러면 소유자는 예약의 범위를 구독으로 지정할 수 있습니다. 중앙의 팀은 예약을 구매하는 구독 소유자 액세스 권한이 필요 없습니다.
+EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션을 해제하여 EA 관리자만 구매 가능하도록 제한할 수 있습니다. EA 관리자는 예약을 구매하려면 하나 이상의 EA 구독에 대한 소유자 또는 예약 구매자 액세스 권한이 있어야 합니다. 이 옵션은 중앙 집중식 팀에서 예약을 구매하려는 기업에 유용합니다.
 
 예약 할인은 엔터프라이즈, CSP(클라우드 솔루션 공급자), Microsoft 고객 계약 및 종량제 요금을 사용하는 개별 플랜을 통해 구매한 구독과 연결된 리소스에만 적용됩니다.
 
@@ -48,7 +48,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 2. 단일 범위 예약
 3. 공유 범위 예약
 
-예약을 구매한 후 언제든지 범위를 업데이트할 수 있습니다. 업데이트하려면 예약으로 이동하고, **구성**을 클릭하여 예약 범위를 다시 지정합니다. 예약 범위 재지정은 상거래 트랜잭션이 아닙니다. 따라서 예약 기간이 변경되지 않았습니다. 범위 업데이트에 대한 자세한 내용은 [예약을 구매한 후 범위 업데이트](manage-reserved-vm-instance.md#change-the-reservation-scope)를 참조하세요.
+예약을 구매한 후 언제든지 범위를 업데이트할 수 있습니다. 업데이트하려면 예약으로 이동하고, **구성** 을 클릭하여 예약 범위를 다시 지정합니다. 예약 범위 재지정은 상거래 트랜잭션이 아닙니다. 따라서 예약 기간이 변경되지 않았습니다. 범위 업데이트에 대한 자세한 내용은 [예약을 구매한 후 범위 업데이트](manage-reserved-vm-instance.md#change-the-reservation-scope)를 참조하세요.
 
 ![예약 범위 변경을 보여주는 예제](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
 
@@ -81,7 +81,7 @@ Azure Portal, API, PowerShell, CLI에서 예약을 구매할 수 있습니다. �
 - [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
-- [가상 머신](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [가상 머신](../../virtual-machines/prepay-reserved-vm-instances.md)
 
 ## <a name="buy-reservations-with-monthly-payments"></a>월별 결제로 예약 구매
 
@@ -93,9 +93,9 @@ MCA(Microsoft 고객 계약)를 통해 예약을 구매한 경우 월별 결제 
 
 ### <a name="view-payments-made"></a>결제 내역 보기
 
-지불한 금액은 API, 사용 현황 데이터를 사용하여 그리고 비용 분석에서 볼 수 있습니다. 매월 지불한 예약의 경우, 사용 현황 데이터 및 Reservation Charges API에 빈도 값이 **되풀이**로 표시됩니다. 선불 예약의 경우 이 값이 **한 번**으로 표시됩니다.
+지불한 금액은 API, 사용 현황 데이터를 사용하여 그리고 비용 분석에서 볼 수 있습니다. 매월 지불한 예약의 경우, 사용 현황 데이터 및 Reservation Charges API에 빈도 값이 **되풀이** 로 표시됩니다. 선불 예약의 경우 이 값이 **한 번** 으로 표시됩니다.
 
-비용 분석의 기본 보기에 월별 구매가 표시됩니다. 모든 구매를 보려면 **구매** 필터를 **요금 유형**에 적용하고 **되풀이** 필터를 **빈도**에 적용합니다. 예약만 보려면 **예약**에 필터를 적용합니다.
+비용 분석의 기본 보기에 월별 구매가 표시됩니다. 모든 구매를 보려면 **구매** 필터를 **요금 유형** 에 적용하고 **되풀이** 필터를 **빈도** 에 적용합니다. 예약만 보려면 **예약** 에 필터를 적용합니다.
 
 ![비용 분석에서 예약 구매 비용을 보여주는 예](./media/prepare-buy-reservation/cost-analysis.png)
 
@@ -123,7 +123,7 @@ Azure 구독 요금을 결제하는 방법에 따라 조직의 다음 사용자�
 EA 구독을 사용하는 고객의 경우:
 
 - 알림이 EA 알림 연락처로만 전송됩니다.
-- RBAC(IAM) 권한을 사용하여 예약에 추가된 사용자에게는 이메일 알림이 전달되지 않습니다.
+- Azure RBAC(IAM) 권한을 사용하여 예약에 추가된 사용자에게는 이메일 알림이 전달되지 않습니다.
 
 개별 구독을 사용하는 고객의 경우:
 

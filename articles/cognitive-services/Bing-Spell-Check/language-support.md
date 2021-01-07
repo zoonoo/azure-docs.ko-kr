@@ -10,25 +10,30 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a97bd6bfc1cb7a0760894faaf3fd0617e6165f58
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66390158"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351200"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Bing Spell Check API에 대한 언어 및 지역 지원
 
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
+
 이러한 언어는 Bing Spell Check API(`spell` 모드만 해당)에서 지원됩니다.
 
-`en-US` 이외의 언어에서 사용하려면 [Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)에 설명된 것처럼 `mkt`를 설정하고 `Accept-Language` 또는 `setLang`을 설정해야 합니다.
+`en-US` 이외의 언어에서 사용하려면 [Spell Check API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)에 설명된 것처럼 `mkt`를 설정하고 `Accept-Language` 또는 `setLang`을 설정해야 합니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|
 | 아랍어      | `ar`          |
 | 중국어(중국)     | `zh-CN`          |
 | 중국어(홍콩 특별 행정구)    | `zh-HK`          |
-| 중국어(대만)     | `zh-TW`          |
+| 중국어 (대만)     | `zh-TW`          |
 | 덴마크어      | `da`          |
 | 네덜란드어(벨기에)       | `nl-BE`          |
 | 네덜란드어(네덜란드)      | `nl-NL`          |
@@ -48,7 +53,7 @@ ms.locfileid: "66390158"
 | 프랑스어(프랑스)     | `fr-FR`          |
 | 프랑스어(스위스)      | `fr-CH`          |
 | 독일어(오스트리아)      | `de-AT`          |
-| 독일어(독일)      | `de-DE`          |
+| 독일어 (독일)      | `de-DE`          |
 | 독일어(스위스)      | `de-CH`          |
 | 이탈리아어     | `it`          |
 | 일본어    | `ja`          |
@@ -66,7 +71,7 @@ ms.locfileid: "66390158"
 | 스웨덴어     | `sv`          |
 | 터키어     | `tr`          |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-- [Cognitive Services 설명서 페이지](https://docs.microsoft.com/azure/cognitive-services/)
+- [Cognitive Services 설명서 페이지](../index.yml)
 - [Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

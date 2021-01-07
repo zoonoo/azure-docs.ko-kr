@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540165"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881512"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -43,7 +43,7 @@ IP 구성 규칙, TLS 설정, 확장 버전 등의 설정은 Azure 리소스 그
 
 ### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>웹 앱 배포 및 구성의 변경 내용 (게스트 내 변경)
 
-변경 분석은 4 시간 마다 응용 프로그램의 배포 및 구성 상태를 캡처합니다. 예를 들어 응용 프로그램 환경 변수의 변경 내용을 검색할 수 있습니다. 이 도구는 차이점을 계산 하 고 변경 된 내용을 표시 합니다. 리소스 관리자 변경과 달리 코드 배포 변경 정보는 도구에서 즉시 사용 하지 못할 수도 있습니다. 변경 분석에서 최신 변경 내용을 보려면 **새로 고침**을 선택 합니다.
+변경 분석은 4 시간 마다 응용 프로그램의 배포 및 구성 상태를 캡처합니다. 예를 들어 응용 프로그램 환경 변수의 변경 내용을 검색할 수 있습니다. 이 도구는 차이점을 계산 하 고 변경 된 내용을 표시 합니다. 리소스 관리자 변경과 달리 코드 배포 변경 정보는 도구에서 즉시 사용 하지 못할 수도 있습니다. 변경 분석에서 최신 변경 내용을 보려면 **새로 고침** 을 선택 합니다.
 
 !["지금 변경 내용 검색" 단추의 스크린샷](./media/change-analysis/scan-changes.png)
 
@@ -91,35 +91,57 @@ Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결
 
 ### <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>문제 진단 및 해결 도구의 응용 프로그램 변경 분석
 
-응용 프로그램 변경 분석은 웹 앱 진단 및 문제 해결 도구의 독립 실행형 탐지기입니다. 또한 **응용 프로그램 충돌** 및 **웹 앱 다운 감지기**집계 됩니다. 진단 및 문제 해결 도구를 입력 하면 **Microsoft. ChangeAnalysis** 리소스 공급자가 자동으로 등록 됩니다. 웹 앱 게스트 변경 내용 추적을 사용 하도록 설정 하려면 다음 지침을 따르세요.
+응용 프로그램 변경 분석은 웹 앱 진단 및 문제 해결 도구의 독립 실행형 탐지기입니다. 또한 **응용 프로그램 충돌** 및 **웹 앱 다운 감지기** 집계 됩니다. 진단 및 문제 해결 도구를 입력 하면 **Microsoft. ChangeAnalysis** 리소스 공급자가 자동으로 등록 됩니다. 웹 앱 게스트 변경 내용 추적을 사용 하도록 설정 하려면 다음 지침을 따르세요.
 
-1. **가용성 및 성능을**선택 합니다.
+1. **가용성 및 성능을** 선택 합니다.
 
     !["가용성 및 성능" 문제 해결 옵션의 스크린샷](./media/change-analysis/availability-and-performance.png)
 
-2. **응용 프로그램 변경 내용**을 선택 합니다. **응용 프로그램 작동 중단**에서도이 기능을 사용할 수 있습니다.
+2. **응용 프로그램 변경 내용** 을 선택 합니다. **응용 프로그램 작동 중단** 에서도이 기능을 사용할 수 있습니다.
 
    !["응용 프로그램 작동 중단" 단추의 스크린샷](./media/change-analysis/application-changes.png)
 
-3. 변경 분석을 사용 하도록 설정 하려면 **지금 사용**을 선택 합니다.
+3. 이 링크를 통해 응용 프로그램 변경 Aalysis UI 범위가 웹 앱으로 이어집니다. 웹 앱에서 게스트 변경 내용 추적을 사용 하도록 설정 하지 않은 경우 배너를 따라 파일 및 앱 설정 변경 내용을 가져옵니다.
 
    !["응용 프로그램 작동 중단" 옵션 스크린샷](./media/change-analysis/enable-changeanalysis.png)
 
-4. **변경 분석** 을 설정 하 고 **저장**을 선택 합니다. 도구는 App Service 계획의 모든 웹 앱을 표시 합니다. 계획 수준 스위치를 사용 하 여 계획의 모든 웹 앱에 대 한 변경 분석을 켤 수 있습니다.
+4. **변경 분석** 을 설정 하 고 **저장** 을 선택 합니다. 도구는 App Service 계획의 모든 웹 앱을 표시 합니다. 계획 수준 스위치를 사용 하 여 계획의 모든 웹 앱에 대 한 변경 분석을 켤 수 있습니다.
 
     !["변경 분석 설정" 사용자 인터페이스의 스크린샷](./media/change-analysis/change-analysis-on.png)
 
-5. 변경 분석에 액세스 하려면 **진단 및 문제 해결 및**  >  **성능**  >  **응용 프로그램 충돌**을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다. 기본적으로 지난 24 시간 동안의 변경 내용은 즉각적인 문제를 해결 하기 위해 표시 됩니다.
+5. 변경 데이터는 **웹 앱 다운** 및 **응용 프로그램 크래시** 감지기 에서도 사용할 수 있습니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다. 기본적으로 지난 24 시간 동안의 변경 내용은 즉각적인 문제를 해결 하기 위해 표시 됩니다.
 
      ![Diff 뷰 변경의 스크린샷](./media/change-analysis/change-view.png)
 
-### <a name="enable-change-analysis-at-scale"></a>규모에 맞게 변경 분석 설정
+
+
+### <a name="virtual-machine-diagnose-and-solve-problems"></a>가상 컴퓨터 진단 및 문제 해결
+
+가상 컴퓨터에 대 한 문제 진단 및 해결 도구로 이동 합니다.  **문제 해결 도구** 로 이동 하 여 페이지를 탐색 하 고 **최근 변경 내용 분석** 을 선택 하 여 가상 컴퓨터에 대 한 변경 내용을 확인 합니다.
+
+![VM의 스크린샷 진단 및 문제 해결](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![문제 해결 도구의 analyzer 변경](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="activity-log-change-history"></a>활동 로그 변경 기록
+활동 로그의 [변경 기록 보기](../platform/activity-log.md#view-change-history) 기능은 응용 프로그램 변경 분석 서비스 백 엔드를 호출 하 여 작업과 연결 된 변경 내용을 가져옵니다. [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 를 직접 호출 하는 데 사용 되는 **변경** 내용 이지만, 백 엔드가 교체 되어 응용 프로그램 변경 분석을 호출 하는 경우, 반환 되는 변경 내용에는 [azure 리소스 그래프](../../governance/resource-graph/overview.md)의 리소스 수준 변경, [Azure Resource Manager](../../azure-resource-manager/management/overview.md)의 리소스 속성 및 App Services 웹 앱과 같은 PaaS 서비스에서 게스트 변경 내용이 포함 됩니다. 응용 프로그램 변경 분석 서비스에서 사용자 구독의 변경 내용을 검색할 수 있도록 하려면 리소스 공급자를 등록 해야 합니다. **변경 기록** 탭을 처음으로 입력 하면 도구에서 자동으로 **Microsoft. changeanalysis** 리소스 공급자를 등록 하기 시작 합니다. 등록 후 **Azure 리소스 그래프** 의 변경 내용이 즉시 제공 되며 지난 14 일이 포함 됩니다. 구독을 등록 한 후 4 시간 이내에 다른 원본의 변경 내용을 사용할 수 있습니다.
+
+![활동 로그 변경 기록 통합](./media/change-analysis/activity-log-change-history.png)
+
+### <a name="vm-insights-integration"></a>VM Insights 통합
+[VM Insights](../insights/vminsights-overview.md) 를 사용 하도록 설정 된 사용자는 CPU 또는 메모리와 같은 메트릭 차트에서 스파이크를 발생 시킬 수 있는 가상 머신에서 변경 된 내용을 확인 하 고 그 원인을 궁금해 할 수 있습니다. 변경 데이터는 VM Insights 쪽 탐색 모음에 통합 되어 있습니다. 사용자는 VM에서 변경 된 내용이 있는지 확인 하 고 **변경 내용 조사** 를 클릭 하 여 응용 프로그램 변경 분석 독립 실행형 UI에서 변경 정보를 볼 수 있습니다.
+
+[![VM insights 통합](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+
+
+
+## <a name="enable-change-analysis-at-scale"></a>규모에 맞게 변경 분석 설정
 
 구독에 다양 한 웹 앱이 포함 되어 있는 경우 웹 앱 수준에서 서비스를 사용 하도록 설정 하는 것은 비효율적입니다. 다음 스크립트를 실행 하 여 구독의 모든 웹 앱을 사용 하도록 설정 합니다.
 
 필수 조건:
 
-- PowerShell Az Module. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps?view=azps-2.6.0) 의 지침을 따르세요.
+- PowerShell Az Module. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps) 의 지침을 따르세요.
 
 다음 스크립트를 실행합니다.
 
@@ -147,13 +169,31 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>가상 컴퓨터 진단 및 문제 해결
+## <a name="troubleshoot"></a>문제 해결
 
-가상 컴퓨터에 대 한 문제 진단 및 해결 도구로 이동 합니다.  **문제 해결 도구**로 이동 하 여 페이지를 탐색 하 고 **최근 변경 내용 분석** 을 선택 하 여 가상 컴퓨터에 대 한 변경 내용을 확인 합니다.
+### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Microsoft를 등록 하는 데 문제가 있습니다. 변경 기록 탭에서 분석 리소스 공급자 변경
+응용 프로그램 변경 분석과 통합 한 후 변경 기록을 처음 볼 때 리소스 공급자를 자동으로 등록 하는 것을 볼 수 있습니다. **ChangeAnalysis**. 드문 경우 지만 다음과 같은 이유로 실패할 수 있습니다.
 
-![VM의 스크린샷 진단 및 문제 해결](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+- **Microsoft. ChangeAnalysis 리소스 공급자를 등록할 수 있는 권한이** 없습니다. 이 오류 메시지는 현재 구독의 역할에 **Microsoft. 지원/등록/동작** 범위가 연결 되어 있지 않음을 의미 합니다. 이는 구독의 소유자가 아니고 동료를 통해 공유 액세스 권한을 받은 경우에 발생할 수 있습니다. 즉, 리소스 그룹에 대 한 액세스를 봅니다. 이 문제를 해결 하려면 구독의 소유자에 게 문의 하 여 **Microsoft. ChangeAnalysis** 리소스 공급자를 등록 합니다. 이 작업은 구독을 통해 Azure Portal에서 수행할 수 있습니다. **| 리소스 공급자** 를 검색 하 고 ```Microsoft.ChangeAnalysis``` UI를 검색 하 고 등록 하거나 Azure PowerShell 또는 Azure CLI를 통해 등록 합니다.
 
-![VM의 스크린샷 진단 및 문제 해결](./media/change-analysis/analyze-recent-changes.png)
+    PowerShell을 통해 리소스 공급자를 등록 합니다. 
+    ```PowerShell
+    # Register resource provider
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+    ```
+
+- **Microsoft. ChangeAnalysis 리소스 공급자를 등록 하지 못했습니다**. 이 메시지는 UI가 리소스 공급자를 등록 하 라는 요청을 보낸 후 즉시 실패 한 것을 의미 하며, 권한 문제와는 관련이 없습니다. 일시적인 인터넷 연결 문제일 가능성이 있습니다. 페이지를 새로 고치고 인터넷 연결을 확인 하세요. 오류가 계속 발생 하면 다음으로 문의 하세요. changeanalysishelp@microsoft.com
+
+- **이 작업이 예상 보다 오래 걸리고** 있습니다. 이 메시지는 등록이 2 분 이상 걸리는 것을 의미 합니다. 이것은 비정상 이지만 반드시 문제가 발생 한 것은 아닙니다. 구독으로 이동할 수 있습니다. **|** **Microsoft. changeanalysis** 리소스 공급자 등록 상태를 확인 하는 리소스 공급자입니다. UI를 사용 하 여 등록을 취소 하 고 다시 등록 하거나 새로 고쳐 도움이 되는지 확인할 수 있습니다. 문제가 계속 되 면 지원 담당자에 게 문의 하세요 changeanalysishelp@microsoft.com .
+    ![너무 오래 걸리는 RP 등록 문제 해결](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
+
+![문제 해결 도구가 선택 된 가상 컴퓨터에 대 한 문제 진단 및 해결 도구의 스크린샷](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![가상 컴퓨터에 대 한 최근 변경 내용 분석 문제 해결 도구에 대 한 타일의 스크린샷](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>Azure Lighthouse 구독은 지원 되지 않습니다.
+
+- Azure lighthouse 구독 메시지를 사용 하 여 **Microsoft ChangeAnalysis 리소스 공급자를 쿼리하지 못했습니다** . *변경 내용은 구독의 홈 테 넌 트에서만 제공* 됩니다. 현재는 홈 테 넌 트에 없는 사용자를 위해 Azure Lighthouse 구독을 통해 변경 분석 리소스 공급자를 등록 하는 제한 사항이 있습니다. 이 제한은 가까운 장래에 해결 될 예정입니다. 이 문제가 차단 문제인 경우 서비스 주체를 만들고 액세스를 허용 하도록 역할을 명시적으로 할당 하는 해결 방법이 있습니다.  자세한 내용은에 문의 하세요 changeanalysishelp@microsoft.com .
 
 ## <a name="next-steps"></a>다음 단계
 

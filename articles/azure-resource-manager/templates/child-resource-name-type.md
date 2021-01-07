@@ -1,20 +1,22 @@
 ---
 title: 템플릿의 자식 리소스
-description: Azure Resource Manager 템플릿에서 자식 리소스의 이름 및 형식을 설정 하는 방법을 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 자식 리소스의 이름 및 형식을 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/21/2020
+ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80743843"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934308"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>자식 리소스의 이름 및 형식 설정
 
-자식 리소스는 다른 리소스의 컨텍스트 내에만 존재 하는 리소스입니다. 예를 들어 가상 [머신을](/azure/templates/microsoft.compute/2019-03-01/virtualmachines)사용 하지 않고 [가상 머신 확장](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) 을 사용할 수 없습니다. 확장 리소스는 가상 컴퓨터의 자식입니다.
+자식 리소스는 다른 리소스의 컨텍스트 내에만 존재 하는 리소스입니다. 예를 들어 가상 [머신을](/azure/templates/microsoft.compute/virtualmachines)사용 하지 않고 [가상 머신 확장](/azure/templates/microsoft.compute/virtualmachines/extensions) 을 사용할 수 없습니다. 확장 리소스는 가상 컴퓨터의 자식입니다.
 
-리소스 관리자 템플릿에서 부모 리소스 내 또는 부모 리소스 외부에서 자식 리소스를 지정할 수 있습니다. 다음 예제에서는 부모 리소스의 resources 속성 내에 포함 된 자식 리소스를 보여 줍니다.
+각 부모 리소스는 특정 리소스 종류만 자식 리소스로 허용합니다. 자식 리소스의 리소스 형식은 부모 리소스에 대 한 리소스 형식을 포함 합니다. 예를 들어 `Microsoft.Web/sites/config` 및 `Microsoft.Web/sites/extensions` 는 둘 다의 자식 리소스 `Microsoft.Web/sites` 입니다. 허용되는 리소스 종류는 부모 리소스의 [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)에서 지정됩니다.
+
+Azure Resource Manager 템플릿 (ARM 템플릿)에서 부모 리소스 또는 부모 리소스 외부에서 자식 리소스를 지정할 수 있습니다. 다음 예제에서는 부모 리소스의 resources 속성 내에 포함 된 자식 리소스를 보여 줍니다.
 
 ```json
 "resources": [
@@ -26,6 +28,8 @@ ms.locfileid: "80743843"
   }
 ]
 ```
+
+자식 리소스는 5개 수준 깊이까지만 정의할 있습니다.
 
 다음 예제에서는 부모 리소스 외부의 자식 리소스를 보여 줍니다. 부모 리소스가 동일한 템플릿에 배포 되지 않은 경우 또는 [복사](copy-resources.md) 를 사용 하 여 둘 이상의 자식 리소스를 만드는 경우이 방법을 사용할 수 있습니다.
 
@@ -51,7 +55,7 @@ ms.locfileid: "80743843"
 "name": "{child-resource-name}",
 ```
 
-다음 예제에서는 가상 네트워크 및 서브넷을 보여 줍니다. 서브넷은 가상 네트워크에 대 한 리소스 배열에 포함 되어 있습니다. 이름은 **Subnet1** 로 설정 되 고 유형은 **서브넷**으로 설정 됩니다. 부모 리소스는 자식 리소스를 배포 하기 전에 존재 해야 하므로 자식 리소스가 부모 리소스에 종속 된 것으로 표시 되어 있습니다.
+다음 예제에서는 가상 네트워크 및 서브넷을 보여 줍니다. 서브넷은 가상 네트워크에 대 한 리소스 배열에 포함 되어 있습니다. 이름은 **Subnet1** 로 설정 되 고 유형은 **서브넷** 으로 설정 됩니다. 부모 리소스는 자식 리소스를 배포 하기 전에 존재 해야 하므로 자식 리소스가 부모 리소스에 종속 된 것으로 표시 되어 있습니다.
 
 ```json
 "resources": [
@@ -85,7 +89,7 @@ ms.locfileid: "80743843"
 ]
 ```
 
-전체 리소스 형식은 여전히 **Microsoft. Network/virtualNetworks/서브넷**입니다. **Microsoft. Network/virtualNetworks** 는 부모 리소스 유형에 서 가정 하므로 제공 하지 않습니다.
+전체 리소스 형식이 여전히 `Microsoft.Network/virtualNetworks/subnets` 입니다. `Microsoft.Network/virtualNetworks/`는 부모 리소스 종류에서 유추되므로 입력하지 않습니다.
 
 자식 리소스 이름이 **Subnet1** 로 설정 되어 있지만 전체 이름에는 부모 이름이 포함 됩니다. 부모 리소스에서 가정 하기 때문에 **VNet1** 을 제공 하지 않습니다.
 
@@ -98,7 +102,7 @@ ms.locfileid: "80743843"
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-다음 예제에서는 루트 수준에서 정의 된 가상 네트워크 및 서브넷을 보여 줍니다. 서브넷은 가상 네트워크에 대 한 리소스 배열 내에 포함 되지 않습니다. 이름은 **VNet1/Subnet1** 로 설정 되 고 형식은 **Microsoft. Network/virtualnetworks/서브넷**으로 설정 됩니다. 부모 리소스는 자식 리소스를 배포 하기 전에 존재 해야 하므로 자식 리소스가 부모 리소스에 종속 된 것으로 표시 되어 있습니다.
+다음 예제에서는 루트 수준에서 정의 된 가상 네트워크 및 서브넷을 보여 줍니다. 서브넷은 가상 네트워크에 대 한 리소스 배열 내에 포함 되지 않습니다. 이름은 **VNet1/Subnet1** 로 설정 되 고 형식은로 설정 됩니다 `Microsoft.Network/virtualNetworks/subnets` . 부모 리소스는 자식 리소스를 배포 하기 전에 존재 해야 하므로 자식 리소스가 부모 리소스에 종속 된 것으로 표시 되어 있습니다.
 
 ```json
 "resources": [
@@ -132,6 +136,6 @@ ms.locfileid: "80743843"
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요.
+* ARM 템플릿을 만드는 방법에 대 한 자세한 내용은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 
 * 리소스를 참조할 때 리소스 이름 형식에 대 한 자세한 내용은 [참조 함수](template-functions-resource.md#reference)를 참조 하세요.

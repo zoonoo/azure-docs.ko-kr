@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
 ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87420416"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM에 대한 DR 훈련 실행
@@ -49,7 +49,7 @@ ms.locfileid: "87420416"
 | **기존 항목 사용** | 복제본 VM이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않습니다.<br/><br/>프로덕션 네트워크에서 격리된 VM 네트워크를 만듭니다.<br/><br/>권장되는 VLAN 기반 네트워크를 사용하는 경우 이 목적을 위해 VMM에서 별도의 논리 네트워크(프로덕션에 사용되지 않음)를 만드는 것이 좋습니다. 이 논리 네트워크는 테스트 장애 조치(failover)에 대한 VM 네트워크를 만드는 데 사용됩니다.<br/><br/>논리 네트워크는 가상 머신을 호스트하는 모든 Hyper-V 서버에 있는 하나 이상의 네트워크 어댑터에 연결해야 합니다.<br/><br/>VLAN 논리 네트워크의 경우 논리 네트워크에 추가한 네트워크 사이트는 격리되어야 합니다.<br/><br/>Windows 네트워크 가상화 기반의 논리 네트워크를 사용한다면 Azure Site Recovery가 격리된 VM 네트워크를 자동으로 생성합니다. | |
 | **네트워크 만들기** | 임시 테스트 네트워크가 **논리 네트워크**에서 지정한 설정 및 관련 네트워크 사이트를 기반으로 자동 생성됩니다.<br/><br/> 장애 조치(failover)에서 VM이 생성되었는지 확인합니다.<br/><br/> 복구 계획에서 VM 네트워크를 두 개 이상 사용할 경우 이 옵션을 사용해야 합니다.<br/><br/> Windows 네트워크 가상화 네트워크를 사용하는 경우 이 옵션을 사용하여 복제 가상 머신의 네트워크에서 동일한 설정(서브넷 및 IP 주소 풀)으로 VM 네트워크를 자동으로 만들 수 있습니다. 테스트 장애 조치 완료 후 이러한 VM 네트워크는 자동으로 정리됩니다.<br/><br/> 복제본 가상 머신이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않습니다.|
 
-### <a name="best-practices"></a>모범 사례
+### <a name="best-practices"></a>최선의 구현 방법
 
 - 프로덕션 네트워크를 테스트하면 프로덕션 작업에서 가동 중지 시간이 발생합니다. 따라서 재해 복구 드릴을 진행 중일 때는 사용자들이 관련 앱을 사용하지 않도록 요청하세요.
 

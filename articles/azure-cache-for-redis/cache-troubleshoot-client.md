@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008970"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Azure Cache for Redis 클라이언트 쪽 문제 해결
@@ -30,7 +30,7 @@ ms.locfileid: "88008970"
 클라이언트의 메모리 압력을 감지 하려면:
 
 - 컴퓨터의 메모리 사용량을 모니터링 하 여 사용 가능한 메모리를 초과 하지 않는지 확인 합니다.
-- 클라이언트의 `Page Faults/Sec` 성능 카운터를 모니터링 합니다. 정상적인 작업 중 대부분의 시스템에는 일부 페이지 폴트가 있습니다. 요청 시간 제한에 해당 하는 페이지 폴트의 급증은 메모리 부족을 나타낼 수 있습니다.
+- 클라이언트의 `Page Faults/Sec` 성능 카운터를 모니터링 합니다. 정상적인 작업 중 대부분의 시스템에는 일부 페이지 폴트가 있습니다. 요청 시간 제한에 해당하는 페이지 폴트의 급증은 메모리 부족을 나타낼 수 있습니다.
 
 클라이언트의 높은 메모리 부족은 여러 가지 방법으로 완화할 수 있습니다.
 

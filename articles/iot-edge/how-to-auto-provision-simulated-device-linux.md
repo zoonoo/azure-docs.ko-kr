@@ -8,16 +8,16 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9bd597bbff54687af1ba8536dddd6f0d8dfc621e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531494"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046046"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
-이 문서에서는 TPM (신뢰할 수 있는 플랫폼 모듈)을 사용 하 여 Linux IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다. [장치 프로 비전 서비스](../iot-dps/index.yml)를 사용 하 여 Azure IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로 비전 프로세스에 익숙하지 않은 경우 계속 하기 전에 [프로 비전](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토 합니다.
+이 문서에서는 TPM (신뢰할 수 있는 플랫폼 모듈)을 사용 하 여 Linux IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다. [장치 프로 비전 서비스](../iot-dps/index.yml)를 사용 하 여 Azure IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토하세요.
 
 작업은 다음과 같습니다.
 
@@ -31,9 +31,9 @@ ms.locfileid: "90531494"
 >
 > 물리적 장치를 사용 하는 경우이 문서의 [물리적 장치에서 프로 비전 정보 검색](#retrieve-provisioning-information-from-a-physical-device) 섹션으로 건너뛸 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-* [Hyper-V를 사용하도록 설정된](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
+* [Hyper-V를 사용하도록 설정된](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
 * 활성 IoT Hub
 
 > [!NOTE]
@@ -147,7 +147,7 @@ Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위*
 DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
 
 > [!TIP]
-> Azure CLI에서 [등록](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) 을 만들고 **가장자리 사용** 플래그를 사용 하 여 장치가 IoT Edge 장치 임을 지정할 수 있습니다.
+> Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 을 만들고 **가장자리 사용** 플래그를 사용 하 여 장치가 IoT Edge 장치 임을 지정할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동 합니다.
 
@@ -178,11 +178,36 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다. IoT Edge 런타임을 가상 머신에 설치합니다.
 
-디바이스 유형과 일치하는 문서를 시작하기 전에 DPS **ID 범위** 및 디바이스 **등록 ID**를 알아야 합니다. 예제 Ubuntu 서버를 설치했으면 **x64** 지침을 사용합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다.
+[Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 수행한 다음이 문서로 돌아와서 장치를 프로 비전 합니다.
 
-보안 데몬을 구성 하는 단계에 대 한 자세한 내용은 다음을 확인 하 고 [옵션 2 자동 프로 비전](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) 및 TPM 증명 구성을 선택 합니다.
+## <a name="configure-the-device-with-provisioning-information"></a>프로 비전 정보를 사용 하 여 장치 구성
 
-[Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
+런타임이 장치에 설치 되 면 장치 프로 비전 서비스에 연결 하는 데 사용 하는 정보를 사용 하 여 장치를 구성 하 고 IoT Hub 합니다.
+
+1. 이전 섹션에서 수집 된 DPS **Id 범위** 및 장치 **등록 id** 를 확인 합니다.
+
+1. IoT Edge 장치에서 구성 파일을 엽니다.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. 파일의 프로 비전 구성 섹션을 찾습니다. TPM 프로 비전에 대 한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
+
+   `provisioning:`줄은 앞에 공백이 없어야 하며 중첩 항목은 두 개의 공백으로 들여쓰기 되어야 합니다.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   ```
+
+1. 및의 값을 `scope_id` `registration_id` DPS 및 장치 정보로 업데이트 합니다.
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>TPM에 대한 IoT Edge 액세스 권한 부여
 

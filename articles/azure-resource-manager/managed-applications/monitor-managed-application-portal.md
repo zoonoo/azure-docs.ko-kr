@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651749"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>관리되는 애플리케이션의 배포된 인스턴스 모니터링
@@ -22,7 +22,7 @@ ms.locfileid: "75651749"
 
    ![관리되는 애플리케이션 선택](./media/monitor-managed-application-portal/select-managed-application.png)
 
-1. **Resource Health**를 선택 합니다.
+1. **Resource Health**를 선택합니다.
 
    ![Resource Health 선택](./media/monitor-managed-application-portal/select-resource-health.png)
 

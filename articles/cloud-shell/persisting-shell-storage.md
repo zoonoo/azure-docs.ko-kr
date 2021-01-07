@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89470139"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152276"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
@@ -55,7 +55,7 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 ![리소스 그룹 설정](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>저장소 액세스 보안
-보안을 위해 각 사용자는 자신의 스토리지 계정을 프로비전해야 합니다.  RBAC(역할 기반 액세스 제어)의 경우 사용자에게는 스토리지 계정 수준에서 참가자 액세스 권한 이상이 있어야 합니다.
+보안을 위해 각 사용자는 자신의 스토리지 계정을 프로비전해야 합니다.  Azure RBAC (역할 기반 액세스 제어)의 경우 사용자는 저장소 계정 수준에서 참가자 액세스 권한이 있어야 합니다.
 
 Cloud Shell는 지정 된 구독 내에서 저장소 계정에 Azure 파일 공유를 사용 합니다. 상속 된 권한으로 인해 구독에 대 한 충분 한 액세스 권한이 있는 사용자는 구독에 포함 된 모든 저장소 계정 및 파일 공유에 액세스할 수 있습니다.
 
@@ -103,7 +103,7 @@ Cloud Shell에서 라는 명령을 실행할 수 있습니다 .이 명령을 `cl
 ### <a name="list-clouddrive"></a>목록 `clouddrive`
 `clouddrive`로 마운트된 파일 공유를 확인하려면 `df` 명령을 실행합니다. 
 
-clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들어 `//storageaccountname.file.core.windows.net/filesharename`
+clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df

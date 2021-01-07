@@ -7,17 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: management
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653344"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356723"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,17 +43,17 @@ Azure에서 SQL Server VM (가상 머신) 이미지를 구성 하는 경우 Azur
 
 ### <a name="azure-portal"></a>Azure portal
 
-SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 경우 **SQL Server 설정** 탭에서 **구성 변경**을 선택하여 성능 최적화 스토리지 구성 페이지를 엽니다. 값을 기본값 그대로 두거나 워크로드에 따라 사용자의 요구에 가장 적합하게 디스크 구성 유형을 수정할 수 있습니다. 
+SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 경우 **SQL Server 설정** 탭에서 **구성 변경** 을 선택하여 성능 최적화 스토리지 구성 페이지를 엽니다. 값을 기본값 그대로 두거나 워크로드에 따라 사용자의 요구에 가장 적합하게 디스크 구성 유형을 수정할 수 있습니다. 
 
-![프로비전하는 동안 SQL Server VM 스토리지 구성](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![SQL Server 설정 탭과 변경 구성 옵션을 강조 표시 하는 스크린샷](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-**스토리지 최적화**에서 SQL Server를 배포하는 워크로드의 유형을 선택합니다. **일반** 최적화 옵션을 사용하는 경우 기본적으로 최대 5,000 IOPS를 포함하는 하나의 데이터 디스크가 있으며 데이터, 트랜잭션 로그 및 TempDB 스토리지에 대해 동일한 드라이브를 사용합니다. **트랜잭션 처리**(OLTP) 또는 **데이터 웨어하우징**을 선택하면 데이터용 및 트랜잭션 로그용으로 별도의 디스크가 생성되고 TempDB에 로컬 SSD가 사용됩니다. **트랜잭션 처리**와 **데이터 웨어하우징**간에는 스토리지 차이점이 없지만 사용자의 [스트라이프 구성 및 추적 플래그](#workload-optimization-settings)를 변경합니다. Premium Storage를 선택하면 데이터 드라이브에 *ReadOnly* 캐싱이 설정되고 [SQL Server VM 성능 모범 사례](performance-guidelines-best-practices.md)에 따라 로그 드라이브에 없음이 설정됩니다. 
+**스토리지 최적화** 에서 SQL Server를 배포하는 워크로드의 유형을 선택합니다. **일반** 최적화 옵션을 사용하는 경우 기본적으로 최대 5,000 IOPS를 포함하는 하나의 데이터 디스크가 있으며 데이터, 트랜잭션 로그 및 TempDB 스토리지에 대해 동일한 드라이브를 사용합니다. **트랜잭션 처리**(OLTP) 또는 **데이터 웨어하우징** 을 선택하면 데이터용 및 트랜잭션 로그용으로 별도의 디스크가 생성되고 TempDB에 로컬 SSD가 사용됩니다. **트랜잭션 처리** 와 **데이터 웨어하우징** 간에는 스토리지 차이점이 없지만 사용자의 [스트라이프 구성 및 추적 플래그](#workload-optimization-settings)를 변경합니다. Premium Storage를 선택하면 데이터 드라이브에 *ReadOnly* 캐싱이 설정되고 [SQL Server VM 성능 모범 사례](performance-guidelines-best-practices.md)에 따라 로그 드라이브에 없음이 설정됩니다. 
 
 ![프로비전하는 동안 SQL Server VM 스토리지 구성](./media/storage-configuration/sql-vm-storage-configuration.png)
 
-디스크 구성은 완전히 사용자 지정할 수 있으므로 SQL Server VM에 필요한 스토리지 토폴로지, 디스크 유형 및 IOP를 구성할 수 있습니다. 또한 SQL Server VM이 지원되는 지역(미국 동부 2, 동남아시아 및 북유럽) 중 하나에 있고 [구독에 Ultra Disk를 사용](/azure/virtual-machines/windows/disks-enable-ultra-ssd)하도록 설정한 경우 **디스크 유형** 옵션으로 UltraSSD(미리 보기)를 사용할 수 있습니다.  
+디스크 구성은 완전히 사용자 지정할 수 있으므로 SQL Server VM에 필요한 스토리지 토폴로지, 디스크 유형 및 IOP를 구성할 수 있습니다. 또한 SQL Server VM이 지원되는 지역(미국 동부 2, 동남아시아 및 북유럽) 중 하나에 있고 [구독에 Ultra Disk를 사용](../../../virtual-machines/disks-enable-ultra-ssd.md)하도록 설정한 경우 **디스크 유형** 옵션으로 UltraSSD(미리 보기)를 사용할 수 있습니다.  
 
-또한 디스크에 대한 캐싱을 설정할 수 있습니다. Azure VM은 [프리미엄 디스크](/azure/virtual-machines/windows/disks-types#premium-ssd)를 사용할 경우 [Blob 캐시](/azure/virtual-machines/windows/premium-storage-performance#disk-caching)라는 다중 계층 캐싱 기술이 적용됩니다. Blob 캐시는 캐싱을 위해 가상 머신 RAM과 로컬 SSD의 조합을 사용합니다. 
+또한 디스크에 대한 캐싱을 설정할 수 있습니다. Azure VM은 [프리미엄 디스크](../../../virtual-machines/disks-types.md#premium-ssd)를 사용할 경우 [Blob 캐시](../../../virtual-machines/premium-storage-performance.md#disk-caching)라는 다중 계층 캐싱 기술이 적용됩니다. Blob 캐시는 캐싱을 위해 가상 머신 RAM과 로컬 SSD의 조합을 사용합니다. 
 
 프리미엄 SSD에 대한 디스크 캐싱은 *ReadOnly*, *ReadWrite* 또는 없음일 수 있습니다. 
 
@@ -62,12 +63,12 @@ SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 �
 
 
    > [!TIP]
-   > 스토리지 구성이 선택한 VM 크기에 적용되는 제한과 일치해야 합니다. VM 크기의 성능 용량을 초과하는 스토리지 매개 변수를 선택하면 다음 오류가 발생합니다. `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. 디스크 유형을 변경하여 IOP를 줄이거나 VM 크기를 늘려 성능 용량 제한을 높입니다. 
+   > 스토리지 구성이 선택한 VM 크기에 적용되는 제한과 일치해야 합니다. VM 크기의 성능 끝을 초과 하는 저장소 매개 변수를 선택 하면 경고가 발생 `The desired performance might not be reached due to the maximum virtual machine disk performance cap` 합니다. 디스크 유형을 변경하여 IOP를 줄이거나 VM 크기를 늘려 성능 용량 제한을 높입니다. 이 경우 프로 비전이 중지 되지 않습니다. 
 
 
 선택을 기반으로 Azure는 VM을 만든 후에 다음과 같은 스토리지 구성 작업을 수행합니다.
 
-* 프리미엄 SSD를 만들고 가상 머신에 연결합니다.
+* Premium Ssd를 만들어 가상 머신에 연결 합니다.
 * SQL Server에 액세스할 수 있도록 데이터 디스크를 구성합니다.
 * 지정된 크기와 성능(IOPS 및 처리량) 요구 사항에 따라 스토리지 풀에 데이터 디스크를 구성합니다.
 * 가상 컴퓨터에 새 드라이브와 스토리지 풀을 연결합니다.
@@ -94,18 +95,18 @@ Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내�
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-기존 SQL Server VM의 경우 Azure 포털에서 일부 스토리지 설정을 수정할 수 있습니다. [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)를 열고 **개요**를 선택합니다. SQL Server 개요 페이지에 VM의 현재 스토리지 사용량이 표시됩니다. VM에 있는 모든 드라이브는 이 차트에 표시됩니다. 각 드라이브의 경우 스토리지 공간은 네 개의 섹션에 표시됩니다.
+기존 SQL Server VM의 경우 Azure 포털에서 일부 스토리지 설정을 수정할 수 있습니다. [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)를 열고 **개요** 를 선택합니다. SQL Server 개요 페이지에 VM의 현재 스토리지 사용량이 표시됩니다. VM에 있는 모든 드라이브는 이 차트에 표시됩니다. 각 드라이브의 경우 스토리지 공간은 네 개의 섹션에 표시됩니다.
 
 * SQL data
 * SQL 로그
 * 기타(비 SQL 스토리지)
 * 사용 가능
 
-스토리지 설정을 수정하려면 **설정**에서 **구성**을 선택합니다. 
+스토리지 설정을 수정하려면 **설정** 에서 **구성** 을 선택합니다. 
 
-![기존 SQL Server VM에 대한 스토리지 구성](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![구성 옵션 및 저장소 사용량 섹션을 강조 표시 하는 스크린샷](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
-SQL Server VM 만들기 프로세스 중에 구성된 드라이브의 디스크 설정을 수정할 수 있습니다. **드라이브 확장**을 선택하면 드라이브 수정 페이지가 열리며 디스크 유형을 변경하고 디스크를 더 추가할 수 있습니다. 
+SQL Server VM 만들기 프로세스 중에 구성된 드라이브의 디스크 설정을 수정할 수 있습니다. **드라이브 확장** 을 선택하면 드라이브 수정 페이지가 열리며 디스크 유형을 변경하고 디스크를 더 추가할 수 있습니다. 
 
 ![기존 SQL Server VM에 대한 스토리지 구성](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 

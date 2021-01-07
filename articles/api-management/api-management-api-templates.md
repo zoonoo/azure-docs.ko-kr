@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851717"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
@@ -46,7 +46,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="api-list"></a><a name="APIList"></a>API 목록  
+## <a name="api-list"></a><a name="APIList"></a> API 목록  
  **API 목록** 템플릿을 통해 개발자 포털에서 API 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 API 목록](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM 개발자 포털 템플릿 API 목록")  
@@ -90,7 +90,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|Type|설명|  
+|속성|유형|설명|  
 |--------------|----------|-----------------|  
 |`apis`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
   
@@ -114,7 +114,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-## <a name="operation"></a><a name="Product"></a>연산의  
+## <a name="operation"></a><a name="Product"></a> 연산의  
  **작업** 템플릿을 통해 개발자 포털에서 작업 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 작업 페이지](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM 개발자 포털 템플릿 작업 페이지")  
@@ -345,14 +345,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|Type|Description|  
+|속성|유형|Description|  
 |--------------|----------|-----------------|  
 |`apiId`|문자열|현재 API의 ID입니다.|  
-|`apiName`|string|API 이름입니다.|  
-|`apiDescription`|string|API에 대한 설명입니다.|  
+|`apiName`|문자열|API 이름입니다.|  
+|`apiDescription`|문자열|API에 대한 설명입니다.|  
 |`api`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티입니다.|현재 API입니다.|  
 |`operation`|[연산](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
-|`sampleUrl`|string|현재 작업의 URL입니다.|  
+|`sampleUrl`|문자열|현재 작업의 URL입니다.|  
 |`operationMenu`|[작업 메뉴](api-management-template-data-model-reference.md#Menu)|이 API에 대한 작업 메뉴입니다.|  
 |`consoleUrl`|URI|**시도** 버튼에 대한 URI입니다.|  
 |`samples`|[코드 샘플](api-management-template-data-model-reference.md#Sample) 엔터티의 컬렉션입니다.|현재 작업에 대한 코드 샘플입니다.|  
@@ -644,7 +644,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-## <a name="code-samples"></a><a name="CodeSamples"></a>코드 샘플  
+## <a name="code-samples"></a><a name="CodeSamples"></a> 코드 샘플  
  다음 템플릿을 사용하여 작업 페이지에서 개별 코드 샘플의 본문을 사용자 지정할 수 있습니다.  
   
  ![개발자 포털 템플릿 코드 샘플](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM 개발자 포털 템플릿 코드 샘플")  
@@ -665,7 +665,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [Ruby](#Ruby)  
   
-### <a name="curl"></a><a name="Curl"></a>Curl  
+### <a name="curl"></a><a name="Curl"></a> Curl  
  **DocumentationSamplesCurl** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -897,7 +897,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-### <a name="java"></a><a name="Stub"></a>Java  
+### <a name="java"></a><a name="Stub"></a> Java  
  **DocumentationSamplesJava** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -993,7 +993,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="javascript"></a><a name="JavaScript"></a>JavaScript  
+### <a name="javascript"></a><a name="JavaScript"></a> JavaScript  
  **DocumentationSamplesJs** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -1194,7 +1194,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="php"></a><a name="PHP"></a>PHP  
+### <a name="php"></a><a name="PHP"></a> PHP  
  **DocumentationSamplesPhp** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  
@@ -1402,7 +1402,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="ruby"></a><a name="Ruby"></a>채워쓰기  
+### <a name="ruby"></a><a name="Ruby"></a> 채워쓰기  
  **DocumentationSamplesRuby** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  

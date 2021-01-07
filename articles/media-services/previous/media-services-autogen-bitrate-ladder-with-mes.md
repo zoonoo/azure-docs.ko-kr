@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 0309579a674533ebd056c8493b149cc78beef607
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89254074"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Media Encoder Standard를 사용 하 여 비트 전송률 사다리 자동 생성
@@ -51,7 +51,7 @@ ms.locfileid: "89254074"
 
 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```
 using System;
@@ -185,7 +185,7 @@ namespace AdaptiveStreamingMESPresest
 |5|270|480|720|
 |6|180|320|380|
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 높이가 "720"이고 프레임 속도가 "23.970"인 원본은 5개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|

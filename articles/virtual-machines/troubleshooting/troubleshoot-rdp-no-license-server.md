@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 276be92ea4c03b9ebeb3e13df69ce1b10328dcaf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b5864d40d2a4d8f8d6cf404df29f909a73f04e2
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526472"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832046"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Azure VM에 연결할 때 원격 데스크톱 라이선스 서버를 사용할 수 없음
 
@@ -64,7 +64,7 @@ mstsc /v:<Server>[:<Port>] /admin
 
     1. **지원 및 문제 해결****직렬 콘솔(미리 보기)** 을 선택하여 직렬 콘솔 > 에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
 
-    2. CMD 인스턴스에 대한 새 채널을 만듭니다. **CMD**를 입력하여 채널을 시작하고 채널 이름을 가져옵니다.
+    2. CMD 인스턴스에 대한 새 채널을 만듭니다. **CMD** 를 입력하여 채널을 시작하고 채널 이름을 가져옵니다.
 
     3. CMD 인스턴스를 실행하는 채널로 전환합니다. 이 경우 채널 1이어야 합니다.
 
@@ -87,7 +87,9 @@ mstsc /v:<Server>[:<Port>] /admin
     2. 다음 명령을 사용하여 정책을 확인하고 필요한 경우 다시 구성합니다.
 
        ```
-        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
+        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode
+
+        reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
        ```
 
         **LicensingMode** 값이 4가 아닌 다른 값으로 설정된 경우(사용자별) 값을 4로 설정합니다.

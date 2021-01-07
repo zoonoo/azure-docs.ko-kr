@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: f0b2f8f0-e798-4176-8217-017afe147917
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5d7904b950fa79f9ccbf98ec08f09aa6688f8a99
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134533"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957897"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보
 
@@ -210,7 +211,7 @@ ms.locfileid: "86134533"
 
 > 이 섹션은 다음에 적용됩니다.
 >
-> ![Windows][Logo_Windows] Windows 및 ![Linux][Logo_Linux] Linux
+> ![Windows 로고.][Logo_Windows] Windows 및 ![Linux 로고.][Logo_Linux] Linux
 >
 
 Linux에서 WSFC(Windows Server 장애 조치(failover) 클러스터링) 또는 Pacemaker와 같은 기능을 사용하지 않기로 결정한 경우(현재 SLES[SUSE Linux Enterprise Server] 12 이상에서만 지원) Azure VM 다시 시작이 사용됩니다. 이 기능은 Azure 물리적 서버 인프라 및 전반적인 기본 Azure 플랫폼의 계획되었거나 계획되지 않은 가동 중지 시간에서 SAP 시스템을 보호합니다.
@@ -228,7 +229,7 @@ Azure Managed Disks는 연결된 가상 머신의 장애 도메인에 자동으�
 
 Azure 인프라 고가용성 및 스토리지 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 
-![Azure 인프라 고가용성을 활용하여 SAP 애플리케이션 "고가용성" 확보][planning-guide-figure-2900]
+![Azure 인프라 고가용성 및 저장소 계정을 사용 하는 SAP NetWeaver 시스템의 아키텍처를 보여 주는 다이어그램입니다.][planning-guide-figure-2900]
 
 Azure 인프라 고가용성 및 관리 디스크를 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 

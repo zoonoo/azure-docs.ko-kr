@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326599"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077833"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>자습서: Spring Boot 앱에서 기능 플래그 사용
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 이 자습서에서는 Spring Boot 애플리케이션에서 `spring-cloud-azure-feature-management-web` 라이브러리를 사용하여 기능 플래그를 구현하는 방법을 알아보았습니다. Spring Boot 및 App Configuration의 기능 관리 지원에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Spring Boot 기능 플래그 샘플 코드](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Spring Boot 기능 플래그 샘플 코드](./quickstart-feature-flag-spring-boot.md)
 * [기능 플래그 관리](./manage-feature-flags.md)

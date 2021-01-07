@@ -8,27 +8,27 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: b2cd50b1b35b87b1a11301ddc36ac355bef20dc4
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064177"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780619"
 ---
-# <a name="manage-spark-application-dependencies"></a>Spark 응용 프로그램 종속성 관리
+# <a name="manage-spark-application-dependencies"></a>Spark 애플리케이션 종속성 관리
 
 이 문서에서는 HDInsight에서 실행 되는 Spark 응용 프로그램에 대 한 종속성을 관리 하는 방법을 알아봅니다. Spark 응용 프로그램 및 클러스터 범위에서 Scala 및 PySpark를 모두 다룹니다.
 
 빠른 링크를 사용 하 여 사용자 사례에 따라 섹션으로 이동 합니다.
-* [Jupyter 노트북을 사용 하 여 Spark 작업 jar 종속성 설정](#use-jupyter-notebook)
+* [Jupyter Notebook를 사용 하 여 Spark 작업 jar 종속성 설정](#use-jupyter-notebook)
 * [Use Azure Toolkit for IntelliJ를 사용 하 여 Spark 작업 jar 종속성 설정](#use-azure-toolkit-for-intellij)
 * [Spark 클러스터에 대 한 jar 종속성 구성](#jar-libs-for-cluster)
-* [Jar 종속성을 안전 하 게 관리](#safely-manage-jar-dependencies)
-* [Jupyter 노트북을 사용 하 여 Spark 작업 Python 패키지 설정](#use-jupyter-notebook-1)
+* [안전하게 jar 종속성 관리](#safely-manage-jar-dependencies)
+* [Jupyter Notebook를 사용 하 여 Spark 작업 Python 패키지 설정](#use-jupyter-notebook-1)
 * [Spark 클러스터에 대 한 Python 패키지 안전 하 게 관리](#python-packages-for-cluster)
 
 ## <a name="jar-libs-for-one-spark-job"></a>단일 Spark 작업에 대 한 Jar 라이브러리
-### <a name="use-jupyter-notebook"></a>Jupyter 노트북 사용
+### <a name="use-jupyter-notebook"></a>Jupyter Notebook 사용
 Spark 세션이 Scala에 대 한 Spark 커널의 Jupyter Notebook에서 시작 되는 경우 다음에서 패키지를 구성할 수 있습니다.
 
 * [Maven 리포지토리](https://search.maven.org/)또는 [Spark 패키지](https://spark-packages.org/)의 커뮤니티 제공 패키지.
@@ -42,7 +42,7 @@ Spark 세션이 Scala에 대 한 Spark 커널의 Jupyter Notebook에서 시작 �
 
 **Maven 리포지토리 또는 Spark 패키지의 패키지에 대 한 샘플**
 
-Maven 리포지토리에서 패키지를 찾은 후 **GroupId**, **ArtifactId**및 **Version**에 대 한 값을 수집 합니다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+Maven 리포지토리에서 패키지를 찾은 후 **GroupId**, **ArtifactId** 및 **Version** 에 대 한 값을 수집 합니다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
    ![패키지 스키마 연결](./media/apache-spark-manage-dependencies/spark-package-schema.png "패키지 스키마 연결")
 
@@ -83,7 +83,7 @@ import com.microsoft.azure.cosmosdb.spark._
     sudo hadoop fs -copyToLocal wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*.* /usr/libs/sparklibs
     ```
 
-2. Ambari에서 Spark 서비스 구성을 변경 하 여 클래스 경로를 업데이트 합니다. **Ambari > Spark > Configs > Custom Spark2-defaults**로 이동 합니다. 다음과 같이 **속성을 추가** 합니다. `:`하나 이상의 경로를 추가할 수 있는 경우를 사용 하 여 경로를 구분 합니다. Glob를 사용할 수 있습니다.
+2. Ambari에서 Spark 서비스 구성을 변경 하 여 클래스 경로를 업데이트 합니다. **Ambari > Spark > Configs > Custom Spark2-defaults** 로 이동 합니다. 다음과 같이 **속성을 추가** 합니다. `:`하나 이상의 경로를 추가할 수 있는 경우를 사용 하 여 경로를 구분 합니다. Glob를 사용할 수 있습니다.
 
     ```
     spark.driver.extraClassPath=/usr/libs/sparklibs/*
@@ -98,12 +98,12 @@ import com.microsoft.azure.cosmosdb.spark._
 
 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md)을 사용 하 여 단계를 자동화할 수 있습니다. [Hive 사용자 지정 라이브러리를 추가](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) 하는 스크립트 작업은 좋은 참조입니다. Spark 서비스 configs를 변경 하는 경우 구성 파일을 직접 수정 하는 대신 Ambari Api를 사용 해야 합니다. 
 
-## <a name="safely-manage-jar-dependencies"></a>Jar 종속성을 안전 하 게 관리
+## <a name="safely-manage-jar-dependencies"></a>안전하게 jar 종속성 관리
 HDInsight 클러스터에는 기본 제공 jar 종속성이 있으며 이러한 jar 버전에 대 한 업데이트는 시간에서 발생 합니다. 기본 제공 jar과 참조를 위해 가져오는 jar 간의 버전 충돌을 방지 하려면 [응용 프로그램 종속성을 음영](./safely-manage-jar-dependency.md)처리 하십시오.
 
 ## <a name="python-packages-for-one-spark-job"></a>단일 Spark 작업에 대 한 Python 패키지
-### <a name="use-jupyter-notebook"></a>Jupyter 노트북 사용
-HDInsight Jupyter 노트북 PySpark 커널은 PyPi 또는 Anaconda 패키지 리포지토리에서 Python 패키지를 직접 설치 하는 것을 지원 하지 않습니다. `.zip`, `.egg` 또는 종속성이 있고 `.py` 하나의 Spark 세션에 대해 참조 하려는 경우 아래 단계를 따르세요.
+### <a name="use-jupyter-notebook"></a>Jupyter Notebook 사용
+HDInsight Jupyter Notebook PySpark 커널은 PyPi 또는 Anaconda 패키지 리포지토리에서 Python 패키지를 직접 설치 하는 것을 지원 하지 않습니다. `.zip`, `.egg` 또는 종속성이 있고 `.py` 하나의 Spark 세션에 대해 참조 하려는 경우 아래 단계를 따르세요.
 
 1. 아래 샘플 스크립트 작업을 실행 하 `.zip` 여 `.egg` 또는 `.py` 기본 저장소에서 `wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*` 클러스터 로컬 파일 시스템으로 파일을 복사 `/usr/libs/pylibs` 합니다. Linux를 사용 하 여 `:` 검색 경로 목록을 구분 하는 데에는이 단계가 필요 하지만, HDInsight는와 같은 체계의 저장소 경로만 지원 `wasb://` 합니다. 를 사용 하는 경우 원격 저장소 경로가 제대로 작동 하지 않습니다 `sys.path.insert` .
 

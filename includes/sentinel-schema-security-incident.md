@@ -9,10 +9,10 @@ ms.date: 06/28/2020
 ms.author: yelevin
 ms.custom: include file
 ms.openlocfilehash: 63cb53dc60a718892d4bf86140e7fd51303bd61c
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761725"
 ---
 ### <a name="the-data-model-of-the-schema"></a>스키마의 데이터 모델
@@ -34,7 +34,7 @@ ms.locfileid: "88761725"
 | **인시던트 이름** | 문자열 | 내부 GUID |
 | **IncidentNumber** | int |  |
 | **IncidentUrl** | 문자열 | 인시던트에 연결 |
-| **레이블** | 동적 | 태그들 |
+| **레이블** | 동적 | 태그 |
 | **LastActivityTime** | Datetime | 마지막 이벤트 시간 |
 | **LastModifiedTime** | Datetime | 인시던트가 마지막으로 수정 된 시간에 대 한 타임 스탬프 (UTC)입니다. <br>(현재 레코드에서 설명 하는 수정 내용) |
 | **ModifiedBy** | 문자열 | 인시던트를 수정한 사용자 또는 시스템 |

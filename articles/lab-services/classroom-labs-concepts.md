@@ -1,16 +1,16 @@
 ---
-title: 클래스룸 랩 개념 - Azure Lab Services | Microsoft Docs
+title: 랩 개념-Azure Lab Services | Microsoft Docs
 description: 랩 서비스의 기본 개념과 이를 사용하여 랩을 손쉽게 만들고 관리할 수 있는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa3a8dad195b4b3cbf0786c8923c8b330d148898
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443709"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435521"
 ---
-# <a name="classroom-labs-concepts"></a>클래스룸 랩 개념
+# <a name="labs-concepts"></a>랩 개념
 
 다음 목록은 주요 랩 서비스 개념 및 정의를 포함합니다.
 
@@ -48,7 +48,7 @@ Azure 구독을 소유한 조직 내 클라우드 리소스의 IT 관리자는 �
 
 ### <a name="educator"></a>강사
 
-일반적으로 강사 또는 온라인 강사와 같은 사용자는 랩 계정에 속한 클래스룸 랩을 만듭니다. 강사가 수행하는 작업은 다음과 같습니다.
+일반적으로 교사 또는 온라인 교육 담당자와 같은 사용자가 랩 계정으로 랩을 만듭니다. 강사가 수행하는 작업은 다음과 같습니다.
 
 - 클래스룸 랩을 만듭니다.
 - 랩에서 가상 머신을 만듭니다.

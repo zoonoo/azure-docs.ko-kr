@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: b90d868042e9fb947afdfae9acf35262912eff94
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3c727b75e0d1b1e05638617d6e460dade15fc3c5
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997468"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413482"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>HSM 보호 된 키를 관리 되는 HSM으로 가져오기 (BYOK)
 
- Azure Key Vault 관리 HSM은 온-프레미스 HSM (하드웨어 보안 모듈)에서 생성 된 키를 가져오는 기능을 지원 합니다. 키가 HSM 보호 경계를 벗어날 수 없습니다. 이 시나리오를 흔히 *BYOK(Bring Your Own Key)* 라고 합니다. 관리 되는 HSM은 nCipher nShield 제품군 (FIPS 140-2 수준 3 유효성 검사)을 사용 하 여 키를 보호 합니다.
+ Azure Key Vault 관리 HSM은 온-프레미스 HSM (하드웨어 보안 모듈)에서 생성 된 키를 가져오는 기능을 지원 합니다. 키가 HSM 보호 경계를 벗어날 수 없습니다. 이 시나리오를 흔히 *BYOK(Bring Your Own Key)* 라고 합니다. 관리 되는 HSM은 Marvell LiquidSecurity HSM 어댑터 (FIPS 140-2 Level 3 유효성 검사)를 사용 하 여 키를 보호 합니다.
 
 이 문서의 정보를 사용 하 여 관리 되는 HSM과 함께 사용할 고유한 HSM 보호 키를 계획, 생성 및 전송할 수 있습니다.
 
@@ -40,13 +40,13 @@ ms.locfileid: "90997468"
 * BYOK 파일이 관리 되는 HSM에 업로드 되 면 관리 되는 HSM은 KEK 개인 키를 사용 하 여 대상 키 자료를 해독 하 고 HSM 키로 가져옵니다. 이 작업은 HSM 내에서 완전히 발생 합니다. 대상 키는 항상 HSM 보호 경계에 남아 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서 Azure CLI 명령을 사용하려면 다음 항목이 있어야 합니다.
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
-* Azure CLI 버전 2.12.0 이상입니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* 관리 되는 HSM은 구독에서 [지원 되는 hsm 목록을](#supported-hsms) 표시 합니다. 관리 되는 HSM을 프로 비전 하 고 활성화 하려면 [빠른 시작: 관리 되는 Hsm 프로 비전 및 활성화 Azure CLI](quick-create-cli.md) 를 참조 하세요.
+* Azure CLI 버전 2.12.0 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+* 관리 되는 HSM은 구독에서 [지원 되는 hsm 목록을](#supported-hsms) 표시 합니다. 관리형 HSM을 프로비저닝하고 활성화하려면 [빠른 시작: Azure CLI를 사용하여 관리형 HSM을 프로비저닝 및 활성화](quick-create-cli.md)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -67,12 +67,16 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 |Fortanix|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>SDKMS(자체 방어 키 관리 서비스)</li><li>Equinix SmartKey</li></ul>|[BYOK용 클라우드 공급자에게 SDKMS 키 내보내기 - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|제조업체|다음을 사용하는 모든 LiquidSecurity HSM<ul><li>펌웨어 버전 2.0.4 이상</li><li>펌웨어 버전 3.2 이상</li></ul>|[Marvell BYOK 도구 및 설명서](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>자세한 내용은 [Cryptomathic 사이트](https://www.cryptomathic.com/azurebyok) 참조|[Cryptomathic BYOK 도구 및 설명서](https://www.cryptomathic.com/azurebyok)|
+|Securosys SA|제조업체, 서비스로 제공되는 HSM|Primus HSM 제품군, Securosys 클라우드 HSM|[Primus BYOK 도구 및 설명서](https://www.securosys.com/primus-azure-byok)|
+|StorMagic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>[자세한 내용은 Stormagic 사이트를](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm) 참조 하십시오.|[SvKMS 및 Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+||||
+
 
 ## <a name="supported-key-types"></a>지원되는 키 유형
 
 |키 이름|키 유형|키 크기|원본|Description|
 |---|---|---|---|---|
-|KEK(키 교환 키)|RSA| 2048비트<br />3072비트<br />4096비트|관리 HSM|관리 되는 HSM에서 생성 된 HSM 지원 RSA 키 쌍|
+|KEK(키 교환 키)|RSA| 2048비트<br />3072비트<br />4096비트|관리형 HSM|관리 되는 HSM에서 생성 된 HSM 지원 RSA 키 쌍|
 |대상 키|RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
 
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>키를 생성 하 고 관리 되는 HSM으로 전송
@@ -86,7 +90,7 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 
 ### <a name="step-1-generate-a-kek"></a>1단계: KEK 생성
 
-KEK는 관리 되는 HSM에서 생성 되는 RSA 키입니다. KEK는 가져오려는 키(*대상* 키)를 암호화하는 데 사용됩니다.
+KEK는 관리 되는 HSM에서 생성 되는 RSA 키입니다. KEK는 가져오려는 키( *대상* 키)를 암호화하는 데 사용됩니다.
 
 KEK는 다음과 같아야 합니다.
 - RSA HSM 키(2048비트, 3072비트 또는 4096비트)이어야 함
@@ -124,7 +128,7 @@ BYOK 파일을 연결된 컴퓨터로 전송합니다.
 > [!NOTE] 
 > RSA 1024비트 키를 가져오는 것은 지원되지 않습니다. 현재 타원 곡선(Elliptic Curve) 키 가져오기는 지원되지 않습니다.
 >
-> **알려진 문제**: Luna HSM에서 RSA 4K 대상 키 가져오기는 펌웨어 7.4.0 이상에서만 지원됩니다.
+> **알려진 문제** : Luna HSM에서 RSA 4K 대상 키 가져오기는 펌웨어 7.4.0 이상에서만 지원됩니다.
 
 ### <a name="step-4-transfer-your-key-to-managed-hsm"></a>4 단계: 관리 되는 HSM에 키 전송
 

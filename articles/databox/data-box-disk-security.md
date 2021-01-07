@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79117279"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 보안 및 데이터 보호
@@ -74,7 +74,7 @@ Azure Data Box Disk는 서비스의 다음 키 인스턴스에서 개인 정보�
   - 전화 번호
   - 메일
   - 주소
-  - City
+  - 구/군/시
   - 우편 번호
   - 시스템 상태
   - 국가/시/도/지역

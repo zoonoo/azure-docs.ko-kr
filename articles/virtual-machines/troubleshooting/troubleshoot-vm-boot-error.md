@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543285"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Linux VM이 Grub 복구로 부팅 됨
@@ -45,7 +45,7 @@ VM (가상 컴퓨터)에서 복구 콘솔을 입력 한 것으로 확인 되었�
 
     1. `/etc/default/grub`존재 하 고 올바른 설정이 있는지 확인 하십시오. 기본 설정에 대해 잘 모르는 경우 작동 하는 VM으로 확인할 수 있습니다.
 
-    2. 그런 다음, 다음 명령을 실행 하 여 구성을 다시 생성 합니다.`grub2-mkconfig -o /boot/grub2/grub.cfg`
+    2. 그런 다음, 다음 명령을 실행 하 여 구성을 다시 생성 합니다. `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
    * 파일이 없는 경우 `/boot/grub/menu.lst` 이 오류는 이전 OS 버전 (**RHEL**, **Centos** , **14.04 및 Ubuntu**)에 대 한 것 이므로 명령이 다를 수 있습니다. 이전 서버를 실행 하 고 올바른 명령이 제공 되는지 테스트 해야 합니다.
 

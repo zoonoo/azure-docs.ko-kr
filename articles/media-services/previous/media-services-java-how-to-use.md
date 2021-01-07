@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-java
-ms.openlocfilehash: 8a95ee631797c4dcca87f3506a6cf29245328159
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3c86689681aa99f60c4345e92f7f5c426795a69e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263453"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586706"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Java 클라이언트 SDK를 사용하여 Azure Media Services 시작
 
@@ -51,7 +51,7 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
 >`azure-media` 패키지 버전 `0.9.8`부터 SDK에서 AAD(Azure Active Directory) 인증을 지원하고 Azure ACS(Access Control Service) 인증 지원을 제거했습니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다. 마이그레이션에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요.
 
 >[!NOTE]
->Azure Media Services Java SDK의 소스 코드는 [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)에서 찾을 수 있습니다. 마스터 분기가 아니라 0.9 분기로 전환해야 합니다. 
+>Azure Media Services Java SDK의 소스 코드는 [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)에서 찾을 수 있습니다. 주 분기가 아닌 0.9 분기로 전환 해야 합니다. 
 
 ## <a name="how-to-use-azure-media-services-with-java"></a>방법: Java에서 Azure Media Services 사용
 

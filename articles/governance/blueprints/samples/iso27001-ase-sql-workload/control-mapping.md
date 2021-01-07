@@ -1,23 +1,23 @@
 ---
 title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 컨트롤
-description: Azure Policy 및 RBAC에 대한 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 컨트롤 매핑입니다.
-ms.date: 07/13/2020
+description: Azure Policy 및 Azure RBAC에 대한 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 컨트롤 매핑입니다.
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 4b15b5407f749eb53e264eb14c5e50b7afc21ee5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4256f401e602a0641247dd06a1537289282f647b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920741"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842552"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 워크로드 청사진 샘플에 대한 컨트롤 매핑
 
 다음 문서에서는 Azure Blueprints ISO 27001 ASE/SQL 워크로드 청사진 샘플이 ISO 27001 컨트롤에 매핑되는 방법을 자세히 설명합니다. 컨트롤에 대한 자세한 내용은 [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html)을 참조하세요.
 
-다음은 **ISO 27001:2013** 컨트롤에 대한 매핑입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다. 그런 다음, ISO 27001:2013 컨트롤 **감사 \[미리 보기\]를 찾아서 선택하고 감사 요구 사항**이 담긴 정책 이니셔티브를 지원하는 특정 VM 확장을 배포합니다.
+다음은 **ISO 27001:2013** 컨트롤에 대한 매핑입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책** 을 열고 **정의** 페이지를 선택합니다. 그런 다음, ISO 27001:2013 컨트롤 **감사 \[미리 보기\]를 찾아서 선택하고 감사 요구 사항** 이 담긴 정책 이니셔티브를 지원하는 특정 VM 확장을 배포합니다.
 
 > [!IMPORTANT]
-> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수**는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md)을 참조하세요.
+> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수** 는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md)을 참조하세요.
 
 ## <a name="a612-segregation-of-duties"></a>A.6.1.2 의무 분리
 
@@ -37,8 +37,6 @@ Azure의 [SQL Vulnerability Assessment 서비스](../../../../azure-sql/database
 Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하기 위해 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. 이 청사진은 [Azure Policy](../../../policy/overview.md) 정의 7개를 할당하여 Azure 리소스에 대한 액세스 권한을 제어하는 데 도움이 됩니다. 이 정책은 리소스에 더 많은 권한의 액세스를 허용할 수 있는 리소스 유형의 사용을 감사합니다.
 이 정책을 위반하는 리소스를 이해하면 Azure 리소스 액세스가 권한 있는 사용자로 제한되도록 정정 작업을 수행하는 데 도움이 될 수 있습니다.
 
-- 암호 없는 계정이 있는 Linux VM을 감사하기 위한 필수 조건 배포
-- 암호 없이 계정에서 원격으로 연결할 수 있는 Linux VM을 감사하기 위한 필수 조건을 배포합니다.
 - 암호 없는 계정이 있는 Linux VM의 감사 결과 표시
 - 암호 없이 계정에서 원격으로 연결할 수 있는 Linux VM의 감사 결과를 표시합니다.
 - 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.
@@ -47,7 +45,7 @@ Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관�
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 권한 있는 액세스 권한 관리
 
-이 청사진은 소유자 및/또는 쓰기 권한이 있는 외부 계정 및 다단계 인증을 사용하지 않는 소유자 및/또는 쓰기 권한을 가진 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 4개를 할당하여, 권한 있는 액세스 권한을 제한 및 제어하는 데 도움이 됩니다. Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하기 위해 RBAC(역할 기반 액세스 제어)를 구현합니다. 또한 이 청사진은 SQL Servers 및 Service Fabric에 대한 Azure Active Directory 인증 사용을 감사하는 Azure Policy 정의 3개를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 이 청사진은 사용자 지정 RBAC 규칙의 사용을 감사하는 Azure Policy 정의도 할당합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
+이 청사진은 소유자 및/또는 쓰기 권한이 있는 외부 계정 및 다단계 인증을 사용하지 않는 소유자 및/또는 쓰기 권한을 가진 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 4개를 할당하여, 권한 있는 액세스 권한을 제한 및 제어하는 데 도움이 됩니다. Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하는 데 도움이 됩니다. 또한 이 청사진은 SQL Servers 및 Service Fabric에 대한 Azure Active Directory 인증 사용을 감사하는 Azure Policy 정의 3개를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 이 청사진은 사용자 지정 Azure RBAC 규칙의 사용을 감사하는 Azure Policy 정의도 할당합니다. 사용자 지정 Azure RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 Azure RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
 
 - 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
@@ -65,7 +63,6 @@ Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관�
 - 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - passwd 파일 권한이 0644로 설정되지 않은 Linux VM의 감사 결과 표시
-- 필수 구성 요소를 배포하여 암호 파일 권한이 0644로 설정되지 않은 Linux VM 감사
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 사용자 액세스 권한 검토
 
@@ -78,14 +75,14 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 액세스 권한 제거 또는 조정
 
-Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) 및 RBAC를 사용하여 사용자 역할을 조직 변경이 반영되도록 업데이트할 수 있습니다. 필요한 경우 계정을 로그인하지 못하게 차단하거나 제거하여 Azure 리소스에 대한 액세스 권한을 즉시 제거할 수 있습니다. 이 청사진은 제거 대상으로 고려해야 하는 사용 중단 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 2개를 할당합니다.
+Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) 및 Azure RBAC를 사용하여 조직 변경 내용을 반영하도록 사용자 역할을 업데이트할 수 있습니다. 필요한 경우 계정을 로그인하지 못하게 차단하거나 제거하여 Azure 리소스에 대한 액세스 권한을 즉시 제거할 수 있습니다. 이 청사진은 제거 대상으로 고려해야 하는 사용 중단 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 2개를 할당합니다.
 
 - 더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.
 - 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 보안 로그온 프로시저
 
-이 청사진은 다단계 인증을 사용하지 않는 계정을 감사하는 Azure Policy 정의 세 개를 할당합니다. Azure Multi-Factor Authentication은 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 강력한 인증을 제공합니다. 다단계 인증을 사용하지 않고 계정을 모니터링하면 손상될 가능성이 더 높은 계정을 식별할 수 있습니다.
+이 청사진은 다단계 인증을 사용하지 않는 계정을 감사하는 Azure Policy 정의 세 개를 할당합니다. Azure AD Multi-Factor Authentication은 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 강력한 인증을 제공합니다. 다단계 인증을 사용하지 않고 계정을 모니터링하면 손상될 가능성이 더 높은 계정을 식별할 수 있습니다.
 
 - 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
@@ -100,11 +97,6 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 - 암호 최소 사용 기간이 1일로 설정되지 않은 Windows VM의 감사 결과 표시
 - 암호 최소 길이가 14자로 제한되지 않는 Windows VM의 감사 결과 표시
 - 이전 24개 암호의 재사용을 허용하는 Windows VM의 감사 결과 표시
-- 암호 복잡성 설정이 사용되지 않는 Windows VM을 감사하기 위한 필수 조건 배포
-- 암호 최대 사용 기간이 70일로 설정되지 않은 Windows VM을 감사하기 위한 필수 조건 배포
-- 암호 최소 사용 기간이 1일로 설정되지 않은 Windows VM을 감사하기 위한 필수 조건 배포
-- 암호 최소 길이가 14자로 제한되지 않는 Windows VM을 감사하기 위한 필수 조건 배포
-- 이전 24개 암호의 재사용을 허용하는 Windows VM을 감사하기 위한 요구 사항 배포
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 암호화 컨트롤의 사용에 대한 정책
 
@@ -114,7 +106,6 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 - 함수 앱에 HTTPS를 통해서만 액세스 가능
 - 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능
 - API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.
-- 해독 가능한 암호화를 사용하여 암호를 저장하지 않는 Windows VM을 감사하기 위한 필수 조건 배포
 - 해독 가능한 암호화를 사용하여 암호를 저장하지 않는 Windows VM의 감사 결과 표시
 - 가상 머신에서 디스크 암호화를 적용해야 합니다.
 - 자동화 계정 변수를 암호화해야 합니다.

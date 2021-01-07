@@ -6,37 +6,37 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513379"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629668"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>FHIR (미리 보기) 데이터 흐름에 대 한 Azure IoT 커넥터
+# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Azure IoT Connector for FHIR(미리 보기) 데이터 흐름
 
-이 문서에서는 FHIR * 용 Azure IoT 커넥터의 데이터 흐름에 대 한 개요를 제공 합니다. 장치 데이터를 FHIR 기반 [관찰](https://www.hl7.org/fhir/observation.html) 리소스로 변환 하는 Azure IoT 커넥터 내에서 다양 한 데이터 처리 단계에 대해 알아봅니다.
+이 문서에서는 신속한 의료 상호 운용성 리소스 (FHIR&#174;) *에 대 한 Azure IoT 커넥터의 데이터 흐름에 대 한 개요를 제공 합니다. 장치 데이터를 FHIR 기반 [관찰](https://www.hl7.org/fhir/observation.html) 리소스로 변환 하는 Azure IoT 커넥터 내에서 다양 한 데이터 처리 단계에 대해 알아봅니다.
 
-![FHIR 데이터 흐름에 대 한 Azure IoT 커넥터](media/concepts-iot-data-flow/iot-connector-data-flow.png)
+![Azure IoT Connector for FHIR 데이터 흐름](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
 위의 다이어그램에서는 FHIR 용 Azure IoT 커넥터를 사용 하는 일반적인 데이터 흐름을 보여 줍니다. 
 
 다음은 FHIR 용 Azure IoT 커넥터에서 데이터를 받은 후에 발생 하는 다양 한 단계입니다.
 
 ## <a name="ingest"></a>수집
-수집은 장치 데이터를 Azure IoT Connector for FHIR에 수신 하는 첫 번째 단계입니다. 장치 데이터에 대 한 수집 끝점은 [Azure 이벤트 허브](https://docs.microsoft.com/azure/event-hubs/)에서 호스팅됩니다. Azure 이벤트 허브 플랫폼은 초당 수백만 개의 메시지를 받고 처리 하는 기능을 통해 높은 확장성과 처리량을 지원 합니다. 또한 Azure IoT 커넥터를 사용 하 여 메시지를 비동기적으로 사용 하 여 장치 데이터를 처리 하는 동안 장치가 대기할 필요가 없습니다.
+수집은 장치 데이터를 Azure IoT Connector for FHIR에 수신 하는 첫 번째 단계입니다. 장치 데이터에 대 한 수집 끝점은 [Azure 이벤트 허브](../event-hubs/index.yml)에서 호스팅됩니다. Azure 이벤트 허브 플랫폼은 초당 수백만 개의 메시지를 받고 처리 하는 기능을 통해 높은 확장성과 처리량을 지원 합니다. 또한 Azure IoT 커넥터를 사용 하 여 메시지를 비동기적으로 사용 하 여 장치 데이터를 처리 하는 동안 장치가 대기할 필요가 없습니다.
 
 > [!NOTE]
 > 이번에는 장치 데이터에 대해 JSON이 유일 하 게 지원 되는 형식입니다.
 
-## <a name="normalize"></a>일반화
+## <a name="normalize"></a>Normalize
 정규화는 위의 Azure 이벤트 허브에서 장치 데이터를 검색 하 고 장치 매핑 템플릿을 사용 하 여 처리 하는 다음 단계입니다. 이 매핑 프로세스는 장치 데이터를 정규화 된 스키마로 변환 합니다. 
 
 정규화 프로세스는 이후 단계에서 데이터 처리를 간소화할 뿐만 아니라 하나의 입력 메시지를 여러 정규화 된 메시지로 프로젝션 하는 기능도 제공 합니다. 예를 들어 장치는 단일 메시지에서 본문 온도, 펄스 율, 혈압 및 respiration 요금에 대 한 여러 가지 중요 한 기호를 보낼 수 있습니다. 이 입력 메시지는 4 개의 별도의 FHIR 리소스를 만듭니다. 각 리소스는 서로 다른 중요 한 기호를 나타내며, 입력 메시지는 서로 다른 4 개의 정규화 된 메시지에 프로젝션 됩니다.
 
-## <a name="group"></a>그룹화
+## <a name="group"></a>그룹
 그룹은 이전 단계에서 사용할 수 있는 정규화 된 메시지가 장치 id, 측정 유형 및 기간 이라는 세 가지 매개 변수를 사용 하 여 그룹화 되는 다음 단계입니다.
 
 장치 id 및 측정 유형 그룹화에서는 [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData) 측정 유형을 사용할 수 있습니다. 이 형식은 FHIR에서 장치에 대 한 시간 기반 일련의 측정을 나타내는 간결한 방법을 제공 합니다. 및 기간은 FHIR 용 Azure IoT 커넥터에서 생성 되는 관찰 리소스가 FHIR 용 Azure API에 기록 되는 대기 시간을 제어 합니다.
@@ -62,8 +62,6 @@ ms.locfileid: "87513379"
 다음 단계를 클릭 하 여 장치 및 FHIR 매핑 템플릿을 만드는 방법을 알아봅니다.
 
 >[!div class="nextstepaction"]
->[FHIR 매핑 템플릿에 대 한 Azure IoT 커넥터](iot-mapping-templates.md)
+>[Azure IoT Connector for FHIR 매핑 템플릿](iot-mapping-templates.md)
 
-* Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다.
-
-FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.
+* Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다. FHIR은 HL7의 등록 상표 이며 HL7의 사용 권한과 함께 사용 됩니다. 

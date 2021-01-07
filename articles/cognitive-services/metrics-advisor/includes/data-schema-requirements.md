@@ -2,20 +2,21 @@
 title: 데이터 스키마 요구 사항
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: a64bb5b28a06d9a013d59e022047f5e2841126ab
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 4c55c25621df1925b6ed6c374d8af88551eb1e46
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940133"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231432"
 ---
-Metrics Monitor는 시계열 변칙 검색, 진단 및 분석을 위한 서비스입니다. AI 지원 서비스로, 데이터를 사용하여 사용 모델을 학습시킵니다. 이 서비스는 다음 열을 사용하여 집계된 데이터의 테이블을 허용합니다.
+Metrics Advisor는 시계열 변칙 검색, 진단 및 분석을 위한 서비스입니다. AI 지원 서비스로, 데이터를 사용하여 사용 모델을 학습시킵니다. 이 서비스는 다음 열을 사용하여 집계된 데이터의 테이블을 허용합니다.
 
 * **측정값**(필수): 숫자 값을 포함하는 하나 이상의 열
 * **타임스탬프**(옵션): `DateTime` 또는 `String` 형식의 열 0개 또는 1개. 이 열이 설정되지 않은 경우 타임스탬프는 각 수집 기간의 시작 시간으로 설정됩니다. 타임스탬프를 `yyyy-MM-ddTHH:mm:ssZ` 형식으로 지정합니다. 

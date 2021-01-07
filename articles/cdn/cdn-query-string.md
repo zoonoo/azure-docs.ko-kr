@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 06/11/2018
 ms.author: allensu
 ms.openlocfilehash: 1521d08ef9d431bbe8b3fd3a578297d440ed56b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887209"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018582"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 표준 계층
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "84887209"
 Azure CDN(Content Delivery Network)을 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 물음표(?) 다음에 나오는 요청 부분입니다. 쿼리 문자열은 필드 이름 및 해당 값이 등호(=)로 구분된 하나 이상의 키-값 쌍을 포함할 수 있습니다. 각 키-값 쌍은 앰퍼샌드(&)로 구분됩니다. 예를 들어 http:\//www.contoso.com/content.mov?field1=value1&field2=value2입니다. 요청의 쿼리 문자열에 둘 이상의 키-값 쌍이 있는 경우 해당 순서는 중요하지 않습니다. 
 
 > [!IMPORTANT]
-> Azure CDN 표준 및 프리미엄 제품은 동일한 쿼리 문자열 캐싱 기능을 제공하지만 사용자 인터페이스는 다릅니다. 이 문서는 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준** 및 **Verizon의 Azure CDN 표준**에 대한 인터페이스를 설명합니다. **Verizon의 Azure CDN Premium**을 사용한 쿼리 문자열 캐싱은 [쿼리 문자열이 포함된 Azure CDN 캐싱 동작 제어 - 프리미엄 계층](cdn-query-string-premium.md)을 참조하세요.
+> Azure CDN 표준 및 프리미엄 제품은 동일한 쿼리 문자열 캐싱 기능을 제공하지만 사용자 인터페이스는 다릅니다. 이 문서는 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준** 및 **Verizon의 Azure CDN 표준** 에 대한 인터페이스를 설명합니다. **Verizon의 Azure CDN Premium** 을 사용한 쿼리 문자열 캐싱은 [쿼리 문자열이 포함된 Azure CDN 캐싱 동작 제어 - 프리미엄 계층](cdn-query-string-premium.md)을 참조하세요.
 
 세 가지 쿼리 문자열 모드를 사용할 수 있습니다.
 
@@ -49,11 +49,11 @@ Azure CDN(Content Delivery Network)을 사용하면 쿼리 문자열이 포함�
    
    ![CDN 프로필 엔드포인트](./media/cdn-query-string/cdn-endpoints.png)
    
-2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 클릭합니다.
+2. 설정 아래의 왼쪽 창에서 **캐싱 규칙** 을 클릭합니다.
    
     ![CDN 캐싱 규칙 단추](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
-3. **쿼리 문자열 캐시 동작** 목록에서 쿼리 문자열 모드를 선택한 다음 **저장**을 클릭합니다.
+3. **쿼리 문자열 캐시 동작** 목록에서 쿼리 문자열 모드를 선택한 다음 **저장** 을 클릭합니다.
    
    ![CDN 쿼리 문자열 캐싱 옵션](./media/cdn-query-string/cdn-query-string.png)
 

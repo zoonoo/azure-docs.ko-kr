@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318082"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
@@ -26,7 +26,7 @@ AD 복제 상태 솔루션은 복제 오류에 대 한 Active Directory 환경�
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * AD 복제 상태 솔루션에는 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.6.2 이상이 설치 되어 있어야 합니다.  이 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
@@ -41,7 +41,7 @@ Azure Monitor에 도메인 컨트롤러를 직접 연결하지 않으려는 경�
 
 1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
 2. 아직 연결되어 있지 않으면 [Windows 컴퓨터를 Azure Monitor에 연결](../platform/om-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 Azure Monitor에 연결](../platform/om-agents.md)합니다.
-3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.<br>키: **HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\management Groups \<ManagementGroupName> \S\s\adreplication**<br>값: **IsTarget**<br>값 데이터: **true**
+3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.<br>키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName> \S\s\adreplication**<br>값: **IsTarget**<br>값 데이터: **true**
 
    > [!NOTE]
    > 이러한 변경 내용은 HealthService.exe (Microsoft Monitoring Agent 서비스)를 다시 시작할 때까지 적용 되지 않습니다.

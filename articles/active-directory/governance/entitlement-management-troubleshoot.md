@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bca78195d4fb7bb265c4a7fd8d78ea49a35335b6
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979423"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746714"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 
@@ -69,7 +69,7 @@ ms.locfileid: "90979423"
 
 * 아직 디렉터리에 없는 사용자가 내 액세스 포털에 로그인하여 액세스 패키지를 요청하는 경우 해당 조직의 계정을 사용하여 인증해야 합니다. 조직 계정은 리소스 디렉터리 또는 액세스 패키지의 정책 중 하나에 포함된 디렉터리의 계정일 수 있습니다. 사용자 계정이 조직 계정이 아니거나 인증한 디렉터리가 정책에 포함되지 않은 경우에는 사용자에게 액세스 패키지가 표시되지 않습니다. 자세한 내용은 [액세스 패키지에 대 한 액세스 요청](entitlement-management-request-access.md)을 참조 하세요.
 
-* 사용자가 리소스 디렉터리에 로그인하지 못하도록 차단된 경우에는 내 액세스 포털에서 액세스를 요청할 수 없습니다. 사용자가 액세스를 요청하려면 먼저 사용자의 프로필에서 로그인 차단을 제거해야 합니다. 로그인 블록을 제거 하려면 Azure Portal에서 **Azure Active Directory** **를 클릭 하 고 사용자를 클릭**한 다음 사용자를 클릭 하 고 **프로필**을 클릭 합니다. **설정** 섹션을 편집 하 고 **블록 로그인** 을 **아니요**로 변경 합니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자의 프로필 정보 추가 또는 업데이트](../fundamentals/active-directory-users-profile-azure-portal.md)를 참조 하세요.  [Id 보호 정책](../identity-protection/howto-identity-protection-remediate-unblock.md)으로 인해 사용자가 차단 되었는지 여부도 확인할 수 있습니다.
+* 사용자가 리소스 디렉터리에 로그인하지 못하도록 차단된 경우에는 내 액세스 포털에서 액세스를 요청할 수 없습니다. 사용자가 액세스를 요청하려면 먼저 사용자의 프로필에서 로그인 차단을 제거해야 합니다. 로그인 블록을 제거 하려면 Azure Portal에서 **Azure Active Directory** **를 클릭 하 고 사용자를 클릭** 한 다음 사용자를 클릭 하 고 **프로필** 을 클릭 합니다. **설정** 섹션을 편집 하 고 **블록 로그인** 을 **아니요** 로 변경 합니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자의 프로필 정보 추가 또는 업데이트](../fundamentals/active-directory-users-profile-azure-portal.md)를 참조 하세요.  [Id 보호 정책](../identity-protection/howto-identity-protection-remediate-unblock.md)으로 인해 사용자가 차단 되었는지 여부도 확인할 수 있습니다.
 
 * 내 액세스 포털에서 사용자가 요청자 이자 승인자 인 경우 **승인** 페이지에서 액세스 패키지에 대 한 요청이 표시 되지 않습니다. 이 동작은 의도적인 것으로, 사용자가 자신의 요청을 승인할 수 없습니다. 요청 중인 액세스 패키지에 정책에 구성된 추가 승인자가 있는지 확인합니다. 자세한 내용은 [액세스 패키지에 대 한 요청 및 승인 설정 변경](entitlement-management-access-package-request-policy.md)을 참조 하세요.
 
@@ -77,15 +77,15 @@ ms.locfileid: "90979423"
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. **요청**을 클릭 합니다.
+1. **요청** 을 클릭 합니다.
 
 1. 보려는 요청을 선택 합니다.
 
-    요청에 배달 오류가 있으면 요청 **상태가 배달 되지 않거나** **부분적으로 전달**됩니다.
+    요청에 배달 오류가 있으면 요청 **상태가 배달 되지 않거나** **부분적으로 전달** 됩니다.
 
     배달 오류가 있으면 요청 세부 정보 창에 배달 오류 수가 표시 됩니다.
 
@@ -99,21 +99,21 @@ ms.locfileid: "90979423"
 
 ![다시 처리 단추가 회색으로 표시 됨](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
-- 평가판 기간 동안 오류가 해결 되 면 요청 상태가 **배달**중으로 변경 됩니다. 이 요청은 사용자의 추가 작업 없이 다시 처리 됩니다.
+- 평가판 기간 동안 오류가 해결 되 면 요청 상태가 **배달** 중으로 변경 됩니다. 이 요청은 사용자의 추가 작업 없이 다시 처리 됩니다.
 
-- 평가판 기간 동안 오류가 수정 되지 않은 경우 요청이 **배달** 되지 않거나 **부분적으로 배달**될 수 있습니다. 그런 다음 다시 **처리** 단추를 사용할 수 있습니다. 요청을 다시 처리 하는 데 7 일이 있습니다.
+- 평가판 기간 동안 오류가 수정 되지 않은 경우 요청이 **배달** 되지 않거나 **부분적으로 배달** 될 수 있습니다. 그런 다음 다시 **처리** 단추를 사용할 수 있습니다. 요청을 다시 처리 하는 데 7 일이 있습니다.
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. **요청**을 클릭 합니다.
+1. **요청** 을 클릭 합니다.
 
 1. 다시 처리 하려는 요청을 클릭 합니다.
 
-1. 요청 정보 창에서 **요청 다시 처리**를 클릭 합니다.
+1. 요청 정보 창에서 **요청 다시 처리** 를 클릭 합니다.
 
     ![실패 한 요청 다시 처리](./media/entitlement-management-troubleshoot/reprocess-request.png)
 
@@ -123,15 +123,15 @@ ms.locfileid: "90979423"
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. **요청**을 클릭 합니다.
+1. **요청** 을 클릭 합니다.
 
 1. 취소 하려는 요청을 클릭 합니다.
 
-1. 요청 정보 창에서 **요청 취소**를 클릭 합니다.
+1. 요청 정보 창에서 **요청 취소** 를 클릭 합니다.
 
 ## <a name="multiple-policies"></a>여러 정책
 
@@ -146,7 +146,7 @@ ms.locfileid: "90979423"
     | P1 | 디렉터리 또는 특정 연결 된 조직의 특정 사용자 및 그룹 |
     | P2 | 디렉터리의 모든 구성원 (게스트 제외) |
     | P3 | 디렉터리의 모든 사용자 (게스트 포함) 또는 연결 된 특정 조직 |
-    | P4 | 모든 연결 된 조직 또는 모든 사용자 (연결 된 모든 조직 + 모든 새 외부 사용자) |
+    | P4 | 구성 된 모든 연결 된 조직 또는 모든 사용자 (연결 된 모든 조직 + 모든 새 외부 사용자) |
     
     높은 우선 순위 범주에 속하는 정책이 있으면 낮은 우선 순위 범주가 무시 됩니다. 동일한 우선 순위의 여러 정책이 요청자에 게 표시 되는 방법에 대 한 예는 [정책 선택](entitlement-management-request-access.md#select-a-policy)을 참조 하세요.
 

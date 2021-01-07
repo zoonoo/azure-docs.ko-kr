@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015292"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법
@@ -32,7 +32,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 
 다음 테이블은 기본 제공 역할을 간략하게 설명합니다. Azure Portal 또는 Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) 및 [REST API](../role-based-access-control/role-assignments-rest.md)를 비롯한 다른 도구를 사용하여 이러한 역할을 할당할 수 있습니다. 기본 제공 역할을 할당하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-| 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | Description
+| 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 권한 | 설명
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | API Management 서비스 참가자 | ✓ | ✓ | ✓ | ✓ | 슈퍼 사용자입니다. API Management 서비스 및 엔터티(예: API 및 정책)에 대한 전체 CRUD 액세스 권한을 보유합니다. 기존 게시자 포털에 대한 액세스 권한을 보유합니다. |
 | API Management Service Reader | ✓ | | || API Management 서비스 및 엔터티에 대한 읽기 전용 액세스 권한을 보유합니다. |
@@ -44,7 +44,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 
 <sup>[2] 다음 작업을 제외한 API Management 서비스 및 엔터티에 대한 쓰기 권한: 인스턴스 생성, 삭제 및 확장, VPN 구성 및 사용자 지정 도메인 설정.</sup>
 
-<sup>\*모든 관리 UI를 기존 게시자 포털에서 Azure Portal로 마이그레이션한 후에 서비스 편집기 역할을 사용할 수 있습니다. 개발자 포털 관리와 관련 된 기능만 포함 하도록 게시자 포털을 리팩터링된 후에 콘텐츠 관리자 역할을 사용할 수 있습니다.</sup>  
+<sup>\* 모든 관리 UI를 기존 게시자 포털에서 Azure Portal로 마이그레이션한 후에 서비스 편집기 역할을 사용할 수 있습니다. 개발자 포털 관리와 관련 된 기능만 포함 하도록 게시자 포털을 리팩터링된 후에 콘텐츠 관리자 역할을 사용할 수 있습니다.</sup>  
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 

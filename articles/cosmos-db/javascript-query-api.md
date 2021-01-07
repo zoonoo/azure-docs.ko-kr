@@ -3,25 +3,27 @@ title: Azure Cosmos DB 저장 프로시저 및 트리거에서 JavaScript 통합
 description: 이 문서에서는 Azure Cosmos DB에서 저장 프로시저 및 트리거를 만들기 위한 JavaScript LINQ(Language-Integrated Query) API의 개념을 소개합니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 56fbcc3950a739c4c9fc3df86468301e2e2ff4d8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: b2563a9af0e0ca6943059698e29d139143780d93
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421130"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340977"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에도 [Cosmos DB 서버 쪽 SDK](https://azure.github.io/azure-cosmosdb-js-server/) 는 Cosmos DB 저장 프로시저 및 트리거에서 최적화 된 쿼리를 수행 하기 위한 JavaScript 인터페이스를 제공 합니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
+Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에도 [Cosmos DB 서버 쪽 SDK](https://github.com/Azure/azure-cosmosdb-js-server/) 는 Cosmos DB 저장 프로시저 및 트리거에서 최적화 된 쿼리를 수행 하기 위한 JavaScript 인터페이스를 제공 합니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
 
 ## <a name="supported-javascript-functions"></a>지원되는 JavaScript 함수
 
-| **함수** | **설명** |
+| **Function** | **설명** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|value()로 종료되어야 하는 연결된 호출을 시작합니다.|
 |`filter(predicateFunction [, options] [, callback])`|출력 문서를 결과 집합으로 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. 이 기능은 SQL의 WHERE 절과 유사하게 작동합니다.|
@@ -43,7 +45,7 @@ Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에�
 - 제어 흐름(예: if, for, while)
 - 함수 호출
 
-자세한 내용은 [Cosmos DB 서버 쪽 JavaScript 설명서](https://azure.github.io/azure-cosmosdb-js-server/)를 참조하세요.
+자세한 내용은 [Cosmos DB 서버 쪽 JavaScript 설명서](https://github.com/Azure/azure-cosmosdb-js-server/)를 참조하세요.
 
 ## <a name="sql-to-javascript-cheat-sheet"></a>SQL-JavaScript 치트 시트
 

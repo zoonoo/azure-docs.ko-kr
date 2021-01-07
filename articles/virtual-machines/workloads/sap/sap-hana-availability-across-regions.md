@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 799034d9060e8afe101e86e7b98ac7e01c28d191
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70078845"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019313"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Azure 지역 간 SAP HANA 가용성
 
@@ -74,7 +75,7 @@ SAP의 HANA 2.0 SPS3에는 [여러 대상 시스템 복제](https://help.sap.com
 
 조직의 두 번째(DR) Azure 지역에 고가용성 준비 상태 관련 요구 사항이 있는 경우의 아키텍처는 다음과 같습니다.
 
-![2개 지역에 3개 VM(여러 대상)이 있는 다이어그램](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![두 번째 (DR) Azure 지역에서 고가용성 준비에 대 한 요구 사항이 있는 조직을 보여 주는 다이어그램입니다.](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 작업 모드로 logreplay를 사용하면 이 구성은 주 지역 내에서 RTO가 낮은 RPO=0을 제공합니다. 또한 이 구성은 두 번째 지역으로의 이동과 관련되는 경우에도 적절한 RPO를 제공합니다. 두 번째 지역의 RTO 시간은 데이터가 미리 로드되었는지 여부에 따라 달라집니다. 많은 고객이 보조 지역의 VM을 사용하여 테스트 시스템을 실행합니다. 이 경우 데이터는 미리 로드할 수 없습니다.

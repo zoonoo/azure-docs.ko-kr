@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87040999"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 함수
@@ -18,19 +18,19 @@ ms.locfileid: "87040999"
 
 ## <a name="function-syntax"></a>함수 구문
 
-함수를 사용 하려면 호출을 대괄호로 묶습니다. 예를 들어:
+함수를 사용 하려면 호출을 대괄호로 묶습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "[function()]"
 ```
 
-문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예를 들어:
+문자열 및 기타 함수를 함수에 대한 매개 변수로 참조할 수 있지만 문자열을 따옴표로 묶어야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "[fn1(fn2(), 'demo text')]"
 ```
 
-해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예를 들어:
+해당하는 경우 점 연산자를 사용하여 함수 출력의 속성을 참조할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "[func().prop1]"
@@ -42,11 +42,11 @@ ms.locfileid: "87040999"
 
 * [contains](create-ui-definition-collection-functions.md#contains)
 * [empty](create-ui-definition-collection-functions.md#empty)
-* [필터가](create-ui-definition-collection-functions.md#filter)
+* [filter](create-ui-definition-collection-functions.md#filter)
 * [first](create-ui-definition-collection-functions.md#first)
 * [last](create-ui-definition-collection-functions.md#last)
 * [length](create-ui-definition-collection-functions.md#length)
-* [매핑할](create-ui-definition-collection-functions.md#map)
+* [map](create-ui-definition-collection-functions.md#map)
 * [skip](create-ui-definition-collection-functions.md#skip)
 * [split](create-ui-definition-collection-functions.md#split)
 * [take](create-ui-definition-collection-functions.md#take)

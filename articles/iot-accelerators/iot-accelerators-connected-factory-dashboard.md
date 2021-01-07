@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820171"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011220"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>연결된 팩터리 솔루션 가속기 대시보드의 기능 사용
+
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 [산업용 IoT 디바이스를 관리하는 클라우드 기반 솔루션 배포](quickstart-connected-factory-deploy.md) 빠른 시작에서는 대시보드를 탐색하고 경보에 응답하는 방법을 보여 주었습니다. 이 방법 가이드에서는 산업용 IoT 디바이스를 모니터링하고 관리하는 데 사용할 수 있는 몇 가지 추가 대시보드 기능을 보여 줍니다.
 
@@ -29,7 +32,7 @@ ms.locfileid: "73820171"
 
     [![연결된 팩터리 솔루션 가속기 필터](./media/iot-accelerators-connected-factory-dashboard/filterpanel-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterpanel-expanded.png#lightbox)
 
-1. 필요한 필터를 선택하고 **적용**을 클릭합니다. 필터 필드에 자유 텍스트를 입력할 수도 있습니다.
+1. 필요한 필터를 선택하고 **적용** 을 클릭합니다. 필터 필드에 자유 텍스트를 입력할 수도 있습니다.
 
 1. 그러면 필터가 적용됩니다. 추가 깔때기형 아이콘은 필터가 적용되었음을 나타냅니다.
 
@@ -38,7 +41,7 @@ ms.locfileid: "73820171"
     > [!NOTE]
     > 활성 필터는 표시된 OEE 및 KPI 값에는 영향을 주지 않고 목록 내용만 필터링합니다.
 
-1. 필터를 지우려면 깔때기형 아이콘을 클릭하고 필터 패널에서 **지우기**를 클릭합니다.
+1. 필터를 지우려면 깔때기형 아이콘을 클릭하고 필터 패널에서 **지우기** 를 클릭합니다.
 
 ## <a name="browse-an-opc-ua-server"></a>OPC UA 서버 찾아보기
 
@@ -52,7 +55,7 @@ ms.locfileid: "73820171"
 
     [![연결 된 팩터리 솔루션 가속기 서버 목록](./media/iot-accelerators-connected-factory-dashboard/serverlist-inline.png)](./media/iot-accelerators-connected-factory-dashboard/serverlist-expanded.png#lightbox)
 
-1. **연결**을 클릭하면 보안 대화 상자가 표시됩니다. 시뮬레이션의 경우 **계속**을 클릭하는 것이 안전합니다.
+1. **연결** 을 클릭하면 보안 대화 상자가 표시됩니다. 시뮬레이션의 경우 **계속** 을 클릭하는 것이 안전합니다.
 
 1. 서버 트리에서 아무 노드를 클릭하여 확장합니다. 원격 분석을 게시하는 노드 옆에는 확인 표시가 있습니다.
 
@@ -62,11 +65,11 @@ ms.locfileid: "73820171"
 
 ## <a name="publish-a-node"></a>노드 게시
 
-*시뮬레이션된 OPC UA 서버*를 검색할 때 새 노드를 게시할 수도 있습니다. 솔루션에서 이러한 노드의 원격 분석 데이터를 분석할 수 있습니다. 이러한 *시뮬레이션된 OPC UA 서버*를 사용하면 실제 디바이스를 배포하지 않고도 솔루션 가속기를 쉽게 실험할 수 있습니다.
+*시뮬레이션된 OPC UA 서버* 를 검색할 때 새 노드를 게시할 수도 있습니다. 솔루션에서 이러한 노드의 원격 분석 데이터를 분석할 수 있습니다. 이러한 *시뮬레이션된 OPC UA 서버* 를 사용하면 실제 디바이스를 배포하지 않고도 솔루션 가속기를 쉽게 실험할 수 있습니다.
 
 1. OPC UA 서버 브라우저 트리에서 게시할 노드로 이동합니다.
 
-1. 노드를 마우스 오른쪽 단추로 클릭합니다. **게시**를 클릭 합니다.
+1. 노드를 마우스 오른쪽 단추로 클릭합니다. **게시** 를 클릭 합니다.
 
     [![연결 된 팩터리 솔루션 가속기 게시 노드](./media/iot-accelerators-connected-factory-dashboard/publishnode-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishnode-expanded.png#lightbox)
 
@@ -80,11 +83,11 @@ ms.locfileid: "73820171"
 
 1. 뮌헨, 생산 라인 0, 어셈블리 스테이션에 대한 OPC UA 서버 브라우저 트리에서 **StationCommands** 노드로 이동합니다.
 
-1. 사용할 명령을 선택합니다. **OpenPressureReleaseValve** 노드를 마우스 오른쪽 단추로 누릅니다. **호출**을 클릭합니다.
+1. 사용할 명령을 선택합니다. **OpenPressureReleaseValve** 노드를 마우스 오른쪽 단추로 누릅니다. **호출** 을 클릭합니다.
 
     [![연결된 팩터리 솔루션 가속기 호출 명령](./media/iot-accelerators-connected-factory-dashboard/callcommand-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callcommand-expanded.png#lightbox)
 
-1. 호출하려는 메서드 및 모든 매개 변수 세부 정보를 알려주는 상황에 맞는 패널이 표시됩니다. **호출**을 클릭합니다.
+1. 호출하려는 메서드 및 모든 매개 변수 세부 정보를 알려주는 상황에 맞는 패널이 표시됩니다. **호출** 을 클릭합니다.
 
     [![연결 된 팩터리 솔루션 가속기 호출 매개 변수](./media/iot-accelerators-connected-factory-dashboard/callpanel-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callpanel-expanded.png#lightbox)
 
@@ -94,7 +97,7 @@ ms.locfileid: "73820171"
 
 ## <a name="behind-the-scenes"></a>배후 상황
 
-솔루션 가속기를 배포할 때, 배포 프로세스는 사용자가 선택한 Azure 구독에 여러 리소스를 만듭니다. [Azure Portal](https://portal.azure.com)에서 이러한 리소스를 볼 수 있습니다. 배포 프로세스는 솔루션 가속기에 대해 선택한 이름을 기반으로 하는 이름으로 **리소스 그룹**을 만듭니다.
+솔루션 가속기를 배포할 때, 배포 프로세스는 사용자가 선택한 Azure 구독에 여러 리소스를 만듭니다. [Azure Portal](https://portal.azure.com)에서 이러한 리소스를 볼 수 있습니다. 배포 프로세스는 솔루션 가속기에 대해 선택한 이름을 기반으로 하는 이름으로 **리소스 그룹** 을 만듭니다.
 
 [![연결 된 팩터리 솔루션 가속기 리소스 그룹](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-inline.png)](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-expanded.png#lightbox)
 

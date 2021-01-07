@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401642"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549041"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
@@ -28,11 +28,13 @@ NSGs (네트워크 보안 그룹) 또는 UDRs (사용자 정의 경로)를 사�
 
 여기에 나열 되지 않은 지역에 대 한 IP 주소가 필요한 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 를 사용 하 여 해당 지역에 대 한 ip 주소를 찾을 수 있습니다. API를 사용할 수 없는 경우 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 을 다운로드 하 고 원하는 지역을 검색 합니다.
 
+HDInsight는 클러스터를 만들고 크기를 조정 하 여 이러한 규칙의 유효성을 검사 하 여 추가 오류를 방지 합니다. 유효성 검사를 통과 하지 못하면 생성 및 크기 조정이 실패 합니다.
+
 다음 섹션에서는 허용 해야 하는 특정 IP 주소에 대해 설명 합니다.
 
 ## <a name="azure-dns-service"></a>Azure DNS 서비스
 
-Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 __168.63.129.16__ 의 액세스를 허용 합니다. 자세한 내용은 [vm 및 역할 인스턴스에 대 한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조 하세요. 사용자 지정 DNS를 사용 하는 경우이 단계를 건너뜁니다.
+Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 TCP와 UDP 모두에 대해 53 포트에서 __168.63.129.16__ 에 대 한 액세스를 허용 합니다. 자세한 내용은 [vm 및 역할 인스턴스에 대 한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조 하세요. 사용자 지정 DNS를 사용 하는 경우이 단계를 건너뜁니다.
 
 ## <a name="health-and-management-services-all-regions"></a>상태 및 관리 서비스: 모든 지역
 
@@ -76,7 +78,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 | &nbsp; | 일본 서부 | 40.74.125.69</br>138.91.29.150 | \*: 443 | 인바운드 |
 | 한국 | 한국 중부 | 52.231.39.142</br>52.231.36.209 | \*: 443 | 인바운드 |
 | &nbsp; | 한국 남부 | 52.231.203.16</br>52.231.205.214 | \*: 443 | 인바운드
-| 영국 | 영국 서부 | 51.141.13.110</br>51.141.7.20 | \*: 443 | 인바운드 |
+| United Kingdom | 영국 서부 | 51.141.13.110</br>51.141.7.20 | \*: 443 | 인바운드 |
 | &nbsp; | 영국 남부 | 51.140.47.39</br>51.140.52.16 | \*: 443 | 인바운드 |
 | 미국 | 미국 중부 | 13.89.171.122</br>13.89.171.124 | \*: 443 | 인바운드 |
 | &nbsp; | 미국 동부 | 13.82.225.233</br>40.71.175.99 | \*: 443 | 인바운드 |
@@ -85,8 +87,9 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 | &nbsp; | 미국 서부 | 13.64.254.98</br>23.101.196.19 | \*: 443 | 인바운드 |
 | &nbsp; | 미국 서부 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | 인바운드 |
 | &nbsp; | 아랍에미리트 북부 | 65.52.252.96</br>65.52.252.97 | \*: 443 | 인바운드 |
+| &nbsp; | 아랍에미리트 중부 | 20.37.76.96</br>20.37.76.99 | \*: 443 | 인바운드 |
 
-Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 문서를 참조하세요.
+Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](../azure-government/compare-azure-government-global-azure.md) 문서를 참조하세요.
 
 자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.
 

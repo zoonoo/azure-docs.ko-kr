@@ -1,15 +1,17 @@
 ---
 title: 데이터 변경-LUIS
 description: Language Understanding(LUIS)에서 예측 전에 데이터를 변경하는 방법을 알아봅니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 621a41f743b751a8c24bf6f6ad8497fb5c79775c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934670"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026013"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 작성 한 [datetimeV2](luis-reference-prebuilt-datetimev2.md)에 대 한 [맞춤법 수정](luis-tutorial-bing-spellcheck.md), 표준 시간대 문제 해결 등이 포함 됩니다.
@@ -96,7 +98,7 @@ V3에서는 `datetimeReference` 표준 시간대 오프셋을 결정 합니다. 
 
 #### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>V2 예측 c # 코드에서 올바른 매개 변수 값을 확인 합니다.
 
-다음 c # 코드는 [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) 클래스의 [timezoneinfo.findsystemtimezonebyid 메서드의](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) 메서드를 사용 하 여 시스템 시간에 따라 올바른 오프셋 값을 결정 합니다.
+다음 c # 코드는 [TimeZoneInfo](/dotnet/api/system.timezoneinfo) 클래스의 [timezoneinfo.findsystemtimezonebyid 메서드의](/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) 메서드를 사용 하 여 시스템 시간에 따라 올바른 오프셋 값을 결정 합니다.
 
 ```csharp
 // Get CST zone id

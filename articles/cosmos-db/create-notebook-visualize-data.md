@@ -4,17 +4,19 @@ description: '자습서: 기본 제공 Jupyter Notebook을 사용하여 데이�
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961101"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339498"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>자습서: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 기본 제공 Jupyter Notebook을 사용하여 소매 데이터 샘플을 Azure Cosmos DB에 가져오는 방법에 대해 설명합니다. SQL 및 Azure Cosmos DB 매직 명령을 사용하여 쿼리를 실행하고, 데이터를 분석하고, 결과를 시각화하는 방법을 확인할 수 있습니다.
 
@@ -26,13 +28,13 @@ ms.locfileid: "85961101"
  
 이 섹션에서는 Azure Cosmos 데이터베이스와 컨테이너를 만들고 소매 데이터를 컨테이너로 가져옵니다.
 
-1. Azure Cosmos 계정으로 이동하여 **데이터 탐색기**를 엽니다.
+1. Azure Cosmos 계정으로 이동하여 **데이터 탐색기** 를 엽니다.
 
-1. **Notebook** 탭으로 이동하여 **내 Notebook** 옆에 있는 `…`를 선택하고, **새 Notebook**을 만듭니다. 기본 커널로 **Python 3**을 선택합니다.
+1. **Notebook** 탭으로 이동하여 **내 Notebook** 옆에 있는 `…`를 선택하고, **새 Notebook** 을 만듭니다. 기본 커널로 **Python 3** 을 선택합니다.
 
    :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="새 Notebook 만들기":::
 
-1. 새 Notebook이 만들어지면 **VisualizeRetailData.ipynb**와 같은 이름으로 바꿀 수 있습니다.
+1. 새 Notebook이 만들어지면 **VisualizeRetailData.ipynb** 와 같은 이름으로 바꿀 수 있습니다.
 
 1. 다음으로, 소매 데이터를 저장할 "RetailDemo"라는 데이터베이스와 "WebsiteData"라는 컨테이너를 만듭니다. 파티션 키로 /CartID를 사용할 수 있습니다. 다음 코드를 복사하여 Notebook의 새 셀에 붙여넣고 실행합니다.
 
@@ -141,7 +143,7 @@ df_cosmos.head(10)
 
 이 섹션에서는 검색된 데이터에 대해 몇 가지 쿼리를 실행합니다.
 
-* **쿼리 1**: DataFrame에 대해 Group by query를 실행하여 각 국가/지역의 총 매출 수익 합계를 가져오고 결과에서 5개 항목을 표시합니다. 새 Notebook 셀에서 다음 코드를 실행합니다.
+* **쿼리 1** : DataFrame에 대해 Group by query를 실행하여 각 국가/지역의 총 매출 수익 합계를 가져오고 결과에서 5개 항목을 표시합니다. 새 Notebook 셀에서 다음 코드를 실행합니다.
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: ec1e74c6a029ab0f8defc3ae783c9e974f387289
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a13f78b6aa4fc3cb6f6777c76bc762ec565624fc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922976"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951318"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Cognitive Search 인덱서에 SQL Server에 대 한 연결 구성
 
@@ -63,7 +63,7 @@ Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 �
 아래 링크는 VM 배포를 위한 NSG 구성에 대한 지침을 제공합니다. 이러한 지침을 사용 하 여 IP 주소에 따라 Azure Cognitive Search 끝점에 ACL을 설정 합니다.
 
 > [!NOTE]
-> 배경 지식은 [네트워크 보안 그룹이란?](../virtual-network/security-overview.md)
+> 배경 지식은 [네트워크 보안 그룹이란?](../virtual-network/network-security-groups-overview.md)
 > 
 > 
 

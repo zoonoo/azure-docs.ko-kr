@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: f969d7edc22c9c36481ca42449193af5f8c7b0d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710000"
 ---
 # <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Azure에서 i p v 6를 사용 하 여 가상 머신 확장 집합 배포
@@ -27,7 +27,7 @@ ms.locfileid: "84710000"
 2.    이중 스택 부하 분산 장치를 만듭니다.  
 3.    NSG (네트워크 보안 그룹) 규칙을 만듭니다.  
 
-개별 Vm과 다른 유일한 단계는 가상 머신 확장 집합 리소스를 사용 하는 NIC (네트워크 인터페이스) 구성 (networkProfile/networkInterfaceConfigurations)을 만드는 것입니다. JSON 구조는 다음 예제에 표시 된 대로 **"primary": true** 특성을 사용 하는 기본 인터페이스로 NIC 및 IPv4 IpConfiguration을 설정 하는 것 외에도 개별 vm에 사용 되는 Microsoft 네트워크/networkinterfaces 개체의 구조와 유사 합니다.
+개별 Vm과 다른 유일한 단계는 가상 머신 확장 집합 리소스를 사용 하는 NIC (네트워크 인터페이스) 구성 (networkProfile/networkInterfaceConfigurations)을 만드는 것입니다. JSON 구조는 다음 예제에 표시 된 대로 **"primary": true**  특성을 사용 하는 기본 인터페이스로 NIC 및 IPv4 IpConfiguration을 설정 하는 것 외에도 개별 vm에 사용 되는 Microsoft 네트워크/networkinterfaces 개체의 구조와 유사 합니다.
 
 ```json
           "networkProfile": {

@@ -6,23 +6,23 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2b4ac8f87e8e19d3487859849ba37272c501751d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527023"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744383"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
 MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 좋은 방법 이지만 사용자가 암호를 기억할 필요 없이 추가 보안 계층이 발생 하지 않는 경우가 많습니다. 암호를 제거 하 고 사용자가 보유 한 항목 및 사용자가 알고 있는 항목으로 대체 하기 때문에 암호 없는 인증 방법이 더 편리 합니다.
 
-| 인증  | 보유 한 항목 | 사용자 또는 알고 있는 항목 |
+| 인증  | 사용자가 소유하고 있는 것 | 사용자 또는 알고 있는 항목 |
 | --- | --- | --- |
 | 암호 없음 | Windows 10 장치, 휴대폰 또는 보안 키 | 생체 인식 또는 PIN |
 
@@ -44,7 +44,7 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 
 ![비즈니스용 Windows Hello에서 사용자 로그인에 관련 된 단계를 간략하게 설명 하는 다이어그램입니다.](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
-1. 사용자가 생체 인식 또는 PIN 제스처를 사용 하 여 Windows에 로그인 합니다. 이 제스처는 비즈니스용 Windows Hello 개인 키의 잠금을 해제 하며 클라우드 *AP 공급자*라고 하는 클라우드 인증 보안 지원 공급자에 게 전송 됩니다.
+1. 사용자가 생체 인식 또는 PIN 제스처를 사용 하 여 Windows에 로그인 합니다. 이 제스처는 비즈니스용 Windows Hello 개인 키의 잠금을 해제 하며 클라우드 *AP 공급자* 라고 하는 클라우드 인증 보안 지원 공급자에 게 전송 됩니다.
 1. 클라우드 AP 공급자는 Azure AD에서 nonce (한 번만 사용할 수 있는 임의의 임의 숫자)를 요청 합니다.
 1. Azure AD는 5 분 동안 유효한 nonce를 반환 합니다.
 1. 클라우드 AP 공급자는 사용자의 개인 키를 사용 하 여 nonce에 서명 하 고 서명 된 nonce를 Azure AD에 반환 합니다.
@@ -61,6 +61,8 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 ![Microsoft Authenticator 앱을 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 Authenticator 앱은 모든 iOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 전환 합니다. 사용자는 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 것과 일치 시킨 다음, 생체 인식 (터치 또는 얼굴) 또는 PIN을 사용 하 여 확인 하 여 모든 플랫폼 또는 브라우저에 로그인 할 수 있습니다. 설치에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](../user-help/user-help-auth-app-download-install.md) 를 참조 하세요.
+
+Azure AD에 대 한 Microsoft Authenticator 앱의 passwordless 로그인은 현재 미리 보기로 제공 됩니다. Azure AD Multi-Factor Authentication, SSPR (셀프 서비스 암호 재설정) 또는 OATH 소프트웨어 토큰에 대 한 보조 인증에 Microsoft Authenticator 앱을 사용 하는 것은 GA입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windows Hello와 동일한 기본 패턴을 따릅니다. Azure AD가 사용 되는 Microsoft Authenticator 앱 버전을 찾을 수 있도록 사용자를 식별 해야 하기 때문에 좀 더 복잡 합니다.
 
@@ -82,7 +84,7 @@ Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windo
 
 ## <a name="fido2-security-keys"></a>FIDO2 보안 키
 
-FIDO(Fast IDentity Online) Alliance는 공개 인증 표준의 수준을 올리고 암호 인증 형태의 사용자를 줄이도록 지원합니다. FIDO2는 WebAuthn(웹 인증) 표준을 통합하는 최신 표준입니다.
+FIDO (Fast IDentity Online) 동맹은 오픈 인증 표준의 수준을 올리고 인증의 형태로 암호 사용을 줄이는 데 도움이 됩니다. FIDO2는 WebAuthn(웹 인증) 표준을 통합하는 최신 표준입니다.
 
 FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable 표준 기반 암호 없는 인증 방법입니다. Fast Identity Online (FIDO)은 암호 없는 인증을 위한 개방형 표준입니다. FIDO를 사용 하면 사용자와 조직이 외부 보안 키 또는 장치에 기본 제공 되는 플랫폼 키를 사용 하 여 사용자 이름 또는 암호 없이 해당 리소스에 로그인 할 수 있습니다.
 
@@ -126,14 +128,18 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 | 공급자 | 연락처 |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
-| Feitian | [https://shop.ftsafe.us/pages/microsoft](https://shop.ftsafe.us/pages/microsoft) |
+| Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
 | 숨겼습니다 | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | TrustKey 솔루션 | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | OneSpan i n c. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
-| IDmelon 기술 Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
+| IDmelon 기술 Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
+| Hypersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
+| VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net) |
+| KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
+| Excel | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
 
 > [!NOTE]
 > 를 구매 하 고 NFC 기반 보안 키를 사용 하려는 경우 보안 키에 대해 지원 되는 NFC 판독기가 필요 합니다. NFC 판독기는 Azure 요구 사항이 나 제한 사항이 아닙니다. 지원 되는 NFC 판독기 목록은 NFC 기반 보안 키에 대 한 공급 업체에 문의 하세요.

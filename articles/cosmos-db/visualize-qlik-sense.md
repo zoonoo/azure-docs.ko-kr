@@ -2,19 +2,21 @@
 title: Qlik Sense를 Azure Cosmos DB에 연결하고 데이터 시각화
 description: 이 문서에서는 Azure Cosmos DB를 Qlik Sense에 연결하고 데이터를 시각화하는 데 필요한 단계를 설명합니다.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2401786a82b6a3e5bf6c6a893a8e7cd3656f3402
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263350"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996963"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Qlik Sense를 Azure Cosmos DB에 연결하고 데이터 시각화
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이터 시각화 도구입니다. 데이터에 대한 인사이트를 즉시 얻을 수 있도록 Qlik Sense는 데이터에서 가능한 모든 관계를 인덱싱합니다. Qlik Sense를 사용하여 Azure Cosmos DB 데이터를 시각화할 수 있습니다. 이 문서에서는 Azure Cosmos DB를 Qlik Sense에 연결하고 데이터를 시각화하는 데 필요한 단계를 설명합니다. 
 
@@ -34,7 +36,7 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 이 문서에서는 ODBC 커넥터를 사용하여 Cosmos DB SQL API에 연결하는 자세한 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 지침을 따르기 전에, 다음 리소스가 준비되었는지 확인합니다.
 
@@ -52,15 +54,15 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 ## <a name="connect-qlik-sense-to-cosmos-db"></a>Qlik Sense를 Cosmos DB에 연결
 
-1. Qlik Sense를 열고 **새 앱 만들기**를 선택합니다. 앱 이름을 입력하고 **만들기**를 선택합니다.
+1. Qlik Sense를 열고 **새 앱 만들기** 를 선택합니다. 앱 이름을 입력하고 **만들기** 를 선택합니다.
 
    :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="새 Qlik Sense 앱 만들기":::
 
-2. 새 앱을 만든 후에는 **앱 열기**를 선택하고 **파일 및 기타 소스의 데이터 추가**를 선택합니다. 
+2. 새 앱을 만든 후에는 **앱 열기** 를 선택하고 **파일 및 기타 소스의 데이터 추가** 를 선택합니다. 
 
-3. 데이터 원본에서 **ODBC**를 선택하여 새 연결 설정 창을 엽니다. 
+3. 데이터 원본에서 **ODBC** 를 선택하여 새 연결 설정 창을 엽니다. 
 
-4. **사용자 DSN**으로 전환하고, 앞에서 만든 ODBC 연결을 선택합니다. 연결 이름을 입력하고 **만들기**를 선택합니다. 
+4. **사용자 DSN** 으로 전환하고, 앞에서 만든 ODBC 연결을 선택합니다. 연결 이름을 입력하고 **만들기** 를 선택합니다. 
 
    :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="새 연결 만들기":::
 
@@ -68,7 +70,7 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
    :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="데이터베이스 및 컬렉션 선택"::: 
 
-6. 다음으로, **데이터 추가**를 선택하여 Qlik Sense에 데이터를 로드합니다. Qlik Sense에 데이터를 로드한 후에는 데이터에 대한 인사이트를 생성하고 데이터를 분석할 수 있습니다. 인사이트를 사용할 수도 있고 비디오 게임 판매를 탐색하는 고유의 앱을 빌드할 수도 있습니다. 다음 이미지에 예가 나와 있습니다. 
+6. 다음으로, **데이터 추가** 를 선택하여 Qlik Sense에 데이터를 로드합니다. Qlik Sense에 데이터를 로드한 후에는 데이터에 대한 인사이트를 생성하고 데이터를 분석할 수 있습니다. 인사이트를 사용할 수도 있고 비디오 게임 판매를 탐색하는 고유의 앱을 빌드할 수도 있습니다. 다음 이미지에 예가 나와 있습니다. 
 
    :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="데이터 시각화":::
 

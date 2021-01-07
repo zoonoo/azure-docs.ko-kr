@@ -4,12 +4,12 @@ description: 활동 로그 경고가 활성화될 때 웹후크 URL에 게시되
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b48f094b460a2871b502c72b39b849ed68b9c085
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321839"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916639"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -19,7 +19,7 @@ ms.locfileid: "87321839"
 작업 그룹에 대한 자세한 내용은 [작업 그룹을 만드는](./action-groups.md) 방법을 참조하세요.
 
 > [!NOTE]
-> 웹 후크 통합을 위해 Azure Monitor의 모든 경고 서비스에서 확장 가능 하 고 통합 된 단일 경고 페이로드를 사용 하는 이점을 제공 하는 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용할 수도 있습니다. [일반적인 경고 스키마 정의에 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
+> 웹 후크 통합을 위해 Azure Monitor의 모든 경고 서비스에서 확장 가능 하 고 통합 된 단일 경고 페이로드를 사용 하는 이점을 제공 하는 [일반적인 경고 스키마](./alerts-common-schema.md)를 사용할 수도 있습니다. [일반적인 경고 스키마 정의에 대해 알아봅니다.](./alerts-common-schema-definitions.md)
 
 
 ## <a name="authenticate-the-webhook"></a>웹후크 인증
@@ -27,6 +27,20 @@ ms.locfileid: "87321839"
 
 ## <a name="payload-schema"></a>페이로드 스키마
 POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activityLog.eventSource 필드에 따라 다릅니다.
+
+> [!NOTE]
+> 현재 활동 로그 이벤트의 일부인 설명이 발생 된 **"경고 설명"** 속성에 복사 됩니다.
+>
+> 2021 년 4 월 1 일부 터 활동 로그 페이로드를 다른 경고 유형과 맞추려면 발생 한 경고 속성 **"설명"** 에 경고 규칙 설명이 대신 포함 됩니다.
+>
+> 이러한 변경에 대비 하 여 활동 로그에서 발생 한 경고에 새 속성 **"활동 로그 이벤트 설명"** 을 만들었습니다. 이 새 속성은 이미 사용할 수 있는 **"Description"** 속성으로 채워집니다. 즉, 새 필드 **"활동 로그 이벤트 설명"** 에는 활동 로그 이벤트에 포함 된 설명이 포함 됩니다.
+>
+> 경고 규칙, 작업 규칙, 웹 후크, 논리 앱 또는 발생 한 경고의 **"설명"** 속성을 사용 하 여 **"활동 로그 이벤트 설명"** 속성으로 바꿀 수 있는 기타 구성을 검토 하세요.
+>
+> 작업 규칙, 웹 후크, 논리 앱 또는 기타 구성에 대 한 조건이 현재 활동 로그 경고에 대 한 **"설명"** 속성을 기반으로 하는 경우 **"활동 로그 이벤트 설명"** 속성을 기반으로 수정 해야 할 수 있습니다.
+>
+> 새 **"설명"** 속성을 채우기 위해 경고 규칙 정의에 설명을 추가할 수 있습니다.
+> ![발생 한 활동 로그 경고](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>일반
 
@@ -269,7 +283,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
 | 이벤트 |이벤트에 대한 메타데이터가 포함된 요소입니다. |
-| 권한 부여 |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
+| 권한 부여 |이벤트의 Azure 역할 기반 액세스 제어 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
 | category |이벤트의 범주. 지원되는 값으로 Administrative, Alert, Security, ServiceHealth, Recommendation이 있습니다. |
 | caller |가용성에 기반한 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. 특정 시스템 호출의 경우 null일 수 있습니다. |
 | correlationId |일반적으로 문자열 형식의 GUID. correlationId가 있는 이벤트는 동일한 상위 작업에 속하며 일반적으로 correlationId를 공유합니다. |
@@ -292,4 +306,3 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 * [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Azure Queue에 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
-

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 1933e60892430b907e070ea04f39d8acc86ddac2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 132c21588df2f2180ddd973d208eb95ea6657e7d
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937845"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832457"
 ---
 # <a name="azure-defender-for-iot-edge-security-module"></a>IoT Edge 보안 모듈에 대 한 Azure Defender
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 는에 지에서 비즈니스 워크플로를 관리 하 고 수행 하기 위한 강력한 기능을 제공 합니다.
+[Azure IoT Edge](../iot-edge/index.yml) 는에 지에서 비즈니스 워크플로를 관리 하 고 수행 하기 위한 강력한 기능을 제공 합니다.
 IoT 환경에서 IoT Edge를 재생 하는 주요 부분은 악의적인 행위자에 게 특히 유용 합니다.
 
 IoT 용 Defender 보안 모듈은 IoT Edge 장치에 대 한 포괄적인 보안 솔루션을 제공 합니다.
@@ -39,7 +39,7 @@ Defender for IoT 보안 모듈 IoT Edge는 다음과 같은 기능을 제공 합
 
 - IoT Edge 배포 매니페스트를 분석 합니다.
 
-- [IoT Edge 허브](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)를 통해 전송 되는 메시지에 원시 보안 이벤트를 집계 합니다.
+- [IoT Edge 허브](../iot-edge/iot-edge-runtime.md#iot-edge-hub)를 통해 전송 되는 메시지에 원시 보안 이벤트를 집계 합니다.
 
 - 보안 모듈 쌍을 사용 하 여 구성을 제거 합니다.
 
@@ -60,6 +60,6 @@ IoT 배포용 Defender를 계속 시작 하려면 다음 문서를 사용 합니
 
 - [IoT Edge에 대 한 보안 모듈](how-to-deploy-edge.md) 배포
 - [보안 모듈을 구성](how-to-agent-configuration.md) 하는 방법 알아보기
-- IoT [서비스 필수 구성 요소](service-prerequisites.md) 를 검토 합니다.
+- Iot 용 IoT [defender](resources-manage-proprietary-protocols.md) 용 defender를 검토 합니다.
 - [IoT Hub에서 IoT 서비스용 Defender를 사용 하도록 설정](quickstart-onboard-iot-hub.md) 하는 방법에 대해 알아봅니다.
 - [IoT 용 DEFENDER FAQ](resources-frequently-asked-questions.md) 에서 서비스에 대 한 자세한 정보

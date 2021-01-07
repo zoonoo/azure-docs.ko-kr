@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 3d69b72012819e3d9099e447b9048fe07aea86d3
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89513946"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858708"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure SignalR Service를 사용하여 Azure Functions 개발 및 구성
 
@@ -24,7 +24,7 @@ Azure Functions 응용 프로그램은 [Azure SignalR 서비스 바인딩을](..
 
 Azure SignalR Service는 여러 가지 모드로 구성할 수 있습니다. Azure Functions와 함께 사용 하는 경우 서비스를 *서버* 리스 모드로 구성 해야 합니다.
 
-Azure Portal에서 SignalR Service 리소스의 *설정* 페이지를 찾습니다. *서비스 모드* 를 *서버*리스로 설정 합니다.
+Azure Portal에서 SignalR Service 리소스의 *설정* 페이지를 찾습니다. *서비스 모드* 를 *서버* 리스로 설정 합니다.
 
 ![SignalR Service 모드](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
@@ -49,11 +49,11 @@ Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRCo
 
 ### <a name="handle-messages-sent-from-signalr-service"></a>SignalR Service에서 보낸 메시지 처리
 
-*SignalR 트리거* 바인딩을 사용 하 여 SignalR Service에서 보낸 메시지를 처리 합니다. 클라이언트에서 메시지를 보내거나 클라이언트에서 연결 하거나 연결을 끊을 때 트리거될 수 있습니다.
+*SignalR 트리거* 바인딩을 사용 하 여 SignalR Service에서 보낸 메시지를 처리 합니다. 클라이언트가 메시지 또는 클라이언트를 전송 하거나 연결을 끊으면 알림이 표시 될 수 있습니다.
 
 자세한 내용은 [ *SignalR 트리거* 바인딩 참조](../azure-functions/functions-bindings-signalr-service-trigger.md)를 참조 하세요.
 
-또한 서비스에서 클라이언트의 메시지가 있는 함수를 트리거하기 위해 함수 끝점을 업스트림으로 구성 해야 합니다. 업스트림을 구성 하는 방법에 대 한 자세한 내용은이 [문서](concept-upstream.md)를 참조 하세요.
+또한 클라이언트의 메시지가 있는 경우 서비스에서 함수를 트리거하기 위해 함수 끝점을 업스트림으로 구성 해야 합니다. 업스트림을 구성 하는 방법에 대 한 자세한 내용은이 [문서](concept-upstream.md)를 참조 하세요.
 
 ### <a name="sending-messages-and-managing-group-membership"></a>메시지 보내기 및 그룹 멤버 자격 관리
 
@@ -107,11 +107,11 @@ public class SignalRTestHub : ServerlessHub
 }
 ```
 
-클래스 기반 모델을 활용 하려는 모든 함수는 **ServerlessHub**에서 상속 되는 클래스의 메서드입니다. `SignalRTestHub`샘플의 클래스 이름은 허브 이름입니다.
+클래스 기반 모델을 활용 하려는 모든 함수는 **ServerlessHub** 에서 상속 되는 클래스의 메서드입니다. `SignalRTestHub`샘플의 클래스 이름은 허브 이름입니다.
 
 ### <a name="define-hub-method"></a>허브 메서드 정의
 
-모든 허브 메서드는 **must** `InvocationContext` 특성으로 데코레이팅된의 인수를 `[SignalRTrigger]` 사용 하 고 매개 변수가 없는 생성자를 사용 해야 합니다. 그런 다음 **메서드 이름이** 매개 변수 **이벤트**로 처리 됩니다.
+모든 허브 메서드는  `InvocationContext` 특성으로 데코레이팅된의 인수를 `[SignalRTrigger]` 사용 하 고 매개 변수가 없는 생성자를 사용 해야 합니다. 그런 다음 **메서드 이름이** 매개 변수 **이벤트** 로 처리 됩니다.
 
 기본적으로 `category=messages` 메서드 이름은 다음 이름 중 하나입니다.
 
@@ -198,9 +198,9 @@ const connection = new signalR.HubConnectionBuilder()
 
 SignalR client SDK를 사용 하는 방법에 대 한 자세한 내용은 해당 언어에 대 한 설명서를 참조 하세요.
 
-* [.NET Standard](https://docs.microsoft.com/aspnet/core/signalr/dotnet-client)
-* [JavaScript](https://docs.microsoft.com/aspnet/core/signalr/javascript-client)
-* [Java](https://docs.microsoft.com/aspnet/core/signalr/java-client)
+* [.NET Standard](/aspnet/core/signalr/dotnet-client)
+* [JavaScript](/aspnet/core/signalr/javascript-client)
+* [Java](/aspnet/core/signalr/java-client)
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>클라이언트에서 서비스로 메시지 보내기
 
@@ -222,12 +222,12 @@ JavaScript/TypeScript 클라이언트는 협상 함수에 대해 HTTP 요청을 
 
 #### <a name="localhost"></a>Localhost
 
-로컬 컴퓨터에서 함수 앱을 실행 하는 경우local.settings.js에 섹션을 추가 하 여 `Host` CORS를 사용 하도록 설정할 수 있습니다. *local.settings.json* 섹션에서 `Host` 다음 두 가지 속성을 추가 합니다.
+로컬 컴퓨터에서 함수 앱을 실행 하는 경우local.settings.js에 섹션을 추가 하 여 `Host` CORS를 사용 하도록 설정할 수 있습니다.  섹션에서 `Host` 다음 두 가지 속성을 추가 합니다.
 
 * `CORS` -클라이언트 응용 프로그램의 원본인 기준 URL을 입력 합니다.
 * `CORSCredentials` - `true` "withCredentials" 요청을 허용 하도록 설정 합니다.
 
-예:
+예제:
 
 ```json
 {

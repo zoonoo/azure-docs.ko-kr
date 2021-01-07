@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: b4905b1aba11a2f8c457d4785897cbe70dd31f76
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 63e648681a63daafe1eaeb1d2e8e5a6cd607aa70
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687419"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446332"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>조직의 Azure 가격 책정 보기 및 다운로드
 
@@ -28,17 +28,17 @@ Azure EA(기업계약), MCA(Microsoft 고객 계약) 또는 MPA(Microsoft 파트
 1. 엔터프라이즈 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. *Cost Management + 청구*를 검색합니다.
 
-   ![Azure Portal 검색을 보여 주는 스크린샷](./media/ea-pricing/portal-cm-billing-search.png)
+   ![Azure Portal 검색을 보여 주는 스크린샷.](./media/ea-pricing/portal-cm-billing-search.png)
 
 1. 청구 계정에서 **사용량 + 요금**을 선택합니다.
 
    ![청구 아래의 사용량 및 요금을 보여 주는 스크린샷](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. 해당 월의 ![Azure Portal 검색을 보여 주는 스크린샷](./media/ea-pricing/download-icon.png) **다운로드**를 선택합니다.
+1. ![다운로드 아이콘](./media/ea-pricing/download-icon.png)을 선택합니다. 해당 월에 대해 **다운로드합니다**.
 
 1. **가격표** 아래에서 **csv 다운로드**를 선택합니다.
 
-   ![가격표 csv 다운로드 단추를 보여 주는 스크린샷](./media/ea-pricing/download-ea-price-sheet.png)
+   ![사용량 다운로드 + 요금 옵션을 보여주는 스크린샷.](./media/ea-pricing/download-ea-price-sheet.png)
 
 ## <a name="download-pricing-for-an-mca-or-mpa-account"></a>MCA 또는 MPA 계정에 대한 가격 책정 다운로드
 
@@ -70,7 +70,7 @@ MCA가 있는 경우 현재 청구 기간에 대한 가격 책정을 다운로�
 1. **Azure 가격표**를 선택합니다.
 ![개요에서 다운로드를 보여 주는 스크린샷](./media/ea-pricing/open-pricing01.png)
 
-## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Azure 가격 책정 계산기가 있는 비용 예상
+## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Azure 가격 책정 계산기로 비용 예상
 
 조직의 가격 책정을 사용하여 Azure 가격 책정 계산기로 비용을 예상할 수도 있습니다.
 
@@ -79,7 +79,7 @@ MCA가 있는 경우 현재 청구 기간에 대한 가격 책정을 다운로�
 1. **프로그램 및 제품** > **라이선스 프로그램** 아래에서 **EA(기업계약)** 를 선택합니다.
 1. **프로그램 및 제품** > **선택한 계약** 아래에서 **선택된 항목 없음**을 선택합니다.
 
-    ![가격표 csv 다운로드 단추를 보여 주는 스크린샷](./media/ea-pricing/ea-pricing-calculator-estimate.png)
+    ![스크린샷은 사용 가능한 프로그램 및 제품을 보여줍니다.](./media/ea-pricing/ea-pricing-calculator-estimate.png)
 
 1. 조직을 선택합니다.
 1. **적용**을 선택합니다.

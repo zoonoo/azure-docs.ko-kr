@@ -1,23 +1,23 @@
 ---
 title: 쿼리 저장소-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 쿼리 저장소 기능에 대해 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830284"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657025"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
 **적용 대상:** Azure Database for PostgreSQL-단일 서버 버전 9.6 이상
 
-Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따라 쿼리 성능을 추적하는 방법을 제공합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리에 대한 데이터는 Azure Database for PostgreSQL 인스턴스의 **azure_sys**라는 데이터베이스에 저장됩니다.
+Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따라 쿼리 성능을 추적하는 방법을 제공합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리에 대한 데이터는 Azure Database for PostgreSQL 인스턴스의 **azure_sys** 라는 데이터베이스에 저장됩니다.
 
 > [!IMPORTANT]
 > **azure_sys** 데이터베이스 또는 해당 스키마를 수정하지 마세요. 이렇게 하면 쿼리 저장소 및 관련 성능 기능이 제대로 작동하지 않습니다.
@@ -27,13 +27,13 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 
 ### <a name="enable-query-store-using-the-azure-portal"></a>Azure Portal을 통해 쿼리 저장소 사용
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
-2. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
+2. 메뉴의 **설정** 섹션에서 **서버 매개 변수** 를 선택합니다.
 3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
-4. 값을로 설정 하 `TOP` 고 **저장**합니다.
+4. 값을로 설정 하 `TOP` 고 **저장** 합니다.
 
 쿼리 저장소에서 대기 통계를 사용하도록 설정하려면 다음과 같이 합니다. 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값을로 설정 하 `ALL` 고 **저장**합니다.
+1. 값을로 설정 하 `ALL` 고 **저장** 합니다.
 
 
 또는 Azure CLI를 사용 하 여 이러한 매개 변수를 설정할 수 있습니다.
@@ -80,8 +80,8 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 | **관찰** | **동작** |
 |---|---|
 |최고 잠금 대기 | 영향을 받는 쿼리에 대한 쿼리 텍스트를 확인하고 대상 엔터티를 식별합니다. 쿼리 저장소에서 자주 실행되거나 오래 실행되는 동일한 엔터티를 수정하는 다른 쿼리를 확인합니다. 이러한 쿼리를 식별한 후 애플리케이션 논리를 변경하여 동시성을 개선하거나 덜 제한적인 격리 수준을 사용하는 것이 좋습니다.|
-| 높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. 해당 쿼리가 IO 대기가 많은 쿼리와 일치하는 경우 검사 대신 검색을 수행하기 위해 기본 엔터티에 인덱스를 도입하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다.|
-| 높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 이러한 쿼리를 최적화하는 인덱스 권장 사항이 있는지 확인합니다.|
+| 높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. 해당 쿼리가 IO 대기가 많은 쿼리와 일치하는 경우 검사 대신 검색을 수행하기 위해 기본 엔터티에 인덱스를 도입하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항** 을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다.|
+| 높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버에 대한 **성능 권장 사항** 을 확인하여 이러한 쿼리를 최적화하는 인덱스 권장 사항이 있는지 확인합니다.|
 
 ## <a name="configuration-options"></a>구성 옵션
 쿼리 저장소를 사용하도록 설정하면 데이터가 15분 집계 창에 저장되고 각 창에는 최대 500개의 고유 쿼리가 포함됩니다. 
@@ -103,7 +103,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 | Pgms_wait_sampling.history_period | 대기 이벤트가 샘플링되는 빈도(밀리초)를 설정합니다. | 100 | 1-600000 |
 
 > [!NOTE] 
-> **pg_qs.query_capture_mode**는 **pgms_wait_sampling.query_capture_mode**를 대체합니다. pg_qs.query_capture_mode가 NONE인 경우 pgms_wait_sampling.query_capture_mode 설정은 영향을 미치지 않습니다.
+> **pg_qs.query_capture_mode** 는 **pgms_wait_sampling.query_capture_mode** 를 대체합니다. pg_qs.query_capture_mode가 NONE인 경우 pgms_wait_sampling.query_capture_mode 설정은 영향을 미치지 않습니다.
 
 
 [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용하여 매개 변수에 대한 다른 값을 가져오거나 설정합니다.
@@ -149,25 +149,25 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 이 보기는 쿼리 저장소의 쿼리 텍스트 데이터를 반환합니다. 각 고유 query_text에 대한 하나의 행이 있습니다.
 
-|**이름**|  **형식**|   **설명**|
-|---|---|---|
-|query_text_id  |bigint     |query_texts 테이블의 ID|
-|query_sql_text |Varchar(10000)     |대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
+| **이름** | **형식** | **설명** |
+|--|--|--|
+| query_text_id | bigint | query_texts 테이블의 ID |
+| query_sql_text | Varchar(10000) | 대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다. |
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 이 보기는 쿼리 저장소의 대기 이벤트 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID, 쿼리 ID 및 이벤트에 대한 하나의 행이 있습니다.
 
-|**이름**|  **형식**|   **참조**| **설명**|
-|---|---|---|---|
-|user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
-|db_id  |oid    |pg_database.oid    |문이 실행된 데이터베이스의 OID|
-|query_id   |bigint     ||문의 구문 분석 트리에서 계산된 내부 해시 코드|
-|event_type |text       ||백 엔드가 대기 중인 이벤트 유형|
-|event  |text       ||백 엔드가 현재 대기 중인 경우 대기 이벤트 이름|
-|calls  |정수        ||캡처된 동일한 이벤트 수|
-
+| **이름** | **형식** | **참조** | **설명** |
+|--|--|--|--|
+| user_id | oid | pg_authid.oid | 문을 실행한 사용자의 OID |
+| db_id | oid | pg_database.oid | 문이 실행된 데이터베이스의 OID |
+| query_id | bigint |  | 문의 구문 분석 트리에서 계산된 내부 해시 코드 |
+| event_type | 텍스트 |  | 백 엔드가 대기 중인 이벤트 유형 |
+| 이벤트 | 텍스트 |  | 백 엔드가 현재 대기 중인 경우 대기 이벤트 이름 |
+| calls | 정수 |  | 캡처된 동일한 이벤트 수 |
 
 ### <a name="functions"></a>Functions
+
 Query_store.qs_reset() returns void
 
 `qs_reset`은 쿼리 저장소가 지금까지 수집한 모든 통계를 무시합니다. 이 함수는 서버 관리자 역할만 실행할 수 있습니다.
@@ -184,7 +184,7 @@ Azure Database for PostgreSQL은 [Azure Monitor 진단 설정과](../azure-monit
 > 의이 진단 기능은 범용 및 메모리 액세스에 최적화 된 가격 책정 계층 에서만 사용할 수 있습니다.
 
 ### <a name="configure-diagnostic-settings"></a>진단 설정 구성
-Azure Portal, CLI, REST API 및 PowerShell을 사용 하 여 Postgres server에 대 한 진단 설정을 사용 하도록 설정할 수 있습니다. 구성할 로그 범주는 QueryStoreRuntimeStatistics 및 **Query** **waitstatistics**입니다. 
+Azure Portal, CLI, REST API 및 PowerShell을 사용 하 여 Postgres server에 대 한 진단 설정을 사용 하도록 설정할 수 있습니다. 구성할 로그 범주는 QueryStoreRuntimeStatistics 및 **Query** **waitstatistics** 입니다. 
 
 Azure Portal를 사용 하 여 리소스 로그를 사용 하도록 설정 하려면
 
@@ -192,7 +192,7 @@ Azure Portal를 사용 하 여 리소스 로그를 사용 하도록 설정 하�
 2. 진단 설정 추가를 선택 합니다.
 3. 이 설정의 이름을로 설정 합니다.
 4. 기본 설정 끝점 (저장소 계정, 이벤트 허브, log analytics)을 선택 합니다.
-5. **QueryStoreRuntimeStatistics 및 Query** **waitstatistics**로그 유형을 선택 합니다.
+5. **QueryStoreRuntimeStatistics 및 Query** **waitstatistics** 로그 유형을 선택 합니다.
 6. 설정을 저장합니다.
 
 PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 설정 하려면 [진단 설정 문서](../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
@@ -250,7 +250,7 @@ PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 - PostgreSQL 서버에서 default_transaction_read_only 매개 변수가 설정되어 있으면 Query Store가 데이터를 캡처할 수 없습니다.
 - 6000바이트 이상의 긴 유니코드 쿼리가 발견되면 Query Store 기능이 중단될 수 있습니다.
-- [읽기 복제본](concepts-read-replicas.md) 은 마스터 서버에서 쿼리 저장소 데이터를 복제 합니다. 즉, 읽기 복제본의 쿼리 저장소는 읽기 복제본에서 실행 되는 쿼리에 대 한 통계를 제공 하지 않습니다.
+- [복제본 읽기](concepts-read-replicas.md) 는 주 서버에서 쿼리 저장소 데이터를 복제 합니다. 즉, 읽기 복제본의 쿼리 저장소는 읽기 복제본에서 실행 되는 쿼리에 대 한 통계를 제공 하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

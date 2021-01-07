@@ -10,11 +10,11 @@ ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891057"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185564"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU를 사용하여 스토리지 계정을 통해 데이터 전송 
 
@@ -49,10 +49,10 @@ Edge 스토리지 계정을 만들려면 다음 절차를 수행합니다.
 
 ## <a name="connect-to-the-edge-storage-account"></a>Edge 스토리지 계정에 연결
 
-이제 *http* 또는 *https*를 통해 Edge 스토리지 REST API에 연결할 수 있습니다.
+이제 *http* 또는 *https* 를 통해 Edge 스토리지 REST API에 연결할 수 있습니다.
 
-- *https*는 안전하고 추천되는 방법입니다.
-- *http*는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다.
+- *https* 는 안전하고 추천되는 방법입니다.
+- *http* 는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다.
 
 ## <a name="connect-via-http"></a>http를 통해 연결
 
@@ -143,13 +143,13 @@ HTTPS를 통해 Blob 스토리지에 액세스하려면 디바이스에 대한 S
 
 ### <a name="import-certificate"></a>인증서 가져오기
 
-Azure Storage Explorer를 사용하여 디바이스의 스토리지 계정에 연결하는 경우 PEM 형식의 인증서를 Storage Explorer로 가져와야 합니다. Windows 환경에서 Base-64로 인코딩된 *.cer*는 PEM 형식과 동일합니다.
+Azure Storage Explorer를 사용하여 디바이스의 스토리지 계정에 연결하는 경우 PEM 형식의 인증서를 Storage Explorer로 가져와야 합니다. Windows 환경에서 Base-64로 인코딩된 *.cer* 는 PEM 형식과 동일합니다.
 
 다음 단계를 수행하여 Azure Storage Explorer에서 인증서를 가져옵니다.
 
-1. Azure Storage Explorer에서 Azure Stack API를 대상으로 하는지 확인합니다. **편집 > 대상 Azure Stack API**로 차례로 이동합니다. 메시지가 표시되면 Storage Explorer를 다시 시작하여 변경 내용을 적용합니다.
+1. Azure Storage Explorer에서 Azure Stack API를 대상으로 하는지 확인합니다. **편집 > 대상 Azure Stack API** 로 차례로 이동합니다. 메시지가 표시되면 Storage Explorer를 다시 시작하여 변경 내용을 적용합니다.
 
-2. SSL 인증서를 가져오려면 **편집 > SSL 인증서 > 인증서 가져오기**로 차례로 이동합니다.
+2. SSL 인증서를 가져오려면 **편집 > SSL 인증서 > 인증서 가져오기** 로 차례로 이동합니다.
 
   
    ![Storage Explorer로 인증서 가져오기](./media/azure-stack-edge-j-series-deploy-add-storage-accounts/import-cert-storage-explorer-1.png) 
@@ -159,11 +159,11 @@ Azure Storage Explorer를 사용하여 디바이스의 스토리지 계정에 �
 
 ### <a name="add-device-ip-address-and-blob-service-endpoint"></a>디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가
 
-[*http*를 통해 연결할 때 디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가](#add-device-ip-address-and-blob-service-endpoint-to-the-remote-client)와 동일한 단계를 따릅니다.
+[*http* 를 통해 연결할 때 디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가](#add-device-ip-address-and-blob-service-endpoint-to-the-remote-client)와 동일한 단계를 따릅니다.
 
 ### <a name="configure-and-verify-connection"></a>연결 구성 및 확인
 
-[*http*를 통해 연결하는 동안 사용한 연결을 구성하고 확인](#verify-connection)하는 단계를 수행합니다. 유일한 차이점은 *http 옵션 사용*을 선택하지 않은 상태로 두어야 한다는 것입니다.
+[*http* 를 통해 연결하는 동안 사용한 연결을 구성하고 확인](#verify-connection)하는 단계를 수행합니다. 유일한 차이점은 *http 옵션 사용* 을 선택하지 않은 상태로 두어야 한다는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

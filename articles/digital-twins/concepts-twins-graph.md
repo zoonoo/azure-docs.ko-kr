@@ -7,31 +7,31 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062055"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356406"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
-Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍**로 표시 됩니다. 디지털 쌍은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 쌍에 연결 하 여 쌍 **그래프**를 형성할 수 있습니다 .이 쌍 그래프는 전체 환경에 대 한 표현입니다.
+Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍** 로 표시 됩니다. 디지털 쌍은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 쌍에 연결 하 여 쌍 **그래프** 를 형성할 수 있습니다 .이 쌍 그래프는 전체 환경에 대 한 표현입니다.
 
 > [!TIP]
 > "Azure Digital Twins"는 전체 Azure 서비스를 의미 합니다. "Digital 쌍" 또는 "쌍"은 서비스 인스턴스 내의 개별 쌍 노드를 나타냅니다.
 
-## <a name="digital-twins"></a>디지털 쌍
+## <a name="digital-twins"></a>Digital Twins
 
 Azure Digital Twins 인스턴스에서 디지털 쌍을 만들려면 먼저 서비스에 *모델* 을 업로드 해야 합니다. 모델은 특정 쌍에 포함 될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명 합니다. 모델에 정의 된 정보 유형은 [*개념: 사용자 지정 모델*](concepts-models.md)을 참조 하세요.
 
-모델을 만들고 업로드 한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 디지털 쌍입니다. 예를 들어 *바닥*의 모델을 만든 후이 유형을 사용 하는 하나 또는 여러 개의 디지털 쌍을 만들 수 있습니다 (예: *GroundFloor*이라는 *Floor*쌍, *Floor2*라는 다른 유형의 쌍). 
+모델을 만들고 업로드 한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 디지털 쌍입니다. 예를 들어 *바닥* 의 모델을 만든 후이 유형을 사용 하는 하나 또는 여러 개의 디지털 쌍을 만들 수 있습니다 (예: *GroundFloor* 이라는 *Floor* 쌍, *Floor2* 라는 다른 유형의 쌍). 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>관계: 디지털 쌍의 그래프
 
 Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 있는 관계는 해당 모델의 일부로 정의 됩니다.  
 
-예를 들어 모델 *층* 은 *대화방*형식의 쌍를 대상으로 하는 *포함* 관계를 정의할 수 있습니다. 이 정의를 사용 하 여 Azure Digital 쌍는 모든 *층* 쌍에서 *대화방* 쌍으로의 관계 ( *대화방* 하위 형식의 쌍 포함)를 만들 *수 있습니다.* 
+예를 들어 모델 *층* 은 *대화방* 형식의 쌍를 대상으로 하는 *포함* 관계를 정의할 수 있습니다. 이 정의를 사용 하 여 Azure Digital 쌍는 모든 *층* 쌍에서 *대화방* 쌍으로의 관계 ( *대화방* 하위 형식의 쌍 포함)를 만들 *수 있습니다.* 
 
 이 프로세스의 결과는 그래프의 가장자리 (해당 관계)를 통해 연결 된 노드 (디지털 쌍) 집합입니다.
 
@@ -39,58 +39,39 @@ Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 �
 
 ## <a name="create-with-the-apis"></a>Api를 사용 하 여 만들기
 
-이 섹션에서는 클라이언트 응용 프로그램에서 디지털 쌍 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins api](how-to-use-apis-sdks.md)를 활용 하는 .net 코드 예제를 포함 하 여 이러한 각 개념 내에서 수행 되는 작업에 대 한 추가 컨텍스트를 제공 합니다.
+이 섹션에서는 클라이언트 응용 프로그램에서 디지털 쌍 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins api](/rest/api/digital-twins/dataplane/twins)를 활용 하는 .net 코드 예제를 포함 하 여 이러한 각 개념 내에서 수행 되는 작업에 대 한 추가 컨텍스트를 제공 합니다.
 
 ### <a name="create-digital-twins"></a>디지털 트윈 만들기
 
-다음은 [DigitalTwins api](how-to-use-apis-sdks.md) 를 사용 하 여 *대화방*형식의 쌍을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
+다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *대화방* 형식의 쌍을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
 
-Azure Digital Twins의 현재 미리 보기에서 쌍을 만들려면 쌍의 모든 속성을 초기화 해야 합니다. 이 작업은 필요한 초기화 값을 제공 하는 JSON 문서를 만들어 수행 합니다.
+쌍을 만들 때 쌍의 속성을 초기화 하거나 나중에 설정할 수 있습니다. 초기화 된 속성이 있는 쌍을 만들려면 필요한 초기화 값을 제공 하는 JSON 문서를 만듭니다.
 
-```csharp
-public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
-{
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-    {
-      { "$model", "dtmi:com:contoso:Room;2" }
-    };
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-    {
-      { "$metadata", meta },
-      { "Temperature", temperature},
-      { "Humidity", humidity},
-    };
-    try
-    {
-      await client.DigitalTwins.AddAsync(id, initData);
-      return true;
-    }
-    catch (ErrorResponseException e)
-    {
-      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
-      return false;
-    }
-}
-```
+[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+
+사전을 사용 하는 대신, 라는 도우미 클래스를 사용 `BasicDigitalTwin` 하 여 "쌍" 개체에 속성 필드를 더 직접 저장할 수도 있습니다. 도우미 클래스 및 사용 예제에 대 한 자세한 내용은 *방법: 디지털* 쌍 관리 [*섹션을*](how-to-manage-twin.md#create-a-digital-twin) 참조 하세요.
+
+>[!NOTE]
+>쌍 속성은 선택적으로 처리 되므로 초기화할 필요가 없습니다. 쌍을 만들 때 쌍의 모든 [구성 요소](concepts-models.md#elements-of-a-model) 를 **설정 해야 합니다** . 비어 있는 개체 일 수 있지만 구성 요소 자체는 존재 해야 합니다.
 
 ### <a name="create-relationships"></a>관계 만들기
 
-다음은 [DigitalTwins api](how-to-use-apis-sdks.md) 를 사용 하 여 *GroundFloor* 라는 *바닥*형식의 디지털 쌍과 *Cafe*라는 *방*형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
+다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *GroundFloor* 라는 *바닥* 형식의 디지털 쌍과 *Cafe* 라는 *방* 형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
 await CreateRoom("Cafe", 70, 66);
 await CreateFloor("GroundFloor", averageTemperature=70);
 // Create relationships
-Dictionary<string, object> targetrec = new Dictionary<string, object>()
+var relationship = new BasicRelationship
 {
-    { "$targetId", "Cafe" }
+    TargetId = "Cafe",
+    Name = "contains"
 };
 try
 {
-    await client.DigitalTwins.AddEdgeAsync("GroundFloor", "contains", "GF-to-Cafe", targetrec);
+    string relId = $"GroundFloor-contains-Cafe";
+    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
@@ -109,18 +90,18 @@ JSON 개체로 표시 되는 경우 디지털 쌍은 다음 필드를 표시 합
 | --- | --- |
 | `$dtId` | 디지털 쌍의 ID를 나타내는 사용자 제공 문자열입니다. |
 | `$etag` | 웹 서버에서 할당 한 표준 HTTP 필드 |
-| `$conformance` | 이 디지털 쌍의 규칙 상태를 포함 하는 열거형입니다 (*준수*, 일치 *하지 않음*, *알 수 없음*). |
+| `$conformance` | 이 디지털 쌍의 규칙 상태를 포함 하는 열거형입니다 ( *준수* , 일치 *하지 않음* , *알 수 없음* ). |
 | `{propertyName}` | JSON ( `string` , number 형식 또는 object)의 속성 값입니다. |
 | `$relationships` | 관계 컬렉션에 대 한 경로 URL입니다. 디지털 쌍에 나가는 관계 가장자리가 없으면이 필드가 없습니다. |
 | `$metadata.$model` | 필드 이 디지털 쌍의 특징을 나타내는 모델 인터페이스의 ID입니다. |
 | `$metadata.{propertyName}.desiredValue` | [쓰기 가능한 속성에만 해당] 지정 된 속성의 원하는 값입니다. |
 | `$metadata.{propertyName}.desiredVersion` | [쓰기 가능한 속성에만 해당] 원하는 값의 버전입니다. |
 | `$metadata.{propertyName}.ackVersion` | 디지털 쌍을 구현 하는 장치 앱에서 인정 하는 버전 |
-| `$metadata.{propertyName}.ackCode` | [쓰기 가능한 속성에만 해당] `ack`디지털 쌍을 구현 하는 장치 앱에서 반환 된 코드 |
-| `$metadata.{propertyName}.ackDescription` | [쓰기 가능한 속성에만 해당] `ack`디지털 쌍을 구현 하는 장치 앱에서 반환 하는 설명입니다. |
+| `$metadata.{propertyName}.ackCode` | [쓰기 가능한 속성에만 해당] `ack` 디지털 쌍을 구현 하는 장치 앱에서 반환 된 코드 |
+| `$metadata.{propertyName}.ackDescription` | [쓰기 가능한 속성에만 해당] `ack` 디지털 쌍을 구현 하는 장치 앱에서 반환 하는 설명입니다. |
 | `{componentName}` | 루트 개체의 속성 값과 메타 데이터를 포함 하는 JSON 개체입니다. 이 개체는 구성 요소에 속성이 없는 경우에도 존재 합니다. |
 | `{componentName}.{propertyName}` | JSON의 구성 요소 속성 값 ( `string` , 숫자 형식 또는 개체)입니다. |
-| `{componentName}.$metadata` | 루트 수준과 비슷한 구성 요소에 대 한 메타 데이터 정보입니다.`$metadata` |
+| `{componentName}.$metadata` | 루트 수준과 비슷한 구성 요소에 대 한 메타 데이터 정보입니다. `$metadata` |
 
 JSON 개체로 형식이 지정 된 디지털 쌍의 예는 다음과 같습니다.
 

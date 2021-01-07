@@ -3,12 +3,12 @@ title: Azure Service Bus FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894525"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022145"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
@@ -41,17 +41,23 @@ Azure Service Bus 고객 데이터를 저장 합니다. 이 데이터는 Service
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.
 
-- AMQP(고급 메시지 큐 프로토콜)
-- SBMP(Service Bus 메시징 프로토콜)
-- HTTP
+- 고급 메시지 큐 프로토콜 1.0 (AMQP)
+- TLS (HTTPS)를 사용한 하이퍼텍스트 전송 프로토콜 1.1
 
-이러한 프로토콜을 사용하여 Azure Event Hubs와 통신하기 위해 열어야 하는 아웃바운드 포트는 다음 표를 참조하세요. 
+이러한 프로토콜을 사용 하 여 Azure Service Bus와 통신 하기 위해 열어야 하는 아웃 바운드 TCP 포트는 다음 표를 참조 하세요.
 
 | 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 및 5672 | [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md)를 참조하세요. | 
-| SBMP | 9350 ~ 9354 | [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) 를 참조 하세요. |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | TLS를 사용 하는 AMQP [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md)를 참조하세요. | 
+| HTTPS | 443 | 이 포트는 HTTP/REST API 및 AMQP over Websocket에 사용 됩니다. |
+
+HTTPS 포트는 일반적으로 포트 5671을 통해 AMQP를 사용 하는 경우, 클라이언트 Sdk에서 수행 하는 여러 관리 작업 및 Azure Active Directory (사용 되는 경우)에서 토큰을 획득 하 여 HTTPS를 통해 실행 되는 경우에도 아웃 바운드 통신에 필요 합니다. 
+
+공식 Azure Sdk는 일반적으로 Service Bus에서 메시지를 보내고 받기 위해 AMQP 프로토콜을 사용 합니다. 
+
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
+.NET Framework에 대 한 이전 Windowsazure.servicebus ServiceBus 패키지에는 "NetMessaging"이 라고도 하는 레거시 "SBMP" (Service Bus Messaging Protocol)를 사용 하는 옵션이 있습니다. 이 프로토콜은 TCP 포트 9350-9354를 사용 합니다. 이 패키지의 기본 모드는 해당 포트가 통신에 사용할 수 있는지 여부를 자동으로 감지 하 고, 그렇지 않은 경우 포트 443을 통해 TLS를 사용 하는 Websocket로 전환 합니다. `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) 응용 프로그램에 전역적으로 적용 되는 설정에 대해 하도록 connectivitymode.autodetect 지정할를 설정 하 여이 설정을 재정의 하 고이 모드를 적용할 수 있습니다.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>허용 목록에 추가 해야 하는 IP 주소는 무엇 인가요?
 연결에 대 한 허용 목록에 추가할 올바른 IP 주소를 찾으려면 다음 단계를 수행 합니다.
@@ -83,7 +89,7 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
     > 명령에서 반환 된 IP 주소는 `nslookup` 고정 ip 주소가 아닙니다. 그러나 기본 배포가 삭제 되거나 다른 클러스터로 이동 될 때까지 일정 하 게 유지 됩니다.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>네임 스페이스에서 메시지를 보내고 받는 클라이언트의 IP 주소는 어디에서 찾을 수 있나요? 
-네임 스페이스에서 메시지를 보내거나 받는 클라이언트의 IP 주소를 기록 하지 않습니다. 키를 다시 생성 하 여 모든 기존 클라이언트가 인증에 실패 하 고 허용 되는 사용자 또는 응용 프로그램만이 네임 스페이스에 액세스할 수 있도록[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)(역할 기반 액세스 제어) 설정을 검토 합니다. 
+네임 스페이스에서 메시지를 보내거나 받는 클라이언트의 IP 주소를 기록 하지 않습니다. 키를 다시 생성 하 여 모든 기존 클라이언트가 인증에 실패 하 고 [AZURE RBAC (역할 기반 액세스 제어](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) 설정을 검토 하 여 허용 된 사용자나 응용 프로그램만 네임 스페이스에 액세스할 수 있도록 합니다. 
 
 **프리미엄** 네임 스페이스를 사용 하는 경우 [IP 필터링](service-bus-ip-filtering.md), [가상 네트워크 서비스 끝점](service-bus-service-endpoints.md)및 [개인 끝점](private-link-service.md) 을 사용 하 여 네임 스페이스에 대 한 액세스를 제한 합니다. 
 

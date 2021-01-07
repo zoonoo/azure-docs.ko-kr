@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600724"
 ---
 # <a name="start-using-privileged-identity-management"></a>Privileged Identity Management 사용 시작
@@ -27,7 +27,7 @@ ms.locfileid: "90600724"
 
 PIM (Privileged Identity Management)을 사용 하 여 Azure Active Directory (Azure AD) 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. PIM을 사용 하면 Azure 리소스, Azure AD 리소스 및 Microsoft 365 또는 Microsoft Intune와 같은 기타 Microsoft 온라인 서비스에 필요에 따라 액세스를 제공할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Privileged Identity Management를 사용 하려면 다음 라이선스 중 하나가 있어야 합니다.
 
@@ -67,7 +67,7 @@ Privileged Identity Management 설정 된 후에는 방법을 배울 수 있습�
 
 ![작업 및 관리 옵션을 보여 주는 Privileged Identity Management의 탐색 창](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| 작업 + 관리 | Description |
+| 작업 + 관리 | 설명 |
 | --- | --- |
 | **내 역할**  | 사용자에게 할당된 적격 및 활성 역할의 목록을 표시합니다. 여기서 할당된 적합한 역할을 활성화할 수 있습니다. |
 | **내 요청** | 적격 역할 할당을 활성화할 보류 중인 요청을 표시합니다. |

@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 4a9aaca8128570af74370213e9848e26dec25156
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: bf40353a8f29200ab2a33859473dbc504c29bf7d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89490261"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510437"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>PowerShell을 통해 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 **Azure SQL Database에서 Azure Synapse Analytics(이전의 SQL Data Warehouse)로 여러 테이블을 복사**하는 방법을 보여줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
+이 자습서에서는 **Azure SQL Database에서 Azure Synapse Analytics로 여러 테이블을 복사** 하는 방법을 보여줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
 
 이 자습서에서 수행하는 단계는 대략적으로 다음과 같습니다.
 
@@ -69,15 +69,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="azure-services-to-access-sql-server"></a>SQL 서버에 액세스하는 Azure 서비스
 
-SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 SQL 서버에 액세스할 수 있도록 허용합니다. 서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 **켜기**로 지정되었는지 확인합니다. 이 설정을 사용하면 Data Factory 서비스에서 Azure SQL Database로부터 데이터를 읽고, Azure Synapse Analytics에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
+SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 SQL 서버에 액세스할 수 있도록 허용합니다. 서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정이 **켜기** 로 지정되었는지 확인합니다. 이 설정을 사용하면 Data Factory 서비스에서 Azure SQL Database로부터 데이터를 읽고, Azure Synapse Analytics에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
-1. 왼쪽에서 **모든 서비스**를 클릭하고 **SQL 서버**를 클릭합니다.
-2. 서버를 선택하고 **설정** 아래의 **방화벽**을 클릭합니다.
-3. **방화벽 설정** 페이지에서 **Azure 서비스에 대한 액세스 허용**에 대해 **켜기**를 클릭합니다.
+1. 왼쪽에서 **모든 서비스** 를 클릭하고 **SQL 서버** 를 클릭합니다.
+2. 서버를 선택하고 **설정** 아래의 **방화벽** 을 클릭합니다.
+3. **방화벽 설정** 페이지에서 **Azure 서비스에 대한 액세스 허용** 에 대해 **켜기** 를 클릭합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. **PowerShell**을 시작합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
+1. **PowerShell** 을 시작합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
 
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
         
@@ -89,7 +89,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     ```powershell
     Get-AzSubscription
     ```
-    다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
+    다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId** 를 Azure 구독의 ID로 바꿉니다.
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
@@ -111,7 +111,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
         ```
 
     * Data Factory 인스턴스를 만들려면 Azure 구독의 참가자 또는 관리자여야 합니다.
-    * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+    * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
@@ -119,7 +119,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>원본 Azure SQL Database 연결된 서비스 만들기
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. (아직 없는 경우 ADFv2TutorialBulkCopy 폴더를 만듭니다.)
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseLinkedService.json** 이라는 JSON 파일을 만듭니다. (아직 없는 경우 ADFv2TutorialBulkCopy 폴더를 만듭니다.)
 
     > [!IMPORTANT]
     > 파일을 저장하기 전에 &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; 및 &lt;password&gt;를 Azure SQL Database의 값으로 바꿉니다.
@@ -136,7 +136,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     }
     ```
 
-2. **Azure PowerShell**에서 **ADFv2TutorialBulkCopy** 폴더로 전환합니다.
+2. **Azure PowerShell** 에서 **ADFv2TutorialBulkCopy** 폴더로 전환합니다.
 
 3. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 연결된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService** 연결된 서비스를 만듭니다. 
 
@@ -146,7 +146,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDatabaseLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -155,7 +155,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 ### <a name="create-the-sink-azure-synapse-analytics-linked-service"></a>싱크 Azure Synapse Analytics 연결 서비스 만들기
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDWLinkedService.json**이라는 JSON 파일을 만듭니다.
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDWLinkedService.json** 이라는 JSON 파일을 만듭니다.
 
     > [!IMPORTANT]
     > 파일을 저장하기 전에 &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; 및 &lt;password&gt;를 Azure SQL Database의 값으로 바꿉니다.
@@ -172,7 +172,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     }
     ```
 
-2. 연결된 서비스 **AzureSqlDWLinkedService**를 만들려면 **Set-AzDataFactoryV2LinkedService** cmdlet을 실행합니다.
+2. 연결된 서비스 **AzureSqlDWLinkedService** 를 만들려면 **Set-AzDataFactoryV2LinkedService** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
@@ -180,7 +180,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     LinkedServiceName : AzureSqlDWLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -191,7 +191,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 이 자습서에서는 더 나은 복사 성능을 위해 Azure Blob Storage를 중간 스테이징 영역으로 사용하여 PolyBase를 사용할 수 있게 합니다.
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 만듭니다.
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureStorageLinkedService.json** 이라는 JSON 파일을 만듭니다.
 
     > [!IMPORTANT]
     > 파일을 저장하기 전에 &lt;accountName&gt;과 &lt;accountKey&gt;를 Azure Storage 계정의 이름과 키로 바꿉니다.
@@ -208,7 +208,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     }
     ```
 
-2. 연결된 서비스 **AzureStorageLinkedService**를 만들려면 **Set-AzDataFactoryV2LinkedService** cmdlet을 실행합니다.
+2. 연결된 서비스 **AzureStorageLinkedService** 를 만들려면 **Set-AzDataFactoryV2LinkedService** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -216,7 +216,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -229,7 +229,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 세트 만들기
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseDataset.json**이라는 JSON 파일을 만듭니다. "tableName"은 나중의 복사 작업에서 SQL 쿼리를 사용하여 데이터를 검색할 때의 더미 데이터입니다.
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseDataset.json** 이라는 JSON 파일을 만듭니다. "tableName"은 나중의 복사 작업에서 SQL 쿼리를 사용하여 데이터를 검색할 때의 더미 데이터입니다.
 
     ```json
     {
@@ -247,7 +247,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     }
     ```
 
-2. 데이터 세트 **AzureSqlDatabaseDataset**를 만들려면 **Set-AzDataFactoryV2Dataset** cmdlet을 실행합니다.
+2. 데이터 세트 **AzureSqlDatabaseDataset** 를 만들려면 **Set-AzDataFactoryV2Dataset** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -255,7 +255,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDatabaseDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -263,9 +263,9 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-sink-synapse-analytics"></a>싱크 Synapse Analytics에 대한 데이터 세트 만들기
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics"></a>싱크 Azure Synapse Analytics에 대한 데이터 세트 만들기
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDWDataset.json**이라는 JSON 파일을 만듭니다. “tableName”이 매개 변수로 설정되면 나중에 이 데이터 세트를 참조하는 복사 작업이 실제 값을 데이터 세트로 전달합니다.
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDWDataset.json** 이라는 JSON 파일을 만듭니다. “tableName”이 매개 변수로 설정되면 나중에 이 데이터 세트를 참조하는 복사 작업이 실제 값을 데이터 세트로 전달합니다.
 
     ```json
     {
@@ -291,7 +291,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     }
     ```
 
-2. 데이터 세트 **AzureSqlDWDataset**을 만들려면 **Set-AzDataFactoryV2Dataset** cmdlet을 실행합니다.
+2. 데이터 세트 **AzureSqlDWDataset** 을 만들려면 **Set-AzDataFactoryV2Dataset** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -299,7 +299,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     DatasetName       : AzureSqlDWDataset
     ResourceGroupName : <resourceGroupname>
     DataFactoryName   : <dataFactoryName>
@@ -315,7 +315,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 이 파이프라인에서는 테이블 목록을 매개 변수로 사용합니다. 목록의 각 테이블에 대해 스테이징된 복사 및 PolyBase를 사용하여 데이터를 Azure SQL Database의 테이블에서 Azure Synapse Analytics로 복사합니다.
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **IterateAndCopySQLTables.json**이라는 JSON 파일을 만듭니다.
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **IterateAndCopySQLTables.json** 이라는 JSON 파일을 만듭니다.
 
     ```json
     {
@@ -383,7 +383,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     }
     ```
 
-2. 파이프라인 **IterateAndCopySQLTables**를 만들려면 **Set-AzDataFactoryV2Pipeline** cmdlet을 실행합니다.
+2. 파이프라인 **IterateAndCopySQLTables** 를 만들려면 **Set-AzDataFactoryV2Pipeline** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
@@ -391,7 +391,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     PipelineName      : IterateAndCopySQLTables
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -406,7 +406,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 * Azure SQL Database 시스템 테이블을 찾아 복사할 테이블의 목록을 가져옵니다.
 * "IterateAndCopySQLTables" 파이프라인을 트리거하여 실제 데이터 복사를 수행합니다.
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **GetTableListAndTriggerCopyData.json**이라는 JSON 파일을 만듭니다.
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **GetTableListAndTriggerCopyData.json** 이라는 JSON 파일을 만듭니다.
 
     ```json
     {
@@ -459,7 +459,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     }
     ```
 
-2. 파이프라인 **GetTableListAndTriggerCopyData**를 만들려면 **Set-AzDataFactoryV2Pipeline** cmdlet을 실행합니다.
+2. 파이프라인 **GetTableListAndTriggerCopyData** 를 만들려면 **Set-AzDataFactoryV2Pipeline** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
@@ -467,7 +467,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     PipelineName      : GetTableListAndTriggerCopyData
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -509,7 +509,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     샘플 실행의 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>

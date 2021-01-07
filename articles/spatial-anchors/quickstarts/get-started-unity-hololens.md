@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Unity를 사용하여 HoloLens 앱 만들기'
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 Unity 지원 HoloLens 앱을 빌드하는 방법을 알아봅니다.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d5a5d7ec07587b20a8a6285deafa6215db990a5
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 11d8e8d918b408881f211605ce6c713615f0aa93
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810380"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022635"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 
@@ -34,9 +34,9 @@ ms.locfileid: "87810380"
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 - Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4(LTS)</a> 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 이상이 설치되어 있어야 합니다. Visual Studio 설치에는 **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소가 포함되어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 설치해야 합니다.
-- [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스가 필요합니다. 디바이스에 [Windows 10 2018년 10월 업데이트](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018)(RS5라고도 함)가 설치되어 있어야 합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인**을 선택합니다.
-- 앱에서 **SpatialPerception** 기능을 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **게시 설정** > **기능**에 있습니다.
-- 앱에서 **Windows Mixed Reality SDK**의 **Virtual Reality Supported**(가상 현실 지원)를 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **XR 설정**에 있습니다.
+- [개발자 모드](/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스가 필요합니다. [Windows 10 2020년 5월 업데이트](/windows/mixed-reality/whats-new/release-notes-may-2020)가 디바이스에 설치되어 있어야 합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안** 으로 이동한 다음, **업데이트 확인** 을 선택합니다.
+- 앱에서 **SpatialPerception** 기능을 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **게시 설정** > **기능** 에 있습니다.
+- 앱에서 **Windows Mixed Reality SDK** 의 **Virtual Reality Supported**(가상 현실 지원)를 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **XR 설정** 에 있습니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -46,11 +46,11 @@ ms.locfileid: "87810380"
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
-**파일** > **빌드 설정**을 선택하여 **빌드 설정**을 엽니다.
+**파일** > **빌드 설정** 을 선택하여 **빌드 설정** 을 엽니다.
 
-**플랫폼** 섹션에서 **유니버설 Windows 플랫폼**을 선택합니다. **대상 디바이스**를 **HoloLens**로 변경합니다.
+**플랫폼** 섹션에서 **유니버설 Windows 플랫폼** 을 선택합니다. **대상 디바이스** 를 **HoloLens** 로 변경합니다.
 
-**플랫폼 전환**을 선택하여 플랫폼을 **유니버설 Windows 플랫폼**으로 변경합니다. UWP 지원 구성 요소가 누락된 경우 Unity가 이러한 구성 요소를 설치하라고 요청할 수 있습니다.
+**플랫폼 전환** 을 선택하여 플랫폼을 **유니버설 Windows 플랫폼** 으로 변경합니다. UWP 지원 구성 요소가 누락된 경우 Unity가 이러한 구성 요소를 설치하라고 요청할 수 있습니다.
 
 ![Unity 빌드 설정 창](./media/get-started-unity-hololens/unity-build-settings.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "87810380"
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-**빌드**를 선택합니다. 대화 상자에서 HoloLens Visual Studio 프로젝트를 내보낼 폴더를 선택합니다.
+**빌드** 를 선택합니다. 대화 상자에서 HoloLens Visual Studio 프로젝트를 내보낼 폴더를 선택합니다.
 
 내보내기가 완료되면 내보낸 HoloLens 프로젝트가 포함된 폴더가 표시됩니다.
 
@@ -70,19 +70,24 @@ ms.locfileid: "87810380"
 
 이 폴더의 **HelloAR U3D.sln** 파일을 두 번 클릭하여 Visual Studio에서 프로젝트를 엽니다.
 
-**솔루션 구성**을 **릴리스**로 변경하고, **솔루션 플랫폼**을 **x86**으로 변경하고, 배포 대상 옵션에서 **디바이스**를 선택합니다.
+**솔루션 구성** 을 **릴리스** 로 변경하고, **솔루션 플랫폼** 을 **x86** 으로 변경하고, 배포 대상 옵션에서 **디바이스** 를 선택합니다.
 
-HoloLens 2를 사용하는 경우 **x86** 대신 **ARM64**을 **솔루션 플랫폼**으로 사용합니다.
+HoloLens 2를 사용하는 경우 **x86** 대신 **ARM64** 을 **솔루션 플랫폼** 으로 사용합니다.
 
    ![Visual Studio 구성](./media/get-started-unity-hololens/visual-studio-configuration.png)
 
 HoloLens 디바이스를 켜고, 로그인하고, USB 케이블을 사용하여 디바이스를 PC에 연결합니다.
 
-**디버그** > **디버깅 시작**을 선택하여 앱을 배포하고 디버깅을 시작합니다.
+**디버그** > **디버깅 시작** 을 선택하여 앱을 배포하고 디버깅을 시작합니다.
 
-앱의 지침에 따라 앵커를 배치하고 회수합니다.
+앱에서 화살표를 사용하여 **BasicDemo** 를 선택한 다음, **Go!** 를 누릅니다. 데모를 실행하는 단추입니다. 지침에 따라 앵커를 배치하고 회수합니다.
 
-Visual Studio에서 **디버깅 중지**를 선택하거나 Shift+F5 키를 눌러 앱을 중지합니다.
+![스크린샷 1](./media/get-started-unity-hololens/screenshot-1.jpg)
+![스크린샷 2](./media/get-started-unity-hololens/screenshot-2.jpg)
+![스크린샷 3](./media/get-started-unity-hololens/screenshot-3.jpg)
+![스크린샷 4](./media/get-started-unity-hololens/screenshot-4.jpg)
+
+Visual Studio에서 **디버깅 중지** 를 선택하거나 Shift+F5 키를 눌러 앱을 중지합니다.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

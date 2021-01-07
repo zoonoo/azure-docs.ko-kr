@@ -7,30 +7,30 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d528ff41d8b7098e313e070dfe734960cdc89eaa
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827531"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344150"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
-보안을 위해 Azure Digital Twins를 사용 하면 배포의 특정 데이터, 리소스 및 작업에 대 한 정확한 액세스를 제어할 수 있습니다. 이를 위해 **RBAC (역할 기반 액세스 제어)** 라고 하는 세분화 된 역할 및 권한 관리 전략을 통해이를 수행 합니다. [여기](../role-based-access-control/overview.md)에서 Azure에 대 한 RBAC의 일반적인 원칙에 대해 알아볼 수 있습니다.
+보안을 위해 Azure Digital Twins를 사용 하면 배포의 특정 데이터, 리소스 및 작업에 대 한 정확한 액세스를 제어할 수 있습니다. Azure **RBAC (역할 기반 액세스 제어)** 라고 하는 세분화 된 역할 및 권한 관리 전략을 통해이를 수행 합니다. Azure RBAC의 일반적인 원칙에 대 한 자세한 내용은 [여기](../role-based-access-control/overview.md)를 참조 하세요.
 
 또한 Azure Digital Twins는 미사용 데이터의 암호화를 지원 합니다.
 
-## <a name="granting-permissions-with-rbac"></a>RBAC를 사용 하 여 권한 부여
+## <a name="roles-and-permissions-with-azure-rbac"></a>Azure RBAC를 사용 하 여 역할 및 사용 권한
 
-RBAC는 azure AD ( [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) )와의 통합을 통해 Azure Digital twins에 제공 됩니다.
+Azure RBAC는 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (azure AD)와의 통합을 통해 Azure Digital twins에 제공 됩니다.
 
-RBAC를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 *보안 주체*에 권한을 부여할 수 있습니다. 보안 주체는 Azure AD에서 인증 되며 반환에서 OAuth 2.0 토큰을 받습니다. 이 토큰은 Azure Digital Twins 인스턴스에 대 한 액세스 요청에 권한을 부여 하는 데 사용할 수 있습니다.
+Azure RBAC를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 *보안 주체* 에 권한을 부여할 수 있습니다. 보안 주체는 Azure AD에서 인증 되며 반환에서 OAuth 2.0 토큰을 받습니다. 이 토큰은 Azure Digital Twins 인스턴스에 대 한 액세스 요청에 권한을 부여 하는 데 사용할 수 있습니다.
 
 ### <a name="authentication-and-authorization"></a>인증 및 권한 부여
 
-Azure AD를 사용 하 여 액세스는 2 단계 프로세스로 진행 됩니다. 보안 주체 (사용자, 그룹 또는 응용 프로그램)가 Azure Digital Twins에 액세스를 시도 하는 경우 요청을 *인증* 하 고 *권한을 부여*해야 합니다. 
+Azure AD를 사용 하 여 액세스는 2 단계 프로세스로 진행 됩니다. 보안 주체 (사용자, 그룹 또는 응용 프로그램)가 Azure Digital Twins에 액세스를 시도 하는 경우 요청을 *인증* 하 고 *권한을 부여* 해야 합니다. 
 
-1. 먼저, 보안 주체의 id가 *인증*되 고 OAuth 2.0 토큰이 반환 됩니다.
+1. 먼저, 보안 주체의 id가 *인증* 되 고 OAuth 2.0 토큰이 반환 됩니다.
 2. 그런 다음 토큰은 지정 된 리소스에 대 한 액세스 *권한을 부여* 하기 위해 Azure Digital twins 서비스에 대 한 요청의 일부로 전달 됩니다.
 
 인증 단계에는 런타임에 OAuth 2.0 액세스 토큰을 포함 하는 응용 프로그램 요청이 필요 합니다. 응용 프로그램이 [Azure Functions](../azure-functions/functions-overview.md) 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 **관리 id** 를 사용 하 여 리소스에 액세스할 수 있습니다. 관리 되는 id에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
@@ -47,20 +47,32 @@ Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용�
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>권한 부여: Azure Digital Twins의 Azure 역할
 
-Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하는 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
-* *Azure 디지털 쌍 소유자 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 모든 권한을 부여 합니다.
-* *Azure Digital Twins 판독기 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
+Azure는 Azure Digital Twins [데이터 평면 api](how-to-use-apis-sdks.md#overview-data-plane-apis)에 대 한 액세스 권한을 부여 하기 위한 **두 개의 azure 기본 제공 역할** 을 제공 합니다. 이름 또는 ID를 기준으로 역할을 참조할 수 있습니다.
 
-> [!TIP]
-> *Azure Digital Twins 판독기 (미리 보기)* 역할은 이제 검색 관계도 지원 합니다.
+| 기본 제공 역할 | Description | ID | 
+| --- | --- | --- |
+| Azure Digital Twins 데이터 소유자 | Azure Digital Twins 리소스에 대 한 모든 권한을 제공 합니다. | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Azure Digital Twins 데이터 판독기 | Azure Digital Twins 리소스에 대 한 읽기 전용 액세스를 제공 합니다. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
-기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 Azure RBAC 설명서의 [*역할 정의 이해*](../role-based-access-control/role-definitions.md) 를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [*azure 사용자 지정 역할*](../role-based-access-control/custom-roles.md)을 참조 하세요.
+>[!NOTE]
+> 이러한 역할은 최근에 미리 보기의 이전 이름에서 이름이 변경 되었습니다.
+> * *Azure Digital Twins 데이터 소유자* 는 이전에 *Azure Digital Twins 소유자(미리 보기)* 였습니다.
+> * *Azure Digital Twins 데이터 판독기* 는 이전에 *Azure 디지털 쌍 판독기 (미리 보기)* 였습니다.
 
 다음 두 가지 방법으로 역할을 할당할 수 있습니다.
-* Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*AZURE RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거*](../role-based-access-control/role-assignments-portal.md)참조)
+* Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*Azure Portal를 사용 하 여 azure 역할 할당 추가 또는 제거*](../role-based-access-control/role-assignments-portal.md)참조)
 * CLI 명령을 통해 역할 추가 또는 제거
 
 이 작업을 수행 하는 방법에 대 한 자세한 단계는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 사용해 보세요.
+
+기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 Azure RBAC 설명서의 [*역할 정의 이해*](../role-based-access-control/role-definitions.md) 를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [*azure 사용자 지정 역할*](../role-based-access-control/custom-roles.md)을 참조 하세요.
+
+##### <a name="automating-roles"></a>역할 자동화
+
+자동화 된 시나리오에서 역할을 참조 하는 경우 이름 대신 **id** 를 참조 하는 것이 좋습니다. 이름은 릴리스 사이에서 변경 될 수 있지만 Id는 더 안정적이 지 않으므로 자동화에서 참조할 수 없습니다.
+
+> [!TIP]
+> (참조)와 같은 cmdlet을 사용 하 여 역할을 assiging 하는 경우 대신 `New-AzRoleAssignment` 매개 변수를 사용 하 여[reference](/powershell/module/az.resources/new-azroleassignment) `-RoleDefinitionId` `-RoleDefinitionName` 역할에 대 한 이름 대신 ID를 전달할 수 있습니다.
 
 ### <a name="permission-scopes"></a>사용 권한 범위
 
@@ -77,14 +89,48 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 사용자가 해당 역할에서 허용 하지 않는 작업을 수행 하려고 하면 서비스 요청 읽기에서 오류가 발생할 수 있습니다 `403 (Forbidden)` . 자세한 내용 및 문제 해결 단계는 [*문제 해결: Azure 디지털 Twins 요청 실패 상태: 403 (사용할 수 없음)*](troubleshoot-error-403.md)을 참조 하세요.
 
+## <a name="service-tags"></a>서비스 태그
+
+**서비스 태그** 는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대 한 자세한 내용은  [*Virtual network 태그*](../virtual-network/service-tags-overview.md)를 참조 하세요. 
+
+ [network security groups](../virtual-network/network-security-groups-overview.md#security-rules)   보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의 하는 데 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 *원본* 또는 대상 필드에서 서비스 태그 이름 (이 경우 **AzureDigitalTwins**)을 지정 하 여    *destination*   해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 
+
+**AzureDigitalTwins** service 태그의 세부 정보는 다음과 같습니다.
+
+| 태그 | 목적 | 인바운드 또는 아웃 바운드를 사용할 수 있나요? | 지역 범위를 지원할 수 있나요? | Azure Firewall에서 사용할 수 있나요? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Azure Digital Twins<br>참고:이 태그 또는이 태그에 포함 된 IP 주소는 [이벤트 경로](concepts-route-events.md)에 대해 구성 된 끝점에 대 한 액세스를 제한 하는 데 사용할 수 있습니다. | 인바운드 | 예 | 예 |
+
+### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>서비스 태그를 사용 하 여 이벤트 경로 끝점 액세스 
+
+Azure Digital Twins에서 서비스 태그를 사용 하 여 [이벤트 경로](concepts-route-events.md) 끝점에 액세스 하는 단계는 다음과 같습니다.
+
+1. 먼저 Azure ip 범위 및 서비스 태그를 표시 하는이 JSON 파일 참조를 다운로드 합니다 ( [*AZURE Ip 범위 및 서비스 태그*](https://www.microsoft.com/download/details.aspx?id=56519)). 
+
+2. JSON 파일에서 "AzureDigitalTwins" IP 범위를 찾습니다.  
+
+3. 해당 리소스에 대 한 IP 필터를 설정 하는 방법을 보려면 끝점에 연결 된 외부 리소스의 설명서 (예: [Event Grid](../event-grid/overview.md), [이벤트 허브](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)또는 [배달 못한 편지 이벤트](concepts-route-events.md#dead-letter-events) [Azure Storage](../storage/blobs/storage-blobs-overview.md) )를 참조 하세요.
+
+4. *2 단계의* ip 범위를 사용 하 여 외부 리소스에 대 한 ip 필터를 설정 합니다.  
+
+5. 필요에 따라 주기적으로 IP 범위를 업데이트 합니다. 범위는 시간이 지남에 따라 변경 될 수 있으므로 정기적으로 확인 하 고 필요할 때 새로 고치는 것이 좋습니다. 이러한 업데이트의 빈도는 달라질 수 있지만 매주 한 번 확인 하는 것이 좋습니다.
+
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 
 Azure Digital Twins는 데이터 센터에서 기록 되는 미사용 데이터 및 전송 중인 데이터의 암호화를 제공 하 고 사용자가 액세스할 때 암호를 해독 합니다. 이 암호화는 Microsoft 관리 암호화 키를 사용 하 여 수행 됩니다.
 
+## <a name="cross-origin-resource-sharing-cors"></a>CORS(크로스-원본 자원 공유)
+
+Azure Digital Twins는 현재 **CORS (크로스-원본 자원 공유)** 를 지원 하지 않습니다. 따라서 브라우저 앱, [API Management (APIM)](../api-management/api-management-key-concepts.md) 인터페이스 또는 [Power Apps](/powerapps/powerapps-overview) 커넥터에서 REST API를 호출 하는 경우 정책 오류가 표시 될 수 있습니다.
+
+이 오류를 해결 하려면 다음 중 하나를 수행 하면 됩니다.
+* 메시지에서 CORS 헤더를 제거 합니다 `Access-Control-Allow-Origin` . 이 헤더는 응답을 공유할 수 있는지 여부를 나타냅니다. 
+* 또는 CORS 프록시를 만들고 Azure Digital Twins에서 요청을 REST API 요청 합니다. 
+
 ## <a name="next-steps"></a>다음 단계
 
-* [*방법: 인스턴스 및 인증 설정에서 수행 하는*](how-to-set-up-instance-scripted.md)이러한 개념을 참조 하세요.
+* [*방법: 인스턴스 및 인증 설정에서 수행 하는*](how-to-set-up-instance-portal.md)이러한 개념을 참조 하세요.
 
 * [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)의 클라이언트 응용 프로그램 코드에서 이러한 개념과 상호 작용 하는 방법을 참조 하세요.
 
-* [Azure 용 RBAC](../role-based-access-control/overview.md)에 대해 자세히 알아보세요.
+* [AZURE RBAC](../role-based-access-control/overview.md)에 대해 자세히 알아보세요.

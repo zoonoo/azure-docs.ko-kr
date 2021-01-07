@@ -2,7 +2,7 @@
 title: Azure Active Directory Domain Services 상태 확인 | Microsoft Docs
 description: Azure Portal를 사용 하 여 Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인의 상태를 확인 하 고 상태 메시지를 이해 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: justinha
+ms.openlocfilehash: 92cc6157c590d3e05b4002e0f071c08e4ec23a16
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040421"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620327"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 상태를 확인 합니다.
 
@@ -28,9 +28,9 @@ Azure Active Directory Domain Services (Azure AD DS)는 관리 되는 도메인�
 
 Azure Portal를 사용 하 여 관리 되는 도메인의 상태를 볼 수 있습니다. 마지막 백업 시간 및 Azure AD와의 동기화에 대 한 정보는 관리 되는 도메인의 상태 문제를 나타내는 경고와 함께 볼 수 있습니다. 관리 되는 도메인의 상태를 확인 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다.
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다.
 1. 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
-1. Azure AD DS 리소스 창의 왼쪽에서 **상태**를 선택 합니다. 다음 예제 스크린샷에서는 정상으로 관리 되는 도메인과 마지막 백업 및 Azure AD 동기화의 상태를 보여 줍니다.
+1. Azure AD DS 리소스 창의 왼쪽에서 **상태** 를 선택 합니다. 다음 예제 스크린샷에서는 정상으로 관리 되는 도메인과 마지막 백업 및 Azure AD 동기화의 상태를 보여 줍니다.
 
     ![상태 페이지 개요 Azure Active Directory Domain Services 상태를 보여 주는 Azure Portal](./media/check-health/health-page.png)
 
@@ -47,7 +47,7 @@ Azure Portal를 사용 하 여 관리 되는 도메인의 상태를 볼 수 있�
 
 ## <a name="understand-monitors-and-alerts"></a>모니터 및 경고 이해
 
-관리 되는 도메인의 상태에는 두 가지 유형의 정보 *모니터*와 *경고가*표시 됩니다. 모니터는 코어 백그라운드 작업이 완료 된 시간을 표시 합니다. 경고는 관리 되는 도메인의 안정성을 향상 시킬 수 있는 정보나 제안 사항을 제공 합니다.
+관리 되는 도메인의 상태에는 두 가지 유형의 정보 *모니터* 와 *경고가* 표시 됩니다. 모니터는 코어 백그라운드 작업이 완료 된 시간을 표시 합니다. 경고는 관리 되는 도메인의 안정성을 향상 시킬 수 있는 정보나 제안 사항을 제공 합니다.
 
 ### <a name="monitors"></a>모니터
 

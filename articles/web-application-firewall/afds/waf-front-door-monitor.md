@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808944"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Azure 웹 응용 프로그램 방화벽 모니터링 및 로깅
@@ -24,7 +24,7 @@ FrontDoor 로그가 포함 된 WAF는 [Azure Monitor](../../azure-monitor/overvi
 
 Azure Portal에서 Front 도어 리소스 유형으로 이동 합니다. 왼쪽의 **모니터링** / **메트릭** 탭에서 **WebApplicationFirewallRequestCount** 를 추가 하 여 waf 규칙과 일치 하는 요청 수를 추적할 수 있습니다. 작업 유형 및 규칙 이름에 따라 사용자 지정 필터를 만들 수 있습니다.
 
-:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics":::
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
 
 ## <a name="logs-and-diagnostics"></a>로그 및 진단
 
@@ -39,7 +39,7 @@ Azure Portal에서 Front 도어 리소스 유형으로 이동 합니다. 왼쪽�
 |작업|요청에서 수행 된 작업|
 | ClientIp | 요청한 클라이언트의 IP 주소입니다. 요청에 X로 전달 된 헤더가 있는 경우 헤더 필드에서 클라이언트 IP가 선택 됩니다. |
 | ClientPort | 요청을 수행한 클라이언트의 IP 포트입니다. |
-| 설명|일치 된 요청에 대 한 추가 세부 정보 |
+| 세부 정보|일치 된 요청에 대 한 추가 세부 정보 |
 || matchVariableName: 헤더 이름과 같이 일치 하는 요청의 http 매개 변수 이름|
 || matchVariableValue: 일치를 트리거한 값|
 | 호스트 | 일치 하는 요청의 호스트 헤더 |

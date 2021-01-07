@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩에서 사용 되는 Azure storage 계정 암
 description: Azure DevTest Labs에서 랩에서 사용 되는 Azure storage의 암호화를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433593"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149316"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에서 사용 되는 Azure storage 암호화
 Azure DevTest Labs에서 생성 되는 모든 랩은 연결 된 Azure storage 계정을 사용 하 여 생성 됩니다. 저장소 계정은 다음 용도로 사용 됩니다. 
@@ -28,21 +28,21 @@ Azure DevTest Labs에서 생성 되는 모든 랩은 연결 된 Azure storage �
     :::image type="content" source="./media/encrypt-storage/overview-resource-group-link.png" alt-text="개요 페이지에서 리소스 그룹을 선택 합니다.":::
 1. 랩의 Azure storage 계정을 선택 합니다. 랩 저장소 계정에 대 한 명명 규칙은 `a<labNameWithoutInvalidCharacters><4-digit number>` 입니다. 예를 들어 랩 이름이 이면 `contosolab` 저장소 계정 이름은 일 수 있습니다 `acontosolab7576` . 
 
-    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="랩의 리소스 그룹에서 저장소 계정 선택":::
+    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="개요 페이지에서 리소스 그룹을 선택 합니다.":::
 3. **저장소 계정** 페이지의 왼쪽 메뉴에서 **Storage 탐색기 (미리 보기)** 를 선택 하 고 **BLOB 컨테이너** 를 선택 하 여 관련 랩 관련 콘텐츠를 찾습니다. 
 
-   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Storage Explorer(미리 보기)" lightbox="./media/encrypt-storage/storage-explorer.png":::
+   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="개요 페이지에서 리소스 그룹을 선택 합니다." lightbox="./media/encrypt-storage/storage-explorer.png":::
 
 ## <a name="encrypt-the-lab-storage-account"></a>랩 저장소 계정 암호화
 Azure Storage은 클라우드에 유지 될 때 데이터를 자동으로 암호화 합니다. Azure Storage 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.
 
-랩 저장소 계정의 데이터는 **Microsoft 관리 키**를 사용 하 여 암호화 됩니다. Microsoft에서 관리 하는 키를 사용 하 여 데이터를 암호화 하거나 자신의 키를 사용 하 여 암호화를 관리할 수 있습니다. 랩의 저장소 계정에 대 한 고유한 키를 사용 하 여 암호화를 관리 하도록 선택 하는 경우 Blob storage 및 Azure Files에서 데이터를 암호화/암호 해독 하는 데 사용할 Azure Key Vault를 사용 하 여 **고객 관리 키** 를 지정할 수 있습니다. 고객 관리 키에 대 한 자세한 내용은 Azure Key Vault에서 [고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화 관리를](../storage/common/encryption-customer-managed-keys.md)참조 하세요.
+랩 저장소 계정의 데이터는 **Microsoft 관리 키**를 사용 하 여 암호화 됩니다. Microsoft에서 관리 하는 키를 사용 하 여 데이터를 암호화 하거나 자신의 키를 사용 하 여 암호화를 관리할 수 있습니다. 랩의 저장소 계정에 대 한 고유한 키를 사용 하 여 암호화를 관리 하도록 선택 하는 경우 Blob storage 및 Azure Files에서 데이터를 암호화/암호 해독 하는 데 사용할 Azure Key Vault를 사용 하 여 **고객 관리 키** 를 지정할 수 있습니다. 고객 관리 키에 대 한 자세한 내용은 Azure Key Vault에서 [고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화 관리를](../storage/common/customer-managed-keys-overview.md)참조 하세요.
 
 Azure Storage 암호화를 위해 고객이 관리 하는 키를 구성 하는 방법을 알아보려면 다음 문서를 참조 하세요. 
 
-- [Azure Portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Azure CLI](../storage/common/storage-encryption-keys-cli.md)
+- [Azure Portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure CLI](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 
 ## <a name="manage-the-azure-blob-storage-life-cycle"></a>Azure Blob 저장소 수명 주기 관리
@@ -101,8 +101,6 @@ Azure Storage 암호화를 위해 고객이 관리 하는 키를 구성 하는 �
 ## <a name="next-steps"></a>다음 단계
 Azure Storage 암호화를 위해 고객이 관리 하는 키를 구성 하는 방법을 알아보려면 다음 문서를 참조 하세요. 
 
-- [Azure Portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Azure CLI](../storage/common/storage-encryption-keys-cli.md)
-
-
+- [Azure Portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure CLI](../storage/common/customer-managed-keys-configure-key-vault.md)

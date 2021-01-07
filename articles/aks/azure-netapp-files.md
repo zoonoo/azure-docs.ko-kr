@@ -3,13 +3,13 @@ title: Azure Kubernetes Service와 Azure NetApp Files 통합
 description: Azure Kubernetes Service와 Azure NetApp Files를 통합 하는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 09/26/2019
-ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/23/2020
+ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465646"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126256"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure NetApp Files 통합
 
@@ -21,7 +21,7 @@ ms.locfileid: "84465646"
 > [!IMPORTANT]
 > 또한 AKS 클러스터 [는 Azure NetApp Files를 지 원하는 지역에][anf-regions]있어야 합니다.
 
-또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -29,7 +29,6 @@ Azure NetApp Files 사용 하는 경우 다음 제한 사항이 적용 됩니다
 
 * Azure NetApp Files는 [선택한 Azure 지역][anf-regions]에서만 사용할 수 있습니다.
 * Azure NetApp Files를 사용 하려면 먼저 Azure NetApp Files 서비스에 대 한 액세스 권한이 있어야 합니다. 액세스를 위해를 적용 하려면 [Azure NetApp Files waitlist 제출 양식을][anf-waitlist]사용할 수 있습니다. Azure NetApp Files 팀에서 공식 확인 전자 메일을 받을 때까지 Azure NetApp Files 서비스에 액세스할 수 없습니다.
-* Azure NetApp Files 서비스는 AKS 클러스터와 동일한 가상 네트워크에 만들어야 합니다.
 * AKS 클러스터의 초기 배포 후 Azure NetApp Files에 대 한 정적 프로 비전이 지원 됩니다.
 * Azure NetApp Files에서 동적 프로비저닝을 사용 하려면 [Netapp Trident](https://netapp-trident.readthedocs.io/) 버전 19.07 이상을 설치 하 고 구성 합니다.
 
@@ -47,7 +46,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > 이 작업을 완료하는 데 약간의 시간이 걸릴 수 있습니다.
 
-AKS와 함께 사용할 Azure NetApp 계정을 만들 때 **노드** 리소스 그룹에서 계정을 만들어야 합니다. 먼저 [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제에서는 리소스 그룹 이름 *Myresourcegroup*에서 *myAKSCluster* 이라는 AKS 클러스터에 대 한 노드 리소스 그룹을 가져옵니다.
+AKS와 함께 사용할 Azure NetApp 계정을 만들 때 **노드** 리소스 그룹에서 계정을 만들어야 합니다. 먼저 [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제에서는 리소스 그룹 이름 *Myresourcegroup* 에서 *myAKSCluster* 이라는 AKS 클러스터에 대 한 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -106,7 +105,7 @@ VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAM
 SUBNET_NAME=MyNetAppSubnet
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
 VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+UNIQUE_FILE_PATH="myfilepath2" # Please note that file path needs to be unique within all ANF Accounts
 
 az netappfiles volume create \
     --resource-group $RESOURCE_GROUP \
@@ -118,7 +117,7 @@ az netappfiles volume create \
     --vnet $VNET_ID \
     --subnet $SUBNET_ID \
     --usage-threshold $VOLUME_SIZE_GiB \
-    --creation-token $UNIQUE_FILE_PATH \
+    --file-path $UNIQUE_FILE_PATH \
     --protocol-types "NFSv3"
 ```
 
@@ -146,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-PersistentVolume를 정의 하는을 만듭니다 `pv-nfs.yaml` . `path`이전 명령의 *CreationToken* 및 `server` *ipAddress* 로 대체 합니다. 예를 들어:
+PersistentVolume를 정의 하는을 만듭니다 `pv-nfs.yaml` . `path`이전 명령의 *CreationToken* 및 `server` *ipAddress* 로 대체 합니다. 다음은 그 예입니다.
 
 ```yaml
 ---
@@ -178,7 +177,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>PersistentVolumeClaim 만들기
 
-PersistentVolume를 정의 하는을 만듭니다 `pvc-nfs.yaml` . 예를 들어:
+PersistentVolume를 정의 하는을 만듭니다 `pvc-nfs.yaml` . 다음은 그 예입니다.
 
 ```yaml
 apiVersion: v1
@@ -208,7 +207,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Pod를 사용 하 여 탑재
 
-PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 예를 들어:
+PersistentVolumeClaim를 `nginx-nfs.yaml` 사용 하는 pod를 정의 하는을 만듭니다. 다음은 그 예입니다.
 
 ```yaml
 kind: Pod
@@ -217,7 +216,7 @@ metadata:
   name: nginx-nfs
 spec:
   containers:
-  - image: nginx
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: nginx-nfs
     command:
     - "/bin/sh"
@@ -247,11 +246,11 @@ kubectl describe pod nginx-nfs
 [Kubectl exec][kubectl-exec] 를 사용 하 여 pod에 연결 하 여 해당 볼륨이 탑재 되었는지 확인 합니다 `df -h` .
 
 ```console
-$ kubectl exec -it nginx-nfs -- bash
+$ kubectl exec -it nginx-nfs -- sh
 ```
 
 ```output
-root@nginx-nfs:/# df -h
+/ # df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...
 10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure

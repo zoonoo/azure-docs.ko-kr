@@ -6,24 +6,22 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511724"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369229"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
 [Azure 기본 제공 역할이](built-in-roles.md) 조직의 특정 요구를 충족 하지 않는 경우 고유한 azure 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로, 구독 및 리소스 그룹 범위에서 사용자, 그룹 및 서비스 사용자에 게 사용자 지정 역할을 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리에는 최대 5000 개의 사용자 지정 역할이 있을 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 
@@ -31,14 +29,12 @@ ms.locfileid: "86511724"
 
 ## <a name="step-1-determine-the-permissions-you-need"></a>1 단계: 필요한 권한 확인
 
-Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수천 개의 권한이 있습니다. 다음 네 가지 방법으로 사용자 지정 역할에 추가 하려는 권한을 결정할 수 있습니다.
+Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수천 개의 권한이 있습니다. 사용자 지정 역할에 추가 하려는 권한을 결정 하는 데 도움이 되는 몇 가지 방법은 다음과 같습니다.
 
-| 메서드 | 설명 |
-| --- | --- |
-| 기존 역할 살펴보기 | 기존 역할을 확인 하 여 사용 되는 사용 권한을 확인할 수 있습니다. 자세한 정보는 [Azure 기본 제공 역할](built-in-roles.md)을 참조하세요. |
-| 키워드별 권한 검색 | Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 경우 키워드를 사용 하 여 사용 권한을 검색할 수 있습니다. 예를 들어 *가상 컴퓨터* 또는 *청구* 권한을 검색할 수 있습니다. 이 검색 기능에 대 한 자세한 내용은 [4 단계: 사용 권한](#step-4-permissions)을 참조 하세요. |
-| 모든 권한 다운로드 | Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 경우 모든 권한을 CSV 파일로 다운로드 한 다음이 파일을 검색할 수 있습니다. **권한 추가** 창에서 **모든 권한 다운로드** 단추를 클릭 하 여 모든 사용 권한을 다운로드 합니다. 권한 추가 창에 대 한 자세한 내용은 [4 단계: 사용 권한](#step-4-permissions)을 참조 하세요. |
-| 문서에서 사용 권한 보기 | [리소스 공급자 작업 Azure Resource Manager](resource-provider-operations.md)에서 사용 가능한 권한을 볼 수 있습니다. |
+- 기존 [기본 제공 역할](built-in-roles.md)을 확인 합니다.
+- 액세스 권한을 부여 하려는 Azure 서비스를 나열 합니다.
+- [Azure 서비스에 매핑되는 리소스 공급자](../azure-resource-manager/management/azure-services-resource-providers.md)를 결정 합니다. 검색 방법에 대 한 자세한 내용은 [4 단계: 사용 권한](#step-4-permissions)을 참조 하세요.
+- 사용 [가능한 권한을](resource-provider-operations.md) 검색 하 여 포함 하려는 사용 권한을 찾습니다. 검색 방법에 대 한 자세한 내용은 [4 단계: 사용 권한](#step-4-permissions)을 참조 하세요.
 
 ## <a name="step-2-choose-how-to-start"></a>2 단계: 시작 방법 선택
 
@@ -58,7 +54,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
 1. 청구 읽기 권한자 역할과 같이 복제할 역할을 검색 합니다.
 
-1. 행의 끝에서 줄임표 (**...**)를 클릭 한 다음 **복제**를 클릭 합니다.
+1. 행의 끝에서 줄임표 (**...**)를 클릭 한 다음 **복제** 를 클릭 합니다.
 
     ![복제 상황에 맞는 메뉴](./media/custom-roles-portal/clone-menu.png)
 
@@ -72,7 +68,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
 1. Azure Portal에서 사용자 지정 역할을 할당할 수 있도록 하려는 구독 또는 리소스 그룹을 연 다음 **Access control (IAM)** 을 엽니다.
 
-1. **추가** 를 클릭 한 다음 **사용자 지정 역할 추가**를 클릭 합니다.
+1. **추가** 를 클릭 한 다음 **사용자 지정 역할 추가** 를 클릭 합니다.
 
     ![사용자 지정 역할 추가 메뉴](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -136,17 +132,17 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
     
 1. Azure Portal에서 **Access control (IAM)** 페이지를 엽니다.
 
-1. **추가** 를 클릭 한 다음 **사용자 지정 역할 추가**를 클릭 합니다.
+1. **추가** 를 클릭 한 다음 **사용자 지정 역할 추가** 를 클릭 합니다.
 
     ![사용자 지정 역할 추가 메뉴](./media/custom-roles-portal/add-custom-role-menu.png)
 
     그러면 사용자 지정 역할 편집기가 열립니다.
 
-1. 기본 정보 탭의 **기준 권한**에서 **JSON에서 시작**을 선택 합니다.
+1. 기본 정보 탭의 **기준 권한** 에서 **JSON에서 시작** 을 선택 합니다.
 
 1. 파일 선택 상자 옆에 있는 폴더 단추를 클릭 하 여 열기 대화 상자를 엽니다.
 
-1. JSON 파일을 선택 하 고 **열기**를 클릭 합니다.
+1. JSON 파일을 선택 하 고 **열기** 를 클릭 합니다.
 
 1. [3 단계: 기본 사항](#step-3-basics)으로 이동 합니다.
 
@@ -174,7 +170,7 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
 1. 사용 권한을 추가 하려면 권한 **추가** 를 클릭 하 여 권한 추가 창을 엽니다.
 
-    이 창에는 카드 형식의 다른 범주로 그룹화 된 사용 가능한 모든 권한이 나열 됩니다. 각 범주는 Azure 리소스를 제공 하는 서비스인 *리소스 공급자*를 나타냅니다.
+    이 창에는 카드 형식의 다른 범주로 그룹화 된 사용 가능한 모든 권한이 나열 됩니다. 각 범주는 Azure 리소스를 제공 하는 서비스인 *리소스 공급자* 를 나타냅니다.
 
 1. **권한 검색** 상자에 사용 권한을 검색할 문자열을 입력 합니다. 예를 *들어 청구서를 검색 하 여 청구서* 와 관련 된 사용 권한을 찾습니다.
 
@@ -182,13 +178,13 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 
     ![리소스 공급자를 사용 하 여 권한 창 추가](./media/custom-roles-portal/add-permissions-provider.png)
 
-1. **Microsoft 청구**와 같이 사용자 지정 역할에 추가 하려는 사용 권한을 가질 수 있는 리소스 공급자 카드를 클릭 합니다.
+1. **Microsoft 청구** 와 같이 사용자 지정 역할에 추가 하려는 사용 권한을 가질 수 있는 리소스 공급자 카드를 클릭 합니다.
 
     해당 리소스 공급자에 대 한 관리 권한 목록이 검색 문자열에 따라 표시 됩니다.
 
     ![권한 목록 추가](./media/custom-roles-portal/add-permissions-list.png)
 
-1. 데이터 평면에 적용 되는 사용 권한을 찾고 있는 경우 **데이터 작업**을 클릭 합니다. 그렇지 않으면 관리 평면에 적용 되는 사용 권한을 나열 하려면 작업 설정/ **해제 작업을** 그대로 둡니다. 관리 평면과 데이터 평면 간의 차이점에 대 한 자세한 내용은 [관리 및 데이터 작업](role-definitions.md#management-and-data-operations)을 참조 하세요.
+1. 데이터 평면에 적용 되는 사용 권한을 찾고 있는 경우 **데이터 작업** 을 클릭 합니다. 그렇지 않으면 관리 평면에 적용 되는 사용 권한을 나열 하려면 작업 설정/ **해제 작업을** 그대로 둡니다. 관리 평면과 데이터 평면 간의 차이점에 대 한 자세한 내용은 [관리 및 데이터 작업](role-definitions.md#management-and-data-operations)을 참조 하세요.
 
 1. 필요한 경우 검색 문자열을 업데이트 하 여 검색을 구체화 합니다.
 
@@ -261,7 +257,7 @@ Microsoft.CostManagement/exports/delete
 
 **Json** 탭에서 json으로 형식이 지정 된 사용자 지정 역할을 확인 합니다. 원하는 경우 JSON을 직접 편집할 수 있습니다. 와일드 카드 ( `*` ) 권한을 추가 하려면이 탭을 사용 해야 합니다.
 
-1. JSON을 편집 하려면 **편집**을 클릭 합니다.
+1. JSON을 편집 하려면 **편집** 을 클릭 합니다.
 
     ![사용자 지정 역할을 보여 주는 JSON 탭](./media/custom-roles-portal/json.png)
 
@@ -269,7 +265,7 @@ Microsoft.CostManagement/exports/delete
 
     JSON의 형식이 잘못 된 경우 가로 여백에 빨강 선이나 표시기가 표시 됩니다.
 
-1. 편집이 완료 되 면 **저장**을 클릭 합니다.
+1. 편집이 완료 되 면 **저장** 을 클릭 합니다.
 
 ## <a name="step-7-review--create"></a>7 단계: 검토 + 만들기
 
@@ -289,7 +285,7 @@ Microsoft.CostManagement/exports/delete
 
     ![검토 + 만들기 오류](./media/custom-roles-portal/review-create-error.png)
 
-1. **역할** 목록에서 새 사용자 지정 역할을 확인 합니다. 사용자 지정 역할이 표시 되지 않으면 **새로 고침**을 클릭 합니다.
+1. **역할** 목록에서 새 사용자 지정 역할을 확인 합니다. 사용자 지정 역할이 표시 되지 않으면 **새로 고침** 을 클릭 합니다.
 
      사용자 지정 역할이 어디에 나 표시 될 때까지 몇 분 정도 걸릴 수 있습니다.
 
@@ -303,7 +299,7 @@ Microsoft.CostManagement/exports/delete
 
 1. **유형** 목록에서 **customrole** 을 선택 하 여 사용자 지정 역할만 표시 합니다.
 
-    방금 사용자 지정 역할을 만든 경우 목록에 표시 되지 않으면 **새로 고침**을 클릭 합니다.
+    방금 사용자 지정 역할을 만든 경우 목록에 표시 되지 않으면 **새로 고침** 을 클릭 합니다.
 
     ![사용자 지정 역할 목록](./media/custom-roles-portal/custom-role-list.png)
 
@@ -311,7 +307,7 @@ Microsoft.CostManagement/exports/delete
 
 1. 이 문서의 앞부분에서 설명한 대로 사용자 지정 역할의 목록을 엽니다.
 
-1. 업데이트 하려는 사용자 지정 역할에 대 한 줄임표 (**...**)를 클릭 한 다음 **편집**을 클릭 합니다. 기본 제공 역할은 업데이트할 수 없습니다.
+1. 업데이트 하려는 사용자 지정 역할에 대 한 줄임표 (**...**)를 클릭 한 다음 **편집** 을 클릭 합니다. 기본 제공 역할은 업데이트할 수 없습니다.
 
     편집기에서 사용자 지정 역할이 열립니다.
 
@@ -329,9 +325,9 @@ Microsoft.CostManagement/exports/delete
 
 1. 사용자 지정 역할을 사용 하는 역할 할당을 제거 합니다.
 
-1. 삭제 하려는 사용자 지정 역할에 대 한 줄임표 (**...**)를 클릭 한 다음 **삭제**를 클릭 합니다.
+1. 삭제 하려는 사용자 지정 역할에 대 한 줄임표 (**...**)를 클릭 한 다음 **삭제** 를 클릭 합니다.
 
-    ![사용자 지정 역할 메뉴](./media/custom-roles-portal/delete-menu.png)
+    ![삭제 하도록 선택할 수 있는 사용자 지정 역할 목록을 보여 주는 스크린샷](./media/custom-roles-portal/delete-menu.png)
 
     사용자 지정 역할을 완전히 삭제 하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -339,4 +335,4 @@ Microsoft.CostManagement/exports/delete
 
 - [자습서: Azure PowerShell을 사용하여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
 - [Azure 사용자 지정 역할](custom-roles.md)
-- [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)
+- [Azure 리소스 공급자 작업](resource-provider-operations.md)

@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795782"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398201"
 ---
 # <a name="configure-database-settings"></a>데이터베이스 설정 구성 
 
 FHIR 용 Azure API는 데이터베이스를 사용 하 여 데이터를 저장 합니다. 기본 데이터베이스의 성능은 서비스를 프로 비전 하는 동안 선택 된 요청 단위 (작업 단위) 수 또는 서비스가 프로 비전 된 후 데이터베이스 설정에 따라 달라 집니다.
 
-FHIR 용 Azure API는 기본 데이터베이스의 성능을 설정할 때 Cosmos DB의 RUs 개념을 활용 ( [Azure Cosmos DB의 요청 단위](https://docs.microsoft.com/azure/cosmos-db/request-units)참조). 
+FHIR 용 Azure API는 기본 데이터베이스의 성능을 설정할 때 Cosmos DB의 RUs 개념을 활용 ( [Azure Cosmos DB의 요청 단위](../cosmos-db/request-units.md)참조). 
 
 데이터베이스에 대 한 충분 한 시스템 리소스를 항상 사용할 수 있도록 처리량을 프로 비전 해야 합니다. 응용 프로그램에 필요한 RUs 수는 수행 하는 작업에 따라 달라 집니다. 작업의 범위는 단순 읽기 및 쓰기에서 보다 복잡 한 쿼리에 이르기까지 다양 합니다. 
 
@@ -38,7 +38,12 @@ Azure Portal에서이 설정을 변경 하려면 FHIR 용 Azure API로 이동 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 FHIR 용 Azure API에 대 한 RUs를 업데이트 하는 방법을 알아보았습니다. 다음으로 완전히 관리 되는 Azure API를 배포 합니다.
+이 문서에서는 FHIR 용 Azure API에 대 한 RUs를 업데이트 하는 방법을 알아보았습니다. 고객 관리 키를 데이터베이스 설정으로 구성 하는 방법을 알아보려면 다음을 수행 하십시오.
+
+>[!div class="nextstepaction"]
+>[고객 관리형 키 구성](customer-managed-key.md)
+
+또는 완전히 관리 되는 Azure API for FHIR을 배포할 수 있습니다.
  
 >[!div class="nextstepaction"]
 >[Azure API for FHIR 배포](fhir-paas-portal-quickstart.md)

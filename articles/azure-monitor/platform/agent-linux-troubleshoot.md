@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2b811b1ace646cc4e0a93b937fbb90cfbf7aec0f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325375"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704897"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -23,7 +23,46 @@ ms.locfileid: "87325375"
 * Azure 지원 계약을 맺은 고객은 [Azure Portal](https://manage.windowsazure.com/?getsupport=true)에서 지원 요청을 열 수 있습니다.
 * [OMI 문제 해결 가이드](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)를 사용하여 OMI 문제를 진단합니다.
 * [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출합니다.
-* Log Analytics 피드백 페이지를 방문 하 여 전송 된 아이디어와 버그를 검토 [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) 하거나 새 파일을 작성 합니다.  
+* Log Analytics 피드백 페이지를 방문 하 여 전송 된 아이디어와 버그를 검토 [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) 하거나 새 파일을 작성 합니다. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics 문제 해결 도구
+
+Log Analytics Agent Linux 문제 해결 도구는 Log Analytics 에이전트의 문제를 찾아 진단 하는 데 도움이 되도록 설계 된 스크립트입니다. 설치 시 에이전트에 자동으로 포함 됩니다. 이 도구를 실행 하는 것은 문제를 진단 하기 위한 첫 번째 단계 여야 합니다.
+
+### <a name="how-to-use"></a>사용 방법
+Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령을 붙여넣어 문제 해결 도구를 실행할 수 있습니다. `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>수동 설치
+문제 해결 도구는 Log Analytics 에이전트 설치 시 자동으로 포함 됩니다. 그러나 설치에 실패 하는 경우 다음 단계를 수행 하 여 수동으로 설치할 수도 있습니다.
+
+1. 문제 해결사 번들을 컴퓨터에 복사 합니다. `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. 번들의 압축을 풉니다. `tar -xzvf omsagent_tst.tar.gz`
+3. 수동 설치를 실행 합니다. `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>적용되는 시나리오
+다음은 문제 해결 도구에서 확인 한 시나리오의 목록입니다.
+
+1. 에이전트가 비정상입니다. 하트 비트가 제대로 작동 하지 않습니다.
+2. 에이전트가 시작 되지 않아 로그 분석 서비스에 연결할 수 없습니다.
+3. 에이전트 syslog가 작동 하지 않습니다.
+4. 에이전트의 CPU/메모리 사용률이 높습니다.
+5. 에이전트에 설치 문제가 있음
+6. 에이전트 사용자 지정 로그가 작동 하지 않음
+7. 에이전트 로그 수집
+
+자세한 내용은 [Github 설명서](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md)를 확인 하세요.
+
+ >[!NOTE]
+ >문제가 발생 하는 경우 로그 수집기 도구를 실행 하세요. 처음에 로그를 만들면 지원 팀에서 문제를 더 빨리 해결할 수 있습니다.
+
+## <a name="purge-and-re-install-the-linux-agent"></a>Linux 에이전트 제거 및 Re-Install
+
+에이전트를 완전히 다시 설치 하면 대부분의 문제가 해결 됩니다. 실제로 지원 팀에서 에이전트를 uncurropted 상태로 전환 하는 것이 가장 먼저 제안 된 제안 일 수 있습니다. 문제 해결사를 실행 하 여 로그를 수집 하 고 새로 다시 설치를 시도 하면 문제를 보다 신속 하 게 해결할 수 있습니다.
+
+1. 제거 스크립트를 다운로드 합니다.
+- `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
+2. 제거 스크립트 (sudo 권한 포함)를 실행 합니다.
+- `$ sudo sh purge_omsagent.sh`
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>중요한 로그 위치 및 로그 수집기 도구
 
@@ -43,7 +82,7 @@ ms.locfileid: "87325375"
  추가 구성 | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >사용하는 작업 영역에 대한 Azure Portal의 [데이터 메뉴 Log Analytics 고급 설정](./agent-data-sources.md#configuring-data-sources)에서 컬렉션을 구성한 경우 성능 카운터 및 Syslog에 대한 편집 구성 파일을 덮어씁니다. 모든 에이전트에 구성을 사용하지 않도록 설정하려면 Log Analytics **고급 설정**에서 컬렉션을 사용하지 않도록 설정합니다. 또는 단일 에이전트인 경우 다음 명령을 실행합니다.  
+ >사용하는 작업 영역에 대한 Azure Portal의 [데이터 메뉴 Log Analytics 고급 설정](./agent-data-sources.md#configuring-data-sources)에서 컬렉션을 구성한 경우 성능 카운터 및 Syslog에 대한 편집 구성 파일을 덮어씁니다. 모든 에이전트에 구성을 사용하지 않도록 설정하려면 Log Analytics **고급 설정** 에서 컬렉션을 사용하지 않도록 설정합니다. 또는 단일 에이전트인 경우 다음 명령을 실행합니다.  
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>설치 오류 코드
@@ -150,7 +189,7 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 ### <a name="probable-causes"></a>가능한 원인
 * 등록하는 동안 지정된 프록시가 올바르지 않습니다.
-* Azure Monitor 및 Azure Automation 서비스 끝점은 데이터 센터에서 허용 목록 되지 않습니다. 
+* Azure Monitor 및 Azure Automation 서비스 끝점은 데이터 센터의 승인 된 목록에 포함 되지 않습니다. 
 
 ### <a name="resolution"></a>해결 방법
 1. 다음 명령을 사용 하도록 설정 하 고 다음 명령을 사용 하 여 Linux 용 Log Analytics 에이전트와 Azure Monitor 다시 등록 `-v` 합니다. 프록시를 통해 연결 되는 에이전트의 자세한 출력을 Azure Monitor 수 있습니다. 
@@ -193,7 +232,7 @@ Nss의 회귀 [1.0.3 -5. el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.
 
 ### <a name="resolution-step-by-step"></a>해결 방법 (단계별)
 
-1. Nss 패키지를 [v 1.0.3-5 el7_6](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html)로 업그레이드 합니다. 1. <br/>
+1. Nss 패키지를 [v 1.0.3-5.el7_6](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html)로 업그레이드 합니다. <br/>
 `sudo yum upgrade nss-pem`
 
 2. Nss를 업그레이드에 사용할 수 없는 경우 (주로 Centos에서 발생),를 7.29.0-46으로 다운 그레이드 합니다. "Yum update"를 실행 하는 경우에는 7.29.0-51로 업그레이드 되 고이 문제는 다시 발생 합니다. <br/>
@@ -201,23 +240,6 @@ Nss의 회귀 [1.0.3 -5. el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.
 
 3. OMI 다시 시작: <br/>
 `sudo scxadmin -restart`
-
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>문제: Azure Portal에서 데이터가 보이지 않습니다.
-
-### <a name="probable-causes"></a>가능한 원인
-
-- Azure Monitor에 등록 하지 못했습니다.
-- Azure Monitor에 대 한 연결이 차단 되었습니다.
-- Linux용 Log Analytics 에이전트가 백업되었습니다.
-
-### <a name="resolution"></a>해결 방법
-1. 다음 파일이 있는지 확인 하 여 온 보 딩 Azure Monitor 성공 했는지 확인 합니다.`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. `omsadmin.sh` 명령줄 명령을 사용하여 다시 등록합니다.
-3. 프록시를 사용하는 경우 앞서 제공된 프록시 문제 해결 단계를 참조하세요.
-4. Linux용 Log Analytics 에이전트가 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` 명령을 실행하여 에이전트를 다시 시작해야 합니다. 
-
-    >[!NOTE]
-    >이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
 
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>문제: 전달된 Syslog 메시지가 보이지 않음 
@@ -296,9 +318,10 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 * Azure Monitor에 대 한 연결이 차단 되었습니다.
 * 가상 머신이 다시 부팅되었습니다.
 * OMI 패키지가 Linux용 Log Analytics 에이전트 패키지에서 설치한 버전보다 높은 버전으로 수동 업그레이드되었습니다.
+* OMI가 고정 되어 OMS 에이전트를 차단 합니다.
 * DSC 리소스가 `omsconfig.log` 로그 파일에 *클래스를 찾을 수 없음* 오류를 기록합니다.
 * 데이터용 Log Analytics 에이전트가 백업되었습니다.
-* DSC 로그 *현재 구성이 없습니다. -Path 매개 변수를 사용 하 여 Start-dscconfiguration 명령을 실행 하 여 구성 파일을 지정 하 고 현재 구성을 먼저 만듭니다.* 오류를 `omsconfig.log` 로그 파일에 기록하지만, `PerformRequiredConfigurationChecks` 작업에 대한 로그 메시지가 없습니다.
+* DSC 로그 *현재 구성이 없습니다. -Path 매개 변수를 사용 하 여 Start-DscConfiguration 명령을 실행 하 여 구성 파일을 지정 하 고 현재 구성을 먼저 만듭니다.* 오류를 `omsconfig.log` 로그 파일에 기록하지만, `PerformRequiredConfigurationChecks` 작업에 대한 로그 메시지가 없습니다.
 
 ### <a name="resolution"></a>해결 방법
 1. auditd 패키지 같은 모든 종속성을 설치합니다.
@@ -306,6 +329,7 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 4. 프록시를 사용하는 경우 위의 프록시 문제 해결 단계를 확인합니다.
 5. 일부 Azure 배포 시스템에서는 가상 머신이 다시 부팅된 후 omid OMI 서버 디먼이 시작되지 않습니다. 따라서 감사, ChangeTracking 또는 UpdateManagement 솔루션과 관련된 데이터가 표시되지 않습니다. 해결책은 `sudo /opt/omi/bin/service_control restart` 명령을 실행하여 omi 서버를 수동으로 시작하는 것입니다.
 6. OMI 패키지를 더 높은 버전으로 수동 업그레이드한 후에는 수동으로 다시 시작해야만 Log Analytics 에이전트가 계속 작동합니다. OMI 서버가 업그레이드 후 자동으로 시작되지 않는 일부 배포판에서는 이 단계가 필수입니다. `sudo /opt/omi/bin/service_control restart` 명령을 실행하여 OMI를 다시 시작합니다.
+* 경우에 따라 OMI는 고정 될 수 있습니다. OMS 에이전트는 모든 데이터 수집을 차단 하 여 OMI을 기다리는 차단 된 상태를 입력할 수 있습니다. OMS 에이전트 프로세스가 실행 되 고 있지만,에는 새 로그 선 (예: 보낸 하트 비트)이 없는 활동이 복합적 `omsagent.log` . OMI with를 다시 시작 `sudo /opt/omi/bin/service_control restart` 하 여 에이전트를 복구 합니다.
 7. omsconfig.log에 DSC 리소스 *클래스를 찾을 수 없음* 오류가 표시되면 `sudo /opt/omi/bin/service_control restart` 명령을 실행합니다.
 8. 경우에 따라 Linux 용 Log Analytics 에이전트가 Azure Monitor와 통신할 수 없는 경우 에이전트의 데이터가 전체 버퍼 크기로 백업 됩니다: 50. `/opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작해야 합니다.
 
@@ -424,7 +448,7 @@ sudo sh ./onboard_agent.sh --purge
 1. Azure Portal에서 확장을 제거합니다.
 2. [지침](../learn/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
 3. `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작합니다.
-* 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공**으로 변경됩니다.
+* 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공** 으로 변경됩니다.
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>문제: Log Analytics 에이전트 주문형 업그레이드
@@ -444,4 +468,3 @@ sudo sh ./onboard_agent.sh --purge
     ```
 
 3. `sudo sh ./omsagent-*.universal.x64.sh --upgrade` 명령을 실행하여 패키지를 업그레이드합니다.
-

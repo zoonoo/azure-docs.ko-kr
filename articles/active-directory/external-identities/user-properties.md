@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705472"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859634"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
@@ -43,7 +43,7 @@ ms.locfileid: "90705472"
 
 ### <a name="before-invitation-redemption"></a>초대 상환 전
 
-상태 1 및 상태 2 계정은 게스트 사용자의 고유한 자격 증명을 사용하여 공동 작업하는 게스트 사용자를 초대한 결과입니다. 초대가 초기에 게스트 사용자에게 전송되면 계정이 사용자 디렉터리에 생성됩니다. 인증이 게스트 사용자의 ID 공급 기업에서 수행되기 때문에 이 계정에는 연결된 자격 증명이 없습니다. 디렉터리의 게스트 사용자 계정에 대한 **원본** 속성은 **초대된 사용자**로 설정됩니다. 
+상태 1 및 상태 2 계정은 게스트 사용자의 고유한 자격 증명을 사용하여 공동 작업하는 게스트 사용자를 초대한 결과입니다. 초대가 초기에 게스트 사용자에게 전송되면 계정이 사용자 디렉터리에 생성됩니다. 인증이 게스트 사용자의 ID 공급 기업에서 수행되기 때문에 이 계정에는 연결된 자격 증명이 없습니다. 디렉터리의 게스트 사용자 계정에 대한 **원본** 속성은 **초대된 사용자** 로 설정됩니다. 
 
 ![제공 상환 전에 사용자 속성을 보여 주는 스크린샷](media/user-properties/before-redemption.png)
 
@@ -51,15 +51,15 @@ ms.locfileid: "90705472"
 
 게스트 사용자가 초대를 수락한 후 **원본** 속성이 게스트 사용자의 ID 공급 기업에 따라 업데이트됩니다.
 
-상태 1의 게스트 사용자의 경우 **원본**은 **외부 Azure Active Directory**입니다.
+상태 1의 게스트 사용자의 경우 **원본** 은 **외부 Azure Active Directory** 입니다.
 
 ![제안 상환 후 상태 1 게스트 사용자](media/user-properties/after-redemption-state1.png)
 
-상태 2의 게스트 사용자의 경우 **원본**은 **Microsoft 계정**입니다.
+상태 2의 게스트 사용자의 경우 **원본** 은 **Microsoft 계정** 입니다.
 
 ![제안 상환 후 상태 2 게스트 사용자](media/user-properties/after-redemption-state2.png)
 
-상태 3 및 상태 4의 게스트 사용자의 경우 **원본** 속성은 다음 섹션에 설명된 대로 **Azure Active Directory** 또는 **Windows Server Active Directory**로 설정됩니다.
+상태 3 및 상태 4의 게스트 사용자의 경우 **원본** 속성은 다음 섹션에 설명된 대로 **Azure Active Directory** 또는 **Windows Server Active Directory** 로 설정됩니다.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Azure AD B2B 협업 사용자의 주요 속성
 ### <a name="usertype"></a>UserType
@@ -70,6 +70,8 @@ ms.locfileid: "90705472"
 
   > [!NOTE]
   > UserType은 사용자가 로그인하는 방법, 사용자의 디렉터리 역할 등과 관계가 없습니다. 이 속성은 단순히 사용자와 호스트 조직 사이의 관계를 나타내며, 조직에서 이 속성에 속한 모든 정책을 시행할 수 있게 합니다.
+
+가격 책정 관련 세부 정보는 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory)을 참조 하세요.
 
 ### <a name="source"></a>원본
 이 속성은 사용자가 로그인하는 방법을 나타냅니다.
@@ -104,11 +106,11 @@ PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대�
 ![사용자 설정에서 외부 사용자 옵션을 보여 주는 스크린샷](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
-예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Microsoft 365 그룹의 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups)에서 **게스트 개체를 전체 주소 목록에 표시할 수 있나요?** 를 참조 하세요.
+예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Microsoft 365 그룹의 게스트 액세스 관리](/office365/admin/create-groups/manage-guest-access-in-groups)에서 **게스트 개체를 전체 주소 목록에 표시할 수 있나요?** 를 참조 하세요.
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>게스트 사용자의 전자 메일 주소를 업데이트할 수 있나요?
 
-게스트 사용자가 초대를 수락 하 고 이후에 메일 주소를 변경 하는 경우 새 메일은 디렉터리의 게스트 사용자 개체와 자동으로 동기화 되지 않습니다. 메일 속성은 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)를 통해 생성 됩니다. Microsoft Graph API, Exchange 관리 센터 또는 [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)을 통해 메일 속성을 업데이트할 수 있습니다. 변경 내용은 Azure AD 게스트 사용자 개체에 반영 됩니다.
+게스트 사용자가 초대를 수락 하 고 이후에 메일 주소를 변경 하는 경우 새 메일은 디렉터리의 게스트 사용자 개체와 자동으로 동기화 되지 않습니다. 메일 속성은 [MICROSOFT GRAPH API](/graph/api/resources/user)를 통해 생성 됩니다. Microsoft Graph API, Exchange 관리 센터 또는 [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser)을 통해 메일 속성을 업데이트할 수 있습니다. 변경 내용은 Azure AD 게스트 사용자 개체에 반영 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

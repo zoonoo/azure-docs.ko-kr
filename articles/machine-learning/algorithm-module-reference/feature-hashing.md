@@ -1,7 +1,7 @@
 ---
 title: 기능 해싱 모듈 참조
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 기능 해시 모듈을 사용 하 여 피쳐화 텍스트 데이터를 사용 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 디자이너의 기능 해시 모듈을 사용 하 여 텍스트 데이터를 피쳐화 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907920"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420787"
 ---
 # <a name="feature-hashing-module-reference"></a>기능 해싱 모듈 참조
 
@@ -22,7 +22,7 @@ ms.locfileid: "90907920"
 
 기능 해싱 모듈을 사용 하 여 영어 텍스트 스트림을 정수 기능 집합으로 변환 합니다. 그런 다음이 해시 된 기능 집합을 기계 학습 알고리즘에 전달 하 여 텍스트 분석 모델을 학습 시킬 수 있습니다.
 
-이 모듈에서 제공 하는 기능 해시 기능은 nimbusml 프레임 워크를 기반으로 합니다. 자세한 내용은 [NgramHash 클래스](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)를 참조 하세요.
+이 모듈에서 제공 하는 기능 해시 기능은 nimbusml 프레임 워크를 기반으로 합니다. 자세한 내용은 [NgramHash 클래스](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true)를 참조 하세요.
 
 ## <a name="what-is-feature-hashing"></a>기능 해싱 이란?
 
@@ -80,7 +80,7 @@ ms.locfileid: "90907920"
     > [!TIP]
     > 기능 해시는 형태소 분석 또는 잘림 같은 어휘 연산을 수행 하지 않으므로 기능 해시를 적용 하기 전에 텍스트를 전처리 하 여 더 나은 결과를 얻을 수 있습니다. 
 
-1. **대상 열** 을 해시 된 기능으로 변환할 텍스트 열로 설정 합니다. 다음 사항에 유의 하세요.
+1. **대상 열** 을 해시 된 기능으로 변환할 텍스트 열로 설정 합니다. 다음 사항에 유의하세요.
 
     * 열은 문자열 데이터 형식 이어야 합니다.
     
@@ -90,7 +90,7 @@ ms.locfileid: "90907920"
     
     기본 비트 크기는 10입니다. 많은 문제를 해결 하려면이 값을 적절 하 게 합니다. 학습 텍스트의 n-그램 어휘 크기에 따라 충돌을 방지 하기 위해 더 많은 공간이 필요할 수 있습니다.
     
-1. **N 그램**의 경우 학습 사전에 추가할 n 그램의 최대 길이를 정의 하는 숫자를 입력 합니다. N-영문법은 고유한 단위로 처리 되는 *n 개* 단어의 시퀀스입니다.
+1. **N 그램** 의 경우 학습 사전에 추가할 n 그램의 최대 길이를 정의 하는 숫자를 입력 합니다. N-영문법은 고유한 단위로 처리 되는 *n 개* 단어의 시퀀스입니다.
 
     예를 들어 3을 입력 하는 경우에는 3, 4, bigrams 및 trigrams을 만듭니다.
 
@@ -131,4 +131,4 @@ ms.locfileid: "90907920"
 
 ## <a name="next-steps"></a>다음 단계
             
-Azure Machine Learning에서 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.

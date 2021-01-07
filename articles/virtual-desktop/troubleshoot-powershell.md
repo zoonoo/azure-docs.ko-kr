@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002278"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
@@ -52,7 +52,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 **수정 2:** Active Directory 권한이 있는 사용자는 역할 할당을 실행 해야 합니다.
 
-### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>오류: AzWvdHostPool--리소스 종류에 대 한 위치를 사용할 수 없습니다.
+### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>오류: New-AzWvdHostPool-리소스 종류에 대 한 위치를 사용할 수 없습니다.
 
 ```powershell
 New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
@@ -62,7 +62,7 @@ New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not a
 
 Fix: 오류 메시지에서 지원 되는 지역 목록이 게시 됩니다. 지원 되는 지역 중 하나를 대신 사용 하세요.
 
-### <a name="error-new-azwvdapplicationgroup-must-be-in-same-location-as-host-pool"></a>오류: AzWvdApplicationGroup는 호스트 풀과 동일한 위치에 있어야 합니다.
+### <a name="error-new-azwvdapplicationgroup-must-be-in-same-location-as-host-pool"></a>오류: New-AzWvdApplicationGroup 호스트 풀과 동일한 위치에 있어야 합니다.
 
 ```powershell
 New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool

@@ -1,21 +1,21 @@
 ---
 title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Salesforce Sandbox 구성 | Microsoft Docs'
-description: Azure Active Directory와 Salesforce Sandbox 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+description: 사용자 계정을 Azure AD에서 Salesforce Sandbox으로 자동 프로비저닝 및 프로비저닝 해제를 하도록 Salesforce Sandbox 및 Azure AD에서 수행해야 하는 단계를 알아봅니다.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5fa40e954c84d4d2d70974bc799a198c6bf7d3e9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
-ms.translationtype: MT
+ms.openlocfilehash: 7e3f8e5e975468b468712ae8907cdca0e80a5f9f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979757"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352611"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce Sandbox 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "90979757"
 
 Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다.
 
-프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Salesforce Sandbox 앱에 대한 액세스가 필요한 Azure AD의 사용자 또는 그룹을 결정해야 합니다. 결정했으면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)의 지침에 따라 해당 사용자를 Salesforce Sandbox 앱에 할당할 수 있습니다.
+프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Salesforce Sandbox 앱에 대한 액세스가 필요한 Azure AD의 사용자 또는 그룹을 결정해야 합니다. 결정했으면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)의 지침에 따라 해당 사용자를 Salesforce Sandbox 앱에 할당할 수 있습니다.
 
 ### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Salesforce Sandbox에 사용자를 할당하기 위한 주요 팁
 
@@ -55,15 +55,15 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이 섹션은 Salesforce Sandbox에 Active Directory 사용자 계정을 사용자 프로비저닝할 수 있도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > Enterprise Apps > 모든 응용 프로그램** 섹션으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
-1. 이미 Salesforce Sandbox에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Salesforce Sandbox의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Salesforce Sandbox**를 검색합니다. 검색 결과에서 Salesforce Sandbox를 선택하고 애플리케이션 목록에 추가합니다.
+1. 이미 Salesforce Sandbox에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Salesforce Sandbox의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가** 를 선택하고 애플리케이션 갤러리에서 **Salesforce Sandbox** 를 검색합니다. 검색 결과에서 Salesforce Sandbox를 선택하고 애플리케이션 목록에 추가합니다.
 
 1. Salesforce Sandbox의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-1. **프로비전 모드**를 **자동**으로 설정합니다.
+1. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![프로 비전 모드를 자동으로 설정 하 고 설정할 수 있는 다른 값으로 설정 된 Salesforce Sandbox 프로 비전 페이지를 보여 주는 스크린샷](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![스크린샷은 프로비저닝 모드를 자동으로 설정하고 설정할 수 있는 다른 값으로 설정된 Salesforce Sandbox 프로비저닝 페이지를 보여 줍니다.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 1. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
    
@@ -71,35 +71,35 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     b. **관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
 
-1. Salesforce Sandbox 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce Sandbox 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **설정**을 클릭합니다.
+1. Salesforce Sandbox 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce Sandbox 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **설정** 을 클릭합니다.
 
-     ![자동 사용자 프로비전 사용](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비전 사용")
+     ![스크린샷은 선택된 설정 링크를 보여 줍니다.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비전 사용")
 
-1. 왼쪽 탐색 패널에서 **내 개인 정보**를 클릭하여 관련 섹션을 확장하고 **내 보안 토큰 재설정**을 클릭합니다.
+1. 왼쪽 탐색 패널에서 **내 개인 정보** 를 클릭하여 관련 섹션을 확장하고 **내 보안 토큰 재설정** 을 클릭합니다.
   
-    ![자동 사용자 프로비전 사용](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비전 사용")
+    ![스크린샷은 내 개인 정보에서 선택한 내 보안 토큰 재설정을 보여 줍니다.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비전 사용")
 
 1. **보안 토큰 재설정** 페이지에서 **보안 토큰 재설정** 단추를 클릭합니다.
 
-    ![자동 사용자 프로비전 사용](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비전 사용")
+    ![스크린샷은 설명 텍스트와 보안 토큰을 다시 설정하는 옵션을 포함하는 Rest 보안 토큰 페이지를 보여 줍니다.](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비전 사용")
 
 1. 이 관리자 계정과 연결된 전자 메일 받은 편지함을 확인합니다. Salesforce Sandbox.com에서 새 보안 토큰이 포함된 이메일을 찾습니다.
 
 1. 토큰을 복사하고 Azure AD 창으로 이동하여 **비밀 토큰** 필드에 붙여넣습니다.
 
-1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Salesforce Sandbox 앱에 연결할 수 있는지 확인합니다.
+1. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 Salesforce Sandbox 앱에 연결할 수 있는지 확인합니다.
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-1. **저장**을 클릭합니다.  
+1. **저장** 을 클릭합니다.  
     
-1.  매핑 섹션에서 **Azure Active Directory 사용자를 Salesforce Sandbox에 동기화**를 선택합니다.
+1.  매핑 섹션에서 **Azure Active Directory 사용자를 Salesforce Sandbox에 동기화** 를 선택합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 Salesforce Sandbox로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Salesforce Sandbox의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-1. Salesforce Sandbox에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 설정 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+1. Salesforce Sandbox에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 설정 섹션에서 **프로비전 상태** 를 **켜기** 로 변경합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 사용자 및 그룹 섹션에서 Salesforce Sandbox에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Salesforce Sandbox 앱의 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 로그에 연결된 링크를 따를 수 있습니다.
 
@@ -109,4 +109,4 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-on 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)
+* [Single Sign-On 구성](./salesforce-sandbox-tutorial.md)

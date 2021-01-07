@@ -3,13 +3,13 @@ title: Azure Application Insights를 사용하여 Node.js 서비스 모니터링
 description: Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371620"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920589"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -25,14 +25,14 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Application Insights 리소스 설정
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Application Insights 리소스 설정
 
 1. [Azure Portal][portal]에 로그인합니다.
 2. [Application Insights 리소스 만들기](create-new-resource.md)
@@ -41,7 +41,10 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 데이터를 수집할 수 있도록 앱에 SDK를 포함합니다.
 
-1. 새로 만든 리소스에서 리소스의 계측 키 ( *ikey*라고도 함)를 복사 합니다. Application Insights는 ikey를 사용하여 Azure 리소스에 데이터를 매핑합니다. SDK가 ikey를 사용하려면 먼저 환경 변수 또는 코드에 ikey를 지정해야 합니다.  
+> [!IMPORTANT]
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=nodejs) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+
+1. 새로 만든 리소스에서 리소스의 계측 키 ( *ikey* 라고도 함)를 복사 합니다. Application Insights는 ikey를 사용하여 Azure 리소스에 데이터를 매핑합니다. SDK가 ikey를 사용하려면 먼저 환경 변수 또는 코드에 ikey를 지정해야 합니다.  
 
    ![계측 키 복사](./media/nodejs/instrumentation-key-001.png)
 
@@ -67,11 +70,11 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 5. 을 호출 하 여 데이터를 자동으로 수집 하 고 전송 하기 시작 `appInsights.start();` 합니다.
 
-### <a name="monitor-your-app"></a><a name="monitor"></a>앱 모니터링
+### <a name="monitor-your-app"></a><a name="monitor"></a> 앱 모니터링
 
 SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대 한 원격 분석을 자동으로 수집 합니다. 애플리케이션을 사용하여 이 데이터를 생성합니다.
 
-그런 다음, [Azure Portal][portal]에서 이전에 만든 Application Insights 리소스로 이동합니다. **타임라인 개요**에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
+그런 다음, [Azure Portal][portal]에서 이전에 만든 Application Insights 리소스로 이동합니다. **타임라인 개요** 에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
 
 앱에 대해 검색 된 토폴로지를 보려면 [응용 프로그램 맵을](app-map.md)사용할 수 있습니다.
 
@@ -80,7 +83,7 @@ SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대 한 원격
 SDK는 제출할 데이터를 일괄 처리하기 때문에 항목이 포털에 표시될 때까지 지연될 수 있습니다. 리소스에 데이터가 보이지 않으면 다음 해결 방법 중 몇 가지를 시도해 보세요.
 
 * 애플리케이션을 계속 사용합니다. 더 많은 작업을 수행하여 더 많은 원격 분석을 생성합니다.
-* 포털 리소스 보기에서 **새로 고침**을 클릭합니다. 차트는 자체에서 주기적으로 새로 고치지만, 수동으로 새로 고침하면 즉시 새로 고쳐집니다.
+* 포털 리소스 보기에서 **새로 고침** 을 클릭합니다. 차트는 자체에서 주기적으로 새로 고치지만, 수동으로 새로 고침하면 즉시 새로 고쳐집니다.
 * [필요한 발신 포트](./ip-addresses.md)가 열려 있는지 확인합니다.
 * [검색](./diagnostic-search.md)을 사용하여 특정 이벤트를 찾습니다.
 * [FAQ][FAQ]를 확인 합니다.
@@ -101,7 +104,7 @@ appInsights.setup("[your ikey]").start();
 
 `require("applicationinsights")`다른 패키지를 로드 하기 전에 스크립트에서 가능한 한 빨리 Application Insights 라이브러리를 로드 합니다. 이는 Application Insights 라이브러리가 추적을 위해 나중에 패키지를 준비할 수 있도록 하기 위해 필요 합니다. 비슷한 준비를 수행 하는 다른 라이브러리와 충돌이 발생 하는 경우에는 Application Insights 라이브러리를 로드 해 보십시오.
 
-JavaScript가 콜백을 처리 하는 방식 때문에 외부 종속성 및 이후 콜백에서 요청을 추적 하려면 추가 작업이 필요 합니다. 기본적으로이 추가 추적을 사용할 수 있습니다. `setAutoDependencyCorrelation(false)`아래 [구성](#sdk-configuration) 섹션에 설명 된 대로를 호출 하 여 사용 하지 않도록 설정 합니다.
+JavaScript가 콜백을 처리 하는 방식 때문에 외부 종속성 및 이후 콜백에서 요청을 추적 하려면 추가 작업이 필요 합니다. 기본적으로이 추가 추적을 사용할 수 있습니다. `setAutoDependencyCorrelation(false)` 아래 [구성](#sdk-configuration) 섹션에 설명 된 대로를 호출 하 여 사용 하지 않도록 설정 합니다.
 
 ## <a name="migrating-from-versions-prior-to-022"></a>0.22 이전 버전에서 마이그레이션
 
@@ -110,7 +113,7 @@ JavaScript가 콜백을 처리 하는 방식 때문에 외부 종속성 및 이�
 일반적으로 다음과 같이 마이그레이션할 수 있습니다.
 
 - 참조를로 `appInsights.client` 바꿉니다 `appInsights.defaultClient` .
-- 참조 `appInsights.getClient()` 를로 바꾸기`new appInsights.TelemetryClient()`
+- 참조 `appInsights.getClient()` 를로 바꾸기 `new appInsights.TelemetryClient()`
 - 인수를 명명 된 속성을 포함 하는 단일 개체를 사용 하 여 모든 인수를 client. track * 메서드로 바꿉니다. 각 원격 분석 형식에 대 한 예외 개체에 대 한 IDE의 기본 제공 형식 힌트 또는 [TelemetryTypes](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes) 를 참조 하세요.
 
 에 연결 하지 않고 SDK 구성 기능에 액세스 하는 경우 `appInsights.setup()` 이제에서 이러한 함수를 찾을 수 있습니다 `appInsights.Configurations` (예: `appInsights.Configuration.setAutoCollectDependencies(true)` ). 다음 섹션의 기본 구성에 대 한 변경 내용을 검토 합니다.
@@ -334,7 +337,7 @@ server.on("listening", () => {
 
 ### <a name="preprocess-data-with-telemetry-processors"></a>원격 분석 프로세서를 사용 하 여 데이터 전처리
 
-수집 된 데이터는 *원격 분석 프로세서*를 사용 하 여 보존을 위해 전송 되기 전에 처리 하 고 필터링 할 수 있습니다. 원격 분석 항목을 클라우드로 보내기 전에 추가 된 순서 대로 원격 분석 프로세서를 하나씩 호출 합니다.
+수집 된 데이터는 *원격 분석 프로세서* 를 사용 하 여 보존을 위해 전송 되기 전에 처리 하 고 필터링 할 수 있습니다. 원격 분석 항목을 클라우드로 보내기 전에 추가 된 순서 대로 원격 분석 프로세서를 하나씩 호출 합니다.
 
 ```javascript
 public addTelemetryProcessor(telemetryProcessor: (envelope: Contracts.Envelope, context: { http.RequestOptions, http.ClientRequest, http.ClientResponse, correlationContext }) => boolean)
@@ -374,7 +377,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 여러 Application Insights 리소스를 만들고 각각의 계측 키 ("ikey")를 사용 하 여 서로 다른 데이터를 보낼 수 있습니다.
 
- 예를 들면 다음과 같습니다.
+ 예를 들어:
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -397,7 +400,7 @@ client.config.PROPERTYNAME = VALUE;
 
 이러한 속성은 클라이언트 마다 고유 하므로 `appInsights.defaultClient` 를 사용 하 여 만든 클라이언트와 별도로 구성할 수 있습니다 `new appInsights.TelemetryClient()` .
 
-| 속성                        | 설명                                                                                                |
+| 속성                        | Description                                                                                                |
 | ------------------------------- |------------------------------------------------------------------------------------------------------------|
 | instrumentationKey              | Application Insights 리소스의 식별자입니다.                                                      |
 | endpointUrl                     | 원격 분석 페이로드를 보낼 수집 끝점입니다.                                                      |
@@ -416,10 +419,9 @@ client.config.PROPERTYNAME = VALUE;
 ## <a name="next-steps"></a>다음 단계
 
 * [포털에서 원격 분석 모니터링](./overview-dashboard.md)
-* [원격 분석에 분석 쿼리 작성](../log-query/get-started-portal.md)
+* [원격 분석에 분석 쿼리 작성](../log-query/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
-

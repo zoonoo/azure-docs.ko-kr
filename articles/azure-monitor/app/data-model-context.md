@@ -4,12 +4,12 @@ description: Application Insights 원격 분석 컨텍스트 데이터 모델
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 76f3be510494a1f005b0080ee8f2390a3fbc3622
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322672"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91767836"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
 
@@ -85,7 +85,7 @@ ms.locfileid: "87322672"
 
 ## <a name="authenticated-user-id"></a>인증된 사용자 ID
 
-인증 된 사용자 id입니다. 익명 사용자 id와 반대 되는이 필드는 친숙 한 이름을 가진 사용자를 나타냅니다. PII 정보이므로 기본적으로 대부분의 SDK에서 수집되지 않습니다.
+인증 된 사용자 id입니다. 익명 사용자 id와 반대 되는이 필드는 친숙 한 이름을 가진 사용자를 나타냅니다. 이는 기본적으로 ASP.NET Framework SDK를 사용 하 여 수집 됩니다 [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs) .  
 
 최대 길이: 1024
 
@@ -113,7 +113,7 @@ ms.locfileid: "87322672"
 
 ## <a name="internal-sdk-version"></a>내부: SDK 버전
 
-SDK 버전입니다. 자세한 내용은 [이 문서](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) 를 참조 하세요.
+SDK 버전입니다. 자세한 내용은 [이 문서](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) 를 참조 하세요.
 
 최대 길이: 64
 

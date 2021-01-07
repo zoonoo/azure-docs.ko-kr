@@ -6,18 +6,18 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
-ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bbd83fb3ef3225fc19c48bb4c5962d6559cf32f8
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903802"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708452"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Visual Studio Code를 통해 샘플 데이터를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
 Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 샘플 데이터를 사용 하 여 Stream Analytics 작업을 로컬로 테스트할 수 있습니다. JSON 파일에서 프로젝트의 **Localrunoutputs** 폴더에 있는 쿼리 결과를 찾을 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [.Net CORE SDK](https://dotnet.microsoft.com/download) 를 설치 하 고 Visual Studio Code를 다시 시작 합니다.
 
@@ -39,17 +39,17 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 샘플 데이
 
     ![프로젝트에서 로컬 입력 추가](./media/quick-create-visual-studio-code/add-input-from-project.png)
 
-    **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고 사용자 **: 입력 추가**를 입력할 수도 있습니다.
+    **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고 사용자 **: 입력 추가** 를 입력할 수도 있습니다.
 
    ![VS Code에서 Stream Analytics 입력 추가](./media/quick-create-visual-studio-code/add-input.png)
 
-2. **로컬 입력**을 선택 합니다.
+2. **로컬 입력** 을 선택 합니다.
 
-    ![Visual Studio code에서 GLOBAL.ASA 로컬 입력 추가](./media/vscode-local-run/add-local-input.png)
+    ![Visual Studio Code에서 GLOBAL.ASA 로컬 입력 추가](./media/vscode-local-run/add-local-input.png)
 
-3. **+ 새 로컬 입력**을 선택 합니다.
+3. **+ 새 로컬 입력** 을 선택 합니다.
 
-    ![Visual Studio code에서 새 GLOBAL.ASA 로컬 입력 추가](./media/vscode-local-run/add-new-local-input.png)
+    ![Visual Studio Code에서 새 GLOBAL.ASA 로컬 입력을 추가 합니다.](./media/vscode-local-run/add-new-local-input.png)
 
 4. 쿼리에서 사용한 것과 동일한 입력 별칭을 입력 합니다.
 
@@ -59,17 +59,17 @@ Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 샘플 데이
 
     ![Visual Studio에서 로컬 파일 경로 입력](./media/vscode-local-run/local-file-path.png)
 
-6. **데이터 미리 보기** 를 선택 하 여 입력 데이터를 미리 봅니다. JSON 또는 CSV의 경우 데이터의 serialization 형식이 자동으로 검색 됩니다. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다. 다음 표는 **테이블 형식의**데이터에 대 한 예입니다.
+6. **데이터 미리 보기** 를 선택 하 여 입력 데이터를 미리 봅니다. JSON 또는 CSV의 경우 데이터의 serialization 형식이 자동으로 검색 됩니다. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다. 다음 표는 **테이블 형식의** 데이터에 대 한 예입니다.
 
      ![테이블 형식으로 로컬 데이터 미리 보기](./media/vscode-local-run/local-file-preview-table.png)
 
-    다음 표는 **원시 형식의**데이터에 대 한 예입니다.
+    다음 표는 **원시 형식의** 데이터에 대 한 예입니다.
 
     ![원시 형식으로 로컬 데이터 미리 보기](./media/vscode-local-run/local-file-preview-raw.png)
 
 ## <a name="run-queries-locally"></a>로컬로 쿼리 실행
 
-쿼리 편집기로 돌아가서 **로컬에서 실행**을 선택 합니다. 그런 다음 드롭다운 목록에서 **로컬 입력 사용** 을 선택 합니다.
+쿼리 편집기로 돌아가서 **로컬에서 실행** 을 선택 합니다. 그런 다음 드롭다운 목록에서 **로컬 입력 사용** 을 선택 합니다.
 
 ![쿼리 편집기에서 로컬로 실행을 선택 합니다.](./media/vscode-local-run/run-locally.png)
 

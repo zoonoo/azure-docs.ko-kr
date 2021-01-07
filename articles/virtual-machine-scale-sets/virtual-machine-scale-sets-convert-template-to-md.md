@@ -1,7 +1,7 @@
 ---
 title: 확장 집합 템플릿을 변환하여 관리 디스크 사용
 description: Azure Resource Manager 가상 머신 확장 집합 템플릿을 관리 디스크 크기 집합 템플릿으로 변환 합니다.
-keywords: 가상 머신 크기 집합
+keywords: 가상 머신 확장 집합
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -11,10 +11,10 @@ ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 03cbe4eb56f3b3b99f87048b699f76b30b7937c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85373967"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>확장 집합 템플릿을 변환하여 관리되는 디스크 확장 집합 템플릿 사용

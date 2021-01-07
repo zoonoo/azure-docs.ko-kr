@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511801"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017120"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 대한 장애 조치 및 재해 복구
 
@@ -34,13 +34,13 @@ StorSimple에서는 **디바이스** 블레이드를 사용하여 재해 발생 
 
 ## <a name="disaster-recovery-dr-and-device-failover"></a>DR(재해 복구) 및 디바이스 장애 조치
 
-DR(재해 복구) 시나리오에서 기본 디바이스가 작동을 중지합니다. StorSimple에서는 기본 디바이스를 _소스_로 사용하여 다른 _대상_ 디바이스에 연결된 클라우드 데이터를 이동시킵니다. 이 프로세스는 *장애 조치*라고 합니다. 다음 그래픽에서는 장애 조치(failover)의 프로세스를 보여줍니다.
+DR(재해 복구) 시나리오에서 기본 디바이스가 작동을 중지합니다. StorSimple에서는 기본 디바이스를 _소스_ 로 사용하여 다른 _대상_ 디바이스에 연결된 클라우드 데이터를 이동시킵니다. 이 프로세스는 *장애 조치* 라고 합니다. 다음 그래픽에서는 장애 조치(failover)의 프로세스를 보여줍니다.
 
 ![디바이스 장애 조치는 어떻게 되나요?](./media/storsimple-8000-device-failover-disaster-recovery/failover-dr-flow.png)
 
 장애 조치의 대상 디바이스는 물리적 디바이스 또는 클라우드 어플라이언스일 수 있습니다. 대상 디바이스는 원본 디바이스와 동일하거나 다른 지리적 위치에 있을 수 있습니다.
 
-장애 조치하는 동안 마이그레이션할 볼륨 컨테이너를 선택할 수 있습니다. 그런 다음 StorSimple에서는 이러한 볼륨 컨테이너의 소유권을 원본 디바이스에서 대상 디바이스로 변경합니다. 볼륨 컨테이너가 소유권을 변경하면 StorSimple에서는 원본 디바이스에서 이러한 컨테이너를 삭제합니다. 삭제가 완료된 후에 대상 디바이스를 장애 복구(failback)할 수 있습니다. _장애 복구_는 원래의 원본 디바이스에 다시 소유권을 전송합니다.
+장애 조치하는 동안 마이그레이션할 볼륨 컨테이너를 선택할 수 있습니다. 그런 다음 StorSimple에서는 이러한 볼륨 컨테이너의 소유권을 원본 디바이스에서 대상 디바이스로 변경합니다. 볼륨 컨테이너가 소유권을 변경하면 StorSimple에서는 원본 디바이스에서 이러한 컨테이너를 삭제합니다. 삭제가 완료된 후에 대상 디바이스를 장애 복구(failback)할 수 있습니다. _장애 복구_ 는 원래의 원본 디바이스에 다시 소유권을 전송합니다.
 
 ### <a name="cloud-snapshot-used-during-device-failover"></a>디바이스 장애 조치 동안 사용된 클라우드 스냅샷
 
@@ -48,12 +48,12 @@ DR 다음으로 가장 최근의 클라우드 백업은 대상 디바이스에 �
 
 StorSimple 8000 시리즈에서 백업 정책을 백업에 연결합니다. 동일한 볼륨에 여러 백업 정책이 있는 경우 StorSimple에서는 최대 수의 볼륨을 가진 백업 정책을 선택합니다. StorSimple에서는 선택된 백업 정책에서 가장 최근의 백업을 사용하여 대상 디바이스에서 데이터를 복원합니다.
 
-*defaultPol* 및 *customPol*이라는 두 개의 백업 정책이 있는 경우를 가정합니다.
+*defaultPol* 및 *customPol* 이라는 두 개의 백업 정책이 있는 경우를 가정합니다.
 
 * *defaultPol*: 하나의 볼륨(*vol1*)이 매일 오후 10시 30분부터 실행됩니다.
 * *customPol*: 4개의 볼륨(*vol1*, *vol2*, *vol3*, *vol4*)이 매일 오후 10시부터 실행됩니다.
 
-이 경우에 StorSimple에서는 더 많은 볼륨을 포함하는 크래시 일관성에 대한 우선 순위를 지정하고 *customPol*을 사용합니다. 이 정책에서 가장 최근의 백업은 데이터를 복원하는 데 사용됩니다. 백업 정책을 만들고 관리하는 방법에 대한 자세한 내용은 [StorSimple 디바이스 관리자 서비스를 사용하여 백업 정책 관리](storsimple-8000-manage-backup-policies-u2.md)로 이동하세요.
+이 경우에 StorSimple에서는 더 많은 볼륨을 포함하는 크래시 일관성에 대한 우선 순위를 지정하고 *customPol* 을 사용합니다. 이 정책에서 가장 최근의 백업은 데이터를 복원하는 데 사용됩니다. 백업 정책을 만들고 관리하는 방법에 대한 자세한 내용은 [StorSimple 디바이스 관리자 서비스를 사용하여 백업 정책 관리](storsimple-8000-manage-backup-policies-u2.md)로 이동하세요.
 
 ## <a name="common-considerations-for-device-failover"></a>디바이스 장애 조치에 대한 일반 고려 사항
 
@@ -104,7 +104,7 @@ StorSimple 8000 시리즈에서 백업 정책을 백업에 연결합니다. 동�
 
 테스트 장애 조치 또는 테스트 장애 복구를 계획 중인 경우 적은 양의 데이터(Gbs)가 있는 볼륨 컨테이너를 테스트하는 것이 좋습니다. 일반적으로 장애 조치가 완료되고 24시간 후에 장애 복구를 시작할 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 17. **DR이 실패하거나 부분적으로 성공한 경우 어떻게 되나요?**
 
@@ -120,7 +120,7 @@ A. 가비지 수집은 디바이스가 완전히 정리된 후에만 원본 디�
 
 17. **원본 디바이스에서 볼륨 컨테이너와 연결된 삭제 작업이 실패하면 어떻게 되나요?**
 
-A.  삭제 작업에 실패하면 볼륨 컨테이너를 수동으로 삭제할 수 있습니다. **디바이스** 블레이드에서 원본 디바이스를 선택하고 **볼륨 컨테이너**를 클릭합니다. 장애 조치한 볼륨 컨테이너를 선택하고 블레이드 하단에서 **삭제**를 클릭합니다. 원본 디바이스에서 장애 조치한 모든 볼륨 컨테이너를 삭제한 후에 장애 복구를 시작할 수 있습니다. 자세한 내용은 [볼륨 컨테이너 삭제](storsimple-8000-manage-volume-containers.md#delete-a-volume-container)로 이동합니다.
+A.  삭제 작업에 실패하면 볼륨 컨테이너를 수동으로 삭제할 수 있습니다. **디바이스** 블레이드에서 원본 디바이스를 선택하고 **볼륨 컨테이너** 를 클릭합니다. 장애 조치한 볼륨 컨테이너를 선택하고 블레이드 하단에서 **삭제** 를 클릭합니다. 원본 디바이스에서 장애 조치한 모든 볼륨 컨테이너를 삭제한 후에 장애 복구를 시작할 수 있습니다. 자세한 내용은 [볼륨 컨테이너 삭제](storsimple-8000-manage-volume-containers.md#delete-a-volume-container)로 이동합니다.
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>비즈니스 연속성 재해 복구(BCDR)
 

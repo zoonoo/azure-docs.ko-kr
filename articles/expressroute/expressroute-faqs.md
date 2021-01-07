@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: ef5b065425fa05d016c1b1c1688cc28508f32d30
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566423"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462050"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -36,13 +36,19 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 가격 정보는 [가격 정보](https://azure.microsoft.com/pricing/details/expressroute/) 를 참조하세요.
 
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-this-bandwidth-allocated-for-ingress-and-egress-traffic-separately"></a>지정 된 대역폭의 Express 경로 회로에 대 한 요금을 지불 하는 경우 수신 및 송신 트래픽에 대해이 대역폭이 별도로 할당 되나요?
+
+예, Express 경로 회로 대역폭은 이중입니다. 예를 들어 200 mbps Express 경로 회로를 구매 하는 경우 수신 트래픽 및 송신 트래픽에 대 한 200 mbps에 대해 확보 200 mbps를 사용할 수 있습니다.
+
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>지정된 대역폭의 ExpressRoute 회로에 대한 비용을 지불하는 경우, 네트워크 서비스 공급자로부터 구입한 VPN 연결은 동일한 속도여야 하나요?
 
 아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>지정된 대역폭의 ExpressRoute 회로에 대해 비용을 지불한다면 필요한 경우 더 높은 속도로 버스트할 수 있나요?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>지정 된 대역폭의 Express 경로 회로에 대 한 요금을 지불 하는 경우 내 확보 대역폭을 초과 하는 기능을 사용할 수 있나요?
 
-예. ExpressRoute 회로는 추가 비용 없이 확보한 대역폭 제한의 최대 2배까지 버스트할 수 있도록 구성됩니다. 이 기능을 지원하는지 확인하려면 해당 서비스 공급자에게 문의하세요. 이는 일정 기간 동안 지속되지 않으며 보장되지 않습니다.  트래픽이 ExpressRoute Gateway를 지나가는 경우 SKU에 대한 대역폭이 고정되고 확장되지 않습니다.
+예, Express 경로 회로의 보조 연결에서 사용할 수 있는 대역폭을 사용 하 여 확보 한 대역폭 제한의 최대 2 배를 사용할 수 있습니다. 회로의 기본 제공 중복성은 두 개의 Microsoft Enterprise Edge 라우터 (MSEEs)에 대 한 기본 및 보조 연결 (각 확보 대역폭)을 사용 하 여 구성 됩니다. 필요한 경우 보조 연결을 통해 사용할 수 있는 대역폭을 추가 트래픽에 사용할 수 있습니다. 그러나 보조 연결은 중복성을 위해 사용 되기 때문에 보장 되지 않으며 지속적으로 추가 트래픽에 사용 되어서는 안 됩니다. 대를 사용 하 여 트래픽을 전송 하는 방법에 대 한 자세한 내용은 [경로 앞에 사용](./expressroute-optimize-routing.md#solution-use-as-path-prepending)을 참조 하세요.
+
+트래픽을 전송 하는 데 기본 연결만 사용 하려는 경우에는 연결에 대 한 대역폭이 고정 되 고 oversubscribe 시도 하면 패킷이 늘어납니다. 트래픽이 Express 경로 게이트웨이를 통해 이동 하는 경우 게이트웨이 SKU에 대 한 대역폭이 고정 되 고 안정화 되지 않습니다. 각 게이트웨이 SKU의 대역폭은 [express 경로 가상 네트워크 게이트웨이 정보](expressroute-about-virtual-network-gateways.md#aggthroughput)를 참조 하세요.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>가상 네트워크 및 다른 Azure 서비스와 동일한 프라이빗 네트워크 연결을 동시에 사용할 수 있나요?
 
@@ -50,7 +56,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>VNet은 ExpressRoute 개인 피어링에서 어떻게 보급되나요?
 
-ExpressRoute 게이트웨이는 Azure VNet의 *주소 공간*을 보급하며, 서브넷 수준에서 포함/제외할 수 없습니다. 항상 보급된 VNet 주소 공간입니다. 또한 VNet 피어링을 사용하고 피어링된 VNet에 "원격 게이트웨이 사용"을 설정하면 피어링된 VNet의 주소 공간도 보급됩니다.
+ExpressRoute 게이트웨이는 Azure VNet의 *주소 공간* 을 보급하며, 서브넷 수준에서 포함/제외할 수 없습니다. 항상 보급된 VNet 주소 공간입니다. 또한 VNet 피어링을 사용하고 피어링된 VNet에 "원격 게이트웨이 사용"을 설정하면 피어링된 VNet의 주소 공간도 보급됩니다.
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>ExpressRoute 개인 피어링의 VNet에서 온-프레미스로 보급할 수 있는 접두사는 몇 개입니까?
 
@@ -80,12 +86,12 @@ ExpressRoute는 다양한 서비스 유형에 개인 피어링, Microsoft 피어
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
 
-Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면 회로를 통해 Azure에서 사용되는 [공용 IP 주소 범위](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)에 액세스할 수 있습니다. Azure Microsoft 피어링은 현재 Azure에서 호스팅되는 서비스에 대한 액세스를 제공합니다(회로의 SKU에 따라 지리적 제한 적용). 특정 서비스에 대한 가용성의 유효성을 검사하려면 해당 서비스에 대한 설명서를 보고 해당 서비스에 예약된 범위가 게시되었는지 확인합니다. 그런 다음, 대상 서비스의 IP 범위를 조회하고 [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드 XML 파일](https://www.microsoft.com/download/details.aspx?id=56519)에 나열된 범위와 비교합니다. 또는 확인을 위해 해당 서비스의 지원 티켓을 열 수 있습니다.
+Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면 회로를 통해 Azure에서 사용되는 [공용 IP 주소 범위](../virtual-network/public-ip-addresses.md#public-ip-addresses)에 액세스할 수 있습니다. Azure Microsoft 피어링은 현재 Azure에서 호스팅되는 서비스에 대한 액세스를 제공합니다(회로의 SKU에 따라 지리적 제한 적용). 특정 서비스에 대한 가용성의 유효성을 검사하려면 해당 서비스에 대한 설명서를 보고 해당 서비스에 예약된 범위가 게시되었는지 확인합니다. 그런 다음, 대상 서비스의 IP 범위를 조회하고 [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드 XML 파일](https://www.microsoft.com/download/details.aspx?id=56519)에 나열된 범위와 비교합니다. 또는 확인을 위해 해당 서비스의 지원 티켓을 열 수 있습니다.
 
 **지원됨:**
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* Power BI - Azure 지역 커뮤니티를 통해 사용할 수 있습니다. Power BI 테넌트의 지역을 확인하는 방법은 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located)를 참조하세요.
+* Power BI - Azure 지역 커뮤니티를 통해 사용할 수 있습니다. Power BI 테넌트의 지역을 확인하는 방법은 [여기](/power-bi/service-admin-where-is-my-tenant-located)를 참조하세요.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
 * IaaS (Virtual Machines, Virtual Network 게이트웨이, 부하 분산 장치 등) 용 Azure 공용 IP 주소  
@@ -118,7 +124,7 @@ Microsoft는 인터넷 라우팅 레지스트리에서 지정된 '보급된 공�
 Dynamics 365 및 CDS(Common Data Service) 환경은 Azure에서 호스팅되므로 고객은 Azure 리소스에 대한 기본 ExpressRoute 지원을 활용할 수 있습니다. 라우터 필터에 Dynamics 365/CDS 환경이 호스팅되는 Azure 지역이 포함된 경우 해당 서비스 엔드포인트에 연결할 수 있습니다.
 
 > [!NOTE]
-> Express 경로 회로를 동일한 [지정 학적 지역](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations)내에 배포 하는 경우 Azure express 경로를 통한 Dynamics 365 연결에는 [express 경로 Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) 이 필요 **하지 않습니다** .
+> Express 경로 회로를 동일한 [지정 학적 지역](./expressroute-locations-providers.md#expressroute-locations)내에 배포 하는 경우 Azure express 경로를 통한 Dynamics 365 연결에는 [express 경로 Premium](#expressroute-premium) 이 필요 **하지 않습니다** .
 
 ## <a name="data-and-connections"></a>데이터 및 연결
 
@@ -152,15 +158,15 @@ Dynamics 365 및 CDS(Common Data Service) 환경은 Azure에서 호스팅되므�
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>개인 피어링에 대한 중복성을 구현하려면 어떻게 해야 하나요?
 
-단일 회로를 사용할 수 없는 경우 다른 피어 링 위치에서 여러 개의 Express 경로 회로 또는 동일한 피어 링 위치에서 최대 4 개의 연결을 동일한 가상 네트워크에 연결 하 여 고가용성을 제공할 수 있습니다. 그런 다음 로컬 연결 중 하나에 [더 높은 가중치를 할당](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 하 여 특정 회로를 선호 시킬 수 있습니다. 고객은 단일 실패 지점이 발생하지 않도록 두 개 이상의 ExpressRoute 회로를 설치하는 것이 좋습니다. 
+단일 회로를 사용할 수 없는 경우 다른 피어 링 위치에서 여러 개의 Express 경로 회로 또는 동일한 피어 링 위치에서 최대 4 개의 연결을 동일한 가상 네트워크에 연결 하 여 고가용성을 제공할 수 있습니다. 그런 다음 로컬 연결 중 하나에 [더 높은 가중치를 할당](./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection) 하 여 특정 회로를 선호 시킬 수 있습니다. 고객은 단일 실패 지점이 발생하지 않도록 두 개 이상의 ExpressRoute 회로를 설치하는 것이 좋습니다. 
 
-고가용성을 설계하는 방법은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)를 참조하고 재해 복구를 설계하는 방법은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)를 참조하세요.  
+고가용성을 설계하는 방법은 [여기](./designing-for-high-availability-with-expressroute.md)를 참조하고 재해 복구를 설계하는 방법은 [여기](./designing-for-disaster-recovery-with-expressroute-privatepeering.md)를 참조하세요.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Microsoft 피어링에 중복성을 구현하는 방법은 무엇인가요?
 
-Microsoft 피어 링을 사용 하 여 Azure Storage 또는 Azure SQL과 같은 Azure 공용 서비스에 액세스 하는 경우, 단일 실패 지점을 방지 하기 위해 서로 다른 피어 링 위치에 여러 회로를 구현 하는 경우에는 Microsoft 365 Microsoft 피어 링을 사용 하는 고객에 게 매우 권장 됩니다. 고객은 두 회로에 동일한 접두사를 보급하고 [AS PATH 접두사](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)를 사용하거나 다른 접두사를 보급하여 온-프레미스의 경로를 확인할 수 있습니다.
+Microsoft 피어 링을 사용 하 여 Azure Storage 또는 Azure SQL과 같은 Azure 공용 서비스에 액세스 하는 경우, 단일 실패 지점을 방지 하기 위해 서로 다른 피어 링 위치에 여러 회로를 구현 하는 경우에는 Microsoft 365 Microsoft 피어 링을 사용 하는 고객에 게 매우 권장 됩니다. 고객은 두 회로에 동일한 접두사를 보급하고 [AS PATH 접두사](./expressroute-optimize-routing.md#solution-use-as-path-prepending)를 사용하거나 다른 접두사를 보급하여 온-프레미스의 경로를 확인할 수 있습니다.
 
-고가용성을 위한 설계에 대한 내용은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)를 참조하세요.
+고가용성을 위한 설계에 대한 내용은 [여기](./designing-for-high-availability-with-expressroute.md)를 참조하세요.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>ExpressRoute에 연결된 가상 네트워크에서 고가용성을 보장하려면 어떻게 해야 하나요?
 
@@ -170,7 +176,7 @@ Microsoft 피어 링을 사용 하 여 Azure Storage 또는 Azure SQL과 같은 
 
 온-프레미스에서 Azure로 가는 경로가 항상 ExpressRoute 회로에서 선호되도록 하려면 라우터에 *로컬 기본 설정* 특성을 구현해야 합니다.
 
-BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings)의 추가 정보를 참조하세요. 
+BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여기](./expressroute-optimize-routing.md#path-selection-on-microsoft-and-public-peerings)의 추가 정보를 참조하세요. 
 
 ### <a name="if-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요?
 
@@ -242,6 +248,9 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>ExpressRoute 회로에 연결된 가상 네트워크에 대한 인터넷 연결을 차단할 수 있나요?
 
 예. 기본 경로(0.0.0.0/0)를 보급하여 가상 네트워크 내에 배포된 가상 머신에 대한 모든 인터넷 연결을 차단하고 ExpressRoute 회로를 통해 모든 트래픽을 라우팅할 수 있습니다.
+
+> [!NOTE]
+> 알린 경로에서 0.0.0.0/0의 보급 된 경로를 철회 하는 경우 (예: 중단 또는 잘못 된 구성으로 인해) Azure는 인터넷 연결을 제공 하기 위해 연결 된 Virtual Network의 리소스에 대 한 [시스템 경로](../virtual-network/virtual-networks-udr-overview.md#system-routes) 를 제공 합니다.  인터넷으로의 송신 트래픽이 차단 되도록 하려면 인터넷 트래픽에 대 한 아웃 바운드 거부 규칙을 사용 하 여 모든 서브넷에 네트워크 보안 그룹을 저장 하는 것이 좋습니다.
 
 기본 경로를 보급하는 경우 Microsoft 피어링(예: Azure storage 및 SQL DB)을 통해 프레미스에 다시 제공된 서비스로 트래픽을 수행합니다. Microsoft 피어링 경로 또는 인터넷을 통해 트래픽을 Azure로 반환하도록 라우터를 구성해야 합니다. 서비스에 대해 서비스 엔드포인트를 사용하도록 설정한 경우 서비스에 대한 트래픽은 프레미스에 강제로 전송되지 않습니다. 트래픽은 Azure 백본 네트워크 내에 유지됩니다. 서비스 엔드포인트에 대한 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)를 참조하세요.
 
@@ -381,7 +390,7 @@ Microsoft 365 서비스를 사용 하려면 프리미엄 추가 기능을 사용
 예. 네트워크에 대해 Express 경로를 구성한 경우에도 인터넷을 통해 Microsoft 365 서비스 끝점에 연결할 수 있습니다. 사용자 위치의 네트워크가 Express 경로를 통해 Microsoft 365 서비스에 연결 하도록 구성 된 경우 조직의 네트워킹 팀에 문의 하세요.
 
 ### <a name="how-can-i-plan-for-high-availability-for-microsoft-365-network-traffic-on-azure-expressroute"></a>Azure Express 경로에서 Microsoft 365 네트워크 트래픽의 고가용성을 계획 하려면 어떻게 해야 하나요?
-[Azure ExpressRoute의 고가용성 및 장애 조치](https://aka.ms/erhighavailability)에 대한 권장 사항 참조
+[Azure ExpressRoute의 고가용성 및 장애 조치](/microsoft-365/enterprise/network-planning-with-expressroute)에 대한 권장 사항 참조
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Azure 미국 정부 ExpressRoute 회로를 통해 Office 365 미국 정부 커뮤니티(GCC) 서비스에 액세스할 수 있나요?
 
@@ -414,3 +423,9 @@ Microsoft 365 서비스를 사용 하려면 프리미엄 추가 기능을 사용
 ## <a name="global-reach"></a><a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
+
+## <a name="privacy"></a>개인 정보 취급 방침
+
+### <a name="does-the-expressroute-service-store-customer-data"></a>Express 경로 서비스에서 고객 데이터를 저장 하나요?
+
+아니요.

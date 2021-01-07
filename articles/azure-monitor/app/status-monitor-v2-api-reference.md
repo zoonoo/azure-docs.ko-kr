@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319000"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights 에이전트 API 참조
@@ -26,7 +26,7 @@ ms.locfileid: "87319000"
 > - 계측 엔진은 추가 오버 헤드를 추가 하며 기본적으로 해제 되어 있습니다.
 
 
-## <a name="enable-instrumentationengine"></a>InstrumentationEngine
+## <a name="enable-instrumentationengine"></a>Enable-InstrumentationEngine
 
 일부 레지스트리 키를 설정 하 여 계측 엔진을 사용 하도록 설정 합니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.
@@ -38,7 +38,7 @@ ms.locfileid: "87319000"
 - Enable cmdlet을 사용 하 여 모니터링을 이미 사용 하도록 설정 했지만 계측 엔진을 사용 하도록 설정 하지 않았습니다.
 - 수동으로 .NET Sdk를 사용 하 여 앱을 계측 하 고 추가 원격 분석을 수집 하려고 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```powershell
 PS C:\> Enable-InstrumentationEngine
@@ -62,7 +62,7 @@ Configuring IIS Environment for instrumentation engine...
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="enable-applicationinsightsmonitoring"></a>ApplicationInsightsMonitoring
+## <a name="enable-applicationinsightsmonitoring"></a>Enable-ApplicationInsightsMonitoring
 
 대상 컴퓨터에서 IIS 앱에 대 한 코드 없는 연결 모니터링을 사용 하도록 설정 합니다.
 
@@ -73,7 +73,7 @@ IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 
 모니터링을 사용 하도록 설정한 후에는 [라이브 메트릭을](live-stream.md) 사용 하 여 앱이 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하는 것이 좋습니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
 이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
@@ -84,10 +84,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
 이 예제에 대한 설명:
-- `MachineFilter`와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
+- `MachineFilter` 와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
 - `AppFilter='WebAppExclude'``null`계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
-- `AppFilter='WebAppOne'`지정 된 앱에 고유한 계측 키를 할당 합니다.
-- `AppFilter='WebAppTwo'`지정 된 앱에 고유한 계측 키를 할당 합니다.
+- `AppFilter='WebAppOne'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
+- `AppFilter='WebAppTwo'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
 - 마지막으로는 `AppFilter` `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 검색 하 고 기본 계측 키를 할당 합니다.
 - 가독성을 위해 공백을 추가 합니다.
 
@@ -186,7 +186,7 @@ Successfully enabled Application Insights Status Monitor
 일부 레지스트리 키를 제거 하 여 계측 엔진을 사용 하지 않도록 설정 합니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```powershell
 PS C:\> Disable-InstrumentationEngine
@@ -215,7 +215,7 @@ Configuring registry for instrumentation engine...
 대상 컴퓨터에서 모니터링을 사용 하지 않도록 설정 합니다.
 이 cmdlet은 IIS applicationHost.config 편집 내용을 제거 하 고 레지스트리 키를 제거 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```powershell
 PS C:\> Disable-ApplicationInsightsMonitoring
@@ -253,11 +253,11 @@ Successfully disabled Application Insights Status Monitor
 ```
 
 
-## <a name="get-applicationinsightsmonitoringconfig"></a>ApplicationInsightsMonitoringConfig
+## <a name="get-applicationinsightsmonitoringconfig"></a>Get-ApplicationInsightsMonitoringConfig
 
 구성 파일을 가져오고 값을 콘솔에 출력 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```powershell
 PS C:\> Get-ApplicationInsightsMonitoringConfig
@@ -280,13 +280,13 @@ Filters:
 2)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault AppFilter: .* MachineFilter: .*
 ```
 
-## <a name="get-applicationinsightsmonitoringstatus"></a>ApplicationInsightsMonitoringStatus
+## <a name="get-applicationinsightsmonitoringstatus"></a>Get-ApplicationInsightsMonitoringStatus
 
 이 cmdlet은 상태 모니터에 대 한 문제 해결 정보를 제공 합니다.
 이 cmdlet을 사용 하 여 PowerShell 모듈의 모니터링 상태와 버전을 조사 하 고 실행 중인 프로세스를 검사할 수 있습니다.
 이 cmdlet은 버전 정보 및 모니터링에 필요한 키 파일에 대 한 정보를 보고 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example-application-status"></a>예: 응용 프로그램 상태
 
@@ -456,7 +456,7 @@ Application Insights SDK를 포함 하 여 DLL의 버전을 식별 해야 하는
 **선택 사항입니다**. InspectProcess에만 사용 됩니다. 이 스위치를 사용 하 여 추가 도구가 다운로드 되기 전에 표시 되는 사용자 프롬프트를 건너뛸 수 있습니다.
 
 
-## <a name="set-applicationinsightsmonitoringconfig"></a>ApplicationInsightsMonitoringConfig
+## <a name="set-applicationinsightsmonitoringconfig"></a>Set-ApplicationInsightsMonitoringConfig
 
 전체를 다시 설치 하지 않고 구성 파일을 설정 합니다.
 IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
@@ -465,7 +465,7 @@ IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
 이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
@@ -476,10 +476,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
 이 예제에 대한 설명:
-- `MachineFilter`와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
+- `MachineFilter` 와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
 - `AppFilter='WebAppExclude'``null`계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
-- `AppFilter='WebAppOne'`지정 된 앱에 고유한 계측 키를 할당 합니다.
-- `AppFilter='WebAppTwo'`지정 된 앱에 고유한 계측 키를 할당 합니다.
+- `AppFilter='WebAppOne'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
+- `AppFilter='WebAppTwo'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
 - 마지막으로는 `AppFilter` `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 검색 하 고 기본 계측 키를 할당 합니다.
 - 가독성을 위해 공백을 추가 합니다.
 
@@ -550,7 +550,7 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-## <a name="start-applicationinsightsmonitoringtrace"></a>ApplicationInsightsMonitoringTrace
+## <a name="start-applicationinsightsmonitoringtrace"></a>Start-ApplicationInsightsMonitoringTrace
 
 코드 없는 attach 런타임에서 [ETW 이벤트](/windows/desktop/etw/event-tracing-portal) 를 수집 합니다. 이 cmdlet은 [Perfview](https://github.com/microsoft/perfview)를 실행 하는 대신 사용할 수 있습니다.
 
@@ -558,7 +558,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 이 cmdlet은 제한 시간 (기본값 5 분)에 도달할 때까지 실행 되거나 수동으로 중지 됩니다 ( `Ctrl + C` ).
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="how-to-collect-events"></a>이벤트를 수집 하는 방법
 

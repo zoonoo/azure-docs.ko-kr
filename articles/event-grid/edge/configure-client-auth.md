@@ -1,18 +1,18 @@
 ---
 title: 들어오는 호출에 대 한 클라이언트 인증 구성-Azure Event Grid IoT Edge | Microsoft Docs
-description: IoT Edge에서 Event Grid에 의해 노출 되는 API 프로토콜을 구성 합니다.
+description: Event Grid 모듈에 대해 가능한 클라이언트 인증 구성에 대해 알아봅니다.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: a0bba9559c2a0b4ff6c8a4e5f2287692e27f8a1a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9525da4204e270d033f0c2354318bd71874eaf54
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171706"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91290775"
 ---
 # <a name="configure-client-authentication-of-incoming-calls"></a>들어오는 호출에 대 한 클라이언트 인증 구성
 

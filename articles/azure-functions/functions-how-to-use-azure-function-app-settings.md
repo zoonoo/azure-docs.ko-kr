@@ -4,13 +4,13 @@ description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
+ms.openlocfilehash: 746a97ecd9b0bdd676e70cca38edc75905e3e4bd
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122303"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936943"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -29,13 +29,13 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 1. 시작하려면 [Azure Portal]로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력 하 고 목록에서 선택 합니다. 
 
-2. 왼쪽 창의 **설정** 에서 **구성**을 선택 합니다.
+2. 왼쪽 창의 **설정** 에서 **구성** 을 선택 합니다.
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Azure Portal의 함수 앱 개요":::
 
 개요 페이지, 특히 **[응용 프로그램 설정](#settings)** 및 **[플랫폼 기능](#platform-features)** 에서 함수 앱을 관리 하는 데 필요한 모든 항목으로 이동할 수 있습니다.
 
-## <a name="application-settings"></a><a name="settings"></a>애플리케이션 설정
+## <a name="work-with-application-settings"></a><a name="settings"></a>응용 프로그램 설정 작업
 
 **응용 프로그램 설정** 탭은 함수 앱에서 사용 하는 설정을 유지 합니다. 이러한 설정은 암호화 되어 저장 되므로 **값 표시** 를 선택 하 여 포털에서 값을 확인 해야 합니다. Azure CLI를 사용 하 여 응용 프로그램 설정에 액세스할 수도 있습니다.
 
@@ -69,6 +69,56 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 
 함수 앱을 로컬로 개발 하는 경우 프로젝트 파일의 local.settings.js에 이러한 값의 로컬 복사본을 유지 해야 합니다. 자세히 알아보려면 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조 하세요.
 
+## <a name="hosting-plan-type"></a>호스팅 계획 유형
+
+함수 앱을 만들 때 앱이 실행 되는 App Service 호스팅 계획도 만듭니다. 계획에는 하나 이상의 함수 앱이 있을 수 있습니다. 기능의 기능, 크기 조정 및 가격은 계획 유형에 따라 달라 집니다. 자세히 알아보려면 [Azure Functions 가격 책정 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조 하세요.
+
+Azure Portal에서 함수 앱에 사용 되는 계획의 유형을 결정 하거나 Azure CLI 또는 Azure PowerShell Api를 사용 하 여 확인할 수 있습니다. 
+
+다음 값은 계획 유형을 표시 합니다.
+
+| 플랜 유형 | 포털 | Azure CLI/PowerShell |
+| --- | --- | --- |
+| [Consumption](consumption-plan.md) | **Consumption** | `Dynamic` |
+| [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
+| [전용 (App Service)](dedicated-plan.md) | 다양 | 다양 |
+
+# <a name="portal"></a>[포털](#tab/portal)
+
+함수 앱에서 사용 하는 계획 유형을 확인 하려면 [Azure Portal](https://portal.azure.com)에서 함수 앱에 대 한 **개요** 탭의 **App Service 계획** 을 참조 하세요. 가격 책정 계층을 보려면 **App Service 계획** 의 이름을 선택한 다음 왼쪽 창에서 **속성** 을 선택 합니다.
+
+![포털에서 크기 조정 계획 보기](./media/functions-scale/function-app-overview-portal.png)
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+다음 Azure CLI 명령을 실행 하 여 호스팅 계획 유형을 가져옵니다.
+
+```azurecli-interactive
+functionApp=<FUNCTION_APP_NAME>
+resourceGroup=FunctionMonitoringExamples
+appServicePlanId=$(az functionapp show --name $functionApp --resource-group $resourceGroup --query appServicePlanId --output tsv)
+az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
+
+```  
+
+이전 예제에서 및를 `<RESOURCE_GROUP>` `<FUNCTION_APP_NAME>` 리소스 그룹 및 함수 앱 이름으로 바꿉니다. 
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+다음 Azure PowerShell 명령을 실행 하 여 호스팅 계획 유형을 가져옵니다.
+
+```azurepowershell-interactive
+$FunctionApp = '<FUNCTION_APP_NAME>'
+$ResourceGroup = '<RESOURCE_GROUP>'
+
+$PlanID = (Get-AzFunctionApp -ResourceGroupName $ResourceGroup -Name $FunctionApp).AppServicePlan
+(Get-AzFunctionAppPlan -Name $PlanID -ResourceGroupName $ResourceGroup).SkuTier
+```
+이전 예제에서 및를 `<RESOURCE_GROUP>` `<FUNCTION_APP_NAME>` 리소스 그룹 및 함수 앱 이름으로 바꿉니다. 
+
+---
+
+
 ## <a name="platform-features"></a>플랫폼 기능
 
 함수 앱은에서 실행 되며 Azure App Service 플랫폼에서 유지 관리 됩니다. 따라서 함수 앱은 Azure의 핵심 웹 호스팅 플랫폼 기능 대부분에 액세스할 수 있습니다. 왼쪽 창에는 함수 앱에서 사용할 수 있는 App Service 플랫폼의 다양 한 기능에 액세스할 수 있습니다. 
@@ -95,7 +145,7 @@ App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정�
 
 로컬 컴퓨터에서 함수를 개발 하는 것이 좋습니다. 로컬로 개발 하 고 Azure에 게시 하는 경우 프로젝트 파일은 포털에서 읽기 전용입니다. 자세히 알아보려면 [로컬에서 코드 및 테스트 Azure Functions](functions-develop-local.md)를 참조 하세요.
 
-### <a name="console"></a><a name="console"></a>Console
+### <a name="console"></a><a name="console"></a>콘솔
 
 ![함수 앱 콘솔](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
@@ -107,7 +157,7 @@ App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정�
 
 ![Kudu 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 고급 관리 기능에 액세스할 수 있습니다. Kudu에서 시스템 정보, 앱 설정, 환경 변수, 사이트 확장, HTTP 헤더 및 서버 변수를 관리할 수 있습니다. `https://<myfunctionapp>.scm.azurewebsites.net/`과 같은 함수 앱에 대한 SCM 엔드포인트로 이동하여 **Kudu**를 시작할 수도 있습니다. 
+App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 고급 관리 기능에 액세스할 수 있습니다. Kudu에서 시스템 정보, 앱 설정, 환경 변수, 사이트 확장, HTTP 헤더 및 서버 변수를 관리할 수 있습니다. `https://<myfunctionapp>.scm.azurewebsites.net/`과 같은 함수 앱에 대한 SCM 엔드포인트로 이동하여 **Kudu** 를 시작할 수도 있습니다. 
 
 
 ### <a name="deployment-center"></a><a name="deployment"></a>배포 센터
@@ -136,7 +186,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 명령을 사용 [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) 하 여 현재 허용 된 원본을 나열 합니다.
 
-### <a name="authentication"></a><a name="auth"></a>인증
+### <a name="authentication"></a><a name="auth"></a>인증은
 
 ![함수 앱에 대한 인증 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

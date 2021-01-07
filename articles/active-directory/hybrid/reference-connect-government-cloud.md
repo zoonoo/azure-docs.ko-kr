@@ -11,19 +11,22 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276187"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504358"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Azure Government 클라우드에 대한 하이브리드 ID 고려 사항
 
 이 문서에서는 하이브리드 환경을 Microsoft Azure Government 클라우드와 통합하기 위한 고려 사항을 설명합니다. 이 정보는 Azure Government 클라우드를 사용하는 관리자와 설계자를 위한 참조로 제공됩니다.
 
 > [!NOTE]
-> 온-프레미스 Microsoft Azure AD(Azure Active Directory) 환경을 Azure Government 클라우드와 통합하려면 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)의 최신 릴리스로 업그레이드해야 합니다.
+> Azure Government 클라우드를 사용 하 여 Microsoft Active Directory 환경 (온-프레미스에 있거나 동일한 클라우드 인스턴스에 속한 IaaS에서 호스트 됨)을 통합 하려면 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)최신 릴리스로 업그레이드 해야 합니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 미국 Department of Defense(국방부) 엔드포인트의 전체 목록은 [설명서](/office365/enterprise/office-365-u-s-government-dod-endpoints)를 참조하세요.
 
@@ -36,7 +39,7 @@ ms.locfileid: "89276187"
 통과 인증 에이전트를 배포하기 전에 서버와 Azure AD 사이에 방화벽이 있는지 확인합니다. 방화벽 또는 프록시에서 DNS(Domain Name System) 차단 또는 안전 프로그램을 허용하는 경우 다음 연결을 추가합니다.
 
 > [!NOTE]
-> 다음 지침은 Azure Government 환경에 대해 [Azure AD 애플리케이션 프록시 커넥터](https://aka.ms/whyappproxy)를 설치하는 경우에도 적용됩니다.
+> 다음 지침은 Azure Government 환경에 대해 [Azure AD 애플리케이션 프록시 커넥터](../manage-apps/what-is-application-proxy.md)를 설치하는 경우에도 적용됩니다.
 
 |URL |사용 방법|
 |-----|-----|
@@ -78,7 +81,7 @@ Azure Government 클라우드에 대한 에이전트를 설치하려면 다음 �
 
 다음 지침을 사용하여 Azure AD 원활한 Single Sign-On을 사용자에게 점진적으로 롤아웃할 수 있습니다. Active Directory의 그룹 정책을 사용하여 모든 또는 선택된 사용자의 인트라넷 영역 설정에 Azure AD URL `https://autologon.microsoft.us`를 추가하기 시작합니다.
 
-또한 **그룹 정책으로 스크립트를 통해 상태 표시줄에 대한 업데이트 허용**이라는 인트라넷 영역 정책 설정을 사용하도록 설정해야 합니다.
+또한 **그룹 정책으로 스크립트를 통해 상태 표시줄에 대한 업데이트 허용** 이라는 인트라넷 영역 정책 설정을 사용하도록 설정해야 합니다.
 
 ## <a name="browser-considerations"></a>브라우저 고려 사항
 
@@ -88,7 +91,7 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. �
 
 1. Firefox를 실행하고 주소 표시줄에  **about:config** 를 입력합니다. 표시되는 모든 알림을 해제합니다.
 1.  **network.negotiate-auth.trusted-uris**  기본 설정을 검색합니다. 이 기본 설정은 Kerberos 인증을 위한 Firefox의 신뢰할 수 있는 사이트를 나열합니다.
-1. 기본 설정 이름을 마우스 오른쪽 단추로 클릭한 다음,  **수정**을 선택합니다.
+1. 기본 설정 이름을 마우스 오른쪽 단추로 클릭한 다음,  **수정** 을 선택합니다.
 1. 상자에 `https://autologon.microsoft.us`를 입력합니다.
 1.  **확인** 을 선택한 다음, 브라우저를 다시 엽니다.
 

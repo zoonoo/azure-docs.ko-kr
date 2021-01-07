@@ -3,19 +3,22 @@ title: Azure Cosmos DB 쿼리 언어의 ST_ISVALID
 description: Azure Cosmos DB의 SQL 시스템 함수 ST_ISVALID에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8fbddbe82ae13585b8259a66dffaeef8024baf5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e7c124da91a947a0ac8426ce8c92347396236c4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71349371"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004435"
 ---
 # <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
- 지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한지 여부를 나타내는 부울 값을 반환합니다.  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+ 지정 된 GeoJSON Point, Polygon, MultiPolygon 또는 LineString 식이 유효한 지 여부를 나타내는 부울 값을 반환 합니다.  
   
 ## <a name="syntax"></a>구문
   

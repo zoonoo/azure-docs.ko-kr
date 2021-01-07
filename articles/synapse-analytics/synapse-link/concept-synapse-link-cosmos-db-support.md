@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 336409b8b6f804b224b87d5fb11fded0654b8619
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d12e60e2aeee667b89d56589870d53366772014
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895531"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459044"
 ---
-# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Cosmos DB용 Azure Synapse Link(미리 보기) 지원 기능
+# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Azure Cosmos DB용 Azure Synapse Link 지원 기능
 
 이 문서에서는 Azure Cosmos DB용 Azure Synapse Link에서 현재 지원되는 기능을 설명합니다.
 
@@ -29,19 +29,19 @@ Azure Cosmos DB에는 다음과 같은 두 가지 유형의 컨테이너가 있�
 > [!IMPORTANT]
 > Azure Cosmos DB에 대 한 Azure Synapse 링크는 현재 관리 되는 가상 네트워크를 사용 하도록 설정 되지 않은 Synapse 작업 영역에서 지원 됩니다. 
 
-Synapse Link를 활성화하지 않고 Azure Cosmos DB 컨테이너에 연결할 수 있습니다. 이 경우 트랜잭션 저장소에 대한 읽기/쓰기만 가능합니다. Azure Cosmos DB에 대 한 Synapse 링크 내에서 현재 지원 되는 기능 목록은 다음과 같습니다. 
+Synapse 링크를 사용 하지 않고 Azure Cosmos DB 컨테이너에 연결할 수 있습니다. 이 시나리오에서는 트랜잭션 저장소에 대 한 읽기/쓰기만 가능 합니다. Azure Cosmos DB에 대 한 Synapse 링크 내에서 현재 지원 되는 기능 목록은 다음과 같습니다. 
 
-| 범주              | 설명 |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL 서버리스](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Category              | 설명 |[Apache Spark 풀](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [서버리스 SQL 풀](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **런타임 지원** |Azure Cosmos DB에 액세스 하도록 지원 되는 Azure Synapse 런타임| ✓ | [문의처](mailto:cosmosdbsynapselink@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB) |
+| **런타임 지원** |Azure Cosmos DB에 액세스 하도록 지원 되는 Azure Synapse 런타임| ✓ | 미리 보기 |
 | **Azure Cosmos DB API 지원** | 지원 되는 Azure Cosmos DB API 종류 | SQL / MongoDB | SQL / MongoDB |
 | **Object**  |Azure Cosmos DB 컨테이너를 직접 가리키면서 만들 수 있는 테이블과 같은 개체| 데이터 프레임, View, Table | 보기 |
 | **읽기**    | 읽을 수 있는 Azure Cosmos DB 컨테이너의 유형입니다. | OLTP / HTAP | HTAP  |
-| **쓰기**   | Azure Synapse 런타임을 사용 하 여 Azure Cosmos DB 컨테이너에 데이터를 쓸 수 있습니다. | 예 | 예 |
+| **쓰기**   | Azure Synapse 런타임을 사용 하 여 Azure Cosmos DB 컨테이너에 데이터를 쓸 수 있습니다. | 예 | 아니요 |
 
-* Spark에서 Azure Cosmos DB 컨테이너에 데이터를 작성 하는 경우이 작업은 Azure Cosmos DB의 트랜잭션 저장소를 통해 수행 되며 Azure Cosmos DB에서 트랜잭션 워크 로드의 성능에 영향을 주므로 요청 단위를 사용 합니다.
-* 외부 테이블을 통한 Synapse SQL 풀 통합은 현재 지원 되지 않습니다.
-
+* Spark에서 Azure Cosmos DB 컨테이너에 데이터를 작성 하는 경우이 프로세스는 Azure Cosmos DB의 트랜잭션 저장소를 통해 수행 됩니다. 요청 단위를 사용 하 여 Azure Cosmos DB의 트랜잭션 성능에 영향을 줍니다.
+* 외부 테이블을 통한 전용 SQL 풀 통합은 현재 지원 되지 않습니다.
+ 
 ## <a name="supported-code-generated-actions-for-spark"></a>Spark에 대해 지원되는 코드 생성 작업
 
 | 제스처              | 설명 |OLTP |HTAP  |
@@ -53,16 +53,15 @@ Synapse Link를 활성화하지 않고 Azure Cosmos DB 컨테이너에 연결할
 | **컨테이너에 스트리밍 DataFrame 쓰기** |Azure Cosmos DB 변경 피드를 사용하여 데이터 스트리밍|✓| ✓ |
 
 
-
-## <a name="supported-code-generated-actions-for-sql-serverless"></a>SQL 서버리스에 대해 지원되는 코드 생성 작업
+## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>서버를 사용 하지 않는 SQL 풀에 대해 지원 되는 코드 생성 작업
 
 | 제스처              | 설명 |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **데이터 탐색** |친숙 한 T-sql 구문 및 자동 스키마 유추를 사용 하 여 컨테이너에서 데이터 탐색|X| ✓ |
-| **뷰 만들기 및 BI 보고서 빌드** |SQL 보기를 만들어 Synapse SQL server 서버를 통해 BI 용 컨테이너에 직접 액세스할 수 있습니다. |X| ✓ |
+| **뷰 만들기 및 BI 보고서 빌드** |SQL 보기를 만들어 서버를 사용 하지 않는 SQL 풀을 통해 BI 용 컨테이너에 직접 액세스할 수 있습니다. |X| ✓ |
 | **Cosmos DB 데이터와 함께 서로 다른 데이터 원본 조인** | CETAS를 사용 하 여 Azure Blob Storage 또는 Azure Data Lake Storage의 데이터와 함께 Cosmos DB 컨테이너의 데이터를 읽은 쿼리 결과를 저장 합니다. |X| ✓ |
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos DB용 Synapse Link에 연결](../quickstart-connect-synapse-link-cosmos-db.md)하는 방법을 참조하세요.
-* [Spark를 사용하여 분석 저장소를 쿼리하는 방법 알아보기](how-to-query-analytical-store-spark.md)
+* [Spark를 사용 하 여 Cosmos DB 분석 저장소를 쿼리 하는 방법 알아보기](how-to-query-analytical-store-spark.md)

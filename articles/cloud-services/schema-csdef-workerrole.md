@@ -14,11 +14,11 @@ caps.latest.revision: 55
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79534374"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005166"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services 정의 WorkerRole 스키마
 Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대한 백그라운드 처리를 수행할 수 있는 역할입니다.
@@ -116,7 +116,7 @@ Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대�
 
 [MSSQLSERVER에 대한 프로토콜 속성](#Certificate)
 
-[가져오기](#Imports)
+[가져오도록](#Imports)
 
 [가져오기](#Import)
 
@@ -169,7 +169,7 @@ Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대�
 
 역할에 대한 구성 설정은 서비스 정의 파일에 선언되고 서비스 구성 파일에 설정된 이름 및 값 쌍입니다.
 
-##  <a name="localresources"></a><a name="LocalResources"></a>LocalResources
+##  <a name="localresources"></a><a name="LocalResources"></a> LocalResources
 `LocalResources` 요소는 작업자 역할에 대한 로컬 스토리지 리소스의 컬렉션을 설명합니다. 이 요소는 `LocalStorage` 요소의 부모입니다.
 
 ##  <a name="localstorage"></a><a name="LocalStorage"></a> LocalStorage
@@ -183,7 +183,7 @@ Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대�
 | attribute | Type | Description |
 | --------- | ---- | ----------- |
 |name|문자열|필수 요소. 로컬 저장소의 고유한 이름입니다.|
-|cleanOnRoleRecycle|boolean|선택 사항입니다. 역할이 다시 시작될 때 로컬 저장소를 정리해야 하는지 여부를 나타냅니다. 기본값은 `true`입니다.|
+|cleanOnRoleRecycle|boolean|선택 사항입니다. 역할이 다시 시작될 때 로컬 저장소를 정리해야 하는지 여부를 나타냅니다. 기본값은 `true`여야 합니다.|
 |sizeInMb|int|선택 사항입니다. 로컬 스토리지에 할당할 원하는 스토리지 공간의 양(MB)입니다. 지정하지 않으면 할당되는 기본 스토리지 공간은 100MB입니다. 할당될 수 있는 스토리지 공간의 최소 크기는 1MB입니다.<br /><br /> 로컬 리소스의 최대 크기는 가상 머신 크기에 따라 다릅니다. 자세한 내용은 [Cloud Services를 위한 Virtual Machine 크기](cloud-services-sizes-specs.md)를 참조하세요.|
 
 로컬 스토리지 리소스에 할당된 디렉터리 이름은 이름 특성에 제공된 값에 해당합니다.
@@ -213,7 +213,7 @@ HTTP, HTTPS, UDP 및 TCP 엔드포인트의 조합인 여러 엔드포인트를 
 |ignoreRoleInstanceStatus|boolean|선택 사항입니다. 이 특성의 값을 `true`로 설정하면 서비스의 상태는 무시되고 엔드포인트가 부하 분산 장치에서 제거되지 않습니다. 이 값을 `true`로 설정하면 서비스의 사용 중인 인스턴스를 디버깅할 때 유용합니다. 기본값은 `false`입니다. **참고:** 역할이 준비 상태가 아닌 경우 엔드포인트가 트래픽을 계속 받을 수 있습니다.|
 |loadBalancerProbe|문자열|(선택 사항) 입력 엔드포인트와 연결된 부하 분산 장치 프로브의 이름입니다. 자세한 내용은 [LoadBalancerProbe 스키마](schema-csdef-loadbalancerprobe.md)를 참조하세요.|
 
-##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a>InternalEndpoint
+##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a> InternalEndpoint
 ph x="1" /&gt; 요소는 작업자 역할에 대한 내부 엔드포인트를 설명합니다. 내부 엔드포인트는 서비스 내에서 실행되는 다른 역할 인스턴스에서만 사용할 수 있으며, 서비스 외부의 클라이언트에는 사용할 수 없습니다. 작업자 역할에는 HTTP, UDP 또는 TCP 내부 엔드포인트가 최대 5개까지 있을 수 있습니다.
 
 다음 표에서는 `InternalEndpoint` 요소의 특성을 설명합니다.
@@ -237,12 +237,12 @@ ph x="1" /&gt; 요소는 작업자 역할에 대한 인스턴스 입력 엔드�
 |localPort|int|필수 요소. 부하 분산 장치에서 전달되어 들어오는 트래픽을 수신하기 위해 모든 역할 인스턴스가 수신 대기하는 내부 포트를 지정합니다. 가능한 값은 1에서 65535(포함) 사이입니다.|
 |protocol|문자열|필수 요소. 내부 엔드포인트에 대한 전송 프로토콜입니다. 가능한 값은 `udp` 또는 `tcp`입니다. http/https 기반 트래픽에 `tcp`를 사용합니다.|
 
-##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a>AllocatePublicPortFrom
+##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom
 ph x="1" /&gt; 요소는 외부 고객이 각 인스턴스 입력 엔드포인트에 액세스하는 데 사용할 수 있는 공용 포트 범위를 설명합니다. 공용(VIP) 포트 번호는 이 범위에서 할당되며, 테넌트를 배포 및 업데이트하는 동안 각 개인 역할 인스턴스 엔드포인트에 할당됩니다. 이 요소는 `FixedPortRange` 요소의 부모입니다.
 
 `AllocatePublicPortFrom` 요소는 Azure SDK 버전 1.7 이상이어야 사용할 수 있습니다.
 
-##  <a name="fixedport"></a><a name="FixedPort"></a>FixedPort
+##  <a name="fixedport"></a><a name="FixedPort"></a> FixedPort
 ph x="1" /&gt; 요소는 엔드포인트에서 부하 분산된 연결 사용을 설정하는 내부 엔드포인트에 대한 포트를 지정합니다.
 
 `FixedPort` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
@@ -271,7 +271,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 ##  <a name="certificates"></a><a name="Certificates"></a> 인증서
 `Certificates` 요소는 작업자 역할에 대한 인증서의 컬렉션을 설명합니다. 이 요소는 `Certificate` 요소의 부모입니다. 역할에는 연결된 인증서가 여러 개 있을 수 있습니다. 인증서 요소 사용에 대한 자세한 내용은 [인증서로 서비스 정의 파일 수정](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files)을 참조하세요.
 
-##  <a name="certificate"></a><a name="Certificate"></a>인증서
+##  <a name="certificate"></a><a name="Certificate"></a> 인증서
 `Certificate` 요소는 작업자 역할과 연결된 인증서를 설명합니다.
 
 다음 표에서는 `Certificate` 요소의 특성을 설명합니다.
@@ -279,16 +279,16 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | attribute | Type | Description |
 | --------- | ---- | ----------- |
 |name|문자열|필수 요소. 이 인증서의 이름으로, HTTPS `InputEndpoint` 요소와 연결된 경우 참조하는 데 사용됩니다.|
-|storeLocation|문자열|필수 요소. 이 인증서를 로컬 컴퓨터에서 찾을 수 있는 인증서 저장소의 위치입니다. 가능한 값은 `CurrentUser` 및 `LocalMachine`입니다.|
+|storeLocation|문자열|필수 요소. 이 인증서를 로컬 컴퓨터에서 찾을 수 있는 인증서 저장소의 위치입니다. 가능한 값은 `CurrentUser`와 `LocalMachine`입니다.|
 |storeName|문자열|필수 요소. 이 인증서가 로컬 컴퓨터에 상주하는 인증서 저장소의 이름입니다. 가능한 값은 기본 제공 저장소 이름 `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook` 또는 사용자 지정 저장소 이름을 포함합니다. 사용자 지정 저장소 이름을 지정하는 경우 저장소는 자동으로 만들어집니다.|
 |permissionLevel|문자열|(선택 사항) 역할 프로세스에 부여되는 액세스 권한을 지정합니다. 관리자 권한 프로세스만 프라이빗 키에 액세스할 수 있도록 하려면 `elevated` 권한을 지정합니다. `limitedOrElevated` 권한을 사용하면 모든 역할 프로세스가 프라이빗 키에 액세스할 수 있습니다. 가능한 값은 `limitedOrElevated` 또는 `elevated`입니다. 기본값은 `limitedOrElevated`입니다.|
 
-##  <a name="imports"></a><a name="Imports"></a>가져오도록
+##  <a name="imports"></a><a name="Imports"></a> 가져오도록
 `Imports` 요소는 게스트 운영 체제에 구성 요소를 추가하는 작업자 역할의 가져오기 모듈 컬렉션을 설명합니다. 이 요소는 `Import` 요소의 부모입니다. 이 요소는 선택 사항이며 역할은 런타임 블록을 하나만 가질 수 있습니다.
 
 `Imports` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
 
-##  <a name="import"></a><a name="Import"></a>마법사
+##  <a name="import"></a><a name="Import"></a> 마법사
 `Import` 요소는 게스트 운영 체제에 추가할 모듈을 지정합니다.
 
 `Import` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
@@ -299,7 +299,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | --------- | ---- | ----------- |
 |moduleName|문자열|필수 요소. 가져올 모듈의 이름입니다. 유효한 가져오기 모듈은 다음과 같습니다.<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> RemoteAccess 및 RemoteForwarder 모듈을 사용하면 원격 데스크톱 연결에 대한 역할 인스턴스를 구성할 수 있습니다. 자세한 내용은 [원격 데스크톱 연결 활성화](cloud-services-role-enable-remote-desktop-new-portal.md)를 참조하세요.<br /><br /> 진단 모듈을 사용하면 역할 인스턴스에 대한 진단 데이터를 수집할 수 있습니다.|
 
-##  <a name="runtime"></a><a name="Runtime"></a>런타임에서
+##  <a name="runtime"></a><a name="Runtime"></a> 런타임에서
 `Runtime` 요소는 Azure 호스트 프로세스의 런타임 환경을 제어하는 작업자 역할에 대한 환경 변수 설정의 컬렉션을 설명합니다. 이 요소는 `Environment` 요소의 부모입니다. 이 요소는 선택 사항이며 역할은 런타임 블록을 하나만 가질 수 있습니다.
 
 `Runtime` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
@@ -310,10 +310,10 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | --------- | ---- | ----------- |
 |executionContext|문자열|(선택 사항) 역할 프로세스가 시작되는 컨텍스트를 지정합니다. 기본 컨텍스트는 `limited`입니다.<br /><br /> -   `limited` - 프로세스가 관리자 권한 없이 시작됩니다.<br />-   `elevated` - 프로세스가 관리자 권한으로 시작됩니다.|
 
-##  <a name="environment"></a><a name="Environment"></a>개발
+##  <a name="environment"></a><a name="Environment"></a> 개발
 `Environment` 요소는 작업자 역할에 대한 환경 변수 설정의 컬렉션을 설명합니다. 이 요소는 `Variable` 요소의 부모입니다. 역할에는 환경 변수 설정이 여러 개 있을 수 있습니다.
 
-##  <a name="variable"></a><a name="Variable"></a>변수
+##  <a name="variable"></a><a name="Variable"></a> 변수
 `Variable` 요소는 게스트 운영 체제에서 설정하는 환경 변수를 지정합니다.
 
 `Variable` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
@@ -334,7 +334,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | --------- | ---- | ----------- |
 |xpath|문자열|(선택 사항) 인스턴스에 대한 배포 설정의 위치 경로입니다. 자세한 내용은 [XPath를 사용한 구성 변수](cloud-services-role-config-xpath.md)를 참조하세요.<br /><br /> 값 특성 또는 `RoleInstanceValue` 요소를 포함해야 합니다.|
 
-##  <a name="entrypoint"></a><a name="EntryPoint"></a>진입점
+##  <a name="entrypoint"></a><a name="EntryPoint"></a> 진입점
 `EntryPoint` 요소는 역할에 대한 진입점을 지정합니다. 이 요소는 `NetFxEntryPoint` 요소의 부모입니다. 이러한 요소를 사용하면 역할 진입점으로 동작하도록 기본 WaWorkerHost.exe 이외의 애플리케이션을 지정할 수 있습니다.
 
 `EntryPoint` 요소는 Azure SDK 버전 1.5 이상이어야 사용할 수 있습니다.
@@ -349,10 +349,10 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 | attribute | Type | Description |
 | --------- | ---- | ----------- |
-|assemblyName|문자열|필수 요소. 진입점을 포함하는 어셈블리의 경로 및 파일 이름입니다. 경로는 ** \\ %ROLEROOT%\Approot** 폴더를 기준으로 합니다 .에서는 ** \\ %ROLEROOT%\Approot** 를 지정 하지 마십시오 `commandLine` . **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. ** \\ %ROLEROOT%\Approot** 폴더는 역할의 응용 프로그램 폴더를 나타냅니다.|
-|targetFrameworkVersion|문자열|필수 요소. 어셈블리가 작성되는 .NET Framework의 버전입니다. 예를 들어 `targetFrameworkVersion="v4.0"`.|
+|assemblyName|문자열|필수 요소. 진입점을 포함하는 어셈블리의 경로 및 파일 이름입니다. 경로는 **\\ %ROLEROOT%\Approot** 폴더를 기준으로 합니다 .에서는 **\\ %ROLEROOT%\Approot** 를 지정 하지 마십시오 `commandLine` . **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **\\ %ROLEROOT%\Approot** 폴더는 역할의 응용 프로그램 폴더를 나타냅니다.|
+|targetFrameworkVersion|문자열|필수 요소. 어셈블리가 작성되는 .NET Framework의 버전입니다. 예: `targetFrameworkVersion="v4.0"`.|
 
-##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a>ProgramEntryPoint
+##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a> ProgramEntryPoint
 `ProgramEntryPoint` 요소는 역할에 실행하는 프로그램을 지정합니다. `ProgramEntryPoint` 요소를 사용하면 .NET 어셈블리에 기반하지 않는 프로그램 진입점을 지정할 수 있습니다.
 
 > [!NOTE]
@@ -362,10 +362,10 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 | attribute | Type | Description |
 | --------- | ---- | ----------- |
-|commandLine|문자열|필수 요소. 실행할 프로그램의 경로, 파일 이름 및 명령줄 인수입니다. 경로는 **%ROLEROOT%\Approot** 폴더의 상대 경로(commandLine에 **%ROLEROOT%\Approot**는 지정하면 안 됨)입니다. **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **%ROLEROOT%\Approot** 폴더는 역할의 응용 프로그램 폴더를 나타냅니다.<br /><br /> 프로그램이 종료되면, 역할이 재활용되므로 일반적으로 단지 시작해서 한정된 작업을 실행하는 프로그램이 되는 대신 계속 실행되도록 프로그램을 설정합니다.|
+|commandLine|문자열|필수 요소. 실행할 프로그램의 경로, 파일 이름 및 명령줄 인수입니다. 경로는 **%ROLEROOT%\Approot** 폴더의 상대 경로(commandLine에 **%ROLEROOT%\Approot** 는 지정하면 안 됨)입니다. **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **%ROLEROOT%\Approot** 폴더는 역할의 응용 프로그램 폴더를 나타냅니다.<br /><br /> 프로그램이 종료되면, 역할이 재활용되므로 일반적으로 단지 시작해서 한정된 작업을 실행하는 프로그램이 되는 대신 계속 실행되도록 프로그램을 설정합니다.|
 |setReadyOnProcessStart|boolean|필수 요소. 명령줄 프로그램이 시작되었음을 알리는 신호를 보내길 역할 인스턴스에서 대기하는지 여부를 지정합니다. 이 때 이 값은 `true`로 설정해야 합니다. 값을 `false`로 설정하면 나중에 사용하도록 예약됩니다.|
 
-##  <a name="startup"></a><a name="Startup"></a>모드로
+##  <a name="startup"></a><a name="Startup"></a> 모드로
 `Startup` 요소는 역할이 시작될 때 실행하는 작업의 컬렉션을 설명합니다. 이 요소는 `Variable` 요소의 부모일 수 있습니다. 역할 시작 작업 사용에 대한 자세한 내용은 [시작 작업을 구성하는 방법](cloud-services-startup-tasks.md)을 참조하세요. 이 요소는 선택 사항이며 역할은 시작 블록을 하나만 가질 수 있습니다.
 
 다음 표에서는 `Startup` 요소의 특성을 설명합니다.
@@ -374,7 +374,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | --------- | ---- | ----------- |
 |priority|int|내부 전용입니다.|
 
-##  <a name="task"></a><a name="Task"></a>임무
+##  <a name="task"></a><a name="Task"></a> 임무
 `Task` 요소는 역할이 시작될 때 발생하는 시작 작업을 지정합니다. 시작 작업은 이러한 설치 소프트웨어 구성 요소를 실행하거나 다른 애플리케이션을 실행하기 위해 역할을 준비하는 작업을 수행하는 데 사용할 수 있습니다. 작업은 `Startup` 요소 블록 내 표시되는 순서대로 실행됩니다.
 
 `Task` 요소는 Azure SDK 버전 1.3 이상이어야 사용할 수 있습니다.
@@ -405,7 +405,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 이 요소는 `SourceDirectory` 요소의 부모 요소입니다.
 
-##  <a name="sourcedirectory"></a><a name="SourceDirectory"></a>SourceDirectory
+##  <a name="sourcedirectory"></a><a name="SourceDirectory"></a> SourceDirectory
 `SourceDirectory` 요소는 콘텐츠가 복사되는 로컬 디렉터리를 정의합니다. 이 요소를 사용하여 Azure 가상 머신으로 복사할 로컬 콘텐츠를 지정합니다.
 
 `SourceDirectory` 요소는 Azure SDK 버전 1.5 이상이어야 사용할 수 있습니다.
@@ -414,7 +414,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 
 | attribute | Type | Description |
 | --------- | ---- | ----------- |
-|경로|문자열|필수 요소. 콘텐츠가 Azure 가상 컴퓨터에 복사되는 로컬 디렉터리의 상대 또는 절대 경로입니다. 디렉터리 경로의 환경 변수 확장이 지원됩니다.|
+|path|string|필수 요소. 콘텐츠가 Azure 가상 컴퓨터에 복사되는 로컬 디렉터리의 상대 또는 절대 경로입니다. 디렉터리 경로의 환경 변수 확장이 지원됩니다.|
 
 ## <a name="see-also"></a>참고 항목
 [Cloud Service(클래식) 정의 스키마](schema-csdef-file.md)

@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 20e9ed7e83ff3359651acebc11a939a998f2889d
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933361"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607918"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -32,9 +32,9 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 마이크로 서비스 환경에서 구성 요소의 추적은 다른 스토리지 항목으로 이동할 수 있습니다. 모든 구성 요소에는 자체의 계측 키가 Application Insights에 있을 수 있습니다. 논리 작업에 대 한 원격 분석을 가져오기 위해 Application Insights는 모든 저장소 항목의 데이터를 쿼리 합니다. 저장소 항목 수가 클 경우 다음을 찾을 위치에 대 한 힌트가 필요 합니다. Application Insights 데이터 모델에서는 이 문제를 해결하기 위해 두 가지 필드, 즉 `request.source` 및 `dependency.target`을 정의합니다. 첫 번째 필드는 종속성 요청을 시작한 구성 요소를 식별 합니다. 두 번째 필드는 종속성 호출의 응답을 반환한 구성 요소를 식별 합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
-예제를 살펴보겠습니다. 주식 가격 이라는 응용 프로그램은 Stock 이라는 외부 API를 사용 하 여 재고의 현재 시장 가격을 보여 줍니다. 주식 가격 응용 프로그램에는를 사용 하 여 클라이언트 웹 브라우저에서 열리는 스톡 페이지 라는 페이지가 있습니다 `GET /Home/Stock` . 응용 프로그램은 HTTP 호출을 사용 하 여 스톡 API를 쿼리 합니다 `GET /api/stock/value` .
+예를 살펴보겠습니다. 주식 가격 이라는 응용 프로그램은 Stock 이라는 외부 API를 사용 하 여 재고의 현재 시장 가격을 보여 줍니다. 주식 가격 응용 프로그램에는를 사용 하 여 클라이언트 웹 브라우저에서 열리는 스톡 페이지 라는 페이지가 있습니다 `GET /Home/Stock` . 응용 프로그램은 HTTP 호출을 사용 하 여 스톡 API를 쿼리 합니다 `GET /api/stock/value` .
 
 쿼리를 실행하여 결과 원격 분석을 분석할 수 있습니다.
 
@@ -55,14 +55,14 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 외부 서비스를 호출 하는 경우 `GET /api/stock/value` 필드를 적절 하 게 설정할 수 있도록 해당 서버의 id를 알고 있어야 합니다 `dependency.target` . 외부 서비스에서 모니터링을 지원하지 않는 경우 `target`은 서비스의 호스트 이름으로 설정됩니다(예: `stock-prices-api.com`). 그러나 서비스에서 미리 정의 된 HTTP 헤더를 반환 하 여 자신을 식별 하는 경우 `target` 는 해당 서비스에서 원격 분석을 쿼리하여 분산 추적을 작성할 Application Insights 수 있는 서비스 id를 포함 합니다.
 
-## <a name="correlation-headers"></a>상관 관계 헤더
+## <a name="correlation-headers-using-w3c-tracecontext"></a>W3C TraceContext를 사용 하 여 상관 관계 헤더
 
 Application Insights를 정의 하는 [W3C 추적-컨텍스트로](https://w3c.github.io/trace-context/)전환 하는 중입니다.
 
 - `traceparent`: 전역 고유 작업 ID와 호출의 고유 식별자를 전달 합니다.
 - `tracestate`: 시스템 특정 추적 컨텍스트를 전달 합니다.
 
-최신 버전의 Application Insights SDK는 추적 컨텍스트 프로토콜을 지원 하지만이를 옵트인 (opt in) 해야 할 수도 있습니다. Application Insights SDK에서 지 원하는 이전 상관 관계 프로토콜과의 이전 버전과의 호환성이 유지 됩니다.
+최신 버전의 Application Insights SDK는 Trace-Context 프로토콜을 지원 하지만이를 옵트인 (opt in) 해야 할 수도 있습니다. Application Insights SDK에서 지 원하는 이전 상관 관계 프로토콜과의 이전 버전과의 호환성이 유지 됩니다.
 
 [요청 Id 라고도 하는 상관 관계 HTTP 프로토콜](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)은 더 이상 사용 되지 않습니다. 이 프로토콜은 두 가지 헤더를 정의 합니다.
 
@@ -71,62 +71,19 @@ Application Insights를 정의 하는 [W3C 추적-컨텍스트로](https://w3c.g
 
 또한 Application Insights은 상관 관계 HTTP 프로토콜에 대 한 [확장](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) 을 정의 합니다. `Request-Context` 이름-값 쌍을 사용하여 즉각적인 호출자 또는 호출 수신자에서 사용하는 속성의 컬렉션을 전파합니다. Application Insights SDK는이 헤더를 사용 하 여 `dependency.target` 및 필드를 설정 합니다 `request.source` .
 
-### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>클래식 ASP.NET 앱에 W3C 분산 추적 지원을 사용하도록 설정
- 
-  > [!NOTE]
-  >  및 부터는 `Microsoft.ApplicationInsights.Web` `Microsoft.ApplicationInsights.DependencyCollector` 구성이 필요 하지 않습니다.
+[W3C 추적 컨텍스트](https://w3c.github.io/trace-context/) 및 Application Insights 데이터 모델은 다음과 같은 방식으로 매핑됩니다.
 
-W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 구현 됩니다. 상관 관계는 W3C를 지원 하지 않는 이전 버전의 SDK를 사용 하 여 계측 된 응용 프로그램에서 작동 합니다.
+| Application Insights                   | W3C TraceContext                                      |
+|------------------------------------    |-------------------------------------------------|
+| `Request` 및 `Dependency`의 `Id`     | [부모 id](https://w3c.github.io/trace-context/#parent-id)                                     |
+| `Operation_Id`                         | [추적 id](https://w3c.github.io/trace-context/#trace-id)                                           |
+| `Operation_ParentId`                   | 이 범위의 부모 범위에 대 한 [부모 id](https://w3c.github.io/trace-context/#parent-id) 입니다. 루트 범위 이면이 필드는 비어 있어야 합니다.     |
 
-레거시 프로토콜을 계속 사용 하려는 경우 `Request-Id` 다음 구성을 사용 하 여 추적 컨텍스트를 사용 하지 않도록 설정할 수 있습니다.
+자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조 하세요.
 
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
+### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>.NET 앱에 대해 W3C distributed tracing 지원 사용
 
-이전 버전의 SDK를 실행 하는 경우 추적을 업데이트 하거나 다음 구성을 적용 하 여 추적 컨텍스트를 사용 하도록 설정 하는 것이 좋습니다.
-이 기능은 `Microsoft.ApplicationInsights.Web` 및 `Microsoft.ApplicationInsights.DependencyCollector` 패키지에서 2.8.0-beta1 버전부터 사용할 수 있습니다.
-기본적으로 사용하지 않도록 설정되어 있습니다. 이 기능을 사용 하도록 설정 하려면 `ApplicationInsights.config` 다음과 같이 변경 합니다.
-
-- 에서 `RequestTrackingTelemetryModule` 요소를 추가 하 `EnableW3CHeadersExtraction` 고 해당 값을로 설정 `true` 합니다.
-- 에서 `DependencyTrackingTelemetryModule` 요소를 추가 하 `EnableW3CHeadersInjection` 고 해당 값을로 설정 `true` 합니다.
-- `W3COperationCorrelationTelemetryInitializer`아래 `TelemetryInitializers` 에를 추가 합니다. 이 예는 다음과 같습니다.
-
-```xml
-<TelemetryInitializers>
-  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
-   ...
-</TelemetryInitializers>
-```
-
-### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core 앱에 W3C 분산 추적 지원을 사용하도록 설정
-
- > [!NOTE]
-  > `Microsoft.ApplicationInsights.AspNetCore`버전 2.8.0부터 구성이 필요 하지 않습니다.
- 
-W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 구현 됩니다. 상관 관계는 W3C를 지원 하지 않는 이전 버전의 SDK를 사용 하 여 계측 된 응용 프로그램에서 작동 합니다.
-
-레거시 프로토콜을 계속 사용 하려는 경우 `Request-Id` 다음 구성을 사용 하 여 추적 컨텍스트를 사용 하지 않도록 설정할 수 있습니다.
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-이전 버전의 SDK를 실행 하는 경우 추적을 업데이트 하거나 다음 구성을 적용 하 여 추적 컨텍스트를 사용 하도록 설정 하는 것이 좋습니다.
-
-이 기능은 `Microsoft.ApplicationInsights.AspNetCore` 버전 2.5.0-beta1 및 `Microsoft.ApplicationInsights.DependencyCollector` 버전 2.8.0-beta1에 있으며,
-기본적으로 사용하지 않도록 설정되어 있습니다. 사용하도록 설정하려면 `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing`을 `true`로 설정합니다.
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddApplicationInsightsTelemetry(o => 
-        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
-    // ....
-}
-```
+W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에서 기본적으로 사용 하도록 설정 되며 이전 버전의 레거시 Request-Id 프로토콜과 함께 사용 됩니다.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Java 앱에 W3C 분산 추적 지원을 사용하도록 설정
 
@@ -145,7 +102,7 @@ public void ConfigureServices(IServiceCollection services)
        <Param name ="enableW3CBackCompat" value = "true" />
     </Add>
     ```
-    
+
   - 스프링 부팅 앱의 경우 다음 속성을 추가 합니다.
 
     - `azure.application-insights.web.enable-W3C=true`
@@ -175,58 +132,31 @@ public void ConfigureServices(IServiceCollection services)
 
 이 기능은에 `Microsoft.ApplicationInsights.JavaScript` 있습니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 사용 하도록 설정 하려면 config를 사용 `distributedTracingMode` 합니다. AI_AND_W3C은 Application Insights에서 계측 하는 레거시 서비스와 이전 버전과의 호환성을 위해 제공 됩니다.
 
-- **npm 설치 (조각 설치를 사용 하는 경우 무시)**
+- **[npm 기반 설정](./javascript.md#npm-based-setup)**
 
-  ```javascript
-  import { ApplicationInsights, DistributedTracingModes } from '@microsoft/applicationinsights-web';
-
-  const appInsights = new ApplicationInsights({ config: {
-    instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+다음 구성을 추가 합니다.
+  ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
-    /* ...other configuration options... */
-  } });
-  appInsights.loadAppInsights();
   ```
-  
-- **조각 설치 (npm 설치를 사용 하는 경우 무시)**
 
+- **[코드 조각 기반 설정](./javascript.md#snippet-based-setup)**
+
+다음 구성을 추가 합니다.
   ```
-  <script type="text/javascript">
-  var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-  (
-    {
-      instrumentationKey:"INSTRUMENTATION_KEY",
       distributedTracingMode: 2 // DistributedTracingModes.W3C
-      /* ...other configuration options... */
-    }
-  );
-  window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-  </script>
   ```
-
-## <a name="opentracing-and-application-insights"></a>OpenTracing 및 Application Insights
-
-[OpenTracing 데이터 모델 사양](https://opentracing.io/)과 Application Insights 데이터 모델은 다음과 같은 방식으로 매핑됩니다.
-
-| Application Insights                   | OpenTracing                                        |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span`(`span.kind = server` 사용)                    |
-| `Dependency`                           | `Span`(`span.kind = client` 사용)                    |
-| `Request` 및 `Dependency`의 `Id`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `ChildOf` 유형의 `Reference`(상위 범위)     |
-
-자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조 하세요.
-
-OpenTracing 개념에 대 한 정의는 OpenTracing [사양](https://github.com/opentracing/specification/blob/master/specification.md) 및 [의미 체계 규칙](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)을 참조 하세요.
+> [!IMPORTANT] 
+> 상관 관계를 설정 하는 데 필요한 모든 구성을 보려면 [JavaScript 상관 관계 설명서](./javascript.md#enable-correlation)를 참조 하세요.
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python의 원격 분석 상관 관계
 
-OpenCensus Python은 `OpenTracing` 앞에서 설명한 데이터 모델 사양을 따릅니다. 또한 구성을 요구 하지 않고 [W3C 추적 컨텍스트를](https://w3c.github.io/trace-context/) 지원 합니다.
+OpenCensus Python은 추가 구성을 요구 하지 않고 [W3C 추적 컨텍스트를](https://w3c.github.io/trace-context/) 지원 합니다.
+
+참조로 OpenCensus 데이터 모델은 [여기](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace)에서 찾을 수 있습니다.
 
 ### <a name="incoming-request-correlation"></a>들어오는 요청 상관 관계
 
-OpenCensus Python은 요청 자체에서 생성 된 범위에 대 한 들어오는 요청에서 W3C 추적 컨텍스트 헤더와 상관 관계를 합니다. OpenCensus는 이러한 인기 있는 웹 응용 프로그램 프레임 워크 (Flask, Django 및 피라미드형)의 통합을 통해이 작업을 자동으로 수행 합니다. W3C 추적 컨텍스트 헤더를 [올바른 형식](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) 으로 채운 다음 요청을 통해 보내야 합니다. 다음은이를 보여 주는 샘플 Flask 응용 프로그램입니다.
+OpenCensus Python은 요청 자체에서 생성 된 범위에 대 한 들어오는 요청에서 W3C Trace-Context 헤더와 상관 관계를 합니다. OpenCensus는 이러한 인기 있는 웹 응용 프로그램 프레임 워크 (Flask, Django 및 피라미드형)의 통합을 통해이 작업을 자동으로 수행 합니다. W3C Trace-Context 헤더를 [올바른 형식](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) 으로 채운 다음 요청을 통해 보냅니다. 다음은이를 보여 주는 샘플 Flask 응용 프로그램입니다.
 
 ```python
 from flask import Flask
@@ -306,24 +236,9 @@ logger.warning('After the span')
 
 ## <a name="telemetry-correlation-in-net"></a>.NET의 원격 분석 상관 관계
 
-시간이 지남에 따라 .NET은 원격 분석 및 진단 로그를 상호 연결 하는 여러 방법을 정의 했습니다.
+.NET 런타임은 [Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) 및 [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 의 도움을 사용 하 여 배포를 지원 합니다.
 
-- `System.Diagnostics.CorrelationManager`[Logicaloperationstack 및 활동](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1)id를 추적할 수 있습니다.
-- `System.Diagnostics.Tracing.EventSource` 및 ETW(Windows용 이벤트 추적)는 [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) 메서드를 정의합니다.
-- `ILogger`[로그 범위](/aspnet/core/fundamentals/logging#log-scopes)를 사용 합니다.
-- WCF(Windows Communication Foundation) 및 HTTP는 "현재" 컨텍스트 전파를 연결합니다.
-
-그러나 이러한 메서드는 자동 분산 추적 지원을 사용 하지 않았습니다. `DiagnosticSource` 자동 컴퓨터 간 상관 관계를 지원 합니다. .NET 라이브러리는 `DiagnosticSource` HTTP와 같은 전송을 통해 상관 관계 컨텍스트의 자동 크로스 컴퓨터 전파를 지원 하 고 허용 합니다.
-
-의 [활동 사용자 가이드](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) 에서는 `DiagnosticSource` 추적 활동의 기본 사항을 설명 합니다.
-
-ASP.NET Core 2.0에서는 HTTP 헤더 추출을 지원 하 고 새 작업을 시작할 수 있습니다.
-
-`System.Net.Http.HttpClient`4.1.0 버전부터는 상관 관계 HTTP 헤더의 자동 삽입 및 HTTP 호출을 활동으로 추적 하는 기능을 지원 합니다.
-
-클래식 ASP.NET에는 새로운 HTTP 모듈인 [TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)이 있습니다. 이 모듈은 `DiagnosticSource`를 사용하여 원격 분석 상관 관계를 구현하며, 들어오는 요청 헤더에 기반한 활동을 시작합니다. 또한 모든 인터넷 정보 서비스 (IIS) 처리가 다른 관리 되는 스레드에서 실행 되는 경우에도 요청 처리의 여러 단계에서 원격 분석의 상관 관계를 설정 합니다.
-
-Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Activity`를 사용하여 원격 분석을 수집하고 현재 활동과 연결합니다.
+Application Insights .NET SDK는 및를 사용 하 여 `DiagnosticSource` `Activity` 원격 분석을 수집 하 고 상관 관계를 합니다.
 
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Java의 원격 분석 상관 관계
@@ -344,10 +259,8 @@ Java [에이전트](./java-in-process-agent.md) 및 [java SDK](../../azure-monit
 
     ```json
     {
-      "instrumentationSettings": {
-        "preview": {
-          "roleName": "my cloud role name"
-        }
+      "role": {
+        "name": "my cloud role name"
       }
     }
     ```

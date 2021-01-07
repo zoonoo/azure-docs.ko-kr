@@ -2,13 +2,13 @@
 title: 레지스트리의 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure container registry에 액세스할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 10/01/2020
+ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227466"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351796"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리의 네트워크 문제 해결
 
@@ -22,6 +22,7 @@ ms.locfileid: "88227466"
 * 이미지를 푸시 또는 끌어올 수 없습니다. 오류 Azure CLI 수신 됩니다. `Could not connect to the registry login server`
 * 레지스트리에서 Azure Kubernetes Service 또는 다른 Azure 서비스로 이미지를 끌어올 수 없습니다.
 * HTTPS 프록시 뒤에 있는 레지스트리에 액세스할 수 없어서 오류가 발생 했습니다. `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* 가상 네트워크 설정을 구성할 수 없습니다. 오류가 발생 했습니다. `Failed to save firewall and virtual network settings for container registry`
 * Azure Portal 또는 Azure CLI를 사용 하 여 레지스트리 설정을 확인 하거나 볼 수 없습니다.
 * 가상 네트워크 설정 또는 공용 액세스 규칙을 추가 하거나 수정할 수 없습니다.
 * ACR 작업에서 이미지를 푸시 하거나 끌어올 수 없습니다.
@@ -32,7 +33,7 @@ ms.locfileid: "88227466"
 * 클라이언트 방화벽 또는 프록시가 액세스를 금지 합니다.- [솔루션](#configure-client-firewall-access)
 * 레지스트리의 공용 네트워크 액세스 규칙 액세스 방지- [솔루션](#configure-public-access-to-registry)
 * 가상 네트워크 구성으로 인 한 액세스 방지- [솔루션](#configure-vnet-access)
-* Azure Security Center를 개인 끝점 또는 서비스 끝점이 있는 레지스트리와 통합 하려고 합니다. [solution](#configure-image-scanning-solution)
+* 개인 끝점, 서비스 끝점 또는 공용 IP 액세스 규칙을 포함 하는 레지스트리와 Azure Security Center 또는 특정 다른 Azure 서비스를 통합 하려고 시도 합니다.- [솔루션](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>추가 진단 
 
@@ -47,7 +48,7 @@ ms.locfileid: "88227466"
 
 ### <a name="configure-client-firewall-access"></a>클라이언트 방화벽 액세스 구성
 
-클라이언트 방화벽이 나 프록시 서버 뒤에서 레지스트리에 액세스 하려면 레지스트리의 REST 및 데이터 끝점에 액세스 하는 방화벽 규칙을 구성 합니다. [전용 데이터 끝점](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) 을 사용 하는 경우 다음에 액세스할 수 있는 규칙이 필요 합니다.
+클라이언트 방화벽이 나 프록시 서버 뒤에서 레지스트리에 액세스 하려면 레지스트리의 공용 REST 및 데이터 끝점에 액세스 하는 방화벽 규칙을 구성 합니다. [전용 데이터 끝점](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) 을 사용 하는 경우 다음에 액세스할 수 있는 규칙이 필요 합니다.
 
 * REST 끝점: `<registryname>.azurecr.io`
 * 데이터 끝점: `<registry-name>.<region>.data.azurecr.io`
@@ -86,7 +87,11 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 레지스트리에 대 한 서비스 끝점이 구성 된 경우 해당 네트워크 서브넷의 액세스를 허용 하는 네트워크 규칙이 레지스트리에 추가 되어 있는지 확인 합니다. 서비스 끝점은 네트워크의 가상 컴퓨터 및 AKS 클러스터 에서만 액세스할 수 있도록 지원 합니다.
 
+다른 Azure 구독의 가상 네트워크를 사용 하 여 레지스트리 액세스를 제한 하려면 `Microsoft.ContainerRegistry` 해당 구독에 리소스 공급자를 등록 해야 합니다. Azure Portal, Azure CLI 또는 다른 Azure 도구를 사용 하 여 Azure Container Registry에 대 한 [리소스 공급자를 등록](../azure-resource-manager/management/resource-providers-and-types.md) 합니다.
+
 네트워크에서 Azure 방화벽 또는 유사한 솔루션을 구성 하는 경우 AKS 클러스터와 같은 다른 리소스의 송신 트래픽이 레지스트리 끝점에 도달 하도록 설정 되었는지 확인 합니다.
+
+개인 끝점이 구성 된 경우 DNS가 레지스트리의 개인 IP 주소에 대 한 *myregistry.azurecr.io* 와 같은 레지스트리의 공용 FQDN을 확인 하는지 확인 합니다. `dig`DNS 조회를 위해 또는와 같은 네트워크 유틸리티를 사용 `nslookup` 합니다.
 
 관련 링크:
 
@@ -96,17 +101,22 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 * [Kubernetes: DNS 확인 디버깅](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [가상 네트워크 서비스 태그](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>이미지 스캔 솔루션 구성
+### <a name="configure-service-access"></a>서비스 액세스 구성
 
-레지스트리가 개인 끝점 또는 서비스 끝점을 사용 하 여 구성 된 경우 현재 이미지 검색에 대 한 Azure Security Center와 통합할 수 없습니다. 필요에 따라 다음을 비롯 하 여 Azure Marketplace에서 사용할 수 있는 다른 이미지 검색 솔루션을 구성 합니다.
+현재 개인 끝점, 선택한 서브넷 또는 IP 주소에 대 한 액세스를 제한 하는 레지스트리에서 [이미지 취약성 검사](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) 를 수행할 수 Azure Security Center. 또한 다음 서비스의 리소스는 네트워크 제한을 사용 하 여 컨테이너 레지스트리에 액세스할 수 없습니다.
 
-* [바다색 클라우드 네이티브 보안 플랫폼](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Azure DevOps Services 
+* Azure Container Instances
+* Azure Container Registry 작업
+
+이러한 Azure 서비스의 액세스 또는 컨테이너가 컨테이너 레지스트리와 통합 되어야 하는 경우 네트워크 제한을 제거 합니다. 예를 들어 레지스트리의 개인 끝점을 제거 하거나 레지스트리의 공용 액세스 규칙을 제거 하거나 수정 합니다.
 
 관련 링크:
 
-* [Security Center Azure Container Registry 이미지 검색](../security-center/azure-container-registry-integration.md)
+* [Security Center Azure Container Registry 이미지 검색](../security-center/defender-for-container-registries-introduction.md)
 * [사용자 의견](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are) 제공
+* [공용 IP 네트워크 규칙 구성](container-registry-access-selected-networks.md)
+* [Azure 개인 링크를 사용 하 여 Azure container registry에 비공개로 연결](container-registry-private-link.md)
 
 
 ## <a name="advanced-troubleshooting"></a>고급 문제 해결
@@ -126,9 +136,7 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 * 다른 레지스트리 문제 해결 항목은 다음과 같습니다.
   * [레지스트리 로그인 문제 해결](container-registry-troubleshoot-login.md) 
-  * [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
+  * [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 * [커뮤니티 지원](https://azure.microsoft.com/support/community/) 옵션
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [지원 티켓 열기](https://azure.microsoft.com/support/create-ticket/)
-
-

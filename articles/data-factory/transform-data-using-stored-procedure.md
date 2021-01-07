@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: f20af5ea9628dd6c8aa732ac1d09625156eed0c4
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484734"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387544"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server 저장 프로시저 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -33,11 +33,11 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM(Virtual Machine)의 다음 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 
 
 - Azure SQL Database
-- Azure Synapse Analytics(이전의 SQL Data Warehouse)
+- Azure Synapse Analytics
 - SQL Server 데이터베이스.  SQL Server를 사용 중인 경우 데이터베이스를 호스트하는 동일한 컴퓨터 또는 데이터베이스에 대한 액세스 권한이 있는 별도 컴퓨터에서 자체 호스팅 통합 런타임을 설치합니다. 자체 호스팅 통합 런타임은 온-프레미스/Azure VM에서 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 구성 요소입니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md)를 참조하세요. 복사 작업을 사용 하 여 Azure Synapse Analytics로 데이터를 복사 하는 동안 저장 프로시저를 호출 하는 것은 지원 되지 않습니다. 그러나 저장 프로시저 작업을 사용 하 여 Azure Synapse Analytics에서 저장 프로시저를 호출할 수 있습니다. 
+> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink** 를 구성할 수 있습니다. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md)를 참조하세요. 복사 작업을 사용 하 여 Azure Synapse Analytics로 데이터를 복사 하는 동안 저장 프로시저를 호출 하는 것은 지원 되지 않습니다. 그러나 저장 프로시저 작업을 사용 하 여 Azure Synapse Analytics에서 저장 프로시저를 호출할 수 있습니다. 
 >
 > Azure SQL Database 또는 SQL Server 또는 Azure Synapse Analytics에서 데이터를 복사 하는 경우 복사 작업에서 **Sqlsource** 를 구성 하 여 **sqlReaderStoredProcedureName** 속성을 사용 하 여 원본 데이터베이스에서 데이터를 읽을 수 있도록 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 다음 커넥터 문서 [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) 를 참조 하세요.          
 
@@ -68,11 +68,11 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 
 다음 표에서는 이러한 JSON 속성에 대해 설명합니다.
 
-| 속성                  | Description                              | 필수 |
+| 속성                  | 설명                              | 필수 |
 | ------------------------- | ---------------------------------------- | -------- |
 | name                      | 작업의 이름                     | 예      |
 | description               | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 예       |
-| type                      | 저장 프로시저 작업의 경우 활동 형식은 **SqlServerStoredProcedure**입니다. | 예      |
+| type                      | 저장 프로시저 작업의 경우 활동 형식은 **SqlServerStoredProcedure** 입니다. | 예      |
 | linkedServiceName         | Data Factory에서 연결 된 서비스로 등록 된 **Azure SQL Database** 또는 **Azure Synapse 분석** 또는 **SQL Server** 에 대 한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | storedProcedureName       | 호출할 저장 프로시저의 이름을 지정합니다. | 예      |
 | storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수 값 및 데이터 원본에서 지원하는 해당 형식을 전달하기 위해 `"param1": { "value": "param1Value","type":"param1Type" }`를 사용합니다. 매개 변수에 null을 전달해야 하는 경우 `"param1": { "value": null }`(모두 소문자)을 사용합니다. | 아니요       |
@@ -88,9 +88,7 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
-## <a name="error-info"></a>오류 정보
 
-저장 프로시저가 실패하고 오류 세부 정보를 반환하면 작업 출력에서 직접 오류 정보를 캡처할 수 없습니다. 그러나 Data Factory는 모두 작업 실행 이벤트를 Azure Monitor에 주입합니다. Data Factory가 Azure Monitor에 주입하는 이벤트로 오류 세부 정보를 푸시합니다. 예를 들어 해당 이벤트에서 메일 경고를 설정할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링](monitor-using-azure-monitor.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 
@@ -102,5 +100,5 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

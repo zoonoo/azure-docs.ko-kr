@@ -3,12 +3,12 @@ title: DevTest Labs 개념 | Microsoft 문서
 description: DevTest Lab의 기본 개념과 Azure 가상 머신을 쉽게 만들고 관리하고 모니터링할 수 있는 방법 알아보기
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b184f835ee99d47ddb843e5b02136299c26bfcdc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283846"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327861"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
 ## <a name="overview"></a>개요
@@ -27,7 +27,7 @@ Azure Claimable VM은 권한이 있는 랩 사용자면 누구나 사용할 수 
 
 클레임할 수 있는 VM은 초기에 특정 사용자에게 할당되지 않지만 모든 사용자의 목록에 있는 "클레임할 수 있는 가상 머신"에 표시됩니다. VM이 사용자에 의해 클레임되면 해당 사용자의 “내 가상 머신” 영역으로 이동되며 더 이상 다른 사용자가 클레임할 수 없습니다.
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>환경
 DevTest 랩에서 환경은 랩에 있는 Azure 리소스 컬렉션을 나타냅니다. [이 블로그 게시물](./devtest-lab-faq.md#blog-post)에서는 Azure Resource Manager 템플릿에서 다중 VM 환경을 만드는 방법을 설명합니다.
 
 ## <a name="base-images"></a>기본 이미지
@@ -56,7 +56,7 @@ VM이 프로비전된 후 애플리케이션을 배포하고 구성하기 위해
 캡은 랩에서 낭비를 최소화하는 메커니즘입니다. 예를 들어 캡을 설정하여 사용자당 또는 랩에서 만들 수 있는 VM의 수를 제한할 수 있습니다.
 
 ## <a name="security-levels"></a>보안 수준
-보안 액세스는 azure RBAC (역할 기반 액세스 제어)에 의해 결정 됩니다. 액세스의 작동 방식을 이해하기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 이해하는 데 도움을 줍니다.
+보안 액세스는 azure RBAC (역할 기반 액세스 제어)에 의해 결정 됩니다. 액세스의 작동 방식을 이해 하기 위해 Azure RBAC에서 정의한 사용 권한, 역할 및 범위 간의 차이점을 이해 하는 데 도움이 됩니다.
 
 * 사용 권한 - 특정 작업에 대해 정의된 액세스입니다(예: 모든 가상 머신에 대한 읽기 액세스).
 * 역할 - 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 집합입니다. 예를 들어 *구독 소유자* 역할은 구독 내의 모든 리소스에 대한 액세스를 보유합니다.

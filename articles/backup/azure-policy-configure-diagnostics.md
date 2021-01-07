@@ -3,12 +3,12 @@ title: 대규모로 자격 증명 모음 진단 설정 구성
 description: Azure Policy를 사용 하 여 지정 된 범위의 모든 자격 증명 모음에 대 한 Log Analytics 진단 설정 구성
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378052"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171526"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>대규모로 자격 증명 모음 진단 설정 구성
 
@@ -28,13 +28,15 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
 * 기본 제공 정책은 현재 국가별 클라우드에서 사용할 수 없습니다.
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>범위에 기본 제공 정책 할당
 
 필요한 범위에서 자격 증명 모음에 대 한 정책을 할당 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에 로그인 하 여 **정책** 대시보드로 이동 합니다.
 2. 왼쪽 메뉴에서 **정의** 를 선택 하 여 Azure 리소스의 모든 기본 제공 정책 목록을 가져옵니다.
-3. **범주 = 모니터링**에 대 한 목록을 필터링 합니다. **[Preview]: Recovery Services 자격 증명 모음에 대 한 진단 설정을 배포 하 여 리소스 관련 범주의 Log Analytics 작업 영역을**찾습니다.
+3. **Category = Backup**의 목록을 필터링 합니다. **[Preview]: Recovery Services 자격 증명 모음에 대 한 진단 설정을 배포 하 여 리소스 관련 범주의 Log Analytics 작업 영역을**찾습니다.
 
     ![정책 정의 창](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

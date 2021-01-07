@@ -3,17 +3,19 @@ title: Azure Cosmos DB의 FROM 절
 description: SQL 구문 및 Azure Cosmos DB의 FROM 절에 대 한 예제를 알아봅니다. 또한이 문서에서는 결과 범위를 표시 하는 예제를 보여 주고 FROM 절을 사용 하 여 하위 항목을 가져옵니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3844a628a8e3773821736324bfdaab3f64ff9da5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83005867"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336268"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 FROM 절
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 FROM ( `FROM <from_specification>` ) 절은 쿼리에서 해당 소스가 필터링 되거나 나중에 투영 되지 않는 한 선택 사항입니다. 과 같은 쿼리는 `SELECT * FROM Families` 전체 컨테이너에 대해를 열거 `Families` 합니다. 컨테이너 이름을 사용 하는 대신 컨테이너에 대해 특수 식별자 루트를 사용할 수도 있습니다.
 

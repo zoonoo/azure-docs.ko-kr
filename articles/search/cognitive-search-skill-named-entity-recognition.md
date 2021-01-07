@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8dc18af933a4570112beb025c1fb9163abafffff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935945"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
@@ -46,14 +46,14 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | Description                   |
+| 입력 이름      | 설명                   |
 |---------------|-------------------------------|
-| languageCode  | 선택 사항입니다. 기본값은 `"en"`입니다.  |
+| languageCode  | (선택 사항) 기본값은 `"en"`입니다.  |
 | text          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름     | Description                   |
+| 출력 이름     | 설명                   |
 |---------------|-------------------------------|
 | persons      | 각 문자열이 사람 이름을 나타내는 경우 문자열 배열입니다. |
 | 위치  | 각 문자열이 위치를 나타내는 경우 문자열 배열입니다. |

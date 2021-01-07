@@ -1,15 +1,15 @@
 ---
-title: 클라우드에서 장면 렌더링
+title: 자습서 - 클라우드에서 장면 렌더링
 description: 자습서 - Batch Rendering Service 및 Azure 명령줄 인터페이스를 사용하여 Arnold에서 Autodesk 3ds Max 장면을 렌더링하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.custom: mvc
-ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117134"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106345"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
@@ -26,19 +26,21 @@ Azure Batch Rendering Service는 클라우드 수준 렌더링 기능을 사용�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. **사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.**
+ - 사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. **사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.**
 
-이 자습서의 3ds Max 장면 샘플은 Bash 스크립트 샘플 및 JSON 구성 파일과 함께 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)에 있습니다. 3ds Max 장면은 [Autodesk 3ds Max 샘플 파일](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)에서 제공된 것입니다. (Autodesk 3ds Max 샘플 파일은 Creative 일반 저작자 표시 - 비영리 목적 - 동일 조건 변경 허락 라이선스에 따라 사용할 수 있습니다. Copyright &copy; Autodesk, Inc.)
+ - 이 자습서의 3ds Max 장면 샘플은 Bash 스크립트 샘플 및 JSON 구성 파일과 함께 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)에 있습니다. 3ds Max 장면은 [Autodesk 3ds Max 샘플 파일](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)에서 제공된 것입니다. (Autodesk 3ds Max 샘플 파일은 Creative 일반 저작자 표시 - 비영리 목적 - 동일 조건 변경 허락 라이선스에 따라 사용할 수 있습니다. Copyright &copy; Autodesk, Inc.)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 자습서에는 Azure CLI 버전 2.0.20 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
+> [!TIP]
+> Azure Batch 확장 템플릿 GitHub 리포지토리에서 [Arnold 작업 템플릿](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames)을 볼 수 있습니다.
 ## <a name="create-a-batch-account"></a>Batch 계정 만들기
 
 아직 없는 경우 구독에 리소스 그룹, 배치 계정 및 연결된 스토리지 계정을 만듭니다. 
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus2* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus2* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create \
@@ -55,7 +57,7 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
-[az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 다음 예제에서는 *mybatchaccount*라는 배치 계정을 *myResourceGroup*에 만들고, 만든 스토리지 계정을 연결합니다.  
+[az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 다음 예제에서는 *mybatchaccount* 라는 배치 계정을 *myResourceGroup* 에 만들고, 만든 스토리지 계정을 연결합니다.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -83,7 +85,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-이제 장면 파일에 대한 스토리지 계정에 Blob 컨테이너를 만듭니다. 다음 예제에서는 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 명령을 사용하여 공용 읽기 액세스를 허용하는 *scenefiles*라는 Blob 컨테이너를 만듭니다.
+이제 장면 파일에 대한 스토리지 계정에 Blob 컨테이너를 만듭니다. 다음 예제에서는 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 명령을 사용하여 공용 읽기 액세스를 허용하는 *scenefiles* 라는 Blob 컨테이너를 만듭니다.
 
 ```azurecli-interactive
 az storage container create \
@@ -259,7 +261,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-태스크는 컴퓨팅 노드에서 *dragon0001.jpg*를 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 명령을 사용하여 파일을 스토리지에서 로컬 컴퓨터로 다운로드합니다.
+태스크는 컴퓨팅 노드에서 *dragon0001.jpg* 를 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 명령을 사용하여 파일을 스토리지에서 로컬 컴퓨터로 다운로드합니다.
 
 ```azurecli-interactive
 az storage blob download \
@@ -269,14 +271,14 @@ az storage blob download \
 
 ```
 
-컴퓨터에서 *dragon.jpg*를 엽니다. 렌더링된 이미지는 다음과 비슷합니다.
+컴퓨터에서 *dragon.jpg* 를 엽니다. 렌더링된 이미지는 다음과 비슷합니다.
 
 ![렌더링된 용 프레임 1](./media/tutorial-rendering-cli/dragon-frame.png) 
 
 
 ## <a name="scale-the-pool"></a>풀 크기 조정
 
-이제 여러 프레임으로 더 큰 렌더링 작업을 준비하도록 풀을 수정합니다. Batch에서는 태스크 요구 사항이 변경될 때 노드를 추가하거나 제거하는 [자동 크기 조정](batch-automatic-scaling.md)을 포함하여 컴퓨팅 리소스의 크기를 조정하는 다양한 방법을 제공합니다. 이 기본 예제에서는 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 명령을 사용하여 풀에서 우선 순위가 낮은 노드의 수를 *6*으로 늘립니다.
+이제 여러 프레임으로 더 큰 렌더링 작업을 준비하도록 풀을 수정합니다. Batch에서는 태스크 요구 사항이 변경될 때 노드를 추가하거나 제거하는 [자동 크기 조정](batch-automatic-scaling.md)을 포함하여 컴퓨팅 리소스의 크기를 조정하는 다양한 방법을 제공합니다. 이 기본 예제에서는 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 명령을 사용하여 풀에서 우선 순위가 낮은 노드의 수를 *6* 으로 늘립니다.
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -286,9 +288,9 @@ az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-
 
 ## <a name="render-a-multiframe-scene"></a>다중 프레임 장면 렌더링
 
-단일 프레임 예제와 같이 [az batch task create](/cli/azure/batch/task#az-batch-task-create) 명령을 사용하여 *myrenderjob*이라는 작업의 렌더링 태스크를 만듭니다. 여기서는 태스크 설정을 *myrendertask_multi.json* JSON 파일에 지정합니다. (이 파일은 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)에서 다운로드할 수 있습니다.) 6개 태스크 각각은 *MotionBlur-DragonFlying.max* 3ds Max 장면의 프레임을 하나씩 렌더링하는 Arnold 명령줄을 지정합니다.
+단일 프레임 예제와 같이 [az batch task create](/cli/azure/batch/task#az-batch-task-create) 명령을 사용하여 *myrenderjob* 이라는 작업의 렌더링 태스크를 만듭니다. 여기서는 태스크 설정을 *myrendertask_multi.json* JSON 파일에 지정합니다. (이 파일은 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)에서 다운로드할 수 있습니다.) 6개 태스크 각각은 *MotionBlur-DragonFlying.max* 3ds Max 장면의 프레임을 하나씩 렌더링하는 Arnold 명령줄을 지정합니다.
 
-현재의 *myrendertask_multi.json*이라는 셸에서 파일을 만들고, 다운로드한 파일의 내용을 복사하여 붙여넣습니다. 스토리지 계정 이름과 SAS 토큰이 포함되도록 JSON 파일의 `blobSource` 및 `containerURL` 요소를 수정합니다. 6개 태스크 각각에 대한 설정을 변경해야 합니다. 파일을 저장하고, 다음 명령을 실행하여 태스크를 큐에 넣습니다.
+현재의 *myrendertask_multi.json* 이라는 셸에서 파일을 만들고, 다운로드한 파일의 내용을 복사하여 붙여넣습니다. 스토리지 계정 이름과 SAS 토큰이 포함되도록 JSON 파일의 `blobSource` 및 `containerURL` 요소를 수정합니다. 6개 태스크 각각에 대한 설정을 변경해야 합니다. 파일을 저장하고, 다음 명령을 실행하여 태스크를 큐에 넣습니다.
 
 ```azurecli-interactive
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
@@ -312,7 +314,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-태스크는 컴퓨팅 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 다음은 그 예입니다. 
+태스크는 컴퓨팅 노드에서 *dragon0002.jpg* - *dragon0007.jpg* 라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -344,7 +346,7 @@ az group delete --name myResourceGroup
 > * 풀 크기 조정 및 다중 프레임 장면 렌더링
 > * 렌더링된 출력 다운로드
 
-클라우드 수준 렌더링에 대한 자세한 내용은 Batch Rendering Service 옵션을 참조하세요. 
+클라우드 수준 렌더링에 대한 자세한 내용은 Batch 렌더링 설명서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Batch 렌더링 서비스](batch-rendering-service.md)

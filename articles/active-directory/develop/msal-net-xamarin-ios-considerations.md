@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: f550cb4e9069055da6569492b35fc7fe75d70980
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594053"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91258062"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>MSAL.NET와 함께 Xamarin iOS 사용에 대 한 고려 사항
 
@@ -81,7 +81,7 @@ API를 사용 하는 경우 `WithIosKeychainSecurityGroup()` MSAL은 응용 프�
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>IOS 응용 프로그램에서 토큰 캐시 공유 사용
 
-MSAL 2.x부터 키 집합 액세스 그룹을 지정 하 여 여러 응용 프로그램에 걸쳐 토큰 캐시를 유지할 수 있습니다. 이 설정을 사용 하면 동일한 키 집합 액세스 그룹을 포함 하는 여러 응용 프로그램에서 토큰 캐시를 공유할 수 있습니다. [ADAL.NET](https://aka.ms/adal-net) 응용 프로그램, MSAL.NET 응용 프로그램 및 ADAL에서 개발한 네이티브 iOS 응용 프로그램 간에 토큰 현금을 공유할 수 있습니다. [Objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) 또는 [msal. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
+MSAL 2.x부터 키 집합 액세스 그룹을 지정 하 여 여러 응용 프로그램에 걸쳐 토큰 캐시를 유지할 수 있습니다. 이 설정을 사용 하면 동일한 키 집합 액세스 그룹을 포함 하는 여러 응용 프로그램에서 토큰 캐시를 공유할 수 있습니다. [ADAL.NET](https://aka.ms/adal-net) 응용 프로그램, MSAL.NET 응용 프로그램 및 ADAL에서 개발 된 네이티브 iOS 응용 프로그램에서 토큰 캐시를 공유할 수 있습니다. [Objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) 또는 [msal. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
 
 토큰 캐시를 공유 하면 동일한 키 집합 액세스 그룹을 사용 하는 모든 응용 프로그램에서 SSO (Single Sign-On)를 사용할 수 있습니다.
 
@@ -151,7 +151,7 @@ MSAL.NET에서 발견 한 문제를 보고 하려는 경우, GitHub의 [AzureAD/
 
 Xamarin iOS의 속성에 대 한 자세한 내용은 다음 샘플의 README.md 파일에서 [iOS 관련 고려 사항](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) 단락을 참조 하세요.
 
-예제 | 플랫폼 | Description
+예제 | 플랫폼 | 설명
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, 유니버설 Windows 플랫폼 (UWP) | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 앱은 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여 줍니다.
 

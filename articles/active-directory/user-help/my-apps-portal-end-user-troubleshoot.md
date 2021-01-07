@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798009"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833982"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>내 앱 포털 문제 해결
 
@@ -51,7 +51,7 @@ ms.locfileid: "88798009"
 
 - 암호가 올바르고 만료되지 않았는지 확인합니다. 자세한 내용은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조하세요.
 
-- 확인 정보가 최신이고 정확한지 확인합니다. 자세한 내용은 [Azure Multi-Factor Authentication은 무슨 의미입니까?](./multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보 방법 및 정보 변경](./security-info-setup-auth-app.md)을 참조하세요.
+- 확인 정보가 최신이고 정확한지 확인합니다. 자세한 내용은 [AZURE AD Multi-Factor Authentication 의미는 무엇 인가요?](./multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보 방법 및 정보를 변경](./security-info-setup-auth-app.md)하는 방법을 참조 하세요.
 
 - **인터넷 속성 > 보안 > 신뢰할 수 있는 사이트** 설정에 **내 앱** 포털 URL을 추가합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "88798009"
 
 - 암호가 올바르고 만료되지 않았는지 확인합니다. 자세한 내용은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조하세요.
 
-- 확인 정보가 최신이고 정확한지 확인합니다. 자세한 내용은 [Azure Multi-Factor Authentication은 무슨 의미입니까?](./multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보 방법 및 정보 변경](./security-info-setup-auth-app.md)을 참조하세요.
+- 확인 정보가 최신이고 정확한지 확인합니다. 자세한 내용은 [AZURE AD Multi-Factor Authentication 의미는 무엇 인가요?](./multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보 방법 및 정보를 변경](./security-info-setup-auth-app.md)하는 방법을 참조 하세요.
 
 - 브라우저 캐시를 지우고 다시 로그인해 보세요.
 
@@ -87,7 +87,7 @@ ms.locfileid: "88798009"
 
 - [내 앱 포털에서 앱에 액세스하고 앱을 사용](my-apps-portal-end-user-access.md)합니다.
 
-- [프로필 정보를 변경](my-apps-portal-end-user-update-profile.md)합니다.
+- [프로필 정보를 변경](./my-account-portal-settings.md)합니다.
 
 - [그룹 관련 정보를 보고 업데이트](my-apps-portal-end-user-groups.md)합니다.
 

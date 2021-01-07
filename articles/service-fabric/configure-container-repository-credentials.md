@@ -3,17 +3,16 @@ title: Azure Service Fabric-컨테이너 리포지토리 자격 증명 구성
 description: 컨테이너 레지스트리에서 이미지를 다운로드 하기 위한 리포지토리 자격 증명 구성
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.custom: sfrev
-ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 0c6421fed88a3909db717c13a6b3faf51c4491cd
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421427"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574822"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>컨테이너 이미지를 다운로드 하기 위해 응용 프로그램에 대 한 리포지토리 자격 증명 구성
 
-`RepositoryCredentials`응용 프로그램 매니페스트의 섹션에를 추가 하 여 컨테이너 레지스트리 인증을 구성 `ContainerHostPolicies` 합니다. 컨테이너 레지스트리에 대 한 계정 및 암호를 추가 합니다 (아래 예제에서는*myregistry.azurecr.io* ) .이를 통해 서비스는 리포지토리에서 컨테이너 이미지를 다운로드할 수 있습니다.
+`RepositoryCredentials`응용 프로그램 매니페스트의 섹션에를 추가 하 여 컨테이너 레지스트리 인증을 구성 `ContainerHostPolicies` 합니다. 컨테이너 레지스트리에 대 한 계정 및 암호를 추가 합니다 (아래 예제에서는 *myregistry.azurecr.io* ) .이를 통해 서비스는 리포지토리에서 컨테이너 이미지를 다운로드할 수 있습니다.
 
 ```xml
 <ServiceManifestImport>
@@ -83,10 +82,6 @@ Service Fabric를 사용 하면 응용 프로그램에서 기본 리포지토리
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
-          },
-          {
-        "name": "DefaultMSIEndpointForTokenAuthentication",
-        "value": "URI"
           }
         ]
       },
@@ -100,6 +95,9 @@ Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이�
 1. *시스템 할당 관리 id* 가 VM에 대해 사용 하도록 설정 되어 있는지 확인 합니다.
 
     ![Azure Portal: 가상 머신 확장 집합 id 만들기 옵션](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> 사용자 할당 관리 id의 경우이 단계를 건너뜁니다. 확장 집합이 단일 사용자 할당 관리 id에만 연결 된 경우 아래 나머지 단계는 동일 하 게 작동 합니다.
 
 2. 레지스트리에서 이미지를 끌어오거나 읽도록 가상 머신 확장 집합에 대 한 권한을 부여 합니다. Azure Portal에서 Azure Container Registry의 Access Control (IAM) 블레이드에서 가상 컴퓨터에 대 한 *역할 할당* 을 추가 합니다.
 
@@ -121,25 +119,6 @@ Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이�
 
     > [!NOTE]
     > True로 설정 된 플래그를 true `UseDefaultRepositoryCredentials` 로 설정 하면 `UseTokenAuthenticationCredentials` 배포 중에 오류가 발생 합니다.
-
-### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Azure 글로벌 클라우드 외부에서 토큰 자격 증명 사용
-
-토큰 기반 레지스트리 자격 증명을 사용 하는 경우 Service Fabric는 가상 머신을 대신 하 여 ACR에 제공할 토큰을 페치합니다. 기본적으로 Service Fabric은 대상이 글로벌 Azure 클라우드 끝점 인 토큰을 요청 합니다. Azure 독일 또는 Azure Government 같은 다른 클라우드 인스턴스에 배포 하는 경우 매개 변수의 기본값을 재정의 해야 `DefaultMSIEndpointForTokenAuthentication` 합니다. 특수 환경에 배포 하지 않는 경우에는이 매개 변수를 재정의 하지 마십시오. 사용자가 있는 경우 기본값을 바꿉니다.
-
-```
-http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
-```
-
-사용자 환경에 적합 한 리소스 끝점을 사용 합니다. 예를 들어 [Azure 독일](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)의 경우 재정의는 
-
-```json
-{
-    "name": "DefaultMSIEndpointForTokenAuthentication",
-    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
-}
-```
-
-[자세한 내용은 가상 머신 확장 집합 토큰 가져오기를 참조](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

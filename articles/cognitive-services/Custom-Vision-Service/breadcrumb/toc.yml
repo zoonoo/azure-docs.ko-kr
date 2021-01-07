@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Cognitive Services
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/index
+      items:
+        - name: 사용자 지정 시각 서비스
+          tocHref: /azure/cognitive-services/
+          topicHref: /azure/cognitive-services/custom-vision-service/index

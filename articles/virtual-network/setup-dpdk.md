@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: 622b7e629a7f5fea77afc18ec5121fe3466716ed
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ba7c2a37d58f20ac4ff1f49a46a406d1b1f70106
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387560"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704421"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 
@@ -50,7 +50,7 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 
 **사용자 지정 커널 지원**
 
-나열되지 않은 모든 Linux 커널 버전은 [Azure 조정 Linux 커널 빌드용 패치](https://github.com/microsoft/azure-linux-kernel)를 참조하세요. 자세한 내용은 [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)에 문의할 수도 있습니다. 
+나열되지 않은 모든 Linux 커널 버전은 [Azure 조정 Linux 커널 빌드용 패치](https://github.com/microsoft/azure-linux-kernel)를 참조하세요. 자세한 내용은 [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com)에 문의할 수도 있습니다. 
 
 ## <a name="region-support"></a>지역 지원
 
@@ -130,16 +130,16 @@ zypper \
    * `mount -t hugetlbfs nodev /mnt/huge`를 사용하여 hugepage를 탑재합니다.
    * `grep Huge /proc/meminfo`를 사용하여 hugepage가 예약되었는지 확인합니다.
 
-     > [참고] DPDK에 대한 [지침](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)을 따라 부팅 시 hugepage가 예약되도록 grub 파일을 수정할 방법이 있습니다. 지침은 페이지 맨 아래에 있습니다. Azure Linux 가상 머신에서 사용하는 경우 다시 부팅 시에 hugepage를 예약하려면 대신 **/etc/config/grub.d**에서 파일을 수정합니다.
+     > [참고] DPDK에 대한 [지침](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)을 따라 부팅 시 hugepage가 예약되도록 grub 파일을 수정할 방법이 있습니다. 지침은 페이지 맨 아래에 있습니다. Azure Linux 가상 머신에서 사용하는 경우 다시 부팅 시에 hugepage를 예약하려면 대신 **/etc/config/grub.d** 에서 파일을 수정합니다.
 
 2. MAC 및 IP 주소: `ifconfig –a`를 사용하여 네트워크 인터페이스의 MAC 및 IP 주소를 확인합니다. *VF* 네트워크 인터페이스 및 *NETVSC* 네트워크 인터페이스에는 동일한 MAC 주소가 있지만 *NETVSC* 네트워크 인터페이스에만 IP 주소가 있습니다. *VF* 인터페이스는 *NETVSC* 인터페이스의 하위 인터페이스로 실행됩니다.
 
 3. PCI 주소
 
-   * `ethtool -i <vf interface name>`을 사용하여 *VF*에 사용할 PCI 주소를 찾습니다.
-   * *eth0*이 가속 네트워킹을 사용하도록 설정한 경우 testpmd가 *eth0*에 대한 *VF* pci 디바이스를 실수로 넘겨받지 않도록 해야 합니다. DPDK 애플리케이션이 실수로 관리 네트워크 인터페이스를 넘겨받아 SSH 연결 손실을 초래한 경우 직렬 콘솔을 사용하여 DPDK 애플리케이션을 중지합니다. 또는 직렬 콘솔을 사용하여 가상 머신을 중지 또는 시작할 수도 있습니다.
+   * `ethtool -i <vf interface name>`을 사용하여 *VF* 에 사용할 PCI 주소를 찾습니다.
+   * *eth0* 이 가속 네트워킹을 사용하도록 설정한 경우 testpmd가 *eth0* 에 대한 *VF* pci 디바이스를 실수로 넘겨받지 않도록 해야 합니다. DPDK 애플리케이션이 실수로 관리 네트워크 인터페이스를 넘겨받아 SSH 연결 손실을 초래한 경우 직렬 콘솔을 사용하여 DPDK 애플리케이션을 중지합니다. 또는 직렬 콘솔을 사용하여 가상 머신을 중지 또는 시작할 수도 있습니다.
 
-4. `modprobe -a ib_uverbs`로 다시 부팅할 때마다 *ibuverbs*를 로드합니다. SLES 15의 경우만 `modprobe -a mlx4_ib`로 *mlx4_ib*를 로드합니다.
+4. `modprobe -a ib_uverbs`로 다시 부팅할 때마다 *ibuverbs* 를 로드합니다. SLES 15의 경우만 `modprobe -a mlx4_ib`로 *mlx4_ib* 를 로드합니다.
 
 ## <a name="failsafe-pmd"></a>Failsafe PMD
 
@@ -174,10 +174,10 @@ Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케�
 
    2개를 초과하는 NIC를 사용하여 testpmd를 실행하는 경우 `--vdev` 인수는 `net_vdev_netvsc<id>,iface=<vf’s pairing eth>` 패턴을 따릅니다.
 
-3.  시작되면 `show port info all`을 실행하여 포트 정보를 확인합니다. net_failsafe인(*net_mlx4*가 아니라) 하나 또는 두 개의 DPDK 포트가 표시돼야 합니다.
+3.  시작되면 `show port info all`을 실행하여 포트 정보를 확인합니다. net_failsafe인(*net_mlx4* 가 아니라) 하나 또는 두 개의 DPDK 포트가 표시돼야 합니다.
 4.  트래픽을 시작하려면 `start <port> /stop <port>`를 사용합니다.
 
-이전 명령은 testpmd에 권장되는 대화형 모드로 *testpmd*를 시작합니다.
+이전 명령은 testpmd에 권장되는 대화형 모드로 *testpmd* 를 시작합니다.
 
 ### <a name="basic-single-sendersingle-receiver"></a>기본: 단일 발신자/단일 수신자
 
@@ -213,7 +213,7 @@ Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케�
      --stats-period <display interval in seconds>
    ```
 
-가상 머신에서 이전 명령을 실행하는 경우 컴파일하기 전에 가상 머신의 실제 IP 주소와 일치하도록 `app/test-pmd/txonly.c`에서 *IP_SRC_ADDR* 및 *IP_DST_ADDR*을 변경합니다. 그렇지 않으면 패킷은 수신자에 도달하기 전에 삭제됩니다.
+가상 머신에서 이전 명령을 실행하는 경우 컴파일하기 전에 가상 머신의 실제 IP 주소와 일치하도록 `app/test-pmd/txonly.c`에서 *IP_SRC_ADDR* 및 *IP_DST_ADDR* 을 변경합니다. 그렇지 않으면 패킷은 수신자에 도달하기 전에 삭제됩니다.
 
 ### <a name="advanced-single-sendersingle-forwarder"></a>고급: 단일 발신자/단일 전달자
 다음 명령은 초당 패킷 통계를 주기적으로 인쇄합니다.
@@ -249,7 +249,7 @@ Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케�
      --stats-period <display interval in seconds>
     ```
 
-가상 머신에서 이전 명령을 실행하는 경우 컴파일하기 전에 가상 머신의 실제 IP 주소와 일치하도록 `app/test-pmd/txonly.c`에서 *IP_SRC_ADDR* 및 *IP_DST_ADDR*을 변경합니다. 그렇지 않으면 패킷은 전달자에게 도달하기 전에 삭제됩니다. *testpmd* 전달자가 일부 코드를 변경하지 않는 경우 3계층 주소를 수정하지 않기 때문에 세 번째 머신은 전달된 트래픽을 수신할 수 없습니다.
+가상 머신에서 이전 명령을 실행하는 경우 컴파일하기 전에 가상 머신의 실제 IP 주소와 일치하도록 `app/test-pmd/txonly.c`에서 *IP_SRC_ADDR* 및 *IP_DST_ADDR* 을 변경합니다. 그렇지 않으면 패킷은 전달자에게 도달하기 전에 삭제됩니다. *testpmd* 전달자가 일부 코드를 변경하지 않는 경우 3계층 주소를 수정하지 않기 때문에 세 번째 머신은 전달된 트래픽을 수신할 수 없습니다.
 
 ## <a name="references"></a>참조
 

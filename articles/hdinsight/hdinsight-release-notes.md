@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.date: 11/12/2020
+ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319800"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883353"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -23,56 +23,65 @@ ms.locfileid: "89319800"
 
 Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다.
 
-## <a name="release-date-08092020"></a>릴리스 날짜: 08/09/2020
+릴리스 정보를 구독 하려는 경우 [이 GitHub 리포지토리에서](https://github.com/hdinsight/release-notes/releases)릴리스를 시청 하세요.
 
-이 릴리스는 HDInsight 4.0에만 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+## <a name="release-date-11182020"></a>릴리스 날짜: 11/18/2020
+
+이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
 ## <a name="new-features"></a>새 기능
-### <a name="support-for-sparkcruise"></a>SparkCruise 지원
-SparkCruise는 Spark의 자동 계산 재사용 시스템입니다. 이전 쿼리 워크 로드를 기준으로 구체화 하는 공통 부분식을 선택 합니다. SparkCruise는 이러한 하위 식을 쿼리 처리의 일부로 구체화 하 고 계산 재사용은 백그라운드에서 자동으로 적용 됩니다. Spark 코드를 수정 하지 않고 SparkCruise의 이점을 누릴 수 있습니다.
- 
-### <a name="support-hive-view-for-hdinsight-40"></a>HDInsight 4.0에 대 한 Hive 보기 지원
-Apache Ambari Hive 보기는 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행 하는 데 도움이 되도록 설계 되었습니다. Hive 보기는이 릴리스에서부터 HDInsight 4.0 클러스터에 대해 기본적으로 지원 됩니다. 기존 클러스터에는 적용 되지 않습니다. 기본 제공 Hive 보기를 가져오려면 클러스터를 삭제 하 고 다시 만들어야 합니다.
- 
-### <a name="support-tez-view-for-hdinsight-40"></a>HDInsight 4.0에 대 한 Tez 보기 지원
-Apache Tez 뷰는 Hive Tez 작업의 실행을 추적 하 고 디버그 하는 데 사용 됩니다. Tez 뷰는이 릴리스에서부터 HDInsight 4.0에 대해 기본적으로 지원 됩니다. 기존 클러스터에는 적용 되지 않습니다. 기본 제공 Tez 뷰를 가져오려면 클러스터를 삭제 하 고 다시 만들어야 합니다.
+### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>미사용 고객 관리 키 암호화에 대 한 자동 키 회전
+이 릴리스부터는 고객이 휴지 상태의 고객이 관리 하는 키 암호화를 위해 Azure KeyValut 버전 감소 암호화 키 Url을 사용할 수 있습니다. HDInsight는 키가 만료 되거나 새 버전으로 바뀔 때 자동으로 키를 회전 합니다. 자세한 내용은 [여기](./disk-encryption.md)를 참조하세요.
+
+### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Spark, Hadoop 및 ML 서비스에 대해 다른 사육 사 가상 머신 크기를 선택 하는 기능
+이전에 HDInsight는 Spark, Hadoop 및 ML 서비스 클러스터 유형에 대 한 아웃 지원팀 노드 크기 사용자 지정을 지원 하지 않았습니다. 기본적으로 A2_v2/A2 가상 머신 크기가 무료로 제공 됩니다. 이 릴리스에서는 시나리오에 가장 적합 한 사육 사 가상 머신 크기를 선택할 수 있습니다. A2_v2/A2 이외의 가상 컴퓨터 크기를 포함 하는 사육 아웃 노드에는 요금이 부과 됩니다. A2_v2 및 A2 가상 머신은 계속 무료로 제공 됩니다.
+
+### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
 
 ## <a name="deprecation"></a>사용 중단
-### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>HDInsight 3.6 Spark 클러스터의 Spark 2.1 및 2.2 사용 중단
-7 월 1 2020부터 고객은 HDInsight 3.6에서 Spark 2.1 및 2.2을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 3.6의 Spark 2.3으로 전환하는 것이 좋습니다.
- 
-### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>HDInsight 4.0 Spark 클러스터의 Spark 2.3 사용 중단
-7 월 1 2020부터 고객이 HDInsight 4.0의 Spark 2.3을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Spark 2.4로 전환하는 것이 좋습니다.
- 
-### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>HDInsight 4.0 Kafka 클러스터의 Kafka 1.1 사용 중단
-2020년 7월 1일부터 고객은 HDInsight 4.0의 Kafka 1.1을 사용하여 새 Kafka 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Kafka 2.1로 전환하는 것이 좋습니다.
+### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>HDInsight 3.6 ML 서비스 클러스터의 사용 중단
+HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지원 될 예정입니다. 고객은 12 월 31 2020 일 이후 새로운 3.6 ML 서비스 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](./hdinsight-component-versioning.md#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
 
-## <a name="behavior-changes"></a>동작 변경 내용
-### <a name="ambari-stack-version-change"></a>Ambari stack 버전 변경
-이 릴리스에서 Ambari 버전은 2.x에서 4.1로 변경 됩니다. Ambari: Ambari > 사용자 > 버전에서 스택 버전 (HDInsight 4.1)을 확인할 수 있습니다.
+### <a name="disabled-vm-sizes"></a>비활성화 된 VM 크기
+11 월 16 2020부터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 새 고객을 차단 합니다. 지난 3 달 동안 이러한 VM 크기를 사용한 기존 고객에 게는 영향을 주지 않습니다. 9 2021 년 1 월 1 일부 터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 모든 고객을 차단 합니다. 기존 클러스터는 그대로 실행 됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
+
+## <a name="behavior-changes"></a>동작 변경
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>크기 조정 작업 전에 NSG 규칙 검사 추가
+HDInsight는 크기 조정 작업을 통해 NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로) 검사를 추가 했습니다. 클러스터를 만들 뿐만 아니라 클러스터 크기 조정을 위해 동일한 유효성 검사가 수행 됩니다. 이 유효성 검사는 예기치 않은 오류를 방지 하는 데 도움이 됩니다. 유효성 검사를 통과 하지 못하면 크기 조정이 실패 합니다. NSGs 및 UDRs를 올바르게 구성 하는 방법에 대 한 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조 하세요.
 
 ## <a name="upcoming-changes"></a>예정된 변경
-앞으로 주의 해야 하는 주요 변경 내용이 없습니다.
+이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
+
+### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>기본 클러스터 VM 크기가 Ev3 제품군으로 변경 됨
+다음 릴리스 (1 월의 끝)에서 시작 하 여 기본 클러스터 VM 크기가 D 제품군에서 Ev3 제품군으로 변경 됩니다. 이 변경 내용은 헤드 노드 및 작업자 노드에 적용 됩니다. 이러한 변경을 방지 하려면 ARM 템플릿에서 사용 하려는 VM 크기를 지정 합니다.
+
+### <a name="default-cluster-version-will-be-changed-to-40"></a>기본 클러스터 버전이 4.0로 변경 됩니다.
+2021 2 월부터 HDInsight 클러스터의 기본 버전이 3.6에서 4.0로 변경 됩니다. 사용 가능한 버전에 대 한 자세한 내용은 [사용 가능한 버전](./hdinsight-component-versioning.md#available-versions)을 참조 하세요. [HDInsight 4.0](./hdinsight-version-release.md) 의 새로운 기능에 대 한 자세한 정보
+
+### <a name="os-version-upgrade"></a>OS 버전 업그레이드
+HDInsight에서 OS 버전을 16.04에서 18.04로 업그레이드 하 고 있습니다. 업그레이드는 4 월 2021 일 전에 완료 됩니다.
+
+### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3.6 6 월 30 2021의 지원 종료
+HDInsight 3.6은 지원 종료 될 예정입니다. 6 월 30 2021 양식을 시작 하면 고객이 새 HDInsight 3.6 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
 
 ## <a name="bug-fixes"></a>버그 수정
 HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
 
-다음은 Hive에 대 한 백 포팅 된 JIRAs.
-* [HIVE-23619](https://issues.apache.org/jira/browse/HIVE-23619)
-* [HIVE-21223](https://issues.apache.org/jira/browse/HIVE-21223)
-* [HIVE-22599](https://issues.apache.org/jira/browse/HIVE-22599)
-* [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
-* [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
-* [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
-
-다음은 HBase에 대 한 백 포팅 된 JIRAs
-* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
-* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
-* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
-
 ## <a name="component-version-change"></a>구성 요소 버전 변경
-이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>HDInsight 클러스터 Vm이 주기적으로 재부팅 되지 않도록 방지
 
-사용자가 SSH 인증 유형의 공개 키를 사용하여 Azure HDInsight 클러스터를 만들 때 오류가 발생한 Azure Portal에서 문제가 수정되었습니다. 사용자가 **검토 + 만들기**를 클릭하면 "SSH 사용자 이름에서 연속된 문자 세 개를 포함해서는 안 됩니다" 오류가 표시됩니다. 이 문제는 해결되었지만 수정된 보기를 로드하려면 CTRL + F5를 눌러 브라우저 캐시를 새로 고쳐야 할 수도 있습니다. 이 문제에 대한 해결 방법은 ARM 템플릿을 사용하여 클러스터를 만드는 것이었습니다. 
+2020 년 11 월부터 시작 하 여 HDInsight 클러스터 Vm을 정기적으로 다시 부팅 하는 것을 알 수 있습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
+
+1.  Clamav는 클러스터에서 사용 하도록 설정 됩니다. 새 azsec-clamav 패키지는 노드 다시 부팅을 트리거하는 많은 양의 메모리를 사용 합니다. 
+2.  CRON 작업은 Azure 서비스에서 사용 하는 Ca (인증 기관)의 목록에 대 한 변경 내용을 모니터링 하는 매일 예약 됩니다. 새 CA 인증서를 사용할 수 있는 경우이 스크립트는 인증서를 JDK 신뢰 저장소에 추가 하 고 재부팅을 예약 합니다.
+
+HDInsight는 실행 중인 모든 클러스터에 대해 수정 사항을 배포 하 고 패치를 적용 하 여 두 문제를 해결 합니다. 수정 사항을 즉시 적용 하 고 예기치 않은 Vm 재부팅을 방지 하려면 모든 클러스터 노드에서 다음 스크립트 작업을 영구 스크립트 작업으로 실행할 수 있습니다. 수정 및 패치 완료 후 HDInsight에서 다른 알림을 게시 합니다.
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```
+

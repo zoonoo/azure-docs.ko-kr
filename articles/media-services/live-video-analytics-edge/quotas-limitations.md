@@ -3,12 +3,12 @@ title: IoT Edge 할당량 및 제한 사항에 대 한 라이브 비디오 분�
 description: 이 문서에서는 IoT Edge 할당량 및 제한 사항에 대 한 라이브 비디오 분석을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 68c7b91bb1051348b5a8e52f841d443894f0a632
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90529233"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400527"
 ---
 # <a name="quotas-and-limitations"></a>할당량 및 제한 사항
 
@@ -16,17 +16,17 @@ ms.locfileid: "90529233"
 
 ## <a name="maximum-period-of-disconnected-use"></a>연결 되지 않은 최대 사용 기간
 
-Edge 모듈은 네트워크 연결의 일시적인 손실을 유지할 수 있습니다. 모듈이 36 시간 넘게 연결 해제 상태를 유지 하는 경우 실행 중인 모든 그래프 인스턴스를 비활성화 하 고 직접 메서드 호출이 추가로 차단 됩니다.
+Edge 모듈은 인터넷 연결이 일시적으로 손실 될 수 있습니다. 모듈이 36 시간 넘게 연결 해제 상태를 유지 하는 경우 실행 중인 모든 그래프 인스턴스를 비활성화 합니다. 모든 추가 직접 메서드 호출은 차단 됩니다.
 
-Edge 모듈을 작동 상태로 다시 시작 하려면 네트워크 연결을 복원 해야 하며, 모듈은 Azure Media Service 계정과 성공적으로 통신할 수 있어야 합니다.
+Edge 모듈을 작동 상태로 다시 시작 하려면 모듈이 Azure 미디어 서비스 계정과 성공적으로 통신할 수 있도록 인터넷 연결을 복원 해야 합니다.
 
 ## <a name="maximum-number-of-graph-instances"></a>최대 그래프 인스턴스 수
 
-모듈 당 최대 1000 개의 그래프 인스턴스 (GraphInstanceSet를 통해 만듦)를 사용할 수 있습니다.
+모듈 당 최대 1000 개의 그래프 인스턴스 (GraphInstanceSet를 통해 만들어짐)가 지원 됩니다.
 
 ## <a name="maximum-number-of-graph-topologies"></a>최대 그래프 토폴로지 수
 
-GraphTopologySet를 통해 생성 된 모듈 당 최대 50 그래프 토폴로지를 사용할 수 있습니다.
+GraphTopologySet를 통해 생성 된 모듈 당 최대 50 그래프 토폴로지가 지원 됩니다.
 
 ## <a name="limitations-on-graph-topologies-at-preview"></a>미리 보기의 그래프 토폴로지에 대 한 제한 사항
 
@@ -34,17 +34,8 @@ GraphTopologySet를 통해 생성 된 모듈 당 최대 50 그래프 토폴로�
 
 * RTSP 원본
    * 그래프 토폴로지 마다 하나의 RTSP 원본만 허용 됩니다.
-* 프레임 속도로 필터 프로세서
-   * RTSP 원본 또는 동작 감지 프로세서에서 즉시 다운스트림 이어야 합니다.
-   * 는 HTTP 또는 gRPC 확장 프로세서의 다운스트림에서 사용할 수 없습니다.
-   * 동작 감지 프로세서에서 업스트림 일 수 없습니다.
-* HTTP 확장 프로세서
-   * 그래프 토폴로지에는 이러한 프로세서가 최대 하나만 있을 수 있습니다.
-* gRPC 확장 프로세서
-   * 그래프 토폴로지에는 이러한 프로세서가 최대 하나만 있을 수 있습니다.
 * 동작 감지 프로세서
    * RTSP 원본에서 즉시 다운스트림 이어야 합니다.
-   * 그래프 토폴로지에는 이러한 프로세서가 최대 하나만 있을 수 있습니다.
    * 는 HTTP 또는 gRPC 확장 프로세서의 다운스트림에서 사용할 수 없습니다.
 * 신호 게이트 프로세서
    * RTSP 원본에서 즉시 다운스트림 이어야 합니다.
@@ -55,8 +46,6 @@ GraphTopologySet를 통해 생성 된 모듈 당 최대 50 그래프 토폴로�
    * HTTP 또는 gRPC 확장 프로세서 또는 동작 감지 프로세서의 바로 다운스트림 일 수 없습니다.
 * IoT Hub 싱크
    * 은 (는) IoT Hub 소스의 바로 다운스트림으로 수 없습니다.
-
-동작 검색 및 필터 전송률 프로세서 노드를 모두 사용 하는 경우 RTSP 원본 노드를 향하는 동일한 노드 체인에 있어야 합니다.
 
 ## <a name="limitations-on-media-service-operations-at-preview"></a>미리 보기에서 미디어 서비스 작업에 대 한 제한 사항
 

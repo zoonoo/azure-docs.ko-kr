@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: aahi
 ms.openlocfilehash: 0a330c2401412e1e3d5e2e49bf8121a681342808
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878371"
 ---
 ## <a name="create-an-face-resource"></a>얼굴 리소스 만들기
@@ -32,7 +32,7 @@ ms.locfileid: "80878371"
 1. **만들기**를 클릭하고 리소스가 생성될 때까지 기다립니다. 만든 후에는 리소스 페이지로 이동 합니다.
 1. 구성 된 `endpoint` 및 API 키를 수집 합니다.
 
-    |포털의 리소스 탭|설정|Value|
+    |포털의 리소스 탭|설정|값|
     |--|--|--|
-    |**개요**|엔드포인트|끝점을 복사 합니다. 다음과 유사 하 게 표시 됩니다.`https://face.cognitiveservices.azure.com/face/v1.0`|
-    |**키**|API 키|두 키의 1을 복사 합니다. 공백이 나 대시가 없는 32 영숫자 문자열입니다 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**개요**|엔드포인트|끝점을 복사 합니다. 다음과 유사 하 게 표시 됩니다. `https://face.cognitiveservices.azure.com/face/v1.0`|
+    |**키**|API 키|두 키의 1을 복사 합니다. 공백이 나 대시가 없는 32 영숫자 문자열입니다 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|

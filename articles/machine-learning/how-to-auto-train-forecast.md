@@ -8,31 +8,32 @@ ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
+ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 982c7a41f1e05c34ddf0fbae9f944df4a4d08fa5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 47cc67b408ff7fa50a244fffa8d41e640df0ecf3
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893370"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796434"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
 
-이 문서에서는 [PYTHON SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
+이 문서에서는 [PYTHON SDK Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
+
+이렇게 하려면 다음을 수행합니다. 
+
+> [!div class="checklist"]
+> * 시계열 모델링을 위한 데이터를 준비 합니다.
+> * 개체의 특정 시계열 매개 변수를 구성 [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 합니다.
+> * 시계열 데이터를 사용 하 여 예측을 실행 합니다.
 
 최소한의 코드를 사용하는 환경의 경우 [자습서: 자동화된 기계 학습으로 수요 예측](tutorial-automated-ml-forecast.md)을 통해 [Azure Machine Learning Studio](https://ml.azure.com/)에서 자동화된 기계 학습을 사용하는 시계열 예측 예제를 참조하세요.
 
-기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어, 판매를 예측하는 경우 판매 결과에 기록 추세의 상호 작용, 환율 및 가격이 모두 함께 영향을 미칩니다. 
+기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측 하는 경우 과거 추세, 환율 및 가격의 상호 작용은 판매 결과를 모두 공동으로 구동 합니다. 
 
-다음 예제에서는 이 방법을 보여 줍니다.
-
-* 시계열 모델링에 대한 데이터 준비
-* [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에서 특정 시계열 매개 변수 구성
-* 시계열 데이터를 사용하여 예측 실행
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -45,7 +46,7 @@ ms.locfileid: "90893370"
 AutoML 내에서 예측 회귀 태스크 유형과 회귀 작업 유형 간의 가장 중요 한 차이점은 유효한 시계열을 나타내는 데이터의 기능을 포함 하는 것입니다. 정규 시계열에는 잘 정의되고 일관된 빈도가 있으며 연속 시간 범위의 모든 샘플 요소에 값이 있습니다. 
 
 `sample.csv` 파일의 다음 스냅샷을 살펴보세요.
-이 데이터 집합은 A와 B 라는 두 개의 다른 매장을 보유 하는 회사에 대 한 일일 판매 데이터입니다. 
+이 데이터 집합은 두 개의 다른 매장, A 및 B가 있는 회사의 일일 판매 데이터입니다. 
 
 또한 다음과 같은 기능을 제공 합니다.
 
@@ -118,7 +119,80 @@ automl_config = AutoMLConfig(task='forecasting',
 AutoML이 교차 유효성 검사를 적용 하 여 [오버 맞춤 모델을 방지](concept-manage-ml-pitfalls.md#prevent-over-fitting)하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="configure-experiment"></a>실험 구성
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델의 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 기능화 단계 및 구성 옵션은 특히 시계열 데이터를 위한 것입니다. 
+
+[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델에 대 한 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 모델, 구성 옵션 및 기능화 단계는 특히 시계열 데이터를 위해 존재 합니다. 
+
+### <a name="supported-models"></a>지원되는 모델
+자동화 된 machine learning은 모델 생성 및 조정 프로세스의 일부로 다른 모델 및 알고리즘을 자동으로 시도 합니다. 사용자는 알고리즘을 지정할 필요가 없습니다. 예측 실험의 경우 기본 시계열 및 심층 학습 모델은 모두 권장 사항 시스템의 일부입니다. 다음 표에서는 이러한 모델의 하위 집합을 요약 합니다. 
+
+>[!Tip]
+> 기존 회귀 모델은 예측 실험에 대 한 권장 사항 시스템의 일부로도 테스트 됩니다. 모델의 전체 목록은 [지원 되는 모델 표](how-to-configure-auto-train.md#supported-models) 를 참조 하세요. 
+
+모델| Description | 이점
+----|----|---
+Prophet(미리 보기)|Prophet은 강력한 계절적 효과와 여러 계절의 기록 데이터를 포함하는 시계열에서 가장 잘 작동합니다. 이 모델을 활용 하려면를 사용 하 여 로컬에 설치 `pip install fbprophet` 합니다. | 시계열의 이상값, 누락된 데이터 및 획기적인 변경에 정확하고 빠르고 강력하게 작동합니다.
+Auto-ARIMA(미리 보기)|자동 회귀 통합 이동 평균 (ARIMA)은 데이터가 고정 되어 있을 때 가장 잘 수행 됩니다. 즉, 평균 및 편차와 같은 통계 속성이 전체 세트에서 일정하게 유지됩니다. 예를 들어 동전을 대칭 이동 하는 경우 오늘, 내일 또는 다음 연도의 대칭 이동 여부와 관계 없이 헤드를 가져오는 확률은 50%입니다.| 과거의 값을 사용하여 미래의 값을 예측하므로 단변량 계열에 적합합니다.
+ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크를 처리하고 데이터의 비선형 로컬 및 전역 추세 뿐만 아니라 시계열 간 관계를 캡처하도록 디자인된 신경망 모델입니다.|데이터의 복잡한 추세를 활용하고 가장 큰 데이터 세트로 쉽게 확장할 수 있습니다.
+
+### <a name="configuration-settings"></a>구성 설정
+
+회귀 문제와 마찬가지로 태스크 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정해야 합니다. 
+
+다음 표에서는 이러한 추가 매개 변수를 요약 합니다. 구문 디자인 패턴에 대해서는 [ForecastingParameter 클래스 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) 를 참조 하세요.
+
+| 매개 변수&nbsp;이름 | Description | 필수 |
+|-------|-------|-------|
+|`time_column_name`|시계열을 작성하고 해당 빈도를 유추하는 데 사용되는 날짜/시간 열을 입력 데이터에 지정하는 데 사용됩니다.|✓|
+|`forecast_horizon`|예측 하려는 기간을 정의 합니다. 수평은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
+|`enable_dnn`|[DNNs 예측을 사용 하도록 설정]()합니다.||
+|`time_series_id_column_names`|타임 스탬프를 사용 하는 여러 행이 있는 데이터의 시계열을 고유 하 게 식별 하는 데 사용 되는 열 이름입니다. 시계열 식별자가 정의 되지 않은 경우 데이터 집합은 하나의 시계열으로 간주 됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
+|`freq`| 시계열 데이터 집합 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생 하는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다.||
+|`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
+|`feature_lags`| 지연 되는 기능은 `target_lags` 가 설정 되 고 `feature_lags` 가로 설정 된 경우 자동 ML에 의해 자동으로 결정 됩니다 `auto` . 기능 지연을 사용 하면 정확도를 향상 시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용 되지 않습니다. ||
+|`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n* 개 기록 기간입니다. 생략하면 *n* 은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 롤링 창 집계](#target-rolling-window-aggregation)에 대해 자세히 알아보세요.||
+|`short_series_handling_config`| 데이터 부족으로 인 한 학습 중에 오류가 발생 하지 않도록 짧은 시계열 처리를 사용 합니다. Short 시리즈 처리는 기본적으로로 설정 됩니다 `auto` . [Short 시리즈 처리](#short-series-handling)에 대해 자세히 알아보세요.|
+
+
+다음 코드 
+* 클래스를 활용 [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) 하 여 실험 학습에 대 한 예측 매개 변수를 정의 합니다.
+* 을 `time_column_name` `day_datetime` 데이터 집합의 필드로 설정 합니다. 
+* `time_series_id_column_names`에 대 한 매개 변수를 정의 `"store"` 합니다. 이렇게 하면 데이터에 대해 **두 개의 개별 시계열 그룹이** 만들어집니다. 저장소 A와 B에 대 한 하나입니다.
+* `forecast_horizon`전체 테스트 집합을 예측 하기 위해를 50로 설정 합니다. 
+* 를 사용 하 여 예측 기간을 10 개로 설정 합니다. `target_rolling_window_size`
+* 매개 변수를 사용 하 여 두 기간의 대상 값에 대 한 단일 지연을 지정 합니다 `target_lags` . 
+* 가 `target_lags` 이 값을 자동으로 검색 하는 권장 되는 "자동" 설정으로 설정 합니다.
+
+```python
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                               forecast_horizon=50,
+                                               time_series_id_column_names=["store"],
+                                               freq='W',
+                                               target_lags='auto',
+                                               target_rolling_window_size=10)
+                                              
+```
+
+`forecasting_parameters`그런 다음 `AutoMLConfig` `forecasting` 작업 유형, 기본 메트릭, 종료 조건 및 학습 데이터와 함께 표준 개체에 전달 됩니다. 
+
+```python
+from azureml.core.workspace import Workspace
+from azureml.core.experiment import Experiment
+from azureml.train.automl import AutoMLConfig
+import logging
+
+automl_config = AutoMLConfig(task='forecasting',
+                             primary_metric='normalized_root_mean_squared_error',
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
+                             training_data=train_data,
+                             label_column_name=label,
+                             n_cross_validations=5,
+                             enable_ensembling=False,
+                             verbosity=logging.INFO,
+                             **forecasting_parameters)
+```
 
 ### <a name="featurization-steps"></a>기능화 단계
 
@@ -153,73 +227,21 @@ SDK를 사용 하 여 featurizations를 사용자 지정 하려면 `"featurizati
 
 ```python
 featurization_config = FeaturizationConfig()
+
 # `logQuantity` is a leaky feature, so we remove it.
 featurization_config.drop_columns = ['logQuantitity']
+
 # Force the CPWVOL5 feature to be of numeric type.
 featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+
 # Fill missing values in the target column, Quantity, with zeroes.
 featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+
 # Fill mising values in the `INCOME` column with median value.
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
 
 실험을 위해 Azure Machine Learning studio를 사용 하는 경우 [studio에서 기능화을 사용자 지정 하는 방법](how-to-use-automated-ml-for-ml-models.md#customize-featurization)을 참조 하세요.
-
-### <a name="configuration-settings"></a>구성 설정
-
-회귀 문제와 마찬가지로 태스크 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정해야 합니다. 
-
-다음 표에서는 이러한 추가 매개 변수를 요약 합니다. 구문 디자인 패턴에 대 한 [참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 를 참조 하세요.
-
-| 매개 변수&nbsp;이름 | Description | 필수 |
-|-------|-------|-------|
-|`time_column_name`|시계열을 작성하고 해당 빈도를 유추하는 데 사용되는 날짜/시간 열을 입력 데이터에 지정하는 데 사용됩니다.|✓|
-|`forecast_horizon`|예측 하려는 기간을 정의 합니다. 수평은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
-|`enable_dnn`|[DNNs 예측을 사용 하도록 설정]()합니다.||
-|`time_series_id_column_names`|타임 스탬프를 사용 하는 여러 행이 있는 데이터의 시계열을 고유 하 게 식별 하는 데 사용 되는 열 이름입니다. 시계열 식별자가 정의 되지 않은 경우 데이터 집합은 하나의 시계열으로 간주 됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
-|`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
-|`feature_lags`| 지연 되는 기능은 `target_lags` 가 설정 되 고 `feature_lags` 가로 설정 된 경우 자동 ML에 의해 자동으로 결정 됩니다 `auto` . 기능 지연을 사용 하면 정확도를 향상 시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용 되지 않습니다. ||
-|`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n*개 기록 기간입니다. 생략하면 *n*은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 롤링 창 집계](#target-rolling-window-aggregation)에 대해 자세히 알아보세요.||
-
-
-다음 코드 
-* 를 `time-series settings` 사전 개체로 만듭니다. 
-* 을 `time_column_name` `day_datetime` 데이터 집합의 필드로 설정 합니다. 
-* `time_series_id_column_names`에 대 한 매개 변수를 정의 `"store"` 합니다. 이렇게 하면 데이터에 대해 **두 개의 개별 시계열 그룹이** 만들어집니다. 저장소 A와 B에 대 한 하나입니다.
-* `forecast_horizon`전체 테스트 집합을 예측 하기 위해를 50로 설정 합니다. 
-* 를 사용 하 여 예측 기간을 10 개로 설정 합니다. `target_rolling_window_size`
-* 매개 변수를 사용 하 여 두 기간의 대상 값에 대 한 단일 지연을 지정 합니다 `target_lags` . 
-* 가 `target_lags` 이 값을 자동으로 검색 하는 권장 되는 "자동" 설정으로 설정 합니다.
-
-```python
-time_series_settings = {
-    "time_column_name": "day_datetime",
-    "time_series_id_column_names": ["store"],
-    "forecast_horizon": 50,
-    "target_lags": "auto",
-    "target_rolling_window_size": 10,
-}
-```
-
-`time_series_settings`그런 다음 `AutoMLConfig` `forecasting` 작업 유형, 기본 메트릭, 종료 조건 및 학습 데이터와 함께 표준 개체에 전달 됩니다. 
-
-```python
-from azureml.core.workspace import Workspace
-from azureml.core.experiment import Experiment
-from azureml.train.automl import AutoMLConfig
-import logging
-
-automl_config = AutoMLConfig(task='forecasting',
-                             primary_metric='normalized_root_mean_squared_error',
-                             experiment_timeout_minutes=15,
-                             enable_early_stopping=True,
-                             training_data=train_data,
-                             label_column_name=label,
-                             n_cross_validations=5,
-                             enable_ensembling=False,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
 
 ## <a name="optional-configurations"></a>선택적 구성
 
@@ -243,24 +265,14 @@ automl_config = AutoMLConfig(task='forecasting',
 automl_config = AutoMLConfig(task='forecasting',
                              enable_dnn=True,
                              ...
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 > [!Warning]
 > SDK를 사용 하 여 만든 실험에 대해 DNN를 사용 하도록 설정 하면 [최상의 모델 설명이](how-to-machine-learning-interpretability-automl.md) 사용 되지 않습니다.
 
 Azure Machine Learning studio에서 만든 AutoML 실험에 대해 DNN를 사용 하도록 설정 하려면 [studio 방법에서 작업 형식 설정](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)을 참조 하세요.
 
-
-자동화된 ML은 네이티브 시계열 및 딥 러닝 모델을 권장 사항 시스템의 일부로 제공합니다. 
-
-모델| Description | 이점
-----|----|---
-Prophet(미리 보기)|Prophet은 강력한 계절적 효과와 여러 계절의 기록 데이터를 포함하는 시계열에서 가장 잘 작동합니다. 이 모델을 활용 하려면를 사용 하 여 로컬에 설치 `pip install fbprophet` 합니다. | 시계열의 이상값, 누락된 데이터 및 획기적인 변경에 정확하고 빠르고 강력하게 작동합니다.
-Auto-ARIMA(미리 보기)|자동 회귀 통합 이동 평균 (ARIMA)은 데이터가 고정 되어 있을 때 가장 잘 수행 됩니다. 즉, 평균 및 편차와 같은 통계 속성이 전체 세트에서 일정하게 유지됩니다. 예를 들어, 동전을 던질 때 앞면이 나올 확률은 오늘 던지든, 내일 던지든 또는 내년에 던지든 항상 50%입니다.| 과거의 값을 사용하여 미래의 값을 예측하므로 단변량 계열에 적합합니다.
-ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크를 처리하고 데이터의 비선형 로컬 및 전역 추세 뿐만 아니라 시계열 간 관계를 캡처하도록 디자인된 신경망 모델입니다.|데이터의 복잡한 추세를 활용하고 가장 큰 데이터 세트로 쉽게 확장할 수 있습니다.
-
 DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)을 참조하세요.
-
 
 ### <a name="target-rolling-window-aggregation"></a>대상 이동 기간 집계
 종종 예측자가 보유할 수 있는 최상의 정보는 대상의 최신 값입니다.  대상 롤링 창 집계를 사용 하면 데이터 값의 롤링 집계를 기능으로 추가할 수 있습니다. 이러한 추가 기능을 생성하고 추가 컨텍스트 데이터로 사용하면 학습 모델의 정확도를 높이는 데 도움이 됩니다.
@@ -273,17 +285,46 @@ DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](h
 
 [대상 이동 기간 집계 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)을 활용하는 Python 코드 예제를 확인해 보세요.
 
+### <a name="short-series-handling"></a>간단한 시리즈 처리
+
+자동화 된 ML은 모델 개발의 학습 및 유효성 검사 단계를 수행 하기에 충분 한 데이터 요소가 없는 경우 시계열을 **짧은 계열로** 간주 합니다. 데이터 요소 수는 각 실험에 따라 달라 지 며, max_horizon, 교차 유효성 검사 분할의 수, 모델 lookback의 길이 (시계열 기능을 생성 하는 데 필요한 기록의 최대값)에 따라 달라 집니다. 정확한 계산은 [short_series_handling_configuration 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)를 참조 하세요.
+
+자동화 된 ML은 개체의 매개 변수를 사용 하 여 기본적으로 짧은 계열 처리를 제공 `short_series_handling_configuration` `ForecastingParameters` 합니다. 
+
+Short 시리즈 처리를 사용 하려면 `freq` 매개 변수도 정의 해야 합니다. 매시간 빈도를 정의 하려면를 설정 `freq='H'` 합니다. [여기](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)에서 빈도 문자열 옵션을 봅니다. 기본 동작을 변경 하려면 `short_series_handling_configuration = 'auto'` `short_series_handling_configuration` 개체에서 매개 변수를 업데이트 `ForecastingParameter` 합니다.  
+
+```python
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                            forecast_horizon=50,
+                                            short_series_handling_configuration='auto',
+                                            freq = 'H',
+                                            target_lags='auto')
+```
+다음 표에는에 대 한 사용 가능한 설정이 요약 되어 `short_series_handling_config` 있습니다.
+ 
+|설정|설명
+|---|---
+|`auto`| 다음은 간단한 시리즈 처리의 기본 동작입니다. <li> *모든 계열이 짧으면* 데이터를 채웁니다. <br> <li> *모든 계열이 짧으면* short 시리즈를 삭제 합니다. 
+|`pad`| 인 경우 `short_series_handling_config = pad` 자동화 된 ML은 찾은 각 짧은 계열에 임의 값을 추가 합니다. 다음 목록에는 열 형식과 해당 열이 채워져 있는 항목이 나와 있습니다. <li>Nan를 사용 하는 개체 열 <li> 0으로 숫자 열 <li> False를 사용 하는 부울/논리 열 <li> 대상 열은 0과 표준 편차가 1 인 임의 값으로 채워집니다. 
+|`drop`| 이면 `short_series_handling_config = drop` 자동화 된 ML이 짧은 계열을 삭제 하 고 학습 또는 예측에 사용 되지 않습니다. 이러한 계열에 대 한 예측은 NaN을 반환 합니다.
+|`None`| 패딩 되거나 삭제 된 계열이 없습니다.
+
+>[!WARNING]
+>채우기는 결과 모델의 정확도에 영향을 줄 수 있습니다 .이는 인공 데이터를 도입 하 여 오류 없이 이전 학습을 가져오는 것 이기 때문입니다. <br> <br> 많은 계열이 짧으면 explainability 결과에 약간의 영향을 줄 수 있습니다.
+
 ## <a name="run-the-experiment"></a>실험 실행 
 
 개체가 준비 되 면 `AutoMLConfig` 실험을 제출할 수 있습니다. 모델이 완료된 후 최상의 실행 반복을 검색합니다.
 
 ```python
 ws = Workspace.from_config()
-experiment = Experiment(ws, "forecasting_example")
+experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
-
+ 
 ## <a name="forecasting-with-best-model"></a>최적 모델로 예측
 
 최상의 모델 반복을 사용하여 테스트 데이터 세트의 값을 예측합니다.
@@ -342,4 +383,3 @@ day_datetime,store,week_of_year
 * [Interpretability: 자동화 된 machine learning (미리 보기)의 모델](how-to-machine-learning-interpretability-automl.md)설명에 대해 알아봅니다. 
 * 여러 [모델 솔루션 가속기](https://aka.ms/many-models)에서 automl을 사용 하 여 여러 모델을 학습 하는 방법에 대해 알아봅니다.
 * 자동화 된 기계 학습으로 실험을 만드는 방법에 대 한 종단 간 예제는 [자습서](tutorial-auto-train-models.md) 를 따르세요.
-

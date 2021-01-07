@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690dead3cb0059dd1b20ff042a93c36d674e62d2
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 53f416a23dbb47660097c41ada09c8c135434bcb
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052684"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743652"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 쓰기 저장의 작동 방식
 
@@ -58,7 +58,7 @@ SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
    * 쓰기 저장 서비스가 중지된 경우 사용자에게 지금은 암호를 재설정할 수 없다고 알려줍니다.
 1. 다음으로, 사용자는 적절한 인증 게이트를 통과하여 **암호 재설정** 페이지로 이동됩니다.
 1. 사용자는 새 암호를 선택하고 다시 확인합니다.
-1. 사용자가 **제출**을 선택하면 쓰기 저장 설정 프로세스에서 만든 대칭 키로 일반 텍스트 암호가 암호화됩니다.
+1. 사용자가 **제출** 을 선택하면 쓰기 저장 설정 프로세스에서 만든 대칭 키로 일반 텍스트 암호가 암호화됩니다.
 1. 암호화된 암호는 HTTPS 채널을 통해 테넌트별 Service Bus Relay(쓰기 저장 설정 프로세스에서 자동으로 설정됨)로 전송되는 페이로드에 포함됩니다. 이 릴레이는 온-프레미스 설치만 알고 있는 임의로 생성된 암호에 의해 보호됩니다.
 1. 메시지가 서비스 버스에 도달하면 암호 재설정 엔드포인트가 자동으로 절전 모드에서 해제되어 보류 중인 재설정 요청이 있는지 확인합니다.
 1. 그런 다음, 서비스에서 클라우드 앵커 특성을 사용하여 해당 사용자를 찾습니다. 이 조회에 성공하려면 다음 조건을 충족해야 합니다.
@@ -90,7 +90,7 @@ SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
 * **테넌트별 Service Bus Relay**
    * 사용자가 이 서비스를 설정하면 임의로 생성된 강력한 암호에 의해 보호되는 테넌트별 Service Bus Relay가 설정되며, Microsoft는 절대로 이 암호에 액세스할 수 없습니다.
 * **잠겨 있는 강력한 암호 암호화 키**
-   * Service Bus Relay를 만든 후 회선을 통해 도착하는 암호를 암호화하는 데 사용되는 강력한 대칭 키가 만들어집니다. 이 키는 클라우드의 회사의 암호 저장소에만 존재하며 디렉터리의 다른 암호와 마찬가지로 강력하게 잠겨 있고 감사됩니다.
+   * Service Bus Relay를 만든 후 회선을 통해 도착하는 암호를 암호화하는 데 사용할 강력한 대칭 키가 생성됩니다. 이 키는 클라우드의 회사의 암호 저장소에만 존재하며 디렉터리의 다른 암호와 마찬가지로 강력하게 잠겨 있고 감사됩니다.
 * **업계 표준 TLS(전송 계층 보안)**
    1. 클라우드에서 암호 재설정 또는 변경 작업이 발생하면 공개 키를 사용하여 일반 텍스트 암호가 암호화됩니다.
    1. 암호화된 암호는 Microsoft TLS/SSL 인증서를 사용하여 암호화된 채널을 통해 Service Bus Relay로 전송되는 HTTPS 메시지에 배치됩니다.
@@ -106,7 +106,7 @@ SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
 
 1. **2048비트 RSA 키를 사용한 암호 암호화**: 사용자가 온-프레미스에 다시 작성된 암호를 제출하면 제출된 암호 자체를 2048비트 RSA 키로 암호화합니다.
 1. **AES-GCM을 사용한 패키지 수준 암호화**: AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 이 암호화는 기본 Service Bus 채널에 직접 액세스할 수 있는 사람이 콘텐츠를 보거나 변조 하는 것을 방지 합니다.
-1. **모든 통신은 TLS/SSL을 통해 발생**합니다. Service Bus와의 모든 통신은 SSL/TLS 채널에서 발생 합니다. 이 암호화는 권한이 없는 제3자의 콘텐츠를 보호합니다.
+1. **모든 통신은 TLS/SSL을 통해 발생** 합니다. Service Bus와의 모든 통신은 SSL/TLS 채널에서 발생 합니다. 이 암호화는 권한이 없는 제3자의 콘텐츠를 보호합니다.
 1. **6 개월 마다 자동 키 롤오버**: 모든 키는 6 개월 마다 또는 비밀 번호 쓰기 저장을 사용 하지 않도록 설정한 후 Azure AD Connect에서 다시 사용 하도록 설정 하 여 최대 서비스 보안 및 안전을 보장 합니다.
 
 ### <a name="password-writeback-bandwidth-usage"></a>비밀번호 쓰기 저장 대역폭 사용

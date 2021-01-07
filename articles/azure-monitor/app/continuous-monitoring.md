@@ -4,10 +4,10 @@ description: Application Insights를 사용 하 여 연속 모니터링을 신�
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517130"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>릴리스 파이프라인에 연속 모니터링 추가
@@ -38,7 +38,7 @@ Azure Pipelines는 Azure 애플리케이션 정보를 통합 하 여 소프트�
    | ------------- |:-----|
    | **스테이지 이름**      | 스테이지 이름을 제공 하거나 **1 단계**에 그대로 둡니다. |
    | **Azure 구독** | 드롭다운 및 사용 하려는 연결 된 Azure 구독을 선택 합니다.|
-   | **앱 형식** | 드롭다운 하 고 앱 유형을 선택 합니다. |
+   | **앱 유형** | 드롭다운 하 고 앱 유형을 선택 합니다. |
    | **App Service 이름** | Azure App Service 이름을 입력 합니다. |
    | **Application Insights에 대 한 리소스 그룹 이름**    | 드롭다운 및 사용 하려는 리소스 그룹을 선택 합니다. |
    | **Application Insights 리소스 이름** | 드롭다운에서 선택한 리소스 그룹에 대 한 Application Insights 리소스를 선택 합니다.

@@ -10,25 +10,25 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73044124"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903890"
 ---
 # <a name="create-human-reviews"></a>사용자 리뷰 만들기
 
 이 가이드에서는 검토 도구 웹 사이트에서 [리뷰](../review-api.md#reviews) 를 설정 하는 방법을 알아봅니다. 평가를 위해 인적 중재자의 콘텐츠를 저장 하 고 표시 합니다. 중재자는 적용 된 태그를 변경 하 고 적절 한 사용자 지정 태그를 적용할 수 있습니다. 사용자가 검토를 완료 하면 결과가 지정 된 콜백 끝점으로 전송 되 고 사이트에서 콘텐츠가 제거 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
 ## <a name="image-reviews"></a>이미지 검토
 
 1. [검토 도구로](https://contentmoderator.cognitive.microsoft.com/)이동 하 여 **시도** 탭을 선택 하 고 검토할 이미지를 업로드 합니다.
-1. 업로드 된 이미지의 처리가 완료 되 면 **검토** 탭으로 이동 하 여 **이미지**를 선택 합니다.
+1. 업로드 된 이미지의 처리가 완료 되 면 **검토** 탭으로 이동 하 여 **이미지** 를 선택 합니다.
 
     ![검토 이미지 옵션이 강조 표시된 검토 도구를 보여주는 Chrome 브라우저](images/review-images-1.png)
 
@@ -38,7 +38,7 @@ ms.locfileid: "73044124"
 
     ![검토에 대한 태그가 지정된 이미지를 사용하는 검토 도구를 보여주는 Chrome 브라우저](images/review-images-2.png)
 
-1. 이미지에 대 한 자세한 내용을 보려면 축소판 그림에서 줄임표를 클릭 하 고 **세부 정보 보기**를 선택 합니다. **이동** 옵션을 사용 하 여 이미지를 만듦에 할당할 수 있습니다. 하위 팀에 대해 자세히 알아보려면 [팀](./configure.md#manage-team-and-subteams) 섹션을 참조 하세요.
+1. 이미지에 대 한 자세한 내용을 보려면 축소판 그림에서 줄임표를 클릭 하 고 **세부 정보 보기** 를 선택 합니다. **이동** 옵션을 사용 하 여 이미지를 만듦에 할당할 수 있습니다. 하위 팀에 대해 자세히 알아보려면 [팀](./configure.md#manage-team-and-subteams) 섹션을 참조 하세요.
 
     ![보기 세부 정보 옵션이 강조 표시된 이미지](images/review-images-3.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "73044124"
 
     ![별도 창에서 나열된 조정 세부 정보를 사용하는 이미지](images/review-images-4.png)
 
-1. 태그 할당을 검토하여 필요에 따라 업데이트한 후에는 **다음**을 클릭하여 검토를 제출합니다. 제출 후에는 약 5초 이내에 **이전** 단추를 클릭하여 이전 화면으로 돌아가 이미지를 다시 검토합니다. 그 후에는 이미지가 제출 큐에 더 이상 없으며 **이전** 단추를 더 이상 사용할 수 없습니다.
+1. 태그 할당을 검토하여 필요에 따라 업데이트한 후에는 **다음** 을 클릭하여 검토를 제출합니다. 제출 후에는 약 5초 이내에 **이전** 단추를 클릭하여 이전 화면으로 돌아가 이미지를 다시 검토합니다. 그 후에는 이미지가 제출 큐에 더 이상 없으며 **이전** 단추를 더 이상 사용할 수 없습니다.
 
 ## <a name="text-reviews"></a>텍스트 검토
 
@@ -56,4 +56,4 @@ ms.locfileid: "73044124"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 검토를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로, 검토를 프로그래밍 방식으로 만드는 방법을 알아보려면 [REST API 가이드](../try-review-api-review.md) 또는 [.net SDK 퀵 스타트](../dotnet-sdk-quickstart.md) 를 참조 하세요.
+이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 검토를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로, 프로그래밍 방식으로 리뷰를 만드는 방법을 알아보려면 [API 콘솔 가이드](../try-review-api-review.md) 또는 [.net SDK 퀵 스타트](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) 를 참조 하세요.

@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253123"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443265"
 ---
-# <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 디먼 응용 프로그램
+# <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 디먼 애플리케이션
 
 웹 Api를 호출 하는 디먼 응용 프로그램을 빌드하는 데 필요한 모든 것을 알아보세요.
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="overview"></a>개요
 
@@ -59,7 +55,10 @@ ms.locfileid: "85253123"
 - 응용 프로그램 [구성](./scenario-daemon-app-configuration.md) 에서는 응용 프로그램을 등록 하는 동안 Azure AD와 공유 되는 클라이언트 자격 증명을 제공 해야 합니다.
 - 클라이언트 자격 증명 흐름을 사용 하 여 토큰을 획득 하는 데 사용 되는 [범위](scenario-daemon-acquire-token.md#scopes-to-request) 는 정적 범위 여야 합니다.
 
+## <a name="recommended-reading"></a>추천 자료
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [디먼 앱-앱 등록](./scenario-daemon-app-registration.md)
+이 시나리오의 다음 문서 [앱 등록](./scenario-daemon-app-registration.md)으로 이동 합니다.

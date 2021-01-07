@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 56fd644e43b704eced4f5a97b82e4b07ab1b4db9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: b9772f89f78f21cfb0f2f9baa7c6b9915fbacf37
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424088"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91275696"
 ---
 # <a name="playback-technology-tech"></a>재생 기술("기술") #
 

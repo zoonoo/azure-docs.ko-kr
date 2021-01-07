@@ -4,12 +4,12 @@ description: 지리적 복제 Azure Container Registry의 컨테이너 이미지
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74456098"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148431"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry에서 웹앱 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "74456098"
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Web App for Containers에 자동 배포
 
-Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App for Containers](../app-service/containers/index.yml)에 직접 배포할 수 있도록 지원합니다. 이 자습서에서는 Azure Portal을 사용하여 이전 자습서에서 만든 컨테이너 이미지를 다른 Azure 영역에 있는 두 개의 웹앱 계획에 배포합니다.
+Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App for Containers](../app-service/index.yml)에 직접 배포할 수 있도록 지원합니다. 이 자습서에서는 Azure Portal을 사용하여 이전 자습서에서 만든 컨테이너 이미지를 다른 Azure 영역에 있는 두 개의 웹앱 계획에 배포합니다.
 
 레지스트리의 컨테이너 이미지에서 웹앱을 배포하고 같은 영역에 지리적 복제 레지스트리가 있는 경우 Azure Container Registry는 이미지 배포 [webhook](container-registry-webhook.md)를 만듭니다. 새 이미지를 컨테이너 리포지토리로 푸시하면 webhook가 변경 사항을 선택하고 새 컨테이너 이미지를 웹앱에 자동으로 배포합니다.
 
@@ -58,7 +58,7 @@ Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App fo
 
 웹앱을 *미국 서부* 영역에 프로비저닝하려면 **만들기**를 선택합니다.
 
-![Azure Portal에서 Linux의 웹앱 구성][deploy-app-portal-02]
+![스크린샷은 만들기 단추가 강조 표시된 Web App for Containers를 보여줍니다.][deploy-app-portal-02]
 
 ## <a name="view-the-deployed-web-app"></a>배포된 웹앱 보기
 
@@ -68,11 +68,11 @@ Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App fo
 
 브라우저에서 실행 중인 애플리케이션을 보려면 **App Service** 개요의 오른쪽 위에 있는 웹앱의 하이퍼링크 URL을 선택합니다.
 
-![Azure Portal에서 Linux의 웹앱 구성][deploy-app-portal-04]
+![스크린샷은 웹앱 URL이 강조 표시된 App Service 개요를 보여줍니다.][deploy-app-portal-04]
 
 Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포되면 사이트에서 컨테이너 레지스트리를 호스팅하는 Azure 영역을 나타내는 이미지를 표시합니다.
 
-![브라우저에 표시된 배포된 웹 애플리케이션][deployed-app-westus]
+![스크린샷은 브라우저에 표시되는 배포된 웹 애플리케이션을 보여줍니다.][deployed-app-westus]
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>두 번째 Web App for Containers 인스턴스 배포
 
@@ -88,9 +88,9 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 
 웹앱을 *미국 동부* 영역에 프로비저닝하려면 **만들기**를 선택합니다.
 
-![Azure Portal에서 Linux의 웹앱 구성][deploy-app-portal-06]
+![스크린샷은 만들기 단추가 강조 표시된 Web App for Containers 만들기 창을 보여줍니다.][deploy-app-portal-06]
 
-## <a name="view-the-deployed-web-app"></a>배포된 웹앱 보기
+## <a name="view-the-second-deployed-web-app"></a>두 번째로 배포된 웹앱 보기
 
 이전과 마찬가지로 브라우저에서 해당 URL로 이동하여 실행 중인 애플리케이션을 볼 수 있습니다.
 

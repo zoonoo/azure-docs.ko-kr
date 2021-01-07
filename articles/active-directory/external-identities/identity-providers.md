@@ -1,6 +1,6 @@
 ---
 title: 외부 ID용 ID 공급자 - Azure AD
-description: Azure Active Directory B2B 협업 기능은 회사 애플리케이션에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다.
+description: 외부 사용자와 공유 하기 위한 기본 id 공급자로 Azure AD를 사용 하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2284d015b451872753dd0855cac42e6f1926545c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909385"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355514"
 ---
 # <a name="identity-providers-for-external-identities"></a>외부 ID용 ID 공급자
 
@@ -25,6 +25,9 @@ ms.locfileid: "87909385"
 그러나 사용자가 다양한 ID 공급자를 사용하여 로그인하도록 설정할 수 있습니다.
 
 - **Google**: Google 페더레이션을 통해 외부 사용자는 자신의 Gmail 계정으로 앱에 로그인하여 초대를 사용할 수 있습니다. 셀프 서비스 등록 사용자 흐름에서 Google 페더레이션을 사용할 수도 있습니다.
+   > [!IMPORTANT]
+   > Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+
    > [!NOTE]
    > 현재 셀프 서비스 등록 미리 보기에서 사용자 흐름이 앱과 연결되어 있고 사용자에게 해당 앱에 대한 초대를 보내는 경우 사용자는 Gmail 계정으로 초대를 사용할 수 없습니다. 이 문제를 해결하기 위해 사용자는 셀프 서비스 등록 프로세스를 진행할 수 있습니다. 또는 다른 앱에 액세스하거나 https://myapps.microsoft.com 에서 내 앱 포털을 통해 초대를 사용할 수 있습니다.
 

@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 46119b9f7cdac47920d4bba8e00c3fc56b0edc78
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 12/05/2020
 ms.locfileid: "87494522"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure 포털에서 Windows 가상 머신 만들기
@@ -27,22 +27,22 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-1. 검색에서 **가상 머신**을 입력합니다.
-1. **서비스**에서 **가상 머신**을 선택합니다.
-1. **가상 머신** 페이지에서 **추가**를 선택합니다. 
-1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기**를 선택합니다. 이름으로 *myResourceGroup*을 입력합니다. 
+1. 검색에서 **가상 머신** 을 입력합니다.
+1. **서비스** 에서 **가상 머신** 을 선택합니다.
+1. **가상 머신** 페이지에서 **추가** 를 선택합니다. 
+1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기** 를 선택합니다. 이름으로 *myResourceGroup* 을 입력합니다. 
 
     ![가상 머신에 대한 Azure 구독 및 리소스 그룹을 선택하는 위치를 보여주는 프로젝트 세부 정보 섹션의 스크린샷](./media/quick-create-portal/project-details.png)
 
-1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **지역**에 *미국 동부*를 선택한 후, **이미지**에 대해 *Windows Server 2019 Datacenter*를 선택합니다. 다른 기본값을 그대로 둡니다.
+1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름** 에 *myVM* 을 입력하고 **지역** 에 *미국 동부* 를 선택한 후, **이미지** 에 대해 *Windows Server 2019 Datacenter* 를 선택합니다. 다른 기본값을 그대로 둡니다.
 
     ![가상 머신의 이름을 입력하고 해당 지역, 이미지 및 크기를 선택하는 인스턴스 세부 정보 섹션의 스크린샷](./media/quick-create-portal/instance-details.png)
 
-1. **관리자 계정**에서 *azureuser*와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+1. **관리자 계정** 에서 *azureuser* 와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
 
     ![관리자 사용자 이름 및 암호를 입력하는 관리자 계정 섹션의 스크린샷](./media/quick-create-portal/administrator-account.png)
 
-1. **인바운드 포트 규칙**에서 **선택한 포트 허용**을 선택한 다음, 드롭다운에서 **RDP(3389)** 및 **HTTP(80)** 를 선택합니다.
+1. **인바운드 포트 규칙** 에서 **선택한 포트 허용** 을 선택한 다음, 드롭다운에서 **RDP(3389)** 및 **HTTP(80)** 를 선택합니다.
 
     ![인바운드 연결이 허용되는 포트를 선택하는 인바운드 포트 규칙 섹션의 스크린샷](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -59,13 +59,13 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     ![연결 단추의 위치를 보여주는 가상 머신 개요 페이지의 스크린샷](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. **가상 머신에 연결** 페이지에서, 3389 포트를 통해 IP 주소로 연결하는 기본 옵션을 유지하고 **RDP 파일 다운로드**를 클릭합니다.
+2. **가상 머신에 연결** 페이지에서, 3389 포트를 통해 IP 주소로 연결하는 기본 옵션을 유지하고 **RDP 파일 다운로드** 를 클릭합니다.
 
-2. 다운로드한 RDP 파일을 열고 메시지가 표시되면 **연결**을 클릭합니다. 
+2. 다운로드한 RDP 파일을 열고 메시지가 표시되면 **연결** 을 클릭합니다. 
 
-3. **Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용**을 차례로 선택합니다. 사용자 이름으로 **localhost**\\*username*을 입력하고, 가상 머신에 대해 만든 암호를 입력한 다음, **확인**을 클릭합니다.
+3. **Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용** 을 차례로 선택합니다. 사용자 이름으로 **localhost**\\*username* 을 입력하고, 가상 머신에 대해 만든 암호를 입력한 다음, **확인** 을 클릭합니다.
 
-4. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 또는 **계속**을 클릭하여 연결을 만듭니다.
+4. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 또는 **계속** 을 클릭하여 연결을 만듭니다.
 
 ## <a name="install-web-server"></a>웹 서버 설치
 
@@ -88,7 +88,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 리소스 그룹, 가상 머신 및 모든 관련 리소스가 더 이상 필요 없는 경우 삭제해도 됩니다. 
 
-가상머신에 대한 리소스 그룹을 선택한 다음 **삭제**를 선택합니다. 리소스 그룹의 이름을 확인하고 리소스 삭제를 마칩니다.
+가상머신에 대한 리소스 그룹을 선택한 다음 **삭제** 를 선택합니다. 리소스 그룹의 이름을 확인하고 리소스 삭제를 마칩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

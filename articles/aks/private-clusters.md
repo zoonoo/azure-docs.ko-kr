@@ -4,29 +4,31 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 10cbd58807c213418a88b42887cdb76868eac34e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 696ba785abb317a29de38160440dc06487ff5bca
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015652"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673888"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
-프라이빗 클러스터에서 컨트롤 플레인 또는 API 서버에는 [RFC1918 - 프라이빗 인터넷용 주소 할당](https://tools.ietf.org/html/rfc1918) 문서에 정의된 내부 IP 주소가 있습니다. 개인 클러스터를 사용 하 여 API 서버와 노드 풀 간의 네트워크 트래픽이 개인 네트워크에만 남아 있는지 확인할 수 있습니다.
+개인 클러스터에서 제어 평면이 나 API 서버에는 [개인 인터넷 문서의 RFC1918 할당](https://tools.ietf.org/html/rfc1918) 에 정의 된 내부 IP 주소가 있습니다. 개인 클러스터를 사용 하 여 API 서버와 노드 풀 간의 네트워크 트래픽이 개인 네트워크에만 남아 있는지 확인할 수 있습니다.
 
 컨트롤 플레인 또는 API 서버는 AKS(Azure Kubernetes Service)에서 관리되는 Azure 구독에 있습니다. 고객의 클러스터 또는 노드 풀은 고객의 구독에 있습니다. 서버와 클러스터 또는 노드 풀은 API 서버 가상 네트워크의 [Azure Private Link 서비스][private-link-service]를 통해 서로 통신할 수 있으며, 고객의 AKS 클러스터의 서브넷에 노출되는 프라이빗 엔드포인트입니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
-개인 클러스터는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 공용 지역에서 사용할 수 있습니다.
+개인 클러스터는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 공용 지역, Azure Government 및 Azure 중국 21vianet 지역에서 사용할 수 있습니다.
 
-* Azure 중국 21Vianet은 현재 지원 되지 않습니다.
-* US Gov 텍사스 개인 링크 지원이 없으므로 현재 지원 되지 않습니다.
+> [!NOTE]
+> Azure Government 사이트는 지원 되지만 개인 링크 지원이 없으므로 현재 US Gov 텍사스 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure CLI 버전 2.2.0 이상
+* Private Link 서비스는 표준 Azure Load Balancer에서만 지원됩니다. 기본 Azure Load Balancer는 지원되지 않습니다.  
+* 사용자 지정 DNS 서버를 사용하려면 Azure DNS IP 168.63.129.16을 사용자 지정 DNS 서버에 업스트림 DNS 서버로 추가합니다.
 
 ## <a name="create-a-private-aks-cluster"></a>프라이빗 AKS 클러스터 만들기
 
@@ -43,7 +45,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-여기서 *--enable-private-cluster*는 프라이빗 클러스터에 대한 필수 플래그에 속합니다. 
+여기서 `--enable-private-cluster` 는 개인 클러스터에 대 한 필수 플래그입니다. 
 
 ### <a name="advanced-networking"></a>고급 네트워킹  
 
@@ -59,14 +61,28 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-여기서 *--enable-private-cluster*는 프라이빗 클러스터에 대한 필수 플래그에 속합니다. 
+여기서 `--enable-private-cluster` 는 개인 클러스터에 대 한 필수 플래그입니다. 
 
 > [!NOTE]
 > Docker 브리지 주소 CIDR(172.17.0.1/16)이 서브넷 CIDR과 충돌하는 경우, Docker 브리지 주소를 적절하게 변경합니다.
 
+### <a name="configure-private-dns-zone"></a>사설 DNS 영역 구성
+
+--Private-dns 영역 인수가 생략 된 경우 기본값은 "system"입니다. AKS는 노드 리소스 그룹에 사설 DNS 영역을 만듭니다. "None" 매개 변수를 전달 하면 AKS는 사설 DNS 영역을 만들지 않음을 의미 합니다.  이를 통해 자체 DNS 서버를 가져오고 개인 FQDN에 대 한 DNS 확인을 구성 합니다.  DNS 확인을 구성 하지 않으면 DNS는 에이전트 노드 내 에서만 확인할 수 있으며 배포 후에 클러스터 문제가 발생 합니다.
+
+## <a name="no-private-dns-zone-prerequisites"></a>사설 DNS 영역 필수 구성 요소 없음
+PrivateDNSZone 없음
+* Azure CLI 버전 0.4.67 이상
+* Api 버전 2020-11-01 이상
+
+## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>사설 DNS 영역으로 개인 AKS 클러스터 만들기
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
+```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>프라이빗 클러스터에 연결하기 위한 옵션
 
-API 서버 엔드포인트에 공용 IP 주소가 없습니다. API 서버를 관리하려면 AKS 클러스터의 Azure Virtual Network(VNet)에 대한 액세스 권한이 있는 VM을 사용해야 합니다. 프라이빗 클러스터에 대한 네트워크 연결을 설정할 경우, 몇 가지 옵션이 있습니다.
+API 서버 엔드포인트에 공용 IP 주소가 없습니다. API 서버를 관리 하려면 AKS 클러스터의 Azure Virtual Network (VNet)에 대 한 액세스 권한이 있는 VM을 사용 해야 합니다. 프라이빗 클러스터에 대한 네트워크 연결을 설정할 경우, 몇 가지 옵션이 있습니다.
 
 * AKS 클러스터와 동일한 Azure Virtual Network(VNet)에서 VM을 만듭니다.
 * 별도의 네트워크에서 VM을 사용하고 [가상 네트워크 피어링][virtual-network-peering]을 설정합니다.  이 옵션에 관한 자세한 내용은 아래의 해당 섹션을 참조하세요.
@@ -84,9 +100,9 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 4. VM의 가상 네트워크를 프라이빗 DNS 영역에 추가하는 새 링크를 만듭니다. DNS 영역 링크를 사용할 수 있을 때까지 몇 분 정도 걸립니다.  
 5. Azure Portal에서 클러스터의 가상 네트워크를 포함 하는 리소스 그룹으로 이동 합니다.  
 6. 오른쪽 창에서 가상 네트워크를 선택합니다. 가상 네트워크 이름은 *aks-vnet-\** 형식으로 되어 있습니다.  
-7. 왼쪽 창에서 **피어링**을 선택합니다.  
-8. **추가**를 선택하고 VM의 가상 네트워크를 추가한 다음, 피어링을 만듭니다.  
-9. VM이 있는 가상 네트워크로 이동하여 **피어링**을 선택하고 AKS 가상 네트워크를 선택한 후 피어링을 만듭니다. AKS 가상 네트워크의 주소 범위와 VM의 가상 네트워크가 충돌하는 경우, 피어링이 실패합니다. 자세한 내용은 [가상 네트워크 피어링][virtual-network-peering]을 참조하세요.
+7. 왼쪽 창에서 **피어링** 을 선택합니다.  
+8. **추가** 를 선택하고 VM의 가상 네트워크를 추가한 다음, 피어링을 만듭니다.  
+9. VM이 있는 가상 네트워크로 이동하여 **피어링** 을 선택하고 AKS 가상 네트워크를 선택한 후 피어링을 만듭니다. AKS 가상 네트워크의 주소 범위와 VM의 가상 네트워크가 충돌하는 경우, 피어링이 실패합니다. 자세한 내용은 [가상 네트워크 피어링][virtual-network-peering]을 참조하세요.
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>사용자 지정 DNS를 사용하는 허브 및 스포크
 
@@ -94,29 +110,25 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 
 ![프라이빗 클러스터 허브 및 스포크](media/private-clusters/aks-private-hub-spoke.png)
 
-1. 기본적으로 프라이빗 클러스터가 프로비전되면 프라이빗 엔드포인트 (1)과 프라이빗 DNS 영역(2)이 클러스터 관리되는 리소스 그룹에서 생성됩니다. 클러스터는 프라이빗 영역의 A 레코드를 사용하여 API 서버와 통신할 프라이빗 엔드포인트의 IP를 확인합니다.
+1. 기본적으로 개인 클러스터가 프로 비전 되 면 개인 끝점 (1)과 개인 DNS 영역 (2)이 클러스터 관리 리소스 그룹에 만들어집니다. 클러스터는 프라이빗 영역의 A 레코드를 사용하여 API 서버와 통신할 프라이빗 엔드포인트의 IP를 확인합니다.
 
 2. 프라이빗 DNS 영역은 클러스터 노드가 (3)과 연결된 VNet에만 연결됩니다. 즉, 연결된 VNet의 호스트만 프라이빗 엔드포인트를 확인할 수 있습니다. VNet에 사용자 지정 DNS가 구성 되지 않은 경우 (기본값),이는 연결로 인해 개인 DNS 영역에 있는 레코드를 확인할 수 있는 168.63.129.16 for DNS의 호스트 지점으로 문제 없이 작동 합니다.
 
 3. 클러스터를 포함하는 VNet에 사용자 지정 DNS 설정(4)이 있는 시나리오에서는 프라이빗 DNS 영역이 사용자 지정 DNS 확인자(5)를 포함하는 VNet에 연결되어 있지 않으면 클러스터 배포가 실패합니다. 이 링크는 클러스터를 프로 비전 하는 동안 또는 이벤트 기반 배포 메커니즘 (예: Azure Event Grid 및 Azure Functions)을 사용 하 여 영역 생성 검색 시 자동화를 통해 만들 때 수동으로 만들 수 있습니다.
 
-## <a name="dependencies"></a>종속성  
-
-* Private Link 서비스는 표준 Azure Load Balancer에서만 지원됩니다. 기본 Azure Load Balancer는 지원되지 않습니다.  
-* 사용자 지정 DNS 서버를 사용하려면 Azure DNS IP 168.63.129.16을 사용자 지정 DNS 서버에 업스트림 DNS 서버로 추가합니다.
+> [!NOTE]
+> Kubenet를 사용 하 여 [고유한 경로 테이블](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) 을 만들고 개인 클러스터를 사용 하 여 자체 DNS를 가져오는 경우 클러스터 만들기가 실패 합니다. 클러스터를 만드는 데 실패 한 후 노드 리소스 그룹의 [RouteTable](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) 를 서브넷에 연결 하 여 성공적으로 만들 수 있도록 해야 합니다.
 
 ## <a name="limitations"></a>제한 사항 
 * IP 권한이 부여 된 범위는 개인 api 서버 끝점에 적용할 수 없으며 공용 API 서버에만 적용 됩니다.
-* [가용성 영역][availability-zones] 은 현재 특정 지역에서 지원 됩니다. 
 * [Azure Private Link 서비스 제한][private-link-service]은 프라이빗 클러스터에 적용됩니다.
-* 프라이빗 클러스터를 사용하는 Azure DevOps Microsoft 호스팅 에이전트를 지원하지 않습니다. [자체 호스팅 에이전트][devops-agents]를 사용하는 것이 좋습니다. 
+* 프라이빗 클러스터를 사용하는 Azure DevOps Microsoft 호스팅 에이전트를 지원하지 않습니다. [자체 호스팅 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser&preserve-view=true)를 사용하는 것이 좋습니다. 
 * Azure Container Registry를 프라이빗 AKS와 함께 사용해야 하는 고객의 경우, Container Registry 가상 네트워크는 에이전트 클러스터 가상 네트워크와 피어링되어야 합니다.
-* 현재 Azure Dev Spaces를 지원하지 않습니다.
 * 기존 AKS 클러스터를 프라이빗 클러스터로 변환하는 기능이 지원되지 않습니다.
 * 고객 서브넷에서 프라이빗 엔드포인트를 삭제하거나 수정하면 클러스터의 작동이 중지됩니다. 
 * 컨테이너용 Azure Monitor의 라이브 데이터는 현재 지원되지 않습니다.
-* 작동 시간 SLA는 현재 지원되지 않습니다.
-
+* 고객이 자신의 DNS 서버에서 A 레코드를 업데이트 한 후 해당 Pod는 다시 시작 될 때까지 마이그레이션 후에 apiserver FQDN을 이전 IP로 계속 확인 합니다. 고객은 제어 평면 마이그레이션 후 hostNetwork Pod 및 기본-DNSPolicy Pod를 다시 시작 해야 합니다.
+* 제어 평면에 대 한 유지 관리의 경우 [AKS IP](https://docs.microsoft.com/azure/aks/limit-egress-traffic#:~:text=By%20default%2C%20AKS%20clusters%20have%20unrestricted%20outbound%20%28egress%29,be%20accessible%20to%20maintain%20healthy%20cluster%20maintenance%20tasks.) 가 변경 될 수 있습니다. 이 경우 사용자 지정 DNS 서버에서 API 서버 개인 IP를 가리키는 A 레코드를 업데이트 하 고 hostNetwork를 사용 하 여 모든 사용자 지정 pod 또는 배포를 다시 시작 해야 합니다.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
@@ -125,7 +137,7 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
 [availability-zones]: availability-zones.md

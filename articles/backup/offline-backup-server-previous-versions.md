@@ -4,10 +4,10 @@ description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사�
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890096"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (이전 버전)
@@ -48,7 +48,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 >[!NOTE]
 >Azure CSP 구독은 DPM 2019 RTM 및 이전 버전, MABS v3 RTM 및 이전 버전에 대 한 오프 라인 시드에 사용 하도록 지원 되지 않습니다. 네트워크를 통한 온라인 백업은 계속 지원 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 오프 라인 백업 워크플로를 시작 하기 전에 다음 필수 구성 요소가 충족 되는지 확인 합니다.
 
@@ -100,7 +100,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 오프 라인 백업에 대해 이전에 만든 Azure Active Directory 응용 프로그램에 오프 라인 백업 인증서를 수동으로 업로드 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에 로그인합니다.
-1. **Azure Active Directory**  >  **앱 등록**로 이동 합니다.
+1. **Azure Active Directory** > **앱 등록**으로 이동합니다.
 1. 소유 하는 **응용 프로그램** 탭에서 표시 이름 형식의 응용 프로그램을 찾습니다 `AzureOfflineBackup _<Azure User Id` .
 
     ![소유 응용 프로그램 탭에서 응용 프로그램 찾기](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
@@ -115,7 +115,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
     ![인증서 업로드](./media/offline-backup-dpm-mabs-previous-versions/upload-certificate.png)
 
 1. 서버에서 실행 창에 **regedit** 를 입력 하 여 레지스트리를 엽니다.
-1. 레지스트리 항목 *Computer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*로 이동 합니다.
+1. 레지스트리 항목 *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*로 이동 합니다.
 1. **Cloudbackupprovider**를 마우스 오른쪽 단추로 클릭 하 고 이름이 인 새 문자열 값을 추가 `AzureADAppCertThumbprint_<Azure User Id>` 합니다.
 
     >[!NOTE]
@@ -228,7 +228,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --- | --- |
     | u: | 이 필수 입력은 Azure 가져오기 작업에 대 한 배송 정보를 업데이트 하는 데 사용 됩니다. |
     | s:&lt;*Staging Location Path*&gt; | 이 필수 입력은 명령이 원본 컴퓨터에서 실행 되지 않을 때 사용 됩니다. "오프 라인 백업 시작" 섹션의 워크플로에 입력 한 스테이징 위치에 대 한 경로를 제공 하는 데 사용 됩니다. |

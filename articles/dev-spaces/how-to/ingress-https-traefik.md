@@ -5,19 +5,21 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: 사용자 지정 traefik 수신 컨트롤러를 사용 하 고 해당 수신 컨트롤러를 사용 하 여 HTTPS를 구성 하도록 Azure Dev Spaces를 구성 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3938209e80eb211afc332997b5b241c12a0f6eb9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: d19dc409f4d57a114b5937e6ce3718315e550a08
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212453"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763590"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>사용자 지정 traefik 수신 컨트롤러 사용 및 HTTPS 구성
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 이 문서에서는 사용자 지정 traefik 수신 컨트롤러를 사용 하도록 Azure Dev Spaces를 구성 하는 방법을 보여 줍니다. 또한이 문서에서는 HTTPS를 사용 하도록 사용자 지정 수신 컨트롤러를 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 계정이 없는 경우 [무료 계정][azure-account-create]에 만들 수 있습니다.
 * [Azure CLI 설치][az-cli]
@@ -45,13 +47,13 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 Traefik 수신 컨트롤러 투구 차트가 포함 된 [안정적인 공식 투구 리포지토리][helm-stable-repo]를 추가 합니다.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 ```
 
 Traefik 수신 컨트롤러에 대 한 Kubernetes 네임 스페이스를 만들고를 사용 하 여 설치 `helm` 합니다.
 
 > [!NOTE]
-> AKS 클러스터에서 RBAC를 사용 하도록 설정 하지 않은 경우 *--set RBAC. enabled = true* 매개 변수를 제거 합니다.
+> AKS 클러스터에서 Kubernetes RBAC를 사용 하도록 설정 하지 않은 경우 *--set rbac. enabled = true* 매개 변수를 제거 합니다.
 
 ```console
 kubectl create ns traefik
@@ -100,7 +102,7 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 [값 .yaml][values-yaml] 을 열고 다음을 업데이트 합니다.
-* *<REPLACE_ME_WITH_HOST_SUFFIX>* 모든 인스턴스를 traefik로 바꿉니다 *. * *MY_CUSTOM_DOMAIN*에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 
+* *<REPLACE_ME_WITH_HOST_SUFFIX>* 모든 인스턴스를 traefik로 바꿉니다 *.* *MY_CUSTOM_DOMAIN* 에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 
 * Replace *kubernetes.io/ingress.class: traefik-azds # Dev Spaces only* with *kubernetes.io/ingress.class: Traefik # Custom ingress*. 
 
 업데이트 된 파일의 예는 `values.yaml` 다음과 같습니다.
@@ -210,7 +212,7 @@ spec:
 ```
 
 > [!NOTE]
-> 테스트를 위해 *Clusterissuer*에 사용할 수 있는 [스테이징 서버][letsencrypt-staging-issuer] 도 있습니다.
+> 테스트를 위해 *Clusterissuer* 에 사용할 수 있는 [스테이징 서버][letsencrypt-staging-issuer] 도 있습니다.
 
 `kubectl`를 적용 하려면를 사용 `letsencrypt-clusterissuer.yaml` 합니다.
 
@@ -218,10 +220,10 @@ spec:
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-이전 *traefik* *ClusterRole* 및 *clusterrolebinding*을 제거한 다음를 사용 하 여 HTTPS를 사용 하도록 traefik를 업그레이드 `helm` 합니다.
+이전 *traefik* *ClusterRole* 및 *clusterrolebinding* 을 제거한 다음를 사용 하 여 HTTPS를 사용 하도록 traefik를 업그레이드 `helm` 합니다.
 
 > [!NOTE]
-> AKS 클러스터에서 RBAC를 사용 하도록 설정 하지 않은 경우 *--set RBAC. enabled = true* 매개 변수를 제거 합니다.
+> AKS 클러스터에서 Kubernetes RBAC를 사용 하도록 설정 하지 않은 경우 *--set rbac. enabled = true* 매개 변수를 제거 합니다.
 
 ```console
 kubectl delete ClusterRole traefik
@@ -260,7 +262,7 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-위의 예제에서는 *PREVIOUS_EXTERNAL_IP*를 사용 하도록 *MY_CUSTOM_DOMAIN* DNS 영역에서 *A* 레코드를 업데이트 합니다.
+위의 예제에서는 *PREVIOUS_EXTERNAL_IP* 를 사용 하도록 *MY_CUSTOM_DOMAIN* DNS 영역에서 *A* 레코드를 업데이트 합니다.
 
 값을 업데이트 하 여 *인증서 관리자* 및 HTTPS 사용에 대 한 세부 정보를 포함 [합니다.][values-yaml] 업데이트 된 파일의 예는 `values.yaml` 다음과 같습니다.
 
@@ -304,13 +306,13 @@ helm upgrade bikesharingsampleapp . --namespace dev --atomic
 > [!IMPORTANT]
 > DNS 변경 내용이 완료 되 고 예제 응용 프로그램에 액세스할 수 있도록 30 분 이상 걸릴 수 있습니다.
 
-또한 페이지가 로드 되지만 브라우저에 몇 가지 오류가 표시 됩니다. 브라우저 콘솔을 열면 HTTP 리소스를 로드 하려는 HTTPS 페이지와 관련 된 오류가 표시 됩니다. 예를 들어:
+또한 페이지가 로드 되지만 브라우저에 몇 가지 오류가 표시 됩니다. 브라우저 콘솔을 열면 HTTP 리소스를 로드 하려는 HTTPS 페이지와 관련 된 오류가 표시 됩니다. 예:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-이 오류를 해결 하려면 [BikeSharingWeb/azds][azds-yaml] 을 업데이트 하 여 *traefik* 에 *kubernetes.io/ingress.class* 를 사용 하 고 *$ (hostsuffix)* 사용자 지정 도메인을 사용 합니다. 예를 들어:
+이 오류를 해결 하려면 [BikeSharingWeb/azds][azds-yaml] 을 업데이트 하 여 *traefik* 에 *kubernetes.io/ingress.class* 를 사용 하 고 *$ (hostsuffix)* 사용자 지정 도메인을 사용 합니다. 예:
 
 ```yaml
 ...
@@ -363,7 +365,7 @@ azds up
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
+Azure Dev Spaces 작동 방식에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Dev Spaces의 작동 원리](../how-dev-spaces-works.md)
@@ -373,7 +375,7 @@ Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
 [az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
-[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
+[custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free

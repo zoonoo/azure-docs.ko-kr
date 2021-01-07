@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 644669ea27938e385e11f3b1911a23ab30829a95
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "66814737"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027568"
 ---
 이 기능은 미리 보기 상태입니다. 이 기능을 사용하려면 미리 보기 확장 또는 모듈을 설치해야 합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "66814737"
 
 Azure CLI의 경우 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)이 필요합니다.
 
-[CloudShell](/azure/cloud-shell/quickstart)에서:
+[CloudShell](../articles/cloud-shell/quickstart.md)에서:
 
 * 이전에 확장을 설치한 경우 `az extension update -n eventgrid`로 업데이트합니다.
 * 이전에 확장을 설치하지 않은 경우 `az extension add -n eventgrid`로 업데이트합니다.
@@ -36,7 +36,7 @@ Azure CLI의 경우 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)이
 
 PowerShell의 경우 [AzureRM.EventGrid 모듈](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview)이 필요합니다.
 
-[CloudShell](/azure/cloud-shell/quickstart-powershell)에서:
+[CloudShell](../articles/cloud-shell/quickstart-powershell.md)에서:
 
 * 모듈 설치 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 

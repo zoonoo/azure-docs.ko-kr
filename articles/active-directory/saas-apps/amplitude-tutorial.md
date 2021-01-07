@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 889fa9b026b741cef438791daf136e0da7cecc24
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545477"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318666"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>자습서: Amplitude와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "88545477"
 * 사용자가 자신의 Azure AD 계정으로 Amplitude에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -141,15 +141,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 탐색 모음에서 **계획 관리자**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/amplitude-tutorial/configure1.png)
+    ![스크린샷은 계획 관리자가 선택된 Amplitude 메뉴를 보여줍니다.](./media/amplitude-tutorial/configure1.png)
 
 1. **SSO 통합**에서 **Microsoft Azure Active Directory 메타데이터**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/amplitude-tutorial/configure2.png)
+    ![스크린샷은 Microsoft Azure Active Directory 메타데이터 링크가 호출된 계획 관리 창을 보여줍니다.](./media/amplitude-tutorial/configure2.png)
 
 1. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/amplitude-tutorial/configure3.png)
+    ![스크린샷은 이 단계에서 설명한 값이 있는 Single Sign-On 설정 섹션을 보여줍니다.](./media/amplitude-tutorial/configure3.png)
 
     a. Azure Portal에서 다운로드한 **메타데이터 XML**을 메모장에서 열고 콘텐츠를 **Microsoft Azure Active Directory 메타데이터** 텍스트 상자에 붙여넣습니다.
 
@@ -168,14 +168,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Amplitude 타일을 클릭하면 SSO를 설정한 Amplitude에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 Amplitude 타일을 클릭하면 SSO를 설정한 Amplitude에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 
 - [Azure AD에서 Amplitude 사용해보기](https://aad.portal.azure.com/)

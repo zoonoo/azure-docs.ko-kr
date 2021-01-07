@@ -1,42 +1,52 @@
 ---
 title: Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning studio를 사용 하 여 디자이너에서 학습 한 모델을 배포 합니다.
+description: Azure Machine Learning studio를 사용 하 여 코드를 한 줄도 작성 하지 않고 Machine Learning 모델을 배포 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 09/04/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 95b41723d3cb398caad3a0cf388b7810deda78dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, deploy, studio, designer
+ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938583"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722626"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 
-이 문서에서는 디자이너의 학습 된 모델을 Azure Machine Learning studio에서 실시간 끝점으로 배포 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Machine Learning studio에서 디자이너 모델을 실시간 끝점으로 배포 하는 방법에 대해 알아봅니다.
+
+등록 하거나 다운로드 한 후에는 다른 모델과 마찬가지로 디자이너에서 학습 한 모델을 사용할 수 있습니다. 내보낸 모델은 IoT (사물 인터넷) 및 로컬 배포와 같은 사용 사례에서 배포할 수 있습니다.
 
 스튜디오에서 배포는 다음 단계로 구성 됩니다.
 
 1. 학습 된 모델을 등록 합니다.
 1. 모델에 대 한 entry 스크립트 및 conda 종속성 파일을 다운로드 합니다.
+1. 필드 항목 스크립트를 구성 합니다.
 1. 계산 대상에 모델을 배포 합니다.
 
 모델 등록 및 파일 다운로드 단계를 건너뛰도록 디자이너에서 직접 모델을 배포할 수도 있습니다. 이는 신속한 배포에 유용할 수 있습니다. 자세한 내용은 [designer를 사용 하 여 모델 배포](tutorial-designer-automobile-price-deploy.md)를 참조 하세요.
 
 디자이너에서 학습 한 모델은 SDK 또는 CLI (명령줄 인터페이스)를 통해 배포할 수도 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 기존 모델 배포](how-to-deploy-existing-model.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
-* [모델 학습 모듈](./algorithm-module-reference/train-model.md) 을 포함 하는 완료 된 학습 파이프라인
+* 다음 모듈 중 하나를 포함 하는 완료 된 학습 파이프라인:
+    - [모델 학습 모듈](./algorithm-module-reference/train-model.md)
+    - [변칙 검색 모델 학습 모듈](./algorithm-module-reference/train-anomaly-detection-model.md)
+    - [클러스터링 모델 학습 모듈](./algorithm-module-reference/train-clustering-model.md)
+    - [Pytorch 모델 학습 모듈](./algorithm-module-reference/train-pytorch-model.md)
+    - [.SVD 추천 모듈 학습](./algorithm-module-reference/train-svd-recommender.md)
+    - [Vowpal Wabbit 모델 학습 모듈](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [넓은 & 심화 모델 모듈 학습](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## <a name="register-the-model"></a>모델 등록
 
@@ -48,12 +58,11 @@ ms.locfileid: "90938583"
 
     ![모델 학습 모듈의 오른쪽 창 스크린샷](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. 모델의 이름을 입력 하 고 **저장**을 선택 합니다.
+1. 모델의 이름을 입력 하 고 **저장** 을 선택 합니다.
 
 모델을 등록 한 후에는 스튜디오의 **모델** 자산 페이지에서 찾을 수 있습니다.
     
 ![모델 자산 페이지에서 등록 된 모델의 스크린샷](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## <a name="download-the-entry-script-file-and-conda-dependencies-file"></a>항목 스크립트 파일 및 conda 종속성 파일 다운로드
 
@@ -96,8 +105,8 @@ Azure Machine Learning studio에서 모델을 배포 하려면 다음 파일이 
 
     - 끝점의 이름을 입력 합니다.
     - [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) 또는 [azure Container Instance](how-to-deploy-azure-container-instance.md)에 모델을 배포 하려면 선택 합니다.
-    - `score.py` **항목 스크립트 파일**에 대 한를 업로드 합니다.
-    - `conda_env.yml` **Conda 종속성 파일**에 대해를 업로드 합니다. 
+    - `score.py` **항목 스크립트 파일** 에 대 한를 업로드 합니다.
+    - `conda_env.yml` **Conda 종속성 파일** 에 대해를 업로드 합니다. 
 
     >[!TIP]
     > **고급** 설정에서 CPU/메모리 용량 및 기타 배포 매개 변수를 설정할 수 있습니다. 이러한 설정은 상당한 양의 memery (약 4gb)를 사용 하는 PyTorch 모델과 같은 특정 모델에 중요 합니다.
@@ -136,9 +145,67 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
+### <a name="consume-computer-vision-related-real-time-endpoints"></a>컴퓨터 시각 관련 실시간 끝점 사용
+
+웹 서비스는 문자열을 입력으로 허용 하기 때문에 컴퓨터 비전 관련 실시간 끝점을 사용 하는 경우 이미지를 바이트로 변환 해야 합니다. 다음은 샘플 코드입니다.
+
+```python
+import base64
+import json
+from copy import deepcopy
+from pathlib import Path
+from azureml.studio.core.io.image_directory import (IMG_EXTS, image_from_file, image_to_bytes)
+from azureml.studio.core.io.transformation_directory import ImageTransformationDirectory
+
+# image path
+image_path = Path('YOUR_IMAGE_FILE_PATH')
+
+# provide the same parameter setting as in the training pipeline. Just an example here.
+image_transform = [
+    # format: (op, args). {} means using default parameter values of torchvision.transforms.
+    # See https://pytorch.org/docs/stable/torchvision/transforms.html
+    ('Resize', 256),
+    ('CenterCrop', 224),
+    # ('Pad', 0),
+    # ('ColorJitter', {}),
+    # ('Grayscale', {}),
+    # ('RandomResizedCrop', 256),
+    # ('RandomCrop', 224),
+    # ('RandomHorizontalFlip', {}),
+    # ('RandomVerticalFlip', {}),
+    # ('RandomRotation', 0),
+    # ('RandomAffine', 0),
+    # ('RandomGrayscale', {}),
+    # ('RandomPerspective', {}),
+]
+transform = ImageTransformationDirectory.create(transforms=image_transform).torch_transform
+
+# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model module
+sample_file_path = '_samples.json'
+with open(sample_file_path, 'r') as f:
+    sample_data = json.load(f)
+
+# use first sample item as the default value
+default_data = sample_data[0]
+data_list = []
+for p in image_path.iterdir():
+    if p.suffix.lower() in IMG_EXTS:
+        data = deepcopy(default_data)
+        # convert image to bytes
+        data['image'] = base64.b64encode(image_to_bytes(transform(image_from_file(p)))).decode()
+        data_list.append(data)
+
+# use data.json as input of consuming the endpoint
+data_file_path = 'data.json'
+with open(data_file_path, 'w') as f:
+    json.dump(data_list, f)
+```
+
 ## <a name="configure-the-entry-script"></a>항목 스크립트 구성
 
-[점수 .Svd 추천](./algorithm-module-reference/score-svd-recommender.md), [점수 넓게 및 딥 추천](./algorithm-module-reference/score-wide-and-deep-recommender.md), [점수 Vowpal wabbit 모델](./algorithm-module-reference/score-vowpal-wabbit-model.md) 등 디자이너의 일부 모듈에는 다른 점수 매기기 모드의 매개 변수가 있습니다. 이 섹션에서는 entry 스크립트 파일에서 이러한 매개 변수를 업데이트 하는 방법에 대해 알아봅니다.
+[점수 .Svd 추천](./algorithm-module-reference/score-svd-recommender.md), [점수 넓게 및 딥 추천](./algorithm-module-reference/score-wide-and-deep-recommender.md), [점수 Vowpal wabbit 모델](./algorithm-module-reference/score-vowpal-wabbit-model.md) 등 디자이너의 일부 모듈에는 다른 점수 매기기 모드의 매개 변수가 있습니다. 
+
+이 섹션에서는 entry 스크립트 파일에서 이러한 매개 변수를 업데이트 하는 방법에 대해 알아봅니다.
 
 다음 예에서는 학습 된 **넓은 & 심층 추천** 모델에 대 한 기본 동작을 업데이트 합니다. 기본적으로이 `score.py` 파일은 사용자와 항목 간의 등급을 예측 하도록 웹 서비스에 지시 합니다. 
 
@@ -233,7 +300,8 @@ score_params = dict(
 ## <a name="next-steps"></a>다음 단계
 
 * [디자이너에서 모델 학습](tutorial-designer-automobile-price-train-score.md)
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [Azure Machine Learning SDK를 사용 하 여 모델 배포](how-to-deploy-and-where.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

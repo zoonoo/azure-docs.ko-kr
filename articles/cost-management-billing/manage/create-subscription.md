@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: aa8cf0d2a48c75b71895eb75db362c4ec4e291c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925048"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844696"
 ---
 # <a name="create-an-additional-azure-subscription"></a>추가 Azure 구독 만들기
 
@@ -30,22 +30,22 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 |---------|---------|
 |EA(기업 계약) |  기업계약 등록에 대한 계정 소유자 역할 자세한 내용은 [Azure의 Azure 기업계약 관리 역할 이해](understand-ea-roles.md)를 참조하세요.    |
 |MCA(Microsoft 고객 계약) |  청구서 섹션, 청구 프로필 또는 청구 계정에 대한 소유자 또는 기여자 역할 또는 청구서 섹션의 Azure 구독 작성자 역할  자세한 내용은 [구독 청구 역할 및 작업](understand-mca-roles.md#subscription-billing-roles-and-tasks)을 참조하세요.    |
-|MPA(Microsoft 파트너 계약) |   CSP 파트너 조직의 글로벌 관리자 및 관리 에이전트 역할. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.  Azure 구독을 만들려면 사용자가 파트너 테넌트에 서명해야 합니다.   |
+|MPA(Microsoft 파트너 계약) |   CSP 파트너 조직의 글로벌 관리자 및 관리 에이전트 역할. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조하세요.  Azure 구독을 만들려면 사용자가 파트너 테넌트에 서명해야 합니다.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Azure Portal에 구독 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **구독**을 검색합니다.
+1. **구독** 을 검색합니다.
 
    ![포털의 구독 검색을 보여 주는 스크린샷](./media/create-subscription/billing-search-subscription-portal.png)
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
    ![구독 보기의 추가 단추를 보여 주는 스크린샷](./media/create-subscription/subscription-add.png)
 
 1. 여러 청구 계정에 액세스할 수 있는 경우 구독을 만들려는 청구 계정을 선택합니다.
 
-1. 양식을 채우고 **만들기**를 클릭합니다. 아래 표에는 각 청구 계정 유형에 대한 양식의 필드가 나열되어 있습니다.
+1. 양식을 채우고 **만들기** 를 클릭합니다. 아래 표에는 각 청구 계정 유형에 대한 양식의 필드가 나열되어 있습니다.
 
 **기업 계약**
 
@@ -73,13 +73,17 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>프로그래밍 방식으로 추가 Azure 구독 만들기
 
-프로그래밍 방식으로 추가 구독을 만들 수도 있습니다. 자세한 내용은 [프로그래밍 방식으로 Azure 구독 만들기](programmatically-create-subscription.md)를 참조하세요.
+프로그래밍 방식으로 추가 구독을 만들 수도 있습니다. 자세한 내용은 다음을 참조하세요.
+
+- [최신 API를 사용하여 프로그래밍 방식으로 EA 구독 만들기](programmatically-create-subscription-enterprise-agreement.md)
+- [최신 API를 사용하여 프로그래밍 방식으로 MCA 구독 만들기](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [최신 API를 사용하여 프로그래밍 방식으로 MPA 구독 만들기](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 구독 관리자 추가 또는 변경](add-change-subscription-administrator.md)
 - [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [리소스 조직 및 관리를 위한 관리 그룹 만들기](../../governance/management-groups/create.md)
+- [리소스 조직 및 관리를 위한 관리 그룹 만들기](../../governance/management-groups/create-management-group-portal.md)
 - [Azure 구독 취소](cancel-azure-subscription.md)
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.

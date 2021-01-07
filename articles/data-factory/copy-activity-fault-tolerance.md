@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440646"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593651"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -27,7 +27,7 @@ ms.locfileid: "89440646"
 
 원본 저장소에서 대상 저장소로 데이터를 복사하는 경우 Azure Data Factory 복사 작업이 데이터 이동 중에 오류가 발생하여 중단되지 않도록 특정 수준의 내결함성을 제공합니다. 예를 들어 대상 데이터베이스에서 기본 키가 생성되었지만 원본 데이터베이스에 기본 키가 정의되어 있지 않은 경우 원본 저장소에서 대상 저장소로 수백만 개의 행을 복사합니다. 원본에서 대상으로 중복 행을 복사하는 경우 대상 데이터베이스에서 PK 위반 오류가 발생합니다. 현재 복사 작업은 이러한 오류를 처리하는 두 가지 방법을 제공합니다. 
 - 오류가 발생하면 복사 작업을 중단할 수 있습니다. 
-- 내결함성을 사용하여 호환되지 않는 데이터를 건너뛰고 나머지 항목을 계속 복사할 수 있습니다. 예를 들어 이 경우에는 중복된 행을 건너뜁니다. 또한 복사 작업 내에서 세션 로그를 사용하도록 설정하여 건너뛴 데이터를 로깅할 수 있습니다. 
+- 내결함성을 사용하여 호환되지 않는 데이터를 건너뛰고 나머지 항목을 계속 복사할 수 있습니다. 예를 들어 이 경우에는 중복된 행을 건너뜁니다. 또한 복사 작업 내에서 세션 로그를 사용하도록 설정하여 건너뛴 데이터를 로깅할 수 있습니다. 자세한 내용은 [복사 작업에서 세션 로그](copy-activity-log.md) 를 참조할 수 있습니다.
 
 ## <a name="copying-binary-files"></a>이진 파일 복사 
 
@@ -61,13 +61,20 @@ ADF는 이진 파일을 복사할 때 다음과 같은 내결함성 시나리오
         "dataInconsistency": true 
     }, 
     "validateDataConsistency": true, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2", 
-            "type": "LinkedServiceReference" 
-            }, 
-        "path": "sessionlog/" 
-     } 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
 속성 | Description | 허용되는 값 | 필수
@@ -75,8 +82,8 @@ ADF는 이진 파일을 복사할 때 다음과 같은 내결함성 시나리오
 skipErrorFile | 데이터 이동 중에 건너뛸 오류 유형을 지정하는 속성 그룹입니다. | | 예
 fileMissing | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 파일을 건너뛸지 여부를 결정할 수 있습니다. 그러면 ADF가 복사하는 동안 다른 애플리케이션에서 건너뛴 파일을 삭제합니다. <br/> -True: 다른 애플리케이션에서 삭제할 파일을 건너뛰어 나머지 항목을 복사하려고 합니다. <br/> -False: 데이터 이동 중에 원본 저장소에서 파일이 삭제되면 복사 작업을 중단하려고 합니다. <br/>이 속성은 기본적으로 true로 설정됩니다. | True(기본값) <br/>False | 예
 fileForbidden | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 사용하여 특정 파일을 건너뛸지 여부를 결정합니다. 이러한 파일 또는 폴더의 ACL은 ADF에 구성된 연결보다 높은 수준의 권한을 요구합니다. <br/> -True: 파일을 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 폴더 또는 파일에 대한 권한 문제가 발생하면 복사 작업을 중단하려고 합니다. | True <br/>False(기본값) | 예
-dataInconsistency | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 원본 및 대상 저장소 간에 일치하지 않는 데이터를 건너뛸지 여부를 결정합니다. <br/> -True: 일치하지 않는 데이터를 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 일치하지 않는 데이터가 발견되면 복사 작업을 중단하려고 합니다. <br/>이 속성은 validateDataConsistency를 True로 설정한 경우에만 유효합니다. | True <br/>False(기본값) | 예
-logStorageSettings  | 건너뛴 개체 이름을 로깅하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
+dataInconsistency | skipErrorFile 속성 모음 내에서 키-값 쌍 중 하나를 선택하여 원본 및 대상 저장소 간에 일치하지 않는 데이터를 건너뛸지 여부를 결정합니다. <br/> -True: 일치하지 않는 데이터를 건너뛰고 나머지 항목을 복사하려고 합니다. <br/> -False: 일관되지 않은 데이터가 발견되면 복사 활동을 중단하려고 합니다. <br/>이 속성은 validateDataConsistency를 True로 설정한 경우에만 유효합니다. | True <br/>False(기본값) | 예
+logSettings  | 건너뛴 개체 이름을 로깅하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
 linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 예
 경로 | 로그 파일의 경로입니다. | 로그 파일을 저장하는 데 사용할 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
@@ -93,7 +100,7 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 > - 원본 데이터 집합에서 여러 파일을 지정 하는 경우에만 폴더, 와일드 카드 또는 파일 목록이 될 수 있습니다. 복사 작업은 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 집합에서 대상으로 복사할 단일 파일이 지정 된 경우 오류가 발생 하면 복사 작업이 실패 합니다.
 >
 > 원본 및 대상 저장소 간에 일치 하지 않는 것으로 확인 되는 특정 파일을 건너뛰는 경우:
-> - 데이터 일관성 문서에서 자세한 내용을 볼 [수 있습니다.](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)
+> - 데이터 일관성 문서에서 자세한 내용을 볼 [수 있습니다.](./copy-activity-data-consistency.md)
 
 ### <a name="monitoring"></a>모니터링 
 
@@ -108,7 +115,7 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -161,7 +168,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 >[!NOTE]
 >- PolyBase를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터를 로드 하려면 복사 작업에서 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"를 통해 거부 정책을 지정 하 여 polybase의 기본 내결함성 설정을 구성 합니다. PolyBase와 호환되지 않는 행을 계속해서 아래와 같이 정상적으로 Blob 또는 ADLS로 리디렉션할 수 있습니다.
 >- [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
->- [SQL 싱크의 저장 프로시저](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
+>- [SQL 싱크의 저장 프로시저](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
 
 ### <a name="configuration"></a>구성
 다음 예제에서는 복사 작업에서 호환되지 않는 행을 건너뛰도록 구성하기 위한 JSON 정의를 제공합니다.
@@ -175,12 +182,19 @@ Timestamp,Level,OperationName,OperationItem,Message
         "type": "AzureSqlSink" 
     }, 
     "enableSkipIncompatibleRow": true, 
-    "logStorageSettings": { 
-    "linkedServiceName": { 
-        "referenceName": "ADLSGen2", 
-        "type": "LinkedServiceReference" 
-        }, 
-    "path": "sessionlog/" 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
     } 
 }, 
 ```
@@ -188,7 +202,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 예
-logStorageSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
+logSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
 linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 예
 경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
@@ -203,7 +217,7 @@ linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azu
             "rowsSkipped": 2,
             "copyDuration": 16,
             "throughput": 0.01,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "errors": []
         },
 
@@ -298,5 +312,3 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 
 - [복사 작업 개요](copy-activity-overview.md)
 - [복사 작업 성능](copy-activity-performance.md)
-
-

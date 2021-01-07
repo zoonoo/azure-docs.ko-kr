@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011424"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics 데이터 오류
 
@@ -168,7 +168,7 @@ ms.locfileid: "88053153"
 * 원인: 응용 프로그램 시간과 도착 시간 사이의 차이가 지연 도착 허용 시간 보다 큽니다.
 * 제공 된 포털 알림: 아니요
 * 리소스 로그 수준: 정보
-* 영향: 지연 입력 이벤트는 작업 구성의 이벤트 순서 섹션에서 "다른 이벤트 처리" 설정에 따라 처리 됩니다. 자세한 내용은 [시간 처리 정책](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)을 참조 하세요.
+* 영향: 지연 입력 이벤트는 작업 구성의 이벤트 순서 섹션에서 "다른 이벤트 처리" 설정에 따라 처리 됩니다. 자세한 내용은 [시간 처리 정책](/stream-analytics-query/time-skew-policies-azure-stream-analytics)을 참조 하세요.
 * 로그 세부 정보
    * 응용 프로그램 시간과 도착 시간 
    * 실제 페이로드 (킬로바이트)입니다.
@@ -184,7 +184,7 @@ ms.locfileid: "88053153"
 * 원인: 응용 프로그램 시간과 도착 시간 사이의 차이가 5 분을 초과 합니다.
 * 제공 된 포털 알림: 아니요
 * 리소스 로그 수준: 정보
-* 영향: 초기 입력 이벤트는 작업 구성의 이벤트 순서 섹션에서 "다른 이벤트 처리" 설정에 따라 처리 됩니다. 자세한 내용은 [시간 처리 정책](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)을 참조 하세요.
+* 영향: 초기 입력 이벤트는 작업 구성의 이벤트 순서 섹션에서 "다른 이벤트 처리" 설정에 따라 처리 됩니다. 자세한 내용은 [시간 처리 정책](/stream-analytics-query/time-skew-policies-azure-stream-analytics)을 참조 하세요.
 * 로그 세부 정보
    * 응용 프로그램 시간과 도착 시간 
    * 실제 페이로드 (킬로바이트)입니다.
@@ -200,7 +200,7 @@ ms.locfileid: "88053153"
 * 원인: 이벤트는 잘못 된 순서 허용 시간 창에 따라 잘못 된 것으로 간주 됩니다.
 * 제공 된 포털 알림: 아니요
 * 리소스 로그 수준: 정보
-* 영향: 잘못 된 이벤트는 작업 구성의 이벤트 순서 섹션에서 "다른 이벤트 처리" 설정에 따라 처리 됩니다. 자세한 내용은 [시간 처리 정책](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)을 참조 하세요.
+* 영향: 잘못 된 이벤트는 작업 구성의 이벤트 순서 섹션에서 "다른 이벤트 처리" 설정에 따라 처리 됩니다. 자세한 내용은 [시간 처리 정책](/stream-analytics-query/time-skew-policies-azure-stream-analytics)을 참조 하세요.
 * 로그 세부 정보
    * 실제 페이로드 (킬로바이트)입니다.
 
@@ -212,12 +212,16 @@ ms.locfileid: "88053153"
 
 ## <a name="output-data-errors"></a>출력 데이터 오류
 
+구성에 따라 출력 싱크에 대 한 i/o 요청을 포함 하거나 포함 하지 않고 출력 데이터 오류를 식별할 수 Azure Stream Analytics. 예를 들어 Azure 테이블 출력을 사용 하는 경우와 같이 필요한 열이 누락 된  `PartitionKey` 경우 i/o 요청 없이 식별할 수 있습니다. 그러나 SQL 출력의 제약 조건 위반에는 i/o 요청이 필요 합니다.
+
+출력 싱크를 호출한 후에만 검색할 수 있는 몇 가지 데이터 오류가 있으며,이로 인해 처리 속도가 느려질 수 있습니다. 이 문제를 해결 하려면 작업의 구성 또는 데이터 오류를 일으키는 쿼리를 변경 합니다.
+
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError이 없습니다.
 
 * 원인: 출력에 필요한 열이 없습니다. 예를 들어 Azure Table PartitionKey does't으로 정의 된 열이 존재 합니다.
 * 제공 된 포털 알림: 예
 * 리소스 로그 수준: 경고
-* 영향: 누락 된 필수 열을 포함 한 모든 출력 데이터 변환 오류는 [출력 데이터 정책](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) 설정에 따라 처리 됩니다.
+* 영향: 누락 된 필수 열을 포함 한 모든 출력 데이터 변환 오류는 [출력 데이터 정책](./stream-analytics-output-error-policy.md) 설정에 따라 처리 됩니다.
 * 로그 세부 정보
    * 열 이름, 레코드 식별자 또는 레코드의 일부입니다.
 
@@ -232,7 +236,7 @@ ms.locfileid: "88053153"
 * 원인: 열 값이 출력과 일치 하지 않습니다. 예를 들어 열 이름은 유효한 Azure 테이블 열이 아닙니다.
 * 제공 된 포털 알림: 예
 * 리소스 로그 수준: 경고
-* 영향: 잘못 된 열 이름을 포함 한 모든 출력 데이터 변환 오류는 [출력 데이터 정책](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) 설정에 따라 처리 됩니다.
+* 영향: 잘못 된 열 이름을 포함 한 모든 출력 데이터 변환 오류는 [출력 데이터 정책](./stream-analytics-output-error-policy.md) 설정에 따라 처리 됩니다.
 * 로그 세부 정보
    * 열 이름, 레코드 식별자 또는 레코드의 일부입니다.
 
@@ -247,7 +251,7 @@ ms.locfileid: "88053153"
 * 원인: 출력에서 열을 올바른 형식으로 변환할 수 없습니다. 예를 들어 열 값은 SQL 테이블에 정의 된 제약 조건 또는 유형과 호환 되지 않습니다.
 * 제공 된 포털 알림: 예
 * 리소스 로그 수준: 경고
-* 영향: 형식 변환 오류를 비롯 한 모든 출력 데이터 변환 오류는 [출력 데이터 정책](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) 설정에 따라 처리 됩니다.
+* 영향: 형식 변환 오류를 비롯 한 모든 출력 데이터 변환 오류는 [출력 데이터 정책](./stream-analytics-output-error-policy.md) 설정에 따라 처리 됩니다.
 * 로그 세부 정보
    * 열의 이름입니다.
    * 레코드 식별자 또는 레코드의 일부입니다.
@@ -263,7 +267,7 @@ ms.locfileid: "88053153"
 * 원인: 메시지의 값이 지원 되는 출력 크기 보다 큽니다. 예를 들어, 레코드는 이벤트 허브 출력에 대해 1mb 보다 큽니다.
 * 제공 된 포털 알림: 예
 * 리소스 로그 수준: 경고
-* 영향: 레코드 크기 제한을 초과 하는 모든 출력 데이터 변환 오류는 [출력 데이터 정책](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) 설정에 따라 처리 됩니다.
+* 영향: 레코드 크기 제한을 초과 하는 모든 출력 데이터 변환 오류는 [출력 데이터 정책](./stream-analytics-output-error-policy.md) 설정에 따라 처리 됩니다.
 * 로그 세부 정보
    * 레코드 식별자 또는 레코드의 일부입니다.
 
@@ -278,7 +282,7 @@ ms.locfileid: "88053153"
 * 원인: 레코드에 시스템 열과 이름이 같은 열이 이미 있습니다. 예를 들어 id 열이 다른 열에 있는 경우 ID가 CosmosDB 인 열이 출력 됩니다.
 * 제공 된 포털 알림: 예
 * 리소스 로그 수준: 경고
-* 영향: 중복 키를 비롯 한 모든 출력 데이터 변환 오류는 [출력 데이터 정책](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) 설정에 따라 처리 됩니다.
+* 영향: 중복 키를 비롯 한 모든 출력 데이터 변환 오류는 [출력 데이터 정책](./stream-analytics-output-error-policy.md) 설정에 따라 처리 됩니다.
 * 로그 세부 정보
    * 열의 이름입니다.
    * 레코드 식별자 또는 레코드의 일부입니다.

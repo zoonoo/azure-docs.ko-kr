@@ -3,16 +3,16 @@ title: Key Vault 경고를 위해 Azure Defender에 응답 하는 방법
 description: Key Vault에 대해 Azure Defender에서 경고에 응답 하는 데 필요한 단계에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a3f47f00b171601e73ea4668286adf944f48459f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 67c556e44f07240b1ad1bcde61f40042da46def8
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940697"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122210"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Key Vault용 Azure Defender 경고에 응답
 Azure Defender에서 Key Vault에 대 한 경고를 수신 하는 경우 아래에 설명 된 대로 경고를 조사 하 고 응답 하는 것이 좋습니다. Azure Defender for Key Vault는 응용 프로그램 및 자격 증명을 보호 하므로 경고를 트리거한 응용 프로그램이 나 사용자에 대해 잘 알고 있는 경우에도 모든 경고를 둘러싼 상황을 확인 하는 것이 중요 합니다.  
@@ -23,7 +23,7 @@ Azure Defender for Key Vault의 모든 경고에는 다음 요소가 포함 됩�
 - 의심 스러운 리소스의 사용자 계정 이름 또는 IP 주소
 
 > [!TIP]
-> 발생 한 액세스 *유형에* 따라 일부 필드는 사용 하지 못할 수 있습니다. 예를 들어 응용 프로그램에서 키 자격 증명 모음에 액세스 한 경우에는 연결 된 사용자 계정 이름이 표시 되지 않습니다. 트래픽이 Azure 외부에서 시작 된 경우에는 개체 ID가 표시 되지 않습니다.
+> 발생 한 액세스 *유형에* 따라 일부 필드를 사용 하지 못할 수도 있습니다. 예를 들어 응용 프로그램에서 키 자격 증명 모음에 액세스 한 경우에는 연결 된 사용자 계정 이름이 표시 되지 않습니다. 트래픽이 Azure 외부에서 시작 된 경우에는 개체 ID가 표시 되지 않습니다.
 
 ## <a name="step-1-contact"></a>1단계. 연락처
 
@@ -70,6 +70,6 @@ Azure Defender for Key Vault의 모든 경고에는 다음 요소가 포함 됩�
 
 이 페이지에서는 Azure Defender에서 Key Vault에 대 한 경고에 응답 하는 프로세스를 설명 했습니다. 관련 정보는 다음 페이지를 참조 하세요.
 
-- [Key Vault에 대 한 Azure Defender 소개](defender-for-key-vault-introduction.md)
-- [Azure Defender에서 경고 표시 안 함](alerts-suppression-rules.md)
-- [보안 경고 내보내기](continuous-export.md)
+- [Azure Defender for Key Vault 소개](defender-for-key-vault-introduction.md)
+- [Azure Defender의 경고 표시 안 함](alerts-suppression-rules.md)
+- [Security Center 데이터 연속 내보내기](continuous-export.md)

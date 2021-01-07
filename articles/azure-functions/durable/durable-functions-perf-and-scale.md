@@ -1,16 +1,16 @@
 ---
 title: 지속성 함수의 성능 및 크기 조정 - Azure
-description: Azure Functions의 지속성 함수 확장을 소개합니다.
+description: Azure Functions Durable Functions 확장의 고유한 크기 조정 특성에 대해 알아봅니다.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853703"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931741"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -20,27 +20,27 @@ ms.locfileid: "88853703"
 
 ## <a name="history-table"></a>기록 테이블
 
-**기록** 테이블은 작업 허브 내의 모든 오케스트레이션 인스턴스에 대한 기록 이벤트가 포함된 Azure Storage 테이블입니다. 이 테이블의 이름은 *TaskHubName*History 형태를 갖습니다. 인스턴스가 실행되면 새 행이 이 테이블에 추가됩니다. 이 테이블의 파티션 키는 오케스트레이션의 인스턴스 ID에서 파생됩니다. 인스턴스 ID는 대부분의 경우 임의적이며, 이는 Azure Storage에서 내부 파티션을 최적으로 배포할 수 있도록 합니다.
+**기록** 테이블은 작업 허브 내의 모든 오케스트레이션 인스턴스에 대한 기록 이벤트가 포함된 Azure Storage 테이블입니다. 이 테이블의 이름은 *TaskHubName* History 형태를 갖습니다. 인스턴스가 실행되면 새 행이 이 테이블에 추가됩니다. 이 테이블의 파티션 키는 오케스트레이션의 인스턴스 ID에서 파생됩니다. 인스턴스 ID는 대부분의 경우 임의적이며, 이는 Azure Storage에서 내부 파티션을 최적으로 배포할 수 있도록 합니다.
 
-오케스트레이션 인스턴스를 실행해야 할 경우 기록 테이블의 해당 행이 메모리에 로드됩니다. 그런 다음, 이러한 *기록 이벤트*는 오케스트레이터 함수 코드로 재생되어 이전의 검사점 상태로 돌아갑니다. 이러한 방식으로 상태를 다시 작성하기 위해 실행 기록을 사용하게 되면 [이벤트 소싱 패턴](/azure/architecture/patterns/event-sourcing)의 영향을 받습니다.
+오케스트레이션 인스턴스를 실행해야 할 경우 기록 테이블의 해당 행이 메모리에 로드됩니다. 그런 다음, 이러한 *기록 이벤트* 는 오케스트레이터 함수 코드로 재생되어 이전의 검사점 상태로 돌아갑니다. 이러한 방식으로 상태를 다시 작성하기 위해 실행 기록을 사용하게 되면 [이벤트 소싱 패턴](/azure/architecture/patterns/event-sourcing)의 영향을 받습니다.
 
 ## <a name="instances-table"></a>인스턴스 테이블
 
-**Instances** 테이블은 작업 허브 내의 모든 오케스트레이션 및 엔터티 인스턴스의 상태를 포함 하는 또 다른 Azure Storage 테이블입니다. 인스턴스가 생성되면 새 행이 이 테이블에 추가됩니다. 이 테이블의 파티션 키는 오케스트레이션 인스턴스 ID 또는 엔터티 키 이며 행 키는 고정 상수입니다. 오케스트레이션 또는 엔터티 인스턴스당 하나의 행이 있습니다.
+**Instances** 테이블은 작업 허브 내의 모든 오케스트레이션 및 엔터티 인스턴스의 상태를 포함 하는 또 다른 Azure Storage 테이블입니다. 인스턴스가 생성되면 새 행이 이 테이블에 추가됩니다. 이 테이블의 파티션 키는 오케스트레이션 인스턴스 ID 또는 엔터티 키이 고 행 키는 빈 문자열입니다. 오케스트레이션 또는 엔터티 인스턴스당 하나의 행이 있습니다.
 
 이 테이블은 `GetStatusAsync` (.net) 및 `getStatus` (JavaScript) api 및 [상태 쿼리 HTTP api](durable-functions-http-api.md#get-instance-status)의 인스턴스 쿼리 요청을 충족 하는 데 사용 됩니다. 결과적으로 앞서 언급된 **기록** 테이블의 내용과 일관되게 유지됩니다. 이러한 방식으로 인스턴스 쿼리 작업을 효과적으로 충족하기 위해 별도 Azure Storage 테이블을 사용하면 [CQRS(명령 및 쿼리 책임 분리) 패턴](/azure/architecture/patterns/cqrs)의 영향을 받습니다.
 
 ## <a name="internal-queue-triggers"></a>내부 큐 트리거
 
-오케스트레이터 함수 및 활동 함수는 모두 함수 앱의 작업 허브에 있는 내부 큐에서 트리거됩니다. 이러한 방식으로 큐를 사용하면 신뢰할 수 있는 "최소 한 번" 메시지 배달이 보장됩니다. 지속성 함수에는 **제어 큐** 및 **작업 항목 큐**의 두 가지 유형의 큐가 있습니다.
+오케스트레이터 함수 및 활동 함수는 모두 함수 앱의 작업 허브에 있는 내부 큐에서 트리거됩니다. 이러한 방식으로 큐를 사용하면 신뢰할 수 있는 "최소 한 번" 메시지 배달이 보장됩니다. 지속성 함수에는 **제어 큐** 및 **작업 항목 큐** 의 두 가지 유형의 큐가 있습니다.
 
 ### <a name="the-work-item-queue"></a>작업 항목 큐
 
-지속성 함수에는 작업 허브마다 하나의 작업 항목 큐가 있습니다. 이것은 기본 큐이며 Azure Functions의 다른 모든 `queueTrigger` 큐와 비슷하게 동작합니다. 이 큐는 한 번에 하나의 메시지를 큐에서 제거하여 상태 비저장 *작업 함수*를 트리거하는 데 사용됩니다. 이러한 각 메시지는 작업 함수 입력 및 추가 메타데이터(예: 실행할 함수)를 포함합니다. Durable Functions 애플리케이션이 여러 VM으로 확장하는 경우 이러한 VM은 모두 작업 항목 큐에서 작업을 가져오려고 경쟁합니다.
+지속성 함수에는 작업 허브마다 하나의 작업 항목 큐가 있습니다. 이것은 기본 큐이며 Azure Functions의 다른 모든 `queueTrigger` 큐와 비슷하게 동작합니다. 이 큐는 한 번에 하나의 메시지를 큐에서 제거하여 상태 비저장 *작업 함수* 를 트리거하는 데 사용됩니다. 이러한 각 메시지는 작업 함수 입력 및 추가 메타데이터(예: 실행할 함수)를 포함합니다. Durable Functions 애플리케이션이 여러 VM으로 확장하는 경우 이러한 VM은 모두 작업 항목 큐에서 작업을 가져오려고 경쟁합니다.
 
 ### <a name="control-queues"></a>제어 큐
 
-지속형 함수의 작업 허브당 여러 개의 *제어 큐*가 있습니다. *제어 큐*는 간단한 작업 항목 큐보다 더 복잡합니다. 제어 큐는 상태 저장 orchestrator 및 entity 함수를 트리거하는 데 사용 됩니다. Orchestrator 및 entity 함수 인스턴스는 상태 저장 단일 항목 이므로 경쟁 소비자 모델을 사용 하 여 Vm 간에 부하를 분산할 수 없습니다. 대신 orchestrator 및 엔터티 메시지는 제어 큐에서 부하가 분산 됩니다. 이 동작에 대한 자세한 내용은 이후 섹션을 참조하세요.
+지속형 함수의 작업 허브당 여러 개의 *제어 큐* 가 있습니다. *제어 큐* 는 간단한 작업 항목 큐보다 더 복잡합니다. 제어 큐는 상태 저장 orchestrator 및 entity 함수를 트리거하는 데 사용 됩니다. Orchestrator 및 entity 함수 인스턴스는 상태 저장 단일 항목 이므로 경쟁 소비자 모델을 사용 하 여 Vm 간에 부하를 분산할 수 없습니다. 대신 orchestrator 및 엔터티 메시지는 제어 큐에서 부하가 분산 됩니다. 이 동작에 대한 자세한 내용은 이후 섹션을 참조하세요.
 
 제어 큐에는 다양한 오케스트레이션 수명 주기 메시지 유형이 포함됩니다. 예를 들어 [오케스트레이터 제어 메시지](durable-functions-instance-management.md), 작업 함수 *응답* 메시지 및 타이머 메시지가 있습니다. 단일 폴링의 제어 큐에서 최대 32개의 메시지가 제거됩니다. 이러한 메시지는 의도한 오케스트레이션 인스턴스를 포함하는 메타데이터 뿐만 아니라 페이로드 데이터도 포함됩니다. 큐에서 제거된 메시지가 여러 개의 동일한 오케스트레이션 인스턴스를 위한 것이면 일괄로 처리됩니다.
 
@@ -51,18 +51,18 @@ ms.locfileid: "88853703"
 최대 폴링 지연은 `maxQueuePollingInterval` [ 파일의host.js](../functions-host-json.md#durabletask)에 있는 속성을 통해 구성할 수 있습니다. 이 속성을 더 큰 값으로 설정 하면 메시지 처리 대기 시간이 더 길어질 수 있습니다. 대기 시간이 길수록 비활성 기간 후에만 예상 됩니다. 이 속성을 더 낮은 값으로 설정 하면 저장소 트랜잭션이 증가 하 여 저장소 비용이 높아질 수 있습니다.
 
 > [!NOTE]
-> Azure Functions 소비 및 프리미엄 계획에서 실행 하는 경우 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#how-the-consumption-and-premium-plans-work) 는 각 제어 및 작업 항목 큐를 10 초 마다 한 번씩 폴링합니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 결정을 내리는 시기를 결정 하는 데 필요 합니다. 작성 시이 10 초 간격은 일정 하므로 구성할 수 없습니다.
+> Azure Functions 소비 및 프리미엄 계획에서 실행 하는 경우 [Azure Functions 크기 조정 컨트롤러](../event-driven-scaling.md) 는 각 제어 및 작업 항목 큐를 10 초 마다 한 번씩 폴링합니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 결정을 내리는 시기를 결정 하는 데 필요 합니다. 작성 시이 10 초 간격은 일정 하므로 구성할 수 없습니다.
 
 ### <a name="orchestration-start-delays"></a>오케스트레이션 시작 지연
 오케스트레이션 인스턴스는 `ExecutionStarted` 작업 허브의 제어 큐 중 하나에 메시지를 추가 하 여 시작 됩니다. 특정 조건에서는 오케스트레이션이 실행 되도록 예약 된 시간과 실제로 실행이 시작 될 때 사이에 여러 초 지연이 발생할 수 있습니다. 이 시간 간격 동안 오케스트레이션 인스턴스는 상태로 유지 됩니다 `Pending` . 이러한 지연의 두 가지 가능한 원인은 다음과 같습니다.
 
 1. **백로그 된 제어 큐**:이 인스턴스에 대 한 제어 큐에 많은 수의 메시지가 포함 되어 있으면 `ExecutionStarted` 런타임에서 메시지를 받고 처리 하기까지 시간이 걸릴 수 있습니다. 오케스트레이션이 많은 이벤트를 동시에 처리 하는 경우 메시지 백로그가 발생할 수 있습니다. 제어 큐로 이동 하는 이벤트는 오케스트레이션 시작 이벤트, 작업 완료, 지 속성 타이머, 종료 및 외부 이벤트를 포함 합니다. 정상적인 상황에서 이러한 지연이 발생 하는 경우 더 많은 파티션이 있는 새 작업 허브를 만드는 것이 좋습니다. 더 많은 파티션을 구성 하면 런타임에서 부하 배포를 위한 더 많은 제어 큐를 만듭니다.
 
-2. **폴링 지연 백오프**: 오케스트레이션 지연의 또 다른 일반적인 원인은 이전에 [제어 큐에 대 한 백오프 폴링 동작을 설명한](#queue-polling)것입니다. 그러나이 지연은 응용 프로그램이 둘 이상의 인스턴스로 확장 된 경우에만 예상 됩니다. 앱 인스턴스가 하나 뿐 이거나 오케스트레이션을 시작 하는 앱 인스턴스가 대상 제어 큐를 폴링하는 것과 동일한 인스턴스인 경우 큐 폴링 지연이 발생 하지 않습니다. 이전에 설명한 대로 설정 ** 에서host.js** 를 업데이트 하면 다시 폴링 지연 시간을 줄일 수 있습니다.
+2. **폴링 지연 백오프**: 오케스트레이션 지연의 또 다른 일반적인 원인은 이전에 [제어 큐에 대 한 백오프 폴링 동작을 설명한](#queue-polling)것입니다. 그러나이 지연은 응용 프로그램이 둘 이상의 인스턴스로 확장 된 경우에만 예상 됩니다. 앱 인스턴스가 하나 뿐 이거나 오케스트레이션을 시작 하는 앱 인스턴스가 대상 제어 큐를 폴링하는 것과 동일한 인스턴스인 경우 큐 폴링 지연이 발생 하지 않습니다. 이전에 설명한 대로 설정 **에서host.js** 를 업데이트 하면 다시 폴링 지연 시간을 줄일 수 있습니다.
 
 ## <a name="storage-account-selection"></a>스토리지 계정 선택
 
-Durable Functions에서 사용 되는 큐, 테이블 및 blob은 구성 된 Azure Storage 계정에 만들어집니다. 사용할 계정은 `durableTask/storageProvider/connectionStringName` `durableTask/azureStorageConnectionStringName` 파일 ** 의host.js** 에 있는 설정 (또는 Durable Functions 1.x의 설정)을 사용 하 여 지정할 수 있습니다.
+Durable Functions에서 사용 되는 큐, 테이블 및 blob은 구성 된 Azure Storage 계정에 만들어집니다. 사용할 계정은 `durableTask/storageProvider/connectionStringName` `durableTask/azureStorageConnectionStringName` 파일 **의host.js** 에 있는 설정 (또는 Durable Functions 1.x의 설정)을 사용 하 여 지정할 수 있습니다.
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
@@ -122,7 +122,7 @@ Durable Functions에서 사용 되는 큐, 테이블 및 blob은 구성 된 Azur
 }
 ```
 
-작업 허브는 1~16개 파티션으로 구성할 수 있습니다. 파티션 수를 지정하지 않으면 기본 파티션 수는 **4**개 입니다.
+작업 허브는 1~16개 파티션으로 구성할 수 있습니다. 파티션 수를 지정하지 않으면 기본 파티션 수는 **4** 개 입니다.
 
 여러 함수 호스트 인스턴스(일반적으로 서로 다른 VM에 있음)로 확장하는 경우 각 인스턴스는 제어 큐 중 하나에 대한 잠금을 얻습니다. 이러한 잠금은 내부적으로 blob storage 임대로 구현 되며 오케스트레이션 인스턴스나 엔터티는 한 번에 하나의 호스트 인스턴스에만 실행 되도록 합니다. 작업 허브가 3 개의 제어 큐로 구성 된 경우 오케스트레이션 인스턴스 및 엔터티는 최대 3 개의 Vm에서 부하가 분산 될 수 있습니다. 작업 함수 실행을 위한 용량을 늘리기 위해 추가 VM을 추가할 수 있습니다.
 
@@ -138,7 +138,7 @@ Durable Functions에서 사용 되는 큐, 테이블 및 blob은 구성 된 Azur
 
 ## <a name="auto-scale"></a>자동 크기 조정
 
-소비 및 탄력적 프리미엄 계획에서 실행 되는 모든 Azure Functions와 마찬가지로 Durable Functions는 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#runtime-scaling)를 통해 자동 크기 조정을 지원 합니다. 크기 조정 컨트롤러는 _peek_ 명령을 주기적으로 실행하여 모든 큐의 대기 시간을 모니터링합니다. 확인된 메시지의 대기 시간에 따라, 크기 조정 컨트롤러는 VM을 추가할지 또는 제거할지를 결정합니다.
+소비 및 탄력적 프리미엄 계획에서 실행 되는 모든 Azure Functions와 마찬가지로 Durable Functions는 [Azure Functions 크기 조정 컨트롤러](../event-driven-scaling.md#runtime-scaling)를 통해 자동 크기 조정을 지원 합니다. 크기 조정 컨트롤러는 _peek_ 명령을 주기적으로 실행하여 모든 큐의 대기 시간을 모니터링합니다. 확인된 메시지의 대기 시간에 따라, 크기 조정 컨트롤러는 VM을 추가할지 또는 제거할지를 결정합니다.
 
 크기 조정 컨트롤러는 제어 큐 메시지 대기 시간이 너무 높다고 판단되면 메시지 대기 시간이 적절한 수준까지 감소하거나, 제어 큐 파티션 수에 도달할 때까지 VM 인스턴스를 추가합니다. 마찬가지로, 파티션 수에 관계없이 작업 항목 큐 대기 시간이 높으면 크기 조정 컨트롤러는 VM 인스턴스를 계속 추가합니다.
 
@@ -157,7 +157,7 @@ Durable Functions에서 사용 되는 큐, 테이블 및 blob은 구성 된 Azur
 
 Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함수를 동시에 실행하도록 지원합니다. 이러한 동시 실행은 병렬 처리를 늘리며, 일반적인 앱이 시간이 지나면서 겪게 되는 "콜드 시작"의 수를 최소화합니다. 그러나 높은 동시성은 네트워크 연결 또는 사용 가능한 메모리와 같은 VM 별 시스템 리소스를 고갈 시킬 수 있습니다. 함수 앱의 요구에 따라, 고부하 상황에서 메모리의 부족 문제를 방지하기 위해 인스턴스당 동시성을 제한해야 할 수도 있습니다.
 
-작업, orchestrator 및 엔터티 함수 동시성 제한은 파일 ** 의host.js** 에서 구성할 수 있습니다. 관련 설정은 `durableTask/maxConcurrentActivityFunctions` 작업 함수 및 `durableTask/maxConcurrentOrchestratorFunctions` orchestrator와 엔터티 함수 모두에 대 한 것입니다.
+작업, orchestrator 및 엔터티 함수 동시성 제한은 파일 **의host.js** 에서 구성할 수 있습니다. 관련 설정은 `durableTask/maxConcurrentActivityFunctions` 작업 함수 및 `durableTask/maxConcurrentOrchestratorFunctions` orchestrator와 엔터티 함수 모두에 대 한 것입니다.
 
 ### <a name="functions-20"></a>함수 2.0
 

@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에 SLE VM 조인 | Microsoft Docs
 description: SUSE Linux Enterprise 가상 머신을 구성 하 고 관리 되는 Azure AD Domain Services 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: iainfou
-ms.openlocfilehash: 9f50be95e456802c6ad403acd6a2f539780e53a2
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: justinha
+ms.openlocfilehash: f2f421d95dfc376aed373c718198db33a870d9dc
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88251184"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619609"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>SUSE Linux Enterprise 가상 머신을 Azure Active Directory Domain Services 관리 되는 도메인에 가입
 
@@ -87,63 +87,63 @@ sudo vi /etc/hosts
 
 1. 나중에 DNS 자동 검색을 성공적으로 사용 하려면 관리 되는 도메인 IP 주소 ( *Active Directory 서버*)를 클라이언트의 이름 서버로 구성 합니다.
 
-    YaST에서 **시스템 > 네트워크 설정**을 선택 합니다.
+    YaST에서 **시스템 > 네트워크 설정** 을 선택 합니다.
 
-1. *Hostname/DNS* 탭을 선택한 다음, 텍스트 상자 *이름 서버 1*에 관리 되는 도메인의 IP 주소를 입력 합니다. 이러한 IP 주소는 관리 되는 도메인에 대 한 Azure Portal의 *속성* 창에 표시 됩니다 (예: *10.0.2.4* 및 *10.0.2.5*).
+1. *Hostname/DNS* 탭을 선택한 다음, 텍스트 상자 *이름 서버 1* 에 관리 되는 도메인의 IP 주소를 입력 합니다. 이러한 IP 주소는 관리 되는 도메인에 대 한 Azure Portal의 *속성* 창에 표시 됩니다 (예: *10.0.2.4* 및 *10.0.2.5*).
 
-    관리 되는 도메인 IP 주소를 추가한 다음 **확인**을 선택 합니다.
+    관리 되는 도메인 IP 주소를 추가한 다음 **확인** 을 선택 합니다.
 
-1. Yast 주 창에서 *Network Services*  >  *사용자 로그온 관리*를 선택 합니다.
+1. Yast 주 창에서 *Network Services*  >  *사용자 로그온 관리* 를 선택 합니다.
 
     다음 예제 스크린샷에 표시 된 것 처럼 모듈에는 컴퓨터의 여러 네트워크 속성 및 현재 사용 중인 인증 방법을 보여 주는 개요가 열립니다.
 
     ![YaST의 사용자 로그인 관리 창에 대 한 예제 스크린샷](./media/join-suse-linux-vm/overview-window.png)
 
-    편집을 시작 하려면 **설정 변경**을 선택 합니다.
+    편집을 시작 하려면 **설정 변경** 을 선택 합니다.
 
 VM을 관리 되는 도메인에 가입 하려면 다음 단계를 완료 합니다.
 
-1. 대화 상자에서 **도메인 추가**를 선택 합니다.
+1. 대화 상자에서 **도메인 추가** 를 선택 합니다.
 
-1. *Aaddscontoso.com*와 같은 올바른 *도메인 이름을*지정 하 고, id 데이터 및 인증에 사용할 서비스를 지정 합니다. 두 가지 모두에 대해 *Microsoft Active Directory* 를 선택 합니다.
+1. *Aaddscontoso.com* 와 같은 올바른 *도메인 이름을* 지정 하 고, id 데이터 및 인증에 사용할 서비스를 지정 합니다. 두 가지 모두에 대해 *Microsoft Active Directory* 를 선택 합니다.
 
     *도메인 사용* 옵션이 선택 되어 있는지 확인 합니다.
 
-1. 준비되면 **확인**을 선택합니다.
+1. 준비되면 **확인** 을 선택합니다.
 
-1. 다음 대화 상자에서 기본 설정을 적용 한 다음 **확인**을 선택 합니다.
+1. 다음 대화 상자에서 기본 설정을 적용 한 다음 **확인** 을 선택 합니다.
 
 1. VM은 필요에 따라 추가 소프트웨어를 설치 하 고 관리 되는 도메인을 사용할 수 있는지 확인 합니다.
 
-    모든 항목이 올바르면 VM이 관리 되는 도메인을 검색 했지만 *아직 등록 하지*않았음을 나타내는 다음 예제 대화 상자가 표시 됩니다.
+    모든 항목이 올바르면 VM이 관리 되는 도메인을 검색 했지만 *아직 등록 하지* 않았음을 나타내는 다음 예제 대화 상자가 표시 됩니다.
 
     ![YaST의 Active Directory 등록 창의 예제 스크린샷](./media/join-suse-linux-vm/enroll-window.png)
 
 1. 대화 상자에서 관리 되는 도메인의 일부인 사용자의 사용자 *이름* 및 *암호* 를 지정 합니다. 필요한 경우 [AZURE AD의 그룹에 사용자 계정을 추가](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)합니다.
 
-    현재 도메인이 Samba에 대해 사용 하도록 설정 되었는지 확인 하려면 *이 AD에서 작업 하도록 samba 구성 덮어쓰기*를 활성화 합니다.
+    현재 도메인이 Samba에 대해 사용 하도록 설정 되었는지 확인 하려면 *이 AD에서 작업 하도록 samba 구성 덮어쓰기* 를 활성화 합니다.
 
-1. 등록 하려면 **확인**을 선택 합니다.
+1. 등록 하려면 **확인** 을 선택 합니다.
 
-1. 성공적으로 등록 되었음을 확인 하는 메시지가 표시 됩니다. 완료 하려면 **확인**을 선택 합니다.
+1. 성공적으로 등록 되었음을 확인 하는 메시지가 표시 됩니다. 완료 하려면 **확인** 을 선택 합니다.
 
-VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 표시 된 것 처럼 *도메인 사용자 로그온 관리*를 사용 하 여 클라이언트를 구성 합니다.
+VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 표시 된 것 처럼 *도메인 사용자 로그온 관리* 를 사용 하 여 클라이언트를 구성 합니다.
 
 ![YaST에서 도메인 사용자 로그온 창의 예 스크린샷](./media/join-suse-linux-vm/manage-domain-user-logon-window.png)
 
-1. 관리 되는 도메인에서 제공 하는 데이터를 사용 하 여 로그인 할 수 있도록 하려면 *도메인 사용자 로그온 허용*확인란을 선택 합니다.
+1. 관리 되는 도메인에서 제공 하는 데이터를 사용 하 여 로그인 할 수 있도록 하려면 *도메인 사용자 로그온 허용* 확인란을 선택 합니다.
 
-1. 필요에 따라 *도메인 데이터 원본 사용*에서 사용자 환경에 필요한 추가 데이터 원본을 선택 합니다. 이러한 옵션에는 **sudo** 를 사용할 수 있는 사용자 또는 사용할 수 있는 네트워크 드라이브가 포함 됩니다.
+1. 필요에 따라 *도메인 데이터 원본 사용* 에서 사용자 환경에 필요한 추가 데이터 원본을 선택 합니다. 이러한 옵션에는 **sudo** 를 사용할 수 있는 사용자 또는 사용할 수 있는 네트워크 드라이브가 포함 됩니다.
 
-1. 관리 되는 도메인의 사용자가 VM에서 홈 디렉터리를 갖도록 허용 하려면 *홈 디렉터리 만들기*확인란을 선택 합니다.
+1. 관리 되는 도메인의 사용자가 VM에서 홈 디렉터리를 갖도록 허용 하려면 *홈 디렉터리 만들기* 확인란을 선택 합니다.
 
-1. 세로 막대에서 **서비스 옵션 › Name 스위치**를 선택 하 고 *확장 옵션*을 선택 합니다. 해당 창에서 *fallback_homedir* 또는 *override_homedir*을 선택한 다음 **추가**를 선택 합니다.
+1. 세로 막대에서 **서비스 옵션 › Name 스위치** 를 선택 하 고 *확장 옵션* 을 선택 합니다. 해당 창에서 *fallback_homedir* 또는 *override_homedir* 을 선택한 다음 **추가** 를 선택 합니다.
 
-1. 홈 디렉터리 위치에 대 한 값을 지정 합니다. 홈 디렉터리가 */home/USER_NAME*형식을 따르도록 하려면 */home/%u*를 사용 합니다. 가능한 변수에 대 한 자세한 내용은 sssd.. s q s 페이지 ( `man 5 sssd.conf` ), *override_homedir*섹션을 참조 하십시오.
+1. 홈 디렉터리 위치에 대 한 값을 지정 합니다. 홈 디렉터리가 */home/USER_NAME* 형식을 따르도록 하려면 */home/%u* 를 사용 합니다. 가능한 변수에 대 한 자세한 내용은 sssd.. s q s 페이지 ( `man 5 sssd.conf` ), *override_homedir* 섹션을 참조 하십시오.
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
-1. 변경 내용을 저장 하려면 **확인**을 선택 합니다. 이제 표시 된 값이 올바른지 확인 합니다. 대화 상자를 나가려면 **취소**를 선택 합니다.
+1. 변경 내용을 저장하려면 **확인** 을 선택합니다. 이제 표시 된 값이 올바른지 확인 합니다. 대화 상자를 나가려면 **취소** 를 선택 합니다.
 
 1. Sssd 및 Winbind을 동시에 실행 하려는 경우 (예: SSSD를 통해 조인 하는 경우, Samba 파일 서버를 실행 하는 경우) Samba 옵션 *kerberos 메서드* 는 smb의 *암호 및 keytab* 로 설정 해야 합니다. Sssd 옵션 *ad_update_samba_machine_account_password* 는 sssd에서 *true* 로 설정 해야 합니다. 이러한 옵션은 시스템 keytab 동기화 되지 않도록 방지 합니다.
 
@@ -151,29 +151,150 @@ VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 �
 
 **Winbind** 및 yast의 *Windows 도메인 멤버 자격* 모듈을 사용 하 여 관리 되는 도메인에 가입 하려면 다음 단계를 완료 합니다.
 
-1. YaST에서 **Network Services > Windows 도메인 멤버 자격**을 선택 합니다.
+1. YaST에서 **Network Services > Windows 도메인 멤버 자격** 을 선택 합니다.
 
 1. *Windows 도메인 멤버 자격* 화면의 *도메인 또는 작업 그룹* 에서 가입할 도메인을 입력 합니다. 관리 되는 도메인 이름 (예: *aaddscontoso.com*)을 입력 합니다.
 
     ![YaST의 Windows 도메인 멤버 자격 창에 대 한 예제 스크린샷](./media/join-suse-linux-vm/samba-client-window.png)
 
-1. Linux 인증용 SMB 원본을 사용 하려면 *Linux 인증에 Smb 정보 사용*옵션을 선택 합니다.
+1. Linux 인증용 SMB 원본을 사용 하려면 *Linux 인증에 Smb 정보 사용* 옵션을 선택 합니다.
 
-1. VM에서 관리 되는 도메인 사용자에 대 한 로컬 홈 디렉터리를 자동으로 만들려면 *로그인 시 홈 디렉터리 만들기*옵션을 선택 합니다.
+1. VM에서 관리 되는 도메인 사용자에 대 한 로컬 홈 디렉터리를 자동으로 만들려면 *로그인 시 홈 디렉터리 만들기* 옵션을 선택 합니다.
 
 1. 관리 되는 도메인을 일시적으로 사용할 수 없는 경우에도 도메인 사용자가 로그인 할 수 있도록 하려면 *오프 라인 인증* 에 대 한 옵션을 선택 합니다.
 
-1. Samba 사용자 및 그룹에 대 한 UID 및 GID 범위를 변경 하려면 *전문가 설정*을 선택 합니다.
+1. Samba 사용자 및 그룹에 대 한 UID 및 GID 범위를 변경 하려면 *전문가 설정* 을 선택 합니다.
 
-1. *Ntp 구성*을 선택 하 여 관리 되는 도메인에 대 한 ntp 시간 동기화를 구성 합니다. 관리 되는 도메인의 IP 주소를 입력 합니다. 이러한 IP 주소는 관리 되는 도메인에 대 한 Azure Portal의 *속성* 창에 표시 됩니다 (예: *10.0.2.4* 및 *10.0.2.5*).
+1. *Ntp 구성* 을 선택 하 여 관리 되는 도메인에 대 한 Ntp (Network time Protocol) 시간 동기화를 구성 합니다. 관리 되는 도메인의 IP 주소를 입력 합니다. 이러한 IP 주소는 관리 되는 도메인에 대 한 Azure Portal의 *속성* 창에 표시 됩니다 (예: *10.0.2.4* 및 *10.0.2.5*).
 
 1. **확인** 을 선택 하 고 메시지가 표시 되 면 도메인 가입을 확인 합니다.
 
-1. 관리 되는 도메인의 관리자에 대 한 암호를 입력 하 고 **확인을**선택 합니다.
+1. 관리 되는 도메인의 관리자에 대 한 암호를 입력 하 고 **확인을** 선택 합니다.
 
     ![SLE VM을 관리 되는 도메인에 연결 하는 경우 인증 대화 상자 프롬프트의 예제 스크린샷](./media/join-suse-linux-vm/domain-join-authentication-prompt.png)
 
 관리 되는 도메인에 가입한 후에는 데스크톱 또는 콘솔의 디스플레이 관리자를 사용 하 여 워크스테이션에서 해당 도메인에 로그인 할 수 있습니다.
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-yast-command-line-interface"></a>YaST 명령줄 인터페이스에서 Winbind를 사용 하 여 VM을 관리 되는 도메인에 가입
+
+**Winbind** 및 *yast 명령줄 인터페이스* 를 사용 하 여 관리 되는 도메인에 가입 하려면 다음을 수행 합니다.
+
+* 도메인에 가입:
+
+  ```console
+  sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
+  ```
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>터미널에서 Winbind를 사용 하 여 VM을 관리 되는 도메인에 가입
+
+**Winbind** 및 *`samba net` 명령을* 사용 하 여 관리 되는 도메인에 가입 하려면 다음을 수행 합니다.
+
+1. Kerberos 클라이언트 및 samba-winbind를 설치 합니다.
+
+   ```console
+   sudo zypper in krb5-client samba-winbind
+   ```
+
+2. 구성 파일을 편집 합니다.
+
+   * /etc/samba/smb.conf
+   
+     ```ini
+     [global]
+         workgroup = AADDSCONTOSO
+         usershare allow guests = NO #disallow guests from sharing
+         idmap config * : backend = tdb
+         idmap config * : range = 1000000-1999999
+         idmap config AADDSCONTOSO : backend = rid
+         idmap config AADDSCONTOSO : range = 5000000-5999999
+         kerberos method = secrets and keytab
+         realm = AADDSCONTOSO.COM
+         security = ADS
+         template homedir = /home/%D/%U
+         template shell = /bin/bash
+         winbind offline logon = yes
+         winbind refresh tickets = yes
+     ```
+
+   * /etc/krb5.conf
+   
+     ```ini
+     [libdefaults]
+         default_realm = AADDSCONTOSO.COM
+         clockskew = 300
+     [realms]
+         AADDSCONTOSO.COM = {
+             kdc = PDC.AADDSCONTOSO.COM
+             default_domain = AADDSCONTOSO.COM
+             admin_server = PDC.AADDSCONTOSO.COM
+         }
+     [domain_realm]
+         .aaddscontoso.com = AADDSCONTOSO.COM
+     [appdefaults]
+         pam = {
+             ticket_lifetime = 1d
+             renew_lifetime = 1d
+             forwardable = true
+             proxiable = false
+             minimum_uid = 1
+         }
+     ```
+
+   * /etc/security/pam_winbind.
+   
+     ```ini
+     [global]
+         cached_login = yes
+         krb5_auth = yes
+         krb5_ccache_type = FILE
+         warn_pwd_expire = 14
+     ```
+
+   * /etc/nsswitch.conf
+   
+     ```ini
+     passwd: compat winbind
+     group: compat winbind
+     ```
+
+3. Azure AD 및 Linux의 날짜 및 시간이 동기화 되어 있는지 확인 합니다. Azure AD 서버를 NTP 서비스에 추가 하 여이 작업을 수행할 수 있습니다.
+   
+   1. /Etc/ntp.conf에 다음 줄을 추가 합니다.
+     
+      ```console
+      server aaddscontoso.com
+      ```
+
+   1. NTP 서비스를 다시 시작 합니다.
+     
+      ```console
+      sudo systemctl restart ntpd
+      ```
+
+4. 도메인에 가입:
+
+   ```console
+   sudo net ads join -U Administrator%Mypassword
+   ```
+
+5. Linux PAM (플러그형 인증 모듈)에서 winbind을 로그인 원본으로 사용 하도록 설정 합니다.
+
+   ```console
+   pam-config --add --winbind
+   ```
+
+6. 사용자가 로그인 할 수 있도록 홈 디렉터리 자동 생성을 사용 하도록 설정 합니다.
+
+   ```console
+   pam-config -a --mkhomedir
+   ```
+
+7. Winbind 서비스를 시작 하 고 사용 하도록 설정 합니다.
+
+   ```console
+   sudo systemctl enable winbind
+   sudo systemctl start winbind
+   ```
 
 ## <a name="allow-password-authentication-for-ssh"></a>SSH에 대 한 암호 인증 허용
 
@@ -185,7 +306,7 @@ VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 �
     sudo vi /etc/ssh/sshd_config
     ```
 
-1. *Passwordauthentication* 의 줄을 *예*로 업데이트 합니다.
+1. *Passwordauthentication* 의 줄을 *예* 로 업데이트 합니다.
 
     ```console
     PasswordAuthentication yes
@@ -201,7 +322,7 @@ VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 �
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>'AAD DC Administrators' 그룹 sudo 권한 부여
 
-*AAD DC 관리자* 그룹 구성원에 게 SLE VM에 대 한 관리 권한을 부여 하려면 */etc/sudoers*에 항목을 추가 합니다. 추가 된 후에는 *AAD DC 관리자* 그룹의 구성원이 `sudo` SLE VM에서 명령을 사용할 수 있습니다.
+*AAD DC 관리자* 그룹 구성원에 게 SLE VM에 대 한 관리 권한을 부여 하려면 */etc/sudoers* 에 항목을 추가 합니다. 추가 된 후에는 *AAD DC 관리자* 그룹의 구성원이 `sudo` SLE VM에서 명령을 사용할 수 있습니다.
 
 1. 편집할 *sudoers* 파일을 엽니다.
 
@@ -209,7 +330,7 @@ VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 �
     sudo visudo
     ```
 
-1. */Etc/sudoers* 파일의 끝에 다음 항목을 추가 합니다. *AAD DC Administrators* 그룹은 이름에 공백을 포함 하므로 그룹 이름에 백슬래시 이스케이프 문자를 포함 합니다. *Aaddscontoso.com*와 같은 고유한 도메인 이름을 추가 합니다.
+1. */Etc/sudoers* 파일의 끝에 다음 항목을 추가 합니다. *AAD DC Administrators* 그룹은 이름에 공백을 포함 하므로 그룹 이름에 백슬래시 이스케이프 문자를 포함 합니다. *Aaddscontoso.com* 와 같은 고유한 도메인 이름을 추가 합니다.
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
@@ -222,7 +343,7 @@ VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 �
 
 VM이 관리 되는 도메인에 성공적으로 가입 되었는지 확인 하려면 도메인 사용자 계정을 사용 하 여 새 SSH 연결을 시작 합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용 되었는지 확인 합니다.
 
-1. 콘솔에서 새 SSH 연결을 만듭니다. 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 고 (예:) `ssh -l` `contosoadmin@aaddscontoso.com` *LINUX-Q2GR.AADDSCONTOSO.COM*와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
+1. 콘솔에서 새 SSH 연결을 만듭니다. 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 고 (예:) `ssh -l` `contosoadmin@aaddscontoso.com` *LINUX-Q2GR.AADDSCONTOSO.COM* 와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
 
     ```console
     ssh -l contosoadmin@AADDSCONTOSO.com linux-q2gr.aaddscontoso.com

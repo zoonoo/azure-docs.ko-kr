@@ -4,13 +4,13 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: adc621f932462422202d9f16fd539f5ecc7c3d8e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: ea5d4ef26fb14e22b871bb4bfa1054cb749d38e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336902"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673031"
 ---
 ## <a name="prepare-an-iot-hub"></a>IoT Hub 준비
 
@@ -35,10 +35,7 @@ az iot hub create --name <YourIoTHubName> \
     --resource-group my-pnp-resourcegroup --sku F1
 ```
 
-> [!NOTE]
-> IoT 플러그 앤 플레이는 현재 미국 중부, 북유럽 및 일본 동부에서 생성된 IoT 허브에서 사용할 수 있습니다. IoT 플러그 앤 플레이 지원은 기본 계층 IoT 허브에 포함되지 않습니다.
-
-다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. `<YourIoTHubName>` 및 `<YourDeviceID>` 자리 표시자를 사용자 고유의 _IoT Hub 이름_과 선택한 _디바이스 ID_로 바꿉니다.
+다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. `<YourIoTHubName>` 및 `<YourDeviceID>` 자리 표시자를 사용자 고유의 _IoT Hub 이름_ 과 선택한 _디바이스 ID_ 로 바꿉니다.
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>

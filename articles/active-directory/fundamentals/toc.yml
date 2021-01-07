@@ -25,6 +25,28 @@
   items:
     - name: 보안
       items:
+        - name: 리소스에 대한 외부 액세스 보호
+          items:
+            - name: 외부 액세스 개요 보호
+              href: secure-external-access-resources.md
+            - name: 1 보안 상태 결정
+              href: 1-secure-access-posture.md
+            - name: 2 현재 상태 결정
+              href: 2-secure-access-current-state.md
+            - name: 3 보안 계획 만들기
+              href: 3-secure-access-plan.md
+            - name: 4 그룹을 통한 보안 액세스
+              href: 4-secure-access-groups.md
+            - name: 5 B2B 협업을 통한 보안 액세스
+              href: 5-secure-access-b2b.md
+            - name: 6 권한 관리를 통한 보안 액세스
+              href: 6-secure-access-entitlement-managment.md
+            - name: 7 조건부 액세스를 통한 보안 액세스
+              href: 7-secure-access-conditional-access.md
+            - name: 8 민감도 레이블을 통한 보안 액세스
+              href: 8-secure-access-sensitivity-labels.md
+            - name: '9 Teams, SharePoint 및 OneDrive에 대한 보안 액세스'
+              href: 9-secure-access-teams-sharepoint.md
         - name: MFA 사용
           href: concept-fundamentals-mfa-get-started.md
         - name: 보안 기본값
@@ -49,6 +71,78 @@
           href: active-directory-architecture.md
         - name: 모든 앱을 Azure AD와 통합
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: 인증 및 프로비저닝 프로토콜
+          items:
+            - name: 개요
+              href: auth-sync-overview.md
+            - name: 헤더 기반 인증
+              href: auth-header-based.md
+            - name: LDAP 인증
+              href: auth-ldap.md
+            - name: OAuth 2.0 인증
+              href: auth-oauth2.md
+            - name: Open ID Connect 인증
+              href: auth-oidc.md
+            - name: 암호 기반 인증
+              href: auth-password-based-sso.md
+            - name: RADIUS 인증
+              href: auth-radius.md
+            - name: 원격 데스크톱 게이트웨이 인증
+              href: auth-remote-desktop-gateway.md
+            - name: SAML 인정
+              href: auth-saml.md
+            - name: SSH 인증
+              href: auth-ssh.md
+            - name: Windows 인증 - KCD
+              href: auth-kcd.md
+            - name: 디렉터리 동기화
+              href: sync-directory.md
+            - name: LDAP 동기화
+              href: sync-ldap.md
+            - name: SCIM 동기화
+              href: sync-scim.md
+        - name: 복원력을 위해 빌드
+          items:
+            - name: 개요
+              href: resilience-overview.md
+            - name: 인프라 지침
+              items:
+                - name: 인프라 개요
+                  href: resilience-in-infrastructure.md
+                - name: 자격 증명 관리
+                  href: resilience-in-credentials.md
+                - name: 디바이스 상태
+                  href: resilience-with-device-states.md
+                - name: 지속적인 액세스 평가
+                  href: resilience-with-continuous-access-evaluation.md
+                - name: 외부 사용자 인증
+                  href: resilience-b2b-authentication.md
+                - name: 하이브리드 인증
+                  href: resilience-in-hybrid.md
+                - name: 애플리케이션 프록시
+                  href: resilience-on-premises-access.md
+            - name: Azure AD B2C 지침
+              items:
+                - name: 복원력에 대해 Azure AD B2C 도입
+                  href: resilience-b2c.md
+                - name: 최종 사용자 환경
+                  href: resilient-end-user-experience.md
+                - name: 외부 프로세스를 사용하는 인터페이스
+                  href: resilient-external-processes.md
+                - name: Azure AD B2C 개발자 모범 사례
+                  href: resilience-b2c-developer-best-practices.md
+                - name: 모니터링 및 분석
+                  href: resilience-with-monitoring-alerting.md
+            - name: 애플리케이션 개발 지침
+              items:
+                - name: 개발 개요
+                  href: resilience-app-development-overview.md
+                - name: 클라이언트 애플리케이션
+                  href: resilience-client-app.md
+                - name: 디먼 애플리케이션
+                  href: resilience-daemon-app.md
+        - name: Azure에서 사용되는 인증 기관
+          href: certificate-authorities.md
     - name: 배포 가이드
       items:
         - name: '배포 30, 90 이상'
@@ -88,6 +182,8 @@
           href: customize-branding.md
         - name: '''로그인 상태를 유지하시겠습니까?'' 구성'
           href: keep-me-signed-in.md
+        - name: 테넌트 ID를 찾는 방법
+          href: active-directory-how-to-find-tenant.md
         - name: Azure 구독 연결
           href: active-directory-how-subscriptions-associated-directory.md
         - name: 개인 정보 추가

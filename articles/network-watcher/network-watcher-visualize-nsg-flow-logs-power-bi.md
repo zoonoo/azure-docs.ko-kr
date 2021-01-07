@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: a4c97b8baaf5265f984622e2dc47e6c8c714172a
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272640"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995729"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
@@ -59,7 +59,7 @@ ms.locfileid: "88272640"
 
       ![power BI 메인][2]
 
-1. 스토리지 계정의 액세스 키를 입력합니다. Azure Portal에서 스토리지 계정으로 이동한 후 설정 메뉴에서 **액세스 키**를 선택하면 유효한 액세스 키를 찾을 수 있습니다. 그런 다음 **연결**을 클릭하여 변경 내용을 적용합니다.
+1. 스토리지 계정의 액세스 키를 입력합니다. Azure Portal에서 스토리지 계정으로 이동한 후 설정 메뉴에서 **액세스 키** 를 선택하면 유효한 액세스 키를 찾을 수 있습니다. 그런 다음 **연결** 을 클릭하여 변경 내용을 적용합니다.
 
     ![액세스 키][3]
 
@@ -109,7 +109,7 @@ ms.locfileid: "88272640"
 
 본인의 요구 사항에 맞게 얼마든지 이 템플릿을 사용자 지정해도 됩니다. Power BI를 네트워크 보안 그룹 흐름 로그와 함께 사용할 수 있는 매우 다양한 방법이 있습니다. 
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 
 * 로그는 기본적으로 `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`에 저장됩니다.
 

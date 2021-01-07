@@ -1,24 +1,15 @@
 ---
 title: Azure Portal에서 대시보드 만들기 및 공유
 description: 이 문서에서는 Azure Portal에서 대시보드를 만들고, 사용자 지정 하 고, 게시 하 고, 공유 하는 방법을 설명 합니다.
-services: azure-portal
-documentationcenter: ''
-author: sewatson
-manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764012"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745828"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
 
@@ -32,15 +23,15 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal 메뉴에서 **대시보드**를 선택 합니다. 기본 보기는 이미 대시보드로 설정 되어 있을 수 있습니다.
+1. Azure Portal 메뉴에서 **대시보드** 를 선택 합니다. 기본 보기는 이미 대시보드로 설정 되어 있을 수 있습니다.
 
     ![대시보드 열기](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
-1. **새 대시보드**를 선택 합니다.
+1. **새 대시보드** 를 선택 합니다.
 
     ![새 대시보드의 스크린샷](./media/azure-portal-dashboards/create-new-dashboard.png)
 
-    이 작업을 수행 하면 타일 **갤러리**가 열리며, 여기서 타일을 선택 하 고 타일을 정렬할 빈 그리드를 선택 합니다.
+    이 작업을 수행 하면 타일 **갤러리** 가 열리며, 여기서 타일을 선택 하 고 타일을 정렬할 빈 그리드를 선택 합니다.
 
     ![타일 갤러리 및 빈 그리드 스크린샷](./media/azure-portal-dashboards/dashboard-name.png)
 
@@ -89,7 +80,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 ### <a name="additional-tile-configuration"></a>추가 타일 구성
 
-일부 타일에는 원하는 정보를 표시 하는 추가 구성이 필요할 수 있습니다. 예를 들어 **메트릭 차트** 타일은 **Azure Monitor**의 메트릭을 표시 하도록 설정 되어야 합니다. 또한 타일 데이터를 사용자 지정 하 여 대시보드의 기본 시간 설정을 재정의할 수 있습니다.
+일부 타일에는 원하는 정보를 표시 하는 추가 구성이 필요할 수 있습니다. 예를 들어 **메트릭 차트** 타일은 **Azure Monitor** 의 메트릭을 표시 하도록 설정 되어야 합니다. 또한 타일 데이터를 사용자 지정 하 여 대시보드의 기본 시간 설정을 재정의할 수 있습니다.
 
 설정 해야 하는 타일은 타일을 사용자 지정할 때까지 **타일 구성** 배너를 표시 합니다. 타일을 사용자 지정 하려면:
 
@@ -110,7 +101,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
     ![타일 상황에 맞는 메뉴의 스크린샷](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
-1. **타일 수준에서 대시보드 시간 설정을 재정의**하려면이 확인란을 선택 합니다.
+1. **타일 수준에서 대시보드 시간 설정을 재정의** 하려면이 확인란을 선택 합니다.
 
     ![타일 시간 설정을 구성 하는 대화 상자 스크린샷](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
 
@@ -118,13 +109,13 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 1. 표시할 시간 단위를 선택 합니다. 1 분에서 1 개월까지 모든 위치를 표시할 수 있습니다.
 
-1. **적용**을 선택합니다.
+1. **적용** 을 선택합니다.
 
 ## <a name="delete-a-tile"></a>타일 삭제
 
 대시보드에서 타일을 제거 하려면 다음 단계를 수행 합니다.
 
-* 타일의 오른쪽 위 모퉁이에 있는 상황에 맞는 메뉴를 선택한 다음 **대시보드에서 제거**를 선택 합니다. 또는
+* 타일의 오른쪽 위 모퉁이에 있는 상황에 맞는 메뉴를 선택한 다음 **대시보드에서 제거** 를 선택 합니다. 또는
 
 * ![편집 아이콘 ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **편집** 을 선택 하 여 사용자 지정 모드로 전환 합니다. 타일의 오른쪽 위 모서리를 마우스로 가리킨 다음 ![ 삭제 아이콘 삭제 아이콘을 선택 ](./media/azure-portal-dashboards/dashboard-delete-icon.png) 하 여 대시보드에서 타일을 제거 합니다.
 
@@ -136,13 +127,13 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 1. 대시보드 보기에 복사 하려는 대시보드가 표시 되는지 확인 합니다.
 
-1. 페이지 머리글에서 ![ 복제 아이콘 복제를 선택 ](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**합니다.
+1. 페이지 머리글에서 ![ 복제 아이콘 복제를 선택 ](./media/azure-portal-dashboards/dashboard-clone.png) **Clone** 합니다.
 
 1. 대시보드 복사본 ( *대시보드 이름의* **복제본** )이 편집 모드에서 열립니다. 이 문서의 이전 단계를 사용 하 여 대시보드 이름을 바꾸고 사용자 지정 합니다.
 
 ## <a name="publish-and-share-a-dashboard"></a>대시보드 게시 및 공유
 
-대시보드를 만들 때 기본적으로 비공개입니다. 즉, 사용자가 볼 수 있는 유일한 사용자입니다. 다른 사용자가 대시보드를 사용할 수 있도록 하려면 해당 대시보드를 게시 하 고 공유할 수 있습니다. 자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조 하세요.
+대시보드를 만들 때 기본적으로 비공개입니다. 즉, 사용자가 볼 수 있는 유일한 사용자입니다. 다른 사용자가 대시보드를 사용할 수 있도록 하려면 해당 대시보드를 게시 하 고 공유할 수 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어를 사용하여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조하세요.
 
 ### <a name="open-a-shared-dashboard"></a>공유 대시보드 열기
 
@@ -152,11 +143,11 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 1. 표시 된 대시보드 목록에서 선택 합니다. 열려는 대시보드가 나열 되지 않은 경우:
 
-    1. **모든 대시보드 찾아보기**를 선택 합니다.
+    1. **모든 대시보드 찾아보기** 를 선택 합니다.
 
         ![대시보드 선택 메뉴 스크린샷](./media/azure-portal-dashboards/dashboard-browse.png)
 
-    1. **유형** 필드에서 **공유 대시보드**를 선택 합니다.
+    1. **유형** 필드에서 **공유 대시보드** 를 선택 합니다.
 
         ![모든 대시보드 선택 메뉴의 스크린샷](./media/azure-portal-dashboards/dashboard-browse-all.png)
 
@@ -172,11 +163,11 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 1. ![ ](./media/azure-portal-dashboards/dashboard-delete-icon.png) 페이지 머리글에서 삭제 아이콘 **삭제** 를 선택 합니다.
 
-1. 개인 대시보드의 경우 확인 대화 상자에서 **확인** 을 선택 하 여 대시보드를 제거 합니다. 공유 대시보드의 경우 확인 대화 상자에서 확인란을 선택 하 여 게시 된 대시보드가 더 이상 다른 사용자에 게 표시 되지 않음을 확인 합니다. 그런 다음 **확인**을 선택합니다.
+1. 개인 대시보드의 경우 확인 대화 상자에서 **확인** 을 선택 하 여 대시보드를 제거 합니다. 공유 대시보드의 경우 확인 대화 상자에서 확인란을 선택 하 여 게시 된 대시보드가 더 이상 다른 사용자에 게 표시 되지 않음을 확인 합니다. 그런 다음 **확인** 을 선택합니다.
 
     ![삭제 확인 스크린샷](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [역할 기반 Access Control을 사용하여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)
+* [Azure 역할 기반 액세스 제어를 사용 하 여 Azure 대시보드 공유](azure-portal-dashboard-share-access.md)
 * [Azure 대시보드를 프로그래밍 방식으로 만들기](azure-portal-dashboards-create-programmatically.md)

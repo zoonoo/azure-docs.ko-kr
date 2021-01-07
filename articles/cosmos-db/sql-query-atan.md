@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 ATAN
 description: Azure Cosmos DB의 아크탄젠트 (ATAN) SQL 시스템 함수에서 탄젠트가 지정 된 숫자 식인 각도를 라디안으로 반환 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 899c94a939be7825dca82522eab235bde9252896
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50c678ad3f382ebdcf23c0ba125a47d7aaa7d7ec
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302681"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332443"
 ---
 # <a name="atan-azure-cosmos-db"></a>ATAN (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  탄젠트 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 이를 아크탄젠트라고도 합니다.  
   
 ## <a name="syntax"></a>구문

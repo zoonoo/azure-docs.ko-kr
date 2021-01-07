@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f20302a4993da1754255254ce6d69c000750d4ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84806773"
 ---
 # <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>Helm을 사용하여 Application Gateway 수신 컨트롤러를 업그레이드하는 방법 
@@ -34,7 +34,7 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
         https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     ```
 
-## <a name="upgrade"></a>Upgrade
+## <a name="upgrade"></a>업그레이드
 
 1. 최신 릴리스를 얻으려면 AGIC 투구 리포지토리를 새로 고칩니다.
 
@@ -56,7 +56,7 @@ Azure Storage에서 호스트 되는 투구 리포지토리를 사용 하 여 Ku
     application-gateway-kubernetes-ingress/ingress-azure    0.6.0           0.6.0           Use Azure Application Gateway as the ingress for an Azure...
     ```
 
-    위의 목록에서 사용할 수 있는 최신 버전은 다음과 같습니다.`0.7.0-rc1`
+    위의 목록에서 사용할 수 있는 최신 버전은 다음과 같습니다. `0.7.0-rc1`
 
 1. 현재 설치 되어 있는 투구 차트를 봅니다.
 

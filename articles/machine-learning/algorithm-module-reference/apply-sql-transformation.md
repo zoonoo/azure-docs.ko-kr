@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/12/2020
+ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76314541"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555603"
 ---
 # <a name="apply-sql-transformation"></a>SQL 변환 적용
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 SQL 변환 적용 모듈을 사용 하 여 다음을 수행할 수 있습니다.
   
@@ -29,11 +29,26 @@ SQL 변환 적용 모듈을 사용 하 여 다음을 수행할 수 있습니다.
 -   SQL 쿼리 문을 실행하여 데이터를 필터링하거나 변경하고 쿼리 결과를 데이터 테이블로 반환  
 
 > [!IMPORTANT]
-> 이 모듈에서 사용 되는 SQL 엔진은 **SQLite**입니다. SQLite 구문에 대 한 자세한 내용은 [sqlite의 이해를 받은 SQL](https://www.sqlite.org/index.html) 을 참조 하세요.  
+> 이 모듈에서 사용 되는 SQL 엔진은 **SQLite** 입니다. SQLite 구문에 대 한 자세한 내용은 [sqlite의 이해](https://www.sqlite.org/index.html)를 참조 하십시오.
+> 이 모듈은 메모리 DB에 있는 SQLite로 데이터를 흔들기 때문에 모듈 실행에 더 많은 메모리가 필요 하 고 오류가 발생할 수 있습니다 `Out of memory` . 컴퓨터에 충분 한 RAM이 있는지 확인 합니다.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>SQL 변환 적용을 구성 하는 방법  
 
 모듈은 최대 세 개의 데이터 집합을 입력으로 사용할 수 있습니다. 각 입력 포트에 연결 된 데이터 집합을 참조 하는 경우, 및 이름을 사용 해야 합니다 `t1` `t2` `t3` . 테이블 숫자는 입력 포트의 인덱스를 나타냅니다.  
+
+다음은 두 테이블을 조인 하는 방법을 보여 주는 샘플 코드입니다. t1 및 t2는 **SQL 변환 적용** 의 왼쪽 및 중간 입력 포트에 연결 된 두 개의 데이터 집합입니다.
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 나머지 매개 변수는 SQLite 구문을 사용하는 SQL 쿼리입니다. **SQL 스크립트** 텍스트 상자에 여러 줄을 입력할 때는 세미콜론을 사용 하 여 각 문을 종료 합니다. 그렇지 않으면 줄바꿈이 공백으로 변환됩니다.  
 
@@ -53,7 +68,7 @@ SQLite는 대부분의 ANSI SQL 표준을 지원하지만 상용 관계형 데�
   
 - SQLite에서는 대부분의 관계형 데이터베이스 시스템에서와 같이 열에 형식을 할당하는 것이 아니라 값의 동적 형식 지정을 사용합니다. SQLite는 약하게 형식화되며 암시적 형식 변환을 허용합니다.  
   
-- `LEFT OUTER JOIN`는 구현 되지만 또는은 구현 되지 않습니다 `RIGHT OUTER JOIN` `FULL OUTER JOIN` .  
+- `LEFT OUTER JOIN` 는 구현 되지만 또는은 구현 되지 않습니다 `RIGHT OUTER JOIN` `FULL OUTER JOIN` .  
 
 - `RENAME TABLE` 및 `ADD COLUMN` 문을 `ALTER TABLE` 명령과 함께 사용할 수 있지만 `DROP COLUMN`, `ALTER COLUMN`, `ADD CONSTRAINT` 등의 다른 절은 지원되지 않습니다.  
   

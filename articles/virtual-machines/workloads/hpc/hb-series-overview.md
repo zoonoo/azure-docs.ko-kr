@@ -1,24 +1,19 @@
 ---
 title: HB-시리즈 VM 개요-Azure Virtual Machines | Microsoft Docs
 description: Azure에서 HB 시리즈 VM 크기에 대 한 미리 보기 지원에 대해 알아봅니다.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7c66af5184c4a943fd4b3185a87623112fe0d954
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e37f13bc6e819079c63c583a1eeda12af5e213c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691244"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965462"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>HB-시리즈 가상 머신 개요
 
@@ -48,7 +43,7 @@ VM 자체는 pNUMA 0이 지정 되지 않았음을 인식 하지 못합니다. V
 | 메모리                           | 4gb/코어 (240 총 GB)         |
 | 로컬 디스크                       | 700 G B SSD                       |
 | Infiniband                       | 100 g b EDR Mellanox Connectx-3-5 |
-| Network (네트워크)                          | 50 g b 이더넷 (40 Gb 사용 가능) Azure second Gen SmartNIC |
+| 네트워크                          | 50 g b 이더넷 (40 Gb 사용 가능) Azure second Gen SmartNIC |
 
 ## <a name="software-specifications"></a>소프트웨어 사양
 

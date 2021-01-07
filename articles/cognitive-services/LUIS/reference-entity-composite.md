@@ -3,26 +3,24 @@ title: 복합 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
 description: 복합 엔터티는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3d936555a4d9a9c80718a24ba892c762f5a8354a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681397"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608395"
 ---
 # <a name="composite-entity"></a>복합 엔터티
 
 복합 엔터티는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
 
 > [!CAUTION]
-> 이 엔터티는 **더 이상 사용 되지**않습니다. [Machine learning 엔터티로](reference-entity-machine-learned-entity.md)마이그레이션 하세요.
+> 이 엔터티는 **더 이상 사용 되지** 않습니다. [Machine learning 엔터티로](reference-entity-machine-learned-entity.md)마이그레이션 하세요.
 
 **데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.**
 
@@ -173,7 +171,6 @@ ms.locfileid: "83681397"
 ```
 
 * * *
-
 
 |데이터 개체|엔터티 이름|값|
 |--|--|--|

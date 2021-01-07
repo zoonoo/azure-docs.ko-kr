@@ -4,16 +4,16 @@ description: Azure의 Analysis Services 서버에서 데이터에 연결하고 �
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 71caad8ce650b86f4350b32974bb8d980538b223
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4abe1e9c6f9d7b62792936f816b9c46a937be41a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489020"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499427"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
@@ -21,9 +21,9 @@ ms.locfileid: "89489020"
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 
-[최신 클라이언트 라이브러리 가져오기](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
+[최신 클라이언트 라이브러리 가져오기](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)
 
-종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, Visual Studio, Excel 2016 이상 및 Power BI의 경우 최신 클라이언트 라이브러리가 월별 릴리스로 설치 또는 업데이트 됩니다. 그러나 경우에 따라 애플리케이션에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Office 365 업데이트가 지연된 채널에 있는 경우입니다.
+종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, Visual Studio, Excel 2016 이상 및 Power BI의 경우 최신 클라이언트 라이브러리가 월별 릴리스로 설치 또는 업데이트 됩니다. 그러나 경우에 따라 애플리케이션에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Microsoft 365 업데이트가 지연 된 채널에 있는 경우입니다.
 
 > [!NOTE]
 > 클라이언트 라이브러리는 사용자 이름 및 암호가 필요한 프록시 서버를 통해 Azure Analysis Services에 연결할 수 없습니다. 
@@ -35,16 +35,16 @@ Azure에서 Analysis Services 서버를 만들 경우 고유한 이름 및 만�
 ```
 <protocol>://<region>/<servername>
 ```
- 프로토콜이 문자열 **asazure**인 경우 지역은 서버를 만든 지역의 URI(예: westus.asazure.windows.net)이고 서버 이름은 지역 내 고유 서버의 이름입니다.
+ 프로토콜이 문자열 **asazure** 인 경우 지역은 서버를 만든 지역의 URI(예: westus.asazure.windows.net)이고 서버 이름은 지역 내 고유 서버의 이름입니다.
 
 ### <a name="get-the-server-name"></a>서버 이름 가져오기
 
-**Azure Portal** > 서버 > **개요** > **서버 이름**에서 전체 서버 이름을 복사합니다. 조직의 다른 사용자가 이 서버에 연결하는 경우 그들과 이 서버 이름을 공유할 수 있습니다. 서버 이름을 지정할 경우 전체 경로를 사용해야 합니다.
+**Azure Portal** > 서버 > **개요** > **서버 이름** 에서 전체 서버 이름을 복사합니다. 조직의 다른 사용자가 이 서버에 연결하는 경우 그들과 이 서버 이름을 공유할 수 있습니다. 서버 이름을 지정할 경우 전체 경로를 사용해야 합니다.
 
 ![Azure에서 서버 이름 가져오기](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 > [!NOTE]
-> 미국 동부 2 지역의 프로토콜은 **aspaaseastus2**입니다.
+> 미국 동부 2 지역의 프로토콜은 **aspaaseastus2** 입니다.
 
 ## <a name="connection-string"></a>연결 문자열
 
@@ -79,9 +79,9 @@ Azure에서 Analysis Services 서버를 만들 경우 고유한 이름 및 만�
 
 ## <a name="connect-as-a-linked-server-from-sql-server"></a>SQL Server에서 연결 된 서버로 연결
 
-데이터 원본 공급자로 MSOLAP를 지정 하 여 [연결 된 서버로](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) Azure Analysis Services 리소스에 연결할 수 SQL Server. 연결 된 서버 연결을 구성 하기 전에 최신 [MSOLAP 클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (공급자)를 설치 해야 합니다. 
+데이터 원본 공급자로 MSOLAP를 지정 하 여 [연결 된 서버로](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) Azure Analysis Services 리소스에 연결할 수 SQL Server. 연결 된 서버 연결을 구성 하기 전에 최신 [MSOLAP 클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) (공급자)를 설치 해야 합니다. 
 
-Azure Analysis Services에 연결 된 서버를 연결 하려면 MSOLAP 공급자를 SQL Server 프로세스 외부에서 인스턴스화해야 합니다. 연결 된 서버 옵션을 구성할 때 **Inprocess 허용** 옵션을 **선택 하지**않았는지 확인 합니다.
+Azure Analysis Services에 연결 된 서버를 연결 하려면 MSOLAP 공급자를 SQL Server 프로세스 외부에서 인스턴스화해야 합니다. 연결 된 서버 옵션을 구성할 때 **Inprocess 허용** 옵션을 **선택 하지** 않았는지 확인 합니다.
 
 **Allow inprocess** 를 선택 하 고 공급자를 SQL Server 프로세스에서 인스턴스화하면 다음 오류가 반환 됩니다.
 
@@ -100,5 +100,4 @@ Cannot initialize the data source object of OLE DB provider "MSOLAP" for linked 
 
 [Excel로 연결](analysis-services-connect-excel.md)    
 [Power BI 연결](analysis-services-connect-pbi.md)   
-[서버 관리](analysis-services-manage.md)   
-
+[서버 관리](analysis-services-manage.md)

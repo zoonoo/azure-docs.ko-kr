@@ -3,17 +3,17 @@ title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - Xamarin'
 description: 이 빠른 시작에서는 Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, BLOB을 모바일 디바이스에 다운로드하는 방법과 컨테이너의 모든 BLOB을 나열하는 방법을 알아봅니다.
 author: codemillmatt
 ms.author: masoucou
-ms.date: 05/08/2020
+ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4fa7ebc71f2bbe6abe6956ad36daaf983e011a94
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001330"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004741"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>빠른 시작: Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -39,8 +39,8 @@ Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [Mobile Development for .NET 워크로드](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows)가 설치된 Visual Studio 또는 [Mac용 Visual Studio](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
+* [Mobile Development for .NET 워크로드](/xamarin/get-started/installation/?pivots=windows)가 설치된 Visual Studio 또는 [Mac용 Visual Studio](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## <a name="setting-up"></a>설치
     
@@ -53,8 +53,8 @@ Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
 ### <a name="install-the-package"></a>패키지 설치
 
-1. 솔루션 탐색기 창에서 해당 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
-1. **Azure.Storage.Blobs**를 검색하고 솔루션의 모든 프로젝트에 안정적인 최신 버전을 설치합니다.
+1. 솔루션 탐색기 창에서 해당 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리** 를 선택합니다.
+1. **Azure.Storage.Blobs** 를 검색하고 솔루션의 모든 프로젝트에 안정적인 최신 버전을 설치합니다.
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
 
@@ -157,7 +157,7 @@ protected async override void OnAppearing()
 다음 코드 조각을 실행합니다.
 
 1. `MemoryStream` 텍스트를 만듭니다.
-1. [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) 클래스의 [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) 함수를 호출하여 파일 이름과 `MemoryStream` 텍스트 모두에 전달하여 텍스트를 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
+1. [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) 클래스의 [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) 함수를 호출하여 파일 이름과 `MemoryStream` 텍스트 모두에 전달하여 텍스트를 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
 
 *MainPage.xaml.cs* 파일에 다음 코드를 추가합니다.
 

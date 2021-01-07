@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션-CloudSimple 사설 클라우드 만들기
 description: 운영 유연성과 연속성을 사용 하 여 클라우드로 VMware 워크 로드를 확장 하는 CloudSimple 사설 클라우드를 만드는 방법에 대해 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4f700ac34b6c6e2a651366bee7dd1785c608064f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f4af4a36e719cbf15b3f0af77db81a32f2f2e42
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024792"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896280"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "77024792"
 
 * **빠른 확장**. 임시 또는 계획 되지 않은 용량이 필요한 경우 사설 클라우드를 사용 하면 지연 없이 추가 용량을 만들 수 있습니다.
 
-* **보호 기능이 향상**되었습니다. 3 개 이상의 노드의 사설 클라우드를 사용 하 여 자동 중복 및 고가용성 보호를 사용할 수 있습니다.
+* **보호 기능이 향상** 되었습니다. 3 개 이상의 노드의 사설 클라우드를 사용 하 여 자동 중복 및 고가용성 보호를 사용할 수 있습니다.
 
 * **장기적인 인프라 요구 사항**. 데이터 센터가 용량에 있거나 비용을 절감 하기 위해 구조를 변경 하려는 경우에는 사설 클라우드를 사용 하 여 데이터 센터의 사용을 중지 하 고, 엔터프라이즈 작업과의 호환성을 유지 하면서 클라우드 기반 솔루션으로 마이그레이션할 수 있습니다.
 
@@ -47,21 +47,21 @@ ms.locfileid: "77024792"
 
 ## <a name="create-a-new-private-cloud"></a>새 사설 클라우드 만들기
 
-1. **모든 서비스**를 선택합니다.
-2. **Cloudsimple 서비스**를 검색 합니다.
+1. **모든 서비스** 를 선택합니다.
+2. **Cloudsimple 서비스** 를 검색 합니다.
 3. 사설 클라우드를 만들려는 CloudSimple 서비스를 선택 합니다.
-4. **개요**에서 **사설 클라우드 만들기** 를 클릭 하 여 cloudsimple 포털에 대 한 새 브라우저 탭을 엽니다. 메시지가 표시 되 면 Azure 로그인 자격 증명을 사용 하 여 로그인 합니다.
+4. **개요** 에서 **사설 클라우드 만들기** 를 클릭 하 여 cloudsimple 포털에 대 한 새 브라우저 탭을 엽니다. 메시지가 표시 되 면 Azure 로그인 자격 증명을 사용 하 여 로그인 합니다.
 
     ![Azure에서 사설 클라우드 만들기](media/create-private-cloud-from-azure.png)
 
 5. CloudSimple 포털에서 사설 클라우드의 이름을 제공 합니다.
 6. 사설 클라우드의 **위치** 를 선택 합니다.
-7. Azure에서 프로 비전 한 것과 일치 하는 **노드 유형**을 선택 합니다.
-8. **노드 수**를 지정 합니다.  사설 클라우드를 만들려면 노드가 세 개 이상 필요 합니다.
+7. Azure에서 프로 비전 한 것과 일치 하는 **노드 유형** 을 선택 합니다.
+8. **노드 수** 를 지정 합니다.  사설 클라우드를 만들려면 노드가 세 개 이상 필요 합니다.
 
     ![사설 클라우드 만들기-기본 정보](media/create-private-cloud-basic-info.png)
 
-9. **다음: 고급 옵션**을 클릭 합니다.
+9. **다음: 고급 옵션** 을 클릭 합니다.
 10. VSphere/Vsphere 서브넷의 CIDR 범위를 입력 합니다. CIDR 범위가 온-프레미스 또는 기타 Azure 서브넷 (가상 네트워크) 또는 게이트웨이 서브넷과 겹치지 않는지 확인 합니다.
 
     **CIDR 범위 옵션:** /24,/23,/22 또는/21. /24 CIDR 범위는 최대 9 개의 노드를 지원 하 고/23 CIDR 범위는 최대 41 노드를 지원 하며,/22 및/21 CIDR 범위는 최대 64 노드 (사설 클라우드의 최대 노드 수)를 지원 합니다.
@@ -69,9 +69,9 @@ ms.locfileid: "77024792"
     > [!IMPORTANT]
     > VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다.  가상 머신에서는이 범위의 IP 주소를 사용 하지 마세요.
 
-11. **다음: 검토 및 만들기**를 클릭 합니다.
-12. 설정을 검토 합니다. 설정을 변경 해야 하는 경우에는 **이전**을 클릭 합니다.
-13. **만들기**를 클릭합니다.
+11. **다음: 검토 및 만들기** 를 클릭 합니다.
+12. 설정을 검토 합니다. 설정을 변경 해야 하는 경우에는 **이전** 을 클릭 합니다.
+13. **만들기** 를 클릭합니다.
 
 사설 클라우드 프로 비전 프로세스가 시작 됩니다. 사설 클라우드를 프로 비전 하는 데 최대 2 시간이 걸릴 수 있습니다.
 

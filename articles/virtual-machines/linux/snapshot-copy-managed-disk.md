@@ -10,11 +10,11 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317998"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015964"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>포털 또는 Azure CLI를 사용 하 여 스냅숏 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "89317998"
 
 다음 예제에서는 [Cloud Shell](https://shell.azure.com/bash)을 사용하거나 Azure CLI를 설치해야 합니다.
 
-다음 단계에서는 **az snapshot create** 명령과 **--source-disk** 매개 변수를 사용하여 스냅샷을 만드는 방법을 보여줍니다. 다음 예제는 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM이 있는 것으로 가정합니다.
+다음 단계에서는 **az snapshot create** 명령과 **--source-disk** 매개 변수를 사용하여 스냅샷을 만드는 방법을 보여줍니다. 다음 예제는 *myResourceGroup* 리소스 그룹의 *myVM* 이라는 VM이 있는 것으로 가정합니다.
 
 [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 디스크 ID를 가져옵니다.
 
@@ -36,7 +36,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-[az snapshot create](/cli/azure/snapshot#az-snapshot-create)를 사용하여 *osDisk-backup*이라는 스냅샷을 만듭니다.
+[az snapshot create](/cli/azure/snapshot#az-snapshot-create)를 사용하여 *osDisk-backup* 이라는 스냅샷을 만듭니다.
 
 ```azurecli-interactive
 az snapshot create \
@@ -59,13 +59,13 @@ az snapshot list \
 ## <a name="use-azure-portal"></a>Azure Portal 사용 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 위에서 **리소스 만들기**를 클릭하고 **스냅샷**을 검색합니다. 검색 결과에서 **스냅샷**을 선택합니다.
-3. **스냅샷** 블레이드에서 **만들기**를 클릭합니다.
-4. 스냅샷의 **이름**을 입력합니다.
+2. 왼쪽 위에서 **리소스 만들기** 를 클릭하고 **스냅샷** 을 검색합니다. 검색 결과에서 **스냅샷** 을 선택합니다.
+3. **스냅샷** 블레이드에서 **만들기** 를 클릭합니다.
+4. 스냅샷의 **이름** 을 입력합니다.
 5. 기존 리소스 그룹을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
-7. **원본 디스크**에서 스냅샷을 만들 관리 디스크를 선택합니다.
-8. 스냅샷 저장에 사용할 **계정 유형**을 선택합니다. 고성능 SSD에 저장할 필요가 없다면 **표준 HDD**를 사용합니다.
-9. **만들기**를 클릭합니다.
+7. **원본 디스크** 에서 스냅샷을 만들 관리 디스크를 선택합니다.
+8. 스냅샷 저장에 사용할 **계정 유형** 을 선택합니다. 고성능 SSD에 저장할 필요가 없다면 **표준 HDD** 를 사용합니다.
+9. **만들기** 를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

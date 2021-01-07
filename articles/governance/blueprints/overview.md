@@ -1,14 +1,14 @@
 ---
 title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: e5c08f4211f03ddc6d2f48eee4fc84a824732e43
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050780"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892730"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -25,7 +25,7 @@ Azure Blueprints 서비스는 전역적으로 분산된 [Azure Cosmos DB](../../
 
 ## <a name="how-its-different-from-arm-templates"></a>ARM 템플릿과의 차이점
 
-이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 ARM 템플릿 배포 세트로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 형식을 모두 결합하는 패키지이며, CI/CD 파이프라인 사용을 포함하여 해당 패키지를 구성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
+이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 ARM 템플릿 배포 세트로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 형식을 모두 결합하는 패키지이며, CI/CD(연속 통합 및 지속적인 업데이트) 파이프라인 사용을 포함하여 해당 패키지를 구성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
 
 Azure Blueprints에 배포하기 위해 포함하려는 거의 모든 항목은 ARM 템플릿으로 수행할 수 있습니다. 하지만 ARM 템플릿은 Azure에서 기본적으로 제공되지 않는 문서이며 로컬이나 소스 제어에 저장됩니다. 템플릿은 Azure 리소스 하나 이상의 배포에 사용되기는 하지만, 해당 리소스가 배포되고 나면 해당 템플릿에 대한 활성 연결과 관계는 손실됩니다.
 
@@ -74,11 +74,16 @@ Blueprints에서는 정책/이니셔티브 또는 ARM 템플릿에 매개 변수
 
 ## <a name="blueprint-assignment"></a>청사진 할당
 
-청사진의 각 **게시된** **버전**을 기존 구독에 할당할 수 있습니다(최대 이름 길이는 90자). 포털에서 청사진의 기본 **버전**은 가장 최근에 **게시된** 버전입니다. 아티팩트 매개 변수나 청사진 매개 변수가 있으면 할당 프로세스 중에 매개 변수가 정의됩니다.
+청사진의 각 **게시된** **버전**을 기존 관리 그룹 또는 구독에 할당할 수 있습니다(최대 이름 길이는 90자). 포털에서 청사진의 기본 **버전**은 가장 최근에 **게시된** 버전입니다. 아티팩트 매개 변수나 청사진 매개 변수가 있으면 할당 프로세스 중에 매개 변수가 정의됩니다.
+
+> [!NOTE]
+> 청사진 정의를 관리 그룹에 할당하면 관리 그룹에 할당 개체가 존재합니다. 아티팩트의 배포는 여전히 구독을 대상으로 합니다. 관리 그룹 할당을 수행하려면 [REST API 만들기 또는 업데이트](/rest/api/blueprints/assignments/createorupdate)를 사용해야 하며 요청 본문에는 대상 구독을 정의하기 위한 `properties.scope`의 값이 포함되어야 합니다.
 
 ## <a name="permissions-in-azure-blueprints"></a>Azure Blueprints의 권한
 
-청사진을 사용하려면 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md))를 통해 권한을 부여받아야 합니다. 청사진을 만들려면 계정에 다음과 같은 권한이 필요합니다.
+청사진을 사용하려면 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 권한을 부여받아야 합니다. Azure Portal에서 청사진을 읽거나 보려면 계정에 청사진 정의가 있는 범위에 대한 읽기 액세스 권한이 있어야 합니다.
+
+청사진을 만들려면 계정에 다음과 같은 권한이 필요합니다.
 
 - `Microsoft.Blueprint/blueprints/write` - 청사진 정의 만들기
 - `Microsoft.Blueprint/blueprints/artifacts/write` - 청사진 정의에 아티팩트 만들기

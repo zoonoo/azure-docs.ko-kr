@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/30/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: designer
+ms.openlocfilehash: 29d83f4acddfce6294457f87519d62e35f52bf15
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885967"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709421"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Azure Machine Learning designer 파이프라인에서 로깅 사용
 
@@ -49,17 +49,17 @@ __Python 스크립트 실행__ 모듈을 사용 하 여 디자이너 파이프�
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-
+        parent_run = Run.get_context().parent
+        
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
-        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-
+        parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
         # Log right output port result of Evaluate Model.
-        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
-    
+        parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
+
         return dataframe1,
     ```
     
-이 코드는 Azure Machine Learning Python SDK를 사용 하 여 값을 기록 합니다. Get_context ()를 사용 하 여 현재 실행의 컨텍스트를 가져옵니다. 그런 다음, run. parent. log () 메서드를 사용 하 여 해당 컨텍스트에 값을 기록 합니다. 를 사용 `parent` 하 여 모듈 실행이 아니라 부모 파이프라인 실행에 값을 기록 합니다.
+이 코드는 Azure Machine Learning Python SDK를 사용 하 여 값을 기록 합니다. Run.get_context ()를 사용 하 여 현재 실행의 컨텍스트를 가져옵니다. 그런 다음, run. parent. log () 메서드를 사용 하 여 해당 컨텍스트에 값을 기록 합니다. 를 사용 `parent` 하 여 모듈 실행이 아니라 부모 파이프라인 실행에 값을 기록 합니다.
 
 Python SDK를 사용 하 여 값을 기록 하는 방법에 대 한 자세한 내용은 [AZURE ML 학습 실행에서 로깅 사용](how-to-track-experiments.md)을 참조 하세요.
 
@@ -70,7 +70,7 @@ Python SDK를 사용 하 여 값을 기록 하는 방법에 대 한 자세한 �
 1. **실험** 섹션으로 이동 합니다.
 1. 실험을 선택 합니다.
 1. 보려는 실험에서 실행을 선택 합니다.
-1. **메트릭**을 선택합니다.
+1. **메트릭** 을 선택합니다.
 
     ![스튜디오에서 실행 메트릭 보기](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 

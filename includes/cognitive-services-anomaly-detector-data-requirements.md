@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/20/2019
 ms.openlocfilehash: 41ac1478b1028a847fc0d5e7e70802375e910837
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67182537"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999107"
 ---
 > [!NOTE]
 > Anomaly Detector API 사용 시 [최상의 결과](../articles/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices.md)를 얻으려면 JSON 형식 시계열 데이터에 다음이 포함되어야 합니다.

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 03896f4f7aa4e6efc78b498406e79a299318ed7a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c444732a497d595235ac337d7f5c71fb84f17cca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938217"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185592"
 ---
 # <a name="filling-time-gaps-and-imputing-missing-values"></a>시간 간격과 채우기 누락 값 채우기 
 
@@ -181,7 +181,7 @@ timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  Imput
 
 ## <a name="next-steps"></a>다음 단계 
 
-- [FIRST_VALUE(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json)
-- [LAST_VALUE(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json)
+- [FIRST_VALUE(Transact-SQL)](/sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json)
+- [LAST_VALUE(Transact-SQL)](/sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json)
 - [DATE_BUCKET(Transact-SQL)](date-bucket-tsql.md)
-- [집계 함수(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/aggregate-functions-transact-sql)
+- [집계 함수(Transact-SQL)](/sql/t-sql/functions/aggregate-functions-transact-sql)

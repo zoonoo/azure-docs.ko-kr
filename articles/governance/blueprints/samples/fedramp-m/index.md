@@ -1,14 +1,14 @@
 ---
 title: FedRAMP Moderate 청사진 샘플 개요
 description: FedRAMP Moderate 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 FedRAMP Moderate 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 07/31/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: 6d0ec128a09f3426dbcec63353f04395ed92996d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a706254b2de9f76fa0c79696366d38b1f72f96d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495797"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675857"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>FedRAMP Moderate 청사진 샘플의 개요
 

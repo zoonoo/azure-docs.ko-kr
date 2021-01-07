@@ -1,17 +1,17 @@
 ---
 title: 네트워킹 개요-유연한 서버 Azure Database for MySQL
 description: Azure Database for MySQL에 대 한 유연한 서버 배포 옵션의 연결 및 네트워킹 옵션에 대해 알아봅니다.
-author: rachel-msft
-ms.author: raagyema
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 550f3367fe2e5283aff788b36203e988361590ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/23/2020
+ms.openlocfilehash: a8e2d77ff3c7cb2e4352b21cd87d630331e28660
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937121"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906151"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)에 대 한 연결 및 네트워킹 개념
 
@@ -33,7 +33,7 @@ Azure Database for MySQL 유연한 서버에 대 한 두 가지 네트워킹 옵
    * VPN 또는 ExpressRoute를 사용하여 비 Azure 리소스에서 유연한 서버에 연결
    * 유연한 서버에는 공용 끝점이 없습니다.
 
-* **공용 액세스 (허용 된 IP 주소)** – 유연한 서버는 공용 끝점을 통해 액세스 됩니다. 퍼블릭 엔드포인트는 공개적으로 확인할 수 있는 DNS 주소입니다. "허용되는 IP 주소"라는 말은 선택하는 IP 범위에 서버 액세스 권한을 부여한다는 뜻입니다. 이러한 권한을 **방화벽 규칙**이라고 합니다. 
+* **공용 액세스 (허용 된 IP 주소)** – 유연한 서버는 공용 끝점을 통해 액세스 됩니다. 퍼블릭 엔드포인트는 공개적으로 확인할 수 있는 DNS 주소입니다. "허용되는 IP 주소"라는 말은 선택하는 IP 범위에 서버 액세스 권한을 부여한다는 뜻입니다. 이러한 권한을 **방화벽 규칙** 이라고 합니다. 
 
    다음 기능을 사용 하려면 공용 액세스 방법을 선택 합니다.
    * 가상 네트워크를 지원 하지 않는 Azure 리소스에서 연결
@@ -62,6 +62,8 @@ MySQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야 할 
 
    Mysql 유연한 서버는 MySQL 유연한 서버 사용을 위해 **위임** 된 서브넷에 있어야 합니다. 이렇게 위임하면 Azure Database for MySQL 유동 서버에서만 해당 서브넷을 사용할 수 있습니다. 다른 Azure 리소스 유형은 위임된 서브넷에 있을 수 없습니다. 위임 속성을 flexibleServers으로 할당 하 여 서브넷을 위임 합니다.
 
+* **NSG (네트워크 보안 그룹)** 네트워크 보안 그룹의 보안 규칙을 사용 하면 가상 네트워크 서브넷 및 네트워크 인터페이스에서 들어오고 나가는 네트워크 트래픽 유형을 필터링 할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../../virtual-network/network-security-groups-overview.md) 를 참조 하세요.
+
 
 ### <a name="unsupported-virtual-network-scenarios"></a>지원 되지 않는 가상 네트워크 시나리오
 * 공용 끝점 (또는 공용 IP 또는 DNS)-가상 네트워크에 배포 된 유연한 서버는 공용 끝점을 포함할 수 없습니다.
@@ -71,6 +73,8 @@ MySQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야 할 
 
 [Azure Portal](how-to-manage-virtual-network-portal.md) 또는 [Azure CLI](how-to-manage-virtual-network-cli.md)를 사용 하 여 개인 액세스 (vnet 통합)를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 
+> [!NOTE]
+> 사용자 지정 DNS 서버를 사용 하는 경우에는 DNS 전달자를 사용 하 여 Azure Database for MySQL 유연한 서버의 FQDN을 확인 해야 합니다. 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 을 참조 하세요.
 
 ## <a name="public-access-allowed-ip-addresses"></a>퍼블릭 액세스(허용된 IP 주소)
 공용 액세스 방법의 특성은 다음과 같습니다.
@@ -103,16 +107,16 @@ MySQL Server 서비스의 Microsoft Azure Database에 대 한 액세스가 예�
 
    * ISP (인터넷 서비스 공급자)에 Azure Database for MySQL 서버에 액세스 하는 클라이언트 컴퓨터에 할당 된 IP 주소 범위를 문의 한 다음 IP 주소 범위를 방화벽 규칙으로 추가 합니다.
    * 클라이언트 컴퓨터 대신 고정 IP 지정을 가져온 다음 고정 IP 주소를 방화벽 규칙으로 추가합니다.
+  
+* **방화벽 규칙을 IPv6 형식에 사용할 수 없습니다.** 방화벽 규칙은 IPv4 형식 이어야 합니다. IPv6 형식으로 방화벽 규칙을 지정 하는 경우 유효성 검사 오류가 표시 됩니다.
 
 
-## <a name="hostname"></a>Hostname
+## <a name="hostname"></a>호스트 이름
 선택한 네트워킹 옵션에 관계 없이 유연한 서버에 연결할 때 항상 FQDN (정규화 된 도메인 이름)을 호스트 이름으로 사용 하는 것이 좋습니다. 서버의 IP 주소는 정적으로 유지 되지 않을 수 있습니다. FQDN을 사용 하면 연결 문자열을 변경 하지 않아도 됩니다. 
 
-IP가 변경 되는 한 가지 시나리오는 영역 중복 HA를 사용 하 고 기본 및 보조 간에 장애 조치 (failover)가 발생 하는 경우입니다. FQDN을 사용 하면 동일한 연결 문자열을 사용 하 여 연결을 원활 하 게 다시 시도할 수 있습니다.
-
-예제
+예
 * 바람직하지 `hostname = servername.mysql.database.azure.com`
-* `hostname = 10.0.0.4`(개인 주소) 또는 `hostname = 40.2.45.67` (공용 IP)를 사용 하지 마십시오.
+* 가능 하면 `hostname = 10.0.0.4` (개인 주소) 또는 `hostname = 40.2.45.67` (공용 IP)를 사용 하지 마십시오.
 
 
 

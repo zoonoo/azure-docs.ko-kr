@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182399"
 ---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트 설치
@@ -27,13 +27,13 @@ StorSimple 디바이스에 유지 관리 모드 업데이트를 적용하면 모
 
     두 컨트롤러 모두 유지 관리 모드로 다시 시작합니다.
 
-3. 유지 관리 모드 업데이트를 설치합니다. 유형:
+3. 유지 관리 모드 업데이트를 설치합니다. 형식:
 
     `Start-HcsUpdate`
 
     확인하라는 메시지가 표시됩니다. 업데이트를 확인하고 나면 현재 액세스 중인 컨트롤러에 업데이트가 설치됩니다. 업데이트가 설치되고 나면 컨트롤러가 다시 시작됩니다.
 
-4. 업데이트 상태를 모니터링합니다. 현재 컨트롤러가 업데이트 중이고 다른 명령을 처리할 수 없으므로 피어 컨트롤러에 로그인합니다. 유형:
+4. 업데이트 상태를 모니터링합니다. 현재 컨트롤러가 업데이트 중이고 다른 명령을 처리할 수 없으므로 피어 컨트롤러에 로그인합니다. 형식:
 
     `Get-HcsUpdateStatus`
 

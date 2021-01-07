@@ -1,15 +1,17 @@
 ---
 title: 개발자 리소스-Language Understanding
 description: Sdk, REST Api, CLI는 프로그래밍 언어로 LUIS (Language Understanding) 앱을 개발 하는 데 도움이 됩니다. Azure 리소스를 관리 하 고 예측을 LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/19/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 43c9ca244f02ffe1485fbd7316901d607d6e2479
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 8641235fb754080303a9a463d0964e5655234ff2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321228"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024554"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Language Understanding에 대 한 SDK, REST 및 CLI 개발자 리소스 (LUIS)
 
@@ -21,9 +23,9 @@ Azure Cognitive Services 관리 계층을 사용 하 여 Language Understanding 
 
 도구를 기반으로 하는 참조 설명서를 찾습니다.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
+* [Azure CLI](/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
-* [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
+* [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
 
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Language Understanding 작성 및 예측 요청
@@ -45,7 +47,7 @@ Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 �
 
 작성 및 예측 끝점 API는 REST Api에서 사용할 수 있습니다.
 
-|Type|버전|
+|형식|버전|
 |--|--|
 |작성|[[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |예측|[[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
@@ -67,7 +69,7 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 다음 표에서는 앞의 표에서 중괄호 `{}`로 표시된 매개 변수에 대해 설명합니다.
 
-|매개 변수|용도|
+|매개 변수|목적|
 |--|--|
 |`your-resource-name`|Azure 리소스 이름|
 |`q` 또는 `query`|채팅 봇과 같은 클라이언트 애플리케이션에서 보낸 발언 텍스트|
@@ -86,10 +88,10 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 |언어 |참조 설명서|패키지|빠른 시작|
 |--|--|--|--|
-|C#|[작성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[작성](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[쿼리 예측](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
+|C#|[작성](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[작성](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[쿼리 예측](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
 |Go|[작성 및 예측](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
-|Java|[작성 및 예측](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven 작성](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 예측](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[작성](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[작성](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
+|Java|[작성 및 예측](/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven 작성](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 예측](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
+|JavaScript|[작성](/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[작성](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
 |Python|[작성 및 예측](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[예측](azure-sdk-quickstart.md?pivots=programming-language-python)|
 
 
@@ -107,7 +109,7 @@ Language Understanding은 JSON 형식, `.LU` ([ludown](https://github.com/micros
 
 * GitHub: (워크숍) [대화형-AI: NLU USING LUIS](https://github.com/GlobalAICommunity/Workshop-Conversational-AI)
 
-## <a name="continuous-integration-tools"></a>연속 통합 도구
+## <a name="continuous-integration-tools"></a>지속적인 통합 도구
 
 * GitHub: (미리 보기) [DevOps를 사용 하 여 LUIS 앱 개발 방법](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 * GitHub: [Nlu. DevOps](https://github.com/microsoft/NLU.DevOps) -NLU 서비스에 대 한 지속적인 통합 및 배포를 지 원하는 도구입니다.
@@ -128,7 +130,7 @@ Bot framework는 다음을 비롯 하 여 Language Understanding에 도움이 �
 ## <a name="next-steps"></a>다음 단계
 
 * 일반적인 [HTTP 오류 코드](luis-reference-response-codes.md) 에 대 한 자세한 정보
-* 모든 Api 및 Sdk에 대 한 [참조 설명서](https://docs.microsoft.com/azure/index)
+* 모든 Api 및 Sdk에 대 한 [참조 설명서](../../index.yml)
 * [Bot framework](https://github.com/Microsoft/botbuilder-dotnet) 및 [Azure Bot Service](https://dev.botframework.com/)
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
 * [인지 컨테이너](../cognitive-services-container-support.md)

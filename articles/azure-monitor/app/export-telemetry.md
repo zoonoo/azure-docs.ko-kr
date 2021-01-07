@@ -3,12 +3,12 @@ title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft 
 description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324338"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674140"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -38,7 +38,10 @@ ms.locfileid: "87324338"
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> 연속 내보내기 만들기
 
-1. 왼쪽에서 구성 중인 앱에 대한 Application Insights 리소스에서 연속 내보내기를 열고 **추가**를 선택합니다.
+> [!NOTE]
+> 응용 프로그램은 하루에 3TB 이상의 데이터를 내보낼 수 없습니다. 하루에 최대 3TB를 내보내면 내보내기가 사용 하지 않도록 설정 됩니다. 제한 없이 내보내려면 [진단 설정 기반 내보내기](#diagnostic-settings-based-export)를 사용 합니다.
+
+1. 왼쪽에서 구성 중인 앱에 대한 Application Insights 리소스에서 연속 내보내기를 열고 **추가** 를 선택합니다.
 
 2. 내보낼 원격 분석 데이터 유형을 선택합니다.
 
@@ -96,9 +99,9 @@ ms.locfileid: "87324338"
 >
 
 ## <a name="inspect-the-data"></a><a name="get"></a> 데이터 검사
-포털에서 직접 스토리지를 검사할 수 있습니다. 맨 왼쪽 메뉴에서 "Azure 서비스"라고 표시된 맨위에 있는 홈을 클릭하여 **Storage 계정**, 스토리지 계정 이름을 차례로 선택하고, 개요 페이지의 서비스에서 **Blob**을 선택하고, 마지막으로 컨테이너 이름을 선택합니다.
+포털에서 직접 스토리지를 검사할 수 있습니다. 맨 왼쪽 메뉴에서 "Azure 서비스"라고 표시된 맨위에 있는 홈을 클릭하여 **Storage 계정**, 스토리지 계정 이름을 차례로 선택하고, 개요 페이지의 서비스에서 **Blob** 을 선택하고, 마지막으로 컨테이너 이름을 선택합니다.
 
-Visual Studio에서 Azure Storage를 검사하려면 **보기**, **클라우드 탐색기**를 차례로 엽니다. (해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고, 시각적 개체 C#/클라우드를 확장하고 **.NET용 Microsoft Azure SDK 가져오기**를 선택합니다.)
+Visual Studio에서 Azure Storage를 검사하려면 **보기**, **클라우드 탐색기** 를 차례로 엽니다. (해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고, 시각적 개체 C#/클라우드를 확장하고 **.NET용 Microsoft Azure SDK 가져오기** 를 선택합니다.)
 
 blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입니다. Application Insights 리소스 이름, 계측 키, 원격 분석 유형/날짜/시간에서 파생된 각 파일의 URI입니다. 리소스 이름은 모두 소문자이고 계측 키에서 대시를 생략합니다.
 
@@ -120,7 +123,7 @@ Where
 ## <a name="data-format"></a><a name="format"></a> 데이터 형식
 * 각 blob은 다중 '\n'-separated 행을 포함하는 텍스트 파일입니다. 여기에는 약 30초 동안 처리된 원격 분석 데이터가 있습니다.
 * 각 행은 요청 또는 페이지 보기와 같은 원격 분석 데이터 요소를 나타냅니다.
-* 각 행은 서식이 지정되지 않은 JSON 파일입니다. 행을 보려면 Visual Studio에서 blob을 열고 **Edit**  >  **고급**  >  **서식 파일**편집을 선택 합니다.
+* 각 행은 서식이 지정되지 않은 JSON 파일입니다. 행을 보려면 Visual Studio에서 blob을 열고   >  **고급**  >  **서식 파일** 편집을 선택 합니다.
 
    ![적합한 도구를 사용하여 원격 분석 보기](./media/export-telemetry/06-json.png)
 
@@ -178,7 +181,7 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 ## <a name="q--a"></a>질문과 대답
 * *하지만 원하는 모든 것은 차트의 일회성 다운로드입니다.*  
 
-    예, 수행할 수 있습니다. 탭 맨 위에서 **데이터 내보내기**를 클릭합니다.
+    예, 수행할 수 있습니다. 탭 맨 위에서 **데이터 내보내기** 를 클릭합니다.
 * *내보내기를 설정했지만 내 저장소에 데이터가 없습니다.*
 
     내보내기를 설정한 후 Application Insights가 앱에서 원격 분석을 받았나요? 새 데이터만 받게 됩니다.
@@ -207,6 +210,19 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 * [Stream Analytics 샘플](export-stream-analytics.md)
 * [Stream Analytics를 사용하여 SQL로 내보내기][exportasa]
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](export-data-model.md)
+
+## <a name="diagnostic-settings-based-export"></a>진단 설정 기반 내보내기
+
+진단 설정 기반 내보내기는 연속 내보내기와는 다른 스키마를 사용 합니다. 또한 연속 내보내기가 다음과 같은 기능을 지원 하지 않습니다.
+
+* Vnet, 방화벽 및 개인 링크를 사용 하는 Azure storage 계정
+* 이벤트 허브로 내보냅니다.
+
+진단 설정 기반 내보내기로 마이그레이션하려면:
+
+1. 현재 연속 내보내기를 사용 하지 않도록 설정 합니다.
+2. [작업 영역 기반으로 응용 프로그램을 마이그레이션합니다](convert-classic-resource.md).
+3. [진단 설정 내보내기를 사용 하도록 설정](create-workspace-resource.md#export-telemetry)합니다. 진단 설정 > 선택 하 여 Application Insights 리소스 내에서 **진단 설정 추가** 를 선택 합니다.
 
 <!--Link references-->
 

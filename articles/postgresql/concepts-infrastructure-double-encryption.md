@@ -1,29 +1,26 @@
 ---
 title: 인프라 이중 암호화-Azure Database for PostgreSQL
 description: 인프라 이중 암호화를 사용 하 여 서비스 관리 키를 사용 하 여 두 번째 암호화 계층을 추가 하는 방법에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: d54bef277d80a178c45ce918290d46c11387b7d1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 03d52611c89012d1132b4a27820f7f47e6cdd512
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918097"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242027"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Azure Database for PostgreSQL 인프라 이중 암호화
-
-> [!NOTE]
-> 현재 이 기능을 사용하려면 액세스를 요청해야 합니다. 이렇게 하려면에 문의 하세요 AskAzureDBforPostgreSQL@service.microsoft.com .
 
 Azure Database for PostgreSQL는 Microsoft의 관리 되는 키를 사용 하 여 데이터에 대해 [미사용 데이터의 저장소 암호화](concepts-security.md#at-rest) 를 사용 합니다. 백업을 비롯 한 데이터는 디스크에서 암호화 되며이 암호화는 항상 사용 되며 사용 하지 않도록 설정할 수 없습니다. 이 암호화는 Azure storage 암호화를 위해 FIPS 140-2의 유효성을 검사 한 암호화 모듈과 AES 256 비트 암호를 사용 합니다.
 
 인프라 이중 암호화는 서비스 관리 키를 사용 하 여 두 번째 암호화 계층을 추가 합니다. FIPS 140-2 유효성 검사 암호화 모듈을 사용 하지만 다른 암호화 알고리즘을 사용 합니다. 이는 미사용 데이터에 대 한 추가 보호 계층을 제공 합니다. 인프라 이중 암호화에 사용 되는 키는 Azure Database for PostgreSQL 서비스에 의해 관리 됩니다. 인프라 이중 암호화는 추가 암호화 계층이 성능에 영향을 줄 수 있으므로 기본적으로 사용 하도록 설정 되어 있지 않습니다.
 
 > [!NOTE]
-> 이 기능은 Azure Database for PostgreSQL "범용" 및 "메모리 액세스에 최적화 된" 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
+> 이 기능은 Azure Database for PostgreSQL의 "범용" 및 "메모리 액세스에 최적화 된" 가격 책정 계층에만 지원 됩니다.
 
 인프라 계층 암호화는 저장소 장치나 네트워크 회선에 가장 가까운 계층에서 구현 되는 이점을 제공 합니다. Azure Database for PostgreSQL는 서비스 관리 키를 사용 하 여 두 가지 암호화 계층을 구현 합니다. 여전히 서비스 계층에서 기술적으로는 아니지만 데이터를 휴지 상태의 데이터를 저장 하는 하드웨어와 매우 가깝습니다. 프로 비전 된 PostgreSQL 서버에서 [고객 관리 키](concepts-data-encryption-postgresql.md) 를 사용 하 여 미사용 데이터 암호화를 선택적으로 사용 하도록 설정할 수 있습니다.  
 

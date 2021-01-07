@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: faf78e9f7efb83c5f28538e18ed081378d120848
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3182258245701903e7b3d6d6163cf3e2bd55c1fc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890663"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915473"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro GPU에서 대역폭 일정을 관리 합니다. 
 
@@ -35,18 +35,18 @@ Azure Portal를 통해 Azure Stack Edge Pro의 대역폭 일정을 추가, 수�
 
 일정을 추가하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Stack에 지 리소스에 대 한 Azure Portal에서 **대역폭**으로 이동 합니다.
-2. 오른쪽 창에서 **+ 일정 추가**를 선택합니다.
+1. Azure Stack에 지 리소스에 대 한 Azure Portal에서 **대역폭** 으로 이동 합니다.
+2. 오른쪽 창에서 **+ 일정 추가** 를 선택합니다.
 
     ![대역폭 선택](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-1.png)
 
-3. **일정 추가**에서: 
+3. **일정 추가** 에서:
 
-   1. 일정의 **시작 날짜**, **종료 날짜**, **시작 시간**및 **종료 시간** 을 제공 합니다.
+   1. 일정의 **시작 날짜**, **종료 날짜**, **시작 시간** 및 **종료 시간** 을 제공 합니다.
    2. 이 일정을 모두 실행 해야 하는 경우 **하루 종일** 옵션을 선택 합니다.
    3. **대역폭 비율은** 클라우드와 관련 된 작업 (업로드 및 다운로드 모두)에서 장치에 사용 되는 대역폭 (초당 메가 비트) (mbps)입니다. 이 필드에 20에서 2147483647 사이의 숫자를 입력 합니다.
-   4. 업로드 및 다운로드 날짜를 제한하지 않으려면 **무제한 대역폭**을 선택합니다.
-   5. **추가**를 선택합니다.
+   4. 날짜 업로드 및 다운로드를 제한 하지 않으려면 **대역폭 무제한** 을 선택 합니다.
+   5. **추가** 를 선택합니다.
 
       ![일정 추가](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-2.png)
 
@@ -58,9 +58,10 @@ Azure Portal를 통해 Azure Stack Edge Pro의 대역폭 일정을 추가, 수�
 
 대역폭 일정을 편집하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **대역폭**으로 이동 합니다. 
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **대역폭** 으로 이동 합니다.
 2. 대역폭 일정 목록에서 수정 하려는 일정을 선택 합니다.
-    ![대역폭 일정 선택](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
+
+   ![대역폭 일정 선택](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
 
 3. 원하는 대로 변경하고 변경 내용을 저장합니다.
 
@@ -68,16 +69,16 @@ Azure Portal를 통해 Azure Stack Edge Pro의 대역폭 일정을 추가, 수�
 
 4. 일정이 수정된 후 일정 목록이 업데이트되어 수정된 일정이 반영됩니다.
 
-    ![사용자 수정](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![사용자 수정 2](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>일정 삭제
 
 Azure Stack Edge Pro 장치와 연결 된 대역폭 일정을 삭제 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **대역폭**으로 이동 합니다.  
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **대역폭** 으로 이동 합니다.  
 
-2. 대역폭 일정 목록에서 삭제할 일정을 선택합니다. **일정 편집**에서 **삭제**를 선택합니다. 확인하라는 메시지가 표시되면 **예**를 선택합니다.
+2. 대역폭 일정 목록에서 삭제할 일정을 선택합니다. **일정 편집** 에서 **삭제** 를 선택합니다. 확인하라는 메시지가 표시되면 **예** 를 선택합니다.
 
    ![사용자 삭제](media/azure-stack-edge-j-series-manage-bandwidth-schedules/delete-schedule-2.png)
 

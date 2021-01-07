@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742269"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370834"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 감사 기록 보기
 
@@ -29,10 +29,10 @@ PIM (Privileged Identity Management) 감사 기록을 사용 하 여 모든 권�
 
 11 월 2019부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 리소스 역할의 환경과 일치 하는 새 버전으로 업데이트 됩니다. 그러면 [기존 API에 대 한 변경](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성 됩니다. 새 버전이 롤아웃 되는 동안이 문서에서 수행 하는 절차는 현재 보유 하 고 있는 Privileged Identity Management 버전에 따라 달라 집니다. 이 섹션의 단계에 따라 Privileged Identity Management 버전을 확인 합니다. Privileged Identity Management 버전을 확인 한 후에는이 문서에서 해당 버전과 일치 하는 절차를 선택할 수 있습니다.
 
-1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
 
-    [![Azure AD 역할 새 버전](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "해당 버전에 대 한 탭을 선택 합니다.")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [!["Azure AD 역할-디렉터리 역할 감사 기록" 페이지를 보여 주는 스크린샷](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "해당 버전에 대 한 탭을 선택 합니다.")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[새 버전](#tab/new)
 
@@ -74,7 +74,7 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
 
 Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세요.
 
-1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -88,7 +88,7 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
 
     페이지의 맨 아래에는 사용 가능한 감사 기록의 각 작업에 대 한 정보가 포함 된 테이블이 표시 됩니다. 열에는 다음과 같은 의미가 있습니다.
 
-    | Column | Description |
+    | 열 | Description |
     | --- | --- |
     | Time | 작업이 발생 한 시간입니다. |
     | Requestor | 역할 활성화 또는 변경을 요청한 사용자입니다. 값이 **Azure System**이면 azure 감사 기록에서 자세한 내용을 확인 합니다. |
@@ -123,11 +123,11 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
     - **상태 이유** 열에서 감사 이벤트의 이유를 참조 하세요.
     - "역할 요청이 승인 되었습니다." 이벤트의 경우 **시작 (행위자)** 열에서 승인자를 확인 합니다.
 
-    [![Azure AD 역할 새 버전](media/pim-how-to-use-audit-log/filter-audit-logs.png "PIM 서비스에 대 한 감사 로그 필터링")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+    [!["시작 된 사람 (행위자)" 메뉴가 열리고 "PIM"이 선택 된 "감사 로그" 페이지를 보여 주는 스크린샷](media/pim-how-to-use-audit-log/filter-audit-logs.png "PIM 서비스에 대 한 감사 로그 필터링")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
 
 1. 감사 로그 이벤트를 선택 하 여 **세부 정보** 창의 **작업** 탭에서 티켓 번호를 확인 합니다.
   
-    [![Azure AD 역할 새 버전](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "감사 이벤트의 티켓 번호를 확인 합니다.")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+    [!["세부 정보" 창에 티켓 번호가 강조 표시 된 "감사 로그" 페이지를 보여 주는 스크린샷](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "감사 이벤트의 티켓 번호를 확인 합니다.")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
 
 1. 감사 이벤트에 대 한 **세부 정보** 창의 **대상** 탭에서 요청자 (역할 활성화 사용자)를 볼 수 있습니다. Azure AD 역할에는 두 가지 대상 유형이 있습니다.
 

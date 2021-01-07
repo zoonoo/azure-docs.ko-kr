@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션-사설 클라우드의 vSAN 암호화 구성
 description: CloudSimple 사설 클라우드가 Azure virtual network에서 실행 되는 키 관리 서버와 함께 작동할 수 있도록 vSAN 소프트웨어 암호화 기능을 구성 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5da05c7f3c6878b0804799360e512676b9002d3
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77020644"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899051"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에 대 한 vSAN 암호화 구성
 
@@ -65,7 +65,7 @@ KMS 서버 클러스터는 Azure virtual network에서 실행 되며, 구성 된
 1. [Azure Portal를 사용 하 여 express 경로에 대 한 가상 네트워크 게이트웨이 구성](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)의 지침에 따라 가상 네트워크에 대 한 가상 네트워크 게이트웨이를 만듭니다.
 2. [포털을 사용 하 여 가상 네트워크를 express 경로 회로에 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)의 지침에 따라 Cloudsimple express 경로 회로에 가상 네트워크를 연결 합니다.
 3. CloudSimple의 환영 메일에서 받은 CloudSimple Express 경로 회로 정보를 사용 하 여 가상 네트워크를 Azure의 CloudSimple Express 경로 회로에 연결 합니다.
-4. 권한 부여 키 및 피어 회로 URI를 입력 하 고, 연결 이름을 지정 하 고, **확인**을 클릭 합니다.
+4. 권한 부여 키 및 피어 회로 URI를 입력 하 고, 연결 이름을 지정 하 고, **확인** 을 클릭 합니다.
 
 ![가상 네트워크를 만들 때 CS 피어 회로 URI 제공](media/vsan-azureportal01.png) 
 
@@ -83,7 +83,7 @@ KMS 서버 클러스터는 Azure virtual network에서 실행 되며, 구성 된
 
 ### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: KMIP 서버 구성
 
-Https://*공용*ip로 이동 합니다. 여기서 *공용 Ip* 는 keycontrol 노드 VM의 공용 ip 주소입니다. [HyTrust 설명서](https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0)에서 다음 단계를 수행 합니다.
+Https://*공용* ip로 이동 합니다. 여기서 *공용 Ip* 는 keycontrol 노드 VM의 공용 ip 주소입니다. [HyTrust 설명서](https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0)에서 다음 단계를 수행 합니다.
 
 1. [KMIP 서버 구성](https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/configuring-kmip-server.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____2)
 2. [VMware 암호화를 위한 인증서 번들 만들기](https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/creating-user-for-vmcrypt.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____3)

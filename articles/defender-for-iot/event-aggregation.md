@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: aec750d246ce99fa65431e23ef68e70418db0017
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940937"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832372"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>IoT 용 Defender 이벤트 집계
 
@@ -36,7 +36,7 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 
 ## <a name="how-does-event-aggregation-work"></a>이벤트 집계는 어떻게 작동 하나요?
 
-이벤트 집계가 **설정**되어 있으면 IoT 용 Defender 에이전트는 간격 기간이 나 시간 창에 대 한 이벤트를 집계 합니다.
+이벤트 집계가 **설정** 되어 있으면 IoT 용 Defender 에이전트는 간격 기간이 나 시간 창에 대 한 이벤트를 집계 합니다.
 간격 기간이 지나면 에이전트는 추가 분석을 위해 집계 된 이벤트를 Azure 클라우드로 보냅니다.
 집계 된 이벤트는 Azure 클라우드로 전송 될 때까지 메모리에 저장 됩니다.
 
@@ -44,7 +44,7 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 
 이벤트는 다음 조건이 충족 될 때만 동일 하 게 간주 됩니다.
 
-* ProcessCreate 이벤트- **명령줄**, **실행 파일**, **사용자 이름**및 **userid** 가 동일한 경우
+* ProcessCreate 이벤트- **명령줄**, **실행 파일**, **사용자 이름** 및 **userid** 가 동일한 경우
 * ConnectionCreate 이벤트- **명령줄**, **userId**, **방향**, **로컬 주소**, **원격 주소**, * * 프로토콜 및 **대상 포트가** 동일한 경우
 * ProcessTerminate events- **실행 파일** 및 **종료 상태가** 동일한 경우
 
@@ -52,8 +52,8 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 
 집계 중에 집계 되지 않은 이벤트 속성은 무시 되 고 값이 0 인 log analytics에 표시 됩니다.
 
-* ProcessCreate 이벤트- **processId**및 **parentprocessid** 가 0으로 설정 되어 있습니다.
-* ConnectionCreate 이벤트- **processId**및 **원본 포트가** 0으로 설정 됨
+* ProcessCreate 이벤트- **processId** 및 **parentprocessid** 가 0으로 설정 되어 있습니다.
+* ConnectionCreate 이벤트- **processId** 및 **원본 포트가** 0으로 설정 됨
 
 ## <a name="event-aggregation-based-alerts"></a>이벤트 집계 기반 경고
 
@@ -73,8 +73,8 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 | aggregationIntervalProcessCreate | ISO8601 Timespan 문자열 | 프로세스 생성 이벤트에 대 한 집계 간격 |
 | aggregationEnabledConnectionCreate | boolean| 연결 생성 이벤트에 대 한 이벤트 집계 사용/사용 안 함 |
 | aggregationIntervalConnectionCreate | ISO8601 Timespan 문자열 | 연결 생성 이벤트에 대 한 집계 간격 |
-| aggregationEnabledProcessTerminate | boolean | 프로세스 종료 이벤트에 대 한 이벤트 집계 사용/사용 안 함 | Windows만|
-| aggregationIntervalProcessTerminate | ISO8601 Timespan 문자열 | 프로세스 종료 이벤트에 대 한 집계 간격 | Windows만|
+| aggregationEnabledProcessTerminate | boolean | 프로세스 종료 이벤트에 대 한 이벤트 집계 사용/사용 안 함 | Windows만 해당|
+| aggregationIntervalProcessTerminate | ISO8601 Timespan 문자열 | 프로세스 종료 이벤트에 대 한 집계 간격 | Windows만 해당|
 |
 
 ## <a name="default-configurations-settings"></a>기본 구성 설정
@@ -97,6 +97,6 @@ IoT 배포용 Defender를 계속 시작 하려면 다음 문서를 사용 합니
 
 - [보안 에이전트 인증 방법](concept-security-agent-authentication-methods.md) 이해
 - [보안 에이전트](how-to-deploy-agent.md) 선택 및 배포
-- IoT [서비스 필수 구성 요소](service-prerequisites.md) 에 대 한 검토
+- IoT [시스템 필수 구성 요소](quickstart-system-prerequisites.md) 에 대 한 검토
 - [IoT Hub에서 IoT 서비스용 Defender를 사용 하도록 설정](quickstart-onboard-iot-hub.md) 하는 방법에 대해 알아봅니다.
 - [IoT 용 DEFENDER FAQ](resources-frequently-asked-questions.md) 에서 서비스에 대 한 자세한 정보

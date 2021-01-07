@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79275101"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011883"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -22,7 +22,7 @@ Windows 및 Linux 용 Log Analytics 에이전트는 VM이 실행 되는 배포 �
 
 | 환경 | 설치 방법 | 업그레이드 방법 |
 |--------|----------|-------------|
-| Azure VM | Windows/Linux 용 Log Analytics 에이전트 VM 확장 | *AutoUpgradeMinorVersion* 속성을 **false**로 설정 하 여 옵트아웃 (opt out) 하도록 Azure Resource Manager 템플릿을 구성 하지 않은 경우 에이전트는 기본적으로 자동으로 업그레이드 됩니다. |
+| Azure VM | Windows/Linux 용 Log Analytics 에이전트 VM 확장 | *AutoUpgradeMinorVersion* 속성을 **false** 로 설정 하 여 옵트아웃 (opt out) 하도록 Azure Resource Manager 템플릿을 구성 하지 않은 경우 에이전트는 기본적으로 자동으로 업그레이드 됩니다. |
 | 사용자 지정 Azure VM 이미지 | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다.|
 | 비 Azure Vm | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다. |
 
@@ -34,11 +34,11 @@ Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
+2. Azure Portal에서 **모든 서비스** 를 클릭합니다. 리소스 목록에서 **Log Analytics** 를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역** 을 선택합니다.
 
 3. Log Analytics 작업 영역 목록에서 작업 영역을 선택 합니다.
 
-4. Log Analytics 작업 영역에서 **고급 설정**을 선택 하 고 **연결 된 원본**, 마지막으로 **Windows 서버**를 차례로 선택 합니다.
+4. Log Analytics 작업 영역에서 **고급 설정** 을 선택 하 고 **연결 된 원본**, 마지막으로 **Windows 서버** 를 차례로 선택 합니다.
 
 5. Windows **server** 페이지에서 windows 운영 체제의 프로세서 아키텍처에 따라 다운로드할 적절 한 **windows 에이전트** 버전을 선택 합니다.
 
@@ -52,13 +52,13 @@ Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 2. **Mmasetup- \<platform\> .exe** 를 실행 하 여 설치 마법사를 시작 합니다.
 
-3. 설치 마법사의 첫 페이지에서 **다음**을 클릭 합니다.
+3. 설치 마법사의 첫 페이지에서 **다음** 을 클릭 합니다.
 
 4. **Microsoft Monitoring Agent 설정** 대화 상자에서 **동의** 함을 클릭 하 여 사용권 계약에 동의 합니다.
 
-5. **Microsoft Monitoring Agent 설치** 대화 상자에서 **업그레이드**를 클릭합니다. 상태 페이지에 업그레이드 진행률이 표시됩니다.
+5. **Microsoft Monitoring Agent 설치** 대화 상자에서 **업그레이드** 를 클릭합니다. 상태 페이지에 업그레이드 진행률이 표시됩니다.
 
-6. **Microsoft Monitoring Agent 구성이 성공적으로 완료** 된 경우 페이지가 표시 되 면 **마침**을 클릭 합니다.
+6. **Microsoft Monitoring Agent 구성이 성공적으로 완료** 된 경우 페이지가 표시 되 면 **마침** 을 클릭 합니다.
 
 #### <a name="to-upgrade-from-the-command-line"></a>명령줄에서 업그레이드하려면
 
@@ -89,15 +89,15 @@ Windows 에이전트를 다시 구성 하 여 다른 작업 영역에 보고 하
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **제어판**을 엽니다.
+2. **제어판** 을 엽니다.
 
-3. **Microsoft Monitoring Agent**를 선택한 다음, **Azure Log Analytics** 탭을 클릭합니다.
+3. **Microsoft Monitoring Agent** 를 선택한 다음, **Azure Log Analytics** 탭을 클릭합니다.
 
-4. 작업 영역을 제거하려면 작업 영역을 선택한 후 **제거**를 클릭합니다. 에이전트에서 보고를 중지할 다른 작업 영역에 대해 이 단계를 반복합니다.
+4. 작업 영역을 제거하려면 작업 영역을 선택한 후 **제거** 를 클릭합니다. 에이전트에서 보고를 중지할 다른 작업 영역에 대해 이 단계를 반복합니다.
 
-5. 작업 영역을 추가하려면 **추가**를 클릭하고 **Log Analytics 작업 영역 추가** 대화 상자에서 작업 영역 ID 및 작업 영역 키(기본 키)를 붙여넣습니다. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 Azure Cloud 드롭다운 목록에서 Azure 미국 정부를 선택합니다.
+5. 작업 영역을 추가하려면 **추가** 를 클릭하고 **Log Analytics 작업 영역 추가** 대화 상자에서 작업 영역 ID 및 작업 영역 키(기본 키)를 붙여넣습니다. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 Azure Cloud 드롭다운 목록에서 Azure 미국 정부를 선택합니다.
 
-6. **확인**을 클릭하여 변경 내용을 저장합니다.
+6. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 #### <a name="remove-a-workspace-using-powershell"></a>PowerShell을 사용하여 작업 영역 제거
 
@@ -172,11 +172,11 @@ $mma.ReloadConfiguration()
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **제어판**을 엽니다.
+2. **제어판** 을 엽니다.
 
 3. **Microsoft Monitoring Agent** 를 선택 하 고 **프록시 설정** 탭을 클릭 합니다.
 
-4. **프록시 서버 사용**을 클릭하고 프록시 서버 또는 게이트웨이의 URL 및 포트 번호를 제공합니다. 프록시 서버 또는 Log Analytics 게이트웨이에 인증이 필요한 경우 인증할 사용자 이름과 암호를 입력한 다음, **확인**을 클릭합니다.
+4. **프록시 서버 사용** 을 클릭하고 프록시 서버 또는 게이트웨이의 URL 및 포트 번호를 제공합니다. 프록시 서버 또는 Log Analytics 게이트웨이에 인증이 필요한 경우 인증할 사용자 이름과 암호를 입력한 다음, **확인** 을 클릭합니다.
 
 #### <a name="update-settings-using-powershell"></a>PowerShell을 사용하여 설정 업데이트
 
@@ -231,12 +231,12 @@ Linux 컴퓨터가 프록시 서버 또는 Log Analytics 게이트웨이를 통�
 #### <a name="uninstall-from-control-panel"></a>제어판에서 제거
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **제어판**에서 **프로그램 및 기능**을 클릭합니다.
+2. **제어판** 에서 **프로그램 및 기능** 을 클릭합니다.
 
-3. **프로그램 및 기능**에서 **Microsoft Monitoring Agent**를 클릭하고 **제거**를 클릭한 다음 **예**를 클릭합니다.
+3. **프로그램 및 기능** 에서 **Microsoft Monitoring Agent** 를 클릭하고 **제거** 를 클릭한 다음 **예** 를 클릭합니다.
 
 >[!NOTE]
->Azure Portal의 작업 영역에서 다운로드할 수 있는 **MMASetup-\<platform\>.exe**를 두 번 클릭하여 에이전트 설치 마법사를 실행할 수도 있습니다.
+>Azure Portal의 작업 영역에서 다운로드할 수 있는 **MMASetup-\<platform\>.exe** 를 두 번 클릭하여 에이전트 설치 마법사를 실행할 수도 있습니다.
 
 #### <a name="uninstall-from-the-command-line"></a>명령줄에서 제거
 다운로드한 에이전트용 파일은 IExpress로 만든 자체 포함 설치 패키지입니다. 에이전트용 설치 프로그램과 지원 파일이 패키지에 포함되어 있으며 다음 예제에 나온 대로 명령줄을 사용하여 올바로 제거하려면 이러한 프로그램과 파일을 추출해야 합니다.
@@ -261,13 +261,13 @@ System Center Operations Manager 관리 그룹에 보고하도록 Windows용 Log
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **제어판**을 엽니다.
+2. **제어판** 을 엽니다.
 
-3. **Microsoft Monitoring Agent**를 클릭한 다음 **Operations Manager** 탭을 클릭합니다.
+3. **Microsoft Monitoring Agent** 를 클릭한 다음 **Operations Manager** 탭을 클릭합니다.
 
-4. Operations Manager 서버가 Active Directory와 통합된 경우 **AD DS에서 관리 그룹 할당 자동 업데이트**를 클릭합니다.
+4. Operations Manager 서버가 Active Directory와 통합된 경우 **AD DS에서 관리 그룹 할당 자동 업데이트** 를 클릭합니다.
 
-5. **추가**를 클릭하여 **관리 그룹 추가** 대화 상자를 엽니다.
+5. **추가** 를 클릭하여 **관리 그룹 추가** 대화 상자를 엽니다.
 
 6. **관리 그룹 이름** 필드에 관리 그룹의 이름을 입력합니다.
 
@@ -275,9 +275,9 @@ System Center Operations Manager 관리 그룹에 보고하도록 Windows용 Log
 
 8. **관리 서버 포트** 필드에 TCP 포트 번호를 입력합니다.
 
-9. **에이전트 작업 계정**에서 로컬 시스템 계정 또는 로컬 도메인 계정을 선택합니다.
+9. **에이전트 작업 계정** 에서 로컬 시스템 계정 또는 로컬 도메인 계정을 선택합니다.
 
-10. **확인**을 클릭하여 **관리 그룹 추가** 대화 상자를 닫은 다음 **확인**을 클릭하여 **Microsoft Monitoring Agent 속성** 대화 상자를 닫습니다.
+10. **확인** 을 클릭하여 **관리 그룹 추가** 대화 상자를 닫은 다음 **확인** 을 클릭하여 **Microsoft Monitoring Agent 속성** 대화 상자를 닫습니다.
 
 ### <a name="linux-agent"></a>Linux 에이전트
 System Center Operations Manager 관리 그룹에 보고하도록 Linux용 Log Analytics 에이전트를 구성하려면 다음 단계를 수행합니다.

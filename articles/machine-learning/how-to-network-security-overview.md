@@ -1,22 +1,22 @@
 ---
-title: 가상 네트워크 격리 및 개인 정보 개요
+title: 가상 네트워크 격리 및 보안 개요
 titleSuffix: Azure Machine Learning
 description: 격리 된 Azure Virtual Network Azure Machine Learning와 함께 사용 하 여 작업 영역 리소스 및 계산 환경을 보호 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 07/07/2020
+ms.author: peterlu
+author: peterclu
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
+ms.openlocfilehash: dd24c4f20fa3a56d25ef142947268b2d2b75474a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893185"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029603"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,13 +28,13 @@ ms.locfileid: "90893185"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
-+ [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-+ [IP 네트워킹](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
++ [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
++ [IP 네트워킹](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [네트워크 보안 그룹(NSG)](../virtual-network/security-overview.md)
++ [네트워크 보안 그룹(NSG)](../virtual-network/network-security-groups-overview.md)
 + [네트워크 방화벽](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>예제 시나리오
@@ -70,7 +70,7 @@ ms.locfileid: "90893185"
 
 1. VNet과 작업 영역 간에 통신을 사용 하도록 설정 하려면 [개인 링크 사용 작업 영역](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) 을 만듭니다.
 1. [서비스 끝점이](../key-vault/general/overview-vnet-service-endpoints.md) 나 [개인 끝점](../key-vault/general/private-link-service.md)을 사용 하 여 가상 네트워크에 Azure Key Vault를 추가 합니다. Key Vault를 ["신뢰할 수 있는 Microsoft 서비스가이 방화벽을 우회 하도록 허용](how-to-secure-workspace-vnet.md#secure-azure-key-vault)합니다."로 설정 합니다.
-1. [서비스 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) 또는 [개인 끝점](../storage/common/storage-private-endpoints.md) 을 사용 하 여 가상 네트워크에 Azure storage 계정 추가
+1. [서비스 엔드포인트](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) 나 [개인 끝점](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)을 사용 하 여 Azure storage 계정을 가상 네트워크에 추가 합니다.
 1. 개인 끝점을 사용 하 고 [Azure Container Instances에서 서브넷 위임을 사용](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci) [하도록 Azure Container Registry를 구성](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) 합니다.
 
 ![작업 영역 및 연결 된 리소스가 VNet 내부의 서비스 끝점 또는 개인 끝점을 통해 서로 통신 하는 방법을 보여 주는 아키텍처 다이어그램](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -80,10 +80,8 @@ ms.locfileid: "90893185"
 ### <a name="limitations"></a>제한 사항
 
 가상 네트워크 내에서 작업 영역 및 연결 된 리소스를 보호 하는 경우 다음과 같은 제한 사항이 있습니다.
-- 작업 영역 개인 링크는 다음 지역 에서만 사용할 수 있습니다. eastus, westus2, southcentralus
-    - 연결 된 리소스에는이 제한이 적용 되지 않습니다. 예를 들어 모든 Azure Machine Learning 지역에서 저장소에 대해 VNet을 사용 하도록 설정할 수 있습니다.
+- 개인 링크로 Azure Machine Learning 작업 영역을 사용 하는 것은 Azure Government 또는 Azure 중국 21Vianet 지역에서 사용할 수 없습니다.
 - 모든 리소스는 동일한 VNet 뒤에 있어야 합니다. 그러나 동일한 VNet 내의 서브넷은 허용 됩니다.
-- 디자이너, AutoML, 레이블 지정 및 데이터 프로 파일링과 같은 일부 studio 기능은 개인 끝점을 사용 하도록 구성 된 저장소 계정에서 사용할 수 없습니다. 이러한 스튜디오 기능을 사용 해야 하는 경우 서비스 끝점을 대신 사용 합니다.
 
 ## <a name="secure-the-training-environment"></a>교육 환경 보안
 
@@ -143,23 +141,30 @@ ms.locfileid: "90893185"
 
 [작업 영역 보안](#secure-the-workspace-and-associated-resources)  >  [교육 환경 보안](#secure-the-training-environment)  >  [추론 환경 보안](#secure-the-inferencing-environment)  >  **스튜디오 기능 사용**  >  [방화벽 설정 구성](#configure-firewall-settings)
 
-스튜디오에서는 서비스 끝점으로 구성 된 저장소 계정의 데이터에 액세스할 수 있지만 일부 기능은 기본적으로 사용 하지 않도록 설정 됩니다.
+저장소가 VNet에 있는 경우 먼저 추가 구성 단계를 수행 하 여 [스튜디오](overview-what-is-machine-learning-studio.md)에서 전체 기능을 사용할 수 있도록 해야 합니다. 기본적으로 다음 기능을 사용할 수 없습니다.
 
 * Studio에서 데이터를 미리 봅니다.
 * 디자이너에서 데이터를 시각화 합니다.
+* 디자이너에서 모델을 배포 합니다.
 * AutoML 실험을 제출 합니다.
 * 레이블 지정 프로젝트를 시작 합니다.
 
-저장소 서비스 끝점을 사용 하는 동안 전체 기능을 사용 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#access-data-using-the-studio)을 참조 하세요. 현재 스튜디오에서는 저장소 전용 끝점을 지원 하지 않습니다.
+VNet 내부에서 전체 studio 기능을 사용 하도록 설정 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio)을 참조 하세요. 스튜디오는 서비스 끝점이 나 개인 끝점을 사용 하 여 저장소 계정을 지원 합니다.
 
 ### <a name="limitations"></a>제한 사항
-- 스튜디오는 개인 끝점을 사용 하도록 구성 된 저장소 계정의 데이터에 액세스할 수 없습니다. 모든 기능을 사용 하려면 저장소에 대해 서비스 끝점을 사용 하 고 관리 되는 id를 사용 해야 합니다.
+- [ML 지원 데이터 레이블](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 지정은 가상 네트워크 뒤에 보안 되는 기본 저장소 계정을 지원 하지 않습니다. ML 지원 데이터 레이블 지정을 위해 기본이 아닌 저장소 계정을 사용 해야 합니다. 기본이 아닌 저장소 계정은 가상 네트워크 뒤에 보안을 설정할 수 있습니다. 
 
 ## <a name="configure-firewall-settings"></a>방화벽 설정 구성하기
 
 Azure Machine Learning 작업 영역 리소스 및 공용 인터넷에 대 한 액세스를 제어 하도록 방화벽을 구성 합니다. Azure 방화벽을 권장 하는 동안 다른 방화벽 제품을 사용 하 여 네트워크를 보호할 수 있어야 합니다. 방화벽을 통한 통신을 허용 하는 방법에 대 한 질문이 있는 경우 사용 중인 방화벽에 대 한 설명서를 참조 하세요.
 
 방화벽 설정에 대 한 자세한 내용은 [방화벽 뒤에 작업 영역 사용](how-to-access-azureml-behind-firewall.md)을 참조 하세요.
+
+## <a name="custom-dns"></a>사용자 지정 DNS
+
+가상 네트워크에 대 한 사용자 지정 DNS 솔루션을 사용 해야 하는 경우 작업 영역에 대 한 호스트 레코드를 추가 해야 합니다.
+
+필요한 도메인 이름 및 IP 주소에 대 한 자세한 내용은 [사용자 지정 DNS 서버에서 작업 영역을 사용 하는 방법](how-to-custom-dns.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

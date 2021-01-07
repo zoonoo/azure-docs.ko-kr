@@ -4,10 +4,10 @@ description: 연속 비디오 녹화 IoT Edge에서 라이브 비디오 분석�
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84260386"
 ---
 # <a name="playback-of-recordings"></a>녹음/녹화 재생 
@@ -48,7 +48,7 @@ CVR를 사용 하는 경우 재생 장치 (클라이언트)는 전체 기록 재
 
 여기서 전체 자릿수 값은 연도, 월, 일 또는 전체 (아래와 같이) 중 하나일 수 있습니다. 
 
-|전체 자릿수|year|month|일|전체|
+|자릿수|연도|month|일|전체|
 |---|---|---|---|---|
 |쿼리|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |응답|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|전체 충실도 응답입니다. 간격이 전혀 없는 경우 시작은 startTime이 고 end는 endTime이 됩니다.|
@@ -209,8 +209,8 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=day&startTim
 
 위에서 설명한 것 처럼 이러한 필터는 재생을 위해 기록 부분 (예: 오전 9 시에서 오전 11 시부터 오전 11 시까지)을 선택 하는 데 도움이 됩니다. HLS를 통해 스트리밍할 때 스트리밍 URL은 처럼 보입니다 `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8` . 기록의 일부를 선택 하기 위해 startTime 및 endTime 매개 변수 (예:)를 추가 `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00Z,endTime=2019-12-21T10:00:00Z).m3u8` 합니다. 따라서 시간 범위 필터는 스트리밍 매니페스트에 포함 된 기록의 타임 라인 부분을 설명 하는 데 사용 되는 URL 한정자입니다.
 
-* `starttime`반환 된 매니페스트에서 비디오 타임 라인의 원하는 시작 시간을 설명 하는 ISO 8601 DateTime 스탬프입니다.
-* `endtime`는 매니페스트에서 반환 되는 비디오 타임 라인의 원하는 종료 시간을 설명 하는 ISO 8601 DateTime 스탬프입니다.
+* `starttime` 반환 된 매니페스트에서 비디오 타임 라인의 원하는 시작 시간을 설명 하는 ISO 8601 DateTime 스탬프입니다.
+* `endtime` 는 매니페스트에서 반환 되는 비디오 타임 라인의 원하는 종료 시간을 설명 하는 ISO 8601 DateTime 스탬프입니다.
 
 이러한 매니페스트의 최대 길이 (시간)는 24 시간을 초과할 수 없습니다.
 
@@ -294,7 +294,7 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=full&startTi
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T14:01:00.000Z,endTime=2019-12-21T03:00:00.000Z).m3u8`
 * StartTime 및 endTime이 중간의 ' 구멍 ' 내에 있었던 매니페스트를 요청 하는 경우 (예를 들어 오전 8 시에서 오전 10 시 UTC로), 서비스는 자산 필터가 빈 결과를 생성 하는 것과 동일한 방식으로 동작 합니다.
 
-    [빈 응답을 가져오는 요청]`GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
+    [빈 응답을 가져오는 요청] `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
 * StartTime 또는 endTime 중 하나만 ' 구멍 ' 안에 있는 매니페스트를 요청 하면 반환 된 매니페스트에는 해당 timespan의 일부만 포함 됩니다. StartTime 또는 endTime 값을 가장 가까운 올바른 경계에 맞춥니다. 예를 들어 오전 10 시에서 오후 1 시로 3 시간 스트림을 요청 하는 경우 응답에는 12 오후 1 시에 해당 하는 미디어의 미디어가 포함 됩니다.
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
@@ -303,7 +303,7 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=full&startTi
 
 ## <a name="recording-and-playback-latencies"></a>기록 및 재생 대기 시간
 
-IoT Edge에서 Live Video Analytics를 사용 하 여 자산에 기록 하는 경우 클라우드에 기록 되기 전의 최소 비디오 기간 (초)을 집계 하도록 모듈에 지시 하는 segmentLength 속성을 지정 합니다. 예를 들어 segmentLength가 300로 설정 된 경우 모듈은 5 분 "청크"를 업로드 하기 전에 5 분 분량의 비디오를 누적 한 다음, 다음 5 분 동안 누적 모드로 전환 하 고 다시 업로드 합니다. SegmentLength를 높이면 읽기 및 쓰기 수가 segmentLength 초 마다 한 번만 더 자주 발생 하지 않으므로 Azure Storage 트랜잭션 비용을 낮출 수 있습니다.
+IoT Edge에서 Live Video Analytics를 사용 하 여 자산에 기록 하는 경우 클라우드에 기록 되기 전의 최소 비디오 기간 (초)을 집계 하도록 모듈에 지시 하는 segmentLength 속성을 지정 합니다. 예를 들어 segmentLength가 300로 설정 된 경우 1 5 분 "청크"를 업로드 하기 전에 모듈에서 5 분 분량의 비디오를 누적 한 후 다음 5 분 동안 누적 모드로 전환 하 고 다시 업로드 합니다. SegmentLength를 높이면 읽기 및 쓰기 수가 segmentLength 초 마다 한 번만 더 자주 발생 하지 않으므로 Azure Storage 트랜잭션 비용을 낮출 수 있습니다.
 
 따라서 Media Services의 비디오 스트리밍은 최소한의 시간 만큼 지연 됩니다. 
 

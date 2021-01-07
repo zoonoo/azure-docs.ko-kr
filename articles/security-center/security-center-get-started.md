@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895748"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187173"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>빠른 시작: Azure Security Center 설정
 
@@ -33,17 +33,17 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 구독에 Azure Defender를 사용하도록 설정하려면 구독 소유자, 구독 기여자 또는 보안 관리자 역할을 할당 받아야 합니다.
 
 
-## <a name="open-security-center-for-the-first-time"></a>처음으로 Security Center 열기
+## <a name="enable-security-center-on-your-azure-subscription"></a>Azure 구독에서 Security Center 활성화
 
 1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 
-1. 포털의 메뉴에서 **Security Center**를 선택합니다. 
+1. 포털의 메뉴에서 **Security Center** 를 선택합니다. 
 
     Security Center 개요 페이지가 열립니다.
 
     :::image type="content" source="./media/security-center-get-started/overview.png" alt-text="Security Center 개요 대시보드" lightbox="./media/security-center-get-started/overview.png":::
 
-**Security Center - 개요**에서는 하이브리드 클라우드 워크로드의 보안 태세를 총체적으로 확인하여 워크로드의 보안을 검색 및 평가하고 위험을 파악 및 완화할 수 있습니다. Security Center는 이전에 사용자 또는 다른 구독 사용자가 온보딩하지 않은 Azure 구독을 자동으로 사용하도록 설정합니다(비용 없음).
+**Security Center - 개요** 에서는 하이브리드 클라우드 워크로드의 보안 태세를 총체적으로 확인하여 워크로드의 보안을 검색 및 평가하고 위험을 파악 및 완화할 수 있습니다. Security Center는 이전에 사용자 또는 다른 구독 사용자가 온보딩하지 않은 Azure 구독을 자동으로 사용하도록 설정합니다(비용 없음).
 
 **구독** 메뉴 항목을 선택하여 구독 목록을 보고 필터링할 수 있습니다. Security Center는 선택한 구독의 보안 상태를 반영하도록 디스플레이를 조정합니다. 
 
@@ -54,12 +54,14 @@ Security Center를 처음 시작하면 수분 내에 다음이 표시될 수 있
 
 Security Center를 최대한 활용하려면 아래 단계를 완료하여 Azure Defender를 사용하도록 설정하고 Log Analytics 에이전트를 설치해야 합니다.
 
+> [!TIP]
+> 관리 그룹 내의 모든 구독에서 Security Center를 사용하도록 설정하려면 [여러 Azure 구독에서 Security Center 사용](onboard-management-group.md)을 참조하세요.
 
 ## <a name="enable-azure-defender"></a>Azure Defender 사용
 
 Security Center 빠른 시작 및 자습서를 위해 Azure Defender를 사용하도록 설정해야 합니다. 30일 평가판을 사용할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. 
 
-1. Security Center의 사이드바에서 **시작**을 선택합니다.
+1. Security Center의 사이드바에서 **시작** 을 선택합니다.
 
     :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="시작 페이지의 업그레이드 탭"::: 
 
@@ -68,7 +70,7 @@ Security Center 빠른 시작 및 자습서를 위해 Azure Defender를 사용�
 1. **Azure Defender를 사용하도록 설정할 작업 영역 선택** 목록에서 업그레이드할 작업 영역을 선택합니다.
    - 평가판에 적합하지 않은 구독 및 작업 영역을 선택하면 다음 단계에서 해당 구독 및 작업 영역을 업그레이드하고 요금이 부과되기 시작합니다.
    - 평가판에 적합한 작업 영역을 선택하면 다음 단계에서 평가판이 시작됩니다.
-1. Azure Defender를 사용하도록 설정하려면 **업그레이드**를 선택합니다.
+1. Azure Defender를 사용하도록 설정하려면 **업그레이드** 를 선택합니다.
 
 ## <a name="enable-automatic-data-collection"></a>자동 데이터 수집 사용
 Security Center는 사용자 머신에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 데이터는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사하는 Log Analytics 에이전트를 사용하여 수집됩니다. 기본적으로 Security Center는 새 작업 영역을 만듭니다.
@@ -77,10 +79,10 @@ Security Center는 사용자 머신에서 데이터를 수집하여 보안 취�
 
 Log Analytics 에이전트의 자동 프로비저닝을 사용하려면 다음을 수행합니다.
 
-1. Security Center 메뉴에서 **가격 책정 및 설정**을 선택합니다.
+1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
 1. 관련 구독을 선택합니다.
-1. **데이터 수집** 페이지에서 **자동 프로비저닝**을 **켜짐**으로 설정합니다.
-1. **저장**을 선택합니다.
+1. **데이터 수집** 페이지에서 **자동 프로비저닝** 을 **켜짐** 으로 설정합니다.
+1. **저장** 을 선택합니다.
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝 사용":::
 
@@ -90,7 +92,7 @@ Log Analytics 에이전트의 자동 프로비저닝을 사용하려면 다음�
 사용자 머신에 에이전트가 배포되면 Security Center가 시스템 업데이트 상태, OS 보안 구성, 엔드포인트 보호와 관련된 추가 권장 사항을 제공하고 추가 보안 경고를 생성할 수 있습니다.
 
 >[!NOTE]
-> 자동 프로비저닝을 **꺼짐**으로 설정해도 에이전트가 이미 프로비저닝된 Azure VM에서 Log Analytics 에이전트가 제거되지는 않습니다. 자동 프로비저닝을 사용하지 않도록 설정하면 리소스에 대한 보안 모니터링이 제한됩니다.
+> 자동 프로비저닝을 **꺼짐** 으로 설정해도 에이전트가 이미 프로비저닝된 Azure VM에서 Log Analytics 에이전트가 제거되지는 않습니다. 자동 프로비저닝을 사용하지 않도록 설정하면 리소스에 대한 보안 모니터링이 제한됩니다.
 
 
 
@@ -103,13 +105,12 @@ Log Analytics 에이전트의 자동 프로비저닝을 사용하려면 다음�
 클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
 
 > [!div class="nextstepaction"]
-> [Cost Management를 통한 비용 분석 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Cost Management를 통한 비용 분석 시작](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png
 [4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
-[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
 [9]: ./media/security-center-get-started/select-subscription.png

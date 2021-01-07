@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: c4a78168f2759f9d7bb9e50165b8cf03c71ecab5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 5cadfad445c76726b1b825b131de4016a57979fa
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845940"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391843"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>FHIR에 대 한 Azure RBAC 구성 
 
-이 문서에서는 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/) 를 사용 하 여 FHIR 데이터 평면에 대 한 azure API에 액세스 권한을 할당 하는 방법에 대해 설명 합니다. Azure RBAC는 데이터 평면 사용자가 Azure 구독과 연결 된 Azure Active Directory 테 넌 트에서 관리 되는 경우 데이터 평면 액세스를 할당 하는 데 선호 되는 방법입니다. 외부 Azure Active Directory 테 넌 트를 사용 하는 경우 [로컬 RBAC 할당 참조](configure-local-rbac.md)를 참조 하세요.
+이 문서에서는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml) 를 사용 하 여 FHIR 데이터 평면에 대 한 azure API에 액세스 권한을 할당 하는 방법에 대해 설명 합니다. Azure RBAC는 데이터 평면 사용자가 Azure 구독과 연결 된 Azure Active Directory 테 넌 트에서 관리 되는 경우 데이터 평면 액세스를 할당 하는 데 선호 되는 방법입니다. 외부 Azure Active Directory 테 넌 트를 사용 하는 경우 [로컬 RBAC 할당 참조](configure-local-rbac.md)를 참조 하세요.
 
 ## <a name="confirm-azure-rbac-mode"></a>Azure RBAC 모드 확인
 
@@ -25,11 +25,11 @@ Azure RBAC를 사용 하려면 데이터 평면에 Azure 구독 테 넌 트를 �
 
 :::image type="content" source="media/rbac/confirm-azure-rbac-mode.png" alt-text="Azure RBAC 모드 확인":::
 
-**인증 기관은** 구독과 연결 된 Azure Active directory 테 넌 트로 설정 되어야 하며, **허용 된 개체 id**라는 상자에는 guid가 없어야 합니다. 또한 상자를 사용할 수 없으며 레이블은 Azure RBAC를 사용 하 여 데이터 평면 역할을 할당 해야 함을 알 수 있습니다.
+**인증 기관은** 구독과 연결 된 Azure Active directory 테 넌 트로 설정 되어야 하며, **허용 된 개체 id** 라는 상자에는 guid가 없어야 합니다. 또한 상자를 사용할 수 없으며 레이블은 Azure RBAC를 사용 하 여 데이터 평면 역할을 할당 해야 함을 알 수 있습니다.
 
 ## <a name="assign-roles"></a>역할 할당
 
-사용자, 서비스 사용자 또는 그룹에 게 FHIR 데이터 평면에 대 한 액세스 권한을 부여 하려면 **액세스 제어 (IAM)** 를 클릭 한 다음 **역할 할당** 을 클릭 하 고 **+ 추가**를 클릭 합니다.
+사용자, 서비스 사용자 또는 그룹에 게 FHIR 데이터 평면에 대 한 액세스 권한을 부여 하려면 **액세스 제어 (IAM)** 를 클릭 한 다음 **역할 할당** 을 클릭 하 고 **+ 추가** 를 클릭 합니다.
 
 :::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Azure 역할 할당 추가":::
 
@@ -44,7 +44,7 @@ Azure RBAC를 사용 하려면 데이터 평면에 Azure 구독 테 넌 트를 �
 * FHIR 데이터 내보내기: 데이터를 읽고 내보낼 수 있습니다 ( `$export` 연산자).
 * FHIR 데이터 참가자: 모든 데이터 평면 작업을 수행할 수 있습니다.
 
-이러한 역할이 필요에 충분 하지 않은 경우 [사용자 지정 역할을 만들](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)수도 있습니다.
+이러한 역할이 필요에 충분 하지 않은 경우 [사용자 지정 역할을 만들](../role-based-access-control/tutorial-custom-role-powershell.md)수도 있습니다.
 
 **선택** 상자에서 역할을 할당 하려는 사용자, 서비스 사용자 또는 그룹을 검색 합니다.
 
@@ -54,7 +54,7 @@ FHIR 용 Azure API는 최대 5 분 동안 결정을 캐시 합니다. 사용자�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 FHIR 데이터 평면에 대 한 Azure 역할을 할당 하는 방법을 배웠습니다. 다음으로 FHIR 용 Azure API에 대 한 추가 설정에 대해 알아봅니다.
+이 문서에서는 FHIR 데이터 평면에 대 한 Azure 역할을 할당 하는 방법을 배웠습니다. FHIR 용 Azure API에 대 한 추가 설정에 대해 자세히 알아보려면 다음을 수행 합니다.
  
 >[!div class="nextstepaction"]
->[추가 설정 Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
+>[FHIR 용 Azure API에 대 한 추가 설정](azure-api-for-fhir-additional-settings.md)

@@ -1,18 +1,18 @@
 ---
 title: 템플릿 구문 및 식
-description: Azure Resource Manager 템플릿에 대 한 선언적 JSON 구문을 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)의 선언적 JSON 구문을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44a386ed849771dfba717c8d1414e64422d0c7bd
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203831"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797046"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구문 및 식
+# <a name="syntax-and-expressions-in-arm-templates"></a>ARM 템플릿의 구문 및 식
 
-템플릿의 기본 구문은 JSON이지만, 그러나 식을 사용 하 여 템플릿 내에서 사용할 수 있는 JSON 값을 확장할 수 있습니다.  식은 `[` 및 `]` 대괄호로 각각 시작 및 종료됩니다. 식의 값은 템플릿을 배포할 때 평가됩니다. 식은 문자열, 정수, 부울, 배열 또는 개체를 반환할 수 있습니다.
+Azure Resource Manager 템플릿 (ARM 템플릿)의 기본 구문은 JavaScript Object Notation (JSON)입니다. 그러나 식을 사용 하 여 템플릿 내에서 사용할 수 있는 JSON 값을 확장할 수 있습니다.  식은 `[` 및 `]` 대괄호로 각각 시작 및 종료됩니다. 식의 값은 템플릿을 배포할 때 평가됩니다. 식은 문자열, 정수, 부울, 배열 또는 개체를 반환할 수 있습니다.
 
 템플릿 식은 24576 자를 초과할 수 없습니다.
 
@@ -31,7 +31,7 @@ Azure Resource Manager에서는 템플릿에서 사용할 수 있는 [함수](te
 
 식 내에서 구문은 `resourceGroup()` 템플릿 내에서 사용 하기 위해 리소스 관리자 제공 하는 함수 중 하나를 호출 합니다. 이 경우 [resourceGroup](template-functions-resource.md#resourcegroup) 함수입니다. JavaScript에서와 마찬가지로 함수 호출은 `functionName(arg1,arg2,arg3)`과 같이 형식이 지정됩니다. 구문은 `.location` 해당 함수에서 반환 하는 개체에서 속성 하나를 검색 합니다.
 
-템플릿 함수 및 해당 매개 변수는 대/소문자를 구분하지 않습니다. 예를 들어 Resource Manager에서 **variables('var1')** 와 **VARIABLES('VAR1')** 는 동일합니다. 계산될 때 함수는 대/소문자를 명시적으로 수정하지 않는 한(toUpper 또는 toLower 등) 대/소문자를 보존합니다. 특정 리소스 종류에는 함수 평가 방법과 별개의 사례 요구 사항이 있을 수 있습니다.
+템플릿 함수 및 해당 매개 변수는 대/소문자를 구분하지 않습니다. 예를 들어 리소스 관리자 `variables('var1')` 는와 `VARIABLES('VAR1')` 동일한 것으로 확인 됩니다. 함수에서 대/소문자를 명시적으로 수정 하지 않는 한 계산 된 경우 (예: `toUpper` 또는 `toLower` ) 함수는 대/소문자를 유지 합니다. 특정 리소스 종류에는 함수 평가 방법과 별개의 사례 요구 사항이 있을 수 있습니다.
 
 문자열 값을 매개 변수로 함수에 전달 하려면 작은따옴표를 사용 합니다.
 
@@ -123,7 +123,7 @@ New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azurede
 
 ## <a name="null-values"></a>Null 값
 
-속성을 null로 설정 하려면 **null** 또는 **[json (' null ')]** 을 사용할 수 있습니다. [Json 함수](template-functions-object.md#json) 는를 매개 변수로 제공할 때 빈 개체를 반환 합니다 `null` . 두 경우 모두 리소스 관리자 템플릿에서는 속성이 없는 것 처럼 처리 합니다.
+속성을 null로 설정하려면 `null` 또는 `[json('null')]`을 사용할 수 있습니다. [Json 함수](template-functions-object.md#json) 는를 매개 변수로 제공할 때 빈 개체를 반환 합니다 `null` . 두 경우 모두 리소스 관리자 템플릿에서는 속성이 없는 것 처럼 처리 합니다.
 
 ```json
 "stringValue": null,
@@ -132,5 +132,5 @@ New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azurede
 
 ## <a name="next-steps"></a>다음 단계
 
-* 템플릿 함수의 전체 목록을 보려면 [Azure 리소스 관리자 템플릿 함수](template-functions.md)를 참조하세요.
-* 템플릿 파일에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 템플릿 함수의 전체 목록은 [ARM 템플릿 함수](template-functions.md)를 참조 하세요.
+* 템플릿 파일에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

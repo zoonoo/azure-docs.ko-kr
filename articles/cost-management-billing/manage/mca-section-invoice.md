@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 9f5e69a609931f4f8ead62f4d5c5ba2a1064a6ea
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362777"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>청구 계정을 사용자 지정하여 비용 구성
 
@@ -53,19 +53,19 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 |---------|---------|
 |Jack이 Azure에 등록하고 단일 월별 청구서가 필요합니다. | 청구 프로필 및 청구서 섹션. 이 구조는 Jack이 Azure에 등록할 때 Jack에 대해 자동으로 설정되며 추가 단계가 필요하지 않습니다. |
 
-![간단한 청구 시나리오에 대한 정보 그래픽](./media/mca-section-invoice/organize-billing-scenario1.png)
+![단일 청구 시나리오에 대한 정보 그래픽](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |시나리오  |구조  |
 |---------|---------|
 |Contoso는 단일 월별 청구서가 필요하되 부서(마케팅 및 엔지니어링)를 기준으로 비용을 그룹화해야 하는 소규모 조직입니다.  | Contoso에 대한 청구 프로필 및 마케팅 및 엔지니어링 부서를 위한 청구서 섹션. |
 
-![간단한 청구 시나리오에 대한 정보 그래픽](./media/mca-section-invoice/organize-billing-scenario2.png)
+![다중 청구 시나리오에 대한 정보 그래픽](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |시나리오  |구조  |
 |---------|---------|
 |Fabrikam은 엔지니어링 및 마케팅 부서에 대한 별도의 청구서가 필요한 중간 규모의 조직입니다. 엔지니어링 부서의 경우 프로덕션 및 개발 환경 별로 비용을 그룹화하려고 합니다.  | 마케팅 및 엔지니어링 부서를 위한 각각의 청구 프로필. 엔지니어링 부서의 경우 프로덕션 및 개발 환경에 대한 청구서 섹션. |
 
-![간단한 청구 시나리오에 대한 정보 그래픽](./media/mca-section-invoice/organize-billing-scenario3.png)
+![프로덕션 및 개발 환경에 대한 별도의 청구를 포함하는 다중 청구 시나리오에 대한 정보 그래픽](./media/mca-section-invoice/organize-billing-scenario3.png)
 
 ## <a name="create-a-new-invoice-section"></a>새 청구서 섹션 만들기
 
@@ -79,7 +79,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 3. 왼쪽 창에서 **청구 프로필**을 선택합니다. 목록에서 청구 프로필을 선택합니다. 새 섹션이 선택한 청구 프로필의 청구서에 표시됩니다.
 
-   [![청구 프로필 목록을 보여주는 스크린샷](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![청구 프로필 목록을 보여 주는 스크린샷](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 4. 왼쪽 창에서 **청구서 섹션**을 선택한 다음, 페이지 맨 위에서 **추가**를 선택합니다.
 
@@ -107,7 +107,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 3. 왼쪽 창에서 **청구 프로필**을 선택한 다음, 페이지 맨 위에서 **추가**를 선택합니다.
 
-   [![청구 프로필 목록을 보여주는 스크린샷](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [!['추가'가 선택된 청구 프로필 목록을 보여 주는 스크린샷](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
@@ -136,15 +136,15 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 2. **구독**을 검색합니다.
 
-   [![포털의 구독 검색을 보여주는 스크린샷](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Azure Portal의 구독 검색을 보여 주는 스크린샷](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. 페이지 맨 위에서 **추가**를 선택합니다.
 
-   ![구독 보기의 추가 단추를 보여 주는 스크린샷](./media/mca-section-invoice/subscription-add.png)
+   ![구독 보기의 새 구독 추가 단추를 보여 주는 스크린샷](./media/mca-section-invoice/subscription-add.png)
 
 4. 여러 청구 계정에 액세스할 수 있는 경우 Microsoft 고객 계약 청구 계정을 선택합니다.
 
-   ![구독 보기의 추가 단추를 보여 주는 스크린샷](./media/mca-section-invoice/mca-create-azure-subscription.png)
+   ![구독 만들기 창을 보여 주는 스크린샷](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
 5. 구독 사용량에 대해 요금이 청구될 청구 프로필을 선택합니다. 이 구독의 Azure 사용량 및 기타 구매에 대한 요금은 선택한 청구 프로필의 청구서로 청구됩니다.
 
@@ -166,7 +166,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 2. **Cost Management + 청구**를 검색합니다.
 
-   ![포털의 구독 검색을 보여 주는 스크린샷](./media/mca-section-invoice/search-cmb.png)
+   ![Cost Management + Billing에 대한 Azure Portal 내 검색을 보여 주는 스크린샷](./media/mca-section-invoice/search-cmb.png)
 
 3. 구독을 새 청구서 섹션에 연결하려면 화면 왼쪽에서 **Azure 구독**을 선택합니다. Azure Marketplace 및 앱 원본 리소스와 같은 다른 제품의 경우 **반복 청구 요금**을 선택합니다.
 

@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: f514dd7b54ac091535aeab43a8a7d2a645b50a09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87315838"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Application Insights Profiler를 사용하여 Azure Virtual Machine 또는 가상 머신 확장 집합에서 실행되는 웹앱 프로파일링
@@ -54,7 +54,7 @@ ms.locfileid: "87315838"
 
    수정 사항을 적용하면 일반적으로 PowerShell cmdlet 또는 Visual Studio를 통한 전체 템플릿 배포 또는 클라우드 서비스 기반 게시가 진행됩니다.  
 
-   다음 PowerShell 명령은 Azure 진단 확장만 접촉 하는 기존 가상 컴퓨터에 대 한 대체 방법입니다. 이전에 언급 한 ProfilerSink을 AzVMDiagnosticsExtension 명령에 의해 반환 되는 구성에 추가 합니다. 그런 다음 업데이트 된 구성을 AzVMDiagnosticsExtension 명령에 전달 합니다.
+   다음 PowerShell 명령은 Azure 진단 확장만 접촉 하는 기존 가상 컴퓨터에 대 한 대체 방법입니다. Get-AzVMDiagnosticsExtension 명령에 의해 반환 되는 구성에 앞에서 설명한 ProfilerSink를 추가 합니다. 그런 다음 업데이트 된 구성을 Set-AzVMDiagnosticsExtension 명령에 전달 합니다.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()

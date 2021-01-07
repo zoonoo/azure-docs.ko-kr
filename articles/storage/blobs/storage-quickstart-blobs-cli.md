@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520773"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021761"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 
@@ -27,25 +27,15 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-## <a name="install-the-azure-cli-locally"></a>로컬로 Azure CLI 설치
-
-Azure CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.46 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
-Azure CLI를 로컬로 실행하는 경우 로그인하여 인증해야 합니다. Azure Cloud Shell을 사용하는 경우 이 단계가 필요하지 않습니다. Azure CLI에 로그인하려면 `az login`을 실행하고 브라우저 창에서 인증합니다.
-
-```azurecli
-az login
-```
-
-Azure CLI의 인증에 대한 자세한 내용은 [Azure CLI를 사용하여 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.46 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="authorize-access-to-blob-storage"></a>Blob 스토리지에 대한 액세스 권한 부여
 
 Azure AD 자격 증명을 사용하거나 스토리지 계정 액세스 키를 사용하여 Azure CLI에서 Blob 스토리지에 대한 액세스 권한을 부여할 수 있습니다. Azure AD 자격 증명을 사용하는 것이 좋습니다. 이 문서에서는 Azure AD를 사용하여 Blob 스토리지 작업에 권한을 부여하는 방법을 보여 줍니다.
 
-Blob 스토리지에 대한 데이터 작업에 사용하는 Azure CLI 명령은 지정된 작업에 권한을 부여하는 방법을 지정할 수 있는 `--auth-mode` 매개 변수를 지원합니다. Azure AD 자격 증명을 사용하여 권한을 부여하려면 `--auth-mode` 매개 변수를 `login`으로 설정합니다. 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+Blob 스토리지에 대한 데이터 작업에 사용하는 Azure CLI 명령은 지정된 작업에 권한을 부여하는 방법을 지정할 수 있는 `--auth-mode` 매개 변수를 지원합니다. Azure AD 자격 증명을 사용하여 권한을 부여하려면 `--auth-mode` 매개 변수를 `login`으로 설정합니다. 자세한 내용은 [Azure CLI를 사용하여 Blob 또는 큐 데이터에 대한 액세스 권한 부여](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 Blob 스토리지 데이터 작업만 `--auth-mode` 매개 변수를 지원합니다. 리소스 그룹 또는 스토리지 계정 만들기와 같은 관리 작업은 Azure AD 자격 증명을 권한 부여에 자동으로 사용합니다.
 
@@ -99,7 +89,7 @@ az storage container create \
 > [!IMPORTANT]
 > Azure 역할 할당을 전파하는 데 몇 분 정도 걸릴 수 있습니다.
 
-스토리지 계정 키를 사용하여 컨테이너를 만들도록 작업에 권한을 부여할 수도 있습니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json)를 참조하세요.
+스토리지 계정 키를 사용하여 컨테이너를 만들도록 작업에 권한을 부여할 수도 있습니다. Azure CLI 사용하여 데이터 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 blob 또는 큐 데이터에 대한 액세스 권한 부여](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 ## <a name="upload-a-blob"></a>Blob 업로드
 
@@ -111,7 +101,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 vi helloworld
 ```
 
-파일이 열리면 **삽입**을 누릅니다. *Hello World*를 입력한 다음, **Esc** 키를 누릅니다. 그런 다음, *:x*를 입력하고 **Enter** 키를 누릅니다.
+파일이 열리면 **삽입** 을 누릅니다. *Hello World* 를 입력한 다음, **Esc** 키를 누릅니다. 그런 다음, *:x* 를 입력하고 **Enter** 키를 누릅니다.
 
 이 예제에서는 [az storage blob upload](/cli/azure/storage/blob) 명령을 사용하여 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다. 파일을 루트 디렉터리에 만들었으므로 파일 경로를 지정할 필요가 없습니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -179,4 +169,4 @@ az group delete \
 이 빠른 시작에서는 로컬 파일 시스템과 Azure Blob 스토리지의 컨테이너 간에 파일을 전송하는 방법을 알아보았습니다. Azure CLI를 통해 Blob 스토리지를 사용하는 방법에 대해 자세히 알아보려면 Blob 스토리지용 Azure CLI 샘플을 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [Blob 스토리지용 Azure CLI 샘플](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Blob 스토리지용 Azure CLI 샘플](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

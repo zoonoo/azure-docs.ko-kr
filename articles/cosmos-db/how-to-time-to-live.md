@@ -3,20 +3,24 @@ title: Azure Cosmos DB에서 라이브 시간 구성 및 관리
 description: 컨테이너와 항목에 대해 ttl (time to live)을 구성 하 고 관리 하는 방법에 대해 알아봅니다 Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/27/2020
+ms.date: 10/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997271"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341011"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성하도록 선택하거나 컨테이너를 설정한 후 항목 수준에서 재정의할 수 있습니다. Azure Portal 또는 언어별 SDK를 사용하여 컨테이너에 대해 TTL을 구성할 수 있습니다. SDK를 사용하여 항목 수준 TTL 재정의를 구성할 수 있습니다.
+
+> 이 콘텐츠는 Azure Cosmos DB 트랜잭션 저장소 TTL과 관련이 있습니다. [Azure Synapse 링크](./synapse-link.md)를 통해 NOETL HTAP 시나리오를 사용 하도록 설정 하는 ANALITYCAL 저장소 TTL을 찾고 있는 경우 [여기](./analytical-store-introduction.md#analytical-ttl)를 클릭 하세요.
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Azure Portal을 사용하여 컨테이너에서 TTL(Time to Live)을 사용하도록 설정
 
@@ -32,8 +36,8 @@ Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성�
 
    * **배율 및 설정** 창을 엽니다.
    * **설정** 아래에서 **TTL(Time to Live)** 을 찾습니다.
-   * **설정(기본값 없음)** 를 선택하거나 **켜기**를 선택하고 TTL 값을 설정합니다.
-   * **저장**을 클릭하여 변경 내용을 저장합니다.
+   * **설정(기본값 없음)** 를 선택하거나 **켜기** 를 선택하고 TTL 값을 설정합니다.
+   * **저장** 을 클릭하여 변경 내용을 저장합니다.
 
    :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Azure Portal에서 TTL(Time to Live) 구성":::
 
@@ -114,7 +118,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>SDK를 사용하여 컨테이너에 대한 TTL(Time to Live) 설정
 
-컨테이너에 대한 TTL(Time to Live)을 설정하려면 기간을 초 단위로 나타내는 0이 아닌 양수 값을 입력해야 합니다. 구성된 TTL 값에 따라, 컨테이너에 있는 모든 항목은 항목 `_ts`의 마지막으로 수정된 타임스탬프 후에 삭제됩니다.
+컨테이너에 대한 TTL(Time to Live)을 설정하려면 기간을 초 단위로 나타내는 0이 아닌 양수 값을 입력해야 합니다. 구성된 TTL 값에 따라, 컨테이너에 있는 모든 항목은 항목 `_ts`의 마지막으로 수정된 타임스탬프 후에 삭제됩니다. 필요에 `TimeToLivePropertyPath` 따라 시스템 생성 속성 대신 다른 속성을 사용 하 여 `_ts` TTL에 따라 삭제할 항목을 결정 하는를 설정할 수 있습니다.
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> .NET SDK
 
@@ -217,9 +221,9 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
    * **배율 및 설정** 창을 엽니다.
    * **설정** 아래에서 **TTL(Time to Live)** 을 찾습니다.
    * **켜기 (기본값 없음)** 를 선택 하거나 TTL 값을 **선택 하 고** 설정 합니다. 
-   * **저장**을 클릭하여 변경 내용을 저장합니다.
+   * **저장** 을 클릭하여 변경 내용을 저장합니다.
 
-5. 다음으로, TTL(Time to Live)을 설정하려는 항목으로 이동한 후 `ttl` 속성을 추가하고 **업데이트**를 선택합니다. 
+5. 다음으로, TTL(Time to Live)을 설정하려는 항목으로 이동한 후 `ttl` 속성을 추가하고 **업데이트** 를 선택합니다. 
 
    ```json
    {

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82780439"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998756"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 클러스터 만들기 실패
 
@@ -22,7 +22,7 @@ ms.locfileid: "82780439"
 
 ## <a name="hostname-resolution-failed"></a>"호스트 이름을 확인 하지 못했습니다."
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 오류 설명에 "호스트 이름 확인에 실패 했습니다."가 포함 되어 있습니다.
 
@@ -48,13 +48,13 @@ ms.locfileid: "82780439"
 
 ## <a name="failed-to-connect-to-azure-storage-account"></a>"Azure Storage 계정에 연결 하지 못했습니다."
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 오류 설명에 "Azure Storage 계정에 연결 하지 못했습니다." 또는 "Azure SQL에 연결 하지 못했습니다."가 포함 되어 있습니다.
 
 ### <a name="cause"></a>원인
 
-Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에 대 한 액세스를 허용 하려면 모든 Ip에 대 한 아웃 바운드 연결을 허용 해야 합니다. 정확한 해결 단계는 NSG (네트워크 보안 그룹) 또는 UDR (사용자 정의 규칙)을 설정 했는지 여부에 따라 달라 집니다. 이러한 구성에 대 한 자세한 내용은 [네트워크 보안 그룹 및 사용자 정의 경로를 사용 하 여 HDInsight로 네트워크 트래픽 제어](../control-network-traffic.md) 섹션을 참조 하세요.
+Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에 대 한 액세스를 허용 하려면 모든 Ip에 대 한 아웃 바운드 연결을 허용 해야 합니다. 정확한 해결 단계는 NSG (네트워크 보안 그룹) 또는 UDR (User-Defined 규칙)을 설정 했는지 여부에 따라 달라 집니다. 이러한 구성에 대 한 자세한 내용은 [네트워크 보안 그룹 및 사용자 정의 경로를 사용 하 여 HDInsight로 네트워크 트래픽 제어](../control-network-traffic.md) 섹션을 참조 하세요.
 
 ### <a name="resolution"></a>해결 방법
 
@@ -66,13 +66,26 @@ Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에
 
     Azure Portal로 이동 하 여 클러스터가 배포 되는 서브넷과 연결 된 경로 테이블을 식별 합니다. 서브넷에 대 한 경로 테이블을 찾았으면 **경로 섹션을 검사 합니다.**
 
-    경로가 정의 되어 있으면 클러스터가 배포 된 지역에 대 한 IP 주소에 대 한 경로가 있는지 확인 하 고 각 경로에 대 한 **NextHopType** 는 **인터넷**입니다. 앞서 언급 한 문서에서 설명 하는 각 필수 IP 주소에 대해 정의 된 경로가 있어야 합니다.
+    경로가 정의 되어 있으면 클러스터가 배포 된 지역에 대 한 IP 주소에 대 한 경로가 있는지 확인 하 고 각 경로에 대 한 **NextHopType** 는 **인터넷** 입니다. 앞서 언급 한 문서에서 설명 하는 각 필수 IP 주소에 대해 정의 된 경로가 있어야 합니다.
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"HDInsight 리소스 공급자와의 통신을 위해 클러스터에서 아웃 바운드 연결을 설정 하지 못했습니다. 아웃 바운드 연결이 허용 되는지 확인 하십시오. "
+
+### <a name="issue"></a>문제
+
+오류 설명에 "HDInsight 리소스 공급자와의 통신을 위해 클러스터에서 아웃 바운드 연결을 설정 하지 못했습니다."가 포함 되어 있습니다. 아웃 바운드 연결이 허용 되는지 확인 하십시오. "
+
+### <a name="cause"></a>원인
+
+사설 연결 된 HDInsight 클러스터를 사용 하는 경우 HDInsight 리소스 공급자에 대 한 연결을 허용 하도록 클러스터의 아웃 바운드 액세스를 구성 해야 합니다.
+
+### <a name="resolution"></a>해결 방법
+
+* 이 문제를 해결 하려면 [개인 링크 설정](../hdinsight-private-link.md) 에서 HDInsight 개인 링크 설정 단계를 참조 하세요.
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"가상 네트워크 구성이 HDInsight 요구 사항과 호환 되지 않습니다."
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 오류 설명에는 다음과 비슷한 메시지가 포함 됩니다.
 
@@ -101,7 +114,7 @@ ErrorDescription: Virtual Network configuration is not compatible with HDInsight
     cat /etc/resolv.conf | grep nameserver*
     ```
 
-    다음과 유사한 결과가 표시됩니다.
+    다음과 비슷한 결과가 표시됩니다.
 
     ```output
     nameserver 168.63.129.16
@@ -145,4 +158,4 @@ dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4
 
 * [@AzureSupport](https://twitter.com/azuresupport)를 사용하여 연결 – Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하여 고객 환경을 개선하는 공식 Microsoft Azure 계정입니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

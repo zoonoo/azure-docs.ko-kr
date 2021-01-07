@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: cf108e0e7036894e045028ec3fce8c2af6b9ce4f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008341"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142356"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 디바이스에 메시지 보내기
 
@@ -91,13 +91,20 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 `ReceiveAsync` 메서드는 수신 메시지를 디바이스에서 받은 시간에 비동기적으로 반환합니다. 지정 가능한 시간 제한 기간이 지나면 *null*을 반환합니다. 이 예제에서는 기본값 1분이 사용됩니다. 앱에서 *null*을 수신하면 새 메시지를 계속 기다려야 합니다. 이 요구 사항은 `if (receivedMessage == null) continue` 줄 때문입니다.
 
-`CompleteAsync()`에 대한 호출은 메시지가 정상적으로 처리되었음을 IoT Hub에 알립니다. 디바이스 큐에서 메시지를 안전하게 제거할 수 있습니다. 디바이스 앱의 메시지 처리를 완료하지 못하게 하는 문제가 발생하는 경우 IoT Hub에서 메시지를 다시 전달합니다. 디바이스 앱의 메시지 처리 논리는 *멱등성*이므로 같은 메시지를 여러 번 수신하면 동일한 결과가 생성됩니다.
+호출은 `CompleteAsync()` 메시지가 성공적으로 처리 되 고 메시지를 장치 큐에서 안전 하 게 제거할 수 IoT Hub 알립니다. 장치는 사용 중인 프로토콜에 관계 없이 처리가 성공적으로 완료 되 면이 메서드를 호출 해야 합니다.
 
-애플리케이션이 메시지를 일시적으로 중단할 수도 있으며 이 경우 IoT hub는 나중에 사용하기 위해 큐에 메시지를 보관합니다. 또는 애플리케이션이 메시지를 거부할 수 있습니다. 이 경우 큐에서 메시지가 영구적으로 제거됩니다. 클라우드-디바이스 메시지 수명 주기에 대한 자세한 내용은 [IoT Hub를 통한 D2C 및 C2D](iot-hub-devguide-messaging.md)를 참조하세요.
+AMQP 및 HTTPS, MQTT를 사용 하지 않는 경우 장치는 다음을 수행할 수도 있습니다.
 
-   > [!NOTE]
-   > MQTT 또는 AMQP 대신 HTTPS를 전송으로 사용하는 경우 `ReceiveAsync` 메서드가 즉시 반환됩니다. HTTPS에서 클라우드-디바이스 메시지에 대해 지원되는 패턴은 메시지를 가끔씩(25분에 한 번씩보다 적게) 확인하는 디바이스에 간헐적으로 연결됩니다. HTTPS 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. MQTT, AMQP 및 HTTPS 지원과 IoT Hub 제한 간의 차이점에 대한 자세한 내용은 [IoT Hub를 통한 D2C 및 C2D](iot-hub-devguide-messaging.md)를 참조하세요.
-   >
+* 메시지를 중단 하면 나중에 사용 하기 위해 장치 큐에 메시지를 보관 IoT Hub 합니다.
+* 메시지를 거부 합니다 .이 메시지는 장치 큐에서 메시지를 영구적으로 제거 합니다.
+
+장치에서 메시지를 완료, 중단 또는 거부할 수 없도록 하는 문제가 발생 하는 경우 고정 된 시간 제한 기간이 지나면 메시지를 다시 배달 하도록 큐에 대기 IoT Hub. 이러한 이유로 장치 앱의 메시지 처리 논리는 *idempotent*이어야 하므로 동일한 메시지를 여러 번 수신 하면 결과가 동일 하 게 생성 됩니다.
+
+클라우드-장치 메시지 수명 주기에 대 한 세부 정보를 포함 하 여 클라우드-장치 메시지를 처리 IoT Hub는 방법에 대 한 자세한 내용은 [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)를 참조 하세요.
+
+> [!NOTE]
+> MQTT 또는 AMQP 대신 HTTPS를 전송으로 사용하는 경우 `ReceiveAsync` 메서드가 즉시 반환됩니다. HTTPS를 사용 하는 클라우드-장치 메시지에 대해 지원 되는 패턴은 메시지를 자주 확인 하지 않는 (최소 25 분 마다) 간헐적으로 연결 된 장치입니다. HTTPS 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. MQTT, AMQP 및 HTTPS 지원 간의 차이점에 대 한 자세한 내용은 [클라우드-장치 통신 지침](iot-hub-devguide-c2d-guidance.md) 을 참조 하 고 [통신 프로토콜을 선택](iot-hub-devguide-protocols.md)하세요.
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
@@ -164,7 +171,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 1. **F5**키를 누릅니다. 두 애플리케이션이 모두 시작됩니다. **Sendcloudtodevice** 창을 선택 하 고 **enter**키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
 
-   ![앱 메시지 수신](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![장치 앱 수신 메시지](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>배달 피드백 받기
 
@@ -211,7 +218,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 1. **F5** 키를 눌러 앱을 실행합니다. 두 응용 프로그램이 시작 되는 것을 볼 수 있습니다. **Sendcloudtodevice** 창을 선택 하 고 **enter**키를 누릅니다. 장치 앱에서 메시지를 수신하는 것이 확인됩니다. 몇 초 후에 **SendCloudToDevice** 애플리케이션에서 피드백 메시지를 수신하는지 확인해야 합니다.
 
-   ![앱 메시지 수신](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![메시지 및 서비스 앱을 받는 장치 앱이 피드백을 받습니다.](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
@@ -221,6 +228,6 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 방법에서는 클라우드-디바이스 메시지를 보내고 받는 방법을 알아보았습니다.
 
-IoT Hub를 사용하는 완전한 엔드투엔드 솔루션의 예를 보려면 [Azure IoT 원격 모니터링 솔루션 가속기](https://docs.microsoft.com/azure/iot-suite/)를 참조하세요.
+IoT Hub를 사용하는 완전한 엔드투엔드 솔루션의 예를 보려면 [Azure IoT 원격 모니터링 솔루션 가속기](/azure/iot-suite/)를 참조하세요.
 
 IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.

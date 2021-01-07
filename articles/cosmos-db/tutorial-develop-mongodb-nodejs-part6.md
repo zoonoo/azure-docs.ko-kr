@@ -8,16 +8,17 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: a5d697465f811f468fb0047284126deae0c455dd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424310"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081317"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - 앱에 CRUD 함수 추가
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다. 자습서의 6부는 [5부](tutorial-develop-mongodb-nodejs-part5.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
 
@@ -36,15 +37,15 @@ ms.locfileid: "87424310"
 
 ## <a name="add-a-post-function-to-the-hero-service"></a>Hero 서비스에 게시 함수 추가
 
-1. Visual Studio Code에서 **분할 편집기** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png":::를 눌러 **routes.js** 및 **hero.service.js**를 나란히 엽니다.
+1. Visual Studio Code에서 **분할 편집기** 단추:::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png":::를 눌러 **routes.js** 및 **hero.service.js** 를 나란히 엽니다.
 
-    routes.js 7줄이 **hero.service.js**의 5줄에서 `getHeroes` 함수를 호출하는지 확인합니다.  게시, 배치 및 삭제 함수의 동일한 쌍을 만들어야 합니다. 
+    routes.js 7줄이 **hero.service.js** 의 5줄에서 `getHeroes` 함수를 호출하는지 확인합니다.  게시, 배치 및 삭제 함수의 동일한 쌍을 만들어야 합니다. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="Visual Studio Code의 routes.js 및 hero.service.js":::
     
     Hero 서비스를 코딩하기 시작하겠습니다. 
 
-2. `getHeroes` 함수 뒤, `module.exports` 앞에서 **hero.service.js**에 다음 코드를 복사합니다. 이 코드에서는 다음을 수행합니다.  
+2. `getHeroes` 함수 뒤, `module.exports` 앞에서 **hero.service.js** 에 다음 코드를 복사합니다. 이 코드에서는 다음을 수행합니다.  
    * 새 Hero를 게시하기 위해 Hero 모델을 사용합니다.
    * 응답에 오류가 있는지 확인하고 상태 값 500을 반환하는지 확인합니다.
 
@@ -67,7 +68,7 @@ ms.locfileid: "87424310"
    }
    ```
 
-3. **hero.service.js**에서 `module.exports`를 업데이트하여 새로운 `postHero` 함수를 포함합니다. 
+3. **hero.service.js** 에서 `module.exports`를 업데이트하여 새로운 `postHero` 함수를 포함합니다. 
 
     ```javascript
     module.exports = {
@@ -76,7 +77,7 @@ ms.locfileid: "87424310"
     };
     ```
 
-4. **routes.js**에서 `get` 라우터 뒤에 `post` 함수에 라우터를 추가합니다. 이 라우터는 한 번에 하나의 Hero를 게시합니다. 이 방식으로 라우터 파일 구조를 지정하면 사용 가능한 모든 API 엔드포인트를 표시하고 **hero.service.js** 파일에 실제 작업만 남겨둡니다.
+4. **routes.js** 에서 `get` 라우터 뒤에 `post` 함수에 라우터를 추가합니다. 이 라우터는 한 번에 하나의 Hero를 게시합니다. 이 방식으로 라우터 파일 구조를 지정하면 사용 가능한 모든 API 엔드포인트를 표시하고 **hero.service.js** 파일에 실제 작업만 남겨둡니다.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -90,7 +91,7 @@ ms.locfileid: "87424310"
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="네트워크 활동을 보여주는 Chrome의 네트워킹 탭":::
 
-7. **새 Hero 추가** 단추를 선택하여 새 Hero를 추가합니다. ID로 "999", 이름으로 "Fred", 설명으로 "Hello"를 입력하고 **저장**을 선택합니다. 새 Hero에 POST 요청을 보냈는지 네트워킹 탭에 표시됩니다. 
+7. **새 Hero 추가** 단추를 선택하여 새 Hero를 추가합니다. ID로 "999", 이름으로 "Fred", 설명으로 "Hello"를 입력하고 **저장** 을 선택합니다. 새 Hero에 POST 요청을 보냈는지 네트워킹 탭에 표시됩니다. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="가져오기 및 게시 함수에 대한 네트워크 활동을 보여주는 Chrome의 네트워킹 탭":::
 
@@ -98,7 +99,7 @@ ms.locfileid: "87424310"
 
 ## <a name="add-the-put-and-delete-functions"></a>배치 및 삭제 함수 추가
 
-1. **routes.js**에서 게시 라우터 위에 `put` 및 `delete` 라우터를 추가합니다.
+1. **routes.js** 에서 게시 라우터 위에 `put` 및 `delete` 라우터를 추가합니다.
 
     ```javascript
     router.put('/hero/:uid', (req, res) => {
@@ -110,7 +111,7 @@ ms.locfileid: "87424310"
     });
     ```
 
-2. `checkServerError` 함수 뒤에 있는 **hero.service.js**에 다음 코드를 복사합니다. 이 코드에서는 다음을 수행합니다.
+2. `checkServerError` 함수 뒤에 있는 **hero.service.js** 에 다음 코드를 복사합니다. 이 코드에서는 다음을 수행합니다.
    * `put` 및 `delete` 함수 만들기
    * Hero를 찾았는지 여부에 대한 확인 수행
    * 오류 처리 수행 
@@ -158,7 +159,7 @@ ms.locfileid: "87424310"
    }
    ```
 
-3. **hero.service.js**에서 새 모듈을 내보냅니다.
+3. **hero.service.js** 에서 새 모듈을 내보냅니다.
 
    ```javascript
     module.exports = {

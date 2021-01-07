@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c588e1db7cbf35d2a5192805674f88905599e8e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: 133674e6764e12742f5b238946e943d9b5011cd2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085144"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891332"
 ---
 # <a name="read-and-write-spatial-data"></a>공간 데이터 읽기 및 쓰기
 
@@ -29,7 +29,7 @@ ms.locfileid: "90085144"
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | 공간 CSV       | ✓  |  ✓  |
-| 잘 알려진 텍스트   | ✓  |  ✓  |
+| Well-Known 텍스트   | ✓  |  ✓  |
 
 다음 섹션에서는 공간 IO 모듈을 사용 하 여 공간 데이터를 읽고 쓰기 위한 다양 한 도구를 모두 간략하게 설명 합니다.
 
@@ -123,26 +123,26 @@ atlas.io.read(data, {
 );
 ```
 
-## <a name="read-and-write-well-known-text-wkt"></a>잘 알려진 텍스트 읽기 및 쓰기 (WKT)
+## <a name="read-and-write-well-known-text-wkt"></a>읽기 및 쓰기 Well-Known 텍스트 (WKT)
 
 WKT ( [잘 알려진 텍스트](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) )는 공간 기 하 도형을 텍스트로 나타내는 OGC (Open Geospatial Consortium) 표준입니다. 많은 지리 공간적 시스템은 PostGIS 플러그 인을 사용 하는 azure SQL 및 Azure PostgreSQL와 같은 WKT을 지원 합니다. 대부분의 OGC 표준과 마찬가지로 좌표는 "x y" 규칙에 맞게 "경도 위도"로 서식 지정 됩니다. 예를 들어 경도-110 및 위도 45의 지점은 `POINT(-110 45)` WKT 형식을 사용 하 여 작성할 수 있습니다.
 
 함수를 사용 하 여 잘 알려진 텍스트를 읽고 `atlas.io.ogc.WKT.read` 함수를 사용 하 여 쓸 수 있습니다 `atlas.io.ogc.WKT.write` .
 
-## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>잘 알려진 텍스트 읽기 및 쓰기 예 (WKT)
+## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Well-Known 텍스트 읽기 및 쓰기 예 (WKT)
 
 다음 코드는 잘 알려진 텍스트 문자열을 읽고 `POINT(-122.34009 47.60995)` 거품형 계층을 사용 하 여 지도에서 렌더링 하는 방법을 보여 줍니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='잘 알려진 텍스트 읽기' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 펜으로 <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>잘 알려진 텍스트 읽기</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='500' scrolling='no' title='Well-Known 텍스트 읽기' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜 <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>읽기 Well-Known 텍스트</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
 다음 코드는 잘 알려진 텍스트를 앞뒤로 읽고 쓰는 방법을 보여 줍니다.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='잘 알려진 텍스트 읽기 및 쓰기' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>읽기 및 쓰기 잘 알려진 텍스트</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='700' scrolling='no' title='Well-Known 텍스트 읽기 및 쓰기' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 펜 <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>읽기 및 쓰기 Well-Known 텍스트</a> Azure Maps ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
 </iframe>
 
 ## <a name="read-and-write-gml"></a>읽기 및 쓰기 GML
@@ -160,38 +160,31 @@ GML은 다른 XML 사양에 대 한 확장으로 자주 사용 되는 공간 XML
 - EPSG: 4269, EPSG: 4283, EPSG: 4258, epsg: 4308, EPSG: 4230, epsg: 4272, epsg: 4271, epsg: 4267, epsg: 4608, EPSG: 4674 가능한 경우 작은 오류 여백이 있을 수 있습니다.
 - EPSG: 3857, EPSG: 102100, EPSG: 3785, EPSG: 900913, EPSG: 102113, EPSG: 41001, EPSG: 54004
 
-## <a name="next-steps"></a>다음 단계
+## <a name="more-resources"></a>추가 리소스
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
-> [!div class="nextstepaction"]
-> [atlas.io 정적 함수](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[atlas.io 정적 함수](/javascript/api/azure-maps-spatial-io/atlas.io)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-> [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
+[GmlReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-> [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
+[GmlWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
-> [!div class="nextstepaction"]
-> [atlas. ogc. WKT 함수](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[atlas. ogc. WKT 함수](/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+
+[WFS 서비스에 연결](spatial-io-connect-wfs-service.md)
+
+[핵심 작업 활용](spatial-io-core-operations.md)
+
+[지원되는 데이터 형식 세부 정보](spatial-io-supported-data-format-details.md)
+
+
+## <a name="next-steps"></a>다음 단계
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
-> [!div class="nextstepaction"]
-> [OGC 지도 계층 추가](spatial-io-add-ogc-map-layer.md)
-
-> [!div class="nextstepaction"]
-> [WFS 서비스에 연결](spatial-io-connect-wfs-service.md)
-
-> [!div class="nextstepaction"]
-> [핵심 작업 활용](spatial-io-core-operations.md)
-
-> [!div class="nextstepaction"]
-> [지원되는 데이터 형식 세부 정보](spatial-io-supported-data-format-details.md)
+[OGC 지도 계층 추가](spatial-io-add-ogc-map-layer.md)

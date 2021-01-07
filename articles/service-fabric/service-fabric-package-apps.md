@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012401"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021064"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
 
@@ -40,16 +40,16 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ```
 
-폴더는 각 해당 요소의 **Name** 특성과 일치하도록 이름이 지정됩니다. 예를 들어 서비스 매니페스트에 이름이 각각 **MyCodeA**와 **MyCodeB**인 코드 패키지가 두 개 있으면 이와 동일한 이름의 폴더 두 개에 각 코드 패키지에 필요한 바이너리가 포함됩니다.
+폴더는 각 해당 요소의 **Name** 특성과 일치하도록 이름이 지정됩니다. 예를 들어 서비스 매니페스트에 이름이 각각 **MyCodeA** 와 **MyCodeB** 인 코드 패키지가 두 개 있으면 이와 동일한 이름의 폴더 두 개에 각 코드 패키지에 필요한 바이너리가 포함됩니다.
 
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 
-**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예를 들어:
+**SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예들 들어 다음과 같습니다.
 
 * 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 애플리케이션 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
 
-**Setupentrypoint**를 구성 하는 방법에 대 한 자세한 내용은 [서비스 설치 진입점에 대 한 정책 구성](service-fabric-application-runas-security.md) 을 참조 하세요.
+**Setupentrypoint** 를 구성 하는 방법에 대 한 자세한 내용은 [서비스 설치 진입점에 대 한 정책 구성](service-fabric-application-runas-security.md) 을 참조 하세요.
 
 <a id="Package-App"></a>
 

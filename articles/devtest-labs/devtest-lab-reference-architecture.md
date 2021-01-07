@@ -4,12 +4,12 @@ description: 이 문서에서는 엔터프라이즈의 Azure DevTest Labs에 대
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 8b71774d9a833adefdd25214ea4f0e8bdaaba485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480187"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328847"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈를 위한 Azure DevTest Labs 참조 아키텍처
 이 문서에서는 기업의 Azure DevTest Labs 기반 솔루션을 배포 하는 데 도움이 되는 참조 아키텍처를 제공 합니다. 여기에는 다음이 포함 됩니다.
@@ -24,13 +24,13 @@ ms.locfileid: "85480187"
 참조 아키텍처의 핵심 요소는 다음과 같습니다.
 
 - **Azure Active Directory (AZURE ad)**: DevTest Labs는 [Id 관리에 Azure AD 서비스](../active-directory/fundamentals/active-directory-whatis.md)를 사용 합니다. DevTest Labs를 기반으로 환경에 대 한 액세스 권한을 사용자에 게 부여 하는 경우 다음 두 가지 주요 측면을 고려 하세요.
-    - **리소스 관리**: 리소스를 관리 하는 Azure Portal에 대 한 액세스를 제공 합니다 (가상 머신 만들기, 환경 만들기, 시작, 중지, 다시 시작, 삭제 및 아티팩트 적용 등). 리소스 관리는 RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure에서 수행 됩니다. 사용자에 게 역할을 할당 하 고 리소스 및 액세스 수준 사용 권한을 설정 합니다.
+    - **리소스 관리**: 리소스를 관리 하는 Azure Portal에 대 한 액세스를 제공 합니다 (가상 머신 만들기, 환경 만들기, 시작, 중지, 다시 시작, 삭제 및 아티팩트 적용 등). 리소스 관리는 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 수행 됩니다. 사용자에 게 역할을 할당 하 고 리소스 및 액세스 수준 사용 권한을 설정 합니다.
     - **가상 컴퓨터 (네트워크 수준)**: 기본 구성에서 가상 컴퓨터는 로컬 관리자 계정을 사용 합니다. 사용 가능한 도메인 ([Azure AD Domain Services](../active-directory-domain-services/overview.md), 온-프레미스 도메인 또는 클라우드 기반 도메인)이 있으면 컴퓨터를 도메인에 조인할 수 있습니다. 그러면 사용자가 해당 도메인 기반 id를 사용 하 여 Vm에 연결할 수 있습니다.
 - **온-프레미스 연결**: 아키텍처 다이어그램에서 [express](../expressroute/expressroute-introduction.md) 경로를 사용 합니다. 하지만 [사이트 간 VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)을 사용할 수도 있습니다. DevTest Labs에서는 Express 경로를 사용 하지 않아도 되지만 일반적으로 기업에서 사용 됩니다. Express 경로는 회사 리소스에 액세스 해야 하는 경우에만 필요 합니다. 일반적인 시나리오는 다음과 같습니다.
     - 클라우드로 이동할 수 없는 온-프레미스 데이터가 있습니다.
     - 랩의 가상 컴퓨터를 온-프레미스 도메인에 가입 하는 것이 좋습니다.
     - 보안/규정 준수를 위해 온-프레미스 방화벽을 통해 클라우드 환경에서 들어오고 나가는 모든 네트워크 트래픽을 강제로 적용 하려고 합니다.
-- **네트워크 보안 그룹**: 원본 및 대상 IP 주소를 기반으로 클라우드 환경 (또는 클라우드 환경 내)으로 트래픽을 제한 하는 일반적인 방법은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용 하는 것입니다. 예를 들어 회사 네트워크에서 발생 하는 트래픽만 랩의 네트워크로 사용할 수 있습니다.
+- **네트워크 보안 그룹**: 원본 및 대상 IP 주소를 기반으로 클라우드 환경 (또는 클라우드 환경 내)으로 트래픽을 제한 하는 일반적인 방법은 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용 하는 것입니다. 예를 들어 회사 네트워크에서 발생 하는 트래픽만 랩의 네트워크로 사용할 수 있습니다.
 - **원격 데스크톱 게이트웨이**: 기업은 일반적으로 회사 방화벽에서 나가는 원격 데스크톱 연결을 차단 합니다. DevTest Labs에서 클라우드 기반 환경에 연결 하는 데 사용할 수 있는 몇 가지 옵션이 있습니다. 예를 들면 다음과 같습니다.
   - [원격 데스크톱 게이트웨이](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)를 사용 하 고 게이트웨이 부하 분산 장치의 고정 IP 주소를 허용 합니다.
   - Express 경로/사이트 간 VPN 연결을 통해 [들어오는 모든 RDP 트래픽을 보냅니다](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) . 이 기능은 기업이 DevTest Labs 배포를 계획할 때 일반적인 고려 사항입니다.
@@ -46,7 +46,7 @@ DevTest Labs에는 기본 제공 할당량 또는 한도가 없지만 랩의 일
     - **공유 공용 Ip 사용**: 동일한 크기와 지역의 모든 vm이 동일한 리소스 그룹으로 이동 합니다. 이 구성은 가상 컴퓨터에 공용 IP 주소를 사용할 수 있는 경우 리소스 그룹 할당량 및 리소스 유형 그룹 할당량 마다 "중간 중심"입니다.
 - **리소스 그룹당**리소스 그룹당 리소스: 리소스 유형별 리소스 그룹당 기본 제한은 [800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)입니다.  모든 Vm을 사용 하 여 *동일한 리소스 그룹 구성으로 이동* 하는 경우, 특히 vm에 추가 디스크가 많은 경우이 구독 제한을 훨씬 더 빨리 맞 더 합니다.
 - **Storage 계정**: DevTest Labs의 랩에는 저장소 계정이 제공 됩니다. [구독 당 지역별 저장소 계정 수](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)에 대 한 Azure 할당량은 250입니다. 동일한 지역에 있는 DevTest Labs의 최대 수는 250입니다.
-- **역할 할당**: 역할 할당은 사용자 또는 사용자에 게 리소스에 대 한 액세스 권한 (소유자, 리소스, 권한 수준)을 부여 하는 방법입니다. Azure의 [구독 당 역할 할당은 2000 개로 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits)됩니다. 기본적으로 DevTest Labs 서비스는 각 VM에 대 한 리소스 그룹을 만듭니다. 소유자에 게는 DevTest Labs VM에 대 한 *소유자* 권한 및 리소스 그룹에 대 한 *읽기* 권한이 부여 됩니다. 이러한 방식으로 사용자가 만드는 각 새 VM은 사용자에 게 랩에 대 한 사용 권한을 부여할 때 사용 되는 할당 외에도 두 개의 역할 할당을 사용 합니다.
+- **역할 할당**: 역할 할당은 사용자 또는 사용자에 게 리소스에 대 한 액세스 권한 (소유자, 리소스, 권한 수준)을 부여 하는 방법입니다. Azure의 [구독 당 역할 할당은 2000 개로 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits)됩니다. 기본적으로 DevTest Labs 서비스는 각 VM에 대 한 리소스 그룹을 만듭니다. 소유자에 게는 DevTest Labs VM에 대 한 *소유자* 권한 및 리소스 그룹에 대 한 *읽기* 권한이 부여 됩니다. 이러한 방식으로 사용자가 만드는 각 새 VM은 사용자에 게 랩에 대 한 사용 권한을 부여할 때 사용 되는 할당 외에도 두 개의 역할 할당을 사용 합니다.
 - **API 읽기/쓰기**: REST Api, PowerShell, Azure CLI 및 azure SDK를 비롯 한 다양 한 방법으로 Azure 및 DevTest Labs를 자동화할 수 있습니다. Automation을 통해 API 요청에 대 한 다른 제한에 도달할 수 있습니다. 각 구독은 최대 [12000 읽기 요청 및 시간당 1200 쓰기 요청](../azure-resource-manager/management/request-limits-and-throttling.md)을 허용 합니다. DevTest Labs를 자동화 하는 경우이 한도를 염두에 두어야 합니다.
 
 ## <a name="manageability-considerations"></a>관리 효율성 고려 사항

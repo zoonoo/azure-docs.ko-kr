@@ -4,10 +4,10 @@ description: Media 청사진 샘플에 대한 개요입니다. 이 청사진 샘
 ms.date: 08/13/2020
 ms.topic: sample
 ms.openlocfilehash: db7e67cb7f96a19a04efc001bc7752f7c9a02e73
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208239"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Media 청사진 샘플의 개요

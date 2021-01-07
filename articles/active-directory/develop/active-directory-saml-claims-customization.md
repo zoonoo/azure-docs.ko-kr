@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421461"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936797"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
-현재 Microsoft identity platform은 Azure AD 앱 갤러리에 사전 통합 된 응용 프로그램과 사용자 지정 응용 프로그램을 포함 하 여 대부분의 엔터프라이즈 응용 프로그램에서 Single Sign-On (SSO)를 지원 합니다. 사용자가 SAML 2.0 프로토콜을 사용 하 여 Microsoft id 플랫폼을 통해 응용 프로그램에 인증 하는 경우 Microsoft id 플랫폼은 HTTP POST를 통해 응용 프로그램에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임*이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
+현재 Microsoft identity platform은 Azure AD 앱 갤러리에 사전 통합 된 응용 프로그램과 사용자 지정 응용 프로그램을 포함 하 여 대부분의 엔터프라이즈 응용 프로그램에서 Single Sign-On (SSO)를 지원 합니다. 사용자가 SAML 2.0 프로토콜을 사용 하 여 Microsoft id 플랫폼을 통해 응용 프로그램에 인증 하는 경우 Microsoft id 플랫폼은 HTTP POST를 통해 응용 프로그램에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임* 이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 
 ‘클레임’은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰 ](https://en.wikipedia.org/wiki/SAML_2.0)에서 이러한 데이터는 일반적으로 SAML 특성 문에 포함됩니다. 사용자 고유의 ID는 대개 이름 식별자라고도 하는 SAML Subject에 나타납니다.
 
@@ -60,7 +60,6 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 | **Persistent** | Microsoft id 플랫폼은 NameID 형식으로 영구를 사용 합니다. |
 | **EmailAddress** | Microsoft id 플랫폼은 EmailAddress를 NameID 형식으로 사용 합니다. |
 | **Unspecified** | Microsoft id 플랫폼은 지정 되지 않은를 NameID 형식으로 사용 합니다. |
-| **Windows 도메인의 정규화된 이름** | Microsoft id 플랫폼은 WindowsDomainQualifiedName를 NameID 형식으로 사용 합니다. |
 
 임시 NameID도 지원되지만 이 형식은 드롭다운에서 사용할 수 없으며 Azure 쪽에서 구성할 수 없습니다. NameIDPolicy 특성에 대한 자세한 내용은 [Single Sign-on SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조하세요.
 
@@ -86,7 +85,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 
 1. 수정하려는 필수 클레임을 클릭합니다.
 
-1. 조직에 따라 **원본 특성**에 따옴표 없이 상수 값을 입력하고 **저장**을 클릭합니다.
+1. 조직에 따라 **원본 특성** 에 따옴표 없이 상수 값을 입력하고 **저장** 을 클릭합니다.
 
     ![조직 특성 & Azure Portal에서 클레임 섹션](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
@@ -109,17 +108,17 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 
 애플리케이션 관련 클레임을 추가하려면
 
-1. **사용자 특성 및 클레임**에서 **새 클레임 추가**를 선택하**사용자 클레임 관리** 페이지를 엽니다.
-1. 클레임의 **이름**을 입력합니다. 값은 SAML 사양에 따라 URI 패턴을 엄격히 따를 필요는 없습니다. URI 패턴이 필요한 경우 **네임스페이스** 필드에 추가할 수 있습니다.
-1. 클레임에서 해당 값을 검색할 **원본**을 선택합니다. 원본 특성 드롭다운에서 사용자 특성을 선택하거나 클레임으로 내보내기 전에 사용자 특성에 변환을 적용할 수 있습니다.
+1. **사용자 특성 및 클레임** 에서 **새 클레임 추가** 를 선택하 **사용자 클레임 관리** 페이지를 엽니다.
+1. 클레임의 **이름** 을 입력합니다. 값은 SAML 사양에 따라 URI 패턴을 엄격히 따를 필요는 없습니다. URI 패턴이 필요한 경우 **네임스페이스** 필드에 추가할 수 있습니다.
+1. 클레임에서 해당 값을 검색할 **원본** 을 선택합니다. 원본 특성 드롭다운에서 사용자 특성을 선택하거나 클레임으로 내보내기 전에 사용자 특성에 변환을 적용할 수 있습니다.
 
 ### <a name="claim-transformations"></a>클레임 변환
 
 사용자 특성에 변환을 적용하려면
 
-1. **클레임 관리**에서 클레임 원본으로 *변환*을 선택하여 **변환 관리** 페이지를 엽니다.
+1. **클레임 관리** 에서 클레임 원본으로 *변환* 을 선택하여 **변환 관리** 페이지를 엽니다.
 2. 변환 드롭다운에서 함수를 선택합니다. 선택한 함수에 따라 변환에서 평가할 상수 값과 매개 변수를 제공해야 합니다. 사용 가능한 함수에 대한 자세한 내용은 아래 표를 참조하세요.
-3. 여러 변환을 적용하려면 **변환 추가**를 클릭합니다. 한 클레임에 최대 2개의 변환을 적용할 수 있습니다. 예를 들어 `user.mail`의 메일 접두사를 먼저 추출할 수 있습니다. 그런 다음 문자열을 대문자로 만듭니다.
+3. 여러 변환을 적용하려면 **변환 추가** 를 클릭합니다. 한 클레임에 최대 2개의 변환을 적용할 수 있습니다. 예를 들어 `user.mail`의 메일 접두사를 먼저 추출할 수 있습니다. 그런 다음 문자열을 대문자로 만듭니다.
 
    ![다중 클레임 변환](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
@@ -162,12 +161,12 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 
 클레임 조건을 추가하려면
 
-1. **클레임 관리**에서 클레임 조건을 확장합니다.
+1. **클레임 관리** 에서 클레임 조건을 확장합니다.
 2. 사용자 유형을 선택합니다.
 3. 사용자가 속해야 하는 그룹을 선택합니다. 지정 된 응용 프로그램에 대 한 모든 클레임에서 최대 50 개의 고유 그룹을 선택할 수 있습니다. 
-4. 클레임에서 해당 값을 검색할 **원본**을 선택합니다. 원본 특성 드롭다운에서 사용자 특성을 선택하거나 클레임으로 내보내기 전에 사용자 특성에 변환을 적용할 수 있습니다.
+4. 클레임에서 해당 값을 검색할 **원본** 을 선택합니다. 원본 특성 드롭다운에서 사용자 특성을 선택하거나 클레임으로 내보내기 전에 사용자 특성에 변환을 적용할 수 있습니다.
 
-조건을 추가하는 순서는 중요합니다. Azure AD는 클레임에서 내보낼 값을 결정하기 위해 하향식으로 조건을 평가합니다. 
+조건을 추가하는 순서는 중요합니다. Azure AD는 클레임에서 내보낼 값을 결정하기 위해 하향식으로 조건을 평가합니다. 식과 일치 하는 마지막 값이 클레임에서 내보내집니다.
 
 예를 들어 Britta Simon는 Contoso 테넌트의 게스트 사용자입니다. 또한 Azure AD를 사용하는 다른 조직에도 속해 있습니다. Fabrikam 응용 프로그램에 대 한 아래 구성을 고려 하 여 Britta가 Fabrikam에 로그인 하려고 하면 Microsoft identity platform에서 다음과 같이 조건을 평가 합니다.
 
@@ -178,5 +177,5 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD의 애플리케이션 관리](../manage-apps/what-is-application-management.md)
-* [Azure AD 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [SAML 기반 Single Sign-On 문제 해결](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Azure AD 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](../manage-apps/configure-saml-single-sign-on.md)
+* [SAML 기반 Single Sign-On 문제 해결](../manage-apps/debug-saml-sso-issues.md)

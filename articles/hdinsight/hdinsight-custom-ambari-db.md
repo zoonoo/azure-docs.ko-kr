@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1858e06567a0ab0907e6d2cb60358ff4ac00f9a2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d6dd67e9e0cd9dcd4afb8f1ae2cc32ccf30617fd
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086350"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704948"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>사용자 지정 Ambari DB를 사용 하 여 HDInsight 클러스터 설정
 
-Apache Ambari는 Apache Hadoop 클러스터의 관리 및 모니터링을 간소화 합니다. Ambari는 사용 하기 쉬운 웹 UI 및 REST API을 제공 합니다. Ambari는 HDInsight 클러스터에 포함 되어 있으며 클러스터를 모니터링 하 고 구성을 변경 하는 데 사용 됩니다.
+Apache Ambari는 Apache Hadoop 클러스터의 관리 및 모니터링을 간소화 합니다. Ambari는 사용 하기 쉬운 웹 UI 및 REST API을 제공 합니다. Ambari는 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는데 사용됩니다.
 
 [Hdinsight에서 클러스터를 설정](hdinsight-hadoop-provision-linux-clusters.md)하는 것과 같은 다른 문서에 설명 된 대로 정상적인 클러스터 만들기에서 Ambari는 hdinsight에서 관리 되 고 사용자가 액세스할 수 없는 [S0 Azure SQL Database](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) 에 배포 됩니다.
 
@@ -59,7 +59,7 @@ Apache Ambari는 Apache Hadoop 클러스터의 관리 및 모니터링을 간소
 Azure CLI를 사용 하 여 배포를 시작할 수 있습니다. 을 `<RESOURCEGROUPNAME>` 클러스터를 배포 하려는 리소스 그룹으로 바꿉니다.
 
 ```azurecli
-az group deployment create --name HDInsightAmbariDBDeployment \
+az deployment group create --name HDInsightAmbariDBDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file azuredeploy.json \
     --parameters azuredeploy.parameters.json

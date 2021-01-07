@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 3fdb0f572f7ed399e908c997999b0925806d3739
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 2442d90adf224de68ff49e0f0ea98f2c9f3e5546
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425129"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507254"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
-이 문서에서는 웹후크, Azure Logic Apps, Azure Functions 및 Azure Automation Runbook을 포함하여 Azure Monitor에 대한 [일반 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs)에 대해 설명합니다. 
+이 문서에서는 웹후크, Azure Logic Apps, Azure Functions 및 Azure Automation Runbook을 포함하여 Azure Monitor에 대한 [일반 경고 스키마 정의](./alerts-common-schema.md)에 대해 설명합니다. 
 
 모든 경고 인스턴스는 영향을 받은 리소스 및 경고의 원인을 설명합니다. 이러한 인스턴스는 다음 섹션의 공통 스키마에 설명되어 있습니다.
 * **Essentials**: 모든 경고 유형에 공통인 표준화된 필드 세트로, 경고가 발생하는 리소스를 설명하고 추가 공통 경고 메타데이터(예: 심각도 또는 설명)를 설명합니다. 
@@ -77,12 +77,12 @@ ms.locfileid: "89425129"
 | alertRule | 경고 인스턴스를 생성한 경고 규칙의 이름입니다. |
 | 심각도 | 경고 심각도입니다. 가능한 값은 다음과 같습니다. Sev0, Sev1, Sev2, Sev3 또는 Sev4. |
 | signalType | 경고 규칙이 정의된 신호를 식별합니다. 가능한 값은 다음과 같습니다. 메트릭, 로그 또는 활동 로그. |
-| monitorCondition | 경고가 발생할 때 경고의 모니터 조건은 **실행됨**으로 설정됩니다. 경고를 발생시킨 기본 조건이 사라지면 모니터 조건이 **해결됨**으로 설정됩니다.   |
+| monitorCondition | 경고가 발생할 때 경고의 모니터 조건은 **실행됨** 으로 설정됩니다. 경고를 발생시킨 기본 조건이 사라지면 모니터 조건이 **해결됨** 으로 설정됩니다.   |
 | monitoringService | 경고를 생성한 모니터링 서비스 또는 솔루션입니다. 경고 컨텍스트의 필드는 모니터링 서비스에 의해 결정됩니다. |
 | alertTargetIds | 경고의 대상에 영향을 주는 Azure Resource Manager ID의 목록입니다. Log Analytics 작업 영역 또는 Application Insights 인스턴스에 정의된 로그 경고의 경우 해당 작업 영역 또는 애플리케이션입니다. |
 | originAlertId | 경고를 생성하는 모니터링 서비스에서 생성한 경고 인스턴스의 ID입니다. |
 | firedDateTime | 경고 인스턴스가 UTC(협정 세계시)로 실행된 날짜 및 시간입니다. |
-| resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC로 **확인됨**으로 설정된 날짜 및 시간입니다. 현재 메트릭 경고에만 적용됩니다.|
+| resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC로 **확인됨** 으로 설정된 날짜 및 시간입니다. 현재 메트릭 경고에만 적용됩니다.|
 | description | 경고 규칙에 정의된 설명입니다. |
 |essentialsVersion| 필수 섹션의 버전 번호입니다.|
 |alertContextVersion | `alertContext` 섹션의 버전 번호입니다. |
@@ -149,81 +149,81 @@ ms.locfileid: "89425129"
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함되지 않은 경우 [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get)와 함께 검색 쿼리를 사용해야 합니다. 
+> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함 되지 않은 경우 또는를 사용 하 여 `LinkToFilteredSearchResultsAPI` `LinkToSearchResultsAPI` [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get)로 쿼리 결과에 액세스 해야 합니다.
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
 **샘플 값**
 ```json
 {
-    "alertContext": {
-        "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
-        "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
-        "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
-        "ResultCount": 2,
-        "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-        "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-        "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-        "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-        "SeverityDescription": "Warning",
-        "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
-        "SearchIntervalDurationMin": "15",
-        "AffectedConfigurationItems": [
-            "INC-Gen2Alert"
-        ],
-        "SearchIntervalInMinutes": "15",
-        "Threshold": 10000,
-        "Operator": "Less Than",
-        "Dimensions": [
+  "alertContext": {
+    "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+    "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
+    "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
+    "ResultCount": 2,
+    "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+    "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+    "SeverityDescription": "Warning",
+    "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
+    "SearchIntervalDurationMin": "15",
+    "AffectedConfigurationItems": [
+      "INC-Gen2Alert"
+    ],
+    "SearchIntervalInMinutes": "15",
+    "Threshold": 10000,
+    "Operator": "Less Than",
+    "Dimensions": [
+      {
+        "name": "Computer",
+        "value": "INC-Gen2Alert"
+      }
+    ],
+    "SearchResults": {
+      "tables": [
+        {
+          "name": "PrimaryResult",
+          "columns": [
             {
-                "name": "Computer",
-                "value": "INC-Gen2Alert"
+              "name": "$table",
+              "type": "string"
+            },
+            {
+              "name": "Computer",
+              "type": "string"
+            },
+            {
+              "name": "TimeGenerated",
+              "type": "datetime"
             }
-        ],
-        "SearchResults": {
-            "tables": [
-                {
-                    "name": "PrimaryResult",
-                    "columns": [
-                        {
-                            "name": "$table",
-                            "type": "string"
-                        },
-                        {
-                            "name": "Computer",
-                            "type": "string"
-                        },
-                        {
-                            "name": "TimeGenerated",
-                            "type": "datetime"
-                        }
-                    ],
-                    "rows": [
-                        [
-                            "Fabrikam",
-                            "33446677a",
-                            "2018-02-02T15:03:12.18Z"
-                        ],
-                        [
-                            "Contoso",
-                            "33445566b",
-                            "2018-02-02T15:16:53.932Z"
-                        ]
-                    ]
-                }
+          ],
+          "rows": [
+            [
+              "Fabrikam",
+              "33446677a",
+              "2018-02-02T15:03:12.18Z"
+            ],
+            [
+              "Contoso",
+              "33445566b",
+              "2018-02-02T15:16:53.932Z"
             ]
-        },
-        "dataSources": [
-            {
-                "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
-                "tables": [
-                    "Heartbeat"
-                ]
-            }
-        ],
-    "IncludeSearchResults": "True",
-    "AlertType": "Metric measurement"
-    }
+          ]
+        }
+      ]
+    },
+    "dataSources": [
+      {
+        "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+        "tables": [
+          "Heartbeat"
+        ]
+      }
+    ],
+  "IncludeSearchResults": "True",
+  "AlertType": "Metric measurement"
+  }
 }
 ```
 
@@ -232,70 +232,112 @@ ms.locfileid: "89425129"
 **샘플 값**
 ```json
 {
-    "alertContext": {
-        "SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
-        "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
-        "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
-        "ResultCount": 2,
-        "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-        "LinkToFilteredSearchResultsUI": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-        "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
-        "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
-        "SearchIntervalDurationMin": "15",
-        "SearchIntervalInMinutes": "15",
-        "Threshold": 10000,
-        "Operator": "Less Than",
-        "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
-        "Dimensions": [
+  "alertContext": {
+    "SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
+    "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
+    "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
+    "ResultCount": 2,
+    "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToFilteredSearchResultsUI": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+    "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+    "SearchIntervalDurationMin": "15",
+    "SearchIntervalInMinutes": "15",
+    "Threshold": 10000,
+    "Operator": "Less Than",
+    "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
+    "Dimensions": [
+      {
+        "name": "IP",
+        "value": "1.1.1.1"
+      }
+    ],
+    "SearchResults": {
+      "tables": [
+        {
+          "name": "PrimaryResult",
+          "columns": [
             {
-                "name": "IP",
-                "value": "1.1.1.1"
+              "name": "$table",
+              "type": "string"
+            },
+            {
+              "name": "Id",
+              "type": "string"
+            },
+            {
+              "name": "Timestamp",
+              "type": "datetime"
             }
-        ],
-        "SearchResults": {
-            "tables": [
-                {
-                    "name": "PrimaryResult",
-                    "columns": [
-                        {
-                            "name": "$table",
-                            "type": "string"
-                        },
-                        {
-                            "name": "Id",
-                            "type": "string"
-                        },
-                        {
-                            "name": "Timestamp",
-                            "type": "datetime"
-                        }
-                    ],
-                    "rows": [
-                        [
-                            "Fabrikam",
-                            "33446677a",
-                            "2018-02-02T15:03:12.18Z"
-                        ],
-                        [
-                            "Contoso",
-                            "33445566b",
-                            "2018-02-02T15:16:53.932Z"
-                        ]
-                    ]
-                }
+          ],
+          "rows": [
+            [
+              "Fabrikam",
+              "33446677a",
+              "2018-02-02T15:03:12.18Z"
             ],
-            "dataSources": [
-                {
-                    "resourceId": "/subscriptions/a5ea27e2-7482-49ba-90b3-52e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
-                    "tables": [
-                        "Heartbeat"
-                    ]
-                }
+            [
+              "Contoso",
+              "33445566b",
+              "2018-02-02T15:16:53.932Z"
             ]
-        },
-        "IncludeSearchResults": "True",
-        "AlertType": "Metric measurement"
+          ]
+        }
+      ],
+      "dataSources": [
+        {
+          "resourceId": "/subscriptions/a5ea27e2-7482-49ba-90b3-52e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+          "tables": [
+            "Heartbeat"
+          ]
+        }
+      ]
+    },
+    "IncludeSearchResults": "True",
+    "AlertType": "Metric measurement"
+  }
+}
+```
+
+#### <a name="monitoringservice--log-alerts-v2"></a>`monitoringService` = `Log Alerts V2`
+
+**샘플 값**
+```json
+{
+  "alertContext": {
+    "properties": null,
+    "conditionType": "LogQueryCriteria",
+    "condition": {
+      "windowSize": "PT10M",
+      "allOf": [
+        {
+          "searchQuery": "Heartbeat",
+          "metricMeasure": null,
+          "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
+          "operator": "LowerThan",
+          "threshold": "1",
+          "timeAggregation": "Count",
+          "dimensions": [
+            {
+              "name": "Computer",
+              "value": "TestComputer"
+            }
+          ],
+          "metricValue": 0.0,
+          "failingPeriods": {
+            "numberOfEvaluationPeriods": 1,
+            "minFailingPeriodsToAlert": 1
+          },
+          "linkToSearchResultsUI": "https://portal.azure.com#@12345a-1234b-123c-123d-12345678e/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%212345a-1234b-123c-123d-12345678e%2FresourceGroups%2FContoso%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2FContoso%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+          "linkToFilteredSearchResultsUI": "https://portal.azure.com#@12345a-1234b-123c-123d-12345678e/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%212345a-1234b-123c-123d-12345678e%2FresourceGroups%2FContoso%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2FContoso%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+          "linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/Contoso/providers/Microsoft.Compute/virtualMachines/Contoso/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+          "linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/Contoso/providers/Microsoft.Compute/virtualMachines/Contoso/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
+        }
+      ],
+      "windowStartTime": "2020-07-07T13:54:34Z",
+      "windowEndTime": "2020-07-09T13:54:34Z"
     }
+  }
 }
 ```
 
@@ -312,7 +354,7 @@ ms.locfileid: "89425129"
         "scope": "/subscriptions/<subscription ID>/resourceGroups/PipeLineAlertRG/providers/Microsoft.Compute/virtualMachines/WCUS-R2-ActLog"
       },
       "channels": "Operation",
-      "claims": "{\"aud\":\"https://management.core.windows.net/\",\"iss\":\"https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/\",\"iat\":\"1553260826\",\"nbf\":\"1553260826\",\"exp\":\"1553264726\",\"aio\":\"42JgYNjdt+rr+3j/dx68v018XhuFAwA=\",\"appid\":\"e9a02282-074f-45cf-93b0-50568e0e7e50\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"9778283b-b94c-4ac6-8a41-d5b493d03aa3\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"9778283b-b94c-4ac6-8a41-d5b493d03aa3\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"72f988bf-86f1-41af-91ab-2d7cd011db47\",\"uti\":\"v5wYC9t9ekuA2rkZSVZbAA\",\"ver\":\"1.0\"}",
+      "claims": "{\"aud\":\"https://management.core.windows.net/\",\"iss\":\"https://sts.windows.net/12345a-1234b-123c-123d-12345678e/\",\"iat\":\"1553260826\",\"nbf\":\"1553260826\",\"exp\":\"1553264726\",\"aio\":\"42JgYNjdt+rr+3j/dx68v018XhuFAwA=\",\"appid\":\"e9a02282-074f-45cf-93b0-50568e0e7e50\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.windows.net/12345a-1234b-123c-123d-12345678e/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"9778283b-b94c-4ac6-8a41-d5b493d03aa3\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"9778283b-b94c-4ac6-8a41-d5b493d03aa3\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"12345a-1234b-123c-123d-12345678e\",\"uti\":\"v5wYC9t9ekuA2rkZSVZbAA\",\"ver\":\"1.0\"}",
       "caller": "9778283b-b94c-4ac6-8a41-d5b493d03aa3",
       "correlationId": "8ee9c32a-92a1-4a8f-989c-b0ba09292a91",
       "eventSource": "Administrative",
@@ -499,5 +541,5 @@ ms.locfileid: "89425129"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)에 대해 자세히 알아봅니다.
-- [일반 경고 스키마를 사용하여 모든 경고를 처리하는 논리 앱을 만드는 방법](./alerts-common-schema-integrations.md)을 알아봅니다. 
+- [일반 경고 스키마](./alerts-common-schema.md)에 대해 자세히 알아봅니다.
+- [일반 경고 스키마를 사용하여 모든 경고를 처리하는 논리 앱을 만드는 방법](./alerts-common-schema-integrations.md)을 알아봅니다.

@@ -2,19 +2,19 @@
 title: Azure Data Factory의 전환 작업
 description: 전환 작업을 사용 하면 조건에 따라 처리 흐름을 제어할 수 있습니다.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd5bb37d54183020e233774a778d27f5d4588bb4
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418017"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486013"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 전환 작업
 
@@ -246,7 +246,7 @@ defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 
 
 ### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>매개 변수화된 Azure Blob 데이터 세트(BlobDataset.json)
 
-파이프라인은 **folderPath**를 파이프라인의 **outputPath1** 또는 **outputPath2** 매개 변수 중 하나의 값으로 설정합니다. 
+파이프라인은 **folderPath** 를 파이프라인의 **outputPath1** 또는 **outputPath2** 매개 변수 중 하나의 값으로 설정합니다. 
 
 ```json
 {

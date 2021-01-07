@@ -1,26 +1,26 @@
 ---
-title: 컨테이너 구성 - Computer Vision
+title: 읽기 OCR 컨테이너 구성-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Computer Vision의 텍스트 인식 컨테이너에 대해 필수 설정과 선택적 설정을 모두 구성 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Computer Vision에서 OCR 컨테이너 읽기에 필요한 필수 설정과 선택적 설정을 모두 구성 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 674c906a4316ec92101f3f2028a57aa82db3f504
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982000"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006878"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Computer Vision Docker 컨테이너 구성
+# <a name="configure-read-ocr-docker-containers"></a>읽기 OCR Docker 컨테이너 구성
 
-명령 인수를 사용 하 여 Computer Vision 컨테이너의 런타임 환경을 구성 합니다 `docker run` . 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
+명령 인수를 사용 하 여 OCR 컨테이너의 런타임 환경을 읽는 Computer Vision를 구성 합니다 `docker run` . 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
 
 ## <a name="configuration-settings"></a>구성 설정
 
@@ -33,10 +33,12 @@ ms.locfileid: "90982000"
 
 |필수|설정|목적|
 |--|--|--|
-|예|ReadEngineConfig:ResultExpirationPeriod|결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
-|예|캐시: Redis|결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
-|예|큐: RabbitMQ|RabbitMQ에서 작업을 디스패치할 수 있습니다. 이 설정은 부하 분산 장치 뒤에 여러 개의 읽기 컨테이너가 배치 된 경우에 유용 합니다.|
-|아니요|저장소::D ocumentStore:: MongoDB|영구 결과 저장소에 대해 MongoDB를 사용 하도록 설정 합니다.|
+|No|ReadEngineConfig:ResultExpirationPeriod| v2.0 컨테이너에만 해당 합니다. 결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
+|No|캐시: Redis| v2.0 컨테이너에만 해당 합니다. 결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
+|No|큐: RabbitMQ|v2.0 컨테이너에만 해당 합니다. RabbitMQ에서 작업을 디스패치할 수 있습니다. 이 설정은 부하 분산 장치 뒤에 여러 개의 읽기 컨테이너가 배치 된 경우에 유용 합니다.|
+|No|큐: Azure: QueueVisibilityTimeoutInMilliseconds | v3. x 컨테이너에만 해당 합니다. 다른 작업 자가 처리할 때 메시지를 표시 하지 않는 시간입니다. |
+|No|저장소::D ocumentStore:: MongoDB|v2.0 컨테이너에만 해당 합니다. 영구 결과 저장소에 대해 MongoDB를 사용 하도록 설정 합니다. |
+|No|저장소: ObjectStore: AzureBlob: ConnectionString| v3. x 컨테이너에만 해당 합니다. Azure blob storage 연결 문자열입니다. |
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
@@ -60,7 +62,7 @@ ms.locfileid: "90982000"
 
 `vision/v1.0`다음 표와 같이 끝점 URI에 라우팅을 추가 해야 합니다. 
 
-|필수| 이름 | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -88,9 +90,9 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용 하는 사용 권한 및 호스트 탑재 위치 권한에 따라 [호스트 컴퓨터](computer-vision-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스할 수 없습니다. 
 
-|선택 사항| 이름 | 데이터 형식 | Description |
+|선택 사항| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
-|허용되지 않음| `Input` | 문자열 | Computer Vision 컨테이너에는 사용되지 않습니다.|
+|허용되지 않음| `Input` | String | Computer Vision 컨테이너에는 사용되지 않습니다.|
 |선택| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제
@@ -118,36 +120,37 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 다음 Docker 예제는 읽기 컨테이너를 위한 것입니다.
 
 
-# <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
+# <a name="version-32-preview"></a>[버전 3.2-미리 보기](#tab/version-3-2)
 
 ### <a name="basic-example"></a>기본 예제
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
+
 ```
 
 ### <a name="logging-example"></a>로깅 예 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="version-31-preview"></a>[버전 3.1-미리 보기](#tab/version-3-1)
+# <a name="version-20-preview"></a>[버전 2.0-미리 보기](#tab/version-2)
 
 ### <a name="basic-example"></a>기본 예제
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -158,7 +161,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

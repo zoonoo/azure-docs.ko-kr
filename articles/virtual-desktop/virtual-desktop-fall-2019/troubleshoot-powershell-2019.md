@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 23d1e4b06c9c0278742da0cec8ac565b5f80a362
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004905"
 ---
 # <a name="windows-virtual-desktop-classic-powershell"></a>Windows 가상 데스크톱 (클래식) PowerShell
@@ -28,7 +28,7 @@ Windows 가상 데스크톱과 함께 PowerShell을 사용 하는 경우 오류 
 
 이 섹션에서는 Windows 가상 데스크톱을 설정 하는 동안 일반적으로 사용 되는 PowerShell 명령을 나열 하 고이를 사용 하는 동안 발생할 수 있는 문제를 해결 하는 방법을 제공 합니다.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>오류: RdsAppGroupUser 명령-지정 된 UserPrincipalName가 지정 된 호스트 풀의 RemoteApp 앱 그룹에 이미 할당 되어 있습니다.
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>오류: Add-RdsAppGroupUser 명령-지정 된 UserPrincipalName 지정 된 호스트 풀의 RemoteApp 앱 그룹에 이미 할당 되어 있습니다.
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
@@ -38,7 +38,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **해결 방법:** 사용자가 원격 앱과 원격 데스크톱이 모두 필요한 경우 다른 호스트 풀을 만들거나 원격 데스크톱에 대 한 사용자 액세스 권한을 부여 하 여 세션 호스트 VM에서 모든 응용 프로그램을 사용 하도록 허용 합니다.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>오류: RdsAppGroupUser 명령--지정 된 UserPrincipalName가 원격 데스크톱 테 넌 트와 연결 된 Azure Active Directory에 없습니다.
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>오류: Add-RdsAppGroupUser 명령--지정 된 UserPrincipalName가 원격 데스크톱 테 넌 트와 연결 된 Azure Active Directory에 없습니다.
 
 ```PowerShell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
@@ -52,7 +52,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 - 사용자가 B2C (business to consumer) 또는 B2B (기업 간) 상거래에 연결 되지 않았습니다.
 - Windows 가상 데스크톱 테 넌 트가 올바른 Azure Active Directory 연결 되어 있습니다.
 
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>오류: RdsDiagnosticActivities--사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
+### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>오류: Get-RdsDiagnosticActivities--사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
 
 ```PowerShell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
@@ -60,9 +60,9 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **원인:** -tenantname 매개 변수
 
-**해결 방법:** -TenantName을 사용 하 여 RdsDiagnosticActivities를 실행 \<TenantName> 합니다.
+**해결 방법:** -TenantName을 사용 하 여 Get-RdsDiagnosticActivities를 발급 \<TenantName> 합니다.
 
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>오류: RdsDiagnosticActivities--사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
+### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>오류: Get-RdsDiagnosticActivities-사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
 
 ```PowerShell
 Get-RdsDiagnosticActivities -Deployment -username <username>
@@ -72,7 +72,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **해결 방법:** 배포 관리자만 배포 스위치를 사용할 수 있습니다. 이러한 관리자는 일반적으로 원격 데스크톱 서비스/Windows 가상 데스크톱 팀의 구성원입니다. -Deployment 스위치를-TenantName으로 바꿉니다 \<TenantName> .
 
-### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>오류: RdsRoleAssignment--사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
+### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>오류: New-RdsRoleAssignment-사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
 
 **원인 1:** 사용 중인 계정에 테 넌 트에 대 한 원격 데스크톱 서비스 소유자 권한이 없습니다.
 
@@ -83,7 +83,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 **수정 2:** Active Directory 권한이 있는 사용자는 역할 할당을 실행 해야 합니다.
 
 >[!Note]
->RdsRoleAssignment는 AD (Azure Active Directory)에 없는 사용자에 게 권한을 부여할 수 없습니다.
+>New-RdsRoleAssignment는 AD (Azure Active Directory)에 없는 사용자에 게 사용 권한을 부여할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442737"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614900"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>웹 Api를 호출 하는 모바일 앱 등록
 
@@ -50,19 +50,19 @@ B2C 인증 및 정책을 통과 하는 소셜 id를 사용 하 여 사용자를 
 
 앱 등록 포털은 iOS 및 Android 응용 프로그램에 대 한 조정 된 회신 URI를 계산 하는 데 도움이 되는 미리 보기 환경을 제공 합니다.
 
-1. 앱 등록 포털에서 **인증**을 선택 하  >  **여 새 환경을 사용해 보세요**.
+1. 앱 등록 포털에서 **인증** 을 선택 하  >  **여 새 환경을 사용해 보세요**.
 
    ![새 환경을 선택 하는 인증 블레이드](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. **플랫폼 추가를**선택 합니다.
+2. **플랫폼 추가를** 선택 합니다.
 
    ![플랫폼 추가](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. 플랫폼 목록이 지원 되는 경우 **iOS**를 선택 합니다.
+3. 플랫폼 목록이 지원 되는 경우 **iOS** 를 선택 합니다.
 
    ![모바일 응용 프로그램 선택](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. 번들 ID를 입력 하 고 **등록**을 선택 합니다.
+4. 번들 ID를 입력 하 고 **등록** 을 선택 합니다.
 
    ![번들 ID 입력](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
@@ -81,7 +81,12 @@ B2C 인증 및 정책을 통과 하는 소셜 id를 사용 하 여 사용자를 
 
 앱에서 사용자 이름-암호 인증만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이 흐름은 Microsoft id 플랫폼 버전 2.0 끝점으로의 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.
 
-그러나 응용 프로그램을 공용 클라이언트 응용 프로그램으로 식별 해야 합니다. 이렇게 하려면 응용 프로그램의 **인증** 섹션을 시작 합니다. **고급 설정** 하위 섹션의 **기본 클라이언트 유형** 단락에서 질문 **응용 프로그램을 공용 클라이언트로 간주**하려면 **예**를 선택 합니다.
+그러나 응용 프로그램을 공용 클라이언트 응용 프로그램으로 식별 해야 합니다. 이를 수행하려면:
+
+1. [Azure Portal](https://portal.azure.com)에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
+1. **고급 설정** 에서  >  **공용 클라이언트 흐름 허용** 에서  >  **다음과 같은 모바일 및 데스크톱 흐름을 사용 하도록 설정 합니다.** 에서 **예** 를 선택 합니다.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 공용 클라이언트 설정 사용":::
 
 ## <a name="api-permissions"></a>API 사용 권한
 
@@ -91,5 +96,4 @@ B2C 인증 및 정책을 통과 하는 소셜 id를 사용 하 여 사용자를 
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [코드 구성](scenario-mobile-app-configuration.md)
+이 시나리오에서 [앱 코드 구성](scenario-mobile-app-configuration.md)의 다음 문서로 이동 합니다.

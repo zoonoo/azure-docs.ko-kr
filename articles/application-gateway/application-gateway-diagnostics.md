@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9d2fba48762e11a92f6f3925c969b01aebbe3630
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517878"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347594"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
 
@@ -39,12 +39,12 @@ Application Gateway는 포털, PowerShell 및 CLI(명령줄 인터페이스)를 
 
 ### <a name="view-back-end-health-through-the-portal"></a>포털을 통해 백 엔드 상태 보기
 
-포털에서는 백 엔드 상태를 자동으로 제공합니다. 기존 응용 프로그램 게이트웨이에서 **모니터링**  >  **백 엔드 상태**를 선택 합니다.
+포털에서는 백 엔드 상태를 자동으로 제공합니다. 기존 응용 프로그램 게이트웨이에서 **모니터링**  >  **백 엔드 상태** 를 선택 합니다.
 
-NIC, IP 또는 FQDN과 관계 없이 백 엔드 풀의 각 멤버가 이 페이지에 나열됩니다. 백 엔드 풀 이름, 포트, 백 엔드 HTTP 설정 이름 및 상태도 표시됩니다. 상태에 유효한 값은 **정상**, **비정상**및 **알 수 없음**입니다.
+NIC, IP 또는 FQDN과 관계 없이 백 엔드 풀의 각 멤버가 이 페이지에 나열됩니다. 백 엔드 풀 이름, 포트, 백 엔드 HTTP 설정 이름 및 상태도 표시됩니다. 상태에 유효한 값은 **정상**, **비정상** 및 **알 수 없음** 입니다.
 
 > [!NOTE]
-> 백 엔드 상태가 **알 수 없음**이면 백 엔드에 대한 액세스가 가상 네트워크의 NSG 규칙, UDR(사용자 정의 경로) 또는 사용자 지정 DNS에 의해 차단되지 않도록 합니다 .
+> 백 엔드 상태가 **알 수 없음** 이면 백 엔드에 대한 액세스가 가상 네트워크의 NSG 규칙, UDR(사용자 정의 경로) 또는 사용자 지정 DNS에 의해 차단되지 않도록 합니다 .
 
 ![백 엔드 상태][10]
 
@@ -95,7 +95,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 관리하고 문제를 해결할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. Azure Blob Storage에서 모든 로그를 추출하여 다양한 도구(예: [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md),Excel 및 Power BI)에서 볼 수 있습니다. 다음 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
 
-* **활동 로그** - [Azure 활동 로그](../monitoring-and-diagnostics/insights-debugging-with-events.md)(이전의 작업 로그 및 감사 로그)를 사용하여 Azure 구독에 제출된 모든 작업과 상태를 확인할 수 있습니다. 활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
+* **활동 로그** - [Azure 활동 로그](../azure-resource-manager/management/view-activity-logs.md)(이전의 작업 로그 및 감사 로그)를 사용하여 Azure 구독에 제출된 모든 작업과 상태를 확인할 수 있습니다. 활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
 * **액세스 로그**:이 로그를 사용 하 여 Application Gateway 액세스 패턴을 보고 중요 한 정보를 분석할 수 있습니다. 여기에는 호출자의 IP, 요청 된 URL, 응답 대기 시간, 반환 코드 및 바이트 (in/out)가 포함 됩니다. 액세스 로그는 60 초 마다 수집 됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다. Application Gateway 인스턴스는 instanceId 속성으로 식별됩니다.
 * **성능 로그** - 이 로그를 사용하여 Application Gateway 인스턴스를 수행하는 방법을 확인할 수 있습니다. 이 로그는 인스턴스 단위로 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등의 성능 정보를 캡처합니다. 성능 로그는 60초마다 수집됩니다. 성능 로그는 v1 SKU에 대해서만 사용할 수 있습니다. V2 SKU의 경우 성능 데이터에 대 한 [메트릭을](application-gateway-metrics.md) 사용 합니다.
 * **방화벽 로그** - 이 로그를 사용하면 웹 애플리케이션 방화벽으로 구성된 애플리케이션 게이트웨이의 검색 모드 또는 방지 모드를 통해 로깅된 요청을 확인할 수 있습니다. 방화벽 로그는 60 초 마다 수집 됩니다. 
@@ -132,7 +132,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Azure Portal을 통한 로깅 사용
 
-1. Azure Portal에서 리소스를 찾고 **진단 설정**을 선택 합니다.
+1. Azure Portal에서 리소스를 찾고 **진단 설정** 을 선택 합니다.
 
    Application Gateway의 경우 다음 세 가지 로그를 사용할 수 있습니다.
 
@@ -140,7 +140,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
    * 성능 로그
    * 방화벽 로그
 
-2. 데이터 수집을 시작 하려면 **진단 켜기**를 선택 합니다.
+2. 데이터 수집을 시작 하려면 **진단 켜기** 를 선택 합니다.
 
    ![진단 켜기][1]
 
@@ -148,11 +148,11 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
    ![구성 프로세스 시작][2]
 
-5. 설정의 이름을 입력 하 고, 설정을 확인 하 고, **저장**을 선택 합니다.
+5. 설정의 이름을 입력 하 고, 설정을 확인 하 고, **저장** 을 선택 합니다.
 
 ### <a name="activity-log"></a>활동 로그
 
-Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로그는 Azure 이벤트 로그 저장소에 90일 동안 유지됩니다. [이벤트 및 활동 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md) 문서를 참조하여 이러한 로그에 대해 자세히 알아보세요.
+Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로그는 Azure 이벤트 로그 저장소에 90일 동안 유지됩니다. [이벤트 및 활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md) 문서를 참조하여 이러한 로그에 대해 자세히 알아보세요.
 
 ### <a name="access-log"></a>액세스 로그
 
@@ -208,7 +208,6 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
-|clientPort     | 요청에 대한 원래 포트       |
 |httpMethod     | 요청에서 사용된 HTTP 메서드       |
 |requestUri     | 받은 요청의 URI        |
 |UserAgent     | HTTP 요청 헤더의 사용자 에이전트        |
@@ -236,7 +235,6 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
     "properties": {
         "instanceId": "appgw_1",
         "clientIP": "191.96.249.97",
-        "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
         "userAgent": "-",
@@ -308,7 +306,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |ruleSetVersion     | 사용된 규칙 집합 버전이며, 사용 가능한 값은 2.2.9 및 3.0입니다.     |
 |ruleId     | 트리거 이벤트의 규칙 ID        |
 |message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
-|작업     |  요청에서 수행되는 동작이며, 사용 가능한 값은 일치 하 고 차단 됩니다.      |
+|action     |  요청에서 수행되는 동작이며, 사용 가능한 값은 일치 하 고 차단 됩니다.      |
 |site     | 로그를 생성한 사이트이며, 현재 규칙이 전역이므로 Global만 나열됩니다.|
 |자세히     | 트리거 이벤트의 세부 정보        |
 |details.message     | 규칙에 대한 설명        |
@@ -353,7 +351,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 다음 방법 중 하나를 사용하여 활동 로그 데이터를 확인하고 분석할 수 있습니다.
 
 * **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/management/view-activity-logs.md) 문서에 자세히 나와 있습니다.
-* **Power BI**: 아직 [Power BI](https://powerbi.microsoft.com/pricing) 계정이 없으면 무료로 사용해 볼 수 있습니다. [Power BI 템플릿 앱](https://docs.microsoft.com/power-bi/service-template-apps-overview)을 사용 하 여 데이터를 분석할 수 있습니다.
+* **Power BI**: 아직 [Power BI](https://powerbi.microsoft.com/pricing) 계정이 없으면 무료로 사용해 볼 수 있습니다. [Power BI 템플릿 앱](/power-bi/service-template-apps-overview)을 사용 하 여 데이터를 분석할 수 있습니다.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>액세스, 성능 및 방화벽 로그 보기 및 분석
 

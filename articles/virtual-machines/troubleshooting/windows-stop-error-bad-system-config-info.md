@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942121"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977034"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Windows 중지 오류-0x00000074 잘못 된 시스템 구성 정보
 
@@ -27,7 +27,7 @@ ms.locfileid: "88942121"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 스크린 샷에서 Windows 중지 코드 **#0x00000074** 또는 **BAD_SYSTEM_CONFIG_INFO**표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 스크린 샷에서 Windows 중지 코드 **#0x00000074** 또는 **BAD_SYSTEM_CONFIG_INFO**표시 되는 것을 볼 수 있습니다.
 
 *PC에서 문제가 발생 하 여 컴퓨터를 다시 시작 해야 합니다. 를 다시 시작할 수 있습니다.* 
  *이 문제 및 가능한 해결 방법에 대 한 자세한 내용은 http://windows.com/stopcode 다음을 참조 하세요.* 
@@ -58,13 +58,13 @@ ms.locfileid: "88942121"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
 1. Hive 손상이 있는지 확인 합니다.
 1. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
-1. 폴더를 복사 `\windows\system32\config` 하 여 정상 디스크 파티션이나 다른 안전한 위치에 저장 합니다. 중요 한 레지스트리 파일을 편집할 수 있기 때문에이 폴더를 예방 조치로 백업 합니다.
+1. 폴더를 복사 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 하 여 정상 디스크 파티션이나 다른 안전한 위치에 저장 합니다. 중요 한 레지스트리 파일을 편집할 수 있기 때문에이 폴더를 예방 조치로 백업 합니다. 
 
 > [!NOTE]
-> 레지스트리에 대 한 `\windows\system32\config` 변경 내용을 롤백해야 하는 경우 백업으로 폴더 복사본을 만듭니다.
+> 레지스트리에 대 한 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 변경 내용을 롤백해야 하는 경우 백업으로 폴더 복사본을 만듭니다.
 
 ### <a name="check-for-hive-corruption"></a>Hive 손상 확인
 
@@ -72,7 +72,7 @@ ms.locfileid: "88942121"
 
 1. 복구 VM에서 **레지스트리 편집기** 응용 프로그램을 엽니다. Windows 검색 창에서 "REGEDIT"를 입력 하 여 찾습니다.
 1. 레지스트리 편집기에서 **HKEY_LOCAL_MACHINE** 를 선택 하 여 강조 표시 하 고 **파일 > Hive 로드** ...를 선택 합니다. (채널 만들기...)을 선택합니다.
-1. 으로 이동 하 여 `\windows\system32\config\SYSTEM` **열기**를 선택 합니다.
+1. 으로 이동 하 여 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` **열기**를 선택 합니다.
 1. 이름을 입력 하 라는 메시지가 표시 되 면 **BROKENSYSTEM**를 입력 합니다.
 
    1. Hive를 열지 못했거나 비어 있으면 hive가 손상 된 것입니다. Hive가 손상 된 경우 [지원 티켓을 엽니다](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -133,4 +133,4 @@ ms.locfileid: "88942121"
    
 ### <a name="rebuild-the-vm"></a>VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 빌드합니다.

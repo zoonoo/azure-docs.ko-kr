@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36e41db6e1a3cff13f31f0abf2e83e872dfd7c49
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67672172"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91742335"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -65,7 +65,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 * 온-프레미스에서 클라우드 애플리케이션까지 네트워크 토폴로지 검색
 * 용량 계획, 대역폭 사용률 분석
 * 기본 및 보조 경로에서 모니터링 및 경고
-* ExpressRoute를 통해 Office 365, Dynamics 365 등의 Azure 서비스에 대한 연결 모니터링
+* Microsoft 365, Dynamics 365 등의 Azure 서비스에 대 한 연결 모니터링 Express 경로
 * VNet에 대한 연결에서 성능 저하 감지
 
 ![전체 지역의 트래픽을 보여주는 지역 지도](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -84,7 +84,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 * 전 세계 여러 사용자 위치에서 애플리케이션 연결 테스트
 * 비즈니스 및 SaaS 애플리케이션에 대한 네트워크 대기 시간 및 패킷 손실 파악
 * 잘못된 애플리케이션 성능을 일으킬 수 있는 네트워크상 핫 스폿 확인
-* Microsoft Office 365, Dynamics 365, Skype for Business 및 기타 Microsoft 서비스를 위한 기본 테스트를 사용하여 Office 365 애플리케이션에 대한 연결 가능성 모니터링
+* Microsoft 365, Dynamics 365, 비즈니스용 Skype 및 기타 Microsoft 서비스에 대 한 기본 제공 테스트를 사용 하 여 Microsoft 365 응용 프로그램에 대 한 연결성을 모니터링 합니다.
 
 자세한 내용은 다음 아티클을 참조하세요.
 
@@ -103,7 +103,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 
 트래픽 분석은 조직의 네트워크 활동을 감사하고, 애플리케이션 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 되는 실행 가능한 정보를 제공합니다.
 
-![전체 지역의 트래픽을 보여주는 지역 지도](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![지역 간 트래픽을 보여 주는 지역 지도 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 관련 링크:
 * [블로그 게시물](https://aka.ms/trafficanalytics), [설명서](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)

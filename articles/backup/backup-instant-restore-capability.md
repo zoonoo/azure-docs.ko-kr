@@ -4,18 +4,18 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000382"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014451"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
 > [!NOTE]
 > 사용자의 의견에 따라 Azure Stack 기능으로 인 한 혼동을 줄이기 위해 **VM backup Stack V2** 의 이름을 **인스턴트 복원** 으로 변경 했습니다.
-> 모든 Azure Backup 사용자는 이제 **즉시 복원**으로 업그레이드 되었습니다.
+> 모든 Azure Backup 사용자는 이제 **즉시 복원** 으로 업그레이드 되었습니다.
 
 인스턴트 복원의 새 모델은 다음과 같은 기능 개선 사항을 제공합니다.
 
@@ -60,6 +60,8 @@ ms.locfileid: "89000382"
 ## <a name="configure-snapshot-retention"></a>스냅숏 보존 구성
 
 ### <a name="using-azure-portal"></a>Azure Portal 사용
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Azure Portal에서 **VM 백업 정책** 창의 **인스턴트 복원** 섹션에 추가 된 필드를 볼 수 있습니다. **VM 백업 정책** 창에서 특정 백업 정책과 연결 된 모든 vm에 대 한 스냅숏 보존 기간을 변경할 수 있습니다.
 
@@ -115,3 +117,8 @@ VM 변동에 따라 다릅니다. 안정된 상태에서는 비용 증가를 스
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>즉시 복원 기능이 필요 하지 않습니다. 사용 하지 않도록 설정할 수 있나요?
 
 인스턴트 복원 기능은 모든 사용자에 대해 사용 하도록 설정 되어 있으므로 사용 하지 않도록 설정할 수 없습니다. 스냅숏 보존 기간을 최소 1 일로 줄일 수 있습니다.
+
+### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>전송 프로세스 중에 VM을 다시 시작 하는 것이 안전 한가요? VM 인터럽트를 다시 시작 하거나 전송 속도를 늦 나요?
+
+예, 안전 하며, 데이터 전송 속도에는 전혀 영향을 주지 않습니다.
+

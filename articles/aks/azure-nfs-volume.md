@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
 ms.openlocfilehash: 4e817d572a98ffb8135adf58d13f50ccacbc8746
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86251997"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)를 사용 하 여 NFS (네트워크 파일 시스템) Linux 서버 볼륨을 수동으로 만들고 사용 합니다.
@@ -151,7 +151,7 @@ spec:
 ls -l
 ```
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 전체 연습을 얻거나 NFS 서버 설치 프로그램을 디버그 하는 데 도움이 되는 자세한 자습서는 다음과 같습니다.
   - [NFS 자습서][nfs-tutorial]
 

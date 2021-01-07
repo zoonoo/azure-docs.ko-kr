@@ -3,12 +3,12 @@ title: Azure Notebooks 미리 보기에 로그인
 description: 신속하게 Azure Notebooks 미리 보기에 로그인하고 사용자 ID를 설정합니다. 그러면 저장된 프로젝트에 액세스하고 Notebooks를 다른 사용자와 공유하는 기능이 제공됩니다.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 168da5d4d36cd4cfadb4ef120ddfabbd261cafaf
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85830420"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109456"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>빠른 시작: 로그인하여 Azure Notebooks 미리 보기에 대한 사용자 ID 설정
 
@@ -18,11 +18,11 @@ ms.locfileid: "85830420"
 
 ## <a name="sign-in"></a>로그인
 
-1. [notebooks.azure.com](https://notebooks.azure.com/)의 오른쪽 위에서 **로그인**을 선택합니다.
+1. [notebooks.azure.com](https://notebooks.azure.com/)의 오른쪽 위에서 **로그인** 을 선택합니다.
 
     ![Azure Notebooks에서 로그인 명령의 위치](media/accounts/sign-in-command.png)
 
-1. 메시지가 표시되면 Microsoft 계정 또는 회사 또는 학교 계정의 이메일 주소를 입력하고 **다음**을 선택합니다. [Azure Notebooks에 대한 사용자 계정](azure-notebooks-user-account.md)에 계정 유형이 설명되어 있습니다. Microsoft 계정이 없거나 Azure Notebooks에 사용할 계정을 새로 만들려면 **만들기**를 선택합니다.
+1. 메시지가 표시되면 Microsoft 계정 또는 회사 또는 학교 계정의 이메일 주소를 입력하고 **다음** 을 선택합니다. [Azure Notebooks에 대한 사용자 계정](azure-notebooks-user-account.md)에 계정 유형이 설명되어 있습니다. Microsoft 계정이 없거나 Azure Notebooks에 사용할 계정을 새로 만들려면 **만들기** 를 선택합니다.
 
     ![로그인 프롬프트의 새 Microsoft 계정 만들기 명령](media/accounts/create-new-microsoft-account.png)
 
@@ -31,7 +31,7 @@ ms.locfileid: "85830420"
 
 1. 메시지가 표시되면 암호를 입력합니다.
 
-1. 처음으로 로그인하면 Azure Notebooks가 계정에 대한 액세스 권한을 요청합니다. **예**를 선택하여 계속합니다.
+1. 처음으로 로그인하면 Azure Notebooks가 계정에 대한 액세스 권한을 요청합니다. **예** 를 선택하여 계속합니다.
 
     ![계정 권한 프롬프트](media/accounts/account-permission-prompt.png)
 
@@ -41,9 +41,9 @@ ms.locfileid: "85830420"
 
     ![Azure Notebooks에 대한 사용자 ID를 입력하라는 프롬프트](media/accounts/create-user-id.png)
 
-    **아니요**를 선택하면 Azure Notebooks는 사용자가 로그인할 때마다 사용자 ID를 요구합니다. 언제든지 [사용자 프로필](azure-notebooks-user-profile.md)에서 사용자 ID를 설정할 수 있습니다.
+    **아니요** 를 선택하면 Azure Notebooks는 사용자가 로그인할 때마다 사용자 ID를 요구합니다. 언제든지 [사용자 프로필](azure-notebooks-user-profile.md)에서 사용자 ID를 설정할 수 있습니다.
 
-1. 성공적으로 로그인하면 Azure Notebooks가 사용자의 공개 프로필 페이지로 이동합니다. 이 페이지에서 **프로필 정보 편집**을 선택하여 나머지 정보를 입력할 수 있습니다(자세한 내용은 [프로필 및 사용자 ID](azure-notebooks-user-profile.md) 참조).
+1. 성공적으로 로그인하면 Azure Notebooks가 사용자의 공개 프로필 페이지로 이동합니다. 이 페이지에서 **프로필 정보 편집** 을 선택하여 나머지 정보를 입력할 수 있습니다(자세한 내용은 [프로필 및 사용자 ID](azure-notebooks-user-profile.md) 참조).
 
     ![Azure Notebooks 프로필 페이지의 초기 보기](media/accounts/profile-page-new.png)
 
@@ -52,11 +52,11 @@ ms.locfileid: "85830420"
 
 ## <a name="sign-out"></a>로그아웃
 
-로그아웃하려면 페이지의 오른쪽 위에서 사용자 이름을 선택하고 **로그아웃**을 선택합니다.
+로그아웃하려면 페이지의 오른쪽 위에서 사용자 이름을 선택하고 **로그아웃** 을 선택합니다.
 
 ![Azure Notebooks에서 로그아웃 명령의 위치](media/accounts/sign-out-command.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Notebook 만들기 및 공유](quickstart-create-share-jupyter-notebook.md)
+> [빠른 시작: Jupyter Notebook 프로젝트 내보내기](quickstart-export-jupyter-notebook-project.md)

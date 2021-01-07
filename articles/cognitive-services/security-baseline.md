@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2f3849e052cfc73d3e6e0bafd8b87b088a08266d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393896"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019279"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Cognitive Services에 대 한 Azure 보안 기준
 
 Cognitive Services에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 제어: 네트워크 보안](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 제어: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -32,9 +32,9 @@ Cognitive Services에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은 특정 지역 집합으로 제한 됩니다.
 
-* [Azure Cognitive Services 가상 네트워크를 구성 하는 방법](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)
+* [Azure Cognitive Services 가상 네트워크를 구성 하는 방법](./cognitive-services-virtual-networks.md?tabs=portal)
 
-* [Azure Virtual Network 개요](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -44,9 +44,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: Azure Cognitive Services 컨테이너와 동일한 가상 네트워크에 Virtual Machines 배포 된 경우 nsg (네트워크 보안 그룹)를 사용 하 여 데이터 exfiltration의 위험을 줄일 수 있습니다. NSG 흐름 로그를 사용 하도록 설정 하 고 로그를 트래픽 감사에 대 한 Azure Storage 계정으로 보냅니다. 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
 
-* [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [트래픽 분석을 사용하도록 설정하고 사용하는 방법](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [트래픽 분석을 사용하도록 설정하고 사용하는 방법](../network-watcher/traffic-analytics.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -62,7 +62,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 또한 Cognitive Services 컨테이너가 Microsoft 서버에 만드는 보안 채널에서 방화벽 솔루션에 대 한 심층 패킷 검사를 사용 하지 않도록 설정 해야 합니다. 이렇게 하지 않으면 컨테이너가 제대로 작동 하지 않습니다.
 
-* [Azure Cognitive Services 컨테이너 보안 이해](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+* [Azure Cognitive Services 컨테이너 보안 이해](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Azure Security Center 모니터링**: 예
 
@@ -77,11 +77,11 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 컨테이너 내에서 Cognitive Services를 사용 하는 경우, 악성 트래픽을 필터링 하 고 종단 간 TLS 암호화를 지 원하는 프런트 엔드 웹 응용 프로그램 방화벽 솔루션을 사용 하 여 컨테이너 배포를 보강 하 여 컨테이너 끝점을 비공개로 안전 하 게 유지할 수 있습니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
-* [Azure Cognitive Services 컨테이너 보안 이해](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+* [Azure Cognitive Services 컨테이너 보안 이해](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Azure Security Center 모니터링**: 예
 
@@ -91,9 +91,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: Azure Cognitive Services 컨테이너와 동일한 가상 네트워크에 가상 머신을 배포 하는 경우 nsg (네트워크 보안 그룹)를 사용 하 여 데이터 exfiltration의 위험을 줄일 수 있습니다. NSG 흐름 로그를 사용 하도록 설정 하 고 로그를 트래픽 감사에 대 한 Azure Storage 계정으로 보냅니다. 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
 
-* [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [트래픽 분석을 사용하도록 설정하고 사용하는 방법](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [트래픽 분석을 사용하도록 설정하고 사용하는 방법](../network-watcher/traffic-analytics.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -109,7 +109,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 또한 Cognitive Services 컨테이너가 Microsoft 서버에 만드는 보안 채널에서 방화벽 솔루션에 대 한 심층 패킷 검사를 사용 하지 않도록 설정 해야 합니다. 이렇게 하지 않으면 컨테이너가 제대로 작동 하지 않습니다.
 
-* [Azure Cognitive Services 컨테이너 보안 이해](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+* [Azure Cognitive Services 컨테이너 보안 이해](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
@@ -127,7 +127,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 또한 Cognitive Services 컨테이너가 Microsoft 서버에 만드는 보안 채널에서 방화벽 솔루션에 대 한 심층 패킷 검사를 사용 하지 않도록 설정 해야 합니다. 이렇게 하지 않으면 컨테이너가 제대로 작동 하지 않습니다.
 
-* [Azure Cognitive Services 컨테이너 보안 이해](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support#azure-cognitive-services-container-security)
+* [Azure Cognitive Services 컨테이너 보안 이해](./cognitive-services-container-support.md#azure-cognitive-services-container-security)
 
 **Azure Security Center 모니터링**: 예
 
@@ -139,9 +139,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 또한 ASG (응용 프로그램 보안 그룹)를 사용 하 여 복잡 한 보안 구성을 단순화할 수 있습니다. ASGs를 사용 하면 네트워크 보안을 응용 프로그램 구조의 자연 확장으로 구성 하 여 가상 머신을 그룹화 하 고 해당 그룹에 따라 네트워크 보안 정책을 정의할 수 있습니다.
 
-* [가상 네트워크 서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [가상 네트워크 서비스 태그](../virtual-network/service-tags-overview.md)
 
-* [응용 프로그램 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+* [응용 프로그램 보안 그룹](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -153,9 +153,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 패키지화 하 여 대규모 Azure 배포를 간소화할 수 있습니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -165,7 +165,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: 논리적으로 분류로 구성 하기 위해 Azure Cognitive Services 컨테이너와 연결 된 네트워크 리소스에 대 한 태그를 사용 합니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -175,9 +175,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 azure Cognitive Services 컨테이너와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -185,7 +185,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 제어: 로깅 및 모니터링](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 제어: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
@@ -199,7 +199,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: Azure 활동 로그 진단 설정을 사용하도록 설정하고 보관을 위해 로그를 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure 스토리지 계정으로 보냅니다. 활동 로그는 제어 평면 수준에서 Azure Cognitive Services 컨테이너에 대해 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 Redis 인스턴스에 대 한 Azure 캐시에 대 한 제어 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -211,9 +211,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 또한 Azure Cognitive Services는 수집 하 여 분석, 경고 및 보고를 위해 사용할 수 있는 진단 이벤트를 보냅니다. Azure Portal를 통해 Cognitive Services 컨테이너에 대 한 진단 설정을 구성할 수 있습니다. 하나 이상의 진단 이벤트를 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역으로 보낼 수 있습니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-* [Azure Cognitive Services에 대 한 진단 설정 사용](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging)
+* [Azure Cognitive Services에 대 한 진단 설정 사용](./diagnostic-logging.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -231,7 +231,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규칙에 따라 Log Analytics 작업 영역 보존 기간을 설정합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-* [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -241,9 +241,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. 이러한 로그는 문제를 식별 하 고 디버깅 하는 데 사용 되는 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. Log Analytics에서 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Azure Cognitive Services에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공 합니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-* [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
+* [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -255,9 +255,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 Cognitive Services 컨테이너에 대 한 진단 설정을 구성 하 고 Log Analytics 작업 영역으로 로그를 보냅니다. Log Analytics 작업 영역 내에서 미리 정의한 일련의 조건이 발생하면 경보가 발생하도록 구성합니다. 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+* [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -289,15 +289,15 @@ Cognitive Services 컨테이너에 대 한 진단 설정을 구성 하 고 Log A
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
 **지침**: AD (Azure Active Directory)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -311,7 +311,7 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 응용 프로그램에 기본 암호를 빌드하는 것은 권장 되지 않습니다. 대신 Azure Key Vault에 암호를 저장 한 다음 Azure Active Directory를 사용 하 여 검색할 수 있습니다.
 
-* [Redis 액세스 키에 대 한 Azure 캐시를 다시 생성 하는 방법](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings)
+* [Redis 액세스 키에 대 한 Azure 캐시를 다시 생성 하는 방법](../azure-cache-for-redis/cache-configure.md#settings)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -326,9 +326,9 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 - 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.
 - 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 
-* [Azure Security Center를 사용하여 ID 및 액세스를 모니터링하는 방법(미리 보기)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center를 사용하여 ID 및 액세스를 모니터링하는 방법(미리 보기)](../security-center/security-center-identity-access.md)
 
-* [Azure Policy를 사용하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 사용하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -338,9 +338,9 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 **지침**: Azure Cognitive Services는 액세스 키를 사용 하 여 사용자를 인증 하 고 데이터 평면 수준에서 SINGLE SIGN-ON (SSO)를 지원 하지 않습니다. Azure Cognitive Services의 제어 평면에 대 한 액세스는 REST API를 통해 제공 되며 SSO를 지원 합니다. 인증을 위해 요청에 대한 권한 부여 헤더를 Azure Active Directory에서 가져오는 JSON Web Token으로 설정합니다.
 
-* [Azure Cognitive Services REST API 이해](https://docs.microsoft.com/rest/api/cognitiveservices/)
+* [Azure Cognitive Services REST API 이해](/rest/api/cognitiveservices/)
 
-* [Azure AD를 사용 하 여 SSO 이해](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+* [Azure AD를 사용 하 여 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -350,9 +350,9 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 **지침**: Azure AD(Active Directory) MFA(Multi-Factor Authentication)를 사용하도록 설정하고, Azure Security Center ID 및 액세스 관리 추천 사항을 따릅니다.
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -362,9 +362,9 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 **지침**: Azure 리소스에 로그인하여 구성하도록 구성된 MFA(Multi-Factor Authentication)를 통해 PAW(Privileged Access Workstation)를 사용합니다.
 
-* [Privileged Access Workstation에 대한 자세한 정보](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -376,9 +376,9 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 또한 Azure AD 위험 탐지를 사용하여 위험한 사용자 동작에 대한 경고 및 보고서를 봅니다.
 
-* [PIM(Privileged Identity Management)을 배포하는 방법](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Azure AD 위험 탐지 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -388,7 +388,7 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 **지침**: IP 주소 범위 또는 국가/지역의 특정 논리적 그룹 에서만 액세스할 수 있도록 AD (Azure Active Directory) 조건부 액세스의 명명 된 위치를 구성 합니다.
 
-* [Azure에서 명명된 위치를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Azure에서 명명된 위치를 구성하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -400,7 +400,7 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 현재는 Azure AD를 사용 하 여 인증을 지 원하는 Computer Vision API, Face API, 텍스트 분석 API, 몰입 형 판독기, 폼 인식기, 변칙 탐지기 및 모든 Bing Bing Custom Search 서비스만 지원 합니다.
 
-* [Cognitive Services에 대 한 요청을 인증 하는 방법](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-azure-active-directory)
+* [Cognitive Services에 대 한 요청을 인증 하는 방법](./authentication.md#authenticate-with-azure-active-directory)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -412,11 +412,11 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 고객은 API Management 사용자 계정에 대 한 인벤토리를 유지 관리 하 고 필요에 따라 액세스를 조정 합니다. API Management에서 개발자는 API Management 사용을 공개하는 API의 사용자입니다. 기본적으로 새로 만든 개발자 계정은 활성 상태이며, 개발자 그룹과 연결됩니다. 활성 상태의 개발자 계정은 구독을 사용하는 모든 API에 액세스하는 데 사용할 수 있습니다.
 
-* [Azure API Management에서 사용자 계정을 관리하는 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-create-or-invite-developers)
+* [Azure API Management에서 사용자 계정을 관리하는 방법](../api-management/api-management-howto-create-or-invite-developers.md)
 
-* [API Management 사용자 목록을 가져오는 방법](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [API Management 사용자 목록을 가져오는 방법](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
 
-* [Azure ID 액세스 검토를 사용하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -428,9 +428,9 @@ Azure Cognitive Services에 대 한 데이터 평면 액세스는 액세스 키�
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 내에서 원하는 로그 경고를 구성할 수 있습니다.
 
-* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -440,11 +440,11 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 제어 평면의 계정 로그인 동작 편차에 대해 AD (Azure Active Directory) id 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-* [Azure AD 위험한 로그인을 확인하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -454,7 +454,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 아직 사용할 수 없음 고객 Lockbox는 Azure Cognitive Services에 대해 아직 지원 되지 않습니다.
 
-* [Customer Lockbox 지원 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Customer Lockbox 지원 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -462,13 +462,13 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -478,19 +478,19 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. 리소스는 VNet/서브넷으로 구분 되며, 적절 하 게 태그가 지정 되 고, NSG 또는 Azure 방화벽으로 보호 됩니다. 중요 한 데이터를 저장 하거나 처리 하는 리소스는 충분히 격리 되어야 합니다. 중요 한 데이터를 저장 하거나 처리 Virtual Machines 하는 경우 정책 및 프로시저를 구현 하 여 사용 하지 않을 때이를 해제 합니다.
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용하여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure 방화벽을 사용 하 여 경고 또는 경고 및 거부를 구성 하는 방법](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Azure 방화벽을 사용 하 여 경고 또는 경고 및 거부를 구성 하는 방법](../firewall/threat-intel.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -502,7 +502,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 Microsoft는 Azure Cognitive Services에 대 한 기본 인프라를 관리 하 고 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -514,7 +514,7 @@ Microsoft는 Azure Cognitive Services에 대 한 기본 인프라를 관리 하 
 - 클라이언트 운영 체제 (OS)는 TLS 1.2를 지원 해야 합니다.
 - HTTP 호출을 수행 하는 데 사용 되는 언어 (및 플랫폼)는 요청의 일부로 TLS 1.2을 지정 해야 합니다. 언어 및 플랫폼에 따라 TLS를 암시적으로 지정 하거나 명시적으로 지정 합니다.
 
-* [Azure Cognitive Services에 대 한 전송 계층 보안 이해](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)
+* [Azure Cognitive Services에 대 한 전송 계층 보안 이해](./cognitive-services-security.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -526,7 +526,7 @@ Microsoft는 Azure Cognitive Services에 대 한 기본 인프라를 관리 하 
 
 Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요한 것으로 간주하고, 고객 데이터 손실 및 노출을 방지하기 위해 모든 노력을 다하고 있습니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -536,7 +536,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 azure Cognitive Services 제어 평면 (Azure Portal)에 대 한 액세스를 제어 합니다.
 
-* [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -548,7 +548,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 Microsoft는 Azure Cognitive Services에 대 한 기본 인프라를 관리 하 고 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -560,7 +560,7 @@ Microsoft는 Azure Cognitive Services에 대 한 기본 인프라를 관리 하 
 
 Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다.
 
-* [휴지 상태의 정보를 암호화 하는 서비스 목록](https://docs.microsoft.com/azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal)
+* [휴지 상태의 정보를 암호화 하는 서비스 목록](./encryption/cognitive-services-encryption-keys-portal.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -570,7 +570,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: azure 활동 로그에서 Azure Monitor를 사용 하 여 azure Cognitive Services의 프로덕션 인스턴스 및 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -578,7 +578,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [보안 제어: 취약성 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
@@ -622,7 +622,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 Asset Discovery 솔루션 사용
 
@@ -630,11 +630,11 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 클래식 Azure 리소스는 Resource Graph를 통해 검색할 수 있지만 앞으로 Azure Resource Manager 리소스를 만들어 사용하는 것이 좋습니다.
 
-* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure RBAC 이해](../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -644,7 +644,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -658,11 +658,11 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -684,9 +684,9 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 또한 Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리/검색 합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -722,9 +722,9 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -742,7 +742,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: "Microsoft Azure 관리" 앱에 대한 "액세스 차단"을 구성하여 사용자가 Azure Resource Manager와 상호 작용하는 기능을 제한하도록 Azure 조건부 액세스를 구성합니다.
 
-* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -766,15 +766,15 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 제어: 보안 구성](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 제어: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
 **지침**: Azure Policy를 사용 하 여 Azure Cognitive Services 컨테이너에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Cognitiveservices account" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Redis 인스턴스의 Azure Cache 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-* [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -792,9 +792,9 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: [거부] 및 [존재하지 않으면 배포] Azure 정책을 사용하여 보안 설정을 Azure 리소스 전체에 적용합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -812,9 +812,9 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: Azure Cognitive Services 컨테이너 및 관련 리소스에 대 한 사용자 지정 Azure Policy 정의 또는 Azure Resource Manager 템플릿을 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -832,7 +832,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: "Microsoft Cache" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 시스템 구성을 경고, 감사 및 적용 하기 위한 사용자 지정 정책을 만들 수 있습니다. 또한 정책 예외를 관리하는 프로세스와 파이프라인을 개발합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -850,7 +850,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: "cognitiveservices account" 네임 스페이스에 Azure Policy 별칭을 사용 하 여 사용자 지정 Azure Policy 정의를 만들어 시스템 구성을 경고, 감사 및 적용 합니다. Redis 인스턴스 및 관련 리소스에 대 한 Azure 캐시에 대 한 구성을 자동으로 적용 하려면 [감사], [거부] 및 [배포 하지 않은 경우 배포] Azure Policy 사용 합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -868,13 +868,13 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: AZURE Cognitive Services API에 액세스 하는 데 사용 되는 Azure App Service에서 실행 되는 azure 가상 머신 또는 웹 응용 프로그램의 경우 Azure Key Vault와 함께 관리 서비스 ID를 사용 하 여 azure Cognitive Services 키 관리를 간소화 하 고 보호 합니다. Key Vault 일시 삭제를 사용 하도록 설정 했는지 확인 합니다.
 
-* [Azure 관리 Id와 통합 하는 방법](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Azure 관리 Id와 통합 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Key Vault를 만드는 방법](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+* [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
-* [Key Vault에 인증 하는 방법](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 
-* [Key Vault 액세스 정책을 할당 하는 방법](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -886,9 +886,9 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 관리 Id를 사용 하 여 Azure Active Directory에서 자동으로 관리 되는 id를 Azure 서비스에 제공 합니다. 관리 Id를 사용 하면 코드에 자격 증명 없이 Azure Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.
 
-* [관리 Id를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [관리 Id를 구성 하는 방법](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-* [Azure 관리 Id와 통합 하는 방법](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Azure 관리 Id와 통합 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -906,7 +906,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 제어: 맬웨어 방어](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 제어: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리 맬웨어 방지 소프트웨어 사용
 
@@ -940,7 +940,7 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 제어: 데이터 복구](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
@@ -948,11 +948,11 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 수명 주기 관리 기능을 사용 하 여 데이터를 보관 계층으로 백업할 수도 있습니다. 또한 저장소 계정에 저장 된 백업에 대해 일시 삭제를 사용 하도록 설정 합니다.
 
-* [중복성 및 서비스 수준 계약 Azure Storage 이해](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Azure Storage 중복성 및 Service-Level 계약 이해](../storage/common/storage-redundancy.md)
 
-* [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
+* [Azure Blob Storage 수명 주기 관리](../storage/blobs/storage-lifecycle-management-concepts.md)
 
-* [Azure Storage Blob에 대한 일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Azure Storage Blob에 대한 일시 삭제](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -962,17 +962,17 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 **지침**: Azure Resource Manager을 사용 하 여 Cognitive Services 및 관련 리소스를 배포할 수 있습니다. Azure Resource Manager은 템플릿을 내보내는 기능을 제공 하므로 개발 수명 주기 내내 솔루션을 다시 배포 하 고 리소스가 일관 된 상태로 배포 될 수 있습니다. Azure Automation를 사용 하 여 정기적으로 Azure Resource Manager 템플릿 내보내기 API를 호출 합니다. Azure Key Vault 내에서 미리 공유한 키를 백업 합니다.
 
-* [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+* [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)
 
-* [Azure Resource Manager 템플릿을 사용 하 여 Cognitive Services 리소스를 만드는 방법](https://docs.microsoft.com/azure/cognitive-services/resource-manager-template?tabs=portal)
+* [Azure Resource Manager 템플릿을 사용 하 여 Cognitive Services 리소스를 만드는 방법](./create-account-resource-manager-template.md?tabs=portal)
 
-* [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
-* [리소스 그룹-템플릿 내보내기](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+* [리소스 그룹-템플릿 내보내기](/rest/api/resources/resourcegroups/exporttemplate)
 
-* [Azure Automation 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Azure Automation 소개](../automation/automation-intro.md)
 
-* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -982,9 +982,9 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 **지침**: 필요한 경우 격리 된 구독에 정기적으로 Azure Resource Manager 템플릿 배포를 정기적으로 수행할 수 있는지 확인 합니다. 백업 된 미리 공유한 키의 복원을 테스트 합니다.
 
-* [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
+* [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -992,13 +992,13 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
-**지침**: Azure devops를 사용 하 여 Azure Resource Manager 템플릿을 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스를 보호 하기 위해 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.  역할 기반 액세스 제어를 사용 하 여 고객 관리 키를 보호 합니다. Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. 
+**지침**: Azure devops를 사용 하 여 Azure Resource Manager 템플릿을 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스를 보호 하기 위해 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.  Azure 역할 기반 액세스 제어를 사용 하 여 고객 관리 키를 보호 합니다. Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. 
 
-* [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure DevOps의 사용 권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
-* [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Key Vault에서 Soft-Delete를 사용 하도록 설정 하 고 보호를 제거 하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1006,13 +1006,13 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 제어: 인시던트 대응](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 제어: 인시던트 대응](../security/benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
 **지침**: 조직에 대한 인시던트 대응 지침을 작성합니다. 검색에서 사후 검토에 이르는 인시던트 처리/관리 단계뿐만 아니라 담당자의 모든 역할을 정의하는 인시던트 대응 계획이 있는지 확인합니다.
 
-* [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](../security-center/security-center-planning-and-operations-guide.md)
 
 * [자체 보안 인시던트 대응 프로세스를 구축하는 방법에 대한 지침](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1048,7 +1048,7 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 고객 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-* [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1058,9 +1058,9 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 **지침**: 연속 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고 Sentinel을 스트리밍할 수 있습니다.
 
-* [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md)
 
-* [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1070,7 +1070,7 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 **지침**: Azure Security Center의 워크플로 자동화 기능을 사용하여 보안 경고 및 권장 사항에 대한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다.
 
-* [워크플로 자동화와 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [워크플로 자동화와 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1078,7 +1078,7 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -1092,5 +1092,5 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](https://docs.microsoft.com/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

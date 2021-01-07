@@ -6,19 +6,19 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 58c07654c174f5b94512574cb4c279d35897dc71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613758"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701945"
 ---
 # <a name="sky-reflections"></a>하늘 반사
 
 Azure Remote Rendering에서 하늘 질감은 개체를 사실적으로 조명하는 데 사용됩니다. 증강 현실 애플리케이션의 경우 이 질감은 개체가 설득력 있게 보이도록 하기 위해 실제 환경과 비슷해야 합니다. 이 문서에서는 하늘 질감을 변경하는 방법을 설명합니다.
 
 > [!NOTE]
-> 하늘 질감을 *환경 맵*이라고도 합니다. 이러한 용어는 같은 의미로 사용됩니다.
+> 하늘 질감을 *환경 맵* 이라고도 합니다. 이러한 용어는 같은 의미로 사용됩니다.
 
 ## <a name="object-lighting"></a>개체 조명
 
@@ -95,7 +95,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
 
 ## <a name="sky-texture-types"></a>하늘 질감 형식
 
-*[cubemaps](https://en.wikipedia.org/wiki/Cube_mapping)* 및 *2D 질감*을 환경 맵으로 사용할 수 있습니다.
+*[cubemaps](https://en.wikipedia.org/wiki/Cube_mapping)* 및 *2D 질감* 을 환경 맵으로 사용할 수 있습니다.
 
 모든 질감은 [지원되는 질감 형식](../../concepts/textures.md#supported-texture-formats)에 있어야 합니다. 하늘 질감에 대한 mipmaps를 제공할 필요가 없습니다.
 
@@ -138,12 +138,11 @@ Azure Remote Rendering은 항상 사용할 수 있는 몇 가지 기본 제공 �
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RemoteManager SkyReflectionSettings 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
-* [C + + RemoteManager:: SkyReflectionSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
+* [C # RemoteManager SkyReflectionSettings 속성](/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [C + + RemoteManager:: SkyReflectionSettings ()](/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [조명](../../overview/features/lights.md)
 * [재질](../../concepts/materials.md)
 * [질감](../../concepts/textures.md)
-* [TexConv 명령줄 도구](../../resources/tools/tex-conv.md)

@@ -3,12 +3,12 @@ title: Resource Manager 및 클래식 배포
 description: 리소스 관리자 배포 모델 및 기본(또는 서비스 관리) 배포 모델 간 차이점을 설명합니다.
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: d9c1a27efc1f474e25d0ed164d106e8f64ba3e96
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511408"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185847"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 
@@ -64,7 +64,7 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-그러나 Resource Manager cmdlet **Get-AzVM**만 Resource Manager를 통해 배포된 가상 머신을 반환합니다. 다음 명령은 클래식 배포를 통해 만든 가상 컴퓨터를 반환 하지 않습니다.
+그러나 Resource Manager cmdlet **Get-AzVM** 만 Resource Manager를 통해 배포된 가상 머신을 반환합니다. 다음 명령은 클래식 배포를 통해 만든 가상 컴퓨터를 반환 하지 않습니다.
 
 ```powershell
 Get-AzVM -ResourceGroupName ExampleGroup
@@ -123,9 +123,9 @@ SRP: Storage 리소스 공급자, CRP: Compute 리소스 공급자, NRP: 네트�
 클래식 배포에서 리소스 관리자 배포로 리소스를 마이그레이션할 준비가 된 경우 다음을 참조 하세요.
 
 1. [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../../virtual-machines/migration-classic-resource-manager-deep-dive.md)
-2. [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
-3. [Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
+2. [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)
+3. [Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../../virtual-machines/migration-classic-resource-manager-ps.md)
+4. [Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../../virtual-machines/migration-classic-resource-manager-cli.md)
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

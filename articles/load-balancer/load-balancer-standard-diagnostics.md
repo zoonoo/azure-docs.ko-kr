@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: da4c5f7891b518f4e6393f3fb4e153d464f4f2a2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717339"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955538"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
 Azure 표준 Load Balancer는 다음과 같은 진단 기능을 제공 합니다.
 
-* **다차원 메트릭 및 경고**: 표준 부하 분산 장치 구성에 대 한 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 를 통해 다차원 진단 기능을 제공 합니다. 표준 부하 분산 장치 리소스를 모니터링 하 고 관리 하 고 문제를 해결할 수 있습니다.
+* **다차원 메트릭 및 경고**: 표준 부하 분산 장치 구성에 대 한 [Azure Monitor](../azure-monitor/overview.md) 를 통해 다차원 진단 기능을 제공 합니다. 표준 부하 분산 장치 리소스를 모니터링 하 고 관리 하 고 문제를 해결할 수 있습니다.
 
 * **리소스 상태**: Load Balancer의 Resource Health 상태는 모니터의 Resource Health 페이지에서 사용할 수 있습니다. 이 자동 검사는 Load Balancer 리소스의 현재 가용성을 알려 줍니다.
 
@@ -35,7 +35,7 @@ Azure Load Balancer는 Azure Portal의 Azure 메트릭을 통해 다차원 메�
 
 다양한 표준 Load Balancer 구성에서는 다음 메트릭을 제공합니다.
 
-| 메트릭 | 리소스 종류 | Description | 권장 집계 |
+| 메트릭 | 리소스 종류 | 설명 | 권장 집계 |
 | --- | --- | --- | --- |
 | 데이터 경로 가용성 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 지역 내에서 부하 분산 장치 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 애플리케이션 부하가 분산된 트래픽과 동일한 경로를 따릅니다. 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 애플리케이션에 표시되지 않으며 다른 작업을 방해하지 않습니다.| 평균 |
 | 상태 프로브 상태 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 구성 설정에 따라 애플리케이션 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 부하 분산 장치 풀에서 각 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다. 상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다. |  평균 |
@@ -70,7 +70,7 @@ Azure Portal는 특정 리소스에 대 한 부하 분산 장치 리소스 페�
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>API를 통해 프로그래밍 방식으로 다차원 메트릭 검색
 
-다차원 메트릭 정의 및 값을 검색하기 위한 API 지침은 [Azure Monitoring REST API 연습](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api)을 참조하세요. 이러한 메트릭은 ' 모든 메트릭 ' 옵션을 통해 저장소 계정에 쓸 수 있습니다. 
+다차원 메트릭 정의 및 값을 검색하기 위한 API 지침은 [Azure Monitoring REST API 연습](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api)을 참조하세요. 이러한 메트릭은 ' 모든 메트릭 ' 옵션을 통해 저장소 계정에 쓸 수 있습니다. 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>다차원 메트릭에 대 한 경고 구성 ###
 
@@ -98,8 +98,8 @@ Azure 표준 Load Balancer는 다차원 메트릭에 대해 쉽게 구성할 수
 
 표준 Load Balancer 리소스에 대 한 데이터 경로 가용성을 얻으려면 다음을 수행 합니다.
 1. 올바른 부하 분산 장치 리소스를 선택했는지 확인합니다. 
-2. **메트릭** 드롭다운 목록에서 **데이터 경로 가용성**을 선택 합니다. 
-3. **집계** 드롭다운 목록에서 **Avg**를 선택합니다. 
+2. **메트릭** 드롭다운 목록에서 **데이터 경로 가용성** 을 선택 합니다. 
+3. **집계** 드롭다운 목록에서 **Avg** 를 선택합니다. 
 4. 또한 프런트 엔드 IP 주소 또는 프런트 엔드 포트의 필터를 필요한 프런트 엔드 IP 주소 또는 프런트 엔드 포트를 사용 하는 차원으로 추가 하 고 선택한 차원에 따라 그룹화 합니다.
 
 ![VIP 검색](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
@@ -116,7 +116,7 @@ Azure 표준 Load Balancer는 다차원 메트릭에 대해 쉽게 구성할 수
 
 진단 목적으로 [상태 프로브 상태와 함께 데이터 경로 가용성 메트릭을](#vipavailabilityandhealthprobes)사용할 수 있습니다.
 
-대부분의 시나리오에서 집계로 **Average**를 사용합니다.
+대부분의 시나리오에서 집계로 **Average** 를 사용합니다.
 </details>
 
 #### <a name="are-the-backend-instances-for-my-load-balancer-responding-to-probes"></a>내 Load Balancer에 대 한 백 엔드 인스턴스가 프로브에 응답 하나요?
@@ -132,19 +132,19 @@ Azure 표준 Load Balancer는 다차원 메트릭에 대해 쉽게 구성할 수
 - 수신 또는 응답하지 않거나 잘못된 프로토콜을 사용하는 포트로 상태 프로브를 구성하는 경우. 서비스가 DSR(Direct Server Return 또는 부동 IP) 규칙을 사용하는 경우 서비스가 프런트 엔드 IP 주소로 구성된 루프백이 아니라 NIC의 IP 구성에서 수신 대기하고 있는지 확인해야 합니다.
 - 프로브가 네트워크 보안 그룹, VM의 게스트 OS 방화벽 또는 애플리케이션 계층 필터에서 허용되지 않는 경우.
 
-대부분의 시나리오에서 집계로 **Average**를 사용합니다.
+대부분의 시나리오에서 집계로 **Average** 를 사용합니다.
 </details>
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>내 아웃바운드 연결 통계는 어떻게 확인할 수 있나요? 
 <details>
   <summary>Expand</summary>
-SNAT 연결 메트릭은 [아웃바운드 흐름](https://aka.ms/lboutbound)에 대한 성공 및 실패 연결의 볼륨을 설명합니다.
+SNAT 연결 메트릭은 [아웃바운드 흐름](./load-balancer-outbound-connections.md)에 대한 성공 및 실패 연결의 볼륨을 설명합니다.
 
-실패한 연결 볼륨이 0보다 크면 SNAT 포트가 고갈된 것을 나타냅니다. 추가로 조사하여 이러한 실패의 원인을 확인해야 합니다. SNAT 포트 고갈은 [아웃바운드 흐름](https://aka.ms/lboutbound) 설정 실패를 나타냅니다. 아웃바운드 연결에 대한 문서를 검토하여 시나리오 및 작동 메커니즘을 이해하고, SNAT 포트 고갈 방지를 위한 완화 및 설계 방법을 알아봅니다. 
+실패한 연결 볼륨이 0보다 크면 SNAT 포트가 고갈된 것을 나타냅니다. 추가로 조사하여 이러한 실패의 원인을 확인해야 합니다. SNAT 포트 고갈은 [아웃바운드 흐름](./load-balancer-outbound-connections.md) 설정 실패를 나타냅니다. 아웃바운드 연결에 대한 문서를 검토하여 시나리오 및 작동 메커니즘을 이해하고, SNAT 포트 고갈 방지를 위한 완화 및 설계 방법을 알아봅니다. 
 
 SNAT 연결 통계를 가져오려면:
-1. **SNAT 연결** 메트릭 유형을 선택하고 집계로 **Sum**을 선택합니다. 
-2. 다른 줄로 표시된 성공 및 실패 SNAT 연결 수를 **연결 상태**별로 그룹화합니다. 
+1. **SNAT 연결** 메트릭 유형을 선택하고 집계로 **Sum** 을 선택합니다. 
+2. 다른 줄로 표시된 성공 및 실패 SNAT 연결 수를 **연결 상태** 별로 그룹화합니다. 
 
 ![SNAT 연결](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
@@ -157,17 +157,17 @@ SNAT 연결 통계를 가져오려면:
   <summary>Expand</summary>
 사용 된 SNAT 포트 메트릭은 아웃 바운드 흐름을 유지 하기 위해 사용 되는 SNAT 포트 수를 추적 합니다. 이는 부하 분산 장치 뒤에 있고 공용 IP 주소가 없는 가상 머신 확장 집합 또는 인터넷 원본과 백 엔드 VM 간에 설정 된 고유한 흐름 수를 나타냅니다. 할당 된 SNAT 포트 메트릭과 함께 사용 하는 SNAT 포트 수를 비교 하 여 서비스가 발생 하 고 있는지 또는 SNAT 고갈 및 아웃 바운드 흐름 오류로 인해 발생 하는 위험이 있는지 확인할 수 있습니다. 
 
-메트릭이 [아웃 바운드 흐름](https://aka.ms/lboutbound) 오류 위험을 나타내는 경우이 문서를 참조 하 고 서비스 상태를 보장 하기 위해이를 완화 하는 단계를 수행 합니다.
+메트릭이 [아웃 바운드 흐름](./load-balancer-outbound-connections.md) 오류 위험을 나타내는 경우이 문서를 참조 하 고 서비스 상태를 보장 하기 위해이를 완화 하는 단계를 수행 합니다.
 
 SNAT 포트 사용 및 할당을 보려면:
 1. 원하는 데이터가 표시 되도록 그래프의 시간 집계를 1 분으로 설정 합니다.
 1. **사용 된 Snat 포트** 및/또는 **할당 된 snat 포트** 를 메트릭 유형 및 **평균** 으로 집계로 선택 합니다.
     * 기본적으로 이러한 메트릭은 TCP 및 UDP를 통해 집계 된 Load Balancer에 매핑된 모든 프런트 엔드 공용 Ip에 해당 하는 각 백 엔드 VM 또는 VMSS에 할당 되거나 사용 되는 평균 SNAT 포트 수입니다.
     * 에서 사용 하거나 부하 분산 장치에 할당 된 총 SNAT 포트를 보려면 메트릭 집계 **합계** 를 사용 합니다.
-1. 특정 **프로토콜 유형**, **백 엔드 ip**집합 및/또는 **프런트 엔드 ip**를 필터링 합니다.
+1. 특정 **프로토콜 유형**, **백 엔드 ip** 집합 및/또는 **프런트 엔드 ip** 를 필터링 합니다.
 1. 백 엔드 또는 프런트 엔드 인스턴스당 상태를 모니터링 하려면 분할을 적용 합니다. 
     * 참고 분할을 사용 하면 단일 메트릭이 한 번에 표시 될 수 있습니다. 
-1. 예를 들어 컴퓨터당 TCP 흐름에 대 한 SNAT 사용량을 모니터링 하려면 **평균**으로 집계 하 고 **백 엔드 ip** 로 분할 하 여 **프로토콜 유형별로**필터링 합니다. 
+1. 예를 들어 컴퓨터당 TCP 흐름에 대 한 SNAT 사용량을 모니터링 하려면 **평균** 으로 집계 하 고 **백 엔드 ip** 로 분할 하 여 **프로토콜 유형별로** 필터링 합니다. 
 
 ![SNAT 할당 및 사용량](./media/load-balancer-standard-diagnostics/snat-usage-and-allocation.png)
 
@@ -181,9 +181,9 @@ SNAT 포트 사용 및 할당을 보려면:
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>내 서비스에 대한 인바운드/아웃바운드 연결 시도를 확인하려면 어떻게 해야 하나요?
 <details>
   <summary>Expand</summary>
-SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 전송된 ([아웃바운드 흐름](https://aka.ms/lboutbound) 관련) TCP SYN 패킷 볼륨을 설명합니다. 이 메트릭을 사용하여 서비스에 대한 TCP 연결 시도를 이해할 수 있습니다.
+SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 전송된 ([아웃바운드 흐름](./load-balancer-outbound-connections.md) 관련) TCP SYN 패킷 볼륨을 설명합니다. 이 메트릭을 사용하여 서비스에 대한 TCP 연결 시도를 이해할 수 있습니다.
 
-대부분의 시나리오에서 집계로 **Total**을 사용합니다.
+대부분의 시나리오에서 집계로 **Total** 을 사용합니다.
 
 ![SYN 연결](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
@@ -196,10 +196,10 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
   <summary>Expand</summary>
 바이트 및 패킷 카운터 메트릭은 프런트 엔드 기준으로 서비스에서 전송 또는 수신된 바이트 및 패킷 볼륨을 설명합니다.
 
-대부분의 시나리오에서 집계로 **Total**을 사용합니다.
+대부분의 시나리오에서 집계로 **Total** 을 사용합니다.
 
 바이트 또는 패킷 수 통계를 가져오려면:
-1. 집계가 **Avg**인 **바이트 수** 및/또는 **패킷 수** 메트릭 유형을 선택합니다. 
+1. 집계가 **Avg** 인 **바이트 수** 및/또는 **패킷 수** 메트릭 유형을 선택합니다. 
 2. 다음 중 하나를 수행합니다.
    * 특정 프런트 엔드 IP, 프런트 엔드 포트, 백 엔드 IP 또는 백 엔드 포트에 필터를 적용합니다.
    * 필터링 없이 부하 분산 장치 리소스에 대한 전체 통계를 가져옵니다.
@@ -231,16 +231,23 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Resource Health 상태
 
-표준 Load Balancer **리소스에 대한 상태는****모니터 > 서비스 상태** 아래의 기존 를 통해 표시됩니다.
+표준 Load Balancer **리소스에 대한 상태는****모니터 > 서비스 상태** 아래의 기존 를 통해 표시됩니다. 프런트 엔드 부하 분산 끝점을 사용할 수 있는지 여부를 결정 하는 데이터 경로 가용성을 측정 하 여 **2 분** 마다 평가 됩니다.
+
+| Resource Health 상태 | 설명 |
+| --- | --- |
+| 사용 가능 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
+| 성능 저하됨 | 표준 부하 분산 장치에는 성능에 영향을 주는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭은 최소 2분 동안 상태가 90% 미만이지만 25% 이상이라고 보고했습니다. 성능이 심각 하 게 저하 될 수 있습니다. [문제 해결 RHC 가이드에 따라](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) 가용성에 영향을 주는 사용자 시작 이벤트가 있는지 여부를 확인 합니다.
+| 사용할 수 없음 | 표준 부하 분산 장치 리소스가 정상이 아닙니다. 데이터 경로 가용성 메트릭이 2 분 이상 25% 상태를 보고 했습니다. 인바운드 연결의 성능에 큰 영향을 주거나 가용성이 부족 합니다. 사용할 수 없는 사용자 또는 플랫폼 이벤트가 있을 수 있습니다. [RHC 문제 해결 가이드에 따라](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) 사용자의 시작 이벤트가 가용성에 영향을 주는지 여부를 확인 합니다. |
+| 알 수 없음 | 표준 부하 분산 장치 리소스에 대 한 리소스 상태가 아직 업데이트 되지 않았거나 지난 10 분 동안 데이터 경로 가용성 정보를 수신 하지 않았습니다. 이 상태는 일시적이어야 하며 데이터가 수신되는 즉시 올바른 상태를 반영합니다. |
 
 공용 표준 Load Balancer 리소스의 상태를 보려면:
-1. **모니터**  >  **Service Health**를 선택 합니다.
+1. **모니터**  >  **Service Health** 를 선택 합니다.
 
    ![모니터 페이지](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
    *그림: Azure Monitor의 Service Health 링크*
 
-2. **Resource Health**를 선택한 다음, **구독 ID** 및 **리소스 유형 = Load Balancer**를 선택했는지 확인합니다.
+2. **Resource Health** 를 선택한 다음, **구독 ID** 및 **리소스 유형 = Load Balancer** 를 선택했는지 확인합니다.
 
    ![Resource Health 상태](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
@@ -252,18 +259,12 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 
    *그림: Load Balancer 리소스 상태 보기*
  
-일반 리소스 상태 설명은 [RHC 설명서](https://docs.microsoft.com/azure/service-health/resource-health-overview)에서 확인할 수 있습니다. Azure Load Balancer에 대 한 특정 상태는 아래 표에 나와 있습니다. 
+일반 리소스 상태 설명은 [RHC 설명서](../service-health/resource-health-overview.md)에서 확인할 수 있습니다. Azure Load Balancer에 대 한 특정 상태는 아래 표에 나와 있습니다. 
 
-| Resource Health 상태 | Description |
-| --- | --- |
-| 사용 가능 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
-| 성능 저하됨 | 표준 부하 분산 장치에는 성능에 영향을 주는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭이 90% 미만으로 보고 되었지만 최소 2 분 동안 25% 이상 상태를 초과 했습니다. 성능이 심각 하 게 저하 될 수 있습니다. [데이터 경로 가용성 가이드 문제 해결]을 참조 하 여 가용성에 영향을 주는 사용자 시작 이벤트가 있는지 여부를 확인 합니다.
-| Unavailable | 표준 부하 분산 장치 리소스가 정상이 아닙니다. 데이터 경로 가용성 메트릭이 2 분 이상 25% 상태를 보고 했습니다. 인바운드 연결의 성능에 큰 영향을 주거나 가용성이 부족 합니다. 사용할 수 없는 사용자 또는 플랫폼 이벤트가 있을 수 있습니다. 사용자의 가용성에 영향을 주는 사용자 시작 이벤트가 있는지 확인 하려면 [데이터 경로 가용성 가이드 문제 해결 가이드]를 따르세요. |
-| Unknown | 표준 부하 분산 장치 리소스에 대 한 리소스 상태가 아직 업데이트 되지 않았거나 지난 10 분 동안 데이터 경로 가용성 정보를 수신 하지 않았습니다. 이 상태는 일시적 이어야 하며, 데이터가 수신 되는 즉시 올바른 상태를 반영 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Standard Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아보세요.
-- [Load Balancer 아웃바운드 연결](https://aka.ms/lboutbound)에 대해 자세히 알아봅니다.
-- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)에 대해 알아봅니다.
-- [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) 및 [REST API를 통해 메트릭을 검색하는 방법](/rest/api/monitor/metrics/list)에 대해 자세히 알아봅니다.
+- [Standard Load Balancer](./load-balancer-overview.md)에 대해 자세히 알아보세요.
+- [Load Balancer 아웃바운드 연결](./load-balancer-outbound-connections.md)에 대해 자세히 알아봅니다.
+- [Azure Monitor](../azure-monitor/overview.md)에 대해 알아봅니다.
+- [Azure Monitor REST API](/rest/api/monitor/) 및 [REST API를 통해 메트릭을 검색하는 방법](/rest/api/monitor/metrics/list)에 대해 자세히 알아봅니다.

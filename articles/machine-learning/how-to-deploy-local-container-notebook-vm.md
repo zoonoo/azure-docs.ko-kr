@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, deploy
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 7992283c1652199d665aad07c027b88e9489ddf0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889841"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527312"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>모델을 배포 하 여 계산 인스턴스 Azure Machine Learning
 
@@ -28,7 +28,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
 - 개발 중인 모델을 테스트합니다.
 
 > [!TIP]
-> 계산 인스턴스의 Jupyter Notebook에서 동일한 VM의 웹 서비스로 모델을 배포 하는 것은 _로컬 배포_입니다. 이 경우 ' 로컬 ' 컴퓨터는 계산 인스턴스입니다. 배포에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
+> 계산 인스턴스의 Jupyter Notebook에서 동일한 VM의 웹 서비스로 모델을 배포 하는 것은 _로컬 배포_ 입니다. 이 경우 ' 로컬 ' 컴퓨터는 계산 인스턴스입니다. 배포에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -40,11 +40,11 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
 
 1. [Azure Machine Learning studio](https://ml.azure.com)에서 Azure Machine Learning 계산 인스턴스를 선택 합니다.
 
-1. `samples-*`하위 디렉터리를 열고를 엽니다 `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb` . 열린 후에는 노트북을 실행 합니다.
+1. `samples-*`하위 디렉터리를 열고를 엽니다 `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb` . 열린 후에는 노트북을 실행 합니다.
 
     ![노트북에서 실행 중인 로컬 서비스의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. 노트북에는 서비스가 실행 되는 URL 및 포트가 표시 됩니다. `https://localhost:6789`)을 입력합니다. 가 포함 된 셀을 실행 하 여 포트를 표시할 수도 있습니다 `print('Local service port: {}'.format(local_service.port))` .
+1. 노트북에는 서비스가 실행 되는 URL 및 포트가 표시 됩니다. 예: `https://localhost:6789`. 가 포함 된 셀을 실행 하 여 포트를 표시할 수도 있습니다 `print('Local service port: {}'.format(local_service.port))` .
 
     ![실행 중인 로컬 서비스 포트의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
@@ -52,7 +52,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
     * 노트북 `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` VM: 
     * 계산 인스턴스: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
-    예를 들면 다음과 같습니다. 
+    예제: 
     * 노트북 VM: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
     * 계산 인스턴스: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
@@ -63,7 +63,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
 > [!NOTE]
 > 계산 인스턴스에서 배포를 인증 하는 경우 Azure Active Directory를 사용 하 여 인증을 수행 합니다. `interactive_auth.get_authentication_header()`예제 코드에서를 호출 하면 AAD를 사용 하 여 인증 하 고, 계산 인스턴스에서 서비스를 인증 하는 데 사용할 수 있는 헤더를 반환 합니다. 자세한 내용은 [Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정](how-to-setup-authentication.md#interactive-authentication)을 참조하세요.
 >
-> Azure Kubernetes Service 또는 Azure Container Instances에서 배포를 인증 하는 경우 다른 인증 방법이 사용 됩니다. 에 대 한 자세한 내용은 [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md#web-service-authentication)을 참조 하세요.
+> Azure Kubernetes Service 또는 Azure Container Instances에서 배포를 인증 하는 경우 다른 인증 방법이 사용 됩니다. 에 대 한 자세한 내용은 [웹 서비스로 배포 된 Azure 컴퓨터 모델에 대 한 인증 구성](how-to-authenticate-web-service.md)을 참조 하세요.
 
 ```python
 import requests

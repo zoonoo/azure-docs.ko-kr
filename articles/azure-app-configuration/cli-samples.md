@@ -1,18 +1,18 @@
 ---
 title: Azure CLI 샘플 - Azure App Configuration
 description: Azure App Configuration에 제공되는 샘플 스크립트에 대한 정보입니다.
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 02/19/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d6e644a73a18cdfda71ae6a4e5360b713c08f4f5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 90782263d82a93e77fe45efa3ae0ef48fa2d11ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504401"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929126"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 

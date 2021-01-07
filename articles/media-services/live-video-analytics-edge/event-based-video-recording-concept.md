@@ -3,12 +3,12 @@ title: 이벤트 기반 비디오 기록-Azure
 description: 'EVR(이벤트 기반 비디오 녹화)은 이벤트에 의해 트리거되는 비디오 녹화 프로세스를 말합니다. 문제의 이벤트는 비디오 신호 자체의 처리 (예: 동작에 대 한 검색) 또는 독립적인 원본 (예: 도어 열기)으로 인해 발생할 수 있습니다.  이벤트 기반 비디오 기록과 관련 된 몇 가지 사용 사례는이 문서에 설명 되어 있습니다.'
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 6a5f4873b2cfef8d9a6594916d82cd30a3bc1cc2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568506"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401607"
 ---
 # <a name="event-based-video-recording"></a>이벤트 기반 비디오 녹화  
  
@@ -59,11 +59,11 @@ Asset sink 노드에 대 한 대 안으로, [파일 싱크](media-graph-concept.
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="외부 추론 모듈을 기반으로 하는 비디오 녹화":::
 
-다이어그램에서 RTSP 원본 노드는 카메라에서 라이브 비디오 피드를 캡처하여 두 개의 분기로 전달 합니다. 하나는 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor) 노드를 포함 하 고 다른 하나는 [HTTP 확장](media-graph-concept.md) 노드를 사용 하 여 외부 논리 모듈로 데이터를 전송 합니다. HTTP 확장 노드를 사용 하면 미디어 그래프가 휴지 상태의 외부 유추 서비스로 이미지 프레임 (JPEG, BMP 또는 PNG 형식)을 보낼 수 있습니다. 이 신호 경로는 일반적으로 낮은 프레임 속도 (<5fps)만 지원할 수 있습니다. [프레임 전송률 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 노드를 사용 하 여 HTTP 확장 노드로 이동 하는 비디오의 프레임 속도로 낮출 수 있습니다.
+다이어그램에서 RTSP 원본 노드는 카메라에서 라이브 비디오 피드를 캡처하여 두 개의 분기로 전달 합니다. 하나는 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor) 노드를 포함 하 고 다른 하나는 [HTTP 확장](media-graph-concept.md) 노드를 사용 하 여 외부 논리 모듈로 데이터를 전송 합니다. HTTP 확장 노드를 사용 하면 미디어 그래프가 휴지 상태의 외부 유추 서비스로 이미지 프레임 (JPEG, BMP 또는 PNG 형식)을 보낼 수 있습니다. 이 신호 경로는 일반적으로 낮은 프레임 속도 (<5fps)만 지원할 수 있습니다. HTTP 확장 프로세서 노드를 사용 하 여 외부 추론 모듈로 이동 하는 비디오의 프레임 속도로 낮출 수 있습니다.
 
 외부 유추 서비스의 결과는 HTTP 확장 노드에서 검색 되며, 외부 논리 모듈에서 추가 처리할 수 있는 IoT Hub 메시지 싱크 노드를 통해 IoT Edge 허브로 릴레이 됩니다. 예를 들어 유추 서비스에서 차량 검색을 수행할 수 있는 경우 논리 모듈이 버스 또는 트럭과 같은 특정 자동차를 찾을 수 있습니다. 논리 모듈이 원하는 개체를 검색 하면 IoT Edge 허브를 통해 그래프의 IoT Hub 메시지 원본 노드로 이벤트를 전송 하 여 신호 게이트 프로세서 노드를 트리거할 수 있습니다. 신호 게이트의 출력은 파일 싱크 노드 또는 자산 싱크 노드로 이동 하도록 표시 됩니다. 이전 경우 비디오는에 지 장치의 로컬 파일 시스템에 기록 됩니다. 후자의 경우 비디오는 자산에 기록 됩니다.
 
-이 예제의 향상 된 기능은 프레임 전송률 필터 프로세서 노드 앞에 동작 탐지기 프로세서를 사용 하는 것입니다. 이렇게 하면 고속도로에 대 한 차량 없는 시간이 길어질 때 야간 같은 유추 서비스의 부하를 줄일 수 있습니다. 
+이 예제의 향상 된 기능은 HTTP 확장 프로세서 노드 앞에 동작 탐지기 프로세서를 사용 하는 것입니다. 이렇게 하면 고속도로에 대 한 차량 없는 시간이 길어질 때 야간 같은 유추 서비스의 부하를 줄일 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

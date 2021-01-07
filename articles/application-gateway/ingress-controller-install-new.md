@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f69f89f565b2d98e408b06e300ff781c13680ef
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807151"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693665"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러)를 설치 하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "84807151"
 
 아래의 모든 명령줄 작업에 [Azure Cloud Shell](https://shell.azure.com/) 를 사용 하는 것이 좋습니다. Shell.azure.com에서 또는 링크를 클릭 하 여 셸을 시작 합니다.
 
-[![시작 포함](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+[![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
 또는 다음 아이콘을 사용 하 여 Azure Portal에서 Cloud Shell를 시작 합니다.
 
@@ -30,17 +30,17 @@ ms.locfileid: "84807151"
 
 [Azure Cloud Shell](https://shell.azure.com/) 에는 이미 필요한 도구가 모두 있습니다. 다른 환경을 사용 하도록 선택 하는 경우 다음 명령줄 도구가 설치 되어 있는지 확인 하세요.
 
-* `az`-Azure CLI: [설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* `kubectl`-Kubernetes 명령줄 도구: [설치 지침](https://kubernetes.io/docs/tasks/tools/install-kubectl)
-* `helm`-Kubernetes 패키지 관리자: [설치 지침](https://github.com/helm/helm/releases/latest)
-* `jq`-명령줄 JSON 프로세서: [설치 지침](https://stedolan.github.io/jq/download/)
+* `az` -Azure CLI: [설치 지침](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `kubectl` -Kubernetes 명령줄 도구: [설치 지침](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+* `helm` -Kubernetes 패키지 관리자: [설치 지침](https://github.com/helm/helm/releases/latest)
+* `jq` -명령줄 JSON 프로세서: [설치 지침](https://stedolan.github.io/jq/download/)
 
 
 ## <a name="create-an-identity"></a>Id 만들기
 
-다음 단계를 수행 하 여 AAD (Azure Active Directory) [서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)를 만듭니다. `appId`, `password` 및 값을 기록 하세요 `objectId` .이 값은 다음 단계에서 사용 됩니다.
+다음 단계를 수행 하 여 AAD (Azure Active Directory) [서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만듭니다. `appId`, `password` 및 값을 기록 하세요 `objectId` .이 값은 다음 단계에서 사용 됩니다.
 
-1. AD 서비스 주체 만들기 ([RBAC에 대 한 자세한 정보](https://docs.microsoft.com/azure/role-based-access-control/overview)):
+1. AD 서비스 주체 만들기 ([AZURE RBAC에 대 한 자세한 정보](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -66,16 +66,16 @@ ms.locfileid: "84807151"
     }
     EOF
     ```
-    **RBAC** 사용 클러스터를 배포 하려면 필드를로 설정 합니다. `aksEnableRBAC``true`
+    **KUBERNETES RBAC** 사용 클러스터를 배포 하려면 필드를로 설정 합니다. `aksEnableRBAC``true`
 
 ## <a name="deploy-components"></a>구성 요소 배포
 이 단계에서는 구독에 다음 구성 요소를 추가 합니다.
 
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) v2
-- 2 개의 [서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 이 있는 [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- [AAD Pod id](https://github.com/Azure/aad-pod-identity/blob/master/README.md) 에서 사용 되는 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- [Azure Kubernetes Service](../aks/intro-kubernetes.md)
+- [Application Gateway](./overview.md) v2
+- 2 개의 [서브넷](../virtual-network/virtual-networks-overview.md) 이 있는 [Virtual Network](../virtual-network/virtual-networks-overview.md)
+- [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md)
+- [AAD Pod id](https://github.com/Azure/aad-pod-identity/blob/master/README.md) 에서 사용 되는 [관리 id](../active-directory/managed-identities-azure-resources/overview.md)
 
 1. Azure Resource Manager 템플릿을 다운로드 하 고 필요에 따라 템플릿을 수정 합니다.
     ```bash
@@ -92,7 +92,7 @@ ms.locfileid: "84807151"
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -101,7 +101,7 @@ ms.locfileid: "84807151"
 
 1. 배포가 완료 되 면 배포 출력을 이라는 파일로 다운로드 합니다 `deployment-outputs.json` .
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## <a name="set-up-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러 설정
@@ -111,7 +111,7 @@ ms.locfileid: "84807151"
 ### <a name="setup-kubernetes-credentials"></a>Kubernetes 자격 증명 설정
 다음 단계에서는 새 Kubernetes 클러스터에 연결 하는 데 사용할 수 있는 setup [kubectl](https://kubectl.docs.kubernetes.io/) 명령이 필요 합니다. [Cloud Shell](https://shell.azure.com/) `kubectl` 이미 설치 되어 있습니다. `az`Kubernetes에 대 한 자격 증명을 얻기 위해 CLI를 사용 합니다.
 
-새로 배포 된 AKS에 대 한 자격 증명을 가져옵니다 ([자세히 읽기](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)).
+새로 배포 된 AKS에 대 한 자격 증명을 가져옵니다 ([자세히 읽기](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)).
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
@@ -121,34 +121,34 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 ```
 
 ### <a name="install-aad-pod-identity"></a>AAD Pod Id 설치
-  Azure Active Directory Pod Id는 [ARM (Azure Resource Manager)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에 대 한 토큰 기반 액세스를 제공 합니다.
+  Azure Active Directory Pod Id는 [ARM (Azure Resource Manager)](../azure-resource-manager/management/overview.md)에 대 한 토큰 기반 액세스를 제공 합니다.
 
   [AAD Pod id](https://github.com/Azure/aad-pod-identity) 는 다음 구성 요소를 Kubernetes 클러스터에 추가 합니다.
-   * Kubernetes [Crds](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` ,`AzureIdentityBinding`
+   * Kubernetes [CRD](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
    * [MIC(Managed Identity Controller)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) 구성 요소
    * [NMI(Node Managed Identity)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) 구성 요소
 
 
 AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
 
-   - *RBAC 사용* AKS 클러스터
+   - *KUBERNETES RBAC 사용* AKS 클러스터
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
      ```
 
-   - *RBAC 사용 안 함* AKS 클러스터
+   - *KUBERNETES RBAC 사용 안 함* AKS 클러스터
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
      ```
 
 ### <a name="install-helm"></a>Helm 설치
-[투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 는 Kubernetes 패키지 관리자입니다. 이를 활용 하 여 패키지를 설치 합니다 `application-gateway-kubernetes-ingress` .
+[투구](../aks/kubernetes-helm.md) 는 Kubernetes 패키지 관리자입니다. 이를 활용 하 여 패키지를 설치 합니다 `application-gateway-kubernetes-ingress` .
 
-1. [투구](https://docs.microsoft.com/azure/aks/kubernetes-helm) 를 설치 하 고 다음을 실행 하 여 투구 패키지를 추가 합니다 `application-gateway-kubernetes-ingress` .
+1. [투구](../aks/kubernetes-helm.md) 를 설치 하 고 다음을 실행 하 여 투구 패키지를 추가 합니다 `application-gateway-kubernetes-ingress` .
 
-    - *RBAC 사용* AKS 클러스터
+    - *KUBERNETES RBAC 사용* AKS 클러스터
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -156,7 +156,7 @@ AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
         helm init --tiller-namespace kube-system --service-account tiller-sa
         ```
 
-    - *RBAC 사용 안 함* AKS 클러스터
+    - *KUBERNETES RBAC 사용 안 함* AKS 클러스터
 
         ```bash
         helm init
@@ -228,7 +228,7 @@ AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     
@@ -250,15 +250,15 @@ AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
     ```
 
    값
-     - `verbosityLevel`: AGIC 로깅 인프라의 자세한 정도 수준을 설정 합니다. 가능한 값은 [로깅 수준](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels)을 참조하세요.
+     - `verbosityLevel`: AGIC 로깅 인프라의 세부 정보 표시 수준을 설정합니다. 가능한 값은 [로깅 수준](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels)을 참조하세요.
      - `appgw.subscriptionId`: Application Gateway 있는 Azure 구독 ID입니다. 예: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: Application Gateway 생성 된 Azure 리소스 그룹의 이름입니다. 예: `app-gw-resource-group`
      - `appgw.name`: Application Gateway의 이름입니다. 예: `applicationgatewayd0f0`
-     - `appgw.shared`:이 부울 플래그는 기본적으로로 설정 되어야 합니다 `false` . `true` [공유 Application Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)필요 하면로 설정 합니다.
-     - `kubernetes.watchNamespace`: AGIC에서 감시 해야 하는 이름 공간을 지정 합니다. 단일 문자열 값 또는 쉼표로 구분 된 네임 스페이스 목록 일 수 있습니다.
+     - `appgw.shared`: 이 부울 플래그는 기본적으로 `false`로 설정되어야 합니다. `true` [공유 Application Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)필요 하면로 설정 합니다.
+     - `kubernetes.watchNamespace`: AGIC가 조사할 네임스페이스를 지정합니다. 단일 문자열 값 또는 쉼표로 구분 된 네임 스페이스 목록 일 수 있습니다.
     - `armAuth.type`: 또는 일 수 있습니다. `aadPodIdentity``servicePrincipal`
     - `armAuth.identityResourceID`: Azure 관리 Id의 리소스 ID
-    - `armAuth.identityClientId`: Id의 클라이언트 ID입니다. Id에 대 한 자세한 내용은 아래를 참조 하세요.
+    - `armAuth.identityClientId`: ID의 클라이언트 ID입니다. Id에 대 한 자세한 내용은 아래를 참조 하세요.
     - `armAuth.secretJSON`: 서비스 주체 암호 유형을 선택 하는 경우에만 필요 `armAuth.type` 합니다 (가로 설정 된 경우 `servicePrincipal` ). 
 
 
@@ -267,7 +267,7 @@ AAD Pod Id를 클러스터에 설치 하려면 다음을 수행 합니다.
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```
-   > `<resource-group>`위의 명령에는 Application Gateway의 리소스 그룹이 있습니다. `<identity-name>`만든 id의 이름입니다. 다음을 사용 하 여 지정 된 구독에 대 한 모든 id를 나열할 수 있습니다.`az identity list`
+   > `<resource-group>` 위의 명령에는 Application Gateway의 리소스 그룹이 있습니다. `<identity-name>` 만든 id의 이름입니다. 다음을 사용 하 여 지정 된 구독에 대 한 모든 id를 나열할 수 있습니다. `az identity list`
 
 
 1. Application Gateway 수신 컨트롤러 패키지 설치

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: d2ad302042b277cf29b3a7b22af88b662686b3fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90995953"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789015"
 ---
 # <a name="configure-azure-defender-for-storage"></a>저장소에 대 한 Azure Defender 구성
 
@@ -23,11 +23,11 @@ Storage 용 Azure Defender는 저장소 계정에 액세스 하거나 악용 하
 
 보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 보안 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합 되며, 의심 스러운 활동 및 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 구독 관리자에 게 전자 메일을 통해 전송 됩니다.
 
-Service 수집는 Blob 저장소에 대 한 읽기, 쓰기 및 삭제 요청 및 위협 검색을 위한 Azure Files (미리 보기)에 대 한 리소스 로그를 기록 합니다. Azure Defender에서 경고를 조사 하려면 스토리지 분석 로깅을 사용 하 여 관련 저장소 작업을 볼 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md#configure-logging)의 **로깅 구성** 을 참조 하세요.
+Service 수집는 Blob 저장소에 대 한 읽기, 쓰기 및 삭제 요청을 기록 하 고 위협 검색을 Azure Files 합니다. Azure Defender에서 경고를 조사 하려면 스토리지 분석 로깅을 사용 하 여 관련 저장소 작업을 볼 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md#configure-logging)의 **로깅 구성** 을 참조 하세요.
 
 ## <a name="availability"></a>가용성
 
-Storage 용 Azure Defender는 현재 Blob storage, Azure Files (미리 보기) 및 Azure Data Lake Storage Gen2 (미리 보기)에 사용할 수 있습니다. Azure Defender를 지 원하는 계정 유형은 범용 v2, 블록 blob 및 Blob storage 계정을 포함 합니다. Storage 용 Azure Defender는 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure Government 클라우드 지역에서는 사용할 수 없습니다.
+Storage 용 Azure Defender는 현재 Blob storage, Azure Files 및 Azure Data Lake Storage Gen2에서 사용할 수 있습니다. Azure Defender를 지 원하는 계정 유형은 범용 v2, 블록 blob 및 Blob storage 계정을 포함 합니다. Storage 용 Azure Defender는 모든 공용 클라우드 및 미국 정부 클라우드에서 사용할 수 있지만 다른 소 버린 또는 Azure Government 클라우드 지역에서는 사용할 수 없습니다.
 
 Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 설정 된 계정은 Azure Blob 저장소 Api와 Data Lake Storage Api를 모두 사용 하 여 트랜잭션을 지원 합니다. Azure 파일 공유는 SMB를 통한 트랜잭션을 지원 합니다.
 
@@ -37,8 +37,8 @@ Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 �
 
 - 릴리스 상태:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (일반 공급)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (미리 보기는 SMB 및 REST 트랜잭션을 지원)
-  - Azure Data Lake Storage Gen2(미리 보기)
+  - [Azure Files](../files/storage-files-introduction.md) (일반 공급)
+  - Azure Data Lake Storage Gen2 (일반 공급)
 - 클라우드:<br>
     ✔ 상용 클라우드<br>
     ✔ US Gov<br>
@@ -53,10 +53,10 @@ Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 �
 Azure Security Center 표준 계층을 구독할 때 Azure Defender는 모든 저장소 계정에 자동으로 설정 됩니다. 다음과 같이 특정 구독에서 저장소 계정에 대해 Azure Defender를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Security Center** 를 시작 합니다.
-1. 주 메뉴의 **관리**아래에서 **가격 책정 & 설정**을 선택 합니다.
+1. 주 메뉴의 **관리** 아래에서 **가격 책정 & 설정** 을 선택 합니다.
 1. Azure Defender를 사용 하거나 사용 하지 않도록 설정할 구독을 선택 합니다.
 1. Azure defender **on** 을 선택 하 여 구독에 대해 azure defender를 사용 하도록 설정 합니다.
-1. **리소스 유형별 Azure Defender 계획 선택**에서 **저장소** 행을 찾고 **계획** 열에서 **사용** 을 선택 합니다.
+1. **리소스 유형별 Azure Defender 계획 선택** 에서 **저장소** 행을 찾고 **계획** 열에서 **사용** 을 선택 합니다.
 1. 변경 내용을 저장합니다.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
@@ -66,10 +66,10 @@ Azure Defender는 이제이 구독의 모든 저장소 계정에 대해 사용 �
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com/)를 시작 합니다.
-1. 스토리지 계정으로 이동합니다. **설정**아래에서 **고급 보안**을 선택 합니다.
-1. **저장소에 Azure Defender 사용**을 선택 합니다.
+1. 스토리지 계정으로 이동합니다. **설정** 아래에서 **고급 보안** 을 선택 합니다.
+1. **저장소에 Azure Defender 사용** 을 선택 합니다.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Azure Storage 계정에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 이제이 저장소 계정에 대해 Azure Defender를 사용할 수 있습니다.
 
@@ -84,30 +84,30 @@ Azure Policy를 사용 하 여 특정 구독 또는 리소스 그룹의 저장�
 1. Azure **정책 정의** 페이지를 시작 합니다.
 1. **저장소 계정에 Azure Defender 배포** 정책을 검색 합니다.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="저장소 계정에 Azure Defender를 사용 하도록 설정 하는 정책 적용":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 1. Azure 구독 또는 리소스 그룹을 선택 합니다.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="정책 범위에 대 한 구독 또는 리소스 그룹을 선택 합니다. ":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 1. 정책을 할당 합니다.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="저장소에 Azure Defender를 사용 하도록 설정 하는 정책 할당":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Rest API 명령을 사용 하 여 특정 저장소 계정에 대 한 Azure Defender 설정을 만들거나 업데이트 하거나 가져옵니다.
 
-- [Advanced threat protection-만들기](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Advanced threat protection-Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Advanced threat protection-만들기](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Advanced threat protection-Get](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 PowerShell cmdlet을 사용합니다.
 
-- [Advanced threat protection 사용](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Advanced threat protection 가져오기](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Advanced threat protection 사용 안 함](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Advanced threat protection 사용](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Advanced threat protection 가져오기](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Advanced threat protection 사용 안 함](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 
@@ -125,11 +125,11 @@ Rest API 명령을 사용 하 여 특정 저장소 계정에 대 한 Azure Defen
 
 또한 이메일에는 가능한 원인에 대한 세부 정보와 잠재적 위협을 조사하고 완화하기 위한 권장 조치가 포함됩니다.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="저장소 경고 전자 메일에 대 한 Azure Defender":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 Azure Security Center의 [보안 경고 타일](../../security-center/security-center-managing-and-responding-alerts.md)에서 현재 보안 경고를 검토 하 고 관리할 수 있습니다. 특정 경고를 클릭하면 현재 위협을 조사하고 향후 위협을 해결하기 위한 추가 세부 정보 및 조치가 제공됩니다.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Azure Defender for Storage 경고":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Security Center에서 저장소에 Azure Defender를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="security-alerts"></a>보안 경고
 
@@ -138,4 +138,4 @@ Azure Security Center의 [보안 경고 타일](../../security-center/security-c
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage 계정의 로그](/rest/api/storageservices/About-Storage-Analytics-Logging) 에 대해 자세히 알아보기
-- [Azure Security Center](../../security-center/security-center-intro.md)에 대한 자세한 정보
+- [Azure Security Center](../../security-center/security-center-introduction.md)에 대한 자세한 정보

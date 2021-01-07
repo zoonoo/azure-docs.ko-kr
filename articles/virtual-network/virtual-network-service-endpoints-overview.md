@@ -14,17 +14,17 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004945"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
 VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 최적화 된 경로를 통해 Azure 서비스에 대 한 안전한 직접 연결을 제공 합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 서비스 끝점을 통해 vnet의 개인 IP 주소는 VNet에서 공용 IP 주소가 없어도 Azure 서비스의 끝점에 연결할 수 있습니다.
 
-이 기능은 다음과 같은 Azure 서비스 및 지역에서 사용할 수 있습니다. *Microsoft. \* * 리소스는 괄호 안에 있습니다. 서비스에 대 한 서비스 끝점을 구성 하는 동안 서브넷 쪽에서이 리소스를 사용 하도록 설정 합니다.
+이 기능은 다음과 같은 Azure 서비스 및 지역에서 사용할 수 있습니다. *Microsoft. \** 리소스는 괄호 안에 있습니다. 서비스에 대 한 서비스 끝점을 구성 하는 동안 서브넷 쪽에서이 리소스를 사용 하도록 설정 합니다.
 
 **일반 공급**
 
@@ -62,7 +62,7 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 
 - 이 기능은 Azure Resource Manager 배포 모델을 통해 배포된 가상 네트워크에만 사용할 수 있습니다.
 - 엔드포인트는 Azure 가상 네트워크에서 구성된 서브넷에서 활성화됩니다. 온-프레미스에서 Azure 서비스로의 트래픽에 끝점을 사용할 수 없습니다. 자세한 내용은 [온-프레미스에서 Azure 서비스 액세스 보호](#secure-azure-services-to-virtual-networks) 를 참조 하세요.
-- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage의 경우 끝점은 가상 네트워크를 배포 하 여 GRS (읽기 액세스 지역 중복 저장소) 및 GRS (지역 중복 저장소) 트래픽을 지원 하기 위해 쌍을 이루는 지역을 포함 하도록 확장 됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)을 참조하세요.
+- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage의 경우 끝점은 가상 네트워크를 배포 하 여 GRS (Read-Access Geo-Redundant 저장소 (RA-GRS) 및 Geo-Redundant 저장소 () 트래픽을 지원 하기 위해 쌍을 이루는 지역을 포함 하도록 확장 됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)을 참조하세요.
 - Azure Data Lake Storage (ADLS) Gen 1의 경우 동일한 지역 내의 가상 네트워크에 대해서만 VNet 통합 기능을 사용할 수 있습니다. 또한 ADLS Gen1의 가상 네트워크 통합은 가상 네트워크와 Azure Active Directory (Azure AD) 간의 가상 네트워크 서비스 끝점 보안을 사용 하 여 액세스 토큰에 추가 보안 클레임을 생성 합니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다. 서비스 끝점 지원 서비스에 나열 된 *AzureActiveDirectory* 태그는 서비스 끝점을 ADLS Gen 1에 지 원하는 데만 사용 됩니다. Azure AD는 서비스 끝점을 기본적으로 지원 하지 않습니다. Azure Data Lake Store Gen 1 VNet 통합에 대 한 자세한 내용은 [Azure Data Lake Storage Gen1의 네트워크 보안](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요.
 
 ## <a name="secure-azure-services-to-virtual-networks"></a>가상 네트워크에 대 한 Azure 서비스 보안 유지
@@ -77,11 +77,11 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 
   기본적으로 가상 네트워크에 대해 보호 된 Azure 서비스 리소스는 온-프레미스 네트워크에서 연결할 수 없습니다. 온-프레미스의 트래픽을 허용하려는 경우 온-프레미스 또는 ExpressRoute의 공용 IP 주소(일반적으로 NAT)도 허용해야 합니다. Azure 서비스 리소스에 대 한 IP 방화벽 구성을 통해 이러한 IP 주소를 추가할 수 있습니다.
 
-  Express 경로: 공용 피어 링 또는 온-프레미스의 Microsoft 피어 링에 대해 [express](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 경로를 사용 하는 경우 사용 중인 NAT IP 주소를 식별 해야 합니다. 공용 피어 링의 경우 각 Express 경로 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용 되는 두 개의 NAT IP 주소를 기본적으로 사용 합니다. Microsoft 피어 링의 경우 NAT IP 주소는 서비스 공급자가 제공 하거나 제공 하는 고객입니다.서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다.ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Express 경로 공용 및 Microsoft 피어 링의 NAT에 대 한 자세한 내용은 [express 경로 nat 요구 사항](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)을 참조 하세요.
+  Express 경로: 공용 피어 링 또는 온-프레미스의 Microsoft 피어 링에 대해 [express](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 경로를 사용 하는 경우 사용 중인 NAT IP 주소를 식별 해야 합니다. 공용 피어 링의 경우 각 Express 경로 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용 되는 두 개의 NAT IP 주소를 기본적으로 사용 합니다. Microsoft 피어 링의 경우 NAT IP 주소는 서비스 공급자가 제공 하거나 제공 하는 고객입니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Express 경로 공용 및 Microsoft 피어 링의 NAT에 대 한 자세한 내용은 [express 경로 nat 요구 사항](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)을 참조 하세요.
 
 ![Virtual Network에 대한 Azure 서비스 보호](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 - 가상 네트워크의 서브넷에서 서비스 끝점을 구성 합니다. 엔드포인트는 해당 서브넷 내에서 실행되는 모든 컴퓨팅 인스턴스를 사용합니다.
 - 모든 지원 되는 Azure 서비스 (예: 서브넷에 대해 지원 되는 모든 Azure 서비스 Azure Storage 또는 Azure SQL Database)에 대해 여러 서비스 끝점을 구성할 수 있습니다.
@@ -114,13 +114,13 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 - 서비스 진단에서 모든 서비스 요청의 원본 IP 주소 유효성을 검사합니다. 서비스 엔드포인트에서 모든 새로운 요청은 요청의 원본 IP 주소를 가상 네트워크 개인 IP 주소로 표시하고 가상 네트워크에서 요청한 클라이언트에 할당됩니다. 엔드포인트가 없는 경우 주소는 Azure 공용 IP 주소입니다.
 - 서브넷의 모든 네트워크 인터페이스에서 유효 경로를 볼 수 있습니다. 서비스에 대한 경로:
   - 각 서비스의 주소를 지정하는 구체적인 기본 경로를 표시합니다.
-  - *VirtualNetworkServiceEndpoint*의 nextHopType이 있습니다.
+  - *VirtualNetworkServiceEndpoint* 의 nextHopType이 있습니다.
   - 강제 터널링 경로에 비해 서비스에 대 한 직접 연결이 적용 됨을 나타냅니다.
 
 >[!NOTE]
 > 서비스 엔드포인트 경로는 Azure 서비스의 주소 접두사에 대한 BGP 또는 UDR 경로를 재정의합니다. 자세한 내용은 [유효 경로를 사용 하 여 문제 해결](diagnose-network-routing-problem.md)을 참조 하세요.
 
-## <a name="provisioning"></a>프로비저닝
+## <a name="provisioning"></a>프로비전
 
 가상 네트워크에서 가상 네트워크에 대 한 쓰기 권한이 있는 사용자가 독립적으로 서비스 끝점을 구성할 수 있습니다. VNet에 대 한 Azure 서비스 리소스를 보호 하려면 사용자는 추가 된 서브넷에 대해 *Microsoft. Network/virtualNetworks/서브넷/joinViaServiceEndpoint/action* 에 대 한 사용 권한이 있어야 합니다. 기본 제공 서비스 관리자 역할은 기본적으로이 권한을 포함 합니다. 사용자 지정 역할을 만들어 사용 권한을 수정할 수 있습니다.
 

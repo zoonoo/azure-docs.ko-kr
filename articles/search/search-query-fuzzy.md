@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934891"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701588"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>철자 및 오타를 수정 하는 유사 항목 검색
 
@@ -73,7 +73,7 @@ Azure Cognitive Search에서 다음을 수행 합니다.
 
 ## <a name="testing-fuzzy-search"></a>유사 항목 검색 테스트
 
-간단한 테스트를 위해 쿼리 식을 반복 하기 위해 [검색 탐색기](search-explorer.md) 또는 [postman](search-get-started-postman.md) 을 권장 합니다. 두 도구 모두 대화형 이므로 여러 용어를 빠르게 단계별로 실행 하 고 다시 발생 하는 응답을 평가할 수 있습니다.
+간단한 테스트를 위해 쿼리 식을 반복 하기 위해 [검색 탐색기](search-explorer.md) 또는 [postman](search-get-started-rest.md) 을 권장 합니다. 두 도구 모두 대화형 이므로 여러 용어를 빠르게 단계별로 실행 하 고 다시 발생 하는 응답을 평가할 수 있습니다.
 
 결과가 모호한 경우 적중 항목 [강조 표시](search-pagination-page-layout.md#hit-highlighting) 는 응답에서 일치 항목을 식별 하는 데 도움이 될 수 있습니다. 
 

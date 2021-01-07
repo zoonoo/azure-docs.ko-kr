@@ -3,12 +3,12 @@ title: 컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법 | Micr
 description: 컨테이너에 대 한 Azure Monitor는 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드를 설명 하 고 샘플 쿼리를 포함 합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f9b30f11ae6a2f64601b9595bfb1d45493209849
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 9bfa63a49da33289b8c811007f210e6546579d9d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569682"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033564"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법
 
@@ -16,18 +16,18 @@ ms.locfileid: "89569682"
 
 ## <a name="container-records"></a>컨테이너 레코드
 
-다음 표에서는 컨테이너에 대 한 Azure Monitor에 의해 수집 된 레코드에 대 한 세부 정보를 제공 합니다. 
+다음 표에서는 컨테이너에 대 한 Azure Monitor에 의해 수집 된 레코드에 대 한 세부 정보를 제공 합니다. 열 설명 목록은 [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) 및 [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) 테이블에 대 한 참조를 참조 하세요.
 
 | 데이터 | 데이터 원본 | 데이터 형식 | 필드 |
 |------|-------------|-----------|--------|
-| 컨테이너 인벤토리 | Kubelet | `ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| 컨테이너 로그 | Docker | `ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| 컨테이너 인벤토리 | Kubelet | `ContainerInventory` | TimeGenerated, Computer, Name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, 환경 Var, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| 컨테이너 로그 | Docker | `ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | 컨테이너 노드 인벤토리 | Kube API | `ContainerNodeInventory`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Kubernetes 클러스터의 Pod 인벤토리 | Kube API | `KubePodInventory` | TimeGenerated, 컴퓨터, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, 컨테이너 상태, ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, Poduid, SourceSystem |
 | Kubernetes 클러스터의 노드 부분 인벤토리 | Kube API | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes 이벤트 | Kube API | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
 | Kubernetes 클러스터의 서비스 | Kube API | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | 성능 &#124; (ObjectName = = "K8SNode") | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
+| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | 성능 &#124; (ObjectName = = "K8SNode") | Computer, ObjectName, CounterName &#40;cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
 | Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | 성능 &#124; (ObjectName = = "K8SContainer") | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
 | 사용자 지정 메트릭 ||`InsightsMetrics` | 컴퓨터, 이름, 네임 스페이스, 원본, SourceSystem, 태그<sup>1</sup>, Timegenerated, Type, Va, _ResourceId | 
 
@@ -52,8 +52,8 @@ Azure Monitor 로그는 추세를 찾고, 병목 상태를 진단 하거나, 예
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | 컨테이너의 수명 주기 정보 모두 나열| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | kubernetes 이벤트|
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | 이미지 인벤토리 | 
-| **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 CPU | 
-| **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 메모리 |
+| **꺾은선형 차트 표시 옵션을 선택 합니다**.<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 CPU | 
+| **꺾은선형 차트 표시 옵션을 선택 합니다**.<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 메모리 |
 | InsightsMetrics<br> &#124; 이름 = = "requests_count"<br> TimeGenerated = bin (TimeGenerated, 1m)으로 &#124; 요약 Val = any (Val)<br> TimeGenerated asc 별 정렬 &#124;<br> &#124; project RequestsPerMinute = Val-prev (Val), TimeGenerated <br> &#124; 렌더링 막대 차트  | 사용자 지정 메트릭으로 분당 요청 수 |
 
 ## <a name="query-prometheus-metrics-data"></a>프로메테우스 메트릭 데이터 쿼리
@@ -110,5 +110,4 @@ KubeMonAgentEvents | where Level != "Info"
 
 ## <a name="next-steps"></a>다음 단계
 
-컨테이너의 Azure Monitor에는 미리 정의 된 경고 집합이 포함 되지 않습니다. [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](container-insights-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대해 권장 되는 경고를 만드는 방법을 알아봅니다. 
-
+컨테이너의 Azure Monitor에는 미리 정의 된 경고 집합이 포함 되지 않습니다. [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](./container-insights-log-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대해 권장 되는 경고를 만드는 방법을 알아봅니다.

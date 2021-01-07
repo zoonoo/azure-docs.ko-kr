@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 43abe6a827af668f2b756e5f00497fbfe1698413
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 69844a392aa03dc962f8af456996ab51f1adf561
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083239"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547472"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 저장소 계정을 사용 하 여 클러스터 Apache Hadoop
 
@@ -32,13 +32,13 @@ Azure Portal를 사용 하 여 기존 저장소 계정을 업데이트 하려면
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell cmdlet [AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)의 경우 매개 변수가 `-EnableHttpsTrafficOnly` 로 설정 되어 있는지 확인 `1` 합니다.
+PowerShell cmdlet [AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)의 경우 매개 변수가 `-EnableHttpsTrafficOnly` 로 설정 되어 있는지 확인 `1` 합니다.
 
 PowerShell을 사용 하 여 기존 저장소 계정을 업데이트 하려면 [powershell을 사용 하 여 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell)를 참조 하세요.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-명령 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)Azure CLI 매개 변수 `--https-only` 가로 설정 되어 있는지 확인 합니다 `true` .
+명령 [az storage account create](/cli/azure/storage/account#az-storage-account-create)Azure CLI 매개 변수 `--https-only` 가로 설정 되어 있는지 확인 합니다 `true` .
 
 Azure CLI를 사용 하 여 기존 저장소 계정을 업데이트 하려면 [Azure CLI로 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli)를 참조 하세요.
 

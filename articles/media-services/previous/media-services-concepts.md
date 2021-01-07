@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e75dde14cf7182f5153b3a42b26f1c7e8a4e78ac
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258030"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333786"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념
 
@@ -93,7 +93,7 @@ Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩�
 
 작업에는 수행할 처리에 대한 메타데이터가 포함됩니다. 각 작업에는 원자성 처리 태스크, 해당 입력 자산, 출력 자산, 미디어 프로세서 및 관련 설정을 지정하는 하나 이상의 [태스크](/rest/api/media/operations/task)가 포함됩니다. 작업 내의 태스크는 함께 연결할 수 있으며, 이때 한 태스크의 출력 자산은 다음 태스크의 입력 자산으로 제공됩니다. 이러한 방식으로 한 작업에는 미디어 프레젠테이션에 필요한 모든 처리가 포함될 수 있습니다.
 
-## <a name="encoding"></a><a id="encoding"></a>인코딩이
+## <a name="encoding"></a><a id="encoding"></a>Encoding
 Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다.
 
 Media Services로 시작하는 경우 코덱과 파일 형식 간의 차이점을 이해하는 것은 중요합니다.
@@ -103,12 +103,11 @@ Media Services는 적응 비트 전송률 MP4 또는 부드러운 스트리밍 �
 
 [동적 패키징](media-services-dynamic-packaging-overview.md)을 활용하려면 mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩해야 하며 하나 이상의 표준 또는 프리미엄 스트리밍 엔드포인트가 시작된 상태여야 합니다.
 
-Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
+Media Services은이 문서에서 설명 하는 다음과 같은 주문형 인코더를 지원 합니다.
 
 * [미디어 인코더 표준](media-services-encode-asset.md#media-encoder-standard)
-* [미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-지원되는 인코더에 대한 자세한 내용은 [인코더](media-services-encode-asset.md)를 참조하세요
+이 지원 되는 인코더에 대 한 자세한 내용은 [인코더](media-services-encode-asset.md)를 참조 하세요.
 
 ## <a name="live-streaming"></a>라이브 스트리밍
 Azure Media Services에서 채널은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 채널은 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
@@ -133,7 +132,7 @@ Media Services에서, [채널](/rest/api/media/operations/channel)은 라이브 
 
 채널은 동시 실행 프로그램을 최대 세 개까지 지원하므로 동일한 들어오는 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항에 따라 6시간의 프로그램을 보관하고 마지막 10분만 브로드캐스트해야 할 수 있습니다. 이렇게 하려면 두 개의 동시 실행 프로그램을 만들어야 합니다. 한 프로그램은 6시간의 이벤트를 보관하도록 설정하고 프로그램은 게시하지 않습니다. 다른 프로그램은 10분 동안을 보관하도록 설정하고 프로그램을 게시합니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 * [Azure Media Services에서 Live Encoding을 수행할 수 있도록 설정 된 채널 사용](media-services-manage-live-encoder-enabled-channels.md)
 * [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림 받는 채널 작업](media-services-live-streaming-with-onprem-encoders.md)

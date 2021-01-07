@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: ccc6611f14903e47a76de938994552378bb3bc24
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589710"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399200"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
@@ -34,9 +34,9 @@ Azure Load Balancer의 IP 주소입니다. 클라이언트의 연락 지점입�
 - **공용 IP 주소**
 - **개인 IP 주소**
 
-IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식**이 결정됩니다. 개인 IP 주소를 선택하면 내부 부하 분산 장치를 만듭니다. 공용 IP 주소를 선택하면 공용 부하 분산 장치를 만듭니다.
+IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식** 이 결정됩니다. 개인 IP 주소를 선택하면 내부 부하 분산 장치를 만듭니다. 공용 IP 주소를 선택하면 공용 부하 분산 장치를 만듭니다.
 
-|  | 공용 Load Balancer  | 내부 부하 분산 장치 |
+|  | 공용 부하 분산 장치  | 내부 부하 분산 장치 |
 | ---------- | ---------- | ---------- |
 | **프런트 엔드 IP 구성**| 공용 IP 주소 | 개인 IP 주소|
 | **설명** | 공용 부하 분산 장치는 들어오는 트래픽의 공용 IP와 포트를 VM의 개인 IP 및 포트에 매핑합니다. 부하 분산 장치는 VM의 응답 트래픽에 대해 다른 방식으로 트래픽을 매핑합니다. 부하 분산 규칙을 적용하여 특정 유형의 트래픽을 여러 VM 또는 서비스에 분산할 수 있습니다. 예를 들어 웹 요청 트래픽의 부하를 여러 웹 서버에 분산할 수 있습니다.| 내부 부하 분산 장치는 가상 네트워크 내에 있는 리소스에 트래픽을 분산합니다. Azure는 부하가 분산된 가상 네트워크의 프런트 엔드 IP 주소에 대한 액세스를 제한합니다. 프런트 엔드 IP 주소와 가상 네트워크는 인터넷 엔드포인트에 직접 노출되지 않습니다. 내부 LOB(기간 업무) 애플리케이션은 Azure에서 실행되며 Azure 내에서 또는 온-프레미스 리소스에서 액세스할 수 있습니다. |
@@ -44,7 +44,7 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식**이 �
 
 ![계층화된 부사 분산 장치 예제](./media/load-balancer-overview/load-balancer.png)
 
-Load Balancer에는 여러 프런트 엔드 IP가 있을 수 있습니다. [여러 프런트 엔드](load-balancer-multivip-overview.md)에 대해 자세히 알아보세요.
+부하 분산 장치에는 여러 프런트 엔드 IP가 있을 수 있습니다. [여러 프런트 엔드](load-balancer-multivip-overview.md)에 대해 자세히 알아보세요.
 
 ## <a name="backend-pool"></a>백 엔드 풀
 
@@ -58,25 +58,23 @@ Load Balancer에는 여러 프런트 엔드 IP가 있을 수 있습니다. [여�
 
 상태 프로브는 백 엔드 풀의 인스턴스 상태를 확인하는 데 사용됩니다. 부하 분산 장치를 만드는 동안 사용할 부하 분산 장치에 대한 상태 프로브를 구성합니다.  이 상태 프로브는 인스턴스가 정상 상태이고 트래픽을 수신할 수 있는지 여부를 확인합니다.
 
-상태 프로브에 대한 비정상 임계값을 정의할 수 있습니다. 프로브가 응답하지 않으면 Load Balancer에서 비정상 인스턴스에 대한 새 연결 전송을 중지합니다. 프로브 오류는 기존 연결에 영향을 주지 않습니다. 애플리케이션에서 다음을 수행할 때까지 연결이 유지됩니다.
+상태 프로브에 대한 비정상 임계값을 정의할 수 있습니다. 프로브가 응답하지 않으면 부하 분산 장치는 비정상 인스턴스에 새 연결의 전송을 중지합니다. 프로브 오류는 기존 연결에 영향을 주지 않습니다. 애플리케이션에서 다음을 수행할 때까지 연결이 유지됩니다.
 
 - 흐름을 종료
 - 유휴 제한 시간 발생
 - VM이 종료
 
-Load Balancer는 다음에 대한 다양한 상태 프로브 유형을 제공합니다. TCP, HTTP 및 HTTPS [Azure Load Balancer 상태 프로브에 대해 자세히 알아보세요](load-balancer-custom-probe-overview.md).
+부하 분산 장치는 다음에 대한 다양한 상태 프로브 유형을 제공합니다. TCP, HTTP 및 HTTPS [Azure Load Balancer 상태 프로브에 대해 자세히 알아보세요](load-balancer-custom-probe-overview.md).
 
-기본 Load Balancer는 HTTPS 프로브를 지원하지 않습니다. 기본 Load Balancer는 설정된 연결을 포함하여 모든 TCP 연결을 종료합니다.
+기본 부하 분산 장치는 HTTPS 프로브를 지원하지 않습니다. 기본 부하 분산 장치는 설정된 연결을 포함하여 모든 TCP 연결을 종료합니다.
 
 ## <a name="load-balancing-rules"></a>부하 분산 규칙
 
-Load Balancer 규칙은 백 엔드 풀 내의 **모든** 인스턴스에 들어오는 트래픽이 배포되는 방법을 정의하는 데 사용됩니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다.
+부하 분산 장치 규칙은 백 엔드 풀 내의 **모든** 인스턴스에 들어오는 트래픽이 배포되는 방법을 정의하는 데 사용됩니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다.
 
 예를 들어 포트 80에 대한 부하 분산 규칙을 사용하여 프런트 엔드 IP에서 백 엔드 인스턴스의 포트 80으로 트래픽을 라우팅합니다.
 
-<p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="부하 분산 규칙">
-</p>
+:::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="부하 분산 장치 규칙 참조 다이어그램" border="false":::
 
 *그림: 부하 분산 규칙*
 
@@ -108,11 +106,7 @@ HA 포트 부하 분산 규칙은 가상 네트워크 내 NVA(네트워크 가�
 
 인바운드 NAT 규칙은 프런트 엔드 IP 주소 및 포트 조합으로 전송되어 들어오는 트래픽을 전달합니다. 트래픽은 백 엔드 풀의 **특정** 가상 머신 또는 인스턴스로 전송됩니다. 포트 전달은 부하 분산과 동일한 해시 기반 배포를 통해 수행됩니다.
 
-예를 들어 RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell) 세션에서 백 엔드 풀의 VM 인스턴스를 분리하려고 하는 경우입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 포트에 매핑할 수 있습니다. 프런트 엔드 IP 주소를 사용하여 추가 점프 상자 없이 VM을 원격으로 관리할 수 있습니다.
-
-<p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="인바운드 NAT 규칙">
-</p>
+:::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="인바운드 NAT 규칙 참조 다이어그램" border="false":::
 
 *그림: 인바운드 NAT 규칙*
 
@@ -126,16 +120,28 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 
 기본 부하 분산 장치는 아웃바운드 규칙을 지원하지 않습니다.
 
+:::image type="content" source="./media/load-balancer-components/outbound-rules.png" alt-text="인바운드 규칙 참조 다이어그램" border="false":::
+
+*그림: 아웃바운드 규칙*
+
+## <a name="limitations"></a>제한 사항
+
+- 부하 분산 장치 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md)에 대해 알아보기 
+- 부하 분산 장치는 특정 TCP 또는 UDP 프로토콜에 대한 부하 분산 및 포트 전달을 제공합니다. 부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP를 지원하지만 ICMP를 비롯한 다른 IP 프로토콜은 지원하지 않습니다.
+- 백 엔드 VM에서 내부 Load Balancer의 프런트 엔드로의 아웃바운드 흐름이 실패합니다.
+- 부하 분산 장치 규칙은 두 개의 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트 엔드 및 해당 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
+- 부하 분산 규칙에서는 IP 조각 전달이 지원되지 않습니다. UDP 및 TCP 패킷의 IP 조각화는 부하 분산 규칙에서 지원되지 않습니다. HA 포트 부하 분산 규칙을 사용하여 기존 IP 조각을 전달할 수 있습니다. 자세한 내용은 [고가용성 포트 개요](load-balancer-ha-ports-overview.md)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-- Load Balancer를 사용하여 시작하려면 [공용 표준 Load Balancer 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요.
+- Load Balancer를 사용하여 시작하려면 [공용 표준 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
-- [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)에 대한 자세한 정보
-- [개인 IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)에 대한 자세한 정보
-- [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.
-- [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
+- [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md)에 대한 자세한 정보
+- [개인 IP 주소](../virtual-network/private-ip-addresses.md)에 대한 자세한 정보
+- [표준 부하 분산 장치 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.
+- [표준 부하 분산 장치 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
 - [유휴 상태의 TCP 재설정](load-balancer-tcp-reset.md)에 대해 알아보세요.
-- [HA 포트 부하 분산 규칙을 사용하는 표준 Load Balancer](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
-- [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
-- [부사 분산 장치 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)에 대해 자세히 알아봅니다.
-- [포트 전달](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal) 사용에 대해 알아봅니다.
+- [HA 포트 부하 분산 규칙을 사용하는 표준 부하 분산 장치](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
+- [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에 대해 자세히 알아보세요.
+- [부사 분산 장치 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)에 대해 자세히 알아봅니다.
+- [포트 전달](./tutorial-load-balancer-port-forwarding-portal.md) 사용에 대해 알아봅니다.

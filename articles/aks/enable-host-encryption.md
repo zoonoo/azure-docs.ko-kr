@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 호스트 기반 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 14ec39272bf2f434aaa57217a90667a62e82901a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986868"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183297"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service)의 호스트 기반 암호화 (미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "87986868"
 > [!NOTE]
 > 호스트 기반 암호화는 azure [지역][supported-regions] 에서 사용할 수 있으며, azure 관리 디스크의 서버 쪽 암호화와 지원 되는 특정 [VM 크기만][supported-sizes]지원 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 - `aks-preview`CLI 확장 v 0.4.55 이상을 설치 했는지 확인 합니다.
 - `EncryptionAtHost`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.Compute` 합니다.
@@ -41,7 +41,7 @@ az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
@@ -75,7 +75,7 @@ az extension update --name aks-preview
 
 - 새 노드 풀 또는 새 클러스터 에서만 사용 하도록 설정할 수 있습니다.
 - Azure 관리 디스크의 서버 쪽 암호화와 지원 되는 특정 [VM 크기][supported-sizes]를 지 원하는 [azure 지역][supported-regions] 에서만 사용 하도록 설정할 수 있습니다.
-- *VM 집합 유형*으로 Virtual Machine Scale Sets (vmss)를 기반으로 하는 AKS 클러스터 및 노드 풀이 필요 합니다.
+- *VM 집합 유형* 으로 Virtual Machine Scale Sets (vmss)를 기반으로 하는 AKS 클러스터 및 노드 풀이 필요 합니다.
 
 ## <a name="use-host-based-encryption-on-new-clusters-preview"></a>새 클러스터에서 호스트 기반 암호화 사용 (미리 보기)
 
@@ -99,7 +99,7 @@ az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-gr
 
 ## <a name="next-steps"></a>다음 단계
 
-[AKS 클러스터 보안에 대 한 모범 사례를][best-practices-security] 검토 하 여 [호스트 기반 암호화](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)에 대해 자세히 알아보세요.
+[AKS 클러스터 보안에 대 한 모범 사례를][best-practices-security] 검토 하 여 [호스트 기반 암호화](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)에 대해 자세히 알아보세요.
 
 
 <!-- LINKS - external -->
@@ -108,8 +108,8 @@ az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-gr
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
-[supported-regions]: ../virtual-machines/linux/disk-encryption.md#supported-regions
-[supported-sizes]: ../virtual-machines/linux/disk-encryption.md#supported-vm-sizes
+[supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
+[supported-sizes]: ../virtual-machines/disk-encryption.md#supported-vm-sizes
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list

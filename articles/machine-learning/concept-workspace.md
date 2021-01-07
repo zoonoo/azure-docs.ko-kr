@@ -1,7 +1,7 @@
 ---
 title: 작업 영역 이란?
 titleSuffix: Azure Machine Learning
-description: 작업 영역은 Azure Machine Learning의 최상위 리소스입니다. 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행에 대 한 기록을 유지 합니다. 이 정보를 사용 하 여 최상의 모델을 생성 하는 학습 실행을 결정 합니다.
+description: 작업 영역은 Azure Machine Learning의 최상위 리소스입니다. 로그, 메트릭, 출력 및 스크립트 스냅숏과 함께 모든 학습 실행의 기록을 유지 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 7185adf559f429feb0ada60fef65e1edb106da66
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907636"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701656"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -52,9 +52,9 @@ ms.locfileid: "90907636"
 + 웹에서:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning 디자이너](concept-designer.md) 
-+ [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용 하는 모든 python 환경에서
++ [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 사용 하는 모든 python 환경에서
 + [R (미리 보기)에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 모든 r 환경
-+ Azure Machine Learning [CLI 확장](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 을 사용 하 여 명령줄에서
++ Azure Machine Learning [CLI 확장](./reference-azure-machine-learning-cli.md) 을 사용 하 여 명령줄에서
 + [Azure Machine Learning VS Code 확장](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -88,8 +88,8 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 
 작업 영역을 만드는 방법에는 여러 가지가 있습니다.  
 
-* 지점 및 클릭 인터페이스에 대 한 [Azure Portal](how-to-manage-workspace.md) 를 사용 하 여 각 단계를 안내 합니다.
-* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#&preserve-view=trueworkspace) 를 사용 하 여 python 스크립트 또는 Jupiter 노트북에서 즉시 작업 영역 만들기
+* 지점 및 클릭 인터페이스에 대 한 [Azure Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) 를 사용 하 여 각 단계를 안내 합니다.
+* [Python 용 AZURE MACHINE LEARNING SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace) 를 사용 하 여 python 스크립트 또는 Jupyter 노트북에서 즉시 작업 영역 만들기
 * 회사 보안 표준을 사용 하 여 만들기를 자동화 하거나 사용자 지정 해야 하는 경우 [Azure Resource Manager 템플릿](how-to-create-workspace-template.md) 또는 [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) 를 사용 합니다.
 * Visual Studio Code에서 작업 하는 경우 [VS Code 확장](how-to-manage-resources-vscode.md#create-a-workspace)을 사용 합니다.
 
@@ -103,7 +103,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 + [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대 한 기본 데이터 저장소로 사용 됩니다.  Azure Machine Learning 계산 인스턴스와 함께 사용 되는 jupyter 노트북도 여기에 저장 됩니다. 
   
   > [!IMPORTANT]
-  > 기본적으로 저장소 계정은 범용 v1 계정입니다. 작업 영역을 만든 후 [이를 범용 v2로 업그레이드할](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 수 있습니다. 범용 v2로 업그레이드 한 후 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하지 마세요.
+  > 기본적으로 저장소 계정은 범용 v1 계정입니다. 작업 영역을 만든 후 [이를 범용 v2로 업그레이드할](../storage/common/storage-account-upgrade.md) 수 있습니다. 범용 v2로 업그레이드 한 후 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하지 마세요.
 
   기존 Azure Storage 계정을 사용 하려면 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
   
@@ -114,7 +114,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): 계산 대상에서 사용 하는 암호 및 작업 영역에 필요한 기타 중요 한 정보를 저장 합니다.
 
 > [!NOTE]
-> 새 버전을 만드는 것 외에 기존 Azure 서비스를 사용할 수도 있습니다.
+> 대신 [ARM 템플릿을 사용 하 여](how-to-create-workspace-template.md) [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace), [R sdk](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html)또는 Azure Machine Learning CLI를 사용 하 여 작업 영역을 만들 때 기존 Azure 리소스 인스턴스를 사용할 수 있습니다.
 
 <a name="wheres-enterprise"></a>
 
@@ -131,9 +131,9 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 Azure Machine Learning을 시작하려면 다음을 참조하세요.
 
 + [Azure Machine Learning 개요](overview-what-is-azure-ml.md)
-+ [작업 영역 만들기](how-to-manage-workspace.md)
-+ [작업 영역 관리](how-to-manage-workspace.md)
-+ [자습서: Python SDK로 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)
++ [작업 영역 만들기 및 관리](how-to-manage-workspace.md)
++ [자습서: 개발 환경에서 Azure Machine Learning 시작](tutorial-1st-experiment-sdk-setup-local.md)
++ [자습서: 계산 인스턴스에서 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)
 + [자습서: R SDK를 사용 하 여 Azure Machine Learning 시작](tutorial-1st-r-experiment.md)
 + [자습서: 자동화된 Machine Learning을 사용하여 처음으로 분류 모델 만들어 보기](tutorial-first-experiment-automated-ml.md) 
 + [자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)

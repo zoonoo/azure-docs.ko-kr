@@ -6,17 +6,17 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 12/18/2020
+ms.openlocfilehash: e7f5b3ae0a4dc7faa67a361b210b1d014e1f1b93
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196433"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722133"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
-참조 데이터 (조회 테이블이 라고도 함)는 데이터 스트림을 조회 하거나 확장 하는 데 사용 되는 정적 또는 느린 변경의 제한 된 데이터 집합입니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용 하기 위해 일반적으로 쿼리에서 [참조 데이터 조인을](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용 합니다. 
+참조 데이터 (조회 테이블이 라고도 함)는 데이터 스트림을 조회 하거나 확장 하는 데 사용 되는 정적 또는 느린 변경의 제한 된 데이터 집합입니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용 하기 위해 일반적으로 쿼리에서 [참조 데이터 조인을](/stream-analytics-query/reference-data-join-azure-stream-analytics) 사용 합니다. 
 
 ## <a name="example"></a>예제  
 자동차에서 요금을 전달할 때 생성 되는 이벤트의 실시간 스트림을 가질 수 있습니다. 요금 창구는 라이선스 판을 실시간으로 캡처하고 등록 정보가 있는 정적 데이터 집합을 사용 하 여 만료 된 라이선스 판을 식별할 수 있습니다.  
@@ -31,13 +31,13 @@ WHERE R.Expired = '1'
 
 Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure Blob 스토리지 및 Azure SQL Database를 지원합니다. 또한 참조 데이터를 Azure Data Factory에서 Blob Storage로 변환 및/또는 복사하여 [여러 클라우드 기반 및 온-프레미스 데이터 저장소](../data-factory/copy-activity-overview.md)를 사용할 수 있습니다.
 
-## <a name="azure-blob-storage"></a>Azure Blob 스토리지
+## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것**만** 지원됩니다.
+참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것 **만** 지원됩니다.
 
 ### <a name="configure-blob-reference-data"></a>Blob 참조 데이터 구성
 
-참조 데이터를 구성하려면 먼저 **참조 데이터**형식의 입력을 만들어야 합니다. 다음 표에서 설명과 함께 참조 데이터 입력을 만드는 동안 제공해야 하는 각 속성을 설명합니다.
+참조 데이터를 구성하려면 먼저 **참조 데이터** 형식의 입력을 만들어야 합니다. 다음 표에서 설명과 함께 참조 데이터 입력을 만드는 동안 제공해야 하는 각 속성을 설명합니다.
 
 |**속성 이름**  |**설명**  |
 |---------|---------|
@@ -96,13 +96,13 @@ Stream Analytics는 Azure SQL Database를 쿼리하기 위한 두 가지 옵션�
 
 SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입력을 만들어야 합니다. 다음 표에는 참조 데이터 입력을 만드는 동안 제공해야 하는 각 속성이 해당 설명과 함께 나와 있습니다. 자세한 내용은 [Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용](sql-reference-data.md)을 참조하세요.
 
-[AZURE SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) 를 참조 데이터 입력으로 사용할 수 있습니다. [SQL Managed Instance에서 공용 끝점을 구성](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 하 고 Azure Stream Analytics에서 다음 설정을 수동으로 구성 해야 합니다. 데이터베이스가 연결된 SQL Server를 실행하는 Azure 가상 머신도 아래 설정을 수동으로 구성하여 지원됩니다.
+[AZURE SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) 를 참조 데이터 입력으로 사용할 수 있습니다. [SQL Managed Instance에서 공용 끝점을 구성](../azure-sql/managed-instance/public-endpoint-configure.md) 하 고 Azure Stream Analytics에서 다음 설정을 수동으로 구성 해야 합니다. 데이터베이스가 연결된 SQL Server를 실행하는 Azure 가상 머신도 아래 설정을 수동으로 구성하여 지원됩니다.
 
 |**속성 이름**|**설명**  |
 |---------|---------|
 |입력 별칭|이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 |Subscription|구독 선택|
-|데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. SQL Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver.public.database.windows.net,3342*입니다.|
+|데이터베이스|참조 데이터가 포함된 Azure SQL Database입니다. SQL Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver.public.database.windows.net,3342* 입니다.|
 |사용자 이름|Azure SQL Database와 연결된 사용자 이름입니다.|
 |암호|Azure SQL Database와 연결된 암호입니다.|
 |주기적으로 새로 고침|이 옵션을 사용하면 새로 고침 빈도를 선택할 수 있습니다. “On”을 선택하면 DD:HH:MM 형식으로 새로 고침 빈도를 지정할 수 있습니다.|
@@ -111,13 +111,13 @@ SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입
 
 ## <a name="size-limitation"></a>크기 제한
 
-최상의 성능을 위해 300 MB 미만의 참조 데이터 집합을 사용 하는 것이 좋습니다. 6su 이상이 포함 된 작업에서는 300 보다 큰 참조 데이터 사용이 지원 됩니다. 이 기능은 미리 보기 상태 이며 프로덕션 환경에서 사용 하지 않아야 합니다. 매우 큰 참조 데이터를 사용 하면 작업의 성능에 영향을 줄 수 있습니다. 기간 이동 집계, temporal 조인 및 temporal 분석 함수와 같은 상태 프로세싱을 포함할 정도로 쿼리의 복잡성이 증가하면 참조 데이터의 지원되는 최대 크기는 감소하게 됩니다. Azure Stream Analytics가 참조 데이터를 로드하여 복잡한 작업을 수행할 수 없는 경우 작업에 메모리가 부족하여 실패하게 됩니다. 그러한 경우 SU % 사용률 메트릭은 100%에 도달합니다.    
+최상의 성능을 위해 300 MB 미만의 참조 데이터 집합을 사용 하는 것이 좋습니다. 5 개 이상의 SUs 이상이 포함 된 작업에서 참조 데이터 집합 5gb 또는 하한값이 지원 됩니다. 매우 큰 참조 데이터를 사용 하면 작업의 종단 간 대기 시간에 영향을 줄 수 있습니다. 기간 이동 집계, temporal 조인 및 temporal 분석 함수와 같은 상태 프로세싱을 포함할 정도로 쿼리의 복잡성이 증가하면 참조 데이터의 지원되는 최대 크기는 감소하게 됩니다. Azure Stream Analytics가 참조 데이터를 로드하여 복잡한 작업을 수행할 수 없는 경우 작업에 메모리가 부족하여 실패하게 됩니다. 그러한 경우 SU % 사용률 메트릭은 100%에 도달합니다.    
 
 |**스트리밍 단위의 수**  |**권장 크기**  |
 |---------|---------|
 |1   |50 m b 미만   |
 |3   |150 m b 미만   |
-|6 이상   |300 MB 미만. 300 MB 보다 큰 참조 데이터를 사용 하면 미리 보기에서 지원 되며 작업 성능에 영향을 줄 수 있습니다.    |
+|6 이상   |5gb이 하입니다.    |
 
 참조 데이터에는 압축이 지원되지 않습니다.
 
@@ -138,6 +138,18 @@ FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
 
+## <a name="iot-edge-jobs"></a>작업 IoT Edge
+
+로컬 참조 데이터만 Stream Analytics edge 작업에 대해 지원 됩니다. 작업이 IoT Edge 디바이스에 배포되면 사용자 정의 파일 경로에서 참조 데이터를 로드합니다. 디바이스에서 참조 데이터 파일을 준비합니다. Windows 컨테이너의 경우 참조 데이터 파일을 로컬 드라이브에 저장하고 로컬 드라이브를 Docker 컨테이너와 공유합니다. Linux 컨테이너의 경우 Docker 볼륨을 만들고 데이터 파일을 볼륨에 채웁니다.
+
+IoT Edge 업데이트에 대 한 참조 데이터는 배포에 의해 트리거됩니다. 트리거된 Stream Analytics 모듈은 실행 중인 작업을 중지 하지 않고 업데이트 된 데이터를 선택 합니다.
+
+참조 데이터를 업데이트하는 두 가지 방법은 다음과 같습니다.
+
+* Azure Portal에서 Stream Analytics 작업의 참조 데이터 경로를 업데이트 합니다.
+
+* IoT Edge 배포를 업데이트합니다.
+
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
@@ -146,6 +158,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

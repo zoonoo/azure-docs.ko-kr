@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078207"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862448"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
 
@@ -48,7 +48,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 | 속성 | Description |
 -------- | ------------- | 
 | Name | Azure 통합 런타임의 이름. |  
-| 시스템 상태 | Azure 통합 런타임의 상태. | 
+| 주 | Azure 통합 런타임의 상태. | 
 | 위치 | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
@@ -65,14 +65,14 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 ## <a name="self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임
 
-이 섹션에서는 AzDataFactoryV2IntegrationRuntime cmdlet이 반환 하는 속성에 대해 설명 합니다. 
+이 섹션에서는 Get-AzDataFactoryV2IntegrationRuntime cmdlet에서 반환 하는 속성에 대해 설명 합니다. 
 
 > [!NOTE] 
 > 반환된 속성 및 상태에는 전반적인 자체 호스팅 통합 런타임 및 런타임의 각 노드에 대한 정보가 포함됩니다.  
 
 ### <a name="properties"></a>속성
 
-다음 테이블은 **각 노드**의 속성 모니터링에 대한 설명을 제공합니다.
+다음 테이블은 **각 노드** 의 속성 모니터링에 대한 설명을 제공합니다.
 
 | 속성 | Description | 
 | -------- | ----------- | 
@@ -93,7 +93,7 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 노드 수를 늘려서 규모를 확장할 수 있습니다. 노드의 수를 늘리면 동시 작업 제한은 사용 가능한 모든 노드의 동시 작업 제한 값의 합계입니다.  예를 들어 하나의 노드를 사용하여 최대 12개의 동시 작업을 실행할 수 있는 경우 세 가지 유사한 노드를 추가하면 최대 48개(4x12)의 동시 작업을 실행할 수 있습니다. 각 노드의 기본 값을 포함하는 낮은 리소스 사용량이 표시되는 경우에만 동시 작업 제한을 늘리는 것이 좋습니다.
 
-Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성자 > 연결 > 통합 런타임 > 편집 > 노드 > 노드당 동시 작업 값 수정을 차례로 선택합니다. PowerShell [Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) 명령을 사용할 수도 있습니다.
+Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성자 > 연결 > 통합 런타임 > 편집 > 노드 > 노드당 동시 작업 값 수정을 차례로 선택합니다. PowerShell [Azdatafactoryv2integrationruntimenode](/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) 명령을 사용할 수도 있습니다.
   
 ### <a name="status-per-node"></a>상태(노드당)
 
@@ -104,7 +104,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 | 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다. |
 | 오프라인 | 노드가 오프라인 상태입니다. |
 | 업그레이드 중 | 노드가 자동 업데이트 중입니다. |
-| 제한됨 | 연결 문제로 인해 제한되는 상태입니다. 8050 HTTP 포트 문제, 서비스 버스 연결 문제 또는 자격 증명 동기화 문제 때문일 수 있습니다. |
+| 제한됨 | 연결 문제로 인해 제한되는 상태입니다. HTTP 포트 8060 문제, 서비스 버스 연결 문제 또는 자격 증명 동기화 문제 때문일 수 있습니다. |
 | 비활성 | 노드의 구성이 다른 주 노드의 구성과 다릅니다. |
 
 다른 노드에 연결할 수 없을 때 노드가 비활성 상태일 수 있습니다.
@@ -181,7 +181,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 | 노드                        | 노드 관련 상태 (시작/사용/재생/사용 불가)와 실행 가능한 오류를 사용 하 여 Azure-SSIS IR의 할당 된/사용 가능한 노드입니다. |
 | OtherErrors                  | Azure-SSIS IR에 대 한 비 노드의 특정 조치 가능한 오류입니다. |
 | LastOperation                | 실패 한 경우 실행 가능한 오류가 발생 하 여 Azure-SSIS IR에 대 한 마지막 시작/중지 작업의 결과입니다. |
-| 시스템 상태                        | Azure-SSIS IR의 전체 상태 (초기/시작/시작/중지/중지/중지)입니다. |
+| 주                        | Azure-SSIS IR의 전체 상태 (초기/시작/시작/중지/중지/중지)입니다. |
 | 위치                     | Azure-SSIS IR 위치입니다. |
 | NodeSize                     | Azure-SSIS IR의 각 노드 크기입니다. |
 | NodeCount                    | Azure-SSIS IR의 노드 수입니다. |
@@ -234,60 +234,60 @@ Azure Portal에서 Azure-SSIS IR를 모니터링 하려면 모든 통합 런타�
 
 #### <a name="status-tile"></a>상태 타일
 
-Azure-SSIS IR 모니터링 페이지의 **상태** 타일에서 전체 상태 (예: **실행 중** 또는 **중지 됨**)를 볼 수 있습니다. **실행** 상태를 선택 하면 Azure-SSIS IR를 중지 하는 라이브 **중지** 단추가 포함 된 창이 표시 됩니다. **중지 됨** 상태를 선택 하면 Azure-SSIS IR 시작 하는 라이브 **시작** 단추가 있는 창이 표시 됩니다. 또한 팝업 창에는 Azure-SSIS IR에서 실행 되는 ssis 패키지 실행 작업을 사용 하 여 ADF 파이프라인을 자동 생성 하는 데 사용할 수 **있는 ssis 패키지 실행 단추 (** [adf 파이프라인에서 Ssis 패키지를 실행](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)하는 ssis 패키지 실행 참조) 및 **리소스 id** 텍스트 상자 (Azure-SSIS IR 리소스 id ()를 복사할 수 있습니다 `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` . ADF 및 Azure-SSIS IR 이름을 포함 하는 Azure-SSIS IR 리소스 ID의 접미사는 Isv (독립 소프트웨어 공급 업체)에서 추가 프리미엄/사용이 허가 된 SSIS 구성 요소를 구매 하 고 Azure-SSIS IR에 바인딩하는 데 사용할 수 있는 클러스터 ID를 형성 합니다 ( [Azure-SSIS IR에서 프리미엄/라이선스 구성 요소 설치](https://docs.microsoft.com/azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components)참조).
+Azure-SSIS IR 모니터링 페이지의 **상태** 타일에서 전체 상태 (예: **실행 중** 또는 **중지 됨**)를 볼 수 있습니다. **실행** 상태를 선택 하면 Azure-SSIS IR를 중지 하는 라이브 **중지** 단추가 포함 된 창이 표시 됩니다. **중지 됨** 상태를 선택 하면 Azure-SSIS IR 시작 하는 라이브 **시작** 단추가 있는 창이 표시 됩니다. 또한 팝업 창에는 Azure-SSIS IR에서 실행 되는 ssis 패키지 실행 작업을 사용 하 여 ADF 파이프라인을 자동 생성 하는 데 사용할 수 **있는 ssis 패키지 실행 단추 (** [adf 파이프라인에서 Ssis 패키지를 실행](./how-to-invoke-ssis-package-ssis-activity.md)하는 ssis 패키지 실행 참조) 및 **리소스 id** 텍스트 상자 (Azure-SSIS IR 리소스 id ()를 복사할 수 있습니다 `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` . ADF 및 Azure-SSIS IR 이름을 포함 하는 Azure-SSIS IR 리소스 ID의 접미사는 Isv (독립 소프트웨어 공급 업체)에서 추가 프리미엄/사용이 허가 된 SSIS 구성 요소를 구매 하 고 Azure-SSIS IR에 바인딩하는 데 사용할 수 있는 클러스터 ID를 형성 합니다 ( [Azure-SSIS IR에서 프리미엄/라이선스 구성 요소 설치](./how-to-develop-azure-ssis-ir-licensed-components.md)참조).
 
 ![Azure-SSIS IR 상태 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 
 #### <a name="ssisdb-server-endpoint-tile"></a>SSISDB 서버 끝점 타일
 
-패키지가 Azure SQL Database 서버 또는 관리 되는 인스턴스에 의해 호스팅되는 SSISDB에 저장 되는 프로젝트 배포 모델을 사용 하는 경우 Azure-SSIS IR 모니터링 페이지에 **SSISDB 서버 끝점** 타일이 표시 됩니다 ( [Azure-SSIS IR 배포 설정 구성](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)참조). 이 타일에서는 Azure SQL Database 서버 또는 관리 되는 인스턴스를 지정 하는 링크를 선택 하 여 창을 표시할 수 있습니다 .이 창에서 텍스트 상자에서 서버 끝점을 복사 하 고 SSMS에서 연결 하 여 패키지를 배포, 구성, 실행 및 관리할 수 있습니다. 팝업 창에서 **Azure SQL Database 또는 관리 되는 인스턴스 설정 보기** 링크를 선택 하 여 AZURE PORTAL에서 SSISDB를 다시 구성 하거나 크기를 조정할 수도 있습니다.
+패키지가 Azure SQL Database 서버 또는 관리 되는 인스턴스에 의해 호스팅되는 SSISDB에 저장 되는 프로젝트 배포 모델을 사용 하는 경우 Azure-SSIS IR 모니터링 페이지에 **SSISDB 서버 끝점** 타일이 표시 됩니다 ( [Azure-SSIS IR 배포 설정 구성](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page)참조). 이 타일에서는 Azure SQL Database 서버 또는 관리 되는 인스턴스를 지정 하는 링크를 선택 하 여 창을 표시할 수 있습니다 .이 창에서 텍스트 상자에서 서버 끝점을 복사 하 고 SSMS에서 연결 하 여 패키지를 배포, 구성, 실행 및 관리할 수 있습니다. 팝업 창에서 **Azure SQL Database 또는 관리 되는 인스턴스 설정 보기** 링크를 선택 하 여 AZURE PORTAL에서 SSISDB를 다시 구성 하거나 크기를 조정할 수도 있습니다.
 
 ![Azure-SSIS IR 모니터-SSISDB 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
 
 #### <a name="proxy--staging-tile"></a>프록시/준비 타일
 
-온-프레미스 데이터에 액세스 하기 위해 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR (SHIR)을 다운로드, 설치 및 구성 하는 경우 Azure-SSIS IR 모니터링 페이지에 **프록시/준비** 타일이 표시 됩니다 ( [Azure-SSIS IR 프록시로 shir 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)참조). 이 타일에서 SHIR을 지정 하는 링크를 선택 하 여 해당 모니터링 페이지를 열 수 있습니다. 준비에 대 한 Azure Blob Storage 지정 하 여 연결 된 서비스를 다시 구성 하는 다른 링크를 선택할 수도 있습니다.
+온-프레미스 데이터에 액세스 하기 위해 Azure-SSIS IR의 프록시로 Self-Hosted IR (SHIR)을 다운로드, 설치 및 구성 하는 경우 Azure-SSIS IR 모니터링 페이지에 **프록시/준비** 타일이 표시 됩니다 ( [Azure-SSIS IR에 대 한 프록시로 shir 구성](./self-hosted-integration-runtime-proxy-ssis.md)참조). 이 타일에서 SHIR을 지정 하는 링크를 선택 하 여 해당 모니터링 페이지를 열 수 있습니다. 준비에 대 한 Azure Blob Storage 지정 하 여 연결 된 서비스를 다시 구성 하는 다른 링크를 선택할 수도 있습니다.
 
 #### <a name="validate-vnet--subnet-tile"></a>VNET/서브넷 타일의 유효성 검사
 
-Azure-SSIS IR VNet에 연결 하는 경우 Azure-SSIS IR 모니터링 페이지에서 **vnet/서브넷 유효성 검사** 타일이 표시 됩니다 ( [Vnet에 Azure-SSIS IR 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)참조). 이 타일에서 vnet 및 서브넷을 지정 하 여 창을 팝업 하도록 지정 하는 링크를 선택할 수 있습니다. 여기서 vnet 리소스 ID ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet` )와 서브넷 이름을 텍스트 상자에서 복사 하 고, 필요한 인바운드/아웃 바운드 네트워크 트래픽을 Azure-SSIS IR 관리가 방해 되지 않도록 vnet 및 서브넷 구성의 유효성을 검사할 수 있습니다.
+Azure-SSIS IR VNet에 연결 하는 경우 Azure-SSIS IR 모니터링 페이지에서 **vnet/서브넷 유효성 검사** 타일이 표시 됩니다 ( [Vnet에 Azure-SSIS IR 조인](./join-azure-ssis-integration-runtime-virtual-network.md)참조). 이 타일에서 vnet 및 서브넷을 지정 하 여 창을 팝업 하도록 지정 하는 링크를 선택할 수 있습니다. 여기서 vnet 리소스 ID ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet` )와 서브넷 이름을 텍스트 상자에서 복사 하 고, 필요한 인바운드/아웃 바운드 네트워크 트래픽을 Azure-SSIS IR 관리가 방해 되지 않도록 vnet 및 서브넷 구성의 유효성을 검사할 수 있습니다.
 
 ![Azure-SSIS IR 모니터링-타일의 유효성을 검사 합니다.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
 
 #### <a name="diagnose-connectivity-tile"></a>연결 진단 타일
 
-Azure-SSIS IR 모니터링 페이지의 연결 **진단** 타일에서 **연결 테스트** 링크를 선택 하 여 창을 표시할 수 있습니다. 여기서는 Azure-SSIS IR 및 관련 패키지/구성/데이터 저장소와 관리 서비스는 정규화 된 도메인 이름 (FQDN)/ip 주소 및 지정 된 포트를 통해 연결을 확인할 수 있습니다 ( [Azure-SSIS IR에서 연결 테스트](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)참조).
+Azure-SSIS IR 모니터링 페이지의 연결 **진단** 타일에서 **연결 테스트** 링크를 선택 하 여 창을 표시할 수 있습니다. 여기서는 Azure-SSIS IR 및 관련 패키지/구성/데이터 저장소와 관리 서비스는 정규화 된 도메인 이름 (FQDN)/ip 주소 및 지정 된 포트를 통해 연결을 확인할 수 있습니다 ( [Azure-SSIS IR에서 연결 테스트](./ssis-integration-runtime-diagnose-connectivity-faq.md)참조).
 
-![Azure-SSIS IR 모니터링-진단 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Azure-SSIS IR와 관련 패키지/구성/데이터 저장소 간의 연결을 테스트할 수 있는 위치를 보여 주는 스크린샷](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>고정 공용 IP 주소 타일
 
-Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오는 경우 Azure-SSIS IR 모니터링 페이지에 **고정 공용 IP 주소** 타일이 표시 됩니다 ( [Azure-SSIS IR에 대 한 고정 공용 ip 주소 가져오기](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)참조). 이 타일에서 Azure-SSIS IR에 대 한 첫 번째/초 고정 공용 IP 주소를 지정 하는 링크를 선택 하 여 텍스트 상자에서 해당 리소스 ID ()를 복사할 수 있는 창을 팝업 할 수 있습니다 `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` . 팝업 창에서 **첫 번째/두 번째 고정 공용 ip 주소 설정 확인** 링크를 선택 하 여 Azure Portal에서 첫 번째/초 고정 공용 ip 주소를 관리할 수도 있습니다.
+Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오는 경우 Azure-SSIS IR 모니터링 페이지에 **고정 공용 IP 주소** 타일이 표시 됩니다 ( [Azure-SSIS IR에 대 한 고정 공용 ip 주소 가져오기](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)참조). 이 타일에서 Azure-SSIS IR에 대 한 첫 번째/초 고정 공용 IP 주소를 지정 하는 링크를 선택 하 여 텍스트 상자에서 해당 리소스 ID ()를 복사할 수 있는 창을 팝업 할 수 있습니다 `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` . 팝업 창에서 **첫 번째/두 번째 고정 공용 ip 주소 설정 확인** 링크를 선택 하 여 Azure Portal에서 첫 번째/초 고정 공용 ip 주소를 관리할 수도 있습니다.
 
-![Azure-SSIS IR 모니터링-진단 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![첫 번째/초 고정 공용 IP 주소를 지정할 수 있는 위치를 보여 주는 스크린샷](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>패키지 저장소 타일
 
-패키지 배포 모델을 사용 하는 경우 패키지는 Azure SQL Managed Instance에서 호스트 되 고 Azure-SSIS IR 패키지 저장소를 통해 관리 되는 파일 시스템/Azure Files/SQL Server 데이터베이스 (MSDB)에 저장 되며, Azure-SSIS IR 모니터링 페이지에 **패키지 저장소** 타일이 표시 됩니다 ( [Azure-SSIS IR 배포 설정 구성](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)참조). 이 타일에서 Azure-SSIS IR에 연결 된 패키지 저장소 수를 지정 하는 링크를 선택 하 여 창을 팝 할 수 있습니다 .이 링크를 통해 Azure-SSIS IR 패키지 저장소에 대 한 관련 연결 된 서비스를 Azure SQL Managed Instance에서 호스트 하는 파일 시스템/Azure Files/MSDB 위에 다시 구성할 수 있습니다.
+패키지 배포 모델을 사용 하는 경우 패키지는 Azure SQL Managed Instance에서 호스트 되 고 Azure-SSIS IR 패키지 저장소를 통해 관리 되는 파일 시스템/Azure Files/SQL Server 데이터베이스 (MSDB)에 저장 되며, Azure-SSIS IR 모니터링 페이지에 **패키지 저장소** 타일이 표시 됩니다 ( [Azure-SSIS IR 배포 설정 구성](./tutorial-deploy-ssis-packages-azure.md#deployment-settings-page)참조). 이 타일에서 Azure-SSIS IR에 연결 된 패키지 저장소 수를 지정 하는 링크를 선택 하 여 창을 팝 할 수 있습니다 .이 링크를 통해 Azure-SSIS IR 패키지 저장소에 대 한 관련 연결 된 서비스를 Azure SQL Managed Instance에서 호스트 하는 파일 시스템/Azure Files/MSDB 위에 다시 구성할 수 있습니다.
 
 ![Azure-SSIS IR-패키지 타일 모니터링](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
 
 #### <a name="errors-tile"></a>오류 타일
 
-Azure-SSIS IR의 시작/중지/유지 관리/업그레이드에 문제가 있는 경우 Azure-SSIS IR 모니터링 페이지에 추가 **오류** 타일이 표시 됩니다. 이 타일에서 창을 팝업 하기 위해 Azure-SSIS IR에서 생성 된 오류 수를 지정 하는 링크를 선택할 수 있습니다. 여기에서 해당 오류에 대 한 자세한 내용을 확인 하 고 복사 하 여 문제 해결 가이드에서 권장 해결 방법을 찾을 수 있습니다 ( [Azure-SSIS IR 문제 해결](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)참조).
+Azure-SSIS IR의 시작/중지/유지 관리/업그레이드에 문제가 있는 경우 Azure-SSIS IR 모니터링 페이지에 추가 **오류** 타일이 표시 됩니다. 이 타일에서 창을 팝업 하기 위해 Azure-SSIS IR에서 생성 된 오류 수를 지정 하는 링크를 선택할 수 있습니다. 여기에서 해당 오류에 대 한 자세한 내용을 확인 하 고 복사 하 여 문제 해결 가이드에서 권장 해결 방법을 찾을 수 있습니다 ( [Azure-SSIS IR 문제 해결](./ssis-integration-runtime-management-troubleshoot.md)참조).
 
 ![Azure-SSIS IR 모니터링-진단 타일](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure SSIS 통합 런타임 모니터링
 
-Azure Monitor에서 Azure-SSIS IR를 모니터링 하려면 Azure Monitor를 [사용 하 여 SSIS 작업 모니터링](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor)을 참조 하세요.
+Azure Monitor에서 Azure-SSIS IR를 모니터링 하려면 Azure Monitor를 [사용 하 여 SSIS 작업 모니터링](./monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor)을 참조 하세요.
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 자세한 정보
 
 Azure-SSIS 통합 런타임에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서에서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
-- [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서에서는 Azure-SSIS IR을 만들고 Azure SQL Database를 사용 하 여 SSISDB (SSIS 카탈로그)를 호스트 하는 단계별 지침을 제공 합니다. 
+- [자습서: Azure에 SSIS 패키지 배포](./tutorial-deploy-ssis-packages-azure.md). 이 문서에서는 Azure-SSIS IR을 만들고 Azure SQL Database를 사용 하 여 SSISDB (SSIS 카탈로그)를 호스트 하는 단계별 지침을 제공 합니다. 
 - [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장 하 고 Azure SQL Managed Instance를 사용 하 여 SSISDB를 호스트 하는 지침을 제공 합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서에서는 Azure-SSIS IR를 시작, 중지 또는 삭제 하는 방법을 보여 줍니다. 또한 노드를 더 추가 하 여 규모를 확장 하는 방법을 보여 줍니다. 
 - [Azure-SSIS IR을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서에서는 가상 네트워크에 Azure-SSIS IR를 조인 하는 방법에 대 한 지침을 제공 합니다.

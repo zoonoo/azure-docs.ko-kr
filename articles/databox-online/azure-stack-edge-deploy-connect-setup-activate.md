@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5a89125edf6082bbbcbaf139a648c9edc2debf81
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894257"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743338"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro 연결, 설정 및 활성화 
 
@@ -146,7 +146,7 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
 
     4. 업데이트가 성공적으로 완료된 후 몇 분 정도 기다려야 할 수도 있습니다. 페이지가 업데이트되면 디바이스가 성공적으로 활성화된 것으로 나타납니다.
 
-        ![로컬 웹 UI "클라우드 설정" 페이지 업데이트됨](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![로컬 웹 UI "클라우드 설정" 페이지 업데이트 2](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 디바이스 설정이 완료되었습니다. 이제 디바이스에서 공유를 추가할 수 있습니다.
 

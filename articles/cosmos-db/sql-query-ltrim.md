@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 LTRIM
 description: 선행 공백을 제거한 후 문자열 식을 반환 하는 Azure Cosmos DB의 LTRIM SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 08c069de70684a8562e86963ddb2e84ee889e7cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dec9bed0cae503825397920ef8e305c125f43154
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302256"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335588"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  선행 공백을 제거한 후에 문자열 식을 반환합니다.  
   
 ## <a name="syntax"></a>구문

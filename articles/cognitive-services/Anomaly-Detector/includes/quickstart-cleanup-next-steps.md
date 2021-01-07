@@ -2,18 +2,18 @@
 title: Anomaly Detector 빠른 시작에 대한 다음 단계
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/19/2019
-ms.author: aahi
-ms.openlocfilehash: eb00d680e6312bb7f380e27d2fa6bb6fe34fa616
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.author: mbullwin
+ms.openlocfilehash: fcf46e46d540826c6affdf9acb15c1cfe2783e71
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74483006"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018497"
 ---
 ## <a name="clean-up-resources"></a>리소스 정리
 

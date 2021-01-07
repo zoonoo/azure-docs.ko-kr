@@ -10,22 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
-ms.openlocfilehash: fbb9a6237aafe1c1b7c94d9dd23ad4c3665c0c73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7b696ba052b2aca9e14628327c07275845607ad
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871463"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540589"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 합니다.
 
-Azure Peering Service는 Office 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. 이 문서에서는 Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 하는 방법에 대해 알아봅니다.
+Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. 이 문서에서는 Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 하는 방법에 대해 알아봅니다.
 
-Azure 구독이 없는 경우 지금 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에 Azure CLI 버전 2.0.28 이상이 필요 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. [az version](/cli/azure/reference-index#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index#az_upgrade)를 실행합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
@@ -41,19 +37,11 @@ CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서�
 
 연결 공급자가 Microsoft와 파트너 관계를 맺고 있는지 확인합니다.
 
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인 하 고 구독을 선택 합니다.
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-구성을 시작하려면, Azure 계정에 로그인합니다. Cloud Shell **사용해 보기** 옵션을 사용 하면 자동으로 로그인 됩니다. 다음 예제를 사용 하 여 연결을 지원 합니다.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-```azurecli-interactive
-az login
-```
-
-계정에 대한 구독을 확인합니다.
-
-```azurecli-interactive
-az account list
-```
+### <a name="1-select-your-subscription"></a>1. 구독을 선택 합니다.
 
 피어 링 서비스 연결을 등록 하려는 구독을 선택 합니다.
 

@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
-ms.openlocfilehash: 968f3c9fbfea1e2f04fb029605173087f6f311c0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.author: metang
+ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516506"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368205"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>자습서: 사진의 콘텐츠를 사용하여 몰입형 리더를 시작하는 iOS 앱 만들기(Swift)
 
 [몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
 
-[Computer Vision Cognitive Services 읽기 API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text)는 Microsoft의 최신 인식 모델을 사용하여 이미지의 텍스트 콘텐츠를 감지하고, 식별된 텍스트를 머신에서 읽을 수 있는 문자 스트림으로 변환합니다.
+[Computer Vision Cognitive Services 읽기 API](../computer-vision/concept-recognizing-text.md)는 Microsoft의 최신 인식 모델을 사용하여 이미지의 텍스트 콘텐츠를 감지하고, 식별된 텍스트를 머신에서 읽을 수 있는 문자 스트림으로 변환합니다.
 
 이 자습서에서는 iOS 앱을 처음부터 빌드하고, 몰입형 리더 SDK를 사용하여 읽기 API와 몰입형 리더를 통합합니다. 이 자습서의 전체 작업 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)서 제공됩니다.
 
@@ -38,7 +38,7 @@ Xcode에서 새 프로젝트를 만듭니다.
 
 ![새 프로젝트](./media/ios/xcode-create-project.png)
 
-**단일 보기 앱**을 선택합니다.
+**단일 보기 앱** 을 선택합니다.
 
 ![새 단일 보기 앱](./media/ios/xcode-single-view-app.png)
 

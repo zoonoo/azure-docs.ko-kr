@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 Kerberos 제한 위임 | Microsoft Docs
 description: Azure Active Directory Domain Services 관리 되는 도메인에서 리소스 기반 KCD (Kerberos 제한 위임)를 사용 하도록 설정 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 7f1640f74c3fca27e1d992f3e2cc538f6e2c7fef
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: justinha
+ms.openlocfilehash: 138b90a33ff1dbc4b014f17fa0098112e1da66e4
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722996"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619779"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 Kerberos 제한 위임 (KCD) 구성
 
@@ -26,7 +26,7 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인은 
 
 이 문서에서는 Azure AD DS 관리 되는 도메인에서 리소스 기반 Kerberos 제한 위임을 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음 리소스가 필요합니다.
 
@@ -58,7 +58,7 @@ Windows Server 2012 이상에서는 서비스 관리자에 게 서비스에 대 
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>컴퓨터 계정에 대 한 리소스 기반 KCD 구성
 
-이 시나리오에서는 *contoso-webapp.aaddscontoso.com*라는 컴퓨터에서 실행 되는 웹 앱이 있다고 가정 하겠습니다.
+이 시나리오에서는 *contoso-webapp.aaddscontoso.com* 라는 컴퓨터에서 실행 되는 웹 앱이 있다고 가정 하겠습니다.
 
 웹 앱은 도메인 사용자의 컨텍스트에서 *contoso-api.aaddscontoso.com* 이라는 컴퓨터에서 실행 되는 web API에 액세스 해야 합니다.
 
@@ -81,7 +81,7 @@ Windows Server 2012 이상에서는 서비스 관리자에 게 서비스에 대 
 
 ## <a name="configure-resource-based-kcd-for-a-user-account"></a>사용자 계정에 대 한 리소스 기반 KCD 구성
 
-이 시나리오에서는 *appsvc*라는 서비스 계정으로 실행 되는 웹 앱이 있다고 가정 하겠습니다. 웹 앱은 도메인 사용자의 컨텍스트에서 *backendsvc* 이라는 서비스 계정으로 실행 되는 web API에 액세스 해야 합니다. 이 시나리오를 구성 하려면 다음 단계를 완료 합니다.
+이 시나리오에서는 *appsvc* 라는 서비스 계정으로 실행 되는 웹 앱이 있다고 가정 하겠습니다. 웹 앱은 도메인 사용자의 컨텍스트에서 *backendsvc* 이라는 서비스 계정으로 실행 되는 web API에 액세스 해야 합니다. 이 시나리오를 구성 하려면 다음 단계를 완료 합니다.
 
 1. [사용자 지정 OU를 만듭니다](create-ou.md). 이 사용자 지정 OU를 관리할 수 있는 권한을 관리되는 도메인 내의 사용자에게 위임할 수 있습니다.
 1. 백 엔드 웹 API/리소스를 실행 하는 가상 컴퓨터를 관리 되는 도메인에 [도메인 가입][create-join-windows-vm] 합니다. 사용자 지정 OU에 해당 컴퓨터 계정을 만듭니다.

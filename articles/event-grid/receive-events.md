@@ -2,14 +2,14 @@
 title: Azure Event Grid로부터 HTTP 엔드포인트로 이벤트 수신
 description: HTTP 엔드포인트의 유효성을 검사한 다음, Azure Event Grid로부터 이벤트를 수신하고 역직렬화하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 119e72b830c538df0cabf68ecea8cf78bae3029a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 11/19/2020
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605263"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96023726"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
@@ -140,9 +140,11 @@ module.exports = function (context, req) {
 }]
 ```
 
-실행을 클릭하면 출력 본문에 200 OK 및 `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}`이 있어야 합니다.
+실행을 클릭하면 출력 본문에 200 OK 및 `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}`이 있어야 합니다.
 
-![유효성 검사 응답](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="유효성 검사 요청":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="유효성 검사 출력":::
 
 ## <a name="handle-blob-storage-events"></a>Blob Storage 이벤트 처리
 
@@ -394,6 +396,8 @@ module.exports = function (context, req) {
 ```
 
 [포털의 CURL로 사용자 지정 이벤트를 보내거나](./custom-event-quickstart-portal.md), [Postman](https://www.getpostman.com/)처럼 엔드포인트에 POST할 수 있는 서비스나 애플리케이션을 사용하여 [사용자 지정 토픽에 게시하여](./post-to-custom-topic.md) 이 기능을 라이브로 테스트할 수도 있습니다. 함수 URL로 설정된 엔드포인트를 통해 사용자 지정 토픽과 이벤트 구독을 만듭니다.
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

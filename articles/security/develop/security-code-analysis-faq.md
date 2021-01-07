@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543047"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
@@ -200,7 +200,7 @@ ms.locfileid: "87543047"
 
 Roslyn 분석기 태스크가 컴파일의 일부로 실행 되기 때문에 빌드 컴퓨터의 소스 트리가 빌드 가능한 상태 여야 합니다.
 
-주 빌드 및 Roslyn 분석기 단계 사이의 단계에서 원본 트리를 빌드를 방해 하는 상태로 전환할 수 있습니다. 이 추가 단계는 **게시dotnet.exe**것일 수 있습니다. Roslyn 분석기 단계 바로 전에 NuGet 복원을 수행 하는 단계를 복제 해 보세요. 이 중복 된 단계는 원본 트리를 다시 빌드 가능한 상태로 전환할 수 있습니다.
+주 빌드 및 Roslyn 분석기 단계 사이의 단계에서 원본 트리를 빌드를 방해 하는 상태로 전환할 수 있습니다. 이 추가 단계는 ** 게시dotnet.exe**것일 수 있습니다. Roslyn 분석기 단계 바로 전에 NuGet 복원을 수행 하는 단계를 복제 해 보세요. 이 중복 된 단계는 원본 트리를 다시 빌드 가능한 상태로 전환할 수 있습니다.
 
 ##### <a name="cscexe-cant-create-an-analyzer-instance"></a>분석기 인스턴스를 만들 수 csc.exe.
 

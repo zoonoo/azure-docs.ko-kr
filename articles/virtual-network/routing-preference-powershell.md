@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: e856e3fc253800b71176dad3db40e7a13a7e6140
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92c8c4504384c3130df0d9b72ef7df21353bb3d5
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707874"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530564"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-powershell"></a>Azure PowerShell을 사용하여 공용 IP 주소에 대한 라우팅 기본 설정을 구성합니다.
 
@@ -42,15 +42,9 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="register-the-feature-for-your-subscription"></a>구독에 대한 기능 등록
-라우팅 기본 설정 기능은 현재 미리 보기로 제공됩니다. 다음과 같이 구독에 대한 기능을 등록합니다.
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
-
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell
 $rg = New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -58,7 +52,7 @@ $rg = New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-public-ip-with-internet-routing-preference"></a>인터넷 라우팅 기본 설정을 사용하여 공용 IP 만들기
 
-다음 명령은 *미국 동부* Azure 지역에서 라우팅 기본 설정 유형이 *인터넷*인 새 공용 IP를 만듭니다.
+다음 명령은 *미국 동부* Azure 지역에서 라우팅 기본 설정 유형이 *인터넷* 인 새 공용 IP를 만듭니다.
 
 ```azurepowershell
 $iptagtype="RoutingPreference"

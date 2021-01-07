@@ -8,10 +8,10 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: e7fec2bee61844ac294e5463bd5bc88ec3fb5e98
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86186081"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>Desired State Configuration을 사용하여 VM 구성
@@ -33,25 +33,25 @@ https://portal.azure.com 에서 Azure에 로그인합니다.
 
 State Configuration 기능을 위해 머신을 활성화하는 방법에는 여러 가지가 있습니다. 이 빠른 시작에서는 Automation 계정을 사용하여 VM의 기능을 활성화하는 방법을 설명합니다. [Azure Automation State Configuration을 통해 관리할 머신 사용](./automation-dsc-onboarding.md)을 읽어 State Configuration을 위해 머신을 사용하도록 설정하는 다양한 방법에 대해 자세히 알아봅니다.
 
-1. Azure Portal의 왼쪽 창에서 **Automation 계정**을 선택합니다. 왼쪽 창에 표시되지 않으면 **모든 서비스**를 클릭하고 결과 보기에서 검색합니다.
+1. Azure Portal의 왼쪽 창에서 **Automation 계정** 을 선택합니다. 왼쪽 창에 표시되지 않으면 **모든 서비스** 를 클릭하고 결과 보기에서 검색합니다.
 1. 목록에서 Automation 계정을 선택합니다.
 1. Automation 계정의 왼쪽 창에서 **상태 구성(DSC)** 을 선택합니다.
-2. **추가**를 클릭하여 [VM 선택] 페이지를 엽니다.
+2. **추가** 를 클릭하여 [VM 선택] 페이지를 엽니다.
 3. DSC를 사용하도록 설정할 가상 머신을 찾습니다. 검색 필드와 필터 옵션을 사용하여 특정 가상 머신을 찾을 수 있습니다.
-4. 가상 머신을 클릭한 다음, **연결**을 클릭합니다.
+4. 가상 머신을 클릭한 다음, **연결** 을 클릭합니다.
 5. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 `Node Configuration Name`으로 지정할 수 있습니다. [구성 모드](/powershell/scripting/dsc/managing-nodes/metaConfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
-6. **확인**을 클릭합니다. DSC 확장이 가상 머신에 배포되는 동안 상태는 `Connecting`으로 표시됩니다.
+6. **확인** 을 클릭합니다. DSC 확장이 가상 머신에 배포되는 동안 상태는 `Connecting`으로 표시됩니다.
 
 ![DSC용 Azure VM 사용](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
 ## <a name="import-modules"></a>모듈 가져오기
 
-모듈에는 DSC 리소스가 포함되어 있으며, [PowerShell 갤러리](https://www.powershellgallery.com)에서 많은 모듈을 찾을 수 있습니다. 컴파일하기 전에 구성에 사용된 모든 리소스는 Automation 계정으로 가져와야 합니다. 이 자습서에서는 **nx**라는 모듈이 필요합니다.
+모듈에는 DSC 리소스가 포함되어 있으며, [PowerShell 갤러리](https://www.powershellgallery.com)에서 많은 모듈을 찾을 수 있습니다. 컴파일하기 전에 구성에 사용된 모든 리소스는 Automation 계정으로 가져와야 합니다. 이 자습서에서는 **nx** 라는 모듈이 필요합니다.
 
-1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **모듈 갤러리**를 선택합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **모듈 갤러리** 를 선택합니다.
 1. 이름의 일부(`nx`)를 입력하여 가져오려는 모듈을 검색합니다.
 1. 가져올 모듈을 클릭합니다.
-1. **가져오기**를 클릭합니다.
+1. **가져오기** 를 클릭합니다.
 
 ![DSC 모듈 가져오기](./media/automation-quickstart-dsc-configuration/dsc-import-module-nx.png)
 
@@ -59,7 +59,7 @@ State Configuration 기능을 위해 머신을 활성화하는 방법에는 여�
 
 이 빠른 시작에서는 컴퓨터에서 Apache HTTP Server, MySQL 및 PHP를 구성하는 DSC 구성을 사용합니다. [DSC 구성](/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
 
-텍스트 편집기에서 다음을 입력하고 로컬에서 **AMPServer.ps1**로 저장합니다.
+텍스트 편집기에서 다음을 입력하고 로컬에서 **AMPServer.ps1** 로 저장합니다.
 
 ```powershell-interactive
 configuration LAMPServer {
@@ -95,9 +95,9 @@ configuration LAMPServer {
 구성을 가져오려면:
 
 1. Automation 계정의 왼쪽 창에서 **상태 구성(DSC)** 을 선택하고 **구성** 탭을 클릭합니다.
-2. **+ 추가**를 클릭합니다.
+2. **+ 추가** 를 클릭합니다.
 3. 이전 단계에서 저장한 구성 파일을 선택합니다.
-4. **확인**을 클릭합니다.
+4. **확인** 을 클릭합니다.
 
 ## <a name="compile-a-configuration"></a>구성 컴파일
 
@@ -105,7 +105,7 @@ DSC 구성을 노드에 할당하려면 먼저 노드 구성(MOF 문서)으로 �
 
 1. Automation 계정의 왼쪽 창에서 **상태 구성(DSC)** 을 선택하고 **구성** 탭을 클릭합니다.
 1. `LAMPServer` 구성을 선택합니다.
-1. 메뉴 옵션에서 **컴파일**, **예**를 차례로 클릭합니다.
+1. 메뉴 옵션에서 **컴파일**, **예** 를 차례로 클릭합니다.
 1. 구성 보기에서 새 컴파일 작업이 큐에서 대기 중인지 확인합니다. 작업이 성공하면 다음 단계로 이동할 수 있습니다. 오류가 있으면 컴파일 작업을 클릭하여 세부 정보를 확인할 수 있습니다.
 
 ## <a name="assign-a-node-configuration"></a>노드 구성 할당
@@ -114,8 +114,8 @@ DSC 구성을 노드에 할당하려면 먼저 노드 구성(MOF 문서)으로 �
 
 1. Automation 계정의 왼쪽 창에서 **DSC(State Configuration)** 를 선택한 후 **노드** 탭을 클릭합니다.
 1. 구성을 할당하려는 노드를 선택합니다.
-1. **노드 구성 할당**을 클릭합니다.
-1. `LAMPServer.localhost`라는 노드 구성을 선택하고 **확인**을 클릭합니다. 이제 State Configuration이 컴파일된 구성을 노드에 할당하고 노드 상태가 `Pending`으로 변경됩니다. 다음 정기적 검사에서 노드는 구성을 검색하여 적용하고, 상태를 보고합니다. 노드 설정에 따라 노드에서 구성을 검색하는 데 최대 30분이 걸릴 수 있습니다. 
+1. **노드 구성 할당** 을 클릭합니다.
+1. `LAMPServer.localhost`라는 노드 구성을 선택하고 **확인** 을 클릭합니다. 이제 State Configuration이 컴파일된 구성을 노드에 할당하고 노드 상태가 `Pending`으로 변경됩니다. 다음 정기적 검사에서 노드는 구성을 검색하여 적용하고, 상태를 보고합니다. 노드 설정에 따라 노드에서 구성을 검색하는 데 최대 30분이 걸릴 수 있습니다. 
 1. 즉시 강제로 검사를 수행하려면 Linux 가상 머신에서 `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py` 명령을 로컬로 실행할 수 있습니다.
 
 ![노드 구성 할당](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)

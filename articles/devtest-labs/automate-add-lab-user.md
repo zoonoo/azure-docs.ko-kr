@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩 사용자 추가 자동화 | Microsoft Docs
 description: 이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 CLI를 사용 하 여 Azure DevTest Labs에서 랩에서 사용자를 자동으로 추가 하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483825"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327963"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 사용자를 랩에 추가 자동화
 Azure DevTest Labs를 사용 하면 Azure Portal를 사용 하 여 셀프 서비스 개발-테스트 환경을 빠르게 만들 수 있습니다. 그러나 여러 팀과 여러 DevTest Labs 인스턴스가 있는 경우 생성 프로세스를 자동화 하면 시간을 절약할 수 있습니다. [Azure Resource Manager 템플릿을](https://github.com/Azure/azure-devtestlab/tree/master/Environments) 사용 하면 실습, 랩 vm, 사용자 지정 이미지, 수식을 만들고 자동화 된 방식으로 사용자를 추가할 수 있습니다. 이 문서에서는 특히 DevTest Labs 인스턴스에 사용자를 추가 하는 방법을 집중적으로 설명 합니다.
@@ -17,7 +17,7 @@ Azure DevTest Labs를 사용 하면 Azure Portal를 사용 하 여 셀프 서비
 
 - Azure 리소스 관리자 템플릿
 - Azure PowerShell cmdlet 
-- Azure CLI.
+- Azure CLI
 
 ## <a name="use-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 다음 샘플 리소스 관리자 템플릿에서는 랩의 **DevTest Labs 사용자** 역할에 추가할 사용자를 지정 합니다. 
@@ -123,7 +123,7 @@ $userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id
 
 [Set-msoluser](/powershell/module/msonline/get-msoluser?view=azureadps-1.0), [get-msolgroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)및 [new-msolserviceprincipal](/powershell/module/msonline/get-msolserviceprincipal?view=azureadps-1.0)를 포함 하는 Azure Active Directory PowerShell cmdlet을 사용할 수도 있습니다.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 범위 역할 할당을 적용 해야 하는 리소스 또는 리소스 그룹을 지정 합니다. 리소스의 경우 범위는 형식입니다 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}` . 템플릿은 함수를 사용 하 여 파트를 채우고 템플릿 함수를 사용 하 여 `subscription().subscriptionId` `subscription-id` 파트를 `resourceGroup().name` 채웁니다 `resource-group-name` . 이러한 함수를 사용 하면 역할을 할당 하는 랩이 현재 구독에 존재 하 고 템플릿 배포가 수행 되는 동일한 리소스 그룹에 있어야 합니다. 마지막 부분인는 `resource-name` 랩의 이름입니다. 이 값은이 예제에서 템플릿 매개 변수를 통해 수신 됩니다. 
 
 템플릿의 역할 범위: 
@@ -179,7 +179,7 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 권한을 부여할 리소스를 지정 하려면 `ResourceName` 매개 변수를 사용 하 여, 또는를 조합 하 여 지정할 수 있습니다 `ResourceType` `ResourceGroup` `scope` . 사용 되는 매개 변수 조합을 사용 하 여 cmdlet에 대 한 충분 한 정보를 제공 하 여 Active Directory 개체 (사용자, 그룹 또는 서비스 사용자), 범위 (리소스 그룹 또는 리소스), 역할 정의를 고유 하 게 식별 합니다.
 
 ## <a name="use-azure-command-line-interface-cli"></a>Azure CLI (명령줄 인터페이스) 사용
-Azure CLI에서 랩 사용자를 랩에 추가 하는 작업은 명령을 사용 하 여 수행 됩니다 `az role assignment create` . Azure CLI cmdlet에 대 한 자세한 내용은 [RBAC 및 Azure CLI를 사용 하 여 Azure 리소스에 대 한 액세스 관리](../role-based-access-control/role-assignments-cli.md)를 참조 하세요.
+Azure CLI에서 랩 사용자를 랩에 추가 하는 작업은 명령을 사용 하 여 수행 됩니다 `az role assignment create` . Azure CLI cmdlet에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-cli.md)를 참조 하세요.
 
 액세스 권한이 부여 되는 개체는 `objectId` , `signInName` , 매개 변수를 통해 지정할 수 있습니다 `spn` . 개체에 대 한 액세스 권한을 부여 하는 랩을 `scope` url 또는 `resource-name` , `resource-type` 및 `resource-group` 매개 변수의 조합으로 식별할 수 있습니다.
 

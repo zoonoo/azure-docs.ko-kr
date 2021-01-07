@@ -1,6 +1,6 @@
 ---
 title: GatsbyJS 및 Azure DevOps Starter를 사용하여 PWA용 CI/CD 파이프라인 만들기
-description: DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
+description: GatsbyJS 및 간소화된 Azure DevOps Starter 만들기 환경을 사용하여 NodeJS PWA(프로그레시브 웹앱)를 만드는 방법을 알아봅니다.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 5453677826e1490977257fd75e10308ee45df00a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 6cffa6065f0e1cefc31223553a42a7a78c1dbea8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421759"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856214"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Node.js용 Azure Pipelines에서 CI/CD 파이프라인 만들기
 
@@ -73,7 +73,7 @@ DevOps Starter는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 
 
     ![Azure DevOps 대시보드](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. Azure DevOps 프로젝트에서 팀 멤버를 초대하여 협업하고, 작업 추적을 시작하도록 Kanban 보드를 설정할 수 있습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)를 참조하세요.
+1. Azure DevOps 프로젝트에서 팀 멤버를 초대하여 협업하고, 작업 추적을 시작하도록 Kanban 보드를 설정할 수 있습니다. 자세한 내용은 [여기](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)를 참조하세요.
 
 ![Azure DevOps 개요](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -195,5 +195,4 @@ DevOps Starter는 Azure Repos 또는 GitHub에서 git 리포지토리를 만듭�
 CI/CD 프로세스를 구성하면 빌드 및 릴리스 파이프라인이 자동으로 만들어집니다. 팀의 요구 사항에 맞게 이러한 빌드 및 릴리스 파이프라인을 변경할 수 있습니다. CI/CD 파이프라인에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [CD 프로세스 사용자 지정](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
-
+> [CD 프로세스 사용자 지정](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

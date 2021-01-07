@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182282"
 ---
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "67182282"
 8. **방화벽**을 선택합니다.
 
     ![설정 > 방화벽 선택][b31-SettingsFirewallNavig]
-9. **클라이언트 IP 추가**를 선택합니다. 첫 번째 텍스트 상자에 새 규칙의 이름을 입력합니다.
+9. **클라이언트 IP 추가**를 선택 합니다. 첫 번째 텍스트 상자에 새 규칙의 이름을 입력합니다.
 
 10. 사용하도록 설정하려는 범위의 하한 및 상한 IP 주소 값을 입력합니다.
 

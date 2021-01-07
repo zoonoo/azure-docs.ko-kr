@@ -1,18 +1,18 @@
 ---
 title: 개인 링크-Azure CLI-Azure Database for MySQL
 description: Azure CLI에서 Azure Database for MySQL에 대 한 개인 링크를 구성 하는 방법을 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8948ed51a9cda3d308046f3b85b6ce338462e82c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: da6a2b97d2656d56fa2aa0e7259fba433bd7b81e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998586"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>CLI를 사용 하 여 Azure Database for MySQL에 대 한 개인 링크 만들기 및 관리
 
@@ -21,11 +21,9 @@ ms.locfileid: "87826197"
 > [!NOTE]
 > 개인 링크 기능은 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층의 Azure Database for MySQL 서버에만 사용할 수 있습니다. 데이터베이스 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-대신 Azure CLI를 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.28 이상을 사용해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -36,7 +34,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Virtual Network 만들기
-[az network vnet create](/cli/azure/network/vnet)를 사용하여 Virtual Network를 만듭니다. 다음 예제에서는 *mySubnet*이라는 하나의 서브넷이 있는 *myVirtualNetwork*라는 기본 Virtual Network를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 Virtual Network를 만듭니다. 다음 예제에서는 *mySubnet* 이라는 하나의 서브넷이 있는 *myVirtualNetwork* 라는 기본 Virtual Network를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -46,7 +44,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>서브넷 프라이빗 엔드포인트 정책 사용 안 함 
-Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
+Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용하여 *mySubnet* 이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -56,7 +54,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>VM 만들기 
-az vm create를 사용하여 VM을 만듭니다. 메시지가 표시되면 VM에 대한 로그인 자격 증명으로 사용할 암호를 제공합니다. 다음 예제에서는 *myVm*이라는 VM을 만듭니다. 
+az vm create를 사용하여 VM을 만듭니다. 메시지가 표시되면 VM에 대한 로그인 자격 증명으로 사용할 암호를 제공합니다. 다음 예제에서는 *myVm* 이라는 VM을 만듭니다. 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -92,7 +90,7 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id") \    
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id" -o tsv) \    
     --group-id mysqlServer \  
     --connection-name myConnection  
  ```
@@ -128,30 +126,30 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 다음과 같이 인터넷에서 *myVm* VM에 연결합니다.
 
-1. 포털의 검색 창에 *myVm*을 입력합니다.
+1. 포털의 검색 창에 *myVm* 을 입력합니다.
 
-1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결**이 열립니다.
+1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결** 이 열립니다.
 
-1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 1. *downloaded.rdp* 파일을 엽니다.
 
-    1. 메시지가 표시되면 **연결**을 선택합니다.
+    1. 메시지가 표시되면 **연결** 을 선택합니다.
 
     1. VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다.
 
         > [!NOTE]
-        > **추가 선택 사항** > **다른 계정 사용**을 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
+        > **추가 선택 사항** > **다른 계정 사용** 을 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
-1. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 인증서 경고가 표시되면 **예** 또는 **계속**을 선택합니다.
+1. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 인증서 경고가 표시되면 **예** 또는 **계속** 을 선택합니다.
 
 1. VM 데스크톱이 나타나면 최소화하여 로컬 데스크톱으로 돌아갑니다.  
 
 ## <a name="access-the-mysql-server-privately-from-the-vm"></a>VM에서 전용 MySQL 서버 액세스
 
-1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+1.  *myVM* 의 원격 데스크톱에서 PowerShell을 엽니다.
 
 2.  `nslookup mydemomysqlserver.privatelink.mysql.database.azure.com`를 입력합니다. 
 
@@ -167,13 +165,13 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 3. 사용 가능한 모든 클라이언트를 사용 하 여 MySQL server에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [MySQL 워크 벤치](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) 를 사용 하 여 작업을 수행 했습니다.
 
 
-4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
+4. **새 연결** 에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
     | Hostname | *Mydemoserver.privatelink.mysql.database.azure.com* 선택 |
-    | 사용자 이름 | *username@servername*MySQL 서버를 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
+    | 사용자 이름 | *username@servername* MySQL 서버를 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
     | 암호 | MySQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     ||
 
@@ -193,7 +191,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 개인 끝점 이란?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 에 대해 자세히 알아보세요.
+- [Azure 개인 끝점 이란?](../private-link/private-endpoint-overview.md) 에 대해 자세히 알아보세요.
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

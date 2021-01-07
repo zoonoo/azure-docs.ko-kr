@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
 ms.openlocfilehash: f3ae081c8657a3ee6a27b0f9208c3eb4e4e745cc
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87759736"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure Monitor에서 뷰 디자이너를 사용 하 여 사용자 지정 보기 만들기
@@ -34,7 +34,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 뷰 디자이너로 만든 보기에는 다음 표에 설명된 요소가 포함됩니다.
 
-| 파트 | 설명 |
+| 부분 | 설명 |
 |:--- |:--- |
 | 타일 | Azure Monitor **개요** 페이지에 표시 됩니다. 각 타일에는 해당 타일이 나타내는 사용자 지정 보기의 시각적 요약이 표시됩니다. 각 타일 유형은 레코드의 다른 시각화를 제공합니다. 사용자 지정 보기를 표시하려면 타일을 선택합니다. |
 | 사용자 지정 보기 | 타일을 선택하면 표시됩니다. 각 보기는 시각화 요소를 하나 이상 포함합니다. |

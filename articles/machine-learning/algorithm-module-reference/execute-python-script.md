@@ -1,7 +1,7 @@
 ---
 title: 'Python 스크립트 실행: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 Python 스크립트 실행 모듈을 사용 하 여 Python 코드를 실행 하는 방법을 알아봅니다.
+description: Azure Machine Learning 디자이너에서 Python 스크립트 실행 모듈을 사용 하 여 Python 코드를 실행 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 12/02/2020
+ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908018"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679195"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -57,8 +57,41 @@ if spec is None:
 > [!NOTE]
 > 파이프라인에 사전 설치 된 목록에 없는 패키지를 필요로 하는 여러 개의 Python 스크립트 실행 모듈이 포함 되어 있는 경우 각 모듈에 패키지를 설치 합니다.
 
+> [!WARNING]
+> Excute Python 스크립트 모듈은 Java, PyODBC 등의 명령을 사용 하 여 추가 네이티브 라이브러리에 종속 된 패키지를 설치 하는 것을 지원 하지 않습니다. 이 모듈은 Python이 사전 설치 되어 있고 비관리자 권한이 있는 간단한 환경에서 실행 되기 때문입니다.  
+
+## <a name="access-to-registered-datasets"></a>등록 된 데이터 집합에 대 한 액세스
+
+다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
+
 ## <a name="upload-files"></a>파일 업로드
-Python 스크립트 실행 모듈은 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
+Python 스크립트 실행 모듈은 [Azure Machine Learning PYTHON SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-)를 사용 하 여 파일 업로드를 지원 합니다.
 
 다음 예제에서는 Python 스크립트 실행 모듈에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
 
@@ -107,19 +140,60 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
 
 1. 파이프라인에 **Python 스크립트 실행** 모듈을 추가 합니다.
 
-2. **Dataset1** 에서 입력에 사용할 디자이너의 모든 데이터 집합을 추가 하 고 연결 합니다. Python 스크립트에서이 데이터 집합을 **DataFrame1**로 참조 합니다.
+2. **Dataset1** 에서 입력에 사용할 디자이너의 모든 데이터 집합을 추가 하 고 연결 합니다. Python 스크립트에서이 데이터 집합을 **DataFrame1** 로 참조 합니다.
 
     데이터 집합 사용은 선택 사항입니다. Python을 사용 하 여 데이터를 생성 하려는 경우 또는 Python 코드를 사용 하 여 데이터를 모듈로 직접 가져오는 경우이를 사용 합니다.
 
-    이 모듈은 **Dataset2**에서 두 번째 데이터 집합 추가를 지원 합니다. Python 스크립트의 두 번째 데이터 집합을 **DataFrame2**로 참조 합니다.
+    이 모듈은 **Dataset2** 에서 두 번째 데이터 집합 추가를 지원 합니다. Python 스크립트의 두 번째 데이터 집합을 **DataFrame2** 로 참조 합니다.
 
     이 모듈을 사용 하 여 로드 하면 Azure Machine Learning에 저장 된 데이터 집합이 자동으로 pandas 데이터 프레임으로 변환 됩니다.
 
     ![Python 입력 맵 실행](media/module/python-module.png)
 
-4. 새 Python 패키지 또는 코드를 포함 하려면 **스크립트 번들**에 이러한 사용자 지정 리소스가 포함 된 압축 파일을 추가 합니다. **스크립트 번들** 에 대 한 입력은 파일 형식 데이터 집합으로 작업 영역에 업로드 된 압축 파일 이어야 합니다. **데이터 집합 자산 페이지** 에서 데이터 집합을 업로드할 수 있습니다. 디자이너 제작 페이지에서 왼쪽 모듈 트리의 **내 데이터** 집합 목록에서 데이터 집합 모듈을 끌 수 있습니다. 
+4. 새 Python 패키지 또는 코드를 포함 하려면 이러한 사용자 지정 리소스가 포함 된 압축 파일을 **스크립트 번들** 포트에 연결 합니다. 또는 스크립트가 16kb 보다 큰 경우에는 **스크립트 번들** 포트를 사용 하 여 *명령줄에서 16597 문자 제한을 초과* 하는 오류를 방지 합니다. 
 
-    업로드 된 압축 된 보관 파일에 포함 된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 되지만 **src** 라는 디렉터리 앞에 경로를 추가 해야 합니다.
+    
+    1. 스크립트 및 기타 사용자 지정 리소스를 zip 파일에 번들로 묶습니다.
+    1. **파일 데이터 집합** 으로 zip 파일을 스튜디오에 업로드 합니다. 
+    1. 디자이너 제작 페이지의 왼쪽 모듈 창에 *있는 데이터 집합 목록에서* 데이터 집합 모듈을 끌어 옵니다. 
+    1. 데이터 집합 모듈을 **Python 스크립트 실행** 모듈의 **스크립트 번들** 포트에 연결 합니다.
+    
+    업로드 된 압축 된 보관 파일에 포함 된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 됩니다.
+ 
+    > [!WARNING]
+    > **앱** 은 기본 제공 서비스에 대해 예약 된 단어 이므로 폴더 또는 스크립트의 이름으로 **앱** 을 사용 **하지 마세요** . 그러나와 같은 다른 네임 스페이스를 사용할 수 있습니다 `app123` .
+   
+    다음은 python 스크립트 파일 및 txt 파일이 포함 된 스크립트 번들 예제입니다.
+      
+    > [!div class="mx-imgBorder"]
+    > ![스크립트 번들 예제](media/module/python-script-bundle.png)  
+
+    다음은의 내용입니다 `my_script.py` .
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    다음은 스크립트 번들의 파일을 사용 하는 방법을 보여 주는 샘플 코드입니다.    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. **Python 스크립트** 텍스트 상자에 올바른 Python 스크립트를 입력 하거나 붙여 넣습니다.
 
@@ -140,7 +214,10 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
 
     두 데이터 집합은 형식의 시퀀스 여야 하는 디자이너로 반환 될 수 있습니다 `pandas.DataFrame` . Python 코드에서 다른 출력을 만들고 Azure storage에 직접 쓸 수 있습니다.
 
-6. 파이프라인을 제출 하거나, 모듈을 선택 하 고, **선택 된 실행** 을 선택 하 여 Python 스크립트만 실행 합니다.
+    > [!WARNING]
+    > **Python 스크립트 실행 모듈** 에서 데이터베이스나 다른 외부 저장소에 연결 하지 **않는** 것이 좋습니다. [데이터 가져오기 모듈](./import-data.md) 및 [데이터 내보내기 모듈](./export-data.md) 을 사용할 수 있습니다.     
+
+6. 파이프라인을 제출합니다.
 
     모든 데이터와 코드는 가상 컴퓨터에 로드 되 고 지정 된 Python 환경을 사용 하 여 실행 됩니다.
 
@@ -150,9 +227,9 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
 
 이 모듈은 두 개의 데이터 집합을 반환 합니다.  
   
-+ **결과 데이터 집합 1**은 Python 스크립트에서 첫 번째 반환 된 pandas 데이터 프레임에 의해 정의 됩니다.
++ **결과 데이터 집합 1** 은 Python 스크립트에서 첫 번째 반환 된 pandas 데이터 프레임에 의해 정의 됩니다.
 
-+ **결과 데이터 집합 2**는 Python 스크립트에서 반환 된 두 번째 pandas 데이터 프레임으로 정의 됩니다.
++ **결과 데이터 집합 2** 는 Python 스크립트에서 반환 된 두 번째 pandas 데이터 프레임으로 정의 됩니다.
 
 ## <a name="preinstalled-python-packages"></a>사전 설치 된 Python 패키지
 사전 설치 된 패키지는 다음과 같습니다.
@@ -268,4 +345,4 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

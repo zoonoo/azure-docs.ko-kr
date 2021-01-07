@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5eb30f7dcf4b459b0af0bd8de965971fbbe44863
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477654"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>MSAL.js를 사용 하 여 토큰을 자동으로 획득 및 갱신할 때 페이지 다시 로드 방지
@@ -35,7 +35,7 @@ MSAL.js는 Azure AD에서 발급 된 302을 해제할 수 없고 반환 된 토�
 
 ## <a name="initialization-in-your-main-app-file"></a>주 앱 파일의 초기화
 
-앱의 초기화, 라우팅 및 기타 항목을 정의 하는 하나의 중앙 Javascript 파일이 있도록 앱이 구조화 된 경우 앱이에서 로드 되는지 여부에 따라 앱 모듈을 조건부로 로드할 수 있습니다 `iframe` . 예를 들어:
+앱의 초기화, 라우팅 및 기타 항목을 정의 하는 하나의 중앙 Javascript 파일이 있도록 앱이 구조화 된 경우 앱이에서 로드 되는지 여부에 따라 앱 모듈을 조건부로 로드할 수 있습니다 `iframe` . 예를 들면 다음과 같습니다.
 
 AngularJS: app.js
 

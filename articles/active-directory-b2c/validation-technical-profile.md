@@ -12,10 +12,10 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202996"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에 유효성 검사 기술 프로필 정의
@@ -47,13 +47,13 @@ ms.locfileid: "85202996"
 
 **ValidationTechnicalProfiles** 요소에 포함되는 요소는 다음과 같습니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 참조하는 기술 프로필의 출력 클레임 일부 또는 전부의 유효성을 검사하는 데 사용되는 기술 프로필입니다. |
 
 **ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
 |ContinueOnError|아니요| 이 유효성 검사 기술 프로필에서 오류가 발생 하는 경우 후속 유효성 검사 기술 프로필의 유효성 검사를 계속할지 여부를 나타내는입니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
@@ -61,13 +61,13 @@ ms.locfileid: "85202996"
 
 **ValidationTechnicalProfile** 요소에 에 포함되는 요소는 다음과 같습니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | Preconditions | 0:1 | 유효성 검사 기술 프로필을 실행하기 위해 충족해야 하는 사전 조건의 목록입니다. |
 
 **Precondition** 요소에 포함되는 특성은 다음과 같습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 지정된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행하도록 보장하기 위해 `ClaimsExist`가 지정되거나, 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 보장하기 위해 `ClaimEquals`가 지정됩니다. |
 | `ExecuteActionsIf` | 예 | 테스트가 true 또는 false인 경우 사전 조건의 작업을 수행해야 하는지 여부를 나타냅니다. |
@@ -79,7 +79,7 @@ ms.locfileid: "85202996"
 | 값 | 1:n | 검사에 사용되는 데이터입니다. 이 검사 유형이 `ClaimsExist`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 검사 유형이 `ClaimEquals`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 한편 다른 값 요소에는 검사할 값이 포함됩니다.|
 | 작업 | 1:1 | 오케스트레이션 단계 내의 사전 조건 검사가 true인 경우 수행해야 하는 작업입니다. **Action**의 값은 `SkipThisValidationTechnicalProfile`로 설정됩니다. 연결된 유효성 검사 기술 프로필을 실행하지 않도록 지정합니다. |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음과 같은 유효성 검사 기술 프로필을 사용하는 예제입니다.
 

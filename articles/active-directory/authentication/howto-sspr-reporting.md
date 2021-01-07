@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 02/01/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9118a99f285dedfe0b76e890db001627e4f85969
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 6a764538ebc73927b1d274b2538e123ec90ce60e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657134"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741561"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -27,7 +27,7 @@ ms.locfileid: "89657134"
 [Azure Portal](https://portal.azure.com/)에 있는 보고서를 통해 다음과 같은 질문에 대답할 수 있습니다.
 
 > [!NOTE]
-> 사용자는 [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md)여야 하며 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 옵트인하려면 적어도 한 번 **보고** 탭이나 감사 로그를 방문해야 합니다. 그때까지 조직을 위해 데이터가 수집되지 않습니다.
+> 사용자는 [전역 관리자](../roles/permissions-reference.md)여야 하며 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 옵트인하려면 적어도 한 번 **보고** 탭이나 감사 로그를 방문해야 합니다. 그때까지 조직을 위해 데이터가 수집되지 않습니다.
 >
 
 * 얼마나 많은 사람들이 암호 재설정을 위해 등록합니까?
@@ -44,16 +44,16 @@ ms.locfileid: "89657134"
 Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을 볼 수 있는 향상된 방법이 있습니다. 다음 단계에 따라 암호 재설정 및 암호 재설정 등록 이벤트를 확인합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-2. 왼쪽 창에서 **모든 서비스**를 선택합니다.
-3. 서비스 목록에서 **Azure Active Directory**를 검색하고 선택합니다.
+2. 왼쪽 창에서 **모든 서비스** 를 선택합니다.
+3. 서비스 목록에서 **Azure Active Directory** 를 검색하고 선택합니다.
 4. 관리 섹션에서 **사용자** 를 선택 합니다.
 5. **사용자** 블레이드에서 **감사 로그** 를 선택 합니다. 그러면 디렉터리의 모든 사용자에 대해 발생한 감사 이벤트가 모두 표시됩니다. 이 보기를 필터링하여 암호 관련 이벤트를 모두 볼 수 있습니다.
 6. 창 위쪽의 **필터** 메뉴에서 **서비스** 드롭다운 목록을 선택 하 고 **셀프 서비스 암호 관리** 서비스 유형으로 변경 합니다.
-7. 필요에 따라 관심 있는 특정 **활동**을 선택하여 목록을 추가로 필터링합니다.
+7. 필요에 따라 관심 있는 특정 **활동** 을 선택하여 목록을 추가로 필터링합니다.
 
 ### <a name="combined-registration"></a>결합 등록
 
-[결합 된 등록](./concept-registration-mfa-sspr-combined.md)을 사용 하도록 설정한 경우 감사 로그의 사용자 활동에 대 한 정보는 **보안**  >  **인증 방법**에서 찾을 수 있습니다.
+[결합 된 등록](./concept-registration-mfa-sspr-combined.md)을 사용 하도록 설정한 경우 감사 로그의 사용자 활동에 대 한 정보는 **보안**  >  **인증 방법** 에서 찾을 수 있습니다.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portal의 보고서 열 설명
 
@@ -181,7 +181,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](./tutorial-enable-sspr-writeback.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](./troubleshoot-sspr.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD의 SSPR 작업 감사 로그 예제"

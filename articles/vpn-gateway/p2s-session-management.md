@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3c9023e23795fd51e5519727a0ab174dc6f75830
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939003"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91274236"
 ---
 # <a name="point-to-site-vpn-session-management"></a>지점 및 사이트 간 VPN 세션 관리
 
@@ -44,7 +44,7 @@ PowerShell을 사용 하 여 세션을 확인 하 고 연결을 끊으려면
    ```
 1. 연결을 끊을 세션의 **VpnConnectionId** 를 복사 합니다.
 
-   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="PowerShell 예제":::
+   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="포털 예제":::
 1. 세션의 연결을 끊으려면 다음 명령을 실행 합니다.
 
    ```azurepowershell-interactive

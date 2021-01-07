@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335818"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397453"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Application Gateway 수신 컨트롤러에 대 한 주석 
 
@@ -29,9 +29,9 @@ Kubernetes 수신 리소스는 임의의 키/값 쌍으로 주석을 달 수 있
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
 | [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32`까지의 | `30` | |
+| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` 까지의 | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32`까지의 | `30` | |
+| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` 까지의 | `30` | |
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 
@@ -72,7 +72,7 @@ spec:
 
 ## <a name="tls-redirect"></a>TLS 리디렉션
 
-HTTP Url을 HTTPS 대응으로 자동으로 리디렉션하도록 Application Gateway를 [구성할 수 있습니다](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) . 이 주석이 있고 TLS가 적절히 구성 되 면 Kubernetes 수신 컨트롤러는 [리디렉션 구성으로 라우팅 규칙](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) 을 만들고 변경 내용을 Application Gateway에 적용 합니다. 만든 리디렉션은 HTTP가 됩니다 `301 Moved Permanently` .
+HTTP Url을 HTTPS 대응으로 자동으로 리디렉션하도록 Application Gateway를 [구성할 수 있습니다](./redirect-overview.md) . 이 주석이 있고 TLS가 적절히 구성 되 면 Kubernetes 수신 컨트롤러는 [리디렉션 구성으로 라우팅 규칙](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) 을 만들고 변경 내용을 Application Gateway에 적용 합니다. 만든 리디렉션은 HTTP가 됩니다 `301 Moved Permanently` .
 
 ### <a name="usage"></a>사용법
 
@@ -237,7 +237,7 @@ spec:
 
 ## <a name="backend-protocol"></a>백 엔드 프로토콜
 
-이 주석을 사용 하면 Application Gateway Pod 통신 하는 동안 사용 해야 하는 프로토콜을 지정할 수 있습니다. 지원 되는 프로토콜: `http` ,`https`
+이 주석을 사용 하면 Application Gateway Pod 통신 하는 동안 사용 해야 하는 프로토콜을 지정할 수 있습니다. 지원 되는 프로토콜: `http` , `https`
 
 > [!NOTE]
 > * Application Gateway에서 자체 서명 된 인증서가 지원 되지만, 현재 AGIC `https` 는 잘 알려진 CA에서 서명 된 인증서를 사용 하는 경우에만 지원 합니다.
@@ -248,7 +248,7 @@ spec:
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress

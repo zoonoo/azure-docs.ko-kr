@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924697"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654867"
 ---
 #   <a name="text-translation-cognitive-skill"></a>텍스트 변환 인식 기술
 
@@ -38,7 +38,7 @@ Microsoft.Skills.Text.TranslationSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력                | Description |
+| 입력 | Description |
 |---------------------|-------------|
 | defaultToLanguageCode | 하다 언어를 명시적으로 지정 하지 않는 문서의 문서를로 변환 하는 언어 코드입니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md)을 참조합니다. |
 | defaultFromLanguageCode | 필드 에서 언어를 명시적으로 지정 하지 않는 문서의 문서를 변환 하는 언어 코드입니다.  DefaultFromLanguageCode가 지정 되지 않은 경우 Translator Text API에서 제공 하는 자동 언어 검색을 사용 하 여 from 언어를 결정 합니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/translator/language-support.md)을 참조합니다. |

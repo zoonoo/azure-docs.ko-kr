@@ -3,15 +3,15 @@ title: Azure Functions 테스트
 description: Visual Studio의 C# 함수 및 VS Code의 JavaScript 함수에 대한 자동화된 테스트 만들기
 author: craigshoemaker
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: e0abfc9be0031f899071d6e5e22274481ba76e10
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212893"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601393"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -28,18 +28,18 @@ ms.locfileid: "88212893"
 
 ## <a name="c-in-visual-studio"></a>Visual Studio의 C#
 
-다음 예제에서는 Visual Studio에서 C# 함수 앱을 만들고 [xUnit](https://xunit.github.io)을 사용하여 실행 및 테스트하는 방법을 설명합니다.
+다음 예제에서는 Visual Studio에서 C# 함수 앱을 만들고 [xUnit](https://github.com/xunit/xunit)을 사용하여 실행 및 테스트하는 방법을 설명합니다.
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
 환경을 설정하려면 함수 및 테스트 앱을 만듭니다. 다음 단계에서는 테스트를 지원하는 데 필요한 앱 및 함수를 만들 수 있습니다.
 
-1. [새 Functions 앱을 만들고](./functions-create-first-azure-function.md) 이름을 **Functions**로 지정합니다.
-2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 **myhttptrigger**로 이름을로 만듭니다.
-3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 **myto trigger**로 이름을로 합니다.
-4. 솔루션에서 [xUnit 테스트 앱을 만들고](https://xunit.github.io/docs/getting-started-dotnet-core) 이름을 test.txt로 합니다 **.**
+1. [새 Functions 앱을 만들고](./functions-create-first-azure-function.md) 이름을 **Functions** 로 지정합니다.
+2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 **myhttptrigger** 로 이름을로 만듭니다.
+3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 **myto trigger** 로 이름을로 합니다.
+4. 솔루션에서 [xUnit 테스트 앱을 만들고](https://xunit.net/docs/getting-started/netcore/cmdline) 이름을 test.txt로 합니다 **.**
 5. NuGet을 사용 하 여 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 에 테스트 앱의 참조를 추가 합니다.
 6. [함수 앱에서 *함수* 앱을 참조](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) 합니다 *.*
 
@@ -251,17 +251,17 @@ namespace Functions.Tests
 
 - **Timer_should_log_message**:이 테스트는의 인스턴스를 만들어 `ListLogger` 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
-테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)를 사용할 수 있습니다.
+테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [inject](./functions-dotnet-dependency-injection.md) `IConfiguration` 모의 환경 변수 값을 사용 하 여 인스턴스를 함수에 삽입할 수 있습니다.
 
 ### <a name="run-tests"></a>테스트 실행
 
-테스트를 실행하려면 **테스트 탐색기**로 이동하고 **모두 실행**을 클릭합니다.
+테스트를 실행하려면 **테스트 탐색기** 로 이동하고 **모두 실행** 을 클릭합니다.
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="debug-tests"></a>테스트 디버그
 
-테스트를 디버그하려면 테스트에 중단점을 설정하고, **테스트 탐색기**로 이동하고, **실행 > 마지막 실행 디버그**를 클릭합니다.
+테스트를 디버그하려면 테스트에 중단점을 설정하고, **테스트 탐색기** 로 이동하고, **실행 > 마지막 실행 디버그** 를 클릭합니다.
 
 ## <a name="javascript-in-vs-code"></a>VS Code의 JavaScript
 
@@ -269,7 +269,7 @@ namespace Functions.Tests
 
 ![VS Code의 JavaScript를 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
 환경을 설정하려면 `npm init`를 실행하여 빈 폴더에서 새 Node.js 앱을 초기화합니다.
 
@@ -283,7 +283,7 @@ npm init -y
 npm i jest
 ```
 
-이제 _package.json_을 업데이트하여 기존 테스트 명령을 다음 명령으로 바꿉니다.
+이제 _package.json_ 을 업데이트하여 기존 테스트 명령을 다음 명령으로 바꿉니다.
 
 ```bash
 "scripts": {
@@ -293,9 +293,9 @@ npm i jest
 
 ### <a name="create-test-modules"></a>테스트 모듈 만들기
 
-프로젝트가 초기화된 상태에서 자동화된 테스트를 실행하는 데 사용되는 모듈을 만들 수 있습니다. 먼저 지원 모듈을 포함할 *testing*이라는 새 폴더를 만듭니다.
+프로젝트가 초기화된 상태에서 자동화된 테스트를 실행하는 데 사용되는 모듈을 만들 수 있습니다. 먼저 지원 모듈을 포함할 *testing* 이라는 새 폴더를 만듭니다.
 
-*testing* 폴더에서 새 파일을 추가하고, 이름을 **defaultContext.js**로 지정하고, 다음 코드를 추가합니다.
+*testing* 폴더에서 새 파일을 추가하고, 이름을 **defaultContext.js** 로 지정하고, 다음 코드를 추가합니다.
 
 ```javascript
 module.exports = {
@@ -305,7 +305,7 @@ module.exports = {
 
 이 모듈은 기본 실행 컨텍스트를 나타내는 *log* 함수를 모방합니다.
 
-다음으로, 새 파일을 추가하고, 이름을 **defaultTimer.js**로 지정하고, 다음 코드를 추가합니다.
+다음으로, 새 파일을 추가하고, 이름을 **defaultTimer.js** 로 지정하고, 다음 코드를 추가합니다.
 
 ```javascript
 module.exports = {
@@ -315,7 +315,7 @@ module.exports = {
 
 이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다. 테스트 도구는 단순히 함수를 직접 호출 하 여 결과를 테스트 하는 것 이므로 NCRONTAB 식과 같은 타이머 구성은 필요 하지 않습니다.
 
-그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](/azure/developer/javascript/tutorial-vscode-serverless-node-01) 이름을 *HttpTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
+그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](/azure/developer/javascript/tutorial-vscode-serverless-node-01) 이름을 *HttpTrigger* 로 지정합니다. 함수가 만들어지면 **index.test.js** 라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
 
 ```javascript
 const httpFunction = require('./index');
@@ -336,7 +336,7 @@ test('Http trigger should return known text', async () => {
 
 템플릿의 HTTP 함수는 쿼리 문자열에 제공된 이름과 연결된 “Hello” 문자열을 반환합니다. 이 테스트는 요청의 가짜 인스턴스를 만들고 HTTP 함수로 전달합니다. 테스트는 *log* 메서드가 한 번 호출되고 반환된 텍스트가 “Hello Bill”과 같은지 확인합니다.
 
-그런 다음, VS Code Functions 확장을 사용하여 새 JavaScript 타이머 함수를 만들고 이름을 *TimerTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
+그런 다음, VS Code Functions 확장을 사용하여 새 JavaScript 타이머 함수를 만들고 이름을 *TimerTrigger* 로 지정합니다. 함수가 만들어지면 **index.test.js** 라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
 
 ```javascript
 const timerFunction = require('./index');

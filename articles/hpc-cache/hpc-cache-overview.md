@@ -4,15 +4,15 @@ description: 고성능 컴퓨팅을 위한 파일 액세스 가속기 솔루션�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/03/2020
+ms.date: 11/23/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 0c898b0d5a58654547cb6205ee0c845c9cfa4aa9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 0568d9b7fea2e4e048c0c1d1b2d6f81d64a9b114
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611746"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519339"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
 
@@ -65,11 +65,7 @@ Azure HPC Cache 배포는 정량적 분석 계산, 위험 분석 워크로드 �
 * US Gov 애리조나
 * US Gov 버지니아
 
-<!-- ## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
+Azure HPC Cache는 단일 지역에 상주합니다. 여기에 있는 Blob 컨테이너에 연결하면 다른 지역에 저장된 데이터에 액세스할 수 있습니다. 캐시는 고객 데이터를 영구적으로 저장하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

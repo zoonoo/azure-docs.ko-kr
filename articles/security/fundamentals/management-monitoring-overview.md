@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7e6fe4f0db31687d402f960f2752fe021d3ec9d3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448350"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842756"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
 
-## <a name="role-based-access-control"></a>역할 기반 Access Control
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
-RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액세스 관리를 제공합니다. RBAC를 사용하면 사용자에게 해당 작업을 수행하는 데 필요한 정도의 액세스 권한만 부여할 수 있습니다. 또한 RBAC는 직원 퇴사 시 클라우드의 리소스에 대한 액세스 권한을 잃도록 해줄 수도 있습니다.
+Azure RBAC (역할 기반 액세스 제어)는 Azure 리소스에 대 한 자세한 액세스 관리를 제공 합니다. Azure RBAC를 사용 하 여 사용자에 게 작업을 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. Azure RBAC를 사용 하 여 사용자가 조직을 떠날 때 클라우드의 리소스에 대 한 액세스 권한을 잃게 되도록 할 수도 있습니다.
 
 자세한 정보:
 
-* [RBAC의 Active Directory 팀 블로그](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Azure 역할 기반 access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* [Azure RBAC의 Active Directory 팀 블로그](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>맬웨어 방지
 
@@ -48,25 +48,25 @@ SEP(Symantec Endpoint Protection)도 Azure에서 지원됩니다. 포털 통합�
 
 * [Azure Virtual Machines에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Azure Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지 프로그램](antimalware.md)
-* [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](/azure/virtual-machines/windows/classic/install-trend)
-* [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](/azure/virtual-machines/windows/classic/install-symantec)
+* [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../../virtual-machines/extensions/trend.md)
+* [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../../virtual-machines/extensions/symantec.md)
 * [Azure Virtual Machines를 보호하는 새로운 맬웨어 방지 옵션](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication은 두 가지 이상의 확인 방법을 사용하도록 요구하는 인증 방법입니다. 사용자 로그인 및 트랜잭션에 중요한 두 번째 보안 계층을 추가합니다.
+Azure AD Multi-Factor Authentication는 둘 이상의 인증 방법을 사용 해야 하는 인증 방법입니다. 사용자 로그인 및 트랜잭션에 중요한 두 번째 보안 계층을 추가합니다.
 
 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OATH 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
 자세한 정보:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Azure Multi-Factor Authentication이란?](/azure/active-directory/authentication/multi-factor-authentication)
-* [Azure Multi-Factor Authentication 작동 방법](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication 이란?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication 작동 방법](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 다음에서 Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
+Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하면 Azure, Microsoft 365 및 CRM Online과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. 연결을 설정할 수 있습니다.
 
 * 모든 대상 간(IP VPN) 네트워크
 * 지점 간 이더넷 네트워크
@@ -112,7 +112,7 @@ Azure AD Identity Protection은 의심스러운 로그인 활동 및 잠재적 �
 
 자세한 정보:
 
-* [Azure Active Directory ID 보호](/azure/active-directory/active-directory-identityprotection)
+* [Azure Active Directory ID 보호](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
@@ -129,8 +129,8 @@ Azure Security Center를 통해 위협을 예방하고 감지하며 대응할 �
 
 자세한 정보:
 
-* [Azure Security Center 소개](../../security-center/security-center-intro.md)
-* [Azure Security Center의 보안 점수 개선](../../security-center/security-center-secure-score.md)
+* [Azure Security Center 소개](../../security-center/security-center-introduction.md)
+* [Azure Security Center의 보안 점수 개선](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 

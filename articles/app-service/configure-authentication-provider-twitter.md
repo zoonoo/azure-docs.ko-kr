@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80519901"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Twitter 로그인을 사용 하도록 App Service 또는 Azure Functions 앱 구성
@@ -26,7 +26,7 @@ ms.locfileid: "80519901"
 
 1. [Azure Portal] 에 로그인 하 고 응용 프로그램으로 이동 합니다. **URL**을 복사합니다. Twitter 앱을 구성 하는 데 사용 합니다.
 1. [Twitter 개발자] 웹 사이트로 이동 하 고 twitter 계정 자격 증명을 사용 하 여 로그인 한 다음 **앱 만들기**를 선택 합니다.
-1. **앱 이름** 및 새 앱에 대 한 **응용 프로그램 설명을** 입력 합니다. 응용 프로그램의 **url** 을 **웹 사이트 url** 필드에 붙여넣습니다. **콜백 url** 섹션에서 App Service 앱의 HTTPS url을 입력 하 고 경로를 추가 `/.auth/login/twitter/callback` 합니다. 예를 들어 `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. **앱 이름** 및 새 앱에 대 한 **응용 프로그램 설명을** 입력 합니다. 응용 프로그램의 **url** 을 **웹 사이트 url** 필드에 붙여넣습니다. **콜백 url** 섹션에서 App Service 앱의 HTTPS url을 입력 하 고 경로를 추가 `/.auth/login/twitter/callback` 합니다. 예들 들어 `https://contoso.azurewebsites.net/.auth/login/twitter/callback`입니다.
 1. 페이지 맨 아래에 **이 앱을 사용 하는 방법**에 대 한 정보를 100 자 이상 입력 하 고 **만들기**를 선택 합니다. 팝업에서 **만들기** 를 다시 클릭 합니다. 응용 프로그램 세부 정보가 표시 됩니다.
 1. **Keys and Access Tokens** 탭을 선택합니다.
 

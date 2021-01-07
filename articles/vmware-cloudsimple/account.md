@@ -1,19 +1,19 @@
 ---
 title: 계정 관리-CloudSimple 포털 별 Azure VMware 솔루션
 description: CloudSimple 포털을 통해 Azure VMware 솔루션에서 계정을 관리 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00348d36c38fdbfdf69a2e4e80a4c720268b40c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c26d5accce77ce6fd8c9b6c2b519b93f95013ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025370"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895175"
 ---
 # <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>CloudSimple 포털을 통해 Azure VMware 솔루션에서 계정 관리
 
@@ -27,11 +27,11 @@ CloudSimple 포털에서 계정을 관리 하려면 [포털에 액세스](access
 
 사설 클라우드 구성 변경 내용에 대해 알릴 사용자의 메일 주소를 추가할 수 있습니다.
 
-1. **추가 전자 메일 경고** 영역에서 **새로 추가**를 클릭 합니다.
+1. **추가 전자 메일 경고** 영역에서 **새로 추가** 를 클릭 합니다.
 2. 전자 메일 주소를 입력 합니다.
 3. Return 키를 누릅니다.  
 
-항목을 제거 하려면 **X**를 클릭 합니다.
+항목을 제거 하려면 **X** 를 클릭 합니다.
 
 ## <a name="cloudsimple-operator-access"></a>CloudSimple operator access
 

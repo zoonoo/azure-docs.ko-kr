@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: roygara
@@ -9,14 +9,14 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 27e3f0ef7539f3fb875c087ff7d1351916877d19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011712"
 ---
-100 TiB 용량의 표준 파일 공유에는 특정 제한 사항이 있습니다.
+100TiB 용량의 표준 파일 공유에는 특정 제한 사항이 있습니다.
 
-- 현재 LRS (로컬 중복 저장소) 및 ZRS (영역 중복 저장소) 계정만 지원 됩니다.
-- 대량 파일 공유를 사용 하도록 설정 하면 저장소 계정을 GRS (지역 중복 저장소) 또는 GZRS (지역 중복 저장소) 계정으로 변환할 수 없습니다.
-- 대량 파일 공유를 사용 하도록 설정 하면 사용 하지 않도록 설정할 수 없습니다.
+- 현재 LRS(로컬 중복 스토리지) 및 ZRS(영역 중복 스토리지) 계정만 지원됩니다.
+- 대용량 파일 공유를 활성화하면 스토리지 계정을 GRS(지역 중복 스토리지) 또는 GZRS(지리적 영역 중복 스토리지) 계정으로 변환할 수 없습니다.
+- 일단 대용량 파일 공유를 활성화하면 비활성화할 수 없습니다.

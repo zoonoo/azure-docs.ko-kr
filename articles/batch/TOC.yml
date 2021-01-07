@@ -43,7 +43,19 @@
         - name: Batch 샘플 리포지토리
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Azure CLI
-      href: cli-samples.md
+      items:
+        - name: Batch 서비스 모드에서 Batch 계정 만들기
+          href: ./scripts/batch-cli-sample-create-account.md
+        - name: 사용자 구독 모드에서 Batch 계정 만들기
+          href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+        - name: Azure Batch 계정에 애플리케이션 추가
+          href: ./scripts/batch-cli-sample-add-application.md
+        - name: Linux 풀 만들기 및 관리
+          href: ./scripts/batch-cli-sample-manage-linux-pool.md
+        - name: Windows 풀 만들기 및 관리
+          href: ./scripts/batch-cli-sample-manage-windows-pool.md
+        - name: 작업 및 태스크 실행
+          href: ./scripts/batch-cli-sample-run-job.md
 - name: 개념
   items:
     - name: 보안
@@ -53,6 +65,8 @@
           href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
+        - name: 보안 모범 사례
+          href: security-best-practices.md
     - name: Batch 서비스 워크플로 및 리소스
       displayName: developer features
       href: batch-service-workflow-features.md
@@ -156,6 +170,7 @@
         - name: 작업 준비 및 완료 작업
           href: batch-job-prep-release.md
         - name: 동시 노드 작업
+          displayName: concurrent
           href: batch-parallel-node-tasks.md
         - name: 작업 종속성
           href: batch-task-dependencies.md
@@ -257,12 +272,16 @@
           href: batch-pool-resize-start-event.md
         - name: 풀 크기 조정 완료 이벤트
           href: batch-pool-resize-complete-event.md
+        - name: 풀 자동 크기 조정 이벤트
+          href: batch-pool-autoscale-event.md
         - name: 태스크 시작 이벤트
           href: batch-task-start-event.md
         - name: 태스크 완료 이벤트
           href: batch-task-complete-event.md
         - name: 태스크 실패 이벤트
           href: batch-task-fail-event.md
+        - name: 작업 일정 실패 이벤트
+          href: batch-task-schedule-fail-event.md
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

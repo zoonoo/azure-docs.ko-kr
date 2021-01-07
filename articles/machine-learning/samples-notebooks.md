@@ -1,7 +1,7 @@
 ---
-title: 예제 Jupyter Notebook
+title: 예제 Jupyter Notebooks
 titleSuffix: Azure Machine Learning
-description: Jupyter Notebook 예제를 찾아 사용하여 SDK용 Azure Machine Learning Python을 검색합니다.
+description: SDK를 살펴보고 자체 기계 학습 프로젝트의 모델로 사용하도록 설계된 Juypter Notebooks를 찾고 사용하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,17 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 38d0c350718480506e1267c161a85505ece4b69d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653718"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452257"
 ---
-# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 검색
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 탐색
+
+> [!NOTE] 
+> 커뮤니티 기반 예제 리포지토리는 https://github.com/Azure/azureml-examples 에서 찾을 수 있습니다.
 
 [예제 Azure Machine Learning Notebook 리포지토리](https://github.com/azure/machinelearningnotebooks)에는 최신 Azure Machine Learning Python SDK 샘플이 포함되어 있습니다. 이러한 Jupyter Notebook은 사용자가 SDK를 살펴보고 사용자 고유의 Machine Learning 프로젝트를 위한 모델로 사용할 수 있도록 설계되었습니다.
 
@@ -44,7 +47,7 @@ ms.locfileid: "88653718"
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-이러한 지침은 빠른 시작 및 자습서 Notebook에 필요한 기본 SDK 패키지를 설치합니다. 다른 샘플 Notebook에서는 추가 구성 요소를 설치해야 할 수 있습니다. 자세한 내용은 [Python용 Azure Machine Learning SDK 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install)를 참조하세요.
+이러한 지침은 빠른 시작 및 자습서 Notebook에 필요한 기본 SDK 패키지를 설치합니다. 다른 샘플 Notebook에서는 추가 구성 요소를 설치해야 할 수 있습니다. 자세한 내용은 [Python용 Azure Machine Learning SDK 설치](/python/api/overview/azure/ml/install)를 참조하세요.
 
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>DSVM에서 샘플 가져오기
@@ -58,6 +61,7 @@ DSVM(Data Science Virtual Machine)은 데이터 과학 수행을 위해 특별�
 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks)을 살펴보고 Azure Machine Learning에서 제공하는 기능을 확인합니다.
 
 GitHub 샘플 프로젝트 및 예제는 다음 리포지토리를 참조하세요.
++ [Azure/azureml-examples](https://github.com/Azure/azureml-examples)
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 + [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 

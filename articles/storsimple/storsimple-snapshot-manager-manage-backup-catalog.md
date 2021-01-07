@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 2efc35e65ca1db2b5241e1d3b2798e068880c87e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054996"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>StorSimple 스냅샷 관리자를 사용하여 백업 카탈로그 관리
@@ -56,7 +56,7 @@ StorSimple Snapshot Manager의 기본 기능은 StorSimple 볼륨의 애플리�
 ## <a name="restore-a-volume"></a>볼륨 복원
 다음 절차를 사용하여 백업에서 볼륨을 복원합니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 아직 하지 않은 경우, 볼륨 및 볼륨 그룹을 만든 다음 볼륨을 삭제합니다. 기본적으로 StorSimple 스냅샷 관리자는 삭제를 허용하기 전에 볼륨을 백업합니다. 이 예방 조치를 통해 볼륨을 실수로 삭제한 경우 또는 어떤 이유로든 데이터를 복구해야 하는 경우 데이터 손실을 방지할 수 있습니다. 
 
 StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 메시지를 표시합니다.
@@ -112,7 +112,7 @@ StorSimple 스냅샷 관리자는 예비 백업이 생성되는 동안 다음 �
 ## <a name="recover-a-file"></a>파일 복구
 볼륨에서 파일을 실수로 삭제하는 경우, 삭제 이전 날짜의 스냅샷을 검색하고 해당 스냅샷을 사용하여 볼륨의 클론을 만든 다음, 복제된 볼륨에서 원래 볼륨으로 파일을 복사하면 파일을 복구할 수 있습니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에 볼륨 그룹의 최신 백업이 있는지 확인합니다. 그런 다음 해당 볼륨 그룹의 볼륨 중 하나에 저장된 파일을 삭제합니다. 마지막으로, 다음 단계를 사용하여 삭제된 파일을 백업에서 복원합니다. 
 
 #### <a name="to-recover-a-deleted-file"></a>삭제된 파일을 복구하려면

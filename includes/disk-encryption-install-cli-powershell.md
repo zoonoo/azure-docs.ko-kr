@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: msmbaldwin
@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
-ms.custom: include file
-ms.openlocfilehash: 05794a046fdcb15a91145a75717a6a454d15a8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 1c1d438f0322942a1e68c0af74de8d5e2d77c77a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72511499"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555939"
 ---
 Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 통해 사용하고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬에 설치하고 Azure 구독에 연결해야 합니다.
 
@@ -43,7 +43,7 @@ az account set --subscription "<subscription name or ID>"
 자세한 내용은 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az)은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) 모델을 사용하는 cmdlet 집합을 제공합니다. 이 모듈은 브라우저에서 [Azure Cloud Shell](/azure/cloud-shell/overview)을 통해 사용하거나 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)의 지침에 따라 로컬 머신에 설치할 수 있습니다. 
+[Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az)은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](../articles/azure-resource-manager/management/overview.md) 모델을 사용하는 cmdlet 집합을 제공합니다. 이 모듈은 브라우저에서 [Azure Cloud Shell](../articles/cloud-shell/overview.md)을 통해 사용하거나 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)의 지침에 따라 로컬 머신에 설치할 수 있습니다. 
 
 이미 로컬에 설치되어있는 경우 최신 버전의 Azure PowerShell SDK 버전을 사용하여 Azure Disk Encryption을 구성해야 합니다. 최신 버전의 [Azure PowerShell 릴리스](https://github.com/Azure/azure-powershell/releases)를 다운로드합니다.
 
@@ -66,4 +66,4 @@ Azure Disk Encryption cmdlet이 설치되어 있는지 확인하려면 [Get-comm
 ```powershell
 Get-command *diskencryption*
 ```
-자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요. 
+자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.

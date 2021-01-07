@@ -3,20 +3,18 @@ title: 미리 빌드된 모델-LUIS
 titleSuffix: Azure Cognitive Services
 description: 미리 빌드된 모델은 도메인, 의도, 발언 및 엔터티를 제공합니다. 미리 빌드된 도메인을 사용하여 앱을 시작할 수도 있고, 나중에 관련 도메인을 앱에 추가할 수도 있습니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6642e59c2957b298d54bc587853752b9fce74686
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74280834"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019146"
 ---
 # <a name="prebuilt-models"></a>미리 작성된 모델
 
@@ -30,11 +28,11 @@ LUIS는 세 가지 유형의 미리 작성 된 모델을 제공 합니다. 각 �
 |--|--|
 |[도메인](luis-reference-prebuilt-domains.md)|의도, 발언, 엔터티|
 |의도|의도, 발언|
-|[Entities](luis-reference-prebuilt-entities.md)|엔터티만| 
+|[엔터티](luis-reference-prebuilt-entities.md)|엔터티만| 
 
 ## <a name="prebuilt-domains"></a>미리 빌드된 도메인
 
-LUIS (Language Understanding)는 미리 학습 된 [의도](luis-how-to-add-intents.md) 된 모델 및 도메인 또는 클라이언트 응용 프로그램의 공통 범주에 대해 함께 작동 하는 [엔터티의](luis-concept-entity-types.md) 미리 학습 된 *도메인*을 제공 합니다. 
+LUIS (Language Understanding)는 미리 학습 된 [의도](luis-how-to-add-intents.md) 된 모델 및 도메인 또는 클라이언트 응용 프로그램의 공통 범주에 대해 함께 작동 하는 [엔터티의](luis-concept-entity-types.md) 미리 학습 된 *도메인* 을 제공 합니다. 
 
 미리 빌드된 도메인은 LUIS 앱에 추가되도록 교육 및 준비됩니다. 미리 작성 된 도메인의 의도 및 엔터티는 앱에 추가 된 후에는 완전히 사용자 지정할 수 있습니다. 
 
@@ -59,8 +57,8 @@ LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보
 미리 빌드된 엔터티가 애플리케이션에 포함되어 있으면, 게시된 애플리케이션에 해당 예측이 포함됩니다. 미리 빌드된 엔터티의 동작은 미리 학습되며 수정할 수 **없습니다**. 
 
 > [!NOTE]
-> **builtin.datetime**은 더 이상 사용되지 않습니다. 이 엔터티는 모호한 날짜 및 시간의 인식을 개선하고 날짜 및 시간 범위를 인식할 수 있도록 하는 [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md)로 대체됩니다.
+> **builtin.datetime** 은 더 이상 사용되지 않습니다. 이 엔터티는 모호한 날짜 및 시간의 인식을 개선하고 날짜 및 시간 범위를 인식할 수 있도록 하는 [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md)로 대체됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[미리 빌드된 엔터티를 앱에 추가](luis-prebuilt-entities.md)하는 방법을 알아봅니다.
+[미리 빌드된 엔터티를 앱에 추가](./howto-add-prebuilt-models.md)하는 방법을 알아봅니다.

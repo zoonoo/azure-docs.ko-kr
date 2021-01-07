@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
-ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 12/23/2020
+ms.openlocfilehash: 3f5a6171ba81b858d649f381ed316be0637a2571
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448535"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858657"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -176,13 +176,13 @@ aggregate(groupBy(movie),
 데이터 흐름 스크립트에서 다음 코드를 사용 하 여 ```DWhash``` 세 개의 열에 대 한 해시를 생성 하는 라는 새 파생 열을 만듭니다 ```sha1``` .
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 아래 스크립트를 사용 하 여 각 열의 이름을 지정할 필요 없이 스트림에 있는 모든 열을 사용 하 여 행 해시를 생성할 수도 있습니다.
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### <a name="string_agg-equivalent"></a>String_agg 동일
@@ -191,7 +191,7 @@ derive(DWhash = sha1(columns()))
 ```
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>업데이트 수, upsert, 삽입, 삭제 수
@@ -210,6 +210,53 @@ aggregate(updates = countIf(isUpdate(), 1),
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### <a name="check-for-nulls-in-all-columns"></a>모든 열에서 Null 확인
+이 코드 조각은 일반적으로 모든 열에서 NULL 값을 확인 하기 위해 데이터 흐름에 붙여넣을 수 있는 코드 조각입니다. 이 기법은 스키마 드리프트를 활용 하 여 모든 행의 모든 열을 확인 하 고 조건부 분할을 사용 하 여 null이 없는 행의 행을 Null로 구분 합니다. 
+
+```
+split(contains(array(columns()),isNull(#item)),
+    disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### <a name="automap-schema-drift-with-a-select"></a>Select를 사용 하 여 스키마 드리프트 자동 매핑
+들어오는 열을 알 수 없거나 동적 집합에서 기존 데이터베이스 스키마를 로드 해야 하는 경우에는 싱크 변환의 오른쪽 열을 매핑해야 합니다. 이는 기존 테이블을 로드 하는 경우에만 필요 합니다. 열을 자동으로 매핑하는 Select를 만들려면 싱크 앞에이 코드 조각을 추가 합니다. 싱크 매핑을 자동 맵으로 그대로 둡니다.
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
+```
+
+### <a name="persist-column-data-types"></a>열 데이터 형식 유지
+싱크를 사용 하 여 데이터 흐름의 열 이름과 데이터 형식을 영구 저장소에 저장 하려면 파생 열 정의 내에이 스크립트를 추가 합니다.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+    each(match(type=='integer'), $$ = 'integer'),
+    each(match(type=='short'), $$ = 'short'),
+    each(match(type=='complex'), $$ = 'complex'),
+    each(match(type=='array'), $$ = 'array'),
+    each(match(type=='float'), $$ = 'float'),
+    each(match(type=='date'), $$ = 'date'),
+    each(match(type=='timestamp'), $$ = 'timestamp'),
+    each(match(type=='boolean'), $$ = 'boolean'),
+    each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
+```
+
+### <a name="fill-down"></a>자동 채우기
+다음은 NULL 값을 시퀀스에서 NULL이 아닌 이전 값의 값으로 대체 하려는 경우 데이터 집합에 일반적인 "Fill Down" 문제를 구현 하는 방법입니다. 이 작업은 "더미" 범주 값을 사용 하 여 전체 데이터 집합에 대 한 가상 창을 만들어야 하기 때문에 성능이 저하 될 수 있습니다. 또한 값을 기준으로 정렬 하 여 NULL이 아닌 이전 값을 찾기 위한 적절 한 데이터 시퀀스를 만들어야 합니다. 아래 코드 조각은 가상 범주를 "더미"로 만들고 서로게이트 키를 기준으로 정렬 합니다. 서로게이트 키를 제거 하 고 고유한 데이터 별 정렬 키를 사용할 수 있습니다. 이 코드 조각에서는 라는 소스 변환을 이미 추가 했다고 가정 합니다. ```source1```
+
+```
+source1 derive(dummy = 1) ~> DerivedColumn
+DerivedColumn keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey
+SurrogateKey window(over(dummy),
+    asc(sk, true),
+    Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
 ```
 
 ## <a name="next-steps"></a>다음 단계

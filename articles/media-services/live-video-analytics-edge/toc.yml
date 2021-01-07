@@ -66,6 +66,7 @@
     - name: 미디어 그래프
       href: media-graph-concept.md
     - name: 미디어 그래프 확장
+      displayName: AI
       href: media-graph-extension-concept.md
     - name: 비디오 녹화
       href: video-recording-concept.md
@@ -95,8 +96,14 @@
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: Azure Stack Edge에 배포
       href: deploy-azure-stack-edge-how-to.md
+    - name: 신호 게이트 구성
+      href: configure-signal-gate-how-to.md
     - name: 문제 해결
       href: troubleshoot-how-to.md
+    - name: 업그레이드 중
+      href: upgrading-lva-module.md
+    - name: gRPC 유추 서버 개발 및 배포
+      href: develop-deploy-grpc-inference-srv-how-to.md
 - name: 참조
   items:
     - name: HTTP 확장 프로토콜
@@ -115,3 +122,5 @@
       href: faq.md
     - name: 프로덕션 준비 및 모범 사례
       href: production-readiness.md
+    - name: 투명성과 책임감 있는 AI 원칙
+      href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'

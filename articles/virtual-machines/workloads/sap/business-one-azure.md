@@ -1,26 +1,19 @@
 ---
 title: Azure Virtual Machines의 SAP Business One | Microsoft Docs
 description: Azure의 SAP Business One입니다.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.reviewer: cynthn
+ms.openlocfilehash: 1201ff91634a1f63c8fe0e545ca6d6dee33abe35
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654653"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957387"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
 이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 애플리케이션을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
@@ -95,7 +88,7 @@ Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business On
 제시된 간소화된 구성에는 라우팅을 제어 및 제한할 수 있는 몇 가지 보안 인스턴스가 도입되었습니다. 이 구성은 다음으로 시작됩니다. 
 
 - 고객의 온-프레미스 쪽에 있는 라우터/방화벽.
-- 다음 인스턴스는 SAP Business One 구성을 실행하는 Azure VNet에 대한 라우팅 및 보안 규칙을 도입하는 데 사용할 수 있는 [Azure 네트워크 보안 그룹](../../../virtual-network/security-overview.md)입니다.
+- 다음 인스턴스는 SAP Business One 구성을 실행하는 Azure VNet에 대한 라우팅 및 보안 규칙을 도입하는 데 사용할 수 있는 [Azure 네트워크 보안 그룹](../../../virtual-network/network-security-groups-overview.md)입니다.
 - Business One 클라이언트의 사용자가 데이터베이스를 실행하는 Business One 서버를 실행하는 서버를 볼 수 없도록 하려면 Business One 클라이언트를 호스트하는 VM과 Business One 서버를 VNet에 있는 두 개의 다른 서브넷에 구분해야 합니다.
 - Business One 서버에 대한 액세스를 제한하기 위해 다시 두 개의 다른 서브넷에 할당된 Azure NSG를 사용합니다.
 
@@ -111,7 +104,7 @@ Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business On
 
 특정 및 일반 데이터베이스 문서에서 이미 강조되었지만, 다음을 숙지해야 합니다.
 
-- [Azure에서 Windows 가상 머신의 가용성 관리](../../windows/manage-availability.md) 및 [Azure에서 Linux 가상 머신의 가용성 관리](../../linux/manage-availability.md)
+- [Azure에서 Windows 가상 머신의 가용성 관리](../../manage-availability.md) 및 [Azure에서 Linux 가상 머신의 가용성 관리](../../manage-availability.md)
 - [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 이러한 문서는 스토리지 유형 및 고가용성 구성을 선택하는 데 도움이 됩니다.
@@ -147,7 +140,7 @@ SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 
 
  
 ### <a name="business-one-client-server"></a>Business One 클라이언트 서버
-이러한 구성 요소에서 스토리지 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
+이러한 구성 요소에서 스토리지 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
 
 - [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)

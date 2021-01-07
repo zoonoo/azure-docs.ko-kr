@@ -3,16 +3,16 @@ title: SKU를 사용할 수 없음 오류
 description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때 SKU에서 사용할 수 없음 오류 문제를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: 3dcc26f2d74799a6d282ee4bd733d36bec7b05e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15df8c5ff45994a03e12731cf3798f7f4c2a295b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78942721"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948615"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>SKU 사용할 수 없음 오류 해결
 
-이 문서에서는 **SkuNotAvailable** 오류를 해결하는 방법에 대해 설명합니다. 해당 지역/영역 또는 비즈니스 요구 사항을 충족 하는 대체 지역/영역에서 적합 한 SKU를 찾을 수 없는 경우 Azure 지원에 [sku 요청](https://aka.ms/skurestriction) 을 제출 하세요.
+이 문서에서는 **SkuNotAvailable** 오류를 해결하는 방법에 대해 설명합니다. 해당 지역/영역 또는 비즈니스 요구 사항을 충족 하는 대체 지역/영역에서 적합 한 SKU를 찾을 수 없는 경우 Azure 지원에 [sku 요청](../../azure-portal/supportability/sku-series-unavailable.md) 을 제출 하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -79,7 +79,6 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 ...
 ```
 
-
 ## <a name="solution-3---azure-portal"></a>해결 방법 3 - Azure Portal
 
 지역에서 사용할 수 있는 SKU를 확인하려면 [포털](https://portal.azure.com)을 사용합니다. 포털에 로그인하고 인터페이스를 통해 리소스를 추가합니다. 값을 설정하면 해당 리소스에 사용 가능한 SKU가 표시됩니다. 배포를 완료할 필요는 없습니다.
@@ -125,4 +124,3 @@ virtualMachines  southcentralus  Standard_F4                ...             None
   ]
 }
 ```
-

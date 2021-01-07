@@ -6,15 +6,15 @@ author: mikben
 manager: mikben
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 38d6b131c972b4fd890af53624fdd6a36b3ecb6c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938145"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886076"
 ---
 # <a name="client-and-server-architecture"></a>클라이언트 및 서버 아키텍처
 
@@ -37,7 +37,7 @@ Azure Communication Services 클라이언트 라이브러리는 `user access tok
 
 :::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="사용자 액세스 토큰 아키텍처를 보여 주는 다이어그램":::
 
-자세한 내용은 [id 관리 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices) 를 검토 하세요.
+자세한 내용은 [id 관리 모범 사례](../../security/fundamentals/identity-management-best-practices.md) 를 검토 하세요.
 
 ## <a name="browser-communication"></a>브라우저 통신
 
@@ -80,7 +80,7 @@ Azure 통신 서비스는 Azure 통신 서비스 데이터 평면에 직접 액�
 > [!div class="nextstepaction"]
 > [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [인증](../concepts/authentication.md) 에 대 한 자세한 정보
 - [PSTN 및 SMS 솔루션](../concepts/telephony-sms/plan-solution.md) 에 대 한 자세한 정보

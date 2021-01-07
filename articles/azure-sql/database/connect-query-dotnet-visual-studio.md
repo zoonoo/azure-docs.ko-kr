@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 8fe541432366d3c2ac1dc1470fea66d328f79780
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a864b2b3e0379a8b0a1d67c97a63b3d5c52f9e58
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213051"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669711"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Visual Studio에서 .NET 및 C#을 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스에 연결 및 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -66,19 +66,19 @@ ms.locfileid: "88213051"
    
 1. **새 프로젝트** 대화 상자에서 **Visual C#** , **콘솔 앱(.NET Framework)** 을 선택합니다.
    
-1. 프로젝트 이름으로 *sqltest*를 입력한 다음, **확인**을 선택합니다. 새 프로젝트가 만들어집니다. 
+1. 프로젝트 이름으로 *sqltest* 를 입력한 다음, **확인** 을 선택합니다. 새 프로젝트가 만들어집니다. 
    
-1. **프로젝트** > **NuGet 패키지 관리**를 선택합니다. 
+1. **프로젝트** > **NuGet 패키지 관리** 를 선택합니다. 
    
-1. **NuGet 패키지 관리자**에서 **찾아보기** 탭을 선택한 다음, **Microsoft.Data.SqlClient**를 검색하여 선택합니다.
+1. **NuGet 패키지 관리자** 에서 **찾아보기** 탭을 선택한 다음, **Microsoft.Data.SqlClient** 를 검색하여 선택합니다.
    
-1. **Microsoft.Data.SqlClient** 페이지에서 **설치**를 선택합니다. 
-   - 메시지가 표시되면 **확인**을 선택하여 설치를 계속 진행합니다. 
-   - **라이선스 승인** 창이 표시되면 **동의**를 선택합니다.
+1. **Microsoft.Data.SqlClient** 페이지에서 **설치** 를 선택합니다. 
+   - 메시지가 표시되면 **확인** 을 선택하여 설치를 계속 진행합니다. 
+   - **라이선스 승인** 창이 표시되면 **동의** 를 선택합니다.
    
-1. 설치가 완료되면 **NuGet 패키지 관리자**를 닫을 수 있습니다. 
+1. 설치가 완료되면 **NuGet 패키지 관리자** 를 닫을 수 있습니다. 
    
-1. 코드 편집기에서 **Program.cs** 내용을 다음 코드로 바꿉니다. `<server>`, `<username>`, `<password>` 및 `<database>`의 값을 대체합니다.
+1. 코드 편집기에서 **Program.cs** 내용을 다음 코드로 바꿉니다. `<your_server>`, `<your_username>`, `<your_password>` 및 `<your_database>`의 값을 대체합니다.
    
    >[!IMPORTANT]
    >이 예제의 코드에서는 데이터베이스를 만들 때 원본으로 선택할 수 있는 샘플 AdventureWorksLT 데이터를 사용합니다. 사용자 데이터베이스에 다른 데이터가 있는 경우 SELECT 쿼리에 해당 데이터베이스의 테이블을 사용합니다. 
@@ -97,10 +97,10 @@ ms.locfileid: "88213051"
                try 
                { 
                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                   builder.DataSource = "<server>.database.windows.net"; 
-                   builder.UserID = "<username>";            
-                   builder.Password = "<password>";     
-                   builder.InitialCatalog = "<database>";
+                   builder.DataSource = "<your_server>.database.windows.net"; 
+                   builder.UserID = "<your_username>";            
+                   builder.Password = "<your_password>";     
+                   builder.InitialCatalog = "<your_database>";
    
                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                    {
@@ -139,7 +139,7 @@ ms.locfileid: "88213051"
 
 ## <a name="run-the-code"></a>코드 실행
 
-1. 앱을 실행하려면**디버그** > **디버그 시작**을 선택하거나 도구 모음에서 **시작**을 선택하거나 **F5** 키를 누릅니다.
+1. 앱을 실행하려면 **디버그** > **디버그 시작** 을 선택하거나 도구 모음에서 **시작** 을 선택하거나 **F5** 키를 누릅니다.
 1. 상위 20개의 Category/Product 행이 데이터베이스에서 반환되는지 확인하고 앱 창을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -147,11 +147,10 @@ ms.locfileid: "88213051"
 - Windows/Linux/macOS에서 [.NET Core를 사용하여 Azure SQL Database의 데이터베이스를 연결 및 쿼리](connect-query-dotnet-core.md)하는 방법을 알아봅니다.  
 - [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli)을 알아봅니다.
 - [SSMS를 사용하여 첫 번째 Azure SQL Database의 데이터베이스 설계](design-first-database-tutorial.md) 또는 [.NET을 사용하여 첫 번째 Azure SQL Database의 데이터베이스 설계](design-first-database-csharp-tutorial.md) 방법을 알아봅니다.
-- .NET에 대한 자세한 내용은 [.NET 설명서](https://docs.microsoft.com/dotnet/)를 참조하세요.
+- .NET에 대한 자세한 내용은 [.NET 설명서](/dotnet/)를 참조하세요.
 - 재시도 로직 예제: [ADO.NET을 사용하여 Azure SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]합니다.
 
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
-
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net

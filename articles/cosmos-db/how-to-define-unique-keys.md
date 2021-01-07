@@ -1,20 +1,22 @@
 ---
 title: Azure Cosmos 컨테이너의 고유 키 정의
-description: Azure Portal, PowerShell, .Net, Java 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos 컨테이너에 대 한 고유 키를 정의 하는 방법을 알아봅니다.
+description: Azure Portal, PowerShell, .NET, Java 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos 컨테이너에 대 한 고유 키를 정의 하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 413664b790423fb5eafb58e2baaee46e10c6a929
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019966"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336625"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 고유 키 정의
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 Azure Cosmos 컨테이너를 만들 때 [고유 키](unique-keys.md)를 정의하는 여러 다른 방법을 제공합니다. 현재, Azure Portal을 사용하거나 SDK 중 하나를 통해 이 작업을 수행할 수 있습니다.
 
@@ -26,13 +28,13 @@ ms.locfileid: "89019966"
 
 1. **Data Explorer** 창을 열고 작업할 컨테이너를 선택합니다.
 
-1. **새 컨테이너**를 클릭합니다.
+1. **새 컨테이너** 를 클릭합니다.
 
-1. **컨테이너 추가** 대화 상자에서 **+ 고유 키 추가**를 클릭하여 고유 키 항목을 추가합니다.
+1. **컨테이너 추가** 대화 상자에서 **+ 고유 키 추가** 를 클릭하여 고유 키 항목을 추가합니다.
 
 1. 고유 키 제약 조건의 경로 입력
 
-1. 필요한 경우 **+ 고유 키 추가**를 클릭하여 더 많은 고유 키 항목을 추가합니다.
+1. 필요한 경우 **+ 고유 키 추가** 를 클릭하여 더 많은 고유 키 항목을 추가합니다.
 
     :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Azure Portal의 고유 키 제약 조건 항목 스크린샷":::
 
@@ -151,5 +153,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>다음 단계
 
-- [분할](partition-data.md) 에 대 한 자세한 정보
+- [분할](partitioning-overview.md) 에 대 한 자세한 정보
 - [인덱싱 작동 원리](index-overview.md) 알아보기

@@ -5,24 +5,46 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999618"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629175"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>3 부: SMB를 통한 디렉터리 및 파일 수준 권한 구성 
 
 이 문서를 시작 하기 전에 이전 문서를 완료 하 여 공유 수준 사용 권한이 있는지 확인 하는 [id에 공유 수준 권한 할당](storage-files-identity-ad-ds-assign-permissions.md) 을 완료 했는지 확인 합니다.
 
-RBAC를 사용 하 여 공유 수준 권한을 할당 한 후에는 세분화 된 액세스 제어를 활용 하기 위해 루트, 디렉터리 또는 파일 수준에서 적절 한 Windows Acl을 구성 해야 합니다. RBAC 공유 수준 사용 권한은 사용자가 공유에 액세스할 수 있는지 여부를 결정 하는 상위 수준 게이트 키퍼로 간주 합니다. Windows Acl은 보다 세부적인 수준에서 작동 하 여 사용자가 디렉터리 또는 파일 수준에서 수행할 수 있는 작업을 결정 합니다. 사용자가 파일/디렉터리에 액세스 하려고 할 때 공유 수준 및 파일/디렉터리 수준 권한이 모두 적용 되므로 둘 중 하나에 차이가 있는 경우 가장 제한적인 항목만 적용 됩니다. 예를 들어 사용자가 파일 수준에서 읽기/쓰기 액세스 권한을가지고 있지만 공유 수준 에서만 읽을 수 있는 경우에는 해당 파일만 읽을 수 있습니다. 이는 반대로, 사용자가 공유 수준에서 읽기/쓰기 액세스 권한을가지고 있지만 파일 수준 에서만 읽을 수 있는 경우에도 마찬가지입니다. 단, 파일을 읽을 수만 있습니다.
+Azure RBAC를 사용 하 여 공유 수준 권한을 할당 한 후에는 세분화 된 액세스 제어를 활용 하기 위해 루트, 디렉터리 또는 파일 수준에서 적절 한 Windows Acl을 구성 해야 합니다. Azure RBAC 공유 수준 사용 권한은 사용자가 공유에 액세스할 수 있는지 여부를 결정 하는 상위 수준의 게이트 키퍼로 생각 하면 됩니다. Windows Acl은 보다 세부적인 수준에서 작동 하 여 사용자가 디렉터리 또는 파일 수준에서 수행할 수 있는 작업을 결정 합니다. 사용자가 파일/디렉터리에 액세스 하려고 할 때 공유 수준 및 파일/디렉터리 수준 권한이 모두 적용 되므로 둘 중 하나에 차이가 있는 경우 가장 제한적인 항목만 적용 됩니다. 예를 들어 사용자가 파일 수준에서 읽기/쓰기 액세스 권한을가지고 있지만 공유 수준 에서만 읽을 수 있는 경우에는 해당 파일만 읽을 수 있습니다. 이는 반대로, 사용자가 공유 수준에서 읽기/쓰기 액세스 권한을가지고 있지만 파일 수준 에서만 읽을 수 있는 경우에도 마찬가지입니다. 단, 파일을 읽을 수만 있습니다.
+
+## <a name="azure-rbac-permissions"></a>Azure RBAC 권한
+
+다음 표에는이 구성과 관련 된 Azure RBAC 권한이 포함 되어 있습니다.
+
+
+| 기본 제공 역할  | NTFS 권한  | 결과 액세스  |
+|---------|---------|---------|
+|스토리지 파일 데이터 SMB 공유 Reader | 모든 권한, 수정, 읽기, 쓰기, 실행 | 읽기 & 실행  |
+|     |   읽기 |     읽기  |
+|스토리지 파일 데이터 SMB 공유 Contributor  |  모든 권한    |  수정, 읽기, 쓰기, 실행 |
+|     |  수정         |  수정    |
+|     |  읽기 & 실행 |  읽기 & 실행 |
+|     |  읽기           |  읽기    |
+|     |  쓰기          |  쓰기   |
+|스토리지 파일 데이터 SMB 공유 관리자 권한 Contributor | 모든 권한  |  수정, 읽기, 쓰기, 편집, 실행 |
+|     |  수정          |  수정 |
+|     |  읽기 & 실행  |  읽기 & 실행 |
+|     |  읽기            |  읽기   |
+|     |  쓰기           |  쓰기  |
+
+
 
 ## <a name="supported-permissions"></a>지원 되는 권한
 
-Azure Files은 기본 및 고급 Windows Acl의 전체 집합을 지원 합니다. 공유를 탑재 한 다음 windows 파일 탐색기를 사용 하 여 windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 명령을 실행 하거나 [ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) 을 사용 하 여 Azure 파일 공유의 디렉터리와 파일에서 windows acl을 보고 구성할 수 있습니다. 
+Azure Files은 기본 및 고급 Windows Acl의 전체 집합을 지원 합니다. 공유를 탑재 한 다음 windows 파일 탐색기를 사용 하 여 windows [icacls](/windows-server/administration/windows-commands/icacls) 명령을 실행 하거나 [ACL](/powershell/module/microsoft.powershell.security/set-acl) 을 사용 하 여 Azure 파일 공유의 디렉터리와 파일에서 windows acl을 보고 구성할 수 있습니다. 
 
 수퍼유저 권한으로 Acl을 구성 하려면 도메인에 가입 된 VM의 저장소 계정 키를 사용 하 여 공유를 탑재 해야 합니다. 다음 섹션의 지침에 따라 명령 프롬프트에서 Azure 파일 공유를 탑재 하 고 Windows Acl을 구성 합니다.
 
@@ -63,7 +85,7 @@ else
 
 ```
 
-Azure Files에 연결 하는 데 문제가 발생 하는 경우 [Windows에서 Azure Files 탑재 오류에 대해 게시 된 문제 해결 도구](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)를 참조 하세요. 또한 포트 445이 차단 될 때 시나리오를 해결 하기 위한 [지침](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) 을 제공 합니다. 
+Azure Files에 연결 하는 데 문제가 발생 하는 경우 [Windows에서 Azure Files 탑재 오류에 대해 게시 된 문제 해결 도구](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/)를 참조 하세요. 또한 포트 445이 차단 될 때 시나리오를 해결 하기 위한 [지침](./storage-files-faq.md#on-premises-access) 을 제공 합니다. 
 
 ## <a name="configure-windows-acls"></a>Windows Acl 구성
 
@@ -75,24 +97,24 @@ AD DS id에 대해 구성 된 Windows Dacl이 있는 온-프레미스 파일 서
 
 Windows 파일 탐색기를 사용 하 여 루트 디렉터리를 포함 하 여 파일 공유 아래의 모든 디렉터리 및 파일에 대 한 모든 권한을 부여 합니다.
 
-1. Windows 파일 탐색기를 열고 파일/디렉터리를 마우스 오른쪽 단추로 클릭 한 다음 **속성**을 선택 합니다.
+1. Windows 파일 탐색기를 열고 파일/디렉터리를 마우스 오른쪽 단추로 클릭 한 다음 **속성** 을 선택 합니다.
 1. **보안** 탭을 선택합니다.
 1. **편집 ...을** 선택 합니다. 사용 권한을 변경 합니다.
 1. 기존 사용자의 사용 권한을 변경 하거나 **추가 ...** 를 선택 하 여 새 사용자에 게 사용 권한을 부여할 수 있습니다.
 1. 새 사용자 추가에 대 한 프롬프트 창에서 **선택할 개체 이름을 입력 하십시오** . 상자에 권한을 부여 하려는 대상 사용자 이름을 입력 하 고 **이름 확인** 을 선택 하 여 대상 사용자의 전체 UPN 이름을 찾습니다.
-1.    **확인**을 선택합니다.
+1.    **확인** 을 선택합니다.
 1.    **보안** 탭에서 새 사용자에 게 부여할 사용 권한을 모두 선택 합니다.
-1.    **적용**을 선택합니다.
+1.    **적용** 을 선택합니다.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Icacls로 Windows Acl 구성
 
-루트 디렉터리를 비롯하여 파일 공유에 있는 모든 디렉터리와 파일에 대한 모든 권한을 부여하려면 다음 Windows 명령을 사용합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+루트 디렉터리를 비롯하여 파일 공유에 있는 모든 디렉터리와 파일에 대한 모든 권한을 부여하려면 다음 Windows 명령을 사용합니다. 예제의 자리 표시자 값은 실제 값으로 바꾸세요.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Icacls를 사용 하 여 Windows Acl을 설정 하는 방법 및 지원 되는 다양 한 권한 유형에 대 한 자세한 내용은 [icacls 명령줄 참조](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)를 참조 하세요.
+Icacls를 사용 하 여 Windows Acl을 설정 하는 방법 및 지원 되는 다양 한 권한 유형에 대 한 자세한 내용은 [icacls 명령줄 참조](/windows-server/administration/windows-commands/icacls)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

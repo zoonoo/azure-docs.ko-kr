@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: 7288087bfe7d2a7bb03ce8a99831ad8b7f5b549f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83995618"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>단어 맞춤 정보를 받는 방법
@@ -37,7 +37,7 @@ ms.locfileid: "83995618"
 * 다른 모든 언어에서 영어로(중국어 간체, 중국어 번체 및 라트비아어에서 영어로 번역하는 경우 제외)
 * 일본어에서 한국어로 또는 한국어에서 일본어로. 문장이 미리 준비된 번역인 경우에는 맞춤 정보가 표시되지 않습니다. 미리 준비된 번역의 예로 “테스트입니다.”, “당신을 사랑합니다.”, 기타 빈도가 높은 문장 등이 있습니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 예제 JSON
 

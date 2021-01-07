@@ -5,19 +5,19 @@ description: BYOK (사용자 고유 키) 지원을 통해 TDE를 사용 하 여 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 67bb77777ee1052a5429dc4599ed30593b9ae2ac
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436564"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461856"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 제거
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,29 +26,29 @@ ms.locfileid: "89436564"
 이 항목에서는 BYOK (Azure Key Vault-Bring Your Own Key) 지원을 통해 TDE를 고객 관리 키와 함께 사용 하는 Azure SQL Database 또는 Azure Synapse Analytics에 대해 잠재적으로 손상 된 TDE 보호에 대응 하는 방법에 대해 설명 합니다. TDE의 BYOK 지원에 대해 자세한 내용은 [개요 페이지](transparent-data-encryption-byok-overview.md)를 참조하세요.
 
 > [!CAUTION]
-> 이 문서에 설명 된 절차는 극단적인 경우 나 테스트 환경 에서만 수행 해야 합니다. Azure Key Vault에서 적극적으로 사용 되는 TDE 보호기를 삭제 하면 **데이터베이스를 사용할 수 없게**되므로 단계를 신중 하 게 검토 합니다.
+> 이 문서에 설명 된 절차는 극단적인 경우 나 테스트 환경 에서만 수행 해야 합니다. Azure Key Vault에서 적극적으로 사용 되는 TDE 보호기를 삭제 하면 **데이터베이스를 사용할 수 없게** 되므로 단계를 신중 하 게 검토 합니다.
 
 키가 손상 된 것으로 의심 되는 경우 서비스 또는 사용자가 키에 무단으로 액세스할 수 있는 경우 해당 키를 삭제 하는 것이 가장 좋습니다.
 
-Key Vault에서 TDE 보호기를 삭제 한 후에는 최대 10 분 내에 모든 암호화 된 데이터베이스에서 해당 오류 메시지와 함께 모든 연결 거부를 시작 하 고 해당 상태를 [액세스할](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector)수 없음으로 변경 합니다.
+Key Vault에서 TDE 보호기를 삭제 한 후에는 최대 10 분 내에 모든 암호화 된 데이터베이스에서 해당 오류 메시지와 함께 모든 연결 거부를 시작 하 고 해당 상태를 [액세스할](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector)수 없음으로 변경 합니다.
 
 이 방법 가이드는 손상 된 인시던트 응답 후 원하는 결과에 따라 두 가지 방법으로 이동 합니다.
 
-- Azure SQL Database/Azure Synapse Analytics의 데이터베이스에 **액세스할 수**없게 합니다.
-- Azure SQL Database/Azure Azure Synapse Analytics (이전의 SQL Data Warehouse)의 데이터베이스에 **액세스할**수 없도록 설정 합니다.
+- Azure SQL Database/Azure Synapse Analytics의 데이터베이스에 **액세스할 수** 없게 합니다.
+- Azure SQL Database/Azure Azure Synapse Analytics의 데이터베이스에 **액세스할 수** 없도록 설정 합니다.
 
 ## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 - Azure PowerShell 설치 되 고 실행 중 이어야 합니다.
-- 이 방법 가이드에서는 이미 Azure Key Vault의 키를 Azure SQL Database 또는 Azure Synapse (이전의 SQL Data Warehouse)의 TDE 보호기로 사용 한다고 가정 합니다. 자세한 내용은 [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
+- 이 방법 가이드에서는 Azure Key Vault의 키를 Azure SQL Database 또는 Azure Synapse의 TDE 보호기로 이미 사용 한다고 가정 합니다. 자세한 내용은 [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
- Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요.
+ Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 자세한 내용은 [AzureRM](/powershell/module/AzureRM.Sql/)를 참조 하세요.
 
 > [!IMPORTANT]
-> RM (PowerShell Azure Resource Manager) 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
+> RM (PowerShell Azure Resource Manager) 모듈은 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -79,11 +79,11 @@ SELECT * FROM sys.dm_db_log_info (database_id)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-PowerShell 명령 **add-azurermsqlserverkeyvaultkey**은   쿼리에서 사용 되는 tde 보호기의 지문을 제공 하므로 유지할 키와 AKV에서 삭제할 키를 확인할 수 있습니다. 데이터베이스에서 더 이상 사용 하지 않는 키만 Azure Key Vault에서 안전 하 게 삭제할 수 있습니다.
+PowerShell 명령 **add-azurermsqlserverkeyvaultkey** 은   쿼리에서 사용 되는 tde 보호기의 지문을 제공 하므로 유지할 키와 AKV에서 삭제할 키를 확인할 수 있습니다. 데이터베이스에서 더 이상 사용 하지 않는 키만 Azure Key Vault에서 안전 하 게 삭제할 수 있습니다.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-PowerShell 명령 **az sql server key show**는   쿼리에 사용 된 tde 보호기의 지문을 제공 하므로 유지할 키와 AKV에서 삭제할 키를 확인할 수 있습니다. 데이터베이스에서 더 이상 사용 하지 않는 키만 Azure Key Vault에서 안전 하 게 삭제할 수 있습니다.
+PowerShell 명령 **az sql server key show** 는   쿼리에 사용 된 tde 보호기의 지문을 제공 하므로 유지할 키와 AKV에서 삭제할 키를 확인할 수 있습니다. 데이터베이스에서 더 이상 사용 하지 않는 키만 Azure Key Vault에서 안전 하 게 삭제할 수 있습니다.
 
 * * *
 

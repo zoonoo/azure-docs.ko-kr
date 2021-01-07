@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 1b40eef0a4cae8fa68631426ff72003db43d7530
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817621"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499393"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Azure Portal를 사용 하 여 관리 디스크에 대해 고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화를 사용 하도록 설정 합니다.
 
 Azure 디스크 저장소를 사용 하면 관리 디스크에 대해 SSE (서버 쪽 암호화)를 사용 하는 경우 (선택 하는 경우) 사용자 고유의 키를 관리할 수 있습니다. 고객 관리 키 및 기타 관리 되는 디스크 암호화 유형에 대 한 SSE에 대 한 개념 정보는 디스크 암호화 문서의 **고객 관리 키** 섹션을 참조 하세요.
 
-- Linux: [고객이 관리 하는 키](./linux/disk-encryption.md#customer-managed-keys)
-- Windows: [고객 관리 키](./windows/disk-encryption.md#customer-managed-keys)
+- Linux: [고객이 관리 하는 키](./disk-encryption.md#customer-managed-keys)
+- Windows: [고객 관리 키](./disk-encryption.md#customer-managed-keys)
 
 ## <a name="restrictions"></a>제한
 
@@ -51,7 +51,7 @@ VM 배포 프로세스는 표준 배포 프로세스와 유사 합니다. 유일
 
     ![지역 값이 강조 표시 된 VM 만들기 환경의 스크린샷](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-vm-region.png)
 
-1. **디스크** 블레이드에서 **고객이 관리 하는 키를 사용 하 여 미사용 암호화**를 선택 합니다.
+1. **디스크** 블레이드에서 **고객이 관리 하는 키를 사용 하 여 미사용 암호화** 를 선택 합니다.
 1. **디스크 암호화 집합** 드롭다운에서 설정 된 디스크 암호화를 선택 합니다.
 1. 원하는 대로 나머지 항목을 선택 합니다.
 
@@ -63,7 +63,7 @@ VM 배포 프로세스는 표준 배포 프로세스와 유사 합니다. 유일
 > VM에 연결 된 모든 디스크에 대해 디스크 암호화를 사용 하도록 설정 하려면 VM을 중지 해야 합니다.
     
 1. 디스크 암호화 집합 중 하 나와 동일한 지역에 있는 VM으로 이동 합니다.
-1. VM을 열고 **중지**를 선택 합니다.
+1. VM을 열고 **중지** 를 선택 합니다.
 
     ![Stop 단추가 강조 표시 된 예제 VM에 대 한 기본 오버레이 스크린샷](media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png)
 
@@ -72,7 +72,7 @@ VM 배포 프로세스는 표준 배포 프로세스와 유사 합니다. 유일
     ![디스크 블레이드가 열려 있는 예제 VM의 스크린샷 OS 디스크는 선택할 수 있는 예제 디스크로 강조 표시 됩니다.](media/virtual-machines-disk-encryption-portal/server-side-encryption-existing-disk-select.png)
 
 1. **암호화** 를 선택 하 고 **고객이 관리 하는 키를 사용 하 여 미사용 암호화** 를 선택한 후 드롭다운 목록에서 설정 된 디스크 암호화를 선택 합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
     ![예제 OS 디스크의 스크린샷 암호화 블레이드가 열리고, 고객이 관리 하는 키를 사용 하 여 미사용 암호화를 선택 하 고 Azure Key Vault 예제를 선택 합니다. 이러한 항목을 선택 하면 저장 단추가 선택 됩니다.](media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png)
 

@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 85804e0f9293ec2e63aa319854e9559da11c8be1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c7027dd86945e53149b3c4daeb9d6faee3593e95
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286277"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702245"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Azure에서 FreeBSD 패킷 필터를 사용하여 보안 방화벽을 만드는 방법
 이 문서에서는 일반 웹 서버 시나리오에 대해 Azure Resource Manager 템플릿을 통해 FreeBSD 패킷 필터를 사용하여 NAT 방화벽을 배포하는 방법을 소개합니다.
@@ -25,7 +25,7 @@ PF(패킷 필터 또는 pf)는 BSD에서 사용이 허가된 상태 저장 패�
 웹 서버에 대해 클라우드에서 보안 방화벽을 설정하려는 경우 지금 시작해 보겠습니다. 네트워킹 토폴로지를 설정하기 위해 이 Azure Resource Manager 템플릿에 사용된 스크립트를 적용할 수도 있습니다.
 Azure Resource Manager 템플릿은 Nginx 웹 서버가 설치 및 구성된 2대의 FreeBSD 가상 머신과 PF를 사용하여 NAT/리디렉션을 수행하는 FreeBSD 가상 머신을 설정합니다. 두 웹 서버 송신 트래픽에 대해 NAT를 수행하는 것 외에도, NAT/리디렉션 가상 머신은 HTTP 요청을 가로챈 후 로빈 방식으로 두 웹 서버로 리디렉션합니다. VNet은 라우팅할 수 없는 개인 IP 주소 공간 10.0.0.2/24를 사용하며 사용자는 템플릿의 매개 변수를 수정할 수 있습니다. 또한 Azure Resource Manager 템플릿은 대상 IP 주소를 기준으로 Azure 기본 경로를 재정의하는 데 사용되는 개별 경로 컬렉션에 해당하는 전체 VNet에 대해 경로 테이블을 정의합니다. 
 
-![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
+![다이어그램에서는 Nginx 웹 서버를 호스트 하는 두 백 엔드 가상 머신으로 라운드 로빈 방법으로 리디렉션하는 NAT 인스턴스의 공용 I P 주소를 보여 줍니다.](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Azure CLI를 통해 배포
 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제는 `West US` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
@@ -34,10 +34,10 @@ Azure Resource Manager 템플릿은 Nginx 웹 서버가 설치 및 구성된 2�
 az group create --name myResourceGroup --location westus
 ```
 
-다음으로, [az group deployment create](/cli/azure/group/deployment)를 사용하여 pf-freebsd-setup 템플릿을 배포합니다. 동일한 경로 아래에서 azuredeploy.parameters.jso을 다운로드하고, `adminPassword`, `networkPrefix` 및 `domainNamePrefix`와 같은 고유한 리소스 값을 정의합니다. 
+다음으로 [az deployment group create](/cli/azure/deployment/group)를 사용 하 여 freebsd-setup 템플릿을 배포 합니다. 동일한 경로 아래에서 azuredeploy.parameters.jso을 다운로드하고, `adminPassword`, `networkPrefix` 및 `domainNamePrefix`와 같은 고유한 리소스 값을 정의합니다. 
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup --name myDeploymentName \
+az deployment group create --resource-group myResourceGroup --name myDeploymentName \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json \
     --parameters '@azuredeploy.parameters.json' --verbose
 ```

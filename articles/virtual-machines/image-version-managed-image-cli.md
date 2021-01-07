@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용 하 여 관리 되는 이미지에서 이미지 버전으로 마이그레이션
-description: Azure CLI를 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리의 이미지 버전으로 마이그레이션하는 방법에 대해 알아봅니다.
+title: Azure CLI를 사용 하 여 이미지 버전에 관리 되는 이미지 복제
+description: Azure CLI를 사용 하 여 공유 이미지 갤러리의 이미지 버전에 관리 되는 이미지를 복제 하는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -10,15 +10,15 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0e53bebf9cdb8c0fc084d04550c7444c1c01be50
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502888"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352867"
 ---
-# <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Azure CLI를 사용 하 여 관리 되는 이미지에서 이미지 버전으로 마이그레이션
-공유 이미지 갤러리로 마이그레이션할 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [PowerShell](image-version-managed-image-powershell.md)을 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
+# <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Azure CLI를 사용 하 여 이미지 버전에 관리 되는 이미지 복제
+공유 이미지 갤러리에 복제 하려는 기존 관리 이미지가 있는 경우 관리 되는 이미지에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 이미지를 삭제할 수 있습니다. [PowerShell](image-version-managed-image-powershell.md)을 사용 하 여 관리 되는 이미지에서 공유 이미지 갤러리로 마이그레이션할 수도 있습니다.
 
 이미지 갤러리의 이미지에는 다음 예제에서 만들 두 가지 구성 요소가 있습니다.
 - 이미지 **정의** 는 이미지 및 사용에 대 한 요구 사항에 대 한 정보를 전달 합니다. 여기에는 이미지가 Windows 또는 Linux 인지, 특수 하거나 일반화 되었는지, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함 됩니다. 이미지의 형식 정의입니다. 
@@ -45,7 +45,7 @@ ms.locfileid: "87502888"
 
 [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다.
 
-이 예제에서 이미지 정의 이름은 *Myimagedefinition*이며 [일반화](./linux/shared-image-galleries.md#generalized-and-specialized-images) 된 Linux OS 이미지를 위한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
+이 예제에서 이미지 정의 이름은 *Myimagedefinition* 이며 [일반화](./linux/shared-image-galleries.md#generalized-and-specialized-images) 된 Linux OS 이미지를 위한 것입니다. Windows OS를 사용하여 이미지에 대한 정의를 만들려면 `--os-type Windows`를 사용합니다. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -91,7 +91,7 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> 동일한 관리 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
+> 동일한 관리형 이미지를 사용하여 다른 이미지 버전을 만들려면 먼저 해당 이미지 버전이 완전히 빌드되어 복제될 때까지 기다려야 합니다.
 >
 > 이미지 버전을 만들 때를 추가 하 여 모든 이미지 버전 복제본을 [영역 중복 저장소](../storage/common/storage-redundancy.md) 에 저장할 수도 있습니다 `--storage-account-type standard_zrs` .
 >

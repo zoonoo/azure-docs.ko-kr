@@ -4,12 +4,12 @@ ms.service: cognitive-search
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
-ms.openlocfilehash: eb90e5befe7d7f37a5ca6e4f13200708fa509ae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4d727ffdd7e6517638b46f1f809890f5bb46354
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80272625"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91403615"
 ---
 * PDF
 * Microsoft Office 형식: .DOCX/DOC/.DOCM, .XLSX/XLS/.XLSM, .PPTX/PPT/PPTM, MSG (Outlook 전자 메일), XML (2003 및 2006 WORD XML 모두)
@@ -21,6 +21,6 @@ ms.locfileid: "80272625"
 * EPUB
 * EML
 * RTF
-* 일반 텍스트 파일([일반 텍스트 인덱싱](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText)도 참조)
+* 일반 텍스트 파일([일반 텍스트 인덱싱](../articles/search/search-howto-index-plaintext-blobs.md)도 참조)
 * JSON([JSON BLOB 인덱싱](../articles/search/search-howto-index-json-blobs.md) 참조)
 * CSV ( [csv Blob 인덱싱](../articles/search/search-howto-index-csv-blobs.md)참조)

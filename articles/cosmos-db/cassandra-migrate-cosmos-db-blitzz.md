@@ -3,18 +3,20 @@ title: Blitzz를 사용 하 여 Cassandra에서 Azure Cosmos DB Cassandra API로
 description: Blitzz를 사용 하 여 Apache Cassandra 데이터베이스에서 Azure Cosmos DB Cassandra API로 데이터를 마이그레이션하는 방법에 대해 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: d3eda4694decb74912cc125ef0a33de04838be2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c26d21e74e9808fe65890b7f4eba31ee742552a4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260630"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339991"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Blitzz를 사용 하 여 Cassandra에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB Cassandra API는 다음과 같은 다양 한 이유로 Apache Cassandra에서 실행 되는 엔터프라이즈 워크 로드에 적합 한 선택이 되었습니다. 
 
@@ -34,7 +36,7 @@ Blitzz의 마이그레이션 솔루션은 복잡 한 운영 워크 로드를 마
 
 * Blitzz는 대용량 및 병렬 데이터베이스 복제를 제공 합니다. 이를 통해 CDC (변경 데이터 캡처) 라는 기술을 사용 하 여 마이그레이션하는 동안 원본 및 대상 플랫폼을 동기화 할 수 있습니다. Blitzz는 CDC를 사용 하 여 원본 데이터베이스 (Apache Cassandra)에서 변경 내용의 스트림을 지속적으로 가져와 대상 데이터베이스 (Azure Cosmos DB)에 적용 합니다.
 
-* 내결함성이 있으며 시스템에서 하드웨어 또는 소프트웨어 오류가 발생 하는 경우에도 정확 하 게 데이터를 배달 하는 것을 보장 합니다.
+* 내결함성이 있으며 시스템에서 하드웨어 또는 소프트웨어 오류가 발생 하는 경우에도 정확히 한 번의 데이터 배달을 제공 합니다.
 
 * TLS, 암호화와 같은 다양 한 보안 방법을 사용 하 여 전송 하는 동안 데이터를 보호 합니다.
 
@@ -96,7 +98,7 @@ Blitzz의 마이그레이션 솔루션은 복잡 한 운영 워크 로드를 마
 
    마이그레이션이 완료 된 후 처리량을 줄입니다. 각 작업에 대해 저장 된 데이터와 RUs의 양에 따라 데이터 마이그레이션 후 필요한 처리량을 예상할 수 있습니다. 필요한 RUs를 추정 하는 방법에 대 한 자세한 내용은 [컨테이너 및 데이터베이스에 대 한 처리량 프로 비전](set-throughput.md) 및 [Azure Cosmos DB capacity planner 문서를 사용 하 여 r u/초 예측](estimate-ru-with-capacity-planner.md) 을 참조 하세요.
 
-1. **연결 문자열** 창에서 Azure Cosmos 계정의 연결 **지점, 포트, 사용자 이름**및 **기본 암호** 를 가져옵니다. 구성 파일에서 이러한 값을 사용 합니다.
+1. **연결 문자열** 창에서 Azure Cosmos 계정의 연결 **지점, 포트, 사용자 이름** 및 **기본 암호** 를 가져옵니다. 구성 파일에서 이러한 값을 사용 합니다.
 
 1. CLI 터미널에서 대상 데이터베이스 구성을 설정 합니다. 명령을 사용 하 여 구성 파일을 열고 **`vi conf/conn/cosmosdb.yml`** 호스트 URI, 포트 번호, 사용자 이름, 암호 및 기타 필수 매개 변수의 쉼표로 구분 된 목록을 추가 합니다. 다음 예에서는 구성 파일의 내용을 보여 줍니다.
 

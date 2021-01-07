@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: b222e4ff519fbe2fbb4fa58b39555ac9fead0917
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383119"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352918"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Azure Data Explorer에 예약 할인이 적용되는 방식 이해
 
@@ -29,13 +29,13 @@ Azure Data Explorer 예약된 용량을 구입한 후 예약의 특성 및 수�
 예약 할인은 Azure Data Explorer 태그 사용에 시간 단위로 적용됩니다. 1시간 내내 실행되지 않는 Azure Data Explorer 리소스의 경우 예약 특성과 일치하는 다른 Data Explorer 리소스에 예약 할인이 자동으로 적용됩니다. 동시에 실행되는 Azure Data Explorer 리소스에도 할인이 적용될 수 있습니다. 1시간 내내 실행되며 예약 특성과 일치하는 Azure Data Explorer 리소스가 없으면 해당 시간 동안의 예약 할인 혜택 전액이 적용되지 않습니다.
 
 > [!NOTE]
-> * 예약된 용량 절감을 최대화하려면 Azure Data Explorer 클러스터에 사용되는 가상 머신에 대한 [예약 용량](../../virtual-machines/windows/prepay-reserved-vm-instances.md)을 구매하는 것이 **가장 좋습니다**.
+> * 예약된 용량 절감을 최대화하려면 Azure Data Explorer 클러스터에 사용되는 가상 머신에 대한 [예약 용량](../../virtual-machines/prepay-reserved-vm-instances.md)을 구매하는 것이 **가장 좋습니다**.
 > * 예약 구매 시 모든 지역에 할인이 적용됩니다.
 
 ## <a name="examples"></a>예
 
 다음 예제에서는 구입한 태그 단위 수 및 실행되는 시기에 따라 Azure Data Explorer 예약된 용량 할인이 적용되는 방법을 보여줍니다.
-예를 들어 엔진 클러스터 크기가 **2 D11_v2 VM**이면 총 주문형 요금은 시간당 Azure Data Explorer 태그 요금제의 4개 단위에 해당합니다.
+예를 들어 엔진 클러스터 크기가 **2 D11_v2 VM** 이면 총 주문형 요금은 시간당 Azure Data Explorer 태그 요금제의 4개 단위에 해당합니다.
 
 **시나리오 1**
 
@@ -70,4 +70,4 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 * [Azure 예약 관리](manage-reserved-vm-instance.md)  
 * [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 * [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)
-* [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)
+* [CSP 구독의 예약 사용량 이해](/partner-center/azure-reservations)

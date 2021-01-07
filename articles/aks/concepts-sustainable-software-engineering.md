@@ -4,16 +4,16 @@ description: Azure Kubernetes 서비스 (AKS)에서 지속 가능한 소프트�
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 700723041855fdae4f994480d180292fdfd12e15
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984970"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346897"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 지속 가능한 소프트웨어 엔지니어링 원칙
 
-지속 가능한 소프트웨어 엔지니어링 원리는 유지 가능한 응용 프로그램을 정의, 빌드 및 실행 하는 데 도움이 되는 역량 집합입니다. 전반적인 목표는 응용 프로그램의 모든 측면에 대 한 참조 공간을 줄이는 것입니다. [원칙과 프로젝트][principles-green] 에는 유지 가능한 소프트웨어 엔지니어링 원칙에 대 한 개요가 포함 되어 있습니다.
+지속 가능한 소프트웨어 엔지니어링 원리는 유지 가능한 응용 프로그램을 정의, 빌드 및 실행 하는 데 도움이 되는 역량 집합입니다. 전반적인 목표는 응용 프로그램의 모든 측면에 대 한 참조 공간을 줄이는 것입니다. 유지 가능한 [소프트웨어 엔지니어링 원리에는][principles-sse] 유지 가능한 소프트웨어 엔지니어링 원리에 대 한 개요가 포함 되어 있습니다.
 
 유지 가능한 소프트웨어 엔지니어링에 대해 이해 하는 데 중요 한 이유는 우선 순위와 초점의 변화입니다. 대부분의 경우에는 성능이 저하 되 고 대기 시간이 짧은 방식으로 소프트웨어가 설계 되 고 실행 됩니다. 유지 가능한 소프트웨어 엔지니어링은 최대한 많은 참조를 줄이는 데 중점을 둔 것입니다. 경우에 따라 유지 가능한 소프트웨어 엔지니어링 원칙을 적용 하면 총 네트워크 여행 절감 등을 통해 더 빠른 성능을 제공 하거나 대기 시간을 줄일 수 있습니다. 다른 경우에는 다른 경우에는 우선 순위가 낮은 워크 로드를 지연 하는 등의 방법으로 성능이 저하 되거나 대기 시간이 길어질 수 있습니다. 응용 프로그램에 적용 가능한 소프트웨어 엔지니어링 원칙 적용을 고려 하기 전에 응용 프로그램의 우선 순위, 요구 사항 및 장단점을 검토 합니다.
 
@@ -32,7 +32,7 @@ AKS 클러스터의 참조 공간을 줄이려면 클러스터의 리소스를 �
 
 사용률을 높이면 과도 한 노드를 줄일 수 있으므로 [각 노드의 리소스 예약][resource-reservations]에 사용 되는 에너지를 줄일 수 있습니다.
 
-또한 응용 프로그램의 Kubernetes 매니페스트에서 CPU 및 메모리 *요청* *및 한도를* 검토 합니다. 메모리 및 CPU에 대 한 값을 낮추면 클러스터에서 다른 작업을 실행 하는 데 더 많은 메모리와 CPU를 사용할 수 있습니다. 낮은 CPU와 메모리를 사용 하 여 더 많은 워크 로드를 실행 하는 경우 클러스터는 더 많은 조밀 할당 되므로 사용률을 높일 수 있습니다. 응용 프로그램의 CPU 및 메모리를 줄일 때 이러한 값을 너무 낮게 설정 하면 응용 프로그램의 동작이 저하 되거나 불안정 해질 수 있습니다. CPU 및 메모리 *요청* 및 한 *도*를 변경 하기 전에 일부 벤치마킹 테스트를 실행 하 여 이러한 값이 적절 하 게 설정 되어 있는지 이해 하는 것이 좋습니다. 또한 응용 프로그램이 불안정 한 시점으로 이러한 값을 줄이지 마십시오.
+또한 응용 프로그램의 Kubernetes 매니페스트에서 CPU 및 메모리 *요청* *및 한도를* 검토 합니다. 메모리 및 CPU에 대 한 값을 낮추면 클러스터에서 다른 작업을 실행 하는 데 더 많은 메모리와 CPU를 사용할 수 있습니다. 낮은 CPU와 메모리를 사용 하 여 더 많은 워크 로드를 실행 하는 경우 클러스터는 더 많은 조밀 할당 되므로 사용률을 높일 수 있습니다. 응용 프로그램의 CPU 및 메모리를 줄일 때 이러한 값을 너무 낮게 설정 하면 응용 프로그램의 동작이 저하 되거나 불안정 해질 수 있습니다. CPU 및 메모리 *요청* 및 한 *도* 를 변경 하기 전에 일부 벤치마킹 테스트를 실행 하 여 이러한 값이 적절 하 게 설정 되어 있는지 이해 하는 것이 좋습니다. 또한 응용 프로그램이 불안정 한 시점으로 이러한 값을 줄이지 마십시오.
 
 ## <a name="reduce-network-travel"></a>네트워크 여행 줄이기
 
@@ -74,4 +74,4 @@ AKS 클러스터의 참조 공간을 줄이려면 클러스터의 리소스를 �
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-green]: https://principles.green/
+[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/

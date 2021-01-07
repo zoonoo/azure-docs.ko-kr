@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77469530"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078598"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
 
@@ -70,7 +70,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-이러한 개별 카운터 경로를 클라우드 서비스가 사용하는 진단 프레임워크에 추가할 수 있습니다. 성능 카운터 경로를 구성하는 방법에 대한 자세한 내용은 [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))을 참조하세요.
+이러한 개별 카운터 경로를 클라우드 서비스가 사용하는 진단 프레임워크에 추가할 수 있습니다. 성능 카운터 경로를 구성하는 방법에 대한 자세한 내용은 [카운터 경로 지정](/windows/win32/perfctrs/specifying-a-counter-path)을 참조하세요.
 
 ## <a name="collect-a-performance-counter"></a>성능 카운터 수집
 
@@ -286,12 +286,9 @@ counterServiceUsed.Increment();
 </DiagnosticsConfiguration>
 ```
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 - [Azure Cloud Services에 대 한 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md)
-- [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [카운터 경로 지정](/windows/win32/perfctrs/specifying-a-counter-path)
 - [Azure Diagnostics 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
-
-
-

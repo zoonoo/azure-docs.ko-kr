@@ -1,17 +1,17 @@
 ---
 title: 제한 Azure Database for MySQL-유연한 서버
 description: 이 문서에서는 연결 수 및 저장소 엔진 옵션과 같은 Azure Database for MySQL 유연한 서버의 제한 사항을 설명 합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 64f4b6e87f038b265fbd2c3e13f3779fb4c24f74
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939303"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543088"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 제한 사항
 
@@ -23,9 +23,11 @@ ms.locfileid: "90939303"
 ## <a name="server-parameters"></a>서버 매개 변수
 
 > [!NOTE]
-> 및와 같은 서버 매개 변수에 대 한 최소/최대 값을 찾으려는 경우 `max_connections` `innodb_buffer_pool_size` 이 정보가 서버 매개 변수 개념으로 이동 되었습니다. <!-- **[server parameters](./concepts-server-parameters.md)** --> 문서를 참조하세요.
+> 및와 같은 서버 매개 변수에 대 한 최소/최대 값을 찾고 있는 경우 `max_connections` `innodb_buffer_pool_size` 이 정보는 서버 매개 변수 개념 [서버 매개 변수](./concepts-server-parameters.md) 문서로 이동 되었습니다.
 
-Azure Database for MySQL 서버 매개 변수 값의 튜닝을 지원 합니다. 일부 매개 변수의 min 및 max 값 (예: `max_connections`, `join_buffer_size` , `query_cache_size` )는 서버의 계산 계층 및 계산 크기에 따라 결정 됩니다. 서버 매개 변수 개념 참조 <!-- [server parameters](./concepts-server-parameters.md)--> 이러한 제한에 대 한 자세한 내용은을 (를).
+Azure Database for MySQL 서버 매개 변수 값의 튜닝을 지원 합니다. 일부 매개 변수의 min 및 max 값 (예: `max_connections`, `join_buffer_size` , `query_cache_size` )는 서버의 계산 계층 및 계산 크기에 따라 결정 됩니다. 이러한 제한에 대 한 자세한 내용은 [서버 매개 변수](./concepts-server-parameters.md) 를 참조 하세요.
+
+"Validate_password" 및 "caching_sha2_password"와 같은 암호 플러그 인은 서비스에서 지원 되지 않습니다.
 
 ## <a name="storage-engines"></a>저장소 엔진
 

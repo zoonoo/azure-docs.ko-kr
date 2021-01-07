@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6bf0da8716233178889d47ec3d57e9b29bc2658f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891224"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763220"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 Azure Resource Manager에 연결
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Resource Manager는 Azure 구독에서 리소스를 만들고, 업데이트 하 고, 삭제할 수 있는 관리 계층을 제공 합니다. Azure Stack Edge Pro 장치는 로컬 구독에서 Vm을 만들고, 업데이트 하 고, 삭제 하는 동일한 Azure Resource Manager Api를 지원 합니다. 이 지원을 통해 클라우드와 일관 된 방식으로 장치를 관리할 수 있습니다. 
+Azure Resource Manager에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. Azure Stack Edge Pro 장치는 로컬 구독에서 Vm을 만들고, 업데이트 하 고, 삭제 하는 동일한 Azure Resource Manager Api를 지원 합니다. 이 지원을 통해 클라우드와 일관 된 방식으로 장치를 관리할 수 있습니다. 
 
 이 자습서에서는 Azure PowerShell를 사용 하 여 Azure Resource Manager를 통해 Azure Stack Edge Pro 장치에서 로컬 Api에 연결 하는 방법을 설명 합니다.
 
@@ -34,9 +34,9 @@ Azure Resource Manager은 Azure Stack Edge Pro 장치 API를 호출 하 고 Vm �
 
 다음 표에서는 장치에 노출 되는 다양 한 끝점, 지원 되는 프로토콜 및 해당 끝점에 액세스 하는 포트를 요약 하 여 설명 합니다. 이 문서 전체에서 이러한 끝점에 대 한 참조를 찾을 수 있습니다.
 
-| # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 목적 |
+| # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 대상 |
 | --- | --- | --- | --- | --- |
-| 1. | Azure Resource Manager | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
+| 1. | Azure 리소스 관리자 | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
 | 2. | 보안 토큰 서비스 | https | 443 | 액세스 및 새로 고침 토큰을 통해 인증 하려면 |
 | 3. | Blob | https | 443 | REST를 통해 Blob storage에 연결 하려면 |
 
@@ -57,7 +57,7 @@ Azure Resource Manager를 사용 하 여 장치의 로컬 Api에 연결 하는 �
 
 다음 섹션에서는 Azure Resource Manager 연결에서 위의 각 단계에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 Azure Resource Manager을 통해 장치에 연결 하는 데 사용 되는 클라이언트가 TLS 1.2을 사용 하는지 확인 합니다. 자세한 내용은 [Windows 클라이언트에서 TLS 1.2 구성 Azure Stack Edge Pro 장치에 액세스](azure-stack-edge-j-series-configure-tls-settings.md)를 참조 하세요.
 
@@ -99,10 +99,10 @@ Azure Resource Manager에 연결 하려면 서명 체인 및 끝점 인증서를
 
 3. 이러한 모든 인증서의 경우 주체 이름 및 주체 대체 이름이 다음 지침을 준수 하는지 확인 합니다.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Blob 스토리지|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 인증서에 대 한 자세한 내용은 [인증서를 관리](azure-stack-edge-j-series-manage-certificates.md)하는 방법을 참조 하세요.
@@ -124,7 +124,7 @@ Azure Resource Manager Api를 호출 하는 Windows 클라이언트는 장치와
 
 1. 이제 *.cer* 확장명을 사용 하 여 DER 형식으로 내보낸 루트 인증서를 클라이언트 시스템의 신뢰할 수 있는 루트 인증 기관에서 가져와야 합니다. 자세한 단계는 [신뢰할 수 있는 루트 인증 기관 저장소로 인증서 가져오기](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format) 를 참조 하세요.
 
-2. *.Pfx* 로 내보낸 끝점 인증서를 *.cer*파일로 내보내야 합니다. 이 *.cer* 은 시스템의 **개인** 인증서 저장소에서 가져옵니다. 자세한 단계는 [개인 저장소로 인증서 가져오기](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)를 참조 하세요.
+2. *.Pfx* 로 내보낸 끝점 인증서를 *.cer* 파일로 내보내야 합니다. 이 *.cer* 은 시스템의 **개인** 인증서 저장소에서 가져옵니다. 자세한 단계는 [개인 저장소로 인증서 가져오기](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)를 참조 하세요.
 
 ## <a name="step-3-install-powershell-on-the-client"></a>3 단계: 클라이언트에 PowerShell 설치 
 
@@ -138,9 +138,9 @@ Windows 클라이언트는 다음 필수 구성 요소를 충족 해야 합니�
 
     **주** 버전을 비교 하 고 5.0 이상 인지 확인 합니다.
 
-    만료된 버전을 사용하는 경우 [기존 Windows PowerShell 업그레이드](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)를 참조합니다.
+    만료된 버전을 사용하는 경우 [기존 Windows PowerShell 업그레이드](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)를 참조합니다.
 
-    \'Powershell 5.0이 없으면 [Windows powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6)를 수행 합니다.
+    \'Powershell 5.0이 없으면 [Windows powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)를 수행 합니다.
 
     샘플 출력은 다음과 같습니다.
 
@@ -175,11 +175,11 @@ Windows 클라이언트는 다음 필수 구성 요소를 충족 해야 합니�
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-리포지토리를 신뢰할 수 없거나 추가 정보가 필요한 경우 [PowerShell 갤러리 접근성 유효성 검사](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility)를 참조 하세요.
+리포지토리를 신뢰할 수 없거나 추가 정보가 필요한 경우 [PowerShell 갤러리 접근성 유효성 검사](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility)를 참조 하세요.
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>4 단계: 클라이언트에서 Azure PowerShell 설정 
 
-<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the Azure PowerShell modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. 장치에서 작동 하는 Azure PowerShell 모듈을 클라이언트에 설치 합니다.
 
@@ -297,9 +297,9 @@ Binary     1.48.204.0 AzureInformationProtection          {Clear-RMSAuthenticati
 Azure Resource Manager 환경을 설정 하 고 장치가 Azure Resource Manager를 통한 클라이언트 통신에 제대로 작동 하는지 확인 합니다. 이를 확인 하려면 다음 단계를 수행 합니다.
 
 
-1. Cmdlet을 사용 `Add-AzureRmEnvironment` 하 여 Azure Resource Manager를 통한 통신이 정상적으로 작동 하 고 API 호출이 Azure Resource Manager-443 전용 포트를 통과 하는지 확인 합니다.
+1. `Add-AzureRmEnvironment` cmdlet을 사용하여 Azure Resource Manager를 통한 통신이 정상적으로 작동하고 API 호출이 Azure Resource Manager 전용 포트(443)를 통과하는지 확인합니다.
 
-    `Add-AzureRmEnvironment`Cmdlet은 Azure Resource Manager cmdlet이 Azure Resource Manager의 새 인스턴스와 연결할 수 있도록 끝점과 메타 데이터를 추가 합니다. 
+    `Add-AzureRmEnvironment` cmdlet은 엔드포인트와 메타데이터를 추가하여 Azure Resource Manager cmdlet이 Azure Resource Manager의 새 인스턴스에 연결될 수 있도록 합니다. 
 
 
     > [!IMPORTANT]
@@ -319,7 +319,7 @@ Azure Resource Manager 환경을 설정 하 고 장치가 Azure Resource Manager
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. 환경을 Azure Stack Edge Pro로 설정 하 고 Azure Resource Manager 호출에 사용할 포트를 443으로 설정 합니다. 다음 두 가지 방법으로 환경을 정의 합니다.
+2. 환경을 Azure Stack Edge Pro로 설정하고 Azure Resource Manager 호출에 사용할 포트를 443으로 설정합니다. 다음 두 가지 방법으로 환경을 정의 합니다.
 
     - 환경을 설정합니다. 다음 명령을 입력합니다.
 
@@ -327,13 +327,13 @@ Azure Resource Manager 환경을 설정 하 고 장치가 Azure Resource Manager
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    자세한 내용은 [get-azurermenvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0)를 참조 하세요.
+    자세한 내용은 [get-azurermenvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0)를 참조 하세요.
 
     - 실행 하는 모든 cmdlet에 대해 인라인으로 환경을 정의 합니다. 이렇게 하면 모든 API 호출이 올바른 환경을 통과 하 게 됩니다. 기본적으로 호출은 Azure public을 통과 하지만, 이러한 호출은 Edge Pro 장치 Azure Stack에 대해 설정한 환경을 통해 이동 하는 것을 원합니다.
 
     - [AzureRM 환경을 전환 하는 방법](#switch-environments)에 대 한 자세한 내용을 참조 하세요.
 
-2. 로컬 장치 Api를 호출 하 여 Azure Resource Manager에 대 한 연결을 인증 합니다. 
+2. 로컬 디바이스 API를 호출하여 Azure Resource Manager에 대한 연결을 인증합니다. 
 
     1. 이러한 자격 증명은 로컬 컴퓨터 계정에 대 한 것 이며 API 액세스에만 사용 됩니다.
 
@@ -460,4 +460,4 @@ ExtendedProperties : {}
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge Pro 장치에 vm을 배포](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)합니다.
+[Azure Stack Edge Pro 디바이스에 VM을 배포](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)합니다.

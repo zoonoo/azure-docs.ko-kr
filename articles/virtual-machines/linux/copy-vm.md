@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.custom: legacy
-ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.custom: legacy, devx-track-azurecli
+ms.openlocfilehash: f92f286fc9d9438331617cb567272a331834af42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654415"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735385"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Azure CLI 및 Managed Disks를 사용하여 Linux VM의 복사본 만들기
 
@@ -20,9 +20,9 @@ ms.locfileid: "88654415"
 
 [VHD에서 VM을 업로드하고 만들](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)수도 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
--   [Azure CLI](/cli/azure/install-az-cli2)를 설치 합니다.
+-   [Azure CLI](/cli/azure/install-az-cli2)를 설치합니다.
 
 -   [az login](/cli/azure/reference-index#az-login)을 사용하여 Azure 계정으로 로그인
 
@@ -31,7 +31,7 @@ ms.locfileid: "88654415"
 ## <a name="stop-the-source-vm"></a>원본 VM 중지
 
 [az vm deallocate](/cli/azure/vm#az-vm-deallocate)를 사용하여 원본 VM의 할당을 취소합니다.
-다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM의 할당을 취소합니다.
+다음 예제에서는 리소스 그룹 *myResourceGroup* 에서 *myVM* 이라는 VM의 할당을 취소합니다.
 
 ```azurecli
 az vm deallocate \
@@ -45,7 +45,7 @@ VM을 복사하려면 기본 가상 하드 디스크의 복사본을 만듭니�
 
 Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](../managed-disks-overview.md)를 참조하세요. 
 
-1.  [az vm list](/cli/azure/vm#az-vm-list)를 사용하여 각 VM 및 해당 OS 디스크의 이름을 나열합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*의 모든 VM을 나열합니다.
+1.  [az vm list](/cli/azure/vm#az-vm-list)를 사용하여 각 VM 및 해당 OS 디스크의 이름을 나열합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 의 모든 VM을 나열합니다.
     
     ```azurecli
     az vm list -g myResourceGroup \
@@ -61,14 +61,14 @@ Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](.
     myVM    myDisk
     ```
 
-1.  [az disk create](/cli/azure/disk#az-disk-create)를 사용하여 새로운 관리 디스크를 만들어 디스크를 복사합니다. 다음 예제에서는 관리되는 디스크 *myDisk*에서 디스크 *myCopiedDisk*를 만듭니다.
+1.  [az disk create](/cli/azure/disk#az-disk-create)를 사용하여 새로운 관리 디스크를 만들어 디스크를 복사합니다. 다음 예제에서는 관리되는 디스크 *myDisk* 에서 디스크 *myCopiedDisk* 를 만듭니다.
 
     ```azurecli
     az disk create --resource-group myResourceGroup \
          --name myCopiedDisk --source myDisk
     ``` 
 
-1.  이제 [az disk list](/cli/azure/disk#az-disk-list)를 사용하여 리소스 그룹의 Managed Disks를 확인합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*의 관리되는 디스크를 나열합니다.
+1.  이제 [az disk list](/cli/azure/disk#az-disk-list)를 사용하여 리소스 그룹의 Managed Disks를 확인합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 의 관리되는 디스크를 나열합니다.
 
     ```azurecli
     az disk list --resource-group myResourceGroup --output table
@@ -83,7 +83,7 @@ Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](.
 
 복사된 VM에 대한 가상 네트워크 인프라를 만들려는 경우 다음 몇 단계를 수행합니다. 가상 네트워크를 만들지 않으려면 [VM 만들기](#create-a-vm)로 건너뜁니다.
 
-1.  [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnet*이라는 서브넷을 만듭니다.
+1.  [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet* 이라는 가상 네트워크와 *mySubnet* 이라는 서브넷을 만듭니다.
 
     ```azurecli
     az network vnet create --resource-group myResourceGroup \
@@ -93,7 +93,7 @@ Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](.
         --subnet-prefix 192.168.1.0/24
     ```
 
-1.  [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 공용 IP를 만듭니다. 다음 예제는 *mypublicdns*라는 DNS 이름으로 *myPublicIP*라는 공용 IP를 만듭니다. (DNS 이름은 고유해야 하므로 고유한 이름을 입력합니다.)
+1.  [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 공용 IP를 만듭니다. 다음 예제는 *mypublicdns* 라는 DNS 이름으로 *myPublicIP* 라는 공용 IP를 만듭니다. (DNS 이름은 고유해야 하므로 고유한 이름을 입력합니다.)
 
     ```azurecli
     az network public-ip create --resource-group myResourceGroup \
@@ -102,7 +102,7 @@ Azure Managed Disks에 대한 자세한 내용은 [Azure Managed Disks 개요](.
     ```
 
 1.  [az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 NIC를 만듭니다.
-    다음 예제에서는 *mySubnet* 서브넷에 연결된 *myNic*라는 NIC를 만듭니다.
+    다음 예제에서는 *mySubnet* 서브넷에 연결된 *myNic* 라는 NIC를 만듭니다.
 
     ```azurecli
     az network nic create --resource-group myResourceGroup \

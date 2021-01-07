@@ -9,23 +9,23 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b96f38d04fe3e3cb59fa75424ae588fe0e38f510
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938074"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148051"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>CLI (azdata 또는 kubectl)를 사용 하 여 Azure Database for PostgreSQL 하이퍼 확장 서버 그룹 확장 및 축소
 
 
 
-서버 그룹의 특성이 나 정의를 변경 해야 하는 경우가 있습니다. 다음은 그 예입니다. 
+서버 그룹의 특성이 나 정의를 변경 해야 하는 경우가 있습니다. 예를 들면 다음과 같습니다.
 
 - 각 코디네이터 또는 작업자 노드에 사용 되는 vCores 수를 늘리거나 줄일 수 있습니다.
 - 각 코디네이터 또는 작업자 노드에서 사용 하는 메모리를 확장 하거나 축소 합니다.
 
-이 가이드에서는 vCore 및/또는 메모리 크기를 조정 하는 방법을 설명 합니다.
+이 가이드에서는 vCore 및/또는 메모리의 크기를 조정 하는 방법을 설명 합니다.
 
 서버 그룹의 vCore 또는 메모리 설정을 확장 하거나 축소 하면 각 vCore 및 메모리 설정에 대해 최소 및/또는 최대를 설정할 수 있습니다. 특정 개수의 vCore 또는 특정 양의 메모리를 사용 하도록 서버 그룹을 구성 하려면 최소 설정에 해당 하는 최소 설정을 설정 합니다.
 
@@ -84,7 +84,7 @@ kubectl describe postgresql-12/<server group name> [-n <namespace name>]
 
 설정 하려는 설정은 Kubernetes 클러스터에 대해 설정한 구성 내에서 고려해 야 합니다. Kubernetes 클러스터가 충족 하지 못하는 값을 설정 하지 않았는지 확인 합니다. 오류가 발생 하거나 예기치 않은 동작이 발생할 수 있습니다. 예를 들어 구성 변경 후 서버 그룹의 상태가 오랫동안 _업데이트_ 상태로 유지 되는 경우 아래 매개 변수를 Kubernetes 클러스터가 충족 하지 못하는 값으로 설정 하는 것을 나타낼 수 있습니다. 이 경우 변경 내용을 되돌리거나 _troubleshooting_section을 읽습니다.
 
-서버 그룹의 정의를로 확장 하려는 경우를 가정해 보겠습니다.
+예를 들어, 서버 그룹의 정의를로 확장 하려는 경우를 가정해 보겠습니다.
 
 - 최소 vCore = 2
 - 최대 vCore = 4
@@ -94,6 +94,13 @@ kubectl describe postgresql-12/<server group name> [-n <namespace name>]
 다음 방법 중 하나를 사용 합니다.
 
 ### <a name="cli-with-azdata"></a>Azdata를 사용 하는 CLI
+
+```console
+azdata arc postgres server edit -n <name of your server group> --cores-request <# core-request>  --cores-limit <# core-limit>  --memory-request <# memory-request>Mi  --memory-limit <# memory-limit>Mi
+```
+
+> [!CAUTION]
+> 다음은 명령을 사용 하는 방법을 보여 주는 예제입니다. 편집 명령을 실행 하기 전에 매개 변수를 Kubernetes 클러스터에서 사용할 수 있는 값으로 설정 해야 합니다.
 
 ```console
 azdata arc postgres server edit -n <name of your server group> --cores-request 2  --cores-limit 4  --memory-request 512Mi  --memory-limit 1024Mi
@@ -116,9 +123,13 @@ kubectl edit postgresql-12/<server group name> [-n <namespace name>]
 
 그러면 vi 편집기에서 구성을 탐색 하 고 변경할 수 있습니다. 다음을 사용 하 여 원하는 설정을 사양의 필드 이름에 매핑합니다.
 
+> [!CAUTION]
+> 다음은 구성을 편집 하는 방법을 설명 하기 위해 제공 되는 예제입니다. 구성을 업데이트 하기 전에 Kubernetes 클러스터에서 사용할 수 있는 값으로 매개 변수를 설정 해야 합니다.
+
+예를 들면 다음과 같습니다.
 - 최소 vCore = 2-> scheduling\default\resources\requests\cpu
 - 최대 vCore = 4-> scheduling\default\resources\limits\cpu
-- 최소 메모리 = 512Mb-> 예약 \ 기본 \ 리소스
+- 최소 메모리 = 512Mb-> scheduling\default\resources\requests\cpu
 - 최대 메모리 = 1Gb > scheduling\default\resources\limits\cpu
 
 Vi 편집기에 익숙하지 않은 경우 [여기](https://www.computerhope.com/unix/uvi.htm)에 필요할 수 있는 명령에 대 한 설명을 참조 하세요.
@@ -172,7 +183,6 @@ kubectl describe postgresql-12/<server group name>  [-n <namespace name>]
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Database for PostgreSQL 하이퍼 확장 서버 그룹 확장](scale-out-postgresql-hyperscale-server-group.md)
+- [Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-postgresql-hyperscale-server-group.md)
 - [저장소 구성 및 Kubernetes 저장소 개념](storage-configuration.md)
-- [영구적 볼륨 클레임 확장](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes 리소스 모델](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

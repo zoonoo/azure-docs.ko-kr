@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8690b1a4b8527a397fcf4c04892e167b5332358d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3766db0d5070f15216ac612353e2c25737ad092a
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035403"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741629"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>셀프 서비스 암호 재설정 Azure Active Directory 사용자 환경 사용자 지정
 
@@ -50,14 +50,14 @@ SSPR (셀프 서비스 암호 재설정)는 관리자 또는 지원 센터의 �
 
 어떠한 경우에도 최대 100명의 받는 사람에게 알림이 제공됩니다.
 
-다양한 관리자 역할과 각 역할을 할당하는 방법에 대해 자세히 알아보려면 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+다양한 관리자 역할과 각 역할을 할당하는 방법에 대해 자세히 알아보려면 [Azure Active Directory에서 관리자 역할 할당](../roles/permissions-reference.md)을 참조하세요.
 
 ### <a name="disable-contact-your-administrator-emails"></a>“관리자에게 문의” 메일 사용 안 함
 
 조직에서 관리자에 게 암호 재설정 요청을 알리지 않으려는 경우 다음 구성 옵션을 사용할 수 있습니다.
 
-* 사용자가 도움을 받을 수 있는 웹 URL 또는 mailto: 주소를 제공하는 고객 지원 센터 링크를 사용자 지정합니다. 이 옵션은 **암호 재설정**  >  **Customization**  >  **사용자 지정 기술 지원팀 전자 메일 또는 URL**아래에 있습니다.
-* 모든 사용자에 대해 셀프 서비스 암호 재설정을 사용 하도록 설정 합니다. 이 옵션은 **암호 재설정**  >  **속성**아래에 있습니다. 사용자가 자신의 암호를 재설정할 수 없도록 하려면 빈 그룹에 대한 액세스 범위를 지정하면 됩니다. *이 옵션은 권장 되지 않습니다.*
+* 사용자가 도움을 받을 수 있는 웹 URL 또는 mailto: 주소를 제공하는 고객 지원 센터 링크를 사용자 지정합니다. 이 옵션은 **암호 재설정**  >  **Customization**  >  **사용자 지정 기술 지원팀 전자 메일 또는 URL** 아래에 있습니다.
+* 모든 사용자에 대해 셀프 서비스 암호 재설정을 사용 하도록 설정 합니다. 이 옵션은 **암호 재설정**  >  **속성** 아래에 있습니다. 사용자가 자신의 암호를 재설정할 수 없도록 하려면 빈 그룹에 대한 액세스 범위를 지정하면 됩니다. *이 옵션은 권장 되지 않습니다.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>로그인 페이지 및 액세스 패널 사용자 지정
 
@@ -72,9 +72,9 @@ SSPR (셀프 서비스 암호 재설정)는 관리자 또는 지원 센터의 �
 
 ### <a name="directory-name"></a>디렉터리 이름
 
-사용자에 게 더 친숙 하 게 보이도록 포털 및 자동화 된 통신에서 조직 이름을 변경할 수 있습니다. Azure Portal에서 디렉터리 이름 특성을 변경 하려면 **Azure Active Directory**  >  **속성**으로 이동 합니다. 이러한 친숙 한 조직 이름 옵션은 다음 예제와 같이 자동화 된 전자 메일에서 가장 잘 표시 됩니다.
+사용자에 게 더 친숙 하 게 보이도록 포털 및 자동화 된 통신에서 조직 이름을 변경할 수 있습니다. Azure Portal에서 디렉터리 이름 특성을 변경 하려면 **Azure Active Directory**  >  **속성** 으로 이동 합니다. 이러한 친숙 한 조직 이름 옵션은 다음 예제와 같이 자동화 된 전자 메일에서 가장 잘 표시 됩니다.
 
-* 전자 메일의 이름 (예: "*CONTOSO 데모를 대신*하는 Microsoft")
+* 전자 메일의 이름 (예: "*CONTOSO 데모를 대신* 하는 Microsoft")
 * 전자 메일의 제목 줄 (예: "*CONTOSO 데모 계정 전자 메일 확인 코드*")
 
 ## <a name="customize-the-ad-fs-sign-in-page"></a>AD FS 로그인 페이지 사용자 지정
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 사용자 환경에서 SSPR의 사용을 이해 하려면 [AZURE AD 암호 관리에 대 한 보고 옵션](howto-sspr-reporting.md)을 참조 하세요.
 
-사용자 또는 사용자가 SSPR에 문제가 있는 경우 [셀프 서비스 암호 재설정 문제 해결](active-directory-passwords-troubleshoot.md) 을 참조 하세요.
+사용자 또는 사용자가 SSPR에 문제가 있는 경우 [셀프 서비스 암호 재설정 문제 해결](./troubleshoot-sspr.md) 을 참조 하세요.

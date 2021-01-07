@@ -7,26 +7,26 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 175abe54ce5476bece309bbfaf7858cd2e214f52
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019857"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 통합 및 개발 
 이 문서에서는 Azure Stream Analytics CI/CD NuGet 패키지를 사용 하 여 지속적인 통합 및 배포 프로세스를 설정 하는 방법을 설명 합니다.
 
-MSBuild에 대한 지원을 제공하기 위해 2.3.0000.0 이상 버전의 [Visual Studio용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)를 사용합니다.
+MSBuild에 대한 지원을 제공하기 위해 2.3.0000.0 이상 버전의 [Visual Studio용 Stream Analytics 도구](./stream-analytics-quick-create-vs.md)를 사용합니다.
 
 [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/)에서 NuGet 패키지를 사용할 수 있습니다. [Visual Studio 프로젝트 Stream Analytics](stream-analytics-vs-tools.md)의 지속적인 통합 및 배포 프로세스를 지 원하는 MSBuild, 로컬 실행 및 배포 도구를 제공 합니다. 
 > [!NOTE]
 > NuGet 패키지는 Visual Studio용 Stream Analytics 도구 버전 2.3.0000.0 이상에서만 사용할 수 있습니다. 이전 버전의 Visual Studio 도구에서 만든 프로젝트가 있는 경우 2.3.0000.0 이상 버전에서 열어 저장하기만 하면 됩니다. 그런 다음 새 기능이 활성화됩니다. 
 
-자세한 내용은 [Visual Studio용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)를 참조하세요.
+자세한 내용은 [Visual Studio용 Stream Analytics 도구](./stream-analytics-quick-create-vs.md)를 참조하세요.
 
 ## <a name="msbuild"></a>MSBuild
-표준 Visual Studio MSBuild 환경과 마찬가지로 프로젝트를 빌드하는 두 가지 옵션이 있습니다. 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **빌드**를 선택할 수 있습니다. 또한 명령줄에서 NuGet 패키지의 **MSBuild**를 사용할 수도 있습니다.
+표준 Visual Studio MSBuild 환경과 마찬가지로 프로젝트를 빌드하는 두 가지 옵션이 있습니다. 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **빌드** 를 선택할 수 있습니다. 또한 명령줄에서 NuGet 패키지의 **MSBuild** 를 사용할 수도 있습니다.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
@@ -52,7 +52,7 @@ Parameters.json 파일의 기본 매개 변수는 Visual Studio 프로젝트의 
       "value": null
     },
 ```
-[Resource Manager 템플릿 파일 및 Azure PowerShell을 사용하여 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)하는 방법에 대해 자세히 알아보세요. [Resource Manager 템플릿에서 개체를 매개 변수로 사용](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)하는 방법에 대해 자세히 알아보세요.
+[Resource Manager 템플릿 파일 및 Azure PowerShell을 사용하여 배포](../azure-resource-manager/templates/deploy-powershell.md)하는 방법에 대해 자세히 알아보세요. [Resource Manager 템플릿에서 개체를 매개 변수로 사용](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)하는 방법에 대해 자세히 알아보세요.
 
 Azure Data Lake Store Gen1용 관리 ID를 출력 싱크로 사용하려면 Azure에 배포하기 전에 PowerShell을 사용하여 서비스 주체에 액세스 권한을 제공해야 합니다. [Resource Manager 템플릿에서 관리 ID를 사용하여 ADLS Gen1을 배포](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)하는 방법을 자세히 알아봅니다.
 
@@ -60,7 +60,7 @@ Azure Data Lake Store Gen1용 관리 ID를 출력 싱크로 사용하려면 Azur
 ## <a name="command-line-tool"></a>명령줄 도구
 
 ### <a name="build-the-project"></a>프로젝트 빌드
-NuGet 패키지에는 **SA.exe**라는 명령줄 도구가 있습니다. 이 도구는 연속 통합 및 지속적인 업데이트 프로세스에서 사용할 수 있는 임의의 컴퓨터에서의 프로젝트 빌드 및 로컬 테스트를 지원합니다. 
+NuGet 패키지에는 **SA.exe** 라는 명령줄 도구가 있습니다. 이 도구는 연속 통합 및 지속적인 업데이트 프로세스에서 사용할 수 있는 임의의 컴퓨터에서의 프로젝트 빌드 및 로컬 테스트를 지원합니다. 
 
 배포 파일은 기본적으로 현재 디렉터리에 배치됩니다. 다음 -OutputPath 매개 변수를 사용하여 출력 경로를 지정할 수 있습니다.
 

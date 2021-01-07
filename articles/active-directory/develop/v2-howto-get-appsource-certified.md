@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory에 대해 인증 된 AppSource 가져오기 Microsoft Docs
-description: Azure Active Directory에 대해 인증된 애플리케이션 AppSource 가져오는 방법에 대한 세부 정보.
+description: Azure Active Directory에 대해 인증 된 응용 프로그램 AppSource를 가져오는 방법에 대해 자세히 알아보세요.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 08acaf4f0171e586ff2cc3f52134395fb5925df7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 65d6151536eb92e2ab9b740a99984fb0b5977cab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118810"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91256877"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증 된 AppSource 가져오기
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42c79526288fb7e05959ac60cddc6f468656ffd4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80240356"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972546"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>기본 제공 직접 메서드를 사용 하 여 edgeAgent와 통신
 
@@ -28,7 +28,7 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 IoT Edge 
 
 **Ping** 방법은 IoT Edge 장치에서 실행 되 고 있는지 여부 또는 장치에 IoT Hub에 대 한 열린 연결이 있는지 여부를 확인 하는 데 유용 합니다. 이 직접 메서드를 사용 하 여 IoT Edge 에이전트를 ping 하 고 해당 상태를 가져옵니다. 성공적인 ping은 빈 페이로드 및 **"status": 200**을 반환 합니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device name> -m '$edgeAgent'
@@ -46,7 +46,7 @@ RestartModule 메서드는 IoT Edge 버전 1.0.9 이상에서 사용할 수 있�
 
 EdgeAgent 모듈 자체를 포함 하 여 IoT Edge 장치에서 실행 되는 모든 모듈에서 RestartModule direct 메서드를 사용할 수 있습니다. 그러나이 직접 메서드를 사용 하 여 edgeAgent를 종료 하는 경우 모듈을 다시 시작 하는 동안 연결이 중단 되므로 성공 결과가 수신 되지 않습니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <device name> -m '$edgeAgent' --method-payload \
@@ -69,13 +69,14 @@ Azure Portal에서 메서드 이름 `RestartModule` 및 다음 JSON 페이로드
 
 ![Azure Portal에서 직접 메서드 ' RestartModule '를 호출 합니다.](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
 
-## <a name="experimental-methods"></a>실험적 메서드
+## <a name="diagnostic-direct-methods"></a>진단 직접 메서드
 
-새 직접 메서드 옵션은 다음을 비롯 하 여 테스트할 실험적 기능으로 사용할 수 있습니다.
+* [GetModuleLogs](how-to-retrieve-iot-edge-logs.md#retrieve-module-logs): 직접 메서드의 응답에서 모듈 로그를 인라인으로 검색 합니다.
+* [UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs): 모듈 로그를 검색 하 고 Azure Blob Storage에 업로드 합니다.
+* [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics): 지원 번들을 사용 하 여 모듈 로그를 검색 하 고 Azure Blob Storage에 zip 파일을 업로드 합니다.
+* [Gettaskstatus](how-to-retrieve-iot-edge-logs.md#get-upload-request-status): 업로드 로그 또는 지원 번들 요청의 상태를 확인 합니다.
 
-* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): 모듈 로그를 검색 하 고 Azure Blob Storage에 업로드 합니다.
-* [Gettaskstatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): 로그 업로드 요청의 상태를 확인 합니다.
-* [Getlogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): 직접 메서드 응답에서 모듈 로그를 인라인으로 검색 합니다.
+1.0.10 릴리스에서는 이러한 진단 직접 메서드를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

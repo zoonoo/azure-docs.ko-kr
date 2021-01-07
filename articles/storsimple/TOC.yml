@@ -194,7 +194,7 @@
                   items:
                     - name: 'FAQ: 로컬로 고정된 볼륨'
                       href: storsimple-8000-local-volume-faq.md
-                - name: 역할 기반 액세스 제어
+                - name: Azure 역할 기반 액세스 제어
                   href: storsimple-8000-role-based-access-control.md
                 - name: ACR 관리
                   href: storsimple-8000-manage-acrs.md
@@ -323,8 +323,6 @@
               items:
                 - name: StorSimple 8000 시리즈 디바이스 대상
                   href: storsimple-8000-migrate-from-5000-7000.md
-                - name: Azure 파일 동기화로
-                  href: storsimple-5000-7000-afs-migration.md
             - name: 다른 스토리지 디바이스에서
               href: 'https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf'
         - name: 업데이트
@@ -354,19 +352,19 @@
             - name: Update 1
               href: storsimple-update1-release-notes.md
             - name: 업데이트 0.3
-              href: storsimple-february-2015-release-notes.md
+              href: ./index.yml
             - name: 업데이트 0.2
-              href: storsimple-january-2015-release-notes.md
+              href: ./index.yml
             - name: 업데이트 0.1
-              href: storsimple-october-2014-release-notes.md
+              href: ./index.yml
             - name: 릴리스 - GA
-              href: storsimple-july-2014-release-notes.md
+              href: ./index.yml
     - name: 참조
       items:
         - name: REST API
-          href: 'https://docs.microsoft.com/rest/api/storsimple'
+          href: /rest/api/storsimple
         - name: StorSimple용 Windows PowerShell cmdlet
-          href: 'https://technet.microsoft.com/library/dn688168.aspx'
+          href: /powershell/module/hcs/?viewFallbackFrom=winserverr2-ps
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple 데이터 관리자
@@ -400,7 +398,7 @@
     - name: 릴리스 정보
       items:
         - name: StorSimple 릴리스 정보
-          href: 'https://aka.ms/storsimple-virtual-array-latest-relnote'
+          href: ./storsimple-virtual-array-update-04-release-notes.md
         - name: CSP 릴리스 정보
           href: 'https://partner.microsoft.com/Support/whats-new'
         - name: 'CSP용 StorSimple: FAQ'
@@ -414,13 +412,13 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 마케팅 블로그
-      href: 'https://blogs.technet.com/b/cis/'
+      href: /archive/blogs/cis/
     - name: Marketing
       href: 'https://azure.microsoft.com/services/storsimple/'
     - name: StorSimple 지원 옵션
       href: storsimple-8000-support-options.md
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-storsimple.html'
+      href: /answers/topics/azure-storsimple.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/storsimple/'
     - name: 요금 계산기
@@ -428,7 +426,7 @@
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=storsimple'
     - name: 지원 블로그
-      href: 'https://docs.microsoft.com/archive/blogs/storsimple/'
+      href: /archive/blogs/storsimple/
     - name: 타사 알림
       href: 'https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip'
     - name: 동영상

@@ -5,13 +5,15 @@ author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.date: 08/17/2020
-ms.openlocfilehash: 2c3b11ca0c2bb916a5a3fcaf50eb99c7db3aa8e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.reviewer: cynthn
+ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88643004"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968590"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Azure Portal를 사용 하 여 SAP 솔루션에 대 한 Azure Monitor 배포
 
@@ -23,7 +25,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-monitoring-resource"></a>모니터링 리소스 만들기
 
-1. **Azure Marketplace**에서 **SAP 솔루션에 대 한 Azure Monitor를** 선택 합니다.
+1. **Azure Marketplace** 에서 **SAP 솔루션에 대 한 Azure Monitor를** 선택 합니다.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="이미지는 Azure Marketplace에서 SAP 솔루션 제품에 대 한 Azure Monitor를 선택 하는 방법을 보여 줍니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
@@ -46,15 +48,18 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 2. **공급자 추가** 를 선택 하 고 드롭다운에서 **SAP HANA** 를 선택 합니다. 
 
+   > [!IMPORTANT]
+   > SAP HANA 공급자가 SAP HANA ' master ' 노드에 대해 구성 되어 있는지 확인 하십시오.
+
 3. HANA 서버에 대 한 개인 IP를 입력 합니다.
 
 4. 사용 하려는 데이터베이스 테 넌 트의 이름을 입력 합니다. 그러나 모든 테 넌 트를 선택할 수 있지만, 더 광범위 한 모니터링 영역을 사용 하도록 설정 하기 위해 **Systemdb** 를 사용 하는 것이 좋습니다. 
 
-5. HANA 데이터베이스와 연결 된 SQL 포트 번호를 입력 합니다. 포트 번호는 **[3]**  +  **[instance #]**  +  **[13]** 또는 **[3]**  +  **[instance #]**  +  **[15]** 형식 이어야 합니다. 예를 들면 30013 또는 30015입니다. 
+5. HANA 데이터베이스와 연결 된 SQL 포트 번호를 입력 합니다. 포트 번호는 **[3]**  +  **[instance #]**  +  **[13]** 형식 이어야 합니다. 예를 들면 30013입니다. 
 
 6. 사용 하려는 데이터베이스 사용자 이름을 입력 합니다. 데이터베이스 사용자에 게 **모니터링** 및 **카탈로그 읽기** 역할이 할당 되어 있는지 확인 하십시오. 
 
-7. 완료 되 면 **공급자 추가**를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
+7. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="공급자 정보를 추가할 때의 구성 옵션 이미지입니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -69,7 +74,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
  
 3. 시스템 ID (SID), 호스트 이름 및 클러스터 이름을 입력 합니다.
 
-4. 완료 되 면 **공급자 추가**를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
+4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="이미지 HA 클러스터 Pacemaker 공급자와 관련 된 옵션을 표시 합니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
@@ -107,7 +112,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 3. Microsoft SQL Server 관련 된 정보를 사용 하 여 필드를 채웁니다. 
 
-4. 완료 되 면 **공급자 추가**를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
+4. 완료 되 면 **공급자 추가** 를 선택 합니다. 필요에 따라 추가 공급자를 계속 추가 하거나 **검토 + 만들기** 를 선택 하 여 배포를 완료 합니다.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="이미지 Microsoft SQL Server 공급자를 추가 하는 것과 관련 된 정보를 표시 합니다." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86042080"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>클라우드 초기화에 대해 자세히 알아보기
@@ -21,7 +21,7 @@ ms.locfileid: "86042080"
 일반화 된 이미지에 클라우드 init가 포함 되어 있고 해당 이미지에서 VM을 만든 경우 초기 부팅 중에 구성을 처리 하 고 5 단계까지 실행 합니다. 이러한 단계는 클라우드 초기화가 구성을 적용 하는 지점에 대 한 정보를 표시 하므로 중요 합니다. 
 
 
-## <a name="understand-cloud-init-configuration"></a>클라우드 초기화 구성 이해
+## <a name="understand-cloud-init-configuration"></a>Cloud-Init 구성 이해
 VM을 구성 하는 것은 플랫폼에서 실행 되도록 VM을 구성 하는 것을 의미 합니다. 즉, 클라우드 init는 여러 구성을 적용 해야 함을 의미 하며, 상호 작용 하는 기본 구성은 `User data` (customData) 이며 여러 형식을 지원 합니다 .이에 대해서는 [여기](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats)에 설명 되어 있습니다. 추가 구성에 대해 스크립트 (/var/lib/cloud/scripts)를 추가 하 고 실행 하는 기능을 사용할 수도 있습니다 .이에 대해서는 아래에서 자세히 설명 합니다.
 
 일부 구성은 이미 클라우드 init와 함께 제공 되는 Azure Marketplace 이미지로 구운 됩니다. 예를 들면 다음과 같습니다.
@@ -71,9 +71,9 @@ VM을 구성 하는 것은 플랫폼에서 실행 되도록 VM을 구성 하는 
 5. [클라우드 초기화 최종 단계](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final):이 마지막 단계에서는 `cloud_final_modules` /etc/cloud/cloud.cfg에 나열 된의 모듈이 실행 됩니다. 패키지 설치 및 스크립트 실행 등 부팅 프로세스를 실행 하는 동안 늦게 실행 해야 하는 모듈 
 
    -   이 단계를 수행 하는 동안 다음과 같은 디렉터리에 스크립트를 배치 하 여 스크립트를 실행할 수 있습니다 `/var/lib/cloud/scripts` .
-   - `per-boot`-이 디렉터리 내의 스크립트는 다시 부팅할 때마다 실행 됩니다.
-   - `per-instance`-이 디렉터리 내의 스크립트는 새 인스턴스가 처음 부팅 될 때 실행 됩니다.
-   - `per-once`-이 디렉터리 내의 스크립트는 한 번만 실행 됩니다.
+   - `per-boot` -이 디렉터리 내의 스크립트는 다시 부팅할 때마다 실행 됩니다.
+   - `per-instance` -이 디렉터리 내의 스크립트는 새 인스턴스가 처음 부팅 될 때 실행 됩니다.
+   - `per-once` -이 디렉터리 내의 스크립트는 한 번만 실행 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

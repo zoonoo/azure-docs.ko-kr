@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86181338"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456489"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Synapse SQL 풀에서 복제된 테이블을 사용하기 위한 디자인 지침
 
@@ -26,19 +26,19 @@ ms.locfileid: "86181338"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 사용자가 SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요.
+이 문서에서는 사용자가 SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.    자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요.
 
-테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.  예를 들어 다음 질문을 고려합니다.
+테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.    예를 들어 다음 질문을 고려합니다.
 
 - 테이블이 얼마나 큰가요?
 - 테이블을 얼마나 자주 새로 고치나요?
-- SQL 풀 데이터베이스에 팩트 및 차원 테이블이 있나요?
+- SQL 풀에 팩트 및 차원 테이블이 있나요?
 
 ## <a name="what-is-a-replicated-table"></a>복제 테이블이란?
 
 복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2GB는 하드 제한이 아닙니다.  데이터가 정적이고 변경되지 않는 경우 더 큰 테이블을 복제할 수 있습니다.
 
-다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL 풀에서 복제 테이블은 각 컴퓨팅 노드의 배포 데이터베이스로 완벽하게 복사됩니다.
+다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL 풀에서 복제 된 테이블은 각 계산 노드의 배포 데이터베이스로 완전히 복사 됩니다.
 
 ![복제 테이블](./media/design-guidance-for-replicated-tables/replicated-table.png "복제 테이블")  
 
@@ -51,8 +51,8 @@ ms.locfileid: "86181338"
 
 복제 테이블이 최상의 쿼리 성능을 얻을 수 없는 경우:
 
-- 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다. DML(데이터 조작 언어) 작업에는 복제 테이블 다시 빌드가 필요합니다. 다시 빌드가 빈번하면 성능을 저하시킬 수 있습니다.
-- SQL 풀 데이터베이스의 크기가 자주 조정됩니다. SQL 풀 데이터베이스의 크기를 조정하면 복제된 테이블을 다시 작성하는 컴퓨팅 노드 수가 변경됩니다.
+- 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다.  DML(데이터 조작 언어) 작업에는 복제 테이블 다시 빌드가 필요합니다.  다시 빌드가 빈번하면 성능을 저하시킬 수 있습니다.
+- SQL 풀이 자주 확장 됩니다. SQL 풀의 크기를 조정 하면 복제 된 테이블을 다시 작성 하는 계산 노드 수가 변경 됩니다.
 - 테이블에는 다수의 열이 있지만 데이터 작업은 대개 작은 수의 열에만 액세스합니다. 이 시나리오에서는 전체 테이블을 복제하는 대신 테이블을 분산한 다음, 자주 액세스하는 열의 인덱스를 만드는 것이 보다 효과적일 수 있습니다. 쿼리에 데이터 이동이 필요하면 SQL 풀은 요청된 열의 데이터만 이동합니다.
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>단순 쿼리 조건자로 복제 테이블 사용
@@ -174,8 +174,8 @@ SQL 풀은 테이블의 마스터 버전을 유지하여 복제 테이블을 구
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
-  FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
+  FROM sys.tables t  
+  JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id
   JOIN sys.pdw_table_distribution_properties p
     ON p.object_id = t.object_id

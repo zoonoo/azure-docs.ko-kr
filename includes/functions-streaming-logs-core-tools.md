@@ -4,24 +4,27 @@ ms.author: glenga
 ms.date: 7/24/2019
 ms.topic: include
 ms.service: azure-functions
-ms.openlocfilehash: 1928a8238cd73087e3c199675574dd1395f4d76d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 0159ceb6e5d6d64a7a9bda383396607e4ce05b84
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68881362"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020365"
 ---
 #### <a name="built-in-log-streaming"></a>기본 제공 로그 스트리밍
 
-`logstream`다음 예제와 같이 Azure에서 실행 중인 특정 함수 앱의 스트리밍 로그 수신을 시작 하려면 옵션을 사용 합니다.
+다음 예제와 같이 `logstream` 옵션을 사용하여 Azure에서 실행 중인 특정 함수 앱의 스트리밍 로그 수신을 시작합니다.
 
 ```bash
 func azure functionapp logstream <FunctionAppName>
 ```
 
+>[!NOTE]
+>기본 제공 로그 스트리밍은 사용 계획의 Linux에서 실행되는 함수 앱의 핵심 도구에서 아직 사용하도록 설정되지 않습니다. 이러한 호스팅 계획의 경우 라이브 메트릭 스트림을 대신 사용하여 로그를 거의 실시간으로 볼 수 있어야 합니다.
+
 #### <a name="live-metrics-stream"></a>라이브 메트릭 스트림
 
-[Live Metrics Stream](../articles/azure-monitor/app/live-stream.md) `--browser` 다음 예제와 같이 옵션을 포함 하 여 새 브라우저 창에서 함수 앱에 대 한 라이브 메트릭 스트림를 볼 수도 있습니다.
+다음 예제와 같이 `--browser` 옵션을 포함하여 새 브라우저 창에서 함수 앱에 대한 [라이브 메트릭 스트림](../articles/azure-monitor/app/live-stream.md)을 볼 수도 있습니다.
 
 ```bash
 func azure functionapp logstream <FunctionAppName> --browser

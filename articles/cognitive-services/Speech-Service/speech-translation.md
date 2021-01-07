@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 음성 번역
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401217"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015208"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
@@ -48,20 +48,20 @@ Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 �
 
 ## <a name="migration-guides"></a>마이그레이션 가이드
 
-응용 프로그램, 도구 또는 제품이 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)를 사용 하는 경우 음성 서비스로 마이그레이션하는 데 도움이 되는 가이드를 만들었습니다.
+응용 프로그램, 도구 또는 제품이 [Translator Speech API](./how-to-migrate-from-translator-speech-api.md)를 사용 하는 경우 음성 서비스로 마이그레이션하는 데 도움이 되는 가이드를 만들었습니다.
 
 * [Translator Speech API에서 Speech service로 마이그레이션](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](./speech-sdk.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
-* [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
+* [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>다음 단계
 
 * 음성 번역 [빠른](get-started-speech-translation.md) 시작 완료
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [Speech SDK 가져오기](speech-sdk.md)

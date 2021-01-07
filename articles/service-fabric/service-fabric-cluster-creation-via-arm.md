@@ -4,15 +4,15 @@ description: Azure Resource Manager를 사용하여 Azure에 보안 Service Fabr
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: fd2c472d24f305e42f1706e5fc49168ccde2a580
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258761"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008670"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
-> * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
+> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
@@ -26,7 +26,7 @@ ms.locfileid: "86258761"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 조건 
 이 문서에서는 Service Fabric RM Powershell 또는 Azure CLI 모듈을 사용하여 클러스터를 배포합니다.
 
 * [Azure PowerShell 4.1 이상][azure-powershell]
@@ -60,7 +60,7 @@ az account set --subscription $subscriptionId
 
 사용 되는 템플릿은 [Azure Service Fabric 템플릿 샘플: windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure) 에서 사용할 수 있습니다.
 
-다음 명령은 Windows 또는 Linux 클러스터를 만들 수 있으므로 적절하게 OS를 지정해야 합니다. PowerShell/CLI 명령은 지정 된 *Certificateoutputfolder*에도 인증서를 출력 합니다. 그러나 인증서 폴더가 이미 만들어졌는지 확인 합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
+다음 명령은 Windows 또는 Linux 클러스터를 만들 수 있으므로 적절하게 OS를 지정해야 합니다. PowerShell/CLI 명령은 지정 된 *Certificateoutputfolder* 에도 인증서를 출력 합니다. 그러나 인증서 폴더가 이미 만들어졌는지 확인 합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
 
 > [!NOTE]
 > 다음 PowerShell 명령은 Azure PowerShell 모듈 에서만 작동 합니다 `Az` . Azure Resource Manager PowerShell 버전의 현재 버전을 확인 하려면 다음 PowerShell 명령 "Import-module Az"를 실행 합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/install-Az-ps)를 따릅니다. 

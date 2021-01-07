@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1575ee02a520fd39a1c659eadaeda5822207539
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171123"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880990"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure(대규모 인스턴스)란?
 
@@ -34,12 +35,14 @@ SAP HANA on Azure(대규모 인스턴스)는 Azure의 고유한 솔루션입니�
 
 이러한 베어 메탈 서버 단위는 SAP HANA 실행만 지원합니다. SAP 애플리케이션 계층 또는 워크로드 미들웨어 계층은 가상 머신에서 실행됩니다. SAP HANA on Azure(대규모 인스턴스) 장치를 실행하는 인프라 스탬프는 Azure 네트워크 서비스 백본에 연결됩니다. 이러한 방식으로 SAP HANA on Azure(대규모 인스턴스) 장치와 가상 머신 간의 짧은 대기 시간 연결이 제공됩니다.
 
-7 월 2019을 통해 HANA Large Instance 스탬프와 배포 위치에 대 한 두 가지 다른 수정 버전을 구분 합니다.
+2021 년 1 월 1 일부 터는 HANA Large Instance 스탬프와 배포 위치에 대 한 두 가지 다른 수정 버전을 구분 합니다.
 
 - "수정 버전 3" (Rev 3): 고객이 7 월 2019 일 이전에 배포할 수 있도록 만든 스탬프입니다.
 - "수정 버전 4" (Rev 4): Azure VM 호스트와 가까운 곳에 배포 되 고 지금 까지의 Azure 지역에서 출시 되는 새 스탬프 디자인:
     -  미국 서부2 
-    -  미국 동부 
+    -  미국 동부
+    -  동부 미국 (두 가용성 영역 간)
+    -  남부 중부 US (두 개의 가용성 영역)
     -  서유럽
     -  북유럽
 
@@ -56,7 +59,7 @@ HANA 대규모 인스턴스 지침의 다른 문서는 다음 영역을 다룹�
 - [Azure에서 SAP HANA (규모가 많은 인스턴스) 문제 해결 및 모니터링](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [STONITH를 사용하여 SUSE에서 고가용성 설정](./ha-setup-with-stonith.md)
 - [수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원](./os-backup-type-ii-skus.md)
-- [Azure 예약을 사용 하 여 SAP HANA(대규모 인스턴스)에 저장](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
+- [Azure 예약을 사용하여 SAP HANA(대규모 인스턴스) 비용 절감](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **다음 단계**
 - [Know the terms(용어 알아보기)](hana-know-terms.md) 참조

@@ -3,18 +3,20 @@ title: Azure Cosmos DB를 사용한 성능 및 규모 테스트
 description: Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하는 방법을 알아봅니다. 그런 다음, 고성능 애플리케이션 시나리오에 대한 Azure Cosmos DB의 기능을 평가할 수 있습니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ffe368d763ee93d1864f0f807cbe18b8ebfe41c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: cb0dd8eb879c5511da3c79a3dee6a715fb1275e4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851664"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358646"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 성능 및 규모 테스트
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 성능 및 규모 테스트는 애플리케이션 개발의 핵심 단계입니다. 많은 애플리케이션에서 데이터베이스 계층은 전체 성능과 확장성에 큰 영향을 미칩니다. 따라서 성능 테스트의 주요 구성 요소가 됩니다. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 탄력적 확장 및 예측 가능한 성능을 목적으로 구축되었습니다. 이러한 기능은 고성능 데이터베이스 계층이 필요한 애플리케이션에 잘 맞습니다. 
 
@@ -25,7 +27,7 @@ ms.locfileid: "85851664"
 * Azure Cosmos DB의 성능 테스트를 위한 샘플 .NET 클라이언트 애플리케이션은 어디에서 찾을 수 있나요? 
 * 클라이언트 애플리케이션에서 Azure Cosmos DB를 사용하여 높은 처리량 수준을 달성하려면 어떻게 하나요?
 
-코드를 시작하려면 [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드하세요. 
+코드를 시작하려면 [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드하세요. 
 
 > [!NOTE]
 > 이 애플리케이션의 목표는 적은 수의 클라이언트 머신을 사용하여 Azure Cosmos DB에서 최상의 성능을 얻는 방법을 제시하는 것입니다. 이 샘플의 목표는 Azure Cosmos DB의 최대 처리 용량을 달성하는 것이 아닙니다(제한 없이 확장 가능).
@@ -35,7 +37,7 @@ Azure Cosmos DB의 성능 향상을 위한 클라이언트 쪽 구성 옵션에 
 ## <a name="run-the-performance-testing-application"></a>성능 테스트 애플리케이션 실행
 가장 빠른 시작 방법은 다음 단계에 설명된 대로 아래의 .NET 샘플을 컴파일하고 실행하는 것입니다. 소스 코드를 검토하고 자체 클라이언트 애플리케이션에 대해 비슷한 구성을 구현할 수도 있습니다.
 
-**1 단계:** [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드 하거나 GitHub 리포지토리를 분기 합니다.
+**1 단계:** [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark)에서 프로젝트를 다운로드 하거나 GitHub 리포지토리를 분기 합니다.
 
 **2 단계:** App.config에서 EndpointUrl, AuthorizationKey, CollectionThroughput 및 DocumentTemplate (옵션)에 대 한 설정을 수정 합니다.
 
@@ -93,10 +95,10 @@ Press any key to exit...
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 .NET 콘솔 앱을 사용하여 Azure Cosmos DB로 성능 및 규모 테스트를 수행하는 방법을 살펴보았습니다. 자세한 내용은 다음 항목을 참조하세요.
+이 문서에서는 .NET 콘솔 앱을 사용하여 Azure Cosmos DB로 성능 및 규모 테스트를 수행하는 방법을 살펴보았습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
-* [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark)
 * [Azure Cosmos DB 성능 향상을 위한 클라이언트 구성 옵션](performance-tips.md)
-* [Azure Cosmos DB의 서버 쪽 분할](partition-data.md)
+* [Azure Cosmos DB의 서버 쪽 분할](partitioning-overview.md)
 
 

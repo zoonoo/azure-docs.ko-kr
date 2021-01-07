@@ -19,6 +19,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Azure Policy를 통해 VM에서 사용
       href: virtual-machines-policy-enable.md
+    - name: 손상된 Automanage 계정 복구
+      href: repair-automanage-account.md
 - name: 리소스
   expanded: true
   items:

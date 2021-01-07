@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4ab32cd37d732cd9f177363da547edd22bd5af77
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132843"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349268"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
-Cognitive Services는 감정적 감정의 텍스트 분석 또는 개체나 얼굴을 인식 하기 위해 이미지 분석과 같은 일반적인 문제를 해결 하기 위한 기계 학습 기능을 제공 합니다. 이러한 서비스를 사용 하는 데 특별 한 기계 학습 또는 데이터 과학 지식이 필요 하지 않습니다. 
+Cognitive Services는 감정적 감정의 텍스트 분석 또는 개체나 얼굴을 인식 하기 위해 이미지 분석과 같은 일반적인 문제를 해결 하기 위한 기계 학습 기능을 제공 합니다. 이 서비스를 사용하기 위해 특별한 기계 학습 또는 데이터 과학 지식이 필요하지 않습니다. 
 
-[Cognitive Services](welcome.md) 는 각각 서로 다른 일반화 된 예측 기능을 지 원하는 서비스 그룹입니다. 서비스는 올바른 서비스를 찾는 데 도움이 되는 여러 범주로 나뉩니다. 
+[Cognitive Services](./what-are-cognitive-services.md) 는 각각 서로 다른 일반화 된 예측 기능을 지 원하는 서비스 그룹입니다. 서비스는 올바른 서비스를 찾는 데 도움이 되는 여러 범주로 나뉩니다. 
 
 |서비스 범주|목적|
 |--|--|
 |[의사 결정](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.|
 |[언어](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|미리 빌드된 스크립트를 사용하여 자연어를 처리하고, 감정을 평가하고, 사용자가 원하는 것을 인식하는 방법을 알아보세요.|
 |[검색](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Add Bing Search API를 앱에 추가하고 단일 API 호출 기능을 활용하여 수십억 개의 웹 페이지, 이미지, 동영상 및 뉴스를 철저히 검색하는 기능을 활용해 보세요.|
-|[음성](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
-|[시각](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱싱 및 조정합니다.|
+|[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|음성을 텍스트로 변환하고 텍스트를 자연스러운 음성으로 변환합니다. 한 언어를 다른 언어로 번역하고 화자 검증 및 인식 기능을 사용하도록 설정할 수 있습니다.|
+|[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|사진, 동영상 및 디지털 잉크 콘텐츠를 인식 및 식별하고 캡션을 추가하고 인덱싱 및 조정합니다.|
 ||||
 
 Cognitive Services 사용 하는 경우:
@@ -44,7 +44,7 @@ Machine learning은 데이터와 알고리즘을 함께 가져와서 특정 요�
 
 기계 학습 시스템을 빌드하는 과정에는 기계 학습 또는 데이터 과학에 대 한 지식이 필요 합니다.
 
-기계 학습은 [Azure Machine Learning (AML) 제품 및 서비스](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context)를 사용 하 여 제공 됩니다.
+기계 학습은 [Azure Machine Learning (AML) 제품 및 서비스](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%2fmachine-learning%2fstudio%2fcontext%2fml-context)를 사용 하 여 제공 됩니다.
 
 ## <a name="what-is-a-cognitive-service"></a>인지 서비스는 무엇 인가요?
 
@@ -71,7 +71,7 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 
 ### <a name="no-additional-training-data-required"></a>추가 학습 데이터가 필요 하지 않음
 
-완전히 학습 된 모델을 제공 하는 서비스를 _불투명 상자로_취급할 수 있습니다. 작동 방식 또는 학습에 사용 된 데이터를 알 필요가 없습니다. 데이터를 완벽 하 게 학습 된 모델로 가져와 예측을 얻을 수 있습니다. 
+완전히 학습 된 모델을 제공 하는 서비스를 _불투명 상자로_ 취급할 수 있습니다. 작동 방식 또는 학습에 사용 된 데이터를 알 필요가 없습니다. 데이터를 완벽 하 게 학습 된 모델로 가져와 예측을 얻을 수 있습니다. 
 
 ### <a name="some-or-all-training-data-required"></a>일부 또는 모든 학습 데이터가 필요 합니다.
 
@@ -91,21 +91,21 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 |--|--|--|--|
 |[Anomaly Detector](./Anomaly-Detector/overview.md)|x|x|x|
 |Bing Search |x|||
-|[Computer Vision](./Computer-vision/Home.md)|x|||
+|[Computer Vision](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Face](./Face/Overview.md)|x|x||
 |[Form Recognizer](./form-recognizer/overview.md)||x||
 |[몰입형 리더](./immersive-reader/overview.md)|x|||
 |[Ink Recognizer](./Ink-recognizer/overview.md)|x|x||
-|[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
+|[언어 이해(LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[스피커 인식기](./speaker-recognition/home.md)||x||
+|[스피커 인식기](./speech-service/speaker-recognition-overview.md)||x||
 |[음성 텍스트 음성 변환 (TTS)](speech-service/text-to-speech.md)|x|x||
 |[음성 텍스트 음성 변환 (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
-|[텍스트 분석](./text-analytics/overview.md)|x|||
+|[Text Analytics](./text-analytics/overview.md)|x|||
 |[Translator](./translator/translator-info-overview.md)|x|||
 |[Translator-사용자 지정 번역기](./translator/custom-translator/overview.md)||x||
 
@@ -127,16 +127,16 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 
 |인식 서비스|모델 정보|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|Android 용 Tensorflow에 대 한 [내보내기](./Custom-Vision-Service/export-model-python.md) , IOS11 용 Coreml, Windows ML 용 onnx|
+|[Custom Vision](./custom-vision-service/overview.md)|Android 용 Tensorflow에 대 한 [내보내기](./Custom-Vision-Service/export-model-python.md) , IOS11 용 Coreml, Windows ML 용 onnx|
 
 ## <a name="learn-more"></a>자세한 정보
 
-* [아키텍처 가이드-Microsoft에서 기계 학습 제품 이란?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [아키텍처 가이드-Microsoft에서 기계 학습 제품 이란?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [기계 학습-심층 학습 및 기계 학습 소개](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal](cognitive-services-apis-create-account.md) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)에서 인지 서비스 계정을 만듭니다.
+* [Azure Portal](cognitive-services-apis-create-account.md) 또는 [Azure CLI](./cognitive-services-apis-create-account-cli.md)에서 인지 서비스 계정을 만듭니다.
 * 인식 서비스에 [인증](authentication.md) 하는 방법에 대해 알아봅니다.
 * 문제 식별 및 디버깅에 [진단 로깅을](diagnostic-logging.md) 사용 합니다. 
 * Docker [컨테이너](cognitive-services-container-support.md)에 인지 서비스를 배포 합니다.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 873f6beaa88e1631397827a94161ce4427b5f0bb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 024fa2f86890c6e8e791b5cf66a4e67328f62f63
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323386"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143892"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Azure Monitor에서 Log Analytics VM 확장 문제 해결
 이 문서는 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 머신에 대한 Log Analytics VM 확장에서 발생할 수 있는 오류를 해결하는 데 도움을 주며, 가능한 해결 방법을 제안합니다.
@@ -19,7 +19,7 @@ ms.locfileid: "87323386"
 확장의 상태를 확인하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에 **가상 머신**을 입력합니다. 입력을 시작하면 입력 내용에 따라 목록이 필터링됩니다. **가상 머신**을 선택합니다.
+2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에 **가상 머신**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **가상 머신**을 선택합니다.
 3. 가상 머신 목록에서 해당 가상 머신을 찾아 선택합니다.
 3. 가상 머신에서 **확장**을 클릭합니다.
 4. 목록에서 Log Analytics가 사용되도록 설정되어 있는지 여부를 확인합니다.  Linux의 경우 에이전트가 **OMSAgentforLinux**로 표시되고, Windows의 경우에는 에이전트가 **MicrosoftMonitoringAgent**로 표시됩니다.
@@ -52,7 +52,7 @@ ms.locfileid: "87323386"
 
 1. 확장 상태가 *알 수 없음*이면 VM 에이전트 로그 파일 `/var/log/waagent.log`를 검토하여 Azure VM 에이전트가 올바르게 설치되어 작동하고 있는지 확인합니다.
    * 로그가 없는 경우 VM 에이전트가 설치되지 않은 것입니다.
-   * [Linux VM에 Azure VM 에이전트 설치](../learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Linux VM에 Azure VM 에이전트 설치](../../virtual-machines/extensions/agent-linux.md#installation)
 2. 그 밖의 비정상 상태에 대해 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 및 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`에서 Linux용 Log Analytics VM 확장 로그 파일을 검토합니다.
 3. 확장 상태가 정상이나 데이터가 업로드되지 않는 경우 `/var/opt/microsoft/omsagent/log/omsagent.log`에서 Linux용 Log Analytics 에이전트 로그 파일을 검토합니다.
 
@@ -60,5 +60,4 @@ ms.locfileid: "87323386"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 외부의 컴퓨터에서 호스트되는 Linux용 Log Analytics 에이전트와 관련된 추가 문제 해결 지침에 대해서는 [Azure Log Analytics Linux 에이전트 문제 해결](agent-linux-troubleshoot.md)을 참조하세요.  
-
+Azure 외부의 컴퓨터에서 호스트되는 Linux용 Log Analytics 에이전트와 관련된 추가 문제 해결 지침에 대해서는 [Azure Log Analytics Linux 에이전트 문제 해결](agent-linux-troubleshoot.md)을 참조하세요.

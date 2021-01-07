@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 15680a4f8228af95e6643478c9262653171912ca
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a767f6f877ae22a311afdb00417efb9f28fdc8f0
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903499"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938358"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 활성화
 
@@ -52,12 +52,12 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
 4. **적용**을 선택합니다.
 
-    ![로컬 웹 UI "클라우드 세부 정보" 페이지](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
+    ![로컬 웹 UI "클라우드 세부 정보" 페이지 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
 
 5. 먼저 디바이스가 활성화됩니다. 이제 키 파일을 다운로드하라는 메시지가 표시됩니다.
     
-    ![로컬 웹 UI "클라우드 세부 정보" 페이지](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![로컬 웹 UI "클라우드 세부 정보" 페이지 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
     **다운로드 및 계속**을 선택하고 디바이스 외부의 안전한 위치에 *device-serial-no.json* 파일을 저장합니다. **이 키 파일에는 OS 디스크의 복구 키와 디바이스의 데이터 디스크가 포함되어 있습니다**. 나중에 시스템을 복구할 때 이 키가 필요할 수 있습니다.
 
@@ -88,10 +88,11 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
 6. **개요** 페이지로 이동합니다. 디바이스 상태는 **활성화됨**으로 표시되어야 합니다.
 
-    ![로컬 웹 UI "클라우드 세부 정보" 페이지](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
+    ![로컬 웹 UI "클라우드 세부 정보" 페이지 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  
 디바이스 활성화가 완료되었습니다. 이제 디바이스에서 공유를 추가할 수 있습니다.
 
+활성화하는 동안 문제가 발생하는 경우 [활성화 및 Azure Key Vault 오류 문제 해결](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors)로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

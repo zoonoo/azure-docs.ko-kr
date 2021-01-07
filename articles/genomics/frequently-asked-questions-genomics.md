@@ -10,11 +10,11 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76986039"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018327"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
@@ -25,7 +25,7 @@ ms.locfileid: "76986039"
 Microsoft Genomics 서비스의 config.txt 파일에서 process_name를 지정 합니다 `gatk4` . 정기적인 청구 요금으로 요금이 청구 됩니다.
 
 ## <a name="how-do-i-enable-output-compression"></a>출력 압축을 사용 하도록 설정 어떻게 할까요??
-출력 압축에 대 한 선택적 인수를 사용 하 여 출력 .vcf 또는 gvcf를 압축할 수 있습니다. 이는를 실행 하는 것과 같으며 `-bgzip` `-tabix` .vcf 또는 gvcf 출력에서 `.gz` (bgzip output) 및 `.tbi` (tabix output) 파일을 생성 합니다. `bgzip`는 .vcf 또는 gvcf 파일을 압축 하 고 `tabix` 압축 된 파일에 대 한 인덱스를 만듭니다. 인수는 부울로, 기본적으로 `false` .vcf 출력에 대해로 설정 되 고 `true` gcvf output의 경우로 설정 됩니다. 명령줄에서를 사용 하려면 `-bz` 또는 `--bgzip-output` as `true` (bgzip 및 tabix 실행) 또는을 지정 `false` 합니다. config.txt 파일에서이 인수를 사용 하려면 `bgzip_output: true` `bgzip_output: false` 파일에 또는를 추가 합니다.
+출력 압축에 대 한 선택적 인수를 사용 하 여 출력 .vcf 또는 gvcf를 압축할 수 있습니다. 이는를 실행 하는 것과 같으며 `-bgzip` `-tabix` .vcf 또는 gvcf 출력에서 `.gz` (bgzip output) 및 `.tbi` (tabix output) 파일을 생성 합니다. `bgzip` 는 .vcf 또는 gvcf 파일을 압축 하 고 `tabix` 압축 된 파일에 대 한 인덱스를 만듭니다. 인수는 부울로, 기본적으로 `false` .vcf 출력에 대해로 설정 되 고 `true` gcvf output의 경우로 설정 됩니다. 명령줄에서 사용하려면 `-bz` 또는 `--bgzip-output`을 `true`(bgzip 및 tabix 실행) 또는 `false`로 지정합니다. 이 인수를 config.txt 파일에 사용하려면 `bgzip_output: true` 또는 `bgzip_output: false`을 파일에 추가합니다.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?
 워크플로 API 요청을 수신하는 데 Microsoft Genomics 서비스의 99.9% 가용성을 보장합니다. 자세한 내용은 [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/)를 참조하세요.
@@ -48,10 +48,10 @@ Microsoft Genomics는 워크플로당 처리된 기가베이스 수를 기준으
  |`cancel`             |`--workflow-id`에 의해 지정된 워크플로의 처리를 취소하기 위한 요청을 보냅니다. `msgen help cancel`을 참조하세요. |
 
 ## <a name="where-do-i-get-the-value-for---api-url-base"></a>`--api-url-base`에 대한 값을 어디에서 가져올 수 있나요?
-Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키**를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
+Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키** 를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
 
 ## <a name="where-do-i-get-the-value-for---access-key"></a>`--access-key`에 대한 값을 어디에서 가져올 수 있나요?
-Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키**를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
+Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키** 를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
 
 ## <a name="why-do-i-need-two-access-keys"></a>두 개의 액세스 키가 필요한 이유는 무엇인가요?
 서비스 사용을 중단하지 않고 업데이트(재생성)하려면 두 개의 액세스 키가 필요합니다. 예를 들어 첫 번째 키를 업데이트하려는 경우 모든 새 워크플로에서 두 번째 키를 사용해야 합니다. 그런 다음, 첫 번째 키를 업데이트하기 전에 첫 번째 키를 사용하는 모든 워크플로가 완료될 때까지 기다립니다.
@@ -63,7 +63,7 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 
 지원되는 참조는 다음과 같습니다.
 
- |참고              | `-pa/--process-args`의 값 |
+ |참조              | `-pa/--process-args`의 값 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

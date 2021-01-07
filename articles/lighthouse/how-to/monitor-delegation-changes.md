@@ -1,14 +1,14 @@
 ---
 title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
-ms.date: 09/08/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567608"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936110"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
@@ -46,7 +46,7 @@ ms.locfileid: "89567608"
 
 - 다른 자동화에 사용 되는 기존 서비스 사용자에 게이 역할을 할당 하는 대신이 기능에만 사용할 [새 서비스 사용자 계정을 만듭니다](../../active-directory/develop/howto-create-service-principal-portal.md) .
 - 이 서비스 주체에 게 위임 된 고객 리소스에 대 한 액세스 권한이 없어야 합니다.
-- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) 하 고 [Azure Key Vault에 안전](../../key-vault/general/best-practices.md)하 게 저장 합니다.
+- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) 하 고 [Azure Key Vault에 안전](../../key-vault/general/security-overview.md)하 게 저장 합니다.
 - 서비스 사용자를 대신 하 여 작업할 수 있는 액세스 권한이 있는 사용자를 제한 합니다.
 
 > [!NOTE]
@@ -175,9 +175,10 @@ else {
 1. **내 고객** 페이지로 이동한 다음 왼쪽 탐색 메뉴에서 **활동 로그** 를 선택 합니다.
 1. 화면 위쪽의 필터에서 **디렉터리 작업** 이 선택 되어 있는지 확인 합니다.
 
-위임 변경의 목록이 표시 됩니다. **열 편집** 을 선택 하 여 **상태**, **이벤트 범주**, 시간, **타임 스탬프**, **구독**, **이벤트 시작** **시간**, **리소스 그룹**, 리소스 **종류**및 **리소스** 값을 표시 하거나 숨길 수 있습니다.
+위임 변경의 목록이 표시 됩니다. **열 편집** 을 선택 하 여 **상태**, **이벤트 범주**, 시간, **타임 스탬프**, **구독**, **이벤트 시작** **시간**, **리소스 그룹**, 리소스 **종류** 및 **리소스** 값을 표시 하거나 숨길 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Lighthouse](../concepts/azure-delegated-resource-management.md)에 고객을 등록 하는 방법에 대해 알아봅니다.
 - [Azure Monitor](../../azure-monitor/index.yml) 및 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)에 대해 알아봅니다.
+- 도메인 샘플 통합 문서를 [기준으로 활동 로그](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) 를 검토 하 여 구독 간에 Azure 활동 로그를 표시 하는 방법, 도메인 이름으로 필터링 하는 옵션을 알아봅니다.

@@ -1,6 +1,6 @@
 ---
-title: PowerShell & REST Api
-description: 데이터베이스를 일시 중지 하 고 다시 시작 하는 방법을 포함 하 여 Azure Synapse Analytics SQL 풀의 상위 PowerShell cmdlet을 찾습니다.
+title: 전용 SQL 풀을 위한 PowerShell & REST Api (이전의 SQL DW)
+description: 데이터베이스를 일시 중지 하 고 재개 하는 방법을 포함 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW) 용 PowerShell cmdlet.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: aaf290fac71fec0ff4106e3f8a1895dd65b94e09
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: bb26ac0071a50095f8e93ce0cc25da0055bdbac8
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072896"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448232"
 ---
-# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>Azure Synapse Analytics 용 PowerShell & REST Api SQL 풀
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>PowerShell & Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW) 용 REST Api 
 
-Azure PowerShell cmdlet 또는 REST Api를 사용 하 여 많은 Azure Synapse Analytics SQL 풀 관리 작업을 관리할 수 있습니다.  다음은 PowerShell 명령을 사용 하 여 SQL 풀에서 일반적인 작업을 자동화 하는 방법에 대 한 몇 가지 예입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리](sql-data-warehouse-manage-compute-rest-api.md) 문서를 참조하세요.
+Azure PowerShell cmdlet 또는 REST Api를 사용 하 여 많은 전용 SQL 풀 관리 작업을 관리할 수 있습니다.  다음은 PowerShell 명령을 사용 하 여 전용 SQL 풀 (이전의 SQL DW)에서 일반적인 작업을 자동화 하는 방법에 대 한 몇 가지 예입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리](sql-data-warehouse-manage-compute-rest-api.md) 문서를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

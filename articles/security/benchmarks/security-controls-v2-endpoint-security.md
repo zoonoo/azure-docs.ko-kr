@@ -4,23 +4,23 @@ description: Azure Security 벤치 마크 V2 끝점 보안
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c04e4233ded34ceaeec9cd9afb240d3d1ac864e0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 937d0b379c4f669e5b57e5053d5e3bffeb091e78
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059259"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368956"
 ---
-# <a name="security-control-endpoint-security"></a>보안 제어: 끝점 보안
+# <a name="security-control-v2-endpoint-security"></a>보안 제어 V2: 끝점 보안
 
 끝점 보안은 끝점 검색 및 응답의 컨트롤을 포함 합니다. 여기에는 Azure 환경에서 끝점에 대해 EDR (끝점 검색 및 응답) 및 맬웨어 방지 서비스를 사용 하는 작업이 포함 됩니다.
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: EDR (끝점 검색 및 응답) 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | ES-1 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -36,7 +36,7 @@ Microsoft Defender Advanced Threat Protection은 엔터프라이즈 끝점 보�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -48,7 +48,7 @@ Microsoft Defender Advanced Threat Protection은 엔터프라이즈 끝점 보�
 
 ## <a name="es-2-use-centrally-managed-modern-anti-malware-software"></a>ES-2: 중앙에서 관리 되는 최신 맬웨어 방지 소프트웨어 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | ES-2 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -60,11 +60,11 @@ Azure Cloud Services에 대 한 Microsoft 맬웨어 방지 프로그램은 Windo
 
 - [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../fundamentals/antimalware.md)
 
-- [지원되는 Endpoint Protection 솔루션](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [지원 되는 endpoint protection 솔루션](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -76,7 +76,7 @@ Azure Cloud Services에 대 한 Microsoft 맬웨어 방지 프로그램은 Windo
 
 ## <a name="es-3-ensure-anti-malware-software-and-signatures-are-updated"></a>ES-3: 맬웨어 방지 소프트웨어 및 서명이 업데이트 되었는지 확인
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | ES-3 | 8.2 | SI-2, SI-3 |
 
@@ -88,7 +88,7 @@ Azure Security Center "계산 앱"의 권장 사항을 따라 &amp; 모든 끝�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -98,3 +98,4 @@ Azure Security Center "계산 앱"의 권장 사항을 따라 &amp; 모든 끝�
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
+- [Azure Security Center의 Endpoint protection 평가 및 권장 사항](../../security-center/security-center-endpoint-protection.md)

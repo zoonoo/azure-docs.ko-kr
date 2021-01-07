@@ -7,10 +7,10 @@ ms.date: 3/23/2020
 ms.topic: how-to
 ms.service: notification-hubs
 ms.openlocfilehash: c99af881b8f93b75633741c2352dc5df17dd2963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80146889"
 ---
 # <a name="use-apns-voip-through-notification-hubs-not-officially-supported"></a>Notification Hubs를 통해 APNS VOIP 사용 (공식적으로 지원 되지 않음)
@@ -21,7 +21,7 @@ Azure Notification Hubs을 통해 APNS VOIP 알림을 사용할 수 있습니다
 
 Notification Hubs를 통해 APNS VOIP 알림을 보내도록 선택 하는 경우에는 다음과 같은 제한 사항을 고려해 야 합니다.
 
-- VOIP 알림을 보내려면 `apns-topic` 헤더를 응용 프로그램 번들 ID + 접미사로 설정 해야 합니다 `.voip` . 예를 들어 번들 ID를 사용 하는 샘플 앱의 경우 `com.microsoft.nhubsample` `apns-topic` 헤더를로 설정 해야 합니다.`com.microsoft.nhubsample.voip.`
+- VOIP 알림을 보내려면 `apns-topic` 헤더를 응용 프로그램 번들 ID + 접미사로 설정 해야 합니다 `.voip` . 예를 들어 번들 ID를 사용 하는 샘플 앱의 경우 `com.microsoft.nhubsample` `apns-topic` 헤더를로 설정 해야 합니다. `com.microsoft.nhubsample.voip.`
 
    앱의 번들 ID는 허브의 APNS 자격 증명의 일부로 구성 되어야 하 고 값을 변경할 수 없기 때문에이 방법은 Azure Notification Hubs에서 잘 작동 하지 않습니다. 또한 Notification Hubs는 런타임에 헤더의 값을 재정의할 수 없습니다 `apns-topic` .
 

@@ -2,14 +2,14 @@
 title: 다중 인스턴스 작업을 사용하여 MPI 애플리케이션 실행
 description: Azure Batch에서 다중 인스턴스 작업 유형을 사용하여 MPI(메시지 전달 인터페이스) 애플리케이션을 실행하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 03/13/2019
+ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: fd39af127d975f085bbd55fe2a21f925b5aae8e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6aa6a910dd57a255d9ec9292119bc692edf4946f
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926374"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351523"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행
 
@@ -21,25 +21,25 @@ ms.locfileid: "88926374"
 >
 
 ## <a name="multi-instance-task-overview"></a>다중 인스턴스 작업 개요
-Batch에서 각 태스크는 일반적으로 단일 컴퓨팅 노드에서 실행됩니다. 작업에 여러 태스크를 제출하고 Batch 서비스는 노드에서 실행을 위해 각 태스크를 예약합니다. 그러나 태스크의 **다중 인스턴스 설정**을 구성하여 Batch에 하나의 기본 태스크를 만들고 대신 여러 노드에서 여러 하위 태스크를 실행하도록 지시합니다.
+Batch에서 각 태스크는 일반적으로 단일 컴퓨팅 노드에서 실행됩니다. 작업에 여러 태스크를 제출하고 Batch 서비스는 노드에서 실행을 위해 각 태스크를 예약합니다. 그러나 태스크의 **다중 인스턴스 설정** 을 구성하여 Batch에 하나의 기본 태스크를 만들고 대신 여러 노드에서 여러 하위 태스크를 실행하도록 지시합니다.
 
 ![다중 인스턴스 작업 개요][1]
 
 작업에 다중 인스턴스 설정을 사용하여 태스크를 제출할 때 Batch는 다중 인스턴스 태스크에 고유한 몇 가지 단계를 수행합니다.
 
-1. Batch 서비스는 다중 인스턴스 설정에 따라 하나의 **기본** 태스크 및 여러 개의 **하위 태스크**를 만듭니다. 작업의 총 수(주 및 모든 하위 작업)는 다중 인스턴스 설정에서 지정하는 **인스턴스**(컴퓨팅 노드)의 총 수와 일치합니다.
-2. 배치는 컴퓨팅 노드 중 하나를 **마스터**로 지정하고 주 작업이 마스터에서 실행되도록 예약합니다. 하위 작업이 다중 인스턴스 작업, 노드당 하나의 하위 작업에 할당된 컴퓨팅 노드의 나머지 부분에서 실행되도록 예약합니다.
-3. 주 및 하위 작업은 다중 인스턴스 설정에서 지정하는 모든 **공용 리소스 파일**을 다운로드합니다.
-4. 공용 리소스 파일을 다운로드한 후 주 및 하위 작업에서 다중 인스턴스 설정에 지정하는 **조정 명령**을 실행합니다. 조정 명령은 작업을 실행하기 위한 노드를 준비하는 데 일반적으로 사용됩니다. 이는 백그라운드 서비스 시작(예: [Microsoft MPI][msmpi_msdn]의 `smpd.exe`) 및 노드가 노드 간 메시지를 처리할 준비가 되었음을 확인하는 것을 포함할 수 있습니다.
-5. 주 및 모든 하위 작업에서 조정 명령이 성공적으로 완료된 *후* 주 작업은 마스터 노드에서 **애플리케이션 명령**을 실행합니다. 애플리케이션 명령은 다중 인스턴스 작업 자체의 명령줄이며 주 작업에서만 실행됩니다. [MS-MPI][msmpi_msdn] 기반 솔루션에서 `mpiexec.exe`를 사용하여 MPI 사용 애플리케이션을 실행하는 위치입니다.
+1. Batch 서비스는 다중 인스턴스 설정에 따라 하나의 **기본** 태스크 및 여러 개의 **하위 태스크** 를 만듭니다. 작업의 총 수(주 및 모든 하위 작업)는 다중 인스턴스 설정에서 지정하는 **인스턴스**(컴퓨팅 노드)의 총 수와 일치합니다.
+2. 배치는 컴퓨팅 노드 중 하나를 **마스터** 로 지정하고 주 작업이 마스터에서 실행되도록 예약합니다. 하위 작업이 다중 인스턴스 작업, 노드당 하나의 하위 작업에 할당된 컴퓨팅 노드의 나머지 부분에서 실행되도록 예약합니다.
+3. 주 및 하위 작업은 다중 인스턴스 설정에서 지정하는 모든 **공용 리소스 파일** 을 다운로드합니다.
+4. 공용 리소스 파일을 다운로드한 후 주 및 하위 작업에서 다중 인스턴스 설정에 지정하는 **조정 명령** 을 실행합니다. 조정 명령은 작업을 실행하기 위한 노드를 준비하는 데 일반적으로 사용됩니다. 이는 백그라운드 서비스 시작(예: [Microsoft MPI][msmpi_msdn]의 `smpd.exe`) 및 노드가 노드 간 메시지를 처리할 준비가 되었음을 확인하는 것을 포함할 수 있습니다.
+5. 주 및 모든 하위 작업에서 조정 명령이 성공적으로 완료된 *후* 주 작업은 마스터 노드에서 **애플리케이션 명령** 을 실행합니다. 애플리케이션 명령은 다중 인스턴스 작업 자체의 명령줄이며 주 작업에서만 실행됩니다. [MS-MPI][msmpi_msdn] 기반 솔루션에서 `mpiexec.exe`를 사용하여 MPI 사용 애플리케이션을 실행하는 위치입니다.
 
 > [!NOTE]
-> 기능적으로 고유하지만 "다중 인스턴스 작업"은 [StartTask][net_starttask] 또는 [JobPreparationTask][net_jobprep]와 같은 고유 작업 유형이 아닙니다. 다중 인스턴스 작업은 단순히 다중 인스턴스 설정이 구성된 표준 Batch 작업(Batch .NET에서 [CloudTask][net_task])입니다. 이 문서에서는 이를 **다중 인스턴스 작업**이라고 합니다.
+> 기능적으로 고유하지만 "다중 인스턴스 작업"은 [StartTask][net_starttask] 또는 [JobPreparationTask][net_jobprep]와 같은 고유 작업 유형이 아닙니다. 다중 인스턴스 작업은 단순히 다중 인스턴스 설정이 구성된 표준 Batch 작업(Batch .NET에서 [CloudTask][net_task])입니다. 이 문서에서는 이를 **다중 인스턴스 작업** 이라고 합니다.
 >
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>다중 인스턴스 작업에 대한 요구 사항
-다중 인스턴스 작업은 **노드 간 통신이 활성화**되고 **동시 작업 실행이 비활성화**된 풀이 필요합니다. 동시 작업 실행을 사용하지 않도록 설정하려면 [CloudPool.MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool) 속성을 1로 설정합니다.
+다중 인스턴스 작업은 **노드 간 통신이 활성화** 되고 **동시 작업 실행이 비활성화** 된 풀이 필요합니다. 동시 작업 실행을 사용 하지 않도록 설정 하려면 [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) 속성을 1로 설정 합니다.
 
 > [!NOTE]
 > 일괄 처리는 노드 간 통신을 사용하도록 설정한 풀의 크기를 [제한](batch-quota-limit.md#pool-size-limits)합니다.
@@ -58,11 +58,11 @@ CloudPool myCloudPool =
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
 myCloudPool.InterComputeNodeCommunicationEnabled = true;
-myCloudPool.MaxTasksPerComputeNode = 1;
+myCloudPool.TaskSlotsPerNode = 1;
 ```
 
 > [!NOTE]
-> 노드 간 통신이 비활성화되었거나 *maxTasksPerNode* 값이 1보다 큰 풀에서 다중 인스턴스 작업을 실행하려는 경우 작업은 예약되지 않습니다. 무기한으로 "활성" 상태로 유지됩니다. 
+> 노드 간 통신을 사용 하지 않도록 설정 하거나 1 보다 큰 *taskSlotsPerNode* 값을 사용 하 여 풀에서 다중 인스턴스 작업을 실행 하려고 하면 작업이 예약 되지 않으며 "활성" 상태로 무기한 유지 됩니다.
 
 
 ### <a name="use-a-starttask-to-install-mpi"></a>StartTask를 사용하여 MPI 설치
@@ -95,11 +95,11 @@ Batch 풀에서 컴퓨팅 노드에 대해 A9 등, [RDMA 지원 크기](../virtu
   * [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)(Windows만 해당)
 * **VirtualMachineConfiguration** 풀
 
-  * [Azure에서 가상 머신 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux)
-  * [Azure에서 가상 머신 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
+  * [Azure에서 가상 머신 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux)
+  * [Azure에서 가상 머신 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
 
 > [!NOTE]
-> [Linux 컴퓨팅 노드](batch-linux-nodes.md)에서 RDMA를 활용하려면 노드에서 **Intel MPI**를 사용해야 합니다. 
+> [Linux 컴퓨팅 노드](batch-linux-nodes.md)에서 RDMA를 활용하려면 노드에서 **Intel MPI** 를 사용해야 합니다.
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Batch .NET을 사용하여 다중 인스턴스 작업 만들기
@@ -129,7 +129,7 @@ await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask
 ```
 
 ## <a name="primary-task-and-subtasks"></a>주 작업 및 하위 작업
-작업에 대한 다중 인스턴스 설정을 만드는 경우 작업을 실행하는 컴퓨팅 노드 수를 지정합니다. 작업에 태스크를 제출하는 경우 Batch 서비스는 지정한 노드 수와 일치하는 하나의 **주** 작업과 충분한 **하위 작업**을 만듭니다.
+작업에 대한 다중 인스턴스 설정을 만드는 경우 작업을 실행하는 컴퓨팅 노드 수를 지정합니다. 작업에 태스크를 제출하는 경우 Batch 서비스는 지정한 노드 수와 일치하는 하나의 **주** 작업과 충분한 **하위 작업** 을 만듭니다.
 
 이러한 작업은 0에서 *numberOfInstances* - 1의 범위로 정수 ID가 할당됩니다. ID가 0인 작업은 주 작업이며 모든 다른 ID는 하위 작업입니다. 예를 들어 작업에 대한 다음과 같은 다중 인스턴스 설정을 만드는 경우 주 작업은 0의 ID를 가지며 하위 작업은 1~9의 ID를 가집니다.
 
@@ -142,7 +142,7 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 다중 인스턴스 작업을 제출할 때 Batch 서비스는 컴퓨팅 노드 중 하나를 "마스터" 노드로 지정하고 주 작업이 마스터 노드에서 실행되도록 예약합니다. 하위 작업은 다중 인스턴스 작업에 할당된 노드의 나머지 부분에서 실행되도록 예약됩니다.
 
 ## <a name="coordination-command"></a>조정 명령
-**조정 명령**은 주 및 하위 작업에서 실행됩니다.
+**조정 명령** 은 주 및 하위 작업에서 실행됩니다.
 
 조정 명령의 호출을 차단합니다. Batch는 조정 명령이 모든 하위 작업에 대해 성공적으로 반환될 때까지 애플리케이션 명령을 실행하지 않습니다. 따라서 조정 명령은 모든 필요한 백그라운드 서비스를 시작하고 사용할 준비가 되었는지 확인한 다음 종료해야 합니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 이 조정 명령은 노드에서 SMPD 서비스를 시작한 다음 종료합니다.
 
@@ -153,7 +153,7 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 이 조정 명령에서 `start`를 사용합니다. `smpd.exe` 애플리케이션은 실행 후 즉시 반환하지 않으므로 필요합니다. [start][cmd_start] 명령을 사용하지 않으면 이 조정 명령이 결과를 반환하지 않으므로 애플리케이션 명령의 실행이 차단됩니다.
 
 ## <a name="application-command"></a>애플리케이션 명령
-주 작업 및 모든 하위 작업이 조정 명령 실행을 마치면 다중 인스턴스 작업의 명령줄이 주 작업에서*만* 실행됩니다. 조정 명령과 구분하도록 **애플리케이션 명령**이라고 합니다.
+주 작업 및 모든 하위 작업이 조정 명령 실행을 마치면 다중 인스턴스 작업의 명령줄이 주 작업에서 *만* 실행됩니다. 조정 명령과 구분하도록 **애플리케이션 명령** 이라고 합니다.
 
 MS-MPI 애플리케이션의 경우 `mpiexec.exe`로 MPI 사용 애플리케이션을 실행하는 데 애플리케이션 명령을 사용합니다. 예를 들어 MS-MPI 버전 7을 사용하는 솔루션에 대한 애플리케이션 명령은 다음과 같습니다.
 
@@ -184,9 +184,9 @@ Batch는 다중 인스턴스 작업에 할당된 컴퓨팅 노드의 다중 인�
 > Batch Linux MPI 코드 샘플은 이러한 다양한 환경 변수 사용 방법의 예를 포함합니다.
 
 ## <a name="resource-files"></a>리소스 파일
-다중 인스턴스 작업에 대해 고려해야 할 리소스 파일의 두 집합: *모든* 작업(주 및 하위 작업)이 다운로드하는 **공용 리소스 파일** 및 *주 작업에서만* 다운로드하는 다중 인스턴스 작업 자체에 지정된 **리소스 파일**입니다.
+다중 인스턴스 작업에 대해 고려해야 할 리소스 파일의 두 집합: *모든* 작업(주 및 하위 작업)이 다운로드하는 **공용 리소스 파일** 및 *주 작업에서만* 다운로드하는 다중 인스턴스 작업 자체에 지정된 **리소스 파일** 입니다.
 
-작업에 대해 다중 인스턴스 설정에서 하나 이상의 **공용 리소스 파일**을 지정할 수 있습니다. 이러한 공용 리소스 파일은 주 및 모든 하위 작업에 의해 [Azure Storage](../storage/common/storage-introduction.md)에서 각 노드의 **작업 공유 디렉터리**로 다운로드됩니다. `AZ_BATCH_TASK_SHARED_DIR` 환경 변수를 사용하여 애플리케이션 및 조정 명령줄에서 작업 공유 디렉터리에 액세스할 수 있습니다. `AZ_BATCH_TASK_SHARED_DIR` 경로는 다중 인스턴스 작업에 할당된 모든 노드에서 동일하므로 주 데이터베이스와 모든 하위 작업 간의 단일 조정 명령을 공유할 수 있습니다. 배치는 원격 액세스 측면에서 디렉터리를 "공유"하지 않지만 환경 변수에 대한 팁에서 이전에 설명한 것처럼 탑재 또는 공유 지점으로 사용할 수 있습니다.
+작업에 대해 다중 인스턴스 설정에서 하나 이상의 **공용 리소스 파일** 을 지정할 수 있습니다. 이러한 공용 리소스 파일은 주 및 모든 하위 작업에 의해 [Azure Storage](../storage/common/storage-introduction.md)에서 각 노드의 **작업 공유 디렉터리** 로 다운로드됩니다. `AZ_BATCH_TASK_SHARED_DIR` 환경 변수를 사용하여 애플리케이션 및 조정 명령줄에서 작업 공유 디렉터리에 액세스할 수 있습니다. `AZ_BATCH_TASK_SHARED_DIR` 경로는 다중 인스턴스 작업에 할당된 모든 노드에서 동일하므로 주 데이터베이스와 모든 하위 작업 간의 단일 조정 명령을 공유할 수 있습니다. 배치는 원격 액세스 측면에서 디렉터리를 "공유"하지 않지만 환경 변수에 대한 팁에서 이전에 설명한 것처럼 탑재 또는 공유 지점으로 사용할 수 있습니다.
 
 다중 인스턴스 작업 자체에 대해 지정한 리소스 파일은 작업의 작업 디렉터리 `AZ_BATCH_TASK_WORKING_DIR`에 기본적으로 다운로드됩니다. 언급한 대로 공용 리소스 파일과 달리 주 작업만이 다중 인스턴스 작업 자체에 대해 지정된 리소스 파일을 다운로드합니다.
 
@@ -269,11 +269,11 @@ GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스�
 
 ### <a name="execution"></a>실행
 1. GitHub에서 [azure-batch-samples][github_samples_zip]를 다운로드합니다.
-2. Visual Studio 2019에서 MultiInstanceTasks **솔루션**을 엽니다. `MultiInstanceTasks.sln` 솔루션 파일은 다음 위치에 있습니다.
+2. Visual Studio 2019에서 MultiInstanceTasks **솔루션** 을 엽니다. `MultiInstanceTasks.sln` 솔루션 파일은 다음 위치에 있습니다.
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. **Microsoft.Azure.Batch.Samples.Common** 프로젝트의 `AccountSettings.settings`에 Batch 계정 및 Storage 계정의 자격 증명을 입력합니다.
-4. MultiInstanceTasks 솔루션을 **빌드 및 실행**하여 Batch 풀의 컴퓨팅 노드에서 MPI 샘플 애플리케이션을 실행합니다.
+4. MultiInstanceTasks 솔루션을 **빌드 및 실행** 하여 Batch 풀의 컴퓨팅 노드에서 MPI 샘플 애플리케이션을 실행합니다.
 5. *선택 사항*: 리소스를 삭제하기 전에 [Azure Portal][portal] 또는 [Batch Explorer][batch_labs]를 사용하여 샘플 풀, 작업 및 태스크("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask")를 검사합니다.
 
 > [!TIP]

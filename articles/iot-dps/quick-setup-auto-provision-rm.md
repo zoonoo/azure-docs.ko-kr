@@ -1,36 +1,85 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub Device Provisioning 설정
-description: Azure 빠른 시작 - 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
+title: 빠른 시작 - ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 만들기
+description: Azure 빠른 시작 - ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure IoT Hub DPS(Device Provisioning Service)를 만드는 방법을 알아봅니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 12/03/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: mvc, subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 73beed4e4262d911f68c2b4b33bc0c1ee24164f8
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74969584"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746212"
 ---
-# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하여 디바이스를 프로비전하는 데 필요한 Azure 클라우드 리소스를 프로그래밍 방식으로 설정할 수 있습니다. 이 단계에서는 IoT 허브와 새 IoT Hub Device Provisioning Service를 만들고, Azure Resource Manager 템플릿을 사용하여 두 서비스를 서로 연결하는 방법을 보여줍니다. 이 빠른 시작에서는 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)를 사용하여 리소스 그룹을 만들고 템플릿을 배포하는 데 필요한 프로그래밍 단계를 수행하지만, [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby 또는 다른 프로그래밍 언어를 사용하여 이러한 단계를 간편하게 수행하고 템플릿을 배포할 수 있습니다. 
+[ARM 템플릿(Azure Resource Manager 템플릿)](../azure-resource-manager/management/overview.md)을 사용하여 디바이스를 프로비저닝하는 데 필요한 Azure 클라우드 리소스를 프로그래밍 방식으로 설정할 수 있습니다. 다음 단계에서는 ARM 템플릿을 사용하여 IoT 허브 및 새 IoT Hub Device Provisioning Service를 만드는 방법을 보여 줍니다. 또한 IoT Hub도 템플릿을 사용하여 DPS 리소스에 연결됩니다. 이 연결을 통해 구성한 할당 정책에 따라 DPS 리소스에서 디바이스를 허브에 할당할 수 있습니다.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+이 빠른 시작에서는 [Azure Portal](../azure-resource-manager/templates/deploy-portal.md) 및 [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)를 사용하여 리소스 그룹을 만들고 템플릿을 배포하는 데 필요한 프로그래밍 단계를 수행하지만, [PowerShell](../azure-resource-manager/templates/deploy-powershell.md), .NET, Ruby 또는 다른 프로그래밍 언어를 쉽게 사용하여 이러한 단계를 수행하고 템플릿을 배포할 수 있습니다. 
+
+환경에서 사전 요구 사항을 충족하고 이미 ARM 템플릿 사용에 대해 잘 알고 있는 경우 아래의 **Azure에 배포** 단추를 선택하면 Azure Portal에서 배포할 템플릿이 열립니다.
+
+[![개요의 Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="review-the-template"></a>템플릿 검토
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- 이 빠른 시작에서는 Azure CLI를 로컬에서 실행해야 합니다. Azure CLI 버전 2.0 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/)에서 나온 것입니다.
+
+:::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
+
+위의 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
+
+* [**Microsoft.Devices/iothubs**](/azure/templates/microsoft.devices/iothubs): 새 Azure IoT Hub를 만듭니다.
+* [**Microsoft.Devices/provisioningservices**](/azure/templates/microsoft.devices/provisioningservices): 새 IoT Hub가 이미 연결된 새 Azure IoT Hub Device Provisioning Service를 만듭니다.
 
 
-## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Azure에 로그인하여 리소스 그룹 만들기
+## <a name="deploy-the-template"></a>템플릿 배포
+
+#### <a name="deploy-with-the-portal"></a>포털을 사용하여 배포
+
+1. 다음 이미지를 선택하여 Azure에 로그인하고 배포할 템플릿을 엽니다. 템플릿은 새 IoT Hub 및 DPS 리소스를 만듭니다. 허브가 DPS 리소스에 연결됩니다.
+
+    [![포털의 Azure에 배포 단계](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+
+2. 다음 값을 선택하거나 입력하고, **검토 + 만들기** 를 클릭합니다.
+
+    ![포털의 ARM 템플릿 배포 매개 변수](./media/quick-setup-auto-provision-rm/arm-template-deployment-parameters-portal.png)    
+
+    아래와 같이 지정되지 않으면 기본값을 사용하여 IoT Hub 및 DPS 리소스를 만듭니다.
+
+    | 필드 | Description |
+    | :---- | :---------- |
+    | **구독** | Azure 구독을 선택합니다. |
+    | **리소스 그룹** | **새로 만들기** 를 클릭하고, 고유한 리소스 그룹 이름을 입력한 다음, **확인** 을 클릭합니다. |
+    | **지역** | 리소스에 대한 지역을 선택합니다. 예: **미국 동부** |
+    | **IoT Hub 이름**: | *.azure-devices.net* 네임스페이스 내에서 전역적으로 고유해야 하는 IoT Hub 이름을 입력합니다. 이 허브 이름은 다음 섹션에서 배포의 유효성을 검사할 때 필요합니다. |
+    | **Provisioning Service 이름** | 새 DPS(Device Provisioning Service) 리소스에 대한 이름을 입력합니다. 이름은 *.azure-devices-provisioning.net* 네임스페이스 내에서 전역적으로 고유해야 합니다. 이 DPS 이름은 다음 섹션에서 배포의 유효성을 검사할 때 필요합니다. |
+    
+3. 다음 화면에서 사용 약관을 읽습니다. 모든 사용 약관에 동의하면 **만들기** 를 클릭합니다. 
+
+    배포를 완료하는 데 몇 분 정도 걸립니다. 
+
+    Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
+
+
+#### <a name="deploy-with-the-azure-cli"></a>Azure CLI를 사용하여 배포
+
+Azure CLI를 사용하려면 버전 2.6 이상이 필요합니다. Azure CLI를 로컬로 실행하는 경우 `az --version`을 실행하여 버전을 확인합니다.
 
 Azure 계정에 로그인하고 구독을 선택합니다.
 
-1. 명령 프롬프트에서 [login 명령][lnk-login-command]을 실행합니다.
+1. Azure CLI를 포털에서 실행하는 대신 로컬로 실행하는 경우 로그인해야 합니다. 명령 프롬프트에서 로그인하려면 [login 명령](/cli/azure/get-started-with-az-cli2)을 실행합니다.
     
     ```azurecli
     az login
@@ -38,326 +87,85 @@ Azure 계정에 로그인하고 구독을 선택합니다.
 
     지침에 따라 코드를 사용하여 인증하고 웹 브라우저를 통해 Azure 계정에 로그인합니다.
 
-2. 여러 Azure 구독이 있는 경우 Azure에 로그인하면 자격 증명과 연결된 모든 Azure 계정에 대한 액세스를 허용합니다. 다음 [Azure 계정을 나열하는 명령][lnk-az-account-command]을 사용합니다.
+2. 여러 Azure 구독이 있는 경우 Azure에 로그인하면 자격 증명과 연결된 모든 Azure 계정에 대한 액세스를 허용합니다. 다음 [Azure 계정을 나열하는 명령](/cli/azure/account)을 사용합니다.
     
     ```azurecli
-    az account list 
+    az account list -o table
     ```
 
-    다음 명령을 사용하여 IoT Hub를 만드는 명령을 실행하는 데 사용할 구독을 선택합니다. 이전 명령의 출력에서 구독 이름 또는 ID를 사용할 수 있습니다.
+    다음 명령을 사용하여 IoT 허브 및 DPS 리소스를 만드는 명령을 실행하는 데 사용하려는 구독을 선택합니다. 이전 명령의 출력에서 구독 이름 또는 ID를 사용할 수 있습니다.
 
     ```azurecli
     az account set --subscription {your subscription name or id}
     ```
 
-3. IoT 허브 및 프로비전 서비스와 같은 Azure 클라우드 리소스를 만들 때, 리소스 그룹에 해당 리소스를 생성합니다. 기존 리소스 그룹을 사용하거나 다음 [리소스 그룹을 만드는 명령][lnk-az-resource-command]을 실행합니다.
-    
-    ```azurecli
-     az group create --name {your resource group name} --location westus
-    ```
-
-    > [!TIP]
-    > 이전 예제에서는 미국 서부 위치에서 리소스 그룹을 만듭니다. `az account list-locations -o table` 명령을 실행하여 사용할 수 있는 위치의 목록을 볼 수 있습니다.
-    >
-    >
-
-## <a name="create-a-resource-manager-template"></a>Resource Manager 템플릿 만들기
-
-JSON 템플릿을 사용하여 프로비전 서비스 및 연결된 IoT 허브를 리소스 그룹에 만듭니다. Azure Resource Manager 템플릿을 사용하여 기존 프로비전 서비스나 IoT 허브를 변경할 수도 있습니다.
-
-1. 텍스트 편집기를 사용하여 다음 기본 구조 콘텐츠가 포함된 **template.json**이라는 Azure Resource Manager 템플릿을 만듭니다. 
-
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "variables": {},
-       "resources": []
-   }
-   ```
-
-2. **parameters** 섹션을 다음 콘텐츠로 바꿉니다. 매개 변수 섹션에서는 다른 파일에서 값을 전달할 수 있는 매개 변수를 정의합니다. 이 섹션에서는 생성할 IoT 허브 및 프로비저닝 서비스의 이름을 정의합니다. IoT 허브와 프로비저닝 서비스의 위치도 지정합니다. 값은 IoT 허브와 프로비저닝 서비스를 지원하는 Azure 영역으로 제한됩니다. Device Provisioning 서비스가 지원되는 위치 목록을 보려면 `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 명령을 실행하거나 [Azure 상태](https://azure.microsoft.com/status/) 페이지로 이동하여 "Device Provisioning 서비스"를 검색합니다.
-
-   ```json
-    "parameters": {
-        "iotHubName": {
-            "type": "string"
-        },
-        "provisioningServiceName": {
-            "type": "string"
-        },
-        "hubLocation": {
-            "type": "string",
-            "allowedValues": [
-                "eastus",
-                "westus",
-                "westeurope",
-                "northeurope",
-                "southeastasia",
-                "eastasia"
-            ]
-        }
-    },
-
-   ```
-
-3. **variables** 섹션을 다음 콘텐츠로 바꿉니다. 이 섹션에서는 IoT 허브 연결 문자열을 구성하기 위해 나중에 사용되는 값을 정의합니다. 이 값은 프로비전 서비스와 IoT 허브를 연결하는 데 필요합니다. 
- 
-   ```json
-    "variables": {        
-        "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
-        "iotHubKeyName": "iothubowner",
-        "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
-    },
-
-   ```
-
-4. IoT 허브를 만들려면 **resources** 컬렉션에 다음 줄을 추가합니다. JSON은 IoT 허브를 만드는 데 필요한 최소 속성을 지정합니다. **이름** 및 **위치** 값은 다른 파일에서 매개 변수로 전달됩니다. 템플릿에서 IoT 허브에 대해 지정할 수 있는 속성에 대해 자세히 알아보려면 [Microsoft.Devices/IotHubs 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs)를 확인하세요.
-
-   ```json
-        {
-            "apiVersion": "2017-07-01",
-            "type": "Microsoft.Devices/IotHubs",
-            "name": "[parameters('iotHubName')]",
-            "location": "[parameters('hubLocation')]",
-            "sku": {
-                "name": "S1",
-                "capacity": 1
-            },
-            "tags": {
-            },
-            "properties": {
-            }            
-        },
-
-   ``` 
-
-5. 프로비전 서비스를 만들려면 **resources** 컬렉션의 IoT 허브 사양 뒤에 다음 줄을 추가합니다. 프로비저닝 서비스의 **이름** 및 **위치**는 매개 변수로 전달됩니다. **iotHubs** 컬렉션은 프로비저닝 서비스에 연결할 IoT 허브를 지정합니다. 최소한, 연결된 IoT 허브마다 **connectionString** 및 **location** 속성을 지정해야 합니다. IoT 허브마다 **allocationWeight** 및 **applyAllocationPolicy**와 같은 속성을 설정할 수 있을 뿐만 아니라 프로비전 서비스 자체에 **allocationPolicy** 및 **authorizationPolicies**와 같은 속성을 설정할 수 있습니다. 자세히 알아보려면 [Microsoft.Devices/provisioningServices 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices)를 참조하세요.
-
-   **dependsOn** 속성은 Resource Manager가 프로비전 서비스를 만들기 전에 IoT 허브를 만들도록 하는 데 사용됩니다. 템플릿에 허브와 해당 키가 먼저 생성되도록 프로비전 서비스에 대한 링크를 지정하는 IoT 허브의 연결 문자열이 필요합니다. 템플릿은 **concat**이나 **listKeys** 같은 함수를 사용하여 매개 변수가 있는 변수로 연결 문자열을 만듭니다. 자세히 알아보려면 [Azure Resource Manager 템플릿 함수](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)를 참조하세요.
-
-   ```json
-        {
-            "type": "Microsoft.Devices/provisioningServices",
-            "sku": {
-                "name": "S1",
-                "capacity": 1
-            },
-            "name": "[parameters('provisioningServiceName')]",
-            "apiVersion": "2017-11-15",
-            "location": "[parameters('hubLocation')]",
-            "tags": {},
-            "properties": {
-                "iotHubs": [
-                    {
-                        "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "[parameters('hubLocation')]",
-                        "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
-                    }
-                ]
-            },
-            "dependsOn": ["[parameters('iotHubName')]"]
-        }
-
-   ```
-
-6. 템플릿 파일을 저장합니다. 완성된 템플릿은 다음과 같은 모양입니다.
-
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "iotHubName": {
-               "type": "string"
-           },
-           "provisioningServiceName": {
-               "type": "string"
-           },
-           "hubLocation": {
-               "type": "string",
-               "allowedValues": [
-                   "eastus",
-                   "westus",
-                   "westeurope",
-                   "northeurope",
-                   "southeastasia",
-                   "eastasia"
-               ]
-           }
-       },
-       "variables": {        
-           "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
-           "iotHubKeyName": "iothubowner",
-           "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
-       },
-       "resources": [
-           {
-               "apiVersion": "2017-07-01",
-               "type": "Microsoft.Devices/IotHubs",
-               "name": "[parameters('iotHubName')]",
-               "location": "[parameters('hubLocation')]",
-               "sku": {
-                   "name": "S1",
-                   "capacity": 1
-               },
-               "tags": {
-               },
-               "properties": {
-               }            
-           },
-           {
-               "type": "Microsoft.Devices/provisioningServices",
-               "sku": {
-                   "name": "S1",
-                   "capacity": 1
-               },
-               "name": "[parameters('provisioningServiceName')]",
-               "apiVersion": "2017-11-15",
-               "location": "[parameters('hubLocation')]",
-               "tags": {},
-               "properties": {
-                   "iotHubs": [
-                       {
-                           "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                           "location": "[parameters('hubLocation')]",
-                           "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
-                       }
-                   ]
-               },
-               "dependsOn": ["[parameters('iotHubName')]"]
-           }
-       ]
-   }
-   ```
-
-## <a name="create-a-resource-manager-parameter-file"></a>Resource Manager 매개 변수 파일 만들기
-
-마지막 단계에서 정의한 템플릿은 매개 변수를 사용하여 IoT 허브의 이름, 프로비저닝 서비스의 이름 및 해당 항목이 만들어질 위치(Azure 지역)를 지정합니다. 이러한 매개 변수를 별도의 파일로 템플릿에 전달합니다. 이렇게 하면 여러 배포에 대해 동일한 템플릿을 다시 사용할 수 있습니다. 매개 변수 파일을 만들려면 다음 단계를 수행합니다.
-
-1. 텍스트 편집기를 사용하여 다음 기본 구조 콘텐츠가 포함된 **parameters.json**이라는 Azure Resource Manager 매개 변수 파일을 만듭니다. 
-
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {}
-       }
-   }
-   ```
-
-2. parameter 섹션에 **iotHubName** 값을 추가합니다.  IoT 허브 이름은 Azure에서 전역적으로 고유해야 하며, 예제 이름에 고유한 접두사 또는 접미사를 추가해도 되고 새 이름을 선택해도 됩니다. 이름이 IoT 허브에 대한 명명 규칙을 준수해야 합니다. 즉, 길이는 3-50자여야 하고, 대문자나 소문자 영숫자 또는 하이픈('-')만 포함할 수 있습니다. 
-
-   ```json
-    "parameters": {
-        "iotHubName": {
-            "value": "my-sample-iot-hub"
-        },
-    }
+3. 다음 명령을 복사하여 CLI 프롬프트에 붙여넣습니다. 그런 다음, **ENTER** 키를 눌러 명령을 실행합니다.
    
-   ```
-
-3. parameter 섹션에 **provisioningServiceName** 값을 추가합니다. 또한 프로비저닝 서비스의 전역적으로 고유한 이름을 선택해야 합니다. 이름이 IoT Hub Device Provisioning Service에 대한 명명 규칙을 준수해야 합니다. 즉, 길이는 3-64자여야 하고, 대문자나 소문자 영숫자 또는 하이픈('-')만 포함할 수 있습니다.
-
-   ```json
-    "parameters": {
-        "iotHubName": {
-            "value": "my-sample-iot-hub"
-        },
-        "provisioningServiceName": {
-            "value": "my-sample-provisioning-service"
-        },
-    }
-
-   ```
-
-4. parameter 섹션에 **hubLocation** 값을 추가합니다. 이 값은 IoT 허브 및 프로비전 서비스의 위치를 지정합니다. 이 값은 템플릿 파일의 매개 변수 정의에 있는 **allowedValues** 컬렉션에 지정된 위치 중 하나와 일치해야 합니다. 이 컬렉션은 IoT 허브와 프로비전 서비스를 모두 지원하는 Azure 위치로 값을 제한합니다. Device Provisioning Service를 지원하는 위치 목록을 보려면 `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 명령을 실행하거나, [Azure 상태](https://azure.microsoft.com/status/) 페이지로 이동하여 "Device Provisioning Service"를 검색합니다.
-
-   ```json
-    "parameters": {
-        "iotHubName": {
-            "value": "my-sample-iot-hub"
-        },
-        "provisioningServiceName": {
-            "value": "my-sample-provisioning-service"
-        },
-        "hubLocation": {
-            "value": "westus"
-        }
-    }
-
-   ```
-
-5. 파일을 저장합니다. 
-
-
-> [!IMPORTANT]
-> IoT 허브와 프로비전 서비스는 모두 DNS 엔드포인트로 공개적으로 검색이 가능하기 때문에 이름을 지정할 때는 중요한 정보를 피해야 합니다.
->
-
-## <a name="deploy-the-template"></a>템플릿 배포
-
-다음 Azure CLI 명령을 사용하여 템플릿을 배포하고 배포를 확인합니다.
-
-1. 템플릿을 배포하려면 템플릿과 매개 변수 파일이 들어 있는 폴더로 이동하고, 다음 [명령을 실행하여 배포를 시작](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)합니다.
+    > [!TIP]
+    > 명령에서 리소스 그룹 위치를 요구하는 메시지를 표시합니다. 먼저 다음 명령을 실행하여 사용할 수 있는 위치의 목록을 확인할 수 있습니다.
+    >
+    > `az account list-locations -o table`
+    >
+    >
     
-    ```azurecli
-     az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
+    ```azurecli-interactive
+    read -p "Enter a project name that is used for generating resource names:" projectName &&
+    read -p "Enter the location (i.e. centralus):" location &&
+    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-device-provisioning/azuredeploy.json" &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
+    echo "Press [ENTER] to continue ..." &&
+    read
     ```
 
-   이 작업이 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 출력에서 **provisioningState** 속성이 "성공"으로 표시되는지 확인합니다. 
+4. 명령에서 다음 정보를 입력하라는 메시지를 표시합니다. 각 값을 입력하고, **ENTER** 키를 누릅니다.
 
-   ![프로비전 출력](./media/quick-setup-auto-provision-rm/output.png) 
+    | 매개 변수 | Description |
+    | :-------- | :---------- |
+    | **프로젝트 이름** | 이 매개 변수의 값은 모든 리소스를 저장할 리소스 그룹을 만드는 데 사용됩니다. `rg` 문자열이 리소스 그룹 이름의 값 끝에 추가됩니다. |
+    | **location** | 이 값은 모든 리소스가 상주하는 지역입니다. |
+    | **iotHubName** | *.azure-devices.net* 네임스페이스 내에서 전역적으로 고유해야 하는 IoT Hub 이름을 입력합니다. 이 허브 이름은 다음 섹션에서 배포의 유효성을 검사할 때 필요합니다. |
+    | **provisioningServiceName** | 새 DPS(Device Provisioning Service) 리소스에 대한 이름을 입력합니다. 이름은 *.azure-devices-provisioning.net* 네임스페이스 내에서 전역적으로 고유해야 합니다. 이 DPS 이름은 다음 섹션에서 배포의 유효성을 검사할 때 필요합니다. |
+
+    Azure CLI는 템플릿을 배포하는데 사용됩니다. Azure CLI 외에도 Azure PowerShell, Azure Portal 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
 
-2. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열하고](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) 출력에서 새 프로비전 서비스 및 IoT 허브를 찾습니다.
+## <a name="review-deployed-resources"></a>배포된 리소스 검토
+
+1. 배포를 확인하려면 다음 [명령을 실행하여 리소스를 나열](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true)하고, 출력에서 새 프로비저닝 서비스 및 IoT 허브를 찾습니다.
 
     ```azurecli
-     az resource list -g {your resource group name}
+     az resource list -g "${projectName}rg"
     ```
+
+2. 허브가 이미 DPS 리소스에 연결되어 있는지 확인하려면 다음 [DPS 확장 표시 명령](/cli/azure/iot/dps?view=azure-cli-latest#az_iot_dps_show&preserve-view=true)을 실행합니다.
+
+    ```azurecli
+     az iot dps show --name <Your provisioningServiceName>
+    ```
+
+    `iotHubs` 멤버에 연결된 허브를 확인합니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 구성됩니다. 다음 빠른 시작 또는 자습서를 사용하여 계속하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다. 계속할 계획이 아니면 Azure CLI를 사용하여 IoT 허브나 프로비저닝 서비스와 같은 [개별 리소스를 삭제][lnk-az-resource-command]하거나 리소스 그룹과 이 그룹의 모든 리소스를 삭제할 수 있습니다.
+이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 구성됩니다. 다음 빠른 시작 또는 자습서를 사용하여 계속하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다. 계속하지 않으려는 경우 Azure Portal 또는 Azure CLI를 사용하여 리소스 그룹 및 모든 해당 리소스를 삭제할 수 있습니다.
 
-프로비전 서비스를 삭제하려면 다음 명령을 실행합니다.
+Azure Portal에서 리소스 그룹 및 모든 해당 리소스를 삭제하려면 리소스 그룹을 열고 **리소스 그룹 삭제** 및 위쪽을 클릭하면 됩니다.
 
-```azurecli
-az iot hub delete --name {your provisioning service name} --resource-group {your resource group name}
-```
-IoT Hub를 삭제하려면 다음 명령을 실행합니다.
+Azure CLI를 사용하여 배포된 리소스 그룹을 삭제하려면 다음을 수행합니다.
 
 ```azurecli
-az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
-```
-
-리소스 그룹 및 모든 해당 리소스를 삭제하려면 다음 명령을 실행합니다.
-
-```azurecli
-az group delete --name {your resource group name}
+az group delete --name "${projectName}rg"
 ```
 
 Azure Portal, PowerShell, REST API 또는 Azure Resource Manager나 IoT Hub Device Provisioning Service에 게시된 지원되는 플랫폼 SDK를 사용하여 리소스 그룹 및 개별 리소스를 삭제할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 배포하고, 두 리소스를 연결했습니다. 시뮬레이션된 디바이스를 프로비저닝하도록 설정하는 방법을 알아보려면 시뮬레이션된 디바이스를 만들기 위한 빠른 시작을 진행하세요.
+이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 배포하고, 두 리소스를 연결했습니다. 이 설정을 사용하여 디바이스를 프로비저닝하는 방법을 알아보려면 디바이스를 만들기 위한 빠른 시작으로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [시뮬레이션된 디바이스를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)
+> [디바이스 프로비저닝을 위한 빠른 시작](./quick-create-simulated-device-symm-key.md)
 
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
-[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
-[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
-[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
-[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
-[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-portal]: iot-hub-create-through-portal.md 

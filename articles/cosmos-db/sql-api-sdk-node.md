@@ -8,15 +8,16 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 76671ba2dec2590baf4f3df38325b4cfb0129e8d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-js
+ms.openlocfilehash: 7f101097945e5f345bae351ef5ca2a23a3e14be6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091161"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -26,20 +27,20 @@ ms.locfileid: "88586106"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
-> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 |리소스  |링크  |
 |---------|---------|
 |SDK 다운로드  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|API 설명서  |  [JavaScript SDK 참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|API 설명서  |  [JavaScript SDK 참조 설명서](/javascript/api/%40azure/cosmos/?preserve-view=true&view=azure-node-latest)
 |SDK 설치 지침  |  [설치 지침](https://github.com/Azure/azure-sdk-for-js)
 |SDK에 참여 | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | 샘플 | [Node.js 코드 샘플](sql-api-nodejs-samples.md)
@@ -353,7 +354,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 * 문서의 TTL(Time to Live) 기능에 대한 지원이 추가되었습니다.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
+* [분할된 컬렉션](partitioning-overview.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
 
 ### <a name="156"></a><a name="1.5.6"></a>1.5.6
 * 잘못된 concat 결과로 인해 링크를 반환하지 못했던 RangePartitionResolver.resolveForRead 버그가 수정되었습니다.
@@ -476,4 +477,3 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 ## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
-

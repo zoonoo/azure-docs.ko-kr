@@ -1,27 +1,28 @@
 ---
 title: Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
 description: 리소스 토큰을 만들어서 Graph 데이터베이스에 액세스하는 데 사용하는 방법을 알아봅니다.
-author: luisbosquez
-ms.author: lbosq
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb2f948a49badf2578957b137d185c26607923b7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 22c048b748806404ccfa580e660552a1744f3781
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997203"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361696"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Gremlin SDK를 통해 Azure Cosmos DB 리소스 토큰 사용
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 이 문서에서는 [Azure Cosmos DB 리소스 토큰](secure-access-to-data.md)을 사용하여 Gremlin SDK를 통해 Graph 데이터베이스에 액세스하는 방법을 설명합니다.
 
 ## <a name="create-a-resource-token"></a>리소스 토큰 만들기
 
-Apache TinkerPop Gremlin SDK에는 리소스 토큰을 만들기 위한 API가 없습니다. *리소스 토큰*이라는 용어는 Azure Cosmos DB 개념입니다. 리소스 토큰을 만들려면 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)를 다운로드합니다. 애플리케이션에서 리소스 토큰을 만들고 Graph 데이터베이스에 액세스할 때 리소스 토큰을 사용해야 하는 경우 두 개의 개별 SDK가 필요합니다.
+Apache TinkerPop Gremlin SDK에는 리소스 토큰을 만들기 위한 API가 없습니다. *리소스 토큰* 이라는 용어는 Azure Cosmos DB 개념입니다. 리소스 토큰을 만들려면 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)를 다운로드합니다. 애플리케이션에서 리소스 토큰을 만들고 Graph 데이터베이스에 액세스할 때 리소스 토큰을 사용해야 하는 경우 두 개의 개별 SDK가 필요합니다.
 
 다음 그림은 리소스 토큰의 기반이 되는 개체 모델 계층 구조를 간략하게 보여줍니다.
 
@@ -37,7 +38,7 @@ Apache TinkerPop Gremlin SDK에는 리소스 토큰을 만들기 위한 API가 �
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
 DocumentClient client = new DocumentClient(
   new Uri("https://contoso.documents.azure.com:443/"), 
-  "<master key>", 
+  "<primary key>", 
   new ConnectionPolicy 
   {
     EnableEndpointDiscovery = false, 
@@ -63,7 +64,7 @@ GremlinServer 클래스를 생성할 때 리소스 토큰을 "password" 속성�
 // You can obtain the token for a given permission by using the Azure Cosmos DB SDK, or you can pass it into the application as a command line argument or configuration value.
 string resourceToken = GetResourceToken();
 
-// Configure the Gremlin server to use a resource token rather than a master key.
+// Configure the Gremlin server to use a resource token rather than a primary key.
 GremlinServer server = new GremlinServer(
   "contoso.gremlin.cosmosdb.azure.com",
   port: 443,
@@ -100,7 +101,7 @@ Gremlin 계정 하나로 토큰을 개수 제한 없이 발급할 수 있습니�
 
 ## <a name="permission"></a>사용 권한
 
-애플리케이션에서 리소스 토큰을 사용하는 동안 발생하는 일반적인 오류는 "해당 요청에 대한 권한 부여 헤더에 제공된 권한이 부족합니다. 다른 인증 헤더를 사용하여 다시 시도하세요" 오류입니다. 이 오류는 Gremlin 통과에서 에지 또는 꼭짓점을 쓰려고 하는데 리소스 토큰이 *읽기* 권한만 부여하는 경우에 반환됩니다. 통과를 검사하여 *.addV()*, *.addE()*, *.drop()* 또는 *.property()* 단계 중 하나를 포함하고 있는지 확인합니다.
+애플리케이션에서 리소스 토큰을 사용하는 동안 발생하는 일반적인 오류는 "해당 요청에 대한 권한 부여 헤더에 제공된 권한이 부족합니다. 다른 인증 헤더를 사용하여 다시 시도하세요" 오류입니다. 이 오류는 Gremlin 통과에서 에지 또는 꼭짓점을 쓰려고 하는데 리소스 토큰이 *읽기* 권한만 부여하는 경우에 반환됩니다. 통과를 검사하여 *.addV()* , *.addE()* , *.drop()* 또는 *.property()* 단계 중 하나를 포함하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Cosmos DB의 [azure 역할 기반 access control (AZURE RBAC)](role-based-access-control.md)

@@ -4,17 +4,17 @@ description: Azure Maps에서 맵 컨트롤 클라이언트 쪽 JavaScript 라�
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7d45adc10a84af2cf1e5bfddd09c990e53a9f7e2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086354"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413380"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -26,7 +26,7 @@ ms.locfileid: "90086354"
 
 * [Azure Maps 계정을](quick-demo-map-app.md#create-an-azure-maps-account) 만들고 기본 키 또는 구독 키 라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-* [인증 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용 하 여 AAD (Azure Active Directory) 자격 증명을 가져옵니다.
+* [인증 옵션](/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용 하 여 AAD (Azure Active Directory) 자격 증명을 가져옵니다.
 
 ## <a name="create-a-new-map-in-a-web-page"></a>웹 페이지에 새 맵 만들기
 
@@ -75,7 +75,7 @@ ms.locfileid: "90086354"
     </style>
    ```
 
-4. 페이지 본문에 `<div>` 요소를 추가하고 **myMap**이라는 `id`를 부여합니다.
+4. 페이지 본문에 `<div>` 요소를 추가하고 **myMap** 이라는 `id`를 부여합니다.
 
    ```HTML
     <body onload="InitMap()">
@@ -83,7 +83,7 @@ ms.locfileid: "90086354"
     </body>
    ```
 
-5. 이제 지도 컨트롤을 초기화 합니다. 컨트롤을 인증 하려면 Azure Maps 구독 키를 소유 하거나 [인증 옵션과](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)함께 AAD (Azure Active Directory) 자격 증명을 사용 해야 합니다.
+5. 이제 지도 컨트롤을 초기화 합니다. 컨트롤을 인증 하려면 Azure Maps 구독 키를 소유 하거나 [인증 옵션과](/javascript/api/azure-maps-control/atlas.authenticationoptions)함께 AAD (Azure Active Directory) 자격 증명을 사용 해야 합니다.
 
     인증을 위해 구독 키를 사용 하는 경우 요소 내에 다음 스크립트 요소를 복사 하 여 `<head>` 첫 번째 요소 아래에 붙여 넣습니다 `<script>` . `<Your Azure Maps Key>`을 Azure Maps 기본 구독 키로 바꿉니다.
 
@@ -99,8 +99,8 @@ ms.locfileid: "90086354"
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
                 }
-            }
-        });
+            });
+       }
     </script>
     ```
 
@@ -120,8 +120,8 @@ ms.locfileid: "90086354"
                     aadAppId: '<Your AAD App Id>',
                     aadTenant: '<Your AAD Tenant Id>'
                 }
-            }
-        });
+            });
+        }
     </script>
    ```
 
@@ -254,12 +254,12 @@ Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 
 
 ## <a name="javascript-frameworks"></a>JavaScript 프레임 워크
 
-JavaScript 프레임 워크를 사용 하 여 개발 하는 경우 다음과 같은 오픈 소스 프로젝트 중 하나가 유용할 수 있습니다.
+JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소스 프로젝트 중 하나가 유용할 수 있습니다.
 
-- azure maps에 대 [한 azure](https://github.com/arnaudleclerc/ng-azure-maps) 맵-총 10 개 래퍼.
-- [Azuremapscontrol](https://github.com/arnaudleclerc/AzureMapsControl.Components) -Azure Maps 구성 요소입니다.
-- [Azure Maps 반응 구성 요소](https://github.com/WiredSolutions/react-azure-maps) -Azure Maps 컨트롤의 반응 래퍼입니다.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) -vue 응용 프로그램에 대 한 Azure Maps 구성 요소입니다.
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Azure 맵 주변의 Angular 10 래퍼.
+- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - Azure Maps Blazor 구성 요소.
+- [Azure Maps React 구성 요소](https://github.com/WiredSolutions/react-azure-maps) - Azure Maps 컨트롤의 반응 래퍼.
+- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Vue 애플리케이션용 Azure Maps 구성 요소.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -279,7 +279,7 @@ JavaScript 프레임 워크를 사용 하 여 개발 하는 경우 다음과 같
 > [맵 만들기](map-create.md)
 
 > [!div class="nextstepaction"]
-> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [코드 샘플](/samples/browse/?products=azure-maps)
 
 Azure Maps와 AAD (Azure Active Directory)를 통합 하는 방법을 보여 주는 샘플 목록은 다음을 참조 하세요.
 

@@ -3,19 +3,19 @@ title: Azure Resource Manager 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
 ms.date: 09/01/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293951"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032255"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
 Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 계정에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성합니다.
 
-Azure Resource Manager 템플릿에 대한 자세한 내용은 [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
+ARM 템플릿(Azure Resource Manager 템플릿)에 대한 자세한 내용은 [템플릿 배포 개요](../templates/overview.md)를 참조하세요.
 
 ## <a name="consistent-management-layer"></a>일관적인 관리 계층
 
@@ -49,7 +49,7 @@ Resource Manager를 사용하면 다음을 수행할 수 있습니다.
 
 * 리소스가 올바른 순서로 배포되도록 리소스 간의 종속성을 정의합니다.
 
-* RBAC(역할 기반 액세스 제어)가 기본적으로 관리 플랫폼에 통합되어 있으므로 액세스 제어가 모든 서비스에 적용됩니다.
+* Azure RBAC(Azure 역할 기반 액세스 제어)가 기본적으로 관리 플랫폼에 통합되어 있으므로 액세스 제어가 모든 서비스에 적용됩니다.
 
 * 리소스에 태그를 적용하여 구독의 모든 리소스를 논리적으로 구성합니다.
 
@@ -83,7 +83,7 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 
    리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/checklist/resiliency-per-service)을 참조하세요.
 
-* 관리 작업에 대한 Access Control 범위를 지정하는 데 리소스 그룹을 사용할 수 있습니다. 리소스 그룹을 관리하려면 [Azure 정책](../../governance/policy/overview.md), [RBAC 역할](../../role-based-access-control/role-assignments-portal.md) 또는 [리소스 잠금](lock-resources.md)을 할당하면 됩니다.
+* 관리 작업에 대한 Access Control 범위를 지정하는 데 리소스 그룹을 사용할 수 있습니다. 리소스 그룹을 관리하려면 [Azure 정책](../../governance/policy/overview.md), [Azure 역할](../../role-based-access-control/role-assignments-portal.md) 또는 [리소스 잠금](lock-resources.md)을 할당하면 됩니다.
 
 * 리소스 그룹에 [태그를 적용](tag-resources.md)할 수 있습니다. 리소스 그룹의 리소스는 이러한 태그를 상속하지 않습니다.
 
@@ -95,7 +95,7 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 
 * 일부 리소스는 리소스 그룹 외부에 존재할 수 있습니다. 이러한 리소스는 [구독](../templates/deploy-to-subscription.md), [관리 그룹](../templates/deploy-to-management-group.md) 또는 [테넌트](../templates/deploy-to-tenant.md)에 배포됩니다. 이러한 범위에서는 특정 리소스 유형만 지원됩니다.
 
-* 리소스 그룹을 만들려면 [포털](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups) 또는 [ARM(Azure Resource Manager) 템플릿](../templates/deploy-to-subscription.md#resource-groups)을 사용하면 됩니다.
+* 리소스 그룹을 만들려면 [포털](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups) 또는 [ARM 템플릿](../templates/deploy-to-subscription.md#resource-groups)을 사용하면 됩니다.
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager의 복원력
 

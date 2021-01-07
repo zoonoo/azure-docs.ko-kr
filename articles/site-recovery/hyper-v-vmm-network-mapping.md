@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74082567"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure로 Hyper-V VM 재해 복구를 수행하기 위해 네트워크 매핑 준비
@@ -49,7 +49,7 @@ Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워�
 - Site Recovery에서 네트워크 매핑 중에 대상 VM 네트워크를 선택하면 보호에 사용되는 대상 클라우드의 사용 가능한 대상 VM 네트워크와 함께 원본 VM 네트워크를 사용하는 VMM 원본 클라우드가 표시됩니다.
 - 대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 머신이 있는 서브넷과 같으면 복제 VM이 장애 조치(failover) 후에 대상 서브넷에 연결됩니다. 이름이 일치하는 대상 서브넷이 없으면 VM은 네트워크의 첫 번째 서브넷에 연결됩니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 이 메커니즘을 설명하는 예는 다음과 같습니다. 뉴욕과 시카고 두 위치에 있는 조직을 보겠습니다.
 
@@ -57,10 +57,10 @@ Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워�
 ---|---|---|---
 뉴욕 | VMM-뉴욕| VMNetwork1-뉴욕 | VMNetwork1-시카고로 매핑
  |  | VMNetwork2-뉴욕 | 매핑되지 않음
-시카코 | VMM-시카고| VMNetwork1-시카고 | VMNetwork1-뉴욕으로 매핑
+시카고 | VMM-시카고| VMNetwork1-시카고 | VMNetwork1-뉴욕으로 매핑
  | | VMNetwork2-시카고 | 매핑되지 않음
 
-이 예제에서:
+이 예제에 대한 설명:
 
 - VMNetwork1-뉴욕에 연결된 모든 VM에 대한 복제 VM을 만들면 VMNetwork1-시카고에 연결됩니다.
 - VMNetwork2-뉴욕 또는 VMNetwork2-시카고에 대한 복제 VM을 만들면 어떤 네트워크에도 연결되지 않습니다.
@@ -81,7 +81,7 @@ SilverCloud2 | <p>해당 없음</p><p></p> | <p>LogicalNetwork1-뉴욕</p><p>Log
 **위치** | **논리 네트워크** | **연결된 VM 네트워크**
 ---|---|---
 뉴욕 | LogicalNetwork1-뉴욕 | VMNetwork1-뉴욕
-시카코 | LogicalNetwork1-시카고 | VMNetwork1-시카고
+시카고 | LogicalNetwork1-시카고 | VMNetwork1-시카고
  | LogicalNetwork2Chicago | VMNetwork2-시카고
 
 ### <a name="target-network-settings"></a>대상 네트워크 설정

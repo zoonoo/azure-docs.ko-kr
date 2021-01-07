@@ -3,13 +3,13 @@ title: Application Insights SDK에서 필터링 및 전처리 | Microsoft Docs
 description: SDK에 대 한 원격 분석 프로세서 및 원격 분석 이니셜라이저를 작성 하 여 원격 분석을 Application Insights 포털로 보내기 전에 데이터에 속성을 필터링 하거나 추가 합니다.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c42b3a79e1c816e92c71e41a738bbb116a39aee1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: b3ccc3516d5b31f4c119c2d5a2bd11a63dbdc611
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936557"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91758033"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -26,7 +26,7 @@ Application Insights SDK에 대 한 플러그 인을 작성 하 고 구성 하 �
 
 <a name="filtering"></a>
 
-## <a name="filtering"></a>Filtering
+## <a name="filtering"></a>필터링
 
 이 기법을 사용 하면 원격 분석 스트림에서 포함 되거나 제외 되는 항목을 직접 제어할 수 있습니다. 필터링을 사용 하 여 Application Insights에 보낼 원격 분석 항목을 삭제할 수 있습니다. 샘플링 또는 별도로 필터링을 사용할 수 있습니다.
 
@@ -292,7 +292,7 @@ protected void Application_Start()
 }
 ```
 
-[이 샘플](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)을 참조 하세요.
+[이 샘플](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)을 참조 하세요.
 
 ASP.NET **Core/Worker 서비스 앱: 이니셜라이저 로드**
 
@@ -327,24 +327,22 @@ ASP.NET **Core/Worker 서비스 앱: 이니셜라이저 로드**
     // This is called whenever a new telemetry item
     // is created.
 
-    appInsights.queue.push(function () {
-        appInsights.context.addTelemetryInitializer(function (envelope) {
-            var telemetryItem = envelope.data.baseData;
+    appInsights.addTelemetryInitializer(function (envelope) {
+        var telemetryItem = envelope.data.baseData;
 
-            // To check the telemetry items type - for example PageView:
-            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                // this statement removes url from all page view documents
-                telemetryItem.url = "URL CENSORED";
-            }
+        // To check the telemetry items type - for example PageView:
+        if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+            // this statement removes url from all page view documents
+            telemetryItem.url = "URL CENSORED";
+        }
 
-            // To set custom properties:
-            telemetryItem.properties = telemetryItem.properties || {};
-            telemetryItem.properties["globalProperty"] = "boo";
-
-            // To set custom metrics:
-            telemetryItem.measurements = telemetryItem.measurements || {};
-            telemetryItem.measurements["globalMetric"] = 100;
-        });
+        // To set custom properties:
+        telemetryItem.properties = telemetryItem.properties || {};
+        telemetryItem.properties["globalProperty"] = "boo";
+        
+        // To set cloud role name / instance
+        envelope.tags["ai.cloud.role"] = "your role name";
+        envelope.tags["ai.cloud.roleInstance"] = "your role instance";
     });
 
     // End of inserted code.

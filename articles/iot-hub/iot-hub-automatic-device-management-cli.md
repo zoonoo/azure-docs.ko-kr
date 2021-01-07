@@ -7,28 +7,28 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82024968"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545415"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Azure CLI를 사용 하 여 자동 IoT 장치 및 모듈 관리
+# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Azure CLI를 사용한 자동 IoT 디바이스 및 모듈 관리
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다. 이 업데이트는 완료 및 규정 준수를 요약하고, 병합 및 충돌을 처리하고, 단계별 방식으로 구성을 롤아웃할 수 있는 _자동 디바이스 구성_ 또는 _자동 모듈 구성_을 사용하여 수행됩니다.
+Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다. 이 업데이트는 완료 및 규정 준수를 요약하고, 병합 및 충돌을 처리하고, 단계별 방식으로 구성을 롤아웃할 수 있는 _자동 디바이스 구성_ 또는 _자동 모듈 구성_ 을 사용하여 수행됩니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-자동 디바이스 관리는 원하는 속성이 지정된 디바이스 쌍 세트 또는 모듈 쌍 세트를 업데이트하고 보고된 쌍 속성을 기준으로 요약을 보고하여 작동합니다.  새 클래스 및 다음과 같이 세 부분으로 이루어진 *구성*이라고 하는 JSON 문서를 도입했습니다.
+자동 디바이스 관리는 원하는 속성이 지정된 디바이스 쌍 세트 또는 모듈 쌍 세트를 업데이트하고 보고된 쌍 속성을 기준으로 요약을 보고하여 작동합니다.  새 클래스 및 다음과 같이 세 부분으로 이루어진 *구성* 이라고 하는 JSON 문서를 도입했습니다.
 
-* **대상 조건**은 업데이트할 디바이스 쌍 또는 모듈 쌍의 범위를 정의합니다. 대상 조건은 디바이스 쌍 태그 및/또는 보고된 속성에서 쿼리로 지정됩니다.
+* **대상 조건** 은 업데이트할 디바이스 쌍 또는 모듈 쌍의 범위를 정의합니다. 대상 조건은 디바이스 쌍 태그 및/또는 보고된 속성에서 쿼리로 지정됩니다.
 
-* **대상 콘텐츠**는 대상으로 지정된 디바이스 쌍 또는 모듈 쌍에 추가하거나 업데이트할 원하는 속성을 정의합니다. 콘텐츠에는 변경할 원하는 속성의 섹션에 대한 경로가 포함됩니다.
+* **대상 콘텐츠** 는 대상으로 지정된 디바이스 쌍 또는 모듈 쌍에 추가하거나 업데이트할 원하는 속성을 정의합니다. 콘텐츠에는 변경할 원하는 속성의 섹션에 대한 경로가 포함됩니다.
 
-* **메트릭**은 **성공**, **진행 중** 및 **오류**와 같은 다양한 구성 상태의 요약 횟수를 정의합니다. 사용자 지정 메트릭은 보고된 쌍 속성에서 쿼리로 지정됩니다.  시스템 메트릭은 대상으로 지정된 쌍의 수 및 성공적으로 업데이트된 쌍의 수와 같은 쌍 업데이트 상태를 측정하는 기본 메트릭입니다.
+* **메트릭** 은 **성공** , **진행 중** 및 **오류** 와 같은 다양한 구성 상태의 요약 횟수를 정의합니다. 사용자 지정 메트릭은 보고된 쌍 속성에서 쿼리로 지정됩니다.  시스템 메트릭은 대상으로 지정된 쌍의 수 및 성공적으로 업데이트된 쌍의 수와 같은 쌍 업데이트 상태를 측정하는 기본 메트릭입니다.
 
 자동 구성은 구성이 생성된 후 즉시 실행되며 그 이후에는 5분 간격으로 실행됩니다. 메트릭 쿼리는 자동 구성이 실행될 때마다 실행됩니다.
 
@@ -36,7 +36,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) 
 
-* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.70 이상이어야 합니다. `az –-version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
+* 사용자 환경의 [Azure CLI](/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.70 이상이어야 합니다. `az –-version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
 
 * [Azure CLI용 IoT 확장](https://github.com/Azure/azure-cli).
 
@@ -105,7 +105,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 }
 ```
 
-모듈에 대 한 메트릭 쿼리는 장치에 대 한 쿼리와도 유사 하지만에서를 선택 `moduleId` `devices.modules` 합니다. 예를 들어: 
+모듈에 대 한 메트릭 쿼리는 장치에 대 한 쿼리와도 유사 하지만에서를 선택 `moduleId` `devices.modules` 합니다. 예를 들면 다음과 같습니다. 
 
 ```json
 {
@@ -136,7 +136,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 
 * --**hub-name** - 구성을 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
-* --**대상 조건** -대상 조건을 입력 하 여이 구성의 대상으로 지정할 장치 또는 모듈을 결정 합니다.자동 장치 구성의 경우 조건은 장치 쌍 태그 또는 장치 쌍 desired 속성을 기반으로 하며 식 형식과 일치 해야 합니다.예를 들어 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`입니다.자동 모듈 구성의 경우 조건은 모듈 쌍 태그 또는 모듈 쌍 desired 속성을 기반으로 합니다. 예를 들어 `from devices.modules where tags.environment='test'` 또는 `from devices.modules where properties.reported.chillerProperties.model='4000x'`입니다.
+* --**대상 조건** -대상 조건을 입력 하 여이 구성의 대상으로 지정할 장치 또는 모듈을 결정 합니다. 자동 장치 구성의 경우 조건은 장치 쌍 태그 또는 장치 쌍 desired 속성을 기반으로 하며 식 형식과 일치 해야 합니다. 예를 들어 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`로 이름을 지정할 수 있습니다. 자동 모듈 구성의 경우 조건은 모듈 쌍 태그 또는 모듈 쌍 desired 속성을 기반으로 합니다. 예를 들어 `from devices.modules where tags.environment='test'` 또는 `from devices.modules where properties.reported.chillerProperties.model='4000x'`로 이름을 지정할 수 있습니다.
 
 * --**priority** -양의 정수입니다. 둘 이상의 구성이 동일한 장치 또는 모듈을 대상으로 하는 경우 우선 순위에 대 한 숫자 값이 가장 높은 구성이 적용 됩니다.
 
@@ -155,7 +155,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**hub-name** - 구성이 있는 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
-명령 창에서 구성을 검사합니다. **metrics** 속성은 각 허브에서 평가되는 각 메트릭의 개수를 나열합니다.
+명령 창에서 구성을 검사합니다.   **metrics** 속성은 각 허브에서 평가되는 각 메트릭의 개수를 나열합니다.
 
 * **Targetedcount** -대상 조건과 일치 하는 IoT Hub 장치 쌍 또는 모듈 쌍의 수를 지정 하는 시스템 메트릭입니다.
 
@@ -229,14 +229,13 @@ az iot hub configuration delete --config-id [configuration id] \
 이 문서에서는 IoT 디바이스를 크기 조정 시 구성 및 모니터링하는 방법에 대해 알아보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [대량으로 IoT Hub 디바이스 ID 관리](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub 메트릭](iot-hub-metrics.md)
-* [작업 모니터링](iot-hub-operations-monitoring.md)
+* [IoT hub 모니터링](monitor-iot-hub.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)

@@ -1,7 +1,7 @@
 ---
-title: Azure에서 부하 분산 장치 TCP 유휴 시간 제한 구성
+title: 부하 분산 장치 TCP 다시 설정 및 유휴 시간 제한 구성
 titleSuffix: Azure Load Balancer
-description: 이 문서에서는 Azure Load Balancer TCP 유휴 시간 제한을 구성하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure Load Balancer TCP 유휴 시간 제한 및 재설정을 구성 하는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,64 +11,106 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2020
+ms.date: 10/26/2020
 ms.author: allensu
-ms.openlocfilehash: 317f6a73812b0e4284564ca9b5593e09e22edf12
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048723"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747210"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure Load Balancer에 대한 TCP 유휴 시간 제한 설정 구성
+# <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 TCP 다시 설정 및 유휴 시간 제한 구성
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure Load Balancer의 유휴 시간 제한 범위는 다음과 같습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+* 아웃 바운드 규칙의 경우 4 분 ~ 100 분
+* Load Balancer 규칙 및 인바운드 NAT 규칙에 대 한 4 분 ~ 30 분
+
+기본적으로 4 분으로 설정 됩니다. 비활성 기간이 시간 제한 값 보다 길면 클라이언트와 서비스 간에 TCP 또는 HTTP 세션이 유지 되지 않을 수 있습니다. 
+
+다음 섹션에서는 부하 분산 장치 리소스에 대 한 유휴 시간 제한 및 tcp 재설정 설정을 변경 하는 방법을 설명 합니다.
+
+## <a name="set-tcp-reset-and-idle-timeout"></a>Tcp 다시 설정 및 유휴 시간 제한 설정
+---
+# <a name="portal"></a>[**포털**](#tab/tcp-reset-idle-portal)
+
+부하 분산 장치에 대 한 유휴 시간 제한 및 tcp 재설정을 설정 하려면 부하 분산 된 규칙을 편집 합니다. 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+2. 왼쪽 메뉴에서 **리소스 그룹** 을 선택 합니다.
+
+3. 부하 분산 장치에 대 한 리소스 그룹을 선택 합니다. 이 예제에서는 리소스 그룹의 이름을 **Myresourcegroup** 으로 지정 합니다.
+
+4. 부하 분산 장치를 선택합니다. 이 예제에서는 부하 분산 장치 이름이 **Myloadbalancer** 로 지정 됩니다.
+
+5. **설정** 에서 **부하 분산 규칙** 을 선택 합니다.
+
+     :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="부하 분산 장치 규칙을 편집 합니다." border="true":::
+
+6. 부하 분산 규칙을 선택 합니다. 이 예제에서는 부하 분산 규칙의 이름이 **mynewlbrule** 입니다.
+
+7. 부하 분산 규칙에서 **유휴 시간 제한 (분)** 의 슬라이더를 시간 제한 값으로 이동 합니다.  
+
+8. **TCP 다시 설정** 에서 **사용** 을 선택 합니다.
+
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="부하 분산 장치 규칙을 편집 합니다." border="true":::
+
+9. **저장** 을 선택합니다.
+
+# <a name="powershell"></a>[**PowerShell**](#tab/tcp-reset-idle-powershell)
+
+유휴 시간 제한 및 tcp 재설정을 설정 하려면 [AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)를 사용 하 여 다음과 같은 부하 분산 규칙 매개 변수의 값을 설정 합니다.
+
+* **IdleTimeoutInMinutes**
+* **EnableTcpReset 설정**
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="tcp-idle-timeout"></a>TCP 유휴 시간 제한
-Azure Load Balancer의 유휴 시간 제한 설정은 4~30분입니다. 기본적으로 4분으로 설정되어 있습니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 클라우드 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다.
+다음 예제를 리소스의 값으로 바꿉니다.
 
-연결이 닫혀 있는 경우 클라이언트 애플리케이션이 다음 오류 메시지를 수신할 수 있습니다. “기본 연결이 닫혔습니다. 활성 상태로 유지될 것으로 예상된 연결이 서버에서 닫혔습니다.”
+* **myResourceGroup**
+* **myLoadBalancer**
 
-일반적인 방법은 TCP 연결 유지를 사용하는 것입니다. 이 방법은 더 오랜 기간 동안 연결을 활성 상태로 유지합니다. 자세한 내용은 이러한 [.NET 예제](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)를 참조하세요. 연결 유지를 사용하면 연결 비활성화 기간 동안 패킷이 전송됩니다. 연결 유지 패킷은 유휴 시간 제한 값에 도달하지 않고 연결이 장기간 유지되도록 합니다.
-
-이 설정은 인바운드 연결에서만 작동합니다. 연결 끊김을 방지하려면 유휴 시간 제한 설정보다 낮은 간격으로 TCP 연결 유지를 구성하거나 유휴 시간 제한 값을 늘립니다. 이러한 시나리오를 지원하기 위해 구성 가능한 유휴 시간 제한에 대한 지원이 추가되었습니다.
-
-TCP 연결 유지는 배터리 수명이 제한되지 않는 시나리오에서 작동합니다. 모바일 애플리케이션에는 권장되지 않습니다. 모바일 애플리케이션에서 TCP 연결 유지를 사용하면 디바이스 배터리가 더 빨리 방전될 수 있습니다.
-
-![TCP 시간 제한](./media/load-balancer-tcp-idle-timeout/image1.png)
-
-다음 섹션에서는 공용 IP 및 부하 분산 장치 리소스의 유휴 시간 제한 설정을 변경하는 방법을 설명합니다.
-
->[!NOTE]
-> TCP 유휴 시간 제한은 UDP 프로토콜의 부하 분산 규칙에 영향을 주지 않습니다.
-
-
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>인스턴스 수준 공용 IP의 TCP 시간 제한을 15분으로 구성
-
-```azurepowershell-interactive
-$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
-$publicIP.IdleTimeoutInMinutes = "15"
-Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```azurepowershell
+$lb = Get-AzLoadBalancer -Name "myLoadBalancer" -ResourceGroup "myResourceGroup"
+$lb.LoadBalancingRules[0].IdleTimeoutInMinutes = '15'
+$lb.LoadBalancingRules[0].EnableTcpReset = 'true'
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-`IdleTimeoutInMinutes`는 선택 사항입니다. 설정하지 않으면 기본 시간 제한은 4분입니다. 허용되는 시간 제한 범위는 4분에서 30분 사이입니다.
+# <a name="azure-cli"></a>[**Azure CLI**](#tab/tcp-reset-idle-cli)
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>부하 분산된 규칙의 TCP 시간 제한을 15분으로 설정
+유휴 시간 제한 및 tcp 재설정을 설정 하려면 [az network lb rule update](/cli/azure/network/lb/rule?az_network_lb_rule_update)에 대해 다음 매개 변수를 사용 합니다.
 
-부하 분산 장치의 유휴 시간 제한을 설정하기 위해 부하 분산 규칙에 'IdleTimeoutInMinutes'가 설정되어 있습니다. 다음은 그 예입니다.
+* **--유휴-시간 제한**
+* **--enable-tcp-다시 설정**
 
-```azurepowershell-interactive
-$lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
-$lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
+시작하기 전에 현재 환경의 유효성을 검사합니다.
+
+* Azure Portal에 로그인하고 `az login`을 실행하여 구독이 활성 상태인지 확인합니다.
+* 터미널 또는 명령 창에서 `az --version`을 실행하여 Azure CLI 버전을 확인합니다. 최신 버전은 [최신 릴리스 정보](/cli/azure/release-notes-azure-cli?tabs=azure-cli)를 참조하세요.
+  * 최신 버전이 없는 경우 [사용 중인 운영 체제 또는 플랫폼의 설치 가이드](/cli/azure/install-azure-cli)에 따라 설치를 업데이트합니다.
+
+다음 예제를 리소스의 값으로 바꿉니다.
+
+* **myResourceGroup**
+* **myLoadBalancer**
+* **Mynewlbrule**
+
+
+```azurecli
+az network lb rule update \
+    --resource-group myResourceGroup \
+    --name myLBrule \
+    --lb-name myLoadBalancer \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
+---
 ## <a name="next-steps"></a>다음 단계
 
-[내부 부하 분산 장치 개요](load-balancer-internal-overview.md)
+Tcp 유휴 시간 제한 및 다시 설정에 대 한 자세한 내용은 [LOAD BALANCER Tcp 다시 설정 및 유휴 시간 제한](load-balancer-tcp-reset.md) 을 참조 하세요.
 
-[인터넷 연결 부하 분산 장치 구성 시작](quickstart-load-balancer-standard-public-powershell.md)
-
-[부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
+부하 분산 장치 배포 모드를 구성 하는 방법에 대 한 자세한 내용은 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)을 참조 하세요.

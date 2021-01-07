@@ -4,12 +4,12 @@ description: 파티션을 사용하여 Azure Event Hubs에서 가용성 및 일�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 774332b8f2d5c336f1a22d717516ae35a62b341f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000637"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902904"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 
@@ -40,7 +40,9 @@ Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하
 최대 가동 시간을 필요로 하는 사용 사례의 경우 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="consistency"></a>일관성
-일부 시나리오에서는 이벤트의 순서가 중요합니다. 예를 들어, 백 엔드 시스템에서 삭제 명령 전에 업데이트 명령을 처리하려고 할 수 있습니다. 이 인스턴스에서는 이벤트에 대 한 파티션 키를 설정 하거나 `PartitionSender` 개체 (이전 Microsoft. Azure. Messaging 라이브러리를 사용 하는 경우)를 사용 하 여 특정 파티션에만 이벤트를 보낼 수 있습니다. 이렇게 하면 이러한 이벤트를 파티션에서 읽을 때 순서대로 읽게 됩니다. **EventHubs** 라이브러리를 사용 하는 경우에 대 한 자세한 내용은 [파티션 간 이벤트 게시를 위해 분할 된 발신자에서 EventHubProducerClient로 코드 마이그레이션](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition)을 참조 하세요.
+일부 시나리오에서는 이벤트의 순서가 중요합니다. 예를 들어, 백 엔드 시스템에서 삭제 명령 전에 업데이트 명령을 처리하려고 할 수 있습니다. 이 인스턴스에서는 이벤트에 대 한 파티션 키를 설정 하거나 `PartitionSender` 개체 (이전 Microsoft. Azure. Messaging 라이브러리를 사용 하는 경우)를 사용 하 여 특정 파티션에만 이벤트를 보낼 수 있습니다. 이렇게 하면 이러한 이벤트를 파티션에서 읽을 때 순서대로 읽게 됩니다. 
+
+최신 **EventHubs** 라이브러리를 사용 하는 경우 [파티션에 이벤트를 게시 하기 위해 분할 된 발신자에서 EventHubProducerClient로 코드 마이그레이션](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition)을 참조 하세요.
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[EventHubs (5.0.0 이상)](#tab/latest)
 

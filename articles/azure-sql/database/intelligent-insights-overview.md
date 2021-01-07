@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 96557a6049b316a69c32e96012206eab128e024a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0f3dce3ca79b12b05325a1d8284dd3304653d5fa
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986507"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96488870"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>AI를 사용 하 여 데이터베이스 성능 모니터링 및 문제 해결 (미리 보기) Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,7 +49,7 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 
 식별 된 database performance 저하는 다음 속성으로 구성 된 지능형 항목을 사용 하 여 SQLInsights 로그에 기록 됩니다.
 
-| 속성 | 설명 |
+| 속성 | 세부 정보 |
 | :------------------- | ------------------- |
 | 데이터베이스 정보 | 리소스 URI와 같이 정보가 검색된 데이터베이스에 대한 메타데이터 |
 | 관찰된 시간 범위 | 검색된 정보 기간에 대한 시작 및 종료 시간 |
@@ -85,7 +85,7 @@ Intelligent Insights는 데이터베이스 성능 문제를 검색 하 고 해�
 
 분석을 위해 Intelligent Insights 출력을 여러 대상 중 하나로 스트리밍할 수 있습니다.
 
-- Log Analytics 작업 영역으로 스트리밍되는 출력은 [Azure SQL 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 와 함께 사용 하 여 Azure Portal의 사용자 인터페이스를 통해 정보를 볼 수 있습니다. 이 제품은 통합된 Azure 솔루션이며, 인사이트를 살펴보는 가장 일반적인 방법입니다.
+- Log Analytics 작업 영역으로 스트리밍되는 출력은 [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md) 와 함께 사용 하 여 Azure Portal의 사용자 인터페이스를 통해 정보를 볼 수 있습니다. 이 제품은 통합된 Azure 솔루션이며, 인사이트를 살펴보는 가장 일반적인 방법입니다.
 - Azure Event Hubs로 스트리밍된 출력은 사용자 지정 모니터링 및 경고 시나리오를 개발 하는 데 사용할 수 있습니다.
 - 사용자 지정 보고, 장기 데이터 보관 등의 사용자 지정 응용 프로그램 개발에 사용할 수 Azure Storage으로 스트리밍되는 출력입니다.
 
@@ -107,7 +107,7 @@ Azure SQL 분석에서 Intelligent Insights를 사용 하려면 이전 단계에
 
 ### <a name="set-up-with-event-hubs"></a>Event Hubs를 사용하여 설정
 
-Event Hubs에서 Intelligent Insights를 사용 하려면 Event Hubs로 스트리밍할 Intelligent Insights 로그 데이터를 구성 하 고, [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 을 참조 하 고, [Azure 진단 로그를 Event Hubs으로 스트리밍합니다](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Event Hubs에서 Intelligent Insights를 사용 하려면 Event Hubs로 스트리밍할 Intelligent Insights 로그 데이터를 구성 하 고, [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 을 참조 하 고, [Azure 진단 로그를 Event Hubs으로 스트리밍합니다](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 Event Hubs를 사용 하 여 사용자 지정 모니터링 및 경고를 설정 하려면 [Event Hubs에서 메트릭 및 진단 로그를 사용 하 여 수행할 작업](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs)을 참조 하세요.
 
@@ -158,7 +158,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 
 ## <a name="excessive-wait-times"></a>과도한 대기 시간
 
-과도한 대기 시간 모델은 개별 데이터베이스 쿼리를 모니터링합니다. 이 모델은 시스템에서 관리하는 절대 임계값을 초과해 비정상적으로 높은 쿼리 대기 통계를 검색합니다. 다음 쿼리는 [쿼리 저장소 대기 통계 (query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)를 사용 하 여 과도 한 대기 시간 메트릭을 관찰 합니다.
+과도한 대기 시간 모델은 개별 데이터베이스 쿼리를 모니터링합니다. 이 모델은 시스템에서 관리하는 절대 임계값을 초과해 비정상적으로 높은 쿼리 대기 통계를 검색합니다. 다음 쿼리는 [쿼리 저장소 대기 통계 (sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)를 사용 하 여 과도 한 대기 시간 메트릭을 관찰 합니다.
 
 - 리소스 제한에 도달
 - 탄력적 풀 리소스 제한에 도달

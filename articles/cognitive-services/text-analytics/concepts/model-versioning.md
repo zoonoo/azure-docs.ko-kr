@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: e6763633ce27c537f1384e8e51020d44132c0377
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 7ab2e037cc7593431a668a216fcc152c0511c410
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469850"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965088"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>텍스트 분석 API의 모델 버전 관리
 
@@ -23,16 +23,17 @@ ms.locfileid: "89469850"
 
 ## <a name="available-versions"></a>사용 가능한 버전
 
-아래 표를 사용 하 여 각 끝점에서 지원 되는 모델 버전을 찾을 수 있습니다.
+아래 표를 사용 하 여 각 호스팅된 끝점에서 지원 되는 모델 버전을 찾을 수 있습니다.
 
 
 | 엔드포인트                        | 지원되는 버전                                     | 최신 버전 |
 |---------------------------------|--------------------------------------------------------|----------------|
 | `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`               | `2020-09-01`   |
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
 | `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
 | `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/entities/health`              | `2020-09-03`                           | `2020-09-03`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
@@ -44,7 +45,8 @@ ms.locfileid: "89469850"
 
 | 엔드포인트                        | 컨테이너 이미지 태그                     | 모델 버전 |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`               | `1.1.013150001-amd64-preview` 또는 최신 | `2020-07-24`  |
+| `/entities/health`              | `1.1.013530001-amd64-preview` 또는 최신          | `2020-09-03`  |
+| `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |

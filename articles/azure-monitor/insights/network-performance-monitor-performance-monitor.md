@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326123"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>네트워크 성능 모니터 솔루션: 성능 모니터링
@@ -26,7 +26,7 @@ ms.locfileid: "87326123"
 
 ![네트워크 성능 모니터](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 네트워크 성능 모니터에 대 한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택 합니다.
 
 ![네트워크 성능 모니터 구성](media/network-performance-monitor-performance-monitor/npm-configure-button.png)

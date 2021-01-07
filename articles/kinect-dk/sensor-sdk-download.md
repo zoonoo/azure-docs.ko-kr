@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sdk, 업데이트 다운로드, 최신, 사용 가능, 설치
-ms.openlocfilehash: 48cdd35a80d68a7ec0d900639c0fca3a2c66787e
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2fd14781c42192c713d826729f8fab6c698d6321
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171791"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505480"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Azure Kinect 센서 SDK 다운로드
 
@@ -26,20 +26,20 @@ ms.locfileid: "86171791"
 - [Azure Kinect 레코더](azure-kinect-recorder.md)
 - [Azure Kinect 펌웨어 도구](azure-kinect-firmware-tool.md)
 
-## <a name="windows-download-link"></a>Windows 다운로드 링크
+## <a name="windows-installation-instructions"></a>Windows 설치 지침
 
-[Microsoft 설치 관리자](https://download.microsoft.com/download/3/d/6/3d6d9e99-a251-4cf3-8c6a-8e108e960b4b/Azure%20Kinect%20SDK%201.4.1.exe) | [GitHub 소스 코드](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
+Azure Kinect 센서 SDK 및 펌웨어의 최신 버전 및 이전 버전에 대 한 설치 세부 정보는 [여기](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)에서 확인할 수 있습니다.
+
+소스 코드는 [여기](https://github.com/microsoft/Azure-Kinect-Sensor-SDK)서 찾을 수 있습니다.
 
 > [!NOTE]
 > SDK를 설치할 때 설치 경로를 기억하세요. 예를 들어"C:\Program Files\Azure Kinect SDK 1.2"입니다. 문서에서 참조하는 도구를 이 경로에서 찾을 수 있습니다.
-
-[GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)에서 이전 버전의 Azure Kinect 센서 SDK 및 펌웨어를 찾을 수 있습니다.
 
 ## <a name="linux-installation-instructions"></a>Linux 설치 지침
 
 현재 유일하게 지원되는 배포는 Ubuntu 18.04입니다. 다른 배포에 대한 지원을 요청하려면 [이 페이지](https://aka.ms/azurekinectfeedback)를 참조하세요.
 
-먼저 [여기](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software) 지침에 따라 [Microsoft의 패키지 리포지토리](https://packages.microsoft.com/)를 구성해야 합니다.
+먼저 [여기](/windows-server/administration/linux-package-repository-for-microsoft-software) 지침에 따라 [Microsoft의 패키지 리포지토리](https://packages.microsoft.com/)를 구성해야 합니다.
 
 이제 필요한 패키지를 설치할 수 있습니다. `k4a-tools` 패키지에는 [Azure Kinect 뷰어](azure-kinect-viewer.md), [Azure Kinect 레코더](record-sensor-streams-file.md) 및 [Azure Kinect 펌웨어 도구](azure-kinect-firmware-tool.md)가 포함되어 있습니다. 설치하려면 다음을 실행합니다.
 

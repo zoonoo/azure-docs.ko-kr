@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/15/2020
 ms.author: genli
-ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 738c2a240ad6c88186357e69b02d33b40d366d7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561264"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977068"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Microsoft Azure 게스트 에이전트 문제 해결
 
-Windows Azure 게스트 에이전트는 VM (가상 컴퓨터) 에이전트입니다. IP 주소 168.63.129.16에서 VM이 패브릭 컨트롤러 (VM이 호스트 되는 기본 실제 서버)와 통신할 수 있습니다. 이는 통신을 용이 하 게 하는 가상 공용 IP 주소입니다. 자세한 내용은 [IP 주소 168.63.129.16?](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)을 참조 하세요.
+Windows Azure 게스트 에이전트는 VM (가상 컴퓨터) 에이전트입니다. IP 주소 168.63.129.16에서 VM이 패브릭 컨트롤러 (VM이 호스트 되는 기본 실제 서버)와 통신할 수 있습니다. 이는 통신을 용이 하 게 하는 가상 공용 IP 주소입니다. 자세한 내용은 [IP 주소 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)을 참조 하세요.
 
- 온-프레미스에서 Azure로 마이그레이션하거나 사용자 지정 이미지를 사용 하 여 만든 VM에는 Microsoft Azure 게스트 에이전트가 설치 되어 있지 않습니다. 이러한 시나리오에서는 VM 에이전트를 수동으로 설치 해야 합니다. VM 에이전트를 설치 하는 방법에 대 한 자세한 내용은 [Azure Virtual Machine 에이전트 개요](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)를 참조 하세요.
+ 온-프레미스에서 Azure로 마이그레이션하거나 사용자 지정 이미지를 사용 하 여 만든 VM에는 Microsoft Azure 게스트 에이전트가 설치 되어 있지 않습니다. 이러한 시나리오에서는 VM 에이전트를 수동으로 설치 해야 합니다. VM 에이전트를 설치 하는 방법에 대 한 자세한 내용은 [Azure Virtual Machine 에이전트 개요](../extensions/agent-windows.md)를 참조 하세요.
 
 Windows Azure 게스트 에이전트를 성공적으로 설치한 후에는 VM의 services.msc에 나열 된 다음 서비스를 확인할 수 있습니다.
  
@@ -74,7 +74,7 @@ Azure Portal에서 VM 속성 페이지로 이동 하 여 **에이전트 상태**
 
     제어판에서 **프로그램 및 기능** 으로 이동 하 여 Windows Azure 게스트 에이전트 서비스가 설치 되어 있는지 확인 합니다.
 
-실행 중인 패키지, 서비스 및 프로세스를 찾을 수 없고 프로그램 및 기능에 설치 된 Windows Azure 게스트 에이전트도 표시 되지 않는 경우에는 [Microsoft Azure 게스트 에이전트 서비스를 설치](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)해 보십시오. 게스트 에이전트가 제대로 설치 되지 않으면 [VM 에이전트를 오프 라인으로 설치할](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline)수 있습니다.
+실행 중인 패키지, 서비스 및 프로세스를 찾을 수 없고 프로그램 및 기능에 설치 된 Windows Azure 게스트 에이전트도 표시 되지 않는 경우에는 [Microsoft Azure 게스트 에이전트 서비스를 설치](../extensions/agent-windows.md)해 보십시오. 게스트 에이전트가 제대로 설치 되지 않으면 [VM 에이전트를 오프 라인으로 설치할](./install-vm-agent-offline.md)수 있습니다.
 
 서비스를 볼 수 있고 실행 중인 경우에는 문제가 해결 되었는지 확인 하는 서비스를 다시 시작 합니다. 서비스가 중지 된 경우 서비스를 시작 하 고 몇 분 정도 기다립니다. 그런 다음 **에이전트 상태가** **준비**로 보고 되는지 확인 합니다. 이러한 서비스가 충돌 하는 경우 일부 타사 프로세스로 인해 이러한 서비스가 충돌 하는 것일 수 있습니다. 이러한 문제를 추가로 해결 하려면 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의 하세요.
 
@@ -111,7 +111,7 @@ Windows Azure 게스트 에이전트에는 자동 업데이트 기능이 있습�
     ```
     그런 다음 게스트 에이전트 서비스가 올바르게 시작 되는지 확인 합니다.
  
-    드문 경우 지만 게스트 에이전트가 올바르게 설치 되지 않으면 [VM 에이전트를 오프 라인으로 설치할](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline)수 있습니다.
+    드문 경우 지만 게스트 에이전트가 올바르게 설치 되지 않으면 [VM 에이전트를 오프 라인으로 설치할](./install-vm-agent-offline.md)수 있습니다.
     
 
 ### <a name="step-3-check-whether-the-vm-can-connect-to-the-fabric-controller"></a>3 단계 VM이 패브릭 컨트롤러에 연결할 수 있는지 확인 합니다.
@@ -189,7 +189,7 @@ VM이 wireserver 호스트 서버에 연결할 수 없습니다.
 1. 1 단계의 URL에 연결할 수 없는 경우 네트워크 인터페이스에서 DHCP를 사용 하도록 설정 되어 있고 DNS가 있는지 여부를 확인 합니다. 네트워크 인터페이스의 DHCP 상태를 확인 하려면 명령을 실행  `netsh interface ip show config` 합니다.
 1. DHCP를 사용 하지 않도록 설정한 경우에는 다음을 실행 하 여 노란색의 값을 인터페이스 이름으로 변경 해야 `netsh interface ip set address name="Name of the interface" source=dhcp` 합니다.
 1. 방화벽, 프록시 또는 IP 주소 168.63.129.16에 대 한 액세스를 차단할 수 있는 다른 원본으로 인해 발생할 수 있는 문제를 확인 합니다.
-1. Windows 방화벽 또는 타사 방화벽에서 포트 80, 443 및 32526에 대 한 액세스를 차단 하는지 확인 합니다. 이 주소를 차단 하지 않아야 하는 이유에 대 한 자세한 내용은 [IP 주소 168.63.129.16?](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)을 참조 하세요.
+1. Windows 방화벽 또는 타사 방화벽에서 포트 80, 443 및 32526에 대 한 액세스를 차단 하는지 확인 합니다. 이 주소를 차단 하지 않아야 하는 이유에 대 한 자세한 내용은 [IP 주소 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)을 참조 하세요.
 
 ### <a name="guest-agent-is-stuck-stopping"></a>게스트 에이전트가 "중지 중" 상태로 중지 됨  
 

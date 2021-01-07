@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06c353cf5fbd5c2b1058d99e7f91e9fcc3853cb1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3643fad1c9e821a78df6d78edeede2341ec79ea8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929047"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91303764"
 ---
 # <a name="add-faces-to-a-persongroup"></a>PersonGroup에 얼굴 추가
 
@@ -138,6 +138,5 @@ Parallel.For(0, PersonCount, async i =>
 
 ## <a name="related-topics"></a>관련 항목
 
-- [이미지에서 얼굴 식별](HowtoIdentifyFacesinImage.md)
 - [이미지에서 얼굴 감지](HowtoDetectFacesinImage.md)
 - [대규모 기능 사용](how-to-use-large-scale.md)

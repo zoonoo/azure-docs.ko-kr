@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
 ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969530"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Azure Active Directory 프로비저닝이 SAP SuccessFactors와 통합 되는 방법 
@@ -75,7 +75,7 @@ SuccessFactors의 모든 사용자에 대해 Azure AD 프로 비전 서비스는
 특성 매핑을 기반으로 전체 동기화를 수행 하는 동안 Azure AD 프로 비전 서비스는 다음 "GET" OData API 쿼리를 전송 하 여 모든 활성 사용자의 유효 데이터를 가져옵니다. 
 
 > [!div class="mx-tdCol2BreakAll"]
->| 매개 변수 | 설명 |
+>| 매개 변수 | Description |
 >| ----------|-------------|
 >| OData API 호스트 | *테 넌 트 URL*에 https를 추가 합니다. 예: `https://api4.successfactors.com` |
 >| OData API 끝점 | `/odata/v2/PerPerson` |
@@ -291,11 +291,11 @@ Employee Central의 사용자에 게 동시/여러 작업이 있는 경우 *Assi
 
 | \# | 시나리오 요구 사항 | 전자 메일 기본 <br> 플래그 값 | 회사 전화 <br> 기본 플래그 값 | 휴대폰 <br> 기본 플래그 값 | 회사 전화 <br> 매핑 | 휴대폰 <br> 매핑 |
 |--|--|--|--|--|--|--|
-| 1 | * 비즈니스 전자 메일을 기본으로 설정 합니다. <br> * 전화 번호를 설정 하지 않습니다. | true | true | false | \[설정되지 않음\] | \[설정되지 않음\] | 
+| 1 | * 비즈니스 전자 메일을 기본으로 설정 합니다. <br> * 전화 번호를 설정 하지 않습니다. | true | true | false | \[설정 안 함\] | \[설정 안 함\] | 
 | 2 | * SuccessFactors, 비즈니스 전자 메일 및 회사 전화는 주입니다. <br> * 항상 Azure AD 전화 번호를 회사 전화로 이동 하 고 휴대폰을 휴대폰으로 이동 합니다. | true | true | false | telephoneNumber | mobile | 
 | 3 | * SuccessFactors, 비즈니스 전자 메일 및 휴대폰은 기본입니다. <br> * 항상 Azure AD 전화 번호를 회사 전화로 이동 하 고 휴대폰을 휴대폰으로 이동 합니다. | true | false | true |  telephoneNumber | mobile | 
 | 4 | * SuccessFactors 비즈니스 전자 메일이 기본입니다. <br> * Azure AD에서 직장 전화 번호가 있는지 확인 하 고 (있는 경우) 휴대폰 번호가 있는지 확인 하 고 휴대폰 번호가 있는 경우에만 회사 전화 번호를 기본으로 표시를 선택 합니다. | true | 식 매핑 사용: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | 식 매핑 사용: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
-| 5 | * SuccessFactors 비즈니스 전자 메일 및 회사 전화는 주입니다. <br> * Azure AD에서 mobile을 사용할 수 있는 경우 회사 전화로 설정 하 고, 그렇지 않으면 telephoneNumber를 사용 합니다. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[설정되지 않음\] | 
+| 5 | * SuccessFactors 비즈니스 전자 메일 및 회사 전화는 주입니다. <br> * Azure AD에서 mobile을 사용할 수 있는 경우 회사 전화로 설정 하 고, 그렇지 않으면 telephoneNumber를 사용 합니다. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[설정 안 함\] | 
 
 * 다시 쓰기 특성 매핑에 전화 번호에 대 한 매핑이 없는 경우에는 전자 메일만 쓰기 상태로 포함 됩니다.
 * 직원 중앙에서 신규 고용 온 보 딩 중에는 비즈니스 전자 메일 및 전화 번호를 사용할 수 없습니다. 온 보 딩 중에 비즈니스 전자 메일 및 회사 전화를 기본으로 설정 하는 것이 필수 인 경우 새 고용 생성 중에 회사 전화 및 전자 메일에 대 한 더미 값을 설정할 수 있습니다 .이 값은 나중에 나중 쓰기 앱에서 업데이트 됩니다.

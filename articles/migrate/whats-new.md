@@ -2,20 +2,33 @@
 title: Azure Migrate의 새로운 기능
 description: Azure Migrate 서비스의 새로운 기능 및 최신 업데이트에 대해 알아봅니다.
 ms.topic: overview
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 019c04c5820a82b7910b6755ff69e5dfbe7eb66c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7ff9d9c6624016d4b1ea94072d52de1c42d73913
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421614"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400474"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+## <a name="update-december-2020"></a>업데이트(2020년 12월)
+- 이제 Azure Migrate는 에이전트 없는 VMware 마이그레이션 메서드를 사용하여 Azure로 마이그레이션하는 동안 VMware VM에 Azure VM 에이전트를 자동으로 설치합니다.
+- 이제 Azure Portal을 통해 사용 가능한 Azure Migrate 서버 마이그레이션(에이전트 없는 복제)을 사용하여 CMK(고객 관리형 키)에서 SSE(서버 쪽 암호화)를 사용하여 암호화된 디스크로 VMware VM을 Azure 가상 머신으로 마이그레이션할 수 있습니다.
+
 ## <a name="update-september-2020"></a>업데이트(2020년 9월)
-- 이제 Azure Migrate를 사용하여 서버를 가용성 영역으로 마이그레이션할 수 있습니다.
+- 이제 가용성 영역으로의 서버 마이그레이션이 지원됩니다.
+- 이제 UEFI 기반 VM 및 물리적 서버를 Azure 2세대 VM으로 마이그레이션할 수 있습니다. 이 릴리스를 통해 Azure Migrate: 서버 마이그레이션 도구는 마이그레이션 중에 Gen 2 VM에서 Gen 1 VM으로의 변환을 수행하지 않습니다.
+- 새로운 Azure Migrate Power BI 평가 대시보드를 사용하여 다양한 평가 설정에서 비용을 비교할 수 있습니다. 대시보드는 Power BI 대시보드에 연결되는 평가를 자동으로 만드는 PowerShell 유틸리티와 함께 제공됩니다. [자세한 정보](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
+- 이제 1000개의 VM에서 종속성 분석(에이전트 없는)을 동시에 실행할 수 있습니다.
+- 이제 PowerShell 스크립트를 사용하여 종속성 분석(에이전트 없는)을 대규모로 활성화하거나 비활성화할 수 있습니다. [자세한 정보](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- 종속성 분석(에이전트 없음)을 통해 수집된 데이터를 사용하여 Power BI에서 네트워크 연결을 시각화합니다. [자세히 알아보세요.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- 이제 Azure Migrate를 사용하여 데이터 디스크 크기가 최대 32TB인 VMware VM 마이그레이션이 지원됩니다. 서버 마이그레이션 에이전트 없는 VMware 마이그레이션 메서드.
 
 ## <a name="update-august-2020"></a>업데이트(2020년 8월)
 
@@ -23,13 +36,14 @@ ms.locfileid: "89421614"
 - 포털에서 OVA/VHD 파일 또는 설치 관리자 스크립트를 다운로드하여 각각 VMware 및 Hyper-V 어플라이언스를 설정하는 옵션입니다.
 - 향상된 사용자 환경으로 어플라이언스 구성 관리자를 새로 고쳤습니다.
 - Hyper-V VM 검색을 위한 여러 자격 증명 지원.
-- 추가된 자격 증명과 검색 소스에 대한 검색, 정렬 및 필터링 기능이 향상되었습니다.
-- 단일 항목 입력, 여러 항목 입력 및 사용자가 Hyper-V 호스트/클러스터 및 물리적 서버에 대한 검색 소스를 추가할 수 있는 CSV 옵션을 가져옵니다.
-- 테이블에 추가된 각 원본에 대한 유효성 검사 및 검색 작업의 상태 업데이트로 오류 환경이 향상되었습니다. 
+
+## <a name="update-july-2020"></a>업데이트(2020년 7월)
+
+- 에이전트 없는 VMware 마이그레이션은 이제 vCenter당 300개의 VM 동시 복제를 지원합니다.
 
 ## <a name="update-june-2020"></a>업데이트(2020년 6월)
 
-- 이제 온-프레미스 VMware VM을 [AVS(Azure VMware 솔루션)](https://go.microsoft.com/fwlink/?linkid=2132637)로 마이그레이션하기 위한 평가가 지원됩니다. [자세히 알아보기](how-to-create-azure-vmware-solution-assessment.md)
+- 이제 온-프레미스 VMware VM을 [AVS(Azure VMware 솔루션)](./concepts-azure-vmware-solution-assessment-calculation.md)로 마이그레이션하기 위한 평가가 지원됩니다. [자세히 알아보기](how-to-create-azure-vmware-solution-assessment.md)
 - 물리적 서버 검색에 대한 어플라이언스의 여러 자격 증명을 지원합니다.
 - 테넌트 제한이 구성된 테넌트에 대해 어플라이언스에서 Azure 로그인을 허용하도록 지원합니다.
 
@@ -89,7 +103,7 @@ Azure Migrate에서 평가 및 마이그레이션을 위해 도구 및 ISV 제�
 
 ## <a name="azure-migrate-previous-version"></a>Azure Migrate 이전 버전
 
-이전 버전의 Azure Migrate를 사용하고 있었다면(온-프레미스 VMware VM의 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이전 버전에서는 더 이상 새 Azure Migrate 프로젝트를 만들거나 새 검색을 수행할 수 없습니다. 기존 프로젝트에 계속 액세스할 수 있습니다. Azure Portal > **모든 서비스**에서 이 작업을 수행하려면 **Azure Migrate**를 검색합니다. Azure Migrate 알림에는 이전 Azure Migrate 프로젝트에 액세스할 수 있는 링크가 있습니다.
+이전 버전의 Azure Migrate를 사용하고 있었다면(온-프레미스 VMware VM의 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이전 버전에서는 더 이상 새 Azure Migrate 프로젝트를 만들거나 새 검색을 수행할 수 없습니다. 기존 프로젝트에 계속 액세스할 수 있습니다. Azure Portal > **모든 서비스** 에서 이 작업을 수행하려면 **Azure Migrate** 를 검색합니다. Azure Migrate 알림에는 이전 Azure Migrate 프로젝트에 액세스할 수 있는 링크가 있습니다.
 
 
 
@@ -97,4 +111,4 @@ Azure Migrate에서 평가 및 마이그레이션을 위해 도구 및 ISV 제�
 
 - Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.microsoft.com/pricing/details/azure-migrate/).
 - Azure Migrate에 대한 [질문과 대답을 검토합니다](resources-faq.md).
-- [VMware VM](tutorial-assess-vmware.md) 및 [Hyper-V VM](tutorial-assess-hyper-v.md)을 평가하는 자습서를 사용해 보세요.
+- [VMware VM](./tutorial-assess-vmware-azure-vm.md) 및 [Hyper-V VM](tutorial-assess-hyper-v.md)을 평가하는 자습서를 사용해 보세요.

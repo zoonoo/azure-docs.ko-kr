@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100731"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
@@ -33,14 +33,14 @@ ms.locfileid: "87015411"
 SSMS(SQL Server Management Studio)를 사용하여 서버 관리자를 구성할 수 있습니다. 이 태스크를 완료하려면 Azure AS 서버에서 [서버 관리자](analysis-services-server-admins.md) 권한이 있어야 합니다. 
 
 1. SSMS에서 Azure AS 서버에 연결합니다.
-2. **서버 속성** > **보안**에서 **추가**를 클릭합니다.
-3. **사용자 또는 그룹 선택**에서 등록된 앱을 이름으로 검색하고 **추가**를 클릭합니다.
+2. **서버 속성** > **보안** 에서 **추가** 를 클릭합니다.
+3. **사용자 또는 그룹 선택** 에서 등록된 앱을 이름으로 검색하고 **추가** 를 클릭합니다.
 
     ![서비스 사용자 계정 검색](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. 서비스 사용자 계정 ID를 확인한 다음, **확인**을 클릭합니다.
+4. 서비스 사용자 계정 ID를 확인한 다음, **확인** 을 클릭합니다.
     
-    ![서비스 사용자 계정 검색](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![서비스 사용자 계정 ID를 표시 하 고 확인 단추를 강조 표시 하는 스크린샷](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Resource Manager 템플릿 사용
 
@@ -117,5 +117,5 @@ az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o ts
 
 ## <a name="related-information"></a>관련 정보
 
-* [SQL Server PowerShell 모듈 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [SSMS 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SQL Server PowerShell 모듈 다운로드](/sql/ssms/download-sql-server-ps-module)   
+* [SSMS 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)

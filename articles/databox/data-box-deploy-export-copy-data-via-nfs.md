@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 10/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 301c75df6bedf430af64bbeff63f2eb759691355
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bd8e6d4175c57bd31c3fd83bf6f9669d2b65ffb2
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208909"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660849"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>자습서: NFS를 통해 Azure Data Box에서 데이터 복사(미리 보기)
 
@@ -45,15 +45,17 @@ ms.locfileid: "86208909"
 
 [!INCLUDE [data-box-shares](../../includes/data-box-shares.md)]
 
-Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클라이언트에 대한 액세스를 허용하도록 Data Box를 구성합니다.
+Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클라이언트에 대한 액세스를 허용하도록 Data Box를 구성합니다. Data Box는 한 번에 최대 5개의 NFS 클라이언트를 연결할 수 있습니다.
 
-1. 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다. 로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다. **NFS 설정** 아래에서 **NFS 클라이언트 액세스**를 클릭합니다. 
+1. 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다.
 
-    ![NFS 클라이언트 액세스 구성 1](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
+    1.  로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다. **NFS 설정** 아래에서 **NFS 클라이언트 액세스**를 클릭합니다. 
 
-2. NFS 클라이언트의 IP 주소를 입력하고 **추가**를 클릭합니다. 이 단계를 반복하여 여러 NFS 클라이언트에 대한 액세스를 구성할 수 있습니다. **확인**을 클릭합니다.
+        ![NFS 클라이언트 액세스 열기](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
-    ![NFS 클라이언트 액세스 구성 2](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
+    1. NFS 클라이언트를 추가하려면 클라이언트의 IP 주소를 제공하고 **추가**를 클릭합니다. Data Box는 한 번에 최대 5개의 NFS 클라이언트를 연결할 수 있습니다. 작업이 완료되면 **확인**을 클릭합니다.
+
+         ![NFS 클라이언트 추가](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
 
 2. Linux 호스트 컴퓨터에 [지원되는 버전](data-box-system-requirements.md)의 NFS 클라이언트를 설치합니다. 해당 Linux 배포판에 맞는 버전을 사용하세요. 
 

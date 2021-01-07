@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708181"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004962"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 엔드포인트를 만들기, 변경 또는 삭제
 
 서비스 엔드포인트 정책을 사용하면 서비스 엔드포인트를 통해 특정 Azure 리소스에 가상 네트워크 트래픽을 필터링 할 수 있습니다. 서비스 엔드포인트 정책을 잘 모르는 경우 [서비스 엔드포인트 정책 개요](virtual-network-service-endpoint-policies-overview.md)를 참조하여 자세히 알아보세요.
 
- 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+ 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 서비스 엔드포인트 정책 만들기
@@ -39,12 +39,12 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-service-endpoint-policy"></a>서비스 엔드포인트 정책 만들기
 
-1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
-2. 검색 창에서 "서비스 끝점 정책"을 입력 하 고 **서비스 끝점 정책** 을 선택한 후 **만들기**를 선택 합니다.
+1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기** 를 선택합니다.
+2. 검색 창에서 "서비스 끝점 정책"을 입력 하 고 **서비스 끝점 정책** 을 선택한 후 **만들기** 를 선택 합니다.
 
 ![서비스 끝점 정책 만들기](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
 
-3. **기본**에 다음 정보를 입력하거나 선택 
+3. **기본** 에 다음 정보를 입력하거나 선택 
 
    - 구독: 정책에 대 한 구독을 선택 합니다.
    - 리소스 그룹: **새로 만들기** 를 선택 하 고 *myresourcegroup* 을 입력 합니다.
@@ -56,7 +56,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 4. **리소스** 에서 **+ 추가** 를 선택 하 고 **리소스 추가** 창에서 다음 정보를 입력 하거나 선택 합니다.
 
    - 서비스: 서비스 끝점 정책에는 **Microsoft 저장소** 만 사용할 수 있습니다.
-   - 범위: **단일 계정**에서 하나를 선택 하 고 **구독의 모든 계정** 및 **리소스 그룹의 모든 계정** 을 선택 합니다.
+   - 범위: **단일 계정** 에서 하나를 선택 하 고 **구독의 모든 계정** 및 **리소스 그룹의 모든 계정** 을 선택 합니다.
    - 구독: 스토리지 계정에 대한 구독을 선택합니다. 정책 및 스토리지 계정은 다른 구독에 있을 수 있습니다.
    - 리소스 그룹: 리소스 그룹을 선택합니다. 범위가 "리소스 그룹의 모든 계정" 또는 "단일 계정"으로 설정된 경우 필요합니다.  
    - 리소스: 선택한 구독 또는 리소스 그룹에서 Azure Storage 리소스를 선택 합니다.
@@ -66,27 +66,27 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
    - 필요에 따라 위의 단계를 반복 하 여 더 많은 리소스를 추가 합니다.
 
-5. 선택 사항: **태그**에 다음 정보를 입력하거나 선택합니다.
+5. 선택 사항: **태그** 에 다음 정보를 입력하거나 선택합니다.
    
    - 키: 정책에 대한 키를 선택합니다. 예: 부서     
    - 값: 키에 대한 값 쌍을 입력합니다. 예: 금융
 
-6. **검토 + 만들기**를 선택합니다. 정보의 유효성을 검사하고 **만들기**를 클릭합니다. 추가로 편집하려면 **이전**을 클릭합니다. 
+6. **검토 + 만들기** 를 선택합니다. 정보의 유효성을 검사하고 **만들기** 를 클릭합니다. 추가로 편집하려면 **이전** 을 클릭합니다. 
 
    ![서비스 엔드포인트 정책 최종 유효성 검사 만들기](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   
 ## <a name="view-endpoint-policies"></a>엔드포인트 정책 보기 
 
-1. 포털의 *모든 서비스* 상자에 *서비스 엔드포인트 정책* 입력을 시작합니다. **서비스 끝점 정책**을 선택 합니다.
-2. 다음 그림에 표시된 것처럼 **구독**에서 구독 및 리소스 그룹 선택
+1. 포털의 *모든 서비스* 상자에 *서비스 엔드포인트 정책* 입력을 시작합니다. **서비스 끝점 정책** 을 선택 합니다.
+2. 다음 그림에 표시된 것처럼 **구독** 에서 구독 및 리소스 그룹 선택
 
    ![정책 표시](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
        
-3. 더 많은 정책 정의를 보거나 추가하려면 정책을 선택하고 **정책 정의**를 클릭합니다.
+3. 더 많은 정책 정의를 보거나 추가하려면 정책을 선택하고 **정책 정의** 를 클릭합니다.
 
    ![정책 정의 표시](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.png)
 
-4. **연결된 서브넷**을 선택하여 정책이 연결된 서브넷을 확인합니다. 서브넷이 아직 연결 되지 않은 경우 다음 단계의 지침을 따르세요.
+4. **연결된 서브넷** 을 선택하여 정책이 연결된 서브넷을 확인합니다. 서브넷이 아직 연결 되지 않은 경우 다음 단계의 지침을 따르세요.
 
    ![연결 된 서브넷](./media/virtual-network-service-endpoint-policies-portal/sep-associated-subnets.png)
  
@@ -99,7 +99,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 - 서브넷에 정책을 연결 하려면 먼저 가상 네트워크 및 서브넷을 만들어야 합니다. 이에 대 한 도움말은 [Virtual Network 만들기](./quick-create-portal.md) 문서를 참조 하세요.
 
-- 가상 네트워크 및 서브넷을 설정한 후에는 Azure Storage에 대 한 Virtual Network 서비스 끝점을 구성 해야 합니다. Virtual Network 블레이드에서 **서비스 끝점**을 선택 하 고 다음 창에서 **Microsoft. 저장소** 를 선택 하 고 **서브넷** 에서 원하는 VNet 또는 서브넷을 선택 합니다.
+- 가상 네트워크 및 서브넷을 설정한 후에는 Azure Storage에 대 한 Virtual Network 서비스 끝점을 구성 해야 합니다. Virtual Network 블레이드에서 **서비스 끝점** 을 선택 하 고 다음 창에서 **Microsoft. 저장소** 를 선택 하 고 **서브넷** 에서 원하는 VNet 또는 서브넷을 선택 합니다.
 
 - 이제 아래와 같이 서브넷에 대 한 서비스 끝점을 구성 하기 전에 서비스 끝점 정책을 이미 만든 경우 위의 창에서 서비스 끝점 정책을 선택 하도록 선택할 수 있습니다.
 

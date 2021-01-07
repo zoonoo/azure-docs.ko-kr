@@ -2,19 +2,22 @@
 title: Azure Event Grid 배달 및 다시 시도
 description: Azure Event Grid에서 이벤트를 배달하는 방법 및 배달되지 않은 메시지를 처리하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/29/2020
+ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087614"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463234"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
 이 문서에서는 배달이 승인되지 않는 경우 Azure Event Grid에서 이벤트를 처리하는 방법을 설명합니다.
 
-Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지를 각 구독에 대해 최소 한 번 배달합니다. 이벤트는 각 구독에 등록된 엔드포인트로 즉시 전송됩니다. 엔드포인트가 이벤트 수신을 확인하지 않는 경우 Event Grid는 이벤트 전달을 재시도합니다.
+Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지는 각 구독에 대해 한 **번** 이상 배달 됩니다. 이벤트는 각 구독에 등록된 엔드포인트로 즉시 전송됩니다. 엔드포인트가 이벤트 수신을 확인하지 않는 경우 Event Grid는 이벤트 전달을 재시도합니다.
+
+> [!NOTE]
+> Event Grid는 이벤트 배달 순서를 보장 하지 않으므로 구독자가 순서가 잘못 된 메시지를 받을 수 있습니다. 
 
 ## <a name="batched-event-delivery"></a>일괄 처리 된 이벤트 배달
 
@@ -52,6 +55,22 @@ Event Grid에서 Azure CLI를 사용 하는 방법에 대 한 자세한 내용�
 
 ## <a name="retry-schedule-and-duration"></a>예약 및 기간 재시도
 
+이벤트 배달 시도에 대 한 오류를 EventGrid에 수신 하는 경우 EventGrid는 해당 오류 유형에 따라 배달 또는 배달 못 한 편지를 재시도 하거나 이벤트를 삭제할지를 결정 합니다. 
+
+구독 된 끝점에서 반환 된 오류가 다시 시도로 해결할 수 없는 구성 관련 오류 (예: 끝점이 삭제 된 경우) 인 경우 EventGrid는 이벤트의 배달 못 한 편지 처리를 수행 하거나 배달 못한 편지가 구성 되지 않은 경우 이벤트를 삭제 합니다.
+
+다음은 다시 시도를 수행 하지 않는 끝점의 유형입니다.
+
+| 엔드포인트 유형 | 오류 코드 |
+| --------------| -----------|
+| Azure 리소스 | 400 잘못 된 요청, 413 요청 엔터티 너무 큼, 403 사용할 수 없음 | 
+| 웹후크 | 400 잘못 된 요청, 413 요청 엔터티 너무 큼, 403 사용할 수 없음, 404 없음, 401 권한 없음 |
+ 
+> [!NOTE]
+> 끝점에 대해 Dead-Letter 구성 되지 않은 경우 위의 오류가 발생할 때 이벤트가 삭제 되므로 이러한 종류의 이벤트를 삭제 하지 않으려면 배달 못 한 편지를 구성 하는 것이 좋습니다.
+
+구독 된 끝점에서 반환 된 오류가 위의 목록에 없는 경우 EventGrid는 아래에 설명 된 정책을 사용 하 여 다시 시도를 수행 합니다.
+
 Event Grid는 메시지를 전달한 후 30 초 동안 응답을 기다립니다. 30 초 후 끝점이 응답 하지 않으면 메시지를 다시 시도 하도록 큐에 대기 합니다. Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 사용합니다. Event Grid는 다음 일정에 따라 가장 적합 한 방식으로 배달을 다시 시도 합니다.
 
 - 10초
@@ -78,22 +97,164 @@ Event Grid은 모든 재시도 단계에 작은 임의를 추가 하 고, 끝점
 지연 배달의 기능 목적은 비정상 끝점과 Event Grid 시스템을 보호 하는 것입니다. 백오프 및 비정상 끝점에 대 한 배달 지연 없이 Event Grid의 재시도 정책 및 볼륨 기능을 사용 하면 시스템에 쉽게 과부하가 발생할 수 있습니다.
 
 ## <a name="dead-letter-events"></a>배달 못한 편지 이벤트
-Event Grid 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자**라고 합니다. **다음 조건 중 하나가** 충족 되는 경우 배달 못한 편지를 Event Grid 합니다. 
+Event Grid 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자** 라고 합니다. **다음 조건 중 하나가** 충족 되는 경우 배달 못한 편지를 Event Grid 합니다. 
 
-- 이벤트는 ttl (time to live) 기간 내에 배달 되지 않습니다.
-- 이벤트 전달 시도 횟수가 제한을 초과 했습니다.
+- 이벤트는 **ttl (time-to-live** ) 기간 내에 배달 되지 않습니다. 
+- 이벤트 전달 **시도 횟수가** 제한을 초과 했습니다.
 
 조건 중 하나가 충족 되 면 이벤트가 삭제 되거나 배달 되지 않습니다.  기본적으로 Event Grid에서는 배달 못한 편지를 켜지 않습니다. 이 기능을 사용하려면 이벤트 구독을 만들 때 전송되지 않은 이벤트를 보유할 스토리지 계정을 지정해야 합니다. 이 스토리지 계정에서 이벤트를 끌어와 전송을 해결합니다.
 
 Event Grid가 모든 재시도 시도 횟수를 시도한 경우 이벤트를 배달 못한 편지로 보냅니다. Event Grid가 400(잘못된 요청) 또는 413(요청 엔터티가 너무 큼) 응답 코드를 수신하는 경우, 즉시 이벤트를 배달 못한 편지 엔드포인트로 보냅니다. 이 응답 코드는 이벤트 전달이 실패하지 않음을 나타냅니다.
 
+Ttl (time-to-live) 만료는 다음에 예약 된 배달 시도 시에만 확인 됩니다. 따라서 다음에 예약 된 배달 시도 전에 ttl (time-to-live)이 만료 되는 경우에도 다음 배달 시점에만 이벤트 만료가 확인 되며 이후에는 배달 못 한 문자로 확인 됩니다. 
+
 이벤트를 배달하기 위한 마지막 시도 및 배달 못한 편지 위치로 이벤트를 배달하는 경우, 그 사이에 5분의 지연이 발생합니다. 이 지연은 Blob Storage 작업 수를 줄이기 위함입니다. 배달 못한 편지 위치를 4시간 동안 사용할 수 없는 경우 이벤트가 삭제됩니다.
 
 배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 이벤트 구독을 만들 때 이 컨테이너에 대한 엔드포인트를 제공합니다. 엔드포인트는 다음과 같은 형식입니다. `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-이벤트가 배달 못한 편지 위치로 전송된 경우 알림을 받을 수 있습니다. Event Grid를 사용하여 전송되지 않은 이벤트에 응답하려면 배달 못한 편지 Blob Storage에 대한 [이벤트 구독을 만듭니다](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 배달 못한 편지 Blob Storage가 전송되지 않은 이벤트를 수신할 때마다 Event Grid에서 처리기에 알립니다. 처리기는 전송되지 않은 이벤트를 조정하기 위해 수행할 작업으로 응답합니다.
+이벤트가 배달 못한 편지 위치로 전송된 경우 알림을 받을 수 있습니다. Event Grid를 사용하여 전송되지 않은 이벤트에 응답하려면 배달 못한 편지 Blob Storage에 대한 [이벤트 구독을 만듭니다](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 배달 못한 편지 Blob Storage가 전송되지 않은 이벤트를 수신할 때마다 Event Grid에서 처리기에 알립니다. 처리기는 전송되지 않은 이벤트를 조정하기 위해 수행할 작업으로 응답합니다. 배달 못한 편지 위치를 설정 하 고 정책을 다시 시도 하는 예는 [배달 못한 편지 및 재시도 정책](manage-event-delivery.md)을 참조 하세요.
 
-배달 못한 편지 위치를 설정하는 예제는 [배달 못한 편지 및 재시도 정책](manage-event-delivery.md)을 참조하세요.
+## <a name="delivery-event-formats"></a>배달 이벤트 형식
+이 섹션에서는 다양 한 배달 스키마 형식 (Event Grid 스키마, CloudEvents 1.0 스키마 및 사용자 지정 스키마)의 이벤트 및 배달 못 한 이벤트 예제를 제공 합니다. 이러한 형식에 대 한 자세한 내용은 [Event Grid 스키마](event-schema.md) 및 [클라우드 이벤트 1.0 스키마](cloud-event-schema.md) 문서를 참조 하세요. 
+
+### <a name="event-grid-schema"></a>Event Grid 스키마
+
+#### <a name="event"></a>이벤트 
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/000000000-0000-0000-0000-00000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>배달 못한 편지 이벤트
+
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    },
+
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T17:18:14.0265758Z",
+    "lastDeliveryAttemptTime": "2020-08-13T17:18:14.0465788Z" 
+}
+```
+
+### <a name="cloudevents-10-schema"></a>CloudEvents 1.0 스키마
+
+#### <a name="event"></a>이벤트
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>배달 못한 편지 이벤트
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    },
+
+    "deadletterreason": "MaxDeliveryAttemptsExceeded",
+    "deliveryattempts": 1,
+    "lastdeliveryoutcome": "NotFound",
+    "publishtime": "2020-08-13T21:21:36.4018726Z",
+}
+```
+
+### <a name="custom-schema"></a>사용자 지정 스키마
+
+#### <a name="event"></a>이벤트
+
+```json
+{
+    "prop1": "my property",
+    "prop2": 5,
+    "myEventType": "fooEventType"
+}
+
+```
+
+#### <a name="dead-letter-event"></a>배달 못한 편지 이벤트
+```json
+{
+    "id": "8bc07e6f-0885-4729-90e4-7c3f052bd754",
+    "eventTime": "2020-08-13T18:11:29.4121391Z",
+    "eventType": "myEventType",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/00000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.EventGrid/topics/myCustomSchemaTopic",
+    "subject": "subjectDefault",
+  
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T18:11:29.4121391Z",
+    "lastDeliveryAttemptTime": "2020-08-13T18:11:29.4277644Z",
+  
+    "data": {
+        "prop1": "my property",
+        "prop2": 5,
+        "myEventType": "fooEventType"
+    }
+}
+```
+
 
 ## <a name="message-delivery-status"></a>메시지 배달 상태
 
@@ -111,16 +272,16 @@ Event Grid는 다음 HTTP **응답 코드만 성공한 배달으로 간주 합�
 
 ### <a name="failure-codes"></a>실패 코드
 
-위의 집합 (200-204)에 없는 다른 모든 코드는 실패로 간주 되며 다시 시도 됩니다. 일부는 아래에 설명 된 특정 다시 시도 정책을 포함 하 고 나머지는 표준 지 수 백오프 모델을 따릅니다. Event Grid 아키텍처의 병렬 특성으로 인해 재시도 동작은 비결 정적 이기 때문에 다시 시도 해야 합니다. 
+위의 집합 (200-204)에 없는 다른 모든 코드는 실패로 간주 되며 필요한 경우 다시 시도 됩니다. 일부는 아래에 설명 된 특정 다시 시도 정책을 포함 하 고 나머지는 표준 지 수 백오프 모델을 따릅니다. Event Grid 아키텍처의 병렬 특성으로 인해 재시도 동작은 비결 정적 이기 때문에 다시 시도 해야 합니다. 
 
 | 상태 코드 | 다시 시도 동작 |
 | ------------|----------------|
-| 400 잘못된 요청 | 5 분 이상 후 다시 시도 (배달 못한 편지를 설치 하면 즉시 배달 못한 편지) |
-| 401 권한 없음 | 5 분 이상 후 다시 시도 |
-| 403 사용할 수 없음 | 5 분 이상 후 다시 시도 |
-| 404 찾을 수 없음 | 5 분 이상 후 다시 시도 |
+| 400 잘못된 요청 | 다시 시도 안 함 |
+| 401 권한 없음 | Azure 리소스 끝점에 대해 5 분 이상 후 다시 시도 |
+| 403 사용할 수 없음 | 다시 시도 안 함 |
+| 404 찾을 수 없음 | Azure 리소스 끝점에 대해 5 분 이상 후 다시 시도 |
 | 408 요청 시간 초과 | 2 분 이상 후 다시 시도 |
-| 413 요청 엔터티가 너무 큼 | 10 초 이상 후 다시 시도 (배달 못한 편지를 설치 하면 즉시 배달 못한 편지) |
+| 413 요청 엔터티가 너무 큼 | 다시 시도 안 함 |
 | 503 서비스를 사용할 수 없음 | 30 초 이상 후 다시 시도 |
 | 나머지 | 10 초 이상 후 다시 시도 |
 

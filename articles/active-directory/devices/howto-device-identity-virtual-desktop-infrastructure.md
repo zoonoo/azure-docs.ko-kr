@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089669"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029350"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
 
@@ -48,20 +48,19 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 
 | 장치 id 유형 | ID 인프라 | Windows 디바이스 | VDI 플랫폼 버전 | 지원됨 |
 | --- | --- | --- | --- | --- |
-| 하이브리드 Azure AD 가입 | 페더레이션된<sup>3</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | 예 |
+| 하이브리드 Azure AD 가입 | 페더레이션된<sup>3</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | Yes |
 |   |   | Windows 현재 | 비영구 | 예<sup>5</sup> |
 |   |   | Windows 하위 수준 | 비영구 | 예<sup>6</sup> |
-|   | 관리<sup>4</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | 예 |
-|   |   | Windows 현재 | 비영구 | 아니요 |
+|   | 관리<sup>4</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | Yes |
+|   |   | Windows 현재 | 비영구 | No |
 |   |   | Windows 하위 수준 | 비영구 | 예<sup>6</sup> |
-| Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | 아니요 |
-|   |   |   | 비영구 | 아니요 |
-|   | 관리 대상 | Windows 현재 | 영구적 | 아니요 |
-|   |   |   | 비영구 | 아니요 |
-| Azure AD 등록 | 페더레이션된/관리 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 없음 |
+| Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | No |
+|   |   |   | 비영구 | No |
+|   | 관리형 | Windows 현재 | 영구적 | No |
+|   |   |   | 비영구 | No |
+| Azure AD 등록됨 | 페더레이션된/관리 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 사항 없음 |
 
-<sup>1</sup> **windows 현재** 장치는 Windows 10, Windows Server 2016 및 windows server 2019를 나타냅니다.
-
+<sup>1</sup> **windows 현재** 장치는 Windows 10, windows server 2016 V1803 이상 및 windows server 2019를 나타냅니다.
 <sup>2</sup> **windows 하위 수준** 장치는 windows 7, Windows 8.1, windows Server 2008 r2, Windows Server 2012 및 windows server 2012 r 2를 나타냅니다. Windows 7에 대 한 지원 정보 [는 windows 7 지원 종료](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)를 참조 하세요. Windows Server 2008 r 2에 대 한 지원 정보는 [Windows server 2008 지원 종료](https://www.microsoft.com/cloud-platform/windows-server-2008)를 참조 하세요.
 
 <sup>3</sup> **페더레이션** id 인프라 환경은 AD FS 또는 기타 타사 IDP와 같은 id 공급자를 사용 하는 환경을 나타냅니다.

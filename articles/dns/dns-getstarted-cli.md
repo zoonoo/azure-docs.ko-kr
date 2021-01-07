@@ -6,15 +6,15 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a15209351f95e44c7cf10993513e03ba35b53d27
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1929cd512d18d7fd234aff1f55814c423455e63b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494369"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561372"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -24,9 +24,11 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
 
 Azure DNS는 프라이빗 DNS 영역도 지원합니다. 프라이빗 DNS 영역에 대해 자세히 알아보려면 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 프라이빗 DNS 영역을 만드는 방법에 대한 예제는 [CLI를 사용하여 Azure DNS 프라이빗 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 이 문서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
@@ -40,7 +42,7 @@ az group create --name MyResourceGroup --location "East US"
 
 `az network dns zone create` 명령을 사용하여 DNS 영역을 만듭니다. 이 명령에 대한 도움말을 보려면 `az network dns zone create -h`을 입력합니다.
 
-다음 예제에서는 *contoso.xyz*라는 DNS 영역을 리소스 그룹 *MyResourceGroup*에 만듭니다. 예제를 사용하여 DNS 영역을 만들고 사용자 고유 값으로 대체합니다.
+다음 예제에서는 *contoso.xyz* 라는 DNS 영역을 리소스 그룹 *MyResourceGroup* 에 만듭니다. 예제를 사용하여 DNS 영역을 만들고 사용자 고유 값으로 대체합니다.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz
@@ -66,7 +68,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
 
 ## <a name="test-the-name-resolution"></a>이름 확인 테스트
 
-이제 테스트 'A' 레코드가 포함된 테스트 DNS 영역이 있으므로 *nslookup*이라는 도구를 사용하여 이름 확인을 테스트할 수 있습니다. 
+이제 테스트 'A' 레코드가 포함된 테스트 DNS 영역이 있으므로 *nslookup* 이라는 도구를 사용하여 이름 확인을 테스트할 수 있습니다. 
 
 **DNS 이름 확인을 테스트하려면**
 
@@ -84,7 +86,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
    nslookup www.contoso.xyz <name server name>
    ```
 
-   다음은 그 예입니다.
+   다음은 그 예입니다. 
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
@@ -92,11 +94,11 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
 
    다음 화면과 유사한 출력이 표시됩니다.
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![스크린샷은 n s 조회 명령과 서버, 주소, 이름 및 주소에 대한 값을 포함하는 명령 프롬프트 창을 보여줍니다.](media/dns-getstarted-portal/nslookup.PNG)
 
-호스트 이름 **www\.contoso.xyz**는 구성한 대로 **10.10.10.10**으로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다.
+호스트 이름 **www\.contoso.xyz** 는 구성한 대로 **10.10.10.10** 으로 확인됩니다. 이 결과는 이름 확인이 올바르게 작동하는지 확인합니다.
 
-## <a name="delete-all-resources"></a>모든 리소스 삭제
+## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하면 이 빠른 시작에서 만든 모든 리소스를 삭제할 수 있습니다.
 

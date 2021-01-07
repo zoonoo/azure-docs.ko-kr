@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bda93712dd9a7501fbfddf0e75b8ae3c0088ed55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686448"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96341243"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure 예약 할인이 가상 머신에 적용되는 방식
 
@@ -57,7 +57,7 @@ Windows VM 인스턴스를 실행하면 인프라 비용을 포함하도록 예�
 
 ## <a name="discount-can-apply-to-different-sizes"></a>할인은 다른 크기에 적용될 수 있습니다.
 
-예약 VM 인스턴스를 구매하고 **인스턴스 크기 유연성에 최적화**를 선택하면 할인 범위는 선택하는 VM 크기에 적용됩니다. 동일한 시리즈 인스턴스 크기 유연성 그룹에 있는 다른 VM 크기에도 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
+예약 VM 인스턴스를 구매하고 **인스턴스 크기 유연성에 최적화** 를 선택하면 할인 범위는 선택하는 VM 크기에 적용됩니다. 동일한 시리즈 인스턴스 크기 유연성 그룹에 있는 다른 VM 크기에도 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../../virtual-machines/reserved-vm-instance-size-flexibility.md)을 참조하세요.
 
 ## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>프리미엄 스토리지 VM에는 비프리미엄 할인이 제공되지 않습니다.
 
@@ -65,7 +65,7 @@ Windows VM 인스턴스를 실행하면 인프라 비용을 포함하도록 예�
 
 예약 할인 애플리케이션은 VM에 사용되는 미터를 무시하고 ServiceType만 평가합니다. VM에 대한 인스턴스 유연성 그룹/시리즈 정보를 확인하려면 `AdditionalInfo`의 `ServiceType` 값을 확인합니다. 값은 사용량 CSV 파일에 있습니다.
 
-구매 후에는 예약의 인스턴스 유연성 그룹/시리즈를 직접 변경할 수 없습니다. 그러나 하나의 인스턴스 유연성 그룹/시리즈에서 다른 인스턴스로 VM 예약을 *교환*할 수 있습니다.
+구매 후에는 예약의 인스턴스 유연성 그룹/시리즈를 직접 변경할 수 없습니다. 그러나 하나의 인스턴스 유연성 그룹/시리즈에서 다른 인스턴스로 VM 예약을 *교환* 할 수 있습니다.
 
 ## <a name="services-that-get-vm-reservation-discounts"></a>VM 예약 할인을 가져오는 서비스
 
@@ -75,7 +75,7 @@ VM 예약은 VM 배포뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 
 인스턴스 크기 유연성 설정은 예약 인스턴스 할인을 받는 서비스를 결정합니다.
 
-설정이 on 또는 off인지 여부에 따라 예약 할인은 *ConsumedService*가 `Microsoft.Compute`일 때 일치하는 VM 사용량에 자동으로 적용됩니다. 따라서 *ConsumedService* 값에 대한 사용량 데이터를 확인합니다. 일부 사례:
+설정이 on 또는 off인지 여부에 따라 예약 할인은 *ConsumedService* 가 `Microsoft.Compute`일 때 일치하는 VM 사용량에 자동으로 적용됩니다. 따라서 *ConsumedService* 값에 대한 사용량 데이터를 확인합니다. 일부 사례:
 
 - 가상 머신
 - 가상 머신 크기 집합
@@ -84,7 +84,7 @@ VM 예약은 VM 배포뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 - AKS(Azure Kubernetes Service)
 - Service Fabric
 
-설정이 on일 때 예약 할인은 *ConsumedService*가 다음 항목 중 하나에 해당하는 경우 일치하는 VM 사용량에 자동으로 적용됩니다.
+설정이 on일 때 예약 할인은 *ConsumedService* 가 다음 항목 중 하나에 해당하는 경우 일치하는 VM 사용량에 자동으로 적용됩니다.
 
 - Microsoft.Compute
 - Microsoft.ClassicCompute
@@ -106,7 +106,7 @@ VM 예약은 VM 배포뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](../reservations/save-compute-costs-reservations.md)
-- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../azure-sql/database/reserved-capacity-overview.md)
 - [Azure용 예약 관리](../reservations/manage-reserved-vm-instance.md)
 - [종량제 구독의 예약 사용량 이해](../reservations/understand-reserved-instance-usage.md)

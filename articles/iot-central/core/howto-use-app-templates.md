@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 39bb129d6edba168ed1ed45b1de205a206c83ed2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aec72644f708d6363a80da28c5e571d0165fcdfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678174"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91651839"
 ---
 # <a name="export-your-application"></a>애플리케이션 내보내기
 
 이 문서에서는 솔루션 관리자가 IoT Central 응용 프로그램을 다시 사용할 수 있도록 내보내는 방법을 설명 합니다.
 
-다음 두 가지 옵션을 사용할 수 있습니다.
+다음과 같은 두 가지 옵션이 있습니다.
 
 - 응용 프로그램의 복사본을 만들어야 하는 경우 응용 프로그램의 복사본을 만들 수 있습니다.
 - 여러 복사본을 만들 계획인 경우 응용 프로그램에서 응용 프로그램 템플릿을 만들 수 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "84678174"
 
 **복사**를 선택합니다. 대화 상자에서 새 응용 프로그램에 대 한 세부 정보를 입력 합니다. 그런 다음 **복사** 를 선택 하 여 계속 하 시겠습니까를 확인 합니다. 양식의 필드에 대해 자세히 알아보려면 [응용 프로그램 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조 하세요.
 
-![애플리케이션 설정 페이지](media/howto-use-app-templates/appcopy2.png)
+!["응용 프로그램 복사" 설정 페이지를 보여 주는 스크린샷](media/howto-use-app-templates/appcopy2.png)
 
 앱 복사 작업이 성공 하면 링크를 사용 하 여 새 응용 프로그램으로 이동할 수 있습니다.
 

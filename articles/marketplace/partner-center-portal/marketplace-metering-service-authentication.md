@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b418a9cae6f6d58dbe82babcfe6fe1e1a5027d43
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378732"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657076"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Marketplace 계량 서비스 인증 전략
 
@@ -68,10 +68,10 @@ SaaS 제품의 경우 유일 하 게 사용할 수 있는 옵션입니다. Saas 
 
 |  **속성 이름**  |  **필수**  |  **설명**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | 권한 부여 유형입니다. `client_credentials`을 사용합니다. |
+|  `Grant_type`       |   True         | 권한 부여 유형입니다. `client_credentials`을 사용하세요. |
 |  `Client_id`        |   True         | Azure AD 앱과 연결된 클라이언트/앱 식별자입니다.|
 |  `client_secret`    |   True         | Azure AD 앱과 연결 된 암호입니다.  |
-|  `Resource`         |   True         | 토큰이 요청된 대상 리소스입니다. `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`을 사용합니다. |
+|  `Resource`         |   True         | 토큰이 요청된 대상 리소스입니다. `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`을 사용하세요. |
 | | | |
 
 #### <a name="response"></a>*응답*
@@ -134,7 +134,7 @@ SaaS 제품의 경우 유일 하 게 사용할 수 있는 옵션입니다. Saas 
     ```powershell
     # Get subscription and resource group
     $metadata = curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content | ConvertFrom-Json 
-    
+
     # Make sure the system identity has at least reader permission on the resource group
     $managementUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "?api-version=2019-10-01"
     $resourceGroupInfo = curl -Headers $Headers $managementUrl | select -ExpandProperty Content | ConvertFrom-Json
@@ -155,5 +155,5 @@ SaaS 제품의 경우 유일 하 게 사용할 수 있는 옵션입니다. Saas 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 애플리케이션 제품 만들기](./create-new-azure-apps-offer.md)
+* [Azure 애플리케이션 제품 만들기](../create-new-azure-apps-offer.md)
 * [SaaS 제품 계획](../plan-saas-offer.md)

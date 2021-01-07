@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure DevOps (이전의 Visual Studio Team Serv
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476141"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps에서 이미지 팩터리 실행
@@ -26,7 +26,7 @@ ms.locfileid: "85476141"
     - 구성 이미지 팩터리에 대 한 입력입니다.
         - GoldenImages. 이 폴더에는 사용자 지정 이미지의 정의를 나타내는 JSON 파일이 포함 되어 있습니다.
         - Labs.js합니다. 팀이 특정 사용자 지정 이미지를 받도록 등록 하는 파일입니다.
-- 스크립트만. 이미지 팩터리의 엔진입니다.
+- 스크립트. 이미지 팩터리의 엔진입니다.
 
 이 섹션의 문서에서는 이러한 스크립트 및 템플릿에 대 한 자세한 정보를 제공 합니다.
 
@@ -69,7 +69,7 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 명령줄 매개 변수를 간소화 하기 위해는 이미지 팩터리를 구동 하는 키 값을 빌드 변수 집합으로 캡슐화 합니다. **변수** 탭을 선택 하면 여러 기본 변수 목록이 표시 됩니다. Azure DevOps에 입력할 변수 목록은 다음과 같습니다.
 
 
-| 변수 이름 | 값 | 참고 |
+| 변수 이름 | 값 | 메모 |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | **구성** 폴더에 대 한 리포지토리의 전체 경로입니다. 위의 전체 리포지토리를 가져온 경우 왼쪽에 있는 값이 올바릅니다. 그렇지 않으면 업데이트는 구성 위치를 가리킵니다. |
 | Devtestlab 이름 | MyImageFactory | 이미지를 생성 하기 위해 팩터리에서 사용 되는 Azure DevTest Labs의 랩 이름입니다. 없는 경우 하나 만듭니다. 랩이 서비스 끝점에서 액세스할 수 있는 것과 동일한 구독에 있는지 확인 합니다. |
@@ -82,7 +82,7 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 
 ![빌드 변수](./media/set-up-devops-lab/configure-build-variables.png)
 
-## <a name="connect-to-azure"></a>Azure 연결
+## <a name="connect-to-azure"></a>Azure에 연결
 다음 단계는 서비스 주체를 설정 하는 것입니다. 이 id는 DevOps 빌드 에이전트가 사용자를 대신 하 여 Azure에서 작동할 수 있도록 하는 Azure Active Directory의 id입니다. 설정 하려면 먼저 Azure PowerShell 빌드 단계를 추가 하 여 시작 합니다.
 
 1. **작업 추가**를 선택 합니다.
@@ -107,7 +107,7 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 3. **서비스 끝점**을 선택 합니다.
 4. **스크립트 경로**에 **대해 ...를 선택 합니다. (줄임표)** 오른쪽에 있습니다.
 5. **MakeGoldenImageVMs.ps1** 스크립트로 이동 합니다.
-6. 스크립트 매개 변수는 다음과 같습니다.`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
+6. 스크립트 매개 변수는 다음과 같습니다. `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
     ![빌드 정의 완료](./media/set-up-devops-lab/complete-build-definition.png)
 

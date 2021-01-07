@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287731"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359818"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -26,7 +26,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 구성 서버는 최소 하드웨어 및 크기 조정 요구 사항에 따라 항상 사용 가능한 VMware VM으로 설정 해야 합니다. 편리 하 고 쉬운 배포를 위해 Site Recovery는 여기에 나열 된 모든 요구 사항을 준수 하는 구성 서버를 설정 하는 다운로드 가능한 OVA (Open Virtualization Application) 템플릿을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 구성 서버에 대 한 최소 하드웨어 요구 사항은 다음 섹션에 요약 되어 있습니다.
 
@@ -166,7 +166,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
     구성 서버 및 해당 기능에 대해 자세히 알아보려면 [VMware에서 Azure로 복제 아키텍처](vmware-azure-architecture.md)를 참조 하세요.
 * 구성 서버의 최신 버전은 어디에서 찾을 수 있나요?
 
-    포털을 통해 구성 서버를 업그레이드하는 단계는 [구성 서버 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 참조하세요. 모든 Site Recovery 구성 요소를 업그레이드 하는 방법에 대 한 지침은 [Site Recovery의 서비스 업데이트](https://aka.ms/asr_how_to_upgrade)를 참조 하세요.
+    포털을 통해 구성 서버를 업그레이드하는 단계는 [구성 서버 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 참조하세요. 모든 Site Recovery 구성 요소를 업그레이드 하는 방법에 대 한 지침은 [Site Recovery의 서비스 업데이트](./service-updates-how-to.md)를 참조 하세요.
 * 구성 서버의 암호는 어디서 다운로드할 수 있나요?
 
     암호를 다운로드 하려면 [VMWARE VM 재해 복구를 위한 구성 서버 관리](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)를 참조 하세요.

@@ -3,12 +3,12 @@ title: Azure DevTest Labs의 네트워크 격리
 description: Azure DevTest Labs의 네트워크 격리에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: fbd2725cd3677e03cadbe0ae1f060b141f5d212b
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875963"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352935"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>DevTest Labs의 네트워크 격리
 
@@ -57,15 +57,15 @@ ms.locfileid: "88875963"
  
    > [!div class="mx-imgBorder"]
    > ![Contoso 테스트](./media/network-isolation/contoso-test.png)
-1. 저장소 계정에서 방화벽 및 가상 네트워크로 이동 하 고 ' 신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용 ' 확인란을 선택 했는지 확인 합니다. [DevTest Labs는 신뢰할 수 있는 Microsoft 서비스 이므로](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)이 옵션을 사용 하면 랩을 네트워크 격리 모드에서 정상적으로 작동할 수 있습니다. 
+1. 저장소 계정에서 방화벽 및 가상 네트워크로 이동 하 고 ' 신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용 ' 확인란을 선택 했는지 확인 합니다. [DevTest Labs는 신뢰할 수 있는 Microsoft 서비스 이므로](../storage/common/storage-network-security.md#trusted-microsoft-services)이 옵션을 사용 하면 랩을 네트워크 격리 모드에서 정상적으로 작동할 수 있습니다. 
 
    > [!div class="mx-imgBorder"]
    > ![Contoso lab 방화벽](./media/network-isolation/contoso-lab-firewalls-vnets.png)
-1. 그런 다음, **기존 가상 네트워크 추가**를 클릭 하 고 랩을 만들 때 선택한 가상 네트워크 및 서브넷을 선택 하 고 **사용**을 클릭 합니다. 
+1. 그런 다음, **기존 가상 네트워크 추가** 를 클릭 하 고 랩을 만들 때 선택한 가상 네트워크 및 서브넷을 선택 하 고 **사용** 을 클릭 합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![Contoso 내 vnet](./media/network-isolation/contoso-lab-my-vnet.png)
-5.  선택한 가상 네트워크에 대해 서비스 끝점이 성공적으로 설정 되 면 **추가**를 클릭 합니다. 
+5.  선택한 가상 네트워크에 대해 서비스 끝점이 성공적으로 설정 되 면 **추가** 를 클릭 합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![추가](./media/network-isolation/contoso-firewall-add.png)
@@ -74,7 +74,7 @@ ms.locfileid: "88875963"
 
 이러한 단계를 자동화 하 여 여러 랩에 대해이 설정을 구성 하도록 선택할 수도 있습니다. 
 
-[PowerShell 및 CLI를 사용 하 여 Azure Storage에 대 한 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
+[PowerShell 및 CLI를 사용 하 여 Azure Storage에 대 한 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보세요.](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>네트워크 격리 모드에서 랩을 사용 하는 동안 기억할 사항
 
@@ -82,7 +82,7 @@ ms.locfileid: "88875963"
 
 네트워크 격리 랩 내에서 랩의 저장소 계정에 VHD를 업로드 하 여에서 사용자 지정 이미지를 만드는 등의 작업을 위해 랩 소유자는 허용 된 끝점에서 저장소 계정에 대 한 액세스를 명시적으로 사용 하도록 설정 해야 합니다. 가상 컴퓨터를 만들고 해당 가상 컴퓨터에서 랩의 저장소 계정에 안전 하 게 액세스 하 여이 작업을 수행할 수 있습니다. 
 
-[가상 머신에서 개인적으로 저장소 계정에 액세스 하는 방법에 대해 자세히 알아보세요.](../private-link/create-private-endpoint-storage-portal.md)
+[가상 머신에서 개인적으로 저장소 계정에 액세스 하는 방법에 대해 자세히 알아보세요.](../private-link/tutorial-private-endpoint-storage-portal.md)
 
 ### <a name="exporting-usage-data-from-the-lab"></a>랩에서 사용 현황 데이터 내보내기 
 

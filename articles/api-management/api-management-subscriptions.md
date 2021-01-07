@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: d1ab8990d0e5c389e0454c23a31989a71b0cd9a2
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cdc7668b06308bd5532f4885d0e1365fc34ae989
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843779"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511249"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API Management의 구독
 
@@ -33,7 +33,7 @@ API에 액세스하기 위해 구독 키를 얻으려면 구독이 필요합니�
 > API Management는 또한 다음 예를 포함한 기타 API 액세스 보호 메커니즘도 지원합니다.
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
 > - [클라이언트 인증서](api-management-howto-mutual-certificates-for-clients.md)
-> - [IP 허용 목록](./api-management-access-restriction-policies.md#RestrictCallerIPs)
+> - [호출자 Ip 제한](./api-management-access-restriction-policies.md#RestrictCallerIPs)
 
 ## <a name="scope-of-subscriptions"></a>구독 범위
 

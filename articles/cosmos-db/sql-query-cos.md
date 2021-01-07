@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 COS
 description: Azure Cosmos DB의 코사인 (COS) SQL 시스템 함수가 지정 된 식에서 라디안으로 지정 된 각도의 삼각 코사인을 반환 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 40d277ff38691e2cb74bd4d5d78a666c304acfcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f11307d4f24bab06973e33b4640e26b1c445336
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78304024"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339044"
 ---
 # <a name="cos-azure-cosmos-db"></a>COS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 식의 라디안에서 지정된 각도의 삼각 코사인을 반환합니다.  
   
 ## <a name="syntax"></a>구문

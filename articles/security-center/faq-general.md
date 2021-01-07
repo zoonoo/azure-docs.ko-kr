@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783217"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341688"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ-Azure Security Center에 대 한 일반적인 질문
 
@@ -62,13 +62,12 @@ Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 �
 Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예:
 
 * 악성 소프트웨어를 식별하여 제거하는 데 도움을 주는 맬웨어 방지 프로그램 프로비전
-* 가상 머신의 트래픽을 제어하는 [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 규칙
+* 가상 머신의 트래픽을 제어하는 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) 및 규칙
 * 웹 애플리케이션의 대상을 지정한 공격에 대해 방어하는 데 도움이 되는 웹 애플리케이션 방화벽 프로비전
 * 누락된 시스템 업데이트 배포
 * 권장 기준과 일치하지 않는 OS 구성 해결
 
 보안 정책에 사용하도록 설정된 권장 사항만 여기에 표시됩니다.
-
 
 
 ## <a name="what-triggers-a-security-alert"></a>보안 경고를 트리거하는 것은 무엇인가요?
@@ -78,10 +77,6 @@ Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그�
 * Windows 오류 보고를 사용 하여 감지된 고급 맬웨어
 * 가상 머신에 대한 무작위 공격
 * 맬웨어 방지 프로그램 또는 웹 애플리케이션 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
-
-
-## <a name="why-did-secure-score-values-change"></a>보안 점수 값이 변경 되는 이유는 무엇 인가요? <a name="secure-score-faq"></a>
-2019 년 2 월 Security Center에는 심각도를 보다 잘 맞추기 위해 몇 가지 권장 사항의 점수를 조정 했습니다. 이러한 조정의 결과로 전체 보안 점수 값이 변경 될 수 있습니다.  보안 점수에 대 한 자세한 내용은 [Azure Security Center 향상 된 보안 점수](secure-score-security-controls.md)를 참조 하세요.
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure Security Center에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?

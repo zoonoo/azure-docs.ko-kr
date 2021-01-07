@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bfe24ff38446fa0d0ccea96799e6f42b561713bf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002813"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Azure Cognitive Search .NET SDK 버전 10으로 업그레이드
@@ -112,7 +112,7 @@ var webApiSkill = new WebApiSkill(
 
 Shaper 스킬은 이제 중첩 된 컨텍스트에서 입력 통합을 허용할 수 있습니다. 이 변경을 사용 하려면 `InputFieldMappingEntry` `Source` 속성만 지정 하거나 및 속성을 모두 지정 하 여 인스턴스화할 수 있도록 수정 했습니다 `SourceContext` `Inputs` .
 
-코드를 변경 하지 않아도 되는 경우가 많습니다. 그러나 이러한 두 조합 중 하나만 사용할 수 있습니다. 이는 다음을 의미합니다.
+코드를 변경 하지 않아도 되는 경우가 많습니다. 그러나 이러한 두 조합 중 하나만 사용할 수 있습니다. 이것은 다음을 의미합니다.
 
 - 만 초기화 되는를 만들 수 `InputFieldMappingEntry` `Source` 있습니다.
 - 및가 초기화 되는를 만드는 `InputFieldMappingEntry` `SourceContext` `Inputs` 것은 유효 합니다.

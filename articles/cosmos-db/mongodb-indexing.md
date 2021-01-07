@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 11/06/2020
 author: timsander1
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-js
+ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030506"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369293"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB의 MongoDB API는 Azure Cosmos DB의 핵심 인덱스 관리 기능을 활용 합니다. 이 문서에서는 Azure Cosmos DB의 MongoDB API를 사용 하 여 인덱스를 추가 하는 방법을 중점적으로 설명 합니다. 모든 Api에서 관련 된 [Azure Cosmos DB의 인덱싱 개요](index-overview.md) 를 읽을 수도 있습니다.
 
@@ -40,7 +41,10 @@ MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API `_id` 는 필드를 자
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>복합 인덱스 (MongoDB server 버전 3.6)
 
-Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 하는 계정에 대 한 복합 인덱스를 지원 합니다. 복합 인덱스에 최대 8 개의 필드를 포함할 수 있습니다. **MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬 되어야 하는 경우에만 복합 인덱스를 만들어야 합니다.** 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다.
+Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 하는 계정에 대 한 복합 인덱스를 지원 합니다. 복합 인덱스에 최대 8 개의 필드를 포함할 수 있습니다. MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬 되어야 하는 경우에만 복합 인덱스를 만들어야 합니다. 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다. 
+
+> [!NOTE]
+> 중첩 된 속성 또는 배열에는 복합 인덱스를 만들 수 없습니다.
 
 다음 명령은 및 필드에 복합 인덱스를 만듭니다 `name` `age` .
 
@@ -59,7 +63,7 @@ Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 �
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> 중첩 된 속성 또는 배열에는 복합 인덱스를 만들 수 없습니다.
+> 복합 인덱스는 결과를 정렬 하는 쿼리에만 사용 됩니다. 정렬할 필요가 없는 여러 필터가 있는 쿼리의 경우 다중 pe 단일 필드 인덱스를 만듭니다.
 
 ### <a name="multikey-indexes"></a>Multikey 인덱스
 
@@ -75,7 +79,7 @@ Azure Cosmos DB는 배열에 저장 된 콘텐츠를 인덱싱하는 여러 키 
 
 ### <a name="text-indexes"></a>텍스트 인덱스
 
-Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 않습니다. 문자열에 대 한 텍스트 검색 쿼리를 사용 하려면 Azure Cosmos DB와 [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) 통합을 사용 해야 합니다.
+Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 않습니다. 문자열에 대 한 텍스트 검색 쿼리를 사용 하려면 Azure Cosmos DB와 [Azure Cognitive Search](../search/search-howto-index-cosmosdb.md) 통합을 사용 해야 합니다. 
 
 ## <a name="wildcard-indexes"></a>와일드 카드 인덱스
 
@@ -131,7 +135,10 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-개발을 시작할 때 모든 필드에 와일드 카드 인덱스를 만드는 것이 유용할 수 있습니다. 문서에 더 많은 속성이 인덱싱되 면 문서를 작성 하 고 업데이트 하는 데 필요한 부담 (요청 단위) 요금은 늘어납니다. 따라서 쓰기 작업이 많은 경우에는 와일드 카드 인덱스를 사용 하는 대신 개별적으로 경로를 인덱싱합니다.
+> [!NOTE]
+> 개발을 시작 하는 경우 모든 필드에서 와일드 카드 인덱스를 사용 하 여 시작 하는 **것이 좋습니다** . 이를 통해 개발을 간소화 하 고 쿼리를 보다 쉽게 최적화할 수 있습니다.
+
+많은 필드가 있는 문서는 쓰기 및 업데이트에 대 한 높은 수준의 (요청 단위) 요금이 부과 될 수 있습니다. 따라서 쓰기 작업이 많은 경우에는 와일드 카드 인덱스를 사용 하는 대신 개별적으로 경로를 인덱싱합니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -141,7 +148,7 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 - TTL
 - 고유한
 
-**MongoDB와 달리**MONGODB의 API Azure Cosmos DB에서 다음에 대 한 와일드 카드 인덱스를 사용할 **수 없습니다** .
+**MongoDB와 달리** MONGODB의 API Azure Cosmos DB에서 다음에 대 한 와일드 카드 인덱스를 사용할 **수 없습니다** .
 
 - 여러 특정 필드를 포함 하는 와일드 카드 인덱스 만들기
 
@@ -204,7 +211,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,
@@ -222,7 +229,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 
 특정 컬렉션에서 문서 만료를 사용 하도록 설정 하려면 [TTL (time-to-live) 인덱스](../cosmos-db/time-to-live.md)를 만들어야 합니다. TTL 인덱스는 값이 있는 필드의 인덱스입니다 `_ts` `expireAfterSeconds` .
 
-예제:
+예:
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
@@ -324,10 +331,55 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
 
 새 인덱스를 추가 하는 경우 읽기 가용성에는 영향을 주지 않습니다. 인덱스 변환이 완료 되 면 쿼리는 새 인덱스만 활용 합니다. 인덱스를 변환 하는 동안 쿼리 엔진은 기존 인덱스를 계속 사용 하므로 인덱싱 변경을 시작 하기 전에 관찰 한 내용에 대해 인덱싱 변환 중에 유사한 읽기 성능을 확인할 수 있습니다. 새 인덱스를 추가 하는 경우 쿼리 결과가 불완전 하거나 일치 하지 않을 수도 있습니다.
 
-인덱스를 제거 하 고 쿼리를 즉시 실행 하는 경우에는 삭제 된 인덱스에 대 한 필터가 있으므로 인덱스 변환이 완료 될 때까지 결과가 일관적이 고 완전 하지 않을 수 있습니다. 인덱스를 제거 하는 경우 쿼리 엔진은 새로 제거 된 인덱스에서 쿼리를 필터링 할 때 일관 되거나 완전 한 결과를 보장 하지 않습니다. 대부분의 개발자는 인덱스를 삭제 하지 않고 즉시 쿼리를 시도 하므로 실제로는 이러한 상황이 발생할 가능성이 낮습니다.
+인덱스를 제거 하 고 쿼리를 즉시 실행 하는 경우에는 삭제 된 인덱스에 대 한 필터가 있으므로 인덱스 변환이 완료 될 때까지 결과가 일관적이 고 완전 하지 않을 수 있습니다. 인덱스를 제거 하는 경우 쿼리 엔진은 새로 제거 된 인덱스에서 쿼리를 필터링 할 때 일관 되거나 완전 한 결과를 제공 하지 않습니다. 대부분의 개발자는 인덱스를 삭제 하지 않고 즉시 쿼리를 시도 하므로 실제로는 이러한 상황이 발생할 가능성이 낮습니다.
 
 > [!NOTE]
 > [인덱스 진행률을 추적할](#track-index-progress)수 있습니다.
+
+## <a name="reindex-command"></a>명령 인덱스
+
+`reIndex`이 명령은 컬렉션의 모든 인덱스를 다시 만듭니다. 대부분의 경우이는 필요 하지 않습니다. 그러나 드문 경우 이지만 명령을 실행 한 후 쿼리 성능이 향상 될 수 있습니다 `reIndex` .
+
+`reIndex`다음 구문을 사용 하 여 명령을 실행할 수 있습니다.
+
+`db.runCommand({ reIndex: <collection> })`
+
+다음 구문을 사용 하 여 명령을 실행 해야 하는지 여부를 확인할 수 있습니다 `reIndex` .
+
+`db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
+
+샘플 출력:
+
+```
+{
+        "database" : "myDB",
+        "collection" : "myCollection",
+        "provisionedThroughput" : 400,
+        "indexes" : [
+                {
+                        "v" : 1,
+                        "key" : {
+                                "_id" : 1
+                        },
+                        "name" : "_id_",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                },
+                {
+                        "v" : 1,
+                        "key" : {
+                                "b.$**" : 1
+                        },
+                        "name" : "b.$**_1",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                }
+        ],
+        "ok" : 1
+}
+```
+
+`reIndex`가 필요한 경우 **requiresReIndex** 가 true가 됩니다. `reIndex`필요 하지 않은 경우이 속성은 생략 됩니다.
 
 ## <a name="migrate-collections-with-indexes"></a>인덱스를 사용 하 여 컬렉션 마이그레이션
 
@@ -335,7 +387,7 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
 
 ## <a name="indexing-for-mongodb-version-32"></a>MongoDB 버전 3.2에 대 한 인덱싱
 
-사용 가능한 인덱싱 기능 및 기본값은 MongoDB 유선 프로토콜의 3.2 버전과 호환 되는 Azure Cosmos 계정에 대해 다릅니다. [계정 버전을 확인할](mongodb-feature-support-36.md#protocol-support)수 있습니다. [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출 하 여 3.6 버전으로 업그레이드할 수 있습니다.
+사용 가능한 인덱싱 기능 및 기본값은 MongoDB 유선 프로토콜의 3.2 버전과 호환 되는 Azure Cosmos 계정에 대해 다릅니다. [계정의 버전을 확인](mongodb-feature-support-36.md#protocol-support) 하 고 [3.6 버전으로 업그레이드할](mongodb-version-upgrade.md)수 있습니다.
 
 버전 3.2을 사용 하는 경우이 섹션에서는 버전 3.6의 주요 차이점에 대해 간략하게 설명 합니다.
 
@@ -352,11 +404,11 @@ MongoDB에 대 한 Azure Cosmos DB API의 3.6 버전과 달리 버전 3.2은 기
 
 ### <a name="compound-indexes-version-32"></a>복합 인덱스 (버전 3.2)
 
-복합 인덱스는 문서의 여러 필드에 대한 참조를 유지합니다. 복합 인덱스를 만들려는 경우 [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출 하 여 버전 3.6으로 업그레이드 합니다.
+복합 인덱스는 문서의 여러 필드에 대한 참조를 유지합니다. 복합 인덱스를 만들려면 [버전 3.6으로 업그레이드](mongodb-version-upgrade.md)합니다.
 
 ### <a name="wildcard-indexes-version-32"></a>와일드 카드 인덱스 (버전 3.2)
 
-와일드 카드 인덱스를 만들려면 [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출 하 여 버전 3.6으로 업그레이드 합니다.
+와일드 카드 인덱스를 만들려면 [버전 3.6으로 업그레이드](mongodb-version-upgrade.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

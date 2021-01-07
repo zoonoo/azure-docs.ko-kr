@@ -1,17 +1,15 @@
 ---
 title: Azure의 Service Fabric에서 컨테이너 이미지 만들기
 description: 이 자습서에서는 다중 컨테이너 Service Fabric 애플리케이션에 대한 컨테이너 이미지를 만드는 방법을 알아봅니다.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 31b5f870465bc1dff9d6ff7827a4efed084bcf62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252780"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739069"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
@@ -92,7 +90,7 @@ az account set --subscription <subscription_id>
 
 Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-**az group create** 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *westus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+**az group create** 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *westus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name <myResourceGroup> --location westus

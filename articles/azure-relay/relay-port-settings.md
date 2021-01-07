@@ -4,10 +4,10 @@ description: 이 문서에는 Azure Relay에 대 한 포트 값에 필요한 구
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 97640debe81041ff7e2b082c6a9ac606d6088664
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85314267"
 ---
 # <a name="azure-relay-port-settings"></a>Azure Relay 포트 설정
@@ -41,5 +41,5 @@ ms.locfileid: "85314267"
 
 ## <a name="next-steps"></a>다음 단계
 Azure Relay에 대한 자세한 내용은 다음 링크를 방문하세요.
-* [Azure 릴레이란?](relay-what-is-it.md)
+* [Azure Relay란?](relay-what-is-it.md)
 * [릴레이 FAQ](relay-faq.md)

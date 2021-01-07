@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
-ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448703"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 저장소 관리 Kubernetes
 
@@ -41,9 +41,9 @@ Kubernetes에 대해 저장소를 관리 하는 방법을 이해 하려면 다�
 
 저장소 프로 비전은 정적 이거나 동적일 수 있습니다. 각 프로 비전 유형에 대해서는 다음 섹션에서 설명 합니다.
 
-## <a name="staticprovisioning"></a>정적 프로 비전
+## <a name="static-provisioning"></a>정적 프로 비전
 
-Kubernetes cluster admins는 저장소를 정적으로 프로 비전 할 수 있습니다. 이렇게 하려면 SMB/NFS 파일 시스템를 기반으로 하는 저장소 백 엔드를 사용 하거나 온-프레미스 환경에서 네트워크를 통해 로컬로 연결 된 iSCSI 디스크를 사용 하거나 클라우드에서 Azure Files 또는 Azure 디스크를 사용할 수 있습니다. 이 유형의 저장소는 기본적으로 프로 비전 되지 않으며, 클러스터 관리자는이 프로 비전을 계획 하 고 관리 해야 합니다. 
+Kubernetes 클러스터 관리자는 스토리지를 정적으로 프로비저닝할 수 있습니다. 이렇게 하려면 SMB/NFS 파일 시스템를 기반으로 하는 저장소 백 엔드를 사용 하거나 온-프레미스 환경에서 네트워크를 통해 로컬로 연결 된 iSCSI 디스크를 사용 하거나 클라우드에서 Azure Files 또는 Azure 디스크를 사용할 수 있습니다. 이 유형의 저장소는 기본적으로 프로 비전 되지 않으며, 클러스터 관리자는이 프로 비전을 계획 하 고 관리 해야 합니다. 
  
 Kubernetes에서 정적으로 프로 비전 된 저장소를 사용 하는 방법을 보여 주는 다이어그램은 다음과 같습니다. 
 
@@ -58,7 +58,7 @@ Kubernetes에서 정적으로 프로 비전 된 저장소를 사용 하는 방�
 1. **컨테이너에 Pvc 탑재**: PVC가 PV에 바인딩되면이 pvc를 컨테이너의 경로에 탑재할 수 있습니다. 컨테이너의 응용 프로그램 논리가이 경로를 읽거나 쓸 때 데이터는 SMB 저장소에 기록 됩니다.
  
 
-## <a name="dynamicprovisioning"></a>동적 프로비저닝
+## <a name="dynamic-provisioning"></a>동적 프로비저닝
 
 Kubernetes에서 정적으로 프로 비전 된 저장소를 사용 하는 방법을 보여 주는 다이어그램은 다음과 같습니다. 
 
@@ -104,6 +104,26 @@ spec:
 ```
 
 자세한 내용은 [kubectl를 통해 Azure Stack Edge Pro에서 정적 프로 비전을 통해 상태 저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md)를 참조 하세요.
+
+동일한 정적으로 프로 비전 된 저장소에 액세스 하기 위해 IoT의 저장소 바인딩에 해당 하는 볼륨 탑재 옵션은 다음과 같습니다. 는 `/home/input` 컨테이너 내에서 볼륨에 액세스할 수 있는 경로입니다.
+
+```
+{
+"HostConfig": {
+"Mounts": [
+{
+"Target": "/home/input",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+},
+{
+"Target": "/home/output",
+"Source": "<nfs-or-smb-share-name-here>",
+"Type": "volume"
+}]
+}
+}
+```
 
 Azure Stack Edge Pro에는 `StorageClass` `ase-node-local` Kubernetes 노드에 연결 된 데이터 디스크 저장소를 사용 하는 라는 builtin도 있습니다. 이는 `StorageClass` 동적 프로비저닝을 지원 합니다. `StorageClass`Pod 응용 프로그램에서 참조를 만들 수 있으며 PV가 자동으로 만들어집니다. 자세한 내용은 쿼리할 [Kubernetes 대시보드](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) 를 참조 하세요 `ase-node-local StorageClass` .
 

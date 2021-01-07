@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: 99540e8518aa31a2221844aa954ff665609d8217
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a18ce7b7c28b99967668bc33c5a94cbb58bfbc34
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376716"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에:
+시작하기 전에 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * [Azure Speech 리소스 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../overview.md#try-the-speech-service-for-free)
 > * [개발 환경 설정 및 빈 프로젝트 만들기](../../../../quickstarts/setup-platform.md)
 > * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 

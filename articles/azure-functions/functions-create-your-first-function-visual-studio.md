@@ -3,14 +3,14 @@ title: '빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함�
 description: 이 빠른 시작에서는 Visual Studio를 사용하여 HTTP 트리거 Azure 함수를 만들고 게시하는 방법에 대해 알아봅니다.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 03/06/2020
+ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: c9ddd6e74e25d8de415e24038e99da9d21dab867
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213983"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "96014478"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기
 
@@ -36,7 +36,7 @@ Visual Studio는 HTTP 트리거 함수 형식에 대한 상용구 코드가 포�
 
 `FunctionName` 메서드 특성은 함수 이름을 설정하며, 생성되는 기본값은 `Function1`입니다. 프로젝트를 만들 때 도구를 사용하여 기본 함수 이름을 재정의할 수 없으므로 함수 클래스, 파일 및 메타데이터에 따라 더욱 적절한 이름을 생성해야 합니다.
 
-1. **파일 탐색기**에서 Function1.cs 파일을 마우스 오른쪽 단추로 클릭하고 이름을 `HttpExample.cs`로 바꿉니다.
+1. **파일 탐색기** 에서 Function1.cs 파일을 마우스 오른쪽 단추로 클릭하고 이름을 `HttpExample.cs`로 바꿉니다.
 
 1. 코드에서 Function1 클래스의 이름을 'HttpExample'로 바꿉니다.
 
@@ -60,9 +60,9 @@ Visual Studio는 Azure Functions Core Tools와 통합되므로 Azure Functions �
 
 ## <a name="test-your-function-in-azure"></a>Azure에서 함수 테스트
 
-1. 클라우드 탐색기에서 새 함수 앱을 선택해야 합니다. 그렇지 않은 경우 구독 > **App Services**를 확장하고 새 함수 앱을 선택합니다.
+1. 클라우드 탐색기에서 새 함수 앱을 선택해야 합니다. 그렇지 않은 경우 구독 > **App Services** 를 확장하고 새 함수 앱을 선택합니다.
 
-1. 마우스 오른쪽 단추로 함수 앱을 클릭하고 **브라우저에서 열기**를 선택합니다. 그러면 기본 웹 브라우저에서 함수 앱의 루트가 열리고 함수 앱이 실행 중임을 나타내는 페이지가 표시됩니다. 
+1. 마우스 오른쪽 단추로 함수 앱을 클릭하고 **브라우저에서 열기** 를 선택합니다. 그러면 기본 웹 브라우저에서 함수 앱의 루트가 열리고 함수 앱이 실행 중임을 나타내는 페이지가 표시됩니다. 
 
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="함수 앱 실행 중":::
 
@@ -80,11 +80,11 @@ Visual Studio는 Azure Functions Core Tools와 통합되므로 Azure Functions �
 
 이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 구성됩니다. 이후의 빠른 시작, 자습서 또는 기타 이 빠른 시작에서 만든 서비스를 사용하여 작업하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다.
 
-Azure에서 *리소스*란 함수 앱, 함수, 스토리지 계정 등을 의미합니다. 리소스는 *리소스 그룹*으로 그룹화되며 그룹을 삭제하면 그룹의 모든 항목을 삭제할 수 있습니다. 
+Azure에서 *리소스* 란 함수 앱, 함수, 스토리지 계정 등을 의미합니다. 리소스는 *리소스 그룹* 으로 그룹화되며 그룹을 삭제하면 그룹의 모든 항목을 삭제할 수 있습니다. 
 
 이러한 빠른 시작을 완료하기 위해 리소스를 만들었습니다. [계정 상태](https://azure.microsoft.com/account/) 및 [서비스 가격 책정](https://azure.microsoft.com/pricing/)에 따라 리소스에 대해 요금이 청구될 수 있습니다. 리소스가 더 이상 필요하지 않게 되면 다음과 같이 삭제합니다.
 
-1. 클라우드 탐색기에서 구독 > **App Services**를 확장하고 함수 앱을 마우스 오른쪽 단추로 클릭한 다음, **포털에서 열기**를 선택합니다. 
+1. 클라우드 탐색기에서 구독 > **App Services** 를 확장하고 함수 앱을 마우스 오른쪽 단추로 클릭한 다음, **포털에서 열기** 를 선택합니다. 
 
 1. 함수 앱 페이지에서 **개요** 탭을 선택한 다음, **리소스 그룹** 아래의 링크를 선택합니다.
 
@@ -92,7 +92,7 @@ Azure에서 *리소스*란 함수 앱, 함수, 스토리지 계정 등을 의미
 
 2. **리소스 그룹** 페이지에서 포함된 리소스 목록을 검토하고 삭제하려는 항목인지 확인합니다.
  
-3. **리소스 그룹 삭제**를 선택하고 지시를 따릅니다.
+3. **리소스 그룹 삭제** 를 선택하고 지시를 따릅니다.
 
    삭제는 몇 분 정도 소요됩니다. 완료되면 알림이 잠시 표시됩니다. 페이지 위쪽의 종 모양 아이콘을 선택해도 알림을 확인할 수 있습니다.
 

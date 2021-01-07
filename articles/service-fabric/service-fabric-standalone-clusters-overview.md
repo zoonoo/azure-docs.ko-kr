@@ -1,16 +1,14 @@
 ---
 title: 독립 실행형 Service Fabric 클러스터 개요
 description: 서비스 패브릭 클러스터는 Windows Server 및 Linux에서 실행됩니다. 즉, Windows Server 또는 Linux를 실행할 수 있는 모든 위치에 서비스 패브릭 애플리케이션을 배포 및 호스트할 수 있습니다.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080662"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684001"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 독립 실행형 클러스터 개요
 
@@ -45,10 +43,10 @@ Windows 독립 실행형 클러스터에 대해 Windows 보안을 설정할 수�
 
 자세한 내용은 [클라이언트-노드 보안](service-fabric-cluster-security.md#client-to-node-security)을 참조하세요.
 
-### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
+### <a name="service-fabric-role-based-access-control"></a>역할 기반 액세스 제어 Service Fabric
 또한 Service Fabric은 다른 사용자 그룹의 특정 클러스터 작업에 대한 액세스를 제한하기 위해 액세스 제어를 지원합니다. 이를 통해 클러스터의 보안을 강화합니다. 클러스터에 연결하는 클라이언트에 대해 두 가지 액세스 제어 유형인 관리자 역할 및 사용자 역할이 지원됩니다.  
 
-자세한 내용은 [RBAC(역할 기반 액세스 제어)](service-fabric-cluster-security.md#role-based-access-control-rbac)를 참조하세요.
+자세한 내용은 [역할 기반 액세스 제어 Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control)를 참조 하세요.
 
 ## <a name="scaling"></a>확장
 

@@ -1,7 +1,7 @@
 ---
 title: Azure 가상 머신의 성능 진단 | Microsoft Docs
 description: Windows용 Azure Performance Diagnostics를 소개합니다.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: cshepard
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 70d1a52ff3326fcd3a628cc7f0f9d91edc9274e7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090638"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655393"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 가상 머신의 성능 진단
 
@@ -33,7 +33,7 @@ ms.locfileid: "90090638"
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2019
+* 시작
 * Windows Server 2016
 * Windows Server 2012 R2
 * Windows Server 2012
@@ -48,12 +48,12 @@ ms.locfileid: "90090638"
 
     | 배포               | 버전                                         |
     |----------------------------|-------------------------------------------------|
-    | Oracle Linux 서버        | 6.10 [ `*` ], 7.3, 7.6, 7.5 |
-    | CentOS                     | 6.5 [ `*` ], 7.6                                    |
-    | RHEL                       | 7.2, 7.5, 8.0 [ `*` ]                               |
+    | Oracle Linux 서버        | 6.10 [ `*` ], 7.3, 7.5, 7.6, 7.7, 7.8 |
+    | CentOS                     | 6.5 [ `*` ], 7.6, 7.7, 7.8                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [ `*` ], 8.1, 8.2                               |
     | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
     | Debian                     | 8, 9, 10 [ `*` ]                                    |
-    | SLES                       | 12 SP4 [ `*` ]                                      |
+    | SLES                       | 12 SP4 [ `*` ], 12 SP5 [ `*` ], 15 [ `*` ], 15 SP1 [ `*` ], 15 SP2 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
@@ -61,11 +61,11 @@ ms.locfileid: "90090638"
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>VM에 성능 진단을 설치 및 실행
 
-성능 진단은 PerfInsights라는 진단 도구를 실행하는 VM 확장을 설치합니다. PerfInsights는 [Windows](https://aka.ms/perfinsights) 및 [Linux](https://aka.ms/perfinsightslinux)에서 사용할 수 있습니다. 성능 진단을 설치하고 실행하려면 다음과 같은 단계를 따릅니다.
+성능 진단은 PerfInsights라는 진단 도구를 실행하는 VM 확장을 설치합니다. PerfInsights는 [Windows](./how-to-use-perfinsights.md) 및 [Linux](./how-to-use-perfinsights-linux.md)에서 사용할 수 있습니다. 성능 진단을 설치하고 실행하려면 다음과 같은 단계를 따릅니다.
 
-1. 명령의 왼쪽 열에서 **가상 머신**을 선택합니다.
+1. 명령의 왼쪽 열에서 **가상 머신** 을 선택합니다.
 1. VM 이름 목록에서 진단을 실행하려는 VM을 선택합니다.
-1. 명령의 오른쪽 열에서 **성능 진단**을 선택합니다.
+1. 명령의 오른쪽 열에서 **성능 진단** 을 선택합니다.
 
     ![성능 진단 설치 단추가 강조 표시된 Azure Portal의 스크린샷](media/performance-diagnostics/performance-diagnostics-install.png)
 
@@ -91,16 +91,16 @@ ms.locfileid: "90090638"
 다음 분석 시나리오는 Azure Portal에서 사용할 수 있습니다. 발생하는 성능 문제에 따라 분석을 선택합니다. 분석의 필요에 따라 기간 및 추적 옵션을 선택합니다.
 
 * **빠른 성능 분석**  
-    알려진 문제를 확인하고, 모범 사례를 분석하고, 진단 데이터를 수집합니다. 이 분석을 실행하는 데 몇 분이 걸립니다. [Windows](https://aka.ms/perfinsights/quick) 또는 [Linux](https://aka.ms/perfinsightslinux/quick) 에 대 한 자세한 정보
+    알려진 문제를 확인하고, 모범 사례를 분석하고, 진단 데이터를 수집합니다. 이 분석을 실행하는 데 몇 분이 걸립니다. [Windows](./how-to-use-perfinsights.md) 또는 [Linux](./how-to-use-perfinsights-linux.md) 에 대 한 자세한 정보
 
 * **성능 분석**  
-    빠른 성능 분석의 모든 검사를 포함하고 높은 리소스 사용량을 모니터링합니다. 이 버전을 사용하여 CPU, 메모리 및 디스크의 높은 사용량 등의 일반적인 성능 문제를 해결합니다. 이 분석은 선택한 기간에 따라 30초에서 15분 정도 걸립니다. [Windows](https://aka.ms/perfinsights/vmslow) 또는 [Linux](https://aka.ms/perfinsightslinux/vmslow) 에 대 한 자세한 정보
+    빠른 성능 분석의 모든 검사를 포함하고 높은 리소스 사용량을 모니터링합니다. 이 버전을 사용하여 CPU, 메모리 및 디스크의 높은 사용량 등의 일반적인 성능 문제를 해결합니다. 이 분석은 선택한 기간에 따라 30초에서 15분 정도 걸립니다. [Windows](./how-to-use-perfinsights.md) 또는 [Linux](./how-to-use-perfinsights-linux.md) 에 대 한 자세한 정보
 
 * **고급 성능 분석**`*`  
-    성능 분석의 모든 검사를 포함하고 다음 섹션에 나열된 것처럼 하나 이상의 추적을 수집합니다. 이 시나리오를 사용하여 추가 추적이 필요한 복잡한 문제를 해결합니다. 이 시나리오를 장기간 실행하면 VM의 크기 및 선택된 추적 옵션에 따라 진단 출력의 전체 크기가 증가합니다. 이 분석을 실행하는 데는 선택한 기간에 따라 30초에서 15분 정도 걸립니다. [자세한 정보](https://aka.ms/perfinsights/advanced)
+    성능 분석의 모든 검사를 포함하고 다음 섹션에 나열된 것처럼 하나 이상의 추적을 수집합니다. 이 시나리오를 사용하여 추가 추적이 필요한 복잡한 문제를 해결합니다. 이 시나리오를 장기간 실행하면 VM의 크기 및 선택된 추적 옵션에 따라 진단 출력의 전체 크기가 증가합니다. 이 분석을 실행하는 데는 선택한 기간에 따라 30초에서 15분 정도 걸립니다. [자세한 정보](./how-to-use-perfinsights.md)
 
 * **Azure Files 분석**`*`  
-    성능 분석의 모든 검사를 포함하고 네트워크 추적 및 SMB 카운터를 캡처합니다. 이 시나리오를 사용하여 Azure Files의 성능 문제를 해결합니다. 이 분석을 실행하는 데는 선택한 기간에 따라 30초에서 15분 정도 걸립니다. [자세한 정보](https://aka.ms/perfinsights/azurefiles)
+    성능 분석의 모든 검사를 포함하고 네트워크 추적 및 SMB 카운터를 캡처합니다. 이 시나리오를 사용하여 Azure Files의 성능 문제를 해결합니다. 이 분석을 실행하는 데는 선택한 기간에 따라 30초에서 15분 정도 걸립니다. [자세한 정보](./how-to-use-perfinsights.md)
 
 >[!Note]
 >[ `*` ] 이러한 분석 시나리오는 Windows 에서만 지원 됩니다.
@@ -191,15 +191,15 @@ Microsoft와 진단 보고서를 공유하는 방법은 여러 가지가 있습�
 Microsoft에서 지원 티켓을 여는 경우 성능 진단 보고서를 공유하는 것이 중요합니다. 진단을 실행하는 동안(&quot;**Microsoft와 진단 정보 공유에 동의합니다**&quot; 확인란을 선택하여) Microsoft와 이 정보를 공유하려는 경우 Microsoft는 실행일로부터 최대 30일 동안 출력 Zip 파일에 대한 SAS 링크를 사용하여 스토리지에서 보고서에 액세스할 수 있습니다. 지원 엔지니어에게는 최신 보고서만 제공됩니다.
 
 **옵션 2:** 진단 보고서 압축 파일에 대한 공유 액세스 서명 생성  
-공유 액세스 서명을 사용하여 보고서 압축 파일에 대한 링크를 공유할 수 있습니다. 이를 수행하려면 다음 단계를 따르십시오.
+공유 액세스 서명을 사용하여 보고서 압축 파일에 대한 링크를 공유할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
 1. Azure Portal에서 진단 데이터 저장되는 스토리지 계정으로 이동합니다.
-1. **Blob 서비스** 섹션에서 **Blob**을 선택합니다.
+1. **Blob 서비스** 섹션에서 **Blob** 을 선택합니다.
 1. **azdiagextnresults** 컨테이너를 선택합니다.
 1. 공유하려는 성능 진단 출력 압축 파일을 선택합니다.
 1. **SAS 생성** 탭에서 공유 조건을 선택합니다.
-1. **URL 및 Blob SAS 토큰 생성**을 클릭합니다.
-1. **Blob SAS URL**을 복사하여 지원 엔지니어와 공유합니다.
+1. **URL 및 Blob SAS 토큰 생성** 을 클릭합니다.
+1. **Blob SAS URL** 을 복사하여 지원 엔지니어와 공유합니다.
 
 **옵션 3:** 스토리지 계정에서 보고서를 다운로드
 
@@ -218,4 +218,4 @@ Microsoft에서 지원 티켓을 여는 경우 성능 진단 보고서를 공유
 
 성능 진단 정보 및 보고서를 검토한 후에도 여전히 문제의 원인을 확인할 수 없고 도움이 더 필요한 경우 Microsoft 고객 지원팀에서 지원 티켓을 열 수 있습니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기** 를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.

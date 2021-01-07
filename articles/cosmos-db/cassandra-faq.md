@@ -3,17 +3,19 @@ title: Azure Cosmos DB Cassandra API에 대 한 질문과 대답
 description: Azure Cosmos DB Cassandra API 대 한 질문과 대답을 확인 하세요.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 1368a3174af08f557b6d08f298fba015601d568c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167609"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030835"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>의 Cassandra API에 대 한 질문과 대답 Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 이 문서에서는 Azure Cosmos DB에서 Apache Cassandra와 Cassandra API의 기능 차이점에 대해 설명 합니다. 또한 Azure Cosmos DB의 Cassandra API에 대 한 질문과 대답을 제공 합니다.
 
@@ -75,15 +77,15 @@ Azure Cosmos DB는 작업에 대한 상한을 사용하여 성능 및 대기 시
 
 사용 가능한 메트릭은 전체 파티션 또는 집계에서 시간, 일 단위 및 7 일간의 처리량을 사용 하는 방법을 보여 주는 메트릭을 사용할 수 있습니다. 자세한 내용은 [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅](use-metrics.md)을 참조하세요.
 
-진단 로그에 대한 내용은 [Azure Cosmos DB 진단 로깅](logging.md) 문서에 설명되어 있습니다.
+진단 로그에 대한 내용은 [Azure Cosmos DB 진단 로깅](./monitor-cosmos-db.md) 문서에 설명되어 있습니다.
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>기본 키는 Azure Cosmos DB의 파티션 키 개념에 대응하나요?
 
-예, 파티션 키를 사용 하 여 엔터티를 올바른 위치에 배치 합니다. Azure Cosmos DB에서 실제 파티션에 저장 된 올바른 논리적 파티션을 찾는 데 사용 됩니다. 분할 개념은 [Azure Cosmos DB의 파티션 및 확장](partition-data.md) 문서에 잘 설명되어 있습니다. 여기서 중요 한 요점은 논리 파티션은 20gb 제한을 초과 하지 않아야 한다는 것입니다.
+예, 파티션 키를 사용 하 여 엔터티를 올바른 위치에 배치 합니다. Azure Cosmos DB에서 실제 파티션에 저장 된 올바른 논리적 파티션을 찾는 데 사용 됩니다. 분할 개념은 [Azure Cosmos DB의 파티션 및 확장](partitioning-overview.md) 문서에 잘 설명되어 있습니다. 여기서 중요 한 요점은 논리 파티션은 20gb 제한을 초과 하지 않아야 한다는 것입니다.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>파티션이 가득 찬 알림이 표시 되 면 어떻게 되나요?
 
-Azure Cosmos DB는 SLA (서비스 수준 계약)를 기반으로 하는 시스템입니다. 대기 시간, 처리량, 가용성 및 일관성을 보장 하는 무제한 규모를 제공 합니다. 무제한 저장소는 분할을 주요 개념으로 사용 하는 수평 확장 데이터를 기반으로 합니다. 분할 개념은 [Azure Cosmos DB의 파티션 및 확장](partition-data.md) 문서에 잘 설명되어 있습니다.
+Azure Cosmos DB는 SLA (서비스 수준 계약)를 기반으로 하는 시스템입니다. 대기 시간, 처리량, 가용성 및 일관성을 보장 하는 무제한 규모를 제공 합니다. 무제한 저장소는 분할을 주요 개념으로 사용 하는 수평 확장 데이터를 기반으로 합니다. 분할 개념은 [Azure Cosmos DB의 파티션 및 확장](partitioning-overview.md) 문서에 잘 설명되어 있습니다.
 
 논리적 파티션 당 엔터티 또는 항목 수에 대 한 20gb 제한을 준수 해야 합니다. 애플리케이션이 원활하게 확장할 수 있도록 하려면 단일 파티션에 대한 모든 정보를 저장 및 쿼리하여 핫 파티션을 만들지 *않는* 것이 좋습니다. 이 오류는 데이터가 왜곡 된 경우에만 발생할 수 있습니다. 즉, 하나의 파티션 키 (20gb 이상)에 대해 많은 데이터가 있습니다. 저장소 포털을 사용 하 여 데이터 배포를 찾을 수 있습니다. 이 오류를 해결 하는 방법은 테이블을 다시 만들고 세부적인 기본 (파티션 키)을 선택 하 여 데이터를 보다 효율적으로 배포할 수 있다는 것입니다.
 
@@ -133,11 +135,11 @@ Azure Cosmos DB는 읽기, 쓰기 및 처리량에 대 한 성능 보장을 제�
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>처리량과 함께 인프라를 모니터링 하려면 어떻게 해야 하나요?
 
-Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음을 할 수 있습니다.
+Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음을 수행할 수 있습니다.
 
-- [Sla](monitor-accounts.md) 모니터링
+- [Sla](./monitor-cosmos-db.md) 모니터링
 - [메트릭](use-metrics.md) 사용
-- [진단 로그](logging.md) 사용
+- [진단 로그](./monitor-cosmos-db.md) 사용
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Cassandra API에서 사용할 수 있는 클라이언트 Sdk는 무엇입니까?
 
@@ -174,7 +176,7 @@ Cassandra API은 Azure Cosmos DB의 전역적으로 분산 된 플랫폼에서 �
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>새로운 Cassandra API SDK를 에뮬레이터에서 로컬로 사용할 수 있나요?
 
-예, 지원됩니다. [로컬 개발 및 테스트에 Azure Cosmos Emulator 사용](local-emulator.md#cassandra-api) 문서에서이 기능을 사용 하도록 설정 하는 방법에 대 한 세부 정보를 찾을 수 있습니다.
+예, 지원됩니다. [로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용](local-emulator.md#cassandra-api) 문서에서이 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용을 확인할 수 있습니다.
 
 
 ### <a name="how-can-i-migrate-data-from-apache-cassandra-clusters-to-azure-cosmos-db"></a>Apache Cassandra 클러스터에서 Azure Cosmos DB로 데이터를 마이그레이션하려면 어떻게 해야 하나요?
@@ -187,7 +189,7 @@ Cassandra API은 Azure Cosmos DB의 전역적으로 분산 된 플랫폼에서 �
 피드백은 [사용자 의견 피드백](https://feedback.azure.com/forums/263030-azure-cosmos-db)을 통해 보내주세요.
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>다음 단계
 

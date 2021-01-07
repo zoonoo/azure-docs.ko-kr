@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
 ms.openlocfilehash: 997e2e97161e6db7cdca04c1b79f5149a2e4c409
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392853"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003534"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager의 메트릭 및 경고
 
@@ -43,10 +43,10 @@ Traffic Manager는 고객이 Traffic Manager의 사용량과 프로필의 엔드
 
 ## <a name="endpoint-status-by-endpoint"></a>엔드포인트별 엔드포인트 상태
 [이 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles)을 사용하여 프로필의 엔드포인트에 대한 상태를 파악합니다. 다음 두 값을 사용합니다.
- - 엔드포인트가 작동 중인 경우 **1**을 사용합니다.
- - 엔드포인트가 중단된 경우 **0**을 사용합니다.
+ - 엔드포인트가 작동 중인 경우 **1** 을 사용합니다.
+ - 엔드포인트가 중단된 경우 **0** 을 사용합니다.
 
-이 메트릭은 모든 메트릭의 상태를 나타내는 집계 값을 표시하거나(그림 3), 특정 엔드포인트에 대한 상태를 분할하여 표시할 수 있습니다(그림 4 참조). 집계 값의 경우 집계 수준을 **평균**으로 선택하면 이 메트릭의 값은 모든 엔드포인트 상태의 산술 평균이 됩니다. 예를 들어 프로필에 엔드포인트가 두 개인데 그 중 하나만 정상 상태라면 이 메트릭의 값은 그림 3과 같이 **0.50**이 됩니다. 
+이 메트릭은 모든 메트릭의 상태를 나타내는 집계 값을 표시하거나(그림 3), 특정 엔드포인트에 대한 상태를 분할하여 표시할 수 있습니다(그림 4 참조). 집계 값의 경우 집계 수준을 **평균** 으로 선택하면 이 메트릭의 값은 모든 엔드포인트 상태의 산술 평균이 됩니다. 예를 들어 프로필에 엔드포인트가 두 개인데 그 중 하나만 정상 상태라면 이 메트릭의 값은 그림 3과 같이 **0.50** 이 됩니다. 
 
 
 ![Traffic Manager 메트릭 - 엔드포인트 상태에 대한 복합 보기](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)

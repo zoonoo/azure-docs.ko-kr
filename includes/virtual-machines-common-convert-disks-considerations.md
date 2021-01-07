@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 091e4dc0759ce1b227349d5d1b6b08b9eda66ee0
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017351"
 ---
 * 변환은 기존 유지 관리 기간 동안 VM의 마이그레이션을 예약하도록 VM의 재시작이 필요합니다. 
 

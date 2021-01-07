@@ -3,19 +3,19 @@ title: 데이터 피드를 메트릭 Advisor에 등록
 titleSuffix: Azure Cognitive Services
 description: 메트릭 Advisor에 데이터 피드를 온 보 딩 하는 방법을 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940132"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043212"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>방법: 메트릭 데이터를 메트릭 Advisor에 등록
 
@@ -188,7 +188,7 @@ ms.locfileid: "90940132"
 2. **상태** 를 클릭 한 다음 **실패** 또는 **오류**를 선택 합니다.
 3. 실패 한 수집을 마우스로 가리키고 표시 되는 세부 정보 메시지를 확인 합니다.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="실패 한 수집 확인":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="수집 진행률 표시줄":::
 
 *실패* 상태는 나중에이 데이터 원본에 대 한 수집을 다시 시도 함을 나타냅니다.
 *오류* 상태는 메트릭 관리자가 데이터 원본에 대해 다시 시도 하지 않음을 나타냅니다. 데이터를 다시 로드 하려면 백필/다시 로드를 수동으로 트리거해야 합니다.

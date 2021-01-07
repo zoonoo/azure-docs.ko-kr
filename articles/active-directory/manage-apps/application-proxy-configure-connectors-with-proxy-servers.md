@@ -1,6 +1,6 @@
 ---
-title: 기존 온-프레미스 프록시 서버 및 Azure AD 작업 | Microsoft Docs
-description: 기존 온-프레미스 프록시 서버로 작업하는 방법을 다룹니다.
+title: 기존 온-프레미스 프록시 서버 및 Azure Active Directory 작업
+description: Azure Active Directory를 사용 하 여 기존 온-프레미스 프록시 서버로 작업 하는 방법을 설명 합니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 808357b95f4de904ead0741d848480d548a2e26a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077512"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030079"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -77,7 +77,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 
 환경에 WPAD가 사용되고 적절히 구성된 경우 커넥터는 아웃바운드 프록시 서버를 자동으로 검색하고 사용하려고 합니다. 하지만 트래픽이 아웃바운드 프록시를 통과하도록 명시적으로 커넥터를 구성할 수 있습니다.
 
-이렇게 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다. 로컬 프록시 서버 이름 또는 IP 주소와 수신 대기 중인 포트를 반영하도록 *proxyserver:8080*을 변경합니다. IP 주소를 사용하는 경우에도 값에는 http:// 접두사가 있어야 합니다.
+이렇게 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다. 로컬 프록시 서버 이름 또는 IP 주소와 수신 대기 중인 포트를 반영하도록 *proxyserver:8080* 을 변경합니다. IP 주소를 사용하는 경우에도 값에는 http:// 접두사가 있어야 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -111,18 +111,19 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 
 다음 URL에 대한 액세스를 허용합니다.
 
-| URL | 사용 방법 |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| URL | 포트 |  사용 방법 |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| ctldl.windowsupdate.com | 80/HTTP | 커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
 
-방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대 한 액세스를 허용 해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다.
 
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
 * 모든 대상에 대한 커넥터 아웃바운드 액세스 허용
-* 모든 [Azure 데이터 센터 IP 범위](https://www.microsoft.com//download/details.aspx?id=41653)에 대한 커넥터 아웃바운드 액세스 허용. Azure 데이터 센터 IP 범위 목록의 사용과 관련된 문제는 매주 업데이트됩니다. 액세스 규칙을 적절하게 업데이트하도록 프로세스를 실행해야 합니다. IP 주소 서브넷만 사용하면 구성이 중단될 수 있습니다.
+* 모든 Azure 데이터 센터 IP 범위에 대한 커넥터 아웃바운드 액세스 허용. Azure 데이터 센터 IP 범위 목록의 사용과 관련된 문제는 매주 업데이트됩니다. 액세스 규칙을 적절하게 업데이트하도록 프로세스를 실행해야 합니다. IP 주소 서브넷만 사용하면 구성이 중단될 수 있습니다. 최신 Azure 데이터 센터 IP 범위를 다운로드 하려면로 이동 하 여 [https://download.microsoft.com](https://download.microsoft.com) "AZURE IP 범위 및 서비스 태그"를 검색 합니다. 관련 클라우드를 선택 해야 합니다. 예를 들어 공용 클라우드 IP 범위는 "Azure IP 범위 및 서비스 태그 – 공용 클라우드"를 사용 하 여 찾을 수 있습니다. 미국 정부 클라우드는 "Azure IP 범위 및 서비스 태그 – 미국 정부 클라우드"를 검색 하 여 찾을 수 있습니다.
 
 #### <a name="proxy-authentication"></a>프록시 인증
 
@@ -167,6 +168,9 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 
 원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 메시지 분석기를 사용했습니다.
 
+> [!NOTE]
+> [MMA (Microsoft Message Analyzer)가 사용 중지 되었으며](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) 11 월 25 2019에 microsoft.com 사이트에서 다운로드 패키지가 제거 되었습니다.  현재 개발 중인 microsoft Message Analyzer에 대 한 Microsoft 대체가 없습니다.  유사한 기능을 사용 하려면 Wireshark와 같은 타사 네트워크 프로토콜 분석기 도구를 사용 하는 것을 고려 하세요.
+
 다음 예는 메시지 분석기에 대한 내용이지만 원칙은 모든 분석 도구에 적용할 수 있습니다.
 
 ### <a name="take-a-capture-of-connector-traffic"></a>커넥터 트래픽 캡처
@@ -178,7 +182,7 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
    ![services.msc의 Azure AD 애플리케이션 프록시 커넥터 서비스](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. 관리자 권한으로 메시지 분석기를 실행합니다.
-1. **로컬 추적 시작**을 선택합니다.
+1. **로컬 추적 시작** 을 선택합니다.
 1. Azure AD 애플리케이션 프록시 커넥터 서비스를 시작합니다.
 1. 네트워크 캡처를 중지합니다.
 
@@ -188,7 +192,7 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 
 프록시 서버를 바이패스하고 애플리케이션 프록시 서비스에 직접 연결하도록 애플리케이션 프록시 커넥터를 구성한 경우 실패한 TCP 연결 시도에 대한 네트워크 캡처를 확인하려고 합니다.
 
-메시지 분석기 필터를 사용하여 이러한 시도를 식별합니다. 필터 상자에 `property.TCPSynRetransmit`을 입력하고 **적용**을 선택합니다.
+메시지 분석기 필터를 사용하여 이러한 시도를 식별합니다. 필터 상자에 `property.TCPSynRetransmit`을 입력하고 **적용** 을 선택합니다.
 
 SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입니다. 이 패킷이 응답을 반환하지 않으면 SYN이 다시 시도됩니다. 이전 필터를 사용하여 재전송된 SYN을 확인할 수 있습니다. 그런 다음 이러한 SYN이 커넥터와 관련된 트래픽에 해당하는지를 확인할 수 있습니다.
 
@@ -198,7 +202,7 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 
 프록시 서버를 통과하도록 애플리케이션 프록시 커넥터 트래픽을 구성한 경우 프록시에 대해 실패한 https 연결을 찾으려고 합니다.
 
-이러한 연결 시도에 대한 네트워크 캡처를 필터링하려면 메시지 분석기 필터에 `(https.Request or https.Response) and tcp.port==8080`을 입력하고 8080을 프록시 서비스 포트로 바꿉니다. **적용**을 선택하여 필터 결과를 확인합니다.
+이러한 연결 시도에 대한 네트워크 캡처를 필터링하려면 메시지 분석기 필터에 `(https.Request or https.Response) and tcp.port==8080`을 입력하고 8080을 프록시 서비스 포트로 바꿉니다. **적용** 을 선택하여 필터 결과를 확인합니다.
 
 이전 필터는 프록시 포트로 보내거나 받는 HTTPs 요청 및 응답만 보여 줍니다. 프록시 서버와 통신을 보여 주는 CONNECT 요청을 찾는 중입니다. 성공하면 HTTP OK(200) 응답을 받게 됩니다.
 
@@ -207,4 +211,4 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
-* 커넥터 연결 문제가 있는 경우 [Azure Active Directory 에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-active-directory.html)에서 질문하거나 지원 팀을 사용하여 티켓을 만드세요.
+* 커넥터 연결 문제가 있는 경우 [Azure Active Directory 에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-active-directory.html)에서 질문하거나 지원 팀을 사용하여 티켓을 만드세요.

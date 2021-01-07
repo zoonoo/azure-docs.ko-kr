@@ -1,15 +1,17 @@
 ---
 title: Azure Migrate 지원 매트릭스
 description: Azure Migrate서비스의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: raynew
-ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: d9a18173403cd95e0abf6b9e495f3d948ac6ac61
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612115"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753963"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -36,7 +38,7 @@ ms.locfileid: "88612115"
 
 **도구** | **평가** | **마이그레이션** 
 --- | --- | ---
-Azure Migrate 서버 평가 | [VMware VM](tutorial-prepare-vmware.md), [Hyper-V VM](tutorial-prepare-hyper-v.md) 및 [물리적 서버](tutorial-prepare-physical.md)를 평가합니다. |  해당 없음
+Azure Migrate 서버 평가 | [VMware VM](./tutorial-discover-vmware.md), [Hyper-V VM](./tutorial-discover-hyper-v.md) 및 [물리적 서버](./tutorial-discover-physical.md)를 평가합니다. |  해당 없음
 Azure Migrate 서버 마이그레이션 | 해당 없음 | [VMware VM](tutorial-migrate-vmware.md), [Hyper-V VM](tutorial-migrate-hyper-v.md) 및 [물리적 서버](tutorial-migrate-physical-virtual-machines.md)를 마이그레이션합니다.
 [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | 해당 없음 | VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 마이그레이션합니다. 
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 평가합니다. | 해당 없음
@@ -69,9 +71,9 @@ Azure Migrate가 Azure에서 작동하도록 하려면 머신의 평가 및 마�
 
 **Task** | **권한** | **세부 정보**
 --- | --- | ---
-Azure Migrate 프로젝트 만들기 | Azure 계정에는 프로젝트를 만들 수 있는 권한이 필요합니다. | [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project) 또는 [물리적 서버](tutorial-prepare-physical.md#assign-permissions-to-create-project)에 대해 설정합니다.
-Azure Migrate 어플라이언스 등록| Azure Migrate는 경량 [Azure Migrate 어플라이언스](migrate-appliance.md)를 사용하여 Azure Migrate Server Assessment를 머신을 평가하고, Azure Migrate Server Migration을 통해 VMware VM의 [에이전트 없는 마이그레이션](server-migrate-overview.md)을 실행합니다. 이 어플라이언스는 머신을 검색하고 메타데이터 및 성능 데이터를 Azure Migrate로 보냅니다.<br/><br/> 등록 과정에서, 구독이 리소스 공급자와 작동할 수 있도록 등록 공급자(Microsoft.OffAzure, Microsoft.Migrate 및 Microsoft.KeyVault)가 어플라이언스에서 선택된 구독에 등록됩니다. 리소스 등록하려면 구독의 기여자 또는 소유자 권한이 필요합니다.<br/><br/> **VMware**-온보딩 과정에서, Azure Migrate는 두 개의 Azure AD(Azure Active Directory) 앱을 만듭니다. 첫 번째 앱은 어플라이언스 에이전트와 Azure Migrate 서비스 간에 통신합니다. 이 앱에는 리소스에 대한 Azure Resource Manager 호출 또는 RBAC 액세스를 수행할 수 있는 권한이 없습니다. 두 번째 앱은 에이전트 없는 VMware VM 마이그레이션만을 위해 사용자 구독에서 생성된 Azure Key Vault에 액세스합니다. 에이전트 없는 마이그레이션에서 Azure Migrate는 구독의 복제 스토리지 계정에 대한 액세스 키를 관리하는 Key Vault를 만듭니다. 어플라이언스에서 검색이 시작되면 (고객 테넌트에 있는) Azure Key Vault에 대한 RBAC 권한을 갖습니다.<br/><br/> **Hyper-V**-온보딩 과정에서, Azure Migrate는 하나의 Azure AD 앱을 만듭니다. 이 앱은 어플라이언스 에이전트와 Azure Migrate 서비스 간에 통신합니다. 이 앱에는 리소스에 대한 Azure Resource Manager 호출 또는 RBAC 액세스를 수행할 수 있는 권한이 없습니다. | [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-azure-ad-apps) 또는 [물리적 서버](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance)에 대해 설정합니다.
-VMware 에이전트 없는 마이그레이션을 위한 Key Vault 만들기 | 에이전트 없는 Azure Migrate Server Migration을 사용하여 VMware VM을 마이그레이션하기 위해, Azure Migrate는 구독의 복제 스토리지 계정에 대한 액세스 키를 관리하는 Key Vault를 만듭니다. 자격 증명 모음을 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 권한(소유자 또는 기여자 및 사용자 액세스 관리자)을 설정해야 합니다. | 권한을 [설정](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault)합니다.
+Azure Migrate 프로젝트 만들기 | Azure 계정에는 프로젝트를 만들 수 있는 권한이 필요합니다. | [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) 또는 [물리적 서버](./tutorial-discover-physical.md#prepare-an-azure-user-account)에 대해 설정합니다.
+Azure Migrate 어플라이언스 등록| Azure Migrate는 경량 [Azure Migrate 어플라이언스](migrate-appliance.md)를 사용하여 Azure Migrate Server Assessment를 머신을 평가하고, Azure Migrate Server Migration을 통해 VMware VM의 [에이전트 없는 마이그레이션](server-migrate-overview.md)을 실행합니다. 이 어플라이언스는 머신을 검색하고 메타데이터 및 성능 데이터를 Azure Migrate로 보냅니다.<br/><br/> 등록 과정에서, 구독이 리소스 공급자와 작동할 수 있도록 등록 공급자(Microsoft.OffAzure, Microsoft.Migrate 및 Microsoft.KeyVault)가 어플라이언스에서 선택된 구독에 등록됩니다. 리소스 등록하려면 구독의 기여자 또는 소유자 권한이 필요합니다.<br/><br/> **VMware**-온보딩 과정에서, Azure Migrate는 두 개의 Azure AD(Azure Active Directory) 앱을 만듭니다. 첫 번째 앱은 어플라이언스 에이전트와 Azure Migrate 서비스 간에 통신합니다. 앱에 Azure 리소스 관리 호출을 수행 하거나 리소스에 대 한 Azure RBAC 액세스 권한이 없는 경우 두 번째 앱은 에이전트 없는 VMware VM 마이그레이션만을 위해 사용자 구독에서 생성된 Azure Key Vault에 액세스합니다. 에이전트 없는 마이그레이션에서 Azure Migrate는 구독의 복제 스토리지 계정에 대한 액세스 키를 관리하는 Key Vault를 만듭니다. 검색을 어플라이언스에서 시작 하는 경우 고객 테 넌 트의 Azure Key Vault에 대 한 Azure RBAC 액세스 권한이 있습니다.<br/><br/> **Hyper-V**-온보딩 과정에서, Azure Migrate는 하나의 Azure AD 앱을 만듭니다. 이 앱은 어플라이언스 에이전트와 Azure Migrate 서비스 간에 통신합니다. 앱에 Azure 리소스 관리 호출을 수행 하거나 리소스에 대 한 Azure RBAC 액세스 권한이 없는 경우 | [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) 또는 [물리적 서버](./tutorial-discover-physical.md#prepare-an-azure-user-account)에 대해 설정합니다.
+VMware 에이전트 없는 마이그레이션을 위한 Key Vault 만들기 | 에이전트 없는 Azure Migrate Server Migration을 사용하여 VMware VM을 마이그레이션하기 위해, Azure Migrate는 구독의 복제 스토리지 계정에 대한 액세스 키를 관리하는 Key Vault를 만듭니다. 자격 증명 모음을 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 권한(소유자 또는 기여자 및 사용자 액세스 관리자)을 설정해야 합니다. | 권한을 [설정](./tutorial-discover-vmware.md#prepare-an-azure-user-account)합니다.
 
 ## <a name="supported-geographies-public-cloud"></a>지원되는 지역(퍼블릭 클라우드)
 
@@ -92,9 +94,12 @@ Canada | 캐나다 중부 또는 캐나다 동부
 인도 | 인도 중부 또는 인도 남부
 일본 |  일본 동부 또는 일본 서부
 한국 | 한국 중부 또는 한국 남부
+스위스 | 스위스 북부
 United Kingdom | 영국 남부 또는 영국 서부
 미국 | 미국 중부 또는 미국 서부 2
 
+> [!NOTE]
+> 스위스 geography의 경우 스위스 서부은 REST API 사용자 에게만 제공 되며 승인 된 구독이 필요 합니다.
 
 ## <a name="supported-geographies-azure-government"></a>지원되는 지역(Azure Government)
 
@@ -124,5 +129,5 @@ Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다
 
 ## <a name="next-steps"></a>다음 단계
 
-- 마이그레이션을 위해 [VMware VM 평가](tutorial-assess-vmware.md).
+- 마이그레이션을 위해 [VMware VM 평가](./tutorial-assess-vmware-azure-vm.md).
 - 마이그레이션을 위해 [Hyper-V VM 평가](tutorial-assess-hyper-v.md).

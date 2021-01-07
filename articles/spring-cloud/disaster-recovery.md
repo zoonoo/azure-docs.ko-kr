@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e18193b40bb7c59a21a279f451673dc7d11140e4
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892546"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092905"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Azure Spring Cloud 재해 복구
 
-이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 이 문서에서는 가동 중지 시간이 발생하지 않도록 Azure Spring Cloud 애플리케이션을 보호하는 데 사용할 수 있는 몇 가지 전략을 설명합니다.  지역 또는 데이터 센터에서 지리적 재해로 인한 가동 중지 시간이 발생할 수 있지만 신중하게 계획하여 고객에 미치는 영향을 완화할 수 있습니다.
 
@@ -50,7 +50,7 @@ Azure Spring Cloud 애플리케이션이 여러 지역에 있는 경우 Azure Tr
 
 2. 서비스 팔로우용 사용자 지정 도메인([사용자 지정 도메인 문서](spring-cloud-tutorial-custom-domain.md))을 설정하여 두 개의 기존 서비스 인스턴스용 사용자 지정 도메인을 설정합니다. 설정한 후 서비스 인스턴스는 둘 다 사용자 지정 도메인 bcdr-test.contoso.com에 바인딩됩니다.
 
-3. Traffic Manager 및 두 개의 엔드포인트를 만듭니다. [Azure Portal을 사용하여 Traffic Manager 프로필 만들기](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile)
+3. Traffic Manager 및 두 개의 엔드포인트를 만듭니다. [Azure Portal을 사용하여 Traffic Manager 프로필 만들기](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 
 Traffic Manager 프로필은 다음과 같습니다.
 * Traffic Manager DNS 이름: `http://asc-bcdr.trafficmanager.net`
@@ -68,4 +68,3 @@ Traffic Manager 프로필은 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)
- 

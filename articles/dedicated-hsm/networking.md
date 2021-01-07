@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300735"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91359157"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 
@@ -83,11 +83,11 @@ HSM 디바이스에는 소프트웨어 라이브러리를 통해 대체 HSM에 �
 > [!NOTE]
 > 글로벌 Vnet 피어링은 전용 HSM을 사용한 지역 간 연결 시나리오에서 사용할 수 없습니다. 대신 VPN 게이트웨이를 사용해야 합니다. 
 
-![global-vnet](media/networking/global-vnet.png)
+![다이어그램에는 두 개의 V P N 게이트웨이로 연결 된 두 개의 지역이 표시 됩니다. 각 지역은 피어 링 가상 네트워크를 포함 합니다.](media/networking/global-vnet.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [질문과 대답](faq.md)
+- [자주 묻는 질문](faq.md)
 - [지원 가능성](supportability.md)
 - [고가용성](high-availability.md)
 - [물리적 보안](physical-security.md)

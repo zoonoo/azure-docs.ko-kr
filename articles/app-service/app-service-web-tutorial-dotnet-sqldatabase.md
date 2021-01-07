@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 90becfb79973ba45851b0e30384b0f05a7b887e3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: a427fbc6fad1566ae10e11b61de981aded32e64a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962250"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000229"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>자습서: Azure SQL Database를 사용하여 Azure에 ASP.NET 앱 배포
 
@@ -65,20 +65,18 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 ![솔루션 탐색기에서 게시](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-**Microsoft Azure App Service**를 선택했는지 확인하고 **게시**를 클릭합니다.
+대상으로 **Azure**를 선택하고, 다음을 클릭하고, **Azure App Service(Windows)** 가 선택되었는지 확인하고, 다음을 다시 클릭합니다.
 
 ![프로젝트 개요 페이지에서 게시](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-게시하는 경우 Azure에서 ASP.NET 앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있는 유용한 **App Service 만들기** 대화 상자가 열립니다.
-
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-**App Service 만들기** 대화 상자에서 **계정 추가**를 클릭한 다음 Azure 구독에 로그인합니다. 이미 Microsoft 계정에 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 로그인된 Microsoft 계정에 Azure 구독이 없는 경우 클릭하여 올바른 계정을 추가합니다.
+**게시** 대화 상자의 계정 관리자 드롭다운에서 **계정 추가**를 클릭한 다음, Azure 구독에 로그인합니다. 이미 Microsoft 계정에 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 로그인된 Microsoft 계정에 Azure 구독이 없는 경우 클릭하여 올바른 계정을 추가합니다.
+
+![Azure에 로그인](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 > [!NOTE]
 > 이미 로그인한 경우 아직 **만들기**를 선택하지 마십시오.
-
-![Azure에 로그인](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>웹앱 이름 구성
 
@@ -112,15 +110,20 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
    |**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
+3. **게시** 대화 상자에서 구성한 리소스를 표시합니다. **Finish**를 클릭합니다.
+
+   ![만든 리소스](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+
+
 ### <a name="create-a-server"></a>서버 만들기
 
 먼저 [논리 SQL 서버](../azure-sql/database/logical-servers.md)가 있어야 데이터베이스를 만들 수 있습니다. 논리 SQL 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함하는 논리적 구조입니다.
 
-1. **SQL Database 만들기**를 클릭합니다.
+1. **연결된 서비스** 아래에서 SQL Server 데이터베이스 옆에 있는 **구성**을 클릭합니다.
 
    ![SQL Database 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-2. **SQL Database 구성** 대화 상자에서 **SQL Server** 옆에 있는 **새로 만들기**를 클릭합니다.
+2. **Azure SQL Database** 대화 상자에서 **데이터베이스 서버** 옆에 있는 **새로 만들기**를 클릭합니다.
 
    고유한 서버 이름이 생성됩니다. 이 이름은 서버에 대한 기본 URL(`<server_name>.database.windows.net`)의 일부로 사용되며, Azure SQL의 모든 서버에서 고유해야 합니다. 서버 이름은 변경할 수 있지만 이 자습서에서는 생성된 값을 유지합니다.
 
@@ -128,28 +131,31 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
    이 사용자 이름과 암호를 기억해 두세요. 이후 서버를 관리할 때 필요합니다.
 
+   ![서버 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+
    > [!IMPORTANT]
    > 연결 문자열의 암호가 마스킹되었지만(Visual Studio 및 App Service에서도) 어딘가에서 유지 관리되기 때문에 앱의 공격 노출 영역이 늘어납니다. App Service는 [관리되는 서비스 ID](overview-managed-identity.md)를 사용하기 때문에 코드 또는 앱 구성의 비밀을 유지 관리할 필요가 전혀 없어 이러한 위험이 사라집니다. 자세한 내용은 [다음 단계](#next-steps)를 참조하세요.
-
-   ![서버 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 4. **확인**을 클릭합니다. **SQL Database 구성** 대화 상자를 아직 닫지 마세요.
 
 ### <a name="create-a-database-in-azure-sql-database"></a>Azure SQL Database에서 데이터베이스 만들기
 
-1. **SQL Database 구성** 대화 상자에서 다음을 수행합니다.
+1. **Azure SQL Database** 대화 상자에서 다음을 수행합니다.
 
    * 생성된 기본 **데이터베이스 이름**을 유지합니다.
-   * **연결 문자열 이름**에 *MyDbConnection*을 입력합니다. 이 이름은 *Models\MyDatabaseContext.cs*에서 참조되는 연결 문자열과 일치해야 합니다.
-   * **확인**을 선택합니다.
+   * **만들기**를 선택합니다.
 
     ![데이터베이스 구성](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. **App Service 만들기** 대화 상자에서 구성한 리소스를 표시합니다. **만들기**를 클릭합니다.
+2. **데이터베이스 연결 문자열 이름**에 _MyDbConnection_을 입력합니다. 이 이름은 _Models\MyDatabaseContext.cs_에서 참조되는 연결 문자열과 일치해야 합니다.
 
-   ![만든 리소스](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+3. [서버 만들기](#create-a-server) 3단계에서 사용하는 관리 사용자 이름과 암호를 각각 데이터베이스 사용자 이름과 암호에 입력합니다.
 
-마법사에서 Azure 리소스 만들기를 완료하면 ASP.NET 응용 프로그램을 Azure에 게시합니다. 기본 브라우저가 배포된 앱에 대한 URL로 시작됩니다.
+    ![데이터베이스 연결 문자열 구성](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
+
+4. **완료**를 선택합니다.
+
+마법사에서 Azure 리소스 만들기를 완료하면 **게시**를 클릭하여 ASP.NET 앱을 Azure에 배포합니다. 기본 브라우저가 배포된 앱에 대한 URL로 시작됩니다.
 
 몇 가지 할 일 항목을 추가합니다.
 

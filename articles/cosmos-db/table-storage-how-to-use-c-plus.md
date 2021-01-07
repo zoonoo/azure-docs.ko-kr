@@ -1,6 +1,6 @@
 ---
 title: C++로 Azure Table Storage 및 Azure Cosmos DB Table API 사용
-description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
+description: C++를 사용하여 Azure Table Storage 또는 Azure Cosmos DB Table API를 통해 클라우드에 구조화된 데이터를 저장합니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 3d38fa2afe35976283e5129eab7d7f8ef3a1103b
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236491"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489882"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>C++로 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -78,7 +79,7 @@ Azure Storage 클라이언트 또는 Cosmos DB 클라이언트는 연결 문자�
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-스토리지 계정 이름을 `<your_storage_account>`에 사용합니다. <your_storage_account_key>에는 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 액세스 키를 사용합니다. 스토리지 계정 및 액세스 키에 대한 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요.
+스토리지 계정 이름을 `<your_storage_account>`에 사용합니다. <your_storage_account_key>에는 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 액세스 키를 사용합니다. 스토리지 계정 및 액세스 키에 대한 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Azure Cosmos DB 연결 문자열 설정
 
@@ -94,11 +95,11 @@ Azure Cosmos DB 계정의 이름을 `<your_cosmos_db_account>`에 사용합니�
 로컬 Windows 기반 컴퓨터에서 애플리케이션을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure Storage Emulator를 사용하면 됩니다. Storage Emulator는 로컬 개발 머신에서 사용할 수 있는 Azure Blob, 큐 및 Table services를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 스토리지 에뮬레이터에 대한 연결 문자열을 보관할 정적 필드를 선언하는 방법을 보여줍니다.  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Azure Storage Emulator를 시작하려면 Windows 데스크톱에서 **시작** 단추 또는 Windows 키를 선택합니다. *Microsoft Azure Storage 에뮬레이터*를 입력하고 실행합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage Emulator 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
+Azure Storage Emulator를 시작하려면 Windows 데스크톱에서 **시작** 단추 또는 Windows 키를 선택합니다. *Microsoft Azure Storage 에뮬레이터* 를 입력하고 실행합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage Emulator 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
 
 ### <a name="retrieve-your-connection-string"></a>연결 문자열 검색
 
@@ -138,7 +139,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 
-테이블에 엔터티를 추가하려면 새 `table_entity` 개체를 만들어서 `table_operation::insert_entity`에 전달합니다. 다음 코드는 고객의 이름을 행키로 사용하고 고객의 성을 파티션 키로 사용합니다. 엔터티의 파티션과 행 키가 결합되어 테이블에서 엔터티를 고유하게 식별합니다. 동일한 파티션 키를 가진 엔터티는 다른 파티션 키를 가진 엔터티보다 더 빨리 쿼리할 수 있습니다. 다양한 파티션 키를 사용하면 병렬 작업 확장성을 높일 수 있습니다. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../storage/common/storage-performance-checklist.md)을 참조하세요.
+테이블에 엔터티를 추가하려면 새 `table_entity` 개체를 만들어서 `table_operation::insert_entity`에 전달합니다. 다음 코드는 고객의 이름을 행키로 사용하고 고객의 성을 파티션 키로 사용합니다. 엔터티의 파티션과 행 키가 결합되어 테이블에서 엔터티를 고유하게 식별합니다. 동일한 파티션 키를 가진 엔터티는 다른 파티션 키를 가진 엔터티보다 더 빨리 쿼리할 수 있습니다. 다양한 파티션 키를 사용하면 병렬 작업 확장성을 높일 수 있습니다. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../storage/blobs/storage-performance-checklist.md)을 참조하세요.
 
 다음 코드에서는 저장할 고객 데이터가 포함된 새 인스턴스 `table_entity`를 만듭니다. 그런 다음, `table_operation::insert_entity`를 호출하여 `table_operation` 개체를 만들어서 엔터티를 테이블에 삽입하고, 새 테이블 엔터티와 연결합니다. 마지막으로, 이 코드는 `cloud_table` 개체에서 `execute` 메서드를 호출합니다. 새 `table_operation`은 `people` 테이블에 새 고객 엔터티를 삽입하는 Table service에 요청을 보냅니다.  
 
@@ -499,11 +500,11 @@ else
 
 ## <a name="troubleshooting"></a>문제 해결
 
-Visual Studio Community Edition의 경우 포함 파일 *storage_account.h* 및 *table.h*로 인해 프로젝트에서 빌드 오류가 발생하면 **/permissive-** 컴파일러 스위치를 제거합니다.
+Visual Studio Community Edition의 경우 포함 파일 *storage_account.h* 및 *table.h* 로 인해 프로젝트에서 빌드 오류가 발생하면 **/permissive-** 컴파일러 스위치를 제거합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
-1. **속성 페이지** 대화 상자에서 **구성 속성**을 확장하고, **C/C++** 를 확장하고, **언어**를 선택합니다.
-1. **준수 모드**를 **아니요**로 설정합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.
+1. **속성 페이지** 대화 상자에서 **구성 속성** 을 확장하고, **C/C++** 를 확장하고, **언어** 를 선택합니다.
+1. **준수 모드** 를 **아니요** 로 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

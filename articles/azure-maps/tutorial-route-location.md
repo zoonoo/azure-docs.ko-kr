@@ -1,6 +1,6 @@
 ---
-title: '자습서: Microsoft Azure Maps Route Service 및 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법'
-description: Microsoft Azure Maps Route Service와 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법에 대해 알아봅니다.
+title: '자습서: 위치에 대한 경로 찾기 | Microsoft Azure Maps'
+description: 관심 지점까지의 경로를 찾는 방법에 대한 자습서. 주소 좌표를 설정하는 방법을 참조하고 Azure Maps Route 서비스를 쿼리하여 지점으로 가는 방향을 확인합니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -8,23 +8,23 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 992640424f6fdb632327866e132fdbb1c6244492
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400333"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896683"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>자습서: Azure Maps Route Service 및 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법
 
-이 자습서에서는 Azure Maps [Route Service API](https://docs.microsoft.com/rest/api/maps/route) 및 [지도 컨트롤](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)을 사용하여 시작점부터 도착점까지의 경로 방향을 표시하는 방법을 보여 줍니다. 이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 Azure Maps [Route Service API](/rest/api/maps/route) 및 [지도 컨트롤](./how-to-use-map-control.md)을 사용하여 시작점부터 도착점까지의 경로 방향을 표시하는 방법을 보여 줍니다. 이 자습서에서 학습할 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 웹 페이지에서 지도 컨트롤을 만들고 표시합니다. 
 > * [기호 계층](map-add-pin.md) 및 [선 계층](map-add-line-layer.md)을 정의하여 경로의 표시 렌더링을 정의합니다.
 > * GeoJSON 개체를 만들고 맵에 추가하여 시작점과 도착점을 나타냅니다.
-> * [경로 방향 API 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 사용하여 시작점부터 도착점까지의 경로 방향을 가져옵니다.
+> * [경로 방향 API 가져오기](/rest/api/maps/route/getroutedirections)를 사용하여 시작점부터 도착점까지의 경로 방향을 가져옵니다.
 
 [여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)에서 샘플의 전체 소스 코드를 가져올 수 있습니다. 라이브 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)에서 확인할 수 있습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "89400333"
 
 다음 단계에서는 웹 페이지에서 지도 컨트롤을 만들고 표시하는 방법을 보여 줍니다.
 
-1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapRoute.html**로 지정합니다.
+1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapRoute.html** 로 지정합니다.
 2. 다음 HTML 태그를 복사하여 파일에 붙여넣습니다.
 
     ```HTML
@@ -143,7 +143,7 @@ ms.locfileid: "89400333"
 
     지도 컨트롤의 `ready` 이벤트 처리기에서 시작점부터 도착점까지의 경로를 저장하는 데이터 원본이 만들어집니다. 경로 선이 렌더링되는 방식을 정의하기 위해 선 계층을 만들어 데이터 원본에 연결합니다.  경로 선이 도로 레이블을 포함하지 않도록 하기 위해 두 번째 매개 변수를 `'labels'` 값으로 전달했습니다.
 
-    다음으로, 기호 계층이 생성되어 데이터 원본에 연결됩니다. 이 계층은 출발점과 도착점을 렌더링하는 방법을 지정합니다. 이 경우 각 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다.
+    다음으로, 기호 계층이 생성되어 데이터 원본에 연결됩니다. 이 레이어는 출발 지점 및 도착 지점이 렌더링되는 방법을 지정합니다. 각 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다. 식에 대한 자세한 내용은 [데이터 기반 스타일 식](data-driven-style-expressions-web-sdk.md)을 참조하세요.
 
 2. Microsoft를 시작점으로 설정하고, 시애틀의 주유소를 도착점으로 설정합니다.  지도 컨트롤의 `ready` 이벤트 처리기에서 다음 코드를 추가합니다.
 
@@ -168,17 +168,22 @@ ms.locfileid: "89400333"
     });
     ```
 
-    이 코드는 데이터 원본에 추가되는 출발점과 도착점을 나타낼 두 개의 [GeoJSON 지점 개체](https://en.wikipedia.org/wiki/GeoJSON)를 만듭니다. 마지막 코드 블록은 출발점과 도착점의 위도 및 경도를 사용하여 카메라 보기를 설정합니다. 지도 컨트롤의 setCamera 속성에 대한 자세한 내용은 [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)를 참조하세요.
+    이 코드는 데이터 원본에 추가되는 출발점과 도착점을 나타낼 두 개의 [GeoJSON 지점 개체](https://en.wikipedia.org/wiki/GeoJSON)를 만듭니다. 
 
-3. **MapRoute.html**을 저장하고, 브라우저를 새로 고칩니다. 이제 지도 중심이 시애틀로 이동됩니다. 물방울 모양 파란색 핀은 시작점을 표시합니다. 둥근 파란색 핀은 도착점을 표시합니다.
+    마지막 코드 블록은 출발점과 도착점의 위도 및 경도를 사용하여 카메라 보기를 설정합니다. 시작 지점과 끝 지점이 데이터 원본에 추가됩니다. `atlas.data.BoundingBox.fromData` 함수를 사용하여 시작 및 끝 지점의 경계 상자가 계산됩니다. 이 경계 상자는 `map.setCamera` 함수를 사용하여 전체 경로에 대해 맵 카메라 보기를 설정하는 데 사용됩니다. 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다. 지도 컨트롤의 setCamera 속성에 대한 자세한 내용은 [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false)를 참조하세요.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="맵에서 경로 시작점과 종료점 보기":::
+3. **MapRoute.html** 을 저장하고, 브라우저를 새로 고칩니다. 이제 지도 중심이 시애틀로 이동됩니다. 물방울 모양 파란색 핀은 시작점을 표시합니다. 둥근 파란색 핀은 도착점을 표시합니다.
+
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
 
 <a id="getroute"></a>
 
 ## <a name="get-route-directions"></a>경로 방향 가져오기
 
-이 섹션에서는 Azure Maps Route Service API를 사용하여 한 지점에서 다른 지점으로의 방향을 가져오는 방법을 보여 줍니다. 이 서비스 내에서는 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 이 서비스를 통해 사용자는 과거 트래픽 상태를 기준으로 향후 경로를 계획할 수도 있습니다. 사용자는 지정된 시간 동안 경로 기간의 예측을 확인할 수 있습니다. 자세한 내용은 [경로 방향 API 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요.
+이 섹션에서는 Azure Maps 경로 방향 API를 사용하여 한 지점에서 다른 지점까지의 경로 방향 및 예상 도착 시간을 가져오는 방법을 보여줍니다.
+
+>[!TIP]
+>Azure Maps 경로 서비스는 거리, 트래픽 조건 및 사용되는 운송 모드를 기준으로 *가장 빠른* , *가장 짧은* , *에코* , *스릴* 경로와 같은 다양한 경로 유형을 기반으로 경로를 계획하는 API를 제공합니다. 서비스를 통해 사용자는 과거 트래픽 조건을 기준으로 향후 경로를 계획할 수도 있습니다. 사용자는 지정된 시간 동안 경로 기간의 예측을 확인할 수 있습니다. 자세한 내용은 [경로 방향 API 가져오기](/rest/api/maps/route/getroutedirections)를 참조하세요.
 
 1. `GetMap` 함수에서 컨트롤의 `ready` 이벤트 처리기 내에 다음을 JavaScript 코드에 추가합니다.
 
@@ -193,7 +198,7 @@ ms.locfileid: "89400333"
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](https://docs.microsoft.com/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
+   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
 
 2. 자격 증명과 URL을 설정한 후에는 컨트롤의 `ready` 이벤트 처리기에 다음 코드를 추가합니다. 이 코드는 시작점부터 도착점까지의 경로를 생성합니다. `routeURL`은 Azure Maps Route Service API를 요청하여 경로 방향을 계산합니다. 그런 다음, `geojson.getFeatures()` 메서드를 사용하여 응답의 GeoJSON 기능 컬렉션을 추출하고 데이터 원본에 추가합니다.
 
@@ -211,9 +216,9 @@ ms.locfileid: "89400333"
 
 3. **MapRoute.html** 파일을 저장하고, 웹 브라우저를 새로 고칩니다. 이제 지도에 시작점부터 도착점까지의 경로가 표시됩니다.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Azure 지도 컨트롤 및 Route Service":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
 
-    [여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)에서 샘플의 전체 소스 코드를 가져올 수 있습니다. 라이브 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)에서 확인할 수 있습니다.
+[여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)에서 샘플의 전체 소스 코드를 가져올 수 있습니다. 라이브 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

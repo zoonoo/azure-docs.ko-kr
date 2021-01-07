@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/30/2020
 ms.author: victorh
 ms.openlocfilehash: 28cd26532ca5bdf83902854b7910f7d6c18a4eab
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87460153"
 ---
 # <a name="fqdn-filtering-in-network-rules-preview"></a>네트워크 규칙의 FQDN 필터링 (미리 보기)
@@ -22,7 +22,7 @@ ms.locfileid: "87460153"
 
 FQDN (정규화 된 도메인 이름)은 호스트 또는 IP 주소의 도메인 이름을 나타냅니다. Azure 방화벽 및 방화벽 정책에서 DNS 확인을 기반으로 네트워크 규칙에서 Fqdn을 사용할 수 있습니다. 이 기능을 사용 하면 모든 TCP/UDP 프로토콜 (NTP, SSH, RDP 등 포함)을 사용 하 여 아웃 바운드 트래픽을 필터링 할 수 있습니다. 네트워크 규칙에서 Fqdn을 사용 하려면 DNS 프록시를 사용 하도록 설정 해야 합니다. 자세한 내용은 [Azure 방화벽 정책 DNS 설정 (미리 보기)](dns-settings.md)을 참조 하세요.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 조직에 필요한 DNS 서버 (Azure DNS 또는 사용자 지정 DNS)를 정의 하 고 나면 Azure 방화벽은 선택한 DNS 서버를 기반으로 FQDN을 IP 주소로 변환 합니다. 이러한 변환은 응용 프로그램 및 네트워크 규칙 처리 모두에서 발생 합니다.
 

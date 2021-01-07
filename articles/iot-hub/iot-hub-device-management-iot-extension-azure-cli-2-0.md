@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aded49b5b9509a75e61612e44ffa19ff377d1712
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80239653"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148327"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 디바이스 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "80239653"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure CLI에 대 한 iot 확장](https://github.com/Azure/azure-iot-cli-extension) 은 [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)의 기능에 추가 되는 오픈 소스 IoT 확장입니다. Azure CLI에는 Azure Resource Manager 및 관리 끝점과 상호 작용 하기 위한 명령이 포함 되어 있습니다. 예를 들어 Azure CLI를 사용하여 Azure VM 또는 IoT 허브를 만들 수 있습니다. CLI 확장을 사용하면 Azure 서비스는 Azure CLI를 확대하여, 사용자에게 추가적인 서비스별 기능에 대한 액세스 권한을 부여할 수 있습니다. IoT 확장은 IoT 개발자에 게 모든 IoT Hub, IoT Edge 및 IoT Hub Device Provisioning Service 기능에 대 한 명령줄 액세스를 제공 합니다.
+[Azure CLI에 대 한 iot 확장](https://github.com/Azure/azure-iot-cli-extension) 은 [Azure CLI](/cli/azure/overview?view=azure-cli-latest)의 기능에 추가 되는 오픈 소스 IoT 확장입니다. Azure CLI에는 Azure Resource Manager 및 관리 끝점과 상호 작용 하기 위한 명령이 포함 되어 있습니다. 예를 들어 Azure CLI를 사용하여 Azure VM 또는 IoT 허브를 만들 수 있습니다. CLI 확장을 사용하면 Azure 서비스는 Azure CLI를 확대하여, 사용자에게 추가적인 서비스별 기능에 대한 액세스 권한을 부여할 수 있습니다. IoT 확장은 IoT 개발자에 게 모든 IoT Hub, IoT Edge 및 IoT Hub Device Provisioning Service 기능에 대 한 명령줄 액세스를 제공 합니다.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -61,7 +61,7 @@ ms.locfileid: "80239653"
 
 * [Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)
 
-* Azure CLI Azure CLI를 설치해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI 버전이 2.0.70 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다.
+* Azure CLI Azure CLI를 설치해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI 버전이 2.0.70 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

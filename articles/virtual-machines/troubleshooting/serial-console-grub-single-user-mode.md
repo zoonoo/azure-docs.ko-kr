@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
 ms.openlocfilehash: 5341cc62a7d02c3072df90becf893dec18427ac2
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87439547"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스
@@ -246,4 +246,4 @@ Oracle Linux에서 단일 사용자 모드를 사용 하도록 설정 하려면 
 * [직렬 콘솔을 사용 하 여 다양 한 배포에서 GRUB 사용](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [NMI 및 SysRq 호출에 직렬 콘솔 사용](serial-console-nmi-sysrq.md)
 * [Windows Vm 용 직렬 콘솔](serial-console-windows.md)
-* [부트 진단](boot-diagnostics.md)
+* [부팅 진단](boot-diagnostics.md)

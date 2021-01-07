@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cd0f389615c95ef9b9bc8280b6486740ddba4fb4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441632"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456826"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory에서 반복 가능한 복사
 
@@ -48,7 +48,7 @@ ms.locfileid: "89441632"
 ```
 
 ## <a name="repeatable-write-to-sqlsink"></a>SqlSink에 반복 가능한 쓰기
-다른 데이터 저장소에서 **Azure SQL/SQL Server**로 데이터를 복사할 때 의도치 않은 결과를 방지하려면 반복성을 염두에 두어야 합니다. 
+다른 데이터 저장소에서 **Azure SQL/SQL Server** 로 데이터를 복사할 때 의도치 않은 결과를 방지하려면 반복성을 염두에 두어야 합니다. 
 
 Azure SQL/SQL Server 데이터베이스로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. 예를 들어 두 개의 레코드가 포함된 CSV(쉼표로 구분 된 값) 파일에서 Azure SQL/SQL Server 데이터베이스의 다음 테이블로 데이터를 복사한다고 가정해 봅시다. 조각이 실행되면 두 레코드가 SQL 테이블에 복사됩니다. 
 
@@ -104,7 +104,7 @@ ID    Product        Quantity    ModifiedDate
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>메커니즘 2: sliceIdentifierColumnName 사용
 > [!IMPORTANT]
-> 현재 sliceIdentifierColumnName는 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대해 지원 되지 않습니다. 
+> 현재 Azure Synapse Analytics에서는 sliceIdentifierColumnName가 지원 되지 않습니다. 
 
 두 번째 메커니즘은 대상 테이블에 전용 열(sliceIdentifierColumnName)을 만들어서 반복성을 유지합니다. 이 열은 Azure 데이터 팩터리에서 원본 및 대상을 동기화 상태로 유지하도록 할 때 사용됩니다. 이 방법은 대상 SQL 테이블 스키마를 유연하게 변경하거나 정의할 수 있을 때 작동됩니다. 
 

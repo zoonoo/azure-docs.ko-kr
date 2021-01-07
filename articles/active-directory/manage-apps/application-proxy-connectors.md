@@ -1,6 +1,6 @@
 ---
 title: Azure AD 애플리케이션 프록시 커넥터 이해 | Microsoft Docs
-description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
+description: Azure AD 응용 프로그램 프록시 커넥터에 대해 알아봅니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8086bd2a193ac52e76bf8da245063163ab2ea2f9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764675"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591058"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -37,7 +37,7 @@ ms.locfileid: "84764675"
 Windows Server는 TLS 1.2를 사용하도록 설정한 후 애플리케이션 프록시 커넥터를 설치해야 합니다. 서버에서 TLS 1.2을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
 1. 다음 레지스트리 키를 설정합니다.
-    
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
@@ -61,13 +61,13 @@ Windows Server는 TLS 1.2를 사용하도록 설정한 후 애플리케이션 �
 
 ![예: Azure AD 응용 프로그램 프록시 커넥터](./media/application-proxy-connectors/app-proxy-connectors.png)
 
-사용하지 않은 커넥터를 수동으로 삭제할 필요가 없습니다. 커넥터가 실행 중인 경우 서비스에 연결됨에 따라 활성 상태가 유지됩니다. 사용되지 않는 커넥터는 _비활성_으로 태그가 지정되고 비활성 상태가 된 지 10일 후에 제거됩니다. 하지만 커넥터를 제거하려면 서버에서 커넥터 서비스와 업데이트 프로그램 서비스를 모두 제거해야 합니다. 서비스를 완전히 제거하려면 컴퓨터를 다시 시작합니다.
+사용하지 않은 커넥터를 수동으로 삭제할 필요가 없습니다. 커넥터가 실행 중인 경우 서비스에 연결됨에 따라 활성 상태가 유지됩니다. 사용되지 않는 커넥터는 _비활성_ 으로 태그가 지정되고 비활성 상태가 된 지 10일 후에 제거됩니다. 하지만 커넥터를 제거하려면 서버에서 커넥터 서비스와 업데이트 프로그램 서비스를 모두 제거해야 합니다. 서비스를 완전히 제거하려면 컴퓨터를 다시 시작합니다.
 
 ## <a name="automatic-updates"></a>자동 업데이트
 
 Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이트를 제공합니다. 애플리케이션 프록시 커넥터 업데이터 서비스가 실행 중인 동안에는 커넥터가 자동으로 업데이트됩니다. 서버에 커넥터 업데이터 서비스가 표시되지 않는 경우 업데이트를 받으려면 [커넥터를 다시 설치](application-proxy-add-on-premises-application.md)해야 합니다.
 
-커넥터에 대한 자동 업데이트를 기다리지 않으려면 수동 업그레이드를 수행할 수 있습니다. 커넥터가 있는 서버에서 [커넥터 다운로드 페이지](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)로 이동하여 **다운로드**를 선택합니다. 그러면 로컬 커넥터의 업그레이드가 시작됩니다.
+커넥터에 대한 자동 업데이트를 기다리지 않으려면 수동 업그레이드를 수행할 수 있습니다. 커넥터가 있는 서버에서 [커넥터 다운로드 페이지](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)로 이동하여 **다운로드** 를 선택합니다. 그러면 로컬 커넥터의 업그레이드가 시작됩니다.
 
 다중 커넥터가 있는 테넌트의 경우 자동 업데이트는 각 그룹에서 한 번에 하나의 커넥터를 대상으로 하여 사용자 환경의 가동 중지 시간을 방지합니다.
 
@@ -99,12 +99,12 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\*이 컴퓨터에서는 사용자 지정 설정을 사용 하 여 .NET 권장 설정 이상의 기본 연결 제한을 발생 시킵니다. 지원 서비스에 문의하여 테넌트의 이 제한을 변경하기 전에, 기본 설정으로 테스트를 실행하는 것이 좋습니다.
+\* 이 컴퓨터에서는 사용자 지정 설정을 사용 하 여 .NET 권장 설정 이상의 기본 연결 제한을 발생 시킵니다. 지원 서비스에 문의하여 테넌트의 이 제한을 변경하기 전에, 기본 설정으로 테스트를 실행하는 것이 좋습니다.
 
 > [!NOTE]
 > 4, 8, 16개 코어 컴퓨터 간에 최대 TPS는 크게 차이가 없습니다. 주요 차이점은 예상 대기 시간입니다.
 >
-> 또한이 표는 설치 된 컴퓨터의 유형을 기반으로 하는 커넥터의 예상 성능에 중점을 둘 수 있습니다. 이는 응용 프로그램 프록시 서비스의 제한 제한과는 별도로 [서비스 제한 및 제한 사항](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)을 참조 하세요.
+> 또한이 표는 설치 된 컴퓨터의 유형을 기반으로 하는 커넥터의 예상 성능에 중점을 둘 수 있습니다. 이는 응용 프로그램 프록시 서비스의 제한 제한과는 별도로 [서비스 제한 및 제한 사항](../enterprise-users/directory-service-limits-restrictions.md)을 참조 하세요.
 
 ## <a name="security-and-networking"></a>보안 및 네트워킹
 
@@ -155,14 +155,17 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 처음으로 인증서를 갱신 한 후에는 Azure AD 응용 프로그램 프록시 Connector 서비스 (Network Service)에 로컬 컴퓨터 저장소에서 이전 인증서를 제거할 수 있는 권한이 없습니다. 인증서가 만료 되었거나 서비스에서 더 이상 사용 되지 않는 경우 안전 하 게 삭제할 수 있습니다.
 
-인증서 갱신 문제를 방지 하려면 커넥터에서 [문서화 된 대상](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) 으로의 네트워크 통신을 사용 하도록 설정 해야 합니다.
+인증서 갱신 문제를 방지 하려면 커넥터에서 [문서화 된 대상](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) 으로의 네트워크 통신을 사용 하도록 설정 해야 합니다.
 
 몇 달 동안 커넥터가 서비스에 연결되지 않는 경우 인증서가 만료될 수 있습니다. 이 경우 커넥터를 제거 후 다시 설치하여 등록을 트리거합니다. 다음 PowerShell 명령을 실행하면 됩니다.
 
 ```
 Import-module AppProxyPSModule
-Register-AppProxyConnector
+Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
+
+정부의 경우를 사용 `-EnvironmentName "AzureUSGovernment"` 합니다. 자세한 내용은 [Azure Government 클라우드의 에이전트 설치](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud)를 참조 하세요.
+
 인증서를 확인 하 고 문제를 해결 하는 방법에 대 한 자세한 내용은 [응용 프로그램 프록시 신뢰 인증서에 대 한 컴퓨터 및 백 엔드 구성 요소 지원](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate)을 참조 하세요.
 
 ## <a name="under-the-hood"></a>기본적인 이해
@@ -177,7 +180,7 @@ Register-AppProxyConnector
 
 커넥터에는 **관리자** 와 **세션** 로그가 모두 있습니다. **관리** 로그에는 주요 이벤트와 해당 오류가 포함 됩니다. **세션** 로그에는 모든 트랜잭션과 해당 처리 정보가 포함 됩니다.
 
-로그를 보려면 **이벤트 뷰어** 를 열고 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **AadApplicationProxy**  >  **커넥터**로 이동 합니다. **세션** 로그를 표시 하려면 **보기** 메뉴에서 **분석 및 디버그 로그 표시**를 선택 합니다. **세션** 로그는 일반적으로 문제 해결에 사용 되며 기본적으로 사용 하지 않도록 설정 됩니다. 이벤트 수집을 시작 하 고 더 이상 필요 하지 않을 때 사용 하지 않도록 설정할 수 있습니다.
+로그를 보려면 **이벤트 뷰어** 를 열고 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **AadApplicationProxy**  >  **커넥터** 로 이동 합니다. **세션** 로그를 표시 하려면 **보기** 메뉴에서 **분석 및 디버그 로그 표시** 를 선택 합니다. **세션** 로그는 일반적으로 문제 해결에 사용 되며 기본적으로 사용 하지 않도록 설정 됩니다. 이벤트 수집을 시작 하 고 더 이상 필요 하지 않을 때 사용 하지 않도록 설정할 수 있습니다.
 
 서비스 창에서 서비스 상태를 검사할 수 있습니다. 커넥터는 두 개의 Windows 서비스(실제 커넥터와 업데이터)로 구성됩니다. 둘 다 항상 실행되어야 합니다.
 

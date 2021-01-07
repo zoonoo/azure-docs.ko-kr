@@ -4,18 +4,18 @@ description: Azure Logic Apps에서 Ethereum 블록체인 커넥터를 사용하
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230537"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763794"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Azure Logic Apps에서 Ethereum 블록체인 커넥터 사용
 
 [Azure Logic Apps](../../logic-apps/index.yml)에서 [Ethereum 블록체인 커넥터](/connectors/blockchainethereum/)를 사용하여 스마트 계약 작업을 수행하고 스마트 계약 이벤트에 응답합니다. 이 문서에서는 Ethereum Blockchain 커넥터를 사용 하 여 블록 체인 정보를 다른 서비스로 보내거나 Blockchain 함수를 호출 하는 방법을 설명 합니다. 예를 들어 블록체인 원장의 정보를 반환하는 REST 기반 마이크로서비스를 만들려고 한다고 가정해 보겠습니다. 논리 앱을 사용하면 블록체인 원장에 저장된 정보를 쿼리하는 HTTP 요청을 받을 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 선택적 필수 조건 [빠른 시작: Visual Studio Code을 사용 하 여 Azure Blockchain Service consortium 네트워크에 연결](connect-vscode.md)합니다. 이 빠른 시작에서는 [Ethereum용 Azure Blockchain Development Kit](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)를 설치하고 블록체인 개발 환경을 설정하는 방법을 안내합니다.
 - Azure Logic Apps를 처음 사용 하는 경우 Microsoft Learn 모듈 소개를 검토 [하](/learn/modules/intro-to-logic-apps/) 여 [사용자 지정 커넥터를 사용 하 여 Logic Apps 워크플로에서 API](/learn/modules/logic-apps-and-custom-connectors/)를 Azure Logic Apps 하 고 호출 하는 것이 좋습니다.
@@ -24,13 +24,13 @@ ms.locfileid: "89230537"
 
 Azure Logic Apps를 사용하면 시스템과 서비스를 통합해야 할 때 비즈니스 프로세스와 워크플로를 예약하고 자동화할 수 있습니다. 먼저 Ethereum 블록체인 커넥터를 사용하는 논리를 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **통합** > **논리 앱**을 선택합니다.
-1. **논리 앱 만들기** 아래에서 논리 앱을 만드는 위치에 대한 세부 정보를 제공합니다. 완료되면 **만들기**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **통합** > **논리 앱** 을 선택합니다.
+1. **논리 앱 만들기** 아래에서 논리 앱을 만드는 위치에 대한 세부 정보를 제공합니다. 완료되면 **만들기** 를 선택합니다.
 
     논리 앱을 만드는 방법에 대한 자세한 내용은 [Azure Logic Apps를 사용하여 자동화된 워크플로 만들기](../../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 1. Azure에서 앱을 배포한 후에 논리 앱 리소스를 선택합니다.
-1. Logic Apps 디자이너의 **템플릿** 아래에서 **비어 있는 논리 앱**을 선택합니다.
+1. Logic Apps 디자이너의 **템플릿** 아래에서 **비어 있는 논리 앱** 을 선택합니다.
 
 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족할 때 실행되는 트리거를 통해 시작되어야 합니다. 트리거가 발생될 때마다 Logic Apps 엔진은 워크플로를 시작하고 실행하는 논리 앱 인스턴스를 만듭니다.
 
@@ -47,20 +47,20 @@ Ethereum 블록체인 커넥터에는 하나의 트리거와 여러 작업이 �
 스마트 계약 이벤트가 발생한 후 논리 앱을 실행하려면 Ethereum 블록체인 이벤트 트리거를 사용합니다. 예를 들어 스마트 계약 함수가 호출될 때 이메일을 보내려고 합니다.
 
 1. Logic Apps 디자이너에서 Ethereum 블록체인 커넥터를 선택합니다.
-1. **트리거** 탭에서 **스마트 계약 이벤트가 발생하는 경우**를 선택합니다.
+1. **트리거** 탭에서 **스마트 계약 이벤트가 발생하는 경우** 를 선택합니다.
 1. Azure Blockchain Service에 대한 [API 연결을 변경하거나 만듭니다](#create-an-api-connection).
 1. 이벤트를 확인하려는 스마트 계약에 대한 세부 정보를 입력합니다.
 
     ![Event(이벤트) 트리거 속성이 있는 Logic Apps 디자이너](./media/ethereum-logic-app/event-properties.png)
 
-    | 속성 | Description |
+    | 속성 | 설명 |
     |----------|-------------|
     | **계약 ABI** | 계약 ABI(애플리케이션 이진 인터페이스)는 스마트 계약 인터페이스를 정의합니다. 자세한 내용은 [계약 ABI 가져오기](#get-the-contract-abi)를 참조하세요. |
     | **스마트 계약 주소** | 계약 주소는 Ethereum 블록체인의 스마트 계약 대상 주소입니다. 자세한 내용은 [계약 주소 가져오기](#get-the-contract-address)를 참조하세요. |
     | **이벤트 이름** | 확인할 스마트 계약 이벤트를 선택합니다. 이벤트에서 논리 앱을 트리거합니다. |
     | **간격** 및 **빈도** | 이벤트를 확인하려는 빈도를 선택합니다. |
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 논리 앱을 완료하려면 Ethereum 블록체인 이벤트 트리거에 기반한 작업을 수행하는 새 단계를 추가할 수 있습니다. 예를 들어 이메일을 보냅니다.
 
@@ -70,7 +70,7 @@ Ethereum 블록체인 커넥터에는 하나의 트리거와 여러 작업이 �
 
 커넥터 작업에는 트리거가 필요합니다. Ethereum 블록체인 커넥터 작업은 트리거 후의 다음 단계(예: 마이크로서비스에 대한 HTTP 요청 트리거)로 사용할 수 있습니다.
 
-1. Logic Apps 디자이너에서 트리거 후의 **새 단계**를 선택합니다.
+1. Logic Apps 디자이너에서 트리거 후의 **새 단계** 를 선택합니다.
 1. Ethereum 블록체인 커넥터를 선택합니다.
 1. **작업** 탭에서 사용 가능한 작업 중 하나를 선택합니다.
 
@@ -79,7 +79,7 @@ Ethereum 블록체인 커넥터에는 하나의 트리거와 여러 작업이 �
 1. Azure Blockchain Service에 대한 [API 연결을 변경하거나 만듭니다](#create-an-api-connection).
 1. 선택한 작업에 따라 제공하는 스마트 계약 함수에 대한 세부 정보는 다음과 같습니다.
 
-    | 속성 | Description |
+    | 속성 | 설명 |
     |----------|-------------|
     | **계약 ABI** | 계약 ABI는 스마트 계약 인터페이스를 정의합니다. 자세한 내용은 [계약 ABI 가져오기](#get-the-contract-abi)를 참조하세요. |
     | **계약 바이트 코드** | 컴파일된 스마트 계약 바이트 코드입니다. 자세한 내용은 [계약 바이트 코드 가져오기](#get-the-contract-bytecode)를 참조하세요. |
@@ -104,12 +104,12 @@ Ethereum Visual Studio Code 확장용 Azure Blockchain Development Kit는 일반
 예를 들어 다음 단계에서는 빠른 시작 **HelloBlockchain** 스마트 계약에 기반한 REST 기반 마이크로서비스 논리 앱을 생성합니다.
 
 1. Visual Studio Code 탐색기 사이드바에서 솔루션의 **contracts** 폴더를 펼칩니다.
-1. 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **스마트 계약용 마이크로서비스 생성**을 선택합니다.
+1. 마우스 오른쪽 단추로 **HelloBlockchain.sol** 을 클릭하고, 메뉴에서 **스마트 계약용 마이크로서비스 생성** 을 선택합니다.
 
     ![스마트 계약용 마이크로서비스 생성이 선택된 Visual Studio Code 창](./media/ethereum-logic-app/generate-logic-app.png)
 
-1. 명령 팔레트에서 **논리 앱**을 선택합니다.
-1. **계약 주소**를 입력합니다. 자세한 내용은 [계약 주소 가져오기](#get-the-contract-address)를 참조하세요.
+1. 명령 팔레트에서 **논리 앱** 을 선택합니다.
+1. **계약 주소** 를 입력합니다. 자세한 내용은 [계약 주소 가져오기](#get-the-contract-address)를 참조하세요.
 1. 논리 앱에 대한 Azure 구독 및 리소스 그룹을 선택합니다.
 
     논리 앱 구성 및 코드 파일이 **generatedLogicApp** 디렉터리에 생성됩니다.
@@ -119,11 +119,11 @@ Ethereum Visual Studio Code 확장용 Azure Blockchain Development Kit는 일반
 
     ![복사할 코드가 있는 JSON 파일](./media/ethereum-logic-app/requestmessage.png)
 
-1. 논리 앱에서 **논리 앱 코드 보기**를 선택합니다. 기존 JSON을 생성된 논리 앱 JSON으로 바꿉니다.
+1. 논리 앱에서 **논리 앱 코드 보기** 를 선택합니다. 기존 JSON을 생성된 논리 앱 JSON으로 바꿉니다.
 
     ![새로 바꾼 앱 코드가 있는 논리 앱 코드 보기](./media/ethereum-logic-app/code-view.png)
 
-1. **디자이너**를 선택하여 디자이너 보기로 전환합니다.
+1. **디자이너** 를 선택하여 디자이너 보기로 전환합니다.
 1. 논리 앱에는 시나리오의 기본 단계가 포함되어 있습니다. 그러나 Ethereum 블록체인 커넥터의 구성 세부 정보를 업데이트해야 합니다.
 1. **연결** 단계를 선택하고, Azure Blockchain Service에 대한 [API 연결을 변경하거나 만듭니다](#create-an-api-connection).
 
@@ -154,7 +154,7 @@ Ethereum 블록체인 커넥터에는 블록체인에 대한 API 연결이 필�
 
 Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 되기 위해 시나리오에 따라 필요할 수 있는 속성의 목록은 다음과 같습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |----------|-------------|
 |**연결 이름** | API 연결의 이름입니다. 필수 요소. |
 |**Ethereum RPC 끝점** | Azure Blockchain Service 트랜잭션 노드의 HTTP 주소입니다. 필수 요소. 자세한 내용은 [RPC 엔드포인트 가져오기](#get-the-rpc-endpoint)를 참조하세요. |
@@ -169,7 +169,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 **개발 키트를 사용하려면,**
 
 1. Visual Studio Code의 **Azure Blockchain Service** 아래에서 마우스 오른쪽 단추로 컨소시엄을 클릭합니다.
-1. **RPC 엔드포인트 주소 복사**를 선택합니다.
+1. **RPC 엔드포인트 주소 복사** 를 선택합니다.
 
     ![RPC 엔드포인트 주소 복사가 선택된 컨소시엄을 보여 주는 Visual Studio Code 창](./media/ethereum-logic-app/devkit-rpc.png)
 
@@ -178,11 +178,11 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 **Azure 포털을 사용하려면**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드**와 기본 트랜잭션 노드 링크를 선택합니다.
+1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드** 와 기본 트랜잭션 노드 링크를 선택합니다.
 
     ![기본 노드가 선택된 트랜잭션 노드 페이지](./media/ethereum-logic-app/transaction-nodes.png)
 
-1. **연결 문자열**  >  **액세스 키**를 선택 합니다.
+1. **연결 문자열**  >  **액세스 키** 를 선택 합니다.
 1. **HTTPS(액세스 키 1)** 또는 **HTTPS(액세스 키 2)** 에서 엔드포인트 주소를 복사합니다.
 
     ![연결 문자열 액세스 키가 있는 Azure Portal](./media/ethereum-logic-app/connection-string.png)
@@ -194,7 +194,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 트랜잭션을 블록체인에 보낼 때 Ethereum 계정의 프라이빗 키를 사용하여 인증할 수 있습니다. Ethereum 계정의 퍼블릭 키와 프라이빗 키는 12개 단어 니모닉에서 생성됩니다. Azure Blockchain Service 컨소시엄 멤버에 연결하면 Ethereum용 Azure Blockchain Development Kit에서 니모닉을 생성합니다. 개발 키트 확장을 사용하여 엔드포인트 주소를 가져올 수 있습니다.
 
 1. Visual Studio Code에서 명령 팔레트를 엽니다(F1).
-1. **Azure Blockchain: 개인 키 검색**을 선택 합니다.
+1. **Blockchain: 개인 키 검색** 을 선택 합니다.
 1. 컨소시엄 멤버에 연결되면 저장한 니모닉을 선택합니다.
 
     ![니모닉을 선택하는 옵션이 있는 명령 팔레트](./media/ethereum-logic-app/private-key.png)
@@ -222,7 +222,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 
 1. Visual Studio Code 탐색기 창에서 Solidity 프로젝트의 **build/contracts** 폴더를 펼칩니다.
 1. 마우스 오른쪽 단추로 계약 메타데이터 JSON 파일을 클릭합니다. 파일 이름에는 스마트 계약 이름 뒤에 **.json** 확장명이 붙습니다.
-1. **계약 ABI 복사**를 선택합니다.
+1. **계약 ABI 복사** 를 선택합니다.
 
     ![계약 ABI 복사가 선택된 Visual Studio Code 창](./media/ethereum-logic-app/abi-devkit.png)
 
@@ -246,7 +246,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 
 1. Visual Studio Code 탐색기 창에서 Solidity 프로젝트의 **build/contracts** 폴더를 펼칩니다.
 1. 마우스 오른쪽 단추로 계약 메타데이터 JSON 파일을 클릭합니다. 파일 이름에는 스마트 계약 이름 뒤에 **.json** 확장명이 붙습니다.
-1. **계약 바이트 코드 복사**를 선택합니다.
+1. **계약 바이트 코드 복사** 를 선택합니다.
 
     ![계약 바이트 코드 복사가 선택된 Visual Studio Code 창](./media/ethereum-logic-app/bytecode-devkit.png)
 
@@ -270,7 +270,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 
 **Truffle 마이그레이션 출력을 사용하려면 다음을 수행합니다.**
 
-Truffle은 스마트 계약을 배포한 후에 계약 주소를 표시합니다. 출력에서 **계약 주소**를 복사합니다.
+Truffle은 스마트 계약을 배포한 후에 계약 주소를 표시합니다. 출력에서 **계약 주소** 를 복사합니다.
 
 ![계약 주소가 있는 Visual Studio Code의 Truffle 마이그레이션 출력](./media/ethereum-logic-app/contract-address-truffle.png)
 

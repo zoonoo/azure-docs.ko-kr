@@ -5,26 +5,30 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 07/26/2019
+ms.date: 11/25/2020
 ms.author: sngun
-ms.openlocfilehash: 6cf9dddbfa6eb6f754c529981307f8ee80cfe7d1
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 98b1db18b72aad0c68f2faee031cc040a2a1f369
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376998"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96181240"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 소개: 테이블 API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [Azure Cosmos DB](introduction.md)는 Azure Table Storage용으로 작성되었으며 다음과 같은 프리미엄 기능이 필요한 애플리케이션에 대한 테이블 API를 제공합니다.
 
 * [턴키 전역 배포](distribute-data-globally.md)
-* 전 세계적인 [전용 처리량](partition-data.md)
+* 전 세계적인 [전용 처리량](partitioning-overview.md)
 * 99번째 백분위수에서 1자리 밀리초 대기 시간
 * 보장된 고가용성
 * 자동 보조 인덱싱.
 
 Azure Table Storage에 대해 작성된 애플리케이션은 코드를 변경하지 않고 테이블 API를 사용하여 Azure Cosmos DB로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 테이블 API에는 .NET, Java, Python 및 Node.js에 사용할 수 있는 클라이언트 SDK가 있습니다.
+
+> [!NOTE]
+> 이제 Azure Cosmos DB의 Table API에서 [서버리스 용량 모드](serverless.md)를 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)이 유지 관리 모드에 있으며 곧 사용 중지될 예정됩니다. 새 .NET Standard 라이브러리 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)로 업그레이드하여 Table API에서 지원하는 최신 기능을 계속 유지합니다.
@@ -36,7 +40,7 @@ Azure Table Storage에 대해 작성된 애플리케이션은 코드를 변경�
 | --- | --- | --- |
 | 대기 시간 | 빠르지만 대기 시간에 대한 상한이 없습니다. | 읽기, 쓰기 지연 시간(ms) 한 자릿수 보장(규모와 장소에 관계없이 모든 요청의 99%에 대해 읽기, 쓰기 지연 시간이 10ms를 넘지 않도록 지원). |
 | 처리량 | 가변 처리량 모델입니다. 테이블의 확장 제한은 20,000개 작업/초입니다. | SLA를 통해 지원하는 [테이블당 예약된 전용 처리량](request-units.md)으로 확장성이 뛰어납니다. 계정에는 처리량에 대한 상한이 없으며, 테이블당 1,000만 개 이상 작업/초를 지원합니다. |
-| 글로벌 분포 | 고가용성을 위해 선택적인 읽기 가능한 보조 읽기 하위 지역 하나가 있는 단일 지역입니다. | 하나에서 임의의 여러 지역까지 [턴키 글로벌 배포](distribute-data-globally.md)를 수행할 수 있습니다. 전 세계 어디에서나 [자동 및 수동 장애 조치](high-availability.md)를 지원합니다. 모든 지역에서 쓰기 작업을 허용하는 다중 마스터 기능. |
+| 글로벌 분포 | 고가용성을 위해 선택적인 읽기 가능한 보조 읽기 하위 지역 하나가 있는 단일 지역입니다. | 하나에서 임의의 여러 지역까지 [턴키 글로벌 배포](distribute-data-globally.md)를 수행할 수 있습니다. 전 세계 어디에서나 [자동 및 수동 장애 조치](high-availability.md)를 지원합니다. 모든 지역에서 쓰기 작업을 허용하는 다중 쓰기 지역. |
 | 인덱싱 | PartitionKey 및 RowKey에 대한 기본 인덱스만 제공. 보조 인덱스가 없습니다. | 인덱스 관리 없이 기본적으로 모든 속성에 대해 자동 및 전체 인덱싱을 수행할 수 있습니다. |
 | 쿼리 | 쿼리 실행 시 기본 키에 대한 인덱스를 사용하고 그렇지 않은 경우 검색합니다. | 쿼리는 빠른 쿼리 시간을 위해 속성에 대해 자동 인덱싱을 활용할 수 있습니다. |
 | 일관성 | 주 지역 내에서 강력하게 유지되며, 최종적으로는 보조 지역 내에서 유지됩니다. | 애플리케이션 요구 사항에 따라 가용성, 대기 시간, 처리량 및 일관성을 절충할 수 있는 [잘 정의된 5가지 일관성 수준](consistency-levels.md)이 적용됩니다. |

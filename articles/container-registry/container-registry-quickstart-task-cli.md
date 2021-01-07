@@ -1,32 +1,33 @@
 ---
-title: 빠른 시작 - 컨테이너 이미지 빌드 및 실행
-description: Azure Container Registry를 사용하여 클라우드에 주문형 Docker 컨테이너 이미지를 빌드하고 실행하는 작업을 신속하게 실행합니다.
+title: 빠른 시작 - Azure에서 주문형 컨테이너 이미지 빌드
+description: Azure Container Registry 명령을 사용하여 Azure 클라우드에서 주문형 Docker 컨테이너 이미지를 신속하게 빌드, 푸시 및 실행합니다.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: c6fe1fc246d112218b492072155175b2db99c8c9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753700"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032952"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 
-이 빠른 시작에서는 Azure Container Registry 작업 명령을 사용하여 신속하게 Docker 컨테이너 이미지를 Azure 내에서 빌드, 푸시 및 실행하고, "내부 루프" 개발 주기를 클라우드로 오프로드하는 방법을 보여줍니다. [ACR 작업][container-registry-tasks-overview]은 컨테이너 수명 주기에 걸쳐 컨테이너 이미지를 관리하고 수정할 수 있는 Azure Container Registry 내부 기능 모음입니다. 
+이 빠른 시작에서는 [Azure Container Registry 작업][container-registry-tasks-overview] 명령을 사용하여 로컬 Docker를 설치하지 않고 Azure 내에서 기본적으로 Docker 컨테이너 이미지를 신속하게 빌드, 푸시 및 실행했습니다. ACR 작업은 컨테이너 수명 주기에 걸쳐 컨테이너 이미지를 관리하고 수정할 수 있는 Azure Container Registry 내부 기능 모음입니다. 이 예제에서는 로컬 Dockerfile을 사용하여 주문형 빌드로 "내부 루프" 컨테이너 이미지 개발 주기를 클라우드로 오프로드하는 방법을 보여 줍니다. 
 
-이 빠른 시작을 마친 후 ACR 작업의 고급 기능을 더 살펴보세요. 다양한 시나리오를 지원하는 ACR 작업은 코드 커밋 또는 기본 이미지 업데이트를 기반으로 이미지 빌드를 자동화하거나 여러 컨테이너를 병렬로 테스트할 수 있습니다. 
+이 빠른 시작을 마친 후 [자습서](container-registry-tutorial-quick-task.md)를 사용하여 ACR 작업의 고급 기능을 더 살펴보세요. 다양한 시나리오를 지원하는 ACR 작업은 코드 커밋 또는 기본 이미지 업데이트를 기반으로 이미지 빌드를 자동화하거나 여러 컨테이너를 병렬로 테스트할 수 있습니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 빠른 시작을 완료할 수 있습니다. 로컬로 사용하려는 경우 2.0.58 이상 버전을 권장합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+    
+- 이 빠른 시작에는 Azure CLI 버전 2.0.58 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 아직 컨테이너 레지스트리가 없는 경우 [az group create][az-group-create] 명령을 사용하여 리소스 그룹부터 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -34,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-[az acr create][az-acr-create] 명령을 사용하여 컨테이너 레지스트리를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry008*을 사용합니다. 이를 고유한 값으로 업데이트합니다.
+[az acr create][az-acr-create] 명령을 사용하여 컨테이너 레지스트리를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 다음 예제에서는 *myContainerRegistry008* 을 사용합니다. 이를 고유한 값으로 업데이트합니다.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup \
@@ -45,10 +46,10 @@ az acr create --resource-group myResourceGroup \
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Dockerfile에서 이미지 빌드 및 푸시
 
-이제 Azure Container Registry를 사용하여 이미지를 빌드하고 푸시합니다. 먼저 작업 디렉터리를 만든 다음, `FROM hello-world` 단일 줄로 *Dockerfile*이라는 Dockerfile을 만듭니다. Docker Hub의 `hello-world` 이미지에서 Linux 컨테이너 이미지를 빌드하는 간단한 예제입니다. 사용자 고유의 표준 Dockerfile을 만들고 다른 플랫폼용 이미지를 빌드할 수 있습니다. bash 셸에서 작업하는 경우 다음 명령을 사용하여 Dockerfile을 만듭니다.
+이제 Azure Container Registry를 사용하여 이미지를 빌드하고 푸시합니다. 먼저 로컬 작업 디렉터리를 만든 다음, `FROM mcr.microsoft.com/hello-world` 단일 줄로 *Dockerfile* 이라는 Dockerfile을 만듭니다. Microsoft Container Registry에서 호스팅되는 `hello-world` 이미지에서 Linux 컨테이너 이미지를 빌드하는 간단한 예제입니다. 사용자 고유의 표준 Dockerfile을 만들고 다른 플랫폼용 이미지를 빌드할 수 있습니다. bash 셸에서 작업하는 경우 다음 명령을 사용하여 Dockerfile을 만듭니다.
 
 ```bash
-echo FROM hello-world > Dockerfile
+echo FROM mcr.microsoft.com/hello-world > Dockerfile
 ```
 
 이미지를 빌드하는 [az acr build][az-acr-build] 명령을 실행합니다. 이미지가 성공적으로 빌드된 후 레지스트리에 푸시합니다. 다음 예제는 `sample/hello-world:v1` 이미지를 빌드하고 푸시합니다. 명령 끝부분에 있는 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.
@@ -77,8 +78,8 @@ Waiting for agent...
 2019/03/18 21:57:00 Successfully obtained source code and scanned for dependencies
 2019/03/18 21:57:00 Launching container with name: build
 Sending build context to Docker daemon  13.82kB
-Step 1/1 : FROM hello-world
-latest: Pulling from library/hello-world
+Step 1/1 : FROM mcr.microsoft.com/hello-world
+latest: Pulling from hello-world
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586fxxxx21577a99efb77324b0fe535
 Successfully built fce289e99eb9
 Successfully tagged mycontainerregistry008.azurecr.io/sample/hello-world:v1

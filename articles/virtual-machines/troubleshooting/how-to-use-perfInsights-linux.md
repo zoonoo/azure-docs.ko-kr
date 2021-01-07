@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 340164ef86d34f273b3d5a98b62300bc6cc50df7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088547"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109422"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -130,12 +130,12 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
 
     | 배포               | 버전                                         |
     |----------------------------|-------------------------------------------------|
-    | Oracle Linux 서버        | 6.10 [ `*` ], 7.3, 7.6, 7.5 |
-    | CentOS                     | 6.5 [ `*` ], 7.6                                    |
-    | RHEL                       | 7.2, 7.5, 8.0 [ `*` ]                               |
+    | Oracle Linux 서버        | 6.10 [ `*` ], 7.3, 7.5, 7.6, 7.7, 7.8 |
+    | CentOS                     | 6.5 [ `*` ], 7.6, 7.7, 7.8                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [ `*` ], 8.1, 8.2                               |
     | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
     | Debian                     | 8, 9, 10 [ `*` ]                                    |
-    | SLES                       | 12 SP4 [ `*` ]                                      |
+    | SLES                       | 12 SP4 [ `*` ], 12 SP5 [ `*` ], 15 [ `*` ], 15 SP1 [ `*` ], 15 SP2 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
@@ -218,8 +218,8 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 **개요** 탭에서는 기본 실행 세부 정보 및 가상 컴퓨터 정보를 제공 합니다. 검색 **결과** 탭에는 PerfInsights 보고서의 모든 다른 섹션에 있는 권장 사항에 대 한 요약이 표시 됩니다.
 
-![PerfInsights 보고서의 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![PerfInsights 보고서의 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![PerfInsights 보고서의 개요 탭 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![PerfInsights 보고서의 Linux 탭 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > 높음으로 분류된 검색 결과는 성능 문제를 일으킬 수 있는 알려진 문제입니다. 보통으로 분류된 검색 결과는 반드시 성능 문제를 일으키지는 않지만 최적이 아닌 구성을 나타냅니다. 낮음으로 분류되는 검색 결과는 정보만 제공합니다.
@@ -236,7 +236,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 **검색 결과** 섹션은 스토리지와 관련된 다양한 검색 결과 및 권장 사항을 표시합니다.
 
-**블록 장치** 및 기타 관련 섹션 (예: **파티션**, **lvm**및 **mdadm** 탭)에는 차단 장치를 구성 하 고 서로 관련 하는 방법이 설명 되어 있습니다.
+**블록 장치** 및 기타 관련 섹션 (예: **파티션**, **lvm** 및 **mdadm** 탭)에는 차단 장치를 구성 하 고 서로 관련 하는 방법이 설명 되어 있습니다.
 
 ![저장소 탭의 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-storage-tab.png)  
 ![MDADM 탭의 스크린샷](media/how-to-use-perfinsights-linux/perfinsights-linux-mdadm-config.png)

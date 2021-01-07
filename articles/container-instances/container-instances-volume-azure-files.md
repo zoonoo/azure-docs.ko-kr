@@ -3,23 +3,26 @@ title: 컨테이너 그룹에 Azure Files 볼륨 탑재
 description: Azure Container Instances를 사용하여 상태가 유지되도록 Azure Files 볼륨을 탑재하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259480"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954977"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 
-Azure Container Instances는 기본적으로 상태 비저장 방식으로 작동합니다. 컨테이너의 작동이 중단되거나 중지되면 모든 상태가 손실됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소에서 볼륨을 탑재해야 합니다. 이 문서에 나와 있는 것 처럼 [Azure Files](../storage/files/storage-files-introduction.md)를 사용 하 여 만든 Azure 파일 공유를 탑재할 수 Azure Container Instances. Azure Files은 업계 표준 SMB (서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는 Azure Storage에서 호스트 되는 완전히 관리 되는 파일 공유를 제공 합니다. Azure Container Instances에서 Azure 파일 공유를 사용하면 Azure Virtual Machines에서 Azure 파일 공유를 사용하는 것과 유사한 파일 공유 기능을 제공합니다.
+기본적으로 Azure Container Instances는 비저장 상태입니다. 컨테이너를 다시 시작 하거나 충돌 하거나 중지 하는 경우 모든 상태가 손실 됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소의 볼륨을 탑재해야 합니다. 이 문서에 나와 있는 것 처럼 [Azure Files](../storage/files/storage-files-introduction.md)를 사용 하 여 만든 Azure 파일 공유를 탑재할 수 Azure Container Instances. Azure Files은 업계 표준 SMB (서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는 Azure Storage에서 호스트 되는 완전히 관리 되는 파일 공유를 제공 합니다. Azure Container Instances에서 Azure 파일 공유를 사용하면 Azure Virtual Machines에서 Azure 파일 공유를 사용하는 것과 유사한 파일 공유 기능을 제공합니다.
 
 > [!NOTE]
 > 현재 Azure 파일 공유를 탑재하는 작업은 Linux 컨테이너로만 제한되어 있습니다. [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이점을 찾습니다.
 >
 > 컨테이너 인스턴스에 Azure Files 공유를 탑재 하는 것은 Docker [바인드 탑재](https://docs.docker.com/storage/bind-mounts/)와 비슷합니다. 파일이 나 디렉터리가 있는 컨테이너 디렉터리에 공유를 탑재 하는 경우 이러한 파일이 나 디렉터리는 탑재로 가려져 컨테이너가 실행 되는 동안에는 액세스할 수 없습니다.
 >
+
+> [!IMPORTANT]
+> Azure Virtual Network에 컨테이너 그룹을 배포 하는 경우 Azure Storage 계정에 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 추가 해야 합니다.
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 
@@ -235,7 +238,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 컨테이너 인스턴스에서 여러 볼륨을 탑재 하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups), yaml 파일 또는 다른 프로그래밍 방식 메서드를 사용 하 여 배포 해야 합니다. 템플릿 또는 YAML 파일을 사용 하려면 공유 세부 정보를 제공 하 고 `volumes` 파일의 섹션에서 배열을 채워서 볼륨을 정의 합니다 `properties` . 
 
-예를 들어 저장소 계정 *Mystorageaccount*에 *share1* 및 *share2* 라는 두 개의 Azure Files 공유를 만든 경우 `volumes` 리소스 관리자 템플릿의 배열은 다음과 유사 하 게 표시 됩니다.
+예를 들어 저장소 계정 *Mystorageaccount* 에 *share1* 및 *share2* 라는 두 개의 Azure Files 공유를 만든 경우 `volumes` 리소스 관리자 템플릿의 배열은 다음과 유사 하 게 표시 됩니다.
 
 ```JSON
 "volumes": [{
@@ -256,7 +259,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 }]
 ```
 
-다음으로 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다. 예를 들어 다음은 이전에 정의한 *myvolume1* 및 *myvolume2*라는 두 개의 볼륨을 탑재합니다.
+다음으로 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다. 예를 들어 다음은 이전에 정의한 *myvolume1* 및 *myvolume2* 라는 두 개의 볼륨을 탑재합니다.
 
 ```JSON
 "volumeMounts": [{

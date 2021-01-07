@@ -7,17 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
-ms.custom: seodec18
-ms.openlocfilehash: 4cd0ad1553f04a781349a4664fbb408108015632
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: seodec18, "seo-nov-2020"
+ms.openlocfilehash: c8c479050b434904de57397e5e7d73594090e031
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510286"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336134"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB의 변경 피드 지원은 모든 변경 사항에 대해 Azure Cosmos 컨테이너를 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 변경 사항은 지속적이며, 비동기적 및 증분적으로 처리할 수 있고 출력을 하나 이상의 소비자 사이에 분산하여 병렬 처리가 가능합니다.
+Azure Cosmos DB 변경 피드는 발생 하는 순서 대로 컨테이너의 변경 내용에 대 한 영구 레코드입니다. Azure Cosmos DB의 변경 피드 지원은 모든 변경 사항에 대해 Azure Cosmos 컨테이너를 수신하여 작동합니다. 그런 다음 변경된 문서가 수정된 순서로 정렬된 목록이 출력됩니다. 지속형 변경 내용은 비동기식으로 비동기적으로 처리 될 수 있으며 병렬 처리를 위해 한 명 이상의 소비자에 게 출력을 배포할 수 있습니다.
 
 [변경 피드 디자인 패턴](change-feed-design-patterns.md)에 대해 자세히 알아봅니다.
 
@@ -27,10 +28,10 @@ Azure Cosmos DB의 변경 피드 지원은 모든 변경 사항에 대해 Azure 
 
 | **클라이언트 드라이버** | **SQL API** | **Azure Cosmos DB의 API for Cassandra** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 예 | 예 | 예 | 예 | 예 |
-|Java|예|예|예|예|예|
-|Python|예|예|예|예|예|
-|Node/JS|예|예|예|예|예|
+| .NET | 예 | 예 | 예 | yes | 예 |
+|Java|예|예|예|yes|예|
+|Python|예|예|예|yes|예|
+|Node/JS|예|예|예|yes|예|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 

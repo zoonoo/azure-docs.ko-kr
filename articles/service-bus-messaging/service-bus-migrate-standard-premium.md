@@ -4,10 +4,10 @@ description: 기존 Azure Service Bus 표준 네임 스페이스를 premium으�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "85340754"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>기존 Azure Service Bus 표준 네임 스페이스를 프리미엄 계층으로 마이그레이션
@@ -21,11 +21,11 @@ ms.locfileid: "85340754"
 
 참고 사항:
 
-- 이 마이그레이션은 기존 발신자 및 수신자 응용 프로그램에서 **코드 또는 구성을 변경할 필요가**없음을 의미 합니다. 기존 연결 문자열이 자동으로 새 프리미엄 네임 스페이스를 가리킵니다.
+- 이 마이그레이션은 기존 발신자 및 수신자 응용 프로그램에서 **코드 또는 구성을 변경할 필요가** 없음을 의미 합니다. 기존 연결 문자열이 자동으로 새 프리미엄 네임 스페이스를 가리킵니다.
 - 마이그레이션을 성공적으로 수행 하려면 **premium** 네임 스페이스에 **엔터티가** 없어야 합니다.
 - 표준 네임 스페이스의 모든 **엔터티** 는 마이그레이션 프로세스 중에 프리미엄 네임 스페이스로 **복사** 됩니다.
 - 마이그레이션은 프리미엄 계층에서 **메시징 단위당 1000 엔터티** 를 지원 합니다. 필요한 메시징 단위 수를 식별 하려면 현재 표준 네임 스페이스에 있는 엔터티 수로 시작 합니다.
-- **기본 계층** 에서 **프리미엄 계층**으로 직접 마이그레이션할 수는 없지만 다음 단계에서 basic에서 standard로 먼저 마이그레이션하고 표준에서 프리미엄으로 마이그레이션하여 간접적으로 수행할 수 있습니다.
+- **기본 계층** 에서 **프리미엄 계층** 으로 직접 마이그레이션할 수는 없지만 다음 단계에서 basic에서 standard로 먼저 마이그레이션하고 표준에서 프리미엄으로 마이그레이션하여 간접적으로 수행할 수 있습니다.
 
 ## <a name="migration-steps"></a>마이그레이션 단계
 
@@ -89,14 +89,14 @@ Azure CLI 또는 PowerShell 도구를 사용 하 여 Service Bus 표준 네임 �
 
 Azure Portal를 사용 하 여 마이그레이션하는 경우에는 명령을 사용 하 여 마이그레이션하는 것과 동일한 논리 흐름이 사용 됩니다. Azure Portal를 사용 하 여 마이그레이션하려면 다음 단계를 수행 합니다.
 
-1. 왼쪽 창의 **탐색** 메뉴에서 **premium으로 마이그레이션**을 선택 합니다. **시작** 단추를 클릭 하 여 다음 페이지로 이동 합니다.
+1. 왼쪽 창의 **탐색** 메뉴에서 **premium으로 마이그레이션** 을 선택 합니다. **시작** 단추를 클릭 하 여 다음 페이지로 이동 합니다.
     ![마이그레이션 방문 페이지][]
 
-1. **설치**를 완료 합니다.
+1. **설치** 를 완료 합니다.
    ![설치 네임 스페이스][]
    1. 프리미엄 네임 스페이스를 만들고 할당 하 여 기존 표준 네임 스페이스를로 마이그레이션합니다.
         ![설치 네임 스페이스-premium 네임 스페이스 만들기][]
-   1. **마이그레이션 후 이름을**선택 합니다. 마이그레이션이 완료 된 후이 이름을 사용 하 여 표준 네임 스페이스에 액세스 합니다.
+   1. **마이그레이션 후 이름을** 선택 합니다. 마이그레이션이 완료 된 후이 이름을 사용 하 여 표준 네임 스페이스에 액세스 합니다.
         ![네임 스페이스 설정-마이그레이션 후 이름 선택][]
    1. 계속 하려면 **' 다음 '** 을 선택 합니다.
 1. 표준 네임 스페이스와 프리미엄 네임 스페이스 간에 엔터티를 동기화 합니다.
@@ -211,7 +211,7 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 ## <a name="next-steps"></a>다음 단계
 
 * [표준 및 프리미엄 메시징의 차이점](./service-bus-premium-messaging.md)에 대해 자세히 알아보세요.
-* [Service Bus 프리미엄에 대 한 고가용성 및 지리적 재해 복구 측면](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)에 대해 알아봅니다.
+* [Service Bus 프리미엄에 대 한 고가용성 및 Geo-Disaster 복구 측면](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)에 대해 알아봅니다.
 
 [마이그레이션 방문 페이지]: ./media/service-bus-standard-premium-migration/1.png
 [설치 네임 스페이스]: ./media/service-bus-standard-premium-migration/2.png

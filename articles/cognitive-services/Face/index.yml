@@ -3,7 +3,7 @@ title: Face 설명서
 summary: 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다.
 metadata:
   title: Face 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
-  description: '클라우드 기반 Face 서비스를 사용하면 고급 얼굴 인식 알고리즘에 액세스할 수 있습니다. Microsoft Face 알고리즘을 사용하면 얼굴 특성 감지 및 얼굴 인식이 가능합니다. 빠른 시작, 자습서 및 샘플을 사용하여 다양한 방법으로 콘텐츠를 분석하는 방법을 알아봅니다. # 필수: 검색 결과에 표시되는 문서 설명입니다. 160개 미만의 문자.'
+  description: 클라우드 기반 Face 서비스를 사용하면 고급 얼굴 인식 알고리즘에 액세스할 수 있습니다. Microsoft Face 알고리즘을 사용하면 얼굴 특성 감지 및 얼굴 인식이 가능합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: 67af472ea968501902255d3dbec18d3b6201f9e2
-  ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+  ms.openlocfilehash: 4ec184d713ac6fffbfa83072c733444ebf9130f6
+  ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/01/2020
-  ms.locfileid: "89278227"
+  ms.lasthandoff: 12/16/2020
+  ms.locfileid: "97560629"
 landingContent:
 - title: Face 서비스 정보
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: Face 서비스란?
       url: Overview.md
+  - linkListType: whats-new
+    links:
+    - text: Face 서비스의 새로운 기능이란?
+      url: releasenotes.md
 - title: 얼굴 감지
   linkLists:
   - linkListType: concept
@@ -51,11 +55,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: .NET SDK 사용
-      url: quickstarts/csharp-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
     - text: Python SDK 사용
-      url: quickstarts/python-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
     - text: Go SDK 사용
-      url: quickstarts/go-sdk.md
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go
   - linkListType: how-to-guide
     links:
     - text: 얼굴 인식 모델 지정
@@ -91,26 +95,22 @@ landingContent:
     - text: Face API v1.0
       url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
     - text: .NET SDK
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
     - text: Python SDK
-      url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
     - text: Java SDK
-      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
     - text: Node.js SDK
-      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face
+      url: /javascript/api/@azure/cognitiveservices-face
     - text: Go SDK
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
-    - text: iOS SDK
-      url: https://github.com/Microsoft/Cognitive-Face-iOS
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: Azure CLI(명령줄 인터페이스)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
 - title: 도움말 및 피드백
   linkLists:
   - linkListType: reference
     links:
-    - text: UserVoice
-      url: https://cognitive.uservoice.com/forums/430315-face-api
-    - text: Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context

@@ -1,5 +1,6 @@
 ---
 title: Microsoft ID 플랫폼 개요 - Azure
+titleSuffix: Microsoft identity platform
 description: Microsoft ID 플랫폼의 구성 요소 및 이러한 구성 요소가 애플리케이션에 IAM(ID 및 액세스 관리) 지원을 빌드하는 데 도움이 되는 방법에 대해 알아봅니다.
 services: active-directory
 author: rwike77
@@ -11,21 +12,21 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40
-ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: identityplatformtop40, contperf-fy21q2
+ms.openlocfilehash: e5a9292097933ff35eb8b77445f07f10def6e5c3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119558"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029620"
 ---
-# <a name="microsoft-identity-platform-overview"></a>Microsoft ID 플랫폼 개요
+# <a name="what-is-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼이란?
 
 Microsoft ID 플랫폼을 통해 사용자 및 고객이 Microsoft ID 또는 소셜 계정을 사용하여 로그인할 수 있는 애플리케이션을 빌드하고 사용자 고유의 API 또는 Microsoft Graph와 같은 Microsoft API에 대한 액세스 권한을 부여할 수 있습니다.
 
 Microsoft ID 플랫폼을 구성하는 몇 가지 구성 요소가 있습니다.
 
-- **OAuth 2.0 및 OpenID Connect 표준 규격 인증 서비스**를 통해 개발자는 다음을 비롯한 여러 가지 ID 유형을 인증할 수 있습니다.
+- **OAuth 2.0 및 OpenID Connect 표준 규격 인증 서비스** 를 통해 개발자는 다음을 비롯한 여러 가지 ID 유형을 인증할 수 있습니다.
   - Azure AD를 통해 프로비저닝된 회사 또는 학교 계정
   - 개인 Microsoft 계정(예: Skype, Xbox 및 Outlook.com)
   - Azure AD B2C를 통한 소셜 또는 로컬 계정
@@ -73,8 +74,7 @@ Microsoft ID 플랫폼을 사용하여 앱에서 인증 및 권한 부여를 통
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) - 외부 사용자를 "게스트" 사용자로 Azure AD에 초대하고, 인증을 위해 기존 자격 증명을 사용하는 동안 권한 부여에 대한 권한을 할당합니다.
 
-> [!TIP]
-> *Azure Active Directory 개발자 플랫폼(v1.0)* 설명서를 찾으시나요? [개발자용 Azure Active Directory(v1.0) 개요](../azuread-dev/v1-overview.md)를 참조하세요.
+[개발자용 Azure Active Directory(v1.0)](../azuread-dev/v1-overview.md) - 이전 v1.0 엔드포인트를 사용하는 기존 앱이 있는 개발자를 위해 여기에 표시됩니다. 새 프로젝트에는 v1.0을 사용하지 **마세요**.
 
 ## <a name="next-steps"></a>다음 단계
 

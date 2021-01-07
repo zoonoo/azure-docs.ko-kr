@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/25/2019
+ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: b6b0fe7e9e096b252d33d25c4a70305e57d206b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c9c6247f021b7af4cfdd899ffd4b6bd178f2256c
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894424"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345596"
 ---
-# <a name="manage-an-azure-stack-edge-pro-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro 장치 관리
+# <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro FPGA 장치 관리
 
 Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge Pro 장치에 대 한 구성 및 관리 작업을 설명 합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용 하 여 장치를 관리할 수 있습니다.
 
@@ -43,20 +43,20 @@ Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통�
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-IoT Edge 인증서를 업로드하여 IoT Edge 디바이스와 이 디바이스에 연결할 수 있는 다운스트림 디바이스 간에 보안 연결을 설정할 수 있습니다. 설치 해야 하는 다음과 같은 세 가지 IoT Edge 인증서 (*pem* 형식)가 있습니다.
+IoT Edge 인증서를 업로드하여 IoT Edge 디바이스와 이 디바이스에 연결할 수 있는 다운스트림 디바이스 간에 보안 연결을 설정할 수 있습니다. 설치 해야 하는 세 개의 파일 (*pem* 형식)이 있습니다.
 
 - 루트 CA 인증서 또는 소유자 CA
 - 디바이스 CA 인증서
-- 장치 키 인증서
+- 디바이스 프라이빗 키 
 
 다음 예에서는이 cmdlet을 사용 하 여 IoT Edge 인증서를 설치 하는 방법을 보여 줍니다.
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-private-key.pem" -Credential "username"
 ```
 이 cmdlet을 실행 하면 네트워크 공유에 대 한 암호를 제공 하 라는 메시지가 표시 됩니다.
 
-인증서에 대 한 자세한 내용은 인증서 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) 또는 [게이트웨이에서 인증서 설치](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway)를 참조 하세요.
+인증서에 대 한 자세한 내용은 인증서 [Azure IoT Edge](../iot-edge/iot-edge-certs.md) 또는 [게이트웨이에서 인증서 설치](../iot-edge/how-to-create-transparent-gateway.md)를 참조 하세요.
 
 ## <a name="view-device-information"></a>장치 정보 보기
  

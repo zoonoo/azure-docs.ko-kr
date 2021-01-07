@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Azure IoT 솔루션 가속기 설명서
-summary: Azure IoT 솔루션 가속기는 원격 모니터링과 같은 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다.
+summary: Azure IoT 솔루션 가속기는 연결된 팩터리와 같은 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다.
 metadata:
   title: Azure IoT 솔루션 가속기 설명서
-  description: IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다. 이러한 시나리오에는 원격 모니터링, 연결된 팩터리, 예측 유지 관리 및 디바이스 시뮬레이션이 포함됩니다. 솔루션 가속기를 배포할 때 배포에는 필수 애플리케이션 코드와 함께 모든 필수 클라우드 기반 서비스가 포함됩니다.
+  description: IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다. 시나리오에는 연결된 팩터리 및 디바이스 시뮬레이션이 포함되어 있습니다. 솔루션 가속기를 배포할 때 배포에는 필수 애플리케이션 코드와 함께 모든 필수 클라우드 기반 서비스가 포함됩니다.
   services: iot-accelerators
   ms.service: iot-accelerators
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 09/16/2019
-  ms.openlocfilehash: cdad55cb8972e54f613319e890f052c26d94f0ef
-  ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+  ms.openlocfilehash: 8f1b539e7201ffc31956ef48b4a155674385b97f
+  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/11/2020
-  ms.locfileid: "84687041"
+  ms.lasthandoff: 12/08/2020
+  ms.locfileid: "96854549"
 landingContent:
 - title: Azure IoT 솔루션 가속기
   linkLists:
@@ -26,22 +26,6 @@ landingContent:
       url: about-iot-accelerators.md
     - text: AzureIoTSolutions.com 사이트
       url: iot-accelerators-permissions.md
-- title: 원격 모니터링 시작
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 원격 모니터링 솔루션 가속기 개요
-      url: iot-accelerators-remote-monitoring-sample-walkthrough.md
-  - linkListType: quickstart
-    links:
-    - text: 클라우드 기반 원격 모니터링 솔루션 사용해보기
-      url: quickstart-remote-monitoring-deploy.md
-  - linkListType: tutorial
-    links:
-    - text: 디바이스 모니터링
-      url: iot-accelerators-remote-monitoring-monitor.md
-    - text: 디바이스 문제 검색
-      url: iot-accelerators-remote-monitoring-automate.md
 - title: 산업용 IoT 시작
   linkLists:
   - linkListType: overview
@@ -66,23 +50,9 @@ landingContent:
     links:
     - text: 디바이스 시뮬레이션 솔루션 가속기 개요
       url: iot-accelerators-device-simulation-overview.md
-  - linkListType: quickstart
-    links:
-    - text: 디바이스 시뮬레이션 솔루션 사용
-      url: quickstart-device-simulation-deploy.md
   - linkListType: tutorial
     links:
     - text: IoT 디바이스 시뮬레이션 만들기 및 실행
       url: iot-accelerators-device-simulation-create-simulation.md
     - text: 사용자 지정 시뮬레이션된 디바이스 만들기
       url: iot-accelerators-device-simulation-create-custom-device.md
-- title: 예측 유지 관리 시작
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 예측 유지 관리 솔루션 가속기 개요
-      url: iot-accelerators-predictive-walkthrough.md
-  - linkListType: quickstart
-    links:
-    - text: 예측 유지 관리 솔루션 사용
-      url: quickstart-predictive-maintenance-deploy.md

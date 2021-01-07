@@ -4,11 +4,11 @@ description: 청사진을 할당 하는 동안 청사진 아티팩트가 배포 
 ms.date: 08/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: 8305e5d44caef0f35e5b4beb4b70be9736272fa7
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051477"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996052"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 
@@ -51,8 +51,8 @@ JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니�
 
 ### <a name="example---ordered-resource-group"></a>예제-정렬 된 리소스 그룹
 
-이 예제 청사진 정의에는 `dependsOn` 표준 리소스 그룹과 함께에 대 한 값을 선언 하 여 사용자 지정 시퀀싱 순서를 정의한 리소스 그룹이 있습니다. 이 예에서 **assignPolicyTags**라는 이름의 아티팩트가 **ordered-rg** 리소스 그룹보다 먼저 처리됩니다.
-**standard-rg**는 기본 시퀀싱 순서대로 처리됩니다.
+이 예제 청사진 정의에는 `dependsOn` 표준 리소스 그룹과 함께에 대 한 값을 선언 하 여 사용자 지정 시퀀싱 순서를 정의한 리소스 그룹이 있습니다. 이 예에서 **assignPolicyTags** 라는 이름의 아티팩트가 **ordered-rg** 리소스 그룹보다 먼저 처리됩니다.
+**standard-rg** 는 기본 시퀀싱 순서대로 처리됩니다.
 
 ```json
 {

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa4b625afb641209d3920c8663ed810ee27e1ad
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228650"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778498"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Azure Active Directory 모니터링이란?
 
@@ -40,15 +40,31 @@ ms.locfileid: "89228650"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
+## <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Azure AD 보고 및 모니터링을 위한 라이선스 및 필수 구성 요소
+
+Azure AD 로그인 로그에 액세스하려면 Azure AD 프리미엄 라이선스가 필요합니다.
+
+[Azure Active Directory 가격 책정 가이드](https://azure.microsoft.com/pricing/details/active-directory/)의 자세한 기능 및 라이선스 정보를 참조하세요.
+
+Azure AD 모니터링 및 보고를 배포하려면 Azure AD 테넌트의 전역 관리자 또는 보안 관리자인 사용자가 필요합니다.
+
+로그 데이터의 최종 대상에 따라 다음 중 하나가 필요합니다.
+
+* ListKeys 권한이 있는 Azure Storage 계정. Blob Storage 계정이 아닌 일반 스토리지 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요.
+
+* 타사 SIEM 솔루션과 통합할 Azure Event Hubs 네임스페이스.
+
+* Azure Monitor 로그에 로그를 보내는 Azure Log Analytics 작업 영역
+
 ## <a name="diagnostic-settings-configuration"></a>진단 설정 구성
 
-Azure AD 활동 로그에 대한 모니터링 설정을 구성하려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인한 다음, **Azure Active Directory**를 선택합니다. 여기서 두 가지 방법으로 진단 설정 구성 페이지에 액세스할 수 있습니다.
+Azure AD 활동 로그에 대한 모니터링 설정을 구성하려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인한 다음, **Azure Active Directory** 를 선택합니다. 여기서 두 가지 방법으로 진단 설정 구성 페이지에 액세스할 수 있습니다.
 
-* **모니터링** 섹션 아래에서 **진단 설정**을 선택합니다.
+* **모니터링** 섹션 아래에서 **진단 설정** 을 선택합니다.
 
     ![진단 설정](./media/overview-monitoring/diagnostic-settings.png)
     
-* **감사 로그** 또는 **로그인**을 선택하고, **설정 내보내기**를 선택합니다. 
+* **감사 로그** 또는 **로그인** 을 선택하고, **설정 내보내기** 를 선택합니다. 
 
     ![설정 내보내기](./media/overview-monitoring/export-settings.png)
 

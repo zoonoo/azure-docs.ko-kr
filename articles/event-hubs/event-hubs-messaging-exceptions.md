@@ -1,17 +1,22 @@
 ---
-title: Azure Event Hubs-예외
+title: Azure Event Hubs-예외 (레거시)
 description: 이 문서에서는 Azure Event Hubs 메시징 예외 및 제안된 작업의 목록을 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: b3a7023dc44d7280284fec1eccf00a3dbe88b7ec
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 11/02/2020
+ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908381"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96340970"
 ---
-# <a name="event-hubs-messaging-exceptions---net"></a>Event Hubs 메시징 예외-.NET
+# <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs 메시징 예외-.NET (레거시)
 이 섹션에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 
+
+> [!IMPORTANT]
+> 이 문서에 나열 된 일부 예외는 레거시 Event Hubs .NET 라이브러리에만 적용 됩니다. 예: ServiceBus. * 예외.
+> 
+> 새 .NET 라이브러리에서 발생 하는 EventHubsException에 대 한 자세한 내용은 [EventHubsException-.net](exceptions-dotnet.md) 을 참조 하십시오.
 
 ## <a name="exception-categories"></a>예외 범주
 
@@ -65,7 +70,7 @@ Event Hubs .NET Api는 다음 범주에 해당 하는 예외를 생성 하는 �
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | 작업과 연결된 엔터티가 없거나 삭제되었습니다. | 엔터티가 있는지 확인합니다. | 재시도로 해결되지 않습니다. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | 클라이언트가 이벤트 허브로 연결을 설정할 수 없습니다. |제공된 호스트 이름이 정확하며 호스트에 연결할 수 있는지 확인합니다. | 간헐적인 연결 문제라면 재시도로 문제를 해결할 수 있습니다. |
 | [ServiceBus ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | 서비스가 지금은 요청을 처리할 수 없습니다. | 클라이언트가 잠시 대기한 후 작업을 다시 시도할 수 있습니다. <br /> [ServerBusyException](#serverbusyexception)을 참조하세요. | 클라이언트가 일정 시간 이후에 다시 시도할 수 있습니다. 재시도에서 다른 예외가 발생한 경우 해당 예외의 재시도 작동을 확인합니다. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | 다음 상황에 발생할 수 있는 일반 메시징 예외: 다른 엔터티 형식에 속하는(예: topic) 이름이나 경로를 사용하여 [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) 를 만들려고 시도합니다. 1MB보다 큰 메시지를 전송하려고 시도합니다. 서버 또는 서비스가 요청을 처리하는 동안 오류가 발생했습니다. 자세한 내용은 예외 메시지를 참조하세요. 이것은 보통 일시적인 예외입니다. | 코드를 확인하고 메시지 본문에서 직렬화 가능 개체(또는 사용자 지정 직렬 변환기 사용)만 사용하는지 확인합니다. 설명서에서 지원되는 속성 값 유형을 확인하고 지원되는 유형만 사용합니다. [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) 속성을 확인합니다. 이 값이 **true**이면 작업을 다시 시도할 수 있습니다. | 재시도 동작이 정의되지 않았으면 도움이 되지 않습니다. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | 다음 상황에 발생할 수 있는 일반 메시징 예외: 다른 엔터티 형식에 속하는(예: topic) 이름이나 경로를 사용하여 [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) 를 만들려고 시도합니다. 1MB보다 큰 메시지를 전송하려고 시도합니다. 서버 또는 서비스가 요청을 처리하는 동안 오류가 발생했습니다. 자세한 내용은 예외 메시지를 참조하세요. 이것은 보통 일시적인 예외입니다. | 코드를 확인하고 메시지 본문에서 직렬화 가능 개체(또는 사용자 지정 직렬 변환기 사용)만 사용하는지 확인합니다. 설명서에서 지원되는 속성 값 유형을 확인하고 지원되는 유형만 사용합니다. [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) 속성을 확인합니다. 이 값이 **true** 이면 작업을 다시 시도할 수 있습니다. | 재시도 동작이 정의되지 않았으면 도움이 되지 않습니다. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | 해당 서비스 네임스페이스에서 이미 다른 엔터티가 사용하는 이름으로 엔터티를 만들려고 합니다. | 기존 엔터티를 삭제하거나 만들려는 엔터티에 다른 이름을 선택합니다. | 재시도로 해결되지 않습니다. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | 메시징 엔터티의 최대 허용 크기에 도달했습니다. 이 예외는 소비자별 그룹 수준에서 최대 수신자 수(5)가 이미 열려 있는 경우에 발생할 수 있습니다. | 엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. <br /> [QuotaExceededException](#quotaexceededexception)을 참조하세요. | 그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | 비활성화된 엔터티의 런타임 작업에 대한 요청입니다. |엔터티를 활성화합니다. | 그 사이에 엔터티가 활성화된 경우 다시 시도하면 문제가 해결될 수 있습니다. |
@@ -102,17 +107,29 @@ Event Hubs의 경우 시간 제한은 연결 문자열의 일부로 또는 [Serv
 
 - 이벤트 허브의 모든 파티션에서 부하가 균등 하 게 분산 되지 않으며 하나의 파티션이 로컬 처리량 단위 제한에 도달 합니다.
     
-    **해결**방법: 파티션 배포 전략을 수정 하거나 [EventHubClient (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) 를 시도 하는 것이 도움이 될 수 있습니다.
+    **해결** 방법: 파티션 배포 전략을 수정 하거나 [EventHubClient (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) 를 시도 하는 것이 도움이 될 수 있습니다.
 
 - Event Hubs 네임 스페이스에 충분 한 처리량 단위가 없습니다. [Azure Portal](https://portal.azure.com) 의 Event Hubs 네임 스페이스 창에서 **메트릭** 화면을 확인 하 여 확인할 수 있습니다. 포털에는 집계 된 (1 분) 정보가 표시 되지만 처리량은 실시간으로 측정 되므로 예상에 불과합니다.
 
-    **해결**방법: 네임 스페이스에서 처리량 단위를 늘려도 도움이 될 수 있습니다. 포털의 Event Hubs 네임스페이스 화면에 있는 **규모** 창에서 이 작업을 수행할 수 있습니다. 또는 [자동 팽창](event-hubs-auto-inflate.md)을 사용할 수 있습니다.
+    **해결** 방법: 네임 스페이스에서 처리량 단위를 늘려도 도움이 될 수 있습니다. 
+
+    Azure Portal에서 **Event Hubs 네임 스페이스** 페이지의 **크기 조정** 페이지 또는 **개요** 페이지에서 처리량 단위를 구성할 수 있습니다. 또는 사용 요구에 맞게 처리량 단위 수를 높여 자동 확장을 자동으로 [확장할](event-hubs-auto-inflate.md)수 있습니다.
+
+    Tu (처리량 단위)는 Event Hubs 네임 스페이스의 모든 이벤트 허브에 적용 됩니다. 즉, 네임스페이스 수준에서 TU를 구입하고, 해당 네임스페이스에 속한 이벤트 허브 간에 공유됩니다. 각 TU에서 네임스페이스에 제공하는 기능은 다음과 같습니다.
+
+    - 초당 최대 1MB의 수신 이벤트(이벤트 허브로 전송된 이벤트), 단 초당 1,000개 이하의 수신 이벤트, 관리 작업 또는 제어 API 호출
+    - 초당 최대 2MB의 송신 이벤트(이벤트 허브에서 사용된 이벤트), 단 4096개를 초과하지 않는 송신 이벤트.
+    - 최대 84GB의 이벤트 스토리지(기본 24시간 보존 기간에 충분).
+    
+    **개요** 페이지의 **메트릭 표시** 섹션에서 **처리량** 탭으로 전환 합니다. 차트를 선택 하 여 x 축에 1 분 간격으로 더 큰 창에서 엽니다. 최대 값을 확인 하 고 60로 나누어 수신 바이트/초 또는 보내는 바이트/초를 가져옵니다. **요청** 탭에서 사용량이 많은 시간에 초당 요청 수를 계산 하려면 비슷한 방법을 사용 합니다. 
+
+    Tu * 제한 (초당 1mb의 수신 또는 1000 요청, 송신에 대 한 요청) 보다 높은 값이 표시 되는 경우 Event Hubs 네임 스페이스의 왼쪽 메뉴에 있는 **크기** 를 사용 하 여 tu 수를 늘려 수동으로 확장 하거나 Event Hubs의 [자동](event-hubs-auto-inflate.md) 확장 기능을 사용 합니다. 자동 확장은 최대 20 개의 TU 늘릴 수 있습니다. 정확 하 게 40 Tu를 발생 시키려면 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출 합니다.
 
 ### <a name="error-code-50001"></a>오류 코드 50001
 
 이 오류는 드물게 발생합니다. 네임스페이스에 대한 코드를 실행하는 컨테이너의 CPU가 낮아서 Event Hubs 부하 분산 장치가 몇 초 이내에 시작되지 못할 때 이 오류가 발생합니다.
 
-**해결**방법: GetRuntimeInformation 메서드에 대 한 호출을 제한 합니다. Azure Event Hubs는 초당 GetRuntimeInfo에 대 한 초당 최대 50 개의 호출을 지원 합니다. 한도에 도달 하면 다음과 유사한 예외가 표시 될 수 있습니다.
+**해결** 방법: GetRuntimeInformation 메서드에 대 한 호출을 제한 합니다. Azure Event Hubs는 초당 GetRuntimeInfo에 대 한 초당 최대 50 개의 호출을 지원 합니다. 한도에 도달 하면 다음과 유사한 예외가 표시 될 수 있습니다.
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.

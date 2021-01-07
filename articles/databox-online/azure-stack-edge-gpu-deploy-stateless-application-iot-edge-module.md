@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
 ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90899520"
 ---
 # <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>IoT Edge 모듈을 사용 하 여 Azure Stack Edge Pro GPU 장치에서 Kubernetes 상태 비저장 응용 프로그램을 실행 합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "90899520"
 
 이 방법 문서에서는 웹 서버 앱 모듈을 사용 하 여 시나리오를 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음이 필요 합니다.
 

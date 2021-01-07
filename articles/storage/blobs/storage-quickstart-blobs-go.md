@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bf0e868e9ee746da1dfe1b03403d21f7edb3bd5e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68726452"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544652"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -108,7 +108,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 ContainerURL이 있으면 Blob을 가리키는 **BlobURL** 개체를 인스턴스화하고, 업로드, 다운로드 및 복사 등의 작업을 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
 이 섹션에서는 새 컨테이너를 만듭니다. 컨테이너는 **quickstartblobs-[random string]** 라고 합니다. 
 
@@ -147,11 +147,11 @@ handleErrors(err)
 
 Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 Blob는 가장 일반적으로 사용되므로 이 빠른 시작 가이드에서도 사용합니다.  
 
-Blob에 파일을 업로드하려면 **os.Open**을 사용하여 파일을 엽니다. 그런 다음, Upload(PutBlob), StageBlock/CommitBlockList(PutBlock/PutBlockList)와 같은 REST API 중 하나를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
+Blob에 파일을 업로드하려면 **os.Open** 을 사용하여 파일을 엽니다. 그런 다음, Upload(PutBlob), StageBlock/CommitBlockList(PutBlock/PutBlockList)와 같은 REST API 중 하나를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
 
-또는 SDK가 하위 수준 REST API를 기반으로 하는 [고급 수준의 API](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go)를 제공합니다. 예를 들어 ***UploadFileToBlockBlob*** 함수는 처리량을 최적화하기 위해 StageBlock(PutBlock) 작업을 사용하여 동시에 청크에서 파일을 업로드합니다. 파일이 256MB보다 작은 경우 대신 Upload(PutBlob)을 사용하여 단일 트랜잭션에서 전송을 완료합니다.
+또는 SDK가 하위 수준 REST API를 기반으로 하는 [고급 수준의 API](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go)를 제공합니다. 예를 들어 **_UploadFileToBlockBlob_* _ 함수는 처리량을 최적화하기 위해 StageBlock(PutBlock) 작업을 사용하여 동시에 청크에서 파일을 업로드합니다. 파일이 256MB보다 작은 경우 대신 Upload(PutBlob)을 사용하여 단일 트랜잭션에서 전송을 완료합니다.
 
-다음 예제에서는 **quickstartblobs-[randomstring]** 이라는 컨테이너에 파일을 업로드합니다.
+다음 예제에서는 _*quickstartblobs-[randomstring]**이라는 컨테이너에 파일을 업로드합니다.
 
 ```go
 // Create a file to test the upload and download.
@@ -184,7 +184,7 @@ handleErrors(err)
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-**ContainerURL**에서 **ListBlobs** 메서드를 사용하여 컨테이너의 파일 목록을 가져옵니다. ListBlobs는 지정된 **표식**에서 시작하여 Blob의 단일 세그먼트(최대 5000개)를 반환합니다. 빈 표식을 사용하여 시작 부분에서 열거형을 시작합니다. Blob 이름은 사전적 순서대로 반환됩니다. 세그먼트를 가져온 후에 처리한 다음, 이전에 반환된 표식을 다시 전달하여 ListBlobs를 호출합니다.  
+**ContainerURL** 에서 **ListBlobs** 메서드를 사용하여 컨테이너의 파일 목록을 가져옵니다. ListBlobs는 지정된 **표식** 에서 시작하여 Blob의 단일 세그먼트(최대 5000개)를 반환합니다. 빈 표식을 사용하여 시작 부분에서 열거형을 시작합니다. Blob 이름은 사전적 순서대로 반환됩니다. 세그먼트를 가져온 후에 처리한 다음, 이전에 반환된 표식을 다시 전달하여 ListBlobs를 호출합니다.  
 
 ```go
 // List the container that we have created above
@@ -207,7 +207,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Blob 다운로드
 
-BlobURL에서 **Download** 하위 수준 함수를 사용하여 Blob을 다운로드합니다. 그러면 **DownloadResponse** 구조체가 반환됩니다. 구조체에서 **Body** 함수를 실행하여 데이터 읽기를 위한 **RetryReader** 스트림을 가져옵니다. 읽는 동안 연결에 실패하면 연결을 다시 수립하여 읽기를 계속하기 위한 추가적인 요청을 수행합니다. RetryReaderOption의 MaxRetryRequests 설정을 0(기본값)으로 지정하면 원래의 응답 본문이 반환되며 다시 시도하지 않습니다. 또는 고급 수준의 Api **DownloadBlobToBuffer** 또는 **DownloadBlobToFile**을 사용하여 코드를 간소화합니다.
+BlobURL에서 **Download** 하위 수준 함수를 사용하여 Blob을 다운로드합니다. 그러면 **DownloadResponse** 구조체가 반환됩니다. 구조체에서 **Body** 함수를 실행하여 데이터 읽기를 위한 **RetryReader** 스트림을 가져옵니다. 읽는 동안 연결에 실패하면 연결을 다시 수립하여 읽기를 계속하기 위한 추가적인 요청을 수행합니다. RetryReaderOption의 MaxRetryRequests 설정을 0(기본값)으로 지정하면 원래의 응답 본문이 반환되며 다시 시도하지 않습니다. 또는 고급 수준의 Api **DownloadBlobToBuffer** 또는 **DownloadBlobToFile** 을 사용하여 코드를 간소화합니다.
 
 다음 코드는 **Download** 함수를 사용하여 Blob을 다운로드합니다. Blob의 콘텐츠를 버퍼에 작성하고 콘솔에 표시합니다.
 

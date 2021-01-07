@@ -2,20 +2,22 @@
 title: Azure Cosmos DB에서 가상 파티션 키 만들기
 description: Azure Cosmos 컨테이너에서 가상 파티션 키를 사용 하 여 파티션 키 전체에 데이터 및 워크 로드를 균등 하 게 분산 하는 방법을 알아봅니다.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b8bc44f1ba5624c37620205aaa574e618ef395f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75441212"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340654"
 ---
 # <a name="create-a-synthetic-partition-key"></a>가상 파티션 키 만들기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-수백 또는 수천와 같이 고유 값이 많은 파티션 키를 사용 하는 것이 가장 좋습니다. 이러한 파티션 키 값과 연결된 항목에 데이터 및 워크로드를 균등하게 배포하는 것이 목표입니다. 이러한 속성이 데이터에 없으면 *가상 파티션 키*를 생성할 수 있습니다. 이 문서에서는 Cosmos 컨테이너에 대 한 가상 파티션 키를 생성 하는 몇 가지 기본 기법을 설명 합니다.
+수백 또는 수천와 같이 고유 값이 많은 파티션 키를 사용 하는 것이 가장 좋습니다. 이러한 파티션 키 값과 연결된 항목에 데이터 및 워크로드를 균등하게 배포하는 것이 목표입니다. 이러한 속성이 데이터에 없으면 *가상 파티션 키* 를 생성할 수 있습니다. 이 문서에서는 Cosmos 컨테이너에 대 한 가상 파티션 키를 생성 하는 몇 가지 기본 기법을 설명 합니다.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>항목의 여러 속성 연결
 
@@ -58,7 +60,7 @@ ms.locfileid: "75441212"
 
 다음 문서에서 분할이라는 개념에 대해 좀 더 자세히 알아볼 수 있습니다.
 
-* [논리 파티션](partition-data.md)에 대해 자세히 알아봅니다.
+* [논리 파티션](partitioning-overview.md)에 대해 자세히 알아봅니다.
 * [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량을 프로비전](set-throughput.md)하는 방법을 자세히 알아봅니다.
 * [Azure Cosmos 컨테이너의 처리량을 프로비전](how-to-provision-container-throughput.md)하는 방법을 알아봅니다.
 * [Azure Cosmos 데이터베이스의 처리량을 프로비전](how-to-provision-database-throughput.md)하는 방법을 알아봅니다.

@@ -15,10 +15,10 @@ ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790249"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure deny 할당 나열
@@ -32,7 +32,7 @@ ms.locfileid: "84790249"
 
 거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
-- `Microsoft.Authorization/denyAssignments/read`사용 권한은 대부분의 [Azure 기본 제공 역할](built-in-roles.md)에 포함 되어 있습니다.
+- `Microsoft.Authorization/denyAssignments/read` 사용 권한은 대부분의 [Azure 기본 제공 역할](built-in-roles.md)에 포함 되어 있습니다.
 
 ## <a name="list-deny-assignments"></a>거부 할당 목록
 
@@ -90,7 +90,7 @@ ms.locfileid: "84790249"
 
     ![거부 할당 - 거부된 사용 권한](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
-    | 동작 유형 | 설명 |
+    | 작업 유형 | 설명 |
     | --- | --- |
     | **actions**  | 거부된 관리 작업입니다. |
     | **NotActions** | 거부된 관리 작업에서 제외되는 관리 작업입니다. |

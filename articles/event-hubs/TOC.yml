@@ -10,6 +10,8 @@
       href: event-hubs-capture-overview.md
     - name: Event Hubs Dedicated
       href: event-hubs-dedicated-overview.md
+    - name: Event Hubs의 Azure Schema Registry(미리 보기)
+      href: schema-registry-overview.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -30,9 +32,9 @@
           href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java(azure-messaging-eventhubs)
           href: event-hubs-java-get-started-send.md
-        - name: Python(azure-eventhub 버전 5)
+        - name: Python(azure-eventhub)
           href: event-hubs-python-get-started-send.md
-        - name: JavaScript(azure/event-hubs 버전 5)
+        - name: JavaScript(azure/event-hubs)
           href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -40,7 +42,7 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm(받기 전용)
           href: event-hubs-storm-getstarted-receive.md
-    - name: 송신 및 수신 이벤트(이전 버전/패키지)
+    - name: 이벤트 보내기 및 받기(이전 패키지)
       items:
         - name: .NET(Microsoft.Azure.EventHubs)
           href: event-hubs-dotnet-standard-get-started-send-legacy.md
@@ -87,6 +89,22 @@
       href: event-hubs-availability-and-consistency.md
     - name: 확장성
       href: event-hubs-scalability.md
+    - name: 페더레이션
+      items:
+        - name: 다중 사이트 및 다중 지역 페더레이션
+          href: event-hubs-federation-overview.md
+        - name: 이벤트 복제 작업 및 애플리케이션
+          href: event-hubs-federation-replicator-functions.md
+        - name: 이벤트 복제 작업 패턴
+          href: event-hubs-federation-patterns.md
+        - name: 구성된 복제 작업
+          href: event-hubs-federation-configuration.md
+        - name: Event Hubs 간 이벤트 복제
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy'
+        - name: Azure Service Bus에 이벤트 전송
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
+        - name: Azure Service Bus에서 이벤트 가져오기
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
     - name: 지리적 재해 복구
       items:
         - name: 지리적 재해 복구 및 지역에서 복제
@@ -113,8 +131,6 @@
               href: authenticate-shared-access-signature.md
         - name: 네트워크 보안
           href: network-security.md
-        - name: 기본 제공 보안 컨트롤
-          href: event-hubs-security-controls.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -125,6 +141,8 @@
       maintainContext: true
 - name: 방법 가이드
   items:
+    - name: 스키마 레지스트리 만들기
+      href: create-schema-registry.md
     - name: 이동
       items:
         - name: 네임스페이스를 다른 영역으로 이동
@@ -149,9 +167,9 @@
               href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md'
             - name: Java(azure-messaging-eventhubs)
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
-            - name: Python(azure-eventhub 버전 5)
+            - name: Python(azure-eventhub)
               href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
-            - name: JavaScript(azure/event-hubs 버전 5)
+            - name: JavaScript(azure/event-hubs)
               href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md'
             - name: .NET(Microsoft.Azure.EventHubs)
               href: event-hubs-programming-guide.md
@@ -219,6 +237,8 @@
           href: troubleshoot-authentication-authorization.md
         - name: Event Hubs용 kafka 문제 해결 가이드
           href: apache-kafka-troubleshooting-guide.md
+        - name: EventHubsException
+          href: exceptions-dotnet.md
         - name: .NET 예외
           href: event-hubs-messaging-exceptions.md
         - name: Resource Manager 예외
@@ -248,9 +268,9 @@
             - name: azure-eventhubs에서 azure-messaging-eventhubs로 마이그레이션
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md'
             - name: azure-messaging-eventhubs(최신)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-eventhubs/5.0.0-beta.6/index.html'
+              href: /java/api/overview/azure/messaging-eventhubs-readme?view=azure-java-stable
             - name: azure-eventhubs(레거시)
-              href: /java/api/overview/azure/eventhubs/client?view=azure-java-stable
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
         - name: 관리 라이브러리
           href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
     - name: Python

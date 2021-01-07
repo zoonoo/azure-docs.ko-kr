@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088668"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657127"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Windows 부팅 관리자 오류 문제 해결 - 0xC0000225 "상태를 찾을 수 없음"
  
@@ -27,7 +27,7 @@ ms.locfileid: "87088668"
 
 ## <a name="symptoms"></a>증상
 
-[부팅 진단](./boot-diagnostics.md)을 사용하여 VM의 스크린샷을 보면 스크린샷에 상태 코드 *0xc0000225*와 함께 Widows를 시작할 수 없음 오류가 표시되는 것을 확인할 수 있습니다.
+[부팅 진단](./boot-diagnostics.md)을 사용하여 VM의 스크린샷을 보면 스크린샷에 상태 코드 *0xc0000225* 와 함께 Widows를 시작할 수 없음 오류가 표시되는 것을 확인할 수 있습니다.
 
 이 오류 코드와 연결된 파일은 문제를 해결하기 위해 수행할 단계를 알려 줍니다. **파일:** 섹션의 텍스트를 찾아 적절한 작업 과정을 결정합니다.
 
@@ -105,29 +105,29 @@ ms.locfileid: "87088668"
 ### <a name="repair-the-system-file"></a>시스템 파일 복구
 
 1. 연결된 VHD를 사용하여 VM(가상 머신) 스크린샷에 표시된 이진 파일의 위치로 이동합니다.
-1. 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택한 다음, **세부 정보** 탭을 선택하여 파일에 대한 정보를 확인합니다.
+1. 파일을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택한 다음, **세부 정보** 탭을 선택하여 파일에 대한 정보를 확인합니다.
    1. 아래 이미지에 표시된 것처럼 파일의 버전을 확인합니다.
 
       ![파일 버전이 강조 표시된 'cng .sys' 파일의 속성 창](./media/troubleshoot-boot-error-status-not-found/5.png)
 
-1. 파일 이름을 **< BINARY.SYS >.old**로 바꾸고 **< BINARY.SYS >** 를 파일의 이름으로 바꿉니다.
+1. 파일 이름을 **< BINARY.SYS >.old** 로 바꾸고 **< BINARY.SYS >** 를 파일의 이름으로 바꿉니다.
 
-   위 단계의 이미지에서 **cng.sys** 파일의 이름은 **cng.sys.old**로 바꾸어야 합니다.
+   위 단계의 이미지에서 **cng.sys** 파일의 이름은 **cng.sys.old** 로 바꾸어야 합니다.
 
    > [!NOTE]
    > 파일의 이름을 바꾼 후에 "파일이 손상되어 읽을 수 없습니다."라는 메시지가 표시되면 이 솔루션이 작동하지 않는 것이므로 [지원 담당자에게 문의합니다](https://azure.microsoft.com/support/create-ticket/).
 
 1. 손상된 파일의 이름을 변경했으므로 해당 파일을 내부 리포지토리에서 복원하여 수정합니다.
    1. **CMD** 세션을 시작합니다.
-   1. **\windows\winsxs**로 이동합니다.
+   1. **\windows\winsxs** 로 이동합니다.
 
    1. 다음 명령을 사용하여 이 섹션의 시작 부분에 있는 이진을 검색합니다.
 
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       이 명령은 머신에 있는 모든 버전의 파일을 나열하여 해당 구성 요소의 경로 기록을 제공합니다.
-      
-      예를 들어 **dir cng.sys**의 이름은 **dir cng.sys /s**로 바뀐 것입니다.
+
+      예를 들어 **dir cng.sys** 의 이름은 **dir cng.sys /s** 로 바뀐 것입니다.
 
    1. 목록에서 최신 버전의 파일(또는 원하는 버전)을 선택하고 이전 경로 및 다음 명령을 사용하여 **windows\system32** 폴더에 파일을 복사합니다.
 
@@ -136,7 +136,7 @@ ms.locfileid: "87088668"
       > [!NOTE]
       > 최신 이진이 작동하지 않는 경우 해당 버전 이전의 버전을 사용해 보거나, 패치 전 버전과 같은 안정적인 파일을 사용합니다.
 
-      예를 들어, 찾고 있는 이진이 **cmimcext.sys**이고, 결함이 있는 드라이브가 드라이브 **F:** 이고, 최신 버전을 검색한 경우 다음 이미지가 표시됩니다. 여기서 `dir cmim* /s`의 명령 프롬프트에 표시되는 쿼리는 cmimcext.sys 파일의 최신 버전을 찾습니다.
+      예를 들어, 찾고 있는 이진이 **cmimcext.sys** 이고, 결함이 있는 드라이브가 드라이브 **F:** 이고, 최신 버전을 검색한 경우 다음 이미지가 표시됩니다. 여기서 `dir cmim* /s`의 명령 프롬프트에 표시되는 쿼리는 cmimcext.sys 파일의 최신 버전을 찾습니다.
 
       ![cmimcext.sys 파일의 최신 버전을 찾기 위한 "dir cmim */s" 명령 프롬프트의 쿼리](./media/troubleshoot-boot-error-status-not-found/6.png)
 
@@ -160,17 +160,17 @@ ms.locfileid: "87088668"
 
    ![식별자 특성이 강조 표시된 1세대 VM에 표시된 Windows 부팅 로더 강조 표시된 식별자 특성은 고유한 영숫자 문자열을 보여 줍니다.](./media/troubleshoot-boot-error-status-not-found/7.png)
 
-   경로 값이 **\windows\system32\winload.exe**인 Windows 부팅 로더의 식별자를 확인합니다.
+   경로 값이 **\windows\system32\winload.exe** 인 Windows 부팅 로더의 식별자를 확인합니다.
 
 1. 2세대 VM의 경우 OS 디스크가 온라인 상태이고 해당 파티션 드라이브 문자가 할당되었는지 확인합니다. 이것이 확인되면 부팅 설정 정보를 수집합니다.
-   1. **Windows 검색**에서 **디스크 관리**를 입력하고 디스크 관리 콘솔을 엽니다. 이 콘솔을 사용하여 복구 VM에 연결된 디스크 번호와 BCD 저장소를 포함하는 EFI(Extensible Firmware Interface) 파티션을 식별할 수 있습니다.
+   1. **Windows 검색** 에서 **디스크 관리** 를 입력하고 디스크 관리 콘솔을 엽니다. 이 콘솔을 사용하여 복구 VM에 연결된 디스크 번호와 BCD 저장소를 포함하는 EFI(Extensible Firmware Interface) 파티션을 식별할 수 있습니다.
 
    다음 이미지에서 디스크 2는 복구 VM에 연결된 디스크 번호입니다. 이 이미지에는 디스크 2의 EFI 시스템 파티션(크기가 100MB이며 할당된 문자가 없음)도 표시됩니다.
 
    ![디스크 2는 복구 VM에 연결된 디스크 번호로 표시됩니다. 디스크 2의 EFI 시스템 파티션(크기가 100MB이며 할당된 문자가 없음)도 표시됩니다.](./media/troubleshoot-boot-error-status-not-found/8.png)
 
    1. 관리자 권한으로 명령 프롬프트를 열고 다음 명령을 입력합니다.
-      1. 명령 `diskpart`를 사용하여 **DISKPART TOOL**을 엽니다.
+      1. 명령 `diskpart`를 사용하여 **DISKPART TOOL** 을 엽니다.
       1. 모든 디스크를 나열하고 이전 단계에서 확인된 연결된 디스크를 선택합니다.
       
          ```
@@ -207,7 +207,7 @@ ms.locfileid: "87088668"
 
          ![식별자 특성이 강조 표시된 2세대 VM에 표시된 Windows 부팅 로더 강조 표시된 식별자 특성은 해당 값으로 default를 표시합니다.](./media/troubleshoot-boot-error-status-not-found/12.png)
 
-         경로 값이 **\windows\system32\winload.efi**인 Windows 부팅 로더의 식별자를 확인합니다.
+         경로 값이 **\windows\system32\winload.efi** 인 Windows 부팅 로더의 식별자를 확인합니다.
 
 1. 활성 파티션에 있는 OSDEVICE 변수가 누락되었는지 확인합니다.
 
@@ -220,9 +220,9 @@ ms.locfileid: "87088668"
    단일 파티션 OS 디스크의 경우 `BOOT`를 추가합니다.
 
    > [!NOTE]
-   > 부팅 가능 폴더는 Windows 폴더 **\windows 폴더**와 동일한 파티션에 있게 됩니다.
+   > 부팅 가능 폴더는 Windows 폴더 **\windows 폴더** 와 동일한 파티션에 있게 됩니다.
    > - 1세대 VM에 대한 부팅 가능 폴더는 **(\boot\cc\c\d 폴더)** 입니다.
-   > - 2세대 VM에 대한 부팅 가능 폴더 **EFI\Microsoft\boot\bcd**입니다.
+   > - 2세대 VM에 대한 부팅 가능 폴더 **EFI\Microsoft\boot\bcd** 입니다.
 
    1세대 VM의 경우 다음 명령을 입력합니다.
 
@@ -235,9 +235,9 @@ ms.locfileid: "87088668"
    다중 파티션 OS 디스크의 경우 `PARTITION=<LETTER OF WINDOWS FOLDER>:`를 추가합니다.
 
    > [!NOTE]
-   > 부팅 가능 폴더는 Windows 폴더 **\windows 폴더**와 다른 파티션에 있을 수 있습니다.
+   > 부팅 가능 폴더는 Windows 폴더 **\windows 폴더** 와 다른 파티션에 있을 수 있습니다.
    > - 1세대 VM에 대한 부팅 가능 폴더는 **(\boot\cc\c\d 폴더)** 입니다.
-   > - 2세대 VM에 대한 부팅 가능 폴더 **EFI\Microsoft\boot\bcd**입니다.
+   > - 2세대 VM에 대한 부팅 가능 폴더 **EFI\Microsoft\boot\bcd** 입니다.
 
    1세대 VM의 경우 다음 명령을 입력합니다.
 

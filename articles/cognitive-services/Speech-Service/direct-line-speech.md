@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402385"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021884"
 ---
 # <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
 
@@ -27,7 +27,7 @@ ms.locfileid: "81402385"
 
 ## <a name="getting-started-with-direct-line-speech"></a>직접 선 음성 시작
 
-직접 줄 음성을 사용 하 여 음성 도우미를 만드는 첫 번째 단계는 [음성 구독 키를 가져오고](get-started.md)해당 구독과 연결 된 새 봇을 만든 다음 직접 선 음성 채널에 봇을 연결 하는 것입니다.
+직접 줄 음성을 사용 하 여 음성 도우미를 만드는 첫 번째 단계는 [음성 구독 키를 가져오고](overview.md#try-the-speech-service-for-free)해당 구독과 연결 된 새 봇을 만든 다음 직접 선 음성 채널에 봇을 연결 하는 것입니다.
 
    ![직접 라인 음성 오케스트레이션 서비스 흐름의 개념적 다이어그램](media/voice-assistants/overview-directlinespeech.png "음성 채널 흐름")
 
@@ -37,9 +37,9 @@ ms.locfileid: "81402385"
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| C #, UWP | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [찾아보기](https://aka.ms/csspeech/javaref) |
-| Java | Android | [찾아보기](https://aka.ms/csspeech/javaref) |
+| C #, UWP | Windows | [찾아보기](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java | Windows, macOS, Linux | [찾아보기](/java/api/com.microsoft.cognitiveservices.speech) |
+| Java | Android | [찾아보기](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## <a name="sample-code"></a>예제 코드
 
@@ -50,21 +50,21 @@ ms.locfileid: "81402385"
 
 ## <a name="customization"></a>사용자 지정
 
-Speech service를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 모든 사용자 지정 옵션을 사용할 수 있습니다.
+Speech service를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](./custom-keyword-basics.md)에 사용할 수 있는 모든 사용자 지정 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다 ( [지원 되는 언어](supported-languages.md)참조).
+> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다 ( [지원 되는 언어](./language-support.md)참조).
 
-음성 도우미에 대 한 직접 줄 음성 및 관련 기능은 [가상 길잡이 솔루션 및 엔터프라이즈 템플릿에](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)적합 합니다. 직접 라인 음성은 호환 봇에서 작동할 수 있지만 이러한 리소스는 고품질의 대화형 환경 뿐만 아니라 빠르게 시작할 수 있는 일반적인 지원 기술 및 모델에 재사용 가능한 기준을 제공 합니다.
+음성 도우미에 대 한 직접 줄 음성 및 관련 기능은 [가상 길잡이 솔루션 및 엔터프라이즈 템플릿에](/azure/bot-service/bot-builder-enterprise-template-overview)적합 합니다. 직접 라인 음성은 호환 봇에서 작동할 수 있지만 이러한 리소스는 고품질의 대화형 환경 뿐만 아니라 빠르게 시작할 수 있는 일반적인 지원 기술 및 모델에 재사용 가능한 기준을 제공 합니다.
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [Speech SDK](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Speech SDK](./speech-sdk.md)
+* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [Speech SDK 가져오기](speech-sdk.md)
-* [기본 봇 만들기 및 배포](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [기본 봇 만들기 및 배포](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [가상 길잡이 솔루션 및 엔터프라이즈 템플릿 가져오기](https://github.com/Microsoft/AI)

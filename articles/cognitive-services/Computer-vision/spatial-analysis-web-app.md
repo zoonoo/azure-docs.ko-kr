@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 440f901f06e431c371b7445f4a04499c475c9aa1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940588"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014563"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>방법: 웹 응용 프로그램을 계산 하는 사용자 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "90940588"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* Azure IoT Edge 배포 구성 및 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 에 대 한 기본적인 이해
+* Azure IoT Edge 배포 구성 및 [Azure IoT Hub](../../iot-hub/index.yml) 에 대 한 기본적인 이해
 * 구성 된 [호스트 컴퓨터](spatial-analysis-container.md)입니다.
 
 ## <a name="deploy-the-spatial-analysis-container"></a>공간 분석 컨테이너 배포
@@ -63,14 +63,16 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>호스트 컴퓨터의 Azure IoT Edge에 컨테이너 배포
 
-Azure CLI를 사용 하 여 공간 분석 컨테이너를 호스트 컴퓨터에 IoT 모듈로 배포 합니다. 배포 프로세스에는 배포에 필요한 컨테이너, 변수 및 구성을 설명 하는 배포 매니페스트 파일이 필요 합니다. GitHub에서 샘플 [배포 매니페스트](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) 를 찾을 수 있습니다. 여기에는 *공간 분석* 컨테이너에 대 한 기본 배포 구성이 포함 됩니다. 
+Azure CLI를 사용 하 여 공간 분석 컨테이너를 호스트 컴퓨터에 IoT 모듈로 배포 합니다. 배포 프로세스에는 배포에 필요한 컨테이너, 변수 및 구성을 설명 하는 배포 매니페스트 파일이 필요 합니다. *공간 분석* 컨테이너에 대 한 기본 배포 구성을 포함 하는 GitHub에서 [Azure Stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 지 특정 배포 매니페스트 뿐만 아니라 [edge 별 배포 매니페스트 Azure Stack](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) 샘플을 찾을 수 있습니다. 
+
+또는 Visual Studio Code 용 Azure IoT 확장을 사용 하 여 IoT hub를 사용 하 여 작업을 수행할 수 있습니다. [Visual Studio Code에서 Azure IoT Edge 모듈 배포](../../iot-edge/how-to-deploy-modules-vscode.md) 로 이동 하 여 자세한 내용을 알아보세요.
 
 > [!NOTE] 
-> *Telegraf* 및 *공간 분석-진단* 컨테이너는 선택 사항입니다. 파일 * 의DeploymentManifest.js* 에서 제거 하도록 결정할 수 있습니다. 자세한 내용은 [원격 분석 및 문제 해결](./spatial-analysis-logging.md) 문서를 참조 하세요. [Github에서](https://go.microsoft.com/fwlink/?linkid=2142179) 파일의 샘플 *DeploymentManifest.js* 를 찾을 수 있습니다. 
+> *Telegraf* 및 *공간 분석-진단* 컨테이너는 선택 사항입니다. 파일 *의DeploymentManifest.js* 에서 제거 하도록 결정할 수 있습니다. 자세한 내용은 [원격 분석 및 문제 해결](./spatial-analysis-logging.md) 문서를 참조 하세요. Github의 파일에서 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 대 한 두 개의 샘플 *DeploymentManifest.js* 를 찾을 수 있습니다.
 
 ### <a name="set-environment-variables"></a>환경 변수 설정
 
-IoT Edge 모듈에 대 한 대부분의 **환경 변수** 는 위에 연결 된 파일 * 의 샘플DeploymentManifest.js* 에 이미 설정 되어 있습니다. 파일에서 `BILLING_ENDPOINT` 아래와 같이 및 환경 변수를 검색 합니다 `API_KEY` . 값을 이전에 만든 끝점 URI 및 API 키로 바꿉니다. EULA 값이 "수락"으로 설정 되어 있는지 확인 합니다. 
+IoT Edge 모듈에 대 한 대부분의 **환경 변수** 는 위에 연결 된 파일 *의 샘플DeploymentManifest.js* 에 이미 설정 되어 있습니다. 파일에서 `BILLING_ENDPOINT` 아래와 같이 및 환경 변수를 검색 합니다 `API_KEY` . 값을 이전에 만든 끝점 URI 및 API 키로 바꿉니다. EULA 값이 "수락"으로 설정 되어 있는지 확인 합니다. 
 
 ```json
 "EULA": { 
@@ -89,7 +91,7 @@ IoT Edge 모듈에 대 한 대부분의 **환경 변수** 는 위에 연결 된 
 
 이제 *공간 분석* 컨테이너의 초기 구성이 완료 되었으므로 다음 단계는 작업 매개 변수를 구성 하 고 배포에 추가 하는 것입니다. 
 
-첫 번째 단계는 아래와 같이 샘플 [배포 매니페스트](https://go.microsoft.com/fwlink/?linkid=2142179) 를 업데이트 하 고에 대 한 operationId를 구성 하는 것입니다 `cognitiveservices.vision.spatialanalysis-personcount` .
+첫 번째 단계는 위에 연결 된 샘플 배포 매니페스트를 업데이트 하 고 아래와 같이에 대해 operationId를 구성 하는 것입니다 `cognitiveservices.vision.spatialanalysis-personcount` .
 
 
 ```json
@@ -107,7 +109,7 @@ IoT Edge 모듈에 대 한 대부분의 **환경 변수** 는 위에 연결 된 
 },
 ```
 
-[배포 매니페스트가](https://go.microsoft.com/fwlink/?linkid=2142179) 업데이트 된 후 카메라 제조업체의 지침에 따라 카메라를 설치 하 고, 카메라 url을 구성 하 고, 사용자 이름 및 암호를 구성 합니다. 
+배포 매니페스트가 업데이트 된 후 카메라 제조업체의 지침에 따라 카메라를 설치 하 고, 카메라 url을 구성 하 고, 사용자 이름 및 암호를 구성 합니다. 
 
 그런 다음 `VIDEO_URL` 카메라의 RTSP url로 설정 하 고, 카메라에 연결 하기 위한 자격 증명을 설정 합니다.
 
@@ -122,19 +124,18 @@ Edge 장치에 GPU가 둘 이상 있는 경우이 작업을 실행할 GPU를 선
 
 ### <a name="execute-the-deployment"></a>배포 실행
 
-이제 [배포 매니페스트가](https://go.microsoft.com/fwlink/?linkid=2142179) 완료 되었으므로 Azure CLI에서이 명령을 사용 하 여 호스트 컴퓨터에 IoT Edge 모듈로 컨테이너를 배포 합니다.
+이제 배포 매니페스트가 완료 되었으므로 Azure CLI에서이 명령을 사용 하 여 호스트 컴퓨터에 IoT Edge 모듈로 컨테이너를 배포 합니다.
 
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'"--subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
 ```
 
 필수 매개 변수를 입력 합니다.
 
-* 배포 이름:이 배포에 대 한 이름을 선택 합니다.
 * IoT Hub 이름: Azure IoT Hub 이름입니다.
-* Deployment.js: 배포 파일의 이름
+* DeploymentManifest.js: 배포 파일의 이름
 * IoT Edge 장치 이름: 호스트 컴퓨터의 IoT Edge 장치 이름입니다.
 * 구독: 구독 ID 또는 이름입니다.
 
@@ -146,7 +147,7 @@ Azure Portal의 IoT Hub 인스턴스에서 공간 분석 모듈의 IoT Edge 모�
 
 ![배포 확인 예](./media/spatial-analysis/deployment-verification.png)
 
-이 시점에서 공간 분석 컨테이너는 작업을 실행 하 고 있습니다. 작업에 대 한 AI 정보를 내보내고 `cognitiveservices.vision.spatialanalysis-personcount` 이러한 정보를 Azure IoT Hub 인스턴스에 원격 분석으로 라우팅합니다. 추가 카메라를 구성 하기 위해 [배포 매니페스트](https://go.microsoft.com/fwlink/?linkid=2142179) 파일을 업데이트 하 고 배포를 다시 실행할 수 있습니다.
+이 시점에서 공간 분석 컨테이너는 작업을 실행 하 고 있습니다. 작업에 대 한 AI 정보를 내보내고 `cognitiveservices.vision.spatialanalysis-personcount` 이러한 정보를 Azure IoT Hub 인스턴스에 원격 분석으로 라우팅합니다. 추가 카메라를 구성 하기 위해 배포 매니페스트 파일을 업데이트 하 고 배포를 다시 실행할 수 있습니다.
 
 ## <a name="person-counting-web-application"></a>웹 응용 프로그램을 계산 하는 사람
 
@@ -157,7 +158,7 @@ Azure Portal의 IoT Hub 인스턴스에서 공간 분석 모듈의 IoT Edge 모�
 이 앱의 컨테이너 형식은 Azure Container Registry에서 사용할 수 있습니다. 다음 docker pull 명령을 사용 하 여 다운로드 합니다. 액세스 토큰은 Microsoft에 문의 하세요 projectarchon@microsoft.com .
 
 ```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 
@@ -171,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-컨테이너를 설치 하려면 새 Azure Web App for Containers 만들고 필요한 매개 변수를 입력 합니다. 그런 다음 **Docker** 탭으로 이동 하 여 **단일 컨테이너**를 선택 하 고 **Azure Container Registry**합니다. 위의 이미지를 푸시한 Azure Container Registry의 인스턴스를 사용 합니다.
+컨테이너를 설치 하려면 새 Azure Web App for Containers 만들고 필요한 매개 변수를 입력 합니다. 그런 다음 **Docker** 탭으로 이동 하 여 **단일 컨테이너** 를 선택 하 고 **Azure Container Registry** 합니다. 위의 이미지를 푸시한 Azure Container Registry의 인스턴스를 사용 합니다.
 
 ![이미지 세부 정보 입력](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -179,18 +180,21 @@ docker push [desired local image name]
 
 ### <a name="configure-the-app"></a>앱 구성 
 
-설치가 완료 될 때까지 기다렸다가 Azure Portal의 리소스로 이동 합니다. **구성** 섹션으로 이동 하 여 다음 두 가지 **응용 프로그램 설정을**추가 합니다.
+설치가 완료 될 때까지 기다렸다가 Azure Portal의 리소스로 이동 합니다. **구성** 섹션으로 이동 하 여 다음 두 가지 **응용 프로그램 설정을** 추가 합니다.
 
-* `EventHubConsumerGroup` – Azure IoT hub에서 소비자 그룹의 문자열 이름을 사용 하 여 IoT hub에서 새 소비자 그룹을 만들거나 기본 그룹을 사용할 수 있습니다. 
-* `IotHubConnectionString` – Azure IoT hub에 대 한 연결 문자열입니다. Azure IoT hub 리소스의 키 섹션에서이를 검색 하 여 ![ 매개 변수를 구성할 수 있습니다.](./media/spatial-analysis/solution-app-config-page.png)
+* `EventHubConsumerGroup` – Azure IoT Hub에서 소비자 그룹의 문자열 이름을 사용 하 여 IoT Hub에 새 소비자 그룹을 만들거나 기본 그룹을 사용할 수 있습니다. 
+* `IotHubConnectionString` -Azure IoT Hub에 대 한 연결 문자열입니다 .이 문자열을 Azure IoT Hub 리소스 ![ 구성 매개 변수의 키 섹션에서 검색할 수 있습니다.](./media/spatial-analysis/solution-app-config-page.png)
 
-이러한 두 설정이 추가 되 면 **저장**을 클릭 합니다. 왼쪽 탐색 메뉴에서 **인증/권한 부여** 를 클릭 하 고 원하는 인증 수준으로 업데이트 합니다. Azure AD (Azure Active Directory) express를 권장 합니다. 
+이러한 두 설정이 추가 되 면 **저장** 을 클릭 합니다. 왼쪽 탐색 메뉴에서 **인증/권한 부여** 를 클릭 하 고 원하는 인증 수준으로 업데이트 합니다. Azure AD (Azure Active Directory) express를 권장 합니다. 
 
-### <a name="test-the-app"></a>앱 테스트
+### <a name="test-the-app"></a>앱을 테스트합니다.
 
 Azure 웹 앱으로 이동 하 여 배포가 성공 했으며 웹 앱이 실행 중인지 확인 합니다. 구성 된 url로 이동 `<yourapp>.azurewebsites.net` 하 여 실행 중인 앱을 확인 합니다.
 
 ![배포 테스트](./media/spatial-analysis/solution-app-output.png)
+
+## <a name="get-the-personcount-source-code"></a>PersonCount 소스 코드 가져오기
+이 응용 프로그램에 대 한 소스 코드를 보거나 수정 하려면 [Github에서](https://github.com/Azure-Samples/cognitive-services-spatial-analysis)찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

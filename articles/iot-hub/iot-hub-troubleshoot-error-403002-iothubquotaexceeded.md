@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 8312c3267e826088f34b3bffe1520703eec00bdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76961115"
 ---
 # <a name="403002-iothubquotaexceeded"></a>403002 IoTHubQuotaExceeded
@@ -21,13 +21,13 @@ ms.locfileid: "76961115"
 
 ## <a name="symptoms"></a>증상
 
-IoT Hub에 대 한 모든 요청은 **403002 IoTHubQuotaExceeded**오류와 함께 실패 합니다. Azure Portal IoT hub 장치 목록이 로드 되지 않습니다.
+IoT Hub에 대 한 모든 요청은  **403002 IoTHubQuotaExceeded**오류와 함께 실패 합니다. Azure Portal IoT hub 장치 목록이 로드 되지 않습니다.
 
 ## <a name="cause"></a>원인
 
 IoT hub에 대 한 일일 메시지 할당량을 초과 했습니다. 
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 [IoT hub의 단위 수를 업그레이드 하거나 늘리고](iot-hub-upgrade.md) 매일 할당량을 새로 고칠 때까지 다음 UTC 날짜를 기다립니다.
 

@@ -1,17 +1,15 @@
 ---
 title: Azure Service Fabric에서 행위자 기반 서비스 만들기
 description: Service Fabric Reliable Actors를 사용하여 C#에 행위자 기반 서비스를 처음 생성, 디버그 및 배포하는 방법을 알아봅니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3727c41c991b83bc3869279cbb0535a6185ff04d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 225ccb67153a33ed47af68ebb1549dce37426278
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015733"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573464"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]
@@ -20,7 +18,7 @@ ms.locfileid: "89015733"
 
 이 문서에서는 Visual Studio에서 간단한 Reliable Actor 애플리케이션을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 컴퓨터에 Visual Studio를 비롯한 Service Fabric 개발 환경이 설정되어 있는지 확인합니다. 자세한 내용은 [개발 환경 설정 방법](service-fabric-get-started.md)을 참조하세요.
 
@@ -48,7 +46,7 @@ ms.locfileid: "89015733"
 
 * **행위자 서비스 프로젝트(HelloWorld)**. 이 프로젝트는 행위자를 호스트할 Service Fabric 서비스를 정의합니다. 행위자의 *HelloWorld.cs* 구현이 포함되어 있습니다. 행위자 구현은 기본 형식(`Actor`)에서 파생되는 클래스로서, *MyActor.Interfaces* 프로젝트에 정의된 인터페이스를 구현합니다. 또한 행위자 클래스는 `ActorService` 인스턴스 및 `ActorId`를 허용하고 이를 기본 `Actor` 클래스에 전달하는 생성자를 구현해야 합니다.
     
-    이 프로젝트에는 `ActorRuntime.RegisterActorAsync<T>()`를 사용하여 행위자 클래스를 Service Fabric 런타임에 등록하는 *Program.cs*도 포함되어 있습니다. `HelloWorld` 클래스는 이미 등록되어 있습니다. 프로젝트에 추가된 추가 행위자 구현을 `Main()` 메서드에도 등록해야 합니다.
+    이 프로젝트에는 `ActorRuntime.RegisterActorAsync<T>()`를 사용하여 행위자 클래스를 Service Fabric 런타임에 등록하는 *Program.cs* 도 포함되어 있습니다. `HelloWorld` 클래스는 이미 등록되어 있습니다. 프로젝트에 추가된 추가 행위자 구현을 `Main()` 메서드에도 등록해야 합니다.
 
 ## <a name="customize-the-helloworld-actor"></a>HelloWorld 행위자 사용자 지정
 
@@ -63,7 +61,7 @@ public interface IHelloWorld : IActor
 }
 ```
 
-**HelloWorld** 프로젝트의 **HelloWorld.cs**에서 전체 클래스 정의를 다음과 같이 바꿉니다.
+**HelloWorld** 프로젝트의 **HelloWorld.cs** 에서 전체 클래스 정의를 다음과 같이 바꿉니다.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -81,26 +79,26 @@ internal class HelloWorld : Actor, IHelloWorld
 }
 ```
 
-**Ctrl+Shift+B**를 눌러 프로젝트를 빌드하고 모든 내용이 컴파일되는지 확인합니다.
+**Ctrl+Shift+B** 를 눌러 프로젝트를 빌드하고 모든 내용이 컴파일되는지 확인합니다.
 
 ## <a name="add-a-client"></a>클라이언트 추가
 
 행위자 서비스를 호출하는 간단한 콘솔 애플리케이션을 만듭니다.
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 > **Add**  >  **새 프로젝트**추가 ...를 클릭 합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 > **Add**  >  **새 프로젝트** 추가 ...를 클릭 합니다.
 
-2. **.NET Core** 프로젝트 형식에서 **콘솔 응용 프로그램(.NET Core)** 을 선택합니다.  프로젝트 이름을 *ActorClient*로 지정합니다.
+2. **.NET Core** 프로젝트 형식에서 **콘솔 응용 프로그램(.NET Core)** 을 선택합니다.  프로젝트 이름을 *ActorClient* 로 지정합니다.
     
     ![새 프로젝트 추가 대화 상자][6]    
     
     > [!NOTE]
     > 콘솔 애플리케이션은 일반적으로 Service Fabric에서 클라이언트로 사용하는 앱 유형이 아니지만 로컬 Service Fabric 클러스터를 사용하여 디버그 및 테스트하기 위한 편리한 예제를 만들어줍니다.
 
-3. 콘솔 애플리케이션은 인터페이스 프로젝트와의 호환성과 기타 종속성을 유지하기 위해 64비트 애플리케이션이어야 합니다.  솔루션 탐색기에서 **ActorClient** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.  **빌드** 탭에서 **플랫폼 대상**을 **x64**로 설정합니다.
+3. 콘솔 애플리케이션은 인터페이스 프로젝트와의 호환성과 기타 종속성을 유지하기 위해 64비트 애플리케이션이어야 합니다.  솔루션 탐색기에서 **ActorClient** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성** 을 클릭합니다.  **빌드** 탭에서 **플랫폼 대상** 을 **x64** 로 설정합니다.
     
     ![빌드 속성][8]
 
-4. 클라이언트 프로젝트에는 Reliable Actors NuGet 패키지가 필요합니다.  **도구**  >  **NuGet 패키지 관리자**  >  **패키지 관리자 콘솔**을 클릭 합니다.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
+4. 클라이언트 프로젝트에는 Reliable Actors NuGet 패키지가 필요합니다.  **도구**  >  **NuGet 패키지 관리자**  >  **패키지 관리자 콘솔** 을 클릭 합니다.  패키지 관리자 콘솔에서 다음 명령을 입력합니다.
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
@@ -108,11 +106,11 @@ internal class HelloWorld : Actor, IHelloWorld
 
     NuGet 패키지 및 모든 해당 종속성이 ActorClient 프로젝트에 설치됩니다.
 
-5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 **종속성** 을 마우스 오른쪽 단추로 클릭 한 다음 **참조 추가**...를 클릭 합니다.  **프로젝트 > 솔루션** (아직 선택 하지 않은 경우)을 선택한 다음 **HelloWorld. 인터페이스**옆의 확인란을 선택 합니다.  **확인**을 클릭합니다.
+5. 클라이언트 프로젝트에는 인터페이스 프로젝트에 대한 참조도 필요합니다.  ActorClient 프로젝트에서 **종속성** 을 마우스 오른쪽 단추로 클릭 한 다음 **프로젝트 참조 추가**...를 클릭 합니다.  **프로젝트 > 솔루션** (아직 선택 하지 않은 경우)을 선택한 다음 **HelloWorld. 인터페이스** 옆의 확인란을 선택 합니다.  **확인** 을 클릭합니다.
     
     ![참조 추가 대화 상자][7]
 
-6. ActorClient 프로젝트에서 *Program.cs*의 전체 내용을 다음 코드로 바꿉니다.
+6. ActorClient 프로젝트에서 *Program.cs* 의 전체 내용을 다음 코드로 바꿉니다.
     
     ```csharp
     using System;
@@ -142,7 +140,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
 ![서비스 패브릭 디버깅 출력 창][3]
 
-출력에 *The application is ready*가 포함되면 ActorClient 애플리케이션을 사용하여 서비스를 테스트할 수 있습니다.  솔루션 탐색기에서 마우스 오른쪽 단추로 **ActorClient** 프로젝트를 클릭하고 **디버그** > **새 인스턴스 시작**을 클릭합니다.  명령줄 애플리케이션에는 행위자 서비스의 출력이 표시됩니다.
+출력에 *The application is ready* 가 포함되면 ActorClient 애플리케이션을 사용하여 서비스를 테스트할 수 있습니다.  솔루션 탐색기에서 마우스 오른쪽 단추로 **ActorClient** 프로젝트를 클릭하고 **디버그** > **새 인스턴스 시작** 을 클릭합니다.  명령줄 애플리케이션에는 행위자 서비스의 출력이 표시됩니다.
 
 ![애플리케이션 출력][9]
 

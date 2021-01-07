@@ -1,14 +1,14 @@
 ---
 title: 템플릿 개요
-description: 리소스 배포를 위한 Azure Resource Manager 템플릿을 사용 하는 이점에 대해 설명 합니다.
+description: 리소스 배포를 위한 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하는 이점에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 12/17/2020
+ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119364"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657314"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -16,7 +16,7 @@ ms.locfileid: "86119364"
 
 이러한 문제를 충족 하기 위해 배포를 자동화 하 고 인프라의 사례를 코드로 사용할 수 있습니다. 코드에서 배포 해야 하는 인프라를 정의 합니다. 인프라 코드는 프로젝트의 일부가 됩니다. 응용 프로그램 코드와 마찬가지로, 인프라 코드를 원본 리포지토리에 저장 하 고 버전을 표시 합니다. 팀의 모든 팀이 코드를 실행 하 고 유사한 환경을 배포할 수 있습니다.
 
-Azure 솔루션에 대 한 코드로 서의 인프라를 구현 하려면 ARM (Azure Resource Manager) 템플릿을 사용 합니다. 템플릿은 프로젝트의 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이 템플릿은 대상을 만들기 위한 프로그래밍 명령 시퀀스를 작성하지 않고도 배포하려는 대상을 설명할 수 있는 선언적 구문입니다. 템플릿에서 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
+Azure 솔루션에 대 한 코드로 서의 인프라를 구현 하려면 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 합니다. 템플릿은 프로젝트의 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이 템플릿은 대상을 만들기 위한 프로그래밍 명령 시퀀스를 작성하지 않고도 배포하려는 대상을 설명할 수 있는 선언적 구문입니다. 템플릿에서 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
 
 ## <a name="why-choose-arm-templates"></a>ARM 템플릿을 선택 해야 하는 이유
 
@@ -52,9 +52,9 @@ ARM 템플릿과 다른 인프라 중 하나를 코드 서비스로 사용 하�
 
 * **Ci/cd 통합**: 템플릿을 통합 및 CI/cd (연속 통합 및 연속 배포) 도구에 통합 하 여 빠르고 안정적인 응용 프로그램 및 인프라 업데이트를 위한 릴리스 파이프라인을 자동화할 수 있습니다. Azure DevOps 및 리소스 관리자 템플릿 작업을 사용 하 여 Azure Pipelines를 사용 하 여 ARM 템플릿 프로젝트를 지속적으로 빌드 및 배포할 수 있습니다. 자세한 내용은 [파이프라인을 사용한 VS 프로젝트](add-template-to-azure-pipelines.md) 및 [자습서: Azure Pipelines를 사용 하 여 Azure Resource Manager 템플릿 연속 통합](./deployment-tutorial-pipeline.md)(영문)을 참조 하세요.
 
-* **내보낼**수 있는 코드: 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용 된 템플릿을 확인 하 여 기존 리소스 그룹에 대 한 템플릿을 가져올 수 있습니다. [내보낸 템플릿](export-template-portal.md) 보기는 템플릿 구문에 대해 알아보는 데 유용한 방법입니다.
+* **내보낼** 수 있는 코드: 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용 된 템플릿을 확인 하 여 기존 리소스 그룹에 대 한 템플릿을 가져올 수 있습니다. [내보낸 템플릿](export-template-portal.md) 보기는 템플릿 구문에 대해 알아보는 데 유용한 방법입니다.
 
-* **작성 도구**: [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) 및 템플릿 도구 확장을 사용 하 여 템플릿을 제작할 수 있습니다. Intellisense, 구문 강조 표시, 온라인 도움말 및 기타 많은 언어 함수를 얻을 수 있습니다. Visual Studio code 외에도 [Visual studio](create-visual-studio-deployment-project.md)를 사용할 수 있습니다.
+* **작성 도구**: [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) 및 템플릿 도구 확장을 사용 하 여 템플릿을 제작할 수 있습니다. Intellisense, 구문 강조 표시, 온라인 도움말 및 기타 많은 언어 함수를 얻을 수 있습니다. Visual Studio Code 외에도 [Visual Studio](create-visual-studio-deployment-project.md)를 사용할 수 있습니다.
 
 ## <a name="template-file"></a>템플릿 파일
 
@@ -80,13 +80,13 @@ ARM 템플릿과 다른 인프라 중 하나를 코드 서비스로 사용 하�
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
+    "apiVersion": "2019-04-01",
     "name": "mystorageaccount",
     "location": "westus",
     "sku": {
       "name": "Standard_LRS"
     },
-    "kind": "Storage",
+    "kind": "StorageV2",
     "properties": {}
   }
 ]
@@ -96,17 +96,19 @@ Microsoft.Storage 리소스 공급자에게 전송되는 다음 REST API 작업�
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
 REQUEST BODY
 {
   "location": "westus",
   "sku": {
     "name": "Standard_LRS"
   },
-  "kind": "Storage",
+  "kind": "StorageV2",
   "properties": {}
 }
 ```
+
+리소스에 대해 템플릿에서 설정한 **apiVersion** 는 REST 작업에 대 한 API 버전으로 사용 됩니다. 템플릿을 반복적으로 배포 하 고 안심 하 고 계속 작동할 수 있습니다. 동일한 API 버전을 사용 하 여 이후 버전에서 도입 된 주요 변경 내용에 대해서는 걱정할 필요가 없습니다.
 
 ## <a name="template-design"></a>템플릿 디자인
 
@@ -114,7 +116,7 @@ REQUEST BODY
 
 ![3계층 템플릿](./media/overview/3-tier-template.png)
 
-그러나 단일 템플릿에서 전체 인프라를 정의할 필요가 없습니다. 대부분 배포 요구 사항을 대상, 목적에 특정 템플릿 집합으로 나누는 것이 좋습니다. 서로 다른 솔루션에 이러한 템플릿을 쉽게 다시 사용할 수 있습니다. 특정 솔루션을 배포하려면 모든 필수 템플릿에 연결하는 마스터 템플릿을 만듭니다. 다음 이미지는 세 개의 중첩된 템플릿을 포함하는 부모 템플릿을 통해 3계층 솔루션을 배포하는 방법을 보여 줍니다.
+그러나 단일 템플릿에서 전체 인프라를 정의할 필요가 없습니다. 대부분 배포 요구 사항을 대상, 목적에 특정 템플릿 집합으로 나누는 것이 좋습니다. 서로 다른 솔루션에 이러한 템플릿을 쉽게 다시 사용할 수 있습니다. 특정 솔루션을 배포 하려면 필요한 모든 템플릿을 연결 하는 기본 템플릿을 만듭니다. 다음 이미지는 세 개의 중첩된 템플릿을 포함하는 부모 템플릿을 통해 3계층 솔루션을 배포하는 방법을 보여 줍니다.
 
 ![중첩된 계층 템플릿](./media/overview/nested-tiers-template.png)
 
@@ -127,6 +129,7 @@ REQUEST BODY
 ## <a name="next-steps"></a>다음 단계
 
 * 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](template-tutorial-create-first-template.md)를 참조하세요.
+* Microsoft Learn의 단계별 모듈 집합을 통한 ARM 템플릿에 대 한 자세한 내용은 [arm 템플릿을 사용 하 여 Azure에서 리소스 배포 및 관리](/learn/paths/deploy-manage-resource-manager-templates/)를 참조 하세요.
 * 템플릿 파일의 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 * 템플릿 내보내기에 대 한 자세한 내용은 [빠른 시작: Azure Portal 사용 하 여 ARM 템플릿 만들기 및 배포](quickstart-create-templates-use-the-portal.md)를 참조 하세요.
 * 일반적인 질문에 대 한 대답은 [ARM 템플릿에 대 한](frequently-asked-questions.md)질문과 대답을 참조 하세요.

@@ -3,18 +3,18 @@ title: Azure Application Insights에서 Search 사용 | Microsoft Docs
 description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324457"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187020"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
 Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](./app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
 
-(사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../log-query/get-started-portal.md)를 사용합니다.)
+(사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../log-query/log-analytics-tutorial.md)를 사용합니다.)
 
 ## <a name="where-do-you-see-search"></a>Search 기능은 어디에 있나요?
 
@@ -28,7 +28,7 @@ Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원
 
 드롭다운 메뉴를 클릭 하거나 새로 고쳐 새 이벤트를 가져옵니다.
 
-### <a name="in-visual-studio"></a>Visual Studio에서
+### <a name="in-visual-studio"></a>Visual Studio
 
 Visual Studio에는 Application Insights Search 창도 있습니다. 이 창은 디버그 중인 애플리케이션에 의해 생성된 원격 분석 이벤트를 표시하는 데 가장 유용합니다. 하지만 게시된 앱에서 수집된 이벤트를 Azure Portal에 표시할 수도 있습니다.
 
@@ -81,7 +81,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 ## <a name="search-the-data"></a>데이터 검색
 
 > [!NOTE]
-> 더 복잡 한 쿼리를 작성 하려면 검색 블레이드의 위쪽에서 [**로그 (분석)**](../log-query/get-started-portal.md) 를 엽니다.
+> 더 복잡 한 쿼리를 작성 하려면 검색 블레이드의 위쪽에서 [**로그 (분석)**](../log-query/log-analytics-tutorial.md) 를 엽니다.
 >
 
 속성 값 중 하나에서 용어를 검색할 수 있습니다. 이는 속성 값을 사용 하 여 [사용자 지정 이벤트](./api-custom-events-metrics.md) 를 작성 한 경우에 유용 합니다.
@@ -92,14 +92,14 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 하위 문자열이 아닌 전체 단어를 검색합니다. 인용 부호를 사용하여 특수 문자를 묶습니다.
 
-| 문자열 | 찾을 수 *없음* | 있음 |
+| String | 찾을 수 *없음* | 있음 |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |미국|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
 
 다음은 사용할 수 있는 검색 식입니다.
 
-| 샘플 쿼리 | 효과 |
+| 샘플 쿼리 | 영향 |
 | --- | --- |
 | `apple` |지정된 시간 범위의 필드에 단어 "apple"이 포함된 모든 이벤트를 찾습니다. |
 | `apple AND banana` <br/>`apple banana` |두 단어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요. <br/>약식입니다. |
@@ -116,7 +116,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 원격 분석 항목의 세부 정보를 이용하여 GitHub 또는 Azure DevOps에서 버그를 만들 수 있습니다.
 
-원격 분석 항목을 클릭 하 여 종단 간 트랜잭션 세부 정보 뷰로 이동한 다음 **작업 항목 만들기**를 선택 합니다.
+원격 분석 항목을 클릭 하 여 종단 간 트랜잭션 세부 정보 뷰로 이동한 다음 **작업 항목 만들기** 를 선택 합니다.
 
 ![새 작업 항목을 클릭하고, 필드를 편집한 다음 확인을 클릭합니다.](./media/diagnostic-search/work-item.png)
 
@@ -145,8 +145,7 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
 ## <a name="next-steps"></a><a name="add"></a>다음 단계
 
-* [분석에서 복잡한 쿼리 작성](../log-query/get-started-portal.md)
+* [분석에서 복잡한 쿼리 작성](../log-query/log-analytics-tutorial.md)
 * [Application Insights에 로그 및 사용자 지정 원격 분석 전송](./asp-net-trace-logs.md)
 * [가용성 및 응답성 테스트 설정](./monitor-web-app-availability.md)
 * [문제 해결](../faq.md)
-

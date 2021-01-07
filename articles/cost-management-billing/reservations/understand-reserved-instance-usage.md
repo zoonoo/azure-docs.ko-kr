@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: b1b5a344da20bff31f85a2d3cb20a0a35e4c4bde
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 522b67e62e7ad8560bb48e8d056ca6daeeb45251
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681926"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350911"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>종량제 요금을 사용하는 개별 구독에 대한 Azure 예약 사용량 이해
 
@@ -47,14 +47,14 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 ### <a name="daily-usage-section-of-csv-file"></a>CSV 파일의 일일 사용량 섹션
 
-**추가 정보**를 필터링하고 **Reservation ID**를 입력합니다. 다음 스크린샷에서는 예약과 관련된 필드를 보여줍니다.
+**추가 정보** 를 필터링하고 **Reservation ID** 를 입력합니다. 다음 스크린샷에서는 예약과 관련된 필드를 보여줍니다.
 
 ![일일 사용량 세부 정보 및 요금 스크린샷](./media/understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
 
-1. **추가 정보** 필드의 **ReservationId**는 VM에 적용된 예약입니다.
-2. **ConsumptionMeter**는 VM에 대한 요금제 ID입니다.
+1. **추가 정보** 필드의 **ReservationId** 는 VM에 적용된 예약입니다.
+2. **ConsumptionMeter** 는 VM에 대한 요금제 ID입니다.
 3. **예약 - 기본 VM** **요금제 하위 범주** 줄은 명령문 섹션에 있는 $0인 비용을 나타냅니다. 예약에서 이미 이 VM 실행 비용을 지불했습니다.
-4. **요금제 ID**는 예약에 대한 요금제 ID입니다. 이 요금제의 비용은 $0입니다. 이 요금제 ID는 예약 할인을 받을 수 있는 VM에 표시됩니다.
+4. **요금제 ID** 는 예약에 대한 요금제 ID입니다. 이 요금제의 비용은 $0입니다. 이 요금제 ID는 예약 할인을 받을 수 있는 VM에 표시됩니다.
 5. Standard_DS1_v2는 하나의 vCPU VM이며 해당 VM은 Azure Hybrid Benefit 없이 배포됩니다. 따라서 이 요금제는 Windows 소프트웨어의 추가 요금을 포함합니다. D 시리즈 1개 코어 VM에 해당하는 요금제를 찾으려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](reserved-instance-windows-software-costs.md)을 참조하세요. Azure 하이브리드 혜택이 있는 경우 이 추가 비용이 적용되지 않습니다.
 
 ## <a name="usage-for-sql-database--cosmos-db-reservations"></a>SQL Database 및 Cosmos DB 예약의 사용량
@@ -74,19 +74,19 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 **예약 인스턴스 사용량** 미터 이름으로 필터링하고 필수 **미터 범주**(Azure SQL Database 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
 
-![SQL Database 예약된 용량에 대한 CSV 파일](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![스크린샷은 미터 범주 항목을 보여줍니다.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 **예약된 인스턴스 사용량** 줄에는 예약에 포함되는 총 코어 시간이 있습니다. 예약에서 비용을 포함하므로 이 줄에 대한 요금은 $0입니다.
 
 ### <a name="detail-section-of-csv-file"></a>CSV 파일의 세부 정보 섹션
 
-**추가 정보**를 필터링하고 **Reservation ID**를 입력합니다. 다음 스크린샷은 SQL Database 예약된 용량 예약과 관련된 필드를 보여 줍니다.
+**추가 정보** 를 필터링하고 **Reservation ID** 를 입력합니다. 다음 스크린샷은 SQL Database 예약된 용량 예약과 관련된 필드를 보여 줍니다.
 
-![SQL Database 예약된 용량에 대한 CSV 파일](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![스크린샷은 예약 용량에 대한 CSV 파일의 세부 정보를 보여줍니다.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
-1. **추가 정보** 필드의 **ReservationId**는 SQL Database 리소스에 적용되는 SQL Database 예약된 용량 예약입니다.
-2. **ConsumptionMeter**는 SQL Database 리소스에 대한 요금제 ID입니다.
-3. **요금제 ID**는 예약 요금제입니다. 이 요금제의 비용은 $0입니다. 예약 할인을 받을 수 있는 모든 SQL Database 리소스는 이 요금제 ID를 CSV 파일로 표시합니다.
+1. **추가 정보** 필드의 **ReservationId** 는 SQL Database 리소스에 적용되는 SQL Database 예약된 용량 예약입니다.
+2. **ConsumptionMeter** 는 SQL Database 리소스에 대한 요금제 ID입니다.
+3. **요금제 ID** 는 예약 요금제입니다. 이 요금제의 비용은 $0입니다. 예약 할인을 받을 수 있는 모든 SQL Database 리소스는 이 요금제 ID를 CSV 파일로 표시합니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
@@ -97,7 +97,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
-- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../azure-sql/database/reserved-capacity-overview.md)
 - [Azure Reservations 관리](manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](../manage/understand-vm-reservation-charges.md)

@@ -4,16 +4,16 @@ description: Azure Blockchain Service 개요
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 2a28baeb6de3c8ca1e8ad89e11d45b492f33588c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc716b475fe85170d595463e0785743591e398c1
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076956"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874562"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service란?
 
-Azure Blockchain Service는 사용자가 Azure에서 대규모로 Blockchain 네트워크를 확장하고 작동할 수 있도록 하는 완전 관리형 원장 서비스입니다. Azure Blockchain Service는 blockchain 네트워크 거버넌스 뿐만 아니라 인프라 관리를 통합적으로 제어하여 다음 기능을 제공합니다.
+Azure Blockchain Service는 사용자가 Azure에서 대규모로 블록체인 네트워크를 확장하고 운영할 수 있는 기능을 제공하는 완전 관리형 원장 서비스입니다. Azure Blockchain Service는 blockchain 네트워크 거버넌스 뿐만 아니라 인프라 관리를 통합적으로 제어하여 다음 기능을 제공합니다.
 
 * 간단한 네트워크 배포 및 작업
 * 기본 제공 컨소시엄 관리
@@ -29,11 +29,11 @@ Azure Blockchain Service는 Azure Portal이나 Azure CLI를 통해 배포할 수
 
 ### <a name="performance-and-service-tiers"></a>성능 및 서비스 계층
 
-Azure Blockchain Service는 두 가지 서비스 계층인 *기본* 및 *표준*을 제공합니다. 각 계층은 경량 개발 및 테스트 워크로드에서 대규모로 확장된 프로덕션 블록체인 배포까지 지원할 수 있는 다양한 성능 및 기능을 제공합니다. 개발, 테스트 및 개념 증명에 *기본* 계층을 사용합니다. 프로덕션 등급 배포에 *표준* 계층을 사용합니다. 두 계층 모두 하나 이상의 트랜잭션 노드와 하나의 유효성 검사기 노드(기본) 또는 두 개의 유효성 검사기 노드(표준)를 포함합니다. 
+Azure Blockchain Service는 두 가지 서비스 계층인 *기본* 및 *표준* 을 제공합니다. 각 계층은 경량 개발 및 테스트 워크로드에서 대규모로 확장된 프로덕션 블록체인 배포까지 지원할 수 있는 다양한 성능 및 기능을 제공합니다. 개발, 테스트 및 개념 증명에 *기본* 계층을 사용합니다. 프로덕션 등급 배포에 *표준* 계층을 사용합니다. 두 계층 모두 하나 이상의 트랜잭션 노드와 하나의 유효성 검사기 노드(기본) 또는 두 개의 유효성 검사기 노드(표준)를 포함합니다. 
 
 ![가격 책정 계층](./media/overview/pricing-tiers.png)
 
-두 개의 유효성 검사기 노드를 제공하는 것 외에도 *표준* 계층은 각 트랜잭션 및 유효성 검사기 노드에 대해 2개의 *vCore*를 제공하지만, *기본* 계층은 1개의 vCore 구성을 제공합니다.  트랜잭션 및 유효성 검사기 노드에 대해 2개의 vCore를 제공하므로, 1개 vCore는 Quorum 원장에 전용될 수 있고, 나머지 1개 vCore는 다른 인프라 관련 서비스에 사용할 수 있으므로 프로덕션 블록체인 워크로드의 성능을 최적화할 수 있습니다. 가격 책정 정보에 대한 자세한 내용은 [Azure Blockchain Service 가격 책정](https://azure.microsoft.com/pricing/details/blockchain-service)을 참조하세요.
+두 개의 유효성 검사기 노드를 제공하는 것 외에도 *표준* 계층은 각 트랜잭션 및 유효성 검사기 노드에 대해 2개의 *vCore* 를 제공하지만, *기본* 계층은 1개의 vCore 구성을 제공합니다.  트랜잭션 및 유효성 검사기 노드에 대해 2개의 vCore를 제공하므로, 1개 vCore는 Quorum 원장에 전용될 수 있고, 나머지 1개 vCore는 다른 인프라 관련 서비스에 사용할 수 있으므로 프로덕션 블록체인 워크로드의 성능을 최적화할 수 있습니다. 가격 책정 정보에 대한 자세한 내용은 [Azure Blockchain Service 가격 책정](https://azure.microsoft.com/pricing/details/blockchain-service)을 참조하세요.
 
 ### <a name="security-and-maintenance"></a>보안 및 유지 관리
 
@@ -45,7 +45,7 @@ Azure Blockchain Service는 두 가지 서비스 계층인 *기본* 및 *표준*
 
 또한 Azure Blockchain Service는 Azure Monitor Service를 통해 노드의 CPU, 메모리 및 스토리지 사용량에 대한 인사이트를 제공하는 풍부한 메트릭을 제공합니다.  또한 Azure Monitor는 채굴한 트랜잭션 및 블록, 트랜잭션 큐 수준, 활성 연결 등과 같이 블록체인 네트워크 활동에 대한 유용한 인사이트를 제공합니다.  블록체인 애플리케이션에 중요한 인사이트를 볼 수 있도록 메트릭을 사용자 지정할 수 있습니다.  또한 경고에 임계값을 정의하여 사용자가 메일 또는 문자 메시지를 보내거나, 논리 앱, Azure 함수를 실행하거나, 사용자 지정된 웹후크로 전송하는 것과 같은 작업을 트리거할 수 있도록 합니다.
 
-![메트릭](./media/overview/metrics.png)
+![화면 캡처는 블록, 트랜잭션, 보류 중인 트랜잭션 및 처리된 요청에 대한 값이 포함된 모니터링을 보여줍니다.](./media/overview/metrics.png)
 
 Azure Log Analytics를 통해 사용자는 Quorum 원장과 관련된 로그 또는 트랜잭션 노드에 대해 시도된 연결과 같은 기타 중요한 정보를 볼 수 있습니다.
 
@@ -77,7 +77,7 @@ Microsoft 엔지니어 및 Azure Blockchain 커뮤니티 전문가와 소통하�
 
 * [Azure Blockchain Service에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-blockchain-service.html)
 * [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
-* [스택 오버플로](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-blockchain-service)
 
 ## <a name="next-steps"></a>다음 단계
 

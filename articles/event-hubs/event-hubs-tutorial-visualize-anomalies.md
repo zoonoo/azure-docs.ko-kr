@@ -3,12 +3,12 @@ title: Azure Event Hubs - 실시간 이벤트에서 데이터 변칙 시각화
 description: '자습서: Microsoft Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b72b82f3959565e6bd0598fef8e21bb64fedb053
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934058"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655682"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -26,14 +26,12 @@ Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 �
 
 이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - [Visual Studio](https://www.visualstudio.com/)를 설치합니다. 
 - Stream Analytics 작업에서 출력을 분석하려면 Power BI 계정이 필요합니다. [Power BI 평가판](https://app.powerbi.com/signupredirect?pbi_source=web)을 사용할 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-resources"></a>리소스 설정
 
@@ -154,11 +152,11 @@ GitHub의 Event Hubs [샘플](https://github.com/Azure/azure-event-hubs/tree/mas
 
 1. GitHub에서 [Azure Event Hubs 샘플](https://github.com/Azure/azure-event-hubs/archive/master.zip)을 다운로드하여 로컬에 압축을 풉니다.
 2. **\azure-event-hubs-master\samples\DotNet\\** 폴더로 이동합니다. 
-3. **Azure.Messaging.EventHubs\AnomalyDetector\\** 폴더로 전환하고 **AnomalyDetector.sln**을 두 번 클릭하여 Visual Studio에서 솔루션을 엽니다. 
+3. **Azure.Messaging.EventHubs\AnomalyDetector\\** 폴더로 전환하고 **AnomalyDetector.sln** 을 두 번 클릭하여 Visual Studio에서 솔루션을 엽니다. 
 
     이전 Microsoft.Azure.EventHubs 패키지를 사용하는 이전 버전의 샘플을 사용하려면 **Microsoft.Azure.EventHubs\AnomalyDetector** 폴더에서 솔루션을 엽니다. 
-3. Program.cs를 열고 **Event Hubs connection string**을 스크립트를 실행할 때 저장한 연결 문자열로 바꿉니다. 
-4. **Event Hub name**을 이벤트 허브 이름으로 바꿉니다. F5를 클릭하여 애플리케이션을 실행합니다. 이벤트 허브로 이벤트를 보내기 시작하고 1000개 이벤트를 보낼 때까지 계속합니다. 데이터를 검색하려면 앱을 실행해야 하는 경우가 있습니다. 이러한 경우는 필요하면 다음 지침에서 다룹니다.
+3. Program.cs를 열고 **Event Hubs connection string** 을 스크립트를 실행할 때 저장한 연결 문자열로 바꿉니다. 
+4. **Event Hub name** 을 이벤트 허브 이름으로 바꿉니다. F5를 클릭하여 애플리케이션을 실행합니다. 이벤트 허브로 이벤트를 보내기 시작하고 1000개 이벤트를 보낼 때까지 계속합니다. 데이터를 검색하려면 앱을 실행해야 하는 경우가 있습니다. 이러한 경우는 필요하면 다음 지침에서 다룹니다.
 
 ## <a name="set-up-azure-stream-analytics"></a>Azure Stream Analytics 설정
 
@@ -166,11 +164,11 @@ GitHub의 Event Hubs [샘플](https://github.com/Azure/azure-event-hubs/tree/mas
 
 ### <a name="create-the-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-1. Azure Portal에서 **리소스 만들기**를 클릭합니다. 검색 상자에 **stream analytics**를 입력하고 **Enter**를 누릅니다. **Stream Analytics 작업**을 선택합니다. Stream Analytics 작업 창에서 **만들기**를 클릭합니다. 
+1. Azure Portal에서 **리소스 만들기** 를 클릭합니다. 검색 상자에 **stream analytics** 를 입력하고 **Enter** 를 누릅니다. **Stream Analytics 작업** 을 선택합니다. Stream Analytics 작업 창에서 **만들기** 를 클릭합니다. 
 
 2. 작업에 대해 다음 정보를 입력합니다.
 
-   **작업 이름**: **contosoEHjob**을 사용합니다. 이 필드는 작업의 이름이며 전역에서 고유해야 합니다.
+   **작업 이름**: **contosoEHjob** 을 사용합니다. 이 필드는 작업의 이름이며 전역에서 고유해야 합니다.
 
    **구독**: 구독을 선택합니다.
 
@@ -180,30 +178,30 @@ GitHub의 Event Hubs [샘플](https://github.com/Azure/azure-event-hubs/tree/mas
 
    ![새 Azure Stream Analytics 작업을 만드는 방법을 보여주는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
-    나머지 필드는 기본값을 그대로 사용합니다. **만들기**를 클릭합니다. 
+    나머지 필드는 기본값을 그대로 사용합니다. **만들기** 를 클릭합니다. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics 작업에 입력 추가
 
-**Stream Analytics 작업** 창에서 포털에 있지 않으면 포털의 **리소스 그룹**을 클릭하고 리소스 그룹(**ContosoResourcesEH**)을 선택하여 Stream Analytics 작업으로 돌아갈 수 있습니다. 이 작업은 그룹의 모든 리소스를 표시하므로 자신의 Stream Analytics 작업을 선택할 수 있습니다. 
+**Stream Analytics 작업** 창에서 포털에 있지 않으면 포털의 **리소스 그룹** 을 클릭하고 리소스 그룹(**ContosoResourcesEH**)을 선택하여 Stream Analytics 작업으로 돌아갈 수 있습니다. 이 작업은 그룹의 모든 리소스를 표시하므로 자신의 Stream Analytics 작업을 선택할 수 있습니다. 
 
 Stream Analytics 작업 입력은 이벤트 허브로부터의 신용 카드 거래입니다.
 
 > [!NOTE]
 > 달러 기호($)로 시작되는 변수의 값은 이전 섹션의 시작 스크립트에서 설정되었습니다. Event Hubs 네임스페이스와 이벤트 허브 이름 등, 해당 필드를 지정할 때와 동일한 값을 여기서 사용해야 합니다.
 
-1. **작업 토폴로지**에서 **입력**을 클릭합니다.
+1. **작업 토폴로지** 에서 **입력** 을 클릭합니다.
 
-2. **입력** 창에서 **스트림 입력 추가**를 클릭하고 Event Hubs를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
+2. **입력** 창에서 **스트림 입력 추가** 를 클릭하고 Event Hubs를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
 
-   **입력 별칭**: **contosoinputs**를 사용합니다. 이 필드는 데이터에 대한 쿼리를 정의할 때 사용한 입력 스트림의 이름입니다.
+   **입력 별칭**: **contosoinputs** 를 사용합니다. 이 필드는 데이터에 대한 쿼리를 정의할 때 사용한 입력 스트림의 이름입니다.
 
    **구독**: 구독을 선택합니다.
 
    **Event Hubs 네임스페이스**: Event Hub 네임스페이스($**eventHubNamespace**)를 선택합니다. 
 
-   **Event Hub 이름**: **기존 항목 사용**을 클릭하고, 이벤트 허브($**eventHubName**)를 선택합니다.
+   **Event Hub 이름**: **기존 항목 사용** 을 클릭하고, 이벤트 허브($**eventHubName**)를 선택합니다.
 
-   **Event Hubs 정책 이름**: **RootManageSharedAccessKey**를 선택합니다.
+   **Event Hubs 정책 이름**: **RootManageSharedAccessKey** 를 선택합니다.
 
    **Event Hubs 소비자 그룹**: 기본 소비자 그룹을 사용하려면 이 필드를 비워 둡니다.
 
@@ -211,35 +209,35 @@ Stream Analytics 작업 입력은 이벤트 허브로부터의 신용 카드 거
 
    ![Stream Analytics 작업에 입력 스트림을 추가하는 방법을 보여주는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
-5. **저장**을 클릭합니다.
+5. **저장** 을 클릭합니다.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics 작업에 출력 추가
 
-1. **작업 토폴로지**에서 **출력**을 클릭합니다. 이 필드는 데이터에 대한 쿼리를 정의할 때 사용한 출력 스트림의 이름입니다.
+1. **작업 토폴로지** 에서 **출력** 을 클릭합니다. 이 필드는 데이터에 대한 쿼리를 정의할 때 사용한 출력 스트림의 이름입니다.
 
-2. **출력** 창에서 **추가**를 클릭한 다음, **Power BI**를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
+2. **출력** 창에서 **추가** 를 클릭한 다음, **Power BI** 를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
 
-   **출력 별칭**: **contosooutputs**를 사용합니다. 이 필드는 출력에 대한 고유 별칭입니다. 
+   **출력 별칭**: **contosooutputs** 를 사용합니다. 이 필드는 출력에 대한 고유 별칭입니다. 
 
-   **데이터 세트 이름**: **contosoehdataset**를 사용합니다. 이 필드는 Power BI에 사용할 데이터 세트의 이름입니다. 
+   **데이터 세트 이름**: **contosoehdataset** 를 사용합니다. 이 필드는 Power BI에 사용할 데이터 세트의 이름입니다. 
 
-   **테이블 이름**: **contosoehtable**을 사용합니다. 이 필드는 Power BI에 사용할 테이블의 이름입니다. 
+   **테이블 이름**: **contosoehtable** 을 사용합니다. 이 필드는 Power BI에 사용할 테이블의 이름입니다. 
 
    나머지 필드는 기본값을 그대로 사용합니다.
 
    ![Stream Analytics 작업에 대한 출력을 설정하는 방법을 보여주는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-outputs.png)
 
-3. **권한 부여**를 클릭하고 사용자의 Power BI 계정에 로그인합니다.
+3. **권한 부여** 를 클릭하고 사용자의 Power BI 계정에 로그인합니다.
 
 4. 나머지 필드는 기본값을 그대로 사용합니다.
 
-5. **저장**을 클릭합니다.
+5. **저장** 을 클릭합니다.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics 작업의 쿼리 구성
 
-이 쿼리는 궁극적으로 Power BI 시각화로 전송되는 데이터를 검색하는 데 사용됩니다. 이전에 작업을 설정할 때 정의한 **contosoinputs** 및 **contosooutputs**를 사용합니다. 이 쿼리는 사기로 간주되는 신용카드 거래를 검색합니다. 즉 같은 5초 간격 안에 서로 다른 위치에서 동일한 신용카드 번호에 여러 거래가 발생한 경우입니다.
+이 쿼리는 궁극적으로 Power BI 시각화로 전송되는 데이터를 검색하는 데 사용됩니다. 이전에 작업을 설정할 때 정의한 **contosoinputs** 및 **contosooutputs** 를 사용합니다. 이 쿼리는 사기로 간주되는 신용카드 거래를 검색합니다. 즉 같은 5초 간격 안에 서로 다른 위치에서 동일한 신용카드 번호에 여러 거래가 발생한 경우입니다.
 
-1. **작업 토폴로지**에서 **쿼리**를 클릭합니다.
+1. **작업 토폴로지** 에서 **쿼리** 를 클릭합니다.
 
 2. 쿼리를 다움으로 바꿉니다. 
 
@@ -262,23 +260,23 @@ Stream Analytics 작업 입력은 이벤트 허브로부터의 신용 카드 거
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. **저장**을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
 ### <a name="test-the-query-for-the-stream-analytics-job"></a>Stream Analytics 작업에 대해 쿼리 테스트 
 
 1. Anomaly Detector 앱을 실행하여 테스트를 설정 및 실행하는 동안 이벤트 허브로 데이터를 보냅니다. 
 
-2. 쿼리 창에서 **contosoinputs** 입력 옆에 있는 점을 클릭한 다음, **입력의 샘플 데이터**를 선택합니다.
+2. 쿼리 창에서 **contosoinputs** 입력 옆에 있는 점을 클릭한 다음, **입력의 샘플 데이터** 를 선택합니다.
 
-3. 3분 데이터를 지정하고 **확인**을 클릭합니다. 데이터가 샘플링되었다는 알림을 받을 때까지 기다립니다.
+3. 3분 데이터를 지정하고 **확인** 을 클릭합니다. 데이터가 샘플링되었다는 알림을 받을 때까지 기다립니다.
 
-4. **테스트**를 클릭하고 결과를 가져오는지 확인합니다. 결과가 아래쪽 창의 **결과** 섹션에서 쿼리 아래 오른쪽에 표시됩니다.
+4. **테스트** 를 클릭하고 결과를 가져오는지 확인합니다. 결과가 아래쪽 창의 **결과** 섹션에서 쿼리 아래 오른쪽에 표시됩니다.
 
 5. 쿼리 창을 닫습니다.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
-Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클릭합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨**에서 **실행 중**으로 변경됩니다.
+Stream Analytic 작업에서 **시작**, **지금**, **시작** 을 차례로 클릭합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨** 에서 **실행 중** 으로 변경됩니다.
 
 ## <a name="set-up-the-power-bi-visualizations"></a>Power BI 시각화 설정
 
@@ -286,35 +284,35 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
 2. [Power BI](https://powerbi.microsoft.com/) 계정에 로그인합니다.
 
-3. **내 작업 영역**으로 이동합니다.
+3. **내 작업 영역** 으로 이동합니다.
 
-4. **데이터 세트**를 클릭합니다.
+4. **데이터 세트** 를 클릭합니다.
 
    Stream Analytics 작업에 대한 출력을 만들 때 지정한 데이터 세트가 표시됩니다(**contosoehdataset**). 데이터 세트를 처음 표시할 때는 5-10분이 걸릴 수 있습니다.
 
-5. **대시보드**를 클릭한 다음, **만들기**를 클릭하고 **대시보드**를 선택합니다.
+5. **대시보드** 를 클릭한 다음, **만들기** 를 클릭하고 **대시보드** 를 선택합니다.
 
    ![대시보드 및 만들기 단추 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-dashboard.png)
 
-6. 대시보드 이름을 지정한 다음, **만들기**를 클릭합니다. **신용 카드 변칙**을 사용합니다.
+6. 대시보드 이름을 지정한 다음, **만들기** 를 클릭합니다. **신용 카드 변칙** 을 사용합니다.
 
    ![대시보드 이름을 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. 대시보드 페이지에서 **타일 추가**를 클릭하고 **REAL-TIME DATA**에서 **사용자 지정 스트리밍 데이터**를 선택한 후, **다음**을 클릭합니다.
+7. 대시보드 페이지에서 **타일 추가** 를 클릭하고 **REAL-TIME DATA** 에서 **사용자 지정 스트리밍 데이터** 를 선택한 후, **다음** 을 클릭합니다.
 
    ![타일 원본을 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
-8. 데이터 세트(**contosoehdataset**)를 선택하고 **다음**을 클릭합니다.
+8. 데이터 세트(**contosoehdataset**)를 선택하고 **다음** 을 클릭합니다.
 
    ![데이터 세트를 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. 시각화 형식으로 **카드**를 선택합니다. **필드**에서 **값 추가**를 클릭한 다음, `fraudulentuses`를 선택합니다.
+9. 시각화 형식으로 **카드** 를 선택합니다. **필드** 에서 **값 추가** 를 클릭한 다음, `fraudulentuses`를 선택합니다.
 
    ![시각화 형식 및 필드를 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
-   **다음**을 클릭합니다.
+   **다음** 을 클릭합니다.
 
-10. 제목을 **사기성 사용**으로, 부제목을 **지난 몇 분 동안의 합계**로 설정합니다. **적용**을 클릭합니다. 대시보드에 타일을 저장합니다.
+10. 제목을 **사기성 사용** 으로, 부제목을 **지난 몇 분 동안의 합계** 로 설정합니다. **적용** 을 클릭합니다. 대시보드에 타일을 저장합니다.
 
     ![대시보드 타일의 제목 및 부제목을 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
@@ -322,20 +320,20 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
     > 샘플 애플리케이션을 실행하고 데이터를 이벤트 허브로 스트리밍하면, 이 타일의 숫자가 빠르게(1초마다) 변경됩니다. 이것은 Stream Analytics 쿼리가 실제로 **매초마다** 값을 업데이트하기 때문입니다. 지난 수분간의 합계를 보려면 쿼리를 3분간의 연속 창으로 업데이트합니다. 
 11. 다른 시각화를 추가합니다. 처음 몇 단계를 다시 반복합니다.
 
-    * **타일 추가**를 클릭합니다.
-    * **사용자 지정 스트리밍 데이터**를 선택합니다. 
-    * **다음**을 클릭합니다.
-    * 데이터 세트를 선택하고 **다음**을 클릭합니다. 
+    * **타일 추가** 를 클릭합니다.
+    * **사용자 지정 스트리밍 데이터** 를 선택합니다. 
+    * **다음** 을 클릭합니다.
+    * 데이터 세트를 선택하고 **다음** 을 클릭합니다. 
 
-12. **시각화 형식**에서 **꺾은선형 차트**를 선택합니다.
+12. **시각화 형식** 에서 **꺾은선형 차트** 를 선택합니다.
 
-13. **축**에서 **값 추가**를 클릭하고 `windowend`를 선택합니다. 
+13. **축** 에서 **값 추가** 를 클릭하고 `windowend`를 선택합니다. 
 
-14. **값**에서 **값 추가**를 클릭하고 `fraudulentuses`를 선택합니다.
+14. **값** 에서 **값 추가** 를 클릭하고 `fraudulentuses`를 선택합니다.
 
-15. **표시할 시간 창**에 지난 5분을 선택합니다. **다음**을 클릭합니다.
+15. **표시할 시간 창** 에 지난 5분을 선택합니다. **다음** 을 클릭합니다.
 
-16. 제목에 **시간 경과에 따른 사기성 사용 표시**를 입력하고 타일 부제목은 공백으로 둔 다음, **적용**을 클릭합니다. 대시보드로 돌아갑니다.
+16. 제목에 **시간 경과에 따른 사기성 사용 표시** 를 입력하고 타일 부제목은 공백으로 둔 다음, **적용** 을 클릭합니다. 대시보드로 돌아갑니다.
 
 17. Anomaly Detector 앱을 다시 실행하여 일부 데이터를 이벤트 허브로 보냅니다. 데이터 분석에 따라 **사기성 사용** 타일이 변경되고 꺾은선형 차트가 데이터를 표시합니다. 
 
@@ -347,7 +345,7 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Power BI 시각화에서 리소스 정리
 
-Power BI 계정에 로그인합니다. **내 작업 영역**으로 이동합니다. 대시보드 이름이 있는 줄에서 휴지통 아이콘을 클릭합니다. **데이터 세트**로 이동하고 휴지통 아이콘을 클릭하여 데이터 세트(**contosoehdataset**)를 삭제합니다.
+Power BI 계정에 로그인합니다. **내 작업 영역** 으로 이동합니다. 대시보드 이름이 있는 줄에서 휴지통 아이콘을 클릭합니다. **데이터 세트** 로 이동하고 휴지통 아이콘을 클릭하여 데이터 세트(**contosoehdataset**)를 삭제합니다.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Azure CLI를 사용하여 리소스 정리
 

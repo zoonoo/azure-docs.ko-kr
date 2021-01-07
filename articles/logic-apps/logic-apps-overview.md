@@ -1,20 +1,20 @@
 ---
-title: 엔터프라이즈 통합을 위한 작업 자동화
-description: Azure Logic Apps를 사용하여 엔터프라이즈 통합을 위한 최소한의 코드로 앱, 데이터, 서비스 및 시스템을 통합하는 워크플로를 자동화하는 방법을 알아봅니다.
+title: Azure Logic Apps 개요
+description: Azure Logic Apps는 엔터프라이즈 수준 시나리오에 대한 최소한의 코드로 앱, 데이터, 서비스 및 시스템을 통합하는 자동화된 워크플로를 빌드하고 오케스트레이션하기 위한 클라우드 솔루션입니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 3496dfd7813818ced8963175d73ec0f8ef6892d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4c4e8c8f809452286fee493e20dbef2cc538c8bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536235"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921529"
 ---
-# <a name="overview---what-is-azure-logic-apps"></a>개요 - Azure Logic Apps란?
+# <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 회사 또는 조직에서 앱, 데이터, 시스템 및 서비스를 통합해야 할 때 작업, 비즈니스 프로세스 및 [워크플로](#logic-app-concepts)를 예약, 자동화 및 오케스트레이션하는 데 유용한 클라우드 서비스입니다. Logic Apps는 클라우드, 온-프레미스 또는 둘 모두 중 어디에 있든 간에 앱 [통합](https://azure.microsoft.com/product-categories/integration/), 데이터 통합, 시스템 통합, EAI(엔터프라이즈 애플리케이션 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 설계하고 구축하는 방법을 간소화합니다.
 
@@ -110,7 +110,7 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 
 * 실행 지속 시간, 스토리지 보존, 처리량, HTTP 요청 및 응답 시간 제한, 메시지 크기 및 사용자 지정 커넥터 요청에 대한 제한이 증가합니다. 자세한 내용은 [Azure Logic Apps에 대한 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요.
 
-ISE를 만들 때 Azure는 해당 ISE를 Azure 가상 네트워크에 *삽입*하거나 배포합니다. 그런 다음, 액세스해야 하는 논리 앱 및 통합 계정의 위치로 이 ISE를 사용할 수 있습니다. ISE 만들기에 대한 자세한 내용은 [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조하세요.
+ISE를 만들 때 Azure는 해당 ISE를 Azure 가상 네트워크에 *삽입* 하거나 배포합니다. 그런 다음, 액세스해야 하는 논리 앱 및 통합 계정의 위치로 이 ISE를 사용할 수 있습니다. ISE 만들기에 대한 자세한 내용은 [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조하세요.
 
 ### <a name="built-in-extensibility"></a>기본 제공 확장성
 

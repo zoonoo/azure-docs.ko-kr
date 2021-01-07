@@ -8,12 +8,12 @@ ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
-ms.openlocfilehash: 34b767a2cc48c94fdb5c2db032321b9254bf4ce2
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 770f6e56a669ab2d9b425a7a2879eeef5d37377b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017696"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123426"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure Sphere 디바이스 추가
 
@@ -21,7 +21,7 @@ ms.locfileid: "90017696"
 
 이 문서에서는 Azure Sphere(DevKit) 디바이스를 Azure IoT Central 애플리케이션에 연결하는 방법을 보여 줍니다.
 
-Azure Sphere는 인터넷에 연결된 디바이스를 위한 기본 제공 통신 및 보안 기능을 갖춘 안전한 고급 애플리케이션 플랫폼입니다. 안전하게 연결된 교차형 MCU(마이크로 컨트롤러 단위), 사용자 지정 상위 수준 Linux 기반 OS(운영 체제) 및 지속적이고 갱신 가능한 보안을 제공하는 클라우드 기반 보안 서비스로 구성됩니다. 자세한 내용은 [Azure Sphere란?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere)을 참조하세요.
+Azure Sphere는 인터넷에 연결된 디바이스를 위한 기본 제공 통신 및 보안 기능을 갖춘 안전한 고급 애플리케이션 플랫폼입니다. 안전하게 연결된 교차형 MCU(마이크로 컨트롤러 단위), 사용자 지정 상위 수준 Linux 기반 OS(운영 체제) 및 지속적이고 갱신 가능한 보안을 제공하는 클라우드 기반 보안 서비스로 구성됩니다. 자세한 내용은 [Azure Sphere란?](/azure-sphere/product-overview/what-is-azure-sphere)을 참조하세요.
 
 [Azure Sphere 개발 키트](https://azure.microsoft.com/services/azure-sphere/get-started/)는 Azure Sphere 애플리케이션의 프로토타입 생성 및 개발을 시작하는 데 필요한 모든 것을 제공합니다. Azure Sphere를 사용한 Azure IoT Central을 통해 IoT 솔루션에 대한 엔드투엔드 스택을 사용할 수 있습니다. Azure Sphere는 디바이스 지원과 함께 IoT Central을 코드 없이 관리형 IoT 애플리케이션 플랫폼으로 제공합니다.
 
@@ -38,7 +38,7 @@ Azure Sphere는 인터넷에 연결된 디바이스를 위한 기본 제공 통�
 
 - Azure IoT Central 애플리케이션.
 - Visual Studio 2019, 버전 16.4 이상.
-- [Seeed Studios의 Azure Sphere MT3620 개발 키트](https://docs.microsoft.com/azure-sphere/hardware/mt3620-reference-board-design).
+- [Seeed Studios의 Azure Sphere MT3620 개발 키트](/azure-sphere/hardware/mt3620-reference-board-design).
 
 > [!NOTE]
 > 물리적 디바이스가 없는 경우에는 첫 번째 단계 후 마지막 섹션으로 건너뛰어 시뮬레이션된 디바이스를 시도합니다.
@@ -67,7 +67,7 @@ Azure Sphere DevKit 디바이스를 IoT Central에 연결하려면 [디바이스
 
 디바이스가 IoT Central에 연결되면 대시보드에서 원격 분석을 볼 수 있습니다.
 
-:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Azure Sphere DevKit를 위한 대시보드":::
+:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Azure Sphere DevKit에 대한 디바이스 템플릿":::
 
 ## <a name="create-a-simulated-device"></a>시뮬레이션된 디바이스 만들기
 

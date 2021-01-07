@@ -1,14 +1,14 @@
 ---
 title: 리소스 변경 내용 가져오기
 description: 리소스가 변경된 시기를 찾고 변경된 속성의 목록을 가져오고 차이를 평가하는 방법을 이해합니다.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056570"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203469"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 
@@ -28,7 +28,7 @@ ms.locfileid: "88056570"
 이 문서에서는 Resource Graph의 SDK를 통해 이 정보를 수집하는 방법을 보여 줍니다. Azure Portal에서 이 정보를 보려면 Azure Policy의 [변경 기록](../../policy/how-to/determine-non-compliance.md#change-history) 또는 Azure 활동 로그 [변경 기록](../../../azure-monitor/platform/activity-log.md#view-the-activity-log)을 참조하세요. 인프라 계층에서 애플리케이션 배포로 애플리케이션 변경에 대한 자세한 내용은 Azure Monitor에서 [애플리케이션 변경 분석(미리 보기) 사용](../../../azure-monitor/app/change-analysis.md)을 참조하세요.
 
 > [!NOTE]
-> Resource Graph의 변경 정보는 Resource Manager 속성에 대한 것입니다. 가상 머신 내의 변경 내용 추적은 Azure Automation의 [변경 내용 추적](../../../automation/change-tracking.md) 또는 Azure Policy의 [VM에 대한 게스트 구성](../../policy/concepts/guest-configuration.md)을 참조하세요.
+> Resource Graph의 변경 정보는 Resource Manager 속성에 대한 것입니다. 가상 머신 내의 변경 내용 추적은 Azure Automation의 [변경 내용 추적](../../../automation/change-tracking/overview.md) 또는 Azure Policy의 [VM에 대한 게스트 구성](../../policy/concepts/guest-configuration.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure Resource Graph의 변경 기록은 공개 미리 보기로 제공됩니다.
@@ -279,7 +279,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-**beforeSnapshot** 및 **afterSnapshot**은 각각 스냅샷을 만든 시간 및 해당 시점의 속성을 제공합니다. 이러한 스냅샷 간의 특정 지점에서 변경이 발생했습니다. 위의 예제를 살펴보면 변경된 속성이 **supportsHttpsTrafficOnly**인 것을 볼 수 있습니다.
+**beforeSnapshot** 및 **afterSnapshot**은 각각 스냅샷을 만든 시간 및 해당 시점의 속성을 제공합니다. 이러한 스냅샷 간의 특정 지점에서 변경이 발생했습니다. 이전 예제를 살펴보면 변경 된 속성이 **supportsHttpsTrafficOnly**된 것을 볼 수 있습니다.
 
 결과를 비교하려면 **resourceChanges**에서 **changes** 속성을 사용하거나 **resourceChangeDetails**에서 각 스냅샷의 **콘텐츠** 부분을 평가하여 차이점을 확인합니다. 스냅샷을 비교하는 경우 **타임스탬프**는 항상 예상됨에도 불구하고 차이점으로 표시됩니다.
 

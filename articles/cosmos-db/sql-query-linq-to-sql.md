@@ -3,19 +3,21 @@ title: Azure Cosmos DB에서 LINQ to SQL 변환
 description: 지원 되는 LINQ 연산자 및 LINQ 쿼리가 Azure Cosmos DB의 SQL 쿼리에 매핑되는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 7/29/2020
+ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 122c95fe9ac017ad7a6957dcdb8323837be34f21
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498857"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545386"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑을 수행 하는 데 가장 적합 한 작업을 수행 합니다. LINQ에서 변환 되는 SQL 쿼리를 가져오려면 `ToString()` 생성 된 개체에 대해 메서드를 사용 `IQueryable` 합니다. 다음 설명에서는 [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)에 대 한 기본적인 지식이 있다고 가정 합니다.
+Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑을 수행 하는 데 가장 적합 한 작업을 수행 합니다. LINQ에서 변환 되는 SQL 쿼리를 가져오려면 `ToString()` 생성 된 개체에 대해 메서드를 사용 `IQueryable` 합니다. 다음 설명에서는 [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)에 대 한 기본적인 지식이 있다고 가정 합니다. LINQ 외에도 Azure Cosmos DB는 SQL API와 작동 하는 [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) 지원 합니다.
 
 쿼리 공급자 유형 시스템은 JSON 기본 유형인 numeric, Boolean, string 및 null만 지원 합니다.
 
@@ -23,7 +25,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 - 쿼리 평가 시 기본 데이터 형식의 상수 값을 포함 하는 상수 값입니다.
   
-- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예를 들면 다음과 같습니다.
+- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 다음은 그 예입니다. 
   
   ```
     family.Id;
@@ -32,7 +34,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
     family.children[n].grade; //n is an int variable
   ```
   
-- 숫자 및 부울 값에 대 한 일반적인 산술 식을 포함 하는 산술 식 전체 목록은 [AZURE COSMOS DB SQL 사양을](sql-query-system-functions.md)참조 하십시오.
+- 숫자 및 부울 값에 대 한 일반적인 산술 식을 포함 하는 산술 식 전체 목록은 [AZURE COSMOS DB SQL 사양을](sql-query-aggregate-functions.md)참조 하십시오.
   
   ```
     2 * family.children[0].grade;
@@ -83,7 +85,7 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
 - **Where**: 필터를 [where](sql-query-where.md)로 변환 하 고, 및 `&&` 에서 `||` `!` SQL 연산자로의 변환을 지원 합니다.
 - **SelectMany**: [JOIN](sql-query-join.md) 절에 배열을 해제할 수 있습니다. 를 사용 하 여 배열 요소를 필터링 하는 식을 연결 하거나 중첩 합니다.
 - **OrderBy** 및 **OrderByDescending**: ASC 또는 DESC를 사용 하 [여 ORDER by](sql-query-order-by.md) 로 변환 합니다.
-- [집계](sql-query-aggregates.md)에 대 한 **Count**, **Sum**, **Min**, **Max**및 **Average** 연산자와 해당 비동기 해당 **CountAsync**, **sumasync**, **minasync**, **maxasync**및 **AverageAsync**입니다.
+- [집계](sql-query-aggregate-functions.md)에 대 한 **Count**, **Sum**, **Min**, **Max** 및 **Average** 연산자와 해당 비동기 해당 **CountAsync**, **sumasync**, **minasync**, **maxasync** 및 **AverageAsync** 입니다.
 - **CompareTo**: 범위 비교로 변환합니다. .NET에서는 비교할 수 없기 때문에 일반적으로 문자열에 사용 됩니다.
 - **Skip** 및 **Take**: 쿼리에서 결과를 제한 하 고 페이지 매김을 수행 하기 위한 [오프셋 및 제한](sql-query-offset-limit.md) 으로 변환 합니다.
 - **수치 연산 함수**: .net,,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` 및에서 `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` 해당 하는 [기본 제공 수학 함수로](sql-query-mathematical-functions.md)의 변환을 지원 합니다.

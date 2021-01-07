@@ -2,19 +2,21 @@
 title: Azure Cosmos DB에서 날짜 사용
 description: Azure Cosmos DB에서 DataTime 개체를 저장, 인덱싱 및 쿼리 하는 방법에 대해 알아봅니다.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7a524d34fcf8e629914d4fbc4669caada210866b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ba4d4e63bdd1e795bc1c599d0eae8a595aa0d643
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019191"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359526"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB에서 날짜 사용
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB는 네이티브 [JSON](https://www.json.org) 데이터 모델을 통해 스키마 유연성과 풍부한 인덱싱을 제공합니다. 데이터베이스, 컨테이너, 문서 및 저장 프로시저를 포함한 모든 Azure Cosmos DB 리소스는 모델링되어 JSON 문서로 저장됩니다. 이식 가능성을 위한 요구 사항인 JSON(및 Azure Cosmos DB)은 String, Number, Boolean, Array, Object 및 Null과 같은 기본 형식만 지원합니다. 그러나 JSON은 유연하므로 개발자와 프레임워크는 이러한 기본형을 사용하여 개체 또는 배열로 구성하여 보다 복잡한 형식을 나타낼 수 있습니다.
 
@@ -66,7 +68,7 @@ Datetime 문자열을 필터로 사용 하는 범위 쿼리는 DateTime 문자�
     }
 ```  
 
-또는 DateTime을 Unix 타임스탬프, 즉 1970년 1월 1일 이후로 경과된 초 수를 나타내는 숫자로 저장할 수 있습니다. Azure Cosmos DB의 내부 타임스탬프(`_ts`) 속성은 이 접근 방식을 따릅니다. [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) 클래스를 사용하여 DateTime을 숫자로 직렬화할 수 있습니다.
+또는 DateTime을 Unix 타임스탬프, 즉 1970년 1월 1일 이후로 경과된 초 수를 나타내는 숫자로 저장할 수 있습니다. Azure Cosmos DB의 내부 타임스탬프(`_ts`) 속성은 이 접근 방식을 따릅니다. [UnixDateTimeConverter](/dotnet/api/microsoft.azure.documents.unixdatetimeconverter) 클래스를 사용하여 DateTime을 숫자로 직렬화할 수 있습니다.
 
 ## <a name="querying-datetimes-in-linq"></a>LINQ에서 날짜/시간 쿼리
 
@@ -92,6 +94,6 @@ SQL .NET SDK는 LINQ를 통해 Azure Cosmos DB에 저장된 데이터의 쿼리�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [GitHub 샘플 코드](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)(영문)에서 코드 샘플을 다운로드하여 실행합니다.
+* [GitHub 샘플 코드](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples)(영문)에서 코드 샘플을 다운로드하여 실행합니다.
 * [SQL 쿼리](sql-query-getting-started.md)에 대한 자세한 정보
 * [Azure Cosmos DB 인덱싱 정책에 대해 알아보기](index-policy.md)

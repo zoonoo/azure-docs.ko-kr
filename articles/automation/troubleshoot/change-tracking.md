@@ -9,22 +9,22 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3ecd4330381db1f63a40e9ba5ff63108c6fa78fe
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187237"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205611"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
 
-이 문서에서는 Azure Automation 변경 내용 추적 및 인벤토리 문제를 해결하는 방법을 설명합니다. 변경 내용 추적 및 인벤토리에 대한 일반 정보는 [변경 내용 추적 및 인벤토리 개요](../change-tracking.md)를 참조하세요.
+이 문서에서는 Azure Automation 변경 내용 추적 및 인벤토리 문제를 해결하는 방법을 설명합니다. 변경 내용 추적 및 인벤토리에 대한 일반 정보는 [변경 내용 추적 및 인벤토리 개요](../change-tracking/overview.md)를 참조하세요.
 
 ## <a name="windows"></a>Windows
 
 ### <a name="scenario-change-tracking-and-inventory-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 및 인벤토리 레코드가 Windows 머신에 표시되지 않음
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 기능에 대해 사용하도록 설정된 Windows 머신에 대한 변경 내용 추적 및 인벤토리 결과가 표시되지 않습니다.
 
@@ -108,11 +108,11 @@ Heartbeat
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Linux용 Log Analytics 에이전트가 올바르게 구성되지 않았습니다.
 
-OMS 로그 수집기 도구를 사용하여 로그 및 명령줄 출력 컬렉션에 대해 Linux용 Log Analytics 에이전트가 올바르게 구성되어 있지 않을 수 있습니다. [변경 내용 추적 및 인벤토리 개요](../change-tracking.md)를 참조하세요.
+OMS 로그 수집기 도구를 사용하여 로그 및 명령줄 출력 컬렉션에 대해 Linux용 Log Analytics 에이전트가 올바르게 구성되어 있지 않을 수 있습니다. [변경 내용 추적 및 인벤토리 개요](../change-tracking/overview.md)를 참조하세요.
 
 ##### <a name="fim-conflicts"></a>FIM 충돌
 
-Azure Security Center의 FIM 기능이 Linux 파일의 무결성에 대해 잘못된 유효성 검사를 할 수 있습니다. FIM이 작동하고 Linux 파일 모니터링에 대해 올바르게 구성되어 있는지 확인합니다. [변경 내용 추적 및 인벤토리 개요](../change-tracking.md)를 참조하세요.
+Azure Security Center의 FIM 기능이 Linux 파일의 무결성에 대해 잘못된 유효성 검사를 할 수 있습니다. FIM이 작동하고 Linux 파일 모니터링에 대해 올바르게 구성되어 있는지 확인합니다. [변경 내용 추적 및 인벤토리 개요](../change-tracking/overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

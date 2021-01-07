@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600800"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412377"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하는 강력한 identity foundation에 대 한 4 단계
 
@@ -83,7 +83,7 @@ Azure AD 응용 프로그램 프록시는 다음과 같은 이점을 제공 합�
 
 Mcas ( [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) )를 사용 하면 사용자가 SSO 및 조건부 액세스와 같은 기능을 활용할 수 있도록 사용 권한 부여 하 고 엔터프라이즈 응용 프로그램 갤러리에 추가할 수 있는 사용자에 게 널리 사용 되는 유용한 앱을 식별할 수 있습니다.
 
-<em>"**Cloud App Security** Accenture를 보호 하는 데 도움이 되는 기본 보안 정책을 지 원하는 방식으로 사용자가 클라우드 및 SaaS 응용 프로그램을 제대로 사용 하 고 있는지 확인 하는 데 도움이 됩니다."</em> --- [John Blasi, Director 관리, 정보 보안, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>" **Cloud App Security** Accenture를 보호 하는 데 도움이 되는 기본 보안 정책을 지 원하는 방식으로 사용자가 클라우드 및 SaaS 응용 프로그램을 제대로 사용 하 고 있는지 확인 하는 데 도움이 됩니다."</em> --- [John Blasi, Director 관리, 정보 보안, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 섀도 IT를 검색 하는 것 외에도 MCAS는 앱의 위험 수준을 결정 하 고, 회사 데이터에 대 한 무단 액세스, 가능한 데이터 유출 및 기타 보안 위험을 응용 프로그램에 내재 할 수 있습니다.
 
@@ -131,7 +131,7 @@ PHS 또는 PTA를 선택 하는지 여부에 상관 없이, [원활한 Single si
 
 이 섹션에서는 유의 남은 시간 동안 사용자에 게 역량을 부여 하 여 조직에서의 마찰을 제거 하기 위한 권장 사항을 나열 합니다.
 
-### <a name="enable-self-service-password-reset-for-all-users"></a>모든 사용자에 대해 셀프 서비스 암호 재설정 사용
+### <a name="enable-self-service-password-reset-for-all-users"></a>모든 사용자에 대해 암호 재설정 Self-Service 사용
 
 Azure의 SSPR ( [셀프 서비스 암호 재설정](../authentication/tutorial-enable-sspr.md) )는 IT 관리자가 관리자 개입 없이 암호나 계정을 재설정 하 고 잠금을 해제할 수 있는 간단한 방법을 제공 합니다. 이 시스템에는 오용 또는 남용에 대해 경고하는 알림과 함께 사용자가 언제 시스템에 액세스하는지 추적하는 구체적인 보고서가 포함되어 있습니다.
 
@@ -147,7 +147,7 @@ MFA [로그인 보고서](../authentication/howto-mfa-reporting.md) 에는 mfa �
 
 ### <a name="self-service-app-management"></a>셀프 서비스 앱 관리
 
-사용자가 액세스 패널에서 응용 프로그램을 자체 검색할 수 있으려면 먼저 사용자가 직접 검색 하 고 액세스를 요청할 수 있도록 하려는 모든 응용 프로그램에 대 한 [셀프 서비스 응용 프로그램 액세스](../manage-apps/access-panel-manage-self-service-access.md) 를 사용 하도록 설정 해야 합니다. 셀프 서비스 응용 프로그램 액세스는 사용자가 응용 프로그램을 직접 검색할 수 있도록 하 고 필요에 따라 비즈니스 그룹이 해당 응용 프로그램에 대 한 액세스를 승인할 수 있도록 하는 좋은 방법입니다. 비즈니스 그룹이 액세스 패널에서 바로 [암호 Single Sign-on 응용 프로그램](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) 에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
+사용자가 액세스 패널에서 응용 프로그램을 자체 검색할 수 있으려면 먼저 사용자가 직접 검색 하 고 액세스를 요청할 수 있도록 하려는 모든 응용 프로그램에 대 한 [셀프 서비스 응용 프로그램 액세스](../manage-apps/access-panel-manage-self-service-access.md) 를 사용 하도록 설정 해야 합니다. 셀프 서비스 응용 프로그램 액세스는 사용자가 응용 프로그램을 직접 검색할 수 있도록 하 고 필요에 따라 비즈니스 그룹이 해당 응용 프로그램에 대 한 액세스를 승인할 수 있도록 하는 좋은 방법입니다. 비즈니스 그룹이 액세스 패널에서 바로 [응용 프로그램의 암호 Single-Sign](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) 에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
 
 ### <a name="self-service-group-management"></a>셀프 서비스 그룹 관리
 
@@ -156,7 +156,7 @@ MFA [로그인 보고서](../authentication/howto-mfa-reporting.md) 에는 mfa �
 * 동적 그룹 멤버 자격을 사용한 특성 기반
 * 앱 소유자에 게 위임
 
-Azure AD는 보안 그룹 및 Microsoft 365 그룹을 사용 하 여 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다. 이러한 그룹은 멤버 자격 요청을 승인 또는 거부 하 고 그룹 멤버 자격에 대 한 제어를 위임할 수 있는 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)라고 하는이 기능은 관리자를 사용 하 여 요청을 처리 하지 않고도 그룹을 만들고 관리할 수 있도록 관리 역할이 할당 되지 않은 그룹 소유자에 게 시간을 절약 합니다.
+Azure AD는 보안 그룹 및 Microsoft 365 그룹을 사용 하 여 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다. 이러한 그룹은 멤버 자격 요청을 승인 또는 거부 하 고 그룹 멤버 자격에 대 한 제어를 위임할 수 있는 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)라고 하는이 기능은 관리자를 사용 하 여 요청을 처리 하지 않고도 그룹을 만들고 관리할 수 있도록 관리 역할이 할당 되지 않은 그룹 소유자에 게 시간을 절약 합니다.
 
 ## <a name="step-4---operationalize-your-insights"></a>4 단계-통찰력 운영
 
@@ -172,9 +172,9 @@ Azure AD는 보안 그룹 및 Microsoft 365 그룹을 사용 하 여 리소스�
 
 작업에 대 한 접근 방식에 대해 생각해 볼 때 고려해 야 할 몇 가지 관리가 있습니다. 첫 번째 수준은 전역 관리자에 대 한 관리 부담을 부과 합니다. 항상 전역 관리자 역할을 사용 하는 것은 소규모 회사에 적합할 수 있습니다. 그러나 지원 센터 담당자와 특정 작업을 담당 하는 관리자가 있는 대규모 조직의 경우 전역 관리자의 역할을 할당 하면 해당 사용자에 게 수행할 수 있는 작업을 초과 하는 작업을 관리할 수 있는 기능을 제공 하므로 보안 위험이 발생할 수 있습니다.
 
-이 경우 다음 수준의 관리를 고려해 야 합니다. Azure AD를 사용 하면 권한이 낮은 역할의 작업을 관리할 수 있는 "제한 된 관리자"로 최종 사용자를 지정할 수 있습니다. 예를 들어 읽기 전용 액세스를 통해 보안 관련 기능을 관리할 수 있도록 지원 센터 담당자에 게 [보안 읽기 권한자](../users-groups-roles/directory-assign-admin-roles.md#security-reader) 역할을 할당할 수 있습니다. 또는 [인증 관리자](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) 역할을 개인에 게 할당 하 여 암호를 사용 하지 않는 자격 증명을 다시 설정 하거나 Azure Service Health를 읽고 구성 하는 기능을 제공 하는 것이 좋습니다.
+이 경우 다음 수준의 관리를 고려해 야 합니다. Azure AD를 사용 하면 권한이 낮은 역할의 작업을 관리할 수 있는 "제한 된 관리자"로 최종 사용자를 지정할 수 있습니다. 예를 들어 읽기 전용 액세스를 통해 보안 관련 기능을 관리할 수 있도록 지원 센터 담당자에 게 [보안 읽기 권한자](../roles/permissions-reference.md#security-reader) 역할을 할당할 수 있습니다. 또는 [인증 관리자](../roles/permissions-reference.md#authentication-administrator) 역할을 개인에 게 할당 하 여 암호를 사용 하지 않는 자격 증명을 다시 설정 하거나 Azure Service Health를 읽고 구성 하는 기능을 제공 하는 것이 좋습니다.
 
-자세히 알아보려면 [Azure Active Directory의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요.
+자세히 알아보려면 [Azure Active Directory의 관리자 역할 권한](../roles/permissions-reference.md)을 참조 하세요.
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용 하 여 하이브리드 구성 요소 (Azure AD Connect 동기화, AD FS) 모니터링
 
@@ -267,6 +267,6 @@ SIEM 솔루션이 없는 조직은 Azure AD 용 [Power BI 콘텐츠 팩](../repo
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Active Directory 기능을 사용 하 여 보안 상태를 높일 수 있는 방법 및 5 단계 검사 목록- [id 인프라를 보호 하는 5 단계](https://aka.ms/securitysteps)를 알아보세요.
+Azure Active Directory 기능을 사용 하 여 보안 상태를 높일 수 있는 방법 및 5 단계 검사 목록- [id 인프라를 보호 하는 5 단계](../../security/fundamentals/steps-secure-identity.md)를 알아보세요.
 
-조직이 기존 온-프레미스 시스템에서 Azure AD로의 id 관리를 신속 하 게 채택 하 고 이동할 수 있도록 하는 솔루션 및 기능을 제공 하 여 클라우드 관리 관리로의 전환을 가속화 하는 방법에 대해 알아봅니다. [AZURE Ad는 온-프레미스 워크 로드에 대 한 클라우드 관리 관리](https://aka.ms/cloudgoverned)기능을 제공 합니다.
+조직이 기존 온-프레미스 시스템에서 Azure AD로의 id 관리를 신속 하 게 채택 하 고 이동할 수 있도록 하는 솔루션 및 기능을 제공 하 여 클라우드 관리 관리로의 전환을 가속화 하는 방법에 대해 알아봅니다. [AZURE Ad는 온-프레미스 워크 로드에 대 한 클라우드 관리 관리](./cloud-governed-management-for-on-premises.md)기능을 제공 합니다.

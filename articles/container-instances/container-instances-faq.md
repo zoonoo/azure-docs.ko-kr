@@ -1,15 +1,16 @@
 ---
-title: 질문과 대답
+title: 자주 묻는 질문
 description: Azure Container Instances 서비스와 관련 된 faq (질문과 대답)
-author: dkkapur
+author: macolso
+ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421283"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516973"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
 
@@ -39,10 +40,10 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 #### <a name="windows-server-2016-base-images"></a>Windows Server 2016 기본 이미지
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` 또는 최신
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` `10.0.14393.3506` 이상
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`  `10.0.14393.3506` 이상
 
 > [!NOTE]
-> 반기 채널 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지는 지원 되지 않습니다.
+> Semi-Annual Channel 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지는 지원 되지 않습니다.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 및 클라이언트 기본 이미지 (미리 보기)
 
@@ -52,7 +53,7 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>컨테이너에서 사용 해야 하는 .NET 또는 .NET Core 이미지 계층은 무엇 인가요? 
 
-요구 사항에 맞는 가장 작은 이미지를 사용 합니다. Linux의 경우 .NET Core 2.1의 릴리스 이후 지원 된 *런타임 알파인* .net Core 이미지를 사용할 수 있습니다. Windows의 경우 전체 .NET Framework를 사용 하는 경우 Windows Server Core 이미지 ( *4.7.2-windowsservercore-ltsc2016*와 같은 런타임 전용 이미지)를 사용 해야 합니다. 런타임 전용 이미지는 작지만 .NET SDK를 필요로 하는 워크 로드를 지원 하지 않습니다.
+요구 사항에 맞는 가장 작은 이미지를 사용 합니다. Linux의 경우 .NET Core 2.1의 릴리스 이후 지원 된 *런타임 알파인* .net Core 이미지를 사용할 수 있습니다. Windows의 경우 전체 .NET Framework를 사용 하는 경우 Windows Server Core 이미지 (  *4.7.2-windowsservercore-ltsc2016*와 같은 런타임 전용 이미지)를 사용 해야 합니다. 런타임 전용 이미지는 작지만 .NET SDK를 필요로 하는 워크 로드를 지원 하지 않습니다.
 
 ## <a name="availability-and-quotas"></a>가용성 및 할당량
 
@@ -60,7 +61,7 @@ Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최�
 
 이는 작업에 따라 크게 달라 집니다. 소규모 및 테스트 성능을 시작 하 여 컨테이너의 성능을 확인 합니다. [CPU 및 메모리 리소스 사용량을 모니터링](container-instances-monitor.md)한 다음 컨테이너에 배포 하는 프로세스 종류에 따라 코어 또는 메모리를 추가 합니다.
 
-또한 CPU 코어의 상한 및 컨테이너 그룹당 사용 가능한 메모리에 대해 배포 하는 지역의 [리소스 가용성](container-instances-region-availability.md#availability---general) 을 확인 해야 합니다. 
+또한 CPU 코어의 상한 및 컨테이너 그룹당 사용 가능한 메모리에 대해 배포 하는 지역의 [리소스 가용성](container-instances-region-availability.md) 을 확인 해야 합니다. 
 
 > [!NOTE]
 > 서비스의 기본 인프라에서 컨테이너 그룹의 리소스를 적은 양만큼 사용 합니다. 컨테이너는 그룹에 할당 된 리소스 중 일부에만 액세스할 수 있습니다. 이러한 이유로 그룹의 컨테이너에 대 한 리소스를 요청할 때 작은 리소스 버퍼를 계획 합니다.
@@ -79,7 +80,7 @@ Azure Container Instances는 서버를 사용 하지 않는 컨테이너 주문�
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>언제 특정 지역에 있나요?
 
-현재 지역 가용성은 [여기](container-instances-region-availability.md#availability---general)에 게시 됩니다. 특정 지역에 대 한 요구 사항이 있는 경우 Azure 지원에 문의 하세요.
+현재 지역 가용성은 [여기](container-instances-region-availability.md)에 게시 됩니다. 특정 지역에 대 한 요구 사항이 있는 경우 Azure 지원에 문의 하세요.
 
 ## <a name="features-and-scenarios"></a>기능 및 시나리오
 

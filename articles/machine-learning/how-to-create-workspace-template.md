@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/27/2020
-ms.openlocfilehash: 1feb4432111ce517d49396eb2cb516b0463268d8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883034"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445201"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -30,7 +30,18 @@ ms.locfileid: "90883034"
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* CLI에서 템플릿을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
+* CLI에서 템플릿을 사용하려면 [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) 또는 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)가 필요합니다.
+
+* 일부 시나리오에서는 지원 티켓을 열어야 합니다. 이러한 시나리오는 다음과 같습니다.
+
+    * __고객 관리형 키가 있는 Private Link 사용 작업 영역__
+    * __가상 네트워크 뒤의 작업 영역에 대한 Azure Container Registry__
+
+    자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
+
+## <a name="limitations"></a>제한 사항
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="workspace-resource-manager-template"></a>작업 영역 리소스 관리자 템플릿
 
@@ -52,7 +63,7 @@ ms.locfileid: "90883034"
 
     선택한 위치는 템플릿에서 대부분의 리소스에 사용됩니다. 단, 다른 서비스를 사용할 수 있는 일부 위치에서 사용할 수 없는 Application Insights 서비스는 예외입니다. 서비스를 사용할 수 없는 위치를 선택하면 미국 중남부 위치에 서비스가 생성됩니다.
 
-* Azure Machine Learning 작업 영역의 이름인 **workspaceName**입니다.
+* Azure Machine Learning 작업 영역의 이름인 **workspaceName** 입니다.
 
     > [!NOTE]
     > 작업 영역 이름은 대/소문자를 구분하지 않습니다.
@@ -62,7 +73,7 @@ ms.locfileid: "90883034"
 > [!TIP]
 > 이 문서와 연결된 템플릿은 새 Azure Container Registry를 만들지만 컨테이너 레지스트리를 만들지 않고도 새 작업 영역을 만들 수도 있습니다. 컨테이너 레지스트리가 필요한 작업을 수행할 때 하나의 작업 영역이 만들어집니다. 예를 들어 모델을 학습하거나 배포합니다.
 >
-> 새로 만들지 않고 Azure Resource Manager 템플릿에 있는 기존 컨테이너 레지스트리 또는 스토리지 계정을 참조할 수도 있습니다. 그러나 사용 하는 컨테이너 레지스트리에는 __관리자 계정이__ 활성화 되어 있어야 합니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](/azure/container-registry/container-registry-authentication#admin-account)을 참조 하십시오.
+> 새로 만들지 않고 Azure Resource Manager 템플릿에 있는 기존 컨테이너 레지스트리 또는 스토리지 계정을 참조할 수도 있습니다. 그러나 사용 하는 컨테이너 레지스트리에는 __관리자 계정이__ 활성화 되어 있어야 합니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 참조 하십시오.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -70,7 +81,7 @@ ms.locfileid: "90883034"
 
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
 * [Azure Resource Manager 템플릿으로 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)
-* [Microsoft.MachineLearningServices 리소스 종류](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Microsoft.MachineLearningServices 리소스 종류](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>템플릿 배포
 
@@ -154,14 +165,16 @@ New-AzResourceGroupDeployment `
 
 다음 템플릿 예에서는 세 가지 설정으로 작업 영역을 만드는 방법을 보여 줍니다.
 
-* 작업 영역에 대해 높은 기밀성 설정 사용
-* 작업 영역에 대한 암호화 사용
-* 기존 Azure Key Vault를 사용하여 고객 관리형 키 검색
+* 작업 영역에 대해 높은 기밀성 설정을 사용 하도록 설정 합니다. 그러면 새 Cosmos DB 인스턴스가 만들어집니다.
+* 작업 영역에 대해 암호화를 사용 하도록 설정 합니다.
+* 기존 Azure Key Vault를 사용 하 여 고객 관리 키를 검색 합니다. 고객 관리 키를 사용 하 여 작업 영역에 대 한 새 Cosmos DB 인스턴스를 만듭니다.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
-자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조하세요.
+자세한 내용은 [미사용 암호화](concept-data-encryption.md#encryption-at-rest)를 참조하세요.
 
 > [!IMPORTANT]
 > 이 템플릿을 사용하기 전에 구독에서 충족해야 하는 특정 요구 사항이 있습니다.
@@ -210,7 +223,7 @@ New-AzResourceGroupDeployment `
 
 고객 관리 키를 사용 하도록 설정 하려면 템플릿을 배포할 때 다음 매개 변수를 설정 합니다.
 
-* **Encryption_status** **사용 하도록 설정**합니다.
+* **Encryption_status** **사용 하도록 설정** 합니다.
 * **cmk_keyvault** `cmk_keyvault` 이전 단계에서 얻은 값을 cmk_keyvault 합니다.
 * **resource_cmk_uri** `resource_cmk_uri` 이전 단계에서 얻은 값을 resource_cmk_uri 합니다.
 
@@ -243,9 +256,9 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-고객이 관리 하는 키를 사용 하는 경우 Azure Machine Learning Cosmos DB 인스턴스를 포함 하는 보조 리소스 그룹을 만듭니다. 자세한 내용은 [미사용 암호화-Cosmos DB](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
+고객이 관리 하는 키를 사용 하는 경우 Azure Machine Learning Cosmos DB 인스턴스를 포함 하는 보조 리소스 그룹을 만듭니다. 자세한 내용은 [미사용 암호화-Cosmos DB](concept-data-encryption.md#encryption-at-rest)를 참조 하세요.
 
-데이터에 대해 제공할 수 있는 추가 구성은 **confidential_data** 매개 변수를 **true**로 설정 하는 것입니다. 이렇게 하면에서 다음을 수행 합니다.
+데이터에 대해 제공할 수 있는 추가 구성은 **confidential_data** 매개 변수를 **true** 로 설정 하는 것입니다. 이렇게 하면에서 다음을 수행 합니다.
 
 * Azure Machine Learning 계산 클러스터에 대 한 로컬 스크래치 디스크 암호화를 시작 하 여 구독에 이전 클러스터를 만들지 않았습니다. 이전에 구독에서 클러스터를 만든 경우 지원 티켓을 열어 계산 클러스터에 대해 사용 하도록 설정 된 스크래치 디스크를 암호화 합니다.
 * 실행 간에 로컬 스크래치 디스크를 정리 합니다.
@@ -255,7 +268,7 @@ New-AzResourceGroupDeployment `
     > [!IMPORTANT]
     > 작업 영역을 만든 후에는 기밀 데이터, 암호화, 키 자격 증명 모음 ID 또는 키 식별자에 대한 설정을 변경할 수 없습니다. 이러한 값을 변경하려면 새 값을 사용하여 새 작업 영역을 만들어야 합니다.
 
-  자세한 내용은 [미사용 암호화](concept-enterprise-security.md#encryption-at-rest)를 참조 하세요.
+  자세한 내용은 [미사용 암호화](concept-data-encryption.md#encryption-at-rest)를 참조 하세요.
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>가상 네트워크 뒤에 작업 영역 배포
 
@@ -272,7 +285,7 @@ New-AzResourceGroupDeployment `
 연결 된 리소스가 가상 네트워크 뒤에 있지 않은 경우 **privateEndpointType** 매개 변수를 또는로 설정 `AutoAproval` 하 여 `ManualApproval` 개인 끝점 뒤에 작업 영역을 배포할 수 있습니다. 새 작업 영역과 기존 작업 영역 모두에 대해이 작업을 수행할 수 있습니다. 기존 작업 영역을 업데이트할 때 기존 작업 영역의 정보를 사용 하 여 템플릿 매개 변수를 입력 합니다.
 
 > [!IMPORTANT]
-> Azure 개인 링크를 사용 하 여 Azure Machine Learning 작업 영역에 대 한 개인 끝점을 만드는 작업은 현재 공개 미리 보기 상태입니다. 이 기능은 **미국 동부**, **미국 남부 중부**및 **미국 서 부 2** 지역 에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 개인 링크로 Azure Machine Learning 작업 영역을 사용 하는 것은 Azure Government 지역 또는 Azure 중국 21Vianet 지역에서 사용할 수 없습니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -532,7 +545,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
-1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 선택__ 화면에 도착 하면 드롭다운에서 **201-machine learning-고급** 템플릿을 선택 합니다.
+1. [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 선택__ 화면에 도착 하면 드롭다운에서 **201-machine learning-고급** 템플릿을 선택 합니다.
 1. 템플릿을 사용 하려면 __템플릿 선택__ 을 선택 합니다. 배포 시나리오에 따라 다음과 같은 필수 정보 및 기타 매개 변수를 제공 합니다.
 
    * 구독: 이러한 리소스에 사용할 Azure 구독을 선택합니다.
@@ -540,8 +553,8 @@ New-AzResourceGroupDeployment `
    * 지역: 리소스가 생성 될 Azure 지역을 선택 합니다.
    * 작업 영역 이름: 생성될 Azure Machine Learning 작업 영역에 사용할 이름입니다. 작업 영역 이름은 3자에서 33자 사이여야 합니다. 영숫자와 ‘-’만 포함할 수 있습니다.
    * 위치: 리소스가 생성될 위치를 선택합니다.
-1. __검토 + 만들기__를 선택합니다.
-1. __검토 + 만들기__ 화면에서 나열 된 사용 약관에 동의 하 고 __만들기__를 선택 합니다.
+1. __검토 + 만들기__ 를 선택합니다.
+1. __검토 + 만들기__ 화면에서 나열 된 사용 약관에 동의 하 고 __만들기__ 를 선택 합니다.
 
 자세한 내용은 [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)를 참조하세요.
 
@@ -567,11 +580,11 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    템플릿의 `accessPolicies` 섹션 사용에 대한 자세한 내용은 [AccessPolicyEntry 개체 참조](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry)를 참조하세요.
+    템플릿의 `accessPolicies` 섹션 사용에 대한 자세한 내용은 [AccessPolicyEntry 개체 참조](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry)를 참조하세요.
 
 * Key Vault 리소스가 이미 있는지 확인합니다. 이 경우 템플릿을 통해 다시 만들지 마세요. 예를 들어 새로 만드는 대신 기존 Key Vault를 사용하려면 템플릿을 다음과 같이 변경합니다.
 
-    * 기존 Key Vault 리소스의 ID를 허용하는 매개 변수를 **추가**합니다.
+    * 기존 Key Vault 리소스의 ID를 허용하는 매개 변수를 **추가** 합니다.
 
         ```json
         "keyVaultId":{
@@ -582,7 +595,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
         }
       ```
 
-    * Key Vault 리소스를 만드는 섹션을 **제거**합니다.
+    * Key Vault 리소스를 만드는 섹션을 **제거** 합니다.
 
         ```json
         {
@@ -602,7 +615,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
         },
         ```
 
-    * 작업 영역의 `dependsOn` 섹션에서 `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 줄을 **제거**합니다. 또한 `keyVaultId` 매개 변수를 참조하여 작업 영역의 `properties` 섹션에서 `keyVault` 항목을 **변경**합니다.
+    * 작업 영역의 `dependsOn` 섹션에서 `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` 줄을 **제거** 합니다. 또한 `keyVaultId` 매개 변수를 참조하여 작업 영역의 `properties` 섹션에서 `keyVault` 항목을 **변경** 합니다.
 
         ```json
         {
@@ -646,7 +659,7 @@ Azure Resource Manager 템플릿을 사용하여 작업 영역 및 연결된 리
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>개인 DNS 영역에 연결 되지 않은 가상 네트워크
 
-개인 끝점을 사용 하 여 작업 영역을 만들 때 템플릿은 __privatelink.api.azureml.ms__이라는 사설 DNS 영역을 만듭니다. __가상 네트워크 링크가__ 이 개인 DNS 영역에 자동으로 추가 됩니다. 링크는 리소스 그룹에서 만든 첫 번째 작업 영역 및 개인 끝점에 대해서만 추가 됩니다. 동일한 리소스 그룹에서 개인 끝점을 사용 하 여 다른 가상 네트워크 및 작업 영역을 만드는 경우 두 번째 가상 네트워크는 개인 DNS 영역에 추가 되지 않을 수 있습니다.
+개인 끝점을 사용 하 여 작업 영역을 만들 때 템플릿은 __privatelink.api.azureml.ms__ 이라는 사설 DNS 영역을 만듭니다. __가상 네트워크 링크가__ 이 개인 DNS 영역에 자동으로 추가 됩니다. 링크는 리소스 그룹에서 만든 첫 번째 작업 영역 및 개인 끝점에 대해서만 추가 됩니다. 동일한 리소스 그룹에서 개인 끝점을 사용 하 여 다른 가상 네트워크 및 작업 영역을 만드는 경우 두 번째 가상 네트워크는 개인 DNS 영역에 추가 되지 않을 수 있습니다.
 
 개인 DNS 영역에 대해 이미 존재 하는 가상 네트워크 링크를 보려면 다음 Azure CLI 명령을 사용 합니다.
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
-ms.openlocfilehash: 75eda1720e80a886ca0efb2d1f4204416a5b55f8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083341"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020633"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기
 
@@ -205,7 +205,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹 및 해당 리소스 그�
    }
    ```
 
-이 예는 이 문서의 단계에서 사용됩니다. **매개 변수** 섹션에 있는 예제 *값*을 클러스터에 대한 값으로 바꿉니다.
+이 예는 이 문서의 단계에서 사용됩니다. **매개 변수** 섹션에 있는 예제 *값* 을 클러스터에 대한 값으로 바꿉니다.
 
 > [!IMPORTANT]  
 > 이 템플릿에서는 HDInsight 클러스터에 대해 작업자 노드의 기본 개수(4)를 사용합니다. 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
@@ -214,12 +214,12 @@ Azure Resource Manager 템플릿은 **리소스 그룹 및 해당 리소스 그�
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 
-[Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
+[Azure CLI 시작](/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
 > [!NOTE]  
-> 이러한 단계는 [Azure CLI를 사용하여 리소스에 액세스하기 위한 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) 문서의 *암호를 사용하여 서비스 주체 만들기* 섹션의 요약된 버전입니다. 이러한 단계에서는 Azure REST API에 인증하는 데 사용되는 서비스 주체를 만듭니다.
+> 이러한 단계는 [Azure CLI를 사용하여 리소스에 액세스하기 위한 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서의 *암호를 사용하여 서비스 주체 만들기* 섹션의 요약된 버전입니다. 이러한 단계에서는 Azure REST API에 인증하는 데 사용되는 서비스 주체를 만듭니다.
 
 1. 명령줄에서 다음 명령을 사용하여 Azure 구독을 나열합니다.
 
@@ -240,17 +240,17 @@ Azure Resource Manager 템플릿은 **리소스 그룹 및 해당 리소스 그�
    > [!NOTE]  
    > `--home-page` 및 `--identifier-uris` 값은 인터넷에서 호스트되는 실제 웹 페이지를 참조할 필요가 없습니다. 이 값은 고유한 URI여야 합니다.
 
-   이 명령에서 반환되는 값은 새 애플리케이션에 대한 __App ID__입니다. 이 값을 저장합니다.
+   이 명령에서 반환되는 값은 새 애플리케이션에 대한 __App ID__ 입니다. 이 값을 저장합니다.
 
-3. 다음 명령을 수행하여 **App ID**를 사용해 서비스 주체를 만듭니다.
+3. 다음 명령을 수행하여 **App ID** 를 사용해 서비스 주체를 만듭니다.
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     이 명령에서 반환되는 값은 __개체 ID__입니다. 이 값을 저장합니다.
+     이 명령에서 반환되는 값은 __개체 ID__ 입니다. 이 값을 저장합니다.
 
-4. **개체 ID** 값을 사용하여 **소유자** 역할을 서비스 주체에 할당합니다. 또한 이전에 받은 **구독 ID**를 사용합니다.
+4. **개체 ID** 값을 사용하여 **소유자** 역할을 서비스 주체에 할당합니다. 또한 이전에 받은 **구독 ID** 를 사용합니다.
 
    ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -274,7 +274,7 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 
 이 요청에 성공하면 200 시리즈 응답을 받게 되며 응답 본문에 JSON 문서가 포함되어 있습니다.
 
-이 요청에서 반환되는 JSON 문서는 **access_token**이라는 요소를 포함합니다. **access_token**의 값은 REST API에 대한 인증 요청에 사용됩니다.
+이 요청에서 반환되는 JSON 문서는 **access_token** 이라는 요소를 포함합니다. **access_token** 의 값은 REST API에 대한 인증 요청에 사용됩니다.
 
 ```json
 {

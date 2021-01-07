@@ -3,13 +3,12 @@ title: 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 description: Azure Service Fabric 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 트랜잭션 및 잠금.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.custom: sfrev
-ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 57ca46047641b79d5e4c50ede4a27e16dcec5d89
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500285"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576726"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 
@@ -37,7 +36,7 @@ ms.locfileid: "87500285"
 신뢰할 수 있는 컬렉션은 트랜잭션을 만들 당시의 작업 및 복제본의 역할에 따라 자동으로 특정 읽기 작업에 사용할 격리 수준을 선택합니다.
 다음 테이블에는 신뢰할 수 있는 사전 및 큐 작업에 대한 기본 격리 수준이 나와 있습니다.
 
-| 작업 \ 역할 | 기본 | 보조 |
+| 작업 \ 역할 | 주 | 보조 |
 | --- |:--- |:--- |
 | 단일 엔터티 읽기 |반복 가능한 읽기 |스냅샷 |
 | 열거형, 개수 |스냅샷 |스냅샷 |
@@ -46,10 +45,10 @@ ms.locfileid: "87500285"
 > 단일 엔터티 작업에 대한 일반적인 예제는 `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`입니다.
 > 
 
-신뢰할 수 있는 사전 및 신뢰할 수 있는 큐는 모두 *쓰기를 읽도록*지원 합니다.
+신뢰할 수 있는 사전 및 신뢰할 수 있는 큐는 모두 *쓰기를 읽도록* 지원 합니다.
 즉, 특정 트랜잭션 내 모든 쓰기가 동일한 트랜잭션에 속하는 다음 읽기에 표시됩니다.
 
-## <a name="locks"></a>Locks
+## <a name="locks"></a>잠금
 
 신뢰할 수 있는 컬렉션의 모든 트랜잭션은 엄격한 2단계 잠금을 구현합니다. 트랜잭션은 중단 또는 커밋으로 인해 종료되어야만 확보한 잠금을 해제합니다.
 

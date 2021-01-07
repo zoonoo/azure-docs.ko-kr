@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c19650a8f36181e3e003414ff15add071e9a8ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b2763372cc63637f73610e1936e3ea54a4524e7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918896"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91356607"
 ---
 # <a name="what-is-a-keyword"></a>키워드 란 무엇 인가요?
 
@@ -26,7 +26,7 @@ ms.locfileid: "88918896"
 
 사용자 지정 키워드의 사용자 지정, 성능 및 통합 기능을 사용 하면 제품의 비전과 사용자 요구에 가장 적합 한 음성 활성화를 조정할 수 있습니다.
 
-| 기능 | Description |
+| 기능 | 설명 |
 |----------|----------|
 | 키워드 사용자 지정 | 브랜드의 확장으로 키워드는 고객과 강화 하는 자본을 제공 합니다. Speech Studio의 사용자 지정 키워드 포털을 사용 하면 브랜드를 가장 잘 나타내는 단어 또는 짧은 구를 지정할 수 있습니다. 생성 된 키워드 모델에 의해 적용 되는 올바른 발음를 선택 하 여 키워드를 추가로 개인 설정할 수 있습니다.
 | 키워드 확인 | 로컬에서 검색 되는 키워드에 높은 신뢰도가 있는 경우 사용자가 키워드를 추가 하 여 추가 확인을 위해 오디오를 클라우드로 보냅니다. 키워드 확인은 잘못 된 로컬 검색의 영향을 줄이고 사용자의 개인 정보를 보호 하 여 추가 보안 계층을 제공 합니다.
@@ -61,6 +61,6 @@ ms.locfileid: "88918896"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [Speech SDK 가져오기](speech-sdk.md)
 * [음성 도우미에 대 한 자세한 정보](voice-assistants.md)

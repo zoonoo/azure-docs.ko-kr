@@ -1,19 +1,19 @@
 ---
 title: CloudSimple 별 Azure VMware 솔루션-사설 클라우드 사이트를 사용 하 여 VMware 수평을 통해 가상 데스크톱 인프라 호스팅
 description: CloudSimple 사설 클라우드 사이트를 사용 하 여 VMware 수평을 통해 가상 데스크톱 인프라를 호스트 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 723821a78ecae308443c93567402e3b232c036f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 513af1ba2e354412278fb88af4ee6527c236fae3
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025251"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895600"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>CloudSimple 사설 클라우드 사이트를 사용 하 여 VMware 수평으로 가상 데스크톱 인프라 호스팅
 

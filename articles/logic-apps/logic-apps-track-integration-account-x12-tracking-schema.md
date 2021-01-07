@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: 5b2df194761ebc167e67498a985960a4fce35f19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76905292"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 X12 메시지 추적을 위한 스키마 만들기
@@ -55,7 +55,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -111,7 +111,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -130,8 +130,8 @@ ms.locfileid: "76905292"
 | respondingtransactionSetControlNumber | 예 | String | 응답 하는 트랜잭션 집합 컨트롤 번호 |
 | respondingTransactionSetId | 예 | String | 응답의 A K 201에 매핑되는 응답 트랜잭션 집합 ID입니다. |
 | statusCode | 예 | 부울 | 트랜잭션 집합 승인 상태 코드 |
-| segmentsCount | 예 | 열거형 | 허용 되는 값을 가진 승인 상태 코드: `Accepted` , `Rejected` 및`AcceptedWithErrors` |
-| processingStatus | 예 | 열거형 | 허용 되는 값을 가진 승인의 처리 상태: `Received` , `Generated` 및`Sent` |
+| segmentsCount | 예 | 열거형 | 허용 되는 값을 가진 승인 상태 코드: `Accepted` , `Rejected` 및 `AcceptedWithErrors` |
+| processingStatus | 예 | 열거형 | 허용 되는 값을 가진 승인의 처리 상태: `Received` , `Generated` 및 `Sent` |
 | CorrelationMessageId | 예 | String | 상관 관계 메시지 ID는 {AgreementName} {*Groupcontrolnumber*} {Transactionsetcontrolnumber}의 조합입니다. |
 | isMessageFailed | 예 | 부울 | X12 메시지의 실패 여부 |
 | ak2Segment | 예 | String | 받은 기능 그룹 내의 트랜잭션 집합에 대 한 승인 |
@@ -169,7 +169,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -220,7 +220,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -234,8 +234,8 @@ ms.locfileid: "76905292"
 | isaSegment | 예 | String | 파트너 로부터 받은 기술 승인에 대 한 ISA 세그먼트 |
 | respondingInterchangeControlNumber | 예 | String | 파트너 로부터 받은 기술 승인에 대 한 교환 컨트롤 번호 |
 | isMessageFailed | 예 | 부울 | X12 메시지의 실패 여부 |
-| statusCode | 예 | 열거형 | 허용 되는 값을 가진 교환 승인 상태 코드: `Accepted` , `Rejected` 및`AcceptedWithErrors` |
-| processingStatus | 예 | 열거형 | 허용 되는 값을 가진 승인 상태: `Received` , `Generated` 및`Sent` |
+| statusCode | 예 | 열거형 | 허용 되는 값을 가진 교환 승인 상태 코드: `Accepted` , `Rejected` 및 `AcceptedWithErrors` |
+| processingStatus | 예 | 열거형 | 허용 되는 값을 가진 승인 상태: `Received` , `Generated` 및 `Sent` |
 | ta102 | 예 | String | 교환 날짜 |
 | ta103 | 예 | String | 교환 시간 |
 | ta105 | 예 | String | 교환 노트 코드 |
@@ -273,7 +273,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -329,7 +329,7 @@ ms.locfileid: "76905292"
 }
 ```
 
-| 속성 | 필수 | Type | 설명 |
+| 속성 | 필수 | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | 예 | String | X12 메시지 보낸 사람의 파트너 이름 |
 | receiverPartnerName | 예 | String | X12 메시지 받는 사람의 파트너 이름 |
@@ -346,8 +346,8 @@ ms.locfileid: "76905292"
 | respondingfunctionalGroupControlNumber | 예 | String | 원래 기능 그룹의 컨트롤 번호 |
 | respondingFunctionalGroupId | 예 | String | 승인 기능 그룹 ID의 A K 101에 매핑됩니다. |
 | isMessageFailed | 부울 | X12 메시지의 실패 여부 |
-| statusCode | 예 | 열거형 | 허용 되는 값을 가진 승인 상태 코드: `Accepted` , `Rejected` 및`AcceptedWithErrors` |
-| processingStatus | 예 | 열거형 | 허용 되는 값을 가진 승인의 처리 상태: `Received` , `Generated` 및`Sent` |
+| statusCode | 예 | 열거형 | 허용 되는 값을 가진 승인 상태 코드: `Accepted` , `Rejected` 및 `AcceptedWithErrors` |
+| processingStatus | 예 | 열거형 | 허용 되는 값을 가진 승인의 처리 상태: `Received` , `Generated` 및 `Sent` |
 | ak903 | 예 | String | 받은 트랜잭션 집합 수 |
 | ak904 | 예 | String | 식별 된 기능 그룹에서 수락 된 트랜잭션 집합 수 |
 | ak9Segment | 예 | String | AK1 세그먼트에서 식별 된 기능 그룹이 허용 되는지 아니면 거부 되는지와 그 이유 |

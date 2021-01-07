@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
 ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529588"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
@@ -48,7 +48,7 @@ SAP HANA 데이터베이스에서 지원되는 모든 싱크 데이터 저장소
 > [!TIP]
 > SAP HANA 데이터 저장소**로** 데이터를 복사하려면 일반 ODBC 커넥터를 사용합니다. 자세한 내용은 [SAP HANA 싱크](#sap-hana-sink) 섹션을 참조 하세요. 따라서 형식이 다른 SAP HANA 커넥터 및 ODBC 커넥터에 대한 연결된 서비스는 재사용할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 SAP HANA 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -189,7 +189,7 @@ SAP HANA에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에�
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **SapHanaSource** 로 설정 해야 합니다. | 예 |
 | Query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예 |
-| partitionOptions | SAP HANA에서 데이터를 수집 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. [SAP HANA 섹션의 병렬 복사](#parallel-copy-from-sap-hana) 에서 자세히 알아보세요.<br>Allow 값은 **None**   (기본값), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**입니다. [SAP HANA 섹션의 병렬 복사](#parallel-copy-from-sap-hana) 에서 자세히 알아보세요. `PhysicalPartitionsOfTable`테이블에서 데이터를 복사 하는 경우에만 사용할 수 있고 쿼리는 사용할 수 없습니다. <br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) SAP HANA에서 데이터를 동시에 로드 하는 병렬 처리 수준이 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | False |
+| partitionOptions | SAP HANA에서 데이터를 수집 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. [SAP HANA 섹션의 병렬 복사](#parallel-copy-from-sap-hana) 에서 자세히 알아보세요.<br>Allow 값은 **None**   (기본값), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**입니다. [SAP HANA 섹션의 병렬 복사](#parallel-copy-from-sap-hana) 에서 자세히 알아보세요. `PhysicalPartitionsOfTable` 테이블에서 데이터를 복사 하는 경우에만 사용할 수 있고 쿼리는 사용할 수 없습니다. <br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) SAP HANA에서 데이터를 동시에 로드 하는 병렬 처리 수준이 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | False |
 | partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다.<br>파티션 옵션이 `SapHanaDynamicRange`인 경우에 적용합니다. | False |
 | partitionColumnName | 병렬 복사를 위해 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다.<br>파티션 옵션이 인 경우에 적용 됩니다  `SapHanaDynamicRange` . 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfHanaDynamicRangePartitionCondition` WHERE 절에 후크 합니다. [SAP HANA의 병렬 복사](#parallel-copy-from-sap-hana) 섹션에서 예제를 참조 하세요. | 파티션을 사용 하는 경우에는 예 `SapHanaDynamicRange` 입니다. |
 | packetSize | 데이터를 여러 블록으로 분할 하는 네트워크 패킷 크기 (Kb)를 지정 합니다. 복사할 데이터가 많은 경우 패킷 크기를 늘리면 대부분의 경우 SAP HANA에서 읽기 속도를 높일 수 있습니다. 패킷 크기를 조정할 때 성능 테스트를 수행 하는 것이 좋습니다. | 아니요.<br>기본값은 2048 (2MB)입니다. |

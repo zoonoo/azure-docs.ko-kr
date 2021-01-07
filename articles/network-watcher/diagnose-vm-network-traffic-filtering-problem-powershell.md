@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: VM 네트워크 트래픽 필터 문제 진단 - Azure PowerShell'
 titleSuffix: Azure Network Watcher
-description: 이 빠른 시작에서는 Azure Network Watcher의 IP 흐름 확인 기능을 사용하여 가상 머신 네트워크 트래픽 필터 문제를 진단하는 방법에 대해 알아봅니다.
+description: Azure PowerShell을 사용하여 Azure Network Watcher의 IP 흐름 확인 기능을 통해 가상 머신 네트워크 트래픽 필터 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 6d1c41df638c092daf24938931c3526fb18ea3db
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8483c0d3b112408091e10bd9b57451cf2378c859
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074783"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494497"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>빠른 시작: 가상 머신 네트워크 트래픽 필터 문제 진단 - Azure PowerShell
 
@@ -40,7 +40,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 빠른
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -63,7 +63,7 @@ Network Watcher와의 네트워크 통신을 테스트하려면 먼저 테스트
 
 ### <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
-미국 동부 지역에서 활성화된 네트워크 감시자가 이미 있는 경우 [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용하여 네트워크 감시자를 검색합니다. 다음 예에서는 *NetworkWatcherRG* 리소스 그룹에 있는 *NetworkWatcher_eastus*라는 기존 네트워크 감시자를 검색합니다.
+미국 동부 지역에서 활성화된 네트워크 감시자가 이미 있는 경우 [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용하여 네트워크 감시자를 검색합니다. 다음 예에서는 *NetworkWatcherRG* 리소스 그룹에 있는 *NetworkWatcher_eastus* 라는 기존 네트워크 감시자를 검색합니다.
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -98,7 +98,7 @@ Test-AzNetworkWatcherIPFlow `
   -RemotePort 80
 ```
 
-몇 초 후 반환되는 결과는 액세스가 **AllowInternetOutbound**라는 보안 규칙을 통해 허용됨을 알립니다.
+몇 초 후 반환되는 결과는 액세스가 **AllowInternetOutbound** 라는 보안 규칙을 통해 허용됨을 알립니다.
 
 VM에서 172.31.0.100으로 아웃바운드 통신을 테스트합니다.
 
@@ -114,7 +114,7 @@ Test-AzNetworkWatcherIPFlow `
   -RemotePort 80
 ```
 
-반환되는 결과는 액세스가 **DefaultOutboundDenyAll**이라는 보안 규칙을 통해 거부됨을 알립니다.
+반환되는 결과는 액세스가 **DefaultOutboundDenyAll** 이라는 보안 규칙을 통해 거부됨을 알립니다.
 
 172.31.0.100에서 VM으로 인바운드 통신을 테스트합니다.
 
@@ -130,7 +130,7 @@ Test-AzNetworkWatcherIPFlow `
   -RemotePort 60000
 ```
 
-반환되는 결과는 액세스가 **DefaultInboundDenyAll**이라는 보안 규칙으로 인해 거부됨을 알립니다. 이제 VM 간 트래픽을 허용하거나 거부하는 보안 규칙을 알고 있으므로 문제를 해결하는 방법을 결정할 수 있습니다.
+반환되는 결과는 액세스가 **DefaultInboundDenyAll** 이라는 보안 규칙으로 인해 거부됨을 알립니다. 이제 VM 간 트래픽을 허용하거나 거부하는 보안 규칙을 알고 있으므로 문제를 해결하는 방법을 결정할 수 있습니다.
 
 ## <a name="view-details-of-a-security-rule"></a>보안 규칙의 세부 정보 보기
 
@@ -177,7 +177,7 @@ Get-AzEffectiveNetworkSecurityGroup `
   },
 ```
 
-**DestinationAddressPrefix**가 **인터넷**인 출력에서 확인할 수 있습니다. 그러나 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 테스트한 주소인 13.107.21.200이 **인터넷**과 어떻게 관련되어 있는지 분명하지 않습니다. **ExpandedDestinationAddressPrefix** 아래에 여러 가지 주소 접두사가 나열됩니다. 목록의 접두사 중 하나는 IP 주소의 12.0.0.1-15.255.255.254 범위를 포함하는 **12.0.0.0/6**입니다. 13.107.21.200은 해당 주소 범위에 있으므로 **AllowInternetOutBound** 규칙은 아웃바운드 트래픽을 허용합니다. 또한 이 규칙을 재정의하는 `Get-AzEffectiveNetworkSecurityGroup`에서 반환된 출력에 나열된 더 높은 **우선 순위**(낮은 수) 규칙이 없습니다. 13.107.21.200에 대한 아웃바운드 통신을 거부하려면 IP 주소에 대한 포트 80 아웃바운드를 거부하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
+**DestinationAddressPrefix** 가 **인터넷** 인 출력에서 확인할 수 있습니다. 그러나 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 테스트한 주소인 13.107.21.200이 **인터넷** 과 어떻게 관련되어 있는지 분명하지 않습니다. **ExpandedDestinationAddressPrefix** 아래에 여러 가지 주소 접두사가 나열됩니다. 목록의 접두사 중 하나는 IP 주소의 12.0.0.1-15.255.255.254 범위를 포함하는 **12.0.0.0/6** 입니다. 13.107.21.200은 해당 주소 범위에 있으므로 **AllowInternetOutBound** 규칙은 아웃바운드 트래픽을 허용합니다. 또한 이 규칙을 재정의하는 `Get-AzEffectiveNetworkSecurityGroup`에서 반환된 출력에 나열된 더 높은 **우선 순위**(낮은 수) 규칙이 없습니다. 13.107.21.200에 대한 아웃바운드 통신을 거부하려면 IP 주소에 대한 포트 80 아웃바운드를 거부하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
 
 `Test-AzNetworkWatcherIPFlow` 명령을 실행하여 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 172.131.0.100에 대한 아웃바운드 통신을 테스트한 경우 출력은 **DefaultOutboundDenyAll** 규칙이 통신을 거부했음을 알렸습니다. **DefaultOutboundDenyAll** 규칙은 `Get-AzEffectiveNetworkSecurityGroup` 명령에서 다음 출력에 나열된 **DenyAllOutBound** 규칙과 동일합니다.
 
@@ -205,7 +205,7 @@ Get-AzEffectiveNetworkSecurityGroup `
 }
 ```
 
-규칙은 **DestinationAddressPrefix**로 **0.0.0.0/0**을 나열합니다. 규칙은 주소가 `Get-AzEffectiveNetworkSecurityGroup` 명령의 출력에서 다른 아웃바운드 규칙의 **DestinationAddressPrefix** 내에 없기 때문에 172.131.0.100에 대한 아웃바운드 통신을 거부합니다. 아웃바운드 통신을 허용하려면 172.131.0.100에서 포트 80에 대한 아웃바운드 트래픽을 허용하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
+규칙은 **DestinationAddressPrefix** 로 **0.0.0.0/0** 을 나열합니다. 규칙은 주소가 `Get-AzEffectiveNetworkSecurityGroup` 명령의 출력에서 다른 아웃바운드 규칙의 **DestinationAddressPrefix** 내에 없기 때문에 172.131.0.100에 대한 아웃바운드 통신을 거부합니다. 아웃바운드 통신을 허용하려면 172.131.0.100에서 포트 80에 대한 아웃바운드 트래픽을 허용하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
 
 `Test-AzNetworkWatcherIPFlow` 명령을 실행하여 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 172.131.0.100의 인바운드 통신을 테스트한 경우 출력은 **DefaultInboundDenyAll** 규칙이 통신을 거부했음을 알렸습니다. **DefaultInboundDenyAll** 규칙은 `Get-AzEffectiveNetworkSecurityGroup` 명령에서 다음 출력에 나열된 **DenyAllInBound** 규칙과 동일합니다.
 
@@ -247,6 +247,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 VM을 만들고 인바운드 및 아웃바운드 네트워크 트래픽 필터를 진단했습니다. VM 간 트래픽을 허용하거나 거부하는 네트워크 보안 그룹 규칙을 배웠습니다. [보안 규칙](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 및 [보안 규칙을 만드는](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule) 방법에 대해 자세히 알아봅니다.
+이 빠른 시작에서는 VM을 만들고 인바운드 및 아웃바운드 네트워크 트래픽 필터를 진단했습니다. VM 간 트래픽을 허용하거나 거부하는 네트워크 보안 그룹 규칙을 배웠습니다. [보안 규칙](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 및 [보안 규칙을 만드는](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule) 방법에 대해 자세히 알아봅니다.
 
 적절한 네트워크 트래픽 필터가 준비되어 있더라도 라우팅 구성으로 인해 VM에 대한 통신이 여전히 실패할 수 있습니다. VM 네트워크 라우팅 문제를 진단하는 방법을 알아보려면 [VM 라우팅 문제 진단](diagnose-vm-network-routing-problem-powershell.md)을 참조하거나 하나의 도구로 아웃바운드 라우팅, 대기 시간 및 트래픽 필터링 문제를 진단하려면 [연결 문제 해결](network-watcher-connectivity-powershell.md)을 참조하세요.

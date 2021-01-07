@@ -8,23 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201178"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508019"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
 Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-policy-overview.md) 클레임 확인자는 정책 이름, 요청 상관 관계 ID, 사용자 인터페이스 언어 등과 같은 권한 부여 요청에 대 한 컨텍스트 정보를 제공 합니다.
 
-입력 또는 출력 클레임에서 클레임 해결 프로그램을 사용하려면 [ClaimsSchema](claimsschema.md) 요소 아래에서 **ClaimType** 문자열을 정의한 후 입력 또는 출력 클레임 요소의 클레임 해결 프로그램에 **DefaultValue**를 설정합니다. Azure AD B2C는 클레임 해결 프로그램의 값을 읽고 기술 프로필의 값을 사용합니다.
+입력 또는 출력 클레임에서 클레임 해결 프로그램을 사용하려면 [ClaimsSchema](claimsschema.md) 요소 아래에서 **ClaimType** 문자열을 정의한 후 입력 또는 출력 클레임 요소의 클레임 해결 프로그램에 **DefaultValue** 를 설정합니다. Azure AD B2C는 클레임 해결 프로그램의 값을 읽고 기술 프로필의 값을 사용합니다.
 
-다음 예에서는 이름이 `correlationId`인 클레임 유형이 `string`의 **DataType**으로 정의됩니다.
+다음 예에서는 이름이 `correlationId`인 클레임 유형이 `string`의 **DataType** 으로 정의됩니다.
 
 ```xml
 <ClaimType Id="correlationId">
@@ -70,7 +70,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 | {OIDC:ClientId} |`client_id` 쿼리 문자열 매개 변수입니다. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |`domain_hint` 쿼리 문자열 매개 변수입니다. | facebook.com |
 | {OIDC:LoginHint} |  `login_hint` 쿼리 문자열 매개 변수입니다. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`입니다. | 해당 없음 |
+| {OIDC:MaxAge} | `max_age` | 해당 없음 |
 | {OIDC:Nonce} |`Nonce` 쿼리 문자열 매개 변수입니다. | defaultNonce |
 | {OIDC: Password}| [리소스 소유자 암호 자격 증명](ropc-custom.md) 은 사용자의 암호를 전달 합니다.| password1| 
 | {OIDC:Prompt} | `prompt` 쿼리 문자열 매개 변수입니다. | 로그인 |
@@ -86,9 +86,9 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-po
 | {Context:BuildNumber} | ID 경험 프레임워크 버전(빌드 번호)입니다.  | 1.0.507.0 |
 | {Context:CorrelationId} | 상관관계 ID입니다.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |날짜 시간(UTC)입니다.  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |정책 배포 모드입니다.  | 프로덕션 |
+| {Context:DeploymentMode} |정책 배포 모드입니다.  | 생산 |
 | {Context:IPAddress} | 사용자 IP 주소입니다. | 11.111.111.11 |
-| {Context: KMSI} | [로그인 상태 유지](custom-policy-keep-me-signed-in.md) 확인란을 선택 했는지 여부를 나타냅니다. |  true |
+| {Context: KMSI} | [로그인 상태 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) 확인란을 선택 했는지 여부를 나타냅니다. |  true |
 
 ### <a name="claims"></a>클레임 
 
@@ -112,7 +112,8 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 | 클레임 | 설명 | 예제 |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | 액세스 토큰 | 해당 없음 |
+| {oauth2:access_token} | 액세스 토큰. | 해당 없음 |
+| {oauth2: refresh_token} | 토큰 새로 고침. | 해당 없음 |
 
 
 ### <a name="saml"></a>SAML
@@ -126,6 +127,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 | {SAML: ForceAuthn} | `ForceAuthN`SAML 요청의 요소에 있는 특성 값 `AuthnRequest` 입니다. | True |
 | {SAML: ProviderName} | `ProviderName`SAML 요청의 요소에 있는 특성 값 `AuthnRequest` 입니다.| Contoso.com |
 | {SAML: RelayState} | `RelayState` 쿼리 문자열 매개 변수입니다.| 
+| {SAML: Subject} | `Subject`SAML 인증 요청의 NameId 요소에서 가져온입니다.| 
 
 ## <a name="using-claim-resolvers"></a>클레임 해결 프로그램 사용
 
@@ -139,7 +141,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 |[Openid connect Connect](openid-connect-technical-profile.md) 기술 프로필| `InputClaim`, `OutputClaim`| 1, 2|
 |[클레임 변환](claims-transformation-technical-profile.md) 기술 프로필| `InputClaim`, `OutputClaim`| 1, 2|
 |[RESTful 공급자](restful-technical-profile.md) 기술 프로필| `InputClaim`| 1, 2|
-|[SAML id 공급자](saml-identity-provider-technical-profile.md) 기술 프로필| `OutputClaim`| 1, 2|
+|[SAML id 공급자](saml-identity-provider-technical-profile.md)  기술 프로필| `OutputClaim`| 1, 2|
 |[자체 어설션된](self-asserted-technical-profile.md) 기술 프로필| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
@@ -183,7 +185,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="dynamic-ui-customization"></a>동적 UI 사용자 지정
 
-Azure AD B2C를 사용 하면 HTML 콘텐츠 정의 끝점에 쿼리 문자열 매개 변수를 전달 하 여 페이지 콘텐츠를 동적으로 렌더링할 수 있습니다. 예를 들어이 기능을 사용 하면 웹 또는 모바일 응용 프로그램에서 전달 하는 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 수정할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
+Azure AD B2C를 사용 하면 HTML 콘텐츠 정의 끝점에 쿼리 문자열 매개 변수를 전달 하 여 페이지 콘텐츠를 동적으로 렌더링할 수 있습니다. 예를 들어이 기능을 사용 하면 웹 또는 모바일 응용 프로그램에서 전달 하는 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 수정할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
 
 다음 예에서는 값이 인 **campaignId** 라는 쿼리 문자열 매개 변수 `Hawaii` ,의 **언어** 코드 `en-US` 및 클라이언트 ID를 나타내는 **앱** 을 전달 합니다.
 

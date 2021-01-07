@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906943"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090831"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
 
-이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 Azure 스프링 클라우드는 Azure에서 마이크로 서비스를 지원 합니다.  비즈니스를 높이면 Azure 스프링 클라우드의 여러 인스턴스를 관리 하는 여러 데이터 센터가 필요할 수 있습니다.
 
@@ -26,12 +26,12 @@ Azure는 이미 다른 부하 분산 솔루션을 제공 합니다. Azure 스프
 2.  Azure 앱 Gateway와 Azure 스프링 클라우드 통합
 3.  Azure 프런트 도어를 사용 하 여 Azure 스프링 클라우드 통합
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 스프링 클라우드: [azure 스프링 클라우드 서비스를 만드는 방법](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
-* Azure Traffic Manager: [Traffic Manager를 만드는 방법](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* Azure 앱 Gateway: [응용 프로그램 게이트웨이를 만드는 방법](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* Azure Front 도어: [Front 도어를 만드는 방법](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* Azure 스프링 클라우드: [azure 스프링 클라우드 서비스를 만드는 방법](./spring-cloud-quickstart.md)
+* Azure Traffic Manager: [Traffic Manager를 만드는 방법](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* Azure 앱 Gateway: [응용 프로그램 게이트웨이를 만드는 방법](../application-gateway/quick-create-portal.md)
+* Azure Front 도어: [Front 도어를 만드는 방법](../frontdoor/quickstart-create-front-door.md)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-traffic-manager"></a>Azure Traffic Manager와 Azure 스프링 클라우드 통합
 
@@ -92,6 +92,6 @@ Azure 스프링 클라우드 서비스와 통합 하 고 백 엔드 풀을 구�
     ![전면 도어 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [Traffic manager를 만드는 방법](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* [응용 프로그램 게이트웨이를 만드는 방법](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* [프런트 도어를 만드는 방법](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* [Traffic manager를 만드는 방법](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [응용 프로그램 게이트웨이를 만드는 방법](../application-gateway/quick-create-portal.md)
+* [프런트 도어를 만드는 방법](../frontdoor/quickstart-create-front-door.md)

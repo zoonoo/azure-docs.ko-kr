@@ -1,20 +1,21 @@
 ---
 title: MongoDB에 대 한 Azure Cosmos DB API 계정의 Mongo 버전을 업그레이드 합니다.
 description: MongoDB 계정에 대 한 기존 Azure Cosmos DB의 API 용 MongoDB 버전을 원활 하 게 업그레이드 하는 방법
-author: LuisBosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
-ms.author: lbosq
-ms.openlocfilehash: 795b7641ac22373b02ab23126055c080af5e851d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: chrande
+ms.openlocfilehash: 9ce444e41d19ece984071d0f62e705a09d5f23c9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937448"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356470"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>MongoDB 용 Azure Cosmos DB API 계정에 대 한 MongoDB 유선 프로토콜 버전을 업그레이드 합니다.
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 이 문서에서는 Azure Cosmos DB의 MongoDB API 계정에 대 한 유선 프로토콜 버전을 업그레이드 하는 방법을 설명 합니다. 유선 프로토콜 버전을 업그레이드 한 후에는 Azure Cosmos DB의 MongoDB API에서 최신 기능을 사용할 수 있습니다. 업그레이드 프로세스는 계정의 가용성을 중단 하지 않으며 r u/s를 사용 하거나 언제 든 지 데이터베이스의 용량을 줄입니다. 기존 데이터 나 인덱스는이 프로세스의 영향을 받지 않습니다.
 
@@ -49,7 +50,7 @@ ms.locfileid: "90937448"
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-응용 프로그램의 기존 끝점과이 데이터베이스 계정에 연결 하는 드라이버를 교체 해야 합니다. **새 끝점을 사용 하는 연결만 MongoDB 버전 3.6의 기능에 액세스할 수**있습니다. 이전 끝점에는 접미사가 있어야 합니다 `.documents.azure.com` .
+응용 프로그램의 기존 끝점과이 데이터베이스 계정에 연결 하는 드라이버를 교체 해야 합니다. **새 끝점을 사용 하는 연결만 MongoDB 버전 3.6의 기능에 액세스할 수** 있습니다. 이전 끝점에는 접미사가 있어야 합니다 `.documents.azure.com` .
 
 >[!Note]
 > 계정이 소 버린 정부 또는 제한 된 Azure 클라우드에서 만들어진 경우이 끝점은 약간의 차이가 있을 수 있습니다.
@@ -80,7 +81,7 @@ ms.locfileid: "90937448"
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="업그레이드 된 계정 상태." border="false":::
 
-7. **업그레이드 된 버전의 데이터베이스 계정 사용을 시작 하려면**블레이드로 돌아가서 `Overview` 응용 프로그램에서 사용할 새 연결 문자열을 복사 합니다. 응용 프로그램은 새 끝점에 연결 하는 즉시 업그레이드 된 버전을 사용 하 여 시작 됩니다. 기존 연결은 중단 되지 않으며 사용자가 편리 하 게 업데이트할 수 있습니다. 일관 된 환경을 보장 하기 위해 모든 응용 프로그램은 새 끝점을 사용 해야 합니다.
+7. **업그레이드 된 버전의 데이터베이스 계정 사용을 시작 하려면** 블레이드로 돌아가서 `Overview` 응용 프로그램에서 사용할 새 연결 문자열을 복사 합니다. 응용 프로그램은 새 끝점에 연결 하는 즉시 업그레이드 된 버전을 사용 하 여 시작 됩니다. 기존 연결은 중단 되지 않으며 사용자가 편리 하 게 업데이트할 수 있습니다. 일관 된 환경을 보장 하기 위해 모든 응용 프로그램은 새 끝점을 사용 해야 합니다.
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="새 개요 블레이드." border="false":::
 

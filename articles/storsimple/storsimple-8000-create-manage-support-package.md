@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182018"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017171"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
 
@@ -23,7 +23,7 @@ StorSimple 지원 패키지는 StorSimple 디바이스 문제를 해결하는 �
 
 ## <a name="create-a-support-package"></a>지원 패키지 만들기
 
-경우에 따라 StorSimple 용 Windows PowerShell을 통해 지원 패키지를 수동으로 만들어야 합니다. 예를 들면 다음과 같습니다.
+경우에 따라 StorSimple 용 Windows PowerShell을 통해 지원 패키지를 수동으로 만들어야 합니다. 예들 들어 다음과 같습니다.
 
 * Microsoft 지원과 공유하기 전에 로그 파일에서 중요한 정보를 제거해야 하는 경우
 * 연결 문제로 인해 패키지를 업로드하는 데 문제가 발생하는 경우
@@ -40,10 +40,10 @@ StorSimple 지원 패키지는 StorSimple 디바이스 문제를 해결하는 �
    1. 명령 프롬프트에 다음을 입력합니다.
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. 열린 대화 상자에서 디바이스 관리자 암호를 입력합니다. 기본 암호는 _Password1_입니다.
+   2. 열린 대화 상자에서 디바이스 관리자 암호를 입력합니다. 기본 암호는 _Password1_ 입니다.
      
       ![PowerShell 자격 증명 대화 상자](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   3. **확인**을 선택합니다.
+   3. **확인** 을 선택합니다.
    4. 명령 프롬프트에 다음을 입력합니다.
      
       `Enter-PSSession $MS`
@@ -71,7 +71,7 @@ Export-HcsSupportPackage cmdlet으로 다음 매개 변수를 사용할 수 있�
 | `-Credential` |선택 사항 |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
 | `-Force` |선택 사항 |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
 | `-PackageTag` |선택 사항 |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
-| `-Scope` |선택 사항 |두 컨트롤러 모두에 대해 지원 패키지를 만들려면 **Cluster**(기본값)로 지정합니다. 현재 컨트롤러에 대한 패키지만 만들려면 **Controller**를 지정합니다. |
+| `-Scope` |선택 사항 |두 컨트롤러 모두에 대해 지원 패키지를 만들려면 **Cluster**(기본값)로 지정합니다. 현재 컨트롤러에 대한 패키지만 만들려면 **Controller** 를 지정합니다. |
 
 ## <a name="edit-a-support-package"></a>지원 패키지 편집
 
@@ -108,7 +108,7 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![지원 패키지 편집](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+    ![지원 패키지 2 편집](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. 메시지가 표시되면 수정된 지원 패키지에 암호화 암호를 제공합니다.
    
     ```powershell

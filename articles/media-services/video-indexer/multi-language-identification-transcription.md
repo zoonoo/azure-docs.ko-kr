@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
 ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72968732"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>자동으로 다국어 콘텐츠 식별 및 높여줄 (미리 보기)
@@ -23,7 +23,7 @@ Video Indexer은 다중 언어 콘텐츠에서 자동 언어 식별 및 기록�
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-portal"></a>포털을 사용 하 여 인덱싱에서 다국어 id 선택
 
-비디오를 업로드 하 고 인덱싱할 때 **다국어 검색** 을 선택할 수 있습니다. 또는 비디오를 다시 인덱싱할 때 **다국어 검색** 을 선택할 수 있습니다. 다음 단계에서는 인덱스를 수행 하는 방법을 설명 합니다.
+비디오를 업로드 하 고 인덱싱할 때 **다국어 검색** 을 선택할 수 있습니다. 또는 비디오를 다시 인덱싱할 때 **다국어 검색**  을 선택할 수 있습니다. 다음 단계에서는 인덱스를 수행 하는 방법을 설명 합니다.
 
 1. [Video Indexer](https://vi.microsoft.com/) 웹 사이트로 이동하고 로그인합니다.
 1. **라이브러리** 페이지로 이동 하 여 인덱스를 다시 만들려는 비디오의 이름을 마우스로 가리킵니다. 

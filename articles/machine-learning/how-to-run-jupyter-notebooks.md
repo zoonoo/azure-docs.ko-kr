@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897379"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325420"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebooks를 실행하는 방법
 
@@ -42,7 +42,7 @@ Azure Machine Learning 작업 영역에서 새 Jupyter Notebook을 만들고 작
 새 Notebook을 만들려면: 
 
 1. [Azure Machine Learning 스튜디오](https://ml.azure.com)에서 작업 영역 열기
-1. 왼쪽에서 **Notebook**을 선택합니다. 
+1. 왼쪽에서 **Notebook** 을 선택합니다. 
 1. **내 파일** 섹션에서 목록 **사용자 파일** 위에 있는 **새 파일 만들기** 아이콘을 선택합니다.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="새 파일을 만듭니다.":::
@@ -50,9 +50,9 @@ Azure Machine Learning 작업 영역에서 새 Jupyter Notebook을 만들고 작
 1. 파일 이름을 지정합니다. 
 1. Jupyter Notebook 파일의 경우 파일 형식으로 **노트북** 을 선택 합니다.
 1. 파일 디렉터리를 선택합니다.
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
-텍스트 파일도 만들 수 있습니다.  파일 형식으로 **텍스트**를 선택하고 이름에 확장명을 추가합니다(예: myfile.py 또는 myfile.txt).  
+텍스트 파일도 만들 수 있습니다.  파일 형식으로 **텍스트** 를 선택하고 이름에 확장명을 추가합니다(예: myfile.py 또는 myfile.txt).  
 
 Notebook 페이지의 맨 위에 있는 도구를 사용하여 Notebook을 포함하는 폴더 및 파일을 업로드할 수도 있습니다.  Notebook 및 대부분의 텍스트 파일 형식은 미리 보기 섹션에 표시됩니다.  대부분의 다른 파일 형식에는 미리 보기를 사용할 수 없습니다.
 
@@ -75,20 +75,25 @@ Notebook 페이지의 맨 위에 있는 도구를 사용하여 Notebook을 포�
 터미널에 액세스하려면 다음을 수행합니다.
 
 1. [Azure Machine Learning 스튜디오](https://ml.azure.com)에서 작업 영역 열기
-1. 왼쪽에서 **Notebook**을 선택합니다.
+1. 왼쪽에서 **Notebook** 을 선택합니다.
 1. 왼쪽의 **사용자 파일** 섹션에 있는 모든 Notebook을 선택합니다.  여기에 Notebook이 없으면 먼저 [Notebook을 만듭니다.](#create)
 1. 계산 대상을 선택 하거나 새 **계산** 대상을 만들고 실행 될 때까지 기다립니다.
 1. **터미널 열기** 아이콘을 선택합니다.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="터미널을 엽니다.":::
 
-1. 아이콘이 표시 되지 않으면 계산 대상의 오른쪽에 **있는 ...** 를 선택한 다음, **터미널 열기**를 선택 합니다.
+1. 아이콘이 표시 되지 않으면 계산 대상의 오른쪽에 **있는 ...** 를 선택한 다음, **터미널 열기** 를 선택 합니다.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="...에서 터미널 열기":::
 
 
 [작업 영역 파일 시스템에 Git 리포지토리를 복제하는 방법](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)에 대해 자세히 알아보세요.
 
+### <a name="copy-and-paste-in-terminal"></a>터미널에서 복사 및 붙여넣기
+
+> * Windows: `Ctrl-Insert` 복사 하 여 사용 `Ctrl-Shift-v` 하거나 `Shift-Insert` 붙여 넣을 수 있습니다.
+> * Mac OS: `Cmd-c`: 복사, `Cmd-v`: 붙여넣기
+> * FireFox/IE에서 클립보드 사용 권한을 제대로 지원하지 않을 수 있습니다.
 
 ### <a name="share-notebooks-and-other-files"></a>Notebook 및 기타 파일 공유
 
@@ -103,6 +108,16 @@ Notebook을 편집하려면 작업 영역의 **사용자 파일** 섹션에 있�
 계산 인스턴스가 실행 되는 경우 모든 Python 노트북에서 [Intellisense](https://code.visualstudio.com/docs/editor/intellisense)에서 제공 하는 코드 완성 기능을 사용할 수도 있습니다.
 
 Notebook 도구 모음에서 Jupyter 또는 JupyterLab을 시작할 수도 있습니다.  Azure Machine Learning은 Microsoft 지원이 안 되는 오픈 소스 제품이므로 Jupyter 또는 JupyterLab에서 업데이트를 제공하거나 버그를 수정하지 않습니다.
+
+### <a name="focus-mode"></a>포커스 모드
+
+활성 탭에 집중할 수 있도록 포커스 모드를 사용 하 여 현재 보기를 확장 합니다. 포커스 모드는 전자 필기장 파일 탐색기를 숨깁니다.
+
+1. 터미널 창 도구 모음 **에서 포커스 모드를 선택 하** 여 포커스 모드를 설정 합니다. 창 너비에 따라 도구 모음의 **...** 메뉴 항목 아래에 있을 수 있습니다.
+1. 포커스 모드에서 **표준 뷰** 를 선택 하 여 표준 뷰로 돌아갑니다.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="포커스 모드/표준 뷰 설정/해제":::
+
 
 ### <a name="use-intellisense"></a>IntelliSense 사용
 
@@ -128,13 +143,13 @@ Notebook 도구 모음에서 Jupyter 또는 JupyterLab을 시작할 수도 있�
 
 ### <a name="save-and-checkpoint-a-notebook"></a>노트북 저장 및 검사점
 
-Azure Machine Learning는 *ipynb*파일을 만들 때 검사점 파일을 만듭니다   .
+Azure Machine Learning는 *ipynb* 파일을 만들 때 검사점 파일을 만듭니다.
 
 노트북 도구 모음에서 메뉴를 선택 하 고 **파일 &gt; 저장 및 검사점** 을 선택 하 여 노트북을 수동으로 저장 하 고 노트북에 연결 된 검사점 파일을 추가 합니다.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="노트북 도구 모음에 있는 저장 도구의 스크린샷":::
 
-모든 노트북은 30 초 마다 자동으로 저장 됩니다.자동 저장은 검사점 파일이 아닌 초기 *ip이상 b*   파일만 업데이트 합니다.
+모든 노트북은 30 초 마다 자동으로 저장 됩니다. 자동 저장은 검사점 파일이 아닌 초기 *ip이상 b* 파일만 업데이트 합니다.
  
 노트북 메뉴에서 **검사점** 을 선택 하 여 명명 된 검사점을 만들고 노트북을 저장 된 검사점으로 되돌립니다.
 
@@ -152,9 +167,9 @@ Azure Machine Learning는 *ipynb*파일을 만들 때 검사점 파일을 만�
 
 ## <a name="delete-a-notebook"></a>Notebook을 삭제합니다.
 
-**샘플** Notebook을 삭제*할 수 없습니다*.  이러한 Notebook은 스튜디오에 포함되어 있으며 새 SDK가 게시될 때마다 업데이트됩니다.  
+**샘플** Notebook을 삭제 *할 수 없습니다*.  이러한 Notebook은 스튜디오에 포함되어 있으며 새 SDK가 게시될 때마다 업데이트됩니다.  
 
-다음과 같은 방법으로 **사용자 파일** Notebook을 삭제*할 수 있습니다*.
+다음과 같은 방법으로 **사용자 파일** Notebook을 삭제 *할 수 있습니다*.
 
 * 스튜디오에서 폴더 또는 파일의 끝에 있는 **...** 를 선택합니다.  지원되는 브라우저(Microsoft Edge, Chrome 또는 Firefox)를 사용해야 합니다.
 * 모든 Notebook 도구 모음에서 [**터미널 열기**](#terminal)를 선택하여 컴퓨팅 인스턴스에 대한 터미널 창에 액세스합니다.
@@ -165,15 +180,15 @@ Azure Machine Learning는 *ipynb*파일을 만들 때 검사점 파일을 만�
 Notebook에서 실험을 실행하려면 먼저 실행 중인 [컴퓨팅 인스턴스](concept-compute-instance.md)에 연결합니다. 컴퓨팅 인스턴스가 없는 경우 다음 단계를 사용하여 만듭니다. 
 
 1. Notebook 도구 모음에서 **+** 를 선택합니다. 
-2. 컴퓨팅 이름을 지정하고 **Virtual Machine 크기**를 선택합니다. 
-3. **만들기**를 선택합니다.
+2. 컴퓨팅 이름을 지정하고 **Virtual Machine 크기** 를 선택합니다. 
+3. **만들기** 를 선택합니다.
 4. 컴퓨팅 인스턴스는 Notebook에 자동으로 연결되고 이제 셀을 실행할 수 있습니다.
 
-사용자가 만든 컴퓨팅 인스턴스만 보고 사용할 수 있습니다.  **사용자 파일**은 VM과 별도로 저장되고 작업 영역의 모든 컴퓨팅 인스턴스 간에 공유됩니다.
+사용자가 만든 컴퓨팅 인스턴스만 보고 사용할 수 있습니다.  **사용자 파일** 은 VM과 별도로 저장되고 작업 영역의 모든 컴퓨팅 인스턴스 간에 공유됩니다.
 
 ### <a name="view-logs-and-output"></a>로그 및 출력 보기
 
-[Notebook 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)을 사용하여 실행 및 로그의 진행률을 볼 수 있습니다. 위젯은 비동기적이며 학습을 마칠 때까지 업데이트를 제공합니다. Azure Machine Learning 위젯은 Jupyter 및 JupyterLab에서도 지원됩니다.
+[Notebook 위젯](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)을 사용하여 실행 및 로그의 진행률을 볼 수 있습니다. 위젯은 비동기적이며 학습을 마칠 때까지 업데이트를 제공합니다. Azure Machine Learning 위젯은 Jupyter 및 JupyterLab에서도 지원됩니다.
 
 ## <a name="change-the-notebook-environment"></a>Notebook 환경 변경
 
@@ -203,7 +218,7 @@ Notebook은 연결된 컴퓨팅 인스턴스에 설치된 모든 Jupyter 커널�
 1. Notebook 도구 모음에서 [**터미널 열기**](#terminal)를 선택합니다.
 1. 터미널 창을 사용하여 새 환경을 만듭니다.  예를 들어 아래 코드는를 만듭니다 `newenv` .
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. 환경을 활성화합니다.  예를 들어 `newenv`를 만든 후에는 다음을 수행합니다.
 
@@ -213,10 +228,13 @@ Notebook은 연결된 컴퓨팅 인스턴스에 설치된 모든 Jupyter 커널�
 1. 새 환경에 pip 및 ipykernel 패키지를 설치 하 고 해당 conda env의 커널 만들기
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> 노트북 내에서 패키지를 관리 하려면 **% pip** 또는 **% conda** magic 함수를 사용 하 여 현재 실행 중인 **커널** 에 패키지를 자동으로 설치 합니다 .이는 모든 패키지를 참조 하는 **! pip** 또는 **! conda** 이 아닌 현재 실행 중인 커널 외부의 패키지를 포함 합니다.
 
 [사용할 수 있는 Jupyter 커널](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)을 설치할 수 있습니다.
 

@@ -1,17 +1,17 @@
 ---
 title: Sys_schema 활용 - Azure Database for MySQL
 description: Azure Database for MySQL에서 sys_schema를 사용하여 성능 문제를 찾고 데이터베이스를 유지 관리하는 방법을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: 62a34a2dba459c6f65729cd5c6804378ee7f8b52
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a20510ee2800a54f9a51a2f498ee8ae8a3e51d55
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902762"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543152"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 
@@ -45,7 +45,7 @@ Azure Database for MySQL에서 스토리지와 관련된 IO 크기를 조정하�
 
 ### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
-신중한 계획에도 불구하고 전체 테이블 검색을 유발하는 쿼리가 여전히 많습니다. 인덱스 유형을 최적화하는 방법과 인덱스 유형에 대한 자세한 정보는 다음 문서를 참조하세요. [쿼리 성능 문제를 해결하는 방법](./howto-troubleshoot-query-performance.md). 전체 테이블 검색에는 리소스가 많이 사용되기 때문에 데이터베이스 성능이 저하됩니다. 전체 테이블 검색으로 테이블을 찾는 가장 빠른 방법은 *sys.schema_tables_with_full_table_scans*보기를 쿼리하는 것입니다.
+신중한 계획에도 불구하고 전체 테이블 검색을 유발하는 쿼리가 여전히 많습니다. 인덱스 유형을 최적화하는 방법과 인덱스 유형에 대한 자세한 정보는 다음 문서를 참조하세요. [쿼리 성능 문제를 해결하는 방법](./howto-troubleshoot-query-performance.md). 전체 테이블 검색에는 리소스가 많이 사용되기 때문에 데이터베이스 성능이 저하됩니다. 전체 테이블 검색으로 테이블을 찾는 가장 빠른 방법은 *sys.schema_tables_with_full_table_scans* 보기를 쿼리하는 것입니다.
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="전체 테이블 검색":::
 
@@ -72,7 +72,7 @@ InnoDB 버퍼 풀은 메모리에 상주하며 DBMS와 스토리지 사이의 �
 
 ### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
 
-인덱스는 읽기 성능을 향상시키는 뛰어난 도구이지만 삽입과 스토리지에 추가 비용이 발생합니다. *Sys.schema_unused_indexes* 및 *sys.schema_redundant_indexes*는 사용하지 않은 인덱스나 중복 인덱스에 대한 정보를 제공합니다.
+인덱스는 읽기 성능을 향상시키는 뛰어난 도구이지만 삽입과 스토리지에 추가 비용이 발생합니다. *Sys.schema_unused_indexes* 및 *sys.schema_redundant_indexes* 는 사용하지 않은 인덱스나 중복 인덱스에 대한 정보를 제공합니다.
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="사용하지 않은 인덱스":::
 
@@ -83,4 +83,4 @@ InnoDB 버퍼 풀은 메모리에 상주하며 DBMS와 스토리지 사이의 �
 요약하자면, sys_schema는 성능 튜닝 및 데이터베이스 유지 관리 모두에 유용한 도구입니다. Azure Database for MySQL에서 이 기능을 반드시 활용하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-- 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)를 참조하세요.
+- 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [Microsoft Q&A 질문 페이지](/answers/topics/azure-database-mysql.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)를 참조하세요.

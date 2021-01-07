@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 5910b94dba03f105197a94cf1ea1805f45249f3f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441088"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451346"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 
@@ -32,9 +32,9 @@ Azure Data Factory 복사 작업은 최고 수준의 보안, 안정성 및 고�
 
 Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우스 솔루션 세트를 제공하고 복사 작업은 쉽게 구성 및 설정할 수 있는 고도로 최적화된 데이터 로드 환경을 제공합니다. 단일 복사 작업 만을 사용하여 다음을 수행할 수 있습니다.
 
-* **1.2 GBps**에서 **Azure Synapse Analytics** 로 데이터를 로드 하는 중입니다. 사용 사례가 포함 된 연습은 [Azure Data Factory를 사용 하 여 15 분 이내에 Azure Synapse Analytics에 1Tb 로드 (이전의 SQL Data Warehouse)](data-factory-load-sql-data-warehouse.md)를 참조 하세요.
-* **1.0 Gbps** 속도로 **Azure Blob Storage**에 데이터 로드
-* **1.0 Gbps** 속도로 **Azure Data Lake Store**에 데이터 로드
+* **1.2 GBps** 에서 **Azure Synapse Analytics** 로 데이터를 로드 하는 중입니다. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
+* **1.0 Gbps** 속도로 **Azure Blob Storage** 에 데이터 로드
+* **1.0 Gbps** 속도로 **Azure Data Lake Store** 에 데이터 로드
 
 이 문서에서는 다음을 설명합니다.
 
@@ -82,7 +82,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 ## <a name="parallel-copy"></a>병렬 복사
 **복사 작업 실행 내에서 병렬로** 원본에서 데이터를 읽어 오거나 대상에 데이터를 쓸 수 있습니다. 이 기능을 통해 복사 작업의 처리량을 늘리고 데이터를 이동하는 데 소요되는 시간을 줄일 수 있습니다.
 
-이 설정은 작업 정의의 **concurrency** 속성과 다릅니다. **concurrency** 속성은 다양한 작업 기간(오전 1-2시, 오전 2-3시, 오전 3-4시 등)의 데이터를 처리하기 위해 **동시 복사 작업 실행**의 수를 결정합니다. 이 기능은 기록 로드를 수행하는 경우 유용합니다. 병렬 복사 기능은 **단일 작업 실행**에 적용됩니다.
+이 설정은 작업 정의의 **concurrency** 속성과 다릅니다. **concurrency** 속성은 다양한 작업 기간(오전 1-2시, 오전 2-3시, 오전 3-4시 등)의 데이터를 처리하기 위해 **동시 복사 작업 실행** 의 수를 결정합니다. 이 기능은 기록 로드를 수행하는 경우 유용합니다. 병렬 복사 기능은 **단일 작업 실행** 에 적용됩니다.
 
 샘플 시나리오를 살펴 보겠습니다. 다음 예에서는 과거 여러 조각을 처리해야 합니다. Data Factory는 각 조각에 대한 복사 작업(작업 실행) 인스턴스를 하나 실행합니다.
 
@@ -92,7 +92,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
 방식으로 계속됩니다.
 
-이 예제의 **concurrency** 값이 2로 설정되면 **작업 실행 1** 및 **작업 실행 2**에서 두 작업 기간의 데이터를 **동시에** 복사하여 데이터 이동 성능을 향상시킬 수 있습니다. 하지만, 작업 실행 1에 관련된 파일이 여러 개이면, 데이터 이동 서비스는 원본에서 대상으로 한 번에 하나의 파일을 복사합니다.
+이 예제의 **concurrency** 값이 2로 설정되면 **작업 실행 1** 및 **작업 실행 2** 에서 두 작업 기간의 데이터를 **동시에** 복사하여 데이터 이동 성능을 향상시킬 수 있습니다. 하지만, 작업 실행 1에 관련된 파일이 여러 개이면, 데이터 이동 서비스는 원본에서 대상으로 한 번에 하나의 파일을 복사합니다.
 
 ### <a name="cloud-data-movement-units"></a>클라우드 데이터 이동 단위
 **클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. DMU는 클라우드 간 복사 작업에 적용되지만 하이브리드 복사에는 적용되지 않습니다.
@@ -104,7 +104,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 | 파일 기반 저장소 간의 데이터 복사 | 파일 수와 크기에 따라 4~16 |
 | 그 밖의 모든 복사 시나리오 | 4 |
 
-기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. **cloudDataMovementUnits** 속성에 **허용되는 값**은 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
+기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. **cloudDataMovementUnits** 속성에 **허용되는 값** 은 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수** 는 데이터 패턴에 따라 구성된 값 이하입니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
 
 ```json
 "activities":[
@@ -128,7 +128,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 ```
 
 > [!NOTE]
-> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 작동합니다.
+> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사** 하는 경우에만 작동합니다.
 >
 
 ### <a name="parallelcopies"></a>parallelCopies
@@ -166,7 +166,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 ```
 주의할 사항:
 
-* 파일 기반 저장소간에 데이터를 복사하면 **parallelCopies**에서 파일 수준 병렬 처리를 결정합니다. 단일 파일에서 수행되는 청크는 자동으로 투명하게 발생하며, 주어진 원본 데이터 저장소 유형에 가장 적합한 청크 크기를 사용하여 parallelCopies에 대해 병렬 및 직각으로 데이터를 로드하도록 설계되었습니다. 런타임 시 데이터 이동 서비스에서 복사 작업에 사용하는 병렬 복사의 실제 수는 사용자가 보유한 파일의 수를 넘지 않습니다. 복사 동작이 **mergeFile**인 경우 복사 작업은 파일 수준 병렬 처리의 이점을 활용할 수 없습니다.
+* 파일 기반 저장소간에 데이터를 복사하면 **parallelCopies** 에서 파일 수준 병렬 처리를 결정합니다. 단일 파일에서 수행되는 청크는 자동으로 투명하게 발생하며, 주어진 원본 데이터 저장소 유형에 가장 적합한 청크 크기를 사용하여 parallelCopies에 대해 병렬 및 직각으로 데이터를 로드하도록 설계되었습니다. 런타임 시 데이터 이동 서비스에서 복사 작업에 사용하는 병렬 복사의 실제 수는 사용자가 보유한 파일의 수를 넘지 않습니다. 복사 동작이 **mergeFile** 인 경우 복사 작업은 파일 수준 병렬 처리의 이점을 활용할 수 없습니다.
 * **parallelCopies** 속성에 대한 값을 지정할 때는 원본 및 싱크 데이터 저장소, 게이트웨이(하이브리드 복사인 경우)에 대한 로드 증가를 고려합니다. 동일한 데이터 저장소에 대해 실행되는 여러 활동이 있거나 동일한 활동의 동시 실행이 있는 경우 특히 발생합니다. 데이터 저장소나 게이트웨이가 로드로 인해 과부하가 걸리면, 로드가 감소되도록 **parallelCopies** 값을 줄이십시오.
 * 파일 기반이 아닌 저장소에서 파일 기반인 저장소로 데이터를 이동할 경우 데이터 이동 서비스는 **parallelCopies** 속성을 무시합니다. 병렬 처리를 지정하더라도 이 경우에는 적용되지 않습니다.
 
@@ -175,10 +175,10 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 >
 >
 
-이러한 두 가지 속성을 개선하고 데이터 이동 처리량을 향상하려면 샘플 사용 사례를 참조하세요. 기본 동작을 활용하기 위해 **parallelCopies** 를 구성할 필요가 없습니다. 구성을 수행하고 **parallelCopies**가 너무 작은 경우 여러 클라우드 DMU가 완전히 활용되지 않을 수 있습니다.
+이러한 두 가지 속성을 개선하고 데이터 이동 처리량을 향상하려면 샘플 사용 사례를 참조하세요. 기본 동작을 활용하기 위해 **parallelCopies** 를 구성할 필요가 없습니다. 구성을 수행하고 **parallelCopies** 가 너무 작은 경우 여러 클라우드 DMU가 완전히 활용되지 않을 수 있습니다.
 
 ### <a name="billing-impact"></a>청구 영향
-복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 클라우드 단위 1개로 1시간이 걸렸던 복사 작업이 이제 클라우드 단위 4개로 15분이 걸리는 경우 전체 청구 금액은 거의 동일한 상태로 유지됩니다. 예를 들어 4개의 클라우드 단위를 사용합니다. 첫 번째 클라우드 단위 10분, 두 번째 10분, 세 번째 5분, 네 번째 5분으로 모두 하나의 복사 작업 실행으로 수행됩니다. 총 복사(데이터 이동) 시간(10 + 10 + 5 + 5 = 30분)에 대한 요금이 청구됩니다. **parallelCopies**의 사용은 청구에 영향을 주지 않습니다.
+복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요** 합니다. 클라우드 단위 1개로 1시간이 걸렸던 복사 작업이 이제 클라우드 단위 4개로 15분이 걸리는 경우 전체 청구 금액은 거의 동일한 상태로 유지됩니다. 예를 들어 4개의 클라우드 단위를 사용합니다. 첫 번째 클라우드 단위 10분, 두 번째 10분, 세 번째 5분, 네 번째 5분으로 모두 하나의 복사 작업 실행으로 수행됩니다. 총 복사(데이터 이동) 시간(10 + 10 + 5 + 5 = 30분)에 대한 요금이 청구됩니다. **parallelCopies** 의 사용은 청구에 영향을 주지 않습니다.
 
 ## <a name="staged-copy"></a>준비된 복사
 원본 데이터 스토리지에서 싱크 데이터 스토리지에 데이터를 복사할 경우 중간 준비 스토리지로 Blob Storage를 사용하도록 선택할 수 있습니다. 준비는 다음과 같은 경우에 특히 유용합니다.
@@ -202,13 +202,13 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
 현재는 준비 저장소를 사용하여 두 온-프레미스 데이터 저장소 간에 데이터를 복사할 수 없습니다. 이 옵션은 곧 제공될 예정입니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 스토리지에 로드하기 전에 Blob Storage에서 준비할지 여부를 지정합니다. **enableStaging** 을 TRUE로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. Azure Storage 또는 준비를 위한 Storage 공유 액세스 서명 연결된 서비스가 아직 없는 경우 만들어야 합니다.
 
-| 속성 | Description | 기본값 | 필수 |
+| 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
-| **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> 공유 액세스 서명이 포함 된 저장소를 사용 하 여 PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
+| **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> 공유 액세스 서명이 포함 된 저장소를 사용 하 여 PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |
 | **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
 | **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |예 |
 
@@ -250,7 +250,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
 1. **기초 설정**. 개발 단계 중 대표적인 샘플 데이터에 대한 복사 작업을 사용하여 파이프라인을 테스트합니다. 데이터 팩터리의 [모델 조각화](data-factory-scheduling-and-execution.md)를 사용하여 작업하는 데이터의 양을 제한할 수 있습니다.
 
-   **모니터링 및 관리 앱**을 사용하여 실행 시간 및 성능 특성을 수집합니다. Data Factory 홈페이지에서 **모니터 및 관리**를 선택합니다. 트리 뷰에서 **출력 데이터 세트**를 선택합니다. **작업 기간** 목록에서 복사 작업 실행을 선택합니다. **작업 기간**에는 복사 작업 기간 및 복사되는 데이터 크기가 나열됩니다. 처리량은 **작업 창 탐색기**에 나열됩니다. 앱에 대해 자세히 알아보려면 [모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
+   **모니터링 및 관리 앱** 을 사용하여 실행 시간 및 성능 특성을 수집합니다. Data Factory 홈페이지에서 **모니터 및 관리** 를 선택합니다. 트리 뷰에서 **출력 데이터 세트** 를 선택합니다. **작업 기간** 목록에서 복사 작업 실행을 선택합니다. **작업 기간** 에는 복사 작업 기간 및 복사되는 데이터 크기가 나열됩니다. 처리량은 **작업 창 탐색기** 에 나열됩니다. 앱에 대해 자세히 알아보려면 [모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
    ![작업 실행 세부 정보](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
@@ -289,14 +289,14 @@ Blob storage에서 Azure Synapse Analytics로 데이터를 복사 하는 경우,
 
 * **평균 파일 크기 및 파일 개수**: 복사 작업은 데이터를 한 번에 하나씩 전송합니다. 동일한 양의 데이터를 이동하는 경우 각 파일에 대한 부트스트랩 단계이기 때문에 적은 수의 큰 파일보다는 많은 수의 작은 파일로 데이터가 구성되는 경우 전체 처리량은 느려집니다. 따라서 가능하면 작은 파일을 더 큰 파일에 결합하여 처리량을 높입니다.
 * **파일 형식 및 압축**: 성능을 향상하는 다양한 방법은 [직렬화/역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
-* **데이터 관리 게이트웨이**가 필요한 **온-프레미스 파일 시스템** 시나리오는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
+* **데이터 관리 게이트웨이** 가 필요한 **온-프레미스 파일 시스템** 시나리오는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
 
 ### <a name="relational-data-stores"></a>관계형 데이터 저장소
 *(SQL Database 포함 Azure Synapse 분석 Amazon Redshift; 데이터베이스 SQL Server 그리고 Oracle, MySQL, DB2, Teradata, Sybase 및 PostgreSQL 데이터베이스 등이 있습니다.*
 
 * **데이터 패턴**: 테이블 스키마는 복사본 처리량에 영향을 줍니다. 행 크기가 크면 동일한 양의 데이터를 복사하는 데 작은 행 크기보다 더 나은 성능을 제공합니다. 원인은 데이터베이스가 적은 수의 행을 포함하는 더 적은 배치의 데이터보다 더욱 효율적으로 검색할 수 있기 때문입니다.
 * **쿼리 또는 저장 프로시저**: 데이터를 보다 효율적으로 가져오기 위해 복사 작업 원본에서 지정한 쿼리 또는 저장 프로시저의 논리를 최적화합니다.
-* **데이터 관리 게이트웨이**를 사용해야 하는 SQL Server 및 Oracle과 같은 **온-프레미스 관계형 데이터베이스**는 데이터 관리 게이트웨이에 대한 고려 사항 섹션을 참조하세요.
+* **데이터 관리 게이트웨이** 를 사용해야 하는 SQL Server 및 Oracle과 같은 **온-프레미스 관계형 데이터베이스** 는 데이터 관리 게이트웨이에 대한 고려 사항 섹션을 참조하세요.
 
 ## <a name="considerations-for-the-sink"></a>싱크에 대한 고려 사항
 ### <a name="general"></a>일반
@@ -304,7 +304,7 @@ Blob storage에서 Azure Synapse Analytics로 데이터를 복사 하는 경우,
 
 Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터링 및 튜닝 항목](#performance-reference)을 참조하세요. 이러한 항목에서 데이터 저장소 성능 특성을 이해하고 응답 시간을 최소화하고 처리량을 최대화하는 방법을 파악할 수 있습니다.
 
-**Blob storage** 에서 **Azure Synapse Analytics**로 데이터를 복사 하는 경우에는 **PolyBase** 를 사용 하 여 성능을 향상 하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드를](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) 참조 하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
+**Blob storage** 에서 **Azure Synapse Analytics** 로 데이터를 복사 하는 경우에는 **PolyBase** 를 사용 하 여 성능을 향상 하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드를](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) 참조 하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
 
 ### <a name="file-based-data-stores"></a>파일 기반 데이터 저장소
 *(Blob Storage, Data Lake Store, Amazon S3, 온-프레미스 파일 시스템, 온-프레미스 HDFS 포함)*
@@ -312,27 +312,27 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 * **복사 동작**: 서로 다른 파일 기반 저장소에서 데이터를 복사하는 경우 복사 작업에는 **copyBehavior** 속성을 통해 3가지 옵션이 제공됩니다. 계층 구조를 유지하고 평면화하며 파일을 병합합니다. 계층 구조를 유지 또는 평면화하는 작업은 성능 오버 헤드가 거의 또는 전혀 발생하지 않는 반면 파일을 병합하는 작업은 성능 오버 헤드가 증가합니다.
 * **파일 형식 및 압축**: 성능을 개선하는 다양한 방법은 [직렬화/역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
 * **Blob Storage**: 현재 Blob Storage는 최적화된 데이터 전송 및 처리량에 대해서만 블록 Blob를 지원합니다.
-* **데이터 관리 게이트웨이**를 사용해야 하는 **온-프레미스 파일 시스템** 시나리오는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
+* **데이터 관리 게이트웨이** 를 사용해야 하는 **온-프레미스 파일 시스템** 시나리오는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
 
 ### <a name="relational-data-stores"></a>관계형 데이터 저장소
 *(SQL Database, Azure Synapse Analytics, SQL Server 데이터베이스 및 Oracle 데이터베이스 포함)*
 
-* **복사 동작**: **sqlSink**에 대해 설정된 속성에 따라 복사 작업은 대상 데이터베이스에 데이터를 다양한 방식으로 기록합니다.
+* **복사 동작**: **sqlSink** 에 대해 설정된 속성에 따라 복사 작업은 대상 데이터베이스에 데이터를 다양한 방식으로 기록합니다.
   * 기본적으로 데이터 이동 서비스는 대량 복사 API를 사용하여 추가 모드에 데이터를 삽입하며 이는 최상의 성능을 제공합니다.
   * 싱크에 저장 프로시저를 구성하는 경우 데이터베이스는 대량 로드가 아닌, 한 번에 한 행씩 데이터를 적용합니다. 성능이 크게 저하됩니다. 데이터 집합이 크면 적용할 수 있을 때 **sqlWriterCleanupScript** 속성(아래 참조)을 사용하도록 전환하는 것이 좋습니다.
   * 실행한 각 복사 작업에 **sqlWriterCleanupScript** 속성을 구성하는 경우 서비스는 스크립트를 트리거한 다음 대량 복사 API를 사용하여 데이터를 삽입합니다. 예를 들어 최신 데이터를 사용하여 전체 테이블을 덮어쓰려면 원본에서 새 데이터를 대량으로 로드하기 전에 먼저 스크립트를 지정하여 모든 레코드를 삭제할 수 있습니다.
 * **데이터 패턴 및 배치 크기**:
   * 테이블 스키마는 복사본 처리량에 영향을 줍니다. 동일한 양의 데이터를 복사하려면 데이터베이스가 데이터에서 적은 배치를 보다 효율적으로 커밋할 수 있기 때문에 행 크기가 크면 행 크기가 작은 경우 보다 더 성능이 나아집니다.
-  * 복사 작업은 일련의 배치로 데이터를 삽입합니다. **writeBatchSize** 속성을 사용하여 배치에서 행 수를 설정할 수 있습니다. 데이터에 작은 크기의 행이 있으면 높은 값을 가진 **writeBatchSize** 속성을 설정하여 적은 수의 배치 오버헤드와 높은 처리량의 혜택을 얻을 수 있습니다. 데이터의 행 크기가 큰 경우 **writeBatchSize**를 늘릴 때 주의하세요. 이 값이 높으면 데이터베이스에 오버로드가 발생하여 복사에 실패할 수 있습니다.
-* **데이터 관리 게이트웨이**를 사용해야 하는 SQL Server 및 Oracle과 같은 **온-프레미스 관계형 데이터베이스**는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
+  * 복사 작업은 일련의 배치로 데이터를 삽입합니다. **writeBatchSize** 속성을 사용하여 배치에서 행 수를 설정할 수 있습니다. 데이터에 작은 크기의 행이 있으면 높은 값을 가진 **writeBatchSize** 속성을 설정하여 적은 수의 배치 오버헤드와 높은 처리량의 혜택을 얻을 수 있습니다. 데이터의 행 크기가 큰 경우 **writeBatchSize** 를 늘릴 때 주의하세요. 이 값이 높으면 데이터베이스에 오버로드가 발생하여 복사에 실패할 수 있습니다.
+* **데이터 관리 게이트웨이** 를 사용해야 하는 SQL Server 및 Oracle과 같은 **온-프레미스 관계형 데이터베이스** 는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
 
 ### <a name="nosql-stores"></a>NoSQL 저장소
 *(Table Storage 및 Azure Cosmos DB 포함)*
 
 * **Table Storage**:
   * **파티션**: 인터리브 파티션에 데이터를 작성하면 성능이 크게 저하됩니다. 파티션 키로 원본 데이터를 정렬할 수 있으므로 데이터는 파티션에 차례로 효율적으로 삽입되거나 논리를 조정하여 단일 파티션에 데이터를 기록할 수 있습니다.
-* **Azure Cosmos DB**의 경우:
-  * **배치 크기**: **writeBatchSize** 속성은 문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수를 설정합니다. Azure Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 **writeBatchSize**가 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 그러나 Azure Cosmos DB에 작성할 때 제한을 확인하세요(오류 메시지 "요청 속도가 큽니다"). 문서 크기, 문서에서 용어의 수 및 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 인해 제한이 발생할 수 있습니다. 복사 처리량을 더 높이려면 더 나은 컬렉션(예: S3)을 사용하는 것이 좋습니다.
+* **Azure Cosmos DB** 의 경우:
+  * **배치 크기**: **writeBatchSize** 속성은 문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수를 설정합니다. Azure Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 **writeBatchSize** 가 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 그러나 Azure Cosmos DB에 작성할 때 제한을 확인하세요(오류 메시지 "요청 속도가 큽니다"). 문서 크기, 문서에서 용어의 수 및 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 인해 제한이 발생할 수 있습니다. 복사 처리량을 더 높이려면 더 나은 컬렉션(예: S3)을 사용하는 것이 좋습니다.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>직렬화 및 역직렬화에 대한 고려 사항
 입력 데이터 집합 또는 출력 데이터 집합이 파일인 경우 직렬화 및 역직렬화가 발생할 수 있습니다. 복사 작업에서 지원하는 파일 형식에 대한 세부 정보는 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
@@ -403,13 +403,13 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 **시나리오 II**: 크기가 500MB인 Blob 20개를 Blob Storage에서 Data Lake Store 분석으로 복사한 후 성능을 조정하는 경우.
 
-**분석 및 성능 튜닝**: 이 시나리오에서 Data Factory는 단일 복사(**parallelCopies**를 1로 설정)를 사용하고 단일 클라우드 데이터 이동 단위를 사용하여 Blob Storage에서 Data Lake Store로 데이터를 복사합니다. 처리량을 관찰하면 [성능 참조 섹션](#performance-reference)에 설명된 것에 근접한 것을 볼 수 있습니다.
+**분석 및 성능 튜닝**: 이 시나리오에서 Data Factory는 단일 복사(**parallelCopies** 를 1로 설정)를 사용하고 단일 클라우드 데이터 이동 단위를 사용하여 Blob Storage에서 Data Lake Store로 데이터를 복사합니다. 처리량을 관찰하면 [성능 참조 섹션](#performance-reference)에 설명된 것에 근접한 것을 볼 수 있습니다.
 
 ![시나리오 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
 **시나리오 III**: 개별 파일 크기는 수십 MB를 초과하며 총 볼륨은 큽니다.
 
-**분석 및 성능 튜닝**: **parallelCopies**를 늘린다고 해도 단일 클라우드 DMU의 리소스 제한으로 인해 복사 성능이 향상되지 않습니다. 대신, 데이터 이동을 수행할 리소스를 더 확보하기 위해서 더 많은 클라우드 DMU를 지정해야 합니다. **parallelCopies** 속성에 대한 값을 지정하지 마세요. Data Factory는 병렬 처리를 수행합니다. 이 경우 **cloudDataMovementUnits**를 4로 설정하면 처리량은 약 4배 발생합니다.
+**분석 및 성능 튜닝**: **parallelCopies** 를 늘린다고 해도 단일 클라우드 DMU의 리소스 제한으로 인해 복사 성능이 향상되지 않습니다. 대신, 데이터 이동을 수행할 리소스를 더 확보하기 위해서 더 많은 클라우드 DMU를 지정해야 합니다. **parallelCopies** 속성에 대한 값을 지정하지 마세요. Data Factory는 병렬 처리를 수행합니다. 이 경우 **cloudDataMovementUnits** 를 4로 설정하면 처리량은 약 4배 발생합니다.
 
 ![시나리오 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
@@ -418,8 +418,8 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 * Azure Blob storage: blob 저장소에 [대 한 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md) 와 [blob 저장소에 대 한 성능 및 확장성 검사 목록](../../storage/blobs/storage-performance-checklist.md)입니다.
 * Azure 테이블 저장소: 테이블 저장소에 [대 한 확장성 및 성능 목표](../../storage/tables/scalability-targets.md) 와 [테이블 저장소에 대 한 성능 및 확장성 검사 목록](../../storage/tables/storage-performance-checklist.md)입니다.
-* Azure SQL Database: [성능을 모니터링](../../sql-database/sql-database-single-database-monitor.md) 하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
+* Azure SQL Database: [성능을 모니터링](../../azure-sql/database/monitor-tune-overview.md) 하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
 * Azure Synapse Analytics: 해당 기능은 DWUs (데이터 웨어하우스 단위)로 측정 됩니다. [Azure Synapse Analytics에서 계산 능력 관리 (개요)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) 를 참조 하세요.
 * Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../../cosmos-db/performance-levels.md)
-* 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)
-* 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)
+* 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](/sql/relational-databases/performance/monitor-and-tune-for-performance)
+* 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](/previous-versions//dn567661(v=vs.85))

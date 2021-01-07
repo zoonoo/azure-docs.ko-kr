@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144716"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410898"
 ---
 # <a name="adsync-service-account"></a>ADSync 서비스 계정
 Azure AD Connect Active Directory와 Azure Active Directory 간의 동기화를 오케스트레이션 온-프레미스 서비스를 설치 합니다.  ADSync (Microsoft Azure AD Sync synchronization service)는 온-프레미스 환경의 서버에서 실행 됩니다.  서비스의 자격 증명은 기본적으로 Express 설치에서 설정 되지만 조직의 보안 요구 사항에 맞게 사용자 지정할 수 있습니다.  이러한 자격 증명은 온-프레미스 포리스트 또는 Azure Active Directory 연결 하는 데 사용 되지 않습니다.
@@ -61,7 +61,7 @@ AdSync 서비스 암호화 키를 찾을 수 없어서 다시 만들었습니다
 
 이 문제를 해결 하는 경우 AdSync 서비스 로그온 자격 증명이 변경 되 면 Microsoft Azure AD 동기화 암호화 키에 액세스할 수 없게 됩니다.  자격 증명이 변경 된 경우 서비스 응용 프로그램을 사용 하 여 로그온 계정을 원래 구성 된 값으로 다시 변경 합니다 (예: NT SERVICE\AdSync)를 클릭 하 고 서비스를 다시 시작 합니다.  그러면 AdSync 서비스의 올바른 작업이 즉시 복원 됩니다.
 
-자세한 내용은 다음 [문서](https://go.microsoft.com/fwlink/?linkid=2086764) 를 참조 하세요.
+자세한 내용은 다음 [문서](./whatis-hybrid-identity.md) 를 참조 하세요.
 
 ### <a name="example-2"></a>예제 2
 
@@ -69,7 +69,7 @@ AdSync 서비스 암호화 키를 찾을 수 없어서 다시 만들었습니다
 
 이 문제를 해결 하는 경우 AdSync 서비스 로그온 자격 증명을 변경 하는 경우 동기화 서비스 Microsoft Azure AD는 로컬 데이터베이스 공급자에 대 한 액세스 권한을 잃게 됩니다.  자격 증명이 변경 된 경우 서비스 응용 프로그램을 사용 하 여 로그온 계정을 원래 구성 된 값으로 다시 변경 합니다 (예: NT SERVICE\AdSync)를 클릭 하 고 서비스를 다시 시작 합니다.  그러면 AdSync 서비스의 올바른 작업이 즉시 복원 됩니다.
 
-자세한 내용은 다음 [문서](https://go.microsoft.com/fwlink/?linkid=2086764) 를 참조 하세요.
+자세한 내용은 다음 [문서](./whatis-hybrid-identity.md) 를 참조 하세요.
 
 추가 정보 공급자에서 반환 된 오류 정보는 다음과 같습니다.
  

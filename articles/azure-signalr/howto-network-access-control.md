@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e56736e0d033420f9aaf976b0fb7d9727c1a5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302165"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143224"
 ---
 # <a name="configure-network-access-control"></a>네트워크 액세스 제어 구성
 
@@ -48,7 +48,7 @@ Azure Portal를 통해 Azure SignalR Service에 대 한 네트워크 액세스 �
 1. 기본 작업을 편집 하려면 **허용/거부** 단추를 설정/해제 합니다.
 
     > [!TIP]
-    > 기본 작업은 ACL 규칙에 일치 하는 항목이 없을 때 수행 하는 동작입니다. 예를 들어 기본 작업이 **거부**인 경우 아래에서 명시적으로 허용 목록 되지 않은 요청 유형은 거부 됩니다.
+    > 기본 작업은 ACL 규칙에 일치 하는 항목이 없을 때 수행 하는 동작입니다. 예를 들어 기본 작업이 **거부**인 경우 아래에서 명시적으로 승인 되지 않은 요청 유형은 거부 됩니다.
 
 1. 공용 네트워크 규칙을 편집 하려면 **공용 네트워크**에서 허용 되는 요청 유형을 선택 합니다.
 
@@ -62,4 +62,4 @@ Azure Portal를 통해 Azure SignalR Service에 대 한 네트워크 액세스 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Private Link](/azure/private-link/private-link-overview)에 대해 자세히 알아봅니다.
+[Azure Private Link](../private-link/private-link-overview.md)에 대해 자세히 알아봅니다.

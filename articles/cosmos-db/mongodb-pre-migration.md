@@ -1,20 +1,21 @@
 ---
 title: Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 description: 이 문서에서는 MongoDB에서 Cosmos DB로 데이터 마이그레이션을 위한 필수 구성 요소에 대한 개요를 제공합니다.
-author: LuisBosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.author: lbosq
-ms.openlocfilehash: be38b1cfa698907f44c6deee77bb9b8ca88b77b7
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.author: chrande
+ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318219"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349421"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 MongoDB(온-프레미스 또는 클라우드)에서 Azure Cosmos DB의 API for MongoDB로 데이터를 마이그레이션하기 전에 다음을 수행해야 합니다.
 
@@ -36,7 +37,7 @@ MongoDB(온-프레미스 또는 클라우드)에서 Azure Cosmos DB의 API for M
 
 - **탄력적 용량**: 지정된 컬렉션 또는 데이터베이스에 대한 용량은 언제든지 변경할 수 있습니다. 이를 통해 데이터베이스는 워크로드의 처리량 요구 사항에 맞게 탄력적으로 적응할 수 있습니다.
 
-- **자동 분할**: Azure Cosmos DB는 분할(또는 파티션 키)만 필요한 자동 분할 시스템을 제공합니다. [자동 분할 메커니즘](partition-data.md)은 모든 Azure Cosmos DB API에서 공유되고, 원활한 데이터를 허용하고 수평 분산을 통해 전체를 확장할 수 있습니다.
+- **자동 분할**: Azure Cosmos DB는 분할(또는 파티션 키)만 필요한 자동 분할 시스템을 제공합니다. [자동 분할 메커니즘](partitioning-overview.md)은 모든 Azure Cosmos DB API에서 공유되고, 원활한 데이터를 허용하고 수평 분산을 통해 전체를 확장할 수 있습니다.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Azure Cosmos DB의 API for MongoDB에 대한 마이그레이션 옵션
 
@@ -70,7 +71,7 @@ Azure Cosmos DB에서 처리량은 사전에 프로비저닝되며 초당 RU(요
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-[진단 설정](cosmosdb-monitor-resource-logs.md)을 사용하여 Azure Cosmos DB에 대해 실행되는 쿼리의 빈도와 패턴을 파악할 수도 있습니다. 진단 로그의 결과를 스토리지 계정, EventHub 인스턴스 또는 [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md)로 보낼 수 있습니다.  
+[진단 설정](cosmosdb-monitor-resource-logs.md)을 사용하여 Azure Cosmos DB에 대해 실행되는 쿼리의 빈도와 패턴을 파악할 수도 있습니다. 진단 로그의 결과를 스토리지 계정, EventHub 인스턴스 또는 [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)로 보낼 수 있습니다.  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>파티션 키 선택
 분할(Sharding이라고도 함)은 데이터를 마이그레이션하기 전에 고려해야 할 주요 요소입니다. Azure Cosmos DB는 완전 관리형 분할을 사용하여 스토리지 및 처리량 요구 사항에 맞게 데이터베이스의 용량을 늘립니다. 이 기능에는 라우팅 서버의 호스팅 또는 구성이 필요 없습니다.   
@@ -88,7 +89,7 @@ Azure Cosmos DB에서 제공 하는 인덱싱 기능에는 복합 인덱스, 고
 ## <a name="next-steps"></a>다음 단계
 * [Database Migration Service를 사용하여 MongoDB 데이터를 Cosmos DB로 마이그레이션](../dms/tutorial-mongodb-cosmos-db.md) 
 * [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량 프로비저닝](set-throughput.md)
-* [Azure Cosmos DB에서 분할](partition-data.md)
+* [Azure Cosmos DB에서 분할](partitioning-overview.md)
 * [Azure Cosmos DB의 글로벌 배포](distribute-data-globally.md)
 * [Azure Cosmos DB의 인덱싱](index-overview.md)
 * [Azure Cosmos DB의 요청 단위](request-units.md)

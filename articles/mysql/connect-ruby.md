@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Ruby를 사용하여 연결 - Azure Database for MySQL'
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Ruby 코드 샘플을 제공합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4eba3fabee50e0011d5a63297c726a9647dd84c0
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896284"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831536"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Ruby를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -39,7 +39,7 @@ Ruby, Gem 및 MySQL2 라이브러리를 자신의 컴퓨터에 설치합니다.
 5. `gem -v` 명령을 실행하여 설치된 버전을 확인함으로써 Gem 설치를 테스트합니다.
 6. `gem install mysql2` 명령을 실행하여 Gem을 사용하는 Ruby용 Mysql2 모듈을 빌드합니다.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 1. `brew install ruby` 명령을 실행하여 Homebrew로 Ruby를 설치합니다. 자세한 설치 옵션을 보려면 Ruby [설치 설명서](https://www.ruby-lang.org/en/documentation/installation/#homebrew)를 참조하세요.
 2. `ruby -v` 명령을 실행하여 설치된 버전을 확인함으로써 Ruby 설치를 테스트합니다.
 3. `gem -v` 명령을 실행하여 설치된 버전을 확인함으로써 Gem 설치를 테스트합니다.
@@ -58,9 +58,9 @@ Ruby, Gem 및 MySQL2 라이브러리를 자신의 컴퓨터에 설치합니다.
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
 3. 서버 이름을 클릭합니다.
-4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
+4. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  :::image type="content" source="./media/connect-ruby/1_server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
 
 ## <a name="run-ruby-code"></a>Ruby 코드 실행
@@ -72,7 +72,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 ## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성
 **CREATE TABLE** SQL 문 다음에 테이블에 행을 추가하는 **INSERT INTO** SQL 문을 사용하여 테이블을 연결 및 생성하려면 다음 코드를 사용합니다.
 
-이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 클래스를 사용하여 MySQL 서버에 연결합니다. 그런 다음 ```query()``` 메서드를 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 그런 다음, ```close()```를 호출하여 연결을 닫고 종료합니다.
+이 코드는 mysql2::client 클래스를 사용하여 MySQL 서버에 연결합니다. 그런 다음 ```query()``` 메서드를 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 그런 다음, ```close()```를 호출하여 연결을 닫고 종료합니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요.
 ```ruby
@@ -117,7 +117,7 @@ end
 ## <a name="read-data"></a>데이터 읽기
 **SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요.
 
-이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 클래스를 사용하여 ```new()``` 메서드를 통해 Azure Database for MySQL에 연결합니다. 그런 다음 ```query()``` 메서드를 호출하여 SELECT 명령을 실행합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다.
+이 코드는 mysql2::client 클래스를 사용하여 ```new()``` 메서드를 통해 Azure Database for MySQL에 연결합니다. 그런 다음 ```query()``` 메서드를 호출하여 SELECT 명령을 실행합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요.
 
@@ -156,7 +156,7 @@ end
 ## <a name="update-data"></a>데이터 업데이트
 **UPDATE** SQL 문을 사용하여 데이터를 연결하고 업데이트하려면 다음 코드를 사용하세요.
 
-이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음, ```query()``` 메서드를 호출하여 UPDATE 명령을 실행합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://rubygems.org/gems/mysql2-client-general_log) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음, ```query()``` 메서드를 호출하여 UPDATE 명령을 실행합니다. 그런 다음 종료하기 전에 ```close()``` 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요.
 
@@ -226,10 +226,20 @@ ensure
 end
 ```
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작에서 사용된 모든 리소스를 정리하려면 다음 명령을 사용하여 리소스 그룹을 삭제합니다.
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
+
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./concepts-migrate-import-export.md) <br/>
 
 > [!div class="nextstepaction"]
-> [MySQL2 클라이언트에 대한 자세한 정보](https://www.rubydoc.info/gems/mysql2) <br/>
+> [MySQL2 클라이언트에 대한 자세한 정보](https://rubygems.org/gems/mysql2-client-general_log) <br/>
 

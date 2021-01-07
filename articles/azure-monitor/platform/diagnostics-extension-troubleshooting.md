@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86515498"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
@@ -79,7 +79,7 @@ Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를
 구성이 올바르게 설정되었지만 여전히 메트릭 데이터를 볼 수 없는 경우 다음 지침을 사용하여 문제를 해결해 보세요.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Azure 진단를 시작 하지 않습니다.
+## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics가 시작되지 않음
 Azure Diagnostics가 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요.
 
 이러한 로그가 `Monitoring Agent not reporting success after launch`를 표시하는 경우 MonAgentHost.exe를 시작하지 못한 것을 의미합니다. 이전 섹션의 `MonAgentHost log file`에 대해 지정된 위치에서 해당 로그를 찾습니다.
@@ -212,7 +212,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 | provider = "prov1" &lt; defaultevents/&gt; |WADDefault + MD5 ("prov1") |
 | provider = "prov2" &lt; defaultevents eventDestination = "dest2"/&gt; |WADdest2 |
 
-## <a name="references"></a>참고 자료
+## <a name="references"></a>참조
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>진단 확장 구성을 확인하는 방법
 확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](https://resources.azure.com)로 이동한 다음, Azure Diagnostics 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
@@ -283,7 +283,7 @@ Windows Azure Diagnostics 확장은 .NET 4.5 프레임워크 이상에 대한 �
 
 .NET 4.5 이상이 없는 머신에서 Windows Azure Diagnostics 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅샷에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
 
-일반적으로DiagnosticsPluginLauncher.exe를 실행 하는 경우 종료 코드 **255** 로 매니페스트 **합니다.** 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다.
+일반적으로DiagnosticsPluginLauncher.exe를 실행 하는 경우 종료 코드 **255** 로 매니페스트 ** 합니다.** 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다.
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```

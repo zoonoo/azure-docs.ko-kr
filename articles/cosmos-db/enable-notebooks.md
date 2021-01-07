@@ -3,17 +3,19 @@ title: Azure Cosmos DB 계정에서 노트북 사용 (미리 보기)
 description: Azure Cosmos DB의 기본 제공 노트북을 사용 하 여 포털 내에서 데이터를 분석 하 고 시각화할 수 있습니다. 이 문서에서는 Cosmos 계정에 대해이 기능을 사용 하도록 설정 하는 방법을 설명 합니다.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261905"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187819"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Azure Cosmos DB 계정에 대해 노트북 사용 (미리 보기)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB에 대 한 기본 제공 노트북은 현재 오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 동부, 동남 아시아, 영국 남부, 유럽 서부 및 미국 서 부 2와 같은 Azure 지역에서 사용할 수 있습니다. 노트북을 사용 하려면 전자 필기장을 사용 하 [여 새 계정을 만들거나](#enable-notebooks-in-a-new-cosmos-account) 이러한 지역 중 하나에 있는 [기존 계정에서 노트북을 사용 하도록 설정](#enable-notebooks-in-an-existing-cosmos-account) 합니다.
@@ -23,17 +25,17 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal�
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>새 Cosmos 계정에서 노트북을 사용 하도록 설정
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB**를 선택합니다.
-1. **Azure Cosmos DB 계정 만들기** 페이지에서 **전자 필기장**을 선택 합니다. 
+1. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB** 를 선택합니다.
+1. **Azure Cosmos DB 계정 만들기** 페이지에서 **전자 필기장** 을 선택 합니다. 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Azure Cosmos DB 만들기 블레이드에서 노트북 옵션을 선택 합니다.":::
 
-1. **검토 + 만들기**를 선택합니다. **네트워크** 및 **태그** 옵션을 건너뛸 수 있습니다. 
-1. 계정 설정을 검토한 다음, **만들기**를 선택합니다. 계정을 만드는 데 몇 분이 걸립니다. 포털 페이지에 **배포가 완료됨**이 표시되기를 기다립니다. 
+1. **검토 + 만들기** 를 선택합니다. **네트워크** 및 **태그** 옵션을 건너뛸 수 있습니다. 
+1. 계정 설정을 검토한 다음, **만들기** 를 선택합니다. 계정을 만드는 데 몇 분이 걸립니다. 포털 페이지에 **배포가 완료됨** 이 표시되기를 기다립니다. 
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Azure Portal 알림 창":::
 
-1. **리소스로 이동**을 선택하여 Azure Cosmos DB 계정 페이지로 이동합니다.
+1. **리소스로 이동** 을 선택하여 Azure Cosmos DB 계정 페이지로 이동합니다.
 
    :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Azure Cosmos DB 계정 페이지":::
 
@@ -46,7 +48,7 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal�
 기존 계정에서 노트북을 사용 하도록 설정할 수도 있습니다. 이 단계는 계정 마다 한 번만 수행 해야 합니다.
 
 1. Cosmos 계정의 **데이터 탐색기** 창으로 이동 합니다.
-1. **전자 필기장 사용**을 선택 합니다.
+1. **전자 필기장 사용** 을 선택 합니다.
 
     :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="데이터 탐색기에서 새 노트북 작업 영역 만들기":::
 
@@ -74,4 +76,4 @@ Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cosmos DB Jupyter Notebooks](cosmosdb-jupyter-notebooks.md)의 이점에 대해 알아보기
+- [Jupyter 노트북 Azure Cosmos DB](cosmosdb-jupyter-notebooks.md) 의 이점에 대해 알아봅니다.

@@ -1,22 +1,22 @@
 ---
 title: Azure IoT Hub에 대한 기본 제공 정책 정의
 description: Azure IoT Hub에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/16/2020
+ms.date: 11/20/2020
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 22b1a7769918b125cbbd3cbca9003d0904053b16
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f93ad8aae72f7a66015470f1e0930e6857d5ef4f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973150"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989030"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Azure IoT Hub에 대한 Azure Policy 기본 제공 정의
 
-일반적인 IoT 시나리오를 구현하는 방법을 보여주는 IoT Hub 샘플 코드는 [IoT Hub 빠른 시작](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli)을 참조하세요. C, Node.js 및 Python을 비롯한 여러 프로그래밍 언어에 대한 빠른 시작이 있습니다.
+일반적인 IoT 시나리오를 구현하는 방법을 보여주는 IoT Hub 샘플 코드는 [IoT Hub 빠른 시작](./quickstart-send-telemetry-cli.md)을 참조하세요. C, Node.js 및 Python을 비롯한 여러 프로그래밍 언어에 대한 빠른 시작이 있습니다.
 
 이 페이지는 Azure IoT Hub에 대한 [Azure Policy](../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../governance/policy/samples/built-in-policies.md)를 참조하세요.
 

@@ -7,17 +7,18 @@ author: vermagit
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2a5aa8983e6cbb0745e05ce275edeadeccb60736
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829053"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966040"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Linux 용 InfiniBand 드라이버 확장
 
@@ -27,7 +28,7 @@ OFED 드라이버의 수동 설치에 대 한 지침은 [여기](../workloads/hp
 
 확장은 [Windows vm](hpc-compute-infiniband-windows.md)용 InfiniBand 드라이버를 설치 하는 데도 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -74,7 +75,7 @@ InfiniBand 드라이버를 Microsoft Azure 확장 하려면 대상 VM이에 연�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | 문자열 |
 | type | InfiniBandDriverLinux | 문자열 |
-| typeHandlerVersion | 1.1 | Int |
+| typeHandlerVersion | 1.1 | int |
 
 
 
@@ -137,7 +138,7 @@ az vm extension set \
 
 ### <a name="add-extension-to-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 확장 추가
 
-다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.1 InfiniBandDriverLinux 확장을 설치 합니다.
+다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.1 InfiniBandDriverLinux 확장을 설치 합니다.
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"

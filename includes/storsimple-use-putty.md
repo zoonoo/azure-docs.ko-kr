@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182241"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995434"
 ---
 #### <a name="to-connect-through-the-serial-console"></a>직렬 콘솔을 통해 연결하려면
 1. 직렬 케이블을 직접 디바이스에 연결하거나 USB 직렬 어댑터를 통해 연결합니다.
-2. **제어판**, **디바이스 관리자**를 차례로 엽니다.
+2. **제어판**, **디바이스 관리자** 를 차례로 엽니다.
 3. 다음 그림에 표시된 대로 COM 포트를 식별합니다.
    
      ![직렬 콘솔을 통해 연결](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 4. PuTTY를 시작합니다. 
-5. 오른쪽 창에서 **연결 유형**을 **직렬**로 변경합니다.
+5. 오른쪽 창에서 **연결 유형** 을 **직렬** 로 변경합니다.
 6. 오른쪽 창에 적절한 COM 포트를 입력합니다. 직렬 구성 매개 변수가 아래와 같이 설정되었는지 확인합니다.
    
    * 속도: 115,200
@@ -35,5 +35,5 @@ ms.locfileid: "67182241"
      > 기본 흐름 제어 설정이 작동하지 않으면 흐름 제어를 XON/XOFF로 설정합니다.
      > 
      > 
-7. **열기**를 클릭해 직렬 세션을 시작합니다.
+7. **열기** 를 클릭해 직렬 세션을 시작합니다.
 

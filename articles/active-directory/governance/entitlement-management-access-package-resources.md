@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b6e2ac9d80c1c3bf76b4a3d4c44f0654100670f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567421"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 리소스 역할 변경
@@ -90,7 +90,7 @@ ms.locfileid: "89567421"
 
     그룹이 나 팀을 선택 하면 **하위 유형** 열에 다음 하위 유형 중 하나가 나열 됩니다.
 
-    | 하위 유형 | Description |
+    | 하위 유형 | 설명 |
     | --- | --- |
     | 보안 | 리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다. |
     | 배포 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |

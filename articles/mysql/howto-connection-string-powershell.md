@@ -1,18 +1,18 @@
 ---
 title: PowerShell을 사용하여 연결 문자열 생성 - Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL에 연결하는 연결 문자열을 생성하는 Azure PowerShell 예제를 제공합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, devx-track-azurepowershell
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 8/5/2020
-ms.openlocfilehash: 37a257e2ca7f354659c032833480dd207cc1bed9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9f960d32dcf1f359327dccc01eeb06825cc3a062
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839951"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541473"
 ---
 # <a name="how-to-generate-an-azure-database-for-mysql-connection-string-with-powershell"></a>PowerShell을 사용하여 Azure Database for MySQL 연결 문자열을 생성하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "87839951"
 
 ## <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
-`Get-AzMySqlConnectionString` cmdlet은 Azure Database for MySQL에 애플리케이션을 연결하기 위한 연결 문자열을 생성하는 데 사용됩니다. 다음 예제에서는 **mydemoserver**의 PHP 클라이언트에 대한 연결 문자열을 반환합니다.
+`Get-AzMySqlConnectionString` cmdlet은 Azure Database for MySQL에 애플리케이션을 연결하기 위한 연결 문자열을 생성하는 데 사용됩니다. 다음 예제에서는 **mydemoserver** 의 PHP 클라이언트에 대한 연결 문자열을 반환합니다.
 
 ```azurepowershell-interactive
 Get-AzMySqlConnectionString -Client PHP -Name mydemoserver -ResourceGroupName myresourcegroup

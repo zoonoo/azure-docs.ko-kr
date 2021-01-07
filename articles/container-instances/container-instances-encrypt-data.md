@@ -3,14 +3,14 @@ title: 배포 데이터 암호화
 description: 컨테이너 인스턴스 리소스에 대해 유지 되는 데이터의 암호화 및 고객이 관리 하는 키를 사용 하 여 데이터를 암호화 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259712"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686279"
 ---
 # <a name="encrypt-deployment-data"></a>배포 데이터 암호화
 
@@ -33,7 +33,7 @@ Microsoft 관리 키를 사용 하 여 컨테이너 데이터의 암호화를 �
 
 문서의 나머지 부분에서는 사용자의 키 (고객 관리 키)를 사용 하 여 ACI 배포 데이터를 암호화 하는 데 필요한 단계에 대해 설명 합니다. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>고객 관리 키를 사용 하 여 데이터 암호화
 
@@ -59,7 +59,7 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 ### <a name="create-a-key-vault-resource"></a>Key Vault 리소스 만들기
 
-[Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md)또는 [PowerShell](../key-vault/secrets/quick-create-powershell.md)을 사용 하 여 Azure Key Vault를 만듭니다. 
+[Azure Portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md)또는 [Azure PowerShell](../key-vault/general/quick-create-powershell.md)를 사용 하 여 Azure Key Vault를 만듭니다.
 
 키 자격 증명 모음의 속성에 대해 다음 지침을 사용 합니다. 
 * Name: 고유 이름은 필수입니다. 
@@ -73,7 +73,7 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 ### <a name="generate-a-new-key"></a>새 키 생성 
 
-키 자격 증명 모음을 만든 후 Azure Portal의 리소스로 이동 합니다. 리소스 블레이드의 왼쪽 탐색 메뉴에 있는 설정에서 **키**를 클릭 합니다. "키에 대 한 보기"에서 "생성/가져오기"를 클릭 하 여 새 키를 생성 합니다. 이 키와 요구 사항에 따라 다른 기본 설정에 대 한 고유한 이름을 사용 합니다. 
+키 자격 증명 모음을 만든 후 Azure Portal의 리소스로 이동 합니다. 리소스 블레이드의 왼쪽 탐색 메뉴에 있는 설정에서 **키** 를 클릭 합니다. "키에 대 한 보기"에서 "생성/가져오기"를 클릭 하 여 새 키를 생성 합니다. 이 키와 요구 사항에 따라 다른 기본 설정에 대 한 고유한 이름을 사용 합니다. 
 
 ![새 키 생성](./media/container-instances-encrypt-data/generate-key.png)
 
@@ -81,10 +81,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 ACI 서비스에서 키에 액세스할 수 있도록 하는 새 액세스 정책을 만듭니다.
 
-* 키가 생성 되 면 키 자격 증명 모음 리소스 블레이드로 돌아가서 설정에서 **액세스 정책**을 클릭 합니다.
-* 키 자격 증명 모음에 대 한 "액세스 정책" 페이지에서 **액세스 정책 추가**를 클릭 합니다.
+* 키가 생성 되 면 키 자격 증명 모음 리소스 블레이드로 돌아가서 설정에서 **액세스 정책** 을 클릭 합니다.
+* 키 자격 증명 모음에 대 한 "액세스 정책" 페이지에서 **액세스 정책 추가** 를 클릭 합니다.
 * 키 *사용 권한을* 설정 하 여 **가져오기** 및 **래핑 해제 키** ![ 설정 키 사용 권한을 포함 합니다.](./media/container-instances-encrypt-data/set-key-permissions.png)
-* *보안 주체 선택*에서 **Azure Container Instance 서비스** 를 선택 합니다.
+* *보안 주체 선택* 에서 **Azure Container Instance 서비스** 를 선택 합니다.
 * 아래쪽의 **추가** 를 클릭 합니다. 
 
 이제 액세스 정책이 키 자격 증명 모음 액세스 정책에 표시 됩니다.

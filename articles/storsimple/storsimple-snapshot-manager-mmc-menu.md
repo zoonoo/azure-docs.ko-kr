@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 01064c3668b673baea7aedd9a65c92b03c48dc10
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056006"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>StorSimple 스냅샷 관리자에서 MMC 메뉴 작업 사용
@@ -26,7 +26,7 @@ ms.locfileid: "90056006"
 ## <a name="overview"></a>개요
 StorSimple 스냅샷 관리자에서 모든 작업 메뉴에 나열된 다음과 같은 작업 및 **작업** 창의 모든 변형을 확인할 수 있습니다.
 
-* View
+* 보기
 * 여기에서 창 새로 만들기 
 * 새로 고침 
 * 목록 내보내기 
@@ -34,7 +34,7 @@ StorSimple 스냅샷 관리자에서 모든 작업 메뉴에 나열된 다음과
 
 이러한 작업은 Microsoft Management Console(MMC)의 일부로, StorSimple 스냅샷 관리자 특정 메뉴가 아닙니다. 이 자습서에서는 이러한 작업 및 StorSimple 스냅샷 관리자에서 각 작업을 사용하는 방법에 대해 설명합니다.
 
-## <a name="view"></a>View
+## <a name="view"></a>보기
 **뷰** 옵션을 사용하여 **결과** 창 뷰와 콘솔 창 뷰를 변경할 수 있습니다. 
 
 #### <a name="to-change-the-results-pane-view"></a>결과 창 보기를 변경하려면
@@ -87,7 +87,7 @@ StorSimple 스냅샷 관리자에서 모든 작업 메뉴에 나열된 다음과
    1. **파일 이름** 상자에 CSV 파일 이름을 입력하거나 화살표를 눌러 드롭다운 목록에서 선택합니다.
    2. **파일 형식** 상자에서 화살표를 클릭하고 드롭다운 목록에서 파일 형식을 선택합니다.
    3. 선택한 항목만 저장하려면 행을 선택하고 **선택한 행만 저장** 확인란을 클릭합니다. 내보낸 목록을 모두 저장하려면 **선택한 행만 저장** 확인란의 선택을 취소합니다.
-   4. **저장**을 클릭합니다.
+   4. **Save**을 클릭합니다.
       
       ![쉼표로 구분된 값 파일로 목록 내보내기](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5955bc35acfaf8f877e68db083871c353a3ce326
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9d1b6e20bf2decfe051e79e073736f71181260fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984923"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014546"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
-공간 분석을 사용 하면 카메라 장치에서 실시간 스트리밍 비디오를 분석할 수 있습니다. 구성 하는 각 카메라 장치에 대해 공간 분석 작업에서 Azure IoT Hub 인스턴스로 전송 되는 JSON 메시지의 출력 스트림을 생성 합니다. 
+공간 분석을 사용하면 카메라 디바이스에서 실시간 스트리밍 비디오를 분석할 수 있습니다. 구성하는 각 카메라 디바이스에 대해 공간 분석 작업이 Azure IoT Hub 인스턴스로 전송되는 JSON 메시지의 출력 스트림을 생성합니다. 
 
 공간 분석 컨테이너는 다음과 같은 작업을 구현 합니다.
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -32,18 +32,18 @@ ms.locfileid: "90984923"
 
 위의 모든 작업은 `.debug` 처리 중인 비디오 프레임을 시각화 하는 기능이 있는 버전 에서도 사용할 수 있습니다. `xhost +`비디오 프레임 및 이벤트의 시각화를 사용 하도록 설정 하려면 호스트 컴퓨터에서을 (를) 실행 해야 합니다.
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
 | cognitiveservices account spatialanalysis-personcrossingpolygon | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br> 사용자가 영역을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. |
 | cognitiveservices account spatialanalysis-persondistance | 사용자가 거리 규칙을 위반 하는 경우를 추적 합니다. <br> 각 거리 위반의 위치를 사용 하 여 주기적으로 _personDistanceEvent_ 을 내보냅니다. |
 
-비디오 AI 모듈로 [라이브 비디오 분석](https://azure.microsoft.com/services/media-services/live-video-analytics/) 으로 공간 분석을 실행할 수도 있습니다. 
+비디오 AI 모듈로 [라이브 비디오 분석](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) 으로 공간 분석을 실행할 수도 있습니다. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount. livevideoanalytics | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline. livevideoanalytics | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -57,7 +57,7 @@ ms.locfileid: "90984923"
 
 이러한 각 공간 분석 작업에 필요한 매개 변수는 다음과 같습니다.
 
-| 조작 매개 변수| 설명|
+| 조작 매개 변수| Description|
 |---------|---------|
 | OperationID | 위의 테이블에 있는 작업 식별자입니다.|
 | 사용 | 부울: true 또는 false|
@@ -88,7 +88,7 @@ ms.locfileid: "90984923"
 }
 ```
 
-| 이름 | Type| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -121,7 +121,7 @@ ms.locfileid: "90984923"
 }
 ```
 
-| 이름 | Type| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `lines` | list| 줄 목록입니다.|
 | `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
@@ -152,7 +152,7 @@ ms.locfileid: "90984923"
 }
 ```
 
-| 이름 | Type| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -184,7 +184,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이름 | Type| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -206,7 +206,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
 | `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다.|
@@ -638,13 +638,13 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 
 공간 분석 검색 또는 이벤트를 응용 프로그램에 통합 하는 것이 좋습니다. 고려해 야 할 몇 가지 방법은 다음과 같습니다. 
 
-* 선택한 프로그래밍 언어에 대 한 Azure Event Hub SDK를 사용 하 여 Azure IoT Hub 끝점에 연결 하 고 이벤트를 수신 합니다. 자세한 내용은 [기본 제공 끝점에서 장치-클라우드 메시지 읽기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) 를 참조 하세요. 
-* Azure IoT Hub에 대 한 **메시지 라우팅을** 설정 하 여 이벤트를 다른 끝점으로 보내거나 데이터 저장소에 이벤트를 저장 합니다. 자세한 내용은 [IoT Hub 메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) 을 참조 하세요. 
+* 선택한 프로그래밍 언어에 대 한 Azure Event Hub SDK를 사용 하 여 Azure IoT Hub 끝점에 연결 하 고 이벤트를 수신 합니다. 자세한 내용은 [기본 제공 끝점에서 장치-클라우드 메시지 읽기](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) 를 참조 하세요. 
+* Azure IoT Hub에 대 한 **메시지 라우팅을** 설정 하 여 이벤트를 다른 끝점으로 보내거나 데이터 저장소에 이벤트를 저장 합니다. 자세한 내용은 [IoT Hub 메시지 라우팅](../../iot-hub/iot-hub-devguide-messages-d2c.md) 을 참조 하세요. 
 * 이벤트를 수신 하 고 시각화를 만들 때 실시간으로 이벤트를 처리 하는 Azure Stream Analytics 작업을 설정 합니다. 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>대규모로 공간 분석 작업 배포 (여러 카메라)
 
-Gpu의 최상의 성능과 사용률을 얻기 위해 그래프 인스턴스를 사용 하 여 여러 카메라에 공간 분석 작업을 배포할 수 있습니다. 다음은 5 개의 카메라에서 spatialanalysis-personcount 작업을 실행 하는 샘플입니다.
+Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 사용 하 여 여러 카메라에 공간 분석 작업을 배포할 수 있습니다. 다음은 `cognitiveservices.vision.spatialanalysis-personcount` 5 개의 카메라에서 작업을 실행 하는 샘플입니다.
 
 ```json
  "properties.desired": {
@@ -725,9 +725,9 @@ Gpu의 최상의 성능과 사용률을 얻기 위해 그래프 인스턴스를 
       }
   }
   ```
-| 이름 | Type| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
-| `batch_size` | int | 해당 작업에서 사용 되는 카메라 수를 나타냅니다.|
+| `batch_size` | int | 작업에 사용 되는 카메라 수를 나타냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

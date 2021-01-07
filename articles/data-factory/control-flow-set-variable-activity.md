@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/07/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f3c1fae2cbf2a1ba8b71dcbc8f6639bda4765f5c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832791"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498407"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 설정 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,7 +29,7 @@ Data Factory 파이프라인에서 정의된 String, Bool 또는 Array 형식의
 -------- | ----------- | --------
 name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | 아니요
-type | **SetVariable**로 설정해야 합니다. | 예
+type | **SetVariable** 로 설정해야 합니다. | 예
 값 | 변수가 할당된 문자열 리터럴 또는 식 개체 값 | 예
 variableName | 이 작업에 의해 설정된 변수의 이름 | 예
 

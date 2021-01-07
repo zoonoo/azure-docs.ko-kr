@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/07/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: c17cd17dfc3462d5a55753e6a4a364c14f9e2b62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899087"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937069"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>GPU가 있는 Azure Stack Edge Pro란?
 
@@ -25,7 +25,7 @@ GPU가 있는 Azure Stack Edge Pro는 Hardware-as-a-Service 솔루션입니다. 
 
 다음은 데이터를 Azure로 보내기 전에 Edge에서 유추하고 전처리하는 빠른 ML(Machine Learning)에 Azure Stack Edge Pro를 사용할 수 있는 다양한 시나리오입니다.
 
-- **Azure Machine Learning에서 유추** - Azure Stack Edge Pro를 사용하면 ML 모델을 실행하여 결과를 빠르게 생성한 다음, 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 필요에 따라 전체 데이터 집합이 전송될 수 있습니다. Azure Stack Edge Pro 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Azure Stack Edge Pro에서 Azure ML 하드웨어 가속 모델 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)를 참조하세요.
+- **Azure Machine Learning에서 유추** - Azure Stack Edge Pro를 사용하면 ML 모델을 실행하여 결과를 빠르게 생성한 다음, 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 필요에 따라 전체 데이터 집합이 전송될 수 있습니다. Azure Stack Edge Pro 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Azure Stack Edge Pro에서 Azure ML 하드웨어 가속 모델 배포](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)를 참조하세요.
 
 - **데이터 전처리** - 컨테이너화된 워크로드나 Virtual Machines 같은 컴퓨팅 옵션을 통해 데이터를 Azure에 전송하기 전에 변환하여 보다 실행 가능한 데이터 세트를 만듭니다. 전처리를 사용하여 다음 작업을 수행할 수 있습니다. 
 
@@ -44,15 +44,14 @@ Azure Stack Edge Pro의 기능은 다음과 같습니다.
 |---------|---------|
 |가속 AI 유추| 기본 제공 GPU(모델에 따라 하나 또는 두 개)에 의해 활성화됩니다.|
 |Edge 컴퓨팅      |VM 및 컨테이너화된 워크로드를 지원하여 데이터의 분석, 처리 및 필터링을 허용합니다. |
-|고성능 | 고성능 컴퓨팅 및 데이터 전송|
 |데이터 액세스     | 클라우드 API를 사용하여 Azure Storage Blob 및 Azure Files에서 데이터에 직접 액세스해 클라우드에서 데이터를 추가로 처리할 수 있습니다. 디바이스의 로컬 캐시는 가장 최근에 사용한 파일에 빠르게 액세스하는 데 사용됩니다.|
 |클라우드 관리     |디바이스 및 서비스는 Azure Portal를 통해 관리됩니다.  |
 |오프라인 업로드     | 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
-|지원되는 스토리지 프로토콜     | 데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Pro 시스템 요구 사항](azure-stack-edge-system-requirements.md)을 참조하세요.|
+|지원되는 파일 전송 프로토콜      | 데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Pro 시스템 요구 사항](azure-stack-edge-system-requirements.md)을 참조하세요.|
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
-|암호화    | *https*를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
+|암호화    | *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
 |대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
-<!--|ExpressRoute | ExpressRoute를 통해 보안이 강화되었습니다. 로컬 디바이스에서 클라우드 스토리지 엔드포인트로의 트래픽이 ExpressRoute를 통해 이동하는 피어링 구성을 사용합니다. 자세한 내용은 [ExpressRoute 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
+<!--|ExpressRoute | ExpressRoute를 통해 보안이 강화되었습니다. 로컬 디바이스에서 클라우드 스토리지 엔드포인트로의 트래픽이 ExpressRoute를 통해 이동하는 피어링 구성을 사용합니다. 자세한 내용은 [ExpressRoute 개요](../expressroute/expressroute-introduction.md)를 참조하세요.|-->
 
 ## <a name="components"></a>구성 요소
 
@@ -73,6 +72,8 @@ Azure Stack Edge Pro 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge P
 데이터를 전송하는 Azure Stack Edge Pro 물리적 디바이스, Azure 리소스 및 대상 스토리지 계정이 모두 같은 지역에 있지 않아도 됩니다.
 
 - **리소스 가용성** - 이 미리 보기 릴리스의 경우 리소스는 미국 동부, EU 서부 및 동남아시아 지역에서 사용할 수 있습니다.
+
+- **디바이스 가용성** - Azure Stack Edge Pro 디바이스를 사용할 수 있는 모든 국가/지역 목록을 보려면 [Azure Stack Edge Pro 가격 책정](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro)의 **Azure Stack Edge Pro** 탭에서 **가용성** 섹션으로 이동합니다.
     
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Azure Stack Edge Pro 데이터를 저장하는 지역이 디바이스를 사용하는 지역과 가까이 있어야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: 488f273336da05738609333f911fe3a90ba59496
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86111986"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
@@ -123,12 +123,12 @@ Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭�
 | CollectD 메트릭 필드 | Azure Monitor 필드 |
 |:--|:--|
 | `host` | Computer |
-| `plugin` | None |
+| `plugin` | 없음 |
 | `plugin_instance` | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName="*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>**type_instance**가 *null*인 경우 CounterName=**비어 있음** |
 | `dsnames[]` | CounterName |
-| `dstypes` | None |
+| `dstypes` | 없음 |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>다음 단계

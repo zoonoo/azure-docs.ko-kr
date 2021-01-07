@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e853255f0fc1bc95a4a7fb1658fc41d4fe705c41
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 75693c57a8d120aad53a15d03ae4054bac8262af
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420059"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023060"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Azure Logic Apps에서 Azure Functions 호출
 
@@ -61,11 +61,11 @@ Logic Apps 디자이너에서 함수 매개 변수를 사용할 때 보다 풍�
 
 1. 다음 단계에 따라 함수 앱에서 모든 원본이 허용되도록 [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 설정합니다.
 
-   1. **함수 앱** 목록에서 함수 앱을 선택합니다. 오른쪽 창에서 **플랫폼 기능** > **CORS**를 선택합니다.
+   1. **함수 앱** 목록에서 함수 앱을 선택합니다. 오른쪽 창에서 **플랫폼 기능** > **CORS** 를 선택합니다.
 
       ![함수 앱 > "플랫폼 기능" > "CORS" 선택](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. **CORS** 아래에 별표( **`*`** ) 와일드카드 문자를 추가하되, 목록의 다른 원본은 모두 제거하고 **저장**을 선택합니다.
+   1. **CORS** 아래에 별표( **`*`** ) 와일드카드 문자를 추가하되, 목록의 다른 원본은 모두 제거하고 **저장** 을 선택합니다.
 
       !["CORS*를 와일드카드 문자 "*"로 설정](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
@@ -110,9 +110,9 @@ function convertToDateString(request, response){
 
 1. 함수를 만들고 추가하려면 시나리오에 적용되는 단계를 따릅니다.
 
-   * 논리 앱 워크플로의 마지막 단계에서 **새 단계**를 선택합니다.
+   * 논리 앱 워크플로의 마지막 단계에서 **새 단계** 를 선택합니다.
 
-   * 논리 앱 워크플로의 기존 단계 사이에서 화살표 위로 마우스를 이동한 후 더하기(+) 기호를 선택하고 **작업 추가**를 선택합니다.
+   * 논리 앱 워크플로의 기존 단계 사이에서 화살표 위로 마우스를 이동한 후 더하기(+) 기호를 선택하고 **작업 추가** 를 선택합니다.
 
 1. 검색 상자에서 "azure functions"를 필터로 입력합니다. 작업 목록에서 **Azure 함수 선택** 작업을 선택합니다. 예를 들면 다음과 같습니다.
 
@@ -126,13 +126,13 @@ function convertToDateString(request, response){
 
    1. **함수 이름** 상자에 함수에 대한 이름을 입력합니다.
 
-   1. **코드** 상자에 함수 실행이 완료된 후에 논리 앱에 반환하려는 응답 및 페이로드를 포함한 코드를 함수 템플릿에 추가합니다. 완료되면 **만들기**를 선택합니다.
+   1. **코드** 상자에 함수 실행이 완료된 후에 논리 앱에 반환하려는 응답 및 페이로드를 포함한 코드를 함수 템플릿에 추가합니다. 완료되면 **만들기** 를 선택합니다.
 
    다음은 그 예입니다.
 
    ![함수 정의](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   템플릿의 코드에서 *`context` 개체*는 논리 앱이 이후 단계에서 **요청 본문** 필드를 통해 전송하는 메시지를 참조합니다. 함수 내에서 `context` 개체의 속성에 액세스하려면 다음 구문을 사용합니다.
+   템플릿의 코드에서 *`context` 개체* 는 논리 앱이 이후 단계에서 **요청 본문** 필드를 통해 전송하는 메시지를 참조합니다. 함수 내에서 `context` 개체의 속성에 액세스하려면 다음 구문을 사용합니다.
 
    `context.body.<property-name>`
 
@@ -147,7 +147,7 @@ function convertToDateString(request, response){
 
 1. **요청 본문** 상자에 JSON (JavaScript Notation) 개체로 형식이 지정된 함수 입력을 제공합니다.
 
-   이 입력은 *컨텍스트 개체*이거나, 논리 앱이 함수에 보내는 메시지입니다. **요청 본문** 필드를 클릭하면 이전 단계의 출력에 대한 토큰을 선택할 수 있도록 동적 콘텐츠 목록이 나타납니다. 이 예제에서는 컨텍스트 페이로드에 이메일 트리거의 **From** 토큰 값이 있는 `content`라는 속성이 포함되어 있다고 지정합니다.
+   이 입력은 *컨텍스트 개체* 이거나, 논리 앱이 함수에 보내는 메시지입니다. **요청 본문** 필드를 클릭하면 이전 단계의 출력에 대한 토큰을 선택할 수 있도록 동적 콘텐츠 목록이 나타납니다. 이 예제에서는 컨텍스트 페이로드에 이메일 트리거의 **From** 토큰 값이 있는 `content`라는 속성이 포함되어 있다고 지정합니다.
 
    !["요청 본문" 예제 - 컨텍스트 개체 페이로드](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -165,7 +165,7 @@ function convertToDateString(request, response){
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 함수를 추가하려는 단계에서 **새 단계**를 선택합니다.
+1. 함수를 추가하려는 단계에서 **새 단계** 를 선택합니다.
 
 1. **작업 선택** 아래의 검색 상자에 "azure functions"를 필터로 입력합니다. 작업 목록에서 **Azure 함수 선택** 작업을 선택합니다.
 
@@ -175,13 +175,13 @@ function convertToDateString(request, response){
 
    ![함수 앱 및 Azure 함수 선택](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
-   API 정의(Swagger 설명)가 있고 [논리 앱이 해당 함수를 찾아 액세스할 수 있도록 설정된](#function-swagger) 함수에 대해 **Swagger 작업**을 선택할 수 있습니다.
+   API 정의(Swagger 설명)가 있고 [논리 앱이 해당 함수를 찾아 액세스할 수 있도록 설정된](#function-swagger) 함수에 대해 **Swagger 작업** 을 선택할 수 있습니다.
 
    ![함수 앱, "Swagger 작업" 및 Azure 함수 선택](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
 1. **요청 본문** 상자에 JSON (JavaScript Notation) 개체로 형식이 지정된 함수 입력을 제공합니다.
 
-   이 입력은 *컨텍스트 개체*이거나, 논리 앱이 함수에 보내는 메시지입니다. **요청 본문** 필드를 클릭하면 이전 단계의 출력에 대한 토큰을 선택할 수 있도록 동적 콘텐츠 목록이 나타납니다. 이 예제에서는 컨텍스트 페이로드에 이메일 트리거의 **From** 토큰 값이 있는 `content`라는 속성이 포함되어 있다고 지정합니다.
+   이 입력은 *컨텍스트 개체* 이거나, 논리 앱이 함수에 보내는 메시지입니다. **요청 본문** 필드를 클릭하면 이전 단계의 출력에 대한 토큰을 선택할 수 있도록 동적 콘텐츠 목록이 나타납니다. 이 예제에서는 컨텍스트 페이로드에 이메일 트리거의 **From** 토큰 값이 있는 `content`라는 속성이 포함되어 있다고 지정합니다.
 
    !["요청 본문" 예제 - 컨텍스트 개체 페이로드](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -222,15 +222,15 @@ Azure 함수에서 논리 앱의 관리 ID를 사용하려면 함수의 인증 �
 
 1. [Azure Portal](https://portal.azure.com)에서 함수 앱을 찾아 선택합니다. 이러한 단계에서는 "FabrikamFunctionApp"을 예제 함수 앱으로 사용합니다.
 
-1. 함수 앱 창에서 **플랫폼 기능**을 선택합니다. **개발 도구** 아래에서 **고급 도구(Kudu)** 를 선택합니다.
+1. 함수 앱 창에서 **플랫폼 기능** 을 선택합니다. **개발 도구** 아래에서 **고급 도구(Kudu)** 를 선택합니다.
 
    ![Kudu용 고급 도구 열기](./media/logic-apps-azure-functions/open-advanced-tools-kudu.png)
 
-1. Kudu 웹 사이트의 제목 표시줄에 있는 **디버그 콘솔** 메뉴에서 **CMD**를 선택합니다.
+1. Kudu 웹 사이트의 제목 표시줄에 있는 **디버그 콘솔** 메뉴에서 **CMD** 를 선택합니다.
 
    ![디버그 콘솔 메뉴에서 "CMD" 옵션을 선택합니다.](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
-1. 다음 페이지가 표시되면 폴더 목록에서 **사이트** > **wwwroot** > *함수*를 선택합니다. 이러한 단계에서는 "FabrikamAzureFunction"을 예제 함수로 사용합니다.
+1. 다음 페이지가 표시되면 폴더 목록에서 **사이트** > **wwwroot** > *함수* 를 선택합니다. 이러한 단계에서는 "FabrikamAzureFunction"을 예제 함수로 사용합니다.
 
    !["사이트" > "wwwroot" > 함수 선택](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 
@@ -254,7 +254,7 @@ Azure 함수에서 논리 앱의 관리 ID를 사용하려면 함수의 인증 �
 
   * 이 개체 ID를 생성하려면 [논리 앱의 시스템 할당 ID를 사용하도록 설정](../logic-apps/create-managed-service-identity.md#azure-portal-system-logic-app)합니다.
 
-  * 그렇지 않고 이 개체 ID를 찾으려면 논리 앱 디자이너에서 논리 앱을 엽니다. 논리 앱 메뉴의 **설정**에서 **ID** > **시스템 할당**을 선택합니다.
+  * 그렇지 않고 이 개체 ID를 찾으려면 논리 앱 디자이너에서 논리 앱을 엽니다. 논리 앱 메뉴의 **설정** 에서 **ID** > **시스템 할당** 을 선택합니다.
 
 * Azure AD(Azure Active Directory)에서 테넌트의 디렉터리 ID
 
@@ -264,7 +264,7 @@ Azure 함수에서 논리 앱의 관리 ID를 사용하려면 함수의 인증 �
 
   1. Azure AD 테넌트를 찾아 선택합니다. 이러한 단계에서는 "Fabrikam"을 예제 테넌트로 사용합니다.
 
-  1. 테넌트의 메뉴에 있는 **관리**에서 **속성**을 선택합니다.
+  1. 테넌트의 메뉴에 있는 **관리** 에서 **속성** 을 선택합니다.
 
   1. 예를 들어 테넌트의 디렉터리 ID를 복사하고 나중에 사용하기 위해 저장합니다.
 
@@ -283,17 +283,17 @@ Azure 함수에서 논리 앱의 관리 ID를 사용하려면 함수의 인증 �
 
 1. [Azure Portal](https://portal.azure.com)에서 함수 앱을 찾아 선택합니다.
 
-1. 함수 앱 창에서 **플랫폼 기능**을 선택합니다. **네트워킹** 아래에서 **인증/권한 부여**를 선택합니다.
+1. 함수 앱 창에서 **플랫폼 기능** 을 선택합니다. **네트워킹** 아래에서 **인증/권한 부여** 를 선택합니다.
 
    ![인증 및 권한 부여 설정 보기](./media/logic-apps-azure-functions/view-authentication-authorization-settings.png)
 
-1. **App Service 인증** 설정을 **켜기**로 변경합니다. **요청이 인증되지 않은 경우에 수행할 동작** 목록에서 **Azure Active Directory를 사용하여 로그인**을 선택합니다. **인증 공급자**에서 **Azure Active Directory**를 선택합니다.
+1. **App Service 인증** 설정을 **켜기** 로 변경합니다. **요청이 인증되지 않은 경우에 수행할 동작** 목록에서 **Azure Active Directory를 사용하여 로그인** 을 선택합니다. **인증 공급자** 에서 **Azure Active Directory** 를 선택합니다.
 
    ![Azure AD를 사용한 인증 켜기](./media/logic-apps-azure-functions/turn-on-authentication-azure-active-directory.png)
 
 1. **Azure Active Directory 설정** 창에서 다음 단계를 따릅니다.
 
-   1. **관리 모드**를 **고급**으로 설정합니다.
+   1. **관리 모드** 를 **고급** 으로 설정합니다.
 
    1. **클라이언트 ID** 속성에 논리 앱의 시스템 할당 ID에 대한 개체 ID를 입력합니다.
 
@@ -309,7 +309,7 @@ Azure 함수에서 논리 앱의 관리 ID를 사용하려면 함수의 인증 �
 
    ![Azure Active Directory 인증 설정](./media/logic-apps-azure-functions/azure-active-directory-authentication-settings.png)
 
-1. 완료되면 **확인**을 선택합니다.
+1. 완료되면 **확인** 을 선택합니다.
 
 1. 논리 앱 디자이너로 돌아가서 [관리 ID를 사용하여 액세스를 인증하는 단계](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity)를 따릅니다.
 

@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878972"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure Scheduler에 대한 아웃바운드 인증
@@ -57,7 +57,7 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | 설명 | 
+| 요소 | Description | 
 |---------|-------------| 
 | **인증** (부모 요소) | SSL/TLS 클라이언트 인증서를 사용 하기 위한 인증 개체입니다. |
 | **type** | 인증 유형입니다. SSL/TLS 클라이언트 인증서의 경우 값은 `ClientCertificate` 입니다. |
@@ -169,7 +169,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 |---------|----------|-------------|
 | **인증** (부모 요소) | 기본 인증을 사용하기 위한 인증 개체 | 
 | **type** | 예 | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
-| **이름** | 예 | 인증하기 위한 사용자 이름 | 
+| **username** | 예 | 인증하기 위한 사용자 이름 | 
 | **password** | 예 | 인증하기 위한 암호 |
 |||| 
 
@@ -177,11 +177,11 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | 설명 | 
+| 요소 | Description | 
 |---------|-------------|
 | **인증** (부모 요소) | 기본 인증을 사용하기 위한 인증 개체 |
 | **type** | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. |
-| **이름** | 인증된 사용자 이름 |
+| **username** | 인증된 사용자 이름 |
 ||| 
 
 ### <a name="sample-rest-request---basic"></a>샘플 REST 요청 - 기본
@@ -297,7 +297,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 인증 정보와 함께 요청을 보내면 응답에 다음과 같은 인증 요소가 포함됩니다.
 
-| 요소 | 설명 |
+| 요소 | Description |
 |---------|-------------|
 | **인증** (부모 요소) | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
 | **type** | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 

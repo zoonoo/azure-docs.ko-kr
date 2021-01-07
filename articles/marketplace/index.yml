@@ -7,15 +7,15 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: keferna
-  ms.author: keferna
+  author: mingshen-ms
+  ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 39d0f00bd59663da8ec5529e9a7be185d93e4de0
-  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/03/2020
-  ms.locfileid: "89421682"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746389"
 landingContent:
 - title: 상용 마켓플레이스에서 작업
   linkLists:
@@ -29,8 +29,6 @@ landingContent:
       url: ./policies-terms.md
     - text: Microsoft 상업용 마켓플레이스 FAQ
       url: ./marketplace-faq-publisher-guide.md
-    - text: 릴리스 정보
-      url: ./marketplace-roadmap.md
     - text: Microsoft Publisher 계약
       url: https://go.microsoft.com/fwlink/?LinkID=699560
 - title: 일반적인 시나리오 및 작업
@@ -47,12 +45,12 @@ landingContent:
     links:
     - text: 마켓플레이스 제품의 잠재 고객
       url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
-    - text: 파트너 센터의 공동 판매 옵션
-      url: ./partner-center-portal/commercial-marketplace-co-sell.md
+    - text: 상업용 마켓플레이스에서 공동 판매 옵션
+      url: commercial-marketplace-co-sell.md
     - text: 공동 판매 파트너 참여
       url: ./marketplace-co-sell.md
     - text: Microsoft AppSource 및 Office 내에서 솔루션을 사용할 수 있도록 설정
-      url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+      url: /office/dev/store/submit-to-appsource-via-partner-center
     - text: Azure Marketplace 및 AppSource 커뮤니티 포럼 참여
       url: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
     - text: 웨비나 토론 참여 및 요청 시 나중에 시청하기 위한 등록
@@ -62,15 +60,15 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 요약 대시보드
-      url: ./partner-center-portal/summary-dashboard.md
+      url: ./summary-dashboard.md
     - text: Marketplace 인사이트 대시보드
-      url: ./partner-center-portal/insights-dashboard.md
+      url: ./insights-dashboard.md
     - text: 사용량 대시보드
-      url: ./partner-center-portal/usage-dashboard.md
+      url: ./usage-dashboard.md
     - text: 고객 대시보드
-      url: ./partner-center-portal/customer-dashboard.md
+      url: ./customer-dashboard.md
     - text: 주문 대시보드
-      url: ./partner-center-portal/orders-dashboard.md
+      url: ./orders-dashboard.md
     - text: 다운로드 대시보드
       url: ./partner-center-portal/downloads-dashboard.md
     - text: 평점 및 리뷰 대시보드
@@ -84,7 +82,7 @@ landingContent:
     - text: 가상 머신 제품
       url: ./marketplace-virtual-machines.md
     - text: Azure 애플리케이션 제품
-      url: ./partner-center-portal/create-new-azure-apps-offer.md
+      url: ./create-new-azure-apps-offer.md
     - text: Dynamics 365 for Customer Engagement/PowerApps 제품
       url: ./partner-center-portal/create-new-customer-engagement-offer.md
     - text: Dynamics 365 Business Central 제품
@@ -92,21 +90,21 @@ landingContent:
     - text: Dynamics 365 for Operations 제품
       url: ./partner-center-portal/create-new-operations-offer.md
     - text: 추가 제품 유형
-      url: ./cloud-partner-portal/cpp-marketplace-offers.md
+      url: ./publisher-guide-by-offer-type.md
 - title: 결제
   linkLists:
   - linkListType: concept
     links:
-    - text: 지급 보고
-      url: ./partner-center-portal/payout-summary-overview.md
+    - text: 지급 명세서
+      url: /partner-center/payout-statement?context=/azure/marketplace/context/context
     - text: 결제 임계값, 메서드 및 시간 프레임
-      url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+      url: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
     - text: 지급 계정 및 세금 양식 설정
-      url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+      url: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
     - text: 세금 세부 정보
-      url: ./partner-center-portal/tax-details-paid-transactions.md
+      url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
     - text: 상용 마켓플레이스 청구
-      url: ./partner-center-portal/billing-details.md
+      url: ./marketplace-commercial-transaction-capabilities-and-considerations.md
 - title: API 참조
   linkLists:
   - linkListType: reference
@@ -132,7 +130,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 지원 옵션
-      url: ./partner-center-portal/support.md
+      url: ./support.md
     - text: 인증 오류 문제 해결
       url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - text: 지리적 가용성 및 통화

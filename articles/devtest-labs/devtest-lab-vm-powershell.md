@@ -4,16 +4,16 @@ description: Azure DevTest Labs를 사용 하 여 Azure PowerShell에서 가상 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6bcc1b8cfe1da7e5eafbee0af008a1defbe6f49d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85484114"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 DevTest Labs를 사용 하 여 가상 머신 만들기
 이 문서에서는 Azure PowerShell를 사용 하 여 Azure DevTest Labs에서 가상 컴퓨터를 만드는 방법을 보여 줍니다. PowerShell 스크립트를 사용 하 여 Azure DevTest Labs에서 랩에서 가상 컴퓨터 만들기를 자동화할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에
 
 - 이 문서의 스크립트나 명령을 테스트 하기 위해 기존 랩을 사용 하지 않으려는 경우 [랩을 만듭니다](devtest-lab-create-lab.md) . 

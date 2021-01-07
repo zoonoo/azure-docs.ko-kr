@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f74798eeed4764bf2f7b71cb5049fb1c6b3ae077
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 895355b5acebffe6ad24b15b0c709d21e8f20be4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278652"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016651"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Azure Active Directory에 대한 하이브리드 ID란?
 
@@ -45,7 +45,7 @@ Azure AD에서 하이브리드 ID를 구현하려면 시나리오에 따라 세 
 |수행 작업:|PHS 및 SSO<sup>1</sup>| PTA 및 SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |온-프레미스 Active Directory에서 만든 새 사용자, 연락처 및 그룹 계정을 클라우드에 자동으로 동기화|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|Office 365 하이브리드 시나리오에 대한 테넌트를 설정합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|Microsoft 365 하이브리드 시나리오용 테넌트를 설정합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
 |사용자가 자신의 온-프레미스 암호를 사용하여 로그인하고 클라우드 서비스에 액세스할 수 있도록 합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
 |회사 자격 증명을 사용하여 Single Sign-On을 구현합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)|  
 |클라우드에 암호 해시가 저장되지 않도록 합니다.| |![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)| 

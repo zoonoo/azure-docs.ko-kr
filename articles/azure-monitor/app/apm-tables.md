@@ -2,15 +2,13 @@
 title: Azure Monitor Application Insights 작업 영역 기반 리소스 스키마
 description: Azure Monitor Application Insights 작업 영역 기반 리소스에 대 한 새 테이블 구조 및 스키마에 대해 알아봅니다.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323182"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931056"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>작업 영역 기반 리소스 변경 (미리 보기)
 
@@ -43,7 +41,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 가용성
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -77,7 +75,7 @@ ms.locfileid: "87323182"
 |sdkVersion|문자열|SdkVersion|문자열|
 |session_Id|문자열|SessionId|문자열|
 |크기|real|크기|real|
-|성공|문자열|Success|Bool|
+|성공|문자열|성공|Bool|
 |timestamp|Datetime|TimeGenerated|Datetime|
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
@@ -87,7 +85,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: browserTimings
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -131,7 +129,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 종속성
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -164,7 +162,7 @@ ms.locfileid: "87323182"
 |resultCode|문자열|ResultCode|문자열|
 |sdkVersion|문자열|SdkVersion|문자열|
 |session_Id|문자열|SessionId|문자열|
-|성공|문자열|Success|Bool|
+|성공|문자열|성공|Bool|
 |대상|문자열|대상|문자열|
 |timestamp|Datetime|TimeGenerated|Datetime|
 |type|문자열|DependencyType|문자열|
@@ -176,7 +174,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: customEvents
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -213,7 +211,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: customMetrics
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -254,7 +252,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: pageViews
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -295,7 +293,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: performanceCounters
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -334,7 +332,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 요청
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -352,24 +350,24 @@ ms.locfileid: "87323182"
 |customDimensions|동적|속성|동적|
 |customMeasurements|동적|측정|동적|
 |duration|real|DurationMs|Real|
-|`id`|문자열|`Id`|문자열|
+|`id`|문자열|`Id`|String|
 |iKey|문자열|IKey|문자열|
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
 |itemType|문자열|Type|String|
-|name|문자열|Name|문자열|
+|name|문자열|Name|String|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
 |operation_ParentId|문자열|OperationParentId|문자열|
 |operation_SyntheticSource|문자열|OperationSyntheticSource|문자열|
-|performanceBucket|문자열|PerformanceBucket|문자열|
-|resultCode|문자열|ResultCode|문자열|
+|performanceBucket|문자열|PerformanceBucket|String|
+|resultCode|문자열|ResultCode|String|
 |sdkVersion|문자열|SdkVersion|문자열|
 |session_Id|문자열|SessionId|문자열|
-|source|문자열|원본|문자열|
-|성공|문자열|Success|Bool|
+|source|문자열|원본|String|
+|성공|문자열|성공|Bool|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|url|문자열|Url|문자열|
+|url|문자열|Url|String|
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
 |user_Id|문자열|UserId|문자열|
@@ -378,7 +376,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 예외
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -407,7 +405,7 @@ ms.locfileid: "87323182"
 |itemId|문자열|\_ItemId|문자열|
 |itemType|문자열|Type|문자열|
 |message|문자열|메시지|문자열|
-|method|문자열|메서드|문자열|
+|method|문자열|방법|문자열|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
 |operation_ParentId|문자열|OperationParentId|문자열|
@@ -421,7 +419,7 @@ ms.locfileid: "87323182"
 |session_Id|문자열|SessionId|문자열|
 |severityLevel|int|SeverityLevel|int|
 |timestamp|Datetime|TimeGenerated|Datetime|
-|type|string|ExceptionType|문자열|
+|type|문자열|ExceptionType|문자열|
 |user_AccountId|문자열|UserAccountId|문자열|
 |user_AuthenticatedId|문자열|UserAuthenticatedId|문자열|
 |user_Id|문자열|UserId|문자열|
@@ -430,7 +428,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 추적
 
-|ApplicationInsights|Type|LogAnalytics|Type|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|

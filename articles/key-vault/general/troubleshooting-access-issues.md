@@ -7,24 +7,27 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595991"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616391"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결
 
 ## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
+### <a name="i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error"></a>비밀/키/인증서를 나열하거나 가져올 수 없습니다. "문제가 발생했습니다."라는 메시지가 표시됩니다. 오류가 표시됩니다.
+비밀을 나열/가져오기/만들기 또는 액세스하는 데 문제가 있는 경우 해당 작업을 수행하도록 정의된 액세스 정책이 있는지 확인합니다. [Key Vault 액세스 정책](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>키 자격 증명 모음을 어떻게 언제 액세스하는지 어떻게 식별할 수 있나요?
 
-하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. Azure Key Vault에 대한 로깅을 사용하도록 설정하여 모니터링을 수행할 수 있습니다. 로깅을 사용하도록 설정하는 단계별 가이드는 [자세히 알아보세요](https://docs.microsoft.com/azure/key-vault/general/logging).
+하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. Azure Key Vault에 대한 로깅을 사용하도록 설정하여 모니터링을 수행할 수 있습니다. 로깅을 사용하도록 설정하는 단계별 가이드는 [자세히 알아보세요](./logging.md).
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>키 자격 증명 모음에 대한 자격 증명 모음 가용성, 서비스 대기 시간 기간 또는 기타 성능 메트릭을 어떻게 모니터링할 수 있나요?
 
-서비스의 크기를 조정하기 시작하면 키 자격 증명 모음으로 전송되는 요청 수가 증가합니다. 이러한 수요로 인해 요청 대기 시간이 길어질 수 있으며 극단적인 경우에는 서비스의 성능에 영향을 줄 수 있는 요청이 제한됩니다. 키 자격 증명 모음 성능 메트릭을 모니터링하고 특정 임계값에 대한 경고를 받을 수 있습니다. 모니터링을 구성하는 단계별 가이드는 [자세히 알아보세요](https://docs.microsoft.com/azure/key-vault/general/alert).
+서비스의 크기를 조정하기 시작하면 키 자격 증명 모음으로 전송되는 요청 수가 증가합니다. 이러한 수요로 인해 요청 대기 시간이 길어질 수 있으며 극단적인 경우에는 서비스의 성능에 영향을 줄 수 있는 요청이 제한됩니다. 키 자격 증명 모음 성능 메트릭을 모니터링하고 특정 임계값에 대한 경고를 받을 수 있습니다. 모니터링을 구성하는 단계별 가이드는 [자세히 알아보세요](./alert.md).
 
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>액세스 정책을 수정할 수 없습니다. 사용하도록 설정하려면 어떻게 해야 하나요?
 액세스 정책을 수정하려면 사용자에게 충분한 AAD 권한이 있어야 합니다. 이 경우 사용자에게 더 높은 기여자 역할이 있어야 합니다.
@@ -52,6 +55,8 @@ Azure CLI `az keyvault set-policy` 명령 또는 Azure PowerShell Set-AzKeyVault
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>기존 액세스 정책을 삭제하지 않고 ARM 템플릿을 사용하여 Key Vault를 재배포하려면 어떻게 해야 하나요?
 
 현재 Key Vault 재배포는 Key Vault의 모든 액세스 정책을 삭제하고 ARM 템플릿의 액세스 정책으로 바꿉니다. Key Vault 액세스 정책에 대한 증분 옵션은 없습니다. Key Vault에서 액세스 정책을 유지하려면 Key Vault에서 기존 액세스 정책을 읽고 이러한 정책을 사용하여 ARM 템플릿을 채워 액세스 중단을 방지해야 합니다.
+
+이 시나리오에 도움이 될 수 있는 또 다른 옵션은 액세스 정책의 대안으로 Azure RBAC 및 역할을 사용하는 것입니다. Azure RBAC를 사용하면 정책을 다시 지정하지 않고 키 자격 증명 모음을 다시 배포할 수 있습니다. [여기](./rbac-guide.md)에서 이 솔루션에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>다음 오류 유형에 대한 권장되는 문제 해결 단계
 

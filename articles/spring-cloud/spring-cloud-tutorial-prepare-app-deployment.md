@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906826"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750716"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 배포용 응용 프로그램 준비
 
@@ -23,22 +23,45 @@ Azure 스프링 클라우드는 Steeltoe 앱을 호스트, 모니터링, 크기 
 이 문서에서는 Azure 스프링 클라우드에서 .NET Core Steeltoe 앱을 실행 하는 데 필요한 종속성, 구성 및 코드에 대해 설명 합니다. Azure 스프링 클라우드에 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 [첫 번째 Azure 스프링 클라우드 응용 프로그램 배포](spring-cloud-quickstart.md)를 참조 하세요.
 
 >[!Note]
-> Azure 스프링 클라우드의 Steeltoe 지원은 현재 공개 미리 보기로 제공 됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 중 지원에 대 한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/) 또는 파일 a [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)를 참조 하세요.
+> Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
 
 ##  <a name="supported-versions"></a>지원되는 버전
 
 Azure 스프링 클라우드는 다음을 지원 합니다.
 
 * .NET Core 3.1
-* Steeltoe 2.4
+* Steeltoe 2.4 및 3.0
 
 ## <a name="dependencies"></a>종속성
 
-[SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 패키지를 설치 합니다.
+Steeltoe 2.4의 경우 프로젝트 파일에 최신 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 1.x 패키지를 추가 합니다.
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.ExporterCore" Version="2.4.4" />
+</ItemGroup>
+```
+
+Steeltoe 3.0의 경우 프로젝트 파일에 최신 [SpringCloud](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) 2.x 패키지를 추가 합니다.
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
+</ItemGroup>
+```
 
 ## <a name="update-programcs"></a>Program.cs 업데이트
 
-`Program.Main`메서드에서 메서드를 호출 합니다 `UseAzureSpringCloudService` .
+`Program.Main`메서드에서 메서드를 호출 `UseAzureSpringCloudService` 합니다.
+
+Steeltoe 2.4.4의 경우 호출 된 후 다음을 호출 합니다 `UseAzureSpringCloudService` `ConfigureWebHostDefaults` `AddConfigServer` .
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -47,14 +70,28 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         {
             webBuilder.UseStartup<Startup>();
         })
+        .AddConfigServer()
         .UseAzureSpringCloudService();
+```
+
+Steeltoe 3.0.0의 경우 `UseAzureSpringCloudService` Steeltoe 구성 코드 전후에를 호출 합니다 `ConfigureWebHostDefaults` .
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseAzureSpringCloudService()
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .AddConfigServer();
 ```
 
 ## <a name="enable-eureka-server-service-discovery"></a>Eureka 서버 서비스 검색 사용
 
 앱이 Azure 스프링 클라우드에서 실행 될 때 사용 되는 구성 원본에서 `spring.application.name` 프로젝트가 배포 될 Azure 스프링 클라우드 앱과 동일한 이름으로 설정 합니다.
 
-예를 들어 이라는 .NET 프로젝트를 `EurekaDataProvider` Azure 스프링 클라우드 앱에 배포 하는 경우 `planet-weather-provider` 파일 * 의appSettings.js* 에 다음 JSON이 포함 되어야 합니다.
+예를 들어 이라는 .NET 프로젝트를 `EurekaDataProvider` Azure 스프링 클라우드 앱에 배포 하는 경우 `planet-weather-provider` 파일 *의appSettings.js* 에 다음 JSON이 포함 되어야 합니다.
 
 ```json
 "spring": {
@@ -99,7 +136,7 @@ using (var client = new HttpClient(discoveryHandler, false))
 
 Spring/Java 애플리케이션만 Azure Spring Cloud에서 실행할 수 있습니다.
 
-Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 환경에는 Azure용 Azul Zulu OpenJDK의 최신 버전이 포함되어 있습니다. Azure용 Azul Zulu OpenJDK에 대한 자세한 내용은 [JDK 설치](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)를 참조하세요.
+Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 환경에는 Azure용 Azul Zulu OpenJDK의 최신 버전이 포함되어 있습니다. Azure용 Azul Zulu OpenJDK에 대한 자세한 내용은 [JDK 설치](/azure/developer/java/fundamentals/java-jdk-install)를 참조하세요.
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Spring Boot 및 Spring Cloud 버전
 
@@ -112,6 +149,9 @@ Spring Boot 버전 | Spring Cloud 버전
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton
 2.3 | Hoxton
+
+> [!NOTE]
+> 앱과 Eureka 간의 TLS 인증에서 스프링 부팅 2.4에 대 한 문제를 확인 하 고 현재 스프링 커뮤니티와 협력 하 여 문제를 해결 하 고 있습니다. 해결 방법에 대 한 [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) 를 참조 하세요.
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Spring Boot 버전 2.1에 대한 종속성
 
@@ -210,6 +250,8 @@ Spring Boot 버전 | Spring Cloud 버전 | Azure 스프링 클라우드 클라�
         <version>2.1.2</version>
 </dependency>
 ```
+> [!WARNING]
+> `server.port`구성에를 지정 하지 마십시오. Azure 스프링 클라우드는이 설정을 고정 포트 번호로 재정의 합니다. 또한이 설정을 준수 하 고 코드에서 서버 포트를 지정 하지 마십시오.
 
 ## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Azure Spring Cloud 기능을 사용하도록 설정하기 위한 기타 권장 종속성
 
@@ -227,6 +269,7 @@ Spring Boot 버전 | Spring Cloud 버전 | Azure 스프링 클라우드 클라�
 ```
 
 서비스 레지스트리 서버의 엔드포인트는 앱에 환경 변수로 자동 삽입됩니다. 애플리케이션이 서비스 레지스트리 서버에 자체적으로 등록되고, 기타 종속 마이크로서비스를 검색할 수 있습니다.
+
 
 #### <a name="enablediscoveryclient-annotation"></a>EnableDiscoveryClient 주석
 
@@ -302,9 +345,9 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `
  또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure 스프링 클라우드에서 Application Insights를 사용 하는 방법에 대 한 자세한 내용은 [분산 추적에 대 한 설명서](spring-cloud-tutorial-distributed-tracing.md)를 참조 하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [애플리케이션 로그 및 메트릭 분석](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
-* [구성 서버 설정](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Azure Spring Cloud에서 분산 추적 사용](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [애플리케이션 로그 및 메트릭 분석](./diagnostic-services.md)
+* [구성 서버 설정](./spring-cloud-tutorial-config-server.md)
+* [Azure Spring Cloud에서 분산 추적 사용](./spring-cloud-tutorial-distributed-tracing.md)
 * [Spring 빠른 시작 가이드](https://spring.io/quickstart)
 * [Spring Boot 설명서](https://spring.io/projects/spring-boot)
 

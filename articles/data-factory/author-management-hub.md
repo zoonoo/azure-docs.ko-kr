@@ -5,16 +5,16 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851992"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96486133"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Azure Data Factory의 관리 허브
 
@@ -56,7 +56,7 @@ Integration runtime은 여러 네트워크 환경에서 데이터 통합 기능�
 
 트리거는 파이프라인 실행을 시작 해야 하는 시기를 결정 합니다. 현재 트리거는 벽 시계 일정에 있거나, 정기적으로 작동 하거나, 이벤트에 따라 달라질 수 있습니다. 자세한 내용은 [트리거 실행](concepts-pipeline-execution-triggers.md#trigger-execution)에 대해 알아봅니다. 관리 허브에서 트리거의 현재 상태를 만들거나, 편집 하거나, 삭제 하거나, 볼 수 있습니다.
 
-![사용자 지정 매개 변수 관리](media/author-management-hub/management-hub-triggers.png)
+![트리거의 현재 상태를 생성, 편집, 삭제 또는 볼 수 있는 위치를 보여 주는 스크린샷](media/author-management-hub/management-hub-triggers.png)
 
 ### <a name="global-parameters"></a>글로벌 매개 변수
 

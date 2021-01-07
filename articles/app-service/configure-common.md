@@ -1,35 +1,35 @@
 ---
 title: 포털에서 앱 구성
-description: Azure Portal에서 App Service 앱에 대 한 일반 설정을 구성 하는 방법을 알아봅니다. 앱 설정, 연결 문자열, 플랫폼, 언어 스택, 컨테이너 등
+description: Azure Portal에서 App Service 앱에 대 한 일반 설정을 구성 하는 방법을 알아봅니다. 앱 설정, 앱 구성, 연결 문자열, 플랫폼, 언어 스택, 컨테이너 등
 keywords: azure app service, 웹 앱, 앱 설정, 환경 변수
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 4990862bacbf2afe2d4b5f39c2b9d31a7c48b78e
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: ec9e3b6ca4b07003852681523a21b87ab7b8671b
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962896"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825963"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
-이 항목에서는 [Azure Portal]를 사용 하 여 웹 앱, 모바일 백 엔드 또는 API 앱에 대 한 일반 설정을 구성 하는 방법에 대해 설명 합니다.
+이 문서에서는 [Azure Portal]를 사용 하 여 웹 앱, 모바일 백 엔드 또는 API 앱에 대 한 일반 설정을 구성 하는 방법을 설명 합니다.
 
 ## <a name="configure-app-settings"></a>앱 설정 구성
 
 App Service에서 앱 설정은 응용 프로그램 코드에 환경 변수로 전달 되는 변수입니다. Linux 앱 및 사용자 지정 컨테이너의 경우 플래그를 사용 하 여 컨테이너에 앱 설정을 전달 `--env` 하 고 컨테이너에서 환경 변수를 설정 App Service 합니다.
 
-[Azure Portal]에서 **App Services**를 검색하여 선택한 다음, 앱을 선택합니다. 
+[Azure Portal]에서 **App Services** 를 검색하여 선택한 다음, 앱을 선택합니다. 
 
 ![App Services 검색](./media/configure-common/search-for-app-services.png)
 
-앱의 왼쪽 메뉴에서 **구성**  >  **응용 프로그램 설정**을 선택 합니다.
+앱의 왼쪽 메뉴에서 **구성**  >  **응용 프로그램 설정** 을 선택 합니다.
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
-ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은Web.config또는appsettings.js에서 설정 하는 것과 `<appSettings>` 같지만 App Service의 값이Web.config또는 *Web.config* *appsettings.js*의 값을 재정의 합니다. *Web.config* *appsettings.json* *Web.config* 또는 *appsettings.js*에서 개발 설정 (예: 로컬 MySQL 암호)을 유지할 수 있지만 프로덕션 비밀 (예: Azure MySQL 데이터베이스 암호)은 App Service에서 안전 합니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
+ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은Web.config또는appsettings.js에서 설정 하는 것과 `<appSettings>` 같지만 App Service의 값이Web.config또는  *appsettings.js* 의 값을 재정의 합니다.   App Service에서 안전 하 게 배포 설정 (예: 로컬 MySQL 암호)을 *Web.config* 또는 *appsettings.js* 하 고 프로덕션 암호 (예: Azure MySQL 데이터베이스 암호)를 안전 하 게 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
 
 마찬가지로 다른 언어 스택은 런타임에 환경 변수로 앱 설정을 가져옵니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
@@ -37,7 +37,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 - [Node.JS](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](configure-language-java.md#data-sources)
+- [Java](configure-language-java.md#configure-data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 - [사용자 지정 컨테이너](configure-custom-container.md#configure-environment-variables)
 
@@ -52,11 +52,11 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 
 ### <a name="add-or-edit"></a>추가 또는 편집
 
-새 앱 설정을 추가 하려면 **새 응용 프로그램 설정**을 클릭 합니다. 대화 상자에서 [설정을 현재 슬롯에](deploy-staging-slots.md#which-settings-are-swapped)고정 시킬 수 있습니다.
+새 앱 설정을 추가 하려면 **새 응용 프로그램 설정** 을 클릭 합니다. 대화 상자에서 [설정을 현재 슬롯에](deploy-staging-slots.md#which-settings-are-swapped)고정 시킬 수 있습니다.
 
 설정을 편집 하려면 오른쪽에 있는 **편집** 단추를 클릭 합니다.
 
-완료 되 면 **업데이트**를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
+완료 되 면 **업데이트** 를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
 
 > [!NOTE]
 > 기본 Linux 컨테이너 또는 사용자 지정 Linux 컨테이너에서와 같은 앱 설정 이름의 중첩 된 모든 JSON 키 구조는 `ApplicationInsights:InstrumentationKey` `ApplicationInsights__InstrumentationKey` 키 이름에 대 한 App Service로 구성 해야 합니다. 즉, 모든을 `:` `__` (이중 밑줄)로 바꾸어야 합니다.
@@ -64,7 +64,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 
 ### <a name="edit-in-bulk"></a>대량 편집
 
-대량으로 앱 설정을 추가 하거나 편집 하려면 **고급 편집** 단추를 클릭 합니다. 완료 되 면 **업데이트**를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
+대량으로 앱 설정을 추가 하거나 편집 하려면 **고급 편집** 단추를 클릭 합니다. 완료 되 면 **업데이트** 를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
 
 앱 설정의 JSON 형식은 다음과 같습니다.
 
@@ -84,15 +84,44 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 ]
 ```
 
+### <a name="automate-app-settings-with-the-azure-cli"></a>Azure CLI를 사용 하 여 앱 설정 자동화
+
+Azure CLI를 사용 하 여 명령줄에서 설정을 만들고 관리할 수 있습니다.
+
+- [Az webapp config 앱 설정 집합](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set)을 사용 하 여 설정에 값을 할당 합니다.
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    `<setting-name>`설정의 이름으로 바꾸고,을 `<value>` 할당할 값으로 바꿉니다. 이 명령은 해당 설정이 없는 경우 새로 만듭니다.
+    
+- [Az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list)를 사용 하 여 모든 설정 및 해당 값을 표시 합니다.
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- [Az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete)를 사용 하 여 하나 이상의 설정을 제거 합니다.
+
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    `<names>`공백으로 구분 된 설정 이름 목록으로 대체 합니다.
+
 ## <a name="configure-connection-strings"></a>연결 문자열 구성
 
-[Azure Portal]에서 **App Services**를 검색하여 선택한 다음, 앱을 선택합니다. 앱의 왼쪽 메뉴에서 **구성**  >  **응용 프로그램 설정**을 선택 합니다.
+[Azure Portal]에서 **App Services** 를 검색하여 선택한 다음, 앱을 선택합니다. 앱의 왼쪽 메뉴에서 **구성**  >  **응용 프로그램 설정** 을 선택 합니다.
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
-ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열을 설정 하는 것은Web.config에서에서 설정 하는 것과 `<connectionStrings>` 같지만 App Service에서 설정한 값은 *Web.config*의 연결 문자열을 재정의 합니다. * * App Service에서 안전 하 게 *Web.config* 및 프로덕션 비밀 (예: SQL Database 자격 증명)의 개발 설정 (예: 데이터베이스 파일)을 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
+ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열을 설정 하는 것은Web.config에서에서 설정 하는 것과 `<connectionStrings>` 같지만 App Service에서 설정한 값은 *Web.config* 의 연결 문자열을 재정의 합니다. ** App Service에서 안전 하 게 *Web.config* 및 프로덕션 비밀 (예: SQL Database 자격 증명)의 개발 설정 (예: 데이터베이스 파일)을 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
 
-다른 언어 스택에서는 값에 액세스 하기 위해 연결 문자열에 변수 키에 대 한 특수 형식이 필요 하기 때문에 [앱 설정을](#configure-app-settings) 대신 사용 하는 것이 좋습니다. 단, 응용 프로그램에서 연결 문자열을 구성 하는 경우 특정 Azure 데이터베이스 형식이 앱과 함께 백업 됩니다. 자세한 내용은 백업 되는 [항목](manage-backup.md#what-gets-backed-up)을 참조 하세요. 이 자동화 된 백업이 필요 하지 않은 경우 앱 설정을 사용 합니다.
+다른 언어 스택에서는 값에 액세스 하기 위해 연결 문자열에 변수 키에 대 한 특수 형식이 필요 하기 때문에 [앱 설정을](#configure-app-settings) 대신 사용 하는 것이 좋습니다. 
+
+> [!NOTE]
+> Non-.NET 언어에 대 한 앱 설정 대신 연결 문자열을 사용 하는 경우는 한 가지입니다. 특정 Azure 데이터베이스 유형은 App Service 앱에서 데이터베이스에 대 한 연결 문자열을 구성 하는 경우에 _만_ 앱과 함께 백업 됩니다. 자세한 내용은 백업 되는 [항목](manage-backup.md#what-gets-backed-up)을 참조 하세요. 이 자동화 된 백업이 필요 하지 않은 경우 앱 설정을 사용 합니다.
 
 런타임에 연결 문자열은 환경 변수로 사용할 수 있으며, 다음 연결 형식이 접두사로 사용 됩니다.
 
@@ -108,7 +137,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 - [Node.JS](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](configure-language-java.md#data-sources)
+- [Java](configure-language-java.md#configure-data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 - [사용자 지정 컨테이너](configure-custom-container.md#configure-environment-variables)
 
@@ -123,15 +152,15 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 
 ### <a name="add-or-edit"></a>추가 또는 편집
 
-새 연결 문자열을 추가 하려면 **새 연결 문자열**을 클릭 합니다. 대화 상자에서 [현재 슬롯에 연결 문자열을 적용할](deploy-staging-slots.md#which-settings-are-swapped)수 있습니다.
+새 연결 문자열을 추가 하려면 **새 연결 문자열** 을 클릭 합니다. 대화 상자에서 [현재 슬롯에 연결 문자열을 적용할](deploy-staging-slots.md#which-settings-are-swapped)수 있습니다.
 
 설정을 편집 하려면 오른쪽에 있는 **편집** 단추를 클릭 합니다.
 
-완료 되 면 **업데이트**를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
+완료 되 면 **업데이트** 를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
 
 ### <a name="edit-in-bulk"></a>대량 편집
 
-연결 문자열을 대량으로 추가 하거나 편집 하려면 **고급 편집** 단추를 클릭 합니다. 완료 되 면 **업데이트**를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
+연결 문자열을 대량으로 추가 하거나 편집 하려면 **고급 편집** 단추를 클릭 합니다. 완료 되 면 **업데이트** 를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
 
 연결 문자열의 JSON 형식은 다음과 같습니다.
 
@@ -158,15 +187,20 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 
 ## <a name="configure-general-settings"></a>일반 설정 구성
 
-[Azure Portal]에서 **App Services**를 검색하여 선택한 다음, 앱을 선택합니다. 앱의 왼쪽 메뉴에서 **구성**  >  **일반 설정**을 선택 합니다.
+[Azure Portal]에서 **App Services** 를 검색하여 선택한 다음, 앱을 선택합니다. 앱의 왼쪽 메뉴에서 **구성**  >  **일반 설정** 을 선택 합니다.
 
 ![일반 설정](./media/configure-common/open-general.png)
 
 여기에서 앱에 대 한 몇 가지 일반 설정을 구성할 수 있습니다. 일부 설정의 경우 [더 높은 가격 책정 계층으로 확장](manage-scale-up.md)해야 합니다.
 
-- **스택 설정**: 언어 및 SDK 버전을 포함 하 여 앱을 실행 하는 소프트웨어 스택입니다. Linux 앱 및 사용자 지정 컨테이너 앱의 경우 선택적 시작 명령 또는 파일을 설정할 수도 있습니다.
+- **스택 설정**: 언어 및 SDK 버전을 포함 하 여 앱을 실행 하는 소프트웨어 스택입니다.
+
+    Linux 앱 및 사용자 지정 컨테이너 앱의 경우 언어 런타임 버전을 선택 하 고 선택적 **시작 명령** 또는 시작 명령 파일을 설정할 수 있습니다.
+
+    ![Linux 컨테이너에 대 한 일반 설정](./media/configure-common/open-general-linux.png)
+
 - **플랫폼 설정**: 다음을 포함 하 여 호스팅 플랫폼에 대 한 설정을 구성할 수 있습니다.
-    - **비트: 32**비트 또는 64 비트.
+    - **비트: 32** 비트 또는 64 비트.
     - **WebSocket 프로토콜**: 예를 들어 [ASP.NET SignalR] 또는 [socket.io](https://socket.io/)에 대 한입니다.
     - **Always On**: 트래픽이 없는 경우에도 앱을 로드 된 상태로 유지 합니다. CRON 식을 사용 하 여 트리거되는 연속 WebJobs 또는 WebJobs에 필요 합니다.
       > [!NOTE]
@@ -183,35 +217,41 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 
 이 설정은 Windows 앱에만 해당 됩니다.
 
-[Azure Portal]에서 **App Services**를 검색하여 선택한 다음, 앱을 선택합니다. 앱의 왼쪽 메뉴에서 **구성**  >  **기본 문서**를 선택 합니다.
+[Azure Portal]에서 **App Services** 를 검색하여 선택한 다음, 앱을 선택합니다. 앱의 왼쪽 메뉴에서 **구성**  >  **기본 문서** 를 선택 합니다.
 
 ![기본 문서](./media/configure-common/open-documents.png)
 
-기본 문서는 웹 사이트의 루트 URL에 표시 되는 웹 페이지입니다. 목록에서 첫 번째로 일치되는 파일이 사용됩니다. 새 기본 문서를 추가 하려면 **새 문서**를 클릭 합니다. **저장**을 클릭 하는 것을 잊지 마세요.
+기본 문서는 웹 사이트의 루트 URL에 표시 되는 웹 페이지입니다. 목록에서 첫 번째로 일치되는 파일이 사용됩니다. 새 기본 문서를 추가 하려면 **새 문서** 를 클릭 합니다. **저장** 을 클릭 하는 것을 잊지 마세요.
 
 앱에서 정적 콘텐츠를 제공 하는 대신 URL을 기반으로 경로를 사용 하는 모듈을 사용 하는 경우 기본 문서가 필요 하지 않습니다.
 
 ## <a name="configure-path-mappings"></a>경로 매핑 구성
 
-[Azure Portal]에서 **App Services**를 검색하여 선택한 다음, 앱을 선택합니다. 앱의 왼쪽 메뉴에서 **구성**  >  **경로 매핑**을 선택 합니다.
+[Azure Portal]에서 **App Services** 를 검색하여 선택한 다음, 앱을 선택합니다. 앱의 왼쪽 메뉴에서 **구성**  >  **경로 매핑** 을 선택 합니다.
 
 ![경로 매핑](./media/configure-common/open-path.png)
 
-**경로 매핑** 페이지에는 OS 유형에 따라 다양 한 항목이 표시 됩니다.
+> [!NOTE] 
+> **경로 매핑** 탭에는 여기에 표시 된 예제와 다른 OS 관련 설정이 표시 될 수 있습니다.
 
 ### <a name="windows-apps-uncontainerized"></a>Windows 앱 (uncontainerized)
 
 Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디렉터리를 사용자 지정할 수 있습니다.
 
-처리기 매핑을 사용 하면 특정 파일 확장명에 대 한 요청을 처리 하는 사용자 지정 스크립트 프로세서를 추가할 수 있습니다. 사용자 지정 처리기를 추가 하려면 **새 처리기**를 클릭 합니다. 다음과 같이 처리기를 구성 합니다.
+처리기 매핑을 사용 하면 특정 파일 확장명에 대 한 요청을 처리 하는 사용자 지정 스크립트 프로세서를 추가할 수 있습니다. 사용자 지정 처리기를 추가 하려면 **새 처리기 매핑** 을 클릭 합니다. 다음과 같이 처리기를 구성 합니다.
 
-- **확장**. Php 또는 *handler*와 같이 처리 하려는 파일 확장명 * \* 입니다* .
+- **확장**. Php 또는 *handler* 와 같이 처리 하려는 파일 확장명 *\* 입니다* .
 - **스크립트 프로세서**. 스크립트 프로세서의 절대 경로입니다. 파일 확장명과 일치 하는 파일에 대 한 요청은 스크립트 프로세서에 의해 처리 됩니다. 경로 `D:\home\site\wwwroot` 를 사용하여 앱의 루트 디렉터리를 참조합니다.
 - **인수**. 스크립트 프로세서에 대 한 선택적인 명령줄 인수입니다.
 
-각 앱에는에 매핑되는 기본 루트 경로 ()가 있습니다 `/` `D:\home\site\wwwroot` . 여기서 코드는 기본적으로 배포 됩니다. 앱 루트가 다른 폴더에 있거나 리포지토리에 둘 이상의 응용 프로그램이 있는 경우 여기에서 가상 응용 프로그램 및 디렉터리를 편집 하거나 추가할 수 있습니다. **새 가상 응용 프로그램 또는 디렉터리**를 클릭 합니다.
+각 앱에는에 매핑되는 기본 루트 경로 ()가 있습니다 `/` `D:\home\site\wwwroot` . 여기서 코드는 기본적으로 배포 됩니다. 앱 루트가 다른 폴더에 있거나 리포지토리에 둘 이상의 응용 프로그램이 있는 경우 여기에서 가상 응용 프로그램 및 디렉터리를 편집 하거나 추가할 수 있습니다. 
 
-가상 응용 프로그램 및 디렉터리를 구성 하려면 각 가상 디렉터리와 웹 사이트 루트 ()에 상대적인 해당 실제 경로를 지정 `D:\home` 합니다. 경우에 따라 **애플리케이션** 확인란을 선택하여 가상 디렉터리를 애플리케이션으로 표시할 수 있습니다.
+**경로 매핑** 탭에서 **새 가상 응용 프로그램 또는 디렉터리** 를 클릭 합니다. 
+
+- 가상 디렉터리를 실제 경로에 매핑하려면 **디렉터리** 확인란을 선택 된 상태로 둡니다. 가상 디렉터리 및 웹 사이트 루트에 대 한 해당 상대 (실제) 경로 ()를 지정 `D:\home` 합니다.
+- 가상 디렉터리를 웹 응용 프로그램으로 표시 하려면 **디렉터리** 확인란의 선택을 취소 합니다.
+  
+  ![디렉터리 확인란](./media/configure-common/directory-check-box.png)
 
 ### <a name="containerized-apps"></a>컨테이너 화 된 앱
 
@@ -250,7 +290,7 @@ Linux 앱의 경우 다음을 참조 하세요.
 - [Azure App Service에서 사용자 지정 도메인 이름 구성]
 - [Azure App Service에서 스테이징 환경 설정]
 - [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
-- [진단 로그 활성화](troubleshoot-diagnostic-logs.md)
+- [진단 로그 사용](troubleshoot-diagnostic-logs.md)
 - [Azure App Service에서 앱 크기 조정]
 - [Azure App Service의 기본 사항 모니터링]
 - [Xdt를 사용 하 여 applicationHost.config 설정 변경](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
@@ -261,7 +301,7 @@ Linux 앱의 경우 다음을 참조 하세요.
 [Azure Portal]: https://portal.azure.com/
 [Azure App Service에서 사용자 지정 도메인 이름 구성]: ./app-service-web-tutorial-custom-domain.md
 [Azure App Service에서 스테이징 환경 설정]: ./deploy-staging-slots.md
-[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [Azure App Service의 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure App Service에서 앱 크기 조정]: ./manage-scale-up.md

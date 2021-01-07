@@ -11,24 +11,24 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 36a402669f8af465a1cedbf1585e16c972b18015
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 66ec0d4b09dc983eb898d63d45b3dd7cab291c4c
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293118"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928667"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Jumio 구성에 대 한 자습서
 
 이 샘플 자습서에서는 [Jumio](https://www.jumio.com/)와 Azure Active Directory B2C (Azure AD B2C)를 통합 하는 방법에 대 한 지침을 제공 합니다. Jumio는 고객 데이터를 보호 하는 데 도움이 되는 실시간 자동 ID 확인을 가능 하 게 하는 ID 확인 서비스입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://review.docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
+- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md) 입니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -65,7 +65,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 ### <a name="deploy-the-api"></a>API 배포
 
-제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) 를 Azure 서비스에 배포 합니다. 다음 [지침](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) 를 Azure 서비스에 배포 합니다. 다음 [지침](/visualstudio/deployment/quickstart-deploy-to-azure)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 
 >[!NOTE]
 >필요한 설정을 사용 하 여 Azure AD를 구성 하려면 배포 된 서비스의 URL이 필요 합니다.
@@ -85,7 +85,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
    그런 다음 인증서를에 지정 된 위치로 내보냅니다 ``{your-local-path}`` .
 
-3. [이 문서의](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate#upload-a-private-certificate)지침에 따라 Azure App Service 인증서를 가져옵니다.
+3. [이 문서의](../app-service/configure-ssl-certificate.md#upload-a-private-certificate)지침에 따라 Azure App Service 인증서를 가져옵니다.
 
 ### <a name="create-a-signingencryption-key"></a>서명/암호화 키 만들기
 
@@ -102,9 +102,9 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 ### <a name="configure-the-api"></a>API 구성
 
-[Azure App Service에서 응용 프로그램 설정을 구성할](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)수 있습니다. 이 방법을 사용 하면 리포지토리에 체크 인하지 않고 설정을 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
+[Azure App Service에서 응용 프로그램 설정을 구성할](../app-service/configure-common.md#configure-app-settings)수 있습니다. 이 방법을 사용 하면 리포지토리에 체크 인하지 않고 설정을 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 참고 |
+| 애플리케이션 설정 | 원본 | 메모 |
 | :-------- | :------------| :-----------|
 |JumioSettings: AuthUsername | Jumio 계정 구성 |     |
 |JumioSettings: AuthPassword | Jumio 계정 구성 |     |
@@ -118,7 +118,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 ### <a name="deploy-the-ui"></a>UI 배포
 
-1. [저장소 계정에 blob 저장소 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)를 설정 합니다.
+1. [저장소 계정에 blob 저장소 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)를 설정 합니다.
 
 2. Ui [폴더](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/UI) 의 ui 파일을 blob 컨테이너에 저장 합니다.
 
@@ -139,7 +139,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 1. 정책 폴더의 [Azure AD B2C 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) 으로 이동 합니다.
 
-2. [이 문서](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) 에 따라 [localaccounts 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드 합니다.
+2. [이 문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) 에 따라 [localaccounts 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드 합니다.
 
 3. Azure AD B2C 테 넌 트에 대 한 정책을 구성 합니다.
 
@@ -148,17 +148,17 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. Azure AD B2C 테 넌 트를 엽니다. **정책**에서 **Identity Experience Framework**를 선택합니다.
+1. Azure AD B2C 테 넌 트를 엽니다. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 
-2. 이전에 만든 **Signupsignin**을 선택 합니다.
+2. 이전에 만든 **Signupsignin** 을 선택 합니다.
 
 3. **사용자 흐름 실행** 을 선택 하 고 다음을 수행 합니다.
 
-   a. **응용 프로그램**의 경우 등록 된 앱 (JWT)을 선택 합니다.
+   a. **응용 프로그램** 의 경우 등록 된 앱 (JWT)을 선택 합니다.
 
-   b. **회신 url**에 대해 **리디렉션 url**을 선택 합니다.
+   b. **회신 url** 에 대해 **리디렉션 url** 을 선택 합니다.
 
-   다. **사용자 흐름 실행**을 선택합니다.
+   다. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름을 진행 하 고 계정을 만듭니다.
 
@@ -168,6 +168,6 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

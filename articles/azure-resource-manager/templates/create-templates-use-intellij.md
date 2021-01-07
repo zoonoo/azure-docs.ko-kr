@@ -1,20 +1,20 @@
 ---
 title: 템플릿 배포 - IntelliJ IDEA
-description: IntelliJ IDEA를 사용하여 첫 번째 Azure Resource Manager 템플릿을 만들고 이를 배포하는 방법을 알아봅니다.
+description: IntelliJ 아이디어를 사용 하 여 첫 번째 Azure Resource Manager 템플릿 (ARM 템플릿)을 만들고 배포 하는 방법을 알아봅니다.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973334"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905964"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>IntelliJ 아이디어를 사용 하 여 ARM 템플릿 만들기 및 배포
 
-IntelliJ 아이디어와 IDE에서 직접 템플릿을 편집 하 고 업데이트 하는 프로세스를 사용 하 여 ARM (Azure Resource Manager) 템플릿을 Azure에 배포 하는 방법에 대해 알아봅니다. ARM 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [템플릿 배포 개요](overview.md)를 참조하세요.
+IntelliJ 아이디어와 IDE에서 직접 템플릿을 편집 하 고 업데이트 하는 프로세스를 사용 하 여 Azure에 Azure Resource Manager 템플릿 (ARM 템플릿)을 배포 하는 방법에 대해 알아봅니다. ARM 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련 된 개념을 이해 하려면 [템플릿 배포 개요](overview.md)를 참조 하세요.
 
 ![리소스 관리자 템플릿 포털 다이어그램](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -22,7 +22,7 @@ IntelliJ 아이디어와 IDE에서 직접 템플릿을 편집 하 고 업데이�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -36,21 +36,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 를 마우스 오른쪽 단추로 클릭 하 [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 고 [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) 로컬 컴퓨터에를 저장 합니다.
 
-1. Azure 도구 키트가 제대로 설치되고 로그인된 경우 IntelliJ IDEA의 사이드바에 Azure Explorer가 표시됩니다. **리소스 관리**를 마우스 오른쪽 단추로 클릭하고 **배포 만들기**를 선택합니다.
+1. Azure 도구 키트가 제대로 설치되고 로그인된 경우 IntelliJ IDEA의 사이드바에 Azure Explorer가 표시됩니다. **리소스 관리** 를 마우스 오른쪽 단추로 클릭하고 **배포 만들기** 를 선택합니다.
 
     ![Resource Manager 템플릿 - 마우스 오른쪽 단추로 클릭하여 배포 만들기](./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. **배포 이름**, **구독**, **리소스 그룹** 및 **지역**을 구성합니다. 여기서는 새 리소스 그룹 `testRG`에 템플릿을 배포합니다. 그런 다음, **리소스 템플릿**에 대한 경로를 `azuredeploy.json`으로, **리소스 매개변수**를 다운로드한 `azuredeploy.parameters.json`로 선택합니다.
+1. **배포 이름**, **구독**, **리소스 그룹** 및 **지역** 을 구성합니다. 여기서는 새 리소스 그룹 `testRG`에 템플릿을 배포합니다. 그런 다음, **리소스 템플릿** 에 대한 경로를 `azuredeploy.json`으로, **리소스 매개변수** 를 다운로드한 `azuredeploy.parameters.json`로 선택합니다.
 
     ![Resource Manager 템플릿 - 배포를 만들 파일 선택](./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 
-1. 확인을 클릭하면 배포가 시작됩니다. 배포가 완료될 때까지 아래쪽의 IntelliJ IDEA의 **상태 표시줄**에서 진행 상황을 확인할 수 있습니다.
+1. 확인을 클릭하면 배포가 시작됩니다. 배포가 완료될 때까지 아래쪽의 IntelliJ IDEA의 **상태 표시줄** 에서 진행 상황을 확인할 수 있습니다.
 
     ![Resource Manager 템플릿 - 배포 상태](./media/create-templates-use-intellij/resource-manager-create-deployment-status.png)
 
 ## <a name="browse-an-existing-deployment"></a>기존 배포 찾아보기
 
-1. 배포가 완료되면 생성된 새 리소스 그룹 `testRG` 및 새 배포를 볼 수 있습니다. 배포를 마우스 오른쪽 단추로 클릭하면 가능한 작업 목록을 볼 수 있습니다. 이제 **속성 표시**를 선택합니다.
+1. 배포가 완료되면 생성된 새 리소스 그룹 `testRG` 및 새 배포를 볼 수 있습니다. 배포를 마우스 오른쪽 단추로 클릭하면 가능한 작업 목록을 볼 수 있습니다. 이제 **속성 표시** 를 선택합니다.
 
     ![Resource Manager 템플릿 배포 찾아보기](./media/create-templates-use-intellij/resource-manager-deployment-browse.png)
 
@@ -60,11 +60,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="edit-and-update-an-existing-deployment"></a>기존 배포 편집 및 업데이트
 
-1. 오른쪽 클릭 메뉴에서 **배포 편집** 또는 이전 속성 보기 표시를 선택합니다. Azure에 배포하기 위한 템플릿 및 매개 변수 파일을 보여주는 다른 탭 보기가 열립니다. 이러한 파일을 로컬에 저장하려면 **템플릿 파일 내보내기** 또는 **매개 변수 파일 내보내기**를 클릭합니다.
+1. 오른쪽 클릭 메뉴에서 **배포 편집** 또는 이전 속성 보기 표시를 선택합니다. Azure에 배포하기 위한 템플릿 및 매개 변수 파일을 보여주는 다른 탭 보기가 열립니다. 이러한 파일을 로컬에 저장하려면 **템플릿 파일 내보내기** 또는 **매개 변수 파일 내보내기** 를 클릭합니다.
 
     ![Resource Manager 템플릿 - 배포 편집](./media/create-templates-use-intellij/resource-manager-edit-deployment.png)
 
-1. 이 페이지에서 두 파일을 편집하고 변경 내용을 Azure에 배포할 수 있습니다. 여기서는 매개 변수 파일의 **storageAccountType** 값을 `Standard_LRS`에서 `Standard_GRS`로 수정합니다. 그런 다음, 아래쪽 **배포 업데이트**를 클릭하고 업데이트를 확인합니다.
+1. 이 페이지에서 두 파일을 편집하고 변경 내용을 Azure에 배포할 수 있습니다. 여기서는 매개 변수 파일의 **storageAccountType** 값을 `Standard_LRS`에서 `Standard_GRS`로 수정합니다. 그런 다음, 아래쪽 **배포 업데이트** 를 클릭하고 업데이트를 확인합니다.
 
     ![스크린샷 업데이트 배포 프롬프트가 표시 된 리소스 관리자 템플릿을 보여 줍니다.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-1. Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. Azure Portal 또는 Azure CLI에서 수행할 수 있습니다. IntelliJ IDEA의 Azure Explorer에서 만든 **리소스 그룹**을 마우스 오른쪽 단추로 클릭하고 삭제를 선택합니다.
+1. Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. Azure Portal 또는 Azure CLI에서 수행할 수 있습니다. IntelliJ IDEA의 Azure Explorer에서 만든 **리소스 그룹** 을 마우스 오른쪽 단추로 클릭하고 삭제를 선택합니다.
 
     ![IntelliJ IDEA의 Azure Explorer에서 리소스 그룹 삭제](./media/create-templates-use-intellij/delete-resource-group.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Python에서 가상 머신이 있는 Azure Key Vault 사용 | Microsoft Docs
-description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션을 구성합니다.
+description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 가상 머신을 Python 애플리케이션으로 구성합니다.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: c0f98f8c77e4a9cd4271511e0169f07da1c52baa
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: mvc, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875952"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285301"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>자습서: Python에서 가상 머신이 있는 Azure Key Vault 사용
 
@@ -58,7 +58,7 @@ az login
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-다음 방법 중 하나를 사용하여 **myVM**이라는 VM을 만듭니다.
+다음 방법 중 하나를 사용하여 **myVM** 이라는 VM을 만듭니다.
 
 | Linux | Windows |
 |--|--|
@@ -66,7 +66,7 @@ az login
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Azure 포털](../../virtual-machines/windows/quick-create-portal.md) |
 
-Azure CLI를 사용하여 Linux VM를 만들려면 [az vm create](/cli/azure/vm) 명령을 사용합니다.  다음 예제에서는 *azureuser*라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치( *~/.ssh*)에 배치하는 데 사용됩니다. 
+Azure CLI를 사용하여 Linux VM를 만들려면 [az vm create](/cli/azure/vm) 명령을 사용합니다.  다음 예제에서는 *azureuser* 라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치( *~/.ssh* )에 배치하는 데 사용됩니다. 
 
 ```azurecli-interactive
 az vm create \
@@ -129,7 +129,7 @@ pip3 install azure.identity
 
 ## <a name="create-and-edit-the-sample-python-script"></a>샘플 Python 스크립트 만들기 및 편집
 
-가상 머신에서 **sample.py**라고 하는 Python 파일을 만듭니다. 다음 코드를 포함하도록 파일을 편집하고, "<your-unique-keyvault-name>"을 키 자격 증명 모음의 이름으로 바꿉니다.
+가상 머신에서 **sample.py** 라고 하는 Python 파일을 만듭니다. 다음 코드를 포함하도록 파일을 편집하고, "<your-unique-keyvault-name>"을 키 자격 증명 모음의 이름으로 바꿉니다.
 
 ```python
 from azure.keyvault.secrets import SecretClient
@@ -166,4 +166,4 @@ az group delete -g myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+[Azure Key Vault REST API](/rest/api/keyvault/)

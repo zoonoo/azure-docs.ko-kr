@@ -1,15 +1,15 @@
 ---
 title: 빠른 시작 - Azure CLI를 사용하여 첫 번째 Batch 작업 실행
-description: Azure CLI를 사용하여 Batch 계정을 만들고 Batch 작업을 실행하는 방법을 빠르게 알아봅니다.
+description: 이 빠른 시작에서는 Azure CLI를 사용하여 Batch 계정을 만들고 Batch 작업을 실행하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8824d4485167955dd1b928bc57381b2e6b672c5d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 297af47b6280381646e654eaededfe8b71a5d874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213101"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106685"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 
@@ -17,19 +17,17 @@ Azure CLI를 사용하여 Batch 계정, 컴퓨팅 노드 풀(가상 머신) 및 
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- CLI를 로컬로 설치하여 사용하도록 선택하려면 이 빠른 시작에서 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- 이 빠른 시작에는 Azure CLI 버전 2.0.20 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-다음 예제에서는 *eastus2* 위치에 *QuickstartBatch-rg*라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus2* 위치에 *QuickstartBatch-rg* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create \
@@ -53,7 +51,7 @@ az storage account create \
 
 [az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 컴퓨팅 리소스(컴퓨팅 노드의 풀) 및 Batch 작업을 만들려면 계정이 필요합니다.
 
-다음 예제에서는 *mybatchaccount*라는 배치 계정을 *QuickstartBatch-rg*에 만들고, 사용자가 만든 스토리지 계정을 연결합니다.  
+다음 예제에서는 *mybatchaccount* 라는 배치 계정을 *QuickstartBatch-rg* 에 만들고, 사용자가 만든 스토리지 계정을 연결합니다.  
 
 ```azurecli-interactive
 az batch account create \
@@ -74,7 +72,7 @@ az batch account login \
 
 ## <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
-이제 배치 계정이 있으므로 [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) 명령을 사용하여 Linux 컴퓨팅 노드의 샘플 풀을 만듭니다. 다음 예제에서는 Ubuntu 16.04 LTS를 실행하는 *Standard_A1_v2* 크기의 2개 노드로 구성되는 *mypool*이라는 풀을 만듭니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
+이제 배치 계정이 있으므로 [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) 명령을 사용하여 Linux 컴퓨팅 노드의 샘플 풀을 만듭니다. 다음 예제에서는 Ubuntu 16.04 LTS를 실행하는 *Standard_A1_v2* 크기의 2개 노드로 구성되는 *mypool* 이라는 풀을 만듭니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
  
 ```azurecli-interactive
 az batch pool create \
@@ -125,7 +123,7 @@ done
 
 태스크가 만들어지면 Batch는 풀에서 실행되도록 해당 태스크를 큐에 넣습니다. 노드에서 실행할 수 있게 되면 태스크가 실행됩니다.
 
-[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 Batch 태스크의 상태를 봅니다. 다음 예제에서는 풀 노드 중 하나에서 실행되는 *mytask1*에 대한 세부 정보가 표시됩니다.
+[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 Batch 태스크의 상태를 봅니다. 다음 예제에서는 풀 노드 중 하나에서 실행되는 *mytask1* 에 대한 세부 정보가 표시됩니다.
 
 ```azurecli-interactive
 az batch task show \
@@ -137,7 +135,7 @@ az batch task show \
 
 ## <a name="view-task-output"></a>태스크 출력 보기
 
-컴퓨팅 노드에서 태스크로 만들어진 파일을 나열하려면 [az batch task file list](/cli/azure/batch/task) 명령을 사용합니다. 다음 명령은 *mytask1*로 만들어진 파일을 나열합니다.
+컴퓨팅 노드에서 태스크로 만들어진 파일을 나열하려면 [az batch task file list](/cli/azure/batch/task) 명령을 사용합니다. 다음 명령은 *mytask1* 로 만들어진 파일을 나열합니다.
 
 ```azurecli-interactive
 az batch task file list \

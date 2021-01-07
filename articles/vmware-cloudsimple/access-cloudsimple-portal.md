@@ -1,19 +1,19 @@
 ---
 title: CloudSimple로 Azure VMware 솔루션 액세스-포털
 description: Azure Portal에서 VMware Solution by CloudSimple 포털에 액세스하는 방법 설명
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 06/04/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0ea178655646f7f130476acaffc35c60181968ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0aa7a9a1f19a9d4fb2c555b08753e0b57c657974
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058716"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895158"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Azure Portal에서 CloudSimple 포털로 VMware 솔루션에 액세스 합니다.
 
@@ -38,13 +38,13 @@ Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
 
 ## <a name="access-the-cloudsimple-portal"></a>CloudSimple 포털 액세스
 
-1. **모든 서비스**를 선택합니다.
+1. **모든 서비스** 를 선택합니다.
 
-2. **Cloudsimple 서비스**를 검색 합니다.
+2. **Cloudsimple 서비스** 를 검색 합니다.
 
 3. 사설 클라우드를 만들려는 CloudSimple 서비스를 선택 합니다.
 
-4. **개요** 페이지에서 **Cloudsimple 포털로 이동**을 클릭 합니다.  Azure Portal에서 CloudSimple 포털에 처음 액세스 하는 경우 [Cloudsimple 서비스 권한 부여](#consent-to-cloudsimple-service-authorization-application) 응용 프로그램에 권한을 부여 하 라는 메시지가 표시 됩니다. 
+4. **개요** 페이지에서 **Cloudsimple 포털로 이동** 을 클릭 합니다.  Azure Portal에서 CloudSimple 포털에 처음 액세스 하는 경우 [Cloudsimple 서비스 권한 부여](#consent-to-cloudsimple-service-authorization-application) 응용 프로그램에 권한을 부여 하 라는 메시지가 표시 됩니다. 
 
     ![CloudSimple 포털 시작](media/launch-cloudsimple-portal.png)
 
@@ -61,7 +61,7 @@ Azure Portal 처음으로 CloudSimple 포털을 시작 하려면 CloudSimple 서
 
 ![CloudSimple 서비스 권한 부여에 대 한 동의-관리자](media/cloudsimple-azure-consent.png)
 
-전역 관리자 권한이 있는 경우 조직에 동의할 수 있습니다.  **조직을 대신하여 동의**를 선택합니다.
+전역 관리자 권한이 있는 경우 조직에 동의할 수 있습니다.  **조직을 대신하여 동의** 를 선택합니다.
 
 ![CloudSimple 서비스 권한 부여에 동의-전역 관리자](media/cloudsimple-azure-consent-global-admin.png)
 

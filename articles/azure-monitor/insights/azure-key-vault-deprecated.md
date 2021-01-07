@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 71eb49c84b8ab92c9ba2ad8e05e8d74054bd4ee7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318048"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938834"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
@@ -42,10 +42,10 @@ Azure Monitor에서 Azure Key Vault 솔루션을 사용 하 여 Azure Key Vault 
 1. Azure Portal에서 모니터링할 Key Vault 리소스로 이동합니다.
 2. *진단 설정* 을 선택 하 여 다음 페이지를 엽니다.
 
-   ![Azure Key Vault 타일 이미지](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Key Vault 리소스 ContosoKVSCUS에 대 한 진단 설정 페이지의 스크린샷. 진단을 켜는 옵션이 강조 표시 됩니다.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. *진단 사용*을 클릭하여 다음 페이지를 엽니다.
 
-   ![Azure Key Vault 타일 이미지](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![진단 설정 구성에 대 한 페이지의 스크린샷 Log Analytics에 보내기, 감사 이벤트 로그 및 AllMetrics 대 한 옵션이 선택 됩니다.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. 진단 설정에 이름을 지정 합니다.
 5. *Log Analytics로 보내기* 확인란을 클릭합니다.
 6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 만듭니다.
@@ -75,9 +75,9 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
 | Azure |  |  |&#8226; |  |  | 도착 시 |
 
 ## <a name="use-azure-key-vault"></a>Azure Key Vault 사용
-솔루션을 [설치한](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)후 Azure Monitor **개요** 페이지에서 **Key Vault 분석** 타일을 클릭 하 여 Key Vault 데이터를 봅니다. **인사이트** 섹션에서 **기타**를 클릭하여 **Azure Monitor** 메뉴에서 이 페이지를 엽니다. 
+솔루션을 [설치한](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview)후 Azure Monitor **개요** 페이지에서 **Key Vault 분석** 타일을 클릭 하 여 Key Vault 데이터를 봅니다. **인사이트** 섹션에서 **기타**를 클릭하여 **Azure Monitor** 메뉴에서 이 페이지를 엽니다. 
 
-![Azure Key Vault 타일 이미지](media/azure-key-vault/log-analytics-keyvault-tile.png)
+![시간이 지남에 따라 Key Vault 작업 볼륨의 그래프를 보여 주는 Azure Monitor 개요 페이지의 Key Vault 분석 타일 스크린샷](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
 **Key Vault 분석** 타일을 클릭 한 후 로그 요약을 확인 한 후 다음 범주에 대 한 세부 정보를 드릴 다운할 수 있습니다.
 
@@ -86,9 +86,9 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
 * 작업별 평균 작업 대기 시간
 * 1000ms 이상이 소요되는 작업 수 및 1000ms 이상이 소요되는 작업 목록을 포함한 작업 서비스 품질
 
-![Azure Key Vault 대시보드 이미지](media/azure-key-vault/log-analytics-keyvault01.png)
+![모든 작업, 실패 한 작업 및 평균 작업 대기 시간에 대 한 그래픽 데이터를 포함 하는 타일을 보여 주는 Azure Key Vault 대시보드의 스크린샷](media/azure-key-vault/log-analytics-keyvault01.png)
 
-![Azure Key Vault 대시보드 이미지](media/azure-key-vault/log-analytics-keyvault02.png)
+![평균 작업 대기 시간, 서비스 품질 및 권장 검색에 대 한 데이터가 포함 된 타일을 보여 주는 Azure Key Vault 대시보드의 스크린샷](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>모든 작업에 대한 세부 사항을 보려면
 1. **개요** 페이지에서 **Key Vault 분석** 타일을 클릭 합니다.
@@ -99,7 +99,7 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key-vault/general/logging.md)에서 수집된 **KeyVaults** 형식의 레코드를 분석합니다.  이러한 레코드의 속성은 다음 표에 있습니다.  
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |*AzureDiagnostics* |
 | `SourceSystem` |*Azure* |

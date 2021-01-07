@@ -14,15 +14,15 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84690781"
 ---
 # <a name="single-sign-on-with-msaljs"></a>MSAL.js를 사용한 Single Sign-On
 
-SSO (Single Sign-on)를 사용 하면 사용자가 로그인 하기 위해 자격 증명을 한 번 입력 하 고 다시 인증 하지 않고도 여러 응용 프로그램에서 다시 사용할 수 있는 세션을 설정할 수 있습니다. 이를 통해 사용자에 게 원활한 환경을 제공 하 고 자격 증명에 대 한 반복적인 메시지를 줄일 수 있습니다.
+SSO (Single Sign-On)를 사용 하면 사용자가 로그인 하기 위해 자격 증명을 한 번 입력 하 고 다시 인증 하지 않고도 여러 응용 프로그램에서 다시 사용할 수 있는 세션을 설정할 수 있습니다. 이를 통해 사용자에 게 원활한 환경을 제공 하 고 자격 증명에 대 한 반복적인 메시지를 줄일 수 있습니다.
 
 Azure AD는 사용자가 처음으로 인증할 때 세션 쿠키를 설정 하 여 응용 프로그램에 SSO 기능을 제공 합니다. MSAL.js 라이브러리를 사용 하면 응용 프로그램에서 몇 가지 방법으로이를 활용할 수 있습니다.
 
@@ -87,7 +87,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 
 **Login 힌트 사용**
 
-구성 된 SID 클레임이 없거나 대화형 인증 호출에서 계정 선택 프롬프트를 무시 해야 하는 경우 `login_hint` 요청 매개 변수에를 제공 하 고 선택적으로 `domain_hint` `extraQueryParameters` MSAL.js 대화형 메서드 ( `loginPopup` , `loginRedirect` `acquireTokenPopup` 및 `acquireTokenRedirect` )에서로를 제공 하 여이 작업을 수행할 수 있습니다. 예를 들어:
+구성 된 SID 클레임이 없거나 대화형 인증 호출에서 계정 선택 프롬프트를 무시 해야 하는 경우 `login_hint` 요청 매개 변수에를 제공 하 고 선택적으로 `domain_hint` `extraQueryParameters` MSAL.js 대화형 메서드 ( `loginPopup` , `loginRedirect` `acquireTokenPopup` 및 `acquireTokenRedirect` )에서로를 제공 하 여이 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 var request = {

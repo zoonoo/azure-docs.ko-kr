@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f594f663267de7ed746082e77ae603e5592e721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 166e365a4ead8ad6d0f7e543c081161ebff5f027
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84034714"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330464"
 ---
 # <a name="elastic-database-tools-glossary"></a>Elastic Database 도구 용어집
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "84034714"
 
 **다중 테넌트** 및 **단일 테넌트**: 단일 테넌트 데이터베이스 및 다중 테넌트 데이터베이스를 보여 줍니다.
 
-![단일 및 다중 테넌트 데이터베이스](./media/elastic-scale-glossary/multi-single-simple.png)
+![단일 테 넌 트 데이터베이스 및 다중 테 넌 트 데이터베이스를 보여 주는 스크린샷](./media/elastic-scale-glossary/multi-single-simple.png)
 
 여기에 대표적인 **분할된** 단일 및 다중 테넌트 데이터베이스가 있습니다. 
 
@@ -67,7 +67,7 @@ ms.locfileid: "84034714"
 
 **분할된 데이터베이스 맵 관리자**: 분할 맵, 분할 위치 및 하나 이상의 분할 집합에 대한 매핑을 포함하는 관리 개체 및 데이터 저장소입니다.
 
-![매핑][2]
+![다이어그램은 shardmaps_global, shards_global 및 shard_mappings_global와 연결 된 분할 된 맵 관리자를 보여 줍니다.][2]
 
 ## <a name="verbs"></a>동사
 **수평적 크기 조정**: 분할 맵에 분할을 추가하거나 제거하여 아래와 같이 분할 컬렉션을 규모 확장(또는 규모 감축)하는 작업입니다.

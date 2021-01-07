@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a3af3307892e82ecd0697124954e99837ad5eb9e
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031248"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515696"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Microsoft 보안 코드 분석 정보
 
@@ -39,7 +39,7 @@ Azure DevOps 파이프라인에 Microsoft 보안 코드 분석 도구를 추가 
 
 ### <a name="clean-builds"></a>빌드 정리
 
-도구에서 보고 한 초기 문제를 해결 한 후 확장을 구성 하 여 새 문제에 대 한 빌드를 중단할 수 있습니다.모든 끌어오기 요청에 연속 통합 빌드를 설정 하는 것이 쉽습니다.
+도구에서 보고 한 초기 문제를 해결 한 후 확장을 구성 하 여 새 문제에 대 한 빌드를 중단할 수 있습니다. 모든 끌어오기 요청에 연속 통합 빌드를 설정 하는 것이 쉽습니다.
 
 ### <a name="set-it-and-forget-it"></a>설정 하 고 잊어버린 경우
 
@@ -73,7 +73,7 @@ BinSkim는 이진 파일의 컴파일러 설정, 링커 설정 및 기타 보안
 
 ### <a name="roslyn-analyzers"></a>Roslyn 분석기
 
-Roslyn 분석기는 관리 되는 c # 및 Visual Basic 코드를 정적으로 분석 하기 위한 Microsoft의 컴파일러 통합 도구입니다. 자세한 내용은 [Roslyn 기반 분석기](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer)를 참조 하세요.
+Roslyn 분석기는 관리 되는 c # 및 Visual Basic 코드를 정적으로 분석 하기 위한 Microsoft의 컴파일러 통합 도구입니다. 자세한 내용은 [Roslyn 기반 분석기](/dotnet/fundamentals/code-analysis/quality-rules/security-warnings)를 참조 하세요.
 
 ### <a name="tslint"></a>TSLint
 

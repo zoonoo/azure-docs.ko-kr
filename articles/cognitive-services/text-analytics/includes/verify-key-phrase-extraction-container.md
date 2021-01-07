@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5c177517ec18d7526b1cc09da74e35cb5434766d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dca4828a5c1127133461ddf9fc06099fc176b68
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876442"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009910"
 ---
 ### <a name="verify-the-key-phrase-extraction-container-instance"></a>핵심 구 추출 컨테이너 인스턴스 확인
 
@@ -25,7 +26,7 @@ ms.locfileid: "80876442"
 
 1. **서비스 API 설명** 링크를 선택 하 여 컨테이너의 Swagger 페이지로 이동 합니다.
 
-1. **POST** api 중 하나를 선택 하 고 **사용해 보기**를 선택 합니다. 이 예제 입력을 포함 하는 매개 변수가 표시 됩니다.
+1. **POST** api 중 하나를 선택 하 고 **사용해 보기** 를 선택 합니다. 이 예제 입력을 포함 하는 매개 변수가 표시 됩니다.
 
     ```json
     {

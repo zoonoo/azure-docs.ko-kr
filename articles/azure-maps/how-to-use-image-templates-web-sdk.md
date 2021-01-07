@@ -4,17 +4,17 @@ description: Azure Maps 웹 SDK를 사용 하 여 지도에 이미지 아이콘 
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: d6c7ba255b0dcec280d05eab36be71b8c9a726ae
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086558"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895684"
 ---
 # <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용하는 방법
 
@@ -24,7 +24,7 @@ Azure Maps 웹 SDK 내에서 HTML 표식 및 다양 한 계층에 이미지를 �
  - 다각형 계층은 채우기 패턴 이미지를 사용 하 여 렌더링할 수 있습니다. 
  - HTML 표식은 이미지 및 기타 HTML 요소를 사용 하 여 요소를 렌더링할 수 있습니다.
 
-레이어를 사용 하 여 성능을 보장 하기 위해 렌더링 하기 전에 이미지를 지도 이미지 스프라이트 리소스에 로드 합니다. 기호 계층의 [Iconoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)는 기본적으로 몇 가지 색의 표식 이미지를 지도 이미지 스프라이트에 미리 로드 합니다. 이러한 표식 이미지는 SVG 템플릿으로 사용할 수 있습니다. 사용자 지정 배율을 사용 하 여 이미지를 만들거나 고객 기본 및 보조 색으로 사용 될 수 있습니다. 총 42 개의 이미지 템플릿이 제공 됩니다: 27 기호 아이콘 및 15 개의 다각형 채우기 패턴.
+레이어를 사용 하 여 성능을 보장 하기 위해 렌더링 하기 전에 이미지를 지도 이미지 스프라이트 리소스에 로드 합니다. 기호 계층의 [Iconoptions](/javascript/api/azure-maps-control/atlas.iconoptions)는 기본적으로 몇 가지 색의 표식 이미지를 지도 이미지 스프라이트에 미리 로드 합니다. 이러한 표식 이미지는 SVG 템플릿으로 사용할 수 있습니다. 사용자 지정 배율을 사용 하 여 이미지를 만들거나 고객 기본 및 보조 색으로 사용 될 수 있습니다. 총 42 개의 이미지 템플릿이 제공 됩니다: 27 기호 아이콘 및 15 개의 다각형 채우기 패턴.
 
 이미지 템플릿은 함수를 사용 하 여 지도 이미지 스프라이트 리소스에 추가할 수 있습니다 `map.imageSprite.createFromTemplate` . 이 함수를 사용 하면 최대 5 개의 매개 변수를 전달할 수 있습니다.
 
@@ -106,7 +106,7 @@ CodePen의 Azure Maps ()를 사용 하 여 <a href='https://codepen.io/azuremaps
 
 
 > [!TIP]
-> 이미지 템플릿도 지도 외부에서 사용할 수 있습니다. GetImageTemplate 작동는 자리 표시 자가 있는 SVG 문자열을 반환 합니다. `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. 올바른 SVG 문자열을 만들려면 이러한 자리 표시자 값을 바꿉니다. 그런 다음 HTML DOM에 직접 SVG 문자열을 추가 하거나 데이터 URI로 변환 하 여 이미지 태그에 삽입할 수 있습니다. 예를 들어:
+> 이미지 템플릿도 지도 외부에서 사용할 수 있습니다. GetImageTemplate 작동는 자리 표시 자가 있는 SVG 문자열을 반환 합니다. `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. 올바른 SVG 문자열을 만들려면 이러한 자리 표시자 값을 바꿉니다. 그런 다음 HTML DOM에 직접 SVG 문자열을 추가 하거나 데이터 URI로 변환 하 여 이미지 태그에 삽입할 수 있습니다. 예를 들면 다음과 같습니다.
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
@@ -119,7 +119,7 @@ CodePen의 Azure Maps ()를 사용 하 여 <a href='https://codepen.io/azuremaps
 
 응용 프로그램에서 아이콘이 다른 아이콘을 사용 하거나 추가 이미지 템플릿을 추가 하는 모듈을 만드는 경우 Azure Maps 웹 SDK에서 이러한 아이콘을 쉽게 추가 하 고 검색할 수 있습니다. 네임 스페이스에서 다음 정적 함수를 사용 합니다 `atlas` .
 
-| 이름 | 반환 형식 | 설명 | 
+| Name | 반환 형식 | 설명 | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Atlas 네임 스페이스에 사용자 지정 SVG 이미지 템플릿을 추가 합니다. |
 |  `getImageTemplate(templateName: string, scale?: number)`| 문자열 | 이름으로 SVG 템플릿을 검색 합니다. |
@@ -514,10 +514,10 @@ CodePen의 Azure Maps ()에서 펜 <a href='https://codepen.io/azuremaps/pen/NQy
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
+> [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [atlas 네임 스페이스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
+> [atlas 네임 스페이스](/javascript/api/azure-maps-control/atlas#functions
 )
 
 이미지 템플릿을 사용할 수 있는 더 많은 코드 샘플은 다음 문서를 참조 하세요.

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 890bf60ac794740716817094a60f2b4cb4ba5835
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: 75a7da41e4f0d5356ca135eb3cb4cbe5f29e8116
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282792"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891454"
 ---
 # <a name="connect-to-a-wfs-service"></a>WFS 서비스에 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "87282792"
 
 클래스에서 지원 되는 기능은 다음과 `WfsClient` 같습니다.
 
-- 지원 되는 버전: `1.0.0` , `1.1.0` 및`2.0.0`
+- 지원 되는 버전: `1.0.0` , `1.1.0` 및 `2.0.0`
 - 지원 되는 필터 연산자: 이진 비교, 논리, 수학, 값 및 `bbox` 입니다.
 - 는를 사용 하 여 요청을 수행 `HTTP GET` 합니다.
 - 지원 되는 작업:
@@ -110,10 +110,10 @@ client = new atlas.io.ogc.WfsClient({
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [WfsClient](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
+> [WfsClient](/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
 
 > [!div class="nextstepaction"]
-> [WfsServiceOptions](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
+> [WfsServiceOptions](/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 

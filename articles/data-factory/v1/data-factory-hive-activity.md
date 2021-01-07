@@ -1,10 +1,10 @@
 ---
 title: Hive 작업을 사용 하 여 데이터 변환-Azure
-description: Azure 데이터 공장에서 Hive 활동을 사용하여 필요 시/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행하는 방법을 알아봅니다.
+description: Azure Data Factory v1에서 Hive 작업을 사용 하 여 주문형/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a44838076b80c1b745937cf44f241c40ce6e5c2
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74703349"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510161"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환 
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -26,8 +26,8 @@ ms.locfileid: "74703349"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning 업데이트 리소스 활동](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -75,12 +75,12 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
-| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |
 | type |HDinsightHive |예 |
-| 입력 |Hive 활동에서 사용된 입력 |아니요 |
+| 입력 |Hive 활동에서 사용된 입력 |예 |
 | outputs |Hive 활동에서 생성된 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
-| 스크립트 |Hive 스크립트 인라인 지정 |아니요 |
+| 스크립트 |Hive 스크립트 인라인 지정 |예 |
 | scriptPath |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |예 |
 | defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |예 |
 
@@ -97,7 +97,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 .....
 ```
 
-이 데이터를 처리하는 **Hive 스크립트**는 다음과 같습니다.
+이 데이터를 처리하는 **Hive 스크립트** 는 다음과 같습니다.
 
 ```
 DROP TABLE IF EXISTS HiveSampleIn; 
@@ -137,38 +137,39 @@ FROM HiveSampleIn Group by ProfileID
    > 
 5. HDInsightHive 활동이 포함된 파이프라인을 만듭니다. 작업은 데이터를 프로세스/변환합니다.
 
-    ```JSON   
-    {   
-        "name": "HiveActivitySamplePipeline",
-        "properties": {
-        "activities": [
-            {
-                "name": "HiveActivitySample",
-                "type": "HDInsightHive",
-                "inputs": [
-                {
-                    "name": "HiveSampleIn"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "HiveSampleOut"
-                }
-                ],
-                "linkedServiceName": "HDInsightLinkedService",
-                "typeproperties": {
-                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                    "scriptLinkedService": "StorageLinkedService"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                }
-            }
-            ]
+  ```json
+  {
+    "name": "HiveActivitySamplePipeline",
+       "properties": {
+    "activities": [
+      {
+        "name": "HiveActivitySample",
+        "type": "HDInsightHive",
+        "inputs": [
+        {
+          "name": "HiveSampleIn"
         }
+        ],
+             "outputs": [
+               {
+                "name": "HiveSampleOut"
+               }
+             ],
+             "linkedServiceName": "HDInsightLinkedService",
+             "typeproperties": {
+                 "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                 "scriptLinkedService": "StorageLinkedService"
+             },
+              "scheduler": {
+          "frequency": "Hour",
+                   "interval": 1
+             }
+           }
+      ]
     }
-    ```
+  }
+  ```
+
 6. 파이프라인을 배포합니다. 자세한 내용은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 
 7. 데이터 팩터리 모니터링 및 관리 보기를 사용하여 파이프라인을 모니터링합니다. 자세한 내용은 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하세요. 
 
@@ -177,9 +178,9 @@ FROM HiveSampleIn Group by ProfileID
 
 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
 
-* **defines**에서 매개 변수를 정의합니다.
+* **defines** 에서 매개 변수를 정의합니다.
 
-    ```JSON  
+  ```JSON  
     {
         "name": "HiveActivitySamplePipeline",
           "properties": {

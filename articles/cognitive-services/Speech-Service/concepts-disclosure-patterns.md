@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: angle
-ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: shlo
+ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74776625"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021986"
 ---
 # <a name="disclosure-design-patterns"></a>디자인 패턴 공개
 이제 가상 음성 환경에 적합 한 [공개 수준을](concepts-disclosure-guidelines.md#disclosure-assessment) 결정&#39;이제는 잠재적 디자인 패턴을 탐색 하는 것&#39;이 좋습니다.
@@ -62,7 +62,7 @@ ms.locfileid: "74776625"
 *새 사용자를 온 보 딩 하는 동안 가상 음성이 도입 됩니다.*
 
 권장 사항
-- 음성이 인공 임을 설명 합니다 (예: 디지털 &quot;&quot;).
+- 음성이 인공 임을 설명 합니다 (예: &quot; 디지털 &quot; ).
 - 에이전트가 수행할 수 있는 작업을 설명 합니다.
 - 명시적으로 음성&#39;s 원본에 대 한 상태
 - 가상 음성에 대해 자세히 알아볼 수 있는 진입점을 제공 합니다.
@@ -141,7 +141,7 @@ COPPA 규정을 준수 하는 것 외에도 기본 의도 된 대상이 어린�
 - 공개할 기본 대상으로 부모를 대상으로 합니다.
 - 부모에서 자식에 대 한 공개를 전달 하도록 권장
 - 합성 음성에 대 한 자세한 정보를 제공 하는 진입점 제공
-- 부모에 게 공개를 읽을 수 있는 &quot;간단한&quot; 보호 질문을 요청 하 여 환경을 성문 합니다.
+- 부모에 게 &quot; &quot; 공개를 읽을 수 있는 간단한 보호 질문을 요청 하 여 환경을 성문 합니다.
 
 ### <a name="providing-opportunities-to-learn-more-about-how-the-voice-was-made"></a>음성에 대 한 자세한 정보를 제공 하는 기회 제공
 
@@ -184,7 +184,7 @@ Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리
 
 디지털 길잡이가 지 원하는 항목에 대 한 정확한 기대를 설정 하 여 암시적으로 공개를 구현할 수 있습니다. 사용자가 디지털 길잡이와 상호 작용 하는 방법을 배울 수 있도록 샘플 명령을 제공 하 고, 경험의 초기 단계에서 가상 음성에 대 한 자세한 정보를 제공 하는 상황에 맞는 도움말을 제공 합니다.
 
-![시각적 신호 및 피드백](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![사용자가 만들 수 있는 대화에 대 한 기본 응답의 예입니다.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>대화형 투명도
 
@@ -193,13 +193,13 @@ Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리
 ![예기치 않은 경로 처리](media/responsible-ai/disclosure-patterns/conversational-transparency-1.png)<br/>
 
 <br/>
-&quot;사용자에 게 에이전트의 가상 특성을 알리는 것이 좋습니다. 또한 에이전트의 가상 특성을 사용자에 게 알리는 것이 좋습니다 .이를 통해 사용자에 게 적절 하 게 참여 하거나 실제 사용자로 리디렉션하는 것이&quot; 좋습니다.
+사용자에 게 에이전트 &quot; &quot; 의 가상 특성을 알리는 것이 좋습니다. 또한 에이전트의 가상 특성을 사용자에 게 알리는 것이 좋습니다 .이를 통해 사용자에 게 적절 하 게 참여 하거나 실제 사용자로 리디렉션하는 것이 좋습니다.
 
 ![작업 관련 질문 처리](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
 
 ## <a name="when-to-disclose"></a>공개 시점
 
-사용자 경험 전체에서 공개 하기 위한 많은 기회가 있습니다. 첫 번째 사용을 위한 디자인, 두 번째 사용, n 사용 ..., 시스템에서 실수를 하거나 &quot;사용자&quot; 가 에이전트&#39;기능에 대 한 제한을 검색 하는 경우와 같이 투명도 강조를 강조 표시 하는 데 실패 하는 문제를 발생 시킬 수 있습니다.
+사용자 경험 전체에서 공개 하기 위한 많은 기회가 있습니다. 첫 번째 사용을 위한 디자인, 두 번째 사용, n 사용 ..., &quot; &quot; 시스템에서 실수를 하거나 사용자가 에이전트&#39;기능에 대 한 제한을 검색 하는 경우와 같이 투명도 강조를 강조 표시 하는 데 실패 하는 문제를 발생 시킬 수 있습니다.
 
 ![사용자 경험 전체의 공개 기회](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
 
@@ -241,17 +241,17 @@ Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리
 
 ## <a name="additional-resources"></a>추가 리소스
 - [Microsoft 봇 지침](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Cortana 디자인 지침](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Microsoft Windows UWP 음성 디자인 지침](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Microsoft Windows Mixed Reality 음성 명령 지침](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Cortana 디자인 지침](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Microsoft Windows UWP 음성 디자인 지침](/windows/uwp/design/input/speech-interactions)
+- [Microsoft Windows Mixed Reality 음성 명령 지침](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
+* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
 * [제어 개요](concepts-gating-overview.md)
 * [공개 방법](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
+* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)

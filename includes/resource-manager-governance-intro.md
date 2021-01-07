@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 55b545471cbe45fe35e28879270e4340cf9d3834
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67182133"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028051"
 ---
 리소스를 Azure에 배포할 때 배포할 리소스의 형식, 위치 및 설정 방법을 결정하는 데 놀라운 유연성을 경험할 수 있습니다. 단, 그러한 유연성으로 인해 조직에서 허용하려는 것보다 더 많은 선택 사항이 있을 수도 있습니다. 리소스를 Azure에 배포할 때 다음에 대해 궁금하실 수도 있습니다.
 
@@ -30,4 +30,4 @@ ms.locfileid: "67182133"
 > * 시스템에 중요한 리소스를 잠급니다.
 > * 조직에 의미 있는 값으로 추적할 수 있도록 리소스에 태그를 지정합니다.
 
-이 문서에서는 거버넌스를 구현하기 위해 수행하는 작업에 중점을 둡니다. 개념보다 더 광범위한 논의는 [Azure에서 거버넌스](../articles/security/governance-in-azure.md)를 참조하세요. 
+이 문서에서는 거버넌스를 구현하기 위해 수행하는 작업에 중점을 둡니다. 개념보다 더 광범위한 논의는 [Azure에서 거버넌스](../articles/governance/index.yml)를 참조하세요.

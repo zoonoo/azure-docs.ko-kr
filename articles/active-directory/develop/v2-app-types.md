@@ -1,6 +1,6 @@
 ---
 title: Microsoft ID 플랫폼의 애플리케이션 유형 | Azure
-description: Microsoft ID 플랫폼(v2.0) 엔드포인트에서 지원되는 앱 형식 및 시나리오입니다.
+description: Microsoft id 플랫폼 끝점에서 지원 되는 앱 및 시나리오의 유형입니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
+ms.openlocfilehash: fd1fc59fd1ade6036c57f15415afccfc693f7bff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015809"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029756"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 애플리케이션 유형
 
-Microsoft ID 플랫폼(v2.0) 엔드포인트는 모두 업계 표준 프로토콜 [OAuth 2.0 또는 OpenID Connect](active-directory-v2-protocols.md)를 기반으로 하는 다양한 최신 앱 아키텍처에 대한 인증을 지원합니다. 이 문서에서는 기본 설정 언어 또는 플랫폼에 관계없이 Microsoft ID 플랫폼을 사용하여 빌드할 수 있는 앱 형식을 설명합니다. 이 정보는 [코드 작업을 시작](v2-overview.md#getting-started)하기 전에 개략적인 시나리오를 이해하는 데 도움이 됩니다.
+Microsoft id 플랫폼 끝점은 다양 한 최신 앱 아키텍처에 대 한 인증을 지원 하며, 업계 표준 프로토콜 [OAuth 2.0 또는 Openid connect 연결](active-directory-v2-protocols.md)을 기반으로 합니다. 이 문서에서는 기본 설정 언어 또는 플랫폼에 관계없이 Microsoft ID 플랫폼을 사용하여 빌드할 수 있는 앱 형식을 설명합니다. 이 정보는 [응용 프로그램 시나리오](authentication-flows-app-scenarios.md#application-scenarios)에서 코드를 사용 하 여 작업을 시작 하기 전에 높은 수준의 시나리오를 이해 하는 데 도움이 되도록 설계 되었습니다.
 
 ## <a name="the-basics"></a>기본 사항
 
@@ -46,7 +46,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 아래 흐름 다이어그램에서는 응용 프로그램이 Microsoft id 플랫폼 끝점에서 코드를 수신 하 고 `authorize` 교차 사이트 웹 요청을 사용 하 여 토큰 및 새로 고침 토큰에 대 한 교환 OAuth 2.0 권한 부여 코드 부여를 보여 줍니다. 새로 고침 토큰은 24시간마다 만료되며 앱은 다른 코드를 요청해야 합니다. 액세스 토큰 외에 `id_token` 도 클라이언트 응용 프로그램에 대 한 로그인 한 사용자를 나타내는은 일반적으로 동일한 흐름과/또는 별도의 Openid connect Connect 요청을 통해 요청 됩니다 (여기에 표시 되지 않음).
 
-![SPA 앱의 코드 흐름](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="단일 페이지 앱과 보안 토큰 서비스 끝점 간의 OAuth 2 인증 코드 흐름을 보여 주는 다이어그램입니다." border="false":::
 
 이 시나리오의 작동 방식을 확인하려면 [자습서: 권한 부여 코드 흐름을 사용하여 사용자를 로그인시키고 JavaScript SPA에서 Microsoft Graph API 호출](tutorial-v2-javascript-auth-code.md)을 참조하세요.
 
@@ -81,10 +81,9 @@ Microsoft ID 플랫폼 엔드포인트에서 사용되는 다양한 토큰 형�
 
 Microsoft ID 플랫폼 엔드포인트에서 받은 공개 서명 키로 ID 토큰의 유효성을 검사하여 사용자 ID를 확인할 수 있습니다. 후속 페이지 요청에서 사용자를 식별하는 데 사용할 수 있는 세션 쿠키가 설정됩니다.
 
-이 시나리오의 작동 방식을 확인하려면 [Microsoft ID 플랫폼 시작](v2-overview.md#getting-started) 섹션의 웹앱 로그인 코드 샘플 중 하나를 시도해 보세요.
+이 시나리오의 작동 방식을 확인 하려면 사용자를 로그인 [하는 웹 앱](scenario-web-app-sign-user-overview.md)에서 코드 샘플을 사용해 보세요.
 
 간단한 로그인뿐 아니라 웹 서버 앱은 REST API와 같은 다른 웹 서비스에 액세스해야 할 수도 있습니다. 이 경우 웹 서버 앱은 [OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 결합된 OpenID Connect 및 OAuth 2.0 흐름에 참여합니다. 이 시나리오에 대한 자세한 내용은 [웹앱 및 Web API 시작](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet)을 참조하세요.
-
 
 ## <a name="web-apis"></a>Web API
 
@@ -106,7 +105,7 @@ Accept: application/json
 
 ![웹 API 인증 흐름 표시](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-OAuth2 액세스 토큰을 사용하여 웹 API 보안을 유지하는 방법을 알아보려면 [Microsoft ID 플랫폼 시작](v2-overview.md#getting-started) 섹션의 웹 API 코드 샘플을 확인하세요.
+OAuth2 액세스 토큰을 사용 하 여 web API를 보호 하는 방법을 알아보려면 [보호 된 WEB api 시나리오](scenario-protected-web-api-overview.md)에서 web api 코드 샘플을 확인 하세요.
 
 대부분의 경우 웹 API는 Microsoft ID 플랫폼으로 보호되는 다른 다운스트림 API에 대해 아웃바운드 요청도 보내야 합니다. 이를 위해 웹 API는 **On-Behalf-Of** 흐름을 활용하여 들어오는 액세스 토큰을 아웃바운드 요청에서 사용할 다른 액세스 토큰으로 바꿀 수 있습니다. 자세한 내용은 [Microsoft ID 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름](v2-oauth2-on-behalf-of-flow.md)을 참조하세요.
 
@@ -117,6 +116,9 @@ OAuth2 액세스 토큰을 사용하여 웹 API 보안을 유지하는 방법을
 이 흐름에서 앱은 사용자 로그인 시 Microsoft ID 플랫폼 엔드포인트에서 권한 부여 코드를 받습니다. 권한 부여 코드는 현재 로그인한 사용자를 대신해 백 엔드 서비스를 호출할 앱의 사용 권한을 나타냅니다. 앱은 백그라운드에서 권한 부여 코드를 OAuth 2.0 액세스 토큰 및 새로 고침 토큰으로 교환할 수 있습니다. 앱은 액세스 토큰을 사용하여 HTTP 요청 시 웹 API에 인증할 수 있고 새로 고침 토큰을 사용하여 이전 액세스 토큰 만료 시 새 액세스 토큰을 가져올 수 있습니다.
 
 ![네이티브 앱 인증 흐름 표시](./media/v2-app-types/convergence-scenarios-native.svg)
+
+> [!NOTE]
+> 응용 프로그램에서 기본 시스템 웹 보기를 사용 하는 경우 [AZURE AD 인증 및 권한 부여 오류 코드](reference-aadsts-error-codes.md)에서 "로그인 확인" 기능과 오류 코드 AADSTS50199에 대 한 정보를 확인 합니다.
 
 ## <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
 

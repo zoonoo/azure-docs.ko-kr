@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987204"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751294"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "90987204"
 
 ## <a name="scenario-1-startstop-vms-on-a-schedule"></a><a name="schedule"></a>시나리오 1: 일정에 따라 VM 시작/중지
 
-이 시나리오는 작업 시간 외 VM 시작/중지를 처음 배포할 때의 기본 구성입니다. 예를 들어 저녁에 사무실을 나갈 때 구독의 모든 VM을 중지하고, 아침에 사무실로 복귀할 때 시작하는 기능을 구성할 수 있습니다. 배포 중에 일정 **Scheduled-StartVM** 및 **Scheduled-StopVM**을 구성할 경우 대상 VM을 시작 및 중지합니다. 
+이 시나리오는 작업 시간 외 VM 시작/중지를 처음 배포할 때의 기본 구성입니다. 예를 들어 저녁에 사무실을 나갈 때 구독의 모든 VM을 중지하고, 아침에 사무실로 복귀할 때 시작하는 기능을 구성할 수 있습니다. 배포 중에 일정 **Scheduled-StartVM** 및 **Scheduled-StopVM** 을 구성할 경우 대상 VM을 시작 및 중지합니다. 
 
 VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 구성하는 방법을 알아보려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedules)을 참조하세요.
 
@@ -40,22 +40,22 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 2. **Scheduled-StartVM** 및 **Scheduled-StopVM** 일정을 설정하고 업데이트합니다.
 
-3. **ACTION** 매개 변수 필드를 **start**로 설정하고 **WHATIF** 매개 변수 필드를 True로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
+3. **ACTION** 매개 변수 필드를 **start** 로 설정하고 **WHATIF** 매개 변수 필드를 True로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
-1. **작업** 을 **시작**으로 설정 하 여 **ScheduledStartStop_Parent** runbook을 실행 합니다.
+1. **작업** 을 **시작** 으로 설정 하 여 **ScheduledStartStop_Parent** runbook을 실행 합니다.
 
 2. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
 
-3. **WHATIF** 매개 변수 필드를 True로 설정 합니다.
+3. **WHATIF** 매개 변수 필드를 True로 설정 하 여 변경 내용을 미리 봅니다.
 
 4. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록 (VM1, v m 2, v m 3)으로 변수를 구성 합니다.
 
 5. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
 
     > [!NOTE]
-    > **Target ResourceGroup Names**의 값은 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames` 모두에 대한 값으로 저장됩니다. 추가 세분성을 위해 각기 다른 리소스 그룹을 대상으로 하도록 이러한 각 변수를 수정할 수 있습니다. 시작 작업의 경우 `External_Start_ResourceGroupNames`를 사용하고, 중지 작업의 경우 `External_Stop_ResourceGroupNames`를 사용합니다. VM이 시작 및 중지 일정에 자동으로 추가됩니다.
+    > **Target ResourceGroup Names** 의 값은 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames` 모두에 대한 값으로 저장됩니다. 추가 세분성을 위해 각기 다른 리소스 그룹을 대상으로 하도록 이러한 각 변수를 수정할 수 있습니다. 시작 작업의 경우 `External_Start_ResourceGroupNames`를 사용하고, 중지 작업의 경우 `External_Stop_ResourceGroupNames`를 사용합니다. VM이 시작 및 중지 일정에 자동으로 추가됩니다.
 
 ## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>시나리오 2: 태그를 사용하여 시퀀스의 VM 시작/중지
 
@@ -63,29 +63,29 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 ### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>구독 및 리소스 그룹에 대한 시작 및 중지 작업의 대상 지정
 
-1. 양의 정수 값을 가진 `sequencestart` 및 `sequencestop` 태그를 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames` 변수를 대상으로 하는 VM에 추가합니다. 시작 및 중지 작업은 오름차순으로 수행됩니다. VM에 태그를 지정하는 방법을 알아보려면 [Azure에서 Windows 가상 머신에 태그 지정](../virtual-machines/windows/tag.md) 및 [Azure에서 Linux 가상 머신에 태그 지정](../virtual-machines/linux/tag.md)을 참조하세요.
+1. 양의 정수 값을 가진 `sequencestart` 및 `sequencestop` 태그를 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames` 변수를 대상으로 하는 VM에 추가합니다. 시작 및 중지 작업은 오름차순으로 수행됩니다. VM에 태그를 지정하는 방법을 알아보려면 [Azure에서 Windows 가상 머신에 태그 지정](../virtual-machines/tag-portal.md) 및 [Azure에서 Linux 가상 머신에 태그 지정](../virtual-machines/tag-cli.md)을 참조하세요.
 
-2. 요구 사항을 충족하는 날짜 및 시간으로 일정 **Sequenced-StartVM** 및 **Sequenced StopVM**을 수정하고 일정을 사용하도록 설정합니다.
+2. 요구 사항을 충족하는 날짜 및 시간으로 일정 **Sequenced-StartVM** 및 **Sequenced StopVM** 을 수정하고 일정을 사용하도록 설정합니다.
 
-3. **ACTION**을 **start**로, **WHATIF**를 True로 설정하여 **SequencedStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
+3. **ACTION** 을 **start** 로, **WHATIF** 를 True로 설정하여 **SequencedStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
 
-4. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False**로 설정하여 Runbook을 수동으로 실행하거나 Automation 일정 **Sequenced-StartVM** 및 **Sequenced-StopVM**이 지정된 일정에 따라 자동으로 실행되도록 할 수 있습니다.
+4. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False** 로 설정하여 Runbook을 수동으로 실행하거나 Automation 일정 **Sequenced-StartVM** 및 **Sequenced-StopVM** 이 지정된 일정에 따라 자동으로 실행되도록 할 수 있습니다.
 
 ### <a name="target-the-start-and-stop-actions-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
 1. 양의 정수 값을 가진 `sequencestart` 및 `sequencestop` 태그를 `VMList` 매개 변수에 추가할 VM에 추가합니다.
 
-2. **작업** 을 **시작**으로 설정 하 여 **SequencedStartStop_Parent** runbook을 실행 합니다.
+2. **작업** 을 **시작** 으로 설정 하 여 **SequencedStartStop_Parent** runbook을 실행 합니다.
 
 3. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
 
-4. **WHATIF** 를 True로 설정 합니다. 
+4. **WHATIF** 를 True로 설정 하 여 변경 내용을 미리 봅니다. 
 
 5. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록으로 변수를 구성 합니다.
 
 6. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
 
-7. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False**로 설정하여 **monitoring-and-diagnostics/monitoring-action-groupsrunbook**을 수동으로 실행합니다. 또는 지정된 일정에 따라 Automation이 **Sequenced-StartVM** 및 **Sequenced-StopVM** 일정을 자동으로 실행하도록 합니다.
+7. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False** 로 설정하여 **monitoring-and-diagnostics/monitoring-action-groupsrunbook** 을 수동으로 실행합니다. 또는 지정된 일정에 따라 Automation이 **Sequenced-StartVM** 및 **Sequenced-StopVM** 일정을 자동으로 실행하도록 합니다.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>시나리오 3: CPU 사용률에 따라 자동으로 시작 또는 중지
 
@@ -137,11 +137,11 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 > [!NOTE]
 > Azure Government 클라우드의 구독은 이 기능의 메일 기능을 지원하지 않습니다.
 
-1. Azure Portal에서 **모니터**, **작업 그룹**으로 차례로 이동합니다. **StartStop_VM_Notication**이라는 작업 그룹을 선택합니다.
+1. Azure Portal에서 **모니터**, **작업 그룹** 으로 차례로 이동합니다. **StartStop_VM_Notication** 이라는 작업 그룹을 선택합니다.
 
     :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="모니터-작업 그룹 페이지의 스크린샷":::
 
-2. StartStop_VM_Notification 페이지의 **세부 정보** 아래에서 **세부 정보 편집**을 클릭합니다. 그러면 메일/SMS/푸시/음성 페이지가 열립니다. 메일 주소를 업데이트하고 **확인**을 클릭하여 변경 내용을 저장합니다.
+2. StartStop_VM_Notification 페이지의 **세부 정보** 아래에서 **세부 정보 편집** 을 클릭합니다. 그러면 메일/SMS/푸시/음성 페이지가 열립니다. 메일 주소를 업데이트하고 **확인** 을 클릭하여 변경 내용을 저장합니다.
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="업데이트 된 예제 전자 메일 주소를 보여 주는 전자 메일/SMS/푸시/음성 페이지의 스크린샷":::
 
@@ -177,9 +177,9 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 2. VM을 종료하려는 경우 시간에 대한 고유한 일정을 만듭니다.
 
-3. **ScheduledStartStop_Parent** Runbook으로 이동하고 **일정**을 클릭합니다. 이 옵션을 사용하면 이전 단계에서 만든 일정을 선택할 수 있습니다.
+3. **ScheduledStartStop_Parent** Runbook으로 이동하고 **일정** 을 클릭합니다. 이 옵션을 사용하면 이전 단계에서 만든 일정을 선택할 수 있습니다.
 
-4. **매개 변수 및 실행 설정**을 선택하고 **ACTION** 필드를 **Stop**으로 설정합니다.
+4. **매개 변수 및 실행 설정** 을 선택하고 **ACTION** 필드를 **Stop** 으로 설정합니다.
 
 5. **확인** 을 선택하여 변경 내용을 저장합니다.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 123fa86714ae3cefe7de5bebda9e0fccd385ecb4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836601"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784051"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>데이터 전송을 위한 Azure 솔루션 선택
 
@@ -71,15 +71,15 @@ Azure Portal에서 Azure Storage 계정으로 이동 하 여 **데이터 전송*
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage Explorer 소개](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [AzCopy의 개요 읽기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [AzCopy의 개요 읽기](./storage-use-azcopy-v10.md)
 - [빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열](../blobs/storage-quickstart-blobs-powershell.md)
 - [빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열](../blobs/storage-quickstart-blobs-cli.md)
 - 자세한 정보:
 
-    - [오프라인 전송을 위한 Azure Data Box, Azure Data Box Disk 및 Azure Data Box Heavy](https://docs.microsoft.com/azure/databox/)
-    - [온라인 전송에 대해 Edge를 Azure Data Box Gateway 하 고 Azure Stack](https://docs.microsoft.com/azure/databox-online/)합니다.
-- [Azure Data Factory 알아보기](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+    - [오프라인 전송을 위한 Azure Data Box, Azure Data Box Disk 및 Azure Data Box Heavy](../../databox/index.yml)
+    - [온라인 전송에 대해 Edge를 Azure Data Box Gateway 하 고 Azure Stack](../../databox-online/index.yml)합니다.
+- [Azure Data Factory 알아보기](../../data-factory/copy-activity-overview.md).
 - REST API를 사용하여 데이터 전송
 
-    - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Java에서](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [.NET](/dotnet/api/overview/azure/storage)
+    - [Java에서](/java/api/overview/azure/storage)

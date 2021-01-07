@@ -18,10 +18,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7807d28da459656938acb399eb8c621e4c292372
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89001572"
 ---
 # <a name="registration-management"></a>등록 관리
@@ -318,7 +318,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>등록 ID를 사용하여 디바이스에서 알림 허브에 등록하는 예제 코드
 
-앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예를 들어:
+앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

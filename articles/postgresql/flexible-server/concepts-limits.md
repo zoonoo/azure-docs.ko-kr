@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940397"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937664"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버 제한
 
@@ -29,7 +29,7 @@ ms.locfileid: "90940397"
 | **버스터 블**        |        |             |                 |                      |
 | B1ms                 | 1      | 2 GiB       | 50              | 47                   |
 | B2s                  | 2      | 4 GiB       | 100             | 97                   |
-| **일반 용도**  |        |             |                 |                      |
+| **범용**  |        |             |                 |                      |
 | D2s_v3               | 2      | 8 GiB       | 214             | 211                  |
 | D4s_v3               | 4      | 16 GiB      | 429             | 426                  |
 | D8s_v3               | 8      | 32GiB      | 859             | 856                  |
@@ -73,10 +73,12 @@ ms.locfileid: "90940397"
 - VNET에서는 방화벽 규칙이 지원 되지 않습니다. 대신 네트워크 보안 그룹을 사용할 수 있습니다.
 - 공용 액세스 데이터베이스 서버는와 같은 공용 인터넷에 연결할 수 `postgres_fdw` 있으며,이 액세스는 제한할 수 없습니다. VNET 기반 서버는 네트워크 보안 그룹을 사용 하 여 제한 된 아웃 바운드 액세스를 가질 수 있습니다.
 
-### <a name="high-availability"></a>고가용성
+### <a name="high-availability-ha"></a>HA (고가용성)
 
-- 영역 중복 HA는 현재 간에 안정화 된 서버에 대해 지원 되지 않습니다.
+- Zone-Redundant HA는 현재 간에 안정화 된 서버에 대해 지원 되지 않습니다.
 - 서버에서 HA 대기로 장애 조치 (failover) 될 때 데이터베이스 서버 IP 주소가 변경 됩니다. 서버 IP 주소 대신 DNS 레코드를 사용 해야 합니다.
+- HA로 구성 된 유연한 서버를 사용 하 여 논리적 복제를 구성 하는 경우 대기 서버에 대 한 장애 조치 (failover) 시에는 논리 복제 슬롯이 대기 서버로 복사 되지 않습니다. 
+- 제한 사항을 비롯 한 영역 중복 HA에 대 한 자세한 내용은 [개념-HA 설명서](concepts-high-availability.md) 페이지를 참조 하세요.
 
 ### <a name="availability-zones"></a>가용성 영역
 
@@ -114,6 +116,7 @@ ms.locfileid: "90940397"
 
 * Azure AD 인증은 아직 지원 되지 않습니다. Azure AD 인증이 필요한 경우에는 [단일 서버](../overview-single-server.md) 옵션을 사용 하는 것이 좋습니다.
 * 읽기 복제본은 아직 지원 되지 않습니다. 읽기 복제본이 필요한 경우에는 [단일 서버](../overview-single-server.md) 옵션을 사용 하는 것이 좋습니다.
+* 리소스를 다른 구독으로 이동 하는 것은 지원 되지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

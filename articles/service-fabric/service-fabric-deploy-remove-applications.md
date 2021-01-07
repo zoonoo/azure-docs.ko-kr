@@ -3,17 +3,17 @@ title: PowerShell을 사용 하 여 Azure Service Fabric 배포
 description: Azure Service Fabric에서 응용 프로그램을 제거 하 고 배포 하는 방법과 Powershell에서 이러한 작업을 수행 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bc4557c5d0d59330c7e91a4b3fdce83cfbf334c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699841"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91827422"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
 
 > [!div class="op_single_selector"]
-> * [리소스 관리자](service-fabric-application-arm-resource.md)
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -100,7 +100,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 애플리케이션 패키지가 크거나 파일이 많은 경우 [압축할 수 있습니다](service-fabric-package-apps.md#compress-a-package). 압축은 파일의 크기와 수를 줄입니다.
-부작용은 애플리케이션 유형 등록 및 등록 취소가 빠르다는 것입니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
+이로 인해 응용 프로그램 유형의 등록 및 등록 취소 속도가 빨라집니다. 업로드 시간은 현재 느려질 수 있습니다. 패키지를 압축하는 시간이 포함되는 경우 특히 그렇습니다. 
 
 패키지를 압축하려면 동일한 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용합니다. 압축은 업로드와 별도로 `SkipCopy` 플래그를 사용하거나 업로드 작업과 함께 수행할 수 있습니다. 압축된 패키지에 압축을 적용하면 아무런 변화가 없습니다.
 압축된 패키지를 풀려면 `UncompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용합니다.
@@ -135,7 +135,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-압축된 패키지는 필요에 따라 하나 또는 여러 개의 Service Fabric 클러스터에 업로드할 수 있습니다. 배포 메커니즘은 압축된 패키지와 압축되지 않은 패키지에 대해 모두 동일합니다. 압축된 패키지는 클러스터 이미지 저장소에 저장됩니다. 애플리케이션을 실행하기 전에 패키지는 노드에서 압축되지 않습니다.
+압축된 패키지는 필요에 따라 하나 또는 여러 개의 Service Fabric 클러스터에 업로드할 수 있습니다. 배포 메커니즘은 압축 된 패키지와 압축 되지 않은 패키지에 대해 동일 합니다. 압축된 패키지는 클러스터 이미지 저장소에 저장됩니다. 애플리케이션을 실행하기 전에 패키지는 노드에서 압축되지 않습니다.
 
 
 다음 예제에서는 패키지를 이미지 저장소의 "MyApplicationV1"이라는 폴더에 업로드합니다.
@@ -223,7 +223,7 @@ Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApp
 
 ## <a name="create-the-application"></a>애플리케이션 만들기
 
-[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용하여 성공적으로 등록된 모든 애플리케이션 유형 버전에서 애플리케이션을 인스턴스화할 수 있습니다. 각 애플리케이션의 이름은 반드시 *“fabric:”* 체계로 시작하고 각 애플리케이션 인스턴스에 대해 고유해야 합니다. 대상 애플리케이션 형식의 애플리케이션 매니페스트에 정의된 모든 기본 서비스도 만들어집니다.
+[Get-servicefabricapplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet을 사용 하 여 성공적으로 등록 된 모든 응용 프로그램 유형 버전에서 응용 프로그램을 인스턴스화할 수 있습니다. 각 응용 프로그램의 이름은 *"fabric:"* 체계로 시작 하 고 각 응용 프로그램 인스턴스에 대해 고유 해야 합니다. 대상 애플리케이션 형식의 애플리케이션 매니페스트에 정의된 모든 기본 서비스도 만들어집니다.
 
 ```powershell
 New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0

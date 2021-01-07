@@ -1,21 +1,21 @@
 ---
 title: 디자이너로 데이터 가져오기
 titleSuffix: Azure Machine Learning
-description: 다양 한 데이터 원본에서 Azure Machine Learning 디자이너로 데이터를 가져오는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 데이터 집합 및 데이터 가져오기 모듈을 사용 하 여 Azure Machine Learning 디자이너로 데이터를 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985610"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739861"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Azure Machine Learning designer로 데이터 가져오기
 
@@ -38,21 +38,22 @@ ms.locfileid: "90985610"
 
 1. 등록하려는 데이터를 출력하는 모듈을 선택합니다.
 
-1. 속성 창에서 **출력 + 로그**  >  **레지스터 데이터 집합**을 선택 합니다.
+1. 속성 창에서 **출력 + 로그**  >  **레지스터 데이터 집합** 을 선택 합니다.
 
     ![데이터 세트 등록 옵션으로 이동하는 방법을 보여주는 스크린샷](media/how-to-designer-import-data/register-dataset-designer.png)
 
-모듈 출력 데이터가 테이블 형식인 경우 출력을 **파일 데이터 집합** 또는 **테이블 형식 데이터 집합**으로 등록 하도록 선택 해야 합니다.
+모듈 출력 데이터가 테이블 형식인 경우 출력을 **파일 데이터 집합** 또는 **테이블 형식 데이터 집합** 으로 등록 하도록 선택 해야 합니다.
 
  - **파일 데이터 집합** 은 모듈의 출력 폴더를 파일 데이터 집합으로 등록 합니다. 출력 폴더에는 디자이너에서 내부적으로 사용 하는 데이터 파일 및 메타 파일이 포함 되어 있습니다. 디자이너에서 등록 된 데이터 집합을 계속 사용 하려는 경우이 옵션을 선택 합니다. 
 
  - **테이블 형식 데이터 집합** 은 모듈의 출력 데이터 파일만 표 형식 데이터 집합으로 등록 합니다. 이 형식은 자동 Machine Learning 또는 Python SDK와 같은 다른 도구에서 쉽게 사용할 수 있습니다. 디자이너 외부에서 등록 된 데이터 집합을 사용할 계획인 경우이 옵션을 선택 합니다.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>데이터 세트 사용
 
-등록 된 데이터 집합은 모듈 팔레트의 **데이터 집합**에서 찾을 수 있습니다. 데이터 세트를 사용하려면 파이프라인 캔버스로 끌어서 놓습니다. 그런 다음 데이터 집합의 출력 포트를 캔버스의 다른 모듈에 연결 합니다. 
+등록 된 데이터 집합은 모듈 팔레트의 **데이터 집합** 에서 찾을 수 있습니다. 데이터 세트를 사용하려면 파이프라인 캔버스로 끌어서 놓습니다. 그런 다음 데이터 집합의 출력 포트를 캔버스의 다른 모듈에 연결 합니다. 
+
+파일 데이터 집합을 등록 하는 경우 데이터 집합의 출력 포트 형식은 **Anydirectory** 입니다. 테이블 형식 데이터 집합을 등록 하는 경우 **DataFrameDirectory** 인 경우 데이터 집합의 출력 포트 형식입니다. 데이터 집합의 출력 포트를 디자이너의 다른 모듈에 연결 하는 경우 데이터 집합 및 모듈의 포트 유형을 정렬 해야 합니다.
 
 ![디자이너 색상표에서 저장된 데이터 세트의 위치를 보여 주는 스크린샷](media/how-to-designer-import-data/use-datasets-designer.png)
 
@@ -60,6 +61,14 @@ ms.locfileid: "90985610"
 > [!NOTE]
 > 디자이너는 [데이터 집합 버전 관리](how-to-version-track-datasets.md)를 지원 합니다. 데이터 집합 모듈의 속성 패널에서 데이터 집합 버전을 지정 합니다.
 
+### <a name="limitations"></a>제한 사항 
+
+- 현재는 디자이너 에서만 테이블 형식 데이터 집합을 시각화할 수 있습니다. 디자이너 외부에서 파일 데이터 집합을 등록 하는 경우 디자이너 캔버스에서 시각화할 수 없습니다.
+- 데이터 집합은 VNet (가상 네트워크)에 저장 됩니다. 시각화 하려는 경우 데이터 저장소의 작업 영역 관리 id를 사용 하도록 설정 해야 합니다.
+    1. 관련 데이터 저장소로 이동 하 고 **자격 증명** 업데이트 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="자격 증명"::: 업데이트를 클릭 합니다.
+    1. 작업 영역 관리 id를 사용 하려면 **예** 를 선택 합니다.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="작업 영역 관리 Id 사용":::
 
 ## <a name="import-data-using-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 데이터 가져오기
 

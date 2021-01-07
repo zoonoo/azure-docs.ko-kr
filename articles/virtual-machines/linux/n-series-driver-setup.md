@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 02fbe721f1bf5737ad1d10d656ea75ed1372b484
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e3c9c101779c5404be7eb8ebfa54f98bd3112117
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284883"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900555"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -22,6 +22,9 @@ NVIDIA GPU가 지원하는 Azure N 시리즈 VM의 GPU 기능을 활용하려면
 NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되는 배포판, 드라이버, 설치 및 확인 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
 
 N 시리즈 VM 사양, 스토리지 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json)를 참조하세요. 
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *블랙 리스트* 에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
@@ -49,7 +52,7 @@ lspci | grep -i NVIDIA
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
-   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+   wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
    sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 
@@ -98,7 +101,9 @@ sudo reboot
   
    sudo reboot
 
-2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required.
+
+Skip this step if you plan to use CentOS 7.8(or higher) as LIS is no longer required for these versions.
 
    ```bash
    wget https://aka.ms/lis
@@ -121,7 +126,7 @@ sudo reboot
 
    CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
-   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
    sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 
@@ -144,13 +149,13 @@ sudo reboot
 
 GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이버와 설치된 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 명령줄 유틸리티를 실행합니다. 
 
-드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util**에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
+드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util** 에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
 
 ![NVIDIA 디바이스 상태](./media/n-series-driver-setup/smi.png)
 
 ## <a name="rdma-network-connectivity"></a>RDMA 네트워크 연결
 
-동일한 가용성 집합 또는 VM(가상 머신) 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
+Rdma 네트워크 연결은 동일한 가용성 집합에 배포 된 NC24r 같은 RDMA 지원 N 시리즈 Vm 또는 VM (가상 머신) 확장 집합의 단일 배치 그룹에 대해 사용 하도록 설정할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
 ### <a name="distributions"></a>배포
 
@@ -161,6 +166,23 @@ N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
 * **CentOS 기반 7.4 HPC** - RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다.
+
+* **CentOS 기반 hpc** -CENTOS-hpc 7.6 이상 (INFINIBAND가 sr-iov를 통해 지원 되는 sku의 경우). 이러한 이미지에는 미리 설치 된 Mellanox OFED 및 MPI 라이브러리가 있습니다.
+
+> [!NOTE]
+> CX3-Pro 카드는 LTS 버전의 Mellanox OFED을 통해서만 지원 됩니다. ConnectX3-Pro 카드가 있는 N 시리즈 Vm에서 LTS Mellanox OFED 버전 (4.9-0.1.7.0)을 사용 합니다. 자세한 내용은 [Linux 드라이버](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)를 참조 하세요.
+>
+> 또한 최신 Azure Marketplace HPC 이미지 중 일부에는 ConnectX3-Pro 카드를 지원 하지 않는 Mellanox OFED 5.1 이상이 있습니다. ConnectX3-Pro 카드를 사용 하는 Vm에서 사용 하기 전에 HPC 이미지에서 Mellanox OFED 버전을 확인 합니다.
+>
+> 다음 이미지는 ConnectX3-Pro 카드를 지 원하는 최신 CentOS 이미지입니다.
+>
+> - OpenLogic: CentOS: 7.6:7.6.2020062900
+> - OpenLogic: CentOS: 7_6gen2:7.6.2020062901
+> - OpenLogic: CentOS: 7.7:7.7.2020062600
+> - OpenLogic: CentOS: 7_7-gen2:7.7.2020062601
+> - OpenLogic: CentOS: 8_1:8.1.2020062400
+> - OpenLogic: CentOS: 8_1-gen2:8.1.2020062401
+>
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>NV 또는 NVv3 시리즈 VM에 GRID 드라이버 설치
 
@@ -208,7 +230,7 @@ NVIDIA GRID 드라이버를 NV 또는 NVv3 시리즈 VM에 설치하려면 각 V
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
 
-6. X 구성 파일을 업데이트할 nvidia-xconfig 유틸리티를 실행할 것인지 여부를 묻는 메시지가 표시되면 **예**를 선택합니다.
+6. X 구성 파일을 업데이트할 nvidia-xconfig 유틸리티를 실행할 것인지 여부를 묻는 메시지가 표시되면 **예** 를 선택합니다.
 
 7. 설치가 완료되면 /etc/nvidia/gridd.conf.template을 /etc/nvidia/ 위치의 새 파일 gridd.conf에 복사합니다.
 
@@ -247,7 +269,7 @@ NVIDIA GRID 드라이버를 NV 또는 NVv3 시리즈 VM에 설치하려면 각 V
    sudo yum install hyperv-daemons
    ```
 
-2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이를 수행하려면 다음 콘텐츠가 포함된 `nouveau.conf`라고 하는 `/etc/modprobe.d`에 파일을 만듭니다.
+2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV3 Vm 에서만 NVIDIA 드라이버를 사용 합니다.) 이렇게 하려면 `/etc/modprobe.d` 다음 내용을 사용 하 여 라는 파일을 만듭니다 `nouveau.conf` .
 
    ```
    blacklist nouveau
@@ -255,7 +277,9 @@ NVIDIA GRID 드라이버를 NV 또는 NVv3 시리즈 VM에 설치하려면 각 V
    blacklist lbm-nouveau
    ```
  
-3. VM을 다시 부팅하고 다시 연결한 후 [Hyper-V 및 Azure에 대한 최신 Linux 통합 서비스](https://www.microsoft.com/download/details.aspx?id=55106)를 설치합니다.
+3. VM을 다시 부팅하고 다시 연결한 후 [Hyper-V 및 Azure에 대한 최신 Linux 통합 서비스](https://www.microsoft.com/download/details.aspx?id=55106)를 설치합니다. Lspci의 결과를 확인 하 여 LIS가 필요한 지 확인 합니다. 모든 GPU 장치가 예상 대로 나열 되어 있으면 LIS를 설치할 필요가 없습니다. 
+
+CentOS/RHEL 7.8 이상을 사용 하는 경우이 단계를 건너뜁니다.
  
    ```bash
    wget https://aka.ms/lis
@@ -281,7 +305,7 @@ NVIDIA GRID 드라이버를 NV 또는 NVv3 시리즈 VM에 설치하려면 각 V
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
-6. X 구성 파일을 업데이트할 nvidia-xconfig 유틸리티를 실행할 것인지 여부를 묻는 메시지가 표시되면 **예**를 선택합니다.
+6. X 구성 파일을 업데이트할 nvidia-xconfig 유틸리티를 실행할 것인지 여부를 묻는 메시지가 표시되면 **예** 를 선택합니다.
 
 7. 설치가 완료되면 /etc/nvidia/gridd.conf.template을 /etc/nvidia/ 위치의 새 파일 gridd.conf에 복사합니다.
   
@@ -308,9 +332,9 @@ NVIDIA GRID 드라이버를 NV 또는 NVv3 시리즈 VM에 설치하려면 각 V
 
 GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이버와 설치된 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 명령줄 유틸리티를 실행합니다. 
 
-드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util**에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
+드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util** 에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
 
-![NVIDIA 디바이스 상태](./media/n-series-driver-setup/smi-nv.png)
+![GPU 장치 상태를 쿼리할 때의 출력을 보여 주는 스크린샷](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>X11 서버
@@ -356,6 +380,7 @@ fi
 
 * `nvidia-smi`를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
 * NVIDIA CUDA 드라이버를 최신 버전으로 업데이트하고, RDMA 연결이 더 이상 작동하지 않는 경우 [RDMA 드라이버를 다시 설치](#rdma-network-connectivity)하여 해당 연결을 다시 설정합니다. 
+* 특정 CentOS/RHEL OS 버전 (또는 커널)이 LIS에 대해 지원 되지 않는 경우 "지원 되지 않는 커널 버전" 오류가 throw 됩니다. OS 및 커널 버전과 함께이 오류를 보고 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,10 +5,10 @@ author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.openlocfilehash: fd3965c42679c8435348a66cc7eeab90d1eeb1b3
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85374674"
 ---
 이 샘플을 실행하려면 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다. 시작하려면 `az login`을 실행하여 Azure와 연결합니다.

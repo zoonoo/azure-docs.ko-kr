@@ -1,23 +1,21 @@
 ---
 title: Azure Monitor 통합 문서 개요
 description: 통합 문서에서 데이터 분석을 위한 유연한 캔버스를 제공 하 고 Azure Portal 내에서 풍부한 시각적 보고서를 만드는 방법에 대해 알아봅니다.
-author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
-ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977560"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143626"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
-통합 문서는 데이터 분석을 위한 유연한 캔버스와 Azure Portal 내에서 풍부한 시각적 보고서 생성을 제공 합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭 하 여 통합 된 대화형 환경으로 결합할 수 있습니다. 
+통합 문서는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭 하 여 통합 된 대화형 환경으로 결합할 수 있습니다. 
 
 다음은 통합 문서를 만드는 비디오 연습입니다.
 
@@ -25,16 +23,16 @@ ms.locfileid: "90977560"
 
 ## <a name="data-sources"></a>데이터 원본
 
-통합 문서는 Azure 내에서 여러 원본의 데이터를 쿼리할 수 있습니다. 통합 문서 작성자는이 데이터를 변환 하 여 기본 구성 요소의 가용성, 성능, 사용량 및 전반적인 상태에 대 한 통찰력을 제공할 수 있습니다. 예를 들어, 가상 컴퓨터에서 성능 로그를 분석 하 여 높은 CPU 또는 메모리 부족 인스턴스를 식별 하 고 결과를 대화형 보고서에 표 형태로 표시 합니다.
+통합 문서는 Azure 내의 여러 원본에서 데이터를 쿼리할 수 있습니다. 통합 문서 작성자는 이 데이터를 변환하여 기본 구성 요소의 가용성, 성능, 사용량 및 전반적 상태에 대한 인사이트를 제공할 수 있습니다. 예를 들어, 가상 컴퓨터에서 성능 로그를 분석 하 여 높은 CPU 또는 메모리 부족 인스턴스를 식별 하 고 결과를 대화형 보고서에 표 형태로 표시 합니다.
   
-그러나 통합 문서의 실제 기능은 단일 보고서 내에서 서로 다른 원본의 데이터를 결합 하는 기능입니다. 이렇게 하면 복잡 한 데이터 및 정보를 허용 하지 않는 복잡 한 데이터 및 정보를 사용 하 여 리소스에 대 한 복합 리소스 뷰 또는 조인을 만들 수 있습니다.
+그러나 통합 문서의 진정한 강점은 단일 보고서 내에서 서로 다른 원본의 데이터를 결합하는 기능입니다. 이렇게 하면 복잡 한 데이터 및 정보를 허용 하지 않는 복잡 한 데이터 및 정보를 사용 하 여 리소스에 대 한 복합 리소스 뷰 또는 조인을 만들 수 있습니다.
 
-통합 문서는 현재 다음 데이터 원본과 호환 됩니다.
+통합 문서는 현재 다음 데이터 원본과 호환됩니다.
 
 * [로그](workbooks-data-sources.md#logs)
 * [메트릭](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
-* [경고(미리 보기)](workbooks-data-sources.md#alerts-preview)
+* [경고 (미리 보기)](workbooks-data-sources.md#alerts-preview)
 * [작업 상태](workbooks-data-sources.md#workload-health)
 * [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
 * [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)
@@ -99,7 +97,7 @@ ms.locfileid: "90977560"
 
 ![기본 Kusto 쿼리 스크린샷](./media/workbooks-overview/kusto.png)
 
-오른쪽의 다른 **편집** 단추를 클릭 하면 markdown 기반 [텍스트 상자](workbooks-visualizations.md#text), [매개 변수 선택](workbooks-parameters.md) UI 요소 및 기타 [차트/시각화 형식과](workbooks-visualizations.md)같은 통합 문서를 구성 하는 몇 가지 핵심 구성 요소가 표시 됩니다. 
+오른쪽의 다른 **편집** 단추를 클릭 하면 markdown 기반 [텍스트 상자](workbooks-text-visualizations.md), [매개 변수 선택](workbooks-parameters.md) UI 요소 및 기타 [차트/시각화 형식과](#visualizations)같은 통합 문서를 구성 하는 몇 가지 핵심 구성 요소가 표시 됩니다. 
 
 편집 모드에서 미리 작성 된 템플릿을 탐색 한 다음 요구 사항에 맞게 수정 하 고 사용자 지정 통합 문서를 저장 하는 것이 Azure Monitor 통합 문서를 사용 하 여 가능한 작업에 대 한 학습을 시작 하는 좋은 방법입니다.
 
@@ -131,5 +129,5 @@ Pin 모드에 액세스 하려면 **편집** 을 클릭 하 여 편집 모드로
 
 ## <a name="next-step"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](#visualizations) 하세요.
 * 통합 문서 리소스에 대 한 액세스를 [제어](workbooks-access-control.md) 하 고 공유 합니다.

@@ -1,21 +1,21 @@
 ---
 title: 서비스 공급자 작업 보기
 description: 고객은 Azure 위임 된 리소스 관리를 통해 서비스 공급자가 수행한 작업을 확인 하기 위해 기록 된 활동을 볼 수 있습니다.
-ms.date: 07/07/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dcf177cc41dac846d096607445ff4c3d433620ca
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131461"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356381"
 ---
 # <a name="view-service-provider-activity"></a>서비스 공급자 작업 보기
 
 [Azure Lighthouse](../overview.md) 에 대 한 구독을 위임 받은 고객은 [azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 데이터를 보고 수행 된 모든 작업을 볼 수 있습니다. 이렇게 하면 고객의 azure AD (Azure Active Directory) 테 넌 트 내에서 사용자가 수행 하는 작업과 함께, 서비스 공급자가 [azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 통해 수행 하는 작업을 완벽 하 게 파악할 수 있습니다.
 
 > [!TIP]
-> 또한 관리 테 넌 트에 대 한 범위 위임을 감사 하는 Azure Policy 기본 제공 정책 정의를 제공 합니다. 자세한 내용은 [사용자 환경에서 위임 감사](view-manage-service-providers.md#audit-delegations-in-your-environment)를 참조 하세요.
+> 또한 Azure Policy 기본 제공 정책 정의를 제공 하 여 [특정 관리 테 넌 트로 위임을 제한](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) 하 고 [관리 테 넌 트로의 범위 위임을 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json)합니다. 자세한 내용은 [사용자 환경에서 위임 감사](view-manage-service-providers.md#audit-delegations-in-your-environment)를 참조 하세요.
 
 ## <a name="view-activity-log-data"></a>활동 로그 데이터 보기
 
@@ -42,6 +42,12 @@ Azure Portal의 **모니터** 메뉴에서 [활동 로그를 볼](../../azure-mo
 쿼리를 만들어 로깅 작업을 분석 하거나 특정 항목에 초점을 맞출 수 있습니다. 예를 들어 감사를 사용 하려면 구독에 대해 수행 된 모든 관리 수준 작업에 대해 보고 해야 합니다. 이러한 작업만 필터링 하 고 사용자, 날짜 또는 다른 값을 기준으로 결과를 정렬 하는 쿼리를 만들 수 있습니다.
 
 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+
+## <a name="view-user-activity-across-domains"></a>도메인 간 사용자 활동 보기
+
+도메인 샘플 통합 문서 [에서 활동 로그](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) 를 사용 하 여 여러 도메인에서 개별 사용자의 활동을 볼 수 있습니다.
+
+도메인 이름을 기준으로 결과를 필터링 할 수 있습니다. 범주, 수준 또는 리소스 그룹과 같은 추가 필터를 적용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

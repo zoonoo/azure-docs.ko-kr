@@ -7,20 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6008ca1549629bcbb582f38de2ab1b453cd73a99
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78673391"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843760"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 Android Things 플랫폼 개발
 
-[Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)는 Windows, Linux, OSX, MBED, 그리고 Android 및 iOS와 같은 모바일 플랫폼을 포함하여 인기 있는 플랫폼에 대한 첫 번째 계층 지원을 제공합니다.  Java SDK는 IoT 배포에서 더 나은 선택과 유연성을 지원한다는 당사 약속의 일환으로 [Android Things](https://developer.android.com/things/) 플랫폼도 지원합니다.  개발자는 디바이스 쪽에서 Android Things 운영 체제의 이점을 활용함과 동시에 [Azure IoT Hub](about-iot-hub.md)를 수백만 개의 동시 연결 디바이스로 확장하는 중앙 메시지 허브로 사용할 수 있습니다.
+[Azure IoT Hub SDK](./iot-hub-devguide-sdks.md)는 Windows, Linux, OSX, MBED, 그리고 Android 및 iOS와 같은 모바일 플랫폼을 포함하여 인기 있는 플랫폼에 대한 첫 번째 계층 지원을 제공합니다.  Java SDK는 IoT 배포에서 더 나은 선택과 유연성을 지원한다는 당사 약속의 일환으로 [Android Things](https://developer.android.com/things/) 플랫폼도 지원합니다.  개발자는 디바이스 쪽에서 Android Things 운영 체제의 이점을 활용함과 동시에 [Azure IoT Hub](about-iot-hub.md)를 수백만 개의 동시 연결 디바이스로 확장하는 중앙 메시지 허브로 사용할 수 있습니다.
 
 이 자습서에서는 Azure IoT Java SDK를 사용하여 Android Things에서 디바이스 쪽 애플리케이션을 빌드하는 단계를 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Android Things는 Android Things OS를 실행하는 하드웨어를 지원합니다.  Android Things OS를 플래시하는 방법은 [Android Things 설명서](https://developer.android.com/things/get-started/kits#flash-at)를 참조하세요.  키보드, 디스플레이 및 마우스 등과 같은 필수 주변 장치가 연결된 상태에서 Android Things 디바이스가 인터넷에 연결되었는지 확인합니다.  이 자습서에서는 Raspberry Pi 3을 사용합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "78673391"
 
 * [Git](https://git-scm.com/)의 최신 버전
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

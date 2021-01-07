@@ -1,14 +1,16 @@
 ---
 title: 기술 자료 편집 - QnA Maker
 description: QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘텐츠를 관리할 수 있게 해줍니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054019"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351710"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -54,11 +56,11 @@ QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가 되거나 �
     > [!div class="mx-imgBorder"]
     > ![서식 있는 텍스트 편집기를 사용 하 여 텍스트를 작성 하 고 서식을 지정 하 고 markdown로 저장 합니다.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
 
-    |서식 있는 텍스트 편집기 기능|바로 가기 키|
+    |서식 있는 텍스트 편집기 기능|키보드 바로 가기 키|
     |--|--|
     |서식 있는 텍스트 편집기와 markdown 사이를 전환 합니다. `</>`|Ctrl+M|
     |글꼴로. **B**|CTR + LB|
-    |기울임꼴, 기울임꼴 I로 표시 ** _I_**|CTRL+I|
+    |기울임꼴, 기울임꼴 I로 표시 **_I_**|CTRL+I|
     |정렬되지 않은 목록||
     |정렬된 목록||
     |단락 스타일||
@@ -72,7 +74,7 @@ QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가 되거나 �
 
 
     > [!div class="mx-imgBorder"]
-    > ![서식 있는 텍스트 편집기를 사용 하 여 공개적으로 액세스할 수 있는 이미지와 해당 대체 텍스트를 추가 합니다.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![스크린샷에는 공개적으로 액세스할 수 있는 이미지 URL과 입력 한 이미지에 대 한 대체 텍스트가 있는 내부 편집기가 표시 됩니다.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. 응답에서 텍스트를 선택한 다음 도구 모음에서 링크 아이콘을 선택 하거나 도구 모음에서 링크 아이콘을 선택 하 고 새 텍스트와 URL을 입력 하 여 URL에 대 한 링크를 추가 합니다.
 
@@ -110,11 +112,11 @@ QnA 쌍 연결은 [추가 작업 프롬프트](multiturn-conversation.md)와 함
 
 ## <a name="add-metadata"></a>메타데이터 추가
 
-먼저 **보기 옵션**을 선택한 다음 **메타 데이터 표시**를 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음, **+** 서명을 선택 하 여 메타 데이터 쌍을 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
+먼저 **보기 옵션** 을 선택한 다음 **메타 데이터 표시** 를 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 열이 표시 됩니다. 그런 다음, **+** 서명을 선택 하 여 메타 데이터 쌍을 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
 
 메타 데이터에 대 한 QnA Maker 포털 빠른 시작에서 메타 데이터에 대해 자세히 알아보세요.
-* [제작-QnA 쌍에 메타 데이터 추가](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
-* [쿼리 예측-메타 데이터에의 한 응답 필터링](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
+* [제작 - QnA 쌍에 메타데이터 추가](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [쿼리 예측 - 메타데이터를 통한 응답 필터링](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## <a name="save-changes-to-the-qna-pairs"></a>QnA 쌍의 변경 내용 저장
 
@@ -126,11 +128,11 @@ QnA 쌍 연결은 [추가 작업 프롬프트](multiturn-conversation.md)와 함
 
 서식 [있는 텍스트](#add-an-editorial-qna-set) 를 수정 하면 서식 도구 모음을 사용 하 여 텍스트를 빠르게 선택 하 고 서식을 지정할 수 있습니다.
 
-[Markdown](../reference-markdown-format.md) 는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](../Quickstarts/batch-testing.md)를 위해 가져올 기술 자료를 만들기 위해 콘텐츠를 자동 생성 해야 하는 경우에 더 나은 도구입니다.
+[Markdown](../reference-markdown-format.md) 는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](../index.yml)를 위해 가져올 기술 자료를 만들기 위해 콘텐츠를 자동 생성 해야 하는 경우에 더 나은 도구입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [기술 자료에 대한 공동 작업](./collaborate-knowledge-base.md)
+> [기술 자료에 대한 공동 작업](../index.yml)
 
 * [QnA Maker에서 사용 하는 Azure 리소스 관리](set-up-qnamaker-service-azure.md)

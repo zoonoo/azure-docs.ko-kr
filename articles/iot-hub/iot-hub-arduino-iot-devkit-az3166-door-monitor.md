@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: dae797e73d52391288a5e8b7cf4a5c6ab2a122fc
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: e3649ac786c07459695a1e6ca6ad52620e23d59f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337877"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148803"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터-Azure Functions 및 SendGrid를 사용 하 여 도어를 열 때 전자 메일 보내기           
 
@@ -171,7 +171,7 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 
 그런 다음, VS Code가 Arduino 스케치를 확인하고 DevKit에 업로드합니다.
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
+![Arduino 스케치를 확인 하 고 업로드 하 Visual Studio Code를 보여 주는 스크린샷](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
 DevKit이 다시 부팅되고 코드 실행이 시작됩니다.
 
@@ -197,4 +197,4 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 제안 된 다음 단계는 다음과 같습니다.[Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
+Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 제안 된 다음 단계는 다음과 같습니다.[Azure IoT 원격 모니터링 솔루션 가속기 개요](/azure/iot-suite/)

@@ -13,10 +13,10 @@ tags: ''
 keywords: ''
 ms.service: multiple
 ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87042546"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>AKS에 마이크로 포커스 엔터프라이즈 서버 5.0 배포
@@ -35,7 +35,7 @@ Azure Kubernetes Service는 Kubernetes를 기반으로 하는 관리 되는 오�
 
 이렇게 하면 Azure에서 메인프레임 현대화 워크 로드를 확장 (및 규모 축소) 하 여 클라우드 플랫폼의 진정한 이점을 누릴 수 있습니다.
 
-미리? 시작 하겠습니다.
+미리? 이제 시작하겠습니다.
 
 ## <a name="create-the-azure-container-registry"></a>Azure Container Registry 만들기
 
@@ -119,4 +119,4 @@ Kubernetes는 배포를 만든 메시지를 사용 하 여 응답 해야 합니�
 
 ![스크린샷 es-실행 pod로 acctdemo](media/deploy-image-9.png)
 
-지금까지 이제 Azure Kubernetes Service에서 엔터프라이즈 서버를 실행 하 고 있습니다. 다음 문서에서는 엔터프라이즈 서버 관리 콘솔에 액세스 하는 방법 및 Kubernetes를 활용 하 여 배포를 확장 하는 방법을 보여 줍니다.
+축하합니다. 이제 Azure Kubernetes Service에서 엔터프라이즈 서버를 실행 하 고 있습니다. 다음 문서에서는 엔터프라이즈 서버 관리 콘솔에 액세스 하는 방법 및 Kubernetes를 활용 하 여 배포를 확장 하는 방법을 보여 줍니다.

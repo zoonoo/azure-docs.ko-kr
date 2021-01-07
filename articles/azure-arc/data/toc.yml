@@ -16,13 +16,15 @@
       href: connectivity.md
     - name: 스토리지 구성
       href: storage-configuration.md
+    - name: 크기 조정 지침
+      href: sizing-guidance.md
 - name: 방법 가이드
   items:
     - name: 도구 설치
       items:
         - name: 클라이언트 도구 설치
           href: install-client-tools.md
-        - name: azdata
+        - name: Azure Data CLI(azdata)
           items:
             - name: 설치
               href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
@@ -40,14 +42,14 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: 데이터 컨트롤러 만들기
       items:
-        - name: 데이터 컨트롤러 만들기(Azure Data Studio)
+        - name: Azure Data Studio
           href: create-data-controller-azure-data-studio.md
-        - name: 데이터 컨트롤러 리소스 만들기(포털)
+        - name: Azure portal
           href: create-data-controller-resource-in-azure-portal.md
-        - name: 데이터 컨트롤러 만들기(azdata)
+        - name: Azure Data CLI(azdata)
           href: create-data-controller-using-azdata.md
-        - name: Kubernetes를 사용하여 데이터 컨트롤러 만들기
-          href: create-data-controller-using-k8s-native-tools.md
+        - name: Kubernetes 도구
+          href: create-data-controller-using-kubernetes-native-tools.md
     - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
       items:
         - name: 대시보드를 사용하여 모니터링(Azure Data Studio)
@@ -64,12 +66,22 @@
       items:
         - name: Grafana & Kibana를 사용하여 모니터링
           href: monitor-grafana-kibana.md
-        - name: 메트릭 및 로그 업로드
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Azure Monitor에 업로드
+          items:
+            - name: 필수 구성 요소 업로드
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: 로그 업로드
+              href: upload-logs.md
+            - name: 메트릭 업로드
+              href: upload-metrics.md
+            - name: 사용량 데이터 업로드
+              href: upload-usage-data.md
         - name: 인벤토리 데이터베이스 인스턴스
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: 데이터 컨트롤러 사용자 이름 및 암호 가져오기
           href: retrieve-the-username-password-for-data-controller.md
+        - name: 서비스 주체 자격 증명 업데이트
+          href: update-service-principal-credentials.md
     - name: 문제 해결
       items:
         - name: 가이드
@@ -90,6 +102,8 @@
           href: create-postgresql-hyperscale-server-group.md
         - name: Postgres 하이퍼스케일 서버 그룹 만들기(Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: Postgres 하이퍼스케일 서버 그룹 만들기 - Kubernetes 네이티브 도구
+          href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
         - name: 연결
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
     - name: 개념
@@ -104,6 +118,8 @@
           items:
             - name: 백업 및 복원
               href: backup-restore-postgresql-hyperscale.md
+            - name: PostgreSQL 포트 변경
+              href: change-postgresql-port.md
             - name: 구성 및 스케일링
               items:
                 - name: 구성 표시
@@ -148,6 +164,8 @@
           href: create-sql-managed-instance.md
         - name: SQL Managed Instance 만들기(Azure Data Studio)
           href: create-sql-managed-instance-azure-data-studio.md
+        - name: Kubernetes 도구를 사용하여 만들기
+          href: create-sql-managed-instance-using-kubernetes-native-tools.md
         - name: 연결
           href: connect-managed-instance.md
     - name: 방법
@@ -212,3 +230,7 @@
           href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: arc-sql-mi-config
           href: /sql/azdata/reference/reference-azdata-arc-sql-mi-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+- name: 리소스
+  items:
+    - name: Azure Arc 빠른 시작
+      href: 'https://github.com/microsoft/azure_arc'

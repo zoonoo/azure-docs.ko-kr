@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500337"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734116"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -32,23 +32,23 @@ ms.locfileid: "89500337"
 
 기본적으로 모든 사용자에 게 기능이 설정 되어 있으므로 자동으로 치료 됩니다. 그러나 옵트아웃 (opt out) 하도록 선택 하는 경우 다음 단계를 수행 합니다.
 
-- SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 ** 의ExtensionSettingsOverrides.js** 를 만들거나 편집 합니다.
-- **ExtensionSettingsOverrides.js**에서 *{"EnableAutoHealer": false}* 를 설정 합니다.
+- SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 **의ExtensionSettingsOverrides.js** 를 만들거나 편집 합니다.
+- **ExtensionSettingsOverrides.js** 에서 *{"EnableAutoHealer": false}* 를 설정 합니다.
 - 변경 내용을 저장하고 파일을 닫습니다.
 - SQL Server 인스턴스에서 **작업 관리** 를 열고 **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작 합니다.
 
-## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>SQL server에서 실행 되는 동시 백업 수를 제어할 수 있나요?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>SQL Server에서 실행되는 동시 백업 수를 제어할 수 있나요?
 
 예. SQL Server 인스턴스에 대한 영향을 최소화하기 위해 백업 정책이 실행되는 속도를 제한할 수 있습니다. 설정을 변경하려면:
 
-1. SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 * 에ExtensionSettingsOverrides.js* 를 만듭니다.
-2. 파일 * 의ExtensionSettingsOverrides.js* 에서 **Defaultbackuptasksthreshold** 설정을 더 낮은 값 (예: 5)으로 변경 합니다. <br>
+1. SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 *에ExtensionSettingsOverrides.js* 를 만듭니다.
+2. 파일 *의ExtensionSettingsOverrides.js* 에서 **Defaultbackuptasksthreshold** 설정을 더 낮은 값 (예: 5)으로 변경 합니다. <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
-Defaultbackup업무 임계값의 기본값은 **20**입니다.
+Defaultbackup업무 임계값의 기본값은 **20** 입니다.
 
 3. 변경 내용을 저장하고 파일을 닫습니다.
-4. SQL Server 인스턴스에서 **작업 관리자**를 엽니다. **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작합니다.<br/> <br/>
+4. SQL Server 인스턴스에서 **작업 관리자** 를 엽니다. **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작합니다.<br/> <br/>
  이 방법을 사용 하면 백업 응용 프로그램이 많은 양의 리소스를 사용 하는 경우에는 SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) 는 들어오는 응용 프로그램 요청이 사용할 수 있는 CPU, 물리적 IO 및 메모리 양에 대 한 제한을 지정 하는 보다 일반적인 방법입니다.
 
 > [!NOTE]
@@ -60,9 +60,9 @@ SQL 제한 사항에 따라 보조 복제본에서 전체 백업만 복사를 �
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>온-프레미스 가용성 그룹을 보호할 수 있나요?
 
-아닙니다. Azure Backup는 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure와 온-프레미스 컴퓨터 간에 AG (가용성 그룹)를 분산 하는 경우 주 복제본이 Azure에서 실행 되는 경우에만 AG를 보호할 수 있습니다. 또한 Azure Backup는 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
+아니요. Azure Backup는 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure와 온-프레미스 컴퓨터 간에 AG (가용성 그룹)를 분산 하는 경우 주 복제본이 Azure에서 실행 되는 경우에만 AG를 보호할 수 있습니다. 또한 Azure Backup는 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
 
-## <a name="can-i-protect-availability-groups-across-regions"></a>Azure 지역 간에 가용성 그룹을 보호할 수 있나요?
+## <a name="can-i-protect-availability-groups-across-regions"></a>지역 간 가용성 그룹을 보호할 수 있나요?
 
 Azure Backup Recovery Services 자격 증명 모음은 자격 증명 모음과 동일한 지역에 있는 모든 노드를 검색 하 고 보호할 수 있습니다. SQL Server Always On 가용성 그룹이 여러 Azure 지역에 걸쳐 있는 경우 주 노드가 있는 지역에서 백업을 설정 합니다. 그러면 Azure Backup이 백업 기본 설정에 따라 가용성 그룹의 모든 데이터베이스를 검색하고 보호할 수 있습니다. 백업 기본 설정이 충족 되지 않으면 백업이 실패 하 고 오류 경고가 발생 합니다.
 
@@ -78,17 +78,17 @@ Azure Backup Recovery Services 자격 증명 모음은 자격 증명 모음과 �
 
 예, [자동 보호](backup-sql-server-database-azure-vms.md#enable-auto-protection)를 사용 하 여이 기능을 달성할 수 있습니다.  
 
-## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Autoprotected 인스턴스에서 데이터베이스를 삭제 하는 경우 백업에 어떤 일이 발생 하나요?
+## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>자동 보호된 인스턴스에서 데이터베이스를 삭제하면 백업은 어떻게 되나요?
 
-Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터베이스 백업이 계속 시도 됩니다. 즉, 삭제된 데이터베이스가 **백업 항목**에서 비정상 상태로 표시되기 시작하지만 여전히 보호되는 것으로 처리됩니다.
+Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터베이스 백업이 계속 시도 됩니다. 즉, 삭제된 데이터베이스가 **백업 항목** 에서 비정상 상태로 표시되기 시작하지만 여전히 보호되는 것으로 처리됩니다.
 
 이 데이터베이스의 보호를 중지 하는 올바른 방법은이 데이터베이스에서 **데이터를 삭제** 하는 **백업 중지** 를 수행 하는 것입니다.  
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Autoprotected 데이터베이스의 백업 작업을 중지 하는 경우 해당 동작이 어떻게 되나요?
 
-**데이터 보관을 사용 하 여 백업을 중지**하면 이후 백업이 수행 되지 않으며 기존 복구 지점은 그대로 유지 됩니다. 데이터베이스는 여전히 보호 된 것으로 간주 되며 **백업 항목**아래에 표시 됩니다.
+**데이터 보관을 사용 하 여 백업을 중지** 하면 이후 백업이 수행 되지 않으며 기존 복구 지점은 그대로 유지 됩니다. 데이터베이스는 여전히 보호 된 것으로 간주 되며 **백업 항목** 아래에 표시 됩니다.
 
-**데이터 삭제를 사용 하 여 백업을 중지**하는 경우 이후 백업이 수행 되지 않으며 기존 복구 지점도 삭제 됩니다. 데이터베이스는 보호 되지 않는 것으로 간주 되 고 구성 백업에서 인스턴스에 표시 됩니다. 그러나 수동으로 선택 하거나 autoprotected를 받을 수 있는 다른 보호 된 데이터베이스와 달리이 데이터베이스는 회색으로 표시 되며 선택할 수 없습니다. 이 데이터베이스를 다시 보호 하는 유일한 방법은 인스턴스에서 자동 보호를 사용 하지 않도록 설정 하는 것입니다. 이제이 데이터베이스를 선택 하 고 보호를 구성 하거나 인스턴스에서 자동 보호를 다시 사용 하도록 설정할 수 있습니다.
+**데이터 삭제를 사용 하 여 백업을 중지** 하는 경우 이후 백업이 수행 되지 않으며 기존 복구 지점도 삭제 됩니다. 데이터베이스는 보호 되지 않는 것으로 간주 되 고 구성 백업에서 인스턴스에 표시 됩니다. 그러나 수동으로 선택 하거나 autoprotected를 받을 수 있는 다른 보호 된 데이터베이스와 달리이 데이터베이스는 회색으로 표시 되며 선택할 수 없습니다. 이 데이터베이스를 다시 보호 하는 유일한 방법은 인스턴스에서 자동 보호를 사용 하지 않도록 설정 하는 것입니다. 이제이 데이터베이스를 선택 하 고 보호를 구성 하거나 인스턴스에서 자동 보호를 다시 사용 하도록 설정할 수 있습니다.
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>보호 된 데이터베이스의 이름을 변경 하는 경우 동작이 어떻게 되나요?
 
@@ -98,9 +98,18 @@ Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터�
 
 ## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Autoprotected 인스턴스에 대해 추가 된 데이터베이스가 표시 되지 않는 이유는 무엇 인가요?
 
-[Autoprotected 인스턴스에 추가](backup-sql-server-database-azure-vms.md#enable-auto-protection) 하는 데이터베이스는 보호 된 항목 아래에 즉시 표시 되지 않을 수 있습니다. 일반적으로 검색이 8시간마다 실행되기 때문입니다. 그러나 다음 그림에 표시 된 것 처럼 **db**다시 검색을 선택 하 여 수동으로 검색을 실행 하는 경우 새 데이터베이스를 즉시 검색 하 고 보호할 수 있습니다.
+[Autoprotected 인스턴스에 추가](backup-sql-server-database-azure-vms.md#enable-auto-protection) 하는 데이터베이스는 보호 된 항목 아래에 즉시 표시 되지 않을 수 있습니다. 일반적으로 검색이 8시간마다 실행되기 때문입니다. 그러나 다음 그림에 표시 된 것 처럼 **db** 다시 검색을 선택 하 여 수동으로 검색을 실행 하는 경우 새 데이터베이스를 즉시 검색 하 고 보호할 수 있습니다.
 
   ![새로 추가 된 데이터베이스를 수동으로 검색](./media/backup-azure-sql-database/view-newly-added-database.png)
+  
+## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>TDE (투명한 데이터 암호화)를 설정 하 고 데이터베이스를 전체 백업 프로세스를 통해 암호화 된 상태로 유지 하는 데이터베이스를 보호할 수 있나요?
+
+예, Azure Backup은 SQL Server 데이터베이스 또는 TDE가 설정 된 서버의 백업을 지원 합니다. Backup은 Azure에서 관리 하는 키로 Tde를 지원 하거나 BYOK (고객 관리 키)를 사용 하 여 [Tde](/sql/relational-databases/security/encryption/transparent-data-encryption) 를 지원 합니다.  Backup은 백업 프로세스의 일부로 SQL 암호화를 수행 하지 않으므로 백업 시 데이터베이스가 암호화 된 상태로 유지 됩니다.
+
+## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>데이터 스트림에서 체크섬 작업을 수행할 Azure Backup 있습니까?
+
+데이터 스트림에서 체크섬 작업을 수행 합니다. 그러나이는 [SQL 체크섬](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server)과 혼동 되지 않습니다.
+Azure 워크 로드 백업은 데이터 스트림에 대 한 체크섬을 계산 하 고 백업 작업 중에 명시적으로 저장 합니다. 그런 다음 데이터의 일관성을 유지 하기 위해 복원 작업을 수행 하는 동안 데이터 스트림의 체크섬을 사용 하 여이 체크섬 스트림을 참조로 사용 하 고 교차 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

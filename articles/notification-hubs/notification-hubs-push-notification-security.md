@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76263764"
 ---
 # <a name="notification-hubs-security"></a>Notification Hubs 보안
@@ -48,7 +48,7 @@ Notification Hubs는 SAS ( *공유 액세스 서명* ) 라는 엔터티 수준 �
 
 다른 엔터티와 마찬가지로 알림 허브 작업은 **수신**, **보내기**및 **관리**의 세 가지 보안 클레임에 대해 허용 됩니다.
 
-| 클레임   | 설명                                          | 허용되는 연산 |
+| 클레임   | Description                                          | 허용되는 연산 |
 | ------- | ---------------------------------------------------- | ------------------ |
 | 수신 대기  | 단일 등록 만들기/업데이트, 읽기 및 삭제 | 등록 만들기/업데이트<br><br>등록 읽기<br><br>핸들에 대한 모든 등록 읽기<br><br>등록 삭제 |
 | 보내기    | 알림 허브로 메시지 보내기                | 메시지 보내기 |

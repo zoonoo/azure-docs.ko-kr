@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898915"
 ---
 # <a name="apply-image-transformation"></a>이미지 변환 적용 
@@ -47,20 +47,20 @@ ms.locfileid: "90898915"
 
 ### <a name="module-parameters"></a>모듈 매개 변수
 
-| 이름 | 범위 | Type | 기본값                   | 설명                              |
+| Name | 범위 | Type | 기본값                   | Description                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Mode | 모두   | 모드 | (사용자가 지정 해야 함) | 입력 변환을 사용 하는 용도 ' 임의 ' 변환 작업을 유추에서 제외 하 고 학습에 유지 해야 합니다. |
 
 ### <a name="expected-inputs"></a>예상 입력  
 
-| 이름                       | Type                    | 설명                       |
+| Name                       | Type                    | Description                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | 입력 이미지 변환 | TransformationDirectory | 입력 이미지 변환        |
 | 입력 이미지 디렉터리      | ImageDirectory          | 변형할 이미지 디렉터리입니다. |
 
-### <a name="outputs"></a>출력  
+### <a name="outputs"></a>outputs  
 
-| 이름                   | Type           | 설명            |
+| Name                   | Type           | Description            |
 | ---------------------- | -------------- | ---------------------- |
 | 출력 이미지 디렉터리 | ImageDirectory | 출력 이미지 디렉터리 |
 

@@ -4,11 +4,11 @@ description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용�
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167352"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004248"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
@@ -24,7 +24,7 @@ ms.locfileid: "88167352"
 
 엔터프라이즈에서 Azure Lighthouse를 사용 하려면 다른 테 넌 트에서 관리 작업을 수행 하는 사용자를 포함 하는 테 넌 트를 결정 해야 합니다. 즉, 다른 테 넌 트를 관리 하는 테 넌 트를 결정 해야 합니다.
 
-예를 들어 조직에 *테 넌 트 a*를 호출 하는 단일 테 넌 트가 있다고 가정 합니다. 그러면 조직에서 *테 넌 트 B* 와 *테 넌 트 C*를 획득 하 고 별도의 테 넌 트로 유지 관리 해야 하는 비즈니스 이유가 있습니다.
+예를 들어 조직에 *테 넌 트 a* 를 호출 하는 단일 테 넌 트가 있다고 가정 합니다. 그러면 조직에서 *테 넌 트 B* 와 *테 넌 트 C* 를 획득 하 고 별도의 테 넌 트로 유지 관리 해야 하는 비즈니스 이유가 있습니다.
 
 조직에서는 모든 테넌트에서 동일한 정책 정의, 백업 사례 및 보안 프로세스를 사용하려고 합니다. 테 넌 트 A에는 이러한 작업을 담당 하는 사용자가 이미 포함 되어 있으므로 테 넌 트 B에서 구독을 등록 하 여 테 넌 트 A의 동일한 사용자가 해당 작업을 수행할 수 있습니다.
 

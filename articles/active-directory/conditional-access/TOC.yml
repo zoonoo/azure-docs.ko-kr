@@ -10,7 +10,7 @@
       href: require-tou.md
 - name: 자습서
   items:
-    - name: Azure Multi-Factor Authentication 필요
+    - name: Azure AD Multi-Factor Authentication 필요
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: 개념
   expanded: false
@@ -92,8 +92,6 @@
       href: terms-of-use.md
     - name: 로그인 빈도 및 브라우저 지속성 컨트롤
       href: howto-conditional-access-session-lifetime.md
-    - name: 모범 사례
-      href: best-practices.md
     - name: 문제 해결
       items:
         - name: 로그인 문제 해결

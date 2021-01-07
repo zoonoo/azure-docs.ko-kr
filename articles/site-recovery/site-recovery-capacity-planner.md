@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87490577"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
@@ -55,7 +55,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](./hyper-v-deployment-planner-overview.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
-   c. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
+   다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
    d. **보존 기간(일)** 에서 복제본을 보존할 기간을 일 단위로 지정합니다.
 
@@ -93,7 +93,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    b. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
 
-   c. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
+   다. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 
    d. **총 저장소 (GB)** 에서 VM 저장소의 총 크기를 지정 합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 스토리지 크기는 1500GB입니다.
 
@@ -119,7 +119,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 ![출력 열 AA를 AE로 보여 주는 스크린샷](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 예를 들어 테이블에 값이 표시된 6개의 VM에 대해 도구가 최적으로 일치하는 Azure VM과 Azure Storage 요구 사항을 계산 및 할당합니다.
 
 ![작업 자격 할당을 보여 주는 스크린샷](./media/site-recovery-capacity-planner/workload-qualification-3.png)

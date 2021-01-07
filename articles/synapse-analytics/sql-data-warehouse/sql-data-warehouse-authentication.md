@@ -1,6 +1,6 @@
 ---
-title: 인증
-description: Azure AD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure Synapse Analytics에서 인증을 받는 방법을 알아봅니다.
+title: 전용 SQL 풀 인증 (이전의 SQL DW)
+description: Azure Active Directory (Azure AD) 또는 SQL Server 인증을 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 인증 하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2b5ca024046c5bc46fff756c55688d3ff0cfea1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206733"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451968"
 ---
-# <a name="authenticate-to-azure-synapse-analytics"></a>Azure Synapse Analytics에 인증 받기
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 인증
 
-AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure Synapse의 Synapse SQL에서 인증을 받는 방법을 알아봅니다.
+Azure Active Directory (Azure AD) 또는 SQL Server 인증을 사용 하 여 Azure Synapse에서 전용 SQL 풀 (이전의 SQL DW)에 인증 하는 방법에 대해 알아봅니다.
 
-SQL 풀에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.  
+전용 SQL 풀 (이전의 SQL DW)에 연결 하려면 인증을 위해 보안 자격 증명을 전달 해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.  
 
-보안에 대한 자세한 내용과 데이터 웨어하우스에 대한 연결을 설정하는 방법은 [데이터베이스 보호 설명서](sql-data-warehouse-overview-manage-security.md)를 참조하세요.
+보안 및 전용 SQL 풀에 대 한 연결을 설정 하는 방법에 대 한 자세한 내용은 (이전의 SQL DW) [데이터베이스 보안 설명서](sql-data-warehouse-overview-manage-security.md)를 참조 하십시오.
 
 ## <a name="sql-authentication"></a>SQL 인증
 
-SQL 풀에 연결하려면 다음 정보를 제공해야 합니다.
+전용 SQL 풀 (이전의 SQL DW)에 연결 하려면 다음 정보를 제공 해야 합니다.
 
 * 정규화된 서버 이름
 * SQL 인증 지정
@@ -45,9 +45,9 @@ SQL 풀에 연결하려면 다음 정보를 제공해야 합니다.
 > [!NOTE]
 > 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE MyDatabase;** 는 지원되지 않습니다. SSDT를 사용하여 SQL 풀에 연결하는 지침은 [Visual Studio로 쿼리](sql-data-warehouse-query-visual-studio.md) 문서를 참조하세요.
 
-## <a name="azure-active-directory-aad-authentication"></a>AAD(Azure Active Directory) 인증
+## <a name="azure-active-directory-authentication"></a>Azure Active Directory 인증
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 인증은 Azure AD(Azure Active Directory)에서 ID를 사용하여 SQL 풀에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 Azure Synapse 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 인증은 Azure AD(Azure Active Directory)에서 ID를 사용하여 SQL 풀에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 전용 SQL 풀 (이전의 SQL DW) 사용자를 관리 하 고 권한 관리를 간소화 하는 단일 장소를 제공 합니다.
 
 ### <a name="benefits"></a>이점
 
@@ -57,7 +57,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 * 서버 전체에서 사용자 ID의 확산을 중지하는 데 도움이 됩니다.
 * 한 위치에서의 암호 회전이 가능합니다.
 * 외부 Azure AD 그룹을 사용하여 데이터베이스 권한을 관리합니다.
-* Azure Active Directory에서 지 원하는 인증의 Windows 통합 인증 및 i/o를 사용 하도록 설정 하 여 암호 저장을 제거 합니다.
+* Windows 통합 인증 또는 Azure Active Directory에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
 * 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 * SQL 풀에 연결되는 애플리케이션에 대한 토큰 기반 인증을 지원합니다.
 * [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 및 [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 포함하는 다양한 도구에 대한 Active Directory 유니버설 인증을 통해 다단계 인증을 지원합니다.

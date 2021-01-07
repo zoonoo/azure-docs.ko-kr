@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909728"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442187"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
 
@@ -45,7 +45,7 @@ ms.locfileid: "87909728"
 2. **Azure Active Directory**  >  **사용자**  >  **사용자 설정**을 선택 합니다.
 3. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택 합니다.
 4. **협업 제한**에서 **지정된 도메인에 초대 거부**를 선택합니다.
-5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들어:
+5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들면 다음과 같습니다.
 
    ![추가된 도메인에 거부 옵션 표시](./media/allow-deny-list/DenyListSettings.png)
  
@@ -66,7 +66,7 @@ ms.locfileid: "87909728"
 2. **Azure Active Directory**  >  **사용자**  >  **사용자 설정**을 선택 합니다.
 3. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택 합니다.
 4. **협업 제한**에서 **지정된 도메인에 초대 거부(가장 제한적)** 를 선택합니다.
-5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들어:
+5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들면 다음과 같습니다.
 
    ![추가된 도메인에 허용 옵션 표시](./media/allow-deny-list/AllowListSettings.png)
  
@@ -80,7 +80,7 @@ ms.locfileid: "87909728"
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>PowerShell을 사용한 허용 또는 차단 목록 정책 설정
 
-### <a name="prerequisite"></a>필수 요소
+### <a name="prerequisite"></a>필수 구성 요소
 
 > [!Note]
 > AzureADPreview 모듈은 미리 보기 상태 이므로 완전히 지원 되는 모듈이 아닙니다. 
@@ -126,7 +126,7 @@ PowerShell을 사용하여 허용 또는 거부 목록을 설정하려면 Azure 
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>AzureADPolicy cmdlet을 사용한 정책 구성
 
-허용 또는 거부 목록을 만들려면 [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 다음 예제에서는 "live.com" 도메인을 차단하는 거부 목록을 설정하는 방법을 보여줍니다.
+허용 또는 거부 목록을 만들려면 [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 다음 예제에서는 "live.com" 도메인을 차단하는 거부 목록을 설정하는 방법을 보여줍니다.
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Typ
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어:
+허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-정책을 가져오려면 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어:
+정책을 가져오려면 [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-정책을 제거오려면 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
+정책을 제거오려면 [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
@@ -162,6 +162,3 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 
 - Azure AD B2B의 개요는 [Azure AD B2B 협업이란?](what-is-b2b.md)을 참조하세요.
 - 조건부 액세스 및 B2B 공동 작업에 대 한 자세한 내용은 [b2b 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)를 참조 하세요.
-
-
-

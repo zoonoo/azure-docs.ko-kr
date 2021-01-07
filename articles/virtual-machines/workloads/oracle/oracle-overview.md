@@ -3,21 +3,22 @@ title: Microsoft Azure의 Oracle 솔루션 | Microsoft Docs
 description: 완전히 Azure 인프라에서 실행하거나 OCI(Oracle Cloud Infrastructure)와의 클라우드 간 연결을 사용하는 방법을 포함하여 Microsoft Azure에 Oracle 애플리케이션 및 솔루션을 배포하는 옵션에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rgardler
+author: dbakevlar
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
-ms.author: rogardle
-ms.openlocfilehash: 6a516fc75880e3b6a5bc5b5907e8d968dce2ae31
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: kegorman
+ms.openlocfilehash: d9b032bbd89f8b6d300650ac54567b07ae3307b8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507865"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948394"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 애플리케이션 및 솔루션 개요
 

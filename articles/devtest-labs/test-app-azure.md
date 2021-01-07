@@ -4,10 +4,10 @@ description: 랩에서 파일 공유를 만들어 랩의 로컬 컴퓨터 및 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87282248"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
@@ -15,7 +15,7 @@ ms.locfileid: "87282248"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 1. Azure 구독이 아직 없는 경우에는 [Azure 구독을 만들고](https://azure.microsoft.com/free/)[Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. [이 문서](devtest-lab-create-lab.md)의 지침에 따라 Azure DevTest Labs를 사용하여 랩을 만듭니다. 나중에 로그인할 때 쉽게 찾을 수 있도록 랩을 대시보드에 고정합니다. Azure DevTest Labs를 사용하면 폐기물을 최소화하고 비용을 제어하여 Azure 내에서 리소스를 빠르게 만들 수 있습니다. DevTest Labs에 대한 자세한 내용은 [개요](devtest-lab-overview.md)를 참조하세요. 
 3. [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서의 지침에 따라 랩의 리소스 그룹에 Azure Storage 계정을 만듭니다. **스토리지 계정 만들기** 페이지에서 **리소스 그룹**에 **기존 사용**을 선택하고 **랩 리소스 그룹**을 선택합니다. 

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478130"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>방법: iOS/macOS에 대 한 브라우저 및 웹 보기 사용자 지정
@@ -36,7 +36,7 @@ IOS 및 macOS의 경우:
 - [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-MacOS 용 MSAL은 `WKWebView` 이전 OS 버전 에서만 지원 합니다. `ASWebAuthenticationSession`는 macOS 10.15 이상 에서만 지원 됩니다. 
+MacOS 용 MSAL은 `WKWebView` 이전 OS 버전 에서만 지원 합니다. `ASWebAuthenticationSession` 는 macOS 10.15 이상 에서만 지원 됩니다. 
 
 ## <a name="system-browsers"></a>시스템 브라우저
 
@@ -46,7 +46,7 @@ IOS의 경우,, `ASWebAuthenticationSession` `SFAuthenticationSession` 및 `SFSa
 
 ### <a name="default-configuration-for-ios"></a>IOS에 대 한 기본 구성
 
-| 버전 | 웹 브라우저 사용 |
+| 버전 | 웹 브라우저 |
 |:-------------:|:-------------:|
 | iOS 12 이상 | ASWebAuthenticationSession |
 | iOS 11 | SFAuthenticationSession |
@@ -54,15 +54,15 @@ IOS의 경우,, `ASWebAuthenticationSession` `SFAuthenticationSession` 및 `SFSa
 
 ### <a name="default-configuration-for-macos"></a>MacOS에 대 한 기본 구성
 
-| 버전 | 웹 브라우저 사용 |
+| 버전 | 웹 브라우저 |
 |:-------------:|:-------------:|
 | macOS 10.15 + | ASWebAuthenticationSession |
 | 기타 버전 | WKWebView |
 
 개발자는 MSAL 앱에 대해 다른 시스템 브라우저를 선택할 수도 있습니다.
 
-- `SFAuthenticationSession`는의 iOS 11 버전입니다 `ASWebAuthenticationSession` .
-- `SFSafariViewController`는 일반적으로 사용 되는 용도로, 웹을 검색 하기 위한 인터페이스를 제공 하며 로그인 용도로도 사용할 수 있습니다. IOS 9 및 10에서는 쿠키와 기타 웹 사이트 데이터가 Safari와 공유 되지만 iOS 11 이상에서는 공유 되지 않습니다.
+- `SFAuthenticationSession` 는의 iOS 11 버전입니다 `ASWebAuthenticationSession` .
+- `SFSafariViewController` 는 일반적으로 사용 되는 용도로, 웹을 검색 하기 위한 인터페이스를 제공 하며 로그인 용도로도 사용할 수 있습니다. IOS 9 및 10에서는 쿠키와 기타 웹 사이트 데이터가 Safari와 공유 되지만 iOS 11 이상에서는 공유 되지 않습니다.
 
 ## <a name="in-app-browser"></a>앱 내 브라우저
 
@@ -76,7 +76,7 @@ IOS의 경우,, `ASWebAuthenticationSession` `SFAuthenticationSession` 및 `SFSa
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | 시스템 | iOS12 이상 | macOS 10.15 이상 | 예 | iOS 및 macOS 10.15 + | w/Safari 인스턴스
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | 시스템 | iOS11 이상 | 해당 없음 | 예 | iOS만 |  w/Safari 인스턴스
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | 시스템 | iOS11 이상 | 해당 없음 | 예 | iOS만 | 아니요**
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | 시스템 | iOS11 이상 | 해당 없음 | 아니요 | iOS만 | 아니요**
 | **SFSafariViewController** | 시스템 | iOS10 | 해당 없음 | 예 | iOS만 |  w/Safari 인스턴스
 | **WKWebView**  | 앱 내 | iOS8 이상 | macOS 10.10 이상 | 아니요 | iOS 및 macOS | 아니요**
 
@@ -96,7 +96,7 @@ IOS의 경우,, `ASWebAuthenticationSession` `SFAuthenticationSession` 및 `SFSa
 
 또한 MSAL은 속성을 설정 하 여 사용자 지정를 전달 하도록 지원 `WKWebView` `MSALInteractiveTokenParameters.webviewParameters.customWebView` 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 Objective-C
 ```objc

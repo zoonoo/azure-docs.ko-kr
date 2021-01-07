@@ -1,5 +1,5 @@
 ---
-title: Azure 공유 디스크를 사용 하 여 FCI 만들기 (미리 보기)
+title: Azure 공유 디스크를 사용 하 여 FCI 만들기
 description: Azure 공유 디스크를 사용 하 여 Azure Virtual Machines에서 SQL Server를 사용 하 여 FCI (장애 조치 (failover) 클러스터 인스턴스)를 만듭니다.
 services: virtual-machines
 documentationCenter: na
@@ -8,17 +8,17 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: ddd6e08d9be36035b2db02ec5feb3ae4e957ec49
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604447"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607272"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,24 +27,21 @@ ms.locfileid: "90604447"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
 - Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
-- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 ppgs ( [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) )는 모두 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
+- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). 프리미엄 SSD 및 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) 에 대해 지원 되는 (ppgs) [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) 은 Ultra Disks에 대해 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
-- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0)입니다. 
-
+- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)입니다. 
 
 ## <a name="add-azure-shared-disk"></a>Azure 공유 디스크 추가
 공유 디스크 기능이 사용 하도록 설정 된 관리 되는 프리미엄 SSD 디스크를 배포 합니다. `maxShares`모든 FCI 노드에서 디스크를 공유할 수 있도록 **클러스터 노드 수와 맞추려면** 를 설정 합니다. 
 
 다음을 수행 하 여 Azure 공유 디스크를 추가 합니다. 
 
-
-1. *SharedDiskConfig.js에*다음 스크립트를 저장 합니다. 
+1. *SharedDiskConfig.js에* 다음 스크립트를 저장 합니다. 
 
    ```JSON
    { 
@@ -85,7 +82,6 @@ ms.locfileid: "90604447"
    }
    ```
 
-
 2. PowerShell을 사용 하 여 *SharedDiskConfig.js를* 실행 합니다. 
 
    ```powershell
@@ -97,20 +93,19 @@ ms.locfileid: "90604447"
 
 3. 각 VM에 대해 연결 된 공유 디스크를 GPT (GUID 파티션 테이블)로 초기화 하 고 다음 명령을 실행 하 여 NTFS (새 기술 파일 시스템)로 포맷 합니다. 
 
-   ```powershell
-   $resourceGroup = "<your resource group name>"
-       $location = "<region of your shared disk>"
-       $ppgName = "<your proximity placement groups name>"
-       $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
-           -Name "<your VM node name>"
-       $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
-           -DiskName "<your shared disk name>"
-       $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
-           -CreateOption Attach -ManagedDiskId $dataDisk.Id `
-           -Lun <available LUN  check disk setting of the VM>
-    update-AzVm -VM $vm -ResourceGroupName $resourceGroup
-   ```
-
+    ```powershell
+    $resourceGroup = "<your resource group name>"
+    $location = "<region of your shared disk>"
+    $ppgName = "<your proximity placement groups name>"
+    $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
+        -Name "<your VM node name>"
+    $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
+        -DiskName "<your shared disk name>"
+    $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
+        -CreateOption Attach -ManagedDiskId $dataDisk.Id `
+        -Lun <available LUN - check disk setting of the VM>
+    Update-AzVm -VM $vm -ResourceGroupName $resourceGroup
+    ```
 
 ## <a name="create-failover-cluster"></a>장애 조치 (failover) 클러스터 만들기
 
@@ -119,7 +114,6 @@ ms.locfileid: "90604447"
 - 클러스터 노드가 될 가상 머신의 이름
 - 장애 조치 (failover) 클러스터의 이름입니다.
 - 장애 조치 클러스터의 IP 주소 클러스터 노드와 동일한 Azure 가상 네트워크 및 서브넷에 사용되지 않는 IP 주소를 사용할 수 있습니다.
-
 
 # <a name="windows-server-2012-2016"></a>[Windows Server 2012-2016](#tab/windows2012)
 
@@ -141,7 +135,6 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ---
 
-
 ## <a name="configure-quorum"></a>쿼럼 구성
 
 비즈니스 요구에 가장 적합 한 쿼럼 솔루션을 구성 합니다. [디스크 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), [클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness)또는 [파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)를 구성할 수 있습니다. 자세한 내용은 [SQL Server vm을 사용 하 여 쿼럼](hadr-cluster-best-practices.md#quorum)을 참조 하세요. 
@@ -151,17 +144,17 @@ UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사�
 
 UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신 중 하나에서 다음을 수행 합니다.
 
-1. **서버 관리자**에서 **도구**를 선택한 다음 **장애 조치(failover) 클러스터 관리자**를 선택합니다.
-1. **장애 조치(failover) 클러스터 관리자**에서 **작업**을 선택한 다음 **구성 유효성 검사**를 선택합니다.
-1. **다음**을 선택합니다.
-1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
-1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. 
-1. **다음**을 선택합니다.
-1. **테스트 선택**에서 **저장소** 를 *제외한* 모든 테스트를 선택 합니다.
+1. **서버 관리자** 에서 **도구** 를 선택한 다음 **장애 조치(failover) 클러스터 관리자** 를 선택합니다.
+1. **장애 조치(failover) 클러스터 관리자** 에서 **작업** 을 선택한 다음 **구성 유효성 검사** 를 선택합니다.
+1. **다음** 을 선택합니다.
+1. **서버 또는 클러스터 선택** 에서 두 가상 머신의 이름을 입력합니다.
+1. **테스트 옵션** 에서 **선택한 테스트만 실행** 을 선택합니다. 
+1. **다음** 을 선택합니다.
+1. **테스트 선택** 에서 **저장소** 를 *제외한* 모든 테스트를 선택 합니다.
 
 ## <a name="test-cluster-failover"></a>클러스터 장애 조치 테스트
 
-클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자**에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드**를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
+클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자** 에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드** 를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="코어 리소스를 다른 노드로 이동하여 클러스터 장애 조치(failover) 테스트":::
 
@@ -171,15 +164,15 @@ UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신
 
 1. 원격 데스크톱 프로토콜 (RDP)를 사용 하 여 첫 번째 가상 컴퓨터에 연결 합니다.
 
-1. **장애 조치(Failover) 클러스터 관리자**에서 모든 핵심 클러스터 리소스가 첫 번째 가상 컴퓨터에 있는지 확인 합니다. 필요한 경우 모든 리소스를 이 가상 머신으로 이동합니다.
+1. **장애 조치(Failover) 클러스터 관리자** 에서 모든 핵심 클러스터 리소스가 첫 번째 가상 컴퓨터에 있는지 확인 합니다. 필요한 경우 모든 리소스를 이 가상 머신으로 이동합니다.
 
 1. 설치 미디어를 찾습니다. 가상 머신이 Azure Marketplace 이미지 중 하나를 사용하는 경우 미디어는 `C:\SQLServer_<version number>_Full`에 있습니다. 
 
-1. **Setup**을 선택합니다.
+1. **Setup** 을 선택합니다.
 
-1. **SQL Server 설치 센터**에서 **설치**를 선택합니다.
+1. **SQL Server 설치 센터** 에서 **설치** 를 선택합니다.
 
-1. **SQL Server 장애 조치(failover) 클러스터 새로 설치**를 선택합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
+1. **SQL Server 장애 조치(failover) 클러스터 새로 설치** 를 선택합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
 FCI 데이터 디렉터리는 Azure 공유 디스크에 있어야 합니다. 
 
@@ -187,25 +180,24 @@ FCI 데이터 디렉터리는 Azure 공유 디스크에 있어야 합니다.
 
 1. 설치 프로그램이 첫 번째 노드에 FCI를 설치하면 RDP를 사용하여 두 번째 노드에 연결합니다.
 
-1. **SQL Server 설치 센터**를 연 다음 **설치**를 선택 합니다.
+1. **SQL Server 설치 센터** 를 연 다음 **설치** 를 선택 합니다.
 
-1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가**를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
+1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가** 를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치하고 이 서버를 FCI에 추가합니다.
 
    >[!NOTE]
-   >SQL Server가 포함된 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이러한 이미지 중 하나를 사용하지 않은 경우 SQL Server 도구를 별도로 설치합니다. 자세한 내용은 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)를 참조하세요.
+   >SQL Server가 포함된 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이러한 이미지 중 하나를 사용하지 않은 경우 SQL Server 도구를 별도로 설치합니다. 자세한 내용은 [SSMS(SQL Server Management Studio) 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)를 참조하세요.
    >
 
 ## <a name="register-with-the-sql-vm-rp"></a>SQL VM RP에 등록
 
-포털에서 SQL Server VM를 관리 하려면 SQL VM 리소스 공급자 (RP)를 [경량 관리 모드로](sql-vm-resource-provider-register.md#lightweight-management-mode)등록 합니다. 현재는 fci에서 지원 되는 유일한 모드 이며 Azure vm의 SQL Server입니다. 
-
+포털에서 SQL Server VM를 관리 하려면 [경량 관리 모드로](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)SQL IaaS 에이전트 확장 (RP)을 사용 하 여 등록 합니다. 현재는 fci SQL Server와 Azure vm에서 지원 되는 유일한 모드입니다. 
 
 PowerShell을 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다.  
 
 ```powershell-interactive
 # Get the existing compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-         
+
 # Register SQL VM with 'Lightweight' SQL IaaS agent
 New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
    -LicenseType PAYG -SqlManagementType LightWeight  
@@ -213,15 +205,15 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>연결 구성 
 
-현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md) 를 만들 수도 있고, SQL SERVER 2019 CU2 + 및 Windows Server 2016를 사용 하는 경우에는 대신 [분산 네트워크 이름](hadr-distributed-network-name-dnn-configure.md) 기능을 미리 볼 수 있습니다. 
+현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 를 만들거나 SQL SERVER 2019 CU2 (이상) 및 Windows Server 2016 이상을 사용 하는 경우 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 기능을 대신 사용할 수 있습니다. 
 
 ## <a name="limitations"></a>제한 사항
 
-- [경량 관리 모드](sql-vm-resource-provider-register.md#management-modes) 에서는 SQL VM 리소스 공급자에 등록만 지원 됩니다.
+- [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes) 에서는 SQL IaaS 에이전트 확장에 등록만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](hadr-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
+아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
 
 Azure 공유 디스크가 적합 한 FCI 저장소 솔루션이 아니면 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 사용 하 여 fci를 만들거나 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 하는 것이 좋습니다. 
 
@@ -229,4 +221,4 @@ Azure 공유 디스크가 적합 한 FCI 저장소 솔루션이 아니면 [프�
 
 자세한 내용은 다음을 참조하세요. 
 - [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치 (failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

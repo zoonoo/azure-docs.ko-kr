@@ -19,7 +19,7 @@
             - name: Cognitive Search
               href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Cognitive Services
-              href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+              href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
             - name: 데이터 과학 Virtual Machine
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Machine Learning
@@ -48,7 +48,7 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Synapse Analytics
+            - name: 전용 SQL 풀(이전에는 SQL DW)
               href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 블록체인
           items:
@@ -80,14 +80,20 @@
               href: ../../service-fabric/quickstart-cluster-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 데이터베이스
           items:
+            - name: Cache for Redis
+              href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Cosmos DB
               href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Database for MariaDB
               href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Database for MySQL
               href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Database for MySQL - 유연한 서버
+              href: ../../mysql/flexible-server/quickstart-create-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Database for PostgreSQL
               href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Database for PostgreSQL - 유연한 서버
+              href: ../../postgresql/flexible-server/quickstart-create-server-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Database Migration Service
               href: ../../dms/create-dms-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: SQL Database
@@ -98,12 +104,16 @@
               href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: DevOps
           items:
+            - name: App Configuration
+              href: ../../azure-app-configuration/quickstart-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: DevTest Labs
               href: ../../devtest-labs/create-lab-windows-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 파이프라인
               href: /azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 통합
           items:
+            - name: API for FHIR
+              href: ../../healthcare-apis/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Event Grid
               href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Logic Apps
@@ -114,6 +124,10 @@
           items:
             - name: IoT Edge
               href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: IoT Hub
+              href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: IoT Hub Device Provisioning Service
+              href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 관리 및 거버넌스
           items:
             - name: Advisor
@@ -134,7 +148,9 @@
               href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Resource Graph
               href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: RBAC(역할 기반 액세스 제어)
+            - name: 역할 기반 액세스 제어 - 사용자 지정 역할
+              href: ../../role-based-access-control/custom-roles-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: 역할 기반 액세스 제어 - 역할 할당
               href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 서비스 상태
               href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -146,6 +162,10 @@
               href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Content Delivery Network
               href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: DNS
+              href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: ExpressRoute
+              href: ../../expressroute/quickstart-create-expressroute-vnet-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 방화벽 - 가용성 영역
               href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 방화벽 - IP 그룹
@@ -154,26 +174,48 @@
               href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Firewall Manager
               href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Load Balancer
+            - name: Front Door
+              href: ../../frontdoor/quickstart-create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Load Balancer - 내부
+              href: ../../load-balancer/quickstart-load-balancer-standard-internal-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Load Balancer - 공용
               href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Private Link 엔드포인트
+            - name: NAT 게이트웨이
+              href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Private Endpoint
               href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Private Link 서비스
               href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Traffic Manager
+              href: ../../traffic-manager/quickstart-create-traffic-manager-profile-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 웹 애플리케이션 방화벽
               href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 보안
           items:
-            - name: Key Vault
+            - name: 증명
+              href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Key Vault - 키
+              href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Key Vault - 비밀
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Security Center
+              href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 스토리지
           items:
+            - name: Data Share
+              href: ../../data-share/share-your-data-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 스토리지 계정
               href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 웹
           items:
+            - name: API Management
+              href: ../../api-management/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: App Service
+              href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Notification Hubs
               href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: SignalR Service
+              href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: 자습서
   items:
     - name: 초급 템플릿
@@ -248,6 +290,8 @@
         - name: 배포 관리자에서 상태 검사 사용
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: 템플릿에 대한 Microsoft Learn 경로
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: 개념
   items:
     - name: 템플릿 모범 사례
@@ -323,36 +367,42 @@
             - name: outputs
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: 템플릿 속성 검색
-      items:
-        - name: 템플릿 내보내기
-          href: export-template-portal.md
-        - name: 리소스 검색
-          href: view-resources.md
-    - name: 템플릿 유효성 검사
-      items:
-        - name: 가상 배포
-          href: template-deploy-what-if.md
-        - name: 테스트 도구 키트
-          href: test-toolkit.md
-        - name: 테스트 사례
-          href: test-cases.md
     - name: 템플릿 배포
       items:
-        - name: 배포 - 포털
-          displayName: deployment
-          href: deploy-portal.md
-        - name: 배포 - CLI
-          displayName: deployment
-          href: deploy-cli.md
-        - name: 배포 - PowerShell
-          displayName: deployment
-          href: deploy-powershell.md
-        - name: 배포 - REST API
-          displayName: deployment
-          href: deploy-rest.md
-        - name: GitHub에서 배포
-          href: deploy-to-azure-button.md
+        - name: 배포 작업
+          items:
+            - name: 배포 - 포털
+              displayName: deployment
+              href: deploy-portal.md
+            - name: 배포 - CLI
+              displayName: deployment
+              href: deploy-cli.md
+            - name: 배포 - PowerShell
+              displayName: deployment
+              href: deploy-powershell.md
+            - name: 배포 - REST API
+              displayName: deployment
+              href: deploy-rest.md
+            - name: 배포 - GitHub
+              href: deploy-to-azure-button.md
+            - name: 배포 - Cloud Shell
+              href: deploy-cloud-shell.md
+        - name: 범위
+          items:
+            - name: Resource group
+              href: deploy-to-resource-group.md
+            - name: Subscription
+              href: deploy-to-subscription.md
+            - name: 관리 그룹
+              href: deploy-to-management-group.md
+            - name: 테넌트
+              href: deploy-to-tenant.md
+            - name: 확장 리소스
+              href: scope-extension-resources.md
+            - name: 여러 범위에 걸친 함수
+              href: scope-functions.md
+        - name: 가상 배포
+          href: template-deploy-what-if.md
         - name: 오류 발생 시 다시 배포
           displayName: rollback
           href: rollback-on-error.md
@@ -360,16 +410,6 @@
           href: secure-template-with-sas-token.md
         - name: 배포 기록 보기
           href: deployment-history.md
-    - name: 범위가 지정된 배포
-      items:
-        - name: Subscription
-          href: deploy-to-subscription.md
-        - name: 관리 그룹
-          href: deploy-to-management-group.md
-        - name: 테넌트
-          href: deploy-to-tenant.md
-        - name: 범위 간 배포
-          href: cross-scope-deployment.md
     - name: 매개 변수 제공
       items:
         - name: 매개 변수 파일 만들기
@@ -377,12 +417,24 @@
         - name: 중요한 값 전달
           displayname: key vault
           href: key-vault-parameter.md
+    - name: 테스트 템플릿
+      items:
+        - name: 테스트 도구 키트
+          href: test-toolkit.md
+        - name: 테스트 사례
+          href: test-cases.md
     - name: CI/CD
       items:
-        - name: 파이프라인이 있는 VS 프로젝트
+        - name: 파이프라인을 사용하는 ARM 템플릿
           href: add-template-to-azure-pipelines.md
         - name: 배포 - GitHub Actions
           href: deploy-github-actions.md
+    - name: 템플릿 속성 검색
+      items:
+        - name: 템플릿 내보내기
+          href: export-template-portal.md
+        - name: 리소스 검색
+          href: view-resources.md
     - name: 제작 도구 사용
       items:
         - name: Visual Studio
@@ -401,6 +453,8 @@
           href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: error-invalid-template.md
+        - name: JobSizeExceeded
+          href: error-job-size-exceeded.md
         - name: Linux 배포 문제
           href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md
         - name: NoRegisteredProviderFound
@@ -463,6 +517,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: 리소스
   items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/paths/deploy-manage-resource-manager-templates/
     - name: Azure 빠른 시작 템플릿
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: Azure 로드맵

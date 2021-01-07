@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e41f372cd0105896765d5a267456b6bda767dd4d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87798429"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 카탈로그 작성자에 게 액세스 관리 위임
@@ -47,7 +47,7 @@ ms.locfileid: "87798429"
 
 1. **선택**을 클릭합니다.
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 ## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>위임 된 역할이 Azure Portal에 액세스할 수 있도록 허용
 

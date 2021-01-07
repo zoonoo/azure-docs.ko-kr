@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 34134f2c790851d34db7b5327aa76350d54d137d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075466"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802022"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Azure Firewall Manager 정책 개요
 
@@ -34,7 +34,7 @@ ms.locfileid: "89075466"
 
 비어 있지 않은 부모 정책을 사용하여 만든 정책은 부모 정책의 모든 규칙 컬렉션을 상속합니다. 부모 정책에서 상속된 네트워크 규칙 컬렉션에는 항상 새 정책의 일부로 정의된 네트워크 규칙 컬렉션보다 높은 우선 순위가 지정됩니다. 애플리케이션 규칙 컬렉션에도 동일한 논리가 적용됩니다. 그러나 네트워크 규칙 컬렉션은 상속과 관계없이 항상 애플리케이션 규칙 컬렉션보다 먼저 처리됩니다.
 
-위협 인텔리전스 모드도 부모 정책에서 상속됩니다. 이 동작을 재정의하기 위해 위협 인텔리전스 모드를 다른 값으로 설정할 수 있지만 해제할 수는 없습니다. 더 엄격한 값으로만 재정의할 수 있습니다. 예를 들어 부모 정책이 **경고만**으로 설정된 경우 이 로컬 정책을 **경고 및 거부**로 구성할 수 있습니다.
+위협 인텔리전스 모드도 부모 정책에서 상속됩니다. 이 동작을 재정의하기 위해 위협 인텔리전스 모드를 다른 값으로 설정할 수 있지만 해제할 수는 없습니다. 더 엄격한 값으로만 재정의할 수 있습니다. 예를 들어 부모 정책이 **경고만** 으로 설정된 경우 이 로컬 정책을 **경고 및 거부** 로 구성할 수 있습니다.
 
 위협 인텔리전스 모드와 마찬가지로 위협 인텔리전스 허용 목록은 부모 정책에서 상속됩니다. 자식 정책은 허용 목록에 추가 IP 주소를 추가할 수 있습니다.
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
 ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932239"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services 역할에 .NET 설치
@@ -223,7 +223,7 @@ ms.locfileid: "88932239"
 ## <a name="deploy-your-cloud-service"></a>클라우드 서비스 배포
 클라우드 서비스를 배포하면 .NET Framework가 아직 설치되어 있지 않은 경우 시작 작업이 .NET Framework를 설치합니다. 프레임워크가 설치되고 있는 동안에는 클라우드 서비스 역할이 *사용 중* 상태입니다. 프레임워크 설치를 다시 시작해야 하는 경우 서비스 역할도 다시 시작될 수 있습니다. 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 * [.NET Framework 설치][Installing the .NET Framework]
 * [설치된 .NET Framework 버전 확인][How to: Determine Which .NET Framework Versions Are Installed]
 * [.NET Framework 설치 문제 해결][Troubleshooting .NET Framework Installations]

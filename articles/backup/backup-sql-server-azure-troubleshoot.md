@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: c81230a5b32ddb1487bf59e8e43dbb96328d8620
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89513969"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733946"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -18,7 +18,7 @@ ms.locfileid: "89513969"
 
 ## <a name="sql-server-permissions"></a>SQL Server 사용 권한
 
-가상 머신에서 SQL Server 데이터베이스에 대 한 보호를 구성 하려면 해당 가상 머신에 **Azurebackupwindowsworkload 로드** 확장을 설치 해야 합니다. **Usererrorsqlnosysadminmembership**오류가 발생 하면 SQL Server 인스턴스에 필요한 백업 권한이 없는 것입니다. 이 오류를 해결 하려면 [VM 권한 설정](backup-azure-sql-database.md#set-vm-permissions)의 단계를 따르세요.
+가상 머신에서 SQL Server 데이터베이스에 대 한 보호를 구성 하려면 해당 가상 머신에 **Azurebackupwindowsworkload 로드** 확장을 설치 해야 합니다. **Usererrorsqlnosysadminmembership** 오류가 발생 하면 SQL Server 인스턴스에 필요한 백업 권한이 없는 것입니다. 이 오류를 해결 하려면 [VM 권한 설정](backup-azure-sql-database.md#set-vm-permissions)의 단계를 따르세요.
 
 ## <a name="troubleshoot-discover-and-configure-issues"></a>검색 및 구성 문제 해결
 
@@ -46,7 +46,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
     `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.AzureBackupWindowsWorkload`
 
-    `C:\`가 나의 문자로 대체 합니다 *SystemDrive*.
+    `C:\`가 나의 문자로 대체 합니다 .
 
 1. VM 내에서 실행 되는 다음 세 프로세스를 바이러스 백신 검사에서 제외 합니다.
 
@@ -56,13 +56,47 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 1. 또한 SQL은 바이러스 백신 프로그램 작업에 대 한 몇 가지 지침을 제공 합니다. 자세한 내용은 [이 문서](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) 를 참조 하세요.
 
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>여러 SQL Server 인스턴스를 사용 하는 VM의 잘못 된 인스턴스
+
+VM 내에서 실행 중인 모든 SQL 인스턴스가 정상으로 보고 되는 경우에만 SQL VM으로 복원할 수 있습니다. 하나 이상의 인스턴스가 "결함" 이면 VM이 복원 대상으로 표시 되지 않습니다. 따라서 복원 작업 중에 다중 인스턴스 VM이 "서버" 드롭다운에서 나타나지 않는 이유가 있을 수 있습니다.
+
+**백업 구성** 아래에서 VM에 있는 모든 SQL 인스턴스의 "백업 준비 상태"에 대 한 유효성을 검사할 수 있습니다.
+
+![백업 준비 상태 확인](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+정상적인 SQL 인스턴스에 대 한 복원을 트리거하려면 다음 단계를 수행 합니다.
+
+1. SQL VM에 로그인 하 고로 이동 `C:\Program Files\Azure Workload Backup\bin` 합니다.
+1. 이라는 JSON 파일을 만듭니다 `ExtensionSettingsOverrides.json` (아직 없는 경우). 이 파일이 VM에 이미 있는 경우 계속 사용 합니다.
+1. JSON 파일에 다음 콘텐츠를 추가 하 고 파일을 저장 합니다.
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Azure Portal에서 영향을 받는 서버에 대 한 **db** 다시 검색 작업을 트리거합니다 (백업 준비 상태를 확인할 수 있는 위치와 동일). 복원 작업의 대상으로 VM이 표시 되기 시작 합니다.
+
+    ![Db 다시 검색](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. 복원 작업이 완료 되 면 파일의 ExtensionSettingsOverrides.js에서 *whitelistedInstancesForInquiry* 항목을 제거 합니다.
+
 ## <a name="error-messages"></a>오류 메시지
 
 ### <a name="backup-type-unsupported"></a>지원 되지 않는 백업 유형
 
 | 심각도 | 설명 | 가능한 원인 | 권장 조치 |
 |---|---|---|---|
-| 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업 및 트랜잭션 로그 백업은 가능 하지 않습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 데이터베이스 설정 sp 정책에 있는 모든 백업 유형이 지원 됩니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
+| 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업 및 트랜잭션 로그 백업은 가능 하지 않습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원 되도록 데이터베이스 설정을 수정 하십시오. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -75,7 +109,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-| SQL 데이터베이스가 없습니다. | 데이터베이스 삭제되었거나 이름이 변경되었습니다. | 데이터베이스가 실수로 삭제되었거나 이름이 변경되었는지 확인합니다.<br/><br/> 데이터베이스가 실수로 삭제된 경우 백업을 계속하려면 데이터베이스를 원래 위치로 복원합니다.<br/><br/> 데이터베이스를 삭제 하 고 향후 백업이 필요 하지 않은 경우 Recovery Services 자격 증명 모음에서 백업 **중지** 를 선택 하 여 Backup **데이터 보관** 또는 **백업 데이터 삭제**를 선택 합니다. 자세한 내용은 [백업 SQL Server 데이터베이스 관리 및 모니터링](manage-monitor-sql-database-backup.md)을 참조 하세요.
+| SQL 데이터베이스가 없습니다. | 데이터베이스 삭제되었거나 이름이 변경되었습니다. | 데이터베이스가 실수로 삭제되었거나 이름이 변경되었는지 확인합니다.<br/><br/> 데이터베이스가 실수로 삭제된 경우 백업을 계속하려면 데이터베이스를 원래 위치로 복원합니다.<br/><br/> 데이터베이스를 삭제 하 고 향후 백업이 필요 하지 않은 경우 Recovery Services 자격 증명 모음에서 백업 **중지** 를 선택 하 여 Backup **데이터 보관** 또는 **백업 데이터 삭제** 를 선택 합니다. 자세한 내용은 [백업 SQL Server 데이터베이스 관리 및 모니터링](manage-monitor-sql-database-backup.md)을 참조 하세요.
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 
@@ -130,7 +164,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지 하는 데 사용할 수 없습니다. | 데이터베이스가 대량 로그 복구 모드인 경우 대량 로그 트랜잭션과 다음 로그 트랜잭션 간의 데이터를 복구할 수 없습니다. | 복구를 위해 다른 지정 시간을 선택 합니다. [자세한 정보를 알아보세요](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지 하는 데 사용할 수 없습니다. | 데이터베이스가 대량 로그 복구 모드인 경우 대량 로그 트랜잭션과 다음 로그 트랜잭션 간의 데이터를 복구할 수 없습니다. | 복구를 위해 다른 지정 시간을 선택 합니다. [자세히 알아보기](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -172,14 +206,14 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다. | VM Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 연결이 필요 합니다.| -NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 액세스를 허용 해야 합니다. 액세스 권한을 부여 하려면 다음 [단계](./backup-sql-server-database-azure-vms.md#nsg-tags) 를 수행 합니다.<br>-DNS가 Azure 끝점을 확인 하 고 있는지 확인 합니다.<br>-VM이 인터넷 액세스를 차단 하는 부하 분산 장치 뒤에 있는지 확인 합니다. Vm에 공용 IP를 할당 하면 검색은 작동 합니다.<br>-위의 세 대상 서비스에 대 한 호출을 차단 하는 방화벽/바이러스 백신/프록시가 없는지 확인 합니다.
+인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다. | VM Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 연결이 필요 합니다.| -NSG를 사용 하 여 연결을 제한 하는 경우 *Azurebackup* 서비스 태그를 사용 하 여 Azure Backup 서비스에 대 한 아웃 바운드 액세스를 허용 하 고 Azure AD (*AzureActiveDirectory*) 및 Azure Storage (*저장소*) 서비스에 유사 하 게 연결 해야 합니다. 액세스 권한을 부여 하려면 다음 [단계](./backup-sql-server-database-azure-vms.md#nsg-tags) 를 수행 합니다.<br>-DNS가 Azure 끝점을 확인 하 고 있는지 확인 합니다.<br>-VM이 인터넷 액세스를 차단 하는 부하 분산 장치 뒤에 있는지 확인 합니다. Vm에 공용 IP를 할당 하면 검색은 작동 합니다.<br>-위의 세 대상 서비스에 대 한 호출을 차단 하는 방화벽/바이러스 백신/프록시가 없는지 확인 합니다.
 
 ## <a name="re-registration-failures"></a>다시 등록 오류
 
 다시 등록 작업을 트리거하기 전에 하나 이상의 다음 증상을 확인하세요.
 
-- **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**오류 코드 중 하나를 사용 하 여 VM에서 모든 작업 (예: 백업, 복원 및 구성 백업)이 실패 합니다.
-- 백업 항목에 대한 **백업 상태** 영역에 **연결할 수 없음**이 표시되면 동일한 상태를 유발하는 다른 모든 원인을 제외합니다.
+- **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg** 오류 코드 중 하나를 사용 하 여 VM에서 모든 작업 (예: 백업, 복원 및 구성 백업)이 실패 합니다.
+- 백업 항목에 대한 **백업 상태** 영역에 **연결할 수 없음** 이 표시되면 동일한 상태를 유발하는 다른 모든 원인을 제외합니다.
 
   - VM에서 백업 관련 작업을 수행할 수 있는 권한이 없습니다.
   - 백업을 수행할 수 없으므로 VM을 종료 합니다.
@@ -192,7 +226,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 다음 이유 중 하나 이상으로 인해 이러한 현상이 발생할 수 있습니다.
 
 - 확장이 삭제되었거나 포털에서 제거되었습니다.
-- **프로그램 제거 또는 변경**아래의 VM에 있는 **제어판** 에서 확장이 제거 되었습니다.
+- **프로그램 제거 또는 변경** 아래의 VM에 있는 **제어판** 에서 확장이 제거 되었습니다.
 - VM이 내부 디스크 복원을 통해 다시 복원되었습니다.
 - 오랜 기간 동안 VM이 종료되었으므로 확장 구성이 만료되었습니다.
 - VM이 삭제되고 삭제된 VM과 이름이 같고 동일한 리소스 그룹에 있는 다른 VM이 생성되었습니다.
@@ -216,7 +250,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-예를 들면 다음과 같습니다.
+예는 다음과 같습니다.
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -245,7 +279,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 ]
 ```
 
-예를 들면 다음과 같습니다.
+예는 다음과 같습니다.
 
 ```json
 [

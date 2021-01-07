@@ -12,14 +12,14 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116804"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516505"
 ---
-# <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft id 플랫폼 모범 사례 및 권장 사항
+# <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft ID 플랫폼 모범 사례 및 권장 사항
 
 이 문서에서는 Microsoft id 플랫폼과 통합 하는 경우 모범 사례, 권장 사항 및 일반적인 oversights에 대해 중점적으로 설명 합니다.  이 검사 목록에서는 고품질의 보안 통합을 안내 합니다. 이 목록을 정기적으로 검토 하 여 id 플랫폼과 응용 프로그램의 통합에 대 한 품질 및 보안을 유지 해야 합니다. 검사 목록은 전체 응용 프로그램을 검토 하기 위한 것이 아닙니다. 플랫폼이 향상 되 면 검사 목록의 내용이 변경 될 수 있습니다.
 
@@ -28,11 +28,11 @@ ms.locfileid: "88116804"
 다음 검사 목록을 사용 하 여 응용 프로그램이 [Microsoft id 플랫폼과](./index.yml)효과적으로 통합 되었는지 확인 합니다.
 
 > [!TIP]
-> Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant (미리 보기)** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
+> Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
 
-## <a name="basics"></a>기본 사항
+## <a name="basics"></a>기본
 
-![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) [Microsoft Platform 정책을](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)읽고 이해 합니다. 응용 프로그램이 사용자 및 플랫폼을 보호 하도록 설계 된 용어를 준수 하는지 확인 합니다.
+![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) [Microsoft Platform 정책을](/legal/microsoft-identity-platform/terms-of-use)읽고 이해 합니다. 응용 프로그램이 사용자 및 플랫폼을 보호 하도록 설계 된 용어를 준수 하는지 확인 합니다.
 
 ## <a name="ownership"></a>소유권
 
@@ -44,7 +44,7 @@ ms.locfileid: "88116804"
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 는 응용 프로그램에 대 한 의미 있는 이름 및 로고를 제공 합니다. 이 정보는 [응용 프로그램의 동의 프롬프트](application-consent-experience.md)에 표시 됩니다. 사용자가 합리적인 의사 결정을 내릴 수 있도록 이름 및 로고가 회사/제품을 대표 하는지 확인 합니다. 모든 상표를 위반 하지 않는지 확인 합니다.
 
-## <a name="privacy"></a>개인 정보 취급 방침
+## <a name="privacy"></a>개인 정보 보호
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 앱의 서비스 약관 및 개인 정보 취급 방침에 대 한 링크를 제공 합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "88116804"
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 지원 하려는 모든 가능한 계정 (예: 회사 또는 학교 계정, 개인 Microsoft 계정, 자식 계정 및 소 버린 계정)으로 응용 프로그램을 테스트 합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 v2.0에 관한 자세한 정보를 살펴보세요.
 

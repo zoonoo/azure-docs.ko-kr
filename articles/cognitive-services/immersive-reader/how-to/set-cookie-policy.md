@@ -10,13 +10,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: nitinme
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 44de79afd6e2fb1f1d4fff1323484364a17da8d0
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: devx-track-js
+ms.openlocfilehash: 02901e6b4a75257b2cda8dee84dbe3438dc15c18
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505304"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91332375"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>몰입 형 판독기에 대 한 쿠키 정책을 설정 하는 방법
 

@@ -4,10 +4,10 @@ description: 이 문서에서는 서비스에 연결 하려고 할 때 Azure Arc
 ms.date: 09/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900676"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>연결 된 컴퓨터 에이전트 연결 문제 해결
@@ -67,7 +67,7 @@ azcmagent connect \
 
 다음 표에는 알려진 오류 및 문제 해결 방법에 대 한 제안 사항이 정리 되어 있습니다.
 
-|메시지 |오류 |가능한 원인: |해결 방법 |
+|메시지 |Error |가능한 원인: |솔루션 |
 |--------|------|---------------|---------|
 |권한 부여 토큰 장치 흐름을 획득 하지 못했습니다. |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |끝점에 연결할 수 없음 `login.windows.net` | 끝점에 대 한 연결을 확인 합니다. |
 |권한 부여 토큰 장치 흐름을 획득 하지 못했습니다. |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |프록시 또는 방화벽에서 끝점에 대 한 액세스를 차단 하 고 `login.windows.net` 있습니다. | 끝점에 대 한 연결을 확인 하 고 방화벽이 나 프록시 서버에 의해 차단 되지 않습니다. |

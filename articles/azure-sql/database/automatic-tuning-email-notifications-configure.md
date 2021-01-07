@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: f6872ff362777f4357b2b4345d0535bc940eda66
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a373a28a180b2a6c72f6a291b9d1437a2e88d9ff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982911"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500957"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,19 +24,19 @@ ms.locfileid: "85982911"
 
 Azure SQL Database 튜닝 권장 구성은 Azure SQL Database [자동 조정](automatic-tuning-overview.md)에 의해 생성 됩니다. 이 솔루션은 인덱스 생성, 인덱스 삭제 및 쿼리 실행 계획 최적화와 관련 된 각 개별 데이터베이스에 대해 사용자 지정 된 튜닝 권장 사항을 제공 하는 데이터베이스의 워크 로드를 지속적으로 모니터링 하 고 분석 합니다.
 
-Azure SQL Database 자동 조정 권장 사항은 [Azure Portal](database-advisor-find-recommendations-portal.md)에서 보거나 [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) 호출을 통해 검색 하거나 [t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) 명령을 사용 하 여 확인할 수 있습니다. 이 문서는 PowerShell 스크립트를 사용하여 자동 조정 권장 사항을 검색합니다.
+Azure SQL Database 자동 조정 권장 사항은 [Azure Portal](database-advisor-find-recommendations-portal.md)에서 보거나 [REST API](/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) 호출을 통해 검색 하거나 [t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) 명령을 사용 하 여 확인할 수 있습니다. 이 문서는 PowerShell 스크립트를 사용하여 자동 조정 권장 사항을 검색합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>자동 조정 권장 사항에 대 한 전자 메일 알림 자동화
 
-다음 솔루션은 자동 조정 권장 사항을 포함 하는 전자 메일 알림 보내기를 자동화 합니다. 설명된 솔루션은 [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)을 사용하여 조정 권장 사항을 검색하기 위한 PowerShell 스크립트의 실행 자동화와 [Microsoft Flow](https://flow.microsoft.com)를 사용한 전자 메일 전달 작업 예약 자동화로 구성됩니다.
+다음 솔루션은 자동 조정 권장 사항을 포함 하는 전자 메일 알림 보내기를 자동화 합니다. 설명된 솔루션은 [Azure Automation](../../automation/automation-intro.md)을 사용하여 조정 권장 사항을 검색하기 위한 PowerShell 스크립트의 실행 자동화와 [Microsoft Flow](https://flow.microsoft.com)를 사용한 전자 메일 전달 작업 예약 자동화로 구성됩니다.
 
 ## <a name="create-azure-automation-account"></a>Azure Automation 계정 만들기
 
-Azure Automation을 사용하려는 경우 첫 번째 단계는 자동화 계정을 만들고, PowerShell 스크립트의 실행에 사용할 수 있게 Azure 리소스를 통해 구성하는 것입니다. Azure Automation 및 해당 기능에 대한 자세한 내용은 [Azure Automation 시작](https://docs.microsoft.com/azure/automation/automation-offering-get-started)을 참조하세요.
+Azure Automation을 사용하려는 경우 첫 번째 단계는 자동화 계정을 만들고, PowerShell 스크립트의 실행에 사용할 수 있게 Azure 리소스를 통해 구성하는 것입니다. Azure Automation 및 해당 기능에 대한 자세한 내용은 [Azure Automation 시작](../../automation/index.yml)을 참조하세요.
 
 Azure Marketplace에서 자동화 앱을 선택 하 고 구성 하는 방법을 통해 Azure Automation 계정을 만들려면 다음 단계를 따르세요.
 
@@ -49,8 +49,8 @@ Azure Marketplace에서 자동화 앱을 선택 하 고 구성 하는 방법을 
 
 1. "Automation 계정 만들기" 창 내에서 "**만들기**"를 클릭 합니다.
 1. 필요한 정보를 입력 합니다 .이 automation 계정의 이름을 입력 하 고 PowerShell 스크립트 실행에 사용할 azure 구독 ID 및 Azure 리소스를 선택 합니다.
-1. "**Azure 실행 계정 만들기**" 옵션에 대해 **예** 를 선택 하 여 Azure Automation 도움말을 사용 하 여 PowerShell 스크립트를 실행 하는 계정 유형을 구성 합니다. 계정 유형에 대해 자세히 알아보려면 [실행 계정](https://docs.microsoft.com/azure/automation/automation-create-runas-account)을 참조 하세요.
-1. **만들기**를 클릭 하 여 automation 계정 만들기를 마칩니다.
+1. "**Azure 실행 계정 만들기**" 옵션에 대해 **예** 를 선택 하 여 Azure Automation 도움말을 사용 하 여 PowerShell 스크립트를 실행 하는 계정 유형을 구성 합니다. 계정 유형에 대해 자세히 알아보려면 [실행 계정](../../automation/manage-runas-account.md)을 참조 하세요.
+1. **만들기** 를 클릭 하 여 automation 계정 만들기를 마칩니다.
 
 > [!TIP]
 > Azure Automation 계정 이름, 구독 ID 및 리소스를 Automation 앱을 만들 때 입력한 대로 정확히 적어 둡니다(예: 메모장에 복사하여 붙여넣기). 나중에 이 정보가 필요합니다.
@@ -59,7 +59,7 @@ Azure Marketplace에서 자동화 앱을 선택 하 고 구성 하는 방법을 
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation 모듈 업데이트
 
-자동 조정 권장 사항을 검색 하는 PowerShell 스크립트는 [AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) 및 [AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 명령을 사용 하 여 Azure 모듈 버전 4 이상이 필요 합니다.
+자동 조정 권장 사항을 검색 하는 PowerShell 스크립트는 [AzResource](/powershell/module/az.Resources/Get-azResource) 및 [AzSqlDatabaseRecommendedAction](/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 명령을 사용 하 여 Azure 모듈 버전 4 이상이 필요 합니다.
 
 - Azure 모듈을 업데이트 해야 하는 경우 [Azure Automation의 Az module support](../../automation/shared-resources/modules.md)를 참조 하세요.
 
@@ -82,7 +82,7 @@ Azure Automation Runbook을 만들려면 다음 단계를 수행합니다.
 1. "**PowerShell Runbook 편집**" 창의 메뉴 트리에서 "**runbook**"을 선택 하 고 Runbook 이름이 표시 될 때까지 보기를 확장 합니다 (이 예제에서는 "**자동 tuningemailautomation**"). 이 Runbook을 선택합니다.
 1. "PowerShell Runbook 편집"의 첫 번째 줄 (숫자 1부터 시작)에서 다음 PowerShell 스크립트 코드를 복사 하 여 붙여넣습니다. 이 PowerShell 스크립트는 사용자가 시작할 수 있도록만 제공됩니다. 요구에 맞게 스크립트를 수정합니다.
 
-제공된 PowerShell 스크립트의 헤더에서 `<SUBSCRIPTION_ID_WITH_DATABASES>`를 Azure 구독 ID로 바꾸어야 합니다. Azure 구독 ID를 검색하는 방법을 알아보려면 [Azure 구독 GUID 가져오기](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/)를 참조하세요.
+제공된 PowerShell 스크립트의 헤더에서 `<SUBSCRIPTION_ID_WITH_DATABASES>`를 Azure 구독 ID로 바꾸어야 합니다. Azure 구독 ID를 검색하는 방법을 알아보려면 [Azure 구독 GUID 가져오기](/archive/blogs/mschray/getting-your-azure-subscription-guid-new-portal)를 참조하세요.
 
 여러 구독의 경우 스크립트의 헤더에 있는 "$subscriptions" 속성에 쉼표로 구분 하 여 추가할 수 있습니다.
 
@@ -187,11 +187,11 @@ Write-Output $table
 
 - "**Azure Automation-작업 만들기**" – PowerShell 스크립트를 실행 하 여 Azure Automation runbook 내에서 자동 조정 권장 사항을 검색 하는 데 사용 됩니다.
 - "**Azure Automation-작업 출력 가져오기**"-실행 된 PowerShell 스크립트에서 출력을 검색 하는 데 사용 됩니다.
-- "**Office 365 Outlook-전자 메일 보내기**"-전자 메일을 보내는 데 사용 됩니다. 전자 메일은 흐름을 만드는 개인의 Office 365 계정을 사용하여 전송됩니다.
+- "**Office 365 Outlook-전자 메일 보내기**"-전자 메일을 보내는 데 사용 됩니다. 전자 메일은 흐름을 만드는 개별의 회사 또는 학교 계정을 사용 하 여 전송 됩니다.
 
-Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](https://docs.microsoft.com/flow/getting-started)을 참조하세요.
+Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](/flow/getting-started)을 참조하세요.
 
-이 단계의 전제 조건은 [Microsoft Flow](https://flow.microsoft.com) 계정에 등록 하 고 로그인 하는 것입니다. 솔루션 내부에서 다음 단계에 따라 **새 흐름**을 설정합니다.
+이 단계의 전제 조건은 [Microsoft Flow](https://flow.microsoft.com) 계정에 등록 하 고 로그인 하는 것입니다. 솔루션 내부에서 다음 단계에 따라 **새 흐름** 을 설정합니다.
 
 1. "**내 흐름**" 메뉴 항목에 액세스 합니다.
 1. 내 흐름 내에서 페이지 맨 위에 있는 "**+ 빈 페이지에서 만들기**" 링크를 선택 합니다.
@@ -205,13 +205,13 @@ Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](http
 
    - "**+ 새 단계**"를 선택 하 고 되풀이 흐름 창 내에서 "**작업 추가**"를 선택 합니다.
    - 검색 필드에 "**automation**"을 입력 하 고 검색 결과에서 "**Azure Automation – 작업 만들기**"를 선택 합니다.
-   - 작업 만들기 창에서 작업 속성을 구성합니다. 이 구성에 대해 **Automation 계정 창**에서 **이전에 기록한** Azure 구독 ID, 리소스 그룹 및 Automation 계정의 세부 정보가 필요합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 만들기](https://docs.microsoft.com/connectors/azureautomation/#create-job)를 참조하세요.
+   - 작업 만들기 창에서 작업 속성을 구성합니다. 이 구성에 대해 **Automation 계정 창** 에서 **이전에 기록한** Azure 구독 ID, 리소스 그룹 및 Automation 계정의 세부 정보가 필요합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 만들기](/connectors/azureautomation/#create-job)를 참조하세요.
    - "**흐름 저장**"을 클릭 하 여이 작업 만들기를 완료 합니다.
 
 2. 실행 된 PowerShell 스크립트에서 출력을 검색 하는 작업 만들기
 
    - "**+ 새 단계**"를 선택 하 고 되풀이 흐름 창 내에서 "**작업 추가**"를 선택 합니다.
-   - 검색 필드에 "**automation**"을 입력 하 고 검색 결과에서 "**Azure Automation – 작업 출력 가져오기**"를 선택 합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 출력 가져오기](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)를 참조하세요.
+   - 검색 필드에 "**automation**"을 입력 하 고 검색 결과에서 "**Azure Automation – 작업 출력 가져오기**"를 선택 합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 출력 가져오기](/connectors/azureautomation/#get-job-output)를 참조하세요.
    - 필요한 필드 채우기 (이전 작업을 만드는 것과 유사)-Azure 구독 ID, 리소스 그룹 및 Automation 계정 (Automation 계정 창에 입력)을 채웁니다.
    - "**동적 콘텐츠**" 메뉴에 대해 "**작업 ID**" 필드 내부를 클릭 하 여 표시 합니다. 이 메뉴에서 "**작업 ID**" 옵션을 선택 합니다.
    - "**흐름 저장**"을 클릭 하 여이 작업 만들기를 완료 합니다.

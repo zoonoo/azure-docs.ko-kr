@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386047"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145517"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -43,7 +43,7 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
-+ **활성 Azure 구독**.
++ **활성 Azure 구독** .
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,26 +51,28 @@ API Management 내부 가상 네트워크 모드로 배포 하는 경우 모든 
 + API Management 서비스가 가상 네트워크에 배포 된 경우 [포트 목록이](./api-management-using-with-vnet.md#required-ports) 사용 되며이를 열어야 합니다. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>내부 가상 네트워크에서 API Management 만들기
-내부 가상 네트워크의 API Management 서비스는 [내부 부하 분산 장치 (클래식)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud)뒤에 호스팅됩니다. 이 옵션만 사용할 수 있으며 변경할 수 없습니다.
+내부 가상 네트워크의 API Management 서비스는 [내부 부하 분산 장치 (클래식)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud)뒤에 호스팅됩니다. 이 옵션만 사용할 수 있으며 변경할 수 없습니다.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 네트워크 연결 사용
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure API Management 인스턴스를 찾습니다.
-2. **가상 네트워크**를 선택합니다.
+2. **가상 네트워크** 를 선택합니다.
 3. API Management 인스턴스를 가상 네트워크 내부에 배포되도록 구성합니다.
 
     ![내부 가상 네트워크에서 Azure API Management를 설정하는 메뉴][api-management-using-internal-vnet-menu]
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 배포가 성공 하면 개요 블레이드에서 API Management 서비스의 **개인** 가상 ip 주소 및 **공용** 가상 ip 주소가 표시 됩니다. **개인** 가상 ip 주소는 `gateway` , `portal` `management` 및 `scm` 끝점에 액세스할 수 있는 API Management 위임 된 서브넷 내에서 부하가 분산 된 ip 주소입니다. **공용** 가상 IP 주소는 포트 3443을 통한 끝점에 대 한 제어 평면 트래픽용 **으로만** 사용 `management` 되며 [microsoft.apimanagement][ServiceTags] servicetag로 잠글 수 있습니다.
 
 ![내부 가상 네트워크를 구성한 API Management 대시보드][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> Azure Portal에서 사용할 수 있는 테스트 콘솔의 경우 해당 게이트웨이 URL이 공용 DNS에 등록되어 있지 않으므로 **내부** VNET 배포 서비스에서 작동하지 않습니다. 대신, **개발자 포털**에 제공된 테스트 콘솔을 사용해야 합니다.
+> Azure Portal에서 사용할 수 있는 테스트 콘솔의 경우 해당 게이트웨이 URL이 공용 DNS에 등록되어 있지 않으므로 **내부** VNET 배포 서비스에서 작동하지 않습니다. 대신, **개발자 포털** 에 제공된 테스트 콘솔을 사용해야 합니다.
 
-### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>PowerShell cmdlet을 사용하여 가상 네트워크 연결 사용
+### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Virtual Network에 API Management 배포
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -131,7 +133,7 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 * 에서 서비스를 제거한 다음 가상 네트워크에 다시 추가 하면 공용 및 개인 액세스용으로 할당 된 IP 주소가 변경 될 수 있습니다. 이 문제가 발생 하는 경우 가상 네트워크 내에서 DNS 등록, 라우팅 규칙 및 IP 제한 목록을 업데이트 해야 할 수 있습니다.
 
 ## <a name="related-content"></a><a name="related-content"> </a>관련 콘텐츠
-자세히 알아보려면 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 * [가상 네트워크에서 Azure API Management를 설정하는 동안 발생하는 공통 네트워크 구성 문제][Common network configuration problems]
 * [가상 네트워크 Faq](../virtual-network/virtual-networks-faq.md)
 * [DNS에 레코드 만들기](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
@@ -143,4 +145,4 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

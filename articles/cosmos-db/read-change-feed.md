@@ -4,19 +4,21 @@ description: 이 문서에서는 Azure Cosmos DB에서 변경 피드를 읽고 �
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 7021367e1230573343ddf57ccd399d998ad5280e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018972"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339277"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-푸시 모델 또는 풀 모델 중 하나를 사용하여 Azure Cosmos DB 변경 피드로 작업할 수 있습니다. 밀어넣기 모델을 사용 하면 서버 (변경 피드 프로세서)가이 작업을 처리 하는 비즈니스 논리가 있는 클라이언트에 작업을 푸시합니다. 그러나 작업을 확인 하 고 마지막으로 처리 된 작업의 상태를 저장 하는 것은 서버에서 처리 됩니다.
+푸시 모델 또는 풀 모델 중 하나를 사용하여 Azure Cosmos DB 변경 피드로 작업할 수 있습니다. 푸시 모델을 사용 하면 변경 피드 프로세서는이 작업을 처리 하기 위한 비즈니스 논리가 있는 클라이언트에 작업을 푸시합니다. 그러나 작업을 확인 하 고 마지막으로 처리 된 작업의 상태를 저장 하는 것은 변경 피드 프로세서 내에서 처리 됩니다.
 
 끌어오기 모델을 사용 하는 경우 클라이언트는 서버에서 작업을 가져와야 합니다. 이 경우 클라이언트는 작업 처리를 위한 비즈니스 논리 뿐만 아니라 마지막으로 처리 된 작업의 상태를 저장 하 고, 여러 클라이언트에서 동시에 작업을 처리 하는 부하 분산을 처리 하 고, 오류를 처리 합니다.
 
@@ -39,7 +41,7 @@ Azure Cosmos DB 변경 피드를 사용하는 대부분의 시나리오에서는
 
 ### <a name="azure-functions"></a>Azure 기능
 
-Azure Functions는 단순히 변경 피드를 사용하여 시작하는 경우 가장 간단한 옵션입니다. 이러한 단순함 덕분에 대부분의 변경 피드 사용 사례에 권장되는 옵션이기도 합니다. Azure Cosmos DB에 대한 Azure Functions 트리거를 생성할 때 연결할 컨테이너를 선택하면 컨테이너에 변경 내용이 있을 때마다 Azure 함수가 트리거됩니다. Azure Functions는 백그라운드에서 변경 피드 프로세서를 사용하므로, 컨테이너의 [파티션](partition-data.md)에서 변경 내용 처리를 자동으로 병렬화합니다.
+Azure Functions는 단순히 변경 피드를 사용하여 시작하는 경우 가장 간단한 옵션입니다. 이러한 단순함 덕분에 대부분의 변경 피드 사용 사례에 권장되는 옵션이기도 합니다. Azure Cosmos DB에 대한 Azure Functions 트리거를 생성할 때 연결할 컨테이너를 선택하면 컨테이너에 변경 내용이 있을 때마다 Azure 함수가 트리거됩니다. Azure Functions는 백그라운드에서 변경 피드 프로세서를 사용하므로, 컨테이너의 [파티션](partitioning-overview.md)에서 변경 내용 처리를 자동으로 병렬화합니다.
 
 Azure Functions를 사용하여 개발하는 것은 손쉬운 환경으로, 변경 피드 프로세서를 직접 배포하는 것보다 더 빠를 수 있습니다. 트리거는 Azure Functions 포털을 사용하거나, SDK를 사용하여 프로그래밍 방식으로 만들 수 있습니다. Visual Studio 및 VS Code는 Azure Functions를 작성하는 지원을 제공하며 플랫폼 간 개발을 위해 Azure Functions CLI를 사용할 수도 있습니다. 데스크톱에서 코드를 작성하고 디버그한 다음, 클릭 한 번으로 함수를 배포할 수 있습니다. 자세한 내용은 [Azure Functions를 사용한 서버리스 데이터베이스 컴퓨팅](serverless-computing-database.md) 및 [Azure Functions와 함께 변경 피드 사용](change-feed-functions.md) 문서를 참조하세요.
 
@@ -68,7 +70,7 @@ Azure Functions와 마찬가지로 변경 피드 프로세서 라이브러리를
 풀 모델을 사용하는 “최소 한 번” 배달 보장은 제공되지 않습니다. 풀 모델은 오류를 처리하는 방법을 결정하는 낮은 수준의 제어를 제공합니다.
 
 > [!NOTE]
-> 변경 피드 끌어오기 모델은 현재 [Azure Cosmos DB .NET SDK에서만 미리 보기](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview)로 제공됩니다. 다른 SDK 버전에서는 아직 미리 보기를 사용할 수 없습니다.
+> 변경 피드 끌어오기 모델은 현재 [Azure Cosmos DB .NET SDK에서만 미리 보기](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview)로 제공됩니다. 다른 SDK 버전에서는 아직 미리 보기를 사용할 수 없습니다.
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Cassandra 및 MongoDB에 대한 API의 변경 피드
 

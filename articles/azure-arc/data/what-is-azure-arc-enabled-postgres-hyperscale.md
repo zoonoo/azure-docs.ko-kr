@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 17c0e63b02d61b3aecf70624bc97a468d18f66fe
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939073"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607510"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale 이란?
 
@@ -49,12 +49,12 @@ Azure Arc 사용 데이터 서비스에서 사용할 수 있는 postgres 데이�
 
 ## <a name="next-steps"></a>다음 단계
 - **만들기**
-   > **작업을 시도해보시겠습니까?**  
-   > Azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) 를 빠르게 시작 하세요.
+   > **단지 작업을 시도해 보 시겠습니까? 사용할 수 있는 Kubernetes 클러스터가 없습니다. 샌드박스를 제공 합니다.**  
+   > AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)를 사용하여 빠르게 시작하세요.
 
    - **만드십시오**
       - [클라이언트 도구 설치](install-client-tools.md)
-      - [Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md) (클라이언트 도구를 먼저 설치 해야 함)
+      - [Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)(먼저 클라이언트 도구를 설치해야 함)
       - [Azure arc에서 Azure Database for PostgreSQL 하이퍼 확장 서버 그룹을 만듭니다](create-postgresql-hyperscale-server-group.md) (먼저 azure arc 데이터 컨트롤러를 만들어야 함).
 - [**Azure Arc 사용 데이터 서비스에 대 한 자세한 정보**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [**Azure Arc에 대해 읽기**](https://aka.ms/azurearc)

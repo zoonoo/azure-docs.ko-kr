@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 54ef051b7d8778e2eecd85bef2e57b62239ba114
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80066535"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435317"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Azure VM에 Elastic Stack 설치
 
@@ -35,15 +35,15 @@ ms.locfileid: "80066535"
 
  이 배포는 Elastic Stack을 사용한 기본 개발에 적합합니다. 프로덕션 환경에 대한 권장 사항을 포함하여 Elastic Stack에 대한 자세한 내용은 [Elastic 설명서](https://www.elastic.co/guide/index.html)와 [Azure Architecture Center](/azure/architecture/elasticsearch/)를 참조하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+- 이 문서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location eastus
 
 [az vm create](/cli/azure/vm) 명령을 사용하여 VM을 만듭니다. 
 
-다음 예제에서는 *myVM*이라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
+다음 예제에서는 *myVM* 이라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
 ```azurecli-interactive
 az vm create \
@@ -87,7 +87,7 @@ VM의 공용 IP 주소를 알고 있는 경우 [az network public-ip list](/cli/
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. 가상 머신의 올바른 공용 IP 주소로 대체합니다. 이 예제에서 IP 주소는 *40.68.254.142*입니다.
+다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. 가상 머신의 올바른 공용 IP 주소로 대체합니다. 이 예제에서 IP 주소는 *40.68.254.142* 입니다.
 
 ```bash
 ssh azureuser@40.68.254.142
@@ -211,7 +211,7 @@ sudo /usr/share/logstash/bin/logstash -f vm-syslog-logstash.conf
 `/etc/kibana/kibana.yml`을 수정하고 Kibana가 수신 대기하는 IP 주소를 웹 브라우저에서 액세스할 수 있도록 변경합니다.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 다음 명령으로 Kibana를 시작합니다.
@@ -226,11 +226,11 @@ Azure CLI에서 포트 5601을 열어 Kibana 콘솔에 대한 원격 액세스�
 az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 ```
 
-Kibana 콘솔을 열고 **만들기**를 선택하여 이전에 Elasticsearch에 보낸 syslog 데이터를 기반으로 기본 인덱스를 생성합니다. 
+Kibana 콘솔을 열고 **만들기** 를 선택하여 이전에 Elasticsearch에 보낸 syslog 데이터를 기반으로 기본 인덱스를 생성합니다. 
 
-![Kibana에서 Syslog 이벤트 찾아보기](media/elasticsearch-install/kibana-index.png)
+![Kibana 콘솔을 보여주고 만들기 단추를 강조 표시하는 스크린샷.](media/elasticsearch-install/kibana-index.png)
 
-Kibana 콘솔에서 **검색**을 선택하여 syslog 이벤트를 검색, 탐색 및 필터링합니다.
+Kibana 콘솔에서 **검색** 을 선택하여 syslog 이벤트를 검색, 탐색 및 필터링합니다.
 
 ![Kibana에서 Syslog 이벤트 찾아보기](media/elasticsearch-install/kibana-search-filter.png)
 

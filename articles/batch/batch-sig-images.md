@@ -2,14 +2,14 @@
 title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하도록 계산 노드를 구성 하는 효율적인 방법입니다.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 11/18/2020
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605195"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327307"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
@@ -58,7 +58,7 @@ Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 
 - 클라우드로 업로드된 일반화된 온-프레미스 VHD
 
 > [!NOTE]
-> 현재 Batch는 일반화된 공유 이미지만 지원합니다. 지금은 특수 공유 이미지에서 사용자 지정 이미지 풀을 만들 수 없습니다.
+> Batch는 일반화 된 공유 이미지만 지원 합니다. 특수 공유 이미지를 사용 하 여 풀을 만들 수 없습니다.
 
 다음 단계는 VM을 준비하고 스냅샷을 생성하고 스냅샷에서 이미지를 만드는 방법을 보여 줍니다.
 
@@ -73,6 +73,7 @@ Azure에서는 다음을 통해 만들 수 있는 관리 되는 이미지에서 
 - 사용자 지정 스크립트 확장 등의 Azure 확장을 VM에 설치해서는 안 됩니다. 이미지에 미리 설치된 확장이포함되어 있으면 Batch 풀을 배포할 때 Azure에서 문제가 발생할 수 있습니다.
 - 연결된 데이터 디스크를 사용하는 경우 VM 내에서 디스크를 탑재하고 포맷하여 사용해야 합니다.
 - 제공하는 기본 OS 이미지가 기본 임시 드라이브를 사용하도록 해야 합니다. Batch 노드 에이전트는 현재 기본 임시 드라이브를 예상합니다.
+- OS 디스크가 암호화 되지 않았는지 확인 합니다.
 - VM이 실행되면 RDP(Windows용) 또는 SSH(Linux용)를 통해 연결합니다. 필요한 소프트웨어를 설치하거나 원하는 데이터를 복사합니다.  
 
 ### <a name="create-a-vm-snapshot"></a>VM 스냅샷 만들기
@@ -206,11 +207,11 @@ client.pool.add(new_pool)
 다음 단계를 사용하여 Azure Portal의 공유 이미지에서 풀을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-1. **Batch 계정**으로 이동하여 계정을 선택합니다.
-1. **풀**을 선택한 다음, **추가**를 선택하여 새 풀을 만듭니다.
-1. **이미지 형식** 섹션에서 **Shared Image Gallery**를 선택합니다.
+1. **Batch 계정** 으로 이동하여 계정을 선택합니다.
+1. **풀** 을 선택한 다음, **추가** 를 선택하여 새 풀을 만듭니다.
+1. **이미지 형식** 섹션에서 **Shared Image Gallery** 를 선택합니다.
 1. 관리되는 이미지에 대한 정보를 사용하여 나머지 섹션을 완료합니다.
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ![포털을 사용하여 공유 이미지에서 풀을 만듭니다.](media/batch-sig-images/create-custom-pool.png)
 
@@ -218,7 +219,7 @@ client.pool.add(new_pool)
 
 공유 이미지를 사용하여 수백 또는 수천 개의 VM이 포함된 풀을 만들려는 경우 다음 지침을 사용합니다.
 
-- **Shared Image Gallery 복제본 번호**  최대 600개의 인스턴스를 포함하는 모든 풀에 대해 하나 이상의 복제본을 유지하는 것이 좋습니다. 예를 들어 3000개의 VM을 사용하여 풀을 만드는 경우 이미지의 복제본을 5개 이상 유지해야 합니다. 성능 향상을 위해 항상 최소 요구 사항보다 더 많은 복제본을 유지하는 것이 좋습니다.
+- **Shared Image Gallery 복제본 번호**  최대 300 인스턴스를 포함 하는 모든 풀에 대해 하나 이상의 복제본을 유지 하는 것이 좋습니다. 예를 들어 3000 Vm을 사용 하 여 풀을 만드는 경우 이미지의 복제본을 10 개 이상 유지 해야 합니다. 성능 향상을 위해 항상 최소 요구 사항보다 더 많은 복제본을 유지하는 것이 좋습니다.
 
 - **크기 조정 시간 제한** 풀이 고정된 수의 노드를 포함하는 경우(자동 크기 조정하지 않는 경우) 풀 크기에 따라 풀의 `resizeTimeout` 속성을 늘립니다. 1000개의 VM마다 권장 크기 조정 시간 제한은 15분 이상입니다. 예를 들어 2000개의 VM이 있는 풀에 권장되는 크기 조정 제한 시간은 30분 이상입니다.
 

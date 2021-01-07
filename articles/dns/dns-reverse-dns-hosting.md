@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014026"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
 
@@ -29,11 +29,11 @@ Azure 서비스에 할당된 Azure 소유 IP 주소에 역방향 DNS를 구성�
 ## <a name="create-a-reverse-lookup-dns-zone"></a>역방향 조회 DNS 영역 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **허브** 메뉴에서 **새로 만들기** > **네트워킹**을 선택한 다음, **DNS 영역**을 선택합니다.
+1. **허브** 메뉴에서 **새로 만들기** > **네트워킹** 을 선택한 다음, **DNS 영역** 을 선택합니다.
 
    !["DNS 영역" 선택](./media/dns-reverse-dns-hosting/figure1.png)
 
-1. **DNS 영역 만들기** 창에서 DNS 영역의 이름을 지정합니다. 영역 이름은 IPv4 및 IPv6 접두사에 대해 다르게 생성됩니다. [IPv4](#ipv4) 또는 [IPv6](#ipv6)에 대한 지침을 사용하여 영역 이름을 지정합니다. 완료되면 **만들기**를 선택하여 영역을 만듭니다.
+1. **DNS 영역 만들기** 창에서 DNS 영역의 이름을 지정합니다. 영역 이름은 IPv4 및 IPv6 접두사에 대해 다르게 생성됩니다. [IPv4](#ipv4) 또는 [IPv6](#ipv6)에 대한 지침을 사용하여 영역 이름을 지정합니다. 완료되면 **만들기** 를 선택하여 영역을 만듭니다.
 
 ### <a name="ipv4"></a>IPv4
 
@@ -48,9 +48,9 @@ IPv4 역방향 조회 영역의 이름은 나타내는 IP 범위를 기반으로
 
 다음 예제에서는 Azure Portal을 통해 Azure DNS에 `2.0.192.in-addr.arpa`라는 클래스 C 역방향 DNS 영역을 만드는 방법을 보여줍니다.
 
- ![입력란이 채워진 "DNS 영역 만들기" 창](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Azure Portal를 통해 Azure DNS에서 2.0.192.in 라는 클래스 C 역방향 DNS 영역을 만드는 방법을 보여 주는 스크린샷](./media/dns-reverse-dns-hosting/figure2.png)
 
-**리소스 그룹 위치**는 리소스 그룹의 위치를 정의합니다. DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "전역"이며 표시되지 않습니다.
+**리소스 그룹 위치** 는 리소스 그룹의 위치를 정의합니다. DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "전역"이며 표시되지 않습니다.
 
 다음 예제에서는 Azure PowerShell 및 Azure CLI를 사용하여 이 작업을 완료하는 방법을 보여 줍니다.
 
@@ -81,7 +81,7 @@ IPv6 역방향 조회 영역의 이름은 `<IPv6 network prefix in reverse order
 
  ![입력란이 채워진 "DNS 영역 만들기" 창](./media/dns-reverse-dns-hosting/figure3.png)
 
-**리소스 그룹 위치**는 리소스 그룹의 위치를 정의합니다. DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "전역"이며 표시되지 않습니다.
+**리소스 그룹 위치** 는 리소스 그룹의 위치를 정의합니다. DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "전역"이며 표시되지 않습니다.
 
 다음 예제에서는 Azure PowerShell 및 Azure CLI를 사용하여 이 작업을 완료하는 방법을 보여 줍니다.
 
@@ -115,16 +115,16 @@ DNS 역방향 조회 영역을 만들었으므로 해당 영역이 부모 영역
 
 다음 예제에서는 Azure Portal의 역방향 DNS 영역에 PTR 레코드를 만드는 과정을 안내합니다. 다른 레코드 유형을 알아보고 기존 레코드를 수정하려면 [Azure Portal을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-portal.md)를 참조하세요.
 
-1. **DNS 영역** 창의 위쪽에서 **+ 레코드 집합**을 클릭하여 **레코드 집합 추가** 창을 엽니다.
+1. **DNS 영역** 창의 위쪽에서 **+ 레코드 집합** 을 클릭하여 **레코드 집합 추가** 창을 엽니다.
 
-   ![레코드 집합 만들기 단추](./media/dns-reverse-dns-hosting/figure4.png)
+   ![화살표가 + 레코드 집합 단추를 가리키는 DNS 영역 창의 스크린샷](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. PTR 레코드에 대한 레코드 집합 이름은 반대 순서로 IPv4 주소의 나머지 부분이어야 합니다. 
 
-   이 예제에서 처음 3개 8진수는 이미 영역 이름(.2.0.192)의 일부로 채워져 있습니다. 따라서 마지막 8진수만 **이름** 상자에 제공됩니다. 예를 들어 IP 주소가 192.0.2.15인 리소스에 대해 레코드 집합 이름을 **15**로 지정할 수 있습니다.  
-1. **형식**에는 **PTR**을 선택합니다.  
-1. **도메인 이름**에는 IP를 사용하는 리소스의 FQDN(정규화된 도메인 이름)을 입력합니다.
-1. 창의 맨 아래에서 **확인**을 선택하여 DNS 레코드를 만듭니다.
+   이 예제에서 처음 3개 8진수는 이미 영역 이름(.2.0.192)의 일부로 채워져 있습니다. 따라서 마지막 8진수만 **이름** 상자에 제공됩니다. 예를 들어 IP 주소가 192.0.2.15인 리소스에 대해 레코드 집합 이름을 **15** 로 지정할 수 있습니다.  
+1. **형식** 에는 **PTR** 을 선택합니다.  
+1. **도메인 이름** 에는 IP를 사용하는 리소스의 FQDN(정규화된 도메인 이름)을 입력합니다.
+1. 창의 맨 아래에서 **확인** 을 선택하여 DNS 레코드를 만듭니다.
 
    ![입력란이 채워진 "레코드 집합 추가" 창](./media/dns-reverse-dns-hosting/figure5.png)
 
@@ -151,18 +151,18 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.a
 
 다음 예제에서는 새로운 PTR 레코드를 만드는 과정을 안내합니다. 다른 레코드 유형을 알아보고 기존 레코드를 수정하려면 [Azure Portal을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-portal.md)를 참조하세요.
 
-1. **DNS 영역** 창의 위쪽에서 **+ 레코드 집합**을 클릭하여 **레코드 집합 추가** 창을 엽니다.
+1. **DNS 영역** 창의 위쪽에서 **+ 레코드 집합** 을 클릭하여 **레코드 집합 추가** 창을 엽니다.
 
    ![레코드 집합 만들기 단추](./media/dns-reverse-dns-hosting/figure6.png)
 
 2. PTR 레코드에 대한 레코드 집합 이름은 반대 순서로 IPv6 주소의 나머지 부분이어야 합니다. 제로 압축은 포함하면 안 됩니다. 
 
-   이 예제에서 IPv6의 처음 64비트는 영역 이름의 일부로 이미 채워져 있습니다(0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). 따라서 마지막 64비트만 **이름** 상자에 제공됩니다. IP 주소의 마지막 64비트는 각 16진수 사이에 마침표를 구분 기호로 사용하여 역순으로 입력됩니다. 예를 들어 IP 주소가 2001:0db8:abdc:0000:f524:10bc:1af9:405e인 리소스의 레코드 집합 이름을 **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f**라고 지정할 수 있습니다.  
-3. **형식**에는 **PTR**을 선택합니다.  
-4. **도메인 이름**에는 IP를 사용하는 리소스의 FQDN을 입력합니다.
-5. 창의 맨 아래에서 **확인**을 선택하여 DNS 레코드를 만듭니다.
+   이 예제에서 IPv6의 처음 64비트는 영역 이름의 일부로 이미 채워져 있습니다(0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). 따라서 마지막 64비트만 **이름** 상자에 제공됩니다. IP 주소의 마지막 64비트는 각 16진수 사이에 마침표를 구분 기호로 사용하여 역순으로 입력됩니다. 예를 들어 IP 주소가 2001:0db8:abdc:0000:f524:10bc:1af9:405e인 리소스의 레코드 집합 이름을 **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** 라고 지정할 수 있습니다.  
+3. **형식** 에는 **PTR** 을 선택합니다.  
+4. **도메인 이름** 에는 IP를 사용하는 리소스의 FQDN을 입력합니다.
+5. 창의 맨 아래에서 **확인** 을 선택하여 DNS 레코드를 만듭니다.
 
-![입력란이 채워진 "레코드 집합 추가" 창](./media/dns-reverse-dns-hosting/figure7.png)
+![형식 필드의 값을 가리키는 화살표가 있는의 "레코드 집합 추가" 창을 보여 주는 스크린샷](./media/dns-reverse-dns-hosting/figure7.png)
 
 다음 예제에서는 PowerShell이나 Azure CLI를 사용하여 이 작업을 완료하는 방법을 보여줍니다.
 

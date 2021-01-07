@@ -1,15 +1,16 @@
 ---
 title: V3 API의 예측 끝점 변경 내용
 description: 쿼리 예측 끝점 V3 Api가 변경 되었습니다. 이 가이드를 사용 하 여 버전 3 끝점 Api로 마이그레이션하는 방법을 이해할 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: diberry
-ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610883"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018789"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3에 대 한 예측 끝점 변경
 
@@ -42,11 +43,11 @@ V 3에서 GA로 이동 하는 과정의 일부로 다음과 같이 변경 했습
     * 에서로 측정 가능한 단위 키 이름 `units``unit`
 
 * 요청 본문 JSON 변경:
-    * 시작 `preferExternalEntities` 까지`preferExternalEntities`
+    * 시작 `preferExternalEntities` 까지 `preferExternalEntities`
     * `score`외부 엔터티에 대 한 선택적 매개 변수
 
 * 응답 본문 JSON 변경 내용:
-    * `normalizedQuery`제거
+    * `normalizedQuery` 제거
 
 ## <a name="suggested-adoption-strategy"></a>제안 된 채택 전략
 
@@ -59,7 +60,7 @@ Bot Framework를 사용 하거나 V7를 Bing Spell Check 하거나 LUIS 앱 제�
 
 ### <a name="bing-spell-check"></a>Bing 맞춤법 검사
 
-이 API는 V3 예측 끝점에서 지원 되지 않습니다. 계속 해 서 V2 API 예측 끝점을 사용 하 여 맞춤법을 수정 하세요. V3 API를 사용 하는 동안 맞춤법 수정이 필요한 경우 LUIS API로 텍스트를 보내기 전에 클라이언트 응용 프로그램에서 [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) api를 호출 하 고 텍스트를 올바른 철자에 맞게 변경 합니다.
+이 API는 V3 예측 끝점에서 지원 되지 않습니다. 계속 해 서 V2 API 예측 끝점을 사용 하 여 맞춤법을 수정 하세요. V3 API를 사용 하는 동안 맞춤법 수정이 필요한 경우 LUIS API로 텍스트를 보내기 전에 클라이언트 응용 프로그램에서 [Bing Spell Check](../bing-spell-check/overview.md) api를 호출 하 고 텍스트를 올바른 철자에 맞게 변경 합니다.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Bot Framework 및 Azure Bot Service 클라이언트 응용 프로그램
 
@@ -77,7 +78,7 @@ V2 예측 API는 V3 preview 이후 최소 9 개월 동안 (6 월 8 일, 2020)에
 
 버전을 기준으로 쿼리하려면 먼저를 사용 하 여 API를 [통해 게시](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) 해야 `"directVersionPublish":true` 합니다. 슬롯 이름 대신 버전 ID를 참조 하는 끝점을 쿼리 합니다.
 
-|유효한 값`SLOT-NAME`|
+|유효한 값 `SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|
@@ -102,13 +103,13 @@ V2 예측 API는 V3 preview 이후 최소 9 개월 동안 (6 월 8 일, 2020)에
 }
 ```
 
-|속성|Type|Version|기본값|목적|
+|속성|형식|버전|기본값|목적|
 |--|--|--|--|--|
 |`dynamicLists`|array|V3만|필수 아님.|[동적 목록을](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) 사용 하면 이미 LUIS 앱에 있는 기존의 학습 및 게시 된 목록 엔터티를 확장할 수 있습니다.|
 |`externalEntities`|array|V3만|필수 아님.|[외부 엔터티](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) 를 통해 LUIS 앱은 런타임 중에 엔터티를 식별 하 고 레이블을 지정 하는 기능을 기존 엔터티에 대 한 기능으로 사용할 수 있습니다. |
 |`options.datetimeReference`|문자열|V3만|기본값 없음|[DatetimeV2 오프셋](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)을 확인 하는 데 사용 됩니다. DatetimeReference의 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)입니다.|
 |`options.preferExternalEntities`|boolean|V3만|false|사용자의 [외부 엔터티 (기존 엔터티와 이름이 같은)](schema-change-prediction-runtime.md#override-existing-model-predictions) 를 사용 하거나 모델의 기존 엔터티를 예측에 사용 하는지 여부를 지정 합니다. |
-|`query`|문자열|V3만|필수 사항입니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|
+|`query`|문자열|V3만|필수 요소.|**V2에서** 예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서** 기능은 `query` 매개 변수로 전달 됩니다.|
 
 ## <a name="response-changes"></a>응답 변경
 
@@ -161,9 +162,9 @@ const score = intents[topIntentName];
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>길이 발언에서 엔터티 배치 표시
 
-V 2 **에서**엔터티는 and를 사용 하 여 utterance로 표시 되었습니다 `startIndex` `endIndex` .
+V 2 **에서** 엔터티는 and를 사용 하 여 utterance로 표시 되었습니다 `startIndex` `endIndex` .
 
-**V3에서**엔터티는 및로 표시 됩니다 `startIndex` `entityLength` .
+**V3에서** 엔터티는 및로 표시 됩니다 `startIndex` `entityLength` .
 
 #### <a name="access-instance-for-entity-metadata"></a>`$instance`엔터티 메타 데이터에 대 한 액세스
 
@@ -226,7 +227,7 @@ V 2에서 엔터티는 역할을 개체의 속성으로 사용 하 여 _엔터�
 ]
 ```
 
-V3에서 엔터티는 역할에 대 한 예측 인 경우 _엔터티 역할_에서 참조 됩니다.
+V3에서 엔터티는 역할에 대 한 예측 인 경우 _엔터티 역할_ 에서 참조 됩니다.
 
 ```JSON
 "entities":{

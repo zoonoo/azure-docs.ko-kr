@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: 139c8cdb1a227595d728d2acc0b09cf1eb210715
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90006383"
 ---
 # <a name="chart-visualizations"></a>차트 시각화
@@ -40,7 +40,7 @@ Azure Monitor 로그는 리소스 소유자에 게 앱 및 인프라의 작동�
 
 ### <a name="log-chart-parameters"></a>로그 차트 매개 변수
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | ------------- |:-------------|:-------------|
 | `Query Type` | 사용할 쿼리 유형입니다. | 로그, Azure 리소스 그래프 등 |
 | `Resource Type` | 대상으로 할 리소스 형식입니다. | Application Insights, Log Analytics 또는 Azure-first |
@@ -158,7 +158,7 @@ requests
 
 ### <a name="metric-chart-parameters"></a>메트릭 차트 매개 변수
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | ------------- |:-------------|:-------------|
 | `Resource Type` | 대상으로 할 리소스 형식입니다. | 저장소 또는 가상 머신. |
 | `Resources` | 메트릭 값을 가져올 리소스 집합입니다. | MyStorage1 |
@@ -171,7 +171,7 @@ requests
 | `Size` | 컨트롤의 세로 크기입니다. | 소형, 중형 또는 큼 |
 | `Color palette` | 차트에 사용할 색상표입니다. `Split by`매개 변수가 사용 되는 경우 무시 됩니다. | 파랑, 녹색, 빨강 등 |
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 API 이름으로 분할 된 트랜잭션 (꺾은선형 차트):
 

@@ -16,11 +16,11 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bbbf924ea950c5ba281be430190370ae77734b7a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262178"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184402"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작
 
@@ -30,7 +30,7 @@ ms.locfileid: "89262178"
 
 이 자습서에서는 Azure Media Services .NET SDK를 사용하는 AMS(Azure Media Services) 애플리케이션으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
@@ -155,11 +155,11 @@ Media Services를 .NET과 함께 사용하는 경우 Media Services 계정에 �
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>새 자산 만들기 및 비디오 파일 업로드
 
-Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다.  파일이 업로드 되 면 추가 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전 하 게 저장 됩니다. 자산에 포함된 파일을 **자산 파일**이라고 합니다.
+Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다.  파일이 업로드 되 면 추가 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전 하 게 저장 됩니다. 자산에 포함된 파일을 **자산 파일** 이라고 합니다.
 
 아래에서 정의된 **UploadFile** 메서드는 **CreateFromFile**(.NET SDK 확장에 정의됨)을 호출합니다. **CreateFromFile** 은 지정된 원본 파일이 업로드되는 새 자산을 만듭니다.
 
-**Createfromfile** 메서드는 다음과 같은 자산 생성 옵션 중 하나를 지정할 수 있는 **assetcreationoptions.storageencrypted**를 사용 합니다.
+**Createfromfile** 메서드는 다음과 같은 자산 생성 옵션 중 하나를 지정할 수 있는 **assetcreationoptions.storageencrypted** 를 사용 합니다.
 
 * **없음** - 암호화가 사용되지 않습니다. 이것은 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 스토리지에 저장된 상태일 때 보호되지 않습니다.
   MP4를 배달하려는 경우 이 옵션을 사용하세요.
@@ -169,7 +169,7 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
 
 **CreateFromFile** 메서드는 또한 파일의 업로드 진행 상태를 보고하기 위해 콜백을 지정할 수 있습니다.
 
-다음 예제에서는 자산 옵션으로 **없음**을 지정합니다.
+다음 예제에서는 자산 옵션으로 **없음** 을 지정합니다.
 
 Program 클래스에 다음 메서드를 추가합니다.
 
@@ -197,7 +197,7 @@ Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 
 
 동적 패키징을 활용하려면 mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩해야 합니다.  
 
-다음 코드는 인코딩 작업을 제출하는 방법을 보여 줍니다. 이 작업에는 **미디어 인코더 표준**을 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정하는 한 가지 태스크가 포함됩니다. 이 코드는 작업을 제출하고 완료될 때까지 기다립니다.
+다음 코드는 인코딩 작업을 제출하는 방법을 보여 줍니다. 이 작업에는 **미디어 인코더 표준** 을 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정하는 한 가지 태스크가 포함됩니다. 이 코드는 작업을 제출하고 완료될 때까지 기다립니다.
 
 작업이 완료되면 자산을 스트리밍하거나 트랜스코딩 결과로 생성된 MP4 파일을 점진적으로 다운로드할 수 있습니다.
 

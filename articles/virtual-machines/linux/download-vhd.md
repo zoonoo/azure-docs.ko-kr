@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
 ms.openlocfilehash: 897cae53e589f4058e5499c0e6e941d4f1d9bb2f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87761065"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
@@ -42,7 +42,7 @@ VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage
 
 1.  생성 된 URL에서 **VHD 파일 다운로드**를 선택 합니다.
 
-    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="VHD를 다운로드 하는 단추를 표시 합니다.":::
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="VM을 중지 하는 메뉴 단추를 표시 합니다.":::
 
 2.  다운로드를 시작 하려면 브라우저에서 **저장** 을 선택 해야 할 수도 있습니다. VHD 파일에 대한 기본 이름은 *abcd*입니다.
 

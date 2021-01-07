@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Relay를 평가하기 위한 기본 제�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85316624"
 ---
 # <a name="security-controls-for-azure-relay"></a>Azure Relay에 대한 보안 컨트롤

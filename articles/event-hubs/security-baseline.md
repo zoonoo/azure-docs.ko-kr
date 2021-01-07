@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 9386b154148cf5b5b6b7cd0b43f5a4b4aa741059
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401132"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339696"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Event Hubs에 대 한 Azure 보안 기준
 
@@ -72,7 +72,7 @@ Azure Security Center에서 제공 하는 네트워크 보안 이해: https://do
 
 **지침**: DDoS (배포 된 서비스 거부) 공격 으로부터 보호 하기 위해 event hubs와 연결 된 가상 네트워크에서 DDoS Protection Standard를 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
-DDoS 보호를 구성 하는 방법: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+DDoS 보호를 구성 하는 방법: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)
 
 Azure Security Center 통합 된 위협 인텔리전스에 대 한 자세한 내용은 다음과 같습니다. https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -397,7 +397,7 @@ Azure에서 명명된 위치를 구성하는 방법: https://docs.microsoft.com/
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: Event Hubs와 같은 Azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. 이를 통해 RBAC (역할 기반 액세스 제어)가 중요 한 리소스를 관리할 수 있습니다.
+**지침**: Event Hubs와 같은 Azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure RBAC (역할 기반 액세스 제어)를 통해 중요 한 리소스를 관리할 수 있습니다.
 
  Azure AD 인스턴스를 만들고 구성 하는 방법: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
@@ -539,9 +539,9 @@ Azure의 고객 데이터 보호 이해: https://docs.microsoft.com/azure/securi
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: Azure Event Hubs는 AZURE ACTIVE DIRECTORY (AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있도록 지원 합니다. Azure AD를 사용 하면 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
+**지침**: Azure Event Hubs는 AZURE ACTIVE DIRECTORY (AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있도록 지원 합니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
 
-Azure Event Hubs에 대 한 Azure AD RBAC 및 사용 가능한 역할 이해: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Azure Event Hubs에 대 한 Azure RBAC 및 사용 가능한 역할 이해: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -970,7 +970,7 @@ Azure Event Hubs에 대 한 지역 재해 복구 이해: https://docs.microsoft.
 
 **지침**: azure Event Hubs는 azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs는 Azure Storage를 사용 하 여 데이터를 저장 하 고, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. Azure Key Vault를 사용 하 여 고객이 관리 하는 키를 저장 하는 경우 키의 자동 백업을 정기적으로 수행 해야 합니다.
 
-다음 PowerShell 명령을 사용 하 여 Key Vault 암호를 정기적으로 자동 백업 하도록 합니다. Backup-AzKeyVaultSecret
+다음 PowerShell 명령을 사용 하 여 Key Vault 암호의 자동 백업을 정기적으로 수행 하세요. Backup-AzKeyVaultSecret
 
 미사용 Azure Event Hubs 데이터를 암호화 하기 위해 고객이 관리 하는 키를 구성 하는 방법: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 

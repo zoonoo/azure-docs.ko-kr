@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect 및 Connect Health란? | Microsoft Docs
-description: Azure AD로 온-프레미스 환경을 동기화하고 모니터링하는 데 사용된 도구를 설명합니다.
+description: Azure AD로 온-프레미스 환경을 동기화하고 모니터링하는 데 사용되는 도구에 대해 알아봅니다.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02a30aa4d553910c52a7dde89719450baf9037ce
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 74a6c816979732e21813a0f2024167c68ca1c5dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278839"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874103"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect란?
 
@@ -35,7 +35,7 @@ Azure AD Connect는 하이브리드 ID 목표를 충족하고 달성하도록 �
 
 ## <a name="what-is-azure-ad-connect-health"></a>Azure AD Connect Health란?
 
-Azure AD(Azure Active Directory) Connect Health에서는 온-프레미스 ID 인프라에 대한 강력한 모니터링을 제공합니다. 이 기능을 사용하면 Office 365 및 Microsoft Online Services에 대한 신뢰할 수 있는 연결을 유지 관리할 수 있습니다.  핵심 ID 구성 요소에 대한 모니터링 기능을 통해 이러한 신뢰성을 보장합니다. 또한 이러한 구성 요소에 대한 핵심 데이터 요소에 쉽게 액세스할 수 있습니다.
+Azure AD(Azure Active Directory) Connect Health에서는 온-프레미스 ID 인프라에 대한 강력한 모니터링을 제공합니다. 이 기능을 사용하면 Microsoft 365 및 Microsoft Online Services에 대한 신뢰할 수 있는 연결을 유지 관리할 수 있습니다.  핵심 ID 구성 요소에 대한 모니터링 기능을 통해 이러한 신뢰성을 보장합니다. 또한 이러한 구성 요소에 대한 핵심 데이터 요소에 쉽게 액세스할 수 있습니다.
 
 정보는 [Azure AD Connect Health 포털](https://aka.ms/aadconnecthealth)에 표시됩니다. Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링, 사용량 현황 분석, 기타 정보를 확인합니다. Azure AD Connect Health는 핵심 ID 구성 요소의 상태를 한 곳에서 볼 수 있게 해주는 단일 렌즈의 역할을 합니다.
 
@@ -44,7 +44,7 @@ Azure AD(Azure Active Directory) Connect Health에서는 온-프레미스 ID 인
 ## <a name="why-use-azure-ad-connect"></a>Azure AD Connect를 사용하는 이유
 Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 클라우드 리소스 모두에 액세스하기 위한 일반적인 ID를 제공하므로 사용자가 더 생산성을 높일 수 있습니다. 사용자와 조직은 다음과 같은 이점을 얻을 수 있습니다.
 
-* 사용자는 단일 ID를 사용하여 온-프레미스 애플리케이션 및 Office 365와 같은 클라우드 서비스에 액세스할 수 있습니다.
+* 사용자는 단일 ID를 사용하여 온-프레미스 애플리케이션 및 Microsoft 365와 같은 클라우드 서비스에 액세스할 수 있습니다.
 * 동기화 및 로그인에 대해 간편한 배포 환경을 제공하는 단일 도구입니다.
 * 시나리오에 대한 최신 기능을 제공합니다. Azure AD Connect는 DirSync 및 Azure AD Sync와 같은 이전 버전의 ID 통합 도구를 대체합니다. 자세한 내용은 [하이브리드 ID 디렉터리 통합 도구 비교](plan-hybrid-identity-design-considerations-tools-comparison.md)를 참조하세요.
 
@@ -59,7 +59,7 @@ AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012,
 |-----|-----|
 |향상된 보안|[엑스트라넷 잠금 추세](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[실패한 로그인 보고서](how-to-connect-health-adfs-risky-ip.md)</br>[개인 정보 보호 준수](reference-connect-health-user-privacy.md)|
 |[모든 심각한 ADFS 시스템 문제](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)에 대한 알림 받기|서버 구성 및 가용성</br>[성능 및 연결](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>정기적인 유지 관리|
-|쉬운 배포 및 관리|[빠른 에이전트 설치](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>최신 에이전트 자동 업그레이드</br>몇 분 안에 포털에서 사용 가능한 데이터|
+|쉬운 배포 및 관리|[빠른 에이전트 설치](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>최신 에이전트 자동 업그레이드</br>몇 분 안에 포털에서 사용 가능한 데이터|
 다양한 [사용량 메트릭](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|상위 애플리케이션 사용량</br>네트워크 위치 및 TCP 연결</br>서버당 토큰 요청|
 |멋진 사용자 환경|Azure Portal에서 대시보드 방식</br>[이메일 경고](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 

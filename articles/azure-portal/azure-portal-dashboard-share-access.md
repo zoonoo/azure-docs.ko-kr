@@ -1,26 +1,17 @@
 ---
-title: 역할 기반 Access Control를 사용 하 여 Azure Portal 대시보드 공유
-description: 이 문서에서는 역할 기반 Access Control을 사용하여 Azure Portal에서 대시보드를 공유하는 방법을 설명합니다.
-services: azure-portal
-documentationcenter: ''
-author: mgblythe
-manager: mtillman
+title: Azure 역할 기반 액세스 제어를 사용 하 여 Azure Portal 대시보드 공유
+description: 이 문서에서는 Azure 역할 기반 액세스 제어를 사용 하 여 Azure Portal에서 대시보드를 공유 하는 방법을 설명 합니다.
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: de2efd75d07c3dc7df771aad1bd9c73453dad212
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923886"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745981"
 ---
-# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 Access Control을 사용하여 Azure 대시보드 공유
+# <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어를 사용 하 여 Azure 대시보드 공유
 
 대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 다른 사용자가 대시보드를 볼 수 있도록 허용 합니다. 사용자 또는 사용자 그룹을 역할에 할당 합니다. 해당 역할은 해당 사용자가 게시 된 대시보드를 보거나 수정할 수 있는지 여부를 정의 합니다.
 
@@ -33,7 +24,7 @@ ms.locfileid: "87923886"
 
 ## <a name="understanding-access-control-for-dashboards"></a>대시보드에 대한 액세스 제어 이해
 
-RBAC(역할 기반 Access Control)를 사용하여 세 개의 다른 수준 범위로 역할에 사용자를 할당할 수 있습니다.
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 세 가지 범위의 범위에서 사용자를 역할에 할당할 수 있습니다.
 
 * subscription
 * 리소스 그룹
@@ -51,15 +42,15 @@ Azure 구독을 보유하고 구독의 *소유자*, *참여자* 또는 *읽기 �
 
 액세스를 할당하기 전에 대시보드를 게시해야 합니다.
 
-1. 대시보드에서 **공유**를 선택합니다.
+1. 대시보드에서 **공유** 를 선택합니다.
 
     ![대시보드에 대해 공유를 선택 합니다.](./media/azure-portal-dashboard-share-access/share-dashboard-for-access-control.png)
 
-1. **공유 + access control**에서 **게시**를 선택 합니다.
+1. **공유 + access control** 에서 **게시** 를 선택 합니다.
 
     ![대시보드 게시](./media/azure-portal-dashboard-share-access/publish-dashboard-for-access-control.png)
 
-     기본적으로 공유는 대시보드를 **대시보드**라는 리소스 그룹에 게시 합니다. 다른 리소스 그룹을 선택 하려면 확인란의 선택을 취소 합니다.
+     기본적으로 공유는 대시보드를 **대시보드** 라는 리소스 그룹에 게시 합니다. 다른 리소스 그룹을 선택 하려면 확인란의 선택을 취소 합니다.
 
 대시보드가 이제 게시되었습니다. 구독에서 상속 된 권한이 적절 한 경우 더 이상 작업을 수행할 필요가 없습니다. 조직의 다른 사용자는 구독 수준 역할에 따라 대시보드에 액세스 하 고 수정할 수 있습니다.
 
@@ -67,25 +58,25 @@ Azure 구독을 보유하고 구독의 *소유자*, *참여자* 또는 *읽기 �
 
 해당 대시보드에 대 한 역할에 사용자 그룹을 할당할 수 있습니다.
 
-1. 대시보드를 게시 한 후 **공유 또는 공유** 해제 **옵션을** 선택 하 여 **공유 + 액세스 제어**에 액세스 합니다.
+1. 대시보드를 게시 한 후 **공유 또는 공유** 해제 **옵션을** 선택 하 여 **공유 + 액세스 제어** 에 액세스 합니다.
 
-1. **공유 + 액세스 제어**에서 **사용자 관리**를 선택 합니다.
+1. **공유 + 액세스 제어** 에서 **사용자 관리** 를 선택 합니다.
 
     ![대시보드에 대 한 사용자 관리](./media/azure-portal-dashboard-share-access/manage-users-for-access-control.png)
 
 1. **역할 할당** 을 선택 하 여이 대시보드의 역할이 이미 할당 된 기존 사용자를 확인 합니다.
 
-1. 새 사용자 또는 그룹을 추가 하려면 **추가** 를 선택 하 고 **역할 할당 추가**를 선택 합니다.
+1. 새 사용자 또는 그룹을 추가 하려면 **추가** 를 선택 하 고 **역할 할당 추가** 를 선택 합니다.
 
     ![대시보드에 액세스 하기 위한 사용자 추가](./media/azure-portal-dashboard-share-access/manage-users-existing-users.png)
 
-1. 부여할 권한을 나타내는 역할을 선택 합니다. 이 예에서는 **참가자**를 선택합니다.
+1. 부여할 권한을 나타내는 역할을 선택 합니다. 이 예에서는 **참가자** 를 선택합니다.
 
 1. 역할에 할당할 사용자 또는 그룹을 선택 합니다. 목록에서 찾으려는 사용자나 그룹이 표시 되지 않는 경우 검색 상자를 사용 합니다. 사용 가능한 그룹 목록은 Active Directory에서 만든 그룹에 따라 달라 집니다.
 
-1. 사용자 또는 그룹을 추가 하는 작업이 완료 되 면 **저장**을 선택 합니다.
+1. 사용자 또는 그룹을 추가 하는 작업이 완료 되 면 **저장** 을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 역할 목록은 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
-* 리소스를 관리 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 리소스 관리](resource-group-portal.md)를 참조 하세요.
+* 리소스를 관리 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 리소스 관리](../azure-resource-manager/management/manage-resources-portal.md)를 참조 하세요.

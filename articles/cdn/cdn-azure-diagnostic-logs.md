@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191276"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352119"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>진단 로그-Azure Content Delivery Network
 
@@ -59,11 +59,11 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 스토리지 계정을 사용하여 로그를 저장하려면 아래 단계를 따릅니다.
 
  >[!NOTE] 
- >이러한 단계를 완료 하려면 저장소 계정이 필요 합니다. 자세한 내용은 **[Azure Storage 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** 를 참조 하세요.
+ >이러한 단계를 완료 하려면 저장소 계정이 필요 합니다. 자세한 내용은 **[Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** 를 참조 하세요.
     
-1. **진단 설정 이름**에 진단 로그 설정의 이름을 입력 합니다.
+1. **진단 설정 이름** 에 진단 로그 설정의 이름을 입력 합니다.
  
-2. **스토리지 계정에 보관**을 선택한 다음, **CoreAnalytics**을 선택합니다. 
+2. **스토리지 계정에 보관** 을 선택한 다음, **CoreAnalytics** 을 선택합니다. 
 
 3. **보존(일)** 의 경우 보존 일 수를 선택합니다. 0일의 보존 기간은 로그를 무기한 저장합니다. 
 
@@ -71,41 +71,41 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 
     :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="진단 로그-저장소." border="true":::
 
-3. **저장**을 선택합니다.
+3. **저장** 을 선택합니다.
 
 ### <a name="send-to-log-analytics"></a>Log Analytics에 보내기
 
 로그에 Log Analytics을 사용 하려면 다음 단계를 수행 합니다.
 
 >[!NOTE] 
->이러한 단계를 완료 하려면 log analytics 작업 영역이 필요 합니다. 자세한 내용은 **[Azure Portal에서 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** 를 참조 하세요.
+>이러한 단계를 완료 하려면 log analytics 작업 영역이 필요 합니다. 자세한 내용은 **[Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)** 를 참조 하세요.
     
-1. **진단 설정 이름**에 진단 로그 설정의 이름을 입력 합니다.
+1. **진단 설정 이름** 에 진단 로그 설정의 이름을 입력 합니다.
 
-2. **Log Analytics 보내기를 선택 하**고 **CoreAnalytics**를 선택 합니다. 
+2. **Log Analytics 보내기를 선택 하** 고 **CoreAnalytics** 를 선택 합니다. 
 
 3. 로그에 대 한 구독 및 Log Analytics 작업 영역을 선택 합니다.
 
    :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="진단 로그-Log Analytics." border="true":::
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 ### <a name="stream-to-an-event-hub"></a>이벤트 허브로 스트림
 
 로그에 이벤트 허브를 사용 하려면 다음 단계를 수행 합니다.
 
 >[!NOTE] 
->이러한 단계를 완료 하려면 이벤트 허브가 필요 합니다. 자세한 내용은 **[빠른 시작: Azure Portal을 사용 하 여 이벤트 허브 만들기](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** 를 참조 하세요.
+>이러한 단계를 완료 하려면 이벤트 허브가 필요 합니다. 자세한 내용은 **[빠른 시작: Azure Portal을 사용 하 여 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)** 를 참조 하세요.
     
-1. **진단 설정 이름**에 진단 로그 설정의 이름을 입력 합니다.
+1. **진단 설정 이름** 에 진단 로그 설정의 이름을 입력 합니다.
 
-2. **이벤트 허브로 스트림**을 선택한 다음 **CoreAnalytics**를 선택 합니다. 
+2. **이벤트 허브로 스트림** 을 선택한 다음 **CoreAnalytics** 를 선택 합니다. 
 
 3. 로그에 대 한 구독 및 이벤트 허브 네임 스페이스를 선택 합니다.
 
    :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="진단 로그-이벤트 허브" border="true":::
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 
 ## <a name="enable-logging-with-powershell"></a>PowerShell을 통해 로깅을 사용하도록 설정
@@ -187,7 +187,7 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 ### <a name="using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer 사용
 도구를 다운로드하려면 [Azure Storage Explorer](https://storageexplorer.com/)를 참조하세요. 소프트웨어를 다운로드하여 설치한 후에는 CDN 진단 로그의 대상으로 구성된 동일한 Azure Storage 계정을 사용하도록 구성합니다.
 
-1.  **Microsoft Azure Storage Explorer**를 엽니다.
+1.  **Microsoft Azure Storage Explorer** 를 엽니다.
 2.  스토리지 계정을 찾습니다.
 3.  이 스토리지 계정 아래의 **Blob 컨테이너** 노드를 확장합니다.
 4.  *“insights-logs-coreanalytics”* 라는 컨테이너를 선택합니다.
@@ -229,7 +229,7 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 
 ## <a name="log-data-delays"></a>로그 데이터 지연
 
-다음 표에는 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준** 및 **Verizon의 Azure CDN 표준/프리미엄**에 대한 로그 데이터 지연이 표시됩니다.
+다음 표에는 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준** 및 **Verizon의 Azure CDN 표준/프리미엄** 에 대한 로그 데이터 지연이 표시됩니다.
 
 Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로그 데이터 지연
 --- | --- | ---
@@ -242,8 +242,8 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 ### <a name="core-analytics-metrics-details"></a>핵심 분석 메트릭 정보
 다음 표에서는의 핵심 분석 로그에서 사용할 수 있는 메트릭의 목록을 보여 줍니다.
 
-* **Microsoft의 Azure CDN Standard**
-* **Akamai의 Azure CDN Standard**
+* **Microsoft의 Azure CDN 표준**
+* **Akamai의 Azure CDN 표준**
 * **Verizon의 Azure CDN Standard/Premium**
 
 모든 공급자의 모든 메트릭을 사용할 수 있는 것은 아니지만 이러한 차이는 미미합니다. 이 표에는 지정된 메트릭을 공급자에서 사용할 수 있는지 여부도 나와 있습니다. 메트릭은 트래픽이 있는 해당 CDN 엔드포인트에 대해서만 사용할 수 있습니다.
@@ -257,27 +257,27 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 | RequestCountHttpStatus4xx | 4xx HTTP 코드(예: 400, 404)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
 | RequestCountHttpStatus5xx | 5xx HTTP 코드(예: 500, 504)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
 | RequestCountHttpStatusOthers | 다른 모든 HTTP 코드의 수(2xx-5xx 이외)입니다. | 예 | 예 |예 |
-| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | 예 | 예 | 아니요  |
-| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트와 가장 가까운 POP에서 찾을 수 없고 원본에서 검색 했음을 의미 합니다. | 예 | 예 | 아니요 |
-| RequestCountCacheNoCache | 에 지에 대 한 사용자 구성 때문에 캐시 되지 못하도록 방지 된 자산에 대 한 모든 요청의 수입니다. | 예 | 예 | 아니요 |
-| RequestCountCacheUncacheable | 자산의 Cache-control 및 Expires 헤더에 의해 캐시 되지 못하도록 하는 자산에 대 한 모든 요청의 수입니다. 이 개수는 POP 또는 HTTP 클라이언트에 의해 캐시 되지 않아야 함을 나타냅니다. | 예 | 예 | 아니요 |
-| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 아니요 | 예 | 아니요  |
+| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | 예 | 예 | 예  |
+| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트와 가장 가까운 POP에서 찾을 수 없고 원본에서 검색 했음을 의미 합니다. | 예 | 예 | 예 |
+| RequestCountCacheNoCache | 에 지에 대 한 사용자 구성 때문에 캐시 되지 못하도록 방지 된 자산에 대 한 모든 요청의 수입니다. | 예 | 예 | 예 |
+| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시 되지 못하도록 하는 자산에 대 한 모든 요청의 수입니다. 이 개수는 POP 또는 HTTP 클라이언트에 의해 캐시 되지 않아야 함을 나타냅니다. | 예 | 예 | 예 |
+| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 예 | 예 | 예  |
 | EgressTotal | 아웃바운드 데이터 전송(GB) | 예 |예 |예 |
-| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | 예 | 예 | 아니요  |
-| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요 |
-| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아니요 |
-| EgressCacheMiss. | 가장 가까운 POP 서버에서 찾을 수 없고 원본 서버에서 검색 된 응답에 대 한 아웃 바운드 데이터 전송입니다. | 예 | 예 | 아니요 |
-| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시 되지 않도록 방지 된 자산에 대 한 아웃 바운드 데이터 전송. | 예 | 예 | 아니요 |
-| EgressCacheUncacheable | 자산의 Cache 컨트롤 및 또는 Expires 헤더에 의해 캐시 되지 못하도록 방지 된 자산에 대 한 아웃 바운드 데이터 전송. POP 또는 HTTP 클라이언트에 의해 캐시 되지 않아야 함을 나타냅니다. | 예 | 예 | 아니요 |
-| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 아니요 | 예 | 아니요 |
+| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | 예 | 예 | 예  |
+| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 예  |
+| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 예  |
+| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 예 |
+| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 예  |
+| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 예 |
+| EgressCacheMiss. | 가장 가까운 POP 서버에서 찾을 수 없고 원본 서버에서 검색 된 응답에 대 한 아웃 바운드 데이터 전송입니다. | 예 | 예 | 예 |
+| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시 되지 않도록 방지 된 자산에 대 한 아웃 바운드 데이터 전송. | 예 | 예 | 예 |
+| EgressCacheUncacheable | 자산의 Cache-Control 및 또는 Expires 헤더에 의해 캐시 되지 못하도록 하는 자산에 대 한 아웃 바운드 데이터 전송. POP 또는 HTTP 클라이언트에 의해 캐시 되지 않아야 함을 나타냅니다. | 예 | 예 | 예 |
+| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 예 | 예 | 예 |
 
 * 아웃바운드 데이터 전송은 CDN POP 서버에서 클라이언트로 전달되는 트래픽을 나타냅니다.
 
@@ -329,7 +329,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 }
 ```
 
-여기서 *time*은 통계가 보고되는 시간 범위의 시작 시간을 나타냅니다. CDN 공급자가 지원 하지 않는 메트릭에는 double 또는 정수 값 대신 null 값이 생성 됩니다. 이 null 값은 메트릭이 없음을 나타내며 값 0과는 다릅니다. 도메인당 이러한 메트릭 집합 하나는 끝점에서 구성 됩니다.
+여기서 *time* 은 통계가 보고되는 시간 범위의 시작 시간을 나타냅니다. CDN 공급자가 지원 하지 않는 메트릭에는 double 또는 정수 값 대신 null 값이 생성 됩니다. 이 null 값은 메트릭이 없음을 나타내며 값 0과는 다릅니다. 도메인당 이러한 메트릭 집합 하나는 끝점에서 구성 됩니다.
 
 예제 속성은 다음과 같습니다.
 
@@ -369,14 +369,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Azure CDN 보조 포털을 통한 핵심 분석](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Azure 진단 로그](../azure-monitor/platform/platform-logs-overview.md)
+* [Azure CDN 보조 포털을 통한 핵심 분석](./cdn-analyze-usage-patterns.md)
+* [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Log Analytics REST API](/rest/api/loganalytics)

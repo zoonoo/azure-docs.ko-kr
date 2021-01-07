@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132758"
 ---
 # <a name="offline-evaluation"></a>오프라인 평가
@@ -53,7 +53,7 @@ Personalizer는 오프라인 평가 프로세스를 사용하여 최적의 학�
 | 학습 설정 | 목적|
 |--|--|
 |**온라인 정책**| Personalizer에서 사용되는 현재 학습 정책입니다. |
-|**기준**|응용 프로그램의 기본 (순위 호출에서 보낸 첫 번째 작업에 의해 결정 됨)|
+|**기초**|응용 프로그램의 기본 (순위 호출에서 보낸 첫 번째 작업에 의해 결정 됨)|
 |**임의 정책**|제공된 작업 중에서 항상 임의의 작업을 선택하여 반환하는 가상 순위 동작입니다.|
 |**사용자 지정 정책**|평가를 시작할 때 업로드되는 추가 학습 정책입니다.|
 |**최적화 된 정책**|최적화된 정책을 검색하는 옵션을 사용하여 평가를 시작한 경우 최적화된 정책 비교가 수행되며, 최적화된 정책을 다운로드하거나 온라인 학습 정책으로 만들어서 현재 정책을 대체할 수 있습니다.|

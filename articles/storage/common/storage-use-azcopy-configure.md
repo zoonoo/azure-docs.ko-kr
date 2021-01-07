@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037187"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897861"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -23,18 +23,18 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 > AzCopy을 시작 하는 데 도움이 되는 콘텐츠를 찾고 있는 경우 다음 문서를 참조 하세요.
 > - [AzCopy 시작](storage-use-azcopy-v10.md)
 > - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
-> - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+> - [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 > - [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>프록시 설정 구성
 
-AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변수를 설정 합니다. Windows에서 AzCopy를 실행하는 경우 AzCopy가 프록시 설정을 자동으로 검색하므로 Windows에서 이 설정을 사용할 필요가 없습니다. Windows에서 이 설정을 사용하도록 선택하면 자동 검색이 재정의됩니다.
+AzCopy에 대 한 프록시 설정을 구성 하려면 `HTTPS_PROXY` 환경 변수를 설정 합니다. Windows에서 AzCopy를 실행하는 경우 AzCopy가 프록시 설정을 자동으로 검색하므로 Windows에서 이 설정을 사용할 필요가 없습니다. Windows에서 이 설정을 사용하도록 선택하면 자동 검색이 재정의됩니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
-| **Windows** | 명령 프롬프트에서 다음을 사용 합니다.`set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell에서 다음을 사용 합니다.`$env:https_proxy="<proxy IP>:<proxy port>"`|
-| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | 명령 프롬프트에서 다음을 사용 합니다. `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> PowerShell에서 다음을 사용 합니다. `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
+| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
 현재 AzCopy는 NTLM 또는 Kerberos 인증을 요구 하는 프록시를 지원 하지 않습니다.
 
@@ -42,7 +42,7 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 
 Windows에서 AzCopy를 실행 하는 경우 설정을 자동으로 검색 하는 대신 프록시를 사용 _하지 않도록_ 지시 하려면 이러한 명령을 사용 합니다. 이러한 설정을 사용 하면 AzCopy는 프록시를 조회 하거나 사용 하지 않습니다.
 
-| 운영 체제 | Environment | 명령  |
+| 운영 체제 | 환경 | 명령  |
 |--------|-----------|----------|
 | **Windows** | 명령 프롬프트 (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
 | **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
@@ -191,7 +191,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 
 | 운영 체제 | 명령  |
 |--------|-----------|
-| **Windows** | 슬래시`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> 명령 프롬프트에서 다음을 사용 합니다.`set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Windows** | 슬래시`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> 명령 프롬프트에서 다음을 사용 합니다. `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
@@ -203,7 +203,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 
 | 운영 체제 | 명령  |
 |--------|-----------|
-| **Windows** | 슬래시`$env:AZCOPY_LOG_LOCATION="<value>"` <br> 명령 프롬프트에서 다음을 사용 합니다.`set AZCOPY_LOG_LOCATION=<value>`|
+| **Windows** | 슬래시`$env:AZCOPY_LOG_LOCATION="<value>"` <br> 명령 프롬프트에서 다음을 사용 합니다. `set AZCOPY_LOG_LOCATION=<value>`|
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 

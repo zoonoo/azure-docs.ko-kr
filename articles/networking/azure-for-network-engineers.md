@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516110"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861403"
 ---
 # <a name="azure-for-network-engineers"></a>네트워크 엔지니어를 위한 Azure
 기존 네트워크 엔지니어는 라우터, 스위치, 케이블, 방화벽과 같은 물리적 자산을 처리 하 여 인프라를 구축 했습니다. 논리 계층에서 VLAN (가상 LAN), STP (스패닝 트리 프로토콜), 라우팅 프로토콜 (RIP, OSPF, BGP)을 구성 했습니다. 관리 도구 및 CLI를 사용 하 여 네트워크를 관리 했습니다. 클라우드의 네트워킹은 네트워크 끝점이 논리적 이며 라우팅 프로토콜을 사용 하는 것과는 다릅니다. Azure에서 자산을 구성 하 고 관리 하기 위해 Azure Resource Manager API, Azure CLI 및 PowerShell을 사용 합니다. Azure 네트워킹의 기본 테 넌 트를 이해 하 여 클라우드에서 네트워크 경험을 시작 합니다. 
@@ -67,7 +67,7 @@ Azure에서 가상 네트워크를 만들 때 IP 범위 (10.0.0.0/16)로 미리 
 
 ## <a name="security"></a>보안
 
-네트워크 보안 그룹을 사용 하 여 가상 네트워크의 리소스와의 네트워크 트래픽을 필터링 할 수 있습니다. 또한 Azure 방화벽 또는 다른 공급 업체의 방화벽과 같은 NVA (네트워크 가상 어플라이언스)를 사용 cane 합니다. Azure에서 서브넷의 트래픽을 라우팅하는 방법을 제어할 수 있습니다. 또한 조직에서 가상 네트워크의 리소스를 사용할 수 있는 사람을 제한할 수 있습니다.
+네트워크 보안 그룹을 사용 하 여 가상 네트워크의 리소스와의 네트워크 트래픽을 필터링 할 수 있습니다. 또한 Azure 방화벽 또는 다른 공급 업체의 방화벽과 같은 NVA (네트워크 가상 어플라이언스)를 사용할 수 있습니다. Azure에서 서브넷의 트래픽을 라우팅하는 방법을 제어할 수 있습니다. 또한 조직에서 가상 네트워크의 리소스를 사용할 수 있는 사람을 제한할 수 있습니다.
 
 NSG(네트워크 보안 그룹)에는 서브넷, NIC 또는 둘 모두에 대한 네트워크 트래픽을 허용하거나 거부하는 ACL(Access Control 목록) 규칙 목록이 포함되어 있습니다. NSG는 서브넷 또는 서브넷에 연결된 개별 NIC와 연결될 수 있습니다. NSG를 서브넷과 연결하는 경우 ACL 규칙이 해당 서브넷의 모든 VM에 적용됩니다. 또한 NSG를 NIC에 직접 연결하여 개별 NIC에 대한 트래픽을 제한할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792434"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91565074"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Azure Logic Apps에 대한 통합 계정에 거래 업체 추가
 
@@ -27,7 +27,7 @@ ms.locfileid: "74792434"
 
 규약에서 호스트 파트너의 관점에서 들어오고 나가는 메시지 처리에 대 한 세부 정보를 지정 합니다. 들어오는 메시지의 경우 **수신 설정은** 호스트 파트너가 규약의 게스트 파트너 로부터 메시지를 수신 하는 방법을 지정 합니다. 보내는 메시지의 경우 **송신 설정은** 호스트 파트너가 게스트 파트너에 게 메시지를 보내는 방법을 지정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "74792434"
 
 1. **파트너** 타일을 선택합니다.
 
-   ![“파트너” 타일 선택](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
+   ![파트너 타일을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
 1. **파트너**에서 **추가**를 선택합니다. **파트너 추가**에서 아래 표에 설명 된 대로 파트너의 세부 정보를 제공 합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "74792434"
    | **파트너 분류** | 아니요 | 파트너의 조직 유형입니다. |
    | **공급망 코드** | 아니요 | 파트너의 공급망 코드 (예: "정보 기술" 또는 "전자 구성 요소") |
    | **연락처 이름** | 아니요 | 파트너의 연락처 이름입니다. |
-   | **전자 메일** | 아니요 | 파트너의 전자 메일 주소 |
+   | **이메일** | 아니요 | 파트너의 전자 메일 주소 |
    | **Fax** | 아니요 | 파트너의 팩스 번호 |
    | **Telephone** | 아니요 | 파트너의 전화 번호입니다. |
    ||||
@@ -100,7 +100,7 @@ ms.locfileid: "74792434"
 
 1. [Azure Portal](https://portal.azure.com)에서 통합 계정을 찾고 선택합니다. **파트너** 타일을 선택합니다.
 
-   ![“파트너” 타일 선택](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+   ![파트너를 삭제 하려는 경우 선택한 파트너 타일을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
 1. **파트너**에서 삭제할 파트너를 선택합니다. **삭제**를 선택 합니다.
 

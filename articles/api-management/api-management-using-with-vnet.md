@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/22/2020
+ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489625"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107654"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -46,14 +46,15 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Azure Portal을 사용하여 VNET 연결 사용
 
-1. [Azure Portal](https://portal.azure.com)로 이동하여 API Management 인스턴스를 찾습니다. **API Management 서비스**를 검색하고 선택합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동하여 API Management 인스턴스를 찾습니다. **API Management 서비스** 를 검색하고 선택합니다.
 
 2. API Management 인스턴스를 선택합니다.
 
-3. **가상 네트워크**를 선택합니다.
+3. **가상 네트워크** 를 선택합니다.
 4. API Management 인스턴스를 가상 네트워크 내부에 배포되도록 구성합니다.
 
-    ![API Management의 가상 네트워크 메뉴][api-management-using-vnet-menu]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Azure Portal에서 가상 네트워크를 선택 합니다.":::
+    
 5. 원하는 액세스 유형을 선택합니다.
 
     * **Off**: 이것이 기본값입니다. API Management가 가상 네트워크에 배포되지 않습니다.
@@ -66,27 +67,28 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
         ![프라이빗 피어링][api-management-vnet-private]
 
-6. **외부** 또는 **내부**를 선택한 경우 API Management 서비스가 프로비저닝되는 모든 지역 목록이 표시됩니다. **위치**을 선택한 다음, **가상 네트워크**를 선택하고 **서브넷**을 선택합니다. 가상 네트워크 목록은 사용자가 구성하고 있는 하위 지역에 설정된 Azure 구독에서 사용할 수 있는 클래식 및 Resource Manager 가상 네트워크로 채워집니다.
+6. **외부** 또는 **내부** 를 선택한 경우 API Management 서비스가 프로비저닝되는 모든 지역 목록이 표시됩니다. **위치** 을 선택한 다음, **가상 네트워크** 를 선택하고 **서브넷** 을 선택합니다. 가상 네트워크 목록은 사용자가 구성하고 있는 하위 지역에 설정된 Azure 구독에서 사용할 수 있는 클래식 및 Resource Manager 가상 네트워크로 채워집니다.
 
     > [!IMPORTANT]
     > Resource Manager VNET에 Azure API Management 인스턴스를 배포할 때 서비스는 Azure API Management 인스턴스를 제외한 다른 리소스가 포함되어 있는 전용 서브넷에 있어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
 
-    그런 다음, **적용**을 선택합니다. API Management 인스턴스의 **가상 네트워크** 페이지가 새 가상 네트워크 및 선택한 서브넷 항목으로 업데이트됩니다.
+    그런 다음, **적용** 을 선택합니다. API Management 인스턴스의 **가상 네트워크** 페이지가 새 가상 네트워크 및 선택한 서브넷 항목으로 업데이트됩니다.
 
-    ![VPN 선택][api-management-setup-vpn-select]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="포털의 가상 네트워크 설정":::
 
-7. 위쪽 탐색 모음에서 **저장**을 선택하고 **네트워크 구성 적용**을 선택합니다.
+7. 위쪽 탐색 모음에서 **저장** 을 선택하고 **네트워크 구성 적용** 을 선택합니다.
 
 > [!NOTE]
 > API Management 인스턴스의 VIP 주소는 VNET이 활성화되거나 비활성화될 때마다 변경됩니다.
-> VIP 주소는 API Management를 **외부**에서 **내부**로 또는 그 반대로 이동할 때도 변경됩니다.
+> VIP 주소는 API Management를 **외부** 에서 **내부** 로 또는 그 반대로 이동할 때도 변경됩니다.
 >
 
 > [!IMPORTANT]
 > VNET에서 API Management를 제거하거나 배포된 것을 변경할 경우 이전에 사용한 VNET은 최대 6시간 동안 잠긴 상태를 유지할 수 있습니다. 이 기간에는 VNET를 삭제하거나 새 리소스를 배포할 수 없게 됩니다. 이 동작은 api-version 2018-01-01 및 이전 버전을 사용하는 클라이언트에 적용됩니다. api-version 2019-01-01 이상을 사용하는 클라이언트에서 VNET은 연결된 API Management 서비스가 삭제되는 즉시 해제됩니다.
 
-## <a name="enable-vnet-connection-using-powershell-cmdlets"></a><a name="enable-vnet-powershell"> </a>PowerShell cmdlet을 사용하여 VNET 연결 사용
-PowerShell cmdlet을 사용하여 VNET 연결을 사용하도록 설정할 수도 있습니다.
+## <a name="deploy-api-management-into-external-vnet"></a><a name="deploy-apim-external-vnet"> </a>외부 VNET에 API Management 배포
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
 
 * **VNET 내에서 API Management 서비스 만들기**: cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement)를 사용하여 VNET 내에서 Azure API Management 서비스를 만듭니다.
 
@@ -109,13 +111,14 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 <a name="required-ports"> </a> API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다.
 
-| 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/security-overview.md#service-tags) <br> 원본 / 대상   | 목적(\*)                                                 | 가상 네트워크 유형 |
+| 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) <br> 원본 / 대상   | 목적(\*)                                                 | 가상 네트워크 유형 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대한 클라이언트 통신                      | 외부             |
 | * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 PowerShell용 관리 엔드포인트         | 외부 및 내부  |
 | * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | **Azure Storage에 대한 종속성**                             | 외부 및 내부  |
-| * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md)(해당되는 경우)                   | 외부 및 내부  |
+| * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) 및 Azure keyvault 종속성                  | 외부 및 내부  |
 | * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
+| */433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Azure KeyVault에 대 한 액세스**                           | 외부 및 내부  |
 | * / 5671, 5672, 443          | 아웃바운드           | TCP                | VIRTUAL_NETWORK / EventHub            | [이벤트 허브에 로그 정책](api-management-howto-log-event-hubs.md) 및 모니터링 에이전트의 종속성 | 외부 및 내부  |
 | * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | [GIT](api-management-configuration-repository-git.md)의 Azure 파일 공유에 대한 종속성                      | 외부 및 내부  |
 | */443, 12000                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureCloud            | 상태 및 모니터링 확장         | 외부 및 내부  |
@@ -123,10 +126,10 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 | */25, 587, 25028                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [캐시](api-management-caching-policies.md) 정책에 대 한 Redis 서비스 액세스         | 외부 및 내부  |
 | */4290              | 인바운드 및 아웃바운드 | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [요율 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책에 대 한 동기화 카운터         | 외부 및 내부  |
-| * / *                        | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
+| * / \*                        | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
 
 >[!IMPORTANT]
-> API Management 서비스를 성공적으로 배포하려면 *목적*이 **볼드**인 포트가 필요합니다. 그러나 다른 포트를 차단 하면 실행 중인 서비스를 사용 하 고 모니터링 하는 기능이 **저하** **되며 커밋된 SLA가 제공**됩니다.
+> API Management 서비스를 성공적으로 배포하려면 *목적* 이 **볼드** 인 포트가 필요합니다. 그러나 다른 포트를 차단 하면 실행 중인 서비스를 사용 하 고 모니터링 하는 기능이 **저하** **되며 커밋된 SLA가 제공** 됩니다.
 
 + **TLS 기능**: TLS/SSL 인증서 체인 작성 및 유효성 검사를 사용하도록 설정하려면 API Management에서 ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com으로의 아웃바운드 네트워크 연결이 필요합니다. API Management에 업로드하는 인증서에 CA 루트의 전체 체인이 포함되어 있으면 이 종속성은 필요하지 않습니다.
 
@@ -141,7 +144,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com(**신규**)</li><li>global.metrics.nsatc.net(**지원 중지될 예정**)</li><li>shoebox2.prod.microsoftmetrics.com(**신규**)</li><li>shoebox2.metrics.nsatc.net(**지원 중지될 예정**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**신규**)</li><li>prod3.metrics.nsatc.net(**지원 중지될 예정**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
-  > dns 영역이 **.nsatc.net**인 위 클러스터에서 **.microsoftmetrics.com**으로의 변경은 대부분이 DNS 변경입니다. 클러스터의 IP 주소는 변경되지 않습니다.
+  > dns 영역이 **.nsatc.net** 인 위 클러스터에서 **.microsoftmetrics.com** 으로의 변경은 대부분이 DNS 변경입니다. 클러스터의 IP 주소는 변경되지 않습니다.
 
 + **국가별 서비스 태그**: 스토리지, SQL 및 Event Hubs 서비스 태그에 대한 아웃바운드 연결을 허용하는 NSG 규칙은 API Management 인스턴스를 포함하는 지역에 해당하는 태그의 지역별 버전을 사용할 수 있습니다(예: 미국 서부 지역에 있는 API Management 인스턴스의 경우 Storage.WestUS). 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대한 서비스 태그로의 트래픽을 허용해야 합니다.
 
@@ -153,7 +156,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 + **Azure Load Balancer**: `Developer` SKU의 경우 컴퓨팅 단위를 하나만 배포하기 때문에 서비스 태그 `AZURE_LOAD_BALANCER`의 인바운드 요청을 허용할 필요가 있는 것은 아닙니다. 그러나 Load Balancer의 상태 프로브 오류로 인해 배포가 실패하므로 `Premium`와 같은 상위 SKU로 크기를 조정하는 경우에는 [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)의 인바운드는 심각한 상태가 됩니다.
 
-+ **Application Insights**: API Management에서 [Azure 애플리케이션 Insights](api-management-howto-app-insights.md) 모니터링이 사용 되는 경우 Virtual Network에서 [원격 분석 끝점](/azure/azure-monitor/app/ip-addresses#outgoing-ports) 에 대 한 아웃 바운드 연결을 허용 해야 합니다. 
++ **Application Insights**: API Management에서 [Azure 애플리케이션 Insights](api-management-howto-app-insights.md) 모니터링이 사용 되는 경우 Virtual Network에서 [원격 분석 끝점](../azure-monitor/app/ip-addresses.md#outgoing-ports) 에 대 한 아웃 바운드 연결을 허용 해야 합니다. 
 
 + **Express 경로 또는 네트워크 가상 어플라이언스를 사용하여 온-프레미스 방화벽으로 트래픽을 강제로 터널링**: 일반적인 고객 구성은 강제로 API Management 위임 서브넷의 모든 트래픽을 온-프레미스 방화벽이나 네트워크 가상 어플라이언스를 통해 흐르게 하는 자체 기본 경로(0.0.0.0/0)를 정의하는 것입니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 이 솔루션을 사용하려면 다음과 같은 몇 가지 작업을 수행해야 합니다.
 
@@ -176,9 +179,18 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
   > [!IMPORTANT]
   > 연결을 검증한 후에는 서브넷에 배포된 리소스를 모두 제거한 다음 API Management를 서비넷으로 배포합니다.
 
+* **네트워크 연결 상태 확인**: 서브넷에 API Management를 배포한 후 포털을 사용 하 여 Azure Storage와 같은 종속성에 대 한 인스턴스의 연결을 확인 합니다. 포털의 왼쪽 메뉴에 있는 **배포 및 인프라** 아래에서 **네트워크 연결 상태** 를 선택 합니다.
+
+   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="포털에서 네트워크 연결 상태 확인":::
+
+    * 필수 Azure 서비스에 대 한 연결을 검토 하려면 **필수** 를 선택 API Management 합니다. 오류는 인스턴스가 Api를 관리 하기 위한 핵심 작업을 수행할 수 없음을 나타냅니다.
+    * 옵션 **을 선택 하** 여 선택적 서비스에 대 한 연결을 검토 합니다. 모든 오류는 특정 기능 (예: SMTP)이 작동 하지 않음을 나타냅니다. 오류가 발생 하면 API Management 인스턴스를 사용 및 모니터링 하 고 커밋된 SLA를 제공 하는 기능이 저하 될 수 있습니다.
+
+연결 문제를 해결 하려면 [일반적인 네트워크 구성 문제](#network-configuration-issues) 를 검토 하 고 필요한 네트워크 설정을 수정 합니다.
+
 * **증분 업데이트**: 네트워크를 변경할 때 [NetworkStatus API](/rest/api/apimanagement/2019-12-01/networkstatus)를 참조하여 API Management 서비스에서 사용하는 중요한 리소스에 대한 액세스를 손실하지 않았는지 확인합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
 
-* **리소스 탐색 링크**: Resource Manager 스타일 vnet 서브넷으로 배포할 경우 API Management는 리소스 탐색 링크를 만들어 서브넷을 보유합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패**합니다. 마찬가지로 API Management 서비스를 다른 서브넷으로 이동하거나 삭제할 경우에는 해당 리소스 탐색 링크가 삭제됩니다.
+* **리소스 탐색 링크**: Resource Manager 스타일 vnet 서브넷으로 배포할 경우 API Management는 리소스 탐색 링크를 만들어 서브넷을 보유합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패** 합니다. 마찬가지로 API Management 서비스를 다른 서브넷으로 이동하거나 삭제할 경우에는 해당 리소스 탐색 링크가 삭제됩니다.
 
 ## <a name="subnet-size-requirement"></a><a name="subnet-size"> </a> 서브넷 크기 요구 사항
 Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
@@ -203,7 +215,7 @@ API Management의 추가 배율 단위마다 두 개의 IP 주소가 더 필요�
 
 ## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> 제어 평면 IP 주소
 
-IP 주소는 **Azure 환경**으로 구분됩니다. 허용될 경우 **전역**으로 표시된 인바운드 요청 IP 주소는 **지역**별 IP 주소와 함께 허용 목록에 추가되어야 합니다.
+IP 주소는 **Azure 환경** 으로 구분됩니다. **글로벌** 로 표시 된 인바운드 요청 ip 주소를 허용 하는 경우 **지역** 특정 ip 주소와 함께 허용 되어야 합니다.
 
 | **Azure 환경**|   **지역**|  **IP 주소**|
 |-----------------|-------------------------|---------------|
@@ -223,6 +235,7 @@ IP 주소는 **Azure 환경**으로 구분됩니다. 허용될 경우 **전역**
 | Azure 공용| 캐나다 동부| 52.139.80.117|
 | Azure 공용| 아랍에미리트 북부| 20.46.144.85|
 | Azure 공용| 브라질 남부| 191.233.24.179|
+| Azure 공용| 브라질 남동쪽| 191.232.18.181|
 | Azure 공용| 동남아시아| 40.90.185.46|
 | Azure 공용| 남아프리카 북부| 102.133.130.197|
 | Azure 공용| 캐나다 중부| 52.139.20.34|
@@ -251,11 +264,11 @@ IP 주소는 **Azure 환경**으로 구분됩니다. 허용될 경우 **전역**
 | Azure 공용| 독일 북부| 51.116.0.0|
 | Azure 공용| 노르웨이 동부| 51.120.2.185|
 | Azure 공용| 노르웨이 서부| 51.120.130.134|
-| Azure 중국 21Vianet| 중국 북부(전역)| 139.217.51.16|
-| Azure 중국 21Vianet| 중국 동부(전역)| 139.217.171.176|
-| Azure 중국 21Vianet| 중국 북부| 40.125.137.220|
-| Azure 중국 21Vianet| 중국 동부| 40.126.120.30|
-| Azure 중국 21Vianet| 중국 북부 2| 40.73.41.178|
+| Azure China 21Vianet| 중국 북부(전역)| 139.217.51.16|
+| Azure China 21Vianet| 중국 동부(전역)| 139.217.171.176|
+| Azure China 21Vianet| 중국 북부| 40.125.137.220|
+| Azure China 21Vianet| 중국 동부| 40.126.120.30|
+| Azure China 21Vianet| 중국 북부 2| 40.73.41.178|
 | Azure China 21Vianet| 중국 동부 2| 40.73.104.4|
 | Azure Government| 미 정부 버지니아(전역)| 52.127.42.160|
 | Azure Government| 미 정부 텍사스(전역)| 52.127.34.192|
@@ -271,7 +284,7 @@ IP 주소는 **Azure 환경**으로 구분됩니다. 허용될 경우 **전역**
 * [다양한 배포 모델에서 Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [API 검사기를 사용하여 Azure API Management에서 호출을 추적하는 방법](api-management-howto-api-inspector.md)
 * [가상 네트워크 FAQ(질문과 대답)](../virtual-network/virtual-networks-faq.md)
-* [서비스 태그](../virtual-network/security-overview.md#service-tags)
+* [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
@@ -284,6 +297,6 @@ IP 주소는 **Azure 환경**으로 구분됩니다. 허용될 경우 **전역**
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/security-overview.md
+[Network Security Group]: ../virtual-network/network-security-groups-overview.md
 [ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

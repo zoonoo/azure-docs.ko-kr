@@ -1,17 +1,17 @@
 ---
 title: SSL/TLS 연결-Azure Database for MySQL
 description: SSL 연결을 올바르게 사용하도록 MySQL용 Azure 데이터베이스 및 연결된 애플리케이션을 구성하는 방법에 대한 정보
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 641ff13ec440bb8267e546c54b684ab4453f91a7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 6fb0b6f38869192e89bb849950e8822a157b23c8
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052939"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241942"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 SSL/TLS 연결
 
@@ -20,8 +20,11 @@ MySQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용하여 �
 > [!NOTE]
 > `require_secure_transport`서버 매개 변수 값을 업데이트 해도 MySQL 서비스의 동작에는 영향을 주지 않습니다. 이 문서에 설명 된 SSL 및 TLS 적용 기능을 사용 하 여 데이터베이스에 대 한 연결을 보호 합니다.
 
+>[!NOTE]
+> 고객의 의견에 따라 2021 (02/15/2021)까지 기존 Baltimore 루트 CA에 대 한 루트 인증서 사용 중단을 연장 했습니다.
+
 > [!IMPORTANT] 
-> SSL 루트 인증서가 10 월 26 일 2020 (10/26/2020)부터 만료 되도록 설정 되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용 하도록 응용 프로그램을 업데이트 하십시오. 자세히 알아보려면 [계획 된 인증서 업데이트](concepts-certificate-rotation.md) 를 참조 하세요.
+> SSL 루트 인증서가 2021 (02/15/2021)부터 만료 되도록 설정 되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용 하도록 응용 프로그램을 업데이트 하십시오. 자세히 알아보려면 [계획 된 인증서 업데이트](concepts-certificate-rotation.md) 를 참조 하세요.
 
 ## <a name="ssl-default-settings"></a>SSL 기본 설정
 
@@ -29,7 +32,7 @@ MySQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용하여 �
 
 Azure Portal 및 CLI를 통해 새로운 MySQL용 Azure 데이터베이스 서버를 프로비전할 때 SSL 연결 적용이 기본적으로 활성화됩니다. 
 
-다양한 프로그래밍 언어에 대한 연결 문자열이 Azure Portal에 표시됩니다. 이러한 연결 문자열에는 데이터베이스에 연결하는 데 필요한 SSL 매개 변수가 포함되어 있습니다. Azure Portal에서 VM을 선택합니다. **설정** 제목 아래에서 **연결 문자열**을 선택합니다. SSL 매개 변수는 “ssl=true” 또는 “sslmode=require” 또는 “sslmode=required” 및 다른 변형과 같은 커넥터에 따라 달라집니다.
+다양한 프로그래밍 언어에 대한 연결 문자열이 Azure Portal에 표시됩니다. 이러한 연결 문자열에는 데이터베이스에 연결하는 데 필요한 SSL 매개 변수가 포함되어 있습니다. Azure Portal에서 VM을 선택합니다. **설정** 제목 아래에서 **연결 문자열** 을 선택합니다. SSL 매개 변수는 “ssl=true” 또는 “sslmode=require” 또는 “sslmode=required” 및 다른 변형과 같은 커넥터에 따라 달라집니다.
 
 경우에 따라 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다. 현재 고객은 미리 정의 된 인증서 **만 사용** 하 여에 있는 Azure Database for MySQL 서버에 연결할 수 있습니다 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
 
@@ -61,6 +64,17 @@ Azure Database for MySQL은 클라이언트 연결에 TLS 버전을 적용할 �
 > 최소 TLS 버전을 적용 한 후에는 나중에 최소 버전 적용을 사용 하지 않도록 설정할 수 없습니다.
 
 Azure Database for MySQL에 대 한 TLS 설정을 설정 하는 방법에 대 한 자세한 내용은 [tls 설정을 구성 하는 방법](howto-tls-configurations.md)을 참조 하세요.
+
+## <a name="cipher-support-by-azure-database-for-mysql-single-server"></a>단일 서버 Azure Database for MySQL 암호화 지원
+
+SSL/TLS 통신의 일부로 암호 그룹의 유효성을 검사 하 고 암호화 짝패만 데이터베이스 서비스와 통신할 수 있습니다. 암호 그룹 유효성 검사는 [게이트웨이 계층](concepts-connectivity-architecture.md#connectivity-architecture) 에서 제어 되며 노드 자체에서 명시적으로 제어 되지 않습니다. 암호 그룹이 아래 나열 된 도구 모음 중 하 나와 일치 하지 않으면 들어오는 클라이언트 연결이 거부 됩니다.
+
+### <a name="cipher-suite-supported"></a>지원 되는 암호 그룹
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>다음 단계
 

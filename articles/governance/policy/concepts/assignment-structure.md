@@ -4,10 +4,10 @@ description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904087"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
@@ -61,7 +61,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 속성의 값은 다음과 같습니다.
 
-|모드 |JSON 값 |형식 |수동으로 재구성 |활동 로그 항목 |설명 |
+|모드 |JSON 값 |유형 |수동으로 재구성 |활동 로그 항목 |설명 |
 |-|-|-|-|-|-|
 |사용 |기본값 |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
 |사용 안 함 |DoNotEnforce |문자열 |예 |아니요 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |

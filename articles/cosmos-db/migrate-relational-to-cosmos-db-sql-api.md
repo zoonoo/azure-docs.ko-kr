@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 860b78df8df0d3c6946785a94e40141689278cd0
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 53a3317f38cc22ffa3745f5f0e58cc01a54b825c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023145"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096753"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정으로 일 대 일 관계형 데이터 마이그레이션
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 관계형 데이터베이스에서 Azure Cosmos DB SQL API로 마이그레이션하려면 최적화를 위해 데이터 모델을 변경 해야 할 수 있습니다.
 
@@ -25,7 +26,7 @@ ms.locfileid: "86023145"
 SQL database, Orders 및 OrderDetails에는 다음과 같은 두 개의 테이블이 있다고 가정 합니다.
 
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/orders.png" alt-text="주문 정보" border="false" :::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/orders.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷" border="false" :::
 
 마이그레이션하는 동안이 일대일 관계를 하나의 JSON 문서로 결합 하려고 합니다. 이렇게 하려면 아래와 같이 "FOR JSON"을 사용 하 여 T-sql 쿼리를 만들 수 있습니다.
 
@@ -48,13 +49,13 @@ FROM Orders o;
 
 이 쿼리의 결과는 다음과 같습니다. 
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="주문 정보" lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷" lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
 
 이상적으로는 단일 Azure Data Factory (ADF) 복사 작업을 사용 하 여 SQL 데이터를 원본으로 쿼리하고 Azure Cosmos DB 싱크에 적절 한 JSON 개체로 출력을 직접 작성 하는 것이 좋습니다. 현재는 하나의 복사 작업에서 필요한 JSON 변환을 수행할 수 없습니다. 위의 쿼리 결과를 Azure Cosmos DB SQL API 컨테이너에 복사 하려고 하면 예상 되는 JSON 배열이 아니라 문서에 대 한 문자열 속성으로 OrderDetails 필드가 표시 됩니다.
 
 다음 방법 중 하나를 사용 하 여이 현재 제한을 해결할 수 있습니다.
 
-* **두 개의 복사 작업을 사용 하 여 Azure Data Factory를 사용**합니다. 
+* **두 개의 복사 작업을 사용 하 여 Azure Data Factory를 사용** 합니다. 
   1. SQL에서 중간 blob 저장소 위치의 텍스트 파일로 JSON 형식 데이터를 가져옵니다. 
   2. JSON 텍스트 파일의 데이터를 Azure Cosmos DB 컨테이너에 로드 합니다.
 
@@ -90,31 +91,25 @@ SELECT [value] FROM OPENJSON(
 )
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf1.png" alt-text="ADF 복사본":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf1.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷" 따옴표 문자 "로 설정 합니다.
 
-
-SqlJsonToBlobText 복사 작업의 싱크에 대해 "구분 된 텍스트"를 선택 하 고 동적으로 생성 된 고유한 파일 이름 (예: ' @concat (파이프라인 ())을 사용 하 여 Azure Blob Storage의 특정 폴더를 가리킵니다. RunId, '. json ').
-텍스트 파일은 "구분 기호로 분리 된" 것이 아니므로 쉼표를 사용 하 여 별도의 열로 구문 분석 하지 않고 큰따옴표 (")를 유지 하려는 경우" 열 구분 기호 "를 탭 (" \t ")으로 설정 하거나 데이터에서 발생 하지 않는 다른 문자를" 따옴표 문자 "로 설정 합니다.
-
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf2.png" alt-text="ADF 복사본":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf2.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 ### <a name="copy-activity-2-blobjsontocosmos"></a>복사 작업 #2: BlobJsonToCosmos
 
 다음으로 첫 번째 작업에서 만든 텍스트 파일에 대해 Azure Blob Storage를 찾는 두 번째 복사 작업을 추가 하 여 ADF 파이프라인을 수정 합니다. 텍스트 파일에 있는 JSON 행당 하나의 문서로 Cosmos DB 싱크에 삽입 하는 "JSON" 소스로 처리 합니다.
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf3.png" alt-text="ADF 복사본":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf3.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷" 작업을 추가 하 여 각 실행 전에/Orders/폴더에 남아 있는 이전 파일을 모두 삭제 합니다. 이제 ADF 파이프라인이 다음과 같이 표시 됩니다.
 
-필요에 따라 파이프라인에 "삭제" 작업을 추가 하 여 각 실행 전에/Orders/폴더에 남아 있는 이전 파일을 모두 삭제 합니다. 이제 ADF 파이프라인이 다음과 같이 표시 됩니다.
-
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf4.png" alt-text="ADF 복사본":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf4.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 위의 파이프라인을 트리거한 후에는 행 마다 하나의 JSON 개체를 포함 하는 중간 Azure Blob Storage 위치에 생성 된 파일을 볼 수 있습니다.
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="ADF 복사본":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 Cosmos DB 컬렉션에 올바르게 포함 된 OrderDetails 삽입 된 주문 문서도 표시 됩니다.
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf6.png" alt-text="ADF 복사본":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf6.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 
 ## <a name="azure-databricks"></a>Azure Databricks
@@ -127,7 +122,7 @@ Cosmos DB 컬렉션에 올바르게 포함 된 OrderDetails 삽입 된 주문 �
 
 먼저 필요한 [SQL 커넥터](https://docs.databricks.com/data/data-sources/sql-databases-azure.html) 와 [Azure Cosmos DB 커넥터](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) 라이브러리를 만들어 Azure Databricks 클러스터에 연결 합니다. 클러스터를 다시 시작 하 여 라이브러리가 로드 되었는지 확인 합니다.
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks1.png" alt-text="Databricks":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks1.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 다음으로 Scala 및 Python에 대 한 두 가지 샘플을 제공 합니다. 
 
@@ -150,7 +145,7 @@ val orders = sqlContext.read.sqlDB(configSql)
 display(orders)
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks2.png" alt-text="Databricks":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks2.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 다음으로 Cosmos DB 데이터베이스 및 컬렉션에 연결 합니다.
 
@@ -207,7 +202,7 @@ display(ordersWithSchema)
 CosmosDBSpark.save(ordersWithSchema, configCosmos)
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks3.png" alt-text="Databricks":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks3.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 
 ### <a name="python"></a>Python
@@ -337,8 +332,8 @@ pool.map(writeOrder, orderids)
 ```
 어느 쪽이 든 끝으로 Cosmos DB 컬렉션의 각 주문 문서 내에 포함 된 OrderDetails를 올바르게 저장 해야 합니다.
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="Databricks":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Cosmos DB에서 데이터 모델링](https://docs.microsoft.com/azure/cosmos-db/modeling-data) 에 대 한 자세한 정보
-* [Azure Cosmos DB에서 데이터를 모델링 하 고 분할 하는 방법을](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example) 알아봅니다.
+* [Azure Cosmos DB에서 데이터 모델링](./modeling-data.md) 에 대 한 자세한 정보
+* [Azure Cosmos DB에서 데이터를 모델링 하 고 분할 하는 방법을](./how-to-model-partition-example.md) 알아봅니다.

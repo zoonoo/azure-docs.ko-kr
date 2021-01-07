@@ -7,19 +7,19 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292916"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425773"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Cloud 파트너 포털 API 참조
 
 > [!NOTE]
 > Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. 파트너 센터로 전환 하 고 나면이 문서에 나열 된 [CPP api에 대 한 변경 내용을](#changes-to-cpp-apis-after-the-migration-to-partner-center) 검토 하 여 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
 
-Cloud 파트너 포털 REST API를 사용하면 프로그래밍 방식으로 워크로드, 제안 및 게시자 프로필을 검색 및 조작할 수 있습니다. 이 API는 RBAC(역할 기반 액세스 제어)를 사용하여 처리 시에 올바른 권한을 적용합니다.
+Cloud 파트너 포털 REST API를 사용하면 프로그래밍 방식으로 워크로드, 제안 및 게시자 프로필을 검색 및 조작할 수 있습니다. Api는 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 처리 시 올바른 권한을 적용 합니다.
 
 이 참조는 Cloud 파트너 포털 REST API에 대한 기술 세부 정보를 제공합니다. 이 문서의 페이로드 샘플은 참조용일 뿐이며 새 기능이 추가되면 변경될 수 있습니다.
 
@@ -47,7 +47,7 @@ Cloud 파트너 포털 REST API를 사용하면 프로그래밍 방식으로 워
 - [모든 제안 검색](./cloud-partner-portal-api-retrieve-offers.md)
 - [특정 제안 검색](./cloud-partner-portal-api-retrieve-specific-offer.md)
 - [제안 상태 검색](./cloud-partner-portal-api-retrieve-offer-status.md)
-- [제안 만들기](./cloud-partner-portal-api-creating-offer.md)
+- [제품 만들기](./cloud-partner-portal-api-creating-offer.md)
 - [제안 게시](./cloud-partner-portal-api-publish-offer.md)
 
 ### <a name="operations"></a>작업

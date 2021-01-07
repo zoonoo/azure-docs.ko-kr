@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171553"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>자습서: IoTHub로 이벤트 전달
@@ -26,7 +26,7 @@ ms.locfileid: "86171553"
 - [Event Grid 개념](concepts.md)
 - [IoT Edge 허브](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -133,7 +133,7 @@ ms.locfileid: "86171553"
 
 다음과 같이 IoTHub에 전달할 이벤트 구독의 이벤트를 전달 하도록 edge 허브의 경로를 업데이트 합니다.
 
-1. [Azure Portal](https://ms.portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://ms.portal.azure.com)
 1. **IoT Hub**로 이동 합니다.
 1. 메뉴에서 **IoT Edge** 선택
 1. 장치 목록에서 대상 장치의 ID를 선택 합니다.

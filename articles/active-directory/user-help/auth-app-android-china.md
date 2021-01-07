@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 05/20/2020
+ms.date: 12/08/2020
 ms.author: curtand
-ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: HT
+ms.openlocfilehash: 7b3af7c5bd55e748b1d1f4cf8f192797187da30a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323028"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901799"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>중국 퍼블릭 클라우드의 Android용 Microsoft Authenticator
 
@@ -57,6 +57,7 @@ TOTP/확인 코드만 사용하는 MFA 등록/인증 | 예
 휴대폰 로그인 등록 | 예
 푸시 알림을 사용하는 기존 휴대폰 로그인 | 예
 수동 인증 요청 확인을 수행하여 기존 휴대폰 로그인 확인 | 예
+개인 Microsoft 계정에 대 한 Authenticator 앱 지원 | 아니요
 
 ## <a name="next-steps"></a>다음 단계
 

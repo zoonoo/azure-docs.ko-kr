@@ -14,10 +14,10 @@ ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051624"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
@@ -72,7 +72,7 @@ ms.locfileid: "87051624"
     - **위치**: *미국 동부*
 
 14. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetB*를 입력합니다. **myVnetB**가 검색 결과에 표시되면 클릭합니다. **myVnetB** 가상 네트워크에 대한 블레이드가 표시됩니다.
-15. 나타나는 **myVnetB** 블레이드의 왼쪽에 있는 세로 옵션 목록에서 **속성**을 클릭합니다. 이후 단계에서 사용하는 **RESOURCE ID**를 복사합니다. 리소스 ID는 다음 예제와 유사 합니다.`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. 나타나는 **myVnetB** 블레이드의 왼쪽에 있는 세로 옵션 목록에서 **속성**을 클릭합니다. 이후 단계에서 사용하는 **RESOURCE ID**를 복사합니다. 리소스 ID는 다음 예제와 유사 합니다. `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. MyVnetB에 대해 5-9단계를 완료하고 8단계에서 **사용자 A**를 입력합니다.
 17. 사용자 B를 포털에서 로그아웃한 다음 사용자 A로 로그인합니다.
 18. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA*를 입력합니다. **myVnetA**가 검색 결과에 표시되면 클릭합니다. **myVnet** 가상 네트워크에 대한 블레이드가 표시됩니다.

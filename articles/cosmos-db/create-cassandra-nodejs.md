@@ -8,15 +8,16 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1fa481911be8eb91db498350e57e2ba42e4aedb5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: b9e036df91eecadc701664a19905a92c142b7585
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421011"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591901"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>빠른 시작: Node.js SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -106,7 +107,7 @@ ms.locfileid: "87421011"
 
    ```javascript
    function createTable(next) {
-    var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         client.execute(query, next);
         console.log("created table");
    },
@@ -148,7 +149,7 @@ ms.locfileid: "87421011"
             });
         },
     ```  
-    
+
 * 키 값을 가져오는 쿼리입니다.
 
     ```javascript
@@ -169,7 +170,7 @@ ms.locfileid: "87421011"
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 연결 문자열을 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열** 을 선택합니다. 
 
 1. 화면 오른쪽에 있는 :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
 
@@ -188,7 +189,7 @@ ms.locfileid: "87421011"
     줄 2는 다음과 같이 보일 것입니다. 
 
     `config.username = 'cosmos-db-quickstart';`
-    
+
 1. 포털의 PASSWORD 값을 복사하여 줄 3의 `<FillMEIN>`에 붙여넣습니다.
 
     줄 3은 다음과 같이 보일 것입니다.
@@ -196,12 +197,12 @@ ms.locfileid: "87421011"
     `config.password = '2Ggkr662ifxz2Mg==';`
 
 1. `config.js` 파일을 저장합니다.
-    
+
 ## <a name="use-the-x509-certificate"></a>X509 인증서 사용
 
 1. [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt)에서 로컬로 Baltimore CyberTrust Root 인증서를 다운로드합니다. 파일 확장명 `.cer`을 사용하여 파일의 이름을 바꿉니다.
 
-   인증서에 일련 번호 `02:00:00:b9` 및 SHA1 지문 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`가 있습니다.
+   인증서에 일련 번호 `02:00:00:b9` 및 SHA1 지문 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`가 있습니다.
 
 2. `uprofile.js`를 열고 새 인증서를 가리키도록 `path\to\cert`를 변경합니다.
 
@@ -212,11 +213,11 @@ ms.locfileid: "87421011"
 > 
 > .crt 파일을 두 번 클릭하여 인증서 표시로 엽니다. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="출력 보기 및 확인":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="인증서 창을 보여주는 스크린샷.":::
 >
 > 인증서 마법사에서 다음을 누릅니다. Base-64로 인코딩된 X.509(.CER)를 선택한 후, 다음을 선택합니다.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="출력 보기 및 확인":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Base-64로 인코딩된 X.509(.CER) 옵션을 보여주는 스크린샷.":::
 >
 > 찾아보기를 선택하여 대상을 찾고 파일 이름을 입력합니다.
 > 다음을 선택한 다음, 완료를 선택합니다.
@@ -241,7 +242,7 @@ ms.locfileid: "87421011"
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
 
-5. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
+5. Azure Portal에서 **데이터 탐색기** 를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
     :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="데이터 탐색기에서 데이터 보기"::: 
 

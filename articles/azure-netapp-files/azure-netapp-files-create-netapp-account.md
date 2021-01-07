@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483672"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006596"
 ---
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
@@ -33,12 +33,12 @@ Azure NetApp Files 팀에서 서비스에 대 한 액세스 권한이 부여 되
 
 1. Azure Portal에 로그인합니다. 
 2. 다음 방법 중 하나를 사용하여 Azure NetApp Files 블레이드에 액세스합니다.  
-   * Azure Portal 검색 상자에서 **Azure NetApp Files**를 검색합니다.  
-   * 탐색에서 **모든 서비스**를 클릭한 다음, Azure NetApp Files로 필터링합니다.  
+   * Azure Portal 검색 상자에서 **Azure NetApp Files** 를 검색합니다.  
+   * 탐색에서 **모든 서비스** 를 클릭한 다음, Azure NetApp Files로 필터링합니다.  
 
    옆에 있는 별 모양 아이콘을 클릭하여 Azure NetApp Files 블레이드를 "즐겨찾기에 추가"할 수 있습니다. 
 
-3. **+ 추가**를 클릭하여 새 NetApp 계정을 만듭니다.  
+3. **+ 추가** 를 클릭하여 새 NetApp 계정을 만듭니다.  
    새 NetApp 계정 창이 나타납니다.  
 
 4. NetApp 계정에 대한 다음과 같은 정보를 제공합니다. 
@@ -54,7 +54,7 @@ Azure NetApp Files 팀에서 서비스에 대 한 액세스 권한이 부여 되
      ![새 NetApp 계정](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
-5. **만들기**를 클릭합니다.     
+5. **만들기** 를 클릭합니다.     
    이제 사용자가 만든 NetApp 계정이 Azure NetApp Files 블레이드에 나타납니다. 
 
 > [!NOTE] 

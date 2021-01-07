@@ -1,18 +1,18 @@
 ---
 title: Azure Security Center에 대한 기본 제공 정책 정의
 description: Azure Security Center에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/16/2020
+ms.date: 11/20/2020
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cf3c372bdc2ee083da05bfa96414fb62631d0010
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 48e6168ed07162844c6e1b18d4fc2c4a26469e52
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988206"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95998718"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Azure Security Center에 대한 Azure Policy 기본 제공 정의
 
@@ -52,5 +52,5 @@ Security Center에서 모니터링 하는 기본 제공 정책에 대 한 자세
 - [Azure Security Center 계획 및 운영 가이드](./security-center-planning-and-operations-guide.md): Azure Security Center에서 디자인 고려 사항을 계획 하 고 이해 하는 방법을 알아봅니다.
 - [Azure Security Center에서 보안 상태 모니터링](./security-center-monitoring.md): Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 - [Azure Security Center에서 보안 경고 관리 및 대응](./security-center-managing-and-responding-alerts.md): 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-- [Azure Security Center에서 파트너 솔루션 모니터링](./security-center-partner-solutions.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure Security Center에서 파트너 솔루션 모니터링](./security-center-partner-integration.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 - [Azure Policy](../governance/policy/overview.md): Azure 리소스를 감사 하 고 관리 하는 방법을 알아봅니다.

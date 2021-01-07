@@ -3,12 +3,12 @@ title: Azure Portal에서 템플릿 내보내기
 description: Azure Portal를 사용 하 여 구독의 리소스에서 Azure Resource Manager 템플릿을 내보냅니다.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423238"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185694"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기
 
@@ -49,11 +49,13 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
 리소스 그룹 또는 리소스에서 내보내는 경우 내보낸 템플릿은 각 리소스 유형에 대해 [게시 된 스키마](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) 에서 생성 됩니다. 스키마에 리소스 종류에 대 한 최신 버전이 없는 경우도 있습니다. 내보낸 템플릿을 확인 하 여 필요한 속성이 포함 되어 있는지 확인 합니다. 필요한 경우 내보낸 템플릿을 편집 하 여 필요한 API 버전을 사용 합니다.
 
-템플릿 내보내기 기능은 Azure Data Factory 리소스 내보내기를 지원 하지 않습니다. Data Factory 리소스를 내보내는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 데이터 팩터리 복사 또는 복제](https://aka.ms/exportTemplateViaAdf)를 참조 하세요.
+템플릿 내보내기 기능은 Azure Data Factory 리소스 내보내기를 지원 하지 않습니다. Data Factory 리소스를 내보내는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 데이터 팩터리 복사 또는 복제](../../data-factory/copy-clone-data-factory.md)를 참조 하세요.
 
-클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](https://aka.ms/migrateclassicresourcetoarm)합니다.
+클래식 배포 모델을 통해 만든 리소스를 내보내려면 [리소스 관리자 배포 모델로 마이그레이션해야](../../virtual-machines/migration-classic-resource-manager-overview.md)합니다.
 
 리소스 형식을 내보내지 못했음을 나타내는 템플릿을 내보낼 때 경고가 표시 되 면 해당 리소스에 대 한 속성을 계속 검색할 수 있습니다. 리소스 속성을 볼 수 있는 다양 한 옵션에 대 한 자세한 내용은 [리소스 속성 검색](view-resources.md)을 참조 하세요. 리소스 종류에 대 한 [Azure REST API](/rest/api/azure/) 를 살펴볼 수도 있습니다.
+
+내보낸 템플릿을 만든 리소스 그룹의 리소스는 200 개로 제한 됩니다. 200 개 이상의 리소스가 있는 리소스 그룹을 내보내려는 경우 오류 메시지가 `Export template is not supported for resource groups more than 200 resources` 표시 됩니다.
 
 ## <a name="export-template-from-a-resource-group"></a>리소스 그룹에서 템플릿 내보내기
 
@@ -61,12 +63,12 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
 1. 내보내려는 리소스를 포함 하는 리소스 그룹을 선택 합니다.
 
-1. 확인란을 선택 하 여 하나 이상의 리소스를 선택 합니다.  모두 선택 하려면 **이름**왼쪽에 있는 확인란을 선택 합니다. **템플릿 내보내기** 메뉴 항목은 하나 이상의 리소스를 선택한 후에만 사용 하도록 설정 됩니다.
+1. 확인란을 선택 하 여 하나 이상의 리소스를 선택 합니다.  모두 선택 하려면 **이름** 왼쪽에 있는 확인란을 선택 합니다. **템플릿 내보내기** 메뉴 항목은 하나 이상의 리소스를 선택한 후에만 사용 하도록 설정 됩니다.
 
    ![모든 리소스 내보내기](./media/export-template-portal/select-all-resources.png)
 
     스크린샷에는 저장소 계정만 선택 되어 있습니다.
-1. **템플릿 내보내기**를 선택합니다.
+1. **템플릿 내보내기** 를 선택합니다.
 
 1. 내보낸 템플릿이 표시 되며 다운로드 하 고 배포할 수 있습니다.
 
@@ -94,7 +96,7 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
 1. 새 서비스에 대 한 값을 입력 합니다.
 
-1. 유효성 검사를 통과 한 후 배포를 시작 하기 전에 **automation을 위한 템플릿 다운로드**를 선택 합니다.
+1. 유효성 검사를 통과 한 후 배포를 시작 하기 전에 **automation을 위한 템플릿 다운로드** 를 선택 합니다.
 
    ![템플릿 다운로드](./media/export-template-portal/download-before-deployment.png)
 
@@ -107,7 +109,7 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
 1. 내보내려는 리소스 그룹을 선택 합니다.
 
-1. **배포**에서 링크를 선택합니다.
+1. **배포** 에서 링크를 선택합니다.
 
    ![배포 기록 선택](./media/export-template-portal/select-deployment-history.png)
 
@@ -115,7 +117,7 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
    ![배포 선택](./media/export-template-portal/select-details.png)
 
-1. **템플릿**을 선택 합니다. 이 배포에 사용 되는 템플릿이 표시 되 고 다운로드할 수 있습니다.
+1. **템플릿** 을 선택 합니다. 이 배포에 사용 되는 템플릿이 표시 되 고 다운로드할 수 있습니다.
 
    ![템플릿 선택](./media/export-template-portal/show-template-from-history.png)
 

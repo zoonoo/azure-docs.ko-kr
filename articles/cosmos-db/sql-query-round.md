@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어로 반올림
 description: Azure Cosmos DB의 SQL 시스템 함수 반올림에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9712aedd3d6748f3bceea67a3270b6c080cc16f2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 41b1372cd5165b3548a4e574e7eb037111188bac
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794285"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341555"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -43,7 +46,7 @@ ROUND(<numeric_expr>)
   |0.5|1|
   |6.5000|7||
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수로 반올림합니다.  
   

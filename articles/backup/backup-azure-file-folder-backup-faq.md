@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services (MARS) 에이전트-FAQ
 description: Azure Backup를 사용 하 여 파일과 폴더를 백업 하는 방법에 대 한 일반적인 질문을 해결 합니다.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182516"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917361"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>MARS (질문과 대답 Microsoft Azure Recovery Services) 에이전트
 
@@ -22,7 +22,7 @@ Windows Server 컴퓨터, System Center DPM 및 Microsoft Azure Backup 서버를
 
 ### <a name="where-can-i-download-the-vault-credentials-file"></a>자격 증명 모음 자격 증명 파일은 어디에서 다운로드할 수 있나요?
 
-Azure Portal에서 자격 증명 모음에 대 한 **속성** 으로 이동 합니다. **백업 자격 증명**에서 **최신 Recovery Services 에이전트를 이미 사용 하 고 있는**확인란을 선택 합니다. **다운로드**를 선택합니다.
+Azure Portal에서 자격 증명 모음에 대 한 **속성** 으로 이동 합니다. **백업 자격 증명** 에서 **최신 Recovery Services 에이전트를 이미 사용 하 고 있는** 확인란을 선택 합니다. **다운로드** 를 선택합니다.
 
 ![자격 증명 다운로드](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
@@ -32,7 +32,7 @@ Azure Portal에서 자격 증명 모음에 대 한 **속성** 으로 이동 합�
 
 ### <a name="what-characters-are-allowed-for-the-passphrase"></a>암호에 허용 되는 문자는 무엇 인가요?
 
-암호는 ascii 문자 집합의 문자를 사용 해야 하며 [ascii 값이 127 보다 작거나 같아야](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127)합니다.
+암호는 ascii 문자 집합의 문자를 사용 해야 하며 [ascii 값이 127 보다 작거나 같아야](/office/vba/language/reference/user-interface-help/character-set-0127)합니다.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>어떤 드라이브에서 파일 및 폴더를 백업할 수 있나요?
 
@@ -72,6 +72,10 @@ Azure Portal에서 자격 증명 모음에 대 한 **속성** 으로 이동 합�
 
 예, mars 에이전트를 설치 하 고 MARS 콘솔을 사용 하 여 백업을 구성 하는 경우 사용자가 보호 된 서버의 로컬 관리자 여야 합니다.
 
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>다른 Azure AD 디렉터리로 자격 증명 모음 구독을 전송 하는 MARS 에이전트 백업의 영향은 무엇 인가요?
+
+Azure AD 디렉터리의 변경 내용은 MARS 에이전트 백업에 영향을 주지 않습니다. 
+
 ## <a name="manage-backups"></a>백업 관리
 
 ### <a name="what-happens-if-i-rename-a-windows-machine-configured-for-backup"></a>백업용으로 구성 된 Windows 컴퓨터의 이름을 바꾸면 어떻게 되나요?
@@ -80,7 +84,7 @@ Windows 컴퓨터의 이름을 바꾸면 현재 구성 된 모든 백업이 중�
 
 * 백업 자격 증명 모음에 새 컴퓨터 이름을 등록 해야 합니다.
 * 자격 증명 모음에 새 이름을 등록 하는 경우 첫 번째 작업은 *전체* 백업입니다.
-* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세한 정보를 알아보세요](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>백업의 최대 파일 경로 길이는 얼마 인가요?
 
@@ -163,7 +167,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>백업에 사용 되는 대역폭의 양을 조정 하는 방법이 있나요?
 
-예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세한 정보를 알아보세요](backup-windows-with-mars-agent.md#enable-network-throttling).
+예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아보기](backup-windows-with-mars-agent.md#enable-network-throttling).
 
 ## <a name="restore"></a>복원
 
@@ -181,11 +185,11 @@ Azure Backup 에이전트에는 복원 중에 백업 된 데이터의 암호를 
 다음 조건을 확인합니다.
 
 * 동일한 원래 컴퓨터에서 에이전트를 제거 하 고 다시 등록 하는 경우
-  * 백업 *데이터를 복원할*수 있습니다.
-  * *다른 암호*를 사용할 경우 백업한 데이터를 복원할 수 없습니다.
+  * 백업 *데이터를 복원할* 수 있습니다.
+  * *다른 암호* 를 사용할 경우 백업한 데이터를 복원할 수 없습니다.
 * 를 사용 하 여 *다른 컴퓨터* 에 에이전트를 설치 하는 경우
   * 원본 컴퓨터에서 사용 되는 *동일한 암호* 를 사용 하 여 백업 된 데이터를 복원할 수 있습니다.
-  * *다른 암호*를 사용할 경우 백업한 데이터를 복원할 수 없습니다.
+  * *다른 암호* 를 사용할 경우 백업한 데이터를 복원할 수 없습니다.
 * 원래 컴퓨터가 손상 된 경우 (MARS 콘솔을 통해 암호를 다시 생성 하지 않도록 방지) MARS 에이전트에서 사용 하는 원래 스크래치 폴더를 복원 하거나 액세스할 수 있는 경우에는 (암호를 잊어버린 경우) 복원할 수 있습니다. 추가 지원이 필요한 경우 고객 지원에 문의 하세요.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>원본 컴퓨터가 손실 된 경우 (백업이 수행 된 위치) 복구 어떻게 할까요?

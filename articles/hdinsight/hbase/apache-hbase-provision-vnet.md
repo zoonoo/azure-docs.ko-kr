@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
 ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087744"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 Apache HBase 클러스터 만들기
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 이 섹션에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 Apache HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
 > [!NOTE]  
-> 일부 속성이 템플릿에 하드 코딩되었습니다. 예를 들어:
+> 일부 속성이 템플릿에 하드 코딩되었습니다. 예를 들면 다음과 같습니다.
 >
 > * **위치**: 미국 동부 2
 > * **클러스터 버전**: 3.6
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > * **서브넷 이름**: subnet1
 > * **서브넷 주소 범위**: 10.0.0.0/24
 >
-> `CLUSTERNAME`는 템플릿을 사용할 때 제공 하는 클러스터 이름으로 바뀝니다.
+> `CLUSTERNAME` 는 템플릿을 사용할 때 제공 하는 클러스터 이름으로 바뀝니다.
 
 1. Azure Portal에서 템플릿을 열려면 다음 이미지를 선택합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/)에 있습니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. **사용자 지정 배포** 대화 상자에서 **템플릿 편집**을 선택 합니다.
 
-1. 165 줄에서 값 `Standard_A3` 을로 변경 `Standard_A4_V2` 합니다. 그런 다음, **저장**을 선택합니다.
+1. 165 줄에서 값 `Standard_A3` 을로 변경 `Standard_A4_V2` 합니다. 그런 다음 **저장**을 선택합니다.
 
 1. 다음 정보를 사용 하 여 나머지 템플릿을 완료 합니다.
 
@@ -92,11 +92,11 @@ Java 애플리케이션을 사용하여 HBase에 원격으로 연결할 때는 F
 
 * 웹 브라우저를 사용하여 [Apache Ambari](https://ambari.apache.org/)를 호출합니다.
 
-    [https://www.microsoft.com]\(`https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts?minimal_response=true` ) 로 이동합니다. DNS 접미사를 사용 하 여 JSON 파일을 반환 합니다.
+    [https://www.microsoft.com]\(`https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts?minimal_response=true`) 로 이동합니다. DNS 접미사를 사용 하 여 JSON 파일을 반환 합니다.
 
 * Ambari 웹 사이트를 사용합니다.
 
-    1. [https://www.microsoft.com]\(`https://CLUSTERNAME.azurehdinsight.net` ) 로 이동합니다.
+    1. [https://www.microsoft.com]\(`https://CLUSTERNAME.azurehdinsight.net`) 로 이동합니다.
     2. 상단 메뉴에서 **호스트** 를 선택 합니다.
 
 * Curl을 사용하여 REST를 호출합니다.
@@ -105,13 +105,13 @@ Java 애플리케이션을 사용하여 HBase에 원격으로 연결할 때는 F
     curl -u <username>:<password> -k https://CLUSTERNAME.azurehdinsight.net/ambari/api/v1/clusters/CLUSTERNAME.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-반환되는 JSON(JavaScript Object Notation) 데이터에서 "host_name" 항목을 찾습니다. 이 항목에는 클러스터의 노드에 대한 FQDN이 포함되어 있습니다. 예를 들어:
+반환되는 JSON(JavaScript Object Notation) 데이터에서 "host_name" 항목을 찾습니다. 이 항목에는 클러스터의 노드에 대한 FQDN이 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 "host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
-클러스터 이름으로 시작하는 도메인 이름 부분이 DNS 접미사입니다. 예: `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
+클러스터 이름으로 시작하는 도메인 이름 부분이 DNS 접미사입니다. 예: `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`
 
 <!--
 3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
@@ -130,9 +130,9 @@ Java 애플리케이션을 사용하여 HBase에 원격으로 연결할 때는 F
 
 ### <a name="verify-communication-inside-virtual-network"></a>가상 네트워크 내 통신 확인
 
-가상 머신이 HBase 클러스터와 통신할 수 있는지 확인하려면 가상 머신에서 `ping headnode0.<dns suffix>` 명령을 사용합니다. 예: `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
+가상 머신이 HBase 클러스터와 통신할 수 있는지 확인하려면 가상 머신에서 `ping headnode0.<dns suffix>` 명령을 사용합니다. 예: `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`
 
-Java 애플리케이션에서 이 정보를 사용하려는 경우 [Apache Maven을 통해 HDInsight(Hadoop)와 함께 Apache HBase를 사용하는 Java 애플리케이션 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 애플리케이션을 만들 수 있습니다. 애플리케이션이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예를 들어:
+Java 애플리케이션에서 이 정보를 사용하려는 경우 [Apache Maven을 통해 HDInsight(Hadoop)와 함께 Apache HBase를 사용하는 Java 애플리케이션 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 애플리케이션을 만들 수 있습니다. 애플리케이션이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <property>

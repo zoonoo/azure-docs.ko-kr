@@ -3,17 +3,19 @@ title: Azure Cosmos DB에 대 한 SQL 키워드
 description: Azure Cosmos DB에 대 한 SQL 키워드에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 35232f95bc18432db05775807d95f23ceab66aea
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496684"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333786"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 SQL 쿼리에서 Azure Cosmos DB는 데 사용할 수 있는 키워드에 대해 자세히 설명 합니다.
 
@@ -73,7 +75,7 @@ FROM Families f
 ]
 ```
 
-`DISTINCT`는 하위 쿼리 내의 프로젝션에서 사용할 수도 있습니다.
+`DISTINCT` 는 하위 쿼리 내의 프로젝션에서 사용할 수도 있습니다.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -165,4 +167,4 @@ TOP 키워드는 `N` 정의 되지 않은 순서로 쿼리 결과의 첫 번째 
 
 - [시작](sql-query-getting-started.md)
 - [조인](sql-query-join.md)
-- [Subqueries](sql-query-subquery.md)
+- [하위 쿼리](sql-query-subquery.md)

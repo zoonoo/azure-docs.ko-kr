@@ -3,16 +3,14 @@ title: Windows Server 및 Linux에서 클러스터 만들기
 description: Service Fabric 클러스터는 Windows Server 및 Linux에서 실행 됩니다. Windows Server 또는 Linux를 실행 하는 모든 위치에서 Service Fabric 응용 프로그램을 배포 및 호스트할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 2c0cc1ddc58347933b498b015c562c3822e8a688
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978701"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882214"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure의 Service Fabric 클러스터 개요
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 클러스터의 규모를 수천 개의 노드로 확장할 수 있습니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 서비스 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다.
@@ -31,7 +29,7 @@ Azure의 Service Fabric 클러스터는 다른 Azure 리소스를 사용하고 �
 ![Service Fabric 클러스터][Image]
 
 ### <a name="virtual-machine"></a>가상 머신
-클러스터의 일부인 [가상 머신](../virtual-machines/index.yml)을 노드라고 하지만, 기술적으로 클러스터 노드는 Service Fabric 런타임 프로세스입니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 [배치 속성](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)과 같은 특징이 있습니다. 각 컴퓨터 또는 VM에는 자동 시작 서비스인 *FabricHost.exe*가 있습니다. 이 서비스는 부팅 시에 실행된 다음, 노드를 구성하는 *Fabric.exe* 및 *FabricGateway.exe*의 두 실행 파일을 시작합니다. 프로덕션 배포는 물리적 또는 가상 머신당 하나의 노드입니다. 테스트 시나리오에서는 *Fabric.exe* 및 *FabricGateway.exe*의 여러 인스턴스를 실행하여 단일 컴퓨터나 VM에 여러 노드를 호스트할 수 있습니다.
+클러스터의 일부인 [가상 머신](../virtual-machines/index.yml)을 노드라고 하지만, 기술적으로 클러스터 노드는 Service Fabric 런타임 프로세스입니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 [배치 속성](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)과 같은 특징이 있습니다. 각 컴퓨터 또는 VM에는 자동 시작 서비스인 *FabricHost.exe* 가 있습니다. 이 서비스는 부팅 시에 실행된 다음, 노드를 구성하는 *Fabric.exe* 및 *FabricGateway.exe* 의 두 실행 파일을 시작합니다. 프로덕션 배포는 물리적 또는 가상 머신당 하나의 노드입니다. 테스트 시나리오에서는 *Fabric.exe* 및 *FabricGateway.exe* 의 여러 인스턴스를 실행하여 단일 컴퓨터나 VM에 여러 노드를 호스트할 수 있습니다.
 
 각 VM은 가상 NIC(네트워크 인터페이스 카드)와 연결되고 각 NIC에 개인 IP 주소가 할당됩니다.  VM은 NIC를 통해 가상 네트워크 및 부하 분산 분산에 할당됩니다.
 
@@ -48,9 +46,9 @@ Azure의 Service Fabric 클러스터는 다른 Azure 리소스를 사용하고 �
 자세한 내용은 [Service Fabric 노드 형식 및 가상 머신 확장 집합](service-fabric-cluster-nodetypes.md)을 참조하세요.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-VM 인스턴스는 [공용 IP 주소](../virtual-network/public-ip-addresses.md) 및 DNS 레이블과 연결되는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 뒤에서 조인됩니다.  * &lt; Clustername &gt; *을 사용 하 여 클러스터를 프로 비전 하는 경우 DNS 이름 * &lt; clustername &gt; &lt; &gt;cloudapp.azure.com* 는 확장 집합 앞에 있는 부하 분산 장치와 연결 된 DNS 레이블입니다.
+VM 인스턴스는 [공용 IP 주소](../virtual-network/public-ip-addresses.md) 및 DNS 레이블과 연결되는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 뒤에서 조인됩니다.  *&lt; Clustername &gt;* 을 사용 하 여 클러스터를 프로 비전 하는 경우 DNS 이름 *&lt; clustername &gt; &lt; &gt;cloudapp.azure.com* 는 확장 집합 앞에 있는 부하 분산 장치와 연결 된 DNS 레이블입니다.
 
-클러스터의 VM에는 [개인 IP 주소](../virtual-network/private-ip-addresses.md)만 있습니다.  관리 트래픽 및 서비스 트래픽은 공용 Load Balancer를 통해 라우팅됩니다.  네트워크 트래픽은 NAT 규칙(클라이언트가 특정 노드/인스턴스에 연결) 또는 부하 분산 규칙(트래픽이 VM으로 왕복 이동)을 통해 이러한 컴퓨터로 라우팅됩니다.  부하 분산 장치에는 DNS 이름이 clustername 인 연결 된 공용 IP가 있습니다 * &lt; &gt; . &lt; &gt;cloudapp.azure.com*.  공용 IP는 리소스 그룹의 다른 Azure 리소스입니다.  클러스터에 여러 노드 형식을 정의하면 각 노드 형식/확장 집합에 대해 부하 분산 장치가 만들어집니다. 또는 여러 노드 형식에 대해 단일 부하 분산 장치를 설정할 수도 있습니다.  주 노드 형식에는 DNS 레이블 * &lt; clustername이 &gt; 있습니다. &lt; &gt;cloudapp.azure.com*, 다른 노드 형식에는 DNS 레이블 * &lt; clustername nodetype이 있습니다 &gt; - &lt; &gt; . &lt; &gt;cloudapp.azure.com*.
+클러스터의 VM에는 [개인 IP 주소](../virtual-network/private-ip-addresses.md)만 있습니다.  관리 트래픽 및 서비스 트래픽은 공용 Load Balancer를 통해 라우팅됩니다.  네트워크 트래픽은 NAT 규칙(클라이언트가 특정 노드/인스턴스에 연결) 또는 부하 분산 규칙(트래픽이 VM으로 왕복 이동)을 통해 이러한 컴퓨터로 라우팅됩니다.  부하 분산 장치에는 DNS 이름이 clustername 인 연결 된 공용 IP가 있습니다 *&lt; &gt; . &lt; &gt;cloudapp.azure.com*.  공용 IP는 리소스 그룹의 다른 Azure 리소스입니다.  클러스터에 여러 노드 형식을 정의하면 각 노드 형식/확장 집합에 대해 부하 분산 장치가 만들어집니다. 또는 여러 노드 형식에 대해 단일 부하 분산 장치를 설정할 수도 있습니다.  주 노드 형식에는 DNS 레이블 *&lt; clustername이 &gt; 있습니다. &lt; &gt;cloudapp.azure.com*, 다른 노드 형식에는 DNS 레이블 *&lt; clustername nodetype이 있습니다 &gt; - &lt; &gt; . &lt; &gt;cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Storage 계정
 각 클러스터 노드 형식은 [Azure Storage 계정](../storage/common/storage-introduction.md) 및 Managed Disks에서 지원됩니다.
@@ -70,19 +68,19 @@ VM 인스턴스는 [공용 IP 주소](../virtual-network/public-ip-addresses.md)
 
 자세한 내용은 [클라이언트-노드 보안](service-fabric-cluster-security.md#client-to-node-security)을 참조하세요.
 
-### <a name="role-based-access-control"></a>역할 기반 Access Control
-RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대해 세분화된 액세스 제어를 할당할 수 있습니다.  구독, 리소스 그룹 및 리소스에 대해 다른 액세스 규칙을 할당할 수 있습니다.  RBAC 규칙은 더 낮은 수준에서 재정의하지 않는 한, 리소스 계층 구조에 따라 상속됩니다.  지정된 사용자 및 그룹이 클러스터를 수정할 수 있도록 RBAC 규칙을 사용하여 AAD에 사용자 또는 사용자 그룹을 할당할 수 있습니다.  자세한 내용은 [Azure RBAC 개요](../role-based-access-control/overview.md)를 참조하세요.
+### <a name="role-based-access-control"></a>역할 기반 액세스 제어
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 리소스에 세분화 되는 액세스 제어를 할당할 수 있습니다.  구독, 리소스 그룹 및 리소스에 대해 다른 액세스 규칙을 할당할 수 있습니다.  Azure RBAC 규칙은 하위 수준에서 재정의 되지 않는 한 리소스 계층 구조를 따라 상속 됩니다.  지정 된 사용자와 그룹이 클러스터를 수정할 수 있도록 Azure RBAC 규칙을 사용 하 여 AAD의 모든 사용자 또는 사용자 그룹을 할당할 수 있습니다.  자세한 내용은 [Azure RBAC 개요](../role-based-access-control/overview.md)를 참조하세요.
 
 또한 Service Fabric은 다른 사용자 그룹의 특정 클러스터 작업에 대한 액세스를 제한하기 위해 액세스 제어를 지원합니다. 이를 통해 클러스터의 보안을 강화합니다. 클러스터에 연결하는 클라이언트에 대해 두 가지 액세스 제어 유형인 관리자 역할 및 사용자 역할이 지원됩니다.  
 
-자세한 내용은 [Service Fabric RBAC(역할 기반 액세스 제어)](service-fabric-cluster-security.md#role-based-access-control-rbac)를 참조하세요.
+자세한 내용은 [역할 기반 액세스 제어 Service Fabric](service-fabric-cluster-security.md#service-fabric-role-based-access-control)를 참조 하세요.
 
 ### <a name="network-security-groups"></a>네트워크 보안 그룹 
 NSG(네트워크 보안 그룹)은 서브넷, VM 또는 특정 NIC의 인바운드 및 아웃바운드 트래픽을 제어합니다.  기본적으로 여러 VM을 동일한 가상 네트워크에 배치하면 임의 포트를 통해 서로 통신할 수 있습니다.  컴퓨터 간 통신을 제한하려는 경우 NSG를 정의하여 네트워크를 분할하거나 VM을 서로 격리할 수 있습니다.  클러스터에 여러 노드 형식이 있는 경우 서브넷에 NSG를 적용하여 다른 노드 형식에 속하는 컴퓨터가 다른 컴퓨터와 통신하지 못하게 할 수 있습니다.  
 
-자세한 내용은 [보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
+자세한 내용은 [보안 그룹](../virtual-network/network-security-groups-overview.md)을 참조하세요.
 
-## <a name="scaling"></a>확장
+## <a name="scaling"></a>크기 조정
 
 애플리케이션 수요는 시간이 지남에 따라 달라집니다. 늘어난 애플리케이션 워크로드나 네트워크 트래픽을 충족하기 위해 클러스터 리소스를 늘리고, 수요가 줄어들면 클러스터 리소스를 줄여야 할 수 있습니다. Service Fabric 클러스터를 만든 후에 수평으로(노드 수 변경) 또는 수직으로(노드의 리소스 변경) 클러스터 크기를 조정할 수 있습니다. 클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다. 클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
 
@@ -96,16 +94,17 @@ Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 다음 운영 체제를 실행하는 가상 머신에서 클러스터를 만들 수 있습니다.
 
-| 운영 체제 | 가장 이른 지원 Service Fabric 버전 |
-| --- | --- |
-| Windows Server 2012 R2 | 모든 버전 |
-| Windows Server 2016 | 모든 버전 |
-| Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
-| Linux Ubuntu 18.04 | 7.1 |
+| 운영 체제 | 가장 이른 지원 Service Fabric 버전 | 마지막으로 지원 되는 Service Fabric 버전 |
+| --- | --- | --- | 
+| Windows Server 2019 | 6.4.654.9590 | 해당 없음 |
+| Windows Server 2016 | 모든 버전 | 해당 없음 |
+| Windows Server 20H2 | 7.2.445.9590 | 해당 없음 |
+| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
+| Windows Server 1803 | 6.4 | 7.2.445.9590 |
+| Windows Server 1709 | 6.0 | 7.2.445.9590 |
+| Windows Server 2012 | 모든 버전 | 해당 없음 | 
+| Linux Ubuntu 16.04 | 6.0 | 해당 없음 |
+| Linux Ubuntu 18.04 | 7.1 | 해당 없음 |
 
 자세한 내용은 [Azure에서 지원 되는 클러스터 버전](./service-fabric-versions.md#supported-operating-systems) 을 참조 하세요.
 

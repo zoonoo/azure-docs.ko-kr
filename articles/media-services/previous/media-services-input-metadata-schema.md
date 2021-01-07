@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 57a91622bef401d946a383e3be39f2e566fa50b4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267839"
 ---
 # <a name="input-metadata"></a>입력 메타데이터
@@ -54,7 +54,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | --- | --- | --- |
 | **이름**<br /><br /> 필수 |**xs:string** |자산 파일의 이름입니다. |
 | **크기**<br /><br /> 필수 |**xs:long** |자산 파일의 크기(바이트)입니다. |
-| **Duration**<br /><br /> 필수 |**xs:duration** |콘텐츠 재생 시간입니다. 예제: Duration="PT25M37.757S" |
+| **기간**<br /><br /> 필수 |**xs:duration** |콘텐츠 재생 시간입니다. 예제: Duration="PT25M37.757S" |
 | **NumberOfStreams**<br /><br /> 필수 |**xs:int** |자산 파일의 스트림 수입니다. |
 | **FormatNames**<br /><br /> 필수 |**xs: string** |형식 이름입니다. |
 | **FormatVerboseNames**<br /><br /> 필수 |**xs: string** |자세한 형식 이름입니다. |
@@ -86,7 +86,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | **TimeBase**<br /><br /> 필수 |**xs:string** |시간 기준입니다. 예제: TimeBase="1/48000" |
 | **NumberOfFrames** |**xs:int** |프레임 수입니다(비디오 트랙의 경우). |
 | **StartTime** |**xs: duration** |트랙 시작 시간입니다. 예제: StartTime="PT2.669S" |
-| **Duration** |**xs:duration** |트랙 지속 시간입니다. 예제: Duration="PTSampleFormat M37.757S" |
+| **기간** |**xs:duration** |트랙 지속 시간입니다. 예제: Duration="PTSampleFormat M37.757S" |
 
 > [!NOTE]
 > 다음 2개의 자식 요소가 순서대로 나타나야 합니다.  
@@ -127,8 +127,8 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | Name | 유형 | 설명 |
 | --- | --- | --- |
 | **FourCC**<br /><br /> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
-| **프로필** |**xs: string** |비디오 트랙의 프로필입니다. |
-| **Level** |**xs: string** |비디오 트랙의 수준입니다. |
+| **Profile** |**xs: string** |비디오 트랙의 프로필입니다. |
+| **수준** |**xs: string** |비디오 트랙의 수준입니다. |
 | **PixelFormat** |**xs: string** |비디오 트랙의 픽셀 형식입니다. |
 | **Width**<br /><br /> 필수 |**xs:int** |인코딩된 비디오 너비(픽셀)입니다. |
 | **높이**<br /><br /> 필수 |**xs:int** |인코딩된 비디오 높이(픽셀)입니다. |

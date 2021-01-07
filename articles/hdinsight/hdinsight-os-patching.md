@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 7b789bf01a043b167d6740f09df935d9b683c48f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019668"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357762"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux 기반 HDInsight 클러스터에 대 한 OS 패치 일정 구성
 
 > [!IMPORTANT]
-> Ubuntu 이미지는 게시 되는 3 개월 이내에 새 Azure HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 1 월 2019을 기반으로 실행 중인 클러스터는 자동으로 패치가 적용 되지 않습니다. 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다. 항상 새로 만든 클러스터에는 최신 보안 패치를 포함한 사용 가능한 최신 업데이트가 있습니다.
+> Ubuntu 이미지는 게시 되는 3 개월 이내에 새 Azure HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 실행 중인 클러스터의 자동 패치가 적용 되지 않습니다. 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다. 모범 사례로, 이러한 스크립트 작업을 실행 하 고 클러스터를 만든 후 바로 보안 업데이트를 적용할 수 있습니다.
 
 HDInsight는 OS 패치, 보안 업데이트 및 다시 부팅 노드 설치와 같은 클러스터에서 일반적인 작업을 수행할 수 있도록 지원 합니다. 이러한 작업은 [스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)으로 실행 하 고 매개 변수로 구성할 수 있는 다음 두 스크립트를 사용 하 여 수행 됩니다.
 
@@ -64,7 +64,7 @@ Welcome to Spark on HDInsight.
 
 | 매개 변수 | 허용되는 값 | 정의 |
 | --- | --- | --- |
-| 설치할 업데이트 유형 | 0, 1 또는 2 | 값 0은 커널 업데이트만 설치 합니다. 값 1은 모든 업데이트를 설치 하 고, 2는 커널 + 보안 업데이트만 설치 합니다. 매개 변수를 제공 하지 않으면 기본값은 0입니다. |
+| 설치할 업데이트 유형 | 0, 1 또는 2 | 값 0은 커널 업데이트만 설치 합니다. 값 1은 커널 + 보안 업데이트를 설치 하 고 2는 모든 업데이트를 설치 합니다. 매개 변수를 제공 하지 않으면 기본값은 0입니다. |
 | 수행할 다시 시작 유형 | 0, 1 또는 2 | 0 값은 다시 시작을 사용 하지 않습니다. 값 1은 일정 다시 시작을 사용 하도록 설정 하 고 2는 즉시 다시 시작을 사용 하도록 설정 합니다. 매개 변수를 제공 하지 않으면 기본값은 0입니다. 사용자는 입력 매개 변수 1을 입력 매개 변수 2로 변경 해야 합니다. |
 
 > [!NOTE]

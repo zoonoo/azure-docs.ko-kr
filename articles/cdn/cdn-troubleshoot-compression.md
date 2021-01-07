@@ -15,16 +15,16 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433673"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996154"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 파일 압축 문제 해결
 이 문서는 [CDN 파일 압축](cdn-improve-performance.md)관련 문제를 해결하는 데 도움이 됩니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 이동하여 **지원 받기**를 클릭합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 이동하여 **지원 받기** 를 클릭합니다.
 
 ## <a name="symptom"></a>증상
 엔드포인트에 대한 압축이 활성화되어 있지만 파일이 압축되지 않은 상태로 반환됩니다.
@@ -54,7 +54,7 @@ ms.locfileid: "89433673"
 우선, 요청에 대해 빠른 온전성 검사를 수행합니다.  브라우저의 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) 를 사용하여 생성되는 요청을 볼 수 있습니다.
 
 * 요청이 원본이 아닌 엔드포인트 URL, `<endpointname>.azureedge.net`에 전송되는지 확인합니다.
-* 요청에 **Accept-Encoding** 헤더가 포함되는지, 헤더 값에 **gzip**, **deflate** 또는 **bzip2**가 포함되는지 확인합니다.
+* 요청에 **Accept-Encoding** 헤더가 포함되는지, 헤더 값에 **gzip**, **deflate** 또는 **bzip2** 가 포함되는지 확인합니다.
 
 > [!NOTE]
 > **Akamai의 Azure CDN** 프로필은 **gzip** 인코딩만 지원합니다.
@@ -82,7 +82,7 @@ ms.locfileid: "89433673"
 > 
 > 
 
-[Azure 포털](https://portal.azure.com) 에서 엔드포인트로 이동하여 **관리** 단추를 클릭합니다.  보조 포털이 열립니다.  **HTTP Large** 탭을 가리킨 다음 **캐시 설정** 플라이아웃을 가리킵니다.  **압축**을 클릭합니다. 
+[Azure 포털](https://portal.azure.com) 에서 엔드포인트로 이동하여 **관리** 단추를 클릭합니다.  보조 포털이 열립니다.  **HTTP Large** 탭을 가리킨 다음 **캐시 설정** 플라이아웃을 가리킵니다.  **압축** 을 클릭합니다. 
 
 * 압축이 활성화되어 있는지 확인합니다.
 * **파일 형식** 목록에 쉼표로 구분된(공백 없음) MIME 형식 목록이 포함되는지 확인합니다.
@@ -99,7 +99,7 @@ ms.locfileid: "89433673"
 브라우저의 개발자 도구를 사용하여, 요청되는 지역에서 파일이 캐시되는지 응답 헤더를 확인합니다.
 
 * **Server** 응답 헤더를 확인합니다.  헤더에는 **Platform(POP/Server ID)** 형식이 포함되어야 합니다(다음 예제 참조).
-* **X-Cache** 응답 헤더를 확인합니다.  헤더는 **HIT**여야 합니다.  
+* **X-Cache** 응답 헤더를 확인합니다.  헤더는 **HIT** 여야 합니다.  
 
 ![CDN 응답 헤더](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -118,5 +118,5 @@ ms.locfileid: "89433673"
 **Via** HTTP 헤더는 요청이 프록시 서버에 의해 전달되고 있음을 웹 서버에 알립니다.  기본적으로 Microsoft IIS 웹 서버는 요청에 **Via** 헤더가 들어 있으면 응답을 압축하지 않습니다.  이 동작을 재정의하려면 다음 단계를 수행합니다.
 
 * **IIS 6**: [IIS 메타베이스 속성에서 HcNoCompressionForProxies="FALSE" 설정](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 이상**: [서버 구성에서 **noCompressionForHttp10** 및 **noCompressionForProxies**를 둘 다 False로 설정](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 7 이상**: [서버 구성에서 **noCompressionForHttp10** 및 **noCompressionForProxies** 를 둘 다 False로 설정](https://www.iis.net/configreference/system.webserver/httpcompression)
 

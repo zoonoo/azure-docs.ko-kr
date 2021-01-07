@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: event-grid
 author: spelluru
@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050322"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Event Grid IoT Edge 모듈 배포
@@ -46,7 +46,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 [!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
 
    * **이름**: eventgridmodule
-   * **이미지 URI**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **컨테이너 만들기 옵션**:
 
 ```json

@@ -1,19 +1,19 @@
 ---
 title: Microsoft Threat Modeling Tool 릴리스 4/9/2019
 titleSuffix: Azure
-description: Threat Modeling Tool 릴리스 정보 문서화
+description: 위협 모델링 도구 릴리스 7.1.60408.1에 대 한 릴리스 정보를 문서화 합니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 59d385ba7de5bf7bceae4dc8ddadbca813046094
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69dd2c6cdba41779849b4eb6b889cde9b1d6e5c9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78269722"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913571"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60408.1-4/9/2019
 
@@ -28,7 +28,7 @@ TMT (Microsoft Threat Modeling Tool 버전 7.1.60408.1)는 4 월 9 2019에 출�
 
 ### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Azure Key Vault 및 Azure Traffic Manager에 대 한 새 스텐실
 
-![Azure Key Vault 스텐실](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![스크린샷 Azure Key Vault 및 Azure Traffic Manager에 대 한 아이콘을 보여 줍니다.](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
 Azure Key Vault 및 Azure Traffic Manager에 대 한 새로운 스텐실 및 위협이 Azure 스텐실 집합에 추가 되었습니다. Azure 스텐실 집합을 기반으로 모델을 열 때 사용자에 게 모델과 연결 된 템플릿을 업데이트 하 라는 메시지가 표시 됩니다. "파일" 메뉴에서 "템플릿 적용" 명령을 사용 하 여 Azure 스텐실 집합을 기반으로 모델을 업데이트 하 고 최신 Azure Cloud Services tb7 파일을 다시 적용 하 여 수동으로 시작할 수도 있습니다.
 
@@ -36,7 +36,7 @@ Azure Key Vault 및 Azure Traffic Manager에 대 한 새로운 스텐실 및 위
 
 이제 클라이언트 버전의 Threat Modeling Tool은 쉽게 액세스할 수 있도록 응용 프로그램의 홈 화면에 표시 됩니다.
 
-![Azure Key Vault 스텐실](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![클라이언트 버전 번호를 사용 하 여 Microsoft Threat Modeling Tool를 보여 주는 스크린샷](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
 ### <a name="support-links-have-been-updated"></a>지원 링크가 업데이트 되었습니다.
 

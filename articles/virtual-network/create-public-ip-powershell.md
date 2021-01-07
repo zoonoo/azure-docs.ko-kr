@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 6174d108fd80df9725ca5ef0fb9296dfffaf4a64
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 99e79e4d094fe6e93510d139d2f4d08f260102df
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89302704"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010047"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용 하 여 공용 IP 주소 만들기
 
 이 문서에서는 Azure PowerShell를 사용 하 여 공용 IP 주소 리소스를 만드는 방법을 보여 줍니다. 이에 연결할 수 있는 리소스, 기본 및 표준 SKU 간의 차이점 및 기타 관련 정보에 대 한 자세한 내용은 [공용 IP 주소](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses)를 참조 하세요.  이 예에서는 IPv4 주소에만 중점을 둡니다. IPv6 주소에 대 한 자세한 내용은 [Azure VNet 용 ipv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - 로컬로 설치된 Azure PowerShell 또는 Azure Cloud Shell
 
@@ -45,13 +45,15 @@ $loc = 'eastus2'
 
 New-AzResourceGroup -Name $rg -Location $loc
 ```
+## <a name="create-public-ip"></a>공용 IP 만들기
+
 ---
 # <a name="standard-sku---using-zones"></a>[**표준 SKU-영역 사용**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
 >다음 명령은 API 버전 2020-08-01 이상에 대해 작동 합니다.  현재 사용 중인 API 버전에 대 한 자세한 내용은 [리소스 공급자 및 형식](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)을 참조 하세요.
 
-[AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup**에 **mystandardzrpublicip** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
+[AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에 **mystandardzrpublicip** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -68,7 +70,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 > 2020-08-01 보다 오래 된 API 버전의 경우 영역 매개 변수를 지정 하지 않고 위의 명령을 실행 하 여 영역 중복 IP 주소를 만듭니다. 
 >
 
-**Myresourcegroup**에서 이름이 **myStandardZonalPublicIP** 인 영역 2에 표준 영역 공용 IP 주소를 만들려면 다음 명령을 사용 합니다.
+**Myresourcegroup** 에서 이름이 **myStandardZonalPublicIP** 인 영역 2에 표준 영역 공용 IP 주소를 만들려면 다음 명령을 사용 합니다.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -89,7 +91,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 >[!NOTE]
 >다음 명령은 API 버전 2020-08-01 이상에 대해 작동 합니다.  현재 사용 중인 API 버전에 대 한 자세한 내용은 [리소스 공급자 및 형식](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)을 참조 하세요.
 
-[AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup**에서 **mystandardpublicip** 라는 비 영역 리소스로 표준 공용 IP 주소를 만듭니다.
+[AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에서 **mystandardpublicip** 라는 비 영역 리소스로 표준 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -106,7 +108,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 
 # <a name="basic-sku"></a>[**기본 SKU**](#tab/option-create-public-ip-basic)
 
-[AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup**에 **mystandardpublicip** 라는 기본 고정 공용 IP 주소를 만듭니다.  기본 공용 Ip에는 가용성 영역의 개념이 없습니다.
+[AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 를 사용 하 여 **Myresourcegroup** 에 **mybasicpublicip** 이라는 기본 고정 공용 IP 주소를 만듭니다.  기본 공용 Ip에는 가용성 영역의 개념이 없습니다.
 
 ```azurepowershell-interactive
 ## Variables for the command ##

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825687"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002700"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
 
@@ -29,7 +29,7 @@ ms.locfileid: "87825687"
 
 영향을 받는 VM의 스냅숏을 만듭니다. 
 
-그러면 스냅숏이 **복구** VM에 연결 됩니다. **스냅숏을**만드는 방법 [에 대 한 지침을](../linux/snapshot-copy-managed-disk.md#use-azure-portal) 따르세요.
+그러면 스냅숏이 **복구** VM에 연결 됩니다. **스냅숏을** 만드는 방법 [에 대 한 지침을](../linux/snapshot-copy-managed-disk.md#use-azure-portal) 따르세요.
 
 ## <a name="create-a-rescue-vm"></a>복구 VM 만들기
 일반적으로 동일한 운영 체제 버전 또는 유사한 운영 체제 버전의 복구 VM을 권장 합니다. 영향을 받는 VM의 동일한 **지역** 및 **리소스 그룹** 사용
@@ -65,17 +65,17 @@ Azure Portal- **> VM >** **디스크** 를 선택 합니다.
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-는 **\*** 부팅 파티션을 나타내며 두 파티션이 모두 탑재 됩니다.
+* *\** _는 부팅 파티션을 나타내며 두 파티션이 모두 탑재 됩니다.
 
-**Lsblk** 명령을 실행 하 여 영향을 받는 Vm의 lvms을 확인 합니다.
+_ *Lsblk** 명령을 실행 하 여 영향을 받는 Vm의 lvms을 확인 합니다.
 
 `lsblk`
 
-![Lsblk 실행](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Lsblk 명령의 출력을 보여 주는 스크린샷](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 영향을 받는 VM의 LVMs이 표시 되는지 확인 합니다.
-그렇지 않은 경우 다음 명령을 사용 하 여 사용 하도록 설정 하 고 **lsblk**를 다시 실행 합니다.
+그렇지 않은 경우 다음 명령을 사용 하 여 사용 하도록 설정 하 고 **lsblk** 를 다시 실행 합니다.
 계속 하기 전에 연결 된 디스크의 LVMs이 표시 되는지 확인 합니다.
 
 ```
@@ -88,7 +88,7 @@ lsblk
 
 /(루트) 파티션을 포함 하는 논리 볼륨을 탑재 하는 경로를 찾습니다. /Etc/default/grub와 같은 구성 파일이 있습니다.
 
-이 예제에서는 이전 **lsblk** 명령 **rootvg-rootlv** 의 출력을 탑재 하는 데 올바른 **루트** LV를 사용 하 고 다음 명령에서 사용할 수 있습니다.
+이 예제에서는 이전 **lsblk** 명령  **rootvg-rootlv** 의 출력을 탑재 하는 데 올바른 **루트** LV를 사용 하 고 다음 명령에서 사용할 수 있습니다.
 
 다음 명령의 출력은 **루트** LV에 대해 탑재할 경로를 표시 합니다.
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 명령을 사용 하 여 소프트웨어를 설치, 제거 및 업데이트할 수 있습니다. 오류를 해결 하기 위해 Vm 문제를 해결 합니다.
 
 
-Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![ chrooted 팅](./media/chroot-logical-volume-manager/chrooted.png)
+Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![ 스크린 샷에서는 l s blk 명령과 해당 출력 트리가 있는 콘솔 창을 보여 줍니다.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>수정 수행
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *살펴보았습니다*
 
 **Grep** 명령은 grub에서 인식 하는 커널을 나열 합니다 **.**
-![커널](./media/chroot-logical-volume-manager/kernels.png)
+![스크린샷에서는 커널 용 grep 검색의 결과를 표시 하는 콘솔 창을 보여 줍니다.](./media/chroot-logical-volume-manager/kernels.png)
 
 grub2-다음 부팅 커널 기본값에서 로드 되는 커널을 표시 하는 **editenv 목록** ![](./media/chroot-logical-volume-manager/kernel-default.png)
 
@@ -190,7 +190,7 @@ grub2-다음 부팅 커널 기본값에서 로드 되는 커널을 표시 하는
 
 **Chroot** 환경을 종료 하 고 필요한 **LV** 를 탑재 합니다.
 
-![고급](./media/chroot-logical-volume-manager/advanced.png)
+![스크린샷 l v s 명령이 있는 콘솔 창을 표시 한 다음 L V를 탑재 합니다.](./media/chroot-logical-volume-manager/advanced.png)
 
 이제를 실행 하 여 **chroot** 환경에 다시 액세스 합니다.
 
@@ -198,11 +198,11 @@ grub2-다음 부팅 커널 기본값에서 로드 되는 커널을 표시 하는
 
 모든 LVs는 탑재 된 파티션으로 표시 되어야 합니다.
 
-![고급](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![LVs가 탑재 된 파티션으로 표시 되는 것을 보여 주는 스크린샷](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 설치 된 **커널** 쿼리
 
-![고급](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![설치 된 커널을 쿼리 하는 방법을 보여 주는 스크린샷](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 필요한 경우 **커널** 
  고급을 제거 하거나 업그레이드 합니다. ![](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

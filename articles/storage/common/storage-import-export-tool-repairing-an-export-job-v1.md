@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 35738db5b7bd4a1ac7aaf94e2dc5f1d26a075cdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056342"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791837"
 ---
 # <a name="repairing-an-export-job"></a>내보내기 작업 복구
 내보내기 작업이 완료된 후에 온-프레미스에서 Microsoft Azure Import/Export 도구를 실행하여 다음을 수행할 수 있습니다.  
@@ -24,11 +24,11 @@ ms.locfileid: "90056342"
   
 이 기능을 사용하려면 Azure Storage에 연결되어 있어야 합니다.  
   
-가져오기 작업을 복구하는 명령은 **RepairExport**입니다.
+가져오기 작업을 복구하는 명령은 **RepairExport** 입니다.
 
 ## <a name="repairexport-parameters"></a>RepairExport 매개 변수
 
-**RepairExport**와 함께 다음 매개 변수를 지정할 수 있습니다.  
+**RepairExport** 와 함께 다음 매개 변수를 지정할 수 있습니다.  
   
 |매개 변수|Description|  
 |---------------|-----------------|  
@@ -81,7 +81,7 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 ## <a name="using-repairexport-to-validate-drive-contents"></a>RepairExport를 사용하여 드라이브 내용의 유효성 검사  
 **RepairExport** 옵션과 함께 Azure 가져오기/내보내기를 사용하여 드라이브의 내용이 올바른지 확인할 수도 있습니다. 각 내보내기 드라이브에 있는 매니페스트 파일에는 드라이브 내용에 대한 MD5가 포함되어 있습니다.  
   
-Azure Import/Export 서비스는 내보내기 프로세스 동안 스토리지 계정에 이 매니페스트 파일을 저장할 수도 있습니다. 매니페스트 파일의 위치는 작업이 완료될 때 [Get Job](/rest/api/storageimportexport/jobs) 작업을 통해 사용할 수 있습니다. 드라이브 매니페스트 파일의 형식에 대 한 자세한 내용은 [Import/Export 서비스 매니페스트 파일 형식](storage-import-export-file-format-metadata-and-properties.md)을 참조 하세요.  
+Azure Import/Export 서비스는 내보내기 프로세스 동안 스토리지 계정에 이 매니페스트 파일을 저장할 수도 있습니다. 매니페스트 파일의 위치는 작업이 완료될 때 [Get Job](/rest/api/storageimportexport/jobs) 작업을 통해 사용할 수 있습니다. 드라이브 매니페스트 파일의 형식에 대 한 자세한 내용은 [Import/Export 서비스 매니페스트 파일 형식](/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties)을 참조 하세요.  
   
 다음 예제에서는 **/ManifestFile** 및 **/CopyLogFile** 매개 변수를 사용하여 Azure Import/Export 도구를 실행하는 방법을 보여 줍니다.  
   
@@ -153,6 +153,6 @@ G:\pictures\wild\canyon.jpg.properties
 ## <a name="next-steps"></a>다음 단계
  
 * [Azure Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)   
-* [가져오기 작업을 위한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [가져오기 작업을 위한 하드 드라이브 준비](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)

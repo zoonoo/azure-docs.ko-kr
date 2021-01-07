@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.custom: contperfq1
-ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 4e27266688e39eadc8ae1f3d9afd84c42e1b524e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561653"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031660"
 ---
 # <a name="what-is-single-sign-on-sso"></a>SSO(Single Sign-On)란?
 

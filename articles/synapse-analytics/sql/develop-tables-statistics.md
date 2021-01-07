@@ -11,30 +11,30 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: f30e9c30f1067595fc502bf3ea349cd6b7630ae1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032683"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451796"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
-이 문서에서는 Synapse SQL 리소스인 SQL 풀 및 SQL 주문형(미리 보기)을 사용하여 쿼리 최적화 통계를 만들고 업데이트하기 위한 권장 사항과 예제를 제공합니다.
+이 문서에서 제공 하는 권장 사항 및 예제는 Synapse SQL 리소스를 사용 하 여 쿼리 최적화 통계를 만들고 업데이트 하는 예제입니다. 전용 SQL 풀 및 서버 리스 SQL 풀.
 
-## <a name="statistics-in-sql-pool"></a>SQL 풀의 통계
+## <a name="statistics-in-dedicated-sql-pool"></a>전용 SQL 풀의 통계
 
 ### <a name="why-use-statistics"></a>통계를 사용하는 이유
 
-SQL 풀 리소스에서 데이터에 대해 많이 알수록 쿼리를 빠르게 실행할 수 있습니다. SQL 풀로 데이터를 로드한 후에 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업은 데이터에 대한 통계를 수집하는 것입니다.  
+더 많은 전용 SQL 풀에서 데이터를 인식 하 여 쿼리를 더 빠르게 실행할 수 있습니다. 전용 SQL 풀로 데이터를 로드 한 후에는 쿼리 최적화를 위해 수행할 수 있는 가장 중요 한 작업 중 하나는 데이터에 대 한 통계를 수집 하는 것입니다.  
 
-SQL 풀 쿼리 최적화 프로그램은 비용을 기반으로 하는 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다.
+전용 SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다.
 
 예를 들어 최적화 프로그램이 쿼리에서 필터링하는 날짜가 하나의 행을 반환한다고 예측하는 경우에는 특정 계획을 선택할 수 있고, 선택한 날짜가 1백만 개의 행을 반환한다고 예측하는 경우에는 또 다른 계획을 선택할 수 있습니다.
 
 ### <a name="automatic-creation-of-statistics"></a>통계 자동 생성
 
-SQL 풀은 데이터베이스 AUTO_CREATE_STATISTICS 옵션이 `ON`으로 설정된 경우 수신 사용자 쿼리를 분석하여 누락된 통계가 있는지 확인합니다.  통계가 누락된 경우 쿼리 최적화 프로그램은 쿼리 조건자 또는 조인 조건의 개별 열에 대해 통계를 만듭니다. 
+데이터베이스 AUTO_CREATE_STATISTICS 옵션이로 설정 되어 있으면 전용 SQL 풀 엔진이 누락 된 통계에 대 한 들어오는 사용자 쿼리를 분석 합니다 `ON` .  통계가 누락된 경우 쿼리 최적화 프로그램은 쿼리 조건자 또는 조인 조건의 개별 열에 대해 통계를 만듭니다. 
 
 이 기능은 쿼리 계획의 카디널리티 추정을 개선하는 데 사용됩니다.
 
@@ -72,9 +72,9 @@ SET AUTO_CREATE_STATISTICS ON
 체감될 정도의 성능 저하를 방지하려면 시스템을 프로파일링하기 전에 벤치마크 워크로드를 실행하여 통계가 생성되도록 해야 합니다.
 
 > [!NOTE]
-> 통계 생성은 다른 사용자 컨텍스트의 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에 로깅됩니다.
+> 통계 생성은 다른 사용자 컨텍스트의 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에 로깅됩니다.
 
-생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 이미 생성된 통계는 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 명령을 실행하여 볼 수 있습니다.
+생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 이미 생성된 통계는 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 실행하여 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -137,7 +137,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-예를 들어, 일반적으로 데이터 웨어하우스의 **날짜 열**은 자주 통계 업데이트가 필요합니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이로 인해 데이터 분포가 변경되며 통계가 최신 상태가 아니게 됩니다.
+예를 들어, 일반적으로 데이터 웨어하우스의 **날짜 열** 은 자주 통계 업데이트가 필요합니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이로 인해 데이터 분포가 변경되며 통계가 최신 상태가 아니게 됩니다.
 
 고객 테이블의 성별 열에 대한 통계는 업데이트할 필요가 없을 수 있습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다.
 
@@ -166,7 +166,7 @@ WHERE
 #### <a name="create-single-column-statistics-with-default-options"></a>기본 옵션으로 단일 열 통계 만들기
 
 열에 대해 통계를 만들려면 통계 개체의 이름과 열 이름을 지정합니다.
-이 구문은 모든 기본 옵션을 사용합니다. SQL 풀은 통계를 만들 때 기본적으로 테이블의 **20%** 를 샘플링합니다.
+이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 전용 SQL 풀은 통계를 만들 때 테이블의 **20%** 를 샘플링 합니다.
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -236,7 +236,7 @@ CREATE STATISTICS stats_col1
     WITH SAMPLE = 50 PERCENT;
 ```
 
-전체 참조의 경우 [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+전체 참조의 경우 [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 #### <a name="create-multi-column-statistics"></a>여러 열 통계 만들기
 
@@ -245,7 +245,7 @@ CREATE STATISTICS stats_col1
 > [!NOTE]
 > 쿼리 결과에서 행 수를 예측하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 대해서만 사용할 수 있습니다.
 
-이 예에서 히스토그램은 *product\_category*에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub_category*에서 계산됩니다.
+이 예에서 히스토그램은 *product\_category* 에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub_category* 에서 계산됩니다.
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-*product\_category*와 *product<\_sub\_category* 사이에 상관 관계가 있으므로, 이러한 열을 동시에 액세스하는 경우 다중 열 통계 개체가 유용할 수 있습니다.
+*product\_category* 와 *product<\_sub\_category* 사이에 상관 관계가 있으므로, 이러한 열을 동시에 액세스하는 경우 다중 열 통계 개체가 유용할 수 있습니다.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>테이블의 모든 열에 대한 통계 만들기
 
@@ -430,10 +430,10 @@ UPDATE STATISTICS 문은 쉽게 사용할 수 있습니다. 테이블에 대한 
 성능이 문제가 되지 않는다면 통계가 최신 상태임을 보증하는 가장 쉽고 완벽한 방법입니다.
 
 > [!NOTE]
-> 테이블에 대한 모든 통계를 업데이트하는 경우 SQL 풀은 각 통계 개체에 대한 테이블을 검사하여 샘플링합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
+> 테이블의 모든 통계를 업데이트할 때 전용 SQL 풀은 각 통계 개체에 대 한 테이블을 샘플링 하는 검색을 수행 합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
 
 `UPDATE STATISTICS` 프로시저의 구현은 [임시 테이블](develop-tables-temporary.md)을 참조하세요. 구현 방법은 앞의 `CREATE STATISTICS` 프로시저와 약간 다르지만 그 결과는 동일합니다.
-전체 구문은 [통계 업데이트](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+전체 구문은 [통계 업데이트](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.
 
 ### <a name="statistics-metadata"></a>통계 메타데이터
 
@@ -445,13 +445,13 @@ UPDATE STATISTICS 문은 쉽게 사용할 수 있습니다. 테이블에 대한 
 
 | 카탈로그 뷰 | Description |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |각 열에 대해 한 행입니다. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |데이터베이스의 각 개체에 대해 한 행입니다. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |데이터베이스의 각 스키마에 대해 한 행입니다. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |각 통계 개체에 대해 한 행입니다. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |각 테이블에 대해 한 행입니다(외부 테이블 포함). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |각 데이터 유형에 대해 한 행입니다. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |각 열에 대해 한 행입니다. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |데이터베이스의 각 개체에 대해 한 행입니다. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |데이터베이스의 각 스키마에 대해 한 행입니다. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |각 통계 개체에 대해 한 행입니다. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |각 테이블에 대해 한 행입니다(외부 테이블 포함). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |각 데이터 유형에 대해 한 행입니다. |
 
 #### <a name="system-functions-for-statistics"></a>통계에 대한 시스템 함수
 
@@ -459,8 +459,8 @@ UPDATE STATISTICS 문은 쉽게 사용할 수 있습니다. 테이블에 대한 
 
 | 시스템 함수 | Description |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |통계 개체가 마지막으로 업데이트된 날짜입니다. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |통계 개체에서 인식되는 값의 분포에 대한 요약 수준 및 세부 정보 |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |통계 개체가 마지막으로 업데이트된 날짜입니다. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |통계 개체에서 인식되는 값의 분포에 대한 요약 수준 및 세부 정보 |
 
 #### <a name="combine-statistics-columns-and-functions-into-one-view"></a>통계 열 및 함수를 하나의 보기로 결합
 
@@ -512,7 +512,7 @@ DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니�
 
 헤더는 통계의 메타데이터입니다. 히스토그램은 통계 개체의 첫 번째 키 열에 값의 분포를 표시합니다. 
 
-밀도 벡터는 열 간 상관 관계를 측정합니다. SQL 풀은 통계 개체에 있는 임의의 데이터를 사용하여 카디널리티 추정값을 계산합니다.
+밀도 벡터는 열 간 상관 관계를 측정합니다. 전용 SQL 풀은 통계 개체의 데이터를 사용 하 여 카디널리티 예상치를 계산 합니다.
 
 #### <a name="show-header-density-and-histogram"></a>헤더, 밀도 및 히스토그램 표시
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() 차이점
 
-`DBCC SHOW_STATISTICS()`는 SQL Server와 비교했을 때 다음과 같이 SQL 풀에서 더 엄격하게 구현됩니다.
+`DBCC SHOW_STATISTICS()` 는 SQL Server에 비해 전용 SQL 풀에서 보다 엄격 하 게 구현 됩니다.
 
 - 문서화되지 않은 기능은 지원되지 않습니다.
 - Stats_stream은 사용할 수 없습니다.
@@ -556,25 +556,25 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - 열 이름을 사용하여 통계 개체를 식별할 수 없습니다.
 - 사용자 지정 오류 2767은 지원되지 않습니다.
 
-### <a name="next-steps"></a>다음 단계
 
-쿼리 성능 추가 향상은 [작업 모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 참조
-
-## <a name="statistics-in-sql-on-demand-preview"></a>SQL 주문형(미리 보기)의 통계
+## <a name="statistics-in-serverless-sql-pool"></a>서버를 사용 하지 않는 SQL 풀의 통계
 
 통계는 특정 데이터 세트(스토리지 경로)의 특정 열에 대해 생성됩니다.
 
+> [!NOTE]
+> LOB 열에 대해서는 통계를 만들 수 없습니다.
+
 ### <a name="why-use-statistics"></a>통계를 사용하는 이유
 
-SQL 주문형(미리 보기)에서 데이터에 대해 많이 알수록 쿼리를 빠르게 실행할 수 있습니다. 데이터에 대해 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업입니다. 
+서버를 사용 하지 않는 SQL 풀에서 데이터를 알고 있으므로 데이터에 대 한 쿼리를 더 빠르게 실행할 수 있습니다. 데이터에 대해 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업입니다. 
 
-SQL 주문형 쿼리 최적화 프로그램은 비용을 기반으로 하는 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다. 
+서버를 사용 하지 않는 SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다. 
 
 예를 들어 최적화 프로그램이 쿼리에서 필터링하는 날짜가 하나의 행을 반환한다고 예측하는 경우에는 특정 계획을 선택할 수 있고, 선택한 날짜가 1백만 개의 행을 반환한다고 예측하는 경우에는 또 다른 계획을 선택할 수 있습니다.
 
 ### <a name="automatic-creation-of-statistics"></a>통계 자동 생성
 
-SQL 주문형은 수신 사용자 쿼리를 분석하여 누락된 통계가 있는지 확인합니다. 누락된 통계가 있는 경우 쿼리 최적화 프로그램이 쿼리 조건자 또는 조인 조건의 개별 열에 대한 통계를 만들어서 쿼리 계획의 카디널리티 추정값을 개선합니다.
+서버를 사용 하지 않는 SQL 풀은 누락 된 통계에 대해 들어오는 사용자 쿼리를 분석 합니다. 누락된 통계가 있는 경우 쿼리 최적화 프로그램이 쿼리 조건자 또는 조인 조건의 개별 열에 대한 통계를 만들어서 쿼리 계획의 카디널리티 추정값을 개선합니다.
 
 SELECT 문은 통계의 자동 생성을 트리거합니다.
 
@@ -585,7 +585,7 @@ SELECT 문은 통계의 자동 생성을 트리거합니다.
 
 ### <a name="manual-creation-of-statistics"></a>통계 수동 생성
 
-SQL 주문형을 사용하면 통계를 수동으로 만들 수 있습니다. CSV 파일의 경우에는 CSV 파일에 대한 통계 자동 생성이 설정되어 있지 않으므로 통계를 수동으로 만들어야 합니다. 
+서버를 사용 하지 않는 SQL 풀에서 통계를 수동으로 만들 수 있습니다. CSV 파일의 경우에는 CSV 파일에 대한 통계 자동 생성이 설정되어 있지 않으므로 통계를 수동으로 만들어야 합니다. 
 
 통계를 수동으로 만드는 방법은 아래 예제를 참조하세요.
 
@@ -593,7 +593,7 @@ SQL 주문형을 사용하면 통계를 수동으로 만들 수 있습니다. CS
 
 파일의 데이터가 변경되거나 파일이 삭제 또는 추가되면 데이터 분포가 변경되어 통계가 최신 상태가 아니게 됩니다. 이 경우 통계를 업데이트해야 합니다.
 
-SQL 주문형은 데이터가 크게 변경된 경우 자동으로 통계를 다시 만듭니다. 통계가 자동으로 생성될 때마다 데이터 세트의 현재 상태(파일 경로, 크기, 마지막 수정 날짜)도 저장됩니다.
+데이터가 크게 변경 되는 경우 서버를 사용 하지 않는 SQL 풀에서 자동으로 통계를 다시 만듭니다. 통계가 자동으로 생성될 때마다 데이터 세트의 현재 상태(파일 경로, 크기, 마지막 수정 날짜)도 저장됩니다.
 
 통계가 오래되면 새로운 통계가 만들어집니다. 알고리즘은 데이터를 살펴보며 데이터 세트의 현재 상태와 비교합니다. 변경의 규모가 지정된 임계값보다 큰 경우 기존 통계가 삭제되고 새로운 데이터 세트에 대해 다시 만들어집니다.
 
@@ -616,7 +616,7 @@ SQL 주문형은 데이터가 크게 변경된 경우 자동으로 통계를 다
 통계를 업데이트하기 위해 제공되는 지침 원칙은 다음과 같습니다.
 
 - 데이터 세트에 하나 이상의 업데이트된 통계 개체가 있는지 확인합니다. 이렇게 하면 통계 업데이트의 일부로 크기(행 수 및 페이지 수) 정보가 업데이트됩니다.
-- JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여하는 열에 집중합니다.
+- WHERE, JOIN, GROUP BY, ORDER BY 및 DISTINCT 절에 참여 하는 열에 집중 합니다.
 - 이러한 값은 통계 히스토그램에 포함되지 않으므로 트랜잭션 날짜와 같은 “오름차순 키” 열을 더 자주 업데이트하고
 - 통계 분포 열은 덜 자주 업데이트하세요.
 
@@ -629,12 +629,12 @@ SQL 주문형은 데이터가 크게 변경된 경우 자동으로 통계를 다
 > [!NOTE]
 > 지금은 단일 열 통계만 만들 수 있습니다.
 >
-> 프로시저 sp_create_file_statistics의 이름이 sp_create_openrowset_statistics로 변경됩니다. sp_create_file_statistics 및 sp_drop_file_statistics에서 퍼블릭 서버 역할에는 ADMINISTER BULK OPERATIONS 권한이 부여되어 있고, 퍼블릭 데이터베이스 역할에는 EXECUTE 권한이 부여되어 있습니다. 이는 추후 변경될 수 있습니다.
+> Sp_create_openrowset_statistics를 실행 하 sp_drop_openrowset_statistics 고 대량 작업을 관리 하거나 데이터베이스 대량 작업을 관리 하려면 다음 권한이 필요 합니다.
 
 다음 저장 프로시저는 통계를 만드는 데 사용됩니다.
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 인수: [ @stmt = ] N'statement_text' - 통계에 사용될 열 값을 반환하는 Transact-SQL 문을 지정합니다. TABLESAMPLE을 사용하여 사용될 데이터 샘플을 지정할 수 있습니다. TABLESAMPLE이 지정되지 않은 경우 FULLSCAN이 사용됩니다.
@@ -650,7 +650,7 @@ sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 
 열에 대해 통계를 만들려면 통계가 필요한 열을 반환하는 쿼리를 제공합니다.
 
-기본적으로 달리 지정하지 않는 한 SQL 주문형은 통계를 만들 때 데이터 세트에 제공된 데이터를 100% 사용합니다.
+달리 지정 하지 않으면 기본적으로 서버를 사용 하지 않는 SQL 풀에서 통계를 만들 때 데이터 집합에 제공 된 데이터의 100%를 사용 합니다.
 
 예를 들어 다음은 population.csv 파일을 기반으로 데이터 세트의 연도 열에 대해 기본 옵션(FULLSCAN)을 사용하여 통계를 만듭니다.
 
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 통계를 업데이트하려면 통계를 삭제한 후 만들어야 합니다. 다음 저장 프로시저는 통계를 삭제하는 데 사용됩니다.
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> 프로시저 Procedure sp_drop_file_statistics의 이름이 sp_drop_openrowset_statistics로 변경됩니다. sp_create_file_statistics 및 sp_drop_file_statistics에서 퍼블릭 서버 역할에는 ADMINISTER BULK OPERATIONS 권한이 부여되어 있고, 퍼블릭 데이터베이스 역할에는 EXECUTE 권한이 부여되어 있습니다. 이는 추후 변경될 수 있습니다.
+> Sp_create_openrowset_statistics를 실행 하 sp_drop_openrowset_statistics 고 대량 작업을 관리 하거나 데이터베이스 대량 작업을 관리 하려면 다음 권한이 필요 합니다.
 
 인수: [ @stmt = ] N'statement_text' - 통계를 만들 때 사용된 것과 통일한 Transact-SQL 문을 지정합니다.
 
 population.csv 파일을 기반으로 데이터 세트의 연도 열에 대해 통계를 업데이트하려면 통계를 삭제한 후에 만들어야 합니다.
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -814,6 +814,76 @@ CREATE STATISTICS sState
     WITH FULLSCAN, NORECOMPUTE
 ```
 
+### <a name="statistics-metadata"></a>통계 메타데이터
+
+통계에 대한 정보를 찾는 데 사용할 수 있는 몇 가지 시스템 뷰 및 함수가 있습니다. 예를 들어 STATS_DATE() 함수를 사용하여 통계 개체가 오래되었는지 확인할 수 있습니다. STATS_DATE()를 사용하면 통계가 마지막으로 만들어졌거나 업데이트된 시기를 확인할 수 있습니다.
+
+> [!NOTE]
+> 통계 메타 데이터는 외부 테이블 열에만 사용할 수 있습니다. OPENROWSET 열에는 통계 메타 데이터를 사용할 수 없습니다.
+
+#### <a name="catalog-views-for-statistics"></a>통계에 대한 카탈로그 뷰
+
+이 시스템 뷰는 통계에 대한 정보를 제공합니다.
+
+| 카탈로그 뷰                                                 | Description                                                  |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 각 열에 대해 한 행입니다.                                     |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 데이터베이스의 각 개체에 대해 한 행입니다.                     |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 데이터베이스의 각 스키마에 대해 한 행입니다.                     |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 각 통계 개체에 대해 한 행입니다.                          |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 각 테이블에 대해 한 행입니다(외부 테이블 포함).           |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 각 데이터 유형에 대해 한 행입니다.                                  |
+
+#### <a name="system-functions-for-statistics"></a>통계에 대한 시스템 함수
+
+이 시스템 함수는 통계를 작업할 때 유용합니다.
+
+| 시스템 함수                                              | Description                                  |
+| :----------------------------------------------------------- | :------------------------------------------- |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | 통계 개체가 마지막으로 업데이트된 날짜입니다. |
+
+#### <a name="combine-statistics-columns-and-functions-into-one-view"></a>통계 열 및 함수를 하나의 보기로 결합
+
+이 뷰는 통계와 관련된 열 및 STATS_DATE() 함수의 결과를 모두 제공합니다.
+
+```sql
+CREATE VIEW dbo.vstats_columns
+AS
+SELECT
+        sm.[name]                           AS [schema_name]
+,       tb.[name]                           AS [table_name]
+,       st.[name]                           AS [stats_name]
+,       st.[filter_definition]              AS [stats_filter_definition]
+,       st.[has_filter]                     AS [stats_is_filtered]
+,       STATS_DATE(st.[object_id],st.[stats_id])
+                                            AS [stats_last_updated_date]
+,       co.[name]                           AS [stats_column_name]
+,       ty.[name]                           AS [column_type]
+,       co.[max_length]                     AS [column_max_length]
+,       co.[precision]                      AS [column_precision]
+,       co.[scale]                          AS [column_scale]
+,       co.[is_nullable]                    AS [column_is_nullable]
+,       co.[collation_name]                 AS [column_collation_name]
+,       QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])
+                                            AS two_part_name
+,       QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])
+                                            AS three_part_name
+FROM    sys.objects                         AS ob
+JOIN    sys.stats           AS st ON    ob.[object_id]      = st.[object_id]
+JOIN    sys.stats_columns   AS sc ON    st.[stats_id]       = sc.[stats_id]
+                            AND         st.[object_id]      = sc.[object_id]
+JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
+                            AND         sc.[object_id]      = co.[object_id]
+JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
+JOIN    sys.tables          AS tb ON    co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm ON    tb.[schema_id]      = sm.[schema_id]
+WHERE   st.[user_created] = 1
+;
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-쿼리 성능 개선에 대한 자세한 내용은 [SQL 풀 모범 사례](best-practices-sql-pool.md#maintain-statistics)를 참조하세요.
+전용 SQL 풀의 쿼리 성능을 향상 시키려면 [전용 sql 풀에 대 한 작업 및 모범 사례](best-practices-sql-pool.md#maintain-statistics) [모니터링](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 을 참조 하세요.
+
+서버를 사용 하지 않는 SQL 풀의 쿼리 성능을 향상 시키려면 [서버 리스 sql 풀의 모범 사례](best-practices-sql-on-demand.md) 를 참조 하세요.

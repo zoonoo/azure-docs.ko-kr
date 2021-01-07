@@ -8,10 +8,10 @@ ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848128"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
@@ -54,7 +54,7 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 - 현재 Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)을 통해 사용할 수 있는 Application Insights에 대한 이전(클래식) 플랫폼과 사용자 지정 메트릭 및 관련 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
 - 현재 Azure Porta에서 [Application Insights 내 스마트 검색](../app/proactive-diagnostics.md)으로 사용할 수 있는 이전(클래식) 오류 이상 경고이며, Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)에 표시된 경고 구성도 포함됩니다.
 
-이는 다음을 의미합니다.
+이것은 다음을 의미합니다.
 
 - 클래식 모니터링 및 경고 서비스는 사용 중지 되며 더 이상 새 경고 규칙을 만들 수 없습니다.
 - 경고 (클래식)에 계속 존재 하는 경고 규칙은 계속 실행 되 고 알림을 발생 시킵니다.

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095554"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652147"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
 
@@ -22,7 +22,7 @@ ms.locfileid: "85095554"
 
 Azure 방화벽에는 다음과 같은 기능이 포함 되어 있습니다.
 
-- [기본 제공되는 고가용성](#built-in-high-availability)
+- [기본 제공 되는 고가용성](#built-in-high-availability)
 - [가용성 영역](#availability-zones)
 - [무제한 클라우드 확장성](#unrestricted-cloud-scalability)
 - [애플리케이션 FQDN 필터링 규칙](#application-fqdn-filtering-rules)
@@ -35,7 +35,7 @@ Azure 방화벽에는 다음과 같은 기능이 포함 되어 있습니다.
 - [여러 공용 IP 주소](#multiple-public-ip-addresses)
 - [Azure Monitor 로깅](#azure-monitor-logging)
 - [강제 터널링](#forced-tunneling)
-- [인증서](#certifications)
+- [인증](#certifications)
 
 ## <a name="built-in-high-availability"></a>기본 제공되는 고가용성
 
@@ -62,11 +62,11 @@ Azure Firewall은 변화하는 트래픽 흐름을 수용하기 위해 필요한
 
 ## <a name="application-fqdn-filtering-rules"></a>애플리케이션 FQDN 필터링 규칙
 
-아웃바운드 HTTP/S 트래픽 또는 Azure SQL 트래픽(미리 보기)을 와일드 카드를 포함한 FQDN(정규화된 도메인 이름) 목록으로 제한할 수 있습니다. 이 기능에는 TLS 종료가 필요하지 않습니다.
+와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽 또는 Azure SQL 트래픽을 제한할 수 있습니다. 이 기능에는 TLS 종료가 필요하지 않습니다.
 
 ## <a name="network-traffic-filtering-rules"></a>네트워크 트래픽 필터링 규칙
 
-원본 및 대상 IP 주소, 포트 및 프로토콜별로 네트워크 필터링 규칙을 중앙에서 만들거나 *허용*하거나 *거부*할 수 있습니다. Azure Firewall은 상태를 완전히 저장하기 때문에 다양한 유형의 연결에서 올바른 패킷을 구별할 수 있습니다. 여러 구독 및 가상 네트워크 전반에 규칙이 적용되고 기록됩니다.
+원본 및 대상 IP 주소, 포트 및 프로토콜별로 네트워크 필터링 규칙을 중앙에서 만들거나 *허용* 하거나 *거부* 할 수 있습니다. Azure Firewall은 상태를 완전히 저장하기 때문에 다양한 유형의 연결에서 올바른 패킷을 구별할 수 있습니다. 여러 구독 및 가상 네트워크 전반에 규칙이 적용되고 기록됩니다.
 
 ## <a name="fqdn-tags"></a>FQDN 태그
 
@@ -101,7 +101,11 @@ Azure Firewall은 변화하는 트래픽 흐름을 수용하기 위해 필요한
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor 로깅
 
-모든 이벤트가 Azure Monitor와 통합되기 때문에 스토리지 계정에 로그를 보관하고 Event Hub에 이벤트를 스트리밍하거나 Azure Monitor 로그에 보낼 수 있습니다. 자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](tutorial-diagnostics.md)을 참조하세요.
+모든 이벤트가 Azure Monitor와 통합되기 때문에 스토리지 계정에 로그를 보관하고 Event Hub에 이벤트를 스트리밍하거나 Azure Monitor 로그에 보낼 수 있습니다. Azure Monitor 로그 예제는 [Azure 방화벽에 대 한 Azure Monitor 로그](log-analytics-samples.md)를 참조 하세요.
+
+자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](./firewall-diagnostics.md)을 참조하세요. 
+
+Azure 방화벽 통합 문서는 Azure 방화벽 데이터 분석을 위한 유연한 캔버스를 제공 합니다. 이를 사용 하 여 Azure Portal 내에서 풍부한 시각적 보고서를 만들 수 있습니다. 자세한 내용은 [Azure 방화벽 통합 문서를 사용 하 여 로그 모니터링](firewall-workbook.md)을 참조 하세요.
 
 ## <a name="forced-tunneling"></a>강제 터널링
 

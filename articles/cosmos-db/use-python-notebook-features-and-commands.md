@@ -3,17 +3,19 @@ title: Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook
 description: 기본 제공 명령 및 기능을 사용하여 Azure Cosmos DB의 기본 제공 Python Notebooks를 사용하는 일반적인 작업을 수행하는 방법을 알아봅니다.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761198"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340416"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB의 기본 제공 Jupyter Notebook을 사용하여 Azure Portal에서 데이터를 분석하고 시각화할 수 있습니다. 이 문서에서는 기본 제공 Notebook 명령 및 기능을 사용하여 Python Notebooks에서 일반적인 작업을 수행하는 방법을 설명합니다.
 
@@ -167,7 +169,7 @@ container = database.create_container_if_not_exists(id='WebsiteData', partition_
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>``cosmos_client``의 사용자 지정 인스턴스 만들기
 더 많은 유연성을 위해 다음과 같은 작업을 위해 ``cosmos_client``의 사용자 지정 인스턴스를 만들 수 있습니다.
 
-- [연결 정책](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview) 사용자 지정
+- [연결 정책](/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?preserve-view=true&view=azure-python-preview) 사용자 지정
 - 현재 사용자가 사용 중인 계정이 아닌 다른 Azure Cosmos 계정에 대해 작업 실행
 
 [환경 변수](#access-the-account-endpoint-and-primary-key-env-variables)를 통해 현재 계정의 연결 문자열 및 기본 키에 액세스할 수 있습니다. 
@@ -198,7 +200,7 @@ primary_key = COSMOS.KEY
 > ``COSMOS.ENDPOINT`` 및 ``COSMOS.KEY`` 변수는 SQL API에만 적용됩니다. 다른 API의 경우 Azure Cosmos 계정의 **연결 문자열** 또는 **키** 블레이드에서 엔드포인트 및 키를 찾습니다.  
 
 ## <a name="reset-notebooks-workspace"></a>Notebook 작업 영역 다시 설정
-Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정**을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
+Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정** 을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
 
 :::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Notebook 작업 영역 다시 설정":::
 

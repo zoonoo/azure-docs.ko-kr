@@ -3,19 +3,21 @@ title: Azure Cosmos DB의 인덱싱
 description: 인덱싱이 Azure Cosmos DB에서 작동하는 방식과, Range, Spatial, 지원되는 복합 인덱스 등, 다양한 유형의 인덱스에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068390"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339759"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB는 스키마에 구애되지 않는 데이터베이스로, 스키마나 인덱스 관리를 처리하지 않고도 애플리케이션을 반복할 수 있습니다. 기본적으로 Azure Cosmos DB는 스키마 정의나 보조 인덱스 구성 없이도 [컨테이너](databases-containers-items.md#azure-cosmos-containers)의 전체 항목에 대해 모든 자산을 자동으로 인덱싱합니다.
+Azure Cosmos DB는 스키마에 구애되지 않는 데이터베이스로, 스키마나 인덱스 관리를 처리하지 않고도 애플리케이션을 반복할 수 있습니다. 기본적으로 Azure Cosmos DB는 스키마 정의나 보조 인덱스 구성 없이도 [컨테이너](account-databases-containers-items.md#azure-cosmos-containers)의 전체 항목에 대해 모든 자산을 자동으로 인덱싱합니다.
 
 이 문서에서는 Azure Cosmos DB의 데이터 인덱싱 방법과 인덱스를 사용하여 쿼리 성능을 개선하는 방법을 설명합니다. [인덱싱 정책](index-policy.md)을 사용자 지정하는 방법을 살펴보기 전에 이 섹션을 진행하는 것이 좋습니다.
 
@@ -144,7 +146,7 @@ Azure Cosmos DB는 현재 3가지 인덱스 종류를 지원합니다.
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-공간 인덱스는 올바른 형식의 [GeoJSON](geospatial.md) 개체에 사용할 수 있습니다. 현재 점, 선 문자열, 다각형 및 다중 다각형이 지원됩니다.
+공간 인덱스는 올바른 형식의 [GeoJSON](./sql-query-geospatial-intro.md) 개체에 사용할 수 있습니다. 현재 점, 선 문자열, 다각형 및 다중 다각형이 지원됩니다.
 
 ### <a name="composite-indexes"></a>복합 인덱스
 

@@ -4,10 +4,10 @@ description: 를 사용 하 여 Container Registry 이벤트에 제공 되는 �
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113720"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Container Registry
@@ -20,7 +20,7 @@ ms.locfileid: "86113720"
 
 Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | 이미지를 푸시할 때 발생합니다. |
 | Microsoft.ContainerRegistry.ImageDeleted | 이미지를 삭제할 때 발생합니다. |
@@ -152,10 +152,10 @@ Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
@@ -165,22 +165,22 @@ Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | id | 문자열 | 이벤트 ID입니다. |
 | timestamp | 문자열 | 이벤트가 발생한 시간입니다. |
 | action | 문자열 | 제공된 이벤트를 포함하는 동작입니다. |
-| 대상 | 개체 | 이벤트의 대상입니다. |
-| request | 개체 | 이벤트를 생성한 요청입니다. |
+| 대상 | object | 이벤트의 대상입니다. |
+| request | object | 이벤트를 생성한 요청입니다. |
 
 대상 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | mediaType | 문자열 | 참조된 개체의 MIME 형식입니다. |
-| 크기 | integer | 콘텐츠의 바이트 수입니다. 길이 필드와 동일합니다. |
+| 크기 | 정수 | 콘텐츠의 바이트 수입니다. 길이 필드와 동일합니다. |
 | digest | 문자열 | 콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다. |
-| length | integer | 콘텐츠의 바이트 수입니다. 크기 필드와 동일합니다. |
+| length | 정수 | 콘텐츠의 바이트 수입니다. 크기 필드와 동일합니다. |
 | 리포지토리 | 문자열 | 리포지토리 이름입니다. |
 | 태그 | 문자열 | 태그 이름입니다. |
 | name | 문자열 | 차트 이름입니다. |
@@ -188,16 +188,16 @@ Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다
 
 요청 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | id | 문자열 | 이벤트를 시작한 요청의 ID입니다. |
 | addr | 문자열 | IP 또는 호스트 이름 및 가능한 경우 이벤트를 시작한 클라이언트 연결의 포트입니다. 이 값은 표준 http 요청에서 온 RemoteAddr입니다. |
-| host | 문자열 | 외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 http 호스트 헤더를 통해 지정됩니다. |
+| 호스트 | 문자열 | 외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 http 호스트 헤더를 통해 지정됩니다. |
 | method | 문자열 | 이벤트를 생성한 요청 메서드입니다. |
 | useragent | 문자열 | 요청의 사용자 에이전트 헤더입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목 |Description  |
+|제목 |설명  |
 |---------|---------|
 | [빠른 시작: 컨테이너 레지스트리 이벤트 전송](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Container Registry 이벤트를 전송하는 방법을 보여줍니다. |
 

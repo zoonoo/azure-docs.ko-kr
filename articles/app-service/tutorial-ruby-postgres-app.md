@@ -4,19 +4,19 @@ description: Azure의 PostgreSQL 데이터베이스와 연결하여 Azure App Se
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 77892cc9a05c569e431fb9c66c2f6eb92068b3af
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.openlocfilehash: f565fcef60b2cb4726b180eb67e6ac1fcaefc24b
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082423"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347849"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 
 [Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 Ruby 앱을 만들고 PostgreSQL 데이터베이스에 연결하는 방법을 보여줍니다. 완료되면 [Ruby on Rails](https://rubyonrails.org/) 앱이 Linux의 App Service에서 실행됩니다.
 
-![Azure App Service에서 실행 중인 Ruby on Rails 앱](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
+:::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="작업이라는 제목의 Ruby on Rails 앱 예제 스크린샷.":::
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -34,10 +34,11 @@ ms.locfileid: "88082423"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Git 설치](https://git-scm.com/)
-* [Ruby 2.6 설치](https://www.ruby-lang.org/en/documentation/installation/)
-* [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
+- [Git 설치](https://git-scm.com/)
+- [Ruby 2.6 설치](https://www.ruby-lang.org/en/documentation/installation/)
+- [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>로컬 Postgres 준비
 
@@ -104,11 +105,9 @@ rails server
 
 Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="create-postgres-in-azure"></a>Azure에서 Postgres 만들기
 
-이 단계에서는 [Azure Database for PostgreSQL](/azure/postgresql/)에서 Postgres 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 Ruby on Rails 애플리케이션을 구성합니다.
+이 단계에서는 [Azure Database for PostgreSQL](../postgresql/index.yml)에서 Postgres 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 Ruby on Rails 애플리케이션을 구성합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -117,7 +116,7 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 ## <a name="create-postgres-database-in-azure"></a>Azure에서 Postgres 데이터베이스 만들기
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
 
 이 섹션에서는 Azure Database for PostgreSQL 서버 및 데이터베이스를 만듭니다. 시작하려면 다음 명령을 사용하여 `db-up` 확장을 설치합니다.
 
@@ -125,7 +124,7 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 az extension add --name db-up
 ```
 
-다음 예제와 같이 Azure에서 [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 명령을 사용하여 Postgres 데이터베이스를 만듭니다. *\<postgresql-name>* 를 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<postgresql-name>.postgres.database.azure.com*임). *\<admin-username>* 및 *\<admin-password>* 의 경우 이 Postgres 서버에 대한 관리자 사용자를 만들기 위한 자격 증명을 지정합니다.
+다음 예제와 같이 Azure에서 [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 명령을 사용하여 Postgres 데이터베이스를 만듭니다. *\<postgresql-name>* 를 *고유* 이름으로 바꿉니다(서버 엔드포인트는 *https://\<postgresql-name>.postgres.database.azure.com* 임). *\<admin-username>* 및 *\<admin-password>* 의 경우 이 Postgres 서버에 대한 관리자 사용자를 만들기 위한 자격 증명을 지정합니다.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -157,7 +156,7 @@ az postgres up --resource-group myResourceGroup --location westeurope --server-n
 
 ### <a name="configure-the-database-connection"></a>데이터베이스 연결 구성
 
-리포지토리에서 _config/database.yml_을 엽니다. 파일 맨 아래에서 프로덕션 변수를 다음 코드로 바꿉니다. 
+리포지토리에서 _config/database.yml_ 을 엽니다. 파일 맨 아래에서 프로덕션 변수를 다음 코드로 바꿉니다. 
 
 ```txt
 production:
@@ -255,7 +254,7 @@ git commit -m "database.yml updates"
 
 ### <a name="configure-database-settings"></a>데이터베이스 설정 구성
 
-Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용하여 App Service의 환경 변수를 _앱 설정_으로 설정합니다.
+Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) 명령을 사용하여 App Service의 환경 변수를 _앱 설정_ 으로 설정합니다.
 
 다음 Cloud Shell 명령에서는 `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` 및 `DB_PASSWORD` 앱 설정을 구성합니다. _&lt;appname>_ 및 _&lt;postgres-server-name>_ 자리 표시자를 대체합니다.
 
@@ -316,7 +315,7 @@ remote: Running deployment command...
 
 `http://<app-name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
 
-![Azure App Service에서 실행 중인 Ruby on Rails 앱](./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png)
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="목록에 추가된 작업을 보여주는 작업이라는 제목의 Azure 앱 예제 스크린샷.":::
 
 축하합니다! Azure App Service에서 데이터 기반 Ruby on Rails 앱을 실행하고 있습니다.
 
@@ -439,7 +438,7 @@ git push azure master
 
 만든 앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services** 를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
 

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2b99d032b953caecfca2b34d5eadafe94f45f307
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809377"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009537"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
 
@@ -137,7 +137,7 @@ module.exports = async function(context, input) {
 > [!NOTE]
 > 이 예제는 Durable Functions 버전 2.x를 대상으로 합니다. 버전 1.x에서는 대신을 사용 `orchestrationClient` `durableClient` 합니다.
 
-**__init__py**
+**__init__ py**
 
 ```python
 import logging
@@ -158,11 +158,11 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 [ AzureFunctionsCoreTools](../functions-run-local.md) `durable start-new`명령을 사용하여 직접 인스턴스를 시작할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* ** `function-name` (필수)**: 시작할 함수의 이름입니다.
-* ** `input` (선택 사항)**: 함수에 대 한 입력 (인라인 또는 JSON 파일)입니다. 파일의 경우와 같이 파일의 경로에 접두사를 추가 `@` `@path/to/file.json` 합니다.
-* ** `id` (선택 사항)**: 오케스트레이션 인스턴스의 ID입니다. 이 매개 변수를 지정 하지 않으면 명령에서 임의 GUID를 사용 합니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 AzureWebJobsStorage입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 DurableFunctionsHub입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.js](durable-functions-bindings.md#host-json) 에서이를 설정할 수도 있습니다.
+* **`function-name` (필수)**: 시작할 함수의 이름입니다.
+* **`input` (선택 사항)**: 함수에 대 한 입력 (인라인 또는 JSON 파일)입니다. 파일의 경우와 같이 파일의 경로에 접두사를 추가 `@` `@path/to/file.json` 합니다.
+* **`id` (선택 사항)**: 오케스트레이션 인스턴스의 ID입니다. 이 매개 변수를 지정 하지 않으면 명령에서 임의 GUID를 사용 합니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 AzureWebJobsStorage입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 DurableFunctionsHub입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.js](durable-functions-bindings.md#host-json) 에서이를 설정할 수도 있습니다.
 
 > [!NOTE]
 > 핵심 도구 명령은 함수 앱의 루트 디렉터리에서 실행 하는 것으로 가정 합니다. 및 매개 변수를 명시적으로 제공 하는 경우 `connection-string-setting` `task-hub-name` 모든 디렉터리에서 명령을 실행할 수 있습니다. 함수 앱 호스트를 실행 하지 않고 이러한 명령을 실행할 수 있지만 호스트가 실행 되 고 있지 않으면 일부 효과를 확인할 수 없을 수 있습니다. 예를 들어 `start-new` 명령은 시작 메시지를 대상 작업 허브에 큐, 메시지를 처리할 수 있는 함수 앱 호스트 프로세스가 실행 되 고 있지 않으면 오케스트레이션이 실제로 실행 되지 않습니다.
@@ -255,11 +255,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 [AzureFunctionsCoreTools](../functions-run-local.md) `durable get-runtime-status` 명령을 사용하여 오케스트레이션 인스턴스의 상태를 직접 가져올 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* ** `id` (필수)**: 오케스트레이션 인스턴스의 ID입니다.
-* ** `show-input` (선택 사항)**:로 설정 된 경우 `true` 응답에는 함수에 대 한 입력이 포함 됩니다. 기본값은 `false`입니다.
-* ** `show-output` (선택 사항)**:로 설정 하면 `true` 응답에 함수의 출력이 포함 됩니다. 기본값은 `false`입니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* **`id` (필수)**: 오케스트레이션 인스턴스의 ID입니다.
+* **`show-input` (선택 사항)**:로 설정 된 경우 `true` 응답에는 함수에 대 한 입력이 포함 됩니다. 기본값은 `false`입니다.
+* **`show-output` (선택 사항)**:로 설정 하면 `true` 응답에 함수의 출력이 포함 됩니다. 기본값은 `false`입니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
 
 다음 명령을 사용 하 여 오케스트레이션 인스턴스 ID가 0ab8c55a66644d68a3a8b220b12d209c 인 인스턴스의 상태 (입력 및 출력 포함)를 검색 합니다. `func`함수 앱의 루트 디렉터리에서 명령을 실행 하는 것으로 가정 합니다.
 
@@ -269,9 +269,9 @@ func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-inp
 
 명령을 사용 하 여 `durable get-history` 오케스트레이션 인스턴스의 기록을 검색할 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* ** `id` (필수)**: 오케스트레이션 인스턴스의 ID입니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 host.json에서 설정할 수도 있습니다.
+* **`id` (필수)**: 오케스트레이션 인스턴스의 ID입니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 host.json에서 설정할 수도 있습니다.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
@@ -347,10 +347,10 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 [AzureFunctionsCoreTools](../functions-run-local.md) `durable get-instances` 명령을 사용하여 인스턴스를 직접 쿼리할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* ** `top` (선택 사항)**:이 명령은 페이징을 지원 합니다. 이 매개 변수는 요청당 검색된 인스턴스의 수에 해당합니다. 기본값은 10입니다.
-* ** `continuation-token` (선택 사항)**: 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* **`top` (선택 사항)**:이 명령은 페이징을 지원 합니다. 이 매개 변수는 요청당 검색된 인스턴스의 수에 해당합니다. 기본값은 10입니다.
+* **`continuation-token` (선택 사항)**: 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
 
 ```bash
 func durable get-instances
@@ -453,13 +453,13 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 Azure Functions Core Tools에서 `durable get-instances` 명령을 필터와 함께 사용할 수도 있습니다. 앞의,, 및 `top` 매개 변수 외에도 `continuation-token` `connection-string-setting` `task-hub-name` 세 개의 필터 매개 변수 ( `created-after` , 및)를 사용할 수 있습니다 `created-before` `runtime-status` .
 
-* ** `created-after` (선택 사항)**:이 날짜/시간 (UTC) 이후에 생성 된 인스턴스를 검색 합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
-* ** `created-before` (선택 사항)**:이 날짜/시간 (UTC) 이전에 만든 인스턴스를 검색 합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
-* ** `runtime-status` (선택 사항)**: 특정 상태 (예: 실행 중 또는 완료 됨)를 사용 하 여 인스턴스를 검색 합니다. 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
-* ** `top` (선택 사항)**: 요청당 검색 된 인스턴스 수입니다. 기본값은 10입니다.
-* ** `continuation-token` (선택 사항)**: 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* **`created-after` (선택 사항)**:이 날짜/시간 (UTC) 이후에 생성 된 인스턴스를 검색 합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
+* **`created-before` (선택 사항)**:이 날짜/시간 (UTC) 이전에 만든 인스턴스를 검색 합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
+* **`runtime-status` (선택 사항)**: 특정 상태 (예: 실행 중 또는 완료 됨)를 사용 하 여 인스턴스를 검색 합니다. 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
+* **`top` (선택 사항)**: 요청당 검색 된 인스턴스 수입니다. 기본값은 10입니다.
+* **`continuation-token` (선택 사항)**: 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
 
 필터 (, 또는)를 제공 하지 않는 경우 `created-after` `created-before` `runtime-status` 명령은 `top` 런타임 상태나 생성 시간에 관계 없이 단순히 인스턴스를 검색 합니다.
 
@@ -528,10 +528,10 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 [ AzureFunctionsCoreTools](../functions-run-local.md) `durable terminate` 명령을 사용하여 오케스트레이션 인스턴스를 직접 종료할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* ** `id` (필수)**: 종료할 오케스트레이션 인스턴스의 ID입니다.
-* ** `reason` (선택 사항)**: 종료 이유입니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* **`id` (필수)**: 종료할 오케스트레이션 인스턴스의 ID입니다.
+* **`reason` (선택 사항)**: 종료 이유입니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
 
 다음 명령은 ID가 0ab8c55a66644d68a3a8b220b12d209c 인 오케스트레이션 인스턴스를 종료 합니다.
 
@@ -604,11 +604,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 [AzureFunctionsCoreTools](../functions-run-local.md) `durable raise-event` 명령을 사용하여 오케스트레이션 인스턴스에 직접 이벤트를 발생 시킬 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* ** `id` (필수)**: 오케스트레이션 인스턴스의 ID입니다.
+* **`id` (필수)**: 오케스트레이션 인스턴스의 ID입니다.
 * **`event-name`**: 발생 시킬 이벤트의 이름입니다.
-* ** `event-data` (선택 사항)**: 오케스트레이션 인스턴스로 보낼 데이터입니다. JSON 파일의 경로 이거나 명령줄에서 직접 데이터를 제공할 수 있습니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
+* **`event-data` (선택 사항)**: 오케스트레이션 인스턴스로 보낼 데이터입니다. JSON 파일의 경로 이거나 명령줄에서 직접 데이터를 제공할 수 있습니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본값은 `DurableFunctionsHub`입니다. Microsoft.azure.webjobs.extensions.durabletask: HubName를 사용 하 여 [host.json](durable-functions-bindings.md#host-json)에서 설정할 수도 있습니다.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -860,10 +860,10 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 [AzureFunctionsCoreTools](../functions-run-local.md) `durable rewind` 명령을 사용하여 오케스트레이션 인스턴스를 직접 되감을 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
-* ** `id` (필수)**: 오케스트레이션 인스턴스의 ID입니다.
-* ** `reason` (선택 사항)**: 오케스트레이션 인스턴스를 되감기 하는 이유입니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로 [host.js](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
+* **`id` (필수)**: 오케스트레이션 인스턴스의 ID입니다.
+* **`reason` (선택 사항)**: 오케스트레이션 인스턴스를 되감기 하는 이유입니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로 [host.js](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
@@ -997,17 +997,17 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 ---
 
 > [!NOTE]
-> 제거 기록 작업이 성공 하려면 대상 인스턴스의 런타임 상태를 **완료**하거나 **종료**하거나 **실패**해야 합니다.
+> 제거 기록 작업이 성공 하려면 대상 인스턴스의 런타임 상태를 **완료** 하거나 **종료** 하거나 **실패** 해야 합니다.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 [AzureFunctionsCoreTools](../functions-run-local.md) `durable purge-history` 명령을 사용하여 오케스트레이션 인스턴스의 기록을 제거할 수 있습니다. 이전 섹션에서 두 번째 c # 예제와 마찬가지로 지정 된 시간 간격 동안 생성 된 모든 오케스트레이션 인스턴스에 대 한 기록을 제거 합니다. 런타임 상태별로 제거 된 인스턴스를 추가로 필터링 할 수 있습니다. 명령에는 다음과 같은 매개 변수가 있습니다.
 
-* ** `created-after` (선택 사항)**:이 날짜/시간 (UTC) 이후에 생성 된 인스턴스의 기록을 제거 합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
-* ** `created-before` (선택 사항)**:이 날짜/시간 (UTC) 이전에 만든 인스턴스의 기록을 제거 합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
-* ** `runtime-status` (선택 사항)**: 특정 상태 (예: 실행 중 또는 완료 됨)의 인스턴스 기록을 제거 합니다. 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로 [host.js](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
+* **`created-after` (선택 사항)**:이 날짜/시간 (UTC) 이후에 생성 된 인스턴스의 기록을 제거 합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
+* **`created-before` (선택 사항)**:이 날짜/시간 (UTC) 이전에 만든 인스턴스의 기록을 제거 합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
+* **`runtime-status` (선택 사항)**: 특정 상태 (예: 실행 중 또는 완료 됨)의 인스턴스 기록을 제거 합니다. 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로 [host.js](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
 
 다음 명령은 11 월 14 일 (UTC) 7:35에 2018 년 11 월 14 일 이전에 생성 된 모든 실패 한 인스턴스의 기록을 삭제 합니다.
 
@@ -1019,8 +1019,8 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 
 [Azure Functions Core Tools](../functions-run-local.md) 명령을 사용 하 여 `durable delete-task-hub` Azure storage 테이블, 큐 및 blob을 비롯 하 여 특정 작업 허브와 연결 된 모든 저장소 아티팩트를 삭제할 수 있습니다. 명령에는 다음 두 개의 매개 변수가 있습니다.
 
-* ** `connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
-* ** `task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로 [host.js](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
+* **`connection-string-setting` (선택 사항)**: 사용할 저장소 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
+* **`task-hub-name` (선택 사항)**: 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로 [host.js](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용 됩니다.
 
 다음 명령을 사용 하 여 작업 허브와 연결 된 모든 Azure storage 데이터를 삭제 합니다 `UserTest` .
 

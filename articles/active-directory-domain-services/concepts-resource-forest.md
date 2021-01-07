@@ -2,24 +2,24 @@
 title: Azure AD Domain Services에 대한 리소스 포리스트 개념 | Microsoft Docs
 description: Azure Active Directory Domain Services에서 리소스 포리스트가 무엇인지와 이 기능이 제한된 사용자 인증 옵션 또는 보안 문제가 있는 하이브리드 환경의 조직에 어떤 혜택을 주는지 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: justinha
+ms.openlocfilehash: 79cf408bcb9060c247b97e6a81204c5a5517d384
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480410"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620004"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대한 리소스 포리스트 개념 및 기능
 
-Azure Active Directory Domain Services (Azure AD DS)는 레거시 온-프레미스 lob (기간 업무) 응용 프로그램에 대 한 로그인 환경을 제공 합니다. 온-프레미스 및 클라우드 사용자의 사용자, 그룹 및 암호 해시는 Azure AD DS 관리형 도메인과 동기화됩니다. 이러한 동기화된 암호 해시는 온-프레미스 AD DS, Office 365 및 Azure Active Directory에 사용할 수 있는 단일 자격 증명 세트를 사용자에게 제공합니다.
+Azure Active Directory Domain Services (Azure AD DS)는 레거시 온-프레미스 lob (기간 업무) 응용 프로그램에 대 한 로그인 환경을 제공 합니다. 온-프레미스 및 클라우드 사용자의 사용자, 그룹 및 암호 해시는 Azure AD DS 관리형 도메인과 동기화됩니다. 이러한 동기화 된 암호 해시는 사용자에 게 온-프레미스 AD DS, Microsoft 365 및 Azure Active Directory에 사용할 수 있는 단일 자격 증명 집합을 제공 합니다.
 
 보안 및 추가 보안 이점을 제공하지만 일부 조직에서는 이러한 사용자 암호 해시를 Azure AD 또는 Azure AD DS와 동기화할 수 없습니다. 조직의 사용자는 스마트 카드 인증만 사용하기 때문에 암호를 알지 못할 수 있습니다. 이러한 제한 사항으로 인해 일부 조직에서는 Azure AD DS를 사용하여 온-프레미스 클래식 애플리케이션을 Azure로 리프트 앤 시프트하지 못합니다.
 
@@ -27,7 +27,7 @@ Azure Active Directory Domain Services (Azure AD DS)는 레거시 온-프레미�
 
 ## <a name="what-are-forests"></a>포리스트란?
 
-*포리스트*는 AD DS(Active Directory Domain Services)에서 하나 이상의 *도메인*을 그룹화하는 데 사용되는 논리적 구문입니다. 그런 다음, 도메인은 사용자 또는 그룹에 대한 개체를 저장하고 인증 서비스를 제공합니다.
+*포리스트* 는 AD DS(Active Directory Domain Services)에서 하나 이상의 *도메인* 을 그룹화하는 데 사용되는 논리적 구문입니다. 그런 다음, 도메인은 사용자 또는 그룹에 대한 개체를 저장하고 인증 서비스를 제공합니다.
 
 Azure AD DS 관리 되는 도메인에서 포리스트는 도메인을 하나만 포함 합니다. 온-프레미스 AD DS 포리스트에는 여러 도메인이 포함되는 경우가 많습니다. 대기업은 인수 및 합병 후에 각각에 여러 도메인이 포함되는 여러 온-프레미스 포리스트가 구현될 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure AD DS 관리 되는 도메인에서 포리스트는 도메인을 하나만
 
 ## <a name="what-are-trusts"></a>트러스트란?
 
-도메인이 둘 이상 있는 조직에서는 사용자가 다른 도메인의 공유 리소스에 액세스해야 하는 경우가 종종 있습니다. 이러한 공유 리소스에 액세스하려면 한 도메인의 사용자가 다른 도메인에서 인증을 받아야 합니다. 서로 다른 도메인의 클라이언트와 서버 간에 이러한 인증 및 권한 부여 기능을 제공하려면 두 도메인 간에 *트러스트*가 있어야 합니다.
+도메인이 둘 이상 있는 조직에서는 사용자가 다른 도메인의 공유 리소스에 액세스해야 하는 경우가 종종 있습니다. 이러한 공유 리소스에 액세스하려면 한 도메인의 사용자가 다른 도메인에서 인증을 받아야 합니다. 서로 다른 도메인의 클라이언트와 서버 간에 이러한 인증 및 권한 부여 기능을 제공하려면 두 도메인 간에 *트러스트* 가 있어야 합니다.
 
 도메인 트러스트를 사용하는 경우 각 도메인의 인증 메커니즘은 다른 도메인에서 들어오는 인증을 신뢰합니다. 트러스트는 들어오는 인증 요청이 신뢰할 수 있는 기관(*신뢰할 수 있는* 도메인)에서 가져온 것인지 확인하여 리소스 도메인(*트러스팅* 도메인)의 공유 리소스에 대해 제어된 액세스를 제공합니다. 트러스트는 유효성이 검사된 인증 요청만 도메인 간에 이동되도록 허용하는 브리지 역할을 합니다.
 

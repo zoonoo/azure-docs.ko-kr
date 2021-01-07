@@ -28,14 +28,6 @@
       href: tutorial-sync-data-factory.md
     - name: SQL 데이터 동기화로 데이터 동기화
       href: tutorial-sync-data-sync.md
-    - name: SQL Edge로 엔드투엔드 IoT 솔루션 빌드
-      items:
-        - name: Azure 리소스 설정
-          href: tutorial-deploy-azure-resources.md
-        - name: IoT Edge 모듈 설정
-          href: tutorial-set-up-iot-edge-modules.md
-        - name: SQL Edge에 모델 배포
-          href: tutorial-run-ml-model-on-sql-edge.md
 - name: 개념
   items:
     - name: 배포
@@ -46,8 +38,8 @@
           href: disconnected-deployment.md
         - name: Kubernetes에서 배포
           href: deploy-kubernetes.md
-        - name: SQL 도구
-          href: 'https://docs.microsoft.com/en-us/sql/tools/overview-sql-tools?toc=/azure/azure-sql-edge/toc.json'
+        - name: Azure Data Studio를 사용하여 배포
+          href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%2fazure%2fazure-sql-edge%2ftoc.json
     - name: 기계 학습
       items:
         - name: ONNX를 통한 기계 학습 및 AI
@@ -91,9 +83,9 @@
         - name: DATE_BUCKET(Transact-SQL)
           href: date-bucket-tsql.md
         - name: FIRST_VALUE(Transact-SQL)
-          href: 'https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: LAST_VALUE(Transact-SQL)
-          href: 'https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: 데이터 보존 및 정리
           items:
             - name: 데이터 보존 개요
@@ -109,11 +101,11 @@
         - name: 보안 개요
           href: security-overview.md
         - name: 보안 기능
-          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/linux/sql-server-linux-security-get-started?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: 연결 암호화
-          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json'
+          href: /sql/linux/sql-server-linux-encrypted-connections?toc=%2fazure%2fazure-sql-edge%2ftoc.json
         - name: IoT용 Azure Security Center
-          href: 'https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json'
+          href: ../defender-for-iot/overview.md?bc=%2fazure%2fazure-sql-edge%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-sql-edge%2ftoc.json
 - name: 방법
   items:
     - name: SQL Edge 구성
@@ -138,7 +130,25 @@
       href: create-stream-analytics-job.md
     - name: 배포 문제 해결
       href: troubleshoot.md
+- name: 샘플
+  items:
+    - name: 철광석 실리카 예측
+      items:
+        - name: Azure 리소스 설정
+          href: tutorial-deploy-azure-resources.md
+        - name: IoT Edge 모듈 설정
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: SQL Edge에 모델 배포
+          href: tutorial-run-ml-model-on-sql-edge.md
+    - name: 재생 에너지 - 풍력 터빈 분석
+      href: tutorial-renewable-energy-demo.md
 - name: 참조
   items:
     - name: Transact-SQL(T-SQL) 참조
-      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+      href: /sql/t-sql/language-reference
+- name: 리소스
+  items:
+    - name: 파트너
+      items:
+        - name: 보안
+          href: resources-partners-security.md

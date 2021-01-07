@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33f3766e02316eccb519bea15246541531750ed1
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 6d4dd6e64053af41d66e3accbb7fc9b21d951fc6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90008028"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860216"
 ---
 # <a name="conditional-access-programmatic-access"></a>조건부 액세스: 프로그래밍 방식 액세스
 
@@ -62,7 +62,7 @@ Microsoft Graph는 조직에서 Microsoft 365, Windows 10 및 Enterprise Mobilit
 
 - [승인 워크플로를 사용 하 여 프로덕션 환경에 조건부 액세스 정책 배포](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>모니터
 
 이 예제에서는 시간에 따라 조건부 액세스 정책 변경을 모니터링 하 고 키 정책이 변경 될 때 경고를 트리거할 수 있는 메커니즘을 제공 합니다.
 
@@ -78,7 +78,7 @@ Microsoft Graph는 조직에서 Microsoft 365, Windows 10 및 Enterprise Mobilit
 
 ### <a name="emergency-access-accounts"></a>응급 액세스 계정
 
-여러 관리자가 조건부 액세스 정책을 만들 수 있으며 해당 정책에 대 한 제외로 [응급 액세스 계정을](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) 추가 하는 것을 잊은 경우 이 예에서는 지정 된 응급 액세스 계정을 포함 하도록 모든 정책이 업데이트 되도록 합니다.
+여러 관리자가 조건부 액세스 정책을 만들 수 있으며 해당 정책에 대 한 제외로 [응급 액세스 계정을](../roles/security-emergency-access.md) 추가 하는 것을 잊은 경우 이 예에서는 지정 된 응급 액세스 계정을 포함 하도록 모든 정책이 업데이트 되도록 합니다.
 
 - [Microsoft Graph API 호출을 사용 하 여 조건부 액세스 정책에 대 한 응급 액세스 계정 할당 관리](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 
@@ -96,6 +96,6 @@ Microsoft Graph는 조직에서 Microsoft 365, Windows 10 및 Enterprise Mobilit
 
 - [Microsoft Graph 개요](/graph/overview)
 
-- [조건부 액세스 API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0)
+- [조건부 액세스 API](/graph/api/resources/conditionalaccesspolicy)
 
-- [명명 된 위치 API](/graph/api/resources/namedlocation?view=graph-rest-1.0)
+- [명명 된 위치 API](/graph/api/resources/namedlocation)

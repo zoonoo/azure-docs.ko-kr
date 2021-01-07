@@ -1,7 +1,7 @@
 ---
-title: 패키지 모델
+title: 패키지 관리
 titleSuffix: Azure Machine Learning
-description: Dockerfile로 모델 패키지
+description: 모델을 패키지 합니다. 모델은 docker 이미지로 패키지할 수 있습니다. 그러면이 이미지를 다운로드할 수 있습니다. 또는 Dockerfile을 만들어 이미지를 빌드하는 데 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,25 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: d5fb2539d79c31de5a5e0196a7a4814c02a84602
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: 299eb316b534ddc9d5eee934cc15eae841276038
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544597"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312632"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Docker를 사용 하 여 등록 된 모델을 패키징하는 방법
 
 이 문서에서는 Docker를 사용 하 여 등록 된 Azure Machine Learning 모델을 패키지 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 machine learning 작업 영역에서 모델을 이미 학습 하 고 등록 했다고 가정 합니다. Scikit 학습 모델을 학습 하 고 등록 하는 방법을 알아보려면 [이 자습서를 따르세요](how-to-train-scikit-learn.md).
 
 
-## <a name="package-models"></a>패키지 모델
+## <a name="package-models"></a>패키지 관리
 
 경우에 따라 모델을 배포 하지 않고 Docker 이미지를 만들 수 있습니다 (예: [Azure App Service에 배포](how-to-deploy-app-service.md)하려는 경우). 또는 이미지를 다운로드 하 고 로컬 Docker 설치에서 실행할 수 있습니다. 이미지를 빌드하고 검사 하 고 수정 하 고 이미지를 수동으로 빌드하는 데 사용 되는 파일을 다운로드할 수도 있습니다.
 
@@ -160,7 +162,7 @@ docker kill mycontainer
 
 ## <a name="next-steps"></a>다음 단계
 
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

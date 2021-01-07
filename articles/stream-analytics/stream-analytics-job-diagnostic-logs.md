@@ -6,13 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
+ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b29e0f99cb4549370be49dc5a1b11d367e30d8c0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319357"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029144"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>리소스 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -37,17 +38,17 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 활동 로그는 기본적으로 켜져 있고 Stream Analytics 작업에서 수행한 조작에 대한 높은 수준의 인사이트를 제공합니다. 활동 로그에 있는 정보는 작업에 영향을 미치는 문제의 근본 원인을 찾는 데 도움이 될 수 있습니다. Stream Analytics의 활동 로그를 사용하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에 로그인하고 **개요** 아래에서 **활동 로그**를 선택합니다.
+1. Azure Portal에 로그인하고 **개요** 아래에서 **활동 로그** 를 선택합니다.
 
    ![Stream Analytics 활동 로그](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
 2. 수행된 조작 목록을 볼 수 있습니다. 작업 실패의 원인이 된 조작에는 빨간색 정보 풍선이 있습니다.
 
-3. 해당 요약 보기를 보려면 조작을 클릭합니다. 여기에는 보통 제한된 정보가 표시됩니다. 조작에 대해 자세히 알아보려면 **JSON**을 클릭합니다.
+3. 해당 요약 보기를 보려면 조작을 클릭합니다. 여기에는 보통 제한된 정보가 표시됩니다. 조작에 대해 자세히 알아보려면 **JSON** 을 클릭합니다.
 
    ![Stream Analytics 활동 로그 조작 요약](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. 아래로 스크롤하여 실패한 조작의 원인이 된 오류의 세부 정보를 제공하는 JSON의 **속성** 섹션으로 이동합니다. 이 예제에서는 범위를 벗어난 위도 값의 런타임 오류로 인해 조작이 실패했습니다. Stream Analytics 작업에서 처리 되는 데이터의 불일치 때문에 데이터 오류가 발생 합니다. 다른 [입력 및 출력 데이터 오류와 이러한 오류가 발생 하는 이유를](https://docs.microsoft.com/azure/stream-analytics/data-errors)알아볼 수 있습니다.
+4. 아래로 스크롤하여 실패한 조작의 원인이 된 오류의 세부 정보를 제공하는 JSON의 **속성** 섹션으로 이동합니다. 이 예제에서는 범위를 벗어난 위도 값의 런타임 오류로 인해 조작이 실패했습니다. Stream Analytics 작업에서 처리 되는 데이터의 불일치 때문에 데이터 오류가 발생 합니다. 다른 [입력 및 출력 데이터 오류와 이러한 오류가 발생 하는 이유를](./data-errors.md)알아볼 수 있습니다.
 
    ![JSON 오류 세부 정보](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -61,21 +62,21 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 1.  아직 없는 경우 Log Analytics 작업 영역을 만듭니다. Stream Analytics 작업과 동일한 지역에 Log Analytics 작업 영역을 포함 하는 것이 좋습니다.
 
-2.  Azure Portal에 로그인하고 Stream Analytics 작업으로 이동합니다. **모니터링** 아래에서 **진단 로그**를 선택합니다. 다음으로, **진단 켜기**를 선택합니다.
+2.  Azure Portal에 로그인하고 Stream Analytics 작업으로 이동합니다. **모니터링** 아래에서 **진단 로그** 를 선택합니다. 다음으로, **진단 켜기** 를 선택합니다.
 
     ![리소스 로그에 대 한 블레이드 탐색](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  **진단 설정 이름** 에 **이름을** 입력 하 고, **로그**에서 **실행** 및 **제작** 확인란을 선택 하 고, 메트릭 아래의 **allmetrics**확인란을 선택 합니다. **AllMetrics** 그런 다음 **Log Analytics 보내기를** 선택 하 고 작업 영역을 선택 합니다. **저장**을 클릭합니다.
+2.  **진단 설정 이름** 에 **이름을** 입력 하 고, **로그** 에서 **실행** 및 **제작** 확인란을 선택 하 고, 메트릭 아래의 **allmetrics** 확인란을 선택 합니다.  그런 다음 **Log Analytics 보내기를** 선택 하 고 작업 영역을 선택 합니다. **저장** 을 클릭합니다.
 
     ![리소스 로그 설정](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. Stream Analytics 작업이 시작 되 면 리소스 로그가 Log Analytics 작업 영역으로 라우팅됩니다. 작업에 대 한 리소스 로그를 보려면 **모니터링** 섹션에서 **로그** 를 선택 합니다.
 
-   ![모니터링 중인 리소스 로그](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![스크린 샷에서는 로그가 선택 된 일반 메뉴가 표시 됩니다.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics는 관심 있는 로그를 쉽게 검색할 수 있는 미리 정의 된 쿼리를 제공 합니다. 왼쪽 창에서 미리 정의 된 쿼리를 선택 하 고 **실행**을 선택할 수 있습니다. 아래쪽 창에 쿼리 결과가 표시 됩니다. 
+4. Stream Analytics는 관심 있는 로그를 쉽게 검색할 수 있는 미리 정의 된 쿼리를 제공 합니다. 왼쪽 창에서 미리 정의 된 쿼리를 선택 하 고 **실행** 을 선택할 수 있습니다. 아래쪽 창에 쿼리 결과가 표시 됩니다. 
 
-   ![모니터링 중인 리소스 로그](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+   ![스크린샷 Stream Analytics 작업에 대 한 로그를 보여 줍니다.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>리소스 로그 범주
 
@@ -94,7 +95,7 @@ Azure Stream Analytics는 두 가지 범주의 리소스 로그를 캡처합니�
 
 모든 로그는 JSON 형식으로 저장됩니다. 각 항목에는 다음과 같은 일반적인 문자열 필드가 있습니다.
 
-Name | 설명
+Name | Description
 ------- | -------
 time | 로그의 타임스탬프(UTC)입니다.
 resourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -110,13 +111,13 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 
 ### <a name="data-errors"></a>데이터 오류
 
-작업이 데이터를 처리하는 동안 발생한 오류는 이 로그 범주에 속합니다. 이러한 로그는 데이터 읽기, serialization 및 쓰기 작업 도중에 가장 자주 생성됩니다. 이러한 로그는 연결 오류를 포함하지 않습니다. 연결 오류는 일반 이벤트로 처리됩니다. 다양 한 [입력 및 출력 데이터 오류의](https://docs.microsoft.com/azure/stream-analytics/data-errors)원인에 대해 자세히 알아볼 수 있습니다.
+작업이 데이터를 처리하는 동안 발생한 오류는 이 로그 범주에 속합니다. 이러한 로그는 데이터 읽기, serialization 및 쓰기 작업 도중에 가장 자주 생성됩니다. 이러한 로그는 연결 오류를 포함하지 않습니다. 연결 오류는 일반 이벤트로 처리됩니다. 다양 한 [입력 및 출력 데이터 오류의](./data-errors.md)원인에 대해 자세히 알아볼 수 있습니다.
 
 Name | Description
 ------- | -------
 원본 | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
 메시지 | 오류와 연결된 메시지
-Type | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
+형식 | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
 데이터 | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
@@ -133,14 +134,14 @@ Type | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 
 
 일반 이벤트는 다른 모든 항목을 처리합니다.
 
-Name | 설명
+Name | Description
 -------- | --------
-Error | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
+오류 | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
 메시지| 로그 메시지
-Type | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
+형식 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
 상관관계 ID | 작업 실행을 고유하게 식별하는 GUID. 작업 시작 시간부터 작업이 중지될 때까지 모든 실행 로그 항목에는 동일한 **상관 관계 ID** 값이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Stream Analytics 데이터 오류](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Stream Analytics 데이터 오류](./data-errors.md)
+* [Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)

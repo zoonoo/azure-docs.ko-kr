@@ -6,21 +6,21 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9e635d606870d09e9aac82de7da32e074b124159
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 95a97d3f5104891ef5e23a03ffe1477f9b6ad036
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906949"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561616"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub 작업을 사용 하는 Azure 스프링 클라우드 CI/CD
 
 GitHub 작업은 자동화 된 소프트웨어 개발 수명 주기 워크플로를 지원 합니다. Azure 스프링 클라우드의 GitHub 작업을 사용 하 여 Azure에 빌드, 테스트, 패키지, 릴리스 및 배포를 위해 리포지토리에 워크플로를 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
-이 예에서는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)필요 합니다.
+## <a name="prerequisites"></a>필수 구성 요소
+이 예에서는 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)필요 합니다.
 
 ::: zone pivot="programming-language-csharp"
 ## <a name="set-up-github-repository-and-authenticate"></a>GitHub 리포지토리 설정 및 인증
@@ -49,11 +49,11 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 }
 ```
 
-이 예제에서는 [GitHub의 steeltoe 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample)을 사용 합니다.  리포지토리를 포크 하 고, 포크에 대 한 GitHub 리포지토리 페이지를 열고 **설정** 탭을 선택 합니다. **비밀** 메뉴를 열고 **새 비밀**을 선택 합니다.
+이 예제에서는 [GitHub의 steeltoe 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample)을 사용 합니다.  리포지토리를 포크 하 고, 포크에 대 한 GitHub 리포지토리 페이지를 열고 **설정** 탭을 선택 합니다. **비밀** 메뉴를 열고 **새 비밀** 을 선택 합니다.
 
  ![새 비밀 추가](./media/github-actions/actions1.png)
 
-비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증*하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
+비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증* 하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
@@ -66,7 +66,7 @@ Azure 스프링 클라우드 서비스 인스턴스를 프로 비전 하려면 A
 az extension add --name spring-cloud
 az group create --location eastus --name <resource group name>
 az spring-cloud create -n <service instance name> -g <resource group name>
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label master --search-paths steeltoe-sample/config
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label main --search-paths steeltoe-sample/config
 ```
 
 ## <a name="build-the-workflow"></a>워크플로 빌드
@@ -92,10 +92,10 @@ az spring-cloud app create --name solar-system-weather
 name: Steeltoe-CD
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events but only for the main branch
 on:
   push:
-    branches: [ master ]
+    branches: [ main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -167,11 +167,11 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 }
 ```
 
-이 예제에서는 GitHub의 [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) 샘플을 사용 합니다.  샘플을 포크 하 고 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 클릭 합니다. **비밀** 메뉴를 열고 **새 비밀 추가**를 클릭 합니다.
+이 예제에서는 GitHub의 [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) 샘플을 사용 합니다.  샘플을 포크 하 고 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 클릭 합니다. **비밀** 메뉴를 열고 **새 비밀 추가** 를 클릭 합니다.
 
  ![새 비밀 추가](./media/github-actions/actions1.png)
 
-비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증*하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
+비밀 이름을로 설정 하 `AZURE_CREDENTIALS` 고 해당 값을 *GitHub 리포지토리를 설정 하 고 인증* 하는 제목 아래에 있는 JSON 문자열로 설정 합니다.
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
@@ -216,7 +216,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -259,7 +259,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -289,7 +289,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Maven 플러그 인을 사용 하 여 배포
-또 다른 옵션은 Jar을 배포 하 고 앱 설정을 업데이트 하는 데 [Maven 플러그 인](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) 을 사용 하는 것입니다. 명령은 `mvn azure-spring-cloud:deploy` idempotent 이며 필요한 경우 자동으로 앱을 만듭니다. 해당 앱을 미리 만들 필요가 없습니다.
+또 다른 옵션은 Jar을 배포 하 고 앱 설정을 업데이트 하는 데 [Maven 플러그 인](./spring-cloud-quickstart.md) 을 사용 하는 것입니다. 명령은 `mvn azure-spring-cloud:deploy` idempotent 이며 필요한 경우 자동으로 앱을 만듭니다. 해당 앱을 미리 만들 필요가 없습니다.
 
 ```
 name: AzureSpringCloud
@@ -300,7 +300,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -333,12 +333,12 @@ Github에 푸시 하면 GitHub **작업** 을 자동으로 사용 하도록 설�
 
 ![작업 사용 확인](./media/github-actions/actions3.png)
 
-오류가 발생 한 경우 (예: Azure 자격 증명을 설정 하지 않은 경우) 오류를 수정 하 고 나 서 검사를 다시 실행할 수 있습니다. GitHub 리포지토리 페이지에서 **작업**을 클릭 하 고, 특정 워크플로 작업을 선택한 다음, **다시 실행 확인** 단추를 클릭 하 여 검사를 다시 실행 합니다.
+오류가 발생 한 경우 (예: Azure 자격 증명을 설정 하지 않은 경우) 오류를 수정 하 고 나 서 검사를 다시 실행할 수 있습니다. GitHub 리포지토리 페이지에서 **작업** 을 클릭 하 고, 특정 워크플로 작업을 선택한 다음, **다시 실행 확인** 단추를 클릭 하 여 검사를 다시 실행 합니다.
 
 ![검사 다시 실행](./media/github-actions/actions4.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [스프링 클라우드 GitHub 작업 Key Vault](./spring-cloud-github-actions-key-vault.md)
-* [Azure Active Directory 서비스 주체](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az-ad-sp-create-for-rbac)
+* [Azure Active Directory 서비스 주체](/cli/azure/ad/sp?preserve-view=true&view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [Azure에 대한 GitHub 작업](https://github.com/Azure/actions/)

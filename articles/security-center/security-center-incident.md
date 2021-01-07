@@ -5,21 +5,21 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: a6ddfa1f6db06c2ca06b94efec7f890c2a714b2a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883870"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341349"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
 보안 경고를 심사 하 고 조사 하는 것이 가장 숙련 된 보안 분석가의 경우에도 시간이 많이 걸릴 수 있습니다. 무엇 보다도 어디서부터 시작 해야 합니다. 
 
-Security Center는 [분석](security-center-detection-capabilities.md) 을 사용 하 여 고유한 [보안 경고](security-center-managing-and-responding-alerts.md)간에 정보를 연결 합니다. 이러한 연결을 사용 하 여 공격자의 작업 및 영향을 받는 리소스를 이해 하는 데 도움을 주는 공격 캠페인 및 관련 경고에 대 한 단일 보기를 제공할 수 Security Center.
+Security Center는 [분석](./security-center-alerts-overview.md) 을 사용 하 여 고유한 [보안 경고](security-center-managing-and-responding-alerts.md)간에 정보를 연결 합니다. 이러한 연결을 사용 하 여 공격자의 작업 및 영향을 받는 리소스를 이해 하는 데 도움을 주는 공격 캠페인 및 관련 경고에 대 한 단일 보기를 제공할 수 Security Center.
 
 이 페이지에서는 Security Center의 인시던트에 대해 간략하게 설명 합니다.
 

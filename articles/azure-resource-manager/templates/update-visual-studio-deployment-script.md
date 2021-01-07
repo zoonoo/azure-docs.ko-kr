@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: cweining
 ms.openlocfilehash: 357e0289f3237ed32b0801280316225ba5530282
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76963872"
 ---
 # <a name="update-visual-studio-template-deployment-script-to-use-az-powershell-module"></a>Az PowerShell module을 사용 하도록 Visual Studio 템플릿 배포 스크립트를 업데이트 합니다.

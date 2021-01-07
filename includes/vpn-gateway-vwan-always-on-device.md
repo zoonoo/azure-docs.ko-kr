@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 34e841a5f17d589c4fbef54a4a8674a99ac6c640
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606949"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027522"
 ---
 장치 터널을 성공적으로 설정 하려면 다음 요구 사항을 충족 해야 합니다.
 
@@ -22,13 +22,13 @@ ms.locfileid: "90606949"
 * 장치 마다 장치 터널을 하나만 구성할 수 있습니다.
 
 1. [지점 및 사이트 간 VPN 클라이언트](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) 문서를 사용 하 여 Windows 10 클라이언트에 클라이언트 인증서를 설치 합니다. 인증서는 로컬 컴퓨터 저장소에 있어야 합니다.
-1. VPN 프로필을 만들고 [이러한 지침](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration)을 사용 하 여 로컬 시스템 계정의 컨텍스트에서 장치 터널을 구성 합니다.
+1. VPN 프로필을 만들고 [이러한 지침](/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration)을 사용 하 여 로컬 시스템 계정의 컨텍스트에서 장치 터널을 구성 합니다.
 
 ### <a name="configuration-example-for-device-tunnel"></a>장치 터널에 대 한 구성 예제
 
 가상 네트워크 게이트웨이를 구성 하 고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 클라이언트 장치 터널을 구성 하려면 다음 예제를 사용 합니다.
 
-1. 다음 텍스트를 복사 하 여 ***devicecert.ps1***로 저장 합니다.
+1. 다음 텍스트를 복사 하 고 ***devicecert.ps1** _로 저장 합니다.
 
    ```
    Param(
@@ -80,7 +80,7 @@ ms.locfileid: "90606949"
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. 다음 텍스트를 복사 하 여 **devicecert.ps1**와 동일한 폴더에 ***VPNProfile.xml*** 로 저장 합니다. 다음 텍스트를 사용자 환경에 맞게 편집 합니다.
+1. 다음 텍스트를 복사 하 여 _ * devicecert.ps1 * *와 같은 폴더에 _*_VPNProfile.xml_*_ 로 저장 합니다. 다음 텍스트를 사용자 환경에 맞게 편집 합니다.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -115,7 +115,7 @@ ms.locfileid: "90606949"
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) 에서 **PsExec** 를 다운로드 하 여 **C:\PSTools**에 파일을 추출 합니다.
+1. [Sysinternals](/sysinternals/downloads/psexec) 에서 **PsExec** 를 다운로드 하 여 **C:\PSTools** 에 파일을 추출 합니다.
 1. 관리자 CMD 프롬프트에서 다음을 실행 하 여 PowerShell을 시작 합니다.
 
    ```
@@ -131,10 +131,10 @@ ms.locfileid: "90606949"
    ```
    
    ![Devicesert 스크립트를 사용 하 여 MachineCertTest를 실행 한 PowerShell 창이 스크린샷으로 표시 됩니다.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
-1. **Rasphone**를 실행 합니다.
+1. **Rasphone** 를 실행 합니다.
 
    ![Rasphone가 선택 된 실행 대화 상자를 보여 주는 스크린샷](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
-1. **MachineCertTest** 항목을 찾아 **연결**을 클릭 합니다.
+1. **MachineCertTest** 항목을 찾아 **연결** 을 클릭 합니다.
 
    ![MachineCertTest가 선택 되 고 연결 단추가 있는 네트워크 연결 대화 상자가 표시 됩니다.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. 연결에 성공 하면 컴퓨터를 다시 부팅 합니다. 터널이 자동으로 연결 됩니다.

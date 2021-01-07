@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
-ms.openlocfilehash: ea7e4801dfaad533403c0f927a03735ae409cc52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1118dfcec67a49365f1f6e5e522e98b97694d052
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66420605"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960194"
 ---
 # <a name="storsimple-virtual-array-update-12-release-notes"></a>StorSimple 가상 배열 업데이트 1.2 릴리스 정보
 
@@ -20,7 +20,7 @@ ms.locfileid: "66420605"
 
 릴리스 정보는 지속적으로 업데이트 됩니다. 해결 방법이 필요한 중요한 문제가 발견되면 추가됩니다. StorSimple 가상 배열을 배포하기 전에 릴리스 정보에 포함된 정보를 주의 깊게 검토하세요.
 
-업데이트 1.2는 소프트웨어 버전 **10.0.10311.0**에 해당 합니다.
+업데이트 1.2는 소프트웨어 버전 **10.0.10311.0** 에 해당 합니다.
 
 > [!IMPORTANT]
 > - 업데이트는 작업 중단 업데이트이며 디바이스를 다시 시작합니다. I/O가 진행 중인 경우 디바이스에 가동 중지 시간이 발생합니다. 이 업데이트를 적용 하는 데 사용 되는 패키지에 대 한 자세한 지침을 보려면 [업데이트 1.2 다운로드](#download-update-12)로 이동 하세요.
@@ -46,7 +46,7 @@ KB4502035를 다운로드 하 고 다음 지침에 따라 [로컬 웹 UI를 통�
 
 다음 표에서는 이 릴리스에서 수정된 문제를 간략하게 설명합니다.
 
-| 아니요. | 기능 | 문제점 |
+| 아니요. | 기능 | 문제 |
 | --- | --- | --- |
 | 1 |삭제| 이전 버전의 소프트웨어에서는 파일이 삭제 된 경우에도 장치의 사용이 변경 되지 않은 경우 문제가 발생 했습니다. 이 문제는이 버전에서 해결 되었습니다. 삭제 된 파일을 처리 하는 경우 계층화 된 코드 경로를 더 탄력적으로 만들었습니다.|
 | 2 |예외 처리| 이전 버전의 소프트웨어에서는 시스템을 다시 부팅 한 후 백업, 복원, 클라우드에서 읽기 및 자동화 된 공간 재사용으로 인해 발생할 수 있는 문제가 발생 했습니다. 이 릴리스에는 시작 경로에서 예외가 처리 된 방법에 대 한 변경 내용이 포함 되어 있습니다.|
@@ -69,4 +69,4 @@ KB4502035를 다운로드 하 고 [로컬 웹 UI를 통해 업데이트를 적�
 * [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
-* [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
+* [StorSimple 가상 배열 일반 공급 릴리스 정보](./storsimple-virtual-array-update-06-release-notes.md)

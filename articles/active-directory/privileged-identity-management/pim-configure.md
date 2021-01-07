@@ -10,24 +10,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 08/08/2020
+ms.date: 09/29/2020
 ms.author: curtand
-ms.custom: pim
+ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a081bc5a8040fa3ccd0599341eb2671bbe2d4d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047822"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370188"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
- PIM(Privileged Identity Management)은 조직에서 중요한 리소스에 대한 액세스를 관리, 제어 및 모니터링할 수 있는 Azure AD(Azure Active Directory)의 서비스입니다. 이러한 리소스에는 Azure AD, Azure 및 Office 365 또는 Microsoft Intune과 같은 기타 Microsoft Online Services의 리소스가 포함됩니다.
+ PIM(Privileged Identity Management)은 조직에서 중요한 리소스에 대한 액세스를 관리, 제어 및 모니터링할 수 있는 Azure AD(Azure Active Directory)의 서비스입니다. 이러한 리소스에는 Azure AD, Azure 및 Microsoft 365 또는 Microsoft Intune과 같은 기타 Microsoft Online Services의 리소스가 포함됩니다. 다음 비디오에서는 중요한 PIM 개념 및 기능을 소개합니다.
+<br><br>
+
+> [!VIDEO https://www.youtube.com/embed/f-0K7mRUPpQ]
 
 ## <a name="reasons-to-use"></a>사용 이유
 
-악의적인 작업자가 해당 액세스 권한을 얻거나 권한이 있는 사용자가 실수로 중요한 리소스에 영향을 줄 수 있으므로 조직에서는 보호되는 정보 또는 리소스에 액세스할 수 있는 사용자의 수를 최소화하려고 합니다. 그러나 사용자는 여전히 Azure AD, Azure, Office 365 또는 SaaS 응용 프로그램에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 Azure 리소스 및 Azure AD에 대한 Just-In-Time 권한 있는 액세스를 제공할 수 있습니다. 이러한 사용자가 해당 관리자 권한으로 수행하는 작업에 대한 감시 요구 사항이 있습니다.
+악의적인 작업자가 해당 액세스 권한을 얻거나 권한이 있는 사용자가 실수로 중요한 리소스에 영향을 줄 수 있으므로 조직에서는 보호되는 정보 또는 리소스에 액세스할 수 있는 사용자의 수를 최소화하려고 합니다. 그러나 사용자는 여전히 Azure AD, Azure, Microsoft 365 또는 SaaS 앱에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 Azure 리소스 및 Azure AD에 대한 Just-In-Time 권한 있는 액세스를 제공할 수 있습니다. 이러한 사용자가 해당 관리자 권한으로 수행하는 작업에 대한 감시 요구 사항이 있습니다.
 
 ## <a name="what-does-it-do"></a>수행하는 작업
 
@@ -36,15 +39,15 @@ Privileged Identity Management는 중요한 리소스에 대한 과도한, 불�
 - Azure AD 및 Azure 리소스에 대한 **JIT(Just-In-Time)** 권한 있는 액세스 제공
 - 시작 및 종료 날짜를 사용하여 리소스에 **시간 범위** 액세스 할당
 - 권한 있는 역할을 활성화하기 위해 **승인** 필요
-- **다단계 인증**을 적용하여 모든 역할 활성화
-- **근거**를 사용하여 사용자가 활성화하는 이유 이해
+- **다단계 인증** 을 적용하여 모든 역할 활성화
+- **근거** 를 사용하여 사용자가 활성화하는 이유 이해
 - 권한 있는 역할이 활성화되면 **알림** 가져오기
-- **액세스 검토**를 수행하여 사용자에게 여전히 역할이 필요한지 확인
+- **액세스 검토** 를 수행하여 사용자에게 여전히 역할이 필요한지 확인
 - 내부 또는 외부 감사를 위해 **감사 기록** 다운로드
 
 ## <a name="what-can-i-do-with-it"></a>Privileged Identity Management로 무엇을 할 수 있나요?
 
-Privileged Identity Management를 설정하면 **작업**, **관리** 및 **활동** 옵션이 왼쪽 탐색 메뉴에 표시됩니다. 관리자는 **Azure AD 역할** 관리, **Azure 리소스** 역할 또는 권한 있는 액세스 그룹 관리 등의 옵션 중에서 선택합니다. 관리할 항목을 선택하면 해당 옵션에 대한 적절한 옵션 세트가 표시됩니다.
+Privileged Identity Management를 설정하면 **작업** , **관리** 및 **활동** 옵션이 왼쪽 탐색 메뉴에 표시됩니다. 관리자는 **Azure AD 역할** 관리, **Azure 리소스** 역할 또는 권한 있는 액세스 그룹 관리 등의 옵션 중에서 선택합니다. 관리할 항목을 선택하면 해당 옵션에 대한 적절한 옵션 세트가 표시됩니다.
 
 ![Azure Portal의 Privileged Identity Management 스크린샷](./media/pim-configure/pim-quickstart.png)
 
@@ -103,5 +106,5 @@ Privileged Identity Management 및 설명서를 보다 정확하게 이해하려
 ## <a name="next-steps"></a>다음 단계
 
 - [Privileged Identity Management를 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)
-- [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Privileged Identity Management 배포](pim-deployment-plan.md)

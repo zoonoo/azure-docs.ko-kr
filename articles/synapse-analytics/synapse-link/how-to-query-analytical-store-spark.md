@@ -9,14 +9,14 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 663c07795926b17eb42ff185ca248454c5bc459c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 28af603c0969419cd2e7b8683373faf3838e2242
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90881838"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458934"
 ---
-# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Azure Synapse Link(미리 보기)에서 Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용
+# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Azure Synapse Link에서 Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용
 
 이 문서에서는 Synapse Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용하는 방법을 알아봅니다. Scala, Python, SparkSQL 및 C#을 완전히 지원하는 Synapse Apache Spark는 [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)에서 분석, 데이터 엔지니어링, 데이터 과학 및 데이터 탐색 시나리오의 중심입니다.
 
@@ -35,9 +35,9 @@ Azure Cosmos DB 분석 저장소를 쿼리하는 두 가지 옵션(Spark 데이�
 
 환경의 차이점은 Azure Cosmos DB 컨테이너의 기본 데이터 변경 내용이 Spark에서 수행되는 분석에 자동으로 반영되는지 여부와 관련이 있습니다. Spark 데이터 프레임이 등록되거나 컨테이너의 분석 저장소에 대해 Spark 테이블이 생성되면 후속 분석의 효율적인 푸시다운을 위해 분석 저장소에 있는 데이터의 현재 스냅샷에 대한 메타데이터가 Spark로 페치됩니다. Spark는 지연 계산 정책을 따르기 때문에 작업이 Spark 데이터 프레임에서 호출되거나 SparkSQL 쿼리가 Spark 테이블에 대해 실행되지 않는 이상, 실제 데이터는 기본 컨테이너의 분석 저장소에서 페치되지 않습니다.
 
-**Spark 데이터 프레임 로드**를 선택하는 경우 페치된 메타데이터는 Spark 세션의 수명 추기 동안 캐시되므로 데이터 프레임에서 호출된 후속 작업은 데이터 프레임 생성 시 분석 저장소의 스냅샷에 대해 평가됩니다.
+**Spark 데이터 프레임 로드** 를 선택하는 경우 페치된 메타데이터는 Spark 세션의 수명 추기 동안 캐시되므로 데이터 프레임에서 호출된 후속 작업은 데이터 프레임 생성 시 분석 저장소의 스냅샷에 대해 평가됩니다.
 
-반면 **Spark 테이블 만들기**를 선택하는 경우 분석 저장소 상태의 메타데이터가 Spark에 캐시되지 않고 Spark 테이블에 대한 SparkSQL 쿼리가 실행될 때마다 다시 로드됩니다.
+반면 **Spark 테이블 만들기** 를 선택하는 경우 분석 저장소 상태의 메타데이터가 Spark에 캐시되지 않고 Spark 테이블에 대한 SparkSQL 쿼리가 실행될 때마다 다시 로드됩니다.
 
 따라서 분석 저장소의 고정된 스냅샷과 분석 저장소의 최신 스냅샷 중 무엇에 대해 Spark 분석을 평가할 것인지에 따라 Spark 데이터 프레임에 로드하는 방법 또는 Spark 테이블을 만드는 방법 중에 선택할 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure Cosmos DB 분석 저장소를 쿼리하는 두 가지 옵션(Spark 데이�
 
 이 예제에서는 Azure Cosmos DB 분석 저장소를 가리키는 Spark 데이터 프레임을 만듭니다. 그런 다음, 데이터 프레임에 대해 Spark 작업을 호출하여 추가 분석을 수행할 수 있습니다. 이 작업은 트랜잭션 저장소에 영향을 주지 않습니다.
 
-**Python**의 구문은 다음과 같습니다.
+**Python** 의 구문은 다음과 같습니다.
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -58,7 +58,7 @@ df = spark.read.format("cosmos.olap")\
     .load()
 ```
 
-**Scala**의 해당 구문은 다음과 같습니다.
+**Scala** 의 해당 구문은 다음과 같습니다.
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -93,7 +93,7 @@ create table call_center using cosmos.olap options (
 
 이 예제에서는 Azure Cosmos DB 컨테이너에 Spark 데이터 프레임을 씁니다. 이 작업은 트랜잭션 워크로드의 성능에 영향을 미치며 Azure Cosmos DB 컨테이너 또는 공유 데이터베이스에 프로비저닝된 요청 단위를 소모합니다.
 
-**Python**의 구문은 다음과 같습니다.
+**Python** 의 구문은 다음과 같습니다.
 ```python
 # Write a Spark DataFrame into an Azure Cosmos DB container
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
@@ -106,7 +106,7 @@ YOURDATAFRAME.write.format("cosmos.oltp")\
     .save()
 ```
 
-**Scala**의 해당 구문은 다음과 같습니다.
+**Scala** 의 해당 구문은 다음과 같습니다.
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -120,6 +120,8 @@ df.write.format("cosmos.oltp").
     save()
 ```
 
+## <a name="load-streaming-dataframe-from-container"></a>컨테이너에서 스트리밍 DataFrame 로드
+이 제스처에서는 Spark Streaming 기능을 사용하여 컨테이너에서 데이터 프레임으로 데이터를 로드합니다. 데이터는 작업 영역에 연결된 기본 데이터 레이크 계정(및 파일 시스템)에 저장됩니다. 
 > [!NOTE]
 > Synapse Apache Spark에서 외부 라이브러리를 참조하려면 [여기](#external-library-management)를 참조하세요. 예를 들어 Cosmos DB API for Mongo DB의 컨테이너로 Spark 데이터 프레임을 수집하려는 경우 [여기](https://docs.mongodb.com/spark-connector/master/)서 Spark용 Mongo DB를 활용할 수 있습니다.
 
@@ -128,7 +130,7 @@ df.write.format("cosmos.oltp").
 
 아래 예제의 */localReadCheckpointFolder* 폴더가 없으면 자동으로 생성됩니다. 이 작업은 트랜잭션 워크로드의 성능에 영향을 미치며 Azure Cosmos DB 컨테이너 또는 공유 데이터베이스에 프로비저닝된 요청 단위를 소모합니다.
 
-**Python**의 구문은 다음과 같습니다.
+**Python** 의 구문은 다음과 같습니다.
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -143,7 +145,7 @@ dfStream = spark.readStream\
     .load()
 ```
 
-**Scala**의 해당 구문은 다음과 같습니다.
+**Scala** 의 해당 구문은 다음과 같습니다.
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -161,7 +163,7 @@ val dfStream = spark.readStream.
 ## <a name="write-streaming-dataframe-to-azure-cosmos-db-container"></a>Azure Cosmos DB 컨테이너에 스트리밍 데이터 프레임 쓰기
 이 예제에서는 Azure Cosmos DB 컨테이너에 스트리밍 데이터 프레임을 씁니다. 이 작업은 트랜잭션 워크로드의 성능에 영향을 미치며 Azure Cosmos DB 컨테이너 또는 공유 데이터베이스에 프로비저닝된 요청 단위를 소모합니다. 아래 예제의 */localWriteCheckpointFolder* 폴더가 없으면 자동으로 생성됩니다. 
 
-**Python**의 구문은 다음과 같습니다.
+**Python** 의 구문은 다음과 같습니다.
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -178,7 +180,7 @@ streamQuery = dfStream\
 streamQuery.awaitTermination()
 ```
 
-**Scala**의 해당 구문은 다음과 같습니다.
+**Scala** 의 해당 구문은 다음과 같습니다.
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -207,7 +209,7 @@ query.awaitTermination()
     ]
 }
 ```
-Synapse Spark 풀에 원격 Spark 작업 정의를 제출하려는 경우 이 [자습서](../spark/apache-spark-job-definitions.md)의 설명에 따라 외부 라이브러리를 참조하는 방법을 배울 수 있습니다.
+서버리스 Apache Spark 풀에 원격 Spark 작업 정의를 제출하려는 경우 이 [자습서](../spark/apache-spark-job-definitions.md)에 따라 외부 라이브러리를 참조하는 방법을 배울 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

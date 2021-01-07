@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181717"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372466"
 ---
 # <a name="how-to-use-self-service-application-access"></a>셀프 서비스 애플리케이션 액세스를 사용하는 방법
 
@@ -37,7 +37,7 @@ ms.locfileid: "89181717"
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>셀프 서비스 애플리케이션 액세스를 활성화하여 사용자가 자신의 애플리케이션을 찾을 수 있도록 함
 
-셀프 서비스 애플리케이션 액세스는 사용자가 애플리케이션을 직접 검색하도록 하고 경우에 따라 비즈니스 그룹이 해당 애플리케이션에 대한 액세스를 승인하도록 허용하는 유용한 방법입니다. 비즈니스 그룹이 내 앱 페이지에서 바로 암호 Single Sign-on 응용 프로그램에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
+셀프 서비스 애플리케이션 액세스는 사용자가 애플리케이션을 직접 검색하도록 하고 경우에 따라 비즈니스 그룹이 해당 애플리케이션에 대한 액세스를 승인하도록 허용하는 유용한 방법입니다. 비즈니스 그룹이 내 앱 페이지에서 바로 응용 프로그램의 암호 Single-Sign에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
 
 애플리케이션에 대한 셀프 서비스 애플리케이션 액세스를 사용하려면 다음 단계를 수행합니다.
 1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
@@ -67,4 +67,4 @@ ms.locfileid: "89181717"
 -   셀프 서비스 응용 프로그램 액세스 권한이 최근에 구성 된 경우 몇 분 후에 사용자의 내 앱에 다시 로그인 하 여 다시 로그인을 시도 하 여 셀프 서비스 액세스 변경 내용이 표시 되는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](../users-groups-roles/groups-self-service-management.md)
+[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](../enterprise-users/groups-self-service-management.md)

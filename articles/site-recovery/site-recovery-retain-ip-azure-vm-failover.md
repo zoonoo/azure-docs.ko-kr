@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023553"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>장애 조치(failover) 중에 IP 주소 유지
 
@@ -46,13 +46,13 @@ A사의 모든 앱은 Azure에서 실행됩니다.
             - **서브넷 2**: 10.1.2.0/24
             - **서브넷 3**: 10.1.3.0/24
     - 보조(대상) 지역은 Azure 동남아시아
-        - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
+        - 동남 아시아에는 **원본 VNet** 과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
         - 동남 아시아에는 주소 공간이 10.2.0.0/16인 추가 VNet(**Azure VNet**)이 있습니다.
-        - **Azure VNet**에는 주소 공간이 10.2.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
-        - SQL Server Always On, 도메인 컨트롤러 등의 복제 노드는 **서브넷 4**에 있습니다.
-    - **원본 VNet** 및 **Azure VNet**은 VPN 사이트 간 연결을 통해 연결됩니다.
-    - **Recovery VNet**은 다른 가상 네트워크와 연결되어 있지 않습니다.
-    - **A사**는 복제된 항목의 대상 IP 주소를 할당/확인합니다. 대상 IP는 각 VM의 원본 IP와 같습니다.
+        - **Azure VNet** 에는 주소 공간이 10.2.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
+        - SQL Server Always On, 도메인 컨트롤러 등의 복제 노드는 **서브넷 4** 에 있습니다.
+    - **원본 VNet** 및 **Azure VNet** 은 VPN 사이트 간 연결을 통해 연결됩니다.
+    - **Recovery VNet** 은 다른 가상 네트워크와 연결되어 있지 않습니다.
+    - **A사** 는 복제된 항목의 대상 IP 주소를 할당/확인합니다. 대상 IP는 각 VM의 원본 IP와 같습니다.
 
 ![전체 장애 조치(failover) 전의 Azure 리소스](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
@@ -60,7 +60,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 
 원본 지역에서 중단이 발생하면 A사는 모든 리소스를 대상 지역으로 장애 조치(failover)할 수 있습니다.
 
-- A사는 장애 조치(failover) 전에 이미 사용되고 있던 대상 IP 주소를 사용하여 장애 조치(failover)를 오케스트레이션하고, 장애 조치(failover) 후 자동으로 **Recovery VNet**과 **Azure VNet** 간에 연결을 설정할 수 있습니다. 다음 다이어그램은 이 내용을 그림으로 표현한 것입니다.
+- A사는 장애 조치(failover) 전에 이미 사용되고 있던 대상 IP 주소를 사용하여 장애 조치(failover)를 오케스트레이션하고, 장애 조치(failover) 후 자동으로 **Recovery VNet** 과 **Azure VNet** 간에 연결을 설정할 수 있습니다. 다음 다이어그램은 이 내용을 그림으로 표현한 것입니다.
 - 앱 요구 사항에 따라 장애 조치(failover) 전, 도중(중간 단계로) 또는 후에 대상 영역의 두 VNet(**Recovery VNet** 및 **Azure VNet**) 간 연결을 설정할 수 있습니다.
   - 회사에서는 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 언제 연결을 설정할 것인지 지정할 수 있습니다.
   - 회사에서는 VNet 피어링 또는 사이트 간 VPN을 사용하여 VNet을 연결할 수 있습니다.
@@ -87,20 +87,20 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 - 애플리케이션 VM이 Azure 동아시아 주 지역에 호스트됩니다.
     - **App1** VM은 VNet **원본 VNet 1**: 10.1.0.0/16에 있습니다.
     - **App2** VM은 VNet **원본 VNet 2**: 10.2.0.0/16에 있습니다.
-    - **원본 VNet 1**에는 두 개의 서브넷이 있습니다.
-    - **원본 VNet 2**에는 두 개의 서브넷이 있습니다.
-- 보조(대상) 지역은 Azure 동남 아시아입니다. 동남 아시아에는 **Source VNet 1** 및 **Source VNet 2**와 동일한 복구 VNet(**Recovery VNet 1** 및 **Recovery VNet 2**)이 있습니다.
-        - **Recovery VNet 1** 및 **Recovery VNet 2**에는 각각 **Source VNet 1** 및 **Source VNet 2**의 서브넷과 일치하는 두 개의 서브넷이 있습니다. 동남 아시아에는 주소 공간이 10.3.0.0/16인 추가 VNet(**Azure VNet**)이 있습니다.
-        - **Azure VNet**에는 주소 공간이 10.3.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
-        -SQL Server Always On, 도메인 컨트롤러 등의 복제 노드는 **서브넷 4**에 있습니다.
+    - **원본 VNet 1** 에는 두 개의 서브넷이 있습니다.
+    - **원본 VNet 2** 에는 두 개의 서브넷이 있습니다.
+- 보조(대상) 지역은 Azure 동남 아시아입니다. 동남 아시아에는 **Source VNet 1** 및 **Source VNet 2** 와 동일한 복구 VNet(**Recovery VNet 1** 및 **Recovery VNet 2**)이 있습니다.
+        - **Recovery VNet 1** 및 **Recovery VNet 2** 에는 각각 **Source VNet 1** 및 **Source VNet 2** 의 서브넷과 일치하는 두 개의 서브넷이 있습니다. 동남 아시아에는 주소 공간이 10.3.0.0/16인 추가 VNet(**Azure VNet**)이 있습니다.
+        - **Azure VNet** 에는 주소 공간이 10.3.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
+        -SQL Server Always On, 도메인 컨트롤러 등의 복제 노드는 **서브넷 4** 에 있습니다.
 - 여러 개의 사이트 간 VPN 연결이 있습니다. 
     - **Source VNet 1** 및 **Azure VNet**
     - **Source VNet 2** 및 **Azure VNet**
-    - **Source VNet 1** 및 **Source VNet 2**는 VPN 사이트 간 연결을 통해 연결됩니다.
-- **Recovery VNet 1** 및 **Recovery VNet 2**는 다른 VNet과 연결되지 않습니다.
-- **A사**는 RTO를 줄이기 위해 **Recovery VNet 1** 및 **Recovery VNet 2**에 VPN 게이트웨이를 구성합니다.  
-- **Recovery VNet1**과 **Recovery VNet2**는 다른 가상 네트워크와 연결되어 있지 않습니다.
-- RTO(복구 시간 목표)를 감소시키기 위해 장애 조치 전에 **Recovery VNet1**과 **Recovery VNet2**에 VPN 게이트웨이가 구성됩니다.
+    - **Source VNet 1** 및 **Source VNet 2** 는 VPN 사이트 간 연결을 통해 연결됩니다.
+- **Recovery VNet 1** 및 **Recovery VNet 2** 는 다른 VNet과 연결되지 않습니다.
+- **A사** 는 RTO를 줄이기 위해 **Recovery VNet 1** 및 **Recovery VNet 2** 에 VPN 게이트웨이를 구성합니다.  
+- **Recovery VNet1** 과 **Recovery VNet2** 는 다른 가상 네트워크와 연결되어 있지 않습니다.
+- RTO(복구 시간 목표)를 감소시키기 위해 장애 조치 전에 **Recovery VNet1** 과 **Recovery VNet2** 에 VPN 게이트웨이가 구성됩니다.
 
     ![앱 장애 조치(failover) 전의 Azure 리소스](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
@@ -109,9 +109,9 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 단일 앱(이 예에서는 **Source VNet 2)에 영향을 주는 중단 또는 문제 발생 시, A사는 영향을 받는 앱을 다음과 같이 복구할 수 있습니다.
 
 
-- **Source VNet1**과 **Source VNet2** 및 **Source VNet2**와 **Azure VNet** 사이의 VPN 연결을 해제합니다.
-- **Source VNet1**과 **Recovery VNet2** 및 **Recovery VNet2**와 **Azure VNet** 사이에 VPN 연결을 설정합니다.
-- **Source VNet2**의 VM을 **Recovery VNet2**로 장애 조치(failover)합니다.
+- **Source VNet1** 과 **Source VNet2** 및 **Source VNet2** 와 **Azure VNet** 사이의 VPN 연결을 해제합니다.
+- **Source VNet1** 과 **Recovery VNet2** 및 **Recovery VNet2** 와 **Azure VNet** 사이에 VPN 연결을 설정합니다.
+- **Source VNet2** 의 VM을 **Recovery VNet2** 로 장애 조치(failover)합니다.
 
 ![Azure 리소스 앱 장애 조치(failover)](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
@@ -121,7 +121,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 
 ## <a name="hybrid-resources-full-failover"></a>하이브리드 리소스: 전체 장애 조치(failover)
 
-이 시나리오의 **B사**는 하이브리드 비즈니스를 실행하고 있고, 애플리케이션 인프라의 일부가 Azure에서 실행 중이고 나머지는 온-프레미스에서 실행 중입니다. 
+이 시나리오의 **B사** 는 하이브리드 비즈니스를 실행하고 있고, 애플리케이션 인프라의 일부가 Azure에서 실행 중이고 나머지는 온-프레미스에서 실행 중입니다. 
 
 ### <a name="before-failover"></a>장애 조치(failover) 전
 
@@ -129,12 +129,12 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 
 - 애플리케이션 VM이 Azure 동아시아에 호스트됩니다.
 - 동아시아에는 주소 공간이 10.1.0.0/16인 VNet(**원본 VNet**)이 있습니다.
-  - 동아시아의 워크로드는 **Source VNet**의 세 개 서브넷에 분산됩니다.
+  - 동아시아의 워크로드는 **Source VNet** 의 세 개 서브넷에 분산됩니다.
     - **서브넷 1**: 10.1.1.0/24
     - **서브넷 2**: 10.1.2.0/24
-    - **서브넷 3**: 10.1.3.0/24, 주소 공간이 10.1.0.0/16 인 Azure 가상 네트워크 활용 이 가상 네트워크의 이름은 **Source VNet**입니다.
+    - **서브넷 3**: 10.1.3.0/24, 주소 공간이 10.1.0.0/16 인 Azure 가상 네트워크 활용 이 가상 네트워크의 이름은 **Source VNet** 입니다.
       - 보조(대상) 지역은 Azure 동남아시아:
-  - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
+  - 동남 아시아에는 **원본 VNet** 과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
 - 동아시아 Vm은 Azure Express 경로 또는 사이트 간 VPN을 사용 하 여 온-프레미스 데이터 센터에 연결 됩니다.
 - RTO를 줄이기 위해 B사는 장애 조치(failover) 전에 Azure 동남 아시아의 Recovery VNet에 게이트웨이를 프로비전합니다.
 - B사는 복제된 VM의 대상 IP 주소를 할당/확인합니다. 대상 IP 주소는 각 VM의 원본 IP 주소와 같습니다.
@@ -147,7 +147,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 
 원본 지역에서 중단이 발생하면 B사는 모든 리소스를 대상 지역으로 장애 조치(failover)할 수 있습니다.
 
-- B사는 장애 조치(failover) 전에 이미 사용되고 있던 대상 IP 주소를 사용하여 장애 조치(failover)를 오케스트레이션하고, 장애 조치(failover) 후 자동으로 **Recovery VNet**과 **Azure VNet** 간에 연결을 설정할 수 있습니다.
+- B사는 장애 조치(failover) 전에 이미 사용되고 있던 대상 IP 주소를 사용하여 장애 조치(failover)를 오케스트레이션하고, 장애 조치(failover) 후 자동으로 **Recovery VNet** 과 **Azure VNet** 간에 연결을 설정할 수 있습니다.
 - 앱 요구 사항에 따라 장애 조치(failover) 전, 도중(중간 단계로) 또는 후에 대상 영역의 두 VNet(**Recovery VNet** 및 **Azure VNet**) 간 연결을 설정할 수 있습니다. 회사에서는 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 언제 연결을 설정할 것인지 지정할 수 있습니다.
 - Azure 동남 아시아와 온-프레미스 데이터 센터 간에 연결을 설정하기 전에 Azure 동아시아와 온-프레미스 데이터 센터 간의 원래 연결을 끊어야 합니다.
 - 온-프레미스 라우팅은 대상 지역 및 게이트웨이 사후 장애 조치(failover)를 가리키도록 다시 구성됩니다.

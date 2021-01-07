@@ -2,19 +2,19 @@
 title: CloudSimple로 Azure VMware 솔루션을 관리 하기 위한 주요 개념
 titleSuffix: Azure VMware Solution by CloudSimple
 description: CloudSimple에서 Azure VMware 솔루션을 관리 하기 위한 주요 개념을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 04/24/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8677bc7e4b9f4c2b24b5439aeefb307b9c544ed3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e5544ef7725855d28e20d39ff345db6bb07671a2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525027"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895328"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>CloudSimple의 Azure VMware 솔루션 관리를 위한 주요 개념
 

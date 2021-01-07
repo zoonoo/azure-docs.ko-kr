@@ -4,19 +4,19 @@ description: Azure Analysis Services 서버 이름 별칭을 만드는 방법에
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 435649c5431ff14461245fee88cebe4a2c571663
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb52a0f03fa1f9ab9bc0c6a2c27adf70b4bf2ca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361441"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491233"
 ---
 # <a name="alias-server-names"></a>별칭 서버 이름
 
-사용자는 서버 이름 별칭을 사용하여 서버 이름 대신 짧은 *별칭*을 가진 Azure Analysis Services 서버에 연결할 수 있습니다. 클라이언트 애플리케이션에서 연결할 때 **link://** protocol 프로토콜 형식을 사용하여 별칭을 엔드포인트로 지정합니다. 그러면 엔드포인트가 연결할 실제 서버 이름을 반환합니다.
+사용자는 서버 이름 별칭을 사용하여 서버 이름 대신 짧은 *별칭* 을 가진 Azure Analysis Services 서버에 연결할 수 있습니다. 클라이언트 애플리케이션에서 연결할 때 **link://** protocol 프로토콜 형식을 사용하여 별칭을 엔드포인트로 지정합니다. 그러면 엔드포인트가 연결할 실제 서버 이름을 반환합니다.
 
 별칭 서버 이름은 다음과 같은 경우에 유용합니다.
 
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>참고 항목
 
-[클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [Power BI Desktop에서 연결](analysis-services-connect-pbi.md)

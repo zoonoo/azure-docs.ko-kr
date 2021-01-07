@@ -7,20 +7,21 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2019
+ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79ef279423c524f0d409815e7ae163aa699f5428
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42333a3feae19b6c3c77494f7e843cac1d9bc078
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006322"
 ---
-# <a name="backup-and-restore-on-sap-hana-on-azure"></a>Azure에서 SAP HANA의 Backup 및 복원
+# <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>HANA Large Instances의 SAP HANA 백업 및 복원
 
 >[!IMPORTANT]
 >이 문서는 SAP HANA 관리 설명서 또는 SAP 노트를 대체하지 않습니다. 특히 백업, 복원, 고가용성 및 재해 복구에 대 한 SAP HANA 관리 및 운영에 대 한 전문 지식이 있는 것으로 간주 됩니다. 이 문서에서는 SAP HANA Studio의 스크린샷이 표시됩니다. SAP 관리 도구 스크린의 콘텐츠, 구조 및 특성과 도구 자체는 릴리스할 SAP HANA 릴리스마다 변경될 수 있습니다.
@@ -213,7 +214,7 @@ SAP HANA 스냅숏 만들기를 시작 하려면 저장소 스냅숏 스크립�
 ## <a name="snapshot-strategies"></a>스냅샷 전략
 다른 유형에 대한 스냅샷 빈도는 HANA 대규모 인스턴스 재해 복구 기능을 사용하는지 여부에 따라 달라집니다. 이 기능은 스토리지 스냅샷을 사용합니다. 그러려면 스토리지 스냅샷의 빈도 및 실행 기간에 대한 특별한 권장 사항이 필요할 수 있습니다. 
 
-다음 고려 사항 및 권장 사항에서는 HANA 대규모 인스턴스가 제공하는 재해 복구 기능을 사용하지 *않는다*고 가정합니다. 대신, 스토리지 스냅샷을 사용하여 백업을 보유하고 지난 30일 동안의 지정 시간 복구를 제공할 수 있습니다. 스냅숏 및 공간 수의 제한 사항을 고려 하 여 다음 요구 사항을 고려 하세요.
+다음 고려 사항 및 권장 사항에서는 HANA 대규모 인스턴스가 제공하는 재해 복구 기능을 사용하지 *않는다* 고 가정합니다. 대신, 스토리지 스냅샷을 사용하여 백업을 보유하고 지난 30일 동안의 지정 시간 복구를 제공할 수 있습니다. 스냅숏 및 공간 수의 제한 사항을 고려 하 여 다음 요구 사항을 고려 하세요.
 
 - 지정 시간 복구에 대한 복구 시간.
 - 사용된 공간.
@@ -319,7 +320,7 @@ SAP HANA 전체 로그 세그먼트를 자동으로 백업 하지만, 결정적�
 ./azure_hana_backup --type=hana --prefix=dailyhana --frequency=15min --retention=28
 ```
 
-앞의 예제에서 스냅숏 레이블은 **dailyhana**입니다. 이 레이블을 보관할 스냅숏의 수는 **28**입니다. 디스크 공간 사용량에 응답하는 대로 저장된 스냅샷 수를 줄이려고 할 수 있습니다. 예를 들어 스냅숏 수를 15로 단축 하는 쉬운 방법은 마지막 매개 변수를 **15**로 설정 하 여 스크립트를 실행 하는 것입니다.
+앞의 예제에서 스냅숏 레이블은 **dailyhana** 입니다. 이 레이블을 보관할 스냅숏의 수는 **28** 입니다. 디스크 공간 사용량에 응답하는 대로 저장된 스냅샷 수를 줄이려고 할 수 있습니다. 예를 들어 스냅숏 수를 15로 단축 하는 쉬운 방법은 마지막 매개 변수를 **15** 로 설정 하 여 스크립트를 실행 하는 것입니다.
 
 ```
 ./azure_hana_backup --type=hana --prefix=dailyhana --frequency=15min --retention=15
@@ -338,7 +339,7 @@ SAP HANA 전체 로그 세그먼트를 자동으로 백업 하지만, 결정적�
 
 스크립트에 대 한 자세한 내용은 [azure에서 Microsoft snapshot tools for SAP HANA](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)의 "스냅숏 azure_hana_snapshot_delete 삭제"를 참조 하세요.
 
-사용자 **루트**로 스크립트를 실행 합니다.
+사용자 **루트** 로 스크립트를 실행 합니다.
 
 >[!IMPORTANT]
 >삭제할 스냅숏에만 존재 하는 데이터가 있는 경우 스냅숏이 삭제 된 후에는 해당 데이터가 영구적으로 손실 됩니다.
@@ -347,7 +348,7 @@ SAP HANA 전체 로그 세그먼트를 자동으로 백업 하지만, 결정적�
 ## <a name="file-level-restore-from-a-storage-snapshot"></a>스토리지 스냅샷에서 파일 수준 복원
 
 <!-- hana, logs and boot are no spelling errors as Acrolinx indicates, but terms of parameter values -->
-스냅샷 형식 **hana** 및 **logs**의 경우 **.snapshot** 디렉터리의 볼륨에서 직접 스냅샷에 액세스할 수 있습니다. 각 스냅숏에 대 한 하위 디렉터리가 있습니다. 스냅숏의 지점에 있는 상태의 각 파일을 해당 하위 디렉터리에서 실제 디렉터리 구조로 복사 합니다. 
+스냅샷 형식 **hana** 및 **logs** 의 경우 **.snapshot** 디렉터리의 볼륨에서 직접 스냅샷에 액세스할 수 있습니다. 각 스냅숏에 대 한 하위 디렉터리가 있습니다. 스냅숏의 지점에 있는 상태의 각 파일을 해당 하위 디렉터리에서 실제 디렉터리 구조로 복사 합니다. 
 
 스크립트의 현재 버전에는 스냅숏 복원에 대해 셀프 서비스로 제공 되는 복원 스크립트가 *없습니다* . 장애 조치 (failover) 중 재해 복구 사이트에서 셀프 서비스 재해 복구 스크립트의 일부로 스냅숏 복원을 수행할 수 있습니다. 사용 가능한 기존 스냅숏에서 원하는 스냅숏을 복원 하려면 서비스 요청을 열어 Microsoft 운영 팀에 문의 해야 합니다.
 
@@ -399,6 +400,540 @@ SAP HANA 전체 로그 세그먼트를 자동으로 백업 하지만, 결정적�
 
 ### <a name="recover-to-another-point-in-time"></a>다른 지정 시점으로 복구
 특정 시점으로 복원 하려면 [저장소 스냅숏에서 Azure의 SAP HANA에 대 한 수동 복구 가이드](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md)의 "다음 시점으로 데이터베이스 복구"를 참조 하세요. 
+
+
+
+
+
+## <a name="snapcenter-integration-in-sap-hana-large-instances"></a>SAP HANA 대량 인스턴스의 SnapCenter 통합
+
+이 섹션에서는 고객이 NetApp SnapCenter 소프트웨어를 사용 하 여 HLI (Microsoft Azure HANA Large Instances)에서 호스트 되는 SAP HANA 데이터베이스를 스냅숏, 백업 및 복원 하는 방법에 대해 설명 합니다. 
+
+SnapCenter는 백업/복구, 비동기 저장소 복제를 사용 하는 DR (재해 복구), 시스템 복제 및 시스템 복제를 비롯 한 시나리오에 대 한 솔루션을 제공 합니다. Azure에서 SAP HANA(대규모 인스턴스)와 통합 되어 이제 고객은 백업 및 복구 작업에 SnapCenter를 사용할 수 있습니다.
+
+추가 참조는 SnapCenter에서 NetApp TR-4614 및 TR-4646를 참조 하세요.
+
+- [SnapCenter를 사용 하 여 SAP HANA 백업/복구 (TR-4614)](https://www.netapp.com/us/media/tr-4614.pdf)
+- [저장소 복제를 사용 하 여 재해 복구 SAP HANA (TR-4646)](https://www.netapp.com/us/media/tr-4646.pdf)
+- [SnapCenter를 사용 하 여 HSR SAP HANA (TR-4719)](https://www.netapp.com/us/media/tr-4719.pdf)
+- [SnapCenter에서 SAP 복제 (TR-4667)](https://www.netapp.com/us/media/tr-4667.pdf)
+
+### <a name="system-requirements-and-prerequisites"></a>시스템 요구 사항 및 필수 구성 요소
+
+Azure HLI에서 SnapCenter를 실행 하려면 시스템 요구 사항은 다음과 같습니다.
+* 4 vCPU, 16gb RAM 및 최소 650 GB 관리 프리미엄 SSD 저장소로 Azure Windows 2016 이상에서 서버를 SnapCenter 합니다.
+* 1.5 TB – 24-TB RAM을 사용 하는 SAP HANA(대규모 인스턴스) 시스템입니다. 복제 작업 및 테스트에는 두 개의 SAP HANA 많은 인스턴스 시스템을 사용 하는 것이 좋습니다.
+
+SAP HANA에서 SnapCenter을 통합 하는 단계는 다음과 같습니다. 
+
+1. 사용자가 생성 한 공개 키를 Microsoft Ops 팀에 전달 하도록 지원 티켓 요청을 발생 시킵니다. SnapCenter 사용자가 저장소 시스템에 액세스 하도록 설정 하는 데 필요 합니다.
+1. HLI에 대 한 액세스 권한이 있는 VNET에서 VM을 만듭니다. 이 VM은 SnapCenter에 사용 됩니다. 
+1. SnapCenter를 다운로드 하 여 설치 합니다. 
+1. 백업 및 복구 작업을 수행 합니다. 
+
+### <a name="create-a-support-ticket-for-user-role-storage-setup"></a>사용자 역할 저장소 설정에 대 한 지원 티켓 만들기
+
+1. Azure Portal를 열고 **구독** 페이지로 이동 합니다. "구독" 페이지에서 아래 빨간색으로 설명 된 SAP HANA 구독을 선택 합니다.
+
+   :::image type="content" source="./media/snapcenter/create-support-case-for-user-role-storage-setup.png" alt-text="사용자 저장소 설정에 대 한 지원 사례 만들기":::
+
+1. SAP HANA 구독 페이지에서 **리소스 그룹** 하위 페이지를 선택 합니다.
+
+   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="솔루션 랩 구독 리소스 그룹" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
+
+1. 지역에서 적절 한 리소스 그룹을 선택 합니다.
+
+   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="지역에서 적절 한 리소스 그룹을 선택 합니다." lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
+
+1. Azure storage의 SAP HANA에 해당 하는 SKU 항목을 선택 합니다.
+
+   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="SAP HANA에 해당 하는 SKU 항목을 선택 합니다." lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
+
+1. 빨간색으로 표시 된 **새 지원 티켓** 요청을 엽니다.
+
+   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="새 지원 티켓 요청 열기":::
+
+1. **기본 사항** 탭에서 티켓에 대 한 다음 정보를 제공 합니다.
+
+   * **문제 유형:** 기술
+   * **구독:** 사용자의 구독
+   * **서비스:** SAP HANA Large Instance
+   * **리소스:** 리소스 그룹
+   * **요약:** 사용자가 생성 한 공개 키를 제공 합니다.
+   * **문제 유형:** 구성 및 설정
+   * **문제 하위 유형:** HLI에 대해 SnapCenter 설정
+
+
+1. 지원 티켓에 대 한 **설명** 의 **세부 정보** 탭에서 다음을 입력 합니다. 
+   
+   * HLI에 대해 SnapCenter 설정
+   * SnapCenter 사용자에 대 한 공개 키 (SnapCenter)-아래 공개 키 만들기 예제를 참조 하세요.
+
+     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="새 지원 요청-세부 정보 탭" lightbox="./media/snapcenter/new-support-request-details.png":::
+
+1. **검토 + 만들기** 를 선택 하 여 지원 티켓을 검토 합니다. 
+
+1. HANA Large Instance 또는 Linux 서버에서 SnapCenter username에 대 한 인증서를 생성 합니다.
+
+   SnapCenter에는 저장소 가상 머신 (SVM)에 액세스 하 고 HANA 데이터베이스의 스냅숏을 만들기 위한 사용자 이름 및 암호가 필요 합니다. Microsoft는 사용자 (고객)가 저장소 시스템에 액세스 하기 위한 암호를 설정할 수 있도록 공개 키를 사용 합니다.
+
+   ```bash
+   openssl req -x509 -nodes -days 1095 -newkey rsa:2048 -keyout snapcenter.key -out snapcenter.pem -subj "/C=US/ST=WA/L=BEL/O=NetApp/CN=snapcenter"
+   Generating a 2048 bit RSA private key
+   ................................................................................................................................................+++++
+   ...............................+++++
+   writing new private key to 'snapcenter.key'
+   -----
+
+   sollabsjct31:~ # ls -l cl25*
+   -rw-r--r-- 1 root root 1704 Jul 22 09:59 snapcenter.key
+   -rw-r--r-- 1 root root 1253 Jul 22 09:59 snapcenter.pem
+
+   ```
+
+1. 지원 티켓에 snapcenter 파일을 연결 하 고 **만들기** 를 선택 합니다.
+
+   공개 키 인증서를 제출 하면 Microsoft는 SVM IP 주소와 함께 테 넌 트의 SnapCenter username을 설정 합니다.   
+
+1. SVM IP를 받은 후에는 사용자가 제어 하는 SVM에 액세스 하는 데 사용할 암호를 설정 합니다.
+
+   HANA large Instance 환경에 대 한 액세스 권한이 있고 암호를 설정 하는 데 사용 되는 가상 네트워크의 VM에 대 한 REST 호출 (설명서)의 예는 다음과 같습니다.
+
+   ```bash
+   curl --cert snapcenter.pem --key snapcenter.key -X POST -k "https://10.0.40.11/api/security/authentication/password" -d '{"name":"snapcenter","password":"test1234"}'
+   ```
+
+   HANA DB 시스템에서 활성화 된 프록시 변수가 없는지 확인 하십시오.
+
+   ```bash
+   sollabsjct31:/tmp # unset http_proxy
+   sollabsjct31:/tmp # unset https_proxy
+   ```
+
+### <a name="download-and-install-snapcenter"></a>SnapCenter 다운로드 및 설치
+이제 저장소 시스템에 대 한 SnapCenter 액세스에 대 한 사용자 이름이 설정 되었으므로 SnapCenter username을 사용 하 여 설치 후 SnapCenter를 구성 합니다. 
+
+SnapCenter를 설치 하기 전에 [SnapCenter를 사용 하 여 백업/복구 SAP HANA](https://www.netapp.com/us/media/tr-4614.pdf) 검토 하 여 백업 전략을 정의 합니다. 
+
+1. [Netapp](https://mysupport.netapp.com) 에 로그인 하 여 최신 버전의 SnapCenter를 [다운로드](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmysupport.netapp.com%2Fsite%2Fproducts%2Fall%2Fdetails%2Fsnapcenter%2Fdownloads-tab&data=02%7C01%7Cmadhukan%40microsoft.com%7Ca53f5e2f245a4e36933008d816efbb54%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637284566603265503&sdata=TOANWNYoAr1q5z1opu70%2FUDPHjluvovqR9AKplYpcpk%3D&reserved=0) 합니다.
+
+1. Microsoft Azure VM에 SnapCenter를 설치 합니다.
+
+   설치 관리자가 VM의 필수 구성 요소를 확인 합니다. 
+
+   >[!IMPORTANT]
+   >특히 대규모 환경에서 VM의 크기에 주의 해야 합니다.
+
+1. SnapCenter에 대 한 사용자 자격 증명을 구성 합니다. 기본적으로 응용 프로그램을 설치 하는 데 사용 되는 Windows 사용자 자격 증명을 채웁니다. 
+
+   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="설치 사용자 입력 대화 상자"::: 
+
+1. 세션을 시작할 때 보안 예외를 저장 하 고 GUI를 시작 합니다.
+
+1. https://snapcenter-vm:8146)환경을 구성 하는 Windows 자격 증명을 사용 하 여 VM에서 SnapCenter에 로그인 합니다.
+
+
+### <a name="set-up-the-storage-system"></a>저장소 시스템 설정
+
+1. SnapCenter에서 **저장소 시스템** 을 선택한 다음, **+ 새로 만들기** 를 선택 합니다. 
+
+   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="SnapCenter 저장소 연결" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
+
+   기본값은 테 넌 트 당 하나의 SVM입니다. 고객에 게 여러 지역에서 여러 테 넌 트 또는 HLIs가 있는 경우 SnapCenter에서 모든 SVMs를 구성 하는 것이 좋습니다.
+
+1. 저장소 시스템 추가에서 추가 하려는 저장소 시스템에 대 한 정보를 입력 하 고 SnapCenter 사용자 이름 및 암호를 입력 한 다음 **제출** 을 선택 합니다.
+
+   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="새 저장소 연결":::
+
+   >[!NOTE]
+   >기본값은 테 넌 트 당 하나의 SVM입니다.  여러 테 넌 트가 있는 경우 SnapCenter에서 모든 SVMs를 구성 하는 것이 좋습니다. 
+
+1. SnapCenter에서 **호스트** 를 선택 하 고, 선택 **+ 추가** 를 선택 하 여 HANA 플러그 인 및 hana DB 호스트를 설정 합니다.  최신 버전의 SnapCenter는 호스트의 HANA 데이터베이스를 자동으로 검색 합니다.
+
+   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="SnapCenter에서 호스트를 선택한 다음 추가를 선택 합니다." lightbox="media/snapcenter/managed-hosts-new-host.png":::
+
+1. 새 호스트에 대 한 정보를 제공 합니다.
+   1. 호스트 유형에 대 한 운영 체제를 선택 합니다.
+   1. SnapCenter VM 호스트 이름을 입력 합니다.
+   1. 사용 하려는 자격 증명을 제공 합니다.
+   1. **Microsoft Windows** 및 **SAP HANA** 옵션을 선택한 다음, **제출** 을 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="새 호스트에 대 한 정보":::
+
+   >[!IMPORTANT]
+   >첫 번째 노드를 설치 하기 전에 SnapCenter를 사용 하 여 루트가 아닌 사용자가 데이터베이스에 플러그 인을 설치할 수 있습니다.  루트가 아닌 사용자를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [루트가 아닌 사용자 추가 및 sudo 권한 구성](https://library.netapp.com/ecmdocs/ECMLP2590889/html/GUID-A3EEB5FC-242B-4C2C-B407-510E48A8F131.html)을 참조 하세요.
+
+1. 호스트 세부 정보를 검토 하 고 **제출** 을 선택 하 여 SnapCenter 서버에 플러그 인을 설치 합니다.
+
+1. 플러그 인이 설치 된 후 SnapCenter에서 **호스트** 를 선택 하 고 **+ 추가** 를 선택 하 여 HANA 노드를 추가 합니다.
+
+   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="HANA 노드 추가" lightbox="media/snapcenter/add-hana-node.png":::
+
+1. HANA 노드에 대 한 정보를 제공 합니다.
+   1. 호스트 유형에 대 한 운영 체제를 선택 합니다.
+   1. HANA DB 호스트 이름 또는 IP 주소를 입력 합니다.
+   1. **+** HANA DB 호스트 운영 체제에 구성 된 자격 증명을 추가 하려면 선택 하 고 **확인** 을 선택 합니다.
+   1. **SAP HANA** 선택 하 고 **제출** 을 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="SAP HANA 노드 세부 정보":::
+
+1. 지문을 확인 하 고 **확인 및 제출** 을 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="지문 확인 및 제출":::
+
+1. HANA 노드의 시스템 데이터베이스에서 **Security**  >  **Users**  >  **SNAPCENTER** 를 선택 하 여 SNAPCENTER 사용자를 만듭니다.
+
+   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="HANA (system db)에서 SnapCenter 사용자 만들기":::
+
+
+
+### <a name="auto-discovery"></a>자동 검색
+SnapCenter 4.3는 기본적으로 자동 검색 기능을 사용 하도록 설정 합니다.  HSR (HANA System Replication)이 구성 된 HANA 인스턴스에 대해서는 자동 검색이 지원 되지 않습니다. SnapCenter 서버에 인스턴스를 수동으로 추가 해야 합니다.
+
+
+### <a name="hana-setup-manual"></a>HANA 설치 (수동)
+HSR를 구성한 경우에는 시스템을 수동으로 구성 해야 합니다.  
+
+1. SnapCenter에서 **리소스** 및 **SAN HANA** (맨 위에 있는)를 선택 하 고 **+ 추가 SAP HANA 데이터베이스** (오른쪽)를 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="수동 HANA 설정" lightbox="media/snapcenter/manual-hana-setup.png":::
+
+1. Linux 호스트 또는 플러그 인이 설치 된 호스트에서 구성 된 HANA 관리자 사용자의 리소스 세부 정보를 지정 합니다. 백업은 Linux 시스템의 플러그 인에서 관리 됩니다.
+
+   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Linux 호스트에 구성 된 HANA 관리자 사용자의 리소스 세부 정보를 지정 합니다.":::
+
+1. 스냅숏을 만들어야 하는 데이터 볼륨을 선택 하 고 **저장** 을 선택한 다음 **마침** 을 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="스냅숏을 만들어야 하는 데이터 볼륨을 선택 하 고 저장을 선택한 다음 마침을 선택 합니다.":::
+
+### <a name="create-a-snapshot-policy"></a>스냅숏 정책 만들기
+
+SnapCenter를 사용 하 여 SAP HANA 데이터베이스 리소스를 백업 하기 전에 백업 하려는 리소스 또는 리소스 그룹에 대 한 백업 정책을 만들어야 합니다. 스냅숏 정책을 만드는 과정에서 사전/사후 명령 및 특수 SSL 키를 구성 하는 옵션이 제공 됩니다. 스냅숏 정책을 만드는 방법에 대 한 자세한 내용은 [SAP HANA 데이터베이스에 대 한 백업 정책 만들기](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html)를 참조 하세요.
+
+1. SnapCenter에서 **리소스** 를 선택한 다음 데이터베이스를 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="SnapCenter에서 리소스를 선택한 다음 데이터베이스를 선택 합니다.":::
+
+1. 구성 마법사의 워크플로를 따라 스냅숏 스케줄러를 구성 합니다.
+
+   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="구성 마법사의 워크플로를 따라 스냅숏 스케줄러를 구성 합니다." lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
+
+1. 사전/사후 명령 및 특수 SSL 키를 구성 하는 옵션을 제공 합니다.  이 예에서는 특별 한 설정을 사용 하지 않습니다.
+
+   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="사전 사후 명령 및 특수 SSL 키를 구성 하는 옵션을 제공 합니다." lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
+
+1. **추가** 를 선택 하 여 다른 HANA 데이터베이스에도 사용할 수 있는 스냅숏 정책을 만듭니다. 
+
+   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="추가를 선택 하 여 다른 HANA 데이터베이스에도 사용할 수 있는 스냅숏 정책을 만듭니다.":::
+
+1. 정책 이름 및 설명을 입력 합니다.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="정책 이름 및 설명을 입력 합니다.":::
+
+
+1. 백업 유형 및 빈도를 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="백업 유형 및 빈도를 선택 합니다.":::
+
+1. **주문형 백업 보존 설정을** 구성 합니다.  이 예에서는 보존 기간을 3 개의 스냅숏 복사본으로 설정 합니다.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="주문형 백업 보존 설정을 구성 합니다.":::
+
+1. **시간별 보존 설정을** 구성 합니다. 
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="시간별 보존 설정을 구성 합니다.":::
+
+1. SnapMirror 설치를 구성한 경우 **로컬 스냅숏 복사본을 만든 후 SnapMirror 업데이트** 를 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="SnapMirror가 필요한 경우 로컬 스냅숏 복사본을 만든 후 SnapMirror 업데이트를 선택 합니다.":::
+
+1. **마침** 을 선택 하 여 새 백업 정책의 요약을 검토 합니다. 
+1. **일정 구성** 아래에서 **추가** 를 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="일정 구성 아래에서 추가를 선택 합니다.":::
+
+1. **시작 날짜**, **만료** 날짜 및 빈도를 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="시작 날짜, 만료 날짜 및 빈도를 선택 합니다.":::
+
+1. 알림에 대 한 전자 메일 정보를 제공 합니다.
+
+   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="알림에 대 한 전자 메일 정보를 제공 합니다.":::
+
+1.  **마침** 을 선택 하 여 백업 정책을 만듭니다.
+
+### <a name="disable-ems-message-to-netapp-autosupport"></a>NetApp Autosupport로 EMS 메시지를 사용 하지 않도록 설정
+기본적으로 EMS 데이터 수집은 사용 하도록 설정 되 고 설치 날짜 이후 7 일 마다 실행 됩니다.  PowerShell cmdlet을 사용 하 여 데이터 수집을 사용 하지 않도록 설정할 수 있습니다 `Disable-SmDataCollectionEms` .
+
+1. PowerShell에서 SnapCenter를 사용 하 여 세션을 설정 합니다.
+
+   ```powershell
+   Open-SmConnection
+   ```
+
+1. 자격 증명을 사용하여 로그인합니다.
+1. EMS 메시지의 컬렉션을 사용 하지 않도록 설정 합니다.
+
+   ```powershell
+   Disable-SmCollectionEms
+   ```
+
+### <a name="restore-database-after-crash"></a>크래시 후 데이터베이스 복원
+SnapCenter를 사용 하 여 데이터베이스를 복원할 수 있습니다.  이 섹션에서는 개략적인 단계를 다룹니다. 자세한 내용은 [SnapCenter를 사용 하 여 백업/복구를 SAP HANA](https://www.netapp.com/us/media/tr-4614.pdf)참조 하세요.
+
+
+1. 데이터베이스를 중지 하 고 데이터베이스 파일을 모두 삭제 합니다.
+
+   ```
+   su - h31adm
+   > sapcontrol -nr 00 -function StopSystem
+   StopSystem
+   OK
+   > sapcontrol -nr 00 -function GetProcessList
+   OK
+   name, description, dispstatus, textstatus, starttime, elapsedtime, pid
+   hdbdaemon, HDB Daemon, GRAY, Stopped, , , 35902
+ 
+   ```
+
+1. 데이터베이스 볼륨을 분리 합니다.
+
+   ```bash
+   unmount /hana/data/H31/mnt00001
+   ```
+
+
+1. SnapCenter를 통해 데이터베이스 파일을 복원 합니다.  데이터베이스를 선택 하 고 **복원** 을 선택 합니다.  
+
+   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="데이터베이스를 선택 하 고 복원을 선택 합니다." lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
+
+1. 복원 유형을 선택 합니다.  이 예제에서는 전체 리소스를 복원 합니다. 
+
+   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="복원 유형을 선택 합니다.":::
+
+   >[!NOTE]
+   >기본 설정을 사용 하는 경우 디스크 상의 스냅숏에서 로컬 복원을 수행 하는 명령을 지정할 필요가 없습니다. 
+
+   >[!TIP]
+   >볼륨 내의 특정 LUN을 복원 하려면 **파일 수준** 을 선택 합니다.
+
+1. 구성 마법사를 통해 워크플로를 따릅니다.
+   
+   SnapCenter는 데이터를 원래 위치로 복원 하므로 HANA에서 복원 프로세스를 시작할 수 있습니다. 또한 SnapCenter는 백업 카탈로그를 수정할 수 없기 때문에 (데이터베이스가 다운 됨) 경고가 표시 됩니다.
+
+   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="SnapCenter에서 백업 카탈로그를 수정할 수 없기 때문에 경고가 표시 됩니다. ":::
+
+1. 모든 데이터베이스 파일이 복원 되었으므로 HANA에서 복원 프로세스를 시작 합니다. HANA Studio의 **시스템** 에서 시스템 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **백업 및 복구**  >  **시스템 데이터베이스** 복구를 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="HANA에서 복원 프로세스를 시작 합니다.":::
+
+1. 복구 유형을 선택 하십시오.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="복구 유형을 선택 합니다.":::
+
+1. 백업 카탈로그의 위치를 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="백업 카탈로그의 위치를 선택 합니다.":::
+
+1. SAP HANA 데이터베이스를 복구할 백업을 선택 합니다.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="SAP HANA 데이터베이스를 복구할 백업을 선택 합니다.":::
+
+   데이터베이스가 복구 되 면 **복구 된 시간** 으로 메시지가 표시 되 고 **로그 위치 스탬프로 복구** 됩니다.
+
+1. 시스템 **에서 시스템** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **백업 및 복구**  >  **테 넌 트 데이터베이스 복구** 를 선택 합니다.
+1. 마법사의 워크플로를 따라 테 넌 트 데이터베이스의 복구를 완료 합니다. 
+
+데이터베이스 복원에 대 한 자세한 내용은 [SnapCenter를 사용 하 여 백업/복구 SAP HANA](https://www.netapp.com/us/media/tr-4614.pdf)를 참조 하세요.
+
+
+### <a name="non-database-backups"></a>비 데이터베이스 백업
+데이터 볼륨이 아닌 볼륨 (예: 네트워크 파일 공유 (/hana/shared) 또는 운영 체제 백업)을 복원할 수 있습니다.  데이터 볼륨이 아닌 볼륨을 복원 하는 방법에 대 한 자세한 내용은 [SnapCenter를 사용 하 여 백업/복구 SAP HANA](https://www.netapp.com/us/media/tr-4614.pdf)를 참조 하세요.
+
+### <a name="sap-hana-system-cloning"></a>SAP HANA 시스템 복제
+
+복제 하려면 먼저 원본 데이터베이스와 동일한 HANA 버전이 설치 되어 있어야 합니다. SID와 ID는 다를 수 있습니다. 
+
+:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="SAP HANA 시스템 복제" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
+
+1. /Usr/sap/H34/HDB40.에서 H34 데이터베이스에 대 한 HANA 데이터베이스 사용자 저장소 만들기
+
+   ```
+   hdbuserstore set H34KEY sollabsjct34:34013 system manager
+   ```
+ 
+1. 방화벽을 사용 하지 않도록 설정 합니다.
+
+   ```bash
+   systemctl disable SuSEfirewall2
+   systemctl stop  SuSEfirewall2
+   ```
+
+1. Java SDK를 설치 합니다.
+
+   ```bash
+   zypper in java-1_8_0-openjdk
+   ```
+
+1. SnapCenter에서 복제를 탑재할 대상 호스트를 추가 합니다. 자세한 내용은 [원격 호스트에 호스트 추가 및 플러그 인 패키지 설치](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html)를 참조 하세요.
+   1. 추가 하려는 실행 자격 증명에 대 한 정보를 제공 합니다. 
+   1. 호스트 운영 체제를 선택 하 고 호스트 정보를 입력 합니다.
+   1. **설치할 플러그** 인에서 버전을 선택 하 고 설치 경로를 입력 한 다음 **SAP HANA** 를 선택 합니다.
+   1. **유효성 검사** 를 선택 하 여 사전 설치 검사를 실행 합니다.
+
+1. HANA를 중지 하 고 이전 데이터 볼륨을 분리 합니다.  SnapCenter에서 클론을 탑재 합니다.  
+
+   ```bash
+   sapcontrol -nr 40 -function StopSystem
+   umount /hana/data/H34/mnt00001
+
+   ```
+ 1. 대상에 대 한 구성 및 셸 스크립트 파일을 만듭니다.
+ 
+    ```bash
+    mkdir /NetApp
+    chmod 777 /NetApp
+    cd NetApp
+    chmod 777 sc-system-refresh-H34.cfg
+    chmod 777 sc-system-refresh.sh
+
+    ```
+
+    >[!TIP]
+    >[SnapCenter에서 SAP 복제](https://www.netapp.com/us/media/tr-4667.pdf)를 통해 스크립트를 복사할 수 있습니다.
+
+1. 구성 파일을 수정 합니다. 
+
+   ```bash
+   vi sc-system-refresh-H34.cfg
+   ```
+
+   * HANA_ARCHITECTURE = "MDC_single_tenant"
+   * KEY = "H34KEY"
+   * TIME_OUT_START = 18
+   * TIME_OUT_STOP = 18
+   * INSTANCENO = "40"
+   * STORAGE = "10.250.101.33"
+
+1. 셸 스크립트 파일을 수정 합니다.
+
+   ```bash
+   vi sc-system-refresh.sh
+   ```  
+
+   * 자세히 = 아니요
+   * MY_NAME = " `basename $0` "
+   * BASE_SCRIPT_DIR = " `dirname $0` "
+   * MOUNT_OPTIONS = "rw, vers = 4, hard, timeo = 600, rsize = 1048576, wsize = 1048576, intr, noatime, nolock"
+
+1. 백업 프로세스에서 클론을 시작 합니다. 복제본을 만들 호스트를 선택 합니다. 
+
+   >[!NOTE]
+   >자세한 내용은 [백업에서 복제](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html)를 참조 하세요.
+
+1. **스크립트** 에서 다음을 제공 합니다.
+
+   * **탑재 명령:** /Netapp/sc-system-refreshH34% hana_data_h31_mnt00001_t250_vol_Clone
+   * **게시 후 명령:** /Snetapp/sc-system-refreshH34
+
+1. 사전 설치 된 데이터베이스의 데이터 볼륨이 필요 하지 않으므로/etc/fstab 자동 탑재를 사용 하지 않도록 설정 합니다 (lock). 
+
+   ```bash
+   vi /etc/fstab
+   ```
+
+### <a name="delete-a-clone"></a>복제본 삭제
+
+더 이상 필요 하지 않은 복제본을 삭제할 수 있습니다. 자세한 내용은 [클론 삭제](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html)를 참조 하세요.
+
+복제 삭제 전에 실행 하는 데 사용 되는 명령은 다음과 같습니다.
+* **복제 전 삭제:** /Netapp/sc-system-refreshH34를 종료 합니다.
+* **분리:** /Netapp/sc-system-refresh분리할 H34
+
+이러한 명령을 사용 하면 SnapCenter에서 데이터베이스를 showdown 하 고, 볼륨을 분리 하 고, fstab 항목을 삭제할 수 있습니다.  그런 다음에는가는이를 삭제 합니다. 
+
+### <a name="cloning-database-logfile"></a>데이터베이스 로그 파일 복제
+
+```   
+20190502025323###sollabsjct34###sc-system-refresh.sh: Adding entry in /etc/fstab.
+20190502025323###sollabsjct34###sc-system-refresh.sh: 10.250.101.31:/Sc21186309-ee57-41a3-8584-8210297f791d /hana/data/H34/mnt00001 nfs rw,vers=4,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
+20190502025323###sollabsjct34###sc-system-refresh.sh: Mounting data volume.
+20190502025323###sollabsjct34###sc-system-refresh.sh: mount /hana/data/H34/mnt00001
+20190502025323###sollabsjct34###sc-system-refresh.sh: Data volume mounted successfully.
+20190502025323###sollabsjct34###sc-system-refresh.sh: chown -R h34adm:sapsys /hana/data/H34/mnt00001
+20190502025333###sollabsjct34###sc-system-refresh.sh: Recover system database.
+20190502025333###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/HDB40/exe/Python/bin/python /usr/sap/H34/HDB40/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
+[140278542735104, 0.005] >> starting recoverSys (at Thu May  2 02:53:33 2019)
+[140278542735104, 0.005] args: ()
+[140278542735104, 0.005] keys: {'command': 'RECOVER DATA USING SNAPSHOT CLEAR LOG'}
+recoverSys started: ============2019-05-02 02:53:33 ============
+testing master: sollabsjct34
+sollabsjct34 is master
+shutdown database, timeout is 120
+stop system
+stop system: sollabsjct34
+stopping system: 2019-05-02 02:53:33
+stopped system: 2019-05-02 02:53:33
+creating file recoverInstance.sql
+restart database
+restart master nameserver: 2019-05-02 02:53:38
+start system: sollabsjct34
+2019-05-02T02:53:59-07:00  P010976      16a77f6c8a2 INFO    RECOVERY state of service: nameserver, sollabsjct34:34001, volume: 1, RecoveryPrepared
+recoverSys finished successfully: 2019-05-02 02:54:00
+[140278542735104, 26.490] 0
+[140278542735104, 26.490] << ending recoverSys, rc = 0 (RC_TEST_OK), after 26.485 secs
+20190502025400###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is started ....
+20190502025400###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025410###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025420###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025430###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025440###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025451###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502025451###sollabsjct34###sc-system-refresh.sh: SAP HANA database is started.
+20190502025451###sollabsjct34###sc-system-refresh.sh: Recover tenant database H34.
+20190502025451###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/SYS/exe/hdb/hdbsql -U H34KEY RECOVER DATA FOR H34 USING SNAPSHOT CLEAR LOG
+0 rows affected (overall time 69.584135 sec; server time 69.582835 sec)
+20190502025600###sollabsjct34###sc-system-refresh.sh: Checking availability of Indexserver for tenant H34.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Recovery of tenant database H34 succesfully finished.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Status: GREEN
+Deleting the DB Clone – Logfile
+20190502030312###sollabsjct34###sc-system-refresh.sh: Stopping HANA database.
+20190502030312###sollabsjct34###sc-system-refresh.sh: sapcontrol -nr 40 -function StopSystem HDB
+
+02.05.2019 03:03:12
+StopSystem
+OK
+20190502030312###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is stopped ....
+20190502030312###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030322###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030332###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030342###sollabsjct34###sc-system-refresh.sh: Status:  GRAY
+20190502030342###sollabsjct34###sc-system-refresh.sh: SAP HANA database is stopped.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Unmounting data volume.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Junction path: Sc21186309-ee57-41a3-8584-8210297f791d
+20190502030347###sollabsjct34###sc-system-refresh.sh: umount /hana/data/H34/mnt00001
+20190502030347###sollabsjct34###sc-system-refresh.sh: Deleting /etc/fstab entry.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Data volume unmounted successfully.
+
+```
+
+### <a name="uninstall-snapcenter-plug-ins-package-for-linux"></a>Linux 용 SnapCenter 플러그 인 패키지 제거
+
+명령줄에서 Linux 플러그 인 패키지를 제거할 수 있습니다. 자동 배포에는 새로운 시스템이 필요 하므로 플러그 인을 제거 하는 것이 쉽습니다.  
+
+>[!NOTE]
+>이전 버전의 플러그 인을 수동으로 제거 해야 할 수도 있습니다. 
+
+플러그 인을 제거 합니다.
+
+```bash
+cd /opt/NetApp/snapcenter/spl/installation/plugins
+./uninstall
+```
+
+이제 SnapCenter에서 **제출** 을 선택 하 여 새 노드에 최신 HANA 플러그 인을 설치할 수 있습니다. 
+
+
 
 
 ## <a name="next-steps"></a>다음 단계

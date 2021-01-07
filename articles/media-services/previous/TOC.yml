@@ -3,8 +3,10 @@
 - name: 개요
   href: media-services-overview.md
   items:
-    - name: 시나리오 및 가용성
+    - name: 일반적인 시나리오
       href: scenarios-and-availability.md
+    - name: 국가별 가용성
+      href: availability-regions-v-2.md
     - name: 개념
       href: media-services-concepts.md
 - name: 시작하기
@@ -115,8 +117,6 @@
     - name: 콘텐츠 인코딩
       href: media-services-encode-asset.md
       items:
-        - name: 인코더 비교
-          href: media-services-compare-encoders.md
         - name: 인코딩 속도 및 동시성 관리
           href: media-services-manage-encoding-speed.md
         - name: MES(Media Encoder Standard)
@@ -205,20 +205,6 @@
                   href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
                 - name: Android용 H264 단일 비트 전송률 저품질 SD
                   href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
-        - name: 미디어 인코더 Premium 워크플로
-          items:
-            - name: 미디어 인코더 Premium 워크플로 형식 및 코덱
-              href: media-services-premium-workflow-encoder-formats.md
-            - name: 미디어 인코더 Premium 워크플로를 사용하여 인코딩
-              items:
-                - name: 미디어 인코더 Premium 워크플로
-                  href: media-services-encode-with-premium-workflow.md
-                - name: 미디어 인코더 Premium 워크플로 자습서
-                  href: media-services-media-encoder-premium-workflow-tutorials.md
-                - name: 워크플로 디자이너와 고급 Encoding 워크플로 만들기
-                  href: media-services-workflow-designer.md
-                - name: 다중 입력 프리미엄 워크플로
-                  href: media-services-media-encoder-premium-workflow-multiplefilesinput.md
         - name: fMP4 청크를 생성하는 작업 만들기
           href: media-services-generate-fmp4-chunks.md
         - name: 미디어 프로세서
@@ -318,13 +304,12 @@
               href: hybrid-design-drm-sybsystem.md
             - name: 참조 다중 DRM 디자인
               href: media-services-cenc-with-multidrm-access-control.md
-        - name: Indexer를 사용하여 처리
-          href: media-services-index-content.md
-          items:
-            - name: 태스크 사전 설정
-              href: indexer-task-preset.md
     - name: 콘텐츠 분석
       items:
+        - name: Indexer를 사용하여 처리
+          href: media-services-index-content.md
+        - name: 태스크 사전 설정
+          href: indexer-task-preset.md
         - name: Face Redactor를 사용하여 처리
           href: media-services-face-redaction.md
         - name: Face Redactor 연습

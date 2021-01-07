@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c05f9a326fcbe75a3348e58987d57e106094cf56
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322298"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510569"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Azure Monitor의 메트릭 경고 규칙에 대한 Resource Manager 템플릿 샘플
 
@@ -343,7 +343,7 @@ ms.locfileid: "87322298"
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -480,7 +480,7 @@ ms.locfileid: "87322298"
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -502,7 +502,7 @@ ms.locfileid: "87322298"
 - 각 조건 내에서 차원당 하나의 값만 선택할 수 있습니다.
 - "\*"는 차원 값으로 사용할 수 없습니다.
 - 다른 조건으로 구성된 메트릭에서 동일한 차원을 지원하는 경우 구성된 차원 값은 관련 조건의 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정해야 합니다.
-    - 아래 예제에서는 **Transactions** 및 **SuccessE2ELatency** 메트릭 모두에 **ApiName** 차원이 있고 *criterion1*에서 **ApiName** 차원에 대해 *"GetBlob"* 값을 지정하고 있으므로 *criterion2*에서도 **ApiName** 차원에 대해 *"GetBlob"* 값을 설정해야 합니다.
+    - 아래 예제에서는 **Transactions** 및 **SuccessE2ELatency** 메트릭 모두에 **ApiName** 차원이 있고 *criterion1* 에서 **ApiName** 차원에 대해 *"GetBlob"* 값을 지정하고 있으므로 *criterion2* 에서도 **ApiName** 차원에 대해 *"GetBlob"* 값을 설정해야 합니다.
 
 ### <a name="template-file"></a>템플릿 파일
 
@@ -875,7 +875,7 @@ ms.locfileid: "87322298"
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -3132,7 +3132,7 @@ Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메
 > [!NOTE]
 > `&amp`;는 &에 대한 HTML 엔터티 참조입니다. URL 매개 변수는 여전히 단일 &로 구분되지만, HTML에서 URL을 언급하는 경우 인코딩해야 합니다. 따라서 pingURL 매개 변수 값에 "&"가 있으면 "`&amp`;"를 사용하여 이스케이프해야 합니다.
 
-### <a name="parameter-file"></a>매개 변수 파일
+### <a name="template-file"></a>템플릿 파일
 
 ```json
 {
@@ -3234,8 +3234,6 @@ Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>매개 변수 파일
 
 ```json
@@ -3254,12 +3252,53 @@ Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+내용 일치 `pingText` 매개 변수의 추가 구성은 템플릿 파일의 `Configuration/Webtest` 부분에서 제어됩니다. 구체적으로 아래 섹션을 참조하세요.
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### <a name="test-locations"></a>테스트 위치
+
+|Id                  | 지역           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | 서유럽      |
+| `us-ca-sjc-azr`    | 미국 서부          |
+| `emea-ru-msa-edge` | 영국 남부         |
+| `emea-se-sto-edge` | 영국 서부          |
+| `apac-sg-sin-azr`  | 동남아시아   |
+| `us-tx-sn1-azr`    | 미국 중남부 |
+| `us-il-ch1-azr`    | 미국 중북부 |
+| `emea-gb-db3-azr`  | 북유럽     |
+| `apac-jp-kaw-edge` | 일본 동부       |
+| `emea-fr-pra-edge` | 프랑스 중부   |
+| `emea-ch-zrh-edge` | 프랑스 남부     |
+| `us-va-ash-azr`    | 미국 동부          |
+| `apac-hk-hkn-azr`  | 동아시아        |
+| `us-fl-mia-edge`   | 미국 중부       |
+| `latam-br-gru-edge`| 브라질 남부      |
+| `emea-au-syd-edge` | 오스트레일리아 동부   |
+
+### <a name="us-government-test-locations"></a>미국 정부 테스트 위치
+
+|Id                    | Azure 지역           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 945f8896a844e7a73107df44d03abc7290f4e3fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86999141"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP 클라이언트 서비스가 해제되어 Azure Virtual Machines에 RDP로 연결할 수 없음
@@ -131,7 +131,7 @@ VM에서 DHCP 클라이언트 서비스가 실행되고 있지 않습니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).
-    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예: `copy C:\temp\ProcMonTrace.PML F:\`. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다. 문자를 올바른 값으로 적절하게 바꿉니다.
+    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예: `copy C:\temp\ProcMonTrace.PML F:\` 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다. 문자를 올바른 값으로 적절하게 바꿉니다.
     3. 데이터 드라이브를 분리하고 프로세스 모니터 ubstakke가 설치되어 있는 작동 중인 VM에 연결합니다.
 
 6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 그런 다음, 다음 스크린샷에 나온 것처럼  **결과가 액세스 거부됨**으로 필터링합니다.

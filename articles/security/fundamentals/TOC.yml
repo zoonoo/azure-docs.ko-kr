@@ -38,6 +38,21 @@
           href: infrastructure-integrity.md
         - name: 데이터 보호
           href: protection-customer-data.md
+    - name: 플랫폼 무결성 및 보안
+      href: platform.md
+      items:
+        - name: 펌웨어 보안
+          href: firmware.md
+        - name: 보안 부팅
+          href: secure-boot.md
+        - name: 측정된 부팅 및 호스트 증명
+          href: measured-boot-host-attestation.md
+        - name: 프로젝트 Cerberus
+          href: project-cerberus.md
+        - name: 미사용 암호화
+          href: encryption-atrest.md
+        - name: 하이퍼바이저 보안
+          href: hypervisor.md
     - name: Azure 클라우드에서 격리
       href: isolation-choices.md
 - name: ID 관리
@@ -49,25 +64,27 @@
     - name: 보안 검사 목록
       href: steps-secure-identity.md
     - name: 암호 없음 선택
-      href: ad-passwordless.md
+      href: ../../active-directory/authentication/concept-authentication-passwordless.md
 - name: 네트워크 보안
   items:
     - name: 보안 개요
       href: network-overview.md
     - name: 모범 사례
       href: network-best-practices.md
-    - name: DDoS Protection
-      href: ddos-best-practices.md
+    - name: DDoS Protection 모범 사례
+      href: ../../ddos-protection/fundamental-best-practices.md
     - name: DDoS Protection 보안 기준
       href: ddos-protection-security-baseline.md
     - name: 현수 DNS 및 하위 도메인 인수
       href: subdomain-takeover.md
     - name: 하이브리드 네트워크 아키텍처 보안
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
 - name: IaaS 보안
   items:
     - name: Microsoft 맬웨어 방지
       href: antimalware.md
+    - name: Microsoft Antimalware 코드 샘플
+      href: antimalware-code-samples.md
     - name: 가상 머신 보안 개요
       href: virtual-machines-overview.md
     - name: 모범 사례 - IaaS 워크로드
@@ -80,6 +97,8 @@
       href: encryption-overview.md
     - name: 이중 암호화
       href: double-encryption.md
+    - name: TLS 인증서 변경 내용
+      href: tls-certificate-changes.md
     - name: 디스크 암호화
       items:
         - name: 모범 사례
@@ -93,13 +112,13 @@
     - name: 데이터베이스 보안
       items:
         - name: 개요
-          href: ../../sql-database/sql-database-security-overview.md
+          href: ../../azure-sql/database/security-overview.md
         - name: 모범 사례
-          href: ../../sql-database/sql-database-security-best-practice.md
+          href: ../../azure-sql/database/security-best-practice.md
         - name: 보안 검사 목록
           href: database-security-checklist.md
     - name: 스토리지 보안 지침
-      href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
+      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
     - name: 고객 Lockbox
       href: customer-lockbox-overview.md
     - name: 고객 Lockbox에 대한 보안 기준

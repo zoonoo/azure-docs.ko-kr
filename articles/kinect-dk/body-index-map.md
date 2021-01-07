@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, 포팅, 본문, 추적, 인덱스, 조각화, 매핑
 ms.openlocfilehash: 8c128e59cef515aafb4f59794f0f644b90fd625d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277028"
 ---
 # <a name="azure-kinect-body-tracking-index-map"></a>Azure Kinect 본문 추적 인덱스 맵

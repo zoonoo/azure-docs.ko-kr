@@ -3,14 +3,14 @@ title: Azure Automation 작업 시간 외 VM 시작/중지 개요
 description: 이 문서에서는 일정에 따라 VM을 시작 또는 중시하고 Azure Monitor 로그에서 선제적으로 모니터링하는 작업 시간 외 VM 시작/중지 기능에 대해 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064464"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372160"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
@@ -37,13 +37,15 @@ ms.locfileid: "87064464"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./manage-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
+- 작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./manage-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
 
-작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 모듈 업데이트는 프로덕션 Automation 계정으로 가져오기 전에 테스트 Automation 계정에서 테스트해 보는 것이 좋습니다.
+- 연결 된 Automation 계정 및 Log Analytics 작업 영역은 동일한 리소스 그룹에 있어야 합니다.
+
+- 작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 모듈 업데이트는 프로덕션 Automation 계정으로 가져오기 전에 테스트 Automation 계정에서 테스트해 보는 것이 좋습니다.
 
 ## <a name="permissions"></a>사용 권한
 
-VM에서 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정하려면 특정 권한이 있어야 합니다. 필요한 권한은 이 기능에서 미리 생성된 Automation 계정과 Log Analytics 작업 영역을 사용하는지 아니면 새 계정과 작업 영역을 사용하는지에 따라 달라집니다. 
+VM에서 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정하려면 특정 권한이 있어야 합니다. 필요한 권한은 이 기능에서 미리 생성된 Automation 계정과 Log Analytics 작업 영역을 사용하는지 아니면 새 계정과 작업 영역을 사용하는지에 따라 달라집니다.
 
 구독의 기여자이고 Azure AD(Active Directory) 테넌트의 전역 관리자인 경우에는 권한을 구성할 필요가 없습니다. 이러한 권한이 없거나 사용자 지정 역할을 구성해야 하는 경우에는 다음과 같은 권한이 필요합니다.
 
@@ -76,8 +78,8 @@ VM에서 기존 Automation 계정 및 Log Analytics 작업 영역을 사용하�
 
 VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지를 사용하도록 설정할 수 있습니다. 이 경우에는 앞 섹션에서 정의된 권한과 이 섹션에서 정의하는 권한이 모두 필요합니다. 다음과 같은 역할도 필요합니다.
 
-- 구독에 대 한 공동 관리자입니다. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
-- [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) 애플리케이션 개발자 역할의 멤버 자격. 실행 계정을 구성하는 방법에 대한 자세한 내용은 [실행 계정 구성 권한](manage-runas-account.md#permissions)을 참조하세요.
+- 구독에 대 한 Co-Administrator입니다. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
+- [Azure AD](../active-directory/roles/permissions-reference.md) 애플리케이션 개발자 역할의 멤버 자격. 실행 계정을 구성하는 방법에 대한 자세한 내용은 [실행 계정 구성 권한](manage-runas-account.md#permissions)을 참조하세요.
 - 구독에 대한 기여자 또는 다음과 같은 권한.
 
 | 사용 권한 |범위|
@@ -107,7 +109,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |Runbook | 매개 변수 | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 부모 Runbook에서 호출됩니다. 이 Runbook은 AutoStop 시나리오에서 리소스 기준으로 경고를 만듭니다.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> `VMList`는 쉼표로 구분 된 Vm 목록 (공백 없음)입니다 (예:) `vm1,vm2,vm3` .<br> `WhatIf`는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> `VMList` 는 쉼표로 구분 된 Vm 목록 (공백 없음)입니다 (예:) `vm1,vm2,vm3` .<br> `WhatIf`는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
 |AutoStop_Disable | None | AutoStop 경고 및 기본 일정을 사용하지 않도록 설정합니다.|
 |AutoStop_VM_Child | WebHookData | 부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 클래식 VM을 중지합니다.|
 |AutoStop_VM_Child_ARM | WebHookData |부모 Runbook에서 호출됩니다. 경고 규칙은 이 Runbook을 호출하여 VM을 중지합니다.  |
@@ -152,16 +154,16 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 
 ### <a name="schedules"></a>일정
 
-다음 표에서는 Automation 계정에서 만든 각 기본 일정을 나열합니다. 일정을 수정하거나 고유한 사용자 지정 일정을 만들 수 있습니다. 기본적으로 모든 일정은 **Scheduled_StartVM** 및 **Scheduled_StopVM** 일정을 제외하고 사용되지 않도록 설정됩니다.
+다음 표에서는 Automation 계정에서 만든 각 기본 일정을 나열합니다.  일정을 수정하거나 고유한 사용자 지정 일정을 만들 수 있습니다.  기본적으로 모든 일정은 **Scheduled_StartVM** 및 **Scheduled_StopVM** 일정을 제외하고 사용되지 않도록 설정됩니다.
 
 일정 작업이 겹칠 수 있으므로 모든 일정을 사용하도록 설정해서는 안 됩니다. 어느 최적화를 수행할지를 정하고 그에 맞게 수정하는 것이 좋습니다. 추가 설명을 보려면 개요 섹션에서 예제 시나리오를 참조하세요.
 
 |일정 이름 | 빈도 | Description|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | **AutoStop_CreateAlert_Parent** Runbook을 8시간 간격으로 실행합니다. 그러면 `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, `External_ExcludeVMNames` 변수에서 VM 기반 값이 중지됩니다. 또는 `VMList` 매개 변수를 사용하여 쉼표로 구분된 VM 목록을 지정할 수도 있습니다.|
-|Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Stop` 매개 변수를 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다. 변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 중지합니다. 관련된 일정 **Scheduled-StartVM**을 사용하도록 설정합니다.|
-|Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다. 변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 시작합니다. 관련된 일정 **Scheduled-StopVM**을 사용하도록 설정합니다.|
-|Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 `Stop` 매개 변수 값을 사용하여 **Sequenced_StopStop_Parent** Runbook을 실행합니다. 적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요. 관련된 일정, **Sequenced-StartVM**을 사용하도록 설정합니다.|
+|Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Stop` 매개 변수를 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다.  변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 중지합니다.  관련된 일정 **Scheduled-StartVM**을 사용하도록 설정합니다.|
+|Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다. 변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 시작합니다.  관련된 일정 **Scheduled-StopVM**을 사용하도록 설정합니다.|
+|Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 `Stop` 매개 변수 값을 사용하여 **Sequenced_StopStop_Parent** Runbook을 실행합니다.  적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요.  관련된 일정, **Sequenced-StartVM**을 사용하도록 설정합니다.|
 |Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 매주 월요일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **SequencedStopStart_Parent** Runbook을 실행합니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값과 변수 자산에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요. 관련된 일정, **Sequenced-StopVM**을 사용하도록 설정합니다.
 
 ## <a name="use-the-feature-with-classic-vms"></a>클래식 VM에서 작업 시간 외 VM 시작/중지 기능 사용

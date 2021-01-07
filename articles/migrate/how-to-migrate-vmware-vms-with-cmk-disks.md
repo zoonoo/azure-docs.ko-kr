@@ -1,18 +1,17 @@
 ---
 title: Azure Migrate Server 마이그레이션을 사용 하 여 SSE (서버 쪽 암호화) 및 CMK (고객 관리 키)를 사용 하 여 VMware 가상 머신을 Azure로 마이그레이션
 description: Azure Migrate Server 마이그레이션을 사용 하 여 SSE (서버 쪽 암호화) 및 CMK (고객 관리 키)를 사용 하 여 VMware Vm을 Azure로 마이그레이션하는 방법에 대해 알아봅니다.
-author: bsiva
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.author: raynew
-ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8a174c3b2bfb390eb7d691ae1bdcb0e28dde9032
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260015"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751090"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>서버 쪽 암호화 및 고객이 관리 하는 키를 사용 하 여 VMware Vm을 Azure Vm으로 마이그레이션
 
@@ -22,12 +21,12 @@ Azure Migrate Server 마이그레이션 포털 환경을 사용 하 여 [에이�
 
 이 문서의 예에서는 [Azure PowerShell](/powershell/azure/new-azureps-module-az) 를 사용 하 여 리소스 관리자 템플릿을 만들고 배포 하는 데 필요한 작업을 수행 합니다.
 
-관리 디스크에 대 한 CMK (고객 관리 키)를 사용 하는 SSE (서버 쪽 암호화)에 [대해 자세히 알아보세요](../virtual-machines/windows/disk-encryption.md) .
+관리 디스크에 대 한 CMK (고객 관리 키)를 사용 하는 SSE (서버 쪽 암호화)에 [대해 자세히 알아보세요](../virtual-machines/disk-encryption.md) .
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 도구 요구 사항을 이해 하려면 에이전트 없는 복제를 사용 하 여 VMware Vm을 Azure로 마이그레이션하는 방법에 대 한 [자습서를 검토 합니다](tutorial-migrate-vmware.md) .
-- [다음 지침에 따라](how-to-add-tool-first-time.md) Azure Migrate 프로젝트를 만들고 **Azure Migrate: 서버 마이그레이션** 도구를 프로젝트에 추가 합니다.
+- [다음 지침에 따라](./create-manage-projects.md) Azure Migrate 프로젝트를 만들고 **Azure Migrate: 서버 마이그레이션** 도구를 프로젝트에 추가 합니다.
 - [다음 지침에 따라](how-to-set-up-appliance-vmware.md) 온-프레미스 환경에서 VMware에 대 한 Azure Migrate 어플라이언스를 설정 하 고 검색을 완료 합니다.
 
 ## <a name="prepare-for-replication"></a>복제 준비
@@ -186,8 +185,8 @@ uuid                                 label       name    maxSizeInBytes
 }
 ```
 
-- 리소스 정의에서 **name** 속성을 편집 합니다. Name 속성에서 last "/" 뒤에 오는 문자열을 $machine 값으로 바꿉니다 *. *이전 단계의 이름입니다.
-- **ProviderSpecificDetails vmwareMachineId** 속성 값을 $machine 값으로 변경 합니다. * ResourceId*(이전 단계에서).
+- 리소스 정의에서 **name** 속성을 편집 합니다. Name 속성에서 last "/" 뒤에 오는 문자열을 $machine 값으로 바꿉니다 *.* 이전 단계의 이름입니다.
+- **ProviderSpecificDetails vmwareMachineId** 속성 값을 $machine 값으로 변경 합니다. *ResourceId*(이전 단계에서).
 - **Targetresourcegroupid**, **targetnetworkid**, **targetSubnetName** 의 값을 대상 리소스 그룹 ID, 대상 가상 네트워크 리소스 id 및 대상 서브넷 이름으로 각각 설정 합니다.
 - 이 VM에 대 한 Azure 하이브리드 혜택를 적용 하려면 **licenseType** 의 값을 "windowsserver"로 설정 합니다. 이 VM이 Azure 하이브리드 혜택에 적합 하지 않은 경우 **licenseType** 의 값을 NoLicenseType로 설정 합니다.
 - **TargetVmName** 속성 값을 마이그레이션된 VM에 대 한 원하는 Azure 가상 머신 이름으로 변경 합니다.

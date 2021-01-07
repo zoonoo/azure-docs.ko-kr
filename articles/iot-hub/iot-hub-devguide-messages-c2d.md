@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.custom: mqtt
-ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730004"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844457"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT hub에서 클라우드-장치 메시지 보내기
 
@@ -24,29 +24,29 @@ ms.locfileid: "81730004"
 
 서비스 지향 끝점 ( */messages/devicebound*)을 통해 클라우드-장치 메시지를 보냅니다. 장치는 장치 특정 끝점 ( */devices/{deviceId}/messages/devicebound*)을 통해 메시지를 받습니다.
 
-단일 장치에서 각 클라우드-장치 메시지를 대상으로 하도록 IoT hub는 **to** 속성을 */devices/{deviceId}/messages/devicebound*로 설정 합니다.
+단일 장치에서 각 클라우드-장치 메시지를 대상으로 하도록 IoT hub는 **to** 속성을 */devices/{deviceId}/messages/devicebound* 로 설정 합니다.
 
 각 장치 큐는 최대 50 개의 클라우드-장치 메시지를 보유 합니다. 동일한 장치에 더 많은 메시지를 보내려고 시도 하면 오류가 발생 합니다.
 
 ## <a name="the-cloud-to-device-message-life-cycle"></a>클라우드-장치 메시지 수명 주기
 
-메시지 배달을 한 번 이상 보장 하기 위해 IoT hub는 장치 별 큐에 클라우드-장치 메시지를 유지 합니다. IoT hub가 큐에서 메시지를 제거 하려면 장치가 *완료*를 명시적으로 승인 해야 합니다. 이 방법은 연결 및 디바이스 오류로부터 복원력을 보장합니다.
+메시지 배달을 한 번 이상 보장 하기 위해 IoT hub는 장치 별 큐에 클라우드-장치 메시지를 유지 합니다. IoT hub가 큐에서 메시지를 제거 하려면 장치가 *완료* 를 명시적으로 승인 해야 합니다. 이 방법은 연결 및 디바이스 오류로부터 복원력을 보장합니다.
 
 수명 주기 상태 그래프가 다음 다이어그램에 표시 됩니다.
 
 ![클라우드-장치 메시지 수명 주기](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-IoT hub 서비스는 장치에 메시지를 보내면 서비스는 메시지 상태를 *큐*에 넣은 상태로 설정 합니다. 장치에서 메시지를 *수신* 하려고 하면 IoT hub는 상태를 *숨김*으로 설정 하 여 메시지를 *잠급니다* . 이 상태를 통해 장치의 다른 스레드가 다른 메시지 수신을 시작할 수 있습니다. 장치 스레드가 메시지 처리를 완료 하면 메시지를 *완료* 하 여 IoT hub에 알립니다. 그런 다음 IoT hub는 상태를 *완료*로 설정 합니다.
+IoT hub 서비스는 장치에 메시지를 보내면 서비스는 메시지 상태를 *큐* 에 넣은 상태로 설정 합니다. 장치에서 메시지를 *수신* 하려고 하면 IoT hub는 상태를 *숨김* 으로 설정 하 여 메시지를 *잠급니다* . 이 상태를 통해 장치의 다른 스레드가 다른 메시지 수신을 시작할 수 있습니다. 장치 스레드가 메시지 처리를 완료 하면 메시지를 *완료* 하 여 IoT hub에 알립니다. 그런 다음 IoT hub는 상태를 *완료* 로 설정 합니다.
 
 또한 디바이스는 다음을 수행할 수 있습니다.
 
 * 메시지를 *거부* 합니다. 그러면 IoT Hub가 *배달 못* 한 편지 상태로 설정 됩니다. MQTT (메시지 큐 원격 분석 전송) 프로토콜을 통해 연결 하는 장치는 클라우드-장치 메시지를 거부할 수 없습니다.
 
-* 메시지를 *중단* 하면 IoT hub는 상태를 *큐에 넣은*상태로 설정 하 여 메시지를 큐에 다시 넣습니다. MQTT 프로토콜을 통해 연결 하는 장치는 클라우드-장치 메시지를 중단할 수 없습니다.
+* 메시지를 *중단* 하면 IoT hub는 상태를 *큐에 넣은* 상태로 설정 하 여 메시지를 큐에 다시 넣습니다. MQTT 프로토콜을 통해 연결 하는 장치는 클라우드-장치 메시지를 중단할 수 없습니다.
 
 스레드가 IoT hub에 알리지 않고 메시지를 처리 하지 못할 수 있습니다. 이 경우 표시 제한 시간 (또는 *잠금* 제한 시간) 후 메시지가 *표시* 되지 *않는* 상태에서 *큐* 에 넣은 상태로 자동 전환 됩니다. 이 제한 시간 값은 1 분 이며 변경할 수 없습니다.
 
-IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 *보이지 않는* 상태 간에 메시지가 전환 될 수 있는 최대 횟수를 결정 합니다. 전환 횟수가 지나면 IoT hub는 메시지의 상태를 *배달 못 한 문자로*설정 합니다. 마찬가지로, IoT hub는 만료 시간 이후에 메시지의 상태를 *배달 못 한 문자로* 설정 합니다. 자세한 내용은 ttl ( [Time to live](#message-expiration-time-to-live))을 참조 하세요.
+IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 *보이지 않는* 상태 간에 메시지가 전환 될 수 있는 최대 횟수를 결정 합니다. 전환 횟수가 지나면 IoT hub는 메시지의 상태를 *배달 못 한 문자로* 설정 합니다. 마찬가지로, IoT hub는 만료 시간 이후에 메시지의 상태를 *배달 못 한 문자로* 설정 합니다. 자세한 내용은 ttl ( [Time to live](#message-expiration-time-to-live))을 참조 하세요.
 
 [IoT Hub를 사용 하 여 클라우드-장치 메시지를 보내는 방법](iot-hub-csharp-csharp-c2d.md) 문서에서는 클라우드에서 클라우드-장치 메시지를 보내고 장치에서 수신 하는 방법을 보여 줍니다.
 
@@ -77,11 +77,11 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 | Ack 속성 값 | 동작 |
 | ------------ | -------- |
 | 없음     | IoT hub가 피드백 메시지를 생성 하지 않습니다 (기본 동작). |
-| 긍정적 | 클라우드-장치 메시지가 *완료* 된 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
-| 부정적 | 클라우드-장치 메시지가 *배달 못* 한 메시지 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
+| 긍정 | 클라우드-장치 메시지가 *완료* 된 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
+| 부정 | 클라우드-장치 메시지가 *배달 못* 한 메시지 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
 | 전체     | IoT hub는 어떤 경우 든 피드백 메시지를 생성 합니다. |
 
-**Ack** 값이 *full*인 경우 피드백 메시지를 받지 못하면 피드백 메시지가 만료 되었음을 의미 합니다. 서비스는 원본 메시지에서 발생한 상황을 알지 못합니다. 실제로 서비스는 만료되기 전에 피드백을 처리할 수 있는지 확인해야 합니다. 최대 만료 시간은 2 일 이며, 오류가 발생 하는 경우 서비스를 다시 실행 하는 시간을 유지 합니다.
+**Ack** 값이 *full* 인 경우 피드백 메시지를 받지 못하면 피드백 메시지가 만료 되었음을 의미 합니다. 서비스는 원본 메시지에서 발생한 상황을 알지 못합니다. 실제로 서비스는 만료되기 전에 피드백을 처리할 수 있는지 확인해야 합니다. 최대 만료 시간은 2 일 이며, 오류가 발생 하는 경우 서비스를 다시 실행 하는 시간을 유지 합니다.
 
 [끝점](iot-hub-devguide-endpoints.md)에 설명 된 대로 IoT hub는 서비스 지향 끝점 ( */messages/servicebound/feedback*)을 통해 피드백을 메시지로 전달 합니다. 피드백 수신을 위한 의미 체계는 클라우드-디바이스 메시지의 경우와 같습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
 
@@ -99,10 +99,10 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 | OriginalMessageId  | 이 피드백 정보가 관련 된 클라우드-장치 메시지의 *MessageId* |
 | StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *Success* <br/> *만료됨* <br/> *DeliveryCountExceeded* <br/> *거부됨* <br/> *삭제* |
 | 설명        | *StatusCode* 에 대 한 문자열 값 |
-| deviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
+| DeviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
 | DeviceGenerationId | 이 의견의 일부가 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceGenerationId* 입니다. |
 
-클라우드-장치 메시지에서 해당 피드백과 원래 메시지의 상관 관계를 지정 하려면 서비스에서 *MessageId*를 지정 해야 합니다.
+클라우드-장치 메시지에서 해당 피드백과 원래 메시지의 상관 관계를 지정 하려면 서비스에서 *MessageId* 를 지정 해야 합니다.
 
 피드백 메시지의 본문은 다음 코드에 나와 있습니다.
 
@@ -143,11 +143,11 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 다음 방법 중 하나로 구성 옵션을 설정할 수 있습니다.
 
-* **Azure Portal**: IoT Hub의 **설정** 에서 **기본 제공 끝점** 을 선택 하 고 **클라우드-장치 메시징**을 확장 합니다. **MaxDeliveryCount** 및 **lockDurationAsIso8601** 속성 설정은 현재 Azure Portal에서 지원 되지 않습니다.
+* **Azure Portal**: IoT Hub의 **설정** 에서 **기본 제공 끝점** 을 선택 하 고 **클라우드-장치 메시징** 을 확장 합니다. **MaxDeliveryCount** 및 **lockDurationAsIso8601** 속성 설정은 현재 Azure Portal에서 지원 되지 않습니다.
 
     ![포털에서 클라우드-장치 메시지에 대 한 구성 옵션 설정](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Azure CLI**: [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) 명령을 사용 합니다.
+* **Azure CLI**: [az iot hub update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) 명령을 사용 합니다.
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

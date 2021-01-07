@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: dddf402455292e19bf0fcda3c50d9ce10d5888d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6532747c50311ada4df6a0038bd0e05f4d9ce31
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71099068"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089693"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>가상 네트워크 또는 VPN 연결 구성 및 유효성 검사
 
@@ -64,7 +64,7 @@ Azure 가상 네트워크 피어 링 구현 및 구성을 시작 하기 전에 �
 
 ![가상 네트워크 피어 링 구성을 확인 하기 위한 선택 항목](./media/virtual-network-configure-vnet-connections/4034496_en_1.png)
  
-Azure PowerShell의 경우 [remove-azurermvirtualnetworkpeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) 명령을 실행 하 여 가상 네트워크 피어 링을 가져옵니다. 예를 들면 다음과 같습니다.
+Azure PowerShell의 경우 [remove-azurermvirtualnetworkpeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) 명령을 실행 하 여 가상 네트워크 피어 링을 가져옵니다. 예는 다음과 같습니다.
 
 ```
 PS C:\Users\User1> Get-AzureRmVirtualNetworkPeering -VirtualNetworkName Vnet10-01 -ResourceGroupName dev-vnets
@@ -122,7 +122,7 @@ VPN 연결이 올바르게 구성 되었는지 확인 하려면 다음 지침을
 
 클래식 가상 네트워크와 리소스 관리자 가상 네트워크 간의 연결을 구성 하려면 [Azure Portal를 사용 하 여 다양 한 배포 모델에서 가상 네트워크 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal)을 참조 하세요.
 
-![Azure Resource Manager 가상 네트워크에 대 한 클래식 가상 네트워크 연결](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![Azure Resource Manager 가상 네트워크에 대 한 클래식 가상 네트워크 연결을 보여 주는 다이어그램입니다.](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 Azure Resource Manager 가상 네트워크에 클래식 가상 네트워크를 연결할 때 구성을 확인 하려면 다음 지침을 따르세요.
 
@@ -182,7 +182,7 @@ VNetA와 Vneta 간에 사이트 간 VPN 연결을 구성 하려는 시나리오�
 
 ### <a name="configure-transit-routing-in-an-expressroute-connection"></a>Express 경로 연결에서 전송 라우팅 구성
 
-Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다. 자세한 내용은 [ExpressRoute 개요](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 참조하세요.
+Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Microsoft 365, Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다. 자세한 내용은 [ExpressRoute 개요](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 참조하세요.
 
 ![Azure virtual network에 대 한 Express 경로 개인 피어 링 연결](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
 
@@ -258,7 +258,7 @@ SKU를 확인 하면 20 분에서 30 분의 가동 중지 시간이 발생 합�
 
 ### <a name="validate-the-bgp-configuration"></a>BGP 구성 유효성 검사
 
-BGP가 올바르게 구성 되어 있는지 확인 하려면 `get-AzureRmVirtualNetworkGateway` 및 commandlets을 실행할 수 있습니다 `get-AzureRmLocalNetworkGateway` . 그런 다음 파트에서 BGP 관련 출력을 확인할 수 있습니다 `BgpSettingsText` . 예:
+BGP가 올바르게 구성 되어 있는지 확인 하려면 `get-AzureRmVirtualNetworkGateway` 및 commandlets을 실행할 수 있습니다 `get-AzureRmLocalNetworkGateway` . 그런 다음 파트에서 BGP 관련 출력을 확인할 수 있습니다 `BgpSettingsText` . 예를 들면 다음과 같습니다.
 
 ```
 {

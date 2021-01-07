@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: a38a11d9cf062cd0a45890d43afe9b2530b2b7bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258473"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors에 대한 진단 및 성능 모니터링
@@ -83,15 +83,15 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 ### <a name="actor-method-events-and-performance-counters"></a>행위자 메서드 이벤트 및 성능 카운터
 Reliable Actors 런타임에서는 다음과 같은 [행위자 메서드](service-fabric-reliable-actors-introduction.md)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | 수준 | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |자세히 |0x2 |행위자 런타임이 행위자 메서드를 호출하려고 합니다. |
 | ActorMethodStop |8 |자세히 |0x2 |행위자 메서드가 실행을 완료했습니다. 즉, 해당 행위자 메서드에 대한 런타임의 비동기 호출이 반환되었고 해당 행위자 메서드에서 반환한 작업이 완료되었습니다. |
-| ActorMethodThrewException |9 |경고 |0x3 |행위자 메서드를 실행하는 동안 또는 행위자 메서드에 대한 런타임의 비동기 호출이나 행위자 메서드에서 반환한 작업의 실행 중에 예외가 발생했습니다. 이 이벤트는 행위자 코드에 일종의 오류가 있는 것으로, 조사가 필요합니다. |
+| ActorMethodThrewException |9 |Warning |0x3 |행위자 메서드를 실행하는 동안 또는 행위자 메서드에 대한 런타임의 비동기 호출이나 행위자 메서드에서 반환한 작업의 실행 중에 예외가 발생했습니다. 이 이벤트는 행위자 코드에 일종의 오류가 있는 것으로, 조사가 필요합니다. |
 
 신뢰할 수 있는 행위자 런타임은 행위자 메서드의 실행과 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | Description |
 | --- | --- | --- |
 | 서비스 패브릭 행위자 메서드 |초당 호출 수 |초당 행위자 서비스 메서드가 호출되는 횟수 |
 | 서비스 패브릭 행위자 메서드 |호출당 평균 시간(밀리초) |행위자 서비스 메서드를 실행하는 데 걸린 시간(밀리초) |
@@ -100,13 +100,13 @@ Reliable Actors 런타임에서는 다음과 같은 [행위자 메서드](servic
 ### <a name="concurrency-events-and-performance-counters"></a>동시 이벤트 및 성능 카운터
 Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-reliable-actors-introduction.md#concurrency)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | 수준 | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |자세히 |0x8 |이 이벤트는 행위자에서 각 턴의 시작 부분에 기록됩니다. 턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수가 포함되어 있습니다. |
 
 신뢰할 수 있는 행위자 런타임은 동시성과 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | Description |
 | --- | --- | --- |
 | 서비스 패브릭 행위자 |행위자 잠금을 기다리는 행위자 호출 수 |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수. |
 | 서비스 패브릭 행위자 |잠금 대기당 평균 시간(밀리초) |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 소요된 시간(밀리초). |
@@ -115,14 +115,14 @@ Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-r
 ### <a name="actor-state-management-events-and-performance-counters"></a>행위자 상태 관리 이벤트 및 성능 카운터
 Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | 수준 | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |자세히 |0x4 |행위자 런타임에서 행위자 상태를 저장하려고 합니다. |
 | ActorSaveStateStop |11 |자세히 |0x4 |행위자 런타임에서 행위자 상태 저장을 끝마쳤습니다. |
 
 신뢰할 수 있는 행위자 런타임은 행위자 상태 관리와 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | Description |
 | --- | --- | --- |
 | 서비스 패브릭 행위자 |상태 저장 작업당 평균 시간(밀리초) |행위자 상태를 저장하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 |로드 상태 작업당 평균 시간(밀리초) |행위자 상태를 로드하는 데 걸린 시간(밀리초) |
@@ -130,29 +130,29 @@ Reliable Actors 런타임에서는 다음과 같은 [행위자 상태 관리](se
 ### <a name="events-related-to-actor-replicas"></a>행위자 복제본 관련 이벤트
 Reliable Actors 런타임에서는 다음과 같은 [행위자 복제본](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | 수준 | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
-| ReplicaChangeRoleToPrimary |1 |정보 |0x1 |행위자 복제본이 주 복제본 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자가 이 복제본 내부에 만들어집니다. |
-| ReplicaChangeRoleFromPrimary |2 |정보 |0x1 |행위자 복제본이 주 복제본 이외의 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자를 이 복제본 내부에서 더 이상 만들 수 없습니다. 이 복제본 내에 이미 만들어진 행위자로 새 요청이 전달되지 않습니다. 모든 진행 중인 요청이 완료된 후 해당 행위자는 소멸됩니다. |
+| ReplicaChangeRoleToPrimary |1 |정보 제공 |0x1 |행위자 복제본이 주 복제본 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자가 이 복제본 내부에 만들어집니다. |
+| ReplicaChangeRoleFromPrimary |2 |정보 제공 |0x1 |행위자 복제본이 주 복제본 이외의 역할로 변경되었습니다. 따라서 이 파티션에 대한 행위자를 이 복제본 내부에서 더 이상 만들 수 없습니다. 이 복제본 내에 이미 만들어진 행위자로 새 요청이 전달되지 않습니다. 모든 진행 중인 요청이 완료된 후 해당 행위자는 소멸됩니다. |
 
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>행위자 활성화 및 비활성화 이벤트와 성능 카운터
 Reliable Actors 런타임에서는 다음과 같은 [행위자 활성화 및 비활성화](service-fabric-reliable-actors-lifecycle.md)관련 이벤트를 내보냅니다.
 
-| 이벤트 이름 | 이벤트 ID | 수준 | 키워드 | 설명 |
+| 이벤트 이름 | 이벤트 ID | Level | 키워드 | 설명 |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |정보 제공 |0x1 |행위자가 활성화되었습니다. |
-| ActorDeactivated |6 |정보 |0x1 |행위자가 비활성화되었습니다. |
+| ActorDeactivated |6 |정보 제공 |0x1 |행위자가 비활성화되었습니다. |
 
 Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | Description |
 | --- | --- | --- |
 | 서비스 패브릭 행위자 |평균 OnActivateAsync(밀리초) |OnActivateAsync 메서드를 실행하는 데 걸린 시간(밀리초) |
 
 ### <a name="actor-request-processing-performance-counters"></a>행위자 요청 처리 성능 카운터
 클라이언트가 행위자 프록시 개체를 통해 메서드를 호출하면 요청 메시지가 네트워크를 통해 행위자 서비스에 전송됩니다. 서비스는 요청 메시지를 처리하고 응답을 다시 클라이언트로 보냅니다. Reliable Actors 런타임은 행위자 요청 처리와 관련하여 다음과 같은 성능 카운터를 게시합니다.
 
-| 범주의 이름입니다. | 카운터 이름 | 설명 |
+| 범주의 이름입니다. | 카운터 이름 | Description |
 | --- | --- | --- |
 | 서비스 패브릭 행위자 |미해결 요청 수 |서비스에서 처리 중인 요청 수 |
 | 서비스 패브릭 행위자 |요청당 평균 시간(밀리초) |서비스에서 요청을 처리하는 데 걸린 시간(밀리초) |
@@ -162,5 +162,5 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
 ## <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)
 * [행위자 API 참조 설명서](/previous-versions/azure/dn971626(v=azure.100))
-* [예제 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [PerfView의 EventSource 공급자](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

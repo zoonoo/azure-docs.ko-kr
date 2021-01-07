@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
 ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343322"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스는 무엇입니까?
@@ -36,7 +36,7 @@ ms.locfileid: "84343322"
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
-성능 등급과 결합 된 기본 제공 [성능 모니터링](performance-guidance.md) 및 [경고 도구](alerts-insights-configure-portal.md)를 사용 합니다. 이 도구를 사용하면 현재 또는 프로젝트의 성능 요구에 기반하여 확장 또는 축소의 영향을 신속하게 평가할 수 있습니다. 또한 보다 쉽게 모니터링할 수 있도록 [메트릭과 리소스 로그를 내보낼](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 수 SQL Database.
+성능 등급과 결합 된 기본 제공 [성능 모니터링](performance-guidance.md) 및 [경고 도구](alerts-insights-configure-portal.md)를 사용 합니다. 이 도구를 사용하면 현재 또는 프로젝트의 성능 요구에 기반하여 확장 또는 축소의 영향을 신속하게 평가할 수 있습니다. 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 리소스 로그를 내보낼](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 수 있습니다.
 
 ## <a name="availability-capabilities"></a>가용성 기능
 
@@ -52,10 +52,10 @@ ms.locfileid: "84343322"
 
 ## <a name="security"></a>보안
 
-SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](security-overview.md)을 제공하여 애플리케이션이 다양한 보안 및 규정 준수 요구 사항을 충족할 수 있도록 도와줍니다.
+SQL Database는 응용 프로그램이 다양 한 보안 및 규정 준수 요구 사항을 충족 하는 데 도움이 되는 다양 한 [기본 제공 보안 및 규정 준수](security-overview.md) 기능을 제공 합니다.
 
 > [!IMPORTANT]
-> Azure SQL Database는 다양 한 규정 준수 표준에 대해 인증 되었습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조 하세요.
+> Azure SQL Database는 다양 한 규정 준수 표준에 대해 인증 되었습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요. 여기서 최신 SQL Database 규정 준수 인증서 목록을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

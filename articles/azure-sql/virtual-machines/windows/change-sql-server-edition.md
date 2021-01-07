@@ -6,19 +6,20 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: management
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 60020667126fe76d33264795ddb2e17e1241a7b2
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b6ea6f947b2cd8d7d9c38a0e5e440ce5fd273bb7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236287"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358829"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,8 +35,8 @@ SQL Server 버전이 SQL Server VM 내부적으로 변경된 후에는 청구를
 SQL Server 버전의 현재 위치 변경을 수행하려면 다음이 필요합니다. 
 
 - [Azure 구독](https://azure.microsoft.com/free/).
-- [SQL VM 리소스 공급자](sql-vm-resource-provider-register.md)에 등록된 [Windows의 SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision).
-- **원하는 버전**의 SQL Server를 포함하는 설치 미디어. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. Software Assurance가 없는 고객은 Azure Marketplace SQL Server VM 이미지에서 원하는 버전을 포함하는 설치 미디어를 사용할 수 있습니다(일반적으로 `C:\SQLServerFull`에 있음). 
+- [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)을 사용 하 여 등록 된 [Windows의 SQL Server VM](./create-sql-vm-portal.md) 입니다.
+- **원하는 버전** 의 SQL Server를 포함하는 설치 미디어. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. Software Assurance가 없는 고객은 Azure Marketplace SQL Server VM 이미지에서 원하는 버전을 포함하는 설치 미디어를 사용할 수 있습니다(일반적으로 `C:\SQLServerFull`에 있음). 
 
 
 ## <a name="upgrade-an-edition"></a>버전 업그레이드
@@ -46,11 +47,11 @@ SQL Server 버전의 현재 위치 변경을 수행하려면 다음이 필요합
 SQL Server 버전을 업그레이드하려면 원하는 SQL Server 버전의 SQL Server 설치 미디어를 구한 후 다음을 수행합니다.
 
 1. SQL Server 설치 미디어에서 Setup.exe를 엽니다. 
-1. **유지 관리**로 이동하여 **버전 업그레이드** 옵션을 선택합니다. 
+1. **유지 관리** 로 이동하여 **버전 업그레이드** 옵션을 선택합니다. 
 
    ![SQL Server 버전을 업그레이드하기 위한 선택 항목](./media/change-sql-server-edition/edition-upgrade.png)
 
-1. **다음**을 계속 선택하여 **버전 업그레이드 준비 완료** 페이지가 나오면 **업그레이드**를 선택합니다. 변경 내용이 적용되는 동안 설치 창이 몇 분 동안 응답하지 않을 수 있습니다. **완료** 페이지에서 버전 업그레이드가 완료되었음을 확인할 수 있습니다. 
+1. **다음** 을 계속 선택하여 **버전 업그레이드 준비 완료** 페이지가 나오면 **업그레이드** 를 선택합니다. 변경 내용이 적용되는 동안 설치 창이 몇 분 동안 응답하지 않을 수 있습니다. **완료** 페이지에서 버전 업그레이드가 완료되었음을 확인할 수 있습니다. 
 
 SQL Server 버전을 업그레이드한 후 Azure Portal에서 SQL Server 가상 머신의 버전 속성을 수정합니다. 그러면 이 VM과 연결된 메타데이터 및 청구가 업데이트됩니다.
 
@@ -75,23 +76,23 @@ SQL Server 버전을 다운그레이드한 후 Azure Portal에서 SQL Server 가
 
 ## <a name="change-edition-in-portal"></a>포털에서 버전 변경 
 
-설치 미디어를 사용하여 SQL Server 버전을 변경하고 SQL Server VM을 [SQL VM 리소스 공급자](sql-vm-resource-provider-register.md)에 등록한 후에는 Azure Portal을 사용하여 청구를 위해 SQL Server VM의 버전 속성을 수정할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오. 
+설치 미디어를 사용 하 여 SQL Server 버전을 변경 하 고 [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)을 사용 하 여 SQL Server VM을 등록 한 후에는 Azure Portal를 사용 하 여 청구를 위해 SQL Server VM의 버전 속성을 수정할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. SQL Server 가상 머신 리소스로 이동합니다. 
-1. **설정**에서 **구성**을 선택합니다. 그런 다음 **버전** 아래의 드롭다운 목록에서 원하는 SQL Server 버전을 선택합니다. 
+1. **설정** 에서 **구성** 을 선택합니다. 그런 다음 **버전** 아래의 드롭다운 목록에서 원하는 SQL Server 버전을 선택합니다. 
 
    ![버전 메타데이터 변경](./media/change-sql-server-edition/edition-change-in-portal.png)
 
 1. 먼저 SQL Server 버전을 변경해야 한다는 경고와 버전 속성이 SQL Server 버전과 일치해야 한다는 버전을 검토합니다. 
-1. **적용**을 선택하여 버전 메타데이터 변경 내용을 적용합니다. 
+1. **적용** 을 선택하여 버전 메타데이터 변경 내용을 적용합니다. 
 
 
 ## <a name="remarks"></a>설명
 
 - SQL Server VM에 대한 버전 속성은 종량제 및 사용자 라이선스 필요 라이선스 유형을 포함하여 모든 SQL Server 가상 머신에 설치된 SQL Server 인스턴스의 버전과 일치해야 합니다.
 - SQL Server VM 리소스를 삭제하면 이미지의 하드 코드된 버전 설정으로 돌아갑니다.
-- 버전을 변경하는 기능은 SQL VM 리소스 공급자의 기능입니다. Azure Portal을 통해 Azure Marketplace 이미지를 배포하면 SQL Server VM이 자동으로 리소스 공급자에 등록됩니다. 그러나 SQL Server를 자체 설치하는 고객은 수동으로 [SQL Server VM을 등록](sql-vm-resource-provider-register.md)해야 합니다.
+- 버전을 변경 하는 기능은 SQL IaaS 에이전트 확장의 기능입니다. Azure Portal를 통해 Azure Marketplace 이미지를 배포 하면 SQL IaaS 에이전트 확장을 사용 하 여 SQL Server VM 자동으로 등록 됩니다. 그러나 SQL Server를 자체 설치하는 고객은 수동으로 [SQL Server VM을 등록](sql-agent-extension-manually-register-single-vm.md)해야 합니다.
 - 가용성 집합에 SQL Server VM을 추가하려면 VM을 다시 만들어야 합니다. 가용성 집합에 추가된 VM은 모두 기본 버전으로 돌아가며 버전을 다시 수정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -102,5 +103,3 @@ SQL Server 버전을 다운그레이드한 후 Azure Portal에서 SQL Server 가
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.md)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
 * [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)
-
-

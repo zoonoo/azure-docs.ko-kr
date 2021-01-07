@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e8e2f3f9dd49693faa26eaaab309fcad58f6f9f
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076160"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830703"
 ---
 # <a name="get-service-access-tokens"></a>서비스 액세스 토큰 가져오기
 
@@ -19,17 +19,17 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 
 이 문서에서는 이러한 액세스 토큰을 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 없는 경우 [ARR 계정을 만듭니다](create-an-account.md).
 
 ## <a name="token-service-rest-api"></a>토큰 서비스 REST API
 
-액세스 토큰을 만들기 위해 *보안 토큰 서비스* 는 단일 REST API를 제공 합니다. ARR STS 서비스의 URL은 https: \/ /sts.mixedreality.azure.com입니다.
+액세스 토큰을 만들기 위해 *보안 토큰 서비스* 는 단일 REST API를 제공 합니다. STS 서비스의 URL은 원격 렌더링 계정의 계정 도메인에 따라 달라 집니다. 형식 https://sts 입니다. [ 계정 도메인] (예: `https://sts.southcentralus.mixedreality.azure.com`
 
 ### <a name="get-token-request"></a>' 토큰 가져오기 ' 요청
 
-| URI | 메서드 |
+| URI | 방법 |
 |-----------|:-----------|
 | /accounts/**accountId**/토큰 | GET |
 
@@ -41,11 +41,11 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 
 ### <a name="get-token-response"></a>' Get token ' 응답
 
-| 상태 코드 | JSON 페이로드 | 의견 |
+| 상태 코드 | JSON 페이로드 | 주석 |
 |-----------|:-----------|:-----------|
-| 200 | AccessToken: 문자열 | 성공 |
+| 200 | AccessToken: 문자열 | Success |
 
-| header | 목적 |
+| 헤더 | 목적 |
 |--------|:------|
 | MS-CV | 이 값은 서비스 내에서 호출을 추적 하는 데 사용할 수 있습니다. |
 
@@ -56,9 +56,10 @@ ARR REST Api에 대 한 액세스는 권한 있는 사용자 에게만 부여 �
 ```PowerShell
 $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
+$accountDomain = "<account_domain_from_portal>
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 
 Write-Output "Token: $($response.AccessToken)"

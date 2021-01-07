@@ -4,18 +4,18 @@ description: Azure for Students Starter 구독 내에서 Azure 함수 만드는 
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f40405c9325743da5d1963e3baea781606d2d8d9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386965"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182532"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Azure for Students Starter를 사용하여 함수 만들기
 
 이 자습서에서는 Azure for Students Starter 구독에서 "hello world" HTTP 함수를 만듭니다. 또한 이 구독 형식의 Azure Functions에서 사용할 수 있는 기능도 알아봅니다.
 
-Microsoft *Azure for Students Starter*를 사용하면 비용을 들이지 않고 클라우드에서 개발하는 데 필요한 Azure 제품을 시작할 수 있습니다. [여기에서 이 제품에 대해 자세히 알아보세요.](https://azure.microsoft.com/offers/ms-azr-0144p/)
+Microsoft *Azure for Students Starter* 를 사용하면 비용을 들이지 않고 클라우드에서 개발하는 데 필요한 Azure 제품을 시작할 수 있습니다. [여기에서 이 제품에 대해 자세히 알아보세요.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
 Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 코드를 실행할 수 있습니다. [여기에서 Functions에 대해 자세히 알아보세요.](./functions-overview.md)
 
@@ -41,25 +41,25 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>HTTP 트리거 함수 만들기
 
-1. **Functions** 창의 왼쪽 메뉴에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다. 
+1. **Functions** 창의 왼쪽 메뉴에서 **Functions** 를 선택한 다음, 맨 위 메뉴에서 **추가** 를 선택합니다. 
  
-1. **새 함수** 창에서 **Http 트리거**를 선택합니다.
+1. **새 함수** 창에서 **Http 트리거** 를 선택합니다.
 
     ![HTTP 트리거 함수 선택](./media/functions-create-student-starter/function-app-select-http-trigger.png)
 
-1. **새 함수** 창에서 **새 함수**의 기본 이름을 적용하거나 새 이름을 입력합니다. 
+1. **새 함수** 창에서 **새 함수** 의 기본 이름을 적용하거나 새 이름을 입력합니다. 
 
-1. **권한 부여 수준** 드롭다운 목록에서 **익명**을 선택한 다음, **함수 만들기**를 선택합니다.
+1. **권한 부여 수준** 드롭다운 목록에서 **익명** 을 선택한 다음, **함수 만들기** 를 선택합니다.
 
     Azure에서 HTTP 트리거 함수를 만듭니다. 이제 HTTP 요청을 전송하여 새 함수를 실행할 수 있습니다.
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트**를 선택한 다음, 상단 메뉴에서 **함수 URL 가져오기**를 선택합니다.
+1. 새 HTTP 트리거 함수의 왼쪽 메뉴에서 **코드 + 테스트** 를 선택한 다음, 상단 메뉴에서 **함수 URL 가져오기** 를 선택합니다.
 
     ![[함수 URL 가져오기] 선택](./media/functions-create-student-starter/function-app-select-get-function-url.png)
 
-1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값**을 선택한 다음, **클립보드에 복사** 아이콘을 선택합니다. 
+1. **함수 URL 가져오기** 대화 상자의 드롭다운 목록에서 **기본값** 을 선택한 다음, **클립보드에 복사** 아이콘을 선택합니다. 
 
     ![Azure Portal에서 함수 URL 복사](./media/functions-create-student-starter/function-app-develop-tab-testing.png)
 
@@ -100,7 +100,7 @@ Azure for Students Starter에서는 아래의 주요 제한 사항을 제외하�
 이제 간단한 HTTP 트리거 함수로 함수 앱을 만들었습니다. 다음으로, 로컬 도구, 추가 언어, 모니터링 및 통합에 대해 알아볼 수 있습니다.
 
  * [Visual Studio를 사용하여 첫 번째 함수 만들기](./functions-create-your-first-function-visual-studio.md)
- * [Visual Studio Code를 사용하여 첫 번째 함수 만들기](./functions-create-first-function-vs-code.md)
+ * [Visual Studio Code를 사용하여 첫 번째 함수 만들기](./create-first-function-vs-code-csharp.md)
  * [Azure Functions JavaScript 개발자 가이드](./functions-reference-node.md)
  * [Azure Functions를 사용하여 Azure SQL Database에 연결](./functions-scenario-database-table-cleanup.md)
  * [Azure Functions HTTP 바인딩에 대해 자세히 알아보기](./functions-bindings-http-webhook.md)

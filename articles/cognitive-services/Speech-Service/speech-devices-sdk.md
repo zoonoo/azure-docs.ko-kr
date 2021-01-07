@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 0309329b37436022dc88f8951853c4bb09a2c080
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730308"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015276"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>음성 장치 SDK 란 무엇 인가요?
 
@@ -29,11 +29,11 @@ Speech Devices SDK는 다음을 수행하는 데 유용합니다.
 
 Speech Devices SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. 오디오를 [음성 서비스로](overview.md)보내기 위해 장치의 마이크 배열과 함께 고급 오디오 처리 알고리즘을 사용 합니다. 노이즈 억제, 반향 취소, beamforming 및 dereverberation을 통해 정확한 먼 필드 [음성 인식을](speech-to-text.md) 제공 합니다.
 
-음성 장치 SDK를 사용 하 여 고유한 [사용자 지정 키워드](speech-devices-sdk-create-kws.md)를 포함 하는 주변 장치를 빌드할 수도 있습니다. 사용자 지정 키워드는 사용자의 브랜드에 고유한 사용자 상호 작용을 시작 하는 큐를 제공 합니다.
+음성 장치 SDK를 사용 하 여 고유한 [사용자 지정 키워드](./custom-keyword-basics.md)를 포함 하는 주변 장치를 빌드할 수도 있습니다. 사용자 지정 키워드는 사용자의 브랜드에 고유한 사용자 상호 작용을 시작 하는 큐를 제공 합니다.
 
-음성 장치 SDK를 사용 하면 [음성 도우미](https://aka.ms/bots/speech/va), 드라이브 및 주문 시스템, [대화](conversation-transcription-service.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 사용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
+음성 장치 SDK를 사용 하면 [음성 도우미](./voice-assistants.md), 드라이브 및 주문 시스템, [대화](./conversation-transcription.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 사용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](./how-to-custom-voice-create-voice.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
 
-## <a name="get-the-speech-devices-sdk"></a>Speech Devices SDK 가져오기
+## <a name="get-the-speech-devices-sdk"></a>음성 디바이스 SDK 가져오기
 
 ### <a name="android"></a>Android
 
@@ -60,4 +60,4 @@ Linux의 경우 샘플 응용 프로그램은 플랫폼 간 Java 응용 프로�
 > [!div class="nextstepaction"]
 > [음성 장치 선택](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [평가판 Speech Service 구독 키 받기](get-started.md)
+> [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)

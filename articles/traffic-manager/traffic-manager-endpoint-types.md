@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: duau
 ms.openlocfilehash: 692c63849bc9e92ded43db3bf22ce14384f2b68d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401285"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
@@ -90,7 +90,7 @@ Traffic Manager 포털, PowerShell, CLI 또는 REST API를 통해 엔드포인�
 
 프로필의 모든 엔드포인트가 비활성화되거나 프로필 자체가 비활성화된 경우 Traffic Manager은 'NXDOMAIN' 응답을 새 DNS 쿼리에 보냅니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * [여러 구독에서 엔드포인트로 Traffic Manager를 사용할 수 있습니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 

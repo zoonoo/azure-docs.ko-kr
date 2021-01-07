@@ -1,23 +1,19 @@
 ---
 title: Azure의 Red Hat Enterprise Linux 이미지 개요
 description: Microsoft Azure Red Hat Enterprise Linux 이미지에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.reviewer: cynthn
+ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439479"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900504"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -26,7 +22,7 @@ ms.locfileid: "87439479"
 모든 버전의 RHEL에 대 한 Red Hat 지원 정책에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요. 가격 책정에 대 한 자세한 내용은 [Azure 가격 계산기](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조 하세요.
 
 >[!IMPORTANT]
-> 현재 Azure Marketplace에서 사용할 수 있는 RHEL 이미지는 BYOS (사용자 고유의 구독) 또는 종 량 제 라이선스 모델을 지원 합니다. [Azure 하이브리드 사용 혜택](../../windows/hybrid-use-benefit-licensing.md) 및 byos와 종 량 제 라이선스 간의 동적 전환은 지원 되지 않습니다. 라이선스 모드를 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
+> 현재 Azure Marketplace에서 사용할 수 있는 RHEL 이미지는 BYOS (사용자 고유의 구독) 또는 종 량 제 라이선스 모델을 지원 합니다. BYOS와 종 량 제 라이선스 간의 동적 전환은 [Azure 하이브리드 사용 혜택](../../linux/azure-hybrid-benefit-linux.md)을 통해 수행할 수 있습니다.
 
 >[!NOTE]
 > Azure Marketplace의 RHEL 이미지와 관련 된 모든 문제에 대해 Microsoft에 지원 티켓을 제출 합니다.
@@ -108,7 +104,7 @@ RHEL 8 이미지 형식에 대 한 세부 정보는 아래와 같습니다.
 |게시자 | 제안 | SKU 값 | 버전 | 세부 정보
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191023) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 RHEL 8 LVM 분할 이미지입니다.
-|RedHat | RHEL | 8-gen2 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191024) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 Hyper-v 세대 2 RHEL 8 LVM 분할 이미지입니다. Azure의 2 세대 Vm에 대 한 자세한 내용은 [azure의 2 세대 vm에 대 한 지원](../../linux/generation-2.md)을 참조 하세요.
+|RedHat | RHEL | 8-gen2 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191024) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 Hyper-v 세대 2 RHEL 8 LVM 분할 이미지입니다. Azure의 2 세대 Vm에 대 한 자세한 내용은 [azure의 2 세대 vm에 대 한 지원](../../generation-2.md)을 참조 하세요.
 
 ## <a name="rhel-longer-support-add-ons"></a>RHEL 더 이상 추가 기능을 지원 합니다.
 
@@ -116,7 +112,7 @@ RHEL 8 이미지 형식에 대 한 세부 정보는 아래와 같습니다.
 
 2019 4 월에는 기본적으로 EUS 리포지토리에 연결 된 RHEL 이미지를 사용할 수 있습니다. RHEL EUS에 대 한 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/articles/rhel-eus)에서 확인할 수 있습니다.
 
-EUS 리포지토리로 전환 하는 것이 가능 하며 지원 됩니다. VM을 EUS로 전환 하는 방법에 대 한 지침과 EUS 지원 기간 종료 날짜에 대 한 자세한 내용은 [RHEL eus 및 버전 잠금 RHEL vm](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms)을 참조 하세요.
+EUS 리포지토리로 전환 하는 것이 가능 하며 지원 됩니다. VM을 EUS로 전환 하는 방법에 대 한 지침과 EUS 지원 기간 종료 날짜에 대 한 자세한 내용은 [RHEL eus 및 버전 잠금 RHEL vm](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms)을 참조 하세요.
 
 >[!NOTE]
 > EUS는 RHEL 특별 기능에서 지원 되지 않습니다. 즉, 일반적으로 RHEL 스페셜 채널에서 사용할 수 있는 패키지를 설치 하는 경우 EUS에서이 작업을 수행할 수 없습니다. Red Hat 제품 수명 주기에 대 한 자세한 내용은 [Red Hat Enterprise Linux 기타 수명 주기](https://access.redhat.com/support/policy/updates/extras/)를 참조 하세요.
@@ -183,6 +179,6 @@ Microsoft 및 Red Hat는 특정 CVEs (일반적인 취약점 및 노출)를 해�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure에서 RHEL 이미지의 전체 목록을 보려면 [azure에서 사용할 수 있는 Red Hat Enterprise Linux (RHEL) 이미지](./redhat-imagelist.md)를 참조 하세요.
-* Azure Red Hat 업데이트 인프라에 대해 자세히 알아보려면 [azure에서 주문형 RHEL vm에 대 한 Red Hat 업데이트 인프라](https://aka.ms/rhui-update)를 참조 하세요.
+* Azure Red Hat 업데이트 인프라에 대해 자세히 알아보려면 [azure에서 주문형 RHEL vm에 대 한 Red Hat 업데이트 인프라](./redhat-rhui.md)를 참조 하세요.
 * RHEL BYOS 제품에 대 한 자세한 내용은 [Azure에서 사용자 고유의 구독 골드 이미지 Red Hat Enterprise Linux](./byos.md)를 참조 하세요.
 * 모든 버전의 RHEL에 대 한 Red Hat 지원 정책에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요.

@@ -36,122 +36,32 @@
       href: tutorial-virtual-network.md
     - name: 9 - 가상 머신 Backup
       href: tutorial-backup-vms.md
-    - name: 10 - VM 관리
+    - name: 10 - 재해 복구 사용
+      href: tutorial-disaster-recovery.md
+    - name: 11 - VM 관리
       href: tutorial-govern-resources.md
-    - name: 11 - VM 추적 및 업데이트
+    - name: 12 - VM 추적 및 업데이트
       href: tutorial-config-management.md
-    - name: 12 - VM 모니터링
+    - name: 13 - VM 모니터링
       href: tutorial-monitor.md
-    - name: 13 - VM 보안 관리
-      href: tutorial-azure-security.md
-    - name: 14a - Jenkins로 빌드
+    - name: 14 - VM 보안 관리
+      href: ../tutorial-azure-security.md
+    - name: 15a - Jenkins로 빌드
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: 14b - Azure DevOps와 Jenkins 통합
+    - name: 15b - Azure DevOps와 Jenkins 통합
       href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: 15a - 롤링 배포 전략 구성
+    - name: 16a - 롤링 배포 전략 구성
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15b - 카나리아 배포 전략 구성
+    - name: 16b - 카나리아 배포 전략 구성
       href: tutorial-azure-devops-canary-strategy.md
-    - name: 15c - 청록색 배포 전략 구성
+    - name: 16c - 청록색 배포 전략 구성
       href: tutorial-azure-devops-blue-green-strategy.md
-    - name: 15d - Azure Pipelines를 사용한 CI/CD(YAML)
+    - name: 16d - Azure Pipelines를 사용한 CI/CD(YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 16 - LAMP 스택 만들기
+    - name: 17 - LAMP 스택 만들기
       href: tutorial-lamp-stack.md
-    - name: 17 - SSL로 웹 서버 보안
+    - name: 18 - SSL로 웹 서버 보안
       href: tutorial-secure-web-server.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      items:
-        - name: CLI 샘플 인덱스
-          href: cli-samples.md
-        - name: VM 만들기
-          items:
-            - name: 가상 머신 만들기
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 완벽히 구성된 가상 머신 만들기
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 고가용성 가상 머신 만들기
-              href: ./../scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: VM 만들기 및 구성 스크립트 실행
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: WordPress가 설치된 VM 만들기
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 관리형 OS 디스크에서 VM 만들기
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 스냅샷에서 VM 만들기
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 스토리지 관리
-          items:
-            - name: VHD에서 관리 디스크 만들기
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 스냅샷에서 관리 디스크 만들기
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 같은 구독 또는 다른 구독으로 관리 디스크 복사
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 스냅샷을 VHD로 스토리지 계정에 내보내기
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 관리 디스크의 VHD를 스토리지 계정에 내보내기
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 같은 구독 또는 다른 구독으로 스냅샷 복사
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 네트워크 가상 머신
-          items:
-            - name: 가상 머신 간의 네트워크 트래픽 보안
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 가상 머신 보호
-          items:
-            - name: VM 및 데이터 디스크 암호화
-              href: ./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 가상 머신 모니터링
-          items:
-            - name: Azure Monitor 로그를 사용하여 VM 모니터링
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 문제 해결
-          items:
-            - name: VM 운영 체제 디스크 문제 해결
-              href: ./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure PowerShell
-      items:
-        - name: PowerShell 샘플 인덱스
-          href: powershell-samples.md
-        - name: 가상 머신 만들기
-          items:
-            - name: 완벽히 구성된 가상 머신 만들기
-              href: './../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|'
-            - name: Docker가 활성화된 VM 만들기
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: VM 만들기 및 구성 스크립트 실행
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: WordPress가 설치된 VM 만들기
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 관리형 OS 디스크에서 VM 만들기
-              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 스냅샷에서 VM 만들기
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 스토리지 관리
-          items:
-            - name: 같은 구독 또는 다른 구독의 VHD로 관리 디스크 만들기
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 스냅샷에서 관리 디스크 만들기
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 스냅샷을 VHD로 스토리지 계정에 내보내기
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 관리 디스크의 VHD를 스토리지 계정에 내보내기
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: VHD에서 스냅샷 만들기
-              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 같은 구독 또는 다른 구독에 스냅샷 복사
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 가상 머신 모니터링
-          items:
-            - name: Azure Monitor 로그를 사용하여 VM 모니터링
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 같은 구독 또는 다른 구독에 관리 디스크 복사
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: PowerShell을 사용하여 구독의 모든 VM에 대한 세부 정보 수집
-              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 - name: 개념
   items:
     - name: 이미징
@@ -161,9 +71,9 @@
         - name: 프로비전
           href: provisioning.md
         - name: 공유 이미지 갤러리
-          href: shared-image-galleries.md
+          href: ../shared-image-galleries.md
         - name: 이미지 작성기
-          href: image-builder-overview.md
+          href: ../image-builder-overview.md
     - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 영역
@@ -181,7 +91,7 @@
         - name: 가용성
           href: ../availability.md
         - name: 공동 배치
-          href: co-location.md
+          href: ../co-location.md
         - name: 네트워크 성능
           href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: VM 유형 및 크기
@@ -285,7 +195,7 @@
         - name: 예약 인스턴스
           items:
             - name: VM 선불
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Dedicated Host 선불
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Azure 예약이란?
@@ -293,7 +203,7 @@
             - name: VM 인스턴스 크기 유연성
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 스폿 VM
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 임시 디스크가 없는 Azure VM
           href: ../azure-vms-no-temp-disk.md
@@ -311,8 +221,6 @@
           href: compute-benchmark-scores.md
     - name: 보증 배포
       href: endorsed-distros.md
-    - name: 전용 호스트
-      href: dedicated-hosts.md
     - name: 유지 관리 및 업데이트
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 디스크 스토리지
@@ -322,7 +230,7 @@
         - name: IaaS VM의 디스크 유형 선택
           href: ../disks-types.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 암호화
-          href: disk-encryption.md
+          href: ../disk-encryption.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 디스크 스토리지 예약
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 가상 머신 및 디스크 성능
@@ -330,13 +238,15 @@
         - name: 고성능을 위한 디자인
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 디스크 버스팅
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 디스크에 대한 확장성 목표
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 공유 디스크
-          href: disks-shared.md
+          href: ../disks-shared.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: 디스크 성능 계층
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 사용 후 삭제 OS 디스크
           href: ../ephemeral-os-disks.md
     - name: 네트워킹
@@ -356,12 +266,13 @@
           href: ../security-controls-policy.md
         - name: Azure Security Benchmark에 대한 보안 기준
           href: security-baseline.md
-        - name: 기본 제공 보안 컨트롤
-          href: virtual-machines-linux-security-controls.md
         - name: Bastion
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 상태 및 수명 주기
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: 만들기 또는 업데이트 작업에 대한 PUT 호출
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: 모니터링
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 부트 진단
@@ -388,17 +299,18 @@
         - name: VM 복사 또는 복제
           href: copy-vm.md
         - name: 전용 호스트 사용
+          href: ../dedicated-hosts.md
           items:
             - name: CLI
               href: dedicated-hosts-cli.md
             - name: 포털
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: 스폿 VM 배포
           items:
             - name: CLI
               href: spot-cli.md
             - name: 포털
-              href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+              href: ../spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
             - name: ARM 템플릿
               displayName: Azure Resource Manager
               href: spot-template.md
@@ -409,17 +321,17 @@
         - name: 2023년 3월 1일부터 사용 중지
           href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 마이그레이션 개요
-          href: migration-classic-resource-manager-overview.md
+          href: ../migration-classic-resource-manager-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 마이그레이션에 대한 고찰
           href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 마이그레이션 계획
-          href: migration-classic-resource-manager-plan.md
+          href: ../migration-classic-resource-manager-plan.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: CLI를 사용하여 마이그레이션
-          href: migration-classic-resource-manager-cli.md
+          href: ../migration-classic-resource-manager-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 일반적인 마이그레이션 오류
-          href: migration-classic-resource-manager-errors.md
+          href: ../migration-classic-resource-manager-errors.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 마이그레이션을 위한 커뮤니티 도구
-          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: FAQ
           href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 이미지 사용
@@ -483,7 +395,7 @@
                       href: ../image-version-vm-cli.md
                     - name: Managed Disk 또는 스냅샷에서
                       href: ../image-version-snapshot-cli.md
-                    - name: 관리형 이미지에서 마이그레이션
+                    - name: 관리형 이미지 복제
                       href: ../image-version-managed-image-cli.md
                     - name: 다른 갤러리에서 복사
                       href: ../image-version-another-gallery-cli.md
@@ -491,6 +403,8 @@
                   items:
                     - name: 일반화
                       href: ../vm-generalized-image-version-cli.md
+                    - name: 특수화
+                      href: ../vm-specialized-image-version-cli.md
                 - name: 이미지 리소스 업데이트
                   href: ../update-image-resources-cli.md
                 - name: 공유용 앱 등록
@@ -505,7 +419,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: Managed Disk 또는 스냅샷에서
                       href: ../image-version-snapshot-powershell.md
-                    - name: 관리형 이미지에서 마이그레이션
+                    - name: 관리형 이미지 복제
                       href: ../image-version-managed-image-powershell.md
                     - name: 다른 갤러리에서 복사
                       href: ../image-version-another-gallery-powershell.md
@@ -534,7 +448,7 @@
                 - name: 이미지 버전에서 VM 만들기
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: 공유 이미지 문제 해결
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: 고객 관리형 키 사용
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -556,8 +470,8 @@
                   href: image-builder-permissions-powershell.md
             - name: DevOps 작업
               href: image-builder-devops-task.md
-            - name: ARM 템플릿 참조
-              displayName: 'ARM,Resource Manager'
+            - name: Image Builder 템플릿 참조
+              displayName: json
               href: image-builder-json.md
             - name: 이미지 갤러리용 빌드
               href: image-builder-gallery.md
@@ -575,10 +489,12 @@
           href: build-image-with-packer.md
         - name: 기존 디스크 다운로드
           href: download-vhd.md
+        - name: 이미지 버전의 관리 디스크
+          href: ../managed-disk-from-image-version.md
     - name: VM 보안
       items:
         - name: 권장 사항
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Just-In-Time 액세스
           href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Bastion 사용
@@ -586,17 +502,13 @@
             - name: 베스천 호스트 만들기
               items:
                 - name: 포털
-                  href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../bastion/tutorial-create-host-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: PowerShell
                   href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: CLI
                   href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Bastion을 사용하여 연결
               href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-              items:
-                - name: Bastion SSH 연결
-            - name: Bastion RDP 연결
-              href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Encrypt
           items:
             - name: Linux용 디스크 암호화 시나리오
@@ -617,11 +529,13 @@
               href: how-to-verify-encryption-status.md
             - name: 암호화에서 LVM RAID를 구성하는 방법
               href: how-to-configure-lvm-raid-on-crypt.md
+            - name: 암호화된 lvm 볼륨의 크기를 조정하는 방법
+              href: how-to-resize-encrypted-lvm.md
             - name: 디스크 암호화 문제 해결
               href: disk-encryption-troubleshooting.md
             - name: 디스크 암호화 FAQ
               href: disk-encryption-faq.md
-            - name: 디스크 암호화 - 이전 버전(Azure AD)
+            - name: 디스크 암호화 - 이전 버전
               items:
                 - name: 개요
                   href: disk-encryption-overview-aad.md
@@ -636,6 +550,7 @@
         - name: 주요 자격 증명 모음 만들기
           href: key-vault-setup.md
         - name: SSH 키 생성 및 사용
+          displayName: ssh keys ssh openssh
           items:
             - name: Linux 또는 macOS
               href: mac-create-ssh-keys.md
@@ -682,7 +597,15 @@
         - name: 시간 동기화
           href: time-sync.md
         - name: VM에 태그 지정
-          href: tag.md
+          items:
+            - name: CLI
+              href: ../tag-cli.md
+            - name: 포털
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: 템플릿
+              href: ../tag-template.md
         - name: VM에서 스크립트 실행
           href: run-scripts-in-vm.md
           items:
@@ -714,7 +637,7 @@
             - name: 에이전트 업데이트
               href: ../extensions/update-linux-agent.md
         - name: 투기적 실행 완화
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: 모니터 메타데이터
           href: instance-metadata-service.md
         - name: REST로 사용 메트릭 가져오기
@@ -849,10 +772,11 @@
         - name: 자동 크기 조정
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: 고가용성
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: 가용성 집합 변경
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 근접 배치 그룹 만들기
+          displayName: PPG aligned colocation co-location
           items:
             - name: CLI
               href: proximity-placement-groups.md
@@ -957,8 +881,10 @@
               href: add-disk.md
             - name: Azure portal
               href: attach-disk-portal.md
-        - name: 디스크 계층 변경
+        - name: 디스크 계층 변경 - PowerShell/CLI
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: 디스크 계정 변경 - 포털
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 디스크 분리
           href: detach-disk.md
         - name: ARM 템플릿을 사용하여 디스크 배포
@@ -1018,16 +944,12 @@
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: 디스크 벤치마크
               href: disks-benchmarks.md
-            - name: 성능 최적화
-              href: optimization.md
-            - name: 소프트웨어 RAID 구성
-              href: configure-raid.md
-            - name: LVM 구성
-              href: configure-lvm.md
         - name: 연결되지 않은 디스크 찾기 - CLI
           href: find-unattached-disks.md
         - name: 연결되지 않은 디스크 찾기 - 포털
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: 게스트 디스크에 Azure 디스크 매핑
+          href: azure-to-guest-disk-mapping.md
         - name: File Storage 사용
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 디스크 FAQ
@@ -1045,7 +967,7 @@
         - name: 가속 네트워킹 사용
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 공용 DNS 이름 할당
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: 연결되지 않은 NIC 찾기 및 삭제
           href: find-unattached-nics.md
         - name: DNS 확인
@@ -1138,6 +1060,8 @@
               href: upload-vhd.md
             - name: Azure Site Recovery 사용
               href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+        - name: WebLogic을 Azure로 마이그레이션
+          href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
 - name: 참조
   items:
     - name: Azure CLI

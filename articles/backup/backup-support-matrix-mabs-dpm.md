@@ -3,12 +3,12 @@ title: MABS & System Center DPM 지원 매트릭스
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 System Center DPM을 사용 하 여 온-프레미스 및 Azure VM 리소스를 백업 하는 경우 지원 Azure Backup를 요약 합니다.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506613"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276962"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -24,7 +24,7 @@ MABS는 System Center DPM을 기반으로 하며 다음과 같은 몇 가지 차
 
 - MABS를 실행하기 위해 System Center 라이선스가 필요하지 않습니다.
 - MABS와 DPM 모두 Azure는 장기 백업 저장소를 제공 합니다. 또한 DPM을 사용하면 테이프의 장기 보관할 수 있게 데이터를 백업할 수 있습니다. MABS는 이 기능을 제공하지 않습니다.
-- [보조 dpm 서버를 사용 하 여 주 dpm 서버를 백업할 수](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019)있습니다. 보조 서버는 주 서버의 데이터베이스와 주 서버에 저장된 데이터 원본 복제본을 보호합니다. 주 서버에서 오류가 발생하는 경우 보조 서버는 주 서버를 다시 사용할 수 있을 때까지 주 서버에 의해 보호되는 작업을 계속 보호할 수 있습니다.  MABS는 이 기능을 제공하지 않습니다.
+- [보조 dpm 서버를 사용 하 여 주 dpm 서버를 백업할 수](/system-center/dpm/back-up-the-dpm-server)있습니다. 보조 서버는 주 서버의 데이터베이스와 주 서버에 저장된 데이터 원본 복제본을 보호합니다. 주 서버에서 오류가 발생하는 경우 보조 서버는 주 서버를 다시 사용할 수 있을 때까지 주 서버에 의해 보호되는 작업을 계속 보호할 수 있습니다.  MABS는 이 기능을 제공하지 않습니다.
 
 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57520)에서 mabs를 다운로드 합니다. 온-프레미스 또는 Azure VM에서 실행할 수 있습니다.
 
@@ -43,7 +43,7 @@ DPM/MABS 및 Azure Backup를 사용한 백업은 다음과 같이 작동 합니�
 1. MARS(Microsoft Azure Recovery Services) 에이전트가 DPM 서버/MABS에 설치됩니다.
 1. MARS 에이전트는 Azure Backup를 사용 하 여 DPM/MABS 디스크를 Azure의 백업 Recovery Services 자격 증명 모음에 백업 합니다.
 
-추가 정보는 다음 항목을 참조하세요.
+자세한 내용은 다음을 참조하세요.
 
 - MABS 아키텍처에 대해 [자세히 알아봅니다](backup-architecture.md#architecture-back-up-to-dpmmabs).
 - MARS 에이전트에 대해 [지원 되는 기능을 검토](backup-support-matrix-mars-agent.md) 합니다.
@@ -60,7 +60,7 @@ DPM/MABS 및 Azure Backup를 사용한 백업은 다음과 같이 작동 합니�
 
 **배포** | **지원** | **세부 정보**
 --- | --- | ---
-**온-프레미스에 배포** | 실제 서버<br/><br/>Hyper-V VM<br/><br/> VMware VM | DPM/MABS를 VMware VM으로 설치 하는 경우 해당 Vm에서 실행 되는 VMware Vm 및 워크 로드만 백업 합니다.
+**온-프레미스에 배포** | 실제 서버<br/><br/>Hyper-V VM<br/><br/> VMware VM | 자세한 내용은 [보호 매트릭스](backup-mabs-protection-matrix.md) 를 참조 하세요. 
 **Azure Stack VM으로 배포** | MABS만 | DPM은 Azure Stack VM을 백업하는 데 사용할 수 없습니다.
 **Azure VM으로 배포** | 해당 Vm에서 실행 되는 Azure Vm 및 워크 로드를 보호 합니다. | Azure에서 실행 되는 DPM/MABS는 온-프레미스 컴퓨터를 백업할 수 없습니다.
 
@@ -85,7 +85,7 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **설치** | 단일 용도의 컴퓨터에 DPM/MABS를 설치 합니다.<br/><br/> DPM/MABS를 도메인 컨트롤러에 설치 하지 마세요. 응용 프로그램 서버 역할이 설치 된 컴퓨터, Microsoft Exchange Server 또는 System Center Operations Manager를 실행 하는 컴퓨터 또는 클러스터 노드에서 DPM/MABS를 설치 하지 마세요.<br/><br/> [모든 DPM 시스템 요구 사항을 검토](/system-center/dpm/prepare-environment-for-dpm#dpm-server)합니다.
 **도메인** | DPM/MABS는 도메인에 가입 되어 있어야 합니다. DPM/MABS를 먼저 설치한 후 도메인에 가입합니다. 배포가 지원되지 않으면 DPM/MABS를 새 도메인으로 이동
 **스토리지** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
-**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세한 정보를 알아보세요](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **MABS 이동** | MBS를 사용하는 경우 스토리지 보존이 지원될 때 MABS를 새 서버로 이동<br/><br/> 새 서버는 원래 서버와 이름이 같아야 합니다. 동일한 스토리지 풀을 유지하고 동일한 MABS 데이터베이스를 사용하여 데이터 복구 지점을 저장하려는 경우에는 이름을 변경할 수 없습니다.<br/><br/> 복원 해야 하므로 MABS 데이터베이스를 백업 해야 합니다.
 
 ## <a name="mabs-support-on-azure-stack"></a>Azure Stack의 MABS 지원
@@ -102,7 +102,7 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **MABS의 .NET Framework** | MABS VM에 .NET Framework 3.3 SP1 이상이 설치 되어 있어야 합니다.
 **MABS 도메인** | MABS VM은 도메인에 가입되어 있어야 합니다. 관리자 권한이 있는 도메인 사용자는 VM에 MABS를 설치해야 합니다.
 **Azure Stack VM 데이터 백업** | 파일, 폴더 및 앱을 백업할 수 있습니다.
-**지원되는 백업** | 이러한 운영 체제는 백업 하려는 Vm에 대해 지원 됩니다.<br/><br/> Windows Server 반기 채널 (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**지원되는 백업** | 이러한 운영 체제는 백업 하려는 Vm에 대해 지원 됩니다.<br/><br/> Windows Server Semi-Annual 채널 (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 **Azure Stack Vm에 대 한 SQL Server 지원** | SQL Server 2016, SQL Server 2014 SQL Server 2012 SP1을 백업 합니다.<br/><br/> 데이터베이스 백업 및 복구
 **Azure Stack VM에 대한 SharePoint 지원** | Sharepoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> 팜, 데이터베이스, 프런트 엔드 및 웹 서버를 백업 하 고 복구 합니다.
 **백업한 VM에 대한 네트워크 요구 사항** | Azure Stack 워크 로드의 모든 Vm은 동일한 가상 네트워크에 속해야 하며 동일한 구독에 속해야 합니다.
@@ -146,7 +146,7 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 
 백업이 제대로 작동하고 Azure 구독이 활성화되려면 Azure Backup 서비스에 연결되어야 합니다. 다음 표에서는 이러한 두 가지 조건이 충족되지 않을 경우에 발생하는 동작을 보여 줍니다.
 
-**MABS-Azure 연결** | **구독** | **Backup/복원**
+**MABS-Azure 연결** | **구독** | **백업/복원**
 --- | --- | ---
 연결됨 | Active | DPM/MABS 디스크에 백업 합니다.<br/><br/> Azure에 백업 합니다.<br/><br/> 디스크에서 복원<br/><br/> Azure에서 복원.
 연결됨 | 만료됨/프로비전 해제됨 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 구독이 만료 된 경우 디스크 또는 Azure에서 복원할 수 있습니다.<br/><br/> 구독을 해제 하는 경우 디스크 또는 Azure에서 복원할 수 없습니다. Azure 복구 지점이 삭제됩니다.
@@ -158,7 +158,7 @@ Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤
 |요구 사항 |세부 정보 |
 |---------|---------|
 |도메인    | DPM/MABS 서버는 Windows server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 도메인에 있어야 합니다.        |
-|도메인 신뢰   |  DPM/MABS는 개별 포리스트 간에 포리스트 수준의 양방향 신뢰를 설정 하는 동안 포리스트 간 데이터 보호를 지원 합니다.   <BR><BR>   DPM/MABS는 DPM/MABS 서버 도메인과 양방향 트러스트 관계가 있는 포리스트 내에서 도메인 간에 서버 및 워크스테이션을 보호할 수 있습니다. 작업 그룹 또는 신뢰할 수 없는 도메인의 컴퓨터를 보호 하려면 작업 [그룹 및 신뢰할 수 없는 도메인에서 작업 백업 및 복원](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019) 을 참조 하세요.  |
+|도메인 신뢰   |  DPM/MABS는 개별 포리스트 간에 포리스트 수준의 양방향 신뢰를 설정 하는 동안 포리스트 간 데이터 보호를 지원 합니다.   <BR><BR>   DPM/MABS는 DPM/MABS 서버 도메인과 양방향 트러스트 관계가 있는 포리스트 내에서 도메인 간에 서버 및 워크스테이션을 보호할 수 있습니다. 작업 그룹 또는 신뢰할 수 없는 도메인의 컴퓨터를 보호 하려면 작업 [그룹 및 신뢰할 수 없는 도메인에서 작업 백업 및 복원](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains) 을 참조 하세요.  |
 
 ## <a name="dpmmabs-storage-support"></a>DPM/MABS 스토리지 지원
 
@@ -185,7 +185,7 @@ Azure Backup Server로 보호할 수 있는 다양 한 서버 및 작업에 대 
 
 ## <a name="supported-backups-to-dpm"></a>DPM에 대해 지원되는 백업
 
-Data Protection Manager를 사용 하 여 보호할 수 있는 다양 한 서버 및 작업에 대 한 자세한 내용은 [DPM이 백업할 수 있는 항목](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019)을 참조 하세요.
+Data Protection Manager를 사용 하 여 보호할 수 있는 다양 한 서버 및 작업에 대 한 자세한 내용은 [DPM이 백업할 수 있는 항목](/system-center/dpm/dpm-protection-matrix)을 참조 하세요.
 
 - DPM/MABS에 의해 백업 된 클러스터형 작업은 DPM/MABS와 동일한 도메인 또는 자식/트러스트 된 도메인에 있어야 합니다.
 - 신뢰할 수 없는 도메인 또는 작업 그룹의 데이터를 백업하려면 NTLM/인증서 인증을 사용할 수 있습니다.

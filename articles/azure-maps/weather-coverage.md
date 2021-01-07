@@ -1,24 +1,29 @@
 ---
-title: Microsoft Azure 맵의 날씨 범위
-description: Microsoft Azure 맵의 날씨 범위에 대해 알아봅니다.
+title: Microsoft Azure Maps 날씨 서비스 (미리 보기) 검사
+description: Microsoft Azure Maps 날씨 서비스 (미리 보기) 적용 범위에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/17/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976891"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905488"
 ---
-# <a name="azure-maps-weather-coverage"></a>Azure Maps 날씨 범위
+# <a name="azure-maps-weather-services-preview-coverage"></a>Azure Maps 날씨 서비스 (미리 보기) 검사
 
-이 문서에서는 [날씨 서비스](https://aka.ms/AzureMapsWeatherService)Azure Maps에 대 한 검사 정보를 제공 합니다. Azure Maps 날씨 데이터 서비스는 레이더 타일, 현재 날씨 조건, 날씨 예측, 경로를 따라 날씨 등의 세부 정보를 반환 합니다.
+> [!IMPORTANT]
+> Azure Maps 날씨 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+
+이 문서에서는 [날씨 서비스](/rest/api/maps/weather)Azure Maps에 대 한 검사 정보를 제공 합니다. Azure Maps 날씨 데이터 서비스는 레이더 타일, 현재 날씨 조건, 날씨 예측, 경로를 따라 날씨 등의 세부 정보를 반환 합니다.
 
 Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다.
 
@@ -299,4 +304,4 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 | 터키                 | ✓ |   | | ✓| 
 | 우크라이나                | ✓ |   | | ✓| 
 | 영국         | ✓ | ✓ | ✓| ✓| 
-| 바티칸 시국           | ✓ |   |✓ | ✓| 
+| 바티칸 시국           | ✓ |   |✓ | ✓|

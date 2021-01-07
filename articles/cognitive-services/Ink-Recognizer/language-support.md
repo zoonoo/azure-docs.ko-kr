@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: b4acd431656eb008702f62dc1ecf12bda62dae17
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 176060700f50a6ce6e8cb5cf622ee4c922e5a952
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051086"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845349"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대 한 언어 및 지역 지원
 
@@ -37,18 +37,18 @@ ms.locfileid: "89051086"
 | 크로아티아어(크로아티아)                         |     `hr-HR`     |
 | 체코어                                      |     `cs-CZ`     |
 | 덴마크어                                     |     `da-DK`     |
-| 네덜란드어(벨기에)                            |     `nl-BE`     |
+| 독일어(벨기에)                            |     `nl-BE`     |
 | 네덜란드어(네덜란드)                        |     `nl-NL`     |
-| 영어(오스트레일리아)                        |     `en-AU`     |
+| 영어(호주)                        |     `en-AU`     |
 | 영어(캐나다)                           |     `en-CA`     |
-| 영어(영국)                   |     `en-GB`     |
 | 영어(인도)                            |     `en-IN`     |
+| 영어(영국)                   |     `en-GB`     |
 | 영어(미국)                    |     `en-US`     |
 | 핀란드어                                    |     `fi-FI`     |
 | 프랑스어(프랑스)                            |     `fr-FR`     |
 | 갈리시아어                                   |     `gl-ES`     |
 | 독일어 (스위스)                      |     `de-CH`     |
-| 독일어(독일)                           |     `de-DE`     |
+| 독일어 (독일)                           |     `de-DE`     |
 | 그리스어                                      |     `el-GR`     |
 | 힌디어                                      |     `hi-IN`     |
 | 인도네시아어                                 |     `id-ID`     |
@@ -67,23 +67,23 @@ ms.locfileid: "89051086"
 | 폴란드어                                     |     `pl-PL`     |
 | 포르투갈어(브라질)                        |     `pt-BR`     |
 | 포르투갈어(포르투갈)                      |     `pt-PT`     |
-| 로망슈어                                    |     `rm-CH`     |
 | 루마니아어                                   |     `ro-RO`     |
+| 로망슈어                                    |     `rm-CH`     |
 | 러시아어                                    |     `ru-RU`     |
 | 스코틀랜드 게일어                            |     `gd-GB`     |
-| 북부 소토어                           |    `nso-ZA`     |
 | 세르비아어 (키릴 자모, 보스니아 헤르체고비나) |  `sr-Cyrl-BA`   |
 | 세르비아어 (키릴 자모, 몬테네그로)             |  `sr-Cyrl-ME`   |
 | 세르비아어(키릴 자모, 세르비아)                 |  `sr-Cyrl-RS`   |
 | 세르비아어 (라틴 문자, 보스니아 헤르체고비나)    |  `sr-Latn-BA`   |
 | 세르비아어 (라틴 문자, 몬테네그로)                |  `sr-Latn-ME`   |
 | 세르비아어(라틴 문자, 세르비아)                    |  `sr-Latn-RS`   |
+| 북부 소토어                           |    `nso-ZA`     |
 | 세츠와나어 (남아프리카 공화국)                    |     `tn-ZA`     |
 | 슬로바키아어                                     |     `sk-SK`     |
 | 슬로베니아어                                  |     `sl-SI`     |
 | 스페인어(아르헨티나)                        |     `es-AR`     |
-| 스페인어(스페인)                            |     `es-ES`     |
 | 스페인어(멕시코)                           |     `es-MX`     |
+| 스페인어(스페인)                            |     `es-ES`     |
 | 스웨덴어(스웨덴)                           |     `sv-SE`     |
 | 터키어                                    |     `tr-TR`     |
 | 웨일스어                                      |     `cy-GB`     |
@@ -91,7 +91,7 @@ ms.locfileid: "89051086"
 | 코사어                                      |     `xh-ZA`     |
 | 줄루어                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Ink Recognizer API란?](overview.md)
 * [잉크 인식기 API에 디지털 잉크 스트로크 보내기](concepts/send-ink-data.md)

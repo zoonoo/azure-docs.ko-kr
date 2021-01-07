@@ -7,20 +7,20 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 1e7f832faffc09cb7bbbcca73763b09f58cbb412
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 12/18/2020
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: fb7540009fe0154766df91beda1cc962b1ec8096
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019796"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695101"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>검색 트래픽 분석을 위한 원격 분석 데이터 수집
 
 검색 트래픽 분석은 사용자가 시작한 클릭 이벤트 및 키보드 입력과 같이 Azure Cognitive Search 애플리케이션과의 사용자 상호 작용에 대한 원격 분석을 수집하기 위한 패턴입니다. 이 정보를 사용하면 인기 있는 검색어, 클릭 광고 비율 및 결과가 0인 쿼리 입력을 비롯한 검색 솔루션의 효율성을 확인할 수 있습니다.
 
-이 패턴은 사용자 데이터를 수집하는 [Application Insights](../azure-monitor/app/app-insights-overview.md)([Azure Monitor](../azure-monitor/index.yml)의 기능)에 의존합니다. 이 문서에 설명된 대로 클라이언트 코드에 계측을 추가해야 합니다. 마지막으로 데이터를 분석하는 보고 메커니즘이 필요합니다. Power BI가 권장되지만, Application Insights에 연결되는 도구 또는 Application Dashboard를 사용할 수 있습니다.
+이 패턴은 사용자 데이터를 수집하는 [Application Insights](../azure-monitor/app/app-insights-overview.md)([Azure Monitor](../azure-monitor/index.yml)의 기능)에 의존합니다. 이 문서에 설명된 대로 클라이언트 코드에 계측을 추가해야 합니다. 마지막으로 데이터를 분석하는 보고 메커니즘이 필요합니다. Power BI 하는 것이 좋지만 Application Insights에 연결 되는 응용 프로그램 대시보드 또는 도구를 사용할 수 있습니다.
 
 > [!NOTE]
 > 이 문서에 설명된 패턴은 고급 시나리오 및 클라이언트에 추가하는 코드에서 생성된 클릭 동향 데이터를 위한 것입니다. 이와 대조적으로 서비스 로그는 설정하기 쉬우며, 다양한 메트릭을 제공하고, 포털에서 코드 없이 수행할 수 있습니다. 모든 시나리오에 대해 로깅을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [로그 데이터 수집 및 분석](search-monitor-logs.md)을 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "89019796"
 
 검색 트래픽 검색의 유용한 메트릭을 확보하려면 검색 애플리케이션의 사용자로부터 일부 신호를 기록해야 합니다. 이러한 신호는 사용자가 관심을 보이고 관련이 있다고 생각하는 콘텐츠를 나타냅니다. 검색 트래픽 분석의 경우에는 다음이 포함됩니다.
 
-+ 사용자 생성 검색 이벤트: 사용자가 시작한 검색 쿼리에만 주목합니다. 패싯, 추가 콘텐츠 또는 내부 정보를 채우는 데 사용되는 검색 요청은 중요하지 않으며 결과를 왜곡하고 편견을 갖게 만듭니다.
++ 사용자 생성 검색 이벤트: 사용자가 시작한 검색 쿼리에만 주목합니다. 패싯을 채우거 나 내부 정보를 검색 하는 데 사용 되는 것과 같은 다른 검색 요청은 중요 하지 않습니다. 사용자가 시작한 이벤트를 계측 하 여 결과의 기울기 나 바이어스를 방지 해야 합니다.
 
 + 사용자 생성 클릭 이벤트: 검색 결과 페이지에서 클릭 이벤트는 일반적으로 문서가 특정 검색 쿼리와 관련된 결과라는 의미입니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "89019796"
 
 ## <a name="add-search-traffic-analytics"></a>트래픽 분석 검색 추가
 
-Azure Cognitive Search 서비스의 [포털](https://portal.azure.com) 페이지에 있는 검색 트래픽 분석 페이지에는 이 원격 분석 패턴을 따르는 치트 시트를 포함하고 있습니다. 이 페이지에서 Application Insights 리소스를 선택하거나 만들고, 계측 키를 가져오고, 솔루션에 맞게 조정할 수 있는 코드 조각을 복사하고, 패턴에 반영된 스키마를 통해 빌드된 Power BI 보고서를 다운로드할 수 있습니다.
+Azure Cognitive Search 서비스에 대 한 [포털](https://portal.azure.com) 페이지에서 트래픽 분석 검색 페이지를 열어이 원격 분석 패턴에 따라 참고 자료 시트에 액세스 합니다. 이 페이지에서 Application Insights 리소스를 선택하거나 만들고, 계측 키를 가져오고, 솔루션에 맞게 조정할 수 있는 코드 조각을 복사하고, 패턴에 반영된 스키마를 통해 빌드된 Power BI 보고서를 다운로드할 수 있습니다.
 
 ![포털의 검색 트래픽 분석 페이지](media/search-traffic-analytics/azuresearch-trafficanalytics.png "포털의 검색 트래픽 분석 페이지")
 
@@ -49,11 +49,11 @@ Application Insights 리소스가 있으면 [지원되는 언어 및 플랫폼�
 
 일부 Visual Studio 프로젝트 형식에 대해 작동하는 바로 가기는 다음 단계에서 반영됩니다. 리소스가 생성되고, 몇 번 클릭하기만 하면 앱이 등록됩니다.
 
-1. Visual Studio 및 ASP.NET 개발의 경우 솔루션을 열고 **프로젝트** > **Application Insights 원격 분석 추가**를 선택합니다.
+1. Visual Studio 및 ASP.NET 개발의 경우 솔루션을 열고 **프로젝트** > **Application Insights 원격 분석 추가** 를 선택합니다.
 
-1. **시작**을 클릭합니다.
+1. **시작** 을 클릭합니다.
 
-1. Microsoft 계정, Azure 구독 및 Application Insights 리소스를 제공하여 앱을 등록합니다(새 리소스는 기본값). **등록**을 클릭합니다.
+1. Microsoft 계정, Azure 구독 및 Application Insights 리소스를 제공하여 앱을 등록합니다(새 리소스는 기본값). **등록** 을 클릭합니다.
 
 이 시점에서 애플리케이션은 애플리케이션 모니터링에 대해 설정됩니다. 즉, 모든 페이지 로드가 기본 메트릭을 사용하여 추적됩니다. 이전 단계에 대한 자세한 내용은 [Application Insights 서버 쪽 원격 분석 사용](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio)을 참조하세요.
 
@@ -71,7 +71,7 @@ Application Insights에 이벤트를 보내는 개체를 만듭니다. 브라우
 
 **C# 사용**
 
-C#에서는 프로젝트가 ASP.NET인 경우 appsettings.json과 같은 애플리케이션 구성에서 **InstrumentationKey**를 찾을 수 있습니다. 키 위치를 잘 모르는 경우 등록 지침을 다시 참조하세요.
+C #의 경우 프로젝트가 ASP.NET 경우 appsettings.js와 같은 응용 프로그램 구성에서 **InstrumentationKey** 를 정의 해야 합니다. 키 위치를 잘 모르는 경우 등록 지침을 다시 참조하세요.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -98,14 +98,31 @@ window.appInsights=appInsights;
 
 검색 요청과 클릭의 상관 관계를 지정하려면 이러한 두 개의 고유한 이벤트에 연관된 상관 관계 ID가 필요합니다. 사용자가 HTTP 헤더를 사용하여 검색 ID를 요청하면 Azure Cognitive Search가 검색 ID를 제공합니다.
 
-검색 ID는 요청 자체에 대해 Azure Cognitive Search에서 내보낸 메트릭과 Application Insights에 로깅하는 사용자 지정 메트릭의 상관 관계를 허용합니다.  
+검색 ID는 요청 자체에 대해 Azure Cognitive Search에서 내보낸 메트릭과 Application Insights에 로깅하는 사용자 지정 메트릭의 상관 관계를 허용합니다.
 
-**C# 사용**
+**C # 사용 (최신 v11 SDK)**
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
+
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>));
+
+// Use HTTP headers so that you can get the search ID from the response
+var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+var response = await client.searchasync(searchText: searchText, searchOptions: options, customHeaders: headers);
+string searchId = string.Empty;
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**C # 사용 (이전 v10 SDK)**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>));
 
 // Use HTTP headers so that you can get the search ID from the response
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
@@ -209,19 +226,19 @@ appInsights.trackEvent("Click", {
 
 앱을 계측하고 애플리케이션이 Application Insights에 올바르게 연결되었는지 확인했으면 작성한 미리 정의된 보고서 템플릿을 다운로드하여 Power BI Desktop에서 데이터를 분석합니다. 보고서에는 검색 트래픽 분석을 위해 캡처된 추가 데이터를 분석하는 데 유용한 미리 정의된 차트와 테이블이 포함되어 있습니다.
 
-1. Azure Cognitive Search 대시보드의 왼쪽 탐색 창에 있는 **설정** 아래에서 **검색 트래픽 분석**을 클릭합니다.
+1. Azure Cognitive Search 대시보드의 왼쪽 탐색 창에 있는 **설정** 아래에서 **검색 트래픽 분석** 을 클릭합니다.
 
-1. **트래픽 분석 검색** 페이지의 3단계에서 **Power BI Desktop 가져오기**를 클릭하여 Power BI를 설치합니다.
+1. **트래픽 분석 검색** 페이지의 3단계에서 **Power BI Desktop 가져오기** 를 클릭하여 Power BI를 설치합니다.
 
    ![Power BI 보고서 가져오기](./media/search-traffic-analytics/get-use-power-bi.png "Power BI 보고서 가져오기")
 
-1. 동일한 페이지에서 **Power BI 보고서 다운로드**를 클릭합니다.
+1. 동일한 페이지에서 **Power BI 보고서 다운로드** 를 클릭합니다.
 
 1. 보고서가 Power BI Desktop에서 열리고 Application Insights에 연결하고 자격 증명을 제공하라는 메시지가 표시됩니다. 연결 정보는 Application Insights 리소스에 대한 Azure Portal 페이지에서 찾을 수 있습니다. 자격 증명의 경우 포털 로그인에 사용하는 것과 동일한 사용자 이름 및 암호를 제공합니다.
 
    ![Application Insights에 연결](./media/search-traffic-analytics/connect-to-app-insights.png "Application Insights에 연결")
 
-1. **로드**를 클릭합니다.
+1. **로드** 를 클릭합니다.
 
 이 보고서에는 검색 성능과 관련성을 향상시키기 위해 정보에 기반한 합리적 의사 결정을 내리는 데 도움이 되는 차트와 테이블이 포함되어 있습니다.
 

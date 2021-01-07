@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1452f380cec711fb224f532ccb02d11c5bbad697
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86255186"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API Management의 애플리케이션 템플릿
@@ -36,7 +36,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="application-list"></a><a name="ProductList"></a>응용 프로그램 목록  
+##  <a name="application-list"></a><a name="ProductList"></a> 응용 프로그램 목록  
  **애플리케이션 목록** 템플릿을 사용하여 개발자 포털에서 애플리케이션 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![응용 프로그램 목록 페이지 개발자 포털 템플릿](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM 응용 프로그램 목록 페이지 개발자 포털 템플릿")  
@@ -137,7 +137,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="application"></a><a name="Application"></a>프로그램별  
+##  <a name="application"></a><a name="Application"></a> 프로그램별  
  **애플리케이션** 템플릿을 사용하여 개발자 포털에서 애플리케이션 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![응용 프로그램 페이지 개발자 포털 템플릿](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM 응용 프로그램 페이지 개발자 포털 템플릿")  

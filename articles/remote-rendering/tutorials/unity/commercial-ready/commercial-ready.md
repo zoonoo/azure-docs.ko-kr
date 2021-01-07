@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7258b37c9d92f25227eac678dde77963e644e64b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510932"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483320"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>자습서: 상용 준비된 Azure Remote Rendering 애플리케이션 만들기
 
@@ -35,8 +35,8 @@ Azure Remote Rendering은 혼합 현실에서 수행할 수 있는 작업을 확
 
 시스템 수준의 아키텍처 모범 사례에 대한 광범위한 개요는 다음을 참조하세요.
 
-* [Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/)
-* [Azure 개발자를 위한 시작 가이드](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
+* [Azure 아키텍처 센터](/azure/architecture/)
+* [Azure 개발자를 위한 시작 가이드](../../../../guides/developer/azure-developer-guide.md)
 
 ## <a name="analytics"></a>분석
 
@@ -54,7 +54,7 @@ Azure Remote Rendering은 혼합 현실에서 수행할 수 있는 작업을 확
 
 리소스 명명 및 태그 지정에 대한 자세한 내용을 알아보려면 다음을 시작하는 것이 좋습니다.
 
-* [리소스 명명 및 태그 지정 의사 결정 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* [리소스 명명 및 태그 지정 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 ### <a name="diagnostics"></a>진단
 
@@ -62,9 +62,9 @@ ETW(Windows용 이벤트 추적) 및 ETL(이벤트 추적 로깅)과 같은 강�
 
 자세한 내용은 다음을 참조하세요.
 
-* [클라이언트 쪽 성능 추적 만들기](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
-* [ETW(Windows용 이벤트 추적) 데이터를 수집하는 방법](https://docs.microsoft.com/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
-* [Windows 디바이스 포털 사용: 로깅](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
+* [클라이언트 쪽 성능 추적 만들기](../../../how-tos/performance-tracing.md)
+* [ETW(Windows용 이벤트 추적) 데이터를 수집하는 방법](/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
+* [Windows 디바이스 포털 사용: 로깅](/windows/mixed-reality/using-the-windows-device-portal)
 
 ### <a name="usage-analysis"></a>사용량 분석
 
@@ -72,7 +72,7 @@ Azure Application Insights는 사용자가 Azure Remote Rendering 애플리케�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Application Insights를 사용하여 사용량 분석](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)
+* [Application Insights를 사용하여 사용량 분석](../../../../azure-monitor/app/usage-overview.md)
 
 ## <a name="fast-startup-time-strategies"></a>빠른 시작 시간 전략
 
@@ -102,27 +102,27 @@ Azure Remote Rendering에는 전처리된 3D 모델이 필요하며, Azure에서
 
 Azure Remote Rendering 세션에 대한 자세한 내용은 다음을 확인하세요.
 
-* [Remote Rendering 세션](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
+* [Remote Rendering 세션](../../../concepts/sessions.md)
 
 ## <a name="standard-vs-premium-server-size-routing-strategies"></a>표준 및 프리미엄 서버 크기 라우팅 전략
 
-*표준* 또는 *프리미엄* 서버 크기를 만들지 여부를 선택해야 하는 경우 사용자 환경 및 엔드투엔드 시스템을 설계하는 데 어려움이 있습니다. *프리미엄* 세션만 사용할 수도 있지만, *표준* 세션은 Azure 컴퓨팅 리소스를 훨씬 적게 사용하고 *프리미엄*보다 저렴합니다. 이는 가능할 때마다 *표준* 세션을 사용하고 필요한 경우에만 *프리미엄*을 사용하도록 강력하게 동기를 부여합니다.
+*표준* 또는 *프리미엄* 서버 크기를 만들지 여부를 선택해야 하는 경우 사용자 환경 및 엔드투엔드 시스템을 설계하는 데 어려움이 있습니다. *프리미엄* 세션만 사용할 수도 있지만, *표준* 세션은 Azure 컴퓨팅 리소스를 훨씬 적게 사용하고 *프리미엄* 보다 저렴합니다. 이는 가능할 때마다 *표준* 세션을 사용하고 필요한 경우에만 *프리미엄* 을 사용하도록 강력하게 동기를 부여합니다.
 
 여기서는 세션 선택을 관리하려는 요구 사항을 해결하기 위해 최소에서 최대까지의 포괄적인 몇 가지 옵션을 제공합니다.
 
 ### <a name="use-only-standard-or-premium"></a>표준 또는 프리미엄만 사용
 
-사용자의 요구 사항이 *항상* *표준* 및 *프리미엄* 사이의 임계값 아래로 떨어질 것이라고 확실한 경우 이를 통해 의사 결정이 크게 간소화됩니다. *표준*만 사용합니다. 로드된 자산의 총 복잡성 합계가 *표준* 세션에 비해 너무 복잡하여 거부되는 경우 사용자 환경에 미치는 영향은 매우 중요합니다.
+사용자의 요구 사항이 *항상* *표준* 및 *프리미엄* 사이의 임계값 아래로 떨어질 것이라고 확실한 경우 이를 통해 의사 결정이 크게 간소화됩니다. *표준* 만 사용합니다. 로드된 자산의 총 복잡성 합계가 *표준* 세션에 비해 너무 복잡하여 거부되는 경우 사용자 환경에 미치는 영향은 매우 중요합니다.
 
-마찬가지로 사용량의 많은 부분이 *표준* 및 *프리미엄* 사이의 임계값을 초과할 것이라고 예상되거나 비용이 사용 사례의 핵심 요소가 아닌 경우 항상 *프리미엄*을 선택하는 것도 간단하게 유지하기 위한 옵션입니다.
+마찬가지로 사용량의 많은 부분이 *표준* 및 *프리미엄* 사이의 임계값을 초과할 것이라고 예상되거나 비용이 사용 사례의 핵심 요소가 아닌 경우 항상 *프리미엄* 을 선택하는 것도 간단하게 유지하기 위한 옵션입니다.
 
 ### <a name="ask-the-user"></a>사용자에게 문의
 
-*표준* 및 *프리미엄*을 모두 지원하려는 경우 인스턴스화할 세션 유형을 결정하는 가장 쉬운 방법은 보려는 3D 자산을 선택할 때 사용자에게 요청하는 것입니다. 이 방법을 사용하는 경우 사용자는 3D 자산 또는 볼 수 있는 여러 자산의 복잡성을 이해해야 합니다. 일반적으로 이러한 이유로 추천되지 않습니다. 사용자가 잘못 선택하고 *표준*을 선택하면 결과 사용자 환경이 부적절한 순간에 손상될 수 있습니다.
+*표준* 및 *프리미엄* 을 모두 지원하려는 경우 인스턴스화할 세션 유형을 결정하는 가장 쉬운 방법은 보려는 3D 자산을 선택할 때 사용자에게 요청하는 것입니다. 이 방법을 사용하는 경우 사용자는 3D 자산 또는 볼 수 있는 여러 자산의 복잡성을 이해해야 합니다. 일반적으로 이러한 이유로 추천되지 않습니다. 사용자가 잘못 선택하고 *표준* 을 선택하면 결과 사용자 환경이 부적절한 순간에 손상될 수 있습니다.
 
 ### <a name="analyze-the-3d-model"></a>3D 모델 분석
 
-비교적 간단한 또 다른 방법은 선택한 3D 자산의 복잡성을 분석하는 것입니다. 모델 복잡성이 *표준*에 대한 임계값보다 낮으면 *표준* 세션을 시작하고, 그렇지 않으면 *프리미엄* 세션을 시작합니다. 여기서는 궁극적으로 단일 세션을 사용하여 *표준* 세션의 복잡성 임계값을 초과하는 여러 모델을 볼 수 있으므로 동일한 세션을 여러 3D 자산의 시퀀스에 원활하게 사용할 수 없습니다.
+비교적 간단한 또 다른 방법은 선택한 3D 자산의 복잡성을 분석하는 것입니다. 모델 복잡성이 *표준* 에 대한 임계값보다 낮으면 *표준* 세션을 시작하고, 그렇지 않으면 *프리미엄* 세션을 시작합니다. 여기서는 궁극적으로 단일 세션을 사용하여 *표준* 세션의 복잡성 임계값을 초과하는 여러 모델을 볼 수 있으므로 동일한 세션을 여러 3D 자산의 시퀀스에 원활하게 사용할 수 없습니다.
 
 ### <a name="automatic-switching"></a>자동 전환
 
@@ -164,9 +164,9 @@ Azure Remote Rendering VM과 최종 클라이언트 사이에 있을 수 있는 
 네트워크 분석에 대한 자세한 내용은 다음을 확인하세요.
 
 * [Azure Storage Blob 다운로드 속도 테스트](https://www.azurespeed.com/Azure/Download)
-* [Azure 네트워크 왕복 대기 시간 통계](https://docs.microsoft.com/azure/networking/azure-network-latency)
-* [서버 쪽 성능 추적](https://docs.microsoft.com/azure/remote-rendering/overview/features/performance-queries)
-* [클라이언트 쪽 성능 추적](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
+* [Azure 네트워크 왕복 대기 시간 통계](../../../../networking/azure-network-latency.md)
+* [서버 쪽 성능 추적](../../../overview/features/performance-queries.md)
+* [클라이언트 쪽 성능 추적](../../../how-tos/performance-tracing.md)
 
 ## <a name="collaboration-considerations"></a>협업 고려 사항
 
@@ -192,8 +192,8 @@ Azure Remote Rendering과의 공유 환경을 지원하려면 ARR 세션을 만�
 
 자세한 내용은 다음을 참조하세요.
 
-* [혼합 현실의 공유 환경](https://docs.microsoft.com/windows/mixed-reality/shared-experiences-in-mixed-reality)
-* [Azure Storage 중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [혼합 현실의 공유 환경](/windows/mixed-reality/shared-experiences-in-mixed-reality)
+* [Azure Storage 중복성](../../../../storage/common/storage-redundancy.md)
 
 ## <a name="managing-model-access"></a>모델 액세스 관리
 
@@ -230,7 +230,7 @@ OneDrive 파일 선택기가 기본적으로 Microsoft의 혼합 현실 디바�
 자세한 내용은 다음을 참조하세요.
 
 * [OneDrive를 Azure Storage에 복제하는 Microsoft Power Automate 템플릿](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
-* [OneDrive 파일 스토리지 API 개요](https://docs.microsoft.com/graph/onedrive-concept-overview)
+* [OneDrive 파일 스토리지 API 개요](/graph/onedrive-concept-overview)
 
 ### <a name="direct-cad-access"></a>직접 CAD 액세스
 
@@ -255,7 +255,7 @@ OneDrive 파일 선택기가 기본적으로 Microsoft의 혼합 현실 디바�
 자세한 내용은 다음을 참조하세요.
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [자습서: Marketplace에서 Azure 관리형 애플리케이션 게시](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
+* [자습서: Marketplace에서 Azure 관리형 애플리케이션 게시](../../../../marketplace/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>보안
 
@@ -277,6 +277,6 @@ OneDrive 파일 선택기가 기본적으로 Microsoft의 혼합 현실 디바�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure AD 서비스 인증](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-service-authentication)
+* [Azure AD 서비스 인증](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Azure를 사용하여 보안 상태 강화](https://azure.microsoft.com/overview/security/)
 * [클라우드 보안](https://azure.microsoft.com/product-categories/security/)

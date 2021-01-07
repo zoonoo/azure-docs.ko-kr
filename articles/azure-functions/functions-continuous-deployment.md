@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83123685"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
@@ -42,7 +42,7 @@ Azure에서 함수에 대 한 배포 단위는 함수 앱입니다. 함수 앱�
 
 3. GitHub에서 **AzureAppService 권한 부여**를 선택 합니다.
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="권한 부여 Azure App Service":::
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Azure App Service Deployment Center":::
 
     GitHub 암호를 입력 한 다음 **계속**을 선택 합니다.
 
@@ -55,7 +55,7 @@ Azure에서 함수에 대 한 배포 단위는 함수 앱입니다. 함수 앱�
 
 5. 지정한 원본 제어 옵션과 관련 된 정보를 구성 합니다. GitHub의 경우 **조직**, **리포지토리**및 **분기**에 대 한 값을 입력 하거나 선택 해야 합니다. 값은 코드의 위치를 기반으로 합니다. 그런 다음 **계속**을 선택 합니다.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="GitHub 구성":::
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Azure App Service Deployment Center":::
 
 6. 모든 세부 정보를 검토 한 다음 **마침** 을 선택 하 여 배포 구성을 완료 합니다.
 

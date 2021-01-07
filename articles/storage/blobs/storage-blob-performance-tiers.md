@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74270214"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95526122"
 ---
-# <a name="performance-tiers-for-block-blob-storage"></a>블록 blob 저장소에 대 한 성능 계층
+# <a name="performance-tiers-for-block-blob-storage"></a>블록 Blob Storage에 대한 성능 계층
 
 기업은 성능이 중요 한 클라우드 네이티브 응용 프로그램을 배포할 때 다양 한 성능 수준에서 비용 효율적인 데이터 저장소에 대 한 옵션을 선택 하는 것이 중요 합니다.
 
@@ -26,7 +26,7 @@ Azure 블록 blob 저장소는 다음과 같은 두 가지 성능 계층을 제�
 
 다음은 다양 한 성능 계층에 적용 되는 고려 사항입니다.
 
-| Area |표준 성능  |프리미엄 성능  |
+| 영역 |표준 성능  |프리미엄 성능  |
 |---------|---------|---------|
 |지역 가용성     |   모든 지역      | [영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
 |지원 되는 [저장소 계정 유형](../common/storage-account-overview.md#types-of-storage-accounts)     |     범용 v2, BlobStorage, 범용 v1    |    BlockBlobStorage     |
@@ -83,6 +83,6 @@ Blob 저장소 수명 주기 관리는 다음과 같은 다양 한 규칙 기반
 GPv2 및 Blob 저장소 계정에서 핫, 쿨 및 보관을 평가 합니다.
 
 - [보관 계층에서 blob 데이터 리하이드레이션에 대 한 자세한 정보](storage-blob-rehydration.md)
-- [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](../common/storage-enable-and-view-metrics.md)
+- [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](./monitor-blob-storage.md)
 - [지역별 Blob Storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)
 - [데이터 전송 가격 확인](https://azure.microsoft.com/pricing/details/data-transfers/)

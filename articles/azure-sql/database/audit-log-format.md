@@ -4,18 +4,18 @@ description: 감사 로그 Azure SQL Database 구성 하는 방법을 이해 합
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: reference
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: 17d985681ab7a547bf715b1f8bb8d37cbf7ab662
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f4da14c1fbdaf71018e62b0f97e288a66edef5c8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954114"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677279"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database 감사 로그 형식
 
@@ -46,7 +46,7 @@ Azure Blob storage에 저장 된 감사 로그는 `sqldbauditlogs` azure storage
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>감사 로그 필드
 
-| 이름 (blob) | 이름 (Event Hubs/Log Analytics) | 설명 | Blob 유형 | Event Hubs/Log Analytics 형식 |
+| 이름 (blob) | 이름 (Event Hubs/Log Analytics) | Description | Blob 유형 | Event Hubs/Log Analytics 형식 |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | 동작의 ID입니다. | varchar(4) | 문자열 |
 | action_name | action_name_s | 작업의 이름입니다. | 해당 없음 | 문자열 |
@@ -89,8 +89,8 @@ Azure Blob storage에 저장 된 감사 로그는 `sqldbauditlogs` azure storage
 | target_server_principal_name | target_server_principal_name_s | 동작의 대상 로그인입니다. 적용할 수 없는 경우 NULL입니다. | sysname | 문자열 |
 | target_server_principal_sid | target_server_principal_sid_s | 대상 로그인의 SID입니다. 적용할 수 없는 경우 NULL입니다. | varbinary | 문자열 |
 | transaction_id | transaction_id_d | SQL Server (2016부터)-Azure SQL Database의 경우 0 | bigint | int |
-| user_defined_event_id | user_defined_event_id_d | Sp_audit_write에 인수로 전달 되는 사용자 정의 이벤트 ID입니다. 시스템 이벤트 (기본값)의 경우 NULL이 고 사용자 정의 이벤트의 경우 0이 아닙니다. 자세한 내용은 [sp_audit_write (transact-sql)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) 를 참조 하세요. | smallint | int |
-| user_defined_information | user_defined_information_s | Sp_audit_write에 인수로 전달 되는 사용자 정의 정보입니다. 시스템 이벤트 (기본값)의 경우 NULL이 고 사용자 정의 이벤트의 경우 0이 아닙니다. 자세한 내용은 [sp_audit_write (transact-sql)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) 를 참조 하세요. | nvarchar(4000) | 문자열 |
+| user_defined_event_id | user_defined_event_id_d | Sp_audit_write에 인수로 전달 되는 사용자 정의 이벤트 ID입니다. 시스템 이벤트 (기본값)의 경우 NULL이 고 사용자 정의 이벤트의 경우 0이 아닙니다. 자세한 내용은 [sp_audit_write (transact-sql)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) 를 참조 하세요. | smallint | int |
+| user_defined_information | user_defined_information_s | Sp_audit_write에 인수로 전달 되는 사용자 정의 정보입니다. 시스템 이벤트 (기본값)의 경우 NULL이 고 사용자 정의 이벤트의 경우 0이 아닙니다. 자세한 내용은 [sp_audit_write (transact-sql)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) 를 참조 하세요. | nvarchar(4000) | 문자열 |
 
 ## <a name="next-steps"></a>다음 단계
 

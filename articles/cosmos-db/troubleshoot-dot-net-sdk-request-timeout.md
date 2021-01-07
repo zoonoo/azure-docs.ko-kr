@@ -3,19 +3,22 @@ title: .NET SDK를 사용 하 여 HTTP 408 Azure Cosmos DB 또는 요청 시간 
 description: .NET SDK 요청 시간 제한 예외를 진단 하 고 해결 하는 방법을 알아봅니다.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0c760a3a2f6300108c1739f18ef9fa97a40dd833
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021938"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340501"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>.NET SDK 요청 시간 제한 예외 Azure Cosmos DB 진단 및 문제 해결
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 408 시간 제한이 발생 하기 전에 SDK에서 요청을 완료할 수 없는 경우 HTTP 오류가 발생 합니다.
 
 ## <a name="customize-the-timeout-on-the-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK의 시간 제한 사용자 지정
@@ -28,7 +31,7 @@ SDK에는 제한 시간을 제어 하는 두 가지 다른 대안이 있으며 �
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-SDK의 모든 비동기 작업에는 선택적 CancellationToken 매개 변수가 있습니다. 이 [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) 매개 변수는 모든 네트워크 요청에서 전체 작업 전체에 사용 됩니다. 네트워크 요청 사이에서 취소 토큰을 확인 하 고 관련 토큰이 만료 되 면 작업을 취소할 수 있습니다. 작업 범위에서 예상 되는 대략적인 시간 제한을 정의 하려면 취소 토큰을 사용 해야 합니다.
+SDK의 모든 비동기 작업에는 선택적 CancellationToken 매개 변수가 있습니다. 이 [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) 매개 변수는 모든 네트워크 요청에서 전체 작업 전체에 사용 됩니다. 네트워크 요청 사이에서 취소 토큰을 확인 하 고 관련 토큰이 만료 되 면 작업을 취소할 수 있습니다. 작업 범위에서 예상 되는 대략적인 시간 제한을 정의 하려면 취소 토큰을 사용 해야 합니다.
 
 > [!NOTE]
 > `CancellationToken`매개 변수는 라이브러리에서 [잘못 된 상태를 발생 시 키](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/)취소를 확인 하는 메커니즘입니다. 취소가 정의 된 시간이 되 면 작업이 취소 되지 않을 수 있습니다. 대신, 시간이 지난 후에는이 작업을 수행 하는 것이 안전 하다 면 취소 합니다.

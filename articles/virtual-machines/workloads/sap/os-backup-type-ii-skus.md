@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e690f6abc9c597cc1facb7b3e59604bb711cf274
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616877"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955670"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원
 
@@ -69,11 +70,11 @@ OS 파일 시스템 백업은 이미 **cron 작업** 을 사용 하 여 예약 �
 
 다음 스크린샷은 전체 백업의 복원을 보여 줍니다.
 
-![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+![스크린 샷에서 복원에 대 한 명령 프롬프트 창이 표시 됩니다.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
 ## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>ReaR 도구를 설치하고 구성을 변경하는 방법 
 
-ReaR(Relax-and-Recover) 패키지는 HANA 큰 인스턴스의 **형식 II SKU**에 **미리 설치되어** 있고 추가 작업이 필요하지 않습니다. 운영 체제 백업을 위해 ReaR를 사용하여 직접 시작할 수 있습니다.
+ReaR(Relax-and-Recover) 패키지는 HANA 큰 인스턴스의 **형식 II SKU** 에 **미리 설치되어** 있고 추가 작업이 필요하지 않습니다. 운영 체제 백업을 위해 ReaR를 사용하여 직접 시작할 수 있습니다.
 그러나 고유한 패키지를 설치해야 하는 경우에 ReaR 도구를 설치하고 구성하는 나열된 단계를 따르면 됩니다.
 
 **ReaR** 백업 패키지를 설치하려면 다음 명령을 사용합니다.
@@ -86,7 +87,7 @@ ReaR(Relax-and-Recover) 패키지는 HANA 큰 인스턴스의 **형식 II SKU**�
 ```
 #yum install rear -y
 ```
-ReaR 도구를 구성하려면 *file /etc/rear/local.conf*에서 **OUTPUT_URL** 및 **BACKUP_URL** 매개 변수를 업데이트해야 합니다.
+ReaR 도구를 구성하려면 *file /etc/rear/local.conf* 에서 **OUTPUT_URL** 및 **BACKUP_URL** 매개 변수를 업데이트해야 합니다.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -99,4 +100,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-다음 스크린샷은 전체 백업의 복원을 보여 줍니다. ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+다음 스크린샷은 전체 백업의 복원을 보여 줍니다. ![ 스크린샷은 후면 도구를 사용 하 여 복원 하는 명령 프롬프트 창을 보여 줍니다.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

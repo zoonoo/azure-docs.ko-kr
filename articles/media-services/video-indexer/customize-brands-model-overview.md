@@ -3,19 +3,19 @@ title: Video Indexer에서 브랜드 모델 사용자 지정 - Azure
 titleSuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer 브랜드 모델의 개념과 이를 사용자 지정하는 방법을 간략하게 설명합니다.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
-ms.author: kumud
-ms.openlocfilehash: e0df698cb431e5e26c69047a9f464904f0546487
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 12/15/2019
+ms.author: juliako
+ms.openlocfilehash: 81d7dda854c6afcc9397289ff23ba45b02ed9fc4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294240"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586077"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Video Indexer에서 브랜드 모델 사용자 지정
 
@@ -25,15 +25,15 @@ Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱
 
 ## <a name="out-of-the-box-detection-example"></a>기본 제공 검색 예
 
-[Microsoft Build 2017 2일차](https://www.videoindexer.ai/media/ed6ede78ad/) 프레젠테이션에서는 “Microsoft Windows” 브랜드가 여러 번 표시됩니다. 때로는 대본에서, 때로는 시각적 텍스트로 사용되며, 축자로는 사용되지 않습니다. Video Indexer는 컨텍스트를 기준으로 용어가 실제로 브랜드인지를 높은 정밀도로 검색하며, 기본적으로 90k개가 넘는 브랜드를 처리하고 지속적으로 업데이트됩니다. 02:25에 Video Indexer는 연설에서 브랜드를 검색한 다음, 02:40에 Windows 로고의 일부인 시각적 텍스트에서 다시 검색합니다.
+"Microsoft Build 2017 Day 2" 프레젠테이션에서 "Microsoft Windows" 라는 브랜드는 여러 번 표시 됩니다. 때로는 대본에서, 때로는 시각적 텍스트로 사용되며, 축자로는 사용되지 않습니다. Video Indexer는 컨텍스트를 기준으로 용어가 실제로 브랜드인지를 높은 정밀도로 검색하며, 기본적으로 90k개가 넘는 브랜드를 처리하고 지속적으로 업데이트됩니다. 02:25에 Video Indexer는 연설에서 브랜드를 검색한 다음, 02:40에 Windows 로고의 일부인 시각적 텍스트에서 다시 검색합니다.
 
 ![브랜드 개요](./media/content-model-customization/brands-overview.png)
 
-생성 컨텍스트에서 Windows에 대해 말할 경우 컨텍스트에서 구분하는 방법을 알고 있는 고급 Machine Learning 알고리즘에 따라 “Windows” 단어가 브랜드로 검색되지 않으며 Box, Apple, Fox 등의 경우도 마찬가지입니다. 브랜드 검색은 지원되는 모든 언어에서 작동합니다. [전체 Microsoft Build 2017 2일차 키노트 비디오 및 인덱스](https://www.videoindexer.ai/media/ed6ede78ad/)를 보려면 여기를 클릭하세요.
-
-사용자 고유의 브랜드를 가져오려면 다음 단계를 확인합니다.
+생성 컨텍스트에서 Windows에 대해 말할 경우 컨텍스트에서 구분하는 방법을 알고 있는 고급 Machine Learning 알고리즘에 따라 “Windows” 단어가 브랜드로 검색되지 않으며 Box, Apple, Fox 등의 경우도 마찬가지입니다. 브랜드 검색은 지원되는 모든 언어에서 작동합니다.  
 
 ## <a name="next-steps"></a>다음 단계
+
+자신의 브랜드를 가져오려면 다음 항목을 확인 하세요.
 
 [API를 사용하여 브랜드 모델 사용자 지정](customize-brands-model-with-api.md)
 

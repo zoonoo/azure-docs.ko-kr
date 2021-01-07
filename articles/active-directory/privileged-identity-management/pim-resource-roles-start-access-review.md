@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 12/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9e3aaf0747e9b28526a43d9f734084f8a75662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a618da7c9a66b8f687c1b75914530080ed56bea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743697"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905828"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토 만들기
 
@@ -28,21 +28,21 @@ ms.locfileid: "84743697"
 
 이 문서에서는 권한 있는 Azure 리소스 역할에 대 한 하나 이상의 액세스 검토를 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-[권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>액세스 검토 열기
 
 1. 권한 있는 역할 관리자 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **Azure AD Privileged Identity Management**를 엽니다.
+1. **Azure AD Privileged Identity Management** 를 엽니다.
 
-1. 왼쪽 메뉴에서 **Azure 리소스**를 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure 리소스** 를 선택 합니다.
 
-1. 관리 하려는 리소스 (예: 구독 또는 관리 그룹)를 선택 합니다.
+1. 구독과 같이 관리 하려는 리소스를 선택 합니다.
 
-1. 관리에서 **액세스 검토**를 선택 합니다.
+1. 관리에서 **액세스 검토** 를 선택 합니다.
 
     ![Azure 리소스-모든 리뷰의 상태를 보여 주는 액세스 검토 목록](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "84743697"
 
 ## <a name="start-the-access-review"></a>액세스 검토 시작
 
-액세스 검토에 대한 설정을 지정했으면 **시작**을 클릭합니다. 액세스 검토는 상태 표시기를 사용 하 여 목록에 표시 됩니다.
+액세스 검토에 대한 설정을 지정했으면 **시작** 을 클릭합니다. 액세스 검토는 상태 표시기를 사용 하 여 목록에 표시 됩니다.
 
 ![시작 된 검토의 상태를 보여 주는 액세스 검토 목록](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "84743697"
 
 일련의 액세스 검토를 관리 하려면 액세스 검토로 이동 하 고 예정 된 검토에서 예정 된 항목을 찾아 종료 날짜를 편집 하거나 그에 따라 검토자를 추가/제거 합니다.
 
-**완료 설정**후의 선택에 따라 자동 적용은 검토의 종료 날짜 이후에 또는 수동으로 검토를 중지 한 후 실행 됩니다. 검토 상태는 **완료 됨** 에서 **적용** 하는 등의 중간 상태와 마지막으로 **적용**된 상태 사이에서 변경 됩니다. 몇 분 안에 거부 된 사용자 (있는 경우)가 제거 되는 것을 알 수 있습니다.
+**완료 설정** 후의 선택에 따라 자동 적용은 검토의 종료 날짜 이후에 또는 수동으로 검토를 중지 한 후 실행 됩니다. 검토 상태는 **완료 됨** 에서 **적용** 하는 등의 중간 상태와 마지막으로 **적용** 된 상태 사이에서 변경 됩니다. 몇 분 안에 거부 된 사용자 (있는 경우)가 제거 되는 것을 알 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

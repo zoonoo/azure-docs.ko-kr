@@ -8,24 +8,24 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 92dcbfd360938724bb65b734d7c69ea61d7826b0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660315"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533046"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스의 용량 조정
 
 [검색 서비스를 프로 비전](search-create-service-portal.md) 하 고 특정 가격 책정 계층에서 잠금을 수행 하기 전에 몇 분 정도 변동을 작업 부하를 수용 하기 위해 복제본과 파티션을 조정 하는 방법을 이해 하는 것이 좋습니다.
 
-Capacity는 [선택 하는 계층](search-sku-tier.md) 의 기능 (계층은 하드웨어 특성을 결정)과 프로젝션 된 워크 로드에 필요한 복제본 및 파티션 조합입니다. 복제본 또는 파티션 수를 개별적으로 늘리거나 줄일 수 있습니다. 조정의 계층 및 크기에 따라 용량을 추가 하거나 축소 하는 데에는 15 분에서 몇 시간까지 걸릴 수 있습니다.
+Capacity는 [선택 하는 계층](search-sku-tier.md) 의 기능 (계층은 하드웨어 특성을 결정)과 프로젝션 된 워크 로드에 필요한 복제본 및 파티션 조합입니다. 서비스를 만든 후에는 복제본 또는 파티션 수를 독립적으로 늘리거나 줄일 수 있습니다. 각 추가 물리적 리소스에 대 한 비용이 발생 하지만 대규모 작업이 완료 되 면 규모를 줄여 청구서를 낮출 수 있습니다. 조정의 계층 및 크기에 따라 용량을 추가 하거나 축소 하는 데에는 15 분에서 몇 시간까지 걸릴 수 있습니다.
 
 복제본 및 파티션 할당을 수정 하는 경우 Azure Portal를 사용 하는 것이 좋습니다. 포털은 계층의 최대 한도 미만으로 유지 되는 허용 가능한 조합에 제한을 적용 합니다. 그러나 스크립트 기반 또는 코드 기반 프로 비전 접근 방식이 필요한 경우에는 [Azure PowerShell](search-manage-powershell.md) 또는 [관리 REST API](/rest/api/searchmanagement/services) 대체 해결 방법이 됩니다.
 
 ## <a name="concepts-search-units-replicas-partitions-shards"></a>개념: 단위, 복제본, 파티션, 분할 검색
 
-용량은 *파티션* 및 *복제본*의 조합에 할당 될 수 있는 *검색 단위로* 표시 되며, 기본 *분할* 메커니즘을 사용 하 여 유연한 구성을 지원 합니다.
+용량은 *파티션* 및 *복제본* 의 조합에 할당 될 수 있는 *검색 단위로* 표시 되며, 기본 *분할* 메커니즘을 사용 하 여 유연한 구성을 지원 합니다.
 
 | 개념  | 정의|
 |----------|-----------|
@@ -61,7 +61,7 @@ Cognitive Search 분할 된 관리는 구현 세부 정보 이며 구성할 수 
 
 1. [Azure Portal](https://portal.azure.com/) 에 로그인하고 검색 서비스를 선택합니다.
 
-1. **설정**에서 **크기 조정** 페이지를 열어 복제본 및 파티션을 수정 합니다. 
+1. **설정** 에서 **크기 조정** 페이지를 열어 복제본 및 파티션을 수정 합니다. 
 
    다음 스크린샷은 하나의 복제본과 파티션으로 프로 비전 된 표준 서비스를 보여 줍니다. 아래쪽의 수식은 사용 되는 검색 단위의 수를 나타냅니다 (1). 단가가 $100 (실제 가격이 아님) 인 경우이 서비스를 실행 하는 월간 비용은 평균적으로 $100이 됩니다.
 

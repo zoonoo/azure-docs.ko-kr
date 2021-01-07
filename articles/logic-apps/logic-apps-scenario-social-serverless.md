@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
 ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86520752"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
@@ -50,7 +50,7 @@ Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션�
 
 2. **텍스트 분석** 커넥터를 찾습니다.
 
-3. **감정 검색** 작업을 선택합니다.
+3. **감정 검색** 작업을 선택 합니다.
 
 4. 메시지가 나타나면 텍스트 분석 서비스에 대한 올바른 Cognitive Services 키를 입력합니다.
 

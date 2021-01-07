@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940781"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320230"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Data Studio를 사용 하 여 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 관리
 
@@ -25,10 +25,10 @@ ms.locfileid: "90940781"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azdata, Azure Data Studio 및 Azure CLI 설치](install-client-tools.md)
-- **Azure 데이터 CLI** 및 **Azure Arc** 및 **PostgreSQL** 확장 Azure Data Studio에 설치
+- Azure Data Studio **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** 및 **Azure Arc** 및 **PostgreSQL** 확장을 설치 합니다.
 - [Azure Arc 데이터 컨트롤러](create-data-controller-using-azdata.md) 만들기
 - 시작 Azure Data Studio
 
@@ -61,9 +61,8 @@ PostgreSQL 대시보드 보기:
 
 이 기능은 해당 창의 왼쪽에 나열 된 여러 대시보드를 제공 합니다.
 
-- **개요:** 사용자 인스턴스에 대 한 요약 정보 (예: 이름, Azure 구독 ID, 구성, 데이터베이스 엔진의 버전, Grafana 및 Kibana에 대 한 끝점)를 표시 합니다.
+- **개요:** 사용자 인스턴스에 대 한 요약 정보 (예: 이름, PostgreSQL admin 사용자 이름, Azure 구독 ID, 구성, 데이터베이스 엔진 버전, Grafana 및 Kibana에 대 한 끝점)를 표시 합니다.
 - **연결 문자열:** Psql, Node.js, PHP, Ruby ...와 같이 PostgreSQL 인스턴스에 연결 하는 데 필요할 수 있는 다양 한 연결 문자열을 표시 합니다.
-- **속성:** 섀도 리소스에 대 한 PostgreSQL admin 사용자 이름, 연결 된 리소스 그룹 등의 다양 한 속성을 표시 합니다.
 - **문제 진단 및 해결:** 문제 해결 노트북을 확장할 때 인스턴스 문제를 해결 하는 데 도움이 되는 다양 한 리소스를 찾을 수 있는 방문 페이지입니다.
 - **새 지원 요청:** 지원 서비스에서 공개 미리 보기 알림을 시작 하는 데 도움을 요청할 수 있는 방문 페이지입니다.
 

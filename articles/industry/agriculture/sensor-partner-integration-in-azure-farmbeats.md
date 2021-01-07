@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001595"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
 
@@ -48,7 +48,7 @@ API에는 Swagger 기술 문서가 포함되어 있습니다. API 및 해당 요
 
 FarmBeats는 Microsoft Azure Active Directory 인증을 사용합니다. Azure App Service는 기본 제공 인증 및 권한 부여를 지원합니다.
 
-자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 참조하세요.
+자세한 내용은 [Azure Active Directory](../../app-service/overview-authentication-authorization.md)를 참조하세요.
 
 FarmBeats Datahub는 전달자 인증을 사용하며 다음 자격 증명이 필요합니다.
    - 클라이언트 ID
@@ -131,14 +131,14 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
 - /**SensorModel**: SensorModel은 제조업체, 센서 유형(아날로그 또는 디지털), 센서 측정값(예: 주변 온도 및 압력)과 같은 센서의 메타데이터에 해당합니다.
 - /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
-  DeviceModel | 설명 |
+  DeviceModel | Description |
   --- | ---
   Type(node, gateway)  | 디바이스의 유형(노드 또는 게이트웨이)입니다. |
   제조업체  | 제조업체의 이름입니다. |
   ProductCode  | 디바이스 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor#6800. |
   포트  | 포트 이름 및 유형(디지털 또는 아날로그)입니다.  |
-  이름  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
-  설명  | 모델에 대한 의미 있는 설명을 제공합니다. |
+  속성  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
+  Description  | 모델에 대한 의미 있는 설명을 제공합니다. |
   속성  | 제조업체로부터의 추가 속성입니다. |
   **디바이스** | **설명** |
   DeviceModelId  |연결된 디바이스 모델의 ID입니다. |
@@ -160,8 +160,8 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
   SensorMeasures > AggregationType  | 없음, 평균, 최대값, 최소값 또는 표준편차 중 하나입니다.
   SensorMeasures > Depth  | 센서의 깊이(센티미터)입니다. 예를 들어 지하 10cm에서 수분을 측정합니다.
   SensorMeasures > Description  | 측정에 대한 의미 있는 설명을 제공합니다.
-  이름  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
-  설명  | 모델에 대한 의미 있는 설명을 제공합니다.
+  속성  | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
+  Description  | 모델에 대한 의미 있는 설명을 제공합니다.
   속성  | 제조업체로부터의 추가 속성입니다.
   **Sensor**  | **설명** |
   HardwareId  | 제조업체에서 설정한 센서의 고유 ID입니다.
@@ -201,7 +201,7 @@ FarmBeats는 새 센서 측정 유형 및 단위를 추가하도록 지원합니
 
 ## <a name="send-telemetry-data-to-farmbeats"></a>FarmBeats로 원격 분석 데이터 보내기
 
-FarmBeats에 원격 분석 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만듭니다. 원격 분석 데이터에 대한 자세한 내용은 [이벤트 허브로 원격 분석 보내기](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)를 참조하세요.
+FarmBeats에 원격 분석 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만듭니다. 원격 분석 데이터에 대한 자세한 내용은 [이벤트 허브로 원격 분석 보내기](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)를 참조하세요.
 
 다음은 클라이언트로서 원격 분석을 지정된 이벤트 허브에 보내는 샘플 Python 코드입니다.
 

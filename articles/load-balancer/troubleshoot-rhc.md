@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855259"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955623"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>리소스 상태, 프런트 엔드 및 백 엔드 가용성 문제 해결 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>리소스 상태 및 인바운드 가용성 문제 해결 
 
 이 문서는 부하 분산 장치 프런트 엔드 IP 및 백 엔드 리소스의 가용성에 영향을 주는 문제를 조사 하는 가이드입니다. 
+
+Load Balancer에 대 한 Resource Health 검사 (RHC)는 부하 분산 장치의 상태를 확인 하는 데 사용 됩니다. **2 분** 간격에 걸쳐 데이터 경로 가용성 메트릭을 분석 하 여 부하 분산 규칙을 사용 하 여 부하 분산 끝점, 프런트 엔드 IP 및 프런트 엔드 포트 조합을 사용할 수 있는지 여부를 확인 합니다.
+
+아래 표에서는 부하 분산 장치의 상태를 확인 하는 데 사용 되는 RHC 논리에 대해 설명 합니다.
+
+| Resource Health 상태 | 설명 |
+| --- | --- |
+| 사용 가능 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
+| 성능 저하됨 | 표준 부하 분산 장치에는 성능에 영향을 주는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭은 최소 2분 동안 상태가 90% 미만이지만 25% 이상이라고 보고했습니다. 성능이 심각 하 게 저하 될 수 있습니다. 
+| 사용할 수 없음 | 표준 부하 분산 장치 리소스가 정상이 아닙니다. 데이터 경로 가용성 메트릭이 2 분 이상 25% 상태를 보고 했습니다. 인바운드 연결의 성능에 큰 영향을 주거나 가용성이 부족 합니다. 사용할 수 없는 사용자 또는 플랫폼 이벤트가 있을 수 있습니다. |
+| 알 수 없음 | 표준 부하 분산 장치 리소스에 대 한 리소스 상태가 아직 업데이트 되지 않았거나 지난 10 분 동안 데이터 경로 가용성 정보를 수신 하지 않았습니다. 이 상태는 일시적이어야 하며 데이터가 수신되는 즉시 올바른 상태를 반영합니다. |
+
 
 ## <a name="about-the-metrics-well-use"></a>사용할 메트릭 정보
 사용 되는 두 개의 메트릭은 *데이터 경로 가용성* 및 *상태 프로브 상태* 이며 올바른 정보를 얻기 위해 해당 의미를 이해 하는 것이 중요 합니다. 
@@ -52,7 +64,7 @@ ms.locfileid: "88855259"
   * 이 NSG 문제를 발견 한 경우 기존 허용 규칙을 이동 하거나 새 높은 우선 순위 규칙을 만들어 AzureLoadBalancer 트래픽을 허용 합니다.
 * OS를 확인 합니다. Vm이 프로브 포트에서 수신 대기 하 고 있는지 확인 하 고 OS 방화벽 규칙을 검토 하 여 IP 주소 168.63.129.16에서 시작 된 프로브 트래픽을 차단 하지 않는지 확인 합니다.
   * Windows 명령 프롬프트 또는 Linux 터미널에서 netstat-l을 실행 하 여 수신 대기 포트를 확인할 수 있습니다.
-* 부하 분산 장치의 백 엔드 풀에 방화벽 NVA VM을 넣지 마세요. [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) 를 사용 하 여 방화벽을 통해 백 엔드 인스턴스로 트래픽을 라우팅합니다.
+* 부하 분산 장치의 백 엔드 풀에 방화벽 NVA VM을 넣지 마세요. [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md#user-defined) 를 사용 하 여 방화벽을 통해 백 엔드 인스턴스로 트래픽을 라우팅합니다.
 * Http를 사용 하 여 HTTP가 아닌 응용 프로그램을 수신 하는 포트를 검색 하는 경우 올바른 프로토콜을 사용 해야 합니다. 프로브는 실패 합니다.
 
 이 검사 목록을 통해 상태 프로브 오류가 계속 발생 하는 경우 인스턴스에 대 한 프로브 서비스에 영향을 주는 드문 플랫폼 문제가 있을 수 있습니다. 이 경우 Azure는 사용자의 의견을 바탕으로 팀에 게 자동으로 전송 되어 모든 플랫폼 문제를 신속 하 게 해결 합니다.
@@ -61,5 +73,3 @@ ms.locfileid: "88855259"
 
 * [Azure Load Balancer 상태 프로브에 대 한 자세한 정보](load-balancer-custom-probe-overview.md)
 * [Azure Load Balancer 메트릭에 대 한 자세한 정보](load-balancer-standard-diagnostics.md)
-
-

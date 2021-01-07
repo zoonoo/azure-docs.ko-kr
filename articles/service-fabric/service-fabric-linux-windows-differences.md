@@ -3,13 +3,12 @@ title: Linux와 Windows 간의 Azure Service Fabric 차이점
 description: Linux의 Azure Service Fabric과 Windows의 Azure Service Fabric 간의 차이점입니다.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.custom: sfrev
-ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4adae60ded804450c25809faa0edca6bb058adf7
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75748535"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574499"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux와 Windows의 Service Fabric 간의 차이점
 

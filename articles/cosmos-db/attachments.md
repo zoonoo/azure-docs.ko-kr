@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: cb5dbe5101231963f45132fca58279b934c5e49c
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b6504c0521328edc356dea1c146fe9aeb6bde55f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055370"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092741"
 ---
 # <a name="azure-cosmos-db-attachments"></a>첨부 파일 Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 첨부 파일은 외부 blob 또는 미디어 파일을 사용 하 여 연결 된 메타 데이터에 대 한 참조를 포함 하는 특수 한 항목입니다.
 
@@ -160,7 +161,7 @@ namespace attachments
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet) 시작
-- [Azure Cosmos DB의 .NET SDK v2](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.attachment?view=azure-dotnet) 를 통해 첨부 파일 사용에 대 한 참조 가져오기
-- [Azure Cosmos DB의 JAVA SDK v2](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.attachment?view=azure-java-stable) 를 통해 첨부 파일 사용에 대 한 참조 가져오기
-- [Azure Cosmos DB의 REST API](https://docs.microsoft.com/rest/api/cosmos-db/attachments) 를 통해 첨부 파일 사용에 대 한 참조 가져오기
+- [Azure Blob storage](../storage/blobs/storage-quickstart-blobs-dotnet.md) 시작
+- [Azure Cosmos DB의 .NET SDK v2](/dotnet/api/microsoft.azure.documents.attachment?preserve-view=true&view=azure-dotnet) 를 통해 첨부 파일 사용에 대 한 참조 가져오기
+- [Azure Cosmos DB의 JAVA SDK v2](/java/api/com.microsoft.azure.documentdb.attachment?preserve-view=true&view=azure-java-stable) 를 통해 첨부 파일 사용에 대 한 참조 가져오기
+- [Azure Cosmos DB의 REST API](/rest/api/cosmos-db/attachments) 를 통해 첨부 파일 사용에 대 한 참조 가져오기

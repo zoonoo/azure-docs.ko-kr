@@ -6,17 +6,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 406690eb1303a25002d3d787e746bd091dd83fc6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 59acbc545e6bb37ebd090ec458d98586de882133
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586132"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696276"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -26,20 +27,20 @@ ms.locfileid: "88586132"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
-> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 이는 동기화 작업을 지원하는 SQL API용 원본 Azure Cosmos DB Sync Java SDK v2입니다.
 
 > [!IMPORTANT]  
-> Azure Cosmos DB의 최신 Java SDK가 *아닙니다*. 프로젝트에 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)를 사용하는 것이 좋습니다. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션하기](migrate-java-v4-sdk.md) 안내서 및 [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 안내서의 지침을 따르세요. 
+> Azure Cosmos DB의 최신 Java SDK가 *아닙니다*. 프로젝트에 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)를 사용하는 것이 좋습니다. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션하기](migrate-java-v4-sdk.md) 안내서 및 [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 안내서의 지침을 따르세요. 
 >
 
 | |  |
@@ -47,14 +48,20 @@ ms.locfileid: "88586132"
 |**SDK 다운로드**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API 설명서**|[Java API 참조 설명서](/java/api/com.microsoft.azure.documentdb)|
 |**SDK에 참여**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**시작**|[Java SDK 시작](sql-api-java-get-started.md)|
+|**시작**|[Java SDK 시작](./create-sql-api-java.md)|
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-java-application.md)|
-|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable)|
+|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="261"></a><a name="2.6.1"></a>2.6.1
+* 서비스 interop를 통해 쿼리를 처리 하는 버그를 수정 했습니다.
+
+### <a name="260"></a><a name="2.6.0"></a>2.6.0
+* 특정 시점에서 변경 피드를 쿼리 하는 지원이 추가 되었습니다.
+
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
-* DocumentCollection 쿼리에서 마스터 파티션 캐시 문제를 수정 합니다.
+* DocumentCollection 쿼리의 주 파티션 캐시 문제를 수정 합니다.
 
 ### <a name="250"></a><a name="2.5.0"></a>2.5.0
 * 449 다시 시도 사용자 지정 구성에 대 한 지원이 추가 되었습니다.
@@ -174,7 +181,7 @@ ms.locfileid: "88586132"
 * 컬렉션을 만든 후 즉시 요청에 대한 "소유자 리소스를 찾을 수 없습니다." 예외를 일으킬 수 있는 세션 컨테이너에 몇 가지 버그가 수정되었습니다.
 
 ### <a name="195"></a><a name="1.9.5"></a>1.9.5
-* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](sql-query-aggregates.md)을 참조하세요.
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](sql-query-aggregate-functions.md)을 참조하세요.
 * 변경 피드에 대한 지원이 추가되었습니다.
 * RequestOptions.setPopulateQuotaInfo를 통한 컬렉션 할당량 정보에 대한 지원이 추가되었습니다.
 * RequestOptions.setScriptLoggingEnabled를 통한 저장 프로시저 스크립트에 대한 지원이 추가되었습니다.
@@ -232,7 +239,7 @@ ms.locfileid: "88586132"
 * 문서에 대한 TTL(Time to Live) 지원이 추가되었습니다.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
+* [분할된 컬렉션](partitioning-overview.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
 
 ### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * 다른 SDK와 일치하도록 little-endian의 해시 값을 생성하는 HashPartitionResolver의 버그를 수정합니다.
@@ -263,13 +270,15 @@ ms.locfileid: "88586132"
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다. 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
 > [!WARNING]
-> 30 년 5 월 2020, Azure Cosmos DB는 더 이상 버그를 수정 하 고, 새 기능을 추가 하 고, Azure Cosmos DB Java SDK for SQL API의 버전 2.x에 대 한 지원을 제공 합니다. 업그레이드 하지 않으려는 경우 SDK의 버전 1.x에서 전송 된 요청은 Azure Cosmos DB 서비스에서 계속 제공 됩니다.
+> 30 년 5 월 2020, Azure Cosmos DB는 더 이상 버그를 수정 하 고, 새 기능을 추가 하 고, Azure Cosmos DB Java SDK for SQL API의 버전 2.x에 대 한 지원을 제공 합니다. 업그레이드하지 않으려는 경우 SDK 버전 1.x에서 보낸 요청은 Azure Cosmos DB 서비스에서 계속 제공됩니다.
 >
 > 2016 년 2 월 29 일부 터 Azure Cosmos DB는 더 이상 버그를 수정 하지 않으며, 새 기능을 추가 하 고, Azure Cosmos DB Java SDK for SQL API의 버전 2.x에 대 한 지원을 제공 합니다. 업그레이드 하지 않으려는 경우 SDK의 버전 0. x에서 전송 된 요청은 Azure Cosmos DB 서비스에서 계속 제공 됩니다.
 
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |Dec 17, 2020 |--- |
+| [2.6.0](#2.6.0) |2020년 7월 16일 |--- |
 | [2.5.1](#2.5.1) |June 03, 2020 |--- |
 | [2.5.0](#2.5.0) |2020년 5월 12일 |--- |
 | [2.4.7](#2.4.7) |2020년 2월 20일 |--- |
@@ -331,4 +340,3 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 ## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
-

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987321"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Azure Automation에서 그래픽 Runbook 작성
@@ -95,7 +95,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 다시 시도 조건은 작업이 실행된 이후 매번 평가되는 PowerShell 식입니다. 식이 True로 확인되면 작업을 다시 실행합니다. 식이 False로 확인되면 작업이 다시 실행되지 않고 Runbook이 다음 작업으로 이동합니다.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="이 조건이 true 일 때까지 다시 시도 및 재시도 조건에 사용할 수 있는 PowerShell 식의 예를 보여 주는 스크린샷":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="다시 시도 기능 설정 사용의 스크린샷":::
 
 다시 시도 조건은 활동 다시 시도 정보에 대한 액세스를 제공하는 `RetryData`라는 변수를 사용할 수 있습니다. 이 변수는 다음 테이블의 속성을 가집니다.
 

@@ -9,16 +9,17 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbd4a80c0f480e51ce7ec248c3b5d3dc523e9d74
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 385a67e117bf0cf9508b81d014e3accac4725744
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530746"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914912"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
-[Azure IoT Hub 장치 프로 비전 서비스 (DPS)](../iot-dps/index.yml)를 사용 하면 x.509 인증서를 사용 하 여 IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로 비전 프로세스에 익숙하지 않은 경우 계속 하기 전에 [프로 비전](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토 합니다.
+[Azure IoT Hub 장치 프로 비전 서비스 (DPS)](../iot-dps/index.yml)를 사용 하면 x.509 인증서를 사용 하 여 IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토하세요.
 
 이 문서에서는 다음 단계를 수행 하 여 IoT Edge 장치에서 x.509 인증서를 사용 하 여 장치 프로 비전 서비스 등록을 만드는 방법을 보여 줍니다.
 
@@ -28,7 +29,7 @@ ms.locfileid: "90530746"
 
 X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. 일반적으로 x.509 인증서는 신뢰의 인증서 체인에 정렬 됩니다. 자체 서명 되거나 신뢰할 수 있는 루트 인증서로 시작 하는 체인의 각 인증서는 다음으로 낮은 인증서에 서명 합니다. 이 패턴은 루트 인증서에서 각 중간 인증서를 통해 장치에 설치 된 최종 "리프" 인증서로 위임 된 신뢰 체인을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 활성 IoT Hub
 * IoT Edge 장치에 대 한 실제 또는 가상 장치입니다.
@@ -78,20 +79,20 @@ IoT Edge 장치에는 이러한 인증서가 모두 필요 합니다. DPS에서 
 
 여러 IoT Edge 장치를 프로 비전 하려는 경우 다음 섹션인 [DPS 그룹 등록 만들기](#create-a-dps-group-enrollment)의 단계를 수행 합니다.
 
-DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
+DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
 
 장치 프로 비전 서비스의 등록에 대 한 자세한 내용은 [How to manage device 등록](../iot-dps/how-to-manage-enrollments.md)항목을 참조 하세요.
 
    > [!TIP]
-   > Azure CLI에서 [등록](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 을 만들고,에 **지 사용** 플래그를 사용 하 여 장치 또는 장치 그룹이 IoT Edge 장치 임을 지정할 수 있습니다.
+   > Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 을 만들고,에 **지 사용** 플래그를 사용 하 여 장치 또는 장치 그룹이 IoT Edge 장치 임을 지정할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동 합니다.
 
-1. **설정**에서 **등록 관리**를 선택합니다.
+1. **설정** 에서 **등록 관리** 를 선택합니다.
 
-1. 등록을 구성하려면 **개별 등록 추가**를 선택한 다음, 다음 단계를 완료합니다.  
+1. 등록을 구성하려면 **개별 등록 추가** 를 선택한 다음, 다음 단계를 완료합니다.  
 
-   * **메커니즘**: **x.509**을 선택 합니다.
+   * **메커니즘**: **x.509** 을 선택 합니다.
 
    * **기본 인증서. pem 또는 .cer 파일**: 장치 id 인증서에서 공용 파일을 업로드 합니다. 스크립트를 사용 하 여 테스트 인증서를 생성 한 경우 다음 파일을 선택 합니다.
 
@@ -103,7 +104,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들어:
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
       ```json
       {
@@ -116,7 +117,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
       }
       ```
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 이제이 장치에 대 한 등록이 있으므로 IoT Edge 런타임은 설치 중에 장치를 자동으로 프로 비전 할 수 있습니다. [IoT Edge 런타임 설치](#install-the-iot-edge-runtime) 섹션으로 이동 하 여 IoT Edge 장치를 설정 합니다.
 
@@ -126,7 +127,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 단일 IoT Edge 장치를 대신 프로 비전 하려는 경우 이전 섹션인 [DPS 개별 등록 만들기](#create-a-dps-individual-enrollment)의 단계를 따르세요.
 
-DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
+DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
 
 ### <a name="verify-your-root-certificate"></a>루트 인증서 확인
 
@@ -142,7 +143,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    데모 인증서를 사용 하는 경우 인증서를 업로드 `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` 합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 1. 이제 **인증서가 인증서 페이지에 나열** 됩니다. 인증서 세부 정보를 열려면 선택 합니다.
 
@@ -164,7 +165,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 1. Azure Portal의 동일한 인증서 정보 페이지에서 새로 생성 된 확인 인증서를 업로드 합니다.
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ### <a name="create-enrollment-group"></a>등록 그룹 만들기
 
@@ -172,15 +173,15 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동 합니다.
 
-1. **설정**에서 **등록 관리**를 선택합니다.
+1. **설정** 에서 **등록 관리** 를 선택합니다.
 
 1. **등록 그룹 추가** 를 선택 하 고 다음 단계를 완료 하 여 등록을 구성 합니다.
 
    * **그룹 이름**:이 그룹 등록에 대 한 기억 하기 쉬운 이름을 제공 합니다.
 
-   * **증명 형식**: **인증서**를 선택 합니다.
+   * **증명 형식**: **인증서** 를 선택 합니다.
 
-   * **IoT Edge 장치**: **True**를 선택 합니다. 그룹 등록의 경우 모든 장치는 장치를 IoT Edge 해야 합니다. 그렇지 않으면 장치를 모두 사용할 수 없습니다.
+   * **IoT Edge 장치**: **True** 를 선택 합니다. 그룹 등록의 경우 모든 장치는 장치를 IoT Edge 해야 합니다. 그렇지 않으면 장치를 모두 사용할 수 없습니다.
 
    * **인증서 유형**: DPS로 저장 된 확인 된 ca 인증서가 있는 경우 **CA 인증서** 를 선택 하 고,이 등록에 대해서만 새 파일을 업로드 하려는 경우 **중간 인증서** 를 선택 합니다.
 
@@ -188,7 +189,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들어:
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
       ```json
       {
@@ -201,7 +202,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
       }
       ```
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 이제이 장치에 대 한 등록이 있으므로 IoT Edge 런타임은 설치 중에 장치를 자동으로 프로 비전 할 수 있습니다. 다음 섹션을 계속 진행 하 여 IoT Edge 장치를 설정 합니다.
 
@@ -209,77 +210,80 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다.
 
+[Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 수행한 다음이 문서로 돌아와서 장치를 프로 비전 합니다.
+
 X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서만 지원 됩니다.
 
-장치를 프로 비전 할 때 다음 정보가 필요 합니다.
+## <a name="configure-the-device-with-provisioning-information"></a>프로 비전 정보를 사용 하 여 장치 구성
+
+런타임이 장치에 설치 되 면 장치 프로 비전 서비스에 연결 하는 데 사용 하는 정보를 사용 하 여 장치를 구성 하 고 IoT Hub 합니다.
+
+다음 정보를 준비 합니다.
 
 * DPS **ID 범위** 값입니다. Azure Portal에서 DPS 인스턴스의 개요 페이지에서이 값을 검색할 수 있습니다.
 * 장치에서 장치 id 인증서 체인 파일
 * 장치에서 장치 id 키 파일입니다.
-* 제공 되지 않은 경우 장치 id 인증서의 일반 이름에서 가져온 선택적 등록 ID입니다.
+* 선택적 등록 ID입니다. 제공 하지 않으면 장치 id 인증서의 일반 이름에서 ID를 가져옵니다.
 
 ### <a name="linux-device"></a>Linux 장치
 
-다음 링크를 사용 하 여 장치 아키텍처에 적절 한 명령을 사용 하 여 장치에 Azure IoT Edge 런타임을 설치 합니다. 보안 디먼 구성 섹션에 표시 되는 경우 x.509 자동, 수동, 프로 비전에 대 한 IoT Edge 런타임을 구성 합니다. 이 문서의 이전 섹션을 완료 한 후에 필요한 모든 정보 및 인증서 파일을 만들어야 합니다.
+1. IoT Edge 장치에서 구성 파일을 엽니다.
 
-[Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 예를 들어:
+1. 파일의 프로 비전 구성 섹션을 찾습니다. DPS 대칭 키 프로 비전에 대 한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
 
-* `file:///<path>/identity_certificate_chain.pem`
-* `file:///<path>/identity_key.pem`
+   `provisioning:`줄은 앞에 공백이 없어야 하며 중첩 항목은 두 개의 공백으로 들여쓰기 되어야 합니다.
 
-X.509 자동 프로 비전에 대 한 구성 파일의 섹션은 다음과 같습니다.
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "x509"
+   #   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+       identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+       identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   ```
 
-```yaml
-# DPS X.509 provisioning configuration
-provisioning:
-  source: "dps"
-  global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "<SCOPE_ID>"
-  attestation:
-    method: "x509"
-#   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
-    identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
-    identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
-```
+1. , 및의 값 `scope_id` 을 `identity_cert` `identity_pk` DPS 및 장치 정보로 업데이트 합니다.
 
-,,에 대 한 자리 표시자 값을 `scope_id` `identity_cert` `identity_pk` DPS 인스턴스의 범위 ID로, uri를 장치의 인증서 체인 및 키 파일 위치로 바꿉니다. `registration_id`원하는 경우 장치에 대 한를 제공 하거나,이 줄을 주석으로 처리 하 여 id 인증서의 CN 이름으로 장치를 등록 합니다.
+   X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 예를 들면 다음과 같습니다.
 
-Config.xml 파일을 업데이트 한 후 항상 보안 디먼을 다시 시작 합니다.
+   `file:///<path>/identity_certificate_chain.pem`
+   `file:///<path>/identity_key.pem`
 
-```bash
-sudo systemctl restart iotedge
-```
+1. `registration_id`원하는 경우 장치에 대 한를 제공 하거나,이 줄을 주석으로 처리 하 여 id 인증서의 CN 이름으로 장치를 등록 합니다.
+
+1. 디바이스에서 한 모든 구성 변경을 선택하도록 IoT Edge 런타임을 다시 시작합니다.
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
 
 ### <a name="windows-device"></a>Windows 디바이스
 
-Id 인증서 체인 및 id 키를 생성 한 장치에 IoT Edge 런타임을 설치 합니다. 수동 프로 비전이 아니라 자동으로 IoT Edge 런타임을 구성 합니다.
-
-Windows에 IoT Edge를 설치 하는 방법에 대 한 자세한 내용은 컨테이너 관리 및 IoT Edge 업데이트와 같은 작업에 대 한 지침 및 지침을 포함 하 여 [windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)를 참조 하세요.
-
 1. 관리자 모드에서 PowerShell 창을 엽니다. PowerShell이 아닌 IoT Edge 설치 하는 경우 (x86) PowerShell의 AMD64 세션을 사용 해야 합니다.
 
-1. **배포-IoTEdge** 명령은 Windows 컴퓨터가 지원 되는 버전에 있는지 확인 하 고 컨테이너 기능을 설정한 다음 moby 런타임 및 IoT Edge 런타임을 다운로드 합니다. 이 명령은 기본적으로 Windows 컨테이너를 사용 합니다.
+1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 기본적으로 Windows 컨테이너를 사용 하 여 수동으로 프로 비전 하므로 플래그를 사용 `-DpsX509` 하 여 x.509 인증서 인증으로 자동 프로 비전을 사용 합니다.
+
+   , 및에 대 한 자리 표시자 값을 `{scope_id}` `{identity cert chain path}` `{identity key path}` DPS 인스턴스의 적절 한 값 및 장치의 파일 경로로 바꿉니다.
+
+   `-RegistrationId {registration_id}`장치 id를 id 인증서의 CN 이름 이외의 이름으로 설정 하려면를 추가 합니다.
+
+   `-ContainerOs Linux`Windows에서 Linux 컨테이너를 사용 하는 경우 매개 변수를 추가 합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. 다른 Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
-
-1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 플래그를 사용 하 여 자동 프로 비전을 사용 하지 않는 한이 명령은 기본적으로 수동 프로 비전을 사용 `-Dps` 합니다.
-
-   , 및에 대 한 자리 표시자 값을 `{scope_id}` `{identity cert chain path}` `{identity key path}` DPS 인스턴스의 적절 한 값 및 장치의 파일 경로로 바꿉니다. 등록 ID를 지정 하려는 경우에도를 포함 하 여 `-RegistrationId {registration_id}` 자리 표시자를 적절히 바꿉니다.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -DpsX509 -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
    ```
 
    >[!TIP]
-   >Config.xml 파일은 인증서 및 키 정보를 파일 Uri로 저장 합니다. 그러나 Initialize IoTEdge 명령은 사용자를 위해이 서식 지정 단계를 처리 하므로 장치의 인증서 및 키 파일에 대 한 절대 경로를 제공할 수 있습니다.
+   >Config.xml 파일은 인증서 및 키 정보를 파일 Uri로 저장 합니다. 그러나 Initialize-IoTEdge 명령은이 형식 지정 단계를 처리 하므로 장치의 인증서 및 키 파일에 대 한 절대 경로를 제공할 수 있습니다.
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 

@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012572"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학에 대 한 샘플 Virtual Machines
@@ -23,12 +23,12 @@ DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 �
 > [!NOTE]
 > 데이터 과학 virtual machines에서 Jupyter 노트북을 실행 하는 방법에 대 한 자세한 내용은 [Jupyter 액세스](#access-jupyter) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 샘플을 실행 하려면 [Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md)를 프로 비전 해야 합니다.
 
 ## <a name="available-samples"></a>사용 가능한 샘플
-| 샘플 범주 | Description | 위치 |
+| 샘플 범주 | 설명 | 위치 |
 | ------------- | ------------- | ------------- |
 | R 언어  | 샘플은 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 오픈 소스 R 및 Microsoft Machine Learning Server 비교 하는 방법 등의 시나리오를 보여 줍니다. 또한 Microsoft Machine Learning Server 및 SQL Server에서 모델을 운영 하는 방법을 설명 합니다. <br/> [R 언어](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Python 언어  | 샘플에서는 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 Azure Machine Learning 사용 하는 방법 등의 시나리오를 설명 합니다.  <br/> [Python 언어](#python-language) | <br/>`~notebooks` <br/><br/>|

@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Azure CLI를 사용하여 리소스를 �
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f07ae46c95f9ab9cc1ad973204ac5c50320fdf46
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 54d7afbaa4bfe2799ca0d68927394a38d9845c53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237134"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920664"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 관리 그룹 만들기
 
@@ -29,13 +29,13 @@ ms.locfileid: "89237134"
 
 ### <a name="create-in-the-azure-cli"></a>Azure CLI에서 만들기
 
-Azure CLI의 경우 [az account management-group create](/cli/azure/account/management-group#az-account-management-group-create) 명령을 사용하여 새 관리 그룹을 만듭니다. 이 예제에서 관리 그룹 **이름**은 _Contoso_입니다.
+Azure CLI의 경우 [az account management-group create](/cli/azure/account/management-group#az_account_management_group_create) 명령을 사용하여 새 관리 그룹을 만듭니다. 이 예제에서 관리 그룹 **이름** 은 _Contoso_ 입니다.
 
 ```azurecli-interactive
 az account management-group create --name 'Contoso'
 ```
 
-**이름**은 생성되는 고유 식별자입니다. 이 ID는 다른 명령에서 이 그룹을 참조하는 데 사용되며 나중에 변경할 수 없습니다.
+**이름** 은 생성되는 고유 식별자입니다. 이 ID는 다른 명령에서 이 그룹을 참조하는 데 사용되며 나중에 변경할 수 없습니다.
 
 관리 그룹이 Azure Portal 내에서 다른 이름을 표시하도록 하려면 **display-name** 매개 변수를 추가합니다. 예를 들어, GroupName이 Contoso이고 표시 이름이 "Contoso Group"인 관리 그룹을 만들려면 다음 명령을 사용합니다.
 
@@ -51,7 +51,7 @@ az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-위에서 만든 관리 그룹을 제거하려면 [az account management-group delete](/cli/azure/account/management-group#az-account-management-group-delete) 명령을 사용합니다.
+위에서 만든 관리 그룹을 제거하려면 [az account management-group delete](/cli/azure/account/management-group#az_account_management_group_delete) 명령을 사용합니다.
 
 ```azurecli-interactive
 az account management-group delete --name 'Contoso'

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083772"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
@@ -26,7 +26,7 @@ ms.locfileid: "87083772"
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 IIS(인터넷 정보 서비스)를 기반으로 하는 웹 애플리케이션을 보호하는 방법에 대해 설명합니다. 그리고 3계층 IIS 기반 웹 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -62,7 +62,7 @@ ARR, IIS 서버, 애플리케이션 서버 및 SQL Server가 있는 IIS 기반 �
 --- | --- | ---
 Hyper-V | 예 | 예
 VMware | 예 | 예
-물리적 서버 | 아니요 | 예
+실제 서버 | 아니요 | 예
 Azure|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
@@ -133,7 +133,7 @@ ARR 가상 머신이 있는 경우 IP 주소를 업데이트하려면 그룹 4 �
 TLS/SSL 인증서는 다음 구성 요소에 대해 발급할 수 있습니다.
 
 * 웹 사이트의 정규화된 도메인 이름
-* 서버 이름
+* 서버의 이름입니다.
 * 도메인 이름에 대한 와일드카드 인증서  
 * IP 주소. TLS/SSL 인증서가 IIS 서버의 IP 주소에 대해 발급 되 면 Azure 사이트에 있는 IIS 서버의 IP 주소에 대해 다른 TLS/SSL 인증서를 발급 해야 합니다. 이 인증서에 대 한 추가 TLS 바인딩을 만들어야 합니다. 따라서 IP 주소에 대해 발급 된 TLS/SSL 인증서를 사용 하지 않는 것이 좋습니다. 이 옵션은 널리 사용되고 있지 않으며, 새로운 인증 기관/브라우저 포럼 변경 내용에 따라 곧 사용되지 않을 예정입니다.
 

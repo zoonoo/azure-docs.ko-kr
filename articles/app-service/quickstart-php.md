@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: f6876d0aef0d3d87e038b623c395f8368a14e90c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961440"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561854"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Azure App Service에서 PHP 웹앱 만들기
 
@@ -60,7 +60,7 @@ php -S localhost:8080
 
 ![로컬로 실행되는 샘플 앱](media/quickstart-php/localhost-hello-world-in-browser.png)
 
-터미널 창에서 **Ctrl+C**를 눌러 웹 서버를 종료합니다.
+터미널 창에서 **Ctrl+C** 를 눌러 웹 서버를 종료합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -78,9 +78,9 @@ php -S localhost:8080
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 웹앱을 만듭니다. 
+Cloud Shell에서 [`az webapp create`](/cli/azure/webapp#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 웹앱을 만듭니다. 
 
-다음 예에서 `<app-name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `PHP|7.4`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)를 실행합니다. 
+다음 예에서 `<app-name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `PHP|7.4`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp#az-webapp-list-runtimes)를 실행합니다. 
 
 ```azurecli-interactive
 # Bash
@@ -134,7 +134,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
 Total 2 (delta 1), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '25f18051e9'.
 remote: Generating deployment script.
@@ -150,7 +150,7 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-   cc39b1e..25f1805  master -> master
+   cc39b1e..25f1805  main -> main
 </pre>
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
@@ -179,7 +179,7 @@ echo "Hello Azure!";
 
 ```bash
 git commit -am "updated output"
-git push azure master
+git push azure main
 ```
 
 배포가 완료되면 **앱으로 이동** 단계 중 열린 브라우저 창으로 돌아가서 페이지를 새로 고칩니다.
@@ -188,7 +188,7 @@ git push azure master
 
 ## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
-1. 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다. **App Services**를 검색하여 선택합니다.
+1. 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다. **App Services** 를 검색하여 선택합니다.
 
     ![App Services 검색, Azure Portal, PHP 웹앱 만들기](media/quickstart-php/navigate-to-app-services-in-the-azure-portal.png)
 
@@ -196,7 +196,7 @@ git push azure master
 
     ![Azure 앱에 대한 포털 탐색](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-    웹앱의 **개요** 페이지가 표시됩니다. 여기에서 **찾아보기**, **중지**, **다시 시작** 및 **삭제**와 같은 기본 관리 작업을 수행할 수 있습니다.
+    웹앱의 **개요** 페이지가 표시됩니다. 여기에서 **찾아보기**, **중지**, **다시 시작** 및 **삭제** 와 같은 기본 관리 작업을 수행할 수 있습니다.
 
     ![Azure Portal의 App Service 페이지](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 

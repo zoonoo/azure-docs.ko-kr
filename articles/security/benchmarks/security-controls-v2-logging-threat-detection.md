@@ -4,23 +4,23 @@ description: Azure Security 벤치 마크 V2 로깅 및 위협 검색
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 24ddca37a729a459382fc96a2f6e0ef1a7832f37
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059299"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369075"
 ---
-# <a name="security-control-logging-and-threat-detection"></a>보안 제어: 로깅 및 위협 검색
+# <a name="security-control-v2-logging-and-threat-detection"></a>보안 제어 V2: 로깅 및 위협 검색
 
 로깅 및 위협 검색은 Azure에서 위협을 감지 하 고 Azure 서비스에 대 한 감사 로그를 사용, 수집 및 저장 하는 컨트롤을 포함 합니다. 여기에는 Azure 서비스에서 네이티브 위협 검색을 통해 고품질의 경고를 생성 하는 컨트롤을 사용 하 여 검색, 조사 및 재구성 프로세스를 사용할 수 있습니다. 또한 Azure Monitor를 사용 하 여 로그를 수집 하 고, Azure 센티널, 시간 동기화 및 로그 보존으로 보안 분석을 중앙화 합니다. 
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Azure 리소스에 대 한 위협 감지 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | LT-1 | 6.7 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -30,7 +30,7 @@ Azure 서비스 원격 분석 모니터링 및 서비스 로그 분석을 기반
 
 또한 Azure 센티널을 사용 하 여 사용자 환경에서 특정 조건과 일치 하는 위협을 검색 하는 분석 규칙을 작성 합니다. 규칙은 조건이 일치할 때 인시던트를 생성 하므로 각 인시던트를 조사할 수 있습니다. 또한 Azure 센티널은 타사 위협 인텔리전스를 가져와서 위협 검색 기능을 향상 시킬 수 있습니다. 
 
-- [위협 방지 및 Azure Security Center](../../security-center/threat-protection.md)
+- [위협 방지 및 Azure Security Center](../../security-center/azure-defender.md)
 
 - [Azure Security Center 보안 경고 참조 가이드](../../security-center/alerts-reference.md)
 
@@ -40,11 +40,11 @@ Azure 서비스 원격 분석 모니터링 및 서비스 로그 분석을 기반
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -52,9 +52,9 @@ Azure 서비스 원격 분석 모니터링 및 서비스 로그 분석을 기반
 
 - [위협 인텔리전스](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure id 및 액세스 관리에 대 한 위협 감지 사용
+## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure ID 및 액세스 관리를 위한 위협 탐지 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | LT-2 | 6.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -71,17 +71,17 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [Azure AD의 감사 활동 보고서](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Azure Id 보호 사용](../../active-directory/identity-protection/overview-identity-protection.md)
+- [Azure ID 보호 사용](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [위협 방지 및 Azure Security Center](../../security-center/threat-protection.md)
+- [위협 방지 및 Azure Security Center](../../security-center/azure-defender.md)
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -89,9 +89,9 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [위협 인텔리전스](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Azure 네트워크 작업에 대 한 로깅 사용
+## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Azure 네트워크 활동에 대한 로깅 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -111,11 +111,11 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [포스처 관리](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -123,13 +123,13 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 - [위협 인텔리전스](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Azure 리소스에 대 한 로깅 사용
+## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Azure 리소스에 대한 로깅 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | LT-4 | 6.2, 6.3, 8.8 | AU-3, AU-12 |
 
-규정 준수, 위협 검색 및 조사, 위협 검색에 대 한 요구 사항을 충족 하기 위해 Azure 리소스에 대 한 로깅을 사용 하도록 설정 합니다. 
+규정 준수, 위협 검색, 구하기 및 인시던트 조사를 위한 요구 사항을 충족 하기 위해 Azure 리소스에 대 한 로깅을 사용 하도록 설정 합니다. 
 
 Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 한 리소스 로그 및 로그 데이터 수집을 사용 하도록 설정 하 여 감사, 보안 및 리소스 로그에 액세스할 수 있습니다. 자동으로 사용할 수 있는 활동 로그에는 이벤트 원본, 날짜, 사용자, 타임스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소가 포함됩니다. 
 
@@ -137,13 +137,11 @@ Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 
 
 - [Azure Security Center 데이터 수집 이해](../../security-center/security-center-enable-data-collection.md)
 
-- [맬웨어 방지 모니터링 사용 및 구성](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
-
 **책임**: 공유됨
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 인프라 및 엔드포인트 보안 
 
@@ -151,9 +149,9 @@ Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 
 
 - [위협 인텔리전스](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT: 보안 로그 관리 및 분석을 중앙 집중화
+## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: 보안 로그 관리 및 분석 중앙 집중화
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | LT-5 | 6.5, 6.6 | AU-3, SI-4 |
 
@@ -171,7 +169,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -179,37 +177,37 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-## <a name="lt-6-configure-log-storage-retention"></a>LT-6: 로그 저장소 보존 구성
+## <a name="lt-6-configure-log-storage-retention"></a>LT-6: 로그 스토리지 보존 구성
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
-준수, 규정 및 기타 요구 사항에 따라 로그 보존을 구성 합니다. 
+준수, 규정 및 비즈니스 요구 사항에 따라 로그 보존을 구성 합니다. 
 
 Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정할 수 있습니다. 장기 및 보관 저장소에 대 한 Azure Storage, Data Lake 또는 Log Analytics 작업 영역 계정을 사용 합니다.
 
 - [Log Analytics에서 데이터 보존 기간 변경](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법: ttps://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 - [Azure Security Center 경고 및 권장 사항 내보내기](../../security-center/continuous-export.md)
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [파트너 규정 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
 ## <a name="lt-7-use-approved-time-synchronization-sources"></a>LT-7: 승인 된 시간 동기화 원본 사용
 
-| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
+| Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP 800-53 4, 000 개 ID |
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
@@ -225,11 +223,10 @@ Azure 내에서 리소스에 의해 생성 된 모든 로그는 기본적으로 
 
 **책임**: 공유됨
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [정책 및 표준](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [인프라 및 엔드포인트 보안](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

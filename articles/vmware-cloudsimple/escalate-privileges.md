@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션 CloudSimple 권한 에스컬레이션
 description: 사설 클라우드 vCenter에서 관리 기능을 수행 하기 위해 CloudSimple 권한을 에스컬레이션 하는 방법에 대해 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 36c6969ed89d0bb9222f52aa81de0d4128b9e533
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d481717a79856583d23f61107678d2ecd1af68d6
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025336"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895730"
 ---
 # <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>사설 클라우드 vCenter에서 관리 기능을 수행할 수 있도록 CloudSimple 권한 에스컬레이션
 
@@ -35,6 +35,6 @@ CloudSimple 포털에서 vCenter SSO의 CloudOwner 로컬 사용자에 대 한 [
 추가 id 원본의 사용자를 CloudOwner 그룹의 멤버로 추가 해야 합니다.
 
 > [!CAUTION]
-> 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m*i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *관리자* 그룹에 추가 해야 하며, 서비스 계정은 vsphere 웹 UI에 로그인 하는 데 사용 하면 안 됩니다.
+> 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m* i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *관리자* 그룹에 추가 해야 하며, 서비스 계정은 vsphere 웹 UI에 로그인 하는 데 사용 하면 안 됩니다.
 
 에스컬레이션 기간 동안 CloudSimple은 연결 된 경고 알림과 함께 자동화 된 모니터링을 사용 하 여 환경에 대 한 실수로 인 한 변경 내용을 식별 합니다.

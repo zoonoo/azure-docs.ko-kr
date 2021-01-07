@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: e75921e5ee5b148d81c637800f46403d3d410f42
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.date: 10/14/2020
+ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613481"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006828"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -31,7 +31,7 @@ ms.locfileid: "89613481"
 
 다음은 조회 작업에 지원되는 데이터 원본입니다. 
 
-조회 작업은 최대 5000 개의 행을 반환할 수 있습니다. 결과 집합에 추가 레코드가 포함 되어 있으면 첫 번째 5000 행이 반환 됩니다. 조회 작업 출력은 최대 2mb의 크기를 지원 하며, 크기가 제한을 초과 하는 경우 작업은 실패 합니다. 현재 시간 제한 전까지 가능한 최대 조회 작업 기간은 1시간입니다.
+조회 작업은 최대 5000 개의 행을 반환할 수 있습니다. 결과 집합에 추가 레코드가 포함 되어 있으면 첫 번째 5000 행이 반환 됩니다. 조회 작업 출력은 최대 4mb의 크기를 지원 하므로 크기가 제한을 초과 하면 작업이 실패 합니다. 현재는 시간 제한 이전의 조회 작업에 가장 긴 기간이 24 시간입니다.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -65,14 +65,14 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 > [!NOTE]
 > 
 > * **ByteArray** 형식의 원본 열은 지원되지 않습니다.
-> * **구조체**는 데이터 세트 정의에서 지원되지 않습니다. 텍스트 서식 파일의 경우 헤더 행을 사용하여 열 이름을 입력합니다.
+> * **구조체** 는 데이터 세트 정의에서 지원되지 않습니다. 텍스트 서식 파일의 경우 헤더 행을 사용하여 열 이름을 입력합니다.
 > * 조회 원본이 JSON 파일인 경우 JSON 개체의 모양을 변경하는 `jsonPathDefinition` 설정이 지원되지 않습니다. 전체 개체가 검색됩니다.
 
 ## <a name="use-the-lookup-activity-result"></a>조회 작업 결과 사용
 
 조회 결과는 작업 실행 결과의 `output` 섹션에 반환됩니다.
 
-* **`firstRowOnly`가 `true`(기본값)로 설정되면** 출력 형식은 다음 코드와 같습니다. 조회 결과는 고정된 `firstRow` 키 아래에 있습니다. 후속 작업에서 결과를 사용 하려면 패턴을 사용  `@{activity('LookupActivity').output.firstRow.table` 합니다.
+* **`firstRowOnly`가 `true`(기본값)로 설정되면** 출력 형식은 다음 코드와 같습니다. 조회 결과는 고정된 `firstRow` 키 아래에 있습니다. 후속 작업에서 결과를 사용 하려면 패턴을 사용  `@{activity('LookupActivity').output.firstRow.table}` 합니다.
 
     ```json
     {
@@ -114,8 +114,8 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 ### <a name="pipeline"></a>파이프라인
 
-- 조회 작업은 Azure Blob Storage의 위치를 참조하는 **LookupDataset**를 사용하도록 구성됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
-- 복사 작업은 조회 작업의 출력 (SQL 테이블의 이름)을 사용 합니다. **SourceDataset**의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 
+- 조회 작업은 Azure Blob Storage의 위치를 참조하는 **LookupDataset** 를 사용하도록 구성됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
+- 복사 작업은 조회 작업의 출력 (SQL 테이블의 이름)을 사용 합니다. **SourceDataset** 의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 
 
 ```json
 {
@@ -346,7 +346,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 ### <a name="sourcetablejson"></a>sourcetable.json
 
-파일 ** 의sourcetable.js** 에 대해 다음 두 종류의 형식을 사용할 수 있습니다.
+파일 **의sourcetable.js** 에 대해 다음 두 종류의 형식을 사용할 수 있습니다.
 
 #### <a name="set-of-objects"></a>개체의 집합
 

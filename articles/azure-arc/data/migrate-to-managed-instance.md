@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 86563b0a44bade2cedaf76af3c247821756111fe
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939629"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>마이그레이션: Azure Arc 사용 SQL Managed Instance에 대 한 SQL Server
@@ -28,7 +28,7 @@ Azure Arc 사용 SQL Managed Instance로 마이그레이션하려면 Azure blob 
 
 이 메서드는로 백업 하 고 복원할 수 있는 임시 저장소 위치로 Azure Blob Storage를 사용 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Data Studio 설치](install-client-tools.md)
 - [Azure Storage 탐색기 설치](https://azure.microsoft.com/features/storage-explorer/)
@@ -47,7 +47,7 @@ Azure Arc 사용 SQL Managed Instance로 마이그레이션하려면 Azure blob 
 
 1. **읽기**, **쓰기** 및 **목록** 선택
 
-1. **만들기**를 선택합니다.
+1. **만들기**
 
    이 화면에서 URI 및 쿼리 문자열을 기록해 둡니다. 이러한 작업은 이후 단계에서 필요 합니다. **복사** 단추를 클릭 하 여 메모장/OneNote 등에 저장 합니다.
 
@@ -124,7 +124,7 @@ URL에 백업에 대 한 자세한 내용은 여기를 참조 하세요.
 
 이 메서드는 메서드를 통해 만든 백업 파일을 가져온 다음 Azure SQL 관리 되는 인스턴스 pod의 로컬 저장소로 복사 하 여 Windows 또는 Linux에서 일반적인 파일 시스템에서와 같은 방식으로 복원할 수 있도록 하는 방법을 보여 줍니다. 이 시나리오에서는 명령을 사용 하 여 `kubectl cp` 한 곳에서 pod의 파일 시스템으로 파일을 복사 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - Kubectl를 설치 하 고 구성 하 여 Azure Arc data services가 배포 된 Kubernetes 클러스터를 가리키도록 합니다.
 - Azure Data Studio 또는 SQL Server Management Server와 같은 도구를 설치 하 고 백업 파일을 만들거나 기존 .bak 파일을 로컬 파일 시스템에 이미 만든 SQL Server에 연결 합니다.
@@ -192,6 +192,6 @@ GO
 
 [Azure Arc 사용 SQL Managed Instance의 기능 및 기능에 대해 자세히 알아보세요.](managed-instance-features.md)
 
-[데이터 컨트롤러를 만들기 시작](create-data-controller.md)
+[데이터 컨트롤러를 생성하여 시작](create-data-controller.md)
 
 [데이터 컨트롤러가 이미 만들어져 있나요? Azure Arc 사용 SQL Managed Instance 만들기](create-sql-managed-instance.md)

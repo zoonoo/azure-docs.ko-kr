@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f44426103b8f0fce275f33682edbc3b84a08344b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257658"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329562"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 이벤트 분석 및 시각화
  Azure Monitor 로그는 클라우드에서 호스팅되는 애플리케이션 및 서비스에서 원격 분석 데이터를 수집 및 분석하고, 가용성과 성능을 최대화하는 데 도움이 되는 분석 도구를 제공합니다. 이 문서에서는 Azure Monitor 로그에서 쿼리를 실행 하 여 정보를 얻고 클러스터에서 발생 하는 문제를 해결 하는 방법을 설명 합니다. 다음과 같은 일반적인 질문을 해결합니다.
@@ -42,7 +42,7 @@ Azure Monitor 로그가 데이터를 받은 후 Azure는 여러 가지 시나리
 
 다음 이미지에서는 Service Fabric 분석 솔루션의 홈페이지를 보여 줍니다. 이 홈페이지는 클러스터에서 수행되는 작업에 대한 스냅샷 보기를 제공합니다.
 
-![Service Fabric 솔루션](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+![Service Fabric 분석 솔루션의 홈 페이지를 보여 주는 스크린샷](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
  클러스터를 만들 때 진단을 활성화하면 다음에 대한 이벤트를 볼 수 있습니다. 
 
@@ -59,11 +59,11 @@ Service Fabric 분석 페이지에서 **Service Fabric 이벤트**에 대한 그
 
 ![Service Fabric 솔루션 조작 채널](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-**목록**을 클릭하여 목록에서 이벤트를 봅니다. 일단 여기에 수집된 모든 시스템 이벤트가 표시됩니다. 참조의 경우 이러한 항목은 Azure Storage 계정의 **WADServiceFabricSystemEventsTable** 에서 비롯 되며, 다음에 표시 되는 신뢰할 수 있는 서비스와 행위자 이벤트는 해당 하는 각 테이블에 있습니다.
+**목록**을 클릭하여 목록에서 이벤트를 봅니다. 일단 여기에 수집된 모든 시스템 이벤트가 표시됩니다. 참고로, 이러한 로그는 Azure Storage 계정의 **WADServiceFabricSystemEventsTable**에서 제공되며, 마찬가지로 다음에 표시되는 Reliable Services 및 Reliable Actors 이벤트는 해당 테이블에서 제공됩니다.
     
 ![쿼리 조작 채널](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
-또는 왼쪽에 있는 돋보기를 클릭하고 Kusto 쿼리 언어를 사용하여 원하는 항목을 찾을 수 있습니다. 예를 들어 클러스터의 노드에서 수행된 모든 작업을 찾으려면 다음 쿼리를 사용하면 됩니다. 아래에서 사용 하는 이벤트 Id는 [작동 채널 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md)에서 찾을 수 있습니다.
+또는 왼쪽에 있는 돋보기를 클릭하고 Kusto 쿼리 언어를 사용하여 원하는 항목을 찾을 수 있습니다. 예를 들어 클러스터의 노드에서 수행된 모든 작업을 찾으려면 다음 쿼리를 사용하면 됩니다. 아래에 사용된 이벤트 ID는 [운영 채널 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md)에서 찾을 수 있습니다.
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -82,7 +82,7 @@ Service Fabric 분석 페이지에서 **Reliable Services**에 대한 그래프�
 
 ![쿼리 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
-Reliable Actors 이벤트는 비슷한 방식으로 볼 수 있습니다. Reliable Actors에 대한 자세한 이벤트를 구성하려면 진단 확장(아래 참조)에 대한 구성에서 `scheduledTransferKeywordFilter`를 변경해야 합니다. 이러한 값에 대 한 자세한 내용은 신뢰할 수 있는 [행위자 이벤트 참조를 참조](service-fabric-reliable-actors-diagnostics.md#keywords)하세요.
+Reliable Actors 이벤트는 비슷한 방식으로 볼 수 있습니다. Reliable Actors에 대한 자세한 이벤트를 구성하려면 진단 확장(아래 참조)에 대한 구성에서 `scheduledTransferKeywordFilter`를 변경해야 합니다. 이러한 값에 대한 세부 정보는 [Reliable Actors 이벤트 참조](service-fabric-reliable-actors-diagnostics.md#keywords)를 참조하세요.
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -105,5 +105,5 @@ Kusto 쿼리 언어는 강력합니다. 실행 가능한 또 다른 중요한 �
 * 인프라 모니터링, 즉 성능 카운터를 사용하려면 [Log Analytics 에이전트 추가](service-fabric-diagnostics-oms-agent.md)를 참조하세요. 에이전트는 성능 카운터를 수집하여 기존 작업 영역에 추가합니다.
 * 온-프레미스 클러스터의 경우 Azure Monitor 로그는 Azure Monitor 로그에 데이터를 전송 하는 데 사용할 수 있는 게이트웨이 (HTTP 전달 프록시)를 제공 합니다. 자세한 내용은 [인터넷에 연결 되지 않은 컴퓨터를 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor 로그에 연결](../azure-monitor/platform/gateway.md)하는 방법을 참조 하세요.
 * 감지 및 진단에 도움이 되는 [자동 경고](../azure-monitor/platform/alerts-overview.md)를 구성합니다.
-* Azure Monitor 로그의 일부로 제공 되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 사용 하 여 알아보기를 가져옵니다.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.
 * Azure Monitor 로그 및 제공 되는 내용에 대 한 자세한 개요를 확인 하 고 [Azure Monitor 로그 란?](../azure-monitor/overview.md)을 참조 하세요.

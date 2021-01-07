@@ -2,16 +2,16 @@
 title: AKS (Azure Kubernetes Service)에 대 한 CoreDNS 사용자 지정
 description: Azure Kubernetes 서비스 (AKS)를 사용 하 여 하위 도메인을 추가 하거나 사용자 지정 DNS 끝점을 확장 하도록 CoreDNS를 사용자 지정 하는 방법 알아보기
 services: container-service
-author: jnoller
+author: palma21
 ms.topic: article
 ms.date: 03/15/2019
-ms.author: jenoller
-ms.openlocfilehash: e99d841dcfb18b41df128283c37f46682e3fa129
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.author: jpalma
+ms.openlocfilehash: 5b13931bc6a13d988c21f728b996c51270769e0c
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257118"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368684"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용하여 CoreDNS 사용자 지정
 
@@ -28,7 +28,7 @@ AKS는 관리 되는 서비스 이므로 CoreDNS (a *CoreFile*)에 대 한 기�
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-아래 예제와 같은 구성을 만들 때 *데이터* 섹션의 이름은 *server* 또는 *. override*로 끝나야 합니다. 이 명명 규칙은 명령을 사용 하 여 볼 수 있는 기본 AKS CoreDNS Configmap에 정의 되어 있습니다 `kubectl get configmaps --namespace=kube-system coredns -o yaml` .
+아래 예제와 같은 구성을 만들 때 *데이터* 섹션의 이름은 *server* 또는 *. override* 로 끝나야 합니다. 이 명명 규칙은 명령을 사용 하 여 볼 수 있는 기본 AKS CoreDNS Configmap에 정의 되어 있습니다 `kubectl get configmaps --namespace=kube-system coredns -o yaml` .
 
 ## <a name="what-is-supportedunsupported"></a>지원 되는/지원 되지 않는 기능
 
@@ -109,7 +109,7 @@ kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 
 ## <a name="use-custom-domains"></a>사용자 지정 도메인 사용
 
-내부적 으로만 확인할 수 있는 사용자 지정 도메인을 구성할 수 있습니다. 예를 들어 유효한 최상위 도메인이 아닌 사용자 지정 도메인 *puglife*를 확인 하는 것이 좋습니다. 사용자 지정 도메인 ConfigMap이 없으면 AKS 클러스터가 주소를 확인할 수 없습니다.
+내부적 으로만 확인할 수 있는 사용자 지정 도메인을 구성할 수 있습니다. 예를 들어 유효한 최상위 도메인이 아닌 사용자 지정 도메인 *puglife* 를 확인 하는 것이 좋습니다. 사용자 지정 도메인 ConfigMap이 없으면 AKS 클러스터가 주소를 확인할 수 없습니다.
 
 다음 예제에서는 사용자 지정 도메인 및 IP 주소를 업데이트 하 여 사용자 환경에 대 한 값으로 트래픽을 보냅니다. 이라는 파일을 만들고 `corednsms.yaml` 다음 예제 구성을 붙여넣습니다.
 

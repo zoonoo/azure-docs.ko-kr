@@ -1,17 +1,17 @@
 ---
 title: Microsoft Threat Modeling Tool 릴리스 03/22/2020-Azure
-description: Threat Modeling Tool 릴리스 정보 문서화
+description: 위협 모델링 도구 릴리스 7.3.00316.1에 대 한 릴리스 정보를 문서화 합니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 03/22/2020
-ms.openlocfilehash: 6fea4d48b62d6ea429d37924ffd15855db6294cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e182d40d20529b5743fa9105c68108a8ae55d943
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80146863"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516903"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Threat Modeling Tool 업데이트 릴리스 7.3.00316.1-03/22/2020
 
@@ -32,7 +32,7 @@ CSV로 내보내기 함수가 일관 되지 않아 위협 목록에서 내보낼
 - 기본 워크플로의 도움말 메뉴 (만들기/열기/분석) 및 템플릿 편집기 환경에는 이제 일관 된 메뉴 옵션이 있습니다.
 - 이제 스텐실 창의 검색 창에 표준 커서가 있으며 적절 한 레이블이 추가 되었습니다.
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 
 ### <a name="diagramreader-feature-has-been-added"></a>DiagramReader 기능이 추가 되었습니다.
 
@@ -49,7 +49,7 @@ CSV로 내보내기 함수가 일관 되지 않아 위협 목록에서 내보낼
 
 ## <a name="documentation-and-feedback"></a>문서 및 피드백
 
-- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)에 있으며 [도구 사용](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)에 대한 정보를 포함합니다.
+- Threat Modeling Tool에 대한 문서는 [docs.microsoft.com](./threat-modeling-tool.md)에 있으며 [도구 사용](./threat-modeling-tool-getting-started.md)에 대한 정보를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

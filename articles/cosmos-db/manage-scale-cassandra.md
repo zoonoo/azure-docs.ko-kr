@@ -3,21 +3,23 @@ title: Azure Cosmos DB에서 Cassandra API를 사용하여 탄력적으로 크�
 description: Azure Cosmos DB Cassandra API 계정의 크기를 조정하는 데 사용할 수 있는 옵션과 해당 장점/단점에 대해 알아봅니다.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 26f635525afea289e2e791b802478040a7851eee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340960"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정에서 탄력적으로 크기 조정
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cassandra용 Azure Cosmos DB API의 탄력적 특성을 탐색하는 다양한 옵션이 있습니다. Azure Cosmos DB에서 효과적으로 크기를 조정하는 방법을 이해하려면 시스템의 성능 요구 사항을 고려하여 적절한 양의 요청 단위(RU/초)를 프로비저닝하는 방법을 이해하는 것이 중요합니다. 요청 단위에 대해 알아보려면 [요청 단위](request-units.md) 문서를 참조하세요. 
 
-Cassandra API의 경우 [.NET 및 Java SDK](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api)를 사용하여 개별 쿼리에 대한 요청 단위 요금을 검색할 수 있습니다. 이는 서비스에서 프로비저닝해야 하는 RU/초의 양을 결정하는 데 유용합니다.
+Cassandra API의 경우 [.NET 및 Java SDK](./find-request-unit-charge-cassandra.md)를 사용하여 개별 쿼리에 대한 요청 단위 요금을 검색할 수 있습니다. 이는 서비스에서 프로비저닝해야 하는 RU/초의 양을 결정하는 데 유용합니다.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="데이터베이스 작업은 요청 단위를 사용함" border="false":::
 
@@ -46,7 +48,7 @@ Azure Portal을 사용하여 Azure Cosmos DB Cassandra API 계정에서 리소�
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>컨트롤 플레인
 
-Cassandra용 Azure Cosmos DB의 API는 다양한 컨트롤 플레인 기능을 사용하여 프로그래밍 방식으로 처리량을 조정하는 기능을 제공합니다. 지침 및 샘플은 [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md) 및 [Azure CLI](cli-samples.md) 문서를 참조하세요.
+Cassandra용 Azure Cosmos DB의 API는 다양한 컨트롤 플레인 기능을 사용하여 프로그래밍 방식으로 처리량을 조정하는 기능을 제공합니다. 지침 및 샘플은 [Azure Resource Manager](./templates-samples-cassandra.md), [PowerShell](powershell-samples.md) 및 [Azure CLI](cli-samples.md) 문서를 참조하세요.
 
 이 방법의 장점은 최대 작업 또는 낮은 작업 기간을 고려하여 타이머를 기반으로 리소스의 확장 또는 축소를 자동화할 수 있다는 것입니다. Azure Functions 및 PowerShell을 사용하여 이를 수행하는 방법은 [여기](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler)에서 샘플을 살펴보세요.
 
@@ -62,7 +64,7 @@ Cassandra용 Azure Cosmos DB의 API는 다양한 컨트롤 플레인 기능을 �
 
 표준(수동) 또는 프로그래밍 방식으로 처리량을 프로비저닝하는 것 외에도 자동 크기 조정 프로비저닝된 처리량에서 Azure cosmos 컨테이너를 구성할 수도 있습니다. 자동 크기 조정은 SLA를 손상시키지 않고 지정된 RU 범위 내에서 사용 요구 사항에 맞게 자동으로 즉시 크기 조정됩니다. 자세히 알아보려면 [자동 크기 조정에서 Azure Cosmos 컨테이너 및 데이터베이스 만들기](provision-throughput-autoscale.md) 문서를 참조하세요.
 
-이 접근 방식의 장점은 시스템에서 크기 조정 요구 사항을 관리하는 가장 쉬운 방법이라는 점입니다. 이는 **구성된 RU 범위 내에서** 속도 제한을 적용하지 않도록 보장합니다. 단점은 시스템에서 크기 조정 요구 사항을 예측할 수 있는 경우 자동 크기 조정이 위에서 언급한 맞춤식 컨트롤 플레인이나 SDK 수준 접근 방식을 사용하는 것보다 크기 조정 요구 사항을 처리하는 데 비용 효율성이 떨어지는 방법이 될 수 있다는 점입니다.
+이 접근 방식의 장점은 시스템에서 크기 조정 요구 사항을 관리하는 가장 쉬운 방법이라는 점입니다. 구성 된 기능 **범위 내에서** 요율 제한을 적용 하지 않습니다. 단점은 시스템에서 크기 조정 요구 사항을 예측할 수 있는 경우 자동 크기 조정이 위에서 언급한 맞춤식 컨트롤 플레인이나 SDK 수준 접근 방식을 사용하는 것보다 크기 조정 요구 사항을 처리하는 데 비용 효율성이 떨어지는 방법이 될 수 있다는 점입니다.
 
 CQL을 사용하여 자동 크기 조정에 대한 최대 처리량(RU)을 설정하거나 변경하려면 다음을 사용합니다(keyspace/table 이름을 적절하게 바꾸기).
 

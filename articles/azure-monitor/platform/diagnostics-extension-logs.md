@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 095fd0b534c0dffaf80d2464fb9734f295335b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317181"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Azure 진단 확장에서 Azure Monitor 로그로 데이터 수집
@@ -47,7 +47,7 @@ Azure 진단 확장은 Azure Storage 계정에 데이터를 저장 합니다. �
 
 1. Azure Portal에서 **Log Analytics 작업** 영역으로 이동 하 고 작업 영역을 선택 합니다.
 1. 메뉴의 **작업 영역 데이터 원본** 섹션에서 **저장소 계정 로그** 를 클릭 합니다.
-2. **추가**를 클릭 합니다.
+2. **추가**를 클릭합니다.
 3. 수집할 데이터가 포함 된 **저장소 계정을** 선택 합니다.
 4. 수집 하려는 **데이터 형식을** 선택 합니다.
 5. 원본의 값은 데이터 형식에 따라 자동으로 채워집니다.

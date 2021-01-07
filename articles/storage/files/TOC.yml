@@ -39,22 +39,24 @@
           href: storage-snapshots-files.md
         - name: 개발
           items:
-            - name: 동시성 관리
-              href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: 공유 키 인증
               href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
             - name: SAS(공유 액세스 서명)
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 모니터링 및 문제 해결
           items:
-            - name: '모니터링, 진단 및 문제 해결'
-              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Azure Monitor의 메트릭
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: 새 메트릭으로 마이그레이션
+            - name: 클래식 메트릭에서 전환
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: 스토리지 분석 메트릭(클래식)
-              href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: 모니터링(클래식)
+              items:
+                - name: 스토리지 분석
+                  href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: 메트릭
+                  href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: 로그
+                  href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: '모니터링, 진단 및 문제 해결'
+                  href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure 파일 동기화
       items:
         - name: Azure 파일 동기화 배포에 대한 계획
@@ -63,6 +65,14 @@
           href: storage-sync-files-networking-overview.md
         - name: 클라우드 계층화 정보
           href: storage-sync-cloud-tiering.md
+    - name: 성능 및 크기 조정
+      items:
+        - name: SMB 다중 채널 성능
+          href: storage-files-smb-multichannel-performance.md
+        - name: 확장성 및 성능 대상
+          href: storage-files-scale-targets.md
+    - name: 청구 이해
+      href: understanding-billing.md
     - name: 실수로 인한 데이터 삭제 방지
       href: storage-files-prevent-file-share-deletion.md
     - name: 파일 공유 백업
@@ -71,32 +81,24 @@
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 고객 관리형 키로 미사용 데이터 암호화
       href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: 확장성 및 성능 대상
-      href: storage-files-scale-targets.md
     - name: 규정 준수 제안
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: FAQ
       href: storage-files-faq.md
 - name: 방법 가이드
   items:
-    - name: 생성
+    - name: 배포
       items:
         - name: SMB 파일 공유 만들기
           href: storage-how-to-create-file-share.md
-        - name: 대량 파일 공유 사용
-          href: storage-files-how-to-create-large-file-share.md
+        - name: Azure 파일 동기화 배포
+          href: storage-sync-files-deployment-guide.md
         - name: 프리미엄 파일 공유 만들기
           href: storage-how-to-create-premium-fileshare.md
         - name: NFS 공유 만들기
           href: storage-files-how-to-create-nfs-shares.md
-    - name: 배포
-      items:
-        - name: Azure Files 배포
-          href: storage-files-deployment-guide.md
-        - name: Azure 파일 동기화 배포
-          href: storage-sync-files-deployment-guide.md
         - name: 프리미엄 파일 공유 기능이 있는 FCI SQL Server
-          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+          href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 탑재
       items:
         - name: Windows에 SMB 파일 공유 탑재
@@ -205,6 +207,8 @@
               href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 모니터
       items:
+        - name: Azure Files 모니터링
+          href: storage-files-monitoring.md
         - name: Azure 파일 동기화 모니터링
           href: storage-sync-files-monitoring.md
     - name: 마이그레이션
@@ -225,6 +229,12 @@
               href: storage-files-migration-storsimple-8000.md
             - name: StorSimple 1200 마이그레이션 가이드
               href: storage-files-migration-storsimple-1200.md
+    - name: 성능 향상
+      items:
+        - name: SMB 다중 채널 사용
+          href: storage-files-enable-smb-multichannel.md
+        - name: 대량 파일 공유 사용
+          href: storage-files-how-to-create-large-file-share.md
     - name: 개발
       items:
         - name: 연결 문자열 구성
@@ -277,13 +287,13 @@
           href: storage-troubleshoot-windows-file-connection-problems.md
         - name: Linux에서 Azure Files 문제 해결(SMB)
           href: storage-troubleshoot-linux-file-connection-problems.md
-        - name: Azure Files 성능 문제 해결
+        - name: Azure 파일 공유 성능 문제 해결
           href: storage-troubleshooting-files-performance.md
         - name: Linux에서 Azure Files 문제 해결(NFS)
           href: storage-troubleshooting-files-nfs.md
         - name: Azure 파일 동기화 문제 해결
           href: storage-sync-files-troubleshoot.md
-        - name: Azure Files 삭제 문제 해결
+        - name: Azure 파일 공유 삭제 문제 해결
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
         - name: 파일 공유 백업 문제 해결
           href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -291,6 +301,8 @@
   items:
     - name: Azure 파일 참조
       href: ../files/reference.md
+    - name: Azure 파일 참조 모니터링
+      href: storage-files-monitoring-reference.md
     - name: Resource Manager 템플릿
       displayName: arm
       href: /azure/templates/microsoft.storage/allversions
@@ -302,10 +314,10 @@
       href: 'https://azure.microsoft.com/updates/?category=storage'
     - name: Azure 파일 동기화 릴리스 정보
       href: storage-files-release-notes.md
-    - name: Microsoft Q&A의 Azure Storage
-      href: 'https://docs.microsoft.com/answers/topics/azure-files.html'
-    - name: Stack Overflow의 Azure Storage
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Microsoft Q&A의 Azure Files
+      href: /answers/topics/azure-files.html
+    - name: Stack Overflow의 Azure Files
+      href: 'https://stackoverflow.com/questions/tagged/azure-files'
     - name: Azure Files 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/storage/files/'
     - name: Azure 요금 계산기

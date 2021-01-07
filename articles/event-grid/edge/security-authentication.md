@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171383"
 ---
 # <a name="security-and-authentication"></a>보안 및 인증
@@ -41,7 +41,7 @@ Event Grid 모듈은 HTTP 및 HTTPS 끝점을 모두 호스팅합니다. 모든 
 | ---------------- | ------------ |
 | Strict | 기본값 HTTPS만 사용
 | 사용 | HTTP와 HTTPS를 모두 사용 하도록 설정 합니다.
-| Disabled | HTTP만 사용
+| 사용 안 함 | HTTP만 사용
 
 ## <a name="inbound-client-authentication"></a>인바운드 클라이언트 인증
 
@@ -125,7 +125,7 @@ Webhook 대상 정책 **outbound__webhook__httpsOnly**을 제어 하기 위한 �
 | true | 기본값 HTTPS 끝점을 사용 하는 구독자만 허용 합니다.
 | false | HTTP 또는 HTTPS 끝점을 사용 하 여 구독자를 허용 합니다.
 
-기본적으로 Event Grid 모듈은 구독자의 서버 인증서의 유효성을 검사 합니다. **Outbound__webhook__skipServerCertValidation**를 재정의 하 여 유효성 검사를 건너뛸 수 있습니다. 가능한 값은
+기본적으로 Event Grid 모듈은 구독자의 서버 인증서의 유효성을 검사 합니다. **Outbound__webhook__skipServerCertValidation**를 재정의 하 여 유효성 검사를 건너뛸 수 있습니다. 가능한 값은 다음과 같습니다.
 
 | 가능한 값 | 설명 |
 | ----------------  | ------------ |

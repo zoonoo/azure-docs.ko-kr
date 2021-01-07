@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
-ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 11/19/2020
+ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230809"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981207"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -23,7 +23,8 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 이 문서에서는 요청 트리거를 사용 하 여 논리 앱에서 호출 가능 끝점을 만들고 다른 논리 앱에서 해당 끝점을 호출 하는 방법을 보여 줍니다. 모든 원칙은 인바운드 요청을 수신 하는 데 사용할 수 있는 다른 트리거 유형에 동일 하 게 적용 됩니다.
 
-[TLS (전송 계층 보안](https://en.wikipedia.org/wiki/Transport_Layer_Security)), 이전에 SSL(SECURE SOCKETS LAYER) (SSL) 또는 [Azure Active Directory 오픈 인증 (Azure AD OAuth)](../active-directory/develop/index.yml)과 같은 논리 앱에 대 한 인바운드 호출에 대 한 암호화, 보안 및 권한 부여에 대 한 자세한 내용은 [요청 기반 트리거에 대 한 인바운드 호출에 대 한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)를 참조 하세요.
+
+[TLS (전송 계층 보안](https://en.wikipedia.org/wiki/Transport_Layer_Security))와 같은 논리 앱에 대 한 인바운드 호출에 대 한 보안, 권한 부여 및 암호화에 대 한 자세한 내용은 SSL(Secure Sockets Layer) TLS (전송 계층 보안 [), Azure Active Directory 오픈 인증 (azure AD OAuth)](../active-directory/develop/index.yml), azure API Management를 사용 하 여 논리 앱 노출 또는 인바운드 호출을 시작 하는 IP 주소 제한 [을 참조 하세요](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +36,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 만들고 엽니다.
 
-1. 검색 상자 아래에서 **기본 제공**을 선택 합니다. 검색 상자에서 필터로 `request`을 입력합니다. 트리거 목록에서 **HTTP 요청을 받을 때**를 선택 합니다.
+1. 검색 상자 아래에서 **기본 제공** 을 선택 합니다. 검색 상자에서 필터로 `request`을 입력합니다. 트리거 목록에서 **HTTP 요청을 받을 때** 를 선택 합니다.
 
    ![요청 트리거 찾기 및 선택](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
 
@@ -74,7 +75,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
    또는 샘플 페이로드를 제공 하 여 JSON 스키마를 생성할 수 있습니다.
 
-   1. **요청** 트리거에서 **샘플 페이로드를 사용 하 여 스키마 생성을**선택 합니다.
+   1. **요청** 트리거에서 **샘플 페이로드를 사용 하 여 스키마 생성을** 선택 합니다.
 
    1. **샘플 JSON 페이로드 입력 또는 붙여넣기** 상자에 샘플 페이로드를 입력 합니다. 예를 들면 다음과 같습니다.
 
@@ -89,7 +90,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
       }
       ```
 
-   1. 준비가 되 면 **완료**를 선택 합니다.
+   1. 준비가 되 면 **완료** 를 선택 합니다.
 
       이제 **요청 본문 JSON 스키마** 상자에 생성 된 스키마가 표시 됩니다.
 
@@ -103,15 +104,15 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
    * **HTTP POST url** 상자 오른쪽에서 **URL 복사** (파일 복사 아이콘)를 선택 합니다.
 
-   * 이 POST 호출을 수행 합니다.
+   * 요청 트리거에 필요한 메서드를 사용 하 여이 호출을 수행 합니다. 이 예제에서는 메서드를 사용 합니다 `POST` .
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
    * 논리 앱의 **개요** 창에서 콜백 URL을 복사 합니다.
 
-     1. 논리 앱의 메뉴에서 **개요**를 선택 합니다.
+     1. 논리 앱의 메뉴에서 **개요** 를 선택 합니다.
 
-     1. **요약** 섹션에서 **트리거 기록 참조**를 선택 합니다.
+     1. **요약** 섹션에서 **트리거 기록 참조** 를 선택 합니다.
 
         ![Azure Portal에서 끝점 URL 가져오기](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
@@ -123,9 +124,9 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 ## <a name="select-expected-request-method"></a>필요한 요청 방법 선택
 
-기본적으로 요청 트리거는 POST 요청을 예상 합니다. 다른 메서드를 지정할 수 있지만 단일 메서드만 지정할 수 있습니다.
+기본적으로 요청 트리거에는 `POST` 요청이 필요 합니다. 그러나 호출자가 사용 해야 하는 다른 메서드를 지정할 수 있지만 단일 메서드만 지정할 수 있습니다.
 
-1. 요청 트리거에서 **새 매개 변수 추가** 목록을 열고 **메서드**를 선택 하 여이 속성을 트리거에 추가 합니다.
+1. 요청 트리거에서 **새 매개 변수 추가** 목록을 열고 **메서드** 를 선택 하 여이 속성을 트리거에 추가 합니다.
 
    ![트리거에 "메서드" 속성 추가](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -153,21 +154,21 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 ### <a name="accept-values-through-get-parameters"></a>GET 매개 변수를 통해 값 허용
 
-1. 요청 트리거에서 **새 매개 변수 추가 목록을**열고 **메서드** 속성을 트리거에 추가한 다음 **GET** 메서드를 선택 합니다.
+1. 요청 트리거에서 **새 매개 변수 추가 목록을** 열고 **메서드** 속성을 트리거에 추가한 다음 **GET** 메서드를 선택 합니다.
 
    자세한 내용은 [필요한 요청 메서드 선택](#select-method)을 참조 하세요.
 
 1. 요청 트리거 아래에 매개 변수 값을 사용 하려는 작업을 추가 합니다. 이 예에서는 **응답** 작업을 추가 합니다.
 
-   1. 요청 트리거에서 **새 단계**  >  **작업 추가**를 선택 합니다.
+   1. 요청 트리거에서 **새 단계**  >  **작업 추가** 를 선택 합니다.
    
    1. **작업 선택** 아래의 검색 상자에 `response`을 필터로 입력합니다. 작업 목록에서 **응답** 작업을 선택 합니다.
 
 1. `triggerOutputs()`매개 변수 값을 검색 하는 식을 작성 하려면 다음 단계를 수행 합니다.
 
-   1. 동적 콘텐츠 목록이 표시 되도록 응답 작업의 **본문** 속성 내부를 클릭 하 고 **식**을 선택 합니다.
+   1. 동적 콘텐츠 목록이 표시 되도록 응답 작업의 **본문** 속성 내부를 클릭 하 고 **식** 을 선택 합니다.
 
-   1. **식** 상자에이 식을 입력 하 `parameter-name` 고을 매개 변수 이름으로 바꾸고 **확인**을 선택 합니다.
+   1. **식** 상자에이 식을 입력 하 `parameter-name` 고을 매개 변수 이름으로 바꾸고 **확인** 을 선택 합니다.
 
       `triggerOutputs()['queries']['parameter-name']`
 
@@ -216,7 +217,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 ### <a name="accept-values-through-a-relative-path"></a>상대 경로를 통해 값 허용
 
-1. 요청 트리거에서 **새 매개 변수 추가** 목록을 열고이 속성을 트리거에 추가 하는 **상대 경로**를 선택 합니다.
+1. 요청 트리거에서 **새 매개 변수 추가** 목록을 열고이 속성을 트리거에 추가 하는 **상대 경로** 를 선택 합니다.
 
    ![트리거에 "상대 경로" 속성 추가](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -226,7 +227,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 1. 요청 트리거 아래에 매개 변수 값을 사용 하려는 작업을 추가 합니다. 이 예에서는 **응답** 작업을 추가 합니다.
 
-   1. 요청 트리거에서 **새 단계**  >  **작업 추가**를 선택 합니다.
+   1. 요청 트리거에서 **새 단계**  >  **작업 추가** 를 선택 합니다.
 
    1. **작업 선택** 아래의 검색 상자에 `response`을 필터로 입력합니다. 작업 목록에서 **응답** 작업을 선택 합니다.
 
@@ -261,7 +262,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 ## <a name="call-logic-app-through-endpoint-url"></a>끝점 URL을 통해 논리 앱 호출
 
-끝점을 만든 후에는 `POST` 끝점의 전체 URL에 HTTPS 요청을 전송 하 여 논리 앱을 트리거할 수 있습니다. Logic Apps는 직접 액세스 엔드포인트에 대한 기본 제공 지원을 포함합니다.
+끝점을 만든 후에는 끝점의 전체 URL에 HTTPS 요청을 전송 하 여 논리 앱을 트리거할 수 있습니다. Logic Apps는 직접 액세스 엔드포인트에 대한 기본 제공 지원을 포함합니다.
 
 <a name="generated-tokens"></a>
 
@@ -301,11 +302,11 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 
 ## <a name="create-nested-logic-apps"></a>중첩 된 논리 앱 만들기
 
-요청을 받을 수 있는 다른 논리 앱을 추가하여 Logic Apps에서 워크플로를 중첩할 수 있습니다. 이러한 논리 앱을 포함 하려면 다음 단계를 수행 합니다.
+요청을 받을 수 있는 다른 논리 앱을 추가 하 여 논리 앱에 워크플로를 중첩할 수 있습니다. 이러한 논리 앱을 포함 하려면 다음 단계를 수행 합니다.
 
-1. 다른 논리 앱을 호출 하려는 단계 아래에서 **새 단계**  >  **작업 추가**를 선택 합니다.
+1. 다른 논리 앱을 호출 하려는 단계 아래에서 **새 단계**  >  **작업 추가** 를 선택 합니다.
 
-1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `logic apps`을 입력합니다. 작업 목록에서 **Logic Apps 워크플로 선택**을 선택 합니다.
+1. **작업 선택** 아래에서 **기본 제공** 을 선택합니다. 검색 상자에서 필터로 `logic apps`을 입력합니다. 작업 목록에서 **Logic Apps 워크플로 선택** 을 선택 합니다.
 
    ![현재 논리 앱 내에서 논리 앱 중첩](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -359,7 +360,7 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 | **본문** | `body` | 문자열, JSON 개체 또는 이전 단계에서 참조 한 이진 콘텐츠 일 수 있는 body 개체입니다. |
 ||||
 
-논리 앱 디자이너 도구 모음에서 응답 작업 및 논리 앱의 전체 JSON 정의에 대 한 JSON 정의를 보려면 **코드 보기**를 선택 합니다.
+논리 앱 디자이너 도구 모음에서 응답 작업 및 논리 앱의 전체 JSON 정의에 대 한 JSON 정의를 보려면 **코드 보기** 를 선택 합니다.
 
 ``` json
 "Response": {
@@ -391,6 +392,8 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 > * URL에 공유 액세스 키가 나타납니다.
 > * Azure Logic Apps 고객 간에 공유 도메인으로 인해 보안 콘텐츠 정책을 관리할 수 없습니다.
 
+[TLS (전송 계층 보안](https://en.wikipedia.org/wiki/Transport_Layer_Security))와 같은 논리 앱에 대 한 인바운드 호출에 대 한 보안, 권한 부여 및 암호화에 대 한 자세한 내용은 SSL(Secure Sockets Layer) TLS (전송 계층 보안 [), Azure Active Directory 오픈 인증 (azure AD OAuth)](../active-directory/develop/index.yml), azure API Management를 사용 하 여 논리 앱 노출 또는 인바운드 호출을 시작 하는 IP 주소 제한 [을 참조 하세요](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>Q: 호출 가능 끝점을 추가로 구성할 수 있나요?
 
 **A**: 예, HTTPS 끝점은 [Azure API Management](../api-management/api-management-key-concepts.md)를 통해 더 많은 고급 구성을 지원 합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
@@ -403,4 +406,4 @@ URL을 통해 논리 앱을 호출할 수 있도록 하 고 다른 서비스에�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Logic Apps를 사용 하 여 들어오는 HTTPS 호출 받기 및 응답](../connectors/connectors-native-reqres.md)
-* [요청 기반 트리거에 대 한 인바운드 호출에 대 한 액세스 권한 및 Azure Logic Apps의 데이터 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Azure Logic Apps의 보안 액세스 및 데이터-요청 기반 트리거에 대 한 인바운드 호출에 대 한 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

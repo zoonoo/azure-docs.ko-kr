@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f5df1cb158821fb0cd85d90f9ba3b79d80adf45
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116651"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743924"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Active Directory Domain Services에 대 한 온-프레미스 Azure AD 암호 보호 적용
 
@@ -51,7 +51,7 @@ Azure AD 암호 보호 DC 에이전트 소프트웨어는 DC에 설치 된 경�
 
 * Azure AD 암호 보호 프록시 서비스는 현재 AD DS 포리스트의 모든 도메인에 가입 된 컴퓨터에서 실행 됩니다. 서비스의 기본 목적은 Dc에서 Azure AD로 암호 정책 다운로드 요청을 전달 하 고 Azure AD에서 DC로 응답을 반환 하는 것입니다.
 * DC 에이전트의 암호 필터 DLL은 운영 체제에서 사용자 암호 유효성 검사 요청을 받습니다. 이 필터는 DC에서 로컬로 실행 되는 DC 에이전트 서비스로이를 전달 합니다.
-* Azure AD 암호 보호의 DC 에이전트 서비스는 DC 에이전트의 암호 필터 DLL에서 암호 유효성 검사 요청을 받습니다. DC 에이전트 서비스는 현재 (로컬로 사용 가능한) 암호 정책을 사용 하 여이를 처리 하 고 *성공* 또는 *실패*결과를 반환 합니다.
+* Azure AD 암호 보호의 DC 에이전트 서비스는 DC 에이전트의 암호 필터 DLL에서 암호 유효성 검사 요청을 받습니다. DC 에이전트 서비스는 현재 (로컬로 사용 가능한) 암호 정책을 사용 하 여이를 처리 하 고 *성공* 또는 *실패* 결과를 반환 합니다.
 
 ## <a name="how-azure-ad-password-protection-works"></a>Azure AD 암호 보호 작동 방법
 

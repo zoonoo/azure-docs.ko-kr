@@ -1,16 +1,16 @@
 ---
 title: PowerShell을 사용하여 Azure Functions에서 첫 번째 지속성 함수 만들기
-description: Visual Studio Code를 사용하여 Azure 지속성 함수를 만들고 게시합니다.
+description: Visual Studio Code를 사용하여 PowerShell에서 Azure 지속성 함수를 만들고 게시합니다.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 11ae695a898e011fd287730d894394eff013a0ca
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317262"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>PowerShell에서 첫 번째 지속성 함수 만들기
 

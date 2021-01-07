@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 2d2234ec333746c6f1da59346bdb74247deb616c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568101"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905539"
 ---
 # <a name="about-virtual-wan-pricing"></a>가상 WAN 가격 정보
 
@@ -38,7 +38,7 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>연결 단위 란 무엇 인가요?
 
-**연결 단위** 는 Azure 게이트웨이에 연결 하는 모든 온-프레미스/비 Microsoft 끝점에 적용 됩니다. 사이트 간 VPN의 경우 분기를 의미 합니다. 사용자 VPN (지점 및 사이트 간)의 경우 원격 사용자를 의미 합니다. Express 경로의 경우이는 Express 경로 회로 연결을 의미 합니다.<br>예를 들어:
+**연결 단위** 는 Azure 게이트웨이에 연결 하는 모든 온-프레미스/비 Microsoft 끝점에 적용 됩니다. 사이트 간 VPN의 경우이 값은 분기를 의미 합니다. 사용자 VPN (지점 및 사이트 간)의 경우이 값은 원격 사용자를 의미 합니다. Express 경로의 경우이 값은 Express 경로 회로 연결을 의미 합니다.<br>예를 들어:
 
 * 가상 허브에서 Azure VPN에 연결 하는 단일 분기 연결 비용은 $0.05/hr입니다. 따라서 100 Azure 가상 허브에 연결 하는 분기 연결의 비용은 $0.05 * 100/시간입니다.
 
@@ -50,32 +50,7 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 
 * Azure를 시작 하는 트래픽은 요금이 청구 되지 않습니다. Azure에서 나가는 트래픽 (VPN, Express 경로 또는 지점 및 사이트 간 사용자 VPN 연결을 통해)은 표준 [Azure 데이터 전송 요금이](https://azure.microsoft.com/pricing/details/bandwidth/)적용 됩니다.
 
-* 가상 WAN 허브와 원본 허브와 다른 지역에 있는 원격 가상 WAN 허브 또는 VNet 간의 데이터 전송 요금에 대해서는 허브에서 나가는 트래픽에 대해 데이터 전송 요금이 적용 됩니다. 예: 미국 동부 허브로 나가는 트래픽은 $0.02/GB가 미국 서 부 허브로 이동 하는 것으로 청구 됩니다. 미국 서 부 허브로 들어가는 트래픽에 대해서는 요금이 부과 되지 않습니다. 다음 표에서는 요금을 보여 줍니다.
-
-아래 표에서는 {베트남: 북아메리카}, {EU: 유럽}, {MEA: 중동 아프리카}, {OC: 오세아니아 (오스트레일리아 중부 및 오스트레일리아 중부 2)}, {LATAM: 라틴 아메리카} 약어를 사용 합니다. 
-
-**대륙 내 가격 (*)**
-
-| 대륙 내| 가격 ($/GB)|
-|---|---|
-| 베트남에서 베트남로|$0.02 |
-| EU에서 EU로 |$0.02 |
-| 아시아-아시아 (중국 제외)|$0.10 |
-| MEA MEA|$0.16 |
-| LATAM-LATAM |$0.16 |
-| OC-OC|$0.12 |
-
-**본토 가격 책정 (*)**
-
-| 상호 본토| 가격 ($/GB)|
-|---|---|
-| 베트남에서 EU 또는 EU에서 베트남으로 |$0.07 |
-| LATAM에서 모든 위치로 |$0.17 |
-| MEA에서 모든 위치로 |$0.17 |
-| 오세아니아에서 모든 위치로 |$0.12 |
-| 아시아 (중국 제외)에서 모든 위치로 |$0.12 |
-
-(*) 일부 요금은 2020 년 8 월 1 일부 터 적용 될 수 있습니다.
+* 가상 WAN 허브와 원본 허브와 다른 지역에 있는 원격 가상 WAN 허브 또는 VNet 간의 데이터 전송 요금에 대해서는 허브에서 나가는 트래픽에 대해 데이터 전송 요금이 적용 됩니다. 예: 미국 동부 허브로 나가는 트래픽은 $0.02/GB가 미국 서 부 허브로 이동 하는 것으로 청구 됩니다. 미국 서 부 허브로 들어가는 트래픽에 대해서는 요금이 부과 되지 않습니다. 허브에 대 한 모든 허브 트래픽에는 Inter-Region (내부/본토) 요금 [Azure 데이터 전송 요금이](https://azure.microsoft.com/pricing/details/bandwidth/)적용 됩니다. 
 
 ### <a name="what-is-the-difference-between-a-standard-hub-fee-and-a-standard-hub-processing-fee"></a><a name="fee"></a>표준 허브 요금 및 표준 허브 처리 요금 간의 차이점은 무엇 인가요?
 

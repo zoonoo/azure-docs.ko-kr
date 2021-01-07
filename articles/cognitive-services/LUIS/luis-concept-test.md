@@ -2,7 +2,6 @@
 title: LUIS 앱 테스트
 titleSuffix: Azure Cognitive Services
 description: 테스트는 LUIS에 샘플 발화를 제공하고 LUIS에서 인식한 의도 및 엔터티의 응답을 가져오는 프로세스입니다.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.custom: seodec18
@@ -10,19 +9,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73486689"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91535851"
 ---
 # <a name="testing-example-utterances-in-luis"></a>LUIS에서 예제 발화 테스트
 
 테스트는 LUIS에 샘플 발화를 제공하고 LUIS에서 인식한 의도 및 엔터티의 응답을 가져오는 프로세스입니다. 
 
-LUIS를 대화형으로 테스트 하거나, 한 번에 한 utterance 길이 발언를 제공할 수 있습니다. 테스트 하는 동안 현재 활성 모델의 예측 응답을 게시 된 모델의 예측 응답과 비교할 수 있습니다. 
+LUIS를 대화형으로 테스트 하거나 한 번에 하나의 utterance을 제공 하거나 길이 발언 집합을 제공할 수 있습니다. 테스트 하는 동안 현재 활성 모델의 예측 응답을 게시 된 모델의 예측 응답과 비교할 수 있습니다. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -53,7 +51,7 @@ LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) �
 ## <a name="remember-to-train"></a>학습해야 함
 모델을 변경한 후에는 LUIS를 [학습](luis-how-to-train.md)시켜야 합니다. 앱이 학습될 때까지 LUIS 앱의 변경 내용은 테스트에 표시되지 않습니다. 
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 [모범 사례](luis-concept-best-practices.md)를 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계

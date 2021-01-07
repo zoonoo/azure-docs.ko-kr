@@ -4,11 +4,11 @@ description: ReliableConcurrentQueue는 병렬 큐 및 dequeues를 허용 하는
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257451"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997123"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric의 ReliableConcurrentQueue 소개
 신뢰할 수 있는 동시 큐는 비동기, 트랜잭션 및 복제된 큐로서 큐에 넣기 및 큐에서 제거 작업에 대한 높은 동시성을 제공합니다. [신뢰할 수 있는 큐](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1)에서 제공한 엄격한 FIFO 순서를 완화하여 처리량이 높고 대기 시간이 짧게 설계되었으며 대신 최상의 순서를 제공합니다.
@@ -33,8 +33,8 @@ ReliableConcurrentQueue의 샘플 사용 사례는 [메시지 큐](https://en.wi
 * 큐에 있는 항목의 보존 기간이 짧습니다. 즉, 항목은 오랜 시간 동안 큐에 유지되지 않습니다.
 * 큐는 엄격한 FIFO 순서를 보장하지 않습니다.
 * 큐는 고유한 쓰기를 읽을 수 없습니다. 항목이 트랜잭션 내에서 큐에 삽입된 경우 동일한 트랜잭션 내에서 큐에서 제거하는 사용자에게 표시되지 않습니다.
-* 큐에서 제거는 서로 분리되지 않습니다. 항목 *A*가 트랜잭션 *txnA*라는 큐에서 제거된 경우 *txnA*가 커밋되지 않더라도 항목 *A*는 동시 트랜잭션 *txnB*에 표시되지 않습니다.  *txnA*가 중단되면 *txnB*에서 즉시 *A*를 볼 수 있게 됩니다.
-* *TryPeekAsync* 동작은 *TryDequeueAsync*를 사용한 다음 트랜잭션을 중단하여 구현할 수 있습니다. 이 동작의 예는 프로그래밍 패턴 섹션에서 찾을 수 있습니다.
+* 큐에서 제거는 서로 분리되지 않습니다. 항목 *A* 가 트랜잭션 *txnA* 라는 큐에서 제거된 경우 *txnA* 가 커밋되지 않더라도 항목 *A* 는 동시 트랜잭션 *txnB* 에 표시되지 않습니다.  *txnA* 가 중단되면 *txnB* 에서 즉시 *A* 를 볼 수 있게 됩니다.
+* *TryPeekAsync* 동작은 *TryDequeueAsync* 를 사용한 다음 트랜잭션을 중단하여 구현할 수 있습니다. 이 동작의 예는 프로그래밍 패턴 섹션에서 찾을 수 있습니다.
 * 개수는 비트랜잭션입니다. 큐에서 요소의 수를 추측하는 데 사용할 수 있지만 특정 시점을 나타내며 의존할 수 없습니다.
 * 큐에 대기 중인 항목에 대 한 비용이 많이 드는 처리는 시스템에 성능에 영향을 줄 수 있는 장기 실행 트랜잭션을 방지 하기 위해 트랜잭션이 활성 상태인 동안에는 수행할 수 없습니다.
 
@@ -140,7 +140,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 작업이 성공적으로 완료되고, 작업이 병렬로 실행되고, 큐를 수정하는 다른 동시 트랜잭션이 없다고 가정합니다. 큐에 있는 항목의 순서를 방해할 수 없으므로 *dequeue1* 및 *dequeue2* 목록은 순서에 관계없이 각각 두 개의 항목을 포함합니다.
 
-동일한 항목은 두 목록에 모두 표시되지 *않습니다*. 따라서 dequeue1에 *10*, *30*이 있으면 dequeue2에는 *20*, *40*이 포함됩니다.
+동일한 항목은 두 목록에 모두 표시되지 *않습니다*. 따라서 dequeue1에 *10*, *30* 이 있으면 dequeue2에는 *20*, *40* 이 포함됩니다.
 
 - *사례 3: 트랜잭션이 중단된 큐에서 제거 순서*
 
@@ -303,7 +303,7 @@ do
 ```
 
 ### <a name="peek"></a>보기
-ReliableConcurrentQueue는 *TryPeekAsync* API를 제공하지 않습니다. 사용자는 *TryDequeueAsync*를 사용한 다음 트랜잭션을 중단하여 보기 의미 체계를 가져올 수 있습니다. 이 예제에서는 큐에서 제거는 항목의 값이 *10*보다 큰 경우에만 처리됩니다.
+ReliableConcurrentQueue는 *TryPeekAsync* API를 제공하지 않습니다. 사용자는 *TryDequeueAsync* 를 사용한 다음 트랜잭션을 중단하여 보기 의미 체계를 가져올 수 있습니다. 이 예제에서는 큐에서 제거는 항목의 값이 *10* 보다 큰 경우에만 처리됩니다.
 
 ```
 using (var txn = this.StateManager.CreateTransaction())

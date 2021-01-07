@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 385d9126d578250064659153f6f0f54eec696790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f70cf96baed274eaf260832bd83ab0e2c91f3683
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60870675"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967043"
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>StorSimple 가상 배열 업데이트 0.5 릴리스 정보
 
@@ -29,7 +29,7 @@ ms.locfileid: "60870675"
 
 릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. StorSimple 가상 배열을 배포하기 전에 릴리스 정보에 포함된 정보를 주의 깊게 검토하세요.
 
-업데이트 0.5는 소프트웨어 버전 **10.0.10290.0**에 해당합니다.
+업데이트 0.5는 소프트웨어 버전 **10.0.10290.0** 에 해당합니다.
 
 > [!NOTE]
 > 업데이트는 작업 중단 업데이트이며 디바이스를 다시 시작합니다. I/O가 진행 중인 경우 디바이스에 가동 중지 시간이 발생합니다. 업데이트를 적용하는 방법에 대한 자세한 내용은 [업데이트 0.5 설치](storsimple-virtual-array-install-update-05.md)를 참조하세요.
@@ -47,7 +47,7 @@ ms.locfileid: "60870675"
 
 다음 표에서는 이 릴리스에서 수정된 문제를 간략하게 설명합니다.
 
-| 아니요. | 기능 | 문제점 |
+| 아니요. | 기능 | 문제 |
 | --- | --- | --- |
 | 1 |Backup 복원력| 이전 릴리스에서는 특정 예외에 대해서만 백업이 다시 시도되었습니다. 이 릴리스에는 모든 백업 예외를 다시 시도하여 백업 복원력을 높이는 수정 내용이 포함되어 있습니다.|
 | 2 |모니터링| 2017년 6월 30일부터 StorSimple 가상 디바이스 시리즈에 대한 스토리지 사용 모니터링이 사용되지 않습니다. 이 작업은 StorSimple 가상 배열(1200 모델)에서 실행되는 StorSimple 디바이스 관리자 서비스의 모니터링 차트에 영향을 줍니다. 이 릴리스에는 사용자가 2017년 6월 30일 이후에도 가상 배열에서 스토리지 사용 모니터링을 사용할 수 있게 해주는 업데이트가 포함되어 있습니다.|
@@ -58,7 +58,7 @@ ms.locfileid: "60870675"
 
 다음 표에서는 이전 릴리스에서 언급된 문제 릴리스를 포함하여 StorSimple 가상 배열에 대해 알려진 문제를 간략하게 제공합니다.
 
-| 아니요. | 기능 | 문제점 | 해결 방법/설명 |
+| 아니요. | 기능 | 문제 | 해결 방법/설명 |
 | --- | --- | --- | --- |
 | **1.** |업데이트 |미리 보기 릴리스에서 만든 가상 디바이스는 지원되는 일반 사용 가능 버전으로 업데이트될 수 없습니다. |이러한 가상 디바이스는 재해 복구(DR) 워크플로를 사용하여 일반 사용 가능 릴리스로 장애 조치되어야 합니다. |
 | **2.** |프로비전된 데이터 디스크 |특정한 크기의 데이터 디스크를 프로비전하고 해당 StorSimple 가상 디바이스를 만들고 나면, 데이터 크기를 확장하거나 축소하지 말아야 합니다. 이를 시도하면 디바이스의 로컬 계층에서 모든 데이터가 손실됩니다. | |
@@ -86,5 +86,4 @@ StorSimple 가상 배열에 [업데이트 0.5를 설치](storsimple-virtual-arra
 * [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
-* [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
-
+* [StorSimple 가상 배열 일반 공급 릴리스 정보](./storsimple-virtual-array-update-06-release-notes.md)

@@ -1,25 +1,19 @@
 ---
 title: 사용자 고유의 구독 Azure 이미지를 가져오는 Red Hat Enterprise Linux | Microsoft Docs
 description: Azure에서 Red Hat Enterprise Linux에 대 한 사용자 고유의 구독 이미지를 확인 하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
-ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: 9a53eb1004d68045781903b71d02c3416f494be2
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052163"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803819"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
@@ -28,14 +22,14 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 >[!NOTE]
 > RHEL BYOS 골드 이미지는 Azure 공용 (상용) 및 Azure Government 클라우드에서 사용할 수 있습니다. Azure 중국 또는 Azure 블랙 포리스트 클라우드에서 사용할 수 없습니다.
 
-## <a name="important-points-to-consider"></a>고려해 야 할 중요 사항
+## <a name="important-points-to-consider"></a>고려할 중요한 사항
 
 - 이 프로그램에서 제공 하는 Red Hat 골드 이미지는 Azure Marketplace의 RHEL 종 량 제 이미지와 비슷한 프로덕션 준비 RHEL 이미지입니다.
 - 이미지는 [Azure의 Red Hat Enterprise Linux 이미지](./redhat-images.md)에 설명 된 현재 정책을 따릅니다.
 - 표준 지원 정책은 이러한 이미지에서 만든 Vm에 적용 됩니다.
 - Red Hat 골드 이미지에서 프로 비전 된 Vm은 RHEL 종 량 제 이미지와 관련 된 RHEL 요금을 운반 하지 않습니다.
-- 이미지에 대 한 자격이 없습니다. Red hat 구독 관리자를 사용 하 여 Red Hat에서 직접 업데이트를 가져오도록 Vm을 등록 하 고 구독 해야 합니다.
-- 현재는 BYOS와 Linux 이미지에 대 한 종 량 제 청구 모델 간을 동적으로 전환할 수 없습니다. 청구 모델을 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
+- 이미지에 대 한 자격이 없습니다. Red hat에서 직접 업데이트를 받으려면 Red Hat Subscription-Manager를 사용 하 여 Vm을 등록 하 고 구독 해야 합니다.
+- [Azure 하이브리드 혜택](../../linux/azure-hybrid-benefit-linux.md)를 사용 하 여 종 량 제 이미지에서 byos로 전환할 수 있습니다. 그러나 처음에 배포한 BYOS에서 Linux 이미지에 대 한 종 량 제 청구 모델로 전환 하는 것은 불가능 합니다. 청구 모델을 BYOS에서 종 량 제로 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
 
 >[!NOTE]
 > 2 세대 RHEL BYOS 이미지는 현재 marketplace 제품을 통해 사용할 수 없습니다. 2 세대 RHEL BYOS 이미지가 필요한 경우 Red Hat 구독 관리에서 클라우드 액세스 대시보드를 방문 합니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/articles/4847681)를 참조 하세요.
@@ -52,7 +46,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>Azure Portal의 Red Hat 금색 이미지를 사용 합니다.
 
-1. Azure 구독이 Red Hat 골드 이미지에 대 한 액세스를 받은 후 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **리소스 만들기**를  >  **참조**하세요.
+1. Azure 구독이 Red Hat 골드 이미지에 대 한 액세스를 받은 후 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **리소스 만들기** 를  >  **참조** 하세요.
 
 1. 페이지 맨 위에 개인 제안이 있는 것을 볼 수 있습니다.
 
@@ -100,7 +94,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
     ```
 
     >[!NOTE]
-    >이러한 용어 *는 이미지 SKU 당 Azure 구독 당 한 번만*허용 해야 합니다.
+    >이러한 용어 *는 이미지 SKU 당 Azure 구독 당 한 번만* 허용 해야 합니다.
 
 1. 필드 다음 명령을 사용 하 여 VM 배포의 유효성을 검사 합니다.
 
@@ -120,7 +114,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
-1. VM에 SSH를 적용 하 고, 자격이 없는 이미지가 있는지 확인 합니다. 이 단계를 수행 하려면를 실행 `sudo yum repolist` 합니다. RHEL 8의 경우를 사용 `sudo dnf repolist` 합니다. 출력에는 구독 관리자를 사용 하 여 Red Hat에 VM을 등록 하 라는 메시지가 표시 됩니다.
+1. VM에 SSH를 적용 하 고, 자격이 없는 이미지가 있는지 확인 합니다. 이 단계를 수행 하려면를 실행 `sudo yum repolist` 합니다. RHEL 8의 경우를 사용 `sudo dnf repolist` 합니다. 출력은 Subscription-Manager를 사용 하 여 Red Hat로 VM을 등록 하 라는 메시지를 표시 합니다.
 
 >[!NOTE]
 >RHEL 8에서 `dnf` 및 `yum` 는 서로 바꿔 사용할 수 있습니다. 자세한 내용은 [RHEL 8 관리자 가이드](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index)를 참조 하세요.
@@ -222,4 +216,4 @@ Azure Disk Encryption를 적용 하는 단계는 [Linux vm에 대 한 Azure Disk
 - Red Hat 업데이트 인프라에 대해 자세히 알아보려면 [Azure Red Hat 업데이트 인프라](./redhat-rhui.md)를 참조 하세요.
 - Azure의 모든 Red Hat 이미지에 대해 자세히 알아보려면 [설명서 페이지](./redhat-images.md)를 참조 하세요.
 - 모든 버전의 RHEL에 대 한 Red Hat 지원 정책에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지를 참조 하세요.
-- RHEL 골드 이미지에 대 한 추가 설명서는 [Red Hat 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure)를 참조 하세요.
+- RHEL 골드 이미지에 대 한 추가 설명서는 [Red Hat 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access)를 참조 하세요.

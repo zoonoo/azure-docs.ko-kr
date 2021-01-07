@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f547f0b3219889b54364c4805c2dd5b183a9861a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888131"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392370"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>보존 정책을 사용 하 여 기록 데이터 관리
 
@@ -66,11 +66,11 @@ select @rowcnt
 
 ## <a name="monitoring-data-retention-cleanup"></a>데이터 보존 정리 모니터링
 
-Azure SQL Edge에서 확장 이벤트 (Xevent)를 사용 하 여 데이터 보존 정책 정리 작업을 모니터링할 수 있습니다. 확장 이벤트에 대 한 자세한 내용은 [Xevent 개요](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)를 참조 하세요. 
+Azure SQL Edge에서 확장 이벤트 (Xevent)를 사용 하 여 데이터 보존 정책 정리 작업을 모니터링할 수 있습니다. 확장 이벤트에 대 한 자세한 내용은 [Xevent 개요](/sql/relational-databases/extended-events/extended-events)를 참조 하세요. 
 
 다음 6 개의 확장 이벤트는 정리 작업의 상태를 추적 하는 데 도움이 됩니다. 
 
-| 이름 | 설명 |
+| 이름 | Description |
 |------| ------------|
 | data_retention_task_started  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 시작 될 때 발생 합니다. |
 | data_retention_task_completed  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 종료 될 때 발생 합니다. |
@@ -79,7 +79,7 @@ Azure SQL Edge에서 확장 이벤트 (Xevent)를 사용 하 여 데이터 보�
 | data_retention_cleanup_exception  | 보존 정책이 있는 테이블의 정리 프로세스가 실패 하는 경우 발생 합니다. |
 | data_retention_cleanup_completed  | 데이터 보존 정책이 있는 테이블의 정리 프로세스가 종료 될 때 발생 합니다. |  
 
-또한 라는 새 링 버퍼 형식이 `RING_BUFFER_DATA_RETENTION_CLEANUP` dm_os_ring_buffers 동적 관리 뷰에 추가 되었습니다. 이 보기를 사용 하 여 데이터 보존 정리 작업을 모니터링할 수 있습니다. 
+또한 동적 관리 뷰에 sys.dm_os_ring_buffers 이라는 새 링 버퍼 유형이 `RING_BUFFER_DATA_RETENTION_CLEANUP` 추가 되었습니다. 이 보기를 사용 하 여 데이터 보존 정리 작업을 모니터링할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

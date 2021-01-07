@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 6ef7efe3d48fd20c5141803430260a80395faa82
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27c78566877f27e80ae5ae27c5250f228c7ae676
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877840"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017878"
 ---
 ### <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>AKS 클러스터에 핵심 구 추출 컨테이너 배포
 
@@ -48,7 +49,7 @@ ms.locfileid: "80877840"
     code .
     ```
 
-1. 텍스트 편집기 내에서 *키 구*라는 새 파일을 만들고 다음 yaml를이 파일에 붙여넣습니다. `billing/value`및을 `apikey/value` 사용자의 정보로 바꾸어야 합니다.
+1. 텍스트 편집기 내에서 *키 구* 라는 새 파일을 만들고 다음 yaml를이 파일에 붙여넣습니다. `billing/value`및을 `apikey/value` 사용자의 정보로 바꾸어야 합니다.
 
     ```yaml
     apiVersion: apps/v1beta1

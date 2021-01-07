@@ -3,20 +3,18 @@ title: 엔터프라이즈 개념-LUIS
 titleSuffix: Azure Cognitive Services
 description: 규모가 큰 LUIS 앱 또는 LUIS 및 QnA Maker를 함께 포함하는 여러 앱에 대한 디자인 개념을 이해합니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e2165b81c7cd634fe79ec4438a550ad365f5a30
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221524"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019180"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 앱의 엔터프라이즈 전략
 엔터프라이즈 앱의 이러한 디자인 전략을 검토합니다.
@@ -31,7 +29,7 @@ LUIS app request rate가 허용 된 [할당량](https://azure.microsoft.com/pric
 * 앱에 [여러 키](#assign-multiple-luis-keys-to-same-app) 를 만들고 할당 합니다. 
 
 ### <a name="use-multiple-apps-with-same-app-definition"></a>동일한 앱 정의가 포함된 여러 앱 사용
-원래 LUIS 앱을 내보낸 다음, 앱을 다시 개별 앱으로 가져옵니다. 각 앱에는 고유한 앱 ID가 있습니다. 게시할 때 모든 앱에서 동일한 키를 사용하는 대신 각 앱에 개별 키를 만듭니다. 단일 앱에 집중되지 않도록 부하를 모든 앱에 분산시킵니다. [Application Insights](luis-tutorial-bot-csharp-appinsights.md)를 추가하여 사용을 모니터링합니다. 
+원래 LUIS 앱을 내보낸 다음, 앱을 다시 개별 앱으로 가져옵니다. 각 앱에는 고유한 앱 ID가 있습니다. 게시할 때 모든 앱에서 동일한 키를 사용하는 대신 각 앱에 개별 키를 만듭니다. 단일 앱에 집중되지 않도록 부하를 모든 앱에 분산시킵니다. [Application Insights](./luis-csharp-tutorial-bf-v4.md)를 추가하여 사용을 모니터링합니다. 
 
 모든 앱 간에 동일한 상위 의도를 가져오려면 첫 번째 의도와 두 번째 의도 간의 의도 예측이 LUIS에서 혼동하지 않을 만큼 충분히 폭넓은지 확인하여 음성의 사소한 변형에 대해 앱 간에 서로 다른 결과를 제공합니다. 
 
@@ -50,10 +48,10 @@ LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인�
 활성 학습의 주기적인 [엔드포인트 발화 검토](luis-how-to-review-endpoint-utterances.md)를 예약한 다음(예: 격주), 다시 학습시키고 다시 게시합니다. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>500개 이상의 의도가 필요한 경우
-500를 초과 하는 office 길잡이를 개발 하 고 있다고 가정 합니다. 200개의 의도는 모임 예약에 관련되고, 200개는 미리 알림에 관련되고, 200개는 동료 정보 가져오기에 관련되고, 200개는 메일 보내기에 관련된 경우, 각 그룹이 단일 앱에 있도록 의도를 그룹화한 다음, 각 의도가 포함된 최상위 앱을 만듭니다. [디스패치 모델](#dispatch-tool-and-model) 을 사용 하 여 최상위 앱을 빌드 하세요. 그런 다음 [디스패치 모델의 자습서](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)에 표시 된 것 처럼 연계 호출을 사용 하도록 봇을 변경 합니다. 
+500를 초과 하는 office 길잡이를 개발 하 고 있다고 가정 합니다. 200개의 의도는 모임 예약에 관련되고, 200개는 미리 알림에 관련되고, 200개는 동료 정보 가져오기에 관련되고, 200개는 메일 보내기에 관련된 경우, 각 그룹이 단일 앱에 있도록 의도를 그룹화한 다음, 각 의도가 포함된 최상위 앱을 만듭니다. [디스패치 모델](#dispatch-tool-and-model) 을 사용 하 여 최상위 앱을 빌드 하세요. 그런 다음 [디스패치 모델의 자습서](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)에 표시 된 것 처럼 연계 호출을 사용 하도록 봇을 변경 합니다. 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>여러 LUIS 및 QnA Maker 앱을 결합해야 하는 경우
-봇에 응답 해야 하는 LUIS 및 QnA maker 앱이 여러 개 있는 경우 [디스패치 모델](#dispatch-tool-and-model) 을 사용 하 여 최상위 앱을 빌드 하세요.  그런 다음 [디스패치 모델의 자습서](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)에 표시 된 것 처럼 연계 호출을 사용 하도록 봇을 변경 합니다. 
+봇에 응답 해야 하는 LUIS 및 QnA maker 앱이 여러 개 있는 경우 [디스패치 모델](#dispatch-tool-and-model) 을 사용 하 여 최상위 앱을 빌드 하세요.  그런 다음 [디스패치 모델의 자습서](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)에 표시 된 것 처럼 연계 호출을 사용 하도록 봇을 변경 합니다. 
 
 ## <a name="dispatch-tool-and-model"></a>디스패치 도구 및 모델
 [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools)에 있는 [Dispatch][dispatch-tool] 명령줄 도구를 사용하여 여러 LUIS 및/또는 QnA Maker 앱을 부모 LUIS 앱으로 결합합니다. 이 접근법을 통해 모든 주체 및 다른 자식 주체 도메인을 개별 앱에 포함하는 부모 도메인을 사용할 수 있습니다. 
@@ -64,21 +62,21 @@ LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인�
 
 채팅 봇은 utterance를 받은 다음 예측을 위해 부모 LUIS 앱에 보냅니다. 부모 앱에서 가장 많이 예측 된 의도는 다음에 호출 되는 LUIS 자식 앱을 결정 합니다. 채팅 봇은 보다 구체적인 예측을 위해 자식 앱에 utterance를 보냅니다.
 
-이 호출 계층 구조가 Bot Builder v4 [dispatcher-application-tutorial](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)에서 만들어지는 방식을 이해합니다.  
+이 호출 계층 구조가 Bot Builder v4 [dispatcher-application-tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)에서 만들어지는 방식을 이해합니다.  
 
 ### <a name="intent-limits-in-dispatch-model"></a>디스패치 모델의 의도 제한
 디스패치 애플리케이션에는 최댓값으로 500개 의도에 해당하는 500개 디스패치 원본이 있습니다. 
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 * [Bot framework SDK](https://github.com/Microsoft/botframework)
-* [모델 디스패치 자습서](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
+* [모델 디스패치 자습서](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)
 * [CLI 디스패치](https://github.com/Microsoft/botbuilder-tools)
-* 디스패치 모델 봇 샘플- [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
+* 디스패치 모델 봇 샘플- [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [일괄 테스트](luis-how-to-batch-test.md) 방법 알아보기
 
-[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
+[dispatcher-application-tutorial]: /azure/bot-service/bot-builder-tutorial-dispatch?branch=master
 [dispatch-tool]: https://aka.ms/dispatch-tool

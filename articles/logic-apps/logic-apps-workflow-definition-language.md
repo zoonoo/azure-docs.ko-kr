@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 71929cd449f4a00b91cc6c8620b33b0e0c6d506c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078141"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대 한 스키마 참조 가이드
@@ -35,16 +35,16 @@ ms.locfileid: "87078141"
 }
 ```
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 |-----------|----------|-------------|
 | `definition` | 예 | 워크플로 정의에 대한 시작 요소 |
 | `$schema` | 외부에서 워크플로 정의를 참조하는 경우만 | 워크플로 정의 언어의 버전을 설명하는 JSON 스키마 파일의 위치를 여기서 찾을 수 있습니다. <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| `actions` | 예 | 워크플로 런타임에서 실행할 하나 이상의 작업에 대 한 정의입니다. 자세한 내용은 [트리거 및 작업](#triggers-actions)을 참조 하세요. <p><p>최대 작업: 250 |
-| `contentVersion` | 예 | 워크플로 정의의 버전 번호는 기본적으로 “1.0.0.0”입니다. 워크플로 배포하는 경우 올바른 정의를 식별하고 확인하려면 사용할 값을 지정합니다. |
-| `outputs` | 예 | 워크플로 실행에서 반환 되는 출력에 대 한 정의입니다. 자세한 내용은 [출력](#outputs)을 참조 하세요. <p><p>최대 출력: 10 |
-| `parameters` | 예 | 논리 앱의 런타임에 사용할 값을 전달 하는 하나 이상의 매개 변수에 대 한 정의입니다. 자세한 내용은 [매개 변수](#parameters)를 참조하세요. <p><p>최대 매개 변수: 50 |
-| `staticResults` | 예 | 이러한 작업에 정적 결과가 사용 되는 경우 작업에서 모의 출력으로 반환 하는 하나 이상의 정적 결과에 대 한 정의입니다. 각 작업 정의에서 특성은 `runtimeConfiguration.staticResult.name` 내부에서 해당 하는 정의를 참조 합니다 `staticResults` . 자세한 내용은 [정적 결과](#static-results)를 참조 하세요. |
-| `triggers` | 예 | 워크플로를 인스턴트화하는 하나 이상의 트리거에 대한 정의 Logic Apps Designer를 사용하여 시각적으로가 아닌, 워크플로 정의 언어를 통해서만 하나 초과 트리거를 정의할 수 있습니다. 자세한 내용은 [트리거 및 작업](#triggers-actions)을 참조 하세요. <p><p>최대 트리거: 10 |
+| `actions` | 아니요 | 워크플로 런타임에서 실행할 하나 이상의 작업에 대 한 정의입니다. 자세한 내용은 [트리거 및 작업](#triggers-actions)을 참조 하세요. <p><p>최대 작업: 250 |
+| `contentVersion` | 아니요 | 워크플로 정의의 버전 번호는 기본적으로 “1.0.0.0”입니다. 워크플로 배포하는 경우 올바른 정의를 식별하고 확인하려면 사용할 값을 지정합니다. |
+| `outputs` | 아니요 | 워크플로 실행에서 반환 되는 출력에 대 한 정의입니다. 자세한 내용은 [출력](#outputs)을 참조 하세요. <p><p>최대 출력: 10 |
+| `parameters` | 아니요 | 논리 앱의 런타임에 사용할 값을 전달 하는 하나 이상의 매개 변수에 대 한 정의입니다. 자세한 내용은 [매개 변수](#parameters)를 참조하세요. <p><p>최대 매개 변수: 50 |
+| `staticResults` | 아니요 | 이러한 작업에 정적 결과가 사용 되는 경우 작업에서 모의 출력으로 반환 하는 하나 이상의 정적 결과에 대 한 정의입니다. 각 작업 정의에서 특성은 `runtimeConfiguration.staticResult.name` 내부에서 해당 하는 정의를 참조 합니다 `staticResults` . 자세한 내용은 [정적 결과](#static-results)를 참조 하세요. |
+| `triggers` | 아니요 | 워크플로를 인스턴트화하는 하나 이상의 트리거에 대한 정의 Logic Apps Designer를 사용하여 시각적으로가 아닌, 워크플로 정의 언어를 통해서만 하나 초과 트리거를 정의할 수 있습니다. 자세한 내용은 [트리거 및 작업](#triggers-actions)을 참조 하세요. <p><p>최대 트리거: 10 |
 ||||
 
 <a name="triggers-actions"></a>
@@ -74,13 +74,13 @@ ms.locfileid: "87078141"
 },
 ```
 
-| 특성 | 필수 | Type | 설명 |
+| attribute | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
 | <*매개 변수-이름*> | 예 | String | 정의 하려는 매개 변수의 이름입니다. |
 | <*매개 변수 형식*> | 예 | int, float, string, bool, array, object, securestring, secureobject <p><p>**참고**: 모든 암호, 키 및 비밀의 경우 `securestring` `secureobject` `GET` 작업이 이러한 형식을 반환 하지 않으므로 또는 형식을 사용 합니다. 매개 변수 보안에 대 한 자세한 내용은 [작업 및 입력 매개 변수에 대 한 보안 권장 사항](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)을 참조 하세요. | 매개 변수의 형식 |
 | <*기본 매개 변수 값*> | 예 | `type`과 동일 | 워크플로에서 인스턴스화할 때 값이 지정 되지 않은 경우 사용할 기본 매개 변수 값입니다. `defaultValue`이 특성은 논리 앱 디자이너에서 매개 변수를 올바르게 표시 하는 데 필요 하지만 빈 값을 지정할 수 있습니다. |
-| <*허용 되는 매개 변수-값 배열*> | 예 | 배열 | 매개 변수를 수용할 수 있는 값으로 배열 |
-| <*매개 변수-설명*> | 예 | JSON 개체 | 매개 변수에 대 한 설명과 같은 다른 모든 매개 변수 세부 정보 |
+| <*허용 되는 매개 변수-값 배열*> | 아니요 | 배열 | 매개 변수를 수용할 수 있는 값으로 배열 |
+| <*매개 변수-설명*> | 아니요 | JSON 개체 | 매개 변수에 대 한 설명과 같은 다른 모든 매개 변수 세부 정보 |
 ||||
 
 그런 다음 워크플로 정의에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/overview.md) 만들고, 배포할 때 원하는 값을 허용 하는 템플릿 매개 변수를 정의 하 고, 하드 코드 된 값을 템플릿 또는 워크플로 정의 매개 변수에 대 한 참조로 바꾸고, 배포 시 사용할 값을 별도의 [매개 변수 파일](../azure-resource-manager/templates/parameter-files.md)에 저장 합니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 매개 변수 파일을 통해 이러한 값을 보다 쉽게 변경할 수 있습니다. 사용자 이름, 암호 및 암호와 같은 중요 하거나 보안을 유지 해야 하는 정보는 Azure Key Vault에 해당 값을 저장 하 고 매개 변수 파일에서 키 자격 증명 모음에서 해당 값을 검색 하도록 할 수 있습니다. 템플릿 및 워크플로 정의 수준에서 매개 변수를 정의 하는 방법에 대 한 자세한 내용 및 예제는 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
@@ -112,11 +112,11 @@ ms.locfileid: "87078141"
 }
 ```
 
-| 특성 | 필수 | Type | 설명 |
+| attribute | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
 | <*정적-결과-정의-이름*> | 예 | String | 작업 정의가 개체를 통해 참조할 수 있는 정적 결과 정의의 이름입니다 `runtimeConfiguration.staticResult` . 자세한 내용은 [런타임 구성 설정](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)을 참조하세요. <p>원하는 고유한 이름을 사용할 수 있습니다. 기본적으로이 고유 이름에는 필요에 따라 증가 하는 숫자가 추가 됩니다. |
 | <*출력-특성-값-반환 됨*> | 예 | 상황에 따라 다름 | 이러한 특성에 대 한 요구 사항은 다양 한 조건에 따라 달라 집니다. 예를 들어 `status` 가 인 경우 `Succeeded` 특성은 `outputs` 작업에서 모의 출력으로 반환 되는 특성 및 값을 포함 합니다. `status`가 인 경우 `Failed` 특성은 `outputs` `errors` 특성을 포함 하며,이 특성은 오류 정보가 있는 하나 이상의 오류 `message` 개체를 포함 하는 배열입니다. |
-| <*헤더-값*> | 예 | JSON | 작업에서 반환 된 모든 헤더 값 |
+| <*헤더-값*> | 아니요 | JSON | 작업에서 반환 된 모든 헤더 값 |
 | <*상태-코드 반환 됨*> | 예 | String | 작업에서 반환 된 상태 코드입니다. |
 | <*작업-상태*> | 예 | String | 작업의 상태 (예: 또는)입니다. `Succeeded``Failed` |
 |||||
@@ -257,7 +257,7 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 
 <a name="outputs"></a>
 
-## <a name="outputs"></a>출력
+## <a name="outputs"></a>outputs
 
 `outputs` 섹션에서 워크플로가 실행을 종료할 때 반환할 수 있는 데이터를 정의합니다. 예를 들어, 각 실행에서 특정 상태 또는 값을 추적하려면 워크플로 출력이 해당 데이터를 반환하도록 지정합니다.
 
@@ -275,7 +275,7 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 }
 ```
 
-| 특성 | 필수 | Type | 설명 |
+| attribute | 필수 | Type | 설명 |
 |-----------|----------|------|-------------|
 | <*키 이름*> | 예 | String | 출력 반환 값에 대한 키 이름 |
 | <*키 유형*> | 예 | int, float, 문자열, securestring, bool, 배열, JSON 개체 | 출력 반환 값의 형식 |
@@ -290,7 +290,7 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 
 [식](#expressions) 및 [함수](#functions)에서 연산자는 속성 참조 또는 배열의 값 등의 특정 작업을 수행합니다.
 
-| 연산자 | 작업 |
+| 연산자 | Task |
 |----------|------|
 | ' | 리터럴 문자열을 입력으로 또는 식 및 함수에서 사용하려면 작은따옴표, 예를 들어 `'<myString>'`만 사용하여 문자열을 래핑합니다. 전체 식에서 JSON 서식과 충돌하는 큰따옴표("")를 사용하지 마세요. 예를 들면 다음과 같습니다. <p>**예**: length('Hello') </br>**아니요**: length('Hello') <p>배열이나 숫자를 전달할 때 문장 부호를 래핑하지 않아도 됩니다. 예를 들면 다음과 같습니다. <p>**예**: length([1, 2, 3]) </br>**아니요**: length([1, 2, 3]) |
 | [] | 배열의 특정 위치(인덱스)에서 값을 참조하려면 대괄호를 사용합니다. 예를 들어 배열에서 두 번째 항목을 가져오려면: <p>`myArray[1]` |

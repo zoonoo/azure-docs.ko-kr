@@ -1,18 +1,21 @@
 ---
 title: Azure Migrate Server 평가에서 에이전트 기반 종속성 분석 설정
 description: 이 문서에서는 Azure Migrate Server 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 6/09/2020
-ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 11/25/2020
+ms.openlocfilehash: d4bf635c57bcef41cd0f3285d8a91bae4b3e0415
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022380"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752025"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
-이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 없는 종속성 분석을 설정 하는 방법을 설명 합니다. [종속성 분석](concepts-dependency-visualization.md) 을 사용 하면 평가 하 고 Azure로 마이그레이션하려는 컴퓨터 간의 종속성을 식별 하 고 이해할 수 있습니다.
+이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 기반 종속성 분석을 설정 하는 방법을 설명 합니다. [종속성 분석](concepts-dependency-visualization.md) 을 사용 하면 평가 하 고 Azure로 마이그레이션하려는 컴퓨터 간의 종속성을 식별 하 고 이해할 수 있습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -21,7 +24,7 @@ ms.locfileid: "89022380"
     - [물리적 서버](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [Hyper-v vm](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - 다음을 확인합니다.
-    - Azure Migrate 프로젝트가 있어야 합니다. 그렇지 않은 경우 지금 [만듭니다](how-to-add-tool-first-time.md) .
+    - Azure Migrate 프로젝트가 있어야 합니다. 그렇지 않은 경우 지금 [만듭니다](./create-manage-projects.md) .
     - Azure Migrate: 서버 평가 도구를 프로젝트에 [추가](how-to-assess.md) 했는지 확인 합니다.
     - 온-프레미스 컴퓨터를 검색 하도록 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 설정 합니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. 어플라이언스 설정:
         - [VMware](how-to-set-up-appliance-vmware.md) Vm.
@@ -38,13 +41,13 @@ ms.locfileid: "89022380"
 
 ## <a name="associate-a-workspace"></a>작업 영역 연결
 
-1. 평가를 위해 컴퓨터를 검색 한 후 **서버**  >  **Azure Migrate: 서버 평가**에서 **개요**를 클릭 합니다.  
-2. **Azure Migrate: 서버 평가**에서 **Essentials**를 클릭 합니다.
-3. **OMS 작업 영역**에서 **구성 필요**를 클릭 합니다.
+1. 평가를 위해 컴퓨터를 검색 한 후 **서버**  >  **Azure Migrate: 서버 평가** 에서 **개요** 를 클릭 합니다.  
+2. **Azure Migrate: 서버 평가** 에서 **Essentials** 를 클릭 합니다.
+3. **OMS 작업 영역** 에서 **구성 필요** 를 클릭 합니다.
 
      ![Log Analytics 작업 영역 구성](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
-4. **OMS 작업 영역 구성**에서 새 작업 영역을 만들지, 아니면 기존 작업 영역을 사용할지를 지정 합니다.
+4. **OMS 작업 영역 구성** 에서 새 작업 영역을 만들지, 아니면 기존 작업 영역을 사용할지를 지정 합니다.
     - 프로젝트 마이그레이션 구독의 모든 작업 영역에서 기존 작업 영역을 선택할 수 있습니다.
     - 연결 하려면 작업 영역에 대 한 읽기 권한이 있어야 합니다.
 5. 새 작업 영역을 만드는 경우 해당 위치를 선택 합니다.
@@ -59,10 +62,10 @@ ms.locfileid: "89022380"
 > [!NOTE]
 > System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. 통합 지침을 [따릅니다](../azure-monitor/insights/service-map-scom.md#prerequisites) .
 
-1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
-2. 종속성 시각화를 사용 하 여 분석 하려는 각 컴퓨터에 대해 **종속성** 열에서 **에이전트 설치 필요**를 클릭 합니다.
+1. **Azure Migrate: 서버 평가** 에서 검색 된 **서버** 를 클릭 합니다.
+2. 종속성 시각화를 사용 하 여 분석 하려는 각 컴퓨터에 대해 **종속성** 열에서 **에이전트 설치 필요** 를 클릭 합니다.
 3. **종속성** 페이지에서 Windows 또는 LINUX 용 MMA 및 종속성 에이전트를 다운로드 합니다.
-4. **MMA 에이전트 구성**에서 작업 영역 ID 및 키를 복사 합니다. MMA 에이전트를 설치할 때 필요 합니다.
+4. **MMA 에이전트 구성** 에서 작업 영역 ID 및 키를 복사 합니다. MMA 에이전트를 설치할 때 필요 합니다.
 
     ![에이전트 설치](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 
@@ -76,14 +79,14 @@ ms.locfileid: "89022380"
 Windows 컴퓨터에 에이전트를 설치하려면
 
 1. 다운로드한 에이전트를 두 번 클릭합니다.
-2. **Welcome** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의함**을 클릭하여 라이선스에 동의합니다.
-3. **대상 폴더**에서 기본 설치 폴더를 유지하거나 수정하고 **다음**을 클릭합니다.
-4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
-5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
+2. **Welcome** 페이지에서 **다음** 을 클릭합니다. **사용 조건** 페이지에서 **동의함** 을 클릭하여 라이선스에 동의합니다.
+3. **대상 폴더** 에서 기본 설치 폴더를 유지하거나 수정하고 **다음** 을 클릭합니다.
+4. **에이전트 설치 옵션** 에서 **Azure Log Analytics** > **다음** 을 차례로 선택합니다.
+5. **추가** 를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음** 을 클릭합니다.
 
 명령줄에서 또는 Configuration Manager 또는 [Intigua](https://www.intigua.com/intigua-for-azure-migration)같은 자동화 된 방법을 사용 하 여 에이전트를 설치할 수 있습니다.
 - 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#installation-options).
-- MMA 에이전트는 이 [스크립트](https://go.microsoft.com/fwlink/?linkid=2104394)를 사용하여 설치할 수도 있습니다.
+- MMA 에이전트는 이 [스크립트](https://github.com/brianbar-MSFT/Install-MMA)를 사용하여 설치할 수도 있습니다.
 - MMA에서 지 원하는 Windows 운영 체제에 [대해 자세히 알아보세요](../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
 
 ### <a name="install-mma-on-a-linux-machine"></a>Linux 컴퓨터에 MMA 설치
@@ -116,7 +119,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure
 > [!NOTE]
 > 종속성을 시각화하려는 그룹에는 10개 이하의 컴퓨터만 포함되어 있어야 합니다. 컴퓨터가 10 대 이상인 경우 더 작은 그룹으로 분할 합니다.
 
-1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
+1. **Azure Migrate: 서버 평가** 에서 검색 된 **서버** 를 클릭 합니다.
 2. **종속성** 열에서 검토 하려는 각 컴퓨터에 대 한 **종속성 보기** 를 클릭 합니다.
 3. 종속성 맵에서 다음을 확인할 수 있습니다.
     - 컴퓨터와의 인바운드 (클라이언트) 및 아웃 바운드 (서버) TCP 연결
@@ -130,7 +133,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure
     - 시간 범위를 수정하거나 시작 및 종료 날짜와 기간을 지정할 수 있습니다.
     - 시간 범위는 최대 1 시간까지 가능 합니다. 더 긴 범위가 필요한 경우 Azure Monitor를 사용 하 여 더 긴 기간 동안 종속 데이터를 쿼리 합니다.
 
-5. 함께 그룹화 하려는 종속 컴퓨터를 식별 한 후에는 Ctrl + 클릭을 사용 하 여 맵에서 여러 컴퓨터를 선택 하 고 **그룹 컴퓨터**를 클릭 합니다.
+5. 함께 그룹화 하려는 종속 컴퓨터를 식별 한 후에는 Ctrl + 클릭을 사용 하 여 맵에서 여러 컴퓨터를 선택 하 고 **그룹 컴퓨터** 를 클릭 합니다.
 6. 그룹 이름을 지정합니다.
 7. Azure Migrate에서 종속 컴퓨터가 검색되는지 확인합니다.
 
@@ -138,7 +141,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure
     - 컴퓨터를 추가 하려면 검색을 다시 실행 하 고 컴퓨터가 검색 되는지 확인 합니다.
 
 8. 이 그룹에 대한 평가를 만들려면 그룹에 대한 새 평가를 만드는 확인란을 선택합니다.
-8. **확인**을 클릭하여 그룹을 저장합니다.
+8. **확인** 을 클릭하여 그룹을 저장합니다.
 
 그룹을 만든 후에는 그룹의 모든 컴퓨터에 에이전트를 설치한 다음 전체 그룹에 대 한 종속성을 시각화 하는 것이 좋습니다.
 
@@ -147,15 +150,15 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure
 Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서비스 맵 하 여 캡처한 종속성 데이터를 쿼리할 수 있습니다. Log Analytics은 Azure Monitor 로그 쿼리를 작성 하 고 실행 하는 데 사용 됩니다.
 
 - Log Analytics에서 서비스 맵 데이터를 검색 하 [는 방법을 알아봅니다](../azure-monitor/insights/service-map.md#log-analytics-records) .
-- [Log Analytics](../azure-monitor/log-query/get-started-portal.md)에서 로그 쿼리를 작성 하는 방법에 대 한 [개요를](../azure-monitor/log-query/get-started-queries.md) 확인 하세요.
+- [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)에서 로그 쿼리를 작성 하는 방법에 대 한 [개요를](../azure-monitor/log-query/get-started-queries.md) 확인 하세요.
 
 다음과 같이 종속성 데이터에 대 한 쿼리를 실행 합니다.
 
-1. 에이전트를 설치한 후 포털로 이동하고 **개요**를 클릭합니다.
-2. **Azure Migrate: 서버 평가**에서 **개요**를 클릭 합니다. 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
-3. **OMS 작업 영역**에서 작업 영역 이름을 클릭 합니다.
-3. Log Analytics 작업 영역 페이지에서 **일반**> **로그**를 클릭 합니다.
-4. 쿼리를 작성 하 고 **실행**을 클릭 합니다.
+1. 에이전트를 설치한 후 포털로 이동하고 **개요** 를 클릭합니다.
+2. **Azure Migrate: 서버 평가** 에서 **개요** 를 클릭 합니다. 아래쪽 화살표를 클릭 하 여 **Essentials** 를 확장 합니다.
+3. **OMS 작업 영역** 에서 작업 영역 이름을 클릭 합니다.
+3. Log Analytics 작업 영역 페이지에서 **일반**> **로그** 를 클릭 합니다.
+4. 쿼리를 작성 하 고 **실행** 을 클릭 합니다.
 
 ### <a name="sample-queries"></a>샘플 쿼리
 

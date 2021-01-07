@@ -1,23 +1,27 @@
 ---
 title: Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어 구현
 description: Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어를 구현하는 방법을 알아봅니다.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431997"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080654"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어 구현
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Azure Policy](../governance/policy/overview.md)는 조직의 거버넌스 표준을 적용하고, 리소스 호환성을 평가하고, 자동 수정을 구현하는 데 도움이 됩니다. 일반적인 사용 사례에는 보안, 비용 관리, 구성 일관성이 포함됩니다.
 
 Azure Policy는 기본 제공 정책 정의를 제공합니다. 기본 제공 정책 정의로 해결되지 않는 시나리오에 대해서는 사용자 지정 정책 정의를 만들 수 있습니다. 자세한 내용은 [Azure Policy 설명서](../governance/policy/overview.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Azure Policy는 Azure 서비스에 대 한 리소스 공급자 수준에서 적용 됩니다. Cosmos DB Sdk는 데이터베이스에 대 한 대부분의 관리 작업을 수행 하 고 Cosmos DB 리소스 공급자를 우회 하는 컨테이너 및 처리량 리소스를 사용 하 여 Azure Policy를 사용 하 여 만든 정책을 무시할 수 있습니다. 정책의 적용을 보장 하기 위해 [Azure Cosmos DB sdk를 변경 하지 못하게 합니다](role-based-access-control.md#prevent-sdk-changes) .
 
 ## <a name="assign-a-built-in-policy-definition"></a>기본 제공 정책 정의 할당
 
@@ -27,7 +31,7 @@ Azure Policy는 기본 제공 정책 정의를 제공합니다. 기본 제공 �
 
 Azure Cosmos DB에 대한 기본 제공 정책 정의에서 정책 할당을 만들려면 [Azure Portal을 사용하여 정책 할당 만들기](../governance/policy/assign-policy-portal.md) 문서의 단계를 사용합니다.
 
-정책 정의를 선택하는 단계에서 검색 필드에 `Cosmos DB`를 입력하여 사용 가능한 기본 제공 정책 정의 목록을 필터링합니다. 사용 가능한 기본 제공 정책 정의 중 하나를 선택한 다음 **선택**을 선택하여 정책 할당을 계속 만듭니다.
+정책 정의를 선택하는 단계에서 검색 필드에 `Cosmos DB`를 입력하여 사용 가능한 기본 제공 정책 정의 목록을 필터링합니다. 사용 가능한 기본 제공 정책 정의 중 하나를 선택한 다음 **선택** 을 선택하여 정책 할당을 계속 만듭니다.
 
 > [!TIP]
 > Azure PowerShell, Azure CLI 또는 ARM 템플릿을 사용하여 **사용 가능한 정의** 창에 표시된 기본 제공 정책 정의 이름을 사용하여 정책 할당을 만들 수도 있습니다.
@@ -123,7 +127,7 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 - 계정이 여러 쓰기 위치에 대해 구성 되어야 하는 정책을 준수 하는 두 계정의 0
 - 두 계정 중 0은 리소스가 허용 된 Azure 지역에 배포 된 정책을 준수 합니다.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="나열 된 Azure Policy 할당에 대 한 호환성 결과":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Azure Cosmos DB 기본 제공 정책 정의 검색":::
 
 비준수 리소스를 재구성 하려면 Azure Policy를 사용 하 [여 리소스](../governance/policy/how-to/remediate-resources.md)를 관리 하는 방법을 참조 하세요.
 
@@ -131,4 +135,4 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 
 - 위에 표시 된 다중 쓰기 위치 및 VNet 필터링 정책을 포함 하 여 [Azure Cosmos DB에 대 한 샘플 사용자 지정 정책 정의를 검토](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)합니다.
 - [Azure Portal에서 정책 할당 만들기](../governance/policy/assign-policy-portal.md)
-- [Azure Cosmos DB용 Azure Policy 기본 제공 정책 정의 검토](./policy-samples.md)
+- [Azure Cosmos DB용 Azure Policy 기본 제공 정책 정의 검토](./policy-reference.md)

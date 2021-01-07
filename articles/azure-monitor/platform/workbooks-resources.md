@@ -2,19 +2,17 @@
 title: Azure Monitor 통합 문서 리소스 매개 변수
 description: 리소스 매개 변수를 사용 하 여 통합 문서에서 리소스를 선택할 수 있도록 하는 방법을 알아봅니다. 리소스 매개 변수를 사용 하 여 데이터를 가져올 범위를 설정 합니다.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 27e98ae51cbea654ca0f06979b289a497a5aedf3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972849"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143507"
 ---
 # <a name="workbook-resource-parameters"></a>통합 문서 리소스 매개 변수
 
@@ -113,5 +111,5 @@ ms.locfileid: "90972849"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.
 * 통합 문서 리소스에 대 한 액세스를 [제어](workbooks-access-control.md) 하 고 공유 합니다.

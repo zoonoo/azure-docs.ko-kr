@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564426"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020673"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Azure Data Box의 안전한 설치 및 작동
 ![경고 아이콘](./media/data-box-safety/warning_icon.png)

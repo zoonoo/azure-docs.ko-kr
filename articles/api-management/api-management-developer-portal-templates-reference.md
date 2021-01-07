@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73176797"
 ---
 # <a name="developer-portal-templates"></a>개발자 포털 템플릿
@@ -46,14 +46,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [제품](api-management-product-templates.md)  
     -   [제품 목록](api-management-product-templates.md#ProductList)  
-    -   [Product](api-management-product-templates.md#Product)  
+    -   [제품](api-management-product-templates.md#Product)  
 -   [애플리케이션](api-management-application-templates.md)  
     -   [애플리케이션 목록](api-management-application-templates.md#ProductList)  
     -   [애플리케이션](api-management-application-templates.md#Application)  
 -   [문제](api-management-issue-templates.md)  
     -   [문제 목록](api-management-issue-templates.md#IssueList)  
 -   [사용자 프로필](api-management-user-profile-templates.md)  
-    -   [프로필](api-management-user-profile-templates.md#Profile)  
+    -   [Profile](api-management-user-profile-templates.md#Profile)  
     -   [구독](api-management-user-profile-templates.md#Subscriptions)  
     -   [애플리케이션](api-management-user-profile-templates.md#Applications)  
     -   [계정 정보 업데이트](api-management-user-profile-templates.md#UpdateAccountInfo)  

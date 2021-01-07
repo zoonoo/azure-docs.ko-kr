@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8301a1961479f57528802e6d8c0f10ceb0569d5
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026461"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558269"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API: 응용 프로그램에 대 한 토큰 획득
 
@@ -25,9 +25,12 @@ ms.locfileid: "87026461"
 
 ## <a name="code-in-the-controller"></a>컨트롤러의 코드
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-다음은 API 컨트롤러의 작업에서 호출 된 Microsoft. Identity를 사용 하는 코드의 예입니다. *Todolist*이라는 다운스트림 API를 호출 합니다. 다운스트림 API를 호출 하는 토큰을 가져오려면 `ITokenAcquisition` 컨트롤러의 생성자 (또는 Blazor를 사용 하는 경우 페이지 생성자)에서 종속성 주입을 사용 하 여 서비스를 삽입 하 고, `GetAccessTokenForUserAsync` `GetAccessTokenForAppAsync` 디먼 시나리오의 경우 사용자 () 또는 응용 프로그램 자체 ()에 대 한 토큰을 가져오는 컨트롤러 작업에서 해당 서비스를 사용 합니다.
+*Microsoft. Identity* 는 Microsoft Graph 또는 다운스트림 웹 API를 호출 하기 위한 편리한 서비스를 제공 하는 확장 메서드를 추가 합니다. 이러한 메서드는 web api를 [호출 하는 WEB api](scenario-web-api-call-api-call-api.md)에 자세히 설명 되어 있습니다. Api를 호출 합니다. 이러한 도우미 메서드를 사용 하 여 토큰을 수동으로 가져올 필요가 없습니다.
+
+그러나 토큰을 수동으로 획득 하려는 경우 다음 코드에서는 API 컨트롤러에서 이러한 작업을 *수행 하는 데 사용 하* 는 예제를 보여 줍니다. *Todolist* 이라는 다운스트림 API를 호출 합니다.
+다운스트림 API를 호출 하는 토큰을 가져오려면 `ITokenAcquisition` 컨트롤러의 생성자 (또는 Blazor를 사용 하는 경우 페이지 생성자)에서 종속성 주입을 사용 하 여 서비스를 삽입 하 고, `GetAccessTokenForUserAsync` `GetAccessTokenForAppAsync` 디먼 시나리오의 경우 사용자 () 또는 응용 프로그램 자체 ()에 대 한 토큰을 가져오는 컨트롤러 작업에서 해당 서비스를 사용 합니다.
 
 ```csharp
 [Authorize]
@@ -58,9 +61,10 @@ public class MyApiController : Controller
 }
 ```
 
-메서드에 대 한 자세한 `callTodoListService` 내용은 web api를 [호출 하는 web API: api 호출](scenario-web-api-call-api-call-api.md)을 참조 하세요.
+메서드에 대 한 자세한 `callTodoListService` 내용은 web api를  [호출 하는 web API: api 호출](scenario-web-api-call-api-call-api.md)을 참조 하세요.
 
-# <a name="java"></a>[Java](#tab/java)
+### <a name="java"></a>[Java](#tab/java)
+
 API 컨트롤러의 작업에서 호출 되는 코드의 예는 다음과 같습니다. 다운스트림 API Microsoft Graph를 호출 합니다.
 
 ```java
@@ -81,13 +85,45 @@ public class ApiController {
 }
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
+ 
+Python web API를 사용 하려면 미들웨어를 사용 하 여 클라이언트에서 받은 전달자 토큰의 유효성을 검사 해야 합니다. Web API는 메서드를 호출 하 여 MSAL Python 라이브러리를 사용 하 여 다운스트림 API에 대 한 액세스 토큰을 가져올 수 있습니다 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) .
+ 
+다음은 `acquire_token_on_behalf_of` 메서드 및 Flask 프레임 워크를 사용 하 여 액세스 토큰을 획득 하는 코드의 예제입니다. 다운스트림 API-Azure 관리 구독 끝점을 호출 합니다.
+ 
+```python
+def get(self):
+ 
+        _scopes = ["https://management.azure.com/user_impersonation"]
+        _azure_management_subscriptions_uri = "https://management.azure.com/subscriptions?api-version=2020-01-01"
+ 
+        current_access_token = request.headers.get("Authorization", None)
+        
+        #This example only uses the default memory token cache and should not be used for production
+        msal_client = msal.ConfidentialClientApplication(
+                client_id=os.environ.get("CLIENT_ID"),
+                authority=os.environ.get("AUTHORITY"),
+                client_credential=os.environ.get("CLIENT_SECRET"))
+ 
+        #acquire token on behalf of the user that called this API
+        arm_resource_access_token = msal_client.acquire_token_on_behalf_of(
+            user_assertion=current_access_token.split(' ')[1],
+            scopes=_scopes
+        )
+ 
+        headers = {'Authorization': arm_resource_access_token['token_type'] + ' ' + arm_resource_access_token['access_token']}
+ 
+        subscriptions_list = req.get(_azure_management_subscriptions_uri), headers=headers).json()
+ 
+        return jsonify(subscriptions_list)
+```
 
-Python web API는 클라이언트에서 받은 전달자 토큰의 유효성을 검사 하기 위해 일부 미들웨어를 사용 해야 합니다. Web API는 메서드를 호출 하 여 MSAL Python 라이브러리를 사용 하 여 다운스트림 API에 대 한 액세스 토큰을 가져올 수 있습니다 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) . MSAL Python을 사용 하 여이 흐름을 보여 주는 샘플은 아직 사용할 수 없습니다.
+## <a name="advanced-accessing-the-signed-in-users-token-cache-from-background-apps-apis-and-services"></a>고급 백그라운드 앱, Api 및 서비스에서 로그인 한 사용자의 토큰 캐시에 액세스
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [웹 api를 호출 하는 web API: API 호출](scenario-web-api-call-api-call-api.md)
+이 시나리오에서 다음 문서로 이동 하 여 API를 [호출](scenario-web-api-call-api-call-api.md)합니다.

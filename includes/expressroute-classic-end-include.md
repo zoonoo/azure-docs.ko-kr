@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: expressroute
 author: cherylmc
@@ -9,17 +9,17 @@ ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1a8c90a7ae2e89122db0823da7cb0b084df3dbae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67181938"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018170"
 ---
 > [!IMPORTANT]
 > 2017년 3월 1일부터 클래식 배포 모델에서 새 ExpressRoute 회로를 만들 수 없습니다.
 > 
 > - 기존 ExpressRoute 회로를 클래식 배포 모델에서 Resource Manager 배포 모델로 연결 중단 시간 없이 이동할 수 있습니다. 자세한 내용은 [기존 회로 이동](../articles/expressroute/expressroute-move.md)을 참조하세요.
-> - **allowClassicOperations**를 TRUE로 설정하면 클래식 배포 모델에서 가상 네트워크에 연결할 수 있습니다.
+> - **allowClassicOperations** 를 TRUE로 설정하면 클래식 배포 모델에서 가상 네트워크에 연결할 수 있습니다.
 > 
 > 다음 링크를 사용하여 Resource Manager 배포 모델에서 ExpressRoute 회로를 만들고 관리합니다.
 > 

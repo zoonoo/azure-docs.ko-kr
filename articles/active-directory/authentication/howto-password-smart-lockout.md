@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5734cb76e4ed018778c6858597ec8efe3019bf9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065984"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741731"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금과 함께 공격 으로부터 사용자 계정 보호
 
@@ -58,7 +58,7 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [AD FS �
 
 1. 그룹 정책 관리 도구를 엽니다.
 2. 조직의 계정 잠금 정책 (예: **기본 도메인 정책**)을 포함 하는 그룹 정책을 편집 합니다.
-3. **컴퓨터 구성**  >  **정책**  >  **Windows 설정**  >  **보안 설정**  >  **계정 정책**  >  **계정 잠금 정책**으로 이동 합니다.
+3. **컴퓨터 구성**  >  **정책**  >  **Windows 설정**  >  **보안 설정**  >  **계정 정책**  >  **계정 잠금 정책** 으로 이동 합니다.
 4. **계정 잠금 임계값** 을 확인 하 고 값 **뒤에 계정 잠금 카운터를 다시 설정** 합니다.
 
 ![온-프레미스 Active Directory 계정 잠금 정책 수정](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -70,8 +70,8 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [AD FS �
 조직의 스마트 잠금 값을 확인 하거나 수정 하려면 다음 단계를 완료 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. *Azure Active Directory*를 검색 하 고 선택한 다음, **보안**  >  **인증 방법**  >  **암호 보호**를 선택 합니다.
-1. 첫 번째 잠금 전에 계정에서 허용되는 실패한 로그인 횟수에 따라 **잠금 임계값**을 설정합니다.
+1. *Azure Active Directory* 를 검색 하 고 선택한 다음, **보안**  >  **인증 방법**  >  **암호 보호** 를 선택 합니다.
+1. 첫 번째 잠금 전에 계정에서 허용되는 실패한 로그인 횟수에 따라 **잠금 임계값** 을 설정합니다.
 
     기본값은 10입니다.
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
-ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228633"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746592"
 ---
 # <a name="soft-delete-for-containers-preview"></a>컨테이너에 대 한 일시 삭제 (미리 보기)
 
@@ -42,11 +42,7 @@ Blob 데이터에 대 한 종단 간 보호의 경우 다음과 같은 데이터
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 
-컨테이너 일시 삭제는 다음 지역에서 미리 보기로 제공 됩니다.
-
-- 프랑스 중부
-- 캐나다 동부
-- 캐나다 중부
+컨테이너 일시 삭제는 모든 공용 Azure 지역에서 미리 보기로 제공 됩니다.
 
 > [!IMPORTANT]
 > 컨테이너 일시 삭제 미리 보기는 비프로덕션 용도로만 사용 됩니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
@@ -61,7 +57,7 @@ Azure Storage REST API 버전 2019-12-12 이상에서는 컨테이너 일시 삭
 - Blob storage 계정 차단
 - Blob Storage 계정
 
-저장소 계정이 범용 v1 계정인 경우 Azure Portal를 사용 하 여 범용 v2 계정으로 업그레이드 합니다. 저장소 계정에 대 한 자세한 내용은 [Azure storage 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
+저장소 계정이 범용 v1 계정인 경우 Azure Portal를 사용 하 여 범용 v2 계정으로 업그레이드 합니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 Azure Data Lake Storage Gen2 사용 하도록 설정 된 계층적 네임 스페이스를 사용 하는 저장소 계정도 지원 됩니다.
 

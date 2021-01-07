@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530831"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696883"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
 Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다에서 부하 분산 서비스를 할 수 있습니다. 공용 및 내부 부하 분산 장치 정의를 VM 집합 전반에 대한 부하 분산 흐름에 사용할 수 있습니다.
 
-이 문서에서는 이 기능, 중요한 개념 및 제약 조건에 대한 기본 사항을 설명합니다. 서비스를 하나의 IP 주소에 노출만 하려는 경우 [공용](load-balancer-get-started-internet-portal.md) 또는 [내부](load-balancer-get-started-ilb-arm-portal.md) 부하 분산 장치 구성에 대한 단순화된 지침을 찾을 수 있습니다. 여러 프런트 엔드를 추가하면 단일 프런트 엔드 구성이 증가합니다. 이 문서의 개념을 사용하여 단순화된 구성을 언제라도 확장할 수 있습니다.
+이 문서에서는 이 기능, 중요한 개념 및 제약 조건에 대한 기본 사항을 설명합니다. 서비스를 하나의 IP 주소에 노출만 하려는 경우 [공용](./quickstart-load-balancer-standard-public-portal.md) 또는 [내부](./quickstart-load-balancer-standard-internal-portal.md) 부하 분산 장치 구성에 대한 단순화된 지침을 찾을 수 있습니다. 여러 프런트 엔드를 추가하면 단일 프런트 엔드 구성이 증가합니다. 이 문서의 개념을 사용하여 단순화된 구성을 언제라도 확장할 수 있습니다.
 
 Azure Load Balancer를 정의할 때 프런트 엔드 및 백 엔드 풀 구성이 규칙과 연결됩니다. 규칙에서 참조하는 상태 프로브는 새로운 흐름을 백 엔드 풀의 노드로 전송하는 방법을 결정하는 데 사용됩니다. 프런트 엔드(일명 VIP)는 IP 주소(공용 또는 내부), 전송 프로토콜(UDP 또는 TCP) 및 부하 분산 규칙의 포트 번호로 구성된 3 튜플로 정의됩니다. 백 엔드 풀은 부하 분산 장치 백 엔드 풀을 참조하는 가상 머신 IP 구성(NIC 리소스의 일부)의 컬렉션입니다.
 
@@ -64,8 +64,8 @@ DIP는 인바운드 흐름의 대상입니다. 백 엔드 풀에서 각 VM은 DI
 
 | 규칙 | 맵 프론트 엔드 | 백 엔드 풀에 |
 | --- | --- | --- |
-| 1 |![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![녹색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![녹색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![자주색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![자주색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 
@@ -143,8 +143,8 @@ netsh interface ipv4 set interface “interfacename” weakhostsend=enabled
 
 | 규칙 | 프런트 엔드 | 백 엔드 풀에 매핑 |
 | --- | --- | --- |
-| 1 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
-| 2 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
+| 1 |![녹색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![녹색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
+| 2 |![자주색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![자주색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
 
 다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
 

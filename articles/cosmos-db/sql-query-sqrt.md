@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 SQRT
 description: Azure Cosmos DB의 SQL 시스템 함수 SQRT에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3d5452e5ba650b487acff03f622cdbb170275dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac504baf0f8c59408327bbbf51392428ffee43b8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303463"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335365"
 ---
 # <a name="sqrt-azure-cosmos-db"></a>SQRT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 숫자 값의 제곱근을 반환합니다.  
   
 ## <a name="syntax"></a>구문

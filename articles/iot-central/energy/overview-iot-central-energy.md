@@ -3,22 +3,19 @@ title: IoT Central을 사용하여 에너지 산업 솔루션 빌드 | Microsoft
 description: Azure IoT Central 애플리케이션 템플릿을 사용하여 에너지 솔루션을 빌드하는 방법을 알아봅니다.
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 1a7502a77f8dca526c95e92302f0ca0a06a1dd32
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ff7b98908296714a59aa9a24767e80e212e00e68
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970441"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516655"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>IoT Central을 사용하여 에너지 산업 솔루션 빌드 
-
-
-
 
 스마트 미터 및 태양 전지판은 에너지 산업 혁신에 있어서 중요한 역할을 합니다. 스마트 미터는 에너지 사용량에 대한 보다 강력한 제어 및 실시간 인사이트를 제공하며, 태양 전지판은 재생 에너지 생성의 돌파구가 되고 있습니다. 스마트 미터 및 태양 전지판 모니터링 앱은 다양한 기능을 보여 주는 샘플 템플릿입니다. 파트너는 이러한 템플릿을 활용하여 IoT Central에서 특정 요구에 맞는 에너지 솔루션을 빌드할 수 있습니다. 이러한 애플리케이션을 배포하고 사용하는 데는 새로운 코딩 및 추가 비용이 필요하지 않습니다. 에너지 애플리케이션 템플릿 및 해당 기능에 대해 자세히 알아보세요.
 
@@ -66,6 +63,6 @@ Azure 구독 및 약정 없이 [무료로 태양 전지판 모니터링 앱](htt
 ## <a name="next-steps"></a>다음 단계
 에너지 솔루션 빌드를 시작하려면 다음을 수행하세요.
 * 무료로 애플리케이션 템플릿 만들기: [스마트 미터 앱](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), [태양 전지판 앱](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* [스마트 미터 모니터링 앱 개념](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)에 대해 알아보기
-* [태양 전지판 모니터링 앱 개념](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)에 대해 알아보기
-* [IoT Central 플랫폼](https://docs.microsoft.com/azure/iot-central/)에 대해 알아보기
+* [스마트 미터 모니터링 앱 개념](./concept-iot-central-smart-meter-app.md)에 대해 알아보기
+* [태양 전지판 모니터링 앱 개념](./concept-iot-central-solar-panel-app.md)에 대해 알아보기
+* [IoT Central 플랫폼](../index.yml)에 대해 알아보기

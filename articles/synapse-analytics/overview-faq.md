@@ -1,108 +1,151 @@
 ---
-title: FAQ - Azure Synapse Analytics(작업 영역 미리 보기)
-description: Azure Synapse Analytics(작업 영역 미리 보기)에 대한 FAQ
+title: FAQ - Azure Synapse Analytics
+description: Azure Synapse Analytics에 대한 FAQ입니다.
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 04/15/2020
-ms.author: acomet
+ms.date: 10/25/2020
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6f79fffe5287be7574d422f026489d4da2795e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 671ca73cfa898be532521599d1211d2a8081eb4b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287498"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563265"
 ---
-# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics(작업 영역 미리 보기) 질문과 대답
+# <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics 질문과 대답
 
-이 가이드에서는 Synapse Analytics에 대한 질문과 대답을 찾을 수 있습니다.
-
-[!INCLUDE [preview](includes/note-preview.md)]
+이 가이드에서는 Azure Synapse Analytics에 대한 질문과 대답을 확인할 수 있습니다.
 
 ## <a name="general"></a>일반
 
-### <a name="q-what-is-azure-synapse-analytics"></a>Q: Azure Synapse Analytics는 무엇인가요?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>Q: RBAC 역할을 사용하여 내 작업 영역을 보호하려면 어떻게 해야 하나요?
 
-A: Azure Synapse는 BI, AI 및 지속적인 인텔리전스를 위한 통합 데이터 플랫폼입니다. 다음과 같은 통합 방법을 제공하는 단일 플랫폼을 통해 다양한 분석 런타임(예: SQL 및 Spark)을 연결합니다.
+A: Azure Synapse는 할당할 여러 역할과 범위를 도입하여 작업 영역에 대한 보안을 간소화할 수 있습니다.
 
-- 네트워크를 포함하여 분석 리소스를 보호하고, 풀, 데이터 및 개발 아티팩트에 대한 Single Sign-On 액세스를 관리합니다.
-- 모든 계층의 작업 영역 활동에서 발생하는 이벤트를 쉽게 모니터링하고 빠르게 최적화, 대응 및 디버그합니다.
-- 엔진 전체에서 메타데이터를 관리합니다. Spark 테이블을 만듭니다. 그러면 Azure Synapse 데이터베이스에서 자동으로 사용할 수 있습니다.
-- 통합 사용자 환경을 통해 데이터와 상호 작용합니다. Synapse Studio는 빅 데이터 개발자, 데이터 엔지니어, DBA, 데이터 분석가 및 데이터 과학자를 동일한 플랫폼에 제공합니다.
+Synapse RBAC 역할:
+* Synapse 관리자
+* Synapse SQL 관리자
+* Synapse Spark 관리자
+* Synapse 기여자(미리 보기)
+* Synapse 아티팩트 게시자(미리 보기)
+* Synapse 아티팩트 사용자(미리 보기)
+* Synapse 컴퓨팅 운영자(미리 보기)
+* Synapse 자격 증명 사용자(미리 보기)
 
-자세한 내용은 [Azure Synapse Analytics란?](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is)을 참조하세요.
+Synapse 작업 영역을 보호하려면 다음 RBAC 범위에 RBAC 역할을 할당합니다.
+* 작업 영역
+* Spark 풀
+* 통합 런타임
+* 연결된 서비스
+* 자격 증명
 
-### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>Q: Azure Synapse Analytics의 주요 구성 요소는 무엇인가요?
+또한 전용 SQL 풀을 사용하면 사용자가 알고 있고 좋아하는 동일한 보안 기능을 모두 사용할 수 있습니다.
 
-A: Azure Synapse의 기능은 다음과 같습니다.
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>Q: 전용 SQL 풀, 서버리스 SQL 풀 및 서버리스 Spark 풀을 제어하려면 어떻게 해야 하나요?
 
-- SQL 풀 또는 SQL 주문형(미리 보기)을 통해 제공되는 분석 기능(서버리스)
-- Scala, Python, SparkSQL 및 C#을 완벽하게 지원하는 Apache Spark 풀(미리 보기)
-- 코드가 없는 빅 데이터 변환 환경을 제공하는 데이터 흐름
-- 데이터를 통합하고 모든 코드 개발을 운영화하기 위한 데이터 통합 및 오케스트레이션
-- 단일 웹 UI를 통해 이러한 모든 기능에 액세스하는 스튜디오
+A: Azure Synapse는 처음 시작할 때 Azure 구독 수준에서 사용할 수 있는 기본 제공 비용 분석 및 비용 경고와 함께 작동합니다.
 
-### <a name="q-how-does-azure-synapse-analytics-relate-to-azure-sql-data-warehouse"></a>Q: Azure Synapse Analytics와 Azure SQL Data Warehouse의 관계는 어떻게 되나요?
+- 전용 SQL 풀 - 전용 SQL 풀의 크기를 만들고 지정하므로 비용을 직접 확인하여 제어할 수 있습니다. Azure RBAC 역할을 사용하여 전용 SQL 풀을 만들거나 크기를 조정할 수 있는 사용자를 추가로 제어할 수 있습니다.
 
-A: Azure Synapse Analytics는 Azure SQL Data Warehouse를 SQL 풀이 데이터 웨어하우스 솔루션으로 포함된 분석 플랫폼으로 발전시킨 것입니다. 이 플랫폼은 데이터 검색, 수집, 변환, 준비 및 서비스 분석 계층을 결합합니다.
+- 서버리스 SQL 풀 - 지출을 일별, 주별 및 월별 수준으로 제한할 수 있는 모니터링 및 비용 관리 제어 기능이 있습니다. 자세한 내용은 [서버리스 SQL 풀에 대한 비용 관리](./sql/data-processed.md)를 참조하세요. 
 
-## <a name="use-cases"></a>사용 사례
+- 서버리스 Spark 풀 - Synapse RBAC 역할을 사용하여 Spark 풀을 만들 수 있는 사용자를 제한할 수 있습니다.  
 
-### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>Q: Azure Synapse에서 게시된 아티팩트(데이터 세트, Notebook, sql 스크립트 등)의 이름을 어떻게 변경하나요?
+### <a name="q-will-synapse-workspace-support-folder-organization-of-objects-and-granularity-at-ga"></a>Q: Synapse 작업 영역은 GA에서 개체의 폴더 구성 및 세분성을 지원하나요?
 
-A: 게시된 아티팩트 파일의 이름을 변경하려면 먼저 파일을 복제하고 새 파일의 이름을 원하는 이름으로 변경합니다. 아티팩트의 모든 참조를 수동으로 새 파일 이름으로 업데이트하고 이전 파일 이름을 삭제해야 합니다.
+A: Synapse 작업 영역은 사용자 정의 폴더를 지원합니다.
 
-### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>Q: Synapse SQL 풀에 적합한 사용 사례는 무엇인가요?
+### <a name="q-can-i-link-more-than-one-power-bi-workspace-to-a-single-azure-synapse-workspace"></a>Q: 둘 이상의 Power BI 작업 영역을 단일 Azure Synapse 작업 영역에 연결할 수 있나요?
+    
+A: 현재 단일 Power BI 작업 영역만 Azure Synapse 작업 영역에 연결할 수 있습니다. 
 
-A: SQL 풀은 데이터 웨어하우스 요구 사항의 핵심입니다. [가격/성능](https://azure.microsoft.com/services/sql-data-warehouse/compare/) 측면에서 선도적인 데이터 웨어하우스 솔루션입니다. SQL 풀은 다음을 수행할 수 있는 업계 최고의 클라우드 데이터 웨어하우스 솔루션입니다.
+### <a name="q-is-synapse-link-to-cosmos-db-ga"></a>Q: Cosmos DB GA에 대한 Synapse Link가 있나요?
 
-- 높은 동시성과 워크로드 격리를 통해 성능에 영향을 주지 않으면서 광범위하고 다양한 워크로드를 처리합니다.
-- 네트워크 보안에서 세부적인 액세스에 이르는 고급 기능을 통해 데이터를 쉽게 보호합니다.
-- 광범위한 에코 시스템의 이점을 제공합니다.
+A: Apache Spark용 Synapse Link는 GA입니다. 서버리스 SQL 풀용 Synapse Link는 공개 미리 보기에 있습니다.
 
-### <a name="q-what-is-a-good-use-case-for-spark-in-synapse"></a>Q: Synapse의 Spark에 적합한 사용 사례는 무엇인가요?
+### <a name="q-does-azure-synapse-workspace-support-cicd"></a>Q: Azure Synapse 작업 영역에서 CI/CD를 지원하나요? 
 
-A: 첫 번째 목표는 일괄 처리 또는 스트림에서 레이크를 통해 데이터를 변환하는 데 유용한 데이터 엔지니어링 환경을 제공하는 것입니다. 데이터 오케스트레이션과 긴밀하고 간단하게 통합되어 개발 작업을 쉽게 운영화할 수 있습니다.
+A: 예! 모든 파이프라인 아티팩트, Notebooks, SQL 스크립트 및 Spark 작업 정의는 Git에 있습니다. 모든 풀 정의는 ARM 템플릿으로 Git에 저장됩니다. 전용 SQL 풀 개체(스키마, 테이블, 보기 등)는 CI/CD를 지원하는 데이터베이스 프로젝트를 사용하여 관리됩니다.
 
-또 다른 Spark 사용 사례는 데이터 과학자가 다음을 수행하는 것입니다.
+## <a name="pipelines"></a>Pipelines
 
-- 기능 추출
-- 데이터 검색
-- 모델 학습
+### <a name="q-how-do-i-ensure-i-know-what-credential-is-being-used-to-run-a-pipeline"></a>Q: 파이프라인을 실행하는 데 사용되는 자격 증명을 확인하려면 어떻게 해야 하나요? 
 
-### <a name="q-what-is-a-good-use-case-for-sql-on-demand-in-synapse"></a>Q: Synapse의 SQL 주문형에 적합한 사용 사례는 무엇인가요?
+A: Synapse Pipeline의 각 작업은 연결된 서비스 내에 지정된 자격 증명을 사용하여 실행됩니다.
 
-A: SQL 주문형은 데이터 레이크의 데이터에 대한 쿼리 서비스입니다. 데이터를 특수화된 저장소에 복사하거나 로드할 필요 없이 데이터를 적절히 쿼리할 수 있는 친숙한 T-SQL 구문을 제공하여 모든 데이터에 대한 액세스를 민주화할 수 있습니다.
+### <a name="q-are-ssis-irs-supported-in-synapse-integrate"></a>Q: SSIS IR은 Synapse Integrate에서 지원되나요?
 
-사용 사례의 예는 다음과 같습니다.
+A: 현재는 없습니다. 
 
-- 기본 검색 및 탐색 - 데이터 분석가, 새로운 데이터 과학자 및 데이터 엔지니어에게 읽기 T-SQL 쿼리에 대한 스키마를 통해 해당 데이터 레이크의 데이터에 대한 첫 번째 인사이트를 쉽게 얻을 수 있는 경로를 제공합니다.
-- 논리적 데이터 웨어하우스 - 데이터 분석가는 T-SQL 언어의 전체 표현을 실행하여 Azure Storage의 데이터를 직접 쿼리 및 분석하고, 친숙한 BI 도구(예: Azure Analyses Services, Power BI Premium 등)를 통해 Starlight Query 쿼리를 다시 실행하여 대시보드를 새로 고칠 수 있습니다.
-- "단일 쿼리" ETL - 데이터 엔지니어가 Azure Storage 기반 데이터를 한 형식에서 다른 형식으로 변환하고, 대규모 병렬 처리 방식으로 필터, 집계 등을 수행하며, 쿼리 결과를 Azure Storage에 유지하며, Starlight Query 또는 기타 관심 있는 서비스에서 추가 처리에 즉시 사용할 수 있도록 합니다.
+### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>Q: 기존 파이프라인을 Azure Data Factory에서 Azure Synapse 작업 영역으로 마이그레이션하려면 어떻게 해야 하나요?
 
-### <a name="q-what-is-a-good-use-case-for-data-flow-in-synapse"></a>Q: Synapse의 데이터 흐름에 적합한 사용 사례는 무엇인가요?
+A: 이때 원래 파이프라인에서 JSON을 내보내고 Synapse 작업 영역으로 가져와서 Azure Data Factory 파이프라인 및 관련 아티팩트를 수동으로 다시 만들어야 합니다.
 
-A: 데이터 흐름을 통해 데이터 엔지니어가 코드를 작성하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 데이터 통합 및 오케스트레이션 내에서 활동으로 실행됩니다. 데이터 흐름 활동은 기존 일정, 제어, 흐름 및 모니터링 기능을 통해 운영화될 수 있습니다.
+## <a name="apache-spark"></a>Apache Spark
 
-## <a name="security-and-access"></a>보안 및 액세스
+### <a name="q-what-is-the-difference-between-apache-spark-for-synapse-and-apache-spark"></a>Q: Synapse용 Apache Spark와 Apache Spark의 차이점은 무엇인가요?
 
-A: Synapse Analytics에서 엔드투엔드 Single Sign-On 환경은 중요한 인증 프로세스입니다. 완전한 AAD 통합을 통해 ID를 관리하고 전달해야 합니다.
+A: Synapse용 Apache Spark는 다른 서비스(AAD, AzureML 등), 추가 라이브러리(mssparktuils, Hummingbird) 및 미리 튜닝된 성능 구성과의 통합에 대한 지원이 추가된 Apache Spark입니다.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>Q: ADLS Gen2에서 파일 및 폴더에 액세스하는 방법
+현재 Apache Spark에서 실행 중인 모든 워크로드는 변경 없이 Azure Synapse용 Apache Spark에서 실행됩니다. 
 
-A: 파일 및 폴더에 대한 액세스는 현재 ADLS Gen2를 통해 관리됩니다. 자세한 내용은 [Data Lake Storage 액세스 제어](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+### <a name="q-what-versions-of-spark-are-available"></a>Q: 사용할 수 있는 Spark 버전은 무엇인가요?
 
-### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>Q: 타사 비즈니스 인텔리전스 도구를 사용하여 Azure Synapse Analytics에 액세스할 수 있나요?
+A: Azure Synapse Apache Spark는 Spark 2.4를 완벽하게 지원합니다. 핵심 구성 요소 및 현재 지원되는 버전의 전체 목록은 [Apache Spark 버전 지원](./spark/apache-spark-version-support.md)을 참조하세요.
 
-A: 예, Tableau 및 Power BI와 같은 타사 비즈니스 애플리케이션을 사용하여 SQL 풀 및 SQL 주문형에 연결할 수 있습니다. Spark는 IntelliJ를 지원합니다.
+### <a name="q-is-there-an-equivalent-of-dbutils-in-azure-synapse-spark"></a>Q: Azure Synapse Spark에는 DButils와 동등한 항목이 있나요?
+
+A: 예, Azure Synapse Apache Spark는 **mssparkutils** 라이브러리를 제공합니다. 유틸리티에 대한 전체 설명서는 [Microsoft Spark 유틸리티 소개](./spark/microsoft-spark-utilities.md)를 참조하세요.
+
+### <a name="q-how-do-i-set-session-parameters-in-apache-spark"></a>Q: Apache Spark에서 세션 매개 변수를 설정하려면 어떻게 해야 하나요?
+
+A: 세션 매개 변수를 설정하려면 %%configure magic available을 사용합니다. 매개 변수를 적용하려면 세션을 다시 시작해야 합니다. 
+
+### <a name="q-how-do-i-set-cluster-level-parameters-in-a-serverless-spark-pool"></a>Q: 서버리스 Spark 풀에서 클러스터 수준 매개 변수를 설정하려면 어떻게 해야 하나요?
+
+A: 클러스터 수준 매개 변수를 설정하려면 Spark 풀에 대한 spark.conf 파일을 제공하면 됩니다. 그러면 이 풀에서 구성 파일의 이전 매개 변수를 허용합니다. 
+
+### <a name="q-can-i-run-a-multi-user-spark-cluster-in-azure-synapse-analytics"></a>Q: Azure Synapse Analytics에서 다중 사용자 Spark 클러스터를 실행할 수 있나요?
+ 
+A: Azure Synapse는 특정 사용 사례를 위해 특별히 만든 엔진을 제공합니다. Synapse용 Apache Spark는 클러스터 모델이 아니라 작업 서비스로 설계되었습니다. 사용자가 다중 사용자 클러스터 모델을 요청하는 두 가지 시나리오가 있습니다.
+
+**시나리오 #1: 많은 사용자가 BI용 데이터를 제공하기 위해 클러스터에 액세스**
+
+이 작업을 수행하는 가장 쉬운 방법은 Spark를 사용하여 데이터를 준비한 다음, Synapse SQL에서 제공하는 기능을 활용하여 Power BI를 해당 데이터 세트에 연결하는 것입니다.
+
+**시나리오 2: 여러 개발자를 단일 클러스터에 배치하여 비용 절감**
+ 
+이 시나리오를 충족하려면 각 개발자에게 적은 수의 Spark 리소스를 사용하도록 설정된 서버리스 Spark 풀을 제공해야 합니다. 서버리스 Spark 풀은 비용이 전혀 들지 않으므로 여러 개발자가 있으면 적극적으로 사용할 때까지 비용을 최소화할 수 있습니다. 풀은 메타데이터(Spark 테이블)를 공유하므로 서로 쉽게 작업할 수 있습니다.
+
+### <a name="q-how-do-i-include-manage-and-install-libraries"></a>Q: 라이브러리를 포함, 관리 및 설치하려면 어떻게 해야 하나요?
+
+A:  Spark 풀을 만드는 동안 Synapse 작업 영역 또는 Azure Portal에서 requirements.txt 파일을 통해 외부 패키지를 설치할 수 있습니다. [Azure Synapse Analytics에서 Apache Spark용 라이브러리 관리](./spark/apache-spark-azure-portal-add-libraries.md)를 참조하세요.
+
+## <a name="dedicated-sql-pools"></a>전용 SQL 풀
+
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>Q: 전용 SQL 풀과 서버리스 풀 간의 기능적 차이점은 무엇인가요?
+
+A: 차이점에 대한 전체 목록은 [Synapse SQL의 T-SQL 기능 차이점](./sql/overview-features.md)에서 찾을 수 있습니다.
+
+### <a name="q-now-that-azure-synapse-is-ga-how-do-i-move-my-dedicated-sql-pools-that-were-previously-standalone-into-azure-synapse"></a>Q: 이제 Azure Synapse는 GA이므로 이전에 독립 실행형이었던 전용 SQL 풀을 Azure Synapse로 이동하려면 어떻게 해야 하나요? 
+
+A: "이동" 또는 "마이그레이션"을 수행할 수 없습니다. 기존 풀에서 새 작업 영역 기능을 사용하도록 선택할 수 있습니다. 이렇게 하면 호환성이 손상되는 변경이 없고 Synapse Studio, Spark 및 서버리스 SQL 풀과 같은 새로운 기능을 사용할 수 있습니다.
+
+### <a name="q-what-is-the-default-deployment-of-dedicated-sql-pools-now"></a>Q: 현재 전용 SQL 풀의 기본 배포는 무엇인가요? 
+
+A: 기본적으로 모든 새 전용 SQL 풀이 작업 영역에 배포되지만, 필요한 경우 여전히 독립 실행형 폼 팩터에서 전용 SQL 풀(이전의 SQL DW)을 만들 수 있습니다. 
+
+
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>Q: 전용 SQL 풀과 서버리스 SQL 풀 간의 기능적 차이점은 무엇인가요?
+
+A: 차이점에 대한 전체 목록은 [Synapse SQL의 T-SQL 기능 차이점](./sql/overview-features.md)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [작업 영역 만들기](quickstart-create-workspace.md)
-- [Synapse Studio 사용](quickstart-synapse-studio.md)
-- [SQL 풀 만들기](quickstart-create-sql-pool-portal.md)
-- [SQL 주문형 사용](quickstart-sql-on-demand.md)
-- [Apache Spark 풀 만들기](quickstart-create-apache-spark-pool-portal.md) 
+* [Azure Synapse Analytics 시작](get-started.md)
+* [작업 영역 만들기](quickstart-create-workspace.md)
+* [서버리스 SQL 풀 사용](quickstart-sql-on-demand.md)

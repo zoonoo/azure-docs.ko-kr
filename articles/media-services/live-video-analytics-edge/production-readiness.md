@@ -3,12 +3,12 @@ title: 프로덕션 준비 및 모범 사례-Azure
 description: 이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 라이브 비디오 분석을 구성 하 고 배포 하는 방법에 대 한 지침을 제공 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071941"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400559"
 ---
 # <a name="production-readiness-and-best-practices"></a>프로덕션 준비 및 모범 사례
 
@@ -62,7 +62,7 @@ sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
 
 IoT Edge 모듈의 Live Video Analytics에는 다음과 같은 경우 로컬 파일 시스템에 파일을 쓸 수 있는 기능이 필요 합니다.
 
-* 모듈 쌍 속성 [[Applicationdatadirectory](module-twin-configuration-schema.md#module-twin-properties)]를 사용 하 여 구성 데이터를 저장할 로컬 파일 시스템의 디렉터리를 지정 해야 합니다.
+* 모듈 쌍 속성을 사용 합니다 [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties) . 여기서는 구성 데이터를 저장 하기 위해 로컬 파일 시스템의 디렉터리를 지정 해야 합니다.
 * 미디어 그래프를 사용 하 여 클라우드에 비디오를 기록 하려면 모듈에서에 지 장치의 디렉터리를 캐시로 사용 해야 합니다 (자세한 내용은 [연속 비디오 녹화](continuous-video-recording-concept.md) 문서 참조).
 * 기록 된 비디오에 대 한 파일 경로를 지정 해야 하는 [로컬 파일에 기록](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources)합니다.
 
@@ -109,7 +109,11 @@ sudo chown -R edgeuser /var/local/mediaservices
 
 ### <a name="naming-video-assets-or-files"></a>비디오 자산 또는 파일 이름 지정
 
-미디어 그래프를 사용 하면에 지에 대 한 클라우드 또는 mp4 파일의 자산을 만들 수 있습니다. 미디어 자산은 [연속 비디오 녹화](continuous-video-recording-tutorial.md) 또는 [이벤트 기반 비디오 기록](event-based-video-recording-tutorial.md)에 의해 생성 될 수 있습니다. 이러한 자산과 파일의 이름은 원하는 대로 지정할 수 있지만 연속 비디오 기록 기반 미디어 자산의 권장 이름 구조는 " &lt; anytext &gt; -$ {GraphTopologyName}-$ {}"입니다. 예를 들어 다음과 같이 자산 싱크에 대해 assetNamePattern를 설정할 수 있습니다.
+미디어 그래프를 사용 하면에 지에 대 한 클라우드 또는 mp4 파일의 자산을 만들 수 있습니다. 미디어 자산은 [연속 비디오 녹화](continuous-video-recording-tutorial.md) 또는 [이벤트 기반 비디오 기록](event-based-video-recording-tutorial.md)에 의해 생성 될 수 있습니다. 이러한 자산과 파일의 이름은 원하는 대로 지정할 수 있지만 연속 비디오 기록 기반 미디어 자산의 권장 이름 구조는 " &lt; anytext &gt; -$ {GraphTopologyName}-$ {}"입니다.   
+
+대체 패턴은 $ 기호 뒤에 중괄호 ( **$ {variableName}**)로 정의 됩니다.  
+
+예를 들어 다음과 같이 자산 싱크에 대해 assetNamePattern를 설정할 수 있습니다.
 
 ```
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
@@ -124,21 +128,35 @@ sudo chown -R edgeuser /var/local/mediaservices
 동일한 그래프의 여러 인스턴스를 실행 하는 경우 그래프 토폴로지 이름 및 인스턴스 이름을 사용 하 여 구분할 수 있습니다. 예를 들어 다음과 같이 자산 싱크에 대해 assetNamePattern를 설정할 수 있습니다.
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 에 지에 대 한 이벤트 기반 비디오 레코딩 생성 mp4 비디오 클립의 경우 권장 되는 명명 패턴에는 DateTime을 포함 해야 하며, 동일한 그래프의 여러 인스턴스에 대해 GraphTopologyName 및 GraphInstanceName을 사용 하는 것이 좋습니다. 예를 들어 다음과 같이 파일 싱크에 filePathPattern을 설정할 수 있습니다. 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
 ```
 
 또는 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
 ```
+>[!NOTE]
+> 위의 예에서 **fileSinkOutputName** 변수는 graph 토폴로지에서 정의한 샘플 변수 이름입니다. 시스템 변수가 **아닙니다** . 
 
+#### <a name="system-variables"></a>시스템 변수
+사용할 수 있는 시스템 정의 변수는 다음과 같습니다.
+
+|시스템 변수|설명|예|
+|-----------|-----------|-----------|
+|System.DateTime|ISO8601 파일 호환 형식 (기본 표현 YYYYMMDDThhmmss)의 UTC 날짜/시간입니다.|20200222T173200Z|
+|PreciseDateTime|ISO8601 파일 호환 형식의 UTC 날짜 시간 (기본 표현 YYYYMMDDThhmmss)입니다.|20200222T 173200.123 Z|
+|GraphTopologyName|실행 중인 그래프 토폴로지의 사용자 제공 이름입니다.|IngestAndRecord|
+|System.object 인스턴스 이름|실행 중인 그래프 인스턴스의 사용자 제공 이름입니다.|camera001|
+
+>[!TIP]
+> "."로 인해 자산 이름을 지정할 때 PreciseDateTime를 사용할 수 없습니다. 이름에
 ### <a name="keeping-your-vm-clean"></a>VM 정리 유지
 
 에 지 장치로 사용 하는 Linux VM은 주기적으로 관리 되지 않는 경우 응답 하지 않을 수 있습니다. 캐시를 정리 하 고, 불필요 한 패키지를 제거 하 고, VM에서 사용 하지 않는 컨테이너를 제거 하는 것이 중요 합니다. 이 작업을 수행 하려면에 지 VM에서을 사용할 수 있는 권장 명령 집합입니다.
@@ -152,8 +170,8 @@ sudo chown -R edgeuser /var/local/mediaservices
 1. `sudo apt-get autoremove1`
 
     자동 제거 옵션을 사용 하면 다른 패키지에 필요한 패키지는 제거 되지만, 다른 패키지는 제거 되었으므로 더 이상 필요 하지 않으므로 자동으로 설치 된 패키지가 제거 됩니다.
-1. `sudo docker image ls`–에 지 시스템의 Docker 이미지 목록을 제공 합니다.
-1. `sudo docker system prune `
+1. `sudo docker image ls` –에 지 시스템의 Docker 이미지 목록을 제공 합니다.
+1. `sudo docker system prune`
 
     Docker는 이미지, 컨테이너, 볼륨 및 네트워크와 같은 사용 되지 않는 개체 ("가비지 수집"이 라고도 함)를 정리 하는 데 특별 한 접근 방법을 사용 합니다. 이러한 개체는 Docker가 명시적으로 수행 하도록 요청 하지 않는 한 일반적으로 제거 되지 않습니다. 이로 인해 Docker에서 추가 디스크 공간을 사용할 수 있습니다. 각 개체 형식에 대해 Docker는 정리 명령을 제공 합니다. 또한 docker 시스템 정리를 사용 하 여 한 번에 여러 유형의 개체를 정리할 수 있습니다. 자세한 내용은 [사용 하지 않는 Docker 개체 정리](https://docs.docker.com/config/pruning/)를 참조 하세요.
 1. `sudo docker rmi REPOSITORY:TAG`

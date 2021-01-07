@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Maps를 사용하여 매장 로케이터 애플리케이션 만들기 | Microsoft Azure Maps'
-description: 스토어 로케이터 웹 애플리케이션을 만드는 방법에 대해 알아봅니다. Azure Maps Web SDK를 사용하여 웹 페이지를 만들고, 검색 서비스를 쿼리하고, 지도에 결과를 표시합니다.
+description: 스토어 로케이터 웹 애플리케이션을 만드는 방법에 대한 자습서. Azure Maps Web SDK를 사용하여 웹 페이지를 만들고, 검색 서비스를 쿼리하고, 지도에 결과를 표시합니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2020
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085317"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905777"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
 이 자습서에서는 Azure Maps를 사용하여 간단한 매장 로케이터를 만드는 과정을 안내합니다. 매장 로케이터는 일반적인 프로그램입니다. 이 유형의 애플리케이션에서 사용되는 개념 대부분이 다른 많은 애플리케이션에도 적용됩니다. 고객에게 매장 로케이터를 제공하는 일은 소비자에게 직접 제품을 판매하는 대부분의 기업에게 있어서 반드시 필요한 작업입니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
-    
+
 > [!div class="checklist"]
 > * Azure Map Control API를 사용하여 새 웹 페이지를 만듭니다.
 > * 파일에서 사용자 지정 데이터를 로드하고 지도에 표시합니다.
@@ -81,13 +81,13 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 * 몇 개의 추가 열에 커피숍에 관련된 메타데이터, 즉 전화 번호, 부울 열 및 매장 개장 및 마감 시간(24시간 형식)이 포함됩니다. 부울 열은 Wi-Fi 핫스폿 및 휠체어 이용 가능성을 위한 것입니다. 위치 데이터와 관련성이 좀 더 깊은 메타데이터를 포함하는 고유한 열을 만들 수 있습니다.
 
 > [!NOTE]
-> Azure Maps는 구형 Mercator 프로젝션 "EPSG:3857"의 데이터를 렌더링하되, WGS84 데이터를 사용하는 "EPSG:4325"의 데이터를 읽습니다.
+> Azure Maps는 구형 Mercator 프로젝션 "EPSG:3857"의 데이터를 렌더링하지만, WGS84 데이텀을 사용하는 "EPSG:4326"의 데이터를 읽습니다.
 
 애플리케이션에 데이터 세트를 노출하는 방법은 다양합니다. 한 가지 방법은 데이터베이스에 데이터를 로드하고, 데이터를 쿼리하는 웹 서비스를 노출하는 것입니다. 그런 다음, 결과를 사용자의 브라우저로 보낼 수 있습니다. 이 옵션은 대형 데이터 세트 또는 자주 업데이트되는 데이터 세트에 이상적입니다. 그러나 이 옵션을 제공하려면 더 많은 개발 작업이 필요하며 비용도 많이 듭니다.
 
 다른 방법은 이 데이터 세트를 브라우저가 쉽게 구문 분석할 수 있는 일반 텍스트 파일로 변환하는 것입니다. 파일 자체는 애플리케이션의 나머지와 함께 유지될 수 있습니다. 이 옵션을 사용하면 데이터를 보다 간단히 유지할 수 있지만, 사용자가 모든 데이터를 다운로드하게 되므로 데이터 세트 크기가 작을 때만 적절합니다. 이 데이터 세트의 경우 데이터 파일 크기가 1MB 미만이기 때문에 일반 텍스트 파일을 사용합니다.  
 
-통합 문서를 일반 텍스트 파일로 변환하려면 통합 문서를 탭으로 구분된 파일로 저장합니다. 각 열은 탭 문자로 구분되므로 코드에서 열을 쉽게 구문 분석할 수 있습니다. CSV(쉼표로 구분된 값) 형식을 사용할 수 있지만 이 옵션을 사용하려면 더 많은 구문 분석 논리가 필요합니다. 주변에 쉼표가 있는 모든 필드는 따옴표로 묶어야 합니다. 이 데이터를 Excel에 탭으로 구분된 파일로 내보내려면 **다른 이름으로 저장**을 선택합니다. **저장 형식** 드롭다운 목록에서 **텍스트(탭 구분)(*.txt)** 를 선택합니다. 파일 이름을 *ContosoCoffee.txt*로 지정합니다.
+통합 문서를 일반 텍스트 파일로 변환하려면 통합 문서를 탭으로 구분된 파일로 저장합니다. 각 열은 탭 문자로 구분되므로 코드에서 열을 쉽게 구문 분석할 수 있습니다. CSV(쉼표로 구분된 값) 형식을 사용할 수 있지만 이 옵션을 사용하려면 더 많은 구문 분석 논리가 필요합니다. 주변에 쉼표가 있는 모든 필드는 따옴표로 묶어야 합니다. 이 데이터를 Excel에 탭으로 구분된 파일로 내보내려면 **다른 이름으로 저장** 을 선택합니다. **저장 형식** 드롭다운 목록에서 **텍스트(탭 구분)(*.txt)** 를 선택합니다. 파일 이름을 *ContosoCoffee.txt* 로 지정합니다.
 
 ![저장 형식 대화 상자 스크린샷](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,15 +97,15 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ## <a name="set-up-the-project"></a>프로젝트 설정
 
-프로젝트를 만들려면 [Visual Studio](https://visualstudio.microsoft.com) 또는 원하는 코드 편집기를 사용할 수 있습니다. 프로젝트 폴더에서 세 개의 파일 *index.html*, *index.css*, 및 *index.js*를 만듭니다. 이러한 파일은 애플리케이션에 대한 레이아웃, 스타일 및 논리를 정의합니다. *data*라는 폴더를 만들고 이 폴더에 *ContosoCoffee.txt*를 추가합니다. *images*라는 다른 폴더를 만듭니다. 이 애플리케이션에서는 지도의 아이콘, 단추 및 마커에 10개의 이미지를 사용합니다. [이러한 이미지를 다운로드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)할 수 있습니다. 이제 프로젝트 폴더는 다음 그림과 같이 표시됩니다.
+프로젝트를 만들려면 [Visual Studio](https://visualstudio.microsoft.com) 또는 원하는 코드 편집기를 사용할 수 있습니다. 프로젝트 폴더에서 세 개의 파일 *index.html*, *index.css*, 및 *index.js* 를 만듭니다. 이러한 파일은 애플리케이션에 대한 레이아웃, 스타일 및 논리를 정의합니다. *data* 라는 폴더를 만들고 이 폴더에 *ContosoCoffee.txt* 를 추가합니다. *images* 라는 다른 폴더를 만듭니다. 이 애플리케이션에서는 지도의 아이콘, 단추 및 마커에 10개의 이미지를 사용합니다. [이러한 이미지를 다운로드](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)할 수 있습니다. 이제 프로젝트 폴더는 다음 그림과 같이 표시됩니다.
 
 ![간단한 매장 로케이터 프로젝트 폴더 스크린샷](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>사용자 인터페이스 만들기
 
-사용자 인터페이스를 만들려면 *index.html*에 코드를 추가합니다.
+사용자 인터페이스를 만들려면 *index.html* 에 코드를 추가합니다.
 
-1. 다음 `meta` 태그를 *index.html*의 `head`에 추가합니다. `charset` 태그는 문자 집합(UTF-8)을 정의합니다. `http-equiv` 값은 Internet Explorer 및 Microsoft Edge에서 최신 브라우저 버전을 사용하고 있음을 뜻합니다. 마지막 `meta` 태그는 반응형 레이아웃에 적합한 뷰포트를 지정합니다.
+1. 다음 `meta` 태그를 *index.html* 의 `head`에 추가합니다. `charset` 태그는 문자 집합(UTF-8)을 정의합니다. `http-equiv` 값은 Internet Explorer 및 Microsoft Edge에서 최신 브라우저 버전을 사용하고 있음을 뜻합니다. 마지막 `meta` 태그는 반응형 레이아웃에 적합한 뷰포트를 지정합니다.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. *index.js* 및 *index.css*에 대한 참조를 추가합니다.
+1. *index.js* 및 *index.css* 에 대한 참조를 추가합니다.
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -158,9 +158,9 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
     </main>
     ```
 
-완료되면 *index.html*은 [이 예제 index.html 파일](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)과 같습니다.
+완료되면 *index.html* 은 [이 예제 index.html 파일](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)과 같습니다.
 
-다음 단계는 CSS 스타일을 정의하는 것입니다. CSS 스타일은 애플리케이션 구성 요소가 배치되는 방식과 애플리케이션 모양을 정의합니다. *index.css*를 열고 다음 코드를 추가합니다. `@media` 스타일은 화면 너비가 700픽셀보다 작을 때 사용할 대체 스타일 옵션을 정의합니다.  
+다음 단계는 CSS 스타일을 정의하는 것입니다. CSS 스타일은 애플리케이션 구성 요소가 배치되는 방식과 애플리케이션 모양을 정의합니다. *index.css* 를 열고 다음 코드를 추가합니다. `@media` 스타일은 화면 너비가 700픽셀보다 작을 때 사용할 대체 스타일 옵션을 정의합니다.  
 
    ```CSS
     html, body {
@@ -369,7 +369,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ## <a name="wire-the-application-with-javascript"></a>애플리케이션을 JavaScript에 연결
 
-이제 모든 항목이 사용자 인터페이스에서 설정됩니다. JavaScript를 추가하여 데이터를 로드 및 구문 분석한 다음, 지도에서 데이터를 렌더링해야 합니다. 시작하려면 *index.js*를 열고 다음 단계에 설명된 대로 코드를 추가합니다.
+이제 모든 항목이 사용자 인터페이스에서 설정됩니다. JavaScript를 추가하여 데이터를 로드 및 구문 분석한 다음, 지도에서 데이터를 렌더링해야 합니다. 시작하려면 *index.js* 를 열고 다음 단계에 설명된 대로 코드를 추가합니다.
 
 1. 설정을 보다 쉽게 업데이트할 수 있도록 하는 전역 옵션을 추가합니다. 지도, 팝업 창, 데이터 원본, 아이콘 계층 및 HTML 표식에 대한 변수를 정의합니다. 검색 영역의 중심을 나타내도록 HTML 표식을 설정합니다. 그리고 Azure Maps 검색 서비스 클라이언트의 인스턴스를 정의합니다.
 
@@ -385,7 +385,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. *index.js*에 코드를 추가합니다. 다음 코드는 맵을 초기화합니다. 페이지 로드가 완료될 때까지 대기하도록 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events)를 추가했습니다. 그런 다음, 이벤트를 연결하여 지도의 로드를 모니터링하고 검색 단추와 내 위치 단추에 기능을 제공합니다.
+1. *index.js* 에 코드를 추가합니다. 다음 코드는 맵을 초기화합니다. 페이지 로드가 완료될 때까지 대기하도록 [이벤트 수신기](/javascript/api/azure-maps-control/atlas.map#events)를 추가했습니다. 그런 다음, 이벤트를 연결하여 지도의 로드를 모니터링하고 검색 단추와 내 위치 단추에 기능을 제공합니다.
 
    사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 다음, Enter를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가/지역 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가/지역으로 제한할 수 있습니다. 검색할 국가/지역을 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
   
@@ -432,7 +432,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
             }
         };
 
-        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location.
+        //If the user selects the My Location button, use the Geolocation API (Preview) to get the user's location. Center and zoom the map on that location.
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation;
 
         //Wait until the map resources are ready.
@@ -472,7 +472,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
     function setMapToUserLocation() {
         //Request the user's location.
         navigator.geolocation.getCurrentPosition(function(position) {
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it.
+            //Convert the Geolocation API (Preview) position to a longitude and latitude position value that the map can interpret and center the map over it.
             map.setCamera({
                 center: [position.coords.longitude, position.coords.latitude],
                 zoom: maxClusterZoomLevel + 1
@@ -924,34 +924,21 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ![작은 화면 버전의 매장 로케이터 스크린샷](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+이 자습서에서는 Azure Maps를 사용하여 기본 매장 로케이터를 만드는 방법을 알아보았습니다. 이 자습서에서 만드는 매장 로케이터에는 필요한 모든 기능이 있을 수 있습니다. 매장 로케이터에 기능을 추가하거나 더 많은 사용자 지정 사용자 환경을 위해 더 많은 고급 기능을 사용할 수 있습니다. 
+
+ * 검색 상자에서 [입력할 때 제안 사항](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)이 표시되도록 설정합니다.  
+ * [여러 언어 지원](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization)을 추가합니다. 
+ * [경로를 따라 위치를 필터링](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route)하도록 합니다. 
+ * [필터를 설정](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)하는 기능을 추가합니다. 
+ * 쿼리 문자열을 사용하여 초기 검색 값을 지정하는 지원을 추가합니다. 매장 로케이터에 이 옵션을 포함하면 사용자가 검색에 책갈피를 지정하고 공유할 수 있습니다. 또한 다른 페이지에서 이 페이지로 검색을 전달하는 쉬운 방법도 제공됩니다.  
+ * 매장 로케이터를 [Azure App Service Web App](../app-service/quickstart-html.md)으로 배포합니다. 
+ * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) 및 [공간 데이터에서 가장 인접한 항목 쿼리](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017)를 참조하세요.
+
+[전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) 및 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 사용하여 Azure Maps의 적용 범위 및 기능에 대해 자세히 알아볼 수 있습니다. [데이터 기반 스타일 식을 사용](data-driven-style-expressions-web-sdk.md)하여 비즈니스 논리에 적용할 수도 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
-
-이 자습서에서는 Azure Maps를 사용하여 기본 매장 로케이터를 만드는 방법을 알아봅니다. 이 자습서에서 만드는 매장 로케이터에는 필요한 모든 기능이 있을 수 있습니다. 매장 로케이터에 기능을 추가하거나 더 많은 사용자 지정 사용자 환경을 위해 더 많은 고급 기능을 사용할 수 있습니다. 
-
-> [!div class="checklist"]
-> * 검색 상자에서 [입력할 때 제안 사항](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)이 표시되도록 설정합니다.  
-> * [여러 언어 지원](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization)을 추가합니다. 
-> * [경로를 따라 위치를 필터링](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route)하도록 합니다. 
-> * [필터를 설정](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)하는 기능을 추가합니다. 
-> * 쿼리 문자열을 사용하여 초기 검색 값을 지정하는 지원을 추가합니다. 매장 로케이터에 이 옵션을 포함하면 사용자가 검색에 책갈피를 지정하고 공유할 수 있습니다. 또한 다른 페이지에서 이 페이지로 검색을 전달하는 쉬운 방법도 제공됩니다.  
-> * 매장 로케이터를 [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/quickstart-html)으로 배포합니다. 
-> * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) 및 [공간 데이터에서 가장 인접한 항목 쿼리](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-Azure Maps의 적용 범위 및 기능에 대해 자세히 알아보려면 다음을 참조하세요.
-
-> [!div class="nextstepaction"]
-> [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)
 
 더 많은 코드 예제와 대화형 코딩 환경을 살펴보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [맵 컨트롤을 사용하는 방법](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)

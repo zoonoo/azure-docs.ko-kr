@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1601c9fc750df1f8e18bdaa072ede1b5ee164329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84743816"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토 완료
@@ -56,7 +56,7 @@ ms.locfileid: "84743816"
 
 액세스 검토가 완료 되 면 **적용** 을 선택 하 여 검토 결과를 구현 합니다. 사용자의 액세스가 검토 중에 거부되었다면, 이 단계는 해당 역할 할당을 제거합니다.  
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 
 더 이상 검토가 필요 없는 경우 검토를 삭제합니다. **Delete** yo를 선택 하 여 Privileged Identity Management 서비스에서 검토를 제거 합니다.
 

@@ -1,23 +1,21 @@
 ---
 title: Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 description: Azure Data Lake Analytics를 사용 하 여 웹 사이트 로그를 분석 하 여 U-SQL 함수 및 쿼리를 실행 하는 방법을 알아봅니다.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2764e5e3994eb7b80a8e7cf62fb7f437323c97e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015301"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법, 특히 웹 사이트를 방문하려고 할 때 참조 페이지에 오류가 발생한 경우에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2015 또는 Visual Studio 2013**.
 * **[Visual Studio 용 Data Lake 도구](https://aka.ms/adltoolsvs)**
 
@@ -28,7 +26,7 @@ ms.locfileid: "87132639"
 
   * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md).
 * **Data Lake Analytics 계정.**  [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md)를 참조하세요.
-* **샘플 데이터 설치.** Azure Portal에서 Data Lake Analytics를 열고 왼쪽 메뉴에서 **샘플 스크립트**를 클릭한 후에 **샘플 데이터 복사**를 클릭합니다. 
+* **샘플 데이터 설치.** Azure Portal에서 Data Lake Analytics를 열고 왼쪽 메뉴에서 **샘플 스크립트** 를 클릭한 후에 **샘플 데이터 복사** 를 클릭합니다. 
 
 ## <a name="connect-to-azure"></a>Azure에 연결
 모든 U-SQL 스크립트를 빌드하거나 테스트하기 전에 먼저 Azure에 연결해야 합니다.
@@ -36,14 +34,14 @@ ms.locfileid: "87132639"
 ### <a name="to-connect-to-data-lake-analytics"></a>데이터 레이크 분석에 연결하려면
 
 1. Visual Studio를 엽니다.
-2. **Data Lake > 옵션 및 설정**을 클릭합니다.
-3. **로그인** 또는 **사용자 변경**을 클릭하거나, 특정 사용자가 로그인한 경우 다음 지침을 따르십시오.
+2. **Data Lake > 옵션 및 설정** 을 클릭합니다.
+3. **로그인** 또는 **사용자 변경** 을 클릭하거나, 특정 사용자가 로그인한 경우 다음 지침을 따르십시오.
 4. **확인** 을 클릭하여 해당 옵션 및 설정 대화 상자를 닫습니다.
 
 ### <a name="to-browse-your-data-lake-analytics-accounts"></a>데이터 레이크 분석 계정 찾아보기
 
-1. Visual Studio에서 **CTRL+ALT+S**를 눌러 **서버 탐색기**를 엽니다.
-2. **서버 탐색기**에서 **Azure**를 확장한 후 **Data Lake Analytics**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure Portal을 사용 하 여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell를 사용 하 여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)을 참조 하세요.
+1. Visual Studio에서 **CTRL+ALT+S** 를 눌러 **서버 탐색기** 를 엽니다.
+2. **서버 탐색기** 에서 **Azure** 를 확장한 후 **Data Lake Analytics** 을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure Portal을 사용 하 여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell를 사용 하 여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)을 참조 하세요.
 
 ## <a name="develop-u-sql-application"></a>U-SQL 애플리케이션 개발
 U-SQL 애플리케이션은 대부분 U-SQL 스크립트입니다. U-SQL에 대한 자세한 내용은 [U-SQL 시작](data-lake-analytics-u-sql-get-started.md)을 참조하십시오.
@@ -52,13 +50,13 @@ U-SQL 애플리케이션은 대부분 U-SQL 스크립트입니다. U-SQL에 대�
 
 ### <a name="to-create-and-submit-a-data-lake-analytics-job"></a>데이터 레이크 분석 작업 만들기 및 제출하기
 
-1. **파일 > 새로 만들기 > 프로젝트**를 클릭합니다.
+1. **파일 > 새로 만들기 > 프로젝트** 를 클릭합니다.
 
 2. U-SQL 프로젝트 형식을 선택합니다.
 
    ![새 U-SQL Visual Studio 프로젝트](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-3. **확인**을 클릭합니다. Visual studio는 Script.usql 파일로 솔루션을 만듭니다.
+3. **확인** 을 클릭합니다. Visual studio는 Script.usql 파일로 솔루션을 만듭니다.
 
 4. Script.usql 파일에 다음 스크립트를 입력합니다.
 
@@ -159,11 +157,11 @@ U-SQL 애플리케이션은 대부분 U-SQL 스크립트입니다. U-SQL에 대�
 
 6. 첫 번째 U-SQL 스크립트로 다시 전환하고 **제출** 단추 옆에 해당 분석 계정을 지정합니다.
 
-7. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 클릭하고 **빌드 스크립트**를 클릭합니다. 출력 창에서 결과를 확인합니다.
+7. **솔루션 탐색기** 에서 **Script.usql** 을 마우스 오른쪽 클릭하고 **빌드 스크립트** 를 클릭합니다. 출력 창에서 결과를 확인합니다.
 
-8. **솔루션 탐색기**에서 **Script.usql**을 마우스 오른쪽 단추로 클릭하고 **스크립트 제출**을 클릭합니다.
+8. **솔루션 탐색기** 에서 **Script.usql** 을 마우스 오른쪽 단추로 클릭하고 **스크립트 제출** 을 클릭합니다.
 
-9. **분석 계정**이 실행하려는 작업에 있는지 확인하고 **제출**을 클릭합니다. 제출이 완료되면 Visual Studio용 데이터 레이크 도구 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
+9. **분석 계정** 이 실행하려는 작업에 있는지 확인하고 **제출** 을 클릭합니다. 제출이 완료되면 Visual Studio용 데이터 레이크 도구 결과 창에서 제출 결과 및 작업 링크를 사용할 수 있습니다.
 
 10. 작업이 성공적으로 완료될 때까지 기다립니다.  작업이 실패한 경우 대부분 원본 파일이 손실되었을 가능성이 큽니다.  이 자습서의 필수 조건 섹션을 참조하십시오. 추가적인 문제 해결 정보는 [Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)을 참조하세요.
 
@@ -171,13 +169,13 @@ U-SQL 애플리케이션은 대부분 U-SQL 스크립트입니다. U-SQL에 대�
 
     ![데이터 레이크 분석은 웹 로그와 웹 사이트 로그를 분석합니다.](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 
-11. **Script1.usql**에 대해 7-10단계를 반복합니다.
+11. **Script1.usql** 에 대해 7-10단계를 반복합니다.
 
 ### <a name="to-see-the-job-output"></a>작업 출력 보기
 
-1. **서버 탐색기**에서 **Azure**, **Data Lake Analytics**, Data Lake Analytics 계정, **Storage 계정**을 차례로 확장하고 기본 Data Lake Storage 계정을 마우스 오른쪽 단추로 클릭한 다음 **탐색기**를 클릭합니다.
-2. **샘플**을 두 번 클릭하여 해당 폴더를 연 다음 **출력**을 두 번 클릭합니다.
-3. **UnsuccessfulResponses.log**를 두 번 클릭합니다.
+1. **서버 탐색기** 에서 **Azure**, **Data Lake Analytics**, Data Lake Analytics 계정, **Storage 계정** 을 차례로 확장하고 기본 Data Lake Storage 계정을 마우스 오른쪽 단추로 클릭한 다음 **탐색기** 를 클릭합니다.
+2. **샘플** 을 두 번 클릭하여 해당 폴더를 연 다음 **출력** 을 두 번 클릭합니다.
+3. **UnsuccessfulResponses.log** 를 두 번 클릭합니다.
 4. 출력 작업을 직접 탐색하기 위해 해당 작업의 그래프 뷰 내부에 있는 출력 파일을 두 번 클릭할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -185,4 +183,4 @@ U-SQL 애플리케이션은 대부분 U-SQL 스크립트입니다. U-SQL에 대�
 
 * [Azure Portal을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
 * [Azure PowerShell을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)
-* [.NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
+* [.NET SDK를 사용하여 데이터 레이크 분석 시작](./data-lake-analytics-get-started-cli.md)

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691465"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366284"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 Cognitive Services 피가
 
-이 작성법은 IoT 장치의 예측 유지 관리를 위해 Spark에서 Azure Synapse Analytics 및 Cognitive Services를 사용 하는 방법을 보여 줍니다. [CosmosDB 및 Synapse 링크](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) 샘플을 따릅니다. 이러한 작업을 단순하게 유지 하기 위해 CosmosDB 및 Synapse 링크를 통해 스트리밍된 데이터를 가져오는 대신 CSV 파일에서 직접 데이터를 읽습니다. Synapse Link 샘플을 살펴보는 것이 좋습니다.
+이 작성법은 IoT 장치의 예측 유지 관리를 위해 Azure Synapse Analytics를 사용 하 고 Apache Spark에서 Cognitive Services 하는 방법을 보여 줍니다. [CosmosDB 및 Synapse 링크](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) 샘플을 따릅니다. 이러한 작업을 단순하게 유지 하기 위해 CosmosDB 및 Synapse 링크를 통해 스트리밍된 데이터를 가져오는 대신 CSV 파일에서 직접 데이터를 읽습니다. Synapse Link 샘플을 살펴보는 것이 좋습니다.
 
 ## <a name="hypothetical-scenario"></a>가상 시나리오
 
@@ -31,13 +31,13 @@ ms.locfileid: "88691465"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
-* [Spark 풀](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool) 로 구성 된 [Azure Synapse 작업 영역](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)
+* [서버 리스 Apache Spark 풀](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 로 구성 된 [Azure Synapse 작업 영역](../../../synapse-analytics/quickstart-create-workspace.md)
 
 ## <a name="setup"></a>설치 프로그램
 
 ### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용 하 여 번역기에 대 한 리소스를 만듭니다. 다음도 가능합니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. [Azure Portal](../../cognitive-services-apis-create-account.md) 또는 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)를 사용 하 여 번역기에 대 한 리소스를 만듭니다. 다음도 가능합니다.
 
 - [Azure Portal](https://portal.azure.com/)에서 기존 리소스를 봅니다.
 

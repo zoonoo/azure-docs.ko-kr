@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce81ce9afa45c93010c457bc292bba037607f96f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4cb07d9d19d85cd8dff9a52eeeb7e173b60f4d6d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020884"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080773"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT] 
 > 이 문서에서 설명하는 S1, S2 및 S3 성능 수준은 이제 사용 중지되어 새 Azure Cosmos DB 계정에 더 이상 사용할 수 없습니다.
@@ -82,7 +83,7 @@ S3 컬렉션이 있는 경우 2,500RU/s 처리량의 단일 파티션 컬렉션�
 
 ## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>20gb 이상의 저장소를 필요로 한다면 어떻게 되나요?
 
-컬렉션에 S1, S2 또는 S3 성능 수준이 있거나 단일 파티션 컬렉션이 포함 되어 있든, 모두 20gb의 저장소를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용 하 여 거의 무제한 저장소를 사용 하는 분할 된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](sql-api-partition-data.md)을 참조하세요. 
+컬렉션에 S1, S2 또는 S3 성능 수준이 있거나 단일 파티션 컬렉션이 포함 되어 있든, 모두 20gb의 저장소를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용 하 여 거의 무제한 저장소를 사용 하는 분할 된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partitioning-overview.md)을 참조하세요. 
 
 <a name="change-before"></a>
 
@@ -116,12 +117,12 @@ S1, S2 및 S3 성능을 갖춘 기존 계정만 [.NET SDK를 사용하여](#migr
     await client.ReplaceOfferAsync(offer);
 ```
 
-offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx)을 방문하세요.
+offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN](/dotnet/api/microsoft.azure.documents.client.documentclient)을 방문하세요.
 
-* [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
-* [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
-* [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
-* [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
+* [**ReadOfferAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync)
+* [**ReadOffersFeedAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.readoffersfeedasync)
+* [**ReplaceOfferAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync)
+* [**CreateOfferQuery**](/previous-versions/azure/dn975114(v=azure.100))
 
 <a name="ea-customer"></a>
 
@@ -132,6 +133,6 @@ EA 고객에게 적용한 가격은 현재 계약이 종료될 때까지 보호�
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB의 가격 책정 및 데이터 관리에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-1.  [Cosmos DB의 데이터 분할](sql-api-partition-data.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
+1.  [Cosmos DB의 데이터 분할](partitioning-overview.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
 2.  [Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/). 처리량 프로비전 및 스토리지 소비 비용에 대해 알아봅니다.
 3.  [요청 단위](request-units.md). 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.

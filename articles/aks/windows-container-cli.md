@@ -4,12 +4,12 @@ description: Azure CLI를 사용 하 여 Kubernetes 클러스터를 신속 하 �
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a14659b64bbc86cfc50cbf8a377c0245fba25065
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421232"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886246"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -19,9 +19,9 @@ AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리�
 
 이 문서에서는 Kubernetes 개념에 대한 기본 지식이 있다고 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ### <a name="limitations"></a>제한 사항
 
@@ -39,11 +39,11 @@ Windows Server 노드 풀에는 다음과 같은 추가 제한 사항이 적용�
 
 Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다.
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 > [!NOTE]
 > 이 문서에서는이 자습서의 명령에 Bash 구문을 사용 합니다.
-> Azure Cloud Shell를 사용 하는 경우 Cloud Shell 창의 왼쪽 위에 있는 드롭다운이 **Bash**로 설정 되었는지 확인 합니다.
+> Azure Cloud Shell를 사용 하는 경우 Cloud Shell 창의 왼쪽 위에 있는 드롭다운이 **Bash** 로 설정 되었는지 확인 합니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -67,11 +67,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster*라는 aks 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스 (존재 하지 않는 경우)를 만듭니다.
+Windows Server 컨테이너의 노드 풀을 지원하는 AKS 클러스터를 실행하려면 클러스터에서 [Azure CNI][azure-cni-about](고급) 네트워크 플러그인을 사용하는 네트워크 정책을 사용해야 합니다. 필요한 서브넷 범위 및 네트워크 고려 사항을 계획하는 데 도움이 되는 자세한 내용은 [Azure CNI 네트워킹 구성][use-advanced-networking]을 참조하세요. [Az aks create][az-aks-create] 명령을 사용 하 여 *myAKSCluster* 라는 aks 클러스터를 만듭니다. 이 명령은 필요한 네트워크 리소스 (존재 하지 않는 경우)를 만듭니다.
 
 * 클러스터는 두 개의 노드로 구성 됩니다.
 * *Windows-admin-password* 및 *windows-admin* 매개 변수는 클러스터에 생성 된 모든 windows server 컨테이너에 대 한 관리자 자격 증명을 설정 하며 [windows server 암호 요구 사항을][windows-server-password]충족 해야 합니다.
-* 노드 풀은 다음을 사용 합니다.`VirtualMachineScaleSets`
+* 노드 풀은 다음을 사용 합니다. `VirtualMachineScaleSets`
 
 > [!NOTE]
 > 클러스터가 안정적으로 작동 되도록 하려면 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
@@ -111,7 +111,7 @@ az aks nodepool add \
     --node-count 1
 ```
 
-위의 명령은 *npwin*이라는 새 노드 풀을 만들어 *myAKSCluster*에 추가합니다. Windows Server 컨테이너를 실행 하기 위해 노드 풀을 만들 때 *노드-vm 크기* 의 기본값은 *Standard_D2s_v3*입니다. *노드-vm 크기* 매개 변수를 설정 하도록 선택 하는 경우 [제한 된 vm 크기][restricted-vm-sizes]목록을 확인 하세요. 권장되는 최소 크기는 *Standard_D2s_v3*입니다. 위의 명령은를 실행할 때 생성 되는 기본 vnet의 기본 서브넷도 사용 `az aks create` 합니다.
+위의 명령은 *npwin* 이라는 새 노드 풀을 만들어 *myAKSCluster* 에 추가합니다. Windows Server 컨테이너를 실행 하기 위해 노드 풀을 만들 때 *노드-vm 크기* 의 기본값은 *Standard_D2s_v3* 입니다. *노드-vm 크기* 매개 변수를 설정 하도록 선택 하는 경우 [제한 된 vm 크기][restricted-vm-sizes]목록을 확인 하세요. 권장되는 최소 크기는 *Standard_D2s_v3* 입니다. 위의 명령은를 실행할 때 생성 되는 기본 vnet의 기본 서브넷도 사용 `az aks create` 합니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
@@ -218,14 +218,14 @@ service/sample created
 kubectl get service sample --watch
 ```
 
-처음에는 *샘플* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
+처음에는 *샘플* 서비스에 대한 *EXTERNAL-IP* 가 *보류 중* 으로 표시됩니다.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-*EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+*EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
 ```output
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -268,7 +268,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

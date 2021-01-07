@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: include
 ms.date: 07/25/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 146a257a9b8f31e79283d71ede1e1c5c0355765c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 12c0acd5211a6fbcfd1e2861a3109b57fc67dbcf
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147821"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930570"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -24,10 +24,8 @@ ms.locfileid: "89147821"
 | ExpressRoute 연결을 위한 VNet 주소 공간의 Azure 개인 피어링에서 보급되는 최대 경로 수 |200 |
 | ExpressRoute 표준을 사용하는 Microsoft 피어링에 보급되는 최대 경로 수 |200 |
 | ExpressRoute 프리미엄 추가 기능을 사용하는 Microsoft 피어링에 보급되는 최대 경로 수 |200 |
-| 표준 성능/ErGw1AZ 게이트웨이에 연결된 최대 ExpressRoute 회로 수 |4 | 
-| 고성능/ErGw2AZ 게이트웨이에 연결된 최대 ExpressRoute 회로 수 |8 | 
-| 초고성능/ErGw3AZ 게이트웨이에 연결된 최대 ExpressRoute 회로 수 |16 | 
-| 서로 다른 피어링 위치의 동일한 가상 네트워크에 연결된 ExpressRoute 회로의 최대 수(모든 SKU) |4 |
+| 동일한 피어링 위치의 동일한 가상 네트워크에 연결된 ExpressRoute 회로의 최대 수 |4 |
+| 서로 다른 피어링 위치의 동일한 가상 네트워크에 연결된 ExpressRoute 회로의 최대 수 |4 |
 | ExpressRoute 회로당 허용되는 가상 네트워크 링크 수 |[ExpressRoute 회로당 가상 네트워크 수](#vnetpercircuit) 표를 참조하세요.  |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a> ExpressRoute 회로당 가상 네트워크 수

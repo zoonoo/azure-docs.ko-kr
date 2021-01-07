@@ -4,10 +4,10 @@ description: 리소스 그룹 기록에 배포 수가 800 개를 초과 하는 �
 ms.topic: troubleshooting
 ms.date: 08/07/2020
 ms.openlocfilehash: 8996d7817eea2f8daf44fbc9b4416c884b05940f
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87987055"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>배포 수가 800를 초과 하는 경우 오류 해결
@@ -28,7 +28,7 @@ Azure Resource Manager은 한도 근처에서 자동으로 기록에서 배포�
 
 배포 하는 동안 현재 배포가 800 배포의 할당량을 초과 한다는 오류가 표시 됩니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 ### <a name="azure-cli"></a>Azure CLI
 

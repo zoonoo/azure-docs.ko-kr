@@ -3,13 +3,13 @@ title: 자습서 - 이미지를 배포할 컨테이너 레지스트리 준비
 description: Azure Container Instances 자습서 2/3부 - Azure 컨테이너 레지스트리를 준비하여 이미지 푸시
 ms.topic: tutorial
 ms.date: 12/18/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 44a7f21c067897b046413851ef5a2c73bfccc24f
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 2eda960c53fc7ba851ffcfbe96bd8e9a48844910
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708039"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746942"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>자습서: Azure 컨테이너 레지스트리를 만들고 컨테이너 이미지 푸시
 
@@ -40,7 +40,7 @@ Azure Container Registry는 Azure의 프라이빗 Docker 레지스트리입니�
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-예를 들어 레지스트리 이름이 *mycontainerregistry082*인 경우:
+예를 들어 레지스트리 이름이 *mycontainerregistry082* 인 경우:
 
 ```azurecli
 az acr show --name mycontainerregistry082 --query loginServer --output table
@@ -111,7 +111,7 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 az acr repository list --name <acrName> --output table
 ```
 
-다음은 그 예입니다. 
+예를 들어:
 
 ```azurecli
 az acr repository list --name mycontainerregistry082 --output table
@@ -123,7 +123,7 @@ Result
 aci-tutorial-app
 ```
 
-특정 이미지의 *태그*를 보려면 [az acr repository show-tags][az-acr-repository-show-tags] 명령을 사용합니다.
+특정 이미지의 *태그* 를 보려면 [az acr repository show-tags][az-acr-repository-show-tags] 명령을 사용합니다.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table

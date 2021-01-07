@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: bf9cda37e0cc8186938a316c87bcc69a7a7370b8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: dc89631208c6a72c4b48d49260f584149d6c4260
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085283"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679941"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Azure Storage 탐색기 지원 수명 주기 및 정책
 
@@ -23,7 +23,7 @@ ms.locfileid: "90085283"
 
 Azure Storage 탐색기는 1 년에서 6 회까지 릴리스됩니다. Microsoft는이 일정을 우회 하 여 중요 한 문제에 대 한 픽스를 릴리스할 수도 있습니다.
 
-Storage 탐색기는 매시간 업데이트를 확인 하 고 사용 가능한 경우 다운로드 합니다. 그러나 설치 프로세스를 시작 하려면 사용자 동의가 필요 합니다. 사용자가 다른 시간에 업데이트 하도록 선택 하는 경우 업데이트를 수동으로 확인할 수 있습니다. Windows 및 Linux에서 사용자는 **도움말** 메뉴에서 **업데이트 확인** 을 선택 하 여 업데이트를 확인할 수 있습니다. MacOS에서 **업데이트 확인** 은 **앱 메뉴**에서 찾을 수 있습니다. 사용자는 바로 [Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 다운로드 페이지로 이동 하 여 최신 릴리스를 다운로드 하 고 설치할 수도 있습니다.
+Storage 탐색기는 매시간 업데이트를 확인 하 고 사용 가능한 경우 다운로드 합니다. 그러나 설치 프로세스를 시작 하려면 사용자 동의가 필요 합니다. 사용자가 다른 시간에 업데이트 하도록 선택 하는 경우 업데이트를 수동으로 확인할 수 있습니다. Windows 및 Linux에서 사용자는 **도움말** 메뉴에서 **업데이트 확인** 을 선택 하 여 업데이트를 확인할 수 있습니다. MacOS에서 **업데이트 확인** 은 **앱 메뉴** 에서 찾을 수 있습니다. 사용자는 바로 [Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 다운로드 페이지로 이동 하 여 최신 릴리스를 다운로드 하 고 설치할 수도 있습니다.
 
 항상 최신 버전의 Storage 탐색기을 사용 하는 것이 좋습니다. 문제 때문에 최신 버전의 Storage 탐색기 업데이트 하지 못하는 경우 [GitHub](https://github.com/microsoft/AzureStorageExplorer)에서 문제를 여세요.
 
@@ -41,6 +41,8 @@ Storage 탐색기은 [최신 수명 주기 정책](https://support.microsoft.com
 
 | Storage 탐색기 버전  | 릴리스 날짜       | 지원 종료 날짜 |
 |:-------------------------:|:------------------:|:-------------------:|
+| v 1.17.0                   | 2020 년 12 월 15 일  | 2021 년 12 월 15 일   |
+| v 1.16.0                   | 2020년 11월 10일  | 2021 년 11 월 10 일   |
 | v 1.15.1                   | 2020 년 9 월 2 일  | 2021 년 9 월 2 일   |
 | v 1.15.0                   | 2020 년 8 월 27 일    | 2021 년 8 월 27 일     |
 | v 1.14.2                   | 2020년 7월 16일      | 2021 년 7 월 16 일       |
@@ -51,7 +53,7 @@ Storage 탐색기은 [최신 수명 주기 정책](https://support.microsoft.com
 | v 1.12.0                   | 2020 년 1 월 16 일   | 2021년 7월 14일       |
 | v 1.11.2                   | 2019년 12월 17일  | 2021년 7월 14일       |
 | v 1.11.1                   | 2019년 11월 20일  | 2021년 7월 14일       |
-| v 1.11.0                   | 2019년 11월 4일   | 2021년 7월 14일       |
+| v 1.11.0                   | 2019 년 11 월 4 일   | 2021년 7월 14일       |
 | v 1.10.1                   | 2019 년 9 월 19 일 | 2021년 7월 14일       |
 | v 1.10.0                   | 2019 년 9 월 12 일 | 2021년 7월 14일       |
 | v1.9.0                    | 2019 년 7 월 1 일       | 2021년 7월 14일       |

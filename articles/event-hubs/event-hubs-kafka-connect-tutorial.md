@@ -2,16 +2,25 @@
 title: Apache Kafka Connect와의 통합 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Kafka에 대해 Azure Event Hubs와 함께 Kafka Connect를 사용 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: b063bb36ec17c22c0f093f1b33f11597eed5ea68
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 01/06/2021
+ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061668"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935158"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Azure Event Hubs(미리 보기)에 Apache Kafka Connect 지원 통합
-수집되는 비즈니스 요구 사항이 증가함에 따라 다양한 외부 소스 및 싱크에 대한 수집 요구 사항도 증가합니다. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect)는 Kafka 클러스터를 통해 MySQL, HDFS 같은 외부 시스템 및 파일 시스템에 연결하고 데이터를 가져오는/내보내는 프레임워크를 제공합니다. 이 자습서에서는 Event Hubs와 함께 Kafka Connect 프레임 워크를 사용 하는 과정을 안내 합니다.
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Azure Event Hubs에 Apache Kafka Connect 지원 통합
+[Apache Kafka 연결](https://kafka.apache.org/documentation/#connect) 은 Kafka 클러스터를 통해 MYSQL, HDFS 및 파일 시스템과 같은 외부 시스템에서 데이터를 연결 하 고 가져오기/내보내기 위한 프레임 워크입니다. 이 자습서에서는 Event Hubs와 함께 Kafka Connect 프레임 워크를 사용 하는 과정을 안내 합니다.
+
+> [!WARNING]
+> Apache Kafka 연결 프레임 워크와 해당 커넥터의 사용은 **Microsoft Azure를 통한 제품 지원에 적합 하지 않습니다**.
+>
+> Apache Kafka 연결에서는 동적 구성이 압축 된 항목으로 유지 되 고 그렇지 않은 경우에는 무제한 보존을 사용 한다고 가정 합니다. Azure Event Hubs는 [브로커 기능으로 압축을 구현 하지](event-hubs-federation-overview.md#log-projections) 않으며 항상 보존 된 이벤트에 시간 기반 보존 제한을 적용 합니다. azure Event Hubs는 장기 데이터 또는 구성 저장소가 아닌 실시간 이벤트 스트리밍 엔진입니다.
+>
+> Apache Kafka 프로젝트는 이러한 역할을 혼합 하는 데 적합할 수 있지만 Azure는 적절 한 데이터베이스 또는 구성 저장소에서 이러한 정보를 가장 잘 관리 하는 것으로 간주 합니다.
+>
+> 많은 Apache Kafka 연결 시나리오는 정상적으로 작동 하지만 Apache Kafka와 Azure Event Hubs의 보존 모델 간의 이러한 개념적 차이로 인해 특정 구성이 예상 대로 작동 하지 않을 수 있습니다. 
 
 이 자습서에서는 Kafka Connect를 이벤트 허브와 통합 하 고 기본 FileStreamSource 및 FileStreamSink 커넥터를 배포 하는 과정을 안내 합니다. 이 기능은 현재 미리 보기로 제공됩니다. 이러한 커넥터는 프로덕션 용도로 제작된 것이 아니지만, Azure Event Hubs가 Kafka broker 역할을 하는 엔드투엔드 Kafka Connect 시나리오를 보여줍니다.
 
@@ -90,6 +99,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";` 구성의 예는 다음과 같습니다.
+
 
 ## <a name="run-kafka-connect"></a>Kafka Connect 실행
 

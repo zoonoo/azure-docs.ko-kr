@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318031"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91397082"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -45,14 +45,14 @@ Azure SQL 분석은 모든 Azure SQL database에 대 한 진단 원격 분석 �
 
 | Azure SQL 분석 옵션 | 설명 | 지원 SQL Database | SQL Managed Instance 지원 |
 | --- | ------- | ----- | ----- |
-| 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. | yes | 예 |
-| 자세한 정보 | Intelligent Insights 성능에 대한 계층적 드릴다운을 제공합니다. | yes | 예 |
-| 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | yes | 예 |
+| 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. | 예 | 예 |
+| 자세한 정보 | Intelligent Insights 성능에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
+| 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 | 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니요 |
 | 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니요 |
 | 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |예 | 아니요 |
-| 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | yes | 예 |
-| 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. | yes | 예 |
+| 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
+| 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
 
 ## <a name="configuration"></a>구성
 
@@ -90,11 +90,11 @@ SQL Database에 대 한 Azure SQL 분석 모니터링 대시보드를 보려면 
 
 데이터베이스에 대한 Azure SQL 분석 타일을 선택하면 모니터링 대시보드가 표시됩니다.
 
-![Azure SQL 분석 개요](./media/azure-sql/azure-sql-sol-overview.png)
+![모니터링 대시보드를 보여 주는 스크린샷](./media/azure-sql/azure-sql-sol-overview.png)
 
 임의의 타일을 선택하면 특정 관점으로의 드릴다운 보고서가 열립니다. 관점을 선택하면 드릴다운 보고서가 열립니다.
 
-![Azure SQL 분석 시간 제한](./media/azure-sql/azure-sql-sol-metrics.png)
+![특정 큐브 뷰에 드릴 다운 보고서를 표시 하는 스크린샷](./media/azure-sql/azure-sql-sol-metrics.png)
 
 이 보기의 각 큐브 뷰에서는 구독, 서버, 탄력적 풀 및 데이터베이스 수준에 대 한 요약을 제공 합니다. 또한 각 관점에 따라 오른쪽에 관점별 보고서가 표시됩니다. 목록에서 구독, 서버, 풀 또는 데이터베이스를 선택하면 계속해서 드릴다운됩니다.
 
@@ -230,6 +230,9 @@ AzureMetrics
 > - 출력은 정의된 time_range 내의 storage_threshold 위쪽에 있는 데이터베이스 리소스의 목록입니다.
 
 #### <a name="alert-on-intelligent-insights"></a>Intelligent Insights에 대한 경고
+
+> [!IMPORTANT]
+> 데이터베이스가 정상적으로 수행 되 고 Intelligent Insights 생성 되지 않은 경우에는이 쿼리가 실패 하 고 다음 오류 메시지가 나타납니다. ' rootCauseAnalysis_s ' 라는 스칼라 식을 확인 하지 못했습니다. 이 동작은 데이터베이스에 대 한 intelligent insights가 없는 모든 경우에 발생 합니다.
 
 ```
 let alert_run_interval = 1h;

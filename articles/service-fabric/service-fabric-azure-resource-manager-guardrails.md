@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
 ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247827"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
@@ -60,7 +60,7 @@ Service Fabric 노드 형식에 대 한 내구성 값은 Azure Resource Manager 
 * 가상 머신 확장 집합 내구성이 대상 Service Fabric 노드 유형 내구성 수준과 일치 하지 않습니다.
 * 가상 머신 확장 집합 내구성은 현재 Service Fabric 내구성 수준 또는 대상 Service Fabric 노드 유형 내구성 수준과 일치 합니다. 
 
-### <a name="mitigation"></a>완화
+### <a name="mitigation"></a>완화 방법
 위의 오류 메시지에 표시 되는 내구성 불일치를 해결 하려면 다음을 수행 합니다.
 1. Azure Resource Manager 템플릿의 가상 머신 확장 집합 확장 또는 Service Fabric 노드 유형 섹션에서 내구성 수준을 업데이트 하 여 값이 일치 하는지 확인 합니다.
 2. 업데이트 된 값으로 Azure Resource Manager 템플릿을 다시 배포 합니다.
@@ -75,7 +75,7 @@ Seed 노드 제거 작업이 검색 되었으며 거부 됩니다.
 * 이 작업을 수행 하면 {0} 잠재적인 시드 노드만 클러스터에 남아 있을 수 있으며, 최소한의 경우에는 {1} 필요 합니다.
 * {0}에서 시드 노드를 제거 하면 {1} 시드 노드 쿼럼이 손실 되어 클러스터가 중단 됩니다. 한 번에 제거할 수 있는 최대 시드 노드 수는 {2} 입니다.
  
-### <a name="mitigation"></a>완화 
+### <a name="mitigation"></a>완화 방법 
 주 노드 형식에 클러스터에 지정 된 안정성에 대 한 충분 한 Virtual Machines 있는지 확인 합니다. 가상 컴퓨터 확장 집합을 지정 된 안정성 계층에 대 한 최소 노드 수 아래로 가져오는 경우 가상 컴퓨터를 제거할 수 없습니다.
 * 안정성 계층이 올바르게 지정 된 경우 안정성 계층에 필요한 대로 주 노드 형식에 충분 한 노드가 있는지 확인 합니다. 
 * 안정성 계층이 올바르지 않으면 가상 머신 확장 집합 작업을 시작 하기 전에 먼저 안정성 수준을 낮추고 Service Fabric 리소스의 변경을 시작 하 고 완료 될 때까지 기다립니다.

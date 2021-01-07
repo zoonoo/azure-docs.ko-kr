@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate 복제 어플라이언스
 description: 에이전트 기반 VMWare 마이그레이션의 Azure Migrate 복제 어플라이언스에 대해 알아봅니다.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532123"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754099"
 ---
 # <a name="replication-appliance"></a>복제 어플라이언스
 
@@ -69,11 +72,11 @@ NIC 유형 | VMXNET3
 
 MySQL이 복제 어플라이언스 컴퓨터에 설치 되어 있어야 합니다. 이러한 방법 중 하나를 사용 하 여 설치할 수 있습니다.
 
-**메서드** | **세부 정보**
+**방법** | **세부 정보**
 --- | ---
 수동으로 다운로드 및 설치 | MySQL 응용 프로그램을 다운로드 하 & C:\Temp\ASRSetup 폴더에 배치한 다음 수동으로 설치 합니다.<br/> 기기를 설정 하는 경우 MySQL은 이미 설치 된 것으로 표시 됩니다.
 온라인 다운로드 하지 않음 | C:\Temp\ASRSetup. 폴더에 MySQL 설치 관리자 응용 프로그램을 추가 합니다. 어플라이언스를 설치 하 고를 클릭 하 여 MySQL을 다운로드 하 고 설치 하면 추가 된 설치 관리자가 사용 됩니다.
-Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 때 MySQL을 입력 하 라는 메시지가 표시 되 면 **다운로드 및 설치**를 선택 합니다.
+Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 때 MySQL을 입력 하 라는 메시지가 표시 되 면 **다운로드 및 설치** 를 선택 합니다.
 
 ## <a name="url-access"></a>URL 액세스
 
@@ -88,8 +91,8 @@ Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 �
 https:\//management.azure.com | 복제 관리 작업 및 조정에 사용됩니다.
 *.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
 time.windows.com | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /graph.windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.microsoft.com  | 어플라이언스 설정에 이러한 Url에 대 한 액세스 권한이 필요 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료 합니다. 몇 개 지역에서 다운로드는 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | 어플라이언스 설정에 이러한 Url에 대 한 액세스 권한이 필요 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료하려면 일부 지역에서는 다운로드가 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
 
 
 ## <a name="azure-government-url-access"></a>Azure Government URL 액세스
@@ -105,8 +108,8 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 https:\//management.usgovcloudapi.net | 복제 관리 작업 및 조정에 사용됩니다.
 *.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
 time.nist.gov | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /graph.windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.microsoft.com  | OVA로 어플라이언스를 설정 하려면 이러한 Url에 액세스 해야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료 합니다. 몇 개 지역에서 다운로드는 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVA로 어플라이언스를 설정 하려면 이러한 Url에 액세스 해야 합니다. Azure Active Directory 하 여 액세스 제어 및 id 관리에 사용 됩니다.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료하려면 일부 지역에서는 다운로드가 CDN URL로 리디렉션될 수 있습니다. 필요한 경우 CDN URL도 허용 되는지 확인 합니다.
 
 ## <a name="port-access"></a>포트 액세스
 
@@ -135,8 +138,8 @@ VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS
 
 어플라이언스는 Azure Migrate 허브에서 수동으로 업그레이드 됩니다. 항상 최신 버전을 실행 하는 것이 좋습니다.
 
-1. Azure Migrate > 서버 > Azure Migrate: 서버 평가, 인프라 서버에서 **구성 서버**를 클릭 합니다.
-2. **구성 서버**에서 새 버전의 복제 어플라이언스를 사용할 수 있는 경우 **에이전트 버전** 에 링크가 표시 됩니다. 
+1. Azure Migrate > 서버 > Azure Migrate: 서버 평가, 인프라 서버에서 **구성 서버** 를 클릭 합니다.
+2. **구성 서버** 에서 새 버전의 복제 어플라이언스를 사용할 수 있는 경우 **에이전트 버전** 에 링크가 표시 됩니다. 
 3. 설치 관리자를 복제 어플라이언스 컴퓨터에 다운로드 하 고 업그레이드를 설치 합니다. 설치 관리자가 어플라이언스에서 현재 실행 중인 버전을 검색 합니다.
  
 ## <a name="next-steps"></a>다음 단계

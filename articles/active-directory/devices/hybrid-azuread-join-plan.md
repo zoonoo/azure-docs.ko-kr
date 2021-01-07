@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269576"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435760"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -30,7 +30,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 온-프레미스 ad (Active Directory) 환경이 있고 AD 도메인에 가입 된 컴퓨터를 Azure AD에 가입 하려는 경우 하이브리드 Azure AD 조인을 수행 하 여이 작업을 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 [Azure Active Directory의 장치 id 관리 소개](./overview.md)에 대해 잘 알고 있다고 가정 합니다.
 
@@ -56,8 +56,8 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 - Windows 10
 - Windows Server 2016
-  - **참고**: Azure 국가별 클라우드 고객은 버전 1809을 요구 합니다.
-- 시작
+  - **참고**: Azure 국가별 클라우드 고객은 버전 1803을 요구 합니다.
+- Windows Server 2019
 
 Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되는 버전은 [windows 10 릴리스 정보](/windows/release-information/)문서에 나열 되어 있습니다. 모범 사례로, Microsoft는 최신 버전의 Windows 10으로 업그레이드 하는 것이 좋습니다.
 
@@ -106,6 +106,8 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 
 - Windows 10 1903 릴리스부터는 tpm 1.2이 하이브리드 Azure AD 조인과 함께 사용 되지 않으며 해당 tpm이 있는 장치는 TPM이 없는 것으로 간주 됩니다.
 
+- UPN 변경은 Windows 10 2004 업데이트를 시작 하는 경우에만 지원 됩니다. Windows 10 2004 업데이트 이전 장치의 경우 사용자에 게 장치에 대 한 SSO 및 조건부 액세스 문제가 있습니다. 이 문제를 해결 하려면 Azure AD에서 장치를 가입 해제 (승격 된 권한으로 "dsregcmd/leave" 실행) 하 고 다시 가입 (자동으로 수행 됨) 해야 합니다. 하지만 비즈니스용 Windows Hello를 통해 로그인하는 사용자에게는 이 문제가 발생하지 않습니다.
+
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사 검토
 
 모든 필수 구성 요소가 준비 되 면 Windows 장치가 자동으로 Azure AD 테 넌 트에 장치로 등록 됩니다. Azure AD에서 이러한 장치 id의 상태를 하이브리드 Azure AD 조인 이라고 합니다. 이 문서에서 다루는 개념에 대 한 자세한 내용은 [Azure Active Directory의 장치 id 관리 소개](overview.md)문서에서 찾을 수 있습니다.
@@ -138,7 +140,7 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
+> **adfs/services/trust/2005/windowstransport** 또는 **adfs/services/trust/13/windowstransport** 는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트** 에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
 
 > [!NOTE]
 > Azure AD는 관리형 도메인에서 스마트 카드나 인증서를 지원하지 않습니다.
@@ -162,7 +164,7 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
-| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | 설명 |
+| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | Description |
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |

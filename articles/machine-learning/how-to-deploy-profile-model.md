@@ -1,7 +1,7 @@
 ---
 title: 모델 메모리 및 CPU 사용량 프로 파일링
 titleSuffix: Azure Machine Learning
-description: 모델 메모리와 CPU 사용량을 프로 파일링 하는 방법 알아보기
+description: 배포 전에 모델을 프로 파일링 하는 방법을 알아봅니다. 프로 파일링은 모델의 메모리 및 CPU 사용량을 결정 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,14 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: b9ae40b3d2673961f9b84ed702f18b25b79b6d0c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935588"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320398"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>모델을 프로 파일링 하 여 리소스 사용률 확인
 
@@ -24,6 +26,10 @@ ms.locfileid: "88935588"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 모델을 학습 하 고 등록 했다고 가정 합니다. Azure Machine Learning를 사용 하 여 scikit 모델을 학습 하 고 등록 하는 방법에 대 한 예제는 [여기의 샘플 자습서](how-to-train-scikit-learn.md) 를 참조 하세요.
+
+## <a name="limitations"></a>제한 사항
+
+* 작업 영역의 ACR (Azure Container Registry)이 가상 네트워크 뒤에 있으면 프로 파일링이 작동 하지 않습니다.
 
 ## <a name="run-the-profiler"></a>프로파일러 실행
 
@@ -127,7 +133,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="next-steps"></a>다음 단계
 
-* [실패 한 배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용 하는 클라이언트 응용 프로그램 만들기](how-to-consume-web-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)

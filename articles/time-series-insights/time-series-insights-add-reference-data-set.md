@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 57e99dfd0cec4ee396cc90173f1f22715c7ba760
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001833"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Time Series Insights Gen1 환경에 대 한 참조 데이터 집합 만들기
+
+> [!CAUTION]
+> 이는 Gen1 문서입니다.
 
 이 문서에서는 Azure Time Series Insights 환경에 참조 데이터 집합을 추가하는 방법을 설명합니다. 참조 데이터는 값을 확장하기 위해 원본 데이터에 연결하는 데 유용합니다.
 
@@ -26,7 +29,7 @@ ms.locfileid: "88168187"
 
 참조 데이터는 소급되어 조인되지 않습니다. 따라서 데이터를 구성 하 고 업로드 한 후에는 현재 및 이후의 수신 데이터만 일치 하 고 참조 날짜 집합에 조인 합니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>시계열 정보에 대 한 참조 데이터 모델에 대해 알아봅니다.</br>
 
@@ -36,9 +39,9 @@ ms.locfileid: "88168187"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 기존 Azure Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Azure Time Series Insights 환경을 선택 합니다.
+1. 기존 Azure Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스** 를 선택합니다. Azure Time Series Insights 환경을 선택 합니다.
 
-1. **Overview** 페이지를 선택합니다. 페이지 맨 위 근처의 **Essentials** 섹션을 확장 하 여 **Time Series Insights 탐색기 URL** 을 찾고 링크를 엽니다.  
+1. **개요** 페이지를 선택합니다. 페이지 맨 위 근처의 **Essentials** 섹션을 확장 하 여 **Time Series Insights 탐색기 URL** 을 찾고 링크를 엽니다.  
 
    [![Essentials 섹션 확장](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
@@ -54,7 +57,7 @@ ms.locfileid: "88168187"
 
 1. **새 참조 데이터 집합** 페이지에서 데이터의 형식을 선택합니다.
 
-   - 쉼표로 구분된 데이터에 대해 **CSV**를 선택합니다. 첫 번째 행은 머리글 행으로 처리됩니다.
+   - 쉼표로 구분된 데이터에 대해 **CSV** 를 선택합니다. 첫 번째 행은 머리글 행으로 처리됩니다.
    - JSON (JavaScript object notation) 형식의 데이터에 대해 **Json 배열을** 선택 합니다.
 
    [![데이터 형식을 선택합니다.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
@@ -74,7 +77,7 @@ ms.locfileid: "88168187"
 
    [![참조 데이터 검토](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. 각 열을 검토 하 여 가정 된 데이터 형식을 이해 하 고 필요한 경우 데이터 형식을 변경 합니다.  **#** Double (숫자 데이터), T | 열 머리글에서 데이터 형식 기호를 선택 합니다 **. **부울의 경우 F, 문자열의 경우 **Abc**
+1. 각 열을 검토 하 여 가정 된 데이터 형식을 이해 하 고 필요한 경우 데이터 형식을 변경 합니다.  **#** Double (숫자 데이터), T | 열 머리글에서 데이터 형식 기호를 선택 합니다 **.** 부울의 경우 F, 문자열의 경우 **Abc**
 
    [![열 머리글에 대한 데이터 형식을 선택합니다.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
@@ -104,7 +107,7 @@ ms.locfileid: "88168187"
     > [!WARNING]
     > 참조 데이터 집합 사이에 공유 되는 열 또는 속성은 **중복 된 속성 이름** 업로드 오류를 표시 합니다. 오류가 발생 해도 참조 데이터 집합이 성공적으로 업로드 되는 것은 방지 되지 않습니다. 중복 된 속성 이름을 공유 하는 행을 결합 하 여 제거할 수 있습니다.
 
-1. 필요에 따라 **행 추가**, **대량 행 가져오기**또는 **열 추가** 를 선택 하 여 참조 데이터 값을 추가 합니다.
+1. 필요에 따라 **행 추가**, **대량 행 가져오기** 또는 **열 추가** 를 선택 하 여 참조 데이터 값을 추가 합니다.
 
     [![행을 추가 하거나 행을 대량으로 가져오거나 열을 추가 합니다.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
 
@@ -118,4 +121,4 @@ ms.locfileid: "88168187"
 
 - 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.
 
-- 전체 API 참조를 보려면 [참조 데이터 API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) 문서를 참조 하세요.
+- 전체 API 참조를 보려면 [참조 데이터 API](/rest/api/time-series-insights/gen1-reference-data-api) 문서를 참조 하세요.

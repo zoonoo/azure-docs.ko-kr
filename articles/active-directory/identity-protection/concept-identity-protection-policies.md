@@ -11,24 +11,24 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736503"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835971"
 ---
 # <a name="identity-protection-policies"></a>ID 보호 정책
 
-Azure Active Directory Identity Protection은 관리자가 사용하도록 설정할 수 있는 세 가지 기본 정책을 포함합니다. 이러한 정책에는 제한된 사용자 지정이 포함되지만 대부분의 조직에 적용됩니다. 모든 정책에서 [긴급 액세스 또는 비상 관리자 계정](../users-groups-roles/directory-emergency-access.md)과 같은 사용자를 제외할 수 있습니다.
+Azure Active Directory Identity Protection은 관리자가 사용하도록 설정할 수 있는 세 가지 기본 정책을 포함합니다. 이러한 정책에는 제한된 사용자 지정이 포함되지만 대부분의 조직에 적용됩니다. 모든 정책에서 [긴급 액세스 또는 비상 관리자 계정](../roles/security-emergency-access.md)과 같은 사용자를 제외할 수 있습니다.
 
 ![ID 보호 정책](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Azure MFA 등록 정책
+## <a name="azure-ad-mfa-registration-policy"></a>Azure AD MFA 등록 정책
 
-ID 보호를 통해 조직에서는 로그인 시 등록하도록 요구하는 조건부 액세스 정책을 사용하여 Azure MFA(Multi-Factor Authentication)를 롤아웃할 수 있습니다. 이 정책을 사용하도록 설정하는 것은 조직의 새 사용자가 첫 날에 MFA에 등록했는지 확인하는 좋은 방법입니다. 다단계 인증은 ID 보호에서 제공되는 위험 이벤트에 대한 자체 수정 방법 중 하나입니다. 자동 수정 기능을 사용하면 사용자가 자체적으로 조치를 취할 수 있으므로 기술 지원팀 문의 전화 횟수를 줄일 수 있습니다.
+Id 보호를 통해 조직에서는 로그인 시 등록 해야 하는 조건부 액세스 정책을 사용 하 여 MFA (Azure AD Multi-Factor Authentication)를 롤아웃할 수 있습니다. 이 정책을 사용하도록 설정하는 것은 조직의 새 사용자가 첫 날에 MFA에 등록했는지 확인하는 좋은 방법입니다. 다단계 인증은 ID 보호에서 제공되는 위험 이벤트에 대한 자체 수정 방법 중 하나입니다. 자동 수정 기능을 사용하면 사용자가 자체적으로 조치를 취할 수 있으므로 기술 지원팀 문의 전화 횟수를 줄일 수 있습니다.
 
-Azure Multi-Factor Authentication에 대한 자세한 내용은 [작동 방식: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) 문서를 참조하세요
+Azure AD Multi-Factor Authentication에 대 한 자세한 내용은 [작동 방법: AZURE ad Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)문서에서 찾을 수 있습니다.
 
 ## <a name="sign-in-risk-policy"></a>로그인 위험 정책
 
@@ -37,7 +37,7 @@ ID 보호는 각 로그인의 신호를 실시간 및 오프라인으로 분석�
 위험이 감지되면 사용자는 다단계 인증을 수행하여 위험한 로그인 이벤트를 자동으로 수정하고 닫을 수 있으므로 관리자에게 불필요한 업무 부담이 발생하지 않게 됩니다.
 
 > [!NOTE] 
-> 로그인 위험 정책을 트리거하기 전에 사용자는 Azure Multi-Factor Authentication에 등록되어 있어야 합니다.
+> 로그인 위험 정책을 트리거하기 전에 사용자가 이전에 Azure AD Multi-Factor Authentication에 등록 되어 있어야 합니다.
 
 ### <a name="custom-conditional-access-policy"></a>사용자 지정 조건부 액세스 정책
 
@@ -58,8 +58,8 @@ ID 보호는 사용자의 정상적인 행동을 계산하고 해당 결과를 �
 
 - [Azure AD 셀프 서비스 암호 재설정 사용](../authentication/howto-sspr-deployment.md)
 
-- [Azure Multi-Factor Authentication 사용](../authentication/howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication 사용](../authentication/howto-mfa-getstarted.md)
 
-- [Azure Multi-Factor Authentication 등록 정책 사용](howto-identity-protection-configure-mfa-policy.md)
+- [Azure AD Multi-Factor Authentication 등록 정책 사용](howto-identity-protection-configure-mfa-policy.md)
 
 - [로그인 및 사용자 위험 정책 사용](howto-identity-protection-configure-risk-policies.md)

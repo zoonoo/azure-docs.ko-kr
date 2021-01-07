@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fab8f88a39730411503af273902a53f169e3fe57
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368152"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703741"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포
 
@@ -32,11 +32,11 @@ ms.locfileid: "87368152"
 
 ### <a name="private-clusters"></a>개인 클러스터
 
-개인 OpenShift 클러스터를 배포 하려면 마스터 부하 분산 장치 (웹 콘솔) 또는 인프라 부하 분산 장치 (라우터)에 연결 된 공용 IP를 포함 하지 않는 것이 더 필요 합니다.  일반적으로 개인 클러스터는 사용자 지정 DNS 서버 (기본 Azure DNS 아님), 사용자 지정 도메인 이름 (예: contoso.com) 및 미리 정의 된 가상 네트워크를 사용 합니다.  개인 클러스터의 경우 적절 한 모든 서브넷 및 DNS 서버 설정을 미리 구성 하 여 가상 네트워크를 구성 해야 합니다.  그런 다음 **existingMasterSubnetReference**, **existingInfraSubnetReference**, **existingCnsSubnetReference**및 **existingNodeSubnetReference** 를 사용 하 여 클러스터에서 사용할 기존 서브넷을 지정 합니다.
+개인 OpenShift 클러스터를 배포 하려면 마스터 부하 분산 장치 (웹 콘솔) 또는 인프라 부하 분산 장치 (라우터)에 연결 된 공용 IP를 포함 하지 않는 것이 더 필요 합니다.  일반적으로 개인 클러스터는 사용자 지정 DNS 서버 (기본 Azure DNS 아님), 사용자 지정 도메인 이름 (예: contoso.com) 및 미리 정의 된 가상 네트워크를 사용 합니다.  개인 클러스터의 경우 적절 한 모든 서브넷 및 DNS 서버 설정을 미리 구성 하 여 가상 네트워크를 구성 해야 합니다.  그런 다음 **existingMasterSubnetReference**, **existingInfraSubnetReference**, **existingCnsSubnetReference** 및 **existingNodeSubnetReference** 를 사용 하 여 클러스터에서 사용할 기존 서브넷을 지정 합니다.
 
-개인 마스터를 선택한 경우 (**Masterclustertype**= Private) **masterPrivateClusterIp**에 대해 고정 개인 IP를 지정 해야 합니다.  이 IP는 마스터 부하 분산 장치의 프런트 엔드에 할당 됩니다.  IP는 사용 하지 않고 마스터 서브넷의 CIDR 내에 있어야 합니다.  **masterClusterDnsType** 를 "custom"으로 설정 하 고 마스터 Dns 이름을 **masterclusterdns**에 제공 해야 합니다.  DNS 이름은 고정 개인 IP로 매핑되어야 하며 마스터 노드에서 콘솔에 액세스 하는 데 사용 됩니다.
+개인 마스터를 선택한 경우 (**Masterclustertype**= Private) **masterPrivateClusterIp** 에 대해 고정 개인 IP를 지정 해야 합니다.  이 IP는 마스터 부하 분산 장치의 프런트 엔드에 할당 됩니다.  IP는 사용 하지 않고 마스터 서브넷의 CIDR 내에 있어야 합니다.  **masterClusterDnsType** 를 "custom"으로 설정 하 고 마스터 Dns 이름을 **masterclusterdns** 에 제공 해야 합니다.  DNS 이름은 고정 개인 IP로 매핑되어야 하며 마스터 노드에서 콘솔에 액세스 하는 데 사용 됩니다.
 
-개인 라우터를 선택 하는 경우 (**Routerclustertype**= Private) **routerPrivateClusterIp**에 대해 고정 개인 IP를 지정 해야 합니다.  이 IP는 인프라 부하 분산 장치의 프런트 엔드에 할당 됩니다.  IP는 인프라 서브넷에 대 한 CIDR 내에 있어야 하며 사용 되 고 있지 않아야 합니다.  **routingSubDomainType** 는 "custom"으로 설정 해야 하며 라우팅에 대 한 와일드 카드 DNS 이름을 **routingsubdomain 도메인**에 제공 해야 합니다.  
+개인 라우터를 선택 하는 경우 (**Routerclustertype**= Private) **routerPrivateClusterIp** 에 대해 고정 개인 IP를 지정 해야 합니다.  이 IP는 인프라 부하 분산 장치의 프런트 엔드에 할당 됩니다.  IP는 인프라 서브넷에 대 한 CIDR 내에 있어야 하며 사용 되 고 있지 않아야 합니다.  **routingSubDomainType** 는 "custom"으로 설정 해야 하며 라우팅에 대 한 와일드 카드 DNS 이름을 **routingsubdomain 도메인** 에 제공 해야 합니다.  
 
 개인 마스터와 개인 라우터를 선택 하는 경우 사용자 지정 도메인 이름도 **domainName** 에 입력 해야 합니다.
 
@@ -243,7 +243,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 ### <a name="azuredeployparametersjson-file-explained"></a>파일에 대 한 azuredeploy.Parameters.js설명
 
-| 속성 | 설명 | 유효한 옵션 | 기본값 |
+| 속성 | Description | 유효한 옵션 | 기본값 |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | 아티팩트에 대 한 URL (json, 스크립트 등) |  |  https: \/ /raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | 리소스를 배포할 Azure 지역 |  |  |
@@ -276,14 +276,14 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `keyVaultName` | 만든 Key Vault의 이름입니다. |  |  |
 | `enableAzure` | Azure Cloud Provider 사용 | true <br> false | true |
 | `aadClientId` | 서비스 주체의 응용 프로그램 ID 라고도 하는 Azure Active Directory 클라이언트 ID |  |  |
-| `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | 없음 |
+| `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | none |
 | `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | 기본값 <br> 사용자 지정 | 기본값 |
-| `masterClusterDns` | ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름입니다.`masterClusterDnsType` |  | console.contoso.com |
+| `masterClusterDns` | ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름입니다. `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | ' Nipio '로 설정 되 면 `routingSubDomain` 는 nip.io를 사용 합니다.  라우팅에 사용 하려는 고유한 도메인이 있으면 ' 사용자 지정 '을 사용 합니다. | nipio <br> 사용자 지정 | nipio |
-| `routingSubDomain` | ' 사용자 지정 '을 선택한 경우 라우팅에 사용 하려는 와일드 카드 DNS 이름`routingSubDomainType` |  | apps.contoso.com |
+| `routingSubDomain` | ' 사용자 지정 '을 선택한 경우 라우팅에 사용 하려는 와일드 카드 DNS 이름 `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | 기존 Virtual Network를 사용할지 아니면 새 Virtual Network를 만들지를 선택 합니다. | 기존 <br> new | new |
-| `virtualNetworkResourceGroupName` | ' N e w '를 선택한 경우 새 Virtual Network에 대 한 리소스 그룹의 이름`virtualNetworkNewOrExisting` |  | resourceGroup (). 이름 |
-| `virtualNetworkName` | ' N e w '를 선택한 경우 만들 새 Virtual Network의 이름`virtualNetworkNewOrExisting` |  | openshiftvnet |
+| `virtualNetworkResourceGroupName` | ' N e w '를 선택한 경우 새 Virtual Network에 대 한 리소스 그룹의 이름 `virtualNetworkNewOrExisting` |  | resourceGroup (). 이름 |
+| `virtualNetworkName` | ' N e w '를 선택한 경우 만들 새 Virtual Network의 이름 `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | 새 가상 네트워크의 주소 접두사 |  | 10.0.0.0/14 |
 | `masterSubnetName` | 마스터 서브넷의 이름입니다. |  | mastersubnet |
 | `masterSubnetPrefix` | 마스터 서브넷에 사용 되는 CIDR-addressPrefix의 하위 집합 이어야 합니다. |  | 10.1.0.0/16 |
@@ -295,9 +295,9 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `existingInfraSubnetReference` | 인프라 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
 | `existingCnsSubnetReference` | CN 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
 | `existingNodeSubnetReference` | 계산 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
-| `masterClusterType` | 클러스터가 개인 또는 공용 마스터 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 마스터 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다.`masterPrivateClusterIp` | 공공 <br> private | 공공 |
+| `masterClusterType` | 클러스터가 개인 또는 공용 마스터 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 마스터 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다. `masterPrivateClusterIp` | public <br> private | public |
 | `masterPrivateClusterIp` | 개인 마스터 노드를 선택 하는 경우에는 마스터 노드에 대 한 내부 부하 분산 장치에서 사용할 개인 IP 주소를 지정 해야 합니다. 이 고정 IP는 마스터 서브넷의 CIDR 블록 내에 있어야 하며 이미 사용 되 고 있지 않아야 합니다. 공용 마스터 노드를 선택 하는 경우이 값은 사용 되지 않지만 여전히 지정 해야 합니다. |  | 10.1.0.200 |
-| `routerClusterType` | 클러스터가 개인 또는 공용 인프라 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 인프라 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다.`routerPrivateClusterIp` | 공공 <br> private | 공공 |
+| `routerClusterType` | 클러스터가 개인 또는 공용 인프라 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 인프라 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신, 다음에 지정 된 개인 IP를 사용 합니다. `routerPrivateClusterIp` | public <br> private | public |
 | `routerPrivateClusterIp` | 개인 인프라 노드가 선택 된 경우 인프라 노드에 대 한 내부 부하 분산 장치에서 사용할 개인 IP 주소를 지정 해야 합니다. 이 고정 IP는 인프라 서브넷에 대 한 CIDR 블록 내에 있어야 하며 이미 사용 되 고 있지 않아야 합니다. Public 인프라 nodes를 선택 하는 경우이 값은 사용 되지 않지만 여전히 지정 해야 합니다. |  | 10.2.0.200 |
 | `routingCertType` | 라우팅 도메인 또는 기본 자체 서명 된 인증서에 사용자 지정 인증서 사용- **사용자 지정 인증서** 섹션의 지침을 따릅니다. | selfsigned <br> 사용자 지정 | selfsigned |
 | `masterCertType` | 마스터 도메인 또는 기본 자체 서명 된 인증서에 사용자 지정 인증서 사용- **사용자 지정 인증서** 섹션의 지침을 따릅니다. | selfsigned <br> 사용자 지정 | selfsigned |
@@ -312,7 +312,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 다음 예제에서는 openshiftrg라는 리소스 그룹에 OpenShift 클러스터 및 모든 관련 리소스를 배포하고 배포 이름을 myOpenShiftCluster로 지정합니다. 템플릿은 GitHub 리포지토리에서 직접 참조되며, azuredeploy.parameters.json이라는 로컬 매개 변수 파일이 사용됩니다.
 
 ```azurecli 
-az group deployment create -g openshiftrg --name myOpenShiftCluster \
+az deployment group create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```
@@ -330,7 +330,7 @@ az group deployment create -g openshiftrg --name myOpenShiftCluster \
 
 ## <a name="connect-to-the-openshift-cluster"></a>OpenShift 클러스터에 연결
 
-배포가 완료되면 배포의 출력 섹션에서 연결을 검색합니다. **Openshift 콘솔 URL**을 사용 하 여 브라우저에서 openshift 콘솔에 연결 합니다. 또한 방호 호스트로 SSH 할 수 있습니다. 다음은 관리자 사용자 이름이 clusteradmin이고 bastion 공용 IP DNS FQDN이 bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com인 예제입니다.
+배포가 완료되면 배포의 출력 섹션에서 연결을 검색합니다. **Openshift 콘솔 URL** 을 사용 하 여 브라우저에서 openshift 콘솔에 연결 합니다. 또한 방호 호스트로 SSH 할 수 있습니다. 다음은 관리자 사용자 이름이 clusteradmin이고 bastion 공용 IP DNS FQDN이 bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com인 예제입니다.
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com

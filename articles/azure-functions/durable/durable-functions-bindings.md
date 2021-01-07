@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081851"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013731"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -32,7 +32,7 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 }
 ```
 
-* `orchestration`클라이언트에서이 오 케 스트레이 터 함수의 새 인스턴스를 시작 하려는 경우 사용 해야 하는 오케스트레이션의 이름입니다. 선택적 속성입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
+* `orchestration` 클라이언트에서이 오 케 스트레이 터 함수의 새 인스턴스를 시작 하려는 경우 사용 해야 하는 오케스트레이션의 이름입니다. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 스토리지 계정에 있는 일련의 큐를 폴링합니다. 이러한 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 
@@ -128,7 +128,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Visual Studio를 사용 하는 경우 작업 트리거는 .Net 특성을 사용 하 여 구성 됩니다 `ActivityTriggerAttribute` .
 
-개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
+개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 *function.json* 의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -139,7 +139,7 @@ Visual Studio를 사용 하는 경우 작업 트리거는 .Net 특성을 사용 
 }
 ```
 
-* `activity`은 작업의 이름입니다. 이 값은 오 케 스트레이 터 함수가이 작업 함수를 호출 하는 데 사용 하는 이름입니다. 선택적 속성입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
+* `activity`은 작업의 이름입니다. 이 값은 오 케 스트레이 터 함수가이 작업 함수를 호출 하는 데 사용 하는 이름입니다. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 스토리지 계정에 있는 큐를 폴링합니다. 이 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 
@@ -249,7 +249,7 @@ Orchestration 클라이언트 바인딩을 사용 하면 orchestrator 기능과 
 
 Visual Studio를 사용 하는 경우 `OrchestrationClientAttribute` Durable Functions 1.0에 대 한 .net 특성을 사용 하 여 오케스트레이션 클라이언트에 바인딩할 수 있습니다. Durable Functions 2.0부터 .Net 특성을 사용 하 여 오케스트레이션 클라이언트에 바인딩할 수 있습니다 `DurableClientAttribute` .
 
-개발을 위해 스크립트 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 오케스트레이션 트리거는 `bindings` *function.js*배열에서 다음 JSON 개체에 의해 정의 됩니다.
+개발을 위해 스크립트 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 오케스트레이션 트리거는 `bindings` *function.js* 배열에서 다음 JSON 개체에 의해 정의 됩니다.
 
 ```json
 {
@@ -500,7 +500,7 @@ module.exports = df.entity(function(context) {
 ```
 
 > [!NOTE]
-> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다.
+> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0** 부터 JavaScript에서 사용할 수 있습니다.
 
 ## <a name="entity-client"></a>엔터티 클라이언트
 
@@ -511,7 +511,7 @@ Visual Studio를 사용 하는 경우 .Net 특성을 사용 하 여 엔터티 �
 > [!NOTE]
 > 를 `[DurableClientAttribute]` 사용 하 여 [오케스트레이션 클라이언트](#orchestration-client)에 바인딩할 수도 있습니다.
 
-개발을 위해 스크립트 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 엔터티 트리거는 `bindings` *function.js*배열에서 다음 JSON 개체에 의해 정의 됩니다.
+개발을 위해 스크립트 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 엔터티 트리거는 `bindings` *function.js* 배열에서 다음 JSON 개체에 의해 정의 됩니다.
 
 ```json
 {
@@ -533,9 +533,9 @@ Visual Studio를 사용 하는 경우 .Net 특성을 사용 하 여 엔터티 �
 
 .NET 함수에서는 일반적으로에 바인딩되어 `IDurableEntityClient` 있으며이는 영 속 엔터티에서 지 원하는 모든 클라이언트 api에 대 한 모든 액세스 권한을 제공 합니다. `IDurableOrchestrationClient`엔터티와 오케스트레이션의 클라이언트 api에 대 한 액세스를 제공 하는 인터페이스에 바인딩할 수도 있습니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
 
-* **ReadEntityStateAsync \<T> **: 엔터티의 상태를 읽습니다. 대상 엔터티가 있는지 여부를 나타내는 응답을 반환 하 고, 그럴 경우 상태를 반환 합니다.
+* **ReadEntityStateAsync \<T>**: 엔터티의 상태를 읽습니다. 대상 엔터티가 있는지 여부를 나타내는 응답을 반환 하 고, 그럴 경우 상태를 반환 합니다.
 * **SignalEntityAsync**: 엔터티에 단방향 메시지를 보내고 큐에 대기 될 때까지 기다립니다.
-* **Listent활동 async**: 여러 엔터티의 상태를 쿼리 합니다. 엔터티는 *이름* 및 *마지막 작업 시간*으로 쿼리할 수 있습니다.
+* **Listent활동 async**: 여러 엔터티의 상태를 쿼리 합니다. 엔터티는 *이름* 및 *마지막 작업 시간* 으로 쿼리할 수 있습니다.
 
 신호를 보내기 전에 대상 엔터티를 만들 필요는 없습니다. 신호를 처리 하는 엔터티 함수 내에서 엔터티 상태를 만들 수 있습니다.
 
@@ -634,7 +634,7 @@ module.exports = async function (context) {
 ```
 
 > [!NOTE]
-> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다.
+> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0** 부터 JavaScript에서 사용할 수 있습니다.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>host.json 설정

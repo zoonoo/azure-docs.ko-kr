@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563899"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936450"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 장치 배포 계획
 
@@ -34,17 +34,17 @@ Azure AD (Azure Active Directory)를 사용 하면 조직에서 장치 id 관리
 
 * 온-프레미스 Active Directory 및 Azure AD의 장치 간에 [하이브리드 AZURE AD 조인을 만듭니다](concept-azure-ad-join-hybrid.md) . 
 
-## <a name="learn"></a>배우기
+## <a name="learn"></a>Learn
 
 시작 하기 전에 [장치 id 관리 개요](overview.md)에 대해 잘 알고 있는지 확인 합니다.
 
-### <a name="benefits"></a>이점
+### <a name="benefits"></a>혜택
 
 장치에 Azure AD id를 제공 하는 주요 이점은 다음과 같습니다.
 
 * 생산성 향상 – Azure AD를 사용 하면 사용자가 온-프레미스 및 클라우드 리소스에 대 한 [원활한 로그온 (SSO)](./azuread-join-sso.md) 을 수행할 수 있으므로 어디에서 든 생산성을 높일 수 있습니다.
 
-* 보안 강화 – Azure AD 장치를 사용 하 여 장치 또는 사용자의 id에 따라 리소스에 대 한 [조건부 액세스 (CA) 정책을](../conditional-access/require-managed-devices.md) 적용할 수 있습니다. CA 정책은 [Azure AD ID 보호](../identity-protection/overview-identity-protection.md)를 사용 하 여 추가 보호를 제공할 수 있습니다. Azure AD에 장치를 조인 하는 것은 [암호 없는 인증](../authentication/concept-authentication-passwordless.md) 전략으로 보안을 강화 하기 위한 필수 구성 요소입니다.
+* 보안 강화 – Azure AD 장치를 사용 하 여 장치 또는 사용자의 id에 따라 리소스에 [조건부 액세스 정책을](../conditional-access/require-managed-devices.md) 적용할 수 있습니다. 조건부 액세스 정책은 [Azure AD ID 보호](../identity-protection/overview-identity-protection.md)를 사용 하 여 추가 보호를 제공할 수 있습니다. Azure AD에 장치를 조인 하는 것은 [암호 없는 인증](../authentication/concept-authentication-passwordless.md) 전략으로 보안을 강화 하기 위한 필수 구성 요소입니다.
 
 * 사용자 환경 개선 – Azure AD의 장치 id를 사용 하면 개인 및 회사 장치 모두에서 조직의 클라우드 기반 리소스에 쉽게 액세스할 수 있도록 사용자에 게 제공할 수 있습니다. 관리자는 모든 Windows 장치에서 통합 된 환경에 대 한 [Enterprise State Roaming](enterprise-state-roaming-overview.md) 를 사용 하도록 설정할 수 있습니다.
 
@@ -62,11 +62,11 @@ Faq: [AZURE AD 장치 관리 faq](faq.md)  및 [설정 및 데이터 로밍 faq]
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [적절 한 관련자](https://aka.ms/deploymentplans) 를 사용 하 고 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다. 
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [적절 한 관련자](../fundamentals/active-directory-deployment-plans.md) 를 사용 하 고 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다. 
 
 이 계획의 경우 목록에 다음 관련자를 추가 합니다.
 
-| 역할| Description |
+| 역할| 설명 |
 | - | - |
 | 장치 관리자| 요금제가 조직의 장치 요구 사항을 충족 하는지 확인할 수 있는 장치 팀의 담당자입니다. |
 | 네트워크 관리자| 네트워크 요구 사항을 충족 하는지 확인할 수 있는 네트워크 팀의 담당자입니다. |
@@ -102,7 +102,7 @@ Faq: [AZURE AD 장치 관리 faq](faq.md)  및 [설정 및 데이터 로밍 faq]
 
 iOS 및 Android 장치는 Azure AD만 등록할 수 있습니다. 다음 표에서는 Windows 클라이언트 장치에 대 한 높은 수준의 고려 사항을 보여 줍니다. 개요로 사용 하 고 다양 한 통합 방법을 자세히 살펴보세요.
 
-| 고려 사항 | Azure AD 등록| Azure AD 조인| 하이브리드 Azure AD 조인 |
+| 고려 사항 | Azure AD 등록됨| Azure AD 조인| 하이브리드 Azure AD 조인 |
 | - | - | - | - |
 | **클라이언트 운영 체제**| | |  |
 | Windows 10 디바이스| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
@@ -129,7 +129,7 @@ iOS 및 Android 장치는 Azure AD만 등록할 수 있습니다. 다음 표에�
 
 등록 된 장치는 종종 [Microsoft Intune](/mem/intune/enrollment/device-enrollment)로 관리 됩니다. 장치는 운영 체제에 따라 다양 한 방법으로 Intune에 등록 됩니다. 
 
-Azure AD 등록 장치는 클라우드 리소스에 대 한 SSO에 대 한 사용자 고유의 장치 (BYOD) 및 회사 소유 장치를 제공 하도록 지원 합니다. 리소스에 대 한 액세스는 장치 및 사용자에 게 적용 되는 Azure AD [CA 정책을](../conditional-access/require-managed-devices.md) 기반으로 합니다.
+Azure AD 등록 장치는 클라우드 리소스에 대 한 SSO에 대 한 사용자 고유의 장치 (BYOD) 및 회사 소유 장치를 제공 하도록 지원 합니다. 리소스에 대 한 액세스는 장치 및 사용자에 게 적용 되는 Azure AD [조건부 액세스 정책을](../conditional-access/require-managed-devices.md) 기반으로 합니다.
 
 ### <a name="registering-devices"></a>디바이스 등록
 
@@ -183,7 +183,7 @@ Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가
 | - | - | - |
 | 온-프레미스 도메인에 가입 됨| Azure AD 조인| Azure AD에 가입 하기 전에 온-프레미스 도메인에서 장치 가입 해제 |
 | 하이브리드 Azure AD 조인| Azure AD 조인| Azure AD에 가입 하기 전에 온-프레미스 도메인 및 Azure AD에서 장치 가입 해제 |
-| Azure AD 등록| Azure AD 조인| Azure AD에 가입 하기 전에 장치 등록 취소 |
+| Azure AD 등록됨| Azure AD 조인| Azure AD에 가입 하기 전에 장치 등록 취소 |
 
 
 ## <a name="hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인
@@ -237,7 +237,7 @@ Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가
 
 통합 장치에 대해 지원 되는 플랫폼 및 지원 되지 않는 플랫폼 검토:
 
-| 디바이스 관리 도구| Azure AD 등록| Azure AD 조인| 하이브리드 Azure AD 조인|
+| 디바이스 관리 도구| Azure AD 등록됨| Azure AD 조인| 하이브리드 Azure AD 조인|
 | - | - | - | - |
 | [MDM (모바일 장치 관리) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>예: Microsoft Intune| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)|  |
 | [Microsoft Intune 및 Microsoft 끝점을 사용 하 여 공동 관리 Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 이상)| | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)|  |

@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648680"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948955"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Azure 사용자 지정 공급자를 위한 Azure Functions 설정
 
@@ -51,7 +51,7 @@ Azure Table Storage 바인딩을 설치하려면 다음을 수행합니다.
 > [!NOTE]
 > C# 프로젝트 파일이 프로젝트 디렉터리에 없으면 수동으로 추가할 수 있습니다. 또는 Microsoft.Azure.WebJobs.Extensions.Storage 확장이 함수 앱에 설치된 후에 표시됩니다.
 
-다음으로, 유용한 NuGet 라이브러리를 포함하도록 C# 프로젝트 파일을 업데이트합니다. 이러한 라이브러리를 사용하면 사용자 지정 공급자로부터 들어오는 요청을 더 쉽게 구문 분석할 수 있습니다. [포털에서 확장을 추가하는](../../azure-functions/install-update-binding-extensions-manual.md) 단계에 따라 다음 패키지 참조를 포함하도록 C# 프로젝트를 업데이트합니다.
+다음으로, 유용한 NuGet 라이브러리를 포함하도록 C# 프로젝트 파일을 업데이트합니다. 이러한 라이브러리를 사용하면 사용자 지정 공급자로부터 들어오는 요청을 더 쉽게 구문 분석할 수 있습니다. [포털에서 확장을 추가하는](../../azure-functions/functions-bindings-register.md) 단계에 따라 다음 패키지 참조를 포함하도록 C# 프로젝트를 업데이트합니다.
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -80,4 +80,3 @@ Azure Table Storage 바인딩을 설치하려면 다음을 수행합니다.
 이 자습서에서는 Azure 사용자 지정 공급자 엔드포인트로 작동하도록 Azure 함수 앱을 설정합니다.
 
 RESTful 사용자 지정 공급자 엔드포인트를 작성하는 방법을 알아보려면 [자습서: RESTful 사용자 지정 공급자 엔드포인트 작성](./tutorial-custom-providers-function-authoring.md)을 참조하세요.
-

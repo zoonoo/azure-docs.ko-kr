@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c2763112b1aa2d58f5dc57cea72a3d0bdea961e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82837637"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545672"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Azure Front 도어 서비스의 Azure 웹 응용 프로그램 방화벽에 대 한 질문과 대답
 
@@ -55,8 +55,19 @@ WAF 정책을 전역적으로 배포 하는 작업은 일반적으로 약 5 분 
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>어떤 Azure WAF 옵션을 선택 해야 하나요?
 
-Azure에서 WAF 정책을 적용할 때 두 가지 옵션이 있습니다. Azure 전면 도어를 사용 하는 WAF는 전역적으로 분산 된에 지 보안 솔루션입니다. Application Gateway 포함 된 WAF는 지역 전용 솔루션입니다. 전반적인 성능 및 보안 요구 사항에 따라 솔루션을 선택 하는 것이 좋습니다. 자세한 내용은 [Azure의 응용 프로그램 배달 도구 모음을 사용한 부하 분산](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite)을 참조 하세요.
+Azure에서 WAF 정책을 적용할 때 두 가지 옵션이 있습니다. Azure 전면 도어를 사용 하는 WAF는 전역적으로 분산 된에 지 보안 솔루션입니다. Application Gateway 포함 된 WAF는 지역 전용 솔루션입니다. 전반적인 성능 및 보안 요구 사항에 따라 솔루션을 선택 하는 것이 좋습니다. 자세한 내용은 [Azure의 응용 프로그램 배달 도구 모음을 사용한 부하 분산](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md)을 참조 하세요.
 
+## <a name="whats-the-recommended-approach-to-enabling-waf-on-front-door"></a>전면 도어에서 WAF를 사용 하도록 설정 하는 권장 방법은 무엇 인가요?
+
+기존 응용 프로그램에서 WAF를 사용 하도록 설정 하는 경우 일반적으로 WAF 규칙에서 합법적인 트래픽을 위협으로 검색 하는 가양성 검색을 사용 하는 것이 일반적입니다. 사용자에 게 영향을 미치는 위험을 최소화 하려면 다음 프로세스를 수행 하는 것이 좋습니다.
+
+* [ **검색** 모드](./waf-front-door-create-portal.md#change-mode) 에서 waf를 사용 하도록 설정 하 여이 프로세스를 진행 하는 동안 waf가 요청을 차단 하지 않도록 합니다.
+  > [!IMPORTANT]
+  > 이 프로세스는 응용 프로그램의 사용자에 대 한 파업 최소화 하기 위해 우선 순위가 인 경우 새 솔루션 또는 기존 솔루션에서 WAF를 사용 하도록 설정 하는 방법을 설명 합니다. 공격 또는 즉각적인 위협을 받는 경우 대신에 WAF를 즉시 **방지** 모드로 배포 하 고 튜닝 프로세스를 사용 하 여 시간에 따른 waf를 모니터링 하 고 조정 하는 것이 좋습니다. 이로 인해 합법적인 트래픽 중 일부가 차단 될 수 있습니다. 즉, 위협에 있는 경우에만이 작업을 수행 하는 것이 좋습니다.
+* [WAF를 조정 하기 위한 지침을](./waf-front-door-tuning.md)따르세요. 이 프로세스에서는 진단 로깅을 사용 하도록 설정 하 고, 정기적으로 로그를 검토 하 고, 규칙 제외 및 기타 완화를 추가 해야 합니다.
+* 합법적인 트래픽이 차단 되지 않을 때까지 정기적으로 로그를 확인 하 여이 전체 프로세스를 반복 합니다. 전체 프로세스는 몇 주가 걸릴 수 있습니다. 각 튜닝 변경을 수행한 후 가양성 검색의 수를 줄이는 것이 좋습니다.
+* 마지막으로, **방지 모드** 에서 waf를 사용 하도록 설정 합니다.
+* 프로덕션에서 WAF를 실행 하는 경우에도 로그를 계속 모니터링 하 여 다른 가양성 검색을 식별 해야 합니다. 로그를 정기적으로 검토 하면 차단 된 실제 공격 시도를 식별 하는 데도 도움이 됩니다.
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>모든 통합 플랫폼에서 동일한 WAF 기능을 지원 하나요?
 
@@ -64,7 +75,7 @@ Azure에서 WAF 정책을 적용할 때 두 가지 옵션이 있습니다. Azure
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>DDoS 보호가 전면 도어와 통합 되나요? 
 
-Azure 네트워크에 지에서 전 세계적으로 배포 되는 Azure Front 도어가 대규모 볼륨 공격을 흡수 하 고 지리적으로 격리할 수 있습니다. 알려진 서명이 있는 http (s) 공격을 자동으로 차단 및 평가 하는 사용자 지정 WAF 정책을 만들 수 있습니다. 또한 백 엔드가 배포 되는 VNet에서 DDoS Protection Standard를 사용 하도록 설정할 수 있습니다. Azure DDoS Protection 표준 고객은 비용 보호, SLA 보증, 공격 중에 즉각적인 도움을 받을 수 있는 DDoS 빠른 응답 팀의 전문가에 게 액세스 등의 추가 혜택을 받습니다.
+Azure 네트워크에 지에서 전 세계적으로 배포 되는 Azure Front 도어가 대규모 볼륨 공격을 흡수 하 고 지리적으로 격리할 수 있습니다. 알려진 서명이 있는 http (s) 공격을 자동으로 차단 및 평가 하는 사용자 지정 WAF 정책을 만들 수 있습니다. 또한 백 엔드가 배포 되는 VNet에서 DDoS Protection Standard를 사용 하도록 설정할 수 있습니다. Azure DDoS Protection 표준 고객은 비용 보호, SLA 보증, 공격 중에 즉각적인 도움을 받을 수 있는 DDoS 빠른 응답 팀의 전문가에 게 액세스 등의 추가 혜택을 받습니다. 자세한 내용은 [DDoS protection On Front 도어가](../../frontdoor/front-door-ddos.md)항목을 참조 하세요.
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>내 요금 제한 규칙에 대해 구성 된 임계값을 초과 하는 추가 요청이 내 백 엔드 서버에 전달 되는 이유는 무엇 인가요?
 

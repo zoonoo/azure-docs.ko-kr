@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718818"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808261"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
 
-Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 합니다. 그런 다음에는 리소스와 모든 작업이 해당 특정 Azure 서버 지역과 연결 된 상태를 유지 합니다. 전체 지역에 도달 하는 네트워크 문제가 드물게 발생 하는 것은 아닙니다. 솔루션을 항상 사용할 수 있어야 하는 경우 다른 지역으로 장애 조치 (failover) 하거나 둘 이상의 지역 간에 작업을 분할 하도록 디자인 해야 합니다. 두 방법 모두 서로 다른 지역에는 두 개 이상의 양식 인식기 리소스가 필요 하 고 여러 지역에서 [사용자 지정 모델](./quickstarts/curl-train-extract.md) 을 동기화 할 수 있어야 합니다.
+Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 합니다. 그런 다음에는 리소스와 모든 작업이 해당 특정 Azure 서버 지역과 연결 된 상태를 유지 합니다. 전체 지역에 도달 하는 네트워크 문제가 드물게 발생 하는 것은 아닙니다. 솔루션을 항상 사용할 수 있어야 하는 경우 다른 지역으로 장애 조치 (failover) 하거나 둘 이상의 지역 간에 작업을 분할 하도록 디자인 해야 합니다. 두 방법 모두 서로 다른 지역에는 두 개 이상의 양식 인식기 리소스가 필요 하 고 여러 지역에서 사용자 지정 모델을 동기화 할 수 있어야 합니다.
 
 복사 API를 사용 하면 하나의 양식 인식기 계정 또는 다른 사용자에 게 사용자 지정 모델을 복사 하 여 지원 되는 모든 지역에 있을 수 있습니다. 이 가이드에서는 REST API 복사를 사용 하는 방법을 보여 줍니다. Postman과 같은 HTTP 요청 서비스를 사용 하 여 요청을 실행할 수도 있습니다.
 
@@ -41,7 +41,7 @@ Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 
 1. 작업이 성공할 때까지 원본 리소스 자격 증명을 사용 하 여 진행률 URL을 쿼리 합니다. 대상 리소스의 새 모델 ID를 쿼리하여 새 모델의 상태를 가져올 수도 있습니다.
 
 > [!CAUTION]
-> 현재 복사 API는 [구성 된 사용자 지정 모델](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose)의 모델 id를 지원 하지 않습니다. 모델 작성은 v 2.1-preview. 1 preview의 미리 보기 기능입니다. 
+> 현재 복사 API는 [구성 된 사용자 지정 모델](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose)의 모델 id를 지원 하지 않습니다. 모델 작성은 v 2.1-preview. 2 preview의 미리 보기 기능입니다. 
 
 ## <a name="generate-copy-authorization-request"></a>복사 권한 부여 요청 생성
 
@@ -69,7 +69,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-요청 본문은 다음과 같은 형식 이어야 합니다. 대상 리소스의 리소스 ID 및 지역 이름을 입력 해야 합니다. 이전 단계에서 복사한 모델 ID, 액세스 토큰 및 만료 값도 필요 합니다.
+요청 본문은 다음과 같은 형식 이어야 합니다. 대상 리소스의 리소스 ID 및 지역 이름을 입력 해야 합니다. Azure Portal에서 리소스의 **속성** 탭에 있는 리소스 ID를 찾을 수 있으며 **키 및 끝점** 탭에서 지역 이름을 찾을 수 있습니다. 이전 단계에서 복사한 모델 ID, 액세스 토큰 및 만료 값도 필요 합니다.
 
 ```json
 {
@@ -82,7 +82,7 @@ Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 > [!NOTE]
 > Copy API는 [Aek/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) 기능을 투명 하 게 지원 합니다. 특별 한 처리가 필요 하지는 않지만 암호화 되지 않은 리소스를 암호화 된 리소스로 복사 하는 경우 요청 헤더를 포함 해야 합니다 `x-ms-forms-copy-degrade: true` . 이 헤더가 포함 되지 않은 경우 복사 작업이 실패 하 고이 반환 됩니다 `DataProtectionTransformServiceError` .
 
-`202\Accepted`작업 위치 헤더를 사용 하 여 응답을 받게 됩니다. 이 값은 작업의 진행률을 추적 하는 데 사용 하는 URL입니다. 다음 단계를 위해 임시 위치에 복사 합니다.
+`202\Accepted`Operation-Location 헤더를 사용 하 여 응답을 받게 됩니다. 이 값은 작업의 진행률을 추적 하는 데 사용 하는 URL입니다. 다음 단계를 위해 임시 위치에 복사 합니다.
 
 ```
 HTTP/1.1 202 Accepted

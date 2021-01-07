@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987310"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533789"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
 
@@ -22,14 +22,14 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)를 사용 하 여 끝점과 경로를 만드는 과정을 안내 합니다.
 
-[Eventroutes api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
+또는 [이벤트 경로 api](/rest/api/digital-twins/dataplane/eventroutes), [Sdk](how-to-use-apis-sdks.md#overview-data-plane-apis)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
-* Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
+* Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
-    - 리소스 그룹
+    - Resource group
 
 인스턴스를 설정한 후 [Azure Portal](https://portal.azure.com) 에서 이러한 세부 정보를 찾을 수 있습니다. 포털에 로그인 하 고 포털 검색 표시줄에서 인스턴스 이름을 검색 합니다.
  
@@ -52,15 +52,15 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 ### <a name="create-an-event-grid-endpoint"></a>Event Grid 끝점 만들기
 
-**필수 구성 요소**: *사용자 지정 이벤트* Event Grid 빠른 시작의 [ *사용자 지정 항목 만들기* 섹션](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 에 설명 된 단계를 수행 하 여 event grid 토픽을 만듭니다.
+**필수 구성 요소** : *사용자 지정 이벤트* Event Grid 빠른 시작의 [ *사용자 지정 항목 만들기* 섹션](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 에 설명 된 단계를 수행 하 여 event grid 토픽을 만듭니다.
 
 토픽을 만든 후에는 [Azure Portal](https://portal.azure.com) 의 Azure Digital twins 인스턴스의 페이지에서 Azure Digital twins에 연결할 수 있습니다. 포털 검색 표시줄에 해당 이름을 입력 하 여 인스턴스를 찾을 수 있습니다.
 
-인스턴스 메뉴에서 _끝점_을 선택 합니다. 그런 다음 뒤에 오는 *끝점* 페이지에서 *+ 끝점 만들기*를 선택 합니다. 
+인스턴스 메뉴에서 _끝점_ 을 선택 합니다. 그런 다음 뒤에 오는 *끝점* 페이지에서 *+ 끝점 만들기* 를 선택 합니다. 
 
-열리는 *끝점 만들기* 페이지에서 해당 라디오 단추를 선택 하 여 _Event Grid_ 형식의 끝점을 만들 수 있습니다. 기타 세부 정보를 완료 합니다. _이름_ 필드에 끝점 이름을 입력 하 고 드롭다운에서 _구독_ 을 선택한 다음 세 번째 드롭다운에서 미리 만든 _Event Grid 항목_ 을 선택 합니다.
+열리는 *끝점 만들기* 페이지에서 해당 라디오 단추를 선택 하 여 _Event Grid_ 형식의 끝점을 만들 수 있습니다. 기타 세부 정보를 완료 합니다. _이름_ 필드에 끝점 이름을 입력 하 고 드롭다운에서 _구독_ 을 선택한 다음 세 번째 드롭다운에서 미리 만든  _Event Grid 항목_ 을 선택 합니다.
 
-그런 다음 _저장_을 눌러서 끝점을 만듭니다.
+그런 다음 _저장_ 을 눌러서 끝점을 만듭니다.
 
 :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Event Grid 형식의 끝점을 만드는 스크린샷":::
 
@@ -72,21 +72,21 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 끝점을 만들 때 오류가 발생 하면 오류 메시지를 확인 하 고 몇 분 후에 다시 시도 합니다.
 
-이제 event grid 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#event-routes)만들 **이벤트 경로의**대상으로 사용 합니다.
+이제 event grid 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#create-an-event-route)만들 **이벤트 경로의** 대상으로 사용 합니다.
 
 ### <a name="create-an-event-hubs-endpoint"></a>Event Hubs 끝점 만들기
 
-**필수 조건**: 
-* _Event Hubs 네임 스페이스_ 및 _이벤트 허브가_필요 합니다. [*이벤트 허브 Event Hubs 만들기*](../event-hubs/event-hubs-create.md) 빠른 시작의 단계에 따라 이러한 두 가지 방법을 모두 만듭니다.
-* _권한 부여 규칙이_필요 합니다. 이를 만들려면 [*공유 액세스 서명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여*](../event-hubs/authorize-access-shared-access-signature.md) 문서 Event Hubs를 참조 하세요.
+**필수 조건** : 
+* _Event Hubs 네임 스페이스_ 및 _이벤트 허브가_ 필요 합니다. [*이벤트 허브 Event Hubs 만들기*](../event-hubs/event-hubs-create.md) 빠른 시작의 단계에 따라 이러한 두 가지 방법을 모두 만듭니다.
+* _권한 부여 규칙이_ 필요 합니다. 이를 만들려면 [*공유 액세스 서명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여*](../event-hubs/authorize-access-shared-access-signature.md) 문서 Event Hubs를 참조 하세요.
 
 [Azure Portal](https://portal.azure.com) 에서 Azure Digital twins 인스턴스의 세부 정보 페이지로 이동 합니다. 포털 검색 표시줄에 이름을 입력 하 여 찾을 수 있습니다.
 
-인스턴스 메뉴에서 _끝점_을 선택 합니다. 그런 다음 뒤에 오는 *끝점* 페이지에서 *+ 끝점 만들기*를 선택 합니다. 
+인스턴스 메뉴에서 _끝점_ 을 선택 합니다. 그런 다음 뒤에 오는 *끝점* 페이지에서 *+ 끝점 만들기* 를 선택 합니다. 
 
-열리는 *끝점 만들기* 페이지에서 해당 라디오 단추를 선택 하 여 _이벤트 허브_ 유형의 끝점을 만들 수 있습니다. _이름_ 필드에 끝점의 이름을 입력 합니다. 그런 다음 _구독_을 선택 하 고, 해당 드롭다운의 미리 만든 _이벤트 허브 네임 스페이스_, _이벤트 허브_및 _권한 부여 규칙_ 을 선택 합니다.
+열리는 *끝점 만들기* 페이지에서 해당 라디오 단추를 선택 하 여 _이벤트 허브_ 유형의 끝점을 만들 수 있습니다. _이름_ 필드에 끝점의 이름을 입력 합니다. 그런 다음 _구독_ 을 선택 하 고, 해당 드롭다운의 미리 만든 _이벤트 허브 네임 스페이스_ , _이벤트 허브_ 및 _권한 부여 규칙_ 을 선택 합니다.
 
-그런 다음 _저장_을 눌러서 끝점을 만듭니다.
+그런 다음 _저장_ 을 눌러서 끝점을 만듭니다.
 
 :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Event Hubs 형식의 끝점을 만드는 스크린샷":::
 
@@ -94,21 +94,21 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 끝점을 만들 때 오류가 발생 하면 오류 메시지를 확인 하 고 몇 분 후에 다시 시도 합니다.
 
-이제 이벤트 허브는 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#event-routes)만들 **이벤트 경로의**대상으로 사용 합니다.
+이제 이벤트 허브는 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#create-an-event-route)만들 **이벤트 경로의** 대상으로 사용 합니다.
 
 ### <a name="create-a-service-bus-endpoint"></a>Service Bus 끝점 만들기
 
-**필수 조건**: 
-* _Service Bus 네임 스페이스_ 와 _Service Bus 항목이_필요 합니다. [*항목 및 구독 만들기*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) Service Bus의 단계에 따라 이러한 두 가지 방법을 모두 만듭니다. [*항목 섹션에 대 한 구독 만들기*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic) 를 완료할 필요가 없습니다.
-* _권한 부여 규칙이_필요 합니다. 이를 만들려면 Service Bus [*인증 및 권한 부여*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) 문서를 참조 하세요.
+**필수 조건** : 
+* _Service Bus 네임 스페이스_ 와 _Service Bus 항목이_ 필요 합니다. [*항목 및 구독 만들기*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) Service Bus의 단계에 따라 이러한 두 가지 방법을 모두 만듭니다. [*항목 섹션에 대 한 구독 만들기*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic) 를 완료할 필요가 없습니다.
+* _권한 부여 규칙이_ 필요 합니다. 이를 만들려면 Service Bus [*인증 및 권한 부여*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) 문서를 참조 하세요.
 
 [Azure Portal](https://portal.azure.com) 에서 Azure Digital twins 인스턴스의 세부 정보 페이지로 이동 합니다. 포털 검색 표시줄에 이름을 입력 하 여 찾을 수 있습니다.
 
-인스턴스 메뉴에서 _끝점_을 선택 합니다. 그런 다음 뒤에 오는 *끝점* 페이지에서 *+ 끝점 만들기*를 선택 합니다. 
+인스턴스 메뉴에서 _끝점_ 을 선택 합니다. 그런 다음 뒤에 오는 *끝점* 페이지에서 *+ 끝점 만들기* 를 선택 합니다. 
 
-열리는 *끝점 만들기* 페이지에서 해당 라디오 단추를 선택 하 여 _Service Bus_ 형식의 끝점을 만들 수 있습니다. _이름_ 필드에 끝점의 이름을 입력 합니다. 그런 다음 _구독_을 선택 하 고 미리 만든 _Service Bus 네임 스페이스_, _Service Bus 토픽_및 해당 드롭다운에서 _권한 부여 규칙_ 을 선택 합니다.
+열리는 *끝점 만들기* 페이지에서 해당 라디오 단추를 선택 하 여 _Service Bus_ 형식의 끝점을 만들 수 있습니다. _이름_ 필드에 끝점의 이름을 입력 합니다. 그런 다음 _구독_ 을 선택 하 고 미리 만든 _Service Bus 네임 스페이스_ , _Service Bus 토픽_ 및 해당 드롭다운에서 _권한 부여 규칙_ 을 선택 합니다.
 
-그런 다음 _저장_을 눌러서 끝점을 만듭니다.
+그런 다음 _저장_ 을 눌러서 끝점을 만듭니다.
 
 :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Service Bus 형식의 끝점을 만드는 스크린샷":::
 
@@ -116,32 +116,40 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 끝점을 만들 때 오류가 발생 하면 오류 메시지를 확인 하 고 몇 분 후에 다시 시도 합니다.
 
-이제 Service Bus 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#event-routes)만들 **이벤트 경로의**대상으로 사용 합니다.
+이제 Service Bus 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#create-an-event-route)만들 **이벤트 경로의** 대상으로 사용 합니다.
 
-## <a name="event-routes"></a>이벤트 경로
+### <a name="create-an-endpoint-with-dead-lettering"></a>배달 못 한 문자를 사용 하 여 끝점 만들기
 
-실제로 Azure Digital Twins에서 끝점으로 데이터를 전송 하려면 **이벤트 경로**를 정의 해야 합니다. 이러한 경로를 통해 개발자는 시스템 및 다운스트림 서비스 전체에서 이벤트 흐름을 연결할 수 있습니다. 이벤트 경로에 대 한 자세한 내용은 [*Azure Digital Twins 이벤트 라우팅*](concepts-route-events.md)을 참조 하세요.
+끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자** 라고 합니다.
 
-**필수 조건**: 경로 만들기로 이동 하기 전에이 문서의 앞부분에서 설명한 대로 끝점을 만들어야 합니다. 끝점 설정이 완료 되 면 이벤트 경로를 계속 만들 수 있습니다.
+배달 못 한 편지 처리를 사용 하도록 설정 된 끝점을 만들려면 [ARM api](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 사용 하 여 Azure Portal 아니라 끝점을 만들어야 합니다.
+
+Api를 사용 하 여이 작업을 수행 하는 방법에 대 한 지침은이 문서의 [*api 및 CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) 버전을 참조 하세요.
+
+## <a name="create-an-event-route"></a>이벤트 경로 만들기
+
+실제로 Azure Digital Twins에서 끝점으로 데이터를 전송 하려면 **이벤트 경로** 를 정의 해야 합니다. 이러한 경로를 통해 개발자는 시스템 및 다운스트림 서비스 전체에서 이벤트 흐름을 연결할 수 있습니다. 이벤트 경로에 대 한 자세한 내용은 [*Azure Digital Twins 이벤트 라우팅*](concepts-route-events.md)을 참조 하세요.
+
+**필수 조건** : 경로 만들기로 이동 하기 전에이 문서의 앞부분에서 설명한 대로 끝점을 만들어야 합니다. 끝점 설정이 완료 되 면 이벤트 경로를 계속 만들 수 있습니다.
 
 >[!NOTE]
 >최근에 끝점을 배포한 경우 새 이벤트 경로에 대 한 사용을 시도 **하기 전에** 배포를 완료 했는지 확인 합니다. 끝점이 준비 되지 않았기 때문에 경로를 설정할 수 없는 경우 몇 분 정도 기다린 후 다시 시도 하세요.
 
-### <a name="create-an-event-route"></a>이벤트 경로 만들기 
+### <a name="creation-steps-with-the-azure-portal"></a>Azure Portal 만들기 단계
 
 이벤트 경로 정의에는 다음 요소가 포함 됩니다.
 * 사용 하려는 경로 이름
 * 사용 하려는 끝점의 이름입니다.
 * 끝점으로 전송 되는 이벤트를 정의 하는 필터입니다.
-    - 이벤트를 보내지 않도록 경로를 사용 하지 않도록 설정 하려면의 필터 값을 사용 합니다.`false`
-    - 특정 필터링이 없는 경로를 사용 하도록 설정 하려면의 필터 값을 사용 합니다.`true`
+    - 이벤트를 보내지 않도록 경로를 사용 하지 않도록 설정 하려면의 필터 값을 사용 합니다. `false`
+    - 특정 필터링이 없는 경로를 사용 하도록 설정 하려면의 필터 값을 사용 합니다. `true`
     - 다른 유형의 필터에 대 한 자세한 내용은 아래의 [*필터 이벤트*](#filter-events) 섹션을 참조 하십시오.
 
 단일 경로를 사용 하 여 여러 알림과 이벤트 유형을 선택할 수 있습니다.
 
 이벤트 경로를 만들려면 [Azure Portal](https://portal.azure.com) 에서 Azure Digital twins 인스턴스에 대 한 세부 정보 페이지로 이동 합니다. 포털 검색 표시줄에 해당 이름을 입력 하 여 인스턴스를 찾을 수 있습니다.
 
-인스턴스 메뉴에서 _이벤트 경로_를 선택 합니다. 그런 다음 아래의 *이벤트 경로* 페이지에서 *+ 이벤트 경로 만들기*를 선택 합니다. 
+인스턴스 메뉴에서 _이벤트 경로_ 를 선택 합니다. 그런 다음 아래의 *이벤트 경로* 페이지에서 *+ 이벤트 경로 만들기* 를 선택 합니다. 
 
 열리는 *이벤트 경로 만들기* 페이지에서 최소한 다음을 선택 합니다.
 * _이름_ 필드에 있는 경로 이름
@@ -153,7 +161,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 완료 되 면 _저장_ 단추를 눌러 이벤트 경로를 만듭니다.
 
-### <a name="filter-events"></a>이벤트 필터링
+## <a name="filter-events"></a>이벤트 필터링
 
 위에서 설명한 것 처럼 경로에는 **필터** 필드가 있습니다. 경로의 필터 값이 이면 `false` 끝점으로 전송 되는 이벤트가 없습니다. 
 
@@ -161,7 +169,6 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 * Azure digital 쌍 서비스 API를 사용 하 여 [디지털](concepts-twins-graph.md) 쌍에서 발생 하는 원격 분석
 * 쌍 속성 변경 알림, Azure Digital Twins 인스턴스의 모든 쌍에 대 한 속성 변경 시 발생
 * 쌍 또는 관계가 만들어지거나 삭제 될 때 발생 하는 수명 주기 이벤트
-* Azure Digital Twins 인스턴스에서 구성 된 [모델이](concepts-models.md) 추가 되거나 삭제 될 때 발생 하는 모델 변경 이벤트
 
 보다 구체적인 필터를 정의 하 여 전송 되는 이벤트 유형을 제한할 수 있습니다.
 

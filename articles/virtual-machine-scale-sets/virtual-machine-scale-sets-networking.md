@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 9ad761f289805d15d316fc6f528a0049adb36b30
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783725"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722320"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -23,7 +23,7 @@ ms.locfileid: "88783725"
 이 문서에서 다루는 모든 기능은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. Azure CLI 및 PowerShell 예제도 선택한 기능에 포함되어 있습니다.
 
 ## <a name="accelerated-networking"></a>가속 네트워킹
-Azure 가속 네트워킹은 가상 머신에서 SR-IOV(단일 루트 I/O 가상화)를 사용하도록 설정하여 네트워킹 성능을 향상시킵니다. 가속 네트워킹 사용에 대한 자세한 내용은 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 또는 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 가상 머신에 대한 가속 네트워킹을 참조하세요. 확장 집합에서 가속 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 **true**로 설정합니다. 예를 들면 다음과 같습니다.
+Azure 가속 네트워킹은 가상 머신에서 SR-IOV(단일 루트 I/O 가상화)를 사용하도록 설정하여 네트워킹 성능을 향상시킵니다. 가속 네트워킹 사용에 대한 자세한 내용은 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 또는 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 가상 머신에 대한 가속 네트워킹을 참조하세요. 확장 집합에서 가속 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 **true** 로 설정합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "networkProfile": {
@@ -43,7 +43,7 @@ Azure 가속 네트워킹은 가상 머신에서 SR-IOV(단일 루트 I/O 가상
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Azure Load Balancer를 사용 하는 Azure 가상 머신 확장 집합
-시나리오에 따라 Virtual Machine Scale Sets를 사용 하 여 표준 Load Balancer를 구성 하는 방법에 대해 자세히 알아보려면 [Azure Load Balancer 및 Virtual Machine Scale Sets](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) 를 참조 하세요.
+시나리오에 따라 Virtual Machine Scale Sets를 사용 하 여 표준 Load Balancer를 구성 하는 방법에 대해 자세히 알아보려면 [Azure Load Balancer 및 Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) 를 참조 하세요.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Application Gateway를 참조하는 확장 집합 만들기
 애플리케이션 게이트웨이를 사용하는 확장 집합을 만들려면 이 ARM 템플릿 구성과 같이 설정된 확장의 ipConfigurations 섹션에서 애플리케이션 게이트웨이의 백 엔드 주소 풀을 참조합니다.
@@ -132,7 +132,7 @@ Azure 템플릿에서 도메인 이름을 설정하려면 **networkInterfaceConf
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>가상 머신별 공용 IP가 포함된 확장 집합 만들기
 CLI를 사용하여 각 가상 머신에 공용 IP 주소를 할당하는 확장 집합을 만들려면 **vmss create** 명령에 **--public-ip-per-vm** 매개 변수를 추가합니다. 
 
-Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 적어도 **2017-03-30**인지 확인하고, ipConfigurations 확장 집합 섹션에 **publicIpAddressConfiguration** JSON 속성을 추가합니다. 예를 들면 다음과 같습니다.
+Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/virtualMachineScaleSets 리소스의 API 버전이 적어도 **2017-03-30** 인지 확인하고, ipConfigurations 확장 집합 섹션에 **publicIpAddressConfiguration** JSON 속성을 추가합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "publicIpAddressConfiguration": {
@@ -165,14 +165,14 @@ Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 [Azure Resource Explorer](https://resources.azure.com)를 쿼리하려면
 
 1. 웹 브라우저에서 [Azure Resource Explorer](https://resources.azure.com)를 엽니다.
-1. 옆의 *+* 를 클릭하여 왼쪽에 *구독*을 확장합니다. *구독* 아래 항목이 하나뿐이면 이미 확장되어 있습니다.
+1. 옆의 *+* 를 클릭하여 왼쪽에 *구독* 을 확장합니다. *구독* 아래 항목이 하나뿐이면 이미 확장되어 있습니다.
 1. 구독을 확장합니다.
 1. 리소스 그룹을 확장합니다.
-1. *공급자*를 확장합니다.
-1. *Microsoft.Compute*를 확장합니다.
-1. *virtualMachineScaleSets*를 확장합니다.
+1. *공급자* 를 확장합니다.
+1. *Microsoft. Compute* 를 확장 합니다.
+1. *virtualMachineScaleSets* 를 확장합니다.
 1. 확장 집합을 확장합니다.
-1. *publicipaddresses*를 클릭합니다.
+1. *publicipaddresses* 를 클릭합니다.
 
 Azure REST API를 쿼리하려면
 
@@ -299,7 +299,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>확장 집합당 NSG 및 ASG
-[네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하면 보안 규칙을 사용하여 Azure 가상 네트워크에서 Azure 리소스와 주고 받는 트래픽을 필터링할 수 있습니다. [애플리케이션 보안 그룹](../virtual-network/security-overview.md#application-security-groups)을 사용하면 Azure 리소스의 네트워크 보안을 처리하고 애플리케이션 구조의 확장으로 그룹화할 수 있습니다.
+[네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용하면 보안 규칙을 사용하여 Azure 가상 네트워크에서 Azure 리소스와 주고 받는 트래픽을 필터링할 수 있습니다. [애플리케이션 보안 그룹](../virtual-network/network-security-groups-overview.md#application-security-groups)을 사용하면 Azure 리소스의 네트워크 보안을 처리하고 애플리케이션 구조의 확장으로 그룹화할 수 있습니다.
 
 네트워크 보안 그룹은 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 적용할 수 있습니다.
 
@@ -381,6 +381,140 @@ az vmss show \
   ]
 ]
 ```
+
+## <a name="make-networking-updates-to-specific-instances"></a>특정 인스턴스에 대 한 네트워킹 업데이트 만들기
+
+특정 가상 머신 확장 집합 인스턴스에 대 한 네트워킹 업데이트를 수행할 수 있습니다. 
+
+`PUT`인스턴스에 대해 네트워크 구성을 업데이트 하는 데 사용할 수 있습니다. Nic (네트워크 인터페이스 카드)를 추가 또는 제거 하거나 백 엔드 풀에서 인스턴스를 제거 하는 등의 작업을 수행 하는 데 사용할 수 있습니다.
+
+```
+PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+```
+
+다음 예제에서는 두 번째 IP 구성을 NIC에 추가 하는 방법을 보여 줍니다.
+
+1. `GET` 특정 가상 머신 확장 집합 인스턴스에 대 한 세부 정보입니다.
+    
+    ``` 
+    GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *다음은이 예제에 대 한 네트워킹 매개 변수만 보여 주기 위해 간소화 되었습니다.*
+
+    ```json
+    {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
+ 
+2. `PUT` 인스턴스에 대해 추가 IP 구성을 추가 하도록를 업데이트 합니다. 이는를 추가 하는 것과 유사 `networkInterfaceConfiguration` 합니다.
+
+    
+    ```
+    PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *다음은이 예제에 대 한 네트워킹 매개 변수만 보여 주기 위해 간소화 되었습니다.*
+
+    ```json
+      {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  },
+                  {
+                    "name": "my-second-config",
+                    "properties": {
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
 
 
 

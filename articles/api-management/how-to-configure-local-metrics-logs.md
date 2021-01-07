@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86254506"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 로컬 메트릭 및 로그 구성
@@ -153,7 +153,7 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 | ------------- | ------------- | ------------- |
 | 원격 분석. 메트릭 로컬  | `none` | StatsD를 통해 로깅을 사용 하도록 설정 합니다. 값은, 일 수 있습니다 `none` `statsd` . |
 | 원격 분석. stsd. 끝점  | 해당 없음 | StatsD 끝점을 지정 합니다. |
-| 원격 분석. statsd.  | 해당 없음 | 메트릭 샘플링 주기를 지정 합니다. 값은 0에서 1 사이 여야 합니다. 예:`0.5`|
+| 원격 분석. statsd.  | 해당 없음 | 메트릭 샘플링 주기를 지정 합니다. 값은 0에서 1 사이 여야 합니다. 예: `0.5`|
 | 원격 분석. statsd. 태그 형식  | 해당 없음 | StatsD 내보내기 [태그 지정 형식](https://github.com/prometheus/statsd_exporter#tagging-extensions)입니다. 값은 `none` ,, `librato` `dogStatsD` , `influxDB` 입니다. |
 
 다음은 샘플 구성입니다.
@@ -210,12 +210,12 @@ kubectl logs <pod-name>
 
 | 필드  | 기본값 | 설명 |
 | ------------- | ------------- | ------------- |
-| 원격 분석. logs.  | `text` | 표준 스트림에 로깅을 사용 하도록 설정 합니다. 값은 `none` , `text` ,`json` |
-| 원격 분석. logs. 로컬  | `none` | 로컬 로깅을 사용 합니다. 값은 `none` ,, `auto` `localsyslog` , `rfc5424` ,입니다.`journal`  |
+| 원격 분석. logs.  | `text` | 표준 스트림에 로깅을 사용 하도록 설정 합니다. 값은 `none` , `text` , `json` |
+| 원격 분석. logs. 로컬  | `none` | 로컬 로깅을 사용 합니다. 값은 `none` ,, `auto` `localsyslog` , `rfc5424` ,입니다. `journal`  |
 | 원격 분석. localsyslog. 끝점  | 해당 없음 | Localsyslog 끝점을 지정 합니다.  |
-| 원격 분석. localsyslog.  | 해당 없음 | Localsyslog [기능 코드](https://en.wikipedia.org/wiki/Syslog#Facility)를 지정 합니다. 예:`7` 
+| 원격 분석. localsyslog.  | 해당 없음 | Localsyslog [기능 코드](https://en.wikipedia.org/wiki/Syslog#Facility)를 지정 합니다. 예: `7` 
 | rfc5424. 끝점  | 해당 없음 | Rfc5424 끝점을 지정 합니다.  |
-| 원격 분석. rfc5424.  | 해당 없음 | [Rfc5424](https://tools.ietf.org/html/rfc5424)당 시설 코드를 지정 합니다. 예:`7`  |
+| 원격 분석. rfc5424.  | 해당 없음 | [Rfc5424](https://tools.ietf.org/html/rfc5424)당 시설 코드를 지정 합니다. 예: `7`  |
 | 원격 분석. logs.  | 해당 없음 | 저널 끝점을 지정 합니다.  |
 
 로컬 로깅의 샘플 구성은 다음과 같습니다.

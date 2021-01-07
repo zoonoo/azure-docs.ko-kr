@@ -16,10 +16,10 @@ ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63d1d87d9b576a8e181b5b339052a6b6512f18a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85359231"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>상태 서비스 데이터가 최신 경고가 아닙니다
@@ -41,9 +41,9 @@ Azure AD Connect Health 모니터링 하는 온-프레미스 컴퓨터의 에이
  
 다음 표에서는 서비스 유형을 해당 하는 필수 데이터 형식에 매핑합니다.
 
-| 서비스 유형 | 에이전트 (Windows 서비스 이름) | 용도 | 생성 된 데이터 형식  |
+| 서비스 유형 | 에이전트 (Windows 서비스 이름) | 목적 | 생성 된 데이터 형식  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (동기화) | Azure AD Connect Health Sync Insights Service | AAD Connect 관련 정보 (커넥터, 동기화 규칙 등)를 수집 합니다. | - AadSyncService-SynchronizationRules <br />  -AadSyncService-커넥터 <br /> -AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+| Azure AD Connect (동기화) | Azure AD Connect Health Sync Insights Service | AAD Connect 관련 정보 (커넥터, 동기화 규칙 등)를 수집 합니다. | -AadSyncService-SynchronizationRules <br />  -AadSyncService-Connectors <br /> -AadSyncService-GlobalConfigurations  <br />  -AadSyncService-RunProfileResults <br /> -AadSyncService-ServiceConfigurations <br /> -AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring Service | AAD Connect 관련 성능 카운터, ETW 추적, 파일을 수집 합니다. | 성능 카운터 |
 | AD DS | Azure AD Connect Health AD DS Insights 서비스 | 가상 테스트 수행, 토폴로지 정보 수집, 복제 메타 데이터 |  -TopologyInfo-Json <br /> -TestData (테스트 결과 생성)   | 
 |  | Azure AD Connect Health AD DS 모니터링 서비스 | ADDS 전용 perf 카운터, ETW 추적, 파일 수집 | -성능 카운터  <br /> -TestData (테스트 결과 업로드)  |
@@ -58,13 +58,13 @@ Azure AD Connect Health 모니터링 하는 온-프레미스 컴퓨터의 에이
 > [!IMPORTANT] 
 > 이 경고는 Connect Health [데이터 보존 정책](reference-connect-health-user-privacy.md#data-retention-policy)을 따릅니다.
 
-* 최신 버전의 에이전트가 설치 되어 있는지 확인 합니다. [릴리스 기록을](reference-connect-health-version-history.md)봅니다. 
-* Azure AD Connect Health 에이전트 서비스가 컴퓨터에서 **실행** 되 고 있는지 확인 합니다. 예를 들어 AD FS용 Connect Health에 3개의 서비스가 있어야 합니다.
+* 최신 버전의 에이전트가 설치되어 있는지 확인합니다. [릴리스 기록](reference-connect-health-version-history.md)을 봅니다. 
+* Azure AD Connect Health 에이전트 서비스가 머신에서 **실행되고** 있는지 확인합니다. 예를 들어 AD FS용 Connect Health에 3개의 서비스가 있어야 합니다.
   ![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/install5.png)
 
 * [요구 사항 섹션](how-to-connect-health-agent-install.md#requirements)을 검토하고 충족하는지 확인합니다.
-* [연결 테스트 도구](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)를 사용하여 연결 문제를 검색합니다.
-* HTTP 프록시가 있는 경우 이 [구성 단계](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)를 수행합니다. 
+* 연결 [테스트 도구](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) 를 사용 하 여 연결 문제를 검색 합니다.
+* HTTP 프록시가 있는 경우 다음 [구성 단계](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)를 수행 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0955cc8722c2a2b559935341cfd7e87bac6e4d3e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954658"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079294"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Azure Cosmos DB의 TCO (총 소유 비용)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB은 미세 조정된 다중 테넌시 및 리소스 거버넌스를 사용하여 디자인되었습니다. 이 디자인을 사용하면 Azure Cosmos DB가 훨씬 더 낮은 비용으로 작동할 수 있으므로 비용 절감에 도움이 됩니다. 현재 Azure Cosmos DB는 밀도가 지속적으로 증가하고 단일 클러스터 내에 수천 개의 고객 워크로드가 존재하는 가운데, 단일 컴퓨터에서 280개가 넘는 고객 워크로드를 지원합니다. 이 기능은 데이터 센터 내에 있는 단일 클러스터 및 여러 클러스터 간의 여러 다른 컴퓨터에서 고객 워크로드 복제본의 부하를 분산시킵니다. 자세히 알아보려면 [Azure Cosmos DB: 전역적으로 분산 된 데이터베이스의 경계선 푸시](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/)를 참조 하세요. 리소스 거버넌스, 다중 테넌시 및 나머지 Azure 인프라 영역과의 네이티브 통합으로 인해 Azure Cosmos DB는 MongoDB, Cassandra 또는 IaaS에서 실행 중인 다른 OSS NoSQL보다 평균적으로 4~6배 더 저렴하고, 온-프레미스에서 실행되는 데이터베이스 엔진보다 최대 10배 더 저렴합니다. [The total cost of (non) ownership of a NoSQL database cloud service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)(NoSQL 데이터베이스 클라우드 서비스의 총 소유 비용) 문서를 참조하세요.
 
@@ -26,7 +27,7 @@ Apache Cassandra, MongoDB, HBase와 같은 OSS NoSQL 데이터베이스 솔루�
 
 Azure Cosmos DB의 서버리스 프로비저닝 모델은 데이터베이스 인프라를 과도하게 프로비전할 필요가 없도록 합니다. Azure Cosmos DB 리소스는 특수한 구성 또는 라이선스가 필요 없는 상태로 제공됩니다. 결과적으로, Azure Cosmos DB 기반 애플리케이션은 OSS NoSQL 데이터베이스에 비해 총 소유 비용을 70%정도 절감하면서 실행할 수 있습니다. 실시간 몇 가지 예제를 보려면 [고객 사용 사례](https://customers.microsoft.com/en-us/search?sq=Cosmos%20DB&ff=&p=0&so=story_publish_date%20desc)를 참조하세요. Azure Cosmos DB 가격 책정 모델의 다른 이점은 다음과 같습니다.
 
-* **가격에 대 한 뛰어난 가치:** 시장 분석가, 고객 및 파트너는 고객이 자신의 솔루션 또는 다른 공급 업체를 통해 이러한 솔루션을 구현할 때 얻을 수 있는 것과 비교 하 여 훨씬 저렴 한 가격으로 제공 Azure Cosmos DB 모든 기능을 더 높은 가치를 확인 했습니다. 이러한 전역 분산, 다중 마스터, 잘 정의되고 간편한 일관성 모델, 자동 인덱싱과 같은 데이터베이스 기능은 Azure Cosmos DB를 사용할 경우 복잡성, 오버헤드 또는 가동 중지 없이 크게 간소화됩니다.
+* **가격에 대 한 뛰어난 가치:** 시장 분석가, 고객 및 파트너는 고객이 자신의 솔루션 또는 다른 공급 업체를 통해 이러한 솔루션을 구현할 때 얻을 수 있는 것과 비교 하 여 훨씬 저렴 한 가격으로 제공 Azure Cosmos DB 모든 기능을 더 높은 가치를 확인 했습니다. 이러한 글로벌 배포, 다중 지역 쓰기, 잘 정의 된 직관적인 일관성 모델 등의 데이터베이스 기능을 사용 하면 복잡성, 오버 헤드 또는 가동 중지 시간 없이 Azure Cosmos DB으로 자동 인덱싱이 간소화 됩니다.
 
 * **NoSQL DevOps 관리가 필요 하지 않습니다.** Azure Cosmos DB를 사용 하 여 배포를 관리 하 고 유지 관리, 크기 조정 또는 패치를 수행 하는 데 DevOps를 사용할 필요가 없습니다. OSS NoSQL 클러스터를 온-프레미스 또는 클라우드 인프라에 호스트한 상태로 수행하는 모든 워크로드를 실행할 수 있습니다.
 
@@ -40,7 +41,7 @@ Azure Cosmos DB의 서버리스 프로비저닝 모델은 데이터베이스 인
 
 * **시간 단위로 요금을 지불 합니다.** 특정 시점에 크기를 조정 해야 하는 대규모 작업의 경우에는 시간 단위로 요금이 부과 됩니다. 애플리케이션에 대한 워크로드는 일반적으로 연중 시간 및 쿼리되는 데이터에 따라 달라집니다. Azure Cosmos DB를 사용하는 경우 필요할 때 규모를 확장 및 축소할 수 있고 필요한 크기 만큼만 요금을 부과할 수 있습니다. 온-프레미스 또는 IaaS 호스팅 시스템에서는 매시간 하드웨어를 서비스 해제할 수 있는 방법이 없기 때문에이 모델을 일치 시킬 수 없습니다. 이러한 경우 Azure Cosmos DB를 사용하여 평균적으로 10~14배의 비용을 절감할 수 있습니다.
 
-* **다양 한 기능을 무료로 이용할 수 있습니다.** Azure Cosmos DB에 대 한 쓰기 작업은 대체 데이터베이스 서비스에 비해 상당히 저렴 합니다. 또한 Azure Cosmos DB는 추가 요금 없이 [자동 인덱싱](indexing-policies.md), [TTL(Time to Live)](time-to-live.md), [변경 피드](change-feed.md)와 같은 기능 및 다른 데이터베이스 서비스에서는 일반적으로 요금이 청구되는 기능을 제공합니다.
+* **다양 한 기능을 무료로 이용할 수 있습니다.** Azure Cosmos DB에 대 한 쓰기 작업은 대체 데이터베이스 서비스에 비해 상당히 저렴 합니다. 또한 Azure Cosmos DB는 추가 요금 없이 [자동 인덱싱](index-policy.md), [TTL(Time to Live)](time-to-live.md), [변경 피드](change-feed.md)와 같은 기능 및 다른 데이터베이스 서비스에서는 일반적으로 요금이 청구되는 기능을 제공합니다.
 
 * **다양 한 워크 로드에 대해 통합 된 통화를 사용 합니다.** 대체 기능과 달리 Azure Cosmos DB에서는 작업 (예: 읽기 및 쓰기)을 분할할 필요가 없습니다. 또는 워크로드 유형별로 읽기 처리량 및 쓰기 처리량에 해당하는 처리량을 프로비전합니다. Azure Cosmos DB에서 프로비전된 처리량은 요청 단위 또는 RU/초를 기준으로 통합되고 정규화된 통화를 사용하여 예약됩니다. Azure Cosmos DB는 강제로 워크로드에 우선 순위를 할당하도록 하거나, 용량 계획을 수행하거나, 용량 유형별로 요금을 부과하지 않습니다. 이러한 접근 방식을 통해 다양한 작업 및 워크로드 유형 간에 동일한 RU/초를 쉽게 교환할 수 있습니다.
 
@@ -63,6 +64,6 @@ Azure Cosmos DB의 서버리스 프로비저닝 모델은 데이터베이스 인
 * [처리량 비용 최적화](optimize-cost-throughput.md)에 대한 자세한 정보
 * [스토리지 비용 최적화](optimize-cost-storage.md)에 대한 자세한 정보
 * [읽기 및 쓰기 비용 최적화](optimize-cost-reads-writes.md)에 대한 자세한 정보
-* [쿼리 비용 최적화](optimize-cost-queries.md)에 대한 자세한 정보
+* [쿼리 비용 최적화](./optimize-cost-reads-writes.md)에 대한 자세한 정보
 * [다중 지역 Cosmos 계정 비용 최적화](optimize-cost-regions.md)에 대한 자세한 정보
 * [NoSQL 데이터베이스 클라우드 서비스의 총 (비)소유 비용](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)에 대한 자세한 정보

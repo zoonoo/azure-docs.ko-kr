@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/28/2020
+ms.date: 11/20/2020
 ms.author: alkohli
-ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a4848f5e8b542d80b382abe39f4882a26e0f534c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891325"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015683"
 ---
 # <a name="troubleshooting-certificate-errors"></a>인증서 오류 문제 해결
 
@@ -30,7 +30,6 @@ ms.locfileid: "90891325"
 |---|---|
 | CertificateManagement_UntrustedCertificate | 주체 이름이 있는 인증서 {0} 의 인증서 체인이 끊어졌습니다. 이 인증서를 업로드 하기 전에 서명 체인 인증서를 업로드 하세요.|
 | CertificateManagement_DeviceNotRegistered| 장치가 활성화 되지 않았습니다. 활성화 한 후에만 지원 인증서를 업로드할 수 있습니다.|
-| CertificateManagement_EmptySAN | 주체 이름이 있는 인증서 {0} 에 주체 대체 이름이 없습니다. 인증서 속성을 확인 하 고 새 인증서를 가져옵니다.|
 | CertificateManagement_ExpiredCertificate | 유형의 인증서 {0} 가 만료 되었거나 곧 만료 됩니다. 인증서 만료를 확인 하 고 필요한 경우 새 인증서를 가져옵니다.|
 | CertificateManagement_FormatMismatch | 인증서 형식이 지원 되지 않습니다. 인증서 형식을 확인 하 고 필요한 경우 새 인증서를 가져옵니다.  {0}가 필요 {1} 합니다. |
 | CertificateManagement_GenericError | 인증서 관리 작업을 수행할 수 없습니다. 몇 분 후에이 작업을 다시 시도 하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |
@@ -42,12 +41,12 @@ ms.locfileid: "90891325"
 | CertificateManagement_KeySizeNotSufficient | 주체 이름이 있는 인증서 {0} 의 키 크기가 충분 하지 않습니다 {1} . 최소 키 크기는 4096입니다.|
 | CertificateManagement_MissingClientOid | 주체 이름이 인 인증서에 {0} 클라이언트 인증 OID가 없습니다. 인증서 속성을 확인 하 고 필요한 경우 새 인증서를 가져옵니다.|
 | CertificateManagement_MissingDigitalSignatureKeyUsage | 주체 이름이 있는 인증서 {0} 의 키 사용에 디지털 서명이 없습니다. 인증서 속성을 확인 하 고 필요한 경우 새 인증서를 가져옵니다. |
-| CertificateManagement_MissingEntryInSAN | 주체 이름이 있는 인증서 {0} 의 주체 대체 이름에 주체 이름 항목이 없습니다. 인증서 속성을 확인 하 고 새 인증서를 가져옵니다. |
 | CertificateManagement_MissingKeyCertSignKeyUsage | 주체 이름이 인 인증서 {0} 에 키 사용에 대 한 인증서 서명이 없습니다. 인증서 속성을 확인 하 고 필요한 경우 새 인증서를 가져옵니다.|
 | CertificateManagement_MissingKeyEnciphermentKeyUsage | 주체 이름이 있는 인증서 {0} 의 키 암호화는 키 사용에 포함 되지 않습니다. 인증서 속성을 확인 하 고 필요한 경우 새 인증서를 가져옵니다. |
 | CertificateManagement_MissingServerOid | 주체 이름이 인 인증서에는 {0} 서버 인증 OID가 없습니다. 인증서 속성을 확인 하 고 필요한 경우 새 인증서를 가져옵니다.|
 | CertificateManagement_NameMismatch | 인증서 유형이 일치 하지 않습니다. 예상 범위: {0} , 개 찾음 {1} 적절 한 인증서를 업로드 합니다.|
 | CertificateManagement_NoPrivateKeyPresent | 주체 이름이 있는 인증서 {0} 에 개인 키가 없습니다. 개인 키가 있는 .pfx 인증서를 업로드 합니다.|
+| CertificateManagement_NoRSACryptoPrivateKey | 주체 이름이 있는 인증서의 개인 키에 {0} 액세스할 수 없습니다. 지원 되는 인증서를 사용 하 고 있는지 확인 합니다. Microsoft RSA/Schannel 암호화 공급자만 지원 됩니다. |
 | CertificateManagement_NotSelfSignedCertificate | 주체 이름이 있는 인증서 {0} 는 자체 서명 되지 않습니다. 루트 인증서는 자체 서명 되어야 합니다. |
 | CertificateManagement_NotSupportedOnVirtualAppliance | 가상 장치에서는이 작업이 지원 되지 않습니다. 이 오류는 전략적 클라우드 어플라이언스에서 실행 되는 Data Box Gateway에만 서명이 발생 함을 나타냅니다. 이 오류는 Windows PowerShell을 통해 장치를 관리 하는 동안 발생 합니다.|
 | CertificateManagement_SelfSignedCertificate | 주체 이름이 있는 인증서 {0} 는 자체 서명 됩니다. 올바르게 서명 된 인증서를 업로드 합니다.|
@@ -55,6 +54,11 @@ ms.locfileid: "90891325"
 | CertificateManagement_SubjectNamesInvalid | 주체 이름이 있는 인증서 {0} 의 주체 이름이 잘못 되었거나 인증서의 주체 대체 이름이 잘못 되었습니다 {1} . 업로드 한 인증서를 확인 하 고 필요한 경우 새 인증서를 가져옵니다. 또한 DNS 이름을 확인 하 여 SAN 이름과 일치 해야 합니다.|
 | CertificateManagement_UnreadableCertificate | 형식을 가진 인증서를 {0} 읽을 수 없습니다. 이 오류는 인증서를 읽을 수 없거나 손상 된 경우에 발생 합니다. 새 인증서를 가져옵니다.|
 | CertificateSubjectNotFound | 주체 이름이 인 인증서를 찾을 수 없습니다 {0} . 새 인증서를 가져옵니다.|
+| CertificateRotationGenericFailure | 하나 이상의 인증서 회전이 실패 했습니다. 몇 분 후에 다시 시도 하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.|
+| CertificateImportFailure | 지문이 있는 인증서 {0} 를 노드에서 가져오지 못했습니다 {1} . 문제가 지속되면 Microsoft 지원에 문의하세요. |
+| CertificateApplyFailure | 지문이 포함 된 인증서 {0} 가 노드에 적용 되지 않았습니다 {1} . 문제가 지속되면 Microsoft 지원에 문의하세요.|
+| NodeNotReachable | 에서 인증서의 유효성을 검사할 수 없습니다 {0} . 시스템 하드웨어 및 소프트웨어 상태를 확인 합니다.|
+
 
 ## <a name="next-steps"></a>다음 단계
 

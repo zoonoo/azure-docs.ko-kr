@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
 ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401557"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003857"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure Traffic Manager의 성능 저하 상태 문제 해결
 
-이 문서에서는 성능 저하 상태를 보여 주는 Azure Traffic Manager 프로필 문제를 해결하는 방법을 설명합니다. Azure Traffic Manager 저하 된 상태 문제를 해결 하는 첫 번째 단계는 로깅을 사용 하도록 설정 하는 것입니다.  자세한 내용은 [리소스 로그 사용](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) 을 참조 하세요. 이 시나리오의 경우 사용자의 일부 .cloudapp.net 호스티드 서비스를 가리키는 Traffic Manager 프로필을 구성했다는 점을 고려합니다. Traffic Manager의 상태가 **성능 저하됨** 상태를 표시하는 경우 하나 이상의 엔드포인트 상태가 **성능 저하됨**일 수 있습니다.
+이 문서에서는 성능 저하 상태를 보여 주는 Azure Traffic Manager 프로필 문제를 해결하는 방법을 설명합니다. Azure Traffic Manager 저하 된 상태 문제를 해결 하는 첫 번째 단계는 로깅을 사용 하도록 설정 하는 것입니다.  자세한 내용은 [리소스 로그 사용](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) 을 참조 하세요. 이 시나리오의 경우 사용자의 일부 .cloudapp.net 호스티드 서비스를 가리키는 Traffic Manager 프로필을 구성했다는 점을 고려합니다. Traffic Manager의 상태가 **성능 저하됨** 상태를 표시하는 경우 하나 이상의 엔드포인트 상태가 **성능 저하됨** 일 수 있습니다.
 
 ![성능 저하 엔드포인트 상태](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Traffic Manager의 상태가 **비활성** 상태를 표시하는 경우 두 끝점이 모두 **비활성**일 수 있습니다.
+Traffic Manager의 상태가 **비활성** 상태를 표시하는 경우 두 끝점이 모두 **비활성** 일 수 있습니다.
 
 ![비활성 Traffic Manager 상태](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 

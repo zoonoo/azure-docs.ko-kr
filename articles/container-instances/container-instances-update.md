@@ -4,10 +4,10 @@ description: Azure Containers Instances 컨테이너 그룹에서 실행되는 �
 ms.topic: article
 ms.date: 04/17/2020
 ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82928723"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 업데이트
@@ -30,7 +30,7 @@ ms.locfileid: "82928723"
 > [!TIP]
 > [Yaml 파일](./container-instances-container-groups.md#deployment) 은 컨테이너 그룹의 배포 구성을 유지 하는 데 도움이 되며 업데이트 된 그룹을 배포 하기 위한 시작점을 제공 합니다. 다른 방법을 사용 하 여 그룹을 만든 경우 [az container export][az-container-export]를 사용 하 여 구성을 yaml로 내보낼 수 있습니다. 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 Azure CLI 예제에서는 컨테이너 그룹을 새 DNS 이름 레이블로 업데이트합니다. 그룹의 DNS 이름 레이블 속성은 업데이트할 수 있는 속성 이므로 컨테이너 그룹을 다시 배포 하 고 컨테이너를 다시 시작 합니다.
 
@@ -71,7 +71,7 @@ Windows Server Core와 같이 더 큰 컨테이너 이미지를 기반으로 하
 
 * OS 유형
 * CPU, 메모리 또는 GPU 리소스
-* 다시 시작 정책
+* 정책 다시 시작
 * 네트워크 프로필
 
 컨테이너 그룹을 삭제하고 다시 만들면 해당 그룹은 "다시 배포"되지 않고 새로 만들어집니다. 모든 이미지 계층은 이전 배포에서 캐시된 계층이 아니라 레지스트리에서 새로 가져옵니다. 컨테이너의 IP 주소도 다른 기본 호스트에 배포되어 변경될 수 있습니다.

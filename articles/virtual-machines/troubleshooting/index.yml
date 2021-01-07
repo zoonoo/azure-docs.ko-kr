@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: df855334f91899ab23625f7161792d0bec416782
-  ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+  ms.openlocfilehash: 4f1fd0f88c7165a409644029f247b090df285138
+  ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/25/2020
-  ms.locfileid: "88816603"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94506042"
 landingContent:
 - title: 배포 오류 문제 해결
   linkLists:
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 공유 이미지 갤러리 복제 속도가 느려지는 문제 해결
-      url: ../windows/troubleshooting-shared-images.md#replication-is-slow
+      url: ../troubleshooting-shared-images.md#replication-speed
 - title: VM 확장 문제
   linkLists:
   - linkListType: how-to-guide

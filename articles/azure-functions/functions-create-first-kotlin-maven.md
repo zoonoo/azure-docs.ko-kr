@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 526287feb93052d10428971dfd8f660d4265c831
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 167e7c447fe43851255677a44043c508cbdc4239
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071264"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934835"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>빠른 시작: Kotlin 및 Maven을 사용하여 첫 번째 함수 만들기
 
-이 문서에서는 Maven 명령줄 도구를 사용하여 Kotlin 함수 프로젝트를 빌드하고 Azure Functions에 게시하는 방법을 안내합니다. 완료되면 함수 코드가 Azure의 [사용 플랜](functions-scale.md#consumption-plan)에서 실행되고 HTTP 요청을 사용하여 트리거될 수 있습니다.
+이 문서에서는 Maven 명령줄 도구를 사용하여 Kotlin 함수 프로젝트를 빌드하고 Azure Functions에 게시하는 방법을 안내합니다. 완료되면 함수 코드가 Azure의 [사용 플랜](consumption-plan.md)에서 실행되고 HTTP 요청을 사용하여 트리거될 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,7 +24,7 @@ ms.locfileid: "89071264"
 
 Kotlin을 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 
-- [Java Developer Kit](https://aka.ms/azure-jdks), 버전 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), 버전 8
 - [Apache Maven](https://maven.apache.org), 버전 3.0 이상
 - [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상
@@ -186,7 +186,7 @@ mvn azure-functions:deploy
 `cURL`을 사용하여 Azure에서 실행 중인 함수 앱을 테스트합니다. 아래 예제에서는 이전 단계에서 만든 사용자 고유의 함수 앱에 배포한 URL과 일치하도록 URL을 변경해야 합니다.
 
 > [!NOTE]
-> **액세스 권한**을 `Anonymous`로 설정해야 합니다. 기본 수준 `Function`을 선택하면 함수 엔드포인트에 액세스하기 위해 요청에 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 제공해야 합니다.
+> **액세스 권한** 을 `Anonymous`로 설정해야 합니다. 기본 수준 `Function`을 선택하면 함수 엔드포인트에 액세스하기 위해 요청에 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 제공해야 합니다.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions

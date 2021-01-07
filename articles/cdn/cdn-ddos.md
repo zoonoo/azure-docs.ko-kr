@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: allensu
-ms.openlocfilehash: dc7af555bcaf8654ecdb27d804cbef0c2cedb284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac00491a34e6e7d18c74827afc6647358794a8be
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81253818"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351693"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Azure CDN DDoS Protection
 
@@ -27,7 +27,7 @@ Content delivery network는 설계상의 DDoS 보호 기능을 제공 합니다.
 
 ## <a name="azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN
 
-Microsoft의 Azure CDN는 [Azure Basic DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)에 의해 보호 됩니다. 기본적으로 추가 비용 없이 Microsoft 플랫폼에서 Azure CDN에 통합 됩니다. Microsoft에서 전 세계적으로 배포 된 네트워크에서 Azure CDN의 전체 크기와 용량은 상시 트래픽 모니터링과 실시간 완화를 통해 일반적인 네트워크 계층 공격에 대 한 방어를 제공 합니다. 또한 기본 DDoS 보호는 CDN 끝점을 대상으로 하는 가장 일반적인, 자주 발생 하는 계층 7 DNS 쿼리 및 계층 3 및 4 대규모 공격에 대해 방어 합니다. 또한이 서비스는 대규모 공격 으로부터 Microsoft의 엔터프라이즈 및 소비자 서비스를 보호 하는 것으로 입증 된 추적 레코드를 포함 합니다.
+Microsoft의 Azure CDN는 [Azure Basic DDoS](../ddos-protection/ddos-protection-overview.md)에 의해 보호 됩니다. 기본적으로 추가 비용 없이 Microsoft 플랫폼에서 Azure CDN에 통합 됩니다. Microsoft에서 전 세계적으로 배포 된 네트워크에서 Azure CDN의 전체 크기와 용량은 상시 트래픽 모니터링과 실시간 완화를 통해 일반적인 네트워크 계층 공격에 대 한 방어를 제공 합니다. 또한 기본 DDoS 보호는 CDN 끝점을 대상으로 하는 가장 일반적인, 자주 발생 하는 계층 7 DNS 쿼리 및 계층 3 및 4 대규모 공격에 대해 방어 합니다. 또한이 서비스는 대규모 공격 으로부터 Microsoft의 엔터프라이즈 및 소비자 서비스를 보호 하는 것으로 입증 된 추적 레코드를 포함 합니다.
 
 ## <a name="azure-cdn-from-verizon"></a>Verizon의 Azure CDN
 
@@ -39,4 +39,4 @@ Akamai의 Azure CDN는 Akamai의 독점 DDoS 완화 플랫폼에 의해 보호 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)에 대해 자세히 알아보세요. 
+[Azure DDoS](../ddos-protection/ddos-protection-overview.md)에 대해 자세히 알아보세요.

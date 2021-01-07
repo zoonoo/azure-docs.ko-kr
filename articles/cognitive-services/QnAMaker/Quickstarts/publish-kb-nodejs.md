@@ -1,16 +1,18 @@
 ---
 title: '빠른 시작: Node.js 용 REST Api를 사용 하 여 QnA Maker'
 description: 이 빠른 시작에서는 Node.js용 QnA Maker REST API를 시작하는 방법을 보여줍니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.  QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, devx-track-javascript
+ms.custom: RESTCURL2020FEB27, devx-track-js
 ms.topic: how-to
-ms.openlocfilehash: a891e806c54d8d88eea1021c95923ffdc90c36f9
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 645f9ffb1d907eb576f5414b593ef57679d26daa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266428"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351149"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>퀵 스타트: Node.js에 대 한 REST Api QnA Maker
 
@@ -25,7 +27,7 @@ Node.js용 QnA Maker REST API를 사용하여 다음을 수행합니다.
 * 기술 자료 다운로드
 * 작업의 상태 가져오기
 
-[참조 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[참조 설명서](/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -33,15 +35,15 @@ Node.js용 QnA Maker REST API를 사용하여 다음을 수행합니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * 현재 버전의 [Node.js](https://nodejs.org)
-* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작** 을 선택합니다.
 
 ## <a name="setting-up"></a>설치
 
 ### <a name="create-a-qna-maker-azure-resource"></a>QnA Maker Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 QnA Maker용 리소스를 만듭니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](../../cognitive-services-apis-create-account.md) 또는 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)를 사용하여 QnA Maker용 리소스를 만듭니다.
 
-리소스에서 키를 가져온 후 `QNAMAKER_RESOURCE_KEY` 및 `QNAMAKER_AUTHORING_ENDPOINT`라는 리소스에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). Azure Portal에서 리소스의 **빠른 시작** 페이지에 있는 키와 엔드포인트 값을 사용합니다.
+리소스에서 키를 가져온 후 `QNAMAKER_RESOURCE_KEY` 및 `QNAMAKER_AUTHORING_ENDPOINT`라는 리소스에 대해 [환경 변수를 만듭니다](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication). Azure Portal에서 리소스의 **빠른 시작** 페이지에 있는 키와 엔드포인트 값을 사용합니다.
 
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 
@@ -93,7 +95,7 @@ npm install requestretry request --save
 다음 환경 값을 설정합니다.
 
 * `QNAMAKER_RESOURCE_KEY` - **키는** 32 문자열이 고, Azure Portal QnA Maker 리소스의 **빠른 시작** 페이지에서 사용할 수 있습니다. 이는 예측 엔드포인트 키와 동일하지 않습니다.
-* `QNAMAKER_AUTHORING_ENDPOINT` - `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` 형식의 작성 엔드포인트에는 **리소스 이름**이 포함됩니다. 이는 예측 엔드포인트를 쿼리하는 데 사용되는 URL과 동일하지 않습니다.
+* `QNAMAKER_AUTHORING_ENDPOINT` - `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` 형식의 작성 엔드포인트에는 **리소스 이름** 이 포함됩니다. 이는 예측 엔드포인트를 쿼리하는 데 사용되는 URL과 동일하지 않습니다.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="authorization":::
 
@@ -105,13 +107,13 @@ npm install requestretry request --save
 * **파일** - 권한이 필요없는 로컬 파일입니다.
 * **URL** - 공개적으로 사용할 수 있는 URL입니다.
 
-[REST API를 사용하여 기술 자료를 생성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)합니다.
+[REST API를 사용하여 기술 자료를 생성](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)합니다.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="createKb":::
 
 ## <a name="replace-a-knowledge-base"></a>기술 자료 바꾸기
 
-[REST API를 사용하여 기술 자료를 바꿉니다](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
+[REST API를 사용하여 기술 자료를 바꿉니다](/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="replaceKb":::
 
@@ -119,13 +121,13 @@ npm install requestretry request --save
 
 기술 자료를 게시합니다. 이 프로세스는 HTTP 쿼리 예측 엔드포인트에서 기술 자료를 사용할 수 있도록 설정합니다.
 
-[REST API를 사용하여 기술 자료를 게시](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)합니다.
+[REST API를 사용하여 기술 자료를 게시](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish)합니다.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="publishKb":::
 
 ## <a name="download-the-knowledge-base"></a>기술 자료 다운로드
 
-[REST API를 사용하여 기술 자료를 다운로드](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)합니다.
+[REST API를 사용하여 기술 자료를 다운로드](/rest/api/cognitiveservices/qnamaker/knowledgebase/download)합니다.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="downloadKb":::
 
@@ -133,7 +135,7 @@ npm install requestretry request --save
 
 기술 자료 사용을 완료하면 삭제합니다.
 
-[REST API를 사용하여 기술 자료를 삭제](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete)합니다.
+[REST API를 사용하여 기술 자료를 삭제](/rest/api/cognitiveservices/qnamaker/knowledgebase/delete)합니다.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="deleteKb":::
 
@@ -141,7 +143,7 @@ npm install requestretry request --save
 
 생성 프로세스와 같이 오래 실행되는 프로세스는 별도의 REST API 호출로 확인해야 하는 작업 ID를 반환합니다. 이 함수는 응답 생성 본문을 사용합니다. 중요한 키는 폴링을 계속해야 할지 여부를 결정하는 `operationState`입니다.
 
-[REST API를 사용하여 기술 자료에서 작업을 모니터링](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)합니다.
+[REST API를 사용하여 기술 자료에서 작업을 모니터링](/rest/api/cognitiveservices/qnamaker/operations/getdetails)합니다.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="operationDetails":::
 
@@ -169,7 +171,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[자습서: KB 만들기 및 응답](../tutorials/create-publish-query-in-portal.md)
+>[자습서: KB 만들기 및 응답](./create-publish-knowledge-base.md)
 
 * [QnA Maker API란?](../Overview/overview.md)
 * [기술 자료 편집](../how-to/edit-knowledge-base.md)

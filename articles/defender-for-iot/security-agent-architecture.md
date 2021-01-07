@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 64d90b4d9dc3efbe877230bbc20780b1c4f2d213
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5773f7af3bb065976e8f05d7b54c58b90da2d3d2
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939749"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835128"
 ---
 # <a name="security-agent-reference-architecture"></a>보안 에이전트 참조 아키텍처
 
@@ -45,11 +45,11 @@ IoT 용 Defender 보안 에이전트는 오픈 소스 프로젝트로 개발 되
 
 IoT 용 Defender는 32 비트 및 64 비트 Windows 용 여러 설치 관리자 에이전트를 제공 하 고, 32 비트 및 64 비트 Linux의 경우 동일 합니다. 다음 표에 따라 각 장치에 대 한 올바른 에이전트 설치 관리자가 있는지 확인 합니다.
 
-| Architecture | Linux | Windows |    세부 정보|
-|----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32비트  | C  | C#  ||
-| 64비트  | C # 또는 C           | C#      | 더 제한 된 장치나 최소 장치 리소스를 사용 하는 장치에는 C 에이전트를 사용 하는 것이 좋습니다.|
-|
+| Architecture | Linux | Windows | 세부 정보 |
+|--|--|--|--|
+| 32비트 | C | C# |  |
+| 64비트 | C # 또는 C | C# | 더 제한 된 장치나 최소 장치 리소스를 사용 하는 장치에는 C 에이전트를 사용 하는 것이 좋습니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -59,6 +59,6 @@ IoT 배포용 Defender를 계속 시작 하려면 다음 문서를 사용 합니
 
 - [보안 에이전트 인증 방법](concept-security-agent-authentication-methods.md) 이해
 - [보안 에이전트](how-to-deploy-agent.md) 선택 및 배포
-- IoT [서비스 필수 구성 요소](service-prerequisites.md) 를 검토 합니다.
+- IoT [시스템 필수 구성 요소](quickstart-system-prerequisites.md) 를 검토 합니다.
 - [IoT Hub에서 IoT 서비스용 Defender를 사용 하도록 설정](quickstart-onboard-iot-hub.md) 하는 방법에 대해 알아봅니다.
 - [IoT 용 DEFENDER FAQ](resources-frequently-asked-questions.md) 에서 서비스에 대 한 자세한 정보

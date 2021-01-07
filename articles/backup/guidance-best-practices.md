@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 백업 하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985522"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092310"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
 
@@ -42,13 +42,13 @@ Azure Backup를 사용 하면 다양 한 워크 로드 (온-프레미스 및 클
 
 * **악성 삭제 방지 –** 백업 일시 삭제를 통해 백업을 삭제 하는 실수 및 악의적 시도 로부터 보호 합니다. 삭제 된 백업 데이터는 14 일 동안 무료로 저장 되며이 상태에서 복구 될 수 있습니다.
 
-* **암호화 된 백업 보안-** Azure Backup는 RBAC 및 암호화와 같은 Azure 플랫폼의 기본 제공 보안 기능을 활용 하 여 백업 데이터가 안전한 방식으로 저장 되도록 합니다.
+* **암호화 된 백업 보안-** Azure Backup는 Azure RBAC 및 암호화와 같은 Azure 플랫폼의 기본 제공 보안 기능을 활용 하 여 백업 데이터가 안전한 방식으로 저장 되도록 합니다.
 
 * **백업 데이터 수명 주기 관리-** Azure Backup는 보존 정책을 준수 하기 위해 이전 백업 데이터를 자동으로 정리 합니다. 또한 운영 저장소에서 자격 증명 모음 저장소로 데이터를 계층화 할 수 있습니다.
 
 ### <a name="management-plane"></a>관리 평면
 
-* **액세스 제어** – 자격 증명 모음 (Recovery Services 및 백업 자격 증명 모음)은 관리 기능을 제공 하며, Azure Portal, 백업 센터, 자격 증명 모음 대시보드, SDK, CLI 및 심지어 REST api를 통해 액세스할 수 있습니다. 또한 승인 된 백업 관리자 에게만 백업에 대 한 액세스를 제한 하는 옵션을 제공 하는 RBAC 경계입니다.
+* **액세스 제어** – 자격 증명 모음 (Recovery Services 및 백업 자격 증명 모음)은 관리 기능을 제공 하며, Azure Portal, 백업 센터, 자격 증명 모음 대시보드, SDK, CLI 및 심지어 REST api를 통해 액세스할 수 있습니다. 또한 Azure RBAC 경계를 사용 하 여 권한 있는 백업 관리자 에게만 백업에 대 한 액세스를 제한 하는 옵션을 제공 합니다.
 
 * **정책 관리** – 각 자격 증명 모음 내의 Azure Backup 정책은 백업이 트리거되는 시기 및 유지 해야 하는 기간을 정의 합니다. 또한 이러한 정책을 관리 하 고 여러 항목에서 적용할 수 있습니다.
 
@@ -240,7 +240,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리 하 고 BCD
 * 기타
   * **Log Analytics** 작업 영역에 데이터 (예: 작업, 정책 등)를 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용 하 여 Azure Monitor에서 수집 된 다른 모니터링 데이터와 데이터의 상관 관계를 설정 하 고, 여러 Azure 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 하 고, 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 항목에 대 한 심층 통찰력을 얻을 [자세한 내용은 여기를 참조](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)하세요.
   * 데이터를 이벤트 허브로 전송 하 여 타사 SIEM (보안 정보 및 이벤트 관리) 또는 다른 log analytics 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [자세한 내용은 여기를 참조](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs)하세요.
-  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세히 알아보기](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세히 알아봅니다](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>경고
 

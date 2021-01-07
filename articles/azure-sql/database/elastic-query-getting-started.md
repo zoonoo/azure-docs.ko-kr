@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: e743d557f70aaa92e464244d0198debbc25a1e46
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956902"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781229"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "85956902"
 
 쿼리에 필요한 SQL 개체를 알아보려면 [수평 분할된 데이터베이스에 쿼리](elastic-query-horizontal-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Elastic Database 도구 샘플 시작](elastic-scale-get-started.md)을 다운로드하고 실행하세요.
 
@@ -37,7 +37,7 @@ ms.locfileid: "85956902"
 1. [샘플 앱 다운로드 및 실행](elastic-scale-get-started.md#download-and-run-the-sample-app-1)문서 섹션의 단계를 수행 하 여 **Elastic Database 도구 시작** 샘플 응용 프로그램을 빌드하고 실행 합니다. 모든 단계를 완료 하면 다음 명령 프롬프트가 표시 됩니다.
 
     ![명령 프롬프트][1]
-2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
+2. 명령 창에 "1"을 입력하고 **Enter** 키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter** 키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
 3. [Azure Portal](https://portal.azure.com)에서 사용자의 서버 내에 다음과 같은 3개의 새 데이터베이스가 보여야 합니다.
 
    ![Visual Studio 확인][2]
@@ -121,13 +121,13 @@ select count(CustomerId) from [dbo].[Customers]
 
 1. Excel 2013을 실행 합니다.
 2. **데이터** 리본을 탐색합니다.
-3. **기타 원본에서**을 클릭하고 **SQL Server에서**를 클릭합니다.
+3. **기타 원본에서** 을 클릭하고 **SQL Server에서** 를 클릭합니다.
 
    ![다른 원본에서 Excel 가져오기][5]
-4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. **다음**을 클릭합니다.
-5. 대화 상자에서 **원하는 데이터를 포함하는 데이터베이스를 선택**하고 **ElasticDBQuery** 데이터베이스를 선택합니다.
-6. 목록 보기에서 **사용자**테이블을 선택하고 **다음**을 클릭합니다. **마침**을 클릭합니다.
-7. **데이터 가져오기** 양식에서, **통합 문서에서 원하는 데이터를 보는 방법을 선택**하고 **테이블**을 선택하고 **확인**을 클릭합니다.
+4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next** 를 클릭합니다.
+5. 대화 상자에서 **원하는 데이터를 포함하는 데이터베이스를 선택** 하고 **ElasticDBQuery** 데이터베이스를 선택합니다.
+6. 목록 보기에서 **사용자** 테이블을 선택하고 **다음** 을 클릭합니다. **마침** 을 클릭합니다.
+7. **데이터 가져오기** 양식에서, **통합 문서에서 원하는 데이터를 보는 방법을 선택** 하고 **테이블** 을 선택하고 **확인** 을 클릭합니다.
 
 다른 분할된 데이터베이스에 저장된 **Customers** 테이블의 모든 행으로 Excel 시트를 채웁니다.
 
@@ -144,7 +144,7 @@ Elastic Database 쿼리 기능을 사용 하는 것은 무료입니다.
 * 수직 분할 자습서는 [데이터베이스 간 쿼리 시작(수직 분할)](elastic-query-getting-started-vertical.md)을 참조하세요.
 * 수직 분할된 데이터에 대한 구문 및 예제 쿼리는 [수직 분할된 데이터 쿼리하기](elastic-query-vertical-partitioning.md)를 참조하세요.
 * 행 분할된 데이터에 대한 구문 및 예제 쿼리는 [행 분할된 데이터 쿼리하기](elastic-query-horizontal-partitioning.md)를 참조하세요.
-* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 세트에서 Transact-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](https://msdn.microsoft.com/library/mt703714)을 참조하세요.
+* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 세트에서 Transact-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)을 참조하세요.
 
 
 <!--Image references-->

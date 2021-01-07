@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: cffb753d515c4d066c8ce52e7dacebe5a8f6f8ca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 773334787ec7b2706c16e517281d6a60215ad482
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682640"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353020"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 
@@ -62,7 +62,7 @@ PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/
 Azure Portal에서 예약을 구매할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 서비스 플랜:
-- [가상 머신](../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
+- [가상 머신](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fbilling%2fTOC.json)
 -  [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json)
 - [SQL 데이터베이스](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/billing/TOC.json)
 
@@ -88,9 +88,9 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 
 [예약 - 작업 - 목록 API](/rest/api/reserved-vm-instances/reservationorder/list)를 사용하여 사용자에게 액세스 권한이 있는 모든 예약 목록을 가져옵니다. 프로그래밍 방식으로 예약에 대해 액세스 권한을 부여하려면 다음 문서 중 하나를 참조하세요.
 
-- [RBAC 및 REST API를 사용하여 액세스 관리](../../role-based-access-control/role-assignments-rest.md)
-- [RBAC 및 Azure PowerShell을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-powershell.md)
-- [RBAC 및 Azure CLI를 사용하여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)
+- [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-rest.md)
+- [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)
+- [Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)
 
 ## <a name="split-or-merge-reservation"></a>예약 분할 또는 병합
 
@@ -115,4 +115,4 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)
 - [예약에 포함되지 않는 Windows 소프트웨어 비용](reserved-instance-windows-software-costs.md)
-- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
+- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](/partner-center/azure-reservations)

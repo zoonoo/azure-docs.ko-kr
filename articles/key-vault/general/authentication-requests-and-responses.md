@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983254"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752280"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
 
@@ -23,23 +23,23 @@ Azure Key Vault는 클라우드 응용 프로그램에 대 한 암호를 저장 
 
 |컨테이너 유형|지원 되는 개체 유형|데이터 평면 끝점|
 |--|--|--|
-| **자격 증명 모음**|<ul><li>소프트웨어 보호 된 키</li><li>HSM 보호 된 키 (프리미엄 SKU 포함)</li><li>인증서</li><li>Storage 계정 키</li></ul> | https://{vault-이름}. 자격 증명 모음. azure .net
-|**관리 HSM** |<ul><li>HSM 보호 키</li></ul> | https://{hsm-name}. managedhsm. azure .net
+| **자격 증명 모음**|<ul><li>소프트웨어 보호 키</li><li>HSM 보호 된 키 (프리미엄 SKU 포함)</li><li>인증서</li><li>Storage 계정 키</li></ul> | https://{vault-name}.vault.azure.net
+|**관리형 HSM** |<ul><li>HSM 보호 키</li></ul> | https://{hsm-name}.managedhsm.azure.net
 
 각 개체 형식에 액세스 하는 데 사용 되는 URL 접미사는 다음과 같습니다.
 
 |개체 유형|URL 접미사|
 |--|--|
-|소프트웨어 보호 된 키| /키 |
-|HSM 보호 키| /키 |
-|비밀|/비밀|
+|소프트웨어 보호 키| /keys |
+|HSM 보호 키| /keys |
+|비밀|/secrets|
 |인증서| /certificates|
 |Storage 계정 키|/storageaccounts
 ||
 
 Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Vault에 대한 요청은 일부 URL 매개 변수 및 JSON 인코딩 요청 및 응답 본문을 통해 HTTPS를 사용하여 올바른 Azure Key Vault URL로 이동됩니다.
 
-이 항목에서는 Azure Key Vault 서비스에 대한 구체적인 정보를 다룹니다. 인증/권한 부여 및 액세스 토큰을 확보하는 방법을 비롯한 Azure REST 인터페이스 사용에 대한 일반적인 정보는 [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure)를 참조하세요.
+이 항목에서는 Azure Key Vault 서비스에 대한 구체적인 정보를 다룹니다. 인증/권한 부여 및 액세스 토큰을 확보하는 방법을 비롯한 Azure REST 인터페이스 사용에 대한 일반적인 정보는 [Azure REST API 참조](/rest/api/azure)를 참조하세요.
 
 ## <a name="request-url"></a>요청 URL  
  키 관리 작업은 HTTP DELETE, GET, PATCH, PUT 및 HTTP POST 및 HTTP POST를 사용하는 기존 키 개체에 대한 암호화 작업을 사용합니다. 특정 HTTP 동사를 지원할 수 없는 클라이언트는 X-HTTP-REQUEST 헤더를 사용한 HTTP POST를 사용하여 대상 동사를 지정할 수 있습니다. HTTP POST를 사용하는 경우(예: DELETE 대신 POST를 사용하는 경우) 일반적으로 본문이 필요하지 않은 요청은 빈 본문을 포함해야 합니다.  
@@ -111,7 +111,7 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 ## <a name="authentication"></a>인증  
  Azure Key Vault에 대한 모든 요청은 인증되어야 합니다. Azure Key Vault는 OAuth2를 사용하여 가져올 수 있는 Azure Active Directory 액세스 토큰을 지원합니다[[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- 애플리케이션 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 애플리케이션 등록](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)을 참조하세요.
+ 애플리케이션 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 애플리케이션 등록](/rest/api/azure/index#register-your-client-application-with-azure-ad)을 참조하세요.
  
  액세스 토큰은 HTTP 권한 부여 헤더를 사용하여 서비스에 전송해야 합니다.  
 
@@ -133,5 +133,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   권한 부여: 요청에 대한 액세스 토큰을 가져오는 데 사용할 수 있는 OAuth2 권한 부여 서비스의 주소입니다.  
 
--   리소스: `https://vault.azure.net` 권한 부여 요청에 사용할 리소스 ()의 이름입니다.  
+-   리소스: `https://vault.azure.net` 권한 부여 요청에 사용할 리소스 ()의 이름입니다.
 
+> [!NOTE]
+> Key Vault에 대 한 첫 번째 호출에서 암호, 인증서 및 키에 대 한 Key Vault SDK 클라이언트는 테 넌 트 정보를 검색 하는 액세스 토큰을 제공 하지 않습니다. 응용 프로그램에 리소스를 포함 하는 WWW-Authenticate 헤더와 토큰을 요청 하 고 요청 하는 테 넌 트가 응용 프로그램에 표시 Key Vault 되는 Key Vault SDK 클라이언트를 사용 하 여 HTTP 401을 수신 해야 합니다. 모든 것이 올바르게 구성 되어 있으면 응용 프로그램에서 Key Vault에 대 한 두 번째 호출에 유효한 토큰이 포함 되 고 성공 하 게 됩니다. 

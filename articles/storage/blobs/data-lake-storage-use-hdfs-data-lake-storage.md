@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836312"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912402"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
@@ -29,7 +29,7 @@ HDFS CLI에 대 한 자세한 내용은 [공식 설명서](https://hadoop.apache
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Linux에서 HDInsight Hadoop 클러스터로 HDFS CLI 사용
 
-먼저 [서비스에 원격 액세스](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services)를 확인합니다. [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)를 선택하면 샘플 PowerShell 코드가 다음과 같이 표시합니다.
+먼저 [서비스에 원격 액세스](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services)를 확인합니다. [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)를 선택하면 샘플 PowerShell 코드가 다음과 같이 표시합니다.
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -58,7 +58,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>`자리 표시자를 컨테이너 또는 컨테이너 폴더의 URI로 바꿉니다.
 
-예를 들면 다음과 같습니다. `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
+`hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
@@ -66,7 +66,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>`자리 표시자를 루트 컨테이너 이름 또는 컨테이너 내의 폴더로 바꿉니다.
 
-예를 들면 다음과 같습니다. `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+`hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
 ## <a name="delete-a-file-or-directory"></a>파일 또는 디렉터리 삭제
 
@@ -74,13 +74,13 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>` 자리 표시자를 삭제하려는 파일 또는 폴더의 URI로 바꿉니다.
 
-예를 들면 다음과 같습니다. `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
+`hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>파일 및 디렉터리의 Access Control Lists(ACL) 표시
 
 `hdfs dfs -getfacl [-R] <path>`
 
-예:
+예제:
 
 `hdfs dfs -getfacl -R /dir`
 
@@ -90,7 +90,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]`
 
-예:
+예제:
 
 `hdfs dfs -setfacl -m user:hadoop:rw- /file`
 
@@ -120,4 +120,4 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 * [Azure Databricks에서 Azure Data Lake Storage Gen2 지원 계정 사용](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [파일 및 디렉터리에 대 한 액세스 제어 목록에 대해 알아보기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [파일 및 디렉터리에 대 한 액세스 제어 목록에 대해 알아보기](./data-lake-storage-access-control.md)

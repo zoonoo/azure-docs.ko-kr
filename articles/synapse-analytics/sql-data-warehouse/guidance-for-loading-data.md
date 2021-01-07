@@ -1,30 +1,30 @@
 ---
-title: Synapse SQL 풀에 대 한 데이터 로드 모범 사례
-description: Synapse SQL 풀을 사용 하 여 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
+title: 전용 SQL 풀에 대 한 데이터 로드 모범 사례
+description: Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 60a995f78b9b696197d9bd45e04becb19e4129f0
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441224"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653064"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Synapse SQL 풀을 사용 하 여 데이터를 로드 하는 모범 사례
+# <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터를 로드 하는 모범 사례
 
-이 문서에서는 SQL 풀을 사용 하 여 데이터를 로드 하기 위한 권장 사항 및 성능 최적화에 대해 알아봅니다.
+이 문서에서는 전용 SQL 풀을 사용 하 여 데이터를 로드 하기 위한 권장 사항 및 성능 최적화에 대해 알아봅니다.
 
 ## <a name="preparing-data-in-azure-storage"></a>Azure Storage에 데이터 준비
 
-대기 시간을 최소화 하려면 저장소 계층과 SQL 풀을 함께 배치 합니다.
+대기 시간을 최소화 하려면 저장소 계층과 전용 SQL 풀을 함께 배치 합니다.
 
 ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으면 Java 메모리 부족 오류가 발생할 수 있습니다. 이러한 제한 사항을 해결하려면 열의 하위 집합만 내보냅니다.
 
@@ -34,23 +34,23 @@ ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으�
 
 ## <a name="running-loads-with-enough-compute"></a>충분한 컴퓨팅 리소스로 로드 실행
 
-로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 가능 하지 않은 경우 최소 개수의 로드를 동시에 실행 합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 SQL 풀을 확장 하는 것이 좋습니다.
+로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 가능 하지 않은 경우 최소 개수의 로드를 동시에 실행 합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 전용 SQL 풀을 확장 하는 것이 좋습니다.
 
 적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 작업 그룹으로 분류 합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 작업 그룹을 사용 하 여 로드를 실행 합니다.  
 
 ### <a name="example-of-creating-a-loading-user"></a>로드 사용자를 만드는 예제
 
-이 예에서는 특정 작업 그룹으로 분류 된 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결**하고 로그인을 만드는 것입니다.
+이 예에서는 특정 작업 그룹으로 분류 된 로드 사용자를 만듭니다. 첫 번째 단계는 **마스터에 연결** 하고 로그인을 만드는 것입니다.
 
 ```sql
    -- Connect to master
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse 라는 데이터베이스에 연결 되어 있다고 가정 합니다. 로더 라는 사용자를 만드는 방법을 보여 주고 [COPY 문을](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)사용 하 여 테이블을 만들고 로드 하는 사용자 권한을 부여 합니다. 그런 다음 사용자를 최대 리소스를 사용 하는 DataLoads 작업 그룹으로 분류 합니다. 
+전용 SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySampleDataWarehouse 라는 데이터베이스에 연결 되어 있다고 가정 합니다. 로더 라는 사용자를 만드는 방법을 보여 주고 [COPY 문을](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)사용 하 여 테이블을 만들고 로드 하는 사용자 권한을 부여 합니다. 그런 다음 사용자를 최대 리소스를 사용 하는 DataLoads 작업 그룹으로 분류 합니다. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -60,7 +60,7 @@ SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySa
    
    CREATE WORKLOAD GROUP DataLoads
    WITH ( 
-      MIN_PERCENTAGE_RESOURCE = 100
+       MIN_PERCENTAGE_RESOURCE = 100
        ,CAP_PERCENTAGE_RESOURCE = 100
        ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
     );
@@ -71,12 +71,15 @@ SQL 풀에 연결 하 고 사용자를 만듭니다. 다음 코드에서는 mySa
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>이는 단일 부하에 SQL 풀의 100% 리소스를 할당 하는 극단적인 예입니다. 그러면 최대 동시성 1이 제공 됩니다. 이는 작업 전반에서 리소스를 mdsn 하는 고유한 구성을 사용 하 여 추가 작업 그룹을 만들어야 하는 초기 로드에만 사용 해야 합니다. 
 
 로드 작업 그룹에 대 한 리소스를 사용 하 여 부하를 실행 하려면 로더에 로그인 하 고 부하를 실행 합니다.
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>여러 사용자가 로드 하도록 허용 (PolyBase)
 
-여러 사용자가 SQL 풀에 데이터를 로드 해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT (transact-sql)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase)를 사용 하 여 로드 하려면 데이터베이스에 대 한 CONTROL 권한이 필요 합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다.
+여러 사용자가 전용 SQL 풀에 데이터를 로드 해야 하는 경우가 종종 있습니다. [CREATE TABLE AS SELECT (transact-sql)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase)를 사용 하 여 로드 하려면 데이터베이스에 대 한 CONTROL 권한이 필요 합니다.  CONTROL 권한은 모든 스키마에 대한 제어 액세스를 부여합니다.
 
 모든 로드 사용자가 모든 스키마에 대한 제어 액세스 권한을 갖는 것은 좋지 않습니다. 권한을 제한하려면 DENY CONTROL 문을 사용합니다.
 
@@ -91,9 +94,9 @@ User_A 및 user_B은 이제 다른 dept의 스키마에서 잠깁니다.
 
 ## <a name="loading-to-a-staging-table"></a>준비 테이블에 로드
 
-SQL 풀 테이블로 데이터를 이동 하기 위한 가장 빠른 로드 속도를 얻으려면 준비 테이블에 데이터를 로드 합니다.  준비 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다.
+전용 SQL 풀 테이블로 데이터를 이동 하기 위한 가장 빠른 로드 속도를 얻으려면 준비 테이블에 데이터를 로드 합니다.  준비 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다.
 
-일반적으로 로딩은 준비 테이블에 먼저 로드 한 다음 프로덕션 SQL 풀 테이블에 데이터를 삽입 하는 2 단계 프로세스입니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 준비 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다.
+일반적으로 로딩은 준비 테이블에 먼저 로드 한 다음 프로덕션 전용 SQL 풀 테이블에 데이터를 삽입 하는 2 단계 프로세스입니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 준비 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다.
 
 준비 테이블로 로드하는 데 시간이 더 걸리지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 배포에서 데이터 이동이 발생하지 않습니다.
 
@@ -111,7 +114,7 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SqLBulkCopy API 또는 bcp를 사용 하는 경우 일괄 처리 크기 늘리기
 
-COPY 문으로 로드 하면 SQL 풀에서 가장 높은 처리량이 제공 됩니다. 이 복사본을 사용 하 여 로드할 수 없고 [SQLBULKCOPY API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용 해야 하는 경우 처리량을 높이기 위해 일괄 처리 크기를 늘려야 합니다.
+COPY 문으로 로드 하면 전용 SQL 풀에서 가장 높은 처리량이 제공 됩니다. 이 복사본을 사용 하 여 로드할 수 없고 [SQLBULKCOPY API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용 해야 하는 경우 처리량을 높이기 위해 일괄 처리 크기를 늘려야 합니다.
 
 > [!TIP]
 > 최적의 일괄 처리 크기를 결정 하기 위한 권장 기준은 100 K ~ 1M 행 사이의 일괄 처리 크기입니다.
@@ -157,7 +160,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 실행합니다.
 
-예:
+예제:
 
 원래 키를 만드는 경우
 

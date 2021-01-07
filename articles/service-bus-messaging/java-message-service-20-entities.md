@@ -4,10 +4,10 @@ description: 이 문서에서는 Java 메시지 서비스 API를 통해 액세�
 ms.topic: article
 ms.date: 07/20/2020
 ms.openlocfilehash: 1a7fe3d6355146ccf0fce50266a6f3b8da5231b3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87801805"
 ---
 # <a name="java-message-service-jms-20-entities-preview"></a>JMS (Java message service) 2.0 엔터티 (미리 보기)

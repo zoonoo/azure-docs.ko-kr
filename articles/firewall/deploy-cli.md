@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6993bd10caf2f7e489de8074e311f75710b83d82
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075429"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659440"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 방화벽 배포 및 구성
 
@@ -25,7 +25,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 네트워크 트래픽은 서브넷 기본 게이트웨이처럼 방화벽에 네트워크 트래픽을 라우팅할 경우 구성된 방화벽 규칙에 종속됩니다.
 
-이 문서에서는 쉽게 배포할 수 있도록 세 개의 서브넷이 있는 간소화 된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 추천됩니다. 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
+이 문서에서는 쉽게 배포할 수 있도록 세 개의 서브넷이 있는 간소화 된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 추천됩니다. 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
 
 * **AzureFirewallSubnet** - 방화벽은 이 서브넷에 있습니다.
 * **워크로드-SN** - 워크로드 서버는 이 서브넷에 있습니다. 이 서브넷의 네트워크 트래픽은 방화벽을 통해 이동합니다.
@@ -44,22 +44,11 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 원하는 경우 [Azure Portal](tutorial-firewall-deploy-portal.md) 또는 [Azure PowerShell](deploy-ps.md)를 사용 하 여이 절차를 완료할 수 있습니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
-
-### <a name="azure-cli"></a>Azure CLI
-
-로컬로 CLI를 설치하여 사용하기로 선택하는 경우 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 **az--version**을 실행 합니다. 설치 또는 업그레이드에 대한 자세한 내용은 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-
-Azure 방화벽 확장을 설치 합니다.
-
-```azurecli-interactive
-az extension add -n azure-firewall
-```
-
+- 이 문서에는 Azure CLI 버전 2.0.4 이상을 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="set-up-the-network"></a>네트워크 설정
 
@@ -105,7 +94,7 @@ az network vnet subnet create \
 이제 점프 및 워크로드 가상 머신을 만들어 적절한 서브넷에 배치합니다.
 메시지가 표시 되 면 가상 머신에 대 한 암호를 입력 합니다.
 
-Srv 점프 가상 머신을 만듭니다.
+Srv-Jump 가상 컴퓨터를 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -121,7 +110,7 @@ az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 
 
 
-특정 DNS 서버 IP 주소를 사용 하 고 테스트 하는 데 사용할 공용 IP 주소를 사용 하지 않고 Srv 용 NIC를 만듭니다.
+특정 DNS 서버 IP 주소를 사용 하 고 테스트할 공용 IP 주소가 없는 Srv-Work에 대 한 NIC를 만듭니다.
 
 ```azurecli-interactive
 az network nic create \
@@ -264,7 +253,7 @@ az network firewall network-rule create \
 
 1. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 **Srv-Work** 개인 IP 주소에 대 한 원격 데스크톱 연결을 열고 로그인 합니다.
 
-3. **SRV 작업**에서 PowerShell 창을 열고 다음 명령을 실행 합니다.
+3. **SRV 작업** 에서 PowerShell 창을 열고 다음 명령을 실행 합니다.
 
    ```
    nslookup www.google.com
@@ -301,4 +290,4 @@ az group delete \
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: Azure Firewall 로그 모니터링](./tutorial-diagnostics.md)
+* [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)

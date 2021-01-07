@@ -12,17 +12,17 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87489472"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Azure Active Directory B2C와 Trusona 통합
 
 Trusona는 암호 없는 인증, multi-factor authentication 및 디지털 라이선스 검색을 사용 하 여 로그인을 보호 하는 ISV (독립 소프트웨어 공급 업체) 공급자입니다. 이 문서에서는 Trusona을 id Azure AD B2C 공급자로 추가 하 여 암호 없는 인증을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -47,7 +47,7 @@ Trusona는 암호 없는 인증, multi-factor authentication 및 디지털 라�
 |3     | 데스크톱 PC 기반 로그인의 경우 Trusona는 Trusona 앱을 사용 하 여 검사 하기 위한 고유한 상태 비저장, 애니메이션 및 동적 QR 코드를 표시 합니다. 모바일 기반 로그인의 경우 Trusona는 "딥 링크"를 사용 하 여 Trusona 앱을 엽니다. 이러한 두 가지 방법은 장치 및 궁극적으로 사용자 검색에 사용 됩니다.     |
 |4     | 사용자가 Trusona 앱을 사용 하 여 표시 된 QR 코드를 검색 합니다.     |
 |5     | 사용자의 계정이 Trusona 클라우드 서비스에서 발견 되 고 인증이 준비 됩니다.     |
-|6     | Trusona 클라우드 서비스는 Trusona 앱에 전송 된 푸시 알림을 통해 사용자에 게 인증 챌린지를 발급 합니다.<br>a. 사용자에 게 인증 챌린지를 묻는 메시지가 표시 됩니다. <br> b. 사용자가 챌린지를 수락 하거나 거부 하도록 선택 합니다. <br> c. 사용자에 게 OS 보안 (예: 생체 인식, 암호, PIN 또는 패턴)을 사용 하 여 보안 Enclave/신뢰할 수 있는 실행 환경에서 개인 키로 챌린지를 확인 하 고 서명 하 라는 메시지가 표시 됩니다. <br> d. Trusona 앱은 실시간으로 인증의 매개 변수를 기반으로 동적 재생 방지 페이로드를 생성 합니다. <br> e. 전체 응답은 보안 Enclave/신뢰할 수 있는 실행 환경의 개인 키로 서명 되 고 확인을 위해 Trusona 클라우드 서비스로 반환 됩니다.      |
+|6     | Trusona 클라우드 서비스는 Trusona 앱에 전송 된 푸시 알림을 통해 사용자에 게 인증 챌린지를 발급 합니다.<br>a. 사용자에 게 인증 챌린지를 묻는 메시지가 표시 됩니다. <br> b. 사용자가 챌린지를 수락 하거나 거부 하도록 선택 합니다. <br> 다. 사용자에 게 OS 보안 (예: 생체 인식, 암호, PIN 또는 패턴)을 사용 하 여 보안 Enclave/신뢰할 수 있는 실행 환경에서 개인 키로 챌린지를 확인 하 고 서명 하 라는 메시지가 표시 됩니다. <br> d. Trusona 앱은 실시간으로 인증의 매개 변수를 기반으로 동적 재생 방지 페이로드를 생성 합니다. <br> e. 전체 응답은 보안 Enclave/신뢰할 수 있는 실행 환경의 개인 키로 서명 되 고 확인을 위해 Trusona 클라우드 서비스로 반환 됩니다.      |
 |7     |  Trusona 클라우드 서비스는 id_token를 사용 하 여 사용자를 시작 응용 프로그램으로 다시 리디렉션합니다. Azure AD B2C는 id 공급자를 설치 하는 동안 구성 된 대로 Trusona의 게시 된 Openid connect 구성을 사용 하 여 id_token를 확인 합니다.    |
 |  |  |
 

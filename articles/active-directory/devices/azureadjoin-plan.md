@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268230"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435453"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -24,7 +24,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 이 문서에서는 Azure AD 조인 구현을 계획하는 데 필요한 정보를 제공합니다.
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](./overview.md)를 잘 알고 있다고 가정합니다.
 
@@ -95,6 +95,8 @@ ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD �
 
 Azure AD UPN과는 다른 온-프레미스 UPN은 Azure AD 가입 디바이스에서 지원되지 않습니다. 사용자가 온-프레미스 UPN을 사용하는 경우 Azure AD에서 사용자의 기본 UPN을 사용하도록 전환할 계획을 세워야 합니다.
 
+UPN 변경은 Windows 10 2004 업데이트를 시작 하는 경우에만 지원 됩니다. 이 업데이트를 사용 하는 장치의 사용자에 게는 Upn을 변경한 후에 문제가 발생 하지 않습니다. Windows 10 2004 업데이트 이전 장치의 경우 사용자에 게 장치에 대 한 SSO 및 조건부 액세스 문제가 있습니다. 이 문제를 해결 하려면 새 UPN을 사용 하 여 "기타 사용자" 타일을 통해 Windows에 로그인 해야 합니다. 
+
 ## <a name="assess-your-device-management"></a>디바이스 관리 평가
 
 ### <a name="supported-devices"></a>지원되는 디바이스
@@ -119,7 +121,7 @@ Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 - **MDM 전용** - Intune 같은 MDM 공급자를 통해서만 디바이스를 관리합니다. 모든 정책은 MDM 등록 프로세스의 일부로 전달됩니다. Azure AD Premium 또는 EMS 고객의 경우 MDM 등록 단계가 Azure AD 조인의 일부이며 자동화되어 있습니다.
 - **공동 관리** - MDM 공급자와 SCCM이 디바이스를 함께 관리합니다. 이 방법에서는 특정 측면을 관리하기 위해 SCCM 에이전트가 MDM 관리 디바이스에 설치됩니다.
 
-그룹 정책을 사용하는 경우 [MMAT(MDM 마이그레이션 분석 도구)](https://github.com/WindowsDeviceManagement/MMAT)를 사용하여 MDM 정책 패리티를 평가합니다. 
+그룹 정책을 사용 하는 경우 Microsoft Endpoint Manager의 [그룹 정책 analytics](/mem/intune/configuration/group-policy-analytics) 를 사용 하 여 GPO 및 MDM 정책 패리티를 평가 합니다. 
 
 지원되는 정책과 지원되지 않는 정책을 검토하여 그룹 정책 대신 MDM 솔루션을 사용할 수 있는지 확인합니다. 지원되지 않는 정책의 경우 다음 사항을 고려합니다.
 
@@ -184,9 +186,10 @@ Azure AD 조인 디바이스는 머신 인증에 의존하는 온-프레미스 �
 
 Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 호스트 머신이 Azure AD에 조인되거나 하이브리드 Azure AD에 조인되어야 합니다. 조인되지 않은 디바이스 또는 Windows 이외의 디바이스에서 원격 데스크톱으로 연결하는 기능은 지원되지 않습니다. 자세한 내용은 [원격 Azure AD 조인 pc에 연결](/windows/client-management/connect-to-remote-aadj-pc)을 참조하세요.
 
-Windows 10 2004 업데이트를 시작 하면 사용자가 Azure AD에 등록 된 Windows 10 장치에서 원격 데스크톱을 Azure AD 조인 장치에 사용할 수 있습니다. 
+Windows 10 2004 업데이트를 시작 하면 사용자가 Azure ad에 등록 된 Windows 10 장치에서 Azure AD 조인 된 장치로 원격 데스크톱을 사용할 수도 있습니다. 
 
 ## <a name="understand-your-provisioning-options"></a>프로비전 옵션 이해
+**참고**: 시스템 준비 도구 (Sysprep) 또는 이와 유사한 이미징 도구를 사용 하 여 Azure AD 가입 장치를 배포할 수 없음
 
 다음 방법을 사용하여 Azure AD 조인을 프로비전할 수 있습니다.
 
@@ -198,11 +201,11 @@ Windows 10 2004 업데이트를 시작 하면 사용자가 Azure AD에 등록 �
  
 | 요소 | 셀프 서비스 설정 | Windows Autopilot | 대량 등록 |
 | --- | --- | --- | --- |
-| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 예 |
-| IT 활동이 필요 | 예 | 예 | 예 |
+| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아니요 |
+| IT 활동이 필요 | 아니요 | 예 | 예 |
 | 적용 가능한 흐름 | OOBE 및 설정 | OOBE만 | OOBE만 |
 | 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 | 아니요 |
-| 디바이스 OEM 지원 필요 | 예 | 예 | 예 |
+| 디바이스 OEM 지원 필요 | 아니요 | 예 | 아니요 |
 | 지원되는 버전 | 1511+ | 1709+ | 1703+ |
  
 위의 표를 검토하고 방법 채택에 대한 다음 고려 사항을 검토하여 배포 접근 방식을 선택합니다.  
@@ -218,17 +221,17 @@ Windows 10 2004 업데이트를 시작 하면 사용자가 Azure AD에 등록 �
 
 ## <a name="configure-your-device-settings"></a>디바이스 설정 구성
 
-Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 수 있습니다. 관련 설정을 구성하려면 **Azure Active Directory 페이지**에서 `Devices > Device settings`을 선택합니다.
+Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 수 있습니다. 관련 설정을 구성하려면 **Azure Active Directory 페이지** 에서 `Devices > Device settings`을 선택합니다.
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>사용자가 디바이스를 Azure AD에 조인할 수 있음
 
-배포 범위 및 Azure AD 조인 디바이스를 설정할 수 있도록 허용할 사용자에 따라 이 옵션을 **모두** 또는 **선택한 사용자**로 설정합니다. 
+배포 범위 및 Azure AD 조인 디바이스를 설정할 수 있도록 허용할 사용자에 따라 이 옵션을 **모두** 또는 **선택한 사용자** 로 설정합니다. 
 
 ![사용자가 디바이스를 Azure AD에 조인할 수 있음](./media/azureadjoin-plan/01.png)
 
 ### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스의 추가 로컬 관리자
 
-**선택한 사용자**를 선택하고 모든 Azure AD 조인 디바이스의 로컬 관리자 그룹에 추가하려는 사용자를 선택합니다. 
+**선택한 사용자** 를 선택하고 모든 Azure AD 조인 디바이스의 로컬 관리자 그룹에 추가하려는 사용자를 선택합니다. 
 
 ![Azure AD 조인 디바이스의 추가 로컬 관리자](./media/azureadjoin-plan/02.png)
 
@@ -244,17 +247,17 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 
 **MDM 공급자를 추가하려면**:
 
-1. **Azure Active Directory 페이지**의 **관리** 섹션에서 `Mobility (MDM and MAM)`를 클릭합니다. 
-1. **애플리케이션 추가**를 클릭합니다.
+1. **Azure Active Directory 페이지** 의 **관리** 섹션에서 `Mobility (MDM and MAM)`를 클릭합니다. 
+1. **애플리케이션 추가** 를 클릭합니다.
 1. 목록에서 MDM 공급자를 선택합니다.
 
-   ![애플리케이션 추가](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="응용 프로그램 추가 페이지 Azure Active Directory의 스크린샷 몇 개의 M D M 공급자가 나열 됩니다." border="false":::
 
 MDM 공급자를 선택하여 관련 설정을 구성합니다. 
 
 ### <a name="mdm-user-scope"></a>MDM 사용자 범위
 
-배포 범위에 따라 **일부** 또는 **모두**를 선택합니다. 
+배포 범위에 따라 **일부** 또는 **모두** 를 선택합니다. 
 
 ![MDM 사용자 범위](./media/azureadjoin-plan/05.png)
 
@@ -271,7 +274,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 검색 URL 
 - MDM 규정 준수 URL
 
-![애플리케이션 추가](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="M D M 사용 약관, 검색 및 규정 준수에 대 한 U R L 필드가 있는 Azure Active Directory M D M 구성 섹션의 스크린샷" border="false":::
 
 각 URL에는 사전 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.
 

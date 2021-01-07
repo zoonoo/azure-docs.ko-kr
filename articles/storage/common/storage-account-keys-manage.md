@@ -10,10 +10,10 @@ ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069662"
 ---
 # <a name="manage-storage-account-access-keys"></a>저장소 계정 액세스 키 관리
@@ -32,7 +32,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 계정 액세스 키
 
 Azure Portal에서 저장소 계정 액세스 키 또는 연결 문자열을 보고 복사 하려면:
 
-1. [Azure Portal](https://portal.azure.com)의 스토리지 계정으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)의 저장소 계정으로 이동 합니다.
 1. **설정**에서 **액세스 키**를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
 1. **Key1**에서 **키** 값을 찾고 **복사** 단추를 클릭 하 여 계정 키를 복사 합니다.
 1. 또는 전체 연결 문자열을 복사할 수 있습니다. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 클릭하여 연결 문자열을 복사합니다.
@@ -89,7 +89,7 @@ Azure Key Vault 사용 하 여 액세스 키를 관리 하 고 회전 하는 것
 Azure Portal에서 저장소 계정 액세스 키를 회전 하려면:
 
 1. 저장소 계정에 대 한 보조 액세스 키를 참조 하도록 응용 프로그램 코드의 연결 문자열을 업데이트 합니다.
-1. [Azure Portal](https://portal.azure.com)의 스토리지 계정으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)의 저장소 계정으로 이동 합니다.
 1. **설정**에서 **액세스 키**를 선택합니다.
 1. 저장소 계정에 대 한 기본 액세스 키를 다시 생성 하려면 기본 액세스 키 옆에 있는 **다시 생성** 단추를 선택 합니다.
 1. 새 기본 액세스 키를 참조하도록 코드의 연결 문자열을 업데이트합니다.

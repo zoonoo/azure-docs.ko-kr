@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4ff270977449bb80f97073342dc0c726a3f2316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb84eae2db01180865db54250598f45c7b2ddca0
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128517"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746238"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 요청 프로세스 및 전자 메일 알림
 
@@ -33,7 +33,7 @@ ms.locfileid: "80128517"
 
 ![승인 프로세스 다이어그램](./media/entitlement-management-process/request-process.png)
 
-| 시스템 상태 | Description |
+| 주 | Description |
 | --- | --- |
 | 제출됨 | 사용자가 요청을 제출 합니다. |
 | 승인 보류 중 | 액세스 패키지에 대 한 정책에 승인이 필요한 경우 요청이 승인 보류 중으로 이동 합니다. |

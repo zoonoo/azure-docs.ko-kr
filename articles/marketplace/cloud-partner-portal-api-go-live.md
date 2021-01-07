@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292946"
 ---
 # <a name="go-live"></a>Go Live
@@ -26,11 +26,11 @@ ms.locfileid: "87292946"
 ## <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **Name**      |   **설명**                                                           | **데이터 형식** |
+|  **이름**      |   **설명**                                                           | **데이터 형식** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | 검색할 제품의 게시자 식별자입니다(예: `contoso`).       |  문자열       |
-| offerId        | 검색할 제품의 제품 식별자입니다.                                   |  문자열       |
-| api-version    | 최신 버전의 API입니다.                                                   |  Date         |
+| publisherId    | 검색할 제품의 게시자 식별자입니다(예: `contoso`).       |  String       |
+| offerId        | 검색할 제품의 제품 식별자입니다.                                   |  String       |
+| api-version    | 최신 버전의 API입니다.                                                   |  날짜         |
 |  |  |  |
 
 ## <a name="header"></a>헤더

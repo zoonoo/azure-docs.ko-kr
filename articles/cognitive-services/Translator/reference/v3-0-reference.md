@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121020"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024503"
 ---
 # <a name="translator-v30"></a>Translator v 3.0
 
@@ -54,7 +54,7 @@ Azure Cognitive Services에서 Translator 또는 [Cognitive Services 다중 서�
 
 구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 다음 표에서는 각를 사용 하는 방법을 설명 합니다.
 
-|헤더|Description|
+|headers|Description|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 번역기에 대 한 구독에 대 한 Azure 비밀 키입니다.|
 |권한 부여|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
@@ -67,7 +67,7 @@ Azure Cognitive Services에서 Translator 또는 [Cognitive Services 다중 서�
 
 [전역 변환기 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 사용 하는 경우 번역기를 호출 하는 헤더를 하나 포함 해야 합니다.
 
-|헤더|Description|
+|headers|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| 값은 번역기에 대 한 구독에 대 한 Azure 비밀 키입니다.|
 
@@ -86,7 +86,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 [지역 변환기 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)를 사용 하는 경우
 변환기를 호출 하는 데 필요한 두 개의 헤더가 있습니다.
 
-|헤더|Description|
+|headers|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| 값은 번역기에 대 한 구독에 대 한 Azure 비밀 키입니다.|
 |Ocp-Apim-Subscription-Region| 값은 변환기 리소스의 지역입니다. |
@@ -108,7 +108,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 다중 서비스 비밀 키를 사용 하는 경우 요청에 인증 헤더를 두 개 포함 해야 합니다. 변환기를 호출 하는 데 필요한 두 개의 헤더가 있습니다.
 
-|헤더|Description|
+|headers|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| 값은 다중 서비스 리소스에 대 한 Azure 비밀 키입니다.|
 |Ocp-Apim-Subscription-Region| 값은 다중 서비스 리소스의 지역입니다. |
@@ -122,7 +122,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 ### <a name="authenticating-with-an-access-token"></a>액세스 토큰을 사용 하 여 인증
 또는 액세스 토큰에 대한 비밀 키를 교환할 수 있습니다. 이 토큰은 각 요청에 `Authorization` 헤더로 포함됩니다. 인증 토큰을 받으려면 다음 URL에 대해 `POST` 요청을 수행합니다.
 
-| 리소스 종류     | 인증 서비스 URL                                |
+| 리소스 유형     | 인증 서비스 URL                                |
 |-----------------|-----------------------------------------------------------|
 | 전역          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 | 지역 또는 다중 서비스 | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
@@ -147,16 +147,16 @@ Authorization: Bearer <Base64-access_token>
 
 ## <a name="virtual-network-support"></a>Virtual Network 지원
 
-이제 Azure 공용 클라우드의 모든 지역에서 Virtual Network (VNET) 기능을 사용 하 여 Translator 서비스를 사용할 수 있습니다. Virtual Network를 사용 하도록 설정 하려면 [Azure Cognitive Services 가상 네트워크 구성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)을 참조 하세요. 
+이제 Azure 공용 클라우드의 모든 지역에서 Virtual Network (VNET) 기능을 사용 하 여 Translator 서비스를 사용할 수 있습니다. Virtual Network를 사용 하도록 설정 하려면 [Azure Cognitive Services 가상 네트워크 구성](../../cognitive-services-virtual-networks.md?tabs=portal)을 참조 하세요. 
 
 이 기능을 켜면 사용자 지정 끝점을 사용 하 여 변환기를 호출 해야 합니다. 전역 변환기 끝점 ("api.cognitive.microsofttranslator.com")을 사용할 수 없으며 액세스 토큰을 사용 하 여 인증할 수 없습니다.
 
 [Translator 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 를 만들고 선택한 네트워크 및 개인 끝점에서 액세스를 허용 하는 경우 사용자 지정 끝점을 찾을 수 있습니다.
 
-|헤더|Description|
+|headers|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| 값은 번역기에 대 한 구독에 대 한 Azure 비밀 키입니다.|
-|Ocp-Apim-Subscription-Region| 값은 변환기 리소스의 지역입니다. 리소스가 인 경우이 값은 선택 사항입니다.`global`|
+|Ocp-Apim-Subscription-Region| 값은 변환기 리소스의 지역입니다. 리소스가 인 경우이 값은 선택 사항입니다. `global`|
 
 사용자 지정 끝점을 사용 하 여 변환기를 호출 하는 예제 요청은 다음과 같습니다.
 
@@ -230,13 +230,13 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 | 503000| 서비스를 일시적으로 사용할 수 없습니다. 다시 시도하세요. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|
 
 ## <a name="metrics"></a>메트릭 
-메트릭을 사용 하면 아래 스크린샷에 표시 된 것 처럼 메트릭 섹션의 Azure Portal에서 변환기 사용 및 가용성 정보를 볼 수 있습니다. 자세한 내용은 [데이터 및 플랫폼 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)을 참조 하세요.
+메트릭을 사용 하면 아래 스크린샷에 표시 된 것 처럼 메트릭 섹션의 Azure Portal에서 변환기 사용 및 가용성 정보를 볼 수 있습니다. 자세한 내용은 [데이터 및 플랫폼 메트릭](../../../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.
 
 ![번역기 메트릭](../media/translatormetrics.png)
 
 다음 표에서는 번역 API 호출을 모니터링 하는 데 사용 되는 방법에 대 한 설명과 함께 사용 가능한 메트릭을 보여 줍니다.
 
-| 메트릭 | Description |
+| metrics | 설명 |
 |:----|:-----|
 | TotalCalls| 총 API 호출 수.|
 | TotalTokenCalls| 인증 토큰을 사용 하 여 토큰 서비스를 통한 총 API 호출 수입니다.|

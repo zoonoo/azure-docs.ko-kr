@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710374"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
@@ -200,7 +200,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ Oranges,2
    }
    ```
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ```json
    "Create_CSV_table": {
@@ -351,7 +351,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ Oranges,2
    }
    ```
 
-   예를 들어:
+   예를 들면 다음과 같습니다.
 
    ```json
    "Create_HTML_table": {

@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 0cd6797bcdfadca807e25f8b3decf34bd553fc56
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: a4b22036612aac3d2b67e299881ba11b896979e5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89470054"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492406"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Azure Red Hat OpenShift 4 클러스터 응용 프로그램 복원 만들기
 
@@ -45,7 +45,7 @@ oc get backups -n velero
 복원 하려는 백업이 있으면 다음 명령을 사용 하 여 복원을 수행 해야 합니다.
 
 ```bash
-velero restore create --from-backup <name of backup from above output list>
+velero restore create <name of restore> --from-backup <name of backup from above output list>
 ```
 
 이 단계에서는 백업을 만들 때 이전 단계에서 백업한 Kubernetes 개체를 만듭니다.
@@ -57,12 +57,32 @@ oc get restore -n velero <name of restore created previously> -o yaml
 ```
 단계가 표시 되 면 `Completed` Azure Red Hat 4 응용 프로그램을 복원 해야 합니다.
 
+## <a name="restore-an-azure-red-hat-openshift-4-application-with-included-snapshots"></a>포함 된 스냅숏을 사용 하 여 Azure Red Hat OpenShift 4 응용 프로그램 복원
+
+
+Velero를 사용 하 여 영구 볼륨을 사용 하는 Azure Red Hat OpenShift 4 응용 프로그램의 복원을 만들려면 다음 명령을 사용 하 여 복원을 수행 해야 합니다.
+
+```bash
+velero restore create <name of the restore> --from-backup <name of backup from above output list> --exclude-resources="nodes,events,events.events.k8s.io,backups.ark.heptio.com,backups.velero.io,restores.ark.heptio.com,restores.velero.io"
+```
+이 단계에서는 백업을 만들 때 이전 단계에서 백업한 Kubernetes 개체를 만듭니다.
+
+복원 상태를 확인 하려면 다음 단계를 실행 합니다.
+
+```bash
+oc get restore -n velero <name of restore created previously> -o yaml
+```
+단계가 표시 되 면 `Completed` Azure Red Hat 4 응용 프로그램을 복원 해야 합니다.
+
+Velero를 사용 하 여 백업을 만들고 복원 하는 방법에 대 한 자세한 내용은 [OpenShift 리소스 백업 기본 방법을](https://www.openshift.com/blog/backup-openshift-resources-the-native-way) 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Red Hat OpenShift 4 클러스터 응용 프로그램이 복원 되었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Velero를 사용 하 여 OpenShift v4 클러스터 응용 프로그램 복원 만들기
+> * Velero를 사용 하 여 스냅숏을 사용 하 여 OpenShift v4 클러스터 응용 프로그램 복원 만들기
 
 
 다음 문서로 이동 하 여 Azure Red Hat OpenShift 4 지원 되는 리소스에 대해 알아보세요.

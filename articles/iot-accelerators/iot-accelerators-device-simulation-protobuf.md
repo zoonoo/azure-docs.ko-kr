@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012333"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852153"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
 
@@ -40,7 +40,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 * .NET Core [Mac, Linux 및 Windows용 .NET Core를 다운로드](https://www.microsoft.com/net/download)할 수 있습니다.
 * Postman [Mac, windows 또는 Linux 용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
-* SQL API를 사용하고 [강력한 일관성](../cosmos-db/manage-account.md)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/create-sql-api-dotnet.md#create-account). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
+* SQL API를 사용하고 [강력한 일관성](../cosmos-db/how-to-manage-database-account.md)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/create-sql-api-dotnet.md#create-account). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 * [Azure 구독에 배포된 Azure 스토리지 계정](../storage/common/storage-account-create.md). 이 가이드의 단계를 완료하려면 스토리지 계정의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 
 ## <a name="prepare-your-development-environment"></a>개발 환경 준비
@@ -68,7 +68,7 @@ Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adap
 > [!NOTE]
 > 머신에서 마이크로 서비스를 로컬로 실행하는 경우 제대로 작동하려면 여전히 Azure에 Cosmos DB 인스턴스가 필요합니다.
 
-스토리지 어댑터 마이크로 서비스를 로컬로 실행하려면 **디버그 \> 디버깅 시작**을 차례로 클릭합니다.
+스토리지 어댑터 마이크로 서비스를 로컬로 실행하려면 **디버그 \> 디버깅 시작** 을 차례로 클릭합니다.
 
 Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대한 URL을 포함하여 실행 중인 마이크로 서비스에서 출력을 표시합니다. <http://127.0.0.1:9022/v1/status> 이 주소로 이동하면 상태는 "OK: 활성 및 양호"이어야 합니다.
 
@@ -80,7 +80,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 이 방법 가이드에서는 자산 추적기에 대한 새 디바이스 모델을 만듭니다.
 
-1. **assettracker-01.json**이라는 새 디바이스 모델 파일을 **Services\data\devicemodels** 폴더에 만듭니다.
+1. **assettracker-01.json** 이라는 새 디바이스 모델 파일을 **Services\data\devicemodels** 폴더에 만듭니다.
 
 1. **assettracker-01.json** 디바이스 모델 파일에서 디바이스 기능을 정의합니다. Protobuf 디바이스 모델의 원격 분석 섹션에서 다음을 수행해야 합니다.
 
@@ -149,7 +149,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 * 직렬화할 각 데이터 구조에 대한 메시지
 * 메시지의 각 필드에 대한 이름 및 형식
 
-1. **assettracker.proto**라는 새 파일을 **Services\Models\Protobuf\proto** 폴더에 만듭니다.
+1. **assettracker.proto** 라는 새 파일을 **Services\Models\Protobuf\proto** 폴더에 만듭니다.
 
 1. **proto** 파일의 구문, 네임스페이스 및 메시지 스키마를 다음과 같이 정의합니다.
 
@@ -174,7 +174,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. [GitHub에서 Protobuf 컴파일러를 다운로드](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)합니다.
 
-1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예를 들어:
+1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 다음은 그 예입니다. 
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 기본적으로 새 장치 모델 JSON 및 JS 파일은 빌드된 솔루션에 복사 되지 않습니다. 명시적으로 포함해야 합니다.
 
-포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 예를 들어:
+포함하려는 각 파일에 대한 항목을 **services\services.csproj** 에 추가합니다. 다음은 그 예입니다. 
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -217,7 +217,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 </None>
 ```
 
-마이크로 서비스를 로컬로 실행하려면 **디버그 \> 디버깅 시작**을 차례로 클릭합니다.
+마이크로 서비스를 로컬로 실행하려면 **디버그 \> 디버깅 시작** 을 차례로 클릭합니다.
 
 Visual Studio Code에서 **터미널** 창은 실행 중인 마이크로 서비스에서 출력을 표시합니다.
 
@@ -227,7 +227,7 @@ Visual Studio Code에서 **터미널** 창은 실행 중인 마이크로 서비�
 
 이 섹션에서는 Azure CLI를 사용하여 IoT 허브에 연결된 디바이스에서 보낸 원격 분석을 보도록 이벤트 모니터를 설정합니다.
 
-다음 스크립트에서는 IoT 허브의 이름이 **device-simulation-test**라고 가정합니다.
+다음 스크립트에서는 IoT 허브의 이름이 **device-simulation-test** 라고 가정합니다.
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
@@ -247,23 +247,23 @@ Postman을 설정하려면:
 
 1. 로컬 머신에서 Postman을 엽니다.
 
-1. **파일 \> 가져오기**를 차례로 클릭합니다. 그런 다음, **파일 선택**을 클릭합니다.
+1. **파일 \> 가져오기** 를 차례로 클릭합니다. 그런 다음, **파일 선택** 을 클릭합니다.
 
-1. **Azure Iot 장치 시뮬레이션 솔루션 가속기를 선택 합니다. postman \_ Collection** 및 **azure iot 장치 시뮬레이션 솔루션 가속기. postman \_ Environment** 를 선택 하 고 **열기**를 클릭 합니다.
+1. **Azure Iot 장치 시뮬레이션 솔루션 가속기를 선택 합니다. postman \_ Collection** 및 **azure iot 장치 시뮬레이션 솔루션 가속기. postman \_ Environment** 를 선택 하 고 **열기** 를 클릭 합니다.
 
-1. **Azure IoT 디바이스 시뮬레이션 솔루션 가속기**를 확장하여 보낼 수 있는 요청을 봅니다.
+1. **Azure IoT 디바이스 시뮬레이션 솔루션 가속기** 를 확장하여 보낼 수 있는 요청을 봅니다.
 
-1. **환경 없음** 을 클릭 하 고 **Azure IoT 장치 시뮬레이션 솔루션 가속기**를 선택 합니다.
+1. **환경 없음** 을 클릭 하 고 **Azure IoT 장치 시뮬레이션 솔루션 가속기** 를 선택 합니다.
 
 이제 디바이스 시뮬레이션 마이크로 서비스와 상호 작용하는 데 사용할 수 있는 Postman 작업 영역에 로드된 컬렉션 및 환경이 있습니다.
 
 시뮬레이션을 구성 및 실행하려면:
 
-1. Postman 컬렉션에서 **자산 추적기 시뮬레이션 만들기**를 선택하고, **보내기**를 클릭합니다. 이 요청에서는 시뮬레이션된 자산 추적기 디바이스 유형의 네 가지 인스턴스를 만듭니다.
+1. Postman 컬렉션에서 **자산 추적기 시뮬레이션 만들기** 를 선택하고, **보내기** 를 클릭합니다. 이 요청에서는 시뮬레이션된 자산 추적기 디바이스 유형의 네 가지 인스턴스를 만듭니다.
 
 1. Azure CLI 창의 이벤트 모니터 출력은 시뮬레이션된 디바이스의 원격 분석을 보여 줍니다.
 
-시뮬레이션을 중지하려면 Postman에서 **시뮬레이션 중지** 요청을 선택하고 **보내기**를 클릭합니다.
+시뮬레이션을 중지하려면 Postman에서 **시뮬레이션 중지** 요청을 선택하고 **보내기** 를 클릭합니다.
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
@@ -277,4 +277,4 @@ IoT Hub 및 Cosmos DB 인스턴스가 더 이상 필요하지 않은 경우 불�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Protobuf를 사용하여 원격 분석을 보내는 디바이스 시뮬레이션을 사용자 지정하는 방법을 알아보았으므로, 다음 단계에서는 [사용자 지정 이미지를 클라우드에 배포하는 방법](iot-accelerators-device-simulation-deploy-image.md)을 알아봅니다.
+이제 Protobuf을 사용 하 여 원격 분석을 보내는 장치 시뮬레이션을 사용자 지정 하는 방법을 배웠으므로 다음 단계는 GitHub 리포지토리를 방문 하 여 더 많은 [장치 시뮬레이션](https://github.com/Azure/device-simulation-dotnet)에 대해 알아봅니다.

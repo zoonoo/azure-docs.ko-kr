@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192820"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "92146301"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
 
@@ -31,7 +31,7 @@ ms.locfileid: "88192820"
 각 Azure 구독은 Azure Active Directory의 인스턴스와 연결될 수 있습니다. 사용자 및 Azure Active Directory 서비스에서 정의된 서비스 ID는 Azure Portal, 명령줄 도구를 사용하거나 Data Lake Storage Gen1 SDK를 사용하여 조직이 빌드하는 클라이언트 애플리케이션을 통해 Data Lake Storage Gen1 계정에 액세스할 수 있습니다. 중앙 집중식 액세스 제어 메커니즘으로 Azure Active Directory를 사용하는 주요 이점은 다음과 같습니다.
 
 * 단순화된 ID 수명 주기 관리. 디렉터리에서 계정을 삭제하거나 비활성화하여 사용자 또는 서비스(서비스 주체 ID)를 신속하게 만들고 해지할 수 있습니다.
-* 다단계 인증. [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 은 사용자 로그인 및 트랜잭션에 대해 추가 보안 계층을 제공합니다.
+* 다단계 인증. [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) 은 사용자 로그인 및 트랜잭션에 대해 추가 보안 계층을 제공합니다.
 * OAuth 또는 OpenID와 같은 표준 개방형 프로토콜을 통해 모든 클라이언트에서 인증.
 * 엔터프라이즈 디렉터리 서비스 및 클라우드 ID 공급자와 페더레이션.
 
@@ -42,7 +42,7 @@ ms.locfileid: "88192820"
 * 계정 관리를 위한 [AZURE RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)
 * 저장소에서 데이터에 액세스하기 위한 POSIX ACL
 
-### <a name="rbac-for-account-management"></a>계정 관리를 위한 RBAC
+### <a name="azure-rbac-for-account-management"></a>계정 관리를 위한 Azure RBAC
 
 기본적으로 네 가지 기본 역할이 Data Lake Storage Gen1에 대해 정의됩니다. 역할은 Azure Portal, PowerShell cmdlet 및 REST API를 통해 Data Lake Storage Gen1 계정에서 다양한 작업을 허용합니다. 소유자 및 참여자 역할은 해당 계정에 다양한 관리 기능을 수행할 수 있습니다. 계정 관리 데이터를 보기만 하는 사용자에게 읽기 권한자 역할을 할당할 수 있습니다.
 
@@ -52,9 +52,9 @@ ms.locfileid: "88192820"
 
 | 역할 | 관리 권한 | 데이터 액세스 권한 | 설명 |
 | --- | --- | --- | --- |
-| 할당된 역할 없음 |None |ACL에 의해 제어 |사용자는 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Data Lake Storage Gen1을 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
+| 할당된 역할 없음 |없음 |ACL에 의해 제어 |사용자는 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Data Lake Storage Gen1을 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
 | 소유자 |모두 |모두 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
-| Reader |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
+| 판독기 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
 | 참가자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
 | 사용자 액세스 관리자 |역할 추가 및 제거 |ACL에 의해 제어 |사용자 액세스 관리자 역할은 계정에 대한 사용자 액세스를 관리할 수 있습니다. |
 
@@ -117,7 +117,7 @@ Data Lake Storage Gen1과 함께 진단 로그를 사용하는 방법에 대한 
 
 Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake Storage Gen1 UserVoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에 사용자 의견을 보내주세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)

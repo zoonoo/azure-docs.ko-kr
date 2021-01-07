@@ -3,17 +3,17 @@ title: Azure IoT Central에서 규칙 및 작업 구성 | Microsoft Docs
 description: 이 방법 문서에서는 Azure IoT Central 애플리케이션에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 보여 줍니다.
 author: vavilla
 ms.author: vavilla
-ms.date: 11/27/2019
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 378a1dbcfbc89cdf9b24dc2490db583f1135b9a2
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659359"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796791"
 ---
 # <a name="configure-rules"></a>규칙 구성
 
@@ -33,11 +33,11 @@ IoT Central 규칙은 연결된 디바이스에서 능동적으로 모니터링�
 
 다음 스크린샷에서 조건은 온도가 70&deg;F보다 크고 습도가 10보다 작은지를 확인합니다. 두 문이 모두 참이면 규칙이 참으로 평가되고 작업이 트리거됩니다.
 
-![조건](media/howto-configure-rules/conditions.png)
+![온도 및 습도에 대해 지정 된 조건을 포함 하는 냉동 모니터를 보여 주는 스크린샷](media/howto-configure-rules/conditions.png)
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>값 필드에 클라우드 속성 사용
 
-디바이스 템플릿에서 조건의 **값** 필드에 있는 클라우드 속성을 참조할 수 있습니다. 클라우드 속성 및 원격 분석 값은 형식이 동일해야 합니다. 예를 들어 **온도**가 double형이라면 **값** 드롭다운에 double형의 클라우드 속성만 옵션으로 표시됩니다.
+디바이스 템플릿에서 조건의 **값** 필드에 있는 클라우드 속성을 참조할 수 있습니다. 클라우드 속성 및 원격 분석 값은 형식이 동일해야 합니다. 예를 들어 **온도** 가 double형이라면 **값** 드롭다운에 double형의 클라우드 속성만 옵션으로 표시됩니다.
 
 이벤트 유형 원격 분석 값을 선택할 경우 **값** 드롭다운에는 **Any**(모두) 옵션이 포함됩니다. **Any**(모두) 옵션은 애플리케이션이 해당 형식의 이벤트를 받을 때 (페이로드와 관계없이) 규칙이 실행됨을 의미합니다.
 

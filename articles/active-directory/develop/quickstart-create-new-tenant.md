@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory 테넌트 만들기
-description: Azure AD 테넌트를 만들어 애플리케이션 등록 및 빌드에 사용하는 방법을 알아봅니다.
+title: '빠른 시작: Azure Active Directory 테넌트 만들기'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 인증 및 권한 부여를 위해 Microsoft ID 플랫폼을 사용하는 애플리케이션 개발에 사용할 Azure Active Directory 테넌트를 만드는 방법을 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120816"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575982"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
 
@@ -26,6 +27,10 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 테넌트는 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다.
 
 각 Azure AD 테넌트는 고유하고 다른 Azure AD 테넌트와 별도이며 회사 및 학교 ID, 고객 ID(Azure AD B2C 테넌트인 경우) 및 앱 등록의 고유한 표현을 갖습니다. 테넌트 내의 앱 등록은 오직 테넌트 또는 모든 테넌트 내의 계정의 인증을 허용할 수 있습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="determining-environment-type"></a>환경 유형 결정
 
@@ -71,6 +76,5 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 
 ## <a name="next-steps"></a>다음 단계
 
-* [앱을 등록](quickstart-register-app.md)하고 Microsoft ID 플랫폼과 통합합니다. 
-* [인증의 기본 사항](./authentication-vs-authorization.md)에 대해 알아봅니다.
-* 구독과 Azure AD 테넌트 간의 관계에 대한 자세한 내용은 [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+> [!div class="nextstepaction"]
+> [앱을 등록](quickstart-register-app.md)하여 Microsoft ID 플랫폼과 통합합니다.

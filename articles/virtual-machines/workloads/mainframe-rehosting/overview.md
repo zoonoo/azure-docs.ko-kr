@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87835530"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 메인프레임 재호스팅
@@ -33,7 +33,7 @@ Azure Vm은 리프트 앤 시프트 시나리오를 지 원하는 메인프레�
 
 ## <a name="mainframe-migration"></a>메인프레임 마이그레이션
 
-Rehost, rebuild, replace 또는 사용 중지 하 시겠습니까? IaaS 또는 PaaS? 메인프레임 응용 프로그램에 적합 한 마이그레이션 전략을 결정 하려면 Azure 아키텍처 센터의 [메인프레임 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) 가이드를 참조 하세요.
+Rehost, rebuild, replace 또는 사용 중지 하 시겠습니까? IaaS 또는 PaaS? 메인프레임 응용 프로그램에 적합 한 마이그레이션 전략을 결정 하려면 Azure 아키텍처 센터의 [메인프레임 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  가이드를 참조 하세요.
 
 ## <a name="micro-focus-rehosting-platform"></a>마이크로 포커스 재호스팅 플랫폼
 
@@ -98,7 +98,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 [메인프레임 저장소를 Azure로 이동](./concepts/mainframe-storage-azure.md)하는 방법을 알아봅니다.
 
-### <a name="backup-and-recovery"></a>Backup 및 복구
+### <a name="backup-and-recovery"></a>백업 및 복구
 
 자체 재해 복구 사이트를 유지 관리 하는 것은 비용이 많이 들 수 있습니다. Azure에는 로컬 또는 지역 수준에서 또는 지역 중복을 통해 [백업](../../../backup/backup-overview.md), [복구](../../../site-recovery/site-recovery-overview.md)및 [중복성](../../../storage/common/storage-redundancy.md) 을 위한 구현 하기 쉽고 비용 효율적인 옵션이 있습니다.
 

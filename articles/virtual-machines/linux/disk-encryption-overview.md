@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 91ef5ca35cc96aa2028522d370ffbade45ecc2de
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830447"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779773"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
@@ -26,7 +26,7 @@ Azure Disk Encryption을 사용하여 고객 조직의 보안 및 규정 준수 
 > [!WARNING]
 > - 이전에 VM을 암호화하기 위해 Azure AD에서 Azure Disk Encryption을 사용한 적이 있다면 VM을 암호화하는 데 이 옵션을 계속 사용해야 합니다. 자세한 내용은 [Azure AD(이전 릴리스)를 포함한 Azure Disk Encryption](disk-encryption-overview-aad.md)을 참조하세요. 
 > - 특정 권장 사항으로 인해 데이터, 네트워크 또는 컴퓨팅 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다. 사용자는 유효한 활성 Azure 구독을 포함하여 지원되는 지역에서 Azure에 리소스를 만들어야 합니다.
-> - 현재 2세대 VM은 Azure Disk Encryption을 지원하지 않습니다. 자세한 내용은 [Azure의 2세대용 VM 지원](../windows/generation-2.md)을 참조하세요.
+> - 현재 2세대 VM은 Azure Disk Encryption을 지원하지 않습니다. 자세한 내용은 [Azure의 2세대용 VM 지원](../generation-2.md)을 참조하세요.
 
 [Azure CLI를 사용하여 Linux VM 만들기 및 암호화 빠른 시작](disk-encryption-cli-quickstart.md) 또는 [Azure Powershell을 사용하여 Linux VM 만들기 및 암호화 빠른 시작](disk-encryption-powershell-quickstart.md)을 사용하여 몇 분 만에 Linux용 Azure Disk Encryption의 기본 사항을 배울 수 있습니다.
 
@@ -46,7 +46,9 @@ Linux 가상 머신에서 OS 디스크 암호화 프로세스가 완료되면 VM
 
 Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
-Azure Disk Encryption은 [2세대 VM](generation-2.md#generation-1-vs-generation-2-capabilities)) 및 [Lsv2 시리즈 VM](../lsv2-series.md))에서 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-linux.md#unsupported-scenarios)를 참조하세요.
+Azure Disk Encryption [2 세대 vm](../generation-2.md#generation-1-vs-generation-2-capabilities) 및 [Lsv2 시리즈 vm](../lsv2-series.md)에서 사용할 수 없습니다. 추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-linux.md#unsupported-scenarios)를 참조하세요.
+
+임시 디스크 (Dv4, Dsv4, Ev4 및 Esv4)가 없는 VM 이미지에서는 Azure Disk Encryption를 사용할 수 없습니다.  [로컬 임시 디스크가 없는 AZURE VM 크기를](../azure-vms-no-temp-disk.md)참조 하세요.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -65,7 +67,7 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS 및 데이터 디스크 |
 | RedHat | RHEL 7.8 | 7.8 | RedHat: RHEL: 7.8: 최신 | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
-| RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7lvm: 7.8.2020111201 | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
@@ -73,8 +75,9 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | 데이터 디스크(아래 참고 사항 참조) |
+| OpenLogic | CentOS 7.8 | 7.8 | OpenLogic: CentOS: 7_8: 최신 | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS 및 데이터 디스크 |
-| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic: CentOS-LVM: 7lvm: 7.8.2020111100 | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | OS 및 데이터 디스크 |
@@ -108,8 +111,8 @@ Azure Disk Encryption을 사용하려면 시스템에 dm-crypt 및 vfat 모듈�
 데이터 디스크를 탑재하고 필요한 /etc/fstab 항목을 만드는 데 사용되는 명령의 예는 다음과 같습니다.
 
 ```bash
-UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
-UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+UUID0="$(blkid -s UUID -o value /dev/sda1)"
+UUID1="$(blkid -s UUID -o value /dev/sda2)"
 mkdir /data0
 mkdir /data1
 echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab

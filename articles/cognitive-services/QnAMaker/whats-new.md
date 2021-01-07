@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2c159e25195c5f144187268b4355c1078695e809
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836879"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96345528"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
@@ -23,6 +23,14 @@ ms.locfileid: "87836879"
 
 QnA Maker의 새로운 기능에 대해 알아봅니다.
 
+### <a name="november-2020"></a>2020년 11월
+
+* QnA Maker의 새 버전이 무료 공개 미리 보기로 출시되었습니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)를 읽어보세요.
+* 단순화된 리소스 만들기
+* 엔드투엔드 지역 지원
+* 심층 학습 순위 모델
+* 정확한 답변에 대한 기계 읽기 이해력
+  
 ### <a name="july-2020"></a>2020년 7월
 
 * [메타데이터: `OR` 여러 메타데이터 쌍의 논리적 조합](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
@@ -48,17 +56,17 @@ QnA Maker의 새로운 기능에 대해 알아봅니다.
 
 ### <a name="november-2019"></a>2019년 11월
 
-* QnA Maker에 대한 [미국 정부 클라우드 지원](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker)
-* GA의 [다중 턴](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) 기능
-* 계층 1 언어로 제공되는 [Chit-chat 지원](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support)
+* QnA Maker에 대한 [미국 정부 클라우드 지원](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers)
+* GA의 [다중 턴](./how-to/multiturn-conversation.md) 기능
+* 계층 1 언어로 제공되는 [Chit-chat 지원](./how-to/chit-chat-knowledge-base.md#language-support)
 
 ### <a name="october-2019"></a>2019년 10월
 
-* QnA Maker 서비스의 모든 기술 자료에 대해 [명시적으로 언어를 설정](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base)합니다.
+* QnA Maker 서비스의 모든 기술 자료에 대해 [명시적으로 언어를 설정](./index.yml)합니다.
 
 ### <a name="september-2019"></a>2019년 9월
 
-* [XLS 파일 형식](concepts/content-types.md)을 사용하여 가져오기 및 내보내기
+* [XLS 파일 형식](./index.yml)을 사용하여 가져오기 및 내보내기
 
 ### <a name="june-2019"></a>2019년 6월
 

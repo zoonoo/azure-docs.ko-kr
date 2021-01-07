@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: hadr
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f9c4f58c3318d9d030637f85f3c1597b98d458c7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965598"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358217"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI와의 기능 상호 운용성 & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -71,12 +72,12 @@ READ_ONLY_ROUTING_URL = 'TCP://dnnlsnr:1444'
 
 복제에는 게시자, 배포자, 구독자의 세 가지 구성 요소가 있습니다. 이러한 구성 요소는 장애 조치 (failover) 클러스터 인스턴스일 수 있습니다. FCI VNN은 복제 구성에서 강력 하 고 암시적으로 사용 되기 때문에 복제 작업을 수행 하려면 DNN에 VNN을 매핑하는 네트워크 별칭이 필요할 수 있습니다. 
 
-복제 내에서 FCI 이름으로 VNN 이름을 계속 사용 하지만 *복제를 구성 하기 전에*다음과 같은 원격 상황에서 네트워크 별칭을 만듭니다.
+복제 내에서 FCI 이름으로 VNN 이름을 계속 사용 하지만 *복제를 구성 하기 전에* 다음과 같은 원격 상황에서 네트워크 별칭을 만듭니다.
 
 | **복제 구성 요소 (DNN를 사용 하는 FCI)** | **원격 구성 요소** | **네트워크 별칭 맵** | **네트워크 맵이 있는 서버**| 
 |---------|---------|---------|-------- | 
-|Publisher | 배포자 | 게시자 VNN에서 게시자로 DNN| 배포자| 
-|배포자|구독자 |배포자 VNN에서 배포자로 DNN| 구독자 | 
+|게시자 | 배포자 | 게시자 VNN에서 게시자로 DNN| 배포자| 
+|배포자|가입자 |배포자 VNN에서 배포자로 DNN| 가입자 | 
 |배포자|게시자 | 배포자 VNN에서 배포자로 DNN | 게시자| 
 |가입자| 배포자| 구독자 VNN에서 구독자로 DNN | 배포자| 
 
@@ -147,7 +148,7 @@ GO
 
 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 
 - DNN에서 지원 되는 SQL Server 버전은 무엇 인가요? 
@@ -177,5 +178,5 @@ GO
 자세한 내용은 다음을 참조하세요. 
 
 - [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치 (failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 

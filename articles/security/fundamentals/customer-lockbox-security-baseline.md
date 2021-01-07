@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 70bc667fcfa352be7283773e752a798875bf3d01
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 6cf106f6d7aef4324eeeaf232a28cdd91a8a774b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231268"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843131"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준
 
 Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 제어: 네트워크 보안](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 제어: 네트워크 보안](../benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Virtual Network에서 네트워크 보안 그룹 또는 Azure Firewall을 사용하여 리소스 보호
 
@@ -116,7 +116,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 제어: 로깅 및 모니터링](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 제어: 로깅 및 모니터링](../benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
@@ -132,9 +132,9 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 고객 Lockbox에서 생성 한 활동 로그를 Azure 센티널 또는 다른 SIEM에 등록 하 여 중앙 로그 집계 및 관리를 사용 하도록 설정 합니다.
 
-* [고객 Lockbox에 대 한 감사 로그](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#auditing-logs)
+* [고객 Lockbox에 대 한 감사 로그](./customer-lockbox-overview.md#auditing-logs)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -144,9 +144,9 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: 고객 Lockbox에 대 한 감사 로그는 자동으로 사용 하도록 설정 되 고 Azure 활동 로그에서 유지 관리 됩니다. Azure 활동 로그에서 로그 분석 작업 영역으로 스트리밍 하 여이 데이터를 볼 수 있습니다. 그런 다음이 데이터를 조사 하 고 분석을 수행할 수 있습니다.
 
-* [고객 Lockbox에 대 한 감사 로그](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#auditing-logs)
+* [고객 Lockbox에 대 한 감사 로그](./customer-lockbox-overview.md#auditing-logs)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -164,7 +164,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 고객 Lockbox와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-* [로그 보존 매개 변수를 설정 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [로그 보존 매개 변수를 설정 하는 방법](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -174,7 +174,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: 고객 Lockbox에 대 한 감사 로그는 자동으로 사용 하도록 설정 되 고 Azure 활동 로그에서 유지 관리 됩니다. Azure 활동 로그에서 로그 분석 작업 영역으로 스트리밍 하 여이 데이터를 볼 수 있습니다. 그런 다음이 데이터를 조사 하 고 분석을 수행할 수 있습니다. 비정상적인 동작에 대 한 고객 Lockbox 요청의 로그를 분석 하 고 모니터링 합니다. Azure 센티널 작업 영역에서 "로그" 섹션을 사용 하 여 쿼리를 수행 하거나 고객 Lockbox 로그를 기반으로 경고를 만듭니다.
 
-* [고객 Lockbox의 감사 로그](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#auditing-logs)
+* [고객 Lockbox의 감사 로그](./customer-lockbox-overview.md#auditing-logs)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -184,9 +184,9 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: 고객 Lockbox에 대 한 감사 로그는 자동으로 사용 하도록 설정 되 고 Azure 활동 로그에서 유지 관리 됩니다. Azure 활동 로그에서 로그 분석 작업 영역으로 스트리밍 하 여이 데이터를 볼 수 있습니다. 그런 다음이 데이터를 조사 하 고 분석을 수행할 수 있습니다. 비정상적인 동작에 대 한 고객 Lockbox 요청의 로그를 분석 하 고 모니터링 합니다. Azure 센티널 작업 영역에서 "로그" 섹션을 사용 하 여 쿼리를 수행 하거나 고객 Lockbox 로그를 기반으로 경고를 만듭니다.
 
-* [고객 Lockbox의 감사 로그](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#auditing-logs)
+* [고객 Lockbox의 감사 로그](./customer-lockbox-overview.md#auditing-logs)
 
-* [Log analytics 로그 데이터를 경고 하는 방법](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Log analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -218,7 +218,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -226,11 +226,11 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 고객 조직에서 Azure 구독에 대 한 소유자 역할을 가진 사용자는 Microsoft에서 전자 메일을 받아 보류 중인 액세스 요청에 대해 알립니다. 고객 Lockbox 요청의 경우이 사람은 지정 된 승인자입니다.
 
-* [사용자 지정 역할 이해](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+* [사용자 지정 역할 이해](../../role-based-access-control/custom-roles.md)
 
-* [통합 문서에 대 한 Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [통합 문서에 대 한 Azure RBAC를 구성 하는 방법](../../sentinel/quickstart-get-visibility.md)
 
-* [고객 Lockbox에서 액세스 요청 권한 이해](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [고객 Lockbox에서 액세스 요청 권한 이해](./customer-lockbox-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -253,9 +253,9 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 - 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.
 - 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 
-* [Azure Security Center를 사용하여 ID 및 액세스를 모니터링하는 방법(미리 보기)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center를 사용하여 ID 및 액세스를 모니터링하는 방법(미리 보기)](../../security-center/security-center-identity-access.md)
 
-* [Azure Policy를 사용하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 사용하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -273,9 +273,9 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: Azure Active Directory Multi-Factor Authentication를 사용 하도록 설정 하 고 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -283,11 +283,11 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
 
-**지침**: MFA (Azure Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 고객 Lockbox 요청에 로그인 하 고 구성 합니다.
+**지침**: MFA (Azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 고객 Lockbox 요청에 로그인 하 고 구성 합니다.
 
-* [권한 있는 액세스 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -299,9 +299,9 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 또한 위험 검색 Azure Active Directory 사용 하 여 위험한 사용자 동작에 대 한 경고 및 보고서를 볼 수 있습니다.
 
-* [PIM(Privileged Identity Management)을 배포하는 방법](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [PIM(Privileged Identity Management)을 배포하는 방법](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Azure AD 위험 탐지 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Azure AD 위험 탐지 이해](../../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -311,7 +311,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: 조건부 액세스 명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹 에서만 Azure Portal에 대 한 액세스를 허용 합니다.
 
-* [Azure에서 명명 된 위치를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Azure에서 명명 된 위치를 구성 하는 방법](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -321,7 +321,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: 해당 하는 경우 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory를 사용 합니다. Azure Active Directory는 미사용 데이터 및 전송 중인 데이터에 대해 강력한 암호화를 사용 하 여 데이터를 보호 합니다. 또한 Azure Active Directory는 사용자 자격 증명을 salts, 해시 및 안전 하 게 저장 합니다.
 
-* [Azure Active Directory 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Azure Active Directory 인스턴스를 만들고 구성 하는 방법](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -331,9 +331,9 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: Azure Active Directory는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Active Directory 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다.
 
-* [Azure Active Directory 보고 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Azure Active Directory 보고 이해](../../active-directory/reports-monitoring/index.yml)
 
-* [Azure Active Directory 액세스 검토를 사용 하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Azure Active Directory 액세스 검토를 사용 하는 방법](../../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -347,9 +347,9 @@ Azure 센티널 또는 타사 SIEM과 통합 하는 데 사용할 수 있는 Azu
 
 Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 내에서 원하는 로그 경고를 구성할 수 있습니다.
 
-* [Azure Monitor에 Azure 활동 로그를 통합 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Azure Monitor에 Azure 활동 로그를 통합 하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -359,11 +359,11 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 **지침**: 제어 평면 (예: Azure Portal)의 계정 로그인 동작 편차에 대해 Azure Active Directory id 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-* [위험한 로그인 Azure Active Directory 확인 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [위험한 로그인 Azure Active Directory 확인 하는 방법](../../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Id 보호 위험 정책을 구성 하 고 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Id 보호 위험 정책을 구성 하 고 사용 하도록 설정 하는 방법](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -379,7 +379,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
@@ -393,7 +393,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 **지침**: 해당 사항 없음 고객 Lockbox는 액세스 권한을 부여 하는 리소스와 동일한 구독에서 프로 비전 됩니다. 보호 하거나 격리할 공용 끝점이 없습니다. 고객 Lockbox 요청 액세스 권한은 테 넌 트 수준에서 소유자 역할을 보유 하는 사용자에 게 부여 됩니다.
 
-* [고객 Lockbox 워크플로 이해](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [고객 Lockbox 워크플로 이해](./customer-lockbox-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -403,7 +403,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 **지침**: Microsoft는 고객 Lockbox에 대 한 기본 인프라를 관리 하 고, 고객 데이터 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](./protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -413,7 +413,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 **지침**: 기본적으로 MICROSOFT에서는 TLS (Transport Layer Security) 프로토콜을 사용 하 여 클라우드 서비스와 고객 간에 이동할 때 데이터를 보호 합니다. Microsoft 데이터 센터는 Azure 서비스에 연결되는 클라이언트 시스템과 TLS 연결을 협상합니다. TLS는 강력한 인증, 메시지 개인 정보 및 무결성(메시지 변조, 가로채기 및 위조의 검색 가능), 상호 운용성, 알고리즘 유연성, 배포 및 사용 편의성을 제공합니다.
 
-* [Azure를 사용 하 여 전송 중인 암호화 이해](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+* [Azure를 사용 하 여 전송 중인 암호화 이해](./encryption-overview.md#encryption-of-data-in-transit)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -429,9 +429,9 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**고객 Lockbox: 테 넌 트 수준에서 소유자 역할을 보유 하는 사용자에 게 요청 승인이 승인 됩니다.
+**지침** 고객 Lockbox: 테 넌 트 수준에서 소유자 역할을 보유 하는 사용자에 게 요청 승인이 승인 됩니다.
 
-* [고객 Lockbox 워크플로 이해](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [고객 Lockbox 워크플로 이해](./customer-lockbox-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -441,7 +441,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 **지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다. Microsoft는 고객 Lockbox에 대 한 기본 인프라를 관리 하 고, 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-* [Azure 고객 데이터 보호](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure 고객 데이터 보호](./protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -459,11 +459,11 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 **지침**: 고객 Lockbox에 대 한 감사 로그는 자동으로 사용 하도록 설정 되 고 Azure 활동 로그에서 유지 관리 됩니다. Azure 활동 로그를 사용 하 여 Azure 고객 Lockbox 리소스에 대 한 변경 내용을 모니터링 하 고 검색 합니다. 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-* [고객 Lockbox에서 감사를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [고객 Lockbox에서 감사를 사용 하도록 설정 하는 방법](./customer-lockbox-overview.md)
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -471,7 +471,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [보안 제어: 취약성 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 취약성 관리](../benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
@@ -515,7 +515,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Azure 자산 검색 사용
 
@@ -523,11 +523,11 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 클래식 Azure 리소스는 Azure 리소스 그래프를 통해 검색 될 수 있지만 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
 
-* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Azure 역할 기반 액세스 제어 이해 (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure 역할 기반 액세스 제어 이해 (Azure RBAC)](../../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -549,11 +549,11 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../../governance/management-groups/create-management-group-portal.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -573,9 +573,9 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색합니다. 환경에 있는 모든 Azure 리소스가 승인되었는지 확인합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -611,9 +611,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -631,7 +631,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: "Microsoft Azure 관리" 앱에 대한 "액세스 차단"을 구성하여 사용자가 Azure Resource Manager와 상호 작용하는 기능을 제한하도록 Azure 조건부 액세스를 구성합니다.
 
-* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -655,7 +655,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 제어: 보안 구성](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 제어: 보안 구성](../benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -749,7 +749,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 해당 사항 없음 고객 Lockbox는 관리 되는 id를 사용 하지 않습니다.
 
-* [관리 id를 지 원하는 Azure 서비스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+* [관리 id를 지 원하는 Azure 서비스](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -767,7 +767,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 제어: 맬웨어 방어](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 제어: 맬웨어 방어](../benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리 맬웨어 방지 소프트웨어 사용
 
@@ -797,7 +797,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 제어: 데이터 복구](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 복구](../benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
@@ -833,13 +833,13 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 제어: 인시던트 대응](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 제어: 인시던트 대응](../benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
 **지침**: 조직에 대한 인시던트 대응 지침을 작성합니다. 검색에서 사후 검토에 이르는 인시던트 처리/관리 단계뿐만 아니라 담당자의 모든 역할을 정의하는 인시던트 대응 계획이 있는지 확인합니다.
 
-* [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](../../security-center/security-center-planning-and-operations-guide.md)
 
 * [자체 보안 인시던트 대응 프로세스를 구축하는 방법에 대한 지침](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -875,7 +875,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 고객 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-* [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Azure Security Center 보안 연락처를 설정하는 방법](../../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -885,9 +885,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 연속 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고 Sentinel을 스트리밍할 수 있습니다.
 
-* [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [연속 내보내기를 구성하는 방법](../../security-center/continuous-export.md)
 
-* [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [경고를 Azure Sentinel로 스트림하는 방법](../../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -897,7 +897,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Azure Security Center의 워크플로 자동화 기능을 사용하여 보안 경고 및 권장 사항에 대한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다.
 
-* [워크플로 자동화와 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [워크플로 자동화와 Logic Apps를 구성하는 방법](../../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -905,7 +905,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](../benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Azure 리소스에 대한 침투 테스트를 정기적으로 수행 및 모든 중요한 보안 결과를 60일 이내에 수정
 
@@ -921,5 +921,5 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](https://docs.microsoft.com/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

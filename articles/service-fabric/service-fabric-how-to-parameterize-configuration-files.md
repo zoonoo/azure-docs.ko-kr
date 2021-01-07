@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric에서 구성 파일 매개 변수화
 description: 여러 환경을 관리 하는 데 유용한 방법인 Service Fabric 구성 파일을 매개 변수화 하는 방법을 알아봅니다.
-author: mikkelhegn
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: mikhegn
-ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca376230c427c47e839b2dee96e8daa83ccedf15
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75644633"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576760"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric에서 구성 파일을 매개 변수화하는 방법
 
@@ -20,7 +18,7 @@ ms.locfileid: "75644633"
 
 이 예제에서는 애플리케이션 배포에서 매개 변수를 사용하여 구성 값을 재정의합니다.
 
-1. 서비스 프로젝트에서 * \<MyService>\PackageRoot\Config\Settings.xml* 파일을 엽니다.
+1. 서비스 프로젝트에서 *\<MyService>\PackageRoot\Config\Settings.xml* 파일을 엽니다.
 1. 다음 XML을 추가하여 구성 매개 변수 이름 및 값(예: 캐시 크기가 25임)을 설정하세요.
 
    ```xml
@@ -30,7 +28,7 @@ ms.locfileid: "75644633"
    ```
 
 1. 파일을 저장하고 닫습니다.
-1. * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 파일을 엽니다.
+1. *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 파일을 엽니다.
 1. ApplicationManifest.xml 파일에서 `Parameters` 요소에 매개 변수와 기본값을 선언하세요.  매개 변수 이름에 서비스 이름(예: “내 서비스”)이 포함되어 있는 것이 좋습니다.
 
    ```xml

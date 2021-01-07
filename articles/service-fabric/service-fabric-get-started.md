@@ -5,25 +5,25 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 8665b49aebcb99ef3d3ded17e7e7653027aba21e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c252a1dc86c50327e32816abd99bc206f3b74608
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651631"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902887"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
+> * [Mac OS X](service-fabric-get-started-mac.md)
 >
 >
 
 Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 빌드 및 실행하려면 Service Fabric 런타임, SDK, 도구를 설치합니다. 또한 SDK에 포함 된 [Windows PowerShell 스크립트의 실행을 사용 하도록 설정](#enable-powershell-script-execution) 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 
@@ -54,12 +54,6 @@ Service Fabric 도구는 Visual Studio 2017 및 2019의 Azure 개발 워크 로�
 
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
 
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015 사용(Visual Studio 2015 업데이트 2 이상 필요)
-
-Visual Studio 2015의 경우 Service Fabric 도구는 웹 플랫폼 설치 관리자를 사용하여 SDK 및 런타임과 함께 설치됩니다.
-
-* [Microsoft Azure Service Fabric SDK 및 도구를 설치 합니다.][full-bundle-vs2015]
-
 ### <a name="sdk-installation-only"></a>SDK 설치만
 
 SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
@@ -68,8 +62,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 
 현재 버전은 다음과 같습니다.
 
-* Service Fabric SDK 및 도구 4.1.458
-* Service Fabric runtime 7.1.458
+* Service Fabric SDK 및 도구 4.2.445
+* Service Fabric runtime 7.2.445
 
 지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
 
@@ -86,7 +80,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 ## <a name="install-docker-optional"></a>Docker 설치(선택 사항)
 
-Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 위한 [컨테이너 오케스트레이터](service-fabric-containers-overview.md)입니다. 로컬 개발 클러스터에서 Windows 컨테이너 애플리케이션을 실행하려면 먼저 Windows용 Docker를 설치해야 합니다. [Windows용 Docker CE(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 가져옵니다. Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
+Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 위한 [컨테이너 오케스트레이터](service-fabric-containers-overview.md)입니다. 로컬 개발 클러스터에서 Windows 컨테이너 애플리케이션을 실행하려면 먼저 Windows용 Docker를 설치해야 합니다. [Windows용 Docker CE(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 가져옵니다. Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환** 을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -94,8 +88,9 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 
 * [애플리케이션 만들기, 배포 및 관리하는 방법 알아보기](service-fabric-tutorial-create-dotnet-app.md)
 * [프로그래밍 모델에 대해 알아보기: Reliable Services 및 Reliable Actors](service-fabric-choose-framework.md)
-* [GitHub의 서비스 패브릭 코드 샘플 확인](https://aka.ms/servicefabricsamples)
+* [GitHub의 서비스 패브릭 코드 샘플 확인](/samples/browse/?products=azure)
 * [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
+* [Windows에서 Linux 개발 환경 준비](service-fabric-local-linux-cluster-windows.md)
 * [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 캠페인 페이지"

@@ -1,30 +1,30 @@
 ---
 title: CloudSimple-Secure 사설 클라우드의 Azure VMware 솔루션
 description: CloudSimple 사설 클라우드를 통해 Azure VMware 솔루션을 보호 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e70745cd6e2f6a2a13581052f65e014bd0d0481
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829876"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899170"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>사설 클라우드 환경을 보호 하는 방법
 
 Azure에서 CloudSimple 서비스, CloudSimple 포털 및 사설 클라우드에 대 한 RBAC (역할 기반 액세스 제어)를 정의 합니다.  사설 클라우드의 vCenter에 액세스 하기 위한 사용자, 그룹 및 역할은 VMware SSO를 사용 하 여 지정 됩니다.  
 
-## <a name="rbac-for-cloudsimple-service"></a>CloudSimple service에 대 한 RBAC
+## <a name="azure-rbac-for-cloudsimple-service"></a>CloudSimple 서비스에 대 한 Azure RBAC
 
 CloudSimple 서비스를 만들려면 Azure 구독에 대 한 **소유자** 또는 **참가자** 역할이 필요 합니다.  기본적으로 모든 소유자와 참가자는 CloudSimple 서비스를 만들고 사설 클라우드를 만들고 관리 하기 위한 CloudSimple 포털에 액세스할 수 있습니다.  지역 마다 CloudSimple 서비스를 하나만 만들 수 있습니다.  특정 관리자에 대 한 액세스를 제한 하려면 다음 절차를 따르세요.
 
 1. Azure Portal의 새 **리소스 그룹** 에 Cloudsimple 서비스 만들기
-2. 리소스 그룹에 대 한 RBAC를 지정 합니다.
+2. 리소스 그룹에 대 한 Azure RBAC를 지정 합니다.
 3. 노드를 구매 하 고 CloudSimple service와 동일한 리소스 그룹 사용
 
 리소스 그룹에 대 한 **소유자** 또는 **참가자** 권한이 있는 사용자만 CloudSimple 서비스를 보고 cloudsimple 포털을 시작 합니다.
@@ -39,7 +39,7 @@ CloudSimple 서비스를 만들려면 Azure 구독에 대 한 **소유자** 또�
 
 1. 사설 클라우드의 **CloudOwner \@ cloudsimple. 로컬** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
 2. **CloudOwner \@ cloudsimple. local** 을 사용 하 여 vCenter에 로그인 합니다.
-3. [VCenter Single Sign-on 사용자를 추가](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html)합니다.
+3. [VCenter Single Sign-On 사용자를 추가](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html)합니다.
 4. [VCenter Single Sign-On 그룹](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 사용자를 추가 합니다.
 
 미리 정의 된 역할 및 그룹에 대 한 자세한 내용은 [VMware vCenter의 Cloudsimple 사설 클라우드 권한 모델](learn-private-cloud-permissions.md) 문서를 참조 하세요.

@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166198"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91258288"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>MSAL.NET를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하 여 공용 클라이언트 및 기밀 클라이언트 응용 프로그램을 초기화 하는 방법을 설명 합니다.  클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.
 
 MSAL.NET 3.x를 사용 하는 경우 응용 프로그램 작성기를 사용 하 여 응용 프로그램을 인스턴스화하는 것이 `PublicClientApplicationBuilder` 좋습니다. `ConfidentialClientApplicationBuilder` 코드 또는 구성 파일에서 응용 프로그램을 구성 하는 강력한 메커니즘을 제공 하거나 두 방법을 모두 혼합 하 여 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 해당 응용 프로그램을 [등록](quickstart-register-app.md) 해야 합니다.  등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
 
 - 클라이언트 ID (GUID를 나타내는 문자열)
@@ -96,9 +96,9 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 공용 클라이언트나 기밀 클라이언트 응용 프로그램 작성기에서 설정할 수 있는 한정자는 다음과 같습니다.
 
-|한정자 | Description|
+|한정자 | 설명|
 |--------- | --------- |
-|`.WithAuthority()`7 재정의 | Azure 클라우드, 대상 그룹, 테 넌 트 (테 넌 트 ID 또는 도메인 이름)를 선택 하거나 직접 인증 기관 URI를 제공 하 여 응용 프로그램 기본 기관을 Azure AD 기관에 설정 합니다.|
+|`.WithAuthority()` 7 재정의 | Azure 클라우드, 대상 그룹, 테 넌 트 (테 넌 트 ID 또는 도메인 이름)를 선택 하거나 직접 인증 기관 URI를 제공 하 여 응용 프로그램 기본 기관을 Azure AD 기관에 설정 합니다.|
 |`.WithAdfsAuthority(string)` | 응용 프로그램 기본 기관을 ADFS 기관으로 설정 합니다.|
 |`.WithB2CAuthority(string)` | 응용 프로그램 기본 기관을 Azure AD B2C 기관으로 설정 합니다.|
 |`.WithClientId(string)` | 클라이언트 ID를 재정의 합니다.|
@@ -115,7 +115,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 Xamarin.ios에서 공용 클라이언트 응용 프로그램 작성기에 대해 설정할 수 있는 한정자는 다음과 같습니다.
 
-|한정자 | Description|
+|한정자 | 설명|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin.ios만**해당: io 키 체인 보안 그룹 (캐시 지 속성)을 설정 합니다.|
 
@@ -123,7 +123,7 @@ Xamarin.ios에서 공용 클라이언트 응용 프로그램 작성기에 대해
 
 기밀 클라이언트 응용 프로그램 빌더에 대해 설정할 수 있는 한정자는 다음과 같습니다.
 
-|한정자 | Description|
+|한정자 | 설명|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Azure AD를 사용 하 여 응용 프로그램을 식별 하는 인증서를 설정 합니다.|
 |`.WithClientSecret(string clientSecret)` | Azure AD를 사용 하 여 응용 프로그램을 식별 하는 클라이언트 암호 (앱 암호)를 설정 합니다.|
@@ -137,7 +137,7 @@ Xamarin.ios에서 공용 클라이언트 응용 프로그램 작성기에 대해
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzurePublic, tenantId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, tenantId)
         .Build();
 ```
 
@@ -146,7 +146,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
+        .WithAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
 ```
 

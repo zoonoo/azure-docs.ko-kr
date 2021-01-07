@@ -6,27 +6,27 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 866fa7333565a1875984aa5640d2028b6e399df1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 8b3778ea68edf1fbbb41efb899749e6f35b39bae
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949544"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742292"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 
 Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 또는 다른 LDAP 디렉터리와 통합합니다. 디렉터리 스키마와 일치하는 특성을 구성하고 자동 사용자 동기화를 설정할 수 있습니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공 하지 않습니다. 로그인 이벤트 중에 MFA (multi-factor authentication)를 요구 하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication를 사용 해야 합니다.
 >
-> 클라우드 기반 MFA를 시작 하려면 [자습서: Azure Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
+> 클라우드 기반 MFA를 시작 하려면 [자습서: AZURE AD Multi-Factor Authentication를 사용 하 여 보안 사용자 로그인 이벤트](tutorial-enable-azure-mfa.md)를 참조 하세요.
 >
 > 2019 년 7 월 1 일 이전에 MFA 서버를 정품 인증 한 기존 고객은 평소와 같이 최신 버전, 향후 업데이트 및 활성화 자격 증명 생성을 다운로드할 수 있습니다.
 
@@ -42,14 +42,14 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 | 기능 | 설명 |
 | --- | --- |
 | Active Directory 사용 |Active Directory 사용 옵션을 선택하면 가져오기 및 동기화를 위해 Active Directory를 사용합니다.  이 값은 기본 설정입니다. <br>참고: Active Directory 통합이 제대로 작동하려면 컴퓨터를 도메인에 가입하고 도메인 계정으로 로그인합니다. |
-| 트러스트된 도메인 포함 |**트러스트된 도메인 포함**을 선택하면 에이전트가 현재 도메인, 포리스트의 다른 도메인 또는 포리스트 트러스트와 관련된 도메인에서 트러스트된 도메인에 연결을 시도합니다.  트러스트된 도메인에서 사용자를 가져오거나 동기화하지 않을 때는 확인란을 선택 취소하여 성능을 향상시킵니다.  기본적으로 선택되어 있습니다. |
+| 트러스트된 도메인 포함 |**트러스트된 도메인 포함** 을 선택하면 에이전트가 현재 도메인, 포리스트의 다른 도메인 또는 포리스트 트러스트와 관련된 도메인에서 트러스트된 도메인에 연결을 시도합니다.  트러스트된 도메인에서 사용자를 가져오거나 동기화하지 않을 때는 확인란을 선택 취소하여 성능을 향상시킵니다.  기본적으로 선택되어 있습니다. |
 | 특정 LDAP 구성 사용 |LDAP 사용 옵션을 선택하면 가져오기 및 동기화를 위해 지정된 LDAP 설정을 사용합니다. 참고: LDAP 사용을 선택하면 사용자 인터페이스가 Active Directory에서 LDAP로 참조를 변경합니다. |
 | 편집 단추 |편집 단추를 통해 현재 LDAP 구성 설정을 수정할 수 있습니다. |
 | 특성 범위 쿼리 사용 |특성 범위 쿼리 사용 여부를 나타냅니다.  특성 범위 쿼리를 사용하면 다른 레코드 특성에 있는 항목을 기반으로 레코드를 한정하는 디렉터리 검색을 효율적으로 실행할 수 있습니다.  Azure Multi-Factor Authentication 서버는 특성 범위 쿼리를 사용하여 보안 그룹의 구성원인 사용자를 효율적으로 쿼리합니다.   <br>참고: 특성 범위 쿼리가 지원되지만 사용하지 말아야 하는 몇 가지 경우가 있습니다.  예를 들어 Active Directory는 보안 그룹에 둘 이상의 도메인에 속한 구성원이 포함되어 있는 경우 특성 범위 쿼리에 문제가 있을 수 있습니다. 이 경우 확인란을 선택 취소합니다. |
 
 다음 표에서는 LDAP 구성 설정을 설명합니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 | --- | --- |
 | 서버 |LDAP 디렉터리를 실행하는 서버의 호스트 이름 또는 IP 주소를 입력합니다.  세미콜론으로 구분하여 백업 서버를 지정할 수도 있습니다. <br>참고: Bind 형식이 SSL (TLS) 인 경우 정규화 된 호스트 이름이 필요 합니다. |
 | 기본 DN |모든 디렉터리 쿼리가 시작되는 기본 디렉터리 개체의 고유 이름을 입력합니다.  예를 들어 dc=abc,dc=com입니다. |
@@ -58,7 +58,7 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 | 바인딩 DN 또는 바인딩 사용자 이름 |LDAP 디렉터리에 바인딩할 때 사용할 계정에 대한 사용자 레코드의 고유 이름을 입력합니다.<br><br>바인딩 종류가 단순 또는 SSL인 경우 바인딩 고유 이름만 사용됩니다.  <br><br>바인딩 종류가 Windows인 경우 LDAP 디렉터리에 바인딩할 때 사용할 Windows 계정의 사용자 이름을 입력합니다.  사용자 이름을 비워 두면 로그온한 사용자 계정이 바인딩에 사용됩니다. |
 | 바인딩 암호 |LDAP 디렉터리에 바인딩하는 데 사용되는 바인딩 DN 또는 사용자 이름에 대한 바인딩 암호를 입력합니다.  Multi-Factor Auth 서버 AdSync 서비스에 대한 암호를 구성하려면 동기화를 사용하도록 설정하고 로컬 컴퓨터에서 서비스가 실행되고 있는지 확인합니다.  암호는 Multi-Factor Auth 서버 AdSync 서비스가 실행되는 계정에서 Windows에 저장된 사용자 이름 및 암호에 저장됩니다.  암호는 Multi-Factor Auth 서버 사용자 인터페이스가 실행되는 계정 및 Multi-Factor Auth 서버 서비스가 실행되는 계정에도 저장됩니다.  <br><br>암호는 로컬 서버의 Windows에 저장된 사용자 이름 및 암호에만 저장되므로 이 단계를 암호에 액세스해야 하는 각 Multi-Factor Auth 서버마다 반복합니다. |
 | 쿼리 크기 제한 |디렉터리 검색이 반환하는 최대 사용자 수에 대한 크기 제한을 지정합니다.  이 제한은 LDAP 디렉터리의 구성과 일치해야 합니다.  페이징이 지원되지 않는 대규모 검색의 경우 가져오기 및 동기화는 일괄 사용자 검색을 시도합니다.  여기에서 지정한 크기 제한이 LDAP 디렉터리에 구성된 제한보다 큰 경우 일부 사용자가 누락될 수 있습니다. |
-| 테스트 단추 |LDAP 서버에 대한 바인딩을 테스트하려면 **테스트**를 클릭합니다.  <br><br>바인딩을 테스트하려면 **LDAP 사용** 옵션을 선택하지 않아도 됩니다. 이를 통해 LDAP 구성을 사용하기 전에 바인딩을 테스트할 수 있습니다. |
+| 테스트 단추 |LDAP 서버에 대한 바인딩을 테스트하려면 **테스트** 를 클릭합니다.  <br><br>바인딩을 테스트하려면 **LDAP 사용** 옵션을 선택하지 않아도 됩니다. 이를 통해 LDAP 구성을 사용하기 전에 바인딩을 테스트할 수 있습니다. |
 
 ## <a name="filters"></a>필터
 
@@ -105,7 +105,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | IP 전화 |사용자 레코드에 IP 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 ipphone입니다. |
 | 사용자 지정 |사용자 레코드에 사용자 지정 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 없습니다. |
 | 내선 번호 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
-| 기본값 복원 단추 |모든 특성을 기본값으로 다시 되돌리려면 **기본값 복원**을 클릭합니다.  기본값은 일반 Active Directory 또는 ADAM 스키마에서 제대로 작동합니다. |
+| 기본값 복원 단추 |모든 특성을 기본값으로 다시 되돌리려면 **기본값 복원** 을 클릭합니다.  기본값은 일반 Active Directory 또는 ADAM 스키마에서 제대로 작동합니다. |
 
 특성을 편집 하려면 특성 탭에서 **편집** 을 클릭 합니다.  그러면 특성을 편집할 수 있는 창이 표시 됩니다. 모든 특성 옆의 **...** 을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.
 
@@ -145,7 +145,7 @@ LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경�
 관리자가 위로 이동 및 아래로 이동 단추를 사용하여 동기화 항목의 순서를 변경할 수 있습니다.  동일한 사용자가 둘 이상의 동기화 항목(예: 컨테이너 및 보안 그룹)의 구성원일 수 있으므로 순서가 중요합니다.  동기화 중 사용자에게 적용된 설정은 사용자와 연관된 목록의 첫 번째 동기화 항목에서 가져옵니다.  따라서 동기화 항목은 우선 순위에 따라 들어가야 합니다.
 
 > [!TIP]
-> 동기화 항목을 제거한 후에는 전체 동기화를 실행해야 합니다.  동기화 항목의 순서를 지정한 후에는 전체 동기화를 실행해야 합니다.  전체 동기화를 실행하려면 **지금 동기화**를 클릭합니다.
+> 동기화 항목을 제거한 후에는 전체 동기화를 실행해야 합니다.  동기화 항목의 순서를 지정한 후에는 전체 동기화를 실행해야 합니다.  전체 동기화를 실행하려면 **지금 동기화** 를 클릭합니다.
 
 ## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication 서버
 

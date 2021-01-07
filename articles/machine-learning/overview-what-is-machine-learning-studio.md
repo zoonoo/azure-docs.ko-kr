@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning Studio란?
-description: Azure Machine Learning 스튜디오는 Azure Machine Learning 작업 영역에 대한 웹 포털입니다. 스튜디오는 코드 없는 환경과 코드 우선 환경을 결합하여 포괄적인 데이터 과학 플랫폼을 만듭니다.
+description: 스튜디오는 Azure Machine Learning 작업 영역에 대한 웹 포털입니다. 스튜디오는 포괄적인 데이터 과학 플랫폼을 위해 코드 없는 환경과 코드 우선 환경을 결합합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902928"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565911"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -70,11 +70,11 @@ ms.locfileid: "90902928"
 
 2015년에 출시된 **ML Studio(클래식)** 는 첫 번째 끌어서 놓기 기계 학습 작성기였습니다. 시각적 환경만 제공하는 독립 실행형 서비스입니다. Studio(클래식)는 Azure Machine Learning과 상호 운용되지 않습니다.
 
-**Azure Machine Learning**은 완전한 데이터 과학 플랫폼을 제공하는 별도의 현대화된 서비스입니다. 코드 우선 및 낮은 코드 환경을 모두 지원합니다.
+**Azure Machine Learning** 은 완전한 데이터 과학 플랫폼을 제공하는 별도의 현대화된 서비스입니다. 코드 우선 및 낮은 코드 환경을 모두 지원합니다.
 
-**Azure Machine Learning 스튜디오**는 프로젝트 작성 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션이 포함된 Azure Machine Learning*의* 웹 포털입니다. 
+**Azure Machine Learning 스튜디오** 는 프로젝트 작성 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션이 포함된 Azure Machine Learning *의* 웹 포털입니다. 
 
-새로운 사용자는 최신 데이터 과학 도구 범위에 ML Studio(클래식) 대신 **Azure Machine Learning**을 선택하는 것이 좋습니다.
+새로운 사용자는 최신 데이터 과학 도구 범위에 ML Studio(클래식) 대신 **Azure Machine Learning** 을 선택하는 것이 좋습니다.
 
 ### <a name="feature-comparison"></a>기능 비교
 
@@ -83,12 +83,12 @@ ms.locfileid: "90902928"
 | 기능 | ML Studio(클래식) | Azure Machine Learning |
 |---| --- | --- |
 | 끌어서 놓기 인터페이스 | 클래식 환경 | 환경이 업데이트됨 - [Azure Machine Learning 디자이너](concept-designer.md)| 
-| 코드 SDK | 지원되지 않음 | [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) 및 [R](tutorial-1st-r-experiment.md) SDK와 완전히 통합됨 |
+| 코드 SDK | 지원되지 않음 | [Azure Machine Learning Python](/python/api/overview/azure/ml/) 및 [R](tutorial-1st-r-experiment.md) SDK와 완전히 통합됨 |
 | 실험 | 크기 조정 가능(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정 |
 | 컴퓨팅 대상 학습 | 전용 컴퓨팅 대상, CPU만 지원 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 학습](concept-compute-target.md#train). GPU 및 CPU 지원 포함 | 
 | 컴퓨팅 대상 배포 | 전용 웹 서비스 형식, 사용자 지정 불가능 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 배포](concept-compute-target.md#deploy). GPU 및 CPU 지원 포함 |
 | ML 파이프라인 | 지원되지 않음 | 유연한 모듈식 [파이프라인](concept-ml-pipelines.md)을 빌드하여 워크플로 자동화 |
-| MLOps | 기본 모델 관리 및 배포 | 엔터티 버전 관리(모델, 데이터, 워크플로), 워크플로 자동화, CICD 도구와 통합 [등](concept-model-management-and-deployment.md) |
+| MLOps | 기본 모델 관리 및 배포, CPU 전용 배포 | 엔터티 버전 관리(모델, 데이터, 워크플로), 워크플로 자동화, CICD 도구와의 통합, CPU 및 GPU 배포 [등](concept-model-management-and-deployment.md) |
 | 모델 형식 | 전용 형식, Studio(클래식)만 해당 | 학습 작업 유형에 따라 지원되는 여러 형식 |
 | 자동화된 모델 학습 및 하이퍼 매개변수 튜닝 |  지원되지 않음 | [지원됨](concept-automated-ml.md)이라는 의미입니다. 코드 우선 및 코드 없음 옵션. | 
 | 데이터 드리프트 검색 | 지원되지 않음 | [지원됨](how-to-monitor-datasets.md) |
@@ -98,7 +98,9 @@ ms.locfileid: "90902928"
 ## <a name="next-steps"></a>다음 단계
 
 [스튜디오](https://ml.azure.com)를 방문하거나 다음 자습서를 통해 다양한 제작 옵션을 살펴보세요.  
-  + [Python Notebooks를 사용하여 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
+
+- + [자체 개발 환경에서 시작](tutorial-1st-experiment-sdk-setup-local.md)
+  + [컴퓨팅 인스턴스에서 Jupyter Notebooks를 사용하여 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
   + [자동화된 기계 학습을 사용하여 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md)  
   + [디자이너를 사용하여 모델 학습 및 배포](tutorial-designer-automobile-price-train-score.md)
-
+  + [보안 가상 네트워크에서 스튜디오 사용](how-to-enable-studio-virtual-network.md)

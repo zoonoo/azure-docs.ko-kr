@@ -2,23 +2,23 @@
 title: 컨테이너 지원
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 8f93e0ffe74ade79059fc845788faf36ab5b4f13
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 037b9746571678e24e80bd76e7e2ed173ab8eb90
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91025100"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97677610"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. [ **변칙 탐지기** 리소스 만들기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) 를 클릭 합니다.
+1. <a href="https://portal.azure.com" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank">변칙 탐지기 <span class="docon docon-navigate-external x-hidden-focus"></span> 리소스 만들기</a> 를 선택 합니다.
 1. 필수 설정 모두 입력:
 
     |설정|값|
@@ -26,15 +26,15 @@ ms.locfileid: "91025100"
     |속성|원하는 이름(2-64자)|
     |Subscription|적합한 구독 선택|
     |위치|주변 및 사용 가능한 위치 선택|
-    |가격 책정 계층|`F0` - 최소 가격 책정 계층|
+    |가격 책정 계층|`F0` -월별 초당 10 개 호출, 20K 트랜잭션 수 <br> 또는<br> `S0` 80-초당 초당 호출 수|
     |리소스 그룹|사용 가능한 리소스 그룹 선택|
 
-1. **만들기**를 클릭하고 리소스가 생성될 때까지 기다립니다. 만든 후에는 리소스 페이지로 이동 합니다.
+1. **만들기** 를 클릭하고 리소스가 생성될 때까지 기다립니다. 만든 후에는 리소스 페이지로 이동 합니다.
 1. 구성 된 `endpoint` 및 API 키를 수집 합니다.
 
-    |포털의 리소스 탭|설정|값|
+    |포털의 키 및 끝점 탭|설정|값|
     |--|--|--|
-    |**개요**|엔드포인트|끝점을 복사 합니다. 다음과 유사 하 게 표시 됩니다. `https://westus2.api.cognitive.microsoft.com/`|
+    |**개요**|엔드포인트|끝점을 복사 합니다. 다음과 유사 하 게 표시 됩니다. ` https://<your-resource-name>.cognitiveservices.azure.com/`|
     |**키**|API 키|두 키의 1을 복사 합니다. 공백이 나 대시가 없는 32 영숫자 문자열입니다 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
 
 

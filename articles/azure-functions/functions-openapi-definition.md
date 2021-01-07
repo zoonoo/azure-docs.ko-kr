@@ -6,10 +6,10 @@ ms.date: 04/21/2020
 ms.reviewer: sunayv
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47, references_regions
 ms.openlocfilehash: 9083ff7d8f65c68ce8d173973a4eda650ac355aa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212917"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
@@ -49,12 +49,12 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
 1. **[권한 부여 수준](functions-bindings-http-webhook-trigger.md#http-auth)** 드롭다운 목록에서 **함수**를 선택한 다음, **함수 만들기**를 선택합니다.
 
-    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기":::
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
 
 1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
 
     ```csharp
-    #r "Newtonsoft.Json"
+    #r &quot;Newtonsoft.Json"
     
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
@@ -115,7 +115,12 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
     }
     ```
 
-    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Azure Portal에서 함수 테스트":::
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
+
+1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
+
+    ```csharp
+    #r &quot;Newtonsoft.Json":::
 
     **출력** 탭에 다음과 같은 출력이 반환됩니다.
 
@@ -131,7 +136,12 @@ OpenAPI 정의를 생성하려면 다음을 수행합니다.
 
 1. 함수 앱을 선택하고, 왼쪽 메뉴에서 **API Management**를 선택한 다음, **API Management**에서 **새로 만들기**를 선택합니다.
 
-    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="API Management 선택":::
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
+
+1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
+
+    ```csharp
+    #r &quot;Newtonsoft.Json":::
 
 
 1. 다음 표에 지정된 것처럼 API Management 설정을 사용합니다.
@@ -158,7 +168,12 @@ OpenAPI 정의를 생성하려면 다음을 수행합니다.
 
 1. **함수 앱에서 만들기** 페이지에서 기본값을 수락한 다음, **만들기**를 선택합니다.
 
-    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="함수 앱에서 만들기":::
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
+
+1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
+
+    ```csharp
+    #r &quot;Newtonsoft.Json":::
 
     Azure는 함수에 대한 API를 만듭니다.
 
@@ -179,7 +194,12 @@ OpenAPI 정의를 사용하기 전에 API가 작동하는지 확인해야 합니
 
 1. **보내기**를 선택한 다음, **HTTP 응답**을 봅니다.
 
-    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="테스트 함수 API":::
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
+
+1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
+
+    ```csharp
+    #r &quot;Newtonsoft.Json":::
 
 ## <a name="download-the-openapi-definition"></a>OpenAPI 정의 다운로드
 

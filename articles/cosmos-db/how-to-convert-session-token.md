@@ -3,18 +3,20 @@ title: .NET SDK에서 세션 토큰 형식을 변환 하는 방법-Azure Cosmos 
 description: 서로 다른 .NET SDK 버전 간에 호환성 되도록 세션 토큰 형식을 변환 하는 방법에 대해 알아봅니다.
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 787c39681d0e9aff25d205c7b195be00b8c0bc9c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7ed06eeb7330989b4a251dc77e516eb8ac578bff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020017"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342048"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>.NET SDK에서 세션 토큰 형식 변환
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 이 문서에서는 서로 다른 세션 토큰 형식 간에 변환 하 여 SDK 버전 간의 호환성을 유지 하는 방법을 설명 합니다.
 
@@ -26,7 +28,7 @@ ms.locfileid: "89020017"
 
 ## <a name="session-token-formats"></a>세션 토큰 형식
 
-세션 토큰 형식에는 **단순** 및 **벡터**의 두 가지가 있습니다.  이러한 두 가지 형식은 서로 바꿔 사용할 수 없으므로 다른 버전의 클라이언트 응용 프로그램으로 전달할 때 형식을 변환 해야 합니다.
+세션 토큰 형식에는 **단순** 및 **벡터** 의 두 가지가 있습니다.  이러한 두 가지 형식은 서로 바꿔 사용할 수 없으므로 다른 버전의 클라이언트 응용 프로그램으로 전달할 때 형식을 변환 해야 합니다.
 - **단순** 세션 토큰 형식은 .Net SDK V1 (Microsoft.Azure.DocumentDB-버전 1.x)에서 사용 됩니다.
 - **벡터** 세션 토큰 형식은 .Net SDK V2 (Microsoft.Azure.DocumentDB-버전 2.x)에서 사용 됩니다.
 
@@ -111,6 +113,6 @@ else
 다음 문서를 읽어보세요.
 
 * [Azure Cosmos DB에서 세션 토큰을 사용하여 일관성 관리](how-to-manage-consistency.md#utilize-session-tokens)
-* [Azure Cosmos DB에서 올바른 일관성 수준 선택](consistency-levels-choosing.md)
-* [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
+* [Azure Cosmos DB에서 올바른 일관성 수준 선택](./consistency-levels.md)
+* [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](./consistency-levels.md)
+* [다양한 일관성 수준의 가용성 및 성능 절충](./consistency-levels.md)

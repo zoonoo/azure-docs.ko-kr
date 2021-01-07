@@ -1,7 +1,7 @@
 ---
-title: 자동화된 ML(AutoML)이란?
+title: 자동화 된 ML 이란? AutoML
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 모델에 가장 적합한 알고리즘을 선택하기 위해 제공하는 매개 변수 및 조건에 따라 자동으로 알고리즘을 선택하고, 모델을 생성하여 시간을 절약하는 방법을 알아봅니다.
+description: 사용자가 제공한 매개 변수 및 조건을 사용 하 여 모델을 자동으로 생성 Azure Machine Learning는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 04/22/2020
-ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/27/2020
+ms.custom: automl
+ms.openlocfilehash: 2d759a8ed58d5b323f9894a5127c222ce1f75c52
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886387"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97345979"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
-자동화된 Machine Learning(자동화된 ML 또는 AutoML이라고도 함)은 시간 소모적이고 반복적인 기계 학습 모델 개발 작업을 자동화하는 프로세스입니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. 자동화된 ML은 [Microsoft Research 부문](https://www.microsoft.com/research/project/automl/)의 혁신을 기반으로 합니다.
+자동화된 Machine Learning(자동화된 ML 또는 AutoML이라고도 함)은 시간 소모적이고 반복적인 기계 학습 모델 개발 작업을 자동화하는 프로세스입니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. Azure Machine Learning의 자동화 된 ML은 [Microsoft Research 부서의](https://www.microsoft.com/research/project/automl/)혁신을 기반으로 합니다.
 
 기존의 기계 학습 모델 개발은 리소스를 많이 사용하므로 수십 개의 모델을 생성하고 비교하는 데 상당한 도메인 지식과 시간이 필요합니다. 자동화된 Machine Learning을 사용하면 프로덕션 준비 ML 모델을 매우 쉽고 효율적으로 얻는 데 걸리는 시간을 단축할 수 있습니다.
 
@@ -39,7 +40,7 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 분류 모델의 주요 목표는 학습 데이터로부터의 학습을 기반으로 하여 새 데이터가 분류될 범주를 예측하는 것입니다. 일반적인 분류 예로 사기 탐지, 필기 인식 및 개체 검색이 있습니다. [자동화 된 ML을 사용 하 여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)에 대 한 자세한 내용 및 예제를 참조 하세요.
 
-분류 및 자동화된 Machine Learning의 예제는 [사기 탐지](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [뉴스 그룹 데이터 분류](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) Python Notebook을 참조하세요.
+분류 및 자동화된 Machine Learning의 예제는 [사기 탐지](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [뉴스 그룹 데이터 분류](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b) Python Notebook을 참조하세요.
 
 ### <a name="regression"></a>회귀
 
@@ -66,11 +67,11 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 예측에 대한 회귀 및 자동화된 Machine Learning의 예제는 [판매 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [수요 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) 및 [음료 생산 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) Python Notebook을 참조하세요.
 
-## <a name="how-automl-works"></a>AutoML 작동 방법
+## <a name="how-automated-ml-works"></a>자동화된 ML 작동 방법
 
 Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수를 시도하는 많은 파이프라인을 동시에 만듭니다. 이 서비스는 기능 선택 항목과 쌍을 이루는 ML 알고리즘을 반복하며, 각 반복에서 학습 점수가 있는 모델이 생성됩니다. 점수가 높을수록 모델이 데이터에 더 "적합"하다고 간주됩니다.  실험에 정의된 종료 조건에 도달하면 중지됩니다. 
 
-**Azure Machine Learning**을 사용하면 다음 단계를 사용하여 자동화된 ML 학습 실험을 설계하고 실행할 수 있습니다.
+**Azure Machine Learning** 을 사용하면 다음 단계를 사용하여 자동화된 ML 학습 실험을 설계하고 실행할 수 있습니다.
 
 1. 해결할 **ML 문제 식별**: 분류, 예측 또는 회귀
 
@@ -132,7 +133,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 다음을 사용하여 이 설정을 사용하도록 설정합니다.
 
-+ Azure Machine Learning Studio: [이러한 단계](how-to-use-automated-ml-for-ml-models.md#customize-featurization)를 사용하여 **추가 구성 보기** 섹션에서 **자동 기능화**를 사용하도록 설정합니다.
++ Azure Machine Learning Studio: [이러한 단계](how-to-use-automated-ml-for-ml-models.md#customize-featurization)를 사용하여 **추가 구성 보기** 섹션에서 **자동 기능화** 를 사용하도록 설정합니다.
 
 + Python SDK: `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에를 지정 합니다. [기능화 사용](how-to-configure-auto-features.md)에 대해 자세히 알아보세요. 
 
@@ -158,7 +159,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 컴퓨팅 대상을 선택하는 경우 고려해야 하는 요소는 다음과 같습니다.
 
  * **로컬 컴퓨팅 선택**: 작은 데이터와 짧은 학습을 사용하는 초기 검색 또는 데모(예: 자식 실행당 몇 초 또는 몇 분)에 대한 시나리오인 경우 로컬 컴퓨터에 대한 학습이 더 적합할 수 있습니다.  설치 시간이 없으며, 인프라 리소스(PC 또는 VM)를 직접 사용할 수 있습니다.
- * **원격 ML 컴퓨팅 클러스터 선택**: 프로덕션 학습에서와 같이 더 큰 데이터 세트를 사용하여 더 긴 학습이 필요한 모델을 만드는 경우 `AutoML`에서 클러스터의 노드 간에 학습을 병렬화하므로 원격 컴퓨팅이 훨씬 더 효율적인 엔드투엔드 시간 성능을 제공합니다. 원격 컴퓨팅의 경우 내부 인프라의 시작 시간에는 자식 실행당 약 1.5분 및 VM이 아직 시작 및 실행되지 않은 경우 클러스터 인프라의 추가 시간(분)이 추가됩니다.
+ * **원격 ML 계산 클러스터 선택**: 더 많은 교육이 필요한 모델을 만드는 프로덕션 학습에서와 같이 더 큰 데이터 집합을 사용 하 여 학습 하는 경우, 원격 계산은 `AutoML` 클러스터의 노드에 대해 학습을 병렬화 하기 때문에 훨씬 더 나은 종단 간 시간 성능을 제공 합니다. 원격 계산에서 내부 인프라의 시작 시간은 자식 실행 당 1.5 분에 추가 되 고, Vm이 아직 실행 되지 않은 경우 클러스터 인프라의 추가 분이 추가 됩니다.
 
 ### <a name="pros-and-cons"></a>장단점
 로컬 및 원격을 사용하도록 선택하는 경우 다음과 같은 장단점을 고려합니다.
@@ -166,7 +167,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 |  | 장점  |단점  |
 |---------|---------|---------|---------|
 |**로컬 컴퓨팅 대상** |  <li> 환경 시작 시간 없음   | <li>  기능의 하위 세트<li>  실행을 병렬화할 수 없음 <li> 큰 데이터의 경우 더 심각함 <li>학습 중 데이터 스트리밍 없음 <li>  DNN 기반 기능화 없음 <li> Python SDK만 해당 |
-|**원격 ML 컴퓨팅 클러스터**|  <li> 전체 기능 세트 <li> 자식 실행 병렬화 <li>   큰 데이터 지원<li>  DNN 기반 기능화 <li>  주문형 컴퓨팅 클러스터의 동적 확장성 <li> 코드리스 환경(웹 UI)도 사용할 수 있음  |  <li> 클러스터 노드 시작 시간 <li> 각 자식 실행 시작 시간    |
+|**원격 ML 컴퓨팅 클러스터**|  <li> 전체 기능 세트 <li> 자식 실행 병렬화 <li>   큰 데이터 지원<li>  DNN 기반 기능화 <li>  주문형 컴퓨팅 클러스터의 동적 확장성 <li> 코드리스 환경(웹 UI)도 사용할 수 있음  |  <li> 클러스터 노드의 시작 시간 <li> 각 자식 실행에 대 한 시작 시간    |
 
 ### <a name="feature-availability"></a>기능 가용성 
 
@@ -194,7 +195,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며, 자동화된 ML을 사용하여 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 
-예를 들어 다음 시나리오에서 __각 인스턴스 또는 개인__에 대한 모델을 빌드하면 결과가 향상될 수 있습니다.
+예를 들어 다음 시나리오에서 __각 인스턴스 또는 개인__ 에 대한 모델을 빌드하면 결과가 향상될 수 있습니다.
 
 * 개별 스토어별 매출 예측
 * 수백 개의 유정에 대한 예측 유지 관리
@@ -204,7 +205,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 Azure Machine Learning는 자동화 된 ML 작업을 위한 두 가지 환경을 제공 합니다.
 
-* 코드 환경 고객의 경우 [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
+* 코드 환경 고객의 경우 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
 
 * 제한된 코드 환경 또는 코드리스 환경 고객의 경우 [https://ml.azure.com](https://ml.azure.com/)의 Azure Machine Learning Studio  
 
@@ -219,7 +220,7 @@ Azure Machine Learning는 자동화 된 ML 작업을 위한 두 가지 환경을
 |**학습/유효성 검사 세트로 데이터 분할**| ✓|✓
 |**ML 작업 지원: 분류, 회귀 및 예측**| ✓| ✓
 |**기본 메트릭 기반 최적화**| ✓| ✓
-|**AML 컴퓨팅을 컴퓨팅 대상으로 지원** | ✓|✓
+|**계산 대상으로 Azure ML 계산 지원** | ✓|✓
 |**예측 범위 구성, 대상 지연 & 롤링 창**|✓|✓
 |**종료 조건 설정** |✓|✓ 
 |**동시 반복 설정**| ✓|✓
@@ -263,7 +264,7 @@ Azure Machine Learning을 사용하면 자동화된 ML을 사용하여 Python �
 
 [이 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)에서 ONNX 형식으로 변환하는 방법을 참조하세요. [ONNX에서 지원되는 알고리즘](how-to-configure-auto-train.md#select-your-experiment-type)에 대해 알아보세요.
 
-또한 ONNX 런타임은 C#을 지원하므로 REST 엔드포인트에서 도입하는 네트워크 대기 시간 또는 다시 코딩 없이도 C# 앱에서 자동으로 빌드되는 모델을 사용할 수 있습니다. [ONNX 런타임 C# API를 사용하여 ONNX 모델 추론](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)에 대해 자세히 알아보세요. 
+또한 ONNX 런타임은 C#을 지원하므로 REST 엔드포인트에서 도입하는 네트워크 대기 시간 또는 다시 코딩 없이도 C# 앱에서 자동으로 빌드되는 모델을 사용할 수 있습니다. [Onnx RUNTIME c # API를 사용 하 여 ML.NET 및 추론 ONNX 모델](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)을 [통해 .net 응용 프로그램에서 AUTOML onnx 모델을 사용 하](./how-to-use-automl-onnx-model-dotnet.md) 는 방법에 대해 자세히 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -289,8 +290,7 @@ AutoML을 사용 하 여 시작 및 실행 하기 위한 여러 리소스가 있
 
 ### <a name="python-sdk-reference"></a>Python SDK 참조
 
-[Automl 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)를 사용 하 여 SDK 디자인 패턴 및 클래스 사양의 전문 지식을 활용. 
+[Automl 클래스 참조 설명서](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py)를 사용 하 여 SDK 디자인 패턴 및 클래스 사양의 전문 지식을 활용. 
 
 > [!Note]
-> 자동화 된 기계 학습 기능을 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) 및 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/) 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.
-
+> 자동화 된 기계 학습 기능을 [ML.NET](/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](/power-bi/service-machine-learning-automated) 및 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/) 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.

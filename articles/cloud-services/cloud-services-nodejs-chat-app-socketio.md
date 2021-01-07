@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f3c19e77739ac8dbc503e51408b9b7830a8b5aa5
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: devx-track-js
+ms.openlocfilehash: ef7325b53f7d6450acdff4664f3e338c31be9612
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142471"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077221"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
@@ -29,7 +29,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
 * [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
-* [Node.js](https://nodejs.org/download/) 설치
+* [Node.js](https://nodejs.org/download/)
 * [Python 버전 2.7.10](https://www.python.org/)
 
 ## <a name="create-a-cloud-service-project"></a>클라우드 서비스 프로젝트 만들기
@@ -139,7 +139,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
     PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
     ```
 
-5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예:
+5. Azure에 애플리케이션을 배포하려면 **Publish-AzureServiceProject** cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
 
     ```powershell
     PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
@@ -169,9 +169,9 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 애플리케이션을 만드는 방법을 학습했습니다. 이 애플리케이션을 Azure 웹 사이트에 호스트하는 방법을 학습하려면 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드][chatwebsite]를 참조하세요.
 
-자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/azure/developer/javascript/)도 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](/azure/developer/javascript/)도 참조하세요.
 
-[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
+[chatwebsite]: ./cloud-services-nodejs-develop-deploy-app.md
 
 [Azure SLA]: https://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -191,8 +191,3 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
-
-
-
-
-

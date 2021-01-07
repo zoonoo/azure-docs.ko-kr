@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997765"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024758"
 ---
 # <a name="voice-assistants-on-windows"></a>Windows의 음성 도우미
 
@@ -37,17 +37,17 @@ AAR (에이전트 활성화 런타임)는 음성 키워드나 단추 누름에�
 
 ### <a name="registration"></a>등록
 
-음성 활성화 된 응용 프로그램이 처음으로 실행 될 때 ConversationalAgent Api를 통해 해당 앱 ID 및 키워드 정보를 등록 합니다. AAR는 응용 프로그램의 키워드를 검색할 수 있도록 시스템의 하드웨어 또는 소프트웨어 키워드인 관찰자를 사용 하 여 전역 매핑의 모든 구성을 등록 합니다. 응용 프로그램은 [백그라운드 서비스](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task)에도 등록 됩니다.
+음성 활성화 된 응용 프로그램이 처음으로 실행 될 때 ConversationalAgent Api를 통해 해당 앱 ID 및 키워드 정보를 등록 합니다. AAR는 응용 프로그램의 키워드를 검색할 수 있도록 시스템의 하드웨어 또는 소프트웨어 키워드인 관찰자를 사용 하 여 전역 매핑의 모든 구성을 등록 합니다. 응용 프로그램은 [백그라운드 서비스](/windows/uwp/launch-resume/register-a-background-task)에도 등록 됩니다.
 
 즉, 응용 프로그램을 한 번 실행 하 여 등록을 완료할 수 있을 때까지 음성으로 활성화할 수 없습니다.
 
 ### <a name="receiving-an-activation"></a>활성화 받기
 
-AAR에서 요청을 받으면 백그라운드 서비스가 응용 프로그램을 시작 합니다. 응용 프로그램은 고유한 이벤트 인수를 사용 하 여의 `App.xaml.cs` OnBackgroundActivated 수명 주기 메서드를 통해 신호를 받습니다. 이 인수는 응용 프로그램이 AAR에 의해 활성화 되었으며 키워드 확인을 시작 하도록 응용 프로그램에 지시 합니다.
+AAR에서 요청을 받으면 백그라운드 서비스가 응용 프로그램을 시작 합니다. 응용 프로그램은 `App.xaml.cs` 고유한 이벤트 인수를 사용 하 여의 OnBackgroundActivated 수명 주기 메서드를 통해 신호를 받습니다. 이 인수는 응용 프로그램이 AAR에 의해 활성화 되었으며 키워드 확인을 시작 하도록 응용 프로그램에 지시 합니다.
 
 응용 프로그램에서 키워드를 성공적으로 확인 하는 경우 요청을 포그라운드에서 표시 하도록 할 수 있습니다. 이 요청이 성공 하면 응용 프로그램은 UI를 표시 하 고 사용자와의 상호 작용을 계속 합니다.
 
-AAR는 키워드를 말한 경우에도 활성 응용 프로그램에 신호를 보냅니다. 그러나에서 `App.xaml.cs`수명 주기 메서드를 통해 신호를 전달 하는 대신 ConversationalAgent api의 이벤트를 통해 신호를 보냅니다.
+AAR는 키워드를 말한 경우에도 활성 응용 프로그램에 신호를 보냅니다. 그러나에서 수명 주기 메서드를 통해 신호를 전달 하는 대신 `App.xaml.cs` ConversationalAgent api의 이벤트를 통해 신호를 보냅니다.
 
 ### <a name="keyword-verification"></a>키워드 확인
 
@@ -57,4 +57,4 @@ AAR는 키워드를 말한 경우에도 활성 응용 프로그램에 신호를 
 
 - **디자인 지침을 검토 합니다.** Microsoft의 [디자인 지침은](windows-voice-assistants-best-practices.md) Windows 10에서 음성 정품 인증에 대 한 최상의 환경을 제공 하는 데 필요한 주요 작업을 레이아웃 합니다.
 - **시작 페이지를 방문 하세요.** 구현 소개 가이드를 통해 개발 환경 설정에서 Windows에서 음성 도우미를 구현 하기 시작 하는 단계 [를 시작 합니다](how-to-windows-voice-assistants-get-started.md) .
-- **샘플 앱**체험: 이러한 기능을 어떠한 체험 [UWP Voice Assistant 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) 페이지를 방문 하 여 샘플 클라이언트를 실행 하는 단계를 따르세요.
+- **샘플 앱** 체험: 이러한 기능을 어떠한 체험 [UWP Voice Assistant 샘플](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) 페이지를 방문 하 여 샘플 클라이언트를 실행 하는 단계를 따르세요.

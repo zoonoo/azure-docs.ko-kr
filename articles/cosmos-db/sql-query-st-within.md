@@ -3,19 +3,22 @@ title: Azure Cosmos DB 쿼리 언어의 ST_WITHIN
 description: Azure Cosmos DB의 SQL 시스템 함수 ST_WITHIN에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 07a339d82f5e4bea1ea0412a5d5b19522611b54a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e808f6f56041e6cdc577164140910af8d6c42731
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78296119"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004401"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
- 첫 번째 인수에 지정된 GeoJSON 개체(Point, Polygon 또는 LineString)가 두 번째 인수의 GeoJSON(Point, Polygon 또는 LineString) 내에 있는지 여부를 나타내는 부울 식을 반환합니다.  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+ 첫 번째 인수에 지정 된 GeoJSON 개체 (Point, Polygon, MultiPolygon 또는 LineString)가 두 번째 인수의 GeoJSON (Point, Polygon, MultiPolygon 또는 LineString) 내에 있는지 여부를 나타내는 부울 식을 반환 합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -32,7 +35,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
   부울 값을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는를 사용 하 여 다각형 내에서 모든 패밀리 문서를 찾는 방법을 보여 줍니다 `ST_WITHIN` .  
   

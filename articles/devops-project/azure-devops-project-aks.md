@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233332"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855455"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Azure Kubernetes Service에 ASP.NET Core 앱 배포
 
@@ -24,7 +24,7 @@ DevOps Starter는 다음 작업도 수행합니다.
 * AKS(Azure Kubernetes Service)와 같은 Azure 리소스를 자동으로 만듭니다.
 * Azure DevOps에서 CI/CD용 빌드 및 릴리스 파이프라인을 설정하는 릴리스 파이프라인을 만들고 구성합니다.
 * 모니터링을 위해 Azure Application Insights 리소스를 만듭니다.
-* [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)에서 AKS 클러스터의 컨테이너 워크로드에 대한 성능을 모니터링할 수 있도록 설정합니다.
+* [컨테이너용 Azure Monitor](../azure-monitor/insights/container-insights-overview.md)에서 AKS 클러스터의 컨테이너 워크로드에 대한 성능을 모니터링할 수 있도록 설정합니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -171,4 +171,4 @@ DevOps Starter는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 필
 Kubernetes 대시보드 사용에 대해 자세히 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Kubernetes 대시보드 사용](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)
+> [Kubernetes 대시보드 사용](../aks/kubernetes-dashboard.md)

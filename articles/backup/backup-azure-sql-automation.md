@@ -4,12 +4,12 @@ description: Azure Backup 및 PowerShell을 사용 하 여 Azure Vm에서 SQL �
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 37e2336b262311ea00e833ad91fe5e8c5c1ddf1e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0a3467ffa3a67ac9ad593748948cea8da59e3e6b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975191"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734541"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -56,10 +56,10 @@ PowerShell을 다음과 같이 설정 합니다.
 
     ![Recovery Services cmdlet 목록](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. **AzAccount**를 사용 하 여 Azure 계정에 로그인 합니다.
+4. **AzAccount** 를 사용 하 여 Azure 계정에 로그인 합니다.
 5. 표시 되는 웹 페이지에 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다.
 
-    * 또는 **자격**증명을 사용 하 여 **AzAccount** cmdlet에 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
+    * 또는 **자격** 증명을 사용 하 여 **AzAccount** cmdlet에 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
     * 테 넌 트에 대해 작동 하는 CSP 파트너 인 경우 해당 tenantID 또는 테 넌 트 주 도메인 이름을 사용 하 여 고객을 테 넌 트로 지정 합니다. 예: **Connect-AzAccount -Tenant** fabrikam.com.
 
 6. 계정에 여러 구독이 있을 수 있으므로 사용 하려는 구독을 계정과 연결 합니다.
@@ -80,7 +80,7 @@ PowerShell을 다음과 같이 설정 합니다.
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. 명령 출력에서 **Registrationstate** 가 **등록**됨으로 변경 되었는지 확인 합니다. 그렇지 않은 경우 **AzResourceProvider** cmdlet을 다시 실행 합니다.
+9. 명령 출력에서 **Registrationstate** 가 **등록** 됨으로 변경 되었는지 확인 합니다. 그렇지 않은 경우 **AzResourceProvider** cmdlet을 다시 실행 합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -103,7 +103,7 @@ Recovery Services 자격 증명 모음은 Resource Manager 리소스이므로 �
 3. 자격 증명 모음 저장소에 사용할 중복성 유형을 지정 합니다.
 
     * [로컬 중복 저장소](../storage/common/storage-redundancy.md#locally-redundant-storage), [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 저장소 또는 [영역 중복 저장소](../storage/common/storage-redundancy.md#zone-redundant-storage) 를 사용할 수 있습니다.
-    * 다음 예에서는 **GeoRedundant**로 설정 된 **testvault 된** 에 대 한 **BackupStorageRedundancy** 옵션을[AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd로 설정 합니다.
+    * 다음 예에서는 **GeoRedundant** 로 설정 된 **testvault 된** 에 대 한 **BackupStorageRedundancy** 옵션을 [AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd로 설정 합니다.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -137,7 +137,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 * 많은 Azure Backup cmdlet에는 입력으로 Recovery Services 자격 증명 모음 개체가 필요 하므로 자격 증명 모음 개체를 변수에 저장 하는 것이 편리 합니다.
 * 자격 증명 모음 컨텍스트는 자격 증명 모음에서 보호되는 데이터의 형식입니다. [AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)를 사용 하 여 설정 합니다. 컨텍스트를 설정한 후에는 모든 후속 cmdlet에 적용 됩니다.
 
-다음 예제에서는 **testvault**에 대한 자격 증명 모음 컨텍스트를 설정합니다.
+다음 예제에서는 **testvault** 에 대한 자격 증명 모음 컨텍스트를 설정합니다.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
@@ -268,7 +268,7 @@ Start-autoprotection 의도가 제공 되 면 새로 추가 된 Db를 가져오�
 * 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 * 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-SQL Db를 복원 하기 전에 [여기](restore-sql-database-azure-vm.md#prerequisites) 에 언급 된 전제 조건을 확인 하세요.
+SQL Db를 복원 하기 전에 [여기](restore-sql-database-azure-vm.md#restore-prerequisites) 에 언급 된 전제 조건을 확인 하세요.
 
 먼저 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet을 사용 하 여 관련 백업 된 SQL DB를 인출 합니다.
 
@@ -310,7 +310,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 DB를 특정 시점으로 복원 하려면 [AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) PowerShell cmdlet을 사용 합니다. Cmdlet은 해당 SQL 백업 항목에 대해 끊어지지 않은 연속 로그 체인의 시작 및 종료 시간을 나타내는 날짜 목록을 반환 합니다. 원하는 지정 시간은이 범위 내에 있어야 합니다.
 
 ```powershell
-Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -VaultId $targetVault.ID
 ```
 
 출력은 다음 예제와 유사 합니다.
@@ -499,7 +499,7 @@ MSSQLSERVER/m... Backup               InProgress           3/18/2019 8:41:27 PM 
 
 ### <a name="change-policy-for-backup-items"></a>백업 항목에 대 한 정책 변경
 
-백업 된 항목의 정책을 *Policy1* 에서 *Policy2*로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 명령을 매개 변수로 사용 합니다.
+백업 된 항목의 정책을 *Policy1* 에서 *Policy2* 로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 명령을 매개 변수로 사용 합니다.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>

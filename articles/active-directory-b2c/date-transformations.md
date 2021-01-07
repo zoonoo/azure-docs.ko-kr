@@ -11,10 +11,10 @@ ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202554"
 ---
 # <a name="date-claims-transformations"></a>날짜 클레임 변환
@@ -29,8 +29,8 @@ ms.locfileid: "85202554"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | string | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 나중에 나와야 합니다. |
-| InputClaim | rightOperand | string | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 먼저 나와야 합니다. |
+| InputClaim | leftOperand | 문자열 | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 나중에 나와야 합니다. |
+| InputClaim | rightOperand | 문자열 | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 먼저 나와야 합니다. |
 | InputParameter | AssertIfEqualTo | boolean | 왼쪽 피연산자가 오른쪽 피연산자와 같으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | 오른쪽 피연산자가 없으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | 두 날짜 /시간 사이의 시간을 동일하게 간주하도록 허용할 시간(밀리초)을 지정합니다(예: 클럭 스큐). |

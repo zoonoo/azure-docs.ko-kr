@@ -17,17 +17,17 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1115c08214db19227b4b8d7be671ce4da1cf2b1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87798600"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 액세스 검토
 
 Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoint 사이트에 대 한 액세스를 관리 하는 방법을 간소화 합니다. 이 문서에서는 지정 된 검토자로 액세스 패키지에 할당 된 다른 사용자에 대 한 액세스 검토를 수행 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 사용자의 활성 액세스 패키지 할당을 검토 하려면 액세스 검토를 수행 하기 위한 필수 구성 요소를 충족 해야 합니다.
 - Azure AD Premium P2

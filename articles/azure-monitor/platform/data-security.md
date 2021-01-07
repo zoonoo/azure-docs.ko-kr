@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2019
-ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 11/11/2020
+ms.openlocfilehash: 87cdecd29d684c712853970c8246002132d274ac
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319799"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094338"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](https://www.microsoft.com/en-us/trust-center?rtc=1)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -26,6 +26,12 @@ Log Analytics 서비스는 다음 방법을 사용하여 클라우드 기반 데
 * 인시던트 관리
 * 규정 준수
 * 보안 표준 인증
+
+Azure Monitor 및 Log Analytics에 기본 제공 되는 추가 보안 기능을 사용할 수도 있습니다. 이러한 기능에는 더 많은 관리자 관리가 필요 합니다. 
+* 고객 관리 (보안) 키
+* Azure 개인 저장소
+* Private Link 네트워킹 
+* Azure Lockbox에서 설정 하는 azure 지원 액세스 제한
 
 보안 정책을 포함하여 다음 정보와 관련된 질문, 제안 사항 또는 문제가 있을 경우 [Azure 지원 옵션](https://azure.microsoft.com/support/options/)에서 문의하세요.
 
@@ -43,7 +49,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 | --- | --- | --- |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
 | Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
-| Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
+| Windows Server 2012 - 2016 | 지원되며 기본적으로 사용하도록 설정됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 
 ## <a name="data-segregation"></a>데이터 분리
@@ -73,7 +79,7 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 | 이벤트 |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**참고:** 사용자 지정 필드가 있는 이벤트를 Windows 이벤트 로그에 기록하면 Log Analytics에서 해당 이벤트를 수집합니다. |
 | 메타데이터 |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | 성능 |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| 시스템 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>물리적 보안
 Log Analytics 서비스는 Microsoft 담당자가 관리하며 모든 활동을 기록하여 감사할 수 있습니다. Log Analytics는 Azure 서비스로 작동하며 모든 Azure 준수 및 보안 요구 사항을 충족합니다. Azure 자산의 물리적 보안에 대한 자세한 내용은 [Microsoft Azure 보안 개요](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)의 18페이지에서 확인할 수 있습니다. 더 이상 Log Analytics 서비스에 대한 전송, 종료 등의 책임이 없는 사용자는 영업일 기준 1일 이내에 보안 영역에 대한 물리적 액세스 권한이 변경됩니다. [Microsoft 데이터 센터](https://azure.microsoft.com/global-infrastructure/)에서 사용하는 글로벌 물리적 인프라에 대해 읽을 수 있습니다.
@@ -121,13 +127,13 @@ Azure Log Analytics는 다음 요구 사항을 충족합니다.
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * PCI 보안 표준 Council에의 한 [지불 카드 업계 (Pci 규격) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) 입니다.
 * [SOC(Service Organization Controls) 1 Type 1 및 SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) 규정 준수
-* HIPAA BAA(Business Associate Agreement)를 소유하는 회사에 대한 [HIPAA 및 HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa)
+* HIPAA BAA(Business Associate Agreement)를 소유하는 회사에 대한 [HIPAA 및 HITECH](/compliance/regulatory/offering-hipaa-hitech)
 * Windows Common Engineering Criteria
 * Microsoft 신뢰할 수 있는 컴퓨팅
 * Log Analytics 구성 요소는 Azure 서비스로서 Azure 규정 준수 요구 사항을 준수합니다. 자세한 내용은 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)를 참조하세요.
 
 > [!NOTE]
-> 일부 인증/증명의 경우 Log Analytics가 *Operational Insights*의 이전 이름으로 나열됩니다.
+> 일부 인증/증명의 경우 Log Analytics가 *Operational Insights* 의 이전 이름으로 나열됩니다.
 >
 >
 
@@ -170,6 +176,15 @@ Log Analytics 서비스는 Azure 인증을 통해 인증서 및 데이터 무결
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics를 사용 하 여 데이터에 액세스 합니다.
 Log Analytics 작업 영역에 액세스하려면 이전에 설정한 Microsoft 계정 또는 조직 계정을 사용하여 Azure Portal에 로그인합니다. 포털과 Log Analytics 서비스 간의 모든 트래픽은 보안 HTTPS 채널을 통해 전송됩니다. 포털을 사용할 때는 사용자 클라이언트(웹 브라우저)에 세션 ID가 생성되며 세션이 종료될 때까지 데이터가 로컬 캐시에 저장됩니다. 세션이 종료되면 캐시가 삭제됩니다. 개인 식별이 가능한 정보가 포함되지 않는 클라이언트 측 쿠키는 자동으로 제거되지 않습니다. 세션 쿠키는 HTTPOnly로 표시되며 보안됩니다. 사전 지정한 유휴 기간이 지나면 Azure Portal 세션이 종료됩니다.
+
+
+## <a name="additional-security-features"></a>추가 보안 기능
+이러한 추가 보안 기능을 사용 하 여 Azure Monitor/Log Analytics 환경의 보안을 강화할 수 있습니다. 이러한 기능에는 더 많은 관리자 관리가 필요 합니다. 
+- [고객 관리 (보안) 키](customer-managed-keys.md) -고객이 관리 하는 키를 사용 하 여 Log Analytics 작업 영역으로 전송 되는 데이터를 암호화할 수 있습니다. Azure Key Vault를 사용 해야 합니다. 
+- [개인/고객이 관리 하는 저장소](private-storage.md) -개인적으로 암호화 된 저장소 계정을 관리 하 고 모니터링 데이터를 저장 하는 데 사용 하 Log Analytics에 게 알려 줍니다. 
+- [개인 링크 네트워킹](private-link-security.md) -Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 azure PaaS 서비스 (Azure Monitor 포함)를 가상 네트워크에 안전 하 게 연결할 수 있습니다. 
+- Microsoft Azure에 대 한 [Azure 고객 Lockbox](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview) -고객 Lockbox 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스해야 하는 경우에 사용됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure VM 빠른 시작](../learn/quick-collect-azurevm.md)에 따라 Azure VM용 Log Analytics를 사용하여 데이터를 수집하는 방법에 대해 알아봅니다.  

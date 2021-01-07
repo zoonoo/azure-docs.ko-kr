@@ -68,7 +68,7 @@
             - name: 기본 사항
               href: data-lake-analytics-u-sql-get-started.md
             - name: 언어 참조
-              href: 'https://msdn.microsoft.com/library/azure/mt591959'
+              href: 'https://docs.microsoft.com/u-sql'
             - name: 카탈로그
               href: data-lake-analytics-u-sql-catalog.md
             - name: 사용자 정의 연산자
@@ -79,8 +79,6 @@
               href: data-lake-analytics-u-sql-r-extensions.md
             - name: 인지 확장
               href: data-lake-analytics-u-sql-cognitive.md
-            - name: 프로그램 기능 가이드
-              href: data-lake-analytics-u-sql-programmability-guide.md
         - name: Visual Studio
           items:
             - name: 설치
@@ -113,8 +111,32 @@
               href: data-lake-analytics-data-lake-tools-for-vscode.md
             - name: 사용자 지정 코드
               href: data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md
+            - name: 리소스 액세스
+              href: data-lake-analytics-data-lake-tools-for-vscode-access-resource.md
             - name: 로컬 실행 및 디버그
               href: data-lake-tools-for-vscode-local-run-and-debug.md
+        - name: 프로그램 기능 가이드
+          items:
+            - name: 프로그램 기능 가이드 개요
+              href: data-lake-analytics-u-sql-programmability-guide.md
+            - name: 프로그램 기능 가이드 - UDT 및 UDAGG
+              href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
+            - name: 프로그램 기능 가이드 - UDO
+              items:
+                - name: 사용자 정의 개체 개요
+                  href: data-lake-analytics-u-sql-programmability-guide-UDO.md
+                - name: 사용자 정의 추출기 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-extractor.md
+                - name: 사용자 정의 출력자 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-outputter.md
+                - name: 사용자 정의 처리기 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-processor.md
+                - name: 사용자 정의 적용자 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-applier.md
+                - name: 사용자 정의 결합자 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-combiner.md
+                - name: 사용자 정의 리듀서 사용
+                  href: data-lake-analytics-u-sql-programmability-guide-reducer.md
     - name: U-SQL 작업 예약
       items:
         - name: SSIS를 사용하여 작업 예약
@@ -139,7 +161,7 @@
           href: understand-spark-code-concepts.md
     - name: U-SQL 작업 문제 해결
       items:
-        - name: U-SQL 런타임 오류 문제 해결
+        - name: U-SQL 런타임 오류 및 알려진 문제 해결
           href: runtime-troubleshoot.md
         - name: .NET 업그레이드 문제 해결
           href: dotnet-upgrade-troubleshoot.md
@@ -152,26 +174,26 @@
     - name: Node.js
       href: 'https://www.npmjs.com/package/azure-arm-datalake-analytics'
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python'
-    - name: REST (영문)
+      href: /python/api/overview/azure/data-lake-analytics
+    - name: REST
       href: /rest/api/datalakeanalytics/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.datalakeanalytics/allversions
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/dla'
+      href: /cli/azure/dla
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Azure Data Lake 블로그
-      href: 'https://blogs.msdn.microsoft.com/azuredatalake/'
+      href: /archive/blogs/azuredatalake/
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 변경 내용 요청
       href: 'https://feedback.azure.com/forums/327234-data-lake'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-lake-analytics.html'
+      href: /answers/topics/azure-data-lake-analytics.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-lake-analytics/'
     - name: 요금 계산기

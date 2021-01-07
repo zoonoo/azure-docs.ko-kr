@@ -3,18 +3,20 @@ title: Blitzz를 사용 하 여 Oracle에서 Azure Cosmos DB Cassandra API로 �
 description: Blitzz를 사용 하 여 Oracle 데이터베이스에서 Azure Cosmos DB Cassandra API로 데이터를 마이그레이션하는 방법에 대해 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15bcd0c54fc5f6614f4d1925759704309048acae
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262466"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336444"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Blitzz를 사용 하 여 Oracle에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB Cassandra API는 다음과 같은 다양 한 이유로 Oracle에서 실행 되는 엔터프라이즈 워크 로드에 적합 한 선택이 됩니다.
 
@@ -100,7 +102,7 @@ Blitzz의 마이그레이션 솔루션은 복잡 한 운영 워크 로드를 마
 
    마이그레이션이 완료 된 후 처리량을 줄여야 합니다. 각 작업에 대해 저장 된 데이터와 RUs의 양에 따라 데이터 마이그레이션 후 필요한 처리량을 예상할 수 있습니다. 필요한 RUs를 추정 하는 방법에 대 한 자세한 내용은 [컨테이너 및 데이터베이스에 대 한 처리량 프로 비전](set-throughput.md) 및 [Azure Cosmos DB capacity planner 문서를 사용 하 여 r u/초 예측](estimate-ru-with-capacity-planner.md) 을 참조 하세요.
 
-1. **연결 문자열** 창에서 Azure Cosmos 계정의 연결 **지점, 포트, 사용자 이름**및 **기본 암호** 를 가져옵니다. 구성 파일에서 이러한 값을 사용 합니다.
+1. **연결 문자열** 창에서 Azure Cosmos 계정의 연결 **지점, 포트, 사용자 이름** 및 **기본 암호** 를 가져옵니다. 구성 파일에서 이러한 값을 사용 합니다.
 
 1. CLI 터미널에서 대상 데이터베이스 구성을 설정 합니다. 명령을 사용 하 여 구성 파일을 열고 **`vi conf/conn/cosmosdb.yml`** 호스트 URI, 포트 번호, 사용자 이름, 암호 및 기타 필수 매개 변수의 쉼표로 구분 된 목록을 추가 합니다. 다음은 구성 파일의 내용에 대 한 예입니다.
 

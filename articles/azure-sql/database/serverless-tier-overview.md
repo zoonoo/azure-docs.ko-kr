@@ -4,24 +4,24 @@ description: 이 문서에서는 서버를 사용 하지 않는 새 계산 계�
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 12/8/2020
+ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565092"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97687394"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-서버를 사용 하지 않는 Azure SQL Database의 단일 데이터베이스에 대 한 계산 계층으로, 워크 로드 요구 사항에 따라 자동으로 계산을 확장 하 고 초당 사용 된 계산 양에 대 한 요금을 청구 합니다. 서버를 사용 하지 않는 계산 계층은 저장소가 청구 될 때 비활성 기간 동안 데이터베이스를 자동으로 일시 중지 하 고 작업이 반환 될 때 데이터베이스를 자동으로 다시 시작 합니다.
+서버를 사용 하지 않는 Azure SQL Database의 단일 데이터베이스에 대 한 계산 계층으로, 워크 로드 요구 사항에 따라 자동으로 계산을 확장 하 고 초당 사용 된 계산 양에 대 한 요금을 청구 합니다. 또한 서버리스 컴퓨팅 계층은 스토리지 비용만 청구될 때 비활성 기간 동안 데이터베이스를 자동으로 일시 중지하고 활동이 반환되면 데이터베이스를 자동으로 다시 시작합니다.
 
 ## <a name="serverless-compute-tier"></a>서버리스 컴퓨팅 계층
 
@@ -68,8 +68,8 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 |:---|:---|:---|
 |**데이터베이스 사용 패턴**| 시간이 지남에 따라 평균 계산 사용률이 낮은 간헐적이 고 예측할 수 없는 사용 | 시간이 지남에 따라 더 높은 평균 계산 사용률 또는 탄력적 풀을 사용 하는 여러 데이터베이스를 사용 하는 보다 일반적인 사용 패턴.|
 | **성능 관리 작업** |더 낮음|더 높음|
-|**컴퓨팅 크기 조정**|자동|설명서|
-|**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
+|**컴퓨팅 크기 조정**|자동|수동|
+|**컴퓨팅 응답성**|비활성 기간 후 낮음|직접 실행|
 |**청구 세분성**|초당|시간당|
 
 ## <a name="purchasing-model-and-service-tier"></a>구매 모델 및 서비스 계층
@@ -97,7 +97,7 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 
 서버 리스 서버와 프로 비전 된 계산 데이터베이스 모두에서 사용 가능한 모든 메모리를 사용 하는 경우 캐시 항목이 제거 될 수 있습니다.
 
-CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지 되 고 메모리 확보를 방지할 수 있습니다.  또한 이전 사용자 작업에 응답 하는 정기적인 백그라운드 프로세스로 인해 사용자 작업이 중지 된 후에는 추가 지연이 발생할 수 있습니다.  예를 들어 삭제 작업은 삭제 하도록 표시 된 고스트 레코드를 생성 하지만, 데이터 페이지를 캐시로 읽을 수 있는 고스트 정리 프로세스를 실행할 때까지 물리적으로 삭제 되지 않습니다.
+CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지 되 고 메모리 확보를 방지할 수 있습니다.  또한 이전 사용자 작업에 응답 하는 정기적인 백그라운드 프로세스로 인해 사용자 작업이 중지 된 후에는 추가 지연이 발생할 수 있습니다.  예를 들어 삭제 작업 및 QDS 정리 태스크는 삭제 되도록 표시 된 고스트 레코드를 생성 하지만, 데이터 페이지를 캐시로 읽을 수 있는 고스트 정리 프로세스를 실행할 때까지 물리적으로 삭제 되지 않습니다.
 
 #### <a name="cache-hydration"></a>캐시 하이드레이션
 
@@ -135,9 +135,10 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 |데이터 검색 및 분류|민감도 레이블 추가, 수정, 삭제 또는 보기|
 |감사|감사 레코드 보기,<br>감사 정책 업데이트 또는 보기|
 |데이터 마스킹|데이터 마스킹 규칙 추가, 수정, 삭제 또는 보기|
-|투명한 데이터 암호화|투명한 데이터 암호화 상태 또는 상태 보기|
+|투명한 데이터 암호화|투명 한 데이터 암호화 상태 보기|
 |취약점 평가|임시 검색 및 정기적 검색 사용 (사용 하도록 설정 된 경우)|
 |쿼리(성능) 데이터 저장소|쿼리 저장소 설정 수정 또는 보기|
+|성능 권장 사항|성능 권장 사항 보기 또는 적용|
 |자동 튜닝|자동 인덱싱과 같은 자동 실행 추천 사항의 적용 및 확인|
 |데이터베이스 복사|복사본으로 데이터베이스를 만듭니다.<br>BACPAC 파일로 내보냅니다.|
 |SQL 데이터 동기화|구성 가능한 예약에 따라 실행되거나 수동으로 수행되는 허브 및 멤버 데이터베이스 간의 동기화|
@@ -195,7 +196,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
-  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+  -e GeneralPurpose -f Gen5 --min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
 
@@ -314,7 +315,7 @@ az sql db show --name $databasename --resource-group $resourcegroupname --server
 
 청구되는 컴퓨팅 양은 초 단위로 사용된 최대 CPU와 메모리입니다. 사용된 CPU와 메모리의 양이 각각에 대해 프로비저닝된 최소 양보다 적으면 프로비저닝된 양에 대해 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.
 
-- **청구**되는 리소스: CPU 및 메모리
+- **청구** 되는 리소스: CPU 및 메모리
 - **청구 금액**: vcore 단가 * max (최소 vcore, 사용 되는 vcore, 최소 메모리 gb * 1/3, 사용 되는 메모리 gb * 1/3) 
 - **청구 빈도**: 초당
 
@@ -367,5 +368,5 @@ VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작 하려면 [퀵 스타트: Azure Portal를 사용 하 여 Azure SQL Database에서 단일 데이터베이스 만들기](single-database-create-quickstart.md)를 참조 하세요.
+- 시작하려면 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](single-database-create-quickstart.md)를 참조하세요.
 - 리소스 제한은 [서버리스 컴퓨팅 계층 리소스 제한](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)을 참조하세요.

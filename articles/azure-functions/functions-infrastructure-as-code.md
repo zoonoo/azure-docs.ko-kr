@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 56a68fca42bcab7642a5ebad953b59269a4d88a1
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: f9c11c0671db882edd9a72bca8d11c7326edee43
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180646"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936892"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -77,7 +77,7 @@ Azure Functions 런타임에서는 `AzureWebJobsStorage` 연결 문자열을 사
 
 ### <a name="application-insights"></a>Application Insights
 
-Application Insights 함수 앱 모니터링에 권장 됩니다. Application Insights 리소스 **는 다음과 같은**형식으로 지정 됩니다 **.**
+Application Insights 함수 앱 모니터링에 권장 됩니다. Application Insights 리소스 **는 다음과 같은** 형식으로 지정 됩니다 **.**
 
 ```json
         {
@@ -116,7 +116,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 ### <a name="function-app"></a>함수 앱
 
-함수 앱 리소스 **는 다음과 같은**형식의 리소스를 사용 하 여 정의 됩니다 **.**
+함수 앱 리소스 **는 다음과 같은** 형식의 리소스를 사용 하 여 정의 됩니다 **.**
 
 ```json
 {
@@ -175,7 +175,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 ## <a name="deploy-on-consumption-plan"></a>소비 계획에 배포
 
-소비 계획은 코드가 실행 중일 때 계산 능력을 자동으로 할당 하 고, 로드를 처리 하는 데 필요한 만큼 확장 한 다음 코드가 실행 되지 않을 때 확장 됩니다. 유휴 Vm에 대 한 비용을 지불할 필요가 없으며, 용량을 미리 예약할 필요가 없습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md#consumption-plan)을 참조하세요.
+소비 계획은 코드가 실행 중일 때 계산 능력을 자동으로 할당 하 고, 로드를 처리 하는 데 필요한 만큼 확장 한 다음 코드가 실행 되지 않을 때 확장 됩니다. 유휴 Vm에 대 한 비용을 지불할 필요가 없으며, 용량을 미리 예약할 필요가 없습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](consumption-plan.md)을 참조하세요.
 
 샘플 Azure Resource Manager 템플릿은 [소비 계획의 함수 앱]을 참조하세요.
 
@@ -299,8 +299,6 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
 }
 ```
 
-
-
 <a name="premium"></a>
 
 ## <a name="deploy-on-premium-plan"></a>프리미엄 계획에 배포
@@ -380,7 +378,6 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
     }
 }
 ```
-
 
 <a name="app-service-plan"></a>
 
@@ -516,7 +513,7 @@ App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의
 }
 ```
 
-[사용자 지정 컨테이너 이미지를 배포](./functions-create-function-linux-custom-image.md)하는 경우에는를 사용 하 여 지정 해야 `linuxFxVersion` 하며, [Web App for Containers](../app-service/containers/index.yml)처럼 이미지를 끌어올 수 있도록 하는 구성을 포함 해야 합니다. 또한 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` 앱 콘텐츠는 컨테이너 자체에 제공 되므로를로 설정 합니다.
+[사용자 지정 컨테이너 이미지를 배포](./functions-create-function-linux-custom-image.md)하는 경우에는를 사용 하 여 지정 해야 `linuxFxVersion` 하며, [Web App for Containers](../app-service/index.yml)처럼 이미지를 끌어올 수 있도록 하는 구성을 포함 해야 합니다. 또한 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` 앱 콘텐츠는 컨테이너 자체에 제공 되므로를로 설정 합니다.
 
 ```json
 {
@@ -577,7 +574,7 @@ App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의
 함수 앱에는 앱 설정 및 소스 제어 옵션을 포함하여 배포에 사용할 수 있는 자식 리소스가 많이 있습니다. **Sourcecontrols** 자식 리소스를 제거 하 고 대신 다른 [배포 옵션](functions-continuous-deployment.md) 을 사용 하도록 선택할 수도 있습니다.
 
 > [!IMPORTANT]
-> Azure Resource Manager를 사용하여 애플리케이션을 성공적으로 배포하려면 Azure에서 리소스가 배포되는 방식을 이해하는 것이 중요합니다. 다음 예제에서는 **siteConfig**를 사용하여 최상위 수준 구성을 적용합니다. Functions 런타임 및 배포 엔진에 정보를 전달하기 때문에 최상위 수준에서 이러한 구성을 설정하는 것이 중요합니다. **sourcecontrols/web** 자식 리소스를 적용하기 전에 최상위 수준 정보가 필요합니다. 자식 수준 **구성/appsettings** 리소스에서 이러한 설정을 구성할 수 있지만, 경우에 따라 **config/appsettings** 를 적용 *하기 전에* 함수 앱을 배포 해야 합니다. 예를 들어 [Logic Apps](../logic-apps/index.yml)에서 함수를 사용하는 경우 함수는 다른 리소스의 종속성입니다.
+> Azure Resource Manager를 사용하여 애플리케이션을 성공적으로 배포하려면 Azure에서 리소스가 배포되는 방식을 이해하는 것이 중요합니다. 다음 예제에서는 **siteConfig** 를 사용하여 최상위 수준 구성을 적용합니다. Functions 런타임 및 배포 엔진에 정보를 전달하기 때문에 최상위 수준에서 이러한 구성을 설정하는 것이 중요합니다. **sourcecontrols/web** 자식 리소스를 적용하기 전에 최상위 수준 정보가 필요합니다. 자식 수준 **구성/appsettings** 리소스에서 이러한 설정을 구성할 수 있지만, 경우에 따라 **config/appsettings** 를 적용 *하기 전에* 함수 앱을 배포 해야 합니다. 예를 들어 [Logic Apps](../logic-apps/index.yml)에서 함수를 사용하는 경우 함수는 다른 리소스의 종속성입니다.
 
 ```json
 {

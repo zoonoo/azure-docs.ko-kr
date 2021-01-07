@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 16a133205b13a3d0a4aa76f75c8ce316f6c09199
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014901"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027264"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -57,7 +57,7 @@ Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api�
 
 # <a name="python"></a>[Python](#tab/python)
 
-**__init__py**
+**__init__ .py**
 
 ```python
 import logging
@@ -140,7 +140,7 @@ Retry-After: 10
 
 ### <a name="async-operation-tracking"></a>비동기 작업 추적
 
-앞에서 언급한 HTTP 응답은 Durable Functions를 사용하여 장기 실행 HTTP 비동기 API를 구현하는 데 도움이 되도록 설계되었습니다. 이 패턴을 *폴링 소비자 패턴이*라고도 합니다. 클라이언트/서버 흐름은 다음과 같이 작동합니다.
+앞에서 언급한 HTTP 응답은 Durable Functions를 사용하여 장기 실행 HTTP 비동기 API를 구현하는 데 도움이 되도록 설계되었습니다. 이 패턴을 *폴링 소비자 패턴이* 라고도 합니다. 클라이언트/서버 흐름은 다음과 같이 작동합니다.
 
 1. 클라이언트는 orchestrator 함수와 같은 장기 실행 프로세스를 시작 하기 위해 HTTP 요청을 발급 합니다.
 1. 대상 HTTP 트리거는 "statusQueryGetUri" 값을 가진 Location 헤더를 사용 하 여 HTTP 202 응답을 반환 합니다.
@@ -251,12 +251,12 @@ public static async Task RunOrchestrator(
     string vmName = "myVM";
     string apiVersion = "2019-03-01";
     
-    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
+    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net/.default
     // and attaches it to the outgoing Azure Resource Manager API call.
     var restartRequest = new DurableHttpRequest(
         HttpMethod.Post, 
         new Uri($"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}"),
-        tokenSource: new ManagedIdentityTokenSource("https://management.core.windows.net"));
+        tokenSource: new ManagedIdentityTokenSource("https://management.core.windows.net/.default"));
     DurableHttpResponse restartResponse = await context.CallHttpAsync(restartRequest);
     if (restartResponse.StatusCode != HttpStatusCode.OK)
     {
@@ -275,7 +275,7 @@ module.exports = df.orchestrator(function*(context) {
     const resourceGroup = "myRG";
     const vmName = "myVM";
     const apiVersion = "2019-03-01";
-    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net/.default");
 
     // get a list of the Azure subscriptions that I have access to
     const restartResponse = yield context.df.callHttp(
@@ -300,11 +300,11 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     resource_group = "myRg"
     vm_name = "myVM"
     api_version = "2019-03-01"
-    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net")
+    token_source = df.ManagedIdentityTokenSource("https://management.core.windows.net/.default")
 
     # get a list of the Azure subscriptions that I have access to
     restart_response = yield context.call_http("POST", 
-        f"https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Compute/virtualMachines/${vm_name}/restart?api-version=${api_version}",
+        f"https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}/restart?api-version={api_version}",
         None,
         None,
         token_source)
@@ -315,7 +315,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ---
 
-이전 예제에서 `tokenSource` 매개 변수는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대 한 Azure AD 토큰을 얻도록 구성 됩니다. 토큰은 리소스 URI로 식별 됩니다 `https://management.core.windows.net` . 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id에는 지정 된 리소스 그룹의 Vm을 관리할 수 있는 권한이 있다고 가정 합니다 `myRG` .
+이전 예제에서 `tokenSource` 매개 변수는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대 한 Azure AD 토큰을 얻도록 구성 됩니다. 토큰은 리소스 URI로 식별 됩니다 `https://management.core.windows.net/.default` . 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id에는 지정 된 리소스 그룹의 Vm을 관리할 수 있는 권한이 있다고 가정 합니다 `myRG` .
 
 런타임에 구성 된 토큰 소스는 OAuth 2.0 액세스 토큰을 자동으로 반환 합니다. 그런 다음 소스는 들어오는 요청의 권한 부여 헤더에 토큰을 전달자 토큰으로 추가 합니다. 이 모델은 다음 이유로 인해 HTTP 요청에 권한 부여 헤더를 수동으로 추가 하는 것 보다 향상 되었습니다.
 

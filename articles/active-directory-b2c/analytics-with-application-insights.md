@@ -12,10 +12,10 @@ ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385980"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
@@ -106,7 +106,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 | 기술 프로필 | Task |
 | ----------------- | -----|
-| AppInsights-일반 | 모든 Azure Insights 기술 프로필에 포함 되는 공통 매개 변수 집합입니다. |
+| AppInsights-Common | 모든 Azure Insights 기술 프로필에 포함 되는 공통 매개 변수 집합입니다. |
 | AppInsights-SignInRequest | `SignInRequest`로그인 요청을 받았을 때 클레임 집합을 사용 하 여 이벤트를 기록 합니다. |
 | AppInsights-UserSignUp | `UserSignUp`사용자가 등록/로그인 여행에서 등록 옵션을 트리거할 때 이벤트를 기록 합니다. |
 | AppInsights-SignInComplete | `SignInComplete`토큰이 신뢰 당사자 응용 프로그램에 전송 되었을 때 인증이 성공적으로 완료 되 면 이벤트를 기록 합니다. |
@@ -227,7 +227,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 ## <a name="optional-collect-more-data"></a>필드 추가 데이터 수집
 
-필요에 맞게 사용자 경험에 클레임 유형 및 이벤트를 추가합니다. [클레임 해결 프로그램](claim-resolver-overview.md) 또는 임의의 문자열 클레임 유형을 사용 하 여 **입력 클레임** 요소를 Application Insights 이벤트에 추가 하거나 appinsights-일반적인 기술 프로필에 추가 하 여 클레임을 추가할 수 있습니다.
+필요에 맞게 사용자 경험에 클레임 유형 및 이벤트를 추가합니다. [클레임 해결 프로그램](claim-resolver-overview.md) 또는 임의의 문자열 클레임 유형을 사용 하 여 Application Insights 이벤트 또는 AppInsights-Common 기술 프로필에 **입력 클레임** 요소를 추가 하 여 클레임을 추가할 수 있습니다.
 
 - **ClaimTypeReferenceId**는 클레임 유형에 대한 참조입니다.
 - **PartnerClaimType**은 Azure Insights에 나타나는 속성의 이름입니다. `{property:NAME}`의 구분을 사용합니다. 단, `NAME`은 이벤트에 추가하는 속성입니다.

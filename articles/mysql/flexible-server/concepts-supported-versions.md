@@ -1,17 +1,17 @@
 ---
 title: 지원 되는 버전-유연한 서버 Azure Database for MySQL
 description: Azure Database for MySQL 유연한 서버에서 지원 되는 MySQL 서버 버전에 대해 알아봅니다.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: f29a34fd8916110355c0122fee9db29599a01231
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7ad6a576262b8e722b16c81af544a9370c2b49b3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937109"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242265"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 유연한 서버에 대해 지원 되는 버전
 
@@ -43,6 +43,6 @@ Azure Database for MySQL은 현재 다음 버전을 지원합니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[MySQL을 사용 하 여 Windows에서 PHP 앱 빌드](../../app-service/app-service-web-tutorial-php-mysql.md)<br/>
->[MySQL을 사용 하 여 Linux에서 PHP 앱 빌드](../../app-service/containers/tutorial-php-mysql-app.md)<br/>
->[MySQL을 사용 하 여 Java 기반 스프링 앱 빌드](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>
+>[MySQL을 사용 하 여 Windows에서 PHP 앱 빌드](../../app-service/tutorial-php-mysql-app.md)<br/>
+>[MySQL을 사용 하 여 Linux에서 PHP 앱 빌드](../../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)<br/>
+>[MySQL을 사용 하 여 Java 기반 스프링 앱 빌드](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>

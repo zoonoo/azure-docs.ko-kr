@@ -1,7 +1,7 @@
 ---
 title: Azure AD Domain Services |에서 그룹 정책 만들기 및 관리 Microsoft Docs
 description: 기본 제공 Gpo (그룹 정책 개체)를 편집 하 고 관리 되는 Azure Active Directory Domain Services 도메인에서 사용자 지정 정책을 만드는 방법에 대해 알아봅니다.
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: justinha
+ms.openlocfilehash: f1f2499c49c4adf16b632bc75c246a28330ad27b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040081"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619388"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 그룹 정책 관리
 
@@ -51,18 +51,18 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 그룹 정책 개체 (Gpo)를 만들고 구성 하려면 그룹 정책 관리 도구를 설치 해야 합니다. 이러한 도구는 Windows Server의 기능으로 설치할 수 있습니다. Windows 클라이언트에 관리 도구를 설치 하는 방법에 대 한 자세한 내용은 install [원격 서버 관리 도구 (RSAT)][install-rsat]를 참조 하십시오.
 
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
-1. VM에 로그인하면 **서버 관리자**가 기본적으로 열립니다. 그렇지 않은 경우 **시작** 메뉴에서 **서버 관리자**를 선택합니다.
-1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
-1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
-1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
-1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aaddscontoso.com*), **다음**을 차례로 선택합니다.
-1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
+1. VM에 로그인하면 **서버 관리자** 가 기본적으로 열립니다. 그렇지 않은 경우 **시작** 메뉴에서 **서버 관리자** 를 선택합니다.
+1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가** 를 선택합니다.
+1. *역할 및 기능 추가 마법사* 의 **시작하기 전에** 페이지에서 **다음** 을 선택합니다.
+1. *설치 유형* 에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음** 을 선택합니다.
+1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aaddscontoso.com*), **다음** 을 차례로 선택합니다.
+1. **서버 역할** 페이지에서 **다음** 을 클릭합니다.
 1. **기능** 페이지에서 **그룹 정책 관리** 기능을 선택합니다.
 
     ![기능 페이지에서 ' 그룹 정책 관리 '를 설치 합니다.](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
 
-1. **확인** 페이지에서 **설치**를 선택합니다. 그룹 정책 관리 도구를 설치 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
-1. 기능 설치가 완료되면 **닫기**를 선택하여 **역할 및 기능 추가** 마법사를 종료합니다.
+1. **확인** 페이지에서 **설치** 를 선택합니다. 그룹 정책 관리 도구를 설치 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
+1. 기능 설치가 완료되면 **닫기** 를 선택하여 **역할 및 기능 추가** 마법사를 종료합니다.
 
 ## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>그룹 정책 관리 콘솔를 열고 개체를 편집 합니다.
 
@@ -71,8 +71,8 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 > [!NOTE]
 > 관리 되는 도메인에서 그룹 정책을 관리 하려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
-1. 시작 화면에서 **관리 도구**를 선택 합니다. 이전 섹션에 설치 된 **그룹 정책 관리** 를 비롯 하 여 사용 가능한 관리 도구 목록이 표시 됩니다.
-1. 그룹 정책 관리 콘솔 (GPMC)를 열려면 **그룹 정책 관리**를 선택 합니다.
+1. 시작 화면에서 **관리 도구** 를 선택 합니다. 이전 섹션에 설치 된 **그룹 정책 관리** 를 비롯 하 여 사용 가능한 관리 도구 목록이 표시 됩니다.
+1. 그룹 정책 관리 콘솔 (GPMC)를 열려면 **그룹 정책 관리** 를 선택 합니다.
 
     ![그룹 정책 관리 콘솔를 열어 그룹 정책 개체를 편집할 수 있습니다.](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
 
@@ -80,17 +80,17 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 
 1. **그룹 정책 관리** 콘솔에서 **포리스트: aaddscontoso.com** 노드를 확장 합니다. 그런 다음 **도메인** 노드를 확장 합니다.
 
-    *Aaddc 컴퓨터* 와 *Aaddc 사용자*에 대 한 두 개의 기본 제공 컨테이너가 있습니다. 이러한 각 컨테이너에는 기본 GPO가 적용 됩니다.
+    *Aaddc 컴퓨터* 와 *Aaddc 사용자* 에 대 한 두 개의 기본 제공 컨테이너가 있습니다. 이러한 각 컨테이너에는 기본 GPO가 적용 됩니다.
 
     ![기본 제공 Gpo가 기본 ' AADDC 컴퓨터 ' 및 ' AADDC 사용자 ' 컨테이너에 적용 됨](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. 이러한 기본 제공 Gpo를 사용자 지정 하 여 관리 되는 도메인의 특정 그룹 정책을 구성할 수 있습니다. *Aaddc 컴퓨터 gpo*와 같은 gpo 중 하나를 마우스 오른쪽 단추로 선택 하 고 **편집 ...** 을 선택 합니다.
+1. 이러한 기본 제공 Gpo를 사용자 지정 하 여 관리 되는 도메인의 특정 그룹 정책을 구성할 수 있습니다. *Aaddc 컴퓨터 gpo* 와 같은 gpo 중 하나를 마우스 오른쪽 단추로 선택 하 고 **편집 ...** 을 선택 합니다.
 
     ![기본 제공 Gpo 중 하나를 ' 편집 ' 하는 옵션을 선택 합니다.](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 
-1. *계정 정책과*같이 GPO를 사용자 지정할 수 있는 그룹 정책 관리 편집기 도구가 열립니다.
+1. *계정 정책과* 같이 GPO를 사용자 지정할 수 있는 그룹 정책 관리 편집기 도구가 열립니다.
 
-    ![필요에 따라 설정을 구성 하도록 GPO 사용자 지정](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![그룹 정책 관리 편집기의 스크린샷](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     완료 되 면 **파일 > 저장** 을 선택 하 여 정책을 저장 합니다. 컴퓨터는 기본적으로 90 분 마다 그룹 정책 새로 고침을 수행 하 고 변경 내용을 적용 합니다.
 
@@ -98,11 +98,11 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 
 유사한 정책 설정을 그룹화 하려면 모든 필수 설정을 단일 기본 GPO에 적용 하는 대신 Gpo를 추가로 만드는 경우가 많습니다. Azure AD DS을 사용 하 여 사용자 고유의 사용자 지정 그룹 정책 개체를 만들거나 가져와서 사용자 지정 OU에 연결할 수 있습니다. 먼저 사용자 지정 OU를 만들어야 하는 경우 [관리 되는 도메인에서 사용자 지정 ou 만들기](create-ou.md)를 참조 하세요.
 
-1. **그룹 정책 관리** 콘솔에서 *mycustomou*와 같은 사용자 지정 ou (조직 구성 단위)를 선택 합니다. OU를 마우스 오른쪽 단추로 선택 하 고 **이 도메인에서 GPO를 만들어 여기에 연결 ...을**선택 합니다.
+1. **그룹 정책 관리** 콘솔에서 *mycustomou* 와 같은 사용자 지정 ou (조직 구성 단위)를 선택 합니다. OU를 마우스 오른쪽 단추로 선택 하 고 **이 도메인에서 GPO를 만들어 여기에 연결 ...을** 선택 합니다.
 
     ![그룹 정책 관리 콘솔에서 사용자 지정 GPO 만들기](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
 
-1. 새 GPO의 이름 (예: *내 사용자 지정 gpo*)을 지정 하 고 **확인**을 선택 합니다. 필요에 따라 기존 GPO 및 정책 옵션 집합에서이 사용자 지정 GPO를 기반으로 할 수 있습니다.
+1. 새 GPO의 이름 (예: *내 사용자 지정 gpo*)을 지정 하 고 **확인** 을 선택 합니다. 필요에 따라 기존 GPO 및 정책 옵션 집합에서이 사용자 지정 GPO를 기반으로 할 수 있습니다.
 
     ![새 사용자 지정 GPO의 이름 지정](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
 

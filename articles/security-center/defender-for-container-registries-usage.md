@@ -1,49 +1,38 @@
 ---
 title: 컨테이너 레지스트리에 대해 Azure Defender를 사용 하는 방법
-description: 컨테이너 레지스트리 용 Azure Defender를 사용 하 여 레지스트리의 이미지를 검색 하는 방법에 대해 알아봅니다.
+description: 컨테이너 레지스트리 용 Azure Defender를 사용 하 여 Linux 호스트 레지스트리에서 Linux 이미지를 검색 하는 방법에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 10/21/2020
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 18fa1b14bb20bbb2805eee2ec663d1316f787950
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940336"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014580"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리 용 Azure Defender를 사용 하 여 이미지에서 취약성 검색
+# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리용 Azure Defender를 사용하여 이미지에서 취약성 검사
 
 이 페이지에서는 기본 제공 취약점 스캐너를 사용 하 여 Azure Resource Manager 기반 Azure Container Registry에 저장 된 컨테이너 이미지를 검색 하는 방법을 설명 합니다.
 
-**컨테이너 레지스트리 용 Azure Defender** 를 사용 하는 경우 레지스트리로 푸시하는 이미지를 즉시 검사 합니다. 또한 지난 30 일 내에 끌어온 이미지도 검색 됩니다. 
+**컨테이너 레지스트리용 Azure Defender** 를 사용하도록 설정하면 레지스트리로 푸시하는 모든 이미지가 즉시 스캔됩니다. 또한 지난 30 일 내에 끌어온 이미지도 검색 됩니다. 
 
 스캐너는 Security Center에 대 한 취약성을 보고 하는 경우 결과 및 관련 정보를 권장 사항으로 제공 Security Center. 또한 결과에는 재구성 단계, 관련 CVEs, CVES 점수 등의 관련 정보가 포함 됩니다. 하나 이상의 구독 또는 특정 레지스트리에 대해 식별 된 취약성을 볼 수 있습니다.
 
-## <a name="availability"></a>가용성
-
-|양상|세부 정보|
-|----|:----|
-|릴리스 상태:|GA(일반 공급)|
-|결정|**컨테이너 레지스트리에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
-|지원 되는 레지스트리 및 이미지:|![예 ](./media/icons/yes-icon.png) Linux에서 호스트 되는 ACR 레지스트리는 공용 인터넷에서 액세스할 수 있고 셸 액세스를 제공 합니다.<br>![](./media/icons/no-icon.png)Windows에서 호스트 되는 ACR 레지스트리 없음.<br>![](./media/icons/no-icon.png)' Private ' 레지스트리를 Security Center 하지 않으면 공용 인터넷에서 레지스트리를 액세스할 수 있어야 합니다. Security Center는 현재 방화벽, 서비스 끝점 또는 Azure 개인 링크와 같은 개인 끝점으로 제한 된 액세스 권한이 있는 레지스트리 또는 검색에 연결할 수 없습니다.<br>![](./media/icons/no-icon.png) [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 슈퍼 전적 이미지 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "distroless" 이미지를 포함 하지 않습니다.|
-|필요한 역할 및 사용 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
-## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Azure 컨테이너 레지스트리에서 이미지의 취약성 식별 
+## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Azure 컨테이너 레지스트리의 이미지 취약성 식별 
 
-1. Azure Resource Manager 기반 Azure Container Registry에 저장 된 이미지의 취약성 검색을 사용 하려면 다음을 수행 합니다.
+Azure Resource Manager 기반 Azure Container Registry에 저장 된 이미지의 취약성 검색을 사용 하려면 다음을 수행 합니다.
 
-    1. 구독에 대 한 **컨테이너 레지스트리에 대해 Azure Defender를** 사용 하도록 설정 합니다.
+1. 구독에 대 한 **컨테이너 레지스트리에 대해 Azure Defender를** 사용 하도록 설정 합니다. 이제 Security Center는 레지스트리의 이미지를 스캔할 준비가 되었습니다.
 
-        이제 Security Center는 레지스트리의 이미지를 스캔할 준비가 되었습니다.
-
-        >[!NOTE]
-        > 이 기능은 이미지 별로 요금이 청구 됩니다.
+    >[!NOTE]
+    > 이 기능은 이미지별로 요금이 청구됩니다.
 
 1. 이미지 검색은 모든 푸시 또는 가져오기에서 트리거되고, 지난 30 일 내에 이미지를 끌어온 경우에 발생 합니다. 
 
@@ -115,9 +104,12 @@ ms.locfileid: "90940336"
 
 ## <a name="disable-specific-findings-preview"></a>특정 검색 (미리 보기) 사용 안 함
 
-검색을 무시 하지 않고 검색을 무시 해야 하는 조직의 경우 필요에 따라 사용 하지 않도록 설정할 수 있습니다. 사용 하지 않도록 설정 된 결과는 보안 점수에 영향을 주지 않거나 원치 않는 노이즈를 생성 합니다.
+> [!NOTE]
+> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
-찾기는 사용 안 함 규칙에서 정의한 조건과 일치 하는 경우 검색 결과 목록에 표시 되지 않습니다. 일반적인 시나리오는 다음과 같습니다.
+조직에서 결과를 수정하지 않고 무시해야 하는 요구 사항이 있으면 필요에 따라 이 결과를 사용하지 않도록 설정할 수 있습니다. 사용하지 않도록 설정된 결과는 보안 점수에 영향을 주거나 원치 않는 노이즈를 생성하지 않습니다.
+
+결과가 사용 안 함 규칙에 정의한 조건과 일치하면 검색 결과 목록에 표시되지 않습니다. 일반적인 시나리오는 다음과 같습니다.
 
 - 심각도가 보통인 낮은 결과를 사용 하지 않도록 설정
 - 패치 가능한 아닌 검색 결과 사용 안 함
@@ -127,7 +119,7 @@ ms.locfileid: "90940336"
 > [!IMPORTANT]
 > 규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.
 >
-> [Azure Policy에서 RBAC 권한](../governance/policy/overview.md#rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.
+> [Azure Policy에서 AZURE RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.
 
 다음 조건 중 하나를 사용할 수 있습니다. 
 
@@ -140,16 +132,16 @@ ms.locfileid: "90940336"
 
 규칙을 만들려면 다음을 수행합니다.
 
-1. **Azure Container Registry 이미지의 취약성**에 대 한 권장 사항 세부 정보 페이지에서 **규칙 사용 안 함**을 선택 합니다.
+1. **Azure Container Registry 이미지의 취약성** 에 대 한 권장 사항 세부 정보 페이지에서 **규칙 사용 안 함** 을 선택 합니다.
 1. 관련 범위를 선택 합니다.
 1. 조건을 정의 합니다.
-1. **규칙 적용**을 선택 합니다.
+1. **규칙 적용** 을 선택 합니다.
 
     :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="레지스트리에서 VA 검색에 대 한 사용 안 함 규칙 만들기":::
 
 1. 규칙을 보거나 재정의 하거나 삭제 하려면 다음을 수행 합니다. 
-    1. **규칙 사용 안 함**을 선택 합니다.
-    1. 범위 목록에서 활성 규칙이 있는 구독은 **규칙 적용**됨으로 표시 됩니다.
+    1. **규칙 사용 안 함** 을 선택 합니다.
+    1. 범위 목록에서 활성 규칙이 있는 구독은 **규칙 적용** 됨으로 표시 됩니다.
         :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="기존 규칙 수정 또는 삭제":::
     1. 규칙을 보거나 삭제 하려면 줄임표 메뉴 ("...")를 선택 합니다.
 
@@ -157,4 +149,4 @@ ms.locfileid: "90940336"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Defender에 대 한 자세한 정보](azure-defender.md)
+> [Azure Defender](azure-defender.md)에 대해 자세히 알아보세요.

@@ -1,7 +1,7 @@
 ---
 title: 클라우드의 데이터 액세스 보안
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 데이터에 안전 하 게 연결 하는 방법 및 ML 작업에 데이터 집합 및 데이터 저장소를 사용 하는 방법에 대해 알아봅니다. Datastores는 Azure Data Lake Gen 1 & 2, SQL db 및 Azure Databricks Azure Blob의 데이터를 저장할 수 있습니다.
+description: Azure Machine Learning 데이터 저장소 및 데이터 집합을 사용 하 여 Azure에서 데이터 저장소에 안전 하 게 연결 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651166"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360176"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -29,7 +29,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
     
 ## <a name="data-workflow"></a>데이터 워크플로
 
-클라우드 기반 저장소 솔루션에서 데이터를 사용할 준비가 되 면 다음과 같은 데이터 배달 워크플로를 사용 하는 것이 좋습니다. 이 워크플로는 azure [저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) 및 데이터를 azure의 클라우드 기반 저장소 서비스에 보유 하 고 있다고 가정 합니다. 
+클라우드 기반 저장소 솔루션에서 데이터를 사용할 준비가 되 면 다음과 같은 데이터 배달 워크플로를 사용 하는 것이 좋습니다. 이 워크플로는 azure [저장소 계정](../storage/common/storage-account-create.md?tabs=azure-portal) 및 데이터를 azure의 클라우드 기반 저장소 서비스에 보유 하 고 있다고 가정 합니다. 
 
 1. Azure storage에 연결 정보를 저장 하는 [Azure Machine Learning 데이터](#datastores) 저장소를 만듭니다.
 
@@ -48,7 +48,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 다음 다이어그램에서는이 권장 워크플로의 시각적 데모를 제공 합니다.
 
-![데이터 개념-다이어그램](./media/concept-data/data-concept-diagram.svg)
+![다이어그램은 데이터 집합으로 흐르는 데이터 저장소로 이동 하는 Azure Storage 서비스를 보여 줍니다. 데이터 집합은 데이터 드리프트로 흐르는 모델 학습으로 이동 하 여 데이터 집합으로 다시 흐릅니다.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>데이터 저장소
 
@@ -67,7 +67,7 @@ Azure Machine Learning를 사용 하면 클라우드에서 데이터에 쉽게 �
 
 ## <a name="datasets"></a>데이터 세트
 
-Azure Machine Learning 데이터 집합은 저장소 서비스의 데이터를 가리키는 참조입니다. Azure Machine Learning 데이터 집합을 만드는 dataBy 복사본은 아닙니다. 데이터 원본 위치에 대 한 참조를 메타 데이터의 복사본과 함께 만듭니다. 
+Azure Machine Learning 데이터 집합은 데이터의 복사본이 아닙니다. 데이터 집합을 만들면 해당 메타 데이터의 복사본과 함께 저장소 서비스에서 데이터에 대 한 참조를 만들 수 있습니다. 
 
 데이터 집합은 지연 평가 되 고 데이터는 기존 위치에 남아 있기 때문에
 
@@ -81,9 +81,9 @@ Azure Machine Learning 데이터 집합은 저장소 서비스의 데이터를 �
 
 데이터 집합에는 두 가지 유형이 있습니다. 
 
-+ [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 데이터가 이미 정리 되어 학습 실험에서 사용할 준비가 된 경우 FileDatasets에서 참조 하는 파일을 계산 대상으로 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 수 있습니다.
++ [Filedataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 데이터가 이미 정리 되어 학습 실험에서 사용할 준비가 된 경우 FileDatasets에서 참조 하는 파일을 계산 대상으로 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 수 있습니다.
 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 추가 조작 및 정리를 위해 TabularDataset를 pandas 또는 Spark 데이터 프레임에 로드할 수 있습니다. TabularDatasets에서 만들 수 있는 데이터 형식의 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
++ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 추가 조작 및 정리를 위해 TabularDataset를 pandas 또는 Spark 데이터 프레임에 로드할 수 있습니다. TabularDatasets에서 만들 수 있는 데이터 형식의 전체 목록은 [TabularDatasetFactory 클래스](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory)를 참조 하세요.
 
 다음 설명서에서 추가 데이터 집합 기능을 찾을 수 있습니다.
 
@@ -100,7 +100,7 @@ Azure Machine Learning 데이터 집합은 저장소 서비스의 데이터를 �
      + [디자이너](tutorial-designer-automobile-price-train-score.md#import-data)
      + [전자](how-to-train-with-datasets.md)
      + [파이프라인 Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ [기계 학습 파이프라인](how-to-create-your-first-pipeline.md)에서 [일괄 처리 유추](how-to-use-parallel-run-step.md) 를 사용 하 여 점수 매기기를 위한 데이터 집합에 액세스 합니다.
++ [기계 학습 파이프라인](how-to-create-your-first-pipeline.md)에서 [일괄 처리 유추](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하 여 점수 매기기를 위한 데이터 집합에 액세스 합니다.
 + [데이터 드리프트](#drift) 검색을 위한 데이터 집합 모니터를 설정 합니다.
 
 <a name="label"></a>

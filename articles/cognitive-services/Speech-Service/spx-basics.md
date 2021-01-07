@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854892"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507577"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Speech CLI의 기본 사항 알아보기
 
-이 문서에서는 코드를 작성하지 않고 Speech Service를 사용하는 명령줄 도구인 Speech CLI의 기본 사용 패턴을 알아봅니다. 개발 환경을 만들거나 코드를 작성하지 않고도 Speech Service의 주요 기능을 신속하게 테스트하여 해당 사용 사례를 적절히 충족할 수 있는지 확인할 수 있습니다. 또한 Speech CLI는 프로덕션 환경에 즉시 사용할 수 있으며, `.bat` 또는 셸 스크립트를 사용하여 Speech Service에서 간단한 워크플로를 자동화할 수 있습니다.
+이 문서에서는 코드를 작성하지 않고 Speech Service를 사용하는 명령줄 도구인 Speech CLI의 기본 사용 패턴을 알아봅니다. 개발 환경을 만들거나 코드를 작성하지 않고도 Speech Service의 주요 기능을 신속하게 테스트하여 해당 사용 사례를 적절히 충족할 수 있는지 확인할 수 있습니다. Speech CLI는 프로덕션 환경에 즉시 사용할 수 있으며, `.bat` 또는 셸 스크립트를 사용하여 Speech Service에서 간단한 워크플로를 자동화할 수 있습니다.
+
+이 문서에서는 사용자가 명령 프롬프트, 터미널 또는 PowerShell에 대한 실무 지식이 있다고 가정합니다.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -31,7 +33,7 @@ ms.locfileid: "88854892"
 spx
 ```
 
-명령 매개 변수 오른쪽에 나열된 도움말 항목을 **참조**하세요. 이러한 명령을 입력하여 하위 명령에 대한 자세한 도움말을 가져올 수 있습니다.
+명령 매개 변수 오른쪽에 나열된 도움말 항목을 **참조** 하세요. 이러한 명령을 입력하여 하위 명령에 대한 자세한 도움말을 가져올 수 있습니다.
 
 키워드를 기준으로 도움말 항목을 검색할 수 있습니다. 예를 들어 다음 명령을 입력하여 Speech CLI 사용 예제 목록을 확인합니다.
 
@@ -45,11 +47,24 @@ spx help find --topics "examples"
 spx help recognize
 ```
 
-이제 Speech Service를 통해 다음 명령을 실행하여 기본 마이크를 사용하는 일부 음성 인식을 수행합니다.
+이제는 Speech CLI를 사용하여 시스템의 기본 마이크를 사용하여 음성 인식을 수행하겠습니다. 
+
+>[!WARNING]
+> Docker 컨테이너를 사용하는 경우에는 이 명령이 작동하지 않습니다.
+
+다음 명령을 실행합니다.
 
 ```shell
 spx recognize --microphone
 ```
+
+Speech CLI를 사용하면 오디오 파일에서 음성을 인식할 수도 있습니다.
+
+```shell
+spx recognize --file /path/to/file.wav
+```
+> [!TIP]
+> Docker 컨테이너의 오디오 파일에서 음성을 인식하는 경우 오디오 파일이 이전 단계에서 탑재한 디렉터리에 있는지 확인합니다.
 
 명령을 입력하면 SPX는 현재 활성 입력 디바이스에서 오디오 수신 대기를 시작하고, `ENTER`를 누르면 중지됩니다. 그러면 기록된 음성이 인식되고 콘솔 출력의 텍스트로 변환됩니다. 텍스트 음성 변환 합성 역시 Speech CLI를 사용하여 쉽게 수행할 수 있습니다. 
 
@@ -69,6 +84,52 @@ spx translate --microphone --source en-US --target ru-RU --output file C:\some\f
 
 > [!NOTE]
 > 지원되는 언어와 해당 로캘 코드 목록은 [언어 및 로캘 문서](language-support.md)를 참조하세요.
+
+### <a name="configuration-files-in-the-datastore"></a>데이터 저장소의 구성 파일
+
+Speech CLI의 동작은 \@ 기호를 사용하여 Speech CLI 호출 내에서 참조할 수 있는 구성 파일의 설정에 의존할 수 있습니다.
+Speech CLI는 현재 작업 디렉터리에서 만든 새 `./spx/data` 하위 디렉터리에 새 설정을 저장합니다.
+구성 값을 검색할 때 Speech CLI는 현재 작업 디렉터리, `./spx/data`의 데이터 저장소, `spx` 이진의 마지막 읽기 전용 데이터 저장소를 포함한 다른 데이터 저장소에 차례로 표시됩니다.
+이전에는 데이터 저장소를 사용하여 `@key` 및 `@region` 값을 저장했으므로 각 명령줄 호출에서 지정할 필요가 없었습니다.
+구성 파일을 사용하여 사용자 고유의 구성 설정을 저장하거나, 런타임에 생성된 URL 또는 기타 동적 콘텐츠를 전달하는 데 사용할 수도 있습니다.
+
+이 섹션에서는 `spx config`를 사용하여 명령 설정을 저장 및 가져오고 `--output` 옵션을 사용하여 Speech CLI의 출력을 저장하기 위해 로컬 데이터 저장소의 구성 파일을 사용하는 방법을 보여줍니다.
+
+다음 예제에서는 `@my.defaults` 구성 파일을 지우고, 파일에 **키** 및 **지역** 에 대한 키-값 쌍을 추가하고, `spx recognize`에 대한 호출에서 구성을 사용합니다.
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+동적 콘텐츠를 구성 파일에 쓸 수도 있습니다. 예를 들어, 다음 명령은 사용자 지정 음성 모델을 만들고 새 모델의 URL을 구성 파일에 저장합니다. 다음 명령은 해당 URL의 모델이 사용할 준비가 될 때까지 기다린 후 반환합니다.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+다음 예제에서는 `@my.datasets.txt` 구성 파일에 두 개의 URL을 작성합니다.
+이 시나리오에서 `--output`은 구성 파일을 만들거나 기존 파일에 추가하기 위한 선택적 **add** 키워드를 포함할 수 있습니다.
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+기본 구성 파일(명령별 기본 설정의 `@spx.default`, `@default.config` 및 `@*.default.config`) 사용을 포함하여 데이터 저장소 파일에 대한 자세한 내용을 보려면 다음 명령을 입력하세요.
+
+```shell
+spx help advanced setup
+```
 
 ## <a name="batch-operations"></a>일괄 처리 작업
 
@@ -96,6 +157,18 @@ sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
 sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
 ```
 
+## <a name="synthesize-speech-to-a-file"></a>음성을 파일로 합성
+
+다음 명령을 실행하여 스피커의 출력을 `.wav` 파일로 변경합니다.
+
+```bash
+spx synthesize --text "The speech synthesizer greets you!" --audio output greetings.wav
+```
+
+Speech CLI는 `greetings.wav` 오디오 파일에 영어로 자연어를 생성합니다.
+Windows에서는 `start greetings.wav`를 입력하여 오디오 파일을 재생할 수 있습니다.
+
+
 ## <a name="batch-text-to-speech-synthesis"></a>일괄 처리 텍스트 음성 변환 합성
 
 일괄 처리 텍스트 음성 변환을 실행하는 가장 쉬운 방법은 새 `.tsv`(탭으로 구분된 값) 파일을 만들고, Speech CLI에서 `--foreach` 명령을 활용하는 것입니다. 다음 `text_synthesis.tsv` 파일을 고려해 보세요.
@@ -117,7 +190,7 @@ spx synthesize --foreach in @C:\your\path\to\text_synthesis.tsv
 
 * 열 헤더 `audio.output` 및 `text`는 각각 명령줄 인수 `--audio output` 및 `--text`에 해당합니다. `--audio output`처럼 여러 부분으로 구성된 명령줄 인수는 파일에서 공백, 선행 대시, 문자열을 구분하는 마침표 없이 서식을 지정해야 합니다(예: `audio.output`). 그 외의 기존 명령줄 인수는 이 패턴을 사용하여 파일에 추가 열로 추가할 수 있습니다.
 * 이 방법으로 파일의 형식을 지정하면 `--foreach`에 추가 인수를 전달할 필요가 없습니다.
-* `.tsv`의 각 값을 **탭**으로 구분해야 합니다.
+* `.tsv`의 각 값을 **탭** 으로 구분해야 합니다.
 
 그러나 다음 예제와 같은 `.tsv` 파일이 있고 열 헤더가 명령줄 인수와 **일치하지 않는** 경우:
 
@@ -136,4 +209,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>다음 단계
 
-* SDK를 사용하여 [음성 인식](./quickstarts/speech-to-text-from-microphone.md) 또는 [음성 합성](./quickstarts/text-to-speech.md) 빠른 시작을 완료합니다.
+* Speech CLI를 사용하여 [음성 인식](get-started-speech-to-text.md?pivots=programmer-tool-spx) 또는 [음성 합성](get-started-text-to-speech.md?pivots=programmer-tool-spx) 빠른 시작을 완료합니다.

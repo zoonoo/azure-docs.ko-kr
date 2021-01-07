@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: ee788125a5710e5a8b9861c28c4af8e6d83d5d80
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 651e0635f0b556cd47adfccdbac59ef587570128
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924540"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91535732"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Azure Cognitive Search의 순위 알고리즘
 
@@ -61,9 +61,9 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 **유사성** 속성은이 중간 기간 동안 기존 서비스 에서만 두 알고리즘을 모두 사용할 수 있는 경우에 유용 합니다. 
 
-| 속성 | Description |
+| 속성 | 설명 |
 |----------|-------------|
-| 유사성 | 선택 사항입니다. 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> `api-version=2019-05-06-Preview`2020 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
+| 유사성 | (선택 사항) 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> `api-version=2019-05-06-Preview`2020 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
 
 2020 년 7 월 15 일 이후에 만들어진 새 서비스의 경우 BM25이 자동으로 사용 되며 유일한 유사성 알고리즘입니다. 새 서비스에서 **유사성** 을로 설정 하려고 하면 `ClassicSimilarity` 새 서비스에서 해당 알고리즘이 지원 되지 않기 때문에 400 오류가 반환 됩니다.
 
@@ -105,7 +105,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 ## <a name="see-also"></a>참조  
 
-+ [REST API 참조](/rest/api/searchservice/)   
-+ [인덱스에 점수 매기기 프로필 추가](index-add-scoring-profiles.md)    
-+ [인덱스 API 만들기](/rest/api/searchservice/create-index)   
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
++ [REST API 참조](/rest/api/searchservice/)
++ [인덱스에 점수 매기기 프로필 추가](index-add-scoring-profiles.md)
++ [인덱스 API 만들기](/rest/api/searchservice/create-index)
++ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)

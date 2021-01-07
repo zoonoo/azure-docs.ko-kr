@@ -3,12 +3,12 @@ title: 인증 및 권한 부여 문제 해결-Azure Event Hubs
 description: 이 문서에서는 Azure Event Hubs 인증 및 권한 부여 문제를 해결 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533889"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329613"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>인증 및 권한 부여 문제 해결-Azure Event Hubs
 [연결 문제 해결](troubleshooting-guide.md) 문서에서는 Azure Event Hubs 연결 문제 해결에 대 한 팁을 제공 합니다. 이 문서에서는 Azure Event Hubs의 인증 및 권한 부여 문제를 해결 하기 위한 팁과 권장 사항을 제공 합니다. 
@@ -20,6 +20,8 @@ Azure AD (Azure Active Directory)를 사용 하 여 Azure Event Hubs 인증 하 
 - [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) 는 Event Hubs 리소스에 대 한 전체 액세스 권한을 가집니다.
 - 전송 액세스를 위한 [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) 입니다.
 - 수신 액세스를 위한 [Azure Event Hubs 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) 입니다.
+
+스키마 레지스트리 기본 제공 역할은 [스키마 레지스트리 역할](schema-registry-overview.md#azure-role-based-access-control)을 참조 하세요.
 
 ### <a name="resource-scopes"></a>리소스 범위
 - **소비자 그룹**:이 범위에서 역할 할당은이 엔터티에만 적용 됩니다. 현재 Azure Portal는이 수준에서 보안 주체에 대 한 Azure 역할 할당을 지원 하지 않습니다. 

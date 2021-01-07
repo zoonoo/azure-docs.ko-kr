@@ -1,7 +1,7 @@
 ---
-title: JavaScript 단일 페이지 앱 자습서 | Azure
+title: '자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 JavaScript 단일 페이지 앱 만들기 | Azure'
 titleSuffix: Microsoft identity platform
-description: 이 자습서에서는 JavaScript SPA(단일 페이지 앱)가 Microsoft ID 플랫폼에서 발급한 액세스 토큰을 필요로 하는 API를 호출하는 방법을 알아봅니다.
+description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 JavaScript SPA(단일 페이지 앱)를 빌드합니다.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -11,53 +11,49 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 71516104ce5711f716b6af9d37ba96b431749fa3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 4eb3c2905f3c1ccfa63da1bb4a8c81decdbc2f2b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118198"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507730"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>자습서: JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
-이 가이드에서는 JavaScript SPA(단일 페이지 애플리케이션)에서 다음을 수행하는 방법을 보여 줍니다.
-- 회사 및 학교 계정과 개인 계정으로 로그인
-- 액세스 토큰 획득
-- *Microsoft ID 플랫폼 엔드포인트*에서 액세스 토큰을 요구하는 Microsoft Graph API 또는 다른 API 호출
+이 자습서에서는 암시적 흐름을 사용하여 사용자를 로그인하고 Microsoft Graph를 호출하는 JavaScript SPA(단일 페이지 애플리케이션)를 빌드합니다. 빌드된 SPA는 JavaScript v1.0용 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+
+이 자습서에서는 다음을 수행합니다.
+
+> [!div class="checklist"]
+> * `npm`을 사용하여 JavaScript 프로젝트 만들기
+> * Azure Portal에 애플리케이션 등록
+> * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
+> * Microsoft Graph API를 호출하는 코드 추가
+> * 앱 테스트
 
 >[!TIP]
 > 이 자습서에서는 단일 페이지 애플리케이션에 대한 암시적 권한 부여 흐름을 사용하도록 제한되는 MSAL.js v1.x를 사용합니다. 대신 모든 새 애플리케이션에서 [MSAL.js 2.x 및 PKCE, CORS를 사용한 인증 코드 흐름](tutorial-v2-javascript-auth-code.md) 지원을 사용하는 것이 좋습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* 로컬 앱 서버 실행을 위한 [Node.js](https://nodejs.org/en/download/).
+* 프로젝트 파일을 수정하기 위한 [Visual Studio Code](https://code.visualstudio.com/download) 또는 기타 편집기.
+* 최신 웹 브라우저. **Internet Explorer** 는 앱의 [ES6](http://www.ecma-international.org/ecma-262/6.0/) 규칙 사용으로 인해 이 자습서에서 빌드한 앱에서 **지원되지 않습니다**.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 
 ![이 자습서에서 생성된 샘플 앱의 작동 방식 표시](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-### <a name="more-information"></a>자세한 정보
+이 가이드에서 만든 샘플 애플리케이션을 사용하면 JavaScript SPA에서 Microsoft ID 플랫폼 엔드포인트의 토큰을 수락하는 Microsoft Graph API 또는 웹 API를 쿼리할 수 있습니다. 이 시나리오에서는 사용자가 로그인하면 권한 부여 헤더를 통해 액세스 토큰이 요청되고 HTTP 요청에 추가됩니다. 이 토큰은 **MS Graph API** 를 통해 사용자의 프로필과 메일을 가져오는 데 사용됩니다.
 
-이 가이드에서 만든 샘플 애플리케이션을 사용하면 JavaScript SPA에서 Microsoft ID 플랫폼 엔드포인트의 토큰을 수락하는 Microsoft Graph API 또는 웹 API를 쿼리할 수 있습니다. 이 시나리오에서는 사용자가 로그인하면 권한 부여 헤더를 통해 액세스 토큰이 요청되고 HTTP 요청에 추가됩니다. 이 토큰은 **MS Graph API**를 통해 사용자의 프로필과 메일을 가져오는 데 사용됩니다. 토큰 획득 및 갱신은 **JavaScript용 MSAL(Microsoft 인증 라이브러리)** 에서 처리합니다.
-
-### <a name="libraries"></a>라이브러리
-
-이 가이드에서는 다음 라이브러리를 사용합니다.
-
-|라이브러리|Description|
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript용 Microsoft 인증 라이브러리|
+토큰 획득 및 갱신은 [JavaScript용 MSAL(Microsoft 인증 라이브러리)](https://github.com/AzureAD/microsoft-authentication-library-for-js) 에서 처리합니다.
 
 ## <a name="set-up-your-web-server-or-project"></a>웹 서버 또는 프로젝트 설정
 
 > 이 샘플의 프로젝트를 다운로드하고 싶으세요? [프로젝트 파일을 다운로드합니다](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
 > 코드 샘플을 먼저 구성한 후에 실행하려면 [구성 단계](#register-your-application)로 건너뜁니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
-
-* 이 자습서를 실행하려면 [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) 또는 IIS Express와 같은 로컬 웹 서버가 [Visual Studio 2017](https://www.visualstudio.com/downloads/)과 연결되어 있어야 합니다.
-
-* 이 가이드의 지침은 Node.js에서 빌드된 웹 서버를 기반으로 합니다. [Visual Studio Code](https://code.visualstudio.com/download)를 IDE(통합 개발 환경)로 사용하는 것이 좋습니다.
-
-* 최신 웹 브라우저. 이 JavaScript 샘플은 [ES6](http://www.ecma-international.org/ecma-262/6.0/) 규칙을 사용하므로 **Internet Explorer**를 지원하지 **않습니다**.
 
 ## <a name="create-your-project"></a>프로젝트 만들기
 
@@ -76,7 +72,7 @@ ms.locfileid: "88118198"
    npm install morgan --save
    ```
 
-1. 이제 `index.js`라는 .js 파일을 만든 후, 다음 코드를 추가합니다.
+1. 이제 `server.js`라는 .js 파일을 만든 후, 다음 코드를 추가합니다.
 
    ```JavaScript
    const express = require('express');
@@ -111,7 +107,7 @@ ms.locfileid: "88118198"
 
 ## <a name="create-the-spa-ui"></a>SPA UI 만들기
 
-1. JavaScript SPA에 대한 `index.html` 파일을 만듭니다. 이 파일은 **Bootstrap 4 Framework**를 사용하여 빌드된 UI를 구현하고 구성, 인증 및 API 호출을 위한 스크립트 파일을 가져옵니다.
+1. JavaScript SPA에 대한 `index.html` 파일을 만듭니다. 이 파일은 **Bootstrap 4 Framework** 를 사용하여 빌드된 UI를 구현하고 구성, 인증 및 API 호출을 위한 스크립트 파일을 가져옵니다.
 
    `index.html` 파일에서 다음 코드를 추가합니다.
 
@@ -267,30 +263,31 @@ ms.locfileid: "88118198"
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
-인증을 계속 진행하기 전에 애플리케이션을 **Azure Active Directory**에 등록합니다.
+인증을 계속 진행하기 전에 애플리케이션을 **Azure Active Directory** 에 등록합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 계정에서 둘 이상의 테넌트에 대한 액세스를 제공하는 경우 오른쪽 위에 있는 계정을 선택한 다음, 포털 세션을 사용하려는 Azure AD 테넌트로 설정합니다.
-1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
-1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
 1. **리디렉션 URI** 섹션의 드롭다운 목록에서 **웹** 플랫폼을 선택한 다음, 값을 웹 서버에 기반한 애플리케이션 URL로 설정합니다.
-1. **등록**을 선택합니다.
+1. **등록** 을 선택합니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-1. 이 빠른 시작에서는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다. 등록된 애플리케이션의 왼쪽 창에서 **인증**을 선택합니다.
-1. **고급 설정**의 **암시적 허용**에서 **ID 토큰** 및 **액세스 토큰** 확인란을 선택합니다. 이 앱은 사용자를 로그인하고 API를 호출해야 하므로 ID 토큰 및 액세스 토큰이 필요합니다.
-1. **저장**을 선택합니다.
+1. **관리** 에서 **인증** 을 선택합니다.
+1. **암시적 허용** 섹션에서 **ID 토큰** 및 **액세스 토큰** 을 선택합니다. 이 앱은 사용자를 로그인하고 API를 호출해야 하므로 ID 토큰 및 액세스 토큰이 필요합니다.
+1. **저장** 을 선택합니다.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Node.js에 대한 리디렉션 URL 설정
 >
-> Node.js의 경우 *index.js* 파일에서 웹 서버 포트를 설정할 수 있습니다. 이 자습서에서는 3000 포트를 사용하지만 사용 가능한 다른 포트도 사용할 수 있습니다.
+> Node.js의 경우 *server.js* 파일에서 웹 서버 포트를 설정할 수 있습니다. 이 자습서에서는 3000 포트를 사용하지만 사용 가능한 다른 포트도 사용할 수 있습니다.
 >
 > 애플리케이션 등록 정보에 리디렉션 URL을 설정하려면, **애플리케이션 등록** 창으로 다시 전환하고 다음 중 하나를 수행합니다.
 >
-> - *`http://localhost:3000/`* 를 **리디렉션 URL**로 설정합니다.
+> - *`http://localhost:3000/`* 를 **리디렉션 URL** 로 설정합니다.
 > - 사용자 지정 TCP 포트를 사용하는 경우에는 *`http://localhost:<port>/`* (여기서 *\<port>* 는 사용자 지정 TCP 포트 번호임)를 사용합니다.
 >   1. **URL** 값을 복사합니다.
->   1. **애플리케이션 등록** 창으로 다시 전환한 후, 복사한 값을 **리디렉션 URL**로 붙여넣습니다.
+>   1. **애플리케이션 등록** 창으로 다시 전환한 후, 복사한 값을 **리디렉션 URL** 로 붙여넣습니다.
 >
 
 ### <a name="configure-your-javascript-spa"></a>JavaScript SPA 구성
@@ -322,12 +319,12 @@ ms.locfileid: "88118198"
 ```
 
  위치:
- - *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.
+ - *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
  - *\<Enter_the_Cloud_Instance_Id_Here>* 는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 *https://login.microsoftonline.com* 을 입력하면 됩니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](./authentication-national-cloud.md)를 참조하세요.
  - *\<Enter_the_Tenant_info_here>* 는 다음 옵션 중 하나로 설정됩니다.
-   - 애플리케이션이 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: *contoso.microsoft.com*)으로 바꿉니다.
-   - 애플리케이션이 *모든 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **organizations**으로 바꿉니다.
-   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정*을 지원하는 경우 이 값을 **common**으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 **consumers**로 바꿉니다.
+   - 애플리케이션이 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: *contoso.microsoft.com*)으로 바꿉니다.
+   - 애플리케이션이 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **organizations** 으로 바꿉니다.
+   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 **common** 으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 **consumers** 로 바꿉니다.
 
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>사용자 로그인에 MSAL(Microsoft 인증 라이브러리) 사용
@@ -410,19 +407,19 @@ ms.locfileid: "88118198"
 
 ### <a name="more-information"></a>자세한 정보
 
-사용자가 **로그인** 단추를 처음 선택하면 `signIn` 메서드에서 `loginPopup`을 호출하여 사용자를 로그인합니다. 이 메서드는 *Microsoft ID 플랫폼 엔드포인트*가 있는 팝업 창을 열어 사용자의 자격 증명을 묻고 유효성을 검사합니다. 성공적으로 로그인하면 사용자가 원래 *index.html* 페이지로 다시 리디렉션됩니다. `msal.js`에서 토큰을 받고 처리하며, 토큰에 포함된 정보가 캐시됩니다. 이 토큰은 *ID 토큰*이라고 하며 사용자 표시 이름과 같은 사용자에 대한 기본 정보를 포함합니다. 이 토큰에서 제공하는 데이터를 어떤 용도로든 사용할 계획이면 백 엔드 서버에서 이 토큰의 유효성을 검사하여 토큰이 애플리케이션의 유효한 사용자에게 발급되었음을 보장하는지 확인해야 합니다.
+사용자가 **로그인** 단추를 처음 선택하면 `signIn` 메서드에서 `loginPopup`을 호출하여 사용자를 로그인합니다. 이 메서드는 *Microsoft ID 플랫폼 엔드포인트* 가 있는 팝업 창을 열어 사용자의 자격 증명을 묻고 유효성을 검사합니다. 성공적으로 로그인하면 사용자가 원래 *index.html* 페이지로 다시 리디렉션됩니다. `msal.js`에서 토큰을 받고 처리하며, 토큰에 포함된 정보가 캐시됩니다. 이 토큰은 *ID 토큰* 이라고 하며 사용자 표시 이름과 같은 사용자에 대한 기본 정보를 포함합니다. 이 토큰에서 제공하는 데이터를 어떤 용도로든 사용할 계획이면 백 엔드 서버에서 이 토큰의 유효성을 검사하여 토큰이 애플리케이션의 유효한 사용자에게 발급되었음을 보장하는지 확인해야 합니다.
 
-이 가이드에서 생성하는 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`를 호출하여 사용자 프로필 정보에 대해 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 샘플이 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 샘플") 샘플 애플리케이션을 살펴보세요. 이 샘플에서는 ASP.NET 웹 API를 토큰 유효성 검사에 사용합니다.
+이 가이드에서 생성하는 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`를 호출하여 사용자 프로필 정보에 대해 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰* 을 가져옵니다. ID 토큰의 유효성을 검사하는 샘플이 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 샘플") 샘플 애플리케이션을 살펴보세요. 이 샘플에서는 ASP.NET 웹 API를 토큰 유효성 검사에 사용합니다.
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-초기 로그인 후에는 리소스에 액세스하기 위해 토큰을 요청해야 할 때마다 사용자에게 다시 인증하도록 요청하지 않으려고 합니다. 따라서 토큰을 획득하는 대부분의 경우 *acquireTokenSilent*를 사용해야 합니다. 그러나 사용자가 Microsoft ID 플랫폼 엔드포인트와 강제로 상호 작용해야 하는 경우도 있습니다. 다음은 이러한 템플릿의 예입니다.
+초기 로그인 후에는 리소스에 액세스하기 위해 토큰을 요청해야 할 때마다 사용자에게 다시 인증하도록 요청하지 않으려고 합니다. 따라서 토큰을 획득하는 대부분의 경우 *acquireTokenSilent* 를 사용해야 합니다. 그러나 사용자가 Microsoft ID 플랫폼 엔드포인트와 강제로 상호 작용해야 하는 경우도 있습니다. 다음은 이러한 템플릿의 예입니다.
 
 - 암호가 만료되어 사용자가 해당 자격 증명을 다시 입력해야 합니다.
 - 애플리케이션에서 리소스에 액세스하도록 요청하고 있으며 사용자의 동의가 필요합니다.
 - 2단계 인증이 필요합니다.
 
-*acquireTokenPopup*을 호출하면 팝업 창이 열립니다(또는 *acquireTokenRedirect*에서 사용자를 Microsoft ID 플랫폼 엔드포인트로 리디렉션함). 이 창에서 사용자는 자격 증명을 확인하거나, 필요한 리소스에 동의하거나, 2단계 인증을 수행하여 상호 작용해야 합니다.
+*acquireTokenPopup* 을 호출하면 팝업 창이 열립니다(또는 *acquireTokenRedirect* 에서 사용자를 Microsoft ID 플랫폼 엔드포인트로 리디렉션함). 이 창에서 사용자는 자격 증명을 확인하거나, 필요한 리소스에 동의하거나, 2단계 인증을 수행하여 상호 작용해야 합니다.
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
@@ -474,7 +471,7 @@ ms.locfileid: "88118198"
 
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 가이드에서 만든 샘플 애플리케이션에서 `callMSGraph()` 메서드는 토큰을 요구하는 보호된 리소스에 대한 HTTP `GET` 요청을 수행하는 데 사용됩니다. 그러면 요청에서 콘텐츠를 호출자에 반환합니다. 이 메서드는 *HTTP 인증 헤더*에 획득된 토큰을 추가합니다. 이 가이드에서 만든 샘플 애플리케이션의 경우 리소스는 사용자의 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
+이 가이드에서 만든 샘플 애플리케이션에서 `callMSGraph()` 메서드는 토큰을 요구하는 보호된 리소스에 대한 HTTP `GET` 요청을 수행하는 데 사용됩니다. 그러면 요청에서 콘텐츠를 호출자에 반환합니다. 이 메서드는 *HTTP 인증 헤더* 에 획득된 토큰을 추가합니다. 이 가이드에서 만든 샘플 애플리케이션의 경우 리소스는 사용자의 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
 
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -484,11 +481,9 @@ ms.locfileid: "88118198"
    npm install
    npm start
    ```
-1. 브라우저에서 **http://localhost:3000** 또는 **http://localhost:{port}** 를 입력합니다. 여기서 *port*는 웹 서버에서 수신 대기하는 포트입니다. *index.html* 파일과 **로그인** 단추의 내용을 확인해야 합니다.
+1. 브라우저에서 **http://localhost:3000** 또는 **http://localhost:{port}** 를 입력합니다. 여기서 *port* 는 웹 서버에서 수신 대기하는 포트입니다. *index.html* 파일과 **로그인** 단추의 내용을 확인해야 합니다.
 
-## <a name="test-your-application"></a>애플리케이션 테스트
-
-브라우저에서 *index.html* 파일이 로드되면 **로그인**을 선택합니다. Microsoft ID 플랫폼 엔드포인트로 로그인하라는 메시지가 표시됩니다.
+브라우저에서 *index.html* 파일이 로드되면 **로그인** 을 선택합니다. Microsoft ID 플랫폼 엔드포인트로 로그인하라는 메시지가 표시됩니다.
 
 ![JavaScript SPA 계정 로그인 창](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
@@ -512,3 +507,10 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 > 범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+여러 부분으로 구성된 시나리오 시리즈에서 Microsoft ID 플랫폼의 SPA(단일 페이지 애플리케이션) 개발에 대해 자세히 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md)

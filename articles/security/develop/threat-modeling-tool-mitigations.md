@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68728040"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft 위협 모델링 도구 해결 방법
@@ -32,7 +32,7 @@ ms.locfileid: "68728040"
 
 위협 모델링 도구 해결 방법은 다음으로 구성된 웹 애플리케이션 보안 프레임에 따라 분류됩니다.
 
-| 범주 | 설명 |
+| Category | Description |
 | -------- | ----------- |
 | **[감사 및 로깅](threat-modeling-tool-auditing-and-logging.md)** | 누가 언제 무엇을 했나요? 감사 및 로깅은 애플리케이션이 보안 관련 이벤트를 기록하는 방법을 나타냅니다. |
 | **[인증](threat-modeling-tool-authentication.md)** | 귀하는 누구인가요? 인증은 엔터티가 일반적으로 사용자 이름 및 암호와 같은 자격 증명을 통해 다른 엔터티의 ID를 증명하는 과정입니다. |

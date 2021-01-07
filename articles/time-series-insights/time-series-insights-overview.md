@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ab17e2c24d106e1aec0b546a6efd05ac4c3e32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020528"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020064"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Azure Time Series Insights Gen1이란?
+
+> [!CAUTION]
+> 이는 Gen1 문서입니다.
 
 Azure Time Series Insights는 IoT 디바이스에서 생성된 것과 같은 대량의 시계열 데이터를 저장, 시각화 및 쿼리하도록 빌드되었습니다. 클라우드의 시계열 데이터를 저장, 관리, 쿼리 또는 시각화하려면 Azure Time Series Insights를 사용하는 것이 좋습니다.
 
@@ -30,7 +33,7 @@ Azure Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다
 - Azure Time Series Insights는 Azure Time Series Insights 탐색기를 통해 즉시 사용 가능한 시각화를 제공합니다.
 - Azure Time Series Insights는 Azure Time Series Insights 탐색기 및 시계열 데이터를 사용자 지정 애플리케이션에 포함시켜 쉽게 통합할 수 있는 API를 사용하여 쿼리 서비스를 제공합니다.
 
-내부에서 사용하거나 외부 고객이 사용할 애플리케이션을 구축하는 경우 Azure Time Series Insights를 백 엔드로 사용할 수 있습니다. 이를 사용하여 시계열 데이터를 인덱싱, 저장 및 집계할 수 있습니다. 또한 사용자 지정 시각화 및 사용자 환경을 빌드하기 위해 [클라이언트 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 사용합니다. 뿐만 아니라 Azure Time Series Insights는 이러한 사용자 지정 시나리오를 지원하는 여러 [쿼리 API](how-to-shape-query-json.md)를 갖추고 있습니다.
+내부에서 사용하거나 외부 고객이 사용할 애플리케이션을 구축하는 경우 Azure Time Series Insights를 백 엔드로 사용할 수 있습니다. 이를 사용하여 시계열 데이터를 인덱싱, 저장 및 집계할 수 있습니다. 또한 사용자 지정 시각화 및 사용자 환경을 빌드하기 위해 [클라이언트 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 사용합니다. 뿐만 아니라 Azure Time Series Insights는 이러한 사용자 지정 시나리오를 지원하는 여러 [쿼리 API](./concepts-json-flattening-escaping-rules.md)를 갖추고 있습니다.
 
 시계열 데이터는 자산 또는 프로세스가 시간이 지남에 따라 어떻게 달라지는지를 나타냅니다. 시계열 데이터는 타임스탬프를 통해 인덱싱되며, 시간은 이러한 데이터를 구성하는 가장 의미 있는 축입니다. 시계열 데이터는 일반적으로 순차적으로 도착하므로 데이터베이스 업데이트보다는 삽입으로 처리됩니다.
 

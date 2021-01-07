@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488131"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147271"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
@@ -29,7 +29,7 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
 * 데이터베이스의 컬렉션입니다. [컬렉션 추가](../cosmos-db/create-sql-api-java.md#add-a-container)를 연습으로 참조하세요. 컬렉션을 만들 때 파티션 키의 `/id`를 사용합니다.
 
-* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](iot-hub-csharp-csharp-getstarted.md)을 참조하세요.
+* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](./quickstart-send-telemetry-dotnet.md)을 참조하세요.
 
 ## <a name="create-a-stored-procedure"></a>저장 프로시저 만들기
 
@@ -227,11 +227,11 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
 5. **새 매개 변수 추가**를 선택합니다. 표시되는 드롭다운에서 **파티션 키** 및 **저장 프로시저 매개 변수** 옆의 상자를 선택한 다음 화면에서 다른 위치를 클릭합니다. 그러면 파티션 키 값에 대한 필드와 저장 프로시저 매개 변수에 대한 필드가 추가됩니다.
 
-   ![논리 앱 작업 채우기](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![새 매개 변수 추가가 선택 된 상태에서 저장 프로시저 실행 항목이 스크린샷에 표시 됩니다.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. 이제 파티션 키 값과 매개 변수를 아래와 같이 입력합니다. 표시된 것처럼 대괄호와 큰따옴표를 입력해야 합니다. 여기에서 사용할 수 있는 유효한 값을 얻으려면 **동적 콘텐츠 추가**를 클릭해야 할 수도 있습니다.
 
-   ![논리 앱 작업 채우기](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![매개 변수를 입력 하 여 저장 프로시저 실행 항목을 보여 주는 스크린샷](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. **For Each**로 표시된 창의 위쪽에서 **이전 단계의 출력 선택** 아래에 **본문**이 선택되어 있는지 확인합니다.
 
@@ -335,7 +335,7 @@ Cosmos DB 문서에서 실행된 저장 프로시저의 결과를 볼 수 있습
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
-[Azure Portal](https://portal.azure.com)을 사용하는 대신 Azure CLI를 사용하여 IoT Hub 단계를 설정할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
+[Azure Portal](https://portal.azure.com)을 사용하는 대신 Azure CLI를 사용하여 IoT Hub 단계를 설정할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -361,7 +361,7 @@ Cosmos DB 문서에서 실행된 저장 프로시저의 결과를 볼 수 있습
 
 7. **삭제**를 선택합니다.
 
-Azure Portal에서 Azure Cosmos DB 계정을 제거하려면 계정 이름을 마우스 오른쪽 단추로 클릭하고 **계정 삭제**를 클릭합니다. 자세한 지침은 [Azure Cosmos DB 계정 삭제](https://docs.microsoft.com/azure/cosmos-db/manage-account)를 참조하세요.
+Azure Portal에서 Azure Cosmos DB 계정을 제거하려면 계정 이름을 마우스 오른쪽 단추로 클릭하고 **계정 삭제**를 클릭합니다. 자세한 지침은 [Azure Cosmos DB 계정 삭제](../cosmos-db/how-to-manage-database-account.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

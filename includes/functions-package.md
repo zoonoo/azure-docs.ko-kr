@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: functions
 author: ggailey777
@@ -10,11 +10,11 @@ ms.date: 05/23/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 55e57d12b6d632f19318f221a49668804724e865
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67659853"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002115"
 ---
 다음 표에서는 각 개발 환경에서 이 바인딩에 대한 지원을 추가하는 방법을 보여줍니다.
 

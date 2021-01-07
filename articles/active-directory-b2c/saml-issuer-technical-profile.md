@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b4fb7c6fb3bbf02e5f1aba25c868e4a44e8507dd
+ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521215"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96309633"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML 토큰 발급자의 기술 프로필 정의
 
@@ -26,7 +26,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 
 ## <a name="protocol"></a>프로토콜
 
-**Protocol** 요소의 **Name** 특성은 `None`로 설정해야 합니다. **OutputTokenFormat** 요소를 `SAML2`로 설정합니다.
+**Protocol** 요소의 **Name** 특성은 `SAML2`로 설정해야 합니다. **OutputTokenFormat** 요소를 `SAML2`로 설정합니다.
 
 다음 예제는 `Saml2AssertionIssuer`의 기술 프로필을 보여 줍니다.
 
@@ -37,6 +37,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -58,6 +59,9 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 | --------- | -------- | ----------- |
 | IssuerUri | 예 | SAML 응답에 표시되는 발급자 이름입니다. 이 값은 신뢰 당사자 애플리케이션에 구성된 이름과 같아야 합니다. |
 | XmlSignatureAlgorithm | 예 | Azure AD B2C에서 SAML 어설션에 서명 하는 데 사용 하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 응답을 구성 하려면 신뢰 당사자 [SAML 메타 데이터](relyingparty.md#metadata) 를 참조 하세요.|
+|TokenNotBeforeSkewInSeconds| 예| 유효 기간의 시작을 표시 하는 타임 스탬프에 대 한 오차 (정수)를 지정 합니다. 이 수가 높을수록 신뢰 당사자에 대 한 클레임이 발급 된 시간에 대 한 유효 기간이 시작 되는 이후 시간을 반환 합니다. 예를 들어 TokenNotBeforeSkewInSeconds이 60 초로 설정 된 경우 토큰이 13:05:10 UTC에서 발급 되 면 토큰은 13:04:10 UTC에서 유효 합니다. 기본값은 0입니다. 최대값은 3600 (1 시간)입니다. |
+|TokenLifeTimeInSeconds| 예| SAML 어설션의 수명을 지정 합니다. 이 값은 위 NotBefore 값의 초 단위입니다. 기본값은 300 초 (5 분)입니다. |
+
 
 ## <a name="cryptographic-keys"></a>암호화 키
 

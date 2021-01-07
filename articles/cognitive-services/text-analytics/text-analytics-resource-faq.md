@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 01/05/2021
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837132"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955045"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 FAQ(질문과 대답)
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Text Analytics API에 대한 FAQ(질문과 대답)
 
- Azure에서 Microsoft Cognitive Services용 Text Analytics API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문에 대한 대답을 찾습니다.
+ Azure Cognitive Services에서 텍스트 분석 API 관련 된 개념, 코드 및 시나리오에 대 한 일반적인 질문과 대답을 찾습니다.
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>Text Analytics에서 비꼬는 표현을 식별할 수 있나요?
 
@@ -29,11 +29,11 @@ ms.locfileid: "73837132"
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>나만의 학습 데이터 또는 모델을 추가할 수 있나요?
 
-아니요. 모델은 미리 학습됩니다. 업로드된 데이터에 대해 사용 가능한 유일한 작업은 점수 매기기, 핵심 구 추출 및 언어 감지입니다. 사용자 지정 모델은 호스트하지 않습니다. 사용자 지정 기계 학습 모델을 만들고 호스트하려면 [Microsoft R Server의 Machine Learning 기능](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)을 고려하세요.
+아니요. 모델은 미리 학습됩니다. 업로드된 데이터에 대해 사용 가능한 유일한 작업은 점수 매기기, 핵심 구 추출 및 언어 감지입니다. 사용자 지정 모델은 호스트하지 않습니다. 사용자 지정 기계 학습 모델을 만들고 호스트하려면 [Microsoft R Server의 Machine Learning 기능](/r-server/r/concept-what-is-the-microsoftml-package)을 고려하세요.
 
 ## <a name="can-i-request-additional-languages"></a>추가 언어를 요청할 수 있나요?
 
-[선택한 언어 수](text-analytics-supported-languages.md)에 대해 감정 분석 및 핵심 구 추출을 사용할 수 있습니다. 자연어 처리는 복잡하며 새 기능이 출시되기 전에 실질적인 테스트가 필요합니다. 이러한 이유로 숙성 시간이 좀 더 필요한 기능에는 아무도 의존하지 않도록 지원 정보를 미리 발표하지 않으려고 합니다. 
+[선택한 언어 수](./language-support.md)에 대해 감정 분석 및 핵심 구 추출을 사용할 수 있습니다. 자연어 처리는 복잡하며 새 기능이 출시되기 전에 실질적인 테스트가 필요합니다. 이러한 이유로 숙성 시간이 좀 더 필요한 기능에는 아무도 의존하지 않도록 지원 정보를 미리 발표하지 않으려고 합니다. 
 
 다음에 제공할 언어 지원에 대한 순서를 지정하는 데 도움이 되도록 [사용자 의견](https://cognitive.uservoice.com/forums/555922-text-analytics)에서 특정 언어에 투표하세요. 
 
@@ -47,11 +47,21 @@ ms.locfileid: "73837132"
 
 변경이 대폭 진행될 경우 모델 및 알고리즘 개선 사항이 발표되고, 업데이트가 경미한 경우에는 별다른 알림 없이 서비스에 추가됩니다. 시간이 지남에 따라, 같은 텍스트를 입력해도 감정 점수가 다르거나 핵심 구 출력이 다르다는 것을 알 수 있습니다. 이러한 현상은 클라우드에서 관리되는 기계 학습 리소스를 사용하게 되기 때문에 발생합니다.
 
+## <a name="service-availability-and-redundancy"></a>서비스 가용성 및 중복성
+
+### <a name="is-text-analytics-service-zone-resilient"></a>Text Analytics 서비스 영역 복원 력이 있나요?
+
+예. Text Analytics 서비스는 기본적으로 영역 복원 가능 합니다.
+
+### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>Text Analytics 서비스를 영역 복원 력이 되도록 구성 어떻게 할까요?
+
+영역 복원 력을 사용 하도록 설정 하는 데 필요한 고객 구성은 없습니다. 영역-Text Analytics 리소스에 대 한 복원 력은 기본적으로 제공 되며 서비스 자체에서 관리 됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://cognitive.uservoice.com/forums/555922-text-analytics)에서 요청하거나 투표하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
- [StackOverflow: 텍스트 분석 API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ * [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ * [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

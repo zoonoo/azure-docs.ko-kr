@@ -3,19 +3,19 @@ title: Metrics Advisor 서비스란?
 titleSuffix: Azure Cognitive Services
 description: Metrics Advisor란?
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 408bdd948977218d9b39a39bf97391a4141e545c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 0de93eff0fc422bc28fe7b2c42c295c8d8b1acc4
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945381"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344473"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Metrics Advisor(미리 보기)란? 
 
@@ -53,16 +53,14 @@ Metrics Advisor는 다음을 포함한 여러 데이터 저장소의 [다차원 
 워크플로는 간단합니다. 데이터를 온보딩한 후 변칙 검색을 미세 조정하고 시나리오에 맞게 구성을 만들 수 있습니다.
 
 1. Metrics Advisor용 [Azure 리소스를 만듭니다](../cognitive-services-apis-create-account.md). 
-2. 데모 사이트를 사용해 보고 미리 구성된 샘플 데이터를 사용하는 예제 Metrics Advisor 인스턴스를 확인하세요. 
-3. 웹 포털을 사용하여 첫 번째 모니터를 빌드합니다.
+2. 웹 포털을 사용하여 첫 번째 모니터를 빌드합니다.
     1. 데이터 온보딩
     2. 변칙 검색 미세 조정
     3. 알림 구독
     4. 진단 인사이트 보기
-1. REST API를 사용하여 인스턴스를 사용자 지정합니다.
+3. REST API를 사용하여 인스턴스를 사용자 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데모 사이트](quickstarts/explore-demo.md)를 사용해 보세요.
 * 빠른 시작 살펴보기: [웹에서 첫 번째 메트릭 모니터링](quickstarts/web-portal.md)
-* 빠른 시작 살펴보기: [REST API를 사용하여 솔루션 사용자 지정](quickstarts/rest-api.md)
+* 빠른 시작 살펴보기: [REST API를 사용하여 솔루션 사용자 지정](./quickstarts/rest-api-and-client-library.md)

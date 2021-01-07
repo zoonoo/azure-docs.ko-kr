@@ -4,15 +4,15 @@ description: Azure Marketplace 및 Microsoft AppSource와 관련된 일반적인
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032115"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660222"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -20,7 +20,7 @@ ms.locfileid: "90032115"
 
 ## <a name="general"></a>일반
 
-### <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace 란 무엇 인가요?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
 
 상업용 마켓플레이스는 파트너가 빌드한 솔루션과 기업 및 정부 기관을 연결합니다. 파트너 센터에서 제공 하는 파트너는 파트너 센터에서 제품을 만들고 관리 하며, 고객은 Microsoft AppSource, Azure Marketplace, 클라우드 솔루션 공급자 프로그램의 대리점, 공동 판매 프로그램을 통해 판매 팀과 같은 제품 내 환경을 통해 솔루션을 검색 하 고 구매할 수 있습니다.
 
@@ -46,7 +46,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 등록 수수료가 있나요?
 
-아니요. 상업용 마켓플레이스에 제품을 게시하는 데 드는 비용은 없습니다. Microsoft는 판매의 작은 비율을 거래 수수료로 유지하고 마켓플레이스 보상 프로그램, 플랫폼 혁신 및 상업용 마켓플레이스 운영에 투자합니다. 이 트랜잭션 요금은 [AZURE IP 공동 판매](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized 제품 및 하나의 Microsoft 팀 앱 또는 두 Microsoft 365 개 이상의 추가 기능 (Excel, PowerPoint, Word, Outlook 및 SharePoint)과 연결 된 appsource의 유료 SaaS 제품에 대해 줄어듭니다.
+아니요. 상업용 마켓플레이스에 제품을 게시하는 데 드는 비용은 없습니다. Microsoft는 판매의 작은 비율을 거래 수수료로 유지하고 마켓플레이스 보상 프로그램, 플랫폼 혁신 및 상업용 마켓플레이스 운영에 투자합니다. 이 트랜잭션 요금은 [AZURE IP 공동 판매](./marketplace-co-sell.md) incentivized 제품 및 하나의 Microsoft 팀 앱 또는 두 Microsoft 365 개 이상의 추가 기능 (Excel, PowerPoint, Word, Outlook 및 SharePoint)과 연결 된 appsource의 유료 SaaS 제품에 대해 줄어듭니다.
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에서 게시자로 가입하려면 어떻게 해야 하나요?
 
@@ -60,7 +60,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 - 자동으로 제공되는 솔루션의 경우 유료, BYOL(Bring-You-Own-License) 또는 무료 여부에 관계없이 고객은 ‘지금 구매’해야 합니다.
 - 테스트 드라이브(데모)를 지원하는 제품을 통해 고객에게 ‘테스트 드라이브’를 요청합니다. 
-- SaaS (Software as a service)는 상용 marketplace 외부의 평가판을 제공 하는 *무료 평가판*을 제공 합니다.
+- SaaS (Software as a service)는 상용 marketplace 외부의 평가판을 제공 하는 *무료 평가판* 을 제공 합니다.
 - 간단한 목록을 통해 고객은 ‘연락처’를 요청할 수 있습니다.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>상업용 마켓플레이스에 대한 제품을 만들려면 어떻게 해야 하나요?
@@ -87,7 +87,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 게시자는 고객이 구매 흐름의 일부로 수락해야 하는 소프트웨어 솔루션에 대한 사용 약관을 설정합니다. Microsoft는 업무를 간소화하고 가속화하기 위해 사용 약관에 포함할 수 있는 표준 계약을 제공합니다. 이를 통해 고객은 표준 계약을 한 번 검토하고 법률 및 구매 팀의 승인을 받은 후 각 제품에 대한 수정 사항에 집중할 수 있습니다.
 
-모든 고객에게 적용되는 변경 사항을 만들거나 특정 고객에 맞게 변경 사항을 만들 수 있습니다. 텍스트 상자에 입력하거나 웹 주소로 표시되는 웹 사이트에서 호스트될 수 있는 사용 약관을 완전히 사용자 지정할 수도 있습니다.
+모든 고객에게 적용되는 변경 사항을 만들거나 특정 고객에 맞게 변경 사항을 만들 수 있습니다. 파트너 센터의 입력란에 입력할 수 있는 사용 약관을 완전히 사용자 지정할 수도 있습니다.
 
 자세한 내용은 [Microsoft 상업용 워크스페이스 표준 계약](standard-contract.md)을 참조하세요.
 
@@ -106,7 +106,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 새 사용자 계정을 만들거나 기본 디렉터리에 게스트 계정을 초대하려면 Azure AD(Azure Active Directory) ‘전역 관리자’ 권한이 필요합니다. 파트너 센터는 Azure AD를 ID 모델에 적용하고 조직의 Azure AD 인스턴스는 종종 IT 또는 보안 팀에서 관리하고 제어합니다.
 
-자세한 내용은 [사용자 역할 및 권할 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.
+자세한 내용은 [사용자 역할 및 권할 할당](/partner-center/permissions-overview)을 참조하세요.
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>고객에게 Microsoft Azure Cloud Services에 대한 구독이 필요한가요?
 
@@ -140,7 +140,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>내 제품이 Microsoft AppSource와 Azure Marketplace에 모두 표시되나요?
 
-Microsoft AppSource는 비즈니스 및 산업 솔루션의 대상이며 Azure Marketplace는 IT 및 개발자 솔루션을 위해 디자인되었습니다. 제품을 만들 때 선택한 범주와 산업을 기반으로 하는 각 온라인 상점에서 제공을 사용할 수 있습니다. 드문 경우 지만 제품이 두 온라인 상점의 사용자와 관련이 있는 경우 둘 다에 표시 될 수 있습니다.
+Microsoft AppSource는 비즈니스 및 산업 솔루션의 대상이며 Azure Marketplace는 IT 및 개발자 솔루션을 위해 디자인되었습니다. 제품을 만들 때 선택한 범주와 산업을 기반으로 하는 각 온라인 상점에서 제공을 사용할 수 있습니다. 드물지만 제안이 두 온라인 스토어 모두의 사용자와 관련되는 경우 둘 다에 표시될 수 있습니다.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램이란?
 
@@ -229,7 +229,7 @@ Microsoft AppSource는 신용 카드 결제를 지원합니다. Azure Marketplac
 
 고객은 전 세계 141개의 상업용 마켓플레이스에서 솔루션을 구매할 수 있습니다.
 
-위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](partner-center-portal/tax-details-paid-transactions.md)로 이동하세요.
+위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context)로 이동하세요.
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>상업용 마켓플레이스에서 지원되는 통화는 무엇인가요?
 
@@ -274,36 +274,36 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>상업용 마켓플레이스를 통해 판매 지급은 어느 빈도로 받나요?
 
-지급은 매월 처리됩니다. 지불 일정에 대 한 자세한 내용과 파트너 센터에서 예정 된 지급를 찾고 고객의 지불 하지 않는 방법에 대 한 자세한 내용은 [지급 정책 세부 정보](partner-center-portal/payout-policy-details.md)를 참조 하세요.
+지급은 매월 처리됩니다. 지불 일정에 대 한 자세한 내용과 파트너 센터에서 예정 된 지급를 찾고 고객의 지불 하지 않는 방법에 대 한 자세한 내용은 [지급 정책 세부 정보](/partner-center/payout-policy-details?context=/azure/marketplace/context/context)를 참조 하세요.
 
 - 고객이 기업계약를 사용 하는 트랜잭션의 경우 다음 지급 주기 30 일 후 고객 청구서에 지급이 발급 됩니다. 
 - 고객이 신용 카드를 사용 하는 트랜잭션의 경우 자금을 명확 하 게 하 고 지불 거절 또는 의심 스러운 사기 행위를 방지 하기 위해 지불을 받은 후 30 일의 추가 기간이 추가로 제공 됩니다.
 
 지급는 판매량이 최소 결합 값 $50.00에 도달한 경우에만 실행 됩니다.
 
-자세한 내용은 [최소 결제액, 결제 방법 및 기간](partner-center-portal/payment-thresholds-methods-timeframes.md)을 참조하세요.
+자세한 내용은 [최소 결제액, 결제 방법 및 기간](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context)을 참조하세요.
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>어떤 국가/지역에서 사용자 본인을 대신하여 세금이 관리되나요?
 
 고객은 전 세계의 상용 marketplace에서 솔루션을 찾을 수 있으며 여러 위치에서 세금을 관리 합니다. 
 
-전체 위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](partner-center-portal/tax-details-paid-transactions.md)로 이동하세요.
+전체 위치 목록을 검토하려면 [상업용 마켓플레이스 게시자에 대한 세금 세부 정보](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context)로 이동하세요.
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>상업용 마켓플레이스에 대한 지급 보고는 어디에서 찾을 수 있나요?
 
 파트너 센터 내에서 ‘소유자’ 또는 ‘금융 기여자’ 권한이 있는 사용자는 지급 보고를 볼 수 있습니다.  해당 사용자는 청구서를 든 손을 나타내는 아이콘을 선택하여 오른쪽 상단의 보고서에 액세스할 수 있습니다.
 
-자세한 내용은 [지급 보고](partner-center-portal/payout-summary.md)를 참조하세요.
+자세한 내용은 [지급 문](/partner-center/payout-statement?context=/azure/marketplace/context/context)을 참조 하세요.
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>지급 방법 및 대상은 어떻게 구성하나요?
 
 파트너 센터에서 ‘소유자’ 권한이 있는 사용자는 지급 계정 및 세금 양식을 설정할 수 있습니다. 사용자는 오른쪽 상단의 **설정** 단추(톱니 바퀴 아이콘)를 선택하여 이 작업을 수행할 수 있습니다.
 
-자세한 내용은 [지급 계정 및 세금 양식](partner-center-portal/set-up-your-payout-account-tax-forms.md)을 참조하세요.
+자세한 내용은 [지급 계정 및 세금 양식 설정](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context)을 참조 하세요.
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>상업용 마켓플레이스에서 반환 및 환불이 지원되나요?
 
-환불을 받으려는 고객은 지정된 기간 내에 구독을 취소하면 됩니다. 월간 구독의 경우 24시간이며 연간 구독의 경우 14일입니다. 솔루션을 사용한 후 사용량에 따라 청구된 제품은 환불되지 않습니다.
+환불은 특정 조건 및 특정 요금에 따라 고객에 게 제공 됩니다. 매월 청구 되는 되풀이 청구 환불에 대 한 요청은 24 시간 이내에 구매 하거나 갱신 해야 합니다. 마찬가지로, 매년 청구 되는 되풀이 청구 환불에 대 한 요청은 구매 또는 갱신 14 일 이내에 수신 되어야 합니다. 이 유형의 환불은 사용량 (가상 머신 제품 또는 요금제 청구)에서 발생 하는 요금에 적용 되지 않습니다.
 
 ## <a name="resources"></a>리소스
 
@@ -311,9 +311,8 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 다음과 같이 시작하는 데 도움이 되는 몇 가지 리소스가 있습니다.
 
-- [Microsoft 상업용 마켓플레이스 소개](/azure/marketplace/marketplace-publishers-guide)
+- [Microsoft 상업용 마켓플레이스란?](overview.md)
 - [Microsoft 상업용 마켓플레이스 파트너 허브](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [상업용 마켓플레이스 시작](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Microsoft 및 다른 파트너에 어떻게 참여할 수 있나요?
 
@@ -324,7 +323,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>파트너 센터에 대한 자세한 내용은 어디서 확인할 수 있나요?
 
-- [파트너 센터 설명서](https://docs.microsoft.com/partner-center/)
+- [파트너 센터 설명서](/partner-center/)
 - [상업용 마켓플레이스 시작](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Microsoft 관리 센터에 대한 자세한 내용은 어디서 확인할 수 있나요?

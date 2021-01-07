@@ -9,24 +9,25 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3589b4af06bc27a79c429bb0ccd743857651db97
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ac74bb4b37535d0c0b095ea300afc15aa0978ed8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653548"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950128"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA 고가용성
 
 수많은 Azure 기능을 사용하여 Azure VM에서 SAP HANA와 같은 중요 업무용 데이터베이스를 배포 할 수 있습니다. 이 문서에서는 Azure VM에서 호스팅되는 SAP HANA 인스턴스의 가용성을 달성하는 방법에 대한 지침을 제공합니다. 그리고 Azure에서 SAP HANA 가용성을 높이기 위해 Azure 인프라를 사용하여 구현할 수 있는 몇 가지 시나리오에 대해 설명합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 다음을 포함하여 Azure의 IaaS(Infrastructure as a Service) 기본 사항에 대해 잘 알고 있다고 가정합니다. 
 
@@ -52,7 +53,7 @@ ms.locfileid: "88653548"
 - [SAP HANA 서비스 자동 다시 시작](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [SAP HANA 시스템 복제 구성](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)
 
-Azure에서 VM을 배포하는 데 익숙하지 않은 경우, Azure에서 가용성 아키텍처를 정의하기 전에 먼저 [Azure에서 Windows 가상 머신의 가용성 관리](../../windows/manage-availability.md)를 참조하는 것이 좋습니다.
+Azure에서 VM을 배포하는 데 익숙하지 않은 경우, Azure에서 가용성 아키텍처를 정의하기 전에 먼저 [Azure에서 Windows 가상 머신의 가용성 관리](../../manage-availability.md)를 참조하는 것이 좋습니다.
 
 ## <a name="service-level-agreements-for-azure-components"></a>Azure 구성 요소에 대한 서비스 수준 계약
 
@@ -85,4 +86,3 @@ Azure 구성 요소에서 제공할 수 있는 SLA에 대한 가용성 요구 �
 
 
 
-  

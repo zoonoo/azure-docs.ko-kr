@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80878394"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368165"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler에서 개념, 용어 및 엔터티
 
@@ -29,7 +29,7 @@ Azure Scheduler REST API는 다음과 같은 주요 엔터티 또는 리소스�
 
 | 엔터티 | 설명 |
 |--------|-------------|
-| **직함** | 간단하거나 복잡한 실행 전략을 통해 단일 되풀이 작업을 정의합니다. 작업에는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 요청이 포함될 수 있습니다. | 
+| **작업** | 간단하거나 복잡한 실행 전략을 통해 단일 되풀이 작업을 정의합니다. 작업에는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 요청이 포함될 수 있습니다. | 
 | **작업 컬렉션** | 작업 그룹을 포함하며 컬렉션에서 작업이 공유하는 설정, 할당량 및 제한을 유지합니다. Azure 구독 소유자는 작업 컬렉션을 만들고, 사용 또는 애플리케이션 경계를 기준으로 작업을 함께 그룹화할 수 있습니다. 작업 컬렉션은 다음과 같은 특성이 있습니다. <p>- 한 지역으로 제한됩니다. <br>- 컬렉션의 모든 작업에 대해 사용량을 제한할 수 있도록 할당량을 적용할 수 있습니다. <br>- 할당량은 MaxJobs 및 MaxRecurrence를 포함합니다. | 
 | **작업 기록** | 예를 들어, 상태 및 응답 세부 정보와 같은 작업 실행에 대한 정보를 설명합니다. |
 ||| 
@@ -40,7 +40,7 @@ Azure Scheduler REST API는 다음과 같은 주요 엔터티 또는 리소스�
 
 ### <a name="job-management"></a>작업 관리
 
-작업을 만들고 편집하기 위한 조작을 지원합니다. 모든 작업은 기존 작업 컬렉션에 속해야 하므로 암시적으로 만들어지지 않습니다. 자세한 내용은 [Scheduler REST API - 작업](https://docs.microsoft.com/rest/api/scheduler/jobs)을 참조하세요. 이러한 작업의 URI 주소는 다음과 같습니다.
+작업을 만들고 편집하기 위한 조작을 지원합니다. 모든 작업은 기존 작업 컬렉션에 속해야 하므로 암시적으로 만들어지지 않습니다. 자세한 내용은 [Scheduler REST API - 작업](/rest/api/scheduler/jobs)을 참조하세요. 이러한 작업의 URI 주소는 다음과 같습니다.
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -48,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>작업 컬렉션 관리
 
-할당량 및 공유 설정에 매핑되는 작업 및 작업 컬렉션을 만들고 편집하기 위한 조작을 지원합니다. 예를 들어 할당량은 최대 작업 수와 최소 되풀이 간격을 지정합니다. 자세한 내용은 [Scheduler REST API - 작업 컬렉션](https://docs.microsoft.com/rest/api/scheduler/jobcollections)을 참조하세요. 이러한 작업의 URI 주소는 다음과 같습니다.
+할당량 및 공유 설정에 매핑되는 작업 및 작업 컬렉션을 만들고 편집하기 위한 조작을 지원합니다. 예를 들어 할당량은 최대 작업 수와 최소 되풀이 간격을 지정합니다. 자세한 내용은 [Scheduler REST API - 작업 컬렉션](/rest/api/scheduler/jobcollections)을 참조하세요. 이러한 작업의 URI 주소는 다음과 같습니다.
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -56,7 +56,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>작업 기록 관리
 
-작업 경과 시간, 작업 실행 결과 등, 60일 간의 작업 실행 기록을 가져오기 위한 GET 작업을 지원합니다. 상태를 기초로 한 필터링을 위해 쿼리 문자열 매개 변수 지원을 포함합니다. 자세한 내용은 [Scheduler REST API - 작업 기록 나열](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory)을 참조하세요. 이 작업에 대 한 URI 주소는 다음과 같습니다.
+작업 경과 시간, 작업 실행 결과 등, 60일 간의 작업 실행 기록을 가져오기 위한 GET 작업을 지원합니다. 상태를 기초로 한 필터링을 위해 쿼리 문자열 매개 변수 지원을 포함합니다. 자세한 내용은 [Scheduler REST API - 작업 기록 나열](/rest/api/scheduler/jobs/listjobhistory)을 참조하세요. 이 작업에 대 한 URI 주소는 다음과 같습니다.
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -214,7 +214,7 @@ Scheduler 작업은 지정된 일정에 따라 기본 **action**을 실행합니
 },
 ```
 
-SAS(공유 액세스 서명) 토큰에 대한 자세한 내용은 [공유 액세스 서명을 사용한 인증](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+SAS(공유 액세스 서명) 토큰에 대한 자세한 내용은 [공유 액세스 서명을 사용한 인증](../storage/common/storage-sas-overview.md)을 참조하세요.
 
 <a name="error-action"></a>
 

@@ -4,10 +4,10 @@ description: 새 추천에 대한 Azure Advisor 경고를 만듭니다.
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973663"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Azure Portal를 사용 하 여 새 권장 사항에 대 한 Azure Advisor 경고 만들기 
@@ -187,11 +187,11 @@ Azure Advisor에서 권장 구성 경고를 편집, 삭제 또는 사용 하지 
 
 1. **포털**에서 **Azure Advisor**를 선택 합니다.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="선택 Azure Advisor를 표시 하는 Azure Portal 메뉴의 스크린샷":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="경고 정보 섹션의 스크린샷":::
 
 2. 왼쪽 메뉴의 **모니터링** 섹션에서 **경고**를 선택 합니다.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="선택한 경고를 표시 하는 Azure Portal 메뉴의 스크린샷":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="경고 정보 섹션의 스크린샷":::
 
 3. 경고를 편집 하려면 경고 이름을 클릭 하 여 경고를 열고 편집 하려는 필드를 편집 합니다.
 

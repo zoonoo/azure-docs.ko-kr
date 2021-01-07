@@ -1,17 +1,17 @@
 ---
 title: 성능 권장 사항-Azure Database for MariaDB
 description: 이 문서에서는의 성능 권장 사항 기능에 대해 설명 Azure Database for MariaDB
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 05bc0f1ae50f74cc7c8ab2b236d73bdb4a6fe787
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a20b8a43c8955e1afea7a7157e3e73425fb0d806
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484690"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540470"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 성능 권장 사항
 
@@ -21,7 +21,7 @@ ms.locfileid: "84484690"
 
 ## <a name="permissions"></a>사용 권한
 
-성능 권장 사항 기능을 사용하여 분석을 실행하는 데 필요한**소유자** 또는 **참가자** 권한입니다.
+성능 권장 사항 기능을 사용하여 분석을 실행하는 데 필요한 **소유자** 또는 **참가자** 권한입니다.
 
 ## <a name="performance-recommendations"></a>성능 권장 사항
 
@@ -31,7 +31,7 @@ MariaDB 서버에 대 한 Azure Portal 페이지에 있는 메뉴 모음의 **�
 
 :::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="성능 권장 사항 방문 페이지":::
 
-**분석**을 선택하고 분석을 시작할 데이터베이스를 선택합니다. 워크로드에 따라 분석을 완료하는 데 몇 분이 걸릴 수 있습니다. 분석이 완료되면 포털에 알림이 표시됩니다. 분석은 데이터베이스에 대한 심층 검사를 수행합니다. 사용량이 적은 기간에 분석을 수행하는 것이 좋습니다.
+**분석** 을 선택하고 분석을 시작할 데이터베이스를 선택합니다. 워크로드에 따라 분석을 완료하는 데 몇 분이 걸릴 수 있습니다. 분석이 완료되면 포털에 알림이 표시됩니다. 분석은 데이터베이스에 대한 심층 검사를 수행합니다. 사용량이 적은 기간에 분석을 수행하는 것이 좋습니다.
 
 **권장 사항** 창에는 권장 사항이 있는 경우 그 목록과 해당 권장 사항을 생성한 관련 쿼리 ID가 표시됩니다. 쿼리 ID를 사용하여 [mysql.query_store](concepts-query-store.md#mysqlquery_store) 보기를 사용하여 쿼리에 대한 자세한 내용을 확인할 수 있습니다.
 

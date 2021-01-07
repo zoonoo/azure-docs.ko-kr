@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 제곱
 description: Azure Cosmos DB의 SQL 시스템 함수 사각형에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dff3787936914c3d3dbb61bdc0053126853e52af
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303446"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335351"
 ---
 # <a name="square-azure-cosmos-db"></a>제곱 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정한 숫자 값의 제곱을 반환합니다.  
   
 ## <a name="syntax"></a>구문

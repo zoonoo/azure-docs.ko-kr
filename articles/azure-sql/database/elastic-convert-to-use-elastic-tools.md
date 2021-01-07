@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 42a2d571c04d08b5ec868bbd06cd521bfcda24bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038484"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787145"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,11 +72,11 @@ $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' -Password '<passw
 
 ![목록 매핑][1]
 
-다중 테넌트 모델은 개별 데이터베이스에 여러 테넌트를 할당합니다. 여러 데이터베이스에 테넌트 그룹을 분산시킬 수도 있습니다. 각 테넌트에 데이터 요구가 적다고 예상되는 경우 이 모델을 사용합니다. 이 모델에서 **범위 매핑**을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다.
+다중 테넌트 모델은 개별 데이터베이스에 여러 테넌트를 할당합니다. 여러 데이터베이스에 테넌트 그룹을 분산시킬 수도 있습니다. 각 테넌트에 데이터 요구가 적다고 예상되는 경우 이 모델을 사용합니다. 이 모델에서 **범위 매핑** 을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다.
 
 ![범위 매핑][2]
 
-여러 테넌트를 개별 데이터베이스에 할당하는 *목록 매핑*을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수도 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다.
+여러 테넌트를 개별 데이터베이스에 할당하는 *목록 매핑* 을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수도 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다.
 
 ![단일 DB의 다중 테넌트][3]
 
@@ -156,19 +156,19 @@ Get-Mappings -ShardMap $ShardMap
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure SQL Database Elastic Database 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에서 PowerShell 스크립트를 가져옵니다.
+[AZURE SQL Database-Elastic Database tools 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에서 PowerShell 스크립트를 가져옵니다.
 
 도구는 GitHub( [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools))에도 있습니다.
 
 분할/병합 도구를 사용하여 데이터를 다중 테넌트 모델에서 단일 테넌트 모델로 또는 반대로 이동합니다. [분할 병합 도구](elastic-scale-get-started.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 애플리케이션의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 
-질문에 대해서 [는 Microsoft Q&SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) 및 기능 요청에 대 한 질문 페이지를 사용 하 여 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가 하세요.
+질문에 대해서 [는 Microsoft Q&SQL Database](/answers/topics/azure-sql-database.html) 및 기능 요청에 대 한 질문 페이지를 사용 하 여 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가 하세요.
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

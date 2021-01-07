@@ -1,22 +1,22 @@
 ---
-title: PowerShell을 사용 하 여 Synapse Studio (미리 보기) 연결 문제 해결
+title: Synapse Studio 연결 문제 해결
 description: PowerShell을 사용 하 여 Azure Synapse Studio 연결 문제 해결
-author: julieMSFT
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: jrasnick
+ms.date: 10/30/2020
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f0dc73877d7742d4fc6a0c5b9bcf0529d475e0a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046677"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445260"
 ---
-# <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>PowerShell 스크립트를 사용 하 여 Azure Synapse Studio (미리 보기) 연결 문제 진단
+# <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>PowerShell을 사용 하 여 Synapse Studio 연결 문제 해결
 
-Azure Synapse Studio (미리 보기)는 제대로 작동 하는 웹 API 끝점의 집합에 따라 달라 집니다. 이 가이드는 다음과 같은 경우 연결 문제의 원인을 파악 하는 데 도움이 됩니다.
+Azure Synapse Studio는 정상적으로 작동 하는 웹 API 끝점의 집합에 따라 달라 집니다. 이 가이드는 다음과 같은 경우 연결 문제의 원인을 파악 하는 데 도움이 됩니다.
 - Azure Synapse Studio에 액세스 하기 위해 로컬 네트워크 (예: 회사 방화벽 뒤에 있는 네트워크)를 구성 합니다.
 - Azure Synapse Studio를 사용 하 여 연결 문제가 발생 했습니다.
 
@@ -27,13 +27,13 @@ Azure Synapse Studio (미리 보기)는 제대로 작동 하는 웹 API 끝점�
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 
-다음 링크를 마우스 오른쪽 단추로 클릭 하 고 "다른 이름으로 대상 저장"을 클릭 합니다.
+다음 링크를 마우스 오른쪽 단추로 클릭 하 고 "다른 이름으로 대상 저장"을 선택 합니다.
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 또는 링크를 직접 열고 열려 있는 스크립트 파일을 저장할 수 있습니다. 나중에 변경 될 수 있으므로 위의 링크 주소를 저장 하지 마세요.
 
-파일 탐색기에서 다운로드 한 스크립트 파일을 마우스 오른쪽 단추로 클릭 하 고 "PowerShell에서 실행"을 클릭 합니다.
+파일 탐색기에서 다운로드 한 스크립트 파일을 마우스 오른쪽 단추로 클릭 하 고 "PowerShell에서 실행"을 선택 합니다.
 
 ![PowerShell을 사용 하 여 다운로드 한 스크립트 파일 실행](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 
@@ -58,4 +58,4 @@ Azure Synapse Studio (미리 보기)는 제대로 작동 하는 웹 API 끝점�
 
 
 ## <a name="next-steps"></a>다음 단계
-이전 단계에서 해결 하는 데 도움이 되지 않는 경우 [지원 티켓을 만듭니다](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+이전 단계에서 문제를 해결 하는 데 도움이 되지 않는 경우 [지원 티켓을 만듭니다](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

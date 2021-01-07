@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 16e6c72f9fbb710524752c2d220d442735d809b7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: e1992c806619154fa7b3c33500b2e54fbc919f20
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420773"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151437"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>작업 예약 및 브로드캐스트 (Node.js)
 
@@ -300,4 +300,4 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 무선 펌웨어 업데이트를 통한 원격 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면 [자습서: 펌웨어 업데이트를 수행 하는 방법](tutorial-firmware-update.md)을 참조 하세요.
 
-계속해서 IoT Hub를 시작하려면 [Azure IoT Edge 시작](../iot-edge/tutorial-simulate-device-linux.md)을 참조하세요.
+계속해서 IoT Hub를 시작하려면 [Azure IoT Edge 시작](../iot-edge/quickstart-linux.md)을 참조하세요.

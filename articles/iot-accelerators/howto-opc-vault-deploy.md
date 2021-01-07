@@ -8,27 +8,30 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307931"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071492"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 빌드 및 배포
+
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 이 문서에서는 Azure에서 OPC 자격 증명 모음 인증서 관리 서비스를 배포 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 자세한 내용은 GitHub [OPC 자격 증명 모음 리포지토리](https://github.com/Azure/azure-iiot-opc-vault-service)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="install-required-software"></a>필수 소프트웨어 설치
 
 현재 빌드 및 배포 작업은 Windows로 제한 됩니다.
 샘플은 모두 c # .NET Standard 용으로 작성 되었으며 배포를 위해 서비스와 샘플을 빌드해야 합니다.
-.NET Standard 하는 데 필요한 모든 도구는 .NET Core 도구와 함께 제공 됩니다. [.Net Core 시작을](https://docs.microsoft.com/dotnet/articles/core/getting-started)참조 하세요.
+.NET Standard 하는 데 필요한 모든 도구는 .NET Core 도구와 함께 제공 됩니다. [.Net Core 시작을](/dotnet/articles/core/getting-started)참조 하세요.
 
 1. [.Net Core 2.1 이상을 설치][dotnet-install]합니다.
 2. [Docker][docker-url] (선택 사항, 로컬 docker 빌드가 필요한 경우에만)를 설치 합니다.
@@ -75,9 +78,9 @@ PowerShell 스크립트는 OPC 자격 증명 모음 마이크로 서비스 및 �
    > [!NOTE]
    > 문제가 발생 하는 경우이 문서의 뒷부분에 나오는 "배포 실패 문제 해결" 섹션을 참조 하세요.
 
-8. 즐겨 찾는 브라우저를 열고 응용 프로그램 페이지를 엽니다.`https://myResourceGroup.azurewebsites.net`
+8. 즐겨 찾는 브라우저를 열고 응용 프로그램 페이지를 엽니다. `https://myResourceGroup.azurewebsites.net`
 8. 웹 앱과 OPC 자격 증명 모음 마이크로 서비스을 배포 후 준비 하는 데 몇 분 정도 제공 합니다. 첫 번째 응답을 받을 때까지 처음 사용할 때 웹 홈 페이지가 응답 하지 않을 수 있습니다.
-11. Swagger API를 보려면 다음을 엽니다.`https://myResourceGroup-service.azurewebsites.net`
+11. Swagger API를 보려면 다음을 엽니다. `https://myResourceGroup-service.azurewebsites.net`
 13. Dotnet을 사용 하 여 로컬 GDS 서버를 시작 하려면를 시작 `.\myResourceGroup-gds.cmd` 합니다. Docker를 사용 하 여 시작 `.\myResourceGroup-dockergds.cmd` 합니다.
 
 정확히 동일한 설정을 사용 하 여 빌드를 다시 배포할 수 있습니다. 이러한 작업은 모든 응용 프로그램 암호를 갱신 하 고 Azure Active Directory (Azure AD) 응용 프로그램 등록의 일부 설정을 다시 설정할 수 있습니다.
@@ -94,7 +97,7 @@ PowerShell 스크립트는 OPC 자격 증명 모음 마이크로 서비스 및 �
 2. 서비스가 배포 된 리소스 그룹으로 이동 합니다.
 3. **리소스 그룹 삭제**를 선택하고 확인합니다.
 4. 잠시 후에는 배포 된 모든 서비스 구성 요소가 삭제 됩니다.
-5. **Azure Active Directory**  >  **앱 등록**로 이동 합니다.
+5. **Azure Active Directory** > **앱 등록**으로 이동합니다.
 6. 배포 된 각 리소스 그룹에 대해 등록 된 세 가지 등록이 있습니다. 등록의 이름은 `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` 입니다. 각 등록을 개별적으로 삭제 합니다.
 
 이제 배포 된 모든 구성 요소가 제거 됩니다.

@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371637"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91333259"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>JavaScript 웹 앱에 대 한 SDK 로드 오류 문제 해결
 
@@ -64,7 +64,7 @@ NPM 패키지 솔루션을 통해 SDK를 사용 하는 경우에도 마찬가지
 
 [NPM 패키지](#use-npm-packages-to-embed-the-application-insight-sdk) 를 사용 하 여 Application Insights SDK를 포함할 수도 있습니다.
 
-일시적인 네트워크 연결 오류를 최소화 하기 위해 모든 CDN 파일에 Cache-control 헤더를 구현 했습니다. 그러면 최종 사용자의 브라우저에서 현재 버전의 SDK를 다운로드 한 후에는 다시 다운로드할 필요가 없으며 브라우저에서 이전에 가져온 복사본을 다시 사용 하 게 됩니다 ( [캐싱이 작동 하는 방법](../../cdn/cdn-how-caching-works.md)참조). 캐싱 확인이 실패 하거나 새 릴리스가 있는 경우 최종 사용자의 브라우저에서 업데이트 된 버전을 다운로드 해야 합니다. 따라서 확인 실패 시나리오에서 _"노이즈"_ 의 배경 수준이 표시 되거나 새 릴리스가 발생 하 고 일반 공급 (CDN에 배포) 될 때 임시 스파이크가 발생할 수 있습니다.
+일시적인 네트워크 연결 오류를 최소화 하기 위해 모든 CDN 파일에 Cache-Control 헤더를 구현 했습니다. 그러면 최종 사용자의 브라우저가 현재 버전의 SDK를 다운로드 한 후에는 다시 다운로드할 필요가 없으며 브라우저에서 이전에 가져온 복사본을 다시 사용 하 게 됩니다 ( [캐싱이 작동 하는 방법](../../cdn/cdn-how-caching-works.md)참조). 캐싱 확인이 실패 하거나 새 릴리스가 있는 경우 최종 사용자의 브라우저에서 업데이트 된 버전을 다운로드 해야 합니다. 따라서 확인 실패 시나리오에서 _"노이즈"_ 의 배경 수준이 표시 되거나 새 릴리스가 발생 하 고 일반 공급 (CDN에 배포) 될 때 임시 스파이크가 발생할 수 있습니다.
  
 ## <a name="application-insights-cdn-outage"></a>Application Insights CDN 중단
 
@@ -115,7 +115,7 @@ SDK 스크립트에서 예외가 보고 되는 경우 (예: ai.2.min.js) SDK에 
 
 예외가 사라지면 형식이 일치 하지 않거나 예기치 않은 값으로 인해 발생할 수 있습니다. 구성 옵션을 하나씩 다시 추가 하 고 예외가 다시 발생 될 때까지 테스트를 시작 합니다. 그런 다음 문제의 원인이 되는 항목에 대 한 설명서를 확인 합니다. 설명서가 명확 하지 않거나 도움이 필요한 경우 [GitHub에서 문제를 해결](https://github.com/Microsoft/ApplicationInsights-JS/issues)하세요.
 
-이전에 구성을 배포 하 고 작업 했지만이 예외를 보고 하기 시작한 경우에는 새로 배포 된 버전에 문제가 있을 수 있습니다 .이 버전은 사용자/브라우저의 작은 집합에만 영향을 주고 [GitHub에서 문제](https://github.com/Microsoft/ApplicationInsights-JS/issues) 를 제출 하거나 [새 지원 티켓을 만들지](https://azure.microsoft.com/support/create-ticket/)여부를 확인 합니다.
+이전에 구성을 배포 하 고 작업 했지만이 예외를 보고 하기 시작한 경우에는 새로 배포 된 버전에 문제가 있을 수 있습니다 .이 버전은 사용자/브라우저의 작은 집합에만 영향을 주고 [GitHub에서 문제](https://github.com/Microsoft/ApplicationInsights-JS/issues) 를 제출 하거나  [새 지원 티켓을 만들지](https://azure.microsoft.com/support/create-ticket/)여부를 확인 합니다.
 
 ### <a name="enable-console-debugging"></a>콘솔 디버깅 사용
 

@@ -9,12 +9,12 @@ ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898597"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368182"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Azure Scheduler에서 고급 일정과 되풀이 작업 작성
 
@@ -54,11 +54,11 @@ ms.locfileid: "78898597"
 
 [Azure Scheduler REST API](/rest/api/scheduler)로 기본 일정을 만들려면 다음 단계를 수행합니다.
 
-1. [등록 작업 - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers)를 사용하여 리소스 공급자에 Azure 구독을 등록합니다. Azure Scheduler 서비스의 공급자 이름은 **Microsoft.Scheduler**입니다. 
+1. [등록 작업 - Resource Manager REST API](/rest/api/resources/providers)를 사용하여 리소스 공급자에 Azure 구독을 등록합니다. Azure Scheduler 서비스의 공급자 이름은 **Microsoft.Scheduler**입니다. 
 
-1. Scheduler REST API의 [작업 컬렉션에 대한 만들기 또는 업데이트 작업](https://docs.microsoft.com/rest/api/scheduler/jobcollections)을 사용하여 작업 컬렉션을 만듭니다. 
+1. Scheduler REST API의 [작업 컬렉션에 대한 만들기 또는 업데이트 작업](/rest/api/scheduler/jobcollections)을 사용하여 작업 컬렉션을 만듭니다. 
 
-1. [작업에 대한 만들기 또는 업데이트 작업](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate)을 사용하여 작업을 만듭니다. 
+1. [작업에 대한 만들기 또는 업데이트 작업](/rest/api/scheduler/jobs/createorupdate)을 사용하여 작업을 만듭니다. 
 
 ## <a name="job-schema-elements"></a>작업 스키마 요소
 

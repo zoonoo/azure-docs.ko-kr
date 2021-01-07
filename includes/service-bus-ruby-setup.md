@@ -4,15 +4,15 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: aec13c6beb8dbfcdd5f38e7f96b86bf03e42fa37
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 5c2959a1bf6225c164f8538c3c437e464d834b96
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027093"
 ---
 ## <a name="create-a-ruby-application"></a>Ruby 애플리케이션 만들기
-자세한 내용은 [Azure에서 Ruby 애플리케이션 만들기](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md)를 참조하세요.
+자세한 내용은 [Azure에서 Ruby 애플리케이션 만들기](/previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app)를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 Service Bus를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Azure Ruby 패키지를 다운로드하여 사용합니다.

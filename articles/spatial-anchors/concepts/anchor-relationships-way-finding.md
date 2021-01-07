@@ -1,19 +1,19 @@
 ---
 title: 앵커 관계 및 방법 찾기
 description: 앵커 관계 뒤의 개념적 모델에 대해 알아봅니다. 공간 내에서 앵커를 연결 하 고 가까운 API를 사용 하 여 방법 찾기 시나리오를 수행 하는 방법을 알아봅니다.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce79fe88b33659241a226af7bbb7a966ede41abb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006011"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696159"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Azure 공간 앵커에서 앵커 관계 및 방법 찾기
 
@@ -32,7 +32,7 @@ ms.locfileid: "83006011"
 
 ## <a name="set-up-way-finding"></a>검색 방법 설정
 
-시야를 제공 하기 위해 앵커 사이의 거리와 거리를 사용 하는 앱은 *방법 찾기*를 사용 합니다. 찾기 방법은 턴 탐색과는 다릅니다. 차례로 탐색을 통해 사용자는 벽, 도어 및 층 사이를 중심으로 합니다. 사용자는 방법 찾기를 통해 대상의 일반 방향에 대 한 힌트를 가져옵니다. 그러나 공간에 대 한 유추 또는 정보는 사용자가 구조를 대상으로 탐색 하는 데에도 도움이 됩니다.
+시야를 제공 하기 위해 앵커 사이의 거리와 거리를 사용 하는 앱은 *방법 찾기* 를 사용 합니다. 찾기 방법은 턴 탐색과는 다릅니다. 차례로 탐색을 통해 사용자는 벽, 도어 및 층 사이를 중심으로 합니다. 사용자는 방법 찾기를 통해 대상의 일반 방향에 대 한 힌트를 가져옵니다. 그러나 공간에 대 한 유추 또는 정보는 사용자가 구조를 대상으로 탐색 하는 데에도 도움이 됩니다.
 
 방법 검색 환경을 구축 하려면 먼저 환경을 위한 공간을 준비 하 고 사용자가 상호 작용할 앱을 개발 합니다. 다음은 개념적 단계입니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "83006011"
 
 여러 세션에 앵커를 연결 하려면 다음을 수행 합니다.
 
-1. 앱은 하나의 CloudSpatialAnchorSession에서 일부 앵커를 만듭니다.
+1. 앱은 하나의 CloudSpatialAnchorSession에서 일부 앵커 (앵커 A와 B)를 만듭니다.
 2. 다른 시간에 앱은 새 CloudSpatialAnchorSession를 사용 하 여 이러한 앵커 중 하나 (예: 앵커 A)를 찾습니다.
 3. 새 위치로 이동 합니다. 기본 혼합 현실 또는 확대 현실 플랫폼은 이동을 추적 합니다.
 4. 동일한 CloudSpatialAnchorSession를 사용 하 여 앵커 C를 만듭니다. 이제 앵커 A, B, C가 연결 되어 있습니다. 공간 앵커 서비스는이 관계를 유지 합니다.

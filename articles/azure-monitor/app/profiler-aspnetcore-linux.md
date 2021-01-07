@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 652d63cbf71f7a998462780a5057ce8269463da4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6ef52e946edb5db8074a9b4e3ce5e4a81ae0bde5
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930386"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561055"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -20,7 +20,7 @@ ms.locfileid: "88930386"
 
 [Application Insights](./app-insights-overview.md)를 사용할 때 라이브 웹 애플리케이션의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. Application Insights Profiler는 이제 Azure App Service의 Linux에서 호스팅되는 ASP.NET Core 웹앱에서 사용할 수 있습니다. 이 가이드에서는 ASP.NET Core Linux 웹앱에 대한 프로파일러 추적을 수집하는 방법에 대한 단계별 지침을 제공합니다.
 
-이 연습을 완료하면 앱은 이미지에 표시된 것처럼 추적과 같은 프로파일러 추적을 수집할 수 있습니다. 이 예에서는 시간이 대기하는 데 소요되었으므로 프로파일러 추적에서 특정 웹 요청이 느리다는 것을 나타냅니다. 앱의 속도를 저하시키는 코드의 *핫 경로*는 화염 아이콘으로 표시됩니다. 메서드는 **Thread.Sleep** 함수를 호출하기 때문에 **HomeController** 섹션에서 **About** 메서드는 웹앱의 속도를 저하시킵니다.
+이 연습을 완료하면 앱은 이미지에 표시된 것처럼 추적과 같은 프로파일러 추적을 수집할 수 있습니다. 이 예에서는 시간이 대기하는 데 소요되었으므로 프로파일러 추적에서 특정 웹 요청이 느리다는 것을 나타냅니다. 앱의 속도를 저하시키는 코드의 *핫 경로* 는 화염 아이콘으로 표시됩니다. 메서드는 **Thread.Sleep** 함수를 호출하기 때문에 **HomeController** 섹션에서 **About** 메서드는 웹앱의 속도를 저하시킵니다.
 
 ![Profiler 추적](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "88930386"
 
     ![Git 리포지토리 설정](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-배포 옵션에 대 한 자세한 내용은 [App Service 설명서](https://docs.microsoft.com/azure/app-service)를 참조 하세요.
+배포 옵션에 대 한 자세한 내용은 [App Service 설명서](../../app-service/index.yml)를 참조 하세요.
 
 ## <a name="deploy-your-project"></a>프로젝트 배포
 
@@ -117,13 +117,13 @@ ms.locfileid: "88930386"
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
-    * 배포 자격 증명을 만드는 데 사용한 **사용자 이름**을 사용합니다.
-    * Linux에서 App Service를 사용하여 웹앱을 만드는 데 사용한 **앱 이름**을 사용합니다.
+    * 배포 자격 증명을 만드는 데 사용한 **사용자 이름** 을 사용합니다.
+    * Linux에서 App Service를 사용하여 웹앱을 만드는 데 사용한 **앱 이름** 을 사용합니다.
 
 2. 변경 내용을 Azure로 푸시하여 프로젝트를 배포합니다.
 
     ```console
-    git push azure master
+    git push azure main
     ```
 
     다음 예제와 비슷한 내용이 출력됩니다.
@@ -134,7 +134,7 @@ ms.locfileid: "88930386"
     Compressing objects: 100% (8/8), done.
     Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
     Total 9 (delta 3), reused 0 (delta 0)
-    remote: Updating branch 'master'.
+    remote: Updating branch 'main'.
     remote: Updating submodules.
     remote: Preparing deployment for commit id 'd7369a99d7'.
     remote: Generating deployment script.
@@ -172,4 +172,3 @@ ms.locfileid: "88930386"
 Azure App Service에 의해 호스팅되는 사용자 지정 컨테이너를 사용하는 경우 [컨테이너화된 ASP.NET Core 애플리케이션에 대한 서비스 프로파일러 활성화](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp)의 지침을 따라 Application Insights Profiler를 활성화합니다.
 
 Application Insights GitHub 리포지토리([ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues))에 문제 또는 제안 사항을 보고합니다.
-

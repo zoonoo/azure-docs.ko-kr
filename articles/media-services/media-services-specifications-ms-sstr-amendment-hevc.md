@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053042"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항 
@@ -40,11 +40,11 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 
 다음 용어는 이 문서에서만 사용됩니다.
 
->  **컴퍼지션 시간:** [[ISO/IEC-14496-12-12]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의 된 대로 샘플이 클라이언트에 표시 되는 시간입니다.
+>  **컴퍼지션 시간:**   [[ISO/IEC-14496-12-12]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의 된 대로 샘플이 클라이언트에 표시 되는 시간입니다.
 > 
 >   **CENC**: Common Encryption으로, [ISO/IEC 23001-7] 제2판에 정의되어 있습니다.
 > 
->   **디코드 시간:** [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의 된 대로 클라이언트에서 샘플을 디코딩하는 데 필요한 시간입니다.
+>   **디코드 시간:**   [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의 된 대로 클라이언트에서 샘플을 디코딩하는 데 필요한 시간입니다.
 
 **조각(Fragment):** 하나 이상의 **샘플**로 구성되어 있고 독립적으로 다운로드 가능한 **미디어** 단위입니다.
 
@@ -78,17 +78,17 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 > 
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for "Bucket" Media Types”<https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] MP4 등록 기관, "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] MP4 등록 기관, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119 Bradner, s., "Rfc에서 사용 하 여 요구 수준 표시", BCP 14, RFC 2119, 3 월 1997,[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   RFC2119 Bradner, s., "Rfc에서 사용 하 여 요구 수준 표시", BCP 14, RFC 2119, 3 월 1997,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 정보 참조 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*(Windows 프로토콜 마스터 용어집)."
 > 
->   RFC3548 Josefsson, s., Ed., "Base16, Base32 및 Base64 데이터 인코딩", RFC 3548, 7 월 2003,[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   RFC3548 Josefsson, s., Ed., "Base16, Base32 및 Base64 데이터 인코딩", RFC 3548, 7 월 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   RFC5234 Crocker, d., Ed., Overell, P., "BNF for 구문 사양: ABNF", STD 68, RFC 5234, 1 월 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   RFC5234 Crocker, d., Ed., Overell, P., "BNF for 구문 사양: ABNF", STD 68, RFC 5234, 1 월 2008,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 개요 

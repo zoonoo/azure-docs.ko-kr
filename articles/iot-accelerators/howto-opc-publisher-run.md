@@ -11,14 +11,17 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d6581a1892ebd74a1adba5c09c0af9d3cf9d43
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81686953"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079006"
 ---
 # <a name="run-opc-publisher"></a>OPC 게시자 실행
+
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 이 문서에서는 AD 디버그 OPC 게시자를 실행하는 방법에 대해 설명합니다. 또한 성능 및 메모리 고려 사항에 대해서도 설명합니다.
 
@@ -367,7 +370,7 @@ docker run mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubco
 
 ## <a name="run-as-an-azure-iot-edge-module"></a>Azure IoT Edge 모듈로 실행
 
-OPC 게시자는 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge) 모듈로 사용할 준비가 되었습니다. OPC 게시자를 IoT Edge 모듈로 사용하는 경우 지원되는 전송 프로토콜은 **Amqp_Tcp_Only** 및 **Mqtt_Tcp_Only**뿐입니다.
+OPC 게시자는 [Azure IoT Edge](../iot-edge/index.yml) 모듈로 사용할 준비가 되었습니다. OPC 게시자를 IoT Edge 모듈로 사용하는 경우 지원되는 전송 프로토콜은 **Amqp_Tcp_Only** 및 **Mqtt_Tcp_Only**뿐입니다.
 
 OPC 게시자를 모듈로 IoT Edge 배포에 추가하려면 Azure Portal에서 IoT Hub 설정으로 이동하여 다음 단계를 완료합니다.
 

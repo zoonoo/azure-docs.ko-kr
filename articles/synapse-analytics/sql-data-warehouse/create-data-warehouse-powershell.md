@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기
-description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 Synapse SQL 풀을 신속하게 만듭니다.
+title: '빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기'
+description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 전용 SQL 풀(이전의 SQL DW)을 신속하게 만듭니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 098b33491076de5e7e71fed7439cc6090e0183bb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076798"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96456593"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀 만들기
+# <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기
 
-Azure PowerShell을 사용하여 Azure Synapse Analytics에서 Synapse SQL 풀(데이터 웨어하우스)을 만듭니다.
+Azure PowerShell을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 > [!IMPORTANT]
-> SQL 풀을 만들면 새로운 유료 서비스가 발생할 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
+> 전용 SQL 풀(이전의 SQL DW)을 만들면 새로운 청구 가능 서비스가 생성될 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
-[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [서버 수준 방화벽 규칙](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예제: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL 풀 서비스 방화벽을 통해 SQL 풀에 연결되도록 할 수 있습니다.
+[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 명령을 사용하여 [서버 수준 방화벽 규칙](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 외부 애플리케이션(예: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 전용 SQL 풀 서비스 방화벽을 통해 전용 SQL 풀(이전의 SQL DW)에 연결할 수 있습니다.
 
 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
 
@@ -107,9 +107,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL 엔드포인트는 1433 포트를 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 서버에 연결할 수 없습니다.
 >
 
-## <a name="create-a-sql-pool"></a>SQL 풀 만들기
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>전용 SQL 풀(이전의 SQL DW) 만들기
 
-다음 예제에서는 이전에 정의된 변수를 사용하여 SQL 풀을 만듭니다.  여기서는 서비스 목표를 SQL 풀을 저렴하게 시작하기 좋은 DW100c로 지정합니다.
+다음 예제에서는 이전에 정의된 변수를 사용하여 전용 SQL 풀(이전의 SQL DW)을 만듭니다.  여기서는 서비스 목표를 전용 SQL 풀(이전의 SQL DW)을 저렴하게 시작하기 좋은 DW100c로 지정합니다.
 
 ```Powershell
 New-AzSqlDatabase `
@@ -125,10 +125,10 @@ New-AzSqlDatabase `
 필수 매개 변수는 다음과 같습니다.
 
 * **RequestedServiceObjectiveName**: 요청 중인 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)의 양입니다. 이 양을 늘리면 컴퓨팅 비용이 증가합니다. 지원되는 값 목록에 대해서는 [메모리와 동시성 제한](memory-concurrency-limits.md)을 참조하세요.
-* **DatabaseName**: 만들려는 SQL 풀의 이름입니다.
+* **DatabaseName**: 생성 중인 전용 SQL 풀(이전의 SQL DW)의 이름입니다.
 * **ServerName**: 만드는 데 사용할 서버의 이름입니다.
 * **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
-* **Edition**: SQL 풀을 만들려면 "DataWarehouse"여야 합니다.
+* **Edition**: 전용 SQL 풀(이전의 SQL DW)을 만들려면 "DataWarehouse"여야 합니다.
 
 선택적 매개 변수는 다음과 같습니다.
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 SQL 풀을 만들고, 방화벽 규칙을 만들고, SQL 풀에 연결했습니다. 자세히 알아보려면 [SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md) 문서를 계속 진행하세요.
+지금까지 전용 SQL 풀(이전의 SQL DW)을 만들고, 방화벽 규칙을 만들고, 전용 SQL 풀에 연결했습니다. 자세히 알아보려면 [전용 SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md) 문서를 계속 진행하세요.

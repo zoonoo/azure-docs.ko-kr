@@ -6,16 +6,16 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033516"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607952"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 
-Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Application Insights와의 [기본 제공 통합](../../azure-functions/functions-monitoring.md)을 제공합니다. 다음은 현재 지원되는 기능 목록입니다. Azure Functions 가이드에서 [시작](../../azure-functions/functions-monitoring.md#enable-application-insights-integration) 방법을 검토하세요.
+Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Application Insights와의 [기본 제공 통합](../../azure-functions/functions-monitoring.md)을 제공합니다. 다음은 현재 지원되는 기능 목록입니다. Azure Functions 가이드에서 [시작](../../azure-functions/configure-monitoring.md#enable-application-insights-integration) 방법을 검토하세요.
 
 함수 런타임 버전에 대 한 자세한 내용은 [여기](../../azure-functions/functions-versions.md)를 참조 하세요.
 
@@ -23,37 +23,35 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="supported-features"></a>지원되는 기능
 
-| Azure Functions                       | V1                | V2 & V3   | 
-|-----------------------------------    |---------------    |------------------ |
+| Azure 기능                   | V1            | V2 & V3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **자동 컬렉션**        |                 |                   |               
-| &bull; 요청                     | 예             | 예               | 
-| &bull; 예외                   | 예             | 예               | 
-| &bull; 성능 카운터         | 예             | 예               |
-| &bull; 종속성                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | 예               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | 예               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | 예               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | 예               | 
+| **자동 컬렉션**        |               |                  |
+| &bull; 요청                     | 예           | 예              |
+| &bull; 예외                   | 예           | 예              |
+| &bull; 성능 카운터         | 예           | 예              |
+| &bull; 종속성                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | 예              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | 예              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | 예              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | 예              |
 | | | | 
-| **지원되는 기능**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | 예             | 예               | 
-| &nbsp;&nbsp;&nbsp;&mdash; 컨트롤 채널 보호|                 | 예               | 
-| &bull; 샘플링                     | 예             | 예               | 
-| &bull; 하트비트                   |                 | 예               | 
+| **지원되는 기능**              |               |                  |
+| &bull; QuickPulse/LiveMetrics       | 예           | 예              | 
+| &nbsp;&nbsp;&nbsp;&mdash; 컨트롤 채널 보호 |               | 예 | 
+| &bull; 샘플링                     | 예           | 예              | 
+| &bull; 하트비트                   | | 예              | 
+| | | |
+| **Correlation**(상관 관계)                    |               |                  |
+| &bull; ServiceBus                  |               | 예              |
+| &bull; EventHub                    |               | 예              |
 | | | | 
-| **Correlation**(상관 관계)                       |                   |                   |               
-| &bull; ServiceBus                     |                   | 예               | 
-| &bull; EventHub                       |                   | 예               | 
-| | | | 
-| **구성 가능**                      |                   |                   |           
-| &bull;완전히 구성 가능합니다.<br/>지침을 보려면 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852)를 참조하세요.<br/>모든 옵션에 대해서는 [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)를 참조하세요.               |                   | 예                   | 
-
+| **구성 가능**                  |               |                  |           
+| &bull;완전히 구성 가능합니다.<br/>지침을 보려면 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852)를 참조하세요.<br/>모든 옵션에 대 한 [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) 를 참조 하세요.           |               | 예                 | 
 
 ## <a name="performance-counters"></a>성능 카운터
 
 성능 카운터의 자동 수집은 Windows 머신에서만 작동합니다.
-
 
 ## <a name="live-metrics--secure-control-channel"></a>라이브 메트릭 및 컨트롤 채널 보호
 
@@ -61,11 +59,11 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="sampling"></a>샘플링
 
-Azure Functions를 사용하면 기본적으로 구성에서 샘플링을 사용하도록 설정할 수 있습니다. 자세한 내용은 [샘플링 구성](../../azure-functions/functions-monitoring.md#configure-sampling)을 참조하세요.
+Azure Functions를 사용하면 기본적으로 구성에서 샘플링을 사용하도록 설정할 수 있습니다. 자세한 내용은 [샘플링 구성](../../azure-functions/configure-monitoring.md#configure-sampling)을 참조하세요.
 
 프로젝트에서 Application Insights SDK에 대 한 종속성을 사용 하 여 수동 원격 분석 추적을 수행 하는 경우 샘플링 구성이 함수의 샘플링 구성과 다를 경우 이상한 동작이 발생할 수 있습니다. 
 
-함수와 동일한 구성을 사용 하는 것이 좋습니다. **V2 함수**를 사용 하면 생성자에서 종속성 주입을 사용 하 여 동일한 구성을 가져올 수 있습니다.
+함수와 동일한 구성을 사용 하는 것이 좋습니다. **V2 함수** 를 사용 하면 생성자에서 종속성 주입을 사용 하 여 동일한 구성을 가져올 수 있습니다.
 
 ```csharp
 using Microsoft.ApplicationInsights;

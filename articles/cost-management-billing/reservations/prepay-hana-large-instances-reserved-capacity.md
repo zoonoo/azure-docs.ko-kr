@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 44f7ce657ea9341779e15f6e4817e8fae1515e47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d6d0d0a4c4b3328fa50777b5106bac202c9972ef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685972"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151502"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Azure 예약을 사용하여 SAP HANA(대규모 인스턴스) 비용 절감
 
@@ -32,15 +32,15 @@ ms.locfileid: "88685972"
 - HANA 예약 용량의 예약 범위를 공유할 수 없습니다. 예약 범위를 분할, 병합 또는 업데이트할 수 없습니다.
 - 예약 용량 API 호출을 사용하여 한 번에 하나의 HLI를 구매할 수 있습니다. 추가 수량을 구입하려면 API 호출을 추가로 수행해야 합니다.
 
-Azure Portal에서 또는 [REST API](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase)를 사용하여 예약 용량을 구매할 수 있습니다.
+Azure Portal에서 또는 [REST API](/rest/api/reserved-vm-instances/reservationorder/purchase)를 사용하여 예약 용량을 구매할 수 있습니다.
 
 ## <a name="buy-a-hana-large-instance-reservation"></a>HANA 대규모 인스턴스 예약 구매
 
-다음 정보를 사용하여 [예약 주문 REST API](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase)를 통해 HLI 예약을 구매할 수 있습니다.
+다음 정보를 사용하여 [예약 주문 REST API](/rest/api/reserved-vm-instances/reservationorder/purchase)를 통해 HLI 예약을 구매할 수 있습니다.
 
 ### <a name="get-the-reservation-order-and-price"></a>예약 주문 및 가격 정보 가져오기
 
-먼저 [계산 가격](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/calculate) API를 사용하여 프로비저닝된 HANA 대규모 인스턴스 SKU의 예약 주문 및 가격 정보를 가져옵니다.
+먼저 [계산 가격](/rest/api/reserved-vm-instances/reservationorder/calculate) API를 사용하여 프로비저닝된 HANA 대규모 인스턴스 SKU의 예약 주문 및 가격 정보를 가져옵니다.
 
 다음 예제에서는 [armclient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell을 통해 REST API를 호출합니다. 예약 주문과 계산 가격 API 요청 및 요청 본문은 다음과 비슷합니다.
 
@@ -220,7 +220,7 @@ armclient get /providers/microsoft.capacity/reservationOrders/22222222-2222-2222
 
   **SKU** HLI SKU 이름입니다. `SAP_HANA_On_Azure_<SKUname>` 형식입니다.
 
-  **위치** 사용 가능한 HLI 지역입니다. 사용 가능한 지역은 [Azure(대규모 인스턴스)의 SAP HANA에 대한 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)를 참조하세요. 위치 문자열 형식을 가져오려면 [위치 가져오기 API 호출](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations#locationlistresult)을 사용합니다.
+  **위치** 사용 가능한 HLI 지역입니다. 사용 가능한 지역은 [Azure(대규모 인스턴스)의 SAP HANA에 대한 SKU](../../virtual-machines/workloads/sap/hana-available-skus.md)를 참조하세요. 위치 문자열 형식을 가져오려면 [위치 가져오기 API 호출](/rest/api/resources/subscriptions/listlocations#locationlistresult)을 사용합니다.
 
   **예약 리소스 종류** `SapHana`
 
@@ -248,5 +248,5 @@ location. You can also go to https://aka.ms/corequotaincrease to learn about quo
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Postman 및 cURL을 사용하여 Azure REST API를 호출하는 방법](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)을 알아보세요.
-- [Azure(대규모 인스턴스)의 SAP HANA에 대한 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)에서 사용 가능한 SKU 목록 및 지역을 확인하세요.
+- [Postman 및 cURL을 사용하여 Azure REST API를 호출하는 방법](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)을 알아보세요.
+- [Azure(대규모 인스턴스)의 SAP HANA에 대한 SKU](../../virtual-machines/workloads/sap/hana-available-skus.md)에서 사용 가능한 SKU 목록 및 지역을 확인하세요.

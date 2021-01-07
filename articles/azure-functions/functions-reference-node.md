@@ -3,14 +3,14 @@ title: Azure Functions에 대 한 JavaScript 개발자 참조
 description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.date: 11/17/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: bf6ebd01a18a0ebf0ab5dd7d7ac3aa34256b4696
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055331"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936807"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -20,7 +20,7 @@ Express.js, Node.js 또는 JavaScript developer로 Azure Functions를 처음 접
 
 | 시작 | 개념| 단계별 학습 |
 | -- | -- | -- | 
-| <ul><li>[ Visual Studio Code를 사용 하Node.js 함수](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[ 터미널/명령 프롬프트를 사용 하Node.js 함수](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[TypeScript 함수](#typescript)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[서버를 사용 하지 않는 Api에 Node.js 및 Express Api 리팩터링](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[ Visual Studio Code를 사용 하Node.js 함수](./create-first-function-vs-code-node.md)</li><li>[ 터미널/명령 프롬프트를 사용 하Node.js 함수](./create-first-function-cli-java.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[TypeScript 함수](#typescript)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[서버를 사용 하지 않는 Api에 Node.js 및 Express Api 리팩터링](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>JavaScript 함수 기본 사항
 
@@ -107,13 +107,13 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 ### <a name="inputs"></a>입력
 입력은 Azure Functions에서 두 가지 범주로 나뉩니다. 즉 하나는 트리거 입력이고, 다른 하나는 추가 입력입니다. 트리거 및 기타 입력 바인딩(`direction === "in"`의 바인딩)은 다음과 같은 세 가지 방법으로 함수에서 읽을 수 있습니다.
- - **_[권장] _ 함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. `name` *function.js* 에 정의 된 속성은 매개 변수의 이름과 일치 하지 않아도 되지만 반드시 일치 해야 하는 것은 아닙니다.
+ - **_[권장]_ 함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json* 에 정의된 순서대로 함수에 전달됩니다. `name` *function.js* 에 정의 된 속성은 매개 변수의 이름과 일치 하지 않아도 되지만 반드시 일치 해야 하는 것은 아닙니다.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **[`context.bindings`](#contextbindings-property) 개체의 모든 멤버입니다.** 각 멤버는 *function.json*에서 정의된 `name` 속성으로 이름이 지정됩니다.
+ - **[`context.bindings`](#contextbindings-property) 개체의 모든 멤버입니다.** 각 멤버는 *function.json* 에서 정의된 `name` 속성으로 이름이 지정됩니다.
  
    ```javascript
    module.exports = async function(context) { 
@@ -123,7 +123,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    };
    ```
    
- - **입력으로 JavaScript[`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
+ - **입력으로 JavaScript [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
  
    ```javascript
    module.exports = async function(context) { 
@@ -134,11 +134,11 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    ```
 
 ### <a name="outputs"></a>출력
-출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
+출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json* 에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다 (이러한 메서드를 결합 하지 않음).
 
-- **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 비동기/약속 반환 함수를 사용 하는 경우 출력 데이터가 할당 된 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
+- **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 비동기/약속 반환 함수를 사용 하는 경우 출력 데이터가 할당 된 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json* 에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
 
   ```javascript
   module.exports = async function(context) {
@@ -204,8 +204,8 @@ module.exports = (context) => {
 | 속성 이름  | Type  | Description |
 |---------|---------|---------|
 | `invocationId` | String | 특정 함수 호출에 대 한 고유 식별자를 제공 합니다. |
-| `functionName` | 문자열 | 실행 중인 함수의 이름을 제공 합니다. |
-| `functionDirectory` | 문자열 | 함수 앱 디렉터리를 제공 합니다. |
+| `functionName` | String | 실행 중인 함수의 이름을 제공 합니다. |
+| `functionDirectory` | String | 함수 앱 디렉터리를 제공 합니다. |
 
 다음 예제에서는를 반환 하는 방법을 보여 줍니다 `invocationId` .
 
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-기본 추적 수준에서 스트리밍 함수 로그에 기록할 수 있습니다. `context.log`에 다른 추적 수준에서 함수 로그를 작성할 수 있는 추가 로깅 메서드가 제공됩니다.
+를 사용 하면 기본 추적 수준에서 다른 로깅 수준을 사용 하 여 스트리밍 함수 로그에 쓸 수 있습니다. 추적 로깅은 다음 섹션에 자세히 설명 되어 있습니다. 
 
+## <a name="write-trace-output-to-logs"></a>로그에 추적 출력 쓰기
 
-| 메서드                 | Description                                |
-| ---------------------- | ------------------------------------------ |
-| **오류 (_메시지_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
-| **warn(_message_)**    | 경고 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다. |
-| **info(_message_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
-| **verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
+함수에서는 메서드를 사용 하 여 `context.log` 로그 및 콘솔에 추적 출력을 기록 합니다. 를 호출 하면 `context.log()` _정보_ 추적 수준인 기본 추적 수준에서 로그에 메시지가 기록 됩니다. 함수는 함수 앱 로그를 보다 잘 캡처하기 위해 Azure 애플리케이션 Insights와 통합 됩니다. Azure Monitor의 일부인 Application Insights는 응용 프로그램 원격 분석과 추적 출력을 수집 하 고, 시각적으로 렌더링 하 고, 분석 하는 기능을 제공 합니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조 하세요.
 
-다음 예제는 경고 추적 수준에서 로그를 기록합니다.
+다음 예에서는 호출 ID를 비롯 하 여 정보 추적 수준에서 로그를 작성 합니다.
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-host.json 파일에 [로깅에 대한 추적 수준 임계값을 구성](#configure-the-trace-level-for-console-logging)할 수 있습니다. 로그 작성에 대한 자세한 내용은 아래에서 [추적 출력 작성](#writing-trace-output-to-the-console)을 참조하세요.
-
-함수 로그 보기 및 쿼리에 대해 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 읽어보세요.
-
-## <a name="writing-trace-output-to-the-console"></a>콘솔에 추적 출력 작성 
-
-Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 함수 앱 수준에서 캡처됩니다. 즉,의 출력 `console.log` 은 특정 함수 호출에 연결 되지 않으며 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
-
-`context.log()`를 호출하면 메시지를 _정보_ 추적 수준인 기본 추적 수준에서 콘솔에 씁니다. 다음 코드는 정보 추적 수준에서 콘솔에 씁니다.
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-이 코드는 위의 코드와 같습니다.
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-이 코드는 오류 수준에서 콘솔에 기록합니다.
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-_error_(오류)가 가장 높은 추적 수준이므로 로깅이 활성화되어 있는 한 이 추적은 모든 추적 수준에서 출력에 씁니다.
 
 모든 `context.log` 메서드는 Node.js [util.format 메서드](https://nodejs.org/api/util.html#util_util_format_format)에서 지원하는 것과 동일한 매개 변수 형식을 지원합니다. 기본 추적 수준을 사용하여 함수 로그를 작성하는 다음 코드를 살펴보세요.
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>콘솔 로깅에 대한 추적 수준 구성
+> [!NOTE]  
+> `console.log`추적 출력을 작성 하는 데를 사용 하지 마세요. 의 출력 `console.log` 은 함수 앱 수준에서 캡처되고 특정 함수 호출에 연결 되지 않으며 특정 함수의 로그에 표시 되지 않습니다. 또한 함수 런타임의 버전 1.x는를 사용 하 여 `console.log` 콘솔에 쓰는 것을 지원 하지 않습니다.
 
-Functions 1.x에서는 콘솔에 작성할 임계값 추적 수준을 정의할 수 있으므로 추적이 함수에서 콘솔에 작성되는 방식을 쉽게 제어할 수 있습니다. 콘솔에 기록되는 모든 추적에 대한 임계값을 설정하려면 host.json 파일의 `tracing.consoleLevel` 속성을 사용합니다. 이 설정은 함수 앱의 모든 함수에 적용됩니다. 다음 예제에서는 추적 임계값을 설정하여 자세한 정보 표시 로깅을 사용하도록 설정합니다.
+### <a name="trace-levels"></a>추적 수준
+
+기본 수준 외에도 다음과 같은 로깅 메서드를 사용 하 여 특정 추적 수준에서 함수 로그를 쓸 수 있습니다.
+
+| 메서드                 | 설명                                |
+| ---------------------- | ------------------------------------------ |
+| **오류 (_메시지_)**   | 로그에 오류 수준 이벤트를 씁니다.   |
+| **warn(_message_)**    | 로그에 경고 수준 이벤트를 씁니다. |
+| **정보 (_메시지_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
+| **verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
+
+다음 예에서는 정보 수준 대신 경고 추적 수준에서 동일한 로그를 작성 합니다.
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+_error_(오류)가 가장 높은 추적 수준이므로 로깅이 활성화되어 있는 한 이 추적은 모든 추적 수준에서 출력에 씁니다.
+
+### <a name="configure-the-trace-level-for-logging"></a>로깅에 대 한 추적 수준 구성
+
+함수를 사용 하면 로그 나 콘솔에 쓰기 위한 임계값 추적 수준을 정의할 수 있습니다. 특정 임계값 설정은 사용자의 함수 런타임 버전에 따라 달라 집니다.
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+로그에 기록 된 추적에 대 한 임계값을 설정 하려면 `logging.logLevel` 파일의 host.js에서 속성을 사용 합니다. 이 JSON 개체를 사용 하면 함수 앱의 모든 함수에 대 한 기본 임계값을 정의 하 고 개별 함수에 대 한 특정 임계값을 정의할 수 있습니다. 자세한 내용은 [Azure Functions에 대 한 모니터링을 구성 하는 방법](configure-monitoring.md)을 참조 하세요.
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+로그 및 콘솔에 기록 된 모든 추적에 대 한 임계값을 설정 하려면 `tracing.consoleLevel` 파일의 host.js에서 속성을 사용 합니다. 이 설정은 함수 앱의 모든 함수에 적용됩니다. 다음 예제에서는 추적 임계값을 설정하여 자세한 정보 표시 로깅을 사용하도록 설정합니다.
 
 ```json
 {
@@ -360,7 +358,65 @@ Functions 1.x에서는 콘솔에 작성할 임계값 추적 수준을 정의할 
 }  
 ```
 
-**consoleLevel**의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel**을 _off_로 설정합니다. 자세한 내용은 [host.json 참조](functions-host-json-v1.md)를 참조하세요.
+**consoleLevel** 의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel** 을 _off_ 로 설정합니다. 자세한 내용은 [ v1. x 참조의host.js](functions-host-json-v1.md)을 참조 하세요.
+
+---
+
+### <a name="log-custom-telemetry"></a>사용자 지정 원격 분석 로그
+
+기본적으로 함수는 Application Insights에 대 한 출력을 추적으로 작성 합니다. 더 많은 제어를 위해 [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) 를 사용 하 여 Application Insights 인스턴스에 사용자 지정 원격 분석 데이터를 보낼 수 있습니다. 
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+`tagOverrides` 매개 변수는 `operation_Id`를 함수의 호출 ID로 설정합니다. 이 설정을 사용하면 특정 함수 호출에 대해 자동으로 생성된 모든 원격 분석 데이터와 사용자 지정 원격 분석의 상관 관계를 지정할 수 있습니다.
 
 ## <a name="http-triggers-and-bindings"></a>HTTP 트리거 및 바인딩
 
@@ -370,7 +426,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | Description                                                    |
+| 속성      | 설명                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _머리글과_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -385,7 +441,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | Description                                               |
+| 속성  | 설명                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _머리글과_ | 응답 헤더를 포함하는 개체입니다.             |
@@ -437,7 +493,7 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 
 ## <a name="scaling-and-concurrency"></a>스케일링 및 동시성
 
-기본적으로 Azure Functions는 응용 프로그램의 부하를 자동으로 모니터링 하 고 필요에 따라 Node.js에 대 한 추가 호스트 인스턴스를 만듭니다. Functions는 QueueTrigger에 대한 메시지 보존 기간, 큐 크기 등의 기본 제공(사용자 구성 불가능) 임계값을 여러 트리거 유형에 사용하여 인스턴스를 추가할 시기를 결정합니다. 자세한 내용은 [사용 계획 및 프리미엄 계획의 작동 방식](functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조하세요.
+기본적으로 Azure Functions는 응용 프로그램의 부하를 자동으로 모니터링 하 고 필요에 따라 Node.js에 대 한 추가 호스트 인스턴스를 만듭니다. Functions는 QueueTrigger에 대한 메시지 보존 기간, 큐 크기 등의 기본 제공(사용자 구성 불가능) 임계값을 여러 트리거 유형에 사용하여 인스턴스를 추가할 시기를 결정합니다. 자세한 내용은 [사용 계획 및 프리미엄 계획의 작동 방식](event-driven-scaling.md)을 참조하세요.
 
 이러한 크기 조정 동작은 많은 Node.js 응용 프로그램에서 충분 합니다. CPU 바인딩된 응용 프로그램의 경우 여러 언어 작업자 프로세스를 사용 하 여 성능을 향상 시킬 수 있습니다.
 
@@ -452,12 +508,20 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 | Functions 버전 | 노드 버전 (Windows) | 노드 버전 (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |
-| 2.x  | ~ 8<br/>~ 10 (권장)<br/>~ 12<sup>*</sup> | ~ 8 (권장)<br/>~ 10  |
-| 3.x | ~ 10<br/>~ 12 (권장)  | ~ 10<br/>~ 12 (권장) |
+| 2.x  | `~8`<br/>`~10` 바람직하지<br/>`~12` | `node|8`<br/>`node|10` 바람직하지  |
+| 3.x | `~10`<br/>`~12` 바람직하지<br/>`~14`(미리 보기)  | `node|10`<br/>`node|12` 바람직하지<br/>`node|14`(미리 보기) |
 
-<sup>*</sup>노드 ~ 12는 현재 함수 런타임의 버전 2.x에서 허용 됩니다. 그러나 최상의 성능을 위해 노드 ~ 12에서 함수 런타임 버전 3(sp3)을 사용 하는 것이 좋습니다. 
+함수에서 로깅하는 런타임에 사용 하 고 있는 현재 버전을 확인할 수 있습니다 `process.version` .
 
-위의 앱 설정을 확인하거나 함수에서 `process.version`을 인쇄하여 런타임에 사용 중인 현재 버전을 확인할 수 있습니다. WEBSITE_NODE_DEFAULT_VERSION [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) 와 같은 지원 되는 lts 버전으로 설정 하 여 Azure의 버전을 대상으로 `~10` 합니다.
+### <a name="setting-the-node-version"></a>노드 버전 설정
+
+Windows 함수 앱의 경우 `WEBSITE_NODE_DEFAULT_VERSION` [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) 와 같이 지원 되는 lts 버전으로 설정 하 여 Azure의 버전을 대상으로 `~12` 합니다.
+
+Linux 함수 앱의 경우 다음 Azure CLI 명령을 실행 하 여 노드 버전을 업데이트 합니다.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>종속성 관리
 아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 함수 앱에 모든 종속성이 설치되어 있는지 확인해야 합니다.
@@ -489,31 +553,52 @@ module.exports = function(context) {
 ### <a name="using-kudu"></a>Kudu 사용
 1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
 
-2. **디버그 콘솔**  >  **CMD**를 클릭 합니다.
+2. **디버그 콘솔**  >  **CMD** 를 클릭 합니다.
 
 3. `D:\home\site\wwwroot`로 이동한 다음 package.json 파일을 페이지 위쪽의 **wwwroot** 폴더로 끌어갑니다.  
     다른 방법으로 함수 앱에 파일을 업로드할 수도 있습니다. 자세한 내용은 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)을 참조하세요. 
 
-4. package.json 파일을 업로드한 후 **Kudu 원격 실행 콘솔**에서 `npm install` 명령을 실행합니다.  
+4. package.json 파일을 업로드한 후 **Kudu 원격 실행 콘솔** 에서 `npm install` 명령을 실행합니다.  
     이 작업은 package.json 파일에 표시된 패키지를 다운로드하고 함수 앱을 다시 시작합니다.
 
 ## <a name="environment-variables"></a>환경 변수
 
-Functions에서 [앱 설정](functions-app-settings.md)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `process.env` `context.log()` `AzureWebJobsStorage` 및 환경 변수를 기록 하는에 대 한 두 번째 및 세 번째 호출에서 여기에 표시 된 대로를 사용 하 여 이러한 설정에 액세스할 수 있습니다 `WEBSITE_SITE_NAME` .
+운영 비밀 (연결 문자열, 키 및 끝점) 또는 환경 설정 (예: 프로 파일링 변수)과 같은 로컬 및 클라우드 환경에서 함수 앱에 고유한 환경 변수를 추가 합니다. 함수 코드에서를 사용 하 여 이러한 설정 `process.env` 에 액세스 합니다.
+
+### <a name="in-local-development-environment"></a>로컬 개발 환경
+
+로컬로 실행 하는 경우 함수 프로젝트에는 환경 변수를 개체에 저장 하는 [ `local.settings.json` 파일이](/azure/azure-functions/functions-run-local)포함 됩니다 `Values` . 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>Azure 클라우드 환경에서
+
+Azure에서 실행 하는 경우 함수 앱을 사용 하면 서비스 연결 문자열과 같은 [응용 프로그램 설정을](functions-app-settings.md)사용 하 고 실행 중에 이러한 설정을 환경 변수로 노출할 수 있습니다. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>코드에서 환경 변수 액세스
+
+`process.env` `context.log()` `AzureWebJobsStorage` 및 환경 변수를 기록 하는에 대 한 두 번째 및 세 번째 호출에서 여기에 표시 된 대로를 사용 하 여 응용 프로그램 설정에 환경 변수로 액세스 합니다 `WEBSITE_SITE_NAME` .
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-로컬로 실행하는 경우 앱 설정은 [local.settings.json](functions-run-local.md#local-settings-file) 프로젝트 파일에서 읽습니다.
 
 ## <a name="configure-function-entry-point"></a>함수 진입점 구성
 
@@ -595,7 +680,7 @@ VS Code를 사용 하 여 디버깅 하는 경우 `--inspect` `port` 파일의 �
 
 ## <a name="typescript"></a>TypeScript
 
-함수 런타임의 버전 2.x를 대상으로 지정 하는 경우 Visual Studio Code 및 [Azure Functions Core Tools](functions-run-local.md) [에 대 한 Azure Functions](functions-create-first-function-vs-code.md) 를 모두 사용 하 여 TypeScript 함수 앱 프로젝트를 지 원하는 템플릿을 사용 하 여 함수 앱을 만들 수 있습니다. 템플릿에서는 `package.json` `tsconfig.json` 이러한 도구를 사용 하 여 TypeScript 코드에서 JavaScript 함수를 더 쉽게 트랜스 파일 실행 하 고 게시할 수 있도록 하는 및 프로젝트 파일을 생성 합니다.
+함수 런타임의 버전 2.x를 대상으로 지정 하는 경우 Visual Studio Code 및 [Azure Functions Core Tools](functions-run-local.md) [에 대 한 Azure Functions](./create-first-function-cli-typescript.md) 를 모두 사용 하 여 TypeScript 함수 앱 프로젝트를 지 원하는 템플릿을 사용 하 여 함수 앱을 만들 수 있습니다. 템플릿에서는 `package.json` `tsconfig.json` 이러한 도구를 사용 하 여 TypeScript 코드에서 JavaScript 함수를 더 쉽게 트랜스 파일 실행 하 고 게시할 수 있도록 하는 및 프로젝트 파일을 생성 합니다.
 
 생성 된 `.funcignore` 파일은 프로젝트가 Azure에 게시 될 때 제외 되는 파일을 나타내는 데 사용 됩니다.  
 
@@ -664,7 +749,7 @@ App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있�
 
 ### <a name="cold-start"></a>콜드 부팅
 
-서버리스 호스팅 모델에서 Azure Functions를 개발하는 경우 콜드 부팅이 현실입니다. *콜드 부팅*이란 일정 기간 동안 비활성이었다가 처음으로 함수 앱을 시작하면 시작하는 데 더 오래 걸린다는 사실을 의미합니다. 특히 종속성 트리가 큰 JavaScript 함수의 경우 콜드 부팅은 중요할 수 있습니다. 콜드 부팅 프로세스의 속도를 높이려면 가능한 경우 [함수를 패키지 파일로 실행](run-functions-from-deployment-package.md)합니다. 여러 배포 방법은 기본적으로 패키지 모델에서 실행을 사용하지만 대규모 콜드 부팅이 발생하고 이러한 방식으로 실행하지 않는 경우 이 변경 내용으로 인해 크게 개선될 수 있습니다.
+서버리스 호스팅 모델에서 Azure Functions를 개발하는 경우 콜드 부팅이 현실입니다. *콜드 부팅* 이란 일정 기간 동안 비활성이었다가 처음으로 함수 앱을 시작하면 시작하는 데 더 오래 걸린다는 사실을 의미합니다. 특히 종속성 트리가 큰 JavaScript 함수의 경우 콜드 부팅은 중요할 수 있습니다. 콜드 부팅 프로세스의 속도를 높이려면 가능한 경우 [함수를 패키지 파일로 실행](run-functions-from-deployment-package.md)합니다. 여러 배포 방법은 기본적으로 패키지 모델에서 실행을 사용하지만 대규모 콜드 부팅이 발생하고 이러한 방식으로 실행하지 않는 경우 이 변경 내용으로 인해 크게 개선될 수 있습니다.
 
 ### <a name="connection-limits"></a>연결 제한
 

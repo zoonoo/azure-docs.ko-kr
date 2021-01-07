@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 04/24/2017
 ms.custom: seodec18, has-adal-ref, devx-track-csharp
 ms.openlocfilehash: 0672a7dc1a5c26eff88806ca37b28d70b49f2288
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88926527"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리

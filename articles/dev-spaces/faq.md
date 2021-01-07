@@ -5,20 +5,22 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 739cfdb4f930d384e180ffd0f3ce2311cd41c70a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: e83bed86714e4b92c63f4e7b7eb55df7a2a7eaff
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207985"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548837"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 질문과 대답
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 이는 Azure Dev Spaces에 대 한 질문과 대답을 다룹니다.
 
 ## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Azure Dev Spaces에 대해 지원 되는 Kubernetes 버전은 무엇 인가요?
 
-Azure Dev Spaces [는 AKS에서 현재 지원 되는 GA (일반 공급) 버전을][aks-supported-k8s]모두 지원 합니다.
+Azure Dev Spaces [는 AKS에서 현재 지원 되는 GA (일반 공급) 버전의 Kubernetes를 최대 1.18까지][aks-supported-k8s]지원 합니다. AKS의 Kubernetes 1.19 이상에서는 Azure Dev Spaces에서 작동 하지 않는 컨테이너 런타임으로 ContainerD를 사용 합니다.
 
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>현재 Azure Dev Spaces을 제공 하는 Azure 지역은 무엇 인가요?
 
@@ -70,9 +72,9 @@ Azure Dev Spaces [는 AKS에서 현재 지원 되는 GA (일반 공급) 버전�
 
 예, 올바른 Fqdn이 허용 되 면 사용 하도록 설정 된 [클러스터 노드에 대해 제한 된 송신 트래픽을][aks-restrict-egress-traffic] 사용 하는 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. Azure Dev Spaces 사용 하도록 설정 된 클러스터 노드에 대해 제한 된 송신 트래픽이 있는 AKS 클러스터를 사용 하는 방법에 대 한 자세한 내용은 [여기](configure-networking.md#ingress-and-egress-network-traffic-requirements)에서 사용할 수 있습니다.
 
-## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>RBAC 지원 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있나요?
+## <a name="can-i-use-azure-dev-spaces-on-kubernetes-rbac-enabled-aks-clusters"></a>Kubernetes RBAC 사용 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있나요?
 
-예, RBAC를 사용 하거나 사용 하지 않고 AKS 클러스터에 대 한 Azure Dev Spaces를 사용할 수 있습니다.
+예, Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하거나 사용 하지 않고 AKS 클러스터에 대 한 Azure Dev Spaces를 사용할 수 있습니다.
 
 ## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Visual Studio에서 프로젝트를 수신 하도록 설정 하면 어떻게 되나요?
 

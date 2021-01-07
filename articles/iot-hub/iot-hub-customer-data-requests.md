@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: ebc73c75d9a23a53ac94f28208251dcff83e684a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030704"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535793"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Azure IoT Hub 장치에 대 한 고객 데이터 요청 기능
 
@@ -30,7 +30,7 @@ Azure IoT Hub 서비스의 라우팅 기능을 사용하여 디바이스 메시�
 
 Azure IoT Hub 서비스의 Azure Event Grid 통합 기능을 사용하는 경우 이러한 이벤트의 각 구독자에 대해 테넌트 관리자가 데이터 요청을 수행해야 합니다. 자세한 내용은 [Event Grid를 사용하여 IoT Hub 이벤트에 대응](iot-hub-event-grid.md)을 참조하세요.
 
-Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용하여 진단 로그를 만드는 경우 저장된 로그에 대해 테넌트 관리자가 데이터 요청을 수행해야 합니다. 자세한 내용은 [Azure IoT Hub의 상태 모니터링](iot-hub-monitor-resource-health.md)을 참조하세요.
+Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용 하 여 리소스 로그를 만든 경우에는 저장 된 로그에 대해 테 넌 트 관리자가 데이터 요청을 수행 해야 합니다. 자세한 내용은 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조 하세요.
 
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 
@@ -49,4 +49,4 @@ Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용하여 진단 �
 
 ## <a name="links-to-additional-documentation"></a>추가 설명서에 대한 링크
 
-Azure IoT Hub 서비스 API에 대한 전체 설명서는 [IoT Hub 서비스 API](https://docs.microsoft.com/rest/api/iothub/service/configuration)에 있습니다.
+Azure IoT Hub 서비스 API에 대한 전체 설명서는 [IoT Hub 서비스 API](/rest/api/iothub/service/configuration)에 있습니다.

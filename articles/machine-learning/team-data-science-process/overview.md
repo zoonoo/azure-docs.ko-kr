@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: overview
-ms.date: 1/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 711c4ce8af613181d35d2850393c6c24d795c280
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 4a341d33c957af8fe7423bda80f1d34a7f59cdd6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799267"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738002"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
 
@@ -49,9 +49,9 @@ TDSP(Team Data Science Process)는 데이터 과학 프로젝트의 개발을 �
 * **모델링**
 * **배포**
 
-다음은 **팀 데이터 과학 프로세스 수명 주기**의 시각적 표현입니다. 
+다음은 **팀 데이터 과학 프로세스 수명 주기** 의 시각적 표현입니다. 
 
-![TDSP - 수명 주기 2](./media/overview/tdsp-lifecycle2.png) 
+![다이어그램은 비즈니스 이해, 데이터 수집/이해, 모델링 및 배포를 포함한 데이터 과학 수명 주기를 보여줍니다.](./media/overview/tdsp-lifecycle2.png) 
 
 TDSP에서 주기의 각 단계에 대한 목표, 작업 및 설명서 아티팩트는 [Team Data Science Process 수명 주기](lifecycle.md) 항목에 설명되어 있습니다. 이러한 작업 및 아티팩트는 프로젝트 역할과 관련이 있습니다.
 
@@ -100,7 +100,7 @@ TDSP는 공유 분석 및 스토리지 인프라를 관리하기 위해 다음�
 
 ## <a name="tools-and-utilities-for-project-execution"></a>프로젝트 실행을 위한 도구 및 유틸리티
 
-대부분의 조직에서 도입 과정은 만만하지 않습니다. 데이터 과학 프로세스와 수명 주기 구현을 위해 제공되는 도구가 채택으로 가는 장벽을 낮추고 채택의 일관성을 증가시키는데 도움이 됩니다. TDSP는 팀 내에서 TDSP의 도입을 신속하게 시작하도록 도구와 스크립트 기본 셋트를 제공합니다. 또한 데이터 과학 수명 주기에서 데이터 탐색이나 기준 모델링 같은 일반적인 작업 중 일부를 자동화하는 데도 도움이 됩니다. 구조가 잘 정의되어 있어서 개인이 공유 도구와 유틸리티를 팀의 공유 코드 리포지토리에 컨트리뷰트할 수 있게 해줍니다. 이런 리소스는 팀이나 조직 내의 다른 프로젝트에서 활용할 수 있습니다. 또한 TDSP는 툴과 유틸리티를 전체 커뮤니티에 컨트리뷰트할 수 있게 만들 계획도 가지고 있습니다. TDSP 유틸리티는 [GitHub](https://github.com/Azure/Azure-TDSP-Utilities)에서 복제할 수 있습니다.
+대부분의 조직에서 도입 과정은 만만하지 않습니다. 데이터 과학 프로세스와 수명 주기 구현을 위해 제공되는 도구가 채택으로 가는 장벽을 낮추고 채택의 일관성을 증가시키는데 도움이 됩니다. TDSP는 팀 내에서 TDSP의 도입을 신속하게 시작하도록 도구와 스크립트 기본 셋트를 제공합니다. 또한 데이터 과학 수명 주기에서 데이터 탐색이나 기준 모델링 같은 일반적인 작업 중 일부를 자동화하는 데도 도움이 됩니다. 구조가 잘 정의되어 있어서 개인이 공유 도구와 유틸리티를 팀의 공유 코드 리포지토리에 컨트리뷰트할 수 있게 해줍니다. 이런 리소스는 팀이나 조직 내의 다른 프로젝트에서 활용할 수 있습니다.  Microsoft는 오픈 소스(Python, R, ONNX 및 일반 딥 러닝 프레임워크)와 Microsoft 자체 도구(AutoML)를 모두 지원하는 [Azure Machine Learning](../index.yml) 내에서 광범위한 도구를 제공합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

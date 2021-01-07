@@ -4,15 +4,15 @@ description: Azure Resource Manager 템플릿을 사용하여 내부 부하 분�
 author: ccompy
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f2124dd77e3e5d9828ea457a6bccdf7d1bc05405
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961774"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009554"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
 
@@ -48,7 +48,7 @@ ILB ASE를 사용하는 경우 수행할 수 없는 작업도 있습니다.
 
 ILB ASE를 만들려면
 
-1. Azure Portal에서 **리소스 만들기** > **웹** > **App Service Environment**를 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **웹** > **App Service Environment** 를 선택합니다.
 
 2. 구독을 선택합니다.
 
@@ -71,14 +71,14 @@ ILB ASE를 만들려면
 
     ![ASE 네트워킹][1]
 
-7. **검토 및 만들기**를 선택한 다음, **만들기**를 선택합니다.
+7. **검토 및 만들기** 를 선택한 다음, **만들기** 를 선택합니다.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>ILB ASE에 앱 만들기 ##
 
 일반적으로 ASE에서 앱을 만드는 것과 동일한 방식으로 ILB ASE에서 앱을 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기** > **웹** > **웹앱**을 차례로 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **웹** > **웹앱** 을 차례로 선택합니다.
 
 1. 앱의 이름을 입력합니다.
 
@@ -92,33 +92,44 @@ ILB ASE를 만들려면
 
 1. App Service 계획을 선택하거나 만듭니다. 
 
-1. **검토 및 만들기**를 선택한 다음, 준비되면 **만들기**를 선택합니다.
+1. **검토 및 만들기** 를 선택한 다음, 준비되면 **만들기** 를 선택합니다.
 
 ### <a name="web-jobs-functions-and-the-ilb-ase"></a>웹 작업, 함수 및 ILB ASE 
 
-함수 및 웹 작업 모두 ILB ASE에서 지원되지만 포털에서 작동되려면 네트워크를 통해 SCM 사이트에 액세스할 수 있어야 합니다.  즉, 가상 네트워크에 있거나 가상 네트워크에 연결된 호스트에 브라우저가 있어야 합니다. ILB ASE의 도메인 이름이 *appserviceenvironment.net*으로 끝나지 않으면 경우 scm 사이트에서 사용되는 HTTPS 인증서를 브라우저에서 신뢰할 수 있도록 해야 합니다.
+함수 및 웹 작업 모두 ILB ASE에서 지원되지만 포털에서 작동되려면 네트워크를 통해 SCM 사이트에 액세스할 수 있어야 합니다.  즉, 가상 네트워크에 있거나 가상 네트워크에 연결된 호스트에 브라우저가 있어야 합니다. ILB ASE의 도메인 이름이 *appserviceenvironment.net* 으로 끝나지 않으면 경우 scm 사이트에서 사용되는 HTTPS 인증서를 브라우저에서 신뢰할 수 있도록 해야 합니다.
 
 ## <a name="dns-configuration"></a>DNS 구성 
 
-외부 VIP를 사용하는 경우 DNS가 Azure에서 관리됩니다. ASE에서 만든 모든 앱은 공용 DNS에 해당하는 Azure DNS에 자동으로 추가됩니다. ILB ASE에서 자체 DNS를 관리해야 합니다. ILB ASE에서 사용되는 도메인 접미사는 ASE 이름에 따라 달라집니다. 도메인 접미사는 *&lt;ASE 이름&gt;.appserviceenvironment.net*입니다. ILB의 IP 주소는 포털의 **IP 주소** 아래에 있습니다. 
+External ASE를 사용하는 경우 ASE에서 만든 앱이 Azure DNS로 등록됩니다. External ASE에는 앱을 공개적으로 사용할 수 있는 추가 단계가 없습니다. ILB ASE를 사용하여 자체 DNS를 관리해야 합니다. 사용자의 DNS 서버에서 또는 Azure DNS 프라이빗 영역을 사용하여 이 작업을 수행할 수 있습니다.
 
-DNS를 구성하려면 다음을 수행합니다.
+ILB ASE를 사용하여 자체 DNS 서버에서 DNS를 구성하려면 다음을 수행합니다.
 
-- *&lt;ASE 이름&gt;.appserviceenvironment.net* 영역 만들기
-- 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
-- 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
-- *&lt;ASE 이름&gt;.appserviceenvironment.net*에 scm이라는 영역 만들기
-- scm 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
+1. &lt;ASE 이름&gt;.appserviceenvironment.net 영역 만들기
+2. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
+3. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
+4. &lt;ASE 이름&gt;.appserviceenvironment.net에 scm이라는 영역 만들기
+5. scm 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
+
+Azure DNS 프라이빗 영역에서 DNS를 구성하려면 다음을 수행합니다.
+
+1. &lt;ASE 이름&gt;.appserviceenvironment.net이라는 Azure DNS 프라이빗 영역 만들기
+2. 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
+3. 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
+4. 해당 영역에 *.scm으로 ILB IP 주소를 가리키는 A 레코드 만들기
+
+ASE 기본 도메인 접미사에 대한 DNS 설정은 해당 이름으로만 액세스할 수 있도록 앱을 제한하지 않습니다. ILB ASE의 앱에 대한 유효성 검사 없이 사용자 지정 도메인 이름을 설정할 수 있습니다. 그런 다음, contoso.net이라는 영역을 만들려는 경우 이를 수행하고 ILB IP 주소를 가리킬 수 있습니다. 사용자 지정 도메인 이름은 앱 요청에 대해서는 작동하지만 scm 사이트의 경우에는 작동하지 않습니다. scm 사이트는 &lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net에서만 사용할 수 있습니다.
+
+.&lt;asename&gt;.appserviceenvironment.net이라는 영역은 전역적으로 고유합니다. 2019년 5월 이전에는 고객이 ILB ASE의 도메인 접미사를 지정할 수 있었습니다. 도메인 접미사에 대해 .contoso.com을 사용하려는 경우 이 작업을 수행할 수 있었으며 scm 사이트를 포함합니다. 이 모델에는 기본 SSL 인증서 관리, scm 사이트에 Single Sign-On 부족 및 와일드카드 인증서를 사용하기 위한 요구 사항을 비롯한 과제가 있었습니다. ILB ASE 기본 인증서 업그레이드 프로세스도 중단되어 애플리케이션을 다시 시작했습니다. 이러한 문제를 해결하기 위해 ILB ASE 동작은 ASE 이름 및 Microsoft 소유의 접미사에 따라 도메인 접미사를 사용하도록 변경되었습니다. ILB ASE 동작에 대한 변경 사항은 2019년 5월 이후 만들어진 ILB ASE에 적용됩니다. 기존 ILB ASE는 여전히 ASE의 기본 인증서와 해당 DNS 구성을 관리해야 합니다.
 
 ## <a name="publish-with-an-ilb-ase"></a>ILB ASE로 게시
 
 만든 모든 앱에는 두 개의 엔드포인트가 있습니다. ILB ASE에는 *&lt;앱 이름&gt;.&lt;ILB ASE 도메인&gt;* 및 *&lt;앱 이름&gt;.scm.&lt;ILB ASE 도메인&gt;* 이 있습니다. 
 
-SCM 사이트 이름은 Azure Portal 내에서 **고급 포털**이라고 하는 Kudu 콘솔로 이동합니다. Kudu 콘솔을 통해 환경 변수를 확인하고, 디스크를 탐색하고, 콘솔을 사용할 수 있습니다. 자세한 내용은 [Azure App Service의 Kudu 콘솔][Kudu]을 참조하세요. 
+SCM 사이트 이름은 Azure Portal 내에서 **고급 포털** 이라고 하는 Kudu 콘솔로 이동합니다. Kudu 콘솔을 통해 환경 변수를 확인하고, 디스크를 탐색하고, 콘솔을 사용할 수 있습니다. 자세한 내용은 [Azure App Service의 Kudu 콘솔][Kudu]을 참조하세요. 
 
 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 빌드 에이전트가 인터넷에 액세스할 수 있고 ILB ASE와 동일한 네트워크에 있는 경우 ILB ASE와 함께 작동합니다. 따라서 Azure DevOps의 경우 빌드 에이전트가 ILB ASE와 동일한 VNET에서 만들어지면(다른 서브넷은 문제 없음) Azure DevOps git에서 코드를 끌어오고 ILB ASE에 배포할 수 있습니다. 사용자 고유의 빌드 에이전트를 만들지 않으려면 Dropbox 등의 끌어오기 모델을 사용하는 CI 시스템을 사용해야 합니다.
 
-ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 이 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **Essentials** 및 **속성**)에서 표시됩니다. *&lt;ASE 이름&gt;.appserviceenvironment.net* 도메인 접미사가 있는 ILB ASE 및 *mytest*라는 앱이 있는 경우 FTP에는 *mytest.&lt;ASE 이름&gt;.appserviceenvironment.net*을 사용하고, 웹 배포에는 *mytest.scm.contoso.net*을 사용합니다.
+ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 이 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **Essentials** 및 **속성**)에서 표시됩니다. *&lt;ASE 이름&gt;.appserviceenvironment.net* 도메인 접미사가 있는 ILB ASE 및 *mytest* 라는 앱이 있는 경우 FTP에는 *mytest.&lt;ASE 이름&gt;.appserviceenvironment.net* 을 사용하고, 웹 배포에는 *mytest.scm.contoso.net* 을 사용합니다.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>WAF 디바이스를 사용하여 ILB ASE 구성 ##
 
@@ -147,7 +158,7 @@ WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md

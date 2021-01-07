@@ -1,20 +1,23 @@
 ---
-title: Azure Monitor의 IIS 로그 | Microsoft Docs
+title: Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
 description: IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  이 문서에서는 IIS 로그 수집을 구성하는 방법을 설명하고, Azure Monitor에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 11/13/2020
+ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008186"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993689"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Azure Monitor에서 IIS 로그 수집
-IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있고 [로그 데이터](data-platform.md)로 저장되는 로그 파일에 사용자 활동을 저장합니다.
+# <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
+인터넷 정보 서비스 (IIS)는 Log Analytics 에이전트가 수집 하 고 [Azure Monitor 로그](data-platform.md)에 저장할 수 있는 로그 파일에 사용자 작업을 저장 합니다.
+
+> [!IMPORTANT]
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](log-analytics-agent.md) 를 사용 하 여 IIS 로그를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](agents-overview.md) 를 참조 하세요.
 
 ![IIS 로그](media/data-sources-iis-logs/overview.png)
 
@@ -23,12 +26,14 @@ Azure Monitor는 IIS에서 생성된 로그 파일의 항목을 수집하므로 
 
 Azure Monitor는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 사용자 지정 필드 또는 IIS 고급 로깅을 지원하지 않습니다. NCSA 또는 IIS 네이티브 형식의 로그는 수집하지 않습니다.
 
-[고급 설정 메뉴](agent-data-sources.md#configuring-data-sources)에서 Azure Monitor의 IIS 로그를 구성합니다.  **W3C 형식 IIS 로그 파일 수집**을 선택하는 것 외에 다른 구성은 필요 없습니다.
+Log Analytics 에이전트에 대 한 [고급 설정 메뉴](agent-data-sources.md#configuring-data-sources) 에서 Azure Monitor IIS 로그를 구성 합니다.  **W3C 형식 IIS 로그 파일 수집** 을 선택하는 것 외에 다른 구성은 필요 없습니다.
 
 
 ## <a name="data-collection"></a>데이터 수집
-Azure Monitor는 로그 타임 스탬프가 변경 될 때마다 각 에이전트에서 IIS 로그 항목을 수집 합니다. **5 분**마다 로그를 읽습니다. 어떤 이유로 든 새 파일이 생성 될 때 IIS가 롤오버 시간 전에 타임 스탬프를 업데이트 하지 않으면 새 파일 생성 후에 항목이 수집 됩니다. 새 파일 생성 빈도는 IIS 사이트에 대 한 **로그 파일 롤오버 일정** 설정에 의해 제어 되며, 기본적으로 하루에 한 번입니다. 설정이 **매시간**인 경우 Azure Monitor는 매시간 로그를 수집 합니다. 설정이 **매일**이면 Azure Monitor 24 시간 마다 로그를 수집 합니다.
+Azure Monitor는 로그 타임 스탬프가 변경 될 때마다 각 에이전트에서 IIS 로그 항목을 수집 합니다. **5 분** 마다 로그를 읽습니다. 어떤 이유로 든 새 파일이 생성 될 때 IIS가 롤오버 시간 전에 타임 스탬프를 업데이트 하지 않으면 새 파일 생성 후에 항목이 수집 됩니다. 새 파일 생성 빈도는 IIS 사이트에 대 한 **로그 파일 롤오버 일정** 설정에 의해 제어 되며, 기본적으로 하루에 한 번입니다. 설정이 **매시간** 인 경우 Azure Monitor는 매시간 로그를 수집 합니다. 설정이 **매일** 이면 Azure Monitor 24 시간 마다 로그를 수집 합니다.
 
+> [!IMPORTANT]
+> **로그 파일 롤오버 일정** 을 **시간별** 로 설정 하는 것이 좋습니다. **매일** 로 설정 된 경우에는 하루에 한 번만 수집 되므로 데이터가 급증 할 수 있습니다.
 
 ## <a name="iis-log-record-properties"></a>IIS 로그 레코드 속성
 IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있습니다.

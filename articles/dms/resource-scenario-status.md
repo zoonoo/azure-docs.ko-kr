@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 4e6f8a115e996ac6862f2fb04e5050b94f9f823b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cc3323a3ae2d604557d7e09b38252d63f17c5470
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132747"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319915"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
 
@@ -45,7 +45,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 오프라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| Target  | 원본 | 지원 | 상태 |
+| 대상  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | X |  |
@@ -67,7 +67,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 온라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| Target  | 원본 | 지원 | 상태 |
+| 대상  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
@@ -81,13 +81,12 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 | **Azure DB for MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
 | **PostgreSQL 용 Azure DB-단일 서버** | PostgreSQL | ✔ | GA |
-|   | PostgreSQL 용 Azure DB-단일 서버 * | ✔ | GA |
+|   | PostgreSQL 용 Azure DB-단일 서버 | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | 퍼블릭 미리 보기 |
 | **Azure DB for PostgreSQL-Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 
-* PostgreSQL 버전 10 이상에서 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

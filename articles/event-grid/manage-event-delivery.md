@@ -3,21 +3,21 @@ title: 배달 못한 편지 및 재시도 정책-Azure Event Grid
 description: Event Grid에 대한 이벤트 전송 옵션을 사용자 지정하는 방법을 설명합니다. 배달 못한 편지 대상을 설정하고 배달을 다시 시도하기 위한 기간을 지정합니다.
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d8cd74ccfb77bcec45d06071a4f46fb2a640cf8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074875"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460940"
 ---
-# <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
+# <a name="set-dead-letter-location-and-retry-policy"></a>배달 못한 편지 위치 설정 및 정책 다시 시도
 
 이벤트 구독을 만들 때 이벤트 전송 설정을 사용자 지정할 수 있습니다. 이 문서에서는 배달 못한 편지 위치를 설정하고 재시도 설정을 사용자 지정하는 방법을 보여 줍니다. 이 기능에 대한 자세한 내용은 [Event Grid 메시지 전송 및 재시도](delivery-and-retry.md)를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> 메시지 배달, 다시 시도 및 배달 못 한 편지에 대해 알아보려면 개념 문서 [Event Grid 메시지 배달 및 다시 시도]()를 참조 하세요.
+> 메시지 배달, 다시 시도 및 배달 못 한 편지에 대해 알아보려면 개념 문서 [Event Grid 메시지 배달 및 다시 시도](delivery-and-retry.md)를 참조 하세요.
 
 ## <a name="set-dead-letter-location"></a>배달 못한 편지 위치 설정
 

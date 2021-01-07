@@ -4,10 +4,10 @@ description: 예약어가 포함된 리소스 이름을 제공할 때 발생하�
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75477630"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>예약된 리소스 이름 오류 해결
@@ -66,6 +66,6 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 * WINDOWS
 * XBOX
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 예약어 중 하나를 사용하지 않는 이름을 제공합니다.

@@ -3,24 +3,35 @@ title: Azure Kubernetes 서비스 (AKS) 시작 및 중지
 description: AKS (Azure Kubernetes Service) 클러스터를 중지 하거나 시작 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: a743a6c30d5ce8bcaf275bf1a658f8343de4d4fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937881"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968789"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>AKS (Azure Kubernetes Service) 클러스터 (미리 보기)를 중지 하고 시작 합니다.
 
-업무 시간 중에만 사용 되는 개발 클러스터와 같이 AKS 워크 로드를 지속적으로 실행할 필요가 없을 수도 있습니다. 이로 인해 Azure Kubernetes 서비스 (AKS) 클러스터가 유휴 상태일 수 있으며 시스템 구성 요소를 초과 하지 않는 시간이 발생 합니다. [모든 `User` 노드 풀을 0으로 확장](scale-cluster.md#scale-user-node-pools-to-0)하여 클러스터 공간을 줄일 수 있지만, 클러스터가 실행되는 동안에는 시스템 구성 요소를 실행 하는 데에도 [ `System` 풀이](use-system-pools.md) 필요 합니다. 이러한 기간 동안 비용을 더 최적화 하려면 클러스터를 완전히 해제(중지) 할 수 있습니다. 이 작업을 수행하면 제어 평면과 에이전트 노드가 모두 중지 되므로 모든 계산 비용을 절감할 수 있을 뿐만 아니라 다시 시작할 때에 저장된 모든 개체 및 클러스터 상태를 유지할 수 있습니다. 이를 통해 주말 이후부터 또는 일괄 처리 작업을 실행 하는 동안에만 클러스터를 실행 하는 위치를 선택할 수 있습니다.
+업무 시간 중에만 사용 되는 개발 클러스터와 같이 AKS 워크 로드를 지속적으로 실행할 필요가 없을 수도 있습니다. 이로 인해 Azure Kubernetes 서비스 (AKS) 클러스터가 유휴 상태일 수 있으며 시스템 구성 요소를 초과 하지 않는 시간이 발생 합니다. [모든 `User` 노드 풀을 0으로 확장](scale-cluster.md#scale-user-node-pools-to-0)하여 클러스터 공간을 줄일 수 있지만, 클러스터가 실행되는 동안에는 시스템 구성 요소를 실행 하는 데에도 [ `System` 풀이](use-system-pools.md) 필요 합니다. 이러한 기간 동안 비용을 더 최적화 하려면 클러스터를 완전히 해제(중지) 할 수 있습니다. 이 작업을 수행하면 제어 평면과 에이전트 노드가 모두 중지 되므로 모든 계산 비용을 절감할 수 있을 뿐만 아니라 다시 시작할 때에 저장된 모든 개체 및 클러스터 상태를 유지할 수 있습니다. 그런 다음, 주말의 왼쪽에 있는 위치를 선택 하거나 batch 작업을 실행 하는 동안에만 클러스터를 실행할 수 있습니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+
+
+### <a name="limitations"></a>제한 사항
+
+Cluster start/stop 기능을 사용 하는 경우 다음 제한 사항이 적용 됩니다.
+
+- 이 기능은 Virtual Machine Scale Sets 지원 되는 클러스터에 대해서만 지원 됩니다.
+- 미리 보기 중에는이 기능이 개인 클러스터에 대해 지원 되지 않습니다.
+- 중지 된 AKS 클러스터의 클러스터 상태는 최대 12 개월 동안 보존 됩니다. 클러스터가 12 개월 넘게 중지 된 경우 클러스터 상태를 복구할 수 없습니다. 자세한 내용은 [AKS 지원 정책](support-policies.md)을 참조 하세요.
+- 미리 보기 중 클러스터를 중지 하기 전에 클러스터 autoscaler (CA)를 중지 해야 합니다.
+- 중지 된 AKS 클러스터를 시작 하거나 삭제할 수만 있습니다. 크기 조정 또는 업그레이드와 같은 작업을 수행 하려면 먼저 클러스터를 시작 합니다.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Azure CLI 설치 `aks-preview` 
 
@@ -33,11 +44,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ``` 
-
-> [!WARNING]
-> 중지된 AKS 클러스터의 클러스터 상태는 최대 12 개월 동안 보존 됩니다. 클러스터가 12 개월 넘게 중지 된 경우 클러스터 상태를 복구할 수 없습니다. 자세한 내용은 [AKS 지원 정책](support-policies.md)을 참조 하세요.
-> 중지된 AKS 클러스터를 시작 하거나 삭제할 수만 있습니다. 크기 조정 또는 업그레이드와 같은 작업을 수행 하려면 먼저 클러스터를 시작 합니다.
-
 
 ### <a name="register-the-startstoppreview-preview-feature"></a>`StartStopPreview`미리 보기 기능 등록
 
@@ -69,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show] [az-aks-show] 명령을 사용하여 클러스터가 중지 된 시기를 확인하고 `powerState` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다 `Stopped` .
+[Az aks show][az-aks-show] 명령을 사용하여 클러스터가 중지 된 시기를 확인하고 `powerState` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다 `Stopped` .
 
 ```json
 {
@@ -100,7 +106,7 @@ az aks stop --name myAKSCluster --resource-group myResourceGroup
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show] [az-aks-show] 명령을 사용하여 클러스터가 시작 된 시기를 확인 하 고 `powerState` `Running` 아래 출력에 표시 된 것으로 확인 합니다.
+[Az aks show][az-aks-show] 명령을 사용하여 클러스터가 시작 된 시기를 확인 하 고 `powerState` `Running` 아래 출력에 표시 된 것으로 확인 합니다.
 
 ```json
 {
@@ -136,3 +142,4 @@ az aks start --name myAKSCluster --resource-group myResourceGroup
 [az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show

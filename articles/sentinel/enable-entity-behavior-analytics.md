@@ -12,32 +12,49 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2020
+ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: c55ea0e7753faa6dc21b955d63a57d96e3849f70
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997119"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425782"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널에서 사용자 및 엔터티 동작 분석 (UEBA) 사용 
 
-
+> [!IMPORTANT]
+>
+> - UEBA 및 엔터티 페이지 기능은 이제 다음 Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
+>    - 미국 지리
+>    - 유럽 서 부 지역
+>    - 오스트레일리아 지리
+>
+> - 다른 모든 지역 및 지역에서 이러한 기능은 **미리 보기** 기간 동안 유지 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- UEBA를 사용 하거나 사용 하지 않도록 설정 하기 위해 사용자에 게 Azure AD의 **전역 관리자** 또는 **보안 관리자** 역할을 할당 해야 합니다.
+이 기능을 사용 하거나 사용 하지 않도록 설정 하려면 (이러한 필수 구성 요소는 기능을 사용 하는 데 필요 하지 않음):
+
+- 사용자는 게스트 사용자가 아닌 조직의 Azure Active Directory 구성원 이어야 합니다.
+
+- 사용자에 게 Azure AD의 **전역 관리자** 또는 **보안 관리자** 역할을 할당 해야 합니다.
+
+- 사용자에 게 다음 **azure 역할** 중 하나 이상을 할당 해야 합니다 ( [azure RBAC에 대 한 자세한](roles.md)정보).
+    - 작업 영역 또는 리소스 그룹 수준에서 **Azure 센티널 기여자**
+    - 리소스 그룹 또는 구독 수준에서 **참가자를 Log Analytics** 합니다.
+
+- 작업 영역에 Azure 리소스 잠금이 적용 되지 않아야 합니다. [Azure 리소스 잠금에 대해 자세히 알아보세요](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>사용자 및 엔터티 동작 분석을 사용 하도록 설정 하는 방법
 
-1. Azure 센티널 탐색 메뉴에서 **엔터티 동작 (미리 보기)** 을 선택 합니다.
+1. Azure 센티널 탐색 메뉴에서 **엔터티 동작** 을 선택 합니다.
 
 1. **제목 아래에서 설정/** 해제 **를 켜기로 전환 합니다.**
 
 1. **데이터 원본 선택** 단추를 클릭 합니다.
 
-1. **데이터 원본 선택** 창에서 UEBA를 사용 하도록 설정할 데이터 원본 옆의 확인란을 선택 하 고 **적용**을 선택 합니다.
+1. **데이터 원본 선택** 창에서 UEBA를 사용 하도록 설정할 데이터 원본 옆의 확인란을 선택 하 고 **적용** 을 선택 합니다.
 
     > [!NOTE]
     >
@@ -45,7 +62,7 @@ ms.locfileid: "90997119"
     >
     > UEBA를 사용 하도록 설정 하면 새 데이터 원본을 연결 하는 옵션을 사용할 수 있습니다 .이 옵션을 선택 하면 데이터 커넥터 창에서 직접 UEBA를 사용할 수 있습니다.
 
-1. **엔터티 검색으로 이동을**선택 합니다. 그러면 기본 Azure 센티널 메뉴에서 **엔터티 동작** 을 선택 하면 현재부터 표시 되는 엔터티 검색 창으로 이동 됩니다.
+1. **엔터티 검색으로 이동을** 선택 합니다. 그러면 기본 Azure 센티널 메뉴에서 **엔터티 동작** 을 선택 하면 현재부터 표시 되는 엔터티 검색 창으로 이동 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure 센티널에서 사용자 및 엔터티 동작 분석 (UEBA)을 사용 하도록 설정 하 고 구성 하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.

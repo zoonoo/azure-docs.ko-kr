@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518999"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930823"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -35,7 +35,7 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
 >[!NOTE]
 > Service Fabric는 영역에 걸쳐 있는 단일 가상 머신 확장 집합을 지원 하지 않으므로 가상 머신 확장 집합 단일 배치 그룹 속성을 true로 설정 해야 합니다.
 
- ![Azure Service Fabric 가용성 영역 아키텍처][sf-architecture]
+ ![Azure Service Fabric 가용성 영역 아키텍처를 보여 주는 다이어그램입니다.][sf-architecture]
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 ### <a name="public-ip-and-load-balancer-resource"></a>공용 IP 및 Load Balancer 리소스
@@ -150,7 +150,7 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
 
 * 첫 번째 값은 가상 머신 확장 집합을 배포할 가용성 영역을 지정 하는 **zones** 속성입니다.
 * 두 번째 값은 true로 설정 해야 하는 "Singleto Ementgroup" 속성입니다.
-* 세 번째 값은 Service Fabric 가상 머신 확장 집합 확장의 "faultDomainOverride" 속성입니다. 이 속성의 값은이 가상 머신 확장 집합이 배치 될 영역 및 영역을 포함 해야 합니다. 예: "faultDomainOverride": "eastus/az1" Azure Service Fabric 클러스터에는 지역 간 지원이 없기 때문에 모든 가상 머신 확장 집합 리소스는 동일한 지역에 배치 되어야 합니다.
+* 세 번째 값은 Service Fabric 가상 머신 확장 집합 확장의 "faultDomainOverride" 속성입니다. 이 속성의 값은이 가상 머신 확장 집합이 배치 될 영역만 포함 해야 합니다. 예: "faultDomainOverride": "az1" Azure Service Fabric 클러스터에는 지역 간 지원이 없기 때문에 모든 가상 머신 확장 집합 리소스를 동일한 지역에 배치 해야 합니다.
 
 ```json
 {
@@ -183,7 +183,7 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }
@@ -332,4 +332,96 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ```
 
+## <a name="preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set"></a>모드 단일 가상 머신 확장 집합에서 여러 가용성 영역 사용
+
+앞에서 언급 한 솔루션은 AZ 당 하나의 nodeType을 사용 합니다. 다음 솔루션을 사용 하면 사용자가 동일한 nodeType에 3 AZ 's를 배포할 수 있습니다.
+
+전체 샘플 템플릿이 [여기](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure)에 있습니다.
+
+![Azure Service Fabric 가용성 영역 아키텍처][sf-multi-az-arch]
+
+### <a name="configuring-zones-on-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 영역 구성
+가상 머신 확장 집합에서 영역을 사용 하도록 설정 하려면 가상 머신 확장 집합 리소스에 다음 세 가지 값을 포함 해야 합니다.
+
+* 첫 번째 값은 가상 머신 확장 집합에 있는 가용성 영역를 지정 하는 **zones** 속성입니다.
+* 두 번째 값은 true로 설정 해야 하는 "Singleto Ementgroup" 속성입니다.
+* 세 번째 값은 "zoneBalance"이 고, true로 설정 된 경우 엄격한 영역 분산을 보장 하는 옵션입니다. [ZoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing)에 대해 읽어 보세요.
+* FaultDomain 및 UpgradeDomain 재정의는 구성할 필요가 없습니다.
+
+```json
+{
+    "apiVersion": "2018-10-01",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "name": "[parameters('vmNodeType1Name')]",
+    "location": "[parameters('computeLocation')]",
+    "zones": ["1", "2", "3"],
+    "properties": {
+        "singlePlacementGroup": "true",
+        "zoneBalance": false
+    }
+}
+```
+
+>[!NOTE]
+> * **SF 클러스터에는 하나 이상의 기본 nodeType이 있어야 합니다. DurabilityLevel 기본 nodeTypes는 은색 이상 이어야 합니다.**
+> * DurabilityLevel에 관계 없이 3 개 이상의 가용성 영역을 사용 하 여 AZ 스패닝 가상 머신 확장 집합을 구성 해야 합니다.
+> * 실버 내구성이 있는 가상 머신 확장 집합에 대 한 AZ 스패닝은 15 개 이상의 Vm이 있어야 합니다.
+> * 가상 머신 확장 집합을 사용 하는 AZ를 사용 하 여 가상 머신 확장 집합을 확장 합니다.
+
+### <a name="enabling-the-support-for-multiple-zones-in-the-service-fabric-nodetype"></a>Service Fabric nodeType에서 여러 영역에 대 한 지원 사용
+여러 가용성 영역을 지원 하려면 nodeType Service Fabric를 사용 하도록 설정 해야 합니다.
+
+* 첫 번째 값은 nodeType에 대해 true로 설정 해야 하는 **multipleAvailabilityZones** 입니다.
+* 두 번째 값은 **sfZonalUpgradeMode** 이며 옵션입니다. 여러 AZ가 있는 nodetype이 클러스터에 이미 있는 경우에는이 속성을 수정할 수 없습니다.
+      속성은 업그레이드 도메인의 Vm에 대 한 논리적 그룹화를 제어 합니다.
+          값이 false (플랫 모드)로 설정 된 경우 노드 형식의 Vm은 5 Ud의 영역 정보를 무시 하 고 UD로 그룹화 됩니다.
+          값이 생략 되거나 true (계층 모드)로 설정 된 경우 Vm은 최대 15 Ud 영역 배포를 반영 하도록 그룹화 됩니다. 각 3 개 영역에는 5 개의 Ud 있습니다.
+          이 속성은 ServiceFabric 응용 프로그램 및 코드 업그레이드에 대 한 업그레이드 동작만 정의 합니다. 기본 가상 머신 확장 집합 업그레이드는 모든 AZ의에서 계속 병렬 처리 됩니다.
+      이 속성은 여러 영역을 사용 하지 않는 노드 형식에 대해 UD 배포에 영향을 주지 않습니다.
+* 세 번째 값은 **vmssZonalUpgradeMode = Parallel** 입니다. 여러 AZs를 포함 하는 nodeType을 추가 하는 경우 클러스터에서 구성 해야 하는 *필수* 속성입니다. 이 속성은 모든 AZ in에서 동시에 발생 하는 가상 머신 확장 집합 업데이트에 대 한 업그레이드 모드를 정의 합니다.
+      현재이 속성은 병렬 으로만 설정할 수 있습니다.
+* Service Fabric cluster resource apiVersion는 "2020-12-01-preview" 이상 이어야 합니다.
+* 클러스터 코드 버전은 "7.2.445" 이상 이어야 합니다.
+
+```json
+{
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "location": "[parameters('clusterLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+    ],
+    "properties": {
+        "SFZonalUpgradeMode": "Hierarchical",
+        "VMSSZonalUpgradeMode": "Parallel",
+        "nodeTypes": [
+          {
+                "name": "[parameters('vmNodeType0Name')]",
+                "multipleAvailabilityZones": true,
+          }
+        ]
+}
+```
+
+>[!NOTE]
+> * 공용 IP 및 Load Balancer 리소스는 문서의 앞부분에서 설명한 대로 표준 SKU를 사용 해야 합니다.
+> * nodeType의 "multipleAvailabilityZones" 속성은 nodeType을 만들 때만 정의할 수 있으며 나중에 수정할 수 없습니다. 따라서이 속성을 사용 하 여 기존 nodeTypes를 구성할 수 없습니다.
+> * "SfZonalUpgradeMode"이 생략 되거나 "계층 구조"로 설정 된 경우 클러스터에 업그레이드 도메인이 더 있으므로 클러스터 및 응용 프로그램 배포 속도가 느려집니다. 업그레이드 정책 시간 제한을 올바르게 조정 하 여 15 개의 업그레이드 도메인에 대 한 업그레이드 기간을 통합 하는 것이 중요 합니다.
+> * 클러스터가 한 영역 다운 시나리오와 생존 되도록 클러스터 안정성 수준을 Platinum으로 설정 하는 것이 좋습니다.
+
+>[!NOTE]
+> 모범 사례를 위해 sfZonalUpgradeMode를 계층적으로 설정 하거나 생략 하는 것이 좋습니다. 배포는 더 적은 양의 복제본 및/또는 인스턴스에 영향을 주는 Vm의 영역 배포를 따라 더 안전 하 게 만듭니다.
+> 배포 속도가 우선 순위 이거나 여러 AZ를 사용 하는 노드 유형에 서 상태 비저장 워크 로드만 실행 되는 경우 sfZonalUpgradeMode을 Parallel으로 설정 합니다. 이로 인해 UD가 모든 AZ의에서 병렬로 발생 합니다.
+
+### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>여러 가용성 영역를 사용 하 여 노드 형식으로 마이그레이션
+모든 마이그레이션 시나리오의 경우 여러 가용성 영역이 지원 되는 새 nodeType을 추가 해야 합니다. 기존 nodeType은 여러 영역을 지원 하도록 마이그레이션할 수 없습니다.
+이 문서 [에서는](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) 새 nodetype을 추가 하는 자세한 단계를 캡처하고 IP 및 LB 리소스와 같은 새 nodetype에 필요한 다른 리소스도 추가 합니다. 동일한 문서는 여러 가용성 영역이 있는 nodeType이 클러스터에 추가 된 후 기존 nodeType을 사용 중지 하는 방법에 대해서도 설명 합니다.
+
+* 기본 LB 및 IP 리소스를 사용 하는 nodeType에서의 마이그레이션:이는 AZ 당 하나의 노드 형식으로 솔루션 [에 대해 이미 설명 되어](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) 있습니다. 
+    새 노드 형식에 대 한 유일한 차이점은 1 개의 가상 머신 확장 집합 및 1 개의 nodetype에 대 한 모든 AZ의 1이 아닌 모든 AZ의 유일한 차이점입니다.
+* NSG를 사용 하 여 표준 SKU LB 및 IP 리소스를 사용 하는 nodeType에서의 마이그레이션은 위에 설명 된 것과 동일한 절차를 따르고, 새 LB, IP 및 NSG 리소스를 추가할 필요가 없으며, 동일한 리소스를 새 nodeType에서 재사용할 수 있습니다.
+
+
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
+[sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png

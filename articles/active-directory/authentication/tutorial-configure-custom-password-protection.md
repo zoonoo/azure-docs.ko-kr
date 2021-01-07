@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24e0cfa4227ba5d7c38449d3cf1304add5ae5c1f
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 89abdcf4c76c92c2ed967594527d323b2cd8be32
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718886"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741187"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>자습서: Azure Active Directory 암호 보호를 위한 사용자 지정 금지 암호 구성
 
@@ -65,10 +65,10 @@ Azure AD에는 글로벌 금지 암호 목록이 포함되어 있습니다. 글�
 사용자 지정 금지 암호 목록을 사용하도록 설정하고 항목을 이 목록에 추가하려면 다음 단계를 완료합니다.
 
 1. *글로벌 관리자* 권한이 있는 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**를 검색하여 선택한 다음, 왼쪽 메뉴에서 **보안**을 선택합니다.
-1. **관리** 메뉴 헤더 아래에서 **인증 방법**, **암호 보호**를 차례로 선택합니다.
-1. **사용자 지정 목록 적용** 옵션을 *예*로 설정합니다.
-1. 문자열을 한 줄에 하나씩 **사용자 지정 금지 암호 목록**에 추가합니다. 사용자 지정 금지 암호 목록에 적용되는 고려 사항과 제한 사항은 다음과 같습니다.
+1. **Azure Active Directory** 를 검색하여 선택한 다음, 왼쪽 메뉴에서 **보안** 을 선택합니다.
+1. **관리** 메뉴 헤더 아래에서 **인증 방법**, **암호 보호** 를 차례로 선택합니다.
+1. **사용자 지정 목록 적용** 옵션을 *예* 로 설정합니다.
+1. 문자열을 한 줄에 하나씩 **사용자 지정 금지 암호 목록** 에 추가합니다. 사용자 지정 금지 암호 목록에 적용되는 고려 사항과 제한 사항은 다음과 같습니다.
 
     * 사용자 지정 금지 암호 목록에는 최대 1,000개의 용어가 포함될 수 있습니다.
     * 사용자 지정 금지 암호 목록에서는 대/소문자가 구별됩니다.
@@ -79,8 +79,8 @@ Azure AD에는 글로벌 금지 암호 목록이 포함되어 있습니다. 글�
 
     [ ![Azure Portal의 인증 방법에서 사용자 지정 금지 암호 목록 수정](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
-1. **Windows Server Active Directory에 대한 암호 보호를 사용하도록 설정** 옵션을 *아니요*로 둡니다.
-1. 사용자 지정 금지 암호 및 항목을 사용하도록 설정하려면 **저장**을 선택합니다.
+1. **Windows Server Active Directory에 대한 암호 보호를 사용하도록 설정** 옵션을 *아니요* 로 둡니다.
+1. 사용자 지정 금지 암호 및 항목을 사용하도록 설정하려면 **저장** 을 선택합니다.
 
 사용자 지정 금지 암호 목록을 적용하기 위한 업데이트에는 몇 시간 정도가 소요됩니다.
 
@@ -94,12 +94,12 @@ Azure AD에는 글로벌 금지 암호 목록이 포함되어 있습니다. 글�
 > 사용자가 웹 기반 포털에서 자신의 암호를 다시 설정하려면 먼저 [셀프 서비스 암호를 다시 설정하도록 Azure AD 테넌트를 구성](tutorial-enable-sspr.md)해야 합니다. 필요한 경우 사용자는 [https://aka.ms/ssprsetup 에서 SSPR에 등록](https://aka.ms/ssprsetup)할 수 있습니다.
 
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에서 **내 앱** 페이지로 이동합니다.
-1. 오른쪽 위 모서리에서 이름을 선택한 다음, 드롭다운 메뉴에서 **프로필**을 선택합니다.
+1. 오른쪽 위 모서리에서 이름을 선택한 다음, 드롭다운 메뉴에서 **프로필** 을 선택합니다.
 
     ![프로필 선택](media/tutorial-configure-custom-password-protection/myapps-profile.png)
 
-1. **프로필** 페이지에서 **암호 변경**을 선택합니다.
-1. **암호 변경** 페이지에서 기존(이전) 암호를 입력합니다. 이전 섹션에서 정의한 사용자 지정 금지 암호 목록에 있는 새 암호를 입력하고 확인한 다음, **제출**을 선택합니다.
+1. **프로필** 페이지에서 **암호 변경** 을 선택합니다.
+1. **암호 변경** 페이지에서 기존(이전) 암호를 입력합니다. 이전 섹션에서 정의한 사용자 지정 금지 암호 목록에 있는 새 암호를 입력하고 확인한 다음, **제출** 을 선택합니다.
 1. 다음 예와 같이 관리자가 암호를 차단했다고 알리는 오류 메시지가 반환됩니다.
 
     ![사용자 지정 금지 암호 목록에 있는 암호를 사용하려고 하면 표시되는 오류 메시지](media/tutorial-configure-custom-password-protection/password-change-error.png)
@@ -109,10 +109,10 @@ Azure AD에는 글로벌 금지 암호 목록이 포함되어 있습니다. 글�
 이 자습서의 일부로 구성한 사용자 지정 금지 암호 목록을 더 이상 사용하지 않으려면 다음 단계를 완료합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**를 검색하여 선택한 다음, 왼쪽 메뉴에서 **보안**을 선택합니다.
-1. **관리** 메뉴 헤더 아래에서 **인증 방법**, **암호 보호**를 차례로 선택합니다.
-1. **사용자 지정 목록 적용** 옵션을 *아니요*로 설정합니다.
-1. 사용자 지정 금지 암호 구성을 업데이트하려면 **저장**을 선택합니다.
+1. **Azure Active Directory** 를 검색하여 선택한 다음, 왼쪽 메뉴에서 **보안** 을 선택합니다.
+1. **관리** 메뉴 헤더 아래에서 **인증 방법**, **암호 보호** 를 차례로 선택합니다.
+1. **사용자 지정 목록 적용** 옵션을 *아니요* 로 설정합니다.
+1. 사용자 지정 금지 암호 구성을 업데이트하려면 **저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -124,4 +124,4 @@ Azure AD에는 글로벌 금지 암호 목록이 포함되어 있습니다. 글�
 > * 금지 암호를 사용하여 암호 변경 테스트
 
 > [!div class="nextstepaction"]
-> [위험 기반 Azure Multi-Factor Authentication 사용](./tutorial-enable-azure-mfa.md)
+> [위험 기반 Azure AD Multi-Factor Authentication 사용](./tutorial-enable-azure-mfa.md)

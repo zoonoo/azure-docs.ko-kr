@@ -8,10 +8,10 @@ ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595770"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Azure SignalR 서비스 인스턴스의 크기를 조정 하는 방법
@@ -38,7 +38,7 @@ ms.locfileid: "89595770"
    
     ![포털에서 크기 조정](./media/signalr-howto-scale/signalr-howto-scale.png)
 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 ## <a name="scale-using-azure-cli"></a>Azure CLI를 사용한 크기 조정
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/25/2019
+ms.date: 12/11/2020
 ms.author: tamram
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c80269c949ec97a09584d736371ccd11879fd82b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 50a0894898dcdc817ee253ad326b88a9bb61b9d6
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069717"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357367"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
@@ -29,10 +29,10 @@ ms.locfileid: "89069717"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 스토리지 계정으로 이동합니다.
-3. **설정** 섹션에서 **구성**을 클릭합니다.
-4. **계정 종류**아래에서 **업그레이드**를 클릭 합니다.
-5. **업그레이드 확인**에서 계정 이름을 입력 합니다.
-6. 블레이드 하단에서 **업그레이드**를 클릭합니다.
+3. **설정** 섹션에서 **구성** 을 클릭합니다.
+4. **계정 종류** 아래에서 **업그레이드** 를 클릭 합니다.
+5. **업그레이드 확인** 에서 계정 이름을 입력 합니다.
+6. 블레이드 하단에서 **업그레이드** 를 클릭합니다.
 
     ![업그레이드 계정 종류](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
@@ -40,16 +40,16 @@ ms.locfileid: "89069717"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 업그레이드하려면 먼저 최신 버전의 **Az.Storage** 모듈을 사용하도록 PowerShell을 업데이트합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 참조하세요.
+PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 업그레이드하려면 먼저 최신 버전의 **Az.Storage** 모듈을 사용하도록 PowerShell을 업데이트합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)을 참조하세요.
 
 그런 다음, 리소스 그룹 이름, 저장소 계정 이름 및 원하는 계정 액세스 계층을 대체 하 여 계정을 업그레이드 하는 다음 명령을 호출 합니다.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 그런 다음, 리소스 그룹 이름, 저장소 계정 이름 및 원하는 계정 액세스 계층을 대체 하 여 계정을 업그레이드 하는 다음 명령을 호출 합니다.
 
@@ -111,7 +111,7 @@ V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무�
 
 기존 스토리지 계정을 모니터링하고 이 데이터를 수집하기 위해 로깅을 수행하고 스토리지 계정에 대한 메트릭 데이터를 제공하는 Azure Storage 분석을 사용할 수 있습니다. 스토리지 분석은 GPv1, GPv2 및 Blob Storage 계정 형식의 스토리지 서비스에 대한 요청과 관련하여 집계된 트랜잭션 통계 및 용량 데이터를 포함하는 메트릭을 저장할 수 있습니다. 이 데이터는 동일한 스토리지 계정에서 잘 알려진 테이블에 저장됩니다.
 
-자세한 내용은 [스토리지 분석 메트릭 정보](https://msdn.microsoft.com/library/azure/hh343258.aspx) 및 [스토리지 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요.
+자세한 내용은 [스토리지 분석 메트릭 정보](../blobs/monitor-blob-storage.md) 및 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)를 참조하세요.
 
 > [!NOTE]
 > Blob Storage 계정은 해당 계정의 메트릭 데이터를 저장하고 액세스하는 경우에만 Table service 엔드포인트를 노출합니다.
@@ -164,8 +164,11 @@ Blob Storage 계정에 대한 데이터 액세스 비용을 예상하려면 트�
 Blob Storage 계정에 대한 지역에서 복제 데이터 전송의 비용은 GRS 또는 RA-GRS 스토리지 계정을 사용하는 경우 작성된 데이터의 양에 대한 추정을 사용하여 계산할 수도 있습니다.
 
 > [!NOTE]
-> 핫 또는 쿨 스토리지 액세스 계층 사용 시의 비용을 계산하는 자세한 예제는 *Azure Storage 가격 책정 페이지*에서 에 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)합니다.
+> 핫 또는 쿨 스토리지 액세스 계층 사용 시의 비용을 계산하는 자세한 예제는 *Azure Storage 가격 책정 페이지* 에서 에 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Storage 계정 개요](storage-account-overview.md)
 * [스토리지 계정을 만드는](storage-account-create.md)
+* [Azure Storage 계정을 다른 지역으로 이동](storage-account-move.md)
+* [삭제된 스토리지 계정 복구](storage-account-recover.md)

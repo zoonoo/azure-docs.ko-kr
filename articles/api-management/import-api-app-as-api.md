@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 API 앱을 API로 가져오기 | Microsoft Docs
-description: 이 자습서에서는 APIM(API Management)을 사용하여 API 앱을 API로 가져오는 방법을 보여 줍니다.
+description: 이 문서에서는 APIM(API Management)을 사용하여 API 앱을 API로 가져오는 방법을 보여줍니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,19 +9,19 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 28b055cb343b7f894a28eee5fbe452d037fd6b0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 41209233ec59f578db4ff7fd344bb96aefeb975e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249493"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994743"
 ---
 # <a name="import-an-api-app-as-an-api"></a>API로 API 앱 가져오기
 
-이 문서에서는 API 앱을 API로 가져오는 방법을 보여 줍니다. 또한 APIM API를 테스트하는 방법도 설명합니다.
+이 문서에서는 API 앱을 API로 가져오는 방법을 보여줍니다. 또한 APIM API를 테스트하는 방법도 설명합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -39,11 +39,11 @@ ms.locfileid: "86249493"
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>백 엔드 API 가져오기 및 게시
 
-1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API**를 선택합니다.
-2. **새 API 추가** 목록에서 **API 앱**을 선택합니다.
+1. Azure Portal에서 API Management 서비스로 이동하고 메뉴에서 **API** 를 선택합니다.
+2. **새 API 추가** 목록에서 **API 앱** 을 선택합니다.
 
     ![API 앱](./media/import-api-app-as-api/api-app.png)
-3. **찾아보기**를 눌러 구독의 API 앱 목록을 표시합니다.
+3. **찾아보기** 를 눌러 구독의 API 앱 목록을 표시합니다.
 4. 앱을 선택합니다. APIM은 선택한 앱과 연결된 swagger를 찾아서 페치하고 가져옵니다. 
 
     APIM에서 swagger를 찾을 수 없는 경우 API를 "통과" API로 노출합니다. 
@@ -56,8 +56,8 @@ ms.locfileid: "86249493"
 
     * **Starter**
     * **무제한**   
-7. 다른 API 설정을 입력합니다. 생성 중에 값을 설정하거나 나중에 **설정** 탭으로 이동하여 값을 설정할 수 있습니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#-import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
-8. **만들기**를 선택합니다.
+7. 다른 API 설정을 입력합니다. 생성 중에 값을 설정하거나 나중에 **설정** 탭으로 이동하여 값을 설정할 수 있습니다. 설정은 [첫 번째 API 가져오기 및 게시](import-and-publish.md#import-and-publish-a-backend-api) 자습서에 설명되어 있습니다.
+8. **만들기** 를 선택합니다.
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Azure Portal에서 새 API 테스트
 
@@ -68,7 +68,7 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 3. 작업을 선택합니다.
 
     페이지에 쿼리 매개 변수에 대한 필드와 헤더 필드가 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 키가 자동으로 채워집니다. 
-1. **보내기**를 누릅니다.
+1. **보내기** 를 누릅니다.
 
     백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
 

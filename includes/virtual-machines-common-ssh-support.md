@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines-linux
 author: cynthn
@@ -9,11 +9,11 @@ ms.date: 04/17/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 2ea82f80396c5254ac4ad47bd2395413682a96bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71168633"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016375"
 ---
 ## <a name="supported-ssh-key-formats"></a>지원되는 SSH 키 형식
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268488"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426879"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -28,13 +28,13 @@ ms.locfileid: "89268488"
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Media Services v3에 대 한 Azure Portal 제한 사항은 무엇입니까?
 
-[Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 라이브 이벤트를 관리 하 고, v3 자산 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. <br/>다른 모든 관리 작업 (예: 변환 및 작업 관리 또는 v3 콘텐츠 분석)의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+[Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 라이브 이벤트를 관리 하 고, v3 자산 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. <br/>다른 모든 관리 작업 (예: 변환 및 작업 관리 또는 v3 콘텐츠 분석)의 경우 [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 
 이전에 Media Services v3 API를 사용하여 비디오를 Media Services 계정에 업로드했거나 라이브 출력을 기반으로 콘텐츠가 생성된 경우 Azure Portal에서 **인코딩**, **분석** 또는 **암호화** 단추가 표시되지 않습니다. Media Services v3 API를 사용하여 이러한 작업을 수행합니다.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure Media Services 리소스에 대 한 작업을 수행할 수 있는 Azure 역할은 무엇 인가요? 
 
-[Media Services 계정에 대 한 RBAC (역할 기반 액세스 제어)를](rbac-overview.md)참조 하세요.
+[Media Services 계정에 대 한 AZURE RBAC (역할 기반 액세스 제어)를](rbac-overview.md)참조 하세요.
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Apple iOS 장치로 stream을 어떻게 할까요? 하 시겠습니까?
 
@@ -121,7 +121,7 @@ Azure Active Directory (Azure AD)와 같은 특정 토큰 공급자를 사용할
 
 [이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)에 나와 있는 것 처럼 라이선스/키 제공을 구성 하 고 자산을 암호화 하는 Azure Media Services api를 사용 합니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [콘텐츠 보호 개요](content-protection-overview.md)
 - [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)
@@ -163,7 +163,7 @@ ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 �
 * V3 [자산](assets-concept.md)보기 (관리 안 함) 
 * [Api에 액세스 하는 방법에 대 한 정보를 가져옵니다](./access-api-howto.md). 
 
-다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [Azure CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [Azure CLI](/cli/azure/ams)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3에 AssetFile 개념이 있나요?
 

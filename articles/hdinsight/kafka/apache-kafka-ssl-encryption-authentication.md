@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
 ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082083"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012308"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 TLS 암호화 및 인증 설정
 
@@ -52,7 +52,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 다음 세부 지침을 사용 하 여 broker 설치를 완료 합니다.
 
 > [!Important]
-> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 경우 또는로 대체 되어야 합니다 `wn0` `wn1` `wn2` . `WorkerNode0_Name`및는 `HeadNode0_Name` 해당 컴퓨터의 이름으로 대체 해야 합니다.
+> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 경우 또는로 대체 되어야 합니다 `wn0` `wn1` `wn2` . `WorkerNode0_Name` 및는 `HeadNode0_Name` 해당 컴퓨터의 이름으로 대체 해야 합니다.
 
 1. 헤드 노드 0에 대 한 초기 설치를 수행 합니다 .이 경우 HDInsight는 CA (인증 기관)의 역할을 채웁니다.
 
@@ -127,13 +127,13 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 구성 수정을 완료하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에 로그인하고 Azure HDInsight Apache Kafka 클러스터를 선택합니다.
-1. **클러스터 대시보드**에서 **Ambari 홈**을 클릭하여 Ambari UI로 이동합니다.
-1. **Kafka 브로커**에서 **수신기** 속성을 `PLAINTEXT://localhost:9092,SSL://localhost:9093`로 설정합니다.
-1. **고급 kafka-broker**에서 **security.inter.broker.protocol** 속성을 `SSL`로 설정합니다.
+1. **클러스터 대시보드** 에서 **Ambari 홈** 을 클릭하여 Ambari UI로 이동합니다.
+1. **Kafka 브로커** 에서 **수신기** 속성을 `PLAINTEXT://localhost:9092,SSL://localhost:9093`로 설정합니다.
+1. **고급 kafka-broker** 에서 **security.inter.broker.protocol** 속성을 `SSL`로 설정합니다.
 
     ![Ambari에서 Kafka SSL 구성 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. **사용자 지정 kafka-broker**에서 **ssl.client.auth** 속성을 `required`로 설정합니다. 이 단계는 인증 및 암호화를 설정 하는 경우에만 필요 합니다.
+1. **사용자 지정 kafka-broker** 에서 **ssl.client.auth** 속성을 `required`로 설정합니다. 이 단계는 인증 및 암호화를 설정 하는 경우에만 필요 합니다.
 
     ![Ambari에서 kafka SSL 구성 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 

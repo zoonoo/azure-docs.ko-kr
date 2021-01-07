@@ -8,17 +8,17 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.custom: devx-track-js
+ms.openlocfilehash: b9eb65311951706863c3b18c5fc91bae8c41c7dc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89486861"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007344"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
-*$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다. 정적 웹 사이트 호스팅 Azure Storage 웹 서버에서 콘텐츠를 렌더링 하지 않아도 되는 경우 유용한 옵션입니다.
+*$web* 이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](../../azure-functions/functions-overview.md) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다. 정적 웹 사이트 호스팅 Azure Storage 웹 서버에서 콘텐츠를 렌더링 하지 않아도 되는 경우 유용한 옵션입니다.
 
 [App Service 정적 Web Apps](https://azure.microsoft.com/services/app-service/static/) 는 정적 웹 사이트 호스팅을 Azure Storage 하는 데 적합 하며 웹 서버에서 콘텐츠를 렌더링 하지 않아도 되는 경우에도 적합 합니다. App Service 정적 Web Apps GitHub 원본에서 전역 배포로 완전히 관리 되는 CI/CD (지속적인 통합 및 지속적인 업데이트) 워크플로를 제공 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "89486861"
 
 정적 웹 사이트 호스팅은 스토리지 계정에서 사용하도록 설정해야 하는 기능입니다.
 
-정적 웹 사이트 호스팅을 사용하도록 설정하려면 기본 파일의 이름을 선택한 다음 필요에 따라 사용자 지정 404 페이지의 경로를 제공합니다. 계정에 **$web**이라는 Blob 스토리지 컨테이너가 아직 없는 경우 하나 만듭니다. 이 컨테이너에 사이트의 파일을 추가합니다.
+정적 웹 사이트 호스팅을 사용하도록 설정하려면 기본 파일의 이름을 선택한 다음 필요에 따라 사용자 지정 404 페이지의 경로를 제공합니다. 계정에 **$web** 이라는 Blob 스토리지 컨테이너가 아직 없는 경우 하나 만듭니다. 이 컨테이너에 사이트의 파일을 추가합니다.
 
 단계별 지침은 [Azure Storage에서 정적 웹 사이트 호스트](storage-blob-static-website-how-to.md)를 참조하세요.
 
@@ -60,7 +60,7 @@ ms.locfileid: "89486861"
 서버에서 404 오류를 반환하는 경우, 웹 사이트를 사용하도록 설정할 때 오류 문서를 지정하지 않았으면, 사용자에게 기본 404 페이지가 반환됩니다.
 
 > [!NOTE]
-> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)는 정적 웹 사이트에서 지원되지 않습니다.
+> [Azure Storage에 대 한 CORS (크로스-원본 자원 공유) 지원은](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 정적 웹 사이트에서 지원 되지 않습니다.
 
 ### <a name="regional-codes"></a>지역 코드
 
@@ -103,13 +103,13 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 ## <a name="adding-http-headers"></a>HTTP 헤더 추가
 
-정적 웹 사이트 기능의 일부로 헤더를 구성할 수 있는 방법은 없습니다. 그러나 Azure CDN을 사용하여 헤더를 추가하고 헤더 값을 추가(또는 덮어쓰기)할 수 있습니다. [Azure CDN에 대한 표준 규칙 엔진 참조](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference)를 참조하세요.
+정적 웹 사이트 기능의 일부로 헤더를 구성할 수 있는 방법은 없습니다. 그러나 Azure CDN을 사용하여 헤더를 추가하고 헤더 값을 추가(또는 덮어쓰기)할 수 있습니다. [Azure CDN에 대한 표준 규칙 엔진 참조](../../cdn/cdn-standard-rules-engine-reference.md)를 참조하세요.
 
-캐싱을 제어하는 데 헤더를 사용하려는 경우 [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](https://docs.microsoft.com/azure/cdn/cdn-caching-rules)를 참조하세요.
+캐싱을 제어하는 데 헤더를 사용하려는 경우 [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](../../cdn/cdn-caching-rules.md)를 참조하세요.
 
 ## <a name="multi-region-website-hosting"></a>다중 지역 웹 사이트 호스팅
 
-여러 지역에서 웹 사이트를 호스팅하려면 지역 캐싱에 [Content Delivery Network](https://docs.microsoft.com/azure/cdn/) 를 사용 하는 것이 좋습니다. 각 지역에서 서로 다른 콘텐츠를 제공 하려는 경우 [Azure Front 도어](https://docs.microsoft.com/azure/frontdoor/) 를 사용 합니다. 또한 장애 조치 (failover) 기능을 제공 합니다. 사용자 지정 도메인을 사용 하려는 경우에는 [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) 를 사용 하지 않는 것이 좋습니다. Azure Storage 사용자 지정 도메인 이름을 확인 하는 방법 때문에 문제가 발생할 수 있습니다.
+여러 지역에서 웹 사이트를 호스팅하려면 지역 캐싱에 [Content Delivery Network](../../cdn/index.yml) 를 사용 하는 것이 좋습니다. 각 지역에서 서로 다른 콘텐츠를 제공 하려는 경우 [Azure Front 도어](../../frontdoor/index.yml) 를 사용 합니다. 또한 장애 조치 (failover) 기능을 제공 합니다. 사용자 지정 도메인을 사용 하려는 경우에는 [Azure Traffic Manager](../../traffic-manager/index.yml) 를 사용 하지 않는 것이 좋습니다. Azure Storage 사용자 지정 도메인 이름을 확인 하는 방법 때문에 문제가 발생할 수 있습니다.
 
 
 ## <a name="pricing"></a>가격 책정
@@ -126,7 +126,7 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 * [Azure Storage에서 정적 웹 사이트 호스트](storage-blob-static-website-how-to.md)
 * [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Azure Functions](../../azure-functions/functions-overview.md)
+* [Azure App Service](../../app-service/overview.md)
+* [첫 번째 서버 없는 웹앱 빌드](/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [자습서: Azure DNS에서 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)

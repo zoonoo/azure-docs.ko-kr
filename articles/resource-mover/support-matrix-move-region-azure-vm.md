@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602288"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524252"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
 
@@ -101,13 +101,13 @@ SUSE Linux Enterprise Server 15 및 15 SP1 |  모든 stock SUSE 15 및 15 커널
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
 크기 | CPU 코어가 2 개 이상이 고 1GB RAM이 있는 모든 Azure VM 크기 | [Azure Virtual Machine 크기](../virtual-machines/sizes-general.md)를 확인합니다.
-가용성 집합 | 현재 지원되지 않음 | 가용성 집합이 있는 Azure VM을 기본 옵션을 사용 하 여 이동 컬렉션에 추가 하면 준비 프로세스가 실패 합니다. VM을 가용성 영역으로 이동 하거나 단일 인스턴스 VM으로 이동 하도록 선택할 수 있습니다. 대상 속성 편집 페이지에서 이러한 설정을 수정할 수 있습니다.
+가용성 집합 | 지원됨 | 지원됨.
 가용성 영역 | 지원됨 | 대상 지역 지원에 따라 지원 됩니다.
 Azure 갤러리 이미지 (Microsoft에서 게시) | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Azure 갤러리 이미지 (타사에서 게시)  | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 (타사에서 게시)| 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용 하는 Vm | 지원되지 않음 | 백 엔드에서 Site Recovery를 사용 하 여 Vm의 지역 간에 리소스를 이동 합니다. 이미 Site Recovery를 사용 하 고 있는 경우 복제를 사용 하지 않도록 설정 하 고 준비 프로세스를 시작 합니다.
-RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 정책이 대상 지역의 VM에 복사 되지 않습니다.
+Azure RBAC 정책 | 지원되지 않음 | Vm의 azure RBAC (역할 기반 액세스 제어) 정책이 대상 지역의 VM에 복사 되지 않습니다.
 확장 | 지원되지 않음 | 확장은 대상 지역의 VM에 복사 되지 않습니다. 이동이 완료 된 후 수동으로 설치 합니다.
 
 
@@ -121,13 +121,13 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
-OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
-임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 준비 프로세스에서 제외 됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
+OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/managed-disks-overview.md).
+임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 준비 프로세스에서 제외 됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/managed-disks-overview.md#temporary-disk).
 데이터 디스크 최대 크기 | 관리 디스크의 경우 8,192GB
 데이터 디스크 최소 크기 |  관리 디스크의 경우 2GB |
-데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/windows/sizes.md).
+데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/sizes.md).
 데이터 디스크 변경 비율 | Premium Storage는 디스크당 최대 10MBps입니다. Standard Storage는 디스크당 최대 2MBps입니다. | 디스크의 평균 데이터 변경률이 지속적으로 최대값 보다 높으면 준비가 되지 않습니다.<br/><br/>  그러나 최대값이 산발적으로 초과 되 면 준비를 수행할 수 있지만 약간 지연 된 복구 지점이 표시 될 수도 있습니다.
-데이터 디스크 (표준 저장소 계정) | 지원되지 않습니다. | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
+데이터 디스크 (표준 저장소 계정) | 지원 안 됨 | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
 데이터 디스크 (Premium storage 계정) | 지원되지 않음 | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
 관리 디스크 (표준) | 지원됨  |
 관리 디스크 (프리미엄) | 지원됨 |
@@ -155,7 +155,7 @@ Standard Storage | 8KB    | 2MB/초 | 디스크당 168GB
 NIC | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다. 
 내부 부하 분산 장치 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
 공용 부하 분산 장치 | 현재 지원되지 않음 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
-공용 IP 주소 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
+공용 IP 주소 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.<br/><br/> 공용 IP 주소는 지역별 특정 이며 이동 후 대상 지역에 보존 되지 않습니다. 대상 위치에서 네트워킹 설정 (부하 분산 규칙 포함)을 수정 하는 경우이 점을 염두에 두어야 합니다.
 네트워크 보안 그룹 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
 예약된(고정) IP 주소 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본적으로 원본 값이 됩니다. <br/><br/> 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에 동일한 IP 주소가 사용 가능한 경우 대상 VM에 할당 됩니다.<br/><br/> 대상 서브넷에 사용할 수 있는 IP 주소가 동일 하지 않은 경우 VM에 대 한 이동 시작이 실패 합니다.
 동적 IP 주소 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본적으로 원본 값이 됩니다.<br/><br/> 원본 NIC에 동적 IP 주소가 지정 된 경우 대상 VM의 NIC도 기본적으로 동적입니다.
@@ -170,7 +170,7 @@ IP 구성 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본�
 
  URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
 
-**이름** | **Azure 공용 클라우드** | **세부 정보** 
+**이름** | **Azure 퍼블릭 클라우드** | **세부 정보** 
 --- | --- | --- 
 스토리지 | `*.blob.core.windows.net`  | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. 
 Azure Active Directory | `login.microsoftonline.com`  | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. 

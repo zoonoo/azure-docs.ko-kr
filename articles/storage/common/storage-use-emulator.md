@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6d9e0e63a3586be139620c154616acfcba2ab10f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588197"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498220"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Azure Storage 에뮬레이터를 사용 하 여 개발 및 테스트
 
@@ -95,7 +95,7 @@ Azure Storage 에뮬레이터를 시작 하려면:
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-연결 문자열에 대한 자세한 내용은 [Azure Storage 연결 문자열 구성](../storage-configure-connection-string.md)을 참조하세요.
+연결 문자열에 대한 자세한 내용은 [Azure Storage 연결 문자열 구성](./storage-configure-connection-string.md)을 참조하세요.
 
 ### <a name="authorize-with-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 인증
 
@@ -161,7 +161,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> 저장소 에뮬레이터를 사용 하 여 보조 데이터베이스에 프로그래밍 방식으로 액세스 하려면 .NET 버전 3.2 이상에 대 한 저장소 클라이언트 라이브러리를 사용 합니다. 자세한 내용은 [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 참조하세요.
+> 저장소 에뮬레이터를 사용 하 여 보조 데이터베이스에 프로그래밍 방식으로 액세스 하려면 .NET 버전 3.2 이상에 대 한 저장소 클라이언트 라이브러리를 사용 합니다. 자세한 내용은 [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](/previous-versions/azure/dn261237(v=azure.100))를 참조하세요.
 >
 >
 
@@ -170,7 +170,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 버전 3.0부터 스토리지 에뮬레이터를 시작할 때 콘솔 창이 표시됩니다. 콘솔 창에서 명령줄을 사용 하 여 에뮬레이터를 시작 및 중지 합니다. 또한 명령줄에서 상태를 쿼리하고 다른 작업을 수행할 수 있습니다.
 
 > [!NOTE]
-> Microsoft Azure 컴퓨팅 에뮬레이터가 설치되어 있으면 스토리지 에뮬레이터를 시작할 때 시스템 트레이 아이콘이 표시됩니다. 해당 아이콘을 마우스 오른쪽 단추로 클릭하면 표시되는 메뉴에서 그래픽 방식으로 스토리지 에뮬레이터를 시작하고 중지할 수 있습니다.
+> Microsoft Azure 계산 에뮬레이터가 설치 되어 있으면 저장소 에뮬레이터를 시작할 때 시스템 트레이 아이콘이 표시 됩니다. 해당 아이콘을 마우스 오른쪽 단추로 클릭하면 표시되는 메뉴에서 그래픽 방식으로 스토리지 에뮬레이터를 시작하고 중지할 수 있습니다.
 >
 >
 
@@ -182,9 +182,9 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 옵션 목록을 보려면 명령 프롬프트에 `/help` 을(를) 입력합니다.
 
-| 옵션 | Description | 명령 | 인수 |
+| 옵션 | 설명 | 명령 | 인수 |
 | --- | --- | --- | --- |
-| **시작** |저장소 에뮬레이터를 시작 합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
+| **Start** |저장소 에뮬레이터를 시작 합니다. |`AzureStorageEmulator.exe start [-inprocess]` |*-다시 처리*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작 합니다. |
 | **중지** |저장소 에뮬레이터를 중지 합니다. |`AzureStorageEmulator.exe stop` | |
 | **상태** |저장소 에뮬레이터의 상태를 인쇄 합니다. |`AzureStorageEmulator.exe status` | |
 | **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
@@ -310,7 +310,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 ### <a name="version-40"></a>버전 4.0
 
-* 저장소 에뮬레이터 실행 파일의 이름이 *AzureStorageEmulator.exe*로 바뀌었습니다.
+* 저장소 에뮬레이터 실행 파일의 이름이 *AzureStorageEmulator.exe* 로 바뀌었습니다.
 
 ### <a name="version-32"></a>버전 3.2
 
@@ -329,7 +329,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 ## <a name="next-steps"></a>다음 단계
 
 * 커뮤니티에서 유지 관리 되는 플랫폼 간 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/azure/azurite)를 평가 합니다. 
-* [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)에는 애플리케이션을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
+* [.NET을 사용한 Azure Storage 샘플](./storage-samples-dotnet.md)에는 애플리케이션을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
 * [Microsoft Azure Storage 탐색기](https://storageexplorer.com) 를 사용 하 여 클라우드 저장소 계정 및 저장소 에뮬레이터에서 리소스 작업을 수행할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목

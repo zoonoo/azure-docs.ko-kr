@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
 ms.openlocfilehash: 051d7b37f5f78ce28134fa7c4ee188f3dde81812
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504845"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
@@ -73,7 +73,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 다음은 중요한 일부 속성입니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | -- | -- |
 | AutoCommit | `autoCommit`이 Phoenix 트랜잭션에 사용되도록 설정되어 있는지 여부를 나타내는 부울입니다. |
 | ReadOnly | 연결이 읽기 전용인지 여부를 나타내는 부울입니다. |
@@ -84,7 +84,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 `TransactionIsolation` 값은 다음과 같습니다.
 
-| 격리 값 | 설명 |
+| 격리 값 | Description |
 | -- | -- |
 | 0 | 트랜잭션은 지원 되지 않습니다. |
 | 1 | 더티 읽기, 반복 불가능 읽기 및 가상 읽기가 발생할 수 있습니다. |

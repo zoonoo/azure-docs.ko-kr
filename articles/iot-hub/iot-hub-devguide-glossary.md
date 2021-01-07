@@ -11,12 +11,13 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+- devx-track-azurecli
+ms.openlocfilehash: 3a75b3622ebc2085dac898e2a06e09f16466cbf5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023469"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746614"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 
@@ -28,23 +29,23 @@ ms.locfileid: "87023469"
 
 ## <a name="automatic-device-management"></a>자동 디바이스 관리
 
-Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때마다 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다.  [자동 디바이스 구성](iot-hub-auto-device-config.md) 및 [IoT Edge 자동 배포](../iot-edge/how-to-deploy-at-scale.md)로 구성됩니다.
+Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때마다 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다.  [자동 디바이스 구성](./iot-hub-automatic-device-management.md) 및 [IoT Edge 자동 배포](../iot-edge/how-to-deploy-at-scale.md)로 구성됩니다.
 
 ## <a name="automatic-device-configuration"></a>자동 디바이스 구성
 
-솔루션 백 엔드는 [자동 디바이스 구성](iot-hub-auto-device-config.md)을 사용하여 [디바이스 쌍](#device-twin)의 집합에 원하는 속성을 할당하고 시스템 메트릭 및 사용자 지정 메트릭을 사용하여 상태를 보고할 수 있습니다. 
+솔루션 백 엔드는 [자동 디바이스 구성](./iot-hub-automatic-device-management.md)을 사용하여 [디바이스 쌍](#device-twin)의 집합에 원하는 속성을 할당하고 시스템 메트릭 및 사용자 지정 메트릭을 사용하여 상태를 보고할 수 있습니다. 
 
 ## <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
-[Azure 클래식 CLI](../cli-install-nodejs.md)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 CLI 버전은 클래식 배포에만 사용해야 합니다.
+[Azure 클래식 CLI](/cli/azure/install-classic-cli)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 CLI 버전은 클래식 배포에만 사용해야 합니다.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다.
+[Azure CLI](/cli/azure/install-az-cli2)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다.
 
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK
 
-여러 언어로 된 _디바이스 SDK_가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [디바이스 앱](#device-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 디바이스 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 디바이스 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
+여러 언어로 된 _디바이스 SDK_ 가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [디바이스 앱](#device-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 디바이스 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 디바이스 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
 
 ## <a name="azure-iot-explorer"></a>Azure IoT 탐색기
 
@@ -52,27 +53,27 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 
-여러 언어로 된 _장치 SDK_가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [백 엔드 앱](#back-end-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 서비스 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 서비스 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
+여러 언어로 된 _장치 SDK_ 가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [백 엔드 앱](#back-end-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 서비스 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 서비스 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
 
 ## <a name="azure-iot-tools"></a>Azure IoT Tools
 
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 VS Code에서 디바이스 및 Azure IoT Hub 관리에 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장입니다. IoT 개발자는 Azure IoT Tools를 사용하여 손쉽게 VS Code에서 IoT 프로젝트를 개발할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure 포털
+## <a name="azure-portal"></a>Azure portal
 
-[Microsoft Azure portal](https://portal.azure.com) 은 Azure 리소스를 프로 비전 하 고 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다.
+[Microsoft Azure portal](https://portal.azure.com) 은 Azure 리소스를 프로 비전 하 고 관리할 수 있는 중앙 위치입니다. _블레이드_ 를 사용하여 해당 콘텐츠를 구성합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 [Azure PowerShell](/powershell/azure/)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 사용 하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
 ## <a name="azure-service-bus"></a>Azure Service Bus
 
-[Service Bus](../service-bus/index.md)에서는 온-프레미스 솔루션을 클라우드에 연결할 수 있는 릴레이된 통신과 엔터프라이즈 메시징을 사용하여 클라우드 사용 통신을 제공합니다. 일부 IoT Hub 자습서는 Service Bus [큐](../service-bus-messaging/service-bus-messaging-overview.md)를 활용합니다.
+[Service Bus](../service-bus-messaging/index.yml)에서는 온-프레미스 솔루션을 클라우드에 연결할 수 있는 릴레이된 통신과 엔터프라이즈 메시징을 사용하여 클라우드 사용 통신을 제공합니다. 일부 IoT Hub 자습서는 Service Bus [큐](../service-bus-messaging/service-bus-messaging-overview.md)를 활용합니다.
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -96,15 +97,15 @@ IoT Hub에서 연결된 디바이스로 전송되는 메시지를 참조하세�
 
 ## <a name="configuration"></a>구성
 
-[자동 디바이스 구성](iot-hub-auto-device-config.md)의 컨텍스트에서 IoT Hub 내의 구성은 디바이스 쌍의 집합에 대해 원하는 구성을 정의하고 상태 및 진행률을 보고하도록 메트릭 집합을 제공합니다.
+[자동 디바이스 구성](./iot-hub-automatic-device-management.md)의 컨텍스트에서 IoT Hub 내의 구성은 디바이스 쌍의 집합에 대해 원하는 구성을 정의하고 상태 및 진행률을 보고하도록 메트릭 집합을 제공합니다.
 
 ## <a name="connection-string"></a>연결 문자열
 
 앱 코드에서 연결 문자열을 사용하여 엔드포인트에 연결하는 데 필요한 정보를 캡슐화할 수 있습니다. 일반적으로 연결 문자열에는 엔드포인트의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다. IoT Hub 서비스와 연관된 연결 문자열에는 다음 두 종류가 있습니다.
 
-- *디바이스 연결 문자열*은 IoT hub의 디바이스 연결 엔드포인트에 연결하는 디바이스를 사용하도록 설정합니다.
+- *디바이스 연결 문자열* 은 IoT hub의 디바이스 연결 엔드포인트에 연결하는 디바이스를 사용하도록 설정합니다.
 
-- *IoT Hub 연결 문자열*은 IoT hub의 서비스 연결 엔드포인트에 연결하는 백 엔드 앱을 사용하도록 설정합니다.
+- *IoT Hub 연결 문자열* 은 IoT hub의 서비스 연결 엔드포인트에 연결하는 백 엔드 앱을 사용하도록 설정합니다.
 
 ## <a name="custom-endpoints"></a>사용자 지정 엔드포인트
 
@@ -164,7 +165,7 @@ IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하
 
 ## <a name="device-rest-api"></a>디바이스 REST API
 
-디바이스에서 [디바이스 REST API](https://docs.microsoft.com/rest/api/iothub/device)를 사용하여 디바이스-클라우드 메시지를 IoT Hub로 보내고 IoT Hub에서 [클라우드-디바이스](#cloud-to-device) 메시지를 수신할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [디바이스 SDK](#azure-iot-device-sdks)를 사용해야 합니다.
+디바이스에서 [디바이스 REST API](/rest/api/iothub/device)를 사용하여 디바이스-클라우드 메시지를 IoT Hub로 보내고 IoT Hub에서 [클라우드-디바이스](#cloud-to-device) 메시지를 수신할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [디바이스 SDK](#azure-iot-device-sdks)를 사용해야 합니다.
 
 ## <a name="device-provisioning"></a>디바이스 프로비전
 
@@ -184,7 +185,7 @@ IoT Hub는 앱을 IoT Hub에 연결할 수 있도록 해주는 여러 [엔드포
 
 ## <a name="event-hubs-service"></a>Event Hubs 서비스
 
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)는 초당 수백만의 이벤트를 유입할 수 있는 확장성이 뛰어난 수집 서비스입니다. 이 서비스를 사용하면 연결된 디바이스와 애플리케이션에서 생성한 대량의 데이터를 처리하고 분석할 수 있습니다. IoT Hub 서비스와 비교는 [Azure IoT Hub 및 Azure Event Hubs의 비교](iot-hub-compare-event-hubs.md)를 참조하세요.
+[Event Hubs](../event-hubs/event-hubs-about.md)는 초당 수백만의 이벤트를 유입할 수 있는 확장성이 뛰어난 수집 서비스입니다. 이 서비스를 사용하면 연결된 디바이스와 애플리케이션에서 생성한 대량의 데이터를 처리하고 분석할 수 있습니다. IoT Hub 서비스와 비교는 [Azure IoT Hub 및 Azure Event Hubs의 비교](iot-hub-compare-event-hubs.md)를 참조하세요.
 
 ## <a name="event-hub-compatible-endpoint"></a>Event Hub 호환 엔드포인트
 
@@ -194,7 +195,7 @@ IoT hub로 전송 되는 [장치-클라우드](#device-to-cloud) 메시지를 �
 
 필드 게이트웨이는 [IoT Hub](#iot-hub) 에 직접 연결할 수 없는 장치에 대 한 연결을 가능 하 게 하며 일반적으로 장치와 함께 로컬로 배포 됩니다. 자세한 내용은 [Azure IoT Hub 란?](about-iot-hub.md) 을 참조 하세요.
 
-## <a name="free-account"></a>평가판 계정
+## <a name="free-account"></a>무료 계정
 
 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들어 IoT Hub 자습서를 완료하고 IoT Hub 서비스(및 기타 Azure 서비스)를 연습해볼 수 있습니다
 
@@ -218,7 +219,7 @@ IoT Hub는 수백만의 디바이스와 솔루션 백 엔드 간에서 안정적
 
 ## <a name="iot-hub-metrics"></a>IoT Hub 메트릭
 
-[IoT Hub 메트릭](iot-hub-metrics.md)은 [Azure 구독](#subscription)의 IoT Hub 상태에 대한 데이터를 제공합니다. IoT Hub 메트릭을 통해 서비스와 연결된 디바이스의 전반적인 상태를 평가할 수 있습니다. IoT Hub 메트릭을 통해 Azure 지원 센터에 문의할 필요 없이 IoT Hub의 상황을 파악하고 근본 원인을 조사할 수 있습니다.
+[IoT Hub 메트릭](monitor-iot-hub-reference.md#metrics)은 [Azure 구독](#subscription)의 IoT Hub 상태에 대한 데이터를 제공합니다. IoT Hub 메트릭을 통해 서비스와 연결된 디바이스의 전반적인 상태를 평가할 수 있습니다. IoT Hub 메트릭을 통해 Azure 지원 센터에 문의할 필요 없이 IoT Hub의 상황을 파악하고 근본 원인을 조사할 수 있습니다. 자세히 알아보려면 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조 하세요.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub 쿼리 언어
 
@@ -226,7 +227,7 @@ IoT Hub는 수백만의 디바이스와 솔루션 백 엔드 간에서 안정적
 
 ## <a name="iot-hub-resource-rest-api"></a>IoT Hub 리소스 REST API
 
-[IoT Hub 리소스 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)를 사용하여 허브 만들기, 업데이트 및 삭제와 같은 작업을 수행하는 [Azure 구독](#subscription)에서 IoT Hub를 관리할 수 있습니다.
+[IoT Hub 리소스 REST API](/rest/api/iothub/iothubresource)를 사용하여 허브 만들기, 업데이트 및 삭제와 같은 작업을 수행하는 [Azure 구독](#subscription)에서 IoT Hub를 관리할 수 있습니다.
 
 ## <a name="iot-solution-accelerators"></a>IoT 솔루션 가속기
 
@@ -290,7 +291,7 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 
 [Azure Resource Manager](#azure-resource-manager)는 리소스 그룹을 사용하여 관련 리소스를 함께 그룹화합니다. 그룹에 있는 모든 리소스에 대해 작업을 동시에 수행하는 데 리소스 그룹을 사용할 수 있습니다.
 
-## <a name="retry-policy"></a>다시 시도 정책
+## <a name="retry-policy"></a>재시도 정책
 
 클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](/azure/architecture/best-practices/transient-faults)를 처리합니다.
 
@@ -304,11 +305,11 @@ SASL PLAIN은 AMQP 프로토콜에서 보안 토큰을 전송하는 데 사용�
 
 ## <a name="service-rest-api"></a>서비스 REST API
 
-솔루션 백 엔드에서 [서비스 REST API](https://docs.microsoft.com/rest/api/iothub/service/configuration)를 사용하여 디바이스를 관리할 수 있습니다. API를 사용하면 [디바이스 쌍](#device-twin) 속성을 검색 및 업데이트하고 [직접 메서드](#direct-method)를 호출하고 [작업](#job)을 예약할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [서비스 SDK](#azure-iot-service-sdks)를 사용해야 합니다.
+솔루션 백 엔드에서 [서비스 REST API](/rest/api/iothub/service/configuration)를 사용하여 디바이스를 관리할 수 있습니다. API를 사용하면 [디바이스 쌍](#device-twin) 속성을 검색 및 업데이트하고 [직접 메서드](#direct-method)를 호출하고 [작업](#job)을 예약할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [서비스 SDK](#azure-iot-service-sdks)를 사용해야 합니다.
 
 ## <a name="shared-access-signature"></a>공유 액세스 서명
 
-공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. SAS 인증에는 _공유 액세스 정책_과 _공유 액세스 서명_(토큰이라고 부름)의 두 구성 요소가 있습니다. 디바이스는 SAS를 사용하여 IoT Hub를 인증합니다. [백 엔드 앱](#back-end-app)도 SAS를 사용하여 IoT Hub에서 서비스 지향 엔드포인트를 인증합니다. 일반적으로 앱이 IoT Hub와 연결을 설정하기 위해 사용하는 [연결 문자열](#connection-string)에 SAS 토큰을 포함합니다.
+공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. SAS 인증에는 _공유 액세스 정책_ 과 _공유 액세스 서명_ (토큰이라고 부름)의 두 구성 요소가 있습니다. 디바이스는 SAS를 사용하여 IoT Hub를 인증합니다. [백 엔드 앱](#back-end-app)도 SAS를 사용하여 IoT Hub에서 서비스 지향 엔드포인트를 인증합니다. 일반적으로 앱이 IoT Hub와 연결을 설정하기 위해 사용하는 [연결 문자열](#connection-string)에 SAS 토큰을 포함합니다.
 
 ## <a name="shared-access-policy"></a>공유 액세스 정책
 
@@ -318,8 +319,8 @@ SASL PLAIN은 AMQP 프로토콜에서 보안 토큰을 전송하는 데 사용�
 
 편의를 위해 많은 IoT Hub 자습서에서 시뮬레이션된 디바이스를 사용하여 로컬 머신에서 샘플을 실행할 수 있도록 합니다. 반면에, [물리적 디바이스](#physical-device)는 Raspberry Pi처럼 IoT Hub에 연결되는 실제 디바이스입니다.
 
-## <a name="solution"></a>솔루션
-_솔루션_은 하나 이상의 프로젝트를 포함하는 Visual Studio 솔루션을 나타낼 수 있습니다. _솔루션_은 또한 디바이스, [디바이스 앱](#device-app), IoT Hub, 기타 Azure 서비스 및 [백 엔드 앱](#back-end-app)과 같은 요소를 포함하는 IoT 솔루션을 나타낼 수 있습니다.
+## <a name="solution"></a>해결 방법
+_솔루션_ 은 하나 이상의 프로젝트를 포함하는 Visual Studio 솔루션을 나타낼 수 있습니다. _솔루션_ 은 또한 디바이스, [디바이스 앱](#device-app), IoT Hub, 기타 Azure 서비스 및 [백 엔드 앱](#back-end-app)과 같은 요소를 포함하는 IoT 솔루션을 나타낼 수 있습니다.
 
 ## <a name="subscription"></a>Subscription
 
@@ -329,7 +330,7 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 시스템 속성은 읽기 전용이며 마지막 작업 시간 및 연결 상태와 같은 디바이스 사용에 대한 정보를 포함합니다.
 
-## <a name="tags"></a>태그
+## <a name="tags"></a>태그들
 
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 솔루션 백 엔드에 의해 저장 및 검색되는 디바이스 메타데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 

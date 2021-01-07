@@ -1,6 +1,6 @@
 ---
 title: '자습서: 맵에서 주변 위치 검색 | Microsoft Azure Maps'
-description: 지도에서 관심 지점을 검색하는 방법을 알아봅니다. Azure Maps Web SDK를 사용하여 검색 기능 및 대화형 팝업 상자를 맵에 추가하는 방법을 참조하세요.
+description: 맵에서 관심 지점을 검색하는 방법에 대한 자습서. Azure Maps Web SDK를 사용하여 검색 기능 및 대화형 팝업 상자를 맵에 추가하는 방법을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 6ed463cbda3ceb560f907529dc8de54a772932ea
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085079"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896663"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -26,44 +26,14 @@ ms.locfileid: "90085079"
 > * 지도 컨트롤 API를 사용하여 새 웹 페이지 만들기
 > * Maps 검색 서비스를 사용하여 주변 관심 지점 찾기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
-
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
+## <a name="prerequisites"></a>필수 조건
 
 <a id="createaccount"></a>
-
-## <a name="create-an-account-with-azure-maps"></a>Azure Maps를 사용하여 계정 만들기
-
-다음 단계에 따라 새 Maps 계정을 만듭니다.
-
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
-2. *마켓플레이스 검색* 상자에서 **Maps**를 입력합니다.
-3. *결과*에서 **Maps**를 선택합니다. 맵 아래에 나타나는 **만들기** 단추를 클릭합니다.
-4. **Maps 계정 만들기** 페이지에서 다음 값을 입력합니다.
-    * 이 계정에 사용하려는 *구독*.
-    * 이 계정에 대한 *리소스 그룹* 이름. *새로 만들기* 또는 *기존* 리소스 그룹 사용을 선택할 수도 있습니다.
-    * 새 계정의 *이름*.
-    * 이 계정에 대한 *가격 책정 계층*입니다.
-    * *라이선스* 및 *개인정보처리방침*을 읽고 조건에 동의하는 확인란을 선택합니다.
-    * **만들기** 단추를 클릭합니다.
-
-![Azure Portal에서 Azure Maps 계정 만들기](./media/tutorial-search-location/create-account.png)
-
 <a id="getkey"></a>
 
-## <a name="get-the-primary-key-for-your-account"></a>사용자 계정에 대한 기본 키 가져오기
-
-Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 키를 검색합니다. Azure Maps 서비스를 호출할 때 계정의 기본 키를 구독 키로 사용하는 것이 좋습니다.
-
-1. 포털에서 Maps 계정을 엽니다.
-2. 설정 섹션에서 **인증**을 선택합니다.
-3. **기본 키**를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다.
-
-![Azure Portal에서 기본 키 가져오기](./media/tutorial-search-location/get-key.png)
-
-Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+2. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+3. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account). Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 <a id="createmap"></a>
 
@@ -71,7 +41,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 맵 컨트롤 API는 편리한 클라이언트 라이브러리입니다. 이 API를 사용하면 맵을 웹 애플리케이션에 쉽게 통합할 수 있습니다. 기본 REST 서비스 호출의 복잡성을 숨기고 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다.
 
-1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html**로 지정합니다.
+1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html** 로 지정합니다.
 2. 다음 HTML 구성 요소를 파일에 추가합니다.
 
    ```HTML
@@ -169,7 +139,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ## <a name="add-search-capabilities"></a>검색 기능 추가
 
-이 섹션에서는 Maps [검색 API](https://docs.microsoft.com/rest/api/maps/search)를 사용하여 맵에서 관심 지점을 찾는 방법을 보여줍니다. 이는 개발자가 주소, 관심 지점 및 다른 지리적 위치 정보를 검색할 수 있도록 설계된 RESTful API입니다. 검색 서비스에서 지정된 주소에 위도와 경도 정보를 할당합니다. 아래에서 설명하는 **서비스 모듈**은 Maps Search API를 사용하여 위치를 검색하는 데 사용할 수 있습니다.
+이 섹션에서는 Maps [검색 API](/rest/api/maps/search)를 사용하여 맵에서 관심 지점을 찾는 방법을 보여줍니다. 이는 개발자가 주소, 관심 지점 및 다른 지리적 위치 정보를 검색할 수 있도록 설계된 RESTful API입니다. 검색 서비스에서 지정된 주소에 위도와 경도 정보를 할당합니다. 아래에서 설명하는 **서비스 모듈** 은 Maps Search API를 사용하여 위치를 검색하는 데 사용할 수 있습니다.
 
 ### <a name="service-module"></a>서비스 모듈
 
@@ -186,7 +156,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
+   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) 인스턴스를 만듭니다. `searchURL`은 Azure Maps [검색](/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
 
 2. 다음 스크립트 블록을 추가하여 검색 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소, 위치, POI(관심 지점) 같은 대부분의 유사 항목 입력을 처리합니다. 이 코드는 제공된 위도와 경도의 지정된 반경 내에서 인접한 주유소를 검색합니다. 그런 다음, `geojson.getFeatures()` 메서드를 사용하여 응답의 GeoJSON 기능 컬렉션을 추출하고 데이터 원본에 추가하면, 기호 레이어를 통해 데이터가 맵에 자동으로 렌더링됩니다. 스크립트의 마지막 부분은 맵의 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용하여 결과의 경계 상자를 사용하는 카메라 보기를 설정합니다.
 
@@ -275,21 +245,9 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
     ![Azure 맵 컨트롤 및 Search Service](./media/tutorial-search-location/popup-map.png)
 
+이 자습서에 대한 전체 코드를 보려면 [여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)를 클릭하세요. 라이브 샘플을 보려면 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)를 클릭하세요.
+
 ## <a name="next-steps"></a>다음 단계
-
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
-
-> [!div class="checklist"]
-> * Azure Maps를 사용하여 계정 만들기
-> * 사용자 계정에 대한 기본 키 가져오기
-> * 맵 컨트롤 API를 사용하여 새 웹 페이지 만들기
-> * 주변 관심 지점을 찾기 위해 Search Service 사용
-
-> [!div class="nextstepaction"]
-> [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-> [!div class="nextstepaction"]
-> [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 다음 자습서에서는 두 위치 사이의 경로를 표시하는 방법을 보여 줍니다.
 

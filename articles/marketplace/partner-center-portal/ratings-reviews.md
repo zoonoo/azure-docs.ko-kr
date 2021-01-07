@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: ff46c5e2d434a75bf71d6216ce81b34de878ba80
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: d7b64ce907cd68d1d6850f90df49b347f3b0270d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419183"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461005"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>파트너 센터의 등급 & 리뷰 분석 대시보드
 
@@ -22,11 +22,11 @@ ms.locfileid: "89419183"
 - 리뷰는 Azure Marketplace 또는 AppSource 제품의 제품 표시 페이지에 있는 리뷰 탭에 게시 됩니다. 고객은 이름을 포함 하거나 익명으로 게시할 수 있습니다.  
 
 >[!NOTE]
-> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](./faq-terminology.md)를 참조하세요.
+> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](../analytics-faq.md)를 참조하세요.
 
 ## <a name="access-the-dashboard"></a>대시보드 액세스
 
-파트너 센터의 [상업 마켓플레이스 대시보드에서](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 섹션을 확장 하 고 **등급 & 리뷰**를 선택 합니다.
+파트너 센터의 [상업 마켓플레이스 대시보드에서](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 섹션을 확장 하 고 **등급 & 리뷰** 를 선택 합니다.
 
 대시보드에는 다음과 같은 고객 활동의 그래픽 표현이 표시 됩니다.
 
@@ -55,9 +55,9 @@ ms.locfileid: "89419183"
 ## <a name="next-steps"></a>다음 단계
 
 - 파트너 센터 상업용 마켓플레이스에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터의 상업용 마켓플레이스에 대한 분석](./analytics.md)을 참조하세요.
-- 제품에 대한 Marketplace 활동을 요약하는 집계 데이터의 그래프, 추세 및 값은 [상업용 마켓플레이스 분석의 요약 대시보드](./summary-dashboard.md)를 참조하세요.
-- 그래픽 및 다운로드 가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](./orders-dashboard.md)를 참조하세요.
-- VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](./usage-dashboard.md)를 참조하세요.
-- 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 마켓플레이스 분석의 고객 대시보드](./customer-dashboard.md)를 참조하세요.
+- 제품에 대한 Marketplace 활동을 요약하는 집계 데이터의 그래프, 추세 및 값은 [상업용 마켓플레이스 분석의 요약 대시보드](../summary-dashboard.md)를 참조하세요.
+- 그래픽 및 다운로드 가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](../orders-dashboard.md)를 참조하세요.
+- VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](../usage-dashboard.md)를 참조하세요.
+- 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 마켓플레이스 분석의 고객 대시보드](../customer-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 마켓플레이스 분석의 다운로드 대시보드](./downloads-dashboard.md)를 참조하세요.
-- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](./faq-terminology.md)를 참조하세요.
+- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](../analytics-faq.md)를 참조하세요.

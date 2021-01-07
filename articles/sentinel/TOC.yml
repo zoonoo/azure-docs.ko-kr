@@ -27,12 +27,16 @@
       href: roles.md
     - name: 고급 다단계 공격 탐지
       href: fusion.md
+    - name: 사용자 고유의 기계 학습 플랫폼 가져오기
+      href: bring-your-own-ml.md
     - name: 작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
       href: extend-sentinel-across-workspaces-tenants.md
     - name: UEBA를 사용하여 지능형 위협 식별
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Azure Sentinel로 위협 인텔리전스 가져오기
       href: import-threat-intelligence.md
+    - name: 관심 목록과 함께 외부 데이터 사용
+      href: watchlists.md
     - name: 테이블에서 데이터 정규화
       href: normalization.md
     - name: 보안
@@ -66,6 +70,8 @@
               href: connect-microsoft-defender-advanced-threat-protection.md
             - name: ID용 Microsoft Defender(이전 Azure ATP)
               href: connect-azure-atp.md
+            - name: Microsoft Defender for Office 365(이전의 Office 365 ATP)
+              href: connect-office-365-advanced-threat-protection.md
             - name: Azure DDoS Protection
               href: connect-azure-ddos-protection.md
             - name: Azure Firewall
@@ -90,6 +96,8 @@
               href: connect-barracuda.md
             - name: Barracuda CloudGen Firewall
               href: connect-barracuda-cloudgen-firewall.md
+            - name: Beyond Security beSECURE
+              href: connect-besecure.md
             - name: Citrix Analytics(보안)
               href: connect-citrix-analytics.md
             - name: F5 BIG-IP
@@ -142,6 +150,10 @@
                       href: connect-checkpoint.md
                     - name: Cisco ASA
                       href: connect-cisco.md
+                    - name: Citrix WAF
+                      href: connect-citrix-waf.md
+                    - name: CyberArk Enterprise Password Vault
+                      href: connect-cyberark.md
                     - name: ExtraHop Reveal(x)
                       href: connect-extrahop.md
                     - name: F5 ASM
@@ -166,9 +178,11 @@
           href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결
           href: connect-azure-stack.md
+        - name: 데이터 커넥터 상태 모니터링
+          href: monitor-data-connector-health.md
     - name: 사용자 및 엔터티 동작 분석 사용
       href: enable-entity-behavior-analytics.md
-    - name: 다중 테넌트 작업(MSSP)
+    - name: 다중 테넌트 관리(MSSP)
       href: multiple-tenants-service-providers.md
     - name: 여러 작업 영역에서 인시던트 작업
       href: multiple-workspace-view.md
@@ -187,14 +201,18 @@
           href: bookmarks.md
         - name: Livestream을 사용하여 헌트
           href: livestream.md
+        - name: REST-API로 헌팅 쿼리 관리
+          href: hunting-with-rest-api.md
     - name: Azure Sentinel 제거
       href: offboard.md
 - name: 참조(신규!)
   items:
     - name: REST API
-      href: 'https://docs.microsoft.com/rest/api/securityinsights/'
+      href: /rest/api/securityinsights/
     - name: 네트워크 정규화 스키마
       href: normalization-schema.md
+    - name: UEBA 보강
+      href: ueba-enrichments.md
 - name: 리소스
   items:
     - name: 유용한 리소스
@@ -202,7 +220,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Azure 보안, 개인 정보 보호 및 규정 준수 블로그'
-      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
+      href: /archive/blogs/azuresecurity/
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: 가격 책정

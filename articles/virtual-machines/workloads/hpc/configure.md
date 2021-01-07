@@ -1,24 +1,19 @@
 ---
 title: InfiniBand 사용 H 시리즈 및 N 시리즈 Azure Virtual Machines의 구성 및 최적화
 description: HPC 용 InfiniBand 사용 H 시리즈 및 N 시리즈 Vm을 구성 하 고 최적화 하는 방법에 대해 알아봅니다.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b1686b08608e4f1c49cd918e86e8149f0fe2a21c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006607"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963371"
 ---
 # <a name="configure-and-optimize-vms"></a>VM 구성 및 최적화
 
@@ -42,11 +37,24 @@ SR-IOV를 사용 하도록 설정 되지 않은 [RDMA 지원 vm](../../sizes-hpc
   SR-IOV를 사용 하도록 설정 된 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)의 경우 Marketplace에서 [CentOS 버전 7.6 이상](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) 버전 VM 이미지가 적합 합니다. 이러한 VM 이미지는 RDMA 용 OFED 드라이버 및 널리 사용 되는 다양 한 MPI 라이브러리 및 과학적 컴퓨팅 패키지를 사용 하 여 최적화 되 고 미리 로드 되며 시작 하는 가장 쉬운 방법입니다.
 
   기본 CentOS Marketplace 이미지에서 CentOS-HPC 버전 7.6 이상 VM 이미지를 만드는 데 사용 되는 스크립트의 예는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/centos)에 있습니다.
+  
+  > [!NOTE] 
+  > 최신 Azure HPC marketplace 이미지에는 ConnectX3-Pro InfiniBand 카드를 지원 하지 않는 Mellanox OFED 5.1 이상이 있습니다. FDR InfiniBand (예: NCv3)를 사용 하는 SR-IOV 사용 N 시리즈 VM 크기는 다음 CentOS HPC VM 이미지 버전을 사용할 수 있습니다.
+  >- OpenLogic: CentOS: 7.6:7.6.2020062900
+  >- OpenLogic: CentOS: 7_6gen2:7.6.2020062901
+  >- OpenLogic: CentOS: 7.7:7.7.2020062600
+  >- OpenLogic: CentOS: 7_7-gen2:7.7.2020062601
+  >- OpenLogic: CentOS: 8_1:8.1.2020062400
+  >- OpenLogic: CentOS: 8_1-gen2:8.1.2020062401
+
 
 ### <a name="rhelcentos-vm-images"></a>RHEL/CentOS VM 이미지
 Marketplace에서 RHEL 또는 CentOS 기반의 HPC가 아닌 VM 이미지는 SR-IOV 지원 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)에서 사용 하도록 구성할 수 있습니다. [InfiniBand를 사용 하도록](enable-infiniband.md) 설정 하 고 VM에서 [MPI를 설정](setup-mpi.md) 하는 방법에 대해 자세히 알아보세요.
 
   기본 CentOS Marketplace 이미지에서 CentOS-HPC 버전 7.6 이상 VM 이미지를 만드는 데 사용 되는 스크립트의 예는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/centos)에 있습니다.
+  
+  > [!NOTE]
+  > Mellanox OFED 5.1 이상에서는 FDR InfiniBand (예: NCv3)를 사용 하 여 SR-IOV 사용 N 시리즈 VM 크기에 대 한 ConnectX3-Pro InfiniBand 카드를 지원 하지 않습니다. ConnectX3-Pro 카드와 N 시리즈 VM의 LTS Mellanox OFED 버전 4.9-0.1.7.0 또는 이전 버전을 사용 하세요. 자세한 내용은 [여기](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)를 참조 하세요.
 
 ### <a name="ubuntu-vm-images"></a>Ubuntu VM 이미지
 Marketplace의 Ubuntu Server 16.04 LTS, 18.04 LTS 및 20.04 LTS VM 이미지는 SR-IOV 및 비-sr-iov [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)모두에 대해 지원 됩니다. [InfiniBand를 사용 하도록](enable-infiniband.md) 설정 하 고 VM에서 [MPI를 설정](setup-mpi.md) 하는 방법에 대해 자세히 알아보세요.
@@ -118,6 +126,6 @@ sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
 
 - InfiniBand [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) vm에서 [InfiniBand을 사용 하도록 설정](enable-infiniband.md) 하는 방법에 대해 자세히 알아보세요.
 - 지원 되는 다양 한 [MPI 라이브러리](setup-mpi.md) 및 vm에 대 한 최적의 구성을 설치 하는 방법에 대해 자세히 알아보세요.
-- [Hb 시리즈 개요](hb-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md) 를 검토 하 여 성능 및 확장성에 대 한 워크 로드를 최적으로 구성 하는 방법을 알아보세요.
-- [Azure Compute 기술 커뮤니티 블로그의](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)최신 공지 사항 및 일부 HPC 예제 및 결과에 대해 읽어 보세요.
-- 실행 중인 HPC 워크 로드에 대 한 높은 수준의 아키텍처 보기는 [Azure의 hpc (고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조 하세요.
+- [HB 시리즈 개요](hb-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토하여 성능 및 확장성을 높일 수 있도록 워크로드를 최적으로 구성하는 방법을 알아보세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항과 HPC 예제 및 결과를 읽어 보세요.
+- HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

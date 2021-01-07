@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4a3bff9854e8e316bf368b2222d2244ab9ee6346
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: f941c394c3dab0e5e6997898a48a248f6a0cfe42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962012"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352442"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -66,7 +66,8 @@ static void Main(string[] args)
 }
 ```
 
-3\.*x* 버전은 기본 .NET Core 구성 API를 사용하므로 연결 문자열 이름을 변경하는 API가 없습니다.
+> [!NOTE]
+> 3\.*x* 버전은 기본 .NET Core 구성 API를 사용하므로 연결 문자열 이름을 변경하는 API가 없습니다. [Visual Studio를 사용 하 여 WebJobs 개발 및 배포를](webjobs-dotnet-deploy-vs.md) 참조 하세요.
 
 ### <a name="host-development-settings"></a>호스트 개발 설정
 
@@ -230,7 +231,7 @@ static void Main(string[] args)
 
 ## <a name="binding-types"></a>바인딩 형식
 
-바인딩 형식을 설치하고 관리하는 프로세스는 사용하는 SDK 버전이 3.*x*인지 아니면 2.*x*인지에 따라 달라집니다. 특정 바인딩 형식에 대해 설치할 패키지는 해당 형식의 Azure Functions에 대한 [참조](#binding-reference-information) 문서의 "패키지" 섹션에서 찾을 수 있습니다. Azure Functions에서 지원하지 않는 파일 트리거 및 바인딩은 예외입니다(로컬 파일 시스템의 경우).
+바인딩 형식을 설치하고 관리하는 프로세스는 사용하는 SDK 버전이 3.*x* 인지 아니면 2.*x* 인지에 따라 달라집니다. 특정 바인딩 형식에 대해 설치할 패키지는 해당 형식의 Azure Functions에 대한 [참조](#binding-reference-information) 문서의 "패키지" 섹션에서 찾을 수 있습니다. Azure Functions에서 지원하지 않는 파일 트리거 및 바인딩은 예외입니다(로컬 파일 시스템의 경우).
 
 #### <a name="version-3x"></a>3\.*x* 버전
 
@@ -755,7 +756,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 
 ### <a name="scope-values"></a>범위 값
 
-싱글톤에 대한 *범위 식/값*을 지정할 수 있습니다. 식/값을 지정하면 특정 범위에서 함수의 모든 실행이 직렬화됩니다. 요구 사항에 따라 다른 호출을 직렬화하는 동안 사용자 함수에 대한 병렬 처리의 일정 수준에서 이러한 방식으로 더 세분화된 잠금을 구현할 수 있습니다. 예를 들어 다음 코드의 범위 식은 수신 메시지의 `Region` 값에 바인딩합니다. 큐의 East, East, West 지역에 각각 메시지가 하나씩 포함된 경우 East 지역의 메시지는 직렬로 실행되고 West 지역의 메시지는 East 지역의 메시지와 병렬로 실행됩니다.
+싱글톤에 대한 *범위 식/값* 을 지정할 수 있습니다. 식/값을 지정하면 특정 범위에서 함수의 모든 실행이 직렬화됩니다. 요구 사항에 따라 다른 호출을 직렬화하는 동안 사용자 함수에 대한 병렬 처리의 일정 수준에서 이러한 방식으로 더 세분화된 잠금을 구현할 수 있습니다. 예를 들어 다음 코드의 범위 식은 수신 메시지의 `Region` 값에 바인딩합니다. 큐의 East, East, West 지역에 각각 메시지가 하나씩 포함된 경우 East 지역의 메시지는 직렬로 실행되고 West 지역의 메시지는 East 지역의 메시지와 병렬로 실행됩니다.
 
 ```csharp
 [Singleton("{Region}")]
@@ -986,7 +987,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-`SamplingPercentageEstimatorSettings` 개체는 [적응 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)을 구성합니다. 즉, 특정 대량 볼륨 시나리오에서는 Applications Insights가 서버에 선별된 원격 분석 데이터 하위 세트를 보냅니다.
+`SamplingPercentageEstimatorSettings` 개체는 [적응 샘플링](../azure-monitor/app/sampling.md)을 구성합니다. 즉, 특정 대량 볼륨 시나리오에서는 Applications Insights가 서버에 선별된 원격 분석 데이터 하위 세트를 보냅니다.
 
 원격 분석 팩터리를 만들었으면 다음과 같이 Application Insights 로깅 공급자에게 전달합니다.
 

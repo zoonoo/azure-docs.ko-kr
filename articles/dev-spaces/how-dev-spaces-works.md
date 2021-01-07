@@ -5,14 +5,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스를 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8de2c27ce03c871e60b6437656ad630fc8de8408
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981267"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963706"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Azure Dev Spaces의 작동 원리
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Kubernetes 응용 프로그램을 개발 하는 것은 어려울 수 있습니다. Docker 및 Kubernetes 구성 파일이 필요 합니다. 응용 프로그램을 로컬로 테스트 하 고 다른 종속 서비스와 상호 작용 하는 방법을 파악 해야 합니다. 한 번에 여러 서비스를 개발 하 고 테스트 하는 것을 개발자 팀과 함께 처리 해야 할 수 있습니다.
 
@@ -22,7 +24,7 @@ Azure Dev Spaces는 Kubernetes 응용 프로그램을 신속 하 게 반복 하 
 
 Azure Dev Spaces AKS 클러스터의 컨텍스트에서 Kubernetes 응용 프로그램을 개발, 테스트 및 반복 하는 데 드는 노력이 줄어듭니다. 이러한 노력을 줄이면 개발자는 응용 프로그램의 비즈니스 논리에 집중 하 고 Kubernetes에서 실행 되도록 서비스를 구성 하지 않을 수 있습니다.
 
-### <a name="bridge-to-kubernetes"></a>Kubernetes에 연결
+### <a name="bridge-to-kubernetes"></a>Kubernetes에 대한 브리지
 
 Kubernetes에 대 한 연결을 사용 하면 개발 컴퓨터를 Kubernetes 클러스터에 연결 하 여 클러스터에서 실행 되는 것 처럼 개발 컴퓨터에서 코드를 실행 하 고 디버그할 수 있습니다. Kubernetes에 연결 하면 개발 컴퓨터와 클러스터 간에 트래픽을 리디렉션하는 원격 에이전트 역할을 하는 pod를 클러스터에서 실행 하 여 연결 된 클러스터 간에 트래픽을 리디렉션합니다. 이러한 트래픽 리디렉션을 통해 개발 컴퓨터의 코드와 클러스터에서 실행 되는 서비스가 동일한 클러스터에 있는 것 처럼 통신할 수 있습니다. 개발 컴퓨터를 Kubernetes 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Kubernetes에 연결 하는 방법][how-it-works-bridge-to-kubernetes]을 참조 하세요.
 

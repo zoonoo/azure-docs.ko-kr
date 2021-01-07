@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 랩에서 가상 머신에 아티팩트를
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b4772755d8077f7a659c4d403961ffaeb9e1d483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483893"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>VM에 아티팩트 추가

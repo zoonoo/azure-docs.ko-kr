@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스와 라우팅의 작동 방식에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 6987bbaaebe342b571d5b19fe0e37bebd5b8b6e1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2d2c6f336222b4ae0907d6579289a8cad8d73aa6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981308"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977972"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>라우팅이 Azure Dev Spaces와 작동 하는 방식
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces를 사용하면 여러 가지 방법을 통해 Kubernetes 애플리케이션을 신속하게 반복하고 디버그할 수 있으며, AKS(Azure Kubernetes Service) 클러스터에서 팀과 공동 작업이 가능합니다. 프로젝트를 개발 공간에서 실행 하면 Azure Dev Spaces 프로젝트에 대 한 추가 네트워킹 및 라우팅 기능을 제공 합니다.
 
@@ -55,7 +57,7 @@ HTTP가 아닌 다른 모든 TCP 트래픽은 수신 컨트롤러 및 devspaces 
 
 또한 파생 된 개발 공간은 자체 응용 프로그램과 부모에서 공유 되는 응용 프로그램 간에 요청을 지능적으로 라우팅합니다. 라우팅은 파생 된 개발 공간의 응용 프로그램에 요청을 라우팅하고 부모 개발 공간에서 공유 응용 프로그램으로 대체 하는 방식으로 작동 합니다. 응용 프로그램이 부모 공간에 있지 않은 경우 라우팅은 최상위 공간의 공유 응용 프로그램으로 대체 됩니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 * 개발 공간 *기본값* 에는 응용 프로그램 *Servicea* 및 *servicea*가 있습니다.
 * Dev space *azureuser* 는 *기본값*에서 파생 됩니다.
 * *Servicea* 의 업데이트 된 버전이 *azureuser*에 배포 됩니다.

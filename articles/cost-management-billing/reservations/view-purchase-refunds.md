@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d9e5269468f7cd4571e7ae686af7f1ef159b4ef3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b986aa2bfce203be85adbcde8e2966c167bf7ca1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681705"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151774"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>예약 구매 및 환불 트랜잭션 보기
 
@@ -39,11 +39,11 @@ ms.locfileid: "88681705"
 
 [![예약 트랜잭션을 보여 주는 예제](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-자세한 내용은 [기업계약에 대한 Azure Cost Management Power BI 앱](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app)을 참조하세요.
+자세한 내용은 [기업계약에 대한 Azure Cost Management Power BI 앱](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 참조하세요.
 
 ## <a name="use-apis-to-get-reservation-transactions"></a>API를 사용하여 예약 트랜잭션 가져오기
 
-EA(기업계약) 및 Microsoft 고객 계약 사용자는 [예약 트랜잭션 - 목록 API](https://docs.microsoft.com/rest/api/consumption/reservationtransactions/list)를 사용하여 예약 트랜잭션 데이터를 가져올 수 있습니다.
+EA(기업계약) 및 Microsoft 고객 계약 사용자는 [예약 트랜잭션 - 목록 API](/rest/api/consumption/reservationtransactions/list)를 사용하여 예약 트랜잭션 데이터를 가져올 수 있습니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

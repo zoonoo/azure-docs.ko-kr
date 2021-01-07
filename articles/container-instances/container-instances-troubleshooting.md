@@ -3,13 +3,13 @@ title: 일반적인 문제 해결
 description: Azure Container Instances 배포, 실행 또는 관리할 때 발생 하는 일반적인 문제를 해결 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
-ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260753"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779518"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -45,7 +45,7 @@ Azure Container Instances에서 지원되지 않는 이미지를 지정하면 `O
 }
 ```
 
-이 오류는 지원 되지 않는 반기 채널 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지를 배포할 때 가장 자주 발생 합니다. Azure Container Instances에서 지원 되는 Windows 이미지는 질문과 [대답](container-instances-faq.md#what-windows-base-os-images-are-supported)을 참조 하세요.
+이 오류는 Semi-Annual Channel 릴리스 1709 또는 1803 (지원 되지 않음)을 기반으로 하는 Windows 이미지를 배포할 때 가장 자주 발생 합니다. Azure Container Instances에서 지원 되는 Windows 이미지는 질문과 [대답](container-instances-faq.md#what-windows-base-os-images-are-supported)을 참조 하세요.
 
 ### <a name="unable-to-pull-image"></a>이미지를 풀링할 수 없음
 
@@ -99,7 +99,7 @@ Azure에서 다양한 지역별 리소스 부하로 인해 컨테이너 인스�
 ## <a name="issues-during-container-group-runtime"></a>컨테이너 그룹 런타임 중에 발생 하는 문제
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>컨테이너가 계속 종료되고 다시 시작함(장기 실행 프로세스가 없음)
 
-컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상**이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시**(OnFailure) 또는 **Never**(안 함)로 변경해야 합니다. **OnFailure**를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 애플리케이션이나 스크립트에 문제가 있을 수 있습니다.
+컨테이너 그룹의 기본 [재시작 정책](container-instances-restart-policy.md)이 **항상** 이므로, 실행 완료 후 컨테이너 그룹의 컨테이너는 항상 다시 시작합니다. 작업 기반 컨테이너를 실행하려면 이를 **실패 시**(OnFailure) 또는 **Never**(안 함)로 변경해야 합니다. **OnFailure** 를 지정해도 컨테이너가 계속 다시 시작되면 컨테이너에서 실행된 애플리케이션이나 스크립트에 문제가 있을 수 있습니다.
 
 장기 실행 프로세스가 없는 컨테이너 그룹을 실행하면 Ubuntu 또는 Alpine과 같은 이미지와 함께 종료와 재시작이 반복될 수 있습니다. [EXEC](container-instances-exec.md)을 통해 연결하는 작업은 컨테이너에서 활성 상태로 유지되지 않으므로 작동하지 않습니다. 이 문제를 해결 하려면 컨테이너 그룹 배포에 다음과 같은 시작 명령을 포함 하 여 컨테이너를 계속 실행 합니다.
 
@@ -187,7 +187,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 #### <a name="cached-images"></a>캐시 된 이미지
 
-Azure Container Instances는 캐싱 메커니즘을 사용 하 여, 및를 비롯 하 여 일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간을 단축할 수 있습니다 `nanoserver:1809` `servercore:ltsc2019` `servercore:1809` . 및와 같은 일반적으로 사용 되는 Linux 이미지 `ubuntu:1604` `alpine:3.6` 도 캐시 됩니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
+Azure Container Instances는 캐싱 메커니즘을 사용 하 여, 및를 비롯 하 여 일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간을 단축할 수 있습니다 `nanoserver:1809` `servercore:ltsc2019` `servercore:1809` . 및와 같은 일반적으로 사용 되는 Linux 이미지 `ubuntu:1604` `alpine:3.6` 도 캐시 됩니다. Windows 및 Linux 이미지의 경우 태그를 사용 하지 마십시오 `latest` . 지침에 대 한 Container Registry의 [이미지 태그 모범 사례](../container-registry/container-registry-image-tag-version.md) 를 검토 합니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
 
 > [!NOTE]
 > Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.
@@ -198,13 +198,13 @@ Windows 컨테이너를 처음 만들면 최대 30초(또는 이상, 드문 경�
 
 ### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>기본 Docker API에 연결하거나 권한 있는 컨테이너를 실행할 수 없음
 
-Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인프라에 대한 직접 액세스를 노출하지 않습니다. 여기에는 컨테이너의 호스트에서 실행되고 권한 있는 컨테이너를 실행하는 Docker API에 대한 액세스가 포함됩니다. Docker 상호 작용이 필요한 경우 [REST 참조 설명서](https://aka.ms/aci/rest)에서 ACI API가 무엇을 지원하는지 확인하세요. 빠진 부분이 있는 경우 [ACI 피드백 포럼](https://aka.ms/aci/feedback)에서 요청을 제출하세요.
+Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인프라에 대한 직접 액세스를 노출하지 않습니다. 여기에는 컨테이너의 호스트에서 실행되고 권한 있는 컨테이너를 실행하는 Docker API에 대한 액세스가 포함됩니다. Docker 상호 작용이 필요한 경우 [REST 참조 설명서](/rest/api/container-instances/)에서 ACI API가 무엇을 지원하는지 확인하세요. 빠진 부분이 있는 경우 [ACI 피드백 포럼](https://aka.ms/aci/feedback)에서 요청을 제출하세요.
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>일치하지 않는 포트로 인해 컨테이너 그룹 IP 주소에 액세스할 수 없음
 
 Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아직 지원 하지 않습니다. 컨테이너 그룹의 IP 주소에 액세스할 수 없는 것으로 판단 되는 경우 컨테이너 그룹에서 속성을 사용 하 여 컨테이너 그룹에 노출 하는 것과 동일한 포트를 수신 대기 하도록 구성 했는지 확인 `ports` 합니다.
 
-컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 Azure Container Instances 확인 하려면 `aci-helloworld` 포트를 노출 하는 이미지의 배포를 테스트 합니다. 또한 `aci-helloworld` 포트에서 수신 하도록 앱을 실행 합니다. `aci-helloworld`선택적 환경 변수를 허용 `PORT` 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 컨테이너 그룹을 만들 때 [환경 변수](container-instances-environment-variables.md) 를 설정 합니다.
+컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 Azure Container Instances 확인 하려면 `aci-helloworld` 포트를 노출 하는 이미지의 배포를 테스트 합니다. 또한 `aci-helloworld` 포트에서 수신 하도록 앱을 실행 합니다. `aci-helloworld` 선택적 환경 변수를 허용 `PORT` 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 컨테이너 그룹을 만들 때 [환경 변수](container-instances-environment-variables.md) 를 설정 합니다.
 
 1. 컨테이너 그룹을 설정 하 여 포트 9000를 노출 하 고 포트 번호를 환경 변수의 값으로 전달 합니다. 이 예제는 Bash 셸에 대해 형식이 지정 됩니다. PowerShell 또는 명령 프롬프트와 같은 다른 셸을 선호 하는 경우에는 변수 할당을 적절 하 게 조정 해야 합니다.
     ```azurecli
@@ -213,7 +213,7 @@ Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. 의 명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다 `az container create` . **Ip**값을 찾습니다. 
+1. 의 명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다 `az container create` . **Ip** 값을 찾습니다. 
 1. 컨테이너가 성공적으로 프로 비전 되 면 브라우저에서 컨테이너 앱의 IP 주소와 포트 (예:)로 이동 `192.0.2.0:9000` 합니다. 
 
     "시작 Azure Container Instances!"가 표시 되어야 합니다. 웹 앱에 표시 되는 메시지입니다.

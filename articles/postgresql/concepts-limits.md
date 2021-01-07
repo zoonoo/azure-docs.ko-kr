@@ -1,18 +1,18 @@
 ---
 title: 한도 Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 연결 수 및 저장소 엔진 옵션과 같은 Azure Database for PostgreSQL 단일 서버에 대 한 제한을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76836459"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707526"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 제한-단일 서버
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스 (계산, 메모리, 저장소) 계층에 대해 알아보려면 [가격 책정 계층](concepts-pricing-tiers.md) 문서를 참조 하세요.
@@ -66,6 +66,11 @@ ms.locfileid: "76836459"
 
 ### <a name="utf-8-characters-on-windows"></a>Windows의 UTF-8 문자
 - 일부 시나리오에서는 UTF-8 문자가 Windows의 오픈 소스 PostgreSQL에서 완전히 지원되지 않으며, Azure Database for PostgreSQL에 영향을 줍니다. 자세한 내용은 [postgresql-archive의 버그 #15476](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html)에 대한 스레드를 참조하세요.
+
+### <a name="gss-error"></a>GSS 오류
+**GSS**와 관련 된 오류가 표시 되는 경우 Azure Postgres 단일 서버에서 아직 완전 하 게 지원 하지 않는 최신 클라이언트/드라이버 버전을 사용할 가능성이 높습니다. 이 오류는 [JDBC 드라이버 버전 42.2.15 및 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868)에 영향을 주는 것으로 알려져 있습니다.
+   - 11 월 말까지 업데이트를 완료할 예정입니다. 그동안 작업 중인 드라이버 버전을 사용 하는 것이 좋습니다.
+   - 또는 GSS 요청을 사용 하지 않도록 설정 하는 것이 좋습니다.  와 같은 연결 매개 변수를 사용 `gssEncMode=disable` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [각 가격 책정 계층에서 사용할 수 있는 기능](concepts-pricing-tiers.md) 이해

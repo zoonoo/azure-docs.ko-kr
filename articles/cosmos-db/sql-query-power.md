@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 기능
 description: Azure Cosmos DB의 SQL 시스템 기능 기능에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 683c53c369f136ad4b917b93e9a92a71072d05e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39db52223feea63a4e3afbd4775f884acbbca548
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71349644"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341691"
 ---
 # <a name="power-azure-cosmos-db"></a>전원 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 식을 거듭제곱한 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -29,7 +32,7 @@ POWER (<numeric_expr1>, <numeric_expr2>)
    숫자 식입니다.  
   
 *numeric_expr2*  
-   *Numeric_expr1*를 발생 시킬 거듭제곱입니다.  
+   *Numeric_expr1* 를 발생 시킬 거듭제곱입니다.  
   
 ## <a name="return-types"></a>반환 형식
   

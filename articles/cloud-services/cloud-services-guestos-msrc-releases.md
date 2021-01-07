@@ -10,49 +10,214 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 12/21/2020
 ms.author: yohaddad
-ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 7f683b5002fd31b599ae6fadeb82e5c6f5ce56a0
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024301"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708909"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
-## <a name="september-2020-guest-os"></a>2020 년 9 월 게스트 OS
->[!NOTE]
->9 월 게스트 OS는 현재 자동 업데이트를 위해 구성 된 클라우드 서비스 Vm에 출시 됩니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 9 월 게스트 OS에는 다음 패치가 포함 되어 있습니다. 이 목록은 변경될 수 있습니다.
+## <a name="december-2020-guest-os"></a>2020 년 12 월 게스트 OS
+>[!NOTE] 
 
+>12월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 12월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다. 
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2.102, 3.89, 4.82 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4561600]  |  플래시 업데이트 | 3.89, 4.82, 5.47, 6.23 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4577015]  |  LCU(최신 누적 업데이트) | 5.47 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4570333]  |  LCU(최신 누적 업데이트) | 6.23 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4570673]  |  서비스 스택 업데이트 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4577051]  |  월간 롤업 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4569767]  |  .NET Framework 3.5 보안 및 품질 롤업 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4566426]  |  서비스 스택 업데이트 | 3.89 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4577038]  |  월간 롤업 | 3.89 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4569765]  |  .NET Framework 3.5 보안 및 품질 롤업 | 3.89 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 3.89 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4566425]  |  서비스 스택 업데이트 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4577066]  |  월간 롤업 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4569768]  |  .NET Framework 3.5 보안 및 품질 롤업 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4569778]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4578013]  |  보안 업데이트 | 2.102 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4576750]  |  서비스 스택 업데이트 | 5.47 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4576479]  |  .NET Framework 4.8 보안 및 품질 롤업 | 5.47 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4494175]  |  마이크로코드 | 5.47 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4570332]  |  서비스 스택 업데이트 | 6.23 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4570720]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | 6.23 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4576483]  |  .NET Framework 4.8 보안 및 품질 롤업 | 6.23 | 9 월 8 일, 2020 |
-|  Rel 20-09 |  [4494174]  |  마이크로코드 | 6.23 | 9 월 8 일, 2020 |
+|  Rel 20-12 |  [4592440]  |  최신 누적 업데이트 | 6.26 | 2020 년 12 월 8 일 |
+|  Rel 20-12 |  [4580325]  |  플래시 업데이트 | 3.92, 4.85, 5.50, 6.26 | Oct 13, 2020 |
+|  Rel 20-12 |  [4586768]  |  IE 누적 업데이트 | 2.105, 3.92, 4.85 | 2020 년 11 월 10 일 |
+|  Rel 20-12 |  [4593226]  |  최신 누적 업데이트 | 5.50 | 2020 년 12 월 8 일 |
+|  Rel 20-12 |  [4052623]  |  Defender | 5.50, 6.26 | Dec 13, 2020 |
+|  Rel 20-12 |  [4578952]  |  .NET Framework 3.5 보안 및 품질 롤업 | 2.105 | 2020 년 11 월 10 일 |
+|  Rel 20-12 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 2.105 | 2020 년 11 월 10 일 |
+|  Rel 20-12 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업 | 4.85 | 2020 년 11 월 10 일 |
+|  Rel 20-12 |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 4.85 | 2020 년 11 월 10 일 |
+|  Rel 20-12 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업 | 3.92 | 2020 년 11 월 10 일 |
+|  Rel 20-12 |  [4578954]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 3.92 | 2020 년 11 월 10 일 |
+|  Rel 20-12 |  [4578966]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | 6.26 | Oct 13, 2020 |
+|  Rel 20-12 |  [4592471]  |  월간 롤업 | 2.105 | 2020 년 12 월 8 일 |
+|  Rel 20-12 |  [4592468]  |  월간 롤업 | 3.92 | 2020 년 12 월 8 일 |
+|  Rel 20-12 |  [4592484]  |  월간 롤업 | 4.85 | 2020 년 12 월 8 일 |
+|  Rel 20-12 |  [4566426]  |  서비스 스택 업데이트 | 3.92 | 2020 년 7 월 14 일 |
+|  Rel 20-12 |  [4566425]  |  서비스 스택 업데이트 | 4.85 | 2020 년 7 월 14 일 |
+|  Rel 20-12 OOB |  [4578013]  |  독립 실행형 보안 업데이트 | 4.85 | 8 월 19 일, 2020 |
+|  Rel 20-12 |  [4576750]  |  서비스 스택 업데이트 | 5.50 | 9 월 8 일, 2020 |
+|  Rel 20-12 |  [4592510]  |  서비스 스택 업데이트 | 2.105 | 2020 년 12 월 8 일 |
+|  Rel 20-12 |  [4587735]  |  서비스 스택 업데이트 | 6.26 | 2020 년 11 월 10 일 |
+|  Rel 20-12 |  [4494175]  |  마이크로코드 | 5.50 | 9 월 1 일, 2020 |
+|  Rel 20-12 |  [4494174]  |  마이크로코드 | 6.26 | 9 월 3 일, 2020 |
+
+[4592440]: https://support.microsoft.com/kb/4592440
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4593226]: https://support.microsoft.com/kb/4593226
+[4052623]: https://support.microsoft.com/kb/4052623
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4592471]: https://support.microsoft.com/kb/4592471
+[4592468]: https://support.microsoft.com/kb/4592468
+[4592484]: https://support.microsoft.com/kb/4592484
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
+## <a name="november-2020-guest-os"></a>2020 년 11 월 게스트 OS
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 20-11 OOB |  [4594442]  |  최신 누적 업데이트 | [6.25] | 2020 년 11 월 17 일 |
+|  Rel 20-11 OOB |  [4594441]  |  최신 누적 업데이트 | [5.49] | 2020 년 11 월 19 일 |
+|  Rel 20-11 |  [4580325]  |  플래시 업데이트 | [3.91], [4.84], [5.49], [6.25] | Oct 13, 2020 |
+|  Rel 20-11 |  [4586768]  |  IE 누적 업데이트 | [2.104], [3.91], [4.84] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4578952]  |  .NET Framework 3.5 보안 및 품질 롤업 | [2.104] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [2.104] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업 | [4.84] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [4.84] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업 | [3.91] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4578954]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [3.91] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4578966]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | [6.25] | Oct 13, 2020 |
+|  Rel 20-11 |  [4586827]  |  월간 롤업 | [2.104] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4586834]  |  월간 롤업 | [3.91] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4586845]  |  월간 롤업 | [4.84] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4566426]  |  서비스 스택 업데이트 | [3.91] | 2020 년 7 월 14 일 |
+|  Rel 20-11 |  [4566425]  |  서비스 스택 업데이트 | [4.84] | 2020 년 7 월 14 일 |
+|  Rel 20-11 OOB |  [4578013]  |  독립 실행형 보안 업데이트 | [4.84] | 8 월 19 일, 2020 |
+|  Rel 20-11 |  [4576750]  |  서비스 스택 업데이트 | [5.49] | 9 월 8 일, 2020 |
+|  Rel 20-11 |  [4580970]  |  서비스 스택 업데이트 | [2.104] | Oct 13, 2020 |
+|  Rel 20-11 |  [4587735]  |  서비스 스택 업데이트 | [6.25] | 2020 년 11 월 10 일 |
+|  Rel 20-11 |  [4494175]  |  마이크로코드 | [5.49] | 9 월 1 일, 2020 |
+|  Rel 20-11 |  [4494174]  |  마이크로코드 | [6.25] | 9 월 3 일, 2020 |
+
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4586827]: https://support.microsoft.com/kb/4586827
+[4586834]: https://support.microsoft.com/kb/4586834
+[4586845]: https://support.microsoft.com/kb/4586845
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4580970]: https://support.microsoft.com/kb/4580970
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.104]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.91]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.84]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.49]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.25]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+
+## <a name="october-2020-guest-os"></a>2020 년 10 월 게스트 OS
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 20-10 |  [4577010]  |  IE 누적 업데이트 | [2.103], [3.90], [4.83] | 9 월 8 일, 2020 |
+|  Rel 20-10 |  [4580325]  |  플래시 업데이트 | [3.90], [4.83], [5.48], [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4577668]  |  최신 누적 업데이트 | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580346]  |  최신 누적 업데이트 | [5.48] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580970]  |  서비스 스택 업데이트 | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4580345]  |  월간 롤업 | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1 보안 및 품질 롤업 | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [2.103] | Oct 13, 2020 |
+|  Rel 20-10 |  [4566426]  |  서비스 스택 업데이트 | [3.90] | 2020 년 7 월 14 일 |
+|  Rel 20-10 |  [4580382]  |  월간 롤업 | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3.5 보안 및 품질 롤업 | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [3.90] | Oct 13, 2020 |
+|  Rel 20-10 |  [4566425]  |  서비스 스택 업데이트 | [4.83] | 2020 년 7 월 14 일 |
+|  Rel 20-10 |  [4580347]  |  월간 롤업 | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3.5 보안 및 품질 롤업 | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [4.83] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578013]  |  독립 실행형 보안 업데이트 | [4.83] | 8 월 19 일, 2020 |
+|  Rel 20-10 |  [4576750]  |  서비스 스택 업데이트 | [5.48] | 9 월 8 일, 2020 |
+|  Rel 20-10 |  [4494175]  |  마이크로코드 | [5.48] | 9 월 1 일, 2020 |
+|  Rel 20-10 |  [4577667]  |  서비스 스택 업데이트 | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | [6.24] | Oct 13, 2020 |
+|  Rel 20-10 |  [4494174]  |  마이크로코드 | [6.24] | 9 월 3 일, 2020 |
+
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4580325]: https://support.microsoft.com/kb/4580325
+[4577668]: https://support.microsoft.com/kb/4577668
+[4580346]: https://support.microsoft.com/kb/4580346
+[4580970]: https://support.microsoft.com/kb/4580970
+[4580345]: https://support.microsoft.com/kb/4580345
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4566426]: https://support.microsoft.com/kb/4566426
+[4580382]: https://support.microsoft.com/kb/4580382
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4566425]: https://support.microsoft.com/kb/4566425
+[4580347]: https://support.microsoft.com/kb/4580347
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4494175]: https://support.microsoft.com/kb/4494175
+[4577667]: https://support.microsoft.com/kb/4577667
+[4578966]: https://support.microsoft.com/kb/4578966
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.103]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.90]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.83]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.48]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.24]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
+
+## <a name="september-2020-guest-os"></a>2020 년 9 월 게스트 OS
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | [2.102], [3.89], [4.82] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4561600]  |  플래시 업데이트 | [3.89], [4.82], [5.47], [6.23] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4577015]  |  LCU(최신 누적 업데이트) | [5.47] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4570333]  |  LCU(최신 누적 업데이트) | [6.23] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4570673]  |  서비스 스택 업데이트 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4577051]  |  월간 롤업 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework 3.5 보안 및 품질 롤업 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4566426]  |  서비스 스택 업데이트 | [3.89] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4577038]  |  월간 롤업 | [3.89] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework 3.5 보안 및 품질 롤업 | [3.89] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [3.89] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4566425]  |  서비스 스택 업데이트 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4577066]  |  월간 롤업 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework 3.5 보안 및 품질 롤업 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569778]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4578013]  |  보안 업데이트 | [2.102] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4576750]  |  서비스 스택 업데이트 | [5.47] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4494175]  |  마이크로코드 | [5.47] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4570332]  |  서비스 스택 업데이트 | [6.23] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4570720]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | [6.23] | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4494174]  |  마이크로코드 | [6.23] | 9 월 8 일, 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
 [4561600]: https://support.microsoft.com/kb/4561600
@@ -72,41 +237,41 @@ ms.locfileid: "90024301"
 [4569778]: https://support.microsoft.com/kb/4569778
 [4578013]: https://support.microsoft.com/kb/4578013
 [4576750]: https://support.microsoft.com/kb/4576750
-[4576479]: https://support.microsoft.com/kb/4576479
 [4494175]: https://support.microsoft.com/kb/4494175
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
-[4576483]: https://support.microsoft.com/kb/4576483
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.102]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.89]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.82]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.47]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.23]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="august-2020-guest-os"></a>2020 년 8 월 게스트 OS
 
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 20-08 |  [4571687]  |  IE 누적 업데이트 | 2.101, 3.88, 4.81 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4561600]  |  플래시 업데이트 | 3.88, 4.81, 5.46, 6.22 | 6 월 9 일, 2020 |
-|  Rel 20-08 |  [4571694]  |  최신 누적 업데이트 | 6.22 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4565349]  |  최신 누적 업데이트 | 5.46 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4570673]  |  서비스 스택 업데이트 | 2.101 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4571729]  |  월간 롤업 | 2.101 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4569767]  |  .NET Framework 3.5.1 보안 및 품질 롤업 | 2.101 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4569780]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 2.101 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4569765]  |  .NET Framework 3.5 보안 및 품질 롤업 | 3.88 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4569779]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 3.88 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4566426]  |  서비스 스택 업데이트 | 3.88 | 2020 년 7 월 14 일 |
-|  Rel 20-08 |  [4571736]  |  월간 롤업 | 3.88 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4566425]  |  서비스 스택 업데이트 | 4.81 | 2020 년 7 월 14 일 |
-|  Rel 20-08 |  [4571703]  |  월간 롤업 | 4.81 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4569768]  |  .NET Framework 3.5 보안 및 품질 롤업 | 4.81 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4569778]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 4.81 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4494175]  |  마이크로코드 | 5.46 | 2020 년 2 월 25 일 |
-|  Rel 20-08 |  [4565912]  |  서비스 스택 업데이트 | 5.46 | 2020 년 7 월 14 일 |
-|  Rel 20-08 |  [4569746]  |  .NET Framework 4.8 보안 및 품질 롤업 | 5.46 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4569776]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | 6.22 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4569750]  |  .NET Framework 3.5 및 4.8 누적 업데이트 | 6.22 | 8 월 11 일, 2020 |
-|  Rel 20-08 |  [4566424]  |  서비스 스택 업데이트 | 6.22 | 8 월 11 일, 2020 |
-
+|  Rel 20-08 |  [4571687]  |  IE 누적 업데이트 | [2.101], [3.88], [4.81] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4561600]  |  플래시 업데이트 | [3.88], [4.81], [5.46], [6.22] | 6 월 9 일, 2020 |
+|  Rel 20-08 |  [4571694]  |  최신 누적 업데이트 | [6.22] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4565349]  |  최신 누적 업데이트 | [5.46] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4570673]  |  서비스 스택 업데이트 | [2.101] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4571729]  |  월간 롤업 | [2.101] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4569767]  |  .NET Framework 3.5.1 보안 및 품질 롤업 | [2.101] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4569780]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [2.101] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4569765]  |  .NET Framework 3.5 보안 및 품질 롤업 | [3.88] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4569779]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [3.88] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4566426]  |  서비스 스택 업데이트 | [3.88] | 2020 년 7 월 14 일 |
+|  Rel 20-08 |  [4571736]  |  월간 롤업 | [3.88] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4566425]  |  서비스 스택 업데이트 | [4.81] | 2020 년 7 월 14 일 |
+|  Rel 20-08 |  [4571703]  |  월간 롤업 | [4.81] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4569768]  |  .NET Framework 3.5 보안 및 품질 롤업 | [4.81] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4569778]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | [4.81] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4494175]  |  마이크로코드 | [5.46] | 2020 년 2 월 25 일 |
+|  Rel 20-08 |  [4565912]  |  서비스 스택 업데이트 | [5.46] | 2020 년 7 월 14 일 |
+|  Rel 20-08 |  [4569776]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | [6.22] | 8 월 11 일, 2020 |
+|  Rel 20-08 |  [4566424]  |  서비스 스택 업데이트 | [6.22] | 8 월 11 일, 2020 |
 
 
 [4571687]: https://support.microsoft.com/kb/4571687
@@ -127,10 +292,13 @@ ms.locfileid: "90024301"
 [4569778]: https://support.microsoft.com/kb/4569778
 [4494175]: https://support.microsoft.com/kb/4494175
 [4565912]: https://support.microsoft.com/kb/4565912
-[4569746]: https://support.microsoft.com/kb/4569746
 [4569776]: https://support.microsoft.com/kb/4569776
-[4569750]: https://support.microsoft.com/kb/4569750
 [4566424]: https://support.microsoft.com/kb/4566424
+[2.101]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.88]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.81]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.46]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.22]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="july-2020-guest-os"></a>게스트 OS 7 월 2020
@@ -181,11 +349,11 @@ ms.locfileid: "90024301"
 [4565632]: https://support.microsoft.com/kb/4565632
 [4558997]: https://support.microsoft.com/kb/4558997
 [4494174]: https://support.microsoft.com/kb/4494174
-[2.100]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.87]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.45]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.21]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.100]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.87]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.80]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.45]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.21]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="june-2020-guest-os"></a>6 월 2020 게스트 OS
@@ -220,11 +388,11 @@ ms.locfileid: "90024301"
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
-[2.99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.99]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.86]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.79]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.44]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.20]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>2020년 5월 게스트 OS
@@ -232,22 +400,22 @@ ms.locfileid: "90024301"
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98],  [3.85], [4.78]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4556813]  |  LCU(최신 누적 업데이트)   |  [5.43]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4551853]  |  LCU(최신 누적 업데이트)   |  [6.19]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4552940]  |  월간 롤업   |  [2.98]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4556836]  |  월간 롤업   |  [2.98]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4555449]  |  서비스 스택 업데이트   |  [2.98]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4552920]  |  월간 롤업   |  [2.98]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4552979]  |  월간 롤업   |  [3.85]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4556840]  |  월간 롤업   |  [3.85]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4552947]  |  월간 롤업   |  [3.85]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4552982]  |  월간 롤업   |  [3.85]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4552946]  |  월간 롤업   |  [4.78]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4556846]  |  월간 롤업   |  [4.78]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4550994]  |  서비스 스택 업데이트   |  [5.43]  |  2020년 4월 14일  |
-|  Rel 20-05  |  [4552924]  |  월간 롤업   |  [6.19]  |  2020년 5월 12일  |
-|  Rel 20-05  |  [4549947]  |  서비스 스택 업데이트   |  [6.19]  |  2020년 4월 14일  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98],  [3.85], [4.78]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4556813]  |  LCU(최신 누적 업데이트)   |  [5.43]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4551853]  |  LCU(최신 누적 업데이트)   |  [6.19]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4552940]  |  월간 롤업   |  [2.98]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4556836]  |  월간 롤업   |  [2.98]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4555449]  |  서비스 스택 업데이트   |  [2.98]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4552920]  |  월간 롤업   |  [2.98]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4552979]  |  월간 롤업   |  [3.85]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4556840]  |  월간 롤업   |  [3.85]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4552947]  |  월간 롤업   |  [3.85]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4552982]  |  월간 롤업   |  [3.85]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4552946]  |  월간 롤업   |  [4.78]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4556846]  |  월간 롤업   |  [4.78]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4550994]  |  서비스 스택 업데이트   |  [5.43]  |  2020년 4월 14일  |
+|  Rel 20-05  |  [4552924]  |  월간 롤업   |  [6.19]  |  2020년 5월 12일  |
+|  Rel 20-05  |  [4549947]  |  서비스 스택 업데이트   |  [6.19]  |  2020년 4월 14일  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -266,11 +434,11 @@ ms.locfileid: "90024301"
 [4550994]: https://support.microsoft.com/kb/4550994
 [4552924]: https://support.microsoft.com/kb/4552924
 [4549947]: https://support.microsoft.com/kb/4549947
-[2.98]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.85]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.98]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.85]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.78]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.43]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.19]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="april-2020-guest-os"></a>2020년 4월 게스트 OS
@@ -278,20 +446,20 @@ ms.locfileid: "90024301"
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 20-04   |  [4550965]  |  Windows 보안   |  [2.97]  |  2020년 4월 14일  |
-|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  2020년 4월 14일  |
-|  Rel 20-04   |  [4550971]  |  Windows 보안   |  [3.84]  |  2020년 4월 14일  |
-|  Rel 20-04   |  [4550970]  |  Windows 보안   |  [4.77]  |  2020년 4월 14일  |
-|  Rel 20-04   |  [4550929]  |  LCU(최신 누적 업데이트)   |  [5.42]  |  2020년 4월 14일  |
-|  Rel 20-04   |  [4549949]  |  LCU(최신 누적 업데이트)   |  [6.18]  |  2020년 4월 14일  |
-|  Rel 20-04   |  [4540688]  |  월간 롤업   |  [2.97]  |  2020년 3월 10일  |
-|  Rel 20-04   |  [4550735]  |  서비스 스택 업데이트   |  [2.97]  |  2020년 3월 10일  |
-|  Rel 20-04   |  [4540726]  |  서비스 스택 업데이트   |  [3.84]  |  2020년 3월 10일  |
-|  Rel 20-04   |  [4541510]  |  월간 롤업   |  [3.84]  |  2020년 3월 10일  |
-|  Rel 20-04   |  [4541509]  |  월간 롤업   |  [4.77]  |  2020년 3월 10일  |
-|  Rel 20-04   |  [4540725]  |  서비스 스택 업데이트   |  [4.77]  |  2020년 3월 10일  |
-|  Rel 20-04   |  [4540723]  |  서비스 스택 업데이트   |  [5.42]  |  2020년 3월 10일  |
-|  Rel 20-04   |  [4539571]  |  서비스 스택 업데이트   |  [6.18]  |  2020년 3월 10일  |
+|  Rel 20-04   |  [4550965]  |  Windows 보안   |  [2.97]  |  2020년 4월 14일  |
+|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  2020년 4월 14일  |
+|  Rel 20-04   |  [4550971]  |  Windows 보안   |  [3.84]  |  2020년 4월 14일  |
+|  Rel 20-04   |  [4550970]  |  Windows 보안   |  [4.77]  |  2020년 4월 14일  |
+|  Rel 20-04   |  [4550929]  |  LCU(최신 누적 업데이트)   |  [5.42]  |  2020년 4월 14일  |
+|  Rel 20-04   |  [4549949]  |  LCU(최신 누적 업데이트)   |  [6.18]  |  2020년 4월 14일  |
+|  Rel 20-04   |  [4540688]  |  월간 롤업   |  [2.97]  |  2020년 3월 10일  |
+|  Rel 20-04   |  [4550735]  |  서비스 스택 업데이트   |  [2.97]  |  2020년 3월 10일  |
+|  Rel 20-04   |  [4540726]  |  서비스 스택 업데이트   |  [3.84]  |  2020년 3월 10일  |
+|  Rel 20-04   |  [4541510]  |  월간 롤업   |  [3.84]  |  2020년 3월 10일  |
+|  Rel 20-04   |  [4541509]  |  월간 롤업   |  [4.77]  |  2020년 3월 10일  |
+|  Rel 20-04   |  [4540725]  |  서비스 스택 업데이트   |  [4.77]  |  2020년 3월 10일  |
+|  Rel 20-04   |  [4540723]  |  서비스 스택 업데이트   |  [5.42]  |  2020년 3월 10일  |
+|  Rel 20-04   |  [4539571]  |  서비스 스택 업데이트   |  [6.18]  |  2020년 3월 10일  |
 
 
 [4550965]: https://support.microsoft.com/kb/4550965
@@ -308,11 +476,11 @@ ms.locfileid: "90024301"
 [4540725]: https://support.microsoft.com/kb/4540725
 [4540723]: https://support.microsoft.com/kb/4540723
 [4539571]: https://support.microsoft.com/kb/4539571
-[2.97]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.84]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.42]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.18]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.97]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.84]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.77]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.42]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.18]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="march-2020-guest-os"></a>2020년 3월 게스트 OS
@@ -339,11 +507,11 @@ ms.locfileid: "90024301"
 [4537814]: https://support.microsoft.com/kb/4537814 
 [4537821]: https://support.microsoft.com/kb/4537821 
 
-[6.17]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.41]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.96]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.17]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.41]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.76]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.83]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.96]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="february-2020-guest-os"></a>2020년 2월 게스트 OS
@@ -382,36 +550,36 @@ ms.locfileid: "90024301"
 [4532920]: https://support.microsoft.com/kb/4532920
 [4534297]: https://support.microsoft.com/kb/4534297
 
-[6.16]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.40]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.75]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.95]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.16]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.40]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.75]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.82]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.95]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="january-2020-guest-os"></a>2020년 1월 게스트 OS
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 20-01  |  [4532960]  |  Windows 보안  | [2.94] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4534314]  |  Windows 보안  | [2.94] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4532958]  |  Windows 보안  | [3.81] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4532963]  |  Windows 보안  | [3.81] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4534288]  |  Windows 보안  | [3.81] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4532961]  |  Windows 보안  | [4.74] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4532962]  |  Windows 보안  | [4.74] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4534309]  |  Windows 보안  | [4.74] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4494175]  |  마이크로코드 v3  | [5.39] | 2019년 8월 29일 |
-|  Rel 20-01  |  [4534271]  |  LCU  | [5.39] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4494174]  |  마이크로코드 v4  | [6.15] | 2019년 8월 29일 |
-|  Rel 20-01  |  [4532947]  |  Windows 보안  | [6.15] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4534273]  |  LCU  | [6.15] | 2020년 1월 14일 |
-|  Rel 20-01  |  [4530734]  |  월간 롤업  | [2.94] | 2019년 12월 10일 |
-|  Rel 20-01  |  [4530691]  |  월간 롤업   | [3.81] | 2019년 12월 10일 |
-|  Rel 20-01  |  [4530702]  |  월간 롤업  | [4.74] | 2019년 12월 10일 |
+|  Rel 20-01  |  [4532960]  |  Windows 보안  | [2.94] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4534314]  |  Windows 보안  | [2.94] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4532958]  |  Windows 보안  | [3.81] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4532963]  |  Windows 보안  | [3.81] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4534288]  |  Windows 보안  | [3.81] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4532961]  |  Windows 보안  | [4.74] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4532962]  |  Windows 보안  | [4.74] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4534309]  |  Windows 보안  | [4.74] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4494175]  |  마이크로코드 v3  | [5.39] | 2019년 8월 29일 |
+|  Rel 20-01  |  [4534271]  |  LCU  | [5.39] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4494174]  |  마이크로코드 v4  | [6.15] | 2019년 8월 29일 |
+|  Rel 20-01  |  [4532947]  |  Windows 보안  | [6.15] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4534273]  |  LCU  | [6.15] | 2020년 1월 14일 |
+|  Rel 20-01  |  [4530734]  |  월간 롤업  | [2.94] | 2019년 12월 10일 |
+|  Rel 20-01  |  [4530691]  |  월간 롤업   | [3.81] | 2019년 12월 10일 |
+|  Rel 20-01  |  [4530702]  |  월간 롤업  | [4.74] | 2019년 12월 10일 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251
@@ -432,33 +600,33 @@ ms.locfileid: "90024301"
 [4530734]: https://support.microsoft.com/kb/4530734
 [4530691]: https://support.microsoft.com/kb/4530691
 [4530702]: https://support.microsoft.com/kb/4530702
-[6.15]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.39]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.74]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.94]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.15]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.39]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.74]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.81]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.94]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="december-2019-guest-os"></a>2019년 12월 게스트 OS
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-12  |  [4530692]  |  Windows 보안  | [2.93] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4530698]  |  Windows 보안  | [3.80] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4530730]  |  Windows 보안  | [4.73] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4530689]  |  최신 누적 업데이트  | [5.38] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4530715]  |  최신 누적 업데이트  | [6.14] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4525235]  |  비보안  | [2.93] | 2019년 11월 12일 |
-|  Rel 19-12  |  [4531786]  |  서비스 스택 업데이트  | [2.93] | 2019년 12월 10일 |
-|  Rel 19-12  |  [4525246]  |  비보안  | [3.80] | 2019년 11월 12일 |
-|  Rel 19-12  |  [4523208]  |  서비스 스택 업데이트  | [3.80] | 2019년 11월 12일 |
-|  Rel 19-12  |  [4525243]  |  비보안  | [4.73] | 2019년 11월 12일 |
-|  Rel 19-12  |  [4524445]  |  서비스 스택 업데이트  | [4.73] | 2019년 11월 12일 |
-|  Rel 19-12  |  [4520724]  |  서비스 스택 업데이트  | [5.38] | 2019년 11월 12일 |
-|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | 2019년 11월 12일 |
+|  Rel 19-12  |  [4530692]  |  Windows 보안  | [2.93] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4530698]  |  Windows 보안  | [3.80] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4530730]  |  Windows 보안  | [4.73] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4530689]  |  최신 누적 업데이트  | [5.38] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4530715]  |  최신 누적 업데이트  | [6.14] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4525235]  |  비보안  | [2.93] | 2019년 11월 12일 |
+|  Rel 19-12  |  [4531786]  |  서비스 스택 업데이트  | [2.93] | 2019년 12월 10일 |
+|  Rel 19-12  |  [4525246]  |  비보안  | [3.80] | 2019년 11월 12일 |
+|  Rel 19-12  |  [4523208]  |  서비스 스택 업데이트  | [3.80] | 2019년 11월 12일 |
+|  Rel 19-12  |  [4525243]  |  비보안  | [4.73] | 2019년 11월 12일 |
+|  Rel 19-12  |  [4524445]  |  서비스 스택 업데이트  | [4.73] | 2019년 11월 12일 |
+|  Rel 19-12  |  [4520724]  |  서비스 스택 업데이트  | [5.38] | 2019년 11월 12일 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | 2019년 11월 12일 |
 
 [4530692]: https://support.microsoft.com/kb/4530692
 [4530677]: https://support.microsoft.com/kb/4530677
@@ -476,11 +644,11 @@ ms.locfileid: "90024301"
 [4524445]: https://support.microsoft.com/kb/4524445
 [4520724]: https://support.microsoft.com/kb/4520724
 [4523204]: https://support.microsoft.com/kb/4523204
-[6.14]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.38]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.73]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.93]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.14]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.38]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.73]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.80]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.93]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 
@@ -488,21 +656,21 @@ ms.locfileid: "90024301"
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  2019년 11월 12일  |
-|  Rel 19-11   |  [4525233]  |  Windows 보안   |  [2.92]  |  2019년 11월 12일  |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  2019년 11월 12일  |
-|  Rel 19-11   |  [4525253]  |  Windows 보안   |  [3.79]  |  2019년 11월 12일  |
-|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  2019년 11월 12일  |
-|  Rel 19-11   |  [4525250]  |  Windows 보안   |  [4.72]  |  2019년 11월 12일  |
-|  Rel 19-11   |  [4525236]  |  최신 누적 업데이트   |  [5.37]  |  2019년 11월 12일  |
-|  Rel 19-11   |  [4523205]  |  최신 누적 업데이트   |  [6.13]  |  2019년 11월 12일  |
-|  Rel 19-11   |  [4519976]  |  비보안   |  [2.92]  |  2019년 10월 8일  |
-|  Rel 19-11   |  [4520007]  |  비보안   |  [3.79]  |  2019년 10월 8일  |
-|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  2019년 10월 8일  |
-|  Rel 19-11   |  [4520005]  |  비보안   |  [4.72]  |  2019년 10월 8일  |
-|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  2019년 10월 8일  |
-|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  2019년 10월 8일  |
-|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  2019년 10월 8일  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  2019년 11월 12일  |
+|  Rel 19-11   |  [4525233]  |  Windows 보안   |  [2.92]  |  2019년 11월 12일  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  2019년 11월 12일  |
+|  Rel 19-11   |  [4525253]  |  Windows 보안   |  [3.79]  |  2019년 11월 12일  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  2019년 11월 12일  |
+|  Rel 19-11   |  [4525250]  |  Windows 보안   |  [4.72]  |  2019년 11월 12일  |
+|  Rel 19-11   |  [4525236]  |  최신 누적 업데이트   |  [5.37]  |  2019년 11월 12일  |
+|  Rel 19-11   |  [4523205]  |  최신 누적 업데이트   |  [6.13]  |  2019년 11월 12일  |
+|  Rel 19-11   |  [4519976]  |  비보안   |  [2.92]  |  2019년 10월 8일  |
+|  Rel 19-11   |  [4520007]  |  비보안   |  [3.79]  |  2019년 10월 8일  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  2019년 10월 8일  |
+|  Rel 19-11   |  [4520005]  |  비보안   |  [4.72]  |  2019년 10월 8일  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  2019년 10월 8일  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  2019년 10월 8일  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  2019년 10월 8일  |
 
 [4525106]: https://support.microsoft.com/kb/4525106
 [4525233]: https://support.microsoft.com/kb/4525233
@@ -519,35 +687,35 @@ ms.locfileid: "90024301"
 [4521864]: https://support.microsoft.com/kb/4521864
 [4521858]: https://support.microsoft.com/kb/4521858
 [4521862]: https://support.microsoft.com/kb/4521862
-[6.13]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.37]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.72]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.92]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.13]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.37]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.72]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.79]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.92]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="october-2019-guest-os"></a>2019년 10월 게스트 OS
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-10   |  [4520003]  |  Windows 보안   |  [2.91]  |  2019년 10월 8일  |
-|  Rel 19-10   |  [4519985]  |  Windows 보안   |  [3.78]  |  2019년 10월 8일  |
-|  Rel 19-10   |  [4519990]  |  Windows 보안   |  [4.71]  |  2019년 10월 8일  |
-|  Rel 19-10   |  [4519998]  |  최신 누적 업데이트   |  [5.36]  |  2019년 10월 8일  |
-|  Rel 19-10   |  [4519338]  |  최신 누적 업데이트   |  [6.12]  |  2019년 10월 8일  |
-|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  2019년 10월 8일  |
-|  Rel 19-10   |  [4516065]  |  비보안   |  [2.91]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4516655]  |  SSU   |  [2.91]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4516055]  |  비보안   |  [3.78]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4512939]  |  SSU   |  [3.78]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4514370]  |  .Net Framework 3.5   |  [3.78]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5.2   |  [3.78]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4516067]  |  비보안   |  [4.71]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4512938]  |  SSU   |  [4.71]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4514371]  |  .Net Framework 3.5   |  [4.71]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5.2   |  [4.71]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4512574]  |  SSU   |  [5.36]  |  2019년 9월 10일  |
-|  Rel 19-10   |  [4512577]  |  SSU   |  [6.12]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4520003]  |  Windows 보안   |  [2.91]  |  2019년 10월 8일  |
+|  Rel 19-10   |  [4519985]  |  Windows 보안   |  [3.78]  |  2019년 10월 8일  |
+|  Rel 19-10   |  [4519990]  |  Windows 보안   |  [4.71]  |  2019년 10월 8일  |
+|  Rel 19-10   |  [4519998]  |  최신 누적 업데이트   |  [5.36]  |  2019년 10월 8일  |
+|  Rel 19-10   |  [4519338]  |  최신 누적 업데이트   |  [6.12]  |  2019년 10월 8일  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  2019년 10월 8일  |
+|  Rel 19-10   |  [4516065]  |  비보안   |  [2.91]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  [2.91]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4516055]  |  비보안   |  [3.78]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  [3.78]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4514370]  |  .Net Framework 3.5   |  [3.78]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5.2   |  [3.78]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4516067]  |  비보안   |  [4.71]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  [4.71]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4514371]  |  .Net Framework 3.5   |  [4.71]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5.2   |  [4.71]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  [5.36]  |  2019년 9월 10일  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  [6.12]  |  2019년 9월 10일  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -568,32 +736,32 @@ ms.locfileid: "90024301"
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
-[6.12]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.36]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.71]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.91]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.12]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.36]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.71]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.78]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.91]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>2019년 9월 게스트 OS
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4516115]  |  깜박임   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4512578]  |  최신 누적 업데이트   |  [6.11]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 및 4.7.2   |  [6.11]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4516044]  |  최신 누적 업데이트   |  [5.35]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4516064]  |  Windows 보안   |  [4.70]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4516062]  |  Windows 보안   |  [3.77]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  2019년 9월 10일  |
-|  Rel 19-09   |  [4516033]  |  Windows 보안   |  [2.90]  |  2019년 9월 12일  |
-|  Rel 19-09   |  [4512488]  |  비보안   |  [4.70]  |  2019년 8월 13일  |
-|  Rel 19-09   |  [4512518]  |  비보안   |  [3.77]  |  2019년 8월 13일  |
-|  Rel 19-09   |  [4512506]  |  비보안   |  [2.90]  |  2019년 8월 13일  |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4516115]  |  깜박임   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4512578]  |  최신 누적 업데이트   |  [6.11]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 및 4.7.2   |  [6.11]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4516044]  |  최신 누적 업데이트   |  [5.35]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4516064]  |  Windows 보안   |  [4.70]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4516062]  |  Windows 보안   |  [3.77]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  2019년 9월 10일  |
+|  Rel 19-09   |  [4516033]  |  Windows 보안   |  [2.90]  |  2019년 9월 12일  |
+|  Rel 19-09   |  [4512488]  |  비보안   |  [4.70]  |  2019년 8월 13일  |
+|  Rel 19-09   |  [4512518]  |  비보안   |  [3.77]  |  2019년 8월 13일  |
+|  Rel 19-09   |  [4512506]  |  비보안   |  [2.90]  |  2019년 8월 13일  |
 
 [4516046]: https://support.microsoft.com/kb/4516046
 [4516115]: https://support.microsoft.com/kb/4516115
@@ -610,39 +778,39 @@ ms.locfileid: "90024301"
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
-[6.11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.35]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.70]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.11]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.35]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.70]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.77]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.90]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="august-2019-guest-os"></a>2019년 8월 게스트 OS
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-08   |  [4512482]  |  Windows 보안   |  [3.76]  |  2019년 8월 13일  |
-|  Rel 19-08   |  [4494175]  |  마이크로코드 업데이트   |  [5.34]  |  2019년 6월 18일  |
-|  Rel 19-08   |  [4512517]  |  최신 누적 업데이트   |  [5.34]  |  2019년 8월 13일  |
-|  Rel 19-08   |  [4494174]  |  마이크로코드 업데이트   |  [6.1]  |  2019년 6월 18일  |
-|  Rel 19-08   |  [4511553]  |  최신 누적 업데이트   |  [6.1]  |  2019년 8월 13일  |
-|  Rel 19-08   |  [4512486]  |  Windows 보안   |  [2.89]  |  2019년 8월 13일  |
-|  Rel 19-08   |  [4512489]  |  Windows 보안   |  [4.69]  |  2019년 8월 13일  |
-|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  2019년 8월 15일  |
-|  Rel 19-08   |  [4507449]  |  비보안   |  [2.89]  |  2019년 7월 9일  |
-|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 비보안   |  [3.76]  |  2019년 8월 12일  |
-|  Rel 19-08   |  [4507002]  |  .NET 3.5 비보안   |  [3.76]  |  2019년 8월 12일  |
-|  Rel 19-08   |  [4507462]  |  비보안   |  [3.76]  |  2019년 7월 9일  |
-|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 비보안    |  [4.69]  |  2019년 8월 12일  |
-|  Rel 19-08   |  [4507005]  |  .NET 3.5 비보안    |  [4.69]  |  2019년 8월 12일  |
-|  Rel 19-08   |  [4507448]  |  비보안   |  [4.69]  |  2019년 7월 9일  |
-|  Rel 19-08   |  [4509091]  |  서비스 스택 업데이트   |  [5.34]  |  2019년 7월 9일  |
-|  Rel 19-08   |  [4509095]  |  서비스 스택 업데이트   |  [6.1]  |  2019년 7월 9일  |
-|  Rel 19-08   |  [4512937]  |  서비스 스택 업데이트   |  [6.1]  |  2019년 7월 29일  |
-|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 비보안    |  [2.89]  |  2019년 8월 12일  |
-|  Rel 19-08   |  [4504418]  |  서비스 스택 업데이트   |  [3.76], [4.69]  |  2019년 7월 11일  |
-|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 비보안   |  [2.89]  |  2019년 8월 12일  |
-|  Rel 19-08   |  [4507704]  |  브라질 및 모로코용 Windows의 DST 설정   |  [2.89], [3.76], [4.69], [5.34]  |  2019년 8월 13일  |
+|  Rel 19-08   |  [4512482]  |  Windows 보안   |  [3.76]  |  2019년 8월 13일  |
+|  Rel 19-08   |  [4494175]  |  마이크로코드 업데이트   |  [5.34]  |  2019년 6월 18일  |
+|  Rel 19-08   |  [4512517]  |  최신 누적 업데이트   |  [5.34]  |  2019년 8월 13일  |
+|  Rel 19-08   |  [4494174]  |  마이크로코드 업데이트   |  [6.1]  |  2019년 6월 18일  |
+|  Rel 19-08   |  [4511553]  |  최신 누적 업데이트   |  [6.1]  |  2019년 8월 13일  |
+|  Rel 19-08   |  [4512486]  |  Windows 보안   |  [2.89]  |  2019년 8월 13일  |
+|  Rel 19-08   |  [4512489]  |  Windows 보안   |  [4.69]  |  2019년 8월 13일  |
+|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  2019년 8월 15일  |
+|  Rel 19-08   |  [4507449]  |  비보안   |  [2.89]  |  2019년 7월 9일  |
+|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 비보안   |  [3.76]  |  2019년 8월 12일  |
+|  Rel 19-08   |  [4507002]  |  .NET 3.5 비보안   |  [3.76]  |  2019년 8월 12일  |
+|  Rel 19-08   |  [4507462]  |  비보안   |  [3.76]  |  2019년 7월 9일  |
+|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 비보안    |  [4.69]  |  2019년 8월 12일  |
+|  Rel 19-08   |  [4507005]  |  .NET 3.5 비보안    |  [4.69]  |  2019년 8월 12일  |
+|  Rel 19-08   |  [4507448]  |  비보안   |  [4.69]  |  2019년 7월 9일  |
+|  Rel 19-08   |  [4509091]  |  서비스 스택 업데이트   |  [5.34]  |  2019년 7월 9일  |
+|  Rel 19-08   |  [4509095]  |  서비스 스택 업데이트   |  [6.1]  |  2019년 7월 9일  |
+|  Rel 19-08   |  [4512937]  |  서비스 스택 업데이트   |  [6.1]  |  2019년 7월 29일  |
+|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 비보안    |  [2.89]  |  2019년 8월 12일  |
+|  Rel 19-08   |  [4504418]  |  서비스 스택 업데이트   |  [3.76], [4.69]  |  2019년 7월 11일  |
+|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 비보안   |  [2.89]  |  2019년 8월 12일  |
+|  Rel 19-08   |  [4507704]  |  브라질 및 모로코용 Windows의 DST 설정   |  [2.89], [3.76], [4.69], [5.34]  |  2019년 8월 13일  |
 
 [4512482]: https://support.microsoft.com/kb/4512482
 [4494175]: https://support.microsoft.com/kb/4494175
@@ -667,30 +835,30 @@ ms.locfileid: "90024301"
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
 
-[6.1]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.34]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.69]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.1]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.34]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.69]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.76]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.89]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>2019년 7월 게스트 OS
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4506966]  |  .NET 4.5.2 보안   |  2.88  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4506976]  |  .NET 3.5.1 보안   |  2.88  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4507456]  |  Windows 보안   |  2.88  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4506965]  |  .NET 4.5.2 보안   |  3.75  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4506974]  |  .NET 3.5 보안   |  3.75  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4507464]  |  Windows 보안   |  3.75  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 보안   |  4.68  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4506977]  |  .NET 3.5 보안   |  4.68  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4507457]  |  Windows 보안   |  4.68  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4507460]  |  Windows 보안   |  5.33  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4506998]  |  .NET 3.5 및 4.7.2 보안   |  6.9  |  2019년 7월 9일  |
-|  Rel 19-07   |  [4507469]  |  Windows 보안   |  6.9  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4506966]  |  .NET 4.5.2 보안   |  2.88  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4506976]  |  .NET 3.5.1 보안   |  2.88  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4507456]  |  Windows 보안   |  2.88  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4506965]  |  .NET 4.5.2 보안   |  3.75  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4506974]  |  .NET 3.5 보안   |  3.75  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4507464]  |  Windows 보안   |  3.75  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 보안   |  4.68  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4506977]  |  .NET 3.5 보안   |  4.68  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4507457]  |  Windows 보안   |  4.68  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4507460]  |  Windows 보안   |  5.33  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4506998]  |  .NET 3.5 및 4.7.2 보안   |  6.9  |  2019년 7월 9일  |
+|  Rel 19-07   |  [4507469]  |  Windows 보안   |  6.9  |  2019년 7월 9일  |
 |  해당 없음  |  [4503537]  |  6월 19일 (Server 2016)용 서비스 스택 업데이트   |  5.33  |  2019년 5월 14일  |
 |  해당 없음  |  [4504369]  |  6월 19일 (Server 2019)용 서비스 스택 업데이트   |  6.9  |  2019년 5월 14일  |
 |  해당 없음  |  [4503292]  |  6월 19일 비보안(Server 2008 R2)   |  2.88  |  2019년 5월 20일  |
@@ -722,15 +890,15 @@ ms.locfileid: "90024301"
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-06   |  [4503327]  |  Windows 10 보안   |  6.8  |  2019년 6월 11일  |
-|  Rel 19-06   |  [4503267]  |  Windows 10 보안   |  5.32  |  2019년 6월 11일  |
-|  Rel 19-06   |  [4503290]  |  Windows 보안   |  4.67  |  2019년 6월 11일  |
-|  Rel 19-06   |  [4503263]  |  Windows 보안   |  3.74  |  2019년 6월 11일  |
-|  Rel 19-06   |  [4503269]  |  Windows 보안   |  2.87  |  2019년 6월 11일  |
-|  Rel 19-06   |  [4494174]  |  마이크로코드 업데이트   |  6.8  |  2019년 6월 11일  |
-|  Rel 19-06   |  [4494175]  |  마이크로코드 업데이트   |  5.32  |  2019년 6월 3일  |
-|  Rel 19-06   |  [4503308]  |  깜박임   |  3.74, 4.67, 5.32, 6.8  |  2019년 6월 11일  |
-|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  2019년 6월 13일  |
+|  Rel 19-06   |  [4503327]  |  Windows 10 보안   |  6.8  |  2019년 6월 11일  |
+|  Rel 19-06   |  [4503267]  |  Windows 10 보안   |  5.32  |  2019년 6월 11일  |
+|  Rel 19-06   |  [4503290]  |  Windows 보안   |  4.67  |  2019년 6월 11일  |
+|  Rel 19-06   |  [4503263]  |  Windows 보안   |  3.74  |  2019년 6월 11일  |
+|  Rel 19-06   |  [4503269]  |  Windows 보안   |  2.87  |  2019년 6월 11일  |
+|  Rel 19-06   |  [4494174]  |  마이크로코드 업데이트   |  6.8  |  2019년 6월 11일  |
+|  Rel 19-06   |  [4494175]  |  마이크로코드 업데이트   |  5.32  |  2019년 6월 3일  |
+|  Rel 19-06   |  [4503308]  |  깜박임   |  3.74, 4.67, 5.32, 6.8  |  2019년 6월 11일  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  2019년 6월 13일  |
 |  해당 없음  |  [4499164]  |  5월 19일 비보안  |  2.87  |  2019년 5월 14일  |
 |  해당 없음  |  [4495606]  |  5월 19일 .NET 3.5 비보안  |  2.87  |  2019년 5월 14일  |
 |  해당 없음  |  [4495596]  |  5월 19일 .NET 4.5 비보안  |  2.87  |  2019년 5월 20일  |
@@ -740,8 +908,6 @@ ms.locfileid: "90024301"
 |  해당 없음  |  [4499151]  |  5월 19일 비보안  |  4.67  |  2019년 5월 14일  |
 |  해당 없음  |  [4495608]  |  5월 19일 .NET 3.5 비보안  |  4.67  |  2019년 5월 14일  |
 |  해당 없음  |  [4495592]  |  5월 19일 .NET 4.5.2 비보안  |  4.67  |  2019년 5월 14일  |
-|  해당 없음  |  [4495610]  |  5월 19일 .NET 4.8 누적  |  6.8  |  2019년 5월 14일  |
-|  해당 없음  |  [4495618]  |  5월 19일 .NET 4.8 누적  |  6.8  |  2019년 5월 14일  |
 |  해당 없음  |  [4501226]  |  모로코 및 팔레스타인 자치 정보용 DST 표준 시간대 업데이트  |  2.87, 3.74, 4.67  |  2019년 5월 23일  |
 |  해당 없음  |  [4490128]  |  상투메 프린시페 및 키질로르다용 DST 표준 시간대 업데이트  |  2.87, 3.74, 4.67  |  2019년 4월 17일  |
 
@@ -763,8 +929,6 @@ ms.locfileid: "90024301"
 [4499151]: https://support.microsoft.com/kb/KB4499151
 [4495608]: https://support.microsoft.com/kb/KB4495608
 [4495592]: https://support.microsoft.com/kb/KB4495592
-[4495610]: https://support.microsoft.com/kb/KB4495610
-[4495618]: https://support.microsoft.com/kb/KB4495618
 [4501226]: https://support.microsoft.com/kb/KB4501226
 [4490128]: https://support.microsoft.com/kb/KB4490128
 
@@ -772,26 +936,26 @@ ms.locfileid: "90024301"
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  5월 IE 롤업   |  2.86, 3.73, 4.66  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4505050]  |  5월 IE 롤업   |  2.86, 3.73, 4.66  |  2019년 5월 18일  |
-|  Rel 19-05   |  [4497932]  |  5월 Flash 업데이트   |  3.73, 4.66, 5.31  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4499175]  |  5월 보안 롤업   |  2.86  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4495612]  |  5월 보안 롤업 .NET 3.5   |  2.86  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4495593]  |  5월 보안 롤업 .NET 4.5.2   |  2.86  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4499158]  |  5월 보안 롤업   |  3.73  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4495607]  |  5월 보안 롤업 .NET 3.5   |  3.73  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4495591]  |  5월 보안 롤업 .NET 4.5.2   |  3.73  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4492872]  |  IE 롤업   |  3.73  |  2019년 4월 16일  |
-|  Rel 19-05   |  [4499165]  |  3월 보안 롤업   |  4.66  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4495615]  |  5월 보안 롤업 .NET 3.5   |  4.66  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4495589]  |  5월 보안 롤업 .NET 4.5.2   |  4.66  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4498947]  |  5월 SSU   |  5.31  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4494175]  |  5월 마이크로코드 업데이트   |  5.31  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4505052]  |  5월 보안 롤업   |  5.31  |  2019년 5월 19일  |
-|  Rel 19-05   |  [4499728]  |  5월 SSU   |  6.7  |  2019년 5월 19일  |
-|  Rel 19-05   |  [4505056]  |  5월 보안 롤업   |  6.7  |  2019년 5월 19일  |
-|  Rel 19-05   |  [4494174]  |  5월 마이크로코드 업데이트   |  6.7  |  2019년 5월 14일  |
-|  Rel 19-05   |  [4495590]  |  5월 보안 롤업 .NET   |  6.7  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4498206]  |  5월 IE 롤업   |  2.86, 3.73, 4.66  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4505050]  |  5월 IE 롤업   |  2.86, 3.73, 4.66  |  2019년 5월 18일  |
+|  Rel 19-05   |  [4497932]  |  5월 Flash 업데이트   |  3.73, 4.66, 5.31  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4499175]  |  5월 보안 롤업   |  2.86  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4495612]  |  5월 보안 롤업 .NET 3.5   |  2.86  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4495593]  |  5월 보안 롤업 .NET 4.5.2   |  2.86  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4499158]  |  5월 보안 롤업   |  3.73  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4495607]  |  5월 보안 롤업 .NET 3.5   |  3.73  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4495591]  |  5월 보안 롤업 .NET 4.5.2   |  3.73  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4492872]  |  IE 롤업   |  3.73  |  2019년 4월 16일  |
+|  Rel 19-05   |  [4499165]  |  3월 보안 롤업   |  4.66  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4495615]  |  5월 보안 롤업 .NET 3.5   |  4.66  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4495589]  |  5월 보안 롤업 .NET 4.5.2   |  4.66  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4498947]  |  5월 SSU   |  5.31  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4494175]  |  5월 마이크로코드 업데이트   |  5.31  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4505052]  |  5월 보안 롤업   |  5.31  |  2019년 5월 19일  |
+|  Rel 19-05   |  [4499728]  |  5월 SSU   |  6.7  |  2019년 5월 19일  |
+|  Rel 19-05   |  [4505056]  |  5월 보안 롤업   |  6.7  |  2019년 5월 19일  |
+|  Rel 19-05   |  [4494174]  |  5월 마이크로코드 업데이트   |  6.7  |  2019년 5월 14일  |
+|  Rel 19-05   |  [4495590]  |  5월 보안 롤업 .NET   |  6.7  |  2019년 5월 14일  |
 
 [4498206]: https://support.microsoft.com/kb/4498206
 [4505050]: https://support.microsoft.com/kb/4505050
@@ -1009,8 +1173,8 @@ ms.locfileid: "90024301"
 | Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 2018년 12월 11일 |
 | 해당 없음 | [4468323] | 표준 시간대 업데이트    | 2.81, 3.68, 4.61 | 2018년 12월 13일 |
 | 해당 없음 | [4467107] | 11월 비보안 롤업   | 2.81 | 2018년 11월 13일 |
-| 해당 없음 | [4467701] | 11월 비보안 롤업     | 3.68 | 2018년 11월 13일 |
-| 해당 없음 | [4467697] | 11월 비보안 롤업     | 4.61 | 2018년 11월 13일 |
+| 해당 없음 | [4467701] | 11월 비보안 롤업 | 3.68 | 2018년 11월 13일 |
+| 해당 없음 | [4467697] | 11월 비보안 롤업 | 4.61 | 2018년 11월 13일 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328
@@ -2140,9 +2304,9 @@ ms.locfileid: "90024301"
 [4014567]: https://support.microsoft.com/kb/4014567
 [4015550]: https://support.microsoft.com/kb/4015550
 [4013418]: https://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
+[4022345]: /security-updates/SecurityAdvisories/2017/4022345
+[4022344]: /security-updates/SecurityAdvisories/2017/4022344
+[4021279]: /security-updates/SecurityAdvisories/2017/4021279
 
 
 [4015217]: https://support.microsoft.com/kb/4015217
@@ -2181,7 +2345,7 @@ ms.locfileid: "90024301"
 [3211320]: https://support.microsoft.com/kb/3211320
 
 
-[3216771]: https://technet.microsoft.com/library/security/MS17-004
+[3216771]: /security-updates/SecurityBulletins/2017/ms17-004
 
 [3204059]: https://support.microsoft.com/kb/3204059
 [3204062]: https://support.microsoft.com/kb/3204062
@@ -2310,7 +2474,7 @@ ms.locfileid: "90024301"
 [3133977]: https://support.microsoft.com/kb/3133977
 [3133681]: https://support.microsoft.com/kb/3133681
 [3123245]: https://support.microsoft.com/kb/3123245
-[RC4 비활성화]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+[RC4 비활성화]: /archive/blogs/azuresecurity/azure-cipher-suite-change-removes-rc4-support
 
 
 [3148531]: https://support.microsoft.com/kb/3148531
@@ -2415,7 +2579,7 @@ ms.locfileid: "90024301"
 [3077657]: https://support.microsoft.com/kb/3077657
 [3057154]: https://support.microsoft.com/kb/3057154
 
-[MS15-034]: https://technet.microsoft.com/library/security/MS15-034
+[MS15-034]: /security-updates/SecurityBulletins/2015/ms15-034
 
 [3042553]: https://support.microsoft.com/en-us/kb/3042553/
 
@@ -2492,5 +2656,5 @@ ms.locfileid: "90024301"
 [3063858]:https://support.microsoft.com/kb/3063858
 
 
-[archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
+[archive]: /previous-versions/azure/
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation

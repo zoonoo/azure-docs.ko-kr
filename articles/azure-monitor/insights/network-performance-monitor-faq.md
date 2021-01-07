@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dd6c6248fcdf30350daecaa4857a81447bbdb7a8
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326140"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280317"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -34,7 +34,7 @@ NPM의 다양한 기능에 대한 플랫폼 요구 사항은 아래와 같습니
 - NPM의 ExpressRoute 모니터 기능은 Windows 서버(2008 SP1 이상) 운영 체제만 지원합니다.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>NPM에서 Linux 머신을 모니터링 노드로 사용할 수 있나요?
-Linux 기반 노드를 사용 하 여 네트워크를 모니터링 하는 기능은 현재 미리 보기로 제공 됩니다. 더 자세한 내용은 계정 관리자에 문의하세요. Linux 에이전트는 NPM의 성능 모니터 기능에 대해서만 모니터링 기능을 제공하고 서비스 연결 모니터 및 ExpressRoute 모니터 기능에 대해서는 사용할 수 없습니다.
+Linux 기반 노드를 사용 하 여 네트워크를 모니터링 하는 기능은 현재 미리 보기로 제공 됩니다. [여기](../../virtual-machines/extensions/oms-linux.md)에서 에이전트를 액세스. 더 자세한 내용은 계정 관리자에 문의하세요. Linux 에이전트는 NPM의 성능 모니터 기능에 대해서만 모니터링 기능을 제공하고 서비스 연결 모니터 및 ExpressRoute 모니터 기능에 대해서는 사용할 수 없습니다.
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM에서 모니터링에 사용할 노드에 대한 크기 요구 사항은 얼마인가요?
 네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500MB 및 코어 한 개가 있어야 합니다. NPM를 실행 하는 데 별도의 노드를 사용할 필요가 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 CPU가 5% 넘게 사용 되는 경우 모니터링 프로세스를 중지할 수 있는 기능이 있습니다.
@@ -95,7 +95,7 @@ NPM은 원본 에이전트와 대상 간의 모든 가능한 경로 검색할 �
 NPM은 확률적 메커니즘을 사용하여 홉이 속한 비정상 경로 수를 기반으로 각 네트워크 경로, 네트워크 세그먼트 및 구성 요소 네트워크 홉에 고장 확률을 할당합니다. 네트워크 세그먼트와 홉이 더 많은 비정상 경로의 일부가 됨에 따라 그와 연결된 고장 확률도 높아집니다. 서로 연결된 NPM 에이전트가 있는 노드 수가 많은 경우 고장 확률 계산을 위한 데이터 요소가 증가하므로 이 알고리즘이 가장 적합합니다.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>NPM에서 경고를 얼마나 많이 만들 수 있나요?
-NPM UI에서 경고를 만드는 것은 현재 문제로 인해 실패 합니다. 경고를 수동으로 만드세요.
+현재는 알려진 문제로 인해 NPM UI에서 경고를 만드는 데 실패 합니다. [경고를 수동으로 만드세요](../platform/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>경고에 대 한 기본 Log Analytics 쿼리
 성능 모니터 쿼리

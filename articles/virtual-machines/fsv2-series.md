@@ -7,28 +7,26 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 50653b0da2bb488f2a0d4254df2e27ba7c6a5f1f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 039045b613e57ee396201ee93c3962c5970cf02b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648312"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91651924"
 ---
 # <a name="fsv2-series"></a>Fsv2 시리즈
 
 Fsv2 시리즈는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake) 프로세서 및 Intel® Xeon® Platinum 8168 (Skylake) 프로세서에서 실행 됩니다. 3.4 g h z의 모든 코어 터보 클록 속도와 3.7 g h z의 최대 싱글 코어 터보 주파수를 제공 합니다. Intel® AVX-512 지침은 Intel 확장 가능한 프로세서에 새로 있습니다. 이러한 지침은 단일 및 배정밀도 부동 소수점 연산에 대 한 벡터 처리 워크 로드에 대해 최대 2 배의 성능 향상을 제공 합니다. 즉, 계산 워크 로드에 대해 매우 빠릅니다.
 
-Fsv2 시리즈 Vm은 Intel® 하이퍼 스레딩 기술을 기능 합니다.
+Fsv2 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 
-ACU: 195 - 210
-
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-실시간 마이그레이션: 지원됨
-
-메모리 보존 업데이트: 지원됨
+[Acu](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): 지원 됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
+[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+<br>
 
 | 크기 | vCPU 수 | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|

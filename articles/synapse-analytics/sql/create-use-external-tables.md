@@ -1,6 +1,6 @@
 ---
-title: SQL 주문형(미리 보기)에서 외부 테이블 만들기 및 사용
-description: 이 섹션에서는 SQL 주문형(미리 보기)에서 외부 테이블을 만들고 사용하는 방법에 대해 알아봅니다. 외부 테이블은 SQL 주문형에서 외부 데이터에 대한 액세스를 제어하고 Power BI와 같은 도구를 주문형 SQL과 함께 사용하려는 경우에 유용합니다.
+title: 서버리스 SQL 풀에서 외부 테이블 만들기 및 사용
+description: 이 섹션에서는 서버리스 SQL 풀에서 외부 테이블을 만들고 사용하는 방법을 알아봅니다.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,17 +8,17 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d830ee28eb1f5befc3ad778a6b82c291d1e49d02
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5dcd4b7b76752ca5396fc68afc8d4c8e4e1edca5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206515"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462301"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 SQL 주문형(미리 보기)에서 외부 테이블 만들기 및 사용
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 외부 테이블 만들기 및 사용
 
-이 섹션에서는 SQL 주문형(미리 보기)에서 [외부 테이블](develop-tables-external-tables.md)을 만들고 사용하는 방법에 대해 알아봅니다. 외부 테이블은 SQL 주문형에서 외부 데이터에 대한 액세스를 제어하고 Power BI와 같은 도구를 주문형 SQL과 함께 사용하려는 경우에 유용합니다. 외부 테이블은 두 가지 유형의 스토리지에 액세스할 수 있습니다.
+이 섹션에서는 서버리스 SQL 풀에서 [외부 테이블](develop-tables-external-tables.md)을 만들고 사용하는 방법을 알아봅니다. 외부 테이블은 서버리스 SQL 풀에서 외부 데이터에 대한 액세스를 제어하고 Power BI와 같은 도구를 서버리스 SQL 풀과 함께 사용하려는 경우에 유용합니다. 외부 테이블은 두 가지 유형의 스토리지에 액세스할 수 있습니다.
 - 사용자가 공용 스토리지 파일에 액세스하는 공용 스토리지입니다.
 - 사용자가 SAS 자격 증명, Azure AD ID 또는 Synapse 작업 영역의 관리 ID를 사용하여 스토리지 파일에 액세스하는 보호된 스토리지입니다.
 
@@ -132,4 +132,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>다음 단계
 
-스토리지에 쿼리 결과를 저장하는 방법에 대한 자세한 내용은 [쿼리 결과를 스토리지에 저장](../sql/create-external-table-as-select.md)을 참조하세요.
+스토리지에 쿼리 결과를 저장하는 방법에 대한 자세한 내용은 [쿼리 결과를 스토리지에 저장](../sql/create-external-table-as-select.md) 문서를 참조하세요.

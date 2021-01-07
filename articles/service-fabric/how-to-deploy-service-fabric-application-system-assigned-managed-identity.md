@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Fabric 응용 프로그램에 시
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415648"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>시스템 할당 관리 id를 사용 하 여 Service Fabric 응용 프로그램 배포

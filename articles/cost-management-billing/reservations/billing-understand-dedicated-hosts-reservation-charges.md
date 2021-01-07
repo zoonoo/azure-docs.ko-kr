@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: f9080d13c4358a03b3f13ffcf346af42e49c47c6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8d273aae3588a006f7b0a55d2798b7a43c040c9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689459"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148382"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Azure 예약 할인이 Azure Dedicated Host에 적용되는 방식
 
@@ -36,17 +36,16 @@ Azure Reserved Dedicated Hosts Instance는 전용 호스트에 사용되는 컴�
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 예약이란?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Azure 예약이란?](./save-compute-costs-reservations.md)
 
-- [Azure Dedicated Host 사용](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Azure Dedicated Host 사용](../../virtual-machines/dedicated-hosts.md)
 
 - [Dedicated Host 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Azure용 예약 관리](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Azure용 예약 관리](./manage-reserved-vm-instance.md)
 
-- [종량제 구독의 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [종량제 구독의 예약 사용량 이해](./understand-reserved-instance-usage.md)
 
-- [엔터프라이즈 등록에서 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [엔터프라이즈 등록에서 예약 사용량 이해](./understand-reserved-instance-usage-ea.md)
 
-- [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)
-
+- [CSP 구독의 예약 사용량 이해](/partner-center/azure-reservations)

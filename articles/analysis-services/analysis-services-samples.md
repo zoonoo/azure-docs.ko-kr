@@ -1,5 +1,5 @@
 ---
-title: Azure Analysis Services 코드, 프로젝트 및 데이터베이스 샘플 | Microsoft Docs
+title: 코드, 프로젝트 및 데이터베이스 샘플 Azure Analysis Services
 description: 이 문서에서는 Azure Analysis Services에 대 한 코드, 프로젝트 및 데이터베이스 샘플에 대해 자세히 알아볼 수 있는 리소스를 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b06a7ee41a69e32f44c44cdec0da6a47ec4b284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ab0e64d9a088a332ba037dccf01dc445998ebfb
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731869"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457554"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 
@@ -28,7 +28,7 @@ GitHub의 [Analysis Services용 Adventure Works](https://github.com/Microsoft/sq
 
 ## <a name="sample-database-on-azure"></a>Azure의 샘플 데이터베이스
 
-Azure Synapse Analytics (SQL Data Warehouse)는 프로 비전 된 리소스에 포함할 수 있는 샘플 AdventureWorksDW 데이터베이스를 제공 합니다. 자세히 알아보려면 [빠른 시작: Azure Synapse ANALYTICS SQL 풀 만들기 및 쿼리](/azure/sql-data-warehouse/create-data-warehouse-portal)를 참조 하세요.
+Azure Synapse Analytics는 프로 비전 된 리소스에 포함할 수 있는 샘플 AdventureWorksDW 데이터베이스를 제공 합니다. 자세히 알아보려면 [빠른 시작: Azure Synapse Analytics에서 전용 SQL 풀 만들기 및 쿼리 ](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조 하세요.
 
 ## <a name="sample-databases-on-github"></a>GitHub의 샘플 데이터베이스
 
@@ -40,11 +40,11 @@ GitHub의 이러한 샘플 데이터베이스는 자체 모델을 만들고 테�
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Azure Portal의 Adventure Works Internet Sales 샘플 모델
 
-Azure Portal에 Analysis Services 서버가 있는 경우 빠르고 쉽게 샘플 모델을 만들 수 있습니다. Azure Portal의 서버 개요 페이지에서 **새 모델**을 클릭하고 **데이터 원본 선택**에서 **샘플 데이터**를 선택합니다.
+Azure Portal에 Analysis Services 서버가 있는 경우 빠르고 쉽게 샘플 모델을 만들 수 있습니다. Azure Portal의 서버 개요 페이지에서 **새 모델** 을 클릭하고 **데이터 원본 선택** 에서 **샘플 데이터** 를 선택합니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-[놀이 Works 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Azure 온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)  
+[놀이 Works 자습서](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Azure 온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 8dcaecb1e4eb91ee01e3ccb39000e087b3455ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832358"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792109"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "85832358"
 
 비분할 데이터베이스의 경우 [여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리](elastic-query-vertical-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 분할된 데이터베이스 맵을 만듭니다. [분할된 데이터베이스 맵 관리](elastic-scale-shard-map-management.md)를 참조하세요. 또는 [탄력적 데이터베이스 도구 시작하기](elastic-scale-get-started.md)의 샘플 앱을 사용하세요.
 * 또는 [기존 데이터베이스를 확장된 데이터베이스로 마이그레이션](elastic-convert-to-use-elastic-tools.md)을 참조합니다.
@@ -40,10 +40,10 @@ ms.locfileid: "85832358"
 
 이 문은 탄력적 쿼리 데이터베이스에서 분할된 데이터 계층의 메타데이터 표현을 만듭니다.
 
-1. [마스터 키 만들기](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 데이터베이스 범위 마스터 키 및 자격 증명 만들기
 
@@ -57,7 +57,7 @@ SECRET = '<password>'
 ```
 
 > [!NOTE]
-> " * \<username\> "* 에 " * \@ servername"* 접미사가 포함 되지 않아야 합니다.
+> " *\<username\> "* 에 " *\@ servername"* 접미사가 포함 되지 않아야 합니다.
 
 ## <a name="12-create-external-data-sources"></a>1.2 외부 데이터 원본 만들기
 
@@ -163,7 +163,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 2. **복제** 됨은 각 데이터베이스에 동일한 테이블 복사본이 있음을 의미 합니다. 사용자가 데이터베이스 전체에서 복제본이 동일한지 확인해야 합니다.
 3. **ROUND \_ 로빈** 은 테이블이 응용 프로그램 종속 배포 방법을 사용 하 여 수평 분할 됨을 의미 합니다.
 
-**데이터 계층 참조**: 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 데이터 계층에서 모든 데이터베이스를 찾는 데 필요한 정보를 사용 하 여 외부 테이블을 제공 하는 분할 된 데이터베이스 맵을 지정 합니다.
+**데이터 계층 참조** : 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 데이터 계층에서 모든 데이터베이스를 찾는 데 필요한 정보를 사용 하 여 외부 테이블을 제공 하는 분할 된 데이터베이스 맵을 지정 합니다.
 
 ### <a name="security-considerations"></a>보안 고려 사항
 
@@ -194,7 +194,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>원격 T-SQL 실행을 위한 저장 프로시저: sp\_execute_remote
 
-또한 탄력적 쿼리는 분할된 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)라고 하며, 원격 데이터베이스에서 원격 저장 프로시저 또는 T-SQL 코드를 실행하는 데 사용될 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+또한 탄력적 쿼리는 분할된 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)라고 하며, 원격 데이터베이스에서 원격 저장 프로시저 또는 T-SQL 코드를 실행하는 데 사용될 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
 * 데이터 원본 이름(nvarchar): RDBMS 형식의 외부 데이터 원본 이름입니다.
 * 쿼리(nvarchar): T-SQL 쿼리를 각 분할된 데이터베이스에서 실행할 수 있습니다.
@@ -203,7 +203,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 또한 외부 데이터 원본의 자격 증명을 사용하여 분할 맵 관리자 데이터베이스 및 원격 데이터베이스에 연결합니다.  
 
-예:
+예제:
 
 ```sql
     EXEC sp_execute_remote
@@ -228,7 +228,7 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 * 수직 분할 자습서는 [데이터베이스 간 쿼리 시작(수직 분할)](elastic-query-getting-started-vertical.md)을 참조하세요.
 * 수직 분할된 데이터에 대한 구문 및 예제 쿼리는 [수직 분할된 데이터 쿼리하기](elastic-query-vertical-partitioning.md)를 참조하세요.
 * 행 분할(분할) 자습서는 [행 분할(분할)을 위한 탄력적 데이터베이스 쿼리 시작하기](elastic-query-getting-started.md)를 참조하세요.
-* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 세트에서 Transact-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](https://msdn.microsoft.com/library/mt703714)을 참조하세요.
+* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 세트에서 Transact-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)을 참조하세요.
 
 <!--Image references-->
 [1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png

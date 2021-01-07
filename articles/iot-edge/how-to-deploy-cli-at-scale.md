@@ -5,31 +5,34 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/14/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: ebc4f25496588eeaffbfe89e110bad57dbbc848e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a73651b11c9ca6f7cb34deb755543c3b5a6d710
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501562"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042986"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
-Azure 명령줄 인터페이스를 사용하여 한번에 여러 디바이스에 대한 지속적인 배포를 관리하는 **IoT Edge 자동 배포**를 만듭니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](/azure/iot-hub/iot-hub-automatic-device-management) 기능의 일부입니다. 배포는 여러 모듈을 여러 디바이스에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다.
+Azure 명령줄 인터페이스를 사용하여 한번에 여러 디바이스에 대한 지속적인 배포를 관리하는 **IoT Edge 자동 배포**를 만듭니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](../iot-hub/iot-hub-automatic-device-management.md) 기능의 일부입니다. 배포는 여러 모듈을 여러 디바이스에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다.
 
 자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 자동 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
 
 이 문서에서는 Azure CLI 및 IoT 확장을 설정합니다. 그런 다음, 사용 가능한 CLI 명령을 사용하여 IoT Edge 디바이스 세트에 모듈을 배포하고 프로세스를 모니터링하는 방법을 알아봅니다.
 
-## <a name="cli-prerequisites"></a>CLI 필수 구성 요소
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)
-* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#prerequisites-for-the-azure-cli)
-* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.70 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
+* 하나 이상의 IoT Edge 장치입니다.
+
+  IoT Edge 장치를 설정 하지 않은 경우 Azure 가상 머신에서 만들 수 있습니다. 빠른 시작 문서 중 하나에 있는 단계에 따라 [가상 Linux 장치를 만들거나](quickstart-linux.md) [가상 Windows 장치를 만듭니다](quickstart.md).
+
+* 사용자 환경의 [Azure CLI](/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.70 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
 * [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
@@ -40,13 +43,16 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 
 예를 들어 한 개의 모듈이 있는 기본 배포 매니페스트의 예제는 다음과 같습니다.
 
+>[!NOTE]
+>이 샘플 배포 매니페스트는 IoT Edge 에이전트 및 허브에 스키마 버전 1.1을 사용 합니다. 스키마 버전 1.1은 IoT Edge 버전 1.0.10 함께 출시 되었으며 모듈 시작 순서 및 경로 우선 순위와 같은 기능을 사용 하도록 설정 합니다.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -75,7 +81,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
@@ -183,7 +189,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 
 다른 매개 변수뿐만 아니라 배포 매니페스트로 구성된 배포를 만들어 대상 디바이스에 모듈을 배포합니다.
 
-[az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) 명령을 사용하여 배포를 만듭니다.
+[az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) 명령을 사용하여 배포를 만듭니다.
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -216,7 +222,7 @@ Azure CLI를 사용하여 배포를 모니터링하려면 [IoT Edge 배포 모�
 
 배포 매니페스트에 정의된 모듈과 경로를 포함하는 배포 콘텐츠는 업데이트할 수 없습니다. 배포 콘텐츠를 업데이트하려면 우선 순위가 더 높은 동일한 디바이스를 대상으로 하는 새 배포를 만들어 이 작업을 수행합니다. 대상 조건, 레이블, 메트릭 및 우선 순위를 포함하여 기존 모듈의 특정 속성을 수정할 수 있습니다.
 
-[az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) 명령을 사용하여 배포를 업데이트합니다.
+[az iot edge deployment update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) 명령을 사용하여 배포를 업데이트합니다.
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -237,7 +243,7 @@ deployment update 명령은 다음 매개 변수를 사용합니다.
 
 배포를 삭제하면 모든 디바이스에서 다음으로 우선 순위가 가장 높은 배포가 적용됩니다. 디바이스에서 다른 배포의 대상 조건을 충족하지 않으면 배포를 삭제해도 모듈이 제거되지 않습니다.
 
-[az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) 명령을 사용하여 배포를 삭제합니다.
+[az iot edge deployment delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) 명령을 사용하여 배포를 삭제합니다.
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

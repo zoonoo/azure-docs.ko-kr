@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/14/2020
 ms.author: yelevin
 ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783166"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure 센티널에서 구하기 라이브 스트림를 사용 하 여 위협 감지
@@ -48,7 +48,7 @@ ms.locfileid: "84783166"
 1. 구하기 쿼리에서 라이브 스트림 세션을 만들려면 다음을 수행 합니다.
     
     1. **쿼리** 탭에서 사용할 구하기 쿼리를 찾습니다.
-    1. 쿼리를 마우스 오른쪽 단추로 클릭 하 고 **라이브 스트림에 추가를**선택 합니다. 예를 들어:
+    1. 쿼리를 마우스 오른쪽 단추로 클릭 하 고 **라이브 스트림에 추가를**선택 합니다. 예를 들면 다음과 같습니다.
     
     > [!div class="mx-imgBorder"]
     > ![Azure 센티널 구하기 쿼리에서 라이브 스트림 세션 만들기](./media/livestream/livestream-from-query.png)
@@ -78,7 +78,7 @@ ms.locfileid: "84783166"
 
 1. Azure Portal에서 **센티널**  >  **Threat management**  >  **구하기**  >  **라이브 스트림** 탭으로 이동 합니다.
 
-1. 보거나 편집 하려는 라이브 스트림 세션을 선택 합니다. 예를 들어:
+1. 보거나 편집 하려는 라이브 스트림 세션을 선택 합니다. 예를 들면 다음과 같습니다.
     
     > [!div class="mx-imgBorder"]
     > ![Azure 센티널 구하기 쿼리에서 라이브 스트림 세션 만들기](./media/livestream/livestream-tab.png)
@@ -87,7 +87,7 @@ ms.locfileid: "84783166"
 
 ## <a name="receive-notifications-when-new-events-occur"></a>새 이벤트가 발생할 때 알림 받기
 
-새 이벤트에 대 한 라이브 스트림 알림은 Azure Portal 알림을 사용 하기 때문에 Azure Portal를 사용할 때마다 이러한 알림이 표시 됩니다. 예를 들어:
+새 이벤트에 대 한 라이브 스트림 알림은 Azure Portal 알림을 사용 하기 때문에 Azure Portal를 사용할 때마다 이러한 알림이 표시 됩니다. 예를 들면 다음과 같습니다.
 
 ![라이브 스트림에 대 한 Azure Portal 알림](./media/livestream/notification.png)
 

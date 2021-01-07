@@ -7,16 +7,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399959"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022754"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG 서비스 태그
 
-NSGs (네트워크 보안 그룹)에 대 한 Azure HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. [서비스 태그](../virtual-network/security-overview.md#service-tags) 를 사용 하 여 nsgs에 각 [관리 IP 주소](hdinsight-management-ip-addresses.md) 를 입력 하지 않고도 특정 ip에서 인바운드 트래픽을 허용 합니다.
+NSGs (네트워크 보안 그룹)에 대 한 Azure HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) 를 사용 하 여 nsgs에 각 [관리 IP 주소](hdinsight-management-ip-addresses.md) 를 입력 하지 않고도 특정 ip에서 인바운드 트래픽을 허용 합니다.
 
 HDInsight 서비스는 이러한 서비스 태그를 관리 합니다. 사용자 고유의 서비스 태그를 만들거나 기존 태그를 수정할 수 없습니다. Microsoft는 서비스 태그와 일치 하는 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다.
 
@@ -36,11 +36,11 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 1. [Azure Portal](https://portal.azure.com/)에서 네트워크 보안 그룹을 선택 합니다.
 
-1. **설정**에서 **인바운드 보안 규칙**을 선택 하 고 **+ 추가**를 선택 합니다.
+1. **설정** 에서 **인바운드 보안 규칙** 을 선택 하 고 **+ 추가** 를 선택 합니다.
 
-1. **원본** 드롭다운 목록에서 **서비스 태그**를 선택 합니다.
+1. **원본** 드롭다운 목록에서 **서비스 태그** 를 선택 합니다.
 
-1. **원본 서비스 태그** 드롭다운 목록에서 **HDInsight**를 선택 합니다.
+1. **원본 서비스 태그** 드롭다운 목록에서 **HDInsight** 를 선택 합니다.
 
     ![Azure Portal에서 서비스 태그를 추가 합니다.](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
@@ -125,5 +125,5 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 ## <a name="next-steps"></a>다음 단계
 
-- [네트워크 보안 그룹: 서비스 태그](../virtual-network/security-overview.md#security-rules)
+- [네트워크 보안 그룹: 서비스 태그](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0681346252f840173d5cd7d4cfe5ef40076f0068
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509089"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912600"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
@@ -180,7 +180,7 @@ Azure Resource Manager Vm의 경우 포털에서 명령 실행을 사용 하 여
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * Azure Resource Manager VM의 경우 먼저 공용 IP 주소에 DNS 이름을 추가 합니다. 자세한 단계는 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../windows/portal-create-fqdn.md)를 참조하세요. 다음 명령을 실행합니다.
+  * Azure Resource Manager VM의 경우 먼저 공용 IP 주소에 DNS 이름을 추가 합니다. 자세한 단계는 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../create-fqdn.md)를 참조하세요. 그런 후 다음 명령을 실행합니다.
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -197,7 +197,7 @@ Azure Resource Manager Vm의 경우 포털에서 명령 실행을 사용 하 여
 >[!NOTE] 
 >SkipCaCheck 플래그를 설정하면 세션을 시작할 때 VM에 인증서를 가져오는 요구 사항이 무시됩니다.
 
-Invoke 명령 cmdlet을 사용 하 여 VM에서 원격으로 스크립트를 실행할 수도 있습니다.
+Invoke-Command cmdlet을 사용 하 여 VM에서 원격으로 스크립트를 실행할 수도 있습니다.
 
 ```powershell
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
@@ -214,7 +214,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. 동일한 가상 네트워크의 다른 VM에서 레지스트리 편집기 (regedit.exe)를 엽니다.
 
-2. **파일**  >  **연결 네트워크 레지스트리**를 선택 합니다.
+2. **파일**  >  **연결 네트워크 레지스트리** 를 선택 합니다.
 
    ![레지스트리 편집기](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
@@ -235,11 +235,11 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 >
 >RDFE VM의 경우 프라이빗 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. 또한 NSG에서 해당 공용 포트를 열어야 합니다.
 
-1. 동일한 가상 네트워크의 다른 VM에서 **services.msc**의 인스턴스를 엽니다.
+1. 동일한 가상 네트워크의 다른 VM에서 **services.msc** 의 인스턴스를 엽니다.
 
 2. **서비스(로컬)** 을 마우스 오른쪽 단추로 클릭합니다.
 
-3. **다른 컴퓨터에 연결**을 선택합니다.
+3. **다른 컴퓨터에 연결** 을 선택합니다.
 
    ![원격 서비스](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 
@@ -251,7 +251,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## <a name="next-steps"></a>다음 단계
 
-- Enter-PSSession cmdlet에 대 한 자세한 내용은 [enter-pssession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1)을 참조 하세요.
+- Enter-PSSession cmdlet에 대 한 자세한 내용은 [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1&preserve-view=true)을 참조 하세요.
 - 클래식 배포 모델을 사용 하는 Windows 용 사용자 지정 스크립트 확장에 대 한 자세한 내용은 [windows 용 사용자 지정 스크립트 확장](../extensions/custom-script-windows.md)을 참조 하세요.
 - PsExec는 [PSTools 도구 모음](https://download.sysinternals.com/files/PSTools.zip)의 일부입니다.
 - PSTools Suite에 대 한 자세한 내용은 [PSTools](/sysinternals/downloads/pstools)를 참조 하세요.

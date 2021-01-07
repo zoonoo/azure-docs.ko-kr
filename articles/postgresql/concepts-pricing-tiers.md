@@ -1,27 +1,27 @@
 ---
 title: 가격 책정 계층-Azure Database for PostgreSQL 단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 계산 및 저장소 옵션을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 77ce6c8112e8c694b4ccb6a657b24649437d2f07
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 10/14/2020
+ms.openlocfilehash: 16e60b5015107c5f99e63f15bb21c5a375f05340
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279239"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123255"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 가격 책정 계층 - 단일 서버
 
 Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 가격 책정 계층은 프로비전할 수 있는 컴퓨팅의 vCore 수, vCore당 메모리 및 데이터를 저장하는 데 사용되는 스토리지 기술로 구분됩니다. 모든 리소스는 PostgreSQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
-| 리소스/계층 | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
+| 리소스/계층 | **기본** | **범용** | **메모리 액세스에 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -39,19 +39,19 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 컴퓨팅 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 중국 동부 1, 중국 북부 1, US DoD 중부 및 US DoD 동부는 Intel E5 2673 v3 (Haswell) 2.4 g h z 프로세서를 기반으로 하는 Gen 4 논리 Cpu를 활용 합니다. 다른 모든 지역은 Intel E5-2673 v4 (Broadwell) 2.3 g h z 프로세서를 기반으로 하는 Gen 5 논리 Cpu를 활용 합니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 프로비전하는 스토리지는 Azure Database for PostgreSQL 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 PostgreSQL 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
-| 저장소 특성 | **기본** | **일반 용도** | **메모리 액세스에 최적화** |
+| 저장소 특성 | **기본** | **범용** | **메모리 액세스에 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
-| 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
+| 스토리지 증분 크기 | 1GB | 1GB | 1GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 
 > [!NOTE]
-> 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 동부, 미국 서 부 2 및 미국 서 부 2 지역에서 최대 16TB 및 2만 IOPS의 저장소를
+> 최대 16TB 및 2만 IOPS의 저장소는 다음 지역에서 지원 됩니다. 미국 동부, 미국 동부 2, 브라질 남부, 미국 중부, 미국 서 부, 미국 중 북부, 미국 서 부, 미국 중 북부, 미국 동부, 일본 서 부 동아시아 영국 서부 영국 남부 유럽 서부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 미국 서 부 2, 미국 서 부 2 , 캐나다 동부 및 캐나다 중부.
 >
 > 다른 모든 지역은 최대 4TB의 저장소 및 6000 IOPS를 지원 합니다.
 >

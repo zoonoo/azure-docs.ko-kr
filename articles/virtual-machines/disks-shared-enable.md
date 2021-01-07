@@ -4,26 +4,22 @@ description: 여러 Vm에서 공유할 수 있도록 공유 디스크를 사용 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: e8bb97196fcceea0c86f58fe4a63146e681c427e
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752022"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500736"
 ---
 # <a name="enable-shared-disk"></a>공유 디스크 사용
 
 이 문서에서는 Azure managed disks에 대 한 공유 디스크 기능을 사용 하도록 설정 하는 방법을 설명 합니다. Azure 공유 디스크는 여러 Vm (가상 컴퓨터)에 관리 디스크를 동시에 연결할 수 있도록 하는 Azure managed disks에 대 한 새로운 기능입니다. 관리 디스크를 여러 VM에 연결하면 새 클러스터된 애플리케이션을 배포하거나 기존 클러스터된 애플리케이션을 Azure로 마이그레이션할 수 있습니다. 
 
-공유 디스크가 사용 하도록 설정 된 관리 디스크에 대 한 개념 정보를 찾고 있는 경우 다음을 참조 하세요.
-
-* Linux: [Azure 공유 디스크](linux/disks-shared.md)
-
-* Windows: [Azure 공유 디스크](windows/disks-shared.md)
+공유 디스크가 사용 하도록 설정 된 관리 디스크에 대 한 개념 정보를 찾고 있는 경우 [Azure 공유 디스크](disks-shared.md)를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -31,7 +27,7 @@ ms.locfileid: "88752022"
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-공유 디스크는 여러 운영 체제를 지원 합니다. 지원 되는 운영 체제에 대 한 개념 문서의 [Windows](windows/disks-shared.md#windows) 및 [Linux](linux/disks-shared.md#linux) 섹션을 참조 하세요.
+공유 디스크는 여러 운영 체제를 지원 합니다. 지원 되는 운영 체제에 대 한 개념 문서의 [Windows](./disks-shared.md#windows) 및 [Linux](./disks-shared.md#linux) 섹션을 참조 하세요.
 
 ## <a name="disk-sizes"></a>디스크 크기
 
@@ -147,7 +143,7 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 를 사용 하 여 공유 디스크를 배포한 후에 `maxShares>1` 는 하나 이상의 vm에 디스크를 탑재할 수 있습니다.
 
 > [!NOTE]
-> 울트라 디스크를 배포 하는 경우 필요한 요구 사항과 일치 하는지 확인 합니다. 자세한 내용은 ultra disk 문서의 [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) 또는 [CLI](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) 섹션을 참조 하세요.
+> 울트라 디스크를 배포 하는 경우 필요한 요구 사항과 일치 하는지 확인 합니다. 자세한 내용은 [Azure ultra Disks 사용](disks-enable-ultra-ssd.md) 을 참조 하세요.
 
 ```azurepowershell-interactive
 

@@ -10,10 +10,10 @@ caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79534748"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services 구성 스키마(.cscfg 파일)
@@ -58,9 +58,9 @@ ms.locfileid: "79534748"
 
 | attribute | Description |
 | --------- | ----------- |
-|serviceName|필수 요소. 클라우드 서비스의 이름입니다. 여기서 지정된 이름은 서비스 정의 파일에서 지정된 이름과 일치해야 합니다.|
-|osFamily|선택 사항입니다. 클라우드 서비스의 역할 인스턴스에서 실행될 게스트 OS를 지정합니다. 지원되는 게스트 OS 릴리스에 대한 정보는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.<br /><br /> `osFamily` 값을 포함하지 않고 특정 게스트 OS 버전에 `osVersion` 특성을 설정하지 않은 경우 기본값인 1이 사용됩니다.|
-|osVersion|선택 사항입니다. 클라우드 서비스의 역할 인스턴스에서 실행될 게스트 OS의 버전을 지정합니다. 게스트 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.<br /><br /> 게스트 OS가 최신 버전으로 자동으로 업그레이드되도록 지정할 수 있습니다. 이를 수행하려면 `osVersion` 특성의 값을 `*`로 설정합니다. `*`로 설정하면, 역할 인스턴스는 지정된 OS 제품군을 위한 게스트 OS의 최신 버전을 사용하여 표시되고, 게스트 OS의 새 버전이 릴리스되면 자동으로 업그레이드됩니다.<br /><br /> 특정 버전을 수동으로 지정하려면 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)의 **향후, 현재 및 과도기 게스트 OS 버전** 섹션에 나온 테이블의 `Configuration String`을 사용합니다.<br /><br /> `osVersion` 특성에 대한 기본 값은 `*`입니다.|
-|schemaVersion|선택 사항입니다. 서비스 구성 스키마의 버전을 지정합니다. 스키마 버전을 사용하면 SDK가 둘 이상의 버전이 동시에 설치된 경우 Visual Studio에서 스키마 유효성 검사에 사용할 올바른 SDK 도구를 선택할 수 있습니다. 스키마 및 버전 호환성에 대한 자세한 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.|
+|serviceName|필수 사항입니다. 클라우드 서비스의 이름입니다. 여기서 지정된 이름은 서비스 정의 파일에서 지정된 이름과 일치해야 합니다.|
+|osFamily|(선택 사항) 클라우드 서비스의 역할 인스턴스에서 실행될 게스트 OS를 지정합니다. 지원되는 게스트 OS 릴리스에 대한 정보는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.<br /><br /> `osFamily` 값을 포함하지 않고 특정 게스트 OS 버전에 `osVersion` 특성을 설정하지 않은 경우 기본값인 1이 사용됩니다.|
+|osVersion|(선택 사항) 클라우드 서비스의 역할 인스턴스에서 실행될 게스트 OS의 버전을 지정합니다. 게스트 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.<br /><br /> 게스트 OS가 최신 버전으로 자동으로 업그레이드되도록 지정할 수 있습니다. 이를 수행하려면 `osVersion` 특성의 값을 `*`로 설정합니다. `*`로 설정하면, 역할 인스턴스는 지정된 OS 제품군을 위한 게스트 OS의 최신 버전을 사용하여 표시되고, 게스트 OS의 새 버전이 릴리스되면 자동으로 업그레이드됩니다.<br /><br /> 특정 버전을 수동으로 지정하려면 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)의 **향후, 현재 및 과도기 게스트 OS 버전** 섹션에 나온 테이블의 `Configuration String`을 사용합니다.<br /><br /> `osVersion` 특성에 대한 기본 값은 `*`입니다.|
+|schemaVersion|(선택 사항) 서비스 구성 스키마의 버전을 지정합니다. 스키마 버전을 사용하면 SDK가 둘 이상의 버전이 동시에 설치된 경우 Visual Studio에서 스키마 유효성 검사에 사용할 올바른 SDK 도구를 선택할 수 있습니다. 스키마 및 버전 호환성에 대한 자세한 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.|
 
 서비스 구성 파일에는 `ServiceConfiguration` 요소가 하나 있어야 합니다. `ServiceConfiguration` 요소는 `Role` 요소를 개수에 관계 없이, `NetworkConfiguration` 요소는 없거나 1개를 포함할 수 있습니다.

@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1c4e64251390936e8a63ee904ec69f173cac6114
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905162"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146708"
 ---
 # <a name="edit-an-api"></a>API 편집
 
@@ -35,34 +35,34 @@ ms.locfileid: "87905162"
 
 ## <a name="edit-an-api-in-apim"></a>APIM에서 API 편집
 
-![api 편집](./media/edit-api/edit-api001.png)
+![APIM에서 API를 편집하는 프로세스를 강조 표시하는 스크린샷.](./media/edit-api/edit-api001.png)
 
 1. **API** 탭을 클릭합니다.
 2. 이전에 가져온 API 중 하나를 선택합니다.
 3. **디자인** 탭을 선택합니다.
 4. 편집하려는 하는 작업을 선택합니다.
-5. 작업의 이름을 바꾸려면 **프런트 엔드** 창에서 **연필**을 선택합니다.
+5. 작업의 이름을 바꾸려면 **프런트 엔드** 창에서 **연필** 을 선택합니다.
 
 ## <a name="update-the-swagger"></a>swagger 업데이트
 
 다음 단계를 수행하여 Azure Portal에서 백 엔드 API를 업데이트할 수 있습니다.
 
-1. **모든 작업**을 선택합니다.
+1. **모든 작업** 을 선택합니다.
 2. **프런트 엔드** 창에서 연필을 클릭합니다.
 
-    ![api 편집](./media/edit-api/edit-api002.png)
+    ![프런트 엔드 화면에서 연필 아이콘을 강조 표시하는 스크린샷.](./media/edit-api/edit-api002.png)
 
     API의 swagger가 나타납니다.
 
     ![api 편집](./media/edit-api/edit-api003.png)
 
 3. swagger를 업데이트합니다.
-4. **저장**을 누릅니다.
+4. **저장** 을 누릅니다.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [APIM 정책 샘플](policy-samples.md)
+> [APIM 정책 샘플](./policy-reference.md)
 > [게시된 API 변환 및 보호](transform-api.md)

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182224"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021863"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램용 StorSimple 가상 배열 배포
 
@@ -29,7 +29,7 @@ ms.locfileid: "88182224"
 
 이 문서에서는 CSP 파트너가 고객을 추가하거나 기존 고객에 새 구독을 추가한 다음 CSP에서 StorSimple 가상 배열을 배포하는 서비스를 만들 수 있는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -40,19 +40,19 @@ ms.locfileid: "88182224"
 
 고객을 추가하는 경우 구독이 자동으로 만들어집니다. 고객을 추가하려면(및 구독을 자동으로 만들려면) 파트너 포털에서 다음 단계를 수행합니다.
 
-1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
+1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드** 를 클릭합니다.
 
      ![파트너 센터의 대시보드](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. 왼쪽 창에서 **고객**을 클릭합니다. 오른쪽 창에서 **고객 추가**를 클릭합니다. 고객의 세부 정보를 입력합니다. **다음: 구독**을 클릭하여 고객 구독을 만듭니다.
+2. 왼쪽 창에서 **고객** 을 클릭합니다. 오른쪽 창에서 **고객 추가** 를 클릭합니다. 고객의 세부 정보를 입력합니다. **다음: 구독** 을 클릭하여 고객 구독을 만듭니다.
 
     ![고객 추가](./media/storsimple-partner-csp-deploy/image2.png)
 
-3.  **Microsoft Azure** 제품을 선택합니다. 페이지의 아래쪽으로 스크롤하고 **검토**를 클릭합니다.
+3.  **Microsoft Azure** 제품을 선택합니다. 페이지의 아래쪽으로 스크롤하고 **검토** 를 클릭합니다.
 
     ![구독 정보 검토](./media/storsimple-partner-csp-deploy/image3.png)
                               
-4. 정보를 검토하고 **제출**을 클릭합니다.
+4. 정보를 검토하고 **제출** 을 클릭합니다.
 
     ![구독 제출](./media/storsimple-partner-csp-deploy/image4.png)
 
@@ -60,15 +60,15 @@ ms.locfileid: "88182224"
 
     ![확인 저장](./media/storsimple-partner-csp-deploy/image5.png)
 
-6. 방금 추가한 고객을 찾거나 고객으로 이동합니다. **회사 이름**을 클릭하여 세부 정보로 드릴다운합니다.
+6. 방금 추가한 고객을 찾거나 고객으로 이동합니다. **회사 이름** 을 클릭하여 세부 정보로 드릴다운합니다.
 
     ![고객 검색](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. 왼쪽 창에서 **서비스 관리**를 선택합니다. 오른쪽 창의 **서비스 관리** 아래에서 **Microsoft Azure 관리 포털**을 클릭하여 고객에 대한 Azure 관리자로 로그인합니다.
+7. 왼쪽 창에서 **서비스 관리** 를 선택합니다. 오른쪽 창의 **서비스 관리** 아래에서 **Microsoft Azure 관리 포털** 을 클릭하여 고객에 대한 Azure 관리자로 로그인합니다.
 
     ![Azure Portal에 로그인](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. StorSimple 디바이스 관리자를 만들려면 **+ 새로 만들기**를 클릭하고 **StorSimple 가상 디바이스 시리즈**를 검색하거나 이동합니다. 자세한 내용은 [StorSimple 디바이스 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동하세요.
+8. StorSimple 디바이스 관리자를 만들려면 **+ 새로 만들기** 를 클릭하고 **StorSimple 가상 디바이스 시리즈** 를 검색하거나 이동합니다. 자세한 내용은 [StorSimple 디바이스 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동하세요.
 
     ![StorSimple 디바이스 관리자 서비스 만들기](./media/storsimple-partner-csp-deploy/image8.png)
 
@@ -77,27 +77,27 @@ ms.locfileid: "88182224"
 
 일부 경우에는 기존 고객이 있을 수 있으며 구독을 추가해야 합니다. 기존 고객에 구독을 추가하려면 파트너 포털에서 다음 단계를 수행합니다.
 
-1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
+1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드** 를 클릭합니다.
 
      ![파트너 센터의 대시보드](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. 왼쪽 창에서 **고객**을 클릭합니다. 구독을 추가하려는 고객을 찾거나 고객으로 이동합니다. ![확인 아이콘 확장](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) 아이콘을 클릭하여 고객의 회사 이름에 대한 행을 확장합니다. 세부 정보에서 **구독 추가**를 클릭합니다.
+2. 왼쪽 창에서 **고객** 을 클릭합니다. 구독을 추가하려는 고객을 찾거나 고객으로 이동합니다. ![확인 아이콘 확장](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) 아이콘을 클릭하여 고객의 회사 이름에 대한 행을 확장합니다. 세부 정보에서 **구독 추가** 를 클릭합니다.
 
     ![고객](./media/storsimple-partner-csp-deploy/image10.png)
 
-3. 구독에서 **주요 제안**에 대해 **Microsoft Azure**를 선택하고 **제출**을 클릭합니다. 그러면 새 구독이 생성됩니다.
+3. 구독에서 **주요 제안** 에 대해 **Microsoft Azure** 를 선택하고 **제출** 을 클릭합니다. 그러면 새 구독이 생성됩니다.
 
     ![새 구독 추가](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. 새 구독을 만든 후 왼쪽 창에서 **<-- 고객**을 클릭하여 **고객** 페이지로 돌아갑니다. 방금 구독을 만든 고객을 검색합니다. **회사 이름**을 클릭하여 세부 정보로 드릴다운합니다.
+6. 새 구독을 만든 후 왼쪽 창에서 **<-- 고객** 을 클릭하여 **고객** 페이지로 돌아갑니다. 방금 구독을 만든 고객을 검색합니다. **회사 이름** 을 클릭하여 세부 정보로 드릴다운합니다.
 
     ![고객 검색](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. 왼쪽 창에서 **서비스 관리**를 선택합니다. 오른쪽 창의 **서비스 관리** 아래에서 **Microsoft Azure 관리 포털**을 클릭하여 고객에 대한 Azure 관리자로 로그인합니다.
+7. 왼쪽 창에서 **서비스 관리** 를 선택합니다. 오른쪽 창의 **서비스 관리** 아래에서 **Microsoft Azure 관리 포털** 을 클릭하여 고객에 대한 Azure 관리자로 로그인합니다.
 
     ![Azure Portal에 로그인](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. StorSimple 디바이스 관리자를 만들려면 **+ 새로 만들기**를 클릭하고 **StorSimple 가상 디바이스 시리즈**를 검색하거나 이동합니다. 자세한 내용은 [StorSimple 디바이스 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동하세요.
+8. StorSimple 디바이스 관리자를 만들려면 **+ 새로 만들기** 를 클릭하고 **StorSimple 가상 디바이스 시리즈** 를 검색하거나 이동합니다. 자세한 내용은 [StorSimple 디바이스 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동하세요.
 
     ![StorSimple 디바이스 관리자 서비스 만들기](./media/storsimple-partner-csp-deploy/image8.png)
 

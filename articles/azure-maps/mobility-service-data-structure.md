@@ -1,31 +1,37 @@
 ---
-title: Azure Maps의 모바일 서비스 데이터 구조 Microsoft Azure 맵
-description: Azure Maps 모바일 서비스에서 데이터를 metro 영역으로 구성 하는 방법을 이해 합니다. 공용 전송 중지 및 줄에 대 한 정보를 저장 하는 필드를 확인 합니다.
+title: Microsoft Azure Maps의 모바일 서비스 (미리 보기) 데이터 구조
+description: Azure Maps 모바일 서비스 (미리 보기)에서 데이터를 metro 영역으로 구성 하는 방법을 이해 합니다. 공용 전송 중지 및 줄에 대 한 정보를 저장 하는 필드를 확인 합니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/05/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8ffedc18ba331733723a6293756b60b733cc32cf
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033226"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904723"
 ---
-# <a name="data-structures-in-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스의 데이터 구조
+# <a name="data-structures-in-azure-maps-mobility-services-preview"></a>Azure Maps 모바일 서비스의 데이터 구조 (미리 보기) 
 
-이 문서에서는 [모바일 서비스 Azure Maps](https://aka.ms/AzureMapsMobilityService)의 Metro 영역 개념을 소개 합니다. 이 서비스가 공용 전송 중지 및 줄에 대해 쿼리 될 때 반환 되는 일반적인 필드 중 일부에 대해 설명 합니다. 모바일 서비스 Api를 사용 하 여 개발 하기 전에이 문서를 읽어 보는 것이 좋습니다.
+> [!IMPORTANT]
+> Azure Maps 모바일 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+
+
+이 문서에서는 [모바일 서비스 Azure Maps](/rest/api/maps/mobility)의 Metro 영역 개념을 소개 합니다. 이 서비스가 공용 전송 중지 및 줄에 대해 쿼리 될 때 반환 되는 일반적인 필드 중 일부에 대해 설명 합니다. 모바일 서비스 Api를 사용 하 여 개발 하기 전에이 문서를 읽어 보는 것이 좋습니다.
 
 ## <a name="metro-area"></a>Metro 영역
 
-모바일 서비스 데이터는 지원 되는 metro 영역을 기준으로 그룹화 됩니다. Metro 영역은 도시 경계를 따르지 않습니다. Metro 영역에는 여러 도시, 조밀 채워진 도시 및 주변 도시가 포함 될 수 있습니다. 실제로 국가/지역은 하나의 지하철 영역 일 수 있습니다. 
+모바일 서비스 (미리 보기) 데이터는 지원 되는 metro 영역을 기준으로 그룹화 됩니다. Metro 영역은 도시 경계를 따르지 않습니다. Metro 영역에는 여러 도시, 조밀 채워진 도시 및 주변 도시가 포함 될 수 있습니다. 실제로 국가/지역은 하나의 지하철 영역 일 수 있습니다. 
 
-는 `metroID` [Metro 영역 정보 가져오기 API](https://aka.ms/AzureMapsMobilityMetroAreaInfo)를 호출 하는 데 사용할 수 있는 metro 영역 ID입니다. Azure Maps ' "Metro 가져오기" API를 사용 하 여 전송 유형, 전송 기관, 활성 경고 및 선택한 Metro에 대 한 추가 세부 정보를 요청 합니다. 지원 되는 metro 영역 및 metroIDs를 요청할 수도 있습니다. Metro 영역 Id는 변경 될 수 있습니다.
+는 `metroID` [Metro 영역 정보 가져오기 API](/rest/api/maps/mobility/getmetroareainfopreview)를 호출 하는 데 사용할 수 있는 metro 영역 ID입니다. Azure Maps ' "Metro 가져오기" API를 사용 하 여 전송 유형, 전송 기관, 활성 경고 및 선택한 Metro에 대 한 추가 세부 정보를 요청 합니다. 지원 되는 metro 영역 및 metroIDs를 요청할 수도 있습니다. Metro 영역 Id는 변경 될 수 있습니다.
 
-**metroID:** 522 **이름:** 시애틀-Tacoma-Bellevue
+**metroID:** 522   **이름:** 시애틀-Tacoma-Bellevue
 
 ![시애틀-지하철-지역](./media/mobility-service-data-structure/seattle-metro.png)
 
@@ -33,11 +39,11 @@ ms.locfileid: "88033226"
 
 전송 중지는 두 가지 유형의 Id 인 [GFTS (일반 전송 피드 사양)](http://gtfs.org/) id 및 AZURE MAPS 중지 id로 참조 될 수 있습니다. GFTS ID를 stopKey 라고 하 고 Azure Maps stop ID를 Stopkey 라고 합니다. 전송 중지를 자주 참조 하는 경우 Azure Maps 중지 ID를 사용 하는 것이 좋습니다. stopID는 더 안정적 이며 실제 중지가 있는 한 동일 하 게 유지 될 가능성이 높습니다. GTFS 중지 ID는 더 자주 업데이트 됩니다. 예를 들어 gtfs 중지 ID는 GTFS 공급자 요청에 따라 업데이트 하거나 새 GTFS 버전이 릴리스될 때 업데이트할 수 있습니다. 실제 중지에는 변경 내용이 없지만 GTFS 중지 ID는 변경 될 수 있습니다.
 
-시작 하려면 [주변 전송 API 가져오기](https://aka.ms/AzureMapsMobilityNearbyTransit)를 사용 하 여 가까운 전송 중지를 요청할 수 있습니다.
+시작 하려면 [주변 전송 API 가져오기](/rest/api/maps/mobility/getnearbytransitpreview)를 사용 하 여 가까운 전송 중지를 요청할 수 있습니다.
 
 ## <a name="line-groups-and-lines"></a>줄 그룹 및 선
 
-모바일 서비스는 선 및 선 그룹에 병렬 데이터 모델을 사용 합니다. 이 모델은 [Gtfs](http://gtfs.org/) 경로 및 트립 데이터에서 상속 된 변경 사항을 보다 효율적으로 처리 하는 데 사용 됩니다.
+모바일 서비스 (미리 보기)는 선 및 선 그룹에 병렬 데이터 모델을 사용 합니다. 이 모델은 [Gtfs](http://gtfs.org/) 경로 및 트립 데이터에서 상속 된 변경 사항을 보다 효율적으로 처리 하는 데 사용 됩니다.
 
 
 ### <a name="line-groups"></a>줄 그룹
@@ -49,22 +55,22 @@ ms.locfileid: "88033226"
 
 위에서 설명한 것 처럼 각 줄 그룹은 일련의 선으로 구성 됩니다. 각 줄 그룹은 두 줄로 구성 되 고 각 줄은 방향을 설명 합니다.  그러나 줄 그룹을 구성 하는 줄이 더 많은 경우가 있습니다. 예를 들어 때때로 특정 환경에서 우회 하는 선이 있습니다. 두 경우 모두 동일한 줄 번호에서 작동 합니다. 또한 줄 그룹은 한 줄로 구성 될 수 있습니다. 단일 방향이 있는 원형 선은 한 줄이 있는 (ling 그룹입니다.
 
-시작 하려면 [전송 라인 API 가져오기 API](https://aka.ms/AzureMapsMobilityTransitLine)를 사용 하 여 줄 그룹을 요청할 수 있습니다.
+시작 하려면 [전송 라인 API 가져오기 API](/rest/api/maps/mobility/gettransitlineinfopreview)를 사용 하 여 줄 그룹을 요청할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-모바일 서비스를 사용 하 여 전송 데이터를 요청 하는 방법을 알아봅니다.
+모바일 서비스 (미리 보기)를 사용 하 여 전송 데이터를 요청 하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [전송 데이터를 요청 하는 방법](how-to-request-transit-data.md)
 
-모바일 서비스를 사용 하 여 실시간 데이터를 요청 하는 방법을 알아봅니다.
+모바일 서비스 (미리 보기)를 사용 하 여 실시간 데이터를 요청 하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [실시간 데이터를 요청 하는 방법](how-to-request-real-time-data.md)
 
-Azure Maps 모바일 서비스 API 설명서 살펴보기
+Azure Maps 모바일 서비스 (미리 보기) API 설명서 살펴보기
 
 > [!div class="nextstepaction"]
-> [모바일 서비스 API 설명서](https://aka.ms/AzureMapsMobilityService)
+> [모바일 서비스 API 설명서](/rest/api/maps/mobility)

@@ -18,3 +18,9 @@
         - name: 정책
           tocHref: /azure/aks
           topicHref: /azure/governance/policy
+        - name: 정책
+          tocHref: /azure/storage
+          topicHref: /azure/governance/policy
+        - name: 정책
+          tocHref: /azure/web-application-firewall
+          topicHref: /azure/governance/policy

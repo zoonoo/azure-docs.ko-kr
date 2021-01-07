@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
 ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135806"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Azure Vm의 PowerShell 복제에서 디스크 제외
@@ -19,12 +19,12 @@ ms.locfileid: "86135806"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에
 
 - [재해 복구 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해 하 고 있는지 확인 합니다.
-- 모든 구성 요소에 대 한 [지원 요구 사항을](azure-to-azure-support-matrix.md) 검토 합니다.
+- 모든 구성 요소에 대한 [지원 요구 사항](azure-to-azure-support-matrix.md)을 검토합니다.
 - AzureRm PowerShell "Az" 모듈이 있는지 확인 합니다. PowerShell을 설치 하거나 업데이트 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 - Recovery services 자격 증명 모음 및 보호 된 가상 컴퓨터를 한 번 이상 만들었는지 확인 합니다. 이러한 작업을 수행 하지 않은 경우 [Azure PowerShell를 사용 하 여 Azure 가상 머신에 대 한 재해 복구 설정](azure-to-azure-powershell.md)의 프로세스를 따르세요.
 - 복제용으로 사용 하도록 설정 된 Azure VM에 디스크를 추가 하는 방법에 대 한 정보를 찾고 있는 경우 [이 문서를 검토](azure-to-azure-enable-replication-added-disk.md)하세요.

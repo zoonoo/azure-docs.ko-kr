@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 232bc43440979a08da4a0e77d9b49bf56fdb0ae4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9d62195759de2d43e863c1cb2c4c3ef911bb52c6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374044"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498526"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Linux 가상 머신용 Azure Disk Encryption FAQ
 
@@ -57,14 +57,14 @@ OS 볼륨을 암호화한 이후에는 OS 볼륨에 대한 암호화를 사용�
 
 ## <a name="what-is-storage-server-side-encryption"></a>Storage 서버 쪽 암호화란 무엇인가요?
 
-Storage 서버 쪽 암호화는 Azure Storage에서 Azure 관리 디스크를 암호화합니다. 관리 디스크는 플랫폼 관리형 키를 사용하는 서버 쪽 암호화를 통해 기본적으로 암호화됩니다(2017년 6월 10일 기준). 고객 관리형 키를 지정하여 고유한 키로 관리 디스크의 암호화를 관리할 수 있습니다. 자세한 내용은 다음을 참조하세요. [Azure 관리 디스크의 서버 쪽 암호화](disk-encryption.md)
+Storage 서버 쪽 암호화는 Azure Storage에서 Azure 관리 디스크를 암호화합니다. 관리 디스크는 플랫폼 관리형 키를 사용하는 서버 쪽 암호화를 통해 기본적으로 암호화됩니다(2017년 6월 10일 기준). 고객 관리형 키를 지정하여 고유한 키로 관리 디스크의 암호화를 관리할 수 있습니다. 자세한 내용은 다음을 참조하세요. [Azure 관리 디스크의 서버 쪽 암호화](../disk-encryption.md)
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Azure Disk Encryption은 고객 관리형 키를 사용한 Storage 서버 쪽 암호화와 어떻게 다르며 언제 각 솔루션을 사용해야 하나요?
 
 Azure Disk Encryption은 고객 관리형 키를 사용하여 OS 디스크, 데이터 디스크 및 임시 디스크에 대한 엔드투엔드 암호화를 제공합니다.
 - 위의 모든 암호화와 엔드투엔드 암호화가 요구 사항에 포함되는 경우 Azure Disk Encryption을 사용합니다. 
-- 고객 관리형 키를 사용한 미사용 데이터 암호화만 요구 사항에 포함되는 경우 [고객 관리형 키를 사용한 서버 쪽 암호화](disk-encryption.md)를 사용합니다. Azure Disk Encryption과 고객 관리형 키를 사용한 Storage 서버 쪽 암호화를 모두 사용하여 디스크를 암호화할 수 없습니다. 
-- [Azure Disk Encryption을 지원하는 운영 체제](disk-encryption-overview.md#supported-operating-systems)에 Linux 배포판이 나열되어 있지 않거나 [지원되지 않는 Windows용 시나리오](disk-encryption-linux.md#unsupported-scenarios)에 명시된 시나리오를 사용하는 경우 [고객 관리형 키를 사용한 서버 쪽 암호화](disk-encryption.md)를 고려하는 것이 좋습니다.
+- 고객 관리형 키를 사용한 미사용 데이터 암호화만 요구 사항에 포함되는 경우 [고객 관리형 키를 사용한 서버 쪽 암호화](../disk-encryption.md)를 사용합니다. Azure Disk Encryption과 고객 관리형 키를 사용한 Storage 서버 쪽 암호화를 모두 사용하여 디스크를 암호화할 수 없습니다. 
+- [Azure Disk Encryption을 지원하는 운영 체제](disk-encryption-overview.md#supported-operating-systems)에 Linux 배포판이 나열되어 있지 않거나 [지원되지 않는 Windows용 시나리오](disk-encryption-linux.md#unsupported-scenarios)에 명시된 시나리오를 사용하는 경우 [고객 관리형 키를 사용한 서버 쪽 암호화](../disk-encryption.md)를 고려하는 것이 좋습니다.
 - 조직의 정책상 Azure 관리형 키를 사용하여 미사용 콘텐츠를 암호화할 수 있는 경우 아무 작업도 필요하지 않으며 콘텐츠가 기본적으로 암호화됩니다. 관리 디스크의 경우 스토리지 내부의 콘텐츠는 플랫폼 관리형 키를 사용하는 서버 쪽 암호화를 사용하여 기본적으로 암호화됩니다. 키는 Azure Storage 서비스에서 관리됩니다. 
 
 
@@ -164,5 +164,5 @@ Azure Backup은 동일한 구독 및 지역 내에서 암호화된 VM을 백업 
 이 문서에서는 Azure Disk Encryption와 관련하여 가장 자주 묻는 질문에 대해 자세히 알아 보았습니다. 이 서비스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Disk Encryption 개요](disk-encryption-overview.md)
-- [Azure Security Center에서 디스크 암호화 적용](../../security-center/security-center-virtual-machine-protection.md)
+- [Azure Security Center에서 디스크 암호화 적용](../../security-center/asset-inventory.md)
 - [휴지 상태의 Azure 데이터 암호화](../../security/fundamentals/encryption-atrest.md)

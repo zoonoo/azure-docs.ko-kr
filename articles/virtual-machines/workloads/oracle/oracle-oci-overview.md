@@ -1,25 +1,19 @@
 ---
 title: Microsoft Azure와 Oracle 클라우드 인프라 통합 | Microsoft Docs
 description: Microsoft Azure에서 실행되는 Oracle 앱을 OCI(Oracle 클라우드 인프라)의 데이터베이스와 통합하는 솔루션에 대해 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
-author: rgardler
-manager: ''
-tags: ''
-ms.assetid: ''
-ms.service: virtual-machines
+author: dbakevlar
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: rogardle
-ms.custom: ''
-ms.openlocfilehash: d93446f4db914c736235daeb4e08e82b9ff00e62
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: kegorman
+ms.reviewer: cynthn
+ms.openlocfilehash: e8e9bf23c236f805135d7d46b969c564975448ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224505"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965411"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Microsoft Azure와 Oracle 클라우드 인프라를 통합하는 Oracle 애플리케이션 솔루션
 
@@ -55,6 +49,7 @@ Oracle 솔루션을 완전히 Azure 인프라에 배포하는 데 관심이 있�
 * Azure 캐나다 중부(CanadaCentral) 및 OCI 토론토(캐나다 남동쪽)
 * Azure 서유럽(WestEurope) 및 OCI 암스테르담(네덜란드 북서부)
 * Azure 일본 동부(JapanEast) 및 OCI 도쿄(일본 동부)
+* Azure 미국 서 부 (WestUS) & OCI San Jose (미국 서 부)
 
 ## <a name="networking"></a>네트워킹
 
@@ -68,7 +63,7 @@ ExpressRoute 및 FastConnect를 사용하여 개인 IP 주소 공간이 겹치�
 
 네트워크 보안은 모든 엔터프라이즈 애플리케이션의 중요한 구성 요소로, 이 다중 클라우드 솔루션의 핵심입니다. ExpressRoute 및 FastConnect를 거치는 트래픽은 개인 네트워크를 통해 전달됩니다. 이 구성을 통해 Azure 가상 네트워크와 Oracle 가상 클라우드 네트워크 간의 안전한 통신이 가능합니다. Azure의 가상 머신에 공용 IP 주소를 제공하지 않아도 됩니다. 마찬가지로, OCI에는 인터넷 게이트웨이가 필요하지 않습니다. 모든 통신은 머신의 개인 IP 주소를 통해 일어납니다.
 
-또한 OCI 가상 클라우드 네트워크 및 보안 규칙(Azure [네트워크 보안 그룹](../../../virtual-network/security-overview.md)에 연결됨)에서 [보안 목록](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm)을 설정할 수 있습니다. 이러한 규칙을 사용하여 가상 네트워크에서 머신 간의 트래픽 흐름을 제어할 수 있습니다. 네트워크 보안 규칙은 가상 네트워크 수준뿐만 아니라 머신 및 서브넷 수준에서 추가할 수 있습니다.
+또한 OCI 가상 클라우드 네트워크 및 보안 규칙(Azure [네트워크 보안 그룹](../../../virtual-network/network-security-groups-overview.md)에 연결됨)에서 [보안 목록](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm)을 설정할 수 있습니다. 이러한 규칙을 사용하여 가상 네트워크에서 머신 간의 트래픽 흐름을 제어할 수 있습니다. 네트워크 보안 규칙은 가상 네트워크 수준뿐만 아니라 머신 및 서브넷 수준에서 추가할 수 있습니다.
 
 [WebLogic Server Azure 애플리케이션](oracle-weblogic.md)은 각각 WebLogic Server의 포트 구성에 작동하도록 미리 구성된 네트워크 보안 그룹을 만듭니다.
  

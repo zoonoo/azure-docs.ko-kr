@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: ad21c5b34a58c35b2cef5e430be7cb8cd1296402
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87098176"
 ---
 # <a name="createuidefinition-referencing-functions"></a>CreateUiDefinition 함수 참조
@@ -101,4 +101,4 @@ CreateUiDefinition 파일의 속성 또는 컨텍스트에서 출력을 참조�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 포털 인터페이스를 개발 하는 방법에 대 한 소개는 [Azure 관리 되는 응용 프로그램의 만들기 환경을 위한CreateUiDefinition.js](create-uidefinition-overview.md)를 참조 하세요.
+* 포털 인터페이스를 개발 하는 방법에 대 한 소개는 [ Azure 관리 되는 응용 프로그램의 만들기 환경을 위한CreateUiDefinition.js](create-uidefinition-overview.md)를 참조 하세요.

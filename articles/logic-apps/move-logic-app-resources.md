@@ -7,10 +7,10 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87826214"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>논리 앱 리소스를 다른 Azure 리소스 그룹, 지역 또는 구독으로 이동
@@ -27,7 +27,7 @@ ms.locfileid: "87826214"
 
 * [Integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) 는 동일한 azure 지역 또는 azure 구독에 있는 다른 리소스 그룹 으로만 이동할 수 있습니다. 다른 Azure 지역 또는 Azure 구독에 존재 하는 리소스 그룹으로 ISE를 이동할 수 없습니다. 또한 이러한 이동 후에는 논리 앱 워크플로, 통합 계정, 연결 등에서 ISE에 대 한 모든 참조를 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이동 하려는 논리 앱 또는 통합 계정을 만드는 데 사용 된 것과 동일한 Azure 구독
 

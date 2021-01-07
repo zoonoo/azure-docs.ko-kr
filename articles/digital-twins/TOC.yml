@@ -1,4 +1,4 @@
-- name: Azure Digital Twins
+- name: Azure Digital Twins 설명서
   href: index.yml
 - name: 개요
   items:
@@ -7,6 +7,7 @@
     - name: 이전 릴리스와의 차이점
       href: overview-differences.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 샘플 시나리오 살펴보기
       href: quickstart-adt-explorer.md
@@ -34,6 +35,8 @@
       href: concepts-route-events.md
     - name: Azure Digital Twins 솔루션에 대한 보안
       href: concepts-security.md
+    - name: 고가용성 및 재해 복구
+      href: concepts-high-availability-disaster-recovery.md
 - name: 방법 가이드
   items:
     - name: 배포
@@ -42,20 +45,24 @@
           href: how-to-use-cli.md
         - name: 인스턴스 및 인증 설정
           items:
-            - name: 스크립팅된 버전
-              href: how-to-set-up-instance-scripted.md
-            - name: CLI 버전
-              href: how-to-set-up-instance-cli.md
             - name: 포털 버전
               href: how-to-set-up-instance-portal.md
+            - name: CLI 버전
+              href: how-to-set-up-instance-cli.md
+            - name: 스크립팅된 버전
+              href: how-to-set-up-instance-scripted.md
         - name: 앱 인증 코드 쓰기
           href: how-to-authenticate-client.md
+        - name: 앱 등록 만들기
+          href: how-to-create-app-registration.md
         - name: 다른 지역으로 인스턴스 이동
           href: how-to-move-regions.md
     - name: 디자인 모델
       items:
         - name: 사용자 지정 모델 관리
           href: how-to-manage-model.md
+        - name: 산업 표준 모델 통합
+          href: how-to-integrate-models.md
         - name: 모델 구문 분석 및 유효성 검사
           href: how-to-parse-models.md
         - name: 태그 추가
@@ -76,6 +83,8 @@
       items:
         - name: API 및 SDK 사용
           href: how-to-use-apis-sdks.md
+        - name: Postman으로 요청하기
+          href: how-to-use-postman.md
         - name: AutoRest를 사용하여 사용자 지정 SDK 만들기
           href: how-to-create-custom-sdks.md
         - name: Azure SignalR 서비스와 통합
@@ -100,14 +109,16 @@
           href: how-to-integrate-maps.md
         - name: Azure Time Series Insights와 통합
           href: how-to-integrate-time-series-insights.md
-    - name: 문제 해결
+    - name: 모니터링 및 문제 해결
       items:
         - name: Azure Monitor의 메트릭 보기
           href: troubleshoot-metrics.md
-        - name: 진단 로그 사용
+        - name: 진단 로그 사용 및 쿼리
           href: troubleshoot-diagnostics.md
         - name: 경고 사용
           href: troubleshoot-alerts.md
+        - name: 리소스 상태 이해
+          href: troubleshoot-resource-health.md
         - name: 알려진 문제
           href: troubleshoot-known-issues.md
         - name: 문제 해결
@@ -118,36 +129,40 @@
   items:
     - name: Digital Twins 서비스 제한
       href: reference-service-limits.md
+    - name: Digital Twins 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
     - name: API 및 SDK
       items:
         - name: REST API 참조
-          href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
+          href: /rest/api/azure-digitaltwins/
         - name: 제어 평면
           items:
             - name: Swagger
-              href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
+              href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable'
             - name: .NET (C#) SDK - NuGet
-              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/'
             - name: .NET (C#) SDK - 참조
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview'
+              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: .NET (C#) SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
-            - name: Java SDK
-              href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
+            - name: Java SDK - Maven
+              href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar'
             - name: Java SDK - 참조
-              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview'
+              href: /azure/developer/java/sdk/
             - name: Java SDK - 소스
-              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31'
             - name: JavaScript SDK
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
             - name: JavaScript SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins'
-            - name: Python SDK
+            - name: Python SDK - PyPi
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
             - name: Python SDK - 소스
-              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins'
-            - name: Go SDK - 소스
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
+            - name: Go SDK - GoDoc
+              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+            - name: Go - 원본
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
         - name: 데이터 평면
           items:
             - name: Swagger
@@ -155,19 +170,35 @@
             - name: .NET (C#) SDK - NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
             - name: .NET (C#) SDK - 참조
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
+              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
             - name: .NET (C#) SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
+            - name: Java SDK - Maven
+              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar'
+            - name: Java SDK - 참조
+              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
+            - name: Java SDK - 소스
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: JavaScript SDK - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: JavaScript SDK - 참조
-              href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
+              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
+            - name: JavaScript SDK - 소스
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
+            - name: Python SDK - PyPi
+              href: 'https://pypi.org/project/azure-digitaltwins-core/'
+            - name: Python SDK - 참조
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
+            - name: Python SDK - 소스
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: Digital Twins CLI
       items:
         - name: Digital Twins CLI 참조
-          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
         - name: CLI 패키지
           href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
+    - name: Digital Twins Azure PowerShell 모듈
+      href: 'https://www.powershellgallery.com/packages/Az.DigitalTwins/'
     - name: DTDL
       items:
         - name: DTDL v2 사양
@@ -177,25 +208,25 @@
         - name: DTDL 파서 라이브러리 - NuGet
           href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
         - name: DTDL 유효성 검사기(샘플)
-          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
+          href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DTMI 사양
           href: 'https://github.com/Azure/digital-twin-model-identifier'
     - name: 도구 및 샘플 프로젝트
       items:
         - name: 디바이스 시뮬레이터 서비스
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
-        - name: Azure Digital Twins 샘플
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
+        - name: Azure Digital Twins 엔드투엔드 샘플
+          href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Azure Digital Twins 탐색기(샘플)
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
+          href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: DTDL 유효성 검사기(샘플)
-          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
+          href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DPS 및 IoT Hub 통합 샘플
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
-        - name: Azure Digital Twins 사용자 지정 Swagger
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
+          href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: SignalR 통합 샘플
-          href: 'https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/'
+          href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+        - name: Logic Apps 커넥터용 Azure Digital Twins 사용자 지정 Swagger
+          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: Azure 도구
       items:
         - name: Azure Cloud Shell
@@ -205,11 +236,11 @@
         - name: Azure portal
           href: 'https://portal.azure.com'
     - name: Azure RBAC 설명서
-      href: /azure/role-based-access-control/overview
+      href: ../role-based-access-control/overview.md
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Channel 9 동영상
@@ -220,33 +251,7 @@
       items:
         - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: SLA
+          href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
         - name: 지역 및 가용성
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-- name: 관련 항목
-  items:
-    - name: 솔루션
-      items:
-        - name: IoT 솔루션 가속기
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /azure/iot-central/core/overview-iot-central
-    - name: 플랫폼 서비스
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT 플러그 앤 플레이
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: 지도
-          href: /azure/azure-maps
-        - name: 서비스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge 솔루션
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: IoT 디바이스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

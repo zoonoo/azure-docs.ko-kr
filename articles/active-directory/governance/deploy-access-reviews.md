@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/14/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461037"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932438"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -37,7 +37,7 @@ ms.locfileid: "89461037"
 
 * 리소스에 대 한 사용자 액세스를 제거 하는 등의 검토 결과 자동화
 
-  ![액세스 검토 계획](./media/deploy-access-review/1-planning-review.png)
+  ![액세스 검토 흐름을 보여 주는 다이어그램입니다.](./media/deploy-access-review/1-planning-review.png)
 
 액세스 검토는 [Azure AD Identity Governance](identity-governance-overview.md) 기능입니다. 다른 기능은 [권한 관리](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 및 [사용 약관](../conditional-access/terms-of-use.md)입니다. 이를 통해 조직은 다음 네 가지 질문을 해결할 수 있습니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "89461037"
 
 * **공동 작업 제어**. 액세스 검토를 통해 조직에서는 사용자가 필요로 하는 모든 리소스에 대 한 액세스를 관리할 수 있습니다. 사용자가 공유 하 고 공동 작업 하는 경우 조직은 정보를 인증 된 사용자로만 지정할 수 있습니다.
 
-* **위험을 관리**합니다. 액세스 검토를 통해 조직에서는 데이터와 응용 프로그램에 대 한 액세스를 검토 하 여 데이터 누출 및 데이터 분산의 위험을 낮출 수 있습니다. 여기에는 회사 리소스에 대 한 외부 파트너의 액세스를 정기적으로 검토 하는 기능이 포함 됩니다. 
+* **위험을 관리** 합니다. 액세스 검토를 통해 조직에서는 데이터와 응용 프로그램에 대 한 액세스를 검토 하 여 데이터 누출 및 데이터 분산의 위험을 낮출 수 있습니다. 여기에는 회사 리소스에 대 한 외부 파트너의 액세스를 정기적으로 검토 하는 기능이 포함 됩니다. 
 
 * **주소 규정 준수 및 거 버 넌 스**. 액세스 검토를 통해 그룹, 앱 및 사이트에 대 한 액세스 수명 주기를 제어 하 고 다시 인증할 수 있습니다. 조직과 관련 한 규정 준수 또는 위험에 민감한 응용 프로그램에 대 한 추적 검토를 제어할 수 있습니다. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "89461037"
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](https://aka.ms/deploymentplans)시키고 프로젝트 역할을 명확하게 해야 합니다.
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](../fundamentals/active-directory-deployment-plans.md)시키고 프로젝트 역할을 명확하게 해야 합니다.
 
 액세스 검토의 경우 조직 내에서 다음 팀의 담당자를 포함할 가능성이 높습니다.
 
@@ -182,7 +182,7 @@ ms.locfileid: "89461037"
 
 * 그룹 [멤버 자격](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (azure ad에 동기화 되었거나 Microsoft 팀을 포함 하 여 azure ad 또는 Microsoft 365에서 만들어짐).
 
-* 리소스 (그룹, 앱 및 사이트)를 단일 패키지로 그룹화 하 여 액세스를 관리 하는 [패키지에 액세스](/azure/active-directory/governance/entitlement-management-overview) 합니다.
+* 리소스 (그룹, 앱 및 사이트)를 단일 패키지로 그룹화 하 여 액세스를 관리 하는 [패키지에 액세스](./entitlement-management-overview.md) 합니다.
 
 * [AZURE AD 역할 및 Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-assign-roles.md) 은 Privileged Identity Management에 정의 되어 있습니다.
 
@@ -198,7 +198,7 @@ ms.locfileid: "89461037"
 | 액세스 패키지| 전역 관리자<p>액세스 패키지 작성자| 전역 관리자만 |
 
 
-자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>리소스에 대 한 액세스를 검토 하는 사람은 누구 인가요?
 
@@ -246,7 +246,7 @@ ms.locfileid: "89461037"
 | **검토할 리소스**| Microsoft Dynamics에 대 한 액세스 |
 | **검토 빈도**| 매월 |
 | **검토를 수행 하는 사람**| Dynamics 비즈니스 그룹 프로그램 관리자 |
-| **알림**| Pms 별칭을 검토 하기 전에 24 시간 동안 전자 메일로 보내기<p>검토자에 게 사용자 지정 메시지를 포함 하 여 자신의 구매 보호 |
+| **알림**| 별칭을 검토 하기 전에 24 시간 동안 전자 메일 Dynamics-Pms<p>검토자에 게 사용자 지정 메시지를 포함 하 여 자신의 구매 보호 |
 | **타임라인**| 48 시간 (알림) |
 |**자동 작업**| 보안 그룹 dynamics 액세스에서 사용자를 제거 하 여 90 일 이내에 대화형 로그인이 없는 모든 계정에서 액세스 권한을 제거 합니다. <p>*타임 라인 내에서 검토 되지 않은 경우 작업을 수행 합니다.* |
 | **수동 작업**| 검토자는 원하는 경우 자동화 된 작업 전에 승인 제거를 수행할 수 있습니다. |
@@ -300,7 +300,7 @@ ms.locfileid: "89461037"
 
 수명 주기 탭을 열어 아래로 스크롤하여 검토에 액세스 합니다.
 
- ![정책 편집](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ !["수명 주기" 탭의 "정책 편집"을 보여 주는 스크린샷](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>그룹에 대 한 액세스 검토 계획
 
@@ -333,9 +333,9 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 > [!NOTE]
 > 그룹을 만드는 방법을 정의 하는 비즈니스 정책을 정의 하 여 멤버 자격에 대 한 정기적인 검토를 위해 그룹 소유권과 책임이 명확 하 게 유지 되도록 하는 것이 좋습니다. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>CA 정책에서 제외 그룹의 멤버 자격 검토 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>조건부 액세스 정책에서 제외 그룹의 멤버 자격 검토 
 
-네트워크 보안을 유지 하도록 설계 된 조건부 액세스 (CA) 정책이 모든 사용자에 게 적용 되지 않아야 하는 경우가 있습니다. 예를 들어 회사 네트워크에서 사용자만 로그인 할 수 있도록 허용 하는 CA 정책은 광범위 하 게 이동 하는 영업 팀에 적용 되지 않을 수 있습니다. 이 경우 영업 팀 구성원이 그룹에 추가 되 고 해당 그룹이 CA 정책에서 제외 됩니다. 
+네트워크 보안을 유지 하도록 설계 된 조건부 액세스 정책이 모든 사용자에 게 적용 되는 것은 아닙니다. 예를 들어 회사 네트워크에서 사용자만 로그인 할 수 있도록 허용 하는 조건부 액세스 정책은 광범위 하 게 이동 하는 영업 팀에 적용 되지 않을 수 있습니다. 이 경우 영업 팀 구성원은 그룹에 추가 되 고 해당 그룹은 조건부 액세스 정책에서 제외 됩니다. 
 
 잘못 된 구성원이 요구 사항에서 제외 되는 경우 예외는 잠재적 위험을 나타내며 이러한 그룹 멤버 자격은 정기적으로 확인 합니다.
 
@@ -343,7 +343,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 ### <a name="review-external-users-group-memberships"></a>외부 사용자의 그룹 멤버 자격 검토
 
-수동 작업 및 연결 된 잠재적 오류를 최소화 하려면 [동적 그룹](../users-groups-roles/groups-create-rule.md) 을 사용 하 여 사용자의 특성에 따라 그룹 멤버 자격을 할당 하는 것이 좋습니다. 외부 사용자에 대해 하나 이상의 동적 그룹을 만들려고 할 수 있습니다. 내부 스폰서는 그룹의 멤버 자격에 대 한 검토자 역할을 할 수 있습니다. 
+수동 작업 및 연결 된 잠재적 오류를 최소화 하려면 [동적 그룹](../enterprise-users/groups-create-rule.md) 을 사용 하 여 사용자의 특성에 따라 그룹 멤버 자격을 할당 하는 것이 좋습니다. 외부 사용자에 대해 하나 이상의 동적 그룹을 만들려고 할 수 있습니다. 내부 스폰서는 그룹의 멤버 자격에 대 한 검토자 역할을 할 수 있습니다. 
 
 참고: 액세스 검토의 결과로 그룹에서 제거 된 외부 사용자는 테 넌 트에서 삭제 되지 않습니다. 
 
@@ -361,7 +361,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 * Microsoft Graph를 사용 하 여 완료 된 액세스 검토에서 결과 및 결정 사항에 프로그래밍 방식으로 액세스 합니다.
 
-예를 들어 Windows AD 관리 그룹에 대 한 결과에 액세스 하려면이 [PowerShell 샘플 스크립트](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)를 사용 합니다. 이 스크립트는 필요한 그래프 호출을 간략하게 설명 하 고 변경 내용을 수행 하기 위해 Windows AD-PowerShell 명령을 내보냅니다.
+예를 들어 Windows AD 관리 그룹에 대 한 결과에 액세스 하려면이 [PowerShell 샘플 스크립트](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)를 사용 합니다. 이 스크립트는 필요한 그래프 호출을 간략하게 설명 하 고 변경 내용을 수행 하는 Windows AD-PowerShell 명령을 내보냅니다.
 
 ## <a name="plan-access-reviews-for-applications"></a>응용 프로그램에 대 한 액세스 검토 계획 
 
@@ -389,7 +389,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Azure AD 및 Azure 리소스 역할의 계획 검토
 
-[PIM (Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 은 기업이 Azure AD의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 이렇게 하면 [AZURE AD](../users-groups-roles/directory-assign-admin-roles.md) 와 [azure 리소스](../../role-based-access-control/built-in-roles.md) 모두에서 권한 있는 역할의 목록을 훨씬 더 작게 유지 하 고 디렉터리의 전반적인 보안을 향상 시킵니다.
+[PIM (Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 은 기업이 Azure AD의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 이렇게 하면 [AZURE AD](../roles/permissions-reference.md) 와 [azure 리소스](../../role-based-access-control/built-in-roles.md) 모두에서 권한 있는 역할의 목록을 훨씬 더 작게 유지 하 고 디렉터리의 전반적인 보안을 향상 시킵니다.
 
 액세스 검토를 통해 검토자는 사용자가 여전히 역할에 있어야 하는지 여부를 증명할 수 있습니다. 액세스 패키지에 대 한 액세스 검토와 마찬가지로 Azure AD 역할 및 Azure 리소스에 대 한 검토가 PIM admin 사용자 환경에 통합 되어 있습니다. 정기적으로 다음 역할 할당을 검토 하는 것이 좋습니다.
 
@@ -419,7 +419,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 관리자는 부실 액세스의 위험을 줄이기 위해 액세스 패키지에 대 한 활성 할당을 가진 사용자를 정기적으로 검토할 수 있습니다. 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | - |
 | [액세스 검토 만들기](entitlement-management-access-reviews-create.md)| 액세스 패키지의 검토를 사용 하도록 설정 합니다. |
 | [액세스 검토 수행](entitlement-management-access-reviews-review-access.md)| 액세스 패키지에 할당 된 다른 사용자에 대 한 액세스 검토를 수행 합니다. |
@@ -433,7 +433,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 직원 및 게스트의 그룹 및 응용 프로그램에 대 한 액세스는 시간이 지남에 따라 변경 될 수 있습니다. 오래 된 액세스 할당과 관련 된 위험을 줄이기 위해 관리자는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 만들 수 있습니다. 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | - |
 | [액세스 검토 만들기](create-access-review.md)| 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만듭니다. |
 | [액세스 검토 수행](perform-access-review.md)| 응용 프로그램에 대 한 액세스 권한이 있는 그룹 구성원 또는 사용자에 대 한 액세스 검토를 수행 합니다. |
@@ -446,11 +446,11 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 부실 역할 할당과 관련 된 위험을 줄이려면 권한 있는 Azure AD 역할에 대 한 액세스를 정기적으로 검토 해야 합니다.
 
-![azure ad 역할 검토](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Azure A D 역할의 "구성원 자격 검토" 목록을 보여 주는 스크린샷](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 아래 링크의 지침을 따르세요.
 
-| 방법 문서 | Description |
+| 방법 문서 | 설명 |
 | - | - |
  [액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure AD 역할에 대 한 액세스 검토 만들기 |
 | [액세스 권한 자체 검토](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
@@ -465,7 +465,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | -|
 | [액세스 검토 만들기](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure 리소스 역할에 대 한 액세스 검토 만들기 |
 | [액세스 권한 자체 검토](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
@@ -518,4 +518,3 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 * [Azure AD 자격 관리 란?](entitlement-management-overview.md)
 
 * [Azure AD Privileged Identity Management란?](../privileged-identity-management/pim-configure.md)
-

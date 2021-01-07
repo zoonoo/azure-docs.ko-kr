@@ -10,16 +10,19 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206578"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655861"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 
-이 문서에서는 Azure Functions에서 준비 트리거를 사용 하는 방법을 설명 합니다. 워밍업 트리거는 [프리미엄 계획](functions-premium-plan.md)에서 실행 되는 함수 앱에 대해서만 지원 됩니다. 준비 트리거는 실행 중인 함수 앱의 크기를 조정 하기 위해 인스턴스를 추가할 때 호출 됩니다. 준비 트리거를 사용 하 여 [전처리 프로세스](./functions-premium-plan.md#pre-warmed-instances) 중에 사용자 지정 종속성을 미리 로드 하 여 함수가 즉시 요청 처리를 시작할 수 있도록 할 수 있습니다. 
+이 문서에서는 Azure Functions에서 준비 트리거를 사용 하는 방법을 설명 합니다. 준비 트리거는 실행 중인 함수 앱의 크기를 조정 하기 위해 인스턴스를 추가할 때 호출 됩니다. 준비 트리거를 사용 하 여 [전처리 프로세스](./functions-premium-plan.md#pre-warmed-instances) 중에 사용자 지정 종속성을 미리 로드 하 여 함수가 즉시 요청 처리를 시작할 수 있도록 할 수 있습니다. 
+
+> [!NOTE]
+> 소비 계획에서 실행 되는 함수 앱에는 워밍업 트리거가 지원 되지 않습니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -77,7 +80,7 @@ namespace WarmupSample
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 
-다음 예제에서는 파일 * 에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
+다음 예제에서는 파일 *에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
 
 함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
@@ -97,10 +100,8 @@ namespace WarmupSample
 
 [구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
 
-다음은 `HttpRequest`에 바인딩하는 C# 스크립트 코드입니다.
-
 ```cs
-public static void Run(ILogger log)
+public static void Run(WarmupContext warmupContext, ILogger log)
 {
     log.LogInformation("Function App instance is warm 🌞🌞🌞");  
 }
@@ -108,7 +109,7 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-다음 예에서는 파일 * 에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [JavaScript 함수](functions-reference-node.md)  를 보여 줍니다.
+다음 예에서는 파일 *에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [JavaScript 함수](functions-reference-node.md)  를 보여 줍니다.
 
 함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 

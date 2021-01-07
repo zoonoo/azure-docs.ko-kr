@@ -5,12 +5,12 @@ author: eamono
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
-ms.openlocfilehash: 6034d1327d263eda49881af5eedf94ae06495128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e01ffd8e17fda9113c7ec0fdb2c7f436b39c810
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122275"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936909"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Azure Functions 및 App Service 하이브리드 연결에서 PowerShell을 사용 하 여 하이브리드 환경 관리
 
@@ -50,9 +50,9 @@ cmd.exe /C $Cmd
 
 App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금제 에서만 사용할 수 있습니다. PowerShell을 사용 하 여 함수 앱을 만들 때 이러한 계획 중 하나를 만들거나 선택 합니다.
 
-1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 
-1. **새로 만들기** 페이지에서 **컴퓨팅** > **함수 앱**을 선택합니다.
+1. **새로 만들기** 페이지에서 **컴퓨팅** > **함수 앱** 을 선택합니다.
 
 1. **기본 사항** 페이지에서 함수 앱 설정을 다음 표에서 지정한 대로 사용합니다.
 
@@ -68,42 +68,42 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
 
     :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-basics.png" alt-text="함수 앱을 만듭니다. 기본 사항입니다." border="true":::
 
-1. **다음: 호스팅**을 선택합니다. **호스팅** 페이지에서 다음 설정을 입력합니다.
-
-    | 설정      | 제안 값  | 설명 |
-    | ------------ | ---------------- | ----------- |
-    | **[Storage 계정](../storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. 스토리지 계정 이름은 3자에서 24자 사이여야 하고 숫자와 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](../azure-functions/functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
-    |**운영 체제**| 기본 설정 운영 체제 | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. |
-    | **[플랜 유형](../azure-functions/functions-scale.md)** | **앱 서비스 계획** | **App service 계획**을 선택 합니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](../azure-functions/functions-scale.md)을 관리해야 합니다.  |
-
-    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="함수 앱 호스팅을 만듭니다." border="true":::
-
-1. **다음: 모니터링**을 선택합니다. **모니터링** 페이지에서 다음 설정을 입력합니다.
+1. **다음: 호스팅** 을 선택합니다. **호스팅** 페이지에서 다음 설정을 입력합니다.
 
     | 설정      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../azure-functions/functions-monitoring.md)** | 기본값 | 가장 가까운 지원 영역에 동일한 *앱 이름*의 Application Insight 리소스를 만듭니다. 이 설정을 확장하거나 **새로 만들기**를 선택하면 Application Insights 이름을 변경하거나 데이터를 저장하려는 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에서 다른 지역을 선택할 수 있습니다. |
+    | **[Storage 계정](../storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. 스토리지 계정 이름은 3자에서 24자 사이여야 하고 숫자와 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](../azure-functions/storage-considerations.md#storage-account-requirements)을 충족해야 합니다. |
+    |**운영 체제**| 기본 설정 운영 체제 | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. |
+    | **[플랜 유형](../azure-functions/functions-scale.md)** | **앱 서비스 계획** | **App service 계획** 을 선택 합니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](../azure-functions/functions-scale.md)을 관리해야 합니다.  |
+
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="함수 앱 호스팅을 만듭니다." border="true":::
+
+1. **다음: 모니터링** 을 선택합니다. **모니터링** 페이지에서 다음 설정을 입력합니다.
+
+    | 설정      | 제안 값  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | 기본값 | 가장 가까운 지원 영역에 동일한 *앱 이름* 의 Application Insight 리소스를 만듭니다. 이 설정을 확장하거나 **새로 만들기** 를 선택하면 Application Insights 이름을 변경하거나 데이터를 저장하려는 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에서 다른 지역을 선택할 수 있습니다. |
 
     :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="함수 앱 모니터링을 만듭니다." border="true":::
 
-1. **검토 + 만들기**를 선택하여 앱 구성 선택을 검토합니다.
+1. **검토 + 만들기** 를 선택하여 앱 구성 선택을 검토합니다.
 
-1. **검토 + 만들기** 페이지에서 설정을 검토한 다음, **만들기**를 선택하여 함수 앱을 프로비저닝하고 배포합니다.
+1. **검토 + 만들기** 페이지에서 설정을 검토한 다음, **만들기** 를 선택하여 함수 앱을 프로비저닝하고 배포합니다.
 
 1. 포털의 오른쪽 위 모서리에 있는 **알림** 아이콘을 선택하고 **배포 성공** 메시지를 확인합니다.
 
-1. **리소스로 이동**을 선택하여 함수 앱을 봅니다. **대시보드에 고정**을 선택할 수도 있습니다. 고정하면 대시보드에서 이 함수 앱 리소스로 쉽게 돌아올 수 있습니다.
+1. **리소스로 이동** 을 선택하여 함수 앱을 봅니다. **대시보드에 고정** 을 선택할 수도 있습니다. 고정하면 대시보드에서 이 함수 앱 리소스로 쉽게 돌아올 수 있습니다.
 
 ## <a name="create-a-hybrid-connection-for-the-function-app"></a>함수 앱에 대 한 하이브리드 연결 만들기
 
 하이브리드 연결은 함수 앱의 네트워킹 섹션에서 구성 됩니다.
 
-1. 방금 만든 함수 앱의 **설정** 에서 **네트워킹**을 선택 합니다. 
-1. **하이브리드 연결 끝점 구성**을 선택 합니다.
+1. 방금 만든 함수 앱의 **설정** 에서 **네트워킹** 을 선택 합니다. 
+1. **하이브리드 연결 끝점 구성** 을 선택 합니다.
    
     :::image type="content" source="./media/functions-hybrid-powershell/configure-hybrid-connection-endpoint.png" alt-text="하이브리드 연결 끝점을 구성 합니다." border="true":::
 
-1. **하이브리드 연결 추가**를 선택 합니다.
+1. **하이브리드 연결 추가** 를 선택 합니다.
    
     :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="하이브리드 연결을 추가 합니다." border="true":::
 
@@ -118,7 +118,7 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
     | **끝점 포트** | 5986 |
     | **Servicebus 네임 스페이스** | 새로 만들기 |
     | **위치** | 사용 가능한 위치 선택 |
-    | **이름** | contosopowershellhybrid | 
+    | **Name** | contosopowershellhybrid | 
 
 1. **확인** 을 선택 하 여 하이브리드 연결을 만듭니다.
 
@@ -152,19 +152,19 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
 
 ## <a name="create-an-app-setting-for-the-password-of-an-administrator-account"></a>관리자 계정의 암호에 대 한 앱 설정 만들기
 
-1. 함수 앱에 대 한 **설정** 에서 **구성**을 선택 합니다. 
-1. **+ 새 응용 프로그램 설정**을 선택 합니다.
+1. 함수 앱에 대 한 **설정** 에서 **구성** 을 선택 합니다. 
+1. **+ 새 응용 프로그램 설정** 을 선택 합니다.
 
     :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="관리자 계정에 대 한 암호를 구성 합니다." border="true":::
 
-1. **ContosoUserPassword**설정의 이름을로 설정 하 고 암호를 입력 합니다. **확인**을 선택합니다.
+1. **ContosoUserPassword** 설정의 이름을로 설정 하 고 암호를 입력 합니다. **확인** 을 선택합니다.
 1. **저장** 을 선택 하 여 함수 응용 프로그램에 암호를 저장 합니다.
 
     :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="관리자 계정에 대 한 암호를 저장 합니다." border="true":::
 
 ## <a name="create-a-function-http-trigger"></a>함수 HTTP 트리거 만들기
 
-1. 함수 앱에서 **함수**를 선택 하 고 **+ 추가**를 선택 합니다.
+1. 함수 앱에서 **함수** 를 선택 하 고 **+ 추가** 를 선택 합니다.
 
     :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="새 HTTP 트리거를 만듭니다." border="true":::
 
@@ -172,13 +172,13 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
 
     :::image type="content" source="./media/functions-hybrid-powershell/select-http-trigger-template.png" alt-text="HTTP 트리거 템플릿을 선택 합니다." border="true":::
 
-1. 새 함수의 이름을로 **만들고 함수 만들기**를 선택 합니다.
+1. 새 함수의 이름을로 **만들고 함수 만들기** 를 선택 합니다.
 
     :::image type="content" source="./media/functions-hybrid-powershell/create-new-http-function.png" alt-text="이름 및 새 HTTP 트리거 함수를 만듭니다." border="true":::
 
 ## <a name="test-the-function"></a>함수 테스트
 
-1. 새 함수에서 **코드 + 테스트**를 선택 합니다. 템플릿에서 PowerShell 코드를 다음 코드로 바꿉니다.
+1. 새 함수에서 **코드 + 테스트** 를 선택 합니다. 템플릿에서 PowerShell 코드를 다음 코드로 바꿉니다.
 
     ```powershell
     # Input bindings are passed in via param block.
@@ -213,11 +213,11 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
                    -SessionOption (New-PSSessionOption -SkipCACheck)
     ```
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
     :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="PowerShell 코드를 변경 하 고 HTTP 트리거 함수를 저장 합니다." border="true":::
 
- 1. **테스트**를 선택 하 고 **실행** 을 선택 하 여 함수를 테스트 합니다. 로그를 검토 하 여 테스트에 성공 했는지 확인 합니다.
+ 1. **테스트** 를 선택 하 고 **실행** 을 선택 하 여 함수를 테스트 합니다. 로그를 검토 하 여 테스트에 성공 했는지 확인 합니다.
 
      :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="HTTP 트리거 함수를 테스트 합니다." border="true":::
 

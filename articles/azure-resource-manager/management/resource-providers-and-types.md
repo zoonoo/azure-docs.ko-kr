@@ -2,20 +2,20 @@
 title: 리소스 공급자 및 리소스 종류
 description: Azure Resource Manager를 지 원하는 리소스 공급자에 대해 설명 합니다. 해당 스키마, 사용 가능한 API 버전 및 리소스를 호스팅할 수 있는 지역을 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278890"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745119"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
 리소스를 배포할 때는 리소스 공급자 및 형식에 대한 정보를 자주 검색하게 됩니다. 예를 들어 키와 암호를 저장하려는 경우 Microsoft.KeyVault 리소스 공급자로 작업합니다. 이 리소스 공급자는 키 자격 증명 모음을 만드는 데 자격 증명 모음이라는 리소스 유형을 제공합니다.
 
-리소스 종류의 이름은 **{resource-provider}/{resource-type}** 양식입니다. 키 자격 증명 모음의 리소스 유형은 **Microsoft.KeyVault/vaults**입니다.
+리소스 종류의 이름은 **{resource-provider}/{resource-type}** 양식입니다. 키 자격 증명 모음의 리소스 유형은 **Microsoft.KeyVault/vaults** 입니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -32,9 +32,12 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 �
 
 ## <a name="register-resource-provider"></a>리소스 공급자 등록
 
-리소스 공급자를 사용 하기 전에 Azure 구독에 대 한 리소스 공급자를 등록 해야 합니다. 이 단계에서는 리소스 공급자와 함께 작동 하도록 구독을 구성 합니다. 등록 범위는 항상 해당 구독입니다. 기본적으로 대부분의 리소스 공급자는 자동으로 등록됩니다. 그러나 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다.
+리소스 공급자를 사용 하기 전에 리소스 공급자에 대 한 Azure 구독을 등록 해야 합니다. 등록은 리소스 공급자와 함께 작동 하도록 구독을 구성 합니다. 일부 리소스 공급자는 기본적으로 등록 됩니다. 다른 리소스 공급자는 특정 작업을 수행할 때 자동으로 등록 됩니다. 예를 들어 포털을 통해 리소스를 만드는 경우 리소스 공급자가 일반적으로 등록 됩니다. 다른 시나리오의 경우 리소스 공급자를 수동으로 등록 해야 할 수 있습니다. 기본적으로 등록 된 리소스 공급자 목록은 [Azure 서비스에 대 한 리소스 공급자](azure-services-resource-providers.md)를 참조 하세요.
 
 이 문서에서는 리소스 공급자의 등록 상태를 확인 하 고 필요에 따라 등록 하는 방법을 보여 줍니다. `/register/action`리소스 공급자에 대 한 작업을 수행할 수 있는 권한이 있어야 합니다. 이 사용 권한은 참가자 및 소유자 역할에 포함 되어 있습니다.
+
+> [!IMPORTANT]
+> 사용할 준비가 된 경우에만 리소스 공급자를 등록 합니다. 등록 단계를 통해 구독 내에서 최소의 권한을 유지할 수 있습니다. 악의적인 사용자는 등록 되지 않은 리소스 공급자를 사용할 수 없습니다.
 
 응용 프로그램 코드는 **등록** 상태에 있는 리소스 공급자에 대 한 리소스 생성을 차단 하지 않아야 합니다. 리소스 공급자를 등록 하면 지원 되는 각 지역에 대해 작업이 개별적으로 수행 됩니다. 지역에서 리소스를 만들려면 해당 지역 에서만 등록을 완료 해야 합니다. 등록 상태에서 리소스 공급자를 차단 하지 않으면 응용 프로그램은 모든 지역이 완료 될 때까지 대기 하는 것 보다 훨씬 더 빨리 계속할 수 있습니다.
 
@@ -42,30 +45,38 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 �
 
 ## <a name="azure-portal"></a>Azure portal
 
+### <a name="register-resource-provider"></a>리소스 공급자 등록
+
 모든 리소스 공급자와 구독 등록 상태를 보려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal 메뉴에서 **모든 서비스**를 선택합니다.
+1. Azure Portal 메뉴에서 **구독** 을 검색 합니다. 사용 가능한 옵션에서 선택합니다.
 
-    ![구독 선택](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="구독 검색":::
 
-3. **모든 서비스 ** 상자에서 **구독**을 입력한 다음, **구독**을 선택합니다.
-4. 구독 목록에서 보려는 구독을 선택합니다.
-5. **리소스 공급자**를 선택하고 사용 가능한 리소스 공급자의 목록을 봅니다.
+1. 보려는 구독을 선택 합니다.
 
-    ![리소스 공급자 보기](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="구독 선택":::
 
-6. 리소스 공급자를 등록하려면 **등록**을 선택합니다. 이전 스크린샷에는 **Microsoft.Blueprint**에 대한 **등록** 링크가 강조 표시되어 있습니다.
+1. 왼쪽 메뉴의 **설정** 에서 **리소스 공급자** 를 선택합니다.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="리소스 공급자 선택":::
+
+6. 등록할 리소스 공급자를 찾고 **등록** 을 선택 합니다. 구독에서 최소 권한을 유지 하려면 사용할 준비가 된 리소스 공급자만 등록 합니다.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="리소스 공급자 등록":::
+
+### <a name="view-resource-provider"></a>리소스 공급자 보기
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal 메뉴에서 **모든 서비스**를 선택합니다.
-3. **모든 서비스** 상자에서 **리소스 탐색기**를 입력한 다음, **리소스 탐색기**를 선택합니다.
+2. Azure Portal 메뉴에서 **모든 서비스** 를 선택합니다.
+3. **모든 서비스** 상자에서 **리소스 탐색기** 를 입력한 다음, **리소스 탐색기** 를 선택합니다.
 
     ![모든 서비스 선택](./media/resource-providers-and-types/select-resource-explorer.png)
 
-4. 오른쪽 화살표를 선택하여 **공급자**를 확장합니다.
+4. 오른쪽 화살표를 선택하여 **공급자** 를 확장합니다.
 
     ![공급자 선택](./media/resource-providers-and-types/select-providers.png)
 
@@ -82,8 +93,6 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 �
     ![API 버전 표시](./media/resource-providers-and-types/show-api-versions.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure의 모든 리소스 공급자와 구독에 대한 등록 상태를 보려면 다음을 사용합니다.
 
@@ -103,7 +112,13 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-리소스 공급자를 등록하려면 다음을 사용합니다.
+구독에 대해 등록 된 모든 리소스 공급자를 보려면 다음을 사용 합니다.
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
+```
+
+구독에서 최소 권한을 유지 하려면 사용할 준비가 된 리소스 공급자만 등록 합니다. 리소스 공급자를 등록하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -190,7 +205,7 @@ West US
 
 Azure의 모든 리소스 공급자와 구독에 대한 등록 상태를 보려면 다음을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -206,9 +221,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-리소스 공급자를 등록하려면 다음을 사용합니다.
+구독에 대해 등록 된 모든 리소스 공급자를 보려면 다음을 사용 합니다.
 
-```azurecli
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
+구독에서 최소 권한을 유지 하려면 사용할 준비가 된 리소스 공급자만 등록 합니다. 리소스 공급자를 등록하려면 다음을 사용합니다.
+
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -216,7 +237,7 @@ az provider register --namespace Microsoft.Batch
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -235,7 +256,7 @@ az provider show --namespace Microsoft.Batch
 
 리소스 공급자에 대한 리소스 종류를 보려면 다음을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -254,7 +275,7 @@ API 버전은 리소스 공급자가 릴리스하는 REST API 작업의 버전�
 
 리소스 종류의 사용 가능한 API 버전을 가져오려면 다음을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -274,7 +295,7 @@ Result
 
 리소스 종류의 지원되는 위치를 가져오려면 다음을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 

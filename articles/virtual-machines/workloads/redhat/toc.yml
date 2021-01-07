@@ -2,11 +2,21 @@
   href: overview.md
 - name: Red Hat Enterprise Linux 이미지
   items:
-    - name: Red Hat Enterprise Linux 이미지 개요
+    - name: RHEL 이미지 개요
       href: redhat-images.md
-    - name: Red Hat Enterprise Linux 이미지 목록
+    - name: RHEL 이미지 목록
       href: redhat-imagelist.md
+- name: Red Hat Java 빠른 시작
+  items:
+    - name: VM/VMSS의 JBoss EAP + RHEL
+      href: jboss-eap-on-rhel.md
+    - name: VM의 WildFly + CentOS
+      href: wildfly-on-centos.md
 - name: Azure의 Red Hat 업데이트 인프라
   href: redhat-rhui.md
 - name: Red Hat Enterprise Linux BYOS 이미지 제품
   href: byos.md
+- name: Red Hat Enterprise Linux 연장된 수명 주기 지원
+  href: redhat-extended-lifecycle-support.md
+- name: Azure에서 Red Hat Enterprise 이미지의 현재 위치 업그레이드
+  href: redhat-in-place-upgrade.md

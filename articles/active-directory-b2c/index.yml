@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: 34cb40d385b007f8a41a6700448a1591b714c096
-  ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+  ms.openlocfilehash: 1f7eac5adc9099f4c00b5a12528a74a50965675c
+  ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90562760"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97508002"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: Azure AD B2C란?
       url: overview.md
     - text: External Identities용 솔루션 비교
-      url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Azure AD B2C 시작
       url: tutorial-create-tenant.md
     - text: 기술 및 기능 개요
@@ -38,15 +38,15 @@ landingContent:
   - linkListType: learn
     links:
     - text: 인증 및 권한 부여
-      url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: 토큰
-      url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: 프로토콜
-      url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: 인증 라이브러리
-      url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+      url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: '웹 사이트 빌드: HTML, CSS, JavaScript'
-      url: https://docs.microsoft.com/learn/modules/build-simple-website/
+      url: /learn/modules/build-simple-website/
 - title: 일반 사용 예
   linkLists:
   - linkListType: how-to-guide
@@ -56,9 +56,9 @@ landingContent:
     - text: '소셜 및 회사 ID 추가: OIDC/OAuth2/SAML'
       url: tutorial-add-identity-providers.md
     - text: SSO(Single Sign-On) 사용
-      url: session-overview.md
+      url: session-behavior.md
     - text: UI/UX 사용자 지정
-      url: customize-ui-overview.md
+      url: customize-ui-with-html.md
     - text: 사용자 및 앱 마이그레이션
       url: user-migration.md
 - title: 애플리케이션에 로그인 추가
@@ -94,7 +94,7 @@ landingContent:
     - text: 사용자 데이터가 저장되는 위치 알아보기
       url: data-residency.md
     - text: 규정
-      url: overview.md
+      url: ../compliance/index.yml
     - text: 사용자 액세스 및 사용 약관
       url: manage-user-access.md
 - title: 작업
@@ -105,8 +105,8 @@ landingContent:
       url: deploy-custom-policies-devops.md
     - text: 모니터링
       url: azure-monitor.md
-    - text: 관리자에 대한 역할 기반 액세스
-      url: overview.md
+    - text: 관리자에 대한 역할 기반 액세스 제어
+      url: ../active-directory/roles/permissions-reference.md
     - text: 사용자 관리
       url: manage-user-accounts-graph-api.md
     - text: 문제 해결

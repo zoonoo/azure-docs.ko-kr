@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: efd6e6a93cd4ca79e6c4b6de69f8514e2d71b252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84323317"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Verizon Premium의 Azure CDN 규칙 엔진 일치 조건
@@ -39,11 +39,11 @@ ms.locfileid: "84323317"
 
 [항상 일치 조건은](https://docs.vdms.com/cdn/Content/HRE/M/Always.htm) 모든 요청에 기본 기능 집합을 적용 하도록 디자인 되었습니다.
 
-### <a name="device"></a><a name="device"></a>장치
+### <a name="device"></a><a name="device"></a>디바이스
 
 이러한 일치 조건은 클라이언트의 사용자 에이전트에 따라 요청을 식별 하도록 설계 되었습니다.
 
-| Name       | 목적                                                           |
+| 속성       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | 브랜드 이름 | 장치의 브랜드 이름이과 일치 하는지 여부에 따라 요청을 식별 합니다. <br> **-** 특정 값 ([브랜드 이름 리터럴](https://docs.vdms.com/cdn/Content/HRE/M/D-Brand-Name-Literal.htm)) <br> **-** 정규식 ([브랜드 이름 Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Brand-Name-Regex.htm)) <br> **-** 특정 패턴 ([브랜드 이름 와일드 카드](https://docs.vdms.com/cdn/Content/HRE/M/D-Brand-Name-Wildcard.htm)) |
 | 디바이스 OS | 장치의 OS가과 일치 하는지 여부에 따라 요청을 식별 합니다. <br> **-** 특정 값 ([장치 OS 리터럴](https://docs.vdms.com/cdn/Content/HRE/M/D-Device-OS-Literal.htm)) <br> **-** 정규식 ([장치 OS Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Device-OS-Regex.htm)) <br> **-** 특정 패턴 ([장치 OS 와일드 카드](https://docs.vdms.com/cdn/Content/HRE/M/D-Device-OS-Wildcard.htm)) |
@@ -73,11 +73,11 @@ ms.locfileid: "84323317"
 
 **[맨 위로 이동](#top)**
 
-### <a name="location"></a><a name="location"></a>위치
+### <a name="location"></a><a name="location"></a>위치도
 
 이 일치 조건은 요청자의 위치에 따라 요청을 식별하도록 설계되었습니다.
 
-| Name       | 목적                                                           |
+| 속성       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [AS 숫자](https://docs.vdms.com/cdn/Content/HRE/M/AS-Number.htm) | 특정 네트워크에서 발생하는 요청을 식별합니다. |
 | 도시 이름 | 는 이름이과 (와) 일치 하는 도시에서 시작 되었는지 여부에 따라 요청을 식별 합니다. <br> **-** 특정 값 ([도시 이름 리터럴](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Literal.htm)) <br> **-** Regular expression ([City Name Regex](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Regex.htm)) |
@@ -100,7 +100,7 @@ ms.locfileid: "84323317"
 
 이 일치 조건은 CDN 스토리지 또는 고객 원본 서버를 가리키는 요청을 식별하도록 설계되었습니다.
 
-| Name       | 목적                                                           |
+| 속성       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [CDN 원본](https://docs.vdms.com/cdn/Content/HRE/M/CDN-Origin.htm) | CDN 스토리지에 저장된 콘텐츠에 대한 요청을 식별합니다. |
 | [고객 원본](https://docs.vdms.com/cdn/Content/HRE/M/Customer-Origin.htm) | 특정 고객 원본 서버에 저장된 콘텐츠에 대한 요청을 식별합니다. |
@@ -111,7 +111,7 @@ ms.locfileid: "84323317"
 
 이 일치 조건은 해당 속성에 따라 요청을 식별하도록 설계되었습니다.
 
-| Name              | 목적                                                                |
+| 속성              | 목적                                                                |
 |-------------------|------------------------------------------------------------------------|
 | [클라이언트 IP 주소](https://docs.vdms.com/cdn/Content/HRE/M/Client-IP-Address.htm) | 특정 IP 주소에서 발생하는 요청을 식별합니다. |
 | 쿠키 매개 변수  | 는와 일치 하는 쿠키를 포함 하는지 여부에 따라 요청을 식별 합니다. <br> **-** 특정 값 ([쿠키 매개 변수 리터럴](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Literal.htm)) <br> **-** 정규식 ([쿠키 매개 변수 Regex](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Regex.htm) <br> **-** 특정 패턴 ([쿠키 매개 변수 와일드 카드](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Wildcard.htm)) |
@@ -125,7 +125,7 @@ ms.locfileid: "84323317"
 
 ### <a name="url"></a><a name="url"></a>URL
 
-| Name              | 목적                                                                |
+| 속성              | 목적                                                                |
 |-------------------|------------------------------------------------------------------------|
 | 맵의 경로와 | 파일 이름을 포함 하 여 상대 경로가과 일치 하는지 여부에 따라 요청을 식별 합니다. <br> **-** 특정 값 ([URL 경로 리터럴](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Literal.htm)) <br> **-** 정규식 ([URL 경로 Regex](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Regex.htm)) <br> **-** 특정 패턴 ([URL 경로 와일드 카드](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Wildcard.htm)) |
 | URL 경로 디렉터리 | 상대 경로가과 일치 하는지 여부에 따라 요청을 식별 합니다. <br> **-** 특정 값 ([URL 경로 디렉터리 리터럴](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Directory-Literal.htm)) <br> **-** 특정 패턴 ([URL 경로 디렉터리 와일드 카드](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Directory-Wildcard.htm)) |

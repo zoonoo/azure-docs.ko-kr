@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Azure Dev Spaces 사용 하 여 Azure Kubernetes Service에서 코드를 실행 하는 프로세스를 설명 합니다.
 keywords: azds, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: a189b26264f3e22a69acb3e3c0410203f9822c31
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1cace325f9415d46210636e5c04cc2d75589cc11
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981285"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014434"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Azure Dev Spaces 작업을 사용 하 여 코드를 실행 하는 방법
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces를 사용하면 여러 가지 방법을 통해 Kubernetes 애플리케이션을 신속하게 반복하고 디버그할 수 있으며, AKS(Azure Kubernetes Service) 클러스터에서 팀과 공동 작업이 가능합니다. 프로젝트를 [개발 공간에서 실행할 준비가][how-it-works-prep]되 면 개발 공간을 사용 하 여 AKS 클러스터에서 프로젝트를 빌드하고 실행할 수 있습니다.
 
@@ -62,13 +64,13 @@ azds up
 
 Html, css, cshtml 파일 등의 정적 자산에 해당 하는 특정 프로젝트 파일은 아무것도 다시 시작 하지 않고 응용 프로그램의 컨테이너에서 직접 업데이트할 수 있습니다. 정적 자산이 변경 되 면 새 파일이 dev 공간에 동기화 된 다음 실행 중인 컨테이너에서 사용 됩니다.
 
-소스 코드 또는 응용 프로그램 구성 파일과 같은 파일에 대 한 변경 내용은 실행 중인 컨테이너 내에서 응용 프로그램의 프로세스를 다시 시작 하 여 적용할 수 있습니다. 이러한 파일이 동기화 되 면 *devhostagent* 프로세스를 사용 하 여 실행 중인 컨테이너 내에서 응용 프로그램의 프로세스가 다시 시작 됩니다. 응용 프로그램의 컨테이너를 처음 만들 때 컨트롤러는 응용 프로그램의 startup 명령을 *devhostagent*이라는 다른 프로세스로 바꿉니다. 그러면 응용 프로그램의 실제 프로세스가 *devhostagent*에서 자식 프로세스로 실행 되 고 해당 출력은 *devhostagent*의 출력을 사용 하 여 전달 됩니다. *Devhostagent* 프로세스는 또한 dev 공간의 일부 이며 dev 공간을 대신 하 여 실행 중인 컨테이너에서 명령을 실행할 수 있습니다. 다시 시작을 수행 하는 경우 *devhostagent*는 다음과 같습니다.
+소스 코드 또는 응용 프로그램 구성 파일과 같은 파일에 대 한 변경 내용은 실행 중인 컨테이너 내에서 응용 프로그램의 프로세스를 다시 시작 하 여 적용할 수 있습니다. 이러한 파일이 동기화 되 면 *devhostagent* 프로세스를 사용 하 여 실행 중인 컨테이너 내에서 응용 프로그램의 프로세스가 다시 시작 됩니다. 응용 프로그램의 컨테이너를 처음 만들 때 컨트롤러는 응용 프로그램의 startup 명령을 *devhostagent* 이라는 다른 프로세스로 바꿉니다. 그러면 응용 프로그램의 실제 프로세스가 *devhostagent* 에서 자식 프로세스로 실행 되 고 해당 출력은 *devhostagent* 의 출력을 사용 하 여 전달 됩니다. *Devhostagent* 프로세스는 또한 dev 공간의 일부 이며 dev 공간을 대신 하 여 실행 중인 컨테이너에서 명령을 실행할 수 있습니다. 다시 시작을 수행 하는 경우 *devhostagent* 는 다음과 같습니다.
 
 * 응용 프로그램과 관련 된 현재 프로세스 또는 프로세스를 중지 합니다.
 * 응용 프로그램을 다시 빌드합니다.
 * 응용 프로그램과 관련 된 프로세스를 다시 시작 합니다.
 
-*Devhostagent* 가 이전 단계를 실행 하는 방식은 [에서 `azds.yaml` 구성 ][azds-yaml-section]됩니다.
+*Devhostagent* 가 이전 단계를 실행 하는 방식은 [에서 `azds.yaml` 구성][azds-yaml-section]됩니다.
 
 Dockerfiles, .csproj 파일 또는 투구 차트의 일부와 같은 프로젝트 파일을 업데이트 하려면 응용 프로그램의 컨테이너를 다시 빌드하고 다시 배포 해야 합니다. 이러한 파일 중 하나가 dev 공간에 동기화 되 면 컨트롤러는 [투구 업그레이드][helm-upgrade] 명령을 실행 하 고 응용 프로그램의 컨테이너가 다시 작성 되 고 다시 배포 됩니다.
 
@@ -126,15 +128,15 @@ install:
 
 *Install. values* 속성을 사용 하 여 투구 차트에서 대체 하려는 값을 정의 하는 하나 이상의 파일을 나열할 수 있습니다. 예를 들어 개발 공간에서 응용 프로그램을 실행할 때 호스트 이름 또는 데이터베이스 구성이 특별히 필요한 경우이 재정의 기능을 사용할 수 있습니다. *를 추가할* 수도 있습니다. 모든 파일 이름 끝에 선택적으로 설정 합니다.
 
-*Install. set* 속성을 사용 하면 투구 차트에서 바꾸려는 값을 하나 이상 구성할 수 있습니다. *Install. set* 에 구성 된 값은 *install. values*에 나열 된 파일에 구성 된 값을 재정의 합니다. *Install. set* 의 속성은 투구 차트의 값에 따라 다르며 생성 된 투구 차트에 따라 달라질 수 있습니다.
+*Install. set* 속성을 사용 하면 투구 차트에서 바꾸려는 값을 하나 이상 구성할 수 있습니다. *Install. set* 에 구성 된 값은 *install. values* 에 나열 된 파일에 구성 된 값을 재정의 합니다. *Install. set* 의 속성은 투구 차트의 값에 따라 다르며 생성 된 투구 차트에 따라 달라질 수 있습니다.
 
 위의 예에서 *replicaCount* 속성은 개발자 공간에서 실행할 응용 프로그램의 인스턴스 수를 컨트롤러에 알려 줍니다. 시나리오에 따라이 값을 늘릴 수 있지만 응용 프로그램의 pod에 디버거를 연결 하는 데 영향을 줄 수 있습니다. 자세한 내용은 [문제 해결 문서][troubleshooting]를 참조 하세요.
 
-생성 된 투구 차트에서 컨테이너 이미지는 {{로 설정 됩니다 *. Values. repository}}: {{. Values. tag}}*. `azds.yaml`이 파일은 기본적으로 *$ (tag)로 설정 하 여 $ (tag)* 로 *설정* 합니다 .이 속성은 {{에 대 한 값으로 사용 됩니다. * Values. tag}}*. 이렇게 하면 *install.* .. tag 속성을 설정 하 여 Azure Dev Spaces 실행 될 때 응용 프로그램에 대 한 컨테이너 이미지를 고유한 방식으로 태그를 지정할 수 있습니다. 이 특정 사례에서 이미지는 * \<value from image.repository> $ (tag)* 로 태그가 지정 됩니다. 개발 공간을 인식 하 고 AKS 클러스터에서 컨테이너를 찾기 위해 *$ (tag)* 변수를   *install.* 값으로 사용 해야 합니다.
+생성 된 투구 차트에서 컨테이너 이미지는 {{로 설정 됩니다 *. Values. repository}}: {{. Values. tag}}*. `azds.yaml`이 파일은 기본적으로 *$ (tag)로 설정 하 여 $ (tag)* 로 *설정* 합니다 .이 속성은 {{에 대 한 값으로 사용 됩니다. *Values. tag}}*. 이렇게 하면 *install.* .. tag 속성을 설정 하 여 Azure Dev Spaces 실행 될 때 응용 프로그램에 대 한 컨테이너 이미지를 고유한 방식으로 태그를 지정할 수 있습니다. 이 특정 사례에서 이미지는 *\<value from image.repository> $ (tag)* 로 태그가 지정 됩니다. 개발 공간을 인식 하 고 AKS 클러스터에서 컨테이너를 찾기 위해 *$ (tag)* 변수를   *install.* 값으로 사용 해야 합니다.
 
 위의 예제에서는 install... `azds.yaml` *install.set.ingress.hosts* *Install. ingress* 속성은 공용 끝점에 대 한 호스트 이름 형식을 정의 합니다. 이 속성은 컨트롤러에서 제공 하는 값인 *$ (spacePrefix)*, *$ (rootSpacePrefix)* 및 *$ (hostsuffix)* 도 사용 합니다.
 
-*$ (SpacePrefix)* 는 *SPACENAME*형식으로 사용 되는 자식 개발 공간의 이름입니다. *$ (RootSpacePrefix)* 는 부모 공간의 이름입니다. 예를 들어 *azureuser* 가 *기본값*의 하위 공간이 면 *$ (rootSpacePrefix)* 에 대 한 값은 *기본값이* 고 *$ (spacePrefix)* 의 값은 *azureuser. s*입니다. 공간이 하위 공간이 아니면 *$ (spacePrefix)* 가 비어 있습니다. 예를 들어 *기본* 공간에 부모 공간이 없으면 *$ (rootSpacePrefix)* 에 대 한 값이 *기본값이* 고 *$ (spacePrefix)* 의 값이 비어 있습니다. *$ (Hostsuffix)* 는 AKS 클러스터에서 실행 되는 Azure Dev Spaces 수신 컨트롤러를 가리키는 DNS 접미사입니다. 이 DNS 접미사는 와일드 카드 DNS 항목에 해당 합니다 (예:) * \* . RANDOM_VALUE*AKS 클러스터에 Azure Dev Spaces 컨트롤러를 추가할 때 생성 된 azds입니다.
+*$ (SpacePrefix)* 는 *SPACENAME* 형식으로 사용 되는 자식 개발 공간의 이름입니다. *$ (RootSpacePrefix)* 는 부모 공간의 이름입니다. 예를 들어 *azureuser* 가 *기본값* 의 하위 공간이 면 *$ (rootSpacePrefix)* 에 대 한 값은 *기본값이* 고 *$ (spacePrefix)* 의 값은 *azureuser. s* 입니다. 공간이 하위 공간이 아니면 *$ (spacePrefix)* 가 비어 있습니다. 예를 들어 *기본* 공간에 부모 공간이 없으면 *$ (rootSpacePrefix)* 에 대 한 값이 *기본값이* 고 *$ (spacePrefix)* 의 값이 비어 있습니다. *$ (Hostsuffix)* 는 AKS 클러스터에서 실행 되는 Azure Dev Spaces 수신 컨트롤러를 가리키는 DNS 접미사입니다. 이 DNS 접미사는 와일드 카드 DNS 항목에 해당 합니다 (예:) *\* . RANDOM_VALUE* AKS 클러스터에 Azure Dev Spaces 컨트롤러를 추가할 때 생성 된 azds입니다.
 
 위의 파일에서 `azds.yaml` update-help를 업데이트 하 여 응용 *install.set.ingress.hosts* 프로그램의 호스트 이름을 변경할 수도 있습니다. 예를 들어 *$ (spacePrefix) $ (rootSpacePrefix) webfrontend 엔드 $ (hostSuffix)* 에서 *$ (spacePrefix) $ (rootSpacePrefix) 웹 $ (hostsuffix)* 로 응용 프로그램의 호스트 이름을 간소화 하려는 경우를 예로 들 수 있습니다.
 

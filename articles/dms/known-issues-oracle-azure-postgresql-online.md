@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/20/2020
-ms.openlocfilehash: 06e96e970705801203c0469d5b87d1304d67a4f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b331f8e0af452937028c63fba123cb92f57a6b0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090691"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962419"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Oracle에서 Azure DB for PostgreSQL-단일 서버로의 온라인 마이그레이션 시 알려진 문제/마이그레이션 제한 사항
 
@@ -34,7 +34,7 @@ Azure Database Migration Service는 CDB(다중 테넌트 컨테이너 데이터�
 
 ## <a name="postgresql-versions-supported-as-a-target-database"></a>대상 데이터베이스로 지원되는 PostgreSQL 버전
 
-Azure Database Migration Service는 Azure Database for PostgreSQL-단일 서버 버전 9.5, 9.6, 10, 11로의 마이그레이션을 지원합니다. Azure Database for PostgreSQL-단일 서버의 버전 지원에 대한 최신 정보는 [지원되는 PostgreSQL 데이터베이스 버전](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) 문서를 참조하세요.
+Azure Database Migration Service는 Azure Database for PostgreSQL-단일 서버 버전 9.5, 9.6, 10, 11로의 마이그레이션을 지원합니다. Azure Database for PostgreSQL-단일 서버의 버전 지원에 대한 최신 정보는 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md) 문서를 참조하세요.
 
 ## <a name="datatype-limitations"></a>데이터 형식 제한 사항
 

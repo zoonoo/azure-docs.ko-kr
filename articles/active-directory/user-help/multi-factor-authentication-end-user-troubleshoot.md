@@ -12,13 +12,13 @@ ms.topic: end-user-help
 ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
-metadata ms.custom: contperfq1
-ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: caa2c66d66cce09f5b5b0fe0948ab924389d756e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322605"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033785"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 회사 또는 학교 계정에 대한 일반적인 문제
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) 조직은 계정에 대해 2 단계 인증을 
 - 사용자 암호
 - 모바일 장치 또는 전화
 
-2 단계 인증에는 사용자가 알고 있는 것과 사용자가 _알고_ _있는_것이 필요 하기 때문에 2 단계 인증은 암호 보다 더 안전 합니다. 실제 전화가 있는 해커는 없습니다.
+2 단계 인증에는 사용자가 알고 있는 것과 사용자가 _알고_ _있는_ 것이 필요 하기 때문에 2 단계 인증은 암호 보다 더 안전 합니다. 실제 전화가 있는 해커는 없습니다.
 
 >[!Important]
 >관리자의 경우, [Azure AD 문서](../index.yml)에서 Azure AD 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 확인할 수 있습니다.
@@ -74,6 +74,7 @@ Azure Active Directory (Azure AD) 조직은 계정에 대해 2 단계 인증을 
 
 사용 방법 | 지침 정보
 --------- | ------------
+Microsoft authenticator 앱 또는 확인 코드 사용 | 로그인 하는 동안 "확인 통화에 대 한 제한을 초과 했습니다." 또는 "텍스트 확인 코드에 대 한 제한에 도달 했습니다" 라는 메시지가 표시 됩니다. <br/><br/>Microsoft는 짧은 시간 동안 동일한 사용자가 수행 하는 반복적인 인증 시도를 제한할 수 있습니다. 이러한 제한 사항은 Microsoft Authenticator 또는 확인 코드에는 적용 되지 않습니다. 이러한 제한에 도달 하면 인증 앱, 확인 코드를 사용 하거나 몇 분 후에 다시 로그인 해 볼 수 있습니다.
 모바일 디바이스 다시 시작 | 경우에 따라 디바이스에 새로 고침이 필요할 수도 있습니다. 장치를 다시 시작 하면 모든 백그라운드 프로세스 및 서비스가 종료 됩니다. 다시 시작 하면 장치의 핵심 구성 요소도 종료 됩니다. 장치를 다시 시작 하면 모든 서비스 또는 구성 요소가 새로 고쳐집니다.
 보안 정보가 올바른지 확인합니다. | 보안 인증 방법 정보 특히 전화 번호가 정확한지 확인합니다. 잘못된 전화 번호를 입력한 경우, 모든 경고는 잘못 입력된 해당 전화 번호로 전달됩니다. 다행히도 해당 사용자는 경고를 사용하여 어떤 작업도 수행할 수 없으며 다만 이는 계정에 로그인하는 데에도 도움이 되지 않습니다. 정보가 올바른지 확인하려면 [2단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md) 문서에서 해당 지침을 참조하세요.
 알림이 설정되었는지 확인 | 모바일 장치의 알림이 켜져 있는지 확인 합니다. 다음 알림 모드가 허용 되는지 확인 합니다. <br/><br/> &bull; 전화 통화 <br/> &bull; 인증 앱 <br/> &bull; 텍스트 메시징 앱 <br/><br/> 이러한 모드에서 장치에 _표시_ 되는 경고를 생성 하는지 확인 합니다.
@@ -109,7 +110,7 @@ Azure Active Directory (Azure AD) 조직은 계정에 대해 2 단계 인증을 
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>여행 중 모바일 디바이스에 로그인하는 데 문제가 있는 경우
 
-국제 행선지에 있는 동안 문자 메시지와 같은 모바일 디바이스 관련 확인 방법을 사용하는 것이 더 어려울 수 있습니다. 또한 모바일 디바이스에서 로밍 요금이 발생할 수도 있습니다. 이 경우 Wi-fi 핫 스폿에 연결 하는 옵션과 함께 Microsoft Authenticator 앱을 사용 하는 것이 좋습니다. 모바일 장치에서 Microsoft Authenticator 앱을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서를 참조 하세요.
+국제 행선지에 있는 동안 문자 메시지와 같은 모바일 디바이스 관련 확인 방법을 사용하는 것이 더 어려울 수 있습니다. 또한 모바일 디바이스에서 로밍 요금이 발생할 수도 있습니다. 이 경우 Wi-Fi 핫 스폿에 연결 하는 옵션과 함께 Microsoft Authenticator 앱을 사용 하는 것이 좋습니다. 모바일 장치에서 Microsoft Authenticator 앱을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서를 참조 하세요.
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>사용할 앱 암호를 수신할 수 없는 경우
 

@@ -14,14 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997144"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900895"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
+
+> [!IMPORTANT]
+>
+> - UEBA 및 엔터티 페이지 기능은 이제 다음 Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
+>    - 미국 지리
+>    - 유럽 서 부 지역
+>    - 오스트레일리아 지리
+>
+> - 다른 모든 지역 및 지역에서 이러한 기능은 **미리 보기** 기간 동안 유지 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [**Microsoft Azure 미리 보기에**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>사용자 및 엔터티 동작 분석 (UEBA) 이란?
 
@@ -64,11 +73,43 @@ Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을
 
 작동 방식에 대 한 예제는 [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) 에서 동작 분석을 사용 하는 방법을 참조 하세요.
 
+## <a name="entities-in-azure-sentinel"></a>Azure 센티널의 엔터티
 
+### <a name="entity-identifiers"></a>엔터티 식별자
 
-## <a name="entity-pages"></a>엔터티 페이지
+경고가 Azure 센티널로 전송 되 면 Azure 센티널에서 엔터티 (예: 사용자 계정, 호스트, IP 주소 등)로 식별 하 고 분류 하는 데이터 요소를 포함 합니다. 경우에 따라 경고에 엔터티에 대 한 충분 한 정보가 포함 되어 있지 않은 경우이 식별이 쉽지 않을 수 있습니다.
 
-검색, 경고 또는 조사에서 엔터티 (현재 사용자 및 호스트로 제한 됨)가 발생 하면 엔터티를 선택 하 고 엔터티 **페이지로**이동 하 여 해당 엔터티에 대 한 유용한 정보를 모두 볼 수 있습니다. 이 페이지에서 찾을 수 있는 정보 유형에는 엔터티에 대 한 기본 팩트,이 엔터티와 관련 된 주목할 만한 이벤트의 타임 라인 및 엔터티 동작에 대 한 정보가 포함 됩니다.
+예를 들어 사용자 계정은 Azure AD 계정의 숫자 식별자 (GUID) 또는 UPN (사용자 계정 이름) 값을 사용 하거나 사용자 이름 및 해당 NT 도메인 이름을 조합해 서 사용 하 여 두 가지 이상의 방법으로 식별할 수 있습니다. 서로 다른 데이터 원본으로 동일한 사용자를 식별할 수 있습니다. 따라서 가능 하면 Azure 센티널은 적절 하 게 식별 될 수 있도록 해당 식별자를 단일 엔터티로 병합 합니다.
+
+그러나 리소스 공급자 중 하나에서 엔터티가 충분히 식별 되지 않은 경고 (예: 도메인 이름 컨텍스트를 사용 하지 않는 사용자 이름)를 생성 하는 경우에 발생할 수 있습니다. 이러한 경우, 사용자 엔터티는 동일한 사용자 계정의 다른 인스턴스와 병합 될 수 없습니다 .이는 별도의 엔터티로 식별 되며 이러한 두 엔터티는 통합이 아닌 별도의 상태로 유지 됩니다.
+
+이러한 상황이 발생 하는 위험을 최소화 하기 위해 모든 경고 공급자가 생성 하는 경고에서 엔터티를 제대로 식별 하는지 확인 해야 합니다. 또한 사용자 계정 엔터티를 Azure Active Directory와 동기화 하면 통합 디렉터리가 생성 되어 사용자 계정 엔터티를 병합할 수 있습니다.
+
+다음 유형의 엔터티는 현재 Azure 센티널에서 식별 됩니다.
+
+- 사용자 계정 (계정)
+- 호스트
+- Ip 주소 (ip)
+- 맬웨어
+- 파일
+- 프로세스
+- 클라우드 응용 프로그램 (CloudApplication)
+- 도메인 이름 (DNS)
+- Azure 리소스
+- 파일 (FileHash)
+- 레지스트리 키
+- 레지스트리 값
+- 보안 그룹
+- URL
+- IoT 디바이스
+- 사서함
+- 메일 클러스터
+- 메일 메시지
+- 전송 메일
+
+### <a name="entity-pages"></a>엔터티 페이지
+
+검색, 경고 또는 조사에서 엔터티 (현재 사용자 및 호스트로 제한 됨)가 발생 하면 엔터티를 선택 하 고 엔터티 **페이지로** 이동 하 여 해당 엔터티에 대 한 유용한 정보를 모두 볼 수 있습니다. 이 페이지에서 찾을 수 있는 정보 유형에는 엔터티에 대 한 기본 팩트,이 엔터티와 관련 된 주목할 만한 이벤트의 타임 라인 및 엔터티 동작에 대 한 정보가 포함 됩니다.
  
 엔터티 페이지는 다음 세 부분으로 구성 됩니다.
 - 왼쪽 패널에는 Azure Active Directory, Azure Monitor, Azure Security Center, Microsoft Defender와 같은 데이터 원본에서 수집 된 엔터티의 식별 정보가 포함 되어 있습니다.
@@ -87,7 +128,7 @@ Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을
 
 타임 라인에는 다음과 같은 유형의 항목이 포함 되어 있습니다.
 
-- 경고-엔터티가 **매핑된 엔터티로**정의 된 모든 경고입니다. 조직에서 [분석 규칙을 사용 하 여 사용자 지정 경고](./tutorial-detect-threats-custom.md)를 만든 경우 규칙의 엔터티 매핑이 제대로 수행 되었는지 확인 해야 합니다.
+- 경고-엔터티가 **매핑된 엔터티로** 정의 된 모든 경고입니다. 조직에서 [분석 규칙을 사용 하 여 사용자 지정 경고](./tutorial-detect-threats-custom.md)를 만든 경우 규칙의 엔터티 매핑이 제대로 수행 되었는지 확인 해야 합니다.
 
 - 책갈피-페이지에 표시 된 특정 엔터티를 포함 하는 책갈피입니다.
 
@@ -122,7 +163,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 | TimeProcessed 됨             | EBA 엔진에서 작업을 처리 하는 타임 스탬프            |
 | ActivityType              | 활동의 상위 수준 범주                                 |
 | ActionType                | 활동의 정규화 된 이름입니다.                                     |
-| UserName                  | 활동을 시작한 사용자의 사용자 이름입니다.                    |
+| 사용자 이름                  | 활동을 시작한 사용자의 사용자 이름입니다.                    |
 | UserPrincipalName         | 활동을 시작한 사용자의 전체 사용자 이름입니다.               |
 | EventSource               | 원래 이벤트를 제공한 데이터 원본                        |
 | Sourceipaddress의 경우           | 작업이 시작 된 IP 주소                        |
@@ -137,9 +178,11 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 | **InvestigationPriority** | 이상 점수, 0-10 (0 = 양성, 10 = 매우 비정상)         |
 |
 
+[Ueba 강화 참조 문서의](ueba-enrichments.md) **UsersInsights**, **DevicesInsights** 및 **activityinsights** 에서 참조 되는 전체 상황별 강화 집합을 볼 수 있습니다.
+
 ### <a name="querying-behavior-analytics-data"></a>동작 분석 데이터 쿼리
 
-[KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/)를 사용 하 여 동작 분석 테이블을 쿼리할 수 있습니다.
+[KQL](/azure/data-explorer/kusto/query/)를 사용 하 여 동작 분석 테이블을 쿼리할 수 있습니다.
 
 예를 들어 Azure 리소스에 로그인 하지 못한 사용자의 모든 사례를 찾으려고 하 고, 사용자가 지정 된 국가에서 연결을 처음 시도 하는 경우, 해당 국가에서의 연결은 일반적으로 사용자의 피어에 대해서도 발생 하지 않습니다. 다음 쿼리를 사용할 수 있습니다.
 
@@ -164,7 +207,7 @@ Azure 센티널 GitHub 리포지토리에 제공 된 [Jupyter 노트북](https:/
 
 권한 분석은 공격자의 조직 자산의 손상으로 인 한 잠재적 영향을 확인 하는 데 도움이 됩니다. 이러한 영향을 자산의 "폭발 반지름이" 라고도 합니다. 보안 분석가는이 정보를 사용 하 여 조사 및 인시던트 처리의 우선 순위를 지정할 수 있습니다.
 
-Azure 센티널은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가 하 여 지정 된 사용자가 Azure 리소스에 대해 보유 한 직접 및 전이적 액세스 권한을 결정 합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대 한 전체 목록이 **Useraccessanalytics** 테이블에 저장 됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대 한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이 고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식의** 값은 대상 엔터티의 액세스 제어 모델에 따라 달라 집니다. Alex에 Azure 구독 *Contoso 호텔 테 넌 트*에 대 한 참가자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 RBAC입니다.   
+Azure 센티널은 사용자가 직접 또는 그룹 또는 서비스 주체를 통해 액세스할 수 있는 Azure 구독을 평가 하 여 지정 된 사용자가 Azure 리소스에 대해 보유 한 직접 및 전이적 액세스 권한을 결정 합니다. 이 정보는 물론 사용자의 Azure AD 보안 그룹 멤버 자격에 대 한 전체 목록이 **Useraccessanalytics** 테이블에 저장 됩니다. 아래 스크린샷은 사용자 Alex Johnson에 대 한 UserAccessAnalytics 테이블의 예제 행을 보여 줍니다. **원본 엔터티** 는 사용자 또는 서비스 주체 계정이 고, **대상 엔터티** 는 원본 엔터티가 액세스할 수 있는 리소스입니다. **액세스 수준** 및 **액세스 형식의** 값은 대상 엔터티의 액세스 제어 모델에 따라 달라 집니다. Alex에 Azure 구독 *Contoso 호텔 테 넌 트* 에 대 한 참가자 액세스 권한이 있는 것을 볼 수 있습니다. 구독의 액세스 제어 모델은 Azure RBAC입니다.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="사용자 액세스 분석 테이블의 스크린샷":::
 

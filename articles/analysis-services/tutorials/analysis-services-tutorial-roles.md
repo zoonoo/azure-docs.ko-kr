@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229364"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018698"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
 
- 이 자습서에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 서버에 연결한 다음, 서버 관리자 및 모델 데이터베이스 역할을 구성합니다. [TMSL(테이블 형식 모델 스크립팅 언어)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)에 대해서도 소개합니다. TMSL은 1200 이상 호환성 수준의 테이블 형식 모델용 JSON 기반 스크립팅 언어입니다. 이는 많은 테이블 형식 모델링 작업을 자동화하는 데 사용할 수 있습니다. TMSL은 PowerShell에서 자주 사용되지만, 이 자습서에서는 SSMS에서 XMLA 쿼리 편집기를 사용합니다. 이 자습서에서 수행하는 작업은 다음과 같습니다. 
+ 이 자습서에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 서버에 연결한 다음, 서버 관리자 및 모델 데이터베이스 역할을 구성합니다. [TMSL(테이블 형식 모델 스크립팅 언어)](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)에 대해서도 소개합니다. TMSL은 1200 이상 호환성 수준의 테이블 형식 모델용 JSON 기반 스크립팅 언어입니다. 이는 많은 테이블 형식 모델링 작업을 자동화하는 데 사용할 수 있습니다. TMSL은 PowerShell에서 자주 사용되지만, 이 자습서에서는 SSMS에서 XMLA 쿼리 편집기를 사용합니다. 이 자습서에서 수행하는 작업은 다음과 같습니다. 
   
 > [!div class="checklist"]
 > * 포털에서 서버 이름 가져오기
@@ -33,7 +33,7 @@ Azure Analysis Services의 사용자 보안에 대한 자세한 내용은 [인�
 - 구독에 만든 [Azure Analysis Services 서버](../analysis-services-create-server.md)가 있어야 합니다.
 - [서버 관리자](../analysis-services-server-admins.md) 권한이 있어야 합니다.
 - 서버에 [adventureworks 샘플 모델을 추가](../analysis-services-create-sample-model.md)합니다.
-- [최신 버전의 SSMS(SQL Server Management Studio)를 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
+- [최신 버전의 SSMS(SQL Server Management Studio)를 설치](/sql/ssms/download-sql-server-management-studio-ssms)합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -82,7 +82,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>모델 데이터베이스 관리자 역할에 사용자 추가
 
-이 작업에서는 모델에 이미 있는 Internet Sales Administrator(인터넷 판매 관리자) 역할에 사용자 또는 그룹 계정을 추가합니다. 이 역할에는 adventureworks 샘플 모델 데이터베이스에 대한 모든 권한(관리자) 권한이 있습니다. 이 작업에서는 만든 스크립트에서 [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) TMSL 명령을 사용합니다.
+이 작업에서는 모델에 이미 있는 Internet Sales Administrator(인터넷 판매 관리자) 역할에 사용자 또는 그룹 계정을 추가합니다. 이 역할에는 adventureworks 샘플 모델 데이터베이스에 대한 모든 권한(관리자) 권한이 있습니다. 이 작업에서는 만든 스크립트에서 [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl) TMSL 명령을 사용합니다.
 
 1. **개체 탐색기**에서 **데이터베이스** > **adventureworks** > **역할**을 차례로 펼칩니다. 
 2. **Internet Sales Administrator**를 마우스 오른쪽 단추로 클릭한 다음, **역할 스크립팅** > **만들기 또는 다음으로 바꾸기** > **새 쿼리 편집기 창**을 차례로 클릭합니다.
@@ -98,7 +98,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>새 모델 데이터베이스 역할 추가 및 사용자 또는 그룹 추가
 
-이 작업에서는 TMSL 스크립트에서 [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) 명령을 사용하여 새 Internet Sales Global(인터넷 판매 전역) 역할을 만들고, 역할에 대한 *읽기* 권한을 지정하고, Azure AD에서 사용자 또는 그룹 계정을 추가합니다.
+이 작업에서는 TMSL 스크립트에서 [Create](/analysis-services/tmsl/create-command-tmsl) 명령을 사용하여 새 Internet Sales Global(인터넷 판매 전역) 역할을 만들고, 역할에 대한 *읽기* 권한을 지정하고, Azure AD에서 사용자 또는 그룹 계정을 추가합니다.
 
 1. **개체 탐색기**에서 **adventureworks**를 마우스 오른쪽 단추로 클릭한 다음, **새 쿼리** > **XMLA**를 차례로 클릭합니다. 
 2. 다음 TMSL 스크립트를 복사하여 쿼리 편집기에 붙여넣습니다.
@@ -144,4 +144,3 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 > [!div class="nextstepaction"]
 > [자습서: Power BI Desktop을 사용하여 연결](analysis-services-tutorial-pbid.md)
-

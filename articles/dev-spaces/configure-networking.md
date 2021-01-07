@@ -5,14 +5,16 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Azure Kubernetes Services에서 Azure Dev Spaces를 실행 하기 위한 네트워킹 요구 사항을 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, CNI, kubenet, SDN, 네트워크
-ms.openlocfilehash: 0d9ebbec3e3c07a466acb58e88b67e6a32a20edb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 09114ab13555cbf9ef42b37c86ffb76a8fe3ab3f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214178"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970341"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>다른 네트워크 토폴로지에서 Azure Dev Spaces에 대 한 네트워킹 구성
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces는 기본 네트워킹 구성을 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에서 실행 됩니다. 클러스터를 방화벽 뒤에 배치 하거나 네트워크 보안 그룹을 사용 하거나 네트워크 정책을 사용 하는 것과 같이 AKS 클러스터의 네트워킹 구성을 변경 하려면 Azure Dev Spaces를 실행 하기 위한 추가 고려 사항을 통합 해야 합니다.
 
@@ -72,7 +74,7 @@ Azure Dev Spaces에는 AKS에서 실행 되는 서비스에 대 한 끝점을 �
 * *개인* 끝점은 개인 IP 주소를 사용 하 여 수신 컨트롤러를 배포 합니다. 개인 IP 주소를 사용 하는 경우 클러스터의 부하 분산 장치는 클러스터의 가상 네트워크 내 에서만 액세스할 수 있습니다. 부하 분산 장치의 개인 IP 주소는 클러스터의 DNS에 등록 되므로 URL을 사용 하 여 클러스터의 가상 네트워크 내 서비스에 액세스할 수 있습니다. 을 사용 하 여이 URL을 볼 수 있습니다 `azds list-uris` .
 * Endpoint 옵션에 대해 *none* 을 설정 하면 수신 컨트롤러를 배포할 수 없습니다. 수신 컨트롤러를 배포 하지 않은 경우 [Azure Dev Spaces 라우팅 기능이][dev-spaces-routing] 작동 하지 않습니다. 필요에 따라 [traefik][traefik-ingress] 또는 [NGINX][nginx-ingress]를 사용 하 여 사용자 고유의 수신 컨트롤러 솔루션을 구현할 수 있습니다. 그러면 라우팅 기능이 다시 작동할 수 있습니다.
 
-끝점 옵션을 구성 하려면 클러스터에서 Azure Dev Spaces를 사용 하도록 설정할 때 *-e* 또는 *--엔드포인트* 를 사용 합니다. 예를 들어:
+끝점 옵션을 구성 하려면 클러스터에서 Azure Dev Spaces를 사용 하도록 설정할 때 *-e* 또는 *--엔드포인트* 를 사용 합니다. 예를 들면 다음과 같습니다.
 
 > [!NOTE]
 > Endpoint 옵션을 사용 하려면 Azure CLI 버전 2.2.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
@@ -87,7 +89,7 @@ Azure Dev Spaces는 Azure Dev Spaces CLI 확장, Visual Studio Code 확장 및 V
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
+Azure Dev Spaces 작동 방식에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Dev Spaces의 작동 원리](how-dev-spaces-works.md)

@@ -1,14 +1,14 @@
 ---
 title: 고급 쿼리 샘플
 description: Azure Resource Graph를 사용하여 열 작업, 사용된 태그 나열 및 정규식과 일치하는 리소스를 비롯한 일부 고급 쿼리를 실행합니다.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425299"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005404"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>고급 Resource Graph 쿼리 샘플
 
@@ -174,7 +174,7 @@ Search-AzGraph -Query "Resources | project tags | summarize buildschema(tags)"
 
 ## <a name="virtual-machines-matched-by-regex"></a><a name="vm-regex"></a>정규식과 일치하는 가상 머신
 
-이 쿼리는 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)(_regex_로 알려짐)과 일치하는 가상 머신을 찾습니다. **matches regex \@** 는 일치시킬 정규식을 정의할 수 있으며, `^Contoso(.*)[0-9]+$`입니다.
+이 쿼리는 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)(_regex_ 로 알려짐)과 일치하는 가상 머신을 찾습니다. **matches regex \@** 는 일치시킬 정규식을 정의할 수 있으며, `^Contoso(.*)[0-9]+$`입니다.
 해당 regex 정의는 다음으로 설명되어 있습니다.
 
 - `^` - 일치는 문자열의 시작 부분에서 시작해야 합니다.
@@ -219,7 +219,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="list-cosmos-db-with-specific-write-locations"></a><a name="mvexpand-cosmosdb"></a>특정 쓰기 위치를 사용하여 Cosmos DB 나열
 
-다음 쿼리는 Cosmos DB 리소스를 제한하고, `mv-expand`를 사용하여 **properties.writeLocations**와 프로젝트 관련 필드에 대한 속성 모음을 차례로 확장한 다음, '미국 동부' 또는 '미국 서부'와 일치하는 **properties.writeLocations.locationName** 값으로 결과를 제한합니다.
+다음 쿼리는 Cosmos DB 리소스를 제한하고, `mv-expand`를 사용하여 **properties.writeLocations** 와 프로젝트 관련 필드에 대한 속성 모음을 차례로 확장한 다음, '미국 동부' 또는 '미국 서부'와 일치하는 **properties.writeLocations.locationName** 값으로 결과를 제한합니다.
 
 ```kusto
 Resources
@@ -255,7 +255,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databasea
 
 ## <a name="key-vaults-with-subscription-name"></a><a name="join"></a>구독 이름이 있는 키 자격 증명 모음
 
-다음 쿼리는 **kind**를 _leftouter_로 사용하는 `join`의 복잡한 사용을 보여줍니다. 이 쿼리는 조인된 테이블을 구독 리소스로 제한하고 `project`를 사용하여 원래 필드 _subscriptionId_ 및 _SubName_으로 이름이 바뀐 _name_ 필드만 포함합니다. 필드 이름 바꾸기는 필드가 _리소스_에 이미 있으므로 `join`이 _name1_로 추가하는 것을 방지합니다. 원래 테이블은 `where`를 사용하여 필터링되고 다음 `project`에는 두 테이블의 열이 포함됩니다. 쿼리 결과는 유형, 키 자격 증명 모음 이름 및 해당하는 구독 이름을 표시하는 모든 키 자격 증명 모음입니다.
+다음 쿼리는 **kind** 를 _leftouter_ 로 사용하는 `join`의 복잡한 사용을 보여줍니다. 이 쿼리는 조인된 테이블을 구독 리소스로 제한하고 `project`를 사용하여 원래 필드 _subscriptionId_ 및 _SubName_ 으로 이름이 바뀐 _name_ 필드만 포함합니다. 필드 이름 바꾸기는 필드가 _리소스_ 에 이미 있으므로 `join`이 _name1_ 로 추가하는 것을 방지합니다. 원래 테이블은 `where`를 사용하여 필터링되고 다음 `project`에는 두 테이블의 열이 포함됩니다. 쿼리 결과는 유형, 키 자격 증명 모음 이름 및 해당하는 구독 이름을 표시하는 모든 키 자격 증명 모음입니다.
 
 ```kusto
 Resources
@@ -378,7 +378,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 ## <a name="list-all-extensions-installed-on-a-virtual-machine"></a><a name="join-vmextension"></a>가상 머신에 설치된 모든 확장 나열
 
 먼저, 이 쿼리는 가상 머신 리소스 유형의 `extend`를 사용하여 ID를 대문자(`toupper()`)로 가져오고, 운영 체제 이름 및 유형을 가져오고, 가상 머신 크기를 가져옵니다.
-대문자로 리소스 ID를 가져오는 것은 다른 속성에 조인하기 위해 준비하는 좋은 방법입니다. 그런 다음, `join`을 **종류**와 함께 _leftouter_로 사용하여 확장 ID의 대문자 `substring`을 일치시켜 가상 머신 확장을 가져옵니다. "/extensions/\<ExtensionName\>" 앞의 ID 부분은 가상 머신 ID와 동일한 형식이므로 `join`에 대해 이 속성을 사용합니다. 그런 다음, `summarize`는 가상 머신 확장 이름에 `make_list`와 함께 사용하여 _ID_, _OSName_, _OSType_ 및 _VMSize_가 동일한 각 확장의 이름을 단일 배열 속성으로 결합합니다. 마지막으로 **asc**를 사용하여 _OSName_ 소문자를 `order by`로 결합합니다. 기본적으로 `order by`는 내림차순입니다.
+대문자로 리소스 ID를 가져오는 것은 다른 속성에 조인하기 위해 준비하는 좋은 방법입니다. 그런 다음, `join`을 **종류** 와 함께 _leftouter_ 로 사용하여 확장 ID의 대문자 `substring`을 일치시켜 가상 머신 확장을 가져옵니다. "/extensions/\<ExtensionName\>" 앞의 ID 부분은 가상 머신 ID와 동일한 형식이므로 `join`에 대해 이 속성을 사용합니다. 그런 다음, `summarize`는 가상 머신 확장 이름에 `make_list`와 함께 사용하여 _ID_, _OSName_, _OSType_ 및 _VMSize_ 가 동일한 각 확장의 이름을 단일 배열 속성으로 결합합니다. 마지막으로 **asc** 를 사용하여 _OSName_ 소문자를 `order by`로 결합합니다. 기본적으로 `order by`는 내림차순입니다.
 
 ```kusto
 Resources
@@ -564,7 +564,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>DisplayNames를 사용한 테넌트 및 구독 이름 포함
 
-이 쿼리는 _DisplayNames_ 옵션과 함께 **Include** 매개 변수를 사용하여 **subscriptionDisplayName** 및 **tenantDisplayName**을 결과에 추가합니다. 이 매개 변수는 Azure CLI 및 Azure PowerShell에 대해서만 사용할 수 있습니다.
+이 쿼리는 _DisplayNames_ 옵션과 함께 **Include** 매개 변수를 사용하여 **subscriptionDisplayName** 및 **tenantDisplayName** 을 결과에 추가합니다. 이 매개 변수는 Azure CLI 및 Azure PowerShell에 대해서만 사용할 수 있습니다.
 
 ```azurecli-interactive
 az graph query -q "limit 1" --include displayNames
@@ -577,8 +577,8 @@ Search-AzGraph -Query "limit 1" -Include DisplayNames
 구독 이름을 가져오는 대안은 `join` 연산자를 사용하여 **ResourceContainers** 테이블과 `Microsoft.Resources/subscriptions` 형식에 연결하는 것입니다. `join`은 Azure CLI, Azure PowerShell, Portal 및 지원되는 모든 SDK에서 작동합니다. 예제는 [샘플 - 구독 이름이 있는 키 자격 증명 모음](#join)에서 참조하세요.
 
 > [!NOTE]
-> 쿼리에서 **project**를 사용하여 반환된 속성을 지정하지 않으면 **subscriptionDisplayName** 및 **tenantDisplayName**이 결과에 자동으로 포함됩니다.
-> 쿼리에서 **project**를 사용하는 경우 각 _DisplayName_ 필드를 **project**에 명시적으로 포함해야 합니다. 그렇지 않으면 **Include** 매개 변수가 사용되는 경우에도 이러한 매개 변수는 결과에 반환되지 않습니다. **Include** 매개 변수는 [tables](../concepts/query-language.md#resource-graph-tables)에서 작동하지 않습니다.
+> 쿼리에서 **project** 를 사용하여 반환된 속성을 지정하지 않으면 **subscriptionDisplayName** 및 **tenantDisplayName** 이 결과에 자동으로 포함됩니다.
+> 쿼리에서 **project** 를 사용하는 경우 각 _DisplayName_ 필드를 **project** 에 명시적으로 포함해야 합니다. 그렇지 않으면 **Include** 매개 변수가 사용되는 경우에도 이러한 매개 변수는 결과에 반환되지 않습니다. **Include** 매개 변수는 [tables](../concepts/query-language.md#resource-graph-tables)에서 작동하지 않습니다.
 
 ---
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>게스트 구성 할당 보고서의 쿼리 세부 정보
 
-[게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 세부 정보에서 보고서를 표시합니다.
-아래 예제에서 쿼리는 게스트 할당 이름이 `installed_application_linux`이고 출력에 `Python` 문자열이 포함된 결과만 반환하여 **Python** 이름을 포함하는 패키지가 설치된 모든 Linux 머신을 나열합니다.
-특정 할당에 대한 모든 머신의 규정 준수를 쿼리하려면 두 번째 `where` 절을 제거합니다.
+[게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 세부 정보에서 보고서를 표시합니다. 다음 예제에서 쿼리는 게스트 할당 이름이 `installed_application_linux`이고 출력에 `Python` 문자열이 포함된 결과만 반환하여 **Python** 이름을 포함하는 패키지가 설치된 모든 Linux 머신을 나열합니다. 특정 할당에 대한 모든 머신의 규정 준수를 쿼리하려면 두 번째 `where` 절을 제거합니다.
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>머신이 게스트 구성 할당에 대해 비규격인 모든 이유 찾기
 
-특정 머신에 대한 [게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)를 모두 표시합니다.
-머신이 규정을 준수하는 감사도 포함하려면 첫 번째 `where` 절을 제거합니다.
+특정 머신에 대한 [게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)를 모두 표시합니다. 머신이 규정을 준수하는 감사도 포함하려면 첫 번째 `where` 절을 제거합니다.
 
 ```kusto
 GuestConfigurationResources

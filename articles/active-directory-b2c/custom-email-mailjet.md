@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29e82a67b85356cfc15e806bb331330b3f272a04
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88584967"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949584"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Mailjet를 사용 하 여 사용자 지정 전자 메일 확인
 
 Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 전자 메일을 사용 하 여 응용 프로그램을 사용 하기 위해 등록 하는 사용자에 게 사용자 지정 전자 메일을 보냅니다. [Displaycontrols](display-controls.md) (현재 미리 보기 상태) 및 타사 전자 메일 공급자 mailjet를 사용 하 여 사용자 고유의 전자 메일 템플릿 및 *의* 주소와 주체를 사용할 수 있을 뿐만 아니라 지역화 및 사용자 지정 OTP (일회용 암호) 설정을 지원할 수 있습니다.
 
-사용자 지정 전자 메일을 확인 하려면 [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md)또는 [SparkPost](https://sparkpost.com)와 같은 타사 전자 메일 공급자, 사용자 지정 REST API 또는 HTTP 기반 메일 공급자 (자체 포함)를 사용 해야 합니다. 이 문서에서는 Mailjet를 사용 하는 솔루션을 설정 하는 방법을 설명 합니다.
+사용자 지정 전자 메일을 확인 하려면 [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)또는 [SparkPost](https://sparkpost.com)와 같은 타사 전자 메일 공급자, 사용자 지정 REST API 또는 HTTP 기반 메일 공급자 (자체 포함)를 사용 해야 합니다. 이 문서에서는 Mailjet를 사용 하는 솔루션을 설정 하는 방법을 설명 합니다.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -40,28 +40,28 @@ Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 전자 메일을 �
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **개요** 페이지에서 **Id 경험 프레임 워크**를 선택 합니다.
-1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**에 대해 **수동**을 선택 합니다.
-1. 정책 키의 **이름**을 입력합니다. 예들 들어 `MailjetApiKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-1. **비밀**에서 이전에 기록한 Mailjet **API 키** 를 입력 합니다.
-1. **키 사용**으로는 **서명**을 선택합니다.
-1. **만들기**를 선택합니다.
-1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**에 대해 **수동**을 선택 합니다.
-1. 정책 키의 **이름**을 입력합니다. 예들 들어 `MailjetSecretKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-1. **비밀**에서 이전에 기록한 Mailjet **비밀 키** 를 입력 합니다.
-1. **키 사용**으로는 **서명**을 선택합니다.
-1. **만들기**를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **개요** 페이지에서 **Id 경험 프레임 워크** 를 선택 합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 에 대해 **수동** 을 선택 합니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `MailjetApiKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. **비밀** 에서 이전에 기록한 Mailjet **API 키** 를 입력 합니다.
+1. **키 사용** 으로는 **서명** 을 선택합니다.
+1. **만들기** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 에 대해 **수동** 을 선택 합니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `MailjetSecretKey`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. **비밀** 에서 이전에 기록한 Mailjet **비밀 키** 를 입력 합니다.
+1. **키 사용** 으로는 **서명** 을 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ## <a name="create-a-mailjet-template"></a>Mailjet 템플릿 만들기
 
 Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 저장 된 상태에서 Mailjet [동적 트랜잭션 템플릿을](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)만듭니다.
 
-1. Mailjet 사이트에서 [트랜잭션 템플릿](https://app.mailjet.com/templates/transactional) 페이지를 열고 **새 템플릿 만들기**를 선택 합니다.
-1. **HTML로 코딩 하 여**선택한 다음, **처음부터 코드**를 선택 합니다.
-1. 과 같은 고유한 템플릿 이름을 입력 한 `Verification email` 다음 **만들기**를 선택 합니다.
+1. Mailjet 사이트에서 [트랜잭션 템플릿](https://app.mailjet.com/templates/transactional) 페이지를 열고 **새 템플릿 만들기** 를 선택 합니다.
+1. **HTML로 코딩 하 여** 선택한 다음, **처음부터 코드** 를 선택 합니다.
+1. 과 같은 고유한 템플릿 이름을 입력 한 `Verification email` 다음 **만들기** 를 선택 합니다.
 1. HTML 편집기에서 다음 HTML 템플릿을 붙여넣거나 사용자 고유의를 사용 합니다. `{{var:otp:""}}`및 `{{var:email:""}}` 매개 변수는 일회성 암호 값 및 사용자 전자 메일 주소를 사용 하 여 동적으로 교체 됩니다.
 
     ```HTML
@@ -159,11 +159,11 @@ Mailjet 계정이 만들어지고 Mailjet API 키가 Azure AD B2C 정책 키에 
     ```
 
 1. 왼쪽 맨 위에 있는 **제목 편집** 을 확장 합니다.
-    1. **제목**에 대해 제목의 기본값을 입력 합니다. Mailjet는 API에 주체 매개 변수가 포함 되지 않은 경우이 값을 사용 합니다.
-    1. **이름**에 회사 이름을 입력 합니다.
-    1. **주소**에서 전자 메일 주소를 선택 합니다.
-    1. **저장**을 선택합니다.
-1. 오른쪽 맨 위에 있는 **저장 & 게시**를 선택 하 고 **예, 변경 내용 게시** 를 클릭 합니다.
+    1. **제목** 에 대해 제목의 기본값을 입력 합니다. Mailjet는 API에 주체 매개 변수가 포함 되지 않은 경우이 값을 사용 합니다.
+    1. **이름** 에 회사 이름을 입력 합니다.
+    1. **주소** 에서 전자 메일 주소를 선택 합니다.
+    1. **저장** 을 선택합니다.
+1. 오른쪽 맨 위에 있는 **저장 & 게시** 를 선택 하 고 **예, 변경 내용 게시** 를 클릭 합니다.
 1. 이후 단계에서 사용 하기 위해 만든 템플릿의 **템플릿 ID** 를 기록 합니다. [클레임 변환을 추가할](#add-the-claims-transformation)때이 ID를 지정 합니다.
 
 
@@ -228,15 +228,15 @@ JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 Tran
 
 ## <a name="add-datauri-content-definition"></a>DataUri 콘텐츠 정의 추가
 
-내의 클레임 변환 아래 `<BuildingBlocks>` 에서 다음 [contentdefinition](contentdefinitions.md) 을 추가 하 여 버전 2.0.0 데이터 URI를 참조 합니다.
+내의 클레임 변환 아래 `<BuildingBlocks>` 에서 다음 [contentdefinition](contentdefinitions.md) 을 추가 하 여 버전 2.1.0 데이터 URI를 참조 합니다.
 
 ```XML
 <ContentDefinitions>
  <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
   </ContentDefinition>
   <ContentDefinition Id="api.localaccountpasswordreset">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
   </ContentDefinition>
 </ContentDefinitions>
 ```
@@ -374,8 +374,8 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
         <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
         <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
@@ -391,8 +391,8 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
     <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
       <Metadata>
         <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
         <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
         <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
@@ -479,14 +479,14 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
     ```xml
     <ContentDefinitions>
       <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
           <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
           <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
@@ -502,6 +502,41 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 요소에 추
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
+    
+## <a name="optional-localize-the-ui"></a>필드 UI 지역화
+
+Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로캘이나 언어를 지원할 수 있습니다. 정책의 지역화 지원을 통해 [확인 표시 컨트롤 사용자 인터페이스 요소](localization-string-ids.md#verification-display-control-user-interface-elements)와 일회성 [암호 오류 메시지](localization-string-ids.md#one-time-password-error-messages)에 대 한 언어별 문자열을 제공할 수 있습니다. LocalizedResources에 다음 LocalizedString를 추가 합니다. 
+
+```XML
+<LocalizedResources Id="api.custom-email.en">
+  <LocalizedStrings>
+    ...
+    <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+    <!-- Claims-->
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Eamil</LocalizedString>
+    <!-- Email validation error messages-->
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+지역화 된 문자열을 추가한 후 LocalAccountSignUpWithLogonEmail 및 LocalAccountDiscoveryUsingEmailAddress 기술 프로필에서 OTP 유효성 검사 오류 메시지 메타 데이터를 제거 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

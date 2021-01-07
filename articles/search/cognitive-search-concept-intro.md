@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935503"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91828087"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강
 
@@ -51,7 +51,7 @@ Azure Cognitive Search의 기본 제공 기술은 Cognitive Services API: [Compu
 
 + 내재된 의미가 있는 콘텐츠 또는 더 큰 문서에 숨겨진 컨텍스트를 포함하고 있는 비정형 또는 반정형 문서 
 
-  특히 Blob은 단일 "필드"로 압축된 큰 콘텐츠 본문을 포함하는 경우가 많습니다. 이미지 및 자연어 처리 기술을 인덱서에 연결하면 원시 콘텐츠에 존재하지만, 그렇지 않은 경우 별도의 필드로 표시되는 새 정보를 만들 수 있습니다. 즉시 사용 가능한 기본 제공 인식 기술로는 핵심 문구 추출, 감정 분석 및 엔터티 인식(사람, 조직 및 위치)이 있습니다.
+  특히 blob에는 단일 "필드"로 압축 된 콘텐츠 본문을 포함 하는 경우가 많습니다. 이미지 및 자연어 처리 기술을 인덱서에 연결하면 원시 콘텐츠에 존재하지만, 그렇지 않은 경우 별도의 필드로 표시되는 새 정보를 만들 수 있습니다. 즉시 사용 가능한 기본 제공 인식 기술로는 핵심 문구 추출, 감정 분석 및 엔터티 인식(사람, 조직 및 위치)이 있습니다.
 
   또한 기본 제공 기술을 사용하여 텍스트 분할, 병합 및 셰이프 작업을 통해 콘텐츠를 재구성하는 데 사용할 수도 있습니다.
 
@@ -69,7 +69,7 @@ Azure Cognitive Search의 기본 제공 기술은 Cognitive Services API: [Compu
 
 ![문서 크래킹 단계](./media/cognitive-search-intro/document-cracking-phase-blowup.png "문서 크래킹")
 
- 지원되는 원본에는 Azure Blob Storage, Azure Table Storage, Azure SQL Database 및 Azure Cosmos DB가 포함됩니다. 텍스트 기반 콘텐츠는 PDF, Word, PowerPoint, CSV 파일 형식에서 추출할 수 있습니다. 전체 목록은 [지원되는 형식](search-howto-indexing-azure-blob-storage.md#supported-document-formats)을 참조하세요. 인덱싱에 시간이 걸리므로 작은 대표 데이터 집합으로 시작한 다음, 솔루션의 완성도가 높아지면 증분 방식으로 빌드합니다.
+ 지원되는 원본에는 Azure Blob Storage, Azure Table Storage, Azure SQL Database 및 Azure Cosmos DB가 포함됩니다. 텍스트 기반 콘텐츠는 PDF, Word, PowerPoint, CSV 파일 형식에서 추출할 수 있습니다. 전체 목록은 [지원되는 형식](search-howto-indexing-azure-blob-storage.md#SupportedFormats)을 참조하세요. 인덱싱에 시간이 걸리므로 작은 대표 데이터 집합으로 시작한 다음, 솔루션의 완성도가 높아지면 증분 방식으로 빌드합니다.
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>2 단계: 인식 기술 및 보강 단계
 

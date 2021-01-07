@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 3393cb66735ffb881520a11bf9d1680c35d3d374
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 2388d4be0f7d51f9d5897998049b445595648c0a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89424806"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763981"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -43,7 +43,7 @@ ms.locfileid: "89424806"
 * VM 에이전트를 중지 하거나 업데이트 하는 스크립트를 실행 하는 것은 권장 되지 않습니다. 이를 통해 전환 상태에서 확장이 시간 초과로 전환 될 수 있습니다.
 
 > [!NOTE]
-> 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하도록 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 사용할 수 있습니다.
+> 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하도록 [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags)를 사용할 수 있습니다.
 
 ## <a name="available-commands"></a>사용 가능한 명령
 
@@ -81,16 +81,16 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
 
 ## <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](https://portal.azure.com)에서 VM으로 이동하여 **작업** 아래에서 **실행 명령**을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
+[Azure Portal](https://portal.azure.com)에서 VM으로 이동하여 **작업** 아래에서 **실행 명령** 을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
 
 ![명령 목록](./media/run-command/run-command-list.png)
 
-실행할 명령을 선택하세요. 명령 중 일부에는 선택 또는 필수 입력 매개 변수가 있을 수 있습니다. 이러한 명령의 경우 매개 변수는 입력 값을 제공하기 위한 텍스트 필드로 표시됩니다. 각 명령의 경우 **스크립트 보기**를 확장하여 실행되는 스크립트를 볼 수 있습니다. **RunPowerShellScript**는 사용자 고유의 사용자 지정 스크립트를 제공할 수 있으므로 다른 명령과 다릅니다.
+실행할 명령을 선택하세요. 명령 중 일부에는 선택 또는 필수 입력 매개 변수가 있을 수 있습니다. 이러한 명령의 경우 매개 변수는 입력 값을 제공하기 위한 텍스트 필드로 표시됩니다. 각 명령의 경우 **스크립트 보기** 를 확장하여 실행되는 스크립트를 볼 수 있습니다. **RunPowerShellScript** 는 사용자 고유의 사용자 지정 스크립트를 제공할 수 있으므로 다른 명령과 다릅니다.
 
 > [!NOTE]
 > 기본 제공된 명령은 편집할 수 없습니다.
 
-명령을 선택한 후 **실행**을 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 출력 창에 출력 및 오류가 반환됩니다. 다음 스크린샷은 **RDPSettings** 명령을 실행하는 작업의 예제 출력을 보여줍니다.
+명령을 선택한 후 **실행** 을 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 출력 창에 출력 및 오류가 반환됩니다. 다음 스크린샷은 **RDPSettings** 명령을 실행하는 작업의 예제 출력을 보여줍니다.
 
 ![명령 실행 스크립트 출력](./media/run-command/run-command-script-output.png)
 
@@ -104,7 +104,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>명령 실행에 대한 액세스 제한
 
-실행 명령을 나열하거나 명령의 세부 정보를 표시하려면 `Microsoft.Compute/locations/runCommands/read` 권한이 필요합니다. 기본 제공 [Reader](../../role-based-access-control/built-in-roles.md#reader) 역할 및 상위 수준에 이 권한이 있습니다.
+실행 명령을 나열 하거나 명령의 세부 정보를 표시 하려면 `Microsoft.Compute/locations/runCommands/read` 구독 수준에 대 한 권한이 필요 합니다. 기본 제공 [Reader](../../role-based-access-control/built-in-roles.md#reader) 역할 및 상위 수준에 이 권한이 있습니다.
 
 명령을 실행하려면 `Microsoft.Compute/virtualMachines/runCommand/action` 권한이 필요합니다. [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 및 상위 수준에 이 권한이 있습니다.
 

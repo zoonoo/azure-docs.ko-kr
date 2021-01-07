@@ -1,6 +1,6 @@
 ---
 title: Workday 특성 참조
-description: SuccessFactors-HR 기반 프로비저닝에서 지원하는 SuccessFactors의 특성 알아보기
+description: XPATH 쿼리를 사용 하 여 Workday에서 인출할 수 있는 특성에 대해 알아봅니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 4d6e5fb765125a4cf68c4939e7350feb84509bf2
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068101"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91266567"
 ---
 # <a name="workday-attribute-reference"></a>Workday 특성 참조
 
@@ -117,7 +117,7 @@ ms.locfileid: "90068101"
 
 아래와 같이 연결 URL에서 WWS API v30.0 이상을 사용하는 경우:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday 버전 정보":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday 버전 정보 없음":::
 
 ...프로비저닝 작업을 설정하기 전에 **특성 매핑 -> 고급 옵션 -> Workday 특성 목록 편집**에서 표에 나열된 값을 사용하여 **XPATH API** 식을 업데이트하세요. 
 

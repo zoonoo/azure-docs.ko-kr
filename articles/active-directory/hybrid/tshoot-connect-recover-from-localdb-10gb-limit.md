@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275905"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858402"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10GB 제한에서 복구하는 방법
 Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 SQL을 사용할 수 있습니다. SQL Server Express는 10GB 크기 제한을 적용합니다. LocalDB를 사용하고 이 제한에 도달하는 경우 Azure AD Connect 동기화 서비스는 더 이상 제대로 시작하거나 동기화할 수 없습니다. 이 문서에서는 복구 단계를 제공합니다.
@@ -29,7 +29,7 @@ Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베�
 ## <a name="symptoms"></a>증상
 두 가지 일반적인 증상이 있습니다.
 
-* Azure AD Connect 동기화 서비스가 **실행**되지만 *“stopped-database-disk-full”* 오류로 동기화에 실패합니다.
+* Azure AD Connect 동기화 서비스가 **실행** 되지만 *“stopped-database-disk-full”* 오류로 동기화에 실패합니다.
 
 * Azure AD Connect 동기화 서비스를 **시작할 수 없습니다**. 서비스를 시작하려고 할 때 이벤트 6323 및 오류 메시지 *"SQL Server의 디스크 공간이 부족하기 때문에 서버에서 오류가 발생했습니다."* 와 함께 실패합니다.
 
@@ -45,9 +45,9 @@ Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베�
 
 1. 관리자 권한으로 Azure AD Connect 서버에 로그인합니다.
 
-2. **서비스 제어 관리자**로 이동합니다.
+2. **서비스 제어 관리자** 로 이동합니다.
 
-3. **Microsoft Azure AD Sync**의 상태를 확인합니다.
+3. **Microsoft Azure AD Sync** 의 상태를 확인합니다.
 
 
 4. 실행 중인 경우 서비스를 중지하거나 다시 시작하지 마십시오. [데이터베이스 축소](#shrink-the-database) 단계를 건너뛰고 [실행 기록 데이터 삭제](#delete-run-history-data) 단계로 이동합니다.
@@ -55,12 +55,12 @@ Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베�
 5. 실행 중이 아닌 경우 서비스를 시작하세요. 서비스가 성공적으로 시작하는 경우 [데이터베이스 축소](#shrink-the-database) 단계를 건너뛰고 [실행 기록 데이터 삭제](#delete-run-history-data) 단계로 이동합니다. 그렇지 않으면 [데이터베이스 축소](#shrink-the-database) 단계를 계속합니다.
 
 ### <a name="shrink-the-database"></a>데이터베이스 축소
-축소 작업을 사용하여 동기화 서비스를 시작하는 데 충분한 DB 공간을 확보합니다. 데이터베이스에서 공백을 제거하여 DB 공간을 확보합니다. 항상 공백을 복구할 수 있다고 보장되지 않으므로 이 단계가 최선적입니다. 축소 작업에 대한 자세한 내용은 이 [데이터베이스 축소](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15) 문서를 참조하세요.
+축소 작업을 사용하여 동기화 서비스를 시작하는 데 충분한 DB 공간을 확보합니다. 데이터베이스에서 공백을 제거하여 DB 공간을 확보합니다. 항상 공백을 복구할 수 있다고 보장되지 않으므로 이 단계가 최선적입니다. 축소 작업에 대한 자세한 내용은 이 [데이터베이스 축소](/sql/relational-databases/databases/shrink-a-database) 문서를 참조하세요.
 
 > [!IMPORTANT]
 > 동기화 서비스를 실행할 수 있는 경우 이 단계를 건너뜁니다. 늘어난 조각화로 인해 성능 저하가 발생할 수 있으므로 SQL DB를 축소하는 것은 좋지 않습니다.
 
-Azure AD Connect에 대해 만든 데이터베이스의 이름은 **ADSync**입니다. 축소 작업을 수행하려면 sysadmin 또는 데이터베이스의 DBO로 로그인해야 합니다. Azure AD Connect를 설치하는 동안 다음 계정에 sysadmin 권한이 부여됩니다.
+Azure AD Connect에 대해 만든 데이터베이스의 이름은 **ADSync** 입니다. 축소 작업을 수행하려면 sysadmin 또는 데이터베이스의 DBO로 로그인해야 합니다. Azure AD Connect를 설치하는 동안 다음 계정에 sysadmin 권한이 부여됩니다.
 * 로컬 관리자
 * Azure AD Connect 설치를 실행하는 데 사용한 사용자 계정입니다.
 * Azure AD Connect 동기화 서비스의 운영 컨텍스트로 사용되는 동기화 서비스 계정입니다.
@@ -81,11 +81,11 @@ Azure AD Connect에 대해 만든 데이터베이스의 이름은 **ADSync**입�
 ### <a name="delete-run-history-data"></a>실행 기록 데이터 삭제
 기본적으로 Azure AD Connect는 7일 동안 실행 기록 데이터를 유지합니다. 이 단계에서는 실행 기록 데이터를 삭제하여 Azure AD Connect 동기화 서비스가 동기화를 다시 시작할 수 있도록 DB 공간을 확보합니다.
 
-1. 시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
+1. 시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager** 를 시작합니다.
 
 2. **Operations** 탭으로 이동합니다.
 
-3. **Actions** 아래에서 **Clear Runs**를 선택합니다.
+3. **Actions** 아래에서 **Clear Runs** 를 선택합니다.
 
 4. **Clear all runs** 또는 **Clear runs before… \<date>** 옵션 중에서 선택할 수 있습니다. 2일보다 오래된 실행 기록 데이터를 삭제하여 시작하는 것이 좋습니다. DB 크기 문제가 계속되면 **Clear all runs** 옵션을 선택합니다.
 

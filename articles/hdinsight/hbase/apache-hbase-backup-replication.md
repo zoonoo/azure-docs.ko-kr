@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5c0694f9ef16de9c69d424b5005ca0d5a277a77f
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 3ed55387034a383e402d027fd5cab60c4a59c23c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505032"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657043"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 
@@ -52,7 +52,7 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 스토리지�
 
 * 현재 스토리지 위치를 가리키는 새 HDInsight 인스턴스를 만듭니다. 새 인스턴스는 기존의 모든 데이터로 만들어집니다.
 
-* `hbase` 폴더를 다른 Azure Storage Blob 컨테이너 또는 Data Lake Storage 위치에 복사한 다음, 해당 데이터로 새 클러스터를 시작합니다. Azure Storage의 경우 [AzCopy](../../storage/common/storage-use-azcopy.md)를 사용하고, Data Lake Storage의 경우 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용합니다.
+* `hbase` 폴더를 다른 Azure Storage Blob 컨테이너 또는 Data Lake Storage 위치에 복사한 다음, 해당 데이터로 새 클러스터를 시작합니다. Azure Storage의 경우 [AzCopy](../../storage/common/storage-use-azcopy-v10.md)를 사용하고, Data Lake Storage의 경우 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용합니다.
 
 ## <a name="export-then-import"></a>내보낸 후 가져오기
 
@@ -219,6 +219,12 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -cop
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
+대상 클러스터가 ADLS Gen 2 클러스터 인 경우 ADLS Gen 2에서 사용 하는 구성에 맞게 조정 하려면 이전 명령을 변경 합니다.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
+```
+
 스냅숏이 내보내진 후에는 대상 클러스터의 헤드 노드로 SSH를 사용 하 고 `restore_snapshot` 앞에서 설명한 대로 명령을 사용 하 여 스냅숏을 복원 합니다.
 
 스냅샷은 `snapshot` 명령을 실행할 때 테이블의 전체 백업을 제공합니다. 스냅숏은 시간 windows에서 증분 스냅숏을 수행 하는 기능을 제공 하지 않으며 스냅숏에 포함할 열 패밀리의 하위 집합을 지정 하지 않습니다.
@@ -245,4 +251,4 @@ HDInsight에서 복제를 사용하도록 설정하려면 실행 중인 원본 H
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache HBase 복제 구성](apache-hbase-replication.md)
-* [HBase 가져오기 및 내보내기 유틸리티 사용](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [HBase 가져오기 및 내보내기 유틸리티 사용](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

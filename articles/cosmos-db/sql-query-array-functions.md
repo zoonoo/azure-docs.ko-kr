@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 배열 함수
 description: 배열 함수를 사용 하 여 Azure Cosmos DB 배열에 대 한 작업을 수행 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2a4033088a9152363a91c368109136062cace4ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27f9c0af62c4cbdd550fd9907a0dd88d72bba6e
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563503"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549211"
 ---
 # <a name="array-functions-azure-cosmos-db"></a>배열 함수 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 배열 함수를 사용 하 여 Azure Cosmos DB 배열에 대 한 작업을 수행할 수 있습니다.
 
@@ -36,4 +38,4 @@ ms.locfileid: "85563503"
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)
 - [사용자 정의 함수](sql-query-udfs.md)
-- [집계](sql-query-aggregates.md)
+- [집계](sql-query-aggregate-functions.md)

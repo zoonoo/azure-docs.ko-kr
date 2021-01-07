@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: b7d19d782e9cb29cfc917293f084b78830db89bc
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: efe24b3d1f6e22cc7f054691cb75a4ccede7aa4b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797618"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912447"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -189,9 +189,9 @@ Azure에서 [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-
 
 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)을 사용하여 Azure에서 기존 또는 실행 중인 Linux VM에 디스크 암호화를 사용하도록 설정할 수 있습니다.
 
-1. Azure 빠른 시작 템플릿에서 **Azure에 배포**를 클릭합니다.
+1. Azure 빠른 시작 템플릿에서 **Azure에 배포** 를 클릭합니다.
 
-2. 구독, 리소스 그룹, 리소스 그룹 위치, 매개 변수, 약관 및 규약을 선택합니다. **만들기**를 클릭하여 기존 또는 실행 중인 VM에서 암호화를 사용하도록 설정합니다.
+2. 구독, 리소스 그룹, 리소스 그룹 위치, 매개 변수, 약관 및 규약을 선택합니다. **만들기** 를 클릭하여 기존 또는 실행 중인 VM에서 암호화를 사용하도록 설정합니다.
 
 다음 표에서는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수를 나열합니다.
 
@@ -200,8 +200,8 @@ Azure에서 [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-
 | vmName | 암호화 작업을 실행할 VM의 이름. |
 | keyVaultName | 암호화 키가 업로드되어야 하는 키 자격 증명 모음의 이름. cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`을 사용하여 가져올 수 있습니다.|
 | keyVaultResourceGroup | 키 자격 증명 모음을 포함하는 리소스 그룹의 이름. |
-|  keyEncryptionKeyURL | 암호화 키를 암호화하는 데 사용되는 키 암호화 키의 URL. UseExistingKek 드롭다운 목록에서 **nokek**를 선택하면 이 매개 변수가 선택 사항입니다. UseExistingKek 드롭다운 목록에서 **kek**를 선택하면 _keyEncryptionKeyURL_ 값을 반드시 입력해야 합니다. |
-| volumeType | 암호화 작업을 수행할 볼륨의 유형. 유효한 값은 _OS_, _Data_ 및 _All_입니다. 
+|  keyEncryptionKeyURL | 암호화 키를 암호화하는 데 사용되는 키 암호화 키의 URL. UseExistingKek 드롭다운 목록에서 **nokek** 를 선택하면 이 매개 변수가 선택 사항입니다. UseExistingKek 드롭다운 목록에서 **kek** 를 선택하면 _keyEncryptionKeyURL_ 값을 반드시 입력해야 합니다. |
+| volumeType | 암호화 작업을 수행할 볼륨의 유형. 유효한 값은 _OS_, _Data_ 및 _All_ 입니다. 
 | forceUpdateTag | 작업을 강제로 실행해야 할 때마다 GUID 같은 고유한 값으로 전달합니다. |
 | 위치 | 모든 리소스에 대한 위치. |
 
@@ -283,7 +283,7 @@ LVM-on-crypt 설정을 사용하는 것이 좋습니다. 다음의 모든 예제
     echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
     ```
     
-1. Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0) cmdlet을 -EncryptFormatAll과 함께 실행하여 이러한 디스크를 암호화합니다.
+1. Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0&preserve-view=true) cmdlet을 -EncryptFormatAll과 함께 실행하여 이러한 디스크를 암호화합니다.
 
     ```azurepowershell-interactive
     $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
@@ -408,13 +408,15 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - 암호화 된 VM의 이미지나 스냅숏을 만들어 추가 Vm을 배포 하는 데 사용
 - 커널 크래시 덤프(kdump)
 - Oracle ACFS(ASM 클러스터 파일 시스템)
-- Gen2 VM(참조: [Azure의 2세대 VM 지원](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Gen2 VM(참조: [Azure의 2세대 VM 지원](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - Lsv2 시리즈 Vm의 NVMe 디스크 (참조: [Lsv2 시리즈](../lsv2-series.md)).
 - "중첩된 탑재 지점" 즉, 단일 경로 내 여러 탑재 지점(예: "/1stmountpoint/data/2stmountpoint")이 있는 VM
 - 데이터 드라이브가 OS 폴더 위에 탑재 된 VM입니다.
 - 쓰기 가속기 디스크가 있는 M 시리즈 Vm
-- [고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화](disk-encryption.md) 로 암호화 된 디스크를 포함 하는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
-- ADE로 암호화 되었거나 ADE로 **암호화 된 VM** 을 [고객 관리 키를 사용 하는 서버 쪽 암호화](disk-encryption.md)로 마이그레이션합니다.
+- [고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화](../disk-encryption.md) 로 암호화 된 디스크를 포함 하는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
+- ADE로 암호화 되었거나 ADE로 **암호화 된 VM** 을 [고객 관리 키를 사용 하는 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션합니다.
+- [로컬 임시 디스크가 없는 AZURE VM 크기](../azure-vms-no-temp-disk.md) 특히 Dv4, Dsv4, Ev4 및 Esv4입니다.
+- 장애 조치 (failover) 클러스터에서 Vm을 암호화 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

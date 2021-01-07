@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e04f6120f7d9a5646a3b30553b5083c5259acae2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4b3817bd33c72ce6d1c3426aa8379101c84f5bc5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499639"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961513"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 고가용성 가상 머신 만들기 및 배포
 
@@ -116,5 +116,5 @@ az vm availability-set list-sizes \
 > [가상 머신 확장 집합 만들기](tutorial-create-vmss.md)
 
 * 가용성 영역에 대한 자세한 내용은 [가용성 영역 설명서](../../availability-zones/az-overview.md)를 참조하세요.
-* 가용성 집합 및 가용성 영역에 대한 추가 설명서는 [여기](./manage-availability.md)서 확인할 수 있습니다.
+* 가용성 집합 및 가용성 영역에 대한 추가 설명서는 [여기](../manage-availability.md)서 확인할 수 있습니다.
 * 가용성 영역을 사용해보려면 [Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기](./create-cli-availability-zone.md)를 방문하세요.

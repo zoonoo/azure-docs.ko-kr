@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4300860039b76bd076f19acfc252f59ef10d462b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60499888"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351847"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing Search API 사용 및 표시 요구 사항
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 이러한 사용 및 표시 요구 사항은 관계, 메타데이터 및 기타 신호를 포함한 다음 Bing Search API의 콘텐츠 및 관련 정보 구현에 적용됩니다.
 
@@ -27,16 +32,16 @@ ms.locfileid: "60499888"
 - Bing 뉴스 검색
 - Bing 비디오 검색
 - Bing Visual Search
-- Bing 웹 검색
+- Bing Web Search
 - Bing 맞춤법 검사
 - Bing Autosuggest
 
 ## <a name="definitions"></a>정의
 
 
-|용어  |Description  |
+|용어  |설명  |
 |---------|---------|
-|Answer     | 응답에서 반환된 결과의 범주를 나타냅니다. 예를 들어 Bing Web Search API의 응답에는 웹 페이지 결과, 이미지, 비디오, 시각적 개체 및 뉴스 범주의 답변이 포함될 수 있습니다. |
+|답변     | 응답에서 반환된 결과의 범주를 나타냅니다. 예를 들어 Bing Web Search API의 응답에는 웹 페이지 결과, 이미지, 비디오, 시각적 개체 및 뉴스 범주의 답변이 포함될 수 있습니다. |
 |응답     | Search API에 대한 단일 호출에 대응하여 받은 모든 대답 및 관련 데이터를 나타냅니다. |
 |결과    | 대답에 있는 정보 항목을 나타냅니다. 예를 들어 하나의 뉴스 기사와 연결된 일단의 데이터는 뉴스 답변의 결과입니다. |
 |Search API    | Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Local Business Search 및 Web Search API를 총체적으로 의미합니다. |
@@ -97,9 +102,9 @@ ms.locfileid: "60499888"
     - 주로(또는 전적으로) 이미지, 뉴스 및/또는 비디오나 비디오 검색 결과로 필터링되거나 제한된 응답
 
 ### <a name="notices-and-branding"></a>공지 및 브랜드 
-수행할 작업:
+권장 사항:
 
-- 사용자에게 검색 쿼리 입력 기능을 제공하는 UX(사용자 환경)의 각 위치 가까이에 [Microsoft 개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839)에 대한 기능형 하이퍼링크를 잘 보이게 포함합니다. 하이퍼링크 레이블을 **Microsoft 개인정보처리방침**으로 표시합니다.
+- 사용자에게 검색 쿼리 입력 기능을 제공하는 UX(사용자 환경)의 각 위치 가까이에 [Microsoft 개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839)에 대한 기능형 하이퍼링크를 잘 보이게 포함합니다. 하이퍼링크 레이블을 **Microsoft 개인정보처리방침** 으로 표시합니다.
 
 - 사용자에게 검색 쿼리 입력 기능을 제공하는 UX의 각 위치 가까이에 [Bing 상표 사용 지침](https://go.microsoft.com/fwlink/?linkid=833278)과 일관되는 Bing 브랜드를 잘 보이게 표시합니다. 이러한 브랜드는 Microsoft가 인터넷 검색 환경을 지원한다는 사실을 사용자에게 명확하게 알릴 수 있어야 합니다.
 
@@ -134,7 +139,7 @@ Search API 응답의 데이터는 복사, 저장 또는 캐시하면 안 됩니�
 - 사용자가 해당 디바이스의 해당 사용자에게 이전에 반환된 결과에 액세스할 수 있도록 합니다(예: 서비스 중단의 경우).
 - 해당 사용자의 신호(예: 예상되는 서비스 중단의 경우)에 따라 사용자의 요구 사항을 예상하여 개인 설정된 자동 관리 쿼리에 대해 반환된 결과를 저장합니다.
 
-#### <a name="server"></a>Server (서버)
+#### <a name="server"></a>서버
 
 다음과 같은 목적에 한하여 한 명의 사용자에게 해당하는 결과를 고객이 제어하는 서버에 안전하게 보관하고 이 보관된 결과를 표시할 수 있습니다.
 
@@ -167,5 +172,4 @@ Search API 응답의 데이터는 복사, 저장 또는 캐시하면 안 됩니�
 
 ## <a name="gdpr-compliance"></a>GDPR 규정 준수  
 
-유럽 연합 GDPR(일반 데이터 보호 규정)을 따르며 Search API, Bing Spell Check API 또는 Bing Autosuggest API 호출과 연계해서 처리되는 모든 개인 데이터 주체와 관련해서, 사용자 및 Microsoft가 GDPR에서 독립적인 데이터 통제자임을 이해해야 합니다. 사용자는 GDPR 준수에 대해 별도로 책임을 집니다.  
-
+유럽 연합 GDPR(일반 데이터 보호 규정)을 따르며 Search API, Bing Spell Check API 또는 Bing Autosuggest API 호출과 연계해서 처리되는 모든 개인 데이터 주체와 관련해서, 사용자 및 Microsoft가 GDPR에서 독립적인 데이터 통제자임을 이해해야 합니다. 사용자는 GDPR 준수에 대해 별도로 책임을 집니다.

@@ -3,13 +3,13 @@ title: Azure의 Service Fabric에서 .NET 앱 만들기
 description: 이 자습서에서는 ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드를 사용하여 애플리케이션을 만들고 클러스터에 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 847bd2e30977c5a14f8294f6709cbd6d376a8211
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: mvc, devx-track-js, devx-track-csharp
+ms.openlocfilehash: a783f5338dbc7ce0832b346492490525da332e39
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016277"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96297120"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기 및 배포
 
@@ -36,7 +36,7 @@ ms.locfileid: "89016277"
 
 이 자습서를 시작하기 전에:
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
+* **Azure 개발** 과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>ASP.NET Web API 서비스를 신뢰할 수 있는 서비스로 만들기
@@ -45,19 +45,19 @@ ms.locfileid: "89016277"
 
 1. **관리자** 권한으로 Visual Studio를 시작합니다.
 
-2. **파일**->**새로 만들기**->**프로젝트**로 프로젝트를 만듭니다.
+2. **파일**->**새로 만들기**->**프로젝트** 로 프로젝트를 만듭니다.
 
-3. **새 프로젝트** 대화 상자에서 **클라우드 &gt; Service Fabric 애플리케이션**을 선택합니다.
+3. **새 프로젝트** 대화 상자에서 **클라우드 &gt; Service Fabric 애플리케이션** 을 선택합니다.
 
-4. 애플리케이션의 이름을 **Voting**으로 지정하고 **확인**을 클릭합니다.
+4. 애플리케이션의 이름을 **Voting** 으로 지정하고 **확인** 을 클릭합니다.
 
    ![Visual Studio의 새 프로젝트 대화 상자](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. **새 Service Fabric 서비스** 페이지에서 **상태 비저장 ASP.NET Core**를 선택하고, 서비스 이름을 **VotingWeb**으로 지정한 다음, **확인**을 클릭합니다.
+5. **새 Service Fabric 서비스** 페이지에서 **상태 비저장 ASP.NET Core** 를 선택하고, 서비스 이름을 **VotingWeb** 으로 지정한 다음, **확인** 을 클릭합니다.
    
    ![새 서비스 대화 상자에서 ASP.NET 웹 서비스 선택](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 애플리케이션(모델-뷰-컨트롤러)** 을 선택한 다음, **확인**을 클릭합니다.
+6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 애플리케이션(모델-뷰-컨트롤러)** 을 선택한 다음, **확인** 을 클릭합니다.
    
    ![ASP.NET 프로젝트 형식 선택](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "89016277"
    ![ASP.NET core Web API 서비스를 사용하여 애플리케이션 만들기를 수행하는 솔루션 탐색기]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="update-the-sitejs-file"></a>site.js 파일 업데이트
-**wwwroot/js/site.js**를 엽니다.  해당 콘텐츠를 홈 보기에서 사용한 다음 JavaScript로 바꾼 다음, 변경 내용을 저장합니다.
+**wwwroot/js/site.js** 를 엽니다.  해당 콘텐츠를 홈 보기에서 사용한 다음 JavaScript로 바꾼 다음, 변경 내용을 저장합니다.
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -107,7 +107,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 
 ### <a name="update-the-indexcshtml-file"></a>Index.cshtml 파일 업데이트
 
-홈 컨트롤러와 관련된 보기인 **Views/Home/Index.cshtml**을 엽니다.  해당 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
+홈 컨트롤러와 관련된 보기인 **Views/Home/Index.cshtml** 을 엽니다.  해당 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
 
 ```html
 @{
@@ -147,17 +147,17 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
                 </div>
                 <div class="row top-buffer" ng-repeat="vote in votes.data">
                     <div class="col-xs-8">
-                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.Key)">
                             <span class="pull-left">
-                                {{vote.key}}
+                                {{vote.Key}}
                             </span>
                             <span class="badge pull-right">
-                                {{vote.value}} Votes
+                                {{vote.Value}} Votes
                             </span>
                         </button>
                     </div>
                     <div class="col-xs-4">
-                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.key)">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.Key)">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             Remove
                         </button>
@@ -171,7 +171,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 
 ### <a name="update-the-_layoutcshtml-file"></a>_Layout.cshtml 파일 업데이트
 
-ASP.NET 앱의 기본 레이아웃인 **Views/Shared/_Layout.cshtml**을 엽니다.  해당 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
+ASP.NET 앱의 기본 레이아웃인 **Views/Shared/_Layout.cshtml** 을 엽니다.  해당 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
 
 
 ```html
@@ -252,7 +252,7 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 
 ### <a name="add-the-votescontrollercs-file"></a>VotesController.cs 파일 추가
 
-투표 작업을 정의하는 컨트롤러를 추가합니다. **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고, **추가->새 항목->Visual C#->ASP.NET Core->클래스**를 선택합니다. 파일 이름을 **VotesController.cs**로 지정한 다음, **추가**를 클릭합니다.  
+투표 작업을 정의하는 컨트롤러를 추가합니다. **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고, **추가->새 항목->Visual C#->ASP.NET Core->클래스** 를 선택합니다. 파일 이름을 **VotesController.cs** 로 지정한 다음, **추가** 를 클릭합니다.  
 
 *VotesController.cs* 파일 콘텐츠를 다음으로 바꾸고 변경 내용을 저장합니다.  이 파일은 뒷부분의 [VotesController.cs 파일 업데이트](#updatevotecontroller_anchor)에서 백 엔드 서비스의 투표 데이터를 읽고 쓰도록 수정됩니다.  지금은 컨트롤러가 보기에 고정 문자열 데이터를 반환합니다.
 
@@ -300,7 +300,7 @@ namespace VotingWeb.Controllers
 
 VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 애플리케이션에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다.  [서비스 매니페스트](service-fabric-application-and-service-manifests.md)가 서비스 엔드포인트를 선언합니다.
 
-솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **Endpoint** 요소를 찾아서 **포트** 값을 **8080**으로 변경합니다. 애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다.
+솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml* 을 엽니다.  **리소스** 섹션에서 **Endpoint** 요소를 찾아서 **포트** 값을 **8080** 으로 변경합니다. 애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다.
 
 ```xml
 <Resources>
@@ -313,7 +313,7 @@ VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신�
   </Resources>
 ```
 
-애플리케이션을 디버그할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 애플리케이션 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **애플리케이션 URL** 속성을 **8080**으로 업데이트합니다.
+애플리케이션을 디버그할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 애플리케이션 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **애플리케이션 URL** 속성을 **8080** 으로 업데이트합니다.
 
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Voting 애플리케이션을 로컬로 배포하고 실행
 이제 Voting 애플리케이션을 실행하고 디버깅할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 디버그 모드에서 애플리케이션을 로컬 Service Fabric 클러스터에 배포합니다. 이전에 **관리자** 권한으로 Visual Studio를 열지 않은 경우 애플리케이션이 실패합니다.
@@ -335,13 +335,13 @@ Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관�
 
 이 자습서에서는 신뢰할 수 있는 컬렉션에 카운터 값을 저장하는 서비스를 만듭니다.
 
-1. 솔루션 탐색기에서 Voting 애플리케이션 프로젝트 내부의 **서비스**를 마우스 오른쪽 단추로 클릭하고 **추가 -&gt; 새 Service Fabric 서비스...** 를 선택합니다.
+1. 솔루션 탐색기에서 Voting 애플리케이션 프로젝트 내부의 **서비스** 를 마우스 오른쪽 단추로 클릭하고 **추가 -&gt; 새 Service Fabric 서비스...** 를 선택합니다.
     
-2. **새 Service Fabric 서비스** 대화 상자에서 **상태 저장 ASP.NET Core**를 선택하고, 서비스 이름을 **VotingData**로 지정한 다음, **확인**을 누릅니다.
+2. **새 Service Fabric 서비스** 대화 상자에서 **상태 저장 ASP.NET Core** 를 선택하고, 서비스 이름을 **VotingData** 로 지정한 다음, **확인** 을 누릅니다.
 
     서비스 프로젝트를 만들었으면 애플리케이션에 두 개의 서비스가 있을 것입니다. 계속해서 애플리케이션을 빌드하는 동안 같은 방법으로 더 많은 서비스를 추가할 수 있습니다. 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
 
-3. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **API**를 선택합니다.
+3. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **API** 를 선택합니다.
 
     Visual Studio는 VotingData 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
@@ -349,7 +349,7 @@ Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관�
 
 ### <a name="add-the-votedatacontrollercs-file"></a>VoteDataController.cs 파일 추가
 
-**VotingData** 프로젝트에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가->새 항목->클래스**를 선택합니다. 파일 이름을 **VoteDataController.cs**로 지정하고 **추가**를 클릭합니다. 파일 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
+**VotingData** 프로젝트에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가->새 항목->클래스** 를 선택합니다. 파일 이름을 **VoteDataController.cs** 로 지정하고 **추가** 를 클릭합니다. 파일 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
 
 ```csharp
 namespace VotingData.Controllers
@@ -456,7 +456,7 @@ VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서�
 ```
 로컬 개발 클러스터에서 사용되는 역방향 프록시 포트를 찾아보려면 로컬 Service Fabric 클러스터 매니페스트에서 **HttpApplicationGatewayEndpoint** 요소를 확인하세요.
 1. 브라우저 창을 열고 http:\//localhost:19080으로 이동하여 Service Fabric Explorer 도구를 엽니다.
-2. **클러스터 -> 매니페스트**를 선택합니다.
+2. **클러스터 -> 매니페스트** 를 선택합니다.
 3. HttpApplicationGatewayEndpoint 요소 포트를 기록해 둡니다. 기본적으로 19081이어야 합니다. 19081이 아닌 경우 다음 VotesController.cs 코드의 GetProxyAddress 메서드에서 포트를 변경해야 합니다.
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
@@ -597,7 +597,7 @@ public class VotesController : Controller
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 애플리케이션을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **애플리케이션 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
+Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 애플리케이션을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **애플리케이션 디버그 모드** 를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 

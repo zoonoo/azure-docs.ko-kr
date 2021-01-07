@@ -1,8 +1,8 @@
 ---
 title: PowerShell을 사용 하 여 클라우드의 데이터 변환
 description: 이 PowerShell 스크립트는 Azure HDInsight Spark 클러스터에서 Spark 프로그램을 실행하여 클라우드의 데이터를 변환합니다.
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe0efcb14c1da84ca5284d55366b6c7b79727b1
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74932059"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497013"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell 스크립트 - Azure Data Factory를 사용하여 클라우드의 데이터 변환
 
@@ -29,7 +29,7 @@ ms.locfileid: "74932059"
 * **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 스토리지 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 스토리지와 동일한 스토리지 계정을 사용합니다.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Python 스크립트 업로드
-1. 다음 내용이 포함된 **WordCount_Spark.py**라는 Python 파일을 만듭니다. 
+1. 다음 내용이 포함된 **WordCount_Spark.py** 라는 Python 파일을 만듭니다. 
 
     ```python
     import sys
@@ -54,15 +54,15 @@ ms.locfileid: "74932059"
     if __name__ == "__main__":
         main()
     ```
-2. ** &lt; Storageaccountname &gt; ** 을 Azure Storage 계정의 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
-3. Azure Blob Storage에 아직 없는 경우 **adftutorial**이라는 컨테이너를 만듭니다. 
-4. **spark**라는 폴더를 만듭니다.
-5. **spark** 폴더 아래에 **script**라는 하위 폴더를 만듭니다. 
+2. **&lt; Storageaccountname &gt;** 을 Azure Storage 계정의 이름으로 바꿉니다. 그런 다음, 파일을 저장합니다. 
+3. Azure Blob Storage에 아직 없는 경우 **adftutorial** 이라는 컨테이너를 만듭니다. 
+4. **spark** 라는 폴더를 만듭니다.
+5. **spark** 폴더 아래에 **script** 라는 하위 폴더를 만듭니다. 
 6. **script** 하위 폴더에 **WordCount_Spark.py** 파일을 업로드합니다. 
 
 
 ### <a name="upload-the-input-file"></a>입력 파일 업로드
-1. 일부 텍스트가 포함된 **minecraftstory.txt**라는 파일을 만듭니다. Spark 프로그램은 이 텍스트의 단어 수를 계산합니다. 
+1. 일부 텍스트가 포함된 **minecraftstory.txt** 라는 파일을 만듭니다. Spark 프로그램은 이 텍스트의 단어 수를 계산합니다. 
 2. Blob 컨테이너의 `spark` 폴더에 `inputfiles`이라는 하위 폴더를 만듭니다. 
 3. `inputfiles` 하위 폴더에 `minecraftstory.txt`를 업로드합니다. 
 
@@ -102,6 +102,6 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
 
 추가 Azure Data Factory PowerShell 스크립트 샘플은 [Azure Data Factory PowerShell 샘플](../samples-powershell.md)에 있습니다.

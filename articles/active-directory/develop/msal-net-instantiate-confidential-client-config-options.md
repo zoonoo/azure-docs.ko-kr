@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 140385a26dbfd754438d632ce327c3c4a3ea1b61
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88166181"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
@@ -35,7 +35,7 @@ ms.locfileid: "88166181"
 ## <a name="configure-the-application-from-the-config-file"></a>구성 파일에서 응용 프로그램 구성
 MSAL.NET에 있는 옵션의 속성 이름은 ASP.NET Core의 속성 이름과 일치 `AzureADOptions` 하므로 glue 코드를 작성할 필요가 없습니다.
 
-ASP.NET Core 응용 프로그램 구성은 파일 *의appsettings.js* 에 설명 되어 있습니다.
+ASP.NET Core 응용 프로그램 구성은 파일 * 의appsettings.js* 에 설명 되어 있습니다.
 
 ```json
 {
@@ -60,7 +60,7 @@ ASP.NET Core 응용 프로그램 구성은 파일 *의appsettings.js* 에 설명
 
 MSAL.NET v3. x부터 구성 파일에서 기밀 클라이언트 응용 프로그램을 구성할 수 있습니다.
 
-응용 프로그램을 구성 하 고 인스턴스화할 클래스에서 개체를 선언 해야 `ConfidentialClientApplicationOptions` 합니다.  Microsoft.Extensions.Configuration의 메서드를 사용 하 여 소스 (파일에 appconfig.js포함)에서 응용 프로그램 옵션 인스턴스로 읽은 구성을 바인딩합니다 `IConfigurationRoot.Bind()` [. 바인더 nuget 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+응용 프로그램을 구성 하 고 인스턴스화할 클래스에서 개체를 선언 해야 `ConfidentialClientApplicationOptions` 합니다.  Microsoft.Extensions.Configuration의 메서드를 사용 하 여 소스 (파일에 appconfig.js포함)에서 응용 프로그램 옵션 인스턴스로 읽은 구성을 바인딩합니다 `IConfigurationRoot.Bind()` [ . 바인더 nuget 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;

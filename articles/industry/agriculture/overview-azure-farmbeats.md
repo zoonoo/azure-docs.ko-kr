@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: b08013e9d015d3c987c0032761bebccd4b57ec72
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439564"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678024"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Azure FarmBeats 개요(미리 보기)
 
 Azure FarmBeats는 Azure Marketplace에서 사용할 수 있는 B2B(Business-to-Business) 제품입니다. 여러 공급자의 농업 데이터 세트를 집계할 수 있습니다. Azure FarmBeats를 통해 융합된 데이터 세트를 기반으로 AI(인공 지능) 또는 ML(기계 학습) 모델을 구축할 수 있습니다. Azure FarmBeats를 사용하면 농업 비즈니스가 미분화된 데이터 엔지니어링 대신 핵심 부가 가치에 중점을 둘 수 있습니다.
 
 > [!NOTE]
-> Azure FarmBeats는 현재 퍼블릭 미리 보기로 제공됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. Azure FarmBeats는 서비스 수준 계약 없이 제공됩니다. 지원을 받으려면 [Azure FarmBeats 지원 포럼](https://aka.ms/farmbeatssupport)을 사용하세요.
+> Azure FarmBeats는 현재 퍼블릭 미리 보기로 제공됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. Azure FarmBeats는 서비스 수준 계약 없이 제공됩니다. 지원을 받으려면 [Azure FarmBeats 지원 포럼](/answers/topics/azure-farmbeats.html)을 사용하세요.
 
 ![Farm Beats 프로젝트](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -43,7 +43,7 @@ Datahub는 확장 가능한 API 플랫폼으로 설계되었습니다. Azure Far
 
 Azure FarmBeats 액셀러레이터는 Datahub를 기반으로 구축된 샘플 웹 애플리케이션입니다. 액셀러레이터를 통해 사용자 인터페이스와 모델 개발을 신속하게 시작할 수 있습니다. Azure FarmBeats 액셀러레이터는 Azure FarmBeats의 API를 사용합니다. 수집된 센서 데이터를 차트로 시각화하고 모델 출력을 맵으로 시각화합니다. 예를 들어 액셀러레이터를 사용하여 농장을 신속하게 만들고 이 농장에 대한 식생 지수 맵 또는 센서 배치 맵을 쉽게 얻을 수 있습니다.
 
-## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 Access Control)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
 
 관리자는 미리 정의된 역할 중 하나를 사용하여 Azure FarmBeats에 대한 액세스 규칙을 정의할 수 있습니다. 역할은 사용자가 액세스할 수 있는 애플리케이션의 영역과 수행할 수 있는 작업을 결정합니다. Azure FarmBeats에는 사용자와 파트너를 위한 두 가지 종류의 역할이 있습니다.
 
@@ -66,7 +66,7 @@ Azure FarmBeats 액셀러레이터는 Datahub를 기반으로 구축된 샘플 �
 Azure FarmBeats는 추가 요금 없이 제공되며, 사용하는 Azure 리소스에 대해서만 요금을 지불합니다. 다음 리소스를 사용하여 제품에 대한 자세한 정보를 알아볼 수 있습니다.
 
 - [Azure FarmBeats 블로그](https://aka.ms/farmbeatsblog)를 방문하면 최신 Azure FarmBeats 뉴스에 대한 정보를 얻을 수 있습니다.
-- [Azure FarmBeats 지원 포럼](https://aka.ms/farmbeatssupport)에 질문을 게시하면 도움을 받을 수 있습니다.
+- [Azure FarmBeats 지원 포럼](/answers/topics/azure-farmbeats.html)에 질문을 게시하면 도움을 받을 수 있습니다.
 - [Azure FarmBeats 피드백 포럼](https://aka.ms/farmbeatsfeedback)에 기능 아이디어를 게시하거나 투표하여 피드백을 제공할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

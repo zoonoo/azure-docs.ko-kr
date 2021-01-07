@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eb5c351462279fe5c4f790e052f73201d211cfb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514679"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961178"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 구성 수정
 
@@ -44,7 +44,7 @@ Azure Portal을 사용하여 디바이스 이름을 변경하거나 사용자가
 
 StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스에는 기본 이름이 할당됩니다. 기본 이름에는 일반적으로 디바이스의 일련 번호가 반영됩니다. 예를 들어, 기본 디바이스 이름은 8600-SHX0991003G44HT와 같이 다음을 나타내는 15자 길이의 문자입니다.
 
-* **8600** – 장치 모델을 나타냅니다.
+* **8600**  – 장치 모델을 나타냅니다.
 * **SHX** – 제조 사이트를 나타냅니다.
 * **0991003** - 특정 제품을 나타냅니다.
 * **G44HT** - 마지막 5자리는 고유한 일련 번호를 만들기 위해 증분되며, 순차적인 집합이 아닐 수 있습니다.
@@ -61,11 +61,11 @@ StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스
 
 디바이스는 클라우드 스토리지 서비스 공급자를 사용하여 인증하기 위해 시간을 동기화해야 합니다. 디바이스의 **일반 설정** 블레이드를 사용하여 디바이스 시간 설정을 수정합니다.
 
-![일반 설정의 디바이스 설명](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![일반 설정 2의 장치 설명](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  드롭다운 목록에서 표준 시간대를 선택합니다. 최대 두 개의 NTP(Network Time Protocol) 서버를 지정할 수 있습니다.
 
- - **기본 NTP 서버** - 이 구성은 필수 항목이며 디바이스를 구성하기 위해 StorSimple용 Windows PowerShell을 사용할 때 지정됩니다. 기본 Windows Server **time.windows.com**을 NTP 서버로 지정할 수 있습니다. Azure Portal을 통해 기본 NTP 서버 구성을 볼 수 있지만, 변경하려면 Windows PowerShell 인터페이스를 사용해야 합니다. `Set-HcsNTPClientServerAddress` cmdlet을 사용하여 디바이스의 기본 NTP 서버를 수정합니다. 자세한 내용을 보려면 [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet의 구문으로 이동하세요.
+ - **기본 NTP 서버** - 이 구성은 필수 항목이며 디바이스를 구성하기 위해 StorSimple용 Windows PowerShell을 사용할 때 지정됩니다. 기본 Windows Server **time.windows.com** 을 NTP 서버로 지정할 수 있습니다. Azure Portal을 통해 기본 NTP 서버 구성을 볼 수 있지만, 변경하려면 Windows PowerShell 인터페이스를 사용해야 합니다. `Set-HcsNTPClientServerAddress` cmdlet을 사용하여 디바이스의 기본 NTP 서버를 수정합니다. 자세한 내용을 보려면 [Set-HcsNTPClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) cmdlet의 구문으로 이동하세요.
 
 - **보조 NTP 서버** - 이 구성은 선택 사항입니다. 포털을 사용하여 보조 NTP 서버를 구성할 수 있습니다.
 
@@ -85,7 +85,7 @@ DNS 서버는 디바이스가 클라우드 스토리지 서비스 공급자와 �
 
 고가용성을 위해 초기 디바이스를 배포하는 동안 기본 및 보조 DNS 서버를 모두 구성해야 합니다.
 
-**기본 DNS 서버** - 먼저 StorSimple용 Windows PowerShell을 사용하여 초기 설정 중에 기본 DNS 서버를 지정합니다. Windows PowerShell 인터페이스를 통해서만 기본 DNS 서버를 다시 구성할 수 있습니다. `Set-HcsDNSClientServerAddress` cmdlet을 사용하여 디바이스의 기본 DNS 서버를 수정합니다. 자세한 내용을 보려면 [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet의 구문으로 이동하세요.
+**기본 DNS 서버** - 먼저 StorSimple용 Windows PowerShell을 사용하여 초기 설정 중에 기본 DNS 서버를 지정합니다. Windows PowerShell 인터페이스를 통해서만 기본 DNS 서버를 다시 구성할 수 있습니다. `Set-HcsDNSClientServerAddress` cmdlet을 사용하여 디바이스의 기본 DNS 서버를 수정합니다. 자세한 내용을 보려면 [Set-HcsDNSClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) cmdlet의 구문으로 이동하세요.
 
 **보조 DNS 서버** - 보조 DNS 서버를 수정하려면 디바이스의 Windows PowerShell 인터페이스에서 `Set-HcsDNSClientServerAddress` cmdlet 또는 Azure Portal에서 StorSimple 디바이스의 **네트워크 설정** 블레이드를 사용합니다.
 
@@ -93,11 +93,11 @@ Azure Portal에서 보조 DNS 서버를 수정하려면 다음 단계를 수행�
 
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. 디바이스 목록에서 디바이스를 선택하고 클릭합니다.
 
-2. **설정** 블레이드에서 **디바이스 설정 &gt; 네트워크**로 이동합니다. 그러면 **네트워크 설정** 블레이드를 엽니다. **DNS 설정** 타일을 클릭합니다. 보조 DNS 서버 IP 주소를 수정합니다.
+2. **설정** 블레이드에서 **디바이스 설정 &gt; 네트워크** 로 이동합니다. 그러면 **네트워크 설정** 블레이드를 엽니다. **DNS 설정** 타일을 클릭합니다. 보조 DNS 서버 IP 주소를 수정합니다.
 
     ![보조 DNS 서버 IP 주소 수정](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
-4. 명령 모음에서 **저장**을 클릭하고 확인하라는 메시지가 표시되면 **확인**을 클릭합니다.
+4. 명령 모음에서 **저장** 을 클릭하고 확인하라는 메시지가 표시되면 **확인** 을 클릭합니다.
 
     ![변경 내용 저장 및 확인](./media/storsimple-8000-modify-device-config/modify-secondary-dns-2.png)
 
@@ -169,4 +169,3 @@ DATA 1~DATA 5 네트워크 인터페이스의 경우 다음 스크린샷에 표�
 
 * [StorSimple 디바이스에 대해 MPIO를 구성](storsimple-8000-configure-mpio-windows-server.md)하는 방법을 알아봅니다.
 * [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
-

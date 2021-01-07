@@ -1,4 +1,4 @@
-- name: Azure Private Link 설명서
+- name: Private Link 설명서
   href: index.yml
 - name: 개요
   items:
@@ -24,6 +24,23 @@
     - name: Private Link 서비스 만들기 - ARM 템플릿
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
+- name: 자습서
+  items:
+    - name: 스토리지 계정에 연결
+      href: tutorial-private-endpoint-storage-portal.md
+    - name: Cosmos DB 계정에 연결
+      href: tutorial-private-endpoint-cosmosdb-portal.md
+    - name: 웹앱에 연결
+      href: tutorial-private-endpoint-webapp-portal.md
+    - name: SQL
+      items:
+        - name: SQL 서버에 연결 - 포털
+          href: tutorial-private-endpoint-sql-portal.md
+        - name: SQL 서버에 연결 - PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
+        - name: SQL 서버에 연결 - Azure CLI
+          href: tutorial-private-endpoint-sql-cli.md
 - name: 개념
   items:
     - name: Private Endpoint
@@ -38,12 +55,6 @@
           href: security-baseline.md
 - name: 방법
   items:
-    - name: 스토리지 계정에 비공개로 연결
-      href: create-private-endpoint-storage-portal.md
-    - name: Cosmos DB 계정에 비공개로 연결
-      href: create-private-endpoint-cosmosdb-portal.md
-    - name: 웹앱에 비공개로 연결
-      href: create-private-endpoint-webapp-portal.md
     - name: 프라이빗 엔드포인트에 대한 네트워크 정책 사용 안 함
       href: disable-private-endpoint-network-policy.md
     - name: Private Link Service에 대한 네트워크 정책 사용 안 함
@@ -69,7 +80,7 @@
     - name: Java
       href: /java/api/
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+      href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
@@ -87,7 +98,7 @@
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: 네트워킹에 대한 Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: 네트워킹 피드백
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: 가격 책정

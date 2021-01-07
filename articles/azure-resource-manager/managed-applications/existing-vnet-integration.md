@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: tomfitz
 ms.openlocfilehash: fa5e59b96aada06c2dd486094d9be6a52c79e43e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84260686"
 ---
 # <a name="use-existing-virtual-network-with-azure-managed-applications"></a>Azure Managed Applications에서 기존 가상 네트워크 사용
@@ -18,7 +18,7 @@ ms.locfileid: "84260686"
 
 ## <a name="main-template"></a>기본 템플릿
 
-먼저 파일 **의mainTemplate.js** 을 살펴보겠습니다. 가상 컴퓨터 및 관련 리소스를 배포 하기 위한 전체 템플릿은 다음과 같습니다. 나중에 기존 가상 네트워크를 사용 하는 것과 관련 된 템플릿의 일부를 자세히 살펴보겠습니다.
+먼저 파일 ** 의mainTemplate.js** 을 살펴보겠습니다. 가상 컴퓨터 및 관련 리소스를 배포 하기 위한 전체 템플릿은 다음과 같습니다. 나중에 기존 가상 네트워크를 사용 하는 것과 관련 된 템플릿의 일부를 자세히 살펴보겠습니다.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/mainTemplate.json":::
 
@@ -38,7 +38,7 @@ ms.locfileid: "84260686"
 
 ## <a name="ui-definition"></a>UI 정의
 
-이제 파일 **에createUiDefinition.js** 을 살펴보겠습니다. 전체 파일은 다음과 같습니다.
+이제 파일 ** 에createUiDefinition.js** 을 살펴보겠습니다. 전체 파일은 다음과 같습니다.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json":::
 
@@ -59,4 +59,4 @@ ms.locfileid: "84260686"
 
 ## <a name="next-steps"></a>다음 단계
 
-UI 정의 파일을 만드는 방법에 대 한 자세한 내용은 [Azure 관리 되는 응용 프로그램의 만들기 환경을 위한CreateUiDefinition.js](create-uidefinition-overview.md)를 참조 하세요.
+UI 정의 파일을 만드는 방법에 대 한 자세한 내용은 [ Azure 관리 되는 응용 프로그램의 만들기 환경을 위한CreateUiDefinition.js](create-uidefinition-overview.md)를 참조 하세요.

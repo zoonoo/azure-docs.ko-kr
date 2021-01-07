@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
-ms.custom: seodec18
-ms.openlocfilehash: 9a1745aa0e78dafca70ea90d4a5ac92f340312b3
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.custom: references_regions
+ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706925"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762965"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -26,102 +26,104 @@ ms.locfileid: "90706925"
 
 Microsoft Speech SDK와 REST API는 모두 다음 언어(로캘)를 지원합니다. 
 
-정확성을 향상시키기 위해 사용자 지정은 **오디오 + 휴먼 레이블 음성 텍스트** 또는 **관련 텍스트: 문장**을 업로드하여 언어의 하위 집합에 제공됩니다. 사용자 지정에 대한 자세한 내용은 [Custom Speech 시작](how-to-custom-speech.md)을 참조하세요.
+정확성을 향상시키기 위해 사용자 지정은 **오디오 + 휴먼 레이블 음성 텍스트** 또는 **관련 텍스트: 문장** 을 업로드하여 언어의 하위 집합에 제공됩니다. 사용자 지정에 대한 자세한 내용은 [Custom Speech 시작](./custom-speech-overview.md)을 참조하세요.
 
 <!--
 To get the AM and ML bits:
-https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForModels
 
 To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| 로캘  | 언어                          | 사용자 지정                                    |
-|---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | 아랍어 (아랍에미리트)     | 언어 모델                                    |
-| `ar-BH` | 아랍어(바레인), 최신 표준 | 언어 모델                                    |
-| `ar-EG` | 아랍어(이집트)                    | 언어 모델                                    |
-| `ar-IL` | 아랍어(이스라엘)                   | No                                                |
-| `ar-IQ` | 아랍어(이라크)                     | 언어 모델                                    |
-| `ar-JO` | 아랍어(요르단)                   | 언어 모델                                    |
-| `ar-KW` | 아랍어(쿠웨이트)                   | 언어 모델                                    |
-| `ar-LB` | 아랍어(레바논)                  | 언어 모델                                    |
-| `ar-OM` | 아랍어(오만)                     | 언어 모델                                    |
-| `ar-PS` | 아랍어 (팔레스타인 자치 정부 상태)       | 예                                                |
-| `ar-QA` | 아랍어(카타르)                    | 언어 모델                                    |
-| `ar-SA` | 아랍어(사우디아라비아)             | 언어 모델                                    |
-| `ar-SY` | 아랍어(시리아)                    | 언어 모델                                    |
-| `bg-BG` | 불가리아어(불가리아)              | 언어 모델                                    |
-| `ca-ES` | 카탈로니아어(스페인)                   | 언어 모델                                    |
-| `cs-CZ` | 체코어(체코)            | 언어 모델                                    | 
-| `da-DK` | 덴마크어(덴마크)                  | 언어 모델                                    |
-| `de-DE` | 독일어(독일)                  | 음향 모델<br>언어 모델<br>발음 |
-| `el-GR` | 그리스어(그리스)                    | 언어 모델                                    |
-| `en-AU` | 영어(오스트레일리아)               | 음향 모델<br>언어 모델                  |
-| `en-CA` | 영어(캐나다)                  | 음향 모델<br>언어 모델                  |
-| `en-GB` | 영어(영국)          | 음향 모델<br>언어 모델<br>발음 |
-| `en-HK` | 영어 (홍콩)               | 언어 모델                                    | 
-| `en-IE` | 영어(아일랜드)                 | 언어 모델                                    | 
-| `en-IN` | 영어(인도)                   | 음향 모델<br>언어 모델                  |
-| `en-NZ` | 영어(뉴질랜드)             | 음향 모델<br>언어 모델                  |
-| `en-PH` | 영어(필리핀)             | 언어 모델                                    | 
-| `en-SG` | 영어(싱가포르)               | 언어 모델                                    | 
-| `en-US` | 영어(미국)           | 음향 모델<br>언어 모델<br>발음 |
-| `en-ZA` | 영어(남아프리카)            | 언어 모델                                    | 
-| `es-AR` | 스페인어(아르헨티나)               | 언어 모델                                    | 
-| `es-BO` | 스페인어(볼리비아)                 | 언어 모델                                    | 
-| `es-CL` | 스페인어(칠레)                   | 언어 모델                                    | 
-| `es-CO` | 스페인어(콜롬비아)                | 언어 모델                                    | 
-| `es-CR` | 스페인어(코스타리카)              | 언어 모델                                    | 
-| `es-CU` | 스페인어 (쿠바)                    | 언어 모델                                    | 
-| `es-DO` | 스페인어(도미니카 공화국)      | 언어 모델                                    | 
-| `es-EC` | 스페인어(에콰도르)                 | 언어 모델                                    | 
-| `es-ES` | 스페인어(스페인)                   | 음향 모델<br>언어 모델                  |
-| `es-GT` | 스페인어(과테말라)               | 언어 모델                                    | 
-| `es-HN` | 스페인어(온두라스)                | 언어 모델                                    | 
-| `es-MX` | 스페인어(멕시코)                  | 음향 모델<br>언어 모델                  |
-| `es-NI` | 스페인어(니카라과)               | 언어 모델                                    | 
-| `es-PA` | 스페인어(파나마)                  | 언어 모델                                    | 
-| `es-PE` | 스페인어(페루)                    | 언어 모델                                    | 
-| `es-PR` | 스페인어(푸에르토리코)             | 언어 모델                                    | 
-| `es-PY` | 스페인어(파라과이)                | 언어 모델                                    | 
-| `es-SV` | 스페인어(엘살바도르)             | 언어 모델                                    | 
-| `es-US` | 스페인어 (미국)                     | 언어 모델                                    | 
-| `es-UY` | 스페인어(우루과이)                 | 언어 모델                                    | 
-| `es-VE` | 스페인어(베네수엘라)               | 언어 모델                                    |
-| `et-EE` | 에스토니아어 (에스토니아)                 | 언어 모델                                    | 
-| `fi-FI` | 핀란드어(핀란드)                 | 언어 모델                                    |
-| `fr-CA` | 프랑스어(캐나다)                   | 음향 모델<br>언어 모델                  |
-| `fr-FR` | 프랑스어(프랑스)                   | 음향 모델<br>언어 모델<br>발음 |
-| `ga-IE` | 아일랜드어 (아일랜드)                    | 언어 모델                                    |
-| `gu-IN` | 구자라트어(인도)                 | 언어 모델                                    |
-| `hi-IN` | 힌디어(인도)                     | 음향 모델<br>언어 모델                  |
-| `hr-HR` | 크로아티아어(크로아티아)                | 언어 모델                                    |
-| `hu-HU` | 헝가리어(헝가리)               | 언어 모델                                    | 
-| `it-IT` | 이탈리아어(이탈리아)                   | 음향 모델<br>언어 모델<br>발음 |
-| `ja-JP` | 일본어(일본)                  | 언어 모델                                    |
-| `ko-KR` | 한국어(한국)                    | 언어 모델                                    |
-| `lt-LT` | 리투아니아어(리투아니아)            | 언어 모델                                    |
-| `lv-LV` | 라트비아어(라트비아)                  | 언어 모델                                    |
-| `mr-IN` | 마라티어(인도)                   | 언어 모델                                    |
-| `mt-MT` | 몰타어 (몰타)                    | 언어 모델                                    |
-| `nb-NO` | 노르웨이어(복말)(노르웨이)       | 언어 모델                                    |
-| `nl-NL` | 네덜란드어(네덜란드)               | 언어 모델                                    |
-| `pl-PL` | 폴란드어(폴란드)                   | 언어 모델                                    |
-| `pt-BR` | 포르투갈어(브라질)               | 음향 모델<br>언어 모델<br>발음 |
-| `pt-PT` | 포르투갈어(포르투갈)             | 언어 모델                                    |
-| `ro-RO` | 루마니아어(루마니아)                | 언어 모델                                    |
-| `ru-RU` | 러시아어(러시아)                  | 음향 모델<br>언어 모델                  |
-| `sk-SK` | 슬로바키아어(슬로바키아)                 | 언어 모델                                    |
-| `sl-SI` | 슬로베니아어(슬로베니아)              | 언어 모델                                    |
-| `sv-SE` | 스웨덴어(스웨덴)                  | 언어 모델                                    |
-| `ta-IN` | 타밀어(인도)                     | 언어 모델                                    |
-| `te-IN` | 텔루구어(인도)                    | 언어 모델                                    |
-| `th-TH` | 태국어(태국)                   | 언어 모델                                    |
-| `tr-TR` | 터키어(터키)                  | 언어 모델                                    |
-| `zh-CN` | 중국어 (북경어, 간체)    | 음향 모델<br>언어 모델                  |
-| `zh-HK` | 중국어(광둥어, 번체)  | 언어 모델                                    |
-| `zh-TW` | 중국어(대만어)      | 언어 모델                                    |
+| 언어                           | 로캘 (BCP-47) | 사용자 지정                                   |
+|------------------------------------|--------|--------------------------------------------------|
+| 아랍어(바레인), 최신 표준  | `ar-BH` | 언어 모델                                   |
+| 아랍어(이집트)                     | `ar-EG` | 언어 모델                                   |
+| 아랍어(이라크)                      | `ar-IQ` | 언어 모델                                   |
+| 아랍어(이스라엘)                    | `ar-IL` | 언어 모델                                   |
+| 아랍어(요르단)                    | `ar-JO` | 언어 모델                                   |
+| 아랍어(쿠웨이트)                    | `ar-KW` | 언어 모델                                   |
+| 아랍어(레바논)                   | `ar-LB` | 언어 모델                                   |
+| 아랍어(오만)                      | `ar-OM` | 언어 모델                                   |
+| 아랍어(카타르)                     | `ar-QA` | 언어 모델                                   |
+| 아랍어(사우디아라비아)              | `ar-SA` | 언어 모델                                   |
+| 아랍어 (팔레스타인 자치 정부 상태)        | `ar-PS` | 언어 모델                                   |
+| 아랍어(시리아)                     | `ar-SY` | 언어 모델                                   |
+| 아랍어 (아랍에미리트)      | `ar-AE` | 언어 모델                                   |
+| 불가리아어(불가리아)               | `bg-BG` | 언어 모델                                   |
+| 카탈로니아어(스페인)                    | `ca-ES` | 언어 모델                                   |
+| 중국어(광둥어, 번체)   | `zh-HK` | 언어 모델                                   |
+| 중국어 (북경어, 간체)     | `zh-CN` | 음향 모델<br>언어 모델                 |
+| 중국어(대만어)       | `zh-TW` | 언어 모델                                   |
+| 크로아티아어(크로아티아)                 | `hr-HR` | 언어 모델                                   |
+| 체코어(체코)             | `cs-CZ` | 언어 모델                                   |
+| 덴마크어(덴마크)                   | `da-DK` | 언어 모델                                   |
+| 네덜란드어(네덜란드)                | `nl-NL` | 언어 모델                                   |
+| 영어(호주)                | `en-AU` | 음향 모델<br>언어 모델                 |
+| 영어(캐나다)                   | `en-CA` | 음향 모델<br>언어 모델                 |
+| 영어 (홍콩)                | `en-HK` | 언어 모델                                   |
+| 영어(인도)                    | `en-IN` | 음향 모델<br>언어 모델                 |
+| 영어(아일랜드)                  | `en-IE` | 언어 모델                                   |
+| 영어(뉴질랜드)              | `en-NZ` | 음향 모델<br>언어 모델                 |
+| 영어 (나이지리아)                  | `en-NG` | 언어 모델                                   |
+| 영어(필리핀)              | `en-PH` | 언어 모델                                   |
+| 영어(싱가포르)                | `en-SG` | 언어 모델                                   |
+| 영어(남아프리카 공화국)             | `en-ZA` | 언어 모델                                   |
+| 영어(영국)           | `en-GB` | 음향 모델<br>언어 모델<br>발음|
+| 영어(미국)            | `en-US` | 음향 모델<br>언어 모델<br>발음|
+| 에스토니아어 (에스토니아)                  | `et-EE` | 언어 모델                                   |
+| 핀란드어(핀란드)                  | `fi-FI` | 언어 모델                                   |
+| 프랑스어(캐나다)                    | `fr-CA` | 음향 모델<br>언어 모델                 |
+| 프랑스어(프랑스)                    | `fr-FR` | 음향 모델<br>언어 모델<br>발음|
+| 독일어 (독일)                   | `de-DE` | 음향 모델<br>언어 모델<br>발음|
+| 그리스어(그리스)                     | `el-GR` | 언어 모델                                   |
+| 구자라트어(인도)                  | `gu-IN` | 언어 모델                                   |
+| 힌디어(인도)                      | `hi-IN` | 음향 모델<br>언어 모델                 |
+| 헝가리어(헝가리)                | `hu-HU` | 언어 모델                                   |
+| 아일랜드어 (아일랜드)                     | `ga-IE` | 언어 모델                                   |
+| 이탈리아어(이탈리아)                    | `it-IT` | 음향 모델<br>언어 모델<br>발음|
+| 일본어(일본)                   | `ja-JP` | 언어 모델                                   |
+| 한국어(한국)                     | `ko-KR` | 언어 모델                                   |
+| 라트비아어(라트비아)                   | `lv-LV` | 언어 모델                                   |
+| 리투아니아어(리투아니아)             | `lt-LT` | 언어 모델                                   |
+| 몰타어 (몰타)                     | `mt-MT` | 언어 모델                                   |
+| 마라티어(인도)                    | `mr-IN` | 언어 모델                                   |
+| 노르웨이어(복말)(노르웨이)         | `nb-NO` | 언어 모델                                   |
+| 폴란드어(폴란드)                    | `pl-PL` | 언어 모델                                   |
+| 포르투갈어(브라질)                | `pt-BR` | 음향 모델<br>언어 모델<br>발음|
+| 포르투갈어(포르투갈)              | `pt-PT` | 언어 모델                                   |
+| 루마니아어(루마니아)                 | `ro-RO` | 언어 모델                                   |
+| 러시아어(러시아)                   | `ru-RU` | 음향 모델<br>언어 모델                 |
+| 슬로바키아어(슬로바키아)                  | `sk-SK` | 언어 모델                                   |
+| 슬로베니아어(슬로베니아)               | `sl-SI` | 언어 모델                                   |
+| 스페인어(아르헨티나)                | `es-AR` | 언어 모델                                   |
+| 스페인어(볼리비아)                  | `es-BO` | 언어 모델                                   |
+| 스페인어(칠레)                    | `es-CL` | 언어 모델                                   |
+| 스페인어(콜롬비아)                 | `es-CO` | 언어 모델                                   |
+| 스페인어(코스타리카)               | `es-CR` | 언어 모델                                   |
+| 스페인어 (쿠바)                     | `es-CU` | 언어 모델                                   |
+| 스페인어(도미니카 공화국)       | `es-DO` | 언어 모델                                   |
+| 스페인어(에콰도르)                  | `es-EC` | 언어 모델                                   |
+| 스페인어(엘살바도르)              | `es-SV` | 언어 모델                                   |
+| 스페인어 (적도 기니)        | `es-GQ` | 언어 모델                                   |
+| 스페인어(과테말라)                | `es-GT` | 언어 모델                                   |
+| 스페인어(온두라스)                 | `es-HN` | 언어 모델                                   |
+| 스페인어(멕시코)                   | `es-MX` | 음향 모델<br>언어 모델                 |
+| 스페인어(니카라과)                | `es-NI` | 언어 모델                                   |
+| 스페인어(파나마)                   | `es-PA` | 언어 모델                                   |
+| 스페인어(파라과이)                 | `es-PY` | 언어 모델                                   |
+| 스페인어(페루)                     | `es-PE` | 언어 모델                                   |
+| 스페인어(푸에르토리코)              | `es-PR` | 언어 모델                                   |
+| 스페인어(스페인)                    | `es-ES` | 음향 모델<br>언어 모델                 |
+| 스페인어(우루과이)                  | `es-UY` | 언어 모델                                   |
+| 스페인어 (미국)                      | `es-US` | 언어 모델                                   |
+| 스페인어(베네수엘라)                | `es-VE` | 언어 모델                                   |
+| 스웨덴어(스웨덴)                   | `sv-SE` | 언어 모델                                   |
+| 타밀어(인도)                      | `ta-IN` | 언어 모델                                   |
+| 텔루구어(인도)                     | `te-IN` | 언어 모델                                   |
+| 태국어(태국)                    | `th-TH` | 언어 모델                                   |
+| 터키어(터키)                   | `tr-TR` | 언어 모델                                   |
 
 ## <a name="text-to-speech"></a>텍스트 음성 변환
 
@@ -136,51 +138,159 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 인공신경망 음성을 사용하여 챗봇 및 음성 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, eBook 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간과 유사한 자연스러운 운율 및 단어의 명확한 조음을 사용하면 사용자가 AI 시스템과 상호 작용할 때 인공신경망 음성은 수신 피로도를 현저히 줄일 수 있습니다.
 
+> [!NOTE]
+> 신경망은 24 khz 샘플 주기를 사용 하는 샘플에서 생성 됩니다.
+> 모든 음성이 synthesizing 때 다른 샘플 요금으로 upsample 하거나 다운 샘플링할 수 있습니다.
+
+
+| 언어 | 로캘 | 성별 | 음성 이름 | 스타일 지원 |
+|---|---|---|---|---|
+| 아랍어(이집트) | `ar-EG` | Female | `ar-EG-SalmaNeural` | 일반 |
+| 아랍어(이집트) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>새로 만들기</sup> | 일반 |
+| 아랍어(사우디아라비아) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | 일반 |
+| 아랍어(사우디아라비아) | `ar-SA` | Male | `ar-SA-HamedNeural` <sup>새로 만들기</sup> | 일반 |
+| 불가리아어(불가리아) | `bg-BG` | Female | `bg-BG-KalinaNeural` | 일반 |
+| 불가리아어(불가리아) | `bg-BG` | Male | `bg-BG-BorislavNeural` <sup>새로 만들기</sup> | 일반 |
+| 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-AlbaNeural` | 일반 |
+| 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-JoanaNeural` <sup>새로 만들기</sup> | 일반 |
+| 카탈로니아어(스페인) | `ca-ES` | Male | `ca-ES-EnricNeural` <sup>새로 만들기</sup> | 일반 |
+| 중국어(광둥어, 번체) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | 일반 |
+| 중국어(광둥어, 번체) | `zh-HK` | Female | `zh-HK-HiuMaanNeural` <sup>새로 만들기</sup> | 일반 |
+| 중국어(광둥어, 번체) | `zh-HK` | Male | `zh-HK-WanLungNeural` <sup>새로 만들기</sup> | 일반 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | 어린이 음성, 이야기 내레이션에 최적화 |
+| 중국어 (북경어, 간체) | `zh-CN` | Male | `zh-CN-YunyangNeural` | 뉴스 읽기에 최적화 됨<br /> [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Male | `zh-CN-YunyeNeural` | 이야기 내레이션에 최적화  |
+| 중국어(대만어) | `zh-TW` | Female | `zh-TW-HsiaoChenNeural` <sup>새로 만들기</sup> | 일반 |
+| 중국어(대만어) | `zh-TW` | Female | `zh-TW-HsiaoYuNeural` | 일반 |
+| 중국어(대만어) | `zh-TW` | Male | `zh-TW-YunJheNeural` <sup>새로 만들기</sup> | 일반 |
+| 크로아티아어(크로아티아) | `hr-HR` | Female | `hr-HR-GabrijelaNeural` | 일반 |
+| 크로아티아어(크로아티아) | `hr-HR` | Male | `hr-HR-SreckoNeural` <sup>새로 만들기</sup> | 일반 |
+| 체코어 (체코) | `cs-CZ` | Female | `cs-CZ-VlastaNeural` | 일반 |
+| 체코어 (체코) | `cs-CZ` | Male | `cs-CZ-AntoninNeural` <sup>새로 만들기</sup> | 일반 |
+| 덴마크어(덴마크) | `da-DK` | Female | `da-DK-ChristelNeural` | 일반 |
+| 덴마크어(덴마크) | `da-DK` | Male | `da-DK-JeppeNeural` <sup>새로 만들기</sup> | 일반 |
+| 네덜란드어(네덜란드) | `nl-NL` | Female | `nl-NL-ColetteNeural` | 일반 |
+| 네덜란드어(네덜란드) | `nl-NL` | Female | `nl-NL-FennaNeural` <sup>새로 만들기</sup> | 일반 |
+| 네덜란드어(네덜란드) | `nl-NL` | Male | `nl-NL-MaartenNeural` <sup>새로 만들기</sup> | 일반 |
+| 영어(오스트레일리아) | `en-AU` | Female | `en-AU-NatashaNeural` | 일반 |
+| 영어(오스트레일리아) | `en-AU` | Male | `en-AU-WilliamNeural` | 일반 |
+| 영어(캐나다) | `en-CA` | Female | `en-CA-ClaraNeural` | 일반 |
+| 영어(캐나다) | `en-CA` | Male | `en-CA-LiamNeural` <sup>새로 만들기</sup> | 일반 |
+| 영어(인도) | `en-IN` | Female | `en-IN-NeerjaNeural` | 일반 |
+| 영어(인도) | `en-IN` | Male | `en-IN-PrabhatNeural` <sup>새로 만들기</sup> | 일반 |
+| 영어(아일랜드) | `en-IE` | Female | `en-IE-EmilyNeural` | 일반 |
+| 영어(아일랜드) | `en-IE` | Male | `en-IE-ConnorNeural` <sup>새로 만들기</sup> | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural` | 일반 |
+| 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
+| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | 일반 |
+| 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-NooraNeural` | 일반 |
+| 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-SelmaNeural` <sup>새로 만들기</sup> | 일반 |
+| 핀란드어(핀란드) | `fi-FI` | Male | `fi-FI-HarriNeural` <sup>새로 만들기</sup> | 일반 |
+| 프랑스어(캐나다) | `fr-CA` | Female | `fr-CA-SylvieNeural` | 일반 |
+| 프랑스어(캐나다) | `fr-CA` | Male | `fr-CA-JeanNeural` | 일반 |
+| 프랑스어(프랑스) | `fr-FR` | Female | `fr-FR-DeniseNeural` | 일반 |
+| 프랑스어(프랑스) | `fr-FR` | Male | `fr-FR-HenriNeural` | 일반 |
+| 프랑스어(스위스) | `fr-CH` | Female | `fr-CH-ArianeNeural` | 일반 |
+| 프랑스어(스위스) | `fr-CH` | Male | `fr-CH-FabriceNeural` <sup>새로 만들기</sup> | 일반 |
+| 독일어(오스트리아) | `de-AT` | Female | `de-AT-IngridNeural` | 일반 |
+| 독일어(오스트리아) | `de-AT` | Male | `de-AT-JonasNeural` <sup>새로 만들기</sup> | 일반 |
+| 독일어(독일) | `de-DE` | Female | `de-DE-KatjaNeural` | 일반 |
+| 독일어 (독일) | `de-DE` | Male | `de-DE-ConradNeural` | 일반 |
+| 독일어(스위스) | `de-CH` | Female | `de-CH-LeniNeural` | 일반 |
+| 독일어(스위스) | `de-CH` | Male | `de-CH-JanNeural` <sup>새로 만들기</sup> | 일반 |
+| 그리스어(그리스) | `el-GR` | Female | `el-GR-AthinaNeural` | 일반 |
+| 그리스어(그리스) | `el-GR` | Male | `el-GR-NestorasNeural` <sup>새로 만들기</sup> | 일반 |
+| 히브리어(이스라엘) | `he-IL` | Female | `he-IL-HilaNeural` | 일반 |
+| 히브리어(이스라엘) | `he-IL` | Male | `he-IL-AvriNeural` <sup>새로 만들기</sup> | 일반 |
+| 힌디어(인도) | `hi-IN` | Female | `hi-IN-SwaraNeural` | 일반 |
+| 힌디어(인도) | `hi-IN` | Male | `hi-IN-MadhurNeural` <sup>새로 만들기</sup> | 일반 |
+| 헝가리어(헝가리) | `hu-HU` | Female | `hu-HU-NoemiNeural` | 일반 |
+| 헝가리어(헝가리) | `hu-HU` | Male | `hu-HU-TamasNeural` <sup>새로 만들기</sup> | 일반 |
+| 인도네시아어(인도네시아) | `id-ID` | Female | `id-ID-GadisNeural` <sup>새로 만들기</sup> | 일반 |
+| 인도네시아어(인도네시아) | `id-ID` | Male | `id-ID-ArdiNeural` | 일반 |
+| 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-ElsaNeural` | 일반 |
+| 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-IsabellaNeural` | 일반 |
+| 이탈리아어(이탈리아) | `it-IT` | Male | `it-IT-DiegoNeural` | 일반 |
+| 일본어(일본) | `ja-JP` | Female | `ja-JP-NanamiNeural` | 일반 |
+| 일본어(일본) | `ja-JP` | Male | `ja-JP-KeitaNeural` | 일반 |
+| 한국어(한국) | `ko-KR` | Female | `ko-KR-SunHiNeural` | 일반 |
+| 한국어(한국) | `ko-KR` | Male | `ko-KR-InJoonNeural` | 일반 |
+| 말레이어(말레이시아) | `ms-MY` | Female | `ms-MY-YasminNeural` | 일반 |
+| 말레이어(말레이시아) | `ms-MY` | Male | `ms-MY-OsmanNeural` <sup>새로 만들기</sup> | 일반 |
+| 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-IselinNeural` | 일반 |
+| 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-PernilleNeural` <sup>새로 만들기</sup> | 일반 |
+| 노르웨이어(복말)(노르웨이) | `nb-NO` | Male | `nb-NO-FinnNeural` <sup>새로 만들기</sup> | 일반 |
+| 폴란드어(폴란드) | `pl-PL` | Female | `pl-PL-AgnieszkaNeural` <sup>새로 만들기</sup> | 일반 |
+| 폴란드어(폴란드) | `pl-PL` | Female | `pl-PL-ZofiaNeural` | 일반 |
+| 폴란드어(폴란드) | `pl-PL` | Male | `pl-PL-MarekNeural` <sup>새로 만들기</sup> | 일반 |
+| 포르투갈어(브라질) | `pt-BR` | Female | `pt-BR-FranciscaNeural` | 일반적으로 [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일  |
+| 포르투갈어(브라질) | `pt-BR` | Male | `pt-BR-AntonioNeural` | 일반 |
+| 포르투갈어(포르투갈) | `pt-PT` | Female | `pt-PT-FernandaNeural` | 일반 |
+| 포르투갈어(포르투갈) | `pt-PT` | Female | `pt-PT-RaquelNeural` <sup>새로 만들기</sup> | 일반 |
+| 포르투갈어(포르투갈) | `pt-PT` | Male | `pt-PT-DuarteNeural` <sup>새로 만들기</sup> | 일반 |
+| 루마니아어(루마니아) | `ro-RO` | Female | `ro-RO-AlinaNeural` | 일반 |
+| 루마니아어(루마니아) | `ro-RO` | Male | `ro-RO-EmilNeural` <sup>새로 만들기</sup> | 일반 |
+| 러시아어(러시아) | `ru-RU` | Female | `ru-RU-DariyaNeural` | 일반 |
+| 러시아어(러시아) | `ru-RU` | Female | `ru-RU-SvetlanaNeural` <sup>새로 만들기</sup> | 일반 |
+| 러시아어(러시아) | `ru-RU` | Male | `ru-RU-DmitryNeural` <sup>새로 만들기</sup> | 일반 |
+| 슬로바키아어(슬로바키아) | `sk-SK` | Female | `sk-SK-ViktoriaNeural` | 일반 |
+| 슬로바키아어(슬로바키아) | `sk-SK` | Male | `sk-SK-LukasNeural` <sup>새로 만들기</sup> | 일반 |
+| 슬로베니아어(슬로베니아) | `sl-SI` | Female | `sl-SI-PetraNeural` | 일반 |
+| 슬로베니아어(슬로베니아) | `sl-SI` | Male | `sl-SI-RokNeural` <sup>새로 만들기</sup> | 일반 |
+| 스페인어(멕시코) | `es-MX` | Female | `es-MX-DaliaNeural` | 일반 |
+| 스페인어(멕시코) | `es-MX` | Male | `es-MX-JorgeNeural` | 일반 |
+| 스페인어(스페인) | `es-ES` | Female | `es-ES-ElviraNeural` | 일반 |
+| 스페인어(스페인) | `es-ES` | Male | `es-ES-AlvaroNeural` | 일반 |
+| 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-HilleviNeural` | 일반 |
+| 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-SofieNeural` <sup>새로 만들기</sup> | 일반 |
+| 스웨덴어(스웨덴) | `sv-SE` | Male | `sv-SE-MattiasNeural` <sup>새로 만들기</sup> | 일반 |
+| 타밀어(인도) | `ta-IN` | Female | `ta-IN-PallaviNeural` | 일반 |
+| 타밀어(인도) | `ta-IN` | Male | `ta-IN-ValluvarNeural` <sup>새로 만들기</sup> | 일반 |
+| 텔루구어(인도) | `te-IN` | Female | `te-IN-ShrutiNeural` | 일반 |
+| 텔루구어(인도) | `te-IN` | Male | `te-IN-MohanNeural` <sup>새로 만들기</sup> | 일반 |
+| 태국어(태국) | `th-TH` | Female | `th-TH-AcharaNeural` | 일반 |
+| 태국어(태국) | `th-TH` | Female | `th-TH-PremwadeeNeural` | 일반 |
+| 태국어(태국) | `th-TH` | Male | `th-TH-NiwatNeural` <sup>새로 만들기</sup> | 일반 |
+| 터키어(터키) | `tr-TR` | Female | `tr-TR-EmelNeural` | 일반 |
+| 터키어(터키) | `tr-TR` | Male | `tr-TR-AhmetNeural` <sup>새로 만들기</sup> | 일반 |
+| 베트남어(베트남) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | 일반 |
+| 베트남어(베트남) | `vi-VN` | Male | `vi-VN-NamMinhNeural` <sup>새로 만들기</sup> | 일반 |
+
+#### <a name="neural-voices-in-preview"></a>미리 보기의 신경망
+
+신경망 아래에는 공개 미리 보기로 제공 됩니다. 
+
+| 언어                         | 로캘  | 성별 | 음성 이름                             | 스타일 지원 |
+|----------------------------------|---------|--------|----------------------------------------|---------------|
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 역할 재생 및 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | [SSML를 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 여러 스타일을 사용할 수 있는 선임 음성 |
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 역할 재생 및 스타일 |
+| 중국어 (북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
+| 에스토니아어(에스토니아) | `et-EE` | Female | `et-EE-AnuNeural` | 일반 |
+| 에스토니아어(에스토니아) | `et-EE` | Male | `et-EE-KertNeural` <sup>새로 만들기</sup> | 일반 |
+| 아일랜드어(아일랜드) | `ga-IE` | Female | `ga-IE-OrlaNeural` | 일반 |
+| 아일랜드어(아일랜드) | `ga-IE` | Male | `ga-IE-ColmNeural` <sup>새로 만들기</sup> | 일반 |
+| 라트비아어(라트비아) | `lv-LV` | Female | `lv-LV-EveritaNeural` | 일반 |
+| 라트비아어(라트비아) | `lv-LV` | Male | `lv-LV-NilsNeural` <sup>새로 만들기</sup> | 일반 |
+| 리투아니아어(리투아니아) | `lt-LT` | Female | `lt-LT-OnaNeural` | 일반 |
+| 리투아니아어(리투아니아) | `lt-LT` | Male | `lt-LT-LeonasNeural` <sup>새로 만들기</sup> | 일반 |
+| 몰타어(몰타) | `mt-MT` | Female | `mt-MT-GraceNeural` | 일반 |
+| 몰타어(몰타) | `mt-MT` | Male | `mt-MT-JosephNeural` <sup>새로 만들기</sup> | 일반 |
+
+> [!IMPORTANT]
+> 공개 미리 보기의 음성은 미국 동부, 유럽 서부 및 동남 아시아의 세 가지 서비스 지역 에서만 사용할 수 있습니다.
+
 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-|로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
-|--|--|--|--|--|
-| `ar-EG` | 아랍어(이집트)                  | Female | `ar-EG-SalmaNeural`      | 일반 |
-| `ar-SA` | 아랍어(사우디아라비아)           | Female | `ar-SA-ZariyahNeural`    | 일반 |
-| `ca-ES` | 카탈로니아어(스페인)                 | Female | `ca-ES-AlbaNeural`       | 일반 |
-| `da-DK` | 덴마크어(덴마크)                | Female | `da-DK-ChristelNeural`   | 일반 |
-| `de-DE` | 독일어(독일)                | Female | `de-DE-KatjaNeural`      | 일반 |
-| `en-AU` | 영어(오스트레일리아)             | Female | `en-AU-NatashaNeural`    | 일반 |
-| `en-CA` | 영어(캐나다)                | Female | `en-CA-ClaraNeural`      | 일반 |
-| `en-GB` | 영어(영국)                    | Female | `en-GB-LibbyNeural`      | 일반 |
-|         |                                 | Female | `en-GB-MiaNeural`        | 일반 |
-| `en-IN` | 영어(인도)                 | Female | `en-IN-NeerjaNeural`     | 일반 |
-| `en-US` | 영어(미국)                    | Female | `en-US-AriaNeural`       | 일반, 여러 음성 스타일 사용 가능 |
-|         |                                 | Male   | `en-US-GuyNeural`        | 일반 |
-| `es-ES` | 스페인어(스페인)                 | Female | `es-ES-ElviraNeural`     | 일반 |
-| `es-MX` | 스페인어(멕시코)                | Female | `es-MX-DaliaNeural`      | 일반 |
-| `fi-FI` | 핀란드어(핀란드)               | Female | `fi-FI-NooraNeural`      | 일반 |
-| `fr-CA` | 프랑스어(캐나다)                 | Female | `fr-CA-SylvieNeural`     | 일반 |
-| `fr-FR` | 프랑스어(프랑스)                 | Female | `fr-FR-DeniseNeural`     | 일반 |
-| `hi-IN` | 힌디어(인도)                   | Female | `hi-IN-SwaraNeural`      | 일반 |
-| `it-IT` | 이탈리아어(이탈리아)                 | Female | `it-IT-ElsaNeural`       | 일반 |
-| `ja-JP` | 일본어                        | Female | `ja-JP-NanamiNeural`     | 일반 |
-| `ko-KR` | 한국어                          | Female | `ko-KR-SunHiNeural`      | 일반 |
-| `nb-NO` | 노르웨이어                       | Female | `nb-NO-IselinNeural`     | 일반 |
-| `nl-NL` | 네덜란드어 (Netherland)              | Female | `nl-NL-ColetteNeural`    | 일반 |
-| `pl-PL` | 폴란드어(폴란드)                 | Female | `pl-PL-ZofiaNeural`      | 일반 |
-| `pt-BR` | 포르투갈어(브라질)             | Female | `pt-BR-FranciscaNeural`  | 일반, 여러 음성 스타일 사용 가능 |
-| `tr-TR` | 터키어                         | Female | `tr-TR-EmelNeural`       | 일반 |
-| `pt-PT` | 포르투갈어(포르투갈)           | Female | `pt-PT-FernandaNeural`   | 일반 |
-| `ru-RU` | 러시아어(러시아)                | Female | `ru-RU-DariyaNeural`     | 일반 |
-| `sv-SE` | 스웨덴어(스웨덴)                | Female | `sv-SE-HilleviNeural`    | 일반 |
-| `th-TH` | 태국어(태국)                 | Female | `th-TH-AcharaNeural`     | 일반 |
-| `zh-CN` | 중국어 (북경어, 간체)  | Female | `zh-CN-XiaoxiaoNeural`   | 일반, 여러 음성 스타일 사용 가능 |
-|         |                                 | Female | `zh-CN-XiaoyouNeural`    | 어린이 음성, 이야기 내레이션에 최적화 |
-|         |                                 | Male   | `zh-CN-YunyangNeural`    | 뉴스 읽기에 최적화, 다양한 음성 스타일 사용 가능 |
-|         |                                 | Male   | `zh-CN-YunyeNeural`      | 이야기 내레이션에 최적화 |
-| `zh-HK` | 중국어(광둥어, 번체)   | Female | `zh-HK-HiuGaaiNeural`| 일반 |
-| `zh-TW` | 중국어(대만어)   | Female | `zh-TW-HsiaoYuNeural`    | 일반 |
+말하는 스타일과 같은 신경망을 구성 하 고 조정 하는 방법을 알아보려면 [음성 합성 마크업 언어](speech-synthesis-markup.md#adjust-speaking-styles)를 참조 하세요.
 
 > [!IMPORTANT]
 > `en-US-JessaNeural` 음성이 `en-US-AriaNeural`로 변경되었습니다. 이전에 "Jessa"를 사용했다면 "Aria"로 변환하세요.
-
-인공신경망 음성을 구성하고 조정하는 방법에 대해 알아보려면 [음성 합성 마크업 언어](speech-synthesis-markup.md#adjust-speaking-styles)를 참조하세요.
 
 > [!TIP]
 > 음성 합성 요청에서 "Microsoft Server Speech 텍스트 음성 변환 음성(en-US, AriaNeural)"과 같은 전체 서비스 이름 매핑을 계속 사용할 수 있습니다.
@@ -189,90 +299,90 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-| 로캘 | 언어 | 성별 | 음성 이름 |
-|--|--|--|--|
-| <sup>1</sup>`ar-EG` | 아랍어(이집트) | Female | "ar-EG-Hoda" |
-| `ar-SA` | 아랍어(사우디아라비아) | Male | "ar-SA-Naayf" |
-| `bg-BG` | 불가리아어 | Male |  "bg-BG-Ivan" |
-| `ca-ES` | 카탈로니아어 | Female |  "ca-ES-HerenaRUS" |
-| `cs-CZ` | 체코어 | Male | "cs-CZ-Jakub" |
-| `da-DK` | 덴마크어 | Female |  "da-DK-HelleRUS" |
-| `de-AT` | 독일어(오스트리아) | Male | "de-AT-Michael" |
-| `de-CH` | 독일어(스위스) | Male |  "de-CH-Karsten" |
-| `de-DE` | 독일어(독일) | Female |  "de-DE-Hedda" |
-|  |  | Female | "de-DE-HeddaRUS" |
-|  |  | Male |  "de-DE-Stefan-Apollo" |
-| `el-GR` | 그리스어 | Male | "el-GR-Stefanos" |
-| `en-AU` | 영어(오스트레일리아) | Female |  "en-AU-Catherine" |
-|  |  | Female |  "en-AU-HayleyRUS" |
-| `en-CA` | 영어(캐나다) | Female |  "en-CA-Linda" |
-|  |  | Female |  "en-CA-HeatherRUS" |
-| `en-GB` | 영어(영국) | Female |  "en-GB-Susan-Apollo" |
-|  |  | Female |  "en-GB-HazelRUS" |
-|  |  | Male |  "en-GB-George-Apollo" |
-| `en-IE` | 영어(아일랜드) | Male | "en-IE-Sean" |
-| `en-IN` | 영어(인도) | Female | "en-IN-Heera-Apollo" |
-|  |  | Female |  "en-IN-PriyaRUS" |
-|  |  | Male |  "en-IN-Ravi-Apollo" |
-| `en-US` | 영어(미국) | Female |  "en-US-ZiraRUS" |
-|  |  | Female | "en-US-AriaRUS" |
-|  |  | Male | "en-US-BenjaminRUS" |
-|  |  | Male |  "en-US-Guy24kRUS" |
-| `es-ES` | 스페인어(스페인) | Female |  "es-ES-Laura-Apollo" |
-|  |  | Female | "es-ES-HelenaRUS" |
-|  |  | Male | "es-ES-Pablo-Apollo" |
-| `es-MX` | 스페인어(멕시코) | Female |  "es-MX-HildaRUS" |
-|  |  | Male | "es-MX-Raul-Apollo" |
-| `fi-FI` | 핀란드어 | Female | "fi-FI-HeidiRUS" |
-| `fr-CA` | 프랑스어(캐나다) | Female | "fr-CA-Caroline" |
-|  |  | Female | "fr-CA-HarmonieRUS" |
-| `fr-CH` | 프랑스어(스위스) | Male | "fr-CH-Guillaume" |
-| `fr-FR` | 프랑스어(프랑스) | Female |  "fr-FR-Julie-Apollo" |
-|  |  | Female |"fr-FR-HortenseRUS" |
-|  |  | Male |  "fr-FR-Paul-Apollo" |
-| `he-IL` | 히브리어(이스라엘) | Male |  "he-IL-Asaf" |
-| `hi-IN` | 힌디어(인도) | Female | "hi-IN-Kalpana-Apollo" |
-|  |  | Female |  "hi-IN-Kalpana" |
-|  |  | Male |  "hi-IN-Hemant" |
-| `hr-HR` | 크로아티아어 | Male | "hr-HR-Matej" |
-| `hu-HU` | 헝가리어 | Male |  "hu-HU-Szabolcs" |
-| `id-ID` | 인도네시아어 | Male | "id-ID-Andika" |
-| `it-IT` | 이탈리아어 | Male |  "it-IT-Cosimo-Apollo" |
-|  |  | Female |  "it-IT-LuciaRUS" |
-| `ja-JP` | 일본어 | Female |  "ja-JP-Ayumi-Apollo" |
-|  |  | Male | "ja-JP-Ichiro-Apollo" |
-|  |  | Female |  "ja-JP-HarukaRUS" |
-| `ko-KR` | 한국어 | Female | "ko-KR-HeamiRUS" |
-| `ms-MY` | 말레이어 | Male |  "ms-MY-Rizwan" |
-| `nb-NO` | 노르웨이어 | Female |  "nb-NO-HuldaRUS" |
-| `nl-NL` | 네덜란드어 | Female |  "nl-NL-HannaRUS" |
-| `pl-PL` | 폴란드어 | Female |  "pl-PL-PaulinaRUS" |
-| `pt-BR` | 포르투갈어(브라질) | Female | "pt-BR-HeloisaRUS" |
-|  |  | Male |  "pt-BR-Daniel-Apollo" |
-| `pt-PT` | 포르투갈어(포르투갈) | Female | "pt-PT-HeliaRUS" |
-| `ro-RO` | 루마니아어 | Male | "ro-RO-Andrei" |
-| `ru-RU` | 러시아어 | Female |  "ru-RU-Irina-Apollo" |
-|  |  | Male | "ru-RU-Pavel-Apollo" |
-|  |  | Female |  ru-RU-EkaterinaRUS |
-| `sk-SK` | 슬로바키아어 | Male | "sk-SK-Filip" |
-| `sl-SI` | 슬로베니아어 | Male |  "sl-SI-Lado" |
-| `sv-SE` | 스웨덴어 | Female | "sv-SE-HedvigRUS" |
-| `ta-IN` | 타밀어(인도) | Male |  "ta-IN-Valluvar" |
-| `te-IN` | 텔루구어(인도) | Female |  "te-IN-Chitra" |
-| `th-TH` | 태국어 | Male |  "th-TH-Pattara" |
-| `tr-TR` | 터키어(터키) | Female | "tr-TR-SedaRUS" |
-| `vi-VN` | 베트남어 | Male |  "vi-VN-An" |
-| `zh-CN` | 중국어 (북경어, 간체) | Female |  "zh-CN-HuihuiRUS" |
-|  |  | Female | "zh-CN-Yaoyao-Apollo" |
-|  |  | Male | "zh-CN-Kangkang-Apollo" |
-| `zh-HK` | 중국어(광둥어, 번체) | Female |  "zh-HK-Tracy-Apollo" |
-|  |  | Female | "zh-HK-TracyRUS" |
-|  |  | Male |  "zh-HK-Danny-Apollo" |
-| `zh-TW` | 중국어(대만어) | Female |  "zh-TW-Yating-Apollo" |
-|  |  | Female | "zh-TW-HanHanRUS" |
-|  |  | Male |  "zh-TW-Zhiwei-Apollo" |
+> [!NOTE]
+> 두 가지 예외를 제외 하 고는 16 khz 샘플 주기를 사용 하는 샘플에서 표준 음성이 생성 됩니다.
+> **En-us-미국 AriaRUS** 및 **En-us-미국 GuyRUS** 음성도 24 khz 샘플 요금을 사용 하는 샘플에서 만들어집니다.
+> 모든 음성이 synthesizing 때 다른 샘플 요금으로 upsample 하거나 다운 샘플링할 수 있습니다.
 
-**1** *ar-EG는 MSA(Modern Standard Arabic)를 지원합니다.*
+| 언어 | 로캘 (BCP-47) | 성별 | 음성 이름 |
+|--|--|--|--|
+| 아랍어 (아랍어) | `ar-EG` | Female | `ar-EG-Hoda`|
+| 아랍어(사우디아라비아) | `ar-SA` | Male | `ar-SA-Naayf`|
+| 불가리아어(불가리아) | `bg-BG` | Male | `bg-BG-Ivan`|
+| 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
+| 중국어(광둥어, 번체) | `zh-HK` | Male | `zh-HK-Danny`|
+| 중국어(광둥어, 번체) | `zh-HK` | Female | `zh-HK-TracyRUS`|
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-HuihuiRUS`|
+| 중국어 (북경어, 간체) | `zh-CN` | Male | `zh-CN-Kangkang`|
+| 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-Yaoyao`|
+| 중국어(대만어) |  `zh-TW` | Female | `zh-TW-HanHanRUS`|
+| 중국어(대만어) |  `zh-TW` | Female | `zh-TW-Yating`|
+| 중국어(대만어) |  `zh-TW` | Male | `zh-TW-Zhiwei`|
+| 크로아티아어(크로아티아) | `hr-HR` | Male | `hr-HR-Matej`|
+| 체코어(체코) | `cs-CZ` | Male | `cs-CZ-Jakub`|
+| 덴마크어(덴마크) | `da-DK` | Female | `da-DK-HelleRUS`|
+| 네덜란드어(네덜란드) | `nl-NL` | Female | `nl-NL-HannaRUS`|
+| 영어(오스트레일리아) | `en-AU` | Female | `en-AU-Catherine`|
+| 영어(오스트레일리아) | `en-AU` | Female | `en-AU-HayleyRUS`|
+| 영어(캐나다) | `en-CA` | Female | `en-CA-HeatherRUS`|
+| 영어(캐나다) | `en-CA` | Female | `en-CA-Linda`|
+| 영어(인도) | `en-IN` | Female | `en-IN-Heera`|
+| 영어(인도) | `en-IN` | Female | `en-IN-PriyaRUS`|
+| 영어(인도) | `en-IN` | Male | `en-IN-Ravi`|
+| 영어(아일랜드) | `en-IE` | Male | `en-IE-Sean`|
+| 영어(영국) | `en-GB` | Male | `en-GB-George`|
+| 영어(영국) | `en-GB` | Female | `en-GB-HazelRUS`|
+| 영어(영국) | `en-GB` | Female | `en-GB-Susan`|
+| 영어(미국) | `en-US` | Male | `en-US-BenjaminRUS`|
+| 영어(미국) | `en-US` | Male | `en-US-GuyRUS`|
+| 영어(미국) | `en-US` | Female | `en-US-AriaRUS`|
+| 영어(미국) | `en-US` | Female | `en-US-ZiraRUS`|
+| 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-HeidiRUS`|
+| 프랑스어(캐나다) | `fr-CA` | Female | `fr-CA-Caroline`|
+| 프랑스어(캐나다) | `fr-CA` | Female | `fr-CA-HarmonieRUS`|
+| 프랑스어(프랑스) | `fr-FR` | Female | `fr-FR-HortenseRUS`|
+| 프랑스어(프랑스) | `fr-FR` | Female | `fr-FR-Julie`|
+| 프랑스어(프랑스) | `fr-FR` | Male | `fr-FR-Paul`|
+| 프랑스어(스위스) | `fr-CH` | Male | `fr-CH-Guillaume`|
+| 독일어(오스트리아) | `de-AT` | Male | `de-AT-Michael`|
+| 독일어(독일) | `de-DE` | Female | `de-DE-HeddaRUS`|
+| 독일어 (독일) | `de-DE` | Male | `de-DE-Stefan`|
+| 독일어(스위스) | `de-CH` | Male | `de-CH-Karsten`|
+| 그리스어(그리스) | `el-GR` | Male | `el-GR-Stefanos`|
+| 히브리어(이스라엘) | `he-IL` | Male | `he-IL-Asaf`|
+| 힌디어(인도) | `hi-IN` | Male | `hi-IN-Hemant`|
+| 힌디어(인도) | `hi-IN` | Female | `hi-IN-Kalpana`|
+| 헝가리어(헝가리) | `hu-HU` | Male | `hu-HU-Szabolcs`|
+| 인도네시아어(인도네시아) | `id-ID` | Male | `id-ID-Andika`|
+| 이탈리아어(이탈리아) | `it-IT` | Male | `it-IT-Cosimo`|
+| 이탈리아어(이탈리아) | `it-IT` | Female | `it-IT-LuciaRUS`|
+| 일본어(일본) | `ja-JP` | Female | `ja-JP-Ayumi`|
+| 일본어(일본) | `ja-JP` | Female | `ja-JP-HarukaRUS`|
+| 일본어(일본) | `ja-JP` | Male | `ja-JP-Ichiro`|
+| 한국어(한국) | `ko-KR` | Female | `ko-KR-HeamiRUS`|
+| 말레이어(말레이시아) | `ms-MY` | Male | `ms-MY-Rizwan`|
+| 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-HuldaRUS`|
+| 폴란드어(폴란드) | `pl-PL` | Female | `pl-PL-PaulinaRUS`|
+| 포르투갈어(브라질) | `pt-BR` | Male | `pt-BR-Daniel`|
+| 포르투갈어(브라질) | `pt-BR` | Female | `pt-BR-HeloisaRUS`|
+| 포르투갈어(포르투갈) | `pt-PT` | Female | `pt-PT-HeliaRUS`|
+| 루마니아어(루마니아) | `ro-RO` | Male | `ro-RO-Andrei`|
+| 러시아어(러시아) | `ru-RU` | Female | `ru-RU-EkaterinaRUS`|
+| 러시아어(러시아) | `ru-RU` | Female | `ru-RU-Irina`|
+| 러시아어(러시아) | `ru-RU` | Male | `ru-RU-Pavel`|
+| 슬로바키아어(슬로바키아) | `sk-SK` | Male | `sk-SK-Filip`|
+| 슬로베니아어(슬로베니아) | `sl-SI` | Male | `sl-SI-Lado`|
+| 스페인어(멕시코) | `es-MX` | Female | `es-MX-HildaRUS`|
+| 스페인어(멕시코) | `es-MX` | Male | `es-MX-Raul`|
+| 스페인어(스페인) | `es-ES` | Female | `es-ES-HelenaRUS`|
+| 스페인어(스페인) | `es-ES` | Female | `es-ES-Laura`|
+| 스페인어(스페인) | `es-ES` | Male | `es-ES-Pablo`|
+| 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-HedvigRUS`|
+| 타밀어(인도) | `ta-IN` | Male | `ta-IN-Valluvar`|
+| 텔루구어(인도) | `te-IN` | Female | `te-IN-Chitra`|
+| 태국어(태국) | `th-TH` | Male | `th-TH-Pattara`|
+| 터키어(터키) | `tr-TR` | Female | `tr-TR-SedaRUS`|
+| 베트남어(베트남) | `vi-VN` | Male | `vi-VN-An` |
 
 > [!IMPORTANT]
 > `en-US-Jessa` 음성이 `en-US-Aria`로 변경되었습니다. 이전에 "Jessa"를 사용했다면 "Aria"로 변환하세요.
@@ -371,23 +481,23 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 다양한 Speaker Recognition API에 대해 지원되는 언어는 다음 테이블을 참조하세요. Speaker Recognition에 대한 자세한 내용은 [개요](speaker-recognition-overview.md)를 참조하세요.
 
-| 로캘 | 언어 | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
+| 언어 | 로캘 (BCP-47) | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
 |----|----|----|----|----|
-| ko-KR | 영어(미국) | 예 | 예 | 예 |
-|zh-CN    |중국어(북경어, 간체)|    해당 없음|    예|    예|
-|de-DE    |독일어(독일)    |해당 없음    |예    |예|
-|en-GB    |영어(영국)    |해당 없음    |예    |예|
-|fr-FR    |프랑스어(프랑스)    |해당 없음    |예    |예|
-|en-AU    |영어(오스트레일리아)    |해당 없음    |예    |예|
-|en-CA    |영어(캐나다)    |해당 없음|    예|    예|
-|fr-CA    |프랑스어(캐나다)    |해당 없음    |예|    예|
-|it-IT    |이탈리아어|    해당 없음    |예|    예|
-|es-ES|    스페인어(스페인)    |해당 없음    |예|    예|
-|es-MX    |스페인어(멕시코)    |해당 없음|    예|    예|
-|ja-JP|    일본어    |해당 없음    |예    |예|
-|pt-BR|    포르투갈어(브라질)|    해당 없음|    예|    예|
+|영어(미국)  |  ko-KR  |  예  |  예  |  예 |
+|중국어(북경어, 간체) | zh-CN     |     해당 없음 |     예 |     예|
+|영어(오스트레일리아)     | en-AU     | 해당 없음     | 예     | 예|
+|영어(캐나다)     | en-CA     | 해당 없음 |     예 |     예|
+|영어(영국)     | en-GB     | 해당 없음     | 예     | 예|
+|프랑스어(캐나다)     | fr-CA     | 해당 없음     | 예 |     예|
+|프랑스어(프랑스)     | fr-FR     | 해당 없음     | 예     | 예|
+|독일어(독일)     | de-DE     | 해당 없음     | 예     | 예|
+|이탈리아어 | it-IT     |     해당 없음     | 예 |     예|
+|일본어     | ja-JP | 해당 없음     | 예     | 예|
+|포르투갈어(브라질) | pt-BR |     해당 없음 |     예 |     예|
+|스페인어(멕시코)     | es-MX     | 해당 없음 |     예 |     예|
+|스페인어(스페인)     | es-ES | 해당 없음     | 예 |     예|
 
 ## <a name="next-steps"></a>다음 단계
 
 * [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [C#에서 음성을 인식하는 방법 참조](./get-started-speech-to-text.md?pivots=programming-language-chsarp)

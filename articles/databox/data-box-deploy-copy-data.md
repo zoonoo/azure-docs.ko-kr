@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053544"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616742"
 ---
 ::: zone target="docs"
 
@@ -45,7 +45,7 @@ ms.locfileid: "88053544"
 시작하기 전에 다음 사항을 확인합니다.
 
 1. [자습서: Azure Data Box 설정](data-box-deploy-set-up.md)을 완료했습니다.
-2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다.
+2. Data Box를 받았고 포털의 주문 상태가 **배달됨** 입니다.
 3. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
    * [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
    * 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용해도 되지만, 이 경우 복사 속도가 떨어집니다.
@@ -70,13 +70,13 @@ ms.locfileid: "88053544"
 
 Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 Data Box에 연결합니다.
 
-1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사**로 이동합니다. **SMB**를 선택하여 스토리지 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다. 
+1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사** 로 이동합니다. **SMB** 를 선택하여 스토리지 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다. 
 
-    ![공유 자격 증명 가져오기 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![SMB 공유에 대한 공유 자격 증명 가져오기](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. [액세스 공유 및 데이터 복사] 대화 상자에서 공유에 해당하는 **사용자 이름** 및 **암호**를 복사합니다. **확인**을 선택합니다.
+2. [액세스 공유 및 데이터 복사] 대화 상자에서 공유에 해당하는 **사용자 이름** 및 **암호** 를 복사합니다. 그런 다음, **확인** 을 선택합니다.
     
-    ![공유 자격 증명 가져오기 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![공유에 대한 사용자 이름 및 암호 가져오기](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. 호스트 컴퓨터에서 스토리지 계정과 연결된 공유(다음 예제의 *utsac1*)에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
 
@@ -87,25 +87,25 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
     - Azure 페이지 Blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure 파일 - `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. 메시지가 표시되면 공유 암호를 입력합니다. 다음 샘플은 이전 명령을 통해 공유에 연결하는 방법을 보여줍니다.
+4. 메시지가 표시되면 공유 암호를 입력합니다. 암호에 특수 문자가 있으면 앞뒤에 큰따옴표를 추가합니다. 다음 샘플은 이전 명령을 통해 공유에 연결하는 방법을 보여줍니다.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
-4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인**을 선택하여 파일 탐색기를 엽니다.
+4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인** 을 선택하여 파일 탐색기를 엽니다.
     
-    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![파일 탐색기를 통해 공유에 연결](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     이제 공유가 폴더로 표시될 것입니다.
     
-    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![파일 탐색기에 표시된 공유](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **복사하려는 파일에 대한 폴더는 항상 공유 아래에 만든 다음 이 폴더에 파일을 복사합니다**. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *root* 폴더에 파일을 직접 복사할 수 없습니다.
     
-Linux 클라이언트를 사용하는 경우 다음 명령을 사용하여 SMB 공유를 탑재합니다. 아래에서 "vers" 매개 변수는 Linux 호스트에서 지원하는 SMB 버전입니다. 아래 명령에서 적절한 버전을 삽입합니다. Data Box에서 지원하는 SMB 버전은 [Linux 클라이언트에 지원되는 파일 시스템](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients)을 참조하세요. 
+Linux 클라이언트를 사용하는 경우 다음 명령을 사용하여 SMB 공유를 탑재합니다. 아래에서 "vers" 매개 변수는 Linux 호스트에서 지원하는 SMB 버전입니다. 아래 명령에서 적절한 버전을 삽입합니다. Data Box에서 지원하는 SMB 버전은 [Linux 클라이언트에 지원되는 파일 시스템](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients)을 참조하세요. 
 
 ```console
 sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox
@@ -116,22 +116,22 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Data Box 공유에 연결된 후에는 데이터를 복사합니다. 데이터 복사를 시작하기 전에 다음 고려 사항을 검토합니다.
 
 * 적절한 데이터 형식에 해당하는 공유에 데이터를 복사해야 합니다. 예를 들어 블록 Blob에 대한 공유에 블록 Blob 데이터를 복사합니다. 페이지 Blob에 VHD를 복사합니다. 데이터 형식이 적절한 공유 형식과 일치하지 않는 경우 이후 단계에서 Azure에 데이터를 업로드하는 작업이 실패합니다.
-* 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
-* Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
+* 항상 복사하려는 파일의 공유 아래에 폴더를 만든 다음, 해당 폴더에 파일을 복사합니다. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *root* 폴더에 파일을 직접 복사할 수 없습니다.
+* 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 계정 크기 제한](data-box-limits.md#azure-storage-account-size-limits)에 설명된 크기 제한을 준수해야 합니다.
+* 데이터를 Azure Files로 전송할 때 메타데이터(ACL, 타임스탬프 및 파일 특성)를 보존하려는 경우 [Azure Data Box로 파일 ACL, 특성 및 타임스탬프 보존](data-box-file-acls-preservation.md)의 지침을 따르세요.  
+* Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해서도 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터가 손상될 수 있습니다.
 * 다음이 권장됩니다.
   * SMB와 NFS를 동시에 사용하지 않습니다.
   * 동일한 데이터를 Azure에서 동일한 최종 대상에 복사합니다.
-
   이 경우 최종 결과를 확인할 수 없습니다.
-* 복사하려는 파일의 폴더를 항상 공유 아래에 만든 다음, 해당 폴더에 파일을 복사하세요. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *root* 폴더에 파일을 직접 복사할 수 없습니다.
 
 > [!IMPORTANT]
 > Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
 
-SMB 공유에 연결한 후 데이터 복사를 시작합니다. Robocopy처럼 SMB 호환 파일 복사 도구를 사용하여 데이터를 복사할 수 있습니다. Robocopy 명령을 사용하여 여러 복사 작업을 시작할 수 있습니다. 다음 명령을 사용합니다.
+SMB 공유에 연결한 후 데이터 복사를 시작합니다. Robocopy와 같은 SMB 호환 파일 복사 도구를 사용하여 데이터를 복사할 수 있습니다. Robocopy 명령을 사용하여 여러 복사 작업을 시작할 수 있습니다. 다음 명령을 사용합니다.
 
 ```console
-robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
+robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
 ```
 
 다음 표에는 특성이 설명되어 있습니다.
@@ -225,15 +225,15 @@ Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](h
 
 복사 프로세스 중에 오류가 발생하면 알림이 표시됩니다.
 
-![연결 및 복사 오류 다운로드 및 보기](media/data-box-deploy-copy-data/view-errors-1.png)
+![연결 및 복사의 복사 오류 알림](media/data-box-deploy-copy-data/view-errors-1.png)
 
-**문제 목록 다운로드**를 선택합니다.
+**문제 목록 다운로드** 를 선택합니다.
 
-![연결 및 복사 오류 다운로드 및 보기](media/data-box-deploy-copy-data/view-errors-2.png)
+![연결 및 복사, 문제 목록 다운로드](media/data-box-deploy-copy-data/view-errors-2.png)
 
 목록을 열어 오류의 세부 정보를 보고 해결 URL을 선택하여 권장 해결 방법을 확인합니다.
 
-![연결 및 복사 오류 다운로드 및 보기](media/data-box-deploy-copy-data/view-errors-3.png)
+![연결 및 복사, 다운로드 및 오류 보기](media/data-box-deploy-copy-data/view-errors-3.png)
 
 자세한 내용은 [Data Box로 데이터를 복사하는 동안 오류 로그 보기](data-box-logs.md#view-error-log-during-data-copy)를 참조하세요. 데이터를 복사하는 동안 발생하는 오류에 대한 자세한 목록을 보려면 [Data Box 문제 해결](data-box-troubleshoot.md)을 참조하세요.
 
@@ -279,7 +279,7 @@ NFS를 통해 데이터를 복사하려면 다음을 수행합니다.
 
 REST를 통해 데이터를 복사하려면 다음을 수행합니다.
 
-1. REST API를 통해 Data Box Blob Storage를 사용하여 데이터를 복사하기 위해 *http* 또는 *https*를 통해 연결할 수 있습니다.
+1. REST API를 통해 Data Box Blob Storage를 사용하여 데이터를 복사하기 위해 *http* 또는 *https* 를 통해 연결할 수 있습니다.
 2. Data Box Blob Storage에 데이터를 복사하려면 AzCopy를 사용하면 됩니다.
 
 단계별 지침은 [자습서: REST API를 통해 Azure Data Box Blob Storage에 데이터 복사](data-box-deploy-copy-data-via-nfs.md)로 이동합니다.
@@ -288,7 +288,7 @@ REST를 통해 데이터를 복사하려면 다음을 수행합니다.
 
 데이터 복사 서비스를 통해 데이터를 복사하려면 다음을 수행합니다.
 
-1. 데이터 복사 서비스를 사용하여 데이터를 복사하려면 작업을 만들어야 합니다. Data Box의 로컬 웹 UI에서 **관리 > 데이터 복사 > 만들기**로 이동합니다.
+1. 데이터 복사 서비스를 사용하여 데이터를 복사하려면 작업을 만들어야 합니다. Data Box의 로컬 웹 UI에서 **관리 > 데이터 복사 > 만들기** 로 이동합니다.
 2. 매개 변수를 입력하고 작업을 만듭니다.
 
 단계별 지침은 [자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사](data-box-deploy-copy-data-via-copy-service.md)로 이동합니다.

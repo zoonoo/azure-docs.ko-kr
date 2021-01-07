@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩에 아티팩트 리포지토리 추가 Micro
 description: 공용 아티팩트 리포지토리에서 사용할 수 없는 도구를 저장할 Azure DevTest Labs에서 랩에 대 한 고유한 아티팩트 리포지토리를 지정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270991"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512014"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs에서 랩에 아티팩트 리포지토리 추가
 DevTest Labs를 사용 하면 vm을 만들 때 또는 VM이 만들어진 후 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트는 VM에 설치 하려는 도구 또는 응용 프로그램 일 수 있습니다. 아티팩트는 GitHub 또는 Azure DevOps Git 리포지토리에서 로드 된 JSON 파일에 정의 됩니다.
@@ -19,44 +19,44 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
-랩에 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져옵니다. 다음 섹션에서는 **GitHub** 또는 **Azure devops**에서 호스트 되는 리포지토리에 필요한 정보를 가져오는 방법을 설명 합니다.
+## <a name="prerequisites"></a>필수 구성 요소
+랩에 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져옵니다. 다음 섹션에서는 **GitHub** 또는 **Azure devops** 에서 호스트 되는 리포지토리에 필요한 정보를 가져오는 방법을 설명 합니다.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>GitHub 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
 
 1. 아티팩트 또는 Resource Manager 템플릿 정의를 포함하는 GitHub 리포지토리의 홈페이지로 이동합니다.
-2. **복제 또는 다운로드**를 선택합니다.
+2. **복제 또는 다운로드** 를 선택합니다.
 3. URL을 클립보드에 복사하려면 **HTTPS 복제 url** 단추를 선택합니다. 나중에 사용할 수 있도록 URL을 저장합니다.
-4. GitHub의 오른쪽 위에서 프로필 이미지를 선택한 다음 **설정**을 선택합니다.
-5. 왼쪽의 **개인 설정** 메뉴에서 **개발자 설정**을 선택 합니다.
+4. GitHub의 오른쪽 위에서 프로필 이미지를 선택한 다음 **설정** 을 선택합니다.
+5. 왼쪽의 **개인 설정** 메뉴에서 **개발자 설정** 을 선택 합니다.
 6. 왼쪽 메뉴에서 **개인용 액세스 토큰** 을 선택 합니다.
 7. **Generate new token**(새 토큰 생성)을 탭합니다.
-8. **새 개인 액세스 토큰** 페이지의 **토큰 설명** 아래에 설명을 입력합니다. **범위 선택** 아래의 기본 항목에 동의한 다음 **토큰 생성**을 선택합니다.
+8. **새 개인 액세스 토큰** 페이지의 **토큰 설명** 아래에 설명을 입력합니다. **범위 선택** 아래의 기본 항목에 동의한 다음 **토큰 생성** 을 선택합니다.
 9. 생성된 토큰을 저장합니다. 토큰은 나중에 사용합니다.
 10. GitHub를 닫습니다.   
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Azure Repos 복제 URL 및 개인 액세스 토큰 가져오기
 1. 팀 컬렉션의 홈 페이지 (예:)로 이동한 `https://contoso-web-team.visualstudio.com` 다음 프로젝트를 선택 합니다.
-2. 프로젝트 홈 페이지에서 선택 **코드**합니다.
-3. 복제 URL을 보려면 프로젝트 **코드** 페이지에서 **복제**를 선택합니다.
+2. 프로젝트 홈 페이지에서 선택 **코드** 합니다.
+3. 복제 URL을 보려면 프로젝트 **코드** 페이지에서 **복제** 를 선택합니다.
 4. URL을 저장합니다. URL은 나중에 사용합니다.
-5. 개인 액세스 토큰을 만들려면 사용자 계정 드롭다운 메뉴에서 **내 프로필**을 선택합니다.
-6. 프로필 정보 페이지에서 **보안**을 탭합니다.
-7. **보안 > 개인용 액세스 토큰** 탭에서 **+ 새 토큰**을 선택 합니다.
+5. 개인 액세스 토큰을 만들려면 사용자 계정 드롭다운 메뉴에서 **내 프로필** 을 선택합니다.
+6. 프로필 정보 페이지에서 **보안** 을 탭합니다.
+7. **보안 > 개인용 액세스 토큰** 탭에서 **+ 새 토큰** 을 선택 합니다.
 8. **새 개인 액세스 토큰 만들기** 페이지에서 다음을 수행 합니다.
    1. 토큰의 **이름을** 입력 합니다.
-   2. **조직** 목록에서 **액세스 가능한 모든 조직**을 선택 합니다.
-   3. **만료 (UTC)** 목록에서 **90 일**또는 사용자 지정 정의 된 만료 기간을 선택 합니다.
+   2. **조직** 목록에서 **액세스 가능한 모든 조직** 을 선택 합니다.
+   3. **만료 (UTC)** 목록에서 **90 일** 또는 사용자 지정 정의 된 만료 기간을 선택 합니다.
    4. 범위에 대 한 **전체 액세스** 옵션을 선택 합니다.
-   5. **만들기**를 선택합니다.
-9. 새 토큰이 **개인 액세스 토큰** 목록에 표시됩니다. **토큰 복사**를 선택하고 나중에 사용할 수 있게 토큰 값을 저장합니다.
+   5. **만들기** 를 선택합니다.
+9. 새 토큰이 **개인 액세스 토큰** 목록에 표시됩니다. **토큰 복사** 를 선택하고 나중에 사용할 수 있게 토큰 값을 저장합니다.
 10. 리포지토리에 랩 연결 섹션을 계속 진행합니다.
 
 ## <a name="use-azure-portal"></a>Azure Portal 사용
 이 섹션에서는 Azure Portal의 랩에 아티팩트 리포지토리를 추가 하는 단계를 제공 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **추가 서비스**를 선택한 후 서비스 목록에서 **DevTest Labs**를 선택합니다.
+2. **추가 서비스** 를 선택한 후 서비스 목록에서 **DevTest Labs** 를 선택합니다.
 3. 랩 목록에서 랩을 선택합니다.
 4. 왼쪽 메뉴에서 **구성 및 정책** 을 선택 합니다.
 5. 왼쪽 메뉴의 **외부 리소스** 섹션에서 **리포지토리** 를 선택 합니다.
@@ -71,7 +71,7 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
    5. **폴더 경로**. 아티팩트 또는 Resource Manager 템플릿 정의가 포함된 복제 URL에 상대적인 폴더 경로를 하나 이상 입력합니다. 하위 디렉터리를 지정하는 경우 폴더 경로에 슬래시를 포함해야 합니다.
 
         ![리포지토리 영역](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 ## <a name="use-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 Azure 리소스 관리 (Azure Resource Manager) 템플릿은 만들려는 Azure의 리소스를 설명 하는 JSON 파일입니다. 이러한 템플릿에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)을 참조 하세요.
@@ -180,7 +180,7 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-AzResourceGroupDeployment를 성공적으로 실행 한 후 명령은 프로 비전 상태 (성공 해야 함) 및 템플릿에 대 한 모든 출력 같은 중요 한 정보를 출력 합니다.
+New-AzResourceGroupDeployment 성공적으로 실행 되 면 명령은 프로 비전 상태 (성공 해야 함) 및 템플릿에 대 한 모든 출력 같은 중요 한 정보를 출력 합니다.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 이 섹션에서는 랩에 아티팩트 리포지토리를 추가 하는 데 사용할 수 있는 샘플 PowerShell 스크립트를 제공 합니다. Azure PowerShell 없는 경우 설치 하는 방법에 대 한 자세한 지침은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/?view=azps-1.2.0) 을 참조 하세요.

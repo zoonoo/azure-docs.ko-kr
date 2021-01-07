@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 240c96016304c009c36485869ac15f5f38076fb7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90088292"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Azure Policy를 사용하여 VM용 Azure Monitor를 사용하도록 설정
@@ -21,7 +21,7 @@ Azure Policy에 익숙하지 않은 경우 [Azure Policy를 사용 하 여 대�
 > [!NOTE]
 > Azure 가상 머신 확장 집합에 Azure Policy를 사용 하거나 Azure virtual machines를 사용 하도록 Azure Policy 직접 작업 하려면 [Azure Policy를 사용 하 여 대규모로 Azure Monitor 배포](../deploy-scale.md#azure-monitor-for-vms)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - [Log Analytics 작업 영역을 만들고 구성](vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
 

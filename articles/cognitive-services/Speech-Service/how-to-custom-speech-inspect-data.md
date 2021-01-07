@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604766"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499189"
 ---
 # <a name="inspect-custom-speech-data"></a>Custom Speech 데이터 검사
 
 > [!NOTE]
-> 이 페이지에서는 [Custom Speech에 대 한 준비 테스트 데이터](how-to-custom-speech-test-data.md) 를 읽고 검사를 위해 데이터 집합을 업로드 했다고 가정 합니다.
+> 이 페이지에서는 [Custom Speech에 대 한 준비 테스트 데이터](./how-to-custom-speech-test-and-train.md) 를 읽고 검사를 위해 데이터 집합을 업로드 했다고 가정 합니다.
 
 Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 하 여 모델의 인식 품질을 시각적으로 검사 하는 데 사용할 수 있는 도구를 제공 합니다. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 업로드 된 오디오를 재생 하 고 제공 된 인식 결과가 올바른지 확인할 수 있습니다. 이 도구를 사용 하면 Microsoft의 기준선 음성 텍스트 모델의 품질을 검사 하거나 학습 된 사용자 지정 모델을 검사 하거나 두 모델을 기준으로 기록을 비교할 수 있습니다.
 
@@ -31,11 +31,11 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 테스트를 만들려면 다음 지침을 따르세요.
 
 1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
-2. **음성 텍스트 > Custom Speech > [프로젝트 이름] > 테스트**로 이동 합니다.
-3. **테스트 추가**를 클릭 합니다.
+2. **음성 텍스트 > Custom Speech > [프로젝트 이름] > 테스트** 로 이동 합니다.
+3. **테스트 추가** 를 클릭 합니다.
 4. **품질 검사 (오디오 전용 데이터)** 를 선택 합니다. 테스트에 이름, 설명을 지정 하 고 오디오 데이터 집합을 선택 합니다.
 5. 테스트 하려는 최대 2 개의 모델을 선택 합니다.
-6. **만들기**를 클릭합니다.
+6. **만들기** 를 클릭합니다.
 
 테스트를 성공적으로 만든 후 모델에서 지정한 오디오 데이터 집합을 speech 두 모델의 결과를 나란히 비교 하는 방법을 확인할 수 있습니다.
 
@@ -43,7 +43,7 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 
 ## <a name="side-by-side-model-comparisons"></a>병렬 모델 비교
 
-테스트 상태가 _성공_이면 테스트 항목 이름을 클릭 하 여 테스트에 대 한 세부 정보를 확인 합니다. 이 세부 정보 페이지에는 데이터 집합의 모든 길이 발언 나열 되며 비교 하는 두 모델의 인식 결과가 표시 됩니다.
+테스트 상태가 _성공_ 이면 테스트 항목 이름을 클릭 하 여 테스트에 대 한 세부 정보를 확인 합니다. 이 세부 정보 페이지에는 데이터 집합의 모든 길이 발언 나열 되며 비교 하는 두 모델의 인식 결과가 표시 됩니다.
 
 병렬 비교를 검사 하기 위해 삽입, 삭제 및 대체를 비롯 한 다양 한 오류 유형을 전환할 수 있습니다. 오디오를 수신 하 고 각 열에서 인식 결과를 비교 하 여 (사람의 레이블이 지정 된 기록 및 두 개의 음성-텍스트 모델의 결과를 표시) 요구 사항을 충족 하는 모델과 향상 된 기능을 결정 하는 데 도움이 됩니다.
 
@@ -60,7 +60,7 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 
 ### <a name="import-datasets-to-editor"></a>편집기로 데이터 집합 가져오기
 
-편집기로 데이터를 가져오려면 먼저 **Custom Speech > [사용자 프로젝트] > 편집기**로 이동 합니다.
+편집기로 데이터를 가져오려면 먼저 **Custom Speech > [사용자 프로젝트] > 편집기** 로 이동 합니다.
 
 ![편집기 탭](media/custom-speech/custom-speech-editor-detail.png)
 
@@ -79,11 +79,13 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 
 ### <a name="edit-transcription-by-listening-to-audio"></a>오디오를 수신 하 여 기록을 편집 합니다.
 
-데이터 업로드가 성공한 후 각 항목 이름을 클릭 하 여 데이터의 세부 정보를 확인 합니다. 세부 정보 페이지에는 데이터 집합의 모든 파일이 나열 되며 원하는 utterance을 클릭할 수 있습니다. 각 utterance에 대해 오디오를 재생 하 고, 기록을 검사 하 고, 삽입, 삭제 또는 대체 오류가 발생 하는 경우에는 해당 내용을 편집할 수 있습니다. 오류 유형에 대 한 자세한 내용은 [데이터 평가 방법을](how-to-custom-speech-evaluate-data.md) 참조 하세요.
+데이터 업로드가 성공한 후 각 항목 이름을 클릭 하 여 데이터의 세부 정보를 확인 합니다. **이전** 및 **다음** 을 사용 하 여 각 파일 사이를 이동할 수도 있습니다.
+
+세부 정보 페이지에는 각 오디오 파일의 모든 세그먼트가 나열 되며 원하는 utterance을 클릭할 수 있습니다. 각 utterance에 대해 오디오를 재생 하 고, 기록을 검사 하 고, 삽입, 삭제 또는 대체 오류가 발생 하는 경우에는 해당 내용을 편집할 수 있습니다. 오류 유형에 대 한 자세한 내용은 [데이터 평가 방법을](how-to-custom-speech-evaluate-data.md) 참조 하세요.
 
 ![편집기 페이지](media/custom-speech/custom-speech-editor.png)
 
-오디오 파일이 길면 자동으로 더 작은 부분으로 분할 됩니다. **이전** 및 **다음 단계** 를 사용 하 여 페이지 간에 이동할 수 있습니다. 편집을 수행한 후 **저장** 단추를 클릭 합니다.
+편집을 수행한 후 **저장** 단추를 클릭 합니다.
 
 ### <a name="export-datasets-from-the-editor"></a>편집기에서 데이터 집합 내보내기
 
@@ -97,9 +99,9 @@ Custom Speech는 오디오 데이터를 해당 하는 인식 결과와 비교 �
 
 - [데이터 평가](how-to-custom-speech-evaluate-data.md)
 - [모델 학습](how-to-custom-speech-train-model.md)
-- [모델 개선](how-to-custom-speech-improve-accuracy.md)
-- [모델 배포](how-to-custom-speech-deploy-model.md)
+- [모델 개선](./how-to-custom-speech-evaluate-data.md)
+- [모델 배포](./how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Custom Speech에 대 한 테스트 데이터 준비](how-to-custom-speech-test-data.md)
+- [Custom Speech에 대 한 테스트 데이터 준비](./how-to-custom-speech-test-and-train.md)

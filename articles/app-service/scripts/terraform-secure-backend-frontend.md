@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962233"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739836"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Private Endpoint 및 VNet 통합으로 안전하게 연결된 두 개의 웹앱 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "88962233"
 - VNet 배포
 - 통합을 위한 첫 번째 서브넷 만들기
 - 프라이빗 엔드포인트에 대한 두 번째 서브넷을 만듭니다. 네트워크 정책을 사용하지 않도록 설정하려면 특정 매개 변수를 설정해야 합니다.
-- Private Endpoint 기능에 필요한 최소 SKU인 PremiumV2 형식의 App Service 계획 1개 배포
+- Private Endpoint 기능에 필요한 PremiumV2 또는 PremiumV3 형식의 App Service 계획 1개 배포
 - 특정 앱 설정을 통해 프런트 엔드 웹앱을 만들어 프라이빗 DNS 영역을 사용합니다. [자세한 정보](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - 프런트 엔드 웹앱을 통합 서브넷에 연결
 - 백 엔드 웹앱 만들기

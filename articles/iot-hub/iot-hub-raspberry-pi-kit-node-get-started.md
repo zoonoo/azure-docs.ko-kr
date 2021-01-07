@@ -12,13 +12,13 @@ ms.date: 03/13/2020
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-- devx-track-javascript
-ms.openlocfilehash: e1df4387b5617e9aebb4045bdf19c8df628b56ef
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: c96f674b64401250d45542d0f59f13654cf37caa
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423663"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802527"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -97,7 +97,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
 
-   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/) (.zip 파일).
+   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/software/) (.zip 파일).
 
    b. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
@@ -121,11 +121,11 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 2. Pi를 시작한 다음를 사용자 이름으로,를 암호로 사용 하 여 Raspbian에 로그인 `pi` `raspberry` 합니다.
 
-3. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성**을 클릭 합니다.
+3. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성** 을 클릭 합니다.
 
    ![Raspbian 기본 설정 메뉴](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
-4. **인터페이스** 탭에서 **I2C** 및 **SSH**를 **사용**으로 설정한 다음 **확인**을 클릭합니다. 실제 센서가 없고 시뮬레이트된 센서 데이터를 사용하려는 경우 이 단계는 선택 사항입니다.
+4. **인터페이스** 탭에서 **I2C** 및 **SSH** 를 **사용** 으로 설정한 다음 **확인** 을 클릭합니다. 실제 센서가 없고 시뮬레이트된 센서 데이터를 사용하려는 경우 이 단계는 선택 사항입니다.
 
    ![Raspberry Pi에서 I2C 및 SSH를 사용하도록 설정](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 

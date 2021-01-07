@@ -8,21 +8,22 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 07e3ff76886a935bf0b7b5c83052e0e7cd7a0429
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235726"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027427"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
 자동 프로비저닝은 사용자가 액세스해야 하는 클라우드 애플리케이션에서 사용자 ID와 역할을 만드는 것을 가리킵니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 배포를 시작하기 전에 이 문서를 참고하여 Azure AD 프로비저닝의 작동 방법을 살펴보고 구성 권장 사항을 확인하세요. 
 
-**Azure AD 프로비저닝 서비스**는 애플리케이션 벤더에서 제공하는 SCIM(System for Cross-Domain Identity Management) 2.0 사용자 관리 API 엔드포인트에 연결하여 SaaS 앱과 기타 시스템으로 사용자를 프로비저닝합니다. 이러한 SCIM 엔드포인트를 사용하여 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 애플리케이션의 경우 프로비저닝 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. Azure AD와 애플리케이션 사이에서 프로비저닝용으로 사용되는 채널은 HTTPS TLS 1.2 암호화를 사용하여 암호화됩니다.
+**Azure AD 프로비저닝 서비스** 는 애플리케이션 벤더에서 제공하는 SCIM(System for Cross-Domain Identity Management) 2.0 사용자 관리 API 엔드포인트에 연결하여 SaaS 앱과 기타 시스템으로 사용자를 프로비저닝합니다. 이러한 SCIM 엔드포인트를 사용하여 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 애플리케이션의 경우 프로비저닝 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. Azure AD와 애플리케이션 사이에서 프로비저닝용으로 사용되는 채널은 HTTPS TLS 1.2 암호화를 사용하여 암호화됩니다.
 
 
 ![Azure AD 프로비저닝 서비스](./media/how-provisioning-works/provisioning0.PNG)
@@ -42,9 +43,7 @@ Azure AD 프로비저닝 서비스는 자동 프로비저닝을 위해 [SCIM 2.0
 
 ## <a name="authorization"></a>권한 부여
 
-Azure AD가 애플리케이션의 사용자 관리 API에 연결하려면 자격 증명이 필요합니다. 애플리케이션에 대해 자동 사용자 프로비저닝을 구성할 때는 유효한 자격 증명을 입력해야 합니다. 앱 자습서에서 애플리케이션의 자격 증명 유형과 요구 사항을 확인할 수 있습니다. Azure Portal에서, 제공된 자격 증명을 사용하여 Azure AD에서 해당 앱의 프로비전닝 앱에 연결해 봄으로써 자격 증명을 테스트할 수 있습니다.
-
-애플리케이션에 대해 SAML 기반 Single Sign-On이 구성된 경우 Azure AD의 내부 애플리케이션당 스토리지 용량 한도는 1024바이트입니다. 이 한도에는 애플리케이션의 단일 인스턴스와 연결된 모든 인증서, 비밀 토큰, 자격 증명 및 관련 구성 데이터(Azure AD의 서비스 주체 레코드라도고 함)를 포함합니다. SAML 기반 Single Sign-On을 구성할 때 SAML 토큰에 서명하는 데 사용되는 인증서가 종종 50%를 초과하는 공간을 사용합니다. 사용자 프로비저닝을 설정하는 동안 입력하는 기타 항목(비밀 토큰, URI, 알림 메일 주소, 사용자 이름 및 암호)으로 인해 스토리지 용량 한도가 초과될 수 있습니다. 자세한 내용은 [사용자 프로비저닝 갤러리 앱을 구성하는 동안 관리자 자격 증명을 저장하는 문제](./application-provisioning-config-problem-storage-limit.md)를 참조하세요.
+Azure AD가 애플리케이션의 사용자 관리 API에 연결하려면 자격 증명이 필요합니다. 애플리케이션에 대해 자동 사용자 프로비저닝을 구성할 때는 유효한 자격 증명을 입력해야 합니다. 갤러리 응용 프로그램의 경우 앱 자습서를 참조 하 여 응용 프로그램에 대 한 자격 증명 유형 및 요구 사항을 찾을 수 있습니다. 비 갤러리 응용 프로그램의 경우 [Scim](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) 설명서를 참조 하 여 자격 증명 유형 및 요구 사항을 이해할 수 있습니다. Azure Portal에서, 제공된 자격 증명을 사용하여 Azure AD에서 해당 앱의 프로비전닝 앱에 연결해 봄으로써 자격 증명을 테스트할 수 있습니다.
 
 ## <a name="mapping-attributes"></a>매핑 특성
 
@@ -63,17 +62,17 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 Azure AD에서 SaaS 애플리케이션으로의 아웃바운드 프로비저닝의 경우, [사용자 및 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)은 프로비저닝 범위에 포함될 사용자를 결정하는 가장 일반적인 방법입니다. 이러한 할당은 Single Sign-On 활성화에도 사용되므로 액세스와 프로비저닝을 관리하기 위해 동일한 방법을 사용할 수 있습니다. 할당 기반 범위 지정은 Workday 및 Successfactors와 같은 인바운드 프로비저닝이 시나리오에는 적용되지 않습니다.
 
-* **그룹.** Azure AD Premium 라이선스 플랜에서는 그룹을 사용해 SaaS 애플리케이션에 대한 액세스 권한을 할당할 수 있습니다. 그런 다음 프로비저닝 범위를 **할당된 사용자 및 그룹만 동기화**로 설정하면 Azure AD 프로비저닝 서비스는 사용자가 애플리케이션에 할당된 그룹의 멤버인지 여부에 따라 사용자를 프로비저닝하거나 프로비저닝 해제합니다. 그룹 개체 자체는 애플리케이션이 그룹 개체를 지원하지 않는 한 프로비저닝되지 않습니다. 애플리케이션에 할당된 그룹에서 “SecurityEnabled” 속성이 “True”로 설정되어 있는지 확인합니다.
+* **그룹.** Azure AD Premium 라이선스 플랜에서는 그룹을 사용해 SaaS 애플리케이션에 대한 액세스 권한을 할당할 수 있습니다. 그런 다음 프로비저닝 범위를 **할당된 사용자 및 그룹만 동기화** 로 설정하면 Azure AD 프로비저닝 서비스는 사용자가 애플리케이션에 할당된 그룹의 멤버인지 여부에 따라 사용자를 프로비저닝하거나 프로비저닝 해제합니다. 그룹 개체 자체는 애플리케이션이 그룹 개체를 지원하지 않는 한 프로비저닝되지 않습니다. 애플리케이션에 할당된 그룹에서 “SecurityEnabled” 속성이 “True”로 설정되어 있는지 확인합니다.
 
-* **동적 그룹.** Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](../users-groups-roles/groups-create-rule.md)에 있는 사용자를 읽고 프로비저닝할 수 있습니다. 다음과 같은 주의 사항 및 권장 사항에 유의하세요.
+* **동적 그룹.** Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](../enterprise-users/groups-create-rule.md)에 있는 사용자를 읽고 프로비저닝할 수 있습니다. 다음과 같은 주의 사항 및 권장 사항에 유의하세요.
 
   * 동적 그룹은 Azure AD에서 SaaS 애플리케이션으로의 엔드투엔드 프로비저닝의 전체 성능에 영향을 줄 수 있습니다.
 
-  * 동적 그룹의 사용자가 SaaS 애플리케이션에서 프로비저닝 또는 프로비저닝 해제되는 속도는 동적 그룹이 멤버 자격 변경을 평가하는 속도에 따라 좌우됩니다. 동적 그룹의 처리 상태를 확인하는 방법에 대한 내용은 [멤버 관리 규칙에 대한 처리 상태 확인](../users-groups-roles/groups-create-rule.md)을 참조하세요.
+  * 동적 그룹의 사용자가 SaaS 애플리케이션에서 프로비저닝 또는 프로비저닝 해제되는 속도는 동적 그룹이 멤버 자격 변경을 평가하는 속도에 따라 좌우됩니다. 동적 그룹의 처리 상태를 확인하는 방법에 대한 내용은 [멤버 관리 규칙에 대한 처리 상태 확인](../enterprise-users/groups-create-rule.md)을 참조하세요.
 
   * 사용자가 동적 그룹의 멤버 자격을 잃은 경우 이는 프로비저닝 해제 이벤트로 간주됩니다. 동적 그룹에 대한 규칙을 만들 때 이 시나리오를 고려하세요.
 
-* **중첩 그룹.** Azure AD 사용자 프로비저닝 서비스는 중첩된 그룹에 있는 사용자를 읽거나 프로비저닝할 수 없습니다. 서비스는 명시적으로 할당된 그룹의 직계 멤버인 사용자만 읽고 프로비저닝할 수 있습니다. 이것은 Single Sign-On에도 영향을 미치는 “애플리케이션에 대한 그룹 기반 할당”의 제한 사항입니다([그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리](../users-groups-roles/groups-saasapps.md) 참조). 대신 프로비저닝해야 하는 사용자를 포함하는 그룹을 직접 할당하거나 그 밖의 방식으로 [범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)해야 합니다.
+* **중첩 그룹.** Azure AD 사용자 프로비저닝 서비스는 중첩된 그룹에 있는 사용자를 읽거나 프로비저닝할 수 없습니다. 서비스는 명시적으로 할당된 그룹의 직계 멤버인 사용자만 읽고 프로비저닝할 수 있습니다. 이것은 Single Sign-On에도 영향을 미치는 “애플리케이션에 대한 그룹 기반 할당”의 제한 사항입니다([그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리](../enterprise-users/groups-saasapps.md) 참조). 대신 프로비저닝해야 하는 사용자를 포함하는 그룹을 직접 할당하거나 그 밖의 방식으로 [범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)해야 합니다.
 
 ### <a name="attribute-based-scoping"></a>특성 기반 범위 지정 
 
@@ -169,22 +168,46 @@ ServiceNow, G Suite, Box 등의 일부 애플리케이션은 사용자 프로비
 사용자 프로비저닝 서비스에서 실행하는 모든 작업은 Azure AD [프로비저닝 로그(미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)에 기록됩니다. 로그에는 원본 및 대상 시스템에 만들어진 모든 읽기 및 쓰기 작업과 각 작업 동안 읽거나 쓴 사용자 데이터가 포함됩니다. Azure Portal에서 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [프로비저닝 보고 가이드](./check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="de-provisioning"></a>프로비저닝 해제
+Azure AD 프로 비전 서비스는 사용자 액세스를 제거할 때 프로 비전 취소 계정으로 원본 및 대상 시스템을 동기화 상태로 유지 합니다.
 
-Azure AD 프로비저닝 서비스는 사용자가 더 이상 액세스 권한을 갖지 않아야 할 경우 계정을 프로비저닝 해제함으로써 원본 및 대상 시스템을 동기화합니다. 
+프로 비전 서비스는 삭제 및 비활성화 (경우에 따라 일시 삭제 라고도 함)를 모두 지원 합니다. Disable 및 delete의 정확한 정의는 대상 앱의 구현에 따라 다르지만 일반적으로 비활성화는 사용자가 로그인 할 수 없음을 나타냅니다. 삭제는 사용자가 응용 프로그램에서 완전히 제거 되었음을 나타냅니다. SCIM 응용 프로그램의 경우 사용 안 함은 사용자에 대해 *활성* 속성을 false로 설정 하는 요청입니다. 
 
-Azure AD 프로 비전 서비스는 응용 프로그램에서 일시 삭제 (활성 = false로 업데이트 요청)를 지원할 때 응용 프로그램에서 사용자를 일시 삭제 하며 다음 이벤트 중 하나가 발생 합니다.
+**사용자를 사용 하지 않도록 응용 프로그램 구성**
 
-* Azure AD에서 사용자 계정이 삭제됨
-*   애플리케이션에서 사용자가 할당 취소됨
-*   사용자가 더 이상 범위 지정 필터를 충족하지 않고 범위를 벗어남
-    * 기본적으로 Azure AD 프로비저닝 서비스는 범위를 벗어나는 사용자를 일시 삭제하거나 비활성화합니다. 이 기본 동작을 재정의하려면 [범위 외 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 플래그를 설정할 수 있습니다.
-*   AccountEnabled 속성이 False로 설정된 경우
+업데이트 확인란을 선택 했는지 확인 합니다.
 
-위의 4개 이벤트 중 하나가 발생하고 대상 애플리케이션에서 일시 삭제를 지원하지 않는 경우 프로비저닝 서비스는 DELETE 요청을 보내서 앱에서 사용자를 영구 삭제합니다. 
+응용 프로그램에 대 한 *활성* 매핑이 있는지 확인 합니다. 앱 갤러리에서 응용 프로그램을 사용 하는 경우 매핑이 약간 다를 수 있습니다. 갤러리 응용 프로그램에 대 한 기본 매핑을 사용 하는지 확인 하세요.
 
-사용자가 Azure AD에서 삭제되고 30일이 지나면 테넌트에서 영구 삭제됩니다. 이 시점에서 프로비저닝 서비스는 DELETE 요청을 보내서 애플리케이션에서 사용자를 영구 삭제합니다. 30일 기간 중 언제든지 [사용자를 수동으로 삭제](../fundamentals/active-directory-users-restore.md)할 수 있으며, 이렇게 하면 애플리케이션으로 삭제 요청이 전송됩니다.
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="사용자 사용 안 함" lightbox="./media/how-provisioning-works/disable-user.png":::
 
-특성 매핑에 IsSoftDeleted 특성이 있는 경우, 이 특성은 사용자의 상태를 확인하고 active = false 업데이트 요청을 보내서 사용자를 일시 삭제할지 여부를 결정하는 데 사용됩니다. 
+
+**사용자를 삭제 하도록 응용 프로그램 구성**
+
+다음 시나리오에서는 사용 안 함 또는 삭제를 트리거합니다. 
+* 사용자가 Azure AD에서 일시 삭제 됩니다 (휴지통/AccountEnabled 속성을 false로 설정 하 여 보냄).
+    사용자가 Azure AD에서 삭제되고 30일이 지나면 테넌트에서 영구 삭제됩니다. 이 시점에서 프로비저닝 서비스는 DELETE 요청을 보내서 애플리케이션에서 사용자를 영구 삭제합니다. 30일 기간 중 언제든지 [사용자를 수동으로 삭제](../fundamentals/active-directory-users-restore.md)할 수 있으며, 이렇게 하면 애플리케이션으로 삭제 요청이 전송됩니다.
+* 사용자가 Azure AD의 휴지통에서 영구적으로 삭제/제거 됩니다.
+* 사용자는 앱에서 할당을 해제 합니다.
+* 사용자가 범위를 벗어나는 범위에서 이동 합니다 (범위 지정 필터를 더 이상 전달 하지 않음).
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="사용자 삭제" lightbox="./media/how-provisioning-works/delete-user.png":::
+
+기본적으로 Azure AD 프로비저닝 서비스는 범위를 벗어나는 사용자를 일시 삭제하거나 비활성화합니다. 이 기본 동작을 재정의 하려는 경우 [범위를 벗어난 삭제를 건너뛰도록](skip-out-of-scope-deletions.md) 플래그를 설정할 수 있습니다.
+
+위의 4개 이벤트 중 하나가 발생하고 대상 애플리케이션에서 일시 삭제를 지원하지 않는 경우 프로비저닝 서비스는 DELETE 요청을 보내서 앱에서 사용자를 영구 삭제합니다.
+
+특성 매핑에 IsSoftDeleted 특성이 있는 경우, 이 특성은 사용자의 상태를 확인하고 active = false 업데이트 요청을 보내서 사용자를 일시 삭제할지 여부를 결정하는 데 사용됩니다.
+
+**알려진 제한 사항**
+
+* 프로 비전 서비스에 의해 이전에 관리 되는 사용자가 앱에서 할당 되지 않았거나 앱에 할당 된 그룹에서 할당 되지 않은 경우에는 사용 안 함 요청을 보냅니다. 이 시점에서 사용자는 서비스에서 관리 되지 않으며 디렉터리에서 삭제 될 때 삭제 요청을 보내지 않습니다.
+* Azure AD에서 사용 하지 않도록 설정 된 사용자 프로 비전은 지원 되지 않습니다. 프로 비전 하기 전에 Azure AD에서 활성 상태 여야 합니다.
+* 사용자가 일시 삭제 된 상태에서 활성으로 전환 되 면 Azure AD 프로 비전 서비스는 대상 앱에서 사용자를 활성화 하지만 그룹 멤버 자격을 자동으로 복원 하지 않습니다. 대상 응용 프로그램은 비활성 상태의 사용자에 대 한 그룹 멤버 자격을 유지 해야 합니다. 대상 응용 프로그램에서이 기능을 지원 하지 않는 경우 프로 비전을 다시 시작 하 여 그룹 멤버 자격을 업데이트할 수 있습니다. 
+
+**권장**
+
+응용 프로그램을 개발할 때는 항상 일시 삭제와 하드 삭제를 모두 지원 합니다. 사용자가 실수로 사용 하지 않도록 설정 된 경우 고객을 복구할 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,15 +4,14 @@ description: AKS(Azure Kubernetes Service)에서 송신 트래픽을 제어하�
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594262"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701605"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -29,17 +28,17 @@ AKS 아웃 바운드 종속성은 그 뒤에 정적 주소가 없는 Fqdn으로 
 기본적으로 AKS 클러스터에는 무제한 아웃바운드(송신) 인터넷 액세스가 있습니다. 이러한 수준의 네트워크 액세스가 있으면 사용자가 실행하는 노드와 서비스는 필요할 때마다 외부 리소스에 액세스할 수 있습니다. 송신 트래픽을 제한하려면 정상적인 클러스터 유지 관리 작업을 유지할 수 있도록 제한된 수의 포트 및 주소에 액세스할 수 있어야 합니다. 아웃 바운드 주소를 보호 하는 가장 간단한 방법은 도메인 이름을 기반으로 하는 아웃 바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용 하는 것입니다. 예를 들어 Azure 방화벽은 대상의 FQDN에 따라 아웃 바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다. 이러한 필수 포트와 주소를 허용 하도록 기본 방화벽 및 보안 규칙을 구성할 수도 있습니다.
 
 > [!IMPORTANT]
-> 이 문서에서는 AKS 서브넷에서 나가는 트래픽을 잠그는 방법에 대해서만 설명합니다. AKS에는 기본적으로 수신 요구 사항이 없습니다.  NSGs (네트워크 보안 그룹) 및 방화벽을 사용 하는 **내부 서브넷 트래픽을** 차단 하는 것은 지원 되지 않습니다. 클러스터 내에서 트래픽을 제어 하 고 차단 하려면 [***네트워크 정책을***][network-policy]사용 합니다.
+> 이 문서에서는 AKS 서브넷에서 나가는 트래픽을 잠그는 방법에 대해서만 설명합니다. AKS에는 기본적으로 수신 요구 사항이 없습니다.  NSGs (네트워크 보안 그룹) 및 방화벽을 사용 하는 **내부 서브넷 트래픽을** 차단 하는 것은 지원 되지 않습니다. 클러스터 내에서 트래픽을 제어 하 고 차단 하려면 [ * *_네트워크 정책_* _][network-policy]을 사용 합니다.
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>AKS 클러스터에 대 한 필수 아웃 바운드 네트워크 규칙 및 Fqdn
 
 AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로그램 규칙이 필요 합니다. Azure 방화벽 이외의 솔루션을 구성 하려는 경우에는이 규칙을 사용할 수 있습니다.
 
-* IP 주소 종속성은 HTTP/S가 아닌 트래픽(TCP 및 UDP 모두)에 대한 것입니다.
+_ 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)에 대 한 IP 주소 종속성
 * FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
 * 와일드 카드 HTTP/HTTPS 끝점은 여러 한정자에 따라 AKS 클러스터에 따라 달라질 수 있는 종속성입니다.
 * AKS는 허용 컨트롤러를 사용 하 여 kube의 모든 배포에 대 한 환경 변수로 FQDN을 삽입 합니다 .이 시스템에서 노드 및 API 서버 간의 모든 시스템 통신은 api 서버 IP가 아닌 API 서버 FQDN을 사용 합니다. 
-* API 서버와 통신 해야 하는 앱 또는 솔루션을 사용 하는 경우 *api 서버의 IP 포트 443에 대 한 TCP 통신*을 허용 하는 **추가** 네트워크 규칙을 추가 해야 합니다.
+* API 서버와 통신 해야 하는 앱 또는 솔루션을 사용 하는 경우 *api 서버의 IP 포트 443에 대 한 TCP 통신* 을 허용 하는 **추가** 네트워크 규칙을 추가 해야 합니다.
 * 드문 경우 지만 API 서버 IP가 변경 될 수 있는 유지 관리 작업이 있는 경우가 있습니다. API 서버 IP를 변경할 수 있는 계획 된 유지 관리 작업은 항상 미리 전달 됩니다.
 
 
@@ -49,11 +48,11 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다.|
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다. |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다. [개인 클러스터](private-clusters.md) 에는 필요 하지 않습니다.  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Azure Global 필수 FQDN/응용 프로그램 규칙 
 
@@ -63,7 +62,6 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | 노드 <-> API 서버 통신에 필요 합니다. 을 *\<location\>* AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 자사 이미지/차트 (예: coreDNS 등)가 포함 되어 있습니다. 이러한 이미지는 확장 및 업그레이드 작업을 포함 하 여 클러스터를 올바르게 만들고 작동 하는 데 필요 합니다.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | CDN (Azure Content Delivery Network)에서 지원 되는 MCR 저장소에 필요 합니다. |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
 | **`management.azure.com`**       | **`HTTPS:443`** | Azure API에 대 한 Kubernetes 작업에 필요 합니다. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Azure Active Directory 인증에 필요 합니다. |
@@ -76,12 +74,12 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerPublicIP:22`** `(only known after cluster creation)`  | TCP           | 22      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
 
 ### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure 중국 21Vianet 필수 FQDN/응용 프로그램 규칙
 
@@ -92,7 +90,6 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | 노드 <-> API 서버 통신에 필요 합니다. 을 *\<location\>* AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | 노드 <-> API 서버 통신에 필요 합니다. 을 *\<location\>* AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 자사 이미지/차트 (예: coreDNS 등)가 포함 되어 있습니다. 이러한 이미지는 확장 및 업그레이드 작업을 포함 하 여 클러스터를 올바르게 만들고 작동 하는 데 필요 합니다. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | CDN (Azure Content Delivery Network)에서 지원 되는 MCR 저장소에 필요 합니다. |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | CDN (Azure Content Delivery Network)에서 지원 되는 MCR 저장소에 필요 합니다. |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Azure API에 대 한 Kubernetes 작업에 필요 합니다. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Azure Active Directory 인증에 필요 합니다. |
@@ -105,11 +102,11 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
 
 ### <a name="azure-us-government-required-fqdn--application-rules"></a>Azure 미국 정부에 필요한 FQDN/응용 프로그램 규칙 
 
@@ -119,7 +116,6 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | 노드 <-> API 서버 통신에 필요 합니다. 을 *\<location\>* AKS 클러스터가 배포 된 지역으로 바꿉니다.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 자사 이미지/차트 (예: coreDNS 등)가 포함 되어 있습니다. 이러한 이미지는 확장 및 업그레이드 작업을 포함 하 여 클러스터를 올바르게 만들고 작동 하는 데 필요 합니다. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | CDN (Azure Content Delivery Network)에서 지원 되는 MCR 저장소에 필요 합니다. |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Azure API에 대 한 Kubernetes 작업에 필요 합니다. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Azure Active Directory 인증에 필요 합니다. |
@@ -205,10 +201,7 @@ Azure Dev Spaces를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN
 | `storage.googleapis.com` | **`HTTPS:443`** | 이 주소는 Helm/Tiller 이미지를 끌어오는 데 사용됩니다. |
 
 
-### <a name="azure-policy-preview"></a>Azure Policy (미리 보기)
-
-> [!CAUTION]
-> 아래 기능 중 일부는 미리 보기 상태입니다.  이 문서의 제안 사항은 기능이 공개 미리 보기 및 향후 릴리스 단계로 이동하면서 변경 될 수 있습니다.
+### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>필요한 FQDN/응용 프로그램 규칙 
 
@@ -216,10 +209,11 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 
 | FQDN                                          | 포트      | 사용      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하는 데 사용됩니다. (현재 AKS의 미리 보기 상태) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하도록 GitHub에서 기본 제공 정책을 끌어오는 데 사용됩니다. (현재 AKS의 미리 보기 상태) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | 이 주소는 Kubernetes 정책을 끌어오고 클러스터 준수 상태를 정책 서비스에 보고 하는 데 사용 됩니다. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | 이 주소는 기본 제공 정책의 게이트 키퍼 아티팩트를 가져오는 데 사용 됩니다. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하는 데 사용됩니다.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 이 주소는 Azure Policy가 올바르게 작동하도록 GitHub에서 기본 제공 정책을 끌어오는 데 사용됩니다. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | 원격 분석 데이터를 Application Insights 엔드포인트로 보내는 Azure Policy 추가 기능입니다. |
-
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Azure 방화벽을 사용 하 여 송신 트래픽 제한
 
@@ -766,7 +760,7 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 AKS 투표 앱이 표시 됩니다. 이 예제에서는 방화벽 공용 IP가 `52.253.228.132` 입니다.
 
 
-![aks-투표](media/limit-egress-traffic/aks-vote.png)
+![스크린샷에는 고양이, 강아지, 재설정 및 합계에 대 한 단추가 있는 K S 투표 앱이 표시 됩니다.](media/limit-egress-traffic/aks-vote.png)
 
 
 ### <a name="clean-up-resources"></a>리소스 정리
@@ -783,7 +777,7 @@ az group delete -g $RG
 
 필요한 경우 위의 단계를 일반화 하 여 [아웃 바운드 유형 `userDefinedRoute` 설명서](egress-outboundtype.md)에 따라 선호 하는 송신 솔루션으로 트래픽을 전달할 수 있습니다.
 
-Pod가 클러스터 내에서 자신과 동-서 트래픽 제한 간에 통신 하는 방법을 제한 하려는 경우 [AKS의 네트워크 정책을 사용 하 여 pod 간의 트래픽 보안][network-policy]을 참조 하세요.
+Pod 통신 하는 방법을 제한 하 고 클러스터 내에서 East-West 트래픽 제한을 설정 하려면 [AKS에서 네트워크 정책을 사용 하 여 pod 간의 트래픽 보안][network-policy]을 참조 하세요.
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

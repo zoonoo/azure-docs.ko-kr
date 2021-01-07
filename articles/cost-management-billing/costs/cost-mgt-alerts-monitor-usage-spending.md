@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 72e9fd0d5a178897cf84b2babe4c02f7ef920841
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531341"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131907"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>비용 경고를 사용하여 사용량 및 지출 모니터링
 
@@ -21,7 +21,7 @@ ms.locfileid: "90531341"
 
 ## <a name="budget-alerts"></a>예산 경고
 
-예산 경고는 사용량 또는 비용을 기준으로 지출이 [예산의 경고 조건](tutorial-acm-create-budgets.md)에 정의된 금액에 도달하거나 초과할 때 알립니다. Cost Management 예산은 Azure Portal 또는 [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API를 사용하여 만들어집니다.
+예산 경고는 사용량 또는 비용을 기준으로 지출이 [예산의 경고 조건](tutorial-acm-create-budgets.md)에 정의된 금액에 도달하거나 초과할 때 알립니다. Cost Management 예산은 Azure Portal 또는 [Azure Consumption](/rest/api/consumption) API를 사용하여 만들어집니다.
 
 Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumption API를 사용하는 경우 비용 또는 소비 사용량을 통해 예산이 정의됩니다. 예산 경고는 비용 기반 예산과 사용량 기반 예산을 둘 다 지원합니다. 예산 경고 조건이 충족될 때마다 예산 경고가 자동으로 생성됩니다. Azure Portal에서 모든 비용 경고를 볼 수 있습니다. 경고가 생성될 때마다 비용 경고에 표시됩니다. 또한 예산의 경고 수신자 목록에 있는 사람에게 경고 메일이 전송됩니다.
 

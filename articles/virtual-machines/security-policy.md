@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 1c2156975eb8d8dcb3580603dfbe1f5d1390b79a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852478"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500345"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Azure에서 보안 적용 및 정책 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "88852478"
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md)를 통해 VM에 대한 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center는 Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
+[Azure Security Center](../security-center/security-center-introduction.md)를 통해 VM에 대한 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center는 Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
 
 Security Center의 just-in-time 액세스를 VM 배포 전체에 적용 하 여 Azure Vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요할 때 Vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다. Just-In-Time을 사용하도록 설정한 상태에서 사용자가 VM 액세스를 요청하면 Security Center에서는 VM에 대한 사용자 권한을 확인합니다. 사용자에게 올바른 권한이 있으면 요청이 승인되며, Security Center는 제한된 시간 동안 선택한 포트로의 인바운드 트래픽을 허용하도록 NSG(네트워크 보안 그룹)를 자동으로 구성합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 
 
@@ -39,9 +39,9 @@ Azure Managed Disks는 데이터를 클라우드에 보관할 때 기본적으�
 
 암호화는 관리 디스크의 성능에 영향을 주지 않습니다. 암호화에 대 한 추가 비용은 없습니다.
 
-플랫폼 관리형 키를 사용하여 관리 디스크를 암호화하거나 사용자 고유의 키를 사용하여 암호화를 관리할 수 있습니다. 사용자 고유의 키를 사용하여 암호화를 관리하는 경우 관리 디스크의 모든 데이터를 암호화 및 암호 해독하는 데 사용할 *고객 관리형 키*를 지정할 수 있습니다. 
+플랫폼 관리형 키를 사용하여 관리 디스크를 암호화하거나 사용자 고유의 키를 사용하여 암호화를 관리할 수 있습니다. 사용자 고유의 키를 사용하여 암호화를 관리하는 경우 관리 디스크의 모든 데이터를 암호화 및 암호 해독하는 데 사용할 *고객 관리형 키* 를 지정할 수 있습니다. 
 
-서버 쪽 암호화에 대해 자세히 알아보려면 [Windows](windows/disk-encryption.md) 또는 [Linux](linux/disk-encryption.md)에 대 한 문서를 참조 하세요.
+서버 쪽 암호화에 대해 자세히 알아보려면 [Windows](./disk-encryption.md) 또는 [Linux](./disk-encryption.md)에 대 한 문서를 참조 하세요.
 
 ### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 
@@ -67,11 +67,10 @@ Azure AD(Azure Active Directory)의 Azure 리소스에 대한 관리 ID 기능�
 
 [Azure 정책](../governance/policy/overview.md)을 사용하여 조직의 [Windows VM](./windows/policy.md) 및 [Linux VM](./linux/policy.md)에 대해 원하는 동작을 정의할 수 있습니다. 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다.
 
-## <a name="role-based-access-control"></a>역할 기반 액세스 제어
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
-Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용 하 여 팀 내에서 업무를 분리 하 고 사용자에 게 해당 작업을 수행 하는 데 필요한 만큼의 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. [Azure CLI](https://docs.microsoft.com/cli/azure/role) 또는[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)을 사용하여 [Azure Portal](../role-based-access-control/role-assignments-portal.md)에서 VM에 대한 액세스 제어를 구성할 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용 하 여 팀 내에서 업무를 분리 하 고 사용자에 게 해당 작업을 수행 하는 데 필요한 만큼의 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. [Azure CLI](/cli/azure/role) 또는[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)을 사용하여 [Azure Portal](../role-based-access-control/role-assignments-portal.md)에서 VM에 대한 액세스 제어를 구성할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Linux](../security/fundamentals/overview.md) 또는 [Windows](windows/tutorial-azure-security.md)용 Azure Security Center를 사용하여 가상 컴퓨터 보안을 모니터링하는 단계를 안내합니다.
-
+- [Linux](../security/fundamentals/overview.md) 또는 [Windows](./tutorial-azure-security.md)용 Azure Security Center를 사용하여 가상 컴퓨터 보안을 모니터링하는 단계를 안내합니다.

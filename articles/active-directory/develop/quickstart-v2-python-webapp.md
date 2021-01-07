@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 Python 웹앱에 Microsoft로 로그인 추가| Azure
-description: OAuth2를 사용하여 Python 웹앱에서 Microsoft 로그인을 구현하는 방법 알아보기
+title: '빠른 시작: Python 웹앱에 Microsoft로 로그인 추가 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 Python 웹앱이 사용자를 로그인하고, Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, Microsoft Graph API를 호출하는 방법에 대해 알아봅니다.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,23 +12,22 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6b58e927952b2a51289c3017455cc7d66545fe86
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 383f7f37e93b4705419ba1f93f509c86eaab192b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120323"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030640"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 
-이 자습서에서는 Python 웹 애플리케이션을 Microsoft ID 플랫폼에 통합하는 방법을 알아봅니다. 개발자의 앱은 사용자를 로그인하고, Microsoft Graph API를 호출하기 위한 액세스 토큰을 가져오고, Microsoft Graph API를 요청합니다.
+이 빠른 시작에서는 Python 웹 애플리케이션이 사용자를 로그인하고 Microsoft Graph API를 호출할 액세스 토큰을 가져오는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 개인 Microsoft 계정 또는 Azure AD(Azure Active Directory) 조직의 계정이 있는 사용자는 애플리케이션에 로그인할 수 있습니다.
 
-이 가이드를 완료했으면 애플리케이션에서 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 또는 학교 계정뿐만 아니라 개인 Microsoft 계정(outlook.com, live.com 등)의 로그인을 수락하게 됩니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
+자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 샘플을 실행하려면 다음이 필요합니다.
-
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) 또는 [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-세션](https://pypi.org/project/Flask-Session/), [요청](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -41,7 +41,7 @@ ms.locfileid: "88120323"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs)으로 이동합니다.
-> 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
@@ -50,31 +50,25 @@ ms.locfileid: "88120323"
 >
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-> 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-> 1. **새 등록**을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
->      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `python-webapp`)을 입력합니다.
->      - **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
->      - **등록**을 선택합니다.
->      - 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-> 1. 메뉴에서 **인증**을 선택한 후 다음 정보를 추가합니다.
->    - **웹** 플랫폼 구성을 추가합니다. `http://localhost:5000/getAToken`을 **리디렉션 URI**로 추가합니다.
->    - **저장**을 선택합니다.
-> 1. 왼쪽 메뉴에서 **인증서 및 비밀**을 선택하고 **클라이언트 비밀** 섹션에서 **새 클라이언트 비밀**을 클릭합니다.
->
->      - 키 설명(인스턴스 앱 비밀)을 입력합니다.
->      - **1년 후** 키 기간을 선택합니다.
->      - **추가**를 클릭하면 키 값이 표시됩니다.
->      - 키 값을 복사합니다. 이 시간은 나중에 필요합니다.
-> 1. **API 사용 권한** 섹션을 선택합니다.
->
->      - **권한 추가** 단추를 클릭한 다음,
->      - **Microsoft API** 탭을 선택합니다.
->      - *일반적으로 사용되는 Microsoft API* 섹션에서 **Microsoft Graph**를 클릭합니다.
->      - **위임된 권한** 섹션에서 적절한 권한, 즉, **User.ReadBasic.All**. 필요한 경우 검색 상자를 사용합니다.
->      - **권한 추가** 단추를 선택합니다.
+> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `python-webapp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
+> 1. **등록** 을 선택합니다.
+> 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
+> 1. **관리** 에서 **인증** 을 선택합니다.
+> 1. **플랫폼 추가** > **웹** 을 선택합니다.
+> 1. `http://localhost:5000/getAToken`을 **리디렉션 URI** 로 추가합니다.
+> 1. **구성** 을 선택합니다.
+> 1. **관리** 에서 **인증서 및 비밀** 을 선택하고 **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다.
+> 1. 키 설명(예: 앱 비밀)을 입력하고, 기본 만료를 그대로 유지하고, **추가** 를 선택합니다.
+> 1. 나중에 사용하기 위해 **클라이언트 암호** 의 **값** 을 확인합니다.
+> 1. **관리** 에서 **API 권한** > **권한 추가** 를 선택합니다.
+>1.  **Microsoft API** 탭이 선택되어 있는지 확인합니다.
+> 1. *일반적으로 사용되는 Microsoft API* 섹션에서 **Microsoft Graph** 를 선택합니다.
+> 1. **위임된 권한** 섹션에서 적절한 권한이 선택되었는지 확인합니다. **User.ReadBasic.All**. 필요한 경우 검색 상자를 사용합니다.
+> 1. **사용 권한 추가** 단추를 선택합니다.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -97,7 +91,7 @@ ms.locfileid: "88120323"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > 프로젝트를 다운로드하고 zip 파일을 루트 폴더에 가까운 로컬 폴더(예제: **C:\Azure-Samples**)로 추출합니다.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -119,7 +113,7 @@ ms.locfileid: "88120323"
 > 위치:
 >
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
-> - `Enter_the_Client_Secret_Here` - 등록한 애플리케이션의 **인증서 및 비밀**에서 만든 **클라이언트 비밀**입니다.
+> - `Enter_the_Client_Secret_Here` - 등록한 애플리케이션의 **인증서 및 비밀** 에서 만든 **클라이언트 비밀** 입니다.
 > - `Enter_the_Tenant_Name_Here` - 등록한 애플리케이션의 **디렉터리(테넌트 ) ID** 값입니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -162,11 +156,11 @@ MSAL을 사용할 파일 맨 위에 다음 코드를 추가하여 MSAL Python에
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-사용자가 로그인한 다음, 웹 API를 호출하는 웹앱에 대해 자세히 알아봅니다.
+여러 부분으로 구성된 시나리오 시리즈에서 사용자를 로그인하는 웹앱에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [시나리오: 사용자가 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [시나리오: 사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)

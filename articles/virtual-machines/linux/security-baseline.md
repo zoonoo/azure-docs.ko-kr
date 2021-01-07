@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 627c0c77cc206cd1b3210fcfc7b2a9bbc3c6daea
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d8893daaf73a15cdc0baf8eeb339e794f6f1da64
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401098"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913450"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linux Virtual Machines에 대 한 Azure 보안 기준
 
@@ -32,7 +32,7 @@ Linux Virtual Machines에 대 한 Azure 보안 기준에는 배포의 보안 상
 
 또는 중앙 방화벽에 대 한 특정 사용 사례가 있는 경우 Azure 방화벽을 사용 하 여 이러한 요구 사항을 충족할 수도 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](../windows/network-overview.md)
+* [Azure의 가상 네트워크 및 가상 머신](../network-overview.md)
 
 * [Virtual Network를 만드는 방법](../../virtual-network/quick-create-portal.md)
 
@@ -64,7 +64,7 @@ Linux Virtual Machines에 대 한 Azure 보안 기준에는 배포의 보안 상
 
 * [Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만듭니다.](../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
-* [Azure의 가상 네트워크 및 가상 머신](../windows/network-overview.md)
+* [Azure의 가상 네트워크 및 가상 머신](../network-overview.md)
 
 * [네트워크 보안 그룹에 대 한 정보](../../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -78,11 +78,11 @@ Linux Virtual Machines에 대 한 Azure 보안 기준에는 배포의 보안 상
 
 Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 제한 된 기간 동안 Linux Virtual Machines의 노출을 승인 된 IP 주소로 제한할 수 있습니다. 또한 적응 네트워크 강화 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 NSG 구성을 권장 합니다.
 
-* [DDoS 보호를 구성 하는 방법](../../virtual-network/manage-ddos-protection.md)
+* [DDoS 보호를 구성 하는 방법](../../ddos-protection/manage-ddos-protection.md)
 
 * [Azure 방화벽을 배포 하는 방법](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../../security-center/azure-defender.md)
 
 * [적응 네트워크 강화 Azure Security Center 이해](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -148,7 +148,7 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 * [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Azure Blueprint를 만드는 방법](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -182,7 +182,7 @@ Azure Policy를 사용 하 여 Linux Virtual Machines와 관련 된 네트워크
 
 * [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -278,7 +278,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 * [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
-* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -306,9 +306,9 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **지침**: Linux OS 내에서 맬웨어 방지 취약성 검색을 위한 타사 도구가 필요 합니다.
 
-* [Azure Security center에 Linux 서버를 등록 하는 방법에 대 한 지침](../../security-center/quick-onboard-linux-computer.md)
+* [Azure Security center에 Linux 서버를 등록 하는 방법에 대 한 지침](../../security-center/quickstart-onboard-machines.md)
 
-* [다음 링크는 선택한 취약점 소프트웨어의 조건 목록으로 사용할 수 있는 Microsoft 권장 보안 지침을 제공 합니다.](./security-recommendations.md)
+* [다음 링크는 선택한 취약점 소프트웨어의 조건 목록으로 사용할 수 있는 Microsoft 권장 보안 지침을 제공 합니다.](../security-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -436,7 +436,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다. 관리 id를 사용 하 여 코드에 자격 증명 없이 Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다. 가상 머신에서 실행 되는 코드는 관리 되는 id를 사용 하 여 Azure AD 인증을 지 원하는 서비스에 대 한 액세스 토큰을 요청할 수 있습니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](../../active-directory-domain-services/tutorial-create-instance.md)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](../../active-directory-domain-services/tutorial-create-instance.md)
 
 * [Azure 리소스에 대한 관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -458,7 +458,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **지침**: Azure Active Directory에 대 한 진단 설정을 구성 하 여 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 보냅니다. 또한 Azure Monitor를 사용 하 여 Azure Virtual machines의 auth syslog 데이터에서 로그를 검토 하 고 쿼리를 수행 합니다.
 
-* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/get-started-portal.md)
+* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -488,7 +488,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **지침**: 타사에서 고객 데이터에 액세스 해야 하는 경우 (예: 지원 요청 시) Azure virtual machines에 대 한 고객 Lockbox를 사용 하 여 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부 합니다.
 
-* [Microsoft Azure에 대 한 고객 Lockbox](../../security/fundamentals/customer-lockbox-overview.md)
+* [Microsoft Azure에 대한 고객 Lockbox](../../security/fundamentals/customer-lockbox-overview.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -514,7 +514,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 * [추가 Azure 구독을 만드는 방법](../../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
@@ -584,9 +584,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: 중요한 저장 정보 암호화
 
-**지침**: VM (Linux Virtual Machines)의 가상 디스크는 서버 쪽 암호화 또는 ADE (Azure disk encryption)를 사용 하 여 미사용으로 암호화 됩니다. Azure Disk Encryption은 Linux의 DM 기능을 활용 하 여 게스트 VM 내에서 고객 관리 키를 사용 하 여 관리 디스크를 암호화 합니다. 고객 관리형 키를 사용하는 서버 쪽 암호화는 스토리지 서비스의 데이터를 암호화하여 VM에 대한 모든 OS 유형 및 이미지를 사용할 수 있도록 설정하여 ADE에서 향상됩니다.
+**지침**: VM (Linux Virtual Machines)의 가상 디스크는 서버 쪽 암호화 또는 ADE (Azure disk encryption)를 사용 하 여 미사용으로 암호화 됩니다. Azure Disk Encryption은 Linux의 DM-Crypt 기능을 활용 하 여 게스트 VM 내에서 고객 관리 키를 사용 하 여 관리 디스크를 암호화 합니다. 고객 관리형 키를 사용하는 서버 쪽 암호화는 스토리지 서비스의 데이터를 암호화하여 VM에 대한 모든 OS 유형 및 이미지를 사용할 수 있도록 설정하여 ADE에서 향상됩니다.
 
-* [Azure managed disks의 서버 쪽 암호화](../windows/disk-encryption.md)
+* [Azure managed disks의 서버 쪽 암호화](../disk-encryption.md)
 
 * [Linux VM용 Azure Disk Encryption](./disk-encryption-overview.md)
 
@@ -616,9 +616,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Linux OS 내에서 맬웨어 방지 취약성 검색을 위한 타사 도구가 필요 합니다.
 
-* [Azure Security center에 Linux 서버를 등록 하는 방법에 대 한 지침](../../security-center/quick-onboard-linux-computer.md)
+* [Azure Security center에 Linux 서버를 등록 하는 방법에 대 한 지침](../../security-center/quickstart-onboard-machines.md)
 
-* [Microsoft 권장 보안 지침](./security-recommendations.md)
+* [Microsoft 권장 보안 지침](../security-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -628,9 +628,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure 업데이트 관리 솔루션을 사용 하 여 가상 머신에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 시스템을 패치 합니다.
 
-* [Azure의 업데이트 관리 솔루션](../../automation/update-management/update-mgmt-overview.md)
+* [Azure의 업데이트 관리 솔루션](../../automation/update-management/overview.md)
 
-* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -640,9 +640,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 타사 패치 관리 솔루션을 사용할 수 있습니다. Azure 업데이트 관리 솔루션을 사용 하 여 가상 컴퓨터에 대 한 업데이트 및 패치를 관리할 수 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 시스템을 패치 합니다.
 
-* [Azure의 업데이트 관리 솔루션](../../automation/update-management/update-mgmt-overview.md)
+* [Azure의 업데이트 관리 솔루션](../../automation/update-management/overview.md)
 
-* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [Vm에 대 한 업데이트 및 패치 관리](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -700,7 +700,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [추가 Azure 구독을 만드는 방법](../../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
@@ -760,7 +760,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure Automation 소개](../../automation/automation-intro.md)
 
-* [변경 내용 추적 이해](../../automation/change-tracking.md)
+* [변경 내용 추적 이해](../../automation/change-tracking/overview.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -784,7 +784,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -824,13 +824,13 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: azure 환경에 배포 된 위험도 높은 응용 프로그램은 가상 네트워크, 서브넷, 구독, 관리 그룹을 사용 하 여 격리 될 수 있으며, azure 방화벽, Waf (웹 응용 프로그램 방화벽) 또는 nsg (네트워크 보안 그룹)를 사용 하 여 충분히 안전 하 게 보호할 수 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](../windows/network-overview.md)
+* [Azure의 가상 네트워크 및 가상 머신](../network-overview.md)
 
 * [Azure Firewall 개요](../../firewall/overview.md)
 
 * [웹 애플리케이션 방화벽 개요](../../web-application-firewall/overview.md)
 
-* [네트워크 보안 개요](../../virtual-network/security-overview.md)
+* [네트워크 보안 개요](../../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
 
@@ -900,7 +900,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [ARM 템플릿 만들기에 대 한 정보](../windows/ps-template.md)
 
-* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Azure Security Center 모니터링**: 예
 
@@ -978,7 +978,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure 관리 Id와 통합 하는 방법](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Key Vault를 만드는 방법](../../key-vault/secrets/quick-create-portal.md)
+* [Key Vault를 만드는 방법](../../key-vault/general/quick-create-portal.md)
 
 * [Key Vault에 인증 하는 방법](../../key-vault/general/authentication.md)
 
@@ -1016,7 +1016,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Linux 가상 머신에서 맬웨어 방지 보호를 위한 타사 도구가 필요 합니다.
 
-* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](./security-recommendations.md)
+* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../security-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1034,7 +1034,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Linux 가상 머신에서 맬웨어 방지 보호를 위한 타사 도구가 필요 합니다.
 
-* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](./security-recommendations.md)
+* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../security-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1184,9 +1184,9 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-* [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 

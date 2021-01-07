@@ -4,22 +4,22 @@ description: Azure Portal를 사용 하 여 Microsoft Azure Maps 계정 및 해�
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: dce65eaf4ac9b7918b1217a268bedf807d4253ce
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9934a2660d18fdcbada1cda86f957345b2d1a8c8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126825"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895735"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Azure Maps 계정의 가격 책정 계층 관리
 
 Azure Portal을 통해 Azure Maps 계정의 가격 책정 계층을 관리할 수 있습니다. [계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)만든 후 계정 가격 책정 계층을 보거나 변경할 수도 있습니다.
 
-[Azure Maps에서 적절한 가격 책정 계층 선택](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)에 관해 알아봅니다.
+[Azure Maps에서 적절한 가격 책정 계층 선택](./choose-pricing-tier.md)에 관해 알아봅니다.
 
 ## <a name="view-your-pricing-tier"></a>가격 책정 계층 보기
 

@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: bae7d03f6e4551f2d30db038bf8236a0dad0bf35
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9170e1c5f2e0bc8e4030d892c149717d3ece2d9d
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206136"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601852"
 ---
 > [!div class="op_single_selector"]
 > * [Azure Active Directory](../articles/app-service/configure-authentication-provider-aad.md)
@@ -18,6 +18,7 @@ ms.locfileid: "86206136"
 > * [Microsoft 계정](../articles/app-service/configure-authentication-provider-microsoft.md)
 > * [Twitter](../articles/app-service/configure-authentication-provider-twitter.md)
 > * [Openid connect Connect 공급자 (미리 보기)](../articles/app-service/configure-authentication-provider-openid-connect.md)
+> * [Apple (미리 보기)을 사용 하 여 로그인](../articles/app-service/configure-authentication-provider-apple.md)
 > 
 > 
 

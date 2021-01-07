@@ -19,6 +19,9 @@
       href: signalr-quickstart-azure-functions-java.md
     - name: Azure Functions - Python
       href: signalr-quickstart-azure-functions-python.md
+    - name: Azure SignalR Service 배포 - ARM 템플릿
+      href: signalr-quickstart-azure-signalr-service-arm-template.md
+      displayName: deploy azure resource manager template
     - name: REST API
       href: signalr-quickstart-rest-api.md
 - name: 자습서
@@ -51,6 +54,22 @@
           href: ../azure-functions/functions-bindings-signalr-service.md
         - name: 업스트림 설정
           href: concept-upstream.md
+    - name: 가용성
+      items:
+        - name: 앱 서버를 정상적으로 종료합니다.
+          href: server-graceful-shutdown.md
+    - name: 보안
+      items:
+        - name: 권한 부여
+          items:
+            - name: Azure Active Directory를 사용하여 액세스 권한 부여
+              href: authorize-access-azure-active-directory.md
+        - name: 인증
+          items:
+            - name: 애플리케이션에서 인증
+              href: authenticate-application.md
+            - name: 관리 ID로 인증
+              href: authenticate-managed-identity.md
     - name: 고가용성
       items:
         - name: 복원력 및 재해 복구
@@ -63,6 +82,10 @@
       href: signalr-concept-authenticate-oauth.md
     - name: 이벤트 처리
       href: signalr-concept-event-grid-integration.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 확장
@@ -95,6 +118,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Azure Policy를 사용하여 규정 준수 감사
           href: signalr-howto-azure-policy.md
+    - name: 문제 해결
+      items:
+        - name: 문제 해결 가이드
+          href: signalr-howto-troubleshoot-guide.md
+        - name: 문제 해결 방법
+          href: signalr-howto-troubleshoot-method.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -102,7 +131,7 @@
     - name: REST API
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR
-      href: 'https://docs.microsoft.com/aspnet/core/signalr'
+      href: /aspnet/core/signalr
     - name: Azure SignalR Service 프로토콜
       href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
     - name: Azure Policy 기본 제공 기능
@@ -111,7 +140,7 @@
 - name: 리소스
   items:
     - name: 솔루션
-      href: 'https://docs.microsoft.com/azure/architecture/'
+      href: /azure/architecture/
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq=signalr'
     - name: SignalR 로드맵
@@ -123,7 +152,7 @@
     - name: FAQ
       href: signalr-resource-faq.md
     - name: SignalR Service 구독 수준 제한
-      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: 동영상

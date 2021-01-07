@@ -1,17 +1,15 @@
 ---
 title: Azure Service Fabric 행위자 수명 주기 개요
 description: 서비스 패브릭 Reliable Actor 수명 주기, 가비지 수집 및 행위자와 해당 상태 수동 삭제에 대해 설명합니다.
-author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 88db4bb2376cbc418d6954e274a18a6c18a280d1
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016702"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576046"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
 행위자는 해당 메서드 중 하나가 처음 호출되면 활성화됩니다. 구성 가능한 기간 동안 사용되지 않으면 비활성화됩니다(행위자 런타임에 의한 가비지 수집). 행위자와 그 상태를 언제든지 수동으로 삭제할 수도 있습니다.
@@ -51,7 +49,7 @@ ms.locfileid: "89016702"
 비활성화에 대한 세부 정보를 살펴보기 전에 다음과 같은 용어를 정의하는 것이 중요합니다.
 
 * *스캔 간격*. 행위자 런타임이 비활성화 및 가비지 수집될 수 있는 행위자에 대해 해당 활성 행위자 테이블을 스캔하는 간격입니다. 기본값은 1분입니다.
-* *유휴 시간 제한*입니다. 행위자가 비활성화 및 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간입니다. 기본값은 60분입니다.
+* *유휴 시간 제한* 입니다. 행위자가 비활성화 및 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간입니다. 기본값은 60분입니다.
 
 일반적으로 이 기본값은 변경할 필요가 없습니다. 그러나 [행위자 서비스](service-fabric-reliable-actors-platform.md)를 등록할 때 필요한 경우 `ActorServiceSettings`를 통해 이러한 간격을 변경할 수 있습니다.
 

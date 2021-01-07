@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: be5c640ef069690c408460b7374aee82c35b3a67
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272419"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008415"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -42,7 +42,7 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 
 ## <a name="quota-for-the-vfxt-cluster"></a>vFXT 클러스터에 대한 할당량
 
-다음 Azure 구성 요소에 대 한 할당량이 충분 한지 확인 합니다. 필요한 경우 [할당량 증가를 요청합니다](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+다음 Azure 구성 요소에 대 한 할당량이 충분 한지 확인 합니다. 필요한 경우 [할당량 증가를 요청합니다](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 > [!NOTE]
 > 여기에 나와 있는 가상 머신 및 SSD 구성 요소는 vFXT 클러스터 자체에 사용되는 것입니다. 계산 팜에 사용할 Vm 및 Ssd에 대 한 할당량도 필요 합니다.
@@ -97,10 +97,10 @@ Azure Portal에서 저장소 서비스 끝점을 만듭니다.
 1. 포털에서 가상 네트워크 목록을 엽니다.
 1. 클러스터에 대 한 가상 네트워크를 선택 합니다.
 1. 왼쪽 메뉴에서 **서비스 끝점** 을 클릭 합니다.
-1. 위쪽에서 **추가**를 클릭합니다.
+1. 위쪽에서 **추가** 를 클릭합니다.
 1. 서비스를 선택 ``Microsoft.Storage`` 합니다.
 1. 클러스터의 서브넷을 선택 합니다.
-1. 아래쪽에서 **추가**를 클릭합니다.
+1. 아래쪽에서 **추가** 를 클릭합니다.
 
    ![서비스 엔드포인트를 만드는 단계에 대한 주석이 있는 Azure Portal 스크린샷](media/avere-vfxt-service-endpoint.png)
 

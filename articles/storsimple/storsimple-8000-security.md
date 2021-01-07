@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75891509"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966210"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -164,7 +164,7 @@ StorSimple 디바이스 관리자 서비스의 주요 목적은 StorSimple 디�
 
 서비스 데이터 암호화 키 및 데이터 암호화 인증서가 만료되지 않았습니다. 그러나 키 손상을 방지하려면 매년 서비스 데이터 암호화 키를 변경하는 것이 좋습니다.
 
-## <a name="protect-data-at-rest"></a>휴지 상태의 데이터 보호
+## <a name="protect-data-at-rest"></a>미사용 데이터 보호
 
 StorSimple 디바이스는 사용 빈도에 따라 데이터를 로컬과 클라우드 계층에 저장하여 관리합니다. 디바이스에 연결된 모든 호스트 컴퓨터는 데이터를 디바이스로 보낸 다음, 적절한 경우 클라우드로 이동합니다. 데이터는 인터넷을 통해 디바이스에서 클라우드로 안전하게 전송됩니다. 각 디바이스에는 해당 디바이스의 모든 공유 볼륨을 표시하는 하나의 iSCSI 대상이 있습니다. 클라우드 스토리지에 전송되기 전에 모든 데이터는 암호화 됩니다. 
 
@@ -269,7 +269,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 **A:** StorSimple 디바이스 관리자 서비스에서 새 인증서를 다운로드하여 원격 액세스 클라이언트의 인증서 저장소에 설치될 수 있도록 제공합니다. 자세한 내용은 다음을 참조하세요.
 
-* [가져오기-Certificate cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
+* [가져오기-Certificate cmdlet](/powershell/module/pkiclient/import-certificate)
 
 **Q:** StorSimple 디바이스 관리자 서비스가 손상되어도 데이터가 보호되나요?
 
@@ -288,4 +288,3 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 ## <a name="next-steps"></a>다음 단계
 
 [StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)
-

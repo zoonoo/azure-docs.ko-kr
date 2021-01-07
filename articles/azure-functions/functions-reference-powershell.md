@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071162"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936790"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -20,7 +20,7 @@ PowerShell Azure 함수 (함수)는 트리거될 때 실행 되는 PowerShell �
 
 다른 종류의 함수와 마찬가지로 PowerShell 스크립트 함수는 파일에 정의 된 모든 입력 바인딩의 이름과 일치 하는 매개 변수를 사용 `function.json` 합니다. `TriggerMetadata`함수를 시작한 트리거에 대 한 추가 정보를 포함 하는 매개 변수도 전달 됩니다.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [powershell에 대 한 빠른 시작 함수](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) 를 완료 하 여 첫 번째 powershell 함수를 만들었습니다.
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [powershell에 대 한 빠른 시작 함수](./create-first-function-vs-code-powershell.md) 를 완료 하 여 첫 번째 powershell 함수를 만들었습니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 하기 위한 유효한 매개 변수입니다 `Push-OutputBinding` .
 
-| 이름 | 유형 | 위치 | Description |
+| Name | 유형 | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
@@ -143,9 +143,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 * `PipelineVariable`
 * `OutVariable` 
 
-자세한 내용은 [About CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216)을 (를) 참조 하세요.
+자세한 내용은 [About CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters)을 (를) 참조 하세요.
 
-#### <a name="push-outputbinding-example-http-responses"></a>푸시 OutputBinding 예: HTTP 응답
+#### <a name="push-outputbinding-example-http-responses"></a>Push-OutputBinding 예제: HTTP 응답
 
 HTTP 트리거는 이라는 출력 바인딩을 사용 하 여 응답을 반환 `response` 합니다. 다음 예제에서의 출력 바인딩에는 `response` "output #1" 값이 있습니다.
 
@@ -174,7 +174,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>푸시 OutputBinding 예: 큐 출력 바인딩
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputBinding 예제: 큐 출력 바인딩
 
 `Push-OutputBinding` 는 [Azure Queue storage 출력 바인딩과](functions-bindings-storage-queue-output.md)같은 출력 바인딩에 데이터를 전송 하는 데 사용 됩니다. 다음 예제에서는 큐에 기록 된 메시지의 값이 "output #1"입니다.
 
@@ -418,11 +418,11 @@ PowerShell Core 6에서 PowerShell 7로 업그레이드 하려면 함수 앱이 
 
 1. [Azure Portal](https://portal.azure.com)에서 함수 앱으로 이동합니다.
 
-1. **설정**아래에서 **구성**을 선택 합니다. **일반 설정** 탭에서 **PowerShell 버전**을 찾습니다. 
+1. **설정** 아래에서 **구성** 을 선택 합니다. **일반 설정** 탭에서 **PowerShell 버전** 을 찾습니다. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="함수 앱에서 사용 하는 PowerShell 버전 선택"::: 
 
-1. 원하는 **PowerShell Core 버전** 을 선택 하 고 **저장**을 선택 합니다. 보류 중인 다시 시작에 대 한 경고가 표시 되 면 **계속**을 선택 합니다. 선택한 PowerShell 버전에서 함수 앱이 다시 시작 됩니다. 
+1. 원하는 **PowerShell Core 버전** 을 선택 하 고 **저장** 을 선택 합니다. 보류 중인 다시 시작에 대 한 경고가 표시 되 면 **계속** 을 선택 합니다. 선택한 PowerShell 버전에서 함수 앱이 다시 시작 됩니다. 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -560,7 +560,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 이러한 환경 변수는 함수 앱의 [앱 설정](functions-app-settings.md) 에서 설정 합니다.
 
-사용 사례에 따라 Durable Functions 확장성이 크게 향상 될 수 있습니다. 자세히 알아보려면 [Durable Functions 응용 프로그램 패턴](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns)을 참조 하세요.
+사용 사례에 따라 Durable Functions 확장성이 크게 향상 될 수 있습니다. 자세히 알아보려면 [Durable Functions 응용 프로그램 패턴](./durable/durable-functions-overview.md?tabs=powershell#application-patterns)을 참조 하세요.
 
 >[!NOTE]
 > "사용 가능한 runspace 없어서 요청이 큐에 대기 중입니다." 경고가 나타날 수 있습니다 .이 오류는 오류가 아닙니다. 메시지에는 요청이 대기 중임을 알리는 메시지가 표시 되 고 이전 요청이 완료 되 면 요청이 처리 됩니다.
@@ -649,11 +649,11 @@ PowerShell 함수를 사용 하는 경우 다음 섹션의 고려 사항에 유�
 
 ### <a name="cold-start"></a>콜드 부팅
 
-서버를 사용 하지 않는 [호스팅 모델](functions-scale.md#consumption-plan)에서 Azure Functions를 개발 하는 경우 콜드 시작은 현실입니다. *콜드 시작* 은 함수 앱이 요청을 처리 하기 위해 실행 되기 시작 하는 데 걸리는 시간을 나타냅니다. 비활성 기간 동안 함수 앱이 종료 되기 때문에 소비 계획에서 콜드 시작이 더 자주 발생 합니다.
+서버를 사용 하지 않는 [호스팅 모델](consumption-plan.md)에서 Azure Functions를 개발 하는 경우 콜드 시작은 현실입니다. *콜드 시작* 은 함수 앱이 요청을 처리 하기 위해 실행 되기 시작 하는 데 걸리는 시간을 나타냅니다. 비활성 기간 동안 함수 앱이 종료 되기 때문에 소비 계획에서 콜드 시작이 더 자주 발생 합니다.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>를 사용 하는 대신 번들 모듈 `Install-Module`
 
-모든 호출에서 스크립트가 실행 됩니다. `Install-Module`스크립트에서를 사용 하지 마십시오. 대신 `Save-Module` 함수에서 모듈 다운로드 시간을 낭비 하지 않아도 되도록 게시 하기 전에를 사용 합니다. 콜드 시작이 함수에 영향을 주는 경우에는 *always on* 또는 [프리미엄 계획](functions-scale.md#premium-plan)으로 설정 된 [App Service 계획](functions-scale.md#app-service-plan) 에 함수 앱을 배포 하는 것이 좋습니다.
+모든 호출에서 스크립트가 실행 됩니다. `Install-Module`스크립트에서를 사용 하지 마십시오. 대신 `Save-Module` 함수에서 모듈 다운로드 시간을 낭비 하지 않아도 되도록 게시 하기 전에를 사용 합니다. 콜드 시작이 함수에 영향을 주는 경우에는 *always on* 또는 [프리미엄 계획](functions-premium-plan.md)으로 설정 된 [App Service 계획](dedicated-plan.md) 에 함수 앱을 배포 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,19 +6,19 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: Metrics Advisor는 데이터 수집, 변칙 검색 및 진단용 API 세트를 제공하는 시계열 모니터링 플랫폼으로, 기계 학습을 모르는 분도 사용할 수 있습니다.
-  author: aahill
+  author: mrbullwinkle
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: metrics-advisor
   ms.topic: landing-page
   ms.date: 08/13/2020
-  ms.author: aahi
-  ms.openlocfilehash: f30f45b8a683d9403973517ee4558be9cd4be664
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.author: mbullwin
+  ms.openlocfilehash: 62b24a855fca9e12ecd6770f78ef8b4dacc719dd
+  ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90928987"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94445356"
 landingContent:
 - title: Metrics Advisor 정보
   linkLists:
@@ -28,12 +28,10 @@ landingContent:
       url: overview.md
   - linkListType: quickstart
     links:
-    - text: 데모 사이트 살펴보기
-      url: quickstarts/explore-demo.md
     - text: 웹에서 첫 번째 메트릭 모니터링
       url: quickstarts/web-portal.md
-    - text: REST API를 사용하여 솔루션 사용자 지정
-      url: quickstarts/rest-api.md
+    - text: REST API 또는 클라이언트 라이브러리 사용
+      url: quickstarts/rest-api-and-client-library.md
 - title: 방법 문서
   linkLists:
   - linkListType: how-to-guide
@@ -63,6 +61,12 @@ landingContent:
     - text: Metrics Advisor API
       url: https://go.microsoft.com/fwlink/?linkid=2141634
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+      url: /powershell/module/az.cognitiveservices
     - text: Azure CLI
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context

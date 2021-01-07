@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74157676"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Azure SignalR Service를 위한 성능 가이드
@@ -70,7 +70,7 @@ Azure SignalR Service의 기본 모드에서 앱 서버 Vm은 클라이언트 Vm
 
 전송 형식은 성능에 영향을 주는 또 다른 요소입니다. 이 세 가지 유형은 [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [서버에서 보낸 이벤트](https://en.wikipedia.org/wiki/Server-sent_events)및 [긴 폴링](https://en.wikipedia.org/wiki/Push_technology)입니다. 
 
-WebSocket은 단일 TCP 연결에 대 한 양방향 및 전이중 통신 프로토콜입니다. 서버에서 보낸 이벤트는 서버에서 클라이언트로 메시지를 푸시하는 단방향 프로토콜입니다. Long 폴링을 사용 하려면 클라이언트가 HTTP 요청을 통해 서버에서 정기적으로 정보를 폴링합니다. 동일한 조건에서 동일한 API의 경우 WebSocket은 최상의 성능을 가지 며 서버에서 보낸 이벤트는 속도가 느리고 긴 폴링은 가장 느립니다. Azure SignalR Service는 기본적으로 WebSocket을 권장 합니다.
+WebSocket은 단일 TCP 연결에 대 한 양방향 및 전이중 통신 프로토콜입니다. 서버에서 보낸 이벤트는 서버에서 클라이언트로 메시지를 푸시하는 단방향 프로토콜입니다. Long-Polling 클라이언트는 HTTP 요청을 통해 서버에서 정기적으로 정보를 폴링하는 데 필요 합니다. 동일한 조건에서 동일한 API의 경우 WebSocket은 최상의 성능을 가지 며 서버에서 보낸 이벤트는 속도가 느리고 Long-Polling은 가장 느립니다. Azure SignalR Service는 기본적으로 WebSocket을 권장 합니다.
 
 또한 메시지 라우팅 비용은 성능을 제한 합니다. Azure SignalR Service는 클라이언트 또는 서버 집합에서 다른 클라이언트나 서버로 메시지를 라우팅하는 메시지 라우터로 역할을 수행 합니다. 다른 시나리오 또는 API에는 다른 라우팅 정책이 필요 합니다. 
 

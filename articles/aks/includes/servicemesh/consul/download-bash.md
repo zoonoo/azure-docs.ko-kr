@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 4e35f8cbf6c32bdfd100b651ab10e3248f8b8b2d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86244137"
 ---
 Linux의 bash 기반 셸, Linux 또는 MacOS [용 Windows 하위 시스템][install-wsl] 에서를 사용 하 여 다음과 `curl` 같이 Consul 투구 차트 릴리스를 다운로드 합니다.

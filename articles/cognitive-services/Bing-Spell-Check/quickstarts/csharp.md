@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: REST API 및 C#으로 맞춤법 검사 - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
+description: Bing Spell Check REST API 및 C#을 사용하여 맞춤법 및 문법 검사를 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df77ea73338f37925c0b59a8838c31617ff22ad8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ace7a0ccaba533c9e72961536159d32af5ab8d98
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919406"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352731"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>빠른 시작: Bing Spell Check REST API 및 C#으로 맞춤법 검사
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 C# 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 
 
@@ -31,9 +36,9 @@ ms.locfileid: "88919406"
      
    Visual Studio에서 이 패키지를 설치하려면 다음을 수행합니다.
 
-     1. **솔루션 탐색기**에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
-     1. **솔루션용 NuGet 패키지 관리**를 선택합니다.
-     1. *Newtonsoft.Json*을 검색하고 패키지를 설치합니다.
+     1. **솔루션 탐색기** 에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
+     1. **솔루션용 NuGet 패키지 관리** 를 선택합니다.
+     1. *Newtonsoft.Json* 을 검색하고 패키지를 설치합니다.
 
 * Linux/MacOS를 사용하는 경우 [Mono](https://www.mono-project.com/)를 사용하여 이 애플리케이션을 실행할 수 있습니다.
 
@@ -150,7 +155,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-프로젝트를 빌드한 후 실행합니다. Visual Studio를 사용하는 경우 **F5**를 눌러 파일을 디버그합니다.
+프로젝트를 빌드한 후 실행합니다. Visual Studio를 사용하는 경우 **F5** 를 눌러 파일을 디버그합니다.
 
 ## <a name="example-json-response"></a>예제 JSON 응답
 
@@ -200,4 +205,4 @@ static void Main(string[] args)
 > [단일 페이지 웹앱 만들기](../tutorials/spellcheck.md)
 
 - [Bing Spell Check API란?](../overview.md)
-- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 참조](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

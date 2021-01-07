@@ -4,16 +4,16 @@ description: 네트워크 파일 시스템 프로토콜을 사용 하 여 탑재
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
-ms.openlocfilehash: 2a848cb77336fc89172d55a6204d66b9e5be5976
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 3cf22ee22c35b850aff33290a59a7043bb57c984
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705234"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620950"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 
@@ -38,7 +38,7 @@ Azure 파일 공유는 클라우드에 상주 하는 완전히 관리 되는 파
     - [Azure Files와 함께 사용 하기 위해 Linux에서 지점 및 사이트 간 (P2S) VPN을 구성](storage-files-configure-p2s-vpn-linux.md)합니다.
     - [Azure Files와 함께 사용 하기 위해 사이트 간 VPN을 구성](storage-files-configure-s2s-vpn.md)합니다.
     - [Express](../../expressroute/expressroute-introduction.md)경로를 구성 합니다.
-- Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
 
 ## <a name="register-the-nfs-41-protocol"></a>NFS 4.1 프로토콜 등록
 
@@ -58,13 +58,13 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 ```azurecli
 az login
-az feature register --name AllowNfsFileShares
-                    --namespace Microsoft.Storage
+az feature register --name AllowNfsFileShares \
+                    --namespace Microsoft.Storage \
                     --subscription <yourSubscriptionIDHere>
 az provider register --namespace Microsoft.Storage
 ```
 
-## <a name="verify-that-the-feature-is-registered"></a>기능이 등록 되어 있는지 확인 합니다.
+## <a name="verify-feature-registration"></a>기능 등록 확인
 
 등록 승인은 최대 한 시간까지 걸릴 수 있습니다. 등록이 완료 되었는지 확인 하려면 다음 명령을 사용 합니다.
 
@@ -80,13 +80,41 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfs
 az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
 ```
 
+## <a name="verify-storage-account-kind"></a>저장소 계정 종류 확인
+
+현재 FileStorage 계정만 NFS 공유를 만들 수 있습니다. 
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+저장소 계정의 종류를 확인 하려면 Azure Portal으로 이동 합니다. 그런 다음 저장소 계정에서 **속성** 을 선택 합니다. 속성 블레이드에서 **계정 종류** 아래의 값을 검사 하 고 값을 **FileStorage** 해야 합니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+FileStorage 계정을 확인 하려면 다음 명령을 사용할 수 있습니다.
+
+```azurepowershell
+$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
+$accountKind.Kind
+```
+
+출력은 **FileStorage** 이어야 합니다. 그렇지 않으면 저장소 계정이 잘못 된 유형입니다. **FileStorage** 계정을 만들려면 [Azure premium 파일 공유를 만드는 방법](storage-how-to-create-premium-fileshare.md)을 참조 하세요.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+FileStorage 계정을 확인 하려면 다음 명령을 사용할 수 있습니다.
+
+```azurecli
+az storage account show -g yourResourceGroup -n yourStorageAccountName
+```
+
+출력에 **"kind": "FileStorage"** 가 포함 되어야 합니다. 그렇지 않으면 저장소 계정이 잘못 된 유형입니다. **FileStorage** 계정을 만들려면 [Azure premium 파일 공유를 만드는 방법](storage-how-to-create-premium-fileshare.md)을 참조 하세요.
+
+---
 ## <a name="create-an-nfs-share"></a>NFS 공유 만들기
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 공유를 만들 수 있습니다. 이 프로세스는 SMB 공유를 만들 때와 유사 하며, 공유를 만들 때 **smb** 대신 **NFS** 를 선택 합니다.
 
-1. 스토리지 계정으로 이동하여 **파일 공유**를 선택합니다.
+1. 스토리지 계정으로 이동하여 **파일 공유** 를 선택합니다.
 1. **+ 파일 공유** 를 선택 하 여 새 파일 공유를 만듭니다.
 1. 파일 공유 이름을로 프로 비전 된 용량을 선택 합니다.
 1. **프로토콜** 의 경우 **NFS (미리 보기)** 를 선택 합니다.
@@ -96,7 +124,7 @@ FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 �
     - Root squash-Remote 수퍼유저 (root)는 root로 액세스를 수신 합니다.
     - 모든 squash-모든 사용자 액세스는 UID (65534) 및 GID (65534)에 매핑됩니다.
     
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="파일 공유 만들기 블레이드의 스크린샷":::
 
@@ -110,7 +138,7 @@ FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 �
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) 를 참조 하세요.
+   PowerShell 버전을 업그레이드 하려면 [기존 Windows Powershell 업그레이드](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) 를 참조 하세요.
     
 1. PowershellGet 모듈의 최신 버전을 설치 합니다.
 
@@ -120,13 +148,13 @@ FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 �
 
 1. PowerShell 콘솔을 닫았다가 다시 엽니다.
 
-1. **Az. Storage** preview module version **2.5.2-preview**를 설치 합니다.
+1. **Az. Storage** preview module version **2.5.2-preview** 를 설치 합니다.
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) 를 참조 하세요.
+   PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps?view=azps-3.0.0) 를 참조 하세요.
    
 1. Azure PowerShell 모듈을 사용 하 여 프리미엄 파일 공유를 만들려면 [AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet을 사용 합니다.
 
@@ -152,10 +180,9 @@ Azure CLI를 사용 하 여 프리미엄 파일 공유를 만들려면 [az stora
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

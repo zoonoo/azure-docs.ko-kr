@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 DateTimeToTimestamp
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimeToTimestamp에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 673e6a8cb86986ff24e3ee55589d13e8a9e4fdc5
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 11e0150089fd979cbf840d3b117c0d796ecc68f3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608825"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335724"
 ---
 # <a name="datetimetotimestamp-azure-cosmos-db"></a>DateTimeToTimestamp (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 지정 된 날짜/시간을 타임 스탬프로 변환 합니다.
   
@@ -36,7 +38,7 @@ DateTimeToTimestamp (<DateTime>)
   |DD|월 (01-31)의 2 자리 숫자 일|
   |T|시간 요소 시작에 대 한 signifier|
   |hh|두 자리 시간 (00-23)|
-  |MM|두 자리 분 (00-59)|
+  |mm|두 자리 분 (00-59)|
   |ss|두 자리 초 (00-59)|
   |. fffffff|7 자리 소수 자릿수 초|
   |Z|UTC (협정 세계시) 지정자||
@@ -51,7 +53,7 @@ DateTimeToTimestamp (<DateTime>)
 
 `undefined`지정 된 DateTime 값이 잘못 된 경우 DateTimeToTimestamp에서를 반환 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
 다음 예에서는 DateTime을 타임 스탬프로 변환 합니다.
 
@@ -67,7 +69,7 @@ SELECT DateTimeToTimestamp("2020-07-09T23:20:13.4575530Z") AS Timestamp
 ]
 ```  
 
-다른 예제는 다음과 같습니다.
+다음은 또 다른 예제입니다.
 
 ```sql
 SELECT DateTimeToTimestamp("2020-07-09") AS Timestamp

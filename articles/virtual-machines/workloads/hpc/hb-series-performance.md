@@ -2,18 +2,18 @@
 title: HB-시리즈 VM 크기 성능
 description: Azure에서 HB-시리즈 VM 크기에 대 한 성능 테스트 결과에 대해 알아봅니다.
 author: vermagit
-manager: gwallace
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
-ms.openlocfilehash: 34e9ef3ab46f2ce11500aa87db9676635d3e9b4f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.reviewer: cynthn
+ms.openlocfilehash: 10d1bfea4527eb7ab9a341de8f12a32cb59597eb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016285"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966975"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>HB-시리즈 가상 머신 크기
 
@@ -22,7 +22,7 @@ ms.locfileid: "90016285"
 | 작업                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | 스트림 조로 묶어                                    | 260 g b/초 (CCX 당 32-33 g b/초)  |
-| HPL (고성능 Linpack)                  | 1000 GigaFLOPS (Rpeak), 860 GigaFLOPS (Rpeak) |
+| High-Performance Linpack (HPL)                  | 1000 GigaFLOPS (Rpeak), 860 GigaFLOPS (Rpeak) |
 | RDMA 대기 시간 & 대역폭                        | 1.27 마이크로초, 99.1 g b/초   |
 | 로컬 NVMe SSD의 FIO                           | 1.7 m b/초 읽기, 1.0 g b/초 쓰기      |  
 | IOR on 4 * Azure 프리미엄 SSD (P30 Managed Disks, RAID0) * *  | 725 m b/초 읽기, 780 m b/쓰기   |

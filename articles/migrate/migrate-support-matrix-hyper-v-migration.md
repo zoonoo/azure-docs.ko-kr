@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate의 Hyper-v 마이그레이션 지원
 description: Azure Migrate를 사용 하 여 Hyper-v 마이그레이션 지원에 대해 알아봅니다.
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 90da16789344754c02d46022160db71ee261a056
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051154"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754065"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-v 마이그레이션을 위한 지원 매트릭스
 
@@ -38,12 +41,12 @@ ms.locfileid: "89051154"
 | :----------------------------- | :------------------- |
 | **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](../virtual-machines/linux/endorsed-distros.md) 운영 체제입니다. |
 **Windows Server 2003** | Windows Server 2003를 실행 하는 Vm의 경우 마이그레이션하기 전에 [hyper-v Integration Services를 설치](prepare-windows-server-2003-migration.md) 해야 합니다. | 
-**Azure의 Linux Vm** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다.<br/><br/> Linux의 경우 이러한 운영 체제에 대 한 변경 내용이 자동으로 Azure Migrate.<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 이상<br/> -CentOS 6.5 이상, 7.0 이상</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. 다른 운영 체제의 경우 [필요한 변경](prepare-for-migration.md#linux-machines) 작업을 수동으로 수행 합니다.
+**Azure의 Linux Vm** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다.<br/><br/> Linux의 경우 이러한 운영 체제에 대 한 변경 내용이 자동으로 Azure Migrate.<br/> -Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> -센트 OS 7.7, 7.6, 7.5, 7.4, 6.x</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19.04, 19.10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> 다른 운영 체제의 경우 [필요한 변경](prepare-for-migration.md#verify-required-changes-before-migrating) 작업을 수동으로 수행 합니다.
 | **Azure에 대 한 필수 변경 내용** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다. 마이그레이션하기 전에 수동으로 조정 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
 | **Linux 부팅**                 | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다. |
-| **UEFI 부팅**                  | 지원됨. Azure 2 세대 VM에서 지 원하는 VM 크기를 선택 해야 합니다.  |
+| **UEFI 부팅**                  | 지원됨. UEFI 기반 Vm은 Azure 2 세대 Vm으로 마이그레이션됩니다.  |
 | **UEFI-보안 부팅**         | 마이그레이션에 지원 되지 않습니다.|
-| **디스크 크기**                  | OS 디스크의 경우 2tb, 데이터 디스크의 경우 4tb|
+| **디스크 크기**                  | OS 디스크의 경우 2TB (BIOS 부팅), OS 디스크의 경우 4tb (UEFI 부팅), 데이터 디스크의 경우 4tb입니다.|
 | **디스크 번호** | VM 당 최대 16 개의 디스크|
 | **암호화 된 디스크/볼륨**    | 마이그레이션에 지원 되지 않습니다.|
 | **RDM/통과 디스크**      | 마이그레이션에 지원 되지 않습니다.|
@@ -65,7 +68,7 @@ Hyper-v 호스트의 복제 공급자 소프트웨어는 이러한 Url에 액세
 login.microsoftonline.com | Active Directory를 사용 하 여 액세스 제어 및 id 관리.
 *.backup.windowsazure.com | 복제 데이터 전송 및 조정.
 \*.hypervrecoverymanager.windowsazure.com | 복제 관리에 사용 됩니다.
-\*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다. 
+*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다. 
 dc.services.visualstudio.com | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
 time.windows.com | 시스템 시간과 글로벌 시간 간의 시간 동기화를 확인 합니다.
 
@@ -97,7 +100,7 @@ Azure로 복제 된 모든 온-프레미스 Vm은이 표에 요약 된 Azure VM 
 FC 디스크 | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
 BitLocker | 지원 안 됨 | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> -사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고 **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽**허용 되는 앱 및 기능** 에서 rdp를 허용 합니다. 또한 운영 체제의 SAN 정책이 **OnlineAll**으로 설정 되어 있는지 확인 합니다. [자세히 알아보기](prepare-for-migration.md). |
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> -사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고 **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다. 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세히 알아봅니다](prepare-for-migration.md). |
 마이그레이션 후 연결-Linux | SSH를 사용 하 여 마이그레이션한 후 Azure Vm에 연결 하려면:<br/><br/> -마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정 되어 있고 방화벽 규칙에서 SSH 연결을 허용 하는지 확인 합니다.<br/><br/> -마이그레이션 후 Azure VM에서 장애 조치 (failover) 된 VM의 네트워크 보안 그룹 규칙에 대 한 SSH 포트 및 연결 된 Azure 서브넷에 대 한 들어오는 연결을 허용 합니다. 또한 VM에 대 한 공용 IP 주소를 추가 합니다. |  
 
 ## <a name="next-steps"></a>다음 단계

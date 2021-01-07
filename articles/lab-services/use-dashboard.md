@@ -3,22 +3,22 @@ title: Azure Lab Services에서 교실 랩에 대 한 대시보드 사용 Micros
 description: Azure Lab Services에서 교실 랩에 대 한 대시보드를 사용 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: a91e1649d913956219ddcf192ab315a245b32eae
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90528264"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96434603"
 ---
-# <a name="dashboard-for-classroom-labs"></a>클래스룸 랩용 대시보드
+# <a name="dashboard-for-labs"></a>랩에 대 한 대시보드
 이 문서에서는 Azure Lab Services의 클래스 룸 랩에 대 한 대시보드 보기에 대해 설명 합니다. 
 
-![화면 capature에는 Azure Lab Services의 클래스 룸 랩의 대시보드 보기가 표시 됩니다.](./media/use-dashboard/dashboard.png)
+![화면 캡처는의 클래스 룸 랩에 대 한 대시보드 보기를 표시 Azure Lab Services](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>비용 및 청구 타일
 이 타일은 다음과 같은 비용 예측 정보를 제공 합니다.
 
-| Setting | 값 | 
+| 설정 | 값 | 
 | ------- | ----- | 
 | 할당량 시간 | 사용자가 예약 된 시간 외에 VM을 사용할 수 있는 최대 시간입니다. |
 | 예약 된 시간 | 랩에서 설정 된 일정에 따라 발생 하는 시간입니다. 이 값은 모든 일정 이벤트에 대해 보낸 날짜/종료 날짜가 설정 된 경우에만 사용할 수 있습니다. |

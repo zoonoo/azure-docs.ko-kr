@@ -5,32 +5,51 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948388"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169684"
 ---
 # <a name="building-a-conditional-access-policy"></a>조건부 액세스 정책 빌드
 
-[조건부 액세스 란](overview.md)문서에 설명 된 대로 조건부 액세스 정책은 대입문, **할당** 및 **액세스 제어**에 대 한 것입니다. 조건부 액세스 정책은 신호를 결합 하 고 결정을 내리고 조직 정책을 적용 합니다.
+[조건부 액세스 란](overview.md)문서에 설명 된 대로 조건부 액세스 정책은 대입문, **할당** 및 **액세스 제어** 에 대 한 것입니다. 조건부 액세스 정책은 신호를 결합 하 고 결정을 내리고 조직 정책을 적용 합니다.
 
-조직에서 이러한 정책을 어떻게 만들 까 요? 필요한 항목
+조직에서 이러한 정책을 어떻게 만들 까 요? 필요한 항목 어떻게 적용 되나요?
 
 ![조건부 액세스 (신호 + 결정 + 적용 = 정책)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+언제 든 지 개별 사용자에 게 여러 조건부 액세스 정책을 적용할 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA (multi-factor authentication)가 필요 하 고 다른 정책에 준수 장치가 필요한 경우 MFA를 완료 하 고 규격 장치를 사용 해야 합니다. 모든 할당은 논리적으로 **and** 가 적용됩니다. 하나를 초과하여 할당을 구성한 경우 모든 할당이 충족되어야 정책을 트리거할 수 있습니다.
+
+모든 정책은 다음 두 단계로 적용됩니다.
+
+- 1 단계: 세션 정보 수집 
+   - 정책 평가에 필요한 네트워크 위치 및 장치 id와 같은 세션 정보를 수집 합니다. 
+   - 정책 평가의 1 단계는 [보고서 전용 모드](concept-conditional-access-report-only.md)에서 설정 된 정책 및 정책에 대해 발생 합니다.
+- 2 단계: 적용 
+   - 1 단계에서 수집한 세션 정보를 사용 하 여 충족 되지 않은 요구 사항을 확인 합니다. 
+   - 액세스를 차단 하도록 구성 된 정책이 있는 경우 차단 권한 부여 컨트롤을 사용 하면 적용이 중지 되 고 사용자가 차단 됩니다. 
+   - 정책이 충족 될 때까지 다음 순서 대로 1 단계에서 충족 되지 않은 추가 권한 부여 컨트롤 요구 사항을 완료 하 라는 메시지가 사용자에 게 표시 됩니다.  
+      - Multi-Factor Authentication 
+      - 승인 된 클라이언트 앱/앱 보호 정책 
+      - 관리 되는 장치 (규격 또는 하이브리드 Azure AD 조인) 
+      - 사용 약관 
+      - 사용자 지정 컨트롤  
+   - 모든 grant 컨트롤이 충족 되 면 세션 컨트롤 (앱 적용, Microsoft Cloud App Security 및 토큰 수명)을 적용 합니다. 
+   - 정책 평가의 2 단계는 사용 하도록 설정 된 모든 정책에 대해 발생 합니다. 
 
 ## <a name="assignments"></a>할당
 
 할당 부분은 조건부 액세스 정책의 사용자, 대상 및 위치를 제어 합니다.
 
-### <a name="users-and-groups"></a>사용자 및 그룹
+### <a name="users-and-groups"></a>개요
 
 [사용자 및 그룹](concept-conditional-access-users-groups.md) 은 정책에 포함 하거나 제외할 사용자를 할당 합니다. 이 할당에는 모든 사용자, 특정 사용자 그룹, 디렉터리 역할 또는 외부 게스트 사용자가 포함 될 수 있습니다. 
 
@@ -82,7 +101,7 @@ ms.locfileid: "88948388"
 
 Grant 컨트롤은 하나 이상의 컨트롤에 대 한 적용을 트리거할 수 있습니다. 
 
-- Multi-factor authentication 필요 (Azure Multi-Factor Authentication)
+- Multi-factor authentication 필요 (Azure AD Multi-Factor Authentication)
 - 장치를 규격으로 표시 해야 함 (Intune)
 - 하이브리드 Azure AD 조인된 디바이스 필요
 - 승인된 클라이언트 앱 필요
@@ -127,9 +146,11 @@ Grant 컨트롤은 하나 이상의 컨트롤에 대 한 적용을 트리거할 
 
 ## <a name="next-steps"></a>다음 단계
 
+[조건부 액세스 정책 만들기](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json#create-a-conditional-access-policy)
+
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 
-[클라우드 기반 Azure Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)
+[클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)
 
 [Intune을 사용 하 여 장치 준수 관리](/intune/device-compliance-get-started)
 

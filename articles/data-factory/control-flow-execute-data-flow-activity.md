@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 01/03/2021
+ms.openlocfilehash: 3eff23a42a6ac5f5360bdebfcc692e13acb3e8b0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485040"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858786"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
@@ -37,6 +37,9 @@ ms.locfileid: "89485040"
          "coreCount": 8,
          "computeType": "General"
       },
+      "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -60,8 +63,9 @@ ms.locfileid: "89485040"
 integrationRuntime | 데이터 흐름이 실행 되는 계산 환경입니다. 지정 하지 않으면 자동 확인 Azure 통합 런타임이 사용 됩니다. | IntegrationRuntimeReference | 아니요
 compute. coreCount | Spark 클러스터에서 사용 되는 코어 수입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | 8, 16, 32, 48, 80, 144, 272 | 아니요
 계산. | Spark 클러스터에서 사용 되는 계산의 유형입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | "일반", "서는 E최적화 됨", "MemoryOptimized" | 아니요
-linkedService | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정 | LinkedServiceReference | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
+linkedService | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정을 지정 합니다.<br/><br/>Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조 하세요. 또한 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아봅니다.<br/> | LinkedServiceReference | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
 스테이징. folderPath | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob storage 계정의 폴더 경로 | String | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
+traceLevel | 데이터 흐름 활동 실행의 로깅 수준 설정 | 세밀 하 고 거칠게, 없음 | 아니요
 
 ![데이터 흐름 실행](media/data-flow/activity-data-flow.png "데이터 흐름 실행")
 
@@ -86,7 +90,21 @@ linkedService | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 �
 
 ### <a name="polybase"></a>PolyBase
 
-Azure Synapse Analytics (이전의 SQL Data Warehouse)를 싱크 또는 원본으로 사용 하는 경우 PolyBase 일괄 처리 로드를 위한 스테이징 위치를 선택 해야 합니다. PolyBase를 사용 하면 데이터를 행 단위로 로드 하는 대신 일괄 처리를 대량으로 로드할 수 있습니다. PolyBase를 통해 Azure Synapse Analytics로 로드 시간이 크게 단축 됩니다.
+Azure Synapse Analytics를 싱크 또는 원본으로 사용 하는 경우 PolyBase 일괄 처리 로드를 위한 스테이징 위치를 선택 해야 합니다. PolyBase를 사용 하면 데이터를 행 단위로 로드 하는 대신 일괄 처리를 대량으로 로드할 수 있습니다. PolyBase를 통해 Azure Synapse Analytics로 로드 시간이 크게 단축 됩니다.
+
+## <a name="logging-level"></a>로깅 수준
+
+모든 자세한 원격 분석 로그를 완전히 기록 하기 위해 데이터 흐름 활동의 모든 파이프라인을 실행할 필요가 없는 경우 필요에 따라 로깅 수준을 "Basic" 또는 "None"으로 설정할 수 있습니다. "자세한 정보" 모드 (기본값)로 데이터 흐름을 실행 하는 경우 데이터 변환 중에 각 개별 파티션 수준에서 전체 로그 작업으로 ADF를 요청 하 게 됩니다. 이 작업은 비용이 많이 들 수 있으므로 문제를 해결 하는 경우에만 전체 데이터 흐름 및 파이프라인 성능을 향상 시킬 수 있습니다. "기본" 모드에서는 "없음"이 기간 요약만 제공 하는 동안에만 변환 기간을 기록 합니다.
+
+![로깅 수준](media/data-flow/logging.png "로깅 수준 설정")
+
+## <a name="sink-properties"></a>싱크 속성
+
+데이터 흐름의 그룹화 기능을 사용 하면 동일한 그룹 번호를 사용 하 여 싱크의 실행 순서와 그룹 싱크를 함께 설정할 수 있습니다. 그룹을 쉽게 관리할 수 있도록 ADF를 동일한 그룹의 동시에 실행 하도록 요청할 수 있습니다. 싱크 중 하나가 오류를 발견 한 후에도 싱크 그룹을 계속 하도록 설정할 수도 있습니다.
+
+데이터 흐름 싱크의 기본 동작은 직렬 방식으로 각 싱크를 순차적으로 실행 하 고 싱크에서 오류가 발생할 때 데이터 흐름을 실패 하는 것입니다. 또한 데이터 흐름 속성으로 이동 하 여 싱크에 대해 다른 우선 순위를 설정 하지 않는 한 모든 싱크는 동일한 그룹으로 기본 설정 됩니다.
+
+![싱크 속성](media/data-flow/sink-properties.png "싱크 속성 설정")
 
 ## <a name="parameterizing-data-flows"></a>데이터 흐름 매개 변수화
 
@@ -116,7 +134,7 @@ Azure Integration runtime 자동 확인을 사용 하 고 compute. coreCount 및
 
 ## <a name="monitoring-the-data-flow-activity"></a>데이터 흐름 작업 모니터링
 
-데이터 흐름 작업은 분할, 단계 시간 및 데이터 계보 정보를 볼 수 있는 특별 한 모니터링 환경을 포함 합니다. **작업**아래의 안경 아이콘을 통해 모니터링 창을 엽니다. 자세한 내용은 [데이터 흐름 모니터링](concepts-data-flow-monitoring.md)을 참조 하세요.
+데이터 흐름 작업은 분할, 단계 시간 및 데이터 계보 정보를 볼 수 있는 특별 한 모니터링 환경을 포함 합니다. **작업** 아래의 안경 아이콘을 통해 모니터링 창을 엽니다. 자세한 내용은 [데이터 흐름 모니터링](concepts-data-flow-monitoring.md)을 참조 하세요.
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>후속 작업에서 데이터 흐름 활동 결과 사용
 

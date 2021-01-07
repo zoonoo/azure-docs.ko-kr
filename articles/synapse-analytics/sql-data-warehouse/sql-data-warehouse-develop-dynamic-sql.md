@@ -1,30 +1,30 @@
 ---
 title: 동적 SQL 사용
-description: Synapse SQL 풀에서 동적 SQL을 사용 하는 개발 솔루션에 대 한 팁입니다.
+description: Azure Synapse Analytics의 전용 SQL 풀에 대해 동적 SQL을 사용 하는 개발 솔루션에 대 한 팁입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bce79b8e18b3ec6f1fd139af280086281bbdda98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 52bc7bdc63f754d52bf4a69097c1dd309a6dc3ec
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213468"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462780"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>Synapse SQL 풀의 동적 SQL
+# <a name="dynamic-sql-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대 한 동적 SQL
 
-이 문서에는 SQL 풀에서 동적 SQL을 사용 하는 개발 솔루션에 대 한 팁이 포함 되어 있습니다.
+이 문서에는 전용 SQL 풀에서 동적 SQL을 사용 하는 개발 솔루션에 대 한 팁이 포함 되어 있습니다.
 
 ## <a name="dynamic-sql-example"></a>동적 SQL 예제
 
-SQL 풀 용 응용 프로그램 코드를 개발할 때 유연한, 일반 및 모듈식 솔루션을 제공 하기 위해 동적 SQL을 사용 해야 할 수 있습니다. 지금은 SQL 풀에서 blob 데이터 형식을 지원 하지 않습니다.
+전용 SQL 풀에 대해 응용 프로그램 코드를 개발할 때 유연 하 고 일반적인 모듈식 솔루션을 제공 하기 위해 동적 SQL을 사용 해야 할 수 있습니다. 현재 전용 SQL 풀은 blob 데이터 형식을 지원 하지 않습니다.
 
 Blob 데이터 형식을 지원하지 않으면 Blob 데이터 형식에 varchar(max) 및 nvarchar(max) 형식이 둘 다 포함되므로 문자열 크기가 제한될 수 있습니다.
 

@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 19b769d1fff431f95c20e607c17747f2ff483d2f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200505"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487187"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Bing Local Business Search API의 검색 범주
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Local Business Search API를 사용하면 다양한 범주에서 로컬 비즈니스 엔터티를 검색할 수 있으며 사용자 위치에 가까울수록 결과의 우선 순위가 높습니다. 검색에 `localCircularView` 및 `localMapView` [매개 변수](specify-geographic-search.md)와 함께 이러한 검색을 포함할 수 있습니다.
 
@@ -27,7 +32,7 @@ Bing Local Business Search API를 사용하면 다양한 범주에서 로컬 비
 다음 유형은 검색의 주요 범주를 정의합니다.  `localCategories` 매개 변수에 할당된 쉼표로 분리된 목록을 사용하여 둘 이상의 범주를 지정할 수 있습니다.  
 - EatDrink 
 - SeeDo 
-- Shop 
+- 쇼핑 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
 - Parking 
@@ -44,7 +49,7 @@ Bing Local Business Search API를 사용하면 다양한 범주에서 로컬 비
 
 > AmusementParks, 맛보기, Carnivals, Casinos, LandmarksAndHistoricalSites, 미니 Aturegolf강의, MovieTheaters, Museums, 공원, SightseeingTours, TouristInformation, Zoos
 
-### <a name="shop"></a>Shop
+### <a name="shop"></a>쇼핑
 
 > AntiqueStores, Bookstores, CDAndRecordStores, ChildrensClothingStores, CigarAndTobaccoShops, ComicBookStores, DepartmentStores, DiscountStores, FleaMarketsAndBazaars, FurnitureStores, HomeImprovementStores, JewelryAndWatchesStores, KitchenwareStores, LiquorStores, MallsAndShoppingCenters, MensClothingStores, MusicStores, Out Stores, PetShops, PetSupplyStores, SchoolAndOfficeSupplyStores, ShoeStores, SportingGoodsStores, ToyAndGameStores, VitaminAndSupplementStores, WomensClothingStores
 

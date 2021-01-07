@@ -3,19 +3,19 @@ title: Windows 가상 데스크톱 FSLogix 프로필 컨테이너 파일-Azure
 description: 이 문서에서는 Windows 가상 데스크톱 및 Azure files 내의 FSLogix 프로필 컨테이너에 대해 설명 합니다.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ef7f19d835f4fef1a911da01015321b2dda67682
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002393"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861891"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
-Windows 가상 데스크톱 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장 합니다. FSLogix는 Windows Virtual Desktop과 같은 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장합니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 사용할 수 있으며 시스템에서 네이티브 사용자 프로필과 똑같이 표시 됩니다. 이 문서에서는 Windows 가상 데스크톱에서 Azure Files 함수를 사용 하 여 FSLogix 프로필 컨테이너를 사용 하는 방법을 설명 합니다.
+Windows 가상 데스크톱 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장 합니다. FSLogix는 Windows Virtual Desktop과 같은 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장합니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 제공되어 시스템에서 네이티브 사용자 프로필과 똑같이 표시됩니다. 이 문서에서는 Windows 가상 데스크톱에서 Azure Files 함수를 사용 하 여 FSLogix 프로필 컨테이너를 사용 하는 방법을 설명 합니다.
 
 >[!NOTE]
 >Azure의 여러 FSLogix 프로필 컨테이너 저장소 옵션에 대 한 비교 자료를 찾고 있는 경우 [FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
@@ -45,7 +45,7 @@ UPD 및 RUP는 RDSH (원격 데스크톱 세션 호스트) 및 VHD (가상 하�
 
 다음 표에서는 이전 사용자 프로필 기술의 이점과 제한 사항을 보여 줍니다.
 
-| 기술 | 최신 설정 | Win32 설정 | OS 설정 | 사용자 데이터 | 서버 SKU에서 지원 됨 | Azure의 백 엔드 저장소 | 백 엔드 저장소 온-프레미스 | 버전 지원 | 후속 로그인 시간 |참고|
+| 기술 | 최신 설정 | Win32 설정 | OS 설정 | 사용자 데이터 | 서버 SKU에서 지원 됨 | Azure의 백 엔드 저장소 | 백 엔드 저장소 온-프레미스 | 버전 지원 | 후속 로그인 시간 |메모|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
 | **사용자 프로필 디스크 (UPD)** | 예 | 예 | 예 | 예 | 예 | 아니요 | 예 | Win 7 이상 | 예 | |
 | **로밍 사용자 프로필 (RUP), 유지 관리 모드** | 아니요 | 예 | 예 | 예 | 예| 아니요 | 예 | Win 7 이상 | 아니요 | |
@@ -57,7 +57,7 @@ UPD 및 RUP는 RDSH (원격 데스크톱 세션 호스트) 및 VHD (가상 하�
 
 성능 요구 사항을 해결 하려면 UPD [(S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 를 사용 스토리지 공간 다이렉트 해야 합니다. UPD는 SMB (서버 메시지 블록) 프로토콜을 사용 합니다. 사용자가 기록 되는 VM에 프로필을 복사 합니다. S2D를 사용 하는 UPD Windows 가상 데스크톱에 권장 되는 솔루션입니다.
 
-#### <a name="cost"></a>비용
+#### <a name="cost"></a>Cost
 
 S2D 클러스터는 필요한 성능을 구현 하지만 기업 고객의 경우 비용이 많이 듭니다. 특히 중소기업 (중소기업) 고객의 경우 비용이 많이 듭니다. 이 솔루션의 경우 기업은 저장소 디스크에 대해 요금을 지불 하 고 공유에 대 한 디스크를 사용 하는 Vm의 비용을 지불 합니다.
 
@@ -70,7 +70,7 @@ S2D 클러스터에는 보안 상태에서 패치, 업데이트 및 유지 관�
 2018 년 11 월 19 일에 [Microsoft에서 FSLogix를 얻었습니다](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix는 많은 프로필 컨테이너 문제를 해결 합니다. 키의 핵심은 다음과 같습니다.
 
 - **성능:** [Fslogix 프로필 컨테이너](/fslogix/configure-profile-container-tutorial/) 는 고성능 이며 캐시 된 exchange 모드를 차단 하는 성능 문제를 해결 합니다.
-- **OneDrive:** FSLogix 프로필 컨테이너가 없으면 비영구 RDSH 또는 VDI 환경에서 비즈니스용 OneDrive가 지원 되지 않습니다. [비즈니스용 OneDrive 및 FSLogix 모범 사례에서](/fslogix/overview/) 상호 작용 하는 방법을 설명 합니다. 자세한 내용은 [가상 데스크톱에서 동기화 클라이언트 사용](/deployoffice/rds-onedrive-business-vdi/)을 참조 하세요.
+- **OneDrive:** FSLogix 프로필 컨테이너가 없으면 비영구 RDSH 또는 VDI 환경에서 비즈니스용 OneDrive가 지원 되지 않습니다. [ONEDRIVE VDI 지원 페이지](/onedrive/sync-vdi-support) 에서 상호 작용 하는 방법을 알려줍니다. 자세한 내용은 [가상 데스크톱에서 동기화 클라이언트 사용](/deployoffice/rds-onedrive-business-vdi/)을 참조 하세요.
 - **추가 폴더:** FSLogix는 추가 폴더를 포함 하도록 사용자 프로필을 확장 하는 기능을 제공 합니다.
 
 취득 한 후 Microsoft는 UPD와 같은 기존 사용자 프로필 솔루션을 FSLogix 프로필 컨테이너와 바꾸기 시작 했습니다.
@@ -87,7 +87,7 @@ Windows 가상 데스크톱 환경이 모범 사례를 따르는지 확인 하�
 
 - Azure Files 저장소 계정은 세션 호스트 Vm과 동일한 지역에 있어야 합니다.
 - Azure Files 권한은 [요구 사항-프로필 컨테이너](/fslogix/fslogix-storage-config-ht)에 설명 된 권한과 일치 해야 합니다.
-- 각 호스트 풀은 동일한 마스터 이미지를 기반으로 동일한 유형 및 크기 VM을 기반으로 빌드해야 합니다.
+- 각 호스트 풀 VM은 동일한 마스터 이미지에 기반 하 여 동일한 유형 및 크기 VM을 빌드해야 합니다.
 - 관리, 크기 조정 및 업데이트를 지원 하려면 각 호스트 풀 VM이 동일한 리소스 그룹에 있어야 합니다.
 - 성능을 최적화 하려면 저장소 솔루션과 FSLogix 프로필 컨테이너가 동일한 데이터 센터 위치에 있어야 합니다.
 - 마스터 이미지를 포함 하는 저장소 계정은 Vm이 프로 비전 되는 동일한 지역 및 구독에 있어야 합니다.

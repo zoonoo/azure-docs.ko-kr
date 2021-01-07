@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bb6793bc1e3d5bb55426c1f344520ae19a22a9f9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549568"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855076"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -25,7 +25,7 @@ ms.locfileid: "88549568"
 * 고정 률 샘플링은 ASP.NET, ASP.NET Core, Java (에이전트와 SDK 모두) 및 Python 용 Application Insights Sdk의 최신 버전에서 사용할 수 있습니다.
 * 수집 샘플링은 Application Insights 서비스 끝점에서 작동 합니다. 다른 샘플링이 적용 되지 않는 경우에만 적용 됩니다. SDK에서 원격 분석을 샘플링 하는 경우 수집 샘플링이 사용 하지 않도록 설정 됩니다.
 * 웹 응용 프로그램의 경우 사용자 지정 이벤트를 기록 하 고 이벤트 집합이 함께 유지 또는 삭제 되는지 확인 해야 하는 경우 이벤트의 값이 같아야 합니다 `OperationId` .
-* 분석 쿼리를 작성하는 경우 [샘플링을 고려](../log-query/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
+* 분석 쿼리를 작성하는 경우 [샘플링을 고려](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
 * 성능 메트릭 및 사용자 지정 메트릭을 비롯 한 일부 원격 분석 유형은 샘플링을 사용 하는지 여부에 관계 없이 항상 유지 됩니다.
 
 다음 표에는 각 SDK 및 응용 프로그램 유형에 사용할 수 있는 샘플링 형식이 요약 되어 있습니다.
@@ -34,11 +34,11 @@ ms.locfileid: "88549568"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 예 | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
-| Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| 나머지 | 예 | 예 | [예](#ingestion-sampling) |
+| Azure Functions | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아니요 | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Java | 아니요 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Node.JS | 아니요 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
+| Python | 아니요 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| 나머지 | 아니요 | 아니요 | [예](#ingestion-sampling) |
 
 > [!NOTE]
 > 이 페이지의 대부분에 대 한 정보는 Application Insights Sdk의 현재 버전에 적용 됩니다. 이전 버전의 Sdk에 대 한 자세한 내용은 [아래 섹션을 참조](#older-sdk-versions)하세요.
@@ -54,7 +54,7 @@ ms.locfileid: "88549568"
 * 수집 **샘플링** 은 Application Insights 서비스 끝점에서 발생 합니다. 설정한 샘플링 주기에 따라 앱에서 보낸 원격 분석 중 일부를 삭제합니다. 앱에서 보낸 원격 분석 트래픽을 줄이지는 않지만 월별 할당량 내로 유지하는 데 도움이 됩니다. 수집 샘플링의 주요 이점은 앱을 다시 배포 하지 않고도 샘플링 주기를 설정할 수 있다는 것입니다. 수집 샘플링은 모든 서버와 클라이언트에 균일 하 게 작동 하지만 다른 유형의 샘플링이 작동 하는 경우에는 적용 되지 않습니다.
 
 > [!IMPORTANT]
-> 적응 또는 고정 요금 샘플링 방법이 작동 하는 경우 수집 샘플링은 사용 하지 않도록 설정 됩니다.
+> 원격 분석 유형에 적응 또는 고정 요금 샘플링 방법을 사용 하는 경우 해당 원격 분석에 대해 수집 샘플링이 사용 되지 않습니다. 그러나 SDK 수준에서 샘플링에서 제외 된 원격 분석 형식은 여전히 포털에 설정 된 속도에서 수집 샘플링이 적용 됩니다.
 
 ## <a name="adaptive-sampling"></a>적응 샘플링
 
@@ -78,7 +78,7 @@ ms.locfileid: "88549568"
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    적응 알고리즘이 **각 서버 호스트에서**수집 하기를 목표로 하는 [논리적 작업](./correlation.md#data-model-for-telemetry-correlation) 의 목표 률입니다. 여러 호스트에서 웹앱을 실행하는 경우 Application Insights 포털에서 트래픽을 대상 비율 범위 내에서 유지하기 위해 이 값을 줄입니다.
+    적응 알고리즘이 **각 서버 호스트에서** 수집 하기를 목표로 하는 [논리적 작업](./correlation.md#data-model-for-telemetry-correlation) 의 목표 률입니다. 여러 호스트에서 웹앱을 실행하는 경우 Application Insights 포털에서 트래픽을 대상 비율 범위 내에서 유지하기 위해 이 값을 줄입니다.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   
@@ -212,7 +212,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Azure Functions에 대 한 적응 샘플링 구성
 
-[이 페이지](../../azure-functions/functions-monitoring.md#configure-sampling) 의 지침에 따라 Azure Functions에서 실행 되는 앱에 대 한 적응 샘플링을 구성 합니다.
+[이 페이지](../../azure-functions/configure-monitoring.md#configure-sampling) 의 지침에 따라 Azure Functions에서 실행 되는 앱에 대 한 적응 샘플링을 구성 합니다.
 
 ## <a name="fixed-rate-sampling"></a>고정 률 샘플링
 
@@ -295,9 +295,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
         var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
         // For older versions of the Application Insights SDK, use the following line instead:
-        // var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+        // var builder = configuration.TelemetryProcessorChainBuilder;
 
-        // Using fixed rate sampling   
+        // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
 
@@ -315,18 +315,12 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 1. [Applicationinsights-agent-3.0.0-PREVIEW. 5. j m a를](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar) 다운로드 합니다.
 
-1. 샘플링을 사용 하도록 설정 하려면 파일에 다음을 추가 합니다 `ApplicationInsights.json` .
+1. 샘플링을 사용 하도록 설정 하려면 파일에 다음을 추가 합니다 `applicationinsights.json` .
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -482,7 +476,7 @@ Application Insights 사용 하도록 JavaScript 기반 웹 페이지를 구성�
 
 다른 형태의 샘플링을 사용하는 조건이 적용되지 않으면 적응 샘플링을 사용하는 것이 좋습니다. 이 설정은 ASP.NET/ASP.NET Core SDK에서 기본적으로 사용 하도록 설정 되어 있습니다. 특정 최소 요금에 도달할 때까지 트래픽을 감소 하지 않으므로 낮은 사용량 사이트는 샘플링 되지 않을 것입니다.
 
-## <a name="knowing-whether-sampling-is-in-operation"></a>샘플링이 작동 중인지 여부를 알 수 있습니다.
+## <a name="knowing-whether-sampling-is-in-operation"></a>샘플링이 작동 중인지 여부 확인
 
 적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](../log-query/log-query-overview.md) 를 사용합니다.
 
@@ -559,7 +553,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 * SDK가 샘플링을 수행하지 않는 경우 특정 볼륨을 초과하는 모든 원격 분석에 대해 자동으로 수집 샘플링이 발생할 수 있습니다. 예를 들어 이전 버전의 ASP.NET SDK 또는 Java SDK를 사용 하는 경우이 구성이 작동 합니다.
 * 현재 ASP.NET 또는 ASP.NET Core Sdk를 사용 하는 경우 (Azure 또는 사용자의 서버에서 호스트 되는 경우) 기본적으로 적응 샘플링을 사용 하지만 위에서 설명한 대로 고정 비율로 전환할 수 있습니다. 고정 비율 샘플링을 사용하면 SDK 브라우저는 자동으로 관련 이벤트를 샘플링하도록 동기화합니다. 
-* 현재 Java 에이전트를 사용 하는 경우 `ApplicationInsights.json` (JAVA SDK의 경우)를 구성 하 여 `ApplicationInsights.xml` 고정 요금 샘플링을 켤 수 있습니다. 샘플링은 기본적으로 꺼져 있습니다. 고정 률 샘플링을 사용 하 여 브라우저 SDK 및 서버는 관련 된 샘플 이벤트를 자동으로 동기화 합니다.
+* 현재 Java 에이전트를 사용 하는 경우 `applicationinsights.json` (JAVA SDK의 경우)를 구성 하 여 `ApplicationInsights.xml` 고정 요금 샘플링을 켤 수 있습니다. 샘플링은 기본적으로 꺼져 있습니다. 고정 률 샘플링을 사용 하 여 브라우저 SDK 및 서버는 관련 된 샘플 이벤트를 자동으로 동기화 합니다.
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 

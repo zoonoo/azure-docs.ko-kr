@@ -2,15 +2,15 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 11/24/2020
+ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605178"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807703"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
+# <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 구독 배포
 
 리소스 관리를 간소화 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 Azure 구독 수준에서 리소스를 배포할 수 있습니다. 예를 들어 구독에 [정책](../../governance/policy/overview.md) 및 [azure 역할 기반 액세스 제어 (azure RBAC)](../../role-based-access-control/overview.md) 를 배포 하 여 구독 전체에 적용할 수 있습니다. 구독 내에서 리소스 그룹을 만들고 구독의 리소스 그룹에 리소스를 배포할 수도 있습니다.
 
@@ -37,7 +37,7 @@ Azure 정책의 경우 다음을 사용 합니다.
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-역할 기반 액세스 제어를 사용 하려면 다음을 사용 합니다.
+Azure RBAC (역할 기반 액세스 제어)의 경우 다음을 사용 합니다.
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
@@ -52,7 +52,9 @@ Azure 정책의 경우 다음을 사용 합니다.
 
 구독을 관리 하려면 다음을 사용 합니다.
 
+* [Advisor 구성](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
+* [분석 프로필 변경](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [태그](/azure/templates/microsoft.resources/tags)
 
@@ -62,25 +64,33 @@ Azure 정책의 경우 다음을 사용 합니다.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-### <a name="schema"></a>스키마
+## <a name="schema"></a>스키마
 
 구독 수준 배포에 사용하는 스키마는 리소스 그룹 배포에 대한 스키마와 다릅니다.
 
 템플릿의 경우 다음을 사용합니다.
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 매개 변수 파일에 대한 스키마는 모든 배포 범위에 대해 동일합니다. 매개 변수 파일의 경우 다음을 사용합니다.
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="deployment-commands"></a>배포 명령
 
-구독 수준 배포에 대한 명령은 리소스 그룹 배포에 대한 명령과 다릅니다.
+구독에 배포 하려면 구독 수준 배포 명령을 사용 합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI의 경우 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
 
@@ -92,7 +102,9 @@ az deployment sub create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-PowerShell 배포 명령의 경우 [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) 또는 **New-AzSubscriptionDeployment**를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+PowerShell 배포 명령의 경우 [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) 또는 **New-AzSubscriptionDeployment** 를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -103,78 +115,72 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-REST API의 경우 [배포 - 구독 범위에서 만들기](/rest/api/resources/deployments/createorupdateatsubscriptionscope)를 사용합니다.
+---
+
+ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 내용은 다음을 참조 하세요.
+
+* [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](deploy-portal.md)
+* [ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포](deploy-cli.md)
+* [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)
+* [ARM 템플릿 및 Azure Resource Manager REST API를 사용 하 여 리소스 배포](deploy-rest.md)
+* [배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포](deploy-to-azure-button.md)
+* [Cloud Shell에서 ARM 템플릿 배포](deploy-cloud-shell.md)
 
 ## <a name="deployment-location-and-name"></a>배포 위치 및 이름
 
-구독 수준 배포의 경우 배포를 위한 위치를 제공해야 합니다. 배포의 위치는 배포하는 리소스의 위치와는 별개입니다. 배포 위치는 배포 데이터를 저장할 위치를 지정합니다.
+구독 수준 배포의 경우 배포를 위한 위치를 제공해야 합니다. 배포의 위치는 배포하는 리소스의 위치와는 별개입니다. 배포 위치는 배포 데이터를 저장할 위치를 지정합니다. [관리 그룹](deploy-to-management-group.md) 및 [테 넌 트](deploy-to-tenant.md) 배포에도 위치가 필요 합니다. [리소스 그룹](deploy-to-resource-group.md) 배포의 경우 리소스 그룹의 위치는 배포 데이터를 저장 하는 데 사용 됩니다.
 
-배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json**이라는 템플릿을 배포하면 **azuredeploy**라는 기본 배포 이름을 만듭니다.
+배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json** 이라는 템플릿을 배포하면 **azuredeploy** 라는 기본 배포 이름을 만듭니다.
 
-각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
+각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 예를 들어 **centralus** 에서 이름이 **deployment1** 인 구독 배포를 만드는 경우 나중에 **deployment1** 이름 이지만 **westus** 위치를 사용 하 여 다른 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
 
 ## <a name="deployment-scopes"></a>배포 범위
 
-구독에 배포 하는 경우 구독 내에서 구독 및 리소스 그룹 하나를 대상으로 지정할 수 있습니다. 대상 구독과 다른 구독에는 배포할 수 없습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
+구독에 배포 하는 경우 다음에 리소스를 배포할 수 있습니다.
 
-템플릿의 resources 섹션 내에 정의 된 리소스는 구독에 적용 됩니다.
+* 작업의 대상 구독
+* 테 넌 트의 모든 구독
+* 구독 또는 다른 구독 내의 리소스 그룹
+* 구독에 대 한 테 넌 트
+* 리소스에 [확장 리소스](scope-extension-resources.md) 를 적용할 수 있습니다.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        subscription-level-resources
-    ],
-    "outputs": {}
-}
-```
+템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
 
-구독 내의 리소스 그룹을 대상으로 하려면 중첩 된 배포를 추가 하 고 속성을 포함 `resourceGroup` 합니다. 다음 예제에서 중첩 된 배포는 이라는 리소스 그룹을 대상으로 `rg2` 합니다.
+이 섹션에서는 다양 한 범위를 지정 하는 방법을 보여 줍니다. 단일 템플릿에서 이러한 여러 범위를 결합할 수 있습니다.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedDeployment",
-            "resourceGroup": "rg2",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resource-group-resources
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
+### <a name="scope-to-target-subscription"></a>대상 구독에 대 한 범위
 
-이 문서에서는 다양 한 범위에 리소스를 배포 하는 방법을 보여 주는 템플릿을 찾을 수 있습니다. 리소스 그룹을 만들고 저장소 계정을 배포 하는 템플릿의 경우 [리소스 그룹 및 리소스 만들기](#create-resource-group-and-resources)를 참조 하세요. 리소스 그룹을 만들고 해당 그룹에 잠금을 적용 하 고 리소스 그룹에 역할을 할당 하는 템플릿의 경우 [액세스 제어](#access-control)를 참조 하세요.
+대상 구독에 리소스를 배포 하려면 템플릿의 리소스 섹션에 해당 리소스를 추가 합니다.
 
-## <a name="use-template-functions"></a>템플릿 함수 사용
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
-구독 수준 배포의 경우 템플릿 함수를 사용할 때 몇 가지 중요한 고려 사항이 있습니다.
+구독에 배포 하는 예제는 [리소스 그룹 만들기](#create-resource-groups) 및 [정책 정의 할당](#assign-policy-definition)을 참조 하세요.
 
-* [resourceGroup()](template-functions-resource.md#resourcegroup) 함수는 지원되지 **않습니다**.
-* [reference()](template-functions-resource.md#reference) 및 [list()](template-functions-resource.md#list) 함수는 지원됩니다.
-* 구독 수준에서 배포 된 리소스에 대 한 리소스 ID를 얻으려면 [resourceId ()](template-functions-resource.md#resourceid) 를 사용 하지 마세요. 대신, [Subscriptionresourceid ()](template-functions-resource.md#subscriptionresourceid) 함수를 사용 합니다.
+### <a name="scope-to-other-subscription"></a>다른 구독에 대 한 범위
 
-  예를 들어 구독에 배포 되는 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
+작업의 구독과 다른 구독에 리소스를 배포 하려면 중첩 된 배포를 추가 합니다. 속성을 `subscriptionId` 배포 하려는 구독의 ID로 설정 합니다. `location`중첩 된 배포에 대 한 속성을 설정 합니다.
 
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
-  반환된 리소스 ID 형식은 다음과 같습니다.
+### <a name="scope-to-resource-group"></a>리소스 그룹에 대 한 범위
 
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
+구독 내의 리소스 그룹에 리소스를 배포 하려면 중첩 된 배포를 추가 하 고 속성을 포함 `resourceGroup` 합니다. 다음 예제에서 중첩 된 배포는 이라는 리소스 그룹을 대상으로 `demoResourceGroup` 합니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+리소스 그룹에 배포 하는 예제는 [리소스 그룹 및 리소스 만들기](#create-resource-group-and-resources)를 참조 하세요.
+
+### <a name="scope-to-tenant"></a>테 넌 트로 범위
+
+로 설정 된를 설정 하 여 테 넌 트에서 리소스를 만들 수 있습니다 `scope` `/` . 템플릿을 배포 하는 사용자에 게는 [테 넌 트에 배포 하는 데 필요한 액세스](deploy-to-tenant.md#required-access)권한이 있어야 합니다.
+
+에서 중첩 된 배포를 사용 하 `scope` 고를 설정할 수 있습니다 `location` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+또는 `/` 관리 그룹과 같은 일부 리소스 형식에 대해 범위를로 설정할 수 있습니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
 
 ## <a name="resource-groups"></a>리소스 그룹
 

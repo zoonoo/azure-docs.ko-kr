@@ -1,14 +1,16 @@
 ---
 title: SharePoint 파일-QnA Maker
 description: 기술 자료에 보안 된 SharePoint 데이터 원본을 추가 하 여 Active Directory로 보호할 수 있는 질문과 대답으로 기술 자료를 보강 합니다.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c231ac95841043e5576f064e683dd86d9695b108
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660301"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353190"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 된 SharePoint 데이터 원본 추가
 
@@ -21,11 +23,11 @@ QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 클라우드 기반 SharePoint QnA Maker는 사용 권한에 대해 Microsoft Graph를 사용 합니다. SharePoint가 온-프레미스에 있는 경우 Microsoft Graph에서 권한을 확인할 수 없기 때문에 SharePoint에서 추출할 수 없습니다.
-* URL 형식-QnA Maker 공유를 위해 생성 되 고 형식이 인 SharePoint url만 지원 합니다.`https://\*.sharepoint.com`
+* URL 형식-QnA Maker 공유를 위해 생성 되 고 형식이 인 SharePoint url만 지원 합니다. `https://\*.sharepoint.com`
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>기술 자료에 지원 되는 파일 형식 추가
 
-SharePoint 사이트에서 QnA Maker 지원 되는 모든 [파일 형식을](../Concepts/content-types.md) 기술 자료에 추가할 수 있습니다. 파일 리소스를 안전 하 게 보호 하는 경우 [사용 권한을](#permissions) 부여 해야 할 수 있습니다.
+SharePoint 사이트에서 QnA Maker 지원 되는 모든 [파일 형식을](../index.yml) 기술 자료에 추가할 수 있습니다. 파일 리소스를 안전 하 게 보호 하는 경우 [사용 권한을](#permissions) 부여 해야 할 수 있습니다.
 
 1. SharePoint 사이트를 사용 하는 라이브러리에서 파일의 줄임표 메뉴를 선택 `...` 합니다.
 1. 파일의 URL을 복사 합니다.
@@ -117,11 +119,11 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     [![Enterprise apps 목록에서 QnAMakerPortalSharePoint를 검색 합니다.](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
-1. **보안**에서 **사용 권한**으로 이동 합니다. **조직에 대해 관리자 동의 부여를**선택 합니다.
+1. **보안** 에서 **사용 권한** 으로 이동 합니다. **조직에 대해 관리자 동의 부여를** 선택 합니다.
 
     [![Active Directory 관리자에 대해 인증 된 사용자를 선택 합니다.](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
-1. Active Directory에 대 한 권한을 부여할 수 있는 권한이 있는 로그온 계정을 선택 합니다.
+1. Active Directory에 대 한 사용 권한을 부여할 수 있는 권한이 있는 Sign-On 계정을 선택 합니다.
 
 
 
@@ -154,7 +156,7 @@ Use the following steps to transform the SharePoint URL into a sharing token.
 
 ### Add or update a SharePoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) or [updating a knowledge base](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {
@@ -186,4 +188,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [기술 자료에 대한 공동 작업](collaborate-knowledge-base.md)
+> [기술 자료에 대한 공동 작업](../index.yml)

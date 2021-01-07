@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0722119b35ecebf3ed1e7a377707de02a6c127bf
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087387"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825192"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
@@ -29,7 +29,7 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
 
 연결 API에 대 한 자세한 내용은을 참조 하십시오 [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 Apache Kafka 클러스터 자세한 내용은 [HDInsight의 Kafka 빠른 시작](apache-kafka-get-started.md) 문서를 참조하세요.
 
@@ -37,7 +37,7 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* Azure IoT Hub 및 장치입니다. 이 문서에서는 [Connect Raspberry Pi online 시뮬레이터를](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started)사용 하 여 Azure IoT Hub 하는 것이 좋습니다.
+* Azure IoT Hub 및 장치입니다. 이 문서에서는 [Connect Raspberry Pi online 시뮬레이터를](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)사용 하 여 Azure IoT Hub 하는 것이 좋습니다.
 
 * [Scala 빌드 도구](https://www.scala-sbt.org/)입니다.
 
@@ -118,7 +118,7 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
 
 1. 다음과 같이 편집 합니다.
 
-    |현재 값 |새 값 | 의견 |
+    |현재 값 |새 값 | 설명 |
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|값을 `localhost:9092` 이전 단계의 broker 호스트로 바꿉니다.|Kafka broker를 찾기 위해에 지 노드에 대 한 독립 실행형 구성을 구성 합니다.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|이 변경을 통해 Kafka에 포함된 콘솔 생산자를 사용하여 테스트할 수 있습니다. 다른 생산자와 소비자에 대한 다른 변환기가 필요할 수 있습니다. 다른 변환기 값 사용에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
@@ -151,9 +151,9 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
 
    * __[Azure Portal](https://portal.azure.com/)__ 에서 다음 단계를 사용하세요.
 
-     1. IoT Hub로 이동하고 __ 엔드포인트__를 선택합니다.
-     2. __기본 제공 엔드포인트__에서 __이벤트__를 선택합니다.
-     3. __속성__에서 다음 필드의 값을 복사합니다.
+     1. IoT Hub로 이동하고 __엔드포인트__ 를 선택합니다.
+     2. __기본 제공 엔드포인트__ 에서 __이벤트__ 를 선택합니다.
+     3. __속성__ 에서 다음 필드의 값을 복사합니다.
 
          * __Event Hub 호환 이름__
          * __Event Hub 호환 끝점__
@@ -162,7 +162,7 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
         > [!IMPORTANT]  
         > 포털에서 엔드포인트 값이 이 예제에서 필요하지 않은 추가 텍스트를 포함할 수 있습니다. 이 패턴 `sb://<randomnamespace>.servicebus.windows.net/`과 일치하는 텍스트를 추출합니다.
 
-   * __[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
+   * __[Azure CLI](/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -176,15 +176,15 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
        "Partitions": 2
        ```
 
-2. __공유 액세스 정책__ 및 __키__를 가져옵니다. 이 예에서는 __서비스__ 키를 사용합니다. 이 정보를 가져오려면 다음 방법 중 하나를 사용합니다.
+2. __공유 액세스 정책__ 및 __키__ 를 가져옵니다. 이 예에서는 __서비스__ 키를 사용합니다. 이 정보를 가져오려면 다음 방법 중 하나를 사용합니다.
 
     * __[Azure Portal](https://portal.azure.com/)__ 에서 다음 단계를 사용하세요.
 
-        1. __공유 액세스 정책__을 선택한 다음, __서비스__를 선택합니다.
+        1. __공유 액세스 정책__ 을 선택한 다음, __서비스__ 를 선택합니다.
         2. __기본 키__ 값을 복사 합니다.
         3. __연결 문자열 - 기본 키__ 값을 복사합니다.
 
-    * __[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
+    * __[Azure CLI](/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
 
         1. 기본 키 값을 가져오려면 다음 명령을 사용합니다.
 

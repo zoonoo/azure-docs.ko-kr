@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005381"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108623"
 ---
 # <a name="localization-element"></a>Localization 요소
 
@@ -39,13 +39,13 @@ ms.locfileid: "87005381"
 
 **Localization** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 사용 | 아니요 | 가능한 값은 `true` 또는 `false`입니다. |
+| 사용 | No | 가능한 값은 `true` 또는 `false`입니다. |
 
 **Localization** 요소에는 다음 XML 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | SupportedLanguages | 1:n | 지원되는 언어 목록입니다. |
 | LocalizedResources | 0:n | 지역화된 리소스 목록입니다. |
@@ -54,16 +54,16 @@ ms.locfileid: "87005381"
 
 **SupportedLanguages** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| DefaultLanguage | 예 | 지역화된 리소스의 기본값으로 사용할 언어입니다. |
-| MergeBehavior | 아니요 | 동일한 식별자를 가진, 부모 정책에 있는 모든 ClaimType과 함께 병합되는 값의 열거형 값입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 부모 정책에 지정된 컬렉션의 끝에 데이터 컬렉션을 추가하도록 지정합니다. `Prepend` 값은 부모 정책에 지정된 컬렉션 앞에 데이터 컬렉션을 추가하도록 지정합니다. `ReplaceAll` 값은 부모 정책에 정의된 데이터 컬렉션을 무시하고 현재 정책에 정의된 데이터를 대신 사용하도록 지정합니다. |
+| DefaultLanguage | Yes | 지역화된 리소스의 기본값으로 사용할 언어입니다. |
+| MergeBehavior | No | 동일한 식별자를 가진, 부모 정책에 있는 모든 ClaimType과 함께 병합되는 값의 열거형 값입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 부모 정책에 지정된 컬렉션의 끝에 데이터 컬렉션을 추가하도록 지정합니다. `Prepend` 값은 부모 정책에 지정된 컬렉션 앞에 데이터 컬렉션을 추가하도록 지정합니다. `ReplaceAll` 값은 부모 정책에 정의된 데이터 컬렉션을 무시하고 현재 정책에 정의된 데이터를 대신 사용하도록 지정합니다. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
 **SupportedLanguages** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | SupportedLanguage | 1:n | RFC 5646 - 언어 식별 태그를 기준으로 언어 태그를 준수하는 콘텐츠를 표시합니다. |
 
@@ -71,13 +71,13 @@ ms.locfileid: "87005381"
 
 **LocalizedResources** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| Id | 예 | 지역화된 리소스를 고유하게 식별하는 데 사용되는 식별자입니다. |
+| Id | Yes | 지역화된 리소스를 고유하게 식별하는 데 사용되는 식별자입니다. |
 
 **LocalizedResources** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0:n | 다양한 문화권에서 전체 컬렉션을 정의합니다. 컬렉션은 문화권마다 여러 항목과 다른 문자열을 포함할 수 있습니다. 컬렉션의 예로는 클레임 유형에 표시되는 열거형이 있습니다. 예를 들어 국가/지역 목록이 드롭다운 목록을 통해 사용자에게 표시됩니다. |
 | LocalizedStrings | 0:n | 다양한 문화권에서 컬렉션에 표시되는 문자열을 제외한 모든 문자열을 정의합니다. |
@@ -86,7 +86,7 @@ ms.locfileid: "87005381"
 
 **LocalizedCollections** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1:n | 지원되는 언어 목록입니다. |
 
@@ -94,25 +94,25 @@ ms.locfileid: "87005381"
 
 **LocalizedCollection** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| ElementType | 예 | 정책 파일의 ClaimType 요소 또는 사용자 인터페이스 요소를 참조합니다. |
-| ElementId | 예 | **ElementType**이 ClaimType으로 설정된 경우 사용하는 ClaimsSchema 섹션에 이미 정의된 클레임 유형에 대한 참조를 포함하는 문자열입니다. |
-| TargetCollection | 예 | 대상 컬렉션입니다. |
+| ElementType | Yes | 정책 파일의 ClaimType 요소 또는 사용자 인터페이스 요소를 참조합니다. |
+| ElementId | Yes | **ElementType** 이 ClaimType으로 설정된 경우 사용하는 ClaimsSchema 섹션에 이미 정의된 클레임 유형에 대한 참조를 포함하는 문자열입니다. |
+| TargetCollection | Yes | 대상 컬렉션입니다. |
 
 **LocalizedCollection** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | 항목 | 0:n | 드롭다운의 값과 같이 사용자 인터페이스에서 사용자가 클레임에 대해 선택할 수 있는 옵션을 정의합니다. |
 
 **Item** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| 텍스트 | 예 | 사용자 인터페이스에서 이 옵션에 대해 사용자에게 표시되어야 하는 사용자에게 친숙한 표시 문자열입니다. |
-| 값 | 예 | 이 옵션 선택과 연결된 문자열 클레임 값입니다. |
-| SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
+| 텍스트 | Yes | 사용자 인터페이스에서 이 옵션에 대해 사용자에게 표시되어야 하는 사용자에게 친숙한 표시 문자열입니다. |
+| 값 | Yes | 이 옵션 선택과 연결된 문자열 클레임 값입니다. |
+| SelectByDefault | No | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
 
 다음 예제는 **LocalizedCollections** 요소의 사용을 보여 줍니다. 각각 영어와 스페인어로 된 두 개의 **LocalizedCollection** 요소를 포함합니다. 둘 다 영어 및 스페인어 항목 목록을 사용하여 `Gender` 클레임의 **Restriction** 컬렉션을 설정합니다.
 
@@ -138,17 +138,17 @@ ms.locfileid: "87005381"
 
 **LocalizedStrings** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1:n | 지역화된 문자열입니다. |
 
 **LocalizedString** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| ElementType | 예 | 가능한 값: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [inputvalidation](#inputvalidation)또는 [UxElement](#uxelement).   | 
-| ElementId | 예 | **ElementType** 을, 또는로 설정 하면 `ClaimType` `Predicate` `InputValidation` 이 요소는 ClaimsSchema 섹션에 이미 정의 된 클레임 형식에 대 한 참조를 포함 합니다. |
-| StringId | 예 | **ElementType**이 `ClaimType`으로 설정된 경우 이 요소는 클레임 유형의 특성에 대한 참조를 포함합니다. 가능한 값은 `DisplayName`, `AdminHelpText` 또는 `PatternHelpText`입니다. `DisplayName` 값은 클레임 표시 이름을 설정하는 데 사용됩니다. `AdminHelpText` 값은 클레임 사용자의 도움말 텍스트 이름을 설정하는 데 사용됩니다. `PatternHelpText` 값은 클레임 패턴 도움말 텍스트를 설정하는 데 사용됩니다. **ElementType**이 `UxElement`로 설정된 경우 이 요소는 사용자 인터페이스 요소의 특성에 대한 참조를 포함합니다. **ElementType**이 `ErrorMessage`로 설정된 경우 이 요소는 오류 메시지의 식별자를 지정합니다. `UxElement` 식별자의 전체 목록은 [지역화 문자열 ID](localization-string-ids.md)를 참조하세요.|
+| ElementType | Yes | 가능한 값: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [inputvalidation](#inputvalidation)또는 [UxElement](#uxelement).   | 
+| ElementId | Yes | **ElementType** 을, 또는로 설정 하면 `ClaimType` `Predicate` `InputValidation` 이 요소는 ClaimsSchema 섹션에 이미 정의 된 클레임 형식에 대 한 참조를 포함 합니다. |
+| StringId | Yes | **ElementType** 이 `ClaimType`으로 설정된 경우 이 요소는 클레임 유형의 특성에 대한 참조를 포함합니다. 가능한 값은 `DisplayName`, `AdminHelpText` 또는 `PatternHelpText`입니다. `DisplayName` 값은 클레임 표시 이름을 설정하는 데 사용됩니다. `AdminHelpText` 값은 클레임 사용자의 도움말 텍스트 이름을 설정하는 데 사용됩니다. `PatternHelpText` 값은 클레임 패턴 도움말 텍스트를 설정하는 데 사용됩니다. **ElementType** 이 `UxElement`로 설정된 경우 이 요소는 사용자 인터페이스 요소의 특성에 대한 참조를 포함합니다. **ElementType** 이 `ErrorMessage`로 설정된 경우 이 요소는 오류 메시지의 식별자를 지정합니다. `UxElement` 식별자의 전체 목록은 [지역화 문자열 ID](localization-string-ids.md)를 참조하세요.|
 
 ## <a name="elementtype"></a>ElementType
 
@@ -163,8 +163,9 @@ ms.locfileid: "87005381"
 |조건자 사용자 메시지|`Predicate`|조건자 이름| 지역화할 조건자의 특성입니다. 가능한 값은 `HelpText` 입니다.|
 |조건자 그룹 사용자 메시지|`InputValidation`|PredicateValidation 요소의 ID입니다.|PredicateGroup 요소의 ID입니다. 조건자 그룹은 ElementId에 정의 된 대로 조건자 유효성 검사 요소의 자식 이어야 합니다.|
 |사용자 인터페이스 요소 |`UxElement` | | 지역화할 사용자 인터페이스 요소의 ID입니다.|
+|[컨트롤 표시](display-controls.md) |`DisplayControl` |표시 컨트롤의 ID입니다. | 지역화할 사용자 인터페이스 요소의 ID입니다.|
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="claimsprovider"></a>ClaimsProvider
 
@@ -332,9 +333,26 @@ UxElement 값은 사용자 인터페이스 요소 중 하나를 지역화 하는
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```
 
+### <a name="displaycontrol"></a>DisplayControl
+
+DisplayControl 값은 [표시 컨트롤](display-controls.md) 사용자 인터페이스 요소 중 하나를 지역화 하는 데 사용 됩니다. 다음 예제에서는 보내기 및 확인 단추를 지역화 하는 방법을 보여 줍니다. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+자체 어설션된 기술 프로필의 메타 데이터 섹션에서 참조 된 ContentDefinition에는 [페이지 레이아웃 버전](page-layout.md) 2.1.0 이상으로 설정 된 datauri가 있어야 합니다. 예를 들면 다음과 같습니다.
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 지역화 예제는 다음 문서를 참조 하세요.
 
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 언어 사용자 지정](custom-policy-localization.md)
-- [Azure Active Directory B2C에서 사용자 흐름을 사용 하 여 언어 사용자 지정](user-flow-language-customization.md)
+- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 언어 사용자 지정](language-customization.md)
+- [Azure Active Directory B2C에서 사용자 흐름을 사용 하 여 언어 사용자 지정](language-customization.md)

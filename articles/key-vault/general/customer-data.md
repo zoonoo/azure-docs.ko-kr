@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8806ff41edabcd3c0875d3c02360dc9a275e3878
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983249"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460826"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 고객 데이터 기능
 
@@ -54,12 +54,12 @@ Azure Key Vault 액세스 로깅은 각 REST API 호출에 대한 로그를 생�
 
 - [Azure Key Vault 로깅](logging.md)
 
-- [Azure Key Vault 일시 삭제 개요](soft-delete-cli.md)
+- [Azure Key Vault 일시 삭제 개요](./key-vault-recovery.md)
 
-- [Azure Key Vault 키 작업](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Azure Key Vault 키 작업](/rest/api/keyvault/key-operations)
 
-- [Azure Key Vault 비밀 작업](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Azure Key Vault 비밀 작업](/rest/api/keyvault/secret-operations)
 
-- [Azure Key Vault 인증서 및 정책](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Azure Key Vault 인증서 및 정책](/rest/api/keyvault/certificates-and-policies)
 
-- [Azure Key Vault 스토리지 계정 작업](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Azure Key Vault 스토리지 계정 작업](/rest/api/keyvault/storage-account-key-operations)

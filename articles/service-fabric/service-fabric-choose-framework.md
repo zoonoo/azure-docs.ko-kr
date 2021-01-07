@@ -1,16 +1,15 @@
 ---
 title: 서비스 패브릭 프로그래밍 모델 개요
 description: Service Fabric은 서비스 빌드에 대해 행위자 프레임워크 및 서비스 프레임워크라는 두 가지 프레임워크를 제공합니다. 이 두 프레임 간에는 단순성과 제어 면에서 고유의 장단점이 있습니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 523c9e0064d8b78698f1a0dd3544bda58436800c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260529"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575723"
 ---
 # <a name="service-fabric-programming-model-overview"></a>서비스 패브릭 프로그래밍 모델 개요
 
@@ -28,7 +27,7 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 
 [Windows 또는 Linux에서 서비스를 컨테이너화하는 방법에 대해 자세히 알아보기](./service-fabric-get-started-containers.md)
 
-## <a name="reliable-services"></a>Reliable Services
+## <a name="reliable-services"></a>신뢰할 수 있는 서비스
 
 Reliable Services는 서비스 패브릭 플랫폼과 통합하여 전체 플랫폼 기능을 활용하는 서비스 작성을 위한 간단한 프레임워크입니다. Reliable Services는 서비스 패브릭 런타임이 서비스의 수명 주기를 관리하고 서비스가 런타임과 상호 작용할 수 있도록 하는 최소한의 API 집합을 제공합니다. 애플리케이션 프레임워크는 최소한의 부담으로 완전한 설계 및 구현 제어를 제공하며, 이를 통해 ASP.NET Core 등의 다른 애플리케이션 프레임워크를 호스팅할 수 있습니다.
 
@@ -46,7 +45,7 @@ ASP.NET Core은 웹 앱, IoT 앱 및 모바일 백 엔드와 같이 최신 클�
 
 ## <a name="reliable-actors"></a>Reliable Actors
 
-Reliable Services을 기반으로 구축 된 신뢰할 수 있는 행위자 프레임 워크는 계산 [행위자 모델](https://en.wikipedia.org/wiki/Actor_model)을 기반으로 [가상 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 구현 하는 응용 프로그램 프레임 워크입니다. 신뢰할 수 있는 행위자 프레임 워크는 *행위자*라고 하는 단일 스레드 실행과 함께 계산 및 상태의 독립적인 단위를 사용 합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
+Reliable Services을 기반으로 구축 된 신뢰할 수 있는 행위자 프레임 워크는 계산 [행위자 모델](https://en.wikipedia.org/wiki/Actor_model)을 기반으로 [가상 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 구현 하는 응용 프로그램 프레임 워크입니다. 신뢰할 수 있는 행위자 프레임 워크는 *행위자* 라고 하는 단일 스레드 실행과 함께 계산 및 상태의 독립적인 단위를 사용 합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
 
 Reliable Actors 자체는 Reliable Services에 구축된 애플리케이션 프레임워크이므로 Service Fabric 플랫폼과 완전히 통합되며 플랫폼이 제공하는 모든 기능을 완벽히 활용할 수 있습니다.
 

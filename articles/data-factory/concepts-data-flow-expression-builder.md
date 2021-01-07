@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531056"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145714"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 식 작성
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-매핑 데이터 흐름에서는 많은 변환 속성이 식으로 입력 됩니다. 이러한 식은 런타임에 Spark 데이터 형식으로 계산 되는 열 값, 매개 변수, 함수, 연산자 및 리터럴로 구성 됩니다. 데이터 흐름을 매핑하면 **식 작성기**라는 이러한 식을 작성 하는 데 도움이 되는 전용 환경이 있습니다. 강조 표시, 구문 검사 및 자동 완성을 위해  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) 코드 완성 기능을 활용 하 여 식 작성기는 데이터 흐름을 쉽게 작성할 수 있도록 설계 되었습니다. 이 문서에서는 식 작성기를 사용 하 여 비즈니스 논리를 효과적으로 작성 하는 방법을 설명 합니다.
+매핑 데이터 흐름에서는 많은 변환 속성이 식으로 입력 됩니다. 이러한 식은 런타임에 Spark 데이터 형식으로 계산 되는 열 값, 매개 변수, 함수, 연산자 및 리터럴로 구성 됩니다. 데이터 흐름을 매핑하면 **식 작성기** 라는 이러한 식을 작성 하는 데 도움이 되는 전용 환경이 있습니다. 강조 표시, 구문 검사 및 자동 완성을 위해  [IntelliSense](/visualstudio/ide/using-intellisense) 코드 완성 기능을 활용 하 여 식 작성기는 데이터 흐름을 쉽게 작성할 수 있도록 설계 되었습니다. 이 문서에서는 식 작성기를 사용 하 여 비즈니스 논리를 효과적으로 작성 하는 방법을 설명 합니다.
 
 ![식 작성기](media/data-flow/expresion-builder.png "식 작성기")
 
@@ -30,15 +30,15 @@ ms.locfileid: "90531056"
 
 [필터](data-flow-filter.md)와 같은 일부 변환에서는 파란색 식 텍스트 상자를 클릭 하면 식 작성기가 열립니다. 
 
-![Blue 식 상자](media/data-flow/expressionbox.png "식 작성기")
+![Blue 식 상자](media/data-flow/expressionbox.png "Blue 식 상자")
 
-일치 또는 그룹별 조건에서 열을 참조 하는 경우 식이 열에서 값을 추출할 수 있습니다. 식을 만들려면 **계산 열**을 선택 합니다.
+일치 또는 그룹별 조건에서 열을 참조 하는 경우 식이 열에서 값을 추출할 수 있습니다. 식을 만들려면 **계산 열** 을 선택 합니다.
 
-![계산 열 옵션](media/data-flow/computedcolumn.png "식 작성기")
+![계산 열 옵션](media/data-flow/computedcolumn.png "계산 열 옵션")
 
 식 또는 리터럴 값이 유효한 입력 인 경우 **동적 콘텐츠 추가** 를 선택 하 여 리터럴 값으로 계산 되는 식을 작성 합니다.
 
-![동적 콘텐츠 추가 옵션](media/data-flow/add-dynamic-content.png "식 작성기")
+![동적 콘텐츠 추가 옵션](media/data-flow/add-dynamic-content.png "동적 콘텐츠 추가 옵션")
 
 ## <a name="expression-elements"></a>식 요소
 
@@ -72,6 +72,16 @@ ms.locfileid: "90531056"
 ### <a name="parameters"></a>매개 변수
 
 매개 변수는 파이프라인에서 런타임에 데이터 흐름에 전달 되는 값입니다. 매개 변수를 참조 하려면 **식 요소** 보기에서 매개 변수를 클릭 하거나 이름 앞에 달러 기호를 사용 하 여 해당 매개 변수를 참조 합니다. 예를 들어 parameter1 라는 매개 변수는에서 참조 됩니다 `$parameter1` . 자세히 알아보려면 [데이터 흐름 매핑 매개 변수화](parameters-data-flow.md)를 참조 하세요.
+
+### <a name="cached-lookup"></a>캐시 된 조회
+
+캐시 된 조회를 사용 하면 캐시 된 싱크의 출력에 대 한 인라인 조회를 수행할 수 있습니다. 각 싱크와에서 사용할 수 있는 두 가지 함수는 `lookup()` 및 `outputs()` 입니다. 이러한 함수를 참조 하는 구문은 `cacheSinkName#functionName()` 입니다. 자세한 내용은 [캐시 싱크](data-flow-sink.md#cache-sink)를 참조 하세요.
+
+`lookup()` 현재 변환에서 일치 하는 열을 매개 변수로 사용 하 고 캐시 싱크의 키 열과 일치 하는 행과 동일한 복합 열을 반환 합니다. 반환 된 복합 열에는 캐시 싱크에 매핑된 각 열에 대 한 하위 열이 포함 됩니다. 예를 들어 `errorCodeCache` 코드와 라는 열에 키 열이 일치 하는 오류 코드 캐시 싱크가 있는 경우입니다 `Message` . 를 호출 하면 `errorCodeCache#lookup(errorCode).Message` 전달 된 코드에 해당 하는 메시지가 반환 됩니다. 
+
+`outputs()` 는 매개 변수를 사용 하지 않고 전체 캐시 싱크를 복잡 한 열의 배열로 반환 합니다. 싱크에 키 열이 지정 된 경우이를 호출할 수 없으며 캐시 싱크에 행 수가 적은 경우에만 사용 해야 합니다. 일반적인 사용 사례는 증분 키의 최 댓 값을 추가 하는 것입니다. 캐시 된 단일 집계 행에 `CacheMaxKey` 열이 포함 된 경우 `MaxKey` 를 호출 하 여 첫 번째 값을 참조할 수 있습니다 `CacheMaxKey#outputs()[1].MaxKey` .
+
+![캐시 된 조회](media/data-flow/cached-lookup-example.png "캐시 된 조회")
 
 ### <a name="locals"></a>로컬
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: a5c09ef5ca1e3a4f47c4fd9d7d022c000378a6d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2d501206dcb1fc6b9bb545f9dcf4d5c61af994e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84033004"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777880"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>CSV의 데이터를 Azure SQL Database 또는 SQL Managed Instance (플랫 파일)로 로드
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Bcp 명령줄 유틸리티를 사용 하 여 CSV 파일에서 Azure SQL Database
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -118,8 +118,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 SQL Server 데이터베이스를 마이그레이션하려면 [SQL Server 데이터베이스 마이그레이션](database/migrate-to-database-from-sql-server.md)을 참조하세요.
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[bcp]: /sql/tools/bcp-utility
+[CREATE TABLE syntax]: /sql/t-sql/statements/create-table-azure-sql-data-warehouse
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

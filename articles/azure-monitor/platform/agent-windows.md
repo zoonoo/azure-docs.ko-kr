@@ -1,5 +1,5 @@
 ---
-title: Windows 컴퓨터에 Log Analytics 에이전트 설치
+title: Windows 머신에 Log Analytics 에이전트 설치
 description: 이 문서에서는 Windows용 Log Analytics 에이전트를 사용하여 다른 클라우드 또는 온-프레미스에 호스트된 Windows 컴퓨터를 Azure Monitor에 연결하는 방법을 설명합니다.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
 ms.openlocfilehash: d283c2b2cdbbeb3ef4bc4e25f4288dfd95158552
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003374"
 ---
-# <a name="install-log-analytics-agent-on-windows-computers"></a>Windows 컴퓨터에 Log Analytics 에이전트 설치
+# <a name="install-log-analytics-agent-on-windows-computers"></a>Windows 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Windows 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
 
 * [설치 마법사](#install-agent-using-setup-wizard) 또는 [명령줄](#install-agent-using-command-line)을 사용 하 여 수동으로 설치 합니다.
@@ -202,7 +202,7 @@ Azure Portal에서 단순 로그 쿼리를 수행할 수도 있습니다.
 
 Log Analytics 에이전트의 데이터는 Azure Monitor으로 전송 되기 전에 *C:\Program Files\Microsoft Monitoring \Agent\health Service 상태* 에 있는 로컬 컴퓨터에 캐시 됩니다. 에이전트는 20 초 마다 업로드 하려고 합니다. 실패 하는 경우 성공할 때까지 계속 해 서 많은 시간 동안 대기 합니다. 두 번째 시도 전에 30 초 60, 다음, 120 초 전에 30 초 동안 대기 하 고 다시 연결할 때까지 다시 시도 사이에 최대 8.5 시간까지 대기 합니다. 모든 에이전트가 동시에 연결을 시도 하는 것을 방지 하기 위해이 대기 시간은 약간 무작위로 사용 됩니다. 최대 버퍼에 도달 하면 가장 오래 된 데이터가 삭제 됩니다.
 
-기본 캐시 크기는 50 MB 이지만 최소 5mb와 최대 1.5 GB 사이에서 구성할 수 있습니다. *\System\currentcontrolset\services\healthservice\parameters\persistence Cache Maximum HKEY_LOCAL_MACHINE*레지스트리 키에 저장 됩니다. 값은 페이지 수를 나타내며 페이지 당 8kb를 사용 합니다.
+기본 캐시 크기는 50 MB 이지만 최소 5mb와 최대 1.5 GB 사이에서 구성할 수 있습니다. *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum*레지스트리 키에 저장 됩니다. 값은 페이지 수를 나타내며 페이지 당 8kb를 사용 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

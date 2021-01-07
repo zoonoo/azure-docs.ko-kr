@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: effb193e54be7331c9dc2874a4a34ef55442ed30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001419"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96021744"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v11
 
@@ -33,7 +33,7 @@ ms.locfileid: "89001419"
 
 추가 리소스:
 
-* [API 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [API 참조 설명서](/dotnet/api/overview/azure/storage)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -43,7 +43,7 @@ ms.locfileid: "89001419"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
 * 현재 운영 체제의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)입니다. 런타임이 아니라 SDK가 있어야 합니다.
 
 ## <a name="setting-up"></a>설치
@@ -52,9 +52,9 @@ ms.locfileid: "89001419"
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
-먼저 *blob-quickstart*라는 .NET Core 애플리케이션을 만듭니다.
+먼저 *blob-quickstart* 라는 .NET Core 애플리케이션을 만듭니다.
 
-1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 *blob-quickstart*라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs*라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
+1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 *blob-quickstart* 라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs* 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
 
    ```console
    dotnet new console -n blob-quickstart
@@ -141,7 +141,7 @@ namespace blob_quickstart
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 스토리지 계정을 찾습니다.
-3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 여기에서 계정 액세스 키 및 각 키의 전체 연결 문자열을 볼 수 있습니다.
+3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키** 를 선택합니다. 여기에서 계정 액세스 키 및 각 키의 전체 연결 문자열을 볼 수 있습니다.
 4. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 선택하여 연결 문자열을 복사합니다. 다음 단계에서 연결 문자열 값을 환경 변수에 추가합니다.
 
     ![Azure Portal에서 연결 문자열을 복사하는 방법을 보여주는 스크린샷](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
@@ -205,7 +205,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 ### <a name="authenticate-the-client"></a>클라이언트 인증
 
-아래 코드에서는 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet) 메서드를 사용합니다. `TryParse`가 성공하면 `storageAccount` 변수를 초기화하고 `true`를 반환합니다.
+아래 코드에서는 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) 메서드를 사용합니다. `TryParse`가 성공하면 `storageAccount` 변수를 초기화하고 `true`를 반환합니다.
 
 다음 코드를 `ProcessAsync` 메서드 내에 추가합니다.
 
@@ -248,7 +248,7 @@ else
 이 경우 코드는 [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) 메서드를 호출하여 컨테이너를 만듭니다. GUID 값은 고유한지 확인하기 위해 컨테이너 이름에 추가됩니다. 프로덕션 환경에서 컨테이너가 존재하지 않는 경우에만 [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) 메서드를 사용하여 컨테이너를 만듭니다.
 
 > [!IMPORTANT]
-> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름 지정에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름 지정에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
 ```csharp
 // Create the CloudBlobClient that represents the 

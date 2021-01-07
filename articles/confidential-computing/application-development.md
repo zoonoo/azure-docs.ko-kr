@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: JenCook
 ms.openlocfilehash: 6bb3b8dbc7887419f7901a52b56c25f60c869abb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997851"
 ---
 # <a name="application-development-on-intel-sgx"></a>Intel SGX에서 응용 프로그램 개발 
@@ -59,5 +59,5 @@ OE SDK는 모든 CSP의 모든 하드웨어에서 단일 추상화 계층으로 
 
 
 ## <a name="next-steps"></a>다음 단계 
-- [기밀 컴퓨팅 DCsv2 시리즈 가상 머신 배포](quick-create-portal.md)
+- [가상 컴퓨터 DCsv2-Series 기밀 컴퓨팅 배포](quick-create-portal.md)
 - [OE SDK를 다운로드 하 여 설치 하 고 응용 프로그램 개발 시작](https://github.com/openenclave/openenclave)

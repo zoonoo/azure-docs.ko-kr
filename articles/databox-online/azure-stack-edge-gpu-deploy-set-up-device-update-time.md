@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 GPU가 있는 Azure Stack Edge Pro 디바이스에 연결, 구성, 활성화하는 자습서 | Microsoft Docs
+title: Azure Portal에서 GPU가 있는 Azure Stack Edge Pro 디바이스를 연결, 구성, 활성화하는 자습서 | Microsoft Docs
 description: Azure Stack Edge Pro GPU를 배포하기 위한 자습서에서는 물리적 디바이스를 연결, 설정 및 활성화하는 방법을 안내합니다.
 services: databox
 author: alkohli
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1f86b0fc847ade3153c8eaddb0d82bd968913b46
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899644"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976082"
 ---
-# <a name="tutorial-configure-device-settings-for-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro에 대한 디바이스 설정 구성
+# <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro에 대한 디바이스 설정 구성
 
 이 자습서에서는 온보드 GPU가 있는 Azure Stack Edge Pro 디바이스에 대한 디바이스 관련 설정을 구성하는 방법을 설명합니다. 로컬 웹 UI를 통해 디바이스 이름, 업데이트 서버 및 시간 서버를 설정할 수 있습니다.
 
@@ -67,7 +67,7 @@ GPU가 있는 Azure Stack Edge Pro 디바이스에서 디바이스 관련 설정
 
     5. 설정이 적용된 후 **다음: 업데이트 서버**를 선택합니다.
 
-        ![로컬 웹 UI "디바이스" 페이지](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+        ![로컬 웹 UI "디바이스" 페이지 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## <a name="configure-update"></a>업데이트 구성
 
@@ -79,7 +79,7 @@ GPU가 있는 Azure Stack Edge Pro 디바이스에서 디바이스 관련 설정
 
         WSUS(**Windows Server Update services**)에서 업데이트를 배포하도록 선택할 수도 있습니다. WSUS 서버의 경로를 지정합니다.
         
-        ![로컬 웹 UI "업데이트 서버" 페이지](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![로컬 웹 UI "업데이트 서버" 페이지 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
         > 별도의 Windows 업데이트 서버가 구성되어 있고 *http*가 아닌 *https*를 통해 연결하도록 선택한 경우 업데이트 서버에 연결하는 데 필요한 서명 체인 인증서가 있어야 합니다. 인증서를 만들고 업로드하는 방법에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)를 참조하세요. 

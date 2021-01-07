@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: c01da4aed9e27296ea7b570420bb190b16749848
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939784"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Arc를 사용 하는 데이터 배포에 대 한 개념 PostgreSQL Hyperscale 서버 그룹
@@ -23,7 +23,7 @@ ms.locfileid: "90939784"
 아래 링크 된 문서는 Azure Database for PostgreSQL Hyperscale (Citus)에 대해 설명 된 개념을 가리킵니다. 동일한 개념 및 관점이 적용 되도록 Azure Arc PostgreSQL Hyperscale을 사용 하는 것과 동일한 기술입니다.
 
 **차이점은 무엇 인가요?**
-- _Azure Database for PostgreSQL Hyperscale (Citus)_
+- _Azure Database for PostgreSQL 하이퍼스케일(Citus)_
 
 Azure (PaaS)에서 Database as a Service로 제공 되는 postgres 데이터베이스 엔진의 대규모 폼 요소입니다. 이는 Citus 확장을 통해 하이퍼 크기 조정 환경을 가능 하 게 합니다. 이 폼 팩터에서 서비스는 Microsoft 데이터 센터에서 실행 되며 Microsoft에서 운영 됩니다.
 
@@ -46,7 +46,7 @@ Azure Arc 사용 설정 Postgres의 가장 큰 혜택을 제공 하기 위해 �
 ## <a name="determine-the-application-type"></a>응용 프로그램 유형 결정
 빌드 중인 응용 프로그램의 유형을 명확 하 게 식별 하는 것이 중요 합니다. 그 이유는 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에서 효율적인 쿼리를 실행 하려면 테이블이 서버 전체에 제대로 분산 되어야 합니다. 권장 배포는 응용 프로그램의 유형과 쿼리 패턴에 따라 달라 집니다. Azure Arc에서 잘 작동 하는 두 종류의 응용 프로그램은 Postgres Hyperscale을 사용 합니다.
 - 다중 테 넌 트 응용 프로그램
-- 실시간 응용 프로그램
+- 응용 프로그램 Real-Time
 
 데이터 모델링의 첫 번째 단계는 응용 프로그램과 더 밀접 하 게 비슷한 요소를 식별 하는 것입니다.
 

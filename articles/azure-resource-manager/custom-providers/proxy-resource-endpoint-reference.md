@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650462"
 ---
 # <a name="custom-resource-proxy-reference"></a>사용자 지정 리소스 프록시 참조
@@ -68,7 +68,7 @@ ms.locfileid: "75650462"
 속성 | 샘플 | Description
 ---|---|---
 name | '{myCustomResourceName}' | 사용자 지정 리소스의 이름입니다.
-형식 | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | 리소스 종류 네임스페이스입니다.
+type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | 리소스 종류 네임스페이스입니다.
 id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{Mycustomresources} ' | 리소스 ID입니다.
 
 ### <a name="create-a-custom-resource"></a>사용자 지정 리소스 만들기

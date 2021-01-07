@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: d7cfcffda19931027367e266cf41f2a0ab37a87e
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76166597"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021283"
 ---
 ## <a name="get-the-sample-images"></a>샘플 이미지 가져오기
 

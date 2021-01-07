@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: ff92f66d4d7b96660fe83b79273f65ca50eb22f9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292898"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762937"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>인증 흐름 및 애플리케이션 시나리오
 
@@ -29,7 +29,7 @@ Microsoft ID 플랫폼(v2.0) 엔드포인트는 다양한 종류의 최신 애�
 
 토큰은 다음을 비롯 한 여러 유형의 응용 프로그램에서 가져올 수 있습니다.
 
-- 웹앱
+- 웹 앱
 - 모바일 앱
 - 데스크톱 앱
 - Web API
@@ -82,7 +82,7 @@ Microsoft ID 플랫폼(v2.0) 엔드포인트는 다양한 종류의 최신 애�
 Microsoft id 플랫폼 끝점은 이러한 앱 아키텍처에 대 한 인증을 지원 합니다.
 
 - 단일 페이지 앱
-- 웹앱
+- 웹 앱
 - Web API
 - 모바일 앱
 - 네이티브 앱
@@ -217,7 +217,7 @@ MSAL의 [클라이언트 자격 증명](scenario-daemon-acquire-token.md#acquire
  </tr>
 
   <tr>
-   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that calls web APIs" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">Web API를 호출하는 웹앱</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">인증 코드</a></td>
    <td>회사/학교 계정, 개인 계정 및 Azure AD B2C</td>
@@ -231,7 +231,7 @@ MSAL의 [클라이언트 자격 증명](scenario-daemon-acquire-token.md#acquire
  </tr>
 
   <tr>
-   <td>Windows 통합 인증</td>
+   <td>통합 Windows 인증</td>
    <td>회사 또는 학교 계정</td>
  </tr>
 
@@ -243,7 +243,7 @@ MSAL의 [클라이언트 자격 증명](scenario-daemon-acquire-token.md#acquire
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">디바이스 코드</a></td>
-   <td>회사 또는 학교 계정</td>
+   <td>회사/학교 계정, 개인 계정 및 Azure AD B2C</td>
  </tr>
 
  <tr>

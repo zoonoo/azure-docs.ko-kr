@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: e37bc2c9a6f6ad48695ce5fe346ef2402f3c6a6c
-  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+  ms.openlocfilehash: 17113e3a2564ed56ecbcf8e34de27c4fe398ce03
+  ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90086269"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97680676"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Azure Maps 적용 범위
-      url: render-coverage.md
+      url: geographic-coverage.md
     - text: 지역화 지원
       url: supported-languages.md
     - text: 지원되는 맵 스타일
@@ -40,6 +40,8 @@ landingContent:
     links:
     - text: Azure Maps를 사용하여 웹 애플리케이션 만들기
       url: quick-demo-map-app.md
+    - text: Azure Maps를 사용하여 Android 앱 만들기
+      url: quick-android-map.md
   - linkListType: concept
     links:
     - text: Maps 계정에 적절한 가격 책정 계층 선택
@@ -77,17 +79,17 @@ landingContent:
     - text: 실내 맵 모듈 사용
       url: how-to-use-indoor-module.md
     - text: Azure Digital Twins를 사용하여 실내 맵 업데이트
-      url: https://docs.microsoft.com/azure/digital-twins/how-to-integrate-maps
+      url: ../digital-twins/how-to-integrate-maps.md
   - linkListType: reference
     links:
     - text: 변환 서비스
-      url: https://docs.microsoft.com/rest/api/maps/conversion
+      url: /rest/api/maps/conversion
     - text: 데이터 세트 서비스
-      url: https://docs.microsoft.com/rest/api/maps/dataset
+      url: /rest/api/maps/dataset
     - text: 타일 세트 서비스
-      url: https://docs.microsoft.com/rest/api/maps/tileset
+      url: /rest/api/maps/tileset
     - text: 기능 상태 세트 서비스
-      url: https://docs.microsoft.com/rest/api/maps/featurestate
+      url: /rest/api/maps/featurestate
 - title: Web SDK를 사용하여 개발
   linkLists:
   - linkListType: concept
@@ -121,21 +123,35 @@ landingContent:
   - linkListType: reference
     links:
     - text: 지도 컨트롤
-      url: https://docs.microsoft.com/javascript/api/azure-maps-control/
+      url: /javascript/api/azure-maps-control/
     - text: 그리기 도구 모듈
-      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
+      url: /javascript/api/azure-maps-drawing-tools/
     - text: 서비스 모듈
-      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/
+      url: /javascript/api/azure-maps-rest/
     - text: 공간 IO 모듈
-      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
+      url: /javascript/api/azure-maps-spatial-io/
 - title: Android SDK로 개발
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 맵으로 GeoJSON 데이터 로드
+      url: tutorial-load-geojson-file-android.md
   - linkListType: how-to-guide
     links:
     - text: Android 지도 컨트롤 시작
       url: how-to-use-android-map-control-library.md
-    - text: 요소의 메타데이터 정보 표시
-      url: display-feature-information-android.md
+    - text: 데이터 소스 만들기
+      url: create-data-source-android-sdk.md
+    - text: 거품형 레이어 추가
+      url: map-add-bubble-layer-android.md
+    - text: 기호 레이어 추가
+      url: how-to-add-symbol-to-android-map.md
+    - text: 선 계층 추가
+      url: android-map-add-line-layer.md
+    - text: 다각형 레이어 추가
+      url: how-to-add-shapes-to-android-map.md
+    - text: 데이터 기반 스타일 식 사용
+      url: data-driven-style-expressions-android-sdk.md
     - text: 맵에 타일 레이어 추가
       url: how-to-add-tile-layer-android-map.md
     - text: 맵에 도형 추가
@@ -165,13 +181,23 @@ landingContent:
   - linkListType: reference
     links:
     - text: Search Service
-      url: https://docs.microsoft.com/rest/api/maps/search
+      url: /rest/api/maps/search
     - text: Route Service
-      url: https://docs.microsoft.com/rest/api/maps/route
+      url: /rest/api/maps/route
     - text: Traffic Service
-      url: https://docs.microsoft.com/rest/api/maps/traffic
+      url: /rest/api/maps/traffic
     - text: Time Zones Service
-      url: https://docs.microsoft.com/rest/api/maps/timezone
+      url: /rest/api/maps/timezone
+- title: 권한 상승 서비스를 사용하여 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 권한 상승 데이터를 검색하고 사용하는 방법
+      url: how-to-request-elevation-data.md
+  - linkListType: reference
+    links:
+    - text: 권한 상승 서비스
+      url: /rest/api/maps/elevation/
 - title: Spatial Analytics
   linkLists:
   - linkListType: concept
@@ -187,9 +213,9 @@ landingContent:
   - linkListType: reference
     links:
     - text: Data Service
-      url: https://docs.microsoft.com/rest/api/maps/data
+      url: /rest/api/maps/data
     - text: Spatial Service
-      url: https://docs.microsoft.com/rest/api/maps/spatial
+      url: /rest/api/maps/spatial
 - title: Power BI를 사용한 공간 분석
   linkLists:
   - linkListType: how-to-guide
@@ -204,7 +230,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Mobility Service 데이터 구조
+    - text: 모바일 서비스
       url: mobility-service-data-structure.md
   - linkListType: how-to-guide
     links:
@@ -214,19 +240,25 @@ landingContent:
       url: how-to-request-real-time-data.md
   - linkListType: reference
     links:
-    - text: Mobility Service
-      url: https://docs.microsoft.com/rest/api/maps/mobility
+    - text: 모바일 서비스
+      url: /rest/api/maps/mobility
 - title: Weather Service로 개발
   linkLists:
   - linkListType: concept
     links:
     - text: Weather Service 개념
       url: weather-services-concepts.md
+    - text: Weather Services FAQ
+      url: weather-services-faq.md
   - linkListType: tutorial
     links:
     - text: Azure Notebooks(Python)를 사용한 날씨 데이터 분석
       url: weather-service-tutorial.md
+  - linkListType: how-to-guide
+    links:
+    - text: 실시간 및 예측 날씨 데이터 요청
+      url: how-to-request-weather-data.md
   - linkListType: reference
     links:
     - text: Weather Service
-      url: https://docs.microsoft.com/rest/api/maps/weather
+      url: /rest/api/maps/weather

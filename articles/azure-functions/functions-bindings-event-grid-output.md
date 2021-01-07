@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 6bd4d5d82af213063b2000693e46d22744604480
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 888afdc2764fed9f0b2c8b548c3e2b1c48e9a31e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214112"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094679"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Functions에 대한 Azure Event Grid 출력 바인딩
 
@@ -100,6 +100,10 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제에서는 *function.json* 파일에 있는 Event Grid 출력 바인딩 데이터를 보여줍니다.
@@ -160,6 +164,70 @@ module.exports = function(context) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 예제에서는 Event Grid 이벤트 메시지를 출력 하도록 함수를 구성 하는 방법을 보여 줍니다. `type`가로 설정 된 섹션은 `eventGrid` Event Grid 출력 바인딩을 설정 하는 데 필요한 값을 구성 합니다.
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    },
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+함수에서를 사용 하 여 `Push-OutputBinding` Event Grid 출력 바인딩을 통해 사용자 지정 토픽에 이벤트를 보냅니다.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+
+Push-OutputBinding -Name outputEvent -Value  @{
+    id = "1"
+    EventType = "testEvent"
+    Subject = "testapp/testPublish"
+    EventTime = "2020-08-27T21:03:07+00:00"
+    Data = @{
+        Message = $message
+    }
+    DataVersion = "1.0"
+}
+
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 그런 다음에 지정 된 대로 사용자 지정 토픽에 이벤트를 보냅니다 `topicEndpointUri` .
@@ -194,7 +262,6 @@ import logging
 import azure.functions as func
 import datetime
 
-
 def main(eventGridEvent: func.EventGridEvent, 
          outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
 
@@ -209,10 +276,6 @@ def main(eventGridEvent: func.EventGridEvent,
             event_time=datetime.datetime.utcnow(),
             data_version="1.0"))
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 ---
 
@@ -239,17 +302,21 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 C# 스크립트에서는 특성을 지원하지 않습니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원하지 않습니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+특성은 PowerShell에서 지원 되지 않습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 ---
 
@@ -278,19 +345,23 @@ Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-`out EventGridEvent paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out EventGridEvent` 대신 `ICollector<EventGridEvent>` 또는 `IAsyncCollector<EventGridEvent>`를 사용할 수 있습니다.
-
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-`context.bindings.<name>`을 사용하여 출력 이벤트에 액세스합니다. 여기서 `<name>`은 *function.json*의 `name` 속성에 지정된 값입니다.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Python에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+`out EventGridEvent paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json* 의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out EventGridEvent` 대신 `ICollector<EventGridEvent>` 또는 `IAsyncCollector<EventGridEvent>`를 사용할 수 있습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
 Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+`context.bindings.<name>`을 사용하여 출력 이벤트에 액세스합니다. 여기서 `<name>`은 *function.json* 의 `name` 속성에 지정된 값입니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+을 사용 하 여 출력 이벤트에 액세스 하 고 `Push-OutputBinding` Event Grid 출력 바인딩에 이벤트를 보냅니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 ---
 

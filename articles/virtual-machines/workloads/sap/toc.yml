@@ -72,6 +72,8 @@
       items:
         - name: Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
           href: hana-li-portal.md
+        - name: Azure Portal을 통해 BareMetal 인스턴스 관리
+          href: baremetal-infrastructure-portal.md
         - name: STONITH로 HA 설치
           href: ha-setup-with-stonith.md
         - name: Type II SKU용 OS 백업
@@ -96,6 +98,8 @@
       href: hana-vm-operations.md
     - name: SAP HANA Azure 가상 머신 스토리지 구성
       href: hana-vm-operations-storage.md
+    - name: SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
+      href: hana-vm-operations-netapp.md
     - name: Azure Virtual Machines의 SAP HANA 가용성
       items:
         - name: Azure의 SAP HANA 가용성 개요
@@ -112,6 +116,8 @@
           href: sap-hana-high-availability-netapp-files-red-hat.md
         - name: SLES에서 SAP HANA 스케일 아웃 및 Pacemaker 문제 해결
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+        - name: RHEL의 Pacemaker를 사용하는 SAP HANA 스케일 아웃 HSR
+          href: sap-hana-high-availability-scale-out-hsr-rhel.md
         - name: SLES에서 Azure NetApp Files를 사용하여 대기 노드를 통한 SAP HANA 스케일 아웃
           href: sap-hana-scale-out-standby-netapp-files-suse.md
         - name: RHEL에서 Azure NetApp Files를 사용하여 대기 노드를 통한 SAP HANA 스케일 아웃
@@ -241,6 +247,12 @@
       href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: SAP 애플리케이션 네트워크 대기 시간을 최소화하는 Azure Proximity Placement Group
       href: sap-proximity-placement-scenarios.md
+- name: Azure의 SAP BusinessObjects 비즈니스 인텔리전스 플랫폼
+  items:
+    - name: Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
+      href: businessobjects-deployment-guide.md
+    - name: Azure의 linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
+      href: businessobjects-deployment-guide-linux.md
 - name: SAP 애플리케이션과 Azure AD 통합
   items:
     - name: SAP SuccessFactors에서 Active Directory로 사용자 프로비저닝

@@ -3,17 +3,17 @@ title: Azure Lab Services의 용량 제한
 description: Azure Lab Services의 용량 제한 (가상 머신 제한)에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 92bdc714d70b3d73ca2cbc76b1f5dc5366582cbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9866628cd11ec8df67e6fe16ae8806f0f30ae9a1
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444100"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491021"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Azure Lab Services의 용량 제한
 Azure에는 azure 계산 할당량 제한을 준수 하 고 사기를 완화 하기 위해 Azure 구독에 대 한 기본 용량 제한이 Azure Lab Services 있습니다. 모든 Azure 구독에는 초기 용량 한도가 있으며,이는 구독 유형, 표준 계산 코어 수, Azure Lab Services 내에서 사용 가능한 GPU 코어에 따라 달라질 수 있습니다. 제한 증가를 요청 하기 전에 랩 내에서 만들 수 있는 가상 컴퓨터 수를 제한 합니다.  
 
-구독의 가상 컴퓨터 코어 한도에 도달 하거나이에 도달 하면 추가 가상 컴퓨터를 만드는 작업을 수행 하려고 할 때 Azure Lab Services의 메시지가 표시 됩니다. 예를 들어: 
+구독의 가상 컴퓨터 코어 한도에 도달 하거나이에 도달 하면 추가 가상 컴퓨터를 만드는 작업을 수행 하려고 할 때 Azure Lab Services의 메시지가 표시 됩니다. 예를 들면 다음과 같습니다. 
 
 - 랩 만들기
 - 랩 게시
@@ -50,4 +50,5 @@ Azure Lab Services 포털의 가상 컴퓨터 코어 제한에 대 한 메시지
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조 하세요.
+- [관리자 가이드-VM 크기 조정](administrator-guide.md#vm-sizing)
 - [질문과 대답](classroom-labs-faq.md)

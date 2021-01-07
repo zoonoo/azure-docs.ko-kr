@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6d93b6d024fc966f3b260602f4798a2d77669a35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68883541"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501161"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing Visual Search API에 대한 언어 및 지역 지원
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 각 요청에는 선택한 사용자의 국가/지역 및 언어가 포함되어야 합니다. 사용자의 시장을 알면 Bing에서 적절한 결과를 반환할 수 있습니다. 국가/지역 및 언어를 지정하지 않으면 Bing은 사용자의 국가/지역 및 언어를 확인하기 위해 최상의 노력을 기울입니다. 결과에 Bing에 대한 링크가 포함될 수 있기 때문에 사용자가 Bing 링크를 클릭하는 경우 국가/지역 및 언어를 알고 있으면 기본 지역화된 Bing 사용자 환경을 제공할 수 있습니다.
 
@@ -86,19 +91,19 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |벨기에|네덜란드어|nl-BE|
 |벨기에|프랑스어|fr-BE|
 |브라질|포르투갈어|pt-BR|
-|Canada|영어|en-CA|
-|Canada|프랑스어|fr-CA|
+|캐나다|영어|en-CA|
+|캐나다|프랑스어|fr-CA|
 |칠레|스페인어|es-CL|
 |덴마크|덴마크어|da-DK|
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별 행정구|중국어(번체)|zh-HK|
+|홍콩 특별행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|en-US|
+|한국|한국어|ko-KR|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -109,13 +114,13 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
 |사우디아라비아|아랍어|ar-SA|
-|남아프리카|영어|en-ZA|
+|남아프리카 공화국|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
-|대만|중국어(번체)|zh-TW|
+|대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
-|United Kingdom|영어|en-GB|
+|영국|영어|en-GB|
 |미국|영어|ko-KR|
 |미국|스페인어|es-US|

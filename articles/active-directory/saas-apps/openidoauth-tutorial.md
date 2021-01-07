@@ -12,26 +12,26 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543927"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348700"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션 구성
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>갤러리에서 OpenID 애플리케이션을 추가하는 프로세스
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 를 선택합니다.
 
-    ![Azure Active Directory 단추](common/select-azuread.png))
+    ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
+2. **Enterprise 애플리케이션** > **모든 애플리케이션** 으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. 대화 상자 맨 위 있는 **새 애플리케이션**을 선택합니다.
+3. 대화 상자 맨 위 있는 **새 애플리케이션** 을 선택합니다.
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
@@ -39,17 +39,23 @@ ms.locfileid: "88543927"
 
     ![결과 목록의 Openid](common/search-new-app.png)
 
-    > [!NOTE]
-    > OpenID Connect 및 OAuth 앱의 경우 **추가** 단추가 기본적으로 비활성화됩니다. 여기에서 테넌트 관리자는 등록 단추를 선택하고 애플리케이션에 대한 동의를 제공해야 합니다. 그러면 구성을 수행할 수 있는 고객 테넌트에 애플리케이션이 추가됩니다. 애플리케이션을 명시적으로 추가할 필요가 없습니다.
+
+1. 애플리케이션 이름 페이지에서 **등록** 단추를 클릭합니다.
 
     ![추가 단추](./media/openidoauth-tutorial/addbutton.png)
 
-5. 등록 링크를 선택하면 로그인 자격 증명에 대한 Azure AD(Azure Active Directory) 페이지로 리디렉션됩니다.
+    > [!NOTE]
+    > 여기에서 테넌트 관리자는 등록 단추를 선택하고 애플리케이션에 대한 동의를 제공해야 합니다. 그러면 구성을 수행할 수 있는 고객 테넌트에 애플리케이션이 추가됩니다. 애플리케이션을 명시적으로 추가할 필요가 없습니다.
+
+5. 로그인 자격 증명에 대한 애플리케이션 로그인 페이지 또는 Azure AD(Azure Active Directory) 페이지로 리디렉션됩니다.
 
 6. 인증이 성공하면 동의 페이지에서 동의를 승인합니다. 그런 다음, 애플리케이션 홈페이지가 표시됩니다.
 
     > [!NOTE]
     > 애플리케이션의 인스턴스를 하나만 추가할 수 있습니다. 이미 인스턴스를 추가하고 다시 동의하려고 하는 경우 테넌트에 추가되지 않습니다. 따라서 논리적으로 테넌트에서 하나의 앱 인스턴스만을 사용할 수 있습니다.
+
+1. 아래 비디오를 따라 갤러리에서 OpenID 애플리케이션을 추가합니다.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="authentication-flow-using-openid-connect"></a>OpenID Connect를 사용하는 인증 흐름
 
@@ -76,13 +82,13 @@ ms.locfileid: "88543927"
 ## <a name="consent-framework"></a>동의 프레임워크
 
 Azure AD 동의 프레임워크를 사용하여 다중 테넌트 웹 및 네이티브 클라이언트 애플리케이션을 개발할 수 있습니다. 이러한 애플리케이션을 사용하면 애플리케이션이 등록되어 있는 계정과 다르게 Azure AD 테넌트의 사용자 계정으로 로그인할 수 있습니다. 다음과 같은 웹 API에 액세스해야 할 수 있습니다.
-- Azure AD, Intune 및 Office 365의 서비스에 액세스하기 위한 Microsoft Graph API
+- Azure AD, Intune 및 Microsoft 365의 서비스에 액세스하기 위한 Microsoft Graph API.
 - 기타 Microsoft 서비스의 API
 - 사용자 고유의 웹 API
 
 이 프레임워크는 애플리케이션을 자신의 디렉터리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 등록은 디렉터리 데이터 액세스가 필요할 수도 있습니다. 사용자가 동의해 주면 해당 클라이언트 애플리케이션에서 사용자를 대신하여 Microsoft Graph API를 호출하고 필요한 대로 정보를 사용할 수 있습니다.
 
-[Microsoft Graph API](https://developer.microsoft.com/graph/)는 Office 365에서 다음과 같은 데이터에 대한 액세스를 제공합니다.
+[Microsoft Graph API](https://developer.microsoft.com/graph/)는 Microsoft 365에서 다음과 같은 데이터에 대한 액세스를 제공합니다.
 
 - Exchange의 일정 및 메시지
 - SharePoint의 사이트 및 목록
@@ -97,23 +103,23 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 1. 리소스 또는 API에 액세스할 수 있는 특정 사용 권한을 요청해야 하는 웹 클라이언트 애플리케이션이 있다고 가정합니다. Azure Portal은 구성 시 권한 요청을 선언하는 데 사용됩니다. 다른 구성 설정과 마찬가지로 애플리케이션 Azure AD 등록의 일부입니다. 권한 요청 경로의 경우 다음 단계를 수행합니다.
 
-    a. 메뉴의 왼쪽에서 **앱 등록**을 클릭하고 검색 상자에 애플리케이션 이름을 입력하여 애플리케이션을 엽니다.
+    a. 메뉴의 왼쪽에서 **앱 등록** 을 클릭하고 검색 상자에 애플리케이션 이름을 입력하여 애플리케이션을 엽니다.
 
-    ![그래프 API](./media/openidoauth-tutorial/application.png)
+    ![왼쪽 메뉴에서 선택한 "앱 등록"과 강조 표시된 "애플리케이션 ID" 검색 상자를 보여주는 스크린샷.](./media/openidoauth-tutorial/application.png)
 
-    b. **API 권한 보기**를 클릭합니다.
+    b. **API 권한 보기** 를 클릭합니다.
 
-    ![그래프 API](./media/openidoauth-tutorial/api-permission.png)
+    !["API 권한 보기" 단추가 선택된 "API 호출" 페이지를 보여주는 스크린샷.](./media/openidoauth-tutorial/api-permission.png)
 
-    다. **권한 추가**를 클릭합니다.
+    다. **권한 추가** 를 클릭합니다.
 
-    ![그래프 API](./media/openidoauth-tutorial/add-permission.png)
+    !["권한 추가" 단추가 선택된 "API 권한" 섹션을 보여주는 스크린샷.](./media/openidoauth-tutorial/add-permission.png)
 
-    d. **Microsoft Graph**를 클릭합니다.
+    d. **Microsoft Graph** 를 클릭합니다.
 
-    ![그래프 API](./media/openidoauth-tutorial/microsoft-graph.png)
+    !["Microsoft API" 탭과 "Microsoft Graph" 타일이 선택된 "API 권한 요청" 페이지를 보여주는 스크린샷.](./media/openidoauth-tutorial/microsoft-graph.png)
 
-    e. **위임된 권한** 및 **애플리케이션 권한**에서 필수 옵션을 선택합니다.
+    e. **위임된 권한** 및 **애플리케이션 권한** 에서 필수 옵션을 선택합니다.
 
     ![그래프 API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -121,7 +127,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 3. 사용자가 인증되지 않은 경우 Azure AD/authorize 엔드포인트는 로그인하라는 메시지를 표시합니다.
 
-    ![인증](./media/openidoauth-tutorial/authentication.png)
+    ![계정에 대한 로그인 프롬프트의 스크린샷](./media/openidoauth-tutorial/authentication.png)
 
 4. 사용자가 로그인한 후 Azure AD는 사용자를 동의 페이지에 표시해야 하는지 여부를 결정합니다. 이 결정은 사용자(또는 해당 조직의 관리자)가 애플리케이션 동의를 부여했는지 여부에 따라 다릅니다.
 
@@ -133,7 +139,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>관리자 승인과 사용자 동의 간의 차이
 
-관리자로 테넌트의 모든 사용자를 대신하여 애플리케이션의 위임된 권한에 동의할 수도 있습니다. 관리 동의는 테넌트의 모든 사용자에게 동의 대화 상자를 표시하지 않도록 방지합니다. 관리자 역할이 있는 사용자는 Azure Portal에서 동의를 제공할 수 있습니다. 애플리케이션의 **설정** 페이지에서 **필요한 사용 권한** > **관리자 동의 부여**를 선택합니다.
+관리자로 테넌트의 모든 사용자를 대신하여 애플리케이션의 위임된 권한에 동의할 수도 있습니다. 관리 동의는 테넌트의 모든 사용자에게 동의 대화 상자를 표시하지 않도록 방지합니다. 관리자 역할이 있는 사용자는 Azure Portal에서 동의를 제공할 수 있습니다. 애플리케이션의 **설정** 페이지에서 **필요한 사용 권한** > **관리자 동의 부여** 를 선택합니다.
 
 ![권한 부여 단추](./media/openidoauth-tutorial/grantpermission.png)
 
@@ -151,3 +157,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 관리 동의가 필요하지 않은 사용 권한을 요청하는 애플리케이션에서 *prompt=admin_consent* 매개 변수를 사용할 수도 있습니다. 예제는 테넌트 관리자가 한 번 "등록"한 환경이 필요하고, 다른 사용자에게 해당 지점에서 동의를 확인하는 메시지가 표시되지 않는 애플리케이션입니다.
 
 애플리케이션에 관리자 동의 및 *prompt=admin_consent* 매개 변수가 전송되지 않은 관리자 로그인이 필요하다고 가정합니다. 관리자가 애플리케이션에 성공적으로 동의하면 해당 사용자 계정에 대해서만 적용됩니다. 일반 사용자는 여전히 애플리케이션에 로그인하거나 동의할 수 없습니다. 이 기능은 다른 사용자에게 액세스를 허용하기 전에 애플리케이션을 탐색하는 기능을 테넌트 관리자에게 부여하고자 할 때 유용합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)

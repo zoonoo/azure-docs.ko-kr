@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: angle
-ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: shlo
+ms.openlocfilehash: 2276e66fa47b1c125a8c30f3c73a7c948f65a35d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74776388"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021935"
 ---
 # <a name="disclosure-design-guidelines"></a>디자인 지침 공개
 음성 환경의 가상 특성에 대해 투명 하 게 하 여 고객과 신뢰를 구축 하 고 유지 관리 하는 방법을 알아보세요.
@@ -56,7 +56,7 @@ ms.locfileid: "74776388"
 3. [**공개 시기**](concepts-disclosure-patterns.md#when-to-disclose): 사용자 경험 전체에서 공개할 최적 시간
 
 ## <a name="disclosure-assessment"></a>공개 평가
-사용자에 게 음성을 경험 하는 상호 작용 및 컨텍스트에 대 한 기대&#39; 고려 합니다. 컨텍스트를 사용 하 여 가상 음성이 &quot;말하기를 명확 하 게 하&quot; 는 경우 공개는 최소, 일시 또는 불필요 한 것일 수 있습니다. 공개에 영향을 주는 컨텍스트의 주요 유형에는 가상 사용자 유형, 시나리오 유형 및 노출 수준이 포함 됩니다. 또한 수신 대기할 수 있는 사용자를 고려 하는 것이 좋습니다.
+사용자에 게 음성을 경험 하는 상호 작용 및 컨텍스트에 대 한 기대&#39; 고려 합니다. 컨텍스트를 사용 하 여 가상 음성이 말하기를 명확 하 게 하는 경우 &quot; &quot; 공개는 최소, 일시 또는 불필요 한 것일 수 있습니다. 공개에 영향을 주는 컨텍스트의 주요 유형에는 가상 사용자 유형, 시나리오 유형 및 노출 수준이 포함 됩니다. 또한 수신 대기할 수 있는 사용자를 고려 하는 것이 좋습니다.
 
 ### <a name="understand-context"></a>컨텍스트 이해
 
@@ -76,7 +76,7 @@ ms.locfileid: "74776388"
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
+* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
 * [제어 개요](concepts-gating-overview.md)
 

@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 836e56884659c60c129eba0bb5505eddd9981283
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e3fbd1868cc1216cb7b9d02b2aa8e690af33952
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093906"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917684"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>스토리지 계정에서 데이터 분석
 
@@ -35,17 +36,19 @@ Notebook에서 다음 코드를 실행합니다. CSV 파일 및 parquet 파일�
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df = df.repartition(1) # This ensure we'll get a single file during write()
-df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
-df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
+df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
+df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>스토리지 계정에서 데이터 분석
 
-1. Synapse Studio에서 **데이터** 허브로 이동한 다음, **연결됨**을 선택합니다.
+작업 영역 기본 ADLS Gen2 계정의 데이터를 분석하거나 "**관리**" > "**연결된 서비스**" > "**새로 만들기**"를 통해 ADLS Gen2 또는 Blob 스토리지 계정을 작업 영역에 연결할 수 있습니다(아래 단계는 기본 ADLS Gen2 계정 참조).
+
+1. Synapse Studio에서 **데이터** 허브로 이동한 다음, **연결됨** 을 선택합니다.
 1. **스토리지 계정** > **myworkspace(기본 - contosolake)** 로 차례로 이동합니다.
-1. **users(기본)** 를 선택합니다. **NYCTaxi** 폴더가 표시됩니다. 내부에는 **PassengerCountStats.csv** 및 **PassengerCountStats.parquet**라는 두 개의 폴더가 표시됩니다.
-1. **PassengerCountStats. parquet** 폴더를 엽니다. 내부에 이름이 `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`인 parquet 파일이 표시됩니다.
-1. 마우스 오른쪽 단추로 **.parquet**를 클릭한 다음, **새 Notebook**을 선택합니다. 다음과 같은 셀이 있는 Notebook을 만듭니다.
+1. **users(기본)** 를 선택합니다. **NYCTaxi** 폴더가 표시됩니다. 내부에는 **PassengerCountStats_csvformat** 및 **PassengerCountStats_parquetformat** 이라는 두 개의 폴더가 표시됩니다.
+1. **PassengerCountStats_parquetformat** 폴더를 엽니다. 내부에 이름이 `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`인 parquet 파일이 표시됩니다.
+1. 마우스 오른쪽 단추로 **.parquet** 를 클릭한 다음, **새 Notebook** 을 선택합니다. 다음과 같은 셀이 있는 Notebook을 만듭니다.
 
     ```py
     %%pyspark
@@ -54,7 +57,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ```
 
 1. 셀을 실행합니다.
-1. 마우스 오른쪽 단추로 내부의 parquet 파일을 클릭한 다음, **새 SQL 스크립트** > **상위 100개 행 선택**을 차례로 선택합니다. 다음과 같은 SQL 스크립트를 만듭니다.
+1. 마우스 오른쪽 단추로 내부의 parquet 파일을 클릭한 다음, **새 SQL 스크립트** > **상위 100개 행 선택** 을 차례로 선택합니다. 다음과 같은 SQL 스크립트를 만듭니다.
 
     ```sql
     SELECT TOP 100 *
@@ -64,7 +67,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-     스크립트에서 **연결 대상** 필드가 **SQL 주문형**으로 설정됩니다.
+    스크립트 창에서 **연결 대상** 필드가 **서버리스 SQL 풀** 로 설정됩니다.
 
 1. 스크립트를 실행합니다.
 

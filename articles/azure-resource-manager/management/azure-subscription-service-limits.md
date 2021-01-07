@@ -3,25 +3,25 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: fcbca4a1e3152dfa36d71031c2f69e8a40125380
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 182df937ae5c0194aecfbe20b5962b44b363c708
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971043"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934472"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다.
 
-Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조 하세요. 여기서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용 하 여 비용을 예측할 수 있습니다. 특정 서비스 (예: [Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows))에 대 한 가격 정보 페이지로 이동할 수도 있습니다. 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../cost-management-billing/manage/getting-started.md)를 참조하세요.
+Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조 하세요. 여기서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용 하 여 비용을 예측할 수 있습니다. 특정 서비스 (예: [Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows))에 대 한 가격 정보 페이지로 이동할 수도 있습니다. 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../cost-management-billing/cost-management-billing-overview.md)를 참조하세요.
 
 ## <a name="managing-limits"></a>제한 관리
 
 > [!NOTE]
 > 일부 서비스에는 제한 사항이 있습니다.
 >
-> 서비스의 제한이 없는 경우 다음 표에서는 헤더 **제한을**사용 합니다. 이러한 경우에는 기본값과 최대 한도가 동일 합니다.
+> 서비스의 제한이 없는 경우 다음 표에서는 헤더 **제한을** 사용 합니다. 이러한 경우에는 기본값과 최대 한도가 동일 합니다.
 >
 > 제한을 조정할 수 있는 경우 테이블에는 **기본 제한** 및 **최대 제한** 헤더가 포함 됩니다. 제한은 기본 한도를 초과 하는 경우에만 발생할 수 있으며 최대 한도를 초과 하면 안 됩니다.
 >
@@ -96,7 +96,7 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음
 
 * 다른 Azure 구독자와 공유 되는 **무료** 다중 테 넌 트 서비스는 평가 및 소규모 개발 프로젝트를 위한 것입니다.
 * **기본** 은 높은 가용성의 쿼리 작업에 대한 최대 3개의 복제본과 함께 프로덕션 워크로드 전용 컴퓨팅 리소스를 더 작은 규모로 제공합니다.
-* S1, S2, S3 및 S3 고밀도를 포함 하는 **표준**은 대규모 프로덕션 워크 로드를 위한 것입니다. 표준 계층 내에는 여러 수준이 있으므로 워크 로드 프로필과 가장 일치 하는 리소스 구성을 선택할 수 있습니다.
+* S1, S2, S3 및 S3 고밀도를 포함 하는 **표준** 은 대규모 프로덕션 워크 로드를 위한 것입니다. 표준 계층 내에는 여러 수준이 있으므로 워크 로드 프로필과 가장 일치 하는 리소스 구성을 선택할 수 있습니다.
 
 **구독당 제한**
 
@@ -132,7 +132,7 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-자세한 내용은 [함수 호스팅 계획 비교](../../azure-functions/functions-scale.md#hosting-plans-comparison)를 참조 하세요.
+자세한 내용은 [함수 호스팅 계획 비교](../../azure-functions/functions-scale.md)를 참조 하세요.
 
 ## <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes 서비스 제한
 
@@ -155,6 +155,10 @@ Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning
 ### <a name="action-groups"></a>작업 그룹
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
+
+### <a name="autoscale"></a>자동 크기 조정
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
 
 ### <a name="log-queries-and-language"></a>로그 쿼리 및 언어
 
@@ -212,7 +216,7 @@ Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용 �
 
 [!INCLUDE [azure-data-lake-analytics-limits](../../../includes/azure-data-lake-analytics-limits.md)]
 
-## <a name="data-lake-store-limits"></a>Data Lake Store 제한
+## <a name="data-lake-storage-limits"></a>Data Lake Storage 제한
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
@@ -227,7 +231,7 @@ Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용 �
 ## <a name="digital-twins-limits"></a>Digital Twins 제한
 
 > [!NOTE]
-> 이 서비스의 일부 영역에는 제한이 적용 되지 않습니다. 이는 아래 표에는 *조정 가능한?* 열이 표시 됩니다. 제한을 조정할 수 있는 경우 *조정 가능한?* 값은 *예*입니다.
+> 이 서비스의 일부 영역에는 제한이 적용 되지 않습니다. 이는 아래 표에는 *조정 가능한?* 열이 표시 됩니다. 제한을 조정할 수 있는 경우 *조정 가능한?* 값은 *예* 입니다.
 
 [!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
 
@@ -285,7 +289,11 @@ Media Services v2 (레거시)에 한정 되는 한도 [Media Services v2 (레거
 
 ### <a name="virtual-network-gateway-limits"></a>Virtual Network 게이트웨이 제한
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>NAT 게이트웨이 제한
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>가상 WAN 제한
 
@@ -303,6 +311,10 @@ Media Services v2 (레거시)에 한정 되는 한도 [Media Services v2 (레거
 ### <a name="private-link-limits"></a>Private Link 제한
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+## <a name="purview-limits"></a>부서의 범위 제한
+
+Azure 부서의 범위 할당량에 대 한 최신 값은 [Azure 부서의 범위 할당량 페이지](../../purview/how-to-manage-quotas.md) 에서 찾을 수 있습니다.
 
 ### <a name="traffic-manager-limits"></a>Traffic Manager 제한
 
@@ -328,7 +340,7 @@ Media Services v2 (레거시)에 한정 되는 한도 [Media Services v2 (레거
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## <a name="role-based-access-control-limits"></a>역할 기반 액세스 제어 한도
+## <a name="azure-role-based-access-control-limits"></a>Azure 역할 기반 액세스 제어 제한
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 
@@ -390,7 +402,7 @@ Azure Files 제한에 대 한 자세한 내용은 [Azure Files 확장성 및 성
 
 #### <a name="disk-encryption-sets"></a>디스크 암호화 집합
 
-구독 당 지역 당 50 디스크 암호화 집합의 제한이 있습니다. 자세한 내용은 [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) 또는 [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) 가상 머신에 대 한 암호화 설명서를 참조 하세요. 할당량을 늘려야 하는 경우 Azure 지원에 문의 하세요.
+구독 당 지역 당 50 디스크 암호화 집합의 제한이 있습니다. 자세한 내용은 [Linux](../../virtual-machines/disk-encryption.md#restrictions) 또는 [Windows](../../virtual-machines/disk-encryption.md#restrictions) 가상 머신에 대 한 암호화 설명서를 참조 하세요. 할당량을 늘려야 하는 경우 Azure 지원에 문의 하세요.
 
 ### <a name="managed-virtual-machine-disks"></a>관리되는 가상 머신 디스크
 

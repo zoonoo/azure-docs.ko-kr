@@ -4,10 +4,10 @@ description: Azure Lighthouse를 사용 하는 서비스 공급자나 enterprise
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.openlocfilehash: 165110556282e90bbacf4ce3b3c59e34b203a528
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167201"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>고객과 위임된 리소스 보기 및 관리
@@ -59,7 +59,7 @@ Azure Lighthouse에 고객을 온 보 딩 할 때 [관리 서비스 등록 할�
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>위임된 구독의 컨텍스트에서 작업
 
-작업 중인 디렉터리를 전환하지 않고 Azure Portal 내의 위임된 구독 컨텍스트에서 직접 작업할 수 있습니다. 이렇게 하려면
+작업 중인 디렉터리를 전환하지 않고 Azure Portal 내의 위임된 구독 컨텍스트에서 직접 작업할 수 있습니다. 이를 수행하려면:
 
 1. Azure Portal 위쪽에 있는 **디렉터리 + 구독** 아이콘을 선택합니다.
 2. **전역구독** 필터에서 위임된 구독에 대한 확인란만 선택되어 있는지 확인합니다. **현재 + 위임된 디렉터리** 드롭다운 상자를 사용하여 특정 디렉터리 내의 구독만 표시할 수 있습니다. (디렉터리가 로그인된 디렉터리로 변경되므로 **디렉터리 전환**을 사용하지 마세요.)

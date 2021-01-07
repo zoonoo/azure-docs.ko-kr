@@ -7,14 +7,14 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752069"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968688"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용 하 여 비용 절감
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용하여 비용 절감
 
 예약 된 용량으로 Azure 디스크 저장소 사용량을 절약 하세요. Azure Reserved Virtual Machine Instances와 결합 된 Azure 디스크 저장소 예약을 사용 하면 총 VM (가상 머신) 비용을 낮출 수 있습니다. 예약 할인은 선택한 예약 범위에서 일치 하는 디스크에 자동으로 적용 됩니다. 이 자동 응용 프로그램 때문에 할인을 얻기 위해 예약을 관리 디스크에 할당할 필요가 없습니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "88752069"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-특정 제한 내에서 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)을 참조하세요.
+특정 제한 내에서 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 ## <a name="expiration-of-a-reservation"></a>예약 만료
 
@@ -104,4 +104,4 @@ ms.locfileid: "88752069"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 예약이란?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Azure Disk Storage에 예약 할인이 적용되는 방식 이해](../cost-management-billing/reservations/understand-disk-reservations.md)
+- [Azure 디스크 저장소에 예약 할인이 적용 되는 방식을 이해 합니다.](../cost-management-billing/reservations/understand-disk-reservations.md)

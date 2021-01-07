@@ -3,17 +3,17 @@ title: Azure Database for PostgreSQL 설명서
 summary: Azure Database for PostgreSQL은 오픈 소스 Postgres 데이터베이스 엔진을 기반으로 한 관계형 데이터베이스 서비스입니다. 예측 가능한 성능, 보안, 고가용성 및 동적인 확장성으로 중요 업무용 워크로드를 처리할 수 있는 완전 관리형 Database-as-a-Service입니다.
 metadata:
   description: Azure Database for PostgreSQL은 오픈 소스 PostgreSQL 데이터베이스 엔진을 기반으로 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: c14cab875ab017feb913269e277e8b5c12a3ee08
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 61ce8f178bbdf8bf6cbb981933bed290a20fe04e
+  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90895655"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96749099"
 landingContent:
 - title: Azure Database for PostgreSQL 정보
   linkLists:
@@ -130,7 +130,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 단일 서버에서 데이터베이스 설계
-      url: /tutorial-design-database-using-azure-portal.md               -
+      url: tutorial-design-database-using-azure-portal.md
     - text: 하이퍼스케일을 사용하여 다중 테넌트 데이터베이스 설계
       url: tutorial-design-database-hyperscale-multi-tenant.md
     - text: 하이퍼스케일을 사용하여 실시간 데이터베이스 설계
@@ -144,12 +144,12 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 일반 작업용 Azure CLI 스크립트
-      url: /azure/postgresql/sample-scripts-azure-cli
+      url: ./sample-scripts-azure-cli.md
     - text: Azure 리소스 관리자 템플릿
       url: /azure/templates/microsoft.dbforpostgresql/allversions
   - linkListType: reference
     links:
     - text: Azure CLI 개발자 참조
-      url: /rest/api/postgresql/
-    - text: REST API 개발자 참조
       url: /cli/azure/postgres
+    - text: REST API 개발자 참조
+      url: /rest/api/postgresql/

@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: f2b9f79f0914e645c736f8a577c46baa42587332
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207167"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874613"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>수신 컨트롤러에 대 한 일반적인 질문 및 문제 해결
 
 [Azure Cloud Shell](https://shell.azure.com/) 은 AKS 및 AGIC 설치와 관련 된 문제를 해결 하는 가장 편리한 방법입니다. [Shell.azure.com](https://shell.azure.com/) 에서 또는 링크를 클릭 하 여 셸을 시작 합니다.
 
-[![시작 포함](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
+[![Embed 시작](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell 시작")](https://shell.azure.com)
 
 
 ## <a name="test-with-a-simple-kubernetes-app"></a>간단한 Kubernetes 앱을 사용 하 여 테스트
@@ -85,17 +85,17 @@ AKS 클러스터 위에 응용 프로그램을 성공적으로 배포한 후에�
 [Cloud Shell](https://shell.azure.com/)를 사용 하 여 pod 목록을 가져옵니다 `kubectl get pods -o wide` .
 ' Agic-pod ' 라는 pod가 생성 된 것으로 간주 됩니다. IP 주소를 갖게 됩니다. 이 주소는 AKS에서 사용 되는 Application Gateway의 VNET 내에 있어야 합니다.
 
-![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Pod 목록에 agic를 포함 하는 목록을 보여 주는 Azure Cloud Shell의 Bash 창 스크린샷](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 서비스 목록을 가져옵니다 `kubectl get services -o wide` . ' Agic ' 라는 서비스가 표시 될 것입니다.
 
-![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![목록의 agic를 포함 하는 서비스 목록을 보여 주는 Azure Cloud Shell Bash 창의 스크린샷.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 조절기의 목록을 `kubectl get ingress` 가져옵니다. ' Agic-수신 ' 이라는 수신 리소스가 생성 된 것으로 간주 됩니다. 리소스의 호스트 이름은 ' test.agic.contoso.com '입니다.
 
-![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![목록에서 agic-앱 수신을 포함 하는 조절기 목록을 보여 주는 Azure Cloud Shell Bash 창의 스크린샷](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-Pod 중 하나는 AGIC가 됩니다. `kubectl get pods`pod 목록이 표시 되며, 그 중 하나는 ' 수신-azure '로 시작 됩니다. 이 pod의 모든 로그를 가져와서 `kubectl logs <name-of-ingress-controller-pod>` 성공적으로 배포 되었는지 확인 합니다. 성공적으로 배포 되 면 로그에 다음 줄이 추가 됩니다.
+Pod 중 하나는 AGIC가 됩니다. `kubectl get pods` pod 목록이 표시 되며, 그 중 하나는 ' 수신-azure '로 시작 됩니다. 이 pod의 모든 로그를 가져와서 `kubectl logs <name-of-ingress-controller-pod>` 성공적으로 배포 되었는지 확인 합니다. 성공적으로 배포 되 면 로그에 다음 줄이 추가 됩니다.
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
@@ -120,7 +120,7 @@ Application Gateway는 다음 구성을 적용 합니다.
 1. 을 사용 `kubectl get ingress` 하 여 Application Gateway의 공용 IP 주소를 가져옵니다.
 2. `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>` 사용
 
-![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![테스트 앱에 대 한 HTTP 연결을 성공적으로 설정 하는 것을 보여 주는 Azure Cloud Shell Bash 창의 스크린샷](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 의 결과 `HTTP/1.1 200 OK` Application Gateway + AKS + AGIC 시스템이 예상 대로 작동 하 고 있음을 나타냅니다.
 
@@ -132,7 +132,7 @@ AGIC (Application Gateway 수신 컨트롤러)는 [배포](https://kubernetes.io
 
 
 AGIC가 예상 대로 작동 하려면 다음 사항을 준비 해야 합니다.
-  1. AKS에는 정상 **pod**가 하나 이상 있어야 합니다.
+  1. AKS에는 정상 **pod** 가 하나 이상 있어야 합니다.
      를 사용 하 여 Pod가 있는 경우 [Cloud Shell](https://shell.azure.com/) 에서이를 확인 합니다 `kubectl get pods -o wide --show-labels` `apsnetapp` . 출력은 다음과 같습니다.
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
@@ -199,9 +199,9 @@ AGIC가 예상 대로 작동 하려면 다음 사항을 준비 해야 합니다.
 
 
 * AGIC pod가 정상이 아닌 경우 ( `STATUS` 위 명령의 열이이 아닌 경우 `Running` ):
-  - 다음 이유를 이해 하기 위해 로그를 가져옵니다.`kubectl logs <pod-name>`
-  - pod의 이전 인스턴스에 대해 다음을 수행 합니다.`kubectl logs <pod-name> --previous`
-  - 추가 컨텍스트를 얻기 위해 pod에 대해 설명 합니다.`kubectl describe pod <pod-name>`
+  - 다음 이유를 이해 하기 위해 로그를 가져옵니다. `kubectl logs <pod-name>`
+  - pod의 이전 인스턴스에 대해 다음을 수행 합니다. `kubectl logs <pod-name> --previous`
+  - 추가 컨텍스트를 얻기 위해 pod에 대해 설명 합니다. `kubectl describe pod <pod-name>`
 
 
 * Kubernetes [서비스](https://kubernetes.io/docs/concepts/services-networking/service/) 와 [수신](https://kubernetes.io/docs/concepts/services-networking/ingress/) 리소스가 있나요?
@@ -224,7 +224,7 @@ AGIC가 예상 대로 작동 하려면 다음 사항을 준비 해야 합니다.
 
 
 * AGIC는 특정 심각한 오류에 대 한 Kubernetes 이벤트를 내보냅니다. 다음을 볼 수 있습니다.
-  - 다음을 통해 터미널에서`kubectl get events --sort-by=.metadata.creationTimestamp`
+  - 다음을 통해 터미널에서 `kubectl get events --sort-by=.metadata.creationTimestamp`
   - [Kubernetes 웹 UI (대시보드)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 를 사용 하 여 브라우저에서
 
 
@@ -236,16 +236,16 @@ AGIC에는 3 개의 로깅 수준이 있습니다. 수준 1은 기본 항목 이
 Kubernetes 커뮤니티는 [kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging) 도구에 대 한 9 가지 로깅 수준을 설정 했습니다. 이 리포지토리에는 다음과 같은 의미 체계를 사용 하 여 세 가지를 활용 합니다.
 
 
-| 자세한 정도 | 설명 |
+| 자세한 정도 | Description |
 |-----------|-------------|
 |  1        | 기본 로그 수준 시작 정보, 경고 및 오류를 표시 합니다. |
 |  3        | 이벤트 및 변경 내용에 대 한 확장 된 정보 만든 개체 목록 |
 |  5        | 마샬링된 개체를 로깅합니다. ARM에 적용 된 삭제 된 JSON 구성 표시 |
 
 
-세부 정보 표시 수준은 `verbosityLevel` [투구-.config](#sample-helm-config-file) 파일의 변수를 통해 조정할 수 있습니다. 세부 정보 표시 수준을로 늘려 `5` [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에 디스패치 된 JSON 구성을 가져옵니다.
+세부 정보 표시 수준은 `verbosityLevel` [투구-.config](#sample-helm-config-file) 파일의 변수를 통해 조정할 수 있습니다. 세부 정보 표시 수준을로 늘려 `5` [ARM](../azure-resource-manager/management/overview.md)에 디스패치 된 JSON 구성을 가져옵니다.
   - `verbosityLevel: 5`투구에서 한 줄에 단독으로 추가 하 고 다시 설치 [합니다.](#sample-helm-config-file)
-  - 로그 가져오기`kubectl logs <pod-name>`
+  - 로그 가져오기 `kubectl logs <pod-name>`
 
 ### <a name="sample-helm-config-file"></a>샘플 투구 구성 파일
 ```yaml
@@ -292,7 +292,7 @@ armAuth:
 #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
 
 ################################################################################
-# Specify if the cluster is RBAC enabled or not
+# Specify if the cluster is Kubernetes RBAC enabled or not
 rbac:
     enabled: false # true/false
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

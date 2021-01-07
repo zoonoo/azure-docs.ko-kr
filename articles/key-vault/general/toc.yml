@@ -23,6 +23,10 @@
           href: tutorial-net-virtual-machine.md
         - name: Python에서 가상 머신이 있는 Azure Key Vault 사용
           href: tutorial-python-virtual-machine.md
+    - name: Azure App Service
+      items:
+        - name: .NET에서 웹앱과 함께 Azure Key Vault 사용
+          href: tutorial-net-create-vault-azure-web-app.md
     - name: Azure Kubernetes Service
       items:
         - name: Azure Key Vault와 Kubernetes 통합
@@ -31,18 +35,18 @@
       items:
         - name: Azure Databricks와 Azure Key Vault를 사용하여 Azure Blob Storage에 액세스
           href: integrate-databricks-blob-storage.md
-    - name: 관리 ID 및 .NET을 사용하여 Key Vault를 웹앱에 연결
-      href: tutorial-net-create-vault-azure-web-app.md
 - name: 샘플
   items:
     - name: Key Vault 코드 샘플
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
+      href: /samples/browse/?expanded=azure&products=azure-key-vault
 - name: 개념
   items:
     - name: 기본 개념
       href: basic-concepts.md
     - name: 보안
       items:
+        - name: Key Vault 인증 기본 사항
+          href: authentication-fundamentals.md
         - name: Azure Key Vault 보안
           href: overview-security.md
         - name: Key Vault 사용에 대한 모범 사례 - Azure Key Vault
@@ -60,6 +64,8 @@
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+    - name: Azure Key Vault 로깅
+      href: logging.md
     - name: 알림
       items:
         - name: Azure Event Grid를 사용하여 모니터링
@@ -80,7 +86,7 @@
       href: overview-vnet-service-endpoints.md
 - name: 방법 가이드
   items:
-    - name: Authenticate
+    - name: 인증 및 권한 부여
       items:
         - name: Key Vault에 인증
           href: authentication.md
@@ -102,38 +108,38 @@
       items:
         - name: Azure Key Vault 개발자 가이드
           href: developers-guide.md
-        - name: 웹앱 비밀 저장
-          href: vs-secure-secret-appsettings.md
-        - name: .NET을 사용하여 서비스 간 인증
-          href: service-to-service-authentication.md
+        - name: Azure Resource Manager를 사용하여 Key Vault 배포
+          href: vault-create-template.md
         - name: Key Vault 연결된 서비스 사용
           href: vs-key-vault-add-connected-service.md
     - name: 모니터링 및 제어
       items:
-        - name: Azure Key Vault 모니터링 및 경고 구성
+        - name: Event Grid 알림
+          items:
+            - name: Logic Apps를 통해 알림 받기
+              href: event-grid-logicapps.md
+            - name: Azure Automation을 통해 알림 받기
+              href: event-grid-tutorial.md
+        - name: 로깅 사용
+          href: howto-logging.md
+        - name: Azure Monitor를 사용하여 Azure Key Vault 모니터링 및 경고 구성
           href: alert.md
+        - name: 일시 삭제 및 제거 보호를 통한 복구 관리
+          href: key-vault-recovery.md
         - name: Azure Policy과 Key Vault 통합
           href: azure-policy.md
-        - name: Azure Key Vault 로깅
-          href: logging.md
-        - name: Azure Event Grid 및 Logic Apps를 통해 알림 받기
-          href: event-grid-logicapps.md
-        - name: Azure Event Grid 및 Azure Automation을 통해 알림 받기
-          href: event-grid-tutorial.md
         - name: 개별 Key Vault 개체 백업
           href: backup.md
     - name: 보안
       items:
-        - name: Azure Private Link Service와 통합
-          href: private-link-service.md
-        - name: 방화벽에서 백그라운드로 Key Vault에 액세스 - Azure Key Vault
+        - name: Azure Private Link
+          items:
+            - name: Azure Private Link Service와 통합
+              href: private-link-service.md
+            - name: Private Link 구성 문제 진단
+              href: private-link-diagnostics.md
+        - name: 방화벽 뒤에 있는 키 자격 증명 모음 액세스
           href: access-behind-firewall.md
-    - name: 일시 삭제
-      items:
-        - name: CLI에서 일시 삭제 사용
-          href: soft-delete-cli.md
-        - name: PowerShell에서 일시 삭제 사용
-          href: soft-delete-powershell.md
     - name: Key Vault 이동
       items:
         - name: 다른 리소스 그룹으로 Key Vault 이동
@@ -150,6 +156,8 @@
       href: client-libraries.md
     - name: REST API 오류 코드 - Azure Key Vault
       href: rest-error-codes.md
+    - name: 일반적인 오류 코드 - Azure Key Vault
+      href: common-error-codes.md
     - name: 공통 매개 변수 및 헤더
       href: common-parameters-and-headers.md
     - name: Key Vault 버전
@@ -159,13 +167,13 @@
     - name: Azure CLI
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
+      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
-      href: /python/api/overview/azure/keyvault/management?view=azure-python
+      href: /python/api/overview/azure/key-vault-index?view=azure-python
     - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
@@ -191,6 +199,6 @@
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: 블로그
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: 제품 사용자 의견
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

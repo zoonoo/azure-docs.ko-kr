@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846847"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API Management의 문제 템플릿
@@ -34,7 +34,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="issue-list"></a><a name="IssueList"></a>문제 목록  
+##  <a name="issue-list"></a><a name="IssueList"></a> 문제 목록  
  **문제 목록** 템플릿을 통해 개발자 포털에서 문제 목록 페이지의 본문을 사용자 지정할 수 있습니다.  
   
  ![문제 목록 개발자 포털](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM 문제 목록 개발자 포털")  
@@ -104,7 +104,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |`Paging`|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
 |`IsAuthenticated`|boolean|현재 사용자가 개발자 포털에 로그인했는지 여부입니다.|  
 |`CanReportIssues`|boolean|현재 사용자에게 문제를 접수할 권한이 있는지 여부입니다.|  
-|`Search`|string|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
+|`Search`|문자열|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

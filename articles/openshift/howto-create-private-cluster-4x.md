@@ -4,16 +4,16 @@ description: OpenShift 4를 실행하는 Azure Red Hat OpenShift 프라이빗 �
 ms.service: container-service
 ms.topic: article
 ms.date: 03/12/2020
-author: ms-jasondel
-ms.author: jasondel
+author: georgewallace
+ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3864d48399f00d5cfbdfa0a94939be0d88a73322
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505355"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928062"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Azure Red Hat OpenShift 4 프라이빗 클러스터 만들기
 
@@ -29,25 +29,25 @@ CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에�
 
 ### <a name="register-the-resource-providers"></a>리소스 공급자 등록
 
-1. 여러 Azure 구독이 있는 경우 관련 구독 ID를 지정 합니다.
+1. 여러 Azure 구독이 있는 경우 관련 구독 ID를 지정합니다.
 
     ```azurecli-interactive
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. 리소스 공급자를 등록 합니다 `Microsoft.RedHatOpenShift` .
+1. `Microsoft.RedHatOpenShift` 리소스 공급자를 등록합니다.
 
     ```azurecli-interactive
     az provider register -n Microsoft.RedHatOpenShift --wait
     ```
 
-1. 리소스 공급자를 등록 합니다 `Microsoft.Compute` .
+1. `Microsoft.Compute` 리소스 공급자를 등록합니다.
 
     ```azurecli-interactive
     az provider register -n Microsoft.Compute --wait
     ```
 
-1. 리소스 공급자를 등록 합니다 `Microsoft.Storage` .
+1. `Microsoft.Storage` 리소스 공급자를 등록합니다.
 
     ```azurecli-interactive
     az provider register -n Microsoft.Storage --wait
@@ -192,7 +192,7 @@ az aro create \
 `az aro create` 명령을 실행한 후 클러스터를 만드는 데 일반적으로 약 35분이 소요됩니다.
 
 >[!IMPORTANT]
-> 사용자 지정 도메인(예: **foo.example.com**)을 지정하도록 선택하면 기본 제공 도메인 `https://console-openshift-console.apps.<random>.<location>.aroapp.io` 대신 `https://console-openshift-console.apps.foo.example.com` 같은 URL에서 OpenShift 콘솔을 사용할 수 있습니다.
+> 사용자 지정 도메인(예: **foo.example.com** )을 지정하도록 선택하면 기본 제공 도메인 `https://console-openshift-console.apps.<random>.<location>.aroapp.io` 대신 `https://console-openshift-console.apps.foo.example.com` 같은 URL에서 OpenShift 콘솔을 사용할 수 있습니다.
 >
 > 기본적으로 OpenShift는 `*.apps.<random>.<location>.aroapp.io`에서 생성되는 모든 경로에 자체 서명된 인증서를 사용합니다.  클러스터에 연결한 후 사용자 지정 DNS를 선택하는 경우 OpenShift 설명서에 따라 [수신 컨트롤러의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) 및 [API 서버의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html)를 구성해야 합니다.
 
@@ -229,11 +229,11 @@ az aro list-credentials \
 
 브라우저에서 콘솔 URL을 시작하고 `kubeadmin` 자격 증명을 사용하여 로그인합니다.
 
-![Azure Red Hat OpenShift 로그인 화면](media/aro4-login.png)
+![Azure Red Hat OpenShift 로그인 화면을 보여 주는 스크린샷](media/aro4-login.png)
 
 ## <a name="install-the-openshift-cli"></a>OpenShift CLI 설치
 
-OpenShift 웹 콘솔에 로그인했으면 오른쪽 위에서 **?** 를 클릭한 다음, **명령줄 도구**를 클릭합니다. 머신에 맞는 릴리스를 다운로드합니다.
+OpenShift 웹 콘솔에 로그인했으면 오른쪽 위에서 **?** 를 클릭한 다음, **명령줄 도구** 를 클릭합니다. 머신에 맞는 릴리스를 다운로드합니다.
 
 ![Azure Red Hat OpenShift 로그인 화면](media/aro4-download-cli.png)
 

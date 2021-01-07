@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705540"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393679"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -37,7 +37,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 ## <a name="detect-stale-devices"></a>부실 디바이스 검색
 
-부실 디바이스는 특정 시간 범위 동안 모든 클라우드 앱에 액세스하는 데 사용되지 않은 등록된 디바이스로 정의되므로 부실 디바이스를 검색하려면 타임스탬프 관련 속성이 필요합니다. Azure AD에서 이 속성은 **ApproximateLastLogonTimestamp** 또는 **활동 타임스탬프**라고 합니다. 현재와 **활동 타임스탬프**의 값 사이의 델타가 활성 디바이스에 대해 정의한 시간 범위를 초과하는 경우 해당 디바이스는 부실 디바이스로 간주됩니다. 이 **활동 타임스탬프**는 현재 공개 미리 보기로 있습니다.
+부실 디바이스는 특정 시간 범위 동안 모든 클라우드 앱에 액세스하는 데 사용되지 않은 등록된 디바이스로 정의되므로 부실 디바이스를 검색하려면 타임스탬프 관련 속성이 필요합니다. Azure AD에서 이 속성은 **ApproximateLastLogonTimestamp** 또는 **활동 타임스탬프** 라고 합니다. 현재와 **활동 타임스탬프** 의 값 사이의 델타가 활성 디바이스에 대해 정의한 시간 범위를 초과하는 경우 해당 디바이스는 부실 디바이스로 간주됩니다. 이 **활동 타임스탬프** 는 현재 공개 미리 보기로 있습니다.
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>활동 타임스탬프의 값은 어떻게 관리되나요?  
 
@@ -55,11 +55,11 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 - Azure Portal의 [디바이스 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)에 있는 **활동** 열
 
-    ![활동 타임스탬프](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="장치에 대 한 이름, 소유자 및 기타 정보를 나열 하는 Azure Portal 페이지의 스크린샷 한 열에는 활동 타임 스탬프가 나열 됩니다." border="false":::
 
 - [AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
-    ![활동 타임스탬프](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="명령줄 출력을 보여 주는 스크린샷 한 줄이 강조 표시 되 고 ApproximateLastLogonTimeStamp 값에 대 한 타임 스탬프가 나열 됩니다." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>부실 디바이스 정리 계획
 
@@ -147,7 +147,7 @@ Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, Displa
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
@@ -163,9 +163,9 @@ Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-ob
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Windows Autopilot 장치에 대해 걱정 해야 하는 이유는 무엇 인가요?
 
 Windows Autopilot 개체와 연결 된 Azure AD 장치를 삭제 하는 경우 나중에 장치를 다시 사용 하는 경우 다음 세 가지 시나리오가 발생할 수 있습니다.
-- 흰색 글러브을 사용 하지 않고 Windows Autopilot 사용자 기반 배포를 사용 하는 경우 새 Azure AD 장치가 만들어지지만 ZTDID로 태그가 지정 되지 않습니다.
+- 사전 프로 비전을 사용 하지 않고 Windows Autopilot 사용자 기반 배포를 사용 하는 경우 새 Azure AD 장치가 만들어지지만 ZTDID로 태그가 지정 되지 않습니다.
 - Windows Autopilot 자동 배포 모드 배포를 사용 하는 경우 연결 하는 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다.  이는 "가짜" 장치가 자격 증명 없이 Azure AD에 가입 하려고 시도 하는 것을 확인 하는 보안 메커니즘입니다. 실패는 ZTKEYKEYA를 표시 합니다.
-- Windows Autopilot white 글러브 배포를 사용 하는 경우 연결 된 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다. 백그라운드에서 흰색 글러브 배포는 동일한 자체 배포 모드 프로세스를 사용 하므로 동일한 보안 메커니즘을 적용 합니다.
+- Windows Autopilot 사전 프로 비전 배포를 사용 하는 경우 연결 된 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다. (백그라운드에서 사전 프로 비전 배포는 동일한 자체 배포 모드 프로세스를 사용 하므로 동일한 보안 메커니즘을 강제 적용 합니다.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>조인된 모든 유형의 디바이스를 확인하려면 어떻게 할까요?
 

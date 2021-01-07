@@ -8,13 +8,13 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 08/27/2020
 ms.author: cherylmc
-ms.custom: contperfq1
-ms.openlocfilehash: 23d8d28a03217b1359462332da736f852cfaf8ea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c19e1156f897873defaba4cebaabb904d034ead3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015393"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032748"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -22,7 +22,7 @@ VPN Gateway는 공용 인터넷을 통해 Azure 가상 네트워크와 온-프�
 
 ## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>가상 네트워크 게이트웨이란?
 
-가상 네트워크 게이트웨이는 사용자가 만드는 *게이트웨이 서브넷*이라는 특정 서브넷에 배포되는 둘 이상의 VM으로 구성됩니다. 가상 네트워크 게이트웨이 VM은 라우팅 테이블을 포함하며 특정 게이트웨이 서비스를 실행합니다. 이러한 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. 가상 네트워크 게이트웨이의 일부인 VM은 직접 구성할 수 없습니다.
+가상 네트워크 게이트웨이는 사용자가 만드는 *게이트웨이 서브넷* 이라는 특정 서브넷에 배포되는 둘 이상의 VM으로 구성됩니다. 가상 네트워크 게이트웨이 VM은 라우팅 테이블을 포함하며 특정 게이트웨이 서비스를 실행합니다. 이러한 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. 가상 네트워크 게이트웨이의 일부인 VM은 직접 구성할 수 없습니다.
 
 가상 네트워크 게이트웨이를 구성할 때 게이트웨이 유형을 지정하는 설정을 구성합니다. 게이트웨이 유형에 따라 가상 네트워크 게이트웨이 사용 방법과 게이트웨이가 수행하는 작업이 결정합니다. 게이트웨이 유형 'Vpn'은 생성된 가상 네트워크 게이트웨이의 유형이 'VPN 게이트웨이'임을 지정합니다. 이렇게 하면 다른 게이트웨이 유형을 사용하는 ExpressRoute 게이트웨이와 구별됩니다. 가상 네트워크에는 두 개의 가상 네트워크 게이트웨이(하나의 VPN Gateway와 하나의 ExpressRoute 게이트웨이)가 있을 수 있습니다. 자세한 내용은 [게이트웨이 유형](vpn-gateway-about-vpn-gateway-settings.md#gwtype)을 참조하세요.
 

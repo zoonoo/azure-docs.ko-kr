@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 08/21/2020
 ms.author: tamram
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3aa21fb99ac5ab24674bf5d4b62fd3fca98de632
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 45df30f4f1444b6148af9f3c7d47b94909ccef3d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853647"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028065"
 ---
 ## <a name="what-is-queue-storage"></a>Queue storage 란?
 
@@ -23,7 +23,7 @@ Azure 큐 서비스에는 다음 구성 요소가 포함 되어 있습니다.
 ![Azure 큐 서비스 구성 요소](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
 * **저장소 계정:** Azure Storage에 대 한 모든 액세스는 저장소 계정을 통해 수행 됩니다. 스토리지 계정에 대한 자세한 내용은 [스토리지 계정 개요](../articles/storage/common/storage-account-overview.md)를 참조하세요.
-* **큐:** 큐에는 메시지 집합이 포함됩니다. 모든 메시지는 큐에 있어야 합니다. 큐 이름은 모두 소문자여야 합니다. 큐의 명명에 대한 자세한 내용은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/azure/dd179349.aspx)을 참조하세요.
+* **큐:** 큐에는 메시지 집합이 포함됩니다. 모든 메시지는 큐에 있어야 합니다. 큐 이름은 모두 소문자여야 합니다. 큐의 명명에 대한 자세한 내용은 [큐 및 메타데이터 명명](/rest/api/storageservices/Naming-Queues-and-Metadata)을 참조하세요.
 * **메시지:** 최대 64KB인 임의 형식의 메시지입니다. 메시지가 큐에 남아 있을 수 있는 최대 시간은 7일입니다. 2017-07-29 이상 버전에서 허용되는 최대 TTL(Time to Live)은 모든 양수 또는 메시지가 만료되지 않는 -1입니다. 이 매개 변수를 생략하면 기본 TTL(Time to Live)은 7일입니다.
 * **URL 형식:** 다음 URL 형식을 사용 하 여 큐에 주소를 지정할 수 있습니다. http:// `<storage account>` . queue.core.windows.net/`<queue>`
 

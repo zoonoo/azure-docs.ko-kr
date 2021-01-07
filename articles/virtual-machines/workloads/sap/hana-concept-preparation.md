@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f0782738a8aa57b2bc0b87e1378972e3fa5d31c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70101253"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967859"
 ---
 # <a name="disaster-recovery-principles"></a>재해 복구 원칙
 
@@ -64,11 +65,11 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 
 - [백업 및 복원](hana-backup-restore.md)에 설명된 스토리지 스냅샷 준비의 2단계를 실행합니다.
 - 이 단계를 실행하지 않은 경우 HANA 대규모 인스턴스 단위의 DR 단위에 대한 공개 키를 만듭니다. [백업 및 복원](hana-backup-restore.md)에 설명된 스토리지 스냅샷 준비의 3단계를 참조하세요.
-- 새 HANA 인스턴스를 사용하여 *HANABackupCustomerDetails.txt*를 유지 관리하고 스토리지에 대한 연결이 올바르게 작동하는지 테스트합니다.  
+- 새 HANA 인스턴스를 사용하여 *HANABackupCustomerDetails.txt* 를 유지 관리하고 스토리지에 대한 연결이 올바르게 작동하는지 테스트합니다.  
 - DR Azure 지역의 HANA 대규모 인스턴스 단위에 새로 설치된 SAP HANA 인스턴스를 중지합니다.
 - 이 PRD 볼륨을 분리하고 Azure Service Management의 SAP HANA에 문의하십시오. 스토리지 복제 대상으로 작동하는 동안은 액세스할 수 없으므로 볼륨을 단위에 탑재된 상태로 유지할 수 없습니다.  
 
-![복제를 설정하기 전 DR 설치 단계](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![프로덕션 Azure 지역의 PRD 볼륨과 DR Azure 지역의 PRD 볼륨 간의 복제 관계를 보여 주는 다이어그램입니다.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 운영 팀에서는 프로덕션 Azure 지역의 PRD 볼륨과 DR Azure 지역의 PRD 볼륨 간에 복제 관계를 설정합니다.
 

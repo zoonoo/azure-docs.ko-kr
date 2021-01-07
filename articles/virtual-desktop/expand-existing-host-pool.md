@@ -3,15 +3,15 @@ title: 새 세션 호스트를 사용 하 여 기존 호스트 풀 확장-Azure
 description: Windows 가상 데스크톱에서 새 세션 호스트를 사용 하 여 기존 호스트 풀을 확장 하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002449"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929594"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>새 세션 호스트를 사용 하 여 기존 호스트 풀 확장
 
@@ -56,7 +56,7 @@ ms.locfileid: "88002449"
 8. 호스트 풀에 추가 하려는 세션 호스트의 수를 **Vm 수**에 입력 합니다. 예를 들어 호스트 풀을 5 개의 호스트로 확장 하는 경우 **5**를 입력 합니다.
 
     >[!NOTE]
-    >Vm의 크기 또는 이미지를 편집할 수 없습니다. 호스트 풀의 모든 Vm이 동일한 크기 인지 확인 하는 것이 중요 하기 때문입니다.
+    >Vm의 이미지 및 접두사를 편집할 수 있지만 동일한 호스트 풀에 다른 이미지를 사용 하는 Vm이 있는 경우에는이를 편집 하지 않는 것이 좋습니다. 영향을 받는 호스트 풀에서 이전 이미지를 사용 하는 Vm을 제거할 계획인 경우에만 이미지 및 접두사를 편집 합니다.
 
 9. 가상 **네트워크 정보**를 보려면 가상 컴퓨터를 가입 시킬 가상 네트워크 및 서브넷을 선택 합니다. 현재 기존 컴퓨터에서 사용 하는 것과 동일한 가상 네트워크를 선택 하거나 7 단계에서 선택한 지역에 더 적합 한 다른 가상 네트워크를 선택할 수 있습니다.
 

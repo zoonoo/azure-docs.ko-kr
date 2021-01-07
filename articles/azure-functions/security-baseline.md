@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 707c69efddeda364f0c62e9719ae1a6073dfe9ad
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394094"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935736"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
 
@@ -80,17 +80,17 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [App Service Environment 소개](../app-service/environment/intro.md)
 
 - [App Service Environment에 대한 네트워킹 고려 사항](../app-service/environment/network-info.md)
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
+- [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 - [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -124,7 +124,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [App Service Environment 소개](../app-service/environment/intro.md)
 
@@ -146,7 +146,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [App Service Environment 소개](../app-service/environment/intro.md)
 
@@ -315,7 +315,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 - [Azure Functions에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
-- [Azure Functions에 대해 Application Insights를 사용 하도록 설정 하는 방법](./functions-monitoring.md#enable-application-insights-integration)
+- [Azure Functions에 대해 Application Insights를 사용 하도록 설정 하는 방법](./configure-monitoring.md#enable-application-insights-integration)
 
 - [Azure 내에서 경고를 만드는 방법](../azure-monitor/learn/tutorial-response.md)
 
@@ -369,7 +369,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 **지침**: Azure Functions에 대 한 제어 평면 액세스는 AZURE ACTIVE DIRECTORY (AD)를 통해 제어 됩니다. Azure AD에는 기본 암호 개념이 없습니다.
 
-데이터 평면 액세스는 권한 부여 키, 네트워크 제한 및 AAD id의 유효성 검사를 비롯 한 여러 가지 방법을 통해 제어할 수 있습니다. 권한 부여 키는 Azure Functions HTTP 끝점에 연결 하는 클라이언트에서 사용 되며 언제 든 지 다시 생성할 수 있습니다. 이러한 키는 기본적으로 새 HTTP 끝점에 대해 생성 됩니다.
+데이터 평면 액세스는 권한 부여 키, 네트워크 제한 및 Azure AD id의 유효성 검사를 비롯 한 여러 가지 방법을 통해 제어할 수 있습니다. 권한 부여 키는 Azure Functions HTTP 끝점에 연결 하는 클라이언트에서 사용 되며 언제 든 지 다시 생성할 수 있습니다. 이러한 키는 기본적으로 새 HTTP 끝점에 대해 생성 됩니다.
 
 함수 앱에 사용할 수 있는 여러 배포 방법이 있으며, 그 중 일부는 생성 된 자격 증명 집합을 활용할 수 있습니다. 응용 프로그램에 사용 되는 배포 방법을 검토 합니다.
 
@@ -463,7 +463,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 - [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
-- [AAD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -545,13 +545,13 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [개인 끝점 이해](../private-link/private-endpoint-overview.md)
 
@@ -649,7 +649,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 - [CI/CD 파이프라인에 지속적인 보안 유효성 검사를 추가 하는 방법](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -727,7 +727,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 - [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -827,7 +827,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [App Service Environment에 대한 네트워킹 고려 사항](../app-service/environment/network-info.md)
 
@@ -1031,7 +1031,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: 백업 및 복원 기능을 사용 하 여 앱의 정기 백업을 예약 합니다. 프리미엄 계획에서 실행 되는 함수 앱은 "백업 및 복원" 기능을 포함 하는 Azure App Service의 웹 앱과 동일한 호스팅 기능을 제공 합니다.
 
-또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure storage 기능을 활용 하 여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장 합니다. 또한 Azure DevOps 팀은 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하는 절차를 따릅니다.
+또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure Storage 기능을 활용하여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장합니다. 또한 Azure DevOps 팀은 데이터를 실수로 삭제하거나 악의적으로 삭제하지 않도록 보호하는 절차를 따릅니다.
 
 - [Azure에서 앱 백업](../app-service/manage-backup.md)
 
@@ -1049,7 +1049,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: 백업 및 복원 기능을 사용 하 여 앱의 정기 백업을 예약 합니다. 프리미엄 계획에서 실행 되는 함수 앱은 "백업 및 복원" 기능을 포함 하는 Azure App Service의 웹 앱과 동일한 호스팅 기능을 제공 합니다. Azure Key Vault 내에서 고객 관리 키를 백업 합니다.
 
-또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure storage 기능을 활용 하 여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장 합니다. 또한 Azure DevOps 팀은 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하는 절차를 따릅니다.
+또한 Azure Repos 및 Azure DevOps와 같은 소스 제어 솔루션을 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps Services는 여러 Azure Storage 기능을 활용하여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장합니다. 또한 Azure DevOps 팀은 데이터를 실수로 삭제하거나 악의적으로 삭제하지 않도록 보호하는 절차를 따릅니다.
 
 - [Azure에서 앱 백업](../app-service/manage-backup.md)
 
@@ -1083,11 +1083,11 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: 백업 및 복원 기능의 백업은 구독의 Azure Storage 계정을 사용 합니다. Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대 한 추가 제어를 위해 고객이 관리 하는 키를 제공 하 여 저장소 데이터를 암호화할 수 있습니다.
 
-고객 관리 키를 사용 하는 경우 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 하기 위해 Key Vault에서 일시 삭제를 사용 하도록 설정 해야 합니다.
+고객 관리 키를 사용 하는 경우 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 하기 위해 Key Vault의 Soft-Delete을 사용 하도록 설정 해야 합니다.
 
 - [Azure Storage 미사용 데이터 암호화](../storage/common/storage-service-encryption.md)
 
-- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1173,9 +1173,9 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

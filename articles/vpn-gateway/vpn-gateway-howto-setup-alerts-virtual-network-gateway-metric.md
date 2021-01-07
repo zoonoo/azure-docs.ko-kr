@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: 05fbc5675d6ee3b6720d9db9e07e7010cf1d9172
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435660"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>VPN Gateway 메트릭에 대 한 경고 설정
@@ -50,11 +50,11 @@ ms.locfileid: "89435660"
 
 2. VPN gateway를 리소스로 선택 합니다.
 
-   ![리소스 목록의 선택 단추 및 VPN gateway](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "선택")
+   ![리소스 목록의 선택 단추 및 VPN gateway](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "새 페이지를 추가하기 위해")
 
 3. 경고에 대해 구성할 메트릭을 선택 합니다.
 
-   ![메트릭 목록에서 선택한 메트릭](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "선택")
+   ![메트릭 목록에서 선택한 메트릭](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "새 페이지를 추가하기 위해")
 4. 신호 논리를 구성 합니다. 여기에는 세 가지 구성 요소가 있습니다.
 
     a. **차원**: 메트릭에 차원이 있는 경우 경고가 해당 차원의 데이터만 평가 하도록 특정 차원 값을 선택할 수 있습니다. 이러한 옵션은 선택 사항입니다.
@@ -63,11 +63,11 @@ ms.locfileid: "89435660"
 
     다. **시간**: 메트릭 데이터의 세분성과 경고를 평가할 기간을 지정 합니다.
 
-   ![신호 논리를 구성 하는 방법에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "선택")
+   ![신호 논리를 구성 하는 방법에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "새 페이지를 추가하기 위해")
 
 5. 구성 된 규칙을 보려면 **경고 규칙 관리**를 선택 합니다.
 
-   ![경고 규칙 관리 단추](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "선택")
+   ![경고 규칙 관리 단추](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "새 페이지를 추가하기 위해")
 
 ## <a name="next-steps"></a>다음 단계
 

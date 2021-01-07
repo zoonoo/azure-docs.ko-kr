@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 8c8b8b0090877db7abc8fae0e44f928e8b10dcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808001"
 ---
 # <a name="add-health-probes-to-your-service"></a>서비스에 상태 프로브 추가
@@ -50,7 +50,7 @@ Kubernetes API 참조:
 * [HttpGet 작업](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`및 `livenessProbe` 는로 구성 된 경우 지원 됩니다 `httpGet` .
+> * `readinessProbe` 및 `livenessProbe` 는로 구성 된 경우 지원 됩니다 `httpGet` .
 > * Pod에 노출 된 포트 이외의 포트에서의 검색은 현재 지원 되지 않습니다.
 > * `HttpHeaders`, `InitialDelaySeconds` `SuccessThreshold` 은 지원 되지 않습니다.
 

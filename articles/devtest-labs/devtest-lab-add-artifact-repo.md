@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 사용자 지정 아티팩트 원본용 Gi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483145"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
@@ -67,7 +67,7 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 
     ![리포지토리 추가 버튼](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. 두 번째 **리포지토리** 페이지에서 다음 정보를 지정합니다.
-   1. **이름** - 리포지토리의 이름을 입력합니다.
+   1. **이름**. 리포지토리의 이름을 입력합니다.
    2. **Git Clone Url**. 이전에 GitHub 또는 Azure DevOps Services에서 복사한 Git HTTPS 복제 URL을 입력합니다.
    3. **분기**. 정의를 가져오려면 분기를 입력합니다.
    4. **개인 액세스 토큰**. 이전에 GitHub 또는 Azure DevOps Services에서 가져온 개인 액세스 토큰을 입력합니다.

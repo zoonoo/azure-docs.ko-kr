@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어에 포함
 description: Azure Cosmos DB의 CONTAINS SQL 시스템 함수가 첫 번째 문자열 식에 두 번째 문자열 식이 포함되어 있는지 여부를 나타내는 부울을 반환하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b6835b22e5cfa4ca703b95d70e20112b8723def
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322706"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339175"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS(Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다.  
   

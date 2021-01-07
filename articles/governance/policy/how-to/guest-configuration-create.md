@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719396"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881789"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -16,24 +16,26 @@ ms.locfileid: "88719396"
  
 Linux용 게스트 구성 정책을 만드는 방법에 대한 자세한 내용은 [Linux용 게스트 구성 정책을 만드는 방법](./guest-configuration-create-linux.md) 페이지를 참조하세요.
 
-Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/powershell/scripting/dsc/overview/overview)) 리소스 모듈을 사용하여 구성 파일을 만듭니다. DSC 구성은 컴퓨터가 충족해야 하는 조건을 정의합니다. 구성 평가에 실패하는 경우 정책 효과 **auditIfNotExists**가 트리거되고 컴퓨터를 **비준수**로 간주합니다.
+Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/powershell/scripting/dsc/overview/overview)) 리소스 모듈을 사용하여 구성 파일을 만듭니다. DSC 구성은 컴퓨터가 충족해야 하는 조건을 정의합니다. 구성 평가에 실패하는 경우 정책 효과 **auditIfNotExists** 가 트리거되고 컴퓨터를 **비준수** 로 간주합니다.
 
 [Azure Policy 게스트 구성](../concepts/guest-configuration.md)은 컴퓨터 내의 설정을 감사하는 데만 사용할 수 있습니다. 컴퓨터 내에서 설정 수정은 아직 사용할 수 없습니다.
 
 다음 작업을 사용하여 Azure 또는 비 Azure 컴퓨터 상태의 유효성을 검사하는 고유한 구성을 만듭니다.
 
 > [!IMPORTANT]
-> 게스트 구성이 포함된 사용자 지정 정책은 미리 보기 기능입니다.
+> Azure Government 및 Azure 중국 환경에서 게스트 구성을 사용 하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
 >
 > 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다.
 > 모든 Windows 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용 하지 마세요.
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
 게스트 구성 모듈은 다음과 같은 사용자 지정 콘텐츠를 만드는 프로세스를 자동화합니다.
 
 - 게스트 구성 콘텐츠 아티팩트 만들기(.zip)
-- 자동화된 아티팩트 테스트
+- 아티팩트의 자동화된 테스트
 - 정책 정의 만들기
 - 정책 게시
 
@@ -44,7 +46,7 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 
 ### <a name="base-requirements"></a>기본 요구 사항
 
-모듈을 설치할 수 있는 운영 체제는 다음과 같습니다.
+모듈을 설치할 수 있는 운영 체제:
 
 - Linux
 - macOS
@@ -94,13 +96,13 @@ DSC 개념 및 용어에 대한 개요는 [PowerShell DSC 개요](/powershell/sc
 
 함수 `Get-TargetResource`에는 Windows Desired State Configuration에 필요하지 않은 게스트 구성에 대한 특별 요구 사항이 있습니다.
 
-- 반환되는 hashtable에 **Reasons**라는 속성이 포함되어야 합니다.
+- 반환되는 hashtable에 **Reasons** 라는 속성이 포함되어야 합니다.
 - Reasons 속성은 배열이어야 합니다.
-- 배열의 각 항목은 **Code** 및 **Phrase**라는 키가 있는 hashtable이어야 합니다.
+- 배열의 각 항목은 **Code** 및 **Phrase** 라는 키가 있는 hashtable이어야 합니다.
 
 서비스에서 Reasons 속성을 사용하여 컴퓨터가 규정을 준수하지 않는 경우 정보를 표시하는 방식을 표준화합니다. Reasons의 각 항목은 리소스가 규정을 준수하지 않는 "이유"라고 간주할 수 있습니다. 두 가지 이상의 이유로 리소스가 규정을 준수하지 않을 수 있으므로 속성은 배열입니다.
 
-**Code** 및 **Phrase** 속성이 서비스에 필요합니다. 사용자 지정 리소스를 작성하는 경우 리소스가 규정을 준수하지 않는 이유를 표시하려는 텍스트(일반적으로 stdout)를 **Phrase** 값으로 설정합니다. **Code**에는 특정 형식 요구 사항이 있으므로 감사를 수행하는 데 사용되는 리소스에 대한 정보를 명확하게 보고할 수 있습니다. 이 솔루션은 게스트 구성을 확장 가능하게 만듭니다. 출력을 **Phrase** 속성에 대한 문자열 값으로 반환할 수 있는 한 모든 명령을 실행할 수 있습니다.
+**Code** 및 **Phrase** 속성이 서비스에 필요합니다. 사용자 지정 리소스를 작성하는 경우 리소스가 규정을 준수하지 않는 이유를 표시하려는 텍스트(일반적으로 stdout)를 **Phrase** 값으로 설정합니다. **Code** 에는 특정 형식 요구 사항이 있으므로 감사를 수행하는 데 사용되는 리소스에 대한 정보를 명확하게 보고할 수 있습니다. 이 솔루션은 게스트 구성을 확장 가능하게 만듭니다. 출력을 **Phrase** 속성에 대한 문자열 값으로 반환할 수 있는 한 모든 명령을 실행할 수 있습니다.
 
 - **Code**(문자열): 리소스의 이름은 반복되고 이유에 대한 식별자로 공백이 없는 짧은 이름입니다. 이 세 값은 공백 없이 콜론으로 구분되어야 합니다.
   - 예를 들어 `registry:registry:keynotpresent`입니다.
@@ -136,13 +138,36 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+리소스에 필요한 속성이 있는 경우 `Get-TargetResource` 에도 클래스와 함께를 사용 하 여를 반환 해야 합니다 `reasons` . 가 `reasons` 포함 되지 않은 경우 서비스에는 입력 값과에 의해 반환 되는 값을 비교 하는 "모두 catch" 동작이 포함 되며,에 대 한 `Get-TargetResource` `Get-TargetResource` 자세한 비교를 제공 합니다 `reasons` .
+
 ### <a name="configuration-requirements"></a>구성 요구 사항
 
 사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
 
+### <a name="policy-requirements"></a>정책 요구 사항
+
+`metadata`게스트 구성 서비스의 프로 비전 및 보고를 자동화 하기 위해 정책 정의 섹션에는 게스트 구성 서비스에 대 한 두 개의 속성이 포함 되어야 합니다. `category`속성은 "게스트 구성"으로 설정 해야 하며, 명명 된 섹션에는 `Guest Configuration` 게스트 구성 할당에 대 한 정보가 포함 되어야 합니다. `New-GuestConfigurationPolicy`Cmdlet은이 텍스트를 자동으로 만듭니다.
+이 페이지의 단계별 지침을 참조 하세요.
+
+다음 예제에서는 섹션을 보여 줍니다 `metadata` .
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
+
 ### <a name="scaffolding-a-guest-configuration-project"></a>게스트 구성 프로젝트 스캐폴딩
 
-샘플 코드에서 시작 및 작업 프로세스를 가속화하려는 개발자는 **게스트 구성 프로젝트**라는 커뮤니티 프로젝트를 설치할 수 있습니다. 프로젝트는 [Plaster](https://github.com/powershell/plaster) PowerShell 모듈에 대한 템플릿을 설치합니다. 이 도구를 사용하여 작업 구성 및 샘플 리소스를 비롯한 프로젝트와 프로젝트의 유효성을 검사하는 [Pester](https://github.com/pester/pester) 테스트 집합을 스캐폴딩할 수 있습니다. 템플릿에는 게스트 구성 패키지의 빌드 및 유효성 검사를 자동화하는 Visual Studio Code용 작업 실행기도 포함되어 있습니다. 자세한 내용은 GitHub 프로젝트 [게스트 구성 프로젝트](https://github.com/microsoft/guestconfigurationproject)를 참조하세요.
+샘플 코드에서 시작 및 작업 프로세스를 가속화하려는 개발자는 **게스트 구성 프로젝트** 라는 커뮤니티 프로젝트를 설치할 수 있습니다. 프로젝트는 [Plaster](https://github.com/powershell/plaster) PowerShell 모듈에 대한 템플릿을 설치합니다. 이 도구를 사용하여 작업 구성 및 샘플 리소스를 비롯한 프로젝트와 프로젝트의 유효성을 검사하는 [Pester](https://github.com/pester/pester) 테스트 집합을 스캐폴딩할 수 있습니다. 템플릿에는 게스트 구성 패키지의 빌드 및 유효성 검사를 자동화하는 Visual Studio Code용 작업 실행기도 포함되어 있습니다. 자세한 내용은 GitHub 프로젝트 [게스트 구성 프로젝트](https://github.com/microsoft/guestconfigurationproject)를 참조하세요.
 
 일반적인 구성 작업에 대한 자세한 내용은 [구성 작성, 컴파일 및 적용](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)을 참조하세요.
 
@@ -158,7 +183,7 @@ class ResourceName : OMI_BaseResource
 
 PowerShell cmdlet은 패키지를 만드는 데 도움이 됩니다.
 루트 수준 폴더 또는 버전 폴더는 필요하지 않습니다.
-패키지 형식은 .zip 파일이어야 합니다.
+패키지 형식은 .zip 파일 이어야 하며 압축 되지 않은 경우 전체 크기 (100MB)를 초과할 수 없습니다.
 
 ### <a name="storing-guest-configuration-artifacts"></a>게스트 구성 아티팩트 저장
 
@@ -167,7 +192,7 @@ PowerShell cmdlet은 패키지를 만드는 데 도움이 됩니다.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Windows에 대한 사용자 지정 게스트 구성 감사 정책 만들기 단계별 안내
 
-설정을 감사할 DSC 구성을 만듭니다. 다음 PowerShell 스크립트 예에서는 **AuditBitLocker**라는 구성을 만들고 **PsDscResources** 리소스 모듈을 가져오며 `Service` 리소스를 사용하여 실행 중인 서비스를 감사합니다. 구성 스크립트는 Windows 또는 macOS 컴퓨터에서 실행할 수 있습니다.
+설정을 감사할 DSC 구성을 만듭니다. 다음 PowerShell 스크립트 예에서는 **AuditBitLocker** 라는 구성을 만들고 **PsDscResources** 리소스 모듈을 가져오며 `Service` 리소스를 사용하여 실행 중인 서비스를 감사합니다. 구성 스크립트는 Windows 또는 macOS 컴퓨터에서 실행할 수 있습니다.
 
 ```powershell
 # Add PSDscResources module to environment
@@ -212,7 +237,7 @@ New-GuestConfigurationPackage `
   -Configuration './Config/AuditBitlocker.mof'
 ```
 
-구성 패키지를 만든 후 Azure에 게시하기 전에 워크스테이션 또는 CI/CD 환경에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage`에는 개발 환경에서 Azure 컴퓨터에서 사용되는 것과 동일한 에이전트가 포함되어 있습니다. 이 솔루션을 사용하여 청구되는 클라우드 환경에 릴리스하기 전에 로컬에서 통합 테스트를 수행할 수 있습니다.
+구성 패키지를 만든 후 Azure에 게시 하기 전에 워크스테이션 또는 CI/CD (지속적인 통합 및 지속적인 배포) 환경에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage`에는 개발 환경에서 Azure 컴퓨터에서 사용되는 것과 동일한 에이전트가 포함되어 있습니다. 이 솔루션을 사용하여 청구되는 클라우드 환경에 릴리스하기 전에 로컬에서 통합 테스트를 수행할 수 있습니다.
 
 에이전트는 실제로 로컬 환경을 평가하므로 대부분의 경우 감사하려는 OS 플랫폼과 동일한 OS 플랫폼에서 테스트 cmdlet을 실행해야 합니다. 테스트는 콘텐츠 패키지에 포함된 모듈만 사용합니다.
 
@@ -235,61 +260,10 @@ cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestCon
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-다음 단계는 Blob Storage에 파일을 게시하는 과정입니다. 아래 스크립트에는 이 작업을 자동화하는 데 사용할 수 있는 함수가 포함되어 있습니다. `publish` 함수에 사용되는 명령에는 `Az.Storage` 모듈이 필요합니다.
+다음 단계는 Azure Blob Storage에 파일을 게시 하는 것입니다. 이 명령에는 `Publish-GuestConfigurationPackage` 모듈이 필요 합니다 `Az.Storage` .
 
 ```azurepowershell-interactive
-function publish {
-    param(
-    [Parameter(Mandatory=$true)]
-    $resourceGroup,
-    [Parameter(Mandatory=$true)]
-    $storageAccountName,
-    [Parameter(Mandatory=$true)]
-    $storageContainerName,
-    [Parameter(Mandatory=$true)]
-    $filePath,
-    [Parameter(Mandatory=$true)]
-    $blobName
-    )
-
-    # Get Storage Context
-    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -Name $storageAccountName | `
-        ForEach-Object { $_.Context }
-
-    # Upload file
-    $Blob = Set-AzStorageBlobContent -Context $Context `
-        -Container $storageContainerName `
-        -File $filePath `
-        -Blob $blobName `
-        -Force
-
-    # Get url with SAS token
-    $StartTime = (Get-Date)
-    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-    $SAS = New-AzStorageBlobSASToken -Context $Context `
-        -Container $storageContainerName `
-        -Blob $blobName `
-        -StartTime $StartTime `
-        -ExpiryTime $ExpiryTime `
-        -Permission rl `
-        -FullUri
-
-    # Output
-    return $SAS
-}
-
-# replace the $storageAccountName value below, it must be globally unique
-$resourceGroup        = 'policyfiles'
-$storageAccountName   = 'youraccountname'
-$storageContainerName = 'artifacts'
-
-$uri = publish `
-  -resourceGroup $resourceGroup `
-  -storageAccountName $storageAccountName `
-  -storageContainerName $storageContainerName `
-  -filePath ./AuditBitlocker.zip `
-  -blobName 'AuditBitlocker'
+Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
 
 게스트 구성 사용자 지정 정책 패키지를 만들고 업로드한 후에는 게스트 구성 정책 정의를 만듭니다. `New-GuestConfigurationPolicy` cmdlet은 사용자 지정 정책 패키지를 사용하고 정책 정의를 만듭니다.
@@ -303,8 +277,8 @@ $uri = publish `
 - **버전**: 정책 버전입니다.
 - **경로**: 정책 정의가 만들어지는 대상 경로입니다.
 - **Platform**: 게스트 구성 정책 및 콘텐츠 패키지용 대상 플랫폼(Windows/Linux)입니다.
-- **Tag**는 정책 정의에 하나 이상의 태그 필터를 추가합니다.
-- **Category**는 정책 정의의 범주 메타데이터 필드를 설정합니다.
+- **Tag** 는 정책 정의에 하나 이상의 태그 필터를 추가합니다.
+- **Category** 는 정책 정의의 범주 메타데이터 필드를 설정합니다.
 
 다음 예제에서는 사용자 지정 정책 패키지에서 지정된 경로에 정책 정의를 만듭니다.
 
@@ -322,14 +296,12 @@ New-GuestConfigurationPolicy `
 `New-GuestConfigurationPolicy`에서 만들어지는 파일은 다음과 같습니다.
 
 - **auditIfNotExists.json**
-- **deployIfNotExists.json**
-- **Initiative.json**
 
 cmdlet 출력은 정책 파일의 이니셔티브 표시 이름과 경로가 포함된 개체를 반환합니다.
 
 마지막으로 `Publish-GuestConfigurationPolicy` cmdlet을 사용하여 정책 정의를 게시합니다. cmdlet에는 `New-GuestConfigurationPolicy`로 만든 JSON 파일의 위치를 가리키는 **Path** 매개 변수만 있습니다.
 
-게시 명령을 실행하려면 Azure에서 정책을 만들기 위한 액세스 권한이 필요합니다. 특정 권한 부여 요구 사항은 [Azure Policy 개요](../overview.md) 페이지에 설명되어 있습니다. 가장 적합한 기본 제공 역할은 **리소스 정책 기여자**입니다.
+게시 명령을 실행하려면 Azure에서 정책을 만들기 위한 액세스 권한이 필요합니다. 특정 권한 부여 요구 사항은 [Azure Policy 개요](../overview.md) 페이지에 설명되어 있습니다. 가장 적합한 기본 제공 역할은 **리소스 정책 기여자** 입니다.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
@@ -346,25 +318,7 @@ New-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
 ```
 
-Azure에서 만든 정책을 사용하는 마지막 단계는 이니셔티브를 할당하는 과정입니다. [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md) 및 [Azure PowerShell](../assign-policy-powershell.md)을 사용하여 이니셔티브를 할당하는 방법을 참조하세요.
-
-> [!IMPORTANT]
-> 게스트 구성 정책은 **항상** _AuditIfNotExists_와 _DeployIfNotExists_ 정책을 결합하는 이니셔티브를 사용하여 할당해야 합니다. _AuditIfNotExists_ 정책만 할당된 경우 필수 구성 요소가 배포되지 않으며 정책에 항상 '0' 서버가 규정을 준수함을 표시합니다.
-
-_DeployIfNotExists_ 효과와 함께 정책 정의를 할당하려면 추가 액세스 수준이 필요합니다. 최소 권한을 부여하려면 **리소스 정책 기여자**를 확장하는 사용자 지정 역할 정의를 만들 수 있습니다. 아래 예에서는 _Microsoft.Authorization/roleAssignments/write_ 추가 권한을 사용하여 **리소스 정책 기여자 DINE**이라는 역할을 만듭니다.
-
-```azurepowershell-interactive
-$subscriptionid = '00000000-0000-0000-0000-000000000000'
-$role = Get-AzRoleDefinition "Resource Policy Contributor"
-$role.Id = $null
-$role.Name = "Resource Policy Contributor DINE"
-$role.Description = "Can assign Policies that require remediation."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-New-AzRoleDefinition -Role $role
-```
+Azure에서 만든 정책을 사용 하 여 마지막 단계는 정의를 할당 하는 것입니다. [포털](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md)및 [Azure PowerShell](../assign-policy-powershell.md)를 사용 하 여 정의를 할당 하는 방법을 참조 하세요.
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>태그를 사용하여 게스트 구성 정책 필터링
 
@@ -398,18 +352,27 @@ New-AzRoleDefinition -Role $role
 
 게스트 구성은 런타임 시 구성의 속성 재정의를 지원합니다. 이 기능은 패키지의 MOF 파일에 있는 값을 정적으로 간주할 필요가 없음을 의미합니다. 재정의 값은 Azure Policy를 통해 제공되며 구성을 작성하거나 컴파일하는 방법에 영향을 주지 않습니다.
 
-Cmdlet은 `New-GuestConfigurationPolicy` `Test-GuestConfigurationPolicyPackage` **매개**변수 라는 매개 변수를 포함 합니다. 이 매개 변수는 각 매개 변수에 대한 모든 세부 정보를 포함하는 hashtable 정의를 사용하고 Azure Policy 정의에 사용되는 각 파일의 필수 섹션을 만듭니다.
+Cmdlet은 `New-GuestConfigurationPolicy` `Test-GuestConfigurationPolicyPackage` **매개** 변수 라는 매개 변수를 포함 합니다. 이 매개 변수는 각 매개 변수에 대한 모든 세부 정보를 포함하는 hashtable 정의를 사용하고 Azure Policy 정의에 사용되는 각 파일의 필수 섹션을 만듭니다.
 
 다음 예에서는 서비스를 감사할 정책 정의를 만듭니다. 사용자는 정책 할당 시 이를 목록에서 선택할 수 있습니다.
 
 ```azurepowershell-interactive
+# This DSC Resource text:
+Service 'UserSelectedNameExample'
+      {
+          Name = 'ParameterValue'
+          Ensure = 'Present'
+          State = 'Running'
+      }
+
+# Would require the following hashtable:
 $PolicyParameterInfo = @(
     @{
         Name = 'ServiceName'                                            # Policy parameter name (mandatory)
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'windowsService'                                   # DSC configuration resource property name (mandatory)
+        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -551,9 +514,18 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>정책 수명 주기
 
-정책에 대한 업데이트를 릴리스하려는 경우 주의가 필요한 두 개의 필드가 있습니다.
+정책에 대 한 업데이트를 해제 하려면 게스트 구성 패키지와 Azure Policy 정의 세부 정보를 모두 변경 합니다.
 
-- **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 버전보다 큰 버전 번호를 지정해야 합니다. 속성은 에이전트가 업데이트된 패키지를 인식하도록 게스트 구성 할당의 버전을 업데이트합니다.
+> [!NOTE]
+> `version`게스트 구성 할당의 속성은 Microsoft에서 호스팅하는 패키지에만 영향을 주는 것입니다. 사용자 지정 콘텐츠의 버전을 지정 하는 가장 좋은 방법은 버전을 파일 이름에 포함 하는 것입니다.
+
+먼저,를 실행 하 `New-GuestConfigurationPackage` 는 경우 이전 버전에서 고유 하 게 만들 패키지의 이름을 지정 합니다. 이름에 버전 번호를 포함할 수 있습니다 (예:) `PackageName_1.0.0` .
+이 예의 숫자는 패키지를 고유 하 게 만드는 데만 사용 되며 패키지를 다른 패키지 보다 최신 또는 이전 버전으로 간주 하도록 지정 하는 데에는 사용 되지 않습니다.
+
+그런 다음 아래 설명에 따라 cmdlet에 사용 된 매개 변수를 업데이트 합니다 `New-GuestConfigurationPolicy` .
+
+- **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
+- **contenturi**: cmdlet을 실행할 때 `New-GuestConfigurationPolicy` 패키지의 위치에 대 한 URI를 지정 해야 합니다. 패키지 버전을 파일 이름에 포함 하면 각 릴리스에서이 속성의 값이 변경 됩니다.
 - **contentHash**: 이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트됩니다. 이는 `New-GuestConfigurationPackage`에서 만든 패키지의 해시 값입니다. 게시하는 `.zip` 파일에 대한 속성이 정확해야 합니다. **contentUri** 속성만 업데이트된 경우 확장에서 콘텐츠 패키지를 수락하지 않습니다.
 
 업데이트된 패키지를 릴리스하는 가장 쉬운 방법은 이 문서에 설명된 프로세스를 반복하고 업데이트된 버전 번호를 제공하는 것입니다. 해당 프로세스는 모든 속성이 올바르게 업데이트되었음을 보장합니다.
@@ -588,12 +560,6 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
 콘텐츠를 게시한 후에는 이름이 `GuestConfigPolicyCertificateValidation`이고 값이 `enabled`인 태그를 코드 서명이 필요한 모든 가상 머신에 추가합니다. Azure Policy를 사용하여 태그를 대규모로 제공할 수 있는 방법은 [태그 샘플](../samples/built-in-policies.md#tags)을 참조하세요. 이 태그가 준비되면 `New-GuestConfigurationPolicy` cmdlet을 이용하여 생성된 정책 정의에서 게스트 구성 확장을 통해 요구 사항을 사용합니다.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>게스트 구성 정책 할당 문제 해결(미리 보기)
-
-Azure Policy 게스트 구성 할당 문제를 해결하는 데 도움이 되는 도구가 미리 보기로 제공됩니다. 이 도구는 미리 보기 상태이며, PowerShell 갤러리에 [게스트 구성 문제 해결사](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)라는 모듈로 게시되었습니다.
-
-이 도구의 cmdlet에 대한 자세한 내용은 PowerShell에서 Get-help 명령을 사용하여 기본 제공 지침을 확인하세요. 이 도구를 자주 업데이트하는 것이 최신 정보를 얻는 가장 좋은 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

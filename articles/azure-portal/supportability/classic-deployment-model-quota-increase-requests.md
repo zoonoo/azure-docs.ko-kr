@@ -5,14 +5,13 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: afdb8b2b677321239f240e74d49711195ac186c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5b5e8c11bfe164aaa3539742dac8c4d267c69e1
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763910"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745607"
 ---
 # <a name="classic-deployment-model"></a>클래식 배포 모델
 
@@ -30,15 +29,15 @@ ms.locfileid: "84763910"
 
 Azure Portal에서 **도움말 + 지원을** 사용 하 여 지원 요청을 만들려면 아래 지침을 따르세요.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원** 을 선택합니다.
 
    ![Azure Portal에서 도움말 + 지원을 선택 합니다.](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. **새 지원 요청**을 선택합니다.
+1. **새 지원 요청** 을 선택합니다.
 
    ![Azure Portal에서 새 지원 요청 만들기](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. **문제 유형**에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
+1. **문제 유형** 에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
 
    ![문제 유형으로 할당량을 선택 합니다.](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
@@ -46,19 +45,19 @@ Azure Portal에서 **도움말 + 지원을** 사용 하 여 지원 요청을 만
 
    ![할당량을 늘릴 구독 선택](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. **할당량 유형**에서 **계산-VM (코어-vcpus) 구독 제한을 늘립니다**.
+1. **할당량 유형** 에서 **계산-VM (코어-vcpus) 구독 제한을 늘립니다**.
 
    ![늘릴 할당량 유형 선택](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. **다음: 솔루션** 을 선택 하 여 **문제 세부 정보**를 엽니다. **세부 정보 제공** 을 선택 하 여 추가 정보를 제공 합니다.
+1. **다음: 솔루션** 을 선택 하 여 **문제 세부 정보** 를 엽니다. **세부 정보 제공** 을 선택 하 여 추가 정보를 제공 합니다.
 
    ![요청에 도움을 주는 세부 정보 제공](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. **할당량 정보**에서 **클래식** 을 선택 하 고 **위치**를 선택 합니다.
+1. **할당량 정보** 에서 **클래식** 을 선택 하 고 **위치** 를 선택 합니다.
 
    ![배포 모델 및 위치를 포함 하는 세부 정보 추가](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-1. **Sku 제품군**에 대해 늘리려면 sku 제품군을 하나 이상 선택 합니다.
+1. **Sku 제품군** 에 대해 늘리려면 sku 제품군을 하나 이상 선택 합니다.
 
    ![늘릴 SKU 제품군 지정](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
@@ -70,7 +69,7 @@ Azure Portal에서 **도움말 + 지원을** 사용 하 여 지원 요청을 만
 
 Azure Portal에서 **사용량 + 할당량** 을 사용 하 여 지원 요청을 만들려면 아래 지침을 따르세요.
 
-1. [Azure Portal](https://portal.azure.com)에서 **구독**을 검색 하 고 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **구독** 을 검색 하 고 선택 합니다.
 
    ![Azure Portal의 구독으로 이동](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
@@ -78,23 +77,23 @@ Azure Portal에서 **사용량 + 할당량** 을 사용 하 여 지원 요청을
 
    ![수정할 구독 선택](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
-1. **사용량 + 할당량**을 선택 합니다.
+1. **사용량 + 할당량** 을 선택 합니다.
 
    ![구독에 대 한 사용 및 할당량 선택](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
 
-1. 오른쪽 위의 모서리에서 **요청 증가**를 선택 합니다.
+1. 오른쪽 위의 모서리에서 **요청 증가** 를 선택 합니다.
 
    ![할당량을 늘리려면 선택 합니다.](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. **할당량 유형**으로 **계산 VM (코어-vcpus) 구독 제한을 늘립니다** .를 선택 합니다.
+1. **할당량 유형** 으로 **계산 VM (코어-vcpus) 구독 제한을 늘립니다** .를 선택 합니다.
 
    ![할당량 유형 선택](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. **다음: 솔루션** 을 선택 하 여 **문제 세부 정보**를 엽니다. **세부 정보 제공** 을 선택 하 여 추가 정보를 제공 합니다.
+1. **다음: 솔루션** 을 선택 하 여 **문제 세부 정보** 를 엽니다. **세부 정보 제공** 을 선택 하 여 추가 정보를 제공 합니다.
 
    ![요청에 대 한 세부 정보 제공](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-1. **할당량 정보**에서 **클래식** 및 **위치**를 선택 합니다.
+1. **할당량 정보** 에서 **클래식** 및 **위치** 를 선택 합니다.
 
    ![배포 모델 및 위치를 포함 하 여 할당량 세부 정보 선택](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 

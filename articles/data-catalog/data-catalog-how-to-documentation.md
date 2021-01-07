@@ -7,22 +7,22 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 3674c316e34b1e54ed8282ac7d2c228a2b774c06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081222"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019024"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본을 문서화하는 방법
 
 ## <a name="introduction"></a>소개
-**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure Data Catalog** 는 사람들이 데이터 원본을 검색하고 *이해*하고 사용하도록 하면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다.
+**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure Data Catalog** 는 사람들이 데이터 원본을 검색하고 *이해* 하고 사용하도록 하면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다.
 
-**Azure Data Catalog**를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다. **Azure Data Catalog** 를 사용하면 사용자에게 데이터 원본에 대한 사용 현황 및 일반적인 시나리오를 설명할 수 있는 고유한 전체 설명서를 제공할 수도 있습니다.
+**Azure Data Catalog** 를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다. **Azure Data Catalog** 를 사용하면 사용자에게 데이터 원본에 대한 사용 현황 및 일반적인 시나리오를 설명할 수 있는 고유한 전체 설명서를 제공할 수도 있습니다.
 
 [데이터 원본에 주석을 추가하는 방법](data-catalog-how-to-annotate.md)에서는 데이터 원본에 익숙한 전문가가 태그와 설명이 있는 주석을 추가할 수 있다는 점을 배웁니다. **Azure Data Catalog** 포털은 사용자가 데이터 자산 및 컨테이너를 완벽하게 문서화할 수 있도록 다양한 텍스트 편집기를 포함합니다. 편집기에는 제목, 텍스트 서식, 글머리 기호 목록, 번호 매기기 목록 및 테이블 등 단락 서식이 포함되어 있습니다.
 
-태그와 설명은 간단한 주석에 유용합니다. 그러나 데이터 원본의 사용, 데이터 원본에 대한 비즈니스 시나리오를 더 잘 이해하도록 데이터 소비자를 돕기 위해 전문가는 자세한 전체 설명서를 제공할 수 있습니다. 데이터 원본을 문서화하는 것이 쉽습니다. 데이터 자산 또는 컨테이너를 선택하고 **설명서**를 선택합니다.
+태그와 설명은 간단한 주석에 유용합니다. 그러나 데이터 원본의 사용, 데이터 원본에 대한 비즈니스 시나리오를 더 잘 이해하도록 데이터 소비자를 돕기 위해 전문가는 자세한 전체 설명서를 제공할 수 있습니다. 데이터 원본을 문서화하는 것이 쉽습니다. 데이터 자산 또는 컨테이너를 선택하고 **설명서** 를 선택합니다.
 
 ![Data Catalog의 설명서 탭](media/data-catalog-documentation/data-catalog-documentation.png)
 

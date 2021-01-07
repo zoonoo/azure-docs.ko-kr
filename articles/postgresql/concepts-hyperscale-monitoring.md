@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 30be9cbba7fe702d12285fe13794290c4820fd53
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690411"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487996"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>모니터링 및 조정 Azure Database for PostgreSQL-Hyperscale (Citus)
 
@@ -22,17 +22,17 @@ ms.locfileid: "88690411"
 
 Hyperscale (Citus)은 서버 그룹의 각 노드에 대 한 메트릭을 제공 합니다. 메트릭은 지원 리소스의 동작에 대 한 통찰력을 제공 합니다. 각 메트릭은 1분 빈도로 내보내지며, 최대 30일 동안 기록됩니다.
 
-메트릭의 그래프를 보는 것 외에도 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-hyperscale-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요.  다른 작업에는 자동화 된 작업 설정, 고급 분석 실행 및 기록 보관이 포함 됩니다. 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
+메트릭의 그래프를 보는 것 외에도 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-hyperscale-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요.  다른 작업에는 자동화 된 작업 설정, 고급 분석 실행 및 기록 보관이 포함 됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 
 이러한 메트릭은 Citus (Hyperscale) 노드에 사용할 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|Description|
+|메트릭|메트릭 표시 이름|단위|설명|
 |---|---|---|---|
 |active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
-|IOPS|IOPS|개수|[IOPS 정의](../virtual-machines/premium-storage-performance.md#iops) 및 [처리량 크기 조정](concepts-hyperscale-configuration-options.md) 을 참조 하세요.|
+|IOPS|IOPS|개수|[IOPS 정의](../virtual-machines/premium-storage-performance.md#iops) 및 [Citus (hyperscale) 처리량](concepts-hyperscale-configuration-options.md) 참조|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|

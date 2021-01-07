@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c06fb0830ae709918b668ed60efbaaf47a63ce84
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533906"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842841"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 
@@ -38,7 +38,7 @@ Azure를 통해 공유 되는 물리적 인프라에서 응용 프로그램 및 
 
 ### <a name="azure-tenancy"></a>Azure 테넌트
 
-Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)에서 "고객/청구" 관계 및 고유한 [테넌트](../../active-directory/develop/quickstart-create-new-tenant.md)를 나타냅니다. Microsoft Azure의 테넌트 수준 격리는 Azure Active Directory 및 이 서비스에서 제공하는 [역할 기반 제어](../../role-based-access-control/overview.md)를 사용하여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
+Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)에서 "고객/청구" 관계 및 고유한 [테넌트](../../active-directory/develop/quickstart-create-new-tenant.md)를 나타냅니다. Microsoft Azure의 테 넌 트 수준 격리는 Azure Active Directory 및 it에서 제공 하는 [Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md) 를 사용 하 여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
 
 사용자, 그룹 및 해당 디렉터리에서 애플리케이션은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
 
@@ -52,9 +52,9 @@ Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory
 
 - Azure AD 서비스를 구성하고 Azure AD의 백 엔드 시스템에 직접 액세스하는 서버에 대한 물리적 액세스가 제한됩니다.
 
-- Azure AD 사용자는 물리적 자산 또는 위치에 액세스할 수 없으므로 다음과 같은 논리적 RBAC 정책 검사를 무시할 수 없습니다.
+- Azure AD 사용자는 물리적 자산이 나 위치에 액세스할 수 없으므로 다음과 같은 논리 Azure RBAC 정책 검사를 무시할 수 없습니다.
 
-진단 및 유지 관리 요구 사항에 따라 Just-In-Time 권한 상승 시스템을 사용하는 작업 모델이 필요하고 사용됩니다. PIM (Azure AD Privileged Identity Management)은 적격 관리자의 개념을 소개 합니다. [적격 관리자](../../active-directory/privileged-identity-management/pim-configure.md) 는 현재 권한 있는 액세스가 필요한 사용자 여야 하지만 매일은 아닙니다. 역할은 사용자가 액세스가 필요할 때까지 비활성으로 있다가, 활성화 프로세스를 완료하고 미리 정해진 시간 동안 활성 관리자가 됩니다.
+진단 및 유지 관리 요구 사항에 따라 Just-In-Time 권한 상승 시스템을 사용하는 작업 모델이 필요하고 사용됩니다. PIM (Azure AD Privileged Identity Management)은 적격 관리자의 개념을 소개 합니다. [적격 관리자](../../active-directory/privileged-identity-management/pim-configure.md) 는 현재 권한 있는 액세스가 필요한 사용자 여야 하며 매일은 아닙니다. 역할은 사용자가 액세스가 필요할 때까지 비활성으로 있다가, 활성화 프로세스를 완료하고 미리 정해진 시간 동안 활성 관리자가 됩니다.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -64,7 +64,7 @@ Azure Active Directory는 테넌트에서만 소유하고 관리하는 컨테이
 
 여러 Azure Active Directory 테넌트의 메타데이터가 동일한 물리적 디스크에 저장되어있는 경우에도 디렉터리 서비스에서 정의된 것 이외의 컨테이너 간에는 아무 관계가 없으므로 디렉터리 서비스에서 테넌트를 결정합니다.
 
-### <a name="azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 access control (Azure RBAC)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
 
 Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 를 사용 하면 azure에 대 한 세분화 된 액세스 관리를 제공 하 여 azure 구독 내에서 사용 가능한 다양 한 구성 요소를 공유할 수 있습니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
 
@@ -74,23 +74,23 @@ Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할�
 
 - **참가자** 는 모든 유형의 Azure 리소스를 만들고 관리할 수 있지만 다른 사용자에 게 액세스 권한을 부여할 수는 없습니다.
 
-- **읽기 권한자** 는 기존 Azure 리소스를 볼 수 있습니다.
+- **판독기** 는 기존 Azure 리소스를 볼 수 있습니다.
 
-![Azure 역할 기반 access control (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
+![Azure RBAC(Azure 역할 기반 액세스 제어)](./media/isolation-choices/azure-isolation-fig3.png)
 
 Azure의 나머지 Azure 역할은 특정 Azure 리소스의 관리를 허용 합니다. 예를 들어 Virtual Machine 참여자 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 가상 머신이 연결되는 Azure Virtual Network 또는 서브넷에 대한 액세스 권한을 부여하지 않습니다.
 
-[RBAC 기본 제공 역할](../../role-based-access-control/built-in-roles.md)은 Azure에서 사용할 수 있는 역할을 나열합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 빌드하는 방법을 참조하세요.
+[Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 은 azure에서 사용할 수 있는 역할을 나열 합니다. 각 기본 제공 역할이 사용자에게 부여하는 작업 및 범위를 지정합니다. 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 [Azure RBAC에서 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 빌드하는 방법을 참조하세요.
 
 Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 
 - Azure AD는 호스팅되는 위치에 관계 없이 SaaS 애플리케이션에 SSO를 사용할 수 있게 합니다. 애플리케이션 일부는 Azure AD를 사용하여 페더레이션되고 나머지는 암호 SSO를 사용합니다. 페더레이션된 응용 프로그램은 사용자 프로 비전 및 [암호 보관](https://www.techopedia.com/definition/31415/password-vault)을 지원할 수도 있습니다.
 
-- [Azure Storage](https://azure.microsoft.com/services/storage/)의 데이터 액세스는 인증을 통해 제어됩니다. 각 스토리지 계정에는 기본 키([스토리지 계정 키](../../storage/common/storage-create-storage-account.md) 또는 SAK) 및 보조 비밀 키(공유 액세스 서명 또는 SAS)가 있습니다.
+- [Azure Storage](https://azure.microsoft.com/services/storage/)의 데이터 액세스는 인증을 통해 제어됩니다. 각 스토리지 계정에는 기본 키([스토리지 계정 키](../../storage/common/storage-account-create.md) 또는 SAK) 및 보조 비밀 키(공유 액세스 서명 또는 SAS)가 있습니다.
 
-- Azure AD는 온-프레미스 디렉터리와 함께 [Active Directory Federation Services](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), 동기화 및 복제를 사용하여 페더레이션을 통해 IaaS(Identity as a Service)를 제공합니다.
+- Azure AD는 온-프레미스 디렉터리와 함께 [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), 동기화 및 복제를 사용하여 페더레이션을 통해 IaaS(Identity as a Service)를 제공합니다.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md)은 사용자에게 모바일 앱, 전화 통화 또는 문자 메시지를 사용하여 로그인을 검증하도록 요구하는 다단계 인증 서비스입니다. Azure AD와 함께 사용할 수 있으며 Azure Multi-Factor Authentication 서버를 통해 온-프레미스 리소스의 보안을 유지하도록 도와주며, SDK를 사용하여 사용자 지정 애플리케이션 및 디렉터리와도 사용될 수 있습니다.
+- [AZURE AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) 는 사용자가 모바일 앱, 전화 통화 또는 문자 메시지를 사용 하 여 로그인을 확인 해야 하는 다단계 인증 서비스입니다. Azure AD와 함께 사용할 수 있으며 Azure Multi-Factor Authentication 서버를 통해 온-프레미스 리소스의 보안을 유지하도록 도와주며, SDK를 사용하여 사용자 지정 애플리케이션 및 디렉터리와도 사용될 수 있습니다.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/)를 사용하면 도메인 컨트롤러를 배포하지 않고도 Azure 가상 머신이 도메인에 가입될 수 있습니다. 이러한 가상 머신에 회사 Active Directory 자격 증명을 사용하여 로그인하고 모든 Azure Virtual Machines에 보안 기준을 적용하도록 그룹 정책을 사용하여 도메인에 가입된 가상 머신을 관리할 수 있습니다.
 
@@ -119,7 +119,7 @@ Microsoft Azure는 애플리케이션 또는 엔터프라이즈의 요구 사항
 
 ### <a name="dedicated-hosts"></a>전용 호스트
 
-이전 섹션에서 설명한 isolated 호스트 외에도 Azure는 전용 호스트를 제공 합니다. Azure의 전용 호스트는 하나 이상의 가상 컴퓨터를 호스팅할 수 있는 물리적 서버 및 단일 Azure 구독 전용 서비스를 제공 하는 서비스입니다. 전용 호스트는 물리적 서버 수준에서 하드웨어 격리를 제공 합니다. 다른 Vm은 호스트에 배치 되지 않습니다. 전용 호스트는 동일한 데이터 센터에 배포 되며 동일한 네트워크 및 기본 저장소 인프라를 격리 되지 않은 다른 호스트로 공유 합니다. 자세한 내용은 [Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)의 상세 개요를 참조 하세요.
+이전 섹션에서 설명한 isolated 호스트 외에도 Azure는 전용 호스트를 제공 합니다. Azure의 전용 호스트는 하나 이상의 가상 컴퓨터를 호스팅할 수 있는 물리적 서버 및 단일 Azure 구독 전용 서비스를 제공 하는 서비스입니다. 전용 호스트는 물리적 서버 수준에서 하드웨어 격리를 제공 합니다. 다른 Vm은 호스트에 배치 되지 않습니다. 전용 호스트는 동일한 데이터 센터에 배포 되며 동일한 네트워크 및 기본 저장소 인프라를 격리 되지 않은 다른 호스트로 공유 합니다. 자세한 내용은 [Azure 전용 호스트](../../virtual-machines/dedicated-hosts.md)의 상세 개요를 참조 하세요.
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
 
@@ -190,11 +190,11 @@ FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 
 
 ### <a name="isolation-using-storage-access-control"></a>스토리지 액세스 제어를 사용한 격리
 
-**Azure Storage의 Access Control**에는 간단한 액세스 제어 모델이 있습니다. Azure 구독마다 하나 이상의 Storage 계정을 만들 수 있습니다. 각 Storage 계정에는 해당 Storage 계정의 모든 데이터에 대한 액세스를 제어하는 데 사용되는 단일 비밀 키가 있습니다.
+**Azure Storage의 Access Control** 에는 간단한 액세스 제어 모델이 있습니다. Azure 구독마다 하나 이상의 Storage 계정을 만들 수 있습니다. 각 Storage 계정에는 해당 Storage 계정의 모든 데이터에 대한 액세스를 제어하는 데 사용되는 단일 비밀 키가 있습니다.
 
 ![스토리지 액세스 제어를 사용한 격리](./media/isolation-choices/azure-isolation-fig9.png)
 
-**Azure Storage 데이터(테이블 포함)** 는 범위가 지정된 액세스 권한을 부여하는 [SAS(공유 액세스 서명)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 토큰을 통해 제어할 수 있습니다. SAS는 [SAK(Storage 계정 키)](https://msdn.microsoft.com/library/azure/ee460785.aspx)로 서명된 쿼리 템플릿(URL)을 통해 만들어집니다. [서명된 URL](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)은 다른 프로세스(즉, 위임된 프로세스)에 제공할 수 있으며, 이 경우 쿼리의 세부 정보를 채우고 스토리지 서비스를 요청할 수 있습니다. SAS를 사용하면 스토리지 계정의 비밀 키를 공개하지 않고 클라이언트에 시간 기반 액세스 권한을 부여할 수 있습니다.
+**Azure Storage 데이터(테이블 포함)** 는 범위가 지정된 액세스 권한을 부여하는 [SAS(공유 액세스 서명)](../../storage/common/storage-sas-overview.md) 토큰을 통해 제어할 수 있습니다. SAS는 [SAK(Storage 계정 키)](/previous-versions/azure/reference/ee460785(v=azure.100))로 서명된 쿼리 템플릿(URL)을 통해 만들어집니다. [서명된 URL](../../storage/common/storage-sas-overview.md)은 다른 프로세스(즉, 위임된 프로세스)에 제공할 수 있으며, 이 경우 쿼리의 세부 정보를 채우고 스토리지 서비스를 요청할 수 있습니다. SAS를 사용하면 스토리지 계정의 비밀 키를 공개하지 않고 클라이언트에 시간 기반 액세스 권한을 부여할 수 있습니다.
 
 SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 스토리지 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 이러한 제한된 권한을 부여할 수 있습니다.
 
@@ -225,13 +225,13 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 
 - [Storage 서비스 암호화](../../storage/blobs/security-recommendations.md) 를 사용하면 Storage 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
 - 또한 [클라이언트 쪽 암호화](../../storage/blobs/security-recommendations.md) 는 미사용 암호화 기능을 제공 합니다.
-- [Azure 디스크 암호화](../azure-security-disk-encryption-overview.md) 를 사용하면 IaaS 가상 머신에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
+- [Azure 디스크 암호화](./azure-disk-encryption-vms-vmss.md) 를 사용하면 IaaS 가상 머신에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
-#### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-VM(가상 머신)에 대해 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md)를 사용하면 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에서 제어하는 키와 정책으로 VM 디스크(부팅 및 데이터 디스크 포함)를 암호화하여 조직의 보안 및 규정 준수 요구 사항을 처리할 수 있습니다.
+VM(가상 머신)에 대해 [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md)를 사용하면 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에서 제어하는 키와 정책으로 VM 디스크(부팅 및 데이터 디스크 포함)를 암호화하여 조직의 보안 및 규정 준수 요구 사항을 처리할 수 있습니다.
 
-Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 기반으로 하고, Linux 솔루션은 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 기반으로 합니다.
+Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 암호화](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11))를 기반으로 하고, Linux 솔루션은 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 기반으로 합니다.
 
 이 솔루션은 Microsoft Azure에서 사용되도록 설정될 경우 IaaS VM에 대해 다음 시나리오를 지원합니다.
 
@@ -243,7 +243,7 @@ Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 �
 - Windows 클라이언트 OS를 실행하는 IaaS VM에서 암호화 사용
 - 탑재 경로가 있는 볼륨에서 암호화 사용
 - [Mdadm](https://en.wikipedia.org/wiki/Mdadm) 을 사용 하 여 디스크 스트라이프 (RAID)로 구성 된 Linux vm에서 암호화 사용
-- 데이터 디스크에 대해 [LVM(논리 볼륨 관리자)](https://msdn.microsoft.com/library/windows/desktop/bb540532)을 사용하여 Linux VM에서 암호화 사용
+- 데이터 디스크에 대해 [LVM(논리 볼륨 관리자)](/windows/win32/fileio/about-volume-management)을 사용하여 Linux VM에서 암호화 사용
 - 스토리지 공간을 사용하여 구성된 Windows VM에서 암호화 사용
 - 모든 Azure 공용 지역 지원됨
 

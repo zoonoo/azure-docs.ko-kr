@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 426220f38e6ddfaaf8b24bf4f7d34473d881ae56
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245605"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -25,7 +25,7 @@ ms.locfileid: "86245605"
 | 삭제 | 기존 Service Fabric 서비스를 삭제합니다. |
 | deployed-type | Service Fabric 클러스터의 노드에 배포된 애플리케이션의 지정된 서비스 유형에 대한 정보를 가져옵니다. |
 | deployed-type-list | Service Fabric 클러스터의 노드에 배포된 애플리케이션의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다. |
-| 설명 | 기존 Service Fabric서비스에 대한 설명을 가져옵니다. |
+| description | 기존 Service Fabric서비스에 대한 설명을 가져옵니다. |
 | get-container-logs | Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를 가져옵니다. |
 | health | 지정된 Service Fabric 서비스의 상태를 가져옵니다. |
 | 정보 | Service Fabric 애플리케이션에 속하는 특정 서비스에 대한 정보를 가져옵니다. |

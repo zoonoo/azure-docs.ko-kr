@@ -7,15 +7,15 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 70be8d8be48f2b1e1cc275c06e4abff09e3e62f6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036354"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498577"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
 
@@ -26,7 +26,7 @@ ms.locfileid: "88036354"
 
 ## <a name="roles-and-requirements"></a>역할 및 요구 사항
 
-Data Factory 인스턴스를 만들려면 Azure에 로그인 하는 데 사용 하는 사용자 계정이 *참가자* 역할, *소유자* 역할 또는 azure 구독의 *관리자* 의 구성원 이어야 합니다. 구독에 있는 권한을 보려면 Azure Portal에서 오른쪽 위 모서리에 있는 사용자 이름을 선택한 다음, **권한**을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 
+Data Factory 인스턴스를 만들려면 Azure에 로그인 하는 데 사용 하는 사용자 계정이 *참가자* 역할, *소유자* 역할 또는 azure 구독의 *관리자* 의 구성원 이어야 합니다. 구독에 있는 권한을 보려면 Azure Portal에서 오른쪽 위 모서리에 있는 사용자 이름을 선택한 다음, **권한** 을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 
 
 데이터 세트, 연결된 서비스, 파이프라인, 트리거 및 통합 런타임을 포함하여 Data Factory에 대한 자식 리소스를 만들고 관리하려면 다음 요구 사항을 적용해야 합니다.
 - Azure Portal에서 자식 리소스를 만들고 관리 하려면 **리소스 그룹** 수준 이상의 **Data Factory 참여자** 역할에 속해야 합니다.

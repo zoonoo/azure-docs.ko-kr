@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b04b9ababfe0e4c2a60d14044b9d3ee120837dc5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077374"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491046"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
-서비스 사용자는 무인 리소스 및 서비스 수준 작업을 수행하도록 테넌트 내에서 만드는 Azure Active Directory 애플리케이션 리소스입니다. 애플리케이션 ID 및 암호 또는 인증서가 있는 고유한 형식의 *사용자 ID*입니다. 서비스 사용자는 할당된 역할 및 사용 권한으로 정의된 작업을 수행하는 데 필요한 권한만 갖습니다. 
+서비스 사용자는 무인 리소스 및 서비스 수준 작업을 수행하도록 테넌트 내에서 만드는 Azure Active Directory 애플리케이션 리소스입니다. 애플리케이션 ID 및 암호 또는 인증서가 있는 고유한 형식의 *사용자 ID* 입니다. 서비스 사용자는 할당된 역할 및 사용 권한으로 정의된 작업을 수행하는 데 필요한 권한만 갖습니다. 
 
 Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화하는 Azure Automation, PowerShell 무인 모드, 사용자 지정 클라이언트 애플리케이션 및 웹앱에 사용됩니다. 예를 들어 서버 프로비전, 모델 배포, 데이터 새로 고침, 규모 확대/축소 및 일시 중지/다시 시작은 모두 서비스 사용자를 사용하여 자동화될 수 있습니다. 일반 Azure AD UPN 계정과 매우 유사하게 권한은 역할 멤버 자격을 통해 서비스 사용자에게 할당됩니다.
 
@@ -33,8 +33,8 @@ Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화�
 
 서비스 사용자 자격 증명 및 인증서는 Runbook 작업에 대해 Azure Automation에서 안전하게 저장될 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-[Azure Automation의 자격 증명 자산](../automation/automation-credentials.md)   
-[Azure Automation의 인증서 자산](../automation/automation-certificates.md)
+[Azure Automation의 자격 증명 자산](../automation/shared-resources/credentials.md)   
+[Azure Automation의 인증서 자산](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>서버 관리자 역할에 서비스 사용자 추가
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO 및 ADOMD 
 
-클라이언트 애플리케이션 및 웹앱에 연결할 때 NuGet의 [AMO 및 ADOMD 클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) 버전 15.0.2 이상 설치 가능한 패키지는 다음 구문 `app:AppID` 및 암호 또는 `cert:thumbprint`를 사용하여 연결 문자열에서 서비스 사용자를 지원합니다. 
+클라이언트 애플리케이션 및 웹앱에 연결할 때 NuGet의 [AMO 및 ADOMD 클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) 버전 15.0.2 이상 설치 가능한 패키지는 다음 구문 `app:AppID` 및 암호 또는 `cert:thumbprint`를 사용하여 연결 문자열에서 서비스 사용자를 지원합니다. 
 
 다음 예제에서는 `appID` 및 `password`가 모델 데이터베이스 새로 고침 작업을 수행하는 데 사용됩니다.
 
@@ -109,8 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[Azure PowerShell로 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Azure PowerShell로 로그인](/powershell/azure/authenticate-azureps)   
 [Logic Apps를 사용하여 새로 고침](analysis-services-refresh-logic-app.md)  
 [Azure Automation을 사용하여 새로 고침](analysis-services-refresh-azure-automation.md)  
 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)  
-[서비스 주체를 사용하여 Power BI Premium 작업 영역 및 데이터 세트 태스크 자동화](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[서비스 주체를 사용하여 Power BI Premium 작업 영역 및 데이터 세트 태스크 자동화](/power-bi/admin/service-premium-service-principal)

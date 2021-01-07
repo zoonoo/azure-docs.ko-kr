@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: ddc9dbf77c04ea95e5b873c45de4c0df109514c7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458385"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544448"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
@@ -236,8 +236,8 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 
 ## <a name="next-steps"></a>다음 단계
 
-C#에서 Microsoft Azure Storage 사용에 대한 자세한 내용은 [.NET용 Microsoft Azure Storage Client Library](https://msdn.microsoft.com/library/azure/dn261237.aspx)를 참조하세요.
+C#에서 Microsoft Azure Storage 사용에 대한 자세한 내용은 [.NET용 Microsoft Azure Storage Client Library](/previous-versions/azure/dn261237(v=azure.100))를 참조하세요.
 
-Blob REST API에 대한 자세한 내용은 [Blob 서비스 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)를 참조하세요.
+Blob REST API에 대한 자세한 내용은 [Blob 서비스 REST API](/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
-Microsoft Azure Storage에 관한 최신 정보를 보려면 [Microsoft Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)로 이동하세요.
+Microsoft Azure Storage에 관한 최신 정보를 보려면 [Microsoft Azure Storage Team Blog](/archive/blogs/windowsazurestorage/)로 이동하세요.

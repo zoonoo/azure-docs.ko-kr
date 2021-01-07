@@ -1,17 +1,17 @@
 ---
 title: Query Performance Insight - Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL의 Query Performance Insight 기능을 설명합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 30457b950e6400c799f35924e7b2ee90d868a465
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884899"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535183"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Azure Database for MySQL의 Query Performance Insight
 
@@ -33,7 +33,7 @@ Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼�
 
 ## <a name="permissions"></a>사용 권한
 
-Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자**는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
+Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자** 는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -43,7 +43,7 @@ Query Performance Insight가 작동하려면 [쿼리 저장소](concepts-query-s
 
 Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.md) 보기에는 쿼리 저장소의 핵심 정보가 시각화되어 표시됩니다.
 
-Azure Database for MySQL 서버의 포털 페이지에서 메뉴 모음의 **지능형 성능** 섹션 아래에 있는 **Query Performance Insight**를 선택합니다.
+Azure Database for MySQL 서버의 포털 페이지에서 메뉴 모음의 **지능형 성능** 섹션 아래에 있는 **Query Performance Insight** 를 선택합니다.
 
 ### <a name="long-running-queries"></a>장기 실행 쿼리
 

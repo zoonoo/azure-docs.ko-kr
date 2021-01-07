@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816459"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543103"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: 클러스터 생성 오류
 
@@ -24,7 +24,7 @@ ms.locfileid: "88816459"
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>오류 코드: DeploymentDocument ' CsmDocument_2_0 '이 (가) 유효성 검사에 실패 했습니다.
 
-**오류**: "스크립트 작업 위치에는 URI를 액세스할 수 없습니다. \<SCRIPT ACTION URL\> "
+**오류** : "스크립트 작업 위치에는 URI를 액세스할 수 없습니다. \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>오류 메시지 1
 
@@ -141,7 +141,7 @@ NSG (네트워크 보안 그룹)의 방화벽 규칙이 중요 한 Azure 상태 
 네트워크 보안 그룹을 사용 하 여 네트워크 트래픽을 제어 하려는 경우 HDInsight를 설치 하기 전에 다음 작업을 수행 합니다.
 
 - HDInsight에 대해 사용할 Azure 지역을 식별합니다.
-- HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조하세요.
+- HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)를 참조하세요.
   - HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다.
   - 네트워크 보안 그룹의 경우 IP 주소에서 포트 443에 대 한 인바운드 트래픽을 허용 합니다. 이 구성을 통해 HDInsight management services가 가상 네트워크 외부에서 클러스터에 연결할 수 있습니다.
 
@@ -172,7 +172,7 @@ Id를 관리 하는 데 필요한 권한을 제공 하지 않았습니다. 사�
 
 ### <a name="error"></a>오류
 
-"네트워크 보안 그룹/subscriptions/ \<SubscriptionID\> /stggg/<리소스 그룹 이름에는 \> default/Providers/networkSecurityGroups//Subscriptions//RG-westeurope-vnet-tomtom-default//subnets// \<Network Security Group Name\> 를 사용 하 여 구성 하 고, \<SubscriptionID\> \<Resource Group name\> \<Virtual Network Name\> \<Subnet Name\> 필수 인바운드 및/또는 아웃 바운드 연결을 허용 하지 않습니다. 자세한 내용은 [Azure HDInsight에 대 한 가상 네트워크 계획](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)또는 지원 담당자에 게 문의 하세요. "를 참조 하세요.
+"네트워크 보안 그룹/subscriptions/ \<SubscriptionID\> /stggg/<리소스 그룹 이름에는 \> default/Providers/networkSecurityGroups//Subscriptions//RG-westeurope-vnet-tomtom-default//subnets// \<Network Security Group Name\> 를 사용 하 여 구성 하 고, \<SubscriptionID\> \<Resource Group name\> \<Virtual Network Name\> \<Subnet Name\> 필수 인바운드 및/또는 아웃 바운드 연결을 허용 하지 않습니다. 자세한 내용은 [Azure HDInsight에 대 한 가상 네트워크 계획](./hdinsight-plan-virtual-network-deployment.md)또는 지원 담당자에 게 문의 하세요. "를 참조 하세요.
 
 ### <a name="cause"></a>원인
 
@@ -182,8 +182,8 @@ Id를 관리 하는 데 필요한 권한을 제공 하지 않았습니다. 사�
 
 네트워크 보안 그룹을 사용 하 여 네트워크 트래픽을 제어 하려는 경우 HDInsight를 설치 하기 전에 다음 작업을 수행 합니다.
 
-- HDInsight에 사용할 Azure 지역을 식별 하 고 해당 지역의 IP 주소에 대 한 안전한 목록을 만듭니다. 자세한 내용은 [상태 및 관리 서비스: 특정 지역](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions)을 참조 하세요.
-- HDInsight에 필요한 IP 주소를 식별 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조 하세요.
+- HDInsight에 사용할 Azure 지역을 식별 하 고 해당 지역의 IP 주소에 대 한 안전한 목록을 만듭니다. 자세한 내용은 [상태 및 관리 서비스: 특정 지역](./hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions)을 참조 하세요.
+- HDInsight에 필요한 IP 주소를 식별 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)를 참조 하세요.
 - HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다. 네트워크 보안 그룹의 경우 IP 주소에서 포트 443에 대 한 인바운드 트래픽을 허용 합니다. 이 구성을 통해 HDInsight management services가 가상 네트워크 외부에서 클러스터에 연결할 수 있습니다.
 
 ---
@@ -216,7 +216,7 @@ HDInsight 서비스에서 클러스터를 만드는 동안 클러스터에 연�
 
 ### <a name="resolution"></a>해결 방법
 
-사용자 지정 VNet NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로)를 사용 하는 경우 클러스터가 HDInsight 관리 서비스와 통신할 수 있는지 확인 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조 하세요.
+사용자 지정 VNet NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로)를 사용 하는 경우 클러스터가 HDInsight 관리 서비스와 통신할 수 있는지 확인 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)를 참조 하세요.
 
 ---
 
@@ -240,4 +240,4 @@ HDInsight 클러스터를 만드는 동안 구독 기반 Azure Policy 할당을 
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 생성 오류 문제 해결에 대 한 자세한 내용은 [Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails)을 참조 하세요.
+클러스터 생성 오류 문제 해결에 대 한 자세한 내용은 [Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)을 참조 하세요.

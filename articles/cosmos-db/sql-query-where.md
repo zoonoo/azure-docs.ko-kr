@@ -3,17 +3,19 @@ title: Azure Cosmos DB의 WHERE 절
 description: Azure Cosmos DB에 대 한 SQL WHERE 절 알아보기
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5620a9fb95fb52a487095afd75d5f30c82a8bce1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523505"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341471"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 WHERE 절
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 선택적인 WHERE 절 ( `WHERE <filter_condition>` )은 원본 JSON 항목이 결과에 포함 하기 위해 쿼리를 위해 충족 해야 하는 조건을 지정 합니다. JSON 항목은 `true` 결과에 대해 고려할 지정 된 조건을 평가 해야 합니다. 인덱스 계층은 WHERE 절을 사용 하 여 결과에 포함 될 수 있는 소스 항목의 가장 작은 하위 집합을 결정 합니다.
   
@@ -41,7 +43,7 @@ WHERE <filter_condition>
 
   일치 필터의 일부로 절에 파티션 키를 포함 하는 경우 `WHERE` 쿼리는 관련 파티션만 자동으로 필터링 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 쿼리는 값이 인 속성을 포함 하는 항목을 요청 합니다 `id` `AndersenFamily` . 속성이 없거나 해당 값이 일치 하지 않는 항목은 제외 `id` `AndersenFamily` 됩니다.
 
@@ -72,8 +74,8 @@ WHERE <filter_condition>
 |**연산자 유형**  | **값** |
 |---------|---------|
 |산술 | +,-,*,/,% |
-|비트 단위    | \|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) |
-|논리적    | AND, OR, NOT      |
+|비트    | \|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) |
+|논리    | AND, OR, NOT      |
 |비교 | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |String     |  \|\|(연결) |
 

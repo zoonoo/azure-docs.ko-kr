@@ -2,20 +2,20 @@
 title: Data Factory 함수 및 시스템 변수
 description: Azure 데이터 팩터리 함수 및 시스템 변수 목록을 제공합니다.
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b5f91655367e866858a04b941cec4ee61dfe180
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73667660"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495653"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure 데이터 팩터리 - 함수 및 시스템 변수
 > [!NOTE]
@@ -37,7 +37,7 @@ ms.locfileid: "73667660"
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>시스템 변수 사용 예제
-다음 예제에서 **SliceStart**의 연도, 월, 일 및 시간은 **folderPath** 및 **fileName** 속성에서 사용하는 별도 변수로 추출됩니다.
+다음 예제에서 **SliceStart** 의 연도, 월, 일 및 시간은 **folderPath** 및 **fileName** 속성에서 사용하는 별도 변수로 추출됩니다.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -61,7 +61,7 @@ ms.locfileid: "73667660"
    
     $$는 입력 종속성 식을 지정할 때는 필요하지 않습니다.     
 
-다음 샘플에서는 JSON 파일에서 **sqlReaderQuery** 속성을 `Text.Format` 함수가 반환하는 값에 할당합니다. 또한 작업 실행 창의 시작 시간을 나타내는 **WindowStart**라는 시스템 변수도 사용합니다.
+다음 샘플에서는 JSON 파일에서 **sqlReaderQuery** 속성을 `Text.Format` 함수가 반환하는 값에 할당합니다. 또한 작업 실행 창의 시작 시간을 나타내는 **WindowStart** 라는 시스템 변수도 사용합니다.
 
 ```json
 {
@@ -70,9 +70,9 @@ ms.locfileid: "73667660"
 }
 ```
 
-사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)(예: ay 및 yyyy) 토픽을 참조하세요. 
+사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)(예: ay 및 yyyy) 토픽을 참조하세요. 
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>함수
 다음 표에서는 Azure Data Factory의 모든 함수를 보여 줍니다.
 
 | 범주 | 기능 | 매개 변수 | Description |
@@ -227,5 +227,4 @@ SliceStart로 표현된 일 대신 이전 일의 데이터를 읽으려면 다�
 }
 ```
 
-사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx) (예: yy 대 yyyy) 토픽을 참조하세요. 
-
+사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings) (예: yy 대 yyyy) 토픽을 참조하세요.

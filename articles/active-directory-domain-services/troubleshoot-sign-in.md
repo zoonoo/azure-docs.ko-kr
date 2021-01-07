@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에서 로그인 문제 해결 Microsoft Docs
 description: Azure Active Directory Domain Services에서 일반적인 사용자 로그인 문제 및 오류를 해결 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 91c42e391d1a23e9ac494af9271c92e3e9b5d6c4
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: justinha
+ms.openlocfilehash: 85b261b8754f35c7705690d15671144b858c0a43
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722656"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618572"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 계정 로그인 문제 해결
 

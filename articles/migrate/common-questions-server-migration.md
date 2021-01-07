@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate Server 마이그레이션에 대 한 일반적인 질문
 description: Azure Migrate Server 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 방법에 대 한 일반적인 질문에 대 한 답변을 받으세요.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: b0ae28fc387125b198bed202d857c3b9ecdd44bb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1f32e9788b2255be373a4db8c159ef2a6b6ccf04
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050661"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753844"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate 서버 마이그레이션: 일반적인 질문
 
@@ -19,18 +22,40 @@ ms.locfileid: "89050661"
 - [검색, 평가 및 종속성 시각화](common-questions-discovery-assessment.md) 에 대 한 질문
 - [Azure Migrate 포럼](https://aka.ms/AzureMigrateForum) 에서 질문에 대 한 답변 받기
 
+## <a name="does-azure-migrate-convert-uefi-based-machines-to-bios-based-machines-and-migrate-them-to-azure-as-azure-generation-1-vms"></a>UEFI 기반 컴퓨터를 BIOS 기반 컴퓨터로 변환 Azure Migrate 하 고 Azure에 Azure 1 세대 Vm으로 마이그레이션해야 하나요?
+Azure Migrate: 서버 마이그레이션 도구는 모든 UEFI 기반 컴퓨터를 azure 2 세대 Vm으로 Azure로 마이그레이션합니다. UEFI 기반 Vm을 BIOS 기반 Vm으로 변환 하는 것은 더 이상 지원 되지 않습니다. 모든 BIOS 기반 컴퓨터는 Azure 1 세대 Vm 으로만 Azure로 마이그레이션됩니다.
+
+## <a name="how-can-i-migrate-uefi-based-machines-to-azure-as-azure-generation-1-vms"></a>UEFI 기반 컴퓨터를 azure 1 세대 Vm으로 Azure로 마이그레이션하려면 어떻게 하나요?
+Azure Migrate: 서버 마이그레이션 도구는 UEFI 기반 컴퓨터를 azure 2 세대 Vm으로 Azure로 마이그레이션합니다. Azure 1 세대 Vm으로 마이그레이션하려면 복제를 시작 하기 전에 부팅 유형을 BIOS로 변환 하 고 Azure Migrate: 서버 마이그레이션 도구를 사용 하 여 Azure로 마이그레이션합니다.
+ 
+## <a name="which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure"></a>UEFI 기반 컴퓨터를 Azure로 마이그레이션할 때 지원 되는 운영 체제는 무엇 인가요?
+
+| **UEFI 기반 컴퓨터에 대해 지원 되는 운영 체제** | **에이전트 없는 VMware에서 Azure로**                                                                                                             | **에이전트 없는 Hyper-v에서 Azure로** | **Azure에 대 한 에이전트 기반 VMware, 물리적 및 기타 클라우드** |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
+| Windows Server 2019, 2016, 2012 R2, 201                 | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 4.x를 [수동으로 준비](./prepare-for-migration.md#linux-machines) 해야 합니다._   | Y                              | Y                                                          |
+| 센트 OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_운영 체제를 [수동으로 준비](./prepare-for-migration.md#linux-machines) 해야 합니다._ | Y                              | Y                                                          |
+| Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
+
+## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>재해 복구 시나리오에 Azure Migrate 하 여 만든 recovery services 자격 증명 모음을 사용할 수 있나요?
+재해 복구 시나리오의 Azure Migrate에서 만든 recovery services 자격 증명 모음은 사용 하지 않는 것이 좋습니다. 이렇게 하면 Azure Migrate에서 복제 시작이 실패할 수 있습니다. 
+
 ## <a name="where-should-i-install-the-replication-appliance-for-agent-based-migrations"></a>에이전트 기반 마이그레이션의 복제 어플라이언스를 설치 해야 하는 위치는 어디 인가요?
 
-복제 어플라이언스는 전용 컴퓨터에 설치 해야 합니다. 복제하려는 원본 머신이나 이전에 설치한 Azure Migrate 검색 및 평가 어플라이언스에 복제 어플라이언스를 설치하면 안 됩니다. 자세한 내용은 [자습서](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) 를 참조 하세요.
+복제 어플라이언스는 전용 컴퓨터에 설치 해야 합니다. 복제하려는 원본 머신이나 이전에 설치한 Azure Migrate 검색 및 평가 어플라이언스에 복제 어플라이언스를 설치하면 안 됩니다. 자세한 내용은 [자습서](./tutorial-migrate-physical-virtual-machines.md) 를 참조 하세요.
 
 ## <a name="how-can-i-migrate-my-aws-ec2-instances-to-azure"></a>AWS EC2 인스턴스를 Azure로 마이그레이션하려면 어떻게 하나요?
 
-AWS EC2 인스턴스를 검색 하 고, 평가 하 고, Azure로 마이그레이션하려면이 [문서](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines) 를 검토 하세요.
+AWS EC2 인스턴스를 검색 하 고, 평가 하 고, Azure로 마이그레이션하려면이 [문서](./tutorial-migrate-aws-virtual-machines.md) 를 검토 하세요.
 
 ## <a name="can-i-migrate-aws-vms-running-amazon-linux-operating-system"></a>Amazon Linux 운영 체제를 실행 하는 AWS Vm을 마이그레이션할 수 있나요?
 
 Amazon linux OS는 AWS 에서만 지원 되므로 Amazon Linux를 실행 하는 Vm은 있는 그대로 마이그레이션할 수 없습니다.
-Amazon Linux에서 실행 되는 워크 로드를 마이그레이션하려면 Azure에서 CentOS/RHEL VM을 실행 하 고 관련 워크 로드 마이그레이션 방법을 사용 하 여 AWS Linux 컴퓨터에서 실행 되는 워크 로드를 마이그레이션할 수 있습니다. 예를 들어 워크 로드에 따라 웹 서버에 대 한 데이터베이스 또는 배포 도구 등의 마이그레이션에 도움이 되는 워크 로드 별 도구가 있을 수 있습니다.
+Amazon Linux에서 실행되는 워크로드를 마이그레이션하려면 Azure에서 CentOS/RHEL VM을 실행하고 관련 워크로드 마이그레이션 방법을 사용하여 AWS Linux 머신에서 실행되는 워크로드를 마이그레이션할 수 있습니다. 예를 들어 워크로드에 따라 웹 서버에 대한 데이터베이스 또는 배포 도구 등의 마이그레이션에 도움이 되는 워크로드별 도구가 있을 수 있습니다.
 
 ## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Azure Migrate로 마이그레이션에 대해 지원 되는 지역은 무엇 인가요?
 
@@ -57,18 +82,18 @@ Azure Migrate: 서버 마이그레이션 도구는 Azure에 대 한 원본 서�
 마이그레이션 옵션을 결정 하는 동안 염두에 두어야 할 몇 가지 고려 사항은 다음과 같습니다.
 
 **에이전트 없는 마이그레이션은** 마이그레이션하는 원본 v m/서버에 소프트웨어 (에이전트)를 배포할 필요가 없습니다. 에이전트 없는 옵션은 가상화 공급자가 제공 하는 기능과 통합 하 여 복제를 오케스트레이션 합니다.
-[VMware vm](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) 및 [hyper-v Vm](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v)에는 에이전트 없는 복제 옵션을 사용할 수 있습니다.
+[VMware vm](./tutorial-migrate-vmware.md) 및 [hyper-v Vm](./tutorial-migrate-hyper-v.md)에는 에이전트 없는 복제 옵션을 사용할 수 있습니다.
 
 **에이전트 기반 마이그레이션을 사용** 하려면 마이그레이션할 원본 v m/컴퓨터에 Azure Migrate 소프트웨어 (에이전트)를 설치 해야 합니다. 에이전트 기반 옵션은 복제 기능에 대 한 가상화 플랫폼을 사용 하지 않으므로 x86/x64 아키텍처를 실행 하는 서버와 에이전트 기반 복제 방법에서 지 원하는 운영 체제 버전에 사용 될 수 있습니다.
 
-에이전트 기반 마이그레이션 옵션은 [VMware vm](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), [hyper-v vm](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), [물리적 서버](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), [AWS에서 실행 되는 vm](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines), gcp에서 실행 중인 vm 또는 다른 가상화 공급자에서 실행 되는 vm에 사용할 수 있습니다. 에이전트 기반 마이그레이션은 마이그레이션을 위해 컴퓨터를 물리적 서버로 처리 합니다.
+에이전트 기반 마이그레이션 옵션은 [VMware vm](./tutorial-migrate-vmware-agent.md), [hyper-v vm](./tutorial-migrate-physical-virtual-machines.md), [물리적 서버](./tutorial-migrate-physical-virtual-machines.md), [AWS에서 실행 되는 vm](./tutorial-migrate-aws-virtual-machines.md), gcp에서 실행 중인 vm 또는 다른 가상화 공급자에서 실행 되는 vm에 사용할 수 있습니다. 에이전트 기반 마이그레이션은 마이그레이션을 위해 컴퓨터를 물리적 서버로 처리 합니다.
 
 에이전트 없는 마이그레이션은 지원 되는 시나리오 (VMWare 및 Hyper-v)의 에이전트 기반 복제 옵션에 대 한 추가 편의성과 단순성을 제공 하지만 다음과 같은 사용 사례에 에이전트 기반 시나리오를 사용 하는 것을 고려할 수 있습니다.
 
 - IOPS 제한 환경: 에이전트 없는 복제는 스냅숏을 사용 하 고 저장소 IOPS/대역폭을 소비 합니다. 환경에서 저장소/IOPS에 대 한 제약 조건이 있는 경우 에이전트 기반 마이그레이션 방법을 사용 하는 것이 좋습니다.
 - VCenter Server 없는 경우 VMware Vm을 실제 서버로 처리 하 고 에이전트 기반 마이그레이션 워크플로를 사용할 수 있습니다.
 
-자세히 알아보려면이 [문서](https://docs.microsoft.com/azure/migrate/server-migrate-overview) 를 검토 하 여 VMware 마이그레이션의 마이그레이션 옵션을 비교 하세요.
+자세히 알아보려면이 [문서](./server-migrate-overview.md) 를 검토 하 여 VMware 마이그레이션의 마이그레이션 옵션을 비교 하세요.
 
 ## <a name="how-does-agentless-migration-work"></a>에이전트 없는 마이그레이션은 어떻게 작동 하나요?
 
@@ -79,13 +104,13 @@ Azure Migrate: 서버 마이그레이션은 VMware 가상 컴퓨터 및 Windows 
 가상 컴퓨터에 대해 복제를 구성 하는 경우 먼저 초기 복제 단계를 거칩니다. 초기 복제 중에 VM 스냅숏이 생성 되 고 스냅숏 디스크의 전체 데이터 사본이 구독의 관리 디스크에 복제 됩니다. VM에 대 한 초기 복제가 완료 되 면 복제 프로세스가 증분 복제 (델타 복제) 단계로 전환 됩니다. 증분 복제 단계에서 마지막으로 완료 된 복제 주기 이후에 발생 한 데이터 변경 내용이 정기적으로 복제 되어 복제본 관리 디스크에 적용 되므로 복제가 VM에서 발생 하는 변경 내용과 동기화 된 상태로 유지 됩니다. VMware 가상 컴퓨터의 경우 VMware 변경 된 블록 추적 기술은 복제 주기 간의 변경 내용을 추적 하는 데 사용 됩니다. 복제 주기를 시작할 때 VM 스냅숏이 생성 되 고 변경 된 블록 추적이 현재 스냅숏과 마지막으로 복제 된 스냅숏 간의 변경 내용을 가져오는 데 사용 됩니다. 이렇게 하면 VM에 대 한 복제를 동기화 된 상태로 유지 하기 위해 마지막으로 완료 된 복제 주기 이후에 변경 된 데이터만 복제 해야 합니다. 각 복제 주기가 끝나면 스냅숏이 해제 되 고 가상 머신에 대 한 스냅숏 통합이 수행 됩니다. 마찬가지로 hyper-v 가상 컴퓨터의 경우 Hyper-v 복제본 변경 내용 추적 엔진은 연속 복제 주기 간의 변경 내용을 추적 하는 데 사용 됩니다.
 복제 하는 가상 머신에서 마이그레이션 작업을 수행 하는 경우 온-프레미스 가상 머신을 종료 하 고, 데이터 손실을 방지 하기 위해 최종 증분 복제를 한 번 수행할 수 있습니다. 마이그레이션 옵션을 수행할 때 가상 머신에 해당 하는 복제본 관리 디스크는 Azure에서 가상 머신을 만드는 데 사용 됩니다.
 
-시작 하려면 [VMware 에이전트 없는 마이그레이션](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) 및 [hyper-v 에이전트 없는 마이그레이션](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v) 자습서를 참조 하세요.
+시작 하려면 [VMware 에이전트 없는 마이그레이션](./tutorial-migrate-vmware.md) 및 [hyper-v 에이전트 없는 마이그레이션](./tutorial-migrate-hyper-v.md) 자습서를 참조 하세요.
 
 ## <a name="how-does-agent-based-migration-work"></a>에이전트 기반 마이그레이션은 어떻게 작동 하나요?
 
 VMware 가상 컴퓨터 및 Hyper-v 가상 컴퓨터에 대 한 에이전트 없는 마이그레이션 옵션 외에도 서버 마이그레이션 도구는 물리적 서버에서 실행 되는 Windows 및 Linux 서버를 마이그레이션하거나 VMware, Hyper-v, AWS, Google Cloud Platform 등에서 x86/x64 가상 컴퓨터로 실행 되는 에이전트 기반 마이그레이션 옵션을 제공 합니다.
 
-에이전트 기반 마이그레이션 방법은 마이그레이션되는 서버에 설치 된 에이전트 소프트웨어를 사용 하 여 서버 데이터를 Azure에 복제 합니다. 복제 프로세스는 복제 데이터를 복제 어플라이언스 또는 구성 서버 (또는 스케일 아웃 프로세스 서버) 라고 하는 전용 복제 서버로 릴레이 하는 오프 로드 아키텍처를 사용 합니다. 에이전트 기반 마이그레이션 옵션의 작동 방식에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture) . 
+에이전트 기반 마이그레이션 방법은 마이그레이션되는 서버에 설치 된 에이전트 소프트웨어를 사용 하 여 서버 데이터를 Azure에 복제 합니다. 복제 프로세스는 복제 데이터를 복제 어플라이언스 또는 구성 서버 (또는 스케일 아웃 프로세스 서버) 라고 하는 전용 복제 서버로 릴레이 하는 오프 로드 아키텍처를 사용 합니다. 에이전트 기반 마이그레이션 옵션의 작동 방식에 [대해 자세히 알아보세요](./agent-based-migration-architecture.md) . 
 
 참고: 복제 어플라이언스는 Azure Migrate 검색 기기와 다르며 별도/전용 컴퓨터에 설치 해야 합니다.
 
@@ -105,7 +130,7 @@ VM에 대 한 복제가 시작 되 면 디스크의 전체 복사본이 복제 �
 
 ### <a name="agent-based-vmware-vm-migration"></a>에이전트 기반 VMware VM 마이그레이션
 
-에이전트 기반 복제 방법의 경우 Deployment planner는 데이터 변동에 대 한 환경을 프로 파일링 하 고 필요한 대역폭 요구 사항을 예측 하는 데 도움이 될 수 있습니다. 자세히 알아보려면이 [문서](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture#plan-vmware-deployment)를 참조 하세요. 
+에이전트 기반 복제 방법의 경우 Deployment planner는 데이터 변동에 대 한 환경을 프로 파일링 하 고 필요한 대역폭 요구 사항을 예측 하는 데 도움이 될 수 있습니다. 자세히 알아보려면이 [문서](./agent-based-migration-architecture.md#plan-vmware-deployment)를 참조 하세요. 
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>에이전트 없는 VMware 복제에 Azure Migrate 어플라이언스를 사용 하 여에서 복제를 어떻게 할까요? 제한 하 시겠습니까?  
 
@@ -121,7 +146,7 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 
 ## <a name="how-does-churn-rate-affect-agentless-replication"></a>변동 률은 에이전트 없는 복제에 어떤 영향을 미칩니까?
 
-에이전트 없는 복제는 데이터를 접기 하므로 변동 률 *패턴* 은 *변동 률*보다 더 중요 합니다. 다시 파일을 다시 쓰면 속도가 큰 영향을 주지 않습니다. 그러나 다른 모든 섹터가 기록 되는 패턴은 다음 주기에 높은 변동 (code churn)을 발생 시킵니다. 전송 되는 데이터의 양을 최소화 하기 때문에 다음 주기를 예약 하기 전에 데이터를 최대한 활용할 수 있습니다.
+에이전트 없는 복제는 데이터를 접기 하므로 변동 률 *패턴* 은 *변동 률* 보다 더 중요 합니다. 다시 파일을 다시 쓰면 속도가 큰 영향을 주지 않습니다. 그러나 다른 모든 섹터가 기록 되는 패턴은 다음 주기에 높은 변동 (code churn)을 발생 시킵니다. 전송 되는 데이터의 양을 최소화 하기 때문에 다음 주기를 예약 하기 전에 데이터를 최대한 활용할 수 있습니다.
 
 ## <a name="how-frequently-is-a-replication-cycle-scheduled"></a>복제 주기는 얼마나 자주 예약 됩니까?
 
@@ -131,10 +156,10 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 
 ## <a name="how-do-i-migrate-windows-server-2003-running-on-vmwarehyper-v-to-azure"></a>VMware/Hyper-v에서 실행 되는 Windows Server 2003를 Azure로 마이그레이션할 어떻게 할까요? 있나요?
 
-[Windows Server 2003 연장 지원은](https://go.microsoft.com/fwlink/?linkid=2140400) 2015 년 7 월 14 일에 종료 되었습니다.  Azure 지원 팀은 Azure에서 Windows Server 2003를 실행 하는 문제를 해결 하는 데 도움이 됩니다. 그러나이 지원은 OS 수준 문제 해결 또는 패치가 필요 하지 않은 문제로 제한 됩니다.
+[Windows Server 2003 연장 지원은](/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) 2015 년 7 월 14 일에 종료 되었습니다.  Azure 지원 팀은 Azure에서 Windows Server 2003를 실행 하는 문제를 해결 하는 데 도움이 됩니다. 그러나이 지원은 OS 수준 문제 해결 또는 패치가 필요 하지 않은 문제로 제한 됩니다.
 최신 버전의 Windows Server를 실행 하는 Azure 인스턴스로 응용 프로그램을 마이그레이션하는 것이 Azure 클라우드의 유연성과 안정성을 효과적으로 활용 하는 데 권장 되는 방법입니다.
 
-그러나 Windows Server 2003를 Azure로 마이그레이션하도록 선택 하는 경우에는 Azure Migrate: 서버 마이그레이션 도구를 사용할 수 있습니다. Windows Server가 VMware 또는 Hyper-v에서 실행 되는 VM 인 경우이 문서를 검토 하 여 [Windows server 2003 컴퓨터에서 마이그레이션을 준비](https://go.microsoft.com/fwlink/?linkid=2140302)합니다.
+그러나 Windows Server 2003를 Azure로 마이그레이션하도록 선택 하는 경우에는 Azure Migrate: 서버 마이그레이션 도구를 사용할 수 있습니다. Windows Server가 VMware 또는 Hyper-v에서 실행 되는 VM 인 경우이 문서를 검토 하 여 [Windows server 2003 컴퓨터에서 마이그레이션을 준비](./prepare-windows-server-2003-migration.md)합니다.
 
 ## <a name="what-is-the-difference-between-the-test-migration-and-migrate-operations"></a>테스트 마이그레이션과 마이그레이션 작업의 차이점은 무엇 인가요?
 
@@ -177,7 +202,7 @@ New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWi
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>VMware Vm을 마이그레이션하려면 VMware vCenter가 필요 한가요?
 
-VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아보기](migrate-support-matrix-physical-migration.md).
+VMware 에이전트 기반 또는 에이전트 없는 마이그레이션을 사용 하 여 [Vmware vm을 마이그레이션하려면](server-migrate-overview.md) vm이 있는 ESXi 호스트를 vCenter Server으로 관리 해야 합니다. VCenter Server 없는 경우 실제 서버로 마이그레이션하여 VMware Vm을 마이그레이션할 수 있습니다. [자세히 알아봅니다](migrate-support-matrix-physical-migration.md).
 
 ## <a name="can-i-upgrade-my-os-while-migrating"></a>마이그레이션하는 동안 OS를 업그레이드할 수 있나요?
 
@@ -200,11 +225,6 @@ Azure Migrate 서버 마이그레이션 기능은 현재와 같은 마이그레�
 
 에이전트 없는 복제는 VMware vCenter Server 및 VMware ESXi 호스트에 몇 가지 성능 영향을 줍니다. 에이전트 없는 복제는 스냅숏을 사용 하므로 저장소에서 IOPS를 사용 하므로 일부 IOPS 저장소 대역폭이 필요 합니다. 사용자 환경에서 저장소 또는 IOPs에 대 한 제약 조건이 있는 경우 에이전트 없는 복제를 사용 하지 않는 것이 좋습니다.
 
-## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Azure Gen 2로 UEFI Vm의 에이전트 없는 마이그레이션을 수행할 수 있나요?
-
-아니요. [VMware 에이전트 기반 마이그레이션](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), [hyper-v 마이그레이션](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines)또는 [물리적 서버 마이그레이션](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) 옵션을 사용 하 여 이러한 vm을 Gen 2 Azure vm으로 마이그레이션할 수 있습니다.
-
-***참고:*** Azure에서 2 세대 UEFI를 지 원하는 적절 한 VM 크기를 선택 했는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

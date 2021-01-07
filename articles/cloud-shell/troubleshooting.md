@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543455"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
@@ -46,7 +46,7 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>스토리지 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 
-- **세부 정보**: Cloud Shell을 통해 저장소 계정을 만들 때 관리자가 Azure Policy 할당으로 인해 실패 합니다. 오류 메시지에는 다음이 포함 됩니다.`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **세부 정보**: Cloud Shell을 통해 저장소 계정을 만들 때 관리자가 Azure Policy 할당으로 인해 실패 합니다. 오류 메시지에는 다음이 포함 됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **해결**방법: 저장소 만들기를 거부 하는 Azure Policy 할당을 제거 하거나 업데이트 하려면 Azure 관리자에 게 문의 하세요.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>스토리지 대화 상자 - 오류: 400 DisallowedOperation
@@ -196,4 +196,4 @@ PowerShell:
 Azure Government Azure Cloud Shell은 Azure Portal을 통해서만 액세스할 수 있습니다.
 
 >[!Note]
-> Exchange Online 용 GCC High 또는 정부 DoD 클라우드에 연결 하는 것은 현재 지원 되지 않습니다.
+> Exchange Online에 대 한 GCC-High 또는 정부 DoD 클라우드에 연결 하는 것은 현재 지원 되지 않습니다.

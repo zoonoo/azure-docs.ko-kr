@@ -5,15 +5,15 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 98a0ddd828c3d72fdead0ccc2fb1daabf7548de1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67712398"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001187"
 ---
 `Eula` 설정은 컨테이너에 대한 라이선스에 동의했음을 나타냅니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 `accept`로 설정해야 합니다.
 
-|필수| 속성 | 데이터 형식 | Description |
+|필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Eula` | String | 라이선스 승인<br><br>예제:<br>`Eula=accept` |
 

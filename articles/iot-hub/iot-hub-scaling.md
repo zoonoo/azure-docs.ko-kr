@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 4ded10d9475c363c3f44032c7aa8cc7db03ab37f
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: bd016fcfe377dc610d5918ad8128fff4f6473fe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033645"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538462"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -47,12 +47,12 @@ IoT Hub의 표준 계층은 모든 기능을 활성화하고 양방향 통신 �
 | [메시지 라우팅](iot-hub-devguide-messages-read-custom.md), [메시지 보강](iot-hub-message-enrichments-overview.md) 및 [Event Grid 통합](iot-hub-event-grid.md) | 예 | 예 |
 | [HTTP, AMQP 및 MQTT 프로토콜](iot-hub-devguide-protocols.md) | 예 | 예 |
 | [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md) | 예 | 예 |
-| [모니터링 및 진단](iot-hub-monitor-resource-health.md) | 예 | 예 |
+| [모니터링 및 진단](monitor-iot-hub.md) | 예 | 예 |
 | [클라우드-디바이스 메시징](iot-hub-devguide-c2d-guidance.md) |   | 예 |
 | [디바이스 쌍](iot-hub-devguide-device-twins.md), [모듈 쌍](iot-hub-devguide-module-twins.md) 및 [디바이스 관리](iot-hub-device-management-overview.md) |   | 예 |
 | [디바이스 스트림(미리 보기)](iot-hub-device-streams-overview.md) |   | 예 |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | 예 |
-| [IoT 플러그 앤 플레이 미리 보기](../iot-pnp/overview-iot-plug-and-play.md) |   | 예 |
+| [IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) |   | 예 |
 
 IoT Hub는 또한 테스트와 평가를 위한 무료 계층을 제공합니다. 제한된 메시징 허용 개수로 표준 계층의 모든 기능을 포함합니다. 무료 계층에서 기본 또는 표준 계층으로 업그레이드할 수 없습니다.
 
@@ -77,37 +77,37 @@ IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 
 
 | API | 기본 계층 | 무료/표준 계층 |
 | --- | ---------- | ------------- |
-| [디바이스 삭제](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | 예 | 예 |
-| [디바이스 가져오기](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | 예 | 예 |
-| [모듈 삭제](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | 예 | 예 |
-| [모듈 가져오기](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | 예 | 예 |
-| [레지스트리 통계 가져오기](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | 예 | 예 |
-| [서비스 통계 가져오기](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | 예 | 예 |
-| [디바이스 만들기 또는 업데이트](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | 예 | 예 |
-| [모듈 만들기 또는 업데이트](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | 예 | 예 |
-| [IoT Hub 쿼리](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | 예 | 예 |
-| [파일 업로드 SAS URI 만들기](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | 예 | 예 |
-| [바인딩된 디바이스 알림 수신](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | 예 | 예 |
-| [디바이스 이벤트 보내기](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | 예 | 예 |
+| [디바이스 삭제](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | 예 | 예 |
+| [디바이스 가져오기](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | 예 | 예 |
+| [모듈 삭제](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | 예 | 예 |
+| [모듈 가져오기](/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | 예 | 예 |
+| [레지스트리 통계 가져오기](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | 예 | 예 |
+| [서비스 통계 가져오기](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | 예 | 예 |
+| [디바이스 만들기 또는 업데이트](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | 예 | 예 |
+| [모듈 만들기 또는 업데이트](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | 예 | 예 |
+| [IoT Hub 쿼리](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | 예 | 예 |
+| [파일 업로드 SAS URI 만들기](/rest/api/iothub/device/createfileuploadsasuri) | 예 | 예 |
+| [바인딩된 디바이스 알림 수신](/rest/api/iothub/device/receivedeviceboundnotification) | 예 | 예 |
+| [디바이스 이벤트 보내기](/rest/api/iothub/device/senddeviceevent) | 예 | 예 |
 | 모듈 이벤트 보내기 | AMQP 및 MQTT만 해당 | AMQP 및 MQTT만 해당 |
-| [파일 업로드 상태 업데이트](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 예 | 예 |
-| [대량 디바이스 작업](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | 예, IoT Edge 기능을 제외하고 맞습니다. | 예 |
-| [가져오기/내보내기 작업 취소](https://docs.microsoft.com/rest/api/iothub/service/jobs/cancelimportexportjob) | 예 | 예 |
-| [가져오기/내보내기 작업 만들기](https://docs.microsoft.com/rest/api/iothub/service/jobs/createimportexportjob) | 예 | 예 |
-| [가져오기/내보내기 작업 가져오기](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjob) | 예 | 예 |
-| [가져오기/내보내기 작업 가져오기](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) | 예 | 예 |
-| [명령 큐 제거](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | 예 |
-| [디바이스 쌍 가져오기](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | 예 |
-| [모듈 쌍 가져오기](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | 예 |
-| [디바이스 메서드 호출](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods) |   | 예 |
-| [디바이스 쌍 업데이트](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) |   | 예 |
-| [모듈 쌍 업데이트](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | 예 |
-| [바인딩된 디바이스 알림 중단](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | 예 |
-| [바인딩된 디바이스 알림 완료](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | 예 |
-| [작업 취소](https://docs.microsoft.com/rest/api/media/jobs/canceljob) |   | 예 |
-| [작업 만들기](https://docs.microsoft.com/rest/api/media/jobs/create) |   | 예 |
-| [작업 가져오기](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | 예 |
-| [작업 쿼리](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | 예 |
+| [파일 업로드 상태 업데이트](/rest/api/iothub/device/updatefileuploadstatus) | 예 | 예 |
+| [대량 디바이스 작업](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | 예, IoT Edge 기능을 제외하고 맞습니다. | 예 |
+| [가져오기/내보내기 작업 취소](/rest/api/iothub/service/jobs/cancelimportexportjob) | 예 | 예 |
+| [가져오기/내보내기 작업 만들기](/rest/api/iothub/service/jobs/createimportexportjob) | 예 | 예 |
+| [가져오기/내보내기 작업 가져오기](/rest/api/iothub/service/jobs/getimportexportjob) | 예 | 예 |
+| [가져오기/내보내기 작업 가져오기](/rest/api/iothub/service/jobs/getimportexportjobs) | 예 | 예 |
+| [명령 큐 제거](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | 예 |
+| [디바이스 쌍 가져오기](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | 예 |
+| [모듈 쌍 가져오기](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | 예 |
+| [디바이스 메서드 호출](./iot-hub-devguide-direct-methods.md) |   | 예 |
+| [디바이스 쌍 업데이트](./iot-hub-devguide-device-twins.md) |   | 예 |
+| [모듈 쌍 업데이트](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | 예 |
+| [바인딩된 디바이스 알림 중단](/rest/api/iothub/device/abandondeviceboundnotification) |   | 예 |
+| [바인딩된 디바이스 알림 완료](/rest/api/iothub/device/completedeviceboundnotification) |   | 예 |
+| [작업 취소](/rest/api/media/jobs/canceljob) |   | 예 |
+| [작업 만들기](/rest/api/media/jobs/create) |   | 예 |
+| [작업 가져오기](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | 예 |
+| [작업 쿼리](/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | 예 |
 
 ## <a name="message-throughput"></a>메시지 처리량
 

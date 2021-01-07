@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b5de81f5eaf76c16c1ea8fc78075c4567c77aeee
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689527"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531985"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>자습서: Microsoft 고객 계약 청구서 검토
 
@@ -45,21 +45,23 @@ Azure를 구독한 지 30일 이상이어야 합니다. Azure는 청구서 기�
 
 계약 유형을 검사하여 Microsoft 고객 계약의 청구 계정에 액세스할 수 있는지 확인합니다.
 
-Azure Portal에서 검색 상자에 *Cost Management + 청구*를 입력한 다음, **Cost Management + 청구**를 선택합니다.
+Azure Portal에서 검색 상자에 *Cost Management + 청구* 를 입력한 다음, **Cost Management + 청구** 를 선택합니다.
 
-![Cost Management + 청구에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![스크린샷은 Cost Management + Billing에 대한 Azure Portal 검색을 보여줍니다.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
-하나의 청구 범위에만 액세스할 수 있는 경우, 왼쪽에서 **속성**을 선택합니다. 청구 계정 유형이 **Microsoft 고객 계약**인 경우, Microsoft 고객 계약의 청구 계정에 액세스할 수 있습니다.
+하나의 청구 범위에만 액세스할 수 있는 경우, 왼쪽에서 **속성** 을 선택합니다. 청구 계정 유형이 **Microsoft 고객 계약** 인 경우, Microsoft 고객 계약의 청구 계정에 액세스할 수 있습니다.
 
 ![속성 페이지의 Microsoft 고객 계약을 보여주는 스크린샷](./media/review-customer-agreement-bill/billing-mca-property.png)
 
-여러 청구 범위에 액세스할 수 있는 경우 청구 계정 열의 유형을 확인합니다. 범위 중 하나의 청구 계정 유형이 **Microsoft 고객 계약**인 경우, Microsoft 고객 계약의 청구 계정에 액세스할 수 있습니다.
+여러 청구 범위에 액세스할 수 있는 경우 청구 계정 열의 유형을 확인합니다. 범위 중 하나의 청구 계정 유형이 **Microsoft 고객 계약** 인 경우, Microsoft 고객 계약의 청구 계정에 액세스할 수 있습니다.
+
+청구 범위 페이지에서 **청구 범위** 를 선택한 다음, 구독 사용량에 대한 비용을 지불하는 데 사용되는 청구 계정을 선택합니다. 청구 계정은 **Microsoft 고객 계약** 유형이어야 합니다.
 
 ![청구 계정 목록 페이지의 Microsoft 고객 계약을 보여주는 스크린샷](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
 ## <a name="review-invoiced-transactions-in-the-azure-portal"></a>Azure Portal에서 송장이 발부된 트랜잭션 검토
 
-Azure Portal에서 페이지 왼쪽에 있는 **모든 트랜잭션**을 선택합니다. 액세스 권한에 따라 청구 계정, 청구 프로필 또는 청구서 섹션을 선택한 다음, **모든 트랜잭션**을 선택해야 할 수도 있습니다.
+Azure Portal에서 페이지 왼쪽에 있는 **모든 트랜잭션** 을 선택합니다. 액세스 권한에 따라 청구 계정, 청구 프로필 또는 청구서 섹션을 선택한 다음, **모든 트랜잭션** 을 선택해야 할 수도 있습니다.
 
 [모든 트랜젝션] 페이지에는 다음 정보가 표시됩니다.
 
@@ -100,13 +102,13 @@ Microsoft 고객 계약의 청구 계정에서, 요금은 청구서가 작성되
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필**을 선택한 다음, 청구 프로필을 선택합니다.
+청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필** 을 선택한 다음, 청구 프로필을 선택합니다.
 
 화면 맨 위에서 **요약** 탭을 선택합니다.
 
 요금 섹션에는 월간 누계 요금과 지난 달 요금이 표시됩니다.
 
-![Cost Management + 청구에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![스크린샷은 청구 프로필 요약을 보여줍니다.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 월간 누계 요금은 이번 달의 보류 중인 요금이며 이번 달의 청구서가 생성될 때 청구됩니다. 지난 달의 청구서가 아직 생성되지 않은 경우 지난 달의 요금 역시 보류 중 요금이며 다음 달 청구서에 표시됩니다.
 
@@ -116,13 +118,13 @@ Microsoft 고객 계약의 청구 계정에서, 요금은 청구서가 작성되
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-Azure Portal에서 검색 상자에 *Cost Management + 청구*를 입력한 다음, **Cost Management + 청구**를 선택합니다.
+Azure Portal에서 검색 상자에 *Cost Management + 청구* 를 입력한 다음, **Cost Management + 청구** 를 선택합니다.
 
-청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필**을 선택한 다음, 청구 프로필을 선택합니다.
+청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필** 을 선택한 다음, 청구 프로필을 선택합니다.
 
-페이지 왼쪽에서 **모든 트랜잭션**을 선택합니다.
+페이지 왼쪽에서 **모든 트랜잭션** 을 선택합니다.
 
-*보류 중*을 검색합니다. **Timespan** 필터를 사용하여 이번 달 또는 지난 달의 보류 중인 요금을 봅니다.
+*보류 중* 을 검색합니다. **Timespan** 필터를 사용하여 이번 달 또는 지난 달의 보류 중인 요금을 봅니다.
 
 ![보류 중인 트랜잭션 목록을 보여주는 스크린샷](./media/review-customer-agreement-bill/mca-pending-transactions-list.png)
 
@@ -130,15 +132,15 @@ Azure Portal에서 검색 상자에 *Cost Management + 청구*를 입력한 다�
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-Azure Portal에서 검색 상자에 *Cost Management + 청구*를 입력한 다음, **Cost Management + 청구**를 선택합니다.
+Azure Portal에서 검색 상자에 *Cost Management + 청구* 를 입력한 다음, **Cost Management + 청구** 를 선택합니다.
 
-청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필**을 선택한 다음, 청구 프로필을 선택합니다.
+청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필** 을 선택한 다음, 청구 프로필을 선택합니다.
 
-페이지 왼쪽에 있는 **모든 구독**을 선택합니다.
+페이지 왼쪽에 있는 **모든 구독** 을 선택합니다.
 
 Azure 구독 페이지에는 청구 프로필의 각 구독에 대한 이번 달과 지난 달 요금이 표시 됩니다. 월간 누계 요금은 이번 달의 보류 중인 요금이며 이번 달의 청구서가 생성될 때 청구됩니다. 지난 달의 청구서가 아직 생성되지 않은 경우 지난 달의 요금 역시 보류 중 요금입니다.
 
-![청구 프로필의 Azure 구독 목록을 보여주는 스크린샷](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![스크린샷은 월간 누계 요금 및 지난 달 요금이 포함된 구독을 보여줍니다.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Azure 사용 요금 분석
 
@@ -146,7 +148,7 @@ Azure 사용량 및 요금 CSV 파일을 사용하여 사용량 기반 요금을
 
 ### <a name="download-your-invoice-and-usage-details"></a>청구서 및 사용량 세부 정보 다운로드
 
-액세스 권한에 따라 Cost Management + 청구에서 청구 계정 또는 청구 프로필을 선택해야 할 수도 있습니다. 왼쪽 메뉴에서 **청구** 아래의 **청구서**를 선택합니다. 청구서 그리드에서 다운로드하려는 청구서의 행을 찾습니다. 다운로드 기호 또는 행 끝에 있는 줄임표(...)를 클릭합니다. **다운로드** 상자에서 사용량 세부 정보 파일 및 청구서를 다운로드합니다.
+액세스 권한에 따라 Cost Management + 청구에서 청구 계정 또는 청구 프로필을 선택해야 할 수도 있습니다. 왼쪽 메뉴에서 **청구** 아래의 **청구서** 를 선택합니다. 청구서 그리드에서 다운로드하려는 청구서의 행을 찾습니다. 다운로드 기호 또는 행 끝에 있는 줄임표(...)를 선택합니다. **다운로드** 상자에서 사용량 세부 정보 파일 및 청구서를 다운로드합니다.
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>청구서 섹션별로 자세한 사용량 보기
 
@@ -162,7 +164,7 @@ Azure 사용량 및 요금 파일을 필터링하여 청구서 섹션의 사용 
 |사용 요금 - Microsoft Azure 플랜 |productOrderName |
 |컴퓨팅 |serviceFamily |
 
-CSV 파일의 **invoiceSectionName** 열을 **회계 부서**로 필터링합니다. 그런 다음, CSV 파일의 **productOrderName** 열을 **Microsoft Azure 플랜**으로 필터링합니다. 다음으로, CSV 파일의 **serviceFamily** 열을 **Microsoft.Compute**로 필터링합니다.
+CSV 파일의 **invoiceSectionName** 열을 **회계 부서** 로 필터링합니다. 그런 다음, CSV 파일의 **productOrderName** 열을 **Microsoft Azure 플랜** 으로 필터링합니다. 다음으로, CSV 파일의 **serviceFamily** 열을 **Microsoft.Compute** 로 필터링합니다.
 
 ![청구서 섹션을 기준으로 필터링한 사용량 및 요금 파일을 보여주는 스크린샷](./media/review-customer-agreement-bill/billing-usage-file-filtered-by-invoice-section.png)
 
@@ -172,9 +174,9 @@ Azure 사용량 및 요금 CSV 파일을 필터링하여 구독의 사용 요금
 
 다음 이미지는 Azure Portal의 구독 목록을 보여줍니다.
 
-![청구 프로필의 Azure 구독 목록을 보여주는 스크린샷](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![스크린샷은 하나의 구독이 호출된 Azure Portal의 구독 목록을 표시합니다.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
-WA_Subscription의 자세한 사용 요금을 확인하려면 Azure 사용량 및 요금 CSV 파일의 **subscriptionName** 열을 **WA_Subscription**으로 필터링합니다.
+WA_Subscription의 자세한 사용 요금을 확인하려면 Azure 사용량 및 요금 CSV 파일의 **subscriptionName** 열을 **WA_Subscription** 으로 필터링합니다.
 
 ![구독을 기준으로 필터링한 사용량 및 요금 파일을 보여주는 스크린샷](./media/review-customer-agreement-bill/billing-usage-file-filtered-by-subscription.png)
 

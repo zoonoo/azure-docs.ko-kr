@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e2558074275f9b97bd4a2fd9a3d111c5de02948
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a7117d30eb1774753f21e82ad5f812a7309d8386
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853418"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483099"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -32,15 +32,15 @@ ms.locfileid: "87853418"
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. [Visual Studio](/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발**을 선택한 다음 **설치**를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)** 가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
-2. Visual Studio를 설치하고 시작한 후 **파일** > **신규** > **프로젝트**를 클릭합니다.
-3. **템플릿** > **Python** > **Python 애플리케이션**을 클릭하고, 프로젝트의 이름에 사용할 *myPythonProject*를 입력한 후, 프로젝트의 위치를 선택하고, **확인**을 클릭합니다.
+1. [Visual Studio](/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발** 을 선택한 다음 **설치** 를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)** 가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
+2. Visual Studio를 설치하고 시작한 후 **파일** > **신규** > **프로젝트** 를 클릭합니다.
+3. **템플릿** > **Python** > **Python 애플리케이션** 을 클릭하고, 프로젝트의 이름에 사용할 *myPythonProject* 를 입력한 후, 프로젝트의 위치를 선택하고, **확인** 을 클릭합니다.
 
 ## <a name="install-packages"></a>패키지 설치
 
-1. 솔루션 탐색기에서 *myPythonProject* 아래에 있는 **Python 환경**을 마우스 오른쪽 단추로 클릭한 다음, **가상 환경 추가**를 선택합니다.
-2. 가상 환경 추가 화면에서 기본 이름 *env*를 수락하고, *Python 3.6(64비트)* 이 기본 인터프리터로 선택되어 있는지 확인한 후 **만들기**를 클릭합니다.
-3. 만든 *env* 환경을 마우스 오른쪽 단추로 클릭하고, **Python 패키지 설치**를 클릭한 후, 검색 상자에 *azure*를 입력한 다음, Enter 키를 누릅니다.
+1. 솔루션 탐색기에서 *myPythonProject* 아래에 있는 **Python 환경** 을 마우스 오른쪽 단추로 클릭한 다음, **가상 환경 추가** 를 선택합니다.
+2. 가상 환경 추가 화면에서 기본 이름 *env* 를 수락하고, *Python 3.6(64비트)* 이 기본 인터프리터로 선택되어 있는지 확인한 후 **만들기** 를 클릭합니다.
+3. 만든 *env* 환경을 마우스 오른쪽 단추로 클릭하고, **Python 패키지 설치** 를 클릭한 후, 검색 상자에 *azure* 를 입력한 다음, Enter 키를 누릅니다.
 
 azure 패키지가 성공적으로 설치되었음이 출력 창에 표시됩니다. 
 
@@ -73,7 +73,7 @@ azure 패키지가 성공적으로 설치되었음이 출력 창에 표시됩니
     VM_NAME = 'myVM'
     ```
 
-    **subscription-id**를 구독 ID로 바꿉니다.
+    **subscription-id** 를 구독 ID로 바꿉니다.
 
 4. 요청하는 데 필요한 Active Directory 자격 증명을 만들려면 .py 파일에 변수 뒤에 다음 함수를 추가합니다.
 
@@ -88,7 +88,7 @@ azure 패키지가 성공적으로 설치되었음이 출력 창에 표시됩니
         return credentials
     ```
 
-    **application-id**, **authentication-key** 및 **tenant-id**를 Azure Active Directory 서비스 주체를 만들 때 이전에 수집한 값으로 바꿉니다.
+    **application-id**, **authentication-key** 및 **tenant-id** 를 Azure Active Directory 서비스 주체를 만들 때 이전에 수집한 값으로 바꿉니다.
 
 5. 이전에 추가한 함수를 호출하려면 .py 파일의 끝에서 **if** 문 아래에 이 코드를 추가합니다.
 
@@ -492,7 +492,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="add-a-data-disk-to-the-vm"></a>VM에 데이터 디스크 추가
 
-가상 머신에도 VHD로 저장되는 [데이터 디스크](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)가 하나 이상 있을 수 있습니다.
+가상 머신에도 VHD로 저장되는 [데이터 디스크](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)가 하나 이상 있을 수 있습니다.
 
 1. 가상 머신에 데이터 디스크를 추가하려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다. 
 
@@ -553,11 +553,11 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
     delete_resources(resource_group_client)
     ```
 
-3. *myPythonProject.py*를 저장합니다.
+3. *myPythonProject.py* 를 저장합니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-1. 콘솔 애플리케이션을 실행하려면 Visual Studio에서 **시작**을 클릭합니다.
+1. 콘솔 애플리케이션을 실행하려면 Visual Studio에서 **시작** 을 클릭합니다.
 
 2. 각 리소스의 상태가 반환된 후 **Enter** 키를 누릅니다. 상태 정보에 **Succeeded** 프로비저닝 상태가 표시됩니다. 가상 머신을 만든 후 만든 모든 리소스를 삭제할 기회가 있습니다. **Enter** 키를 눌러 리소스 삭제를 시작하기 전에 Azure Portal에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다. Azure Portal이 열려 있는 경우 새 리소스를 보려면 블레이드를 새로 고쳐야 할 수 있습니다.  
 

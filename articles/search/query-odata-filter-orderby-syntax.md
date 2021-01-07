@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923401"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>`$filter` `$orderby` Azure Cognitive Search의, 및에 대 한 OData 언어 개요 `$select`
@@ -46,7 +46,7 @@ OData 식의 범위는 단순에서 매우 복잡 하지만 모두 공통 요소
 
 ## <a name="field-paths"></a>필드 경로
 
-다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 필드 경로의 문법을 정의 합니다.
+다음 EBNF ([확장 Backus-Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 필드 경로의 문법을 정의 합니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -70,7 +70,7 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 
 다음 표에서는 필드 경로의 예를 보여 줍니다.
 
-| 필드 경로 | Description |
+| 필드 경로 | 설명 |
 | --- | --- |
 | `HotelName` | 인덱스의 최상위 필드를 참조 합니다. |
 | `Address/City` | `City`인덱스에 있는 복합 필드의 하위 필드를 참조 합니다. `Address` `Edm.ComplexType` 이 예제에서는 형식입니다. |
@@ -135,7 +135,7 @@ OData의 문자열 상수는 작은따옴표로 구분 됩니다. 작은따옴�
 
 ### <a name="constants-syntax"></a>상수 구문
 
-다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 위의 표에 표시 된 대부분의 상수에 대 한 문법을 정의 합니다. 지역 공간 형식에 대 한 문법은 [Azure Cognitive Search의 OData 지역 공간 함수](search-query-odata-geo-spatial-functions.md)에서 찾을 수 있습니다.
+다음 EBNF ([확장 Backus-Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 위의 표에 표시 된 대부분의 상수에 대 한 문법을 정의 합니다. 지역 공간 형식에 대 한 문법은 [Azure Cognitive Search의 OData 지역 공간 함수](search-query-odata-geo-spatial-functions.md)에서 찾을 수 있습니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -211,7 +211,7 @@ boolean_literal ::= 'true' | 'false'
 
 그러나 대부분의 경우에는 둘 이상의 필드와 상수를 참조 하는 더 복잡 한 식이 필요 합니다. 이러한 식은 매개 변수에 따라 다양 한 방식으로 빌드됩니다.
 
-다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 **$filter**, **$orderby**및 **$select** 매개 변수에 대 한 문법을 정의 합니다. 이러한 작업은 필드 경로와 상수를 참조 하는 간단한 식에서 빌드됩니다.
+다음 EBNF ([확장 Backus-Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 **$filter**, **$orderby**및 **$select** 매개 변수에 대 한 문법을 정의 합니다. 이러한 작업은 필드 경로와 상수를 참조 하는 간단한 식에서 빌드됩니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -239,7 +239,7 @@ select_expression ::= '*' | field_path(',' field_path)*
 - [Azure Cognitive Search의 OData $orderby 구문](search-query-odata-orderby.md)
 - [Azure Cognitive Search의 OData $select 구문](search-query-odata-select.md)
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 - [Azure Cognitive Search의 패싯 탐색](search-faceted-navigation.md)
 - [Azure Cognitive Search의 필터](search-filters.md)

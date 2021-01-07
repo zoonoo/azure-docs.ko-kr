@@ -1,20 +1,14 @@
 ---
 title: 방화벽 또는 프록시 서버에서 Azure Portal URL 수신 허용 목록
 description: 이러한 Url을 프록시 서버 바이패스에 추가 하 여 Azure Portal 및 해당 서비스와 통신
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 04/10/2020
 ms.topic: conceptual
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 67ccf6e2f113c0ec72cfcbccedf88017e452ec4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d9c8222ee85c0c16ec1e1926335ac06e0389797
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361662"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745879"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>방화벽 또는 프록시 서버에서 Azure Portal URL 수신 허용 목록
 
@@ -34,7 +28,7 @@ Azure Portal에 대해 safelist URL 끝점은 조직이 배포 되는 Azure 클�
 *.applicationinsights.io
 *.azure.com
 *.azure.net
-*.azureafd.net
+*.azurefd.net
 *.azure-api.net
 *.azuredatalakestore.net
 *.azureedge.net

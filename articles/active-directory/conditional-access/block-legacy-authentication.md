@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 11/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca9f4e290c5dad45e5bf87439ebcd1c88a7c540f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602006"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860323"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -37,10 +37,7 @@ Microsoft의 ID 보안 책임자 Alex Weinert의 2020년 3월 12일 블로그 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다. 
-
-- Azure AD 조건부 액세스의 [기본 개념](overview.md) 
-- Azure Portal에서 조건부 액세스 정책을 구성하는 [모범 사례](best-practices.md)
+이 문서에서는 사용자가 Azure AD 조건부 액세스의 [기본 개념](overview.md) 을 잘 알고 있다고 가정 합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -63,7 +60,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 다음 옵션은 레거시 인증 프로토콜로 간주됩니다.
 
-- 인증된 SMTP - POP 및 IMAP 클라이언트에서 이메일 메시지를 보낼 때 사용합니다.
+- 인증 된 SMTP-POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.
 - 자동 검색 - Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결할 때 사용합니다.
 - EAS (exchange ActiveSync)-Exchange Online의 사서함에 연결 하는 데 사용 됩니다.
 - Exchange Online PowerShell - 원격 PowerShell을 사용하여 Exchange Online에 연결하는 데 사용됩니다. Exchange Online PowerShell에 대한 기본 인증을 차단하는 경우 Exchange Online PowerShell 모듈을 사용하여 연결해야 합니다. 자세한 내용은 [다단계 인증을 사용하여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조하세요.
@@ -83,8 +80,8 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 디렉터리에서 레거시 인증을 차단하려면 먼저 사용자에게 레거시 인증을 사용하는 앱이 있는지, 이로 인해 전체 디렉터리에 어떤 영향을 미치는지 이해해야 합니다. Azure AD 로그인 로그를 사용하여 레거시 인증을 사용하고 있는지 파악할 수 있습니다.
 
-1. **Azure Portal** > **Azure Active Directory** > **로그인**으로 이동합니다.
-1. 클라이언트 앱 열이 표시되지 않는 경우 **열** > **클라이언트 앱**을 클릭하여 추가합니다.
+1. **Azure Portal** > **Azure Active Directory** > **로그인** 으로 이동합니다.
+1. 클라이언트 앱 열이 표시되지 않는 경우 **열** > **클라이언트 앱** 을 클릭하여 추가합니다.
 1. **필터 추가**  >  **클라이언트 앱** > 모든 레거시 인증 프로토콜을 선택 합니다. 필터링 대화 상자 외부를 선택 하 여 선택 항목을 적용 하 고 대화 상자를 닫습니다.
 
 필터링은 레거시 인증 프로토콜을 통해 수행된 로그인 시도만 표시합니다. 각 개별 로그인 시도를 클릭하면 추가 세부 정보가 표시됩니다. **기본 정보** 탭의 **클라이언트 앱** 필드는 사용된 레거시 인증 프로토콜을 표시합니다.
@@ -100,7 +97,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
  
 ### <a name="directly-blocking-legacy-authentication"></a>레거시 인증 직접 차단
 
-전체 조직에서 레거시 인증을 차단 하는 가장 쉬운 방법은 레거시 인증 클라이언트에만 적용 되 고 액세스를 차단 하는 조건부 액세스 정책을 구성 하는 것입니다. 사용자 및 응용 프로그램을 정책에 할당 하는 경우 레거시 인증을 사용 하 여 여전히 로그인 해야 하는 사용자 및 서비스 계정을 제외 해야 합니다. **Exchange ActiveSync 클라이언트** 및 **기타 클라이언트**를 선택 하 여 클라이언트 앱 조건을 구성 합니다. 이러한 클라이언트 앱에 대 한 액세스를 차단 하려면 액세스를 차단 하도록 액세스 제어를 구성 합니다.
+전체 조직에서 레거시 인증을 차단 하는 가장 쉬운 방법은 레거시 인증 클라이언트에만 적용 되 고 액세스를 차단 하는 조건부 액세스 정책을 구성 하는 것입니다. 사용자 및 응용 프로그램을 정책에 할당 하는 경우 레거시 인증을 사용 하 여 여전히 로그인 해야 하는 사용자 및 서비스 계정을 제외 해야 합니다. **Exchange ActiveSync 클라이언트** 및 **기타 클라이언트** 를 선택 하 여 클라이언트 앱 조건을 구성 합니다. 이러한 클라이언트 앱에 대 한 액세스를 차단 하려면 액세스를 차단 하도록 액세스 제어를 구성 합니다.
 
 ![레거시 인증을 차단 하도록 구성 된 클라이언트 앱 조건](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
@@ -112,13 +109,17 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
-**기타 클라이언트**를 사용하여 액세스를 차단하면 기본 인증을 사용하는 Exchange Online PowerShell 및 Dynamics 365도 차단됩니다.
+**기타 클라이언트** 를 사용하여 액세스를 차단하면 기본 인증을 사용하는 Exchange Online PowerShell 및 Dynamics 365도 차단됩니다.
 
-**기타 클라이언트**에 대한 정책 구성은 SPConnect와 같은 특정 클라이언트에서 전체 조직을 차단합니다. 이러한 차단은 이전 버전의 클라이언트가 예기치 않은 방식으로 인증하기 때문에 발생합니다. 이 문제는 이전 버전의 Office 클라이언트와 같은 주요 Office 애플리케이션에 적용되지 않습니다.
+**기타 클라이언트** 에 대한 정책 구성은 SPConnect와 같은 특정 클라이언트에서 전체 조직을 차단합니다. 이러한 차단은 이전 버전의 클라이언트가 예기치 않은 방식으로 인증하기 때문에 발생합니다. 이 문제는 이전 버전의 Office 클라이언트와 같은 주요 Office 애플리케이션에 적용되지 않습니다.
 
 정책이 적용되려면 최대 24시간까지 걸릴 수 있습니다.
 
 **다른 클라이언트** 조건에 사용할 수 있는 모든 권한 부여 제어를 선택할 수 있지만, 최종 사용자 환경은 항상 동일합니다(액세스 차단).
+
+### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online 및 B2B 게스트 사용자
+
+레거시 인증을 통해 SharePoint Online에 대 한 B2B 사용자 액세스를 차단 하려면 조직에서 PowerShell 명령을 사용 하 `Set-SPOTenant` 고 매개 변수를로 설정 하 여 sharepoint에서 레거시 인증을 사용 하지 않도록 설정 해야 합니다 `-LegacyAuthProtocolsEnabled` `$false` . 이 매개 변수를 설정 하는 방법에 대 한 자세한 내용은 [set-spotenant](/powershell/module/sharepoint-online/set-spotenant) 에 대 한 SharePoint PowerShell 참조 문서에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628048"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709302"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -46,9 +46,11 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 | 데이터 형식 | 테스트에 사용 됨 | 권장 수량 | 학습에 사용 됨 | 권장 수량 |
 |-----------|-----------------|----------|-------------------|----------|
-| [비디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 예 | 해당 없음 |
-| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1 ~ 1000 시간 (오디오) |
-| [관련 텍스트](#related-text-data-for-training) | 예 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
+| [오디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 아니요 | 해당 없음 |
+| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1-20 시간 (오디오) |
+| [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
+
+새 모델을 학습 하는 경우 [관련 텍스트로](#related-text-data-for-training)시작 합니다. 이 데이터는 이미 특수 한 사용 약관의 인식을 향상 시킵니다.
 
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
@@ -59,7 +61,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 데이터를 업로드 하려면 <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech 포털로 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>이동 합니다. 포털에서 **데이터 업로드** 를 클릭 하 여 마법사를 시작 하 고 첫 번째 데이터 집합을 만듭니다. 데이터를 업로드 하기 전에 데이터 집합에 대 한 음성 데이터 형식을 선택 하 라는 메시지가 표시 됩니다.
 
-![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-select-audio.png)
+![음성 포털에서 오디오 업로드 옵션을 강조 표시 하는 스크린샷](./media/custom-speech/custom-speech-select-audio.png)
 
 업로드 하는 각 데이터 집합은 사용자가 선택 하는 데이터 형식에 대 한 요구 사항을 충족 해야 합니다. 데이터를 업로드 하기 전에 올바른 형식으로 지정 해야 합니다. 올바른 형식의 데이터를 사용 하면 Custom Speech 서비스에서 정확 하 게 처리 됩니다. 요구 사항은 다음 섹션에 나열 되어 있습니다.
 
@@ -117,7 +119,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 > [!NOTE]
 > 학습 및 테스트 데이터를 업로드할 때 .zip 파일 크기는 2gb를 초과할 수 없습니다. *단일* 데이터 집합 에서만 테스트할 수 있으며, 적절 한 파일 크기 내에서 유지 해야 합니다. 또한 각 학습 파일은 60 초를 초과할 수 없습니다. 그렇지 않으면 오류가 발생 합니다.
 
-단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 약 10 ~ 1000 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
+단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 약 10 ~ 20 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
 
   예를 들면 다음과 같습니다.
 ```
@@ -135,6 +137,8 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 > [!div class="mx-imgBorder"]
 > ![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+음성 서비스 구독에 대해 권장 되는 지역 목록은 [Azure 계정 설정](custom-speech-overview.md#set-up-your-azure-account) 을 참조 하세요. 이러한 지역 중 하나에서 음성 구독을 설정 하면 모델을 학습 하는 데 걸리는 시간이 줄어듭니다.
 
 ## <a name="related-text-data-for-training"></a>학습에 대 한 관련 텍스트 데이터
 
@@ -204,4 +208,4 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 * [데이터 검사](how-to-custom-speech-inspect-data.md)
 * [데이터 평가](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)
-* [모델 배포](how-to-custom-speech-deploy-model.md)
+* [모델 배포](./how-to-custom-speech-train-model.md)

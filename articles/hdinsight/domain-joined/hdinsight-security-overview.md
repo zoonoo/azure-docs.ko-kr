@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7f450d54a0039f591178ae839fbb404f31d80671
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292982"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537272"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -78,23 +78,25 @@ Azure 규정 준수 제품은 공식 인증을 비롯한 다양한 유형의 보
 | 데이터 액세스 보안 | Azure Data Lake Storage Gen1 및 Gen2에 대한 [ACL(액세스 제어 목록)](../../storage/blobs/data-lake-storage-access-control.md) 구성  | Customer |
 |  | 스토리지 계정에서 ["보안 전송 필요"](../../storage/common/storage-require-secure-transfer.md) 속성을 사용하도록 설정 | Customer |
 |  | [Azure Storage 방화벽](../../storage/common/storage-network-security.md) 및 가상 네트워크 구성 | Customer |
-|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | Customer |
+|  | Cosmos DB 및 [Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md) 구성 | Customer |
 |  | 클러스터 내 통신에 TLS 및 IPSec을 사용하려면 [전송 중 암호화](./encryption-in-transit.md) 기능이 활성화되어 있는지 확인합니다. | Customer |
-|  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | Customer |
-|  | [고객 잠금 장치](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)를 사용하여 Azure 지원을 통해 데이터에 대한 액세스 제어 | Customer |
-| 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+|  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/customer-managed-keys-configure-key-vault.md) 구성 | Customer |
+|  | [고객 잠금 장치](../../security/fundamentals/customer-lockbox-overview.md)를 사용하여 Azure 지원을 통해 데이터에 대한 액세스 제어 | Customer |
+| 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [ESP 구성](apache-domain-joined-configure-using-azure-adds.md) 또는 [OAuth 인증용 HIB](identity-broker.md) 사용| Customer |
 |  | Apache [Ranger 권한 부여](apache-domain-joined-run-hive.md) 정책 구성 | Customer |
 |  | [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 사용 | Customer |
 | 운영 체제 보안 | 최신의 보안 기본 이미지를 사용하여 클러스터 만들기 | Customer |
 |  | 정기적인 간격에 따른 [OS 패치](../hdinsight-os-patching.md) 보장 | Customer |
+|  | [VM에 대한 CMK 디스크 암호화](../disk-encryption.md) 확인 | Customer |
 | 네트워크 보안 | [가상 네트워크](../hdinsight-plan-virtual-network-deployment.md) 구성 |
-|  | [인바운드 NSG(네트워크 보안 그룹) 규칙](../control-network-traffic.md) 구성 | Customer |
+|  | [인바운드 NSG(네트워크 보안 그룹) 규칙](../control-network-traffic.md) 또는 [프라이빗 링크](../hdinsight-private-link.md) 구성 | Customer |
 |  | 방화벽을 사용하여 [아웃바운드 트래픽 제한](../hdinsight-restrict-outbound-traffic.md) 구성 | Customer |
+|  | 클러스터 노드 간 [전송 중 IPSec 암호화](encryption-in-transit.md) 구성 | Customer |
 | 가상화된 인프라 | 해당 없음 | HDInsight(클라우드 공급자) |
 | 물리적 인프라 보안 | 해당 없음 | HDInsight(클라우드 공급자) |
 
 ## <a name="next-steps"></a>다음 단계
 
 * [ESP가 포함된 HDInsight 클러스터 계획](apache-domain-joined-architecture.md)
-* [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)
+* [ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)
 * [ESP가 포함된 HDInsight 클러스터 관리](apache-domain-joined-manage.md)

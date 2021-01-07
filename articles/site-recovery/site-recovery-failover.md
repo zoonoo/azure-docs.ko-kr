@@ -4,12 +4,12 @@ description: Azure Site Recovery로 Vm/물리적 서버를 Azure로 장애 조�
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 6737f64773f91ede1631d42cd7f28c7d961c0454
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563984"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368624"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 장애 조치(failover) 실행
 
@@ -46,7 +46,7 @@ ms.locfileid: "90563984"
 1. Site Recovery 자격 증명 모음에서 **복구 계획**  >  *recoveryplan_name*을 선택 합니다.
 2. **장애 조치**를 클릭합니다.
 
-    ![자세히 메뉴에서 장애 조치 (Failover)가 선택 된 ADRP 창이 표시 됩니다.](./media/site-recovery-failover/Failover.png)
+    ![추가 메뉴에서 장애 조치 (Failover)가 선택 된 ADRP 창을 보여 주는 Azure Site Recovery의 스크린샷](./media/site-recovery-failover/Failover.png)
 
 3. 장애 조치 ( **failover**  >  **) 방향**에서 Azure에 복제 하는 경우 기본값을 그대로 둡니다.
 4. **장애 조치 (Failover)** 에서 장애 조치 (failover) 할 **복구 지점을** 선택 합니다.
@@ -81,7 +81,7 @@ Hyper-v Vm에 대해 계획 된 장애 조치 (failover)를 실행할 수 있습
 
 장애 조치 (failover)와 관련 된 여러 작업이 있습니다.
 
-![장애 조치](./media/site-recovery-failover/FailoverJob.png)
+![이름 열에서 그룹 1: Start (1)가 확장 된 작업 목록을 보여 주는 작업 페이지의 스크린샷 SQLServer 작업의 줄이 강조 표시 됩니다.](./media/site-recovery-failover/FailoverJob.png)
 
 - **필수 조건 확인**: 장애 조치 (failover)에 필요한 모든 조건이 충족 되는지 확인 합니다.
 - **장애 조치 (Failover)**: 데이터를 처리 하 여 Azure VM을 만들 수 있도록 합니다. **최신** 복구 지점을 선택한 경우 서비스로 전송 된 데이터에서 복구 지점이 생성 됩니다.
@@ -127,8 +127,8 @@ RDP 또는 SSH를 사용 하 여 장애 조치 (failover) 후 생성 된 Azure V
 
 **장애 조치(Failover)** | **위치** | **actions**
 --- | --- | ---
-**Windows를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM |  VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> 장애 조치된 VM 및 해당 VM이 연결된 Azure 서브넷에 대한 네트워크 보안 그룹 규칙에서 RDP 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> **부트 진단**을 확인하여 VM에 대한 스크린샷을 검토합니다.<br/><br/> 연결할 수 없는 경우 VM이 실행 중인지 확인 하 고 이러한 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토 합니다.
-**Linux를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](https://aka.ms/addpublicip)합니다.<br/><br/> **부트 진단**에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>
+**Windows를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM |  VM에 대한 [공용 IP 주소를 추가](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr)합니다.<br/><br/> 장애 조치된 VM 및 해당 VM이 연결된 Azure 서브넷에 대한 네트워크 보안 그룹 규칙에서 RDP 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> **부트 진단**을 확인하여 VM에 대한 스크린샷을 검토합니다.<br/><br/> 연결할 수 없는 경우 VM이 실행 중인지 확인 하 고 이러한 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토 합니다.
+**Linux를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr)합니다.<br/><br/> **부트 진단**에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>
 
 [여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계에 따라 장애 조치(failover) 후 연결 문제를 해결합니다.
 
@@ -149,4 +149,3 @@ RDP 또는 SSH를 사용 하 여 장애 조치 (failover) 후 생성 된 Azure V
 - VMware 다시 보호 및 장애 복구 (failback)를 [준비](vmware-azure-reprotect.md) 합니다.
 - [장애 복구](hyper-v-azure-failback.md) Hyper-v Vm.
 - 물리적 서버의 장애 조치 (failover) 및 장애 복구 (failback) 프로세스 [에 대해 알아봅니다](physical-to-azure-failover-failback.md) .
-

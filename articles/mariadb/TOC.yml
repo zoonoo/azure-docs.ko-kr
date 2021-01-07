@@ -81,6 +81,8 @@
           href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
+    - name: 계획된 유지 보수
+      href: concepts-planned-maintenance-notification.md
     - name: 비즈니스 연속성
       items:
         - name: 비즈니스 연속성 소개
@@ -116,10 +118,6 @@
           href: concepts-data-in-replication.md
         - name: 읽기 복제본
           href: concepts-read-replicas.md
-    - name: 영역 간 이동
-      items:
-        - name: Azure portal
-          href: howto-move-regions-portal.md
 - name: 방법 가이드
   items:
     - name: 서버 관리
@@ -238,6 +236,10 @@
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
+    - name: 영역 간 이동
+      items:
+        - name: Azure portal
+          href: howto-move-regions-portal.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -260,7 +262,7 @@
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/mariadb/'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-mariadb.html'
+      href: /answers/topics/azure-database-mariadb.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mariadb'
     - name: 기능 요청

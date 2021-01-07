@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 ARRAY_CONCAT
 description: 배열이 두 개 이상의 배열 값을 연결한 결과인 배열을 반환 Azure Cosmos DB에서 SQL 시스템 함수를 연결 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8f2b37181e5d743809bb1f60be4056cb4442a8d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b6424a161b5fc4d0c075ade6f852b33dff20a09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78295881"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332766"
 ---
 # <a name="array_concat-azure-cosmos-db"></a>ARRAY_CONCAT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다.  
   
 ## <a name="syntax"></a>구문

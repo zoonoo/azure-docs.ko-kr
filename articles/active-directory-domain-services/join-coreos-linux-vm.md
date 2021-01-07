@@ -2,7 +2,7 @@
 title: CoreOS VM을 Azure AD Domain Services에 조인 | Microsoft Docs
 description: CoreOS 가상 머신을 구성 하 고 관리 되는 Azure AD Domain Services 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
-ms.openlocfilehash: 93f16629b74ab76d7b46603d84d52cff4bf1ca13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: justinha
+ms.openlocfilehash: 1e98f32bd6fe7d5373d5ab6621ffdce5e79abc08
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005109"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619592"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>CoreOS 가상 컴퓨터를 관리 되는 Azure Active Directory Domain Services 도메인에 가입
 
@@ -122,7 +122,7 @@ krb5_realm = AADDSCONTOSO.COM
 
 SSSD 구성 파일이 업데이트 되 면 이제 가상 컴퓨터를 관리 되는 도메인에 가입 시킵니다.
 
-1. 먼저 명령을 사용 하 여 `adcli info` 관리 되는 도메인에 대 한 정보를 볼 수 있는지 확인 합니다. 다음 예에서는 도메인 *AADDSCONTOSO.COM*에 대 한 정보를 가져옵니다. 모든 대문자로 관리 되는 도메인 이름을 지정 합니다.
+1. 먼저 명령을 사용 하 여 `adcli info` 관리 되는 도메인에 대 한 정보를 볼 수 있는지 확인 합니다. 다음 예에서는 도메인 *AADDSCONTOSO.COM* 에 대 한 정보를 가져옵니다. 모든 대문자로 관리 되는 도메인 이름을 지정 합니다.
 
     ```console
     sudo adcli info AADDSCONTOSO.COM
@@ -154,7 +154,7 @@ SSSD 구성 파일이 업데이트 되 면 이제 가상 컴퓨터를 관리 되
 
 VM이 관리 되는 도메인에 성공적으로 가입 되었는지 확인 하려면 도메인 사용자 계정을 사용 하 여 새 SSH 연결을 시작 합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용 되었는지 확인 합니다.
 
-1. 콘솔에서 새 SSH 연결을 만듭니다. 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 고 (예:) `ssh -l` `contosoadmin@aaddscontoso.com` *COREOS.AADDSCONTOSO.COM*와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
+1. 콘솔에서 새 SSH 연결을 만듭니다. 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 고 (예:) `ssh -l` `contosoadmin@aaddscontoso.com` *COREOS.AADDSCONTOSO.COM* 와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
 
     ```console
     ssh -l contosoadmin@AADDSCONTOSO.com coreos.aaddscontoso.com

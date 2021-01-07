@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/01/2018
+ms.date: 10/23/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321194"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514392"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최근에 삭제된 사용자를 복원하거나 제거
-사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30일이라는 기간이 지나면 사용자가 자동으로 영구적으로 삭제됩니다.
+사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30 일 기간이 지나면 영구 삭제 프로세스가 자동으로 시작 됩니다.
 
 Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가능한 사용자를 보거나, 삭제된 사용자를 복원하거나, 사용자를 영구적으로 삭제할 수 있습니다.
 
@@ -77,10 +77,10 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 
 2. **영구적으로 삭제**를 선택합니다.
 
-    ![사용자 - 사용자 복원 옵션이 강조 표시된 삭제된 사용자 페이지](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![사용자-삭제 된 사용자 페이지, 사용자 삭제 옵션 강조 표시](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>다음 단계
-사용자를 복원하거나 삭제하면 다음 기본 프로세스를 수행할 수 있습니다.
+사용자를 복원 하거나 삭제 한 후에는 다음을 수행할 수 있습니다.
 
 - [사용자 추가 또는 삭제](add-users-azure-active-directory.md)
 
@@ -90,4 +90,4 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 
 - [다른 조직에서 게스트 사용자 추가](../external-identities/what-is-b2b.md)
 
-사용 가능한 다른 사용자 관리 작업에 대 한 자세한 내용은 [AZURE AD 사용자 관리 설명서](../users-groups-roles/index.yml)를 참조 하세요.
+사용 가능한 다른 사용자 관리 작업에 대 한 자세한 내용은 [AZURE AD 사용자 관리 설명서](../enterprise-users/index.yml)를 참조 하세요.

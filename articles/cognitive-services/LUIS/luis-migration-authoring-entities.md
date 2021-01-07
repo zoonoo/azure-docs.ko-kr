@@ -1,14 +1,16 @@
 ---
 title: V3 machine으로 마이그레이션-학습 엔터티
 description: V3 제작은 기계 학습 엔터티와 응용 프로그램의 다른 엔터티 또는 기능에 관계를 추가 하는 기능과 함께 새로운 엔터티 형식인 기계 학습 엔터티를 제공 합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684599"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91324691"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>V3 제작 엔터티로 마이그레이션
 
@@ -21,7 +23,7 @@ V3 제작은 기계 학습 엔터티와 응용 프로그램의 다른 엔터티 
 각 하위 엔터티는 기계 학습 엔터티 이지만 기능의 추가 구성 옵션이 있습니다.
 
 * **필수 기능은** 기능과 일치할 때 엔터티를 추출할 수 있도록 보장 하는 규칙입니다. 규칙은 모델에 대 한 필수 기능에 의해 정의 됩니다.
-    * [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md)
+    * [미리 작성 한 엔터티](luis-reference-prebuilt-entities.md)
     * [정규식 엔터티](reference-entity-regular-expression.md)
     * [엔터티를 나열](reference-entity-list.md)합니다.
 
@@ -106,7 +108,7 @@ V3 제작에서 모든 엔터티 및 의도에 대 한 가능한 기능으로 �
 
 |V2 모델|V3 모델|
 |--|--|
-|부모-구성 요소 엔터티 이름`Order`|부모-컴퓨터-학습 엔터티 이름`Order`|
+|부모-구성 요소 엔터티 이름 `Order`|부모-컴퓨터-학습 엔터티 이름 `Order`|
 |자식-미리 작성 datetimeV2|* 미리 작성 된 엔터티를 새 앱으로 마이그레이션합니다.<br>* 미리 작성 한 datetimeV2에 대 한 필수 기능을 부모에 추가 합니다.|
 |토 핑에 대 한 자식 목록 엔터티|* 목록 엔터티를 새 앱으로 마이그레이션<br>* 그런 다음 목록 엔터티의 부모에 필요한 기능을 추가 합니다.|
 
@@ -132,7 +134,7 @@ V3 제작에서:
 
 |V2 모델|V3 모델|
 |--|--|
-|부모-구성 요소 엔터티 이름`Order`|부모-컴퓨터-학습 엔터티 이름`Order`|
+|부모-구성 요소 엔터티 이름 `Order`|부모-컴퓨터-학습 엔터티 이름 `Order`|
 |원본 및 최종 피자를 사용 하는 자식 계층 구조 엔터티 topping|* `Order` 각 topping에 대 한 역할을에 추가 합니다.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>API 변경 제약 조건이 필수 기능으로 바뀜

@@ -1,14 +1,16 @@
 ---
 title: '빠른 시작: LUIS 포털에서 앱 배포'
 description: 이 빠른 시작에서는 예측 엔드포인트 리소스를 만들고, 리소스를 할당하고, 앱을 학습시키고 게시하여 앱을 배포하는 방법을 보여 줍니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: b051f349716b5597adee4509cfe774978a8f61aa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336374"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972517"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -32,13 +34,13 @@ LUIS에 대한 새 제작 또는 쿼리 예측 리소스를 만들 때마다 리
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인하고, 앱 목록에서 **myEnglishApp** 앱을 선택합니다.
 
-1. 오른쪽 상단 메뉴에서 **관리**를 선택한 다음, **Azure Resources**를 선택합니다.
+1. 오른쪽 상단 메뉴에서 **관리** 를 선택한 다음, **Azure Resources** 를 선택합니다.
 
-1. LUIS를 추가하려면 **예측 리소스 추가**를 선택합니다.
+1. LUIS를 추가하려면 **예측 리소스 추가** 를 선택합니다.
 
     ![LUIS 예측 리소스를 추가하기 위해 예측 리소스 추가 선택](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. 테넌트, 구독 및 리소스 이름을 선택합니다. **리소스 할당**을 선택합니다.
+1. 테넌트, 구독 및 리소스 이름을 선택합니다. **리소스 할당** 을 선택합니다.
 
    > [!div class="mx-imgBorder"]
    > ![앱에 리소스 할당](./media/get-started-portal-deploy-app/assign-resource.png)
@@ -48,7 +50,7 @@ LUIS에 대한 새 제작 또는 쿼리 예측 리소스를 만들 때마다 리
 1. 테이블에서 새 예측 리소스에 대한 새 행을 찾고, 엔드포인트 URL을 복사합니다. 예측을 위한 LUIS API 엔드포인트에 `HTTP GET`을 요청할 수 있도록 올바르게 구성되어 있습니다.
 
 > [!TIP]
-> 활성 학습을 사용하여 LUIS 앱을 개선하려면 **쿼리 매개 변수 변경**을 선택하고 **로그 저장**을 선택합니다. 이 작업은 `log=true` 쿼리 문자열 매개 변수를 추가하여 예제 URL을 변경합니다. 런타임 엔드포인트에 예측 쿼리를 만들 때 변경된 예제 쿼리 URL을 복사하여 사용합니다.
+> 활성 학습을 사용하여 LUIS 앱을 개선하려면 **쿼리 매개 변수 변경** 을 선택하고 **로그 저장** 을 선택합니다. 이 작업은 `log=true` 쿼리 문자열 매개 변수를 추가하여 예제 URL을 변경합니다. 런타임 엔드포인트에 예측 쿼리를 만들 때 변경된 예제 쿼리 URL을 복사하여 사용합니다.
 
 ## <a name="train-the-app"></a>앱 학습
 
@@ -108,15 +110,15 @@ LUIS에 대한 새 제작 또는 쿼리 예측 리소스를 만들 때마다 리
 }
 ```
 
-이와 동일한 수준의 정보를 테스트 창에 표시하려면 앱을 게시해야 합니다. 앱을 게시한 후 테스트 창에서 **게시된 버전과 비교**를 선택합니다. 게시된 테스트 창의 **JSON 보기 표시**를 사용하여 이전 단계와 동일한 JSON을 볼 수 있습니다. 이렇게 하면 사용 중인 현재 앱의 변경 내용을 엔드포인트에 게시된 앱과 비교할 수 있습니다.
+이와 동일한 수준의 정보를 테스트 창에 표시하려면 앱을 게시해야 합니다. 앱을 게시한 후 테스트 창에서 **게시된 버전과 비교** 를 선택합니다. 게시된 테스트 창의 **JSON 보기 표시** 를 사용하여 이전 단계와 동일한 JSON을 볼 수 있습니다. 이렇게 하면 사용 중인 현재 앱의 변경 내용을 엔드포인트에 게시된 앱과 비교할 수 있습니다.
 
 [![현재 편집 중인 앱 버전과 게시된 앱 버전 비교](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작을 마쳤으면 위쪽 탐색 메뉴에서 **내 앱**을 선택합니다. 목록에서 앱의 확인란을 선택한 다음, 목록 위의 상황에 맞는 도구 모음에서 **삭제**를 선택합니다.
+이 빠른 시작을 마쳤으면 위쪽 탐색 메뉴에서 **내 앱** 을 선택합니다. 목록에서 앱의 확인란을 선택한 다음, 목록 위의 상황에 맞는 도구 모음에서 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [일반적인 의도 및 엔터티 식별](luis-tutorial-prebuilt-intents-entities.md)
+> [일반적인 의도 및 엔터티 식별](./tutorial-machine-learned-entity.md)

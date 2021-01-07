@@ -1,19 +1,19 @@
 ---
 title: Azure 쌍을 이루는 지역을 사용 하 여 비즈니스 연속성 & 재해 복구 보장
 description: Azure 지역 페어링을 사용 하 여 응용 프로그램 복원 력 보장
-author: barbkess
-manager: barbkess
+author: martinekuan
+manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.author: barbkess
+ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194324"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511232"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -43,20 +43,20 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 
 ## <a name="must-i-use-azure-regional-pairs"></a>Azure 지역 쌍을 사용 해야 하나요?
 
-아니요. 고객은 azure의 지역 쌍에 의존 하지 않고 Azure 서비스를 활용 하 여 복원 력 있는 서비스를 설계할 수 있습니다.  그러나 [격리](./security/fundamentals/isolation-choices.md) 를 활용 하 고 [가용성](./availability-zones/az-overview.md)을 향상 시키기 위해 지역 쌍에서 비즈니스 연속성 재해 복구 (BCDR)를 구성 하는 것이 좋습니다. 여러 활성 지역을 지원하는 애플리케이션의 경우 가능하면 한 지역 쌍의 두 지역을 모두 사용하는 것이 좋습니다. 이렇게 하면 재해 발생 시 응용 프로그램의 가용성을 최적화 하 고 복구 시간을 최소화할 수가 있습니다. 가능 하면 [최대 복원 력](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) 과 [재해 복구](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)의 용이성을 위해 응용 프로그램을 설계 합니다.
+아니요. 고객은 azure의 지역 쌍에 의존 하지 않고 Azure 서비스를 활용 하 여 복원 력 있는 서비스를 설계할 수 있습니다.  그러나 [격리](./security/fundamentals/isolation-choices.md) 를 활용 하 고 [가용성](./availability-zones/az-overview.md)을 향상 시키기 위해 지역 쌍에서 비즈니스 연속성 재해 복구 (BCDR)를 구성 하는 것이 좋습니다. 여러 활성 지역을 지원하는 애플리케이션의 경우 가능하면 한 지역 쌍의 두 지역을 모두 사용하는 것이 좋습니다. 이렇게 하면 재해 발생 시 응용 프로그램의 가용성을 최적화 하 고 복구 시간을 최소화할 수가 있습니다. 가능 하면 [최대 복원 력](/azure/architecture/framework/resiliency/overview) 과 [재해 복구](/azure/architecture/framework/resiliency/backup-and-recovery)의 용이성을 위해 응용 프로그램을 설계 합니다.
 
 ## <a name="azure-regional-pairs"></a>Azure 지역 쌍
 
 | Geography | 지역 쌍 A | 지역 쌍 B  |
 |:--- |:--- |:--- |
-| 아시아 태평양 |동아시아 (홍콩) | 동남 아시아 (싱가포르) |
+| Asia-Pacific |동아시아 (홍콩) | 동남 아시아 (싱가포르) |
 | 오스트레일리아 |오스트레일리아 동부 |오스트레일리아 남동부 |
 | 오스트레일리아 |오스트레일리아 중부 |오스트레일리아 중부 2 |
 | 브라질 |브라질 남부 |미국 중남부 |
 | Canada |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
 | 중국 |중국 북부 2 |중국 동부 2|
-| 유럽 |유럽 북부 (아일랜드) |유럽 서부 (네덜란드) |
+| 유럽 |북유럽(아일랜드) |서유럽(네덜란드) |
 | 프랑스 |프랑스 중부|프랑스 남부|
 | 독일 |독일 중부 |독일 북동부 |
 | 인도 |인도 중부 |인도 남부 |
@@ -94,9 +94,9 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 
 1. **Azure Compute (IaaS)** – 재해 중에 다른 지역에서 리소스를 사용할 수 있도록 사전에 추가 계산 리소스를 프로 비전 해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md)을 참조하세요. 
 
-2. **Azure Storage** -managed disks를 사용 하는 경우 Azure Backup를 사용 하 여 [지역 간 백업](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) 에 대해 알아보고 Azure Site Recovery를 사용 하 여 한 지역에서 다른 지역으로 [vm을 복제](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) 합니다. 저장소 계정을 사용 하는 경우 Azure Storage 계정을 만들 때 기본적으로 지역 중복 저장소 (GRS)가 구성 됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
+2. **Azure Storage** -managed disks를 사용 하는 경우 Azure Backup를 사용 하 여 [지역 간 백업](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) 에 대해 알아보고 Azure Site Recovery를 사용 하 여 한 지역에서 다른 지역으로 [vm을 복제](./site-recovery/azure-to-azure-tutorial-enable-replication.md) 합니다. 저장소 계정을 사용 하는 경우 Azure Storage 계정을 만들 때 기본적으로 지역 중복 저장소 (GRS)가 구성 됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
 
-3. **Azure SQL Database** – 지역에서 복제를 Azure SQL Database 하 여 전 세계 모든 지역에 대 한 트랜잭션 비동기 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오의 경우 쌍을 이루는 지역에 이러한 리소스를 배포 하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
+3. **Azure SQL Database** – 지역에서 복제를 Azure SQL Database 하 여 전 세계 모든 지역에 대 한 트랜잭션 비동기 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오의 경우 쌍을 이루는 지역에 이러한 리소스를 배포 하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](./azure-sql/database/auto-failover-group-overview.md)를 참조하세요.
 
 4. **Azure Resource Manager** - Resource Manager는 본질적으로 지역 간에 구성 요소를 논리적으로 격리합니다. 따라서 하나의 지역에서 발생한 논리적 오류가 다른 지역에 영향을 줄 가능성이 거의 없습니다.
 
@@ -104,9 +104,9 @@ Azure 지리는 하나 이상의 Azure 지역을 포함 하는 전 세계 영역
 
 5. **물리적 격리** – 가능한 경우 Azure는 지역 쌍의 데이터 센터 간에 최소 300 마일의 분리를 선호 하지만이는 실용적이 지 않거나 모든 지역에서 가능 하지 않습니다. 물리적 데이터 센터 격리는 자연 재해, 내전, 정전 또는 물리적 네트워크 중단으로 인해 두 지역 모두가 동시에 영향을 받을 수 있는 가능성을 줄여 줍니다. 격리는 지리적 위치 내의 제약 조건(지리적 크기, 전력/네트워크 인프라 가용성, 규정 등)에 따라 달라집니다.  
 
-6. **플랫폼에서 제공** 하는 복제-지역 중복 저장소와 같은 일부 서비스는 쌍을 이루는 지역에 자동 복제를 제공 합니다.
+6. **플랫폼에서 제공** 하는 복제-Geo-Redundant 저장소와 같은 일부 서비스는 쌍을 이루는 지역에 자동 복제를 제공 합니다.
 
-7. **지역 복구 순서** – 광범위 한 중단 시 한 지역의 복구가 모든 쌍에서 우선 순위가 지정 됩니다. 쌍을 이루는 지역에 배포된 애플리케이션은 지역 중 하나가 우선 순위에 따라 복구되도록 해줍니다. 쌍을 이루지 않는 지역에 애플리케이션이 배포된 경우에는 복구가 지연될 수 있으며, 최악의 경우 선택한 지역이 마지막에 복구되는 두 지역이 될 수 있습니다.
+7. **지역 복구 순서** – 광범위 한 중단 시 한 지역의 복구가 모든 쌍에서 우선 순위가 지정 됩니다. 쌍을 이루는 지역에 배포된 애플리케이션은 지역 중 하나에서 우선 복구됩니다. 쌍을 이루지 않는 지역에 애플리케이션이 배포된 경우에는 복구가 지연될 수 있으며, 최악의 경우 선택한 지역이 마지막에 복구되는 두 지역이 될 수 있습니다.
 
 8. **순차적 업데이트** – 계획 된 Azure 시스템 업데이트는 가동 중지 시간을 최소화 하 고, 버그의 영향을 최소화 하 고, 잘못 된 업데이트가 발생 하는 드문 경우에 논리적으로 발생 하기 위해 쌍을 이루는 지역으로 롤아웃 됩니다.
 

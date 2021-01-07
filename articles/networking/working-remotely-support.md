@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80982857"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Azure 네트워킹 서비스를 사용 하 여 원격으로 작업
@@ -80,7 +80,7 @@ Azure에는 다양 한 에코 시스템 파트너 집합도 있습니다. Azure�
 
 다음 문서에서는 다양 한 Azure 네트워킹 기능을 사용 하 여 사용자가 원격으로 작업할 수 있는 크기를 조정 하는 방법을 설명 합니다.
 
-| **자료** | **설명** |
+| **아티클** | **설명** |
 | --- | --- |
 | [사용자가 원격으로 작업할 수 있도록 하는 방법](../vpn-gateway/work-remotely-support.md) | 사용자에 대 한 원격 액세스를 설정 하거나 조직에 대 한 추가 용량으로 기존 솔루션을 보완 하는 데 사용할 수 있는 옵션을 검토 합니다.|
 | [집에서 요구 하는 작업을 위해 노력 하 고 있나요? Azure 가상 WAN이 지원할 수 있는 위치는 다음과 같습니다.](../virtual-wan/work-remotely-support.md) | Azure 가상 WAN을 사용 하 여 조직의 원격 연결 요구를 해결 합니다.|

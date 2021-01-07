@@ -1,18 +1,18 @@
 ---
 title: Azure App Configuration으로 Spring Boot에 기능 플래그를 추가하기 위한 빠른 시작
 description: Spring Boot 앱에 기능 플래그를 추가하고 Azure App Configuration을 사용하여 관리
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/18/2020
-ms.author: lcozzens
+ms.date: 08/06/2020
+ms.author: alkemper
 ms.custom: devx-track-java
-ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e931b974fc48d07237b2698e7782c48be20745d9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019745"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930718"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 
@@ -23,14 +23,14 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* 버전 8이 설치된 지원되는 [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk)
+* 버전 8이 설치된 지원되는 [Java Development Kit SDK](/java/azure/jdk)
 * [Apache Maven](https://maven.apache.org/download.cgi) 버전 3.0 이상
 
 ## <a name="create-an-app-configuration-instance"></a>App Configuration 인스턴스 만들기
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **기능 관리자** >  **+추가**를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
+7. **기능 관리자** >  **+추가** 를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
 
     > [!div class="mx-imgBorder"]
     > ![Beta라는 기능 플래그 사용](media/add-beta-feature-flag.png)
@@ -45,16 +45,16 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. 다음 옵션을 지정합니다.
 
-   * **Java**를 사용하는 **Maven** 프로젝트를 생성합니다.
+   * **Java** 를 사용하는 **Maven** 프로젝트를 생성합니다.
    * **Spring Boot** 버전 2.0 이상을 지정합니다.
    * 애플리케이션에 대한 **그룹** 및 **아티팩트** 이름을 지정합니다.  이 문서에서는 `com.example` 및 `demo`를 사용합니다.
    * **Spring Web** 종속성을 추가합니다.
 
-1. 이전 옵션을 지정한 후 **프로젝트 생성**을 선택합니다. 메시지가 표시되면 프로젝트를 로컬 컴퓨터로 다운로드합니다.
+1. 이전 옵션을 지정한 후 **프로젝트 생성** 을 선택합니다. 메시지가 표시되면 프로젝트를 로컬 컴퓨터로 다운로드합니다.
 
 ## <a name="add-feature-management"></a>기능 관리 추가
 
-1. 로컬 시스템에서 파일의 압축을 풀면 Spring Boot 애플리케이션을 편집할 수 있습니다. 앱의 루트 디렉터리에서 *pom.xml*을 찾습니다.
+1. 로컬 시스템에서 파일의 압축을 풀면 Spring Boot 애플리케이션을 편집할 수 있습니다. 앱의 루트 디렉터리에서 *pom.xml* 을 찾습니다.
 
 1. 텍스트 편집기에서 *pom.xml* 파일을 열고 `<dependencies>` 목록에 다음을 추가합니다.
 
@@ -131,7 +131,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     }
     ```
 
-1. 앱의 패키지 디렉터리에 *MessageProperties.java*라는 새 Java 파일을 만듭니다.
+1. 앱의 패키지 디렉터리에 *MessageProperties.java* 라는 새 Java 파일을 만듭니다.
 
     ```java
     package com.example.demo;
@@ -154,7 +154,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     }
     ```
 
-1. 앱의 패키지 디렉터리에 *HelloController.java*라는 새 Java 파일을 만듭니다.
+1. 앱의 패키지 디렉터리에 *HelloController.java* 라는 새 Java 파일을 만듭니다.
 
     ```java
     package com.example.demo;
@@ -185,7 +185,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     }
     ```
 
-1. 앱의 템플릿 디렉터리에 *welcome.html*이라는 새 HTML 파일을 만듭니다.
+1. 앱의 템플릿 디렉터리에 *welcome.html* 이라는 새 HTML 파일을 만듭니다.
 
     ```html
     <!DOCTYPE html>
@@ -228,7 +228,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
         </header>
         <div class="container body-content">
             <h1 class="mt-5">Welcome</h1>
-            <p>Learn more about <a href="https://github.com/microsoft/spring-cloud-azure/blob/master/spring-cloud-azure-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
+            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-spring-cloud-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
 
         </div>
         <footer class="footer">
@@ -242,7 +242,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
     ```
 
-1. `static` 아래에 CSS라는 새 폴더를 만들고 그 안에 *main.css*라는 새 CSS 파일을 만듭니다.
+1. `static` 아래에 CSS라는 새 폴더를 만들고 그 안에 *main.css* 라는 새 CSS 파일을 만듭니다.
 
     ```css
     html {
@@ -286,9 +286,9 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. 새 브라우저 창을 열고 URL(`http://localhost:8080/welcome`)로 이동합니다.
 
-    ![로컬로 빠른 시작 앱 시작](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![스크린샷은 시작 메시지가 포함된 브라우저 창을 보여줍니다.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. App Configuration 포털에서 **기능 관리자**를 선택하고, **Beta** 키의 상태를 다음과 같이 **On**으로 변경합니다.
+1. App Configuration 포털에서 **기능 관리자** 를 선택하고, **Beta** 키의 상태를 다음과 같이 **On** 으로 변경합니다.
 
     | 키 | 시스템 상태 |
     |---|---|
@@ -296,7 +296,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다.
 
-    ![로컬로 빠른 시작 앱 시작](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![스크린샷은 시작 메시지와 베타 링크가 호출된 브라우저 창을 보여줍니다.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -304,7 +304,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 Spring Boot 웹앱에서 기능을 관리하는 데 사용했습니다.
+이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 Spring Boot 웹앱에서 기능을 관리하는 데 사용했습니다.
 
 * [기능 관리](./concept-feature-management.md)에 대한 자세한 정보
 * [기능 플래그 관리](./manage-feature-flags.md)

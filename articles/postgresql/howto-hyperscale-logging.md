@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: 1dc7bc8e119de7c8fdcf09713286be2633457486
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f8840d5115cb552ed203705d37f8c692b3418947
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895872"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492338"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 로그
 
@@ -24,7 +24,7 @@ Citus (Hyperscale) 코디네이터 또는 작업자 노드에 대 한 PostgreSQL
 
 :::image type="content" source="media/howto-hyperscale-logging/choose-node.png" alt-text="노드 목록":::
 
-선택한 노드에 대해 **진단 설정**을 열고 **+ 진단 설정 추가**를 클릭 합니다.
+선택한 노드에 대해 **진단 설정** 을 열고 **+ 진단 설정 추가** 를 클릭 합니다.
 
 :::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="진단 설정 추가 단추":::
 
@@ -34,5 +34,5 @@ Citus (Hyperscale) 코디네이터 또는 작업자 노드에 대 한 PostgreSQL
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log analytics 쿼리 시작](/azure/azure-monitor/log-query/get-started-portal)
-- [Azure event hubs](/azure/event-hubs/event-hubs-about) 에 대 한 자세한 정보
+- [Log analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Azure event hubs](../event-hubs/event-hubs-about.md) 에 대 한 자세한 정보

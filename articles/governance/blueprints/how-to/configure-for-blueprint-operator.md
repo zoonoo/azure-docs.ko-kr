@@ -1,20 +1,20 @@
 ---
 title: 청사진 운영자를 위한 환경 설정
 description: Azure 기본 제공 역할 청사진에 사용 하도록 Azure 환경을 구성 하는 방법을 알아봅니다.
-ms.date: 08/27/2020
+ms.date: 11/24/2020
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: db8450516feab2fae4136f549959a29b006059aa
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051460"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95804913"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>청사진 운영자를 위한 환경 구성
 
 청사진 정의 및 청사진 할당의 관리를 다른 팀에 할당할 수 있습니다. 운영 팀은 중앙에서 제어 되는 중앙 집중식 청사진 정의의 할당을 관리 하는 동안 청사진 정의의 수명 주기 관리를 담당 하는 것이 일반적입니다.
 
-**청사진 연산자** 기본 제공 RBAC (역할 기반 액세스 제어)는 이러한 유형의 시나리오에서 사용 하도록 특별히 설계 되었습니다. 역할을 사용 하면 작업 유형 팀에서 조직 청사진 정의의 할당을 관리할 수 있지만 수정할 수는 없습니다. 이렇게 하려면 Azure 환경에서 몇 가지 구성이 필요 합니다 .이 문서에서는 필요한 단계를 설명 합니다.
+**청사진 연산자** 기본 제공 역할은 이러한 유형의 시나리오에서 사용 하기 위해 특별히 설계 되었습니다. 역할을 사용 하면 작업 유형 팀에서 조직 청사진 정의의 할당을 관리할 수 있지만 수정할 수는 없습니다. 이렇게 하려면 Azure 환경에서 몇 가지 구성이 필요 합니다 .이 문서에서는 필요한 단계를 설명 합니다.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>청사진 연산자에 사용 권한 부여
 
@@ -28,11 +28,13 @@ ms.locfileid: "89051460"
 
 청사진 정의는 시스템 할당 또는 사용자 할당 관리 id 중 하나를 사용할 수 있습니다. 그러나 **청사진 연산자** 역할을 사용 하는 경우에는 사용자 할당 관리 id를 사용 하도록 청사진 정의를 구성 해야 합니다. 또한 **청사진 운영자** 역할을 부여 하는 계정 또는 보안 그룹에는 사용자 할당 관리 id에 대해 **관리 id 운영자** 역할을 부여 해야 합니다. 이 권한이 없으면 사용 권한이 부족 하 여 청사진 할당이 실패 합니다.
 
-1. 할당 된 청사진에서 사용할 [사용자 할당 관리 Id 만들기](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
+1. 할당 된 청사진에서 사용할 [사용자 할당 관리 id를 만듭니다](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) .
+
+1. 사용자 할당 관리 id에 계획 된 범위에 대 한 청사진 정의에 필요한 역할 또는 사용 권한을 부여 합니다.
 
 1. **관리 Id 운영자** 의 [역할 할당을](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) 계정 또는 보안 그룹에 추가 합니다. 역할 할당의 범위를 새 사용자 할당 관리 id로 지정 합니다.
 
-1. **청사진 연산자**는 새로운 사용자 할당 관리 id를 사용 하는 [청사진을 할당](../create-blueprint-portal.md#assign-a-blueprint) 합니다.
+1. **청사진 연산자** 는 새로운 사용자 할당 관리 id를 사용 하는 [청사진을 할당](../create-blueprint-portal.md#assign-a-blueprint) 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

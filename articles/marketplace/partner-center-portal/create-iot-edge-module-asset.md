@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324644"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346777"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
 이 문서에서는 사물 인터넷 (IoT) Edge 모듈 기술 자산이 Azure Marketplace에 게시 되기 전에 충족 해야 하는 요구 사항을 설명 합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 IoT Edge 모듈은 IoT Edge 장치에서 실행 되는 Docker와 호환 되는 컨테이너입니다.
 
@@ -64,7 +64,7 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원 해야 합니다
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 모듈에는 IoT Edge 장치에 최대한 간단 하 게 배포 하는 기본 구성 설정이 포함 되어야 합니다. 이 정보는 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace)의 계획에 대 한 **기술 구성** 페이지에서 제공 됩니다. 컨테이너에는 Edge 허브 및 IoT Hub와 통신할 수 있도록 IoT Edge Module SDK가 포함 될 수도 있습니다.
 
@@ -107,10 +107,10 @@ IoT 모듈 SDK를 사용 하는 모듈은 원격 분석을 위해 고유 모듈 
 
 IoT 모듈 Sdk에서 다음 방법 중 하나를 사용 하 여 Productinfo.webpart을이 식별자로 설정 합니다.
 
-- [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo)
 
 IoT 모듈 SDK를 사용 하지 않는 모듈의 경우 다운로드 수와 같은 파트너 센터를 통해 보다 정확한 정보를 얻을 수 있습니다.
 

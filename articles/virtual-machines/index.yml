@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: eb7d7c911fc099a5f3b5456d7fb77688e0b06af5
-  ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+  ms.openlocfilehash: 075704312bc29cf195a98c343f707ece91dd3387
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/25/2020
-  ms.locfileid: "88816476"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94986048"
 highlightedContent:
   items:
   - title: Azure CLI를 사용하여 Linux 가상 머신 만들기
@@ -33,7 +33,7 @@ highlightedContent:
     url: ./spot-vms.md
   - title: 전용 호스트 - 하나 이상의 가상 머신을 호스팅하는 물리적 서버입니다.
     itemType: concept
-    url: ./linux/dedicated-hosts.md
+    url: ./dedicated-hosts.md
   - title: 근접 배치 그룹 - VM을 최대한 근접시켜 대기 시간을 단축합니다.
     itemType: how-to-guide
     url: ./linux/proximity-placement-groups.md
@@ -64,7 +64,7 @@ conceptualContent:
     - url: ./windows/tutorial-manage-data-disk.md
       itemType: tutorial
       text: 디스크 만들기 및 관리
-    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=%2fazure/virtual-machines/windows/context/windows-vm-context
       itemType: how-to-guide
       text: 관리되는 ID 구성
     - url: ./troubleshooting/index.yml

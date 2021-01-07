@@ -10,22 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: speech-full-stack-go
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+zone_pivot_groups: programming-languages-set-twenty-three
 keywords: 음성 텍스트 변환, 음성 텍스트 변환 소프트웨어
-ms.openlocfilehash: 08c42c383e114d404e5b3728fc264a70932aa915
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 593fb9bb89bfa43c2eb186a3b9d3c5bc2322c956
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706726"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014150"
 ---
 # <a name="get-started-with-speech-to-text"></a>음성 텍스트 변환 시작
-
-Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
-
-> [!TIP]
-> 샘플 코드로 바로 건너뛰려면 GitHub의 [빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)을 참조하세요.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-csharp.md)]
@@ -33,6 +28,10 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [C++ Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cpp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -43,15 +42,19 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 [!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-javascript.md)]
 ::: zone-end
 
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-objectivec-swift.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-[!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
+::: zone pivot="programming-language-curl"
+[!INCLUDE [REST include](includes/how-to/speech-to-text-basics/speech-to-text-basics-curl.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
+::: zone pivot="programmer-tool-spx"
 [!INCLUDE [CLI include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cli.md)]
 ::: zone-end
 

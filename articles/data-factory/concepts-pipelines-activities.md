@@ -3,18 +3,18 @@ title: Azure Data Factory의 파이프라인 및 작업
 description: Azure Data Factory의 파이프라인 및 작업에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ceaced5860976b0fa9f84903804700f778ed9550
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562012"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500084"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 
@@ -56,8 +56,8 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
-[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (이전의 SQL Data Warehouse) 또는 SQL Server
+[Azure Machine Learning Studio(클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
+[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics 또는 SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
 [사용자 지정 작업](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
@@ -106,13 +106,13 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 }
 ```
 
-태그 | Description | Type | 필수
+태그 | 설명 | 형식 | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | String | 예
 description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 아니요
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | 예
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 아니요
-동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최대값이 없습니다. 동시성 한도에 도달 하는 경우 추가 파이프라인 실행은 이전 작업이 완료 될 때까지 큐에 대기 됩니다. | Number | 아니요 
+동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최대값이 없습니다. 동시성 한도에 도달 하는 경우 추가 파이프라인 실행은 이전 작업이 완료 될 때까지 큐에 대기 됩니다. | 숫자 | 아니요 
 주석 | 파이프라인과 연결 된 태그 목록입니다. | 배열 | 아니요
 
 ## <a name="activity-json"></a>활동 JSON
@@ -141,12 +141,12 @@ description | 파이프라인의 용도를 설명하는 텍스트를 지정합�
 
 다음 표에서는 활동 JSON 정의의 속성을 설명합니다.
 
-태그 | Description | 필수
+태그 | 설명 | 필수
 --- | ----------- | ---------
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55개</li><li>문자 번호 또는 밑줄 ()로 시작 해야 합니다. \_</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | 예</li></ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
 type | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-flow-activities) 섹션을 참조하세요. | 예
-linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다.<br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 작업, Azure Machine Learning 일괄 처리 점수 매기기 작업, 저장 프로시저 작업의 경우 예입니다. <br/><br/>다른 모든 사용자의 경우 아니요
+linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다.<br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 활동의 경우 예, Azure Machine Learning Studio (클래식) 일괄 처리 점수 매기기 활동, 저장 프로시저 활동. <br/><br/>다른 모든 사용자의 경우 아니요
 typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아니요
 policy | 작업의 런타임 동작에 영향을 주는 정책입니다. 이 속성은 시간 제한 및 재시도 동작을 포함 합니다. 지정 되지 않은 경우 기본값이 사용 됩니다. 자세한 내용은 [작업 정책](#activity-policy)을 참조하세요. | 아니요
 dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency) 참조 | 아니요
@@ -206,7 +206,7 @@ secureOutput | True로 설정 하면 활동의 출력이 안전한 것으로 간
 }
 ```
 
-태그 | Description | 필수
+태그 | 설명 | 필수
 --- | ----------- | --------
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | 예</li><ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
@@ -224,7 +224,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 - 작업 B가 작업 A에 대해 **성공** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 성공인 경우에만 실행
 - 작업 B가 작업 A에 대해 **실패** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 실패인 경우에만 실행
 - 작업 B가 작업 A에 대해 **완료됨** 종속성 조건을 가지면 작업 B는 작업 A의 최종 상태가 성공 또는 실패인 경우에만 실행
-- 작업 B의 작업 A에 대해 **건너뜀**종속성 조건이 있습니다. 작업 b는 작업 a의 최종 상태가 건너뜀 인 경우에 실행 됩니다. 건너뜀은 각 작업이 이전 작업이 성공한 경우에만 실행하는 작업 X -> 작업 Y -> 작업 Z의 시나리오에서 발생합니다. 작업 X가 실패 하면 작업 Y는 실행 되지 않기 때문에 "건너뜀" 상태가 됩니다. 마찬가지로 활동 Z의 상태도 "건너뜀"입니다.
+- 작업 B의 작업 A에 대해 **건너뜀** 종속성 조건이 있습니다. 작업 b는 작업 a의 최종 상태가 건너뜀 인 경우에 실행 됩니다. 건너뜀은 각 작업이 이전 작업이 성공한 경우에만 실행하는 작업 X -> 작업 Y -> 작업 Z의 시나리오에서 발생합니다. 작업 X가 실패 하면 작업 Y는 실행 되지 않기 때문에 "건너뜀" 상태가 됩니다. 마찬가지로 활동 Z의 상태도 "건너뜀"입니다.
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>예: 작업 2는 작업 1의 성공에 따라 달라짐
 
@@ -310,9 +310,9 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 ```
 다음 사항에 유의하세요.
 
-- 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다.
-- 작업에 대한 입력을 **InputDataset**으로 설정하고 작업에 대한 출력을 **OutputDataset**으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
-- **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. 데이터 [이동 활동](#data-movement-activities) 섹션에서 원본 또는 싱크로 사용할 데이터 저장소를 클릭 하 여 해당 데이터 저장소로/에서 데이터를 이동 하는 방법에 대해 자세히 알아보세요.
+- 작업 섹션에는 **형식** 이 **복사** 로 설정된 작업만 있습니다.
+- 작업에 대한 입력을 **InputDataset** 으로 설정하고 작업에 대한 출력을 **OutputDataset** 으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
+- **typeProperties** 섹션에서 **BlobSource** 를 원본 유형으로 지정하고 **SqlSink** 를 싱크 유형으로 지정합니다. 데이터 [이동 활동](#data-movement-activities) 섹션에서 원본 또는 싱크로 사용할 데이터 저장소를 클릭 하 여 해당 데이터 저장소로/에서 데이터를 이동 하는 방법에 대해 자세히 알아보세요.
 
 이 파이프라인 만드는 전체 연습은 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
@@ -357,8 +357,8 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 ```
 다음 사항에 유의하세요.
 
-- activities 섹션에는 **type**이 **HDInsightHive**로 설정된 작업만 있습니다.
-- Hive 스크립트 파일 **partitionweblogs.hql. hql**는 ScriptLinkedService, AzureStorageLinkedService 라는에 의해 지정 된 Azure Storage 계정에 저장 되며 컨테이너의 스크립트 폴더에 저장 됩니다 `adfgetstarted` .
+- activities 섹션에는 **type** 이 **HDInsightHive** 로 설정된 작업만 있습니다.
+- Hive 스크립트 파일 **partitionweblogs.hql. hql** 는 ScriptLinkedService, AzureStorageLinkedService 라는에 의해 지정 된 Azure Storage 계정에 저장 되며 컨테이너의 스크립트 폴더에 저장 됩니다 `adfgetstarted` .
 - `defines` 섹션은 Hive 스크립트에 Hive 구성 값(예: $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`)으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
 **typeProperties** 섹션은 각 변환 활동마다 다릅니다. 변환 작업에 대해 지원되는 형식 속성에 대해 알아보려면 [데이터 변환 작업](#data-transformation-activities)에서 변환 작업을 클릭합니다.

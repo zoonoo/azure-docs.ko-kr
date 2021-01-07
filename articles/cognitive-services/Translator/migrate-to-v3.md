@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f22213bf192b12e046bab12346e5d5d83fb36b96
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523981"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364278"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator V2에서 V3로 마이그레이션
 
@@ -37,7 +37,7 @@ Microsoft Translator 팀은 변환기의 V3 (버전 3)을 릴리스 했습니다
 * 음역 - 음역 메서드가 API에 추가되었습니다. 이 메서드는 하나의 스크립트에서 단어 및 문장(예: 아랍어)을 다른 스크립트(예: 라틴어)로 변환합니다.
 * 언어-새로운 ' 언어 ' 메서드는 ' 변환 ', ' 사전 ' 및 ' 음 차 ' 메서드와 함께 사용할 언어 정보를 JSON 형식으로 제공 합니다.
 * 새로운 번역 기능-V2 API에 있던 기능 중 일부를 개별 메서드로 지원 하기 위해 새 기능이 ' 번역 ' 메서드에 추가 되었습니다. 예제는 TranslateArray입니다.
-* 말하기 방법-텍스트를 음성으로 변환 기능은 Microsoft Translator에서 더 이상 지원 되지 않습니다. [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)에서 텍스트 음성 변환 기능을 사용할 수 있습니다.
+* 말하기 방법-텍스트를 음성으로 변환 기능은 Microsoft Translator에서 더 이상 지원 되지 않습니다. [Microsoft Speech Service](../speech-service/text-to-speech.md)에서 텍스트 음성 변환 기능을 사용할 수 있습니다.
 
 다음과 같은 V2 및 V3 메서드 목록은 V2와 함께 포함된 기능을 제공하는 V3 메서드 및 API를 식별합니다.
 
@@ -47,8 +47,8 @@ Microsoft Translator 팀은 변환기의 V3 (버전 3)을 릴리스 했습니다
 | `TranslateArray`      | [번역](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [언어](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [언어](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguagesForSpeak`      | [Microsoft Speech Service](../speech-service/language-support.md#text-to-speech)         |
+| `Speak`     | [Microsoft Speech Service](../speech-service/text-to-speech.md)          |
 | `Detect`     | [검색](reference/v3-0-detect.md)         |
 | `DetectArray`     | [검색](reference/v3-0-detect.md)         |
 | `AddTranslation`     | 기능은 더 이상 지원되지 않습니다.       |
@@ -86,7 +86,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 ## <a name="v3-end-points"></a>V3 엔드포인트
 
-Global
+전역
 
 * api.cognitive.microsofttranslator.com
 
@@ -118,8 +118,8 @@ V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍
 
 | 버전 | 엔드포인트 | GDPR 프로세서 규정 준수 | Translator Hub 사용 | Custom Translator(미리 보기) 사용 |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
-|Translator 버전 2|    api.microsofttranslator.com|    아니요    |예    |아니요|
-|Translator 버전 3|    api.cognitive.microsofttranslator.com|    예|    아니요|    예|
+|Translator 버전 2|    api.microsofttranslator.com|    예    |yes    |예|
+|Translator 버전 3|    api.cognitive.microsofttranslator.com|    yes|    예|    yes|
 
 **Translator 버전 3**
 * 일반적으로 사용할 수 있으며 완전히 지원됩니다.
@@ -141,7 +141,7 @@ Api.cognitive.microsofttranslator.com 끝점을 사용 하는 경우 변환기�
 
 * [Microsoft 개인 정보 취급 방침](https://privacy.microsoft.com/privacystatement)
 * [Microsoft Azure 법률 정보](https://azure.microsoft.com/support/legal)
-* [온라인 서비스 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* [온라인 서비스 약관.](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>다음 단계
 

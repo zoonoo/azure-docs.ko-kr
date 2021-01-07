@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 26a3f3ff600de4418ccf6f6b09dea4b091678065
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265731"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드 
@@ -38,7 +38,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. 자산은
 
 [Azure StorSimple](../../storsimple/index.yml)은 클라우드 스토리지를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드 스토리지에서 데이터를 계층화합니다. StorSimple 디바이스는 데이터를 클라우드로 보내기 전에 중복을 제거하고 압축하여 큰 파일을 클라우드에 효율적으로 전송하게 됩니다. [StorSimple 데이터 관리자](../../storsimple/storsimple-data-manager-overview.md) 서비스는 StorSimple에서 데이터를 추출하고 AMS 자산으로 제공할 수 있는 API를 제공합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 1. 자산을 전송하려는 곳에 [Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 2. [StorSimple 데이터 관리자](../../storsimple/storsimple-data-manager-overview.md) 문서에 설명된 대로 데이터 관리자 미리 보기에 등록합니다.
@@ -47,7 +47,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. 자산은
 
     스토리지 큐는 작업이 실행되기 시작할 때 만들어집니다. 이 큐는 준비가 완료된 변환 Blob에 대한 메시지로 채워집니다. 이 큐의 이름은 작업 정의의 이름과 같습니다. 이 큐를 사용하여 자산이 준비되는 시기를 결정하고 원하는 Media Services 작업을 호출하여 여기서 실행할 수 있습니다. 예를 들어 이 큐를 사용하여 필요한 Media Services 코드가 있는 Azure Function을 트리거할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [.NET SDK를 사용 하 여 Data Manager 작업 트리거](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 

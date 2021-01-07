@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499616"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131244"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
-이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
+이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
 
-## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a>도메인 간 정책
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> 도메인 간 정책
 
 - [도메인 간 호출 허용](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - API를 Adobe Flash 및 Microsoft Silverlight 브라우저 기반 클라이언트에서 액세스할 수 있도록 합니다.
 - [CORS](api-management-cross-domain-policies.md#CORS) - CORS(Cross-Origin Resource Sharing) 지원을 작업 또는 API에 추가하여 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.
 - [JSONP](api-management-cross-domain-policies.md#JSONP) - 패딩이 있는 JSON(JSONP) 지원을 작업 또는 API에 추가하여 JavaScript 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.
 
-## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>도메인 간 호출 허용
+## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> 도메인 간 호출 허용
 `cross-domain` 정책을 사용하여 API를 Adobe Flash 및 Microsoft Silverlight 브라우저 기반 클라이언트에서 액세스할 수 있도록 설정합니다.
 
 ### <a name="policy-statement"></a>정책 문
@@ -45,25 +45,23 @@ ms.locfileid: "86499616"
 
 ```xml
 <cross-domain>
-    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain>
 </cross-domain>
 ```
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필요한 공간|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)을 준수해야 합니다.|예|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound
 - **정책 범위:** 모든 범위
 
-## <a name="cors"></a><a name="CORS"></a>용
+## <a name="cors"></a><a name="CORS"></a> 용
 `cors` 정책은 CORS(Cross-Origin Resource Sharing) 지원을 작업 또는 API에 추가하여 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다.
 
 CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 요청(즉, 웹 페이지의 JavaScript에서 다른 도메인으로 실행한 XMLHttpRequests 호출)을 허용할지 여부를 결정할 수 있습니다. 따라서 동일 원본의 요청만 허용하는 것보다 유연성이 더 뛰어나며 모든 원본 간 요청을 허용하는 것보다 보안도 더 높아집니다.
@@ -124,31 +122,31 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필요한 공간|기본값|
+|이름|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |cors|루트 요소입니다.|예|해당 없음|
 |allowed-origins|도메인 간 요청에 대해 허용되는 원본을 설명하는 `origin` 요소를 포함합니다. `allowed-origins`는 모든 원본을 허용하도록 `*`를 지정하는 단일 `origin` 요소 또는 URI를 포함하는 하나 이상의 `origin` 요소를 포함할 수 있습니다.|예|해당 없음|
 |원본|값은 모든 원본을 허용하는 `*`이거나 단일 원본을 지정하는 URI일 수 있습니다. URI에는 체계, 호스트 및 포트가 포함되어야 합니다.|예|URI에서 포트를 생략하면 HTTP에 포트 80이 사용되고 HTTPS에 포트 443이 사용됩니다.|
-|allowed-methods|GET 또는 POST 이외의 메서드가 허용되는 경우 이 요소가 필요합니다. 지원되는 HTTP 동사를 지정하는 `method`를 포함합니다. 값은 `*` 모든 메서드를 나타냅니다.|아니요|이 섹션이 없으면 GET 및 POST가 지원됩니다.|
-|method|HTTP 동사를 지정합니다.|`allowed-methods` 섹션이 있는 경우 하나 이상의 `method` 요소가 필요합니다.|해당 없음|
-|allowed-headers|이 요소는 요청에 포함할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|예|해당 없음|
-|expose-headers|이 요소는 클라이언트가 액세스할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|예|해당 없음|
+|allowed-methods|GET 또는 POST 이외의 메서드가 허용되는 경우 이 요소가 필요합니다. 지원되는 HTTP 동사를 지정하는 `method`를 포함합니다. 값은 `*` 모든 메서드를 나타냅니다.|No|이 섹션이 없으면 GET 및 POST가 지원됩니다.|
+|메서드|HTTP 동사를 지정합니다.|`allowed-methods` 섹션이 있는 경우 하나 이상의 `method` 요소가 필요합니다.|해당 없음|
+|allowed-headers|이 요소는 요청에 포함할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|아니요|해당 없음|
+|expose-headers|이 요소는 클라이언트가 액세스할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|아니요|해당 없음|
 |header|헤더 이름을 지정합니다.|섹션이 있는 경우 `allowed-headers` 또는 `expose-headers`에 하나 이상의 `header` 요소가 필요합니다.|해당 없음|
 
 ### <a name="attributes"></a>특성
 
-|Name|설명|필요한 공간|기본값|
+|Name|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|실행 `Access-Control-Allow-Credentials` 전 응답의 헤더는이 특성의 값으로 설정 되 고 도메인 간 요청에서 자격 증명을 제출 하는 클라이언트의 기능에 영향을 줍니다.|아니요|false|
-|preflight-result-max-age|실행 전 `Access-Control-Max-Age` 응답의 헤더는이 특성의 값으로 설정 되 고, 사전 진행 된 응답을 캐시 하는 사용자 에이전트의 기능에 영향을 줍니다.|아니요|0|
+|allow-credentials|실행 `Access-Control-Allow-Credentials` 전 응답의 헤더는이 특성의 값으로 설정 되 고 도메인 간 요청에서 자격 증명을 제출 하는 클라이언트의 기능에 영향을 줍니다.|No|false|
+|preflight-result-max-age|실행 전 `Access-Control-Max-Age` 응답의 헤더는이 특성의 값으로 설정 되 고, 사전 진행 된 응답을 캐시 하는 사용자 에이전트의 기능에 영향을 줍니다.|No|0|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** inbound
 - **정책 범위:** 모든 범위
 
-## <a name="jsonp"></a><a name="JSONP"></a>JSONP
+## <a name="jsonp"></a><a name="JSONP"></a> JSONP
 `jsonp` 정책은 패딩이 있는 JSON(JSONP) 지원을 작업 또는 API에 추가하여 JavaScript 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다. JSONP는 JavaScript 프로그램에서 다른 도메인의 서버로부터 데이터를 요청하는 데 사용하는 메서드입니다. JSONP는 웹 페이지에 대한 액세스 권한이 동일한 도메인 내에 있어야 하는 경우 대부분의 웹 브라우저에서 적용하는 제한을 무시합니다.
 
 ### <a name="policy-statement"></a>정책 문
@@ -169,17 +167,17 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필요한 공간|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |jsonp|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|Name|설명|필요한 공간|기본값|
+|Name|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 없음|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 - **정책 섹션:** outbound
@@ -192,4 +190,4 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 + [API Management의 정책](api-management-howto-policies.md)
 + [API 변환](transform-api.md)
 + [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
-+ [정책 샘플](policy-samples.md)
++ [정책 샘플](./policy-reference.md)

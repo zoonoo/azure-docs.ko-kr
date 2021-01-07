@@ -4,10 +4,10 @@ description: 노이즈를 줄이기 위해 Azure Advisor 권장 사항을 확인
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986871"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>사용자에 게 중요 한 Azure Advisor 권장 사항 보기
@@ -47,7 +47,7 @@ Azure Advisor를 사용 하면 단일 리소스에 대 한 권장 사항을 해�
 1. 권장 사항 목록에서 권장 사항을 선택 합니다.
 1. 연기 하거나 해제 하려는 권장 사항에 대해 연기 또는 해제를 선택 합니다.
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Select 열을 표시 하 고 단일 권장 구성에 대 한 연기 및 해제 작업을 강조 표시 하는 Managed Disks 사용 창의 스크린샷":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="필터링 옵션을 보여 주는 Azure Advisor의 스크린샷":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Azure Portal에서 여러 권장 사항을 연기 하거나 해제 합니다.
 
@@ -57,7 +57,7 @@ Azure Advisor를 사용 하면 단일 리소스에 대 한 권장 사항을 해�
 1. 연기 하려는 모든 리소스에 대해 행의 왼쪽에 있는 확인란을 선택 하 고 권장 사항을 해제 합니다.
 1. 테이블의 왼쪽 위에서 **연기** 또는 **해제** 를 선택 합니다.
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="강조 표시 된 테이블의 왼쪽 위에 있는 select 열 및 연기 및 해제 동작을 보여 주는 Managed Disks 사용 창의 스크린샷":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="필터링 옵션을 보여 주는 Azure Advisor의 스크린샷":::
 
 > [!NOTE]
 > 권장 사항을 해제 하거나 연기 하려면 참가자 또는 소유자 권한이 있어야 합니다. Azure Advisor의 사용 권한에 대해 자세히 알아보세요.
@@ -73,7 +73,7 @@ Azure Advisor를 사용 하면 단일 리소스에 대 한 권장 사항을 해�
 
 1. 개요 패널의 필터를 **연기**됨으로 변경 합니다. 그러면 Advisor는 연기 되거나 해제 한 권장 사항을 표시 합니다.
 
-    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="연기 된 드롭다운 메뉴가 선택 된 Azure Advisor 창의 스크린샷":::
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="필터링 옵션을 보여 주는 Azure Advisor의 스크린샷":::
 
 1. 범주를 선택 하 여 **연기** 되거나 **해제** 된 권장 사항을 확인할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure Advisor를 사용 하면 단일 리소스에 대 한 권장 사항을 해�
 
 1. 행의 끝에 있는 **활성화** 를 클릭 합니다. 클릭 하면 해당 리소스에 대 한 권장 사항이 활성화 되며이 테이블에서 제거 됩니다. 이제 권장 사항이 **활성** 탭에 표시 됩니다.
  
-     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="활성화 작업이 강조 표시 된 지연 된 & 해제 됨 탭이 표시 된 일시 삭제 사용 창의 스크린샷":::
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="필터링 옵션을 보여 주는 Azure Advisor의 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 

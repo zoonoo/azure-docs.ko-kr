@@ -1,6 +1,7 @@
 ---
-title: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가 | Azure
-description: OpenID Connect를 사용하여 ASP.NET 웹앱에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
+title: '빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 OpenID Connect를 사용하여 ASP.NET 웹앱에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,19 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 97a040ec166894197520b2e3a6dfc720262b7f1c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
+ms.openlocfilehash: 658069f8c8007be2c1b424d8ccff687b986ac237
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691295"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030946"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
-이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다.  (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
+
+이 빠른 시작에서는 ASP.NET 웹앱이 모든 Azure AD(Azure Active Directory) 조직에서 사용자를 로그인하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 
+
+자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>사전 요구 사항
+>
+> * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+> * [.NET Framework 4.7.2 이상](https://dotnet.microsoft.com/download/visual-studio-sdks)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
 > 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
 > * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -29,7 +39,7 @@ ms.locfileid: "88691295"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) 창으로 이동합니다.
-> 1. 애플리케이션 이름을 입력하고 **등록**을 클릭합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
@@ -37,16 +47,15 @@ ms.locfileid: "88691295"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-> 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-> 1. **새 등록**을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
->      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `ASPNET-Quickstart`)을 입력합니다.
->      - **리디렉션 URI**에 `https://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
->      - 관리 섹션 아래의 왼쪽 탐색 창에서 **인증**을 선택합니다.
->          - **암시적 권한 부여** 하위 섹션에서 **ID 토큰**을 선택합니다.
->          - 그런 다음, **저장**을 선택합니다.
+> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. **Azure Active Directory** 를 검색하고 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `ASPNET-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. **리디렉션 URI** 에 `https://localhost:44368/`을 추가하고 **등록** 을 선택합니다.
+> 1. 관리 섹션 아래의 왼쪽 탐색 창에서 **인증** 을 선택합니다.
+> 1. **암시적 권한 부여** 하위 섹션에서 **ID 토큰** 을 선택합니다.
+> 1. **저장** 을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
@@ -62,25 +71,25 @@ ms.locfileid: "88691295"
 > [!div renderon="docs"]
 > [Visual Studio 2019 솔루션 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Visual Studio 2019를 사용하여 프로젝트를 실행합니다.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
-> 앱 속성 값을 사용하여 프로젝트를 구성했습니다. 
+> 앱 속성 값을 사용하여 프로젝트를 구성했습니다.
 
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 실행
 
 1. Zip 파일을 루트 폴더에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 1. Visual Studio(AppModelv2-WebApp-OpenIDConnect-DotNet.sln)에서 솔루션 열기
-1. Visual Studio 버전에 따라 프로젝트 `AppModelv2-WebApp-OpenIDConnect-DotNet` 및 **NuGet 패키지 복원**을 마우스 오른쪽 단추로 클릭해야 할 수 있습니다.
+1. Visual Studio 버전에 따라 프로젝트 `AppModelv2-WebApp-OpenIDConnect-DotNet` 및 **NuGet 패키지 복원** 을 마우스 오른쪽 단추로 클릭해야 할 수 있습니다.
 1. 패키지 관리자 콘솔(보기 -> 다른 Windows -> 패키지 관리자 콘솔)을 열고 `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`을 실행합니다.
 
 > [!div renderon="docs"]
-> 5. **Web.config**를 편집하고 매개 변수 `ClientId` 및 `Tenant`를 다음으로 바꿉니다.
+> 5. **Web.config** 를 편집하고 매개 변수 `ClientId` 및 `Tenant`를 다음으로 바꿉니다.
 >    ```xml
 >    <add key="ClientId" value="Enter_the_Application_Id_here" />
 >    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
@@ -89,12 +98,12 @@ ms.locfileid: "88691295"
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 > - `Enter_the_Tenant_Info_Here` - 아래 옵션 중 하나입니다.
 >   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 Id** 또는 **테넌트 이름**(예: contoso.onmicrosoft.com)으로 바꿉니다.
->   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
+>   - 애플리케이션이 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>   - 애플리케이션이 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 바꾸세요.
 >
 > > [!TIP]
-> > - *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
-> > - **Web.config**의 `redirectUri` 값이 Azure AD의 앱 등록에 대해 정의된 **리디렉션 URI**와 일치하는지 확인합니다(그렇지 않은 경우 앱 등록을 위한 **인증** 메뉴로 이동하여 **REDIRECT URI**를 일치하도록 업데이트함).
+> > - *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형* 의 값을 찾아보려면 **개요** 페이지로 이동합니다.
+> > - **Web.config** 의 `redirectUri` 값이 Azure AD의 앱 등록에 대해 정의된 **리디렉션 URI** 와 일치하는지 확인합니다(그렇지 않은 경우 앱 등록을 위한 **인증** 메뉴로 이동하여 **REDIRECT URI** 를 일치하도록 업데이트함).
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -109,17 +118,17 @@ ms.locfileid: "88691295"
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN 미들웨어 NuGet 패키지
 
-OWIN 미들웨어 패키지로 ASP.NET의 OpenID Connect를 사용하는 쿠키 기반 인증을 가지고 인증 파이프라인을 설정할 수 있습니다. Visual Studio의 **패키지 관리자 콘솔**에서 다음 명령을 실행하여 이 패키지를 설치할 수 있습니다.
+OWIN 미들웨어 패키지로 ASP.NET의 OpenID Connect를 사용하는 쿠키 기반 인증을 가지고 인증 파이프라인을 설정할 수 있습니다. Visual Studio의 **패키지 관리자 콘솔** 에서 다음 명령을 실행하여 이 패키지를 설치할 수 있습니다.
 
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb  
+Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### <a name="owin-startup-class"></a>OWIN 시작 클래스
 
-OWIN 미들웨어는 호스팅 프로세스가 초기화될 때 실행되는 *시작 클래스*를 사용합니다. 이 빠른 시작에서 *startup.cs* 파일은 루트 폴더에 있습니다. 다음 코드는 빠른 시작에서 사용하는 매개 변수를 보여줍니다.
+OWIN 미들웨어는 호스팅 프로세스가 초기화될 때 실행되는 *시작 클래스* 를 사용합니다. 이 빠른 시작에서 *startup.cs* 파일은 루트 폴더에 있습니다. 다음 코드는 빠른 시작에서 사용하는 매개 변수를 보여줍니다.
 
 ```csharp
 public void Configuration(IAppBuilder app)
@@ -159,7 +168,7 @@ public void Configuration(IAppBuilder app)
 > |Where  | Description |
 > |---------|---------|
 > | `ClientId`     | Azure Portal에 등록된 애플리케이션의 애플리케이션 ID |
-> | `Authority`    | 사용자가 인증하는 STS 엔드포인트 일반적으로 퍼블릭 클라우드의 경우 `https://login.microsoftonline.com/{tenant}/v2.0`입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
+> | `Authority`    | 사용자가 인증하는 STS 엔드포인트 일반적으로 퍼블릭 클라우드의 경우 `https://login.microsoftonline.com/{tenant}/v2.0`입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common* 입니다. |
 > | `RedirectUri`  | Microsoft ID 플랫폼 엔드포인트에 인증한 후 사용자가 전송되는 URL |
 > | `PostLogoutRedirectUri`     | 서명 해제 후 사용자가 전송되는 URL |
 > | `Scope`     | 요청되는 범위 목록이며 공백으로 구분 |
@@ -195,13 +204,11 @@ public void SignIn()
 
 `[Authorize]` 특성을 사용하여 컨트롤러나 컨트롤러 작업을 보호할 수 있습니다. 이 특성은 컨트롤러나 작업에 액세스를 제한하여, *인증되지 않은* 사용자가 `[Authorize]` 특성으로 데코레이팅된 작업이나 컨트롤러 중 하나에 액세스하려고 할 때 인증 질문이 자동으로 발생하여, 인증된 사용자만 컨트롤러의 작업에 액세스하게 합니다.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작의 전체 설명이 포함된 애플리케이션 및 새로운 기능 구축의 완전한 단계별 가이드를 위한 ASP.NET 자습서를 사용해 보세요.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에 사용되는 애플리케이션을 만드는 단계 알아보기
-
 > [!div class="nextstepaction"]
-> [로그인 자습서](./tutorial-v2-asp-webapp.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [ASP.NET 웹앱에 로그인 추가](tutorial-v2-asp-webapp.md)

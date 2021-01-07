@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
-ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: fasttrack-new, devx-track-js
+ms.openlocfilehash: b157200b03bdc89e00bfa5c8264d78baf24875c1
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253697"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609125"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>OAuth 2.0, Azure Active Directory B2C 및 Azure API Management를 사용 하 여 SPA 백 엔드 보호
 
@@ -99,7 +99,7 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
 
 ## <a name="build-the-function-api"></a>함수 API 빌드
 1. 구독에서 항목을 다시 구성할 수 있도록 Azure Portal에서 표준 Azure AD 테 넌 트로 다시 전환 합니다. 
-1. Azure Portal의 함수 앱 블레이드로 이동 하 여 빈 함수 앱을 연 다음 퀵 스타트를 통해 포털 내 새 ' Webhook + API ' 함수를 만듭니다.
+1. Azure Portal의 함수 앱 블레이드로 이동 하 여 빈 함수 앱을 연 다음 빠른 시작을 통해 새 In-Portal ' Webhook + API ' 함수를 만듭니다.
 1. 아래에 있는 샘플 코드를 표시 되는 기존 코드에 대해 csx에 붙여넣습니다.
 
    ```csharp
@@ -180,7 +180,7 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
    > 이제 API management 나 사용자의 주소를 제외한 모든 위치에서 함수 API를 호출할 수 없습니다.
    
 ## <a name="import-the-function-app-definition"></a>함수 앱 정의 가져오기
-1. *API Management 블레이드*를 연 후 *인스턴스*를 엽니다.
+1. *API Management 블레이드* 를 연 후 *인스턴스* 를 엽니다.
 1. 인스턴스의 API Management 섹션에서 Api 블레이드를 선택 합니다.
 1. ' 새 API 추가 ' 창에서 ' 함수 앱 '를 선택한 다음 팝업 위쪽에서 ' 전체 '를 선택 합니다.
 1. 찾아보기를 클릭 하 고 내에서 API를 호스트 하는 함수 앱을 선택한 다음 선택을 클릭 합니다.
@@ -396,7 +396,8 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
                     // Make the api call here
                 $.ajax({
                     type: "get",
-                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},                   url: applicationConfig.webApi
+                    headers: {'Authorization': 'Bearer ' + token, 'Ocp-Apim-Subscription-Key': applicationConfig.subKey},
+                    url: applicationConfig.webApi
                 }
                 ).done(function (body) {
                     document.getElementById("message").innerHTML = "The API Said " + body;

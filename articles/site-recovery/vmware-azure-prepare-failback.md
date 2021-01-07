@@ -4,13 +4,13 @@ description: Azure Site Recovery로 장애 조치 (failover) 후 VMware Vm 장�
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847746"
 ---
-# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>VMware Vm의 다시 보호 및 장애 복구 준비
+# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>VMware VM의 장애 복구(failback) 및 다시 보호 준비
 
 온-프레미스 VMware Vm 또는 물리적 서버를 Azure로 [장애 조치](site-recovery-failover.md) (failover) 한 후 장애 조치 (failover) 후에 생성 된 azure vm을 다시 보호 하 여 온-프레미스 사이트로 다시 복제 합니다. Azure에서 온-프레미스로의 복제를 사용 하 여 준비가 되 면 Azure에서 온-프레미스로 장애 조치 (failover)를 실행 하 여 장애 복구 (failback)를 수행할 수 있습니다.
 
@@ -25,7 +25,7 @@ Azure에서 다시 보호 하 고 장애 복구 (failback)를 수행 하려면 �
 --- | ---
 **온-프레미스 구성 서버** | 온-프레미스 구성 서버가 실행 중이 고 Azure에 연결 되어 있어야 합니다.<br/><br/> 장애 복구 하려는 VM이 구성 서버 데이터베이스에 있어야 합니다. 재해가 구성 서버에 영향을 주는 경우 장애 복구 (failback)가 작동 하도록 동일한 IP 주소를 사용 하 여 복원 합니다.<br/><br/>  장애 조치 (failover) 시 복제 된 컴퓨터의 IP 주소가 유지 되 면 Azure Vm 컴퓨터와 구성 서버의 장애 복구 NIC 간에 사이트 간 연결 (또는 Express 경로 연결)을 설정 해야 합니다. 유지 되는 IP 주소의 경우 구성 서버에는 원본 컴퓨터 연결용 Nic와 Azure 장애 복구 연결을 위한 두 개의 Nic가 필요 합니다. 이렇게 하면 원본 및 장애 조치 (failover) 된 Vm의 서브넷 주소 범위가 중복 되지 않습니다.
 **Azure의 프로세스 서버** | 온-프레미스 사이트로 장애 복구 (failback)를 수행 하려면 Azure에 프로세스 서버가 필요 합니다.<br/><br/> 프로세스 서버는 보호 된 Azure VM에서 데이터를 수신 하 고이를 온-프레미스 사이트에 보냅니다.<br/><br/> 프로세스 서버와 보호 된 VM 간에 대기 시간이 짧은 네트워크가 필요 하므로 더 높은 복제 성능을 위해 Azure에 프로세스 서버를 배포 하는 것이 좋습니다.<br/><br/> 개념 증명의 경우 온-프레미스 프로세스 서버 및 개인 피어 링으로 Express 경로를 사용할 수 있습니다.<br/><br/> 프로세스 서버는 장애 조치 (failover) 된 VM이 있는 Azure 네트워크에 있어야 합니다. 프로세스 서버도 온-프레미스 구성 서버와 마스터 대상 서버와 통신할 수 있어야 합니다.
-**별도의 마스터 대상 서버** | 마스터 대상 서버는 장애 복구 (failback) 데이터를 수신 하며 기본적으로 Windows 마스터 대상 서버는 온-프레미스 구성 서버에서 실행 됩니다.<br/><br/> 마스터 대상 서버에는 최대 60 개의 디스크가 연결 되어 있을 수 있습니다. 장애 복구 (failback) 된 Vm이 총 60 디스크를 초과 하거나 많은 양의 트래픽을 장애 복구 (failback) 하는 경우 장애 복구 (failback)를 위한 별도의 마스터 대상 서버를 만듭니다.<br/><br/> 다중 VM 일관성을 위해 컴퓨터를 복제 그룹에 수집 하는 경우 Vm은 모두 Windows 이거나 모두 Linux 여야 합니다. 이유 복제 그룹의 모든 Vm은 동일한 마스터 대상 서버를 사용 해야 하 고 마스터 대상 서버는 복제 된 컴퓨터와 동일한 운영 체제 (같거나 높은 버전)를 사용 해야 합니다.<br/><br/> 마스터 대상 서버의 디스크에는 스냅숏이 있어서는 안 됩니다. 그렇지 않으면 다시 보호 및 장애 복구가 작동 하지 않습니다.<br/><br/> 마스터 대상에는 Paravirtual SCSI 컨트롤러가 있을 수 없습니다. 컨트롤러는 LSI Logic 컨트롤러 일 수 있습니다. LSI Logic 컨트롤러가 없으면 다시 보호가 실패합니다.
+**별도의 마스터 대상 서버** | 마스터 대상 서버는 장애 복구 (failback) 데이터를 수신 하며 기본적으로 Windows 마스터 대상 서버는 온-프레미스 구성 서버에서 실행 됩니다.<br/><br/> 마스터 대상 서버에는 최대 60 개의 디스크가 연결 되어 있을 수 있습니다. 장애 복구 (failback) 된 Vm이 총 60 디스크를 초과 하거나 많은 양의 트래픽을 장애 복구 (failback) 하는 경우 장애 복구 (failback)를 위한 별도의 마스터 대상 서버를 만듭니다.<br/><br/> 다중 VM 일관성을 위해 컴퓨터를 복제 그룹에 수집 하는 경우 Vm은 모두 Windows 이거나 모두 Linux 여야 합니다. 그 이유는 복제 그룹의 모든 Vm은 동일한 마스터 대상 서버를 사용 해야 하 고 마스터 대상 서버는 복제 된 컴퓨터와 동일한 운영 체제 (같거나 높은 버전)를 사용 해야 합니다.<br/><br/> 마스터 대상 서버의 디스크에는 스냅숏이 있어서는 안 됩니다. 그렇지 않으면 다시 보호 및 장애 복구가 작동 하지 않습니다.<br/><br/> 마스터 대상에는 Paravirtual SCSI 컨트롤러가 있을 수 없습니다. 컨트롤러는 LSI Logic 컨트롤러 일 수 있습니다. LSI Logic 컨트롤러가 없으면 다시 보호가 실패합니다.
 **장애 복구 (Failback) 복제 정책** | 온-프레미스 사이트에 다시 복제 하려면 장애 복구 정책이 필요 합니다. 이 정책은 Azure에 대 한 복제 정책을 만들 때 자동으로 생성 됩니다.<br/><br/> 정책은 구성 서버와 자동으로 연결됩니다. RPO 임계값이 15 분, 복구 지점 보존을 24 시간으로, 앱 일치 스냅숏 빈도는 60 분으로 설정 됩니다. 정책을 편집할 수 없습니다. 
 **사이트 간 VPN/Express 경로 개인 피어 링** | 다시 보호 및 장애 복구 (failback)에는 사이트 간 VPN 연결 또는 데이터를 복제 하기 위한 Express 경로 개인 피어 링이 필요 합니다. 
 

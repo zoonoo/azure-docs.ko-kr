@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
 ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081199"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>HDInsight 4.0 Apache Spark에 Azure HDInsight 3.6 Apache Storm 마이그레이션
@@ -33,7 +33,7 @@ HDInsight 3.6의 Apache Storm에서 마이그레이션하려면 다음과 같이
 
 ## <a name="comparison-between-apache-storm-and-spark-streaming-spark-structured-streaming"></a>Apache Storm와 Spark 스트리밍 간의 비교, Spark 구조적 스트리밍
 
-Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 애플리케이션은 최소한 한 번 처리를 보장할 수 있고, [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html)는 정확히 한 번 처리를 보장할 수 있습니다. Spark 스트리밍 및 Spark 구조적 스트리밍은 노드 오류가 발생 하더라도 입력 이벤트가 정확히 한 번만 처리 되도록 보장 합니다. 스톰에는 각 단일 이벤트를 처리 하는 모델이 있으며 Trident에서 마이크로 배치 모델을 사용할 수도 있습니다. Spark 스트리밍 및 Spark 구조적 스트리밍은 마이크로 일괄 처리 처리 모델을 제공 합니다.
+Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 애플리케이션은 최소한 한 번 처리를 보장할 수 있고, [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html)는 정확히 한 번 처리를 보장할 수 있습니다. Spark 스트리밍 및 Spark 구조적 스트리밍은 노드 오류가 발생 하더라도 입력 이벤트가 정확히 한 번만 처리 되도록 보장 합니다. 스톰에는 각 단일 이벤트를 처리 하는 모델이 있으며 Trident에서 마이크로 배치 모델을 사용할 수도 있습니다. Spark 스트리밍 및 Spark 구조적 스트리밍은 Micro-Batch 처리 모델을 제공 합니다.
 
 |  |Storm |Spark 스트리밍 | Spark 구조적 스트리밍|
 |---|---|---|---|
@@ -46,7 +46,7 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 
 Spark 구조적 스트리밍은 Spark 스트리밍 (i 스트림)을 대체 합니다. 구조적 스트리밍은 향상 된 기능 및 유지 관리를 계속 받고 있지만, d 스트림은 유지 관리 모드 에서만 가능 합니다. **참고:이 점을 강조 하려면 링크가 필요**합니다. 구조적 스트리밍에는 지원 되는 원본 및 싱크에 대 한 많은 기능이 포함 되지 않으므로 요구 사항을 평가 하 여 적절 한 Spark 스트림 처리 옵션을 선택 합니다.
 
-## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>스트리밍 (단일 이벤트) 처리 vs 마이크로 일괄 처리
+## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>스트리밍 (단일 이벤트) 처리 vs Micro-Batch 처리
 
 스톰은 각 단일 이벤트를 처리 하는 모델을 제공 합니다. 즉, 들어오는 모든 레코드는 도착 하는 즉시 처리 됩니다. Spark Streaming 애플리케이션은 처리를 위해 해당 일괄 처리를 보내기 전에 이벤트의 각 '마이크로 일괄 처리'를 수집하기 위해 잠시 기다려야 합니다. 반면, 이벤트 기반 애플리케이션은 각 이벤트를 즉시 처리합니다. Spark 스트리밍 대기 시간은 일반적으로 몇 초 이하입니다. 마이크로 일괄 처리 방법의 이점은 보다 효율적인 데이터 처리 및 간단한 집계 계산입니다.
 

@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326157"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
@@ -23,7 +23,7 @@ ms.locfileid: "87326157"
 
 ![ExpressRoute 모니터](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
-## <a name="configuration"></a>구성 
+## <a name="configuration"></a>Configuration 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
 
 ### <a name="configure-network-security-group-rules"></a>네트워크 보안 그룹 규칙 구성 

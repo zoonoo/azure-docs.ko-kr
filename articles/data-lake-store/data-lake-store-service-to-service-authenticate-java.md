@@ -8,11 +8,11 @@ ms.date: 05/29/2018
 ms.custom: devx-track-java
 ms.author: twooley
 ms.openlocfilehash: 0e320557a7372af6a41038d9b3196db23d2496c3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325052"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000388"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 
@@ -26,7 +26,7 @@ ms.locfileid: "87325052"
 
 이 문서에서는 Java SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 수행하는 방법에 대해 알아봅니다. Java SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자를 인증하는 기능은 지원되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -72,7 +72,7 @@ ms.locfileid: "87325052"
 
 4. Java 애플리케이션에서 다음 코드 조각을 사용하여 앞에서 `AccessTokenProvider`의 서브클래스 중 하나(이 예에서는 `ClientCredsTokenProvider` 사용)로 만든 Active Directory 웹 애플리케이션의 토큰을 가져옵니다. 토큰 공급자는 메모리에 토큰을 가져오는 데 사용 되는 자격 증명을 캐시하고 만료될 경우 토큰을 자동으로 갱신합니다. 사용자 고유의 `AccessTokenProvider` 서브클래스를 만들 수 있으므로 고객 코드를 통해 토큰을 가져올 수 있습니다. 하지만 지금은 SDK에 제공된 것을 사용하겠습니다.
 
-    **FILL-IN-HERE**를 Azure Active Directory 웹 애플리케이션의 실제 값으로 바꿉니다.
+    **FILL-IN-HERE** 를 Azure Active Directory 웹 애플리케이션의 실제 값으로 바꿉니다.
 
     ```java
     private static String clientId = "FILL-IN-HERE";

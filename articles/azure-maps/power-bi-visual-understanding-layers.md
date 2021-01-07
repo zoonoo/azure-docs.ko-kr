@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261846"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체의 레이어 이해
@@ -87,15 +87,15 @@ Azure Maps 시각적 개체에는 두 가지 유형의 계층을 사용할 수 �
 > [거품형 계층 추가](power-bi-visual-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [가로 막대형 차트 계층 추가](power-bi-visual-add-bar-chart-layer.md)
+> [가로 막대형 차트 레이어 추가](power-bi-visual-add-bar-chart-layer.md)
 
 맵에 컨텍스트를 더 추가 합니다.
 
 > [!div class="nextstepaction"]
-> [참조 계층 추가](power-bi-visual-add-reference-layer.md)
+> [참조 레이어 추가](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
-> [타일 계층 추가](power-bi-visual-add-tile-layer.md)
+> [타일 레이어 추가](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
 > [실시간 트래픽 표시](power-bi-visual-show-real-time-traffic.md)

@@ -5,17 +5,17 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 5b2446aa62b16dcf9773c367d87faac65d79fa0b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904858"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445641"
 ---
-# <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-in-time 액세스를 사용 하 여 관리 포트 보호
+# <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-In-Time 액세스를 사용하여 관리 포트 보호
 
 Azure Security Center의 JIT (just-in-time) 가상 머신 (VM) 액세스 기능을 사용 하 여 Azure Virtual Machines에 대 한 인바운드 트래픽을 잠급니다. 이렇게 하면 VM에 연결 해야 할 때 쉽게 액세스할 수 있도록 하 여 공격에 대 한 노출을 줄일 수 있습니다.
 
@@ -34,10 +34,10 @@ JIT 작동 방식 및 기본 논리에 대 한 전체 설명은 [just-in-time �
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
-|지원 되는 Vm:|![](./media/icons/yes-icon.png)Azure Resource Manager를 통해 배포 되는 vm입니다.<br>![](./media/icons/no-icon.png)클래식 배포 모델을 사용 하 여 vm을 배포 하지 않았습니다. [이러한 배포 모델에 대해 자세히 알아보세요](../azure-resource-manager/management/deployment-models.md).<br>![Azure ](./media/icons/no-icon.png) [방화벽 관리자](https://docs.microsoft.com/azure/firewall-manager/overview) 에서 제어 하는 azure 방화벽으로 보호 되는 vm 없음|
-|필요한 역할 및 사용 권한:|**판독기** 및 **securityreader** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.<br>JIT에서 사용할 수 있는 사용자 지정 역할을 만들려면 [jit를 구성 하 고 사용 하는 데 필요한 권한은 무엇 인가요?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)를 참조 하세요.<br>VM에 대 한 JIT 액세스를 요청 해야 하는 사용자에 게 최소 권한 역할을 만들고 다른 JIT 작업을 수행 하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) 를 사용 합니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
+|지원 되는 Vm:|![](./media/icons/yes-icon.png)Azure Resource Manager를 통해 배포 되는 vm입니다.<br>![](./media/icons/no-icon.png)클래식 배포 모델을 사용 하 여 vm을 배포 하지 않았습니다. [이러한 배포 모델에 대해 자세히 알아보세요](../azure-resource-manager/management/deployment-models.md).<br>![Azure ](./media/icons/no-icon.png) [방화벽 관리자](../firewall-manager/overview.md) 에서 제어 하는 azure 방화벽으로 보호 되는 vm 없음|
+|필요한 역할 및 권한:|**판독기** 및 **securityreader** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.<br>JIT에서 사용할 수 있는 사용자 지정 역할을 만들려면 [jit를 구성 하 고 사용 하는 데 필요한 권한은 무엇 인가요?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)를 참조 하세요.<br>VM에 대 한 JIT 액세스를 요청 해야 하는 사용자에 게 최소 권한 역할을 만들고 다른 JIT 작업을 수행 하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) 를 사용 합니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
 
@@ -57,7 +57,7 @@ Security Center를 사용 하거나 프로그래밍 방식으로 하나 이상�
 
 Security Center에서 JIT VM 액세스를 사용 하도록 설정 하 고 구성할 수 있습니다.
 
-1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **JUST-IN-TIME VM 액세스**를 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **JUST-IN-TIME VM 액세스** 를 선택 합니다.
 
     Vm이 다음 탭으로 그룹화 되 면 **JUST-IN-TIME vm 액세스** 페이지가 열립니다.
 
@@ -72,7 +72,7 @@ Security Center에서 JIT VM 액세스를 사용 하도록 설정 하 고 구성
       - 클래식 VM-JIT는 ' 클래식 배포 '가 아닌 Azure Resource Manager를 통해 배포 되는 Vm을 지원 합니다. [클래식 vs Azure Resource Manager 배포 모델에 대해 자세히 알아보세요](../azure-resource-manager/management/deployment-models.md).
       - 기타-JIT 솔루션을 구독 또는 리소스 그룹의 보안 정책에서 사용 하지 않도록 설정한 경우에는 VM이이 탭에 있을 수 있습니다.
 
-1. **구성 되지 않음** 탭에서 VM을 jit로 보호 하도록 표시 하 고 **Vm에서 jit 사용**을 선택 합니다. 
+1. **구성 되지 않음** 탭에서 VM을 jit로 보호 하도록 표시 하 고 **Vm에서 jit 사용** 을 선택 합니다. 
 
     JIT VM 액세스 페이지가 열리고 Security Center 보호를 권장 하는 포트가 나열 됩니다.
     - 22 - SSH
@@ -80,7 +80,7 @@ Security Center에서 JIT VM 액세스를 사용 하도록 설정 하 고 구성
     - 5985 - WinRM 
     - 5986 - WinRM
 
-    기본 설정을 적용 하려면 **저장**을 선택 합니다.
+    기본 설정을 적용 하려면 **저장** 을 선택 합니다.
 
 1. JIT 옵션을 사용자 지정 하려면:
 
@@ -95,9 +95,9 @@ Security Center에서 JIT VM 액세스를 사용 하도록 설정 하 고 구성
 
      1. 포트 보안을 필요에 따라 설정 합니다.
 
-     1. **확인**을 선택합니다.
+     1. **확인** 을 선택합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 
 
@@ -107,15 +107,15 @@ Vm의 보호를 위해 새 포트를 추가 및 구성 하거나 이미 보호 �
 
 VM에 대 한 기존 JIT 규칙을 편집 하려면:
 
-1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
 
 1. **구성 됨** 탭에서 포트를 추가 하려는 VM을 마우스 오른쪽 단추로 클릭 하 고 편집을 선택 합니다. 
 
     ![Azure Security Center에서 JIT VM 액세스 구성 편집](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
-1. **JIT VM 액세스 구성**에서 포트를 클릭하여 이미 보호된 포트의 기존 설정을 편집하거나 새로운 사용자 지정 포트를 추가할 수 있습니다.
+1. **JIT VM 액세스 구성** 에서 포트를 클릭하여 이미 보호된 포트의 기존 설정을 편집하거나 새로운 사용자 지정 포트를 추가할 수 있습니다.
 
-1. 포트 편집을 완료 하면 **저장**을 선택 합니다.
+1. 포트 편집을 완료 하면 **저장** 을 선택 합니다.
  
 
 
@@ -130,13 +130,13 @@ Azure Portal의 Azure virtual machines 페이지에서 VM에 대해 JIT를 사�
 > [!TIP]
 > VM에 이미 just-in-time이 활성화 되어 있는 경우 해당 구성 페이지로 이동 하면 just-in-time이 활성화 된 것을 확인할 수 있으며 링크를 사용 하 여 Security Center에서 just-in-time VM 액세스 페이지를 열고 설정을 확인 하 고 변경할 수 있습니다.
 
-1. [Azure Portal](https://ms.portal.azure.com)에서 **가상 컴퓨터**를 검색 하 고 선택 합니다. 
+1. [Azure Portal](https://ms.portal.azure.com)에서 **가상 컴퓨터** 를 검색 하 고 선택 합니다. 
 
 1. JIT를 사용 하 여 보호 하려는 가상 머신을 선택 합니다.
 
-1. 메뉴에서 **구성**을 선택 합니다.
+1. 메뉴에서 **구성** 을 선택 합니다.
 
-1. Just-in-time **액세스**에서 **just-in-time 사용**을 선택 합니다. 
+1. Just-in-time **액세스** 에서 **just-in-time 사용** 을 선택 합니다. 
 
     이렇게 하면 다음 기본 설정을 사용 하 여 VM에 대 한 just-in-time 액세스를 사용할 수 있습니다.
 
@@ -151,20 +151,20 @@ Azure Portal의 Azure virtual machines 페이지에서 VM에 대해 JIT를 사�
 
 1. 이러한 값을 편집 하거나 JIT 구성에 포트를 더 추가 하려면 Azure Security Center의 just-in-time 페이지를 사용 합니다.
 
-    1. Security Center의 메뉴에서 **JUST-IN-TIME VM 액세스**를 선택 합니다.
+    1. Security Center의 메뉴에서 **JUST-IN-TIME VM 액세스** 를 선택 합니다.
 
     1. **구성 됨** 탭에서 포트를 추가 하려는 VM을 마우스 오른쪽 단추로 클릭 하 고 편집을 선택 합니다. 
 
         ![Azure Security Center에서 JIT VM 액세스 구성 편집](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
-    1. **JIT VM 액세스 구성**에서 포트를 클릭하여 이미 보호된 포트의 기존 설정을 편집하거나 새로운 사용자 지정 포트를 추가할 수 있습니다.
+    1. **JIT VM 액세스 구성** 에서 포트를 클릭하여 이미 보호된 포트의 기존 설정을 편집하거나 새로운 사용자 지정 포트를 추가할 수 있습니다.
 
-    1. 포트 편집을 완료 하면 **저장**을 선택 합니다.
+    1. 포트 편집을 완료 하면 **저장** 을 선택 합니다.
 
 
 ### <a name="powershell"></a>[**PowerShell**](#tab/jit-config-powershell)
 
-### <a name="enable-jit-on-your-vms-using-powershell"></a>PowerShell을 사용 하 여 Vm에서 JIT 사용
+### <a name="enable-jit-on-your-vms-using-powershell"></a>PowerShell을 사용하여 VM에서 JIT 사용
 
 PowerShell에서 just-in-time VM 액세스를 사용 하도록 설정 하려면 공식 Azure Security Center PowerShell cmdlet을 사용 합니다 `Set-AzJitNetworkAccessPolicy` .
 
@@ -184,13 +184,13 @@ PowerShell에서 just-in-time VM 액세스를 사용 하도록 설정 하려면 
         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"},
              @{
              number=3389;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"})})
     ```
 
@@ -215,7 +215,7 @@ PowerShell에서 just-in-time VM 액세스를 사용 하도록 설정 하려면 
 
 Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용할 수 있습니다. 이 API를 사용 하 여 구성 된 Vm에 대 한 정보를 가져오고, 새 vm을 추가 하 고, VM에 대 한 액세스를 요청 합니다. 
 
-[JIT 네트워크 액세스 정책](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)에 대해 자세히 알아보세요.
+[JIT 네트워크 액세스 정책](/rest/api/securitycenter/jitnetworkaccesspolicies)에 대해 자세히 알아보세요.
 
 
 --- 
@@ -229,7 +229,7 @@ Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용�
 
 
 
-## <a name="request-access-to-a-jit-enabled-vm"></a>JIT 사용 VM에 대 한 액세스 요청
+## <a name="request-access-to-a-jit-enabled-vm"></a>JIT 사용 VM에 대한 액세스 요청
 
 Azure Portal (Security Center 또는 Azure Virtual machines)에서 또는 프로그래밍 방식으로 JIT 사용 VM에 대 한 액세스를 요청할 수 있습니다.
 
@@ -251,11 +251,11 @@ VM에 JIT를 사용 하는 경우 연결에 대 한 액세스를 요청 해야 �
 
     - **연결 정보** 열은 VM 및 열려 있는 포트를 연결 하는 데 필요한 정보를 제공 합니다.
 
-1. **액세스 요청**을 선택합니다. **액세스 요청** 창이 열립니다.
+1. **액세스 요청** 을 선택합니다. **액세스 요청** 창이 열립니다.
 
 1. **액세스 요청** 아래에서 각 VM에 대해 열려는 포트, 포트가 열려 있는 원본 IP 주소 및 포트를 열어 둘 기간을 구성합니다. 구성 된 포트에 대 한 액세스를 요청할 수 있습니다. 각 포트에는 사용자가 만든 JIT 구성에서 파생 된 최대 허용 시간이 있습니다.
 
-1. **포트 열기**를 선택합니다.
+1. **포트 열기** 를 선택합니다.
 
 > [!NOTE]
 > 액세스를 요청하는 사용자가 프록시 뒤에 있으면 **내 IP** 옵션이 작동하지 않습니다. 조직의 전체 IP 주소 범위를 정의해야 할 수 있습니다.
@@ -290,7 +290,7 @@ Azure virtual machines에서 액세스를 요청 하려면:
 
 ### <a name="powershell"></a>[**PowerShell**](#tab/jit-request-powershell)
 
-### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>PowerShell을 사용 하 여 JIT 사용 VM에 대 한 액세스 요청
+### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>PowerShell을 사용하여 JIT 사용 VM에 대한 액세스 요청
 
 다음 예제에서는 포트 22를 특정 IP 주소 및 특정 시간 동안 열도록 요청된 특정 VM에 대한 Just-In-Time VM 액세스 요청을 확인할 수 있습니다.
 
@@ -300,7 +300,7 @@ PowerShell에서 다음 내용을 실행하세요.
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";
@@ -319,7 +319,7 @@ PowerShell에서 다음 내용을 실행하세요.
     Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
     ```
 
-[PowerShell cmdlet 설명서](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview)에서 자세히 알아보세요.
+[PowerShell cmdlet 설명서](/powershell/scripting/developer/cmdlet/cmdlet-overview)에서 자세히 알아보세요.
 
 
 
@@ -329,7 +329,7 @@ PowerShell에서 다음 내용을 실행하세요.
 
 Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용할 수 있습니다. 이 API를 사용 하 여 구성 된 Vm에 대 한 정보를 가져오고, 새 vm을 추가 하 고, VM에 대 한 액세스를 요청 합니다. 
 
-[JIT 네트워크 액세스 정책](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)에 대해 자세히 알아보세요.
+[JIT 네트워크 액세스 정책](/rest/api/securitycenter/jitnetworkaccesspolicies)에 대해 자세히 알아보세요.
 
 ---
 
@@ -344,7 +344,7 @@ Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용�
 
 로그 검색을 사용하여 VM 활동에 대한 정보를 얻을 수 있습니다. 로그를 보려면:
 
-1. **JUST-IN-TIME VM 액세스**에서 **구성 됨** 탭을 선택 합니다.
+1. **JUST-IN-TIME VM 액세스** 에서 **구성 됨** 탭을 선택 합니다.
 
 1. 감사 하려는 VM의 경우 행의 끝에 있는 줄임표 메뉴를 엽니다.
  
@@ -354,7 +354,7 @@ Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용�
 
    활동 로그는 시간, 날짜 및 구독과 함께 해당 VM에 대 한 이전 작업의 필터링 된 보기를 제공 합니다.
 
-1. 로그 정보를 다운로드 하려면 **CSV로 다운로드**를 선택 합니다.
+1. 로그 정보를 다운로드 하려면 **CSV로 다운로드** 를 선택 합니다.
 
 
 

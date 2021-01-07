@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: kinect, azure, 구성, 깊이, 색, RBG, 카메라, 센서, sdk, IMU, 동작 센서, 동작, 자이로스코프가, gyro,가 속도계, FPS
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276945"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Azure Kinect IMU 샘플 검색
@@ -63,7 +63,7 @@ IMU 샘플의 내부 큐가 있기 때문에 데이터를 삭제 하지 않고 �
 3. 대기 중인 모든 IMU 샘플을 검색 합니다.
 4. 다음 캡처 대기를 반복 합니다.
 
-현재 큐에 대기 중인 IMU 샘플을 모두 검색 하려면 [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) `timeout_in_ms` 함수가 반환 될 때까지 루프에서 0을 사용 하 여를 호출할 수 있습니다 `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT`대기 중인 샘플이 없고 지정 된 시간 제한 내에 도착 한 항목이 없음을 나타냅니다.
+현재 큐에 대기 중인 IMU 샘플을 모두 검색 하려면 [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) `timeout_in_ms` 함수가 반환 될 때까지 루프에서 0을 사용 하 여를 호출할 수 있습니다 `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT` 대기 중인 샘플이 없고 지정 된 시간 제한 내에 도착 한 항목이 없음을 나타냅니다.
 
 ## <a name="usage-example"></a>사용 예제
 

@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files에 대한 SMB 볼륨 만들기 | Microsoft Docs
-description: 이 문서에서는 Azure NetApp Files에서 SMBv3 볼륨을 만드는 방법을 보여 줍니다. Active Directory 연결 및 도메인 서비스에 대 한 요구 사항에 대해 알아봅니다.
+description: 이 문서에서는 Azure NetApp Files에서 SMB3 볼륨을 만드는 방법을 보여 줍니다. Active Directory 연결 및 도메인 서비스에 대 한 요구 사항에 대해 알아봅니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988321"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854828"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
-Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로토콜 (NFSv3 및 SMB)을 사용 하 여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 SMBv3 볼륨을 만드는 방법을 보여줍니다.
+Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로토콜 (NFSv3 및 SMB)을 사용 하 여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 SMB3 볼륨을 만드는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 용량 풀을 설정해야 합니다.   
@@ -62,9 +62,9 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
     Azure NetApp Files에서 연결할 수 있는 도메인 컨트롤러가 있는 신규 또는 기존 Active Directory 사이트에 Azure NetApp Files가 배포되는 가상 네트워크의 주소 공간을 추가해야 합니다. 
 
-* 지정된 DNS 서버는 Azure NetApp Files의 [위임된 서브넷](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)에서 연결할 수 있어야 합니다.  
+* 지정된 DNS 서버는 Azure NetApp Files의 [위임된 서브넷](./azure-netapp-files-delegate-subnet.md)에서 연결할 수 있어야 합니다.  
 
-    지원되는 네트워크 토폴로지는 [Azure NetApp Files 네트워크 계획 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)을 참조하세요.
+    지원되는 네트워크 토폴로지는 [Azure NetApp Files 네트워크 계획 지침](./azure-netapp-files-network-topologies.md)을 참조하세요.
 
     NSG(네트워크 보안 그룹)와 방화벽에 Active Directory 및 DNS 트래픽 요청을 허용하는 규칙이 적절히 구성되어 있어야 합니다. 
 
@@ -72,7 +72,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
     Azure NetApp Files에 위임된 서브넷에서 연결할 수 없는 도메인 컨트롤러가 있는 경우 Active Directory 연결을 만드는 동안 Active Directory 사이트를 지정할 수 있습니다.  Azure NetApp Files가 Azure NetApp Files에 위임된 서브넷 주소 공간이 있는 사이트의 도메인 컨트롤러와만 통신해야 합니다.
 
-    AD 사이트 및 서비스에 대한 [사이트 토폴로지 디자인](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)을 참조하세요. 
+    AD 사이트 및 서비스에 대한 [사이트 토폴로지 디자인](/windows-server/identity/ad-ds/plan/designing-the-site-topology)을 참조하세요. 
     
 * [조인 Active Directory](#create-an-active-directory-connection) 창에서 **aes 암호화** 상자를 선택 하 여 SMB 볼륨에 대 한 aes 암호화를 사용 하도록 설정할 수 있습니다. Azure NetApp Files는 DES, Kerberos AES 128 및 Kerberos AES 256 암호화 유형 (최소 보안에서 가장 안전)을 지원 합니다. AES 암호화를 사용 하도록 설정 하는 경우 Active Directory를 조인 하는 데 사용 되는 사용자 자격 증명에 Active Directory에 대해 사용 하도록 설정 된 기능과 일치 하는 가장 높은 해당 계정 옵션을 사용 해야    
 
@@ -82,21 +82,21 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
     ![Active Directory 사용자 및 컴퓨터 MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 
-* Azure NetApp Files은 Azure NetApp Files 서비스와 대상 [Active Directory 도메인 컨트롤러](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)간의 ldap 트래픽을 안전 하 게 전송할 수 있는 [ldap 서명을](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server)지원 합니다. LDAP 서명에 대 한 Microsoft 자문 [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) 의 지침을 수행 하는 경우 [조인 Active Directory](#create-an-active-directory-connection) 창에서 **ldap 서명** 상자를 선택 하 여 Azure NetApp Files에서 ldap 서명 기능을 사용 하도록 설정 해야 합니다. 
+* Azure NetApp Files은 Azure NetApp Files 서비스와 대상 [Active Directory 도메인 컨트롤러](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)간의 ldap 트래픽을 안전 하 게 전송할 수 있는 [ldap 서명을](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server)지원 합니다. LDAP 서명에 대 한 Microsoft 자문 [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) 의 지침을 수행 하는 경우 [조인 Active Directory](#create-an-active-directory-connection) 창에서 **ldap 서명** 상자를 선택 하 여 Azure NetApp Files에서 ldap 서명 기능을 사용 하도록 설정 해야 합니다. 
 
-    [LDAP 채널 바인딩](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) 구성은 Azure NetApp Files 서비스에 영향을 주지 않습니다. 
+    [LDAP 채널 바인딩](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) 구성만 Azure NetApp Files 서비스에 영향을 주지 않습니다. 그러나 LDAP 채널 바인딩과 보안 LDAP를 모두 사용 하는 경우 (예: LDAPS 또는 `start_tls` ) SMB 볼륨 만들기가 실패 합니다.
 
-추가 AD 정보에 대한 Azure NetApp Files [SMB FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)를 참조하세요. 
+추가 AD 정보에 대한 Azure NetApp Files [SMB FAQ](./azure-netapp-files-faqs.md#smb-faqs)를 참조하세요. 
 
 ## <a name="decide-which-domain-services-to-use"></a>사용할 도메인 서비스 결정 
 
-Azure NetApp Files는 AD 연결을 위해 [Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology)(ADDS)와 Azure Active Directory Domain Services(AADDS)를 모두 지원합니다.  AD 연결을 만들기 전에 ADDS를 사용할지 아니면 AADDS를 사용할지 결정해야 합니다.  
+Azure NetApp Files는 AD 연결을 위해 [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology)(ADDS)와 Azure Active Directory Domain Services(AADDS)를 모두 지원합니다.  AD 연결을 만들기 전에 ADDS를 사용할지 아니면 AADDS를 사용할지 결정해야 합니다.  
 
-자세한 내용은 [자체 관리형 Active Directory Domain Services, Azure Active Directory 및 관리형 Azure Active Directory Domain Services 비교](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions)를 참조하세요. 
+자세한 내용은 [자체 관리형 Active Directory Domain Services, Azure Active Directory 및 관리형 Azure Active Directory Domain Services 비교](../active-directory-domain-services/compare-identity-solutions.md)를 참조하세요. 
 
 ### <a name="active-directory-domain-services"></a>Active Directory Domain Services
 
-Azure NetApp Files에 기본 [Active Directory 사이트 및 서비스](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) 범위를 사용할 수 있습니다. 이 옵션을 사용하면 [Azure NetApp Files에서 액세스할 수 있는](azure-netapp-files-network-topologies.md) Active Directory Domain Services(ADDS) 도메인 컨트롤러에 대한 읽기 및 쓰기가 가능합니다. 또한 이 옵션은 지정된 Active Directory 사이트 및 서비스 사이트에 없는 도메인 컨트롤러와 서비스가 통신하는 것을 방지합니다. 
+Azure NetApp Files에 기본 [Active Directory 사이트 및 서비스](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) 범위를 사용할 수 있습니다. 이 옵션을 사용하면 [Azure NetApp Files에서 액세스할 수 있는](azure-netapp-files-network-topologies.md) Active Directory Domain Services(ADDS) 도메인 컨트롤러에 대한 읽기 및 쓰기가 가능합니다. 또한 이 옵션은 지정된 Active Directory 사이트 및 서비스 사이트에 없는 도메인 컨트롤러와 서비스가 통신하는 것을 방지합니다. 
 
 ADDS를 사용할 때 사이트 이름을 찾기 위해 Active Directory Domain Services를 담당하는 조직의 관리 그룹에 문의할 수 있습니다. 아래 예에서는 사이트 이름이 표시되는 Active Directory 사이트 및 서비스 플러그 인을 보여줍니다. 
 
@@ -106,7 +106,7 @@ Azure NetApp Files에 대한 AD 연결을 구성하는 경우 **AD 사이트 이
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 
 
-Azure Active Directory Domain Services(AADDS) 구성 및 지침은 [Microsoft Azure Active Directory Domain Services 설명서](https://docs.microsoft.com/azure/active-directory-domain-services/)를 참조하세요.
+Azure Active Directory Domain Services(AADDS) 구성 및 지침은 [Microsoft Azure Active Directory Domain Services 설명서](../active-directory-domain-services/index.yml)를 참조하세요.
 
 Azure NetApp Files에는 다음과 같은 추가 AADDS 고려 사항이 적용됩니다. 
 
@@ -119,19 +119,19 @@ Azure NetApp Files에는 다음과 같은 추가 AADDS 고려 사항이 적용�
 
 Active Directory 연결을 만들 때 AADDS에 대한 다음 사항에 유의해야 합니다.
 
-* AADDS 메뉴에서 **기본 DNS**, **보조 DNS**및 **AD DNS 도메인 이름**에 대한 정보를 찾을 수 있습니다.  
+* AADDS 메뉴에서 **기본 DNS**, **보조 DNS** 및 **AD DNS 도메인 이름** 에 대한 정보를 찾을 수 있습니다.  
 DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사용됩니다. 
-* **조직 구성 단위 경로**는 `OU=AADDC Computers`입니다.  
-이 설정은 **Active Directory 연결**의 **NetApp 계정**에서 구성합니다.
+* **조직 구성 단위 경로** 는 `OU=AADDC Computers`입니다.  
+이 설정은 **Active Directory 연결** 의 **NetApp 계정** 에서 구성합니다.
 
   ![조직 구성 단위 경로](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
 
-* **사용자 이름** 자격 증명은 Microsoft Azure Active Directory 그룹 **Microsoft Azure Active Directory DC 관리자**의 구성원인 사용자일 수 있습니다.
+* **사용자 이름** 자격 증명은 Microsoft Azure Active Directory 그룹 **Microsoft Azure Active Directory DC 관리자** 의 구성원인 사용자일 수 있습니다.
 
 
 ## <a name="create-an-active-directory-connection"></a>Active Directory 연결 만들기
 
-1. NetApp 계정에서 **Active Directory 연결**을 클릭하고 **조인**을 클릭합니다.  
+1. NetApp 계정에서 **Active Directory 연결** 을 클릭하고 **조인** 을 클릭합니다.  
 
     ![Active Directory 연결](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
@@ -146,7 +146,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
     * **AD DNS 도메인 이름**  
         가입하려는 Active Directory Domain Services의 도메인 이름입니다.
     * **AD 사이트 이름**  
-        도메인 컨트롤러 검색이 제한 될 사이트 이름입니다.
+        도메인 컨트롤러 검색이 제한 될 사이트 이름입니다. 이는 Active Directory 사이트 및 서비스의 사이트 이름과 일치 해야 합니다.
     * **SMB 서버(컴퓨터 계정) 접두사**  
         Azure NetApp Files에서 새 계정을 만드는 데 사용할 Active Directory의 머신 계정에 대한 명명 접두사입니다.
 
@@ -184,10 +184,10 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
         ```
         
-        [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+        [Azure CLI 명령을](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
     * **LDAP 서명**   
-        LDAP 서명을 사용 하도록 설정 하려면이 확인란을 선택 합니다. 이 기능을 사용 하면 Azure NetApp Files 서비스와 사용자가 지정한 [Active Directory Domain Services 도메인 컨트롤러](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services)간에 보안 LDAP 조회가 가능 합니다. 자세한 내용은 ADV190023를 참조 하세요. [ LDAP 채널 바인딩 및 LDAP 서명을 사용 하도록 설정 하기 위한 Microsoft 지침](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023)  
+        LDAP 서명을 사용 하도록 설정 하려면이 확인란을 선택 합니다. 이 기능을 사용 하면 Azure NetApp Files 서비스와 사용자가 지정한 [Active Directory Domain Services 도메인 컨트롤러](/windows/win32/ad/active-directory-domain-services)간에 보안 LDAP 조회가 가능 합니다. 자세한 내용은 ADV190023를 참조 하세요. [ LDAP 채널 바인딩 및 LDAP 서명을 사용 하도록 설정 하기 위한 Microsoft 지침](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023)  
 
         ![LDAP 서명 Active Directory](../media/azure-netapp-files/active-directory-ldap-signing.png) 
 
@@ -206,7 +206,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
         ```
         
-        [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+        [Azure CLI 명령을](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
      * **백업 정책 사용자**  
         Azure NetApp Files에 사용하기 위해 만든 컴퓨터 계정에 대한 높은 권한이 필요한 추가 계정을 포함할 수 있습니다. 지정된 계정은 파일 또는 폴더 수준에서 NTFS 권한을 변경할 수 있습니다. 예를 들어 Azure NetApp Files에서 SMB 파일 공유로 데이터를 마이그레이션하는 데 사용되는 권한 없는 서비스 계정을 지정할 수 있습니다.  
@@ -228,13 +228,13 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+        [Azure CLI 명령을](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
-    * **사용자 이름**과 **암호**를 포함한 자격 증명
+    * **사용자 이름** 과 **암호** 를 포함한 자격 증명
 
         ![Active Directory 자격 증명](../media/azure-netapp-files/active-directory-credentials.png)
 
-3. **조인**을 클릭합니다.  
+3. **조인** 을 클릭합니다.  
 
     만든 Active Directory 연결이 나타납니다.
 
@@ -246,7 +246,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
     ![볼륨으로 이동](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
-2. **+ 볼륨 추가**를 클릭하여 볼륨을 만듭니다.  
+2. **+ 볼륨 추가** 를 클릭하여 볼륨을 만듭니다.  
     볼륨 만들기 창이 나타납니다.
 
 3. 볼륨 만들기 창에서 **만들기** 를 클릭 하 고 기본 사항 탭에서 다음 필드에 대 한 정보를 제공 합니다.   
@@ -255,7 +255,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
         볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 영숫자 문자를 사용할 수 있습니다.   
 
-        `default`를 볼륨 이름으로 사용할 수 없습니다.
+        `default`또는를 `bin` 볼륨 이름으로 사용할 수 없습니다.
 
     * **용량 풀**  
         볼륨을 만들 용량 풀을 지정합니다.
@@ -264,6 +264,11 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         볼륨에 할당되는 논리 스토리지의 크기를 지정합니다.  
 
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.  
+
+    * **처리량 (MiB/S)**   
+        볼륨이 수동 QoS 용량 풀에 생성 되 면 볼륨에 대해 원하는 처리량을 지정 합니다.   
+
+        볼륨이 자동 QoS 용량 풀에 생성 되는 경우이 필드에 표시 되는 값은 (할당량 x 서비스 수준 처리량)입니다.   
 
     * **가상 네트워크**  
         볼륨에 액세스하려는 Microsoft Azure Virtual Network(VNet)를 지정합니다.  
@@ -274,7 +279,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         볼륨에 사용할 서브넷을 지정합니다.  
         지정하는 서브넷은 Azure NetApp Files에 위임되어야 합니다. 
         
-        서브넷을 위임하지 않은 경우 볼륨 만들기 페이지에서 **새로 만들기**를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes**를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 VNet에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
+        서브넷을 위임하지 않은 경우 볼륨 만들기 페이지에서 **새로 만들기** 를 클릭할 수 있습니다. 그런 다음, 서브넷 만들기 페이지에서 서브넷 정보를 지정하고 **Microsoft.NetApp/volumes** 를 선택하여 Azure NetApp Files의 서브넷을 위임합니다. 각 VNet에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
  
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
@@ -286,14 +291,14 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
         ![고급 선택 표시](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-4. **프로토콜**을 클릭하고 다음 정보를 입력합니다.  
-    * 볼륨의 프로토콜 유형으로 **SMB**를 선택합니다. 
+4. **프로토콜** 을 클릭하고 다음 정보를 입력합니다.  
+    * 볼륨의 프로토콜 유형으로 **SMB** 를 선택합니다. 
     * 드롭다운 목록에서 **Active Directory** 연결을 선택합니다.
-    * **공유 이름**에 공유 볼륨의 이름을 지정합니다.
+    * **공유 이름** 에 공유 볼륨의 이름을 지정합니다.
 
     ![SMB 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
-5. **검토 + 만들기**를 클릭하여 볼륨 정보를 검토합니다.  그런 다음, **만들기**를 클릭하여 SMB 볼륨을 만듭니다.
+5. **검토 + 만들기** 를 클릭하여 볼륨 정보를 검토합니다.  그런 다음, **만들기** 를 클릭하여 SMB 볼륨을 만듭니다.
 
     만든 볼륨이 볼륨 페이지에 표시됩니다. 
  
@@ -320,6 +325,6 @@ Windows SMB 클라이언트에서 개체 속성의 **보안** 탭을 사용하�
 
 * [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
-* [SMB FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
-* [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-* [Azure 명령줄 인터페이스를 사용하여 새 Active Directory 포리스트 설치](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
+* [SMB FAQ](./azure-netapp-files-faqs.md#smb-faqs)
+* [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](../virtual-network/virtual-network-for-azure-services.md)
+* [Azure 명령줄 인터페이스를 사용하여 새 Active Directory 포리스트 설치](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

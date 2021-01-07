@@ -1,6 +1,6 @@
 ---
 title: 디먼 앱에서 web API 호출-Microsoft identity platform | Microsoft
-description: 웹 Api를 호출 하는 디먼 앱을 빌드하는 방법을 알아봅니다.
+description: 웹 API를 호출 하는 디먼 앱을 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7319aacabd2c479c578fbb71ae0bc9fbb2dee9f2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0dfd729a48b7e81028078fd035b3b900f4d7b9bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119133"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444119"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>웹 Api를 호출 하는 디먼 앱-앱에서 web API 호출
 
@@ -69,17 +69,14 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [디먼 앱-프로덕션으로 이동](./scenario-daemon-production.md?tabs=dotnet)
+이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](./scenario-daemon-production.md?tabs=dotnet)합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [디먼 앱-프로덕션으로 이동](./scenario-daemon-production.md?tabs=python)
+이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](./scenario-daemon-production.md?tabs=python)합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [디먼 앱-프로덕션으로 이동](./scenario-daemon-production.md?tabs=java)
+이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](./scenario-daemon-production.md?tabs=java)합니다.
 
 ---

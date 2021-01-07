@@ -7,14 +7,15 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.custom: device-developer, devx-track-azurecli
+ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322452"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990893"
 ---
-# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>장치의 데이터가 Azure에 표시 되지 않는 이유를 해결 IoT Central
+# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>디바이스의 데이터가 Azure IoT Central에 표시되지 않는 문제 해결 
 
 이 문서는 장치 개발자가 IoT Central로 전송 되는 데이터가 응용 프로그램에 표시 되지 않을 수 있는 이유를 확인 하는 데 도움이 됩니다.
 
@@ -34,9 +35,9 @@ ms.locfileid: "89322452"
 
 아직 수행 하지 않은 경우 `az cli` 도구와 확장을 설치 `azure-iot` 합니다.
 
-을 설치 하는 방법에 대 `az cli` 한 자세한 내용은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조 하세요.
+을 설치 하는 방법에 대 `az cli` 한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조 하세요.
 
-확장을 [설치](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) 하려면 `azure-iot` 다음 명령을 실행 합니다.
+확장을 [설치](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) 하려면 `azure-iot` 다음 명령을 실행 합니다.
 
 ```cmd/bash
 az extension add --name azure-iot
@@ -129,12 +130,12 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| 장치 프로 비전 상태 | 설명 | 가능한 완화 방법 |
+| 장치 프로 비전 상태 | Description | 가능한 완화 방법 |
 | - | - | - |
 | 프로비전됨 | 바로 인식할 때 문제가 없습니다. | 해당 없음 |
 | 등록됨 | 장치가 IoT Central에 아직 연결 되지 않았습니다. | 연결 문제에 대 한 장치 로그를 확인 합니다. |
 | 차단 | 장치가 IoT Central에 연결 되지 못하도록 차단 되었습니다. | 장치가 IoT Central 응용 프로그램에 대 한 연결을 차단 합니다. IoT Central에서 장치 차단을 해제 하 고 다시 시도 하세요. 자세히 알아보려면 [장치 차단](concepts-get-connected.md#device-status-values)을 참조 하세요. |
-| 안 | 장치가 승인 되지 않았습니다. | 장치가 IoT Central 응용 프로그램에 연결 하도록 승인 되지 않았습니다. IoT Central에서 장치를 승인한 후 다시 시도 하세요. 자세히 알아보려면 [장치 승인](concepts-get-connected.md#connect-without-registering-devices) 을 참조 하세요. |
+| 안 | 장치가 승인 되지 않았습니다. | 장치가 IoT Central 응용 프로그램에 연결 하도록 승인 되지 않았습니다. IoT Central에서 장치를 승인한 후 다시 시도 하세요. 자세히 알아보려면 [장치 승인](concepts-get-connected.md#device-registration) 을 참조 하세요. |
 | 되지 | 장치가 장치 템플릿에 연결 되어 있지 않습니다. | IoT Central에서 데이터를 구문 분석 하는 방법을 알 수 있도록 장치를 장치 템플릿에 연결 합니다. |
 
 [장치 상태 코드](concepts-get-connected.md#device-status-values)에 대해 자세히 알아보세요.
@@ -155,7 +156,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | 401 | 권한 부여 토큰의 유효성을 검사할 수 없습니다. 예를 들어 만료 되었거나 요청의 URI에 적용 되지 않습니다. 이 오류 코드는 TPM 증명 흐름의 일부로 장치에도 반환 됩니다. | 장치에 올바른 자격 증명이 있는지 확인 합니다. |
 | 404 | 장치 프로 비전 서비스 인스턴스 또는 등록과 같은 리소스가 존재 하지 않습니다. | [고객 지원 서비스를 사용 하 여 티켓을](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)제출 합니다. |
 | 412 | `ETag`요청에서가 `ETag` RFC7232에 따라 기존 리소스의와 일치 하지 않습니다. | [고객 지원 서비스를 사용 하 여 티켓을](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)제출 합니다. |
-| 429 | 서비스에서 작업을 제한 하 고 있습니다. 특정 서비스 제한에 대해서는 [IoT Hub Device Provisioning Service 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits)을 참조 하세요. | 메시지 빈도를 줄이고 더 많은 장치 간에 책임을 분할 합니다. |
+| 429 | 서비스에서 작업을 제한 하 고 있습니다. 특정 서비스 제한에 대해서는 [IoT Hub Device Provisioning Service 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits)을 참조 하세요. | 메시지 빈도를 줄이고 더 많은 장치 간에 책임을 분할 합니다. |
 | 500 | 내부 오류가 발생했습니다. | [고객 지원 서비스를 통해 티켓을](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 제출 하 여 더 유용 하 게 사용할 수 있는지 확인 합니다. |
 
 ## <a name="payload-shape-issues"></a>페이로드 셰이프 문제

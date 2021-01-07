@@ -1,7 +1,7 @@
 ---
 title: 공용 지역과 소 버린 지역 간 패리티
 titleSuffix: Azure Machine Learning
-description: 공개 미리 보기 기능과 같은 Azure Machine Learning의 일부 기능은 공용 클라우드 지역 에서만 사용할 수 있습니다. 이 문서에서는 Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역 에서도 사용할 수 있는 기능을 나열 합니다.
+description: 이 문서는 공용 클라우드와 Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역 간의 기능 패리티를 나열 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892979"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725023"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning 소 버린 클라우드 패리티
 
@@ -34,7 +34,7 @@ ms.locfileid: "90892979"
 
 ## <a name="azure-government"></a>Azure Government 
 
-| 기능 | 공용 클라우드 상태  | US-버지니아 | US-애리조나| 
+| 기능 | 공용 클라우드 상태  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **자동화된 기계 학습** | | | |
 | Notebook에서 실험 만들기 및 실행                                    | GA                   | YES                | YES         |
@@ -56,7 +56,7 @@ ms.locfileid: "90892979"
 | 작업 영역 노트북 및 파일 공유                                        | GA                   | YES                | YES         |
 | R 및 Python 지원                                                       | GA                   | YES                | YES         |
 | Virtual Network 지원                                                    | 공개 미리 보기       | 아니요                 | 아니요          |
-| **컴퓨팅 인스턴스** |   |  | | 
+| **계산 인스턴스** |   |  | | 
 | 통합 전자 필기장에 대 한 관리 되는 계산 인스턴스                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab 통합                                            | GA                   | YES                | YES         |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기       | YES                | YES         |
@@ -92,7 +92,7 @@ ms.locfileid: "90892979"
 | ML 지원 레이블 지정 (이미지 분류 및 개체 검색)           | 공개 미리 보기       | YES                | YES         |
 | **Responsible ML** |   | | |
 | UI의 Explainability                                                       | 공개 미리 보기       | 아니요                 | 아니요          |
-| 차등 개인 정보 WhiteNoise 도구 키트                                    | .OSS                  | 아니요                 | 아니요          |
+| 차등 개인 정보 SmartNoise 도구 키트                                    | .OSS                  | 아니요                 | 아니요          |
 | 데이터 시트를 구현 하 Azure Machine Learning의 사용자 지정 태그              | GA                   | 아니요                 | 아니요          |
 | 공평 AzureML 통합                                               | 공개 미리 보기       | 아니요                 | 아니요          |
 | Interpretability SDK                                                      | GA                   | YES                | YES         |
@@ -112,7 +112,7 @@ ms.locfileid: "90892979"
 
 ### <a name="azure-government-scenarios"></a>Azure Government 시나리오
 
-| 시나리오                                                    | US-버지니아 | US-애리조나| 제한 사항  |
+| 시나리오                                                    | US-Virginia | US-Arizona| 제한 사항  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **일반 보안 설정** |   | | |
 | 서비스 간 개인 네트워크 통신                                     | 아니요 | 아니요 | 현재 개인 링크 없음 | 
@@ -122,7 +122,7 @@ ms.locfileid: "90892979"
 | 계산 리소스에 대 한 루트 및 SSH 액세스.                                          | YES | YES |  |
 | Endpoint protection, 패치 및 로깅을 포함 하 여 배포 된 시스템 (인스턴스, 끝점 등)의 보안 유지 |  PARTIAL|  PARTIAL |현재 VNet 및 개인 끝점 뒤에 있는 ACI를 사용할 수 없음 |                                  
 | ACI/AKS 통합 사용 제어 (사용 안 함/제한/제한)                    | PARTIAL| PARTIAL |현재 VNet 및 개인 끝점 뒤에 있는 ACI를 사용할 수 없음|
-| RBAC (역할 기반 Access Control)-사용자 지정 역할 만들기                           | YES | YES |  |
+| Azure RBAC (역할 기반 액세스 제어)-사용자 지정 역할 만들기                           | YES | YES |  |
 | ML 서비스에서 사용 하는 ACR 이미지에 대 한 액세스 제어 (Azure 제공/유지 관리 및 사용자 지정)  |PARTIAL|  PARTIAL | Azure Government에서 지원 되지 않는 개인 끝점 및 VNet 뒤의 ACR |
 | **일반 Machine Learning 서비스 사용** |  | | |
 | 개발 환경을 사용 하 여 모델을 작성 하 고, 해당 모델을 학습 하 고, 끝점으로 호스트 하 고, webapp을 통해 사용 하는 기능     | YES | YES |  |
@@ -134,7 +134,7 @@ ms.locfileid: "90892979"
 ### <a name="additional-azure-government-limitations"></a>추가 Azure Government 제한 사항
 
 * Azure Machine Learning 계산 인스턴스의 경우 24 시간 이상 지속 되는 토큰을 새로 고치는 기능은 Azure Government에서 사용할 수 없습니다.
-* 모델 프로 파일링은 미국 애리조나 지역에서 4 개의 Cpu를 지원 하지 않습니다.   
+* 모델 프로 파일링은 US-Arizona 영역에서 4 개의 Cpu를 지원 하지 않습니다.   
 * 샘플 노트북은 공용 데이터에 액세스 해야 하는 경우 Azure Government에서 작동 하지 않을 수 있습니다.
 * IP 주소: [VNet 및 강제 터널링](how-to-secure-training-vnet.md#forced-tunneling) 명령에 사용 된 CLI 명령은 ip 범위를 반환 하지 않습니다. 대신 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063) 를 사용 하 여 Azure Government 합니다.
 * 또한 예약 된 파이프라인의 경우 blob 기반 트리거 메커니즘도 제공 합니다. CMK 작업 영역에 대해서는이 메커니즘이 지원 되지 않습니다. CMK 작업 영역에 대 한 blob 기반 트리거를 사용 하도록 설정 하려면 추가 설치를 수행 해야 합니다. 자세한 내용은 [논리 앱에서 기계 학습 파이프라인 실행 트리거](how-to-trigger-published-pipeline.md)를 참조 하세요.
@@ -169,7 +169,7 @@ ms.locfileid: "90892979"
 | 작업 영역 노트북 및 파일 공유                                        | GA               | YES       | 해당 없음        |
 | R 및 Python 지원                                                       | GA               | YES       | 해당 없음        |
 | Virtual Network 지원                                                    | 공개 미리 보기   | 아니요        | 해당 없음        |
-| **컴퓨팅 인스턴스** |    | | |
+| **계산 인스턴스** |    | | |
 | 통합 전자 필기장에 대 한 관리 되는 계산 인스턴스                         | GA               | 아니요        | 해당 없음        |
 | Jupyter, JupyterLab 통합                                            | GA               | YES       | 해당 없음        |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기   | YES       | 해당 없음        |
@@ -205,7 +205,7 @@ ms.locfileid: "90892979"
 | ML 지원 레이블 지정 (이미지 분류 및 개체 검색)           | 공개 미리 보기   | YES       | 해당 없음        |
 | **Responsible ML** |    | | |
 | UI의 Explainability                                                       | 공개 미리 보기   | 아니요        | 해당 없음        |
-| 차등 개인 정보 WhiteNoise 도구 키트                                    | .OSS              | 아니요        | 해당 없음        |
+| 차등 개인 정보 SmartNoise 도구 키트                                    | .OSS              | 아니요        | 해당 없음        |
 | 데이터 시트를 구현 하 Azure Machine Learning의 사용자 지정 태그              | GA               | 아니요        | 해당 없음        |
 | 공평 AzureML 통합                                               | 공개 미리 보기   | 아니요        | 해당 없음        |
 | Interpretability SDK                                                      | GA               | YES       | 해당 없음        |
@@ -229,7 +229,7 @@ ms.locfileid: "90892979"
 * Azure 중국에는 특히 GPU SKU에 대 한 VM SKU가 제한 되어 있습니다. NCv3 제품군 (V100)만 있습니다.
 * REST API 끝점은 글로벌 Azure와 다릅니다. 다음 표를 사용 하 여 Azure 중국 지역에 대 한 REST API 끝점을 찾습니다.
 
-    | REST 끝점                 | 글로벌 Azure                                 | 중국-정부                           |
+    | REST 끝점                 | 글로벌 Azure                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
     | 관리 평면 | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | 데이터 평면       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |

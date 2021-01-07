@@ -1,17 +1,17 @@
 ---
 title: 백업 및 복원-Azure Portal-Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 서버를 복원 하는 방법을 설명 합니다.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 9ff62a568af4f60318ba0e5bdf2144bb43c9d2b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 82cec4cc448f0ec30aecf6f8a69f399e0abbdde0
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884314"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706952"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 서버를 백업 및 복원 하는 방법
 
@@ -35,11 +35,11 @@ Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창�
 서버의 백업 보존 기간은 다음 단계를 통해 변경할 수 있습니다.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Database for PostgreSQL 서버를 선택합니다. 이 작업은 **개요** 페이지를 엽니다.
-3. **설정** 아래의 메뉴에서 **가격 책정 계층**을 선택합니다. 슬라이더를 사용하여 **백업 보존 기간**을 7일에서 35일까지 원하는 대로 변경할 수 있습니다.
+3. **설정** 아래의 메뉴에서 **가격 책정 계층** 을 선택합니다. 슬라이더를 사용하여 **백업 보존 기간** 을 7일에서 35일까지 원하는 대로 변경할 수 있습니다.
 아래 스크린샷에서는 34일로 늘렸습니다.
 :::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="늘어난 백업 보존 기간":::
 
-4. **확인**을 클릭하여 변경 내용을 확인합니다.
+4. **확인** 을 클릭하여 변경 내용을 확인합니다.
 
 백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 특정 시점 복원은 다음 섹션에서 자세히 설명합니다. 
 
@@ -51,7 +51,7 @@ Azure Database for PostgreSQL을 사용하면 특정 시점의 서버를 서버�
 다음 단계는 샘플 서버를 특정 시점으로 복원합니다.
 1. Azure Portal에서 Azure Database for PostgreSQL 서버를 선택합니다. 
 
-2. 서버 **개요** 페이지의 도구 모음에서 **복원**을 선택합니다.
+2. 서버 **개요** 페이지의 도구 모음에서 **복원** 을 선택합니다.
 
    :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="PostgreSQL용 Azure Database - 개요 - 복원 단추":::
 
@@ -63,7 +63,7 @@ Azure Database for PostgreSQL을 사용하면 특정 시점의 서버를 서버�
    - **위치**: 하위 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
    - **가격 책정 계층**: 특정 시점 복원을 수행할 때 이러한 매개 변수는 변경할 수 없습니다. 원본 서버와 동일합니다. 
 
-4. **확인**을 클릭하여 특정 시점으로 복원할 서버를 복원합니다. 
+4. **확인** 을 클릭하여 특정 시점으로 복원할 서버를 복원합니다. 
 
 5. 복원이 완료되면 예상대로 데이터가 복원되었는지 확인하기 위해 생성하였던 새 서버를 찾습니다.
 
@@ -71,11 +71,13 @@ Azure Database for PostgreSQL을 사용하면 특정 시점의 서버를 서버�
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 방화벽 규칙 또는 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다.
 
+원본 PostgreSQL 서버가 고객이 관리 하는 키로 암호화 된 경우 추가 고려 사항은 [설명서](concepts-data-encryption-postgresql.md) 를 참조 하세요.
+
 ## <a name="geo-restore"></a>지역 복원
 
 서버를 지리적으로 중복된 백업으로 구성한 경우 기존 서버의 백업에서 새 서버를 만들 수 있습니다. 이 새 서버는 Azure Database for PostgreSQL을 사용할 수 있는 모든 지역에서 만들 수 있습니다.  
 
-1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다. **데이터베이스** > **PostgreSQL용 Azure Database**를 차례로 선택합니다.
+1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다. **데이터베이스** > **PostgreSQL용 Azure Database** 를 차례로 선택합니다.
 
    :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Azure Database for PostgreSQL로 이동 합니다.":::
 
@@ -85,9 +87,9 @@ Azure Database for PostgreSQL을 사용하면 특정 시점의 서버를 서버�
  
 3. 새 서버의 구독, 리소스 그룹 및 이름을 제공 합니다. 
 
-4. **데이터 원본**으로 **백업** 을 선택 합니다. 이 작업은 지역 중복 백업을 사용 하도록 설정 된 서버 목록을 제공 하는 드롭다운을 로드 합니다.
+4. **데이터 원본** 으로 **백업** 을 선택 합니다. 이 작업은 지역 중복 백업을 사용 하도록 설정 된 서버 목록을 제공 하는 드롭다운을 로드 합니다.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="데이터 원본을 선택 합니다.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="데이터 원본을 선택합니다.":::
     
    > [!NOTE]
    > 서버가 처음 생성될 때는 지역 복원에 즉시 사용 가능하지 않을 수 있습니다. 필요한 메타데이터를 채우는 데 몇 시간 정도 걸릴 수 있습니다.
@@ -101,23 +103,25 @@ Azure Database for PostgreSQL을 사용하면 특정 시점의 서버를 서버�
    
    :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="백업을 선택 합니다.":::
 
-7. 서버는 **vcores**수, **백업 보존 기간**, **백업 중복성 옵션**, **엔진 버전**및 **관리자 자격 증명**에 대 한 값을 기본값으로 표시 합니다. **계속**을 선택합니다. 
+7. 서버는 **vcores** 수, **백업 보존 기간**, **백업 중복성 옵션**, **엔진 버전** 및 **관리자 자격 증명** 에 대 한 값을 기본값으로 표시 합니다. **계속** 을 선택합니다. 
    
    :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="백업을 계속 합니다.":::
 
-8. 나머지 양식은 기본 설정으로 작성합니다. **위치**를 선택할 수 있습니다.
+8. 나머지 양식은 기본 설정으로 작성합니다. **위치** 를 선택할 수 있습니다.
 
-    위치를 선택한 후 **서버 구성** 을 선택 하 여 **계산 생성** (선택한 지역에서 사용 가능한 경우), **Vcores**수, **백업 보존 기간**및 **백업 중복성 옵션**을 업데이트할 수 있습니다. **가격 책정 계층**(기본, 범용 또는 메모리 최적화) 또는 **스토리지** 크기는 복원하는 동안 변경할 수 없습니다.
+    위치를 선택한 후 **서버 구성** 을 선택 하 여 **계산 생성** (선택한 지역에서 사용 가능한 경우), **Vcores** 수, **백업 보존 기간** 및 **백업 중복성 옵션** 을 업데이트할 수 있습니다. **가격 책정 계층**(기본, 범용 또는 메모리 최적화) 또는 **스토리지** 크기는 복원하는 동안 변경할 수 없습니다.
 
    :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="채우기 양식."::: 
 
-9. **검토 + 만들기**를 선택하여 선택 사항을 검토합니다. 
+9. **검토 + 만들기** 를 선택하여 선택 사항을 검토합니다. 
 
-10. **만들기**를 선택하여 서버를 프로비전합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+10. **만들기** 를 선택하여 서버를 프로비전합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
 지역 복원으로 만든 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 방화벽 규칙 또는 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다.
+
+원본 PostgreSQL 서버가 고객이 관리 하는 키로 암호화 된 경우 추가 고려 사항은 [설명서](concepts-data-encryption-postgresql.md) 를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

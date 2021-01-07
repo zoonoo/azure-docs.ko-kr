@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
 ms.openlocfilehash: aebe7772c673162d60f35d6a81725ba1452d16a8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207072"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012359"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>자습서: .NET Core 앱에서 동적 구성 사용
 
@@ -46,7 +46,7 @@ App Configuration .NET Core 클라이언트 라이브러리는 애플리케이�
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
-*Program.cs*를 열고 파일을 업데이트하여 `System.Threading.Tasks` 네임스페이스에 대한 참조를 추가하고 `AddAzureAppConfiguration` 메서드의 새로 고침 구성을 지정하고 `TryRefreshAsync` 메서드를 사용하여 수동 새로 고침을 트리거합니다.
+*Program.cs* 를 열고 파일을 업데이트하여 `System.Threading.Tasks` 네임스페이스에 대한 참조를 추가하고 `AddAzureAppConfiguration` 메서드의 새로 고침 구성을 지정하고 `TryRefreshAsync` 메서드를 사용하여 수동 새로 고침을 트리거합니다.
 
 ```csharp
 using System;
@@ -99,7 +99,7 @@ class Program
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. **ConnectionString** 이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
     ```console
      setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -131,9 +131,9 @@ class Program
 
     ![로컬로 빠른 시작 앱 시작](./media/quickstarts/dotnet-core-app-run.png)
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스** 를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-1. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
+1. **구성 탐색기** 를 선택하고, 다음 키의 값을 업데이트합니다.
 
     | 키 | 값 |
     |---|---|

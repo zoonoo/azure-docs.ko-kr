@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/23/2019
 ms.openlocfilehash: a696ba4f7bab85f2353e80d028220688531b3b69
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021768"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 애플리케이션 만들기
@@ -39,7 +39,7 @@ Azure AD 애플리케이션에 [역할](../role-based-access-control/built-in-ro
 1. 이 문서의 뒷부분에서 Hive 쿼리를 실행할 HDInsight 클러스터가 있는 리소스 그룹으로 이동 합니다. 많은 수의 리소스 그룹이 있는 경우 필터를 사용하여 원하는 리소스 그룹을 찾을 수 있습니다.
 1. 리소스 그룹 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
 1. **역할 할당** 탭을 선택하여 현재의 역할 할당을 봅니다.
-1. 페이지 위쪽에서 **+ 추가**를 선택 합니다.
+1. 페이지 맨 위에서 **+ 추가**를 선택합니다.
 1. 지침에 따라 Azure AD 애플리케이션에 소유자 역할을 추가합니다. 역할이 성공적으로 추가되면 애플리케이션이 소유자 역할 아래에 나열됩니다.
 
 ## <a name="develop-an-hdinsight-client-application"></a>HDInsight 클라이언트 애플리케이션 개발

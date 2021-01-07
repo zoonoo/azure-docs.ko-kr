@@ -1,23 +1,25 @@
 ---
 title: Azure Cosmos DB Gremlin 제한
 description: 그래프 엔진의 런타임 제한 사항에 대 한 참조 설명서
-author: LuisBosquez
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: lbosq
-ms.openlocfilehash: 76ad787990c355d29613c05ca9fce31885a2eccc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: sngun
+ms.openlocfilehash: 4e638fdff67ad2d0bc6f191cdfd46867ab847923
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72029855"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080116"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Azure Cosmos DB Gremlin 제한
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 이 문서에서는 Azure Cosmos DB Gremlin 엔진의 제한에 대해 설명 하 고 고객이 탐색에 영향을 미칠 수 있는 방법에 대해 설명 합니다.
 
-Cosmos DB Gremlin는 Cosmos DB 인프라를 기반으로 빌드됩니다. 이로 인해 [Azure Cosmos DB 서비스 제한](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) 에 설명 된 모든 제한이 여전히 적용 됩니다. 
+Cosmos DB Gremlin는 Cosmos DB 인프라를 기반으로 빌드됩니다. 이로 인해 [Azure Cosmos DB 서비스 제한](./concepts-limits.md) 에 설명 된 모든 제한이 여전히 적용 됩니다.
 
 ## <a name="limits"></a>제한
 
@@ -34,5 +36,5 @@ Gremlin 제한에 도달 하는 경우 조정 오류를 나타내는 **x m m-** 
 *시간당 리소스 토큰* | **100** | Gremlin 클라이언트가 한 지역의 Gremlin 계정에 연결하는 데 사용하는 고유 리소스 토큰 수입니다. 응용 프로그램이 매시간 고유한 토큰 제한을 초과 하는 경우 `"Exceeded allowed resource token limit of 100 that can be used concurrently"` 는 다음 인증 요청 시 반환 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Cosmos DB Gremlin 응답 헤더](gremlin-headers.md) 
+* [Azure Cosmos DB Gremlin 응답 헤더](gremlin-headers.md)
 * [Gremlin을 사용한 Azure Cosmos DB 리소스 토큰](how-to-use-resource-tokens-gremlin.md)

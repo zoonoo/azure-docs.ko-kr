@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564365"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496038"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트
 
@@ -25,7 +25,7 @@ ms.locfileid: "90564365"
 2. Azure Maps 실내 지도 기능 stateset을 업데이트 하는 Azure 함수를 만듭니다.
 3. Azure Digital Twins 그래프에서 지도 ID와 기능 stateset ID를 저장 하는 방법입니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)을 참조 하세요.
     * 추가 끝점 및 경로를 사용 하 여이 쌍을 확장 합니다. 또한이 자습서의 함수 앱에 다른 함수를 추가 합니다. 
@@ -50,12 +50,12 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
 이 패턴은 매핑 논리를 업데이트할 필요 없이 온도에 대 한 기본 데이터 원본을 유연 하 게 변경할 수 있도록 하는 IoT 장치가 아닌 대화방 쌍에서 직접 읽습니다. 예를 들어 지도 논리를 업데이트할 필요 없이 여러 개의 온도계 모양를 추가 하거나이 공간을 설정 하 여 다른 방에 온도계를 공유할 수 있습니다.
 
 1. Azure Digital Twins 인스턴스에서 이벤트를 수신 하는 event grid 토픽을 만듭니다.
-    ```azurecli
+    ```azurecli-interactive
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
 
 2. Event grid 토픽을 Azure Digital Twins에 연결 하는 끝점을 만듭니다.
-    ```azurecli
+    ```azurecli-interactive
     az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
     ```
 
@@ -64,9 +64,9 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
     >[!NOTE]
     >Cloud Shell에는 `az dt route`, `az dt model`, `az dt twin` 명령 그룹에 영향을 주는 **알려진 문제**가 있습니다.
     >
-    >이 문제를 해결하려면 명령을 실행하기 전에 Cloud Shell에서 `az login`을 실행하거나 Cloud Shell 대신 [로컬 CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용합니다. 이에 대한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell)를 참조하세요.
+    >이 문제를 해결하려면 명령을 실행하기 전에 Cloud Shell에서 `az login`을 실행하거나 Cloud Shell 대신 [로컬 CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 사용합니다. 이에 대한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell)를 참조하세요.
 
-    ```azurecli
+    ```azurecli-interactive
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
@@ -74,7 +74,7 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
 
 종단 간 자습서에서 함수 앱 내에 Event Grid 트리거 함수를 만들려고 합니다 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)). 이 함수는 이러한 알림의 압축을 풀고 Azure Maps 기능으로 업데이트를 전송 하 여 한 방에 대 한 온도를 업데이트 합니다. 
 
-참조 정보는 [*Azure Functions에 대 한 Azure Event Grid 트리거*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger)문서를 참조 하세요.
+참조 정보는 [*Azure Functions에 대 한 Azure Event Grid 트리거*](../azure-functions/functions-bindings-event-grid-trigger.md)문서를 참조 하세요.
 
 함수 코드를 다음 코드로 바꿉니다. 이 파일은 공간 쌍에 대 한 업데이트만 필터링 하 고 업데이트 된 온도를 읽고 해당 정보를 Azure Maps으로 보냅니다.
 
@@ -135,7 +135,7 @@ namespace SampleFunctionsApp
 
 함수 앱에서 두 환경 변수를 설정 해야 합니다. 하나는 [Azure Maps 기본 구독 키](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)이 고 하나는 [AZURE MAPS stateset ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset)입니다.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
@@ -152,7 +152,7 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 두 샘플 모두 호환 범위에서 온도를 전송 하므로 30 초 마다 맵에 room 121 업데이트의 색이 표시 되어야 합니다.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="방 121 컬러 주황을 보여 주는 사무실 지도":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="종단 간 시나리오에서 실내 지도 통합 피스를 강조 표시 하는 Azure 서비스의 뷰입니다.":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Azure Digital Twins에 maps 정보 저장
 

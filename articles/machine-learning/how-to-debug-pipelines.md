@@ -1,25 +1,25 @@
 ---
-title: ML 파이프라인의 디버그 & 문제 해결
+title: ML 파이프라인 문제 해결
 titleSuffix: Azure Machine Learning
-description: Python에서 Azure Machine Learning 파이프라인을 디버깅 합니다. 파이프라인 개발에 대 한 일반적인 문제 및 원격 실행 전후에 스크립트를 디버그 하는 데 도움이 되는 팁에 대해 알아봅니다. Visual Studio Code를 사용 하 여 기계 학습 파이프라인을 대화형으로 디버깅 하는 방법을 알아봅니다.
+description: Machine learning 파이프라인을 실행 하는 동안 오류가 발생 하는 경우 문제를 해결 하는 방법입니다. 원격 실행 전후에 스크립트를 디버그 하는 데 도움이 되는 일반적인 주의 사항 및 팁입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: lobrien
 ms.author: laobri
-ms.date: 08/28/2020
-ms.topic: conceptual
-ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: 616cdb1d0940ea6f64c3be3d687adaa9c2a98cc2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/22/2020
+ms.topic: troubleshooting
+ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
+ms.openlocfilehash: 9baf305ab72354c150cb06e594ed8909f2fa1dda
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889970"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739317"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
+# <a name="troubleshooting-machine-learning-pipelines"></a>Machine learning 파이프라인 문제 해결
 
-이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 및 [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 디버그 하 고 문제를 해결 하는 방법에 대해 알아봅니다. 다음 방법에 대 한 정보가 제공 됩니다.
+이 문서에서는 [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 및 [Azure Machine Learning designer](./concept-designer.md)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 실행 하는 동안 오류가 발생 하는 경우 문제를 해결 하는 방법에 대해 알아봅니다. 
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 
@@ -28,11 +28,25 @@ ms.locfileid: "90889970"
 | 문제 | 가능한 해결 방법 |
 |--|--|
 | 디렉터리에 데이터를 전달할 수 없습니다. `PipelineData` | 파이프라인이 단계 출력 데이터를 기대 하는 위치에 해당 하는 디렉터리를 스크립트에 만들었는지 확인 합니다. 대부분의 경우 입력 인수는 출력 디렉터리를 정의 하 고 디렉터리를 명시적으로 만듭니다. `os.makedirs(args.output_dir, exist_ok=True)`를 사용 하 여 출력 디렉터리를 만듭니다. 이 디자인 패턴을 보여 주는 점수 매기기 스크립트 예제에 대 한 [자습서](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) 를 참조 하세요. |
-| 종속성 버그 | 원격 파이프라인에서 로컬 테스트할 때 발생 하지 않은 종속성 오류가 표시 되 면 원격 환경 종속성 및 버전이 테스트 환경의 종속성과 일치 하는지 확인 합니다. [환경 빌드, 캐싱 및 재사용](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse) 을 참조 하세요.|
+| 종속성 버그 | 원격 파이프라인에서 로컬 테스트할 때 발생 하지 않은 종속성 오류가 표시 되 면 원격 환경 종속성 및 버전이 테스트 환경의 종속성과 일치 하는지 확인 합니다. [환경 빌드, 캐싱 및 재사용](./concept-environments.md#environment-building-caching-and-reuse) 을 참조 하세요.|
 | 계산 대상의 모호한 오류 | 계산 대상을 삭제 하 고 다시 만들어 보세요. 계산 대상을 다시 만드는 과정은 빠르게 수행할 수 있으며 일부 일시적인 문제를 해결할 수 있습니다. |
 | 파이프라인이 단계를 다시 사용 하지 않음 | 단계 다시 사용은 기본적으로 사용 되지만 파이프라인 단계에서 사용 하지 않도록 설정 하지 않았는지 확인 합니다. 다시 사용 하지 않도록 설정 된 경우 `allow_reuse` 단계의 매개 변수는로 설정 됩니다 `False` . |
 | 파이프라인이 불필요 하 게 다시 실행 되 고 있습니다. | 기본 데이터 또는 스크립트가 변경 될 때만 단계가 다시 실행 되도록 하려면 각 단계에 대 한 소스 코드 디렉터리를 분리 합니다. 여러 단계에 동일한 원본 디렉터리를 사용 하는 경우 불필요 한 다시 실행이 발생할 수 있습니다. `source_directory`파이프라인 단계 개체에서 매개 변수를 사용 하 여 해당 단계에 대 한 격리 된 디렉터리를 가리키고 여러 단계에 대해 동일한 경로를 사용 하지 않는지 확인 `source_directory` 합니다. |
 | 학습 epoch 또는 기타 루핑 동작을 초과 하는 단계 속도 저하 | 로깅을 비롯 한 파일 쓰기를에서로 전환 해 `as_mount()` 보세요 `as_upload()` . **탑재** 모드는 원격 가상화 된 파일 시스템을 사용 하 고 추가 될 때마다 전체 파일을 업로드 합니다. |
+
+### <a name="authentication-errors"></a>인증 오류
+
+원격 작업에서 컴퓨팅 대상에 대한 관리 작업을 수행하는 경우 다음 오류 중 하나가 나타납니다. 
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+예를 들어 원격 실행을 위해 제출된 ML 파이프라인에서 컴퓨팅 대상을 만들거나 연결하려고 시도하면 오류가 나타납니다.
 
 ## <a name="debugging-techniques"></a>디버깅 기술
 
@@ -71,9 +85,9 @@ ms.locfileid: "90889970"
 
 | 라이브러리                    | Type   | 예제                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md)<br>[azureml 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md)<br>[azureml 클래스](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
 | Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험을 추적 하는 방법](how-to-track-experiments.md)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | 로그    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights 추적                | [Application Insights에서 파이프라인 디버깅](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python 로깅 cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
+| OpenCensus Python          | 로그    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights 추적                | [Application Insights에서 파이프라인 디버깅](./how-to-log-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python 로깅 cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>로깅 옵션 예제
 
@@ -113,7 +127,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>실시간 끝점에 대 한 로깅 사용
 
-디자이너에서 실시간 끝점의 문제를 해결 하 고 디버그 하려면 SDK를 사용 하 여 응용 프로그램 정보 로깅을 사용 하도록 설정 해야 합니다. 로깅을 사용 하면 모델 배포 및 사용 문제를 해결 하 고 디버그할 수 있습니다. 자세한 내용은 [배포 된 모델에 대 한 로깅](how-to-enable-logging.md#logging-for-deployed-models)을 참조 하세요. 
+디자이너에서 실시간 끝점의 문제를 해결 하 고 디버그 하려면 SDK를 사용 하 여 응용 프로그램 정보 로깅을 사용 하도록 설정 해야 합니다. 로깅을 사용 하면 모델 배포 및 사용 문제를 해결 하 고 디버그할 수 있습니다. 자세한 내용은 [배포 된 모델에 대 한 로깅](./how-to-enable-app-insights.md)을 참조 하세요. 
 
 ### <a name="get-logs-from-the-authoring-page"></a>제작 페이지에서 로그 가져오기
 
@@ -123,7 +137,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 1. 모듈의 오른쪽 창에서  **출력 + 로그** 탭으로 이동 합니다.
 1. 오른쪽 창을 확장 하 고 **70_driver_log.txt** 를 선택 하 여 브라우저에서 파일을 봅니다. 로그를 로컬로 다운로드할 수도 있습니다.
 
-    ![디자이너의 확장 된 출력 창](./media/how-to-debug-pipelines/designer-logs.png)? view = azure-ml-py&preserve-view = true)? view = azure-ml-py&preserve-view = true)
+    ![디자이너의 확장 된 출력 창](./media/how-to-debug-pipelines/designer-logs.png)
 
 ### <a name="get-logs-from-pipeline-runs"></a>파이프라인 실행에서 로그 가져오기
 
@@ -141,7 +155,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 > 파이프라인 실행 정보 페이지에서 파이프라인을 업데이트 하려면 파이프라인 실행을 새 파이프라인 초안으로 **복제** 해야 합니다. 파이프라인 실행은 파이프라인의 스냅숏입니다. 로그 파일과 비슷하며 변경할 수 없습니다. 
 
 ## <a name="application-insights"></a>Application Insights
-이러한 방식으로 OpenCensus Python 라이브러리를 사용 하는 방법에 대 한 자세한 내용은이 가이드: [Application Insights machine learning 파이프라인 디버그 및 문제 해결](how-to-debug-pipelines-application-insights.md) 을 참조 하세요.
+이러한 방식으로 OpenCensus Python 라이브러리를 사용 하는 방법에 대 한 자세한 내용은이 가이드: [Application Insights machine learning 파이프라인 디버그 및 문제 해결](./how-to-log-pipelines-application-insights.md) 을 참조 하세요.
 
 ## <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
@@ -149,6 +163,12 @@ ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azureml-파이프라인-코어](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) 패키지 및 [azureml 파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요.
+* [ParallelRunStep 디버그 및 문제 해결](how-to-debug-parallel-run-step.md)
+
+* 을 사용 하는 방법에 대 한 전체 자습서는 `ParallelRunStep` [자습서: 일괄 처리 점수 매기기를 위한 Azure Machine Learning 파이프라인 빌드](tutorial-pipeline-batch-scoring-classification.md)를 참조 하세요.
+
+* ML 파이프라인에서 자동화 된 기계 학습을 보여 주는 전체 예제는 [Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용](how-to-use-automlstep-in-pipelines.md)을 참조 하세요.
+
+* [Azureml-파이프라인-코어](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) 패키지 및 [azureml 파이프라인 단계](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요.
 
 * [디자이너 예외 및 오류 코드](algorithm-module-reference/designer-error-codes.md)의 목록을 참조 하세요.

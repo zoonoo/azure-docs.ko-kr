@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 IS_ARRAY
 description: Azure Cosmos DB의 SQL 시스템 함수 IS_ARRAY에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f5867850db6eb3d6552bc129cca3708ef7747072
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb78e6c1481cbf8958b064f316ac1e20be2a6440
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303888"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338767"
 ---
 # <a name="is_array-azure-cosmos-db"></a>IS_ARRAY (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정한 식의 형식이 배열인지 여부를 나타내는 부울 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문

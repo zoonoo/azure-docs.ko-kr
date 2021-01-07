@@ -1,20 +1,20 @@
 ---
 title: Azure Active Directory를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여
-description: RBAC를 사용 하 여 Azure 앱 구성 인스턴스에 대 한 액세스 권한 부여
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/13/2020
+description: Azure RBAC를 사용 하 여 Azure 앱 구성 인스턴스에 대 한 액세스 권한 부여
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 8889e7270127aa3991adb3c0575a4bce96090db2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4768dbe292b7c71770ded1e8ad27025bc9944608
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830074"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930265"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여
-HMAC (해시 기반 MAC(메시지 인증 코드))를 사용 하는 것 외에도 Azure 앱 구성은 Azure Active Directory (Azure AD)를 사용 하 여 앱 구성 인스턴스에 대 한 요청을 인증 하도록 지원 합니다.  Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체에 권한을 부여할 수 있습니다.  보안 주체는 사용자, [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 또는 [응용 프로그램 서비스 사용자](../active-directory/develop/app-objects-and-service-principals.md)일 수 있습니다.  역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
+HMAC (해시 기반 MAC(메시지 인증 코드))를 사용 하는 것 외에도 Azure 앱 구성은 Azure Active Directory (Azure AD)를 사용 하 여 앱 구성 인스턴스에 대 한 요청을 인증 하도록 지원 합니다.  Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체에 권한을 부여할 수 있습니다.  보안 주체는 사용자, [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 또는 [응용 프로그램 서비스 사용자](../active-directory/develop/app-objects-and-service-principals.md)일 수 있습니다.  역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
 
 ## <a name="overview"></a>개요
 앱 구성 리소스에 액세스 하기 위해 보안 주체에 의해 수행 된 요청에는 권한이 있어야 합니다. Azure AD를 사용 하는 경우 리소스에 대 한 액세스는 두 단계로 진행 됩니다.
@@ -39,7 +39,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 앱 구성 데이터에 대 한 �
 - 읽기 **권한자**:이 역할을 사용 하 여 앱 구성 리소스에 대 한 읽기 권한을 부여 합니다. 리소스의 액세스 키와 앱 구성에 저장 된 데이터에 대 한 액세스 권한은 부여 하지 않습니다.
 
 > [!NOTE]
-> 현재 Azure Portal 및 CLI는 응용 프로그램 구성 데이터에 액세스 하기 위한 HMAC 인증만 지원 합니다. Azure AD 인증은 지원 되지 않습니다. 따라서 Azure Portal 및 CLI의 사용자는 앱 구성 리소스의 액세스 키를 검색 하기 위해 *참가자* 역할이 필요 합니다. *앱 구성 데이터 판독기* 또는 *앱 구성 데이터 소유자* 역할을 부여 하면 포털 및 CLI를 통한 액세스에 영향을 주지 않습니다.
+> 현재 Azure Portal는 응용 프로그램 구성 데이터에 액세스 하기 위한 HMAC 인증만 지원 합니다. Azure AD 인증은 지원 되지 않습니다. 따라서 Azure Portal 사용자는 앱 구성 리소스의 액세스 키를 검색 하기 위해 *참가자* 역할이 필요 합니다. *앱 구성 데이터 판독기* 또는 *앱 구성 데이터 소유자* 역할을 부여 해도 포털을 통한 액세스에는 영향을 주지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [관리 id](howto-integrate-azure-managed-service-identity.md) 를 사용 하 여 앱 구성 서비스를 관리 하는 방법에 대해 자세히 알아보세요.

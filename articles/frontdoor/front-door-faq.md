@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e28c995a0fb574f2e7319f8ee540f49d1bbed4dd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399738"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656906"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -24,7 +24,7 @@ ms.locfileid: "89399738"
 
 1. 이 문서의 의견 섹션입니다.
 2. [Azure Front 도어 UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Microsoft 지원:** 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청**을 선택 합니다.
+3. **Microsoft 지원:** 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택 합니다.
 
 ## <a name="general"></a>일반
 
@@ -71,7 +71,7 @@ Azure 전면 도어는 글로벌 서비스 이며 특정 Azure 지역에 연결 
 
 ### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Azure Front 도어의 POP 위치는 무엇 인가요?
 
-Azure 전면 도어에는 Microsoft에서 Azure CDN와 동일한 POP (현재 위치) 위치 목록이 있습니다. Pop의 전체 목록은 [Microsoft에서 AZURE CDN pop 위치](https://docs.microsoft.com/azure/cdn/cdn-pop-locations)를 참조 하세요.
+Azure 전면 도어에는 Microsoft에서 Azure CDN와 동일한 POP (현재 위치) 위치 목록이 있습니다. Pop의 전체 목록은 [Microsoft에서 AZURE CDN pop 위치](../cdn/cdn-pop-locations.md)를 참조 하세요.
 
 ### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Azure Front 도어가 내 응용 프로그램에 대 한 전용 배포 입니까 아니면 고객 간에 공유 되나요?
 
@@ -91,14 +91,38 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 
 - 백 엔드에 대 한 IP ACLing를 구성 하 여 Azure 전면 도어의 백 엔드 IP 주소 공간 및 Azure 인프라 서비스의 트래픽을 허용 합니다. 백 엔드를 ACLing 아래 IP 세부 정보를 참조 하세요.
  
-    - 프런트 도어의 IPv4 백 엔드 IP 주소 범위에 대 한 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 의 *AzureFrontDoor* 섹션을 참조 하거나 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)에서 서비스 태그 *AzureFrontDoor* 를 사용할 수도 있습니다.
-    - 서비스 태그에 포함 된 프론트 도어의 **IPv6** 백 엔드 IP 공간은 Azure IP 범위 JSON 파일에 나열 되지 않습니다. 명시적 IPv6 주소 범위를 찾고 있는 경우 현재 다음으로 제한 됩니다. `2a01:111:2050::/44`
-    - 가상화 된 호스트 IP 주소를 통한 Azure의 [기본 인프라 서비스](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) : `168.63.129.16` 및 `169.254.169.254`
+    - 프런트 도어의 IPv4 백 엔드 IP 주소 범위에 대 한 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 의 *AzureFrontDoor* 섹션을 참조 하거나 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules)에서 서비스 태그 *AzureFrontDoor* 를 사용할 수도 있습니다.
+    - 가상화 된 호스트 IP 주소를 통한 Azure의 [기본 인프라 서비스](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) : `168.63.129.16` 및 `169.254.169.254`
 
     > [!WARNING]
     > 앞 도어의 백 엔드 IP 공간은 나중에 변경 될 수 있지만,이를 위해 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)와 통합 될 예정입니다. 변경 또는 업데이트에 대 한 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 를 구독 하는 것이 좋습니다.
 
 -    API 버전 이상을 사용 하 여 Front 문에 대해 가져오기 작업을 수행 `2020-01-01` 합니다. API 호출에서 필드를 찾습니다 `frontdoorID` . 프런트 도어로 보낸 들어오는 헤더 '**x-y**'를 필드의 값을 사용 하 여 백 엔드로 필터링 합니다 `frontdoorID` . 또한 `Front Door ID` 전방 도어 포털 페이지의 개요 섹션에서 값을 찾을 수 있습니다. 
+
+- 백 엔드 웹 서버에서 규칙 필터링을 적용 하 여 결과 ' X-y ' 헤더 값을 기준으로 트래픽을 제한 합니다.
+
+  [Microsoft 인터넷 정보 서비스 (IIS)](https://www.iis.net/)에 대 한 예제는 다음과 같습니다.
+
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
+
+
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Front 도어가 지속 되는 동안 애니캐스트 IP가 변경 될 수 있나요?
 
@@ -123,7 +147,7 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 경로 또는 백 엔드 풀 등의 모든 업데이트는 원활 하 게 작동 하며 가동 중지 시간 (새 구성이 올바른 경우)을 발생 시킵니다. ' AFD 관리 '에서 ' 자신의 인증서 사용 '으로 전환 하거나 그 반대로 전환 하지 않는 한 인증서 업데이트도 원자성 이며 중단 되지 않습니다.
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front 도어는 가상 네트워크 내에서 트래픽 부하를 분산 하거나 라우팅할 수 있나요?
 
@@ -131,7 +155,15 @@ Azure 전면 도어 (AFD)에는 트래픽을 라우팅하는 공용 IP 또는 �
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Azure Front 문에 대 한 다양 한 시간 제한 및 제한은 무엇 인가요?
 
-[Azure Front 도어에 대해 문서화 된 시간 제한 및 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits)에 대해 알아봅니다.
+[Azure Front 도어에 대해 문서화 된 시간 제한 및 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits)에 대해 알아봅니다.
+
+### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>프런트 도어 규칙 엔진에 추가 된 후 규칙이 적용 되려면 얼마나 걸립니까?
+
+규칙 엔진 구성은 업데이트를 완료 하는 데 약 10 ~ 15 분이 걸립니다. 업데이트가 완료 되는 즉시 규칙이 적용 될 것으로 예측할 수 있습니다. 
+
+### <a name="can-i-configure-azure-cdn-behind-my-front-door-profile-or-vice-versa"></a>내 전방 도어 프로필 뒤에 Azure CDN을 구성할 수 있나요? 아니면 그 반대의 경우도 가능 합니까?
+
+두 서비스 모두 요청에 응답할 때 동일한 Azure edge 사이트를 활용 하기 때문에 azure 프런트 도어 및 Azure CDN 함께 구성할 수 없습니다. 
 
 ## <a name="performance"></a>성능
 
@@ -150,7 +182,7 @@ Azure 전면 도어는 응용 프로그램의 확장성 요구를 충족 하기 
 ### <a name="what-certificates-are-supported-on-azure-front-door"></a>Azure Front 도어에서 지원 되는 인증서는 무엇 인가요?
 
 프런트 도어 사용자 지정 도메인에서 콘텐츠를 안전 하 게 배달 하기 위해 HTTPS 프로토콜을 사용 하도록 설정 하려면 Azure Front 도어에서 관리 되는 인증서를 사용 하거나 사용자 고유의 인증서를 사용 하도록 선택할 수 있습니다.
-전면 도어 관리 옵션은 Digicert를 통해 표준 TLS/SSL 인증서를 프로 비전 하 고 앞 도어의 Key Vault에 저장 합니다. 사용자 고유의 인증서를 사용 하도록 선택 하는 경우 지원 되는 CA에서 인증서를 등록할 수 있으며 표준 TLS, 확장 유효성 검사 인증서 또는 와일드 카드 인증서를 사용할 수 있습니다. 자체 서명 된 인증서는 지원 되지 않습니다. [사용자 지정 도메인에 대해 HTTPS를 사용 하도록 설정 하는 방법을](https://aka.ms/FrontDoorCustomDomainHTTPS)알아봅니다.
+전면 도어 관리 옵션은 Digicert를 통해 표준 TLS/SSL 인증서를 프로 비전 하 고 앞 도어의 Key Vault에 저장 합니다. 사용자 고유의 인증서를 사용 하도록 선택 하는 경우 지원 되는 CA에서 인증서를 등록할 수 있으며 표준 TLS, 확장 유효성 검사 인증서 또는 와일드 카드 인증서를 사용할 수 있습니다. 자체 서명 된 인증서는 지원 되지 않습니다. [사용자 지정 도메인에 대해 HTTPS를 사용 하도록 설정 하는 방법을](./front-door-custom-domain-https.md)알아봅니다.
 
 ### <a name="does-front-door-support-autorotation-of-certificates"></a>전면 도어는 인증서의 autorotation을 지원 하나요?
 
@@ -191,7 +223,7 @@ TLS 1.0/1.1을 사용 하는 사용자 지정 도메인을 사용 하는 경우 
 
 ### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Tls 프로토콜 버전을 제어 하는 TLS 정책을 구성할 수 있나요?
 
-Azure Portal 또는 [azure REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion)를 통해 사용자 지정 도메인 HTTPS 설정의 Azure Front 문에 최소 TLS 버전을 구성할 수 있습니다. 현재는 1.0과 1.2 중에서 선택할 수 있습니다.
+Azure Portal 또는 [azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion)를 통해 사용자 지정 도메인 HTTPS 설정의 Azure Front 문에 최소 TLS 버전을 구성할 수 있습니다. 현재는 1.0과 1.2 중에서 선택할 수 있습니다.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>특정 암호 모음만 지원 하도록 Front 도어를 구성할 수 있나요?
 
@@ -217,8 +249,12 @@ Azure Portal 또는 [azure REST API](https://docs.microsoft.com/rest/api/frontdo
 상태 프로브 또는 전달 요청에 대해 백 엔드에 대 한 HTTPS 연결에 성공 하는 경우 HTTPS 트래픽이 실패할 수 있는 두 가지 이유가 있을 수 있습니다.
 
 1. **인증서 주체 이름 불일치**: HTTPS 연결의 경우 백 엔드는 백 엔드 호스트 이름과 일치 하는 주체 이름을 가진 유효한 CA에서 인증서를 제공 하는 것으로 예상 합니다. 예를 들어 백 엔드 호스트 이름이로 설정 되 `myapp-centralus.contosonews.net` 고, TLS 핸드셰이크 중에 백 엔드에 표시 되는 인증서가 `myapp-centralus.contosonews.net` 주체 이름에도 그렇지 않은 경우 `*myapp-centralus*.contosonews.net` , 전면 도어는 연결을 거부 하 고 오류를 생성 합니다. 
-    1. **해결**방법: 규정 준수 관점에서 권장 되지 않지만, 앞면 도어에 대해 인증서 주체 이름 확인을 사용 하지 않도록 설정 하 여이 오류를 해결할 수 있습니다. 이는 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.
-2. **잘못 된 ca의 백 엔드 호스팅 인증서**: 전방 도어를 사용 하는 백 엔드에서 [유효한 ca](/azure/frontdoor/front-door-troubleshoot-allowed-ca) 의 인증서만 사용할 수 있습니다. 내부 Ca 또는 자체 서명 된 인증서의 인증서는 허용 되지 않습니다.
+    1. **해결** 방법: 규정 준수 관점에서 권장 되지 않지만, 앞면 도어에 대해 인증서 주체 이름 확인을 사용 하지 않도록 설정 하 여이 오류를 해결할 수 있습니다. 이는 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.
+2. **잘못 된 ca의 백 엔드 호스팅 인증서**: 전방 도어를 사용 하는 백 엔드에서 [유효한 ca](./front-door-troubleshoot-allowed-ca.md) 의 인증서만 사용할 수 있습니다. 내부 Ca 또는 자체 서명 된 인증서의 인증서는 허용 되지 않습니다.
+
+### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Azure Front 문에 클라이언트/상호 인증을 사용할 수 있나요?
+
+아니요. Azure 전면 도어가 [RFC 5246](https://tools.ietf.org/html/rfc5246)에서 클라이언트/상호 인증을 도입 하는 TLS 1.2를 지원 하지만, 현재 Azure front 도어가 클라이언트/상호 인증을 지원 하지 않습니다.
 
 ## <a name="diagnostics-and-logging"></a>진단 및 로깅
 

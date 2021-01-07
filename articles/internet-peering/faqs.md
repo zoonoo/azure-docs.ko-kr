@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775499"
 ---
 # <a name="internet-peering---faqs"></a>인터넷 피어 링-Faq
@@ -27,10 +27,10 @@ ms.locfileid: "75775499"
 
 Azure PowerShell를 사용 하 여 설정 된 피어 링 연결은 Azure 리소스로 관리 됩니다. 과거에 설정 된 피어 링 연결은 Azure 리소스로 관리 하도록 변환 하도록 선택할 수 있는 레거시 피어 링으로 시스템에 저장 됩니다.
 
-**AzPeeringDirectConnectionObject가 호출 되 면 Microsoft 및 피어 장치에 제공 되는 IP 주소는 무엇 인가요?**
+**New-AzPeeringDirectConnectionObject가 호출 되 면 Microsoft 및 피어 장치에 제공 되는 IP 주소는 무엇 인가요?**
 
-AzPeeringDirectConnectionObject cmdlet을 호출 하는 경우/31 주소 (a. b. c. d/31) 또는/30 주소 (a. b. c. d/30)가 입력 됩니다. 첫 번째 IP 주소 (a. b. c. d + 0)가 피어의 장치에 지정 되 고 두 번째 IP 주소 (a. b. c. d + 1)가 Microsoft 장치에 제공 됩니다.
+New-AzPeeringDirectConnectionObject cmdlet을 호출 하는 경우/31 주소 (a. b. c. d/31) 또는/30 주소 (a. b. c. d/30)가 입력 됩니다. 첫 번째 IP 주소 (a. b. c. d + 0)가 피어의 장치에 지정 되 고 두 번째 IP 주소 (a. b. c. d + 1)가 Microsoft 장치에 제공 됩니다.
 
-**AzPeeringDirectConnectionObject cmdlet의 MaxPrefixesAdvertisedIPv4 및 MaxPrefixesAdvertisedIPv6 매개 변수는 무엇 인가요?**
+**New-AzPeeringDirectConnectionObject cmdlet의 MaxPrefixesAdvertisedIPv4 및 MaxPrefixesAdvertisedIPv6 매개 변수는 무엇 인가요?**
 
 MaxPrefixesAdvertisedIPv4 및 MaxPrefixesAdvertisedIPv6 매개 변수는 피어가 Microsoft에서 수락할 수 있는 최대 IPv4 및 IPv6 접두사 수를 나타냅니다. 이러한 매개 변수는 언제 든 지 수정할 수 있습니다.

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: ad7c7fb5111ce700a5725336b7c9db788e178c4c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098631"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91313776"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)의 네트워크 가상 어플라이언스 정보
 
@@ -50,7 +50,7 @@ NVA 파트너는 어플라이언스 배포, 구성 라이선스 및 관리 요�
 * **Customer 리소스 그룹** -관리 되는 응용 프로그램에 대 한 응용 프로그램 자리 표시자를 포함 합니다. 파트너는이를 사용 하 여 여기에서 선택 하는 모든 고객 속성을 노출할 수 있습니다.
 * **관리 되는 리소스 그룹** -이 리소스 그룹의 리소스를 직접 구성 하거나 변경할 수 없습니다 .이는 관리 되는 응용 프로그램의 게시자가 제어 하기 때문입니다. 이 리소스 그룹은 **Networkvirtualappliances** 리소스를 포함 합니다.
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="관리 되는 응용 프로그램 리소스 그룹":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="프로세스 개요":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>NVA 인프라 단위
 
@@ -72,7 +72,7 @@ Azure VPN Gateway 구성과 달리 **사이트** 리소스, **사이트 간 연�
 
 가상 WAN 허브를 Azure 가상 네트워크에 연결 하려면 허브-VNet 연결을 만들어야 합니다.
 
-## <a name="supported-regions"></a><a name="regions"></a>지원되는 Azure 지역
+## <a name="supported-regions"></a><a name="regions"></a>지원되는 지역
 
 가상 허브의 NVA는 다음 지역에서 미리 보기로 제공 됩니다.
 

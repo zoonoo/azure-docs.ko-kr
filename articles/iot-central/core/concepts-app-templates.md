@@ -3,16 +3,16 @@ title: Azure IoT Central의 응용 프로그램 템플릿 이란? Microsoft Docs
 description: Azure IoT Central 응용 프로그램 템플릿을 사용 하 여 IoT 솔루션 개발로 이동할 수 있습니다.
 author: philmea
 ms.author: philmea
-ms.date: 10/25/2019
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0cf343ccd89ac5b00740d8c559538a0f97ec7905
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 27f054cb085e5064ffed0e75b77d53a1406b566e
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716574"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797131"
 ---
 # <a name="what-are-application-templates"></a>애플리케이션 템플릿이란?
 
@@ -30,12 +30,7 @@ Azure IoT Central의 응용 프로그램 템플릿은 솔루션 빌더가 IoT �
 
 ## <a name="custom-templates"></a>사용자 지정 템플릿
 
-응용 프로그램을 처음부터 만들려면 다음 두 가지 사용자 지정 응용 프로그램 템플릿 중 하나를 선택 합니다.
-
-- 사용자 지정 애플리케이션
-- 사용자 지정 응용 프로그램 (레거시)
-
-레거시 템플릿을 사용 해야 하는 특별 한 이유가 없는 경우 **사용자 지정 응용 프로그램** 템플릿을 선택 합니다.
+응용 프로그램을 처음부터 만들려면 **사용자 지정 응용 프로그램** 템플릿 중 하나를 선택 합니다.
 
 ## <a name="industry-focused-templates"></a>업계 중심 템플릿
 

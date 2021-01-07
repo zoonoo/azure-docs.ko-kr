@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f9005e95ac902a2d09b792c5f64520d0175c7707
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446175"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694974"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
@@ -25,10 +25,10 @@ Azure 또는 온-프레미스의 리소스를 포함 하 여 로그에서 메트
 
 - Windows 및 Linux 컴퓨터에 대한 [성능 카운터](./data-sources-performance-counters.md)
 - [에이전트 상태에 대한 하트비트 레코드](../insights/solution-agenthealth.md)
-- [업데이트 관리](../../automation/update-management/update-mgmt-overview.md) 레코드
+- [업데이트 관리](../../automation/update-management/overview.md) 레코드
 - [이벤트 데이터](./data-sources-windows-events.md) 로그
 
-Azure에서 **로그 메트릭 경고**를 사용하면 쿼리 기반 [로그 경고](./alerts-log.md)에 비해 많은 이점이 있습니다. 그 중 일부는 다음과 같습니다.
+Azure에서 **로그 메트릭 경고** 를 사용하면 쿼리 기반 [로그 경고](./alerts-log.md)에 비해 많은 이점이 있습니다. 그 중 일부는 다음과 같습니다.
 
 - 메트릭 경고는 실시간에 가까운 모니터링 기능을 제공하며, 로그 메트릭 경고는 로그 원본의 데이터를 포크하여 동일하게 보장합니다.
 - 메트릭 경고는 상태 저장이며, 경고가 발생할 때와 해결될 때 각각 한 번만 알려줍니다. 상태 비저장이며 경고 조건이 충족되는 경우 매 간격마다 계속 실행되는 로그 경고와는 대조적입니다.
@@ -54,24 +54,24 @@ Azure에서 **로그 메트릭 경고**를 사용하면 쿼리 기반 [로그 �
 Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하려면 다음을 설정하여 사용할 수 있어야 합니다.
 
 1. **활성 Log Analytics 작업 영역**: 유효한 활성 Log Analytics 작업 영역이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md)를 참조하세요.
-2. **에이전트가 Log Analytics 작업 영역에 대해 구성 되어**있습니다. Azure vm (및/또는) 온-프레미스 vm에 대해 에이전트를 구성 하 여 이전 단계에서 사용 되는 Log Analytics 작업 영역으로 데이터를 전송 해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](./agents-overview.md)를 참조하세요.
-3. **지원 되는 Log Analytics 솔루션이 설치 됨**: Log Analytics 솔루션을 구성 하 고 Log Analytics 작업 영역에 데이터를 전송 해야 합니다. 지원 되는 솔루션은 Windows & Linux, [에이전트 상태 하트 비트 레코드](../insights/solution-agenthealth.md), [업데이트 관리](../../automation/update-management/update-mgmt-overview.md)및 [이벤트 데이터](./data-sources-windows-events.md)에 [대 한 성능 카운터](./data-sources-performance-counters.md)입니다.
+2. **에이전트가 Log Analytics 작업 영역에 대해 구성 되어** 있습니다. Azure vm (및/또는) 온-프레미스 vm에 대해 에이전트를 구성 하 여 이전 단계에서 사용 되는 Log Analytics 작업 영역으로 데이터를 전송 해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](./agents-overview.md)를 참조하세요.
+3. **지원 되는 Log Analytics 솔루션이 설치 됨**: Log Analytics 솔루션을 구성 하 고 Log Analytics 작업 영역에 데이터를 전송 해야 합니다. 지원 되는 솔루션은 Windows & Linux, [에이전트 상태 하트 비트 레코드](../insights/solution-agenthealth.md), [업데이트 관리](../../automation/update-management/overview.md)및 [이벤트 데이터](./data-sources-windows-events.md)에 [대 한 성능 카운터](./data-sources-performance-counters.md)입니다.
 4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](./metrics-supported.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](./data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
 
 ## <a name="configuring-metric-alert-for-logs"></a>로그 메트릭 경고 구성
 
  메트릭 경고는 Azure Portal, Resource Manager 템플릿, REST API, PowerShell 및 Azure CLI를 사용하여 만들고 관리할 수 있습니다. 로그 메트릭 경고는 메트릭 경고의 변형이므로 필수 조건이 완료되면 지정된 Log Analytics 작업 영역에 대한 로그 메트릭 경고를 만들 수 있습니다. 페이로드 스키마, 적용 가능한 할당량 한도 및 청구 가격을 포함하여 [메트릭 경고](./alerts-metric-near-real-time.md)의 모든 특성과 기능은 로그 메트릭 경고에도 적용할 수 있습니다.
 
-단계별 세부 정보 및 샘플은 [메트릭 경고 만들기 및 관리](https://aka.ms/createmetricalert)를 참조하세요. 특히 로그 메트릭 경고의 경우 메트릭 경고 관리 지침을 따르고 다음 사항을 확인합니다.
+단계별 세부 정보 및 샘플은 [메트릭 경고 만들기 및 관리](./alerts-metric.md)를 참조하세요. 특히 로그 메트릭 경고의 경우 메트릭 경고 관리 지침을 따르고 다음 사항을 확인합니다.
 
-- 메트릭 경고의 대상은 유효한 *Log Analytics 작업 영역*입니다.
-- 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고로 선택한 신호는 **메트릭** 유형입니다.
+- 메트릭 경고의 대상은 유효한 *Log Analytics 작업 영역* 입니다.
+- 선택한 *Log Analytics 작업 영역* 에 대한 메트릭 경고로 선택한 신호는 **메트릭** 유형입니다.
 - 차원 필터를 사용하여 특정 조건 또는 리소스를 필터링합니다. 로그에 대한 메트릭은 다차원입니다.
-- *신호 논리*를 구성할 때 단일 경고를 만들어 여러 차원 값(예: 컴퓨터)에 걸쳐 있을 수 있습니다.
-- Azure Portal을 사용하여 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고를 만들지 **않는** 경우, 사용자는 먼저 [Azure Monitor - 예약된 쿼리 규칙](/rest/api/monitor/scheduledqueryrules)을 사용하여 로그 데이터를 메트릭으로 변환하는 명시적 규칙을 수동으로 만들어야 합니다.
+- *신호 논리* 를 구성할 때 단일 경고를 만들어 여러 차원 값(예: 컴퓨터)에 걸쳐 있을 수 있습니다.
+- Azure Portal을 사용하여 선택한 *Log Analytics 작업 영역* 에 대한 메트릭 경고를 만들지 **않는** 경우, 사용자는 먼저 [Azure Monitor - 예약된 쿼리 규칙](/rest/api/monitor/scheduledqueryrules)을 사용하여 로그 데이터를 메트릭으로 변환하는 명시적 규칙을 수동으로 만들어야 합니다.
 
 > [!NOTE]
-> Azure Portal를 통해 Log Analytics 작업 영역에 대 한 메트릭 경고를 만들 때 [Azure Monitor에서](/rest/api/monitor/scheduledqueryrules) 메트릭으로 로그 데이터를 변환 하는 규칙은 *사용자 개입 없이*자동으로 생성 됩니다. Azure Portal 이외의 수단을 사용하여 로그 메트릭 경고를 만드는 경우, 메트릭 경고를 만들기 전에 ScheduledQueryRule 기반 로그를 메트릭 변환 규칙으로 만드는 샘플 수단에 대한 [로그 메트릭 경고에 대한 리소스 템플릿](#resource-template-for-metric-alerts-for-logs) 섹션을 참조하세요. 그렇지 않으면 만들어진 로그 메트릭 경고에 대한 데이터가 없습니다.
+> Azure Portal를 통해 Log Analytics 작업 영역에 대 한 메트릭 경고를 만들 때 [Azure Monitor에서](/rest/api/monitor/scheduledqueryrules) 메트릭으로 로그 데이터를 변환 하는 규칙은 *사용자 개입 없이* 자동으로 생성 됩니다. Azure Portal 이외의 수단을 사용하여 로그 메트릭 경고를 만드는 경우, 메트릭 경고를 만들기 전에 ScheduledQueryRule 기반 로그를 메트릭 변환 규칙으로 만드는 샘플 수단에 대한 [로그 메트릭 경고에 대한 리소스 템플릿](#resource-template-for-metric-alerts-for-logs) 섹션을 참조하세요. 그렇지 않으면 만들어진 로그 메트릭 경고에 대한 데이터가 없습니다.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>로그 메트릭 경고에 대한 리소스 템플릿
 
@@ -366,7 +366,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 또는 Azure CLI를 통해 리소스 템플릿 배포를 사용합니다.
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
 ```
 
 ### <a name="metric-alerts-for-logs-with-dynamic-thresholds"></a>동적 임계값을 사용하는 로그 트릭 경고
@@ -682,7 +682,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 또는 Azure CLI를 통해 리소스 템플릿 배포를 사용합니다.
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -690,4 +690,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - [메트릭 경고](alerts-metric.md)에 대해 자세히 알아봅니다.
 - [Azure의 로그 경고](./alerts-unified-log.md)에 대해 알아봅니다.
 - [Azure의 경고](alerts-overview.md)에 대해 알아봅니다.
-

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: cpp
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 610e21064c26734461ba8fd6639868dc930f926c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963940"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674766"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "85963940"
 
 * 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * [Visual Studio](https://www.visualstudio.com/downloads/) 이 샘플을 빌드하고 실행하려면 C++ 언어 구성 요소를 설치해야 합니다.
-* [Visual Studio Linux 개발](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Linux에서 개발하는 경우에 Visual Studio Linux 확장도 설치해야 합니다.
+* [Visual Studio Linux 개발](/cpp/linux/?view=vs-2019). Linux에서 개발하는 경우에 Visual Studio Linux 확장도 설치해야 합니다.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>가상 머신에서 Azure SQL Database 및 SQL Server
 
@@ -39,7 +39,7 @@ Azure에는 현재 SQL server 워크 로드를 호스트 하는 두 가지 옵�
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>데이터 액세스 기술: ODBC 및 OLE DB
 
-Azure SQL Database에 연결 하는 것은 다르며, 현재 ODBC (Open Database connectivity) 및 OLE DB (개체 연결 및 포함 데이터베이스)와 같은 두 가지 방법으로 데이터베이스에 연결할 수 있습니다. 최근 몇 년간 Microsoft는 [기본 관계형 데이터 액세스에 대해 ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/)에 맞추어 왔습니다. ODBC은 비교적 간단하고 OLE DB보다 훨씬 빠릅니다. 한 가지 주의할 점은 ODBC는 이전 C 스타일 API를 사용한다는 것입니다.
+Azure SQL Database에 연결 하는 것은 다르며, 현재 ODBC (Open Database connectivity) 및 OLE DB (개체 연결 및 포함 데이터베이스)와 같은 두 가지 방법으로 데이터베이스에 연결할 수 있습니다. 최근 몇 년간 Microsoft는 [기본 관계형 데이터 액세스에 대해 ODBC](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access)에 맞추어 왔습니다. ODBC은 비교적 간단하고 OLE DB보다 훨씬 빠릅니다. 한 가지 주의할 점은 ODBC는 이전 C 스타일 API를 사용한다는 것입니다.
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>1단계: Azure SQL Database 만들기
 
@@ -73,7 +73,7 @@ Visual Studio를 사용 하 여 빌드하는 [이 샘플을 사용 하 여 Windo
 
 해당 데이터베이스에 그 데이터베이스 연결 문자열로 올바른 인증을 해야 합니다.
 
-빌드하려면 애플리케이션을 시작합니다. 성공적인 연결의 유효성을 검사하는 창이 다음과 같이 표시됩니다. 데이터베이스 연결의 유효성을 검사하려면 **테이블 만들기**와 같은 몇 가지 기본 SQL 명령을 실행할 수도 있습니다.
+빌드하려면 애플리케이션을 시작합니다. 성공적인 연결의 유효성을 검사하는 창이 다음과 같이 표시됩니다. 데이터베이스 연결의 유효성을 검사하려면 **테이블 만들기** 와 같은 몇 가지 기본 SQL 명령을 실행할 수도 있습니다.
 
 ![SQL 명령](./media/develop-cplusplus-simple/sqlcommands.png)
 
@@ -81,7 +81,7 @@ Visual Studio를 사용 하 여 빌드하는 [이 샘플을 사용 하 여 Windo
 
 ![파일 DSN 만들기](./media/develop-cplusplus-simple/datasource.png)
 
-지금까지 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
+축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>5 단계: Linux C/C++ 애플리케이션에서 연결
 
@@ -100,7 +100,7 @@ Visual Studio를 사용 하 여 빌드하는 [이 샘플을 사용 하 여 Windo
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 ```
 
-Visual Studio를 실행합니다. [도구] -> [옵션] -> [크로스 플랫폼] -> [연결 관리자]에서 Linux 상자에 연결을 추가합니다.
+Visual Studio를 시작합니다. [도구] -> [옵션] -> [크로스 플랫폼] -> [연결 관리자]에서 Linux 상자에 연결을 추가합니다.
 
 ![도구 옵션](./media/develop-cplusplus-simple/tools.png)
 
@@ -119,7 +119,7 @@ Windows ODBC 샘플과 마찬가지로 이전에 Azure Portal에서 복사한 �
         SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
 ```
 
-컴파일하기 전에 마지막으로 라이브러리 종속성으로 **odbc**를 추가합니다.
+컴파일하기 전에 마지막으로 라이브러리 종속성으로 **odbc** 를 추가합니다.
 
 ![입력된 라이브러리로 ODBC 추가](./media/develop-cplusplus-simple/lib.png)
 
@@ -131,7 +131,7 @@ Windows ODBC 샘플과 마찬가지로 이전에 Azure Portal에서 복사한 �
 
 ![Linux 콘솔 창 출력](./media/develop-cplusplus-simple/linuxconsolewindow.png)
 
-지금까지 자습서를 성공적으로 완료 했으며 이제 Windows 및 Linux 플랫폼의 c + +에서 Azure SQL Database에 연결할 수 있습니다.
+축하합니다! 자습서를 성공적으로 완료 했으며 이제 Windows 및 Linux 플랫폼의 c + +에서 Azure SQL Database에 연결할 수 있습니다.
 
 ## <a name="get-the-complete-cc-tutorial-solution"></a><a id="GetSolution"></a> 전체 C++ 자습서 솔루션 가져오기
 
@@ -143,9 +143,9 @@ GitHub에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 ## <a name="next-steps"></a>다음 단계
 
 * [SQL Database 개발 개요](develop-overview.md) 를 검토 합니다.
-* [ODBC API 참조](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)에 대한 자세한 정보
+* [ODBC API 참조](/sql/odbc/reference/syntax/odbc-api-reference/)에 대한 자세한 정보
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](saas-tenancy-app-design-patterns.md)
 * 모든 [SQL Database의 기능](https://azure.microsoft.com/services/sql-database/)

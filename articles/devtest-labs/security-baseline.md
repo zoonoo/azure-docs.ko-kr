@@ -3,12 +3,12 @@ title: Azure DevTest Labs에 대 한 Azure 보안 기준
 description: Azure DevTest Labs에 대 한 Azure 보안 기준
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4ae3886e1c47b1d6835dc348b474e3d9e82a8f41
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398325"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348826"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure DevTest Labs에 대 한 Azure 보안 기준
 
@@ -34,7 +34,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 **지침:** Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 로그를 보냅니다. 활동 로그는 관리 평면 수준에서 Azure DevTest Labs 인스턴스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 DevTest Labs 인스턴스에 대 한 관리 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 확인할 수 있습니다.
 
-자세한 내용은 [진단 설정 만들기를 참조 하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보냅니다](../azure-monitor/platform/diagnostic-settings.md).
+자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)를 참조하세요.
 
 **Azure Security Center 모니터링:** 현재 사용할 수 없음
 
@@ -43,7 +43,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Azure 리소스에 대한 감사 로깅 사용
 **지침:** Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 로그를 보냅니다. 활동 로그는 관리 평면 수준에서 Azure DevTest Labs 인스턴스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 DevTest Labs 인스턴스에 대 한 관리 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-자세한 내용은 [진단 설정 만들기를 참조 하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보냅니다](../azure-monitor/platform/diagnostic-settings.md).
+자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)를 참조하세요.
 
 **Azure Security Center 모니터링:** 현재 사용할 수 없음
 
@@ -52,7 +52,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: 운영 체제에서 보안 로그 수집
 **지침:** 고객이 Vm (가상 머신)을 만들고 소유 하는 Azure DevTest Labs. 따라서이를 모니터링 하는 것은 조직의 책임입니다. Azure Security Center를 사용 하 여 계산 OS를 모니터링할 수 있습니다. 운영 체제에서 Security Center에 의해 수집 되는 데이터에는 OS 유형 및 버전, OS (Windows 이벤트 로그), 실행 중인 프로세스, 컴퓨터 이름, IP 주소 및 로그인 한 사용자가 포함 됩니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 수집 합니다.
 
-자세한 내용은 다음 항목을 참조하세요. 
+자세한 내용은 다음 문서를 참조하세요. 
 
 - [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/learn/quick-collect-azurevm.md)
 - [Azure Security Center 데이터 수집 이해](../security-center/security-center-enable-data-collection.md)
@@ -62,7 +62,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 **책임:** Customer
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 기간 구성
-***지침:** Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure DevTest Labs 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
+**_지침:_* Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure DevTest Labs 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
 자세한 내용은 [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 문서를 참조 하세요.
 
@@ -73,7 +73,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 **지침:** Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 실행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Azure DevTest Labs에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공 합니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 - [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
@@ -175,9 +175,9 @@ DevTest Labs에는 기본 암호 개념이 없습니다.
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
-**Azure Security Center 모니터링:*** 예
+**Azure Security Center 모니터링:** _ 예
 
-**책임:** Customer
+_ *책임:** 고객
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
@@ -212,7 +212,7 @@ DevTest Labs에는 기본 암호 개념이 없습니다.
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 **지침:** Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)  
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)  
 
 **Azure Security Center 모니터링:** 현재 사용할 수 없음
 
@@ -264,7 +264,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요 한 정보 인벤토리 유지 관리
 **지침:** 태그를 사용 하 여 중요 한 정보를 저장 하거나 처리 하는 Azure 리소스 추적을 지원 합니다.
 
-- [태그를 만들고 사용하는 방법](../azure-resource-manager/resource-group-using-tags.md)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링:** 해당 없음
 
@@ -273,10 +273,10 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 **지침:** 개발, 테스트 및 프로덕션을 위한 별도의 구독 또는 관리 그룹을 구현 합니다. Azure DevTest Labs 인스턴스는 가상 네트워크/서브넷으로 구분 하 고 적절 하 게 태그를 지정 해야 합니다. 
 
-- [추가 Azure 구독을 만드는 방법](../billing/billing-create-subscription.md)
-- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 - [DevTest Labs에 대 한 가상 네트워크를 구성 하는 방법](devtest-lab-configure-vnet.md)
-- [태그를 만들고 사용하는 방법](../azure-resource-manager/resource-group-using-tags.md)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 - [DevTest Labs에 대 한 태그를 만들고 사용 하는 방법](devtest-lab-add-tag.md)
 
 **Azure Security Center 모니터링:** 현재 사용할 수 없음
@@ -379,24 +379,24 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: 자동화된 운영 체제 패치 관리 솔루션 배포
 **지침:** Azure 업데이트 관리를 사용 하 여 DevTest Labs 내에서 호스트 되는 Windows 및 Linux Vm에 최신 보안 업데이트가 설치 되어 있는지 확인 합니다. Windows Vm의 경우 Windows 업데이트를 사용 하도록 설정 하 고 자동으로 업데이트 하도록 설정 되어 있는지 확인 합니다. 이 설정은 현재 DevTest Labs를 통해 구성 하는 데 사용할 수 없지만 lab admin/subscription 관리자는 구독의 기본 계산 Vm에서이 설정을 구성할 수 있습니다. 
 
-- [Azure에서 Vm에 대 한 업데이트 관리를 구성 하는 방법](../automation/update-management/update-mgmt-overview.md)
-- [Security Center에서 모니터링 하는 Azure 보안 정책 이해](../security-center/security-center-policy-definitions.md)
+- [Azure에서 Vm에 대 한 업데이트 관리를 구성 하는 방법](../automation/update-management/overview.md)
+- [Security Center에서 모니터링 하는 Azure 보안 정책 이해](../security-center/policy-reference.md)
 
 **Azure Security Center 모니터링:** 해당 없음
 
 **책임:** Customer
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: 자동화된 타사 소프트웨어 패치 관리 솔루션 배포
-***지침:*** 랩 관리자는 [DevTest Labs 아티팩트](add-artifact-vm.md) 를 사용 하 여 보안 패치와 기타 업데이트를 포함 하는 랩 사용자 지정 이미지에 대 한 업데이트를 자동화할 수 있습니다. 
+**_지침:_* _ 랩 관리자는 [DevTest Labs 아티팩트](add-artifact-vm.md) 를 사용 하 여 보안 패치와 기타 업데이트를 포함 하는 랩 사용자 지정 이미지에 대 한 업데이트를 자동화할 수 있습니다. 
 
 모든 원하는 구성을 사용 하 여 정기적으로 이미지를 자동으로 빌드 및 배포 하는 [DevTest Labs 이미지 팩터리에](image-factory-create.md)대해 자세히 알아보세요. 
 
 구독 관리자는 Azure 업데이트 관리 솔루션을 사용 하 여 DevTest Labs Vm에 대 한 업데이트 및 패치를 관리할 수도 있습니다. 업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. System Center Updates Publisher (Updates Publisher)와 같은 도구를 사용 하 여 WSUS (Windows Server Update Services)에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다.
 
-- [Azure의 업데이트 관리 솔루션](../automation/update-management/update-mgmt-overview.md)
-- [Vm에 대 한 업데이트 및 패치 관리](../automation/update-management/update-mgmt-overview.md)
+- [Azure의 업데이트 관리 솔루션](../automation/update-management/overview.md)
+- [Vm에 대 한 업데이트 및 패치 관리](../automation/update-management/overview.md)
 
-**Azure Security Center 모니터링:** 해당 없음
+_ *Azure Security Center 모니터링:** 해당 사항 없음
 
 **책임:** Customer
 
@@ -444,7 +444,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 **지침:** 태깅, 관리 그룹 및 별도의 구독을 사용 하 고, 랩 및 랩 관련 리소스를 구성 하 고 추적 하는 데 필요한 경우 별도의 랩을 사용 합니다. 정기적으로 인벤토리를 조정 하 고 권한 없는 리소스가 구독에서 빠르게 삭제 되도록 합니다.
 
 - [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
-- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 - [DevTest Labs를 사용 하 여 랩을 만드는 방법](devtest-lab-create-lab.md)
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 - [랩에 대 한 태그를 구성 하는 방법](devtest-lab-add-tag.md)
@@ -493,7 +493,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 **지침:** Azure Automation는 워크 로드 및 리소스의 배포, 작업 및 서비스 해제 중에 완전 한 제어를 제공 합니다. 구독 관리자는 변경 내용 추적를 사용 하 여 DevTest Labs에서 호스트 되는 Vm에 설치 된 모든 소프트웨어를 식별할 수 있습니다. 사용자 고유의 프로세스를 구현 하거나 인증 되지 않은 소프트웨어를 제거 하기 위해 Azure Automation 상태 구성을 사용할 수 있습니다.
 
 - [Azure Automation 소개](../automation/automation-intro.md)
-- [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../automation/change-tracking.md)
+- [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../automation/change-tracking/overview.md)
 - [Azure Automation 상태 구성 개요](../automation/automation-dsc-overview.md)
 
 **Azure Security Center 모니터링:** 사용할 수 없음
@@ -517,7 +517,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 
 다음 문서를 참조하세요. 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/not-allowed-resource-types.md)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링:** 예로
 
@@ -559,7 +559,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 - [DevTest Labs에 대 한 가상 네트워크 구성](devtest-lab-configure-vnet.md)
 - [Azure Firewall 개요](../firewall/overview.md)
 - [웹 애플리케이션 방화벽 개요](../web-application-firewall/overview.md)
-- [네트워크 보안 개요](../virtual-network/security-overview.md)
+- [네트워크 보안 개요](../virtual-network/network-security-groups-overview.md)
 - [Azure Virtual Network 개요]()
 - [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)
 - [구독 관련 결정 가이드](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
@@ -617,7 +617,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 또한 Microsoft에서 게시 하는 가상 머신 이미지 Azure Marketplace Microsoft에서 관리 하 고 유지 관리 합니다.
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Azure Automation 상태 구성 개요](../automation/automation-dsc-overview.md)
 - [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 - [DevTest Labs에서 이미지 팩터리를 만드는 방법](image-factory-create.md)
@@ -629,8 +629,8 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Azure 리소스 구성을 안전하게 저장
 **지침:** Azure DevOps를 사용 하 여 사용자 지정 Azure 정책, Azure Resource Manager 템플릿 및 필요한 상태 구성 스크립트와 같은 코드를 안전 하 게 저장 하 고 관리할 수 있습니다. Azure DevOps에서 관리 하는 리소스에 액세스 하려면 Azure DevOps와 통합 된 경우 특정 사용자, 기본 제공 보안 그룹 또는 Azure Active Directory (Azure AD)에 정의 된 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다.
 
-- [Azure Repos Git 자습서](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
-- [권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Azure Repos Git 자습서](/azure/devops/repos/git/gitworkflow)
+- [권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions?tabs=preview-page&view=azure-devops)
 - [Azure DevTest Labs와 Azure DevOps 워크플로 간 통합](devtest-lab-dev-ops.md)
 
 **Azure Security Center 모니터링:** 해당 없음
@@ -681,7 +681,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: 운영 체제에 대한 자동화된 구성 모니터링 구현
 **지침:** Azure Security Center를 사용 하 여 컨테이너에 대 한 OS 및 Docker 설정에 대 한 기준 검색을 수행 합니다.
 
-- [Azure Security Center 컨테이너 권장 사항 이해](../security-center/security-center-container-recommendations.md)
+- [Azure Security Center 컨테이너 권장 사항 이해](../security-center/container-security.md)
 
 **Azure Security Center 모니터링:** 해당 없음
 
@@ -692,7 +692,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [DevTest Labs에서 Azure Resource Manager 환경을 배포 하도록 관리 되는 id 구성](use-managed-identities-environments.md)
 - [DevTest Labs에서 가상 컴퓨터를 배포 하도록 관리 되는 id 구성](enable-managed-identities-lab-vms.md)
-- [주요 자격 증명 모음을 만드는 방법](../key-vault/quick-create-portal.md)
+- [주요 자격 증명 모음을 만드는 방법](../key-vault/general/quick-create-portal.md)
 - [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 - [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
@@ -877,7 +877,7 @@ Azure Security Center 모니터링: * * * * 해당 사항 없음
 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Azure 리소스에 대한 침투 테스트를 정기적으로 수행 및 모든 중요한 보안 결과를 60일 이내에 수정
-**지침:** Microsoft Engagement 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
+**지침:** Microsoft Engagement 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft 관리형 클라우드 인프라, 서비스 및 애플리케이션에 대한 Microsoft의 전략과 Red Teaming 및 라이브 사이트 침투 테스트의 실행을 사용합니다.
 
 - [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 - [Microsoft cloud red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)

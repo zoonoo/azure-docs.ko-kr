@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 82297b81ebe99301574e99ef438cc81c711dbeff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394332"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533687"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Azure HDInsight에서 사용할 수 있는 Apache 구성 요소 및 버전
 
@@ -32,7 +32,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에
 |------------------------|---------------|-----------------------------|
 | Apache Hadoop 및 YARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
-| Apache Pig             | 0.16.0        | 0.16.0                      |
+| Apache Pig             | 0.16.1        | 0.16.0                      |
 | Apache Hive            | 3.1.0         | 1.2.1(ESP Interactive Query에서 2.1.0) |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
@@ -65,9 +65,9 @@ HDInsight의 최신 버전과 관련된 추가 릴리스 정보는 [HDInsight �
 
 ### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>HDInsight 버전에 대한 지원 만료 및 사용 중지
 
-**지원 만료**란 Microsoft에서 더 이상 특정 HDInsight 버전에 대한 지원을 제공하지 않음을 의미합니다. 클러스터를 만들기가 Azure Portal을 통해 더 이상 제공되지 않습니다. 해당 버전은 Azure CLI 또는 다양한 SDK를 사용하여 계속 만들 수 있습니다.
+**지원 만료** 란 Microsoft에서 더 이상 특정 HDInsight 버전에 대한 지원을 제공하지 않음을 의미합니다. 클러스터를 만들기가 Azure Portal을 통해 더 이상 제공되지 않습니다. 해당 버전은 Azure CLI 또는 다양한 SDK를 사용하여 계속 만들 수 있습니다.
 
-**사용 중지**란 HDInsight 버전의 기존 클러스터가 계속해서 그대로 실행됨을 의미합니다. 이 버전의 새 클러스터는 CLI 및 SDK를 포함하여 어떤 방법으로도 만들 수 없습니다. 수동 스케일링 및 자동 스케일링 같은 다른 컨트롤 플레인 기능도 버전 사용 중지 후에는 작동하지 않을 수 있습니다. 사용 중지된 버전에는 지원이 제공되지 않습니다.
+**사용 중지** 란 HDInsight 버전의 기존 클러스터가 계속해서 그대로 실행됨을 의미합니다. 이 버전의 새 클러스터는 CLI 및 SDK를 포함하여 어떤 방법으로도 만들 수 없습니다. 수동 스케일링 및 자동 스케일링 같은 다른 컨트롤 플레인 기능도 버전 사용 중지 후에는 작동하지 않을 수 있습니다. 사용 중지된 버전에는 지원이 제공되지 않습니다.
 
 다음 표에서는 HDInsight 버전을 보여줍니다. 알려진 경우 지원 만료 날짜와 사용 중지 날짜도 나와 있습니다.
 
@@ -96,7 +96,7 @@ HDInsight의 최신 버전과 관련된 추가 릴리스 정보는 [HDInsight �
 | HDInsight 3.6 ML 서비스      | 9.3               | 2020 년 12 월 31 일                      | 2020 년 12 월 31 일                |
 
 > [!NOTE]
-> 클러스터 버전에 대 한 지원이 만료 되 면 Azure Portal를 통해 사용 하지 못할 수 있습니다. 경우에 따라 Windows PowerShell [AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 명령에서 **version** 매개 변수를 사용 하 고 버전 사용 중지 날짜까지 .net SDK를 사용 하 여 클러스터 버전을 계속 사용할 수 있습니다.
+> 클러스터 버전에 대 한 지원이 만료 되 면 Azure Portal를 통해 사용 하지 못할 수 있습니다. 경우에 따라 Windows PowerShell [AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) 명령에서 **version** 매개 변수를 사용 하 고 버전 사용 중지 날짜까지 .net SDK를 사용 하 여 클러스터 버전을 계속 사용할 수 있습니다.
 
 ### <a name="retired-versions"></a>사용 중지된 버전
 
@@ -133,6 +133,6 @@ HDInsight의 최신 버전과 관련된 추가 릴리스 정보는 [HDInsight �
 ## <a name="next-steps"></a>다음 단계
 
 - [HDInsight의 Apache Hadoop, Spark 등에 대한 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
-- [Windows PC의 HDInsight에서 Apache Hadoop 작업](hdinsight-hadoop-windows-tools.md)
-- [Azure HDInsight 버전과 관련된 Hortonworks 릴리스 정보](./hortonworks-release-notes.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
+- [Azure HDInsight 버전과 관련된 Hortonworks 릴리스 정보](./hortonworks-release-notes.md)
+- [Windows PC의 HDInsight에서 Apache Hadoop 작업](hdinsight-hadoop-windows-tools.md)

@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 82b1f13562a49284059c25bcbd39a33daf949dcc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 72b4755c6f01a10851e79cf274842f1599bc2c55
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74775543"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349540"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Bing Search API란?
+
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
 Bing Search API를 사용하면 광고 없이 웹 페이지, 이미지, 뉴스, 위치 등을 찾는 웹 연결 앱 및 서비스를 구축할 수 있습니다. Bing Search REST API 또는 SDK를 사용하여 검색 요청을 보내면 웹 검색으로 관련 정보와 콘텐츠를 얻을 수 있습니다. 이 문서를 사용 하 여 다양 한 Bing 검색 Api 및 응용 프로그램 및 서비스에 인식 검색을 통합 하는 방법을 알아봅니다. 가격 책정 및 금액 한도는 API마다 다를 수 있습니다.
 
@@ -31,7 +36,7 @@ Bing Search API를 사용하면 광고 없이 웹 페이지, 이미지, 뉴스, 
 
 다음 Bing 검색 Api는 이미지, 뉴스, 로컬 비즈니스 및 비디오와 같은 웹에서 특정 콘텐츠를 반환 합니다.
 
-| Bing API | Description |
+| Bing API | 설명 |
 | -- | -- |
 | [Entity Search](../Bing-Entities-Search/overview.md) | Bing Entity Search API는 사람, 장소 또는 사물일 수 있는 엔터티를 포함하는 검색 결과를 반환합니다. 쿼리에 따라 API는 검색 쿼리를 만족 하는 엔터티를 하나 이상 반환 합니다. 검색 쿼리는 주목할 만한 개인, 로컬 비즈니스, 랜드마크, 대상 등을 포함할 수 있습니다. |
 | [Image Search](../Bing-Image-Search/overview.md) | Bing Image Search API를 사용 하 여 [Bing.com/images](https://www.Bing.com/images)와 유사한 고화질 정적 및 애니메이션 이미지를 검색 하 고 찾을 수 있습니다. 크기, 색, 라이선스 및 최신 여부 등의 특성으로 이미지를 포함하거나 제외하도록 검색을 구체화할 수 있습니다. 또한 최신 트렌드의 이미지를 검색하고, 이미지를 업로드하여 이미지에 대한 인사이트를 얻고, 썸네일 미리 보기를 표시할 수 있습니다. |
@@ -48,7 +53,7 @@ Bing Search API를 사용하면 광고 없이 웹 페이지, 이미지, 뉴스, 
 
 다음 Bing Search API을 사용 하 여 다른 Bing 검색 Api와 결합 하 여 검색 환경을 향상 시킬 수 있습니다.
 
-| API | Description |
+| API | 설명 |
 | -- | -- |
 | [Bing Autosuggest](../Bing-Autosuggest/get-suggested-search-terms.md) | 제안 된 검색을 실시간으로 반환 하 여 Bing Autosuggest API으로 응용 프로그램의 검색 환경을 개선 합니다.  |
 | [Bing Statistics](bing-web-stats.md) | Bing Statistics는 애플리케이션에서 사용하는 Bing Search API에 대한 분석을 제공합니다. 일부 제공되는 분석에는 호출량, 주요 쿼리 문자열 및 지리적 분포가 포함됩니다. |

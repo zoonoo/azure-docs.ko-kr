@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893789"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945705"
 ---
 # <a name="filter-based-feature-selection"></a>필터 기반 기능 선택
 
@@ -36,7 +36,7 @@ ms.locfileid: "90893789"
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>기능 선택 메트릭을 선택 하는 방법
 
-필터 기반 기능 선택 모듈은 각 열의 정보 값을 평가 하기 위한 다양 한 메트릭을 제공 합니다. 이 섹션에서는 각 메트릭에 대 한 일반적인 설명과이를 적용 하는 방법을 제공 합니다. [기술 정보](#technical-notes) 및 각 모듈을 구성 하는 방법에 대 한 [지침](#how-to-configure-filter-based-feature-selection) 에서 각 메트릭을 사용 하기 위한 추가 요구 사항을 찾을 수 있습니다.
+Filter-Based 기능 선택 모듈은 각 열의 정보 값을 평가 하기 위한 다양 한 메트릭을 제공 합니다. 이 섹션에서는 각 메트릭에 대 한 일반적인 설명과이를 적용 하는 방법을 제공 합니다. [기술 정보](#technical-notes) 및 각 모듈을 구성 하는 방법에 대 한 [지침](#how-to-configure-filter-based-feature-selection) 에서 각 메트릭을 사용 하기 위한 추가 요구 사항을 찾을 수 있습니다.
 
 -   **피어슨 상관 관계**  
 
@@ -52,11 +52,11 @@ ms.locfileid: "90893789"
 > [!TIP]
 > 사용자 지정 기능 선택 방법에 대해 다른 옵션을 사용 해야 하는 경우 [R 스크립트 실행](execute-r-script.md) 모듈을 사용 합니다. 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>필터 기반 기능 선택을 구성 하는 방법
+## <a name="how-to-configure-filter-based-feature-selection"></a>Filter-Based 기능 선택을 구성 하는 방법
 
 표준 통계 메트릭을 선택 합니다. 이 모듈은 열 쌍 (레이블 열 및 기능 열) 간의 상관 관계를 계산 합니다.
 
-1.  필터 기반 기능 선택 모듈을 파이프라인에 추가 합니다. 디자이너의 **기능 선택** 범주에서 찾을 수 있습니다.
+1.  파이프라인에 Filter-Based 기능 선택 모듈을 추가 합니다. 디자이너의 **기능 선택** 범주에서 찾을 수 있습니다.
 
 2. 잠재적 기능에 해당 하는 두 개 이상의 열을 포함 하는 입력 데이터 집합을 연결 합니다.  
 
@@ -68,7 +68,7 @@ ms.locfileid: "90893789"
     > 일부 열이 잘못 된 기능을 수행 하는 경우 열 선택에서 제거할 수 있습니다. [메타 데이터 편집](edit-metadata.md) 모듈을 사용 하 여 **범주**에 플래그를 지정할 수도 있습니다. 
 3.  **기능 점수 매기기 방법**의 경우 점수 계산에 사용할 다음의 설정 된 통계 방법 중 하나를 선택 합니다.  
 
-    | 방법              | 요구 사항                             |
+    | 메서드              | 요구 사항                             |
     | ------------------- | ---------------------------------------- |
     | 피어슨 상관 관계 | 레이블은 텍스트 또는 숫자일 수 있습니다. 기능은 숫자 여야 합니다. |
     카이 제곱| 레이블과 기능은 텍스트 또는 숫자일 수 있습니다. 두 범주 열에 대 한 기능 중요도를 계산 하려면이 방법을 사용 합니다.|
@@ -90,8 +90,14 @@ ms.locfileid: "90893789"
 
     - 기능 열 보다 더 작은 결과 열을 지정 하는 경우이 기능은 내림차순으로 순위가 지정 됩니다. 상위 기능만 반환 됩니다. 
 
-7.  파이프라인을 제출 하거나 필터 기반 기능 선택 모듈을 선택한 다음 선택 항목 **실행**을 선택 합니다.
+7.  파이프라인을 제출합니다.
 
+> [!IMPORTANT]
+> 유추에서 **필터 기반 기능 선택을** 사용 하려는 경우 선택 된 기능 [선택](./select-columns-transform.md) 결과를 저장 하 고 [변환 적용](./apply-transformation.md) 을 사용 하 여 선택한 기능을 점수 매기기 데이터 집합에 적용 해야 합니다.
+>
+> 점수 매기기 프로세스에서 열 선택이 동일한 지 확인 하려면 다음 스크린샷을 참조 하 여 파이프라인을 빌드합니다.
+> [!div class="mx-imgBorder"]
+> ![샘플 파이프라인](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>결과
 

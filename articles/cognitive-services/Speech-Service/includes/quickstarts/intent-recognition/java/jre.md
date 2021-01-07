@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 09b537d82ce4e9e44c36df628d120623e69abfaf
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87298754"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425229"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -41,14 +41,14 @@ ms.locfileid: "87298754"
 `main()`의 try/catch 블록에 이 코드를 삽입합니다. 다음 값을 업데이트해야 합니다.
 
 * `"YourLanguageUnderstandingSubscriptionKey"`를 LUIS 예측 키로 바꿉니다.
-* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다. [지역](https://aka.ms/speech/sdkregion)의 **영역 식별자** 사용
+* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다. [지역](../../../../regions.md)의 **영역 식별자** 사용
 
 >[!TIP]
 > 이러한 값을 찾는 데 도움이 필요한 경우 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-이 샘플에서는 `FromSubscription()` 메서드를 사용하여 `SpeechConfig`를 빌드합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 참조하세요.
+이 샘플에서는 `FromSubscription()` 메서드를 사용하여 `SpeechConfig`를 빌드합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet)를 참조하세요.
 
 Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
@@ -104,7 +104,7 @@ Speech Service에서 인식 결과가 반환되면 이에 따라 작업을 수�
 
 ## <a name="build-and-run-your-app"></a>앱 빌드 및 실행
 
-<kbd>F11</kbd>을 누르거나 **실행** > **디버그**를 선택합니다.
+<kbd>F11</kbd>을 누르거나 **실행** > **디버그** 를 선택합니다.
 마이크에서 나오는 다음 15초 음성 입력이 인식되어 콘솔 창에 기록됩니다.
 
 ## <a name="next-steps"></a>다음 단계

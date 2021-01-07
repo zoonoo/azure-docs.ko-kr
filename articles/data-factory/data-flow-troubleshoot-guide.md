@@ -8,12 +8,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5f29474705919f402b1c114c3fd2df0df037cdae
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031860"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696067"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑 문제 해결
 
@@ -116,8 +116,16 @@ ms.locfileid: "90031860"
 
 - **메시지**: 너무 적은 수의 샘플링으로 인해 발생할 수 있는 null 값 또는 누락 된 값이 많습니다. 디버그 행 제한을 업데이트 하 고 데이터를 새로 고쳐 보세요.
 - **원인**: 조인 조건이 행과 일치 하지 않거나 데이터 미리 보기 중에 많은 null을 생성 했습니다.
-- **권장 사항**: 디버그 설정으로 이동 하 여 원본 행 제한의 행 수를 늘립니다. 더 많은 데이터를 처리 하기에 충분 한 데이터 흐름 클러스터가 있는 select 및 Azure IR 있는지 확인 합니다.
+- **권장 사항**: 디버그 설정으로 이동 하 여 원본 행 제한의 행 수를 늘립니다. 더 많은 데이터를 처리 하기에 충분 한 데이터 흐름 클러스터가 있는 Azure IR를 선택 했는지 확인 합니다.
 
+### <a name="error-code-validation-error-at-source-with-multiline-csv-files"></a>오류 코드: 여러 줄로 된 CSV 파일이 있는 원본에서 유효성 검사 오류가 발생 했습니다. 
+
+- **메시지**: 다음 오류 메시지 중 하나가 표시 될 수 있습니다.
+   - 마지막 열이 null 이거나 누락 되었습니다.
+   - 원본에서 스키마 유효성 검사가 실패 합니다.
+   - 스키마 가져오기는 UX에 올바르게 표시 되지 않으며 마지막 열에는 이름에 줄 바꿈 문자가 있습니다.
+- **원인**: 매핑 데이터 흐름에서 현재 여러 줄 CSV 소스가 \r\n as 행 구분 기호로 작동 하지 않습니다. 캐리지의 추가 줄에서 중단 소스 값을 반환 하는 경우가 있습니다. 
+- **권장 사항**: 원본에서 \r\n이 아닌 행 구분 기호로 \n을 사용 하 여 파일을 생성 합니다. 또는 복사 작업을 사용 하 여 행 구분 기호로 \r\n을 사용 하 여 CSV 파일을 \n로 변환 합니다.
 
 ## <a name="general-troubleshooting-guidance"></a>일반 문제 해결 지침
 
@@ -131,7 +139,7 @@ ms.locfileid: "90031860"
 *  [Data Factory 블로그](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 비디오](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
-*  [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Microsoft Q&A 질문 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
 *  [ADF 매핑 데이터 흐름 성능 가이드](concepts-data-flow-performance.md)

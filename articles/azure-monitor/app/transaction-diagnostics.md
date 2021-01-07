@@ -4,12 +4,12 @@ description: Application Insights 엔드투엔드 트랜잭션 진단
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318915"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746100"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -80,9 +80,7 @@ ms.locfileid: "87318915"
 
 * 다른 구성 요소가 Application Insights를 통해 계측됩니까?
 * 최신의 안정적인 Application Insights SDK를 사용하고 있습니까?
-* 이러한 구성 요소가 별도의 Application Insights 리소스인 경우 해당 원격 분석에 액세스해야 합니까?
-
-액세스 권한이 있고 구성 요소가 최신 Application Insights SDK를 통해 계측되는 경우 오른쪽 위에 있는 피드백 채널을 통해 알려주세요.
+* 이러한 구성 요소가 별도 Application Insights 리소스 인 경우 액세스 권한이 있고 구성 요소가 최신 Application Insights Sdk를 사용 하 여 계측 되는 경우 [액세스](resources-roles-access-control.md) 권한이 필요 합니다. 가장 오른쪽의 피드백 채널을 통해 알려주세요.
 
 *종속성에 대 한 중복 행이 표시 됩니다. 이것이 예상 되나요?*
 

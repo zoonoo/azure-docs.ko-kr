@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423085"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588763"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
@@ -34,7 +34,7 @@ Microsoft는 C, .NET (c #), Node.js, Java 및 Python 언어로 GitHub에 오픈 
 
 나열 된 각 Sdk에 대해 Microsoft:
 
-* 는 널리 사용 되는 여러 플랫폼에서 GitHub에 있는 관련 SDK의 마스터 분기에 대 한 종단 간 테스트를 지속적으로 빌드하고 실행 합니다.  여러 컴파일러 버전에서 테스트 검사를 제공 하기 위해 일반적으로 최신 LTS 버전 및 가장 인기 있는 버전을 테스트 합니다.
+* 는 널리 사용 되는 여러 플랫폼에서 GitHub에 있는 관련 SDK의 주 분기에 대 한 종단 간 테스트를 지속적으로 빌드하고 실행 합니다.  여러 컴파일러 버전에서 테스트 검사를 제공 하기 위해 일반적으로 최신 LTS 버전 및 가장 인기 있는 버전을 테스트 합니다.
 
 * 해당 하는 경우 설치 지침 또는 설치 패키지를 제공 합니다.
 
@@ -60,7 +60,7 @@ Microsoft는 C, .NET (c #), Node.js, Java 및 Python 언어로 GitHub에 오픈 
 | OS                  | 컴파일러                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2.7. *, 3.5 이상 |
-| MacOS High Sierra   | Python 2.7. *, 3.5 이상 |
+| macOS High Sierra   | Python 2.7. *, 3.5 이상 |
 | Windows 10 제품군   | Python 2.7. *, 3.5 이상 |
 
 Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.7 이상을 사용 하는 것이 좋습니다.
@@ -69,12 +69,12 @@ Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.
 
 [Azure IoT Hub .net (c #) 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp) 는로 테스트 되 고 다음과 같은 구성을 지원 합니다.
 
-| OS                                   | Standard                                                   |
+| OS                                   | 표준                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop 및 Server Sku   | .NET Core 2.1, .NET Framework 4.5.1 또는 .NET Framework 4.7 |
 
-.NET SDK는 [RPC를 사용 하 여 UWP 응용 프로그램과 통신할 수 있는](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/) [Azure 장치 에이전트](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) 또는 사용자 지정 Ntservice에서 Windows IoT Core와 함께 사용할 수도 있습니다.
+.NET SDK는 [RPC를 사용 하 여 UWP 응용 프로그램과 통신할 수 있는](/samples/microsoft/windows-iotcore-samples/ntservice-rpc/) [Azure 장치 에이전트](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) 또는 사용자 지정 Ntservice에서 Windows IoT Core와 함께 사용할 수도 있습니다.
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
@@ -120,11 +120,11 @@ Microsoft는 Azure IoT 테스트와 인증 된 장치로 Azure IoT universe를 �
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>SDK 없이 IoT Hub에 연결
 
-IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 HTTPS 요청 및 응답을 보내고 받을 수 있는 모든 응용 프로그램에서 [IOT HUB REST api](https://docs.microsoft.com/rest/api/iothub/) 를 사용 하 여 IoT Hub에 직접 연결할 수 있습니다.
+IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 지원 되는 통신 프로토콜을 사용 하 여 IoT Hub에 직접 연결할 수 있습니다. 자세히 알아보려면 [Azure IOT SDK를 사용 하지 않고 개발](iot-hub-devguide-no-sdk.md)을 참조 하세요.
 
 ## <a name="support-and-other-resources"></a>지원 및 다른 리소스
 
-Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 아래 요약 된 지원을 검색 하는 몇 가지 방법이 있습니다. 모든 지원 옵션에 대 한 자세한 내용은 [Azure IoT 지원 및 도움말 옵션](https://aka.ms/iothelp)을 참조 하세요. 
+Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 아래 요약 된 지원을 검색 하는 몇 가지 방법이 있습니다. 모든 지원 옵션에 대 한 자세한 내용은 [Azure IoT 지원 및 도움말 옵션](../iot-fundamentals/iot-support-help.md)을 참조 하세요. 
 
 **버그 보고** – 장치 sdk의 버그는 관련 GitHub 프로젝트의 문제 페이지에서 보고할 수 있습니다. 프로젝트에서 제품 업데이트로 신속하게 문제를 해결합니다.
 
@@ -138,7 +138,7 @@ Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 아�
 
 * [Python SDK 문제 Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-python/issues)
 
-**기술 질문** – [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) 와 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) 태그를 사용 하 여 기술 관련 질문을 할 *수 있습니다.*
+**기술 질문** – [Microsoft Q&A](/answers/topics/azure-iot-sdk.html) 와 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) 태그를 사용 하 여 기술 관련 질문을 할 *수 있습니다.*
 
 **Microsoft 고객 지원 팀** - [지원 계획이](https://azure.microsoft.com/support/plans/) 있는 사용자는 [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 직접 새 지원 요청을 만들어 Microsoft 고객 지원 팀에 참여할 수 있습니다.
 
@@ -147,4 +147,4 @@ Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 아�
 ## <a name="next-steps"></a>다음 단계
 
 * [디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)
-* [이식 지침](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [포팅 지침](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

@@ -4,19 +4,19 @@ description: Synapse Link를 사용하여 Azure Cosmos DB를 Synapse 작업 영�
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
+ms.subservice: synapse-link
 ms.topic: quickstart
-ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56b018326e8673e6ac9e625a5732a08238f982fd
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 14c71d5888aefc11485c03935c5d8c7ff7d17045
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274325"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995882"
 ---
-# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 연결
+# <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB용 Azure Synapse Link에 연결
 
 이 문서에서는 Synapse Link를 사용하여 Azure Synapse Analytics Studio에서 Azure Cosmos DB 데이터베이스에 액세스하는 방법을 설명합니다. 
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 계정을 작업 영역에 연결하기 전에 몇 가지 필요
 
 ## <a name="navigate-to-synapse-studio"></a>Synapse Studio로 이동
 
-Synapse 작업 영역에서 **Synapse Studio 시작**을 선택합니다. Synapse Studio 홈페이지에서 **데이터를 선택하면 **데이터 개체 탐색기**로 이동합니다.
+Synapse 작업 영역에서 **Synapse Studio 시작** 을 선택합니다. Synapse Studio 홈페이지에서 **데이터를 선택하면 **데이터 개체 탐색기** 로 이동합니다.
 
 ## <a name="connect-an-azure-cosmos-db-database-to-a-synapse-workspace"></a>Synapse 작업 영역에 Azure Cosmos DB 데이터베이스 연결
 
@@ -41,16 +41,16 @@ Azure Cosmos DB 데이터베이스 연결은 연결된 서비스로 수행됩니
 
 데이터 개체 탐색기에서 다음 단계를 수행하여 Azure Cosmos DB 데이터베이스를 직접 연결할 수 있습니다.
 
-1. 데이터 근처 ***+*** 아이콘을 선택합니다.
-2. **외부 데이터에 연결**을 선택합니다.
+1. 데이터 근처에 있는 **_+_* _ 아이콘을 선택합니다.
+2. _ *외부 데이터에 대한 연결**을 선택합니다.
 3. 연결하려는 API를 선택합니다. SQL 또는 MongoDB
-4. ***계속***을 선택합니다.
+4. **_계속_* 을 선택합니다.
 5. 연결된 서비스 이름을 지정합니다. 이 이름은 개체 탐색기에 표시되며 Synapse 런타임에서 데이터베이스 및 컨테이너에 연결하는 데 사용됩니다. 친숙한 이름을 사용하는 것이 좋습니다.
-6. **Cosmos DB 계정 이름** 및 **데이터베이스 이름**을 선택합니다.
-7. (선택 사항) 지역이 지정되지 않은 경우 Synapse 런타임 작업은 분석 저장소가 활성화된 가장 가까운 지역으로 라우팅됩니다. 그러나 사용자가 Cosmos DB 분석 저장소에 액세스할 지역을 수동으로 설정할 수 있습니다. **추가 연결 속성**을 선택한 다음, **새로 만들기**를 선택합니다. **속성 이름** 아래에 ***PreferredRegions***를 작성하고 **값**을 원하는 지역(예: WestUS2, 단어와 숫자 사이에 공백이 없음)으로 설정합니다.
-8. ***만들기***
+6. _ *Cosmos DB 계정 이름** 및 **데이터베이스 이름** 을 선택합니다.
+7. (선택 사항) 지역이 지정되지 않은 경우 Synapse 런타임 작업은 분석 저장소가 활성화된 가장 가까운 지역으로 라우팅됩니다. 그러나 사용자가 Cosmos DB 분석 저장소에 액세스할 지역을 수동으로 설정할 수 있습니다. **추가 연결 속성** 을 선택한 다음, **새로 만들기** 를 선택합니다. **속성 이름** 아래에 **_PreferredRegions_ *_를 작성하고 _* 값** 을 원하는 지역(예: WestUS2, 단어와 숫자 사이에 공백이 없음)으로 설정합니다.
+8. **_만들기_* _를 선택합니다.
 
-Azure Cosmos DB 데이터베이스는 Azure Cosmos DB 섹션의 **연결** 탭 아래에 표시됩니다. 다음 아이콘을 사용하여 HTAP 지원 Azure Cosmos DB 컨테이너를 OLTP 전용 컨테이너와 구분할 수 있습니다.
+Azure Cosmos DB 데이터베이스는 Azure Cosmos DB 섹션의 _ *연결** 탭 아래에 표시됩니다. 다음 아이콘을 사용하여 HTAP 지원 Azure Cosmos DB 컨테이너를 OLTP 전용 컨테이너와 구분할 수 있습니다.
 
 **Synapse 컨테이너**:
 

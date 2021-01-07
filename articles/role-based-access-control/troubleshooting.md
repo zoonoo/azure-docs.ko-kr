@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382579"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184266"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "87382579"
 
 ## <a name="azure-role-assignments-limit"></a>Azure 역할 할당 제한
 
-Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 구독에서 역할 할당의 수를 줄여 보세요.
+Azure는 구독당 최대 **2000** 개의 역할 할당을 지원합니다. 이 제한에는 구독, 리소스 그룹 및 리소스 범위의 역할 할당이 포함됩니다. 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 구독에서 역할 할당의 수를 줄여 보세요.
 
 > [!NOTE]
 > 구독 당 **2000** 역할 할당 제한은 고정 되어 있으므로 늘릴 수 없습니다.
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Azure 역할 할당 문제
 
-- 추가 역할 할당 추가 옵션을 사용할 수 없거나 "개체 id가 있는 클라이언트에 작업을 수행할 수 **Add**있는 권한이 없습니다." 라는 권한 오류가 발생 하 여 **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우  >  **Add role assignment** 역할을 `Microsoft.Authorization/roleAssignments/write` 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
+- 추가 역할 할당 추가 옵션을 사용할 수 없거나 "개체 id가 있는 클라이언트에 작업을 수행할 수 **Add** 있는 권한이 없습니다." 라는 권한 오류가 발생 하 여 **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우  >  **Add role assignment** 역할을 `Microsoft.Authorization/roleAssignments/write` 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
 - 서비스 주체를 사용 하 여 역할을 할당 하는 경우 "작업을 완료 하는 데 필요한 권한이 없습니다." 오류가 발생할 수 있습니다. 예를 들어 소유자 역할이 할당 되 고 Azure CLI를 사용 하 여 서비스 주체로 다음 역할 할당을 만들려고 하는 서비스 사용자가 있다고 가정해 보겠습니다.
 
     ```azurecli
@@ -59,15 +59,16 @@ $ras.Count
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    "작업을 완료할 수 있는 권한이 부족 합니다." 오류가 발생 하는 경우 Azure CLI가 Azure AD에서 담당자 id를 조회 하려고 시도 하 고 서비스 사용자가 기본적으로 Azure AD를 읽을 수 없기 때문일 수 있습니다.
+    "작업을 완료 하는 데 필요한 권한이 부족 합니다." 오류가 발생 하는 경우 Azure CLI가 Azure AD에서 담당자 id를 조회 하려고 시도 하 고 서비스 사용자가 기본적으로 Azure AD를 읽을 수 없기 때문일 수 있습니다.
 
-    이 오류를 해결 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 디렉터리의 데이터를 읽을 수 있도록 서비스 사용자에 게 [디렉터리 판독기](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할을 할당 하는 것입니다.
+    이 오류를 해결 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 디렉터리의 데이터를 읽을 수 있도록 서비스 사용자에 게 [디렉터리 판독기](../active-directory/roles/permissions-reference.md#directory-readers) 역할을 할당 하는 것입니다.
 
-    이 오류를 해결 하는 두 번째 방법은 대신 매개 변수를 사용 하 여 역할 할당을 만드는 것입니다 `--assignee-object-id` `--assignee` . 을 사용 하 여 `--assignee-object-id` AZURE AD 조회를 건너뛸 Azure CLI. 역할을 할당 하려는 사용자, 그룹 또는 응용 프로그램의 개체 ID를 가져와야 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md#new-service-principal)를 참조 하세요.
+    이 오류를 해결 하는 두 번째 방법은 대신 매개 변수를 사용 하 여 역할 할당을 만드는 것입니다 `--assignee-object-id` `--assignee` . 을 사용 하 여 `--assignee-object-id` AZURE AD 조회를 건너뛸 Azure CLI. 역할을 할당 하려는 사용자, 그룹 또는 응용 프로그램의 개체 ID를 가져와야 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope)를 참조 하세요.
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- 구독에 대 한 마지막 소유자 역할 할당을 제거 하려고 하면 "마지막 RBAC 관리자 할당을 삭제할 수 없습니다." 라는 오류가 표시 될 수 있습니다. 구독에 대 한 분리을 방지 하기 위해 구독에 대 한 마지막 소유자 역할 할당은 제거할 수 없습니다. 구독을 취소 하려면 [Azure 구독 취소](../cost-management-billing/manage/cancel-azure-subscription.md)를 참조 하세요.
 
 ## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
 
@@ -79,14 +80,14 @@ $ras.Count
 
 ## <a name="custom-roles-and-management-groups"></a>사용자 지정 역할 및 관리 그룹
 
-- 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
+- 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 - 를 사용 하는 사용자 지정 역할 `DataActions` 은 관리 그룹 범위에서 할당할 수 없습니다.
 - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인 하지 않습니다.
 - 사용자 지정 역할 및 관리 그룹에 대 한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)을 참조 하세요.
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>다른 디렉터리로 구독 전송
 
-- 다른 Azure AD 디렉터리로 구독을 전송 하는 방법에 대 한 단계가 필요한 경우 [Azure 구독의 소유권을 다른 계정으로 이전](../cost-management-billing/manage/billing-subscription-transfer.md)을 참조 하세요.
+- 다른 Azure AD 디렉터리로 구독을 전송 하는 방법에 대 한 단계가 필요한 경우 [azure 구독을 다른 AZURE ad 디렉터리에 전송](transfer-subscription.md)을 참조 하세요.
 - 다른 Azure AD 디렉터리로 구독을 전송 하는 경우 모든 역할 할당은 원본 Azure AD 디렉터리에서 **영구적으로** 삭제 되며 대상 azure ad 디렉터리로 마이그레이션되지 않습니다. 대상 디렉터리에서 역할 할당을 다시 만들어야 합니다. 또한 Azure 리소스에 대 한 관리 되는 id를 수동으로 다시 만들어야 합니다. 자세한 내용은 [관리 id의 faq 및 알려진 문제](../active-directory/managed-identities-azure-resources/known-issues.md)를 참조 하세요.
 - Azure AD 전역 관리자이 고 디렉터리 간에 전송 된 후 구독에 대 한 액세스 권한이 없는 경우 **azure 리소스에 대 한 액세스 관리** 를 사용 하 여 구독에 대 한 액세스 권한을 일시적으로 [상승](elevate-access-global-admin.md) 시킬 수 있습니다.
 
@@ -99,11 +100,17 @@ $ras.Count
 - 리소스를 만들려고 할 때 "이 개체 ID를 가진 클라이언트는 이 범위에서 작업을 수행할 수 있는 권한이 없습니다(코드: AuthorizationFailed)"라는 권한 오류가 발생하면 현재 선택한 범위에서 리소스에 쓰기 권한이 있는 역할이 할당된 사용자로 로그인했는지 확인합니다. 예를 들어 리소스 그룹의 가상 머신을 관리하려면 리소스 그룹(또는 부모 범위)에 대한 [가상 머신 기여자](built-in-roles.md#virtual-machine-contributor) 역할이 필요합니다. 각 기본 제공 역할에 대 한 사용 권한 목록은 [Azure 기본 제공 역할](built-in-roles.md)을 참조 하세요.
 - 지원 티켓을 만들거나 업데이트 하려고 할 때 "지원 요청을 만들 수 있는 권한이 없습니다." 라는 권한 오류가 표시 되 면 `Microsoft.Support/supportTickets/write` [지원 요청 참가자](built-in-roles.md#support-request-contributor)와 같이 사용 권한이 있는 역할이 할당 된 사용자를 사용 하 여 현재 로그인 했는지 확인 합니다.
 
+## <a name="move-resources-with-role-assignments"></a>역할 할당을 사용 하 여 리소스 이동
+
+Azure 역할이 할당 된 리소스 (또는 자식 리소스)에 직접 이동 하는 경우 역할 할당은 이동 되지 않으며 분리 됩니다. 이동 후에는 역할 할당을 다시 만들어야 합니다. 결국 분리 된 역할 할당이 자동으로 제거 되지만 리소스를 이동 하기 전에 역할 할당을 제거 하는 것이 가장 좋습니다.
+
+리소스를 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조 하세요.
+
 ## <a name="role-assignments-with-identity-not-found"></a>Id를 사용 하는 역할 할당을 찾을 수 없음
 
 Azure Portal에 대 한 역할 할당 목록에서 보안 주체 (사용자, 그룹, 서비스 주체 또는 관리 id)가 **알 수 없는** 유형의 id로 표시 **되지** 않는 것을 알 수 있습니다.
 
-![웹앱 리소스 그룹](./media/troubleshooting/unknown-security-principal.png)
+![Azure 역할 할당에 나열 된 id가 없습니다.](./media/troubleshooting/unknown-security-principal.png)
 
 다음 두 가지 이유로 id를 찾지 못할 수 있습니다.
 
@@ -114,7 +121,7 @@ Azure Portal에 대 한 역할 할당 목록에서 보안 주체 (사용자, 그
 
 그러나이 보안 주체가 최근에 초대 된 사용자가 아닌 경우 삭제 된 보안 사용자 일 수 있습니다. 보안 주체에 역할을 할당 한 다음 나중에 역할 할당을 제거 하지 않고 해당 보안 주체를 삭제 하는 경우 보안 주체는 **id를 찾을** 수 없음으로 표시 되 고 **알 수 없는** 형식이 됩니다.
 
-Azure PowerShell를 사용 하 여이 역할 할당을 나열 하는 경우 빈 `DisplayName` 및 `ObjectType` **알 수 없음**으로 설정 된가 표시 될 수 있습니다. 예를 들어 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 는 다음 출력과 유사한 역할 할당을 반환 합니다.
+Azure PowerShell를 사용 하 여이 역할 할당을 나열 하는 경우 빈 `DisplayName` 및 `ObjectType` **알 수 없음** 으로 설정 된가 표시 될 수 있습니다. 예를 들어 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 는 다음 출력과 유사한 역할 할당을 반환 합니다.
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -196,13 +203,13 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 따라서 사용자에게 웹앱에 대한 권한만 부여하면 Azure Portal에서 웹 사이트 블레이드의 기능을 대부분 사용할 수 없게 됩니다.
 
-다음 항목을 사용하려면 웹 사이트에 해당하는 **App Service 계획**에 대한 **쓰기** 권한이 필요합니다.  
+다음 항목을 사용하려면 웹 사이트에 해당하는 **App Service 계획** 에 대한 **쓰기** 권한이 필요합니다.  
 
 * 웹앱의 가격 책정 계층 보기(무료 또는 표준)  
 * 크기 조정 구성(인스턴스 수, 가상 머신 크기, 자동 크기 조정 설정)  
 * 할당량(스토리지, 대역폭, CPU)  
 
-다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹**에 대한 **쓰기** 권한이 필요합니다.  
+다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹** 에 대한 **쓰기** 권한이 필요합니다.  
 
 * TLS/SSL 인증서 및 바인딩 (TLS/SSL 인증서는 동일한 리소스 그룹 및 지리적 위치의 사이트 간에 공유 될 수 있음)  
 * 경고 규칙  
@@ -216,14 +223,14 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 가상 머신은 도메인 이름, 가상 네트워크, 스토리지 계정 및 경고 규칙과 관련이 있습니다.
 
-다음 항목을 사용하려면 **가상 머신**에 대한 **쓰기** 권한이 필요합니다.
+다음 항목을 사용하려면 **가상 머신** 에 대한 **쓰기** 권한이 필요합니다.
 
 * 엔드포인트  
 * IP 주소  
 * 디스크  
 * 확장  
 
-다음 항목을 사용하려면 **가상 머신**와 가상 머신이 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
+다음 항목을 사용하려면 **가상 머신** 와 가상 머신이 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
 
 * 가용성 집합  
 * 부하 분산된 집합  
@@ -237,7 +244,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 ![함수 앱 액세스 권한 없음](./media/troubleshooting/functionapps-noaccess.png)
 
-판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정**을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다. 이러한 기능에 액세스 하려면 [참가자](built-in-roles.md#contributor) 역할이 필요 합니다.
+판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정** 을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다. 이러한 기능에 액세스 하려면 [참가자](built-in-roles.md#contributor) 역할이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

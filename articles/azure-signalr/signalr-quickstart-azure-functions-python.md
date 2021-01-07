@@ -1,6 +1,6 @@
 ---
 title: Azure SignalR Service Serverless 빠른 시작 - Python
-description: Azure SignalR Service와 Azure Functions를 사용하여 대화방을 만들기 위한 빠른 시작입니다.
+description: Azure SignalR Service와 Azure Functions를 통해 Python을 사용하여 대화방을 만드는 빠른 시작.
 author: anthonychu
 ms.service: signalr
 ms.devlang: python
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: devx-track-python
-ms.openlocfilehash: d7d893d3de5541bf1108a9182dfee6ad995e061b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aaaf9011d38e7ec02e83db63757c434329b835e0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050610"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960294"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>빠른 시작: Python을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -31,21 +31,21 @@ Azure Functions에는 [Python 3.6 또는 3.7](https://www.python.org/downloads/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qspython)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qspython).
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
 Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 로그인합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qspython)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qspython)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qspython)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qspython).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Azure 함수 앱을 구성하고 실행합니다.
 
@@ -53,11 +53,11 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
     ![SignalR Service 인스턴스를 검색합니다.](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키**를 선택합니다.
+1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
 
 1. 기본 연결 문자열을 선택하여 복사합니다.
 
-    ![SignalR Service 만들기](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![기본 연결 문자열을 선택하여 복사합니다.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. 코드 편집기에서 복제된 리포지토리의 *src/chat/python* 폴더를 엽니다.
 
@@ -77,11 +77,11 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     .venv\scripts\activate
     ```
 
-1. *local.settings.sample.json*의 이름을 *local.settings.json*으로 바꿉니다.
+1. *local.settings.sample.json* 의 이름을 *local.settings.json* 으로 바꿉니다.
 
 1. **local.settings.json** 에서 연결 문자열을 **AzureSignalRConnectionString** 설정 값에 붙여넣습니다. 파일을 저장합니다.
 
-1. Python 함수는 폴더로 구성됩니다. 각 폴더에는 두 개의 파일이 있습니다. *function.json*은 함수에서 사용되는 바인딩을 정의하고 *\_\_init\_\_.py*는 함수의 본문입니다. 이 함수 앱에서는 두 개의 HTTP 트리거 함수가 있습니다.
+1. Python 함수는 폴더로 구성됩니다. 각 폴더에는 두 개의 파일이 있습니다. *function.json* 은 함수에서 사용되는 바인딩을 정의하고 *\_\_init\_\_.py* 는 함수의 본문입니다. 이 함수 앱에서는 두 개의 HTTP 트리거 함수가 있습니다.
 
     - **negotiate** - *SignalRConnectionInfo* 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
     - **messages** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
@@ -100,15 +100,15 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
     ![함수 앱 실행](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
     
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qspython)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qspython)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qspython)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qspython).
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -117,4 +117,3 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 > [!div class="nextstepaction"]
 > [VS Code로 Azure Functions 배포](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qspython)

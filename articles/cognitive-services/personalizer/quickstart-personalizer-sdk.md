@@ -1,17 +1,19 @@
 ---
 title: '빠른 시작: SDK를 통한 학습 루프 만들기 및 사용 - Personalizer'
 description: 이 빠른 시작에서는 Personalizer 클라이언트 라이브러리를 사용하여 기술 자료를 만들고 관리하는 방법을 보여줍니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, 기계 학습
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: dccdec0888f2968fb7089c4ff80c9338215de135
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3acfd8134a2a65e6ea9f019baff24b8b8149f7f3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055962"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777332"
 ---
 # <a name="quickstart-personalizer-client-library"></a>빠른 시작: Personalizer 클라이언트 라이브러리
 

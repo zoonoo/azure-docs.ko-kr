@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 Azure AD 응용 프로그램 프록시 배포 | Microsoft Docs
 description: Azure Active Directory Domain Services 관리 되는 도메인에서 Azure Active Directory 응용 프로그램 프록시를 배포 및 구성 하 여 원격 작업자를 위한 내부 응용 프로그램에 대 한 보안 액세스를 제공 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: f02f8c0c5aabc48e7b9966898028485a4687f413
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: justinha
+ms.openlocfilehash: 8305b2190cf3b157973f5844c3237ffe73adba66
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723081"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619919"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 내부 응용 프로그램에 안전 하 게 액세스할 수 있도록 Azure AD 응용 프로그램 프록시 배포
 
@@ -54,9 +54,9 @@ Azure AD 응용 프로그램 프록시 커넥터용 VM을 만들려면 다음 �
 Azure AD 응용 프로그램 프록시 커넥터를 다운로드 하려면 다음 단계를 수행 합니다. 다운로드 한 설치 파일은 다음 섹션에서 앱 프록시 VM에 복사 됩니다.
 
 1. Azure AD에서 *엔터프라이즈 관리자* 권한이 있는 사용자 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-1. 포털의 맨 위에서 **Azure Active Directory** 를 검색 하 고 선택한 다음 **엔터프라이즈 응용 프로그램**을 선택 합니다.
-1. 왼쪽의 메뉴에서 **응용 프로그램 프록시** 를 선택 합니다. 첫 번째 커넥터를 만들고 앱 프록시를 사용 하도록 설정 하려면 커넥터를 **다운로드**하기 위한 링크를 선택 합니다.
-1. 다운로드 페이지에서 사용 조건 및 개인 정보 보호 계약에 동의한 다음 사용 **약관 & 다운로드**를 선택 합니다.
+1. 포털의 맨 위에서 **Azure Active Directory** 를 검색 하 고 선택한 다음 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
+1. 왼쪽의 메뉴에서 **응용 프로그램 프록시** 를 선택 합니다. 첫 번째 커넥터를 만들고 앱 프록시를 사용 하도록 설정 하려면 커넥터를 **다운로드** 하기 위한 링크를 선택 합니다.
+1. 다운로드 페이지에서 사용 조건 및 개인 정보 보호 계약에 동의한 다음 사용 **약관 & 다운로드** 를 선택 합니다.
 
     ![Azure AD 앱 프록시 커넥터 다운로드](./media/app-proxy/download-app-proxy-connector.png)
 
@@ -65,19 +65,19 @@ Azure AD 응용 프로그램 프록시 커넥터를 다운로드 하려면 다�
 Azure AD 응용 프로그램 프록시 커넥터로 VM을 사용할 준비가 되 면 이제 Azure Portal에서 다운로드 한 설치 파일을 복사 하 여 실행 합니다.
 
 1. Azure AD 응용 프로그램 프록시 connector 설치 파일을 VM에 복사 합니다.
-1. *AADApplicationProxyConnectorInstaller.exe*와 같은 설치 파일을 실행 합니다. 소프트웨어 사용 조건에 동의합니다.
+1. *AADApplicationProxyConnectorInstaller.exe* 와 같은 설치 파일을 실행 합니다. 소프트웨어 사용 조건에 동의합니다.
 1. 설치 하는 동안 Azure AD 디렉터리의 응용 프로그램 프록시를 사용 하 여 커넥터를 등록 하 라는 메시지가 표시 됩니다.
    * Azure AD 디렉터리의 전역 관리자에 대 한 자격 증명을 제공 합니다. Azure AD 전역 관리자 자격 증명은 포털의 Azure 자격 증명과 다를 수 있습니다.
 
         > [!NOTE]
         > 커넥터를 등록 하는 데 사용 되는 전역 관리자 계정은 응용 프로그램 프록시 서비스를 사용 하도록 설정 하는 동일한 디렉터리에 속해야 합니다.
         >
-        > 예를 들어 Azure AD 도메인이 *contoso.com*인 경우 전역 관리자는 `admin@contoso.com` 또는 해당 도메인의 다른 유효한 별칭 이어야 합니다.
+        > 예를 들어 Azure AD 도메인이 *contoso.com* 인 경우 전역 관리자는 `admin@contoso.com` 또는 해당 도메인의 다른 유효한 별칭 이어야 합니다.
 
    * 커넥터를 설치 하는 VM에 대해 Internet Explorer 보안 강화 구성이 설정 된 경우 등록 화면이 차단 될 수 있습니다. 액세스를 허용 하려면 오류 메시지의 지침에 따라 설치 하는 동안 Internet Explorer 보안 강화를 해제 합니다.
    * 커넥터 등록이 실패 하는 경우 [응용 프로그램 프록시 문제 해결](../active-directory/manage-apps/application-proxy-troubleshoot.md)을 참조 하세요.
 1. 설정이 끝나면 아웃 바운드 프록시를 사용 하는 환경에 대 한 노트가 표시 됩니다. 아웃 바운드 프록시를 통해 작동 하도록 Azure AD 응용 프로그램 프록시 connector를 구성 하려면 제공 된 스크립트 (예:)를 실행 `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1` 합니다.
-1. 다음 예제와 같이 Azure Portal의 응용 프로그램 프록시 페이지에 새 커넥터가 *활성*상태로 나열 됩니다.
+1. 다음 예제와 같이 Azure Portal의 응용 프로그램 프록시 페이지에 새 커넥터가 *활성* 상태로 나열 됩니다.
 
     ![Azure Portal에서 활성으로 표시 된 새 Azure AD 응용 프로그램 프록시 커넥터](./media/app-proxy/connected-app-proxy.png)
 
@@ -97,7 +97,7 @@ IWA (Windows 통합 인증)를 사용 하 여 응용 프로그램에 Single Sign
 
 [Get ADComputer][Get-ADComputer] 를 사용 하 여 Azure AD 응용 프로그램 프록시 커넥터가 설치 된 컴퓨터에 대 한 설정을 검색 합니다. 도메인에 가입 된 관리 VM에서 *AZURE AD DC administrators* 그룹의 구성원 인 사용자 계정으로 로그인 한 후 다음 cmdlet을 실행 합니다.
 
-다음 예에서는 *appproxy.aaddscontoso.com*라는 컴퓨터 계정에 대 한 정보를 가져옵니다. 이전 단계에서 구성 된 Azure AD 응용 프로그램 프록시 VM에 대 한 고유한 컴퓨터 이름을 제공 합니다.
+다음 예에서는 *appproxy.aaddscontoso.com* 라는 컴퓨터 계정에 대 한 정보를 가져옵니다. 이전 단계에서 구성 된 Azure AD 응용 프로그램 프록시 VM에 대 한 고유한 컴퓨터 이름을 제공 합니다.
 
 ```powershell
 $ImpersonatingAccount = Get-ADComputer -Identity appproxy.aaddscontoso.com
@@ -120,6 +120,6 @@ Azure AD DS와 통합 된 Azure AD 응용 프로그램 프록시를 사용 하 �
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
 [Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer

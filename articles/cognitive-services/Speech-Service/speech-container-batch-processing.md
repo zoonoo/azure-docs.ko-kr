@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 4d0800ff8a35c5c91b067a85dfcc089f2e343d1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090967"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631995"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>음성 컨테이너 용 Batch 처리 키트
 
@@ -23,7 +23,7 @@ ms.locfileid: "86090967"
 
 :::image type="content" source="media/containers/general-diagram.png" alt-text="일괄 처리 키트 컨테이너 워크플로 예제를 보여 주는 다이어그램입니다.":::
 
-Batch 키트 컨테이너는 [GitHub](https://github.com/microsoft/batch-processing-kit) 및 [Docker 허브](https://hub.docker.com/r/batchkit/speech-batch-kit/tags)에서 무료로 제공 됩니다. 사용 중인 음성 컨테이너에 대해서만 [요금이 청구](speech-container-howto.md#billing) 됩니다.
+Batch 키트 컨테이너는 [GitHub](https://github.com/microsoft/batch-processing-kit) 및   [Docker 허브](https://hub.docker.com/r/batchkit/speech-batch-kit/tags)에서 무료로 제공 됩니다. 사용 중인 음성 컨테이너에 대해서만 [요금이 청구](speech-container-howto.md#billing) 됩니다.
 
 | 기능  | 설명  |
 |---------|---------|
@@ -75,6 +75,7 @@ Batch 클라이언트는 컨테이너를 다시 시작 하거나 네트워킹 �
 > [!NOTE] 
 > * 이 예에서는 `/my_nfs` 구성 파일 및 입력, 출력 및 로그 디렉터리에 동일한 디렉터리 ()를 사용 합니다. 이러한 폴더에 대해 호스트 되거나 NFS로 탑재 된 디렉터리를 사용할 수 있습니다.
 > * 에서 클라이언트를 실행 `–h` 하면 사용 가능한 명령줄 매개 변수와 해당 기본값이 나열 됩니다. 
+> * 일괄 처리 컨테이너는 Linux 에서만 지원 됩니다.
 
 Docker 명령을 사용 `run` 하 여 컨테이너를 시작 합니다. 그러면 컨테이너 내에서 대화형 셸이 시작 됩니다.
 
@@ -85,14 +86,15 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mn
 Batch 클라이언트를 실행 하려면 다음을 수행 합니다.  
 
 ```Docker
-run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 단일 명령으로 batch 클라이언트 및 컨테이너를 실행 하려면 다음을 수행 합니다.
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
+
 
 클라이언트가 실행을 시작 합니다. 이전 실행에서 오디오 파일이 이미 transcribed 된 경우 클라이언트는 자동으로 파일을 건너뜁니다. 일시적인 오류가 발생 하는 경우 자동으로 다시 시도 하 여 파일이 전송 되며, 클라이언트에서 다시 시도할 오류를 구분할 수 있습니다. 기록 오류가 발생 하면 클라이언트는 기록을 계속 하 고 진행률을 잃지 않고 다시 시도할 수 있습니다.  
 
@@ -102,7 +104,7 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 
 #### <a name="oneshot"></a>[Oneshot](#tab/oneshot)
 
-`ONESHOT`모드는 입력 디렉터리 및 선택적 파일 목록에서 하나의 오디오 파일 일괄 처리를 출력 폴더로 speech 합니다.
+`ONESHOT` 모드는 입력 디렉터리 및 선택적 파일 목록에서 하나의 오디오 파일 일괄 처리를 출력 폴더로 speech 합니다.
 
 :::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Oneshot 모드에서 일괄 처리 키트 컨테이너 처리 파일을 보여 주는 다이어그램입니다.":::
 
@@ -117,9 +119,9 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 > [!TIP]
 > 여러 파일을 동시에 입력 디렉터리에 추가 하는 경우에는 일정 한 간격으로 추가 하는 대신 성능을 향상 시킬 수 있습니다.
 
-`DAEMON`모드는 지정 된 폴더에 있는 기존 파일을 speech 새 오디오 파일이 추가 될 때 지속적으로 speech 합니다.          
+`DAEMON` 모드는 지정 된 폴더에 있는 기존 파일을 speech 새 오디오 파일이 추가 될 때 지속적으로 speech 합니다.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="디먼 모드의 batch 키트 컨테이너 처리 파일을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="데몬 모드에서 일괄 처리 키트 컨테이너 처리 파일을 보여 주는 다이어그램":::
 
 1. Batch 클라이언트가 파일에서 사용할 음성 컨테이너 끝점을 정의 합니다 `config.yaml` . 
 2. 입력 디렉터리에서 컨테이너를 호출 합니다. Batch 클라이언트는 들어오는 파일의 디렉터리 모니터링을 시작 합니다. 
@@ -130,9 +132,9 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 
 #### <a name="rest"></a>[REST (영문)](#tab/rest)
 
-`REST`모드는 오디오 파일 일괄 처리 전송, 상태 검사 및 긴 폴링을 위한 기본 HTTP 끝점 집합을 제공 하는 API 서버 모드입니다. 또한 python 모듈 확장을 사용 하 여 프로그래밍 방식으로 사용 하거나 하위 모듈로 가져올 수 있습니다.
+`REST` 모드는 오디오 파일 일괄 처리 전송, 상태 검사 및 긴 폴링을 위한 기본 HTTP 끝점 집합을 제공 하는 API 서버 모드입니다. 또한 python 모듈 확장을 사용 하 여 프로그래밍 방식으로 사용 하거나 하위 모듈로 가져올 수 있습니다.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="디먼 모드의 batch 키트 컨테이너 처리 파일을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="REST 모드에서 일괄 처리 키트 컨테이너 처리 파일을 보여 주는 다이어그램입니다.":::
 
 1. Batch 클라이언트가 파일에서 사용할 음성 컨테이너 끝점을 정의 합니다 `config.yaml` . 
 2. API 서버 끝점 중 하나로 HTTP 요청 요청을 보냅니다. 
@@ -154,9 +156,9 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batc
 > [!NOTE]
 > 일괄 처리 클라이언트는 *실행 로그* 파일이 너무 클 경우 정기적으로 덮어쓸 수 있습니다.
 
-클라이언트는 docker 명령의 인수로 지정 된 디렉터리에 *실행 .log* 파일을 만듭니다 `-log_folder` `run` . 로그는 기본적으로 디버그 수준에서 캡처됩니다. 동일한 로그가에 전송 되 `stdout/stderr` 고 인수에 따라 필터링 됩니다 `-log_level` . 이 로그는 디버깅에만 필요 하며, 지원에 대 한 추적을 보내야 하는 경우에만 필요 합니다. 로깅 폴더에는 각 오디오 파일에 대 한 음성 SDK 로그도 포함 됩니다.
+클라이언트는 docker 명령의 인수로 지정 된 디렉터리에 *실행 .log* 파일을 만듭니다 `-log_folder` `run` . 로그는 기본적으로 디버그 수준에서 캡처됩니다. 동일한 로그가에 전송 되 `stdout/stderr` 고 또는 인수에 따라 필터링 됩니다 `-file_log_level` `console_log_level` . 이 로그는 디버깅에만 필요 하며, 지원에 대 한 추적을 보내야 하는 경우에만 필요 합니다. 로깅 폴더에는 각 오디오 파일에 대 한 음성 SDK 로그도 포함 됩니다.
 
-로 지정 된 출력 디렉터리에는 `-output_folder` 파일 *에 대 한run_summary.js*이 포함 됩니다   .이 파일은 30 초 마다 또는 새로운 새 최종 스크립트가 완료 될 때마다 정기적으로 다시 작성 됩니다. 일괄 처리가 진행 되는 동안이 파일을 사용 하 여 진행률을 확인할 수 있습니다. 또한 일괄 처리가 완료 되 면 모든 파일의 최종 실행 통계 및 최종 상태를 포함 합니다. 프로세스가 완전히 종료 되 면 일괄 처리가 완료 됩니다. 
+로 지정 된 출력 디렉터리에는 `-output_folder` 파일 *에 대 한run_summary.js* 이 포함 됩니다   .이 파일은 30 초 마다 또는 새로운 새 최종 스크립트가 완료 될 때마다 정기적으로 다시 작성 됩니다. 일괄 처리가 진행 되는 동안이 파일을 사용 하 여 진행률을 확인할 수 있습니다. 또한 일괄 처리가 완료 되 면 모든 파일의 최종 실행 통계 및 최종 상태를 포함 합니다. 프로세스가 완전히 종료 되 면 일괄 처리가 완료 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

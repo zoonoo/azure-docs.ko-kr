@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
 ms.openlocfilehash: c68bedb37722fb6a8b7ad9dccdeaaaa4fab9d020
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264133"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>스토리지 액세스 키 롤링 후 Media Services 업데이트
@@ -47,7 +47,7 @@ Media Services는 제공되는 스토리지 키에 따라 달라집니다. 특�
 ## <a name="steps-to-rotate-storage-keys"></a>스토리지 키를 회전하는 단계 
  
  1. PowerShell cmdlet 또는 [Azure](https://portal.azure.com/) 포털을 통해 스토리지 계정 기본 키를 변경합니다.
- 2. 적절 한 매개 변수를 사용 하 여 AzMediaServiceStorageKeys cmdlet을 호출 하 여 미디어 계정을 강제로 저장소 계정 키를 선택 합니다.
+ 2. 적절 한 매개 변수를 사용 하 여 Sync-AzMediaServiceStorageKeys cmdlet을 호출 하 여 미디어 계정에서 저장소 계정 키를 선택 합니다.
  
     다음 예제에서는 키를 스토리지 계정에 동기화하는 방법을 보여 줍니다.
   
@@ -55,7 +55,7 @@ Media Services는 제공되는 스토리지 키에 따라 달라집니다. 특�
   
  3. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
  4. PowerShell cmdlet 또는 Azure Portal을 통해 스토리지 계정 보조 키를 변경합니다.
- 5. 적절 한 매개 변수를 사용 하 여 AzMediaServiceStorageKeys powershell을 호출 하 여 새 저장소 계정 키를 선택 하도록 미디어 계정을 강제 합니다. 
+ 5. 적절 한 매개 변수를 사용 하 여 powershell을 Sync-AzMediaServiceStorageKeys 호출 하 여 media 계정에서 새 저장소 계정 키를 선택 하도록 강제 합니다. 
  6. 1 시간 정도 기다립니다. 스트리밍 시나리오가 작동하는지 확인합니다.
  
 ### <a name="a-powershell-cmdlet-example"></a>PowerShell cmdlet 예제 

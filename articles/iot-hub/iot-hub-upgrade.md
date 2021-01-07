@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61440236"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IoT Hub를 업그레이드하는 방법
@@ -39,7 +39,7 @@ IoT hub를 다운 그레이드 하려면 단위를 제거 하 고 IoT hub의 크
 
 2. **가격 책정 및 크기 조정**을 선택합니다.
 
-   ![가격 및 크기 조정](./media/iot-hub-upgrade/pricing-scale.png)
+   ![가격 및 크기](./media/iot-hub-upgrade/pricing-scale.png)
 
 3. 허브에 대한 계층을 변경하려면 **가격 책정 및 계층 크기 조정**을 선택합니다. 새 계층을 선택한 다음, **선택**을 클릭합니다.
 

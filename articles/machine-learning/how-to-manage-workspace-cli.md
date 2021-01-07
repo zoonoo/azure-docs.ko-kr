@@ -1,21 +1,21 @@
 ---
 title: Azure CLI를 사용하여 작업 영역 만들기
 titleSuffix: Azure Machine Learning
-description: Azure CLI를 사용하여 새 Azure Machine Learning 작업 영역을 만드는 방법을 알아봅니다.
+description: Machine learning에 대 한 Azure CLI 확장을 사용 하 여 새 Azure Machine Learning 작업 영역을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/28/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, devx-track-azurecli
+ms.openlocfilehash: 4c457ef2c4957308735c222488ad04dac80235df
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897346"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740388"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -26,9 +26,13 @@ ms.locfileid: "90897346"
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* **로컬 환경**에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
+* **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)가 필요합니다.
 
     [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)을 사용하는 경우 CLI는 브라우저를 통해 액세스하고 클라우드에 있습니다.
+
+## <a name="limitations"></a>제한 사항
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Azure 구독에 CLI 연결
 
@@ -45,7 +49,7 @@ CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-다른 인증 방법은 [Azure CLI로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조하세요.
+다른 인증 방법은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest)을 참조하세요.
 
 ## <a name="install-the-machine-learning-extension"></a>기계 학습 확장 설치
 
@@ -76,6 +80,8 @@ Azure Machine Learning 작업 영역은 다음과 같은 Azure 서비스 또는 
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
+ACR (Azure Container Registry)은 현재 리소스 그룹 이름에서 유니코드 문자를 지원 하지 않습니다. 이 문제를 완화 하려면 이러한 문자를 포함 하지 않는 리소스 그룹을 사용 합니다.
+
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 리소스 그룹 내에 Azure Machine Learning 작업 영역을 만들어야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. __새 리소스 그룹을 만들려면__ 다음 명령을 사용합니다. `<resource-group-name>`을 이 리소스 그룹에 사용할 이름으로 바꿉니다. `<location>`을 이 리소스 그룹에 사용할 Azure 지역으로 바꿉니다.
@@ -103,7 +109,7 @@ az group create --name <resource-group-name> --location <location>
 }
 ```
 
-리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest)을 참조하세요.
+리소스 그룹 작업에 대한 자세한 내용은 [az 그룹](/cli/azure/group?preserve-view=true&view=azure-cli-latest)을 참조하세요.
 
 ### <a name="automatically-create-required-resources"></a>자동으로 필수 리소스 만들기
 
@@ -142,7 +148,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ### <a name="virtual-network-and-private-endpoint"></a>가상 네트워크 및 개인 끝점
 
 > [!IMPORTANT]
-> Azure Machine Learning 작업 영역에서 Azure 개인 링크를 사용 하는 것은 현재 공개 미리 보기 상태입니다. 이 기능은 **미국 동부** 및 **미국 서 부 2** 지역 에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 개인 링크로 Azure Machine Learning 작업 영역을 사용 하는 것은 Azure Government 지역 또는 Azure 중국 21Vianet 지역에서 사용할 수 없습니다.
 
 작업 영역에 대 한 액세스를 가상 네트워크로 제한 하려는 경우 다음 매개 변수를 사용할 수 있습니다.
 
@@ -156,29 +162,31 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>고객 관리 키 및 높은 비즈니스 영향 작업 영역
 
-기본적으로 작업 영역에 대 한 메트릭 및 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다. 
+기본적으로 작업 영역에 대 한 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다.
 
-Microsoft에서 관리 하는 키를 사용 하는 대신 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
+> [!NOTE]
+> Azure Cosmos DB은 모델 성능, 실험에서 기록한 정보 또는 모델 배포에서 기록 된 정보와 같은 정보를 저장 하는 데 사용 __되지 않습니다__ . 이러한 항목을 모니터링 하는 방법에 대 한 자세한 내용은 아키텍처 및 개념 문서의 [모니터링 및 로깅](concept-azure-machine-learning-architecture.md) 섹션을 참조 하세요.
 
-> [!IMPORTANT]
-> `--cmk-keyvault`및 `--resource-cmk-uri` 매개 변수를 사용 하기 전에 먼저 다음 작업을 수행 해야 합니다.
->
-> 1. 구독에 대 한 참가자 권한으로 Id 및 액세스 관리에서 __Machine Learning 앱__ 에 권한을 부여 합니다.
-> 1. [고객 관리 키 구성](/azure/cosmos-db/how-to-setup-cmk) 의 단계에 따라 다음을 수행 합니다.
->     * Azure Cosmos DB 공급자 등록
->     * Azure Key Vault 만들기 및 구성
->     * 키 생성
->
->     Azure Cosmos DB 인스턴스를 수동으로 만들 필요는 없으며 작업 영역을 만드는 동안 생성 됩니다. 이 Azure Cosmos DB 인스턴스는이 패턴을 기반으로 하는 이름을 사용 하 여 별도의 리소스 그룹에 만들어집니다 `<your-resource-group-name>_<GUID>` .
->
-> 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다. 작업 영역에서 사용 하는 Azure Cosmos DB를 삭제 하는 경우 해당 작업 영역을 사용 하는 작업 영역도 삭제 해야 합니다.
+Microsoft에서 관리 하는 키를 사용 하는 대신 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
+
+`--cmk-keyvault`및 `--resource-cmk-uri` 매개 변수를 사용 하기 전에 먼저 다음 작업을 수행 해야 합니다.
+
+1. 구독에 대 한 참가자 권한으로 Id 및 액세스 관리에서 __Machine Learning 앱__ 에 권한을 부여 합니다.
+1. [고객 관리 키 구성](../cosmos-db/how-to-setup-cmk.md) 의 단계에 따라 다음을 수행 합니다.
+    * Azure Cosmos DB 공급자 등록
+    * Azure Key Vault 만들기 및 구성
+    * 키 생성
+
+Azure Cosmos DB 인스턴스를 수동으로 만들 필요는 없으며 작업 영역을 만드는 동안 생성 됩니다. 이 Azure Cosmos DB 인스턴스는이 패턴을 기반으로 하는 이름을 사용 하 여 별도의 리소스 그룹에 만들어집니다 `<your-resource-group-name>_<GUID>` .
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려면 `--hbi-workspace` 매개 변수를 사용 합니다. 
 
 > [!IMPORTANT]
 > 높은 비즈니스 영향을 선택 하는 작업은 작업 영역을 만들 때만 수행할 수 있습니다. 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다.
 
-고객 관리 키 및 높은 비즈니스 영향 작업 영역에 대 한 자세한 내용은 [Azure Machine Learning Enterprise security](concept-enterprise-security.md#encryption-at-rest)을 참조 하십시오.
+고객 관리 키 및 높은 비즈니스 영향 작업 영역에 대 한 자세한 내용은 [Azure Machine Learning Enterprise security](concept-data-encryption.md#encryption-at-rest)을 참조 하십시오.
 
 ### <a name="use-existing-resources"></a>기존 리소스 사용
 
@@ -227,7 +235,7 @@ Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"`
 
     > [!IMPORTANT]
-    > Azure Machine Learning 작업 영역에서 사용할 수 있으려면 컨테이너 레지스트리에 [관리자 계정](/azure/container-registry/container-registry-authentication#admin-account)을 사용하도록 설정해야 합니다.
+    > Azure Machine Learning 작업 영역에서 사용할 수 있으려면 컨테이너 레지스트리에 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 사용하도록 설정해야 합니다.
 
 작업 영역에서 사용하려는 리소스에 대한 ID가 있는 경우 기본 `az workspace create -w <workspace-name> -g <resource-group-name>` 명령을 사용하고 기존 리소스에 대한 매개 변수 및 ID를 추가합니다. 예를 들어 다음 명령은 기존 컨테이너 레지스트리를 사용하는 작업 영역을 만듭니다.
 
@@ -283,7 +291,7 @@ az ml workspace list
 ]
 ```
 
-자세한 내용은 [az ml workspace list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) 설명서를 참조하세요.
 
 ## <a name="get-workspace-information"></a>작업 영역 정보 가져오기
 
@@ -316,7 +324,7 @@ az ml workspace show -w <workspace-name> -g <resource-group-name>
 }
 ```
 
-자세한 내용은 [az ml workspace show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) 설명서를 참조하세요.
 
 ## <a name="update-a-workspace"></a>작업 영역 업데이트
 
@@ -349,7 +357,7 @@ az ml workspace update -w <workspace-name> -g <resource-group-name>
 }
 ```
 
-자세한 내용은 [az ml workspace update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) 설명서를 참조하세요.
 
 ## <a name="share-a-workspace-with-another-user"></a>다른 사용자와 작업 영역 공유
 
@@ -359,9 +367,9 @@ az ml workspace update -w <workspace-name> -g <resource-group-name>
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Azure Machine Learning의 RBAC(역할 기반 액세스 제어)에 대한 자세한 내용은 [사용자 및 역할 관리](how-to-assign-roles.md)를 참조하세요.
+Azure Machine Learning의 azure RBAC (역할 기반 액세스 제어)에 대 한 자세한 내용은 [사용자 및 역할 관리](how-to-assign-roles.md)를 참조 하세요.
 
-자세한 내용은 [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace share](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) 설명서를 참조하세요.
 
 ## <a name="sync-keys-for-dependent-resources"></a>종속 리소스의 키 동기화
 
@@ -373,7 +381,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 키 변경에 대한 자세한 내용은 [스토리지 액세스 키 다시 생성](how-to-change-storage-access-key.md)을 참조하세요.
 
-자세한 내용은 [az ml workspace sync-keys](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace sync-keys](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) 설명서를 참조하세요.
 
 ## <a name="delete-a-workspace"></a>작업 영역 삭제
 
@@ -392,7 +400,7 @@ az ml workspace delete -w <workspace-name> -g <resource-group-name>
 az group delete -g <resource-group-name>
 ```
 
-자세한 내용은 [az ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) 설명서를 참조하세요.
+자세한 내용은 [az ml workspace delete](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) 설명서를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -413,4 +421,4 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 ## <a name="next-steps"></a>다음 단계
 
-기계 학습용 Azure CLI 확장에 대한 자세한 내용은 [az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest) 설명서를 참조하세요.
+기계 학습용 Azure CLI 확장에 대한 자세한 내용은 [az ml](/cli/azure/ext/azure-cli-ml/ml?preserve-view=true&view=azure-cli-latest) 설명서를 참조하세요.

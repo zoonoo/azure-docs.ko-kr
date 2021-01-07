@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bae661218989d49b74ed8ca3f694ccb912ef912
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a040200c5746defcaee84a951521d5919c0c4d28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939113"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91660679"
 ---
 # <a name="delete-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 삭제
 
@@ -73,12 +73,31 @@ oc adm policy remove-scc-from-user privileged -z default -n arc
 oc adm policy remove-scc-from-user anyuid     -z default -n arc
 ```
 
+### <a name="delete-cluster-level-objects"></a>클러스터 수준 개체 삭제
+
+CRDs와 같은 클러스터 수준 개체도 삭제 하려는 경우 네임 스페이스 범위 개체 외에도 `clusterroles` `clusterrolebindings` 다음 명령을 실행 합니다.
+
+```console
+# Cleanup azure arc data service artifacts
+#Delete CRDs
+kubectl delete crd datacontrollers.arcdata.microsoft.com 
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete crd postgresql-11s.arcdata.microsoft.com 
+kubectl delete crd postgresql-12s.arcdata.microsoft.com
+#Delete clusterrole
+kubectl delete clusterrole <namespace>:cr-arc-metricsdc-reader
+#For example: kubectl delete clusterrole arc:cr-arc-metricsdc-reader
+#Delete rolebinding
+kubectl delete clusterrolebinding <namespace>:crb-arc-metricsdc-reader
+#For example: kubectl delete clusterrolebinding arc:crb-arc-metricsdc-reader
+```
+
 ### <a name="optionally-delete-the-azure-arc-data-controller-namespace"></a>필요에 따라 Azure Arc 데이터 컨트롤러 네임 스페이스를 삭제 합니다.
 
 
 ```console
 kubectl delete ns <nameSpecifiedDuringCreation>
-# for example kubectl delete ns arc
+# for example: kubectl delete ns arc
 ```
 
 ## <a name="next-steps"></a>다음 단계

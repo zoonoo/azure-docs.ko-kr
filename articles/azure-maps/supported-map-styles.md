@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6ce2966d7e91bd0fc6a23ad2605316da4e2342e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037731"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896942"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>지원 되는 기본 제공 지도 스타일 Azure Maps
 
@@ -27,8 +27,8 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 **적용 가능한 API:**
 
-* [지도 이미지](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [지도 이미지](/rest/api/maps/render/getmapimage)
+* [지도 타일](/rest/api/maps/render/getmaptile)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 * Power BI 시각적 개체
@@ -52,7 +52,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 **적용 가능한 API:**
 
-* [위성 타일](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [위성 타일](/rest/api/maps/render/getmapimagerytilepreview)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 * Power BI 시각적 개체
@@ -77,8 +77,8 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 **적용 가능한 API:**
 
-* [지도 이미지](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [지도 이미지](/rest/api/maps/render/getmapimage)
+* [지도 타일](/rest/api/maps/render/getmaptile)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 * Power BI 시각적 개체
@@ -96,7 +96,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 ## <a name="night"></a>야간
 
-**야간**은 색이 지정된 도로 및 기호가 포함된 어두운 버전의 도로 지도 스타일입니다.
+**야간** 은 색이 지정된 도로 및 기호가 포함된 어두운 버전의 도로 지도 스타일입니다.
 
 ![야간 지도 스타일](./media/supported-map-styles/night.png)
 
@@ -108,13 +108,13 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 
-**도로 음영 입체**는 지구의 등고선으로 채워진 Azure Maps 주요 스타일입니다.
+**도로 음영 입체** 는 지구의 등고선으로 채워진 Azure Maps 주요 스타일입니다.
 
 ![음영 된 릴리프 맵 스타일](./media/supported-map-styles/shaded-relief.png)
 
 **적용 가능한 API:**
 
-* [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [지도 타일](/rest/api/maps/render/getmaptile)
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 * Power BI 시각적 개체
@@ -134,5 +134,4 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 
 Azure Maps에서 지도 스타일을 설정 하는 방법에 대해 알아봅니다.
 
-> [!div class="nextstepaction"]
-> [지도 스타일 선택](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[지도 스타일 선택](./choose-map-style.md)

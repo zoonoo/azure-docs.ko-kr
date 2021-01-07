@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117388"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Application Insights Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)를 구성 합니다.
@@ -23,14 +23,14 @@ Application Insights Profiler 또는 스냅숏 디버거를 사용 하는 경우
 > [!NOTE]
 > 개인 링크를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 개인 링크에 대 한 자세한 내용은 [설명서를 참조 하십시오.](../platform/private-link-security.md)
 >
-> 고객 관리 키를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 고객 관리 키에 대 한 자세한 내용은 [설명서를 참조 하세요.](../platform/customer-managed-keys.md)
+> Customer-Managed 키를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 Customer-Managed 키에 대 한 자세한 내용은 [설명서를 참조](../platform/customer-managed-keys.md)하십시오.
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>내 저장소 계정에 액세스 하는 방법
 1. Virtual Machines 또는 App Service에서 실행 되는 에이전트는 아티팩트 (프로필, 스냅숏 및 기호)를 계정의 blob 컨테이너에 업로드 합니다. 이 프로세스에는 저장소 계정에서 새 blob에 대 한 SAS (공유 액세스 서명) 토큰을 가져오기 위해 Application Insights Profiler 또는 스냅숏 디버거 서비스에 연결 하는 과정이 포함 됩니다.
 1. Application Insights Profiler 또는 스냅숏 디버거 서비스는 들어오는 blob를 분석 하 고 분석 결과 및 로그 파일을 blob 저장소에 다시 씁니다. 사용 가능한 계산 용량에 따라 업로드 후 언제 든 지이 프로세스가 발생할 수 있습니다.
 1. 프로파일러 추적 또는 스냅숏 디버거 분석을 볼 때이 서비스는 blob 저장소에서 분석 결과를 인출 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * Application Insights 리소스와 동일한 위치에 저장소 계정을 만들어야 합니다. 예: Application Insights 리소스가 미국 서 부 2에 있는 경우 저장소 계정은 미국 서 부에도 있어야 합니다. 
 * Access Control (IAM) UI를 통해 저장소 계정의 AAD 응용 프로그램 "진단 서비스의 신뢰할 수 있는 저장소 액세스"에 "저장소 Blob 데이터 참가자" 역할을 부여 합니다.
 * 개인 링크를 사용 하도록 설정한 경우 Virtual Network에서 신뢰할 수 있는 Microsoft 서비스에 대 한 연결을 허용 하도록 추가 설정을 구성 합니다. 
@@ -95,7 +95,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
-    예:
+    예제:
     ```powershell
     $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
@@ -110,7 +110,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     New-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id -LinkedStorageAccountResourceId $storageAccount.Id
     ```
 
-    예:
+    예제:
     ```powershell
     $storageAccount = Get-AzStorageAccount -ResourceGroupName "byos-test" -Name "byosteststoragewestus2"
     $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
@@ -135,7 +135,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     az monitor app-insights component linked-storage link --resource-group "{resource_group_name}" --app "{application_insights_name}" --storage-account "{storage_account_name}"
     ```
     
-    예:
+    예제:
     ```powershell
     az monitor app-insights component linked-storage link --resource-group "byos-test" --app "byos-test-westus2-ai" --storage-account "byosteststoragewestus2"
     ```
@@ -191,7 +191,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
     New-AzResourceGroupDeployment -ResourceGroupName "{your_resource_name}" -TemplateFile "{local_path_to_arm_template}"
     ```
 
-    예:
+    예제:
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "byos-test" -TemplateFile "D:\Docs\byos.template.json"
     ```
@@ -231,7 +231,7 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="template-schema-schema_uri-isnt-supported"></a>템플릿 스키마 ' {schema_uri} '은 (는) 지원 되지 않습니다.
-* `$schema`템플릿의 속성이 유효한 지 확인 합니다. 다음 패턴을 따라야 합니다.`https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
+* `$schema`템플릿의 속성이 유효한 지 확인 합니다. 다음 패턴을 따라야 합니다. `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * `schema_version`템플릿의이 유효한 값 내에 있는지 확인 `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01` 합니다.
     오류 메시지:
     ```powershell
@@ -276,17 +276,17 @@ _ ![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 
 일반적인 스냅숏 디버거 문제 해결에 대해서는 [스냅숏 디버거 문제 해결 설명서](snapshot-debugger-troubleshoot.md)를 참조 하세요. 
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 * 프로파일러 또는 스냅숏을 사용 하도록 설정 하 고 BYOS를 사용 하도록 설정한 경우 내 데이터는 내 저장소 계정으로 마이그레이션 되나요?
     _아니요, 그렇지 않습니다._
 
-* BYOS는 미사용 및 고객이 관리 하는 키에서 암호화를 사용 하나요?
-    _예, 정확 하 게 하려면 BYOS가 고객 관리자 키로 프로파일러/디버거를 사용 하도록 설정 해야 합니다._
+* BYOS가 미사용 암호화와 Customer-Managed 키로 작동 하나요?
+    _예, 정확 하 게 하려면 BYOS가 Customer-Manager 키로 프로파일러/디버거를 사용 하도록 설정 해야 합니다._
 
 * BYOS는 인터넷에서 격리 된 환경에서 작동 하나요?
     _예로. 실제로 BYOS는 격리 된 네트워크 시나리오에 대 한 요구 사항입니다._
 
-* 고객 관리 키와 개인 링크를 모두 사용 하도록 설정한 경우 BYOS가 작동 하나요? 
+* Customer-Managed 키와 개인 링크를 사용 하도록 설정한 경우 BYOS가 작동 하나요? 
     _예, 가능 합니다._
 
 * BYOS를 사용 하도록 설정한 경우 진단 서비스 저장소 계정을 사용 하 여 수집 된 데이터를 저장할 수 있나요? 

@@ -6,23 +6,24 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 474e8152341aeb5e05af1859e531810f2be31e7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4b62b591c408f663fd28d5077af924f785ee66c8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322808"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090412"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -33,7 +34,7 @@ ms.locfileid: "87322808"
 > 이 빠른 시작은 Azure Cosmos DB Java SDK v4 전용입니다. 자세한 내용은 Azure Cosmos DB Java SDK v4 [릴리스 정보](sql-api-sdk-java-v4.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [성능 팁](performance-tips-java-sdk-v4-sql.md) 및 Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요. 현재 v4 이전 버전을 사용 중인 경우 v4로 업그레이드하는 데 도움이 필요하면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md)을 참조하세요.
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. URI가 `https://localhost:8081`이고 키가 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`인 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 사용할 수도 있습니다.
 - [JDK(Java Development Kit) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). `JAVA_HOME` 환경 변수를 JDK가 설치된 폴더로 지정합니다.
@@ -42,15 +43,15 @@ ms.locfileid: "87322808"
 
 ## <a name="introductory-notes"></a>소개 정보
 
-*Cosmos DB 계정의 구조입니다.* API 또는 프로그래밍 언어와 관계없이 Cosmos DB *계정*에는 0개 이상의 *데이터베이스*가 포함되고, *DB(데이터베이스)* 에는 0개 이상의 *컨테이너*가 포함되고, *컨테이너*에는 0개 이상의 항목이 포함됩니다(아래 다이어그램 참조).
+*Cosmos DB 계정의 구조입니다.* API 또는 프로그래밍 언어와 관계없이 Cosmos DB *계정* 에는 0개 이상의 *데이터베이스* 가 포함되고, *DB(데이터베이스)* 에는 0개 이상의 *컨테이너* 가 포함되고, *컨테이너* 에는 0개 이상의 항목이 포함됩니다(아래 다이어그램 참조).
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 계정 엔터티" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 계정 엔터티" border="false":::
 
-데이터베이스, 컨테이너 및 항목은 [여기](databases-containers-items.md)서 자세히 알아볼 수 있습니다. 몇 가지 중요한 속성(예: *프로비저닝 처리량* 및 *파티션 키*)은 컨테이너 수준에서 정의됩니다. 
+데이터베이스, 컨테이너 및 항목은 [여기](account-databases-containers-items.md)서 자세히 알아볼 수 있습니다. 몇 가지 중요한 속성(예: *프로비저닝 처리량* 및 *파티션 키* )은 컨테이너 수준에서 정의됩니다. 
 
 프로비저닝된 처리량은 *RU(요청 단위)* 로 측정됩니다. 이는 화폐 가격을 포함하고 계정의 운영 비용에 대한 실질적인 결정 요소입니다. 프로비저닝된 처리량은 컨테이너 단위 또는 데이터베이스 단위 세분성에서 선택할 수 있지만 일반적으로 컨테이너 수준 처리량 사양이 선호됩니다. 처리량 프로비저닝은 [여기](set-throughput.md)서 자세히 알아볼 수 있습니다.
 
-항목이 Cosmos DB 컨테이너에 삽입되면 요청을 처리하기 위해 더 많은 스토리지와 컴퓨팅을 추가하여 데이터베이스를 수평으로 확장시킵니다. 스토리지 및 컴퓨팅 용량은 *파티션*이라는 별도의 단위로 추가되며, 각 문서를 파티션에 매핑하는 파티션 키로 하나의 필드를 문서에서 선택해야 합니다. 파티션을 관리하는 방법은 파티션 키 값의 범위에서 거의 동일한 조각이 각 파티션에 할당되는 것입니다. 따라서 비교적 임의로 또는 균일하게 분산되는 파티션 키를 선택하는 것이 좋습니다. 그렇지 않으면 일부 파티션에는 훨씬 더 많은 요청이 표시되고(*핫 파티션*), 다른 파티션에는 훨씬 더 적은 요청이 표시되므로(*콜드 파티션*) 이를 방지해야 합니다. 파티션 분할은 [여기](partitioning-overview.md)서 자세히 알아볼 수 있습니다.
+항목이 Cosmos DB 컨테이너에 삽입되면 요청을 처리하기 위해 더 많은 스토리지와 컴퓨팅을 추가하여 데이터베이스를 수평으로 확장시킵니다. 스토리지 및 컴퓨팅 용량은 *파티션* 이라는 별도의 단위로 추가되며, 각 문서를 파티션에 매핑하는 파티션 키로 하나의 필드를 문서에서 선택해야 합니다. 파티션을 관리하는 방법은 파티션 키 값의 범위에서 거의 동일한 조각이 각 파티션에 할당되는 것입니다. 따라서 비교적 임의로 또는 균일하게 분산되는 파티션 키를 선택하는 것이 좋습니다. 그렇지 않으면 일부 파티션에는 훨씬 더 많은 요청이 표시되고( *핫 파티션* ), 다른 파티션에는 훨씬 더 적은 요청이 표시되므로( *콜드 파티션* ) 이를 방지해야 합니다. 파티션 분할은 [여기](partitioning-overview.md)서 자세히 알아볼 수 있습니다.
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 

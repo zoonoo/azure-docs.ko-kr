@@ -5,20 +5,20 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: keferna
-author: keferna
-ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.author: trkeya
+author: trkeya
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287937"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461754"
 ---
 # <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
 Azure Marketplace 또는 AppSource에 대 한 제안이 있지만 Azure 리소스만 사용 하 여 테스트 드라이브를 빌드하려고 하는 경우이 유형을 사용 합니다. ARM (Azure Resource Manager) 템플릿은 솔루션을 가장 잘 나타내도록 설계 된 Azure 리소스의 코딩 된 컨테이너입니다. 테스트 드라이브는 제공 된 ARM 템플릿을 사용 하 여 필요한 모든 리소스를 리소스 그룹에 배포 합니다. 이는 가상 머신 또는 Azure 앱 제안에 대 한 유일한 테스트 드라이브 옵션입니다.
 
-ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) 을 읽고, [arm 템플릿의 구조와 구문을 이해](../azure-resource-manager/resource-group-authoring-templates.md) 하 여 고유한 템플릿을 빌드하고 테스트 하는 방법을 더 잘 이해 하세요.
+ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](../azure-resource-manager/management/overview.md) 을 읽고, [arm 템플릿의 구조와 구문을 이해](../azure-resource-manager/templates/template-syntax.md) 하 여 고유한 템플릿을 빌드하고 테스트 하는 방법을 더 잘 이해 하세요.
 
 **호스팅된** 또는 **논리 앱** 테스트 드라이브에 대 한 자세한 내용은 [테스트 드라이브인 무엇 인가요?](what-is-test-drive.md) 를 참조 하세요.
 
@@ -34,7 +34,10 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
   - **콜드** - 이 유형의 인스턴스는 지역별로 배포할 수 있는 총 인스턴스 수를 나타냅니다. 콜드 인스턴스는 고객이 시험 사용을 요청할 때 배포할 전체 시험 사용 Resource Manager 템플릿이 필요하므로 콜드 인스턴스의 로드 속도는 핫 인스턴스보다 훨씬 느립니다. 단점은 시험 사용 기간 동안 비용을 지불하는 것이고 핫 인스턴스와 같이 Azure 구독에서 항상 실행되는 것은 아닙니다.
 
-- **시험 사용 Azure Resource Manager 템플릿** – Azure Resource Manager 템플릿이 포함된 .zip 파일을 업로드합니다. 자세한 내용은 빠른 시작 문서 [Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)에서 Azure Resource Manager 템플릿을 만드는 방법을 참조하세요.
+- **시험 사용 Azure Resource Manager 템플릿** – Azure Resource Manager 템플릿이 포함된 .zip 파일을 업로드합니다. 자세한 내용은 빠른 시작 문서 [Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)에서 Azure Resource Manager 템플릿을 만드는 방법을 참조하세요.
+
+    > [!note]
+    > 성공적으로 게시 하려면 ARM 템플릿 서식의 유효성을 검사 하는 것이 중요 합니다. 이 작업을 수행 하는 두 가지 방법은 (1) [온라인 API 도구](/rest/api/resources/deployments/validate) 를 사용 하거나 (2) [테스트 배포](../azure-resource-manager/templates/deploy-portal.md)를 사용 하는 것입니다.
 
 - **시험 사용 기간**(필수) – 시험 사용이 활성 상태로 유지되는 기간(시간)을 입력합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다. 정수만 사용합니다(예: "2" 시간. "1.5"는 잘못됨).
 
@@ -73,7 +76,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 | 메타데이터 유형   | 매개 변수 유형  | 설명     | 샘플 값    |
 |---|---|---|---|
 | **baseuri**     | 문자열          | 배포 패키지의 기본 URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **이름**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
+| **username**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
 | **password**    | 보안 문자열    | 새 임의 암호 | Lp!ACS\^2kh     |
 | **세션 id**   | 문자열          | 고유 테스트 드라이브 세션 ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
@@ -122,7 +125,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 }
 ```
 
-샘플 값:`admin68876`
+샘플 값: `admin68876`
 
 솔루션에 임의 또는 상수 사용자 이름을 사용할 수 있습니다.
 
@@ -144,7 +147,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 }
 ```
 
-샘플 값:`Lp!ACS^2kh`
+샘플 값:  `Lp!ACS^2kh`
 
 솔루션에 임의 또는 상수 암호를 사용할 수 있습니다.
 
@@ -166,7 +169,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 }
 ```
 
-샘플 값:`b8c8693e-5673-449c-badd-257a405a6dee`
+샘플 값: `b8c8693e-5673-449c-badd-257a405a6dee`
 
 이 매개 변수를 사용 하 여 필요한 경우 테스트 드라이브 세션을 고유 하 게 식별할 수 있습니다.
 
@@ -237,7 +240,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 구독에서 선택한 각 지역에 원하는 모든 리소스를 배포할 수 있는지 확인 합니다. 또한 사용할 모든 지역에서 가상 머신 이미지를 사용할 수 있는지 확인 하세요. 그렇지 않으면 일부 지역에서 배포 템플릿이 작동 하지 않습니다.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>출력
 
 일반적으로 리소스 관리자 템플릿을 사용 하 여 출력을 생성 하지 않고 배포할 수 있습니다. 이는 템플릿 매개 변수를 채우는 데 사용하는 모든 값을 알고 있으며 항상 리소스의 속성을 수동으로 검사할 수 있기 때문입니다.
 
@@ -245,7 +248,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 템플릿 출력과 관련된 제한 사항은 없습니다. 시험 사용에서 모든 출력 값을 문자열로 변환 하므로 개체를 출력으로 보내면 사용자에 게 JSON 문자열이 표시 됩니다.
 
-예제:
+예:
 
 ```JSON
 "outputs": {
@@ -266,7 +269,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 ### <a name="subscription-limits"></a>구독 한도
 
-구독 및 서비스 제한에 대해 잊지 마세요. 예를 들어 최대 4 코어 가상 머신을 배포 하려는 경우 랩에 사용 하는 구독을 통해 40 코어를 사용할 수 있는지 확인 해야 합니다. Azure 구독 및 서비스 제한에 대 한 자세한 내용은 [azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요. 동시에 여러 테스트 드라이브를 사용할 수 있으므로 구독에서 사용할 수 있는 총 동시 테스트 드라이브 수를 곱한 코어 수를 처리할 수 있는지 확인 합니다.
+구독 및 서비스 제한에 대해 잊지 마세요. 예를 들어 최대 10 4 코어 가상 머신을 배포 하려는 경우 랩에 사용 하는 구독을 통해 40 코어를 사용할 수 있는지 확인 해야 합니다. Azure 구독 및 서비스 제한에 대 한 자세한 내용은 [azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요. 동시에 여러 테스트 드라이브를 사용할 수 있으므로 구독에서 사용할 수 있는 총 동시 테스트 드라이브 수를 곱한 코어 수를 처리할 수 있는지 확인 합니다.
 
 ### <a name="what-to-upload"></a>업로드할 사항
 
@@ -293,11 +296,11 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 ![테스트 드라이브 배포 구독 세부 정보](media/test-drive/deployment-subscription-details.png)
 
-1. **Azure 구독 ID**를 가져옵니다. Azure 서비스 및 Azure Portal 액세스 권한을 부여합니다. 해당 구독에서 리소스 사용량이 보고되며 서비스 대금이 청구됩니다. 테스트 드라이브만을 위한 별도의 Azure 구독을 보유 하 고 있지 않은 경우 하나를 만드세요. `1a83645ac-1234-5ab6-6789-1h234g764ghty1`Azure Portal에 로그인 하 고 왼쪽 탐색 메뉴에서 **구독** 을 선택 하 여 Azure 구독 id (예:)를 찾을 수 있습니다.
+1. **Azure 구독 ID** 를 가져옵니다. Azure 서비스 및 Azure Portal 액세스 권한을 부여합니다. 해당 구독에서 리소스 사용량이 보고되며 서비스 대금이 청구됩니다. 테스트 드라이브만을 위한 별도의 Azure 구독을 보유 하 고 있지 않은 경우 하나를 만드세요. `1a83645ac-1234-5ab6-6789-1h234g764ghty1`Azure Portal에 로그인 하 고 왼쪽 탐색 메뉴에서 **구독** 을 선택 하 여 Azure 구독 id (예:)를 찾을 수 있습니다.
 
    ![Azure 구독](media/test-drive/azure-subscriptions.png)
 
-2. **AZURE AD 테 넌 트 ID**를 가져옵니다. 사용 가능한 테 넌 트 id가 이미 있는 경우 **Azure Active Directory**  >  **속성**  >  **디렉터리 id**에서 찾을 수 있습니다.
+2. **AZURE AD 테 넌 트 ID** 를 가져옵니다. 사용 가능한 테 넌 트 id가 이미 있는 경우 **Azure Active Directory**  >  **속성**  >  **디렉터리 id** 에서 찾을 수 있습니다.
 
    ![Azure Active Directory 속성](media/test-drive/azure-active-directory-properties.png)
 
@@ -306,14 +309,14 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 3. **AZURE AD 앱 ID** – 새 응용 프로그램을 만들고 등록 합니다. 이 응용 프로그램을 사용 하 여 테스트 드라이브 인스턴스에서 작업을 수행 합니다.
 
    1. 새로 만든 디렉터리 또는 기존 디렉터리로 이동 하 고 필터 창에서 Azure Active Directory을 선택 합니다.
-   2. **앱 등록** 검색 하 고 **추가**를 선택 합니다.
+   2. **앱 등록** 검색 하 고 **추가** 를 선택 합니다.
    3. 애플리케이션 이름을 입력합니다.
    4. **웹 앱/** a p i의 **유형을** 선택 합니다.
    5. 로그온 URL에 값을 제공 합니다 .이 필드는 사용 되지 않습니다.
-   6. **만들기**를 선택합니다.
-   7. 응용 프로그램을 만든 후에는 **속성**을 선택 하  >  고**응용 프로그램을 다중 테 넌 트로 설정한** 다음 **저장**을 선택 합니다.
+   6. **만들기** 를 선택합니다.
+   7. 응용 프로그램을 만든 후에는 **속성** 을 선택 하  >  고 **응용 프로그램을 다중 테 넌 트로 설정한** 다음 **저장** 을 선택 합니다.
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
 5. 이 등록 된 앱의 응용 프로그램 ID를 복사 하 여 test drive 필드에 붙여넣습니다.
 
@@ -323,7 +326,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
    1. 테스트 드라이브에 사용할 **구독** 유형을 선택 합니다.
    1. **액세스 제어(IAM)** 를 선택합니다.
-   1. **역할** 할당 탭을 선택한 다음 **역할 할당 추가**를 선택 합니다.
+   1. **역할** 할당 탭을 선택한 다음 **역할 할당 추가** 를 선택 합니다.
 
       ![새 Access Control 보안 주체를 추가합니다.](media/test-drive/access-control-principal.jpg)
 
@@ -331,9 +334,9 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
       ![사용 권한을 추가합니다.](media/test-drive/access-control-permissions.jpg)
 
-   1. **저장**을 선택합니다.
+   1. **저장** 을 선택합니다.
 
-7. **Azure AD 앱** 인증 키를 생성 합니다. 키 **아래에서** **키 설명을**추가 하 고, 기간을 **만료 되지 않도록** 설정 합니다. 만료 된 키가 프로덕션에서 테스트 드라이브를 중단 하 고 **저장**을 선택 합니다. 이 값을 복사 하 여 필요한 테스트 드라이브 필드에 붙여넣습니다.
+7. **Azure AD 앱** 인증 키를 생성 합니다. 키 **아래에서** **키 설명을** 추가 하 고, 기간을 **만료 되지 않도록** 설정 합니다. 만료 된 키가 프로덕션에서 테스트 드라이브를 중단 하 고 **저장** 을 선택 합니다. 이 값을 복사 하 여 필요한 테스트 드라이브 필드에 붙여넣습니다.
 
 ![Azure AD 애플리케이션에 대한 키를 표시합니다.](media/test-drive/azure-ad-app-keys.png)
 
@@ -349,7 +352,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 고객에 대해 프로 비전 된 테스트 드라이브 인스턴스를 삭제 하지 마세요. 사용자가 작업을 완료 한 후에는 test drive 서비스에서 이러한 리소스 그룹을 자동으로 정리 합니다.
 
-미리 보기 기능을 사용 하는 데 익숙해지면 **실시간으로 이동할**수 있습니다. 전체 종단 간 환경을 두 번 확인 하는 최종 검토 프로세스가 있습니다. 제품을 거부 하는 경우 수정 해야 하는 사항을 설명 하는 제품에 대 한 엔지니어링 담당자에 게 전자 메일을 보냅니다.
+미리 보기 기능을 사용 하는 데 익숙해지면 **실시간으로 이동할** 수 있습니다. 전체 종단 간 환경을 두 번 확인 하는 최종 검토 프로세스가 있습니다. 제품을 거부 하는 경우 수정 해야 하는 사항을 설명 하는 제품에 대 한 엔지니어링 담당자에 게 전자 메일을 보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

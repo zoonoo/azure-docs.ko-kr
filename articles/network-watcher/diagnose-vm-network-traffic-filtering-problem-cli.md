@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: VM 네트워크 트래픽 필터 문제 진단 - Azure CLI'
 titleSuffix: Azure Network Watcher
-description: 이 빠른 시작에서는 Azure Network Watcher의 IP 흐름 확인 기능을 사용하여 가상 머신 네트워크 트래픽 필터 문제를 진단하는 방법에 대해 알아봅니다.
+description: Azure CLI를 사용하여 Azure Network Watcher의 IP 흐름 확인 기능을 통해 가상 머신 네트워크 트래픽 필터 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -18,32 +18,34 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9fcc26d17b9bb1d67d85a1775c4df191fe3524f0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd99fe0ea8a92ad05ad258dcf4d8da6e4685f263
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502055"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492559"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>빠른 시작: 가상 머신 네트워크 트래픽 필터 문제 진단 - Azure CLI
 
 이 빠른 시작에서 VM(가상 머신)을 배포한 다음, IP 주소와 URL 및 IP 주소에서 통신을 확인합니다. 통신 오류의 원인 및 해결 방법을 확인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI 버전을 확인한 후 `az login`을 실행하여 Azure와의 연결을 만듭니다. 이 빠른 시작에서 Azure CLI 명령은 Bash 셸에서 실행하도록 형식이 지정됩니다.
+- 이 빠른 시작에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. 
+
+- 이 빠른 시작에서 Azure CLI 명령은 Bash 셸에서 실행하도록 형식이 지정됩니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vm create](/cli/azure/vm)로 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 다음 예제에서는 *myVm*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 다음 예제에서는 *myVm* 이라는 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -88,7 +90,7 @@ az network watcher test-ip-flow \
   --out table
 ```
 
-몇 초 후 반환되는 결과는 액세스가 **AllowInternetOutbound**라는 보안 규칙을 통해 허용됨을 알립니다.
+몇 초 후 반환되는 결과는 액세스가 **AllowInternetOutbound** 라는 보안 규칙을 통해 허용됨을 알립니다.
 
 VM에서 172.31.0.100으로 아웃바운드 통신을 테스트합니다.
 
@@ -104,7 +106,7 @@ az network watcher test-ip-flow \
   --out table
 ```
 
-반환되는 결과는 액세스가 **DefaultOutboundDenyAll**이라는 보안 규칙을 통해 거부됨을 알립니다.
+반환되는 결과는 액세스가 **DefaultOutboundDenyAll** 이라는 보안 규칙을 통해 거부됨을 알립니다.
 
 172.31.0.100에서 VM으로 인바운드 통신을 테스트합니다.
 
@@ -120,7 +122,7 @@ az network watcher test-ip-flow \
   --out table
 ```
 
-반환되는 결과는 액세스가 **DefaultInboundDenyAll**이라는 보안 규칙으로 인해 거부됨을 알립니다. 이제 VM 간 트래픽을 허용하거나 거부하는 보안 규칙을 알고 있으므로 문제를 해결하는 방법을 결정할 수 있습니다.
+반환되는 결과는 액세스가 **DefaultInboundDenyAll** 이라는 보안 규칙으로 인해 거부됨을 알립니다. 이제 VM 간 트래픽을 허용하거나 거부하는 보안 규칙을 알고 있으므로 문제를 해결하는 방법을 결정할 수 있습니다.
 
 ## <a name="view-details-of-a-security-rule"></a>보안 규칙의 세부 정보 보기
 
@@ -134,7 +136,7 @@ az network nic list-effective-nsg \
 
 반환된 출력은 [IP 흐름 확인 사용](#use-ip-flow-verify)의 이전 단계에서 www.bing.com 에 대한 아웃바운드 액세스를 허용한 **AllowInternetOutbound** 규칙에 대한 다음 텍스트를 포함합니다.
 
-```
+```console
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -171,11 +173,11 @@ az network nic list-effective-nsg \
 },
 ```
 
-**destinationAddressPrefix**가 **인터넷**인 이전 출력에서 확인할 수 있습니다. 그러나 13.107.21.200이 **인터넷**과 어떻게 관련되어 있는지 분명하지 않습니다. **expandedDestinationAddressPrefix** 아래에 여러 가지 주소 접두사가 나열됩니다. 목록의 접두사 중 하나는 IP 주소의 12.0.0.1-15.255.255.254 범위를 포함하는 **12.0.0.0/6**입니다. 13.107.21.200은 해당 주소 범위에 있으므로 **AllowInternetOutBound** 규칙은 아웃바운드 트래픽을 허용합니다. 또한 이 규칙을 재정의하는 이전 출력에 표시된 더 높은 우선 순위(낮은 수) 규칙이 없습니다. IP 주소에 대한 아웃바운드 통신을 거부하려면 IP 주소에 대한 포트 80 아웃바운드를 거부하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
+**destinationAddressPrefix** 가 **인터넷** 인 이전 출력에서 확인할 수 있습니다. 그러나 13.107.21.200이 **인터넷** 과 어떻게 관련되어 있는지 분명하지 않습니다. **expandedDestinationAddressPrefix** 아래에 여러 가지 주소 접두사가 나열됩니다. 목록의 접두사 중 하나는 IP 주소의 12.0.0.1-15.255.255.254 범위를 포함하는 **12.0.0.0/6** 입니다. 13.107.21.200은 해당 주소 범위에 있으므로 **AllowInternetOutBound** 규칙은 아웃바운드 트래픽을 허용합니다. 또한 이 규칙을 재정의하는 이전 출력에 표시된 더 높은 우선 순위(낮은 수) 규칙이 없습니다. IP 주소에 대한 아웃바운드 통신을 거부하려면 IP 주소에 대한 포트 80 아웃바운드를 거부하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
 
 `az network watcher test-ip-flow` 명령을 실행하여 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 172.131.0.100에 대한 아웃바운드 통신을 테스트한 경우 출력은 **DefaultOutboundDenyAll** 규칙이 통신을 거부했음을 알렸습니다. **DefaultOutboundDenyAll** 규칙은 `az network nic list-effective-nsg` 명령에서 다음 출력에 나열된 **DenyAllOutBound** 규칙과 동일합니다.
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -204,11 +206,11 @@ az network nic list-effective-nsg \
 }
 ```
 
-규칙은 **destinationAddressPrefix**로 **0.0.0.0/0**을 나열합니다. 규칙은 주소가 `az network nic list-effective-nsg` 명령의 출력에서 다른 아웃바운드 규칙의 **destinationAddressPrefix** 내에 없기 때문에 172.131.0.100에 대한 아웃바운드 통신을 거부합니다. 아웃바운드 통신을 허용하려면 172.131.0.100에서 포트 80에 대한 아웃바운드 트래픽을 허용하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
+규칙은 **destinationAddressPrefix** 로 **0.0.0.0/0** 을 나열합니다. 규칙은 주소가 `az network nic list-effective-nsg` 명령의 출력에서 다른 아웃바운드 규칙의 **destinationAddressPrefix** 내에 없기 때문에 172.131.0.100에 대한 아웃바운드 통신을 거부합니다. 아웃바운드 통신을 허용하려면 172.131.0.100에서 포트 80에 대한 아웃바운드 트래픽을 허용하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
 
 `az network watcher test-ip-flow` 명령을 실행하여 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 172.131.0.100의 인바운드 통신을 테스트한 경우 출력은 **DefaultInboundDenyAll** 규칙이 통신을 거부했음을 알렸습니다. **DefaultInboundDenyAll** 규칙은 `az network nic list-effective-nsg` 명령에서 다음 출력에 나열된 **DenyAllInBound** 규칙과 동일합니다.
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -251,6 +253,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 VM을 만들고 인바운드 및 아웃바운드 네트워크 트래픽 필터를 진단했습니다. VM 간 트래픽을 허용하거나 거부하는 네트워크 보안 그룹 규칙을 배웠습니다. [보안 규칙](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 및 [보안 규칙을 만드는](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule) 방법에 대해 자세히 알아봅니다.
+이 빠른 시작에서는 VM을 만들고 인바운드 및 아웃바운드 네트워크 트래픽 필터를 진단했습니다. VM 간 트래픽을 허용하거나 거부하는 네트워크 보안 그룹 규칙을 배웠습니다. [보안 규칙](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 및 [보안 규칙을 만드는](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule) 방법에 대해 자세히 알아봅니다.
 
 적절한 네트워크 트래픽 필터가 준비되어 있더라도 라우팅 구성으로 인해 VM에 대한 통신이 여전히 실패할 수 있습니다. VM 네트워크 라우팅 문제를 진단하는 방법을 알아보려면 [VM 라우팅 문제 진단](diagnose-vm-network-routing-problem-cli.md)을 참조하거나 하나의 도구로 아웃바운드 라우팅, 대기 시간 및 트래픽 필터링 문제를 진단하려면 [연결 문제 해결](network-watcher-connectivity-cli.md)을 참조하세요.

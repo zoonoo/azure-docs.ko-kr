@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: bf249046a30e023a2d7b596fb6424c7005c2a875
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020312"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841940"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Azure 센티널에 대 한 azure 보안 기준
 
@@ -37,7 +37,7 @@ ms.locfileid: "90020312"
 
 - [Azure 센티널에서 감사를 사용 하도록 설정 하는 방법](resources.md)
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -163,11 +163,11 @@ ms.locfileid: "90020312"
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6: 관리 작업에는 안전한 Azure 관리 워크스테이션 사용
 
-**지침**: MFA (azure Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다. 
+**지침**: MFA (azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다. 
 
 - [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
+- [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -181,7 +181,7 @@ ms.locfileid: "90020312"
 
 - [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 탐지 이해](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -211,7 +211,7 @@ ms.locfileid: "90020312"
 
 **지침**: AD (Azure Active Directory)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다. 
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -227,7 +227,7 @@ Azure AD 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세�
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 내에서 원하는 로그 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure Sentinel을 온보딩하는 방법](quickstart-onboard.md)
 
@@ -239,7 +239,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 제어 평면의 계정 로그인 동작 편차 (예: Azure Portal)의 경우 Azure AD ID 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인 하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인 하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -267,7 +267,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -277,9 +277,9 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 개발, 테스트 및 프로덕션 센티널 작업 영역에 대 한 별도의 구독 및/또는 관리 그룹을 구현 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -325,7 +325,7 @@ Log Analytics 역할에 Log Analytics 참가자 및 Log Analytics 판독기가 �
 
 또한 각 센티널 통합 문서는 Azure 리소스 이며 액세스를 관리 하기 위해 사용자에 게 역할을 할당할 수 있습니다.
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 - [사용자 지정 역할 이해](../role-based-access-control/custom-roles.md)
 
@@ -341,7 +341,7 @@ Log Analytics 역할에 Log Analytics 참가자 및 Log Analytics 판독기가 �
 
 **지침**: Azure 센티널 및 Azure Monitor Log Analytics 작업 영역은 현재 미사용 데이터를 암호화 하기 위해 Microsoft에서 관리 하는 키를 사용 합니다. 사용자 고유의 키를 가져오는 기능은 아직 센티널에 대해 완전히 지원 되지 않지만 가까운 장래에 제공 될 예정입니다.
 
-- [Azure Monitor 고객 관리 키 개요](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview)
+- [Azure Monitor 고객 관리 키 개요](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Azure 센티널에서 고객이 관리 하는 키 이해 (미리 보기)](customer-managed-keys.md)
 
@@ -371,7 +371,7 @@ Log Analytics 역할에 Log Analytics 참가자 및 Log Analytics 판독기가 �
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -383,7 +383,7 @@ Log Analytics 역할에 Log Analytics 참가자 및 Log Analytics 판독기가 �
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -398,11 +398,11 @@ Log Analytics 역할에 Log Analytics 참가자 및 Log Analytics 판독기가 �
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -431,7 +431,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -455,7 +455,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Azure Policy를 사용 하 여 사용자의 센티널 작업 영역에 연결 된 Log Analytics 작업 영역에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "OperationalInsights" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Log Analytics 작업 영역의 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -479,9 +479,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 사용자 지정 Azure 정책 정의를 사용하는 경우 Azure DevOps 또는 Azure Repos를 사용하여 코드를 안전하게 저장하고 관리합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -513,9 +513,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [데이터 원본에 대 한 센티널 연결](connect-data-sources.md)
 
-- [Key Vault를 만드는 방법](/azure/key-vault/quick-create-portal) 
+- [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md) 
 
-- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](/azure/key-vault/managed-identity)
+- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -551,13 +551,13 @@ Log Analytics 작업 영역을 포함 하 여 비 계산 Azure 리소스에 업�
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
-**지침**: Key Vault에서 일시 삭제를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호 합니다. 사용자가 키 암호화 키를 삭제하거나 1시간 이내에 Azure Sentinel에 대한 액세스 권한을 제거하여 키 암호화 키를 해지하는 경우 Azure Sentinel은 변경 내용을 적용하여 데이터를 더 이상 사용할 수 없는 것처럼 동작합니다. 이 시점에서는 데이터 수집, 영구 구성 변경 및 인시던트 생성과 같은 영구 스토리지 리소스를 사용하는 모든 작업을 수행할 수 없습니다. 이전에 저장된 데이터는 삭제되지 않지만 액세스할 수 없는 상태가 됩니다. 액세스할 수 없는 데이터는 데이터 보존 정책에 의해 제어되며 해당 정책에 따라 제거됩니다.
+**지침**: 실수로 인 한 삭제 또는 악의적인 삭제 로부터 키를 보호 하기 위해 Key Vault에서 Soft-Delete를 사용 하도록 설정 합니다. 사용자가 키 암호화 키를 삭제하거나 1시간 이내에 Azure Sentinel에 대한 액세스 권한을 제거하여 키 암호화 키를 해지하는 경우 Azure Sentinel은 변경 내용을 적용하여 데이터를 더 이상 사용할 수 없는 것처럼 동작합니다. 이 시점에서는 데이터 수집, 영구 구성 변경 및 인시던트 생성과 같은 영구 스토리지 리소스를 사용하는 모든 작업을 수행할 수 없습니다. 이전에 저장된 데이터는 삭제되지 않지만 액세스할 수 없는 상태가 됩니다. 액세스할 수 없는 데이터는 데이터 보존 정책에 의해 제어되며 해당 정책에 따라 제거됩니다.
 
 암호화 키가 해지되거나 삭제된 후에는 계정 삭제 작업만 수행할 수 있습니다.
 
 해지 후 액세스가 복원되는 경우 Azure Sentinel은 1시간 이내에 데이터에 대한 액세스를 복원합니다.
 
-- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Azure 센티널에서 고객이 관리 하는 키 이해](customer-managed-keys.md)
 
@@ -645,7 +645,7 @@ Log Analytics 작업 영역을 포함 하 여 비 계산 Azure 리소스에 업�
 
 **지침**: Engagement의 Microsoft 클라우드 침투 테스트 규칙에 따라 침투 테스트가 Microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다. 
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
@@ -655,5 +655,5 @@ Log Analytics 작업 영역을 포함 하 여 비 계산 Azure 리소스에 업�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

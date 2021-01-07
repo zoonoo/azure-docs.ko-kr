@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081919"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
@@ -40,19 +40,12 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 3. Kudu 콘솔 내에서 **디버그 콘솔**을 선택한 다음, **CMD**를 선택합니다.
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu 디버그 콘솔":::
-
-3. 함수 앱의 파일 디렉터리 구조가 표시되어야 합니다. `site/wwwroot` 폴더로 이동합니다. 여기에서 `package.json` 파일을 파일 디렉터리 창에 끌어서 놓아 업로드할 수 있습니다. 샘플 `package.json`은 다음과 같습니다.
-
-    ```json
-    {
-      "dependencies": {
-        "durable-functions": "^1.3.1"
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Functions 플랫폼 기능에서 Kudu 선택"
       }
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu 업로드 package.json":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Functions 플랫폼 기능에서 Kudu 선택":::
 
 4. `package.json`이 업로드되면 Kudu 원격 실행 콘솔에서 `npm install` 명령을 실행합니다.
 
@@ -64,7 +57,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 1. **새 함수** 페이지의 검색 필드에 `durable`을 입력한 다음, **Durable Functions HTTP 시작** 템플릿을 선택합니다.
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Durable Functions HTTP 시작 선택":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Functions 플랫폼 기능에서 Kudu 선택":::
 
 1. **새 함수** 이름에 `HttpStart`를 입력한 다음, **함수 만들기**를 선택합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 116ee7c8db3070a667c21a052bec739fd397a2dd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a4bfe2b87f3f2242189a78d9a31a89d82720fd37
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825565"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862074"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>자습서: Maverics Identity Orchestrator SAML Connector와 Azure AD Single Sign-On 통합
 
@@ -36,7 +36,7 @@ Strata는 온-프레미스 또는 클라우드에 배포할 수 있는 소프트
 4. Azure Key Vault를 설정하고, Azure Key Vault를 비밀 관리 공급자로 사용하도록 Maverics를 구성합니다.
 5. 온-프레미스 Java 웹 애플리케이션에 대한 액세스를 제공하도록 Maverics를 사용하여 사용자 마이그레이션 및 세션 추상화를 수행하는 방법을 보여줍니다.
 
-설치 및 구성과 관련된 추가 지침은 [Strata 웹 사이트](https://strata.io/docs)에서 참조하세요.
+설치 및 구성과 관련된 추가 지침은 [Strata 웹 사이트](https://www.strata.io)에서 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -45,7 +45,7 @@ Strata는 온-프레미스 또는 클라우드에 배포할 수 있는 소프트
 
 ## <a name="install-maverics-identity-orchestrator"></a>Maverics Identity Orchestrator 설치
 
-Maverics Identity Orchestrator 설치를 시작하려면 [설치 지침](https://strata.io/docs)을 참조하세요.
+Maverics Identity Orchestrator 설치를 시작하려면 [설치 지침](https://www.strata.io)을 참조하세요.
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 * 지원되는 운영 체제
@@ -158,14 +158,14 @@ Azure Key Vault는 Azure Portal 또는 Azure CLI를 사용하여 설정할 수 �
 
 **Azure Portal 사용**
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. [새 키 자격 증명 모음을 만듭니다.](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault)
-1. [키 자격 증명 모음에 비밀을 추가합니다.](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)
-1. [Azure AD에 애플리케이션을 등록합니다](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-1. [비밀을 사용하도록 애플리케이션에 권한을 부여합니다](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
+1. [새 키 자격 증명 모음을 만듭니다.](../../key-vault/general/quick-create-portal.md)
+1. [키 자격 증명 모음에 비밀을 추가합니다.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
+1. [Azure AD에 애플리케이션을 등록합니다](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. [비밀을 사용하도록 애플리케이션에 권한을 부여합니다](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 **Azure CLI 사용**
 
-1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 열고 다음 명령을 입력합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli)를 열고 다음 명령을 입력합니다.
 
     ```shell
     az login
@@ -201,25 +201,25 @@ Azure Key Vault는 Azure Portal 또는 Azure CLI를 사용하여 설정할 수 �
 
 ## <a name="configure-your-application-in-azure-ad-for-saml-based-sso"></a>Azure AD에서 SAML 기반 SSO를 사용하도록 애플리케이션 구성
 
-1. Azure AD 테넌트에서 **엔터프라이즈 애플리케이션**으로 이동하여 **Maverics Identity Orchestrator SAML Connector**를 검색한 다음, 선택합니다.
+1. Azure AD 테넌트에서 **엔터프라이즈 애플리케이션** 으로 이동하여 **Maverics Identity Orchestrator SAML Connector** 를 검색한 다음, 선택합니다.
 
-1. Maverics Identity Orchestrator SAML Connector **속성** 창에서 **사용자 할당이 필요합니까?** 를 **아니요**로 설정하여 애플리케이션이 새로 마이그레이션된 사용자에 대해 작동하도록 설정합니다.
+1. Maverics Identity Orchestrator SAML Connector **속성** 창에서 **사용자 할당이 필요합니까?** 를 **아니요** 로 설정하여 애플리케이션이 새로 마이그레이션된 사용자에 대해 작동하도록 설정합니다.
 
-1. Maverics Identity Orchestrator SAML Connector **개요** 창에서 **Single Sign-On 설정**을 선택하고 **SAML**을 선택합니다.
+1. Maverics Identity Orchestrator SAML Connector **개요** 창에서 **Single Sign-On 설정** 을 선택하고 **SAML** 을 선택합니다.
 
-1. Maverics Identity Orchestrator SAML Connector **SAML 기반 로그온** 창에서 **편집**(연필 아이콘) 단추를 선택하여 **기본 SAML 구성**을 편집합니다.
+1. Maverics Identity Orchestrator SAML Connector **SAML 기반 로그온** 창에서 **편집**(연필 아이콘) 단추를 선택하여 **기본 SAML 구성** 을 편집합니다.
 
    !["기본 SAML 구성" 편집 단추 스크린샷](common/edit-urls.png)
 
-1. 다음 형식으로 URL을 입력하여 **엔터티 ID**를 입력합니다. `https://<SUBDOMAIN>.maverics.org` 엔터티 ID는 테넌트의 앱에서 고유해야 합니다. Maverics의 구성에 포함되도록 여기에 입력된 값을 저장합니다.
+1. 다음 형식으로 URL을 입력하여 **엔터티 ID** 를 입력합니다. `https://<SUBDOMAIN>.maverics.org` 엔터티 ID는 테넌트의 앱에서 고유해야 합니다. Maverics의 구성에 포함되도록 여기에 입력된 값을 저장합니다.
 
-1. **회신 URL**을 다음과 같은 형식으로 입력합니다. `https://<AZURECOMPANY.COM>/<MY_APP>/` 
+1. **회신 URL** 을 다음과 같은 형식으로 입력합니다. `https://<AZURECOMPANY.COM>/<MY_APP>/` 
 
-1. **로그온 URL**을 다음과 같은 형식으로 입력합니다. `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>` 
+1. **로그온 URL** 을 다음과 같은 형식으로 입력합니다. `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>` 
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
-1. **SAML 서명 인증서** 섹션에서, **복사** 단추를 선택하여 **앱 페더레이션 메타데이터 URL**을 복사한 다음, 컴퓨터에 저장합니다.
+1. **SAML 서명 인증서** 섹션에서, **복사** 단추를 선택하여 **앱 페더레이션 메타데이터 URL** 을 복사한 다음, 컴퓨터에 저장합니다.
 
     !["SAML 서명 인증서" 복사 단추 스크린샷](common/copy-metadataurl.png)
 
@@ -281,17 +281,17 @@ Maverics Identity Orchestrator Azure AD Connector 구성은 다음과 같습니�
 
 1. **Maverics Identity Orchestrator SAML Connector | 인증서 및 비밀** 창에서 `New client secret`을 선택한 다음, 만료 옵션을 선택합니다. **복사** 단추를 선택하고 비밀을 복사하여 컴퓨터에 저장합니다.
 
-1. **Maverics Identity Orchestrator SAML Connector | 사용 권한** 창에서 **권한 추가**를 선택한 다음, **API 사용 권한 요청** 창에서 **Microsoft Graph** 및 **애플리케이션 권한**을 선택합니다. 
+1. **Maverics Identity Orchestrator SAML Connector | 사용 권한** 창에서 **권한 추가** 를 선택한 다음, **API 사용 권한 요청** 창에서 **Microsoft Graph** 및 **애플리케이션 권한** 을 선택합니다. 
 
-1. 다음 화면에서 **User.ReadWrite.All**을 선택하고 **권한 추가**를 선택합니다. 
+1. 다음 화면에서 **User.ReadWrite.All** 을 선택하고 **권한 추가** 를 선택합니다. 
 
-1. **API 권한** 창으로 돌아가서 **관리자 동의 허용**을 선택합니다.
+1. **API 권한** 창으로 돌아가서 **관리자 동의 허용** 을 선택합니다.
 
 ### <a name="configure-the-maverics-identity-orchestrator-saml-connector-yaml-file-for-user-migration"></a>사용자 마이그레이션을 위해 Maverics Identity Orchestrator SAML Connector YAML 구성
 
 사용자 마이그레이션 워크플로를 사용하도록 설정하려면 구성 파일에 다음 속성을 추가합니다.
-1. **Azure Graph URL**을 다음과 같은 형식으로 입력합니다. `graphURL: https://graph.microsoft.com`
-1. **OAuth 토큰 URL**을 다음과 같은 형식으로 입력합니다. `oauthTokenURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>`
+1. **Azure Graph URL** 을 다음과 같은 형식으로 입력합니다. `graphURL: https://graph.microsoft.com`
+1. **OAuth 토큰 URL** 을 다음과 같은 형식으로 입력합니다. `oauthTokenURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>`
 1. 이전에 생성된 클라이언트 암호를 다음과 같은 형식으로 입력합니다. `oauthClientSecret: <CLIENT SECRET>`
 
 
@@ -418,7 +418,7 @@ connectors:
 
 1. 프록시 설정된 로그인 URL `http://host.company.com/my_app`으로 이동합니다.
 1. SiteMinder로 보호되는 동안 애플리케이션에 로그인하는 데 사용되는 사용자 자격 증명을 입력합니다.
-4. **홈** > **사용자 | 모든 사용자**로 이동하여 Azure AD 테넌트에 사용자가 만들어졌는지 확인합니다.  
+4. **홈** > **사용자 | 모든 사용자** 로 이동하여 Azure AD 테넌트에 사용자가 만들어졌는지 확인합니다.  
 
 ### <a name="configure-the-session-abstraction-workflow"></a>세션 추상화 워크플로 구성
 

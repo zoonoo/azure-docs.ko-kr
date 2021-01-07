@@ -1,17 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1 성능 튜닝
 description: 가능한 한 많은 읽기와 쓰기를 병렬로 수행 하 여 최상의 성능을 얻기 위해서는 Azure Data Lake Storage Gen1에서 사용 가능한 모든 처리량을 사용 하는 것이 중요 합니다.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: stewu
-ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: twooley
+ms.openlocfilehash: c7f16dd9ea450185893164e10928c7022d6ab5a6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190237"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724683"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>성능에 대 한 Azure Data Lake Storage Gen1 조정
 
@@ -25,7 +25,7 @@ Data Lake Storage Gen1은 모든 분석 시나리오에 필요한 처리량을 �
 
 원본 시스템의 데이터를 Data Lake Storage Gen1 수집 때 원본 하드웨어, 원본 네트워크 하드웨어 및 Data Lake Storage Gen1에 대 한 네트워크 연결이 병목 상태가 될 수 있다는 것을 고려 하는 것이 중요 합니다.
 
-![Data Lake Storage Gen1 성능](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![원본 하드웨어, 원본 네트워크 하드웨어 및 Data Lake Storage Gen1에 대 한 네트워크 연결이 병목이 될 수 있음을 보여 주는 다이어그램입니다.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 데이터 이동이 이러한 요인의 영향을 받지 않는지 확인 하는 것이 중요 합니다.
 
@@ -39,15 +39,15 @@ Azure에서 온-프레미스 컴퓨터 또는 Vm을 사용 하 고 있는지 여
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>최대 병렬 처리를 위한 데이터 수집 도구 구성
 
-원본 하드웨어 및 네트워크 연결 병목 상태를 해결 한 후 수집 도구를 구성할 준비가 되었습니다. 다음 표에는 몇 가지 일반적인 수집 도구에 대한 주요 설정이 요약되어 있으며, 각 도구에 대한 심층 분석 성능 튜닝 문서가 제공됩니다. 시나리오에 사용할 도구에 대한 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios)를 참조하세요.
+원본 하드웨어 및 네트워크 연결 병목 상태를 해결 한 후 수집 도구를 구성할 준비가 되었습니다. 다음 표에는 몇 가지 일반적인 수집 도구에 대한 주요 설정이 요약되어 있으며, 각 도구에 대한 심층 분석 성능 튜닝 문서가 제공됩니다. 시나리오에 사용할 도구에 대한 자세한 내용은 이 [문서](./data-lake-store-data-scenarios.md)를 참조하세요.
 
 | 도구          | 설정 | 자세한 정보                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [링크](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Azure Data Lake Analytics 단위 | [링크](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m(mapper) | [링크](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [링크](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Azure Data Lake Analytics 단위 | [링크](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m(mapper) | [링크](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure 데이터 팩터리| parallelCopies | [링크](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m(mapper) | [링크](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m(mapper) | [링크](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>데이터 집합 구성
 
@@ -69,7 +69,7 @@ Hive 및 ADLA 워크 로드의 경우 시계열 데이터의 파티션 정리를
 
 datetime 정보가 폴더 및 파일 이름 둘 다에 나타납니다.
 
-날짜 및 시간에 대 한 일반적인 패턴은 *\dataset\yyyy\mm\dd\hh\mm\ datafile_YYYY_MM_DD_HH_mm. tsv*입니다.
+날짜 및 시간에 대 한 일반적인 패턴은 *\dataset\yyyy\mm\dd\hh\mm\ datafile_YYYY_MM_DD_HH_mm. tsv* 입니다.
 
 앞에서 설명했듯이, 더 큰 파일 크기와 각 폴더에 포함된 적절한 파일 수의 요건에 맞는 폴더 및 파일 구성을 선택해야 합니다.
 
@@ -100,7 +100,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **더 많은 노드 및/또는 더 큰 VM으로 클러스터를 실행합니다.** 더 큰 클러스터를 사용하면 아래 그림과 같이 더 많은 YARN 컨테이너를 실행할 수 있습니다.
 
-![Data Lake Storage Gen1 성능](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![YARN 컨테이너를 더 많이 사용 하는 방법을 보여 주는 다이어그램입니다.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **더 많은 네트워크 대역폭을 가진 VM을 사용합니다.** 네트워크 대역폭이 Data Lake Storage Gen1 처리량보다 작을 경우 네트워크 대역폭 크기로 인해 병목 상태가 발생할 수 있습니다. VM마다 각기 다른 네트워크 대역폭 크기를 갖게 됩니다. 가능한 가장 큰 네트워크 대역폭을 가진 VM 유형을 선택합니다.
 
@@ -108,7 +108,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **더 작은 YARN 컨테이너를 사용합니다.** 각 YARN 컨테이너의 크기를 줄여 동일한 리소스 양으로 더 많은 컨테이너를 만듭니다.
 
-![Data Lake Storage Gen1 성능](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![더 작은 YARN 컨테이너를 사용 하는 방법을 보여 주는 다이어그램입니다.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 워크로드에 따라 항상 필요한 최소 YARN 컨테이너 크기가 있습니다. 너무 작은 컨테이너를 선택하면 작업에서 메모리 부족 문제가 발생합니다. 일반적으로 YARN 컨테이너는 1gb 보다 작아야 합니다. 3gb YARN 컨테이너를 확인 하는 것이 일반적입니다. 일부 워크로드의 경우 더 큰 YARN 컨테이너가 필요할 수도 있습니다.
 
@@ -118,20 +118,20 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **사용 가능한 모든 컨테이너를 이용합니다.** 모든 리소스가 사용 되도록 작업 수를 사용 가능한 컨테이너 수와 동일 하거나 더 크게 설정 합니다.
 
-![Data Lake Storage Gen1 성능](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![사용 가능한 모든 컨테이너를 사용 하는 방법을 보여 주는 다이어그램입니다.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **실패한 태스크는 비용이 많이 듭니다.** 각 태스크에서 많은 양의 데이터를 처리하는 경우 태스크 실패 시 다시 시도하는 데 많은 비용이 듭니다. 따라서 각각 적은 양의 데이터를 처리 하는 더 많은 작업을 만드는 것이 좋습니다.
 
 위의 일반적인 지침 외에도 각 애플리케이션마다 특정 애플리케이션에 대해 튜닝할 수 있는 다른 매개 변수가 있습니다. 아래 표에는 각 애플리케이션에 대한 성능 튜닝을 시작하기 위한 몇 가지 매개 변수 및 링크가 나와 있습니다.
 
-| 워크로드               | 작업을 설정하는 매개 변수                                                         |
+| 작업               | 작업을 설정하는 매개 변수                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
 | [HDInsight의 Spark](data-lake-store-performance-tuning-spark.md)  | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [HDInsight의 Hive](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
 | [HDInsight의 MapReduce](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-store-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

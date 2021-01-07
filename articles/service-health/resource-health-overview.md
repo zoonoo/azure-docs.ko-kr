@@ -4,10 +4,10 @@ description: Azure Resource Health 사용 하 여 Azure 리소스에 영향을 �
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967879"
 ---
 # <a name="resource-health-overview"></a>Resource Health 개요
@@ -80,7 +80,7 @@ Resource Health의 **상태 기록** 섹션에서 최대 30 일 동안의 기록
 
 ![지난 2주 동안의 Resource Health 이벤트 목록](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 하나의 리소스에 대한 Resource Health를 열려면:
 

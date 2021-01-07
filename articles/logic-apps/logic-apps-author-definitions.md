@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060659"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014400"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 워크플로 정의를 위한 JSON 만들기, 편집 또는 확장
 
@@ -30,10 +30,10 @@ JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studi
 
 1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
+2. 왼쪽 메뉴에서 **모든 서비스** 를 선택합니다.
 검색 상자에서 “논리 앱”을 찾은 다음, 결과에서 사용자의 논리 앱을 선택합니다.
 
-3. 논리 앱 메뉴의 **개발 도구**에서 **Logic Apps 코드 보기**를 선택합니다.
+3. 논리 앱 메뉴의 **개발 도구** 에서 **Logic Apps 코드 보기** 를 선택합니다.
 
    코드 보기 편집기가 열리고 논리 앱 정의가 JSON 형식으로 표시됩니다.
 
@@ -46,28 +46,28 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 
 1. Visual Studio 솔루션 또는 논리 앱이 포함된 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 프로젝트를 엽니다.
 
-2. 기본적으로 [Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)에 표시되는 **LogicApp.json**이라 명명된 논리 앱의 정의를 찾아서 엽니다.
+2. 기본적으로 [Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)에 표시되는 **LogicApp.json** 이라 명명된 논리 앱의 정의를 찾아서 엽니다.
 배포를 위해 이 템플릿을 다른 환경으로 사용 및 사용자 지정할 수 있습니다.
 
 3. 논리 앱 정의 및 템플릿에 대한 바로 가기 메뉴를 엽니다.
-**Logic Apps 디자이너를 사용하여 열기**를 선택합니다.
+**Logic Apps 디자이너를 사용하여 열기** 를 선택합니다.
 
    ![Visual Studio 솔루션에서 논리 앱 열기](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
    > [!TIP]
    > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.
 
-4. 디자이너의 맨 아래에서 **코드 보기**를 선택합니다.
+4. 디자이너의 맨 아래에서 **코드 보기** 를 선택합니다.
 
    코드 보기 편집기가 열리고 논리 앱 정의가 JSON 형식으로 표시됩니다.
 
-5. 디자이너 보기로 돌아가려면 코드 보기 편집기의 맨 아래에서 **디자인**을 선택합니다.
+5. 디자이너 보기로 돌아가려면 코드 보기 편집기의 맨 아래에서 **디자인** 을 선택합니다.
 
 ## <a name="parameters"></a>매개 변수
 
 배포 수명 주기는 일반적으로 개발, 테스트, 스테이징 및 프로덕션에 대해 서로 다른 환경을 포함 합니다. 하드 코딩 하지 않고 논리 앱 전체에서 다시 사용 하거나 배포 요구 사항에 따라 달라 지는 값이 있는 경우 논리 앱 배포를 자동화할 수 있도록 워크플로 정의에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/management/overview.md) 만들 수 있습니다.
 
-이러한 값에 대 한 매개 변수를 매개 *변수화*하거나 정의 하 고 사용 하는 일반적인 단계를 수행 합니다. 그런 다음 해당 값을 템플릿에 전달 하는 별도의 매개 변수 파일에 값을 제공할 수 있습니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
+이러한 값에 대 한 매개 변수를 매개 *변수화* 하거나 정의 하 고 사용 하는 일반적인 단계를 수행 합니다. 그런 다음 해당 값을 템플릿에 전달 하는 별도의 매개 변수 파일에 값을 제공할 수 있습니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
 
 1. 템플릿에서 각각 배포 및 런타임에 사용할 값을 허용 하기 위한 템플릿 매개 변수 및 워크플로 정의 매개 변수를 정의 합니다.
 
@@ -221,7 +221,7 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다.
 
 ## <a name="get-data-with-date-functions"></a>Date 함수로 데이터 가져오기
 
-*트리거*를 기본적으로 지원하지 않는 데이터 소스에서 데이터를 가져오려면, 시간과 날짜를 대신 처리하기 위해 Date 함수를 사용합니다.
+*트리거* 를 기본적으로 지원하지 않는 데이터 소스에서 데이터를 가져오려면, 시간과 날짜를 대신 처리하기 위해 Date 함수를 사용합니다.
 예를 들어 이 식은 내부에서 외부로 작업하면서 워크플로 단계가 얼마나 소요되는지를 구합니다.
 
 ``` json

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906344"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511987"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Security Center를 사용 하 여 Windows 관리 센터 리소스 보호
 
@@ -29,7 +29,7 @@ Windows 관리 센터에서 Azure Security Center 서버를 성공적으로 등�
 * Windows 관리 센터의 Security Center 확장 내에서 보안 경고 및 권장 사항 보기
 * 보안 상태를 확인 하 고 Azure Portal 내 Security Center에서 또는 API를 통해 Windows 관리 센터 관리 서버에 대 한 추가 세부 정보를 검색 합니다.
 
-이러한 두 도구를 결합 하 여 Security Center 모든 보안 정보를 볼 수 있는 단일 창이 유리 합니다. Windows 관리 센터에서 관리 되는 온-프레미스 서버, Vm 및 추가 PaaS 워크 로드를 보호 합니다.
+이러한 두 도구 Security Center를 결합 하 여 모든 보안 정보를 볼 수 있는 단일 창이 유리 합니다. 즉, Windows 관리 센터에서 관리 되는 온-프레미스 서버, Vm 및 추가 PaaS 워크 로드를 보호 하는 모든 보안 정보를 볼 수 있습니다.
 
 ## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>Security Center로 Windows 관리 센터 관리 서버를 등록 합니다.
 
@@ -40,7 +40,7 @@ Windows 관리 센터에서 Azure Security Center 서버를 성공적으로 등�
     > [!NOTE]
     > 서버가 이미 Security Center 등록 되 면 설정 창이 표시 되지 않습니다.
 
-1. **Azure에 로그인 및 설정**을 클릭 합니다.
+1. **Azure에 로그인 및 설정** 을 클릭 합니다.
     ![Azure Security Center에 대 한 Windows 관리 센터 확장 온 보 딩](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
 
 1. 지침에 따라 Security Center에 서버를 연결 합니다. 필요한 세부 정보를 입력 하 고 확인 한 후에는 필요한 구성 변경을 수행 하 여 다음 모두에 해당 하는지 확인 Security Center 합니다.
@@ -65,6 +65,6 @@ Azure Security Center에서:
 
 * 모든 Windows 관리 센터 서버에 대 한 보안 권장 사항을 보려면 [자산 인벤토리](asset-inventory.md) 를 열고 조사 하려는 컴퓨터 유형으로 필터링 합니다. **vm 및 컴퓨터** 탭을 선택 합니다.
 
-* 모든 Windows 관리 센터 서버에 대 한 보안 경고를 보려면 **보안 경고**를 엽니다. **필터** 를 클릭 하 여 "비 Azure" **만** 선택 되어 있는지 확인 합니다.
+* 모든 Windows 관리 센터 서버에 대 한 보안 경고를 보려면 **보안 경고** 를 엽니다. **필터** 를 클릭 하 여 "비 Azure" **만** 선택 되어 있는지 확인 합니다.
 
     :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Windows 관리 센터 관리 서버에 대 한 보안 경고 필터링" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2cfa21bc5223af058d412bf3f17f53cb151fc5c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297640"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91707764"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -39,7 +39,7 @@ ms.locfileid: "89297640"
 1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 1. 에서 Media Services 계정으로 이동 하 고 **모니터**에서 **진단 설정** 을 클릭 합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다.
 
-    ![진단 설정 섹션](media/media-services-diagnostic-logs/logs01.png)
+    ![모니터링 섹션에서 진단 설정을 강조 표시 하는 스크린샷](media/media-services-diagnostic-logs/logs01.png)
 
 1. **진단 설정 추가**를 클릭합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "89297640"
 
    ![진단 설정 섹션](media/media-services-diagnostic-logs/logs02.png)
 1. **보존 기간(일)** 슬라이더를 30으로 설정합니다. 이 슬라이더는 스토리지 계정에 모니터링 데이터를 보존할 일 수를 설정합니다. Azure Monitor는 지정된 일 수보다 오래된 데이터를 자동으로 삭제합니다. 보존 기간을 0일로 설정하면 데이터를 무기한 저장합니다.
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 이제 리소스의 모니터링 데이터가 스토리지 계정으로 이동합니다.
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -181,7 +181,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md)
 * [진단 로그 Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)

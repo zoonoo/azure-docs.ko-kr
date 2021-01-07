@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
-ms.author: matjazl
-ms.openlocfilehash: 4b2772b449b3c398c8c8932db58b7078b7501824
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.author: cavoeg
+ms.openlocfilehash: 2cb50f2ae98dab1e64e01498e0913d1932e455cd
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852007"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339410"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure API for FHIR 배포
 
@@ -68,7 +68,10 @@ Remove-AzResourceGroup -Name myResourceGroupName
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작 가이드에서는 Azure API for FHIR을 구독에 배포했습니다. Azure API for FHIR에서 추가 설정을 설정하려면 추가 설정 방법 가이드로 이동합니다.
+이 빠른 시작 가이드에서는 Azure API for FHIR을 구독에 배포했습니다. Azure API for FHIR에서 추가 설정을 설정하려면 추가 설정 방법 가이드로 이동합니다. Azure API for FHIR 사용을 시작할 준비가 되면 애플리케이션을 등록하는 방법에 대해 자세히 읽어보세요.
 
 >[!div class="nextstepaction"]
 >[Azure API for FHIR의 추가 설정](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[애플리케이션 등록 개요](fhir-app-registration.md)

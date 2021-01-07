@@ -1,18 +1,20 @@
 ---
 title: 템플릿의 출력
-description: Azure Resource Manager 템플릿에서 출력 값을 정의 하는 방법을 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 11/24/2020
+ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460027"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934733"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 출력
+# <a name="outputs-in-arm-templates"></a>ARM 템플릿의 출력
 
-이 문서에서는 Azure Resource Manager 템플릿에서 출력 값을 정의 하는 방법을 설명 합니다. 배포 된 리소스에서 값을 반환 해야 하는 경우 출력을 사용 합니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 출력 값을 정의 하는 방법을 설명 합니다. 배포 된 리소스에서 값을 반환 해야 하는 경우 출력을 사용 합니다.
+
+각 출력 값의 형식은 [데이터 형식](template-syntax.md#data-types)중 하 나와 일치 해야 합니다.
 
 ## <a name="define-output-values"></a>출력 값 정의
 
@@ -45,7 +47,7 @@ ms.locfileid: "79460027"
 
 ## <a name="dynamic-number-of-outputs"></a>동적 출력 수
 
-일부 시나리오에서는 템플릿을 만들 때 반환 해야 하는 값의 인스턴스 수를 알 수 없습니다. **Copy** 요소를 사용 하 여 변수 수의 값을 반환할 수 있습니다.
+일부 시나리오에서는 템플릿을 만들 때 반환 해야 하는 값의 인스턴스 수를 알 수 없습니다. 요소를 사용 하 여 변수 수의 값을 반환할 수 있습니다 `copy` .
 
 ```json
 "outputs": {
@@ -59,7 +61,7 @@ ms.locfileid: "79460027"
 }
 ```
 
-자세한 내용은 [Azure Resource Manager 템플릿에서 출력 반복](copy-outputs.md)을 참조 하세요.
+자세한 내용은 [ARM 템플릿의 출력 반복](copy-outputs.md)을 참조 하세요.
 
 ## <a name="linked-templates"></a>연결된 템플릿
 
@@ -118,4 +120,4 @@ az deployment group show \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 출력에 사용할 수 있는 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 출력에 사용할 수 있는 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

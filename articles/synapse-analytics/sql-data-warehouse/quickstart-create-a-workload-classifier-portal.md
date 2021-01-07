@@ -11,14 +11,14 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 4c761404ab5a95bc0189407cc97ce779b66356fe
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213026"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460656"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀 워크로드 분류자 만들기
+# <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 워크로드 분류자 만들기
 
 이 빠른 시작에서는 워크로드 그룹에 쿼리를 할당하기 위한 [워크로드 분류자](sql-data-warehouse-workload-classification.md)를 만듭니다.  분류자는 `ELTLogin` SQL 사용자의 요청을 `DataLoads` 워크로드 그룹에 할당합니다.   [빠른 시작: 워크로드 격리 구성](quickstart-configure-workload-isolation-portal.md) 자습서를 따라 `DataLoads` 워크로드 그룹을 만듭니다.  이 자습서에서는 요청을 올바르게 분류하는 데 도움이 되는 WLM_LABEL 옵션을 사용하여 워크로드 분류자를 만듭니다.  분류자는 `HIGH` [워크로드 중요도](sql-data-warehouse-workload-importance.md)를 이러한 요청에도 할당합니다.
 
@@ -31,16 +31,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 > [!NOTE]
-> Azure Synapse Analytics에서 SQL 풀 인스턴스를 만들면 새로운 청구 가능 서비스가 생성될 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
+> Azure Synapse Analytics에서 전용 SQL 풀 인스턴스를 만들면 새로운 청구 가능 서비스가 생성될 수 있습니다.  자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작에서는 Synapse SQL에 SQL 풀 인스턴스가 이미 있고 CONTROL DATABASE 권한이 있다고 가정합니다. 하나 만들어야 할 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다.
+이 빠른 시작에서는 CONTROL DATABASE 권한이 있는 전용 SQL 풀 인스턴스가 이미 있다고 가정합니다. 만들어야 하는 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse** 라는 전용 SQL 풀을 만듭니다.
 <br><br>
 워크로드 그룹 `DataLoads`가 있습니다.  [빠른 시작: 워크로드 격리 구성](quickstart-configure-workload-isolation-portal.md) 자습서를 참조하여 워크로드 그룹을 만듭니다.
 <br><br>
 >[!IMPORTANT] 
->워크로드 관리를 구성하려면 SQL 풀이 온라인 상태여야 합니다. 
+>워크로드 관리를 구성하려면 전용 SQL 풀이 온라인 상태여야 합니다. 
 
 
 ## <a name="create-a-login-for-eltlogin"></a>ELTLogin에 대한 로그인 만들기
@@ -57,7 +57,7 @@ END
 
 ## <a name="create-user-and-grant-permissions"></a>사용자 만들기 및 권한 부여
 
-로그인을 만든 후에는 데이터베이스에서 사용자를 만들어야 합니다.  [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 **mySampleDataWarehouse**에서 SQL 사용자 `ELTRole`을 만듭니다.  이 자습서를 진행하는 동안 분류를 테스트하므로 **mySampleDataWarehouse**에 `ELTLogin` 권한을 부여합니다. 
+로그인을 만든 후에는 데이터베이스에서 사용자를 만들어야 합니다.  [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 **mySampleDataWarehouse** 에서 SQL 사용자 `ELTRole`을 만듭니다.  이 자습서를 진행하는 동안 분류를 테스트하므로 **mySampleDataWarehouse** 에 `ELTLogin` 권한을 부여합니다. 
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
@@ -72,27 +72,26 @@ END
 분류를 사용하면 일련의 규칙 세트를 기반으로 하는 요청을 워크로드 그룹으로 라우팅할 수 있습니다.  [빠른 시작: 워크로드 격리 구성](quickstart-configure-workload-isolation-portal.md) 자습서에서 `DataLoads` 워크로드 그룹을 만들었습니다.  이제 쿼리를 `DataLoads` 워크로드 그룹으로 라우팅하는 워크로드 분류자를 만듭니다.
 
 
-1.  Azure Portal의 왼쪽 페이지에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 클릭합니다.
-2.  **Azure Synapse Analytics(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse**를 선택합니다. SQL 풀이 열립니다.
-3.  **워크로드 관리**를 클릭합니다.
+1.  **mySampleDataWarehouse** 전용 SQL 풀 페이지로 이동합니다.
+3.  **워크로드 관리** 를 선택합니다.
 
     ![메뉴 클릭](./media/quickstart-create-a-workload-classifier-portal/menu.png)
 
-4.  `DataLoads` 워크로드 그룹의 오른쪽에 있는 **설정 & 분류자**를 클릭합니다.
+4.  `DataLoads` 워크로드 그룹의 오른쪽에 있는 **설정 및 분류자** 를 선택합니다.
 
     ![만들기 클릭 ](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
-5. **분류자**를 클릭합니다.
-6. **분류자 추가**를 클릭합니다.
+5. 분류자 열에서 **구성되지 않음** 을 선택합니다.
+6. **+ 분류자 추가** 를 선택합니다.
 
     ![추가를 클릭합니다.](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
 
-7.  **이름**에 `ELTLoginDataLoads`를 입력합니다.
-8.  **멤버**에 `ELTLogin`을 입력합니다.
-9.  **요청 중요도**에 `High`를 선택합니다.  *선택적* 일반적인 중요도는 기본값입니다.
-10. **레이블**에 `fact_loads`를 입력합니다.
-11. **추가**를 클릭합니다.
-12. **저장**을 클릭합니다.
+7.  **이름** 에 `ELTLoginDataLoads`를 입력합니다.
+8.  **멤버** 에 `ELTLogin`을 입력합니다.
+9.  **요청 중요도** 에 `High`를 선택합니다.  *선택적* 일반적인 중요도는 기본값입니다.
+10. **레이블** 에 `fact_loads`를 입력합니다.
+11. **추가** 를 선택합니다.
+12. **저장** 을 선택합니다.
 
     ![구성 클릭](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
@@ -135,41 +134,35 @@ WHERE [label] = 'fact_loads'
 ORDER BY submit_time DESC
 ```
 
-
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 자습서에서 만든 `ELTLoginDataLoads` 워크로드 분류자를 삭제하려면 다음을 수행합니다.
 
-1. `DataLoads` 워크로드 그룹의 오른쪽에 있는 **1 분류자**를 클릭합니다.
+1. `DataLoads` 워크로드 그룹의 오른쪽에 있는 **1 분류자** 를 클릭합니다.
 
     ![삭제 클릭](./media/quickstart-create-a-workload-classifier-portal/delete-wc.png)
 
-2. **분류자**를 클릭합니다.
+2. **분류자** 를 클릭합니다.
 3. `ELTLoginDataLoads` 워크로드 분류자의 오른쪽에 있는 **`...`** 를 클릭합니다.
-4. **삭제**를 클릭합니다.
-5. **Save**를 클릭합니다.
+4. **삭제** 를 클릭합니다.
+5. **Save** 를 클릭합니다.
 
     ![저장을 클릭합니다.](./media/quickstart-create-a-workload-classifier-portal/delete-save-wc.png)
 
-데이터 웨어하우스 단위 및 데이터 웨어하우스에 저장된 데이터에 대해 요금이 청구됩니다. 이러한 컴퓨팅 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다.
+전용 SQL 풀에 저장된 데이터 웨어하우스 단위 및 데이터에 대해 요금이 청구됩니다. 이러한 컴퓨팅 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다.
 
-- 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 컴퓨팅을 일시 중지할 수 있습니다. 컴퓨팅을 일시 중지하면 데이터 스토리지 비용만 부과됩니다. 데이터로 작업할 준비가 되면 컴퓨팅을 다시 시작합니다.
-- 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다.
+- 데이터를 스토리지에 보관하려면 전용 SQL 풀을 사용하지 않을 때 컴퓨팅을 일시 중지할 수 있습니다. 컴퓨팅을 일시 중지하면 데이터 스토리지 비용만 부과됩니다. 데이터로 작업할 준비가 되면 컴퓨팅을 다시 시작합니다.
+- 앞으로 요금이 부과되지 않게 하려면 전용 SQL 풀을 삭제하면 됩니다.
 
 다음 단계에 따라 리소스를 정리합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 데이터 웨어하우스에서 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하여 전용 SQL 풀을 선택합니다.
 
     ![리소스 정리](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 선택합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 다시 시작하려면 **시작**을 선택합니다.
+2. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 선택합니다. 전용 SQL 풀이 일시 중지되면 **시작** 단추가 표시됩니다.  컴퓨팅을 다시 시작하려면 **시작** 을 선택합니다.
 
-3. 컴퓨팅 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 선택합니다.
-
-4. 만든 SQL 서버를 제거하려면 이전 이미지에 있는 **sqlpoolservername.database.windows.net**을 선택한 다음, **삭제**를 선택합니다.  서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
-
-5. 리소스 그룹을 제거하려면 **myResourceGroup**을 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
+3. 컴퓨팅 또는 스토리지에 대한 요금이 청구되지 않도록 전용 SQL 풀을 제거하려면 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

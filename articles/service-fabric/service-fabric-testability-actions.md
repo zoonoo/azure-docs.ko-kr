@@ -7,10 +7,10 @@ ms.date: 06/07/2017
 ms.author: motanv
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022176"
 ---
 # <a name="testability-actions"></a>테스트 용이성 작업
@@ -80,7 +80,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 다음 스크린샷은 동작 중인 **Restart-ServiceFabricNode** 테스트 용이성 명령을 보여 줍니다.
 
-![PowerShell에서 Get-servicefabricnode 명령을 실행 하는 스크린샷](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
+![PowerShell에서 Restart-ServiceFabricNode 명령을 실행 하는 스크린샷](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
 첫 번째 **Get-ServiceFabricNode** (서비스 패브릭 PowerShell 모듈의 cmdlet)의 출력은 로컬 클러스터에 다섯 개의 노드(Node.1~Node.5)가 있음을 보여 줍니다. Node.4 노드에서 테스트 용이성 작업(cmdlet) **Restart-ServiceFabricNode** 를 실행하면 노드의 가동 시간이 다시 설정된 것을 알 수 있습니다.
 

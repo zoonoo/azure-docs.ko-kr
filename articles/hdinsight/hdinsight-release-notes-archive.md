@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 08/09/2020
-ms.openlocfilehash: 827871bdac689d1f5e8acb64d3565ca3c6da39be
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/07/2020
+ms.openlocfilehash: d5103cbbeb5a8ab12f9ce497ee4ed227ca180728
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292523"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350299"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
@@ -21,16 +21,134 @@ ms.locfileid: "89292523"
 
 Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다.
 
-## <a name="release-date-07132020"></a>릴리스 날짜: 07/13/2020
+## <a name="release-date-11092020"></a>릴리스 날짜: 11/09/2020
 
-이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
-#### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox 지원
-Azure HDInsight는 이제 Azure 고객 Lockbox을 지원 합니다. 고객이 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스 해야 할 때 사용 됩니다. 자세한 내용은 [Microsoft Azure에 대 한 고객 Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview)를 참조 하세요.
+### <a name="new-features"></a>새로운 기능
+#### <a name="hdinsight-identity-broker-hib-is-now-ga"></a>이제 GA (HDInsight Identity Broker)는 GA입니다.
+이제이 릴리스에서는 ESP 클러스터에 대 한 OAuth 인증을 사용 하도록 설정 하는 이 릴리스 후에 생성 된 모든 클러스터는 최신 버전의 기능을 제공 합니다.
+- HA (고가용성)
+- Multi-Factor Authentication에 대 한 지원 (MFA)
+- 페더레이션 사용자는 AAD에 대 한 암호 해시 동기화를 사용 하지 않고 로그인 합니다. 자세한 내용은 전체 정보 [b 설명서](./domain-joined/identity-broker.md)를 참조 하세요.
 
-#### <a name="service-endpoint-policies-for-storage"></a>저장소에 대 한 서비스 끝점 정책
-이제 고객은 HDInsight 클러스터 서브넷에서 서비스 끝점 정책 (9 월)을 사용할 수 있습니다. [Azure 서비스 끝점 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)에 대해 자세히 알아보세요.
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
+
+### <a name="deprecation"></a>사용 중단
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>HDInsight 3.6 ML 서비스 클러스터의 사용 중단
+HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지원 될 예정입니다. 고객은 12 월 31 2020 일 이후 새로운 3.6 ML 서비스 클러스터를 만들지 않습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](./hdinsight-component-versioning.md#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
+
+#### <a name="disabled-vm-sizes"></a>비활성화 된 VM 크기
+11 월 16 2020부터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 새 고객을 차단 합니다. 지난 3 달 동안 이러한 VM 크기를 사용한 기존 고객에 게는 영향을 주지 않습니다. 9 2021 년 1 월 1 일부 터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 모든 고객을 차단 합니다. 기존 클러스터는 그대로 실행 됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
+
+### <a name="behavior-changes"></a>동작 변경
+이 릴리스에 대 한 동작은 변경 되지 않습니다.
+
+### <a name="upcoming-changes"></a>예정된 변경
+이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Spark, Hadoop 및 ML 서비스에 대해 다른 사육 사 가상 머신 크기를 선택 하는 기능
+현재 HDInsight는 Spark, Hadoop 및 ML 서비스 클러스터 유형에 대해 아웃 지원팀 노드 크기를 사용자 지정할 수 없습니다. 기본적으로 A2_v2/A2 가상 머신 크기가 무료로 제공 됩니다. 향후 릴리스에서는 시나리오에 가장 적합 한 사육 사 가상 머신 크기를 선택할 수 있습니다. A2_v2/A2 이외의 가상 컴퓨터 크기를 포함 하는 사육 아웃 노드에는 요금이 부과 됩니다. A2_v2 및 A2 가상 머신은 계속 무료로 제공 됩니다.
+
+#### <a name="default-cluster-version-will-be-changed-to-40"></a>기본 클러스터 버전이 4.0로 변경 됩니다.
+2021 2 월부터 HDInsight 클러스터의 기본 버전이 3.6에서 4.0로 변경 됩니다. 사용 가능한 버전에 대 한 자세한 내용은 [사용 가능한 버전](./hdinsight-component-versioning.md#available-versions)을 참조 하세요. [HDInsight 4.0](./hdinsight-version-release.md) 의 새로운 기능에 대 한 자세한 정보
+
+#### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3.6 6 월 30 2021의 지원 종료
+HDInsight 3.6은 지원 종료 될 예정입니다. 6 월 30 2021 양식을 시작 하면 고객이 새 HDInsight 3.6 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
+
+### <a name="bug-fixes"></a>버그 수정
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
+#### <a name="fix-issue-for-restarting-vms-in-cluster"></a>클러스터에서 Vm을 다시 시작 하는 문제 해결
+클러스터에서 Vm을 다시 시작 하는 문제가 해결 되었습니다. [PowerShell 또는 REST API를 사용 하 여 클러스터의 노드를 다시 다시 부팅할](./cluster-reboot-vm.md) 수 있습니다.
+
+### <a name="component-version-change"></a>구성 요소 버전 변경
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
+## <a name="release-date-10082020"></a>릴리스 날짜: 10/08/2020
+
+이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+
+### <a name="new-features"></a>새로운 기능
+#### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>공용 IP 및 개인 링크가 없는 HDInsight 개인 클러스터 (미리 보기)
+이제 HDInsight는 미리 보기에서 클러스터에 대 한 공용 IP 및 개인 링크 액세스 권한이 없는 클러스터 만들기를 지원 합니다. 고객은 새 고급 네트워킹 설정을 사용 하 여 공용 IP가 없는 완전히 격리 된 클러스터를 만들고 자신의 개인 끝점을 사용 하 여 클러스터에 액세스할 수 있습니다. 
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
+
+### <a name="deprecation"></a>사용 중단
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>HDInsight 3.6 ML 서비스 클러스터의 사용 중단
+HDInsight 3.6 ML 서비스 클러스터 유형은 Dec 31 2020에서 지원 종료 됩니다. 이후 고객은 새 3.6 ML 서비스 클러스터를 만들지 않습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](./hdinsight-component-versioning.md#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
+
+### <a name="behavior-changes"></a>동작 변경
+이 릴리스에 대 한 동작은 변경 되지 않습니다.
+
+### <a name="upcoming-changes"></a>예정된 변경
+이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Spark, Hadoop 및 ML 서비스에 대해 다른 사육 사 가상 머신 크기를 선택 하는 기능
+현재 HDInsight는 Spark, Hadoop 및 ML 서비스 클러스터 유형에 대해 아웃 지원팀 노드 크기를 사용자 지정할 수 없습니다. 기본적으로 A2_v2/A2 가상 머신 크기가 무료로 제공 됩니다. 향후 릴리스에서는 시나리오에 가장 적합 한 사육 사 가상 머신 크기를 선택할 수 있습니다. A2_v2/A2 이외의 가상 컴퓨터 크기를 포함 하는 사육 아웃 노드에는 요금이 부과 됩니다. A2_v2 및 A2 가상 머신은 계속 무료로 제공 됩니다.
+
+### <a name="bug-fixes"></a>버그 수정
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
+
+### <a name="component-version-change"></a>구성 요소 버전 변경
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
+## <a name="release-date-09282020"></a>릴리스 날짜: 09/28/2020
+
+이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+
+### <a name="new-features"></a>새로운 기능
+#### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>HDInsight 4.0를 사용 하 여 대화형 쿼리에 대 한 자동 크기 조정이 이제 일반 공급 됩니다.
+대화형 쿼리 클러스터 유형에 대 한 자동 크기 조정 기능은 이제 HDInsight 4.0에 대 한 GA (일반 공급)로 제공 됩니다. 27 2020 월 27 일 이후에 만들어진 모든 대화형 쿼리 4.0 클러스터는 자동 크기 조정에 대해 GA를 지원 합니다.
+
+#### <a name="hbase-cluster-supports-premium-adls-gen2"></a>HBase 클러스터는 Premium ADLS Gen2 지원
+이제 HDInsight는 HDInsight HBase 3.6 및 4.0 클러스터에 대 한 기본 저장소 계정으로 Premium ADLS Gen2 지원 합니다. 가속화 된 [쓰기](./hbase/apache-hbase-accelerated-writes.md)와 함께 HBase 클러스터에 대해 더 나은 성능을 얻을 수 있습니다.
+
+#### <a name="kafka-partition-distribution-on-azure-fault-domains"></a>Azure 장애 도메인의 kafka 파티션 배포
+장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight Kafka은 모든 파티션 복제본을 동일한 장애 도메인에 저장할 수 있습니다. 이제 HDInsight는이 릴리스에서부터 Azure 장애 도메인을 기반으로 Kafka 파티션의 자동 배포를 지원 합니다. 
+
+#### <a name="encryption-in-transit"></a>전송 중 암호화
+고객은 플랫폼 관리 키를 사용 하는 IPSec 암호화를 사용 하 여 클러스터 노드 간에 전송 중인 암호화를 사용 하도록 설정할 수 있습니다. 이 옵션은 클러스터를 만들 때 사용할 수 있습니다. [전송에서 암호화를 사용 하도록 설정 하는 방법](./domain-joined/encryption-in-transit.md)에 대 한 자세한 내용을 참조 하세요.
+
+#### <a name="encryption-at-host"></a>호스트에서 암호화
+호스트에서 암호화를 사용 하도록 설정 하면 VM 호스트에 저장 된 데이터는 미사용 및 저장소 서비스로 암호화 된 흐름으로 암호화 됩니다. 이 릴리스에서는 클러스터를 만들 때 **임시 데이터 디스크의 호스트에서 암호화를 사용 하도록 설정할** 수 있습니다. 호스트의 암호화는 [제한 된 지역의 특정 VM sku](../virtual-machines/disks-enable-host-based-encryption-portal.md)에서만 지원 됩니다. HDInsight는 [다음 노드 구성 및 sku](./hdinsight-supported-node-configuration.md)를 지원 합니다. [호스트에서 암호화를 사용 하도록 설정 하는 방법](./disk-encryption.md#encryption-at-host-using-platform-managed-keys)에 대 한 자세한 내용을 참조 하세요.
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
+
+### <a name="deprecation"></a>사용 중단
+이 릴리스에 대 한 사용이 중단 되지 않습니다.
+
+### <a name="behavior-changes"></a>동작 변경
+이 릴리스에 대 한 동작은 변경 되지 않습니다.
+
+### <a name="upcoming-changes"></a>예정된 변경
+이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
+
+#### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Spark, Hadoop 및 ML 서비스에 대해 다른 사육 사 SKU를 선택 하는 기능
+현재 HDInsight는 Spark, Hadoop 및 ML 서비스 클러스터 유형에 대 한 사육 사 SKU 변경을 지원 하지 않습니다. 이/A2는 아웃 청구 노드에 대해 A2_v2 SKU를 사용 하 고 고객에 게는 요금이 부과 되지 않습니다. 향후 릴리스에서 고객은 필요에 따라 Spark, Hadoop 및 ML 서비스의 사육 사 SKU를 변경할 수 있습니다. A2_v2/A2 이외의 SKU를 포함 하는 아웃 청구 노드의 요금은 청구 됩니다. 기본 SKU는 여전히 A2_V2/A2 및 무료로 제공 됩니다.
+
+### <a name="bug-fixes"></a>버그 수정
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
+
+### <a name="component-version-change"></a>구성 요소 버전 변경
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
+## <a name="release-date-08092020"></a>릴리스 날짜: 08/09/2020
+
+이 릴리스는 HDInsight 4.0에만 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+
+### <a name="new-features"></a>새로운 기능
+#### <a name="support-for-sparkcruise"></a>SparkCruise 지원
+SparkCruise는 Spark의 자동 계산 재사용 시스템입니다. 이전 쿼리 워크 로드를 기준으로 구체화 하는 공통 부분식을 선택 합니다. SparkCruise는 이러한 하위 식을 쿼리 처리의 일부로 구체화 하 고 계산 재사용은 백그라운드에서 자동으로 적용 됩니다. Spark 코드를 수정 하지 않고 SparkCruise의 이점을 누릴 수 있습니다.
+ 
+#### <a name="support-hive-view-for-hdinsight-40"></a>HDInsight 4.0에 대 한 Hive 보기 지원
+Apache Ambari Hive 보기는 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행 하는 데 도움이 되도록 설계 되었습니다. Hive 보기는이 릴리스에서부터 HDInsight 4.0 클러스터에 대해 기본적으로 지원 됩니다. 기존 클러스터에는 적용 되지 않습니다. 기본 제공 Hive 보기를 가져오려면 클러스터를 삭제 하 고 다시 만들어야 합니다.
+ 
+#### <a name="support-tez-view-for-hdinsight-40"></a>HDInsight 4.0에 대 한 Tez 보기 지원
+Apache Tez 뷰는 Hive Tez 작업의 실행을 추적 하 고 디버그 하는 데 사용 됩니다. Tez 뷰는이 릴리스에서부터 HDInsight 4.0에 대해 기본적으로 지원 됩니다. 기존 클러스터에는 적용 되지 않습니다. 기본 제공 Tez 뷰를 가져오려면 클러스터를 삭제 하 고 다시 만들어야 합니다.
 
 ### <a name="deprecation"></a>사용 중단
 #### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>HDInsight 3.6 Spark 클러스터의 Spark 2.1 및 2.2 사용 중단
@@ -42,7 +160,58 @@ Azure HDInsight는 이제 Azure 고객 Lockbox을 지원 합니다. 고객이 �
 #### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>HDInsight 4.0 Kafka 클러스터의 Kafka 1.1 사용 중단
 2020년 7월 1일부터 고객은 HDInsight 4.0의 Kafka 1.1을 사용하여 새 Kafka 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Kafka 2.1로 전환하는 것이 좋습니다.
 
-### <a name="behavior-changes"></a>동작 변경 내용
+### <a name="behavior-changes"></a>동작 변경
+#### <a name="ambari-stack-version-change"></a>Ambari stack 버전 변경
+이 릴리스에서 Ambari 버전은 2.x에서 4.1로 변경 됩니다. Ambari: Ambari > 사용자 > 버전에서 스택 버전 (HDInsight 4.1)을 확인할 수 있습니다.
+
+### <a name="upcoming-changes"></a>예정된 변경
+앞으로 주의 해야 하는 주요 변경 내용이 없습니다.
+
+### <a name="bug-fixes"></a>버그 수정
+HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
+
+다음은 Hive에 대 한 백 포팅 된 JIRAs.
+* [HIVE-23619](https://issues.apache.org/jira/browse/HIVE-23619)
+* [HIVE-21223](https://issues.apache.org/jira/browse/HIVE-21223)
+* [HIVE-22599](https://issues.apache.org/jira/browse/HIVE-22599)
+* [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
+* [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
+* [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
+
+다음은 HBase에 대 한 백 포팅 된 JIRAs
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
+
+### <a name="component-version-change"></a>구성 요소 버전 변경
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
+### <a name="known-issues"></a>알려진 문제
+
+사용자가 공개 키의 SSH 인증 유형을 사용 하 여 Azure HDInsight 클러스터를 만들 때 오류가 발생 하는 Azure Portal에서 문제가 해결 되었습니다. 사용자가 **검토 + 만들기** 를 클릭하면 "SSH 사용자 이름에서 연속된 문자 세 개를 포함해서는 안 됩니다" 오류가 표시됩니다. 이 문제는 해결되었지만 수정된 보기를 로드하려면 CTRL + F5를 눌러 브라우저 캐시를 새로 고쳐야 할 수도 있습니다. 이 문제에 대한 해결 방법은 ARM 템플릿을 사용하여 클러스터를 만드는 것이었습니다. 
+
+## <a name="release-date-07132020"></a>릴리스 날짜: 07/13/2020
+
+이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+
+### <a name="new-features"></a>새로운 기능
+#### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox 지원
+Azure HDInsight는 이제 Azure 고객 Lockbox을 지원 합니다. 고객이 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스 해야 할 때 사용 됩니다. 자세한 내용은 [Microsoft Azure에 대 한 고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview)를 참조 하세요.
+
+#### <a name="service-endpoint-policies-for-storage"></a>저장소에 대 한 서비스 끝점 정책
+이제 고객은 HDInsight 클러스터 서브넷에서 서비스 끝점 정책 (9 월)을 사용할 수 있습니다. [Azure 서비스 끝점 정책](../virtual-network/virtual-network-service-endpoint-policies-overview.md)에 대해 자세히 알아보세요.
+
+### <a name="deprecation"></a>사용 중단
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>HDInsight 3.6 Spark 클러스터의 Spark 2.1 및 2.2 사용 중단
+7 월 1 2020부터 고객은 HDInsight 3.6에서 Spark 2.1 및 2.2을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 3.6의 Spark 2.3으로 전환하는 것이 좋습니다.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>HDInsight 4.0 Spark 클러스터의 Spark 2.3 사용 중단
+7 월 1 2020부터 고객이 HDInsight 4.0의 Spark 2.3을 사용 하 여 새 Spark 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Spark 2.4로 전환하는 것이 좋습니다.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>HDInsight 4.0 Kafka 클러스터의 Kafka 1.1 사용 중단
+2020년 7월 1일부터 고객은 HDInsight 4.0의 Kafka 1.1을 사용하여 새 Kafka 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Kafka 2.1로 전환하는 것이 좋습니다.
+
+### <a name="behavior-changes"></a>동작 변경
 에 주의 해야 하는 동작이 변경 되지 않습니다.
 
 ### <a name="upcoming-changes"></a>예정된 변경
@@ -60,15 +229,15 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 Zeppelin가 문자열 형식에 대 한 테이블 출력의 앞에 오는 0을 잘못 자릅니다. 이 릴리스에서는이 문제가 해결 되었습니다.
 
 ### <a name="component-version-change"></a>구성 요소 버전 변경
-이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
 
 ## <a name="release-date-06112020"></a>릴리스 날짜: 06/11/2020
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
-HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 지금 프로 비전 합니다. 이 릴리스에서 새로 만든 HDInsight 클러스터는 Azure 가상 머신 확장 집합을 사용 하기 시작 합니다. 변경 내용이 점진적으로 롤아웃 됩니다. 주요 변경 내용은 필요 하지 않습니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
+HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 지금 프로 비전 합니다. 이 릴리스에서 새로 만든 HDInsight 클러스터는 Azure 가상 머신 확장 집합을 사용 하기 시작 합니다. 변경 내용이 점진적으로 롤아웃 됩니다. 주요 변경 내용은 필요 하지 않습니다. [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)에 대 한 자세한 내용을 참조 하세요.
  
 #### <a name="reboot-vms-in-hdinsight-cluster"></a>HDInsight 클러스터에서 Vm 다시 부팅
 이 릴리스에서는 응답 하지 않는 노드를 다시 부팅 하기 위해 HDInsight 클러스터의 Vm을 다시 부팅 하도록 지원 합니다. 현재는 API를 통해서만이 작업을 수행할 수 있으며, PowerShell 및 CLI 지원은 해당 방식으로 지원 됩니다. API에 대 한 자세한 내용은 [이 문서](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json)를 참조 하세요.
@@ -83,7 +252,7 @@ HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 지금 프
 #### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>HDInsight 4.0 Kafka 클러스터의 Kafka 1.1 사용 중단
 2020년 7월 1일부터 고객은 HDInsight 4.0의 Kafka 1.1을 사용하여 새 Kafka 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지하기 위해 2020년 6월 30일까지 HDInsight 4.0의 Kafka 2.1로 전환하는 것이 좋습니다.
  
-### <a name="behavior-changes"></a>동작 변경 내용
+### <a name="behavior-changes"></a>동작 변경
 #### <a name="esp-spark-cluster-head-node-size-change"></a>ESP Spark 클러스터 헤드 노드 크기 변경 
 ESP Spark 클러스터에 허용 되는 최소 헤드 노드 크기는 Standard_D13_V2로 변경 됩니다. 코어 수가 낮거나 메모리를 헤드 노드로 사용 하는 Vm은 CPU와 메모리 용량이 상대적으로 적기 때문에 ESP 클러스터 문제를 일으킬 수 있습니다. 릴리스부터는 Standard_D13_V2 보다 높은 Sku를 사용 하 고 ESP Spark 클러스터의 경우 헤드 노드로 Standard_E16_V3 합니다.
  
@@ -96,10 +265,10 @@ HDInsight 클러스터의 고가용성 및 안정성을 보장하기 위해 헤�
 **운영** 단계 후 클러스터는 남은 20% 작업자 노드에 대해 다른 60 분 동안 기다립니다. 이 60 분이 종료 되 면 모든 작업자 노드를 아직 사용할 수 없더라도 클러스터가 **실행 중인** 단계로 이동 합니다. 클러스터가 **실행 중인** 단계로 들어가면 정상적으로 사용할 수 있습니다. 확장/축소와 같은 제어 계획 작업과 스크립트 및 작업 실행과 같은 데이터 계획 작업은 모두 허용 됩니다. 요청 된 작업자 노드 중 일부를 사용할 수 없는 경우 클러스터가 부분 성공으로 표시 됩니다. 성공적으로 배포 된 노드에 대 한 요금이 청구 됩니다. 
  
 #### <a name="create-new-service-principal-through-hdinsight"></a>HDInsight를 통해 새 서비스 주체 만들기
-이전에는 클러스터를 만들 때 고객이 Azure Portal의 연결 된 ADLS Gen 1 계정에 액세스 하는 새 서비스 주체를 만들 수 있습니다. June 15 2020부터 고객이 HDInsight 만들기 워크플로에 새 서비스 주체를 만들 수 없습니다. 기존 서비스 사용자만 지원 됩니다. [Azure Active Directory를 사용 하 여 서비스 주체 및 인증서 만들기를](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)참조 하세요.
+이전에는 클러스터를 만들 때 고객이 Azure Portal의 연결 된 ADLS Gen 1 계정에 액세스 하는 새 서비스 주체를 만들 수 있습니다. June 15 2020부터 고객이 HDInsight 만들기 워크플로에 새 서비스 주체를 만들 수 없습니다. 기존 서비스 사용자만 지원 됩니다. [Azure Active Directory를 사용 하 여 서비스 주체 및 인증서 만들기를](../active-directory/develop/howto-create-service-principal-portal.md)참조 하세요.
 
 #### <a name="time-out-for-script-actions-with-cluster-creation"></a>클러스터를 만든 스크립트 작업 시간 제한
-HDInsight는 클러스터를 만드는 스크립트 작업 실행을 지원 합니다. 이 릴리스에서 클러스터를 만드는 모든 스크립트 작업은 **60 분**이내에 완료 되어야 합니다. 그렇지 않으면 시간 제한이 초과 됩니다. 실행 중인 클러스터에 제출 된 스크립트 작업에는 영향을 주지 않습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-in-the-cluster-creation-process)를 참조하세요.
+HDInsight는 클러스터를 만드는 스크립트 작업 실행을 지원 합니다. 이 릴리스에서 클러스터를 만드는 모든 스크립트 작업은 **60 분** 이내에 완료 되어야 합니다. 그렇지 않으면 시간 제한이 초과 됩니다. 실행 중인 클러스터에 제출 된 스크립트 작업에는 영향을 주지 않습니다. 자세한 내용은 [여기](./hdinsight-hadoop-customize-cluster-linux.md#script-action-in-the-cluster-creation-process)를 참조하세요.
  
 ### <a name="upcoming-changes"></a>예정된 변경
 앞으로 주의 해야 하는 주요 변경 내용이 없습니다.
@@ -117,7 +286,7 @@ Spark 버전은 2.4.0 버전에서 2.4.4로 업그레이드 됩니다.
 #### <a name="kafka-210-to-211"></a>Kafka 2.1.0-2.1.1
 Kafka 버전은 2.1.0 버전에서 2.1.1로 업그레이드 됩니다.
  
-[이 문서](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions) 에서 hdinsight 3.6 4.0의 최신 구성 요소 버전을 찾을 수 있습니다.
+[이 문서](./hdinsight-component-versioning.md) 에서 hdinsight 3.6 4.0의 최신 구성 요소 버전을 찾을 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
@@ -132,10 +301,10 @@ Kafka 버전은 2.1.0 버전에서 2.1.1로 업그레이드 됩니다.
 #### <a name="tls-12-enforcement"></a>TLS 1.2 적용
 TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워크를 통해 통신 보안을 제공하는 암호화 프로토콜입니다. [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)에 대해 자세히 알아봅니다. HDInsight는 퍼블릭 HTTP 엔드포인트에서 TLS 1.2를 사용하지만 TLS 1.1은 이전 버전과의 호환성을 위해 계속 지원됩니다. 
 
-이 릴리스에서 고객은 퍼블릭 클러스터 엔드포인트를 통한 모든 연결에 대해서만 TLS 1.2를 옵트인(opt in)할 수 있습니다. 이를 지원하기 위해 새 속성 **minSupportedTlsVersion**이 도입되었으며 클러스터를 만드는 동안 이 속성을 지정할 수 있습니다. 이 속성을 설정하지 않으면 클러스터는 현재 동작처럼 TLS 1.0, 1.1 및 1.2를 계속 지원합니다. 고객은 이 속성의 값을 "1.2"로 설정할 수 있습니다. 이렇게 하면 클러스터는 TLS 1.2 이상만 지원합니다. 자세한 내용은 [전송 계층 보안](./transport-layer-security.md)을 참조하세요.
+이 릴리스에서 고객은 퍼블릭 클러스터 엔드포인트를 통한 모든 연결에 대해서만 TLS 1.2를 옵트인(opt in)할 수 있습니다. 이를 지원하기 위해 새 속성 **minSupportedTlsVersion** 이 도입되었으며 클러스터를 만드는 동안 이 속성을 지정할 수 있습니다. 이 속성을 설정하지 않으면 클러스터는 현재 동작처럼 TLS 1.0, 1.1 및 1.2를 계속 지원합니다. 고객은 이 속성의 값을 "1.2"로 설정할 수 있습니다. 이렇게 하면 클러스터는 TLS 1.2 이상만 지원합니다. 자세한 내용은 [전송 계층 보안](./transport-layer-security.md)을 참조하세요.
 
 #### <a name="bring-your-own-key-for-disk-encryption"></a>디스크 암호화를 위한 사용자 고유 키 가져오기
-HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호화)로 보호됩니다. 기본적으로 해당 디스크의 데이터는 Microsoft 관리 키를 사용하여 암호화됩니다. 이 릴리스부터는 디스크 암호화에 대해 BYOK(Bring Your Own Key)를 수행하고 Azure Key Vault를 사용하여 관리할 수 있습니다. BYOK 암호화는 추가 비용 없이 클러스터를 만드는 동안 진행되는 1단계 구성입니다. Azure Key Vault를 통해 HDInsight를 관리 ID로 등록하고 클러스터를 만들 때 암호화 키를 추가합니다. 자세한 내용은 [고객 관리형 키 디스크 암호화](https://docs.microsoft.com/azure/hdinsight/disk-encryption)를 참조하세요.
+HDInsight의 모든 관리 디스크는 Azure SSE(스토리지 서비스 암호화)로 보호됩니다. 기본적으로 해당 디스크의 데이터는 Microsoft 관리 키를 사용하여 암호화됩니다. 이 릴리스부터는 디스크 암호화에 대해 BYOK(Bring Your Own Key)를 수행하고 Azure Key Vault를 사용하여 관리할 수 있습니다. BYOK 암호화는 추가 비용 없이 클러스터를 만드는 동안 진행되는 1단계 구성입니다. Azure Key Vault를 통해 HDInsight를 관리 ID로 등록하고 클러스터를 만들 때 암호화 키를 추가합니다. 자세한 내용은 [고객 관리형 키 디스크 암호화](./disk-encryption.md)를 참조하세요.
 
 ### <a name="deprecation"></a>사용 중단
 이 릴리스의 사용 중단은 없습니다. 예정된 사용 중단을 대비하려면 [예정된 변경](#upcoming-changes)을 참조하세요.
@@ -183,10 +352,10 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 #### <a name="service-tags"></a>서비스 태그
-서비스 태그는 azure 서비스에 대 한 네트워크 액세스를 쉽게 제한할 수 있도록 하 여 Azure virtual machines 및 Azure virtual network에 대 한 보안을 간소화 합니다. NSG (네트워크 보안 그룹) 규칙에서 서비스 태그를 사용 하 여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공 합니다. NSGs (네트워크 보안 그룹)에 대 한 HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. HDInsight 고객은 Azure Portal, PowerShell 및 REST API를 통해 서비스 태그를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags)를 참조하세요.
+서비스 태그는 azure 서비스에 대 한 네트워크 액세스를 쉽게 제한할 수 있도록 하 여 Azure virtual machines 및 Azure virtual network에 대 한 보안을 간소화 합니다. NSG (네트워크 보안 그룹) 규칙에서 서비스 태그를 사용 하 여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공 합니다. NSGs (네트워크 보안 그룹)에 대 한 HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. HDInsight 고객은 Azure Portal, PowerShell 및 REST API를 통해 서비스 태그를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](./hdinsight-service-tags.md)를 참조하세요.
 
 #### <a name="custom-ambari-db"></a>사용자 지정 Ambari DB
 이제 HDInsight를 사용 하 여 Apache Ambari에 대 한 고유한 SQL DB를 사용할 수 있습니다. 이 사용자 지정 Ambari DB는 Azure Portal 또는 리소스 관리자 템플릿을 통해 구성할 수 있습니다.  이 기능을 사용 하 여 처리 및 용량 요구 사항에 적합 한 SQL DB를 선택할 수 있습니다. 비즈니스 증가 요구 사항에 맞게 쉽게 업그레이드할 수도 있습니다. 자세한 내용은 [사용자 지정 AMBARI DB를 사용 하 여 HDInsight 클러스터 설정](hdinsight-custom-ambari-db.md)을 참조 하세요.
@@ -210,7 +379,7 @@ TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워�
 이후에는 6/30/2020부터 시작 하 여 Azure HDInsight는 모든 HTTPS 연결에 TLS 1.2 이상 버전을 적용 합니다. 모든 클라이언트에서 TLS 1.2 이상 버전을 처리할 수 있도록 준비 하는 것이 좋습니다.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
-이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 2020 년 2 월 (정확한 날짜는 나중에 전달 됨)부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 2020 년 2 월 (정확한 날짜는 나중에 전달 됨)부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)에 대 한 자세한 내용을 참조 하세요.
 
 #### <a name="esp-spark-cluster-node-size-change"></a>ESP Spark 클러스터 노드 크기 변경 
 예정 된 릴리스에서는 다음을 수행 합니다.
@@ -230,7 +399,7 @@ HDInsight 4.0에 대 한 구성 요소 버전이 변경 되지 않았습니다.
 
 HDInsight 3.6의 Apache Zeppelin: 0.7.0-->0.7.3. 
 
-[이 문서](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)에서 최신 구성 요소 버전을 찾을 수 있습니다.
+[이 문서](./hdinsight-component-versioning.md)에서 최신 구성 요소 버전을 찾을 수 있습니다.
 
 ### <a name="new-regions"></a>새 지역
 
@@ -242,7 +411,7 @@ HDInsight 3.6의 Apache Zeppelin: 0.7.0-->0.7.3.
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 #### <a name="hdinsight-identity-broker-hib-preview"></a>HDInsight Identity Broker (기타) (미리 보기)
 
@@ -250,7 +419,7 @@ Ambari (HDInsight Identity Broker)를 사용 하면 사용자가 MFA (multi-fact
 
 #### <a name="kafka-rest-api-proxy-preview"></a>Kafka Rest API 프록시 (미리 보기)
 
-Kafka Rest API 프록시는 보안 AAD 권한 부여 및 OAuth 프로토콜을 통해 Kafka 클러스터와 함께 항상 사용 가능한 REST 프록시를 한 번의 클릭으로 배포 합니다. 
+Kafka Rest API 프록시는 보안 된 Azure AD 권한 부여 및 OAuth 프로토콜을 통해 Kafka 클러스터와 함께 항상 사용 가능한 REST 프록시의 단일 클릭 배포를 제공 합니다. 
 
 #### <a name="auto-scale"></a>자동 크기 조정
 
@@ -258,19 +427,19 @@ Azure HDInsight에 대 한 자동 크기 조정은 이제 Apache Spark 및 Hadoo
 
 요구 사항에 따라 부하 기반 및 일정 기반 자동 크기 조정 중에서 선택할 수 있습니다. 일정 기반 자동 크기 조정에서는 미리 정의 된 일정에 따라 클러스터 크기를 변경할 수 있는 반면 부하 기반 자동 크기 조정은 현재 리소스 요구에 따라 클러스터 크기를 확장 및 축소할 수 있습니다. 
 
-HBase 및 LLAP 워크 로드에 대 한 자동 크기 조정 지원도 공개 미리 보기입니다. 자세한 내용은 [Azure HDInsight 클러스터 자동 크기 조정](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters)을 참조 하세요.
+HBase 및 LLAP 워크 로드에 대 한 자동 크기 조정 지원도 공개 미리 보기입니다. 자세한 내용은 [Azure HDInsight 클러스터 자동 크기 조정](./hdinsight-autoscale-clusters.md)을 참조 하세요.
 
 #### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>Apache HBase에 대 한 HDInsight 가속 쓰기 
 
-가속 쓰기는 Azure 프리미엄 SSD 관리 디스크를 사용하여 Apache HBase WAL(Write Ahead Log)의 성능을 개선합니다. 자세한 내용은 [Apache HBase에 대한 Azure HDInsight 가속 쓰기](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes)를 참조하세요.
+가속 쓰기는 Azure 프리미엄 SSD 관리 디스크를 사용하여 Apache HBase WAL(Write Ahead Log)의 성능을 개선합니다. 자세한 내용은 [Apache HBase에 대한 Azure HDInsight 가속 쓰기](./hbase/apache-hbase-accelerated-writes.md)를 참조하세요.
 
 #### <a name="custom-ambari-db"></a>사용자 지정 Ambari DB
 
-이제 HDInsight는 고객이 자신의 Ambari 용 SQL DB를 사용할 수 있도록 새 용량을 제공 합니다. 이제 고객은 Ambari에 적합 한 SQL DB를 선택 하 고 고유한 비즈니스 성장 요구 사항에 따라 쉽게 업그레이드할 수 있습니다. 배포는 Azure Resource Manager 템플릿을 사용 하 여 수행 됩니다. 자세한 내용은 [사용자 지정 AMBARI DB를 사용 하 여 HDInsight 클러스터 설정](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db)을 참조 하세요.
+이제 HDInsight는 고객이 자신의 Ambari 용 SQL DB를 사용할 수 있도록 새 용량을 제공 합니다. 이제 고객은 Ambari에 적합 한 SQL DB를 선택 하 고 고유한 비즈니스 성장 요구 사항에 따라 쉽게 업그레이드할 수 있습니다. 배포는 Azure Resource Manager 템플릿을 사용 하 여 수행 됩니다. 자세한 내용은 [사용자 지정 AMBARI DB를 사용 하 여 HDInsight 클러스터 설정](./hdinsight-custom-ambari-db.md)을 참조 하세요.
 
 #### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>이제 HDInsight에서 F 시리즈 virtual machines를 사용할 수 있습니다.
 
-F 시리즈 Vm (가상 머신)은 간단한 처리 요구 사항으로 HDInsight를 시작 하는 데 적합 합니다. 시간당 가격이 더 낮은 F 시리즈는 vCPU당 ACU(Azure 컴퓨팅 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다. 자세한 내용은 [Azure HDInsight 클러스터에 적합 한 VM 크기 선택](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size)을 참조 하세요.
+F 시리즈 Vm (가상 머신)은 간단한 처리 요구 사항으로 HDInsight를 시작 하는 데 적합 합니다. 시간당 가격이 더 낮은 F 시리즈는 vCPU당 ACU(Azure 컴퓨팅 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다. 자세한 내용은 [Azure HDInsight 클러스터에 적합 한 VM 크기 선택](./hdinsight-selecting-vm-size.md)을 참조 하세요.
 
 ### <a name="deprecation"></a>사용 중단
 
@@ -280,7 +449,7 @@ F 시리즈 Vm (가상 머신)은 간단한 처리 요구 사항으로 HDInsight
 #### <a name="dv1-virtual-machine-deprecation"></a>Dv1 가상 컴퓨터 사용 중단
 이 릴리스에서는 HDInsight에서 Dv1 Vm을 사용 하는 것이 더 이상 사용 되지 않습니다. Dv1에 대 한 고객 요청은 자동으로 Dv2에 제공 됩니다. Dv1 및 Dv2 Vm 간에는 가격 차이가 없습니다.
 
-### <a name="behavior-changes"></a>동작 변경 내용
+### <a name="behavior-changes"></a>동작 변경
 
 #### <a name="cluster-managed-disk-size-change"></a>클러스터 관리 디스크 크기 변경
 HDInsight는 클러스터에 관리 되는 디스크 공간을 제공 합니다. 이 릴리스에서는 새로 만든 클러스터의 각 노드에 대 한 관리 디스크 크기가 128 GB로 변경 되었습니다.
@@ -289,7 +458,7 @@ HDInsight는 클러스터에 관리 되는 디스크 공간을 제공 합니다.
 향후 릴리스에서는 다음과 같이 변경 됩니다. 
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
-이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 12 월부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 12 월부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)에 대 한 자세한 내용을 참조 하세요.
 
 #### <a name="hbase-20-to-21"></a>HBase 2.0 ~ 2.1
 예정 된 HDInsight 4.0 릴리스에서 HBase 버전은 버전 2.0에서 2.1로 업그레이드 됩니다.
@@ -301,7 +470,7 @@ A 시리즈 Vm은 비교적 낮은 CPU와 메모리 용량으로 인해 ESP 클�
 HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
 
 ### <a name="component-version-change"></a>구성 요소 버전 변경
-이 릴리스에 대 한 구성 요소 버전은 변경 되지 않습니다. HDInsight 4.0 및 HDInsight 3.6의 최신 구성 요소 버전은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)에서 찾을 수 있습니다.
+이 릴리스에 대 한 구성 요소 버전은 변경 되지 않습니다. HDInsight 4.0 및 HDInsight 3.6의 최신 구성 요소 버전은 [여기](./hdinsight-component-versioning.md)에서 찾을 수 있습니다.
 
 
 ## <a name="release-date-08072019"></a>릴리스 날짜: 08/07/2019
@@ -337,7 +506,7 @@ HDInsight 4.0에서 사용할 수 있는 패치에 대 한 자세한 내용은 �
 |---|---|
 | Ambari | [Ambari 패치 정보](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
 | Hadoop은 | [Hadoop 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
-| HBase는 | [HBase 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
+| HBase | [HBase 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
 | Hive  | 이 릴리스는 추가 Apache 패치 없이 Hive 3.1.0 제공 합니다.  |
 | Kafka | 이 릴리스는 추가 Apache 패치 없이 Kafka 1.1.1을 제공 합니다. |
 | Oozie | [Oozie 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
@@ -419,21 +588,21 @@ Apache Storm 및 ML 서비스는 HDInsight 4.0에서 사용할 수 없습니다.
 
 ## <a name="release-date-04142019"></a>릴리스 날짜: 04/14/2019
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 새로운 업데이트와 기능은 다음 범주로 분류됩니다.
 
-*  ***Hadoop 및 기타 오픈 소스 프로젝트 업데이트*** – 20 개 이상의 오픈 소스 프로젝트에서 1000 개 이상의 버그를 수정 하는 것 외에도이 업데이트에는 새 버전의 **Spark (2.3)** 및 **kafka (1.0)** 가 포함 됩니다.
+*  ***Hadoop 및 기타 오픈 소스 프로젝트 업데이트** _ – 20 개 이상의 오픈 소스 프로젝트에서 1000 개 이상의 버그 수정 외에도이 업데이트에는 새 버전의 _ *Spark (2.3)** 및 **kafka (1.0)** 가 포함 됩니다.
 
     a.  [**Apache Spark 2.3의 새로운 기능**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
     b.  [**Apache Kafka 1.0의 새로운 기능**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***R Server 9.1을 Machine Learning Services 9.3로 업데이트*** –이 릴리스에서는 Apache Spark 속도를 사용 하 여 기본 설정 언어로 제공 되는 알고리즘 혁신 및 편의성을 통해 향상 된 오픈 소스를 제공 하는 데이터 과학자 및 엔지니어를 제공 합니다. 이 릴리스는 Python에 대한 추가 지원을 통해 R Server에서 제공되는 기능을 확장하므로 클러스터 이름이 R 서버에서 ML 서비스로 변경됩니다. 
+*  ***R Server 9.1을 Machine Learning Services 9.3 _로 업데이트** 합니다 .이 릴리스에서는 알고리즘 혁신 및 운영 화의 용이성을 통해 향상 된 오픈 소스를 제공 하는 데이터 과학자 및 엔지니어 Apache Spark를 제공 합니다. 이 릴리스는 Python에 대한 추가 지원을 통해 R Server에서 제공되는 기능을 확장하므로 클러스터 이름이 R 서버에서 ML 서비스로 변경됩니다. 
 
-*  ***Azure Data Lake Storage Gen2에 대한 지원*** - HDInsight는 Azure Data Lake Storage Gen2의 미리 보기 릴리스를 지원합니다. 사용 가능한 지역에서 고객은 ADLS Gen2 계정을 HDInsight 클러스터용 기본 또는 보조 저장소로 선택할 수 있습니다.
+_ ***Azure Data Lake Storage Gen2에 대 한 지원** _ – HDInsight는 Azure Data Lake Storage Gen2의 미리 보기 릴리스를 지원 합니다. 사용 가능한 지역에서 고객은 ADLS Gen2 계정을 HDInsight 클러스터용 기본 또는 보조 저장소로 선택할 수 있습니다.
 
-*  ***HDInsight Enterprise Security Package 업데이트 (미리 보기*** ) – (미리 보기) Virtual Network Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB에 대 한 [서비스 끝점이](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 지원 됩니다.
+_ ***HDInsight Enterprise Security Package 업데이트 (미리 보기)** _ – (미리 보기) Virtual Network Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB에 대 한 [서비스 끝점이](../virtual-network/virtual-network-service-endpoints-overview.md) 지원 됩니다.
 
 ### <a name="component-versions"></a>구성 요소 버전
 
@@ -561,7 +730,7 @@ HDP 2.6.4에서는 Hadoop Common 2.7.3 및 다음 Apache 패치를 제공합니�
 
 -   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805): PrivilegedOperationException null 종료 코드로 인해 LinuxContainerExecutor에서 NPE를 수행합니다.
 
-#### <a name="hbase"></a>HBase는
+#### <a name="hbase"></a>HBase
 
 이 릴리스에서는 HBase 1.1.2 및 다음 Apache 패치를 제공합니다.
 
@@ -631,7 +800,7 @@ HDP 2.6.4에서는 Hadoop Common 2.7.3 및 다음 Apache 패치를 제공합니�
 
 이 릴리스에서는 다음 패치 외에도 Hive 1.2.1 및 Hive 2.1.0을 제공합니다.
 
-**Hive 1.2.1 Apache 패치:**
+_ *Hive 1.2.1 Apache 패치:**
 
 -   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697): ObjectInspectorConvertors\#UnionConvertor에서 잘못된 변환을 수행합니다.
 
@@ -1534,7 +1703,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
 | BUG-97605              | [HIVE-18858](https://issues.apache.org/jira/browse/HIVE-18858)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | MR 작업을 제출할 때 작업 구성의 시스템 속성이 확인되지 않았습니다.                                                                     |
 | BUG-97674              | [OOZIE-3186](https://issues.apache.org/jira/browse/OOZIE-3186)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Oozie에서 jceks://file/...을 통해 연결되는 구성을 사용할 수 없습니다.                                                                             |
 | BUG-97743              | 해당 없음                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Storm 토폴로지를 배포하는 동안 java.lang.NoClassDefFoundError 예외가 발생합니다.                                                                        |
-| BUG-97756              | [PHOENIX-4576](https://issues.apache.org/jira/browse/PHOENIX-4576)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 마스터 분기에서 실패하는 LocalIndexSplitMergeIT 테스트를 수정합니다.                                                                                      |
+| BUG-97756              | [PHOENIX-4576](https://issues.apache.org/jira/browse/PHOENIX-4576)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | LocalIndexSplitMergeIT 테스트 실패 해결 |
 | BUG-97771              | [HDFS-11711](https://issues.apache.org/jira/browse/HDFS-11711)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | "파일이 너무 많이 열려 있습니다" 예외에서 DN은 블록을 삭제하지 않아야 합니다.                                                                              |
 | BUG-97869              | [KNOX-1190](https://issues.apache.org/jira/browse/KNOX-1190)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Google OIDC에 대한 Knox SSO 지원이 손상되었습니다.                                                                                                    |
 | BUG-97879              | [PHOENIX-4489](https://issues.apache.org/jira/browse/PHOENIX-4489)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Phoenix MR 작업에서 HBase 연결이 누수됩니다.                                                                                                       |
@@ -1693,9 +1862,9 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
 |**Apache 구성 요소**|**Apache JIRA**|**요약**|**세부 정보**|
 |--|--|--|--|
 |**Spark 2.3** |**해당 사항 없음** |**Apache Spark 릴리스 정보에서 설명한 대로 변경했습니다.** |-"사용 중단" 문서와 "동작 변경" 가이드가 있습니다. https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-SQL 부분에는 다른 자세한 "마이그레이션" 가이드 (2.2 ~ 2.3)가 있습니다. https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark 작업이 성공적으로 완료되었지만 'HDFS 디스크 할당량이 가득 찼습니다'라는 오류가 있습니다. |**시나리오:** 할당량이 명령을 실행하는 사용자의 휴지통 폴더에 설정되면 **insert overwrite**를 실행합니다.<br /><br />**이전 동작:** 데이터를 휴지통으로 이동하지 못하는 경우에도 작업이 성공합니다. 결과에는 이전에 테이블에 있던 일부 데이터가 잘못 포함될 수 있습니다.<br /><br />**새 동작:** 휴지통 폴더로 이동하지 못하면 파일이 영구적으로 삭제됩니다.|
+|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark 작업이 성공적으로 완료되었지만 'HDFS 디스크 할당량이 가득 찼습니다'라는 오류가 있습니다. |**시나리오:** 할당량이 명령을 실행하는 사용자의 휴지통 폴더에 설정되면 **insert overwrite** 를 실행합니다.<br /><br />**이전 동작:** 데이터를 휴지통으로 이동하지 못하는 경우에도 작업이 성공합니다. 결과에는 이전에 테이블에 있던 일부 데이터가 잘못 포함될 수 있습니다.<br /><br />**새 동작:** 휴지통 폴더로 이동하지 못하면 파일이 영구적으로 삭제됩니다.|
 |**Kafka 1.0**|**해당 사항 없음**|**Apache Spark 릴리스 정보에서 설명한 대로 변경했습니다.** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
-|**Hive/Ranger** | |INSERT OVERWRITE에 대한 추가 Ranger Hive 정책이 필요합니다. |**시나리오:****INSERT OVERWRITE**에 대한 추가 Ranger Hive 정책이 필요합니다.<br /><br />**이전 동작:** Hive ** INSERT OVERWRITE ** 쿼리가 평소와 같이 성공합니다.<br /><br />**새 동작:** HDP-2.6.x로 업그레이드한 후 다음 오류로 인해 Hive **INSERT OVERWRITE** 쿼리가 예기치 않게 실패합니다.<br /><br />명령문을 컴파일하는 동안 오류 발생: FAILED: HiveAccessControlException 권한이 거부되었습니다.: jdoe 사용자에게 /tmp/\*에 대한 WRITE 권한이 없습니다(state=42000,code=40000).<br /><br />HDP-2.6.0부터 사용자에게 HDFS 정책을 통해 부여된 쓰기 권한이 있는 경우에도 Hive **INSERT OVERWRITE** 쿼리는 Ranger URI 정책을 사용하여 쓰기 작업을 허용해야 합니다.<br /><br />**해결 방법/예상되는 고객 작업:**<br /><br />1. Hive 리포지토리에서 새 정책을 만듭니다.<br />2. 데이터베이스를 표시 하는 드롭다운에서 URI를 선택 합니다.<br />3. 경로 업데이트 (예:/tmp/*)<br />4. 사용자 및 그룹을 추가 하 고 저장 합니다.<br />5. 삽입 쿼리를 다시 시도 합니다.|
+|**Hive/Ranger** | |INSERT OVERWRITE에 대한 추가 Ranger Hive 정책이 필요합니다. |**시나리오:****INSERT OVERWRITE** 에 대한 추가 Ranger Hive 정책이 필요합니다.<br /><br />**이전 동작:** Hive **INSERT OVERWRITE** 쿼리가 평소와 같이 성공합니다.<br /><br />**새 동작:** HDP-2.6.x로 업그레이드한 후 다음 오류로 인해 Hive **INSERT OVERWRITE** 쿼리가 예기치 않게 실패합니다.<br /><br />명령문을 컴파일하는 동안 오류 발생: FAILED: HiveAccessControlException 권한이 거부되었습니다.: jdoe 사용자에게 /tmp/\*에 대한 WRITE 권한이 없습니다(state=42000,code=40000).<br /><br />HDP-2.6.0부터 사용자에게 HDFS 정책을 통해 부여된 쓰기 권한이 있는 경우에도 Hive **INSERT OVERWRITE** 쿼리는 Ranger URI 정책을 사용하여 쓰기 작업을 허용해야 합니다.<br /><br />**해결 방법/예상되는 고객 작업:**<br /><br />1. Hive 리포지토리에서 새 정책을 만듭니다.<br />2. 데이터베이스를 표시 하는 드롭다운에서 URI를 선택 합니다.<br />3. 경로 업데이트 (예:/tmp/*)<br />4. 사용자 및 그룹을 추가 하 고 저장 합니다.<br />5. 삽입 쿼리를 다시 시도 합니다.|
 |**HDFS**|**해당 사항 없음** |HDFS에서 여러 KMS URI를 지원해야 합니다. |**이전 동작:** dfs.encryption.key.provider.uri 속성이 KMS 공급자 경로를 구성하는 데 사용되었습니다.<br /><br />**새 동작:** 이제 hadoop.security.key.provider.path를 지지하여 KMS 공급자 경로를 구성하므로 dfs.encryption.key.provider.uri는 더 이상 사용되지 않습니다.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|스케줄러를 사용하지 않도록 설정하기 위한 옵션입니다. |**영향을 받는 구성 요소:** Zeppelin 서버<br /><br />**이전 동작:** 이전 릴리스의 Zeppelin에는 스케줄러를 사용하지 않도록 설정할 수 있는 옵션이 없었습니다.<br /><br />**새 동작:** 기본적으로 스케줄러는 사용하지 않도록 설정되므로 사용자에게 더 이상 표시되지 않습니다.<br /><br />**해결 방법/예상되는 고객 작업:** 스케줄러를 사용하도록 설정하려면 Ambari의 Zeppelin 설정에서 사용자 지정 zeppelin 사이트 아래에서 true 값이 있는 azeppelin.notebook.cron.enable을 추가해야 합니다.|
 
@@ -1784,7 +1953,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
         
       다음 예제에서는 태그가 \`tags-test\`인 정책을 만들고, 모든 Hive 구성 요소 권한(예: select, update, create, drop, alter, index, lock, all)을 선택하여 astags.attr\['type'\]=='abc' 정책 조건으로 해당 정책을 \`공용\` 그룹에 할당합니다.
         
-      **예제:**
+      **예:**
         
       ```bash
         curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'
@@ -1796,7 +1965,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
         
       REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
-      **예제:**
+      **예:**
         
       ```bash
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'
@@ -1830,6 +1999,6 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
 
 ### <a name="upgrading"></a>업그레이드 중
 
-HDInsight 3.6에서는 이러한 모든 기능을 사용할 수 있습니다. 최신 버전의 Spark, Kafka 및 R Server(Machine Learning Services)를 얻으려면, [HDInsight 3.6 클러스터를 만들](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) 때 Spark, Kafka, ML Services 버전을 선택합니다. ADLS에 대한 지원을 받으려면 ADLS 스토리지 유형을 옵션으로 선택할 수 있습니다. 기존 클러스터는 이러한 버전으로 자동으로 업그레이드 되지 않습니다.
+HDInsight 3.6에서는 이러한 모든 기능을 사용할 수 있습니다. 최신 버전의 Spark, Kafka 및 R Server(Machine Learning Services)를 얻으려면, [HDInsight 3.6 클러스터를 만들](./hdinsight-hadoop-provision-linux-clusters.md) 때 Spark, Kafka, ML Services 버전을 선택합니다. ADLS에 대한 지원을 받으려면 ADLS 스토리지 유형을 옵션으로 선택할 수 있습니다. 기존 클러스터는 이러한 버전으로 자동으로 업그레이드 되지 않습니다.
 
-2018년 6월 이후에 만든 모든 새 클러스터는 모든 오픈 소스 프로젝트에서 1,000개 이상의 버그 수정을 자동으로 가져옵니다. 최신 HDInsight 버전으로 업그레이드하는 방법에 대한 모범 사례는 [이 가이드](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster)를 참조하세요.
+2018년 6월 이후에 만든 모든 새 클러스터는 모든 오픈 소스 프로젝트에서 1,000개 이상의 버그 수정을 자동으로 가져옵니다. 최신 HDInsight 버전으로 업그레이드하는 방법에 대한 모범 사례는 [이 가이드](./hdinsight-upgrade-cluster.md)를 참조하세요.

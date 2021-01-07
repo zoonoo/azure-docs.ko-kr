@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87315974"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>종속성 원격 분석: Application Insights 데이터 모델
@@ -27,7 +27,7 @@ ms.locfileid: "87315974"
 
 이 종속성 호출로 시작되는 명령입니다. 예로 모든 쿼리 매개 변수를 포함하는 SQL 문 및 HTTP URL을 들 수 있습니다.
 
-## <a name="type"></a>Type
+## <a name="type"></a>형식
 
 종속성 형식 이름입니다. 다른 필드(예: commandName 및 resultCode)의 종속성 논리적 그룹에 대한 낮은 카디널리티 값 및 해석입니다. 예로 SQL, Azure 테이블 및 HTTP를 들 수 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "87315974"
 
 종속성 호출의 대상 사이트입니다. 예로 서버 이름, 호스트 주소를 들 수 있습니다. 자세한 내용은 [상관 관계](./correlation.md) 페이지를 참조하세요.
 
-## <a name="duration"></a>Duration
+## <a name="duration"></a>기간
 
 요청 기간은 `DD.HH:MM:SS.MMMMMM` 형식으로 나타냅니다. `1000`일보다 작아야 합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "87315974"
 
 종속성 호출의 결과 코드입니다. 예로 SQL 오류 코드 및 HTTP 상태 코드를 들 수 있습니다.
 
-## <a name="success"></a>Success
+## <a name="success"></a>성공
 
 성공 또는 실패한 호출을 나타냅니다.
 

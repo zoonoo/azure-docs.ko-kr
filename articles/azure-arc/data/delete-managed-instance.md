@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: e531349e8f404380d9f0601caa3b66557c297062
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940852"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance 삭제
@@ -52,7 +52,7 @@ Deleted demo-mi from namespace arc
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Kubernetes 영구 볼륨 클레임 회수 (Pvc)
 
-SQL Managed Instance를 삭제 해도 연결 된 [pvc](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)는 제거 되지 않습니다. 이것은 의도적인 것입니다. 인스턴스 삭제가 실수로 발생 한 경우 사용자가 데이터베이스 파일에 액세스 하도록 도와 줍니다. Pvc는 반드시 삭제할 필요는 없습니다. 그러나 권장 됩니다. 이러한 Pvc를 회수 하지 않는 경우 Kubernetes 클러스터의 디스크 공간이 부족 하므로 결국 오류가 발생 합니다. 다음 단계를 수행 하 여 Pvc를 회수할 수 있습니다.
+SQL Managed Instance를 삭제 해도 연결 된 [pvc](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)는 제거 되지 않습니다. 이것은 의도적인 것입니다. 인스턴스가 실수로 삭제된 경우 사용자가 데이터베이스 파일에 액세스하도록 도와줍니다. PVC는 반드시 삭제할 필요는 없습니다. 그러나 권장됩니다. 이러한 Pvc를 회수 하지 않는 경우 Kubernetes 클러스터의 디스크 공간이 부족 하므로 결국 오류가 발생 합니다. PVC를 회수하려면 다음 단계를 수행합니다.
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. 삭제 한 서버 그룹의 Pvc를 나열 합니다.
 Pvc를 나열 하려면 다음 명령을 실행 합니다.
@@ -76,13 +76,13 @@ logs-demo-mi-0        Bound     pvc-11836e5e-63e5-4620-a6ba-d74f7a916db4   5Gi  
 kubectl delete pvc <name of pvc>
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 ```console
 kubectl delete pvc data-demo-mi-0 -n arc
 kubectl delete pvc logs-demo-mi-0 -n arc
 ```
 
-이러한 각 kubectl 명령은 PVC가 성공적으로 삭제 되었는지 확인 합니다. 다음은 그 예입니다. 
+이러한 각 kubectl 명령은 PVC가 성공적으로 삭제 되었는지 확인 합니다. 예를 들면 다음과 같습니다.
 ```console
 persistentvolumeclaim "data-demo-mi-0" deleted
 persistentvolumeclaim "logs-demo-mi-0" deleted
@@ -102,6 +102,6 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 
 [Azure Arc 지원 SQL Managed Instance의 특징 및 기능](managed-instance-features.md)에 대한 자세한 정보
 
-[데이터 컨트롤러를 만들기 시작](create-data-controller.md)
+[데이터 컨트롤러를 생성하여 시작](create-data-controller.md)
 
-데이터 컨트롤러가 이미 만들어져 있나요? [Azure Arc 지원 SQL Managed Instance 만들기](create-sql-managed-instance.md)
+데이터 컨트롤러를 이미 만들었나요? [Azure Arc 지원 SQL Managed Instance 만들기](create-sql-managed-instance.md)

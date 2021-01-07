@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 73d875e32f4fcf22551cf6b0946e49c2f826e523
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 43bf70d66c42bc0ecd5e26e4cc724456bd4bf84e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085028"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896925"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
 
-Azure Maps 웹 SDK는 [atlas. isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#issupported-boolean-)라는 도우미 함수를 제공 합니다. 이 함수는 지도 컨트롤 로드 및 렌더링을 지 원하는 데 필요한 최소 WebGL 기능 집합이 웹 브라우저에 있는지 여부를 검색 합니다. 함수를 사용 하는 방법의 예는 다음과 같습니다.
+Azure Maps 웹 SDK는 [atlas. isSupported](/javascript/api/azure-maps-control/atlas#issupported-boolean-)라는 도우미 함수를 제공 합니다. 이 함수는 지도 컨트롤 로드 및 렌더링을 지 원하는 데 필요한 최소 WebGL 기능 집합이 웹 브라우저에 있는지 여부를 검색 합니다. 함수를 사용 하는 방법의 예는 다음과 같습니다.
 
 ```JavaScript
 if (!atlas.isSupported()) {
@@ -76,8 +76,6 @@ CodePen에서 Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps 
 
 Azure Maps 웹 SDK에 대해 자세히 알아보세요.
 
-> [!div class="nextstepaction"]
-> [지도 컨트롤](how-to-use-map-control.md)
+[지도 컨트롤](how-to-use-map-control.md)
 
-> [!div class="nextstepaction"]
-> [서비스 모듈](how-to-use-services-module.md)
+[서비스 모듈](how-to-use-services-module.md)

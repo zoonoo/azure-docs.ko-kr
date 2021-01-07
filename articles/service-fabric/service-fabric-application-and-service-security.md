@@ -4,10 +4,10 @@ description: Service Fabric에서 마이크로 서비스 애플리케이션을 �
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: f17840f31d2a4c12a1d4618bd16e81dcc2cc8a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256580"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 애플리케이션 및 서비스 보안

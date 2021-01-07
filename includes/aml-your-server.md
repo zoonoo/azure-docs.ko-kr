@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 03/05/2020
-ms.openlocfilehash: ff449626ce528cfe0218a95330a567303c547e5f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e7580abfd113a279e2223b9cc9665f6a0b86bc8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79486134"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560661"
 ---
-1. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)의 지침을 사용하여 Python용 Azure Machine Learning SDK를 설치합니다.
+1. [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?view=azure-ml-py)의 지침을 사용하여 Python용 Azure Machine Learning SDK를 설치합니다.
 
 1. [Azure Machine Learning 작업 영역](../articles/machine-learning/how-to-manage-workspace.md)을 만듭니다.
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 228814db76ea14fa8b74c0c5d634e5afd6d54ac6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827455"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483048"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -270,7 +270,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 
 이 속성을 설정하려면 네트워크 인터페이스가 있어야 합니다. 따라서 종속성이 필요합니다. 또한 하나의 리소스(자식)가 다른 리소스(부모) 내에서 정의될 때에도 종속성을 설정해야 합니다. 예를 들어 진단 설정 및 사용자 지정 스크립트 확장 모두는 가상 머신의 자식 리소스로 정의됩니다. 가상 머신이 있을 때까지 만들 수 없습니다. 따라서 두 리소스는 가상 머신에 따라 표시됩니다.
 
-## <a name="profiles"></a>프로필
+## <a name="profiles"></a>Profiles
 
 몇 가지 프로필 요소는 가상 머신 리소스를 정의할 때 사용됩니다. 일부는 필요하고 일부는 선택 사항입니다. 예를 들어 hardwareProfile, osProfile, storageProfile 및 networkProfile 요소는 필요하지만 diagnosticsProfile은 선택 사항입니다. 이러한 프로필은 다음과 같은 설정을 정의합니다.
    
@@ -282,7 +282,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 
 ## <a name="disks-and-images"></a>디스크 및 이미지
    
-Azure에서 vhd 파일은 [디스크 또는 이미지](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 나타낼 수 있습니다. vhd 파일에서 운영 체제가 특정 VM이 되도록 특수화된 경우 디스크를 나타냅니다. vhd 파일에서 운영 체제가 여러 VM을 만드는 데 사용되도록 일반화된 경우 이미지를 나타냅니다.   
+Azure에서 vhd 파일은 [디스크 또는 이미지](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 나타낼 수 있습니다. vhd 파일에서 운영 체제가 특정 VM이 되도록 특수화된 경우 디스크를 나타냅니다. vhd 파일에서 운영 체제가 여러 VM을 만드는 데 사용되도록 일반화된 경우 이미지를 나타냅니다.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>플랫폼 이미지에서 새 가상 머신 및 새 디스크 만들기
 
@@ -308,7 +308,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 },
 ```
 
-운영 체제 디스크에 대한 구성 설정은 osDisk 요소와 함께 할당됩니다. 이 예제에서는 캐싱 모드가 **ReadWrite**로 설정된 새 관리되는 디스크를 정의하며 해당 디스크는 [플랫폼 이미지](cli-ps-findimage.md)에서 만들어집니다.
+운영 체제 디스크에 대한 구성 설정은 osDisk 요소와 함께 할당됩니다. 이 예제에서는 캐싱 모드가 **ReadWrite** 로 설정된 새 관리되는 디스크를 정의하며 해당 디스크는 [플랫폼 이미지](cli-ps-findimage.md)에서 만들어집니다.
 
 ```json
 "osDisk": { 
@@ -447,7 +447,7 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 ![배포 정보 가져오기](./media/template-description/virtual-machines-deployment-info.png)
     
-리소스를 만들거나 기존 리소스를 업데이트하는 데 동일한 템플릿을 사용하는 것은 문제가 아닙니다. 명령을 사용하여 템플릿을 배포할 때 사용하려는 [모드](../../azure-resource-manager/templates/deploy-powershell.md)를 말할 수 있는 기회가 있습니다. 모드는 **전체** 또는 **증분** 중 하나로 설정될 수 있습니다. 기본 값은 증분 업데이트를 수행하는 것입니다. 리소스를 실수로 삭제할 수 있으므로 **전체** 모드를 사용할 때 주의해야 합니다. 모드를 **전체**로 설정하면 Resource Manager는 템플릿에 없는 리소스 그룹의 모든 리소스를 삭제합니다.
+리소스를 만들거나 기존 리소스를 업데이트하는 데 동일한 템플릿을 사용하는 것은 문제가 아닙니다. 명령을 사용하여 템플릿을 배포할 때 사용하려는 [모드](../../azure-resource-manager/templates/deploy-powershell.md)를 말할 수 있는 기회가 있습니다. 모드는 **전체** 또는 **증분** 중 하나로 설정될 수 있습니다. 기본 값은 증분 업데이트를 수행하는 것입니다. 리소스를 실수로 삭제할 수 있으므로 **전체** 모드를 사용할 때 주의해야 합니다. 모드를 **전체** 로 설정하면 Resource Manager는 템플릿에 없는 리소스 그룹의 모든 리소스를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

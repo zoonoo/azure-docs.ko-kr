@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907859"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>잠재적 Dirichlet 할당 모듈
@@ -181,7 +181,7 @@ LDA 프로세스에서 식별 하는 *토픽* 은 개별 제품에 대 한 검�
 
 ###  <a name="module-parameters"></a>모듈 매개 변수
 
-|이름|Type|범위|선택 사항|기본값|설명|  
+|Name|Type|범위|선택 사항|기본값|설명|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |대상 열|열 선택||필수|StringFeature|대상 열 이름 또는 인덱스입니다.|  
 |모델링할 토픽 수|정수|[1, 1000]|필수|5|N 개 항목에 대 한 문서 분포를 모델링 합니다.|  

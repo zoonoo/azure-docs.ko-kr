@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970674"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500889"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,8 +30,8 @@ Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스의 �
 다음 단계를 사용 하 여 Azure Portal에 대 한 성능 권장 사항을 찾을 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **모든 서비스**  >  **SQL 데이터베이스**로 이동 하 여 데이터베이스를 선택 합니다.
-3. **성능 권장 사항**으로 이동하여 선택된 데이터베이스의 사용 가능한 권장 사항을 봅니다.
+2. **모든 서비스**  >  **SQL 데이터베이스** 로 이동 하 여 데이터베이스를 선택 합니다.
+3. **성능 권장 사항** 으로 이동하여 선택된 데이터베이스의 사용 가능한 권장 사항을 봅니다.
 
 성능 권장 사항은 다음 그림에서 보여주는 표와 비슷하게 표시됩니다.
 
@@ -82,13 +82,13 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 권장 사항 목록에 목록에서 제거할 항목이 포함된 경우 권장 사항을 삭제할 수 있습니다.
 
 1. **권장 사항** 목록에서 권장 사항을 선택하여 세부 정보를 엽니다.
-2. **세부 정보** 페이지에서 **삭제**를 클릭합니다.
+2. **세부 정보** 페이지에서 **삭제** 를 클릭합니다.
 
 원하는 경우 삭제된 항목을 **권장 사항** 목록에 다시 추가할 수 있습니다.
 
-1. **권장 사항** 페이지에서 **삭제된 항목 보기**를 클릭합니다.
+1. **권장 사항** 페이지에서 **삭제된 항목 보기** 를 클릭합니다.
 2. 자세히 보기 목록에서 삭제된 항목을 선택합니다.
-3. 필요에 따라 **권장 사항**의 기본 목록에 인덱스를 다시 추가하려면 **삭제 취소**를 클릭하세요.
+3. 필요에 따라 **권장 사항** 의 기본 목록에 인덱스를 다시 추가하려면 **삭제 취소** 를 클릭하세요.
 
 > [!NOTE]
 > SQL Database [자동 조정](automatic-tuning-overview.md)을 사용하며 목록에서 권장 사항을 수동으로 삭제한 경우 해당 권장 사항은 자동으로 적용되지 않습니다. 권장 사항 삭제는 특정 권장 사항이 적용되지 않도록 해야 하는 경우 사용자가 자동 조정을 사용할 수 있는 편리한 방법입니다.
@@ -98,12 +98,12 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 권장 사항을 자동으로 구현 하도록 데이터베이스를 설정할 수 있습니다. 권장 구성은 사용할 수 있을 때 자동으로 적용됩니다. 서비스에서 관리되는 권장 사항처럼 권장 사항이 성능에 좋지 않은 영향을 주는 경우 되돌려집니다.
 
-1. **권장 사항** 페이지에서 **자동화**를 클릭합니다.
+1. **권장 사항** 페이지에서 **자동화** 를 클릭합니다.
 
    ![관리자 설정](./media/database-advisor-find-recommendations-portal/settings.png)
 2. 자동화할 작업을 선택합니다.
 
-   ![권장된 인덱스](./media/database-advisor-find-recommendations-portal/server.png)
+   ![자동화할 작업을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > **DROP_INDEX** 옵션은 현재 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다.
@@ -112,9 +112,9 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>T-sql을 통해 수동으로 권장 사항 적용
 
-권장 사항을 선택한 다음 **스크립트 보기**를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.
+권장 사항을 선택한 다음 **스크립트 보기** 를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.
 
-*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)를 참조하세요. 또한 수동으로 적용 된 권장 사항은 활성 상태로 유지 되 고 24-48 시간에 대 한 권장 사항 목록에 표시 됩니다. 시스템에서 자동으로 인출 합니다. 권장 사항을 더 일찍 제거 하려면 수동으로 삭제할 수 있습니다.
+*수동으로 실행된 인덱스는 성능에 미치는 서비스 영향에 대해 모니터링하고 유효성 검사를 실시하지 않으므로* 필요한 경우 인덱스 생성 후 인덱스를 성능을 향상시키거나 조절 또는 삭제하기 위해 모니터링하는 것이 좋습니다. 인덱스 만들기에 대한 세부 정보는 [CREATE INDEX (TRANSACT-SQL)](/sql/t-sql/statements/create-index-transact-sql)를 참조하세요. 또한 수동으로 적용 된 권장 사항은 활성 상태로 유지 되 고 24-48 시간에 대 한 권장 사항 목록에 표시 됩니다. 시스템에서 자동으로 인출 합니다. 권장 사항을 더 일찍 제거 하려면 수동으로 삭제할 수 있습니다.
 
 ### <a name="canceling-recommendations"></a>권장 사항 취소
 
@@ -127,7 +127,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 권장 구성을 적용해도 즉각적으로 일어나지 않을 수 있습니다. 포털에서는 권장 사항의 상태에 대한 세부 정보를 제공합니다. 다음은 인덱스 안에 나타날 수 있는 상태입니다.
 
-| Status | 설명 |
+| 상태 | 설명 |
 |:--- |:--- |
 | Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |
@@ -139,20 +139,20 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 세부 정보를 보려면 목록에서 In Process 권장 구성을 클릭합니다.
 
-![권장된 인덱스](./media/database-advisor-find-recommendations-portal/operations.png)
+![In-process 권장 사항 목록을 보여 주는 스크린샷](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>권장 사항 되돌리기
 
 성능 권장 사항을 사용하여 권장 사항을 적용하는 경우(즉, 수동으로 T-SQL 스크립트를 실행하지 않음) 해당 권장 사항이 성능에 좋지 않은 영향을 준다는 점을 확인하면 자동으로 변경 내용을 되돌립니다. 어떤 이유로든 단순히 권장 사항을 되돌리려면 다음을 수행할 수 있습니다.
 
 1. **튜닝 기록** 영역에서 성공적으로 적용된 권장 사항을 선택합니다.
-2. **권장 사항 세부 정보** 페이지에서 **되돌리기**를 클릭합니다.
+2. **권장 사항 세부 정보** 페이지에서 **되돌리기** 를 클릭합니다.
 
 ![권장된 인덱스](./media/database-advisor-find-recommendations-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>인덱스 권장 구성의 성능 영향 모니터링
 
-권장 사항이 성공적으로 구현된 후(현재는 인덱스 작업 및 쿼리 매개 변수화 권장 사항만) 권장 사항 세부 정보 페이지에서 **쿼리 인사이트**를 클릭하여 [Query Performance Insights](query-performance-insight-use.md)를 열고 상위 쿼리의 성능 영향을 확인할 수 있습니다.
+권장 사항이 성공적으로 구현된 후(현재는 인덱스 작업 및 쿼리 매개 변수화 권장 사항만) 권장 사항 세부 정보 페이지에서 **쿼리 인사이트** 를 클릭하여 [Query Performance Insights](query-performance-insight-use.md)를 열고 상위 쿼리의 성능 영향을 확인할 수 있습니다.
 
 ![성능에 미치는 영향을 모니터링합니다.](./media/database-advisor-find-recommendations-portal/query-insights.png)
 
@@ -170,6 +170,6 @@ Azure SQL Database는 데이터베이스 성능을 향상 시키기 위한 권�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE  INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
+* [CREATE  INDEX](/sql/t-sql/statements/create-index-transact-sql)
 * [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)

@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 호스트 풀 - Azure Portal - Azure
 description: Azure Portal을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322588"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91287392"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
@@ -48,7 +48,8 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
 1. [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.
    
-   >![참고] US Gov 포털에 로그인하는 경우 [https://portal.azure.us/](https://portal.azure.us/)로 이동합니다.
+   >[!NOTE]
+   > US Gov 포털에 로그인하는 경우 대신 [https://portal.azure.us/](https://portal.azure.us/)로 이동합니다.
 
 2. 검색 창에서 **Windows Virtual Desktop**을 입력한 다음, [서비스] 아래에서 **Windows Virtual Desktop**을 찾아서 선택합니다.
 
@@ -188,6 +189,13 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
      - 구성에 기반한 Azure 리소스 관리 템플릿에 대한 다운로드 링크
 
 그러면 모든 작업이 완료되었습니다!
+
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Azure Resource Manager 템플릿을 실행하여 새 호스트 풀 프로비전
+
+자동화된 프로세스를 사용하는 경우 대신 [Azure Resource Manager 템플릿을 다운로드](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates)하여 새 호스트 풀을 프로비저닝합니다.
+
+>[!NOTE]
+>자동화된 프로세스를 사용하여 환경을 빌드하는 경우 최신 버전의 구성 JSON 파일이 필요합니다. [여기](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list)에서 JSON 파일을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

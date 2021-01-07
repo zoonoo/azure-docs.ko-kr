@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: e56cf54e1bf1483309cb7aac8519bb281ca2bc06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4f65da4f9a4f7ade94d76e99d57439e62b3c808
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938714"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092060"
 ---
 # <a name="access-your-security-data"></a>보안 데이터 액세스
 
@@ -30,14 +30,14 @@ IoT 용 Defender는 보안 경고, 권장 사항 및 원시 보안 데이터 (�
 
 1. IoT Hub를 엽니다.
 1. **보안** 섹션에서 **설정** 블레이드를 클릭 합니다.
-1. **데이터 컬렉션**을 클릭 하 고 Log Analytics 작업 영역 구성을 변경 합니다.
+1. **데이터 컬렉션** 을 클릭 하 고 Log Analytics 작업 영역 구성을 변경 합니다.
 
 구성 후 Log Analytics 작업 영역에서 경고 및 권장 사항에 액세스 하려면 다음을 수행 합니다.
 
 1. IoT 용 Defender에서 경고 또는 권장 사항을 선택 합니다.
-1. **추가 조사**를 클릭 한 다음 **이 경고가 있는 장치를 보려면 여기를 클릭 하 여 DeviceId 열을 확인**합니다.
+1. **추가 조사** 를 클릭 한 다음 **이 경고가 있는 장치를 보려면 여기를 클릭 하 여 DeviceId 열을 확인** 합니다.
 
-Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries)을 참조 하세요.
+Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](/azure/azure-monitor/log-query/get-started-queries)을 참조 하세요.
 
 ## <a name="security-alerts"></a>보안 경고
 
@@ -64,7 +64,7 @@ SecurityAlert
 | take 3
 ```
 
-| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | 설명                                             | ExtendedProperties                                                                                                                                                             |
+| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | DisplayName                           | Description                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 무차별 암호 대입 공격 성공           | 장치에서 무차별 암호 대입 공격 성공        |    {"전체 원본 주소": "[ \" 10.165.12.18: \" ]", "사용자 이름": "[ \" \" ]", "DeviceId": "IoT-Device-Linux"}                                                                       |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 높음          | 장치에서 로컬 로그인 성공      | 장치에 대 한 로컬 로그인에 성공 했습니다.     | {"원격 주소": "?", "원격 포트": "", "로컬 포트": "", "로그인 셸": "/bin/su", "로그인 프로세스 Id": "28207", "사용자 이름": "공격자", "DeviceId": "IoT-Device-Linux"} |
@@ -144,7 +144,7 @@ SecurityRecommendation
 | take 2
 ```
 
-| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | 설명 | RecommendationAdditionalData |
+| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
 | 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | 활성 | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. | {"Rules": "[{ \" SourceAddress \" : \" \" , \" sourceport \" : \" \" , \" destinationaddress \" : \" \" , \" destinationaddress \" : \" 1337 \" }]"} |
 | 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/Sourceggg/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 중간 | 활성 | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. | {"Rules": "[{ \" SourceAddress \" : \" \" , \" sourceport \" : \" \" , \" destinationaddress \" : \" \" , \" destinationaddress \" : \" 1337 \" }]"} |

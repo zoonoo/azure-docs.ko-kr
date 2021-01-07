@@ -3,12 +3,12 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7fa47b83eb8fa06c028079cf47ea0cb46df31860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014645"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325233"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -51,7 +51,7 @@ Azure Backup을 사용하여 Azure VM을 백업하면 미사용 상태의 VM이 
 
 **암호화** | **세부 정보** | **지원**
 --- | --- | ---
-**SSE** | SSE를 사용 Azure Storage는 데이터를 저장 하기 전에 데이터를 자동으로 암호화 하 여 미사용 암호화를 제공 합니다. 또한 데이터를 검색 하기 전에 암호를 해독 Azure Storage 합니다. Azure Backup는 두 가지 유형의 저장소 서비스 암호화를 사용 하는 Vm의 백업을 지원 합니다.<li> **플랫폼 관리 키를 사용 하는 SSE**:이 암호화는 기본적으로 vm의 모든 디스크에 대해 사용 됩니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys)를 참조 하세요.<li> **고객 관리 키를 사용 하는 SSE** CMK를 사용 하 여 디스크를 암호화 하는 데 사용 되는 키를 관리 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)를 참조 하세요. | Azure Backup은 Azure Vm의 미사용 암호화에 SSE를 사용 합니다.
+**SSE** | SSE를 사용 Azure Storage는 데이터를 저장 하기 전에 데이터를 자동으로 암호화 하 여 미사용 암호화를 제공 합니다. 또한 데이터를 검색 하기 전에 암호를 해독 Azure Storage 합니다. Azure Backup는 두 가지 유형의 저장소 서비스 암호화를 사용 하는 Vm의 백업을 지원 합니다.<li> **플랫폼 관리 키를 사용 하는 SSE**:이 암호화는 기본적으로 vm의 모든 디스크에 대해 사용 됩니다. 자세한 내용은 [여기](../virtual-machines/disk-encryption.md#platform-managed-keys)를 참조 하세요.<li> **고객 관리 키를 사용 하는 SSE** CMK를 사용 하 여 디스크를 암호화 하는 데 사용 되는 키를 관리 합니다. 자세한 내용은 [여기](../virtual-machines/disk-encryption.md#customer-managed-keys)를 참조 하세요. | Azure Backup은 Azure Vm의 미사용 암호화에 SSE를 사용 합니다.
 **Azure 디스크 암호화** | Azure Disk Encryption은 Azure Vm의 OS 및 데이터 디스크를 모두 암호화 합니다.<br/><br/> Azure Disk Encryption는 키 자격 증명 모음에 비밀으로 보호는 BEKs (BitLocker 암호화 키)와 통합 됩니다. Azure Disk Encryption은 KEKs (Azure Key Vault 키 암호화 키)와도 통합 됩니다. | Azure Backup는 BEKs 전용으로 암호화 된 관리 되는 Azure Vm 또는 KEKs와 함께 BEKs를 사용 하 여 암호화 된 Azure Vm의 백업을 지원 합니다.<br/><br/> BEKs와 KEKs는 모두 백업 및 암호화 됩니다.<br/><br/> KEKs 및 BEKs가 백업 되기 때문에 필요한 권한이 있는 사용자는 필요한 경우 키와 암호를 키 자격 증명 모음으로 다시 복원할 수 있습니다. 이러한 사용자는 암호화 된 VM을 복구할 수도 있습니다.<br/><br/> 암호화 된 키와 암호는 권한이 없는 사용자 또는 Azure에서 읽을 수 없습니다.
 
 관리 및 관리 되지 않는 Azure Vm의 경우 Backup은 BEKs로 암호화 된 Vm 또는 KEKs와 함께 BEKs로 암호화 된 Vm을 모두 지원 합니다.
@@ -83,7 +83,7 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 **크래시 일관성** | 크래시 일관성 스냅숏은 일반적으로 백업 시 Azure VM이 종료 되는 경우에 발생 합니다. 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다. | 는 VM 부팅 프로세스에서 시작 하 여 디스크 검사 후에 손상 오류를 수정 합니다. 크래시 전에 디스크로 전송 되지 않은 모든 메모리 내 데이터 또는 쓰기 작업은 손실 됩니다. 앱이 고유한 데이터 확인을 구현합니다. 예를 들어 데이터베이스 앱은 확인을 위해 트랜잭션 로그를 사용할 수 있습니다. 트랜잭션 로그에 데이터베이스에 없는 항목이 있는 경우 데이터베이스 소프트웨어는 데이터가 일치 될 때까지 트랜잭션을 롤백합니다. | VM이 종료 (중지 됨/할당 취소 됨) 상태입니다.
 
 >[!NOTE]
-> 프로 비전 상태가 **성공**인 경우 Azure Backup는 파일 시스템 일치 백업을 수행 합니다. 프로 비전 상태를 **사용할 수** 없거나 **실패**한 경우 크래시 일관성 백업이 수행 됩니다. 프로 비전 상태를 **만들거나** **삭제**하는 경우 Azure Backup 작업을 다시 시도 하는 것을 의미 합니다.
+> 프로 비전 상태가 **성공** 인 경우 Azure Backup는 파일 시스템 일치 백업을 수행 합니다. 프로 비전 상태를 **사용할 수** 없거나 **실패** 한 경우 크래시 일관성 백업이 수행 됩니다. 프로 비전 상태를 **만들거나** **삭제** 하는 경우 Azure Backup 작업을 다시 시도 하는 것을 의미 합니다.
 
 ## <a name="backup-and-restore-considerations"></a>백업 및 복원 고려 사항
 
@@ -105,6 +105,13 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 - **조각난 디스크:** 디스크 변경이 연속으로 수행 되는 경우 백업 작업이 더 빠릅니다. 변경 내용이 디스크 전체에 분산되고 조각화되면 백업이 더 느려집니다.
 - **디스크 변동:** 증분 백업에 사용 되는 보호 된 디스크의 일일 변동 수가 200 GB 보다 많은 경우 백업을 완료 하는 데 시간이 오래 걸릴 수 있습니다 (8 시간 초과).
 - **백업 버전:** 최신 버전의 백업 (인스턴트 복원 버전 이라고 함)에서는 변경 내용을 식별 하기 위한 체크섬 비교 보다 최적화 된 프로세스를 사용 합니다. 하지만 인스턴트 복원을 사용 중이 고 백업 스냅숏을 삭제 한 경우 백업은 체크섬 비교로 전환 됩니다. 이 경우 백업 작업은 24 시간 (또는 실패)을 초과 합니다.
+
+### <a name="restore-performance"></a>복원 성능
+
+이러한 일반적인 시나리오는 총 복원 시간에 영향을 줄 수 있습니다.
+
+- 총 복원 시간은 IOPS (초당 입/출력 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다.
+- 대상 저장소 계정이 다른 응용 프로그램 읽기 및 쓰기 작업과 함께 로드 되는 경우 총 복원 시간이 영향을 받을 수 있습니다. 복원 작업을 향상 시키려면 다른 응용 프로그램 데이터와 함께 로드 되지 않는 저장소 계정을 선택 합니다.
 
 ## <a name="best-practices"></a>모범 사례
 

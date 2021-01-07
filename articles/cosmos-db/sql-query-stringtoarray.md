@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 StringToArray
 description: Azure Cosmos DB의 SQL 시스템 함수 StringToArray에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b00fe7a515d1d27ce9be2ab62a96c719d5e045a5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7ae1f69e92e890daae528eb1f4dfb95f76560043
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798587"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337985"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  배열로 변환 된 식을 반환 합니다. 식을 변환할 수 없는 경우는 undefined를 반환 합니다.  
   
 ## <a name="syntax"></a>구문
@@ -35,7 +38,7 @@ StringToArray(<str_expr>)
 ## <a name="remarks"></a>설명
   중첩 된 문자열 값은 큰따옴표를 사용 하 여 유효한 JSON으로 작성 해야 합니다. JSON 형식에 대 한 자세한 내용은 [json.org](https://json.org/)를 참조 하세요. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는가 `StringToArray` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다. 
   

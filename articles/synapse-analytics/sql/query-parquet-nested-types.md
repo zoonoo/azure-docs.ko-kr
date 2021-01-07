@@ -1,30 +1,30 @@
 ---
-title: SQL 주문형(미리 보기)을 사용하여 Parquet 중첩 형식 쿼리
-description: 이 문서에서는 SQL 주문형 (미리 보기)를 사용 하 여 Parquet 중첩 형식을 쿼리 하는 방법에 대해 알아봅니다.
+title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 중첩 형식 쿼리
+description: 이 문서에서는 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 중첩 형식을 쿼리 하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f58adf124634ce1b4326f0026718688f0eb1dc7b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.author: stefanazaric
+ms.reviewer: jrasnick
+ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076738"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462561"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형 (미리 보기)을 사용 하 여 Parquet 및 JSON 파일의 중첩 형식 쿼리
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 및 JSON 파일의 중첩 형식 쿼리
 
-이 문서에서는 Azure Synapse Analytics에서 SQL 주문형 (미리 보기)를 사용 하 여 쿼리를 작성 하는 방법에 대해 알아봅니다. 이 쿼리는 Parquet 중첩 형식을 읽습니다.
+이 문서에서는 Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다. 이 쿼리는 Parquet 중첩 형식을 읽습니다.
 중첩 형식은 개체 또는 배열을 나타내는 복잡 한 구조입니다. 중첩 형식은 다음 위치에 저장할 수 있습니다. 
 - [Parquet](query-parquet-files.md)-배열 및 개체를 포함 하는 여러 개의 복합 열을 사용할 수 있습니다.
 - 계층적 [json 파일](query-json-files.md)은 단일 열로 복잡 한 json 문서를 읽을 수 있습니다.
 - 모든 문서에 복잡 한 중첩 된 속성이 포함 될 수 있는 컬렉션 (현재는 제어 된 공개 미리 보기 상태)을 Azure Cosmos DB 합니다.
 
-Azure Synapse SQL 주문형은 모든 중첩 형식을 JSON 개체 및 배열로 서식 지정 합니다. 따라서 [json 함수를 사용 하 여 복잡 한 개체를 추출 하거나 수정](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) 하거나 [OPENJSON 함수를 사용 하 여 json 데이터를 구문 분석할](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server)수 있습니다. 
+서버를 사용 하지 않는 SQL 풀은 모든 중첩 형식을 JSON 개체 및 배열로 서식 지정 합니다. 따라서 [json 함수를 사용 하 여 복잡 한 개체를 추출 하거나 수정](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) 하거나 [OPENJSON 함수를 사용 하 여 json 데이터를 구문 분석할](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server)수 있습니다. 
 
 다음은 중첩 된 개체를 포함 하는 [Covid-19 Open Research 데이터 집합](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) JSON 파일에서 스칼라 및 개체 값을 추출 하는 쿼리의 예입니다. 
 
@@ -47,7 +47,7 @@ FROM
 > [!IMPORTANT]
 > 이 예에서는 COVID-19 Open Research 데이터 집합의 파일을 사용 합니다. [여기에서 데이터의 라이선스 및 구조를 참조](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 첫 번째 단계는 데이터 원본이 생성 될 데이터베이스를 만드는 것입니다. 그런 다음 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) 를 실행 하 여 개체를 초기화 합니다. 설치 스크립트는 데이터 원본, 데이터베이스 범위 자격 증명 및 샘플에서 사용 되는 외부 파일 형식을 만듭니다.
 

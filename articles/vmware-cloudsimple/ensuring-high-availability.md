@@ -1,19 +1,19 @@
 ---
 title: Azure에서 VMware를 실행 하는 경우 응용 프로그램 고가용성 보장
 description: CloudSimple 사설 클라우드에서 실행 되는 응용 프로그램에 대 한 일반적인 응용 프로그램 오류 시나리오를 해결 하기 위한 CloudSimple 고가용성 기능에 대해 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a3eed033ba6a1a6f9237116a53ec7751ae906fe4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bb1f8bb2aaeab88e5a9ea19534c8983af8c1626
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025353"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895753"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Azure에서 VMware를 실행 하는 경우 응용 프로그램 고가용성 보장
 

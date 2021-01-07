@@ -4,11 +4,11 @@ description: 이 문서에서는 Azure Virtual Machines에서 실행 되는 SAP 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986150"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021676"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 복원
 
@@ -24,7 +24,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 * 특정 복구 지점으로 복원하려면 특정 전체 또는 차등 백업을 복원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -38,15 +38,15 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
   1. 대상 SAP HANA 인스턴스가 등록 된 자격 증명 모음을 엽니다.
 
-  1. 자격 증명 모음 대시보드의 **시작**에서 **백업**을 선택 합니다.
+  1. 자격 증명 모음 대시보드의 **시작** 에서 **백업** 을 선택 합니다.
 
       ![자격 증명 모음 대시보드에 백업](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. **백업**의 백업에 **사용할 항목** 아래에서 **Azure VM에 SAP HANA**를 선택 합니다.
+  1. **백업** 의 백업에 **사용할 항목** 아래에서 **Azure VM에 SAP HANA** 를 선택 합니다.
 
       ![Azure VM의 SAP HANA 선택](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. **Vm에서 Db 검색**아래에서 **자세히 보기**를 선택 합니다.
+  1. **Vm에서 Db 검색** 아래에서 **자세히 보기** 를 선택 합니다.
 
       ![세부 정보 보기](media/sap-hana-db-restore/view-details.png)
 
@@ -68,11 +68,11 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 1. 복원할 SAP HANA 데이터베이스가 등록 된 자격 증명 모음을 엽니다.
 
-1. 자격 증명 모음 대시보드의 **보호 된 항목**에서 **백업 항목** 을 선택 합니다.
+1. 자격 증명 모음 대시보드의 **보호 된 항목** 에서 **백업 항목** 을 선택 합니다.
 
     ![Backup 항목](media/sap-hana-db-restore/backup-items.png)
 
-1. **백업 항목**의 **백업 관리 유형** 에서 **Azure VM의 SAP HANA** 를 선택 합니다.
+1. **백업 항목** 의 **백업 관리 유형** 에서 **Azure VM의 SAP HANA** 를 선택 합니다.
 
     ![백업 관리 유형](media/sap-hana-db-restore/backup-management-type.png)
 
@@ -90,7 +90,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 1. **데이터베이스 복원** 선택
 
-1. **복원 구성**에서 데이터를 복원할 위치 (또는 방법)를 지정 합니다.
+1. **복원 구성** 에서 데이터를 복원할 위치 (또는 방법)를 지정 합니다.
 
     * **대체 위치**: 데이터베이스를 대체 위치로 복원 하 고 원래 원본 데이터베이스를 유지 합니다.
 
@@ -100,7 +100,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 ### <a name="restore-to-alternate-location"></a>대체 위치에 복원
 
-1. **복원 구성** 메뉴의 **복원 위치**에서 **대체 위치**를 선택 합니다.
+1. **복원 구성** 메뉴의 **복원 위치** 에서 **대체 위치** 를 선택 합니다.
 
     ![대체 위치에 복원](media/sap-hana-db-restore/restore-alternate-location.png)
 
@@ -111,28 +111,28 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
     > [!NOTE]
     > SDC (Single Database 컨테이너) 복원은 다음 [검사](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore)를 수행 해야 합니다.
 
-1. 해당 하는 경우 **선택한 HANA 인스턴스에 동일한 이름의 DB가 이미 있는 경우 덮어쓰기**를 선택 합니다.
-1. **확인**을 선택합니다.
+1. 해당 하는 경우 **선택한 HANA 인스턴스에 동일한 이름의 DB가 이미 있는 경우 덮어쓰기** 를 선택 합니다.
+1. **확인** 을 선택합니다.
 
     ![복원 구성-최종 화면](media/sap-hana-db-restore/restore-configuration-last.png)
 
-1. **복원 지점 선택**에서 **로그 (지정 시간)** 를 선택 하 여 [특정 시점으로 복원](#restore-to-a-specific-point-in-time)합니다. 또는 **전체 & 차등** 을 선택 하 여 [특정 복구 지점으로 복원](#restore-to-a-specific-recovery-point)합니다.
+1. **복원 지점 선택** 에서 **로그 (지정 시간)** 를 선택 하 여 [특정 시점으로 복원](#restore-to-a-specific-point-in-time)합니다. 또는 **전체 & 차등** 을 선택 하 여 [특정 복구 지점으로 복원](#restore-to-a-specific-recovery-point)합니다.
 
 ### <a name="restore-and-overwrite"></a>복원 및 덮어쓰기
 
-1. **복원 구성** 메뉴의 **복원 위치**에서 **DB로 덮어쓰기**  >  **확인**을 선택 합니다.
+1. **복원 구성** 메뉴의 **복원 위치** 에서 **DB로 덮어쓰기**  >  **확인** 을 선택 합니다.
 
     ![DB 덮어쓰기](media/sap-hana-db-restore/overwrite-db.png)
 
-1. **복원 지점 선택**에서 **로그 (지정 시간)** 를 선택 하 여 [특정 시점으로 복원](#restore-to-a-specific-point-in-time)합니다. 또는 **전체 & 차등** 을 선택 하 여 [특정 복구 지점으로 복원](#restore-to-a-specific-recovery-point)합니다.
+1. **복원 지점 선택** 에서 **로그 (지정 시간)** 를 선택 하 여 [특정 시점으로 복원](#restore-to-a-specific-point-in-time)합니다. 또는 **전체 & 차등** 을 선택 하 여 [특정 복구 지점으로 복원](#restore-to-a-specific-recovery-point)합니다.
 
 ### <a name="restore-as-files"></a>파일로 복원
 
-데이터베이스 대신 백업 데이터를 파일로 복원 하려면 **파일로 복원**을 선택 합니다. 파일이 지정된 경로에 덤프되면 이러한 파일을 데이터베이스로 복원하려는 SAP HANA 컴퓨터로 가져올 수 있습니다. 이러한 파일을 임의의 컴퓨터로 이동할 수 있으므로 이제 구독 및 지역 간에 데이터를 복원할 수 있습니다.
+데이터베이스 대신 백업 데이터를 파일로 복원 하려면 **파일로 복원** 을 선택 합니다. 파일이 지정된 경로에 덤프되면 이러한 파일을 데이터베이스로 복원하려는 SAP HANA 컴퓨터로 가져올 수 있습니다. 이러한 파일을 임의의 컴퓨터로 이동할 수 있으므로 이제 구독 및 지역 간에 데이터를 복원할 수 있습니다.
 
-1. **복원 구성** 메뉴의 **위치 및 복원 방법**에서 **파일로 복원**을 선택 합니다.
+1. **복원 구성** 메뉴의 **위치 및 복원 방법** 에서 **파일로 복원** 을 선택 합니다.
 1. 백업 파일을 복원 하려는 **호스트** /HANA 서버 이름을 선택 합니다.
-1. **서버의 대상 경로**에서 2 단계에서 선택한 서버에 폴더 경로를 입력 합니다. 서비스에서 필요한 모든 백업 파일을 덤프 하는 위치입니다.
+1. **서버의 대상 경로** 에서 2 단계에서 선택한 서버에 폴더 경로를 입력 합니다. 서비스에서 필요한 모든 백업 파일을 덤프 하는 위치입니다.
 
     덤프 되는 파일은 다음과 같습니다.
 
@@ -167,7 +167,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
         su - <sid>adm
         ```
 
-    1. 복원에 사용할 카탈로그 파일을 생성합니다. 전체 백업에 대한 JSON 메타데이터 파일에서 **BackupId**를 추출합니다. 이는 나중에 복원 작업에서 사용됩니다. 전체 및 로그 백업이 서로 다른 폴더에 있는지 확인하고, 이러한 폴더에서 카탈로그 파일과 JSON 메타데이터 파일을 삭제합니다.
+    1. 복원에 사용할 카탈로그 파일을 생성합니다. 전체 백업에 대한 JSON 메타데이터 파일에서 **BackupId** 를 추출합니다. 이는 나중에 복원 작업에서 사용됩니다. 전체 및 로그 백업이 서로 다른 폴더에 있는지 확인하고, 이러한 폴더에서 카탈로그 파일과 JSON 메타데이터 파일을 삭제합니다.
 
         ```bash
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
@@ -223,7 +223,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
     ![복원 지점](media/sap-hana-db-restore/restore-point.png)
 
-1. **복원** 메뉴에서 **복원**을 선택하여 복원 작업을 시작합니다.
+1. **복원** 메뉴에서 **복원** 을 선택하여 복원 작업을 시작합니다.
 
     ![복원 선택](media/sap-hana-db-restore/restore-restore.png)
 
@@ -233,13 +233,13 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 ### <a name="restore-to-a-specific-recovery-point"></a>특정 복구 지점으로 복원
 
-복원 유형으로 **전체 및 차등**을 선택한 경우 다음을 수행합니다.
+복원 유형으로 **전체 및 차등** 을 선택한 경우 다음을 수행합니다.
 
 1. 목록에서 복구 지점을 선택 하 고 **확인** 을 선택 하 여 복원 지점을 선택 합니다.
 
     ![특정 복구 지점 복원](media/sap-hana-db-restore/specific-recovery-point.png)
 
-1. **복원** 메뉴에서 **복원**을 선택하여 복원 작업을 시작합니다.
+1. **복원** 메뉴에서 **복원** 을 선택하여 복원 작업을 시작합니다.
 
     ![복원 작업 시작](media/sap-hana-db-restore/restore-specific.png)
 
@@ -262,7 +262,7 @@ CRR을 사용 하도록 설정 되어 있는지 확인 하려면 [지역 간 복
 
 CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습니다.
 
-1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목**으로 이동 합니다.
+1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목** 으로 이동 합니다.
 1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
 
 >[!NOTE]

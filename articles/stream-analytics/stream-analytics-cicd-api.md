@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7e56758a1a76933d6bb18883aa15ce33ce2e89e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039078"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130921"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>API를 사용하여 IoT Edge의 Stream Analytics에 대한 CI/CD 구현
 
@@ -59,7 +59,7 @@ Stream Analytics 작업을 만들려면 Stream Analytics API를 사용하여 PUT
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-**curl**을 사용하는 명령 예제입니다.
+**curl** 을 사용하는 명령 예제입니다.
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -136,7 +136,7 @@ JSON에서 요청 본문의 예제입니다.
 } 
 ```
  
-자세한 내용은 [API 설명서](/rest/api/streamanalytics/stream-analytics-job)를 참조하세요.  
+자세한 내용은 [API 설명서](/rest/api/streamanalytics/)를 참조하세요.  
  
 ## <a name="publish-edge-package"></a>Edge 패키지 게시 
  
@@ -148,7 +148,7 @@ IoT Edge에서 Stream Analytics 작업을 게시하려면 Edge Package Publish A
 
 작업이 성공적으로 게시될 때까지 이 비동기 작업은 202 상태를 반환합니다. 위치 응답 헤더는 프로세스의 상태를 가져오는 데 사용하는 URI를 포함합니다. 프로세스가 실행 중인 동안 위치 헤더의 URI에 대한 호출은 202 상태를 반환합니다. 프로세스가 끝났을 때 위치 헤더의 URI는 200 상태를 반환합니다. 
 
-**curl**을 사용하여 Edge 패키지 게시 호출의 예제입니다. 
+**curl** 을 사용하여 Edge 패키지 게시 호출의 예제입니다. 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +163,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 응답의 HEAD에 찾은 URL을 사용하여 API 호출을 수행하려면 다음 명령을 실행하기 전에 1~2분 정도 기다립니다. 200 응답을 얻지 못한 경우 명령을 다시 시도합니다.
  
-**curl**을 사용하여 반환된 URL로 API 호출을 만드는 예제입니다.
+**curl** 을 사용하여 반환된 URL로 API 호출을 만드는 예제입니다.
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 
@@ -258,5 +258,5 @@ curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/res
 ## <a name="next-steps"></a>다음 단계 
  
 * [IoT Edge의 Azure Stream Analytics](stream-analytics-edge.md)
-* [IoT Edge의 ASA 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [IoT Edge의 ASA 자습서](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발](stream-analytics-tools-for-visual-studio-edge-jobs.md)

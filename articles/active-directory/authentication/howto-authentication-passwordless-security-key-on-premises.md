@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ce2f02ef96a88b6bf4471377ce97a529dbd1a9
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706339"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743482"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 온-프레미스 리소스에 대해 암호 없는 보안 키 로그인 사용
 
@@ -58,7 +58,7 @@ Azure AD Kerberos 서버 개체는 온-프레미스 Active Directory 만든 다�
 시나리오는 다음 두 시나리오에서 모두 SSO (Single Sign-On)를 지원 합니다.
 
 - Microsoft 365 및 기타 SAML 사용 응용 프로그램과 같은 클라우드 리소스
-- 온-프레미스 리소스와 웹 사이트에 대 한 Windows 통합 인증 리소스에는 IIS 인증을 요구 하는 웹 사이트와 SharePoint 사이트 및 NTLM 인증을 사용 하는 리소스가 포함 될 수 있습니다.
+- 온-프레미스 리소스 및 웹 사이트에 대 한 인증을 Windows-Integrated 합니다. 리소스에는 IIS 인증을 요구 하는 웹 사이트와 SharePoint 사이트 및 NTLM 인증을 사용 하는 리소스가 포함 될 수 있습니다.
 
 ### <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
@@ -115,7 +115,7 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 | DomainDnsName | Active Directory 도메인 DNS 도메인 이름입니다. |
 | 컴퓨터 계정 | Azure AD Kerberos 서버 개체 (DC)의 컴퓨터 계정 개체입니다. |
 | UserAccount | Azure AD Kerberos 서버 TGT 암호화 키를 보유 하는 사용 하지 않도록 설정 된 사용자 계정 개체입니다. 이 계정의 DN은 다음과 같습니다. `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
-| KeyVersion | Azure AD Kerberos 서버 TGT 암호화 키의 키 버전입니다. 이 버전은 키를 만들 때 할당 됩니다. 그런 다음 키를 회전할 때마다 버전이 증가 합니다. 증분은 복제 메타 데이터를 기반으로 하며 1 보다 클 수 있습니다. 예를 들어 초기 *Keyversion* 은 *192272*일 수 있습니다. 키를 처음 회전할 때 버전은 *212621*로 이동 될 수 있습니다. 확인 해야 하는 중요 한 점은 온-프레미스 개체의 *keyversion* 과 클라우드 개체의 *cloudkeyversion* 이 동일한 지 확인 하는 것입니다. |
+| KeyVersion | Azure AD Kerberos 서버 TGT 암호화 키의 키 버전입니다. 이 버전은 키를 만들 때 할당 됩니다. 그런 다음 키를 회전할 때마다 버전이 증가 합니다. 증분은 복제 메타 데이터를 기반으로 하며 1 보다 클 수 있습니다. 예를 들어 초기 *Keyversion* 은 *192272* 일 수 있습니다. 키를 처음 회전할 때 버전은 *212621* 로 이동 될 수 있습니다. 확인 해야 하는 중요 한 점은 온-프레미스 개체의 *keyversion* 과 클라우드 개체의 *cloudkeyversion* 이 동일한 지 확인 하는 것입니다. |
 | KeyUpdatedOn | Azure AD Kerberos 서버 TGT 암호화 키가 업데이트 또는 생성 된 날짜와 시간입니다. |
 | KeyUpdatedFrom | Azure AD Kerberos 서버 TGT 암호화 키가 마지막으로 업데이트 된 DC입니다. |
 | CloudId | Azure AD 개체의 ID입니다. 위의 ID와 일치 해야 합니다. |
@@ -190,7 +190,7 @@ Azure AD 사용자를 포함 하는 조직의 각 도메인 및 포리스트에�
 
 하이브리드 Azure AD 조인 컴퓨터를 새로 설치 하는 경우 도메인 가입 및 다시 시작 프로세스 후에 암호를 사용 하 여 로그인 하 고 FIDO를 사용 하 여 로그인 할 수 있기 전에 정책이 동기화 될 때까지 기다려야 합니다.
 
-- 명령 창에를 입력 하 여 현재 상태를 확인 `dsregcmd /status` 하 고 *AzureAdJoined* 및 *domainjoined* 모두 *예*를 표시 하는지 확인 합니다.
+- 명령 창에를 입력 하 여 현재 상태를 확인 `dsregcmd /status` 하 고 *AzureAdJoined* 및 *domainjoined* 모두 *예* 를 표시 하는지 확인 합니다.
 - 이 지연은 도메인에 가입 된 장치에 대 한 알려진 제한 사항이 며 FIDO는 관련이 없습니다.
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>FIDO를 사용 하 여 로그인 한 후 NTLM 네트워크 리소스에 대 한 SSO를 가져올 수 없으며 자격 증명 프롬프트를 가져옵니다.

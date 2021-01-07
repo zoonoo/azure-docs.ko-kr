@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 19b4ac619ec3e72c787efc8e9f043f42dbd8b09b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505157"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010302"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "85505157"
 
 이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 수행하는 방법을 배웁니다. .NET SDK를 사용한 Data Lake Storage Gen1 최종 사용자 인증의 경우 [.NET SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2013 이상** 아래 지침에서는 Visual Studio 2019을 사용 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -32,13 +32,13 @@ ms.locfileid: "85505157"
 * **Azure Active Directory "웹" 애플리케이션 만들기**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
 ## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
-1. Visual Studio에서 **파일** 메뉴, **새로 만들기**, **프로젝트**를 차례로 선택 합니다.
-2. **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
-3. **프로젝트 이름**에 `CreateADLApplication`를 입력하고 **만들기**를 선택합니다.
+1. Visual Studio에서 **파일** 메뉴, **새로 만들기**, **프로젝트** 를 차례로 선택 합니다.
+2. **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음** 을 선택 합니다.
+3. **프로젝트 이름** 에 `CreateADLApplication`를 입력하고 **만들기** 를 선택합니다.
 
 4. NuGet 패키지를 프로젝트에 추가합니다.
 
-   1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
+   1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리** 를 클릭합니다.
    2. **NuGet 패키지 관리자** 탭에서 **패키지 원본** 이 **nuget.org** 로 설정 되어 있고 **시험판 포함** 확인란이 선택 되어 있는지 확인 합니다.
    3. 다음 NuGet 패키지를 검색하고 설치합니다.
 
@@ -46,9 +46,9 @@ ms.locfileid: "85505157"
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.2.12를 사용합니다.
 
         ![NuGet 소스 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure Data Lake 계정 만들기")
-   4. **NuGet 패키지 관리자**를 닫습니다.
+   4. **NuGet 패키지 관리자** 를 닫습니다.
 
-5. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
+5. **Program.cs** 를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
 
 ```csharp
 using System;

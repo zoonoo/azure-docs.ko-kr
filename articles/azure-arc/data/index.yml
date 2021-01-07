@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: MikeRayMSFT
   ms.author: mikeray
-  ms.date: 09/22/2020
-  ms.openlocfilehash: 3ef94bfc9d3870c4c91116fb2aaf26387999a8da
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.date: 12/16/2020
+  ms.openlocfilehash: a3f90834c3b4d68e96b02361643bf32786670e84
+  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90928923"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97673914"
 landingContent:
 - title: 정보
   linkLists:
@@ -61,3 +61,9 @@ landingContent:
       url: migrate-to-managed-instance.md
     - text: 복원
       url: restore-adventureworks-sample-db.md
+- title: 개념 증명
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: 빠른 시작
+      url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/

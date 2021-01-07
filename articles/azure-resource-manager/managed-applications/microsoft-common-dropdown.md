@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b9b27a432776635290c7e8e796e84d8c1e0e8675
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474345"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168344"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI 요소
 
@@ -26,19 +26,19 @@ DropDown 요소는 포털에서 모양을 결정 하는 다양 한 옵션을 포
 
 설명이 포함 되 면 컨트롤은 다음과 같이 표시 됩니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="설명으로 단일 선택 드롭다운":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft 단일 항목 선택":::
 
 다중 선택을 사용 하도록 설정 하는 경우 컨트롤은 둘 이상의 항목을 선택할 수 있는 **모두 선택** 옵션과 확인란을 추가 합니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft 일반. 드롭다운 다중 선택":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft 단일 항목 선택":::
 
 다중 선택 사용에 대 한 설명을 포함할 수 있습니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft 일반. 드롭다운 다중 선택 설명":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft 단일 항목 선택":::
 
 필터링을 사용 하는 경우 컨트롤에 필터링 값을 추가 하기 위한 입력란이 포함 됩니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft 일반. 드롭다운 다중 선택 설명":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft 단일 항목 선택":::
 
 ## <a name="schema"></a>스키마
 

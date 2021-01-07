@@ -1,14 +1,17 @@
 ---
-title: Azure Migrate Server Migration을 사용 하 여 VMware 마이그레이션 옵션 선택 | Microsoft Docs
+title: Azure Migrate Server Migration을 사용 하 여 VMware 마이그레이션 옵션을 선택 합니다.
 description: Azure Migrate Server Migration을 사용 하 여 VMware Vm을 Azure로 마이그레이션하기 위한 옵션에 대 한 개요를 제공 합니다.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 075f113975e5f340493fe33584d8072190be77c8
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950224"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896484"
 ---
 # <a name="select-a-vmware-migration-option"></a>VMware 마이그레이션 옵션 선택
 
@@ -29,9 +32,9 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 **어플라이언스 배포** | [Azure Migrate 어플라이언스](migrate-appliance.md) 는 온-프레미스에 배포 됩니다. | [Azure Migrate 복제 어플라이언스](migrate-replication-appliance.md) 는 온-프레미스에 배포 됩니다.
 **Site Recovery 호환성** | 형식이. | Site Recovery를 사용 하 여 컴퓨터에 대 한 복제를 설정한 경우 Azure Migrate 서버 마이그레이션에 복제할 수 없습니다.
 **대상 디스크** | 관리 디스크 | 관리 디스크
-**디스크 제한** | OS 디스크: 2tb<br/><br/> 데이터 디스크: 8TB<br/><br/> 최대 디스크: 60 | OS 디스크: 2tb<br/><br/> 데이터 디스크: 8TB<br/><br/> 최대 디스크: 63
-**통과 디스크** | 지원되지 않음 | 지원됨
-**UEFI 부팅** | 지원되지 않음 | Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다.<br/><br/> OS 디스크에는 최대 4 개의 파티션이 있어야 하 고 볼륨은 NTFS로 포맷 되어야 합니다.
+**디스크 제한** | OS 디스크: 2tb<br/><br/> 데이터 디스크: 32 TB<br/><br/> 최대 디스크: 60 | OS 디스크: 2tb<br/><br/> 데이터 디스크: 8TB<br/><br/> 최대 디스크: 63
+**통과 디스크** | 지원되지 않음 | 지원 여부
+**UEFI 부팅** | 지원됨. | 지원됨.
 
 ## <a name="compare-deployment-steps"></a>배포 단계 비교
 
@@ -40,12 +43,12 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 **Task** | **세부 정보** |**에이전트 없음** | **에이전트 기반**
 --- | --- | --- | ---
 **Azure Migrate 어플라이언스 배포** | VMware VM에서 실행 되는 경량 어플라이언스입니다.<br/><br/> 어플라이언스는 컴퓨터를 검색 및 평가 하 고 에이전트 없는 마이그레이션을 사용 하 여 컴퓨터를 마이그레이션하는 데 사용 됩니다. | 필수 요소.<br/><br/> 평가를 위해 어플라이언스를 이미 설정한 경우 에이전트 없는 마이그레이션에 동일한 어플라이언스를 사용할 수 있습니다. | 필수 아님.<br/><br/> 평가에 대 한 어플라이언스를 설정한 경우 해당 어플라이언스를 그대로 두거나 평가를 완료 한 경우 제거할 수 있습니다.
-**서버 평가 도구 사용** | Azure Migrate: 서버 평가 도구를 사용 하 여 컴퓨터를 평가 합니다. | 컴퓨터를 마이그레이션하기 전에 평가할 수 있지만 수행할 필요가 없습니다. | 평가는 선택 사항입니다. | 평가는 선택 사항입니다.
+**서버 평가 도구 사용** | Azure Migrate: 서버 평가 도구를 사용 하 여 컴퓨터를 평가 합니다. | 컴퓨터를 마이그레이션하기 전에 평가할 수 있지만 수행할 필요가 없습니다. | 평가는 선택 사항입니다.
 **서버 마이그레이션 도구 사용** | Azure Migrate 프로젝트에 Azure Migrate 서버 마이그레이션 도구를 추가 합니다. | 필수 | 필수
 **마이그레이션을 위해 VMware 준비** | VMware 서버 및 Vm에 대 한 설정을 구성 합니다. | 필수 | 필수
 **Vm에 모바일 서비스 설치** | 모바일 서비스는 복제 하려는 각 VM에서 실행 됩니다. | 필요하지 않음 | 필수
 **복제 어플라이언스 배포** | [복제 어플라이언스](migrate-replication-appliance.md) 는 에이전트 기반 마이그레이션에 사용 됩니다. Vm에서 실행 되는 모바일 서비스와 서버 마이그레이션을 연결 합니다. | 필요하지 않음 | 필수
-**Vm을 복제**합니다. VM 복제를 사용하도록 설정. | 복제 설정을 구성 하 고 복제할 Vm을 선택 합니다. | 필수 | 필수
+**Vm을 복제** 합니다. VM 복제를 사용 하도록 설정 합니다. | 복제 설정을 구성 하 고 복제할 Vm을 선택 합니다. | 필수 | 필수
 **테스트 마이그레이션 실행** | 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인합니다. | 필수 | 필수
 **전체 마이그레이션 실행** | Vm을 마이그레이션합니다. | 필수 | 필수
 

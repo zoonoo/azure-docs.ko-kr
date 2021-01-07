@@ -3,12 +3,12 @@ title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 38d138b43441016e06fca5003bc09c940cb23efe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887235"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883319"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
@@ -18,13 +18,13 @@ ms.locfileid: "90887235"
 > ARM64 장치에 대 한 지원은 IoT Edge 빌드 이상에서 라이브 비디오 분석에 제공 됩니다 `1.0.4` .
 > ARM64 디바이스에서 Azure IoT Edge 런타임을 실행하는 것에 대한 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* [지원 되는 Linux 운영 체제](https://docs.microsoft.com/azure/iot-edge/support#operating-systems) 중 하나를 실행 하는 x86-64 또는 ARM64 장치
+* [지원 되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 중 하나를 실행 하는 x86-64 또는 ARM64 장치
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독
 * [IoT Hub 만들기 및 설정](../../iot-hub/iot-hub-create-through-portal.md)
-* [IoT Edge 장치 등록](../../iot-edge/how-to-register-device.md)
-* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [IoT Edge 장치 등록](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)
 * [Azure Media Services 계정 만들기](../latest/create-account-howto.md)
 
     * 미국 동부 2, 미국 동부, 미국 중부, 미국 중 북부, 일본 동부, 미국 서 부, 미국 서 부 2, 미국 서 부, 캐나다 동부, 영국 남부, 프랑스 중부, 프랑스 남부, 스위스 북부, 스위스 서부, 일본 서 부 지역 중 하나를 사용 합니다.
@@ -93,13 +93,13 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 #### <a name="select-your-device-and-set-modules"></a>장치를 선택 하 고 모듈을 설정 합니다.
 
 1. [Azure Portal](https://ms.portal.azure.com/)에 로그인하고 IoT Hub로 이동합니다.
-1. 메뉴에서 **IoT Edge**를 선택합니다.
+1. 메뉴에서 **IoT Edge** 를 선택합니다.
 1. 디바이스 목록에서 대상 디바이스의 ID를 클릭합니다.
-1. **모듈 설정**을 선택 합니다.
+1. **모듈 설정** 을 선택 합니다.
 
 #### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
-배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. Azure Portal에는 배포 매니페스트를 만드는 과정을 안내 하는 마법사가 있습니다. 이 클래스는 **모듈**, **경로**및 **검토 + 만들기**의 세 단계로 구성 됩니다.
+배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. Azure Portal에는 배포 매니페스트를 만드는 과정을 안내 하는 마법사가 있습니다. 이 클래스는 **모듈**, **경로** 및 **검토 + 만들기** 의 세 단계로 구성 됩니다.
 
 #### <a name="add-modules"></a>모듈 추가
 
@@ -108,12 +108,12 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
     예제:
     
     * **IoT Edge 모듈 이름**: lvaEdge
-    * **이미지 URI**: mcr.microsoft.com/media/live-video-analytics:1.0    
+    * **이미지 URI**: mcr.microsoft.com/media/live-video-analytics:2.0    
     
     ![스크린샷 모듈 설정 탭을 표시 합니다.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
-    > 이 절차에 설명 된 대로 **모듈 설정**, **컨테이너 만들기 옵션**및 **모듈 쌍 설정** 탭에서 값을 지정할 때까지 **추가** 를 선택 하지 마세요.
+    > 이 절차에 설명 된 대로 **모듈 설정**, **컨테이너 만들기 옵션** 및 **모듈 쌍 설정** 탭에서 값을 지정할 때까지 **추가** 를 선택 하지 마세요.
     
     > [!WARNING]
     > 모듈에 대 한 호출을 수행할 때 Azure IoT Edge는 대/소문자를 구분 합니다. 모듈 이름으로 사용 하는 정확한 문자열을 기록해 둡니다.

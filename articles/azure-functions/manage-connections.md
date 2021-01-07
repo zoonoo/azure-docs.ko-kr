@@ -4,12 +4,12 @@ description: 정적 연결 클라이언트를 사용하여 Azure Functions에서
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 7ce933511532fdb1bfb5189e5a900e87f3d83fa2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213967"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936705"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -19,13 +19,13 @@ ms.locfileid: "88213967"
 
 함수 앱은 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)에서 실행 되므로 사용 가능한 연결 수는 부분적으로 제한 됩니다. 샌드박스에서 코드에 적용 하는 제한 사항 중 하나는 현재 인스턴스당 600 활성 (총 1200) 연결 인 아웃 바운드 연결 수에 대 한 제한입니다. 이 한도에 도달 하면 함수 런타임에서는 로그에 다음 메시지를 기록 합니다 `Host thresholds exceeded: Connections` . 자세한 내용은 [함수 서비스 제한](functions-scale.md#service-limits)을 참조 하세요.
 
-이 제한은 인스턴스당입니다. [크기 조정 컨트롤러에서 함수 앱 인스턴스를 추가](functions-scale.md#how-the-consumption-and-premium-plans-work) 하 여 더 많은 요청을 처리 하면 각 인스턴스에 독립적인 연결 제한이 있습니다. 즉, 전역 연결 제한이 없으며 모든 활성 인스턴스에서 600 개가 넘는 활성 연결을 가질 수 있습니다.
+이 제한은 인스턴스당입니다. [크기 조정 컨트롤러에서 함수 앱 인스턴스를 추가](event-driven-scaling.md) 하 여 더 많은 요청을 처리 하면 각 인스턴스에 독립적인 연결 제한이 있습니다. 즉, 전역 연결 제한이 없으며 모든 활성 인스턴스에서 600 개가 넘는 활성 연결을 가질 수 있습니다.
 
-문제를 해결 하려면 함수 앱에 대 한 Application Insights를 사용 하도록 설정 했는지 확인 합니다. Application Insights를 사용 하 여 실행 같은 함수 앱에 대 한 메트릭을 볼 수 있습니다. 자세한 내용은 [Application Insights에서 원격 분석 보기](functions-monitoring.md#view-telemetry-in-application-insights)를 참조 하세요.  
+문제를 해결 하려면 함수 앱에 대 한 Application Insights를 사용 하도록 설정 했는지 확인 합니다. Application Insights를 사용 하 여 실행 같은 함수 앱에 대 한 메트릭을 볼 수 있습니다. 자세한 내용은 [Application Insights에서 원격 분석 보기](analyze-telemetry-data.md#view-telemetry-in-application-insights)를 참조 하세요.  
 
 ## <a name="static-clients"></a>정적 클라이언트
 
-필요한 것보다 더 많은 연결을 유지하지 않으려면, 각 함수 호출을 사용하여 새 인스턴스를 만드는 대신 클라이언트 인스턴스를 다시 사용합니다. 함수를 작성할 수 있는 모든 언어에 대해 클라이언트 연결을 다시 사용 하는 것이 좋습니다. 예를 들어, 단일 정적 클라이언트를 사용 하는 경우 [Httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1), [documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient)및 Azure Storage 클라이언트와 같은 .net 클라이언트에서 연결을 관리할 수 있습니다.
+필요한 것보다 더 많은 연결을 유지하지 않으려면, 각 함수 호출을 사용하여 새 인스턴스를 만드는 대신 클라이언트 인스턴스를 다시 사용합니다. 함수를 작성할 수 있는 모든 언어에 대해 클라이언트 연결을 다시 사용 하는 것이 좋습니다. 예를 들어, 단일 정적 클라이언트를 사용 하는 경우 [Httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true), [documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient)및 Azure Storage 클라이언트와 같은 .net 클라이언트에서 연결을 관리할 수 있습니다.
 
 Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용 하는 경우 따라야 할 몇 가지 지침은 다음과 같습니다.
 
@@ -39,7 +39,7 @@ Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용
 
 ### <a name="httpclient-example-c"></a>HttpClient 예제(C#)
 
-다음은 정적 [Httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) 인스턴스를 만드는 c # 함수 코드의 예제입니다.
+다음은 정적 [Httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true) 인스턴스를 만드는 c # 함수 코드의 예제입니다.
 
 ```cs
 // Create a single, static HttpClient
@@ -52,7 +52,7 @@ public static async Task Run(string input)
 }
 ```
 
-.NET의 [Httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) 에 대 한 일반적인 질문은 "클라이언트를 삭제 해야 하나요?"입니다. 일반적으로를 사용 하는 경우를 구현 하는 개체를 삭제 `IDisposable` 합니다. 그러나 정적 클라이언트는 함수가 종료 될 때 사용 하지 않으므로 삭제 하지 않습니다. 정적 클라이언트가 애플리케이션 기간 동안 지속되도록 합니다.
+.NET의 [Httpclient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true) 에 대 한 일반적인 질문은 "클라이언트를 삭제 해야 하나요?"입니다. 일반적으로를 사용 하는 경우를 구현 하는 개체를 삭제 `IDisposable` 합니다. 그러나 정적 클라이언트는 함수가 종료 될 때 사용 하지 않으므로 삭제 하지 않습니다. 정적 클라이언트가 애플리케이션 기간 동안 지속되도록 합니다.
 
 ### <a name="http-agent-examples-javascript"></a>HTTP 에이전트 예제 (JavaScript)
 
@@ -103,7 +103,25 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
+V3. x 함수를 사용 하는 경우에는 Microsoft.Azure.DocumentDB. Core에 대 한 참조가 필요 합니다. 코드에 참조를 추가 합니다.
 
+```cs
+#r "Microsoft.Azure.DocumentDB.Core"
+```
+또한 트리거에 대해 "proj" 라는 파일을 만들고 아래 콘텐츠를 추가 합니다.
+
+```cs
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.12.0" />
+    </ItemGroup>
+</Project>
+
+```
 ### <a name="cosmosclient-code-example-javascript"></a>CosmosClient 코드 예제 (JavaScript)
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) 는 Azure Cosmos DB 인스턴스에 연결 됩니다. Azure Cosmos DB 문서에서는 [애플리케이션 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](../cosmos-db/performance-tips.md#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
 
@@ -125,10 +143,10 @@ module.exports = async function (context) {
 
 ## <a name="sqlclient-connections"></a>SqlClient 연결
 
-함수 코드는 SQL Server에 대 한 .NET Framework Data Provider ([SqlClient](/dotnet/api/system.data.sqlclient?view=dotnet-plat-ext-3.1))를 사용 하 여 SQL 관계형 데이터베이스에 연결할 수 있습니다. [Entity Framework](/ef/ef6/)와 같이 ADO.NET를 사용 하는 데이터 프레임 워크의 기본 공급자 이기도 합니다. [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) 및 [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)와 달리, ADO.NET은 기본적으로 연결 풀링을 구현합니다. 그러나 계속 해 서 연결을 실행할 수 있기 때문에 데이터베이스에 대 한 연결을 최적화 해야 합니다. 자세한 내용은 [SQL Server 연결 풀링(ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조하세요.
+함수 코드는 SQL Server에 대 한 .NET Framework Data Provider ([SqlClient](/dotnet/api/system.data.sqlclient))를 사용 하 여 SQL 관계형 데이터베이스에 연결할 수 있습니다. [Entity Framework](/ef/ef6/)와 같이 ADO.NET를 사용 하는 데이터 프레임 워크의 기본 공급자 이기도 합니다. [HttpClient](/dotnet/api/system.net.http.httpclient) 및 [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)와 달리, ADO.NET은 기본적으로 연결 풀링을 구현합니다. 그러나 계속 해 서 연결을 실행할 수 있기 때문에 데이터베이스에 대 한 연결을 최적화 해야 합니다. 자세한 내용은 [SQL Server 연결 풀링(ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조하세요.
 
 > [!TIP]
-> Entity Framework와 같은 일부 데이터 프레임 워크는 일반적으로 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져옵니다. 이 경우, 함수 앱 설정의 **연결 문자열** 컬렉션과 로컬 프로젝트의 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 SQL 데이터베이스 연결 문자열을 명시적으로 추가해야 합니다. 함수 코드에 [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection?view=dotnet-plat-ext-3.1) 의 인스턴스를 만드는 경우 **응용 프로그램 설정** 에 연결 문자열 값을 다른 연결과 함께 저장 해야 합니다.
+> Entity Framework와 같은 일부 데이터 프레임 워크는 일반적으로 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져옵니다. 이 경우, 함수 앱 설정의 **연결 문자열** 컬렉션과 로컬 프로젝트의 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 SQL 데이터베이스 연결 문자열을 명시적으로 추가해야 합니다. 함수 코드에 [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) 의 인스턴스를 만드는 경우 **응용 프로그램 설정** 에 연결 문자열 값을 다른 연결과 함께 저장 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

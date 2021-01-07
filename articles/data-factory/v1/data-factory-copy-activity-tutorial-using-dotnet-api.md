@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7b925a25e1e246008f393f7b15160417c3b3d7a1
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d047a45d678918541eb3c2d2c45e4519a34bdd57
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254857"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608683"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>자습서: .NET API를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.locfileid: "85254857"
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 만들기
 Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의 서비스 주체를 만들고 **데이터 팩터리 참가자** 역할에 할당합니다.
 
-1. **PowerShell**을 시작합니다.
+1. **PowerShell** 을 시작합니다.
 2. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
 
     ```powershell
@@ -73,7 +73,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```
 
    > [!IMPORTANT]
-   > 이 명령의 출력에서 **SubscriptionId** 및 **TenantId**를 적어둡니다.
+   > 이 명령의 출력에서 **SubscriptionId** 및 **TenantId** 를 적어둡니다.
 
 5. PowerShell에서 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
 
@@ -108,7 +108,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 9. 애플리케이션 ID를 가져옵니다.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication
     ```
     출력에서 애플리케이션 ID(applicationID)를 적어둡니다.
 
@@ -122,17 +122,17 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 ## <a name="walkthrough"></a>연습
 1. Visual Studio 2012/2013/2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
    1. **Visual Studio** 2012/2013/2015를 실행합니다.
-   2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
-   3. **템플릿**을 확장하고 **Visual C#** 를 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
-   4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 애플리케이션**을 선택합니다.
+   2. **File** 을 클릭하고 **New** 를 가리킨 다음 **프로젝트** 를 클릭합니다.
+   3. **템플릿** 을 확장하고 **Visual C#** 를 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
+   4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 애플리케이션** 을 선택합니다.
    5. 이름에 **DataFactoryAPITestApp** 을 입력합니다.
-   6. **C:\ADFGetStarted**를 [위치]로 선택합니다.
-   7. **확인**을 클릭하여 프로젝트를 만듭니다.
-2. **도구**를 클릭하고 **NuGet 패키지 관리자**를 가리킨 다음 **패키지 관리자 콘솔**을 클릭합니다.
-3. **패키지 관리자 콘솔**에서 다음 단계를 수행합니다.
+   6. **C:\ADFGetStarted** 를 [위치]로 선택합니다.
+   7. **확인** 을 클릭하여 프로젝트를 만듭니다.
+2. **도구** 를 클릭하고 **NuGet 패키지 관리자** 를 가리킨 다음 **패키지 관리자 콘솔** 을 클릭합니다.
+3. **패키지 관리자 콘솔** 에서 다음 단계를 수행합니다.
    1. 다음 명령을 실행하여 Data Factory 패키지를 설치합니다. `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Azure Active Directory 패키지를 설치하려면 다음 명령을 실행합니다(코드에서 Active Directory API를 사용함). `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이 설정은 도우미 메서드: **GetAuthorizationHeader**에서 사용됩니다.
+4. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이 설정은 도우미 메서드: **GetAuthorizationHeader** 에서 사용됩니다.
 
     **&lt;애플리케이션 ID&gt;** , **&lt;암호&gt;** , **&lt;구독 ID&gt;** 및 **&lt;테넌트 ID&gt;** 의 값을 고유한 값으로 바꿉니다.
 
@@ -190,7 +190,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
    >
    > 데이터 팩터리 이름(dataFactoryName)을 고유한 이름으로 업데이트합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 
-7. **데이터 팩터리**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
+7. **데이터 팩터리** 를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
     ```csharp
     // create a data factory
@@ -209,10 +209,10 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```
 
     데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 제품 출력 데이터로 변환하는 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 이 단계에서는 데이터 팩터리 만들기를 시작하겠습니다.
-8. **Azure Storage 연결된 서비스**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
+8. **Azure Storage 연결된 서비스** 를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
    > [!IMPORTANT]
-   > **storageaccountname** 및 **accountkey**를 Azure Storage 계정의 이름 및 키로 바꿉니다.
+   > **storageaccountname** 및 **accountkey** 를 Azure Storage 계정의 이름 및 키로 바꿉니다.
 
     ```csharp
     // create a linked service for input data store: Azure Storage
@@ -237,10 +237,10 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     이에 따라 두 개의 연결된 서비스, 즉 AzureStorage와 AzureSqlDatabase 유형의 AzureStorageLinkedService와 AzureSqlLinkedService를 만듭니다.  
 
     AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 스토리지 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.
-9. **Azure SQL 연결된 서비스**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
+9. **Azure SQL 연결된 서비스** 를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
    > [!IMPORTANT]
-   > **servername**, **databasename**, **username** 및 **password**를 서버, 데이터베이스, 사용자 및 암호의 이름으로 바꿉니다.
+   > **servername**, **databasename**, **username** 및 **password** 를 서버, 데이터베이스, 사용자 및 암호의 이름으로 바꿉니다.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database
@@ -261,7 +261,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```
 
     AzureSqlLinkedService는 Azure SQL Database를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.
-10. **입력 및 출력 데이터 세트**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
+10. **입력 및 출력 데이터 세트** 를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
     ```csharp
     // create input and output datasets
@@ -345,8 +345,8 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
     이 단계에서는 AzureStorageLinkedService 연결된 서비스에서 나타내는 Azure Storage의 Blob 컨테이너(adftutorial)의 루트 폴더에 있는 Blob 파일(emp.txt)을 가리키는 InputDataset이라는 데이터 세트를 만듭니다. fileName 값을 지정하지 않거나 건너뛰면 입력 폴더에 있는 모든 Blob의 데이터가 대상에 복사됩니다. 이 자습서에서는 fileName 값을 지정합니다.    
 
-    이 단계에서는 **OutputDataset**이라는 출력 데이터 세트를 만듭니다. 이 데이터 세트는 **AzureSqlLinkedService**로 표시되는 데이터베이스의 SQL 테이블을 가리킵니다.
-11. **파이프라인을 만들고 활성화**하는 다음 코드를 **Main** 메서드에 추가합니다. 이 단계에서는 **InputDataset**을 입력으로 사용하고 **OutputDataset**을 출력으로 사용하는 **복사 활동**을 포함한 파이프라인을 만듭니다.
+    이 단계에서는 **OutputDataset** 이라는 출력 데이터 세트를 만듭니다. 이 데이터 세트는 **AzureSqlLinkedService** 로 표시되는 데이터베이스의 SQL 테이블을 가리킵니다.
+11. **파이프라인을 만들고 활성화** 하는 다음 코드를 **Main** 메서드에 추가합니다. 이 단계에서는 **InputDataset** 을 입력으로 사용하고 **OutputDataset** 을 출력으로 사용하는 **복사 활동** 을 포함한 파이프라인을 만듭니다.
 
     ```csharp
     // create a pipeline
@@ -405,9 +405,9 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
     다음 사항에 유의하세요.
    
-    - 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다. 복사 활동에 대한 자세한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md)을 참조하세요. Data Factory 솔루션에서 [데이터 변환 활동](data-factory-data-transformation-activities.md)을 사용할 수도 있습니다.
-    - 작업에 대한 입력을 **InputDataset**으로 설정하고 작업에 대한 출력을 **OutputDataset**으로 설정합니다. 
-    - **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 전체 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 지원되는 특정 데이터 저장소를 원본/싱크로 사용하는 방법을 알아보려면 표에 나와 있는 링크를 클릭하세요.  
+    - 작업 섹션에는 **형식** 이 **복사** 로 설정된 작업만 있습니다. 복사 활동에 대한 자세한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md)을 참조하세요. Data Factory 솔루션에서 [데이터 변환 활동](data-factory-data-transformation-activities.md)을 사용할 수도 있습니다.
+    - 작업에 대한 입력을 **InputDataset** 으로 설정하고 작업에 대한 출력을 **OutputDataset** 으로 설정합니다. 
+    - **typeProperties** 섹션에서 **BlobSource** 를 원본 유형으로 지정하고 **SqlSink** 를 싱크 유형으로 지정합니다. 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 전체 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 지원되는 특정 데이터 저장소를 원본/싱크로 사용하는 방법을 알아보려면 표에 나와 있는 링크를 클릭하세요.  
    
     현재 출력 데이터 세트는 일정을 작동하는 것입니다. 이 자습서에서는 출력 데이터 세트가 한 시간에 한 번씩 조각을 생성하도록 구성됩니다. 이 파이프라인은 하루 24시간 간격, 즉 24시간 동안에 걸친 시작 시간과 종료 시간을 갖습니다. 따라서 24개의 출력 데이터 세트가 파이프라인에 의해 생성됩니다.
 12. **Main** 메서드에 다음 코드를 추가하여 출력 데이터 세트의 데이터 조각 상태를 가져옵니다. 이 샘플에서는 조각만 필요합니다.
@@ -503,15 +503,15 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     }
     ```
 
-15. 솔루션 탐색기에서 프로젝트(DataFactoryAPITestApp)를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. **System.Configuration** 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
-16. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
+15. 솔루션 탐색기에서 프로젝트(DataFactoryAPITestApp)를 확장하고 **참조** 를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가** 를 클릭합니다. **System.Configuration** 어셈블리에 대한 확인란을 선택하고 **확인** 을 클릭합니다.
+16. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드** 를 클릭하고 **솔루션 빌드** 를 클릭합니다.
 17. Azure Blob Storage의 **adftutorial** 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 **Emp.txt** 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
     ```
     John, Doe
     Jane, Doe
     ```
-18. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
+18. 메뉴에서 **디버그** -> **디버깅 시작** 을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기** 가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 19. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory** 가 다음 아티팩트로 생성되었는지 확인합니다.
     * 연결된 서비스: **LinkedService_AzureStorage**
     * 데이터 세트: **InputDataset** 및 **OutputDataset**

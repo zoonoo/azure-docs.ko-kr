@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 �
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e3986b7e8fc70f8662bed40b076897caa6165744
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448071"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182821"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -35,7 +35,7 @@ Azure Automation의 구성 관리를 통해 다음과 같은 두 가지 기능�
 
 ### <a name="change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리
 
-변경 내용 추적 및 인벤토리는 변경 추적 및 인벤토리 기능을 결합하여 가상 머신 및 서버 인프라 변경 내용을 추적할 수 있도록 합니다. 이 서비스는 사용자 환경에서 서비스, 디먼, 소프트웨어, 레지스트리 및 파일에 변경한 내용을 추적하는 기능을 지원하기 때문에 원하지 않는 변경 내용을 진단하고 경고를 생성할 수 있습니다. 인벤토리 지원을 사용하면 게스트 내 리소스를 쿼리하여 설치된 애플리케이션 및 기타 구성 항목을 볼 수 있습니다. 이 기능에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리](change-tracking.md)를 참조하세요.
+변경 내용 추적 및 인벤토리는 변경 추적 및 인벤토리 기능을 결합하여 가상 머신 및 서버 인프라 변경 내용을 추적할 수 있도록 합니다. 이 서비스는 사용자 환경에서 서비스, 디먼, 소프트웨어, 레지스트리 및 파일에 변경한 내용을 추적하는 기능을 지원하기 때문에 원하지 않는 변경 내용을 진단하고 경고를 생성할 수 있습니다. 인벤토리 지원을 사용하면 게스트 내 리소스를 쿼리하여 설치된 애플리케이션 및 기타 구성 항목을 볼 수 있습니다. 이 기능에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리](change-tracking/overview.md)를 참조하세요.
 
 ### <a name="azure-automation-state-configuration"></a>Azure Automation 상태 구성
 
@@ -43,7 +43,7 @@ Azure Automation의 구성 관리를 통해 다음과 같은 두 가지 기능�
 
 ## <a name="update-management"></a>업데이트 관리
 
-Azure Automation에는 하이브리드 환경의 Windows 및 Linux 시스템용 [업데이트 관리](update-management/update-mgmt-overview.md) 기능이 포함되어 있습니다. 업데이트 관리는 Azure와 기타 클라우드 및 온-프레미스에서 업데이트 규정 준수에 대한 가시성을 제공합니다. 이 기능을 사용하면 정의한 유지 관리 기간 내에 업데이트 설치를 오케스트레이션하는 예약된 배포를 만들 수 있습니다. 특정 머신에 업데이트를 설치하지 않아야 하는 경우에는 업데이트 관리 기능을 사용하여 배포에서 제외할 수 있습니다.
+Azure Automation에는 하이브리드 환경의 Windows 및 Linux 시스템용 [업데이트 관리](./update-management/overview.md) 기능이 포함되어 있습니다. 업데이트 관리는 Azure와 기타 클라우드 및 온-프레미스에서 업데이트 규정 준수에 대한 가시성을 제공합니다. 이 기능을 사용하면 정의한 유지 관리 기간 내에 업데이트 설치를 오케스트레이션하는 예약된 배포를 만들 수 있습니다. 특정 머신에 업데이트를 설치하지 않아야 하는 경우에는 업데이트 관리 기능을 사용하여 배포에서 제외할 수 있습니다.
 
 ## <a name="shared-capabilities"></a>공유 기능
 
@@ -64,7 +64,7 @@ Azure Automation은 대규모 환경을 더 쉽게 자동화하고 구성할 수
 
 ### <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-Azure Automation은 RBAC(역할 기반 액세스 제어)를 지원하여 자동화 계정 및 해당 리소스에 대한 액세스를 제어합니다. Automation 계정, Runbook 및 작업에서 RBAC를 구성하는 방법을 자세히 알아보려면 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
+Azure Automation은 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원하여 Automation 계정 및 해당 리소스에 대한 액세스를 제어합니다. Automation 계정, Runbooks 및 작업에서 Azure RBAC를 구성하는 방법을 자세히 알아보려면 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
 
 ### <a name="source-control-integration"></a>소스 제어 통합
 
@@ -86,7 +86,7 @@ Azure Automation은 인프라와 애플리케이션의 수명 주기 전반에 �
 * **변경 내용 찾기** - 잘못된 구성을 유발할 수 있는 변경 내용을 식별하여 운영 규정 준수를 향상시킵니다.
 * **모니터링** - 문제를 유발하는 머신 변경 내용을 격리하여 수정하거나 관리 시스템에 에스컬레이션합니다.
 * **보호** - 보안 경고가 발생하면 머신을 격리합니다. 게스트 내 요구 사항을 설정합니다.
-* **거버넌스** - 팀을 위한 RBAC를 설정합니다. 사용되지 않는 리소스를 복구합니다.
+* **거버넌스** - 팀을 위한 Azure RBAC를 설정합니다. 사용되지 않는 리소스를 복구합니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

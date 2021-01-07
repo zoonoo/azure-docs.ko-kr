@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.author: alkohli
 ms.openlocfilehash: 8d6c3125d0109ae9005414add27f9aa08e932e49
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89085711"
 ---
 VM을 만드는 동안 전달 된 IP를 통해 원격 데스크톱 프로토콜 (RDP)를 사용 하 여 Windows VM에 연결 합니다.

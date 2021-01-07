@@ -7,19 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668779"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705373"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Azure HDInsight에 대 한 전송에서 IPSec 암호화
 
 이 문서에서는 Azure HDInsight 클러스터 노드 간 통신을 위한 전송 암호화 구현에 대해 설명 합니다.
-
-> [!Note]
-> 전송 중인 암호화는 현재 미국 동부, 미국 서 부, 서쪽 미국 지역에 대해 사용 하도록 설정 되어 있습니다. 
 
 ## <a name="background"></a>배경
 
@@ -27,7 +24,7 @@ Azure HDInsight는 엔터프라이즈 데이터를 보호 하기 위한 다양 �
 
 미사용 암호화는 HDInsight 클러스터의 일부인 Azure Vm의 디스크 암호화 뿐만 아니라 Azure storage 계정에서 서버 쪽 암호화를 통해 적용 됩니다.
 
-HDInsight에서 전송 중인 데이터의 암호화는 클러스터 게이트웨이와 클러스터 노드 간에 [IPSec (인터넷 프로토콜 보안)](https://en.wikipedia.org/wiki/IPsec) 을 사용 하기 위해 [TLS (Transport Layer security](https://docs.microsoft.com/azure/hdinsight/transport-layer-security) )를 사용 하 여 구현 됩니다. IPSec은 모든 헤드 노드, 작업자 노드,에 지 노드 및 아웃 들 노드 사이에서 선택적으로 사용할 수 있습니다. Windows 기반 Vm 및 클러스터의 다른 linux 기반 노드인 게이트웨이 또는 [id 브로커](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker) 노드 간의 트래픽에 대해서는 사용할 수 없습니다.
+HDInsight에서 전송 중인 데이터의 암호화는 클러스터 게이트웨이와 클러스터 노드 간에 [IPSec (인터넷 프로토콜 보안)](https://wikipedia.org/wiki/IPsec) 에 액세스 하기 위한 [TLS (전송 계층 보안](../transport-layer-security.md) )를 통해 수행 됩니다. IPSec은 모든 헤드 노드, 작업자 노드,에 지 노드 및 아웃 들 노드 사이에서 선택적으로 사용할 수 있습니다. Windows 기반 Vm 및 클러스터의 다른 linux 기반 노드인 게이트웨이 또는 [id 브로커](./identity-broker.md) 노드 간의 트래픽에 대해서는 사용할 수 없습니다.
 
 ## <a name="enable-encryption-in-transit"></a>전송 중 암호화 사용
 
@@ -40,7 +37,7 @@ Azure Portal를 사용 하 여 전송 중 암호화가 설정 된 새 클러스�
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="클러스터-보안 및 네트워킹 탭을 만듭니다.":::
 
-1. **보안 + 네트워킹** 탭에서 **전송 중 암호화 사용** 확인란을 클릭 합니다.
+1. **보안 + 네트워킹** 탭에서 **전송 중 암호화 사용** 확인란을 선택 합니다.
 
     :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="클러스터 만들기-전송 중 암호화를 사용 합니다.":::
 
@@ -73,7 +70,7 @@ az account set --subscription <SUBSCRIPTION_ID>
 # Create resource group
 az group create --name <RESOURCEGROUPNAME> --location eastus2
 
-az group deployment create --name HDInsightEnterpriseSecDeployment \
+az deployment group create --name HDInsightEnterpriseSecDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-enterprise-security.json \
     --parameters parameters.json

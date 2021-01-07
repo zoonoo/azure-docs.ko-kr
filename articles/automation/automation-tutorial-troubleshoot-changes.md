@@ -7,12 +7,12 @@ keywords: 변경 내용, 추적, 변경 내용 추적, 인벤토리, 자동화
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185809"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204251"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Azure VM의 변경 내용 문제 해결
 
@@ -218,9 +218,9 @@ Azure Portal에서 변경 내용을 보는 기능도 유용하지만, 중지된 
 
 18. 경고 이메일의 제목을 사용자 지정하려면 **작업 사용자 지정**을 선택합니다. 
 
-19. **규칙 만들기**에서 **이메일 제목**을 선택한 다음, **경고 규칙 만들기**를 선택합니다. 경고에서는 언제 업데이트 배포가 성공하고 해당 부분의 업데이트 배포 실행에 어떤 컴퓨터가 사용되었는지 알려줍니다. 다음 이미지는 W3SVC 서비스가 중지되면 받는 예제 메일입니다.
+19. **규칙 만들기**에서 **이메일 제목**을 선택한 다음, **경고 규칙 만들기**를 선택합니다. 경고에서는 언제 업데이트 배포가 성공하고 해당 부분의 업데이트 배포 실행에 어떤 컴퓨터가 사용되었는지 알려줍니다. 다음 이미지는 W3SVC 서비스가 중지될 때 받는 예제 이메일입니다.
 
-    ![이메일](./media/automation-tutorial-troubleshoot-changes/email.png)
+    ![화면 캡처는 W3SVC 서비스가 중지될 때 받는 이메일 알림을 보여줍니다.](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -238,4 +238,4 @@ Azure Portal에서 변경 내용을 보는 기능도 유용하지만, 중지된 
 자세히 알아보려면 변경 내용 추적 및 인벤토리 기능에 대한 개요로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [변경 내용 추적 및 인벤토리 개요](./change-tracking.md)
+> [변경 내용 추적 및 인벤토리 개요](change-tracking/overview.md)

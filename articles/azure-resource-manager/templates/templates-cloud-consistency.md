@@ -1,23 +1,23 @@
 ---
 title: 클라우드에서 템플릿 재사용
-description: 서로 다른 클라우드 환경에서 일관되게 작동하는 Azure Resource Manager 템플릿을 개발합니다. Azure Stack을 위해 새 템플릿을 만들거나, 기존 템플릿을 업데이트합니다.
+description: 여러 클라우드 환경에서 일관 되 게 작동 하는 Azure Resource Manager 템플릿 (ARM 템플릿)을 개발 합니다. Azure Stack을 위해 새 템플릿을 만들거나, 기존 템플릿을 업데이트합니다.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509759"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928361"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 ARM 템플릿 개발
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Azure의 핵심 이점은 일관성입니다. 한 위치에 대한 개발 투자를 다른 위치에서 다시 사용할 수 있습니다. ARM (Azure Resource Manager) 템플릿을 통해 글로벌 Azure, Azure 소 버린 클라우드 및 Azure Stack를 비롯 한 여러 환경에서 배포가 일관적이 고 반복 가능 합니다. 그러나 클라우드 간에 템플릿을 재사용하려면 이 가이드에서 설명하는 클라우드 특정 종속성을 고려해야 합니다.
+Azure의 핵심 이점은 일관성입니다. 한 위치에 대한 개발 투자를 다른 위치에서 다시 사용할 수 있습니다. Azure Resource Manager 템플릿 (ARM 템플릿)은 전역 Azure, Azure 소 버린 클라우드 및 Azure Stack를 비롯 한 여러 환경에서 배포가 일관적이 고 반복 가능 하 게 합니다. 그러나 클라우드 간에 템플릿을 재사용하려면 이 가이드에서 설명하는 클라우드 특정 종속성을 고려해야 합니다.
 
 Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이즈 지원 클라우드 서비스를 제공합니다.
 
@@ -205,7 +205,7 @@ Azure Resource Manager는 런타임에 기본 템플릿을 평가하고, 중첩�
 }
 ```
 
-이 방법을 사용하면 구성 스크립트를 포함한 모든 배포 아티팩트를 템플릿 자체와 동일한 위치에 저장할 수 있습니다. 모든 링크의 위치를 변경하려면 _artifactsLocation 매개 변수_에 대해 다른 기준 URL을 지정하기만 하면 됩니다.
+이 방법을 사용하면 구성 스크립트를 포함한 모든 배포 아티팩트를 템플릿 자체와 동일한 위치에 저장할 수 있습니다. 모든 링크의 위치를 변경하려면 _artifactsLocation 매개 변수_ 에 대해 다른 기준 URL을 지정하기만 하면 됩니다.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>지역별 기능 차이 고려
 
@@ -295,7 +295,7 @@ Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty Re
 
 ### <a name="track-versions-using-api-profiles"></a>API 프로필을 사용하여 버전 추적
 
-Azure Stack에 있는 사용 가능한 모든 리소스 공급자 및 관련 API 버전을 추적하는 것은 매우 어려울 수 있습니다. 예를 들어, 이 문서를 작성할 당시, Azure의 **Microsoft.Compute/availabilitySets**에 대한 최신 API 버전은 `2018-04-01`이고 Azure 및 Azure Stack에 공통적으로 사용 가능한 API 버전은 `2016-03-30`입니다. 모든 Azure 및 Azure Stack 위치에서 공유되는, **Microsoft.Storage/storageAccounts**에 대한 공통 API 버전은 `2016-01-01`이고 Azure의 최신 API 버전은 `2018-02-01`입니다.
+Azure Stack에 있는 사용 가능한 모든 리소스 공급자 및 관련 API 버전을 추적하는 것은 매우 어려울 수 있습니다. 예를 들어, 이 문서를 작성할 당시, Azure의 **Microsoft.Compute/availabilitySets** 에 대한 최신 API 버전은 `2018-04-01`이고 Azure 및 Azure Stack에 공통적으로 사용 가능한 API 버전은 `2016-03-30`입니다. 모든 Azure 및 Azure Stack 위치에서 공유되는, **Microsoft.Storage/storageAccounts** 에 대한 공통 API 버전은 `2016-01-01`이고 Azure의 최신 API 버전은 `2018-02-01`입니다.
 
 따라서 리소스 관리자는 템플릿에 API 프로필 개념을 도입했습니다. API 프로필이 없으면 템플릿의 각 리소스가 해당 특정 리소스의 API 버전을 설명하는 `apiVersion` 요소로 구성됩니다.
 
@@ -439,12 +439,12 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 * 연결 문자열(MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Traffic Manager
 * 공용 IP 주소의 domainNameLabel
-* Cloud Services
+* 클라우드 서비스
 
 일반적으로, 템플릿에 하드 코딩된 엔드포인트를 사용하면 안 됩니다. 모범 사례는 reference 템플릿 함수를 사용하여 엔드포인트를 동적으로 검색하는 것입니다. 예를 들어, 가장 일반적으로 하드 코딩되는 엔드포인트는 스토리지 계정의 엔드포인트 네임스페이스입니다. 각 스토리지 계정에는 스토리지 계정 이름과 엔드포인트 네임스페이스를 연결하여 생성된 고유 FQDN이 있습니다. mystorageaccount1이라는 Blob Storage 계정은 클라우드에 따라 다른 FQDN을 생성합니다.
 
-* 전역 Azure 클라우드에 만든 경우, **mystorageaccount1.blob.core.windows.net**
-* Azure 중국 21Vianet 클라우드에서 만든 **mystorageaccount1.blob.core.chinacloudapi.cn** .
+* `mystorageaccount1.blob.core.windows.net` 글로벌 Azure 클라우드에서 생성 된 경우
+* `mystorageaccount1.blob.core.chinacloudapi.cn` Azure 중국 21Vianet 클라우드에서 만든 경우.
 
 다음 reference 템플릿 함수는 스토리지 리소스 공급자에서 엔드포인트 네임스페이스를 검색합니다.
 
@@ -487,7 +487,7 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들어:
+`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -590,7 +590,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들어:
+Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -641,7 +641,7 @@ Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Obje
         ...
 ```
 
-특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation**에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
+특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation** 에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
@@ -655,7 +655,7 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 다음 이미지는 IDE(통합 개발 환경)를 사용하는 팀의 일반적인 개발 프로세스 예를 보여 줍니다. 타임라인의 단계마다 다른 테스트 유형이 실행됩니다. 여기서는 두 개발자가 동일한 솔루션에서 작업 중이지만, 이 시나리오는 단일 개발자 또는 대규모 팀에도 똑같이 적용됩니다. 일반적으로 각 개발자가 중앙 리포지토리의 로컬 복사본을 만들어, 동일한 파일에서 작업하는 다른 사용자에게 영향을 주지 않고 로컬 복사본에서 작업할 수 있습니다.
 
-![워크플로](./media/templates-cloud-consistency/workflow.png)
+![다이어그램에는 C I D E에서 동시에 두 개의 단위 테스트 및 통합 테스트 집합이 표시 됩니다 .이는 C I/C D 개발 흐름에서 단위 테스트, 통합 테스트, 테스트 배포, 배포 테스트로 병합 됩니다.](./media/templates-cloud-consistency/workflow.png)
 
 테스트 및 자동화에 대한 다음 팁에 유의하세요.
 

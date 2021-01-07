@@ -10,18 +10,19 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3056415d3432dbe64dd1f2bcf974a676bbf6c6b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047291"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586060"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 브랜드 모델 사용자 지정
 
-Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 연설 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠를 통해 표시 되거나 비디오의 시각적 텍스트에 표시 되는 경우 Video Indexer 콘텐츠에서 브랜드로 검색 합니다. 사용자 지정 브랜드 모델을 사용하면 특정 브랜드가 검색되지 않도록 제외하고, Bing 브랜드 데이터베이스에 없을 수 있으며 모델에 포함되어야 하는 브랜드를 포함할 수 있습니다.
+Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 연설 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠를 통해 표시 되거나 비디오의 시각적 텍스트에 표시 되는 경우 Video Indexer 콘텐츠에서 브랜드로 검색 합니다. 사용자 지정 브랜드 모델을 사용하면 특정 브랜드가 검색되지 않도록 제외하고, Bing 브랜드 데이터베이스에 없을 수 있으며 모델에 포함되어야 하는 브랜드를 포함할 수 있습니다. 자세한 내용은 [개요](customize-brands-model-overview.md)를 참조하세요.
 
-자세한 개요를 보려면 [개요](customize-brands-model-overview.md)를 참조하세요.
+> [!NOTE]
+> 브랜드를 추가 하기 전에 비디오가 인덱싱되는 경우 인덱스를 다시 만들어야 합니다.
 
 Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에서 검색되는 사용자 지정 브랜드 모델을 생성, 사용 및 편집할 수 있습니다. [Video Indexer 웹 사이트를 사용하여 브랜드 모델 사용자 지정](customize-brands-model-with-api.md)에 설명된 대로 Video Indexer 웹 사이트를 사용할 수도 있습니다.
 
@@ -61,7 +62,7 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 
 ## <a name="delete-a-brand"></a>브랜드 삭제
 
-[Brand 삭제](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) API는 지정 된 계정에 대 한 사용자 지정 브랜드 모델에서 브랜드를 제거 합니다. 계정은 `accountId` 매개 변수에 지정 됩니다. 성공적으로 호출하면 브랜드가 더 이상 ‘포함’ 또는 ‘제외’ 브랜드 목록에 없습니다.****
+[Brand 삭제](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) API는 지정 된 계정에 대 한 사용자 지정 브랜드 모델에서 브랜드를 제거 합니다. 계정은 `accountId` 매개 변수에 지정 됩니다. 성공적으로 호출하면 브랜드가 더 이상 ‘포함’ 또는 ‘제외’ 브랜드 목록에 없습니다.
 
 ### <a name="response"></a>응답
 
@@ -94,7 +95,7 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 ```
 
 > [!NOTE]
-> `enabled`로 설정 하는 `true` 것은 Video Indexer 검색할 수 있도록 브랜드가 *포함* 목록에 있음을 나타내며 false 인 경우에는 `enabled` 해당 브랜드가 *제외* 목록에 있음을 의미 하므로 Video Indexer는 검색 하지 않습니다.
+> `enabled` 로 설정 하는 `true` 것은 Video Indexer 검색할 수 있도록 브랜드가 *포함* 목록에 있음을 나타내며 false 인 경우에는 `enabled` 해당 브랜드가 *제외* 목록에 있음을 의미 하므로 Video Indexer는 검색 하지 않습니다.
 
 ## <a name="update-a-specific-brand"></a>특정 브랜드 업데이트
 
@@ -178,7 +179,7 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 ```
 
 > [!NOTE]
-> `useBuiltIn`true로 설정 하면 Bing 브랜드가 사용 됨을 나타냅니다. `useBuiltin`이 false 이면 Bing 브랜드가 사용 되지 않습니다. `state`이 값은 더 이상 사용 되지 않으므로 무시할 수 있습니다.
+> `useBuiltIn` true로 설정 하면 Bing 브랜드가 사용 됨을 나타냅니다. `useBuiltin`이 false 이면 Bing 브랜드가 사용 되지 않습니다. `state`이 값은 더 이상 사용 되지 않으므로 무시할 수 있습니다.
 
 ## <a name="update-brands-model-settings"></a>브랜드 모델 설정 업데이트
 

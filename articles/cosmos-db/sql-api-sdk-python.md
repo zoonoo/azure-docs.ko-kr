@@ -9,14 +9,15 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b69b3a3888b2d6e19b8eaa92ba9b2fedf0e15545
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585987"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091121"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -27,20 +28,20 @@ ms.locfileid: "88585987"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
-> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**SDK 다운로드**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API 설명서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**API 설명서**|[Python API 참조 설명서](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**SDK 설치 지침**|[Python SDK 설치 지침](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**시작**|[Python SDK 시작](create-sql-api-python.md)|
 |**현재 지원되는 플랫폼**|[Python 2.7](https://www.python.org/downloads/) 및 [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -126,7 +127,7 @@ ms.locfileid: "88585987"
 
 * `CosmosClient` 생성자가 업데이트되었습니다.
 
-  * `auth` 매개 변수가 `credential`로 변경되었고 이제 인증 형식을 직접 사용합니다. 즉, 마스터 키 값, 리소스 토큰의 사전 또는 권한 목록을 전달할 수 있습니다. 하지만 이전 사전 형식도 계속 지원됩니다.
+  * `auth` 매개 변수가 `credential`로 변경되었고 이제 인증 형식을 직접 사용합니다. 이는 기본 키 값, 리소스 토큰 사전 또는 사용 권한 목록을 전달 하는 것을 의미 합니다. 하지만 이전 사전 형식도 계속 지원됩니다.
 
   * `connection_policy` 매개 변수가 키워드 전용 매개 변수로 설정되었고, 이 매개 변수도 계속 지원되지만, 이제는 정책의 각 개별 특성을 명시적 키워드 인수로 전달할 수 있습니다.
 
@@ -359,4 +360,4 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 ## <a name="next-steps"></a>다음 단계
 
-Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요. 
+Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.

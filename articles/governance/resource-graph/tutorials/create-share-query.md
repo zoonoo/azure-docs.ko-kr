@@ -1,14 +1,14 @@
 ---
 title: '자습서: Azure Portal에서 쿼리 관리'
 description: 이 자습서에서는 Resource Graph 쿼리를 만들고 Azure Portal의 다른 사용자와 새 쿼리를 공유합니다.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: tutorial
-ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005182"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057929"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>자습서: Azure Portal에서 Azure Resource Graph 쿼리 만들기 및 공유
 
@@ -60,8 +60,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 
 ## <a name="create-a-shared-query"></a>공유 쿼리 만들기
 
-프라이빗 쿼리와 달리, 공유 쿼리는 Resource Manager 리소스입니다. 즉, 쿼리가 리소스 그룹에 저장되고, Azure RBAC를 사용하여 관리 및 제어할 수 있으며, 리소스 잠금으로 보호할 수도 있습니다. 리소스이기 때문에 적절한 권한이 있는 모든 사람이 공유 쿼리를 보고 사용할 수 있습니다.
-새 공유 쿼리를 만들려면 다음 단계를 수행합니다.
+프라이빗 쿼리와 달리, 공유 쿼리는 Resource Manager 리소스입니다. 즉, 쿼리가 리소스 그룹에 저장되고, Azure RBAC를 사용하여 관리 및 제어할 수 있으며, 리소스 잠금으로 보호할 수도 있습니다. 리소스이기 때문에 적절한 권한이 있는 모든 사람이 공유 쿼리를 보고 사용할 수 있습니다. 새 공유 쿼리를 만들려면 다음 단계를 수행합니다.
 
 1. 포털 메뉴에서 **모든 서비스**를 선택하거나, 모든 페이지의 위쪽에 있는 Azure 검색 상자를 사용하여 **Resource Graph Explorer**를 검색하고 선택합니다.
 
@@ -89,7 +88,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 
 1. **쿼리 저장** 창의 아래쪽에서 **저장**을 선택합니다. 탭 제목이 **쿼리 1**에서 **OS별로 VM 수 계산**으로 변경됩니다. **resource-graph-queries** 리소스 그룹을 처음으로 사용할 때 리소스 그룹이 생성되므로 저장 시간이 예상보다 오래 걸립니다.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="새 쿼리를 공유 쿼리로 저장" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="저장 단추를 사용하여 새 쿼리 저장" border="false":::
 
    > [!NOTE] 
    > 공유 쿼리를 저장할 기존 리소스 그룹의 이름을 직접 입력하려면 **resource-graph-queries 리소스 그룹에 게시** 확인란의 선택을 취소하면 됩니다. 쿼리에 대해 지정되는 기본 리소스 그룹을 사용하면 공유 쿼리를 좀 더 쉽게 검색할 수 있습니다. 또한 해당 리소스 그룹의 용도를 더욱 명확히 할 수 있습니다. 그러나 보안상의 이유로 기존 권한을 기반으로 기존 리소스 그룹을 선택하도록 할 수도 있습니다.
@@ -98,7 +97,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 
 1. **쿼리 열기**를 선택합니다. 유형이 **공유 쿼리**로 설정되어 있고 **구독**과 **리소스 그룹**의 조합이 쿼리를 저장한 위치와 일치하는지 확인합니다. 이제 저장된 **OS별로 VM 수 계산** 항목이 **쿼리 이름** 목록에 표시됩니다. 저장된 쿼리의 제목 링크를 선택하여 해당 쿼리 이름을 사용하는 새 탭에 쿼리를 로드합니다. 공유 쿼리이므로 공유 쿼리임을 나타내는 아이콘이 제목 옆의 탭에 표시됩니다.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="아이콘을 사용하여 공유 쿼리 표시" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="저장 단추를 사용하여 새 쿼리 저장" border="false":::
 
    > [!NOTE] 
    > 저장된 쿼리가 열려 있고 탭이 해당 이름을 표시하는 경우 **저장** 단추를 누르면 저장된 쿼리가 변경 내용으로 업데이트됩니다. 저장된 쿼리를 새로 만들려면 **다른 이름으로 저장**을 선택하고, 새 쿼리를 저장할 때처럼 계속 진행합니다.
@@ -107,7 +106,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 
 공유 쿼리는 Resource Manager 리소스이므로 다음과 같은 여러 가지 방법으로 찾을 수 있습니다.
 
-- Resource Graph Explorer에서 **쿼리 열기**를 선택하고 유형을 **공유 쿼리**로 설정합니다.
+- Resource Graph Explorer에서 다음을 수행합니다. **쿼리 열기**를 선택하고 유형을 **공유 쿼리**로 설정합니다.
 - Resource Graph 쿼리 포털 페이지에서 찾습니다.
 - 공유 쿼리가 저장된 리소스 그룹에서 찾습니다.
 - Resource Graph 쿼리를 통해 찾습니다.
@@ -141,7 +140,7 @@ Resources
 
 ## <a name="delete-a-shared-query"></a>공유 쿼리 삭제
 
-공유 쿼리가 더 이상 필요 없는 경우 삭제합니다. 공유 쿼리를 삭제하면 해당하는 Resource Manager 리소스가 제거됩니다. 결과 차트가 고정된 대시보드는 오류 메시지를 표시합니다. 이 오류 메시지가 표시되면 **대시보드에서 제거** 단추를 사용하여 대시보드를 정리합니다.
+공유 쿼리가 더 이상 필요 없는 경우 삭제합니다. 공유 쿼리를 삭제하면 해당하는 Resource Manager 리소스가 제거됩니다. 결과 차트가 고정된 대시보드는 오류 메시지를 표시합니다. 해당 오류 메시지가 표시되면 **대시보드에서 제거** 단추를 사용하여 대시보드를 정리합니다.
 
 다음 인터페이스를 통해 공유 쿼리를 삭제할 수 있습니다.
 - Resource Graph 쿼리 페이지

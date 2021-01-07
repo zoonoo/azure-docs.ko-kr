@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75430589"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>API Management 서비스 호스트 이름을 업데이트 하지 못했습니다.
@@ -34,7 +34,7 @@ Azure Key Vault의 인증서를 사용 하 여 API Management 서비스에 대 �
 
 API Management 서비스에 사용자 지정 도메인에 사용 하려는 키 자격 증명 모음에 액세스할 수 있는 권한이 없습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 다음 단계를 따릅니다.
 

@@ -5,19 +5,21 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483298"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339668"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Cosmos DB 및 컨테이너 만들기
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB를 사용하여 키/값 데이터베이스, 문서 데이터베이스 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하여 Azure Cosmos 데이터베이스와 해당 데이터베이스 내에 컨테이너를 만드는 프로세스에 대해 중점적으로 설명합니다. 데이터는 나중에 이 컨테이너에 저장할 수 있습니다.
+Azure Cosmos DB는 모든 규모의 개방형 API를 포함하는 Microsoft의 빠른 NoSQL 데이터베이스입니다. Azure Cosmos DB를 사용하여 키/값 데이터베이스, 문서 데이터베이스 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하여 Azure Cosmos 데이터베이스와 해당 데이터베이스 내에 컨테이너를 만드는 프로세스에 대해 중점적으로 설명합니다. 데이터는 나중에 이 컨테이너에 저장할 수 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -61,22 +63,22 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
     지정되지 않은 경우 기본값을 사용하여 Azure Cosmos 리소스를 만듭니다.
 
-    * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인**을 클릭합니다.
-    * **위치**: 위치를 선택합니다.  예: **미국 중부**
-    * **계정 이름**: Azure Cosmos 계정의 이름을 입력합니다. 전역적으로 고유해야 합니다.
-    * **위치**: Azure Cosmos 계정을 만들려는 위치를 입력합니다. Azure Cosmos 계정은 리소스 그룹과 동일한 위치에 있을 수 있습니다.
-    * **주 지역**: Azure Cosmos 계정의 주 복제본 지역입니다.
-    * **보조 지역**: Azure Cosmos 계정의 보조 복제본 지역입니다.
-    * **기본 일관성 수준**: Azure Cosmos 계정의 기본 일관성 수준입니다.
-    * **최대 부실 접두사**: 최대 부실 요청. BoundedStaleness에 필요합니다.
-    * **초당 최대 간격**: 최대 지연 시간입니다. BoundedStaleness에 필요합니다.
-    * **데이터베이스 이름**: Azure Cosmos 데이터베이스의 이름입니다.
-    * **컨테이너 이름**: Azure Cosmos 컨테이너의 이름입니다.
-    * **처리량**:  컨테이너의 처리량입니다. 최소 처리량 값은 400RU/s입니다.
-    * **위에 명시된 사용 약관에 동의함**: 선택합니다.
+    * **구독** : Azure 구독을 선택합니다.
+    * **리소스 그룹** : **새로 만들기** 를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인** 을 클릭합니다.
+    * **위치** : 위치를 선택합니다.  예: **미국 중부**
+    * **계정 이름** : Azure Cosmos 계정의 이름을 입력합니다. 전역적으로 고유해야 합니다.
+    * **위치** : Azure Cosmos 계정을 만들려는 위치를 입력합니다. Azure Cosmos 계정은 리소스 그룹과 동일한 위치에 있을 수 있습니다.
+    * **주 지역** : Azure Cosmos 계정의 주 복제본 지역입니다.
+    * **보조 지역** : Azure Cosmos 계정의 보조 복제본 지역입니다.
+    * **기본 일관성 수준** : Azure Cosmos 계정의 기본 일관성 수준입니다.
+    * **최대 부실 접두사** : 최대 부실 요청. BoundedStaleness에 필요합니다.
+    * **초당 최대 간격** : 최대 지연 시간입니다. BoundedStaleness에 필요합니다.
+    * **데이터베이스 이름** : Azure Cosmos 데이터베이스의 이름입니다.
+    * **컨테이너 이름** : Azure Cosmos 컨테이너의 이름입니다.
+    * **처리량** :  컨테이너의 처리량입니다. 최소 처리량 값은 400RU/s입니다.
+    * **위에 명시된 사용 약관에 동의함** : 선택합니다.
 
-3. **구매**를 선택합니다. Azure Cosmos 계정이 성공적으로 배포되면 알림을 받게 됩니다.
+3. **구매** 를 선택합니다. Azure Cosmos 계정이 성공적으로 배포되면 알림을 받게 됩니다.
 
    :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM 템플릿, Cosmos DB 통합, 배포 포털 알림":::
 
@@ -136,4 +138,4 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Azure Cosmos DB 개요](introduction.md) 참조
 - [Azure Resource Manager](../azure-resource-manager/management/overview.md)에 대해 자세히 알아보기
-- 다른 [Azure Cosmos DB Resource Manager 템플릿](resource-manager-samples.md) 가져오기
+- 다른 [Azure Cosmos DB Resource Manager 템플릿](./templates-samples-sql.md) 가져오기

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443027"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463082"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,7 +32,7 @@ ms.locfileid: "89443027"
 Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하는 작업만 지원합니다. 다른 데이터 저장소에서 Amazon Redshift로 데이터를 이동하는 작업은 지원되지 않습니다.
 
 > [!TIP]
-> Amazon Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3(Amazon Simple Storage Service)를 통해 기본 제공 Redshift **UNLOAD**를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
+> Amazon Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3(Amazon Simple Storage Service)를 통해 기본 제공 Redshift **UNLOAD** 를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
 ## <a name="prerequisites"></a>전제 조건
 * 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 지침은 [클러스터에 대한 액세스 권한 부여](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
@@ -61,11 +61,11 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |예 |
+| **type** |이 속성은 **AmazonRedshift** 로 설정되어야 합니다. |예 |
 | **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | **port** |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | **database** |Amazon Redshift 데이터베이스의 이름입니다. |예 |
-| **이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
+| **username** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
 | **password** |사용자 계정의 암호입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -101,7 +101,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) 명령은 Amazon S3에서 하나 이상의 파일에 대한 쿼리 결과를 언로드합니다. 이 명령은 Redshift에서 큰 데이터 세트를 복사하기 위해 Amazon에서 권장하는 방법입니다.
 
-**예: Amazon Redshift에서 Azure Synapse Analytics로 데이터 복사 (이전에 SQL Data Warehouse)**
+**예: Amazon Redshift에서 Azure Synapse Analytics로 데이터 복사**
 
 이 예에서는 Amazon Redshift에서 Azure Synapse Analytics로 데이터를 복사 합니다. 이 예제에서는 Redshift **UNLOAD** 명령, 준비된 복사 데이터 및 Microsoft PolyBase를 사용합니다.
 
@@ -267,7 +267,7 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 
 **Azure Redshift 원본(RelationalSource 형식) 및 Azure Blob 싱크를 사용하는 파이프라인의 복사 작업**
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 활동을 포함합니다. 파이프라인은 매시간 실행하도록 예약됩니다. 파이프라인에 대한 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 활동을 포함합니다. 파이프라인은 매시간 실행하도록 예약됩니다. 파이프라인에 대한 JSON 정의에서 **source** 형식은 **RelationalSource** 로 설정되고 **sink** 형식은 **BlobSink** 로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 ```json
 {

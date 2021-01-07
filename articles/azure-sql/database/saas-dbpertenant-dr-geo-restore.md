@@ -6,31 +6,31 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
-ms.reviewer: sstein
+ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 70d21170bfc172f30b01c2af093bc82a54c80dd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 3fe6095595f5270b18536e6ef46afe4a0a5b3268
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84028374"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607714"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 자습서에서는 테넌트별 데이터베이스 모델을 사용하여 구현된 다중 테넌트 SaaS 애플리케이션에 대한 전체 재해 복구 시나리오를 살펴봅니다. [지역 복원](recovery-using-backups.md)을 사용하여 카탈로그 및 테넌트 데이터베이스를 자동으로 유지 관리되는 지역 중복 백업에서 대체 복구 지역으로 복구합니다. 가동 중단이 해결되면 [지역 복제](active-geo-replication-overview.md)를 사용하여 변경된 데이터베이스를 원래 지역으로 송환합니다.
 
-![지역 복원 아키텍처](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![원본 및 복구 지역을 보여 주는 다이어그램입니다. 두 지역 모두 앱, 카탈로그, 서버 및 풀의 원본 또는 미러 이미지, 스토리지에 대한 자동 백업이 있으며, 복구 지역은 백업 지역 복제를 수락하고 새 테넌트를 위한 서버 및 풀이 있습니다.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 지역 복원은 Azure SQL Database에 대한 가장 저렴한 재해 복구 솔루션입니다. 그러나 지역 중복 백업에서의 복원은 최대 1시간의 데이터가 손실될 수 있습니다. 각 데이터베이스의 크기에 따라 시간이 오래 걸릴 수 있습니다. 
 
 > [!NOTE]
 > 지역 복원 대신 지역 복제를 사용하여 가능한 가장 낮은 RPO 및 RTO를 통해 애플리케이션을 복구합니다.
 
-이 자습서에서는 복원 및 송환 워크플로를 살펴봅니다. 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 복원 및 송환 워크플로를 살펴봅니다. 다음 방법을 알아봅니다.
 > [!div class="checklist"]
 > 
 > * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그로 동기화합니다.
@@ -42,8 +42,8 @@ ms.locfileid: "84028374"
  
 
 이 자습서를 완료하려면 다음과 같은 필수 구성 요소를 완료해야 합니다.
-* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱을 배포합니다. 5 분 내에 배포 하려면 [테 넌 트 당 정문 Ticket SaaS 데이터베이스 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조 하세요. 
-* Azure PowerShell을 설치합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조 하세요.
+* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱을 배포합니다. 5분 안에 배포를 마치려면 [Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 배포 및 살펴보기](saas-dbpertenant-get-started-deploy.md)를 참조하세요. 
+* Azure PowerShell을 설치합니다. 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>지역 복원 복구 패턴 소개
 
@@ -58,17 +58,17 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
  * 가동 중단이 해결되면 테넌트에 미치는 영향을 최소화하면서 원래 지역으로 데이터베이스를 송환합니다.  
 
 > [!NOTE]
-> 애플리케이션은 해당 애플리케이션이 배포된 지역과 쌍을 이루는 지역에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.   
+> 애플리케이션은 해당 애플리케이션이 배포된 지역과 쌍을 이루는 지역에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요.   
 
 이 자습서에서는 Azure SQL Database 및 Azure 플랫폼의 기능을 사용하여 다음 과제를 해결합니다.
 
-* [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) - 필요한 모든 용량을 최대한 빨리 예약합니다. Azure Resource Manager 템플릿은 복구 지역에 원래 서버와 탄력적 풀의 미러 이미지를 프로비전하는 데 사용됩니다. 또한 새 테넌트를 프로비전하기 위해 별도의 서버 및 풀이 만들어집니다.
+* [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) - 필요한 모든 용량을 최대한 빨리 예약합니다. Azure Resource Manager 템플릿은 복구 지역에 원래 서버와 탄력적 풀의 미러 이미지를 프로비전하는 데 사용됩니다. 또한 새 테넌트를 프로비전하기 위해 별도의 서버 및 풀이 만들어집니다.
 * [EDCL(탄력적 데이터베이스 클라이언트 라이브러리)](elastic-database-client-library.md) - 테넌트 데이터베이스 카탈로그를 만들고 유지 관리합니다. 확장된 카탈로그는 정기적으로 새로 고친 풀 및 데이터베이스 구성 정보를 포함합니다.
 * EDCL의 [분할된 관리 복구 기능](elastic-database-recovery-manager.md) - 복구 및 송환하는 동안 카탈로그에 데이터베이스 위치 항목을 유지 관리합니다.  
 * [지역 복원](../../key-vault/general/disaster-recovery-guidance.md) - 자동으로 유지 관리되는 지역 중복 백업에서 카탈로그 및 테넌트 데이터베이스를 복구합니다. 
-* [비동기 복원 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) - 시스템에서 각 풀에 대해 큐에 넣고 풀이 오버로드되지 않도록 일괄적으로 처리하여 테넌트 우선 순위로 보내집니다. 이러한 작업은 필요에 따라 실행 전이나 실행 중에 취소할 수 있습니다.   
+* [비동기 복원 작업](../../azure-resource-manager/management/async-operations.md) - 시스템에서 각 풀에 대해 큐에 넣고 풀이 오버로드되지 않도록 일괄적으로 처리하여 테넌트 우선 순위로 보내집니다. 이러한 작업은 필요에 따라 실행 전이나 실행 중에 취소할 수 있습니다.   
 * [지역 복제](active-geo-replication-overview.md) - 가동 중단 후 데이터베이스를 원래 지역으로 송환합니다. 지역 복제를 사용하면 데이터 손실이 없고 테넌트에 미치는 영향을 최소화할 수 있습니다.
-* [SQL Server DNS 별칭](../../sql-database/dns-alias-overview.md) - 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 합니다.  
+* [SQL Server DNS 별칭](./dns-alias-overview.md) - 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 합니다.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>재해 복구 스크립트 가져오기
 
@@ -97,14 +97,14 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 
 3. [Azure Portal](https://portal.azure.com)에서 앱을 배포한 리소스 그룹을 검토하고 엽니다.
 
-   앱 서비스 구성 요소 및 SQL Database 배포 되는 리소스와 지역이 표시 됩니다.
+   앱 서비스 구성 요소와 SQL Database가 배포된 리소스와 지역을 확인합니다.
 
 ## <a name="sync-the-tenant-configuration-into-the-catalog"></a>카탈로그로 테넌트 구성을 동기화합니다.
 
 이 작업에서는 서버, 탄력적 풀 및 데이터베이스의 구성을 테넌트 카탈로그로 동기화하는 프로세스를 시작합니다. 이 정보는 나중에 복구 지역에서 미러 이미지 환경을 구성하는 데 사용됩니다.
 
 > [!IMPORTANT]
-> 편의상, 이러한 샘플에서는 동기화 프로세스 및 다른 장기 실행 복구/송환 프로세스가 클라이언트 사용자 로그인에서 실행되는 로컬 PowerShell 작업 또는 세션으로 구현됩니다. 로그인할 때 발급한 인증 토큰은 몇 시간 후에 만료되고 작업이 실패합니다. 프로덕션 시나리오에서 장기 실행 프로세스는 서비스 주체에서 실행되는 어떤 종류의 신뢰할 수 있는 Azure 서비스로 구현되어야 합니다. [Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)를 참조하세요. 
+> 편의상, 이러한 샘플에서는 동기화 프로세스 및 다른 장기 실행 복구/송환 프로세스가 클라이언트 사용자 로그인에서 실행되는 로컬 PowerShell 작업 또는 세션으로 구현됩니다. 로그인할 때 발급한 인증 토큰은 몇 시간 후에 만료되고 작업이 실패합니다. 프로덕션 시나리오에서 장기 실행 프로세스는 서비스 주체에서 실행되는 어떤 종류의 신뢰할 수 있는 Azure 서비스로 구현되어야 합니다. [Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요. 
 
 1. PowerShell ISE에서 ...\Learning Modules\UserConfig.psm1 파일을 엽니다. 10 및 11번 줄의 `<resourcegroup>` 및 `<user>`를 앱을 배포할 때 사용한 값으로 바꿉니다. 파일을 저장합니다.
 
@@ -159,11 +159,11 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
     * 복원 요청은 모든 풀에서 병렬로 처리되기 때문에 중요한 테넌트를 여러 풀에 배포하는 것이 좋습니다. 
 
-10. 는 서비스를 모니터링 하 여 데이터베이스가 복원 되는 시기를 결정 합니다. 테넌트 데이터베이스가 복원되면 카탈로그에서 온라인으로 표시되고 테넌트 데이터베이스에 대한 rowversion 합계가 기록됩니다. 
+10. 서비스를 모니터링하여 데이터베이스가 복원된 시기를 확인합니다. 테넌트 데이터베이스가 복원되면 카탈로그에서 온라인으로 표시되고 테넌트 데이터베이스에 대한 rowversion 합계가 기록됩니다. 
 
     * 테넌트 데이터베이스는 카탈로그에서 온라인으로 표시되는 즉시 애플리케이션에서 액세스할 수 있습니다.
 
-    * 테넌트 데이터베이스에 대한 rowversion 값의 합계는 카탈로그에 저장됩니다. 이 합계는 지문 역할을 하여 송환 프로세스에서 데이터베이스가 복구 지역에서 업데이트되었는지 확인할 수 있습니다.       
+    * 테넌트 데이터베이스에 대한 rowversion 값의 합계는 카탈로그에 저장됩니다. 이 합계는 지문 역할을 하여 송환 프로세스에서 데이터베이스가 복구 지역에서 업데이트되었는지 확인할 수 있습니다.
 
 ## <a name="run-the-recovery-script"></a>복구 스크립트 실행
 
@@ -180,11 +180,11 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
     * 스크립트가 새 PowerShell 창에서 열리고, 병렬로 실행되는 일단의 PowerShell 작업이 시작됩니다. 이러한 작업은 서버, 풀 및 데이터베이스를 복구 지역에 복원합니다.
 
-    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 쌍을 이루는 지역입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. 
+    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 쌍을 이루는 지역입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요. 
 
 3. PowerShell 창에서 복구 프로세스의 상태를 모니터링합니다.
 
-    ![복구 프로세스](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+    ![복구 프로세스의 상태를 모니터링할 수 있는 PowerShell 창을 보여주는 스크린샷.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
 > 복구 작업 코드를 살펴보려면 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs 폴더에서 PowerShell 스크립트를 검토합니다.
@@ -202,7 +202,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
   * 테넌트가 오프라인 상태인 동안 테넌트의 이벤트 페이지를 직접 열면 해당 페이지에 테넌트 오프라인 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall을 열어 봅니다.
 
-    ![복구 프로세스](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+    ![오프라인 이벤트 페이지를 보여주는 스크린샷.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
 ## <a name="provision-a-new-tenant-in-the-recovery-region"></a>복구 지역에 새 테넌트 프로비전
 테넌트 데이터베이스가 복원되기 전에도 복구 지역에 새 테넌트를 프로비전할 수 있습니다. 복구 지역에 프로비전된 새 테넌트 데이터베이스는 나중에 복구된 데이터베이스와 함께 송환됩니다.   
@@ -361,21 +361,21 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 ## <a name="designing-the-application-to-ensure-that-the-app-and-the-database-are-co-located"></a>앱 및 데이터베이스가 공동 배치되도록 애플리케이션 디자인 
 애플리케이션은 항상 테넌트의 데이터베이스와 동일한 지역에 있는 인스턴스에서 연결되도록 설계되었습니다. 이 디자인은 애플리케이션과 데이터베이스 간의 대기 시간을 줄여줍니다. 이 최적화에서는 앱-데이터베이스 상호 작용이 사용자-앱 상호 작용보다 더 많이 수행된다고 가정합니다.  
 
-테넌트 데이터베이스는 송환 중에 일정 기간 동안 복구 지역과 원래 지역에 걸쳐 분산되어 있을 수 있습니다. 각 데이터베이스에 대해 응용 프로그램은 테넌트 서버 이름에서 DNS 조회를 수행하여 데이터베이스가 있는 지역을 찾습니다. 서버 이름이 별칭입니다. 별칭이 지정된 서버 이름에는 지역 이름이 포함되어 있습니다. 응용 프로그램이 데이터베이스와 동일한 지역에 있지 않은 경우 서버와 동일한 지역에 있는 인스턴스로 리디렉션됩니다. 데이터베이스와 동일한 지역에 있는 인스턴스로 리디렉션하면 앱과 데이터베이스 간의 대기 시간이 최소화됩니다.  
+테넌트 데이터베이스는 송환 중에 일정 기간 동안 복구 지역과 원래 지역에 걸쳐 분산되어 있을 수 있습니다. 각 데이터베이스에 대해 응용 프로그램은 테넌트 서버 이름에서 DNS 조회를 수행하여 데이터베이스가 있는 지역을 찾습니다. 서버 이름은 별칭입니다. 별칭이 지정된 서버 이름에는 지역 이름이 포함되어 있습니다. 애플리케이션이 데이터베이스와 동일한 지역에 있지 않으면, 서버와 동일한 지역에 있는 인스턴스로 리디렉션됩니다. 데이터베이스와 동일한 지역에 있는 인스턴스로 리디렉션하면 앱과 데이터베이스 간의 대기 시간이 최소화됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 > [!div class="checklist"]
 > 
 > * 테넌트 카탈로그를 사용하여 정기적으로 새로 고친 구성 정보를 보관하면 다른 지역에 미러 이미지 복구 환경을 만들 수 있습니다.
-> * 지역 복원을 사용 하 여 복구 지역으로 데이터베이스를 복구 합니다.
+> * 지역 복원을 사용하여 데이터베이스를 복구 지역으로 복구합니다.
 > * 복원된 테넌트 데이터베이스 위치를 반영하도록 테넌트 카탈로그를 업데이트합니다. 
 > * DNS 별칭을 사용하여 애플리케이션을 재구성하지 않고 테넌트 카탈로그 전체에 연결할 수 있습니다.
 > * 가동 중단이 해결되면 지역 복제를 사용하여 복구된 데이터베이스를 원래 지역으로 송환합니다.
 
-지역 복제를 사용하여 대규모 다중 테넌트 애플리케이션을 복구하는 데 필요한 시간을 대폭 줄이는 방법을 알아보려면 [데이터베이스 지역 복제를 사용하여 다중 테넌트 SaaS 애플리케이션에 대한 재해 복구](../../sql-database/saas-dbpertenant-dr-geo-replication.md)를 시도합니다.
+지역 복제를 사용하여 대규모 다중 테넌트 애플리케이션을 복구하는 데 필요한 시간을 대폭 줄이는 방법을 알아보려면 [데이터베이스 지역 복제를 사용하여 다중 테넌트 SaaS 애플리케이션에 대한 재해 복구](./saas-dbpertenant-dr-geo-replication.md)를 시도합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 [Wingtip SaaS 애플리케이션을 빌드하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

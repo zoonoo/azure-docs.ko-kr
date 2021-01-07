@@ -1,6 +1,6 @@
 ---
 title: Azure 센티널에 Azure Information Protection 연결
-description: Azure Information Protection 데이터 커넥터를 구성 하 여 Azure Information Protection에서 Azure 센티널로 로깅 정보를 스트리밍합니다. 
+description: Azure Information Protection 데이터 커넥터를 구성 하 여 Azure Information Protection에서 Azure 센티널로 로깅 정보를 스트리밍합니다.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 160912ef53b5c079d026c5d16230f49eadf66366
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 82ea47037902ce3a9449f71a9edf62cb80863d4b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794435"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655989"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection에서 데이터 연결
 
@@ -25,7 +25,7 @@ ms.locfileid: "88794435"
 
 Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) 에서 Azure 센티널로 로깅 정보를 스트리밍할 수 있습니다. Azure Information Protection은 클라우드 또는 온-프레미스에 저장 되어 있든 상관 없이 중요 한 데이터를 제어 하 고 보호 하는 데 도움이 됩니다.
 
-[Azure Information Protection에 대 한 중앙 보고가](https://docs.microsoft.com/azure/information-protection/reports-aip) 이미 구성 되어 있으므로이 서비스의 로깅 정보가 현재 Azure 센티널에 대해 선택한 것과 동일한 Log Analytics 작업 영역에 저장 되어 있는 경우이 데이터 커넥터의 구성을 건너뛸 수 있습니다. Azure Information Protection의 로깅 정보는 Azure 센티널에서 이미 사용할 수 있습니다.
+[Azure Information Protection에 대 한 중앙 보고가](/azure/information-protection/reports-aip) 이미 구성 되어 있으므로이 서비스의 로깅 정보가 현재 Azure 센티널에 대해 선택한 것과 동일한 Log Analytics 작업 영역에 저장 되어 있는 경우이 데이터 커넥터의 구성을 건너뛸 수 있습니다. Azure Information Protection의 로깅 정보는 Azure 센티널에서 이미 사용할 수 있습니다.
 
 그러나 Azure Information Protection의 로깅 정보가 현재 Azure 센티널에 대해 선택한 것과 다른 Log Analytics 작업 영역으로 이동 하는 경우 다음 중 하나를 수행 합니다.
 
@@ -42,7 +42,7 @@ Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Inform
     - 보안 관리자
     - 규정 준수 관리자
     - 규정 준수 데이터 관리자
-    - 전역 관리자
+    - 글로벌 관리자
     
     > [!NOTE]
     > 테 넌 트가 [통합 레이블 지정 플랫폼](/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있는 경우 Azure Information Protection 관리자 역할을 사용할 수 없습니다.
@@ -51,7 +51,7 @@ Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Inform
 
 - Azure 센티널 및 Azure Information Protection에 사용 중인 Log Analytics 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 
-- Azure Information Protection Azure Portal에 추가 되었습니다. 이 단계에 대 한 도움이 필요한 경우 [Azure Portal에 Azure Information Protection 추가](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal)를 참조 하세요.
+- Azure Information Protection Azure Portal에 추가 되었습니다. 이 단계에 대 한 도움이 필요한 경우 [Azure Portal에 Azure Information Protection 추가](/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal)를 참조 하세요.
 
 ## <a name="connect-to-azure-information-protection"></a>Azure Information Protection에 연결
 
@@ -59,17 +59,17 @@ Azure Information Protection에 대 한 Log Analytics 작업 영역을 구성 �
 
 1. Azure 센티널에서 **데이터 커넥터**  >  **Azure Information Protection (미리 보기)** 를 선택 합니다.
 
-2. **커넥터 페이지 열기**를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택 합니다.
 
-3. **구성**아래에서 **연결 Azure Information Protection 로그**를 선택 합니다.
+3. **구성** 아래에서 **연결 Azure Information Protection 로그** 를 선택 합니다.
 
 4. **분석 구성 (미리 보기)** 블레이드에서 현재 Azure 센티널에 사용 하는 작업 영역을 선택 합니다. 다른 작업 영역을 선택 하는 경우 Azure Information Protection의 보고 데이터를 Azure 센티널에서 사용할 수 없습니다.
 
-5. 작업 영역을 선택한 후 **확인**을 선택 합니다. 커넥터 **상태가** **연결 됨**으로 변경 됩니다.
+5. 작업 영역을 선택한 후 **확인** 을 선택 합니다. 커넥터 **상태가** **연결 됨** 으로 변경 됩니다.
 
 6. Azure Information Protection의 보고 데이터는 선택한 작업 영역의 **InformationProtectionLogs_CL** 테이블에 저장 됩니다. 
     
-    이 보고 데이터에 대 한 Azure Monitor에서 관련 스키마를 사용 하려면 **InformationProtectionEvents**를 검색 합니다. 이러한 이벤트 함수에 대 한 자세한 내용은 Azure Information Protection 설명서에서 [이벤트 함수에 대 한 친숙 한 스키마 참조](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) 섹션을 참조 하세요.
+    이 보고 데이터에 대 한 Azure Monitor에서 관련 스키마를 사용 하려면 **InformationProtectionEvents** 를 검색 합니다. 이러한 이벤트 함수에 대 한 자세한 내용은 Azure Information Protection 설명서에서 [이벤트 함수에 대 한 친숙 한 스키마 참조](/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

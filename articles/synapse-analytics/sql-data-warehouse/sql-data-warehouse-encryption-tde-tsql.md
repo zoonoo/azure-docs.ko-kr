@@ -11,12 +11,12 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 81a28773f8f13cfb8dac75f1c4e11fd773c2c8f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9a80a9001d1d989495a246bbbc8fa703f58e08a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212200"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919934"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>투명한 데이터 암호화(TDE) 시작
 
@@ -54,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> TDE 설정을 변경 하기 전에 일시 중지 된 SQL 풀을 다시 시작 해야 합니다.
+> 일시 중지 된 전용 SQL 풀을 다시 시작 해야 TDE 설정을 변경할 수 있습니다.
 
 ## <a name="verifying-encryption"></a>암호화 확인
 

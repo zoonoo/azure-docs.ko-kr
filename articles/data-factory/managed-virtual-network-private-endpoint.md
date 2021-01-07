@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564001"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980381"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -51,11 +51,11 @@ Azure Data Factory 관리 되는 Virtual Network (VNET) 내에서 IR (Azure Inte
 
 ![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (이전의 Azure SQL Data Warehouse))에 액세스할 수 있습니다.
+Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (이전의 SQL Data Warehouse))에 액세스할 수 있습니다.
 
 개인 링크를 사용 하는 경우 데이터 저장소와 관리 되는 Virtual Network 간의 트래픽이 Microsoft 백본 네트워크를 통해 완전히 트래버스 됩니다. Private Link는 데이터 반출 위험을 방지합니다. 프라이빗 엔드포인트를 만들어 리소스에 대한 프라이빗 링크를 설정합니다.
 
-개인 끝점은 관리 되는 Virtual Network에서 개인 IP 주소를 사용 하 여 서비스를 효과적으로 가져옵니다. 프라이빗 엔드포인트는 전체 서비스가 아닌 Azure의 특정 리소스에 매핑됩니다. 고객은 연결 범위를 조직에서 승인한 특정 리소스로 제한할 수 있습니다. [프라이빗 링크 및 프라이빗 엔드포인트](https://docs.microsoft.com/azure/private-link/)에 대해 자세히 알아보세요.
+개인 끝점은 관리 되는 Virtual Network에서 개인 IP 주소를 사용 하 여 서비스를 효과적으로 가져옵니다. 프라이빗 엔드포인트는 전체 서비스가 아닌 Azure의 특정 리소스에 매핑됩니다. 고객은 연결 범위를 조직에서 승인한 특정 리소스로 제한할 수 있습니다. [프라이빗 링크 및 프라이빗 엔드포인트](../private-link/index.yml)에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > 모든 Azure 데이터 원본에 연결하는 관리형 프라이빗 엔드포인트를 만드는 것이 좋습니다. 
@@ -73,6 +73,11 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 
 승인된 상태의 관리형 프라이빗 엔드포인트만이 지정된 프라이빗 링크 리소스에 트래픽을 보낼 수 있습니다.
 
+## <a name="interactive-authoring"></a>대화형 제작
+대화형 제작 기능은 연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 스키마 가져오기, 데이터 미리 보기 등의 기능에 사용 됩니다. ADF로 관리 되는 가상 네트워크에 있는 Azure Integration Runtime을 만들거나 편집할 때 대화형 작성을 사용 하도록 설정할 수 있습니다. 백 엔드 서비스는 대화형 제작 기능을 위해 계산을 미리 할당 합니다. 그렇지 않은 경우에는 더 많은 시간이 소요 되는 대화형 작업이 수행 될 때마다 계산이 할당 됩니다. 대화형 작성에 대 한 TTL (Time To Live)은 60 분입니다. 즉, 마지막 대화형 작성 작업의 60 분 후에 자동으로 사용 하지 않도록 설정 됩니다.
+
+![대화형 작성](./media/managed-vnet/interactive-authoring.png)
+
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 ### <a name="supported-data-sources"></a>지원되는 데이터 원본
 아래 데이터 원본은 ADF 관리 Virtual Network에서 개인 링크를 통해 연결할 수 있습니다.
@@ -81,7 +86,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure 파일
 - Azure Data Lake Gen2
 - Azure SQL Database (Azure SQL Managed Instance를 포함 하지 않음)
-- Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)
+- Azure Synapse Analytics(이전의 SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure 개인 링크 서비스
@@ -94,14 +99,16 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - 미국 동부
 - 미국 동부 2
 - 미국 중서부
+- 미국 서부
 - 미국 서부 2
 - 미국 중남부
 - 미국 중부
 - 북유럽
 - 서유럽
 - 영국 남부
-- 동남 아시아
+- 동남아시아
 - 오스트레일리아 동부
+- 오스트레일리아 남동부
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리 Virtual Network에서 공용 끝점을 통한 아웃 바운드 통신
 - 아웃 바운드 통신용 포트 443만 열립니다.

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 9a3e2dd1ac58c89060fc3e09e97617cb2a68d8ac
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658338"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094576"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
 
@@ -66,7 +66,7 @@ Seamless SSO는 Azure Government 클라우드에 사용할 수 있습니다. 자
 
 **Q: [Azure AD 조인](../devices/overview.md) 및 Seamless SSO에서 제공하는 Single Sign-On 환경 간에 차이점은 무엇인가요?**
 
-[Azure AD 조인](../devices/overview.md)에서는 Azure AD에서 해당 디바이스를 등록한 경우 사용자에게 SSO를 제공합니다. 이러한 디바이스를 반드시 도메인에 가입할 필요는 없습니다. *기본 새로 고침 토큰*이나 *PRT* 및 Kerberos를 사용하여 SSO를 제공하지 않습니다. 사용자 환경은 Windows 10 디바이스에서 가장 적합합니다. SSO는 Microsoft Edge 브라우저에서 자동으로 실행됩니다. 또한 브라우저 확장을 사용하여 Chrome에서 작동합니다.
+[Azure AD 조인](../devices/overview.md)에서는 Azure AD에서 해당 디바이스를 등록한 경우 사용자에게 SSO를 제공합니다. 이러한 디바이스를 반드시 도메인에 가입할 필요는 없습니다. *기본 새로 고침 토큰* 이나 *PRT* 및 Kerberos를 사용하여 SSO를 제공하지 않습니다. 사용자 환경은 Windows 10 디바이스에서 가장 적합합니다. SSO는 Microsoft Edge 브라우저에서 자동으로 실행됩니다. 또한 브라우저 확장을 사용하여 Chrome에서 작동합니다.
 
 테넌트에서 Azure AD 조인 및 Seamless SSO를 사용할 수 있습니다. 이러한 두 기능은 상호 보완적입니다. 두 기능이 모두 설정되어 있으면 Azure AD Join에서 SSO는 Seamless SSO보다 우선합니다.
 
@@ -82,6 +82,9 @@ Seamless SSO는 Azure Government 클라우드에 사용할 수 있습니다. 자
 >적어도 30일마다 Kerberos 암호 해독 키를 롤오버하는 것이 좋습니다.
 
 Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 따릅니다.
+
+   > [!NOTE]
+   >아래 단계를 수행 하려면 도메인 관리자와 전역 관리자 자격 증명이 모두 필요 합니다.
 
    **1단계. Seamless SSO가 활성화된 AD 포리스트 목록 가져오기**
 
@@ -107,6 +110,9 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    >도메인 관리자가 아닌 사용자에 게 도메인 관리자의 권한이 할당 된 경우 다음을 호출 해야 합니다. `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. 기능을 설정한 각 AD 포리스트에 대해 위의 단계를 반복합니다.
+   
+  >[!NOTE]
+   >Azure AD Connect 없는 포리스트를 업데이트 하는 경우 글로벌 카탈로그 서버 (TCP 3268 및 TCP 3269)에 대 한 연결을 사용할 수 있는지 확인 합니다.
 
    >[!IMPORTANT]
    >`Update-AzureADSSOForest` 명령을 두 번 이상 실행하지 _않아야 합니다_. 그렇지 않으면 해당 기능은 사용자의 Kerberos 티켓이 만료되고 온-프레미스 Active Directory에 의해 재발급될 때까지 작동하지 않습니다.
@@ -117,7 +123,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
    **옵션 A: Azure AD Connect를 사용하여 비활성화**
     
-   1. Azure AD Connect를 실행하고 **사용자 로그인 페이지 변경**을 선택하고 **다음**을 클릭합니다.
+   1. Azure AD Connect를 실행하고 **사용자 로그인 페이지 변경** 을 선택하고 **다음** 을 클릭합니다.
    2. **Single Sign-On 사용** 옵션의 선택을 취소합니다. 마법사를 계속 진행합니다.
 
    마법사를 완료하면 테넌트에서 Seamless SSO를 사용하지 않도록 설정됩니다. 그러나 다음과 같은 메시지가 화면에 표시됩니다.

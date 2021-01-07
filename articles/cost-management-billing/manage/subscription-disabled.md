@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686805"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744428"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>비활성화된 Azure 구독 다시 활성화
 
@@ -32,7 +32,7 @@ Azure 체험 계정에 등록하면 30일 동안 사용할 수 있는 $200의 Az
 > [!NOTE]
 > 평가판 구독을 사용하고 지출 한도를 제거한 경우 평가판이 끝날 때 구독은 종량제 요금을 사용하는 개별 구독으로 변환됩니다. 구독을 만든 날로부터 30일 동안 남은 크레딧이 유지됩니다. 12개월 동안 체험 서비스에 액세스할 수 있습니다.
 
-Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](getting-started.md)를 참조하세요.
+Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 비용 관리 계획](../understand/plan-manage-costs.md)을 참조하세요.
 
 
 ## <a name="your-bill-is-past-due"></a>청구 기한 경과
@@ -49,15 +49,19 @@ Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 청�
 
 1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
 1. 취소된 구독을 선택합니다.
-1. **다시 활성화**를 클릭합니다.
+1. **다시 활성화** 를 클릭합니다.
 
     ![오른쪽 창에서 다시 활성화 링크를 보여 주는 스크린샷](./media/subscription-disabled/reactivate-sub.png)
 
 다른 구독 유형의 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 구독을 다시 활성화합니다.
+
+## <a name="after-reactivation"></a>재활성화 후
+
+구독을 다시 활성화한 후에는 리소스를 만들거나 관리하는 데 지연이 발생할 수 있습니다. 지연 시간이 30분을 초과하는 경우 도움이 필요하면 [Azure 청구 지원](https://go.microsoft.com/fwlink/?linkid=2083458)에 문의하세요. 대부분의 Azure 리소스는 자동으로 다시 시작되며 어떤 조치도 필요하지 않습니다. 그러나 Azure 서비스 리소스를 확인하고 자동으로 다시 시작되지 않는 모든 리소스를 다시 시작하는 것이 좋습니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure에 대한 청구 작업을 모니터링하고 관리](getting-started.md)하는 방법을 알아봅니다.
+- [Azure 비용 관리 계획](../understand/plan-manage-costs.md) 방법을 알아봅니다.

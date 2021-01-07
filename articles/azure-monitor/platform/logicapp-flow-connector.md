@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475739"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019041"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Logic Apps 및 파워 자동화를 위한 Azure Monitor Logs 커넥터
 [Azure Logic Apps](../../logic-apps/index.yml) 및 [파워 자동화](https://flow.microsoft.com) 를 사용 하면 다양 한 서비스에 대해 수백 개의 작업을 사용 하 여 자동화 된 워크플로를 만들 수 있습니다. Azure Monitor Logs 커넥터를 사용 하 여 Azure Monitor의 Application Insights 응용 프로그램 또는 Log Analytics 작업 영역에서 데이터를 검색 하는 워크플로를 만들 수 있습니다. 이 문서에서는 커넥터에 포함 된 작업에 대해 설명 하 고이 데이터를 사용 하 여 워크플로를 작성 하는 연습을 제공 합니다.
@@ -46,15 +46,15 @@ Azure Monitor Logs 커넥터에는 다음과 같은 제한이 있습니다.
 
 ### <a name="create-a-logic-app"></a>논리 앱 만들기
 
-Azure Portal **Logic Apps** 로 이동 하 고 **추가**를 클릭 합니다. 새 논리 앱을 저장할 **구독**, **리소스 그룹**및 **지역을** 선택 하 고 고유한 이름을 지정 합니다. [Azure Monitor 로그 설정 및 Azure Logic Apps에 대 한 진단 데이터 수집](../../logic-apps/monitor-logic-apps-log-analytics.md)에 설명 된 대로 런타임 데이터 및 이벤트에 대 한 정보를 수집 하는 **Log Analytics** 설정을 켤 수 있습니다. Azure Monitor Logs 커넥터를 사용 하는 경우이 설정이 필요 하지 않습니다.
+Azure Portal **Logic Apps** 로 이동 하 고 **추가** 를 클릭 합니다. 새 논리 앱을 저장할 **구독**, **리소스 그룹** 및 **지역을** 선택 하 고 고유한 이름을 지정 합니다. [Azure Monitor 로그 설정 및 Azure Logic Apps에 대 한 진단 데이터 수집](../../logic-apps/monitor-logic-apps-log-analytics.md)에 설명 된 대로 런타임 데이터 및 이벤트에 대 한 정보를 수집 하는 **Log Analytics** 설정을 켤 수 있습니다. Azure Monitor Logs 커넥터를 사용 하는 경우이 설정이 필요 하지 않습니다.
 
 ![논리 앱 만들기](media/logicapp-flow-connector/create-logic-app.png)
 
 
-**검토 + 만들기** 및 **만들기**를 차례로 클릭 합니다. 배포가 완료 되 면 **리소스로 이동** 을 클릭 하 여 **Logic Apps 디자이너**를 엽니다.
+**검토 + 만들기** 및 **만들기** 를 차례로 클릭 합니다. 배포가 완료 되 면 **리소스로 이동** 을 클릭 하 여 **Logic Apps 디자이너** 를 엽니다.
 
 ### <a name="create-a-trigger-for-the-logic-app"></a>논리 앱에 대 한 트리거 만들기
-**일반적인 트리거로 시작**에서 **되풀이**를 선택 합니다. 이렇게 하면 일정 한 간격으로 자동으로 실행 되는 논리 앱이 만들어집니다. 작업의 **빈도** 상자에서 **일** 을 선택 하 고 **간격** 상자에 **1** 을 입력 하 여 하루에 한 번 워크플로를 실행 합니다.
+**일반적인 트리거로 시작** 에서 **되풀이** 를 선택 합니다. 이렇게 하면 일정 한 간격으로 자동으로 실행 되는 논리 앱이 만들어집니다. 작업의 **빈도** 상자에서 **일** 을 선택 하 고 **간격** 상자에 **1** 을 입력 하 여 하루에 한 번 워크플로를 실행 합니다.
 
 ![되풀이 작업](media/logicapp-flow-connector/recurrence-action.png)
 
@@ -62,18 +62,18 @@ Azure Portal **Logic Apps** 로 이동 하 고 **추가**를 클릭 합니다. �
 다음 자습서에서는 Azure Monitor 로그 쿼리 결과를 전자 메일로 전송 하는 논리 앱을 만드는 방법을 보여 줍니다. 
 
 ### <a name="add-azure-monitor-logs-action"></a>Azure Monitor 로그 추가 작업
-**+ 새 단계** 를 클릭 하 여 되풀이 작업 후 실행 되는 작업을 추가 합니다. **작업 선택**아래에서 **azure monitor** 를 입력 하 고 **Azure Monitor 로그**를 선택 합니다.
+**+ 새 단계** 를 클릭 하 여 되풀이 작업 후 실행 되는 작업을 추가 합니다. **작업 선택** 아래에서 **azure monitor** 를 입력 하 고 **Azure Monitor 로그** 를 선택 합니다.
 
 ![Azure Monitor 로그 작업](media/logicapp-flow-connector/select-azure-monitor-connector.png)
 
-**Azure Log Analytics - 쿼리 실행 및 결과 시각화**를 클릭합니다.
+**Azure Log Analytics - 쿼리 실행 및 결과 시각화** 를 클릭합니다.
 
-![쿼리 실행 및 결과 시각화 동작](media/logicapp-flow-connector/select-query-action-visualize.png)
+![논리 앱 디자이너의 단계에 추가 되는 새 작업의 스크린샷 작업 선택에서 Azure Monitor 로그가 강조 표시 됩니다.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### <a name="add-azure-monitor-logs-action"></a>Azure Monitor 로그 추가 작업
 
-Log Analytics 작업 영역에 대 한 **구독** 및 **리소스 그룹** 을 선택 합니다. **리소스 종류** 에 대 한 *Log Analytics 작업 영역* 을 선택 하 고 **리소스 이름**아래에서 작업 영역 이름을 선택 합니다.
+Log Analytics 작업 영역에 대 한 **구독** 및 **리소스 그룹** 을 선택 합니다. **리소스 종류** 에 대 한 *Log Analytics 작업 영역* 을 선택 하 고 **리소스 이름** 아래에서 작업 영역 이름을 선택 합니다.
 
 다음 로그 쿼리를 **쿼리** 창에 추가합니다.  
 
@@ -85,15 +85,15 @@ Event
 | sort by Computer asc   
 ```
 
-**차트 종류**에 대 한 **시간 범위** 및 **HTML 테이블** 에 대해 *쿼리에서 설정* 을 선택 합니다.
+**차트 종류** 에 대 한 **시간 범위** 및 **HTML 테이블** 에 대해 *쿼리에서 설정* 을 선택 합니다.
    
-![쿼리 실행 및 결과 시각화 동작](media/logicapp-flow-connector/run-query-visualize-action.png)
+![쿼리 실행 및 결과 시각화 라는 새 Azure Monitor 로그 동작에 대 한 설정의 스크린샷](media/logicapp-flow-connector/run-query-visualize-action.png)
 
-현재 연결과 관련 된 계정이 메일을 보냅니다. **연결 변경**을 클릭 하 여 다른 계정을 지정할 수 있습니다.
+현재 연결과 관련 된 계정이 메일을 보냅니다. **연결 변경** 을 클릭 하 여 다른 계정을 지정할 수 있습니다.
 
 ### <a name="add-email-action"></a>전자 메일 작업 추가
 
-**+ 새 단계**를 클릭 한 다음 **+ 작업 추가**를 클릭 합니다. **작업 선택**에서 **outlook** 을 입력 한 다음 **Office 365 outlook**을 선택 합니다.
+**+ 새 단계** 를 클릭 한 다음 **+ 작업 추가** 를 클릭 합니다. **작업 선택** 에서 **outlook** 을 입력 한 다음 **Office 365 outlook** 을 선택 합니다.
 
 ![Outlook 커넥터 선택](media/logicapp-flow-connector/select-outlook-connector.png)
 
@@ -105,7 +105,7 @@ Event
 
 ![본문 선택](media/logicapp-flow-connector/select-body.png)
 
-**받는 사람** 창에서 수신자의 이메일 주소 및 **제목**에서 전자 메일에 대한 제목을 지정합니다. 
+**받는 사람** 창에서 수신자의 이메일 주소 및 **제목** 에서 전자 메일에 대한 제목을 지정합니다. 
 
 ![메일 작업](media/logicapp-flow-connector/mail-action.png)
 

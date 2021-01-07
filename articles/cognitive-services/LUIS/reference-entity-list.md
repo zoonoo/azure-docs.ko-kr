@@ -1,14 +1,16 @@
 ---
 title: 엔터티 형식 나열-LUIS
 description: 목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. 권장 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 410b33b5c6078d096fa4b2acaa7b49bc14c95e31
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588890"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608275"
 ---
 # <a name="list-entity"></a>목록 엔터티
 
@@ -83,7 +85,6 @@ ms.locfileid: "83588890"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-
 이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
@@ -128,7 +129,6 @@ ms.locfileid: "83588890"
 |데이터 개체|엔터티 이름|값|
 |--|--|--|
 |엔터티 나열|`Cities`|`paris`|
-
 
 ## <a name="next-steps"></a>다음 단계
 

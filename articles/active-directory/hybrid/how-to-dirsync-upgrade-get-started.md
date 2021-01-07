@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e31f5e6afb3b586cd8eb20db8d1ca34e95de86cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa45294de4ef644c20ef66b7163706dca9759d3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996528"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync에서 업그레이드
 Azure AD Connect는 DirSync의 후속 도구입니다. 이 항목의 DirSync에서 업그레이드하는 방법을 찾습니다. 다음 단계는 Azure AD Connect의 다른 버전 또는 Azure AD Sync에서 업그레이드하는 경우에 작동하지 않습니다.
@@ -100,10 +100,10 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
    * SQL Server Express를 사용하고 50,000개 미만의 개체가 있는 경우 다음과 같은 화면이 표시됩니다.  
      ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * DirSync에 전체 SQL Server를 사용하는 경우 대신 다음 페이지가 표시됩니다.  
-     ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
-     DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버와 관련된 정보는 표시됩니다. 필요한 경우 적절하게 조정합니다. **다음**을 클릭하여 설치를 계속 진행합니다.
+     ![사용 중인 기존 SQL 데이터베이스 서버를 보여 주는 스크린샷](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
+     DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버와 관련된 정보는 표시됩니다. 필요한 경우 적절하게 조정합니다. **다음** 을 클릭하여 설치를 계속 진행합니다.
    * 50,000개 이상의 개체가 있는 경우 대신 다음 화면이 표시됩니다.  
-     ![분석이 완료되어 DirSync에서 업그레이드할 준비가 됨](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+     ![업그레이드할 개체가 5만 개 이상 있는 경우 표시 되는 화면을 보여 주는 스크린샷](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      현재 위치 업그레이드를 진행하려면 **이 컴퓨터에서 계속 DirSync 업그레이드합니다.** 라는 메시지 옆에 있는 확인란을 클릭합니다.
      대신 [병렬 배포](#parallel-deployment)를 수행하려면 DirSync 구성 설정을 내보내고 해당 구성을 새 서버로 이동합니다.
 5. Azure AD에 연결하는 데 현재 사용하는 계정의 암호를 제공합니다. DirSync에서 현재 사용한 계정이어야 합니다.  
@@ -111,7 +111,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
    오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](tshoot-connect-connectivity.md)을 참조하세요.
 6. Active Directory에 대한 엔터프라이즈 관리자 계정을 지정합니다.  
    ![ADDS 자격 증명 입력](./media/how-to-dirsync-upgrade-get-started/ConnectToADDS.png)
-7. 이제 구성할 준비가 되었습니다. **업그레이드**를 클릭하면 DirSync가 제거되고 Azure AD Connect가 구성되어 동기화를 시작합니다.  
+7. 이제 구성할 준비가 되었습니다. **업그레이드** 를 클릭하면 DirSync가 제거되고 Azure AD Connect가 구성되어 동기화를 시작합니다.  
    ![구성할 준비 완료](./media/how-to-dirsync-upgrade-get-started/ReadyToConfigure.png)
 8. 설치가 완료된 후 로그아웃하고 Synchronization Service Manager, 동기화 규칙 편집기 또는 다른 구성의 변경을 시도하기 전에 Windows에 다시 로그인합니다.
 
@@ -140,7 +140,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 4. Azure AD Connect 설치 위치(기본값: C:\Program Files\Microsoft Azure Active Directory Connect)에서 `AzureADConnect.exe /ForceExport` 명령을 실행합니다.
 5. **설정 내보내기** 단추를 클릭합니다. 별도 서버에 Azure AD Connect를 설치하면 이 설정을 현재 DirSync에서 새 Azure AD Connect 설치로 이미그레이션됩니다.
 
-![분석 완료](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
+![설정을 새 Azure AD Connect 설치로 마이그레이션하기 위한 내보내기 설정 옵션을 보여 주는 스크린샷](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
 설정을 성공적으로 내보내고 나면 DirSync 서버에서 Azure AD Connect 마법사를 종료할 수 있습니다. 다음 단계를 계속하여 별도 서버에 Azure AD Connect를 설치합니다.
 
@@ -152,24 +152,24 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 3. 명령 프롬프트를 엽니다.
 4. Azure AD Connect 설치 위치(기본값: C:\Program Files\Microsoft Azure Active Directory Connect)에서 `AzureADConnect.exe /migrate` 명령을 실행합니다.
    Azure AD Connect 설치 마법사가 시작되면 다음 화면이 표시됩니다.  
-   ![Azure AD 자격 증명 입력](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
+   ![업그레이드할 때 설정 파일을 가져올 위치를 보여 주는 스크린샷](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
 5. DirSync 설치에서 내보낸 설정 파일을 선택합니다.
 6. 다음을 포함한 고급 옵션을 구성합니다.
    * Azure AD Connect에 대한 사용자 지정 설치 위치
    * 기존 SQL Server 인스턴스(기본값: Azure AD Connect는 SQL Server 2012 Express를 설치함) DirSync 서버와 동일한 데이터베이스 인스턴스를 사용하지 마세요.
    * SQL Server에 연결하는 데 사용되는 서비스 계정(SQL Server 데이터베이스가 원격인 경우에는 이 계정이 도메인 서비스 계정이어야 함) 이러한 옵션은 이 화면에서 볼 수 있습니다.
      이러한 옵션은 이 화면에서 볼 수 있습니다.  
-     ![Azure AD 자격 증명 입력](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
-7. **다음**을 클릭합니다.
+     ![DirSync에서 업그레이드 하기 위한 고급 구성 옵션을 보여 주는 스크린샷](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
+7. **다음** 을 클릭합니다.
 8. **구성 준비 완료** 페이지에서 **구성이 완료되자마자 동기화 프로세스를 시작합니다.** 를 선택한 상태로 둡니다. 서버가 이제 [준비 모드](how-to-connect-sync-staging-server.md) 이므로 변경 내용을 Azure AD로 내보내지 않습니다.
-9. **설치**를 클릭합니다.
+9. **설치** 를 클릭합니다.
 10. 설치가 완료된 후 로그아웃하고 Synchronization Service Manager, 동기화 규칙 편집기 또는 다른 구성의 변경을 시도하기 전에 Windows에 다시 로그인합니다.
 
 > [!NOTE]
 > Windows Server Active Directory와 Azure Active Directory 간의 동기화가 시작되지만 Azure AD로 내보내는 변경 내용은 없습니다. 하나의 동기화 도구만이 변경 내용을 한 번에 내보낼 수 있습니다. 이 상태를 [준비 모드](how-to-connect-sync-staging-server.md)라고 합니다.
 
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Azure AD Connect가 동기화를 시작할 준비가 되었는지 확인
-Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 확인하려면 시작 메뉴에서 **Azure AD Connect** 그룹의 **동기화 서비스 관리자**를 열어야 합니다.
+Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 확인하려면 시작 메뉴에서 **Azure AD Connect** 그룹의 **동기화 서비스 관리자** 를 열어야 합니다.
 
 응용 프로그램에서 **작업** 탭으로 이동 합니다. 이 탭에서 다음 작업이 완료 되었는지 확인 합니다.
 
@@ -187,7 +187,7 @@ Azure AD로 내보낼 변경 내용을 확인하고 검사하려는 경우 [준�
 이러한 단계를 완료하고 결과에 만족하면 DirSync에서 Azure AD로 전환할 준비가 되었습니다.
 
 ### <a name="uninstall-dirsync-old-server"></a>DirSync 제거(이전 서버)
-* **프로그램 및 기능**에서 **Microsoft Azure Active Directory 동기화 도구** 찾기
+* **프로그램 및 기능** 에서 **Microsoft Azure Active Directory 동기화 도구** 찾기
 * **Microsoft Azure Active Directory 동기화 도구**
 * 제거를 완료하는 데 최대 15분이 걸릴 수 있습니다.
 
@@ -201,10 +201,10 @@ DirSync를 제거하거나 사용하지 않으면 Azure AD로 내보내는 활�
 다음이 표시되어야 합니다.  
 ![추가 작업](./media/how-to-dirsync-upgrade-get-started/AdditionalTasks.png)
 
-* **준비 모드 구성**을 선택합니다.
+* **준비 모드 구성** 을 선택합니다.
 * **준비 모드 사용** 확인란의 선택을 취소하여 준비를 해제합니다.
 
-![Azure AD 자격 증명 입력](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
+![준비 모드를 사용 하도록 설정 하는 옵션을 보여 주는 스크린샷](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
 
 * **다음** 단추를 클릭 합니다.
 * 확인 페이지에서 **설치** 단추를 클릭합니다.

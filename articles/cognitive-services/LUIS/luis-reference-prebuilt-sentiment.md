@@ -3,23 +3,21 @@ title: 감정 분석 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/01/2020
-ms.author: diberry
-ms.openlocfilehash: 2d15170e3785d8978b9cb21eae3b94b002f9172e
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 2e8e5a127741625fde7910aaabd421836148fc35
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857169"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018670"
 ---
 # <a name="sentiment-analysis"></a>정서 분석
-감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
+감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](../text-analytics/index.yml) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
 
 LUIS는 Text Analytics V2를 사용 합니다. 
 
@@ -52,4 +50,3 @@ LUIS는 Text Analytics V2를 사용 합니다.
 ## <a name="next-steps"></a>다음 단계
 
 [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
-

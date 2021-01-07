@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 부분 문자열
 description: Azure Cosmos DB의 SQL 시스템 함수 부분 문자열에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17888ccd8fc51ed96f7fc92a0f9275d2c8cb56f8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303701"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340835"
 ---
 # <a name="substring-azure-cosmos-db"></a>SUBSTRING (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정한 문자 0 기준 위치에서 시작하여 지정한 길이 또는 문자열의 끝까지에 이르는 문자열 식의 일부를 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -29,7 +32,7 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
    문자열 식입니다.
   
 *num_expr1*  
-   시작 문자를 나타내는 숫자 식입니다. 값 0은 *str_expr*의 첫 번째 문자입니다.
+   시작 문자를 나타내는 숫자 식입니다. 값 0은 *str_expr* 의 첫 번째 문자입니다.
   
 *num_expr2*  
    반환할 *str_expr* 최대 문자 수를 나타내는 숫자 식입니다. 0 보다 작은 값을 입력 하면 빈 문자열이 반환 됩니다.

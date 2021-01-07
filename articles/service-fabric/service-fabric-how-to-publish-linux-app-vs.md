@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614352"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Visual Studio를 사용 하 여 원격 Linux Service Fabric 클러스터를 대상으로 하는 .NET Core 응용 프로그램 만들기 및 게시
@@ -26,7 +26,7 @@ Visual Studio 도구를 사용 하면 Linux Service Fabric 클러스터를 대�
 ![응용 프로그램 만들기]
 4. 응용 프로그램 이름을로 확인 하 고 **확인**을 클릭 합니다.
 5. **새 Service Fabric 서비스** 페이지의 **.NET Core 섹션**에서 만들려는 서비스 유형을 선택 합니다.
-![create-service]
+![서비스 만들기]
 
 ## <a name="deploy-to-a-remote-linux-cluster"></a>원격 Linux 클러스터에 배포
 1. 솔루션 탐색기에서 응용 프로그램을 마우스 오른쪽 단추로 클릭 하 고 **빌드**를 선택 합니다.
@@ -59,7 +59,7 @@ Visual Studio 도구를 사용 하면 Linux Service Fabric 클러스터를 대�
 
 <!--Image references-->
 [응용 프로그램 만들기]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-application-remote-linux.png
-[create-service]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
+[서비스 만들기]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
 [빌드-응용 프로그램]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
 [편집-.csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
 [응용 프로그램 게시]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png

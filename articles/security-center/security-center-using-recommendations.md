@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 347c539abbe90119a74394eeb748af12d30d0b15
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4c6b8b0bfa78dca5ca32c8c72edcc463ebb9057a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904672"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91322141"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
 
@@ -70,7 +70,7 @@ Jeff는 계속해서 높은 우선 순위 및 중간 우선 순위 권장 사항
 
 ### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>보안 오류를 방지 하기 위한 권장 사항 적용
 
-사용자가 Jeff의 점수에 부정적인 영향을 주는 리소스를 만들지 않도록 하기 위해 가장 중요 한 권장 사항에 대해 적용 및 거부 옵션을 구성 합니다. [권장 사항 적용/거부 권장 사항](prevent-misconfigurations.md)에 대 한 자세한 정보.
+사용자가 Jeff의 점수에 부정적인 영향을 주는 리소스를 만들지 않도록 하기 위해 가장 중요 한 권장 사항에 대해 적용 및 거부 옵션을 구성 합니다. [적용/거부 추천 사항을 사용하여 구성 오류 방지](prevent-misconfigurations.md)에서 자세히 알아보세요.
 
 
 ## <a name="conclusion"></a>결론

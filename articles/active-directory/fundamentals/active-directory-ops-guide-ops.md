@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601313"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836838"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 일반 작업 가이드 참조
 
@@ -43,13 +43,13 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 | 하이브리드 로그 모니터링: 통과 인증 에이전트 | IAM 운영 팀 |
 | 하이브리드 로그 모니터링: 비밀 번호 쓰기 저장 서비스 | IAM 운영 팀 |
 | 하이브리드 로그 모니터링: 온-프레미스 암호 보호 게이트웨이 | IAM 운영 팀 |
-| 하이브리드 로그 모니터링: Azure MFA NPS 확장 (해당 하는 경우) | IAM 운영 팀 |
+| 하이브리드 로그 모니터링: Azure AD MFA NPS 확장 (해당 하는 경우) | IAM 운영 팀 |
 
 목록을 검토할 때 소유자가 없는 작업의 소유자를 할당 하거나 위의 권장 사항에 맞지 않는 소유자가 있는 작업에 대 한 소유권을 조정 해야 할 수 있습니다.
 
 #### <a name="owners-recommended-reading"></a>소유자 권장 읽기
 
-- [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure Active Directory에서 관리자 역할 할당](../roles/permissions-reference.md)
 - [Azure에서 거버넌스](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>하이브리드 관리
@@ -86,15 +86,15 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 ### <a name="on-premises-agents-logs"></a>온-프레미스 에이전트 로그
 
-하이브리드 시나리오를 활성화 하려면 일부 id 및 액세스 관리 서비스에 온-프레미스 에이전트가 필요 합니다. 예를 들어 암호 재설정, PTA (통과 인증), Azure AD 응용 프로그램 프록시 및 Azure MFA NPS 확장이 있습니다. 운영 팀에서는 System Center Operations Manager 또는 SIEM과 같은 솔루션을 사용 하 여 구성 요소 에이전트 로그를 보관 하 고 분석 하 여 이러한 구성 요소의 상태를 모니터링 하는 것이 중요 합니다. Infosec 운영 팀 또는 지원 센터에서 오류 패턴 문제를 해결 하는 방법을 이해 하는 것도 중요 합니다.
+하이브리드 시나리오를 활성화 하려면 일부 id 및 액세스 관리 서비스에 온-프레미스 에이전트가 필요 합니다. 예를 들어 암호 재설정, PTA (통과 인증), Azure AD 응용 프로그램 프록시 및 Azure AD MFA NPS 확장이 있습니다. 운영 팀에서는 System Center Operations Manager 또는 SIEM과 같은 솔루션을 사용 하 여 구성 요소 에이전트 로그를 보관 하 고 분석 하 여 이러한 구성 요소의 상태를 모니터링 하는 것이 중요 합니다. Infosec 운영 팀 또는 지원 센터에서 오류 패턴 문제를 해결 하는 방법을 이해 하는 것도 중요 합니다.
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>온-프레미스 에이전트에서 권장 읽기를 기록 합니다.
 
 - [애플리케이션 프록시 문제 해결](../manage-apps/application-proxy-troubleshoot.md)
-- [셀프 서비스 암호 재설정 문제 해결 - Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [셀프 서비스 암호 재설정 문제 해결 - Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Azure AD 애플리케이션 프록시 커넥터 이해](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: 통과 인증 문제 해결](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Azure MFA NPS 확장에 대 한 오류 코드 문제 해결](../authentication/howto-mfa-nps-extension-errors.md)
+- [Azure AD MFA NPS 확장에 대 한 오류 코드 문제 해결](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>온-프레미스 에이전트 관리
 
@@ -154,9 +154,9 @@ Azure AD에서 사용 하는 "보낸 사람" 주소는 <o365mc@email2.microsoft.
 
 ### <a name="ad-fs-lockdown"></a>AD FS 잠금
 
- [Azure ad 스마트 잠금의](../authentication/concept-sspr-howitworks.md)azure ad 혜택을 직접 인증 하도록 응용 프로그램을 구성 하는 조직 Windows Server 2012 r 2에서 AD FS를 사용 하는 경우 AD FS [엑스트라넷 잠금 보호](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)를 구현 합니다. Windows Server 2016 이상에서 AD FS를 사용 하는 경우 [엑스트라넷 스마트 잠금을](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)구현 합니다. 최소한, 내부 Active Directory에 대 한 무차별 암호 대입 공격의 위험을 포함 하도록 엑스트라넷 잠금을 설정 하는 것이 좋습니다. 그러나 Windows 2016 이상에서 AD FS 경우 [암호 스프레이](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) 공격을 완화 하는 데 도움이 되는 엑스트라넷 스마트 잠금도 사용 하도록 설정 해야 합니다.
+Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 [Azure AD 스마트 잠금](../authentication/concept-sspr-howitworks.md)의 이점을 활용합니다. Windows Server 2012 r 2에서 AD FS를 사용 하는 경우 AD FS [엑스트라넷 잠금 보호](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)를 구현 합니다. Windows Server 2016 이상에서 AD FS를 사용 하는 경우 [엑스트라넷 스마트 잠금을](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)구현 합니다. 최소한, 내부 Active Directory에 대 한 무차별 암호 대입 공격의 위험을 포함 하도록 엑스트라넷 잠금을 설정 하는 것이 좋습니다. 그러나 Windows 2016 이상에서 AD FS 경우 [암호 스프레이](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) 공격을 완화 하는 데 도움이 되는 엑스트라넷 스마트 잠금도 사용 하도록 설정 해야 합니다.
 
-AD FS Azure AD 페더레이션에만 사용 되는 경우 공격 노출 영역을 최소화 하기 위해 해제할 수 있는 몇 가지 끝점이 있습니다. 예를 들어 AD FS Azure AD에만 사용 되는 경우 **usernamemixed** 및 **windowstransport**에 대해 사용 하도록 설정 된 끝점이 아닌 ws-trust 끝점을 사용 하지 않도록 설정 해야 합니다.
+AD FS Azure AD 페더레이션에만 사용 되는 경우 공격 노출 영역을 최소화 하기 위해 해제할 수 있는 몇 가지 끝점이 있습니다. 예를 들어 AD FS Azure AD에만 사용 되는 경우 **usernamemixed** 및 **windowstransport** 에 대해 사용 하도록 설정 된 끝점이 아닌 WS-Trust 끝점을 사용 하지 않도록 설정 해야 합니다.
 
 ### <a name="access-to-machines-with-on-premises-identity-components"></a>온-프레미스 id 구성 요소가 있는 컴퓨터에 액세스
 
@@ -166,9 +166,9 @@ Active Directory 관리 계층 모델은 환경 (계층 0)의 모든 제어와 �
 
 [계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 은 세 가지 수준으로 구성 되며 표준 사용자 계정이 아닌 관리 계정만 포함 합니다.
 
-- **계층 0**   -환경에서 엔터프라이즈 id를 직접 제어 합니다. 계층 0에는 Active Directory 포리스트, 도메인 또는 도메인 컨트롤러와 그 속의 모든 자산에 대한 직접 또는 간접 관리 권한을 가진 계정, 그룹 및 기타 자산이 포함됩니다. 모든 계층 0 자산은 서로를 효과적으로 제어하므로 보안 민감도가 동일합니다.
-- **계층 1**   -엔터프라이즈 서버 및 응용 프로그램 제어 계층 1 자산에는 서버 운영 체제, 클라우드 서비스 및 엔터프라이즈 애플리케이션이 포함됩니다. 계층 1 관리자 계정은 이러한 자산에서 호스트되는 상당한 양의 비즈니스 가치에 대한 관리 권한이 있습니다. 일반적인 역할 예로는 모든 엔터프라이즈 서비스에 영향을 줄 수 있는 기능으로 이러한 운영 체제를 유지 관리하는 서버 관리자가 있습니다.
-- **계층 2**   -사용자 워크스테이션 및 장치를 제어 합니다. 계층 2 관리자 계정은 사용자 워크스테이션 및 디바이스에서 호스트되는 상당한 양의 비즈니스 가치에 대한 관리 권한이 있습니다. 예를 들어 지원 센터 및 컴퓨터 지원 관리자가 여기에 포함됩니다. 이들은 거의 모든 사용자 데이터의 무결성에 영향을 줄 수 있기 때문입니다.
+- **계층 0** - 환경 내 엔터프라이즈 ID를 직접 제어합니다. 계층 0에는 Active Directory 포리스트, 도메인 또는 도메인 컨트롤러와 그 속의 모든 자산에 대한 직접 또는 간접 관리 권한을 가진 계정, 그룹 및 기타 자산이 포함됩니다. 모든 계층 0 자산은 서로를 효과적으로 제어하므로 보안 민감도가 동일합니다.
+- **계층 1** - 엔터프라이즈 서버 및 애플리케이션을 제어합니다. 계층 1 자산에는 서버 운영 체제, 클라우드 서비스 및 엔터프라이즈 애플리케이션이 포함됩니다. 계층 1 관리자 계정은 이러한 자산에서 호스트되는 상당한 양의 비즈니스 가치에 대한 관리 권한이 있습니다. 일반적인 역할 예로는 모든 엔터프라이즈 서비스에 영향을 줄 수 있는 기능으로 이러한 운영 체제를 유지 관리하는 서버 관리자가 있습니다.
+- **계층 2** - 사용자 워크스테이션 및 디바이스를 제어합니다. 계층 2 관리자 계정은 사용자 워크스테이션 및 디바이스에서 호스트되는 상당한 양의 비즈니스 가치에 대한 관리 권한이 있습니다. 예를 들어 지원 센터 및 컴퓨터 지원 관리자가 여기에 포함됩니다. 이들은 거의 모든 사용자 데이터의 무결성에 영향을 줄 수 있기 때문입니다.
 
 도메인 컨트롤러에 대해 수행 하는 것과 동일한 방식으로 Azure AD Connect, AD FS 및 SQL services와 같은 온-프레미스 id 구성 요소에 대 한 액세스를 잠급니다.
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420883"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956503"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -53,7 +53,7 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 * 신뢰할 수 있는 인증 기관에서 서명됨
 
 > [!NOTE]
-> **ECC(타원 곡선 암호화) 인증서**는 App Service에서 사용할 수 있지만 이 문서에서는 다루지 않습니다. ECC 인증서를 만드는 정확한 단계에서 인증 기관을 사용하세요.
+> **ECC(타원 곡선 암호화) 인증서** 는 App Service에서 사용할 수 있지만 이 문서에서는 다루지 않습니다. ECC 인증서를 만드는 정확한 단계에서 인증 기관을 사용하세요.
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -75,11 +75,11 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
-앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **App Service Managed Certificate 만들기**를 선택합니다.
+앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **App Service Managed Certificate 만들기** 를 선택합니다.
 
 ![App Service에서 무료 인증서 만들기](./media/configure-ssl-certificate/create-free-cert.png)
 
-CNAME 레코드를 사용하여 앱에 올바르게 매핑된 비-네이키드 도메인이 대화 상자에 나열됩니다. 무료 인증서를 만들 사용자 지정 도메인을 선택하고 **만들기**를 선택합니다. 지원되는 사용자 지정 도메인마다 인증서를 하나씩만 만들 수 있습니다.
+CNAME 레코드를 사용하여 앱에 올바르게 매핑된 비-네이키드 도메인이 대화 상자에 나열됩니다. 무료 인증서를 만들 사용자 지정 도메인을 선택하고 **만들기** 를 선택합니다. 지원되는 사용자 지정 도메인마다 인증서를 하나씩만 만들 수 있습니다.
 
 작업이 완료되면 **프라이빗 키 인증서** 목록에 인증서가 표시됩니다.
 
@@ -105,6 +105,8 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 - [인증서를 App Service로 가져옵니다](#import-certificate-into-app-service).
 - 갱신, 키 다시 입력, 내보내기 등 [인증서를 관리합니다](#manage-app-service-certificates).
+> [!NOTE]
+> App Service 인증서는 현재 Azure 국가별 클라우드에서 지원되지 않습니다.
 
 ### <a name="start-certificate-order"></a>인증서 주문 시작
 
@@ -112,9 +114,9 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 ![App Service 인증서 구매 시작](./media/configure-ssl-certificate/purchase-app-service-cert.png)
 
-다음 표를 사용하여 인증서를 구성할 수 있습니다. 작업을 마쳤으면 **만들기**를 클릭합니다.
+다음 표를 사용하여 인증서를 구성할 수 있습니다. 작업을 마쳤으면 **만들기** 를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | 속성 | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기서 루트 도메인을 지정합니다. 발급된 인증서는 루트 도메인과 `www` 하위 도메인을 *모두* 보호합니다. 발급된 인증서의 일반 이름 필드에는 루트 도메인이 포함되고, 주체 대체 이름 필드에는 `www` 도메인이 포함됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
@@ -131,32 +133,32 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 인증서 구매 프로세스가 완료되고 나면 이 인증서를 사용하기 전에 완료해야 할 단계가 몇 가지 더 있습니다. 
 
-[App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, **인증서 구성** > **1단계: 저장**을 클릭합니다.
+[App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, **인증서 구성** > **1단계: 저장** 을 클릭합니다.
 
 ![App Service 인증서의 Key Vault 스토리지 구성](./media/configure-ssl-certificate/configure-key-vault.png)
 
 [Key Vault](../key-vault/general/overview.md)는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 되는 Azure 서비스입니다. App Service Certificate에 대해 선택한 스토리지입니다.
 
-**Key Vault 상태** 페이지에서 **Key Vault 리포지토리**를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. App Service 앱과 동일한 구독 및 리소스 그룹 내에 새 Key Vault를 만듭니다.
+**Key Vault 상태** 페이지에서 **Key Vault 리포지토리** 를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. App Service 앱과 동일한 구독 및 리소스 그룹 내에 새 Key Vault를 만듭니다.
 
 | 설정 | Description |
 |-|-|
-| Name | 영숫자와 대시로 구성된 고유한 이름입니다. |
+| 속성 | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | Resource group | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층 | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
-| 액세스 정책| 애플리케이션 및 자격 증명 모음 리소스에 허용된 액세스를 정의합니다. 나중에 [Key Vault 액세스 정책 할당](/azure/key-vault/general/assign-access-policy-portal)의 단계에 따라 구성할 수 있습니다. |
-| Virtual Network 액세스 | 특정 Azure Virtual Network에 대한 자격 증명 모음 액세스 액세스를 제한합니다. 나중에 [Azure Key Vault 방화벽 및 Virtual Network 구성](/azure/key-vault/general/network-security)의 단계에 따라 구성할 수 있습니다. |
+| 액세스 정책| 애플리케이션 및 자격 증명 모음 리소스에 허용된 액세스를 정의합니다. 나중에 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-portal.md)의 단계에 따라 구성할 수 있습니다. |
+| Virtual Network 액세스 | 특정 Azure Virtual Network에 대한 자격 증명 모음 액세스 액세스를 제한합니다. 나중에 [Azure Key Vault 방화벽 및 Virtual Network 구성](../key-vault/general/network-security.md)의 단계에 따라 구성할 수 있습니다. |
 
 자격 증명 모음을 선택한 후에는 **Key Vault 리포지토리** 페이지를 닫습니다. **1단계: 저장소** 옵션에는 성공을 나타내는 녹색 확인 표시가 나타납니다. 다음 단계를 위해 페이지를 열어둡니다.
 
 ### <a name="verify-domain-ownership"></a>도메인 소유권 확인
 
-마지막 단계에서 사용한 것과 동일한 **인증서 구성** 페이지에서 **2단계: 확인**을 클릭합니다.
+마지막 단계에서 사용한 것과 동일한 **인증서 구성** 페이지에서 **2단계: 확인** 을 클릭합니다.
 
 ![App Service 인증서의 도메인 확인](./media/configure-ssl-certificate/verify-domain.png)
 
-**App Service 확인**을 선택합니다. 도메인을 웹앱에 이미 매핑했기 때문에([필수 구성 요소](#prerequisites) 참조), 이미 확인되었습니다. 간단히 **확인**을 클릭하여 단계를 마칩니다. **인증서 도메인이 확인됨** 메시지가 나타날 때까지 **Refresh** 단추를 누릅니다.
+**App Service 확인** 을 선택합니다. 도메인을 웹앱에 이미 매핑했기 때문에([필수 구성 요소](#prerequisites) 참조), 이미 확인되었습니다. 간단히 **확인** 을 클릭하여 단계를 마칩니다. **인증서 도메인이 확인됨** 메시지가 나타날 때까지 **Refresh** 단추를 누릅니다.
 
 > [!NOTE]
 > 네 가지 유형의 도메인 확인 방법이 지원됩니다. 
@@ -170,11 +172,11 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
-앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **App Service Certificate 가져오기**를 선택합니다.
+앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **App Service Certificate 가져오기** 를 선택합니다.
 
 ![App Service에서 App Service 인증서 가져오기](./media/configure-ssl-certificate/import-app-service-cert.png)
 
-방금 구매한 인증서를 선택하고 **확인**을 선택합니다.
+방금 구매한 인증서를 선택하고 **확인** 을 선택합니다.
 
 작업이 완료되면 **프라이빗 키 인증서** 목록에 인증서가 표시됩니다.
 
@@ -189,7 +191,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [요구 사항을 충족](#private-certificate-requirements)하는 PKCS12 인증서를 App Service으로 가져올 수 있습니다.
 
 ### <a name="authorize-app-service-to-read-from-the-vault"></a>자격 증명 모음에서 읽을 App Service 권한 부여
-기본적으로 App Service 리소스 공급자는 Key Vault에 대한 액세스 권한이 없습니다. 인증서 배포에 Key Vault를 사용하려면 [KeyVault에 대한 읽기 액세스 권한을 부여](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault)해야 합니다. 
+기본적으로 App Service 리소스 공급자는 Key Vault에 대한 액세스 권한이 없습니다. 인증서 배포에 Key Vault를 사용하려면 [KeyVault에 대한 읽기 액세스 권한을 부여](../key-vault/general/assign-access-policy-cli.md)해야 합니다. 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd`는 App Service의 리소스 공급자 서비스 주체 이름으로, 모든 Azure 구독에 대해 동일합니다. Azure Government 클라우드 환경의 경우 리소스 공급자 서비스 주체 이름으로 대신 `6a02c803-dafd-4136-b4c3-5a6f318b4714`를 사용합니다.
 
@@ -197,7 +199,7 @@ Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [�
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
-앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **Key Vault 인증서 가져오기**를 선택합니다.
+앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **Key Vault 인증서 가져오기** 를 선택합니다.
 
 ![App Service에서 Key Vault 인증서 가져오기](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
@@ -230,7 +232,7 @@ Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [�
 
 이렇게 하려면 받은 각 인증서를 텍스트 편집기에서 엽니다.
 
-_mergedcertificate.crt_라는 병합된 인증서의 파일을 만듭니다. 텍스트 편집기에서 각 인증서의 내용을 이 파일에 복사합니다. 사용자 인증서의 순서는 사용자의 인증서로 시작하고 루트 인증서로 끝나는 인증서 체인의 순서에 따라야 합니다. 다음 예제와 유사합니다.
+_mergedcertificate.crt_ 라는 병합된 인증서의 파일을 만듭니다. 텍스트 편집기에서 각 인증서의 내용을 이 파일에 복사합니다. 사용자 인증서의 순서는 사용자의 인증서로 시작하고 루트 인증서로 끝나는 인증서 체인의 순서에 따라야 합니다. 다음 예제와 유사합니다.
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -262,7 +264,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 메시지가 표시되면 내보내기 암호를 정의합니다. 나중에 TLS/SSL 인증서를 App Service에 업로드할 때 이 암호를 사용합니다.
 
-IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 인증서를 로컬 컴퓨터에 설치한 다음 [해당 인증서를 PFX로 내보냅니다](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 인증서를 로컬 컴퓨터에 설치한 다음 [해당 인증서를 PFX로 내보냅니다](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
 
 ### <a name="upload-certificate-to-app-service"></a>App Service에 인증서 업로드
 
@@ -270,11 +272,11 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
-앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **인증서 업로드**를 선택합니다.
+앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **인증서 업로드** 를 선택합니다.
 
 ![App Service에서 프라이빗 인증서 업로드](./media/configure-ssl-certificate/upload-private-cert.png)
 
-**PFX 인증서 파일**에서 PFX 파일을 선택합니다. **인증서 암호**에서 PFX 파일을 내보낼 때 만든 암호를 입력합니다. 여기까지 마쳤으면 **업로드**를 클릭합니다. 
+**PFX 인증서 파일** 에서 PFX 파일을 선택합니다. **인증서 암호** 에서 PFX 파일을 내보낼 때 만든 암호를 입력합니다. 여기까지 마쳤으면 **업로드** 를 클릭합니다. 
 
 작업이 완료되면 **프라이빗 키 인증서** 목록에 인증서가 표시됩니다.
 
@@ -290,11 +292,11 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
-앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **공용 인증서(.cer)**  > **공개 키 인증서 업로드**를 선택합니다.
+앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **공용 인증서(.cer)**  > **공개 키 인증서 업로드** 를 선택합니다.
 
-**이름**에 인증서 이름을 입력합니다. **CER 인증서 파일**에서 CER 파일을 선택합니다.
+**이름** 에 인증서 이름을 입력합니다. **CER 인증서 파일** 에서 CER 파일을 선택합니다.
 
-**업로드**를 클릭합니다.
+**업로드** 를 클릭합니다.
 
 ![App Service에서 공용 인증서 업로드](./media/configure-ssl-certificate/upload-public-cert.png)
 
@@ -311,33 +313,33 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 ### <a name="rekey-certificate"></a>인증서 키 다시 입력
 
-인증서의 프라이빗 키가 손상되었다고 생각되는 경우 인증서 키를 다시 입력할 수 있습니다. [App Service 인증서](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **키 다시 입력 및 동기화**를 선택합니다.
+인증서의 프라이빗 키가 손상되었다고 생각되는 경우 인증서 키를 다시 입력할 수 있습니다. [App Service 인증서](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **키 다시 입력 및 동기화** 를 선택합니다.
 
-**키 다시 입력**을 클릭하여 프로세스를 시작합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다.
+**키 다시 입력** 을 클릭하여 프로세스를 시작합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다.
 
 ![App Service 인증서 키 다시 입력](./media/configure-ssl-certificate/rekey-app-service-cert.png)
 
 인증서 키를 다시 생성하면 인증서가 인증 기관에서 발급한 새 인증서로 롤링됩니다.
 
-키 다시 입력 작업이 완료되면 **동기화**를 클릭합니다. 동기화 작업에서는 앱 가동 중지 시간 없이 App Service의 인증서에 대한 호스트 이름 바인딩을 자동으로 업데이트합니다.
+키 다시 입력 작업이 완료되면 **동기화** 를 클릭합니다. 동기화 작업에서는 앱 가동 중지 시간 없이 App Service의 인증서에 대한 호스트 이름 바인딩을 자동으로 업데이트합니다.
 
 > [!NOTE]
-> **동기화**를 클릭하지 않으면 App Service에서 48시간 이내에 인증서를 자동으로 동기화합니다.
+> **동기화** 를 클릭하지 않으면 App Service에서 48시간 이내에 인증서를 자동으로 동기화합니다.
 
 ### <a name="renew-certificate"></a>인증서 갱신
 
-언제든 인증서 자동 갱신을 켜려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정**을 클릭합니다. 기본적으로 App Service 인증서의 유효 기간은 1년입니다.
+언제든 인증서 자동 갱신을 켜려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정** 을 클릭합니다. 기본적으로 App Service 인증서의 유효 기간은 1년입니다.
 
-**켜기**를 선택하고 **저장**을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 60일 전에 자동으로 갱신됩니다.
+**켜기** 를 선택하고 **저장** 을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 60일 전에 자동으로 갱신됩니다.
 
 ![App Service 인증서 자동 갱신](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
-인증서를 수동으로 갱신하려면 **수동 갱신**을 클릭합니다. 만료 60일 전에 인증서를 자동으로 갱신하도록 요청할 수 있습니다.
+인증서를 수동으로 갱신하려면 **수동 갱신** 을 클릭합니다. 만료 60일 전에 인증서를 자동으로 갱신하도록 요청할 수 있습니다.
 
-갱신 작업이 완료되면 **동기화**를 클릭합니다. 동기화 작업에서는 앱 가동 중지 시간 없이 App Service의 인증서에 대한 호스트 이름 바인딩을 자동으로 업데이트합니다.
+갱신 작업이 완료되면 **동기화** 를 클릭합니다. 동기화 작업에서는 앱 가동 중지 시간 없이 App Service의 인증서에 대한 호스트 이름 바인딩을 자동으로 업데이트합니다.
 
 > [!NOTE]
-> **동기화**를 클릭하지 않으면 App Service에서 48시간 이내에 인증서를 자동으로 동기화합니다.
+> **동기화** 를 클릭하지 않으면 App Service에서 48시간 이내에 인증서를 자동으로 동기화합니다.
 
 ### <a name="export-certificate"></a>인증서 내보내기
 
@@ -366,23 +368,23 @@ az keyvault secret download \
 
 App Service 인증서를 삭제하면 다시 되돌릴 수 없습니다. App Service Certificate 리소스를 삭제하면 인증서가 해지됩니다. 이 인증서와 App Service의 모든 바인딩이 유효하지 않게 됩니다. 실수로 인한 삭제를 방지하기 위해 Azure에서 인증서를 잠급니다. App Service 인증서를 삭제하려면 먼저 인증서에 대한 삭제 잠금을 제거해야 합니다.
 
-[App Service 인증서](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **잠금**을 선택합니다.
+[App Service 인증서](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **잠금** 을 선택합니다.
 
-잠금 유형 **삭제**를 사용하여 인증서에 대한 잠금을 찾습니다. 인증서 오른쪽에서 **삭제**를 선택합니다.
+잠금 유형 **삭제** 를 사용하여 인증서에 대한 잠금을 찾습니다. 인증서 오른쪽에서 **삭제** 를 선택합니다.
 
 ![App Service 인증서에 대한 삭제 잠금](./media/configure-ssl-certificate/delete-lock-app-service-cert.png)
 
-이제 App Service 인증서를 삭제할 수 있습니다. 왼쪽 탐색 영역에서 **개요** > **삭제**를 선택합니다. 확인 대화 상자에서 인증서 이름을 입력하고 **확인**을 선택합니다.
+이제 App Service 인증서를 삭제할 수 있습니다. 왼쪽 탐색 영역에서 **개요** > **삭제** 를 선택합니다. 확인 대화 상자에서 인증서 이름을 입력하고 **확인** 을 선택합니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>추가 리소스
 

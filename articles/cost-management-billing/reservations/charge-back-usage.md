@@ -7,18 +7,18 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4387a1aa5b22c9808f36364b71f89a71736958b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: aba6ea467788c51d179ef9377243efb6035b6f98
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689476"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148363"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Azure Reservation 비용 차지백
 
 기업계약 및 Microsoft 고객 계약 청구 독자는 예약에 대한 분할 상환 비용 데이터를 볼 수 있습니다. 비용 데이터를 사용하여 구독, 리소스 그룹, 리소스 또는 태그에 대한 통화 값을 파트너에게 차지백할 수 있습니다. 분할 상환 데이터에서 유효 가격은 비례하는 시간당 예약 비용입니다. 비용은 해당 날짜에 대한 리소스의 총 예약 사용량 비용입니다.
 
-개별 구독이 있는 사용자는 해당 사용량 파일에서 분할 상환 비용 데이터를 가져올 수 있습니다. 리소스가 예약 할인을 가져오는 경우 사용량 파일의 *AdditionalInfo* 섹션에는 예약 정보가 포함됩니다. 자세한 내용은 [Azure Portal에서 사용량 다운로드](https://docs.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage#download-usage-from-the-azure-portal-csv)를 참조하세요.
+개별 구독이 있는 사용자는 해당 사용량 파일에서 분할 상환 비용 데이터를 가져올 수 있습니다. 리소스가 예약 할인을 가져오는 경우 사용량 파일의 *AdditionalInfo* 섹션에는 예약 정보가 포함됩니다. 자세한 내용은 [Azure Portal에서 사용량 다운로드](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv)를 참조하세요.
 
 ## <a name="get-reservation-charge-back-data-for-chargeback"></a>차지백에 대한 예약 차지백 데이터 가져오기
 

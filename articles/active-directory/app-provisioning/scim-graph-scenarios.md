@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b69e2c9b12b2db34f3eb70e54d2c6aede6b54784
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: ba8dec19443bbafa300144b1aa42b3973cce9e6d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235505"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655155"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM 및 Microsoft Graph를 함께 사용 하 여 사용자를 프로 비전 하 고 필요한 데이터를 사용 하 여 응용 프로그램 보강
 
@@ -62,7 +62,7 @@ POST /Users
     "roles": []
 }
 ```
-    
+
 ## <a name="scenario-2-automatically-remove-users-from-my-app"></a>시나리오 2: 내 앱에서 자동으로 사용자 제거
 응용 프로그램을 사용 하는 고객은 보안에 중점을 두 며 직원 들이 더 이상 필요 하지 않은 경우 계정을 제거 하기 위한 거 버 넌 스 요구 응용 프로그램에서 프로 비전 해제를 자동화 하려면 어떻게 해야 하나요?
 
@@ -115,7 +115,7 @@ DELETE /Users/5171a35d82074e068ce2 HTTP/1.1
 > [!NOTE]
 > Microsoft에는 Workday 및 SuccessFactors와 같은 HR 응용 프로그램에서 데이터를 가져오는 프로 비전 서비스가 있습니다. 이러한 통합은 Microsoft에서 빌드하고 관리 합니다. 새 HR 응용 프로그램을 서비스에 온 보 딩 하기 위해 [UserVoice](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests)에서 요청할 수 있습니다. 
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 - [동기화 Microsoft Graph 설명서 검토](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [사용자 지정 SCIM 앱을 Azure AD와 통합](use-scim-to-provision-users-and-groups.md)

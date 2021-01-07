@@ -4,15 +4,15 @@ description: Microsoft AppSource 및 Azure Marketplace 제품에 대한 시장 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420934"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492092"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -61,7 +61,8 @@ Microsoft AppSource 및 Azure Marketplace는 다른 솔루션 유형을 제공 �
 
 #### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>중요: SaaS 제공 및 Microsoft 365 추가 기능
 
-Marketplace 고객이 제품을 보고 구매할 수 있는 방법에 대 한 자세한 내용은 [제품 유형별 가이드](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) 를 참조 하세요. SaaS 제품의 경우 제품의 트랜잭션 기능 뿐만 아니라 범주 선택도 제품을 게시할 온라인 상점을 결정 합니다.
+Marketplace 고객이 제품을 보고 구매할 수 있는 방법에 대 한 자세한 내용은 [상용 marketplace의 거래](marketplace-commercial-transaction-capabilities-and-considerations.md) 를 참조 하세요. SaaS 제품의 경우 제품의 트랜잭션 기능 뿐만 아니라 범주 선택도 제품을 게시할 온라인 상점을 결정 합니다.
+
 
 | SaaS 제품    | SaaS 제품   | SaaS 제품  | SaaS 제품   | SaaS 제품   | SaaS 제품   | SaaS 제품    | 적용 가능한 온라인 저장소| 적용 가능한 온라인 저장소 |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
@@ -129,8 +130,8 @@ Microsoft AppSource에 대 한 산업:
 ## <a name="link-to-your-offer-page-from-your-website"></a>웹 사이트에서 제품 페이지에 연결
 
 사이트의 AppSource 또는 Azure Marketplace 배지에서 상용 Marketplace의 목록에 연결 하는 경우 URL의 끝에 다음 쿼리 매개 변수를 포함 하 여 강력한 분석 및 보고를 지원할 수 있습니다.
-* **src**: 트래픽이 AppSource(예: 웹 사이트, LinkedIn 또는 Facebook)로 라우팅되는 원본을 포함합니다.
-* **mktcmpid**: 문자, 숫자, 밑줄 및 하이픈(예: *blogpost_12*)의 조합으로 최대 16자까지 포함할 수 있는 마케팅 캠페인 ID입니다.
+* **src** : 트래픽이 AppSource(예: 웹 사이트, LinkedIn 또는 Facebook)로 라우팅되는 원본을 포함합니다.
+* **mktcmpid** : 문자, 숫자, 밑줄 및 하이픈(예: *blogpost_12* )의 조합으로 최대 16자까지 포함할 수 있는 마케팅 캠페인 ID입니다.
 
 다음 예제 URL에는 앞의 두 쿼리 매개 변수가 모두 포함되어 있습니다. `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

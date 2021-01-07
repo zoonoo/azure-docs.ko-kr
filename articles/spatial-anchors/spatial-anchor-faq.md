@@ -1,19 +1,19 @@
 ---
 title: 질문과 대답
 description: Azure Spatial Anchors 서비스에 대한 FAQ입니다.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 05/18/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9457836a3048ff08b228bf9d5b84400af15d6cc5
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 01eb0ce83efa54366e027d35d9c3c3bbf86eff7b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854940"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95487370"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -128,4 +128,4 @@ Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsof
 
 **Q: Azure Spatial Anchors는 어떤 포트 및 프로토콜을 사용하나요?**
 
-**A:** Azure Spatial Anchors는 암호화된 프로토콜을 사용하여 TCP 포트 443을 통해 통신합니다. 포트 443을 통해 HTTPS를 사용하여 통신하는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)를 인증에 사용합니다.
+**A:** Azure Spatial Anchors는 암호화된 프로토콜을 사용하여 TCP 포트 443을 통해 통신합니다. 포트 443을 통해 HTTPS를 사용하여 통신하는 [Azure Active Directory](../active-directory/index.yml)를 인증에 사용합니다.

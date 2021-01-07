@@ -5,19 +5,19 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/31/2020
-ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.reviewer: douglas, sstein
+ms.date: 12/16/2020
+ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181768"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825917"
 ---
-# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치
+# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)
 
 이 문서에서는 SQL Managed Instance 일반 용도 (GP) 및 중요 비즈니스용 (BC) 서비스 계층에서 주 노드를 수동으로 장애 조치 하는 방법 및 BC 서비스 계층에서 보조 읽기 전용 복제본 노드를 수동으로 장애 조치 (failover) 하는 방법을 설명 합니다.
 
@@ -37,9 +37,9 @@ ms.locfileid: "89181768"
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 수동 장애 조치 (failover) 시작
 
-### <a name="rbac-permissions-required"></a>RBAC 권한 필요
+### <a name="azure-rbac-permissions-required"></a>Azure RBAC 권한 필요
 
-장애 조치 (failover)를 시작 하는 사용자에 게는 다음 RBAC 역할 중 하나가 있어야 합니다.
+장애 조치 (failover)를 시작 하는 사용자에 게는 다음 Azure 역할 중 하나가 있어야 합니다.
 
 - 구독 소유자 역할 또는
 - Managed Instance 참가자 역할 또는
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-다음 예제와 함께 PowerShell 명령 [AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) 를 사용 하 여 BC 및 GP 서비스 계층 모두에 적용 되는 주 노드의 장애 조치 (failover)를 시작 합니다.
+다음 예제와 함께 PowerShell 명령 [AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) 를 사용 하 여 BC 및 GP 서비스 계층 모두에 적용 되는 주 노드의 장애 조치 (failover)를 시작 합니다.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Rest API 사용
 
-연속 테스트 파이프라인 또는 자동화 된 성능 mitigators을 구현 하기 위해 SQL 관리 되는 인스턴스의 장애 조치 (failover)를 자동화 해야 하는 고급 사용자의 경우 API 호출을 통해 장애 조치 (failover)를 시작 하 여이 함수를 수행할 수 있습니다. 자세한 내용은 [관리 되는 인스턴스-장애 조치 (Failover) REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) 를 참조 하세요.
+연속 테스트 파이프라인 또는 자동화 된 성능 mitigators을 구현 하기 위해 SQL 관리 되는 인스턴스의 장애 조치 (failover)를 자동화 해야 하는 고급 사용자의 경우 API 호출을 통해 장애 조치 (failover)를 시작 하 여이 함수를 수행할 수 있습니다. 자세한 내용은 [관리 되는 인스턴스-장애 조치 (Failover) REST API](/rest/api/sql/managed%20instances%20-%20failover/failover) 를 참조 하세요.
 
 REST API 호출을 사용 하 여 장애 조치 (failover)를 시작 하려면 먼저 선택한 API 클라이언트를 사용 하 여 인증 토큰을 생성 합니다. 생성 된 인증 토큰은 API 요청 헤더에서 권한 부여 속성으로 사용 되며 필수입니다.
 
@@ -125,7 +125,7 @@ API 응답은 다음 두 가지 중 하나가 됩니다.
 
 ## <a name="monitor-the-failover"></a>장애 조치 (failover) 모니터링
 
-사용자가 시작한 수동 장애 조치 (failover)의 진행률을 모니터링 하려면 SQL Managed Instance에서 즐겨 사용 하는 클라이언트 (예: SSMS)에서 다음 T-sql 쿼리를 실행 합니다. 시스템 뷰를 읽고 인스턴스에 사용할 수 있는 보고서 복제본을 dm_hadr_fabric_replica_states 합니다. 수동 장애 조치 (failover)를 시작한 후 동일한 쿼리를 새로 고칩니다.
+사용자가 시작한 수동 장애 조치 (failover)의 진행률을 모니터링 하려면 SQL Managed Instance에서 즐겨 사용 하는 클라이언트 (예: SSMS)에서 다음 T-sql 쿼리를 실행 합니다. 이 도구는 인스턴스에 사용할 수 있는 시스템 뷰 sys.dm_hadr_fabric_replica_states 및 보고서 복제본을 읽습니다. 수동 장애 조치 (failover)를 시작한 후 동일한 쿼리를 새로 고칩니다.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -140,7 +140,7 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 > [!IMPORTANT]
 > 사용자가 시작한 수동 장애 조치 (failover)의 기능 제한 사항은 다음과 같습니다.
-> - **30 분**마다 동일한 Managed Instance에서 하나의 장애 조치 (failover)가 시작 될 수 있습니다.
+> - **15 분** 마다 동일한 Managed Instance에서 하나의 장애 조치 (failover)가 시작 될 수 있습니다.
 > - BC 인스턴스의 경우 장애 조치 (failover) 요청이 허용 되려면 복제본의 쿼럼이 있어야 합니다.
 > - BC 인스턴스의 경우 장애 조치 (failover)를 시작할 읽을 수 있는 보조 복제본을 지정할 수 없습니다.
 

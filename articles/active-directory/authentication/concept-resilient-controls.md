@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049573"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937096"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -28,18 +28,18 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 이 문서에서는 조직이 다음의 시나리오에서 예기치 않은 중단 시 잠금의 위험을 줄이는 복원력을 제공하기 위해 채택해야 하는 전략에 대한 지침을 제공합니다.
 
- 1. 조직은 완화 전략 또는 대응 계획을 구현하여 **중단 전**에 잠금 위험을 줄이는 복원력을 높일 수 있습니다.
- 2. 조직은 완화 전략과 대응 계획을 수립하여 **중단 중**에 선택한 애플리케이션과 리소스에 계속 액세스할 수 있습니다.
+ 1. 조직은 완화 전략 또는 대응 계획을 구현하여 **중단 전** 에 잠금 위험을 줄이는 복원력을 높일 수 있습니다.
+ 2. 조직은 완화 전략과 대응 계획을 수립하여 **중단 중** 에 선택한 애플리케이션과 리소스에 계속 액세스할 수 있습니다.
  3. 조직은 **중단 후** 및 구현된 모든 긴급 상황을 롤백하기 전에 로그와 같은 정보를 보존해야 합니다.
- 4. 방지 전략 또는 대응 계획을 구현하지 않은 조직은 중단을 처리하기 위해 **응급 옵션**을 구현할 수 있습니다.
+ 4. 방지 전략 또는 대응 계획을 구현하지 않은 조직은 중단을 처리하기 위해 **응급 옵션** 을 구현할 수 있습니다.
 
 ## <a name="key-guidance"></a>주요 지침
 
 이 문서의 4가지 핵심 사항은 다음과 같습니다.
 
 * 응급 액세스 계정을 사용하여 관리자 잠금을 방지합니다.
-* 사용자 단위 MFA 대신 CA (조건부 액세스)를 사용 하 여 MFA를 구현 합니다.
-* 여러 가지 CA (조건부 액세스) 컨트롤을 사용 하 여 사용자 잠금을 완화 합니다.
+* 사용자 단위 MFA 대신 조건부 액세스를 사용 하 여 MFA를 구현 합니다.
+* 여러 조건부 액세스 제어를 사용 하 여 사용자 잠금을 완화 합니다.
 * 각 사용자에 대해 여러 인증 방법 또는 이와 동등한 기능을 프로비전하여 사용자 잠금을 완화합니다.
 
 ## <a name="before-a-disruption"></a>중단 전
@@ -65,17 +65,17 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 조직의 기존 조건부 액세스 정책에 다음 액세스 제어를 통합 합니다.
 
-1. Microsoft Authenticator 앱(인터넷 기반), OATH 토큰(디바이스에서 생성) 및 SMS(전화)와 같이 다양한 통신 채널을 사용하는 각 사용자에 대해 여러 인증 방법을 프로비전합니다. 다음 PowerShell 스크립트는 사용자가 등록 해야 하는 추가 메서드인 [AZURE MFA 인증 방법 분석에 대 한 스크립트](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/)를 미리 식별 하는 데 도움이 됩니다.
+1. Microsoft Authenticator 앱(인터넷 기반), OATH 토큰(디바이스에서 생성) 및 SMS(전화)와 같이 다양한 통신 채널을 사용하는 각 사용자에 대해 여러 인증 방법을 프로비전합니다. 다음 PowerShell 스크립트는 사용자가 등록 해야 하는 추가 메서드인 [AZURE AD MFA 인증 방법 분석에 대 한 스크립트](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/)를 미리 식별 하는 데 도움이 됩니다.
 2. 디바이스 로그인에서 직접 MFA 요구 사항을 충족시키기 위해 Windows 10 디바이스에 비즈니스용 Windows Hello를 배포합니다.
 3. [Azure AD 하이브리드 조인](../devices/overview.md) 또는 [Microsoft Intune 관리 디바이스](/intune/planning-guide)를 통해 신뢰할 수 있는 디바이스를 사용합니다. 사용자의 MFA 챌린지 없이 신뢰할 수 있는 디바이스 자체에서 정책의 강력한 인증 요구 사항을 충족할 수 있으므로 신뢰할 수 있는 디바이스는 사용자 환경을 향상시킵니다. 그러면 새 디바이스를 등록할 때와 신뢰할 수 없는 디바이스에서 애플리케이션 또는 리소스에 액세스할 때 MFA가 필요합니다.
 4. 고정된 MFA 정책 대신 사용자 또는 로그인이 위험한 상태에 있을 때 액세스를 차단하는 Azure AD ID 보호 위험 기반 정책을 사용합니다.
-5. Azure MFA NPS 확장을 사용 하 여 VPN 액세스를 보호 하는 경우 VPN 솔루션을 [SAML 앱](../manage-apps/view-applications-portal.md) 으로 페더레이션 하 고 아래 권장 된 대로 앱 범주를 확인 하는 것이 좋습니다. 
+5. Azure AD MFA NPS 확장을 사용 하 여 VPN 액세스를 보호 하는 경우 VPN 솔루션을 [SAML 앱](../manage-apps/view-applications-portal.md) 으로 페더레이션 하 고 아래 권장 된 대로 앱 범주를 확인 하는 것이 좋습니다. 
 
 >[!NOTE]
 > 위험 기반 정책에는 [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) 라이선스가 필요합니다.
 
 다음 예제에서는 사용자가 자신의 애플리케이션과 리소스에 액세스할 수 있는 복원력 있는 액세스 제어를 제공하기 위해 만들어야 하는 정책을 설명합니다. 이 예제에서는 액세스 권한을 부여하려는 대상 사용자가 있는 **AppUsers** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다.
-이 정책 세트 예제는 **AppUsers**에서 선택한 사용자에게 액세스 권한을 부여하거나, 신뢰할 수 있는 디바이스에서 연결하는 경우 선택한 애플리케이션에 액세스하거나, MFA와 같은 강력한 인증을 제공합니다. 응급 계정과 핵심 관리자는 여기서 제외됩니다.
+이 정책 세트 예제는 **AppUsers** 에서 선택한 사용자에게 액세스 권한을 부여하거나, 신뢰할 수 있는 디바이스에서 연결하는 경우 선택한 애플리케이션에 액세스하거나, MFA와 같은 강력한 인증을 제공합니다. 응급 계정과 핵심 관리자는 여기서 제외됩니다.
 
 **CA 완화 정책 세트:**
 
@@ -112,7 +112,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 #### <a name="microsoft-recommendations"></a>Microsoft 추천 사항
 
-대체 조건부 액세스 정책은 Azure MFA, 타사 MFA, 위험 기반 또는 장치 기반 컨트롤을 생략 하는 **백업 정책** 입니다. 대체 정책을 사용 하는 경우 예기치 않은 중단을 최소화 하기 위해 정책은 사용 하지 않을 때 보고서 전용 모드에서 유지 되어야 합니다. 관리자는 조건부 액세스 정보 통합 문서를 사용 하 여 해당 대체 정책의 잠재적 영향을 모니터링할 수 있습니다. 조직에서 대체 계획을 활성화 하기로 결정 한 경우 관리자는 정책을 사용 하도록 설정 하 고 일반 제어 기반 정책을 사용 하지 않도록 설정할 수 있습니다.
+대체 조건부 액세스 정책은 Azure AD MFA, 타사 MFA, 위험 기반 또는 장치 기반 컨트롤을 생략 하는 **백업 정책** 입니다. 대체 정책을 사용 하는 경우 예기치 않은 중단을 최소화 하기 위해 정책은 사용 하지 않을 때 보고서 전용 모드에서 유지 되어야 합니다. 관리자는 조건부 액세스 정보 통합 문서를 사용 하 여 해당 대체 정책의 잠재적 영향을 모니터링할 수 있습니다. 조직에서 대체 계획을 활성화 하기로 결정 한 경우 관리자는 정책을 사용 하도록 설정 하 고 일반 제어 기반 정책을 사용 하지 않도록 설정할 수 있습니다.
 
 >[!IMPORTANT]
 > 사용자에게 보안을 적용하는 정책을 일시적이라도 사용하지 않도록 설정하면 대응 계획이 있는 동안 보안 상태가 저하됩니다.
@@ -138,9 +138,9 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-다음 예: **중요 업무용 공동 작업 앱에 대 한 액세스를 복원 하는-대체 CA 정책의 예**는 일반적인 회사의 대책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에서 MFA를 요구하며, 이 경우 중단되면 고객에 대한 MFA 공급자(Azure MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)가 중단된 것입니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
+다음 예: **중요 업무용 공동 작업 앱에 대 한 액세스를 복원 하는-대체 조건부 액세스 정책 예제** 는 일반적인 회사의 대책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에 대해 MFA를 요구 하며,이 경우에는 고객에 대 한 MFA 공급자에 중단 (Azure AD MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)이 있습니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
 
-**예제 A - 중요 업무용 협업 앱에 대한 액세스를 복원하는 대응 CA 정책:**
+**예: 중요 업무용 공동 작업 앱에 대 한 액세스를 복원 하는 대체 조건부 액세스 정책:**
 
 * 정책 1: Exchange 및 SharePoint에 대해 도메인에 가입 된 장치 필요
   * 이름: EM001-응급에서 사용: MFA 중단 [1/4]-Exchange SharePoint-하이브리드 Azure AD 조인 필요
@@ -180,9 +180,9 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 5. 정책 4 사용: 모든 사용자가 모바일 장치의 네이티브 메일 응용 프로그램에서 Exchange Online을 가져올 수 있는지 확인 합니다.
 6. SharePoint Online 및 Exchange Online에 대한 기존 MFA 정책을 사용하지 않도록 설정합니다.
 
-**예제 B - Salesforce에 대한 모바일 액세스를 허용하는 대응 CA 정책** 예제에서는 비즈니스 앱의 액세스가 복원됩니다. 이 시나리오에서 고객은 일반적으로 판매 직원이 모바일 디바이스에서 Salesforce(Azure AD를 통한 Single Sign-On으로 구성됨)에 액세스하여 규정 준수 디바이스에서만 허용되도록 요구합니다. 이 경우 중단이 발생하면 디바이스의 규정 준수를 평가하는 데 문제가 있으며, 판매 팀이 거래를 성사시키기 위해 Salesforce에 액세스해야 하는 중요한 시점에 중단이 발생하는 것입니다. 이러한 대응 정책을 통해 중요한 사용자는 모바일 디바이스에서 Salesforce에 액세스할 수 있으므로 거래를 계속 성사시키고 비즈니스를 중단하지 않을 수 있습니다. 이 예제에서 **SalesforceContingency**에는 액세스를 유지해야 하는 모든 판매 직원이 포함되며, **SalesAdmins**에는 Salesforce의 필수 관리자가 포함됩니다.
+다음 예에서는 **예제 B-대체 조건부 액세스 정책을 사용 하 여 Salesforce에 대 한 모바일 액세스를 허용 하** 고 비즈니스 앱의 액세스가 복원 됩니다. 이 시나리오에서 고객은 일반적으로 판매 직원이 모바일 디바이스에서 Salesforce(Azure AD를 통한 Single Sign-On으로 구성됨)에 액세스하여 규정 준수 디바이스에서만 허용되도록 요구합니다. 이 경우 중단이 발생하면 디바이스의 규정 준수를 평가하는 데 문제가 있으며, 판매 팀이 거래를 성사시키기 위해 Salesforce에 액세스해야 하는 중요한 시점에 중단이 발생하는 것입니다. 이러한 대응 정책을 통해 중요한 사용자는 모바일 디바이스에서 Salesforce에 액세스할 수 있으므로 거래를 계속 성사시키고 비즈니스를 중단하지 않을 수 있습니다. 이 예제에서 **SalesforceContingency** 에는 액세스를 유지해야 하는 모든 판매 직원이 포함되며, **SalesAdmins** 에는 Salesforce의 필수 관리자가 포함됩니다.
 
-**예제 B - 대응 CA 정책:**
+**예 B-대체 조건부 액세스 정책:**
 
 * 정책 1: SalesContingency 팀에 없는 모든 사용자 차단
   * 이름: EM001-응급에서 사용: 장치 준수 중단 [1/2]-Salesforce-SalesforceContingency를 제외한 모든 사용자 차단
@@ -208,20 +208,20 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 ### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>온-프레미스 리소스의 사용자 잠금에 대 한 긴급 한 (NPS 확장)
 
-Azure MFA NPS 확장을 사용 하 여 VPN 액세스를 보호 하는 경우 VPN 솔루션을 [SAML 앱](../manage-apps/view-applications-portal.md) 으로 페더레이션 하 고 아래 권장 된 대로 앱 범주를 확인 하는 것이 좋습니다. 
+Azure AD MFA NPS 확장을 사용 하 여 VPN 액세스를 보호 하는 경우 VPN 솔루션을 [SAML 앱](../manage-apps/view-applications-portal.md) 으로 페더레이션 하 고 아래 권장 된 대로 앱 범주를 확인 하는 것이 좋습니다. 
 
 Azure AD MFA NPS 확장을 배포 하 여 VPN 및 원격 데스크톱 게이트웨이 같은 온-프레미스 리소스 (예: MFA)를 보호 하는 경우 응급 상황에서 MFA를 사용 하지 않도록 설정할 준비가 되었으면 미리 고려해 야 합니다.
 
 이 경우 nps 확장을 사용 하지 않도록 설정할 수 있습니다. 따라서 NPS 서버는 기본 인증만 확인 하 고 사용자에 게 MFA를 적용 하지 않습니다.
 
 NPS 확장 사용 안 함: 
--   HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 레지스트리 키를 백업으로 내보냅니다. 
+-   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 레지스트리 키를 백업으로 내보냅니다. 
 -   매개 변수 키가 아닌 "AuthorizationDLLs" 및 "ExtensionDLLs"에 대 한 레지스트리 값을 삭제 합니다. 
 -   네트워크 정책 서비스 (IAS) 서비스를 다시 시작 하 여 변경 내용을 적용 합니다. 
 -   VPN에 대 한 기본 인증의 성공 여부를 확인 합니다.
 
 서비스가 복구 되 고 사용자에 게 MFA를 다시 적용할 준비가 되 면 NPS 확장을 사용 하도록 설정 합니다. 
--   백업 HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters에서 레지스트리 키를 가져옵니다. 
+-   백업 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters에서 레지스트리 키를 가져옵니다. 
 -   네트워크 정책 서비스 (IAS) 서비스를 다시 시작 하 여 변경 내용을 적용 합니다. 
 -   기본 인증 및 VPN에 대 한 보조 인증의 성공 여부를 확인 합니다.
 -   NPS 서버 및 VPN 로그를 검토 하 여 응급 기간 중에 로그인 한 사용자를 확인 합니다.
@@ -266,7 +266,7 @@ NPS 확장 사용 안 함:
 3. 중단 중에 수행되고 문서화된 다른 변경을 롤백합니다.
 4. 응급 액세스 계정을 사용한 경우 응급 액세스 계정 절차의 일환으로 자격 증명을 다시 생성하고 새 자격 증명의 세부 정보를 물리적으로 보호합니다.
 5. 의심 스러운 활동의 중단 이후에 [보고 된 모든 위험](../reports-monitoring/concept-sign-ins.md) 검색을 계속 심사 합니다.
-6. [PowerShell을 사용](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)하여 발급된 모든 새로 고침 토큰을 철회하여 일단의 사용자를 대상으로 지정합니다. 모든 새로 고침 토큰을 철회하는 것은 중단 중에 사용되는 권한 있는 계정에 중요합니다. 이를 수행하는 경우 복원된 정책의 제어를 다시 인증하고 충족하도록 강제로 적용합니다.
+6. [PowerShell을 사용](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)하여 발급된 모든 새로 고침 토큰을 철회하여 일단의 사용자를 대상으로 지정합니다. 모든 새로 고침 토큰을 철회하는 것은 중단 중에 사용되는 권한 있는 계정에 중요합니다. 이를 수행하는 경우 복원된 정책의 제어를 다시 인증하고 충족하도록 강제로 적용합니다.
 
 ## <a name="emergency-options"></a>응급 옵션
 
@@ -280,14 +280,14 @@ NPS 확장 사용 안 함:
  > 액세스를 차단 해제 하기 위해 신뢰할 수 있는 IP 주소를 확장 한 경우에는 IP 주소 (예: 불가능 한 이동 또는 익숙하지 않은 위치)와 관련 된 위험 검색이 생성 되지 않습니다.
 
 >[!NOTE]
- > Azure MFA에 대한 [신뢰할 수 있는 IP](./howto-mfa-mfasettings.md)는 [Azure AD Premium 라이선스](./concept-mfa-licensing.md)에서만 구성할 수 있습니다.
+ > Azure AD MFA에 대 한 [신뢰할 수 있는 ip](./howto-mfa-mfasettings.md) 구성은 [Azure AD Premium 라이선스](./concept-mfa-licensing.md)에서만 사용할 수 있습니다.
 
 ## <a name="learn-more"></a>자세한 정보
 
 * [Azure AD 인증 설명서](./howto-mfaserver-iis.md)
-* [Azure AD에서 응급 액세스 관리 계정 관리](../users-groups-roles/directory-emergency-access.md)
+* [Azure AD에서 응급 액세스 관리 계정 관리](../roles/security-emergency-access.md)
 * [Azure Active Directory에서 명명 된 위치 구성](../reports-monitoring/quickstart-configure-named-locations.md)
-  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법](../devices/hybrid-azuread-join-plan.md)
 * [비즈니스용 Windows Hello 배포 가이드](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [암호 지침 - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

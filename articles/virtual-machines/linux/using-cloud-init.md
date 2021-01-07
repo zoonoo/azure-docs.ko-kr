@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 10/14/2020
 ms.author: danis
-ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869272"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096660"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상머신에 대한 cloud-init 지원
 이 문서에서는 Azure에서 프로비저닝 시간에 VM(가상 머신) 또는 가상 머신 확장 집합을 구성하는 [cloud-init](https://cloudinit.readthedocs.io)에 대한 지원을 설명합니다. Azure에서 리소스가 프로비저닝된 후 처음 부팅할 때 이러한 cloud-init 구성이 실행됩니다.  
@@ -97,10 +97,10 @@ Azure에서 보증된 Linux 배포판 OS에 cloud-init를 제공하는 것은 �
 ### <a name="debian"></a>Debian
 | 게시자/버전 | 제안 | SKU | 버전 | 이미지 cloud-init 준비 여부 | Azure에서의 cloud-init 패키지 지원|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| 예 (미리 보기 전용) | 아니요, 미리 보기 상태임 |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| 예 (미리 보기 전용) | 아니요, 미리 보기 상태임 |
-
-
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| 예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 2021 1 월 1 일에 제거 됩니다.) | 아니요, 미리 보기 상태임 |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| 예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 2021 1 월 1 일에 제거 됩니다.) | 아니요, 미리 보기 상태임 |
+| debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| 예 | 예-패키지 버전에 대 한 지원: `20.2-2~deb10u1` |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| 예 | 예-패키지 버전에 대 한 지원: `20.2-2~deb10u1` |
 
 
 현재 Azure Stack은 cloud-init 사용이 가능한 이미지의 프로비저닝을 지원합니다.
@@ -152,7 +152,7 @@ az vm create \
 
 VM이 생성되면 Azure CLI가 배포에 대한 정보를 표시합니다. `publicIpAddress`을 기록해 둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.  VM을 만들고 패키지를 설치하고 앱을 시작하는 데 시간이 약간 걸립니다. Azure CLI에서 프롬프트로 반환한 후 실행을 계속하는 백그라운드 작업이 있습니다. VM에 SSH한 후 문제 해결 섹션에 설명된 단계를 사용하여 cloud-init 로그를 볼 수 있습니다. 
 
-[ARM 템플릿에서 매개 변수](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli#inline-parameters)를 전달 하 여 클라우드 초기화를 사용 하도록 설정 된 VM을 배포할 수도 있습니다.
+[ARM 템플릿에서 매개 변수](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters)를 전달 하 여 클라우드 초기화를 사용 하도록 설정 된 VM을 배포할 수도 있습니다.
 
 ## <a name="troubleshooting-cloud-init"></a>cloud-init 문제 해결
 VM이 프로비전되면 cloud-init는 `--custom-data`에 정의된 모든 모듈과 스크립트를 실행하여 VM을 구성합니다.  구성 오류 또는 누락을 해결해야 하는 경우 **/var/log/cloud-init.log**에 있는 cloud-init 로그에서 모듈 이름(예: `disk_setup` 또는 `runcmd`)을 검색해야 합니다.
@@ -173,4 +173,3 @@ cloud-init 로깅에 대한 자세한 내용은 [cloud-init 설명서](https://c
 - [패키지 관리자를 실행하여 첫 번째 부팅 시 기존 패키지 업데이트](cloudinit-update-vm.md)
 - [VM 로컬 호스트 이름 변경](cloudinit-update-vm-hostname.md) 
 - [애플리케이션 패키지 설치, 구성 파일 업데이트 및 키 삽입](tutorial-automate-vm-deployment.md)
- 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 포털에서 로그 프로 비전 (미리 보기) | Microsoft Docs
-description: Azure Active Directory 포털의 프로 비전 활동 보고서 소개
+description: Azure Active Directory 포털의 프로 비전 로그 보고서 소개
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,36 +13,38 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/02/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469867"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803530"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
 Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
-- **작업** 
+- **활동** 
     - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
     - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
     - **로그 프로 비전** -Azure AD 프로 비전 서비스에서 프로 비전 하는 사용자, 그룹 및 역할에 대 한 시스템 활동을 제공 합니다. 
 
 - **보안** 
     - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자가 수행 했을 수 있는 로그인 시도에 대 한 표시기입니다.
-    - **위험 플래그가 지정된 사용자** - [위험한 사용자](../identity-protection/overview-identity-protection.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+    - **위험 플래그가 지정** 된 사용자- [위험한 사용자](../identity-protection/overview-identity-protection.md) 는 손상 되었을 수 있는 사용자 계정에 대 한 표시기입니다.
 
 이 항목에서는 프로 비전 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
+* 응용 프로그램 소유자는 자신이 소유한 응용 프로그램에 대 한 로그를 볼 수 있습니다.
 * 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
+* [ProvisioningLogs 권한이](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions) 있는 사용자 지정 역할의 사용자
 * 글로벌 관리자
 
 
@@ -55,7 +57,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 프로 비전 로그는 다음 질문에 대 한 답변을 제공 합니다.
 
 * ServiceNow에서 성공적으로 생성 된 그룹은 무엇 인가요?
-* Amazon Web Services에서 역할을 가져오는 방법
+* Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
 * DropBox에서 어떤 사용자를 만들지 못했습니다.
 
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **모니터링** 섹션에서 **프로 비전** 로그를 선택 하 여 프로 비전 로그에 액세스할 수 있습니다. 일부 프로 비전 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
@@ -85,7 +87,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![자세한 정보](./media/concept-provisioning-logs/steps.png "Filter")
+![자세한 정보](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ## <a name="filter-provisioning-activities"></a>프로 비전 작업 필터링
@@ -99,7 +101,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 작업
 
 
-![필터 추가](./media/concept-provisioning-logs/default-filter.png "Filter")
+![필터 추가](./media/concept-provisioning-logs/default-filter.png "Assert")
 
 **Id** 필터를 사용 하면 관심 있는 이름이 나 id를 지정할 수 있습니다. 이 id는 사용자, 그룹, 역할 또는 다른 개체 일 수 있습니다. 개체의 이름 또는 ID를 기준으로 검색할 수 있습니다. ID는 시나리오에 따라 달라 집니다. 예를 들어 Azure AD에서 SalesForce로 개체를 프로 비전 할 때 원본 ID는 Azure AD에서 사용자의 개체 ID이 고 TargetID는 Salesforce의 사용자 ID입니다. Workday에서 Active Directory로 프로 비전 할 때 원본 ID는 Workday 작업자 직원 ID입니다. 사용자 이름은 항상 Id 열에 표시 되지 않을 수 있습니다. 항상 하나의 ID가 있습니다. 
 
@@ -127,9 +129,9 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **작업** 필터를 사용 하 여를 필터링 할 수 있습니다.
 
-- 생성 
+- 만들기 
 - 업데이트
-- 삭제
+- DELETE
 - 사용 안 함
 - 기타
 
@@ -190,7 +192,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 
 
-![단계](./media/concept-provisioning-logs/steps.png "Filter")
+![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>문제 해결 및 권장 사항
@@ -210,17 +212,17 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
-- 프리미엄 버전이 있는 경우 30 일 동안, 무료 버전이 있는 경우 7 일 동안 보고 된 프로 비전 데이터를 저장 하는 Azure Portal.
+- 이 Azure Portal는 premium edition이 있는 경우 30 일 동안 보고 된 프로 비전 데이터를 저장 하 고 무료 버전이 있는 경우 7 일 동안 저장 합니다. 프로 비전 로그는 30 일 이상 보존을 위해 [log analytics](../app-provisioning/application-provisioning-log-analytics.md) 에 게시할 수 있습니다. 
 
 - 변경 ID 특성을 고유 식별자로 사용할 수 있습니다. 예를 들어 제품 지원과 상호 작용할 때 유용 합니다.
 
-- 현재는 프로 비전 데이터를 CSV 파일로 다운로드 하는 옵션은 없지만 [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http)를 사용 하 여 데이터를 내보낼 수 있습니다.
-
-- 현재 log analytics에 대 한 지원이 없습니다.
+- 현재는 프로 비전 데이터를 CSV 파일로 다운로드 하는 옵션은 없지만 [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta)를 사용 하 여 데이터를 내보낼 수 있습니다.
 
 - 범위에 없는 사용자에 대 한 건너뛴 이벤트를 볼 수 있습니다. 이는 특히 동기화 범위가 모든 사용자 및 그룹으로 설정 된 경우에 필요 합니다. 서비스는 범위를 벗어난 모든 개체를 포함 하 여 테 넌 트의 모든 개체를 평가 합니다. 
 
-- 프로 비전 로그는 현재 정부 클라우드에서 사용할 수 없습니다. 프로 비전 로그에 액세스할 수 없는 경우 감사 로그를 임시 해결 방법으로 사용 하세요.  
+- 프로 비전 로그는 현재 정부 클라우드에서 사용할 수 없습니다. 프로 비전 로그에 액세스할 수 없는 경우 감사 로그를 임시 해결 방법으로 사용 하세요. 
+
+- 프로 비전 로그에는 역할 가져오기가 표시 되지 않습니다 (AWS, SalesForce 및 ZenDesk에 적용 됨). 역할 가져오기에 대 한 로그는 감사 로그에서 찾을 수 있습니다. 
 
 ## <a name="error-codes"></a>오류 코드
 
@@ -246,9 +248,10 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 |DuplicateSourceEntries | 구성 된 일치 특성을 가진 사용자를 둘 이상 찾았지만 작업을 완료할 수 없습니다. 중복 사용자를 제거 하거나 [여기](../app-provisioning/customize-application-attributes.md)에 설명 된 대로 특성 매핑을 다시 구성 하십시오.|
 |ImportSkipped | 각 사용자를 평가할 때 원본 시스템에서 사용자를 가져오려고 시도 합니다. 이 오류는 가져올 사용자에 게 특성 매핑에 정의 된 일치 속성이 없는 경우에 일반적으로 발생 합니다. 일치 특성에 대 한 사용자 개체에 값이 없으면 범위 지정, 일치 또는 변경 내용 내보내기를 평가할 수 없습니다. 이 오류가 있는 경우 사용자의 범위를 아직 평가 하지 않았으므로 사용자가 범위 내에 있는 것으로 표시 되지 않습니다.|
 |EntrySynchronizationSkipped | 프로 비전 서비스에서 원본 시스템을 쿼리하고 사용자를 식별 했습니다. 사용자에 대 한 추가 작업을 수행 하지 않았으므로 건너뛰었습니다. Skip은 사용자가 범위를 벗어난 것 이거나 추가로 변경 해야 하는 대상 시스템에 이미 존재 하는 사용자로 인해 발생할 수 있습니다.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| 사용자 또는 그룹을 검색 하기 위해 GET 요청을 수행 하는 경우 응답에 여러 사용자 또는 그룹을 받았습니다. 응답에는 사용자 또는 그룹을 하나만 받아야 합니다. [예](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group)를 들어, 그룹을 검색 하 고 멤버를 제외 하는 필터를 제공 하는 GET 요청을 수행 하 고 scim 끝점에서 멤버를 반환 하면이 오류가 발생 합니다.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| 사용자 또는 그룹을 검색 하기 위해 GET 요청을 수행 하는 경우 응답에 여러 사용자 또는 그룹을 받았습니다. 응답에는 사용자 또는 그룹을 하나만 받아야 합니다. [예](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group)를 들어, 그룹을 검색 하 고 멤버를 제외 하는 필터를 제공 하는 GET 요청을 수행 하 고 scim 끝점에서 멤버를 반환 하면이 오류가 발생 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
 * [사용자 프로 비전 상태를 확인 합니다.](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제](../app-provisioning/application-provisioning-config-problem.md)
+* [프로 비전 로그 그래프 API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

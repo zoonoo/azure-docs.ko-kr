@@ -4,10 +4,10 @@ description: 청사진 정의를 코드로 사용 하는 방법에 대해 알아
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: 87e8f00013fec3abb8132f92c1c717f152d1e264
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051443"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>PowerShell을 사용 하 여 청사진 정의 가져오기 및 내보내기
@@ -23,7 +23,7 @@ Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니
 
 코드에 따라 청사진 정의를 관리 하는 것은 어떤 이유로 든 도움이 됩니다. 이 문서에서는 `Import-AzBlueprintWithArtifact` `Export-AzBlueprintWithArtifact` [Az. 청사진](https://powershellgallery.com/packages/Az.Blueprint/) 모듈에서 및 명령을 사용 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Azure 청사진에 대 한 일반적인 실무 지식을 전제로 합니다. 아직 수행 하지 않은 경우 다음 문서를 진행 합니다.
 

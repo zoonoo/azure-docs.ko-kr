@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6bb50e427fa85a170c5ad23a63d67c01e898a17d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77430808"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91665687"
 ---
 # <a name="swagger-documentation"></a>Swagger 설명서
 
@@ -26,25 +26,31 @@ ms.locfileid: "77430808"
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Swagger 사양으로 코드 생성
 
-[Swagger 사양](https://cris.ai/swagger/ui/index)에는 다양한 경로를 신속하게 테스트할 수 있는 옵션이 포함되어 있습니다. 그러나 때로는 모든 경로에 대한 코드를 생성하고, 향후 솔루션 기반으로 사용할 수 있는 호출의 단일 라이브러리를 만드는 것이 바람직한 경우가 있습니다. Python 라이브러리를 생성하는 프로세스를 살펴보겠습니다.
+[Swagger 사양](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)에는 다양한 경로를 신속하게 테스트할 수 있는 옵션이 포함되어 있습니다. 그러나 때로는 모든 경로에 대한 코드를 생성하고, 향후 솔루션 기반으로 사용할 수 있는 호출의 단일 라이브러리를 만드는 것이 바람직한 경우가 있습니다. Python 라이브러리를 생성하는 프로세스를 살펴보겠습니다.
 
 Swagger를 음성 서비스 구독과 동일한 지역으로 설정 해야 합니다. 음성 서비스 리소스의 Azure Portal에서 영역을 확인할 수 있습니다. 지원 되는 지역에 대 한 전체 목록은 [지역](regions.md)을 참조 하세요.
 
-1. [https://editor.swagger.io](https://editor.swagger.io ) 으로 이동합니다.
-2. **파일**을 클릭한 다음, **가져오기**를 클릭합니다.
-3. Speech service 구독의 지역을 포함 하는 swagger URL 입력`https://<your-region>.cris.ai/docs/v2.0/swagger`
-4. **클라이언트 생성** 을 클릭 하 고 Python을 선택 합니다.
-5. 클라이언트 라이브러리를 저장합니다.
+1. 브라우저에서 해당 지역의 Swagger 사양으로 이동 합니다.  
+       `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0`
+1. 해당 페이지에서 **API 정의**를 클릭 하 고 **Swagger**를 클릭 합니다. 표시 되는 페이지의 URL을 복사 합니다.
+1. 새 브라우저에서로 이동 합니다. https://editor.swagger.io
+1. **파일**, **url 가져오기**를 차례로 클릭 하 고 url을 붙여 넣은 다음 **확인**을 클릭 합니다.
+1. **클라이언트 생성** 을 클릭 하 고 **python**을 선택 합니다. 클라이언트 라이브러리는 파일의 컴퓨터에 다운로드 합니다 `.zip` .
+1. 다운로드에서 모든 항목을 추출 합니다. `tar -xf`를 사용 하 여 모든 항목을 추출할 수 있습니다.
+1. 추출 된 모듈을 Python 환경에 설치 합니다.  
+       `pip install path/to/package/python-client`
+1. 설치 된 패키지의 이름은 `swagger_client` 입니다. 설치가 정상적으로 작동 하는지 확인 합니다.  
+       `python -c "import swagger_client"`
 
 [GitHub에서 음성 서비스 샘플](https://aka.ms/csspeech/samples)로 생성 한 Python 라이브러리를 사용할 수 있습니다.
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [REST (Swagger): 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
+* [REST (Swagger): 일괄 처리 기록 및 사용자 지정](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 * [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [GitHub의 음성 서비스 샘플](https://aka.ms/csspeech/samples).
-* [평가판 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)

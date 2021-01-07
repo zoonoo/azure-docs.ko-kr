@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319573"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Azure 관리되는 애플리케이션의 만들기 환경을 위한 CreateUiDefinition.json
@@ -129,7 +129,7 @@ JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuide
 
 **기본** 단계는 Azure Portal에서 파일을 구문 분석할 때 생성 되는 첫 번째 단계입니다. 기본적으로 기본 단계를 통해 사용자는 구독, 리소스 그룹 및 배포 위치를 선택할 수 있습니다.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="기본 사항 기본값":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="탭 마법사":::
 
 이 섹션에서 더 많은 요소를 추가할 수 있습니다. 가능 하면 클러스터 이름 또는 관리자 자격 증명과 같은 배포 차원의 매개 변수를 쿼리 하는 요소를 추가 합니다.
 
@@ -164,7 +164,7 @@ JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuide
 ]
 ```
 
-## <a name="outputs"></a>출력
+## <a name="outputs"></a>outputs
 
 Azure Portal에서는 `outputs` 속성을 사용하여 `basics` 및 `steps`의 요소를 Azure Resource Manager 배포 템플릿의 매개 변수에 매핑합니다. 이 사전의 키는 템플릿 매개 변수의 이름이며, 값은 참조되는 요소에 있는 출력 개체의 속성입니다.
 

@@ -1,17 +1,17 @@
 ---
 title: 감사 로깅-Azure Database for PostgreSQL 단일 서버
 description: Azure Database for PostgreSQL의 pgAudit 감사 로깅에 대 한 개념-단일 서버.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 615297a4bf47d80c9313f011b90d343b7ae680e3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131238"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488047"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
 
@@ -74,7 +74,7 @@ pgAudit를 사용 하면 세션 또는 개체 감사 로깅을 구성할 수 있
 ### <a name="audit-log-format"></a>감사 로그 형식
 각 감사 항목은 `AUDIT:` 로그 줄의 시작 부분에 표시 됩니다. 항목의 나머지 형식은 [Pgaudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#format)에 자세히 설명 되어 있습니다.
 
-감사 요구 사항을 충족 하는 다른 필드가 필요한 경우 Postgres 매개 변수를 사용 `log_line_prefix` 합니다. `log_line_prefix`모든 Postgres 로그 줄의 시작 부분에 출력 되는 문자열입니다. 예를 들어 다음 `log_line_prefix` 설정은 타임 스탬프, 사용자 이름, 데이터베이스 이름 및 프로세스 ID를 제공 합니다.
+감사 요구 사항을 충족 하는 다른 필드가 필요한 경우 Postgres 매개 변수를 사용 `log_line_prefix` 합니다. `log_line_prefix` 모든 Postgres 로그 줄의 시작 부분에 출력 되는 문자열입니다. 예를 들어 다음 `log_line_prefix` 설정은 타임 스탬프, 사용자 이름, 데이터베이스 이름 및 프로세스 ID를 제공 합니다.
 
 ```
 t=%m u=%u db=%d pid=[%p]:
@@ -88,7 +88,7 @@ t=%m u=%u db=%d pid=[%p]:
 ## <a name="viewing-audit-logs"></a>감사 로그 보기
 .Log 파일을 사용 하는 경우 PostgreSQL 오류 로그와 동일한 파일에 감사 로그가 포함 됩니다. 로그 파일은 Azure [portal](howto-configure-server-logs-in-portal.md) 또는 [CLI](howto-configure-server-logs-using-cli.md)에서 다운로드할 수 있습니다. 
 
-Azure 리소스 로깅을 사용 하는 경우 로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/platform/resource-logs-collect-storage.md) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 문서를 참조 하세요.
+Azure 리소스 로깅을 사용 하는 경우 로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
 
 Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
 

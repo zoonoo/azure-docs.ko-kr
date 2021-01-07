@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084467"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020282"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>자습서: 3ds Max에서 물리적 기반 렌더링 재질 설정
 
@@ -23,11 +23,15 @@ ms.locfileid: "90084467"
 > * 개체 및 재질의 인스턴싱을 처리합니다.
 > * 장면을 FBX 형식으로 내보내고 중요한 옵션을 선택합니다.
 
+> [!Note]
+> 이 자습서에 설명된 절차는 3ds Max 2019 및 3ds Max 2020에서 작동합니다.
+> 3ds Max 2021에서 범프 맵을 내보내는 방법이 변경된 것은 해당 버전을 사용하는 경우 변환 서비스에서 일반 맵을 찾을 수 없음을 의미합니다.
+
 3ds Max에서 [PBR(물리적 기반 렌더링) 재질](../../overview/features/pbr-materials.md)을 만드는 작업은 비교적 간단합니다. Maya와 같은 다른 콘텐츠 만들기 앱에서 PBR을 설정하는 다양한 방법과 비슷합니다. 이 자습서는 Azure Remote Rendering 프로젝트의 기본 PBR 셰이더 설정 및 FBX 내보내기에 대한 지침입니다.
 
 이 자습서의 샘플 장면에는 여러 다각형 상자 개체가 포함되어 있습니다. 이러한 개체에는 목재, 금속, 도장 금속, 플라스틱 및 고무와 같은 여러 재질이 할당됩니다. 일반적으로 각 재질에는 다음 질감의 전부 또는 대부분이 포함되어 있습니다.
 
-* **Albedo** - 재질 색상표이며, **Diffuse** 또는 **BaseColor**라고도 합니다.
+* **Albedo** - 재질 색상표이며, **Diffuse** 또는 **BaseColor** 라고도 합니다.
 * **Metalness(금속성)** - 재질이 금속인지 여부 또는 금속으로 구성된 부분을 결정합니다. 
 * **Roughness(황삭)** - 표면의 거칠거나 매끄러운 정도를 결정합니다.
 또한 표면의 반사와 밝기의 선명도 또는 불선명도에 영향을 줍니다.
@@ -71,7 +75,7 @@ ms.locfileid: "90084467"
 
     Material Editor에서 필요에 따라 다양한 재질 유형 선택 항목 중에서 선택할 수 있습니다. 일반적으로 재질 유형은 기본적으로 **Standard(표준)** 로 설정됩니다. 이 재질은 PBR 설정에 적합하지 않은 기본 재질입니다. 따라서 재질 유형을 PBR 재질로 변경해야 합니다. Physical Material(물리적 재질)은 Azure Remote Rendering 프로젝트에 대한 기본 설정 3ds Max 재질입니다.
 
-1. Material Editor에서 **Standard** 탭을 선택합니다. **Material/Map Browser(재질/맵 브라우저)** 에서 **Physical Material**을 선택합니다. 이 작업은 할당된 **Standard** 재질을 PBR Physical Material로 변환합니다.
+1. Material Editor에서 **Standard** 탭을 선택합니다. **Material/Map Browser(재질/맵 브라우저)** 에서 **Physical Material** 을 선택합니다. 이 작업은 할당된 **Standard** 재질을 PBR Physical Material로 변환합니다.
 
    ![재질을 변경하는 방법을 보여 주는 스크린샷](media/3dsmax/physical-material.jpg)
 
@@ -98,7 +102,7 @@ ms.locfileid: "90084467"
 
 다음 단계는 두 번째 UV 맵 채널을 만드는 것입니다.
 
-1. 열려 있는 경우 UV 편집기를 닫습니다. **Edit UV's(UV 편집)** 메뉴의 **Channel(채널)** 섹션에서 채널 번호를 **2**로 변경합니다. 맵 채널 2는 AO 맵에 필요한 채널입니다. 
+1. 열려 있는 경우 UV 편집기를 닫습니다. **Edit UV's(UV 편집)** 메뉴의 **Channel(채널)** 섹션에서 채널 번호를 **2** 로 변경합니다. 맵 채널 2는 AO 맵에 필요한 채널입니다. 
 
 1. **Channel Change Warning(채널 변경 경고)** 대화 상자에서 채널 1의 기존 UV를 새 채널 2로 **Move(이동)** 하거나 기존 UV를 **Abandon(차단)** 하여 새 UV 래핑 해제를 자동으로 만들 수 있습니다. 맵 채널 1의 UV와 다른 AO 맵에 대한 새 UV 래핑 해제를 만들려는 경우에만 **Abandon(차단)** 을 선택합니다. (예를 들어 채널 1에서 바둑판식 배열 질감을 사용하려는 경우입니다.) 이 자습서에서는 새 UV 채널을 편집할 필요가 없으므로 UV를 채널 1에서 채널 2로 이동합니다.
 
@@ -113,7 +117,7 @@ ms.locfileid: "90084467"
 
 1. Physical Material의 **Generic Maps(일반 맵)** 목록에서 **Diffuse Rougness** 옆의 **No Map(맵 없음)** 슬롯을 선택하고 AO 맵을 로드합니다.
 
-1. AO 질감 속성에서 맵 채널은 기본적으로 **1**로 설정됩니다. 이 값을 **2**로 변경합니다. 이 작업을 수행하면 AO 맵을 추가하는 데 필요한 단계가 완료됩니다.
+1. AO 질감 속성에서 맵 채널은 기본적으로 **1** 로 설정됩니다. 이 값을 **2** 로 변경합니다. 이 작업을 수행하면 AO 맵을 추가하는 데 필요한 단계가 완료됩니다.
 
    >[!IMPORTANT]
    >잘못된 채널을 선택하면 AO가 올바르게 매핑되지 않으므로 채널 2의 UV가 채널 1의 UV와 다른 경우 이는 특히 중요한 단계입니다.
@@ -126,9 +130,9 @@ ms.locfileid: "90084467"
 
 1. **Material/Map Browser(재질/맵 브라우저)** 에서 **Normal Bump(보통 범프**)를 찾아서 선택합니다. 이 작업을 수행하면 **Normal Bump** 한정자가 재질에 추가됩니다.
 
-1. **Normal Bump** 한정자에서 **Normal** 옆의 **No Map**을 선택합니다. 보통 맵을 찾아서 로드합니다.
+1. **Normal Bump** 한정자에서 **Normal** 옆의 **No Map** 을 선택합니다. 보통 맵을 찾아서 로드합니다.
 
-1. 메서드가 **Tangent**로 설정되어 있는지 확인합니다. (이는 기본값입니다.) 필요한 경우 **Flip Green (Y)(녹색 전환(Y))** 으로 전환합니다.
+1. 메서드가 **Tangent** 로 설정되어 있는지 확인합니다. (이는 기본값입니다.) 필요한 경우 **Flip Green (Y)(녹색 전환(Y))** 으로 전환합니다.
 
    ![Normal Bump(보통 범프)를 선택하는 방법을 보여 주는 스크린샷](media/3dsmax/normal-bump.jpg)
    ![보통 맵을 로드하는 방법을 보여 주는 스크린샷](media/3dsmax/load-normal-map.jpg)
@@ -173,7 +177,7 @@ ms.locfileid: "90084467"
 
 1. 마우스 오른쪽 단추로 선택 영역을 클릭한 다음, **Set Path(경로 설정)** 를 선택합니다.
 
-1. **Specify Asset Path(자산 경로 지정)** 상자에서 질감의 로컬 경로를 선택하고, `.\`로 바꿉니다.  **확인**을 선택합니다. 
+1. **Specify Asset Path(자산 경로 지정)** 상자에서 질감의 로컬 경로를 선택하고, `.\`로 바꿉니다.  **확인** 을 선택합니다. 
 
     다음 스크린샷과 같이 Asset Tracking 창이 업데이트됩니다. 이 업데이트는 장면에 있는 질감의 수와 장면의 크기에 따라 다소 시간이 걸릴 수 있습니다.
 ![업데이트된 Asset Tracking 창을 보여 주는 스크린샷](media/3dsmax/resolve-textures.jpg)
@@ -215,13 +219,13 @@ ms.locfileid: "90084467"
     ![FBX 내보내기 설정을 보여 주는 스크린샷](media/3dsmax/fbx-settings.jpg)
 
 
-   Physical Material(물리적 재질)을 사용하는 동안 FBX로 내보내는 경우 FBX Export(FBX 내보내기) 창에서 **OK**를 선택하면 다음과 같은 경고가 표시될 수 있습니다. 
+   Physical Material(물리적 재질)을 사용하는 동안 FBX로 내보내는 경우 FBX Export(FBX 내보내기) 창에서 **OK** 를 선택하면 다음과 같은 경고가 표시될 수 있습니다. 
 
    ![재질 내보내기 실패 경고를 보여 주는 스크린샷](media/3dsmax/export-warnings.jpg)
 
    이 경고는 내보낸 재질이 다른 소프트웨어 패키지와 호환되지 않을 수 있음을 알려줍니다. Physical Material은 Azure Remote Rendering과 호환되므로 이 경고에 대해 걱정할 필요가 없습니다. 
 
-1. **OK**를 선택하여 프로세스를 완료하고 창을 닫습니다.
+1. **OK** 를 선택하여 프로세스를 완료하고 창을 닫습니다.
 
 ## <a name="conclusion"></a>결론
 

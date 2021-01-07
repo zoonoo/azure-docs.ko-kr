@@ -3,18 +3,18 @@ title: .NET Framework 지원 Azure App Configuration용 빠른 시작 | Microsof
 description: 이 빠른 시작에서는 Azure App Configuration을 사용하여 .NET Framework 앱을 만들어 코드와 별도로 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: lcozzens
-ms.openlocfilehash: 6795d10950ddd7b03dfa505ab44d2f43837c9045
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/28/2020
+ms.author: alkemper
+ms.openlocfilehash: 62516218ed2c0249f829ad8d286e4ad8bbc471f8
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590271"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932094"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "88590271"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
@@ -30,27 +30,27 @@ ms.locfileid: "88590271"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **구성 탐색기** > **만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+7. **구성 탐색기** > **만들기** > **키-값** 을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
     | TestApp:Settings:Message | Azure App Configuration의 정보 |
 
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
-7. **적용**을 선택합니다.
+8. **적용** 을 선택합니다.
 
 ## <a name="create-a-net-console-app"></a>.NET 콘솔 앱 만들기
 
-1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
+1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트** 를 차례로 선택합니다.
 
-1. **새 프로젝트 만들기**에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음**을 선택합니다.
+1. **새 프로젝트 만들기** 에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음** 을 선택합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 입력합니다. **Framework**에서 **.NET Framework 4.7.1** 이상을 선택합니다. **만들기**를 선택합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 입력합니다. **Framework** 에서 **.NET Framework 4.7.1** 이상을 선택합니다. **만들기** 를 선택합니다.
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다.
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다.
 
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 or later
@@ -80,7 +80,7 @@ ms.locfileid: "88590271"
 
    App Configuration 저장소의 연결 문자열은 `ConnectionString` 환경 변수에서 읽습니다. `appSettings` 섹션의 `configBuilders` 속성에 있는 `MyConfigStore` 앞에 `Environment` 구성 작성기를 추가합니다.
 
-1. *Program.cs*를 열고, `ConfigurationManager`를 호출하여 App Configuration을 사용하도록 `Main` 메서드를 업데이트합니다.
+1. *Program.cs* 를 열고, `ConfigurationManager`를 호출하여 App Configuration을 사용하도록 `Main` 메서드를 업데이트합니다.
 
     ```csharp
     static void Main(string[] args)
@@ -88,23 +88,15 @@ ms.locfileid: "88590271"
         string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
+        Console.ReadKey();
     }
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-1. **ConnectionString**이라는 환경 변수를 App Configuration 저장소의 연결 문자열로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행합니다.
+1. `${ConnectionString}`을 애플리케이션 구성 인스턴스의 실제 연결 문자열로 바꾸어 **App.config** 파일을 업데이트합니다. Azure Portal에 있는 애플리케이션 구성 리소스의 **액세스 키** 탭에서 찾을 수 있습니다.
 
-    ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
-    ```
-
-    Windows PowerShell을 사용하는 경우 다음 명령을 실행합니다.
-
-    ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
-1. Visual Studio를 다시 시작하여 변경 내용을 적용합니다. Ctrl+F5를 눌러 콘솔 앱을 빌드하고 실행합니다.
+1. Ctrl+F5를 눌러 콘솔 앱을 빌드하고 실행합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

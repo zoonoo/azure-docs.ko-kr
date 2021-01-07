@@ -3,12 +3,12 @@ title: 사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주
 description: 이 문서에서는 사용자 지정 Azure Resource Manager 역할을 만들고 Azure CLI을 사용 하 여 IoT Edge에서 Live Video Analytics에 대 한 서비스 주체에 할당 하는 방법을 안내 합니다.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526581"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425729"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당
 
@@ -16,7 +16,7 @@ IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 �
 
 이 문서에서는 Azure Cloud Shell를 사용 하 여 사용자 지정 Azure Resource Manager 역할을 만들고이를 사용 하 여 서비스 주체를 만드는 단계를 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항  
+## <a name="prerequisites"></a>필수 구성 요소  
 
 이 문서의 필수 구성 요소는 다음과 같습니다.
 
@@ -230,7 +230,7 @@ az role assignment list  --assignee < objectId>
 
 그러면 응용 프로그램에 사용 되는 서비스 주체와 사용자 지정 사용자 역할을 연결 했음을 확인 합니다.
 
-### <a name="test-the-service-principal-rbac"></a>서비스 사용자 RBAC 테스트  
+### <a name="test-the-service-principal-access-control"></a>서비스 사용자 액세스 제어 테스트
 
 1. 서비스 주체를 사용 하 여 로그인 합니다. 이를 위해 [서비스 사용자 만들기](#create-service-principal) 단계의 출력에서 가져올 수 있는 적절 한 액세스 토큰을 부여 하는 Azure Active Directory에 대 한 세 가지 정보가 필요 합니다.
     1. AadClientID 

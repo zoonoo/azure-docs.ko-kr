@@ -8,15 +8,16 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 22530e79a2bcf34a88ea857bda56b6f424894461
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421997"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349047"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API를 사용하여 읽기를 전역 배포하는 방법
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 이 문서에서는 Azure Cosmos DB의 MongoDB용 API를 사용하여 [MongoDB 읽기 기본 설정](https://docs.mongodb.com/manual/core/read-preference/)으로 읽기 작업을 전역 배포하는 방법을 보여 줍니다.
 
@@ -86,7 +87,7 @@ MongoDB 프로토콜은 클라이언트에서 사용할 수 있는 다음과 같
 
 일반적인 시나리오에 따라 다음 설정을 사용하는 것이 좋습니다.
 
-1. **대기 시간이 짧은 읽기**가 필요한 경우 **NEAREST** 읽기 기본 설정 모드를 사용합니다. 이 설정은 읽기 작업을 사용 가능한 가장 가까운 지역으로 보냅니다. 가장 가까운 지역이 WRITE 지역이면, 이러한 작업은 해당 지역으로 보내집니다.
+1. **대기 시간이 짧은 읽기** 가 필요한 경우 **NEAREST** 읽기 기본 설정 모드를 사용합니다. 이 설정은 읽기 작업을 사용 가능한 가장 가까운 지역으로 보냅니다. 가장 가까운 지역이 WRITE 지역이면, 이러한 작업은 해당 지역으로 보내집니다.
 2. **읽기의 고가용성 및 지리적 배포가** 필요한 경우 (대기 시간은 제약 조건이 아님) **기본** 기본 설정 또는 **보조 기본** 설정 모드를 사용 합니다. 이 설정은 읽기 작업을 사용 가능한 쓰기 또는 읽기 지역으로 각각 보냅니다. 지역을 사용할 수 없는 경우 요청은 읽기 기본 설정 동작에 따라 사용 가능한 다음 지역으로 전달 됩니다.
 
 샘플 애플리케이션의 다음 코드 조각에서는 NodeJS에서 NEAREST 읽기 기본 설정을 구성하는 방법을 보여 줍니다.
@@ -145,7 +146,7 @@ MongoClient.connect(url, function(err, client) {
       }
 ```
 
-따라서 MongoClient에서 지역 이름과 함께 `region` 태그를 사용하여 특정 지역에 읽기 작업을 보낼 수 있습니다. Cosmos 계정의 경우 지역 이름은 Azure Portal의 왼쪽에 있는 **설정 -> 전역 복제본 데이터**에서 확인할 수 있습니다. 이 설정은 **읽기 격리**, 즉 클라이언트 애플리케이션에서 읽기 작업을 특정 지역에만 보내려는 경우에 유용합니다. 이 설정은 백그라운드에서 실행되지만 프로덕션에 중요한 서비스가 아닌 비프로덕션/분석 유형 시나리오에 적합합니다.
+따라서 MongoClient에서 지역 이름과 함께 `region` 태그를 사용하여 특정 지역에 읽기 작업을 보낼 수 있습니다. Cosmos 계정의 경우 지역 이름은 Azure Portal의 왼쪽에 있는 **설정 -> 전역 복제본 데이터** 에서 확인할 수 있습니다. 이 설정은 **읽기 격리**, 즉 클라이언트 애플리케이션에서 읽기 작업을 특정 지역에만 보내려는 경우에 유용합니다. 이 설정은 백그라운드에서 실행되지만 프로덕션에 중요한 서비스가 아닌 비프로덕션/분석 유형 시나리오에 적합합니다.
 
 샘플 애플리케이션의 다음 코드 조각에서는 NodeJS에서 태그를 사용하여 읽기 기본 설정을 구성하는 방법을 보여 줍니다.
 
@@ -166,11 +167,11 @@ MongoClient.connect(url, function(err, client) {
 
 이 응용 프로그램을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 문서에서 만든 리소스를 모두 삭제합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
-2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
+2. 리소스 그룹 페이지에서 **삭제** 를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
+* [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Azure Cosmos DB의 MongoDB용 API를 사용하여 전역 분산 데이터베이스 설정](tutorial-global-distribution-mongodb.md)합니다.
 * [Azure Cosmos DB 에뮬레이터를 사용 하 여 로컬로 개발](local-emulator.md)

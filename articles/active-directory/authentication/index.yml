@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: iainfoulds
-  ms.author: iainfou
+  author: justinha
+  ms.author: justinha
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 8262c7e0e5e092a9ea8602a4e575cdc402e7ef8b
-  ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+  ms.openlocfilehash: 5cec477161aa9a54e3338bdadc1823715e1f9488
+  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/21/2020
-  ms.locfileid: "88717305"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96741451"
 landingContent:
 - title: 인증 정보
   linkLists:
@@ -51,21 +51,21 @@ landingContent:
       url: howto-sspr-deployment.md
     - text: Windows 로그인 화면에서 암호 재설정을 사용하도록 설정
       url: howto-sspr-windows.md
-- title: Azure Multi-Factor Authentication 사용
+- title: Azure AD Multi-Factor Authentication 사용
   linkLists:
   - linkListType: concept
     links:
-    - text: Azure Multi-Factor Authentication 작동 방법
+    - text: Azure AD Multi-Factor Authentication 작동 방법
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Azure Multi-Factor Authentication 사용
+    - text: Azure AD Multi-Factor Authentication 사용
       url: tutorial-enable-azure-mfa.md
-    - text: 위험 기반 Azure Multi-Factor Authentication 사용
+    - text: 위험 기반 Azure AD Multi-Factor Authentication 사용
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Azure Multi-Factor Authentication을 위한 배포 가이드
+    - text: Azure AD Multi-Factor Authentication을 위한 배포 가이드
       url: howto-mfa-getstarted.md
     - text: NPS 확장을 사용하여 온-프레미스 애플리케이션 통합
       url: howto-mfa-nps-extension.md

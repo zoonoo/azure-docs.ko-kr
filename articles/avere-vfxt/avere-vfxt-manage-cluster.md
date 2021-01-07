@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 4135bfe528c33a2beaeb21438181deb5b19ad12e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85505497"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
@@ -25,14 +25,14 @@ Avere vFXT for Azure cluster의 수명 주기 중 특정 시점에 클러스터 
 
 | 작업 | Avere 제어판 | vfxt.py  | Azure portal |
 | --- | --- | --- | --- |
-| 클러스터 노드 추가 | no | 예 | no |
-| 클러스터 노드 제거 | 예 | 아니요 | no |
-| 클러스터 노드 중지 | 예(서비스를 다시 시작하거나 다시 부팅할 수도 있음) | no | 포털에서 노드 VM의 작동을 중지하면 노드 실패로 해석됩니다. |
-| 중지된 노드 시작 | 아니요 | no | 예 |
-| 단일 클러스터 노드 삭제 | 아니요 | no | 예 |
+| 클러스터 노드 추가 | 아니요 | 예 | 아니요 |
+| 클러스터 노드 제거 | 예 | 아니요 | 아니요 |
+| 클러스터 노드 중지 | 예(서비스를 다시 시작하거나 다시 부팅할 수도 있음) | 아니요 | 포털에서 노드 VM의 작동을 중지하면 노드 실패로 해석됩니다. |
+| 중지된 노드 시작 | 아니요 | 아니요 | 예 |
+| 단일 클러스터 노드 삭제 | 아니요 | 아니요 | 예 |
 | 클러스터 다시 부팅 |  |  |  |
-| 안전하게 클러스터 종료 또는 중지 | 예 | 예 | no |
-| 클러스터 삭제  | no | 예 | 예, 하지만 데이터 무결성은 보장되지 않습니다. |
+| 안전하게 클러스터 종료 또는 중지 | 예 | 예 | 아니요 |
+| 클러스터 삭제  | 아니요 | 예 | 예, 하지만 데이터 무결성은 보장되지 않습니다. |
 
 각 도구에 대한 자세한 지침은 아래에 나와 있습니다.
 

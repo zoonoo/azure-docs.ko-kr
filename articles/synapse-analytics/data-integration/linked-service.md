@@ -2,21 +2,21 @@
 title: 연결 된 서비스 보안
 description: 관리 VNet을 사용 하 여 연결 된 서비스를 프로 비전 하 고 보호 하는 방법을 알아봅니다.
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033186"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452522"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>개인 링크를 사용 하 여 연결 된 서비스 보호 
+# <a name="secure-a-linked-service-with-private-links"></a>개인 링크를 사용 하 여 연결 된 서비스 보호
 
 이 문서에서는 개인 끝점을 사용 하 여 Synapse에서 연결 된 서비스를 보호 하는 방법을 알아봅니다.
 
@@ -32,13 +32,13 @@ ms.locfileid: "90033186"
 Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 연결 정보를 정의합니다. 이 섹션에서는 Azure Synapse Analytics 및 Azure Data Lake Gen2를 연결된 서비스로 추가합니다.
 
 1. Azure Synapse Studio를 열고 **관리** 탭으로 이동 합니다.
-1. **외부 연결**에서 **연결된 서비스**를 선택합니다.
-1. 연결 된 서비스를 추가 하려면 **새로 만들기**를 선택 합니다.
-1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택 하 고 **계속**을 선택 합니다.
-1. **대화형 작성**을 사용하도록 설정해야 합니다. 사용하도록 설정하는 데 약 1분 정도 걸릴 수 있습니다. 
+1. **외부 연결** 에서 **연결된 서비스** 를 선택합니다.
+1. 연결된 서비스를 추가하려면 **새로 만들기** 를 선택합니다.
+1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택 하 고 **계속** 을 선택 합니다.
+1. **대화형 작성** 을 사용하도록 설정해야 합니다. 사용하도록 설정하는 데 약 1분 정도 걸릴 수 있습니다. 
 1. 인증 자격 증명을 입력합니다. 계정 키, 서비스 주체 및 관리 ID는 현재 지원되는 인증 유형입니다. 연결 테스트를 선택 하 여 자격 증명이 올바른지 확인 합니다.
-1. **연결 테스트**를 선택 하면 저장소 계정에서 개인 끝점을 만들고 승인 하지 않고 액세스할 수 없기 때문에 실패 합니다. 오류 메시지에는 다음 부분으로 이동 하기 위해 수행할 수 있는 **개인 끝점** 을 만들기 위한 링크가 표시 됩니다. 해당 링크를 팔 로우 하는 경우 다음 부분을 건너뜁니다.
-1. 작업을 완료하면 **만들기**를 선택합니다.
+1. **연결 테스트** 를 선택 하면 저장소 계정에서 개인 끝점을 만들고 승인 하지 않고 액세스할 수 없기 때문에 실패 합니다. 오류 메시지에는 다음 부분으로 이동 하기 위해 수행할 수 있는 **개인 끝점** 을 만들기 위한 링크가 표시 됩니다. 해당 링크를 팔 로우 하는 경우 다음 부분을 건너뜁니다.
+1. 작업을 완료하면 **만들기** 를 선택합니다.
 
 ## <a name="create-a-managed-private-endpoint"></a>관리형 프라이빗 엔드포인트 만들기
 
@@ -47,14 +47,14 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 1. **관리** 탭으로 이동합니다.
 1. **관리 되는 가상 네트워크** 섹션으로 이동 합니다.
 1. 관리 되는 개인 끝점에서 **+ 새로 만들기** 를 선택 합니다.
-1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택 하 고 **계속**을 선택 합니다.
+1. 목록에서 Azure Data Lake Storage Gen2 타일을 선택 하 고 **계속** 을 선택 합니다.
 1. 위에서 만든 스토리지 계정의 이름을 입력합니다.
-1. **만들기**
+1. **만들기** 를 선택합니다.
 1. 몇 초 정도 기다리면 만들어진 프라이빗 링크를 승인해야 한다고 표시됩니다.
 
 ## <a name="private-link-approval"></a>개인 링크 승인
 1. 위에서 만든 프라이빗 엔드포인트를 선택합니다. 저장소 계정 수준에서 개인 끝점을 승인할 수 있도록 하는 하이퍼링크가 표시 됩니다. *대신 Azure Portal Storage 계정으로 직접 이동 하 여 **개인 끝점 연결** 블레이드로 이동 합니다.*
-1. Studio에서 만든 개인 끝점을 틱 하 고 **승인**을 선택 합니다.
+1. Studio에서 만든 개인 끝점을 틱 하 고 **승인** 을 선택 합니다.
 1. 설명을 추가 하 고 **예** 를 선택 합니다.
 1. [ **관리** ] 탭의 [ **관리 되는 가상 네트워크** ] 섹션에서 Synapse Studio로 돌아갑니다.
 1. 개인 끝점에 대 한 승인을 반영 하는 데 1 분 정도가 소요 됩니다.
@@ -62,12 +62,14 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 ## <a name="check-the-connection-works"></a>연결 작동 확인
 1. **관리** 탭으로 이동 하 여 만든 연결 된 서비스를 선택 합니다.
 1. **대화형 작성** 이 활성화 되어 있는지 확인 합니다.
-1. **연결 테스트**를 클릭합니다. 연결이 성공 하는 것을 볼 수 있습니다.
+1. **연결 테스트** 를 클릭합니다. 연결이 성공 하는 것을 볼 수 있습니다.
 
 이제 Synapse와 연결 된 서비스 간에 안전 하 고 개인 연결을 설정 했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Synapse Analytics에서 관리 되는 개인 끝점에 대 한 추가 이해를 개발 하려면 [Synapse 관리 개인 끝점 관련 개념](data-integration-data-lake.md) 문서를 참조 하세요.
 
-Synapse Analytics의 데이터 통합에 대 한 자세한 내용은 [수집 data to a Data Lake](data-integration-data-lake.md) 문서를 참조 하세요.
+Azure Synapse Analytics에서 관리 되는 개인 끝점에 대 한 추가 이해를 개발 하려면 [관리 되는 개인 끝점](../security/synapse-workspace-managed-private-endpoints.md)을 참조 하세요.
+
+
+Azure Synapse Analytics의 데이터 통합에 대 한 자세한 내용은 [수집 data to a Data Lake](data-integration-data-lake.md) 문서를 참조 하세요.

@@ -5,23 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/21/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 7285325d92949a331833968b8f71fbeffd6543f4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.custom: contperf-fy20q4, azuread-video-2020
+ms.openlocfilehash: 9c5f7684083ec533c8100785787572ebe4456bcc
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437907"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030249"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
 최신 보안 경계는 사용자 및 디바이스 ID를 포함하도록 조직의 네트워크 너머로 확장됩니다. 조직에서는 액세스 제어 결정의 일환으로 이러한 ID 신호를 활용할 수 있습니다. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-AD-Conditional-Access/player]
 
 조건부 액세스는 Azure Active Directory에서 신호를 주고 결정을 내리고 조직 정책을 적용하기 위해 사용하는 도구입니다. 조건부 액세스는 새로운 ID 중심 제어 평면의 핵심입니다.
 
@@ -78,17 +80,10 @@ ms.locfileid: "89437907"
 - 관리자 역할이 할당된 사용자에게 다단계 인증 요구
 - Azure 관리 작업 시 다단계 인증 요구
 - 레거시 인증 프로토콜을 사용하려고 시도하는 사용자의 로그인 차단
-- Azure Multi-Factor Authentication 등록 시 신뢰할 수 있는 위치 요구
+- Azure AD Multi-Factor Authentication 등록 시 신뢰할 수 있는 위치 요구
 - 특정 위치의 액세스 차단 또는 액세스 권한 부여
 - 위험한 로그인 동작 차단
 - 특정 애플리케이션에는 조직에서 관리 디바이스를 사용하도록 요구
-
-## <a name="customer-case-studies"></a>고객 사례 연구
-
-다른 조직에서 Azure AD 조건부 액세스를 사용하여 자동화된 액세스 제어 결정을 정의하고 구현하는 방법에 대해 알아봅니다. 이러한 고객 요구 사항이 충족되는 방법을 보여 주는 주요 사례는 다음과 같습니다.
-
-* [Wipro는 Microsoft 클라우드 보안 도구를 사용하여 모바일 생산성을 높여 고객 참여를 향상시킵니다.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) 회사에서 Azure AD의 조건부 액세스 정책을 통해 회사의 자체 데이터에 대한 제어를 유지하면서 문서, 리소스 및 애플리케이션을 신뢰할 수 있는 외부 기관(자체의 자격 증명을 사용할 수 있음)과 공유할 수 있었습니다.
-* [Aramex delivery limited - 글로벌 물류 및 운송 회사에서 ID 및 액세스 관리 솔루션을 사용하여 클라우드에 연결된 사무실을 만듭니다](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Aramex의 원격 직원에게 보안 액세스를 보장하는 것이 특히 어려웠습니다. 이 회사는 이제 이러한 원격 직원이 네트워크 외부에서 SaaS 애플리케이션에 액세스할 수 있도록 조건부 액세스를 적용하고 있습니다. 조건부 액세스 규칙은 Multi-Factor Authentication을 적용할지 여부를 결정하여 올바른 사용자에게만 올바른 액세스 권한을 부여합니다.
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 

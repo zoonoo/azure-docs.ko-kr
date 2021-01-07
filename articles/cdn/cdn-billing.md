@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191169"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018684"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 
@@ -38,7 +38,7 @@ ms.locfileid: "88191169"
 
 - 영역 5: 인도
 
-POP(point-of-presence) 지역에 대한 정보는 [지역별 Azure CDN POP 위치](https://docs.microsoft.com/azure/cdn/cdn-pop-locations)를 참조하세요. 예를 들어 멕시코의 POP는 북아메리카 지역에 있고 따라서 영역 1에 포함됩니다. 
+POP(point-of-presence) 지역에 대한 정보는 [지역별 Azure CDN POP 위치](./cdn-pop-locations.md)를 참조하세요. 예를 들어 멕시코의 POP는 북아메리카 지역에 있고 따라서 영역 1에 포함됩니다. 
 
 Azure CDN 가격 책정에 대한 정보는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
@@ -66,7 +66,7 @@ Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대�
 
 Azure Storage 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/)을 참조하세요.
 
-*호스팅된 서비스 배달*을 사용하는 경우 다음과 같이 요금이 발생합니다.
+*호스팅된 서비스 배달* 을 사용하는 경우 다음과 같이 요금이 발생합니다.
 
 - Azure 컴퓨팅 시간: 원점으로 작동하는 컴퓨팅 인스턴스.
 
@@ -74,7 +74,7 @@ Azure Storage 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 
 
 클라이언트에서 바이트 범위 요청을 사용하는 경우(원본 서비스에 관계없이) 다음과 같은 고려 사항이 적용됩니다.
 
-- *바이트 범위 요청*은 CDN에서 청구 가능 트랜잭션입니다. 클라이언트에서 바이트 범위 요청을 발급하는 경우 이 요청의 대상은 개체의 하위 집합(범위)입니다. CDN은 요청된 콘텐츠의 일부만 사용하여 응답합니다. 이 부분 응답은 청구 가능 트랜잭션이며 전송량은 범위 응답의 크기(더하기 헤더)로 제한됩니다.
+- *바이트 범위 요청* 은 CDN에서 청구 가능 트랜잭션입니다. 클라이언트에서 바이트 범위 요청을 발급하는 경우 이 요청의 대상은 개체의 하위 집합(범위)입니다. CDN은 요청된 콘텐츠의 일부만 사용하여 응답합니다. 이 부분 응답은 청구 가능 트랜잭션이며 전송량은 범위 응답의 크기(더하기 헤더)로 제한됩니다.
 
 - 개체의 일부분에만 해당하는(바이트 범위 헤더를 지정하여) 요청이 도착하면 CDN이 전체 개체를 캐시에 페치할 수도 있습니다. 결과적으로, CDN의 청구 가능 트랜잭션이 응답의 일부를 대상으로 하더라도 원본의 청구 가능 트랜잭션에 개체의 전체 크기가 포함될 수 있습니다.
 
@@ -119,4 +119,4 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - Azure Cache for Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>비용을 효과적으로 관리하는 방법
-콘텐츠에서 TTL을 최대한 길게 설정합니다. 
+콘텐츠에서 TTL을 최대한 길게 설정합니다.

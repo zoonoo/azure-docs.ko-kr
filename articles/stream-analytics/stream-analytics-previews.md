@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 0020efea69fc684ff6ebebf286718aa2a720910e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a32491453812d74d4bd93f3f97b7e6a32036f65f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900803"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573377"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -22,7 +22,7 @@ ms.locfileid: "90900803"
 
 다음 기능은 공개 미리 보기에 있습니다. 현재 이러한 기능을 활용할 수 있지만 프로덕션 환경에서는 사용하지 마세요.
 
-### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>관리 ID를 사용하여 SQL Database 출력에 인증
+### <a name="authenticate-to-sql-database-output-with-managed-identities-preview"></a>관리 id를 사용 하 여 SQL Database 출력에 인증 (미리 보기)
 
 Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 인증](../active-directory/managed-identities-azure-resources/overview.md)을 지원합니다. 관리 id를 사용 하면 암호 변경으로 인해 다시 인증 해야 하는 것과 같은 사용자 기반 인증 방법의 제한 사항이 제거 됩니다. 
 
@@ -48,7 +48,7 @@ Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT �
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
 
-Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. [VS Code 시작 자습서](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code)를 참조하세요.
+Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. [VS Code 시작 자습서](./quick-create-visual-studio-code.md)를 참조하세요.
 
 ### <a name="local-testing-with-live-data-in-visual-studio-code"></a>Visual Studio Code의 라이브 데이터를 사용하여 로컬 테스트
 

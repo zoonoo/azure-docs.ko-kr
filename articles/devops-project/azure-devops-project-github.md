@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41f2ee9806b8f6818f2b2dd7a48920ac9907ca79
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233213"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854650"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 GitHub 리포지토리용 CI/CD 파이프라인 만들기
 
@@ -118,9 +118,9 @@ Azure DevOps Starter는 Azure Pipelines에서 CI/CD 파이프라인을 자동으
 CI/CD 파이프라인에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [다단계 CD(연속 배포) 파이프라인 정의](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [다단계 CD(연속 배포) 파이프라인 정의](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 애플리케이션 모니터링에 대해 자세히 알아보려면 다음을 참조하세요.
   
  > [!div class="nextstepaction"]
- > [Azure Monitor란?](https://docs.microsoft.com/azure/azure-monitor/overview)
+ > [Azure Monitor란?](../azure-monitor/overview.md)

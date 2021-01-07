@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7032c64efa486c65830e013373239647a368540
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024863"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311148"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Azure API Management 인스턴스에 대 한 사용자 지정 도메인 이름 구성
 
@@ -50,10 +50,10 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도
     사용자 지정 도메인 이름을 할당할 수 있는 끝점은 여러 가지가 있습니다. 현재는 다음 엔드포인트를 사용할 수 있습니다.
 
     - **게이트웨이** (기본값: `<apim-service-name>.azure-api.net` ),
-    - **포털**(기본값: `<apim-service-name>.portal.azure-api.net`),
+    - **개발자 포털 (레거시)** (기본값: `<apim-service-name>.portal.azure-api.net` ),
+    - **개발자 포털** (기본값: `<apim-service-name>.developer.azure-api.net` ).
     - **관리**(기본값: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (기본값: `<apim-service-name>.scm.azure-api.net` ),
-    - **Newportal** (기본값: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > **게이트웨이** 끝점만 소비 계층의 구성에 사용할 수 있습니다.
@@ -64,7 +64,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는의 하위 도
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.
 
-    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 예: `api.contoso.com`.
+    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. `api.contoso.com`)을 입력합니다.
     - **인증서**의 Key Vault에서 인증서를 선택 합니다. 유효한를 업로드할 수도 있습니다. 인증서가 암호로 보호 되는 경우 PFX 파일 및 **암호**를 제공 합니다.
 
     > [!NOTE]

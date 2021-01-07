@@ -2,20 +2,20 @@
 title: 데이터 상주
 description: 데이터 상주 및 Azure Arc 사용 서버에 대 한 정보입니다.
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 10/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8b4b8171bd7133e52928a5227c488bd6234ce686
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c5ece96acc3ee07ba2896279888363c7d52d737e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908122"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856452"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Azure Arc 사용 서버: 데이터 상주
 
 이 문서에서는 데이터 상주의 개념과 Azure Arc 사용 서버에 적용 되는 방식을 설명 합니다.
 
-Azure Arc 사용 서버는 **미국, 유럽 또는 아시아 태평양**에서 **[사용할 수 있습니다](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** .
+Azure Arc 사용 서버는 **미국, 유럽, 영국, 오스트레일리아 및 아시아 태평양**에서 **[사용할 수](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** 있습니다.
 
 ## <a name="data-residency"></a>데이터 상주
 

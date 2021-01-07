@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003705"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536881"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법
 
@@ -63,7 +63,7 @@ ms.locfileid: "88003705"
 
     ![지역에서 복제 상황에 맞는 메뉴](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. **링크**를 클릭하여 두 캐시를 함께 연결하고 복제 프로세스를 시작합니다.
+3. **링크** 를 클릭하여 두 캐시를 함께 연결하고 복제 프로세스를 시작합니다.
 
     ![캐시 연결](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
@@ -73,9 +73,9 @@ ms.locfileid: "88003705"
 
     주 캐시와 보조 캐시에 대한 **개요** 블레이드에서 연결 상태를 볼 수도 있습니다.
 
-    ![캐시 상태](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![기본 및 보조 캐시에 대 한 연결 상태를 확인 하는 방법을 보여 주는 스크린샷](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    복제 프로세스가 완료되면 **링크 상태**가 **성공**으로 바뀝니다.
+    복제 프로세스가 완료되면 **링크 상태** 가 **성공** 으로 바뀝니다.
 
     ![캐시 상태](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -111,6 +111,7 @@ ms.locfileid: "88003705"
 - [연결된 캐시를 삭제하려고 할 때 작업이 실패한 이유는 무엇인가요?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [보조 연결된 캐시에는 어떤 지역을 사용해야 하나요?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [보조 연결된 캐시로 장애 조치(failover)는 어떻게 작동하나요?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [지역에서 복제를 사용 하 여 방화벽을 구성할 수 있나요?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>표준 또는 기본 계층 캐시에서 지역에서 복제를 사용할 수 있나요?
 
@@ -144,9 +145,9 @@ ms.locfileid: "88003705"
 
 - 동일한 VNET에 있는 캐시 간의 지역에서 복제가 지원됩니다.
 - 서로 다른 Vnet 캐시 간의 지역에서 복제도 지원 됩니다.
-  - Vnet이 동일한 지역에 있는 경우 [vnet 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 또는 [VPN Gateway vnet 간 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)을 사용 하 여 연결할 수 있습니다.
-  - Vnet 서로 다른 지역에 있는 경우 기본 내부 부하 분산 장치가 포함 된 제약 조건 때문에 VNET 피어 링을 사용 하는 지역에서 복제가 지원 되지 않습니다. VNET 피어 링 제약 조건에 대 한 자세한 내용은 [Virtual Network-피어 링-요구 사항 및 제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)을 참조 하세요. VPN Gateway VNET 간 연결을 사용 하는 것이 좋습니다.
-
+  - Vnet이 동일한 지역에 있는 경우 [vnet 피어 링](../virtual-network/virtual-network-peering-overview.md) 또는 [VPN Gateway vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 사용 하 여 연결할 수 있습니다.
+  - Vnet 서로 다른 지역에 있는 경우 VNET 피어 링을 사용 하는 지역에서 복제가 지원 되지만 VNET 1 (지역 1)의 클라이언트 VM은 기본 내부 부하 분산 장치를 포함 하는 제약 조건으로 인해 VNET 2 (지역 2)의 DNS 이름을 통해 해당 캐시에 액세스할 수 없습니다. VNET 피어 링 제약 조건에 대 한 자세한 내용은 [Virtual Network-피어 링-요구 사항 및 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)을 참조 하세요. VPN Gateway VNET 간 연결을 사용 하는 것이 좋습니다.
+  
 [이 Azure 템플릿을](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)사용 하 여 VPN Gateway vnet 간 연결로 연결 된 vnet에 두 개의 지역에서 복제 된 캐시를 신속 하 게 배포할 수 있습니다.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Redis 지역에서 복제의 복제 일정이란?
@@ -165,7 +166,7 @@ ms.locfileid: "88003705"
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있나요?
 
-예, Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있습니다. 자세한 내용은 [PowerShell 문서](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) 또는 [Azure CLI 문서](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest)를 참조 하세요.
+예, Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있습니다. 자세한 내용은 [PowerShell 문서](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) 또는 [Azure CLI 문서](/cli/azure/redis/server-link?view=azure-cli-latest)를 참조 하세요.
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Azure 지역 간에 데이터를 복제하는 비용은 어느 정도인가요?
 
@@ -185,7 +186,12 @@ Azure 지역 간 자동 장애 조치 (failover)는 지역에서 복제 된 캐�
 
 고객이 시작한 장애 조치 (failover)를 시작 하려면 먼저 캐시의 연결을 해제 합니다. 그런 다음 Redis 클라이언트를 변경 하 여 (이전에 연결 된) 보조 캐시의 연결 끝점을 사용 합니다. 두 캐시의 연결이 끊어지면 보조 캐시는 일반적인 읽기-쓰기 캐시가 다시 되며 Redis 클라이언트에서 직접 요청을 받습니다.
 
+### <a name="can-i-configure-a-firewall-with-geo-replication"></a>지역에서 복제를 사용 하 여 방화벽을 구성할 수 있나요?
+
+예, 지역에서 복제를 사용 하 여 [방화벽](./cache-configure.md#firewall) 을 구성할 수 있습니다. 지역에서 복제가 방화벽과 함께 작동 하려면 보조 캐시의 IP 주소가 기본 캐시의 방화벽 규칙에 추가 되었는지 확인 합니다.
+
 ## <a name="next-steps"></a>다음 단계
+
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
 * [Redis 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)

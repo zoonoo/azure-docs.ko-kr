@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760127"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대 한 표준 규칙 엔진의 작업
@@ -20,7 +20,7 @@ Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn
 
 규칙의 두 번째 부분은 동작입니다. 작업은 일치 조건 또는 일치 조건 세트에서 식별하는 요청 유형에 적용되는 동작을 정의합니다.
 
-## <a name="actions"></a>작업
+## <a name="actions"></a>동작
 
 Azure CDN에 대 한 표준 규칙 엔진에서 다음 작업을 사용할 수 있습니다. 
 
@@ -87,7 +87,7 @@ DELETE | 이 옵션이 선택되고 규칙이 일치하고 규칙에 지정된 �
 
 필드 | 설명 
 ------|------------
-형식 | 요청자에게 반환할 응답 형식(찾음(302), 이동됨(301), 임시 리디렉션(307) 및 영구 리디렉션(308))을 선택합니다.
+Type | 요청자에게 반환할 응답 형식(찾음(302), 이동됨(301), 임시 리디렉션(307) 및 영구 리디렉션(308))을 선택합니다.
 프로토콜 | 요청, HTTP, HTTPS를 일치시킵니다.
 Hostname | 요청을 리디렉션할 호스트 이름을 선택합니다. 들어오는 호스트를 유지하려면 비워 둡니다.
 경로 | 리디렉션에 사용할 경로를 정의합니다. 들어오는 경로를 유지하려면 비워 둡니다.  

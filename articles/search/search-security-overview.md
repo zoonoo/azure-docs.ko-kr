@@ -1,26 +1,26 @@
 ---
 title: 보안 개요
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search은 SOC 2, HIPAA 및 기타 인증을 준수 합니다. 필터 식의 사용자 및 그룹 보안 식별자를 통한 연결 및 데이터 암호화, 인증 및 id 액세스
+description: 끝점, 콘텐츠 및 작업을 보호 하기 위해 Azure Cognitive Search의 보안 기능에 대해 알아봅니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 12/15/2020
 ms.custom: references_regions
-ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979603"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563452"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
 이 문서에서는 콘텐츠와 작업을 보호할 수 있는 Azure Cognitive Search의 주요 보안 기능을 설명 합니다.
 
-+ 저장소 계층에서 미사용 암호화는 인덱스, 동의어 맵, 인덱서, 데이터 원본 및 기술력과의 정의를 포함 하 여 디스크에 저장 된 모든 서비스 관리 콘텐츠에 대해 기본적으로 제공 됩니다. Azure Cognitive Search는 인덱싱된 콘텐츠의 보충 암호화를 위해 CMK (고객 관리 키) 추가도 지원 합니다. 8 월 1 2020 이후에 만들어진 서비스의 경우 CMK 암호화는 인덱싱된 콘텐츠의 전체 이중 암호화를 위해 임시 디스크의 데이터로 확장 됩니다.
++ 저장소 계층에서 미사용 암호화는 인덱스, 동의어 맵, 인덱서, 데이터 원본 및 기술력과 정의를 포함 하 여 디스크에 저장 된 모든 서비스 관리 콘텐츠에 대해 기본 제공 됩니다. Azure Cognitive Search는 인덱싱된 콘텐츠의 보충 암호화를 위해 CMK (고객 관리 키) 추가도 지원 합니다. 8 월 1 2020 이후에 만들어진 서비스의 경우 CMK 암호화는 인덱싱된 콘텐츠의 전체 이중 암호화를 위해 임시 디스크의 데이터로 확장 됩니다.
 
 + 인바운드 보안은 요청에 대 한 API 키, 방화벽의 인바운드 규칙, 공용 인터넷에서 서비스를 완전히 보호 하는 개인 끝점에 대 한 보안 수준의 검색 서비스 끝점을 보호 합니다.
 
@@ -35,6 +35,8 @@ ms.locfileid: "90979603"
 ## <a name="encrypted-transmissions-and-storage"></a>암호화 된 전송 및 저장소
 
 Azure Cognitive Search에서 암호화는 연결과 전송으로 시작 되 고 디스크에 저장 된 콘텐츠로 확장 됩니다. 공용 인터넷에서 검색 서비스의 경우 Azure Cognitive Search는 HTTPS 포트 443에서 수신 대기 합니다. 모든 클라이언트-서비스 연결은 TLS 1.2 암호화를 사용 합니다. 이전 버전 (1.0 또는 1.1)은 지원 되지 않습니다.
+
+:::image type="content" source="media/search-security-overview/encryption-at-rest-cmk.png" alt-text="각 서비스 계약 수준에서 다양 한 유형의 보안을 보여 주는 다이어그램":::
 
 검색 서비스에서 내부적으로 처리 되는 데이터의 경우 다음 표에서는 [데이터 암호화 모델](../security/fundamentals/encryption-models.md)에 대해 설명 합니다. 기술 자료 저장소, 증분 보강, 인덱서 기반 인덱싱 등의 일부 기능은 다른 Azure 서비스의 데이터 구조에서 읽거나 쓸 수 있습니다. 이러한 서비스에는 Azure Cognitive Search와 별도의 암호화 지원이 포함 됩니다.
 
@@ -74,7 +76,7 @@ Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 
 
 ### <a name="public-access-using-api-keys"></a>API 키를 사용 하 여 공용 액세스
 
-기본적으로 검색 서비스는 관리에 대 한 키 기반 인증 또는 검색 서비스 끝점에 대 한 쿼리 액세스를 사용 하 여 공용 클라우드를 통해 액세스 됩니다. api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다. 키의 형식(관리자 또는 쿼리)은 액세스 수준을 결정합니다. 유효한 키를 제출하면 요청이 신뢰할 수 있는 엔터티에서 시작되었다는 증명으로 간주됩니다.
+기본적으로 검색 서비스는 관리에 대 한 키 기반 인증 또는 검색 서비스 끝점에 대 한 쿼리 액세스를 사용 하 여 공용 클라우드를 통해 액세스 됩니다. [API 키는](search-security-rbac.md) 임의로 생성 된 숫자 및 문자로 구성 된 문자열입니다. 키의 형식(관리자 또는 쿼리)은 액세스 수준을 결정합니다. 유효한 키를 제출하면 요청이 신뢰할 수 있는 엔터티에서 시작되었다는 증명으로 간주됩니다.
 
 검색 서비스에 액세스 하는 두 가지 수준은 다음과 같은 API 키로 설정 됩니다.
 
@@ -82,7 +84,7 @@ Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 
 
 + 쿼리 키 (인덱스의 문서 컬렉션에 대 한 읽기 전용 액세스를 허용)
 
-서비스를 프로 비전 할 때 *관리 키* 가 생성 됩니다. 두 개의 관리 키가 있으며 단순하게 유지하기 위해 *주* 및 *보조*로 지정되지만 실제로는 서로 바꿔 사용할 수 있습니다. 각 서비스에는 서비스에 대한 액세스 권한을 잃지 않고 롤오버할 수 있는 두 개의 관리 키가 있습니다. Azure 보안 모범 사례에 따라 주기적으로 [관리 키를 다시 생성할](search-security-api-keys.md#regenerate-admin-keys) 수 있지만 총 관리자 키 수에는 추가할 수 없습니다. 검색 서비스 당 최대 2 개의 관리자 키가 있습니다.
+서비스를 프로 비전 할 때 *관리 키* 가 생성 됩니다. 두 개의 관리 키가 있으며 단순하게 유지하기 위해 *주* 및 *보조* 로 지정되지만 실제로는 서로 바꿔 사용할 수 있습니다. 각 서비스에는 서비스에 대한 액세스 권한을 잃지 않고 롤오버할 수 있는 두 개의 관리 키가 있습니다. Azure 보안 모범 사례에 따라 주기적으로 [관리 키를 다시 생성할](search-security-api-keys.md#regenerate-admin-keys) 수 있지만 총 관리자 키 수에는 추가할 수 없습니다. 검색 서비스 당 최대 2 개의 관리자 키가 있습니다.
 
 *쿼리 키는* 필요에 따라 만들어지며 쿼리를 실행 하는 클라이언트 응용 프로그램을 위해 디자인 되었습니다. 최대 50개까지 쿼리 키를 만들 수 있습니다. 응용 프로그램 코드에서 검색 URL 및 쿼리 api 키를 지정 하 여 특정 인덱스의 문서 컬렉션에 대 한 읽기 전용 액세스를 허용 합니다. 동시에, 엔드포인트, 읽기 전용 액세스를 위한 api-key 및 대상 인덱스는 클라이언트 애플리케이션에서 연결의 액세스 수준 및 범위를 정의합니다.
 
@@ -91,6 +93,8 @@ Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 
 ### <a name="ip-restricted-access"></a>IP 제한 액세스
 
 검색 서비스에 대 한 액세스를 세부적으로 제어 하기 위해 특정 IP 주소 또는 IP 주소 범위에 대 한 액세스를 허용 하는 인바운드 방화벽 규칙을 만들 수 있습니다. 모든 클라이언트 연결은 허용 된 IP 주소를 통해 수행 되어야 합니다. 그렇지 않으면 연결이 거부 됩니다.
+
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="ip 제한 액세스에 대 한 샘플 아키텍처 다이어그램":::
 
 포털을 사용 하 여 [인바운드 액세스를 구성할](service-configure-firewall.md)수 있습니다.
 
@@ -102,25 +106,27 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 개인 끝점은 검색 서비스에 대 한 연결을 위해 가상 네트워크 주소 공간의 IP 주소를 사용 합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크 및 Microsoft 백본 네트워크의 개인 링크를 순회 하 여 공용 인터넷에서 노출 되는 것을 제거 합니다. VNET은 온-프레미스 네트워크와 인터넷을 통해 리소스 간 보안 통신을 허용 합니다.
 
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="개인 끝점 액세스를 위한 샘플 아키텍처 다이어그램":::
+
 이 솔루션은 가장 안전 하지만, 추가 서비스를 사용 하는 것이 추가 비용 이므로,이에 대해서는 살펴보기 전에 혜택을 명확 하 게 이해 하 고 있어야 합니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/private-link/)를 참조 하세요. 이러한 구성 요소가 함께 작동 하는 방법에 대 한 자세한 내용은이 문서의 맨 위에 있는 비디오를 시청 하세요. 개인 끝점 옵션은 5:48에서 시작 하 여 비디오에 적용 됩니다. 끝점을 설정 하는 방법에 대 한 지침은 [Azure Cognitive Search에 대 한 개인 끝점 만들기](service-create-private-endpoint.md)를 참조 하세요.
 
 ## <a name="index-access"></a>액세스 인덱싱
 
 Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 대신 작업의 컨텍스트와 함께 서비스 계층 (서비스에 대 한 읽기 또는 쓰기 액세스)에서 인덱스에 대 한 액세스를 결정 합니다.
 
-최종 사용자 액세스의 경우 쿼리 키를 사용하여 연결하도록 쿼리 요청을 구성할 수 있습니다. 여기서는 모든 요청을 읽기 전용으로 설정하고 앱에서 사용하는 특정 인덱스를 포함합니다. 쿼리 요청에서 동시에 인덱스를 조인하거나 여러 인덱스에 액세스한다는 개념은 없으므로 모든 요청은 정의에 따라 단일 인덱스를 대상으로 지정합니다. 따라서 쿼리 요청 자체의 구조(키 및 단일 대상 인덱스)는 보안 경계를 정의합니다.
+최종 사용자 액세스의 경우 쿼리 [키](search-security-rbac.md)를 사용 하 여 연결 하도록 쿼리 요청을 구성 하 고, 요청을 읽기 전용으로 설정 하 고, 앱에서 사용 하는 특정 인덱스를 포함할 수 있습니다. 쿼리 요청에서 동시에 인덱스를 조인하거나 여러 인덱스에 액세스한다는 개념은 없으므로 모든 요청은 정의에 따라 단일 인덱스를 대상으로 지정합니다. 따라서 쿼리 요청 자체의 구조(키 및 단일 대상 인덱스)는 보안 경계를 정의합니다.
 
-인덱스에 대한 관리자 및 개발자 액세스는 구분되지 않습니다. 둘 다 서비스에서 관리되는 개체를 만들고, 삭제하고, 업데이트하는 쓰기 액세스 권한이 필요합니다. 서비스에 대한 관리자 키가 있는 모든 사용자는 동일한 서비스에서 모든 인덱스를 읽기, 수정 또는 삭제할 수 있습니다. 인덱스를 우발적이거나 악의적인 삭제로부터 보호하기 위해 코드 자산에 대한 내부 원본을 제어하여 원치 않는 삭제나 수정을 되돌리는 문제를 해결합니다. Azure Cognitive Search는 가용성을 보장 하기 위해 클러스터 내에서 장애 조치 (failover)를 수행 하지만 인덱스를 만들거나 로드 하는 데 사용 되는 소유 코드를 저장 하거나 실행 하지 않습니다.
+인덱스에 대한 관리자 및 개발자 액세스는 구분되지 않습니다. 둘 다 서비스에서 관리되는 개체를 만들고, 삭제하고, 업데이트하는 쓰기 액세스 권한이 필요합니다. 서비스에 대 한 [관리자 키](search-security-rbac.md) 가 있는 모든 사용자는 동일한 서비스에서 인덱스를 읽고 수정 하거나 삭제할 수 있습니다. 인덱스를 우발적이거나 악의적인 삭제로부터 보호하기 위해 코드 자산에 대한 내부 원본을 제어하여 원치 않는 삭제나 수정을 되돌리는 문제를 해결합니다. Azure Cognitive Search는 가용성을 보장 하기 위해 클러스터 내에서 장애 조치 (failover)를 수행 하지만 인덱스를 만들거나 로드 하는 데 사용 되는 소유 코드를 저장 하거나 실행 하지 않습니다.
 
 인덱스 수준에서 보안 경계를 요구하는 다중 테넌트 솔루션의 경우 이러한 솔루션에는 일반적으로 중간 계층이 포함됩니다. 고객은 인덱스 격리를 처리하기 위해 이를 사용합니다. 다중 테 넌 트 사용 사례에 대 한 자세한 내용은 [다중 테 넌 트 SaaS 응용 프로그램 및 Azure Cognitive Search에 대 한 디자인 패턴](search-modeling-multitenant-saas-applications.md)을 참조 하세요.
 
 ## <a name="user-access"></a>사용자 액세스
 
-사용자가 인덱스에 액세스 하는 방법 및 다른 개체는 요청에 대 한 API 키의 유형에 따라 결정 됩니다. 대부분의 개발자는 클라이언트 쪽 검색 요청에 대한 [*쿼리 키*](search-security-api-keys.md)를 만들어서 할당합니다. 쿼리 키는 인덱스 내에서 검색 가능한 콘텐츠에 대 한 읽기 전용 액세스 권한을 부여 합니다.
+사용자가 인덱스에 액세스 하는 방법 및 다른 개체는 요청에 대 한 API 키의 유형에 따라 결정 됩니다. 대부분의 개발자는 클라이언트 쪽 검색 요청에 대한 [쿼리 키](search-security-api-keys.md)를 만들어서 할당합니다. 쿼리 키는 인덱스 내에서 검색 가능한 콘텐츠에 대 한 읽기 전용 액세스 권한을 부여 합니다.
 
-검색 결과에 대 한 사용자 단위 제어를 세부적으로 요구 하는 경우 쿼리에 보안 필터를 빌드하여 지정 된 보안 id와 연결 된 문서를 반환할 수 있습니다. 미리 정의된 역할 및 역할 할당 대신 ID 기반 액세스 제어는 ID에 따라 문서 및 콘텐츠의 검색 결과를 잘라내는 *필터*로 구현됩니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
+검색 결과에 대 한 사용자 단위 제어를 세부적으로 요구 하는 경우 쿼리에 보안 필터를 빌드하여 지정 된 보안 id와 연결 된 문서를 반환할 수 있습니다. 미리 정의된 역할 및 역할 할당 대신 ID 기반 액세스 제어는 ID에 따라 문서 및 콘텐츠의 검색 결과를 잘라내는 *필터* 로 구현됩니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
 
-| 접근 방식 | 설명 |
+| 접근 방식 | Description |
 |----------|-------------|
 |[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
 |[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 Azure cloud platform의 [무료 서비스](https://azure.microsoft.com/free/) 중 하나인 Azure Active Directory (azure AD)에서 id를 검색 하는 단계를 제공 하는 이전 문서를 확장 합니다. |
@@ -144,7 +150,7 @@ Azure Policy는 azure에 기본 제공 되는 기능으로, Azure 보안 벤치 
 
 Azure Cognitive Search의 경우 현재 기본 제공 정의가 하나 있습니다. 진단 로깅에 대 한 것입니다. 이 기본 제공 기능을 사용 하면 진단 로깅이 누락 된 검색 서비스를 식별 하는 정책을 할당 한 후이를 켤 수 있습니다. 자세한 내용은 [Azure Cognitive Search에 대 한 규정 준수 제어 Azure Policy](security-controls-policy.md)를 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure 보안 기본 사항](../security/fundamentals/index.yml)
 + [Azure 보안](https://azure.microsoft.com/overview/security)

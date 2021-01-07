@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82232975"
 ---
 # <a name="self-hosted-gateway-overview"></a>자체 호스팅 게이트웨이 개요
@@ -55,7 +55,7 @@ ms.locfileid: "82232975"
 - 클라이언트 인증서를 재협상 합니다. 즉, [클라이언트 인증서 인증](api-management-howto-mutual-certificates-for-clients.md) 에서 작동 하는 API 소비자는 초기 TLS 핸드셰이크의 일부로 인증서를 제공 해야 합니다. 이렇게 하려면 자체 호스팅 게이트웨이 사용자 지정 호스트 이름을 구성할 때 클라이언트 인증서 협상 설정을 사용 하도록 설정 합니다.
 - 기본 제공 캐시입니다. 자체 호스팅 게이트웨이에서 외부 캐시를 사용 하는 방법에 대 한 자세한 내용은이 [문서](api-management-howto-cache-external.md) 를 참조 하세요.
 
-## <a name="connectivity-to-azure"></a>Azure에 대 한 연결
+## <a name="connectivity-to-azure"></a>Azure 연결
 
 자체 호스팅 게이트웨이에서는 포트 443의 Azure에 대 한 아웃 바운드 TCP/IP 연결이 필요 합니다. 자체 호스트 된 각 게이트웨이는 단일 API Management 서비스와 연결 되어야 하며 해당 관리 평면을 통해 구성 됩니다. 자체 호스팅 게이트웨이는 다음을 위해 Azure에 대 한 연결을 사용 합니다.
 

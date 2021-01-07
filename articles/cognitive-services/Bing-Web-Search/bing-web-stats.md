@@ -11,16 +11,21 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 02fea02cca5950ef8467377a866e9a765af9e2e1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147407"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349557"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Bing Search API에 분석 추가
 
-Bing Statistics는 Bing Search API에 대 한 분석을 제공 합니다. 이러한 분석에는 통화 볼륨, 상위 쿼리 문자열, 지리적 분포 등이 포함 됩니다. Azure 리소스로 이동 하 고 **Bing Statistics 사용**을 클릭 하 여 [Azure Portal](https://ms.portal.azure.com) 에서 bing 통계를 사용 하도록 설정할 수 있습니다.
+> [!WARNING]
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
+
+Bing Statistics는 Bing Search API에 대 한 분석을 제공 합니다. 이러한 분석에는 통화 볼륨, 상위 쿼리 문자열, 지리적 분포 등이 포함 됩니다. Azure 리소스로 이동 하 고 **Bing Statistics 사용** 을 클릭 하 여 [Azure Portal](https://ms.portal.azure.com) 에서 bing 통계를 사용 하도록 설정할 수 있습니다.
 
 > [!IMPORTANT]
 > * 무료 가격 책정 계층의 리소스에는 Bing 통계를 사용할 수 없습니다 `F0` .
@@ -53,7 +58,7 @@ Bing 업데이트는 24 시간 마다 분석 데이터를 분석 하 고 [분석
 - **시간 프레임**: 보고 기간입니다. 다음을 지정할 수 있습니다.
   - **모두**: 최대 13 개월 분량의 데이터를 포함 합니다.  
   - **지난 24 시간**: 지난 24 시간 동안의 분석 포함  
-  - **지난 주: 지난**7 일 동안의 분석 포함  
+  - **지난 주: 지난** 7 일 동안의 분석 포함  
   - **지난 달**: 지난 30 일 동안의 분석 포함  
   - **사용자 지정 날짜 범위**: 지정 된 날짜 범위의 분석 (사용 가능한 경우)을 포함 합니다.  
 

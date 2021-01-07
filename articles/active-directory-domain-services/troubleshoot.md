@@ -2,7 +2,7 @@
 title: Azure Active Directory Domain Services 문제 해결 | Microsoft Docs '
 description: Azure Active Directory Domain Services를 만들거나 관리할 때 일반적인 오류를 해결 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 7642a32ce69dbbbb5ddebbe56b74f3202b2e6422
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: justinha
+ms.openlocfilehash: 89b04f86d41f8e4828580f70a9aec8acea3e0053
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039571"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618453"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 일반적인 오류 및 문제 해결 단계
 
@@ -57,9 +57,9 @@ Azure AD DS을 사용 하도록 설정 하는 데 문제가 있는 경우 다음
 
 Azure AD 디렉터리에 *Azure AD Domain Services Sync* 라는 응용 프로그램이 있는지 확인 합니다. 이 응용 프로그램이 있는 경우 해당 응용 프로그램을 삭제 한 다음 다시 시도 하 여 Azure AD DS를 사용 하도록 설정 합니다. 기존 응용 프로그램을 확인 하 고 필요한 경우 삭제 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal의 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 선택합니다.
-1. **Enterprise 애플리케이션**을 선택합니다. *애플리케이션 종류* 드롭다운 메뉴에서 **모든 애플리케이션**을 선택한 다음, **적용**을 선택합니다.
-1. 검색 상자에 *Azure AD Domain Services Sync*를 입력 합니다. 응용 프로그램이 있는 경우 해당 응용 프로그램을 선택 하 고 **삭제**를 선택 합니다.
+1. Azure Portal의 왼쪽 탐색 메뉴에서 **Azure Active Directory** 를 선택합니다.
+1. **Enterprise 애플리케이션** 을 선택합니다. *애플리케이션 종류* 드롭다운 메뉴에서 **모든 애플리케이션** 을 선택한 다음, **적용** 을 선택합니다.
+1. 검색 상자에 *Azure AD Domain Services Sync* 를 입력 합니다. 응용 프로그램이 있는 경우 해당 응용 프로그램을 선택 하 고 **삭제** 를 선택 합니다.
 1. 응용 프로그램을 삭제 한 후에는 Azure AD DS를 다시 사용 하도록 설정 해 보세요.
 
 ### <a name="invalid-configuration"></a>유효하지 않은 구성
@@ -114,14 +114,14 @@ if ($sp -ne $null)
 
 **해결 방법**
 
-*00000002-0000-0000-c000-000000000000*식별자를 사용 하 여 응용 프로그램을 사용 하지 않도록 설정 했는지 확인 합니다. 이 애플리케이션은 Microsoft Azure AD 애플리케이션이며 Azure AD 테넌트에 Graph API 액세스를 제공합니다. Azure AD 테 넌 트를 동기화 하려면이 응용 프로그램을 사용 하도록 설정 해야 합니다.
+*00000002-0000-0000-c000-000000000000* 식별자를 사용 하 여 응용 프로그램을 사용 하지 않도록 설정 했는지 확인 합니다. 이 애플리케이션은 Microsoft Azure AD 애플리케이션이며 Azure AD 테넌트에 Graph API 액세스를 제공합니다. Azure AD 테 넌 트를 동기화 하려면이 응용 프로그램을 사용 하도록 설정 해야 합니다.
 
 이 응용 프로그램의 상태를 확인 하 고 필요한 경우 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal의 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 선택합니다.
-1. **Enterprise 애플리케이션**을 선택합니다. *애플리케이션 종류* 드롭다운 메뉴에서 **모든 애플리케이션**을 선택한 다음, **적용**을 선택합니다.
-1. 검색 상자에 *00000002-0000-0000-c000-00000000000*를 입력 합니다. 응용 프로그램을 선택한 다음 **속성**을 선택 합니다.
-1. **사용자가 로그인 할 수 있도록** 설정 됨이 *아니요*로 설정 되어 있으면 값을 *예*로 설정 하 고 **저장**을 선택 합니다.
+1. Azure Portal의 왼쪽 탐색 메뉴에서 **Azure Active Directory** 를 선택합니다.
+1. **Enterprise 애플리케이션** 을 선택합니다. *애플리케이션 종류* 드롭다운 메뉴에서 **모든 애플리케이션** 을 선택한 다음, **적용** 을 선택합니다.
+1. 검색 상자에 *00000002-0000-0000-c000-00000000000* 를 입력 합니다. 응용 프로그램을 선택한 다음 **속성** 을 선택 합니다.
+1. **사용자가 로그인 할 수 있도록** 설정 됨이 *아니요* 로 설정 되어 있으면 값을 *예* 로 설정 하 고 **저장** 을 선택 합니다.
 1. 응용 프로그램을 사용 하도록 설정한 후에는 Azure AD DS를 다시 사용 하도록 설정 해 봅니다.
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>사용자는 Azure AD 도메인 서비스 관리된 도메인에 로그인할 수 없습니다.
@@ -138,7 +138,7 @@ Azure AD 테 넌 트에서 하나 이상의 사용자가 관리 되는 도메인
       * [Azure AD Connect의 최신 권장 릴리스](https://www.microsoft.com/download/details.aspx?id=47594)를 배포 하거나 업데이트 했습니다.
       * [전체 동기화를 수행][hybrid-phs]하도록 Azure AD Connect를 구성 했습니다.
       * 디렉터리 크기에 따라 관리 되는 도메인에서 사용자 계정 및 자격 증명 해시를 사용 하는 데 다소 시간이 걸릴 수 있습니다. 관리 되는 도메인에 대해 인증을 시도 하기 전에 충분 한 시간 동안 기다려야 합니다.
-      * 이전 단계를 확인 한 후에도 문제가 지속 되 면 *Microsoft Azure AD 동기화 서비스*를 다시 시작 하십시오. Azure AD Connect 서버에서 명령 프롬프트를 열고 다음 명령을 실행 합니다.
+      * 이전 단계를 확인 한 후에도 문제가 지속 되 면 *Microsoft Azure AD 동기화 서비스* 를 다시 시작 하십시오. Azure AD Connect 서버에서 명령 프롬프트를 열고 다음 명령을 실행 합니다.
     
         ```console
         net stop 'Microsoft Azure AD Sync'

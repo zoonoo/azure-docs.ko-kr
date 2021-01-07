@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ab6842fe6787b9e1a61b3c25fabb6c64c2597b9a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 9c3d9e647fc09946c1e7c1b8b2ebcbe310716ff2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032812"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935787"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -183,7 +183,7 @@ Android에서는 예에서 볼 수 있듯이 `.WithParentActivityOrWindow`를 �
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-UI는 대화형이기 때문에 중요합니다. `AcquireTokenInteractive`에는 부모 UI를 지원하는 플랫폼에서 부모 UI를 지정할 수 있는 선택적 매개 변수가 하나 있습니다. 데스크톱 애플리케이션에서 사용할 경우 `.WithParentActivityOrWindow`는 플랫폼에 따라 다른 형식을 갖습니다. 또는 로그인 대화 상자가 화면에 표시 되는 위치를 제어 하지 않으려는 경우 선택적 부모 창 매개 변수를 생략 하 여 창을 만들 수 있습니다. 이는 다른 백 엔드 서비스에 대 한 호출을 전달 하는 데 사용 되는 명령줄 기반 응용 프로그램에 적용 되며, 사용자 조작을 위한 windows가 필요 하지 않습니다. 
+UI는 대화형이기 때문에 중요합니다. `AcquireTokenInteractive`에는 부모 UI를 지원하는 플랫폼에서 부모 UI를 지정할 수 있는 선택적 매개 변수가 하나 있습니다. 데스크톱 애플리케이션에서 사용할 경우 `.WithParentActivityOrWindow`는 플랫폼에 따라 다른 형식을 갖습니다. 또는 화면에 로그인 대화 상자가 표시 되는 위치를 제어 하지 않으려는 경우 선택적 부모 창 매개 변수를 생략 하 여 창을 만들 수 있습니다. 이는 다른 백 엔드 서비스에 대 한 호출을 전달 하는 데 사용 되는 명령줄 기반 응용 프로그램에 적용 되며, 사용자 조작을 위한 windows가 필요 하지 않습니다.
 
 ```csharp
 // net45
@@ -278,7 +278,7 @@ MSAL.NET 팀은 UI 테스트가 이 확장성 메커니즘을 사용할 수 있�
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>SystemWebViewOptions를 사용하여 우수한 환경 제공하기
 
-MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet)에서 다음을 지정할 수 있습니다.
+MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions)에서 다음을 지정할 수 있습니다.
 
 - 시스템 웹 브라우저에서 로그인 또는 동의 오류가 발생한 경우 이동할 URI(`BrowserRedirectError`) 또는 표시할 HTML 조각(`HtmlMessageError`).
 - 성공적인 로그인 또는 동의가 이루어진 경우 이동할 URI(`BrowserRedirectSuccess`) 또는 표시할 HTML 조각(`HtmlMessageSuccess`).
@@ -304,7 +304,7 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### <a name="other-optional-parameters"></a>그 밖의 선택적 매개 변수
 
-`AcquireTokenInteractive`의 다른 모든 선택적 매개 변수에 대해 자세히 알아보려면 [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)를 참조하세요.
+`AcquireTokenInteractive`의 다른 모든 선택적 매개 변수에 대해 자세히 알아보려면 [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods)를 참조하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -433,7 +433,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
   - 또는 테넌트 관리자자 사전에 테넌트의 모든 사용자에 대해 애플리케이션 사용을 동의했어야 합니다.
   - 다시 말하면,
     - 개발자가 직접 Azure Portal에서 **권한 부여** 단추를 선택했어야 합니다.
-    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지**를 선택했어야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조 하세요.
+    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지** 를 선택했어야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조 하세요.
     - 또는 사용자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [개별 사용자의 동의 요청](./v2-permissions-and-consent.md#requesting-individual-user-consent)을 참조하세요.
     - 또는 테넌트 관리자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [관리자 동의](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)를 참조하세요.
 
@@ -532,7 +532,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-AcquireTokenByIntegratedWindowsAuthentication의 가능한 한정자 목록은 [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)를 참조하세요.
+AcquireTokenByIntegratedWindowsAuthentication의 가능한 한정자 목록은 [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder#methods)를 참조하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -687,7 +687,7 @@ static async Task GetATokenForGraph()
  if (accounts.Any())
  {
   result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
-                    .ExecuteAync();
+                    .ExecuteAsync();
  }
  else
  {
@@ -832,7 +832,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-`AcquireTokenByUsernamePassword`에 적용할 수 있는 모든 한정자에 대한 자세한 내용은 [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)를 참조하세요.
+`AcquireTokenByUsernamePassword`에 적용할 수 있는 모든 한정자에 대한 자세한 내용은 [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder#methods)를 참조하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -954,7 +954,7 @@ Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요합니다
 ```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
-private readonly string[] Scopes = new string[] { "user.read" };
+private readonly string[] scopes = new string[] { "user.read" };
 
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
@@ -969,7 +969,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     // All AcquireToken* methods store the tokens in the cache, so check the cache first
     try
     {
-        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+        return await pca.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
             .ExecuteAsync();
     }
     catch (MsalUiRequiredException ex)
@@ -1180,7 +1180,7 @@ ADAL.NET 3.x, ADAL.NET 5.x 및 MSAL.NET 간에 SSO 상태를 공유하도록 토
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>간단한 토큰 캐시 직렬화(MSAL만 해당)
 
-다음은 데스크톱 애플리케이션의 토큰 캐시를 사용자 지정 직렬화하는 간단한 예입니다. 여기서 사용자 토큰 캐시는 애플리케이션과 동일한 폴더에 있는 파일에 있습니다.
+다음은 데스크톱 애플리케이션의 토큰 캐시를 사용자 지정 직렬화하는 간단한 예입니다. 여기서 사용자 토큰 캐시는 응용 프로그램과 동일한 폴더에 있는 파일 또는 앱이 [패키지 된 데스크톱 응용 프로그램](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes)일 경우 앱 별 사용자 당 폴더에 있습니다. 전체 코드는 다음 샘플을 참조 하세요. [활성-디렉터리-dotnet-데스크톱-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 애플리케이션을 빌드한 후에 ``TokenCacheHelper.EnableSerialization()``을 호출하고 애플리케이션 `UserTokenCache`를 전달하여 직렬화를 사용하도록 설정합니다.
 
@@ -1199,15 +1199,27 @@ static class TokenCacheHelper
   {
    tokenCache.SetBeforeAccess(BeforeAccessNotification);
    tokenCache.SetAfterAccess(AfterAccessNotification);
+   try
+   {
+    // For packaged desktop apps (MSIX packages) the executing assembly folder is read-only. 
+    // In that case we need to use Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\msalcache.bin" 
+    // which is a per-app read/write folder for packaged apps.
+    // See https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes
+    CacheFilePath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path, "msalcache.bin3");
+   }
+   catch (System.InvalidOperationException)
+   {
+    // Fall back for an un-packaged desktop app
+    CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin";
+   }
   }
 
   /// <summary>
   /// Path to the token cache
   /// </summary>
-  public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+  public static string CacheFilePath { get; private set; }
 
   private static readonly object FileLock = new object();
-
 
   private static void BeforeAccessNotification(TokenCacheNotificationArgs args)
   {
@@ -1388,7 +1400,10 @@ namespace CommonCacheMsalV3
 }
 ```
 
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>고급 백그라운드 앱 및 서비스에서 사용자의 캐시 된 토큰 액세스
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [데스크톱 앱에서 웹 API 호출](scenario-desktop-call-api.md)
+이 시나리오의 다음 문서로 이동 하 여 [데스크톱 앱에서 WEB API를 호출](scenario-desktop-call-api.md)합니다.

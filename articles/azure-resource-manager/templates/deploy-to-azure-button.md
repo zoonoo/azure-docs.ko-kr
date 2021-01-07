@@ -2,21 +2,32 @@
 title: Azure 단추에 배포
 description: GitHub 리포지토리에서 Azure Resource Manager 템플릿을 배포 하려면 단추를 사용 합니다.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 11/10/2020
+ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079449"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185728"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포
 
-이 문서에서는 **Azure에 배포** 단추를 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 설명 합니다. GitHub 리포지토리의 README.md 파일 또는 리포지토리를 참조 하는 웹 페이지에 직접 단추를 추가할 수 있습니다. 이 방법은 리소스 그룹 수준 배포만 지원 합니다.
+이 문서에서는 **Azure에 배포** 단추를 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 설명 합니다. GitHub 리포지토리의 README.md 파일에 직접 단추를 추가할 수 있습니다. 또는 리포지토리를 참조 하는 웹 페이지에 단추를 추가할 수 있습니다.
+
+배포 범위는 템플릿 스키마에 의해 결정 됩니다. 자세한 내용은 다음을 참조하세요.
+
+* [리소스 그룹](deploy-to-resource-group.md)
+* [등에](deploy-to-subscription.md)
+* [관리 그룹](deploy-to-management-group.md)
+* [테 넌 트](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>공통 이미지 사용
 
 웹 페이지 또는 리포지토리에 단추를 추가 하려면 다음 이미지를 사용 합니다.
+
+```markdown
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+```
 
 ```html
 <img src="https://aka.ms/deploytoazurebutton"/>
@@ -28,7 +39,7 @@ ms.locfileid: "87079449"
 
 ## <a name="create-url-for-deploying-template"></a>템플릿을 배포 하기 위한 URL 만들기
 
-템플릿에 대 한 URL을 만들려면 리포지토리의 템플릿에 대 한 원시 URL로 시작 합니다. 원시 URL을 보려면 **raw**를 선택 합니다.
+템플릿에 대 한 URL을 만들려면 리포지토리의 템플릿에 대 한 원시 URL로 시작 합니다. 원시 URL을 보려면 **raw** 를 선택 합니다.
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="원시 선택":::
 
@@ -38,9 +49,10 @@ URL 형식은 다음과 같습니다.
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-그런 다음 URL로 인코딩합니다. 온라인 인코더를 사용 하거나 명령을 실행할 수 있습니다. 다음 PowerShell 예제에서는 값을 URL로 인코딩하는 방법을 보여 줍니다.
+그런 다음 url을 URL로 인코딩된 값으로 변환 합니다. 온라인 인코더를 사용 하거나 명령을 실행할 수 있습니다. 다음 PowerShell 예제에서는 값을 URL로 인코딩하는 방법을 보여 줍니다.
 
 ```powershell
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
@@ -64,6 +76,16 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 링크에 대 한 전체 URL이 있습니다.
 
+일반적으로 공용 리포지토리에서 템플릿을 호스팅합니다. 개인 리포지토리를 사용 하는 경우 템플릿의 원시 콘텐츠를 액세스 하는 토큰을 포함 해야 합니다. GitHub에 의해 생성 된 토큰은 짧은 시간 동안만 유효 합니다. 링크를 자주 업데이트 해야 합니다.
+
+GitHub 리포지토리 대신 [Azure Repos에서 Git](/azure/devops/repos/git/) 를 사용 하는 경우 Azure에 배포 단추를 계속 사용할 수 있습니다. 리포지토리가 공용 인지 확인 합니다. [항목 작업](/rest/api/azure/devops/git/items/get) 을 사용 하 여 템플릿을 가져옵니다. 요청은 다음 형식 이어야 합니다.
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+이 요청 URL을 인코딩합니다.
+
 ## <a name="create-deploy-to-azure-button"></a>Azure에 배포 단추 만들기
 
 마지막으로 링크와 이미지를 함께 배치 합니다.
@@ -80,6 +102,12 @@ HTML의 경우 다음을 사용 합니다.
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+Azure 리포지토리를 사용 하는 Git의 경우 단추는 다음과 같은 형식입니다.
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%2freponame%2fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>템플릿 배포

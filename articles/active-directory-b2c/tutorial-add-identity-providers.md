@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f9abf9105da773ec5f8321c0f8e70e20516618c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 166bdb7a2cf15a84e1b826a9a798042c568bb227
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922152"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608234"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가
 
@@ -47,11 +48,11 @@ Azure AD에서 사용자 로그인을 허용하려면 Azure AD 테넌트 내에 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
-1. **새 등록**을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
+1. **새 등록** 을 선택합니다.
 1. 애플리케이션의 이름을 입력합니다. 예들 들어 `Azure AD B2C App`입니다.
 1. 이 애플리케이션에서 **이 조직 디렉터리의 계정만** 선택을 수락합니다.
-1. **리디렉션 URI**의 경우, **Web**의 값을 수락하고 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-B2C-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
+1. **리디렉션 URI** 의 경우, **Web** 의 값을 수락하고 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-B2C-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -61,33 +62,33 @@ Azure AD에서 사용자 로그인을 허용하려면 Azure AD 테넌트 내에 
 
     이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
 
-1. **등록**을 선택한 다음, 이후 단계에서 사용하는 **애플리케이션(클라이언트) ID**를 기록합니다.
-1. 애플리케이션 메뉴의 **관리**에서 **인증서 및 비밀**을 선택한 다음, **새 클라이언트 암호**를 선택합니다.
-1. 클라이언트 암호에 대한 **설명**을 입력합니다. 예들 들어 `Azure AD B2C App Secret`입니다.
+1. **등록** 을 선택한 다음, 이후 단계에서 사용하는 **애플리케이션(클라이언트) ID** 를 기록합니다.
+1. 애플리케이션 메뉴의 **관리** 에서 **인증서 및 비밀** 을 선택한 다음, **새 클라이언트 암호** 를 선택합니다.
+1. 클라이언트 암호에 대한 **설명** 을 입력합니다. 예들 들어 `Azure AD B2C App Secret`입니다.
 1. 만료 기간을 선택합니다. 이 애플리케이션의 경우 **1년** 선택을 수락합니다.
-1. **추가**를 선택한 다음, 이후 단계에서 사용하는 새 클라이언트 암호 값을 기록합니다.
+1. **추가** 를 선택한 다음, 이후 단계에서 사용하는 새 클라이언트 암호 값을 기록합니다.
 
 ### <a name="create-a-facebook-application"></a>Facebook 애플리케이션 만들기
 
 Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에서 애플리케이션을 만들어야 합니다. Facebook 계정이 없는 경우 [https://www.facebook.com/](https://www.facebook.com/)에서 얻을 수 있습니다.
 
 1. Facebook 계정 자격 증명으로 [개발자용 Facebook](https://developers.facebook.com/)에 로그인합니다.
-1. 아직 등록하지 않은 경우 Facebook 개발자로 등록해야 합니다. 이를 수행하려면 페이지의 오른쪽 위에서 **시작**을 선택하고 Facebook의 정책에 동의한 후 등록 단계를 완료합니다.
-1. **내 앱**을 선택한 다음, **앱 만들기**를 선택합니다.
-1. **표시 이름** 및 유효한 **연락처 전자 메일**을 제공합니다.
-1. **앱 ID 만들기**를 클릭합니다. Facebook 플랫폼 정책을 수용하고 온라인 보안 검사를 완료해야 합니다.
-1. **설정** > **기본**을 선택합니다.
-1. `Business and Pages` 등의 **범주**를 선택합니다. 이 값은 Facebook의 경우 필수이지만 Azure AD B2C에서는 사용되지 않습니다.
-1. 페이지의 맨 아래에서 **플랫폼 추가**를 선택한 후 **웹 사이트**를 선택합니다.
-1. **사이트 URL**에 `https://your-tenant-name.b2clogin.com/`을 입력합니다. 여기서 `your-tenant-name`은 실제 테넌트의 이름으로 바꾸세요.
-1. **개인 정보 취급 방침 URL**의 URL(예: `http://www.contoso.com/`)을 입력합니다. 개인정보처리방침 URL은 애플리케이션에 대한 개인 정보를 제공하기 위해 유지 관리하는 페이지입니다.
-1. **변경 내용 저장**을 선택합니다.
+1. 아직 등록하지 않은 경우 Facebook 개발자로 등록해야 합니다. 이를 수행하려면 페이지의 오른쪽 위에서 **시작** 을 선택하고 Facebook의 정책에 동의한 후 등록 단계를 완료합니다.
+1. **내 앱** 을 선택한 다음, **앱 만들기** 를 선택합니다.
+1. **표시 이름** 및 유효한 **연락처 전자 메일** 을 제공합니다.
+1. **앱 ID 만들기** 를 클릭합니다. Facebook 플랫폼 정책을 수용하고 온라인 보안 검사를 완료해야 합니다.
+1. **설정** > **기본** 을 선택합니다.
+1. `Business and Pages` 등의 **범주** 를 선택합니다. 이 값은 Facebook의 경우 필수이지만 Azure AD B2C에서는 사용되지 않습니다.
+1. 페이지의 맨 아래에서 **플랫폼 추가** 를 선택한 후 **웹 사이트** 를 선택합니다.
+1. **사이트 URL** 에 `https://your-tenant-name.b2clogin.com/`을 입력합니다. 여기서 `your-tenant-name`은 실제 테넌트의 이름으로 바꾸세요.
+1. **개인 정보 취급 방침 URL** 의 URL(예: `http://www.contoso.com/`)을 입력합니다. 개인정보처리방침 URL은 애플리케이션에 대한 개인 정보를 제공하기 위해 유지 관리하는 페이지입니다.
+1. **변경 내용 저장** 을 선택합니다.
 1. 페이지의 맨 위에서 **앱 ID** 값을 기록합니다.
-1. **앱 비밀** 옆에 있는 **표시**를 선택하고 해당 값을 기록합니다. 테넌트에서 Facebook을 ID 공급자로 구성하려면 앱 ID 및 앱 비밀을 모두 사용합니다. **앱 비밀**은 안전하게 저장해야 하는 중요한 보안 자격 증명입니다.
-1. **제품** 옆에 있는 더하기 기호를 선택한 다음, **Facebook 로그인**에 있는 **설정**을 선택합니다.
-1. 왼쪽 메뉴의 **Facebook 로그인**에서 **설정**을 선택합니다.
-1. **유효한 OAuth 리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. 페이지 아래쪽에 있는 **변경 내용 저장**을 선택합니다.
-1. Azure AD B2C에서 Facebook 애플리케이션을 사용할 수 있도록 하려면 페이지 오른쪽 위에 있는 **상태** 선택기를 클릭한 후 **설정**하여 공용 애플리케이션으로 만들고 **확인**을 클릭합니다. 이때 상태가 **개발**에서 **라이브**로 변경됩니다.
+1. **앱 비밀** 옆에 있는 **표시** 를 선택하고 해당 값을 기록합니다. 테넌트에서 Facebook을 ID 공급자로 구성하려면 앱 ID 및 앱 비밀을 모두 사용합니다. **앱 비밀** 은 안전하게 저장해야 하는 중요한 보안 자격 증명입니다.
+1. **제품** 옆에 있는 더하기 기호를 선택한 다음, **Facebook 로그인** 에 있는 **설정** 을 선택합니다.
+1. 왼쪽 메뉴의 **Facebook 로그인** 에서 **설정** 을 선택합니다.
+1. **유효한 OAuth 리디렉션 URI** 에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. 페이지 아래쪽에 있는 **변경 내용 저장** 을 선택합니다.
+1. Azure AD B2C에서 Facebook 애플리케이션을 사용할 수 있도록 하려면 페이지 오른쪽 위에 있는 **상태** 선택기를 클릭한 후 **설정** 하여 공용 애플리케이션으로 만들고 **확인** 을 클릭합니다. 이때 상태가 **개발** 에서 **라이브** 로 변경됩니다.
 
 ## <a name="add-the-identity-providers"></a>ID 공급자 추가
 
@@ -96,22 +97,24 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Azure Active Directory ID 공급자 추가
 
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **ID 공급자**를 선택한 다음, **새 OpenID Connect 공급자**를 선택합니다.
-1. **이름**을 입력합니다. 예를 들어 *Contoso Azure AD*를 입력합니다.
-1. **메타데이터 URL**에 대해 다음 URL을 입력합니다. 여기서 `your-AD-tenant-domain`은 Azure AD 테넌트의 도메인 이름으로 바꿉니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
+1. **이름** 을 입력합니다. 예를 들어 *Contoso Azure AD* 를 입력합니다.
+1. **메타데이터 URL** 에 대해 다음 URL을 입력합니다. 여기서 `{tenant}`은 Azure AD 테넌트의 도메인 이름으로 바꿉니다.
 
     ```
-    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    예들 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`입니다.
+    예들 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`입니다.
+    예들 들어 `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`입니다.
 
-1. **Client ID**에 대해 이전에 기록한 애플리케이션 ID를 입력합니다.
-1. 이전에 기록해 두었던 클라이언트 암호를 **클라이언트 암호**에 입력합니다.
-1. **범위**, **응답 유형** 및 **응답 모드**에 대한 기본값을 그대로 둡니다.
-1. 선택적으로 **Domain_hint**의 값을 입력합니다. 예를 들어 *ContosoAD*입니다. [도메인 힌트](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)는 애플리케이션의 인증 요청에 포함되는 지시문입니다. 페더레이션된 IdP 로그인 페이지로 사용자를 빠르게 보내는 데 사용할 수 있습니다. 또는 다중 테넌트 애플리케이션에서 테넌트에 대한 브랜딩 Azure AD 로그인 페이지로 사용자를 바로 보내는 데 사용될 수 있습니다.
-1. **ID 공급자 클레임 매핑**에서 다음 클레임 매핑 값을 입력합니다.
+1. **Client ID** 에 대해 이전에 기록한 애플리케이션 ID를 입력합니다.
+1. 이전에 기록해 두었던 클라이언트 암호를 **클라이언트 암호** 에 입력합니다.
+1. **범위** 에 `openid profile`을 입력합니다.
+1. **응답 유형** 및 **응답 모드** 에 대한 기본값을 그대로 둡니다.
+1. (선택 사항) **도메인 힌트** 에 `contoso.com`을 입력합니다. 자세한 내용은 [Azure Active Directory B2C를 사용하여 직접 로그인 설정](direct-signin.md#redirect-sign-in-to-a-social-provider)을 참조하세요.
+1. **ID 공급자 클레임 매핑** 에서 다음 클레임을 선택합니다.
 
     * **사용자 ID**: *oid*
     * **표시 이름**: *name*
@@ -119,29 +122,29 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
     * **성**: *family_name*
     * **이메일**: *unique_name*
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="add-the-facebook-identity-provider"></a>Facebook ID 공급자 추가
 
-1. **ID 공급자**를 선택한 다음, **Facebook**을 선택합니다.
-1. **이름**을 입력합니다. 예를 들어 *Facebook*입니다.
-1. **클라이언트 ID**에 대해 이전에 만든 Facebook 애플리케이션의 앱 ID를 입력합니다.
-1. **클라이언트 암호**에는 기록했던 앱 비밀을 입력합니다.
-1. **저장**을 선택합니다.
+1. **ID 공급자** 를 선택한 다음, **Facebook** 을 선택합니다.
+1. **이름** 을 입력합니다. 예를 들어 *Facebook* 입니다.
+1. **클라이언트 ID** 에 대해 이전에 만든 Facebook 애플리케이션의 앱 ID를 입력합니다.
+1. **클라이언트 암호** 에는 기록했던 앱 비밀을 입력합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="update-the-user-flow"></a>사용자 흐름 업데이트
 
 필수 조건의 일부로 완료한 자습서에서 등록 및 로그인을 위한 사용자 흐름(*B2C_1_signupsignin1*)을 만들었습니다. 이 섹션에서는 *B2C_1_signupsignin1* 사용자 흐름에 ID 공급자를 추가합니다.
 
 1. **사용자 흐름**, *B2C_1_signupsignin1* 사용자 흐름을 차례로 선택합니다.
-2. **ID 공급자**를 선택한 다음, 추가한 **Facebook** 및 **Contoso Azure AD** ID 공급자를 선택합니다.
-3. **저장**을 선택합니다.
+2. **ID 공급자** 를 선택한 다음, 추가한 **Facebook** 및 **Contoso Azure AD** ID 공급자를 선택합니다.
+3. **저장** 을 선택합니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. 만든 사용자 흐름의 개요 페이지에서 **사용자 흐름 실행**을 선택합니다.
-1. **애플리케이션**으로 이전에 등록한 *webapp1*이라는 웹 애플리케이션을 선택합니다. **회신 URL**에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행**을 선택한 다음, 이전에 추가한 ID 공급자로 로그인합니다.
+1. 만든 사용자 흐름의 개요 페이지에서 **사용자 흐름 실행** 을 선택합니다.
+1. **애플리케이션** 으로 이전에 등록한 *webapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **사용자 흐름 실행** 을 선택한 다음, 이전에 추가한 ID 공급자로 로그인합니다.
 1. 추가한 다른 ID 공급자에 대해 1-3단계를 반복합니다.
 
 로그인 작업이 성공하면 다음과 같이 디코딩된 토큰을 표시하는 `https://jwt.ms`로 리디렉션됩니다.

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f701e41c62336bcd7638360a27a0fb4c3ce3ec7d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 71561f6ecdde09f259e54260e7bab4dcc0e85c98
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686669"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132638"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Azure Portal에서 청구 계정을 살펴볼 때 발생하는 문제 해결
 
@@ -59,7 +59,7 @@ Azure Portal에서 청구 계정을 볼 수 없는 경우 다음 옵션을 시�
 
 문제 해결에 도움이 되는 다음 청구 및 구독 문서를 참조하세요.
 
-- [거부된 카드](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [구독 로그인 문제](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [구독을 찾을 수 없음](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Enterprise 비용 보기 사용 안 함](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [거부된 카드](./troubleshoot-declined-card.md)
+- [구독 로그인 문제](./troubleshoot-sign-in-issue.md)
+- [구독을 찾을 수 없음](./no-subscriptions-found.md)
+- [Enterprise 비용 보기 사용 안 함](./enterprise-mgmt-grp-troubleshoot-cost-view.md)

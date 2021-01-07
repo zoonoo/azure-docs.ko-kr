@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/10/2020
+  ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: aec131b8c7a3e5092b6b090668fb0eb006b079a3
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: e9a7f7ebdaa2fa041fff6ecbfa99dd2c9c781c82
+  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90904130"
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96548990"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -26,13 +26,13 @@ highlightedContent:
     url: guides/developer/azure-developer-guide.md
   - title: Azure 아키텍처 센터를 사용하여 앱 디자인
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/
+    url: /azure/architecture/
   - title: 조직의 클라우드 채택 프레임워크 준비
     itemType: overview
-    url: https://docs.microsoft.com/azure/cloud-adoption-framework/
+    url: /azure/cloud-adoption-framework/
   - title: Microsoft Learn을 통해 기술 쌓기
     itemType: learn
-    url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
+    url: /learn/browse/?products=azure&resource_type=learning%2bpath
 productDirectory:
   title: Azure 제품 찾아보기
   items:
@@ -47,7 +47,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/bot-service.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/azure/bot-service/
+    url: /azure/bot-service/
   - title: Azure Cognitive Search
     summary: 모바일 앱 및 웹앱 개발을 위한 AI 기반 클라우드 검색 서비스
     imageSrc: https://static.docs.com/ui/media/product/azure/search.svg
@@ -89,7 +89,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/rtos.svg
     azureCategories:
     - iot
-    url: https://docs.microsoft.com/azure/rtos/
+    url: /azure/rtos/
   - title: Bing Autosuggest
     summary: 앱에 검색에 대한 인텔리전트 자동 제안 옵션 제공
     imageSrc: ./media/index/API_Bing_AutoSuggest.svg
@@ -144,8 +144,8 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
-  - title: Communication Services
-    summary: 앱에 실시간 음성, 비디오 및 전화 통신 추가
+  - title: Azure Communication Services(미리 보기)
+    summary: Microsoft Teams에서 사용하는 것과 동일한 보안 플랫폼을 사용하여 다양한 통신 환경 구축
     imageSrc: ./media/index/communication-services.svg
     azureCategories:
     - web
@@ -219,6 +219,12 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: genomics/index.yml
+  - title: Metrics Advisor(미리 보기)
+    summary: 메트릭을 모니터링하고 문제를 진단하는 AI 서비스
+    imageSrc: ./media/index/metrics-advisor.svg
+    azureCategories:
+    - ai-machine-learning
+    url: cognitive-services/metrics-advisor/index.yml
   - title: Personalizer
     summary: 맞춤형 사용자 환경을 제공하는 AI 서비스
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -230,7 +236,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/bonsai/
+    url: /bonsai/
   - title: QnA Maker
     summary: 정보를 탐색하기 쉬운 대화형 답변으로 추출
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -242,19 +248,19 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: cognitive-services/speaker-recognition/home.md
+    url: ./cognitive-services/speech-service/speaker-recognition-overview.md
   - title: 음성을 텍스트로 변환
     summary: 보다 자연스러운 상호 작용이 가능하도록 음성 오디오를 텍스트로 변환
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtotext
+    url: ./cognitive-services/speech-service/index-speech-to-text.yml
   - title: Speech Translation
     summary: 실시간 음성 번역을 간편하게 앱에 통합
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtranslation
+    url: ./cognitive-services/speech-service/index-speech-translation.yml
   - title: 텍스트 분석
     summary: 감정 및 토픽을 쉽게 평가하여 사용자가 원하는 것을 이해
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -266,7 +272,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=texttospeech
+    url: ./cognitive-services/speech-service/index-text-to-speech.yml
   - title: Translator
     summary: 간단한 REST API 호출을 통해 쉽게 기계 번역 수행
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -314,17 +320,24 @@ productDirectory:
     - iot
     url: stream-analytics/index.yml
   - title: Azure Synapse Analytics
-    summary: 빠른 인사이트를 제공하는 무제한 분석 서비스(이전의 SQL Data Warehouse)
+    summary: 인사이트에 대한 시간이 일치하지 않는 무제한 분석 서비스
     imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
     azureCategories:
     - analytics
-    url: synapse-analytics/sql-data-warehouse/index.yml
+    url: synapse-analytics/index.yml
   - title: Data Catalog
     summary: 엔터프라이즈 데이터 자산에서 더 많은 가치 창출
     imageSrc: https://static.docs.com/ui/media/product/azure/data-catalog.svg
     azureCategories:
     - analytics
     url: data-catalog/index.yml
+  - title: Azure Purview
+    summary: 통합 데이터 거버넌스를 통해 비즈니스 가치 극대화
+    imageSrc: https://static.docs.com/ui/media/product/azure/purview.svg
+    azureCategories:
+    - analytics
+    - management-and-governance
+    url: purview/index.yml
   - title: Data Factory
     summary: 엔터프라이즈 규모로 쉽게 하이브리드 데이터를 통합
     imageSrc: https://static.docs.com/ui/media/product/azure/data-factory.svg
@@ -361,7 +374,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/power-bi.svg
     azureCategories:
     - analytics
-    url: https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded
+    url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
   - title: HDInsight용 R Server
     summary: 빅 데이터를 위한 예측 분석, 기계 학습 및 통계 모델링
     imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
@@ -419,13 +432,13 @@ productDirectory:
     imageSrc: ./media/index/logo_cyclecloud.svg
     azureCategories:
     - compute
-    url: https://docs.microsoft.com/azure/cyclecloud/index
+    url: /azure/cyclecloud/index
   - title: Azure Dedicated Host
     summary: Windows 및 Linux용 Azure VM을 호스트하는 전용 물리적 서버
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
     azureCategories:
     - compute
-    url: virtual-machines/windows/dedicated-hosts.md
+    url: ./virtual-machines/dedicated-hosts.md
   - title: Azure 기능
     summary: 서버가 없는 코드로 이벤트 처리
     imageSrc: https://static.docs.com/ui/media/product/azure/functions.svg
@@ -450,7 +463,7 @@ productDirectory:
     - compute
     - web
     url: spring-cloud/index.yml
-  - title: Azure VMware Solution(미리 보기)
+  - title: Azure VMware 솔루션
     summary: Azure에서 기본적으로 VMware 워크로드를 실행
     imageSrc: ./media/index/azure-vmware.svg
     azureCategories:
@@ -495,7 +508,7 @@ productDirectory:
     azureCategories:
     - compute
     - databases
-    url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
+    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - title: Static Web Apps(미리 보기)
     summary: 소스 코드에서 글로벌 고가용성까지 간소화된 전체 스택 개발을 제공하는 최신 웹앱 서비스
     imageSrc: ./media/index/static-apps.svg
@@ -557,7 +570,7 @@ productDirectory:
     azureCategories:
     - containers
     - web
-    url: app-service/containers/index.yml
+    url: ./app-service/index.yml
   - title: FHIR용 Azure API
     summary: 의료 데이터 솔루션 및 상호 운용성을 위한 FHIR 서비스를 쉽게 만들고 배포
     imageSrc: https://static.docs.com/ui/media/product/azure/api-for-fhir.svg
@@ -637,11 +650,11 @@ productDirectory:
     - developer-tools
     url: azure-app-configuration/index.yml
   - title: Azure Data Studio
-    summary: 주문형 SQL 쿼리를 실행하고 텍스트, JSON 또는 Excel로 결과를 보고 저장할 수 있는 경량 편집기입니다.
+    summary: 서버리스 SQL 풀 쿼리를 실행하고 텍스트, JSON 또는 Excel로 결과를 보고 저장할 수 있는 경량 편집기입니다.
     imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
     azureCategories:
     - developer-tools
-    url: https://docs.microsoft.com/sql/azure-data-studio/
+    url: /sql/azure-data-studio/
   - title: Azure DevOps
     summary: 팀에서 서비스를 통해 코드 공유, 작업 추적 및 소프트웨어 릴리스 가능
     imageSrc: https://static.docs.com/ui/media/product/azure/devops.svg
@@ -649,7 +662,7 @@ productDirectory:
     - developer-tools
     - devops
     - hybrid
-    url: https://docs.microsoft.com/azure/devops/
+    url: /azure/devops/
   - title: Azure DevTest Labs
     summary: 재사용 가능한 템플릿 및 아티팩트를 사용하여 환경을 신속하게 구축
     imageSrc: https://static.docs.com/ui/media/product/azure/devtest-labs.svg
@@ -669,13 +682,13 @@ productDirectory:
     azureCategories:
     - developer-tools
     - devops
-    url: https://docs.microsoft.com/azure/devops/pipelines/
+    url: /azure/devops/pipelines/
   - title: Visual Studio
     summary: 클라우드에서 애플리케이션을 개발하기 위한 강력하고 유연한 환경
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
     azureCategories:
     - developer-tools
-    url: https://docs.microsoft.com/visualstudio/windows
+    url: /visualstudio/windows
   - title: Visual Studio Code
     summary: 강력하면서도 가벼운 클라우드 개발용 코드 편집기
     imageSrc: https://docs.microsoft.com/media/logos/logo_vs-code.svg
@@ -687,7 +700,7 @@ productDirectory:
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
     azureCategories:
     - developer-tools
-    url: https://docs.microsoft.com/visualstudio/online/overview/what-is-vsonline
+    url: /visualstudio/online/overview/what-is-vsonline
   - title: Application Insights
     summary: 애플리케이션, 인프라 및 네트워크에 대한 전체 가시성 제공
     imageSrc: https://static.docs.com/ui/media/product/azure/application-insights.svg
@@ -700,13 +713,13 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/artifacts.svg
     azureCategories:
     - devops
-    url: https://docs.microsoft.com/azure/devops/artifacts/
+    url: /azure/devops/artifacts/
   - title: Azure Boards
     summary: 팀원들과 작업을 계획하고, 추적하고, 논의
     imageSrc: https://static.docs.com/ui/media/product/azure/boards.svg
     azureCategories:
     - devops
-    url: https://docs.microsoft.com/azure/devops/boards/
+    url: /azure/devops/boards/
   - title: Azure Monitor
     summary: 애플리케이션, 인프라 및 네트워크에 대한 전체 가시성 제공
     imageSrc: https://static.docs.com/ui/media/product/azure/monitor.svg
@@ -719,20 +732,20 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/repos.svg
     azureCategories:
     - devops
-    url: https://docs.microsoft.com/azure/devops/repos/
+    url: /azure/devops/repos/
   - title: Azure Test Plans
     summary: 수동 및 예비 테스트 도구 키트를 사용하여 안심하고 테스트한 후 배송
     imageSrc: https://static.docs.com/ui/media/product/azure/test-plans.svg
     azureCategories:
     - devops
-    url: https://docs.microsoft.com/azure/devops/test/
+    url: /azure/devops/test/
   - title: Azure에 대한 GitHub 작업
     summary: GitHub에서 Azure로 모든 앱 빌드, 테스트 및 배포
     imageSrc: ./media/index/github-actions-icon.svg
     azureCategories:
     - devops
     - developer-tools
-    url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
+    url: /azure/developer/github/github-actions
   - title: Azure AD(Active Directory)
     summary: 온-프레미스 디렉터리 동기화 및 Single Sign-On 활성화
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
@@ -766,25 +779,25 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/stack.svg
     azureCategories:
     - hybrid
-    url: https://docs.microsoft.com/azure-stack/
+    url: /azure-stack/
   - title: Azure Stack HCI(미리 보기)
     summary: 하이퍼 컨버지드 인프라를 Azure 및 하이브리드 서비스와 통합하여 온-프레미스에서 가상 작업 실행
     imageSrc: https://static.docs.com/ui/media/product/azure/stack-hci.svg
     azureCategories:
     - hybrid
-    url: https://docs.microsoft.com/azure-stack/hci/
+    url: /azure-stack/hci/
   - title: Azure Stack Hub
     summary: Azure Stack Hub는 유효성이 검사된 하드웨어에 소프트웨어가 사전 설치된 통합 하드웨어 시스템으로 판매됩니다.
     imageSrc: https://static.docs.com/ui/media/product/azure/stack-hub.svg
     azureCategories:
     - hybrid
-    url: https://docs.microsoft.com/azure-stack/operator/
+    url: /azure-stack/operator/
   - title: Azure Stack Edge
     summary: Azure의 컴퓨팅, 스토리지 및 인텔리전스를 에지에 제공하는 Azure 관리형 어플라이언스
     imageSrc: https://static.docs.com/ui/media/product/azure/stack-edge.svg
     azureCategories:
     - hybrid
-    url: https://docs.microsoft.com/azure/databox-online/
+    url: ./databox-online/index.yml
   - title: Security Center
     summary: 하이브리드 클라우드 워크로드 전체에서 보안 관리 통합 및 고급 위협 방지 사용
     imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
@@ -818,7 +831,7 @@ productDirectory:
     azureCategories:
     - identity
     - security
-    url: https://docs.microsoft.com/azure/information-protection/
+    url: /azure/information-protection/
   - title: API Management
     summary: API를 개발자, 파트너 및 직원에게 안전하게 대규모로 게시
     imageSrc: https://static.docs.com/ui/media/product/azure/api-management.svg
@@ -879,7 +892,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/sphere.svg
     azureCategories:
     - iot
-    url: https://docs.microsoft.com/azure-sphere/
+    url: /azure-sphere/
   - title: Azure Time Series Insights
     summary: IoT 디바이스에서 시계열 데이터를 살펴보고 분석
     imageSrc: https://static.docs.com/ui/media/product/azure/time-series-insights-environments.svg
@@ -899,14 +912,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/iot-windows10-core-services.svg
     azureCategories:
     - iot
-    url: https://docs.microsoft.com/windows/iot-core/
-  - title: IoT용 Security Center
-    summary: Azure IoT 솔루션 전체의 보안 관리를 통합하고 위협 방지 사용
-    imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
-    azureCategories:
-    - iot
-    - security
-    url: asc-for-iot/index.yml
+    url: /windows/iot-core/
   - title: Automation
     summary: 프로세스 자동화를 통해 클라우드 관리 간소화
     imageSrc: https://static.docs.com/ui/media/product/azure/automation.svg
@@ -963,8 +969,8 @@ productDirectory:
     azureCategories:
     - management-and-governance
     url: azure-resource-manager/index.yml
-  - title: Azure Resource Mover
-    summary: Azure 지역 간에 리소스를 이동합니다.
+  - title: Azure Resource Mover(미리 보기)
+    summary: Azure 지역 간에 여러 리소스를 이동하는 방법 단순화
     imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
     azureCategories:
     - management-and-governance
@@ -1090,13 +1096,13 @@ productDirectory:
     imageSrc: https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg
     azureCategories:
     - mobile
-    url: https://docs.microsoft.com/appcenter/
+    url: /appcenter/
   - title: Xamarin
     summary: 클라우드 기반의 모바일 앱을 더 빠르게 작성
     imageSrc: https://docs.microsoft.com/media/logos/logo_xamarin.svg
     azureCategories:
     - mobile
-    url: https://docs.microsoft.com/xamarin/
+    url: /xamarin/
   - title: Application Gateway
     summary: Azure에서 확장성 있는 고가용성의 보안 웹 프런트 엔드 빌드
     imageSrc: https://static.docs.com/ui/media/product/azure/application-gateways.svg
@@ -1110,13 +1116,26 @@ productDirectory:
     azureCategories:
     - networking
     url: bastion/index.yml
+  - title: Azure Defender
+    summary: 하이브리드 클라우드 워크로드 보호
+    imageSrc: ./media/index/defender.svg
+    azureCategories:
+    - security
+    url: security-center/azure-defender.md
+  - title: Azure Defender for IoT(미리 보기)
+    summary: 비관리형 및 관리형 IoT/OT 디바이스 모두에 대한 지속적인 자산 관리 및 위협 탐지
+    imageSrc: ./media/index/defender-iot.svg
+    azureCategories:
+    - security
+    - iot
+    url: ./security-center/azure-defender.md
   - title: Azure DDoS Protection
     summary: DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호
     imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg
     azureCategories:
     - networking
     - security
-    url: virtual-network/ddos-protection-overview.md
+    url: ./ddos-protection/ddos-protection-overview.md
   - title: Azure DNS
     summary: Azure에서 DNS 도메인 호스트
     imageSrc: https://static.docs.com/ui/media/product/azure/dns.svg
@@ -1281,28 +1300,28 @@ tools:
   items:
   - title: Python
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: https://docs.microsoft.com/azure/developer/python/
+    url: /azure/developer/python/
   - title: .NET
     imageSrc: ./media/index/net-logo.svg
-    url: https://docs.microsoft.com/dotnet/azure/
+    url: /dotnet/azure/
   - title: JavaScript
     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: https://docs.microsoft.com/azure/developer/javascript/
+    url: /azure/developer/javascript/
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/azure/developer/java/
+    url: /azure/developer/java/
   - title: Go
     imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-    url: https://docs.microsoft.com/azure/developer/go/
+    url: /azure/developer/go/
   - title: REST API
     imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
-    url: https://docs.microsoft.com/rest/api/
+    url: /rest/api/
   - title: Azure PowerShell
     imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
-    url: https://docs.microsoft.com/powershell/azure/
+    url: /powershell/azure/
   - title: Azure CLI
     imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
-    url: https://docs.microsoft.com/cli/azure/
+    url: /cli/azure/
   - title: ARM 템플릿
     imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
     url: azure-resource-manager/templates/index.yml
@@ -1327,4 +1346,4 @@ additionalContent:
       url: germany/index.yml
     - title: Azure China 21Vianet
       summary: 중국에 있으며 21Vianet에서 운영하는 전용 클라우드.
-      url: https://docs.microsoft.com/azure/china/
+      url: /azure/china/

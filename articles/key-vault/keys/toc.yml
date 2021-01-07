@@ -13,8 +13,17 @@
       href: quick-create-powershell.md
     - name: 포털
       href: quick-create-portal.md
+    - name: .NET
+      href: quick-create-net.md
+    - name: Node.js
+      href: quick-create-node.md
     - name: Python
       href: quick-create-python.md
+    - name: Java
+      href: quick-create-java.md
+    - name: ARM 템플릿
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: 자습서
   items:
     - name: HSM 보호 키 가져오기(개요)
@@ -26,7 +35,11 @@
 - name: 샘플
   items:
     - name: Key Vault 코드 샘플
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
+      href: /samples/browse/?expanded=azure&products=azure-key-vault
+- name: 개념
+  items:
+    - name: '키 유형, 알고리즘 및 작업'
+      href: about-keys-details.md
 - name: 참조
   items:
     - name: Azure PowerShell
@@ -38,7 +51,7 @@
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
+      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
     - name: REST (영문)
@@ -68,6 +81,6 @@
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: 블로그
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: 제품 사용자 의견
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

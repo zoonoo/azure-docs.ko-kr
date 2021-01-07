@@ -1,20 +1,20 @@
 ---
 title: 텍스트 모듈 참조에서 N-문법 기능 추출
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 추출 N-영문법 모듈을 사용 하 여 피쳐화 텍스트 데이터를 사용 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 디자이너에서 Extract N-영문법 모듈을 사용 하 여 텍스트 데이터를 피쳐화 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 12/08/2019
+ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907977"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861463"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>텍스트 모듈 참조에서 N-문법 기능 추출
 
@@ -28,7 +28,7 @@ ms.locfileid: "90907977"
 
 * [기존 텍스트 기능 집합을 사용](#use-an-existing-n-gram-dictionary) 하 여 자유 텍스트 열을 피쳐화.
 
-* N 그램을 사용 하는 [모델의 점수를 매기 나 게시](#score-or-publish-a-model-that-uses-n-grams) 합니다.
+* N 그램을 사용 하는 [모델의 점수를 매기 나 배포](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) 합니다.
 
 ### <a name="create-a-new-n-gram-dictionary"></a>새 n-영문법 사전 만들기
 
@@ -79,11 +79,11 @@ ms.locfileid: "90907977"
 
 1.  텍스트 모듈의 추출 N-문법 기능을 파이프라인에 추가 하 고 처리 하려는 텍스트가 포함 된 데이터 집합을 **데이터 집합** 포트에 연결 합니다.
 
-1.  **텍스트 열** 을 사용 하 여 피쳐화 할 텍스트가 포함 된 텍스트 열을 선택 합니다. 기본적으로 모듈은 **문자열**형식의 모든 열을 선택 합니다. 최상의 결과를 위해 한 번에 하나의 열을 처리 합니다.
+1.  **텍스트 열** 을 사용 하 여 피쳐화 할 텍스트가 포함 된 텍스트 열을 선택 합니다. 기본적으로 모듈은 **문자열** 형식의 모든 열을 선택 합니다. 최상의 결과를 위해 한 번에 하나의 열을 처리 합니다.
 
 1. 이전에 생성 된 n-영문법 사전을 포함 하는 저장 된 데이터 집합을 추가 하 고 **입력 어휘** 포트에 연결 합니다. 텍스트 모듈에서 Extract N-문법 기능의 업스트림 인스턴스의 **결과 어휘** 출력을 연결할 수도 있습니다.
 
-1. **어휘 모드**의 경우 드롭다운 목록에서 **ReadOnly** 업데이트 옵션을 선택 합니다.
+1. **어휘 모드** 의 경우 드롭다운 목록에서 **ReadOnly** 업데이트 옵션을 선택 합니다.
 
    **ReadOnly** 옵션은 입력 어휘에 대 한 입력 모음 나타냅니다. 새 텍스트 데이터 집합 (왼쪽 입력)에서 용어 빈도를 계산 하는 대신 입력 어휘의 n-영문법 가중치가 그대로 적용 됩니다.
 
@@ -94,17 +94,23 @@ ms.locfileid: "90907977"
 
 1.  파이프라인을 제출합니다.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>N 그램을 사용 하는 모델 점수 매기기 또는 게시
+### <a name="build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint"></a>N-그램을 사용 하 여 실시간 끝점을 배포 하는 빌드 유추 파이프라인
 
-1.  텍스트 모듈의 **추출 N-문법 기능** 을 학습 데이터 흐름에서 점수 흐름 데이터 흐름에 복사 합니다.
+텍스트 및 **점수 모델** **에서 추출** 하 여 테스트 데이터 집합에 대 한 예측을 만드는 학습 파이프라인은 다음 구조로 빌드됩니다.
 
-1.  학습 데이터 흐름의 **결과 어휘** 출력을 점수 흐름 데이터 흐름에 대 한 **입력 어휘** 에 연결 합니다.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="N 그램 학습 파이프라인 예제 추출" border="true":::
 
-1.  점수 매기기 워크플로에서 텍스트 모듈에서 N-영문법 기능 추출을 수정 하 고 **어휘 모드** 매개 변수를 **ReadOnly**로 설정 합니다. 다른 모든 것은 동일 하 게 유지 합니다.
+텍스트 모듈에서 시작 하는 원 **추출 N 그램 기능의** **어휘 모드** 는 **Create** 이 고 **모델 점수 매기기** 모듈에 연결 하는 모듈의 **어휘 모드** 는 **ReadOnly** 입니다.
 
-1.  파이프라인을 게시 하려면 **결과 어휘** 를 데이터 집합으로 저장 합니다.
+위의 학습 파이프라인을 성공적으로 제출한 후에는 원으로 표시 된 모듈의 출력을 데이터 집합으로 등록할 수 있습니다.
 
-1.  점수 매기기 그래프에서 저장 된 데이터 집합을 텍스트 모듈의 추출 N-영문법 기능에 연결 합니다.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="데이터 집합 등록" border="true":::
+
+그런 다음 실시간 유추 파이프라인을 만들 수 있습니다. 유추 파이프라인을 만든 후에 다음과 같이 유추 파이프라인을 수동으로 조정 해야 합니다.
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="유추 파이프라인" border="true":::
+
+그런 다음 유추 파이프라인을 제출 하 고 실시간 끝점을 배포 합니다.
 
 ## <a name="results"></a>결과
 
@@ -125,7 +131,7 @@ ms.locfileid: "90907977"
 + **DF**: 원래 모음의 n-문법에 대 한 용어 빈도 점수입니다.
 + **IDF**: 원래 모음의 n-문법에 대 한 역 문서 빈도 점수입니다.
 
-이 데이터 집합을 수동으로 업데이트할 수 있지만 오류가 발생할 수 있습니다. 다음은 그 예입니다. 
+이 데이터 집합을 수동으로 업데이트할 수 있지만 오류가 발생할 수 있습니다. 예를 들어:
 
 * 모듈이 입력 어휘에서 동일한 키를 가진 중복 행을 찾은 경우 오류가 발생 합니다. 어휘의 두 행이 같은 단어를 포함 하지 않도록 합니다.
 * 어휘 데이터 집합의 입력 스키마는 열 이름과 열 유형을 포함 하 여 정확 하 게 일치 해야 합니다. 

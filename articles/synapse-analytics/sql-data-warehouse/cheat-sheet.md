@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics 참고 자료(이전의 SQL DW)
-description: Azure Synapse Analytics(이전의 SQL DW) 솔루션을 빠르게 구축하는 링크와 모범 사례를 찾습니다.
+title: 전용 SQL 풀(이전의 SQL DW)에 대한 참고 자료
+description: Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)을 빠르게 빌드하기 위한 링크와 모범 사례를 찾습니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136102"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96454618"
 ---
-# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics 참고 자료(이전의 SQL DW)
+# <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 참고 자료
 
-이 참고 자료는 Azure Synapse 솔루션을 구축하는 데 유용한 팁과 모범 사례를 제공합니다.
+이 참고 자료는 전용 SQL 풀(이전의 SQL DW) 솔루션을 빌드하는 데 유용한 팁과 모범 사례를 제공합니다.
 
-다음 그래픽에서는 데이터 웨어하우스를 설계하는 프로세스를 보여 줍니다.
+다음 그래픽에서는 전용 SQL 풀(이전의 SQL DW)을 사용하여 데이터 웨어하우스를 설계하는 프로세스를 보여 줍니다.
 
 ![스케치](./media/cheat-sheet/picture-flow.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "88136102"
 
 ## <a name="data-migration"></a>데이터 마이그레이션
 
-먼저 [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음, [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)(미리 보기)을 사용하여 데이터를 준비 테이블에 로드합니다. 다음 구성을 사용합니다.
+먼저 [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음, [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(미리 보기)을 사용하여 데이터를 준비 테이블에 로드합니다. 다음 구성을 사용합니다.
 
 | 디자인 | 권장 |
 |:--- |:--- |
@@ -64,8 +64,8 @@ ms.locfileid: "88136102"
 * 공통 해시 키의 데이터 형식이 동일한지 확인합니다.
 * varchar 형식으로 배포하지 마세요.
 * 조인 작업이 빈번한 팩트 테이블에 대한 공통 해시 키가 있는 차원 테이블은 해시 분산될 수 있습니다.
-* *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* 를 사용하여 데이터의 모든 왜곡도를 분석합니다.
-* *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* 를 사용하여 쿼리의 백그라운드 데이터 이동 분석, 시간 브로드캐스트 모니터링 및 작업 순서 섞기를 수행합니다. 이는 분산 전략을 검토하는 데 유용합니다.
+* *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* 를 사용하여 데이터의 모든 왜곡도를 분석합니다.
+* *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* 를 사용하여 쿼리의 백그라운드 데이터 이동 분석, 시간 브로드캐스트 모니터링 및 작업 순서 섞기를 수행합니다. 이는 분산 전략을 검토하는 데 유용합니다.
 
 [복제된 테이블](design-guidance-for-replicated-tables.md) 및 [분산 테이블](sql-data-warehouse-tables-distribute.md)에 대해 자세히 알아보세요.
 
@@ -121,13 +121,13 @@ ELT 파이프라인을 데이터 웨어하우스로 자동화하는 데 PolyBase
 
 쿼리 시간이 오래 걸리는 경우 사용자가 큰 리소스 클래스에서 실행하지 않는지 검사합니다. 큰 리소스 클래스는 많은 동시성 슬롯을 사용합니다. 이는 다른 쿼리를 큐에 대기시킬 수 있습니다.
 
-마지막으로, [SQL 풀](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)의 Gen2를 사용하여 각 리소스 클래스는 Gen1보다 2.5배 더 많은 메모리를 가져옵니다.
+마지막으로, [전용 SQL 풀(이전의 SQL DW)](sql-data-warehouse-overview-what-is.md)의 Gen2를 사용하여 각 리소스 클래스가 Gen1보다 2.5배 더 많은 메모리를 가져옵니다.
 
 [리소스 클래스 및 동시성](resource-classes-for-workload-management.md)으로 작업하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="lower-your-cost"></a>비용 절감
 
-Azure Synapse의 주요 기능은 [컴퓨팅 리소스 관리](sql-data-warehouse-manage-compute-overview.md) 기능입니다. SQL 풀을 사용하지 않을 때 일시 중지하여 컴퓨팅 리소스에 대한 청구를 중지할 수 있습니다. 성능 요구를 충족하기 위해 리소스를 확장할 수 있습니다. 일시 중지하려면 [Azure Portal](pause-and-resume-compute-portal.md) 또는 [PowerShell](pause-and-resume-compute-powershell.md)을 사용합니다. 확장하려면 [Azure Portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) 또는 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 사용합니다.
+Azure Synapse의 주요 기능은 [컴퓨팅 리소스 관리](sql-data-warehouse-manage-compute-overview.md) 기능입니다. 전용 SQL 풀(이전의 SQL DW)을 사용하지 않을 때 일시 중지하여 컴퓨팅 리소스에 대한 청구를 중지할 수 있습니다. 성능 요구를 충족하기 위해 리소스를 확장할 수 있습니다. 일시 중지하려면 [Azure Portal](pause-and-resume-compute-portal.md) 또는 [PowerShell](pause-and-resume-compute-powershell.md)을 사용합니다. 확장하려면 [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) 또는 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 사용합니다.
 
 이제 Azure Functions를 통해 원하는 시간에 자동 크기 조정을 수행할 수 있습니다.
 
@@ -137,8 +137,8 @@ Azure Synapse의 주요 기능은 [컴퓨팅 리소스 관리](sql-data-warehous
 
 허브 및 스포크 아키텍처에서 SQL Database 및 Azure Analysis Services를 고려하는 것이 좋습니다. 이 솔루션은 SQL Database 및 Azure Analysis Services의 고급 보안 기능을 사용하면서 동시에 다른 사용자 그룹 간에 워크로드 격리를 제공할 수 있습니다. 또한 사용자에게 무제한 동시성을 제공하는 방법이기도 합니다.
 
-[Azure Synapse를 활용하는 일반적인 아키텍처](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)에 대해 자세히 알아보세요.
+[Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)을 활용하는 일반적인 아키텍처](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)에 대해 자세히 알아보세요.
 
-SQL 풀에서 SQL 데이터베이스의 스포크를 한 번 클릭하여 배포합니다.
+전용 SQL 풀(이전의 SQL DW)에서 SQL 데이터베이스의 스포크를 한 번의 클릭으로 배포합니다.
 
 [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json)

@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6a3916a41635a1c76bddbb092294f6d362fc6050
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924714"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630278"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 AML 기술
 
@@ -33,7 +33,7 @@ ms.locfileid: "88924714"
 
 * [AML 작업 영역](../machine-learning/concept-workspace.md)
 * [배포 된 모델](../machine-learning/how-to-deploy-azure-kubernetes-service.md) 을 사용 하 여이 작업 영역의 [AZURE Kubernetes 서비스 AML 계산 대상](../machine-learning/concept-compute-target.md)
-  * [계산 대상에서 SSL을 사용 하도록 설정 해야](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga)합니다. Azure Cognitive Search는 **https** 끝점에 대 한 액세스만 허용 합니다.
+  * [계산 대상에서 SSL을 사용 하도록 설정 해야](../machine-learning/how-to-secure-web-service.md#deploy-on-azure-kubernetes-service)합니다. Azure Cognitive Search는 **https** 끝점에 대 한 액세스만 허용 합니다.
   * 자체 서명 된 인증서를 사용할 수 없습니다.
 
 ## <a name="odatatype"></a>@odata.type  
@@ -58,9 +58,9 @@ Microsoft. 사용자 지정. AmlSkill
 
 사용 해야 하는 AML 기술 매개 변수는 AML 서비스에서 사용 하는 인증 (있는 경우)에 따라 달라 집니다. AML 서비스는 세 가지 인증 옵션을 제공 합니다.
 
-* [키 기반 인증](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment) AML 기술의 점수 매기기 요청을 인증 하기 위한 정적 키가 제공 됩니다.
+* [키 기반 인증](../machine-learning/how-to-authenticate-web-service.md#key-based-authentication) AML 기술의 점수 매기기 요청을 인증 하기 위한 정적 키가 제공 됩니다.
   * _Uri_ 및 _키_ 매개 변수 사용
-* [토큰 기반 인증](../machine-learning/concept-enterprise-security.md#authentication). AML 서비스는 [토큰 기반 인증을 사용 하 여 배포](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens)됩니다. Azure Cognitive Search 서비스의 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 에는 AML 서비스의 작업 영역에서 [읽기 권한자 역할이](../machine-learning/how-to-assign-roles.md) 부여 됩니다. 그런 다음 AML 기술은 Azure Cognitive Search 서비스의 관리 id를 사용 하 여 정적 키가 필요 없는 AML 서비스에 대해 인증 합니다.
+* [토큰 기반 인증](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). AML 서비스는 [토큰 기반 인증을 사용 하 여 배포](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication)됩니다. Azure Cognitive Search 서비스의 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) 에는 AML 서비스의 작업 영역에서 [읽기 권한자 역할이](../machine-learning/how-to-assign-roles.md) 부여 됩니다. 그런 다음 AML 기술은 Azure Cognitive Search 서비스의 관리 id를 사용 하 여 정적 키가 필요 없는 AML 서비스에 대해 인증 합니다.
   * _ResourceId_ 매개 변수를 사용 합니다.
   * Azure Cognitive Search 서비스가 AML 작업 영역에서 다른 지역에 있는 경우 _지역_ 매개 변수를 사용 하 여 aml 서비스가 배포 된 지역을 설정 합니다.
 * 인증 없음. AML 서비스를 사용 하는 데 인증이 필요 하지 않습니다.

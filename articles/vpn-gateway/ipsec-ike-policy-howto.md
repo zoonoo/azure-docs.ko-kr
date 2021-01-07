@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: eda920640667abc6620c5c90ee7d04a44789353e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996759"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>S2S VPN 또는 VNet 간 연결에 대 한 IPsec/IKE 정책 구성: Azure Portal
@@ -97,7 +97,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 * LPD timeout-Azure VPN 게이트웨이의 기본값은 45 초입니다. 제한 시간을 더 짧게 설정 하면 IKE에서 더 적극적으로 다시 대조 하 여 연결이 끊어진 상태로 표시 됩니다. 이는 VPN gateway가 있는 Azure 지역에서 온-프레미스 위치가 멀리 떨어져 있거나 실제 링크 조건으로 인해 패킷 손실이 발생 하는 경우에는 적합 하지 않을 수 있습니다. 일반적인 권장 사항은 **30 ~ 45** 초 사이의 제한 시간을 설정 하는 것입니다.
 
-### <a name="diffie-hellman-groups"></a>Diffie-hellman 그룹
+### <a name="diffie-hellman-groups"></a>Diffie-Hellman 그룹
 
 다음 표에는 사용자 지정 정책에서 지원하는 해당 Diffie-hellman 그룹이 나열되어 있습니다.
 
@@ -116,7 +116,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 이 섹션에서는 IPsec/IKE 정책을 사용 하 여 사이트 간 VPN 연결을 만드는 단계를 안내 합니다. 다음 단계는 다음 다이어그램에 표시 된 대로 연결을 만듭니다.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="사이트 간 정책" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="IPsec/IKE 정책 다이어그램" border="false":::
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>1단계 - 가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
 
@@ -124,19 +124,19 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 * **가상 네트워크:**  TestVNet1
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="VNet":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 * **VPN gateway:** VNet1GW
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="게이트웨이":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 * **로컬 네트워크 게이트웨이:** Site6
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="사이트":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 * **연결:** VNet1 Site6
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="연결":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 ### <a name="step-2---configure-ipsecike-policy-on-the-s2s-vpn-connection"></a><a name="s2sconnection"></a>2 단계-S2S VPN 연결에서 IPsec/IKE 정책 구성
 
@@ -147,15 +147,15 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 1. Azure Portal 연결 리소스 ( **VNet1toSite6**)로 이동 합니다. **구성** 페이지를 선택 하 고 **사용자 지정** IPsec/IKE 정책을 선택 하 여 모든 구성 옵션을 표시 합니다. 아래 스크린샷은 목록에 따라 구성을 보여 줍니다.
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="사이트 6":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 1. IPsec으로 GCMAES를 사용하는 경우 IPsec 암호화 및 무결성 모두에 대해 동일한 GCMAES 알고리즘 및 키 길이를 사용해야 합니다. 예를 들어 아래 스크린샷은 IPsec 암호화와 IPsec 무결성 모두에 대해 GCMAES128를 지정 합니다.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="IPsec에 대 한 GCMAES":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 1. 위에서 설명한 대로 **정책 기반 트래픽 선택기 사용** 옵션으로 **사용** 을 선택 하 여 Azure VPN gateway를 온-프레미스의 정책 기반 VPN 장치에 연결할 수 있습니다.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="정책 기반 트래픽 선택기":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 1. 모든 옵션을 선택한 후에는 **저장** 을 선택 하 여 연결 리소스의 변경 내용을 커밋합니다. 정책은 약 1 분 후에 적용 됩니다.
 
@@ -170,13 +170,13 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 IPsec/IKE 정책을 사용 하 여 VNet 간 연결을 만드는 단계는 S2S VPN 연결의 단계와 유사 합니다.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="VNet 간 정책 다이어그램" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="IPsec/IKE 정책 다이어그램" border="false":::
 
 1. Vnet 간 [연결 만들기](vpn-gateway-vnet-vnet-rm-ps.md) 문서의 단계를 사용 하 여 vnet 간 연결을 만듭니다.
 
 2. 단계를 완료 한 후 VNet2GW 리소스에서 아래 스크린샷에 표시 된 것 처럼 두 개의 VNet 간 연결이 표시 됩니다.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="VNet 간 연결":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 3. 연결 리소스로 이동 하 고 포털의 **구성** 페이지로 이동 합니다. **IPsec/IKE 정책** 에서 **사용자 지정** 을 선택 하 여 사용자 지정 정책 옵션을 표시 합니다. 해당 키 길이가 인 암호화 알고리즘을 선택 합니다.
 
@@ -184,7 +184,7 @@ IPsec/IKE 정책을 사용 하 여 VNet 간 연결을 만드는 단계는 S2S VP
    * IKE: AES128, SHA1, DHGroup14, 6PD timeout 45 초
    * IPsec: GCMAES128, GCMAES128, PFS14, SA 수명 14400초 및 102400000KB
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="연결 정책":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 4. **저장** 을 선택 하 여 연결 리소스에 정책 변경 내용을 적용 합니다.
 
@@ -203,7 +203,7 @@ IPsec/IKE 정책을 사용 하 여 VNet 간 연결을 만드는 단계는 S2S VP
 
 2. **IPsec/IKE 정책** 옵션에서 **기본값** 을 선택 합니다. 그러면 연결에 대해 이전에 지정 된 모든 사용자 지정 정책이 제거 되 고이 연결에 대 한 기본 IPsec/IKE 설정이 복원 됩니다.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="정책 삭제":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="IPsec/IKE 정책 다이어그램":::
 
 3. **저장** 을 선택 하 여 사용자 지정 정책을 제거 하 고 연결에 대 한 기본 IPSEC/IKE 설정을 복원 합니다.
 

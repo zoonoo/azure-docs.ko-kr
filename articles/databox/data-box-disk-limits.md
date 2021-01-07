@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203524"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124172"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -35,9 +35,9 @@ USB 3.0을 통해 연결된 디스크를 테스트했을 때 디스크 성능은
 
 Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 및 파일 이름 지정에 대한 모범 사례는 다음으로 이동합니다.
 
-- [컨테이너 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [공유 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [블록 blob 및 페이지 blob 규칙](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [컨테이너 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [공유 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [블록 blob 및 페이지 blob 규칙](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
 > Azure Storage 서비스 제한을 초과하거나 Azure Files/Blob 명명 규칙을 준수하지 않는 파일 또는 디렉터리가 있는 경우 이러한 파일 또는 디렉터리는 Data Box 서비스를 통해 Azure Storage로 수집되지 않습니다.
@@ -64,7 +64,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 
 | 데이터 형식             | 기본 제한          |
 |--------------------------|------------------------|
-| 블록 blob, 페이지 blob    | 이러한 제한에 대 한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [azure standard storage 배율 목표](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)및 [Azure Files 크기 조정 대상](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)을 참조 하세요. <br /><br /> 제한에는 Data Box Disk를 포함 하 여 모든 원본의 데이터가 포함 됩니다.|
+| 블록 blob, 페이지 blob    | 이러한 제한에 대 한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [azure standard storage 배율 목표](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)및 [Azure Files 크기 조정 대상](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets)을 참조 하세요. <br /><br /> 제한에는 Data Box Disk를 포함 하 여 모든 원본의 데이터가 포함 됩니다.|
 
 
 ## <a name="azure-object-size-limits"></a>Azure 개체 크기 제한
@@ -75,7 +75,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 |-------------------|-----------------------------------------------------------|
 | 블록 Blob        | ~ 4.75TiB                                                 |
 | 페이지 Blob         | 8TiB <br> (페이지 Blob 형식으로 업로드 되는 모든 파일은 512 바이트 정렬 되어야 하며, 그렇지 않은 경우 업로드가 실패 합니다. <br> VHD와 VHDX는 모두 512 바이트 정렬 됩니다. |
-|Azure Files        | 1TiB <br> 최대 공유 크기는 5 TiB     |
+|Azure 파일        | 1TiB <br> 최대 공유 크기는 5 TiB     |
 | 관리 디스크     |4TiB <br> 크기 및 제한에 대 한 자세한 내용은 다음을 참조 하세요. <li>[관리 디스크에 대 한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
@@ -84,7 +84,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 | 엔터티                                       | 규칙                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 블록 Blob 및 페이지 Blob에 대한 컨테이너 이름 <br> Azure Files에 대 한 파일 공유 이름 | 올바른 DNS 이름은 3~63자여야 합니다. <br>  문자 또는 숫자로 시작해야 합니다. <br> 소문자, 숫자 및 하이픈(-)만 포함할 수 있습니다. <br> 모든 하이픈(-)은 앞뒤에 문자 또는 숫자가 와야 합니다. <br> 이름에 연속적인 하이픈은 허용되지 않습니다. |
-| Azure 파일에 대한 디렉터리와 파일 이름     |<li> 대/소문자 구분, 대/소문자를 구분하지 않으며 길이가 255자를 초과할 수 없습니다. </li><li> 슬래시(/)로 끝낼 수 없습니다. </li><li>사용된 경우 자동으로 제거됩니다. </li><li> 다음 문자는 허용 되지 않습니다.<code>" \\ / : \| < > * ?</code></li><li> 예약된 URL 문자는 적절히 이스케이프되어야 합니다. </li><li> 잘못된 URL 경로 문자는 허용되지 않습니다. UE000와 같은 코드 지점은 \\ 올바른 유니코드 문자가 아닙니다. 제어 문자 (0x00에서 0x1F, u0081 등)와 같은 일부 ASCII 또는 유니코드 문자 \\ 도 허용 되지 않습니다. HTTP/1.1에서 유니코드 문자열을 제어하는 규칙은 RFC 2616, 섹션 2.2의 기본 규칙 및 RFC 3987를 참조하세요. </li><li> 다음 파일 이름은 허용되지 않습니다: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, 점 문자(.) 및 2개 점 문자(..).</li>|
+| Azure 파일에 대한 디렉터리와 파일 이름     |<li> 대/소문자 구분, 대/소문자를 구분하지 않으며 길이가 255자를 초과할 수 없습니다. </li><li> 슬래시(/)로 끝낼 수 없습니다. </li><li>사용된 경우 자동으로 제거됩니다. </li><li> 다음 문자는 허용 되지 않습니다. <code>" \\ / : \| < > * ?</code></li><li> 예약된 URL 문자는 적절히 이스케이프되어야 합니다. </li><li> 잘못된 URL 경로 문자는 허용되지 않습니다. UE000와 같은 코드 지점은 \\ 올바른 유니코드 문자가 아닙니다. 제어 문자 (0x00에서 0x1F, u0081 등)와 같은 일부 ASCII 또는 유니코드 문자 \\ 도 허용 되지 않습니다. HTTP/1.1에서 유니코드 문자열을 제어하는 규칙은 RFC 2616, 섹션 2.2의 기본 규칙 및 RFC 3987를 참조하세요. </li><li> 다음 파일 이름은 허용되지 않습니다: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, 점 문자(.) 및 2개 점 문자(..).</li>|
 | 블록 Blob 및 페이지 Blob에 대한 Blob 이름      | Blob 이름은 대/소문자를 구분하며 문자 조합을 포함할 수 있습니다. <br> Blob 이름은 길이가 1~1,024자 사이여야 합니다. <br> 예약된 URL 문자는 적절히 이스케이프되어야 합니다. <br>Blob 이름을 구성하는 경로 세그먼트 수는 254개를 초과할 수 없습니다. 경로 세그먼트는 가상 디렉터리 이름에 해당하는 연속 구분 기호 문자 사이의 문자열입니다(예: 슬래시 '/'). |
 
 ## <a name="managed-disk-naming-conventions"></a>관리 디스크 명명 규칙

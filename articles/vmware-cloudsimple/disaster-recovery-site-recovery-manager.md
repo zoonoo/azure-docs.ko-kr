@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션-VMware Site Recovery Manager를 사용 하 여 사설 클라우드를 재해 복구 사이트로 설정
-description: CloudSimple 사설 클라우드를 온-프레미스 VMware 워크 로드에 대 한 재해 복구 사이트로 설정 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+description: VMware Site Recovery Manager를 사용 하 여 CloudSimple 사설 클라우드를 재해 복구 사이트로 설정 하는 방법을 설명 합니다.
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa8b2da683d68a337df38e13726f22c5af43540a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d71f8aec1f35514ac6c10b17b6f7b69b79b05bd
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77565930"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897912"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager를 사용 하 여 사설 클라우드를 재해 복구 대상으로 설정
 
@@ -65,7 +65,7 @@ CloudSimple 솔루션을 사용 하려면 다음을 수행 해야 합니다.
 
 관련 VMware 설명서 및 호환성 정보에 대 한 링크를 보려면 [VMware Site Recovery Manager](https://docs.vmware.com/en/Site-Recovery-Manager/index.html) 설명서로 이동 하세요.
 
-사설 클라우드에서 vCenter 및 PSC의 버전을 확인 하려면 CloudSimple 포털을 엽니다. **리소스**로 이동 하 여 사설 클라우드를 선택 하 고 **Vsphere 관리 네트워크** 탭을 클릭 합니다.
+사설 클라우드에서 vCenter 및 PSC의 버전을 확인 하려면 CloudSimple 포털을 엽니다. **리소스** 로 이동 하 여 사설 클라우드를 선택 하 고 **Vsphere 관리 네트워크** 탭을 클릭 합니다.
 
 ![사설 클라우드의 vCenter & PSC 버전](media/srm-resources.png)
 
@@ -111,7 +111,7 @@ VMware 설명서에 따라 온-프레미스 환경에 vSphere 복제 어플라�
 
 2. Vmware.com에서 VR ISO의를 사용 하 여 온-프레미스 환경에서 vRA를 배포 합니다. VRA 6.5의 경우 [이 VMware 블로그에서](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) 관련 정보가 있습니다.
 
-3. 온-프레미스 사이트에서 vCenter Single Sign-on을 사용 하 여 온-프레미스 vRA를 등록 합니다. VSphere 복제 6.5에 대 한 자세한 지침은 VMware 문서 [VMware vSphere replication 6.5 설치 및 구성](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)을 참조 하세요.
+3. 온-프레미스 사이트에서 vCenter 단일 Sign-On를 사용 하 여 온-프레미스 vRA를 등록 합니다. VSphere 복제 6.5에 대 한 자세한 지침은 VMware 문서 [VMware vSphere replication 6.5 설치 및 구성](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)을 참조 하세요.
 
 ## <a name="install-vsphere-replication-appliance-in-your-private-cloud-environment"></a>사설 클라우드 환경에 vSphere 복제 어플라이언스 설치
 
@@ -122,7 +122,7 @@ VMware 설명서에 따라 온-프레미스 환경에 vSphere 복제 어플라�
 
 지침은 [CloudSimple 사설 클라우드에 대 한 VPN 연결 구성](set-up-vpn.md)을 참조 하세요. 이러한 단계는 온-프레미스 설치와 비슷합니다.
 
-CloudSimple은 vRA 및 SRM을 설치 하는 동안 IP 주소 대신 Fqdn을 사용 하는 것이 좋습니다. 사설 클라우드에서 vCenter 및 PSC의 FQDN을 확인 하려면 CloudSimple 포털을 엽니다. **리소스**로 이동 하 여 사설 클라우드를 선택 하 고 **Vsphere 관리 네트워크** 탭을 클릭 합니다.
+CloudSimple은 vRA 및 SRM을 설치 하는 동안 IP 주소 대신 Fqdn을 사용 하는 것이 좋습니다. 사설 클라우드에서 vCenter 및 PSC의 FQDN을 확인 하려면 CloudSimple 포털을 엽니다. **리소스** 로 이동 하 여 사설 클라우드를 선택 하 고 **Vsphere 관리 네트워크** 탭을 클릭 합니다.
 
 ![사설 클라우드에서 vCenter/PSC의 FQDN 찾기](media/srm-resources.png)
 
@@ -137,7 +137,7 @@ VRA 및 SRM을 설치 하기 전에 cloudowner 사용자의 vCenter 권한을 �
 3. VRA 설치를 위한 사설 클라우드 환경을 준비 합니다.
 4. Vmware.com에서 VR ISO의를 사용 하 여 사설 클라우드에 vRA를 배포 합니다. VRA 6.5의 경우 [이 VMware 블로그](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) 는 관련 정보를 포함 합니다.
 5. VRA에 대 한 방화벽 규칙을 구성 합니다. [Cloudsimple 포털: vRA에 대 한 방화벽 규칙 구성](#cloudsimple-portal-configure-firewall-rules-for-vra)에서 아래에 설명 되어 있습니다.
-6. 사설 클라우드 사이트에서 vCenter Single Sign-on을 사용 하 여 사설 클라우드 vRA를 등록 합니다.
+6. 사설 클라우드 사이트에 vCenter 단일 Sign-On를 사용 하 여 사설 클라우드 vRA를 등록 합니다.
 7. 두 어플라이언스 간의 vSphere 복제 연결을 구성 합니다. 필요한 포트가 방화벽에서 열려 있는지 확인 합니다. VSphere 복제 6.5에 대해 열려 있어야 하는 포트 번호 목록은 [VMware 기술 자료 문서](https://kb.vmware.com/s/article/2087769) 를 참조 하세요.
 
 VSphere 복제 6.5에 대 한 자세한 설치 지침은 VMware 문서 [VMware vSphere replication 6.5 설치 및 구성](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)을 참조 하세요.
@@ -227,7 +227,7 @@ SRM이 사설 클라우드에 설치 된 후 VMware Site Recovery Manager 설치
 * [VSphere 복제 6.5을 배포할 때의을 선택 합니다.](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
 * [VMware vSphere 복제 6.5 설치 및 구성](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
 * [SRM 6.5에 대 한 사전 요구 사항 및 모범 사례](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
-* [두 사이트 토폴로지의 Site Recovery Manager (플랫폼 서비스 컨트롤러 당 하나의 vCenter Server 인스턴스 포함)](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html)
+* [플랫폼 서비스 컨트롤러 당 하나의 vCenter Server 인스턴스가 있는 Two-Site 토폴로지의 Site Recovery Manager](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html)
 * [VMware Site Recovery Manager 6.5 설치 및 구성 가이드](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html)
 * [배열 기반 복제와 vSphere 복제 하는 SRM의 VMware 블로그](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication)
 * [SRM 다중 사이트 옵션에 대 한 VMware 블로그](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite)

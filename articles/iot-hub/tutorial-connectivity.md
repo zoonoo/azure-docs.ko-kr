@@ -11,17 +11,17 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-- devx-track-javascript
+- devx-track-js
 - devx-track-azurecli
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: f6ac83a0fc32b426a914b76d27c2920ff8ce6731
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1eead9bb93fe8b753ace518cde18b240ab1a3cd4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500251"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572680"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 
@@ -36,15 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > * 클라우드-디바이스 연결 확인
 > * 디바이스 쌍 동기화 확인
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>필수 구성 요소
-
-이 자습서에서 실행하는 CLI 스크립트에서 [Azure CLI용 Microsoft Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)을 사용해야 합니다. 이 확장을 설치하려면 다음 CLI 명령을 실행합니다.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -76,15 +68,15 @@ node --version
 
 ![IoT 디바이스 도구](media/tutorial-connectivity/iot-devices-tool.png)
 
-새 디바이스를 등록하려면 **+ 추가**를 클릭하고, **디바이스 ID**를 **MyTestDevice**로 설정하고, **저장**을 클릭합니다.
+새 디바이스를 등록하려면 **+ 추가** 를 클릭하고, **디바이스 ID** 를 **MyTestDevice** 로 설정하고, **저장** 을 클릭합니다.
 
 ![새 디바이스 추가](media/tutorial-connectivity/add-device.png)
 
-**MyTestDevice**에 대한 연결 문자열을 검색하려면 디바이스 목록에서 해당 문자열을 클릭한 다음, **연결 문자열 - 기본 키** 값을 복사합니다. 연결 문자열에는 디바이스에 대한 *공유 액세스 키*가 포함되어 있습니다.
+**MyTestDevice** 에 대한 연결 문자열을 검색하려면 디바이스 목록에서 해당 문자열을 클릭한 다음, **연결 문자열 - 기본 키** 값을 복사합니다. 연결 문자열에는 디바이스에 대한 *공유 액세스 키* 가 포함되어 있습니다.
 
 ![디바이스 연결 문자열 검색](media/tutorial-connectivity/copy-connection-string.png)
 
-원격 분석을 IoT 허브로 보내는 **MyTestDevice**를 시뮬레이션하려면, 앞에서 다운로드한 Node.js 시뮬레이션된 장치 애플리케이션을 실행합니다.
+원격 분석을 IoT 허브로 보내는 **MyTestDevice** 를 시뮬레이션하려면, 앞에서 다운로드한 Node.js 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
 개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests** 폴더로 이동합니다.
 
@@ -105,7 +97,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 
 이 섹션에서는 디바이스 키를 다시 설정하고, 시뮬레이션된 디바이스에서 연결하려고 할 때 발생하는 오류를 관찰합니다.
 
-**MyTestDevice**에 대한 기본 디바이스 키를 다시 설정하려면 다음 명령을 실행합니다.
+**MyTestDevice** 에 대한 기본 디바이스 키를 다시 설정하려면 다음 명령을 실행합니다.
 
 ```azurecli-interactive
 # Generate a new Base64 encoded key using the current date
@@ -200,7 +192,7 @@ node SimulatedDevice-3.js "{your device connection string}"
 
 ![시뮬레이션된 디바이스에서 메시지 보내기](media/tutorial-connectivity/sim-3-sending.png)
 
-포털에서 **메트릭**을 사용하여 원격 분석 메시지가 IoT Hub에 도달하는지 확인할 수 있습니다. **리소스** 드롭다운에서 IoT 허브를 선택하고, **전송된 원격 분석 메시지 수**를 메트릭으로 선택하고, 시간 범위를 **지난 시간**으로 설정합니다. 차트에 시뮬레이션된 디바이스에서 보낸 메시지의 집계 수가 표시됩니다.
+포털에서 **메트릭** 을 사용하여 원격 분석 메시지가 IoT Hub에 도달하는지 확인할 수 있습니다. **리소스** 드롭다운에서 IoT 허브를 선택하고, **전송된 원격 분석 메시지 수** 를 메트릭으로 선택하고, 시간 범위를 **지난 시간** 으로 설정합니다. 차트에 시뮬레이션된 디바이스에서 보낸 메시지의 집계 수가 표시됩니다.
 
 ![IoT Hub 메트릭 표시](media/tutorial-connectivity/metrics-portal.png)
 
@@ -232,7 +224,7 @@ az iot hub invoke-device-method --device-id MyTestDevice --method-name TestMetho
 
 ## <a name="check-twin-synchronization"></a>쌍 동기화 확인
 
-디바이스에서 쌍을 사용하여 디바이스와 허브 간의 상태를 동기화합니다. 이 섹션에서는 CLI 명령을 사용하여 _desired 속성_을 디바이스로 보내고 디바이스에서 보낸 _reported 속성_을 읽습니다.
+디바이스에서 쌍을 사용하여 디바이스와 허브 간의 상태를 동기화합니다. 이 섹션에서는 CLI 명령을 사용하여 _desired 속성_ 을 디바이스로 보내고 디바이스에서 보낸 _reported 속성_ 을 읽습니다.
 
 이 섹션에서 사용하는 시뮬레이션된 디바이스에서는 시작할 때마다 reported 속성을 허브로 보내고, desired 속성을 받을 때마다 이 속성을 콘솔에 출력합니다.
 
@@ -266,11 +258,11 @@ desired 속성 변경 내용을 받는 것 외에도, 시뮬레이션된 디바�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT 허브가 포함된 **tutorials-iot-hub-rg** 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT 허브가 포함된 **tutorials-iot-hub-rg** 리소스 그룹을 선택하고 **삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 디바이스 키 확인, 디바이스-클라우드 연결 확인, 클라우드-디바이스 연결 확인 및 디바이스 쌍 동기화 확인을 수행하는 방법을 살펴보았습니다. IoT 허브를 모니터링하는 방법에 대한 자세한 내용은 IoT Hub 모니터링에 대한 방법 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [진단 및 모니터링](iot-hub-monitor-resource-health.md)
+> [IoT Hub 모니터링](monitor-iot-hub.md)

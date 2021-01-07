@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: cynthn
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73903695"
 ---
 그러나 Azure 테 넌 트 외부에서 이미지를 공유 하려는 경우에는 쉽게 공유할 수 있도록 앱 등록을 만들어야 합니다.  앱 등록을 사용 하면 다음과 같은 보다 복잡 한 공유 시나리오를 사용할 수 있습니다. 

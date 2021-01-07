@@ -9,14 +9,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/22/2020
+ms.date: 11/30/2020
 ms.author: allensu
-ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073051"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483991"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Azure CDN 사용 패턴 분석
 
@@ -31,7 +31,7 @@ ms.locfileid: "87073051"
 
 Azure Log Analytics을 사용 하 여 모니터링 메트릭을 보고 경고를 설정할 수 있습니다. 
 
-자세한 내용은 [AZURE CDN HTTP 원시 로그](enable-raw-logs.md)를 참조 하세요.
+자세한 내용은 [AZURE CDN HTTP 원시 로그](monitoring-and-access-log.md)를 참조 하세요.
 
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Azure 진단 로그를 통한 코어 분석
@@ -50,7 +50,7 @@ Azure Log Analytics을 사용 하 여 모니터링 메트릭을 보고 경고를
 
 ## <a name="azure-cdn-premium-from-verizon-reports"></a>Verizon의 Azure CDN Premium 보고서
 
-**Verizon의 Azure CDN Premium**을 사용하면 다음 보고서에도 액세스할 수 있습니다.
+**Verizon의 Azure CDN Premium** 을 사용하면 다음 보고서에도 액세스할 수 있습니다.
    * [고급 HTTP 보고서](cdn-advanced-http-reports.md)
    * [실시간 통계](cdn-real-time-stats.md)
    * [Azure CDN에 지 노드 성능](cdn-edge-performance.md)
@@ -61,6 +61,4 @@ Azure Log Analytics을 사용 하 여 모니터링 메트릭을 보고 경고를
 Azure CDN 및 이 문서에 언급된 다른 Azure 서비스에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure CDN 이란?](cdn-overview.md)
-* [Azure CDN HTTP 원시 로그](enable-raw-logs.md)
-
-
+* [Azure CDN HTTP 원시 로그](monitoring-and-access-log.md)

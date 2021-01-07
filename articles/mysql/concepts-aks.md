@@ -1,17 +1,17 @@
 ---
 title: Azure Kubernetes Service에 연결-Azure Database for MySQL
 description: Azure Database for MySQL과 Azure Kubernetes Service를 연결하는 방법에 대한 자세한 정보
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 712bf702ba355ec3b2ca6184c33da8489f8a178e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c4a5f5d792a60ed3fef07797fdbdfa0c9cfb8fe
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519867"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534333"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Azure Kubernetes Service 및 Azure Database for MySQL 연결
 
@@ -26,17 +26,17 @@ AKS 클러스터에서 가속 네트워킹이 활성화된 기본 VM을 사용�
 AKS 클러스터에 가속 네트워킹이 있는지 여부를 확인할 수 있습니다.
 1. Azure Portal로 이동하고 AKS 클러스터를 선택합니다.
 2. 속성 탭을 선택합니다.
-3. **인프라 리소스 그룹**의 이름을 복사합니다.
+3. **인프라 리소스 그룹** 의 이름을 복사합니다.
 4. 포털 검색 표시줄을 사용하여 인프라 리소스 그룹을 엽니다.
 5. 해당 리소스 그룹의 VM을 선택합니다.
 6. VM의 **네트워킹** 탭으로 이동합니다.
-7. **가속 네트워킹**이 ‘사용’하도록 설정되었는지 확인합니다.
+7. **가속 네트워킹** 이 ‘사용’하도록 설정되었는지 확인합니다.
 
 또는 Azure CLI를 통해 다음의 두 명령을 실행합니다.
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
 ```
-이 명령의 출력은 네트워크 인터페이스를 포함하는 생성된 리소스 그룹(AKS에서 작성됨)입니다. "NodeResourceGroup" 이름을 가져와 다음 명령에서 사용합니다. **EnableAcceleratedNetworking**은 true 또는 false가 됩니다.
+이 명령의 출력은 네트워크 인터페이스를 포함하는 생성된 리소스 그룹(AKS에서 작성됨)입니다. "NodeResourceGroup" 이름을 가져와 다음 명령에서 사용합니다. **EnableAcceleratedNetworking** 은 true 또는 false가 됩니다.
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
@@ -44,4 +44,4 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Kubernetes Service 클러스터 만들기](../aks/kubernetes-walkthrough.md)
-- [OSBA 및 Azure Database for MySQL을 사용하여 Helm 차트에서 WordPress를 설치](../aks/integrate-azure.md)하는 방법을 알아봅니다.
+- [OSBA 및 Azure Database for MySQL을 사용하여 Helm 차트에서 WordPress를 설치](../aks/index.yml)하는 방법을 알아봅니다.

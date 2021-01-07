@@ -1,19 +1,19 @@
 ---
 title: CloudSimple 별 Azure VMware 솔루션-vRealize 자동화를 위해 사설 클라우드에서 vCenter 설정
 description: CloudSimple 사설 클라우드에서 vmware vCenter server를 VMware vRealize Automation의 끝점으로 설정 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024843"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895056"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>VMware vRealize 자동화를 위해 사설 클라우드에서 vCenter 설정
 
@@ -48,31 +48,31 @@ VCenter server를 구성 하기 전에 다음 작업을 완료 합니다.
 2. Vsphere 자동화 끝점에 대 한 vSphere 에이전트를 배포 합니다.
     1. Https://*vra-url*: 5480/installer로 이동 합니다. 여기서 *vra-Url* 은 VRA Automation 관리 UI에 액세스 하는 데 사용 하는 url입니다.
     2. **IaaS 설치 관리자** 를 클릭 하 여 설치 관리자를 다운로드 합니다.<br>
-    설치 관리자 파일의 명명 규칙은*vra-url*을 setup_ 합니다 @5480.exe .
-    3. 설치 관리자를 실행합니다. 시작 화면에서 **다음**을 클릭합니다.
-    4. EULA에 동의 하 고 **다음**을 클릭 합니다.
-    5. 로그인 정보를 입력 하 고 **인증서 수락**을 클릭 한 후 **다음**을 클릭 합니다.
+    설치 관리자 파일의 명명 규칙은 *vra-url* 을 setup_ 합니다 @5480.exe .
+    3. 설치 관리자를 실행합니다. 시작 화면에서 **다음** 을 클릭합니다.
+    4. EULA에 동의 하 고 **다음** 을 클릭 합니다.
+    5. 로그인 정보를 입력 하 고 **인증서 수락** 을 클릭 한 후 **다음** 을 클릭 합니다.
     ![vRA 자격 증명](media/configure-vra-endpoint-login.png)
-    6. **사용자 지정 설치** 및 **프록시 에이전트** 를 선택 하 고 **다음**을 클릭 합니다.
+    6. **사용자 지정 설치** 및 **프록시 에이전트** 를 선택 하 고 **다음** 을 클릭 합니다.
     ![vRA 설치 유형](media/configure-vra-endpoint-install-type.png)
-    7. IaaS 서버 로그인 정보를 입력 하 고 **다음**을 클릭 합니다. Active Directory를 사용 하는 경우 **domain\user** 형식으로 사용자 이름을 입력 합니다. 그렇지 않으면 format을 사용 **user@domain** 합니다.
+    7. IaaS 서버 로그인 정보를 입력 하 고 **다음** 을 클릭 합니다. Active Directory를 사용 하는 경우 **domain\user** 형식으로 사용자 이름을 입력 합니다. 그렇지 않으면 format을 사용 **user@domain** 합니다.
     ![vRA 로그인 정보](media/configure-vra-endpoint-account.png)
-    8. 프록시 설정에 대해 **에이전트 유형에**대 한 **vsphere** 입력 합니다. 에이전트의 이름을 입력합니다.
+    8. 프록시 설정에 대해 **에이전트 유형에** 대 한 **vsphere** 입력 합니다. 에이전트의 이름을 입력합니다.
     9. **관리자 서비스 호스트** 의 IAAS 서버 FQDN과 **모델 관리자 웹 서비스 호스트** 필드를 입력 합니다. **테스트** 를 클릭 하 여 각 FQDN 값에 대 한 연결을 테스트 합니다. 테스트가 실패할 경우 IaaS 서버 호스트 이름이 확인 되도록 DNS 설정을 수정 합니다.
     10. 사설 클라우드의 vCenter 서버 끝점에 대 한 이름을 입력 합니다. 나중에 구성 프로세스에서 사용할 이름을 기록 합니다.
 
         ![vRA 설치 프록시](media/configure-vra-endpoint-proxy.png)
 
-    11. **다음**을 클릭합니다.
-    12. **설치**를 클릭합니다.
+    11. **다음** 을 클릭합니다.
+    12. **설치** 를 클릭합니다.
 
 ## <a name="configure-the-vsphere-agent"></a>VSphere 에이전트 구성
 
-1. Https://*vra-url*/vcac로 이동 하 여 **configurationadmin**으로 로그인 합니다.
-2. **인프라**  >  **끝점**  >  **끝점**을 선택 합니다.
-3. **새**  >  **가상**  >  **vsphere**를 선택 합니다.
+1. Https://*vra-url*/vcac로 이동 하 여 **configurationadmin** 으로 로그인 합니다.
+2. **인프라**  >  **끝점**  >  **끝점** 을 선택 합니다.
+3. **새**  >  **가상**  >  **vsphere** 를 선택 합니다.
 4. 이전 절차에서 지정한 vSphere 끝점 이름을 입력 합니다.
-5. **주소**에 대해 사설 클라우드 vCenter Server URL을 https://*vcenter-fqdn*/sdk 형식으로 입력 합니다. 여기서 *vcenter-fqdn* 은 vcenter 서버의 이름입니다.
+5. **주소** 에 대해 사설 클라우드 vCenter Server URL을 https://*vcenter-fqdn*/sdk 형식으로 입력 합니다. 여기서 *vcenter-fqdn* 은 vcenter 서버의 이름입니다.
 6. CloudSimple 지원이 생성 된 vRealize Automation IaaS 관리 사용자에 대 한 자격 증명을 입력 합니다.
 7. **연결 테스트** 를 클릭 하 여 사용자 자격 증명의 유효성을 검사 합니다. 테스트가 실패 하면 URL, 계정 정보 및 [끝점 이름을](#verify-the-endpoint-name) 확인 하 고 다시 테스트 합니다.
 8. 성공적으로 테스트 한 후 **확인** 을 클릭 하 여 vsphere 끝점을 만듭니다.

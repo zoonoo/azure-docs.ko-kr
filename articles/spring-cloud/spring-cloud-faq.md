@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 99246ecee27f7ded693e2a797f8e98480e350983
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888705"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854532"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -37,15 +37,18 @@ Azure 스프링 클라우드는 Azure Monitor, Application Insights 및 Log Anal
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Azure 스프링 클라우드를 사용할 수 있는 지역은 어디 인가요?
 
-미국 동부, 미국 동부 2, 미국 중부, 미국 중 북부, 미국 서 부 2, 유럽 서부, 유럽 서 부, 영국 남부, 동남 아시아 및 오스트레일리아 동부.
+미국 동부, 미국 동부 2, 미국 중부, 미국 중 북부, 미국 중 북부, 미국 서 부, 미국 서 부 2, 유럽 서부, 북부, 영국 남부, 동남 아시아, 오스트레일리아 동부, 캐나다 중부 및 아랍에미리트 북부
 
+### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>지정 된 지역 외부에 저장 된 고객 데이터는 무엇 인가요?
+
+Azure 스프링 클라우드는 지역 서비스입니다. Azure 스프링 클라우드의 모든 고객 데이터는 중복성을 위해 지정 된 지역의 동일한 지역 내에 있는 여러 지역에 저장 됩니다. 지역 및 지역에 대 한 자세한 내용은 [Azure의 Data 상주](https://azure.microsoft.com/global-infrastructure/data-residency/)를 참조 하세요.
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure 스프링 클라우드의 알려진 제한은 무엇 인가요?
 
 Azure 스프링 클라우드에는 다음과 같은 알려진 제한 사항이 있습니다.
     
 * `spring.application.name` 는 각 응용 프로그램을 만드는 데 사용 되는 응용 프로그램 이름으로 재정의 됩니다.
-* `server.port` 기본값은 포트 1025입니다. 다른 값이 적용 되 면 1025으로 재정의 됩니다.
+* `server.port` 기본값은 포트 1025입니다. 다른 값이 적용 되 면 재정의 됩니다. 또한이 설정을 준수 하 고 코드에서 서버 포트를 지정 하지 마십시오.
 * Azure Portal 및 Azure Resource Manager 템플릿은 응용 프로그램 패키지 업로드를 지원 하지 않습니다. Azure CLI를 통해 응용 프로그램을 배포 해야만 응용 프로그램 패키지를 업로드할 수 있습니다.
 
 ### <a name="what-pricing-tiers-are-available"></a>어떤 가격 책정 계층을 사용할 수 있나요? 
@@ -54,7 +57,7 @@ Azure 스프링 클라우드에는 다음과 같은 알려진 제한 사항이 �
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>피드백 및 보고서 문제를 제출하려면 어떻게 해야 하나요?
 
-Azure 스프링 클라우드에 문제가 발생 한 경우 [Azure 지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 만듭니다. 기능 요청을 제출 하거나 피드백을 제공 하려면 [Azure 사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)으로 이동 하세요.
+Azure 스프링 클라우드에 문제가 발생 한 경우 [Azure 지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 만듭니다. 기능 요청을 제출 하거나 피드백을 제공 하려면 [Azure 사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)으로 이동 하세요.
 
 ## <a name="development"></a>개발
 
@@ -66,13 +69,30 @@ Azure 스프링 클라우드를 시작 하는 가장 빠른 방법은 [빠른 �
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure Spring Cloud에서 지원하는 Java 런타임은 어떻게 되나요?
 
 Azure Spring Cloud는 Java 8 및 11을 지원합니다. [Java 런타임 및 OS 버전을](#java-runtime-and-os-versions) 참조 하세요.
+
+### <a name="is-spring-boot-24x-supported"></a>스프링 부팅 2.4. x가 지원 되나요?
+스프링 부팅 2.4 문제를 확인 하 고 현재 스프링 커뮤니티와 협력 하 여 문제를 해결 하 고 있습니다. 그 동안에는 이러한 두 가지 종속성을 포함 하 여 앱과 Eureka 간에 TLS 인증을 사용 하도록 설정 하세요.
+
+```xml
+<dependency> 
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>1.19.4</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.jersey.contribs</groupId>
+    <artifactId>jersey-apache-client4</artifactId>
+    <version>1.19.4</version>
+</dependency>
+```
+
 ::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>내 스프링 클라우드 응용 프로그램 로그 및 메트릭은 어디에서 볼 수 있나요?
 
-메트릭은 [앱 개요] 탭 및 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) 탭에서 찾습니다.
+메트릭은 [앱 개요] 탭 및 [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer) 탭에서 찾습니다.
 
-Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring*입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
+Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](../azure-monitor/platform/data-platform-logs.md)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring* 입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud는 분산 추적을 지원하나요?
 
@@ -91,6 +111,21 @@ Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로�
 
 예.
 
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Azure 스프링 클라우드 인스턴스에 있는 아웃 바운드 공용 IP 주소의 수는 몇 개입니까?
+
+아웃 바운드 공용 IP 주소의 수는 계층 및 기타 요인에 따라 달라질 수 있습니다. 
+
+| Azure 스프링 클라우드 인스턴스 유형 | 기본 아웃 바운드 공용 IP 주소 수 |
+| -------------------------------- | ---------------------------------------------- |
+| 기본 계층 인스턴스             | 1                                              |
+| 표준 계층 인스턴스          | 2                                              |
+| VNet 삽입 인스턴스         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>아웃 바운드 공용 IP 주소의 수를 늘릴 수 있나요?
+
+예, 추가 아웃 바운드 공용 IP 주소를 요청 하는 [지원 티켓](https://azure.microsoft.com/support/faq/)  을 열 수 있습니다.
+
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Azure 스프링 클라우드 서비스 인스턴스를 삭제/이동할 때 확장 리소스도 삭제/이동 됩니까?
 
 확장 리소스를 소유 하는 리소스 공급자의 논리에 따라 달라 집니다. 인스턴스의 확장 리소스는 `Microsoft.AppPlatform` 동일한 네임 스페이스에 속하지 않으므로 리소스 공급자에 따라 동작이 달라 집니다. 예를 들어, 삭제/이동 작업은 **진단 설정** 리소스에 종속 되지 않습니다. 새 Azure 스프링 클라우드 인스턴스가 삭제 된 것과 동일한 리소스 ID로 프로 비전 되거나 이전 Azure 스프링 클라우드 인스턴스가 다시 이동 되는 경우 이전 **진단 설정** 리소스에서 계속 확장 합니다.
@@ -106,7 +141,7 @@ Azure CLI를 사용 하 여 스프링 클라우드의 진단 설정을 삭제할
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 지원 되는 Java runtime 버전은 무엇 인가요?
 
-Azure 스프링 클라우드는 최신 빌드를 사용 하 여 Java LTS 버전을 지원 합니다. 현재 6 월 2020, Java 8 빌드 252 및 Java 11 빌드 7이 지원 됩니다. [Azure 및 Azure Stack에 대 한 JDK 설치를](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) 참조 하세요.
+Azure 스프링 클라우드는 최신 빌드를 사용 하 여 Java LTS 버전을 지원 합니다. 현재 6 월 2020, Java 8 및 Java 11이 지원 됩니다. [Azure 및 Azure Stack에 대 한 JDK 설치를](/azure/developer/java/fundamentals/java-jdk-install) 참조 하세요.
 
 ### <a name="who-built-these-java-runtimes"></a>이러한 Java 런타임을 만든 사람은 누구 인가요?
 
@@ -118,14 +153,14 @@ LTS 및 MTS JDK 릴리스에는 필요에 따라 분기별 보안 업데이트, 
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Java 8 및 Java 11 LTS 버전은 얼마나 오래 지원 되나요?
 
-[Azure 및 Azure Stack에 대 한 Java 장기 지원을](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)참조 하세요.
+[Azure 및 Azure Stack에 대 한 Java 장기 지원을](/azure/developer/java/fundamentals/java-jdk-long-term-support)참조 하세요.
 
 * Java 8 LTS는 12 월 2030 일까 지 지원 될 예정입니다.
 * Java 11 LTS는 9 월 2027 일까 지 지원 될 예정입니다.
 
 ### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>로컬 개발을 위해 지원 되는 Java 런타임을 다운로드 하려면 어떻게 해야 하나요?
 
-[Azure 용 JDK 설치 및 Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)를 참조 하세요.
+[Azure 용 JDK 설치 및 Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)를 참조 하세요.
 
 ### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>이전 Java 런타임에 대 한 사용 중지 정책은 무엇 인가요?
 
@@ -136,7 +171,7 @@ LTS 및 MTS JDK 릴리스에는 필요에 따라 분기별 보안 업데이트, 
 
 ### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Java 런타임 수준에서 문제에 대 한 지원을 받으려면 어떻게 해야 하나요?
 
-Azure 지원으로 지원 티켓을 열 수 있습니다.  [Azure 지원 요청을 만드는 방법을](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)참조 하세요.
+Azure 지원으로 지원 티켓을 열 수 있습니다.  [Azure 지원 요청을 만드는 방법을](../azure-portal/supportability/how-to-create-azure-support-request.md)참조 하세요.
 
 ### <a name="what-is-the-operation-system-to-run-my-apps"></a>앱을 실행 하는 운영 체제는 무엇 인가요?
 
@@ -163,7 +198,7 @@ Azure 스프링 클라우드에 적용 가능한 중요 보안 패치 (CVE 점�
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud에서 앱 인스턴스의 자동 크기 조정을 지원하나요?
 
-아니요.
+예.  자세한 내용은 [설정 자동 크기 조정](spring-cloud-tutorial-setup-autoscale.md)을 참조 하세요.
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 스프링 클라우드 마이크로 서비스를 Azure 스프링 클라우드로 마이그레이션하기 위한 모범 사례는 무엇 인가요?

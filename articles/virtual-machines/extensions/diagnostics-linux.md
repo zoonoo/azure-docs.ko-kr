@@ -5,16 +5,17 @@ services: virtual-machines-linux
 author: axayjo
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 7a0b2afa8b566ec82fc638291c43f3e0419f654c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ffbafb76fd2c6dd06a88bfd79746557889039cd6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400690"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956027"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -39,6 +40,9 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 ## <a name="installing-the-extension-in-your-vm"></a>VM에 확장 설치
 
 Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Portal을 통해 이 확장을 사용하도록 설정할 수 있습니다. 자세한 내용은 [확장 기능](features-linux.md)을 참조하세요.
+
+>[!NOTE]
+>진단 VM 확장의 특정 구성 요소는 [LOG ANALYTICS VM 확장](./oms-linux.md)에도 제공 됩니다. 이 아키텍처 때문에 동일한 ARM 템플릿에서 두 확장을 모두 인스턴스화하면 충돌이 발생할 수 있습니다. 이러한 설치 시간 충돌을 방지 하려면 [ `dependsOn` 지시문](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) 을 사용 하 여 확장이 순차적으로 설치 되도록 합니다. 이러한 확장은 한 순서에 따라 설치할 수 있습니다.
 
 이러한 설치 지침 및 [다운로드 가능한 샘플 구성](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json)은 다음을 수행할 수 있도록 LAD 3.0을 구성합니다.
 
@@ -71,6 +75,29 @@ Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 �
 * **Azure CLI** 머신에 [Azure CLI 환경을 설치](/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 기존 Azure 구독 및 데이터를 저장할 기존 범용 저장소 계정.  범용 저장소 계정은 필요한 테이블 저장소를 지원 합니다.  Blob 저장소 계정이 작동 하지 않습니다.
+* Python 2
+
+### <a name="python-requirement"></a>Python 요구 사항
+
+Linux 진단 확장에는 Python 2가 필요 합니다. 가상 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.    
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+Python2 실행 파일은 *python* 으로 별칭을 지정 해야 합니다. 다음은이 별칭을 설정 하는 데 사용할 수 있는 한 가지 방법입니다.
+
+1. 다음 명령을 실행 하 여 기존 별칭을 제거 합니다.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. 다음 명령을 실행 하 여 별칭을 만듭니다.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>샘플 설치
 
@@ -108,6 +135,35 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
+#### <a name="azure-cli-sample-for-installing-lad-30-extension-on-the-vmss-instance"></a>VMSS 인스턴스에서 3.0 확장을 설치 하는 Azure CLI 샘플
+
+```azurecli
+#Set your Azure VMSS diagnostic variables correctly below
+$my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
+$my_linux_vmss=<your_azure_linux_vmss_name>
+$my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
+
+# Should login to Azure first before anything else
+az login
+
+# Select the subscription containing the storage account
+az account set --subscription <your_azure_subscription_id>
+
+# Download the sample Public settings. (You could also use curl or any web browser)
+wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
+
+# Build the VMSS resource ID. Replace storage account name and resource ID in the public settings.
+$my_vmss_resource_id=$(az vmss show -g $my_resource_group -n $my_linux_vmss --query "id" -o tsv)
+sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
+sed -i "s#__VM_RESOURCE_ID__#$my_vmss_resource_id#g" portal_public_settings.json
+
+# Build the protected settings (storage account SAS token)
+$my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
+$my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
+
+# Finally tell Azure to install and enable the extension
+az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
+```
 
 #### <a name="powershell-sample"></a>PowerShell 샘플
 
@@ -143,7 +199,7 @@ Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location 
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>이전 확장 버전에서 마이그레이션
 
-최신 확장 버전은 **3.0**입니다. **모든 이전 버전(2.x)은 사용되지 않으며 2018년 7월 31일부터는 게시되지 않을 수 있습니다**.
+최신 확장 버전은 **3.0** 입니다. **모든 이전 버전(2.x)은 사용되지 않으며 2018년 7월 31일부터는 게시되지 않을 수 있습니다**.
 
 > [!IMPORTANT]
 > 이 확장에서는 확장 구성에 대해 새로운 변경 사항을 도입했습니다. 이러한 변경 사항은 확장의 보안을 향상시키기 위한 것이며 이에 따라 이전 2.x 버전과는 호환되지 않습니다. 또한 이 확장의 확장 게시자는 2.x 버전의 게시자와 다릅니다.
@@ -190,7 +246,7 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 1. 앞에서 설명한 대로 적절한 섹션을 만듭니다.
 1. "SAS 생성" 단추를 클릭합니다.
 
-![이미지](./media/diagnostics-linux/make_sas.png)
+![스크린샷은 A S를 생성 하는 공유 액세스 서명 페이지를 표시 합니다.](./media/diagnostics-linux/make_sas.png)
 
 생성된 SAS를 storageAccountSasToken 필드에 복사하고 앞의 물음표("?")를 제거합니다.
 
@@ -748,7 +804,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 Azure Portal을 사용하여 성능 데이터를 보거나 경고를 설정합니다.
 
-![이미지](./media/diagnostics-linux/graph_metrics.png)
+![선택한 메트릭에 사용 된 디스크 공간 및 결과 차트를 사용 하 여 Azure Portal를 보여 주는 스크린샷](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters` 데이터는 항상 Azure Storage 테이블에 저장됩니다. Azure Storage API는 다양한 언어 및 플랫폼에 사용할 수 있습니다.
 
@@ -757,7 +813,7 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 탐색기.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")가 있어야 합니다.
+* [Azure Storage 탐색기의 컨테이너와 테이블을 보여 주는 스크린샷](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")
 
 Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 

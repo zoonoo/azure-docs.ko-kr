@@ -8,17 +8,17 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 2b26a317f7338b3e87623b8312d9f7efd10dbed1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 11/27/2020
+ms.openlocfilehash: b0b2dd9904682121c83b22b9029097e7ee57fb11
+ms.sourcegitcommit: 6b16e7cc62b29968ad9f3a58f1ea5f0baa568f02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917859"
+ms.lasthandoff: 11/28/2020
+ms.locfileid: "96303764"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search에서 복합 데이터 형식을 모델링 하는 방법
 
-Azure Cognitive Search 인덱스를 채우는 데 사용 되는 외부 데이터 집합은 많은 셰이프에서 제공 될 수 있습니다. 계층적 또는 중첩 된 하위 구조체를 포함 하는 경우도 있습니다. 예에는 단일 고객에 대 한 여러 주소, 단일 SKU에 대 한 여러 색 및 크기, 단일 책의 여러 작성자 등이 포함 될 수 있습니다. 모델링 용어에서 *복합*, *복합*, *복합*또는 *집계* 데이터 형식 이라고 하는 이러한 구조를 볼 수 있습니다. 이 개념에 사용 되는 Azure Cognitive Search 용어는 **복합 유형**입니다. Azure Cognitive Search에서 복합 형식은 **복합 필드**를 사용 하 여 모델링 됩니다. 복합 필드는 다른 복합 형식을 포함 하 여 모든 데이터 형식일 수 있는 자식 (하위 필드)을 포함 하는 필드입니다. 이는 프로그래밍 언어에서 구조화 된 데이터 형식과 비슷한 방식으로 작동 합니다.
+Azure Cognitive Search 인덱스를 채우는 데 사용 되는 외부 데이터 집합은 많은 셰이프에서 제공 될 수 있습니다. 계층적 또는 중첩 된 하위 구조체를 포함 하는 경우도 있습니다. 예에는 단일 고객에 대 한 여러 주소, 단일 SKU에 대 한 여러 색 및 크기, 단일 책의 여러 작성자 등이 포함 될 수 있습니다. 모델링 용어에서 *복합*, *복합*, *복합* 또는 *집계* 데이터 형식 이라고 하는 이러한 구조를 볼 수 있습니다. 이 개념에 사용 되는 Azure Cognitive Search 용어는 **복합 유형** 입니다. Azure Cognitive Search에서 복합 형식은 **복합 필드** 를 사용 하 여 모델링 됩니다. 복합 필드는 다른 복합 형식을 포함 하 여 모든 데이터 형식일 수 있는 자식 (하위 필드)을 포함 하는 필드입니다. 이는 프로그래밍 언어에서 구조화 된 데이터 형식과 비슷한 방식으로 작동 합니다.
 
 복합 필드는 데이터 형식에 따라 문서의 단일 개체 또는 개체의 배열을 나타냅니다. 형식의 필드 `Edm.ComplexType` 는 단일 개체를 나타내고, 형식의 필드는 `Collection(Edm.ComplexType)` 개체의 배열을 나타냅니다.
 
@@ -35,11 +35,13 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
 
 다음 JSON 문서는 간단한 필드와 복잡 한 필드로 구성 됩니다. 및와 같은 복합 필드 `Address` 에 `Rooms` 는 하위 필드가 있습니다. `Address` 에는 문서의 단일 개체 이므로 해당 하위 필드에 대 한 단일 값 집합이 있습니다. 반면에는 `Rooms` 컬렉션의 각 개체에 대해 하나씩, 하위 필드에 대 한 값 집합이 여러 개 있습니다.
 
+
 ```json
 {
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -48,21 +50,28 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
   "Rooms": [
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
-      "Type": "Budget Room",
-      "BaseRate": 96.99
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99
-    },
+      "BaseRate": 150.99,
+    }
+    . . .
   ]
 }
 ```
 
+## <a name="indexing-complex-types"></a>복합 형식 인덱싱
+
+인덱싱 중에 단일 문서 내의 모든 복합 컬렉션에서 최대 3000 개의 요소를 가질 수 있습니다. 복합 컬렉션의 요소는 해당 컬렉션의 멤버 이므로 대화방의 경우 (호텔 예제의 유일한 복합 컬렉션) 각 공간은 요소입니다. 위의 예에서 "비밀 포인트 Motel"에는 500 개의 대화방이 있는데 호텔 문서에는 500 room 요소가 있습니다. 중첩 된 복합 컬렉션의 경우에는 외부 (부모) 요소 외에도 각 중첩 된 요소가 계산 됩니다.
+
+이 제한은 복합 형식 (예: 주소) 또는 문자열 컬렉션 (예: 태그)이 아닌 복잡 한 컬렉션에만 적용 됩니다.
+
 ## <a name="creating-complex-fields"></a>복합 필드 만들기
 
-모든 인덱스 정의와 마찬가지로, 포털, [REST API](/rest/api/searchservice/create-index)또는 [.net SDK](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 를 사용 하 여 복합 형식을 포함 하는 스키마를 만들 수 있습니다. 
+모든 인덱스 정의와 마찬가지로, 포털, [REST API](/rest/api/searchservice/create-index)또는 [.net SDK](/dotnet/api/azure.search.documents.indexes.models.searchindex) 를 사용 하 여 복합 형식을 포함 하는 스키마를 만들 수 있습니다. 
 
 다음 예에서는 간단한 필드, 컬렉션 및 복합 형식을 사용 하는 JSON 인덱스 스키마를 보여 줍니다. 복합 형식 내에서 각 하위 필드는 형식을 가지 며 최상위 필드와 마찬가지로 특성을 가질 수 있습니다. 이 스키마는 위의 예제 데이터에 해당 합니다. `Address` 는 컬렉션이 아닌 복합 필드입니다. 호텔에는 주소가 하나 있습니다. `Rooms` 는 복합 컬렉션 필드 이며 (호텔에는 많은 방 있음)
 
@@ -93,7 +102,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원 
 
 ## <a name="updating-complex-fields"></a>복합 필드 업데이트
 
-일반적으로 필드에 적용 되는 모든 [인덱스 규칙](search-howto-reindex.md) 은 복잡 한 필드에도 적용 됩니다. 여기에 몇 가지 주요 규칙이 재작성 필드를 추가 하는 경우 인덱스를 다시 작성할 필요가 없지만 대부분의 수정 작업을 수행 합니다.
+일반적으로 필드에 적용 되는 모든 [인덱스 규칙](search-howto-reindex.md) 은 복잡 한 필드에도 적용 됩니다. 여기에서 몇 가지 주요 규칙을 재작성 복합 형식에 필드를 추가 하는 경우 인덱스를 다시 작성할 필요가 없지만 대부분의 수정 작업을 수행 합니다.
 
 ### <a name="structural-updates-to-the-definition"></a>정의에 대 한 구조적 업데이트
 

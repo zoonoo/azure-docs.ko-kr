@@ -15,12 +15,12 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7e63225df4e337a93912bf1e1c17eb61a6cc9e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258608"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010914"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계
 
@@ -64,7 +64,7 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 | **클라이언트 플랫폼** | **네이티브 DRM 지원** | **브라우저/앱** | **스트리밍 형식** |
 | --- | --- | --- | --- |
 | **스마트 TV, 연산자 STB, OTT STB** |주로 PlayReady 및/또는 Widevine 및/또는 기타 |Linux, Opera, WebKit, 기타 |다양한 형식 |
-| **Windows 10 장치 (Windows PC, Windows 태블릿, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>유니버설 Windows 플랫폼 |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
+| **Windows 10 장치 (Windows PC, Windows 태블릿, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>범용 Windows 플랫폼 |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
 | **Android 디바이스(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH, HLS |
 | **iOS(iPhone, iPad), OS X 클라이언트 및 Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
@@ -242,7 +242,7 @@ Azure AD에 대한 내용:
     <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
     ```
 
-    [JWT 디코더](http://jwt.calebb.net/)에서 JWT에 다음과 같이 **aud** 및 **iss**가 나타납니다.
+    [JWT 디코더](http://jwt.calebb.net/)에서 JWT에 다음과 같이 **aud** 및 **iss** 가 나타납니다.
 
     ![JWT](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 
@@ -349,7 +349,7 @@ Azure AD에서 포인터 앱을 등록 및 구성하려면 다음 단계를 따�
 
 3. groupMembershipClaims 속성이 "groupMembershipClaims": "All"을 포함하도록 앱 매니페스트 파일을 업데이트합니다.
 
-4. 플레이어 웹앱을 가리키는 Azure AD 앱의 **다른 애플리케이션에 대한 권한** 섹션에서 1단계에서 추가한 리소스 앱을 추가합니다. **위임된 권한**에서 **[resource_name] 액세스**를 선택합니다. 이 옵션은 리소스 앱에 액세스하는 액세스 토큰을 만드는 웹앱 권한을 제공합니다. Visual Studio 및 Azure Web App으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행합니다.
+4. 플레이어 웹앱을 가리키는 Azure AD 앱의 **다른 애플리케이션에 대한 권한** 섹션에서 1단계에서 추가한 리소스 앱을 추가합니다. **위임된 권한** 에서 **[resource_name] 액세스** 를 선택합니다. 이 옵션은 리소스 앱에 액세스하는 액세스 토큰을 만드는 웹앱 권한을 제공합니다. Visual Studio 및 Azure Web App으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행합니다.
 
 Azure AD에서 발급한 JWT가 포인터 리소스에 액세스하는 데 사용되는 액세스 토큰입니다.
 
@@ -421,11 +421,11 @@ Azure AD는 Microsoft 계정 도메인을 신뢰하므로 다음 도메인에서
 
 **사용자 지정 Azure AD 테넌트 도메인 계정**: Azure AD 테넌트 도메인의 사용자 지정된 로그인 페이지
 
-![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![사용자 지정 Azure A D 테 넌 트 도메인의 사용자 지정 된 로그인 페이지를 보여 주는 스크린샷](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **스마트 카드를 사용한 Microsoft 도메인 계정**: Microsoft 회사 IT에서 2단계 인증으로 사용자 지정한 로그인 페이지
 
-![사용자 지정 Azure AD 테넌트 도메인 계정](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Microsoft 회사 I T에서 2 단계 인증을 사용 하 여 사용자 지정 된 로그인 페이지를 보여 주는 스크린샷](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft 계정**: 소비자를 위한 Microsoft 계정의 로그인 페이지
 

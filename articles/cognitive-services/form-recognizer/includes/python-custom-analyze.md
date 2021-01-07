@@ -5,18 +5,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 88be632e17912012618ab559f22f97487ad26c9c
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 6a6b0d9740d19270f8daa3608bc125edd0fbec37
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723499"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005092"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>키-값 쌍 및 테이블에 대한 양식 분석
 
 다음으로, 새로 학습된 모델을 사용하여 문서를 분석하고 키-값 쌍 및 테이블을 추출합니다. 새 Python 스크립트에서 다음 코드를 실행하여 **[양식 분석](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
 
-1. `<file path>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다. 이는 원격 파일의 URL일 수도 있습니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Test** 폴더에 있는 파일을 사용할 수 있습니다.
+1. `<file path>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다. 이는 원격 파일의 URL일 수도 있습니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Test** 폴더에 있는 파일을 사용할 수 있습니다(*sample_data.zip* 다운로드 및 추출).
 1. `<model_id>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
 1. `<endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
 1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`입니다.
@@ -69,7 +69,7 @@ ms.locfileid: "88723499"
     endpoint = r"<endpoint>"
     apim_key = "<subsription key>"
     model_id = "<model_id>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/custom/models/%s/analyze" % model_id
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/custom/models/%s/analyze" % model_id
     source = r"<file path>"
     params = {
         "includeTextDetails": True
@@ -100,7 +100,7 @@ ms.locfileid: "88723499"
 
 
 
-1. 코드를 확장명이 .py인 파일로 저장합니다. 예를 들어 *form-recognizer-analyze.py*입니다.
+1. 코드를 확장명이 .py인 파일로 저장합니다. 예를 들어 *form-recognizer-analyze.py* 입니다.
 1. 명령 프롬프트 창을 엽니다.
 1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예들 들어 `python form-recognizer-analyze.py`입니다.
 

@@ -1,24 +1,19 @@
 ---
 title: HPC 및 GPU Vm의 알려진 문제 해결-Azure Virtual Machines | Microsoft Docs
 description: Azure에서 HPC 및 GPU VM 크기와 관련 하 여 알려진 문제를 해결 하는 방법에 대해 알아봅니다.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: workloads
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 42a27092a87488e39d1195dba5fb64173cf52af7
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: f4e93deb40799cbcc9c86aff454e250f1ab71712
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004207"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963337"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 VM의 알려진 문제
 
@@ -45,10 +40,10 @@ Ubuntu VM 이미지에서 IB 인터페이스를 표시 하려고 할 때 알려�
     ```console
     sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
     network:
-        ethernets:
+      ethernets:
         eth0:
-            dhcp4: true
-        version: 2
+          dhcp4: true
+      version: 2
     EOF
     ```
 

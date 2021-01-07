@@ -1,20 +1,20 @@
 ---
 title: 로깅 및 진단
 description: Azure 공간 앵커에서 로깅 및 진단을 생성 하 고 검색 하는 방법에 대 한 자세한 설명입니다.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/22/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da941aa8b616fffeb2e283480c2a1e2f9cf7a093
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: da8ffd7ff0b8473ce558943bb420b36f26c3fc32
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003119"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494644"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Azure 공간 앵커의 로깅 및 진단
 
@@ -43,9 +43,9 @@ Azure 공간 앵커는 앱 개발에 유용한 표준 로깅 메커니즘을 제
 
 이러한 이벤트 콜백은 세션에서 로그 및 오류를 처리 하는 데 제공 됩니다.
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): 런타임에서 받을 이벤트의 세부 수준을 지정 합니다.
-- [Onlogdebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): 표준 디버그 로그 이벤트를 제공 합니다.
-- [오류](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): 런타임에서 오류로 간주 하는 로그 이벤트를 제공 합니다.
+- [LogLevel](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): 런타임에서 받을 이벤트의 세부 수준을 지정 합니다.
+- [Onlogdebug](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): 표준 디버그 로그 이벤트를 제공 합니다.
+- [오류](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): 런타임에서 오류로 간주 하는 로그 이벤트를 제공 합니다.
 
 ## <a name="diagnostics-logging"></a>진단 로깅
 

@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
+- contperf-fy21q2
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907069"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033292"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -27,19 +28,19 @@ ms.locfileid: "90907069"
 
 Azure의 Computer Vision 서비스는 관심 있는 시각적 기능을 기반으로 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스 권한을 제공합니다. 예를 들어, Computer Vision은 이미지에 성인 콘텐츠가 포함되어 있는지, 특정 브랜드 또는 개체를 찾거나, 사람의 얼굴을 찾는지 여부를 확인할 수 있습니다.
 
-클라이언트 라이브러리 SDK를 통해 또는 REST API를 직접 호출하여 Computer Vision 애플리케이션을 만들 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
+[클라이언트 라이브러리 SDK](./quickstarts-sdk/client-library.md)를 통해 또는 [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)를 직접 호출하여 Computer Vision 애플리케이션을 만들 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
+
+## <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
+
+Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) 기능이 포함되어 있습니다. 새 Read API를 사용하여 이미지 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 최신 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. 두 OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>디지털 자산 관리를 위한 Computer Vision
 
 Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할 수 있습니다. DAM은 풍부한 미디어 자산을 구성, 저장, 검색하고 디지털 권한 및 사용 권한을 관리하는 비즈니스 프로세스입니다. 예를 들어 기업에서 시각적 로고, 면, 개체, 색 등을 기준으로 이미지를 그룹화하고 식별하기를 원할 수 있습니다. 또는 이미지를 검색할 수 있도록 [이미지에 대한 자막을 자동으로 생성](./Tutorials/storage-lab-tutorial.md)하고 키워드를 연결하기를 원할 수 있습니다. Cognitive Services, Azure Cognitive Search 및 인텔리전트 보고를 사용하는 올인원 DAM 솔루션은 GitHub의 [정보 마이닝 솔루션 가속기 가이드](https://github.com/Azure-Samples/azure-search-knowledge-mining)를 참조하세요. 다른 DAM 예제는 [Computer Vision 솔루션 템플릿](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) 리포지토리를 참조하세요.
 
-## <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
-
-Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) 기능이 포함되어 있습니다. 새 Read API를 사용하여 이미지 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 최신 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. 두 OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](#next-steps)을 따라 시작하세요.
-
 ## <a name="analyze-images-for-insight"></a>인사이트를 위한 이미지 분석
 
-이미지를 분석하여 이미지의 시각적 기능 및 특성에 대한 인사이트를 제공할 수 있습니다. 아래 표의 모든 기능이 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API로 제공됩니다. [빠른 시작](#next-steps)을 따라 시작하세요.
+이미지를 분석하여 이미지의 시각적 기능 및 특성에 대한 인사이트를 제공할 수 있습니다. 아래 표의 모든 기능이 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API로 제공됩니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
 
 
 ### <a name="tag-visual-features"></a>시각적 기능 태그 지정
@@ -64,7 +65,7 @@ Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) �
 
 ### <a name="detect-faces"></a>얼굴 감지
 
-이미지에서 얼굴을 감지하고, 감지된 얼굴 각각에 대한 정보를 제공합니다. Computer Vision은 감지된 얼굴 각각에 대한 좌표, 사각형, 성별 및 나이를 반환합니다.<br/>Computer Vision은 [Face](/azure/cognitive-services/face/) 서비스 기능의 하위 집합을 제공합니다. 얼굴 인식 및 포즈 감지와 같이 더 자세한 분석을 위한 Face 서비스를 사용할 수 있습니다. [얼굴 감지](concept-detecting-faces.md)
+이미지에서 얼굴을 감지하고, 감지된 얼굴 각각에 대한 정보를 제공합니다. Computer Vision은 감지된 얼굴 각각에 대한 좌표, 사각형, 성별 및 나이를 반환합니다.<br/>Computer Vision은 [Face](../face/index.yml) 서비스 기능의 하위 집합을 제공합니다. 얼굴 인식 및 포즈 감지와 같이 더 자세한 분석을 위한 Face 서비스를 사용할 수 있습니다. [얼굴 감지](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>이미지 유형 감지
 
@@ -90,13 +91,12 @@ Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) �
 
 Computer Vision을 사용하여 이미지에서 [성인 콘텐츠를 감지](concept-detecting-adult-content.md)하고 다양한 분류에 대한 신뢰도 점수를 반환할 수 있습니다. 콘텐츠 플래그 지정 임계값은 기본 설정에 맞게 슬라이딩 배율로 설정할 수 있습니다.
 
-## <a name="use-containers"></a>컨테이너 사용
+## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
 
-Computer Vision Docker 컨테이너를 통해 온-프레미스에서 서비스를 사용합니다. 현재 두 개의 컨테이너를 사용할 수 있습니다.
+Computer Vision 컨테이너를 사용하여 온-프레미스에 API 기능을 배포합니다. 이러한 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다. Computer Vision은 다음과 같은 컨테이너를 제공합니다.
 
-* [Computer Vision 읽기 컨테이너](computer-vision-how-to-install-containers.md)를 사용하면 이미지에서 활자체 및 필기체 텍스트를 인식할 수 있습니다.
-
-* [Computer Vision 공간 분석 컨테이너](spatial-analysis-container.md)를 사용하면 실시간 스트리밍 비디오를 분석하여 사용자와 사용자의 물리적 환경 간 이동의 공간 관계를 이해할 수 있습니다.
+* [Computer Vision 읽기 OCR 컨테이너(미리 보기)](computer-vision-how-to-install-containers.md)를 사용하면 이미지에서 활자체 및 필기체 텍스트를 인식할 수 있습니다.
+* [Computer Vision 공간 분석 컨테이너(미리 보기)](spatial-analysis-container.md)를 사용하면 실시간 스트리밍 비디오를 분석하여 사용자와 사용자의 물리적 환경 간 이동의 공간 관계를 이해할 수 있습니다.
 
 ## <a name="image-requirements"></a>이미지 요구 사항
 
@@ -113,8 +113,6 @@ Computer Vision에서 이미지를 분석하는 데 충족되어야 하는 요�
 
 ## <a name="next-steps"></a>다음 단계
 
-빠른 시작 가이드에 따라 Computer Vision 시작:
+선호하는 개발 언어로 된 빠른 시작 가이드에 따라 Computer Vision을 시작하세요.
 
-- [빠른 시작: Computer Vision .NET 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [빠른 시작: Computer Vision Python 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [빠른 시작: Computer Vision Java 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md)

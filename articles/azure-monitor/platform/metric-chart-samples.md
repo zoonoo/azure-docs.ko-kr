@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 9b2ab664f319de07fd70bd1a22b1ba6d64ac208f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 05dadfe88ed64aea8066b02298ba158a44a03c6f
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320258"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760186"
 ---
 # <a name="metric-chart-examples"></a>메트릭 차트 예 
 
@@ -24,31 +24,31 @@ Azure 플랫폼에서는 [1,000개가 넘는 메트릭](./metrics-supported.md)�
 
 이 차트에는 App Service의 CPU 사용률이 적절한 범위 내에 포함되는지 여부가 표시되며, 인스턴스별로 구분된 CPU 사용률이 제공되므로 부하가 적절하게 분산되는지를 확인할 수 있습니다. 이 차트에서는 오전 6시 이전에 단일 서버 인스턴스에서 앱이 실행 중이었으며 그 후에는 다른 인스턴스가 추가되어 앱이 강화되었음을 확인할 수 있습니다.
 
-![서버 인스턴스별 평균 CPU 사용률 백분율이 표시된 꺾은선형 차트](./media/metric-chart-samples/cpu-by-instance.png)
+![서버 인스턴스별 평균 CPU 사용률 백분율이 표시된 꺾은선형 차트](./media/metrics-charts/cpu-by-instance.png)
 
 ### <a name="how-to-configure-this-chart"></a>이 차트를 구성하는 방법
 
-App Service 리소스를 선택하고 **CPU 백분율** 메트릭을 찾습니다. 그런 다음 **분할 적용**을 클릭하고 **인스턴스** 차원을 선택합니다.
+App Service 리소스를 선택하고 **CPU 백분율** 메트릭을 찾습니다. 그런 다음 **분할 적용** 을 클릭하고 **인스턴스** 차원을 선택합니다.
 
 ## <a name="application-availability-by-region"></a>지역별 애플리케이션 가용성
 
 지역별 애플리케이션 가용성을 확인하면 문제 발생 지역을 파악할 수 있습니다. 이 차트에는 Application Insights 가용성 메트릭이 표시되어 있습니다. 모니터링 대상 애플리케이션의 미국 동부 데이터 센터 가용성에는 문제가 없지만 미국 서부와 동아시아의 가용성에는 다소 문제가 있음을 확인할 수 있습니다.
 
-![위치별 평균 가용성 차트](./media/metric-chart-samples/availability-run-location.png)
+![위치별 평균 가용성 차트](./media/metrics-charts/availability-by-location.png)
 
 ### <a name="how-to-configure-this-chart"></a>이 차트를 구성하는 방법
 
 먼저 웹 사이트에 대해 [Application Insights 가용성](../app/monitor-web-app-availability.md) 모니터링을 설정해야 합니다. 그 후에는 Application Insights 리소스를 선택하고 가용성 메트릭을 선택합니다. **실행 위치** 차원에 분할을 적용합니다.
 
-## <a name="volume-of-storage-account-transactions-by-api-name"></a>API 이름별 스토리지 계정 트랜잭션 볼륨
+## <a name="volume-of-failed-storage-account-transactions-by-api-name"></a>API 이름별 실패 한 저장소 계정 트랜잭션 볼륨
 
-스토리지 계정 리소스에서 진행되는 트랜잭션의 양이 매우 많습니다. 트랜잭션 메트릭을 사용하면 과도한 부하의 원인이 되는 API를 파악할 수 있습니다. 다음 차트는 확인할 API 호출만 보기에 표시되도록 범위를 좁히기 위해 필터링과 분할에서 같은 차원(API 이름)을 사용하여 구성되었습니다.
+저장소 계정 리소스에서 실패 한 트랜잭션의 과도 한 볼륨이 발생 하 고 있습니다. 트랜잭션 메트릭을 사용 하 여 초과 실패를 담당 하는 API를 식별할 수 있습니다. 다음 차트는 실패 한 응답 유형을 분할 하 고 필터링 할 때 동일한 차원 (API 이름)으로 구성 됩니다.
 
-![API 트랜잭션 막대 그래프](./media/metric-chart-samples/transactions-by-api.png)
+![API 트랜잭션 막대 그래프](./media/metrics-charts/split-and-filter-example.png)
 
 ### <a name="how-to-configure-this-chart"></a>이 차트를 구성하는 방법
 
-메트릭 선택기에서 스토리지 계정과 **트랜잭션** 메트릭을 선택합니다. 차트 유형을 **막대형 차트**로 전환합니다. **분할 적용**을 클릭하고 **API 이름** 차원을 선택합니다. 그런 다음 **필터 추가**를 클릭하고 **API 이름** 차원을 다시 선택합니다. 필터 대화 상자에서 차트에 그릴 API를 선택합니다.
+메트릭 선택기에서 스토리지 계정과 **트랜잭션** 메트릭을 선택합니다. 차트 유형을 **막대형 차트** 로 전환합니다. **분할 적용** 을 클릭하고 **API 이름** 차원을 선택합니다. 그런 다음 **필터 추가** 를 클릭하고 **API 이름** 차원을 다시 선택합니다. 필터 대화 상자에서 차트에 그릴 API를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

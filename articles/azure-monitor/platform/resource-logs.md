@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800503"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522705"
 ---
 # <a name="azure-resource-logs"></a>Azure 리소스 로그
 Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. 리소스 로그는 기본적으로 수집 되지 않습니다. 각 Azure 리소스에 대 한 진단 설정을 만들어 [Azure Monitor 로그](data-platform-logs.md), Event Hubs azure 외부에서 전달 하는 데 사용 하는 Log Analytics 작업 영역에 리소스 로그를 전송 하거나 보관을 위해 Azure Storage 합니다.
@@ -27,7 +27,7 @@ Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한
 - 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 데이터에 대 한 심층 통찰력을 얻습니다.
 - 복잡 한 경고 논리를 사용 하 여 로그 경고를 사용 합니다.
 
-리소스 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](diagnostic-settings.md) . 이 데이터는 [Azure Monitor 로그의 구조](../log-query/logs-structure.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
+리소스 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](diagnostic-settings.md) . 이 데이터는 [Azure Monitor 로그의 구조](./data-platform-logs.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
 
 - Azure 진단-기록 된 모든 데이터는 _Azurediagnostics_ 테이블에 저장 됩니다.
 - 리소스 관련 데이터는 리소스의 각 범주에 대 한 개별 테이블에 기록 됩니다.
@@ -54,7 +54,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 | ... |
 
 ### <a name="resource-specific"></a>리소스 관련
-이 모드에서는 진단 설정에서 선택한 각 범주에 대해 선택한 작업 영역의 개별 테이블이 생성 됩니다. 이 방법은 로그 쿼리에서 데이터를 더 쉽게 사용할 수 있도록 하 고, 스키마 및 해당 구조를 보다 효율적으로 검색 하 고, 수집 대기 시간과 쿼리 시간 모두에서 성능을 향상 시키고, 특정 테이블에 대해 RBAC 권한을 부여 하는 기능을 제공 하기 때문에 권장 됩니다. 모든 Azure 서비스는 궁극적으로 리소스 특정 모드로 마이그레이션됩니다. 
+이 모드에서는 진단 설정에서 선택한 각 범주에 대해 선택한 작업 영역의 개별 테이블이 생성 됩니다. 이 방법은 로그 쿼리에서 데이터를 사용 하는 작업을 훨씬 쉽게 수행할 수 있도록 하 고, 스키마 및 해당 구조를 보다 효율적으로 검색 하 고, 수집 대기 시간과 쿼리 시간 모두에서 성능을 향상 시키고, 특정 테이블에 대 한 Azure RBAC 권한을 부여 하는 기능을 제공 하기 때문에 권장 됩니다. 모든 Azure 서비스는 궁극적으로 Resource-Specific 모드로 마이그레이션됩니다. 
 
 위의 예에서는 세 개의 테이블을 만듭니다.
  
@@ -85,7 +85,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 
 
 ### <a name="select-the-collection-mode"></a>컬렉션 모드를 선택 합니다.
-대부분의 Azure 리소스는 사용자를 제공 하지 않고 **Azure 진단** 또는 **리소스 특정 모드** 에서 작업 영역에 데이터를 기록 합니다. 사용 모드에 대 한 자세한 내용은 [각 서비스에 대 한 설명서](./resource-logs-schema.md) 를 참조 하세요. 모든 Azure 서비스는 궁극적으로 리소스 특정 모드를 사용 합니다. 이러한 전환의 일부로 일부 리소스는 진단 설정에서 모드를 선택할 수 있습니다. 데이터를 더 쉽게 관리할 수 있도록 하 고 나중에 복잡 한 마이그레이션을 방지 하는 데 도움이 될 수 있으므로 모든 새 진단 설정에 대해 리소스 특정 모드를 지정 합니다.
+대부분의 Azure 리소스는 사용자를 제공 하지 않고 **Azure 진단** 또는 **리소스 특정 모드** 에서 작업 영역에 데이터를 기록 합니다. 사용 모드에 대 한 자세한 내용은 [각 서비스에 대 한 설명서](./resource-logs-schema.md) 를 참조 하세요. 모든 Azure 서비스는 궁극적으로 Resource-Specific 모드를 사용 합니다. 이러한 전환의 일부로 일부 리소스는 진단 설정에서 모드를 선택할 수 있습니다. 데이터를 더 쉽게 관리할 수 있도록 하 고 나중에 복잡 한 마이그레이션을 방지 하는 데 도움이 될 수 있으므로 모든 새 진단 설정에 대해 리소스 특정 모드를 지정 합니다.
   
    ![진단 설정 모드 선택기](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
@@ -95,7 +95,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 
 기존 진단 설정을 리소스 특정 모드로 수정할 수 있습니다. 이 경우 이미 수집 된 데이터는 작업 영역의 보존 설정에 따라 제거 될 때까지 _Azurediagnostics_ 테이블에 남아 있습니다. 새 데이터는 전용 테이블에 수집 됩니다. [Union](/azure/kusto/query/unionoperator) 연산자를 사용 하 여 두 테이블에서 데이터를 쿼리 합니다.
 
-리소스 특정 모드를 지 원하는 Azure 서비스에 대 한 공지를 보려면 [Azure 업데이트](https://azure.microsoft.com/updates/) 블로그를 계속 시청 하세요.
+Resource-Specific 모드를 지 원하는 Azure 서비스에 대 한 공지 사항은 [Azure 업데이트](https://azure.microsoft.com/updates/) 블로그를 계속 시청 하세요.
 
 ### <a name="column-limit-in-azurediagnostics"></a>AzureDiagnostics의 열 제한
 Azure Monitor 로그의 모든 테이블에 대 한 500 속성 제한이 있습니다. 이 한도에 도달 하면 첫 번째 500 외부의 속성을 포함 하는 데이터를 포함 하는 모든 행이 수집 시 삭제 됩니다. *Azurediagnostics* 테이블은 모든 Azure 서비스에 대 한 속성을 포함 하므로 특히이 제한에 취약 합니다.

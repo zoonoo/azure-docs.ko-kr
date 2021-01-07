@@ -1,18 +1,16 @@
 ---
-title: 지역 또는 SKU 시리즈를 사용할 수 없음 - Azure
+title: 지역 또는 SKU 시리즈를 사용할 수 없음
 description: 이 지역의 선택한 구독에 대해 일부 SKU 시리즈를 사용할 수 없으므로 구독 관리 지원 요청이 필요할 수 있습니다.
-services: Azure Supportability
 author: stevendotwang
-ms.service: azure-supportability
 ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: 87533b2e0c1397d0b8b2e9a89450a80a75c5e348
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bbe1dff6bbf8fed481300db95482c46b0e8a7b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763825"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745284"
 ---
 # <a name="region-or-sku-unavailable"></a>지역 또는 SKU 사용할 수 없음
 
@@ -58,29 +56,29 @@ Message: This size is currently unavailable in this location for this subscripti
 
 적합한 지역 또는 SKU를 찾을 수 없는 경우 다음 단계에 따라 **구독 관리** [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택합니다. 그런 다음, **새 지원 요청**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원** 을 선택합니다. 그런 다음, **새 지원 요청** 을 선택합니다.
 
-1. **기본 사항**에서 **문제 유형**에 대해 **구독 관리**를 선택합니다.
+1. **기본 사항** 에서 **문제 유형** 에 대해 **구독 관리** 를 선택합니다.
 
-1. **구독**을 선택하고 **요약**에 간략한 설명을 입력합니다.
+1. **구독** 을 선택하고 **요약** 에 간략한 설명을 입력합니다.
 
    ![새 지원 요청의 기본 사항 탭](./media/SKU-series-unavailable/support-request-basics.png)
 
-1. **문제 유형**에 대해 **문제 유형 선택**을 선택합니다.
+1. **문제 유형** 에 대해 **문제 유형 선택** 을 선택합니다.
 
-1. **문제 유형 선택**의 경우 옵션(예: **내 구독 또는 리소스에 액세스할 수 없음** > **내 문제가 위 목록에 없음**)을 선택합니다. **저장**을 선택합니다.
+1. **문제 유형 선택** 의 경우 옵션(예: **내 구독 또는 리소스에 액세스할 수 없음** > **내 문제가 위 목록에 없음**)을 선택합니다. **저장** 을 선택합니다.
 
    ![요청에 대한 문제 지정](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
-1. 완료되면 **다음: 솔루션**을 선택하여 가능한 해결 방법을 탐색합니다. 필요한 경우 **다음: 세부 정보**를 선택하여 계속 진행합니다.
+1. 완료되면 **다음: 솔루션** 을 선택하여 가능한 해결 방법을 탐색합니다. 필요한 경우 **다음: 세부 정보** 를 선택하여 계속 진행합니다.
 
 1. 연락처 정보와 함께 제공할 수 있는 추가 정보를 입력합니다.
 
-1. **검토 + 만들기**를 선택합니다. 정보를 확인한 후 **만들기**를 선택하여 요청을 만듭니다.
+1. **검토 + 만들기** 를 선택합니다. 정보를 확인한 후 **만들기** 를 선택하여 요청을 만듭니다.
 
 ## <a name="send-us-your-suggestions"></a>제안 사항을 보내 주세요.
 
-사용자 의견 및 제안을 항상 환영합니다. [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주세요. 또한 [Twitter](https://twitter.com/azuresupport) 또는 [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure)에서 문의할 수 있습니다.
+사용자 의견 및 제안을 항상 환영합니다. [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주세요. 또한 [Twitter](https://twitter.com/azuresupport) 또는 [Microsoft Q&A 질문 페이지](/answers/products/azure)에서 문의할 수 있습니다.
 
 ## <a name="learn-more"></a>자세한 정보
 

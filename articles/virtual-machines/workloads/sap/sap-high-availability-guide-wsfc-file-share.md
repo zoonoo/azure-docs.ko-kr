@@ -10,22 +10,23 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 469f6a1021fde661c4eae7951b86c9bb500c7050
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068694"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012496"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows 로고.][Logo_Windows] Windows
 >
 
 Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가용성 SAP ASCS/SCS를 설치하고 DBMS를 사용하기 위한 기반이 됩니다.
@@ -50,7 +51,7 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 
 Azure 클라우드 플랫폼은 부동 IP 주소와 같은 가상 IP 주소를 구성하는 옵션을 제공하지 않습니다. 클라우드의 클러스터 리소스에 연결하도록 가상 IP 주소를 설정하기 위한 대체 솔루션이 필요합니다. 
 
-Azure Load Balancer 서비스는 Azure에서 ‘내부 부하 분산 장치’를 제공합니다.** 내부 부하 분산 장치를 사용하면 클라이언트는 클러스터 가상 IP 주소를 통해 클러스터에 도달합니다. 
+Azure Load Balancer 서비스는 Azure에서 ‘내부 부하 분산 장치’를 제공합니다. 내부 부하 분산 장치를 사용하면 클라이언트는 클러스터 가상 IP 주소를 통해 클러스터에 도달합니다. 
 
 클러스터 노드를 포함하는 리소스 그룹에 부하 분산 장치를 배포합니다. 그런 후 내부 부하 분산 장치의 프로브 포트를 사용하여 필요한 모든 포트 전달 규칙을 구성합니다. 클라이언트는 가상 호스트 이름을 통해 연결할 수 있습니다. DNS 서버는 클러스터 IP 주소를 확인하고 내부 부하 분산 장치는 클러스터의 활성 노드에 대한 포트 전달을 처리합니다.
 
@@ -123,7 +124,7 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 
 * 스케일 아웃 파일 공유에 사용할 둘 이상의 클러스터 노드.
 * 각 노드는 둘 이상의 로컬 디스크를 가져야 합니다.
-* 성능상의 이유로 ‘미러링 복원’을 사용해야 합니다.**
+* 성능상의 이유로 ‘미러링 복원’을 사용해야 합니다.
     * 2방향 미러링: 클러스터 노드가 2개인 스케일 아웃 파일 공유
     * 3방향 미러링: 클러스터 노드가 3개 이상인 스케일 아웃 파일 공유
 * 스케일 아웃 파일 공유에는 3방향 미러링이 사용된 3개 이상의 클러스터 노드를 사용하는 것이 좋습니다.
@@ -137,7 +138,7 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 * 스토리지 공간 다이렉트 디스크 동기화에 필요한 VM 간의 양호한 네트워크 성능을 보장하려면 “높음” 네트워크 대역폭 이상의 VM 유형을 사용해야 합니다.
     자세한 내용은 [DSv2-시리즈][dv2-series] 및 [DS-시리즈][ds-series] 사양을 참조하세요.
 * 스토리지 풀에 할당되지 않은 용량을 일부 남겨 두는 것이 좋습니다. 스토리지 풀에 할당되지 않은 용량을 남겨 두면 드라이브에 장애가 발생하는 경우 “원본 위치”에서 복구하는 데 필요한 볼륨 용량이 확보됩니다. 이렇게 하면 데이터 안전성과 성능이 향상됩니다.  자세한 내용은 [볼륨 크기 선택][choosing-the-size-of-volumes-s2d]을 참조하세요.
-* 의 경우와 같이 스케일 아웃 파일 공유 네트워크 이름에 대해 Azure 내부 부하 분산 장치를 구성할 필요가 없습니다 \<SAP global host\> . 이 작업은 \<ASCS/SCS virtual host name\> SAP ASCS/SCS 인스턴스 또는 DBMS에 대해 수행 됩니다. 스케일 아웃 파일 공유는 모든 클러스터 노드로 부하를 분산합니다. \<SAP global host\>모든 클러스터 노드에 대해 로컬 IP 주소를 사용 합니다.
+* 의 경우와 같이 스케일 아웃 파일 공유 네트워크 이름에 대해 Azure 내부 부하 분산 장치를 구성할 필요가 없습니다 \<SAP global host\> . 이 작업은 \<ASCS/SCS virtual host name\> SAP ASCS/SCS 인스턴스 또는 DBMS에 대해 수행 됩니다. 스케일 아웃 파일 공유는 모든 클러스터 노드로 부하를 분산합니다. \<SAP global host\> 모든 클러스터 노드에 대해 로컬 IP 주소를 사용 합니다.
 
 
 > [!IMPORTANT]

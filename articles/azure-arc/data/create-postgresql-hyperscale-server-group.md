@@ -9,14 +9,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e845136c4fed5a3d2e6863fdab0aa9f70fb30b5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939917"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609057"
 ---
-# <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 만들기
+# <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
 이 문서에서는 Azure Arc에서 PostgreSQL Hyperscale 서버 그룹을 만드는 단계를 설명 합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "90939917"
 - [저장소 구성 및 Kubernetes 저장소 개념](storage-configuration.md)
 - [Kubernetes 리소스 모델](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-전체 환경을 직접 프로 비전 하지 않고 작업을 수행 하려는 경우 azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) 빠른 시작을 사용 하 여 빠르게 시작 하세요.
+전체 환경을 직접 프로 비전 하지 않고 작업을 수행 하려는 경우 azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) 빠른 시작을 사용 하 여 빠르게 시작 하세요.
 
 
 ## <a name="login-to-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러에 로그인 합니다.
@@ -59,7 +59,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 다음 단계로 이동 하기 전에이 단계를 구현 합니다. PostgreSQL Hyperscale 서버 그룹을 기본값이 아닌 프로젝트의 Red Hat OpenShift에 배포 하려면 클러스터에 대해 다음 명령을 실행 하 여 보안 제약 조건을 업데이트 해야 합니다. 이 명령은 PostgreSQL Hyperscale 서버 그룹을 실행 하는 서비스 계정에 필요한 권한을 부여 합니다. SCC (보안 컨텍스트 제약 조건) **_arc-데이터-scc_** 는 Azure arc 데이터 컨트롤러를 배포할 때 추가한 것입니다.
 
 ```console
-oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
 _**서버 그룹 이름** 은 다음 단계에서 만들 서버 그룹의 이름입니다._
@@ -72,7 +72,7 @@ OpenShift의 SCCs에 대 한 자세한 내용은 [openshift 설명서](https://d
 Azure Arc에서 Azure Database for PostgreSQL Hyperscale 서버 그룹을 만들려면 다음 명령을 사용 합니다.
 
 ```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
+azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2> --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
 
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
@@ -80,25 +80,14 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 
 > [!NOTE]
 > - **사용할 수 있는 다른 명령줄 매개 변수가 있습니다.  을 실행 하 여 옵션의 전체 목록을 참조 하세요 `azdata arc postgres server create --help` .**
-> - 미리 보기에서는 백업 및 복원을 위해 서버 그룹을 만들 때 백업에 대 한 저장소 클래스를 지정 해야 합니다 (_--저장소-클래스-백업-scb_).
+> - 백업에 사용 되는 저장소 클래스 (_--저장소-클래스-scb_)는 지정 되지 않은 경우 기본적으로 데이터 컨트롤러의 데이터 저장소 클래스를 사용 합니다.
 > - --Volume size-* 매개 변수에서 허용 하는 단위는 Kubernetes 리소스 수량 (이러한 SI 접미사 (T, G, M, K, M) 또는 그에 해당 하는 두 가지 기능 (Ti, Gi, Mi, Ki))입니다.
-> - 이름은 10 자이 하 여야 하 고 DNS 명명 규칙을 따라야 합니다.
+> - 이름 길이는 12 자이 하 여야 하 고 DNS 명명 규칙을 따라야 합니다.
 > - _Postgres_ standard 관리 사용자의 암호를 입력 하 라는 메시지가 표시 됩니다.  `AZDATA_PASSWORD`Create 명령을 실행 하기 전에 세션 환경 변수를 설정 하 여 대화형 프롬프트를 건너뛸 수 있습니다.
-> - AZDATA_USERNAME를 사용 하 여 데이터 컨트롤러를 배포한 경우 동일한 터미널 세션에서 AZDATA_PASSWORD AZDATA_USERNAME 및 AZDATA_PASSWORD 값이 PostgreSQL Hyperscale 서버 그룹을 배포 하는 데 사용 됩니다. PostgreSQL Hyperscale 데이터베이스 엔진의 기본 관리자 사용자 이름은 _PostgreSQL_ 이 고이 시점에서 변경할 수 없습니다.
+> - AZDATA_USERNAME를 사용 하 여 데이터 컨트롤러를 배포 하 고 동일한 터미널 세션에서 세션 환경 변수를 AZDATA_PASSWORD 하는 경우 AZDATA_PASSWORD의 값이 PostgreSQL Hyperscale 서버 그룹을 배포 하는 데 사용 됩니다. 다른 암호를 사용 하려면 (1) AZDATA_PASSWORD에 대 한 값을 업데이트 하거나 (2) AZDATA_PASSWORD 환경 변수를 삭제 하거나 해당 값을 삭제 하 여 서버 그룹을 만들 때 암호를 대화형으로 입력 하 라는 메시지를 표시 합니다.
+> - PostgreSQL Hyperscale 데이터베이스 엔진의 기본 관리자 사용자 이름은 _postgres_ 이며이 시점에서 변경할 수 없습니다.
 > - PostgreSQL Hyperscale 서버 그룹을 만들면 Azure에 리소스가 즉시 등록 되지 않습니다. [리소스 인벤토리](upload-metrics-and-logs-to-azure-monitor.md) 또는 [사용 현황 데이터](view-billing-data-in-azure.md) 를 azure에 업로드 하는 프로세스의 일부로 azure에서 리소스가 생성 되 고 Azure Portal에서 리소스를 볼 수 있게 됩니다.
-> - 이 시점에서--port 매개 변수를 변경할 수 없습니다.
-> - Kubernetes 클러스터에 기본 저장소 클래스가 없는 경우--metadataStorageClass 매개 변수를 사용 하 여 하나를 지정 해야 합니다. 이렇게 하지 않으면 create 명령의 오류가 발생 합니다. Kubernetes 클러스터에서 기본 저장소 클래스가 선언 되었는지 확인 하려면 다음 명령을 솔루션이 합니다. 
->
->   ```console
->   kubectl get sc
->   ```
->
-> - 기본 저장소 클래스로 구성 된 저장소 클래스가 있으면 저장소 클래스 이름에 **(기본값)** 이 추가 된 것을 볼 수 있습니다. 예를 들어:
->
->   ```output
->   NAME                       PROVISIONER                        AGE
->   local-storage (default)    kubernetes.io/no-provisioner       4d18h
->   ```
+
 
 
 ## <a name="list-your-azure-database-for-postgresql-server-groups-created-in-your-arc-setup"></a>Arc 설정에서 만든 Azure Database for PostgreSQL 서버 그룹 나열
@@ -123,7 +112,7 @@ PostgreSQL 인스턴스에 대 한 끝점을 보려면 다음 명령을 실행 �
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-예를 들어:
+예:
 ```console
 [
   {
@@ -141,7 +130,7 @@ azdata arc postgres endpoint list -n <server group name>
 ]
 ```
 
-PostgreSQL 인스턴스 끝점을 사용 하 여  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) Psql, pgcli 등 즐겨 사용 하는 도구에서 PostgreSQL hyperscale 서버 그룹에 연결할 수 있습니다.
+PostgreSQL 인스턴스 끝점을 사용 하 여  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) Psql, pgcli 등 즐겨 사용 하는 도구에서 PostgreSQL hyperscale 서버 그룹에 연결할 수 있습니다.
 
 Azure VM을 사용 하 여 테스트 하는 경우 아래 지침을 따르세요.
 
@@ -149,7 +138,7 @@ Azure VM을 사용 하 여 테스트 하는 경우 아래 지침을 따르세요
 
 Azure 가상 컴퓨터를 사용 하는 경우 끝점 IP 주소는 _공용_ ip 주소를 표시 하지 않습니다. 공용 IP 주소를 찾으려면 다음 명령을 사용 합니다.
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -159,7 +148,7 @@ NSG (네트워크 보안 게이트웨이)를 통해 PostgreSQL Hyperscale 서버
 
 규칙을 설정 하려면 NSG의 이름을 알아야 합니다. 다음 명령을 사용 하 여 NSG를 확인 합니다.
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -167,7 +156,7 @@ NSG의 이름이 있으면 다음 명령을 사용 하 여 방화벽 규칙을 �
 
 아래의--destination-port-범위 매개 변수 값을 위의 ' azdata arc postgres server list ' 명령에서 가져온 포트 번호로 바꿉니다.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -180,7 +169,7 @@ Azure Data Studio를 열고 위의 외부 끝점 IP 주소와 포트 번호 및 
 
 Azure VM을 사용 하는 경우 다음 명령을 통해 액세스할 수 있는 _공용_ IP 주소가 필요 합니다.
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -205,9 +194,9 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
     * [다중 테 넌 트 데이터베이스 디자인](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [실시간 분석 대시보드 디자인](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-    > \* 위의 문서에서 **Azure Portal에 로그인**섹션을 건너뛰고 **Azure Database for PostgreSQL-Hyperscale (Citus) & 만듭니다**. Azure Arc 배포의 나머지 단계를 구현 합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공 되는 Citus (Azure Database for PostgreSQL Hyperscale)에 고유 하지만, 문서의 다른 부분은 Azure Arc enabled PostgreSQL Hyperscale에 직접 적용할 수 있습니다.
+    > \* 위의 문서에서 **Azure Portal에 로그인** 섹션을 건너뛰고 **Azure Database for PostgreSQL-Hyperscale (Citus) & 만듭니다**. Azure Arc 배포의 나머지 단계를 구현 합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공 되는 Citus (Azure Database for PostgreSQL Hyperscale)에 고유 하지만, 문서의 다른 부분은 Azure Arc enabled PostgreSQL Hyperscale에 직접 적용할 수 있습니다.
 
-- [Azure Database for PostgreSQL 하이퍼 확장 서버 그룹 확장](scale-out-postgresql-hyperscale-server-group.md)
+- [Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-postgresql-hyperscale-server-group.md)
 - [저장소 구성 및 Kubernetes 저장소 개념](storage-configuration.md)
 - [영구적 볼륨 클레임 확장](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes 리소스 모델](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

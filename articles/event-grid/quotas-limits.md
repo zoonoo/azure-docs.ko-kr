@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Grid에 대한 제한 및 할당량
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 78fb18f579eb1fa0c032b72c6d32bf56a7f0c8f4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86120435"
 ---
 # <a name="azure-event-grid-quotas-and-limits"></a>Azure Event Grid 할당량 및 제한

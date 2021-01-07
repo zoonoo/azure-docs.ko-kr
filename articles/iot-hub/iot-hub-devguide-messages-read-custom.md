@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61244347"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147644"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>디바이스-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용
 
@@ -25,7 +25,7 @@ IoT Hub [메시지 라우팅](iot-hub-devguide-routing-query-syntax.md)을 사�
 | ------------- | ----------- |
 | **이름**      | 쿼리를 식별하는 고유한 이름입니다. |
 | **원본**    | 처리할 데이터 스트림의 원본입니다. 예를 들어 디바이스 원격 분석이 있습니다. |
-| **조건** | 엔드포인트의 일치 항목인지 확인하기 위해 메시지 애플리케이션 속성, 시스템 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성에 대해 실행되는 라우팅 쿼리의 쿼리 식입니다. 쿼리 생성에 대한 자세한 내용은 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)을 참조하세요. |
+| **Condition** | 엔드포인트의 일치 항목인지 확인하기 위해 메시지 애플리케이션 속성, 시스템 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성에 대해 실행되는 라우팅 쿼리의 쿼리 식입니다. 쿼리 생성에 대한 자세한 내용은 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)을 참조하세요. |
 | **엔드포인트**  | IoT Hub에서 쿼리와 일치하는 메시지를 보내는 엔드포인트의 이름입니다. IoT Hub와 동일한 지역에서 엔드포인트를 선택하는 것이 좋습니다. |
 
 하나의 메시지가 여러 라우팅 쿼리의 조건과 일치할 수 있습니다. 이 경우 IoT Hub는 일치된 각 쿼리와 연결된 엔드포인트로 메시지를 전송합니다. 또한 IoT Hub는 메시지 전송을 자동으로 중복 제거하므로 메시지가 동일한 대상을 가진 여러 쿼리와 일치하면 해당 대상에 한 번만 기록됩니다.
@@ -46,7 +46,7 @@ IoT Hub에 사용자 지정 엔드포인트를 만드는 방법에 대한 자세
 
 * [Azure Storage 컨테이너](../storage/blobs/storage-blobs-introduction.md)에서 읽기
 
-* [Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)에서 읽기
+* [Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)에서 읽기
 
 * [Service Bus 큐](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)에서 읽기
 

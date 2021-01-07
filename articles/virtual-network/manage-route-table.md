@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
 ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291001"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
@@ -190,7 +190,7 @@ Azure 위치와 구독 별로 만들 수 있는 경로 테이블당 경로 수�
 
 1. 경로 테이블 내의 경로에 대 한 고유한 **경로 이름을** 입력 합니다.
 
-1. 트래픽을 라우팅할 CIDR (클래스 간 라우팅) 표기법으로 **주소 접두사**를 입력 합니다. 접두사는 다른 접두사 내에 있을 수 있지만 경로 테이블 내에서 둘 이상의 경로에서 중복 될 수 없습니다. 예를 들어 한 경로에서 *10.0.0.0/16* 을 접두사로 정의한 경우에도 *10.0.0.0/22* 주소 접두사로 다른 경로를 정의할 수 있습니다. Azure는 가장 긴 접두사 일치를 기반으로 트래픽 경로를 선택합니다. 자세히 알아보려면 [Azure에서 경로를 선택 하는 방법](virtual-networks-udr-overview.md#how-azure-selects-a-route)을 참조 하세요.
+1. 트래픽을 라우팅할 CIDR (클래스 없는 Inter-Domain 라우팅) 표기법으로 **주소 접두사**를 입력 합니다. 접두사는 다른 접두사 내에 있을 수 있지만 경로 테이블 내에서 둘 이상의 경로에서 중복 될 수 없습니다. 예를 들어 한 경로에서 *10.0.0.0/16* 을 접두사로 정의한 경우에도 *10.0.0.0/22* 주소 접두사로 다른 경로를 정의할 수 있습니다. Azure는 가장 긴 접두사 일치를 기반으로 트래픽 경로를 선택합니다. 자세히 알아보려면 [Azure에서 경로를 선택 하는 방법](virtual-networks-udr-overview.md#how-azure-selects-a-route)을 참조 하세요.
 
 1. **다음 홉 유형**을 선택 합니다. 다음 홉 유형에 대해 자세히 알아보려면 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조 하세요.
 

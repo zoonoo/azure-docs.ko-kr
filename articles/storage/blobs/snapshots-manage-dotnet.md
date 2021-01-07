@@ -10,16 +10,16 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb57e7260a056afe023455149f610ff492c98c12
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ae1d72c30fb7c45c92f24ec5132859a45c6ae953
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226134"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543377"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 Blob 스냅샷 만들기 및 관리
 
-스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용 하 여 blob 스냅숏을 만들고 관리 하는 방법을 보여 줍니다.
+스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전입니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용 하 여 blob 스냅숏을 만들고 관리 하는 방법을 보여 줍니다.
 
 Azure Storage의 blob 스냅숏에 대 한 자세한 내용은 [blob 스냅숏](snapshots-overview.md)을 참조 하십시오.
 
@@ -163,4 +163,4 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 - [Blob 스냅숏](snapshots-overview.md)
 - [Blob 버전](versioning-overview.md)
-- [Blob에 대한 일시 삭제](storage-blob-soft-delete.md)
+- [Blob에 대한 일시 삭제](./soft-delete-blob-overview.md)

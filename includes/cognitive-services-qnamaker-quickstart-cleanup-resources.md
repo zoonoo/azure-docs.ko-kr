@@ -1,21 +1,21 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: mrbullwinkle
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 11/05/2018
-ms.author: diberry
-ms.openlocfilehash: 560d4232e98b656c3ca7023cf8bdfa63e0a413da
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 12/29/2020
+ms.author: mbullwin
+ms.openlocfilehash: 2e46887fab21a6d49eee02542be88d312fe13afe
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67182500"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820618"
 ---
 ## <a name="clean-up-resources"></a>리소스 정리
 

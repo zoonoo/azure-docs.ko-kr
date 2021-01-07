@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: 9c9479fca538c36f4f5eb430c4befb76e39370e6
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888951"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900013"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 시스템 노드 풀 관리 (AKS)
 
-Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 시스템 노드 풀 및 사용자 노드 풀은 AKS 클러스터에 대 한 두 개의 서로 다른 노드 풀 모드입니다. 시스템 노드 풀은 및와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다 `CoreDNS` `metrics-server` . 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 모든 AKS 클러스터에 하나 이상의 노드를 포함 하는 시스템 노드 풀이 하나 이상 있어야 합니다.
+Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀* 로 그룹화 됩니다. 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 시스템 노드 풀 및 사용자 노드 풀은 AKS 클러스터에 대 한 두 개의 서로 다른 노드 풀 모드입니다. 시스템 노드 풀은 및와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다 `CoreDNS` `metrics-server` . 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 모든 AKS 클러스터에 하나 이상의 노드를 포함 하는 시스템 노드 풀이 하나 이상 있어야 합니다.
 
 > [!Important]
 > 프로덕션 환경에서 AKS 클러스터에 대 한 단일 시스템 노드 풀을 실행 하는 경우 노드 풀에 대해 세 개 이상의 노드를 사용 하는 것이 좋습니다.
@@ -62,7 +62,7 @@ Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀
 
 새 AKS 클러스터를 만들 때 단일 노드를 사용 하 여 시스템 노드 풀을 자동으로 만듭니다. 초기 노드 풀의 기본값은 시스템 형식 모드입니다. 를 사용 하 여 새 노드 풀 `az aks nodepool add` 을 만드는 경우 해당 노드 풀은 모드 매개 변수를 명시적으로 지정 하지 않는 한 사용자 노드 풀입니다.
 
-다음 예제에서는 *미국 동부* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *미국 동부* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -193,7 +193,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
-[aks-taints]: use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[aks-taints]: use-multiple-node-pools.md#setting-nodepool-taints
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create

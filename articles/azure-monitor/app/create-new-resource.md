@@ -3,16 +3,16 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323131"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906372"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
-Azure 애플리케이션 Insights는 Microsoft Azure *리소스*에 응용 프로그램에 대 한 데이터를 표시 합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 새 리소스를 만든 후에는 해당 계측 키를 가져오고이를 사용 하 여 Application Insights SDK를 구성할 수 있습니다. 계측 키는 원격 분석을 리소스에 연결 합니다.
+Azure 애플리케이션 Insights는 Microsoft Azure *리소스* 에 응용 프로그램에 대 한 데이터를 표시 합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 새 리소스를 만든 후에는 해당 계측 키를 가져오고이를 사용 하 여 Application Insights SDK를 구성할 수 있습니다. 계측 키는 원격 분석을 리소스에 연결 합니다.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Microsoft Azure에 로그인
 
@@ -24,7 +24,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![왼쪽 위 모서리에 있는 ' + ' 기호를 클릭 합니다. 개발자 도구 다음에 Application Insights를 선택 합니다.](./media/create-new-resource/new-app-insights.png)
 
-   | 설정        |  값           | 설명  |
+   | 설정        |  값           | Description  |
    | ------------- |:-------------|:-----|
    | **이름**      | `Unique value` | 모니터링할 앱을 식별 하는 이름입니다. |
    | **리소스 그룹**     | `myResourceGroup`      | Application Insights 데이터를 호스트할 새 리소스 그룹 또는 기존 리소스 그룹의 이름입니다. |
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!NOTE]
 > 서로 다른 리소스 그룹에서 동일한 리소스 이름을 사용할 수 있지만 전역적으로 고유한 이름을 사용 하는 것이 유용할 수 있습니다. 이는 필요한 구문을 간소화 하므로 [리소스 간 쿼리를 수행할](../log-query/cross-workspace-query.md#identifying-an-application) 계획인 경우에 유용할 수 있습니다.
 
-필요한 필드에 적절 한 값을 입력 한 다음 **검토 + 만들기**를 선택 합니다.
+필요한 필드에 적절 한 값을 입력 한 다음 **검토 + 만들기** 를 선택 합니다.
 
 ![필수 필드에 값을 입력 하 고 "검토 + 만들기"를 선택 합니다.](./media/create-new-resource/review-create.png)
 
@@ -44,7 +44,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 계측 키는 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 계측 키를 복사 하 여 응용 프로그램의 코드에 추가 해야 합니다.
 
-![계측 키를 클릭 하 고 복사 합니다.](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=net) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 ## <a name="install-the-sdk-in-your-app"></a>응용 프로그램에 SDK를 설치합니다.
 
@@ -65,7 +66,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
  [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```powershell
 New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus

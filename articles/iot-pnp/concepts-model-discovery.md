@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032030"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495290"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Iot 솔루션에서 IoT 플러그 앤 플레이 모델 사용
 
@@ -26,7 +26,7 @@ IoT 솔루션은 다음과 같은 두 가지 범주로 나뉩니다.
 
 Iot 플러그 앤 플레이 모델을 사용 하려면 IoT 솔루션:
 
-1. 솔루션에 연결 된 IoT 플러그 앤 플레이 장치에 의해 구현 된 모델의 모델 ID를 식별 합니다.
+1. 솔루션에 연결 된 IoT 플러그 앤 플레이 장치, 모듈 또는 IoT Edge 모듈에 의해 구현 된 모델의 모델 ID를 식별 합니다.
 
 1. 모델 ID를 사용 하 여 모델 리포지토리 또는 사용자 지정 저장소에서 연결 된 장치의 모델 정의를 검색 합니다.
 
@@ -40,7 +40,10 @@ IoT Hub 장치 연결 흐름의 일부로 장치 모델 ID를 사용 하 여 솔
 
 ### <a name="get-device-twin-api"></a>장치 쌍 API 가져오기
 
-솔루션은 [장치 쌍 가져오기](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) API를 사용 하 여 IoT 플러그 앤 플레이 장치의 모델 ID를 검색할 수 있습니다.
+솔루션은 [장치 쌍 가져오기](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) API를 사용 하 여 IoT 플러그 앤 플레이 장치의 모델 ID를 검색할 수 있습니다.
+
+> [!TIP]
+> 모듈 및 IoT Edge 모듈의 경우 [ModuleClient](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable)를 사용 합니다.
 
 다음 장치 쌍 응답 코드 조각에는 `modelId` IoT 플러그 앤 플레이 장치의 모델 ID가 포함 되어 있습니다.
 
@@ -68,7 +71,7 @@ IoT Hub 장치 연결 흐름의 일부로 장치 모델 ID를 사용 하 여 솔
 
 ### <a name="get-digital-twin-api"></a>디지털 쌍 API 가져오기
 
-이 솔루션은 [Get Digital](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) 쌍 API를 사용 하 여 IoT 플러그 앤 플레이 장치에 의해 구현 된 모델의 모델 ID를 검색할 수 있습니다.
+이 솔루션은 [Get Digital](/rest/api/iothub/service/digitaltwin/getdigitaltwin) 쌍 API를 사용 하 여 IoT 플러그 앤 플레이 장치에 의해 구현 된 모델의 모델 ID를 검색할 수 있습니다.
 
 다음 디지털 쌍 응답 코드 조각에는 `$metadata.$model` IoT 플러그 앤 플레이 장치의 모델 ID가 포함 되어 있습니다.
 
@@ -118,11 +121,11 @@ content-encoding:utf-8
 
 새 장치 연결에 대 한 모델 ID를 확인 한 후에는 다음 단계를 수행 합니다.
 
-1. 모델 리포지토리에서 모델 ID를 사용 하 여 모델 정의를 검색 합니다. 자세한 내용은 [모델 가져오기](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)를 참조 하세요.
+1. 모델 리포지토리에서 모델 ID를 사용 하 여 모델 정의를 검색 합니다. 자세한 내용은 [장치 모델 리포지토리](concepts-model-repository.md)를 참조 하세요.
 
 1. 연결 된 장치의 모델 정의를 사용 하 여 장치의 기능을 열거할 수 있습니다.
 
-1. 장치의 열거 된 기능을 사용 하 여 사용자가 [장치와 상호 작용](quickstart-service-node.md)하도록 허용할 수 있습니다.
+1. 장치의 열거 된 기능을 사용 하 여 사용자가 [장치와 상호 작용](quickstart-service.md)하도록 허용할 수 있습니다.
 
 ### <a name="custom-store"></a>사용자 지정 저장소
 
@@ -134,12 +137,12 @@ content-encoding:utf-8
 
 1. 연결 된 장치의 모델 정의를 사용 하 여 장치의 기능을 열거할 수 있습니다. 
 
-1. 장치의 열거 된 기능을 사용 하 여 사용자가 [장치와 상호 작용](quickstart-service-node.md)하도록 허용할 수 있습니다.  
+1. 장치의 열거 된 기능을 사용 하 여 사용자가 [장치와 상호 작용](quickstart-service.md)하도록 허용할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
 Iot 솔루션에서 IoT 플러그 앤 플레이 모델을 통합 하는 방법을 배웠으므로 이제 몇 가지 제안 된 다음 단계를 수행 합니다.
 
-- [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
-- [IoT 디지털 쌍 REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [솔루션에서 디바이스와 상호 작용](quickstart-service.md)
+- [IoT 디지털 쌍 REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

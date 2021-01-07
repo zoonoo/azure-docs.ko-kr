@@ -9,18 +9,18 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Azure API for FHIR 배포 - 포털
-      href: fhir-paas-portal-quickstart.md
-    - name: Azure API for FHIR 배포 - PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: Azure API for FHIR 배포 - CLI
-      href: fhir-paas-cli-quickstart.md
-    - name: FHIR Server for Azure 배포 - 포털
-      href: fhir-oss-portal-quickstart.md
-    - name: FHIR Server for Azure 배포 - PowerShell
-      href: fhir-oss-powershell-quickstart.md
-    - name: FHIR Server for Azure 배포 - CLI
-      href: fhir-oss-cli-quickstart.md
+    - name: Azure API for FHIR 배포
+      expanded: false
+      items:
+        - name: 포털 사용
+          href: fhir-paas-portal-quickstart.md
+        - name: PowerShell 사용
+          href: fhir-paas-powershell-quickstart.md
+        - name: CLI 사용
+          href: fhir-paas-cli-quickstart.md
+        - name: ARM 템플릿 사용
+          displayName: Resource Manager
+          href: fhir-paas-arm-template-quickstart.md
     - name: Azure IoT Connector for FHIR(미리 보기) 배포 - 포털
       href: iot-fhir-portal-quickstart.md
 - name: 자습서
@@ -73,19 +73,30 @@
           href: configure-local-rbac.md
         - name: 데이터베이스 설정 구성
           href: configure-database.md
+        - name: 고객 관리형 키 구성
+          href: customer-managed-key.md
         - name: CORS 구성
           href: configure-cross-origin-resource-sharing.md
         - name: 내보내기 구성
           href: configure-export-data.md
+        - name: Private Link 구성
+          href: configure-private-link.md
     - name: 데이터 내보내기
       expanded: false
       items:
-        - name: 개인 식별 정보가 제거된 내보내기
+        - name: 데이터 내보내기
           href: export-data.md
+        - name: 개인 식별 정보가 제거된 내보내기
+          href: de-identified-export.md
     - name: ID 개체 ID 찾기
       href: find-identity-object-ids.md
-    - name: Azure API for FHIR®에서 진단 로깅 사용
-      href: enable-diagnostic-logging.md
+    - name: 진단 로깅 및 메트릭
+      expanded: false
+      items:
+        - name: Azure API for FHIR에서 진단 로깅 사용
+          href: enable-diagnostic-logging.md
+        - name: Azure IoT Connector for FHIR 표시 및 구성(미리 보기) 메트릭
+          href: iot-metrics-display.md
     - name: Azure API for FHIR의 토큰 가져오기 - CLI
       href: get-healthcare-apis-access-token-cli.md
     - name: Azure IoT Connector for FHIR(미리 보기)의 오류 문제 해결

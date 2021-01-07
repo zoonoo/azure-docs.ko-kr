@@ -2,29 +2,30 @@
 title: 포함 파일
 description: 포함 파일
 services: cognitive-services
-author: roy-har
-manager: diberry
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.date: 06/03/2020
+ms.date: 12/29/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: roy-har
-ms.openlocfilehash: 8e67a6d0c98a3839922a79e9b452465087da1b69
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.author: aahi
+ms.reviewer: roy-har
+ms.openlocfilehash: 7aa2fba6ef551a745ccaf5b00f36021b9d8680ce
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418053"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820543"
 ---
 1. [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json)을 선택하여 `pizza-app-for-luis.json` 파일에 대한 GitHub 페이지를 엽니다.
-1. **Raw** 단추를 마우스 오른쪽 단추로 클릭하거나 길게 누르고 **다른 이름으로 링크 저장**을 선택하여 `pizza-app-for-luis.json`을 컴퓨터에 저장합니다.
+1. **Raw** 단추를 마우스 오른쪽 단추로 클릭하거나 길게 누르고 **다른 이름으로 링크 저장** 을 선택하여 `pizza-app-for-luis.json`을 컴퓨터에 저장합니다.
 1. [LUIS 포털](https://www.luis.ai)에 로그인합니다.
 1. [내 앱](https://www.luis.ai/applications)을 선택합니다.
-1. **내 앱** 페이지에서 **+ 대화용 새 앱**을 선택합니다.
-1. **JSON으로 가져오기**를 선택합니다.
+1. **내 앱** 페이지에서 **+ 대화용 새 앱** 을 선택합니다.
+1. **JSON으로 가져오기** 를 선택합니다.
 1. **새 앱 가져오기** 대화 상자에서 **파일 선택** 단추를 선택합니다.
-1. 다운로드한 `pizza-app-for-luis.json` 파일을 선택한 다음, **열기**를 선택합니다.
+1. 다운로드한 `pizza-app-for-luis.json` 파일을 선택한 다음, **열기** 를 선택합니다.
 1. **새 앱 가져오기** 대화 상자의 **이름** 필드에 Pizza 앱의 이름을 입력한 다음, **완료** 단추를 선택합니다.
 
 앱을 가져옵니다.
@@ -47,8 +48,8 @@ ms.locfileid: "84418053"
 
 이러한 값을 찾으려면 다음을 수행합니다.
 
-1. **의도** 페이지에서 **관리**를 선택합니다.
-1. **애플리케이션 설정** 페이지에서 **앱 ID**를 기록합니다.
-1. **Azure 리소스**를 선택합니다.
-1. **Azure 리소스** 페이지에서 **기본 키**를 기록합니다. 이 값은 예측 키입니다.
-1. **엔드포인트 URL**을 기록합니다. 이 값은 예측 엔드포인트입니다.
+1. **의도** 페이지에서 **관리** 를 선택합니다.
+1. **애플리케이션 설정** 페이지에서 **앱 ID** 를 기록합니다.
+1. **Azure 리소스** 를 선택합니다.
+1. **Azure 리소스** 페이지에서 **기본 키** 를 기록합니다. 이 값은 예측 키입니다.
+1. **엔드포인트 URL** 을 기록합니다. 이 값은 예측 엔드포인트입니다.

@@ -1,16 +1,14 @@
 ---
 title: 독립 실행형 클러스터 배포 준비
 description: 프로덕션 워크로드를 처리하기 위한 클러스터를 배포하기 전에 고려해야 하는 환경 준비 및 클러스터 구성 만들기와 관련된 설명서입니다.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.author: dekapur
-ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261033"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509175"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
 
@@ -62,7 +60,7 @@ Service Fabric 클러스터의 컴퓨터에 권장 되는 사양은 다음과 �
 * [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
 * [RemoteRegistry 서비스](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) 는 모든 컴퓨터에서 실행 되어야 합니다.
 * **Service Fabric 설치 드라이브는 NTFS 파일 시스템 이어야 합니다.**
-* **Windows 서비스 *성능 로그 & 경고* 및 *windows 이벤트 로그* 를 [사용 하도록 설정](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))해야**합니다.
+* **Windows 서비스 *성능 로그 & 경고* 및 *windows 이벤트 로그* 를 [사용 하도록 설정](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))해야** 합니다.
 
 > [!IMPORTANT]
 > 클러스터를 배포하고 구성하는 클러스터 관리자는 각 컴퓨터에서 [관리자 권한](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 이 있어야 합니다. 도메인 컨트롤러에 Service Fabric을 설치할 수 없습니다.
@@ -105,7 +103,7 @@ Service Fabric 클러스터의 컴퓨터에 권장 되는 사양은 다음과 �
 5. 클러스터 컴퓨터를 인터넷에서 액세스할 수 없는 경우 클러스터 구성에서 다음을 설정합니다.
    * 원격 분석 사용 안 함: *속성* 에서 *"enableTelemetry": false를* 설정 합니다.
    * 자동 패브릭 버전 & 다운로드를 사용 하지 않도록 설정 하 여 현재 클러스터 버전이 지원 끝에 fabricClusterAutoupgradeEnabled 알림: *속성* 에서 *"": false* 를 설정 합니다.
-   * 또는 네트워크 인터넷 액세스가 허용 목록 도메인으로 제한될 경우 자동 업그레이드를 위해 go.microsoft.com, download.microsoft.com 도메인이 필요합니다.
+   * 또는 네트워크 인터넷 액세스가 allowlisted 도메인으로 제한 된 경우 자동 업그레이드를 위해 아래 도메인이 필요 합니다. go.microsoft.com download.microsoft.com
 
 6. 적절한 Service Fabric 바이러스 백신 예외 설정:
 

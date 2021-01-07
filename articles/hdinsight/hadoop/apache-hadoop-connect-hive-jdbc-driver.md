@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 183bc416dde941f11bd94cfcff3bf738b35f876f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207382"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996080"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
@@ -39,7 +39,7 @@ Azure의 HDInsight 클러스터에 대 한 JDBC 연결은 포트 443을 통해 �
 
 `CLUSTERNAME`을 HDInsight 클러스터 이름으로 바꿉니다.
 
-또는 **AMBARI UI > Hive > Configs > 고급**을 통해 연결을 가져올 수 있습니다.
+또는 **AMBARI UI > Hive > Configs > 고급** 을 통해 연결을 가져올 수 있습니다.
 
 ![Ambari를 통해 JDBC 연결 문자열 가져오기](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png)
 
@@ -75,7 +75,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
     scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/{commons-codec*.jar,commons-logging-*.jar,hive-*-*.jar,httpclient-*.jar,httpcore-*.jar,libfb*.jar,libthrift-*.jar} .
     ```
 
-3. SQuirreL SQL 애플리케이션을 시작합니다. 왼쪽 창에서 **드라이버**를 선택합니다.
+3. SQuirreL SQL 애플리케이션을 시작합니다. 왼쪽 창에서 **드라이버** 를 선택합니다.
 
     ![창 왼쪽의 드라이버 탭](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-squirreldrivers.png)
 
@@ -87,7 +87,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     |속성 | 값 |
     |---|---|
-    |이름|Hive|
+    |Name|Hive|
     |URL 예|`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`|
     |추가 클래스 경로|**추가** 단추를 사용 하 여 앞에서 다운로드 한 모든 jar 파일을 추가 합니다.|
     |클래스 이름|HiveDriver입니다.|
@@ -96,7 +96,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
    **확인** 을 선택 하 여 이러한 설정을 저장 합니다.
 
-6. SQuirreL SQL 창의 왼쪽에서 **별칭**을 선택합니다. 그런 다음 아이콘을 선택 **+** 하 여 연결 별칭을 만듭니다.
+6. SQuirreL SQL 창의 왼쪽에서 **별칭** 을 선택합니다. 그런 다음 아이콘을 선택 **+** 하 여 연결 별칭을 만듭니다.
 
     ![' SQuirreL SQL 추가 새 별칭 대화 상자 '](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
@@ -104,20 +104,20 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     |속성 |값 |
     |---|---|
-    |이름|HDInsight의 Hive|
+    |Name|HDInsight의 Hive|
     |드라이버|드롭다운을 사용 하 여 **Hive** 드라이버를 선택 합니다.|
-    |URL|`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.|
-    |사용자 이름|HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 **admin**입니다.|
+    |URL|`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`. **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.|
+    |사용자 이름|HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 **admin** 입니다.|
     |암호|클러스터 로그인 계정의 암호입니다.|
 
     ![매개 변수를 사용 하 여 별칭 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
     > [!IMPORTANT]
-    > **테스트** 단추를 사용하여 연결이 작동하는지 확인합니다. **연결 대상: Hive on HDInsight** 대화 상자가 나타나면 **연결**을 선택하여 테스트를 수행합니다. 테스트가 성공하면 **연결 성공** 대화 상자가 표시됩니다. 오류가 발생하는 경우 [문제 해결](#troubleshooting)을 참조하세요.
+    > **테스트** 단추를 사용하여 연결이 작동하는지 확인합니다. **연결 대상: Hive on HDInsight** 대화 상자가 나타나면 **연결** 을 선택하여 테스트를 수행합니다. 테스트가 성공하면 **연결 성공** 대화 상자가 표시됩니다. 오류가 발생하는 경우 [문제 해결](#troubleshooting)을 참조하세요.
 
     연결 별칭을 저장하려면 **별칭 추가** 대화 상자의 아래쪽에 있는 **확인** 단추를 사용합니다.
 
-8. SQuirreL SQL 위쪽의 **연결 대상** 드롭다운에서 **Hive on HDInsight**를 선택합니다. 메시지가 표시되면 **연결**을 선택합니다.
+8. SQuirreL SQL 위쪽의 **연결 대상** 드롭다운에서 **Hive on HDInsight** 를 선택합니다. 메시지가 표시되면 **연결** 을 선택합니다.
 
     ![매개 변수가 있는 연결 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
 
@@ -147,7 +147,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **원인**: SQuirreL에 포함된 이전 버전 commons-codec.jar 파일에서 이 오류가 발생됩니다.
 
-**해결**방법:이 오류를 해결 하려면 다음 단계를 사용 합니다.
+**해결** 방법:이 오류를 해결 하려면 다음 단계를 사용 합니다.
 
 1. SQuirreL를 종료 하 고 시스템에 SQuirreL이 설치 된 디렉터리로 이동 `C:\Program Files\squirrel-sql-4.0.0\lib` 합니다. SquirreL 디렉터리의 `lib` 디렉터리에서 기존 common-codec.jar 파일을 HDInsight 클러스터에서 다운로드한 파일로 바꿉니다.
 
@@ -159,14 +159,14 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **원인**:이 오류는 게이트웨이 노드에 대 한 제한으로 인해 발생 합니다. JDBC/ODBC에서 데이터를 가져올 때 모든 데이터는 게이트웨이 노드를 통과 해야 합니다. 그러나 게이트웨이는 대량의 데이터를 다운로드 하도록 설계 되지 않았으므로 트래픽을 처리할 수 없는 경우 게이트웨이가 연결을 닫을 수 있습니다.
 
-**해결**방법: JDBC/ODBC 드라이버를 사용 하 여 대량의 데이터를 다운로드 하지 마세요. 대신 blob 저장소에서 직접 데이터를 복사 합니다.
+**해결** 방법: JDBC/ODBC 드라이버를 사용 하 여 대량의 데이터를 다운로드 하지 마세요. 대신 blob 저장소에서 직접 데이터를 복사 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 JDBC를 사용 하 여 Hive를 사용 하는 방법을 배웠으므로 다음 링크를 사용 하 여 Azure HDInsight로 작업 하는 다른 방법을 살펴보세요.
 
 * [Azure HDInsight에서 Microsoft Power BI를 사용 하 여 Apache Hive 데이터를 시각화](apache-hadoop-connect-hive-power-bi.md)합니다.
-* [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
+* [Azure HDInsight에서 Power BI를 사용 하 여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](apache-hadoop-connect-excel-hive-odbc-driver.md)
 * [파워 쿼리를 사용 하 여 Apache Hadoop에 Excel을 연결](apache-hadoop-connect-excel-power-query.md)합니다.
 * [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)

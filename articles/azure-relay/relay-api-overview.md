@@ -5,10 +5,10 @@ ms.topic: article
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
 ms.openlocfilehash: 98bbb1ecc7e870ff9b7687284e7087d44375d275
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935724"
 ---
 # <a name="available-relay-apis"></a>사용 가능한 Relay API
@@ -22,7 +22,7 @@ ms.locfileid: "88935724"
 | 언어/플랫폼 | 사용 가능한 기능 | 클라이언트 패키지 | 리포지토리 |
 | --- | --- | --- | --- |
 | .NET Standard | 하이브리드 연결 | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
-| .NET Framework | WCF 릴레이 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
+| .NET Framework | WCF 릴레이 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | 해당 없음 |
 | 노드 | 하이브리드 연결 | [Websocket `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websocket `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP 요청: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>추가 정보

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79409022"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151970"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "79409022"
 * 서유럽
 * 북유럽
 * 오스트레일리아 동부
-* 동남아시아
+* 동남 아시아
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>데이터 자산 수에 대한 제한은 무엇입니까?
 데이터 카탈로그 무료 버전은 등록된 데이터 자산 5,000개로 제한됩니다.
@@ -55,7 +55,7 @@ ms.locfileid: "79409022"
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>새 카탈로그를 만들려고 할 때 오류 *카탈로그가 이미 존재* 하는 이유는 무엇 인가요?
 
-Power BI Pro 라이선스를 사용 하 여 Office 365 E5를 구매 하는 경우 Microsoft는 구독 지역에 자동으로 기본 카탈로그를 만듭니다. 이 카탈로그는 무료 SKU를 사용 합니다. Office 365/Power BI 사용자 라이선스는 Office 365 관리 페이지에서 관리 됩니다. 
+Power BI Pro 라이선스를 사용 하 여 Office 365 E5를 구매 하는 경우 Microsoft는 구독 지역에 자동으로 기본 카탈로그를 만듭니다. 이 카탈로그는 무료 SKU를 사용 합니다. Office 365/Power BI 사용자 라이선스는 관리 페이지에서 관리 됩니다. 
 
 그러나이 유형의 데이터 카탈로그에는 **관리자 옵션이** 없으며 **Azure Portal**에 표시 되지 않습니다. 이 유형의 데이터 카탈로그는 삭제할 수 없습니다. 마찬가지로, 데이터 카탈로그의 이름을 바꿀 수 없으며 다른 영역으로 이동할 수 없습니다. 
 
@@ -75,7 +75,7 @@ Power BI Pro 라이선스 자동으로 할당 된 사용자 계정은 Power BI P
 데이터 원본과 데이터 원본 사이의 특정 속성은 다르지만 일반적으로 데이터 카탈로그 게시 서비스는 다음 정보를 추출합니다.
 
 * 자산 이름
-* 자산 형식
+* 자산 유형
 * 자산 설명
 * 특성/열 이름
 * 특성/열 데이터 형식
@@ -87,7 +87,7 @@ Power BI Pro 라이선스 자동으로 할당 된 사용자 계정은 Power BI P
 >
 
 > [!NOTE]
-> 최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, 데이터 카탈로그 데이터 원본 등록 도구가 해당 속성 값을 추출합니다. 첫 번째 클래스 **설명** 속성이 없는 *온-프레미스* SQL Server 관계형 데이터베이스의 경우 Data Catalog 데이터 원본 등록 도구는 개체 및 열에 대 한 **ms_description** 확장 속성에서 값을 추출 합니다. 이 속성은 SQL Azure에 대해 지원 되지 않습니다. 자세한 내용은 [데이터베이스 개체의 확장 속성 사용](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)을 참조하세요.
+> 최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, 데이터 카탈로그 데이터 원본 등록 도구가 해당 속성 값을 추출합니다. 첫 번째 클래스 **설명** 속성이 없는 *온-프레미스* SQL Server 관계형 데이터베이스의 경우 Data Catalog 데이터 원본 등록 도구는 개체 및 열에 대 한 **ms_description** 확장 속성에서 값을 추출 합니다. 이 속성은 SQL Azure에 대해 지원 되지 않습니다. 자세한 내용은 [데이터베이스 개체의 확장 속성 사용](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105))을 참조하세요.
 >
 >
 
@@ -122,7 +122,7 @@ Microsoft는 데이터 카탈로그에 더 많은 데이터 원본을 추가하�
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>등록하는 데이터 원본에서 더 많거나 풍부한 메타데이터를 추출할 수 있나요?
 데이터 카탈로그의 기능을 확장하는 작업을 활발히 진행 중입니다. 등록하는 동안 데이터 원본에서 추출된 추가 메타데이터를 포함하려는 경우, [Azure Feedback Forums의 데이터 카탈로그](https://feedback.azure.com/forums/906052-data-catalog)에서 이를 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 투표하시기 바랍니다. 
 
-데이터 원본 등록 도구가 해당 메타데이터를 추출하지 않은 데이터 원본에 대해 열/스키마 메타데이터, 미리 보기 도는 데이터 프로필을 포함하려면 데이터 카탈로그 API를 사용하여 이 메타데이터를 추가할 수 있습니다. 자세한 내용은 [Azure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/)를 참조하세요.
+데이터 원본 등록 도구가 해당 메타데이터를 추출하지 않은 데이터 원본에 대해 열/스키마 메타데이터, 미리 보기 도는 데이터 프로필을 포함하려면 데이터 카탈로그 API를 사용하여 이 메타데이터를 추가할 수 있습니다. 자세한 내용은 [Azure Data Catalog REST API](/rest/api/datacatalog/)를 참조하세요.
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>등록된 데이터 자산의 표시 여부를 제한하여 특정인만 검색하도록 하려면 어떻게 하나요?
 데이터 카탈로그에서 해당 데이터 자산을 선택한 다음 **소유권 가져오기** 단추를 클릭합니다. 데이터 카탈로그의 데이터 자산에 대한 소유권은 표시 여부 설정을 변경하여 모든 사용자가 소유한 자산을 검색하거나 특정 사용자에게 표시 여부를 제한하도록 할 수 있습니다. 자세한 내용은 [Azure Data Catalog의 데이터 자산 관리](data-catalog-how-to-manage.md)를 참조하세요.

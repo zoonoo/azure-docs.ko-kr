@@ -8,21 +8,22 @@ ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: eb91b6108cedd12299fcb3cfa89bf2cc91bcd69f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: 8958699ae279d2613f8dbadca802ee2137407e75
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422014"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442415"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 이 자습서에서는 Cosmos DB에 데이터를 저장할 때 [Mongoose 프레임워크](https://mongoosejs.com/)를 사용하는 방법을 보여줍니다. 이 연습에서는 Azure Cosmos DB의 API for MongoDB를 사용합니다. 잘 모르는 사람도 있겠지만, Mongoose는 Node.js에 있는 MongoDB용 개체 모델링 프레임워크이며 애플리케이션 데이터를 모델링하기 위한 간단한 스키마 기반 솔루션을 제공합니다.
 
 Cosmos DB는 전역적으로 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,11 +39,11 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
 
 ### <a name="create-a-database"></a>데이터베이스 만들기 
 이 응용 프로그램에서는 Azure Cosmos DB에서 컬렉션을 만드는 두 가지 방법을 설명 합니다. 
-- **개별 컬렉션에 각 개체 모델 저장**: [전용 처리량을 사용 하 여 데이터베이스를 만드는](set-throughput.md#set-throughput-on-a-database)것이 좋습니다. 이 용량 모델을 사용 하면 더 나은 비용 효율성을 얻을 수 있습니다.
+- **개별 컬렉션에 각 개체 모델 저장** : [전용 처리량을 사용 하 여 데이터베이스를 만드는](set-throughput.md#set-throughput-on-a-database)것이 좋습니다. 이 용량 모델을 사용 하면 더 나은 비용 효율성을 얻을 수 있습니다.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js 자습서-Mongoose Node 모듈에서 사용할 수 있도록 Azure Cosmos DB 계정에 대 한 데이터 탐색기에서 데이터베이스를 만드는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
-- **단일 Cosmos DB 컬렉션에 모든 개체 모델 저장**: 모든 모델을 단일 컬렉션에 저장 하려면 처리량 프로 비전 옵션을 선택 하지 않고 새 데이터베이스를 만들 수 있습니다. 이 용량 모델을 사용 하면 모든 개체 모델에 대해 고유한 처리량 용량으로 각 컬렉션을 만듭니다.
+- **단일 Cosmos DB 컬렉션에 모든 개체 모델 저장** : 모든 모델을 단일 컬렉션에 저장 하려면 처리량 프로 비전 옵션을 선택 하지 않고 새 데이터베이스를 만들 수 있습니다. 이 용량 모델을 사용 하면 모든 개체 모델에 대해 고유한 처리량 용량으로 각 컬렉션을 만듭니다.
 
 데이터베이스를 만든 후에는 `COSMOSDB_DBNAME` 아래 환경 변수에서 이름을 사용 합니다.
 
@@ -81,7 +82,7 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
     ```JavaScript
    # You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
 
-   COSMODDB_USER = "<Azure Cosmos account's user name, usually the database account name>"
+   COSMOSDB_USER = "<Azure Cosmos account's user name, usually the database account name>"
    COSMOSDB_PASSWORD = "<Azure Cosmos account password, this is one of the keys specified in your account>"
    COSMOSDB_DBNAME = "<Azure Cosmos database name>"
    COSMOSDB_HOST= "<Azure Cosmos Host name>"
@@ -92,7 +93,7 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
-        user: process.env.COSMODDB_USER,
+        user: process.env.COSMOSDB_USER,
         password: process.env.COSMOSDB_PASSWORD
       },
     useNewUrlParser: true,

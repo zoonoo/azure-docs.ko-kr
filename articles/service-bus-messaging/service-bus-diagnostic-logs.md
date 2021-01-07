@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus에 사용할 수 있는 모�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064437"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Service Bus에 대 한 진단 로그 사용
@@ -62,7 +62,7 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 다음 관리 작업은 작업 로그에 캡처됩니다. 
 
-| 범위 | 연산|
+| 범위 | 작업(Operation)|
 |-------| -------- |
 | 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임 스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li> <li> 네임 스페이스 SharedAccess 정책 업데이트 </li> </ul> | 
 | 큐 | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> <li> 삭제 큐 자동 삭제 </li> </ul> | 

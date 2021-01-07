@@ -11,45 +11,45 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706349"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174903"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
-지금까지 IT 직원은 직원을 만들고 업데이트 하 고 삭제 하는 수동 방법에 의존 했습니다. 이러한 메서드는 CSV 파일 업로드 또는 사용자 지정 스크립트를 사용 하 여 직원 데이터를 동기화 하는 등의 방법을 사용 했습니다. 이러한 프로 비전 프로세스는 오류가 발생 하기 쉬우며 안전 하지 않으며 관리가 어렵습니다.
+지금까지 IT 직원은 직원을 수동으로 만들고 업데이트하고 삭제하는 방법을 사용해 왔습니다. CSV 파일 업로드 또는 사용자 지정 스크립트와 같은 방법을 사용하여 직원 데이터를 동기화했습니다. 이러한 프로비저닝 프로세스는 오류가 발생하기 쉽고, 안전하지 않으며, 관리하기가 어렵습니다.
 
-직원, 공급 업체 또는 불확정 작업자의 id 수명 주기를 관리 하기 위해 [AZURE AD (Azure Active Directory) 사용자 프로 비전 서비스](../app-provisioning/user-provisioning.md) 는 클라우드 기반 HR (인적 자원) 응용 프로그램과의 통합을 제공 합니다. 응용 프로그램의 예로는 Workday 또는 SuccessFactors이 있습니다.
+직원, 공급업체 또는 불확정 작업자의 ID 수명 주기를 관리하기 위해 [Azure AD(Azure Active Directory) 사용자 프로비저닝 서비스](../app-provisioning/user-provisioning.md)는 클라우드 기반 HR(인적 자원) 애플리케이션과의 통합을 제공합니다. 애플리케이션의 예로 Workday 또는 SuccessFactors가 있습니다.
 
-Azure AD는이 통합을 사용 하 여 다음과 같은 클라우드 HR 응용 프로그램 (앱) 워크플로를 사용 하도록 설정 합니다.
+Azure AD는 이 통합을 사용하여 다음과 같은 클라우드 HR 애플리케이션(앱) 워크플로를 사용하도록 설정합니다.
 
-- **Active Directory에 사용자 프로 비전:** 클라우드 HR 앱에서 선택한 사용자 집합을 하나 이상의 Active Directory 도메인에 프로 비전 합니다.
-- **클라우드 전용 사용자를 AZURE AD에 프로 비전:** Active Directory 사용 되지 않는 시나리오에서는 클라우드 HR 앱에서 Azure AD로 직접 사용자를 프로 비전 합니다.
-- **클라우드 HR 앱에 다시 씁니다.** Azure AD의 이메일 주소 및 사용자 이름 특성을 클라우드 HR 앱에 다시 씁니다.
+- **Active Directory에 사용자 프로비저닝:** 클라우드 HR 앱에서 선택한 사용자 집합을 하나 이상의 Active Directory 도메인으로 프로비저닝합니다.
+- **Azure AD에 클라우드 전용 사용자 프로비저닝:** Active Directory가 사용되지 않는 시나리오에서는 사용자를 클라우드 HR 앱에서 Azure AD로 직접 프로비저닝합니다.
+- **클라우드 HR 앱에 다시 쓰기:** Azure AD의 이메일 주소와 사용자 이름 특성을 클라우드 HR 앱에 다시 씁니다.
 
 > [!NOTE]
-> 이 배포 계획에서는 Azure AD 사용자 프로 비전을 사용 하 여 클라우드 HR 앱 워크플로를 배포 하는 방법을 보여 줍니다. SaaS (software as a service) 앱에 자동 사용자 프로 비전을 배포 하는 방법에 대 한 자세한 내용은 [자동 사용자 프로 비전 배포 계획](https://aka.ms/deploymentplans/provisioning)을 참조 하세요.
+> 이 배포 계획에서는 Azure AD 사용자 프로 비전을 사용 하 여 클라우드 HR 앱 워크플로를 배포 하는 방법을 보여 줍니다. SaaS (software as a service) 앱에 자동 사용자 프로 비전을 배포 하는 방법에 대 한 자세한 내용은 [자동 사용자 프로 비전 배포 계획](./plan-auto-user-provisioning.md)을 참조 하세요.
 
-## <a name="enabled-hr-scenarios"></a>HR 시나리오 사용
+## <a name="enabled-hr-scenarios"></a>사용되는 HR 시나리오
 
-Azure AD 사용자 프로 비전 서비스를 사용 하면 다음과 같은 HR 기반 id 수명 주기 관리 시나리오를 자동화할 수 있습니다.
+Azure AD 사용자 프로비저닝 서비스를 사용하면 다음과 같은 HR 기반 ID 수명 주기 관리 시나리오를 자동화할 수 있습니다.
 
-- **새 직원 채용:** 클라우드 HR 앱에 새 직원을 추가 하면 사용자 계정이 자동으로 Active Directory 및 Azure AD에서 클라우드 HR 앱에 전자 메일 주소 및 사용자 이름 특성을 기록 하는 옵션을 사용 하 여 생성 됩니다.
-- **직원 특성 및 프로필 업데이트:** 클라우드 HR 앱에서 이름, 제목, 관리자 등의 직원 레코드가 업데이트 되는 경우 해당 사용자 계정은 Active Directory 및 Azure AD에서 자동으로 업데이트 됩니다.
-- **직원 종료:** 클라우드 HR 앱에서 직원이 종료 되 면 해당 사용자 계정은 Active Directory 및 Azure AD에서 자동으로 사용 하지 않도록 설정 됩니다.
-- **직원 재 고용:** 클라우드 HR 앱에서 직원이 다시 고용 될 때 이전 계정은 자동으로 다시 활성화 되거나 Active Directory 및 Azure AD에 다시 프로 비전 될 수 있습니다.
+- **새 직원 고용:** 새 직원이 클라우드 HR 앱에 추가되면 이메일 주소와 사용자 이름 특성을 클라우드 HR 앱에 다시 쓰는 옵션을 사용하여 사용자 계정이 Active Directory 및 Azure AD에서 자동으로 만들어집니다.
+- **직원 특성 및 프로필 업데이트:** 이름, 직위 또는 관리자와 같은 직원 레코드가 클라우드 HR 앱에서 업데이트되면 사용자 계정이 Active Directory 및 Azure AD에서 자동으로 업데이트됩니다.
+- **직원 해고:** 직원이 클라우드 HR 앱에서 해고되면 해당 사용자 계정이 Active Directory 및 Azure AD에서 자동으로 사용하지 않도록 설정됩니다.
+- **직원 재고용:** 직원이 클라우드 HR 앱에서 다시 고용되면 이전 계정이 자동으로 다시 활성화되거나 Active Directory 및 Azure AD로 다시 프로비저닝될 수 있습니다.
 
-## <a name="who-is-this-integration-best-suited-for"></a>이 통합의 가장 적합 한 사용자는 누구 인가요?
+## <a name="who-is-this-integration-best-suited-for"></a>이 통합에 가장 적합한 사용자
 
-Azure AD 사용자 프로 비전과 클라우드 HR 앱 통합은 다음을 수행 하는 조직에 가장 적합 합니다.
+Azure AD 사용자 프로비저닝과 클라우드 HR 앱의 통합은 다음과 같은 조직에 가장 적합합니다.
 
-- 클라우드 HR 사용자 프로 비전을 위한 미리 빌드된 클라우드 기반 솔루션이 필요 합니다.
-- 클라우드 HR 앱에서 Active Directory 또는 Azure AD로 직접 사용자를 프로 비전 해야 합니다.
-- 클라우드 HR 앱에서 얻은 데이터를 사용 하 여 사용자를 프로 비전 해야 합니다.
-- 클라우드 HR 앱에서 검색 된 변경 정보만 기반으로 하나 이상의 Active Directory 포리스트, 도메인 및 Ou로 사용자를 동기화 할 수 있어야 합니다.
+- 클라우드 HR 사용자 프로비저닝에 맞게 미리 빌드된 클라우드 기반 솔루션이 필요합니다.
+- 사용자를 클라우드 HR 앱에서 Active Directory 또는 Azure AD로 직접 프로비저닝해야 합니다.
+- 클라우드 HR 앱에서 얻은 데이터를 사용하여 사용자를 프로비저닝해야 합니다.
+- 클라우드 HR 앱에서 감지된 변경 정보만을 기반으로 하여 참가, 이동 및 탈퇴하는 사용자를 하나 이상의 Active Directory 포리스트, 도메인 및 OU에 동기화해야 합니다.
 - 전자 메일에 Microsoft 365를 사용 합니다.
 
 ## <a name="learn"></a>Learn
@@ -66,23 +66,23 @@ Azure AD 사용자 프로 비전과 클라우드 HR 앱 통합은 다음을 수�
 
 ### <a name="key-benefits"></a>주요 이점
 
-HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니스 혜택을 제공 합니다.
+HR 기반 IT 프로비저닝의 이 기능은 다음과 같은 중요한 비즈니스 이점을 제공합니다.
 
-- **생산성 향상:** 이제 사용자 계정 및 라이선스 Microsoft 365 할당을 자동화 하 고 키 그룹에 대 한 액세스를 제공할 수 있습니다. 할당을 자동화 하면 작업 도구에 즉시 액세스할 수 있으며 생산성이 향상 됩니다.
-- **위험 관리:** 클라우드 HR 앱에서 이동 하는 데이터를 사용 하 여 직원 상태 또는 그룹 멤버 자격에 따라 변경 내용을 자동화 하 여 보안을 강화할 수 있습니다. 변경을 자동화 하면 사용자가 조직을 전환 하거나 탈퇴할 때 키 앱에 대 한 사용자 id 및 액세스가 자동으로 업데이트 됩니다.
-- **주소 규정 준수 및 거 버 넌 스:** Azure AD는 원본 및 대상 시스템 모두의 앱에서 수행 하는 사용자 프로 비전 요청에 대 한 기본 감사 로그를 지원 합니다. 감사를 통해 단일 화면에서 앱에 대 한 액세스 권한이 있는 사용자를 추적할 수 있습니다.
-- **비용 관리:** 자동 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 레거시 및 오래 된 플랫폼을 사용 하 여 시간에 따라 작성 된 사용자 지정 개발 된 사용자 프로 비전 솔루션에 대 한 필요성을 줄입니다.
+- **생산성 향상:** 이제 사용자 계정 및 라이선스 Microsoft 365 할당을 자동화 하 고 키 그룹에 대 한 액세스를 제공할 수 있습니다. 할당을 자동화하면 새로 고용된 직원이 작업 도구에 즉시 액세스할 수 있고 생산성이 향상됩니다.
+- **위험 관리:** 클라우드 HR 앱에서 들어오는 데이터를 사용하여 직원 상태 또는 그룹 멤버 자격에 따라 변경을 자동화하여 보안을 강화할 수 있습니다. 변경을 자동화하면 사용자가 조직에서 이동하거나 탈퇴할 때 사용자 ID와 주요 앱에 대한 액세스가 자동으로 업데이트됩니다.
+- **주소 규정 준수 및 거버넌스:** Azure AD는 원본 및 대상 시스템 모두의 앱에서 수행하는 사용자 프로비저닝 요청에 대한 기본 감사 로그를 지원합니다. 감사를 사용하면 단일 화면에서 앱에 액세스할 수 있는 사용자를 추적할 수 있습니다.
+- **비용 관리:** 자동 프로비저닝은 수동 프로비저닝과 관련된 비효율성 및 인간 오류를 방지하여 비용을 절감합니다. 레거시 플랫폼 및 오래된 플랫폼을 사용하여 시간이 지남에 따라 빌드되는 사용자 지정 개발 사용자 프로비저닝 솔루션에 대한 필요성을 줄입니다.
 
-### <a name="licensing"></a>라이선스
+### <a name="licensing"></a>라이선싱
 
 클라우드 HR 앱을 Azure AD 사용자 프로 비전 통합에 구성 하려면 Workday 또는 SuccessFactors와 같은 클라우드 HR 앱에 대 한 유효한 [Azure AD Premium 라이선스](https://azure.microsoft.com/pricing/details/active-directory/) 및 라이선스가 필요 합니다.
 
 또한 클라우드 HR 앱에서 소스인 Active Directory 또는 Azure AD로 프로 비전 되는 모든 사용자에 대해 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요 합니다. 클라우드 HR 앱에서 소유 하 고 있는 라이선스 수가 잘못 된 경우 사용자 프로 비전 중에 오류가 발생할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
-- Azure AD Connect 프로 비전 에이전트를 구성 하는 Azure AD [하이브리드 id 관리자](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  입니다.
-- Azure Portal에서 프로 비전 앱을 구성 하는 Azure AD [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) 역할
+- Azure AD Connect 프로 비전 에이전트를 구성 하는 Azure AD [하이브리드 id 관리자](../roles/permissions-reference.md#hybrid-identity-administrator)  입니다.
+- Azure Portal에서 프로 비전 앱을 구성 하는 Azure AD [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator) 역할
 - 클라우드 HR 앱의 테스트 및 프로덕션 인스턴스입니다.
 - 클라우드 HR 앱에서 시스템 통합 사용자를 만들고 테스트 목적으로 직원 데이터를 변경 하는 관리자 권한
 - Active Directory에 대 한 사용자 프로 비전을 위해 Azure AD Connect 프로 비전 에이전트를 호스트 하려면 .NET 4.7.1 + runtime을 사용 하 여 Windows Server 2012 이상을 실행 하는 서버가 필요 합니다.
@@ -96,7 +96,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 | | [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) |
 | 자습서 | [SaaS 앱을 Azure AD와 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md) |
 | | [자습서: 자동 사용자 프로비저닝을 위한 Workday 구성](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| FAQ | [자동화된 사용자 프로비전](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| FAQ | [자동화 된 사용자 프로 비전](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Workday에서 Azure AD로 프로 비전](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처
@@ -110,7 +110,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 #### <a name="description-of-workflow"></a>워크플로에 대한 설명
 
-다이어그램에는 다음과 같은 주요 단계가 나와 있습니다.  
+다이어그램에는 다음과 같은 주요 단계가 나와 있습니다.  
 
 1. **Hr 팀** 은 cloud hr 앱 테 넌 트에서 트랜잭션을 수행 합니다.
 2. **AZURE AD 프로 비전 서비스** 는 클라우드 HR 앱 테 넌 트에서 예약 된 주기를 실행 하 고 Active Directory와 동기화 하기 위해 처리 해야 하는 변경 내용을 식별 합니다.
@@ -126,7 +126,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트에 오류가 발생 하는 경우 일반적으로 영향, 결과 및 책임에 대 한 기대치가 일치 업데이트로 인해 합니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](https://aka.ms/deploymentplans)합니다. 또한 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다. 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 합니다.
+기술 프로젝트에 오류가 발생 하는 경우 일반적으로 영향, 결과 및 책임에 대 한 기대치가 일치 업데이트로 인해 합니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](../fundamentals/active-directory-deployment-plans.md)합니다. 또한 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다. 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 합니다.
 
 HR 조직의 담당자에 게 기존 HR 비즈니스 프로세스 및 작업자 id와 작업 데이터 처리 요구 사항에 대 한 입력을 제공할 수 있는 담당자를 포함 합니다.
 
@@ -301,9 +301,9 @@ Azure AD 함수 [Selectuniquevalues](../app-provisioning/functions-for-customizi
 
 비즈니스 단위, 위치 및 부서에 따라 컨테이너에 Active Directory 사용자 계정을 저장 하는 것이 일반적입니다. 운송업 프로세스를 시작 하 고 감독 기관과 이러한 조직이 변경 되는 경우 Active Directory에서 한 OU에서 다른 OU로 사용자를 이동 해야 할 수 있습니다.
 
-[스위치 ()](../app-provisioning/functions-for-customizing-application-data.md#switch) 함수를 사용 하 여 OU 할당에 대 한 비즈니스 논리를 구성 하 고 Active Directory 특성 **parentDistinguishedName**에 매핑합니다.
+[스위치 ()](../app-provisioning/functions-for-customizing-application-data.md#switch) 함수를 사용 하 여 OU 할당에 대 한 비즈니스 논리를 구성 하 고 Active Directory 특성 **parentDistinguishedName** 에 매핑합니다.
 
-예를 들어 HR 특성 **지방 자치 체**을 기반으로 OU에 사용자를 만들려는 경우 다음 식을 사용할 수 있습니다.
+예를 들어 HR 특성 **지방 자치 체** 을 기반으로 OU에 사용자를 만들려는 경우 다음 식을 사용할 수 있습니다.
 
 `
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
@@ -378,7 +378,7 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 [초기 주기가](../app-provisioning/how-provisioning-works.md#initial-cycle)성공적으로 완료 되 면 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 앱에 대 한 자습서에 정의 된 간격으로 다시 백 엔드 증분 업데이트를 무기한으로 실행 합니다.
 
-- 서비스가 수동으로 중지 되었습니다. [Azure Portal](https://portal.azure.com/) 또는 적절 한 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다.
+- 서비스가 수동으로 중지 되었습니다. [Azure Portal](https://portal.azure.com/) 또는 적절 한 [Microsoft Graph API](/graph/api/resources/synchronization-overview) 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다.
 - 새 초기 주기는 특성 매핑 또는 범위 지정 필터의 변경에 업데이트로 인해 트리거됩니다.
 - 높은 오류 발생률 때문에 프로 비전 프로세스가 격리 됩니다. 4 주 넘게 격리 상태로 유지 되며,이 경우 자동으로 사용 하지 않도록 설정 됩니다.
 
@@ -404,9 +404,9 @@ Azure AD 프로 비전 서비스는 30 일 이상 데이터를 저장, 처리 �
 
 - [Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제](application-provisioning-config-problem.md)
 - [응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화](user-provisioning-sync-attributes-for-mapping.md)
-- [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](application-provisioning-config-problem-storage-limit.md)
+- [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](./user-provisioning.md)
 - [사용자가 Azure AD 갤러리 애플리케이션에 프로비전되지 않음](application-provisioning-config-problem-no-users-provisioned.md)
-- [Azure AD 갤러리 애플리케이션에 잘못된 사용자 집합이 프로비전됨](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [Azure AD 갤러리 애플리케이션에 잘못된 사용자 집합이 프로비전됨](../manage-apps/add-application-portal-assign-users.md)
 - [에이전트 문제 해결을 위한 Windows 이벤트 뷰어 설정](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [서비스 문제 해결을 위한 Azure Portal 감사 로그 설정](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [AD 사용자 계정 생성 작업에 대한 로그 이해](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
@@ -416,6 +416,6 @@ Azure AD 프로 비전 서비스는 30 일 이상 데이터를 저장, 처리 �
 ### <a name="next-steps"></a>다음 단계
 
 - [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
-- [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Azure AD 동기화 API 개요](/graph/api/resources/synchronization-overview)
 - [범위를 벗어나는 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
 - [Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)

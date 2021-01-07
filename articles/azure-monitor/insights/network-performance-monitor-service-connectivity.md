@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326106"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761042"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -19,8 +19,8 @@ ms.locfileid: "87326106"
 
 서비스 연결 모니터를 사용하여 다음 기능을 수행할 수 있습니다. 
 
-- 여러 지사 또는 위치에서 애플리케이션 및 네트워크 서비스에 대한 네트워크 연결을 모니터링합니다. 응용 프로그램 및 네트워크 서비스에는 Office 365, Dynamics CRM, 내부 LOB(기간 업무) 애플리케이션 및 SQL 데이터베이스가 포함됩니다.
-- 기본 제공 테스트를 사용하여 Office 365 및 Dynamics 365 엔드포인트에 대한 네트워크 연결을 모니터링합니다. 
+- 여러 지사 또는 위치에서 애플리케이션 및 네트워크 서비스에 대한 네트워크 연결을 모니터링합니다. 응용 프로그램 및 네트워크 서비스에는 Microsoft 365, Dynamics CRM, 내부 lob (기간 업무) 응용 프로그램 및 SQL 데이터베이스가 포함 됩니다.
+- 기본 제공 테스트를 사용 하 여 Microsoft 365 및 Dynamics 365 끝점에 대 한 네트워크 연결을 모니터링할 수 있습니다. 
 - 엔드포인트에 연결할 때 발생하는 응답 시간, 네트워크 대기 시간, 패킷 손실을 확인합니다.
 - 애플리케이션 성능 저하가 네트워크 때문인지 또는 애플리케이션 공급자 끝의 문제 때문인지 확인합니다.
 - 토폴로지 맵의 각 홉으로 인한 대기 시간을 확인하여 애플리케이션 성능 저하를 일으킬 수 있는 네트워크의 핫스폿 식별입니다.
@@ -99,7 +99,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 네트워크로 인한 문제인지 확인한 후에 **토폴로지** 보기 링크를 선택하여 토폴로지 맵에서 문제가 있는 홉을 식별합니다. 예제가 다음 이미지에 표시됩니다. 노드와 애플리케이션 엔드포인트 사이의 총 105ms 대기 시간 중에서 96ms가 빨간색으로 표시된 홉 때문입니다. 문제가 있는 홉을 식별한 후에 정정 작업을 수행할 수 있습니다. 
 
-![서비스 연결 모니터 테스트](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![서비스 연결 모니터 끝점 토폴로지](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>진단 
 

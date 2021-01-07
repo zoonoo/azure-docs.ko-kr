@@ -5,11 +5,11 @@ ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003069"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004843"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Azure Blockchain 워크 벤치 미리 보기 사용 REST API
 
@@ -20,11 +20,11 @@ Azure Blockchain 워크 벤치 미리 보기 REST API 개발자 및 정보 근�
 Blockchain 워크 벤치 Api는 배포에 대 한 끝점을 통해 액세스 됩니다. 배포에 대 한 API 끝점 URL을 가져오려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 탐색 창에서 **리소스 그룹**을 선택 합니다.
+1. 왼쪽 탐색 창에서 **리소스 그룹** 을 선택 합니다.
 1. 배포 된 블록 체인 워크 벤치의 리소스 그룹 이름을 선택 합니다.
 1. 목록을 형식 기준으로 사전순으로 정렬하려면 **형식** 열 제목을 선택합니다.
-1. 형식이 **App Service**인 리소스가 두 개 있습니다. "-Api" 접미사를 *사용 하 여* **App Service** 유형의 리소스를 선택 합니다.
-1. App Service **개요**에서 배포 된 블록 체인 워크 벤치에 대 한 API 끝점 url을 나타내는 **url** 값을 복사 합니다.
+1. 형식이 **App Service** 인 리소스가 두 개 있습니다. "-Api" 접미사를 *사용 하 여* **App Service** 유형의 리소스를 선택 합니다.
+1. App Service **개요** 에서 배포 된 블록 체인 워크 벤치에 대 한 API 끝점 url을 나타내는 **url** 값을 복사 합니다.
 
     ![App service API 끝점 URL](media/use-api/app-service-api.png)
 

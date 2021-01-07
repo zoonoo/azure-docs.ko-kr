@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f0fbb1214015c088e7e1585840213faba06b59f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699263"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010703"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>IoT(사물 인터넷) 배포 보안 유지
 
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 IoT Hub 개발자 가이드의 [IoT Hub에 대한 액세스 제어](../iot-hub/iot-hub-devguide-security.md)에서 IoT Hub 보안에 대해 자세히 알아보세요. 

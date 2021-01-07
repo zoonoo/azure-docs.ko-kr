@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Unity Android 앱 만들기'
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 Unity 지원 Android 앱을 빌드하는 방법을 알아봅니다.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 608b488a04eafd01e6702850445801705f6dac81
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3c17eadfad71f58b4557f8115a0d1d3de392b4b9
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810360"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96015131"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity Android 앱 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "87810360"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- Android 빌드 지원 및 Android SDK & NDK 도구 모듈을 포함하여 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4(LTS)</a>가 설치된 Windows 또는 macOS 머신
+- **Android SDK 및 NDK 도구** 및 **OpenJDK** 모듈이 있는 **Android 빌드 지원** 을 포함하여 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4(LTS)</a>가 설치된 Windows 또는 macOS 머신.
   - Windows에서 실행하는 경우 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 필요합니다.
   - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력합니다. 그런 다음, `brew install git` 및 `brew install git-lfs`를 실행합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
@@ -56,7 +56,13 @@ ms.locfileid: "87810360"
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-**디바이스 실행**에서 디바이스를 선택한 다음, **빌드 및 실행**을 선택합니다. 이름을 선택할 수 있는 `.apk` 파일을 저장하라는 메시지가 표시됩니다.
+**디바이스 실행** 에서 디바이스를 선택한 다음, **빌드 및 실행** 을 선택합니다. 이름을 선택할 수 있는 `.apk` 파일을 저장하라는 메시지가 표시됩니다.
+
+앱에서 화살표를 사용하여 **BasicDemo** 를 선택한 다음, **Go!** 를 누릅니다. 데모를 실행하는 단추입니다. 지침에 따라 앵커를 배치하고 회수합니다.
+
+![스크린샷 1](./media/get-started-unity-android/screenshot-1.jpg)
+![스크린샷 2](./media/get-started-unity-android/screenshot-2.jpg)
+![스크린샷 3](./media/get-started-unity-android/screenshot-3.jpg)
 
 앱의 지침에 따라 앵커를 배치하고 회수합니다.
 
@@ -64,7 +70,7 @@ ms.locfileid: "87810360"
 
 ### <a name="rendering-issues"></a>렌더링 문제
 
-앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기**를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
+앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기** 를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

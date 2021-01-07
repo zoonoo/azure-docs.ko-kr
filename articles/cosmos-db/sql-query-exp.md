@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 EXP
 description: 지정 된 숫자 식의 지 수 값을 반환 하는 Azure Cosmos DB의 지 수 (EXP) SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adf80d36edbe8f9a5535e8fa04501918a62ea7ca
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74873321"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335636"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 숫자 식의 지수 값을 반환합니다.  
   
 ## <a name="syntax"></a>구문
@@ -34,9 +37,9 @@ EXP (<numeric_expr>)
   
 ## <a name="remarks"></a>설명
   
-  상수 **e**(2.718281…)는 자연 로그의 밑입니다.  
+  상수 **e** (2.718281…)는 자연 로그의 밑입니다.  
   
-  숫자의 지수는 해당 숫자의 거듭제곱으로 올려진 **e**입니다. 예를 들어 EXP(1.0) = e^1.0 = 2.71828182845905이며, EXP(10) = e^10 = 22026.4657948067입니다.  
+  숫자의 지수는 해당 숫자의 거듭제곱으로 올려진 **e** 입니다. 예를 들어 EXP(1.0) = e^1.0 = 2.71828182845905이며, EXP(10) = e^10 = 22026.4657948067입니다.  
   
   숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP (LOG (n)) = n입니다. 그리고 숫자의 지수의 자연 로그는 숫자 자체, 즉 LOG (EXP (n)) = n입니다.  
   

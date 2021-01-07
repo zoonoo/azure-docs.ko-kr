@@ -13,20 +13,20 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: bd1a0b2efb01d0db153bd666f8ff4e3911095702
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: cf53b3165863c6f22ce4c9a74d002eafd2dcc329
+  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90984989"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92792347"
 highlightedContent:
   items:
   - title: Azure Key Vault 소개
     itemType: overview
     url: ./general/overview.md
-  - title: 일시 삭제에 대한 중요한 변경
+  - title: 서비스에 대한 중요 업데이트
     itemType: whats-new
-    url: ./general/soft-delete-change.md
+    url: ./general/whats-new.md
   - title: 인증
     itemType: overview
     url: ./general/authentication.md
@@ -153,7 +153,7 @@ conceptualContent:
       text: Virtual Machine Scale Sets가 있는 Key Vault
   - title: 주요 자격 증명 모음 통합
     links:
-    - url: https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault
+    - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault
       itemType: overview
       text: Azure Dev Ops - Azure Pipelines에서 Key Vault 비밀 참조
     - url: ../app-service/app-service-key-vault-references.md
@@ -165,6 +165,6 @@ conceptualContent:
     - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
       itemType: overview
       text: Azure Kubernetes Service - AKS에서 Key Vault 비밀, 인증서 및 키 사용
-    - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
+    - url: /azure/databricks/security/secrets/secret-scopes
       itemType: overview
       text: Azure Databricks - Key Vault를 사용한 비밀 관리

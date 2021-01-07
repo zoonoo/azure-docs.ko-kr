@@ -5,14 +5,16 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Windows 컨테이너를 사용 하 여 기존 클러스터에서 Azure Dev Spaces를 실행 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Windows 컨테이너
-ms.openlocfilehash: 131f69d42795b857a53fc21b760a7275a6826bb8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a9aa24ae70afe062246e1b295cdc7e0724639596
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212475"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606762"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 새 네임 스페이스와 기존 Kubernetes 네임 스페이스 모두에 Azure Dev Spaces을 사용 하도록 설정할 수 있습니다. Azure Dev Spaces은 Linux 컨테이너에서 실행 되는 서비스를 실행 하 고 계측 합니다. 또한 이러한 서비스는 동일한 네임 스페이스의 Windows 컨테이너에서 실행 되는 응용 프로그램과 상호 작용할 수 있습니다. 이 문서에서는 Dev 공간을 사용 하 여 기존 Windows 컨테이너를 사용 하는 네임 스페이스에서 서비스를 실행 하는 방법을 보여 줍니다. 이번에는 Azure Dev Spaces를 사용 하 여 Windows 컨테이너를 디버깅 하거나 연결할 수 없습니다.
 
@@ -69,7 +71,7 @@ kubectl create ns dev
 helm install windows-service . --namespace dev
 ```
 
-위의 명령은 투구를 사용 하 여 *dev* 네임 스페이스에서 Windows 서비스를 실행 합니다. *Dev*라는 이름의 네임 스페이스가 없으면 생성 됩니다.
+위의 명령은 투구를 사용 하 여 *dev* 네임 스페이스에서 Windows 서비스를 실행 합니다. *Dev* 라는 이름의 네임 스페이스가 없으면 생성 됩니다.
 
 명령을 사용 `kubectl get pods` 하 여 클러스터에서 Windows 서비스가 실행 되 고 있는지 확인 합니다. 
 
@@ -116,11 +118,11 @@ spec:
 
 ```cmd
 $ helm list --namespace dev
-NAME              REVISION  UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
-windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
+NAME             REVISION   UPDATED                    STATUS    CHART            APP VERSION    NAMESPACE
+windows-service    1        Wed Jul 24 15:45:59 2019   DEPLOYED  mywebapi-0.1.0   1.0            dev
 ```
 
-위의 예제에서 배포 이름은 *windows 서비스*입니다. 다음을 사용 하 여 Windows 서비스를 새 구성으로 업데이트 합니다 `helm upgrade` .
+위의 예제에서 배포 이름은 *windows 서비스* 입니다. 다음을 사용 하 여 Windows 서비스를 새 구성으로 업데이트 합니다 `helm upgrade` .
 
 ```cmd
 helm upgrade windows-service . --namespace dev
@@ -167,7 +169,7 @@ Azds up 명령의 출력에 표시 되는 공용 URL을 열어 실행 중인 서
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
+Azure Dev Spaces 작동 방식에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Dev Spaces의 작동 원리](../how-dev-spaces-works.md)
@@ -178,5 +180,5 @@ Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[using-taints]: ../../aks/use-multiple-node-pools.md#setting-nodepool-taints
 [windows-container-cli]: ../../aks/windows-container-cli.md

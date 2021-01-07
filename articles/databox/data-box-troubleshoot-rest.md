@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558563"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Azure Data Box Blob storage와 관련 된 문제 해결
@@ -26,7 +26,7 @@ ms.locfileid: "85558563"
 |오류 메시지  |권장 작업 |
 |---------|---------|
 |자식 리소스를 검색할 수 없습니다. HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.|**편집** 메뉴에서 **대상 Azure Stack api**를 선택 합니다. <br>Azure Storage 탐색기를 다시 시작 합니다.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |끝점 이름이 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 다음 경로에 있는 호스트 파일에 추가 되었는지 확인 합니다. <li>`C:\Windows\System32\drivers\etc\hosts`Windows 또는 </li><li> `/etc/hosts`Linux에서</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |끝점 이름이 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 다음 경로에 있는 호스트 파일에 추가 되었는지 확인 합니다. <li>`C:\Windows\System32\drivers\etc\hosts` Windows 또는 </li><li> `/etc/hosts` Linux에서</li>|
 |자식 리소스를 검색할 수 없습니다. <br>세부 정보: 자체 서명 된 인증서 |장치에 대 한 TLS/SSL 인증서를 Azure Storage 탐색기으로 가져옵니다. <li>Azure Portal에서 인증서를 다운로드 합니다. 자세한 내용은 [인증서 다운로드](data-box-deploy-copy-data-via-rest.md#download-certificate)로 이동 하세요.</li><li>**편집** 메뉴에서 **SSL 인증서** 를 선택한 다음 **인증서 가져오기**를 선택 합니다.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>AzCopy for Windows에 표시 되는 오류
@@ -35,7 +35,7 @@ ms.locfileid: "85558563"
 
 |오류 메시지  |권장 작업 |
 |---------|---------|
-|이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 응답을 중지 하는 것으로 나타납니다. <br>Https://디렉터리를 열거 하지 못했습니다. 원격 이름을 확인할 수 없습니다.`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `C:\Windows\System32\drivers\etc\hosts` 합니다.|
+|이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 응답을 중지 하는 것으로 나타납니다. <br>Https://디렉터리를 열거 하지 못했습니다. 원격 이름을 확인할 수 없습니다. `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `C:\Windows\System32\drivers\etc\hosts` 합니다.|
 |이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 응답을 중지 하는 것으로 나타납니다. <br>소스 위치를 구문 분석 하는 동안 오류가 발생 했습니다. 기본 연결이 닫혔습니다. SSL/TLS 보안 채널에 대 한 트러스트 관계를 설정할 수 없습니다.|장치의 TLS/SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](data-box-deploy-copy-data-via-rest.md#download-certificate)로 이동 하세요.|
 
 
@@ -55,10 +55,10 @@ ms.locfileid: "85558563"
 |오류 메시지  |권장 작업 |
 |---------|---------|
 |HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다. |Data Box에서 Python 용 Microsoft Azure Storage 라이브러리의 설치 된 버전이 지원 되지 않습니다. 지원 되는 버전에 대 한 Azure Data Box Blob 저장소 요구 사항을 참조 하세요.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] ...|Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 TLS 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](data-box-deploy-copy-data-via-rest.md#download-certificate)하는 방법을 참조 하세요. <br>예를 들어:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. <br> 예를 들어 Ubuntu에서  <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] ...|Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 TLS 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](data-box-deploy-copy-data-via-rest.md#download-certificate)하는 방법을 참조 하세요. <br>예를 들면 다음과 같습니다.<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. <br> 예를 들어 Ubuntu에서  <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
-## <a name="common-errors"></a>일반적인 오류
+## <a name="common-errors"></a>일반 오류
 
 이러한 오류는 응용 프로그램에 국한 되지 않습니다.
 

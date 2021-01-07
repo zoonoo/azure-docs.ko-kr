@@ -1,22 +1,23 @@
 ---
-title: Synapse Analytics에 대 한 Azure 보안 기준
+title: Azure Synapse Analytics에 대 한 azure 보안 기준
 description: Synapse Analytics 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: synapse-analytics
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bbec83c655d568b43b319f30a96da0a8fc1effe8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 972788e04e12553e7c05f30cc246c6fb562031a4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230656"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461371"
 ---
-# <a name="azure-security-baseline-for-synapse-analytics"></a>Synapse Analytics에 대 한 Azure 보안 기준
+# <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대 한 azure 보안 기준
 
-Synapse Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
+Azure Synapse Analytics의 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
 이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
@@ -46,7 +47,7 @@ Synapse Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2: 가상 네트워크, 서브넷 및 네트워크 인터페이스의 구성 및 트래픽을 모니터링 하 고 기록 합니다.
 
-**지침**: AZURE Synapse SQL 풀에 연결 하는 경우 nsg (네트워크 보안 그룹) 흐름 로그를 사용 하도록 설정 했으면 트래픽 감사에 대 한 Azure Storage 계정에 로그를 보냅니다.
+**지침**: 전용 SQL 풀에 연결 하는 경우 nsg (네트워크 보안 그룹) 흐름 로그를 사용 하도록 설정 하면 트래픽 감사를 위해 로그가 Azure Storage 계정으로 전송 됩니다.
 
 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
 
@@ -92,7 +93,7 @@ Synapse Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 ### <a name="15-record-network-packets"></a>1.5: 네트워크 패킷을 기록 합니다.
 
-**지침**: AZURE Synapse SQL 풀에 연결 하는 경우 nsg (네트워크 보안 그룹) 흐름 로그를 사용 하도록 설정 했으면 트래픽 감사에 대 한 Azure Storage 계정에 로그를 보냅니다. 또한 흐름 로그를 Log Analytics 작업 영역으로 전송 하거나 Event Hubs로 스트리밍할 수 있습니다. 비정상적인 활동을 조사 하는 데 필요한 경우 Network Watcher 패킷 캡처를 사용 하도록 설정 합니다.
+**지침**: 전용 SQL 풀에 연결 하는 경우 nsg (네트워크 보안 그룹) 흐름 로그를 사용 하도록 설정 했으면 트래픽 감사에 대 한 Azure Storage 계정에 로그를 보냅니다. 또한 흐름 로그를 Log Analytics 작업 영역으로 전송 하거나 Event Hubs로 스트리밍할 수 있습니다. 비정상적인 활동을 조사 하는 데 필요한 경우 Network Watcher 패킷 캡처를 사용 하도록 설정 합니다.
 
 * [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
@@ -124,7 +125,7 @@ Synapse Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태�
 
 **지침**: 가상 네트워크 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 서비스 태그 이름(예: ApiManagement)을 규칙의 적절한 원본 또는 대상 필드에 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
-Azure Synapse SQL 풀에 서비스 끝점을 사용 하는 경우 Azure SQL database 공용 IP 주소에 대 한 아웃 바운드가 필요 합니다. 연결을 허용 하려면 Ip를 Azure SQL Database 하기 위해 NSGs (네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대 한 NSG 서비스 태그를 사용 하 여이 작업을 수행할 수 있습니다.
+전용 SQL 풀에 대해 서비스 끝점을 사용 하는 경우 Azure SQL database 공용 IP 주소에 대 한 아웃 바운드가 필요 합니다. 연결을 허용 하려면 Ip를 Azure SQL Database 하기 위해 NSGs (네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대 한 NSG 서비스 태그를 사용 하 여이 작업을 수행할 수 있습니다.
 
 * [Azure SQL Database에 대 한 서비스 끝점을 사용 하 여 서비스 태그 이해](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -136,7 +137,7 @@ Azure Synapse SQL 풀에 서비스 끝점을 사용 하는 경우 Azure SQL data
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 디바이스에 대한 표준 보안 구성 유지 관리
 
-**지침**: Azure Policy을 사용 하 여 SQL 풀과 관련 된 리소스에 대 한 네트워크 보안 구성을 정의 하 고 구현 합니다. "Microsoft .Sql" 네임 스페이스를 사용 하 여 사용자 지정 정책 정의를 정의 하거나 Azure SQL 데이터베이스/서버 네트워크 보호를 위해 설계 된 기본 제공 정책 정의를 사용할 수 있습니다. Azure SQL Database 서버에 대해 적용 가능한 기본 제공 네트워크 보안 정책의 예는 "SQL Server 가상 네트워크 서비스 끝점을 사용 해야 합니다."입니다.
+**지침**: Azure Policy 사용 하 여 전용 SQL 풀과 관련 된 리소스에 대 한 네트워크 보안 구성을 정의 하 고 구현 합니다. "Microsoft .Sql" 네임 스페이스를 사용 하 여 사용자 지정 정책 정의를 정의 하거나 Azure SQL 데이터베이스/서버 네트워크 보호를 위해 설계 된 기본 제공 정책 정의를 사용할 수 있습니다. Azure SQL Database 서버에 대해 적용 가능한 기본 제공 네트워크 보안 정책의 예는 "SQL Server 가상 네트워크 서비스 끝점을 사용 해야 합니다."입니다.
 
 Azure 청사진을 사용 하 여 azure 리소스 관리 템플릿, azure RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화 합니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
 
@@ -164,7 +165,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: 자동화된 도구를 사용하여 네트워크 리소스 구성 모니터링 및 변경 내용 검색
 
-**지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 AZURE Synapse SQL 풀과 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
+**지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 전용 SQL 풀과 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
 * [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
 
@@ -208,7 +209,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Azure 리소스에 대한 감사 로깅 사용
 
-**지침**: Synapse sql 풀에 대해 Azure sql server 수준에서 감사를 사용 하도록 설정 하 고 감사 로그 (Azure Storage, Log Analytics 또는 Event Hubs)의 저장소 위치를 선택 합니다.
+**지침**: 전용 SQL 풀에 대해 Azure SQL server 수준에서 감사를 사용 하도록 설정 하 고 감사 로그 (Azure Storage, Log Analytics 또는 Event Hubs)의 저장소 위치를 선택 합니다.
 
 데이터베이스 또는 서버 수준 모두에서 감사를 사용 하도록 설정할 수 있으며, 특정 데이터베이스에 대 한 별도의 데이터 싱크 또는 보존을 구성 해야 하는 경우를 제외 하 고는 서버 수준 에서만 사용 하도록 제안 하는 것이 좋습니다.
 
@@ -232,7 +233,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 기간 구성
 
-**지침**: 저장소 계정, Log Analytics 작업 영역 또는 event Hubs에서 Synapse SQL 풀과 관련 된 로그를 저장 하는 경우 조직의 규정 준수 규정에 따라 로그 보존 기간을 설정 합니다.
+**지침**: 저장소 계정, Log Analytics 작업 영역 또는 event hubs에서 전용 SQL 풀과 관련 된 로그를 저장 하는 경우 조직의 규정 준수 규정에 따라 로그 보존 기간을 설정 합니다.
 
 * [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
 
@@ -254,7 +255,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 * [Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
-* [Azure SQL Database에 대 한 사용자 지정 경고를 구성 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0)
+* [Azure SQL Database에 대 한 사용자 지정 경고를 구성 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0&preserve-view=true)
 
 * [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
@@ -282,7 +283,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: 맬웨어 방지 로깅 중앙 집중화
 
-**지침**: 해당 사항 없음 Synapse SQL 풀과 관련 된 리소스의 경우 맬웨어 방지 솔루션은 Microsoft에서 기본 플랫폼에 대해 관리 됩니다.
+**지침**: 해당 사항 없음 전용 SQL 풀과 관련 된 리소스의 경우 맬웨어 방지 솔루션은 기본 플랫폼에서 Microsoft에 의해 관리 됩니다.
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -290,7 +291,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="29-enable-dns-query-logging"></a>2.9: DNS 쿼리 로깅 사용
 
-**지침**: 해당 사항 없음 Synapse SQL 풀과 관련 된 리소스에서 DNS 로그가 생성 되지 않습니다.
+**지침**: 해당 사항 없음 전용 SQL 풀과 관련 된 리소스에서 DNS 로그가 생성 되지 않습니다.
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -322,9 +323,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 * [인증에 Azure Active Directory 계정 사용](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
 
 * [Azure SQL에서 기존 로그인 및 관리자 계정을 관리 하는 방법](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
@@ -336,7 +337,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: 기본 암호 변경(해당하는 경우)
 
-**지침**: Azure Active Directory에는 기본 암호 개념이 없습니다. Azure Synapse SQL 풀을 프로 비전 할 때 인증을 Azure Active Directory와 통합 하도록 선택 하는 것이 좋습니다. 이 인증 방법을 사용 하는 경우 사용자는 사용자 계정 이름을 전송 하 고 서비스에서 Azure Active Directory (Azure AD)에 저장 된 자격 증명 정보를 사용 하도록 요청 합니다.
+**지침**: Azure Active Directory에는 기본 암호 개념이 없습니다. 전용 SQL 풀을 프로 비전 하는 경우 인증을 Azure Active Directory와 통합 하도록 선택 하는 것이 좋습니다. 이 인증 방법을 사용 하는 경우 사용자는 사용자 계정 이름을 전송 하 고 서비스에서 Azure Active Directory (Azure AD)에 저장 된 자격 증명 정보를 사용 하도록 요청 합니다.
 
 * [Azure SQL을 사용 하 여 Azure Active Directory 인증을 구성 하 고 관리 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#active-directory-password-authentication)
 
@@ -416,7 +417,7 @@ SQL Server 감사를 사용하면 서버 수준 이벤트에 대한 서버 감�
 
 * [Azure SQL의 로그인 및 사용자 계정 이해](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
 
-* [감사 SQL Server 이해](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15)
+* [감사 SQL Server 이해](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15&preserve-view=true)
 
 **Azure Security Center 모니터링**: 예
 
@@ -434,11 +435,11 @@ SQL Server 감사를 사용하면 서버 수준 이벤트에 대한 서버 감�
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: Synapse SQL 풀에서 Azure SQL Database 서버에 대 한 AD (Azure Active Directory) 관리자를 만듭니다.
+**지침**: 전용 SQL 풀에서 Azure SQL Database 서버에 대 한 AD (Azure Active Directory) 관리자를 만듭니다.
 
 * [Azure SQL을 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+* [Azure AD 인스턴스를 만들고 구성하는 방법](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
 
 **Azure Security Center 모니터링**: 예
 
@@ -496,7 +497,7 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: 지원 시나리오에서 관련 고객 데이터에 대한 액세스 권한을 Microsoft에 제공
 
-**지침**: Microsoft가 Synapse SQL 풀의 Azure SQL Database와 관련 된 데이터에 액세스 해야 하는 지원 시나리오에서 Azure 고객 Lockbox는 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다.
+**지침**: Microsoft에서 전용 SQL 풀의 Azure SQL Database와 관련 된 데이터에 액세스 해야 하는 지원 시나리오에서 Azure 고객 Lockbox는 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다.
 
 * [고객 Lockbox 이해](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -512,7 +513,7 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-데이터 검색 &amp; 분류는 Azure SYNAPSE SQL에 기본 제공 됩니다. 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 고급 기능을 제공 합니다.
+데이터 검색 &amp; 분류는 Azure SYNAPSE SQL에 기본 제공 됩니다. 데이터베이스에서 중요한 데이터의 검색, 분류, 레이블 지정 및 보고를 위한 고급 기능을 제공합니다.
 
 * [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -540,7 +541,7 @@ SQL 인증을 사용하는 경우 데이터베이스에서 포함된 데이터�
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: 중요한 정보에 대한 무단 전송 모니터링 및 차단
 
-**지침**: Synapse SQL 풀에서 중요 한 정보를 저장 하거나 처리 하는 모든 Azure SQL Database 경우 태그를 사용 하 여 데이터베이스 및 관련 리소스를 중요 한 것으로 표시 합니다. 중요 한 정보에 대 한 반출을 방지 하기 위해 Azure SQL Database 인스턴스에서 nsg (네트워크 보안 그룹) 서비스 태그와 함께 개인 링크를 구성 합니다.
+**지침**: 전용 SQL 풀에서 중요 한 정보를 저장 하거나 처리 하는 모든 Azure SQL Database의 경우 태그를 사용 하 여 데이터베이스 및 관련 리소스를 중요 한 것으로 표시 합니다. 중요 한 정보에 대 한 반출을 방지 하기 위해 Azure SQL Database 인스턴스에서 nsg (네트워크 보안 그룹) 서비스 태그와 함께 개인 링크를 구성 합니다.
 
 또한 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse에 대 한 Advanced Threat Protection은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다.
 
@@ -584,7 +585,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Synapse sql 풀에서 azure sql database에 대 한 액세스를 관리 합니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 전용 SQL 풀에서 azure SQL database에 대 한 액세스를 관리 합니다.
 
 권한 부여는 사용자 계정의 데이터베이스 역할 구성원 자격 및 개체 수준 권한에 의해 제어됩니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다.
 
@@ -684,7 +685,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure Security Center에서 제공 하는 기본 위험 등급 (보안 점수)을 사용 합니다.
 
-데이터 검색 &amp; 분류는 Azure SYNAPSE SQL에 기본 제공 됩니다. 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 고급 기능을 제공 합니다.
+데이터 검색 &amp; 분류는 Azure SYNAPSE SQL에 기본 제공 됩니다. 데이터베이스에서 중요한 데이터의 검색, 분류, 레이블 지정 및 보고를 위한 고급 기능을 제공합니다.
 
 * [보안 점수 Azure Security Center 이해](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
 
@@ -700,13 +701,13 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
-**지침**: Azure 리소스 그래프를 사용 하 여 구독 내에서 Synapse SQL 풀과 관련 된 모든 리소스를 쿼리하고 검색 합니다. 테넌트에서 적절한 권한(읽기)이 있는지 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거할 수 있습니다.
+**지침**: Azure 리소스 그래프를 사용 하 여 구독 내 전용 SQL 풀과 관련 된 모든 리소스를 쿼리하고 검색 합니다. 테넌트에서 적절한 권한(읽기)이 있는지 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거할 수 있습니다.
 
 클래식 Azure 리소스는 Azure 리소스 그래프를 통해 검색 될 수 있지만 앞으로 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
 
 * [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-* [Azure 구독을 보는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 보는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true)
 
 * [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -740,7 +741,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4: 승인 된 Azure 리소스의 인벤토리 정의 및 유지 관리
 
-**지침**: Synapse SQL 풀과 관련 된 승인 된 Azure 리소스의 목록을 정의 합니다.
+**지침**: 전용 SQL 풀과 관련 된 승인 된 Azure 리소스 목록을 정의 합니다.
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -830,7 +831,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: 위험 수준이 높은 애플리케이션을 물리적 또는 논리적으로 분리
 
-**지침**: 비즈니스 운영에 필요한 Synapse SQL 풀과 관련 된 모든 리소스는 조직에 대 한 위험을 초래할 수 있습니다. 자체 가상 머신 및/또는 가상 네트워크 내에서 격리 하 고 Azure 방화벽 또는 네트워크 보안 그룹을 사용 하 여 충분히 안전 하 게 보호 해야 합니다.
+**지침**: 비즈니스 운영에 필요한 전용 SQL 풀과 관련 된 모든 리소스는 조직에 대 한 위험을 초래할 수 있습니다. 자체 가상 머신 및/또는 가상 네트워크 내에서 격리 하 고 Azure 방화벽 또는 네트워크 보안 그룹을 사용 하 여 충분히 안전 하 게 보호 해야 합니다.
 
 * [가상 네트워크를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
@@ -846,11 +847,11 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
-**지침**: "Synapse" 네임 스페이스의 별칭을 Azure Policy 사용 하 여 사용자 지정 정책을 만들어 Sql 풀과 관련 된 리소스의 구성을 감사 하거나 적용 합니다. Azure 데이터베이스/서버에 대해 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
+**지침**: "Microsoft .sql" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 전용 Sql 풀과 관련 된 리소스의 구성을 감사 하거나 적용 합니다. Azure 데이터베이스/서버에 대해 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
 - SQL 서버에 위협 탐지 배포
 - SQL Server는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
-* [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
 
 * [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -890,9 +891,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure devops 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-* [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -924,7 +925,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Azure 리소스에 대 한 자동화 된 구성 모니터링 구현
 
-**지침**: Azure Security Center를 활용 하 여 Synapse SQL 풀과 관련 된 모든 리소스에 대 한 기준 검색을 수행 합니다.
+**지침**: Azure Security Center 활용 하 여 전용 SQL 풀과 관련 된 모든 리소스에 대 한 기준 검색을 수행할 수 있습니다.
 
 * [Azure Security Center에서 권장 사항을 수정 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
@@ -1012,9 +1013,9 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 정기 자동 백업 확인
 
-**지침**: Synapse SQL 풀의 스냅숏은 7 일 동안 사용할 수 있는 복원 지점이 생성 되는 날 내내 자동으로 수행 됩니다. 이 보존 기간은 변경할 수 없습니다. SQL 풀은 8 시간 RPO (복구 지점 목표)를 지원 합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다. 필요한 경우 스냅숏을 수동으로 트리거할 수도 있습니다.
+**지침**: 전용 SQL 풀의 스냅숏은 7 일 동안 사용할 수 있는 복원 지점이 생성 되는 날 내내 자동으로 수행 됩니다. 이 보존 기간은 변경할 수 없습니다. 전용 SQL 풀은 8 시간 RPO (복구 지점 목표)를 지원 합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다. 필요한 경우 스냅숏을 수동으로 트리거할 수도 있습니다.
 
-* [Azure Synapse SQL 풀에서 백업 및 복원](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [전용 SQL 풀에서 백업 및 복원](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1022,13 +1023,13 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: 전체 시스템 백업을 수행 하 고 고객 관리 키를 백업 합니다.
 
-**지침**: 데이터 웨어하우스의 스냅숏은 7 일 동안 사용할 수 있는 복원 지점이 생성 되는 날 내내 자동으로 수행 됩니다. 이 보존 기간은 변경할 수 없습니다. SQL 풀은 8 시간 RPO (복구 지점 목표)를 지원 합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다. 필요한 경우 스냅숏을 수동으로 트리거할 수도 있습니다.
+**지침**: 데이터 웨어하우스의 스냅숏은 7 일 동안 사용할 수 있는 복원 지점이 생성 되는 날 내내 자동으로 수행 됩니다. 이 보존 기간은 변경할 수 없습니다. 전용 SQL 풀은 8 시간 RPO (복구 지점 목표)를 지원 합니다. 지난 7일 동안 수행된 스냅샷 중 하나에서 주 지역의 데이터 웨어하우스를 복원할 수 있습니다. 필요한 경우 스냅숏을 수동으로 트리거할 수도 있습니다.
 
 고객 관리 키를 사용 하 여 데이터베이스 암호화 키를 암호화 하는 경우 키를 백업 하 고 있는지 확인 합니다.
 
-* [Azure Synapse SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [전용 SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
-* [Azure Key Vault 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure Key Vault 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1036,13 +1037,13 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: 고객 관리 키를 비롯 한 모든 백업 유효성 검사
 
-**지침**: 정기적으로 복원 지점이 테스트 하 여 스냅숏이 유효한 지 확인 합니다. 복원 지점에서 기존 SQL 풀을 복원 하려면 Azure Portal 또는 PowerShell 중 하나를 사용할 수 있습니다. 백업 된 고객이 관리 하는 키의 복원을 테스트 합니다.
+**지침**: 정기적으로 복원 지점이 테스트 하 여 스냅숏이 유효한 지 확인 합니다. 복원 지점에서 기존 전용 SQL 풀을 복원 하려면 Azure Portal 또는 PowerShell 중 하나를 사용할 수 있습니다. 백업 된 고객이 관리 하는 키의 복원을 테스트 합니다.
 
-* [Azure Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
-* [Azure Synapse SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [전용 SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
-* [기존 SQL 풀을 복원 하는 방법](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
+* [기존 전용 SQL 풀을 복원 하는 방법](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
 
 **Azure Security Center 모니터링**: 해당 없음
 

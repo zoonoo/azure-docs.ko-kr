@@ -4,23 +4,22 @@ description: Azure IoT 솔루션을 빌드하는 데 사용할 수 있는 기술
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0cd98705d2d6947ff766f528e4e92f1e51bcc42d
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77046053"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852815"
 ---
-# <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>IoT 솔루션을 만들기 위한 Azure 기술 및 서비스
+# <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>IoT 솔루션을 만드는 데 사용할 수 있는 Azure 기술 및 서비스는 무엇인가요?
 
 Azure IoT 기술 및 서비스는 조직의 디지털 변환을 가능하게 하는 다양한 IoT 솔루션을 만들 수 있는 옵션을 제공합니다. 예를 들어, 다음을 수행할 수 있습니다.
 
-- 관리형 IoT 애플리케이션 플랫폼인 [Azure IoT Central](https://apps.azureiotcentral.com)을 사용하여 안전한 엔터프라이즈급 IoT 솔루션을 빌드하여 배포합니다. IoT Central은 솔루션 개발 프로세스를 가속화하기 위한 소매, 의료 등의 산업별 애플리케이션 템플릿 컬렉션을 갖추고 있습니다.
-- Azure IoT [솔루션 가속기](https://www.azureiotsolutions.com)의 오픈 소스 코드 베이스를 확장하여 원격 모니터링 또는 예측 유지 관리 같은 일반적인 IoT 시나리오를 구현합니다.
-- [Azure IoT Hub](../iot-hub/about-iot-hub.md) 및 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md) 같은 Azure IoT 플랫폼 서비스를 사용하여 사용자 지정 IoT 솔루션을 처음부터 빌드합니다.
+* 관리형 IoT 애플리케이션 플랫폼인 [Azure IoT Central](https://apps.azureiotcentral.com)을 사용하여 안전한 엔터프라이즈급 IoT 솔루션을 빌드하여 배포합니다. IoT Central은 솔루션 개발 프로세스를 가속화하기 위한 소매, 의료 등의 산업별 애플리케이션 템플릿 컬렉션을 갖추고 있습니다.
+* [Azure IoT Hub](../iot-hub/about-iot-hub.md) 및 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md) 같은 Azure IoT 플랫폼 서비스를 사용하여 사용자 지정 IoT 솔루션을 처음부터 빌드합니다.
 
 ![Azure IoT 기술, 서비스 및 솔루션](./media/iot-services-and-technologies/iot-technologies-services.png)
 
@@ -40,10 +39,8 @@ Azure IoT Central은 사용자 지정 IoT 솔루션을 만드는 데 사용할 �
 
 Azure IoT 솔루션 가속기는 IoT 솔루션을 보다 철저하게 제어할 수 있습니다. 솔루션 가속기에는 몇 분 내에 Azure 구독에 배포할 수 있는 일반적인 IoT 시나리오에 대한 미리 작성된 솔루션이 포함되어 있습니다. 이 시나리오에는 다음이 포함됩니다.
 
-  - 원격 모니터링
-  - 연결된 공장
-  - 예측 유지 관리
-  - 디바이스 시뮬레이션
+* 연결된 공장
+* 디바이스 시뮬레이션
 
 모든 솔루션 가속기의 오픈 소스 코드 베이스는 GitHub에서 얻을 수 있습니다. 코드를 다운로드하여 특정 IoT 요구 사항에 맞게 솔루션 가속기를 사용자 지정할 수 있습니다.
 
@@ -57,11 +54,11 @@ IoT 솔루션을 처음부터 새로 빌드하거나 IoT Central 또는 솔루�
 
 [Azure IoT 시작 키트](https://catalog.azureiotsolutions.com/kits) 중 하나를 사용하여 IoT 디바이스를 개발하거나 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com)에서 사용할 디바이스를 선택합니다. 오픈 소스 [디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 포함된 코드를 구현합니다. 디바이스 SDK는 Linux, Windows, 실시간 운영 체제와 같은 여러 운영 체제를 지원합니다. [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), [Python](https://github.com/Azure/azure-iot-sdk-python) 등의 여러 프로그래밍 언어를 위한 SDK가 있습니다.
 
-[IoT 플러그 앤 플레이 미리 보기](../iot-pnp/overview-iot-plug-and-play.md) 서비스를 사용하여 디바이스에 대한 포함된 코드를 만드는 방법을 더 간소화할 수 있습니다. IoT 플러그 앤 플레이를 사용하면 솔루션 개발자는 포함된 코드를 작성하지 않고도 디바이스를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 _디바이스 기능 모델_ 스키마입니다. 디바이스 기능 모델을 사용하여 포함된 디바이스 코드를 생성하고 IoT Central 애플리케이션 같은 클라우드 기반 솔루션을 구성합니다.
+[IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 서비스를 사용하여 디바이스에 포함된 코드를 만드는 방법을 더 간소화할 수 있습니다. IoT 플러그 앤 플레이를 사용하면 솔루션 개발자는 포함된 코드를 작성하지 않고도 디바이스를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 _디바이스 기능 모델_ 스키마입니다. 디바이스 기능 모델을 사용하여 포함된 디바이스 코드를 생성하고 IoT Central 애플리케이션 같은 클라우드 기반 솔루션을 구성합니다.
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md)를 사용하여 IoT 워크로드 일부를 Azure 클라우드 서비스에서 디바이스로 오프로드할 수 있습니다. IoT Edge는 솔루션의 대기 시간을 줄이고, 디바이스가 클라우드와 교환하는 데이터 양을 줄이고, 오프라인 시나리오를 사용할 수 있습니다. IoT Central 및 일부 솔루션 가속기에서 IoT Edge 디바이스를 관리할 수 있습니다.
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere)는 인터넷에 연결된 디바이스를 위한 기본 제공 통신 및 보안 기능을 갖춘 안전한 고급 애플리케이션 플랫폼입니다. 안전한 마이크로 컨트롤러 장치, 사용자 지정 Linux 기반 운영 체제, 지속적이고 갱신 가능한 보안을 제공하는 클라우드 기반 보안 서비스를 포함하고 있습니다.
+[Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere)는 인터넷에 연결된 디바이스를 위한 기본 제공 통신 및 보안 기능을 갖춘 안전한 고급 애플리케이션 플랫폼입니다. 안전한 마이크로 컨트롤러 장치, 사용자 지정 Linux 기반 운영 체제, 지속적이고 갱신 가능한 보안을 제공하는 클라우드 기반 보안 서비스를 포함하고 있습니다.
 
 ### <a name="cloud-connectivity"></a>클라우드 연결
 
@@ -76,7 +73,7 @@ IoT Hub는 솔루션 가속기의 핵심 구성 요소이며, 다음과 같은 I
 
 ### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>실제 세계와 디지털 세계 사이의 격차 해소
 
-[Azure Digital Twins](../digital-twins/about-digital-twins.md)는 물리적 환경을 모델링할 수 있는 IoT 서비스입니다. 공간 인텔리전스 그래프를 사용하여 사람, 공간, 디바이스 간의 관계를 모델링합니다. 디지털 세계와 실제 세계의 데이터 간에 상관 관계를 지정하여 컨텍스트 인식 솔루션을 만들 수 있습니다.
+[Azure Digital Twins](../digital-twins/overview.md)는 물리적 환경을 모델링할 수 있는 IoT 서비스입니다. 공간 인텔리전스 그래프를 사용하여 사람, 공간, 디바이스 간의 관계를 모델링합니다. 디지털 세계와 실제 세계의 데이터 간에 상관 관계를 지정하여 컨텍스트 인식 솔루션을 만들 수 있습니다.
 
 Iot Central은 디지털 쌍을 사용하여 실제 세계의 디바이스와 데이터를 사용자가 연결된 디바이스를 모니터링하고 관리할 수 있는 디지털 모델과 동기화합니다.
 
@@ -84,7 +81,7 @@ Iot Central은 디지털 쌍을 사용하여 실제 세계의 디바이스와 �
 
 IoT 디바이스는 일반적으로 센서의 온도 판독값 같은 대량의 시계열 데이터를 생성합니다. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md)는 IoT 허브에 연결하고, 디바이스에서 원격 분석 스트림을 읽고, 해당 데이터를 저장하고, 데이터를 쿼리하고 시각화할 수 있습니다.
 
-[Azure Maps](/azure/azure-maps)는 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍스트를 제공하기 위해 최신 매핑 데이터를 사용하는 지리 공간적 서비스의 컬렉션입니다. REST API, 웹 기반 JavaScript 컨트롤 또는 Android SDK를 사용하여 애플리케이션을 빌드할 수 있습니다.
+[Azure Maps](../azure-maps/index.yml)는 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍스트를 제공하기 위해 최신 매핑 데이터를 사용하는 지리 공간적 서비스의 컬렉션입니다. REST API, 웹 기반 JavaScript 컨트롤 또는 Android SDK를 사용하여 애플리케이션을 빌드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -92,4 +89,3 @@ IoT 디바이스는 일반적으로 센서의 온도 판독값 같은 대량의 
 
 - [Azure IoT Central 애플리케이션](../iot-central/core/quick-deploy-iot-central.md)
 - [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-hub/quickstart-send-telemetry-cli.md)
-- [클라우드 기반 원격 모니터링 솔루션 사용](../iot-accelerators/quickstart-remote-monitoring-deploy.md)

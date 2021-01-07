@@ -1,14 +1,14 @@
 ---
 title: 방화벽 액세스 규칙
-description: (“허용 목록 작성”) REST API 및 데이터 엔드포인트 도메인 이름 또는 서비스별 IP 주소 범위에 대한 액세스를 허용하여 방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙을 구성합니다.
+description: REST API 및 데이터 끝점 도메인 이름이 나 서비스별 IP 주소 범위에 대 한 액세스를 허용 하 여 방화벽 뒤에서 Azure container registry에 액세스 하는 규칙을 구성 합니다.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246982"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935991"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙 구성
 
@@ -37,7 +37,7 @@ Azure 가상 네트워크 내에서만 컨테이너 레지스트리에 대한 �
 
 조직에 특정 IP 주소 또는 주소 범위에 대한 액세스만 허용하는 정책이 있는 경우 [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드합니다.
 
-액세스를 허용해야 하는 ACR REST 엔드포인트 IP 범위를 찾으려면 JSON 파일에서 **AzureContainerRegistry**를 검색합니다.
+액세스를 허용해야 하는 ACR REST 엔드포인트 IP 범위를 찾으려면 JSON 파일에서 **AzureContainerRegistry** 를 검색합니다.
 
 > [!IMPORTANT]
 > Azure 서비스에 대한 IP 주소 범위가 변경될 수 있으며, 매주 업데이트가 게시됩니다. JSON 파일을 정기적으로 다운로드하고 액세스 규칙에 필요한 업데이트를 수행합니다. Azure 가상 네트워크에서 네트워크 보안 그룹 규칙을 구성하는 것이 시나리오에 포함되거나 Azure Firewall을 사용하는 경우 **AzureContainerRegistry** [서비스 태그](#allow-access-by-service-tag)를 대신 사용합니다.
@@ -61,7 +61,7 @@ Azure 가상 네트워크 내에서만 컨테이너 레지스트리에 대한 �
 
 ### <a name="rest-ip-addresses-for-a-specific-region"></a>특정 지역의 REST IP 주소
 
-**AzureContainerRegistry.AustraliaEast**와 같은 특정 지역을 검색합니다.
+**AzureContainerRegistry.AustraliaEast** 와 같은 특정 지역을 검색합니다.
 
 ```json
 {
@@ -95,7 +95,7 @@ Azure 가상 네트워크 내에서만 컨테이너 레지스트리에 대한 �
 
 ### <a name="storage-ip-addresses-for-specific-regions"></a>특정 지역의 스토리지 IP 주소
 
-**Storage.AustraliaCentral**과 같은 특정 지역을 검색합니다.
+**Storage.AustraliaCentral** 과 같은 특정 지역을 검색합니다.
 
 ```json
 {
@@ -113,9 +113,9 @@ Azure 가상 네트워크 내에서만 컨테이너 레지스트리에 대한 �
 
 ## <a name="allow-access-by-service-tag"></a>서비스 태그를 기준으로 액세스 허용
 
-Azure 가상 네트워크에서 네트워크 보안 규칙을 사용하여 가상 머신과 같은 리소스에서 컨테이너 레지스트리로의 트래픽을 필터링합니다. Azure 네트워크 규칙 만들기를 간소화하려면 **AzureContainerRegistry** [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용합니다. 서비스 태그는 전역으로 또는 Azure 지역별로 Azure 서비스에 액세스하기 위한 IP 주소 접두사 그룹을 나타냅니다. 주소가 변경되면 태그가 자동으로 업데이트됩니다. 
+Azure 가상 네트워크에서 네트워크 보안 규칙을 사용하여 가상 머신과 같은 리소스에서 컨테이너 레지스트리로의 트래픽을 필터링합니다. Azure 네트워크 규칙 만들기를 간소화하려면 **AzureContainerRegistry** [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags)를 사용합니다. 서비스 태그는 전역으로 또는 Azure 지역별로 Azure 서비스에 액세스하기 위한 IP 주소 접두사 그룹을 나타냅니다. 주소가 변경되면 태그가 자동으로 업데이트됩니다. 
 
-예를 들어 대상 **AzureContainerRegistry**를 사용하여 Azure 컨테이너 레지스트리로의 트래픽을 허용하는 아웃바운드 네트워크 보안 그룹 규칙을 만듭니다. 특정 지역에서만 서비스 태그에 대한 액세스를 허용하려면 **AzureContainerRegistry**.[*지역 이름*] 형식으로 지역을 지정합니다.
+예를 들어 대상 **AzureContainerRegistry** 를 사용하여 Azure 컨테이너 레지스트리로의 트래픽을 허용하는 아웃바운드 네트워크 보안 그룹 규칙을 만듭니다. 특정 지역에서만 서비스 태그에 대한 액세스를 허용하려면 **AzureContainerRegistry**.[*지역 이름*] 형식으로 지역을 지정합니다.
 
 ## <a name="enable-dedicated-data-endpoints"></a>전용 데이터 엔드포인트 사용 
 
@@ -131,9 +131,9 @@ Azure Portal 또는 Azure CLI를 사용하여 전용 데이터 엔드포인트�
 포털을 사용하여 데이터 엔드포인트를 사용하도록 설정하려면 다음을 수행합니다.
 
 1. 컨테이너 레지스트리로 이동합니다.
-1. **네트워킹** > **공용 액세스**를 선택합니다.
+1. **네트워킹** > **공용 액세스** 를 선택합니다.
 1. **전용 데이터 엔드포인트 사용** 확인란을 선택합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 데이터 엔드포인트 또는 엔드포인트가 포털에 표시됩니다.
 
@@ -143,7 +143,7 @@ Azure Portal 또는 Azure CLI를 사용하여 전용 데이터 엔드포인트�
 
 Azure CLI를 사용하여 데이터 엔드포인트를 사용하도록 설정하려면 Azure CLI 버전 2.4.0 이상을 사용합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-다음 [az acr update][az-acr-update] 명령은 레지스트리 *myregistry*에서 전용 데이터 엔드포인트를 사용하도록 설정합니다. 
+다음 [az acr update][az-acr-update] 명령은 레지스트리 *myregistry* 에서 전용 데이터 엔드포인트를 사용하도록 설정합니다. 
 
 ```azurecli
 az acr update --name myregistry --data-endpoint-enabled
@@ -183,7 +183,7 @@ az acr show-endpoints --name myregistry
 
 * [네트워크 보안에 대한 Azure 모범 사례](../security/fundamentals/network-best-practices.md)에 대해 알아보기
 
-* Azure 가상 네트워크의 [보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보기
+* Azure 가상 네트워크의 [보안 그룹](../virtual-network/network-security-groups-overview.md)에 대해 자세히 알아보기
 
 * 컨테이너 레지스트리에 대한 [Private Link](container-registry-private-link.md) 설정에 대해 자세히 알아보기
 

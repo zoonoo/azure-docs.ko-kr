@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Android 앱 만들기'
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 Android 앱을 빌드하는 방법을 알아봅니다.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6b7f924c7f115e8eddda93ea0c096ab94411da72
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b7be4e257fc884c655fe380f69b08797a907fbbb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810397"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022652"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android 앱 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "87810397"
   - NDK 샘플을 빌드하려면 Android Studio에 NDK 및 CMake 3.6 이상의 SDK Tools를 설치해야 합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
   - 컴퓨터가 Android 디바이스와 통신하려면 추가 디바이스 드라이버가 필요할 수 있습니다. 추가 정보 및 지침은 [여기](https://developer.android.com/studio/run/device.html)를 참조하세요.
-- 앱은 ARCore **1.11.0**을 대상으로 해야 합니다.
+- 앱은 ARCore **1.11.0** 을 대상으로 해야 합니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -66,11 +66,11 @@ Android Studio를 엽니다.
 
 # <a name="java"></a>[Java](#tab/openproject-java)
 
-**기존 Android Studio 프로젝트 열기**를 선택하여 `Android/Java/`에 있는 프로젝트를 선택합니다.
+**기존 Android Studio 프로젝트 열기** 를 선택하여 `Android/Java/`에 있는 프로젝트를 선택합니다.
 
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
-**기존 Android Studio 프로젝트 열기**를 선택하여 `Android/NDK/`에 있는 프로젝트를 선택합니다.
+**기존 Android Studio 프로젝트 열기** 를 선택하여 `Android/NDK/`에 있는 프로젝트를 선택합니다.
 
 ---
 
@@ -104,15 +104,15 @@ Android Studio를 엽니다.
 
 Android 디바이스의 전원을 켜고 로그인한 후 USB 케이블을 사용하여 PC에 연결합니다.
 
-Android Studio 도구 모음에서 **실행**을 선택합니다.
+Android Studio 도구 모음에서 **실행** 을 선택합니다.
 
 ![Android Studio 배포 및 실행](./media/get-started-android/android-studio-deploy-run.png)
 
-**배포 대상 선택** 대화 상자에서 Android 디바이스를 선택하고 **확인**을 선택하여 Android 디바이스에서 앱을 실행합니다.
+**배포 대상 선택** 대화 상자에서 Android 디바이스를 선택하고 **확인** 을 선택하여 Android 디바이스에서 앱을 실행합니다.
 
 앱의 지침에 따라 앵커를 배치하고 회수합니다.
 
-Android Studio 도구 모음에서 **중지**를 선택하여 앱을 중지합니다.
+Android Studio 도구 모음에서 **중지** 를 선택하여 앱을 중지합니다.
 
 ![Android Studio 중지](./media/get-started-android/android-studio-stop.png)
 

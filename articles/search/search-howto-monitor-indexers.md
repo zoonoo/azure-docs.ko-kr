@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 649611b2e378cd43286b193c6d40b03b743905cd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0107dfb24ddad2a5b0f9f0ab12d2fe701466e385
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000076"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372832"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Azure Cognitive Search 인덱서 상태 및 결과를 모니터링 하는 방법
 
@@ -51,11 +51,11 @@ Azure Cognitive Search는 모든 인덱서의 현재 및 과거 실행에 대 �
 
    ![인덱서 목록](media/search-monitor-indexers/indexers-list.png "인덱서 목록")
 
-인덱서를 실행 하는 경우 목록에서 상태는 **진행**중으로 표시 되 고 문서 **성공** 값은 지금까지 처리 된 문서 수를 표시 합니다. 포털이 인덱서 상태 값과 문서 수를 업데이트 하는 데 몇 분 정도 걸릴 수 있습니다.
+인덱서를 실행 하는 경우 목록에서 상태는 **진행** 중으로 표시 되 고 문서 **성공** 값은 지금까지 처리 된 문서 수를 표시 합니다. 포털이 인덱서 상태 값과 문서 수를 업데이트 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-가장 최근의 실행이 성공한 인덱서는 **성공**을 표시 합니다. 오류 수가 인덱서의 **최대 실패 항목** 설정 보다 적으면 개별 문서에 오류가 있어도 인덱서 실행이 성공할 수 있습니다.
+가장 최근의 실행이 성공한 인덱서는 **성공** 을 표시 합니다. 오류 수가 인덱서의 **최대 실패 항목** 설정 보다 적으면 개별 문서에 오류가 있어도 인덱서 실행이 성공할 수 있습니다.
 
-가장 최근의 실행이 오류로 인해 종료 되 면 상태에 **실패**가 표시 됩니다. **다시 설정** 상태는 인덱서의 변경 내용 추적 상태가 다시 설정 되었음을 의미 합니다.
+가장 최근의 실행이 오류로 인해 종료 되 면 상태에 **실패** 가 표시 됩니다. **다시 설정** 상태는 인덱서의 변경 내용 추적 상태가 다시 설정 되었음을 의미 합니다.
 
 인덱서의 현재 및 최근 실행에 대 한 자세한 정보를 보려면 목록에서 인덱서를 클릭 합니다.
 
@@ -122,7 +122,7 @@ api-key: [Search service admin key]
 
 두 가지 상태 값이 있습니다. 최상위 수준 상태는 인덱서 자체에 대 한 것입니다. 인덱서 상태를 **실행** 하는 것은 인덱서가 올바르게 설정 되어 실행 가능 하지만 현재 실행 되 고 있지 않음을 의미 합니다.
 
-각 인덱서의 실행에는 특정 실행이 진행 중인지 (**실행 중**) 또는 이미 **성공**, **transientFailure**또는 **persistentFailure** 상태로 완료 되었는지 여부를 나타내는 자체 상태도 있습니다. 
+각 인덱서의 실행에는 특정 실행이 진행 중인지 ( **실행 중** ) 또는 이미 **성공** , **transientFailure** 또는 **persistentFailure** 상태로 완료 되었는지 여부를 나타내는 자체 상태도 있습니다. 
 
 변경 내용 추적 상태를 새로 고치기 위해 인덱서를 다시 설정 하면 **다시 설정** 상태를 사용 하 여 별도의 실행 기록 항목이 추가 됩니다.
 
@@ -132,16 +132,15 @@ api-key: [Search service admin key]
 
 ## <a name="monitor-using-the-net-sdk"></a>.NET SDK를 사용 하 여 모니터링
 
-Azure Cognitive Search .NET SDK를 사용 하 여 인덱서 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 포함 합니다.
-
-다음 c # 예제에서는 인덱서의 상태와 가장 최근에 실행 된 실행의 결과에 대 한 정보를 콘솔에 씁니다.
+다음 c # 예제에서는 Azure Cognitive Search .NET SDK를 사용 하 여 인덱서 상태 및 가장 최근에 실행 된 실행의 결과에 대 한 정보를 콘솔에 씁니다.
 
 ```csharp
-static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchService)
+static void CheckIndexerStatus(SearchIndexerClient indexerClient, SearchIndexer indexer)
 {
     try
     {
-        IndexerExecutionInfo execInfo = searchService.Indexers.GetStatus(indexer.Name);
+        string indexerName = "hotels-sql-idxr";
+        SearchIndexerStatus execInfo = indexerClient.GetIndexerStatus(indexerName);
 
         Console.WriteLine("Indexer has run {0} times.", execInfo.ExecutionHistory.Count);
         Console.WriteLine("Indexer Status: " + execInfo.Status.ToString());
@@ -149,15 +148,15 @@ static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchServic
         IndexerExecutionResult result = execInfo.LastResult;
 
         Console.WriteLine("Latest run");
-        Console.WriteLine("  Run Status: {0}", result.Status.ToString());
-        Console.WriteLine("  Total Documents: {0}, Failed: {1}", result.ItemCount, result.FailedItemCount);
+        Console.WriteLine("Run Status: {0}", result.Status.ToString());
+        Console.WriteLine("Total Documents: {0}, Failed: {1}", result.ItemCount, result.FailedItemCount);
 
         TimeSpan elapsed = result.EndTime.Value - result.StartTime.Value;
-        Console.WriteLine("  StartTime: {0:T}, EndTime: {1:T}, Elapsed: {2:t}", result.StartTime.Value, result.EndTime.Value, elapsed);
+        Console.WriteLine("StartTime: {0:T}, EndTime: {1:T}, Elapsed: {2:t}", result.StartTime.Value, result.EndTime.Value, elapsed);
 
         string errorMsg = (result.ErrorMessage == null) ? "none" : result.ErrorMessage;
-        Console.WriteLine("  ErrorMessage: {0}", errorMsg);
-        Console.WriteLine("  Document Errors: {0}, Warnings: {1}\n", result.Errors.Count, result.Warnings.Count);
+        Console.WriteLine("ErrorMessage: {0}", errorMsg);
+        Console.WriteLine(" Document Errors: {0}, Warnings: {1}\n", result.Errors.Count, result.Warnings.Count);
     }
     catch (Exception e)
     {
@@ -174,19 +173,22 @@ Indexer Status: Running
 Latest run
   Run Status: Success
   Total Documents: 7, Failed: 0
-  StartTime: 10:02:46 PM, EndTime: 10:02:47 PM, Elapsed: 00:00:01.0990000
+  StartTime: 11:29:31 PM, EndTime: 11:29:31 PM, Elapsed: 00:00:00.2560000
   ErrorMessage: none
   Document Errors: 0, Warnings: 0
 ```
 
 두 가지 상태 값이 있습니다. 최상위 상태는 인덱서 자체의 상태입니다. 인덱서 상태를 **실행** 하는 것은 인덱서가 올바르게 설정 되어 실행 가능 하지만 현재 실행 되 고 있지 않음을 의미 합니다.
 
-각 인덱서의 실행에는 특정 실행이 진행 중인지 (**실행 중**) 또는 이미 **성공** 또는 **TransientError** 상태를 사용 하 여 완료 되었는지에 대 한 자체 상태도 있습니다. 
+각 인덱서의 실행에는 특정 실행이 진행 중인지 ( **실행 중** ) 또는 이미 **성공** 또는 **TransientError** 상태를 사용 하 여 완료 되었는지에 대 한 자체 상태도 있습니다. 
 
 변경 내용 추적 상태를 새로 고치기 위해 인덱서를 다시 설정 하면 **다시 설정** 상태를 사용 하 여 별도의 기록 항목이 추가 됩니다.
 
-상태 코드 및 인덱서 모니터링 정보에 대 한 자세한 내용은 REST API [Getindexerstatus](/rest/api/searchservice/get-indexer-status) 를 참조 하십시오.
+## <a name="next-steps"></a>다음 단계
 
-문서 관련 오류 또는 경고에 대 한 세부 정보는 목록과를 열거 하 여 검색할 수 있습니다 `IndexerExecutionResult.Errors` `IndexerExecutionResult.Warnings` .
+상태 코드 및 인덱서 모니터링 정보에 대 한 자세한 내용은 다음 API 참조를 참조 하세요.
 
-인덱서를 모니터링 하는 데 사용 되는 .NET SDK 클래스에 대 한 자세한 내용은 [Indexerexecutioninfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) 및 [Indexerexecutioninfo](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet)를 참조 하세요.
+* [GetIndexerStatus (REST API)](/rest/api/searchservice/get-indexer-status)
+* [IndexerStatus](/dotnet/api/azure.search.documents.indexes.models.indexerstatus)
+* [IndexerExecutionStatus](/dotnet/api/azure.search.documents.indexes.models.indexerexecutionstatus)
+* [IndexerExecutionResult](/dotnet/api/azure.search.documents.indexes.models.indexerexecutionresult)

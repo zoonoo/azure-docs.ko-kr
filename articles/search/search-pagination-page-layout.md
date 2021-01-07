@@ -7,19 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 12/09/2020
+ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934925"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008488"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과를 사용 하는 방법
 
-이 문서에서는 총 일치 문서 수, 페이지를 매긴 결과, 정렬 된 결과 및 적중 강조 표시 된 용어와 함께 반환 되는 쿼리 응답을 가져오는 방법을 설명 합니다.
+이 문서에서는 Azure Cognitive Search에서 쿼리 응답을 작성 하는 방법을 설명 합니다. 응답의 구조는 쿼리의 매개 변수에 의해 결정 됩니다. REST API 또는 .NET SDK의 [Searchresults 클래스](/dotnet/api/azure.search.documents.models.searchresults-1) 에서 [검색 문서](/rest/api/searchservice/Search-Documents) 입니다. 다음과 같은 방법으로 쿼리에 매개 변수를 사용하여 결과 집합을 구성할 수 있습니다.
 
-응답의 구조는 쿼리의 매개 변수에 의해 결정 됩니다. REST API 또는 .NET SDK의 [DocumentSearchResult 클래스](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) 에 있는 [검색 문서를 검색](/rest/api/searchservice/Search-Documents) 합니다.
++ 결과의 문서 수 제한 또는 일괄 처리 (기본적으로 50)
++ 결과에 포함할 필드를 선택 합니다.
++ 결과 정렬
++ 검색 결과 본문에서 전체 또는 부분 일치 항목을 강조 표시 합니다.
 
 ## <a name="result-composition"></a>결과 컴퍼지션
 
@@ -39,6 +42,14 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 > [!NOTE]
 > 제품 사진이 나 로고와 같은 결과에 이미지 파일을 포함 하려면 Azure Cognitive Search 외부에 저장 하지만 검색 문서에서 이미지 URL을 참조 하는 필드를 인덱스에 포함 합니다. 결과에서 이미지를 지 원하는 샘플 인덱스에는이 [빠른](search-create-app-portal.md)시작에서 제공 되는 **realestate-us-sample-Us** 데모와 [뉴욕 도시 작업 데모 앱](https://aka.ms/azjobsdemo)이 포함 됩니다.
 
+### <a name="tips-for-unexpected-results"></a>예기치 않은 결과 대한 팁
+
+경우에 따라, 결과의 구조가 아닌 본질을 예상할 수 없습니다. 예기치 않은 쿼리 결과가 발생 하는 경우 다음과 같은 쿼리 수정을 시도 하 여 결과가 향상 되는지 확인할 수 있습니다.
+
++ **`searchMode=any`** **`searchMode=all`** 조건 대신 모든 조건에서 일치 항목을 요구 하도록를로 변경 합니다 (기본값). 부울 연산자가 쿼리에 포함되는 경우 특히 이렇게 합니다.
+
++ 다른 어휘 분석기 나 사용자 지정 분석기를 시험해 보고 쿼리 결과가 변경 되는지 확인 합니다. 기본 분석기는 하이픈을 넣은 단어를 나누고 단어를 루트 형식으로 줄여 일반적으로 쿼리 응답의 견고성을 향상 시킵니다. 그러나 하이픈을 유지 해야 하거나 문자열에 특수 문자가 포함 된 경우에는 인덱스에 올바른 형식의 토큰이 포함 되도록 사용자 지정 분석기를 구성 해야 할 수 있습니다. 자세한 내용은 [특수 문자를 포함 하는 부분 용어 검색 및 패턴 (하이픈, 와일드 카드, regex, 패턴)](search-query-partial-matching.md)을 참조 하세요.
+
 ## <a name="paging-results"></a>페이징 결과
 
 기본적으로 검색 엔진은 쿼리가 전체 텍스트 검색 인지 또는 정확한 일치 쿼리를 위한 임의의 순서로 검색 점수에 따라 결정 되는 처음 50 일치 항목까지 반환 합니다.
@@ -52,7 +63,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 + 두 번째 집합을 반환 하 고 첫 15를 건너뛰고 다음 15:을 가져옵니다 `$top=15&$skip=15` . 세 번째 15 번째 집합에 대해 동일한 작업을 수행 합니다. `$top=15&$skip=30`
 
 기본 인덱스가 변경 되는 경우 페이지가 매겨진 쿼리 결과가 안정적이 지 않을 수 있습니다. 페이징은 `$skip` 각 페이지에 대 한 값을 변경 하지만 각 쿼리는 독립적 이며 쿼리 시의 인덱스에 있는 데이터의 현재 보기에서 작동 합니다. 즉, 일반적인 용도의 데이터베이스에 있는 것과 같은 결과의 캐싱 또는 스냅숏이 없습니다.
- 
+ 
 다음은 중복을 얻는 방법에 대 한 예입니다. 4 개의 문서를 포함 하는 인덱스를 가정 합니다.
 
 ```text
@@ -61,28 +72,28 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 이제 등급 별로 정렬 된 결과를 한 번에 두 번 반환 하려는 경우를 가정 합니다. 이 쿼리를 실행 하 여 결과의 첫 번째 페이지를 가져올 수 있습니다. 즉 `$top=2&$skip=0&$orderby=rating desc` , 다음과 같은 결과를 생성 합니다.
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 서비스에서는 쿼리 호출 사이에 다섯 번째 문서가 인덱스에 추가 된 것으로 가정 합니다. `{ "id": "5", "rating": 4 }`  잠시 후에 두 번째 페이지를 인출 하는 쿼리를 실행 하 `$top=2&$skip=2&$orderby=rating desc` 고 이러한 결과를 가져옵니다.
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 문서 2는 두 번 인출 됩니다. 새 문서 5는 등급에 대 한 값이 크므로 문서 2 보다 먼저 정렬 되 고 첫 번째 페이지에 도달 하기 때문입니다. 이 동작은 예기치 않을 수 있지만 검색 엔진의 동작 방식에 일반적입니다.
 
 ## <a name="ordering-results"></a>결과 정렬
 
-전체 텍스트 검색 쿼리의 경우 결과는 검색 점수를 기준으로 자동으로 순위가 매겨집니다 .이 점수는 문서에서 용어 빈도 및 근접을 기준으로 계산 되며 검색 단어에 대 한 일치 항목이 나 더 강력 하 게 일치 하는 문서에 대 한 점수가 높아집니다. 
+전체 텍스트 검색 쿼리의 경우 결과는 검색 점수를 기준으로 자동으로 순위가 매겨집니다 .이 점수는 문서에서 용어 빈도 및 근접 ( [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)에서 파생)을 기반으로 계산 되며 검색 용어에 더 많이 또는 더 강력 하 게 일치 하는 문서로 이동 합니다. 
 
-검색 점수는 동일한 결과 집합의 다른 문서와 비교 하 여 일치의 강도를 반영 하는 일반적인 관련성을 전달 합니다. 점수는 쿼리를 사용할 때와 항상 일치 하는 것은 아니므로 쿼리를 사용할 때 검색 문서 정렬 방법이 약간 달라질 수 있습니다. 이러한 상황이 발생할 수 있는 이유에 대 한 몇 가지 설명이 있습니다.
+검색 점수는 동일한 결과 집합의 다른 문서를 기준으로 일치 항목의 강도를 반영 하 여 일반적인 관련성을 전달 합니다. 하지만 점수가 항상 한 쿼리와 일치 하는 것은 아니므로 쿼리를 사용할 때 검색 문서 정렬 방법이 약간 달라질 수 있습니다. 이러한 상황이 발생할 수 있는 이유에 대 한 몇 가지 설명이 있습니다.
 
 | 원인 | Description |
 |-----------|-------------|
@@ -90,11 +101,11 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 | 여러 복제본 | 여러 복제본을 사용 하는 서비스의 경우 각 복제본에 대해 병렬로 쿼리가 실행 됩니다. 검색 점수를 계산 하는 데 사용 되는 인덱스 통계는 복제본 별로 계산 되며 결과는 쿼리 응답에 병합 되 고 정렬 됩니다. 복제본은 대부분 서로 미러 되지만 상태 차이가 많지 않기 때문에 통계가 다를 수 있습니다. 예를 들어, 하나의 복제본이 해당 통계에 영향을 주는 문서를 삭제 했을 수 있습니다 .이 문서는 다른 복제본에 병합 되었습니다. 일반적으로 복제본 별 통계의 차이점은 작은 인덱스에서 더 두드러집니다. |
 | 동일한 점수 | 여러 문서의 점수가 동일한 경우 그 중 하나는 먼저 표시 될 수 있습니다.  |
 
-### <a name="consistent-ordering"></a>일관 된 순서 지정
+### <a name="how-to-get-consistent-ordering"></a>일관 된 순서를 가져오는 방법
 
-결과 정렬에 flex가 지정 된 경우 일관성이 응용 프로그램 요구 사항인 경우 다른 옵션을 탐색 하는 것이 좋습니다. 가장 쉬운 방법은 등급 또는 날짜와 같은 필드 값을 기준으로 정렬 하는 것입니다. 등급 또는 날짜와 같은 특정 필드를 기준으로 정렬 하려는 시나리오의 경우 **정렬할**수 있는 것으로 인덱싱되는 모든 필드에 적용할 수 있는 [ `$orderby` 식을](query-odata-filter-orderby-syntax.md)명시적으로 정의할 수 있습니다.
+일관 된 순서가 응용 프로그램 요구 사항인 경우 **`$orderby`** 필드에 대해 [] 식 (syntax.md)을 명시적으로 정의할 수 있습니다. 로 인덱싱되는 필드만 **`sortable`** 결과를 정렬 하는 데 사용할 수 있습니다. 에 일반적으로 사용 되는 필드에는 **`$orderby`** **`orderby`** 필드 이름 및 지리 공간적 값에 대 한 호출을 포함 하는 매개 [**`geo.distance()`**](query-odata-filter-orderby-syntax.md) 변수의 값을 지정 하는 경우 등급, 날짜 및 위치 필드가 포함 됩니다.
 
-또 다른 옵션은 [사용자 지정 점수 매기기 프로필](index-add-scoring-profiles.md)을 사용 하는 것입니다. 점수 매기기 프로필을 사용 하면 검색 결과의 항목 순위를 보다 세밀 하 게 제어할 수 있으며 특정 필드에서 찾은 일치 항목을 높일 수 있습니다. 추가 점수 매기기 논리는 각 문서에 대 한 검색 점수가 떨어져 있기 때문에 복제본 간의 사소한 차이를 무시 하는 데 도움이 될 수 있습니다. 이 방법에 대 한 [순위 알고리즘](index-ranking-similarity.md) 을 사용 하는 것이 좋습니다.
+일관성을 승격 하는 또 다른 방법은 [사용자 지정 점수 매기기 프로필](index-add-scoring-profiles.md)을 사용 하는 것입니다. 점수 매기기 프로필을 사용 하면 검색 결과의 항목 순위를 보다 세밀 하 게 제어할 수 있으며 특정 필드에서 찾은 일치 항목을 높일 수 있습니다. 추가 점수 매기기 논리는 각 문서에 대 한 검색 점수가 떨어져 있기 때문에 복제본 간의 사소한 차이를 무시 하는 데 도움이 될 수 있습니다. 이 방법에 대 한 [순위 알고리즘](index-ranking-similarity.md) 을 사용 하는 것이 좋습니다.
 
 ## <a name="hit-highlighting"></a>적중 항목 강조 표시
 

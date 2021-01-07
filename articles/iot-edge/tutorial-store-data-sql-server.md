@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 3d5ca648b149fa85b28f695956a438cdac9e67e8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a8d09f762002c89d225ccc00eac83da336850a3c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086626"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047950"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -42,7 +42,7 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * AMD64 [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md).
   * Raspberry Pi와 같은 ARM 디바이스는 SQL Server를 실행할 수 없습니다. ARM 디바이스에서 SQL을 사용하려는 경우 등록하여 미리 보기에서 [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/)를 사용해 볼 수 있습니다.
-* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
+* [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
 
@@ -228,7 +228,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 7. **모듈** 섹션을 찾습니다. 세 가지 모듈이 보입니다. *SimulatedTemperatureSensor* 모듈은 새 솔루션에 기본적으로 포함되며 다른 모듈과 함께 사용할 테스트 데이터를 제공합니다. *sqlFunction* 모듈은 초기에 만들고 새 코드로 업데이트한 모듈입니다. 마지막으로 *sql* 모듈은 Azure Marketplace에서 가져왔습니다.
 
    >[!Tip]
-   >SQL Server 모듈에는 배포 매니페스트의 환경 변수에 설정된 기본 암호가 제공됩니다. 프로덕션 환경에서 SQL Server 컨테이너를 만들 때마다 [기본 시스템 관리자 암호를 변경](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker)해야 합니다.
+   >SQL Server 모듈에는 배포 매니페스트의 환경 변수에 설정된 기본 암호가 제공됩니다. 프로덕션 환경에서 SQL Server 컨테이너를 만들 때마다 [기본 시스템 관리자 암호를 변경](/sql/linux/quickstart-install-connect-docker)해야 합니다.
 
 8. **deployment.template.json** 파일을 닫습니다.
 
@@ -331,9 +331,9 @@ SQL 명령 도구 내에서 다음 명령을 실행하여 형식이 지정된 �
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>다음 단계
+이 자습서에서는 IoT Edge 디바이스에서 생성된 원시 데이터를 필터링하는 코드가 포함된 Azure Functions 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [Visual Studio Code에 대한 Azure IoT Edge를 사용하여 Azure Functions를 개발](./how-to-vs-code-develop-module.md)하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-이 자습서에서는 IoT Edge 디바이스에서 생성된 원시 데이터를 필터링하는 코드가 포함된 Azure Functions 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [Visual Studio Code에 대한 Azure IoT Edge를 사용하여 Azure Functions를 개발](how-to-develop-csharp-function.md)하는 방법에 대해 자세히 알아볼 수 있습니다.
+## <a name="next-steps"></a>다음 단계
 
 에지에서 다른 스토리지 메서드를 시도하려는 경우 IoT Edge의 Azure Blob Storage를 사용하는 방법을 읽어보세요.
 

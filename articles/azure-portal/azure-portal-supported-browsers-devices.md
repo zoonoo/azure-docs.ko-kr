@@ -1,26 +1,16 @@
 ---
-title: Azure Portal에서 지원되는 브라우저 및 디바이스 | Microsoft Docs
+title: Azure Portal에 대해 지원 되는 브라우저 및 장치
 description: 최신 브라우저 버전의 모든 최신 장치에서 Azure Portal를 사용할 수 있습니다. 브라우저가 지원 되는지 확인 하려면이 문서를 참조 하세요.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: lwelicki
-editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
-ms.service: azure-portal
-ms.workload: multiple
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2019
-ms.author: mblythe
+ms.date: 11/18/2020
 ms.custom: accessibility
-ms.openlocfilehash: 82a6cfc817cefb78c3239349d9ad7ff839a1ecbd
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 81c4ccef688622ec20d111383359053b82045996
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090213"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938089"
 ---
 # <a name="supported-devices"></a>지원되는 디바이스
 
@@ -33,7 +23,7 @@ ms.locfileid: "90090213"
 운영 체제와 호환되는 가장 최신 브라우저를 사용하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
 
 * Microsoft Edge(최신 버전)
-* Internet Explorer 11 (지원 종료, 2021 년 8 월 17 일-자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666) 참조)
+* Internet Explorer 11 (2021 년 3 월 31 일까 지 지원 됨)
 * Safari(최신 버전, Mac만 해당)
 * Chrome(최신 버전)
 * Firefox(최신 버전)

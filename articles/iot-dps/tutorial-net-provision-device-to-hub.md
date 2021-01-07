@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 55195949cfaa741389f38deaea69806c568c0ce6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008270"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966567"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>자습서: Azure IoT Hub Device Provisioning Service 클라이언트를 사용하여 IoT Hub에 디바이스를 등록(.NET)
 
@@ -27,7 +27,7 @@ ms.locfileid: "89008270"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-계속 진행하기 전에 자습서에 설명된 대로 디바이스 및 *하드웨어 보안 모듈*을 구성할 수 있는지 확인하고, [Azure IoT Hub Device Provisioning Service를 사용하여 프로비전하도록 디바이스를 설정](./tutorial-set-up-device.md)합니다.
+계속 진행하기 전에 자습서에 설명된 대로 디바이스 및 *하드웨어 보안 모듈* 을 구성할 수 있는지 확인하고, [Azure IoT Hub Device Provisioning Service를 사용하여 프로비전하도록 디바이스를 설정](./tutorial-set-up-device.md)합니다.
 
 * Visual Studio
 
@@ -42,12 +42,12 @@ ms.locfileid: "89008270"
 이 단계에서는 Device Provisioning Service에 디바이스의 고유 보안 아티팩트를 추가하는 것이 포함됩니다. 이러한 보안 아티팩트는 다음과 같습니다.
 
 - TPM 기반 디바이스의 경우:
-    - 각 TPM 칩 또는 시뮬레이션에 고유한 *인증 키*입니다. 자세한 정보는 [TPM 인증 키 이해](https://technet.microsoft.com/library/cc770443.aspx)를 읽어보세요.
-    - 네임스페이스/범위에서 디바이스를 고유하게 식별하는 데 사용되는 *등록 ID*입니다. 이는 디바이스 ID와 같거나 다를 수 있습니다. ID는 모든 디바이스에 필수입니다. TPM 기반 디바이스의 경우 등록 ID는 TPM 인증 키의 SHA-256 해시와 같이 TPM 자체에서 파생될 수도 있습니다.
+    - 각 TPM 칩 또는 시뮬레이션에 고유한 *인증 키* 입니다. 자세한 정보는 [TPM 인증 키 이해](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11))를 읽어보세요.
+    - 네임스페이스/범위에서 디바이스를 고유하게 식별하는 데 사용되는 *등록 ID* 입니다. 이는 디바이스 ID와 같거나 다를 수 있습니다. ID는 모든 디바이스에 필수입니다. TPM 기반 디바이스의 경우 등록 ID는 TPM 인증 키의 SHA-256 해시와 같이 TPM 자체에서 파생될 수도 있습니다.
 
 - X.509 기반 디바이스의 경우:
-    - *.pem* 또는 *.cer* 파일 중 하나의 형식인 [디바이스에 발급된 X.509 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)입니다. 개별 등록의 경우 X.509 시스템에 대한 *리프 인증서*를 사용해야 합니다. 반면, 등록 그룹의 경우 *루트 인증서* 또는 동일한 *서명자 인증서*를 사용해야 합니다.
-    - 네임스페이스/범위에서 디바이스를 고유하게 식별하는 데 사용되는 *등록 ID*입니다. 이는 디바이스 ID와 같거나 다를 수 있습니다. ID는 모든 디바이스에 필수입니다. X.509 기반 디바이스의 경우 등록 ID는 인증서의 CN(일반 이름)에서 파생됩니다. 이러한 요구 사항에 대한 자세한 내용은 [디바이스 개념](https://docs.microsoft.com/azure/iot-dps/concepts-device)을 참조하세요.
+    - *.pem* 또는 *.cer* 파일 중 하나의 형식인 [디바이스에 발급된 X.509 인증서](/windows/win32/seccertenroll/about-x-509-public-key-certificates)입니다. 개별 등록의 경우 X.509 시스템에 대한 *리프 인증서* 를 사용해야 합니다. 반면, 등록 그룹의 경우 *루트 인증서* 또는 동일한 *서명자 인증서* 를 사용해야 합니다.
+    - 네임스페이스/범위에서 디바이스를 고유하게 식별하는 데 사용되는 *등록 ID* 입니다. 이는 디바이스 ID와 같거나 다를 수 있습니다. ID는 모든 디바이스에 필수입니다. X.509 기반 디바이스의 경우 등록 ID는 인증서의 CN(일반 이름)에서 파생됩니다. 이러한 요구 사항에 대한 자세한 내용은 [디바이스 개념](./concepts-service.md)을 참조하세요.
 
 Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지가 있습니다.
 
@@ -57,11 +57,11 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
 
 ### <a name="enroll-the-device-using-individual-enrollments"></a>개별 등록을 사용한 디바이스 등록
 
-1. Visual Studio에서 **콘솔 앱** 프로젝트 템플릿을 사용하여 Visual C# 콘솔 애플리케이션 프로젝트를 만듭니다. 프로젝트 이름을 **DeviceProvisioning**으로 지정합니다.
+1. Visual Studio에서 **콘솔 앱** 프로젝트 템플릿을 사용하여 Visual C# 콘솔 애플리케이션 프로젝트를 만듭니다. 프로젝트 이름을 **DeviceProvisioning** 으로 지정합니다.
     
 1. 솔루션 탐색기에서 **DeviceProvisioning** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
 
-1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices.provisioning.service**를 검색합니다. 항목을 선택하고 **설치**를 클릭하여 **Microsoft.Azure.Devices.Provisioning.Service** 패키지를 설치한 후 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 디바이스 프로비저닝 서비스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드, 설치 및 추가합니다.
+1. **NuGet 패키지 관리자** 창에서 **찾아보기** 를 선택하고 **microsoft.azure.devices.provisioning.service** 를 검색합니다. 항목을 선택하고 **설치** 를 클릭하여 **Microsoft.Azure.Devices.Provisioning.Service** 패키지를 설치한 후 사용 약관에 동의합니다. 이 프로시저에서는 [Azure IoT 디바이스 프로비저닝 서비스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet 패키지 및 해당 종속성에 대한 참조를 다운로드, 설치 및 추가합니다.
 
 1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
@@ -129,9 +129,9 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
     Console.ReadLine();
     ```
         
-1. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정...** 을 클릭합니다. **단일 시작 프로젝트**를 선택한 다음 드롭다운 메뉴에서 **DeviceProvisioning** 프로젝트를 선택합니다.  
+1. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정...** 을 클릭합니다. **단일 시작 프로젝트** 를 선택한 다음 드롭다운 메뉴에서 **DeviceProvisioning** 프로젝트를 선택합니다.  
 
-1. .NET 디바이스 앱 **DeviceProvisiong**을 실행합니다. 디바이스에 대한 프로비저닝을 설정해야 합니다. 
+1. .NET 디바이스 앱 **DeviceProvisiong** 을 실행합니다. 디바이스에 대한 프로비저닝을 설정해야 합니다. 
 
     ![개별 등록 실행](./media/tutorial-net-provision-device-to-hub/individual.png)
 
@@ -159,7 +159,7 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
     private const string SampleEnrollmentGroupId = "sample-group-csharp";
     ```
 
-1. 장치에서 등록을 구현하도록 다음을 **Program.cs**에 추가합니다.
+1. 장치에서 등록을 구현하도록 다음을 **Program.cs** 에 추가합니다.
 
     ```csharp
     public static async Task SetGroupRegistrationDataAsync()
@@ -208,7 +208,7 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
     }
     ```
 
-1. .NET 디바이스 앱 **DeviceProvisiong**을 실행합니다. 디바이스에 대한 그룹 프로비저닝을 설정해야 합니다. 
+1. .NET 디바이스 앱 **DeviceProvisiong** 을 실행합니다. 디바이스에 대한 그룹 프로비저닝을 설정해야 합니다. 
 
     ![그룹 등록 실행](./media/tutorial-net-provision-device-to-hub/group.png)
 
@@ -235,7 +235,7 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
 2. TPM 디바이스의 경우 Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다. 
 3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다. 
 4. 그러면 디바이스의 IoT Hub 클라이언트 애플리케이션이 사용자 허브에 연결됩니다. 
-5. 허브에 성공적으로 연결되면 디바이스가 IoT Hub의 **Device Explorer**에 나타납니다. 
+5. 허브에 성공적으로 연결되면 디바이스가 IoT Hub의 **Device Explorer** 에 나타납니다. 
 
     ![포털에서 허브에 연결 성공](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 

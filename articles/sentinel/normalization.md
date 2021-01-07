@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939809"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657026"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Azure 센티널의 정규화
 
@@ -58,7 +58,7 @@ OSSEM entity 구조에 대해 자세히 알아보려면 [공식 ossem 참조](ht
 
 ### <a name="how-the-normalized-schemas-are-implemented-in-azure-sentinel"></a>Azure 센티널에서 정규화 된 스키마를 구현 하는 방법
 
-Azure 센티널에서 OSSEM CIM을 구현 하는 경우이 표현이 기본 제공 테이블 인지 또는 기존 데이터를이 표현으로 매핑하는 함수 또는 쿼리 시간 파서를 사용 하 여 생성 되었는지에 대 한 Log Analytics 테이블 형식 표현으로 OSSEM 표현을 프로젝션 합니다. 테이블 형식 표현의 경우 OSSEM 엔터티 이름 및 특성 이름을 연결 하 고이를 단일 열 이름에 집합적으로 매핑합니다. 예를 들어 md5 특성을 포함 하는 해시 엔터티를 포함 하는 파일 엔터티가 포함 된 원본 엔터티는 다음 Log Analytics 열로 구현 됩니다. SrcFileHashMd5. (OSSEM은 기본적으로 *snake_case* 를 사용 하는 반면, Azure 센티널 및 Log Analytics는 고 *대/소문자*를 사용 합니다. OSSEM에서는 이러한 열이 src_file_hash_md5 됩니다.
+Azure 센티널에서 OSSEM CIM을 구현 하는 경우이 표현이 기본 제공 테이블 인지 또는 기존 데이터를이 표현으로 매핑하는 함수 또는 쿼리 시간 파서를 사용 하 여 생성 되었는지에 대 한 Log Analytics 테이블 형식 표현으로 OSSEM 표현을 프로젝션 합니다. 테이블 형식 표현의 경우 OSSEM 엔터티 이름 및 특성 이름을 연결 하 고이를 단일 열 이름에 집합적으로 매핑합니다. 예를 들어 md5 특성을 포함 하는 해시 엔터티를 포함 하는 파일 엔터티가 포함 된 원본 엔터티는 다음 Log Analytics 열로 구현 됩니다. SrcFileHashMd5. (OSSEM은 기본적으로 *snake_case* 를 사용 하는 반면, Azure 센티널 및 Log Analytics는 고 *대/소문자* 를 사용 합니다. OSSEM에서는 이러한 열이 src_file_hash_md5 됩니다.
 
 Log Analytics 플랫폼 요구 사항과 Azure 센티널 고객과 관련 된 사용 사례로 인해 Azure 센티널 구현에 추가 사용자 지정 필드가 있을 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 
 1. 위의 GitHub 링크에 있는 관련 된 각 KQL 파일의 관련 파서 콘텐츠를 클립보드에 복사 합니다.
 
-1. Azure 센티널 포털에서 로그 페이지를 열고 KQL 파일의 내용을 로그 화면에 붙여넣은 다음 **저장**을 클릭 합니다.
+1. Azure 센티널 포털에서 로그 페이지를 열고 KQL 파일의 내용을 로그 화면에 붙여넣은 다음 **저장** 을 클릭 합니다.
 
     :::image type="content" source="./media/normalization/install-new-parser.png" alt-text="새 파서 설치":::
 
@@ -132,7 +132,7 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 
 #### <a name="additional-information"></a>추가 정보
 
-Log Analytics의 [저장 된 쿼리](../azure-monitor/log-query/saved-queries.md) (쿼리 시간 파서 구현)에 대해 자세히 알아보세요.
+Log Analytics의 [저장 된 쿼리](../azure-monitor/log-query/example-queries.md) (쿼리 시간 파서 구현)에 대해 자세히 알아보세요.
 
 
 ## <a name="next-steps"></a>다음 단계

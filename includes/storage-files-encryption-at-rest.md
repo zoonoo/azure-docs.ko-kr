@@ -9,11 +9,11 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 814bf085ca910ef07a13df779eef25e0e6510e57
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563454"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011741"
 ---
 Azure Files에 저장된 모든 데이터는 Azure SSE(스토리지 서비스 암호화)를 사용하여 저장 데이터로 암호화됩니다. 스토리지 서비스 암호화는 Windows의 BitLocker와 유사하게 작동하며, 데이터는 파일 시스템 수준 아래에서 암호화됩니다. Azure 파일 공유의 파일 시스템 아래에서 데이터가 암호화되어 디스크로 인코딩되므로 Azure 파일 공유를 읽거나 쓰기 위해 클라이언트의 기본 키에 액세스할 필요가 없습니다. 저장 데이터 암호화는 SMB 및 NFS 프로토콜 모두에 적용됩니다.
 

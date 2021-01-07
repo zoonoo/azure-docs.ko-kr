@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f01ef1a4cf5bc5b805da3dd4d825ef17f81ce53e
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 737810a7d07d0d97b2e42acffa17fdd32986c48b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170203"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421093"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>자습서: Azure AD B2C를 사용하여 단일 페이지 애플리케이션에서 Node.js 웹 API를 보호하고 액세스 권한 부여
 
@@ -56,11 +56,11 @@ ms.locfileid: "87170203"
 
 다른 애플리케이션에서 보호된 웹 API를 호출하려면 해당 애플리케이션 권한을 웹 API에 부여해야 합니다.
 
-필수 조건 자습서에서 *webapp1*이라는 웹 애플리케이션을 만들었습니다. 이 자습서에서는 이전 섹션에서 만든 웹 API( *webapi1*)를 호출하도록 해당 애플리케이션을 구성합니다.
+필수 구성 요소 자습서에서 *spaapp1* 이라는 단일 페이지 애플리케이션을 만들었습니다. 이 자습서에서는 이전 섹션에서 만든 웹 API(*spaapp1*)를 호출하도록 해당 애플리케이션을 구성합니다.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-이제 지정된 범위에서 보호된 웹 API에 대한 권한이 단일 페이지 웹 애플리케이션에 부여되었습니다. 사용자는 단일 페이지 애플리케이션을 사용하기 위해 Azure AD B2C에서 인증됩니다. 단일 페이지 앱은 권한 부여 흐름을 통해 Azure AD B2C에서 반환된 액세스 토큰을 사용하여 보호된 웹 API에 액세스합니다.
+이제 지정된 범위에서 보호된 웹 API에 대한 권한이 단일 페이지 웹 애플리케이션에 부여되었습니다. 사용자는 단일 페이지 애플리케이션을 사용하기 위해 Azure AD B2C에서 인증됩니다. 단일 페이지 앱은 Azure AD B2C로부터 액세스 토큰을 받아 보호된 웹 API에 액세스합니다.
 
 ## <a name="configure-the-sample"></a>샘플 구성
 
@@ -74,14 +74,20 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="configure-the-web-api"></a>Web API 구성
 
-1. 코드 편집기에서 *config.js* 파일을 엽니다.
-1. 앞에서 만든 애플리케이션 등록을 반영하도록 변수 값을 수정합니다. 그리고 `policyName`을 필수 구성 요소의 일부로 만든 사용자 흐름으로 업데이트합니다. 예를 들어 *B2C_1_signupsignin1*으로 업데이트합니다.
-
-    ```javascript
-    const clientID = "<your-webapi-application-ID>"; // Application (client) ID
-    const b2cDomainHost = "<your-tenant-name>.b2clogin.com";
-    const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (a GUID)
-    const policyName = "B2C_1_signupsignin1";
+1. 코드 편집기에서 *config.json* 파일을 엽니다.
+1. 앞에서 만든 애플리케이션 등록을 반영하도록 변수 값을 수정합니다. 그리고 `policyName`을 필수 구성 요소의 일부로 만든 사용자 흐름으로 업데이트합니다. 예를 들어 *B2C_1_signupsignin1* 으로 업데이트합니다.
+    
+    ```json
+    "credentials": {
+        "tenantName": "<your-tenant-name>",
+        "clientID": "<your-webapi-application-ID>"
+    },
+    "policies": {
+        "policyName": "B2C_1_signupsignin1"
+    },
+    "resource": {
+        "scope": ["demo.read"] 
+    },
     ```
 
 #### <a name="enable-cors"></a>CORS를 사용하도록 설정
@@ -102,7 +108,7 @@ app.use((req, res, next) => {
 
 이 시리즈의 [이전 자습서](tutorial-single-page-app.md)에 나오는 SPA(단일 페이지 애플리케이션)는 사용자 가입 및 로그인에 Azure AD B2C를 사용하고, 기본적으로 *fabrikamb2c* 데모 테넌트에서 보호되는 Node.js 웹 API를 호출합니다.
 
-이 섹션에서는 *사용자*의 Azure AD B2C 테넌트에서 보호되고 로컬 머신에서 실행되는 Node.js 웹 API를 호출하도록 단일 페이지 웹 애플리케이션을 업데이트합니다.
+이 섹션에서는 *사용자* 의 Azure AD B2C 테넌트에서 보호되고 로컬 머신에서 실행되는 Node.js 웹 API를 호출하도록 단일 페이지 웹 애플리케이션을 업데이트합니다.
 
 SPA의 설정을 변경하려면 다음을 수행합니다.
 
@@ -111,7 +117,7 @@ SPA의 설정을 변경하려면 다음을 수행합니다.
     1. `apiConfig` 정의에서 `b2cScopes` 값을 *demo.read* 범위의 전체 URI(앞에서 적어 둔 **범위** 값)로 바꿉니다.
     1. `webApi` 값의 도메인을 이전 단계에서 웹 API 애플리케이션을 등록할 때 추가한 리디렉션 URI로 변경합니다.
 
-    이 API는 `/hello` 엔드포인트에서 액세스할 수 있으므로 URI의 */hello*를 그대로 둡니다.
+    이 API는 `/hello` 엔드포인트에서 액세스할 수 있으므로 URI의 */hello* 를 그대로 둡니다.
 
     `apiConfig` 정의는 다음 코드 블록과 비슷한 형식이지만, `<your-tenant-name>` 대신 B2C 테넌트의 이름이 사용됩니다.
 
@@ -155,7 +161,7 @@ SPA의 설정을 변경하려면 다음을 수행합니다.
 1. 다른 콘솔 창을 열고, JavaScript SPA 샘플이 있는 디렉터리로 변경합니다. 다음은 그 예입니다.
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. 다음 명령을 실행합니다.

@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 548d4f90bd9632e4807547120ac1be589668e8fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871343"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026732"
 ---
 # <a name="azure-peering-service-overview"></a>Azure 피어 링 서비스 개요
 
-Azure Peering Service는 Office 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. Microsoft는 Isp (인터넷 서비스 공급자), IXPs (인터넷 교환 파트너) 및 전 세계적 SDCI (소프트웨어 정의 클라우드 상호 연결) 공급자와 협력 하 여 고객 으로부터 Microsoft 네트워크로의 최적 라우팅을 통해 안정적이 고 성능이 뛰어난 공용 연결을 제공 합니다.
+Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. Microsoft는 Isp (인터넷 서비스 공급자), IXPs (인터넷 교환 파트너) 및 전 세계적 SDCI (소프트웨어 정의 클라우드 상호 연결) 공급자와 협력 하 여 고객 으로부터 Microsoft 네트워크로의 최적 라우팅을 통해 안정적이 고 성능이 뛰어난 공용 연결을 제공 합니다.
 
 피어 링 서비스를 사용 하는 경우 고객은 지정 된 지역에서 잘 연결 된 파트너 서비스 공급자를 선택할 수 있습니다. 공용 연결은 클라우드 서비스에서 최종 사용자 위치로의 높은 안정성 및 최소 대기 시간에 최적화 되어 있습니다.
 
@@ -45,19 +45,19 @@ Azure Peering Service는 Office 365, Dynamics 365, SaaS(Software as a Service) �
 피어 링 서비스는 Azure Express 경로 또는 VPN 제품과 같은 개인 연결 제품이 아닙니다.
 
 > [!NOTE]
-> Express 경로에 대 한 자세한 내용은 [express 경로 설명서](https://docs.microsoft.com/azure/expressroute/)를 참조 하세요.
+> Express 경로에 대 한 자세한 내용은 [express 경로 설명서](../expressroute/index.yml)를 참조 하세요.
 >
 
 ## <a name="background"></a>배경
 
-Office 365, Dynamics 365 및 기타 모든 Microsoft SaaS 서비스는 여러 Microsoft 데이터 센터에서 호스팅되며 모든 지리적 위치에서 액세스할 수 있습니다. Microsoft 글로벌 네트워크에는 서비스 공급자를 통해 최종 사용자에 게 연결할 수 있는 전 세계의 Microsoft Edge PoP (point of point) 위치가 있습니다. 
+Microsoft 365, Dynamics 365 및 기타 모든 Microsoft SaaS 서비스는 여러 Microsoft 데이터 센터에서 호스팅되며 모든 지리적 위치에서 액세스할 수 있습니다. Microsoft 글로벌 네트워크에는 서비스 공급자를 통해 최종 사용자에 게 연결할 수 있는 전 세계의 Microsoft Edge PoP (point of point) 위치가 있습니다. 
 
 Microsoft 및 파트너 서비스 공급자는 피어 링 서비스 연결에 등록 된 접두사의 트래픽이 Microsoft 글로벌 네트워크에서 가장 가까운 Microsoft Edge PoP 위치에 들어가거나 종료 되도록 합니다. Microsoft는 피어 링 서비스 연결에 등록 된 접두사에서 네트워크 트래픽이 Microsoft의 글로벌 네트워크에서 가장 가까운 Microsoft Edge PoP 위치를 사용 하도록 보장 합니다.
 
 ![Microsoft 네트워크 및 공용 연결](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Microsoft 글로벌 네트워크에 대 한 자세한 내용은 [microsoft 글로벌 네트워크](https://docs.microsoft.com/azure/networking/microsoft-global-network)를 참조 하세요.
+> Microsoft 글로벌 네트워크에 대 한 자세한 내용은 [microsoft 글로벌 네트워크](../networking/microsoft-global-network.md)를 참조 하세요.
 >
 
 ## <a name="why-use-peering-service"></a>피어 링 서비스를 사용 하는 이유

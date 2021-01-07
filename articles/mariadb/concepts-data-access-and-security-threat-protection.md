@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection-Azure Database for MariaDB
 description: Advanced Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018ba33271f8a3a81c3b7109607334b076d8609c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532181"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95977029"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure Database for MariaDB Advanced Threat Protection
 
@@ -42,6 +42,6 @@ Azure Database for MariaDB에 대 한 Advanced Threat Protection은 비정상적
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
+* [Azure Security Center](../security-center/security-center-introduction.md)에 대한 자세한 정보
 * 가격 책정에 대 한 자세한 내용은 [Azure Database for MariaDB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/) 를 참조 하세요. 
-* Azure Portal를 사용 하 여 [Azure Database for MariaDB Advanced Threat Protection](howto-database-threat-protection-portal.md) 구성  
+* Azure Portal를 사용 하 여 [Azure Database for MariaDB Advanced Threat Protection](howto-database-threat-protection-portal.md) 구성

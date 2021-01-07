@@ -2,7 +2,7 @@
 title: Azure AD Domain Services의 일반적인 경고 및 해결 방법 | Microsoft Docs
 description: 상태 Azure Active Directory Domain Services의 일부로 생성 된 일반적인 경고를 해결 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 29bd7490ea9a03118f134ba11923ede2075e6fd5
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: justinha
+ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722588"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618623"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services 일반적인 경고 및 해결 방법
 
@@ -73,7 +73,7 @@ Azure AD DS을 사용 하려면 다음 단계를 사용 하 여 Azure AD B2C 없
 
 1. 디렉터리에서 [관리 되는 도메인을 삭제](delete-aadds.md) 합니다.
 1. 가상 네트워크 IP 주소 범위를 업데이트 하려면 Azure Portal에서 *가상 네트워크* 를 검색 하 고 선택 합니다. 공용 IP 주소 범위 집합이 잘못 된 Azure AD DS의 가상 네트워크를 선택 합니다.
-1. **설정**아래에서 *주소 공간*을 선택 합니다.
+1. **설정** 아래에서 *주소 공간* 을 선택 합니다.
 1. 기존 주소 범위를 선택 하 고 편집 하거나 추가 주소 범위를 추가 하 여 주소 범위를 업데이트 합니다. 새 IP 주소 범위가 개인 IP 범위에 있는지 확인 하세요. 준비가 되 면 변경 내용을 **저장** 합니다.
 1. 왼쪽 탐색 영역에서 **서브넷** 을 선택 합니다.
 1. 편집 하려는 서브넷을 선택 하거나 추가 서브넷을 만듭니다.
@@ -133,9 +133,9 @@ Azure AD DS는 공용 IP 주소, 가상 네트워크 인터페이스, 부하 분
 
 이 경고는 이러한 필수 리소스 중 하나를 삭제할 때 생성 됩니다. 리소스가 4 시간 이내에 삭제 된 경우 Azure 플랫폼에서 삭제 된 리소스를 자동으로 다시 만들 수 있습니다. 다음 단계에서는 리소스 삭제에 대 한 상태 및 타임 스탬프를 확인 하는 방법을 간략하게 설명 합니다.
 
-1. Azure Portal에서 **도메인 서비스**를 검색 하 고 선택 합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
-1. 왼쪽 탐색 영역에서 **상태**를 선택 합니다.
-1. 상태 페이지에서 ID *AADDS109*를 사용 하 여 경고를 선택 합니다.
+1. Azure Portal에서 **도메인 서비스** 를 검색 하 고 선택 합니다. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
+1. 왼쪽 탐색 영역에서 **상태** 를 선택 합니다.
+1. 상태 페이지에서 ID *AADDS109* 를 사용 하 여 경고를 선택 합니다.
 1. 경고에는 처음 발견 된 타임 스탬프가 있습니다. 해당 타임 스탬프가 4 시간 이전인 경우 Azure 플랫폼에서 자동으로 리소스를 다시 만들고 경고를 자체적으로 해결할 수 있습니다.
 
     경고가 4시간을 초과하면 관리되는 도메인은 복구할 수 없는 상태입니다. [관리](delete-aadds.md) 되는 도메인을 삭제 하 고 [대체 관리 되는 도메인을 만듭니다](tutorial-create-instance.md).
@@ -179,7 +179,7 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 
 1. 디렉터리에서 [관리 되는 도메인을 삭제](delete-aadds.md) 합니다.
 1. 가상 네트워크 IP 주소 범위를 업데이트 하려면 Azure Portal에서 *가상 네트워크* 를 검색 하 고 선택 합니다. IP 주소 범위가 작은 관리 되는 도메인에 대 한 가상 네트워크를 선택 합니다.
-1. **설정**아래에서 *주소 공간*을 선택 합니다.
+1. **설정** 아래에서 *주소 공간* 을 선택 합니다.
 1. 기존 주소 범위를 선택 하 고 편집 하거나 추가 주소 범위를 추가 하 여 주소 범위를 업데이트 합니다. 새 IP 주소 범위가 관리 되는 도메인의 서브넷 범위에 대해 충분히 큰지 확인 합니다. 준비가 되 면 변경 내용을 **저장** 합니다.
 1. 왼쪽 탐색 영역에서 **서브넷** 을 선택 합니다.
 1. 편집 하려는 서브넷을 선택 하거나 추가 서브넷을 만듭니다.
@@ -221,7 +221,7 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 Azure AD DS 구성 요소에 대 한 리소스 잠금을 확인 하 고 제거 하려면 다음 단계를 완료 합니다.
 
 1. 리소스 그룹에서 가상 네트워크, 네트워크 인터페이스, 공용 IP 주소와 같은 각 관리 되는 도메인의 네트워크 구성 요소에 대해 Azure Portal의 작업 로그를 확인 합니다. 이러한 작업 로그에는 작업이 실패 하 고 리소스 잠금이 적용 되는 이유가 표시 됩니다.
-1. 잠금이 적용 되는 리소스를 선택 하 고 **잠금 아래에서**잠금을 선택 하 고 제거 합니다.
+1. 잠금이 적용 되는 리소스를 선택 하 고 **잠금 아래에서** 잠금을 선택 하 고 제거 합니다.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: 리소스를 사용할 수 없음
 
@@ -236,7 +236,7 @@ Azure AD DS 구성 요소에 대 한 리소스 잠금을 확인 하 고 제거 �
 Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트 하려면 다음 단계를 완료 합니다.
 
 1. 리소스 그룹에서 가상 네트워크, NIC 또는 공용 IP 주소와 같은 관리 되는 도메인의 각 네트워크 구성 요소에 대해 Azure Portal의 작업 로그를 확인 합니다. 이러한 작업 로그에는 작업이 실패 하 고 제한 된 정책이 적용 되는 이유가 표시 됩니다.
-1. 정책이 적용 되는 리소스를 선택한 다음 **정책에서 정책을**선택 하 고 편집 하 여 덜 제한적입니다.
+1. 정책이 적용 되는 리소스를 선택한 다음 **정책에서 정책을** 선택 하 고 편집 하 여 덜 제한적입니다.
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: 잠시 후에 동기화가 완료되지 않았습니다.
 

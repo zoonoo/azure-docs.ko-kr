@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171604"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>자습서: Event Grid 클라우드에 이벤트 전달
@@ -23,7 +23,7 @@ ms.locfileid: "86171604"
 
  이 자습서를 완료 하려면 [edge](concepts.md) 및 [Azure](../concepts.md)에 대 한 Event Grid 개념을 이해 해야 합니다. 추가 대상 형식은 [이벤트 처리기](event-handlers.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -36,8 +36,8 @@ ms.locfileid: "86171604"
 
 예를 들어 미국 서 부에 라는 토픽을 만든 경우 `testegcloudtopic` 값은 다음과 같습니다.
 
-* **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
-* **TopicName**:`testegcloudtopic`
+* **TopicUrl**: `https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
+* **TopicName**: `testegcloudtopic`
 * **SasKey**: 항목의 **AccessKey** 에서 사용할 수 있습니다. **Key1**을 사용 합니다.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Edge에서 event grid 토픽을 만듭니다.

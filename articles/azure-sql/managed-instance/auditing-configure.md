@@ -6,19 +6,19 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 213a4fdb0e064e1c36a04f7190f14fab80cb4daa
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117350"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505668"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL Managed Instance 감사 시작
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,35 +33,35 @@ ms.locfileid: "87117350"
 다음 섹션에서는 관리되는 인스턴스에 대한 감사 구성을 설명합니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. 감사 로그가 저장되는 Azure Storage **컨테이너**를 만듭니다.
+2. 감사 로그가 저장되는 Azure Storage **컨테이너** 를 만듭니다.
 
    1. 감사 로그를 저장할 Azure storage 계정으로 이동 합니다.
 
       > [!IMPORTANT]
       > - 동일한 지역의 스토리지 계정을 관리되는 인스턴스로 사용하여 지역 간 읽기/쓰기를 방지합니다. 
-      > - 저장소 계정이 Virtual Network 또는 방화벽 뒤에 있는 경우 [가상 네트워크에서 액세스 권한 부여](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network)를 참조 하세요.
+      > - 저장소 계정이 Virtual Network 또는 방화벽 뒤에 있는 경우 [가상 네트워크에서 액세스 권한 부여](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)를 참조 하세요.
       > - 보존 기간을 0(무제한 보존)에서 다른 값으로 변경하는 경우 보존 값이 변경된 후에 작성된 로그에만 보존이 적용됩니다(보존이 무제한으로 설정된 기간 동안 작성된 로그는 보존이 활성화된 후에도 보존됨).
 
-   1. 스토리지 계정에서 **개요**로 이동한 다음, **Blob**을 클릭합니다.
+   1. 스토리지 계정에서 **개요** 로 이동한 다음, **Blob** 을 클릭합니다.
 
       ![Azure Blob 위젯](./media/auditing-configure/1_blobs_widget.png)
 
-   1. 최상위 메뉴에서 **+ 컨테이너**를 클릭하여 새 컨테이너를 만듭니다.
+   1. 최상위 메뉴에서 **+ 컨테이너** 를 클릭하여 새 컨테이너를 만듭니다.
 
       ![Blob 컨테이너 만들기 아이콘](./media/auditing-configure/2_create_container_button.png)
 
-   1. 컨테이너 **이름을**제공 하 고 **공용 액세스 수준을** **개인**으로 설정한 다음 **확인**을 클릭 합니다.
+   1. 컨테이너 **이름을** 제공 하 고 **공용 액세스 수준을** **개인** 으로 설정한 다음 **확인** 을 클릭 합니다.
 
       ![Blob 컨테이너 구성 만들기](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > 서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경할 수 없는 로그 저장소를 구성 하려는 고객은 [Azure Storage에서 제공](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)하는 지침을 따라야 합니다. (변경할 수 없는 blob storage를 구성할 때 **추가 추가 허용** 을 선택 했는지 확인 하세요.)
+    > 서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경할 수 없는 로그 저장소를 구성 하려는 고객은 [Azure Storage에서 제공](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes)하는 지침을 따라야 합니다. (변경할 수 없는 blob storage를 구성할 때 **추가 추가 허용** 을 선택 했는지 확인 하세요.)
   
 3. 감사 로그에 대 한 컨테이너를 만든 후에는 두 가지 방법으로 감사 로그의 대상으로 구성할 수 있습니다. [t-sql을 사용](#blobtsql) 하거나 [SSMS (SQL Server Management Studio) UI를 사용](#blobssms)합니다.
 
-   - <a id="blobtsql"></a>T-sql을 사용 하 여 감사 로그에 대 한 blob storage 구성:
+   - <a id="blobtsql"></a>**T-sql을 사용 하 여 감사 로그에 대 한 blob storage 구성:**
 
-     1. 컨테이너 목록에서 새로 만든 컨테이너를 클릭한 다음, **컨테이너 속성**을 클릭합니다.
+     1. 컨테이너 목록에서 새로 만든 컨테이너를 클릭한 다음, **컨테이너 속성** 을 클릭합니다.
 
         ![Blob 컨테이너 속성 단추](./media/auditing-configure/4_container_properties_button.png)
 
@@ -79,16 +79,16 @@ ms.locfileid: "87117350"
 
         - 다음과 같이 SAS를 구성합니다.
 
-          - **허용된 서비스**: Blob
+          - **허용된 서비스** : Blob
 
-          - **시작 날짜**: 표준 시간대 관련 문제를 방지 하려면 어제 날짜를 사용 합니다.
+          - **시작 날짜** : 표준 시간대 관련 문제를 방지 하려면 어제 날짜를 사용 합니다.
 
-          - **종료 날짜**:이 SAS 토큰이 만료 되는 날짜를 선택 합니다.
+          - **종료 날짜** :이 SAS 토큰이 만료 되는 날짜를 선택 합니다.
 
             > [!NOTE]
             > 감사 오류를 방지하려면 만료 시 토큰을 갱신합니다.
 
-          - **SAS 생성**을 클릭합니다.
+          - **SAS 생성** 을 클릭합니다.
 
             ![SAS 구성](./media/auditing-configure/7_sas_configure.png)
 
@@ -118,19 +118,19 @@ ms.locfileid: "87117350"
         GO
         ```
 
-        [서버 감사 사양 또는 데이터베이스 감사 사양을 만들어](#createspec)계속 합니다.
+     1. [서버 감사 사양 또는 데이터베이스 감사 사양을 만들어](#createspec)계속 합니다.
 
-   - <a id="blobssms"></a>SQL Server Management Studio 18 (미리 보기)을 사용 하 여 감사 로그에 대 한 blob storage 구성:
+   - <a id="blobssms"></a>**SQL Server Management Studio 18을 사용 하 여 감사 로그에 대 한 blob 저장소를 구성 합니다.**
 
      1. SQL Server Management Studio UI를 사용 하 여 관리 되는 인스턴스에 연결 합니다.
 
      1. 개체 탐색기의 루트 메모를 확장 합니다.
 
-     1. **보안** 노드를 확장 하 고 **감사** 노드를 마우스 오른쪽 단추로 클릭 한 다음 **새 감사**를 클릭 합니다.
+     1. **보안** 노드를 확장 하 고 **감사** 노드를 마우스 오른쪽 단추로 클릭 한 다음 **새 감사** 를 클릭 합니다.
 
         ![보안 및 감사 노드 확장](./media/auditing-configure/10_mi_SSMS_new_audit.png)
 
-     1. **Audit destination** 에서 **URL** 이 선택 되어 있는지 확인 하 고 **찾아보기**를 클릭 합니다.
+     1. **Audit destination** 에서 **URL** 이 선택 되어 있는지 확인 하 고 **찾아보기** 를 클릭 합니다.
 
         ![Azure Storage 찾아보기](./media/auditing-configure/11_mi_SSMS_audit_browse.png)
 
@@ -138,16 +138,16 @@ ms.locfileid: "87117350"
 
         ![Azure에 로그인](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. 드롭다운 메뉴에서 구독, 저장소 계정 및 blob 컨테이너를 선택 하거나 **만들기**를 클릭 하 여 사용자 고유의 컨테이너를 만듭니다. 작업을 마쳤으면 **확인**을 클릭 합니다.
+     1. 드롭다운 메뉴에서 구독, 저장소 계정 및 blob 컨테이너를 선택 하거나 **만들기** 를 클릭 하 여 사용자 고유의 컨테이너를 만듭니다. 작업을 마쳤으면 **확인** 을 클릭 합니다.
 
         ![Azure 구독, 저장소 계정 및 blob 컨테이너를 선택 합니다.](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. **감사 만들기** 대화 상자에서 **확인을** 클릭 합니다.
+     
+     1. <a id="createspec"></a>감사 로그의 대상으로 blob 컨테이너를 구성한 후 SQL Server와 같이 서버 감사 사양 또는 데이터베이스 감사 사양을 만들고 사용 하도록 설정 합니다.
 
-4. <a id="createspec"></a>감사 로그의 대상으로 blob 컨테이너를 구성한 후 SQL Server와 같이 서버 감사 사양 또는 데이터베이스 감사 사양을 만들고 사용 하도록 설정 합니다.
-
-   - [서버 감사 사양 만들기 T-sql 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [데이터베이스 감사 사양 T-sql 가이드 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [서버 감사 사양 만들기 T-sql 가이드](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [데이터베이스 감사 사양 T-sql 가이드 만들기](/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 5. 3 단계에서 만든 서버 감사를 사용 하도록 설정 합니다.
 
@@ -160,8 +160,8 @@ ms.locfileid: "87117350"
 추가 정보는 다음을 참조하세요.
 
 - [Azure SQL Managed Instance와 SQL Server 데이터베이스 간의 감사 차이점](#auditing-differences-between-databases-in-azure-sql-managed-instance-and-databases-in-sql-server)
-- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql)
+- [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hubs-or-azure-monitor-logs"></a>Event Hubs 또는 Azure Monitor 로그에 대해 서버에 대 한 감사 설정
 
@@ -169,15 +169,15 @@ ms.locfileid: "87117350"
 
 1. [Azure Portal](https://portal.azure.com/) 에서 관리 되는 인스턴스로 이동 합니다.
 
-2. **진단 설정**을 클릭합니다.
+2. **진단 설정** 을 클릭합니다.
 
-3. **진단 켜기**를 클릭합니다. 진단을 이미 사용 하는 경우 **+ 진단 추가 설정** 이 대신 표시 됩니다.
+3. **진단 켜기** 를 클릭합니다. 진단을 이미 사용 하는 경우 **+ 진단 추가 설정** 이 대신 표시 됩니다.
 
-4. 로그 목록에서 **SQLSecurityAuditEvents**를 선택합니다.
+4. 로그 목록에서 **SQLSecurityAuditEvents** 를 선택합니다.
 
 5. 감사 이벤트에 대 한 대상: Event Hubs, Azure Monitor 로그 또는 둘 다를 선택 합니다. 각 대상에 대해 필수 매개 변수(예: Log Analytics 작업 영역)를 구성합니다.
 
-6. **저장**을 클릭합니다.
+6. **저장** 을 클릭합니다.
 
     ![진단 설정 구성](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -192,8 +192,8 @@ ms.locfileid: "87117350"
 
 9. SQL Server 하는 것 처럼 서버 감사 사양 또는 데이터베이스 감사 사양을 만들고 사용 하도록 설정 합니다.
 
-   - [서버 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [데이터베이스 감사 사양 만들기 T-SQL 가이드](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [서버 감사 사양 만들기 T-SQL 가이드](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [데이터베이스 감사 사양 만들기 T-SQL 가이드](/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 10. 8 단계에서 만든 서버 감사를 사용 하도록 설정 합니다.
 
@@ -209,9 +209,9 @@ ms.locfileid: "87117350"
 
 여러 방법으로 Blob 감사 로그를 볼 수 있습니다.
 
-- 시스템 함수 `sys.fn_get_audit_file`(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file 설명서](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)를 참조하세요.
+- 시스템 함수 `sys.fn_get_audit_file`(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file 설명서](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)를 참조하세요.
 
-- [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용 하 여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 감사 로그를 저장 하도록 정의 된 컨테이너 내의 blob 파일 컬렉션으로 저장 됩니다. 스토리지 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
+- [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용 하 여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 감사 로그를 저장 하도록 정의 된 컨테이너 내의 blob 파일 컬렉션으로 저장 됩니다. 스토리지 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](../database/audit-log-format.md)를 참조하세요.
 
 - 감사 로그 소비 방법의 전체 목록은 [Azure SQL Database 감사 시작](../../azure-sql/database/auditing-overview.md)을 참조 하세요.
 
@@ -223,7 +223,7 @@ Event Hubs에서 감사 로그 데이터를 사용 하려면 이벤트를 사용
 
 감사 로그가 Azure Monitor 로그에 기록 되는 경우 감사 데이터에 대 한 고급 검색을 실행할 수 있는 Log Analytics 작업 영역에서 사용할 수 있습니다. 시작 지점으로 Log Analytics 작업 영역으로 이동 합니다. **일반** 섹션에서 **로그** 를 클릭 하 고 다음과 같은 간단한 쿼리를 입력 하 여 `search "SQLSecurityAuditEvents"` 감사 로그를 확인 합니다.  
 
-Azure Monitor 로그는 통합 된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 operational 정보를 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 참조 하세요.
+Azure Monitor 로그는 통합 된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 operational 정보를 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

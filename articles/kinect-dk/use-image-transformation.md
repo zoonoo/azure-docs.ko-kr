@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 keywords: kinect, azure, 센서, sdk, 좌표계, 보정, 프로젝트, unproject, 변환, rgb-d, point cloud
 ms.openlocfilehash: df7f2aa13c0e9c0241494e96e720b30f3ff1d8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276904"
 ---
 # <a name="use-azure-kinect-sensor-sdk-image-transformations"></a>Azure Kinect 센서 SDK 이미지 변환 사용
@@ -72,7 +72,7 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 
 #### <a name="parameters"></a>매개 변수
 
-입력 매개 변수는 변환 핸들, 깊이 이미지 및 색 이미지입니다. 깊이 및 색 이미지의 해상도는 변환 핸들을 만들 때 지정 된 depth_mode 및 color_resolution 일치 해야 합니다. 출력은 [k4a_image_create ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef)를 호출 하 여 사용자가 할당 해야 하는 변형 된 색 이미지입니다. 변환 된 색 이미지의 해상도는 변환 핸들을 만들 때 지정 된 depth_resolution 일치 해야 합니다. 출력 이미지에는 모든 픽셀에 대해 BGRA를 나타내는 네 개의 8 비트 값이 저장 됩니다. 따라서 이미지의 stride는 ```width * 4 * sizeof(uint8_t)``` 입니다. 데이터 순서는 픽셀 인터리브, 즉 파랑 값-픽셀 0, 녹색 값-픽셀 0, 빨강 값-픽셀 0, 알파 값-픽셀 0, 파랑 값-픽셀 1 등입니다.
+입력 매개 변수는 변환 핸들, 깊이 이미지 및 색 이미지입니다. 깊이 및 색 이미지의 해상도는 변환 핸들을 만들 때 지정 된 depth_mode 및 color_resolution 일치 해야 합니다. 출력은 [k4a_image_create ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef)를 호출 하 여 사용자가 할당 해야 하는 변형 된 색 이미지입니다. 변환 된 색 이미지의 해상도는 변환 핸들을 만들 때 지정 된 depth_resolution 일치 해야 합니다. 출력 이미지에는 모든 픽셀에 대해 BGRA를 나타내는 4 8 비트 값이 저장 됩니다. 따라서 이미지의 stride는 ```width * 4 * sizeof(uint8_t)``` 입니다. 데이터 순서는 픽셀 인터리브, 즉 파랑 값-픽셀 0, 녹색 값-픽셀 0, 빨강 값-픽셀 0, 알파 값-픽셀 0, 파랑 값-픽셀 1 등입니다.
 
 ### <a name="k4a_transformation_depth_image_to_point_cloud"></a>k4a_transformation_depth_image_to_point_cloud
 

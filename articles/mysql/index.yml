@@ -3,17 +3,17 @@ title: Azure Database for MySQL 설명서
 summary: Azure Database for MySQL은 MySQL Community Edition에서 제공하는 관계형 데이터베이스 서비스입니다. 단일 서버 또는 유연한 서버(미리 보기)를 사용하여 Azure에서 MySQL 데이터베이스를 호스트할 수 있습니다. 예측 가능한 성능과 동적인 확장성으로 중요 업무 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다.
 metadata:
   description: Azure Database for MySQL은 MySQL Community Edition을 기반으로 하여 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. 단일 서버 또는 유연한 서버(미리 보기)를 선택하여 Azure에 MySQL 데이터베이스를 배포할 수 있습니다.
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 03deaa446b7db7790f751f226cb788faf9ebc2a7
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 82c736b3256a099aa0dbd2edca14f402a3b935be
+  ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90903965"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94543037"
 landingContent:
 - title: Azure Database for MySQL 정보
   linkLists:
@@ -138,7 +138,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 일반 작업용 Azure CLI 스크립트
-      url: /azure/mysql/sample-scripts-azure-cli
+      url: ./sample-scripts-azure-cli.md
     - text: Azure 리소스 관리자 템플릿
       url: /azure/templates/microsoft.dbformysql/allversions
   - linkListType: reference
@@ -148,4 +148,4 @@ landingContent:
     - text: REST API 개발자 참조
       url: /rest/api/mysql/
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.mysql
+      url: /powershell/module/az.mysql

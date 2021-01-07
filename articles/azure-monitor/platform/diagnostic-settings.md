@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 29e50a5c9b306d0e4491852fd08ecdf73026ebc2
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614047"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882248"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. [플랫폼 메트릭은](data-platform-metrics.md) 기본적으로 수집 되며 일반적으로 Azure Monitor 메트릭 데이터베이스에 저장 됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -40,19 +40,19 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 > 특정 메트릭에 대 한 이러한 제한을 해결 하려면 [REST API 메트릭을](/rest/api/monitor/metrics/list) 사용 하 여 수동으로 추출 하 고 [AZURE MONITOR 데이터 수집기 API](data-collector-api.md)를 사용 하 여 Azure Monitor 로그로 가져오는 것이 좋습니다.  
 
 
-## <a name="destinations"></a>Destinations
+## <a name="destinations"></a>대상
 다음 표의 대상에 플랫폼 로그 및 메트릭을 보낼 수 있습니다. 
 
 | 대상 | Description |
 |:---|:---|
 | [Log Analytics 작업 영역](design-logs-deployment.md) | 로그 및 메트릭을 Log Analytics 작업 영역으로 보내면 강력한 로그 쿼리를 사용 하 여 Azure Monitor 수집 된 다른 모니터링 데이터로 분석 하 고 경고 및 시각화와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다. |
-| [Event Hubs](/azure/event-hubs/) | 로그 및 메트릭을 Event Hubs로 보내면 타사 SIEMs 및 기타 log analytics 솔루션과 같은 외부 시스템으로 데이터를 스트리밍할 수 있습니다.  |
-| [Azure storage 계정](/azure/storage/blobs/) | Azure storage 계정에 로그 및 메트릭을 보관 하는 것은 감사, 정적 분석 또는 백업에 유용 합니다. Azure Monitor 로그 및 Log Analytics 작업 영역에 비해 Azure storage는 비용이 적고 로그가 무기한으로 보관 될 수 있습니다.  |
+| [Event Hubs](../../event-hubs/index.yml) | 로그 및 메트릭을 Event Hubs로 보내면 타사 SIEMs 및 기타 log analytics 솔루션과 같은 외부 시스템으로 데이터를 스트리밍할 수 있습니다.  |
+| [Azure Storage 계정](../../storage/blobs/index.yml) | Azure storage 계정에 로그 및 메트릭을 보관 하는 것은 감사, 정적 분석 또는 백업에 유용 합니다. Azure Monitor 로그 및 Log Analytics 작업 영역에 비해 Azure storage는 비용이 적고 로그가 무기한으로 보관 될 수 있습니다.  |
 
 
 ### <a name="destination-requirements"></a>대상 요구 사항
 
-진단 설정을 만들기 전에 진단 설정의 대상을 만들어야 합니다. 설정을 구성 하는 사용자에 게 두 구독에 대 한 적절 한 RBAC 액세스 권한이 있는 한, 대상은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다. 다음 표에서는 지역 제한을 포함 하 여 각 대상에 대 한 고유한 요구 사항을 제공 합니다.
+진단 설정을 만들기 전에 진단 설정의 대상을 만들어야 합니다. 설정을 구성 하는 사용자에 게 두 구독에 대 한 적절 한 Azure RBAC 액세스 권한이 있는 한, 대상은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다. 다음 표에서는 지역 제한을 포함 하 여 각 대상에 대 한 고유한 요구 사항을 제공 합니다.
 
 | 대상 | 요구 사항 |
 |:---|:---|
@@ -63,6 +63,8 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 > [!NOTE]
 > Azure Data Lake Storage Gen2 계정은 현재 Azure Portal에서 유효한 옵션으로 나열될 수 있지만 진단 설정의 대상으로 지원되지 않습니다.
 
+> [!NOTE]
+> 가상 네트워크를 사용 하는 경우 Azure Monitor (진단 설정)에서 Event Hubs 리소스에 액세스할 수 없습니다. Azure Monitor (진단 설정) 서비스에 Event Hubs 리소스에 대 한 액세스 권한이 부여 되도록 하려면 신뢰할 수 있는 Microsoft 서비스가 Event Hub에서이 방화벽을 바이패스 하도록 허용 설정을 사용 하도록 설정 해야 합니다. 
 
 
 ## <a name="create-in-azure-portal"></a>Azure Portal에서 만들기
@@ -73,17 +75,17 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
    - 단일 리소스의 경우 리소스 메뉴의 **모니터** 에서 **진단 설정** 을 클릭 합니다.
 
-        ![진단 설정](media/diagnostic-settings/menu-resource.png)
+        ![진단 설정이 강조 표시 된 Azure Portal에서 리소스 메뉴의 모니터링 섹션 스크린샷](media/diagnostic-settings/menu-resource.png)
 
    - 하나 이상의 리소스에 대해 Azure Monitor 메뉴의 **설정** 에서 **진단 설정** 을 클릭 한 다음 리소스를 클릭 합니다.
 
-      ![진단 설정](media/diagnostic-settings/menu-monitor.png)
+        ![진단 설정이 강조 표시 된 Azure Monitor 메뉴의 설정 섹션 스크린샷](media/diagnostic-settings/menu-monitor.png)
 
-   - 활동 로그의 경우 **Azure Monitor** 메뉴에서 **활동 로그** 를 클릭 한 다음 **진단 설정**을 클릭 합니다. 활동 로그에 대 한 레거시 구성은 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [기존 설정 사용 안 함](./activity-log.md#legacy-collection-methods) 을 참조 하세요.
+   - 활동 로그의 경우 **Azure Monitor** 메뉴에서 **활동 로그** 를 클릭 한 다음 **진단 설정** 을 클릭 합니다. 활동 로그에 대 한 레거시 구성은 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [기존 설정 사용 안 함](./activity-log.md#legacy-collection-methods) 을 참조 하세요.
 
-        ![진단 설정](media/diagnostic-settings/menu-activity-log.png)
+        ![Monitor-Activity 로그 메뉴 모음에 강조 표시 된 활동 로그 및 진단 설정으로 Azure Monitor 메뉴의 스크린샷](media/diagnostic-settings/menu-activity-log.png)
 
-2. 선택한 리소스에 설정이 없는 경우, 설정을 만들라는 메시지가 표시됩니다. **진단 설정 추가**를 클릭합니다.
+2. 선택한 리소스에 설정이 없는 경우, 설정을 만들라는 메시지가 표시됩니다. **진단 설정 추가** 를 클릭합니다.
 
    ![진단 설정 추가 - 기존 설정 없음](media/diagnostic-settings/add-setting.png)
 
@@ -97,7 +99,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
 4. **범주 세부 정보 (라우팅할 항목)** -나중에 지정 된 대상으로 보내려는 각 데이터 범주에 대 한 확인란을 선택 합니다. 범주 목록은 각 Azure 서비스 마다 다릅니다.
 
-     - **Allmetrics** 리소스의 플랫폼 메트릭을 로그 형식으로 Azure 로그 저장소로 라우팅합니다. 이러한 메트릭은 일반적으로 Azure Monitor 메트릭 시계열 데이터베이스로만 전송 됩니다. Azure Monitor 로그 저장소 (Log Analytics를 통해 검색할 수 있는)에 전송 하 여 다른 로그에서 검색 하는 쿼리에 통합할 수 있습니다. 일부 리소스 종류에는이 옵션을 사용 하지 못할 수 있습니다. 지원 되는 경우 지원 되는 [메트릭 Azure Monitor](metrics-supported.md) 리소스 유형에 대해 수집 되는 메트릭을 나열 합니다.
+     - **Allmetrics** 리소스의 플랫폼 메트릭을 로그 형식으로 Azure 로그 저장소로 라우팅합니다. 이러한 메트릭은 일반적으로 Azure Monitor 메트릭 시계열 데이터베이스로만 전송 됩니다. Azure Monitor 로그 저장소 (Log Analytics를 통해 검색 가능)로 보내면 다른 로그를 검색 하는 쿼리에 통합 하는 데 도움이 됩니다. 일부 리소스 종류에는이 옵션을 사용 하지 못할 수 있습니다. 지원 되는 경우 지원 되는 [메트릭 Azure Monitor](metrics-supported.md) 리소스 유형에 대해 수집 되는 메트릭을 나열 합니다.
 
        > [!NOTE]
        > 이 문서의 앞부분에서 Azure Monitor 로그로의 라우팅 메트릭 제한을 참조 하세요.  
@@ -128,7 +130,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
         >
         > 예를 들어, *WorkflowRuntime* 에 대 한 보존 정책을 180 일로 설정 하 고 24 시간 후에 365 일로 설정 하면, 처음 24 시간 동안 저장 된 로그는 180 일 후 자동으로 삭제 되는 반면, 해당 형식의 모든 후속 로그는 365 일 후에 자동으로 삭제 됩니다. 나중에 보존 정책을 변경 해도 처음 24 시간 동안 로그가 365 일 동안 유지 되지 않습니다.
 
-6. **저장**을 클릭합니다.
+6. **저장** 을 클릭합니다.
 
 잠시 후 새 설정이이 리소스에 대 한 설정 목록에 표시 되 고, 새 이벤트 데이터가 생성 될 때 로그가 지정 된 대상으로 스트리밍됩니다. 이벤트가 내보내지는 시간과 [Log Analytics 작업 영역에 표시](data-ingestion-time.md)되는 시간 사이에는 최대 15 분이 걸릴 수 있습니다.
 
@@ -137,7 +139,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 [Azure PowerShell](../samples/powershell-samples.md)를 사용 하 여 진단 설정을 만들려면 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다. 매개 변수에 대 한 설명은이 cmdlet에 대 한 설명서를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure 활동 로그에는이 방법을 사용할 수 없습니다. 대신 [리소스 관리자 템플릿을 사용 하 여 Azure Monitor에서 진단 설정 만들기](diagnostic-settings-template.md) 를 사용 하 여 리소스 관리자 템플릿을 만들고 PowerShell을 사용 하 여 배포 합니다.
+> Azure 활동 로그에는이 방법을 사용할 수 없습니다. 대신 [리소스 관리자 템플릿을 사용 하 여 Azure Monitor에서 진단 설정 만들기](../samples/resource-manager-diagnostic-settings.md) 를 사용 하 여 리소스 관리자 템플릿을 만들고 PowerShell을 사용 하 여 배포 합니다.
 
 다음은 세 가지 대상을 모두 사용 하 여 진단 설정을 만드는 예제 PowerShell cmdlet입니다.
 
@@ -150,7 +152,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 [Az monitor 진단-설정 만들기](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 [Azure CLI](/cli/azure/monitor?view=azure-cli-latest)를 사용 하 여 진단 설정을 만듭니다. 매개 변수에 대 한 설명은이 명령의 설명서를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure 활동 로그에는이 방법을 사용할 수 없습니다. 대신 [리소스 관리자 템플릿을 사용 하 여 Azure Monitor에서 진단 설정 만들기](diagnostic-settings-template.md) 를 사용 하 여 리소스 관리자 템플릿을 만들고 CLI를 사용 하 여 배포 합니다.
+> Azure 활동 로그에는이 방법을 사용할 수 없습니다. 대신 [리소스 관리자 템플릿을 사용 하 여 Azure Monitor에서 진단 설정 만들기](../samples/resource-manager-diagnostic-settings.md) 를 사용 하 여 리소스 관리자 템플릿을 만들고 CLI를 사용 하 여 배포 합니다.
 
 다음은 세 개의 대상을 모두 사용 하 여 진단 설정을 만드는 예제 CLI 명령입니다.
 

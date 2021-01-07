@@ -17,27 +17,28 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603597"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122846"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
 Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
-- **작업** 
+- **활동** 
     - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
     - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
+    - **프로 비전 로그**  -  [프로 비전 로그](./concept-provisioning-logs.md) 를 통해 고객은 ServiceNow에서 그룹 만들기 또는 Workday에서 가져온 사용자와 같은 프로 비전 서비스의 작업을 모니터링할 수 있습니다. 
 - **보안** 
     - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자의 로그인 시도에 대 한 표시기입니다.
     - **위험 플래그가 지정된 사용자** - [위험한 사용자](../identity-protection/overview-identity-protection.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
 이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
@@ -57,13 +58,13 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * 한 주 동안 얼마나 많은 사용자가 로그인했나요?
 * 이러한 로그인의 상태란?
 
-[Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory**를 선택 하거나 모든 페이지에서 **Azure Active Directory** 을 검색 하 여 선택 합니다.
+[Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory** 를 선택 하거나 모든 페이지에서 **Azure Active Directory** 을 검색 하 여 선택 합니다.
 
 ![Azure Active Directory 선택](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-**모니터링**에서 **로그인** 을 선택 하 여 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)를 엽니다.
+**모니터링** 에서 **로그인** 을 선택 하 여 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)를 엽니다.
 
-![로그인 작업](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "로그인 작업")
+![모니터링 메뉴에서 선택한 로그인을 보여 주는 스크린샷](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "로그인 작업")
 
 일부 로그인 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
 
@@ -79,19 +80,19 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 위험 검색 상태
 - MFA(Multi-Factor Authentication) 요구 사항 상태
 
-![로그인 작업](./media/concept-sign-ins/sign-in-activity.png "로그인 작업")
+![Office 365 SharePoint Online 로그인을 보여 주는 스크린샷](./media/concept-sign-ins/sign-in-activity.png "로그인 작업")
 
 도구 모음에서 **열** 을 클릭 하 여 목록 보기를 사용자 지정할 수 있습니다.
 
-![로그인 작업](./media/concept-sign-ins/19.png "로그인 작업")
+![스크린샷 로그인 페이지의 열 옵션을 보여 줍니다.](./media/concept-sign-ins/19.png "로그인 작업")
 
 **열** 대화 상자를 사용 하 여 선택 가능한 특성에 액세스할 수 있습니다. 로그인 보고서에는 지정 된 로그인 요청에 대해 둘 이상의 값이 있는 필드를 열로 사용할 수 없습니다. 예를 들어 인증 정보, 조건부 액세스 데이터 및 네트워크 위치에 대해 true입니다.   
 
-![로그인 작업](./media/concept-sign-ins/columns.png "로그인 작업")
+![특성을 선택할 수 있는 열 대화 상자를 보여 주는 스크린샷](./media/concept-sign-ins/columns.png "로그인 작업")
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![로그인 작업](./media/concept-sign-ins/basic-sign-in.png "로그인 작업")
+![자세한 정보 보기를 보여 주는 스크린샷](./media/concept-sign-ins/basic-sign-in.png "로그인 작업")
 
 > [!NOTE]
 > 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책의 문제를 해결할 수 있습니다. 고객은 로그인 레코드에 대 한 **조건부 액세스** 탭을 클릭 하 여 조건부 액세스 상태를 검토 하 고 로그인에 적용 된 정책과 각 정책에 대 한 결과에 대 한 세부 정보를 확인할 수 있습니다.
@@ -103,7 +104,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 먼저 보고 된 데이터를 자신에 게 적합 한 수준으로 축소 합니다. 둘째, 날짜 필드를 기본 필터로 사용 하 여 로그인 데이터를 필터링 합니다. Azure AD는 설정할 수 있는 광범위 한 추가 필터를 제공 합니다.
 
-![로그인 작업](./media/concept-sign-ins/04.png "로그인 작업")
+![스크린샷 필터 추가 옵션을 보여 줍니다.](./media/concept-sign-ins/04.png "로그인 작업")
 
 **요청 id** -관심 있는 요청의 ID입니다.
 
@@ -124,7 +125,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **위치** -연결이 시작 된 위치입니다.
 
-- City
+- 구/군/시
 
 - 시/도
 
@@ -142,12 +143,12 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ![클라이언트 앱 필터](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|최신 인증|Description|
+|Name|최신 인증|설명|
 |---|:-:|---|
 |인증 된 SMTP| |POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.|
 |자동 검색| |Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.|
 |Exchange ActiveSync| |이 필터는 EAS 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.|
-|브라우저|![확인 표시](./media/concept-sign-ins/check.png)|웹 브라우저를 사용 하 여 사용자의 모든 로그인 시도를 표시 합니다.|
+|브라우저|![파란색 확인 표시](./media/concept-sign-ins/check.png)|웹 브라우저를 사용 하 여 사용자의 모든 로그인 시도를 표시 합니다.|
 |Exchange ActiveSync| | Exchange ActiveSync를 사용 하 여 Exchange Online에 연결 하는 클라이언트 앱이 있는 사용자의 모든 로그인 시도를 표시 합니다.|
 |Exchange Online PowerShell| |원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 자세한 내용은 [다단계 인증을 사용하여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조하세요.|
 |Exchange 웹 서비스| |Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.|
@@ -176,11 +177,11 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **조건부 액세스** -적용 된 조건부 액세스 규칙의 상태
 
-- **적용 되지 않음**: 로그인 하는 동안 사용자 및 응용 프로그램에 정책이 적용 되지 않습니다.
+- **적용 되지 않음** : 로그인 하는 동안 사용자 및 응용 프로그램에 정책이 적용 되지 않습니다.
 
-- **성공**: 로그인 하는 동안 사용자 및 응용 프로그램에 적용 되는 하나 이상의 조건부 액세스 정책 (반드시 다른 조건을 충족 하지는 않음)입니다. 
+- **성공** : 로그인 하는 동안 사용자 및 응용 프로그램에 적용 되는 하나 이상의 조건부 액세스 정책 (반드시 다른 조건을 충족 하지는 않음)입니다. 
 
-- **실패**: 로그인에서 하나 이상의 조건부 액세스 정책에 대 한 사용자 및 응용 프로그램 조건을 충족 하 고 grant 컨트롤이 충족 되지 않거나 액세스를 차단 하도록 설정 되었습니다.
+- **실패** : 로그인에서 하나 이상의 조건부 액세스 정책에 대 한 사용자 및 응용 프로그램 조건을 충족 하 고 grant 컨트롤이 충족 되지 않거나 액세스를 차단 하도록 설정 되었습니다.
 
 
 
@@ -213,7 +214,7 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 
 **Id 보안 보호** 개요 페이지의 사용자 로그인 그래프에는 로그인의 주간 집계가 표시 됩니다. 기간의 기본값은 30 일입니다.
 
-![로그인 작업](./media/concept-sign-ins/06.png "로그인 작업")
+![스크린샷는 한 달 동안의 로그인 그래프를 보여 줍니다.](./media/concept-sign-ins/06.png "로그인 작업")
 
 로그인 그래프에서 한 날짜를 클릭하면 해당 날짜의 로그인 활동에 대한 개요가 표시됩니다.
 
@@ -229,7 +230,7 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - 사용자 ID
 - 사용자
 - 사용자 이름
-- 애플리케이션 UI
+- 애플리케이션 ID
 - 애플리케이션
 - 클라이언트
 - 위치
@@ -241,9 +242,9 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 > [!NOTE]
 > IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. IP 주소 매핑은 클라이언트 디바이스가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 모바일 공급자 또는 VPN이 IP 주소를 발급한다는 사실로 인해 복잡해집니다. 현재로서는 Azure AD 보고서에서 IP 주소를 실제 위치로 변환하는 것은 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보를 바탕으로 하는 최상의 노력입니다.
 
-**사용자** 페이지에서 **활동** 섹션의 **로그인**을 클릭하면 모든 사용자 로그인에 대한 전체 개요가 표시됩니다.
+**사용자** 페이지에서 **활동** 섹션의 **로그인** 을 클릭하면 모든 사용자 로그인에 대한 전체 개요가 표시됩니다.
 
-![로그인 작업](./media/concept-sign-ins/08.png "로그인 작업")
+![스크린샷은 로그인을 선택할 수 있는 작업 섹션을 보여 줍니다.](./media/concept-sign-ins/08.png "로그인 작업")
 
 ## <a name="usage-of-managed-applications"></a>관리되는 애플리케이션의 사용량
 
@@ -253,13 +254,13 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 * 조직에서 상위 3 개의 응용 프로그램은 무엇 인가요?
 * 최신 응용 프로그램이 어떻게 작동 하나요?
 
-이 데이터에 대 한 진입점은 조직에서 상위 3 개의 응용 프로그램입니다. 데이터는 **엔터프라이즈 응용 프로그램**의 **개요** 섹션에 있는 지난 30 일 보고서 내에 포함 되어 있습니다.
+이 데이터에 대 한 진입점은 조직에서 상위 3 개의 응용 프로그램입니다. 데이터는 **엔터프라이즈 응용 프로그램** 의 **개요** 섹션에 있는 지난 30 일 보고서 내에 포함 되어 있습니다.
 
-![로그인 작업](./media/concept-sign-ins/10.png "로그인 작업")
+![개요를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/concept-sign-ins/10.png "로그인 작업")
 
 앱 사용 그래프에는 지정 된 기간 동안 상위 3 개 응용 프로그램에 대 한 로그인의 주간 집계가 있습니다. 시간에 대한 기본값은 30일입니다.
 
-![로그인 작업](./media/concept-sign-ins/graph-chart.png "로그인 작업")
+![스크린샷 1 개월 동안의 앱 사용량을 보여 줍니다.](./media/concept-sign-ins/graph-chart.png "로그인 작업")
 
 원하면 특정 애플리케이션에 포커스를 설정할 수 있습니다.
 

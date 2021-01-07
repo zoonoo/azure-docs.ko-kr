@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 3798396c72bc01bc20f1b4ee3ee66961fe33bff5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b58a9dd7901f85c59b09bc4ccb197d012bce2200
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937349"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545058"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버 (미리 보기) 관리
 
@@ -23,13 +23,13 @@ ms.locfileid: "90937349"
 ## <a name="prerequisites"></a>사전 요구 사항
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-[az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID**를 참조하는 **id** 속성을 기록해 둡니다.
+[az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
 
 ```azurecli-interactive
 az login
 ```
 
-[az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **id** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list)를 사용합니다.
+[az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **id** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az-account-list)를 사용합니다.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -40,7 +40,7 @@ az account set --subscription <subscription id>
 
 ## <a name="scale-compute-and-storage"></a>계산 및 저장소 크기 조정
 
-다음 명령을 사용 하 여 계산 계층, vCores 및 저장소를 쉽게 확장할 수 있습니다. 수행할 수 있는 모든 서버 작업을 볼 수 있습니다 [az mysql 신축 서버 서버 개요](/cli/azure/mysql/server)
+다음 명령을 사용 하 여 계산 계층, vCores 및 저장소를 쉽게 확장할 수 있습니다. 수행할 수 있는 모든 서버 작업을 볼 수 있습니다 [az mysql 신축 서버 업데이트](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update)
 
 ```azurecli-interactive
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v4 --storage-size 6144
@@ -64,10 +64,10 @@ storage-size | 6144 | 서버의 스토리지 용량입니다(단위는 메가바
 
 | cmdlet | 사용| Description |
 | --- | ---| --- |
-|[az mysql 유연한 서버 db 만들기](/cli/azure/sql/db#az-mysql-flexible-server-db-create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |데이터베이스 만들기|
-|[az mysql 신축 서버 db delete](/cli/azure/sql/db#az-mysql-flexible-server-db-delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|서버에서 데이터베이스를 삭제 합니다. 이 명령은 서버를 삭제 하지 않습니다. |
-|[az mysql 신축 서버 db 목록](/cli/azure/sql/db#az-mysql-flexible-server-db-list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|서버에 있는 모든 데이터베이스를 나열 합니다.|
-|[az mysql 신축 서버 db 표시](/cli/azure/sql/db#az-mysql-flexible-server-db-show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|데이터베이스에 대 한 자세한 정보를 표시 합니다.|
+|[az mysql 유연한 서버 db 만들기](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |데이터베이스 만들기|
+|[az mysql 신축 서버 db delete](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|서버에서 데이터베이스를 삭제 합니다. 이 명령은 서버를 삭제 하지 않습니다. |
+|[az mysql 신축 서버 db 목록](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|서버에 있는 모든 데이터베이스를 나열 합니다.|
+|[az mysql 신축 서버 db 표시](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|데이터베이스에 대 한 자세한 정보를 표시 합니다.|
 
 ## <a name="update-admin-password"></a>관리자 암호 업데이트
 이 명령을 사용 하 여 관리자 역할의 암호를 변경할 수 있습니다.
@@ -80,7 +80,7 @@ az mysql flexible-server update --resource-group myresourcegroup --name mydemose
 > 암호는 영어 대문자, 영어 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지에 해당 하는 문자를 포함 해야 합니다.
 
 ## <a name="delete-a-server"></a>서버 삭제
-MySQL의 유연한 서버를 삭제 하려는 경우 [az MySQL 신축-server server delete](/cli/azure/mysql/server#az-mysql-flexible-server-delete) 명령을 실행할 수 있습니다.
+MySQL의 유연한 서버를 삭제 하려는 경우 [az MySQL 신축-server server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete) 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver

@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, 포팅, 본문, 추적, 조인트, 계층, 뼈, 연결
 ms.openlocfilehash: 4cf6ac13a93d0674f9fa144abcc3153a2d7c3350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276996"
 ---
 # <a name="azure-kinect-body-tracking-joints"></a>Azure Kinect 본문 추적 조인트
@@ -40,7 +40,7 @@ Azure Kinect 본문 추적은 동시에 여러 사람의 본문을 추적할 수
 
 다음 표에서는 표준 연결 연결을 열거 합니다.
 
-|Index |조인트 이름     | 부모 조인트   |
+|인덱스 |조인트 이름     | 부모 조인트   |
 |------|---------------|----------------|
 | 0    |PELVIS         | -              |
 | 1    |SPINE_NAVAL    | PELVIS         |

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602672"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325199"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Azure SQL Database 및 Azure Synapse Analytics의 경우 TDE 보호기는 서버
 > 고객이 관리 하는 TDE를 사용 하 여 시작 하려는 서비스 관리 TDE를 사용 하는 경우 데이터를 전환 하는 동안 데이터는 암호화 된 상태로 유지 되며 가동 중지 또는 데이터베이스 파일의 다시 암호화는 발생 하지 않습니다. 서비스 관리 키에서 고객 관리 키로 전환 하는 경우에만 빠른 온라인 작업 인 DEK를 다시 암호화 해야 합니다.
 
 > [!NOTE]
-> 휴지 상태의 데이터에 대 한 두 가지 계층의 데이터 암호화를 Azure SQL 고객에 게 제공 하기 위해 플랫폼 관리 키에 대 한 인프라 암호화 (AES-256 암호화 알고리즘 사용)가 롤아웃 됩니다. 이는 이미 사용 가능한 고객 관리 키를 사용 하 여 TDE와 함께 휴지 상태의 암호화를 추가로 제공 합니다. 지금은 고객이이 기능에 대 한 액세스를 요청 해야 합니다. 이 기능에 관심이 있는 경우에 문의 하세요 AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> <a id="doubleencryption"></a> 휴지 상태의 데이터에 대 한 두 가지 계층의 데이터 암호화를 Azure SQL 고객에 게 제공 하기 위해 플랫폼 관리 키에 대 한 인프라 암호화 (AES-256 암호화 알고리즘 사용)가 롤아웃 됩니다. 이는 이미 사용 가능한 고객 관리 키를 사용 하 여 TDE와 함께 휴지 상태의 암호화를 추가로 제공 합니다. Azure SQL Database 및 Managed Instance의 경우 인프라 암호화가 설정 되 면 master 데이터베이스 및 기타 시스템 데이터베이스를 비롯 한 모든 데이터베이스가 암호화 됩니다. 지금은 고객이이 기능에 대 한 액세스를 요청 해야 합니다. 이 기능에 관심이 있는 경우에 문의 하세요 AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>고객 관리 TDE의 이점
 
@@ -78,11 +78,11 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - Key vault 및 SQL Database/관리 되는 인스턴스는 동일한 Azure Active Directory 테 넌 트에 속해야 합니다. 교차 테넌트 키 자격 증명 모음 및 서버 상호 작용은 지원되지 않습니다. 나중에 리소스를 이동 하려면 AKV를 사용 하는 TDE를 다시 구성 해야 합니다. [리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)에 대해 자세히 알아보세요.
 
-- 데이터 손실 실수로 인 한 키 (또는 키 자격 증명 모음) 삭제가 발생 하지 않도록 보호 하기 위해 키 자격 증명 모음에서 [일시 삭제](../../key-vault/general/soft-delete-overview.md) 기능을 사용 하도록 설정 해야 합니다. 일시 삭제 된 리소스는 고객이 복구 하거나 제거 하지 않는 한 90 일간 보존 됩니다. *복구* 및 *제거* 작업에는 키 자격 증명 모음 액세스 정책과 연결된 고유 권한이 있습니다. 일시 삭제 기능은 기본적으로 해제 되어 있으며 [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) 또는 [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete)를 통해 사용 하도록 설정할 수 있습니다. Azure Portal를 통해 사용 하도록 설정할 수 없습니다.  
+- 데이터 손실 실수로 인 한 키 (또는 키 자격 증명 모음) 삭제가 발생 하지 않도록 보호 하기 위해 키 자격 증명 모음에서 [일시 삭제](../../key-vault/general/soft-delete-overview.md) 기능을 사용 하도록 설정 해야 합니다. 일시 삭제 된 리소스는 고객이 복구 하거나 제거 하지 않는 한 90 일간 보존 됩니다. *복구* 및 *제거* 작업에는 키 자격 증명 모음 액세스 정책과 연결된 고유 권한이 있습니다. 일시 삭제 기능은 기본적으로 해제 되어 있으며 [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) 또는 [CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli)를 통해 사용 하도록 설정할 수 있습니다. Azure Portal를 통해 사용 하도록 설정할 수 없습니다.  
 
 - Azure Active Directory id를 사용 하 여 서버 또는 관리 되는 인스턴스에 키 자격 증명 모음에 대 한 액세스 권한을 부여 합니다 (get, wrapKey, unwrapKey). Azure Portal 사용 하는 경우 Azure AD id가 자동으로 생성 됩니다. PowerShell 또는 CLI를 사용 하는 경우 Azure AD id를 명시적으로 만들고 완료를 확인 해야 합니다. PowerShell 사용에 대 한 자세한 단계별 지침은 [BYOK를 사용 하 여 Tde 구성](transparent-data-encryption-byok-configure.md) 및 [SQL Managed Instance의 byok를 사용 하 여 tde 구성](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) 을 참조 하세요.
 
-- AKV에서 방화벽을 사용 하는 경우 *신뢰할 수 있는 Microsoft 서비스에서 방화벽을 우회 하도록 허용*옵션을 사용 하도록 설정 해야 합니다.
+- AKV에서 방화벽을 사용 하는 경우 *신뢰할 수 있는 Microsoft 서비스에서 방화벽을 우회 하도록 허용* 옵션을 사용 하도록 설정 해야 합니다.
 
 ### <a name="requirements-for-configuring-tde-protector"></a>TDE 보호기를 구성 하기 위한 요구 사항
 
@@ -95,7 +95,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 - 키 자격 증명 모음에 기존 키를 가져오는 경우 지원 되는 파일 형식 (.pfx, byok 또는. backup)에서 제공 해야 합니다.
 
 > [!NOTE]
-> 이제 Azure SQL은 TDE 보호기로 관리 되는 HSM에 저장 된 RSA 키를 사용 하도록 지원 합니다. 이 기능은 **공개 미리 보기로**제공 됩니다. Azure Key Vault 관리 되는 HSM은 FIPS 140-2 수준 3의 유효성을 검사 한 Hsm을 사용 하 여 클라우드 응용 프로그램에 대 한 암호화 키를 보호할 수 있도록 하는 완전히 관리 되 고 항상 사용 가능한 단일 테 넌 트 표준 호환 클라우드 서비스입니다. [관리 되는 hsm](https://aka.ms/mhsm)에 대해 자세히 알아보세요.
+> 이제 Azure SQL은 TDE 보호기로 관리 되는 HSM에 저장 된 RSA 키를 사용 하도록 지원 합니다. 이 기능은 **공개 미리 보기로** 제공 됩니다. Azure Key Vault 관리 되는 HSM은 FIPS 140-2 수준 3의 유효성을 검사 한 Hsm을 사용 하 여 클라우드 응용 프로그램에 대 한 암호화 키를 보호할 수 있도록 하는 완전히 관리 되 고 항상 사용 가능한 단일 테 넌 트 표준 호환 클라우드 서비스입니다. [관리 되는 hsm](../../key-vault/managed-hsm/index.yml)에 대해 자세히 알아보세요.
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>고객 관리 TDE 구성 시 권장 사항
@@ -106,7 +106,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - 주요 자격 증명 모음에 리소스 잠금을 설정 하 여이 중요 한 리소스를 삭제할 수 있는 사용자를 제어 하 고 실수로 또는 무단 삭제를 방지할 수 있습니다. [리소스 잠금](../../azure-resource-manager/management/lock-resources.md)에 대 한 자세한 정보.
 
-- 모든 암호화 키에 대 한 감사 및 보고 사용: Key vault는 다른 보안 정보 및 이벤트 관리 도구에 쉽게 삽입할 수 있는 로그를 제공 합니다. Operations Management Suite [Log Analytics](../../azure-monitor/insights/azure-key-vault.md) 는 이미 통합 된 서비스의 한 예입니다.
+- 모든 암호화 키에 대 한 감사 및 보고 사용: Key vault는 다른 보안 정보 및 이벤트 관리 도구에 쉽게 삽입할 수 있는 로그를 제공 합니다. Operations Management Suite [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) 는 이미 통합 된 서비스의 한 예입니다.
 
 - 서로 다른 지역에 있는 두 개의 키 자격 증명 모음에 각 서버를 연결 하 고 암호화 된 데이터베이스의 고가용성을 보장 하기 위해 동일한 키 자료를 보관 합니다. TDE 보호기와 동일한 지역에 있는 key vault의 키만 표시 합니다. 동일한 지역의 키 자격 증명 모음에 영향을 주는 작동이 중단 되는 경우 시스템은 원격 지역에서 키 자격 증명 모음으로 자동 전환 됩니다.
 
@@ -118,7 +118,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - 키에 대 한 변경 내용이 있을 때마다 (예: 키 특성, 태그, Acl) 새 백업을 만듭니다.
 
-- 키를 회전할 때 키 자격 증명 모음에서 **이전 버전의 키를 유지**합니다. 그러면 이전 데이터베이스 백업을 복원할 수 있습니다. 데이터베이스에 대 한 TDE 보호기가 변경 되 면 데이터베이스의 이전 백업은 최신 TDE 보호기를 사용 하도록 **업데이트 되지 않습니다** . 복원 시 각 백업에는 생성 시에 암호화 된 TDE 보호기가 필요 합니다. 키 회전은 [PowerShell을 사용하여 투명한 데이터 암호화 방지 프로그램 회전](transparent-data-encryption-byok-key-rotation.md)에 나와 있는 지침에 따라 수행할 수 있습니다.
+- 키를 회전할 때 키 자격 증명 모음에서 **이전 버전의 키를 유지** 합니다. 그러면 이전 데이터베이스 백업을 복원할 수 있습니다. 데이터베이스에 대 한 TDE 보호기가 변경 되 면 데이터베이스의 이전 백업은 최신 TDE 보호기를 사용 하도록 **업데이트 되지 않습니다** . 복원 시 각 백업에는 생성 시에 암호화 된 TDE 보호기가 필요 합니다. 키 회전은 [PowerShell을 사용하여 투명한 데이터 암호화 방지 프로그램 회전](transparent-data-encryption-byok-key-rotation.md)에 나와 있는 지침에 따라 수행할 수 있습니다.
 
 - 서비스 관리 키로 전환한 후에도 AKV에서 이전에 사용한 키를 모두 유지 합니다. 이를 통해 AKV에 저장 된 TDE 보호기를 사용 하 여 데이터베이스 백업을 복원할 수 있습니다.  를 사용 하 Azure Key Vault 여 만든 TDE 보호기는 서비스 관리 키를 사용 하 여 남은 저장 된 모든 백업이 생성 될 때까지 유지 되어야 합니다. [AzKeyVaultKey](/powershell/module/az.keyvault/backup-azkeyvaultkey)를 사용 하 여 이러한 키의 복구 가능한 백업 복사본을 만듭니다.
 
@@ -126,7 +126,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 ## <a name="inaccessible-tde-protector"></a>액세스할 수 없는 TDE 보호기
 
-투명 한 데이터 암호화가 고객 관리 키를 사용 하도록 구성 된 경우 데이터베이스를 온라인 상태로 유지 하려면 TDE 보호기에 대 한 지속적인 액세스가 필요 합니다. 서버가 AKV에서 고객이 관리 하는 TDE 보호기에 대 한 액세스 권한을 상실 하는 경우 (최대 10 분) 데이터베이스에서 해당 오류 메시지와 함께 모든 연결을 거부 하 고 해당 상태를 *액세스할 수*없음으로 변경 하기 시작 합니다. 액세스할 수 없는 상태의 데이터베이스에 대해 허용 되는 유일한 작업은 삭제 하는 것입니다.
+투명 한 데이터 암호화가 고객 관리 키를 사용 하도록 구성 된 경우 데이터베이스를 온라인 상태로 유지 하려면 TDE 보호기에 대 한 지속적인 액세스가 필요 합니다. 서버가 AKV에서 고객이 관리 하는 TDE 보호기에 대 한 액세스 권한을 상실 하는 경우 (최대 10 분) 데이터베이스에서 해당 오류 메시지와 함께 모든 연결을 거부 하 고 해당 상태를 *액세스할 수* 없음으로 변경 하기 시작 합니다. 액세스할 수 없는 상태의 데이터베이스에 대해 허용 되는 유일한 작업은 삭제 하는 것입니다.
 
 > [!NOTE]
 > 일시적인 네트워킹 중단으로 인해 데이터베이스에 액세스할 수 없는 경우에는 작업이 필요 하지 않으며 데이터베이스가 자동으로 다시 온라인 상태가 됩니다.
@@ -135,7 +135,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - 키 액세스를 8 시간 이내에 복원 하는 경우 데이터베이스는 다음 시간 내에 자동으로 치료 됩니다.
 
-- 키 액세스 복원이 8시간을 초과하면 자동 복구가 가능하지 않으며, 데이터베이스를 복구하려면 포털에서 추가적인 단계가 필요하고 데이터베이스 크기에 따라 상당한 시간이 걸릴 수 있습니다. 데이터베이스가 다시 온라인 상태가 되 면 [장애 조치 (failover) 그룹](auto-failover-group-overview.md) 구성, 지정 시간 복원 기록 및 태그와 같은 이전에 구성 된 서버 수준 설정이 **손실**됩니다. 따라서 8 시간 이내에 기본 키 액세스 문제를 식별 하 고 해결할 수 있는 알림 시스템을 구현 하는 것이 좋습니다.
+- 키 액세스 복원이 8시간을 초과하면 자동 복구가 가능하지 않으며, 데이터베이스를 복구하려면 포털에서 추가적인 단계가 필요하고 데이터베이스 크기에 따라 상당한 시간이 걸릴 수 있습니다. 데이터베이스가 다시 온라인 상태가 되 면 [장애 조치 (failover) 그룹](auto-failover-group-overview.md) 구성, 지정 시간 복원 기록 및 태그와 같은 이전에 구성 된 서버 수준 설정이 **손실** 됩니다. 따라서 8 시간 이내에 기본 키 액세스 문제를 식별 하 고 해결할 수 있는 알림 시스템을 구현 하는 것이 좋습니다.
 
 다음은 액세스할 수 없는 데이터베이스를 다시 온라인으로 전환 하기 위해 포털에서 필요한 추가 단계를 보여 주는 뷰입니다.
 
@@ -156,14 +156,14 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - Azure Active Directory에서 서버의 관리 되는 id를 삭제 하는 중
 
-[데이터베이스에 액세스할 수 없게 되는 일반적인 원인](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible)에 대해 자세히 알아보세요.
+[데이터베이스에 액세스할 수 없게 되는 일반적인 원인](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible)에 대해 자세히 알아보세요.
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>고객 관리 TDE 모니터링
 
 데이터베이스 상태를 모니터링 하 고 TDE 보호기 액세스 손실에 대 한 경고를 사용 하도록 설정 하려면 다음 Azure 기능을 구성 합니다.
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). TDE 보호기에 대 한 액세스 권한이 손실 된 액세스 불가능 데이터베이스는 데이터베이스에 대 한 첫 번째 연결이 거부 된 후 "사용할 수 없음"으로 표시 됩니다.
-- 고객 관리 키 자격 증명 모음의 TDE 보호기에 대 한 액세스가 실패 하는 [활동 로그](../../service-health/alerts-activity-log-service-notifications.md) 는 활동 로그에 항목을 추가 합니다.  이러한 이벤트에 대 한 경고를 만들면 최대한 빨리 액세스를 복구할 수 있습니다.
+- 고객 관리 키 자격 증명 모음의 TDE 보호기에 대 한 액세스가 실패 하는 [활동 로그](../../service-health/alerts-activity-log-service-notifications-portal.md) 는 활동 로그에 항목을 추가 합니다.  이러한 이벤트에 대 한 경고를 만들면 최대한 빨리 액세스를 복구할 수 있습니다.
 - 사용자의 기본 설정에 따라 알림 및 경고를 보내도록 [작업 그룹](../../azure-monitor/platform/action-groups.md) 을 정의할 수 있습니다 (예: 이메일/SMS/푸시/음성, 논리 앱, 웹 후크, Itsm 또는 Automation Runbook).
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>고객 관리 TDE를 사용 하 여 데이터베이스 백업 및 복원
@@ -179,7 +179,7 @@ Key Vault에서 TDE 보호기로 암호화 된 백업을 복원 하려면 대상
 
 이를 완화 하려면 대상 서버에 대 한 [AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet을 실행 하거나 대상 관리 인스턴스의 [AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) 을 실행 하 여 사용 가능한 키 목록을 반환 하 고 누락 된 키를 식별 합니다. 모든 백업을 복원할 수 있도록 하려면 복원 대상 서버에 필요한 모든 키에 대 한 액세스 권한이 있는지 확인 합니다. 이러한 키는 TDE 보호기로 표시할 필요가 없습니다.
 
-SQL Database 백업 복구에 대해 자세히 알아보려면 [SQL Database에서 데이터베이스 복구](recovery-using-backups.md)를 참조 하세요. SQL 풀의 백업 복구에 대해 자세히 알아보려면 [Sql 풀 복구](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md)를 참조 하세요. SQL Managed Instance를 사용 하는 SQL Server의 네이티브 백업/복원에 대 한 자세한 내용은 [빠른 시작: sql에 데이터베이스 복원](../managed-instance/restore-sample-database-quickstart.md) 을 참조 하세요 Managed Instance
+SQL Database 백업 복구에 대해 자세히 알아보려면 [SQL Database에서 데이터베이스 복구](recovery-using-backups.md)를 참조 하세요. Azure Synapse Analytics에서 전용 SQL 풀의 백업 복구에 대해 자세히 알아보려면 [전용 sql 풀 복구](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md)를 참조 하세요. SQL Managed Instance를 사용 하는 SQL Server의 네이티브 백업/복원에 대 한 자세한 내용은 [빠른 시작: sql에 데이터베이스 복원](../managed-instance/restore-sample-database-quickstart.md) 을 참조 하세요 Managed Instance
 
 로그 파일에 대 한 추가 고려 사항: 백업 된 로그 파일은 회전 되 고 데이터베이스에서 새 TDE 보호기를 사용 하는 경우에도 원래 TDE 보호기를 사용 하 여 암호화 된 상태로 유지 됩니다.  복원할 때 데이터베이스를 복원하려면 두 키가 모두 필요합니다.  로그 파일이 Azure Key Vault에 저장 된 TDE 보호기를 사용 하는 경우 데이터베이스에서 서비스 관리 TDE를 사용 하도록 변경 했더라도 복원 시이 키가 필요 합니다.
 
@@ -187,11 +187,11 @@ SQL Database 백업 복구에 대해 자세히 알아보려면 [SQL Database에�
 
 서버에 대해 구성 된 지역 중복이 없는 경우에도 동일한 키 자료를 사용 하 여 서로 다른 두 지역에 두 개의 다른 키 자격 증명 모음을 사용 하도록 서버를 구성 하는 것이 좋습니다. 서버와 동일한 지역에 있는 기본 키 자격 증명 모음을 사용 하 여 TDE 보호기를 만들고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제 하 여 서버에서 두 번째 키 자격 증명 모음에 액세스할 수 있도록 합니다. 그러면 데이터베이스가 실행 되는 동안 기본 키 자격 증명 모음에 가동 중단이 발생 해야 합니다.
 
-AzKeyVaultKey cmdlet을 사용 하 여 기본 키 자격 증명 모음에서 암호화 된 형식으로 키를 검색 한 다음 AzKeyVaultKey cmdlet을 사용 하 고 두 번째 지역에서 키 자격 증명 모음을 지정 하 여 키를 복제 합니다. 또는 Azure Portal를 사용 하 여 키를 백업 하 고 복원 합니다. 다른 지역의 보조 키 자격 증명 모음에 있는 키는 TDE 보호기로 표시 되지 않아야 하며 허용 되지 않습니다.
+Backup-AzKeyVaultKey cmdlet을 사용 하 여 기본 키 자격 증명 모음에서 암호화 된 형식으로 키를 검색 한 다음 Restore-AzKeyVaultKey cmdlet을 사용 하 고 두 번째 지역에서 키 자격 증명 모음을 지정 하 여 키를 복제 합니다. 또는 Azure Portal를 사용 하 여 키를 백업 하 고 복원 합니다. 다른 지역의 보조 키 자격 증명 모음에 있는 키는 TDE 보호기로 표시 되지 않아야 하며 허용 되지 않습니다.
 
 기본 키 자격 증명 모음에 영향을 주는 작동 중단이 발생 하는 경우에만 시스템은 보조 키 자격 증명 모음에 있는 동일한 지문이 있는 다른 연결 된 키로 자동으로 전환 됩니다 (있는 경우). 이 스위치는 취소 된 액세스 권한으로 인해 TDE 보호기에 액세스할 수 없거나, 키 또는 키 자격 증명 모음이 삭제 되어 고객이 의도적으로 서버에서 키에 액세스를 제한 하는 것을 의미할 수 있으므로 발생 하지 않습니다.
 
-![단일 서버 HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
+![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>지리적 DR 및 고객 관리 TDE
 

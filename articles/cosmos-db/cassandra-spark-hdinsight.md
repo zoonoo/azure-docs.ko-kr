@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e09ac39037024b5c360af4bb6ada26590b142924
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260578"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359596"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>HDInsight를 통해 YARN에서 Spark의 Azure Cosmos DB Cassandra API에 액세스
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 이 문서에서는 spark 셸에서 HDInsight-Spark를 통해 YARN에서 Spark의 Azure Cosmos DB Cassandra API에 액세스하는 방법을 알아봅니다. HDInsight는 HDFS에 대한 개체 스토리지를 활용하는 Azure의 Microsoft Hortonworks Hadoop PaaS로, [Spark](../hdinsight/spark/apache-spark-overview.md)를 포함한 여러 유형으로 제공됩니다.  이 문서의 내용은 HDInsight-Spark를 참조하지만, 모든 Hadoop 배포에 적용할 수 있습니다.  
 
@@ -118,7 +119,7 @@ HDInsight-Spark는 Zeppelin 및 Jupyter Notebook 서비스와 함께 제공됩�
 
 다음 Jupyter Notebooks는 HDInsight Spark 클러스터에 업로드할 수 있으며, Azure Cosmos DB Cassandra API를 사용하기 위한 준비 샘플을 제공합니다. 첫 번째 Notebook `1.0-ReadMe.ipynb`를 검토하여 Azure Cosmos DB Cassandra API에 연결하기 위한 Spark 서비스 구성을 검토해 보세요.
 
-머신에서 이러한 Notebook을 [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/)에서 다운로드하세요.
+머신에서 이러한 Notebook을 [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/main/scala/)에서 다운로드하세요.
   
 ### <a name="how-to-upload"></a>업로드하는 방법:
 Jupyter를 시작하는 경우 Scala로 이동합니다. 디렉터리를 먼저 만들고 디렉터리에 Notebook을 업로드합니다. 업로드 단추는 오른쪽 위에 있습니다.  
@@ -134,6 +135,6 @@ Notebook 및 각 Notebook 셀을 순차적으로 실행합니다.  각 Notebook 
 
 * [IDE에서 Spark Scala 프로그램을 빌드하고 실행을 위해 Livy를 통해 HDInsight Spark 클러스터에 제출하는 방법](../hdinsight/spark/apache-spark-create-standalone-application.md)
 
-* [Spark Scala 프로그램에서 Azure Cosmos DB Cassandra API에 연결하는 방법](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [Spark Scala 프로그램에서 Azure Cosmos DB Cassandra API에 연결하는 방법](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 
 * [Cassandra API 사용을 위한 코드 샘플의 전체 목록](cassandra-spark-generic.md)

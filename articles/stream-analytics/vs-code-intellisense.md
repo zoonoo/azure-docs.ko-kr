@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 988b9d364f09a4c88bcaab1fe81ae80c8de5d4d9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903719"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96491573"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>Visual Studio Code Azure Stream Analytics 도구에서 IntelliSense
 
-IntelliSense는 [VS Code에 대 한 Azure Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview)에서 [Stream Analytics 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstream-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json) 에 사용할 수 있습니다. IntelliSense는 목록 멤버, 매개 변수 정보, 요약 정보 및 단어 자동 완성 등 여러 기능을 포함하는 코드 완성 지원 기능입니다. IntelliSense 기능을 "코드 완성", "내용 지원" 및 "코드 힌트"와 같은 다른 이름으로 라고도 합니다.
+IntelliSense는 [VS Code에 대 한 Azure Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview)에서 [Stream Analytics 쿼리 언어](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fbread%2ftoc.json&toc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fstream-analytics%2ftoc.json) 에 사용할 수 있습니다. IntelliSense는 다음과 같은 다양한 기능을 포함하는 코드 완성 지원 도구입니다. 멤버 목록, 매개 변수 정보, 요약 정보 및 전체 단어. IntelliSense 기능을 "코드 완성", "내용 지원" 및 "코드 힌트"와 같은 다른 이름으로 라고도 합니다.
 
 ![IntelliSense 데모](./media/vs-code-intellisense/intellisense.gif)
 

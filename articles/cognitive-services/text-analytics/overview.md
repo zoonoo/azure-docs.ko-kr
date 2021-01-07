@@ -1,53 +1,70 @@
 ---
-title: 텍스트 분석 API란? - 기능 -
+title: Text Analytics API를 사용한 텍스트 마이닝 및 분석 - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: 감정 분석, 핵심 구문 추출, 언어 감지 및 엔터티 인식을 위해 Azure Cognitive Services의 Text Analytics API를 사용합니다.
+description: Text Analytics API를 사용한 텍스트 마이닝에 대해 알아봅니다. 감정 분석, 언어 감지 및 기타 형태의 자연어 처리에 사용합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000960"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563231"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
-Text Analytics API는 클라우드 기반 서비스로 원시 텍스트에 대한 고급 자연어 처리를 제공하며, 감성 분석, 핵심 구 추출, 언어 감지 및 명명된 엔터티 인식의 네 가지 주요 기능을 포함합니다.
+Text Analytics API는 감성 분석, 오피니언 마이닝, 핵심 구 추출, 언어 감지 및 명명된 엔터티 인식을 포함하는 텍스트 마이닝 및 텍스트 분석을 위한 NLP(자연어 처리) 기능을 제공하는 클라우드 기반 서비스입니다.
 
-이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)의 일부입니다.
+이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](../index.yml)의 일부입니다. [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 또는 [클라이언트 라이브러리](quickstarts/client-libraries-rest-api.md)에서 이러한 기능을 사용할 수 있습니다.
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
-텍스트 분석은 다른 작업을 의미할 수 있지만, Cognitive Services의 Text Analytics API는 아래에 설명된 것처럼 네 가지 유형의 분석을 제공합니다. [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 또는 [클라이언트 라이브러리](quickstarts/text-analytics-sdk.md)에서 이러한 기능을 사용할 수 있습니다.
+## <a name="sentiment-analysis"></a>정서 분석
 
-## <a name="sentiment-analysis"></a>감정 분석
-[감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)을 사용하여 원시 텍스트에서 긍정적이거나 부정적인 감정에 대한 단서를 분석하여 고객이 브랜드 또는 주제에 대해 생각하는 것을 파악할 수 있습니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다.<br /> 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](text-analytics-supported-languages.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 애플리케이션에 직접 결과를 반환할 수 있습니다.
+[감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)을 사용하면 텍스트에서 긍정적 또는 부정적 감정에 대한 단서를 찾아서 사람들이 브랜드 또는 주제에 대해 어떻게 생각하는지 알아볼 수 있습니다. 
+
+이 기능은 문장 및 문서 수준에서 서비스가 찾은 가장 높은 신뢰도 점수에 따라 감정 레이블(예: "부정", "중립" 및 "긍정")을 제공합니다. 또한 이 기능은 긍정, 중립, 부정 감정에 대한 각 문서 및 그 안의 문장에 대해 0과 1 사이의 신뢰도 점수를 반환합니다. [컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 온-프레미스에서 서비스를 실행할 수도 있습니다.
+
+v3.1 미리 보기부터 오피니언 마이닝은 감정 분석의 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다.
 
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
-자동으로 [핵심 구를 추출](how-tos/text-analytics-how-to-keyword-extraction.md)하여 요점을 빠르게 파악합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다.
+
+[핵심 구 추출](how-tos/text-analytics-how-to-keyword-extraction.md)을 사용하여 텍스트의 주요 개념을 빠르게 식별합니다. 예를 들어, "음식이 맛있었고 훌륭한 직원이 있었습니다"라는 텍스트에서 핵심 구 추출은 "음식"과 "훌륭한 직원"이라는 주요 논점을 반환합니다.
 
 ## <a name="language-detection"></a>언어 검색
-[입력 텍스트를 쓴 언어를 감지](how-tos/text-analytics-how-to-language-detection.md)하고 광범위한 언어, 변형, 방언 및 일부 지역/문화 언어로 요청시 제출된 모든 문서에 대해 단일 언어 코드를 보고할 수 있습니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다.
+
+언어 감지는 [입력 텍스트가 작성된 언어를 감지](how-tos/text-analytics-how-to-language-detection.md)하고 광범위한 언어, 변형, 방언 및 일부 지역/문화 언어로 요청 시 제출된 모든 문서에 대해 단일 언어 코드를 보고할 수 있습니다. 언어 코드는 신뢰도 점수와 쌍을 이룹니다.
 
 ## <a name="named-entity-recognition"></a>명명된 엔터티 인식
-텍스트의 엔터티를 인물, 장소, 조직, 날짜/시간, 수량, 백분율, 통화 등으로 [식별하고 분류합니다](how-tos/text-analytics-how-to-entity-linking.md). 잘 알려진 엔터티도 인식되고, 웹에서 더 많은 정보에 연결됩니다.
 
-## <a name="use-containers"></a>컨테이너 사용
+NER(명명된 엔터티 인식)은 사람, 장소, 조직, 수량으로 텍스트의 [엔터티를 식별하고 분류](how-tos/text-analytics-how-to-entity-linking.md)할 수 있습니다. 잘 알려진 엔터티도 인식되고 웹에서 더 많은 정보에 연결됩니다.
 
-[Text Analytics 컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 표준화된 Docker 컨테이너를 데이터와 가까이 설치함으로써 핵심 구를 추출하고, 언어를 검색하고, 로컬로 감정을 분석할 수 있습니다.
+## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
+
+[Text Analytics 컨테이너를 사용](how-tos/text-analytics-how-to-install-containers.md)하여 온-프레미스에 API 기능을 배포합니다. 이러한 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다. Text Analytics는 다음과 같은 컨테이너를 제공합니다.
+
+* 감정 분석
+* 핵심 구 추출(미리 보기)
+* 언어 감지(미리 보기)
+* Text Analytics for health(미리 보기)
+
+## <a name="asynchronous-operations"></a>비동기 작업
+
+`/analyze` 엔드포인트를 사용하면 NER 및 키 구문 추출과 같은 Text Analytics API의 선택 기능을 [비동기적으로](how-tos/text-analytics-how-to-call-api.md) 사용할 수 있습니다.
 
 ## <a name="typical-workflow"></a>일반적인 워크플로
 
 간단한 워크플로: 분석을 위해 데이터를 제출하고 코드의 출력을 처리합니다. 분석기는 추가 구성 또는 사용자 지정 없이 있는 그대로 사용됩니다.
 
-1. Text Analytics용 [Azure 리소스를 만듭니다](../cognitive-services-apis-create-account.md). 그런 다음, 요청을 인증할 수 있도록 생성된 [키를 가져옵니다](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
+1. Text Analytics용 [Azure 리소스를 만듭니다](how-tos/text-analytics-how-to-call-api.md). 그런 다음, 요청을 인증할 수 있도록 생성된 [키를 가져옵니다](how-tos/text-analytics-how-to-call-api.md).
 
 2. 데이터를 구조화되지 않은 원시 텍스트로 포함하는 [요청을 JSON으로 구성](how-tos/text-analytics-how-to-call-api.md#json-schema)합니다.
 
@@ -65,18 +82,18 @@ Text Analytics API는 클라우드 기반 서비스로 원시 텍스트에 대�
 
 * 필요한 최소한의 프로그래밍:
     * [Text Analytics 및 Power Automate를 사용하여 Excel에서 정보 추출](tutorials/extract-excel-information.md)
-    * [Text Analytics API 및 MS Flow를 사용하여 Yammer 그룹의 코멘트에 대한 감정 식별](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Text Analytics API 및 MS Flow를 사용하여 Yammer 그룹의 코멘트에 대한 감정 식별](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
     * [Power BI를 Text Analytics API와 통합하여 고객 피드백 분석](tutorials/tutorial-power-bi-key-phrases.md)
 * 권장되는 프로그래밍 환경:
-    * [Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
-    * [Flask를 빌드하여 텍스트 번역, 감정 분석 및 음성 합성](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
+    * [Flask를 빌드하여 텍스트 번역, 감정 분석 및 음성 합성](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
 
 
 <a name="supported-languages"></a>
 
 ## <a name="supported-languages"></a>지원되는 언어
 
-이 섹션은 검색 가능성을 높이기 위해 별도 문서로 이동되었습니다. 이 콘텐츠에 대해서는 [Text Analytics API의 지원되는 언어](text-analytics-supported-languages.md)를 참조하세요.
+이 섹션은 검색 가능성을 높이기 위해 별도 문서로 이동되었습니다. 이 콘텐츠에 대해서는 [Text Analytics API의 지원되는 언어](./language-support.md)를 참조하세요.
 
 <a name="data-limits"></a>
 
@@ -86,16 +103,16 @@ Text Analytics API는 클라우드 기반 서비스로 원시 텍스트에 대�
 
 ## <a name="unicode-encoding"></a>유니코드 인코딩
 
-Text Analytics API는 텍스트 표현 및 문자 수 계산에 유니코드 인코딩을 사용합니다. 측정 가능한 문자 수 차이 없이 UTF-8 및 UTF-16으로 요청을 제출할 수 있습니다. 유니코드 코드 포인트는 문자 길이에 대한 추론으로 사용되며, 텍스트 분석 데이터 제한을 위해 동일한 것으로 간주됩니다. [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)를 사용하여 문자 수를 확인하는 경우 데이터 크기 측정에 사용하는 것과 동일한 방법을 사용합니다.
+Text Analytics API는 텍스트 표현 및 문자 수 계산에 유니코드 인코딩을 사용합니다. 측정 가능한 문자 수 차이 없이 UTF-8 및 UTF-16으로 요청을 제출할 수 있습니다. 유니코드 코드 포인트는 문자 길이에 대한 추론으로 사용되며, 텍스트 분석 데이터 제한을 위해 동일한 것으로 간주됩니다. [`StringInfo.LengthInTextElements`](/dotnet/api/system.globalization.stringinfo.lengthintextelements)를 사용하여 문자 수를 확인하는 경우 데이터 크기 측정에 사용하는 것과 동일한 방법을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 + Text Analytics에 대한 [Azure 리소스를 생성](../cognitive-services-apis-create-account.md)하여 애플리케이션의 키와 엔드포인트를 가져옵니다.
 
-+ [빠른 시작](quickstarts/text-analytics-sdk.md)를 사용하여 API 호출 보내기를 시작합니다. 최소의 코드로 텍스트를 제출하고, 분석을 선택하고, 결과를 보는 방법을 알아봅니다.
++ [빠른 시작](quickstarts/client-libraries-rest-api.md)를 사용하여 API 호출 보내기를 시작합니다. 최소의 코드로 텍스트를 제출하고, 분석을 선택하고, 결과를 보는 방법을 알아봅니다.
 
 + 새 릴리스 및 기능에 대한 자세한 내용은 [Text Analytics API의 새로운 기능](whats-new.md)을 참조하세요.
 
-+ Azure Databricks를 사용하여 이 [감정 분석 자습서](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services)를 좀 더 면밀히 살펴보세요.
++ Azure Databricks를 사용하여 이 [감정 분석 자습서](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services)를 좀 더 면밀히 살펴보세요.
 
 + [외부 및 커뮤니티 콘텐츠 페이지](text-analytics-resource-external-community.md)에서 다른 도구 및 기술과 함께 Text Analytics API를 사용하는 방법을 보여 주는 블로그 게시물 및 비디오 목록을 확인하세요.

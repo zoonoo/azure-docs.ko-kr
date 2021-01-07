@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343203"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020418"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Verizon Premium의 Azure CDN 규칙 엔진 기능
 
@@ -24,7 +24,7 @@ ms.locfileid: "84343203"
 
 사용 가능한 기능 유형은 다음과 같습니다.
 
-* [액세스](#access)
+* [Access](#access)
 * [캐싱](#caching)
 * [설명](#comment)
 * [헤더](#headers)
@@ -59,7 +59,7 @@ ms.locfileid: "84343203"
 | [대역폭 제한](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | 에지 서버에서 제공하는 응답에 대한 대역폭을 제한합니다. |
 | [바이패스 캐시](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | 요청에서 캐싱 기술을 활용할 수 있는지 여부를 결정합니다. |
 | [Cache-Control 헤더 처리](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  외부 Max-Age 기능이 활성 상태일 때 에지 서버에 의한 Cache-Control 헤더의 생성을 제어합니다. |
-| [Cache-Key 쿼리 문자열](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | **캐시 키***가 요청과 연결 된 쿼리 문자열 매개 변수를 포함할지 또는 제외할지를 결정 합니다. <br> _* 캐싱의 용도에 대 한 자산을 고유 하 게 식별 하는 상대 경로입니다.  에 지 서버는 캐시 된 콘텐츠를 확인할 때이 상대 경로를 사용 합니다.  기본적으로 캐시 키는 쿼리 문자열 매개 변수를 포함 하지 않습니다._ |
+| [Cache-Key 쿼리 문자열](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | **캐시 키** _가 요청과 관련 된 쿼리 문자열 매개 변수를 포함할지 또는 제외할지를 결정 합니다. <br> __ 캐싱의 용도에 대 한 자산을 고유 하 게 식별 하는 상대 경로입니다.  에 지 서버는 캐시 된 콘텐츠를 확인할 때이 상대 경로를 사용 합니다.  기본적으로 캐시 키는 쿼리 문자열을 포함 하지 않습니다 parameters._ |
 | [Cache-Key 다시 쓰기](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | 요청과 관련된 cache-key를 다시 씁니다. |
 | [전체 캐시 채우기](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | 요청 결과, 에지 서버에서 캐시가 부분적으로 누락된 경우 수행할 작업을 결정합니다. |
 | [압축 파일 형식](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | 서버에서 압축할 파일 형식을 정의합니다. | 

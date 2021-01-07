@@ -5,15 +5,15 @@ description: 이 문서에서는 Application Gateway의 WAF(웹 애플리케이�
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227001"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621028"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽이란?
 
@@ -22,9 +22,6 @@ Azure Application Gateway의 Azure WAF(웹 애플리케이션 방화벽)는 일�
 Application Gateway의 WAF는 OWASP(Open Web Application Security Project)의 [CRS(핵심 규칙 세트)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.1, 3.0 또는 2.2.9를 기반으로 합니다. WAF는 새로운 취약점에 대한 방어 기능을 포함하도록 자동으로 업데이트되며, 추가 구성이 필요 없습니다. 
 
 아래에 나열된 모든 WAF 기능은 WAF 정책 내에 있습니다. 여러 정책을 만들 수 있으며, 정책을 Application Gateway, 개별 수신기 또는 Application Gateway의 경로 기반 회람 규칙에 연결할 수 있습니다. 이러한 방식으로 필요에 따라 Application Gateway 뒤에 있는 각 사이트에 별도의 정책을 적용할 수 있습니다. WAF 정책에 대한 자세한 내용은 [WAF 정책 만들기](create-waf-policy-ag.md)를 참조하세요.
-
-   > [!NOTE]
-   > URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ![Application Gateway WAF 다이어그램](../media/ag-overview/waf1.png)
 
@@ -65,8 +62,8 @@ Application Gateway의 향상된 보안 기능으로는 TLS 정책 관리와 엔
 - SQL 삽입 방지
 - 사이트 간 스크립팅 방지
 - 명령 삽입, HTTP 요청 밀반입, HTTP 응답 분할, 원격 파일 포함 등의 일반 웹 공격 방지
-- HTTP 프로토콜 위반 방지
-- 누락된 호스트 사용자-에이전트 헤더 및 수락 헤더 같은 HTTP 프로토콜 이상 방지
+- HTTP 프로토콜 위반으로부터 보호
+- 누락된 호스트 사용자-에이전트 및 accept 헤더 같은 HTTP 프로토콜 이상 보호
 - 크롤러 및 스캐너에 대한 방지
 - 일반적인 애플리케이션 구성 오류(예: Apache 및 IIS) 검색
 - 하한값과 상한값이 있는 구성 가능한 요청 크기 제한
@@ -74,10 +71,23 @@ Application Gateway의 향상된 보안 기능으로는 TLS 정책 관리와 엔
 - 애플리케이션의 특정 요구 사항에 맞는 사용자 지정 규칙 만들기
 - 특정 국가/지역의 애플리케이션에 대한 액세스를 허용하거나 차단하기 위한 지역 필터 트래픽. (미리 보기)
 - 봇 완화 규칙 세트를 사용하여 봇으로부터 애플리케이션 보호 (미리 보기)
+- 요청 본문에서 JSON 및 XML 검사
 
-## <a name="waf-policy"></a>WAF 정책
+## <a name="waf-policy-and-rules"></a>WAF 정책 및 규칙
 
-Application Gateway에서 웹 애플리케이션 방화벽을 사용하도록 설정하려면 WAF 정책을 만들어야 합니다. 이 정책에는 모든 관리형 규칙, 사용자 지정 규칙, 제외 및 기타 사용자 지정(예: 파일 업로드 제한)이 있습니다. 
+Application Gateway에서 웹 애플리케이션 방화벽을 사용하도록 설정하려면 WAF 정책을 만들어야 합니다. 이 정책에는 모든 관리형 규칙, 사용자 지정 규칙, 제외 및 기타 사용자 지정(예: 파일 업로드 제한)이 있습니다.
+
+WAF 정책을 구성한 후 보호를 위해 하나 이상의 애플리케이션 게이트웨이에 이 정책을 연결할 수 있습니다. WAF 정책은 다음 두 가지 유형의 보안 규칙으로 구성됩니다.
+
+- 사용자가 만든 사용자 지정 규칙
+
+- Azure에서 관리하는 미리 구성된 규칙 집합의 컬렉션에 해당하는 관리형 규칙 집합
+
+두 규칙이 모두 존재하는 경우 관리형 규칙 세트의 규칙을 처리하기 전에 사용자 지정 규칙이 처리됩니다. 규칙은 일치 조건, 우선 순위 및 작업으로 구성됩니다. 지원되는 작업 유형은 ALLOW, BLOCK, LOG입니다. 관리형 규칙과 사용자 지정 규칙을 결합하여 특정 애플리케이션 보호 요구 사항을 충족하는 완전히 사용자 지정된 정책을 만들 수 있습니다.
+
+정책 내 규칙은 우선 순위에 따라 처리됩니다. 우선 순위는 처리할 규칙의 순서를 정의하는 고유한 정수입니다. 정수 값이 작을수록 우선 순위가 높고 이러한 규칙은 정수 값이 높은 규칙보다 먼저 평가됩니다. 규칙이 일치하면 규칙에 정의된 해당 작업이 요청에 적용됩니다. 이러한 일치가 처리되면 우선 순위가 낮은 규칙은 더 이상 처리되지 않습니다.
+
+Application Gateway에서 제공하는 웹 애플리케이션에는 전역 수준, 사이트 별 수준 또는 URI별 수준에서 연결된 WAF 정책이 있을 수 있습니다.
 
 ### <a name="core-rule-sets"></a>핵심 규칙 집합
 
@@ -119,9 +129,9 @@ Application Gateway WAF는 다음 두 가지 모드에서 실행되도록 구성
 
 OWASP는 트래픽 차단 여부를 결정하는 기존 모드와 변칙 채점 모드 두 가지가 있습니다.
 
-기존 모드에서는 특정 규칙과 일치하는 트래픽은 다른 규칙과 상관없이 일치 항목으로 간주됩니다. 이 모드는 이해하기 쉽습니다. 그러나 특정 요청과 일치하는 규칙이 몇 개인지 알 수 없다는 제한이 있습니다. 이러한 제한을 극복하기 위해 변칙 채점 모드가 도입되었습니다. 변칙 채점 모드는 OWASP 3.*x*의 기본값입니다.
+기존 모드에서는 특정 규칙과 일치하는 트래픽은 다른 규칙과 상관없이 일치 항목으로 간주됩니다. 이 모드는 이해하기 쉽습니다. 그러나 특정 요청과 일치하는 규칙이 몇 개인지 알 수 없다는 제한이 있습니다. 이러한 제한을 극복하기 위해 변칙 채점 모드가 도입되었습니다. 변칙 채점 모드는 OWASP 3.*x* 의 기본값입니다.
 
-변칙 채점 모드에서는 방화벽이 방지 모드일 때 특정 규칙과 일치하는 트래픽이 즉시 차단되지 않습니다. 규칙에는 네 가지 심각도 *중요*, *오류*, *경고* 또는 *알림*이 있습니다. 이 심각도는 요청의 숫자 값에 영향을 주며, 이것을 변칙 점수라고 합니다. 예를 들어 *경고* 규칙 일치 항목 하나당 3점입니다. *중요* 규칙 일치 항목 하나당 5점입니다.
+변칙 채점 모드에서는 방화벽이 방지 모드일 때 특정 규칙과 일치하는 트래픽이 즉시 차단되지 않습니다. 규칙에는 네 가지 심각도 *중요*, *오류*, *경고* 또는 *알림* 이 있습니다. 이 심각도는 요청의 숫자 값에 영향을 주며, 이것을 변칙 점수라고 합니다. 예를 들어 *경고* 규칙 일치 항목 하나당 3점입니다. *중요* 규칙 일치 항목 하나당 5점입니다.
 
 |심각도  |값  |
 |---------|---------|
@@ -133,7 +143,7 @@ OWASP는 트래픽 차단 여부를 결정하는 기존 모드와 변칙 채점 
 변칙 점수가 트래픽을 차단하는 임계값은 5입니다. 따라서 *중요* 규칙 일치 항목이 하나만 있어도 Application Gateway WAF가 방지 모드에서도 요청을 차단합니다. 하지만 *경고* 규칙 일치 항목이 하나 있으면 변칙 점수가 3 증가하므로 트래픽을 차단하기에는 점수가 부족합니다.
 
 > [!NOTE]
-> WAF 규칙이 트래픽과 일치할 때 기록되는 메시지에는 "차단됨" 작업 값이 포함됩니다. 그러나 실제로 트래픽은 변칙 점수가 5 이상인 경우에만 차단됩니다.  
+> WAF 규칙이 트래픽과 일치할 때 기록되는 메시지에는 "차단됨" 작업 값이 포함됩니다. 그러나 실제로 트래픽은 변칙 점수가 5 이상인 경우에만 차단됩니다. 자세한 내용은 [Azure Application Gateway용 WAF(Web Application Firewall) 문제 해결](web-application-firewall-troubleshoot.md#understanding-waf-logs)을 참조하세요. 
 
 ### <a name="waf-monitoring"></a>WAF 모니터링
 
@@ -147,7 +157,7 @@ Application Gateway 로그는 [Azure Monitor](../../azure-monitor/overview.md)�
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Security Center](../../security-center/security-center-intro.md)를 통해 위협을 예방하고, 탐지하고, 대응할 수 있습니다. Security Center를 사용하면 Azure 리소스의 보안 상태를 보다 명확히 파악하고 제어할 수 있습니다. Application Gateway는 [Security Center와 통합됩니다](../../application-gateway/application-gateway-integration-security-center.md). Security Center는 사용자 환경을 검사하여 보호되지 않는 웹 애플리케이션을 검색합니다. 이처럼 취약한 리소스를 보호하도록 애플리케이션 게이트웨이 WAF를 권장할 수 있습니다. Security Center에서 직접 방화벽을 만듭니다. 이러한 WAF 인스턴스는 Security Center와 통합됩니다. WAF 인스턴스는 경고와 상태 정보를 Security Center로 보내서 보고합니다.
+[Security Center](../../security-center/security-center-introduction.md)를 통해 위협을 예방하고, 탐지하고, 대응할 수 있습니다. Security Center를 사용하면 Azure 리소스의 보안 상태를 보다 명확히 파악하고 제어할 수 있습니다. Application Gateway는 [Security Center와 통합됩니다](../../application-gateway/application-gateway-integration-security-center.md). Security Center는 사용자 환경을 검사하여 보호되지 않는 웹 애플리케이션을 검색합니다. 이처럼 취약한 리소스를 보호하도록 애플리케이션 게이트웨이 WAF를 권장할 수 있습니다. Security Center에서 직접 방화벽을 만듭니다. 이러한 WAF 인스턴스는 Security Center와 통합됩니다. WAF 인스턴스는 경고와 상태 정보를 Security Center로 보내서 보고합니다.
 
 ![Security Center 개요 창](../media/ag-overview/figure1.png)
 
@@ -159,6 +169,11 @@ Microsoft Azure Sentinel은 확장 가능한 클라우드 네이티브, SIEM(보
 
 
 ![Azure WAF 방화벽 이벤트 통합 문서](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>WAF용 Azure Monitor 통합 문서
+
+이 통합 문서를 사용하면 필터링 가능한 여러 패널에서 보안 관련 WAF 이벤트를 사용자 지정 시각화할 수 있습니다. Application Gateway, Front Door 및 CDN을 비롯한 모든 WAF 형식에서 작동하며 WAF 유형 또는 특정 WAF 인스턴스를 기반으로 필터링할 수 있습니다. ARM 템플릿 또는 갤러리 템플릿을 통해 가져옵니다. 이 통합 문서를 배포하려면 [WAF 통합 문서](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook)를 참조하세요.
 
 #### <a name="logging"></a>로깅
 

@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
-ms.openlocfilehash: 0c85272989a362da77b01af7bb1fe968516e53b6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398004"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "92202416"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Express 경로 개인 피어 링을 사용 하 여 재해 복구를 위한 디자인
 
 Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트워크 연결을 제공 하는 고가용성을 위해 설계 되었습니다. 즉, Microsoft 네트워크 내에서 Express 경로 경로에 단일 실패 지점이 없습니다. Express 경로 회로의 가용성을 최대화 하기 위한 설계 고려 사항은 Express 경로를 [사용 하 여 고가용성을 위한 디자인][HA]을 참조 하세요.
 
-그러나 Murphy의 인기 있는 말라을 사용 하는*경우에는 문제가 발생할 수 있습니다*.이 문서에서는 단일 express 경로 회로를 사용 하 여 해결할 수 있는 오류를 벗어난 솔루션에 집중할 수 있습니다. 즉,이 문서에서는 지역 중복 Express 경로 회로를 사용 하 여 재해 복구를 위해 강력한 백 엔드 네트워크 연결을 빌드하기 위한 네트워크 아키텍처 고려 사항을 살펴보겠습니다.
+그러나 Murphy의 인기 있는 말라을 사용 하는 *경우에는 문제가 발생할 수 있습니다*.이 문서에서는 단일 express 경로 회로를 사용 하 여 해결할 수 있는 오류를 벗어난 솔루션에 집중할 수 있습니다. 즉,이 문서에서는 지역 중복 Express 경로 회로를 사용 하 여 재해 복구를 위해 강력한 백 엔드 네트워크 연결을 빌드하기 위한 네트워크 아키텍처 고려 사항을 살펴보겠습니다.
 
 >[!NOTE]
 >이 문서에 설명 된 개념은 가상 WAN 또는 외부에서 Express 경로 회로를 만들 때에도 동일 하 게 적용 됩니다.
@@ -151,13 +151,8 @@ Vnet에 영향을 주는 연결 가중치를 사용 하 여 온-프레미스 네
 [10 개의]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "활성-활성 express 경로 회로 솔루션 2"
 
 <!--Link References-->
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
+[HA]: ./designing-for-high-availability-with-expressroute.md
 [Enterprise DR]: https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr/
 [SMB DR]: https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery/
-[con wgt]: https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection
-[AS Path Pre]: https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending
-
-
-
-
-
+[con wgt]: ./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection
+[AS Path Pre]: ./expressroute-optimize-routing.md#solution-use-as-path-prepending

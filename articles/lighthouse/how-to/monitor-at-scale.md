@@ -1,23 +1,23 @@
 ---
 title: 대규모로 위임 된 리소스 모니터링
 description: 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 Azure Monitor 로그를 효과적으로 사용 하는 방법을 알아봅니다.
-ms.date: 08/12/2020
+ms.date: 12/14/2020
 ms.topic: how-to
-ms.openlocfilehash: fdd0147737da47613d6b7ef1bf6005e4c03de0dd
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163291"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509277"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>대규모로 위임 된 리소스 모니터링
 
 서비스 공급자로 서 [Azure Lighthouse](../overview.md)에 여러 고객 테 넌 트를 등록 했을 수 있습니다. Azure Lighthouse를 사용하여 서비스 공급자는 여러 테넌트에 걸쳐 대규모로 작업을 한 번에 수행할 수 있으므로 관리 작업을 보다 효율적으로 수행할 수 있습니다.
 
-이 항목에서는 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 [Azure Monitor 로그](../../azure-monitor/platform/data-platform-logs.md) 를 사용 하는 방법을 보여 줍니다.
+이 항목에서는 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 [Azure Monitor 로그](../../azure-monitor/platform/data-platform-logs.md) 를 사용 하는 방법을 보여 줍니다. 이 항목의 서비스 공급자 및 고객을 참조 하지만이 지침은 [Azure Lighthouse를 사용 하 여 여러 테 넌 트를 관리](../concepts/enterprise.md)하는 기업에도 적용 됩니다.
 
-> [!TIP]
-> 이 항목의 서비스 공급자 및 고객을 참조 하지만이 지침은 [Azure Lighthouse를 사용 하 여 여러 테 넌 트를 관리](../concepts/enterprise.md)하는 기업에도 적용 됩니다.
+> [!NOTE]
+> 사용자를 관리 하는 테 넌 트의 사용자에 게 위임 된 고객 구독의 [Log Analytics 작업 영역을 관리 하는 데 필요한 역할이](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) 부여 되어 있어야 합니다.
 
 ## <a name="create-log-analytics-workspaces"></a>Log Analytics 작업 영역 만들기
 
@@ -26,6 +26,9 @@ ms.locfileid: "88163291"
 이러한 작업 영역을 고객 테 넌 트에 직접 만드는 것이 좋습니다. 이러한 방식으로 데이터가 자신의 테 넌 트로 내보내지지 않고 테 넌 트에 유지 됩니다. 또한 Log Analytics에서 지 원하는 모든 리소스 또는 서비스를 중앙에서 모니터링할 수 있으므로 모니터링 하는 데이터 형식에 대 한 유연성을 높일 수 있습니다.
 
 [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)를 사용 하거나 [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)를 사용 하거나 [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)를 사용 하 여 Log Analytics 작업 영역을 만들 수 있습니다.
+
+> [!IMPORTANT]
+> 모든 작업 영역이 고객 테 넌 트에서 생성 되더라도 Microsoft Insights 리소스 공급자는 관리 테 넌 트의 구독에도 등록 해야 합니다.
 
 ## <a name="deploy-policies-that-log-data"></a>데이터를 기록 하는 정책 배포
 
@@ -37,11 +40,29 @@ Log Analytics 작업 영역을 만든 후에는 각 테 넌 트의 적절 한 �
 
 ## <a name="analyze-the-gathered-data"></a>수집 된 데이터 분석
 
-정책을 배포한 후에는 각 고객 테 넌 트에서 만든 Log Analytics 작업 영역에 데이터가 로깅됩니다. 모든 관리 되는 고객에 대 한 통찰력을 얻기 위해 [Azure Monitor 통합 문서](../../azure-monitor/platform/workbooks-overview.md) 와 같은 도구를 사용 하 여 여러 데이터 원본의 정보를 수집 하 고 분석할 수 있습니다. 
+정책을 배포한 후에는 각 고객 테 넌 트에서 만든 Log Analytics 작업 영역에 데이터가 로깅됩니다. 모든 관리 되는 고객에 대 한 통찰력을 얻기 위해 [Azure Monitor 통합 문서](../../azure-monitor/platform/workbooks-overview.md) 와 같은 도구를 사용 하 여 여러 데이터 원본의 정보를 수집 하 고 분석할 수 있습니다.
+
+## <a name="view-alerts-across-customers"></a>고객 간에 경고 보기
+
+사용자가 관리 하는 고객 테 넌 트에서 위임 된 구독에 대 한 [경고](../../azure-monitor/platform/alerts-overview.md) 를 볼 수 있습니다.
+
+여러 고객에 대해 경고를 자동으로 새로 고치려면 [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 쿼리를 사용 하 여 경고를 필터링 합니다. 대시보드에 쿼리를 고정 하 고 해당 하는 모든 고객 및 구독을 선택할 수 있습니다.
+
+다음 예제 쿼리는 심각도 0 및 경고 1 개를 표시 하 고 60 분 마다 새로 고칩니다.
+
+```kusto
+alertsmanagementresources
+| where type == "microsoft.alertsmanagement/alerts"
+| where properties.essentials.severity =~ "Sev0" or properties.essentials.severity =~ "Sev1"
+| where properties.essentials.monitorCondition == "Fired"
+| where properties.essentials.startDateTime > ago(60m)
+| project StartTime=properties.essentials.startDateTime,name,Description=properties.essentials.description, Severity=properties.essentials.severity, subscriptionId
+| sort by tostring(StartTime)
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-- 여러 Log Analytics 작업 영역에서 [업데이트 관리 로그를 쿼리하여](../../automation/update-management/update-mgmt-query-logs.md) 패치 준수 보고를 추적 하는이 [MVP 제작 샘플 통합 문서](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks)를 살펴보세요. 
+- 여러 Log Analytics 작업 영역에서 [업데이트 관리 로그를 쿼리하여](../../automation/update-management/query-logs.md) 패치 준수 보고를 추적 하는이 [MVP 제작 샘플 통합 문서](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks)를 살펴보세요. 
 - [Azure Monitor](../../azure-monitor/index.yml)에 대해 알아봅니다.
 - [Azure Monitor 로그](../../azure-monitor/platform/data-platform-logs.md)에 대해 알아봅니다.
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.

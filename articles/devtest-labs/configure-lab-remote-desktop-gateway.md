@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 원격 데스크톱 게이트웨이를 사용 �
 description: RDP 포트를 노출 하지 않고도 랩 Vm에 안전 하 게 액세스할 수 있도록 원격 데스크톱 게이트웨이를 사용 하 여 Azure DevTest Labs에서 랩을 구성 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288075"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695694"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Azure DevTest Labs에서 원격 데스크톱 게이트웨이를 사용 하도록 랩 구성
 Azure DevTest Labs에서 랩에 대 한 원격 데스크톱 게이트웨이를 구성 하 여 RDP 포트를 노출 하지 않고도 랩 Vm (가상 머신)에 대 한 보안 액세스를 보장할 수 있습니다. 랩 사용자는 랩 사용자가 액세스 권한이 있는 모든 가상 컴퓨터를 보고 연결할 수 있는 중앙의 장소를 제공 합니다. **가상 컴퓨터** 페이지의 **연결** 단추를 클릭 하면 컴퓨터에 연결 하기 위해 열 수 있는 컴퓨터 관련 RDP 파일이 만들어집니다. 랩을 원격 데스크톱 게이트웨이에 연결 하 여 RDP 연결을 추가로 사용자 지정 하 고 보호할 수 있습니다. 
@@ -21,9 +21,9 @@ Azure DevTest Labs에서 랩에 대 한 원격 데스크톱 게이트웨이를 �
 
 1. **연결** 단추를 선택 하면 [RDP 파일 콘텐츠 가져오기](/rest/api/dtl/virtualmachines/getrdpfilecontents) 작업을 호출 합니다. 1. 
 1. RDP 파일 콘텐츠 가져오기 작업은 `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` 을 호출 하 여 인증 토큰을 요청 합니다.
-    1. `{gateway-hostname}`Azure Portal 랩의 랩 **설정** 페이지에서 지정 된 게이트웨이 호스트 이름입니다. 
-    1. `{lab-machine-name}`연결 하려는 컴퓨터의 이름입니다.
-    1. `{port-number}`연결을 설정 해야 하는 포트입니다. 일반적으로이 포트는 3389입니다. 랩 VM이 DevTest Labs에서 [공유 IP](devtest-lab-shared-ip.md) 기능을 사용 하는 경우 포트는 달라 집니다.
+    1. `{gateway-hostname}` Azure Portal 랩의 랩 **설정** 페이지에서 지정 된 게이트웨이 호스트 이름입니다. 
+    1. `{lab-machine-name}` 연결 하려는 컴퓨터의 이름입니다.
+    1. `{port-number}` 연결을 설정 해야 하는 포트입니다. 일반적으로이 포트는 3389입니다. 랩 VM이 DevTest Labs에서 [공유 IP](devtest-lab-shared-ip.md) 기능을 사용 하는 경우 포트는 달라 집니다.
 1. 원격 데스크톱 게이트웨이는에서 Azure 함수로의 호출을 지연 `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` 하 여 인증 토큰을 생성 합니다. DevTest Labs 서비스는 요청 헤더에 함수 키를 자동으로 포함 합니다. 함수 키는 랩의 키 자격 증명 모음에 저장 됩니다. 랩에 대 한 **랩 설정** 페이지에서 **게이트웨이 토큰 비밀로** 표시할 비밀의 이름입니다.
 1. Azure 함수는 게이트웨이 컴퓨터에 대해 인증서 기반 토큰 인증에 대 한 토큰을 반환 합니다.  
 1. 그러면 RDP 파일 콘텐츠 가져오기 작업에서 인증 정보를 포함 하 여 전체 RDP 파일을 반환 합니다.
@@ -66,10 +66,10 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 다음 단계를 사용 하 여 토큰 인증을 사용 하도록 랩을 구성 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
-1. 랩 목록에서 **랩을**선택 합니다.
-1. 랩의 페이지에서 **구성 및 정책**을 선택 합니다.
-1. 왼쪽 메뉴의 **설정** 섹션에서 **랩 설정**을 선택 합니다.
+1. **모든 서비스** 를 선택한 다음, 목록에서 **DevTest Labs** 를 선택합니다.
+1. 랩 목록에서 **랩을** 선택 합니다.
+1. 랩의 페이지에서 **구성 및 정책** 을 선택 합니다.
+1. 왼쪽 메뉴의 **설정** 섹션에서 **랩 설정** 을 선택 합니다.
 1. **원격 데스크톱** 섹션에서 **게이트웨이 호스트 이름** 필드에 대 한 원격 데스크톱 서비스 게이트웨이 컴퓨터 또는 팜의 FQDN (정규화 된 도메인 이름) 또는 IP 주소를 입력 합니다. 이 값은 게이트웨이 컴퓨터에서 사용 되는 TLS/SSL 인증서의 FQDN과 일치 해야 합니다.
 
     ![랩 설정의 원격 데스크톱 옵션](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
@@ -79,7 +79,7 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 1. **저장** 변경.
 
     > [!NOTE] 
-    > **저장**을 클릭 하면 [원격 데스크톱 게이트웨이의 사용 조건](https://www.microsoft.com/licensing/product-licensing/products)에 동의 하는 것입니다. 원격 게이트웨이에 대 한 자세한 내용은 [원격 데스크톱 서비스 시작](https://aka.ms/rds) 및 [원격 데스크톱 환경 배포](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)를 참조 하세요.
+    > **저장** 을 클릭 하면 [원격 데스크톱 게이트웨이의 사용 조건](https://www.microsoft.com/licensing/product-licensing/products)에 동의 하는 것입니다. 원격 게이트웨이에 대 한 자세한 내용은 [원격 데스크톱 서비스 시작](/windows-server/remote/remote-desktop-services/Welcome-to-rds) 및 [원격 데스크톱 환경 배포](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)를 참조 하세요.
 
 
 Automation을 통해 랩 구성이 선호 되는 경우 [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) 샘플 PowerShell 스크립트를 참조 하 여 **게이트웨이 호스트 이름** 및 **게이트웨이 토큰 비밀** 설정을 설정 합니다. [Azure DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-devtestlab) 는 **게이트웨이 호스트 이름** 및 **게이트웨이 토큰 비밀** 설정을 사용 하 여 랩을 만들거나 업데이트 하는 Azure Resource Manager 템플릿도 제공 합니다.
@@ -94,7 +94,7 @@ Automation을 통해 랩 구성이 선호 되는 경우 [Set-DevTestLabGateway.p
 ## <a name="sample-to-create-a-remote-desktop-gateway"></a>원격 데스크톱 게이트웨이를 만드는 샘플
 
 > [!NOTE] 
-> 샘플 템플릿을 사용 하면 [원격 데스크톱 게이트웨이의 사용 조건](https://www.microsoft.com/licensing/product-licensing/products)에 동의 하는 것입니다. 원격 게이트웨이에 대 한 자세한 내용은 [원격 데스크톱 서비스 시작](https://aka.ms/rds) 및 [원격 데스크톱 환경 배포](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)를 참조 하세요.
+> 샘플 템플릿을 사용 하면 [원격 데스크톱 게이트웨이의 사용 조건](https://www.microsoft.com/licensing/product-licensing/products)에 동의 하는 것입니다. 원격 게이트웨이에 대 한 자세한 내용은 [원격 데스크톱 서비스 시작](/windows-server/remote/remote-desktop-services/Welcome-to-rds) 및 [원격 데스크톱 환경 배포](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)를 참조 하세요.
 
 [Azure DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-devtestlab) 는 DevTest Labs에서 토큰 인증 및 원격 데스크톱 게이트웨이를 사용 하는 데 필요한 리소스를 설정 하는 데 도움이 되는 몇 가지 샘플을 제공 합니다. 이러한 샘플에는 게이트웨이 컴퓨터, 랩 설정 및 함수 앱에 대 한 Azure Resource Manager 템플릿이 포함 되어 있습니다.
 
@@ -135,7 +135,7 @@ Automation을 통해 랩 구성이 선호 되는 경우 [Set-DevTestLabGateway.p
     다음 명령을 사용 하 여 Azure CLI를 사용 하 여 템플릿을 배포할 수 있습니다.
 
     ```azurecli
-    az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
+    az deployment group create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
     ```
 
     매개 변수에 대 한 설명은 다음과 같습니다.

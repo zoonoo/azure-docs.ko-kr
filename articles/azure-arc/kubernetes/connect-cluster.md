@@ -8,13 +8,13 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc를 사용하여 Azure Arc가 지원되는 Kubernetes 클러스터 연결
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.custom: references_regions
-ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 7f402d86ac1287753bc2deab53b24bb796644992
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723744"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97583935"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Azure Arc가 지원되는 Kubernetes 클러스터 연결(미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "88723744"
 * Arc enabled Kubernetes 에이전트를 배포 하기 위해 클러스터의 클러스터 및 클러스터 관리자 역할에 액세스 하려면 kubeconfig 파일이 필요 합니다.
 * `az login` 및 `az connectedk8s connect` 명령에 사용되는 사용자 또는 서비스 주체에는 'Microsoft.Kubernetes/connectedclusters' 리소스 종류에 대한 '읽기' 및 '쓰기' 권한이 있어야 합니다. "Kubernetes Cluster-Azure Arc 온 보 딩" 역할에는 이러한 권한이 있으며 사용자 또는 서비스 주체의 역할 할당에 사용할 수 있습니다.
 * Connectedk8s 확장을 사용 하 여 클러스터를 등록 하려면 투구 3이 필요 합니다. 이 요구 사항을 충족 하기 위해 [최신 버전의 투구 3을 설치](https://helm.sh/docs/intro/install) 합니다.
-* Azure CLI 버전 2.3 +는 Azure Arc 사용 Kubernetes CLI 확장을 설치 하는 데 필요 합니다. [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 하거나 최신 버전으로 업데이트 하 여 Azure CLI 버전 2.3 +가 설치 되어 있는지 확인 합니다.
+* Azure CLI 버전 2.3 +는 Azure Arc 사용 Kubernetes CLI 확장을 설치 하는 데 필요 합니다. [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 하거나 최신 버전으로 업데이트 하 여 Azure CLI 버전 2.3 +가 설치 되어 있는지 확인 합니다.
 * Arc enabled Kubernetes CLI 확장을 설치 합니다.
   
   Kubernetes 클러스터를 Azure에 연결하는 데 도움이 되는 `connectedk8s` 확장을 설치합니다.
@@ -68,10 +68,8 @@ Azure Arc 에이전트는 다음 프로토콜/포트/아웃바운드 URL이 작�
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | 에이전트가 Azure에 연결하고 클러스터를 등록하는 데 필요합니다.                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | 상태를 푸시하고 구성 정보를 가져오는 에이전트의 데이터 평면 엔드포인트                                      |
-| `https://docker.io`                                                                                            | 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                                         |
-| `https://github.com`, git://github.com                                                                         | 예제 GitOps 리포지토리는 GitHub에서 호스트됩니다. 구성 에이전트를 사용하려면 지정한 git 엔드포인트에 연결해야 합니다. |
 | `https://login.microsoftonline.com`                                                                            | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다.                                                                                    |
-| `https://azurearcfork8s.azurecr.io`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |
+| `https://mcr.microsoft.com`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  시스템 할당 관리 id 인증서를 가져오는 데 필요 합니다.                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Azure Arc가 지원되는 Kubernetes의 두 공급자 등록
@@ -179,32 +177,40 @@ AzureArcTest1  eastus      AzureArcTest
 
 1. `connectedk8s`다음 명령을 실행 하 여 컴퓨터에 설치 된 확장의 버전을 확인 합니다.
 
-    ```bash
+    ```console
     az -v
     ```
 
-    `connectedk8s`아웃 바운드 프록시를 사용 하 여 에이전트를 설정 하려면 >= 0.2.3 확장 버전이 필요 합니다. 컴퓨터에 < 0.2.3 버전이 있으면 [업데이트 단계](#before-you-begin) 를 따라 컴퓨터에서 최신 버전의 확장을 가져옵니다.
+    `connectedk8s`아웃 바운드 프록시를 사용 하 여 에이전트를 설정 하려면 >= 0.2.5 확장 버전이 필요 합니다. 컴퓨터에 < 0.2.3 버전이 있으면 [업데이트 단계](#before-you-begin) 를 따라 컴퓨터에서 최신 버전의 확장을 가져옵니다.
 
-2. Azure CLI에 필요한 환경 변수를 설정 합니다.
+2. 아웃 바운드 프록시 서버를 사용 하 Azure CLI에 필요한 환경 변수를 설정 합니다.
 
-    ```bash
-    export HTTP_PROXY=<proxy-server-ip-address>:<port>
-    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-    ```
+    * Bash를 사용 하는 경우 적절 한 값을 사용 하 여 다음 명령을 실행 합니다.
+
+        ```bash
+        export HTTP_PROXY=<proxy-server-ip-address>:<port>
+        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+        ```
+
+    * PowerShell을 사용 하는 경우 적절 한 값을 사용 하 여 다음 명령을 실행 합니다.
+
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
 
 3. 프록시 매개 변수를 지정 하 여 connect 명령을 실행 합니다.
 
-    ```bash
-    az connectedk8s connect -n <cluster-name> -g <resource-group> \
-    --proxy-https https://<proxy-server-ip-address>:<port> \
-    --proxy-http http://<proxy-server-ip-address>:<port> \
-    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```console
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
 > [!NOTE]
 > 1. --Proxy-skip 범위에서 excludedCIDR을 지정 하는 것이 에이전트에 대해 클러스터 간 통신이 끊어지지 않았는지 확인 하는 데 중요 합니다.
-> 2. 위의 프록시 사양은 현재 Arc 에이전트에만 적용 되 고 sourceControlConfiguration에서 사용 되는 flux pod는 적용 되지 않습니다. Arc enabled Kubernetes 팀은이 기능에서 적극적으로 작업 중 이며 곧 사용할 수 있게 될 예정입니다.
+> 2. 대부분의 아웃 바운드 프록시 환경에--proxy-http,--pod 및--proxy-skip 범위가 필요 하지만--proxy-cert는 에이전트의 신뢰할 수 있는 인증서 저장소에 삽입 해야 하는 프록시의 신뢰할 수 있는 인증서가 있는 경우에만 필요 합니다.
+> 3. 위의 프록시 사양은 현재 Arc 에이전트에만 적용 되며 sourceControlConfiguration에 사용 되는 flux pod는 적용 되지 않습니다. Arc enabled Kubernetes 팀은이 기능에서 적극적으로 작업 중 이며 곧 사용할 수 있게 될 예정입니다.
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Kubernetes용 Azure Arc 에이전트
 
@@ -217,16 +223,16 @@ kubectl -n azure-arc get deployments,pods
 **출력:**
 
 ```console
-NAME                                        READY   UP-TO-DATE AVAILABLE AGE
-deployment.apps/cluster-metadata-operator   1/1     1           1        16h
-deployment.apps/clusteridentityoperator     1/1     1           1        16h
-deployment.apps/config-agent                1/1     1           1        16h
-deployment.apps/controller-manager          1/1     1           1        16h
-deployment.apps/flux-logs-agent             1/1     1           1        16h
-deployment.apps/metrics-agent               1/1     1           1        16h
-deployment.apps/resource-sync-agent         1/1     1           1        16h
+NAME                                        READY      UP-TO-DATE  AVAILABLE  AGE
+deployment.apps/cluster-metadata-operator     1/1             1        1      16h
+deployment.apps/clusteridentityoperator       1/1             1        1      16h
+deployment.apps/config-agent                  1/1             1        1      16h
+deployment.apps/controller-manager            1/1             1        1      16h
+deployment.apps/flux-logs-agent               1/1             1        1      16h
+deployment.apps/metrics-agent                 1/1             1        1      16h
+deployment.apps/resource-sync-agent           1/1             1        1      16h
 
-NAME                                            READY   STATUS   RESTART AGE
+NAME                                           READY    STATUS   RESTART AGE
 pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
 pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
 pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h

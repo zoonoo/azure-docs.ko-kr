@@ -3,18 +3,20 @@ title: Azure Cosmos DB 쿼리 언어의 DateTimeFromParts
 description: Azure Cosmos DB의 SQL 시스템 함수 DateTimeFromParts에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: aec567c642f8eb3cb421ef5a119fe58f3a5fe05a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: da992715b5cf624592db72cacefd35c9513ac43f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262061"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335775"
 ---
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 입력 값에서 생성 된 문자열 DateTime 값을 반환 합니다.
   
@@ -26,21 +28,21 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 ## <a name="arguments"></a>인수
   
-*숫자 연도* 형식의 연도에 대 한 정수 값입니다.`YYYY`
+*숫자 연도* 형식의 연도에 대 한 정수 값입니다. `YYYY`
 
 *숫자 월*  
-   형식의 월에 대 한 정수 값입니다.`MM`
+   형식의 월에 대 한 정수 값입니다. `MM`
 
 *숫자 일*  
-   형식의 날짜에 대 한 정수 값`DD`
+   형식의 날짜에 대 한 정수 값 `DD`
 
-*숫자 시간* (옵션) 형식의 시간에 대 한 정수 값`hh`
+*숫자 시간* (옵션) 형식의 시간에 대 한 정수 값 `hh`
 
-*숫자 분* (선택 사항) 형식으로 된 분의 정수 값`mm`
+*숫자 분* (선택 사항) 형식으로 된 분의 정수 값 `mm`
 
 두 번째 형식으로 된 *숫자* (옵션)의 정수 값입니다.`ss`
 
-*numberOfFractionsOfSecond* (선택 사항) 형식에서 초의 소수 부분에 대 한 정수 값입니다.`.fffffff`
+*numberOfFractionsOfSecond* (선택 사항) 형식에서 초의 소수 부분에 대 한 정수 값입니다. `.fffffff`
 
 ## <a name="return-types"></a>반환 형식
 
@@ -53,7 +55,7 @@ UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합�
   |DD|월 (01-31)의 2 자리 숫자 일|
   |T|시간 요소 시작에 대 한 signifier|
   |hh|두 자리 시간 (00-23)|
-  |MM|두 자리 분 (00-59)|
+  |mm|두 자리 분 (00-59)|
   |ss|두 자리 초 (00-59)|
   |. fffffff|7 자리 소수 자릿수 초|
   |Z|UTC (협정 세계시) 지정자||
@@ -66,7 +68,7 @@ UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합�
 
 선택적 인수를 지정 하지 않으면 해당 값은 0이 됩니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 DateTime을 생성 하는 데 필요한 인수만 포함 하는 예제는 다음과 같습니다.
 

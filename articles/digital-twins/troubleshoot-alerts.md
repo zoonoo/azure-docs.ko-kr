@@ -5,14 +5,14 @@ description: Azure Digital Twins 메트릭에 대해 경고를 사용 하도록 
 author: baanders
 ms.author: baanders
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087214"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616605"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Azure Digital Twins 문제 해결: 경고
 
@@ -26,7 +26,7 @@ Azure Digital Twins 인스턴스에 대해 경고를 사용 하도록 설정 하
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 Azure Digital twins 인스턴스로 이동 합니다. 포털 검색 표시줄에 이름을 입력 하 여 찾을 수 있습니다. 
 
-2. 메뉴에서 **경고** 를 선택 하 고 **+ 새 경고 규칙**을 선택 합니다.
+2. 메뉴에서 **경고** 를 선택 하 고 **+ 새 경고 규칙** 을 선택 합니다.
 
 3. 다음에 나오는 *경고 규칙 만들기* 페이지에서 프롬프트에 따라 조건, 트리거할 작업 및 경고 세부 정보를 정의할 수 있습니다.     
     * **범위** 세부 정보는 인스턴스에 대 한 세부 정보로 자동으로 채워집니다.

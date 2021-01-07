@@ -7,28 +7,34 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
-ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 11/17/2020
+ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936013"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738053"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
-Azure Blob 스토리지에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 파이프라인에서 이미지를 처리할 수 있지만, 이 REST 자습서에서는 텍스트에 중점을 두고 언어 감지 및 자연어 처리를 적용하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
+Azure Blob 스토리지에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 Blob에서 새 콘텐츠를 만들 수 있습니다. 파이프라인에서 이미지를 처리할 수 있지만, 이 REST 자습서에서는 텍스트에 중점을 두고 언어 감지 및 자연어 처리를 적용하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
 
 이 자습서에서는 Postman 및 [Search REST API](/rest/api/searchservice/)를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
-> * Azure Blob 스토리지에서 PDF, HTML, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작합니다.
-> * 텍스트를 추출하고, 언어를 감지하고, 엔터티를 인식하고, 핵심 구를 검색하는 파이프라인을 정의합니다.
-> * 출력(원시 콘텐츠 및 파이프라인에서 생성된 이름-값 쌍)을 저장할 인덱스를 정의합니다.
-> * 파이프라인을 실행하여 변환 및 분석을 시작하고 인덱스를 생성하고 로드합니다.
+> * 서비스 및 Postman 컬렉션을 설정합니다.
+> * 텍스트를 추출하고, 언어를 감지하고, 엔터티를 인식하고, 핵심 구를 검색하는 보강 파이프라인을 만듭니다.
+> * 출력(원시 콘텐츠 및 파이프라인에서 생성된 이름-값 쌍)을 저장할 인덱스를 만듭니다.
+> * 파이프라인을 실행하여 변환 및 분석을 수행하고 인덱스를 로드합니다.
 > * 전체 텍스트 검색과 풍부한 쿼리 구문을 사용하여 결과를 검색합니다.
 
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 엽니다.
+
+## <a name="overview"></a>개요
+
+이 자습서에서는 C# 및 Azure Cognitive Search REST API를 사용하여 데이터 원본, 인덱스, 인덱서 및 기술 세트를 만듭니다. Azure Blob 스토리지에서 PDF, HTML, .DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작한 다음, 기술 세트를 통해 실행하여 콘텐츠 파일에서 엔터티, 핵심 구 및 기타 텍스트를 추출합니다.
+
+이 기술 세트에서는 Cognitive Services API 기반의 기본 제공 기술을 사용합니다. 파이프라인의 단계에는 텍스트에 대한 언어 감지, 핵심 문구 추출 및 엔터티 인식(조직)이 포함됩니다. 새 정보는 쿼리, 패싯 및 필터에 활용할 수 있는 새 필드에 저장됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -41,9 +47,11 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="download-files"></a>파일 다운로드
 
-1. 이 [OneDrive 폴더](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 열고, 왼쪽 위 모서리에서 **다운로드**를 클릭하여 파일을 컴퓨터에 복사합니다. 
+1. 이 [OneDrive 폴더](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 열고, 왼쪽 위 모서리에서 **다운로드** 를 클릭하여 파일을 컴퓨터에 복사합니다. 
 
-1. 마우스 오른쪽 단추로 Zip 파일을 클릭하고, **압축 풀기**를 선택합니다. 다양한 형식의 14개 파일이 있습니다. 이 연습에서는 7개 파일을 사용합니다.
+1. 마우스 오른쪽 단추로 Zip 파일을 클릭하고, **압축 풀기** 를 선택합니다. 다양한 형식의 14개 파일이 있습니다. 이 연습에서는 7개 파일을 사용합니다.
+
+필요에 따라 이 자습서에 대한 소스 코드인 Postman 컬렉션 파일을 다운로드할 수도 있습니다. 소스 코드는 [https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial)에서 찾을 수 있습니다.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
@@ -53,9 +61,9 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ### <a name="start-with-azure-storage"></a>Azure Storage 시작
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고, **+ 리소스 만들기**를 클릭합니다.
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, **+ 리소스 만들기** 를 클릭합니다.
 
-1. *스토리지 계정*을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
+1. *스토리지 계정* 을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
 
    ![스토리지 계정 만들기](media/cognitive-search-tutorial-blob/storage-account.png "Storage 계정 만들기")
 
@@ -69,23 +77,23 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
    + **계정 종류**. 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
 
-1. **검토 + 만들기**를 클릭하여 서비스를 만듭니다.
+1. **검토 + 만들기** 를 클릭하여 서비스를 만듭니다.
 
-1. 서비스가 만들어지면 **리소스로 이동**을 클릭하여 [개요] 페이지를 엽니다.
+1. 서비스가 만들어지면 **리소스로 이동** 을 클릭하여 [개요] 페이지를 엽니다.
 
 1. **Blob** 서비스를 클릭합니다.
 
-1. **+ 컨테이너**를 클릭하여 컨테이너를 만들고, 이름을 *cog-search-demo*로 지정합니다.
+1. **+ 컨테이너** 를 클릭하여 컨테이너를 만들고, 이름을 *cog-search-demo* 로 지정합니다.
 
-1. *cog-search-demo*를 선택한 다음, **업로드**를 클릭하여 다운로드 파일을 저장한 폴더를 엽니다. 이미지가 아닌 파일을 모두 선택합니다. 7개의 파일이 있어야 합니다. **확인**을 클릭하여 업로드합니다.
+1. *cog-search-demo* 를 선택한 다음, **업로드** 를 클릭하여 다운로드 파일을 저장한 폴더를 엽니다. 이미지가 아닌 파일을 모두 선택합니다. 7개의 파일이 있어야 합니다. **확인** 을 클릭하여 업로드합니다.
 
    ![샘플 파일 업로드](media/cognitive-search-tutorial-blob/sample-files.png "샘플 파일 업로드")
 
 1. Azure Storage를 나가기 전에 Azure Cognitive Search에서 연결을 만들 수 있도록 연결 문자열을 가져옵니다. 
 
-   1. 스토리지 계정의 [개요] 페이지로 돌아갑니다(*blobstragewestus*를 예로 사용했음). 
+   1. 스토리지 계정의 [개요] 페이지로 돌아갑니다(*blobstragewestus* 를 예로 사용했음). 
    
-   1. 왼쪽 탐색 창에서 **액세스 키**를 선택하고, 연결 문자열 중 하나를 복사합니다. 
+   1. 왼쪽 탐색 창에서 **액세스 키** 를 선택하고, 연결 문자열 중 하나를 복사합니다. 
 
    연결 문자열은 다음 예제와 비슷한 URL입니다.
 
@@ -107,31 +115,31 @@ AI 보강은 자연어와 이미지 처리를 위한 Text Analytics 및 Computer
 
 Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키를 수집합니다. 또한 요청을 구조화하기 시작할 때 각 요청을 인증하는 데 사용되는 엔드포인트 및 관리 API 키를 제공해야 합니다.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Azure Cognitive Search용 관리 API 키와 URL을 가져옵니다.
+### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Azure Cognitive Search용 관리 API 키와 URL 복사
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 검색 서비스의 이름을 확인합니다. 엔드포인트 URL을 검토하여 서비스 이름을 확인할 수 있습니다. 엔드포인트 URL이 `https://mydemo.search.windows.net`인 경우 서비스 이름은 `mydemo`입니다.
 
-2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+2. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
    쿼리 키도 가져옵니다. 쿼리 요청은 읽기 전용 액세스로 발급하는 것이 좋습니다.
 
-   ![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![서비스 이름과 관리자 및 쿼리 키 확인](media/search-get-started-javascript/service-name-and-keys.png)
 
 모든 요청에서 서비스에 보내는 각 요청의 헤더마다 API 키가 필요합니다. 유효한 키는 요청을 보내는 애플리케이션과 이 요청을 처리하는 서비스 간에 요청별로 신뢰를 설정합니다.
 
 ## <a name="2---set-up-postman"></a>2 - Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Azure Cognitive Search REST API 살펴보기](search-get-started-rest.md)를 참조하세요.
 
-이 자습서에 사용되는 요청 메서드는 **POST**, **PUT** 및 **GET**입니다. 이러한 메서드를 사용하여 검색 서비스에 대한 네 가지 API 호출(데이터 원본, 기술 세트, 인덱스 및 인덱서 만들기)을 수행합니다.
+이 자습서에 사용되는 요청 메서드는 **POST**, **PUT** 및 **GET** 입니다. 이러한 메서드를 사용하여 검색 서비스에 대한 네 가지 API 호출(데이터 원본, 기술 세트, 인덱스 및 인덱서 만들기)을 수행합니다.
 
 [헤더]에서 "Content-type"을 `application/json`으로 설정하고, `api-key`를 Azure Cognitive Search 서비스의 관리 API 키로 설정합니다. 헤더가 설정되면 이 연습의 모든 요청에 헤더를 사용할 수 있습니다.
 
-  ![Postman 요청 URL 및 헤더](media/search-get-started-postman/postman-url.png "Postman 요청 URL 및 헤더")
+  ![Postman 요청 URL 및 헤더](media/search-get-started-rest/postman-url.png "Postman 요청 URL 및 헤더")
 
 ## <a name="3---create-the-pipeline"></a>3 - 파이프라인 만들기
 
-Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중에 발생합니다. 이 연습 부분에서는 데이터 원본, 인덱스 정의, 기술 세트, 인덱서의 네 가지 개체를 만듭니다. 
+Azure Cognitive Search에서 보강은 인덱싱(또는 데이터 수집) 중에 발생합니다. 이 연습 부분에서는 데이터 원본, 인덱스 정의, 기술 세트, 인덱서의 네 가지 개체를 만듭니다. 
 
 ### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
 
@@ -143,7 +151,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
    https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2020-06-30
    ```
 
-1. 요청 **본문**에서 다음 JSON 정의를 복사하여 `connectionString`을 스토리지 계정의 실제 연결로 바꿉니다. 
+1. 요청 **본문** 에서 다음 JSON 정의를 복사하여 `connectionString`을 스토리지 계정의 실제 연결로 바꿉니다. 
 
    컨테이너 이름도 편집해야 합니다. 이전 단계에서 컨테이너 이름에 대해 "cog-search-demo"를 제안했습니다.
 
@@ -173,13 +181,13 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
     https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
-1. 요청 **본문**에서 아래 JSON 정의를 복사합니다. 이 기술 세트를 구성하는 기본 제공 기술은 다음과 같습니다.
+1. 요청 **본문** 에서 아래 JSON 정의를 복사합니다. 이 기술 세트를 구성하는 기본 제공 기술은 다음과 같습니다.
 
-   | 기술                 | Description    |
+   | 기술                 | 설명    |
    |-----------------------|----------------|
    | [엔터티 인식](cognitive-search-skill-entity-recognition.md) | Blob 컨테이너의 콘텐츠에서 사람, 조직 및 위치의 이름을 추출합니다. |
    | [언어 감지](cognitive-search-skill-language-detection.md) | 콘텐츠의 언어를 감지합니다. |
-   | [텍스트 분할](cognitive-search-skill-textsplit.md)  | 핵심 구 추출 기술을 호출하기 전에 큰 콘텐츠를 더 작은 청크로 분할합니다. 핵심 구 추출은 50,000자 이하의 입력을 허용합니다. 일부 샘플 파일은 이 제한에 맞게 분할해야 합니다. |
+   | [텍스트 나누기](cognitive-search-skill-textsplit.md)  | 핵심 구 추출 기술을 호출하기 전에 큰 콘텐츠를 더 작은 청크로 분할합니다. 핵심 구 추출은 50,000자 이하의 입력을 허용합니다. 일부 샘플 파일은 이 제한에 맞게 분할해야 합니다. |
    | [핵심 구 추출](cognitive-search-skill-keyphrases.md) | 상위 핵심 구를 가져옵니다. |
 
    각 기술은 문서의 콘텐츠에서 실행됩니다. 처리하는 동안 Azure Cognitive Search는 각 문서를 해독하여 다른 파일 형식의 콘텐츠를 읽습니다. 원본 파일에서 발생하는 텍스트는 각 문서에 대해 생성되는 ```content``` 필드에 배치됩니다. 따라서 입력은 ```"/document/content"```가 됩니다.
@@ -258,7 +266,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
-1. 요청 **본문**에서 다음 JSON 정의를 복사합니다. `content` 필드는 문서 자체를 저장합니다. `languageCode`, `keyPhrases` 및 `organizations`에 대한 추가 필드는 기술 세트에서 만든 새 정보(필드 및 값)를 나타냅니다.
+1. 요청 **본문** 에서 다음 JSON 정의를 복사합니다. `content` 필드는 문서 자체를 저장합니다. `languageCode`, `keyPhrases` 및 `organizations`에 대한 추가 필드는 기술 세트에서 만든 새 정보(필드 및 값)를 나타냅니다.
 
     ```json
     {
@@ -342,7 +350,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
    https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
-1. 요청 **본문**에서 아래 JSON 정의를 복사합니다. 필드 매핑 요소를 확인합니다. 이러한 매핑은 데이터 흐름을 정의하므로 중요합니다. 
+1. 요청 **본문** 에서 아래 JSON 정의를 복사합니다. 필드 매핑 요소를 확인합니다. 이러한 매핑은 데이터 흐름을 정의하므로 중요합니다. 
 
    `fieldMappings`는 기술 세트보다 먼저 처리되어 콘텐츠를 데이터 원본에서 인덱스의 대상 필드로 보냅니다. 필드 매핑을 사용하여 수정되지 않은 기존 콘텐츠를 인덱스로 보냅니다. 필드 이름과 유형이 양쪽 끝에서 동일하면 매핑이 필요 없습니다.
 
@@ -350,7 +358,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 
     ```json
     {
-      "name":"cog-search-demo-idxr",    
+      "name":"cog-search-demo-idxr",
       "dataSourceName" : "cog-search-demo-ds",
       "targetIndexName" : "cog-search-demo-idx",
       "skillsetName" : "cog-search-demo-ss",
@@ -498,7 +506,7 @@ Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중
 
 ![검색 개체 삭제](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "포털에서 검색 개체 삭제")
 
-또는 **DELETE**를 사용하고 각 개체에 대한 URL을 제공합니다. 다음 명령은 인덱서를 삭제합니다.
+또는 **DELETE** 를 사용하고 각 개체에 대한 URL을 제공합니다. 다음 명령은 인덱서를 삭제합니다.
 
 ```http
 DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30

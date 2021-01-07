@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 1a8ce0bc94c61a0cfe6cdad11375763ba954957d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 83a9eeb7644d107a808494ad06a8bef91d471fe1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88122531"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009876"
 ---
 ### <a name="verify-that-a-container-is-running"></a>컨테이너가 실행 중인지 확인 합니다.
 
@@ -25,7 +26,7 @@ ms.locfileid: "88122531"
 
 1. **서비스 API 설명** 링크를 선택 하 여 컨테이너의 Swagger 페이지로 이동 합니다.
 
-1. **POST** api 중 하나를 선택 하 고 **사용해 보기**를 선택 합니다. 예제 입력을 포함 하는 매개 변수가 표시 됩니다.
+1. **POST** api 중 하나를 선택 하 고 **사용해 보기** 를 선택 합니다. 예제 입력을 포함 하는 매개 변수가 표시 됩니다.
 
 컨테이너가 실행 중인지 확인 하는 데 사용할 수 있는 몇 가지 Url이 있습니다.
 

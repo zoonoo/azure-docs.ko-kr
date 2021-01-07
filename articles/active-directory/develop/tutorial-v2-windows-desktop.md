@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 Windows 데스크톱 시작
-description: Windows Desktop .NET(XAML) 애플리케이션이 액세스 토큰을 얻고 Microsoft ID 플랫폼에 의해 보호되는 API를 호출하는 방법.
+title: '자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 WPF(Windows Presentation Foundation) 앱 만들기 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 WPF 애플리케이션을 빌드합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,24 +12,32 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5fb7c0df653048adcffceda4d8a384be823b5c3a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82181542"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507696"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows 데스크톱 앱에서 Microsoft Graph API 호출
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>자습서: Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
-이 가이드에서는 네이티브 Windows Desktop.NET(XAML) 애플리케이션에서 액세스 토큰을 사용하여 Microsoft Graph API를 호출하는 방법을 보여줍니다. 이 앱은 개발자 v2.0 엔드포인트에 대한 Microsoft ID 플랫폼의 액세스 토큰을 필요로 하는 기타 API에 액세스할 수 있습니다. 이 플랫폼은 이전에 Azure AD라고 명명되었습니다.
+이 자습서에서는 사용자를 로그인하고 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 네이티브 Windows Desktop .NET(XAML) 앱을 빌드합니다. 
 
 이 가이드를 완료하면 애플리케이션은 개인 계정(outlook.com, live.com 등 포함)을 사용하는 보호된 API를 호출할 수 있습니다. 또한 애플리케이션은 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 및 학교 계정을 사용합니다.
 
-> [!NOTE]
-> 이 가이드에는 Visual Studio 2015 업데이트 3, Visual Studio 2017 또는 Visual Studio 2019가 필요합니다. 이러한 버전이 설치되어 있지 않나요? [체험용 Visual Studio 2019를 다운로드](https://www.visualstudio.com/downloads/)합니다.
+이 자습서에서는 다음을 수행합니다.
 
->[!NOTE]
-> Microsoft ID 플랫폼을 처음 접하는 경우 [Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](quickstart-v2-windows-desktop.md)로 시작하는 것이 좋습니다.
+> [!div class="checklist"]
+> * Visual Studio에서 *WPF(Windows Presentation Foundation)* 프로젝트 만들기
+> * .NET용 MSAL(Microsoft 인증 라이브러리) 설치
+> * Azure Portal에 애플리케이션 등록
+> * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
+> * Microsoft Graph API를 호출하는 코드 추가
+> * 앱 테스트
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 
@@ -54,7 +63,7 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-이 섹션에서는 토큰이 필요한 웹 API를 쿼리할 수 있도록 Windows Desktop .NET 애플리케이션(XAML)을 *Microsoft에 로그인*과 통합하는 방법을 설명하기 위해 새 프로젝트를 만듭니다.
+이 섹션에서는 토큰이 필요한 웹 API를 쿼리할 수 있도록 Windows Desktop .NET 애플리케이션(XAML)을 *Microsoft에 로그인* 과 통합하는 방법을 설명하기 위해 새 프로젝트를 만듭니다.
 
 이 가이드를 사용하여 만든 애플리케이션은 그래프를 호출하는 데 사용된 단추, 화면에 결과를 보여주는 영역 및 로그아웃 단추를 표시합니다.
 
@@ -64,13 +73,13 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 
 애플리케이션을 만들려면 다음을 수행합니다.
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
-2. **템플릿**에서 **Visual C#** 을 선택합니다.
+1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 선택합니다.
+2. **템플릿** 에서 **Visual C#** 을 선택합니다.
 3. 사용하고 있는 Visual Studio 버전에 따라 **WPF 앱(.NET Framework)** 을 선택합니다.
 
 ## <a name="add-msal-to-your-project"></a>프로젝트에 MSAL 추가
 
-1. Visual Studio에서 **도구** > **NuGet 패키지 관리자**> **패키지 관리자 콘솔**을 선택합니다.
+1. Visual Studio에서 **도구** > **NuGet 패키지 관리자**> **패키지 관리자 콘솔** 을 선택합니다.
 2. 패키지 관리자 콘솔 창에서 다음 Azure PowerShell 명령을 붙여넣습니다.
 
     ```powershell
@@ -89,24 +98,23 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 
 다음을 수행하여 애플리케이션을 신속하게 등록할 수 있습니다.
 1. [Azure Portal - 애플리케이션 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs)으로 이동합니다.
-1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
 
 애플리케이션을 등록하고 애플리케이션 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-1. **새 등록**을 선택합니다.
-   - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `Win-App-calling-MsGraph`)을 입력합니다.
-   - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
-   - **등록**을 선택하여 애플리케이션을 만듭니다.
-1. 앱의 페이지 목록에서 **인증**을 선택합니다.
-   1. **리디렉션 URI** 섹션의 리디렉션 URI 목록에서 다음을 수행합니다.
-   1. **TYPE** 열에서 **퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)** 를 선택합니다.
-   1. **REDIRECT URI** 열에 `https://login.microsoftonline.com/common/oauth2/nativeclient`를 입력합니다.
-1. **등록**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `Win-App-calling-MsGraph`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다.
+1. **등록** 을 선택합니다.
+1. **관리** 에서 **인증** > **플랫폼 추가** 를 선택합니다.
+1. **모바일 및 데스크톱 애플리케이션** 을 선택합니다.
+1. **리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 선택합니다.
+1. **구성** 을 선택합니다.
 1. Visual Studio로 이동하여 *App.xaml.cs* 파일을 연 다음 아래 코드 조각의 `Enter_the_Application_Id_here`를 방금 등록하고 복사한 애플리케이션 ID로 바꿉니다.
 
     ```csharp
@@ -251,6 +259,7 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
                 this.SignOutButton.Visibility = Visibility.Visible;
             }
         }
+        }
     ```
 
 ### <a name="more-information"></a>자세한 정보
@@ -367,3 +376,10 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 또한 MSAL에서는 사용자가 로그인한 후에 Microsoft Graph API를 호출하는 데 사용되는 액세스 토큰을 외에도 ID 토큰을 가져옵니다. 이 토큰에는 사용자에게 관련된 정보의 작은 하위 집합이 포함됩니다. `DisplayBasicTokenInfo` 메서드는 토큰에 포함된 기본 정보를 표시합니다. 예를 들어, 토큰 만료 날짜 및 액세스 토큰 자체를 나타내는 문자열뿐만 아니라 사용자 표시 이름 및 ID을 표시합니다. *Microsoft Graph API 호출* (Call Microsoft Graph API) 단추를 여러 번 선택하면 동일한 토큰이 후속 요청에 다시 사용된 것을 볼 수 있습니다. MSAL이 토큰 갱신 시점이라고 판단한 경우에는 만료 날짜가 연장된 것도 확인할 수 있습니다.
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+여러 부분으로 구성된 시나리오 시리즈에서 보호된 웹 API를 호출하는 데스크톱 앱을 빌드하는 방법에 대해 자세히 알아보세요.
+
+> [!div class="nextstepaction"]
+> [시나리오: Web API를 호출하는 데스크톱 앱](scenario-desktop-overview.md)

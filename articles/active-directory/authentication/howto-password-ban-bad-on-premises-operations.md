@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f2e11fa1bb9f1d3a3986a19da8ed44229829ec81
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419770"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741782"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 사용
 
@@ -32,13 +32,13 @@ ms.locfileid: "87419770"
 
 ## <a name="enable-on-premises-password-protection"></a>온-프레미스 암호 보호 사용
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **Azure Active Directory**  >  **보안**  >  **인증 방법**  >  **암호 보호**로 이동 합니다.
-1. **Windows Server에서 암호 보호 사용 Active Directory** 의 옵션을 *예*로 설정 합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **Azure Active Directory**  >  **보안**  >  **인증 방법**  >  **암호 보호** 로 이동 합니다.
+1. **Windows Server에서 암호 보호 사용 Active Directory** 의 옵션을 *예* 로 설정 합니다.
 
-    이 설정이 *아니요*로 설정 된 경우 배포 된 모든 Azure AD 암호 보호 DC 에이전트는 모든 암호가 그대로 적용 되는 정지 모드로 전환 됩니다. 유효성 검사 작업은 수행 되지 않으며 감사 이벤트는 생성 되지 않습니다.
+    이 설정이 *아니요* 로 설정 된 경우 배포 된 모든 Azure AD 암호 보호 DC 에이전트는 모든 암호가 그대로 적용 되는 정지 모드로 전환 됩니다. 유효성 검사 작업은 수행 되지 않으며 감사 이벤트는 생성 되지 않습니다.
 
-1. 처음에는 **모드** 를 *Audit*로 설정 하는 것이 좋습니다. 기능 및 조직의 사용자에 대 한 영향에 익숙해지면 **모드** 를 *적용*으로 전환할 수 있습니다. 자세한 내용은 [작업 모드](#modes-of-operation)에 대 한 다음 섹션을 참조 하세요.
-1. 준비되면 **저장**을 선택합니다.
+1. 처음에는 **모드** 를 *Audit* 로 설정 하는 것이 좋습니다. 기능 및 조직의 사용자에 대 한 영향에 익숙해지면 **모드** 를 *적용* 으로 전환할 수 있습니다. 자세한 내용은 [작업 모드](#modes-of-operation)에 대 한 다음 섹션을 참조 하세요.
+1. 준비되면 **저장** 을 선택합니다.
 
     [![Azure Portal의 인증 방법에서 온-프레미스 암호 보호를 사용 하도록 설정](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 

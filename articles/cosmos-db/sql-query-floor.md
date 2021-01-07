@@ -3,18 +3,21 @@ title: Azure Cosmos DB 쿼리 언어의 밑면
 description: 지정 된 숫자 식 보다 작거나 같은 최대 정수를 반환 하 Azure Cosmos DB의 FLOOR SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 04dfa6a028cf7c44bf99c665b396d51d8a0f3cef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4696b90531b63a01fd4bd9260b24b9af5c6bbd93
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78303191"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335621"
 ---
 # <a name="floor-azure-cosmos-db"></a>바닥 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  지정된 숫자 식보다 작거나 같은 최대 정수를 반환합니다.  
   
 ## <a name="syntax"></a>구문

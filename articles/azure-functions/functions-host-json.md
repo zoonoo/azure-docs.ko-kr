@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055294"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654815"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대한 host.json 참조 
 
@@ -21,7 +21,7 @@ ms.locfileid: "87055294"
 > [!NOTE]
 > 이 문서는 Azure Functions 2.x 이상 버전에 대 한 것입니다.  Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.
 
-다른 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md) (배포 된 앱의 경우) 또는 파일 [에local.settings.js](functions-run-local.md#local-settings-file) (로컬 개발용)에서 관리 됩니다.
+다른 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md) (배포 된 앱의 경우) 또는 파일 [ 에local.settings.js](functions-run-local.md#local-settings-file) (로컬 개발용)에서 관리 됩니다.
 
 바인딩과 관련 된 host.js의 구성은 함수 앱의 각 함수에 동일 하 게 적용 됩니다. 
 
@@ -117,6 +117,11 @@ ms.locfileid: "87055294"
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -124,7 +129,8 @@ ms.locfileid: "87055294"
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -138,7 +144,7 @@ ms.locfileid: "87055294"
 
 이 설정은 [logging](#logging)의 자식입니다.
 
-[샘플링 옵션](./functions-monitoring.md#configure-sampling)을 포함 하 여 Application Insights에 대 한 옵션을 제어 합니다.
+[샘플링 옵션](./configure-monitoring.md#configure-sampling)을 포함 하 여 Application Insights에 대 한 옵션을 제어 합니다.
 
 전체 JSON 구조는 이전 [예제 파일 host.js](#sample-hostjson-file)를 참조 하세요.
 
@@ -151,22 +157,24 @@ ms.locfileid: "87055294"
 | enableLiveMetrics | true | 라이브 메트릭 수집을 사용 하도록 설정 합니다. |
 | enableDependencyTracking | true | 종속성 추적을 사용 합니다. |
 | enablePerformanceCountersCollection | true | Kudu 성능 카운터 수집을 사용 하도록 설정 합니다. |
-| liveMetricsInitializationDelay | 00:00:15 | 내부에서만 사용합니다. |
+| liveMetricsInitializationDelay | 00:00:15 | 내부 전용입니다. |
 | httpAutoCollectionOptions | 해당 없음 | [Applicationinsights](#applicationinsightshttpautocollectionoptions)를 참조 하세요. |
 | snapshotConfiguration | 해당 없음 | [Applicationinsights](#applicationinsightssnapshotconfiguration)를 참조 하세요. |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
+
+이러한 설정에 대 한 자세한 내용은 [Application Insights 샘플링](../azure-monitor/app/sampling.md)을 참조 하세요. 
 
 |속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | 샘플링을 사용 여부를 설정합니다. | 
 | maxTelemetryItemsPerSecond | 20 | 각 서버 호스트에서 초당 기록한 원격 분석 항목의 수입니다. 앱이 여러 호스트에서 실행 되는 경우이 값을 줄여서 전체 대상 트래픽 요금 내에 유지 합니다. | 
 | evaluationInterval | 01:00:00 | 현재 원격 분석 속도를 다시 평가 하는 간격입니다. 평가는 이동 평균으로 수행됩니다. 원격 분석이 급격히 증가하는 경우 이 간격을 줄일 수 있습니다. |
-| initialSamplingPercentage| 1.0 | 백분율을 동적으로 변경 하기 위해 샘플링 프로세스가 시작 될 때 적용 되는 초기 샘플링 비율입니다. 디버깅 하는 동안 값을 줄이지 마십시오. |
+| initialSamplingPercentage| 100.0 | 백분율을 동적으로 변경 하기 위해 샘플링 프로세스가 시작 될 때 적용 되는 초기 샘플링 비율입니다. 디버깅 하는 동안 값을 줄이지 마십시오. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | 샘플링 비율 값이 변경 되 면이 속성은 이후 Application Insights에서 더 많은 데이터를 캡처하기 위해 샘플링 비율을 다시 발생 시킬 수 있는 시간을 결정 합니다. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | 샘플링 비율 값이 변경 되 면이 속성은 더 적은 데이터를 캡처하기 위해 샘플링 비율을 다시 낮출 수 있는 Application Insights 시간을 결정 합니다. |
 | minSamplingPercentage | 0.1 | 샘플링 비율이 변경 됨에 따라이 속성은 허용 되는 최소 샘플링 비율을 결정 합니다. |
-| maxSamplingPercentage | 0.1 | 샘플링 비율이 변경 됨에 따라이 속성은 허용 되는 최대 샘플링 비율을 결정 합니다. |
+| maxSamplingPercentage | 100.0 | 샘플링 비율이 변경 됨에 따라이 속성은 허용 되는 최대 샘플링 비율을 결정 합니다. |
 | movingAverageRatio | 1.0 | 이동 평균 계산에서 가중치는 가장 최근의 값에 할당됩니다. 1보다 작거나 같은 값을 사용합니다. 값이 작을수록 알고리즘은 갑작스런 변화에 덜 반응합니다. |
 | excludedTypes | null | 샘플링 하지 않으려는 형식의 세미콜론으로 구분 된 목록입니다. 인식 되는 형식은 `Dependency` , `Event` , `Exception` , `PageView` , `Request` 및 `Trace` 입니다. 지정 된 형식의 모든 인스턴스가 전송 됩니다. 지정 되지 않은 형식이 샘플링 됩니다. |
 | includedTypes | null | 샘플링할 형식의 세미콜론으로 구분 된 목록입니다. 빈 목록은 모든 형식을 의미 합니다. `excludedTypes`여기에 나열 된 재정의 형식에 나열 된 유형입니다. 인식 되는 형식은 `Dependency` , `Event` , `Exception` , `PageView` , `Request` 및 `Trace` 입니다. 지정 된 형식의 인스턴스가 샘플링 됩니다. 지정 되지 않았거나 암시 되지 않은 형식은 샘플링 없이 전송 됩니다. |
@@ -211,6 +219,28 @@ ms.locfileid: "87055294"
 ## <a name="cosmosdb"></a>cosmosDb
 
 구성 설정은 [Cosmos DB 트리거 및 바인딩](functions-bindings-cosmosdb-v2-output.md#host-json)에서 찾을 수 있습니다.
+
+## <a name="customhandler"></a>customHandler
+
+사용자 지정 처리기에 대 한 구성 설정입니다. 자세한 내용은 [Azure Functions 사용자 지정 처리기](functions-custom-handlers.md#configuration)를 참조 하세요.
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|속성 | 기본값 | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | 해당 없음 | 사용자 지정 처리기 프로세스로 시작할 실행 파일입니다. 사용자 지정 처리기를 사용 하는 경우 필수 설정 이며, 해당 값은 함수 앱 루트를 기준으로 합니다. |
+| workingDirectory | *함수 앱 루트* | 사용자 지정 처리기 프로세스를 시작할 작업 디렉터리입니다. 선택적 설정 이며 해당 값은 함수 앱 루트를 기준으로 합니다. |
+| 인수 | 해당 없음 | 사용자 지정 처리기 프로세스에 전달할 명령줄 인수의 배열입니다. |
+| enableForwardingHttpRequest | false | 설정 하는 경우 HTTP 트리거와 HTTP 출력 으로만 구성 된 모든 함수는 사용자 지정 처리기 [요청 페이로드](functions-custom-handlers.md#request-payload)대신 원래 http 요청으로 전달 됩니다. |
 
 ## <a name="durabletask"></a>durableTask
 
@@ -310,7 +340,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 |속성  |기본값 | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
-|logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x 이상에서는 로그 범주 필터링을 위한 ASP.NET Core 레이아웃을 따릅니다. 이 설정을 통해 특정 함수에 대 한 로깅을 필터링 할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
+|logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x 이상에서는 로그 범주 필터링을 위한 ASP.NET Core 레이아웃을 따릅니다. 이 설정을 통해 특정 함수에 대 한 로깅을 필터링 할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering)을 참조하세요. |
 |콘솔|해당 없음| [콘솔](#console) 로깅 설정입니다. |
 |applicationInsights|해당 없음| [applicationInsights](#applicationinsights) 설정입니다. |
 
@@ -349,6 +379,28 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 ## <a name="queues"></a>queues
 
 구성 설정은 [스토리지 큐 트리거 및 바인딩](functions-bindings-storage-queue-output.md#host-json)에서 찾을 수 있습니다.  
+
+## <a name="retry"></a>retry
+
+앱의 모든 실행에 대 한 [재시도 정책](./functions-bindings-error-pages.md#retry-policies-preview) 옵션을 제어 합니다.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|속성  |기본값 | Description |
+|---------|---------|---------| 
+|방식의|null|필수 요소. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
+|maxRetryCount|null|필수 요소. 함수 실행 당 허용 되는 최대 다시 시도 횟수입니다. `-1` 무기한으로 다시 시도 하는 것을 의미 합니다.|
+|delayInterval|null|전략을 통해 재시도 사이에 사용 되는 지연입니다 `fixedDelay` .|
+|minimumInterval|null|전략을 사용 하는 경우 최소 재시도 지연 `exponentialBackoff` 입니다.|
+|maximumInterval|null|전략을 사용 하는 경우 다시 시도 하는 최대 시간 `exponentialBackoff` 입니다.| 
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -393,6 +445,16 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="watchfiles"></a>watchFiles
+
+응용 프로그램을 다시 시작 해야 하는 변경 내용을 모니터링 하는 하나 이상의 파일 이름으로 이루어진 배열입니다.  이렇게 하면 이러한 파일의 코드가 변경 되 면 함수에서 업데이트를 선택 합니다.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

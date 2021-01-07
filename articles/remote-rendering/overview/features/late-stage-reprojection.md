@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0951415bba22a226dadb7f2a115cede451399bc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022183"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205645"
 ---
 # <a name="late-stage-reprojection"></a>후기 단계 다시 프로젝션
 
@@ -34,7 +34,9 @@ Unity 편집기에서로 이동 *:::no-loc text="File > Build Settings":::* 합�
 
 Depth LSR가 작동 하려면 클라이언트 응용 프로그램에서 LSR 중에 고려해 야 하는 모든 관련 기 하 도형을 포함 하는 유효한 깊이 버퍼를 제공 해야 합니다.
 
-깊이 LSR에서는 제공 된 깊이 버퍼의 내용에 따라 비디오 프레임을 안정화 하려고 시도 합니다. 결과적으로 투명 개체와 같이 렌더링 되지 않은 콘텐츠는 LSR에서 조정할 수 없으며 불안정성 및 reprojection 아티팩트가 표시 될 수 있습니다.
+깊이 LSR에서는 제공 된 깊이 버퍼의 내용에 따라 비디오 프레임을 안정화 하려고 시도 합니다. 결과적으로 투명 개체와 같이 렌더링 되지 않은 콘텐츠는 LSR에서 조정할 수 없으며 불안정성 및 reprojection 아티팩트가 표시 될 수 있습니다. 
+
+투명 개체의 reprojection 불안정을 완화 하기 위해 깊이 버퍼 쓰기를 강제로 수행할 수 있습니다. [색](color-materials.md) 및 *TransparencyWritesDepth* 자료에 대 [한 재질 플래그](pbr-materials.md) 를 참조 하세요. 그러나이 플래그를 사용 하도록 설정 하면 투명/불투명 개체 상호 작용의 시각적 품질이 저하 될 수 있습니다.
 
 ## <a name="planar-lsr"></a>평면 LSR
 
@@ -44,7 +46,7 @@ Depth LSR가 작동 하려면 클라이언트 응용 프로그램에서 LSR 중�
 
 ### <a name="configure-planar-lsr-in-unity"></a>Unity에서 평면 LSR 구성
 
-평면 매개 변수는 모든 프레임을 통해 제공 해야 하는 *포커스 지점*이라고 하는에서 파생 됩니다 `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . 자세한 내용은 [Unity Focus POINT API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) 를 참조 하세요. 포커스 지점을 설정 하지 않으면 대체 (fallback)가 선택 됩니다. 그러나 자동 대체는 자주 발생 하지 않는 결과를 초래 합니다.
+평면 매개 변수는 모든 프레임을 통해 제공 해야 하는 *포커스 지점*이라고 하는에서 파생 됩니다 `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . 자세한 내용은 [Unity Focus POINT API](/windows/mixed-reality/focus-point-in-unity) 를 참조 하세요. 포커스 지점을 설정 하지 않으면 대체 (fallback)가 선택 됩니다. 그러나 자동 대체는 자주 발생 하지 않는 결과를 초래 합니다.
 
 원격 렌더링 호스트에서 계산 된 항목을 기반으로 하는 것이 적합할 수 있지만 포커스 지점을 직접 계산할 수 있습니다. 을 (를) 호출 `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` 하 여를 가져옵니다. 포커스 지점을 표현할 좌표 프레임을 제공 하 라는 메시지가 표시 됩니다. 대부분의 경우 여기에서 결과를 제공 하는 것이 좋습니다 `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` .
 

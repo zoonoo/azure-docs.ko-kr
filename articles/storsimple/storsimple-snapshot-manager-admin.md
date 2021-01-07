@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: alkohli
 ms.openlocfilehash: 16d782c6a25d8d2d8e1323b7cb683f41d8c99649
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054979"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>StorSimple 스냅샷 관리자를 사용하여 StorSimple 솔루션 관리
@@ -51,7 +51,7 @@ StorSimple 스냅샷 관리자를 사용하여 현재 백업 작업, 예약된 �
 | StorSimple 스냅샷 관리자에 대해 자세히 알아봅니다. |[StorSimple 스냅샷 관리자란?](storsimple-what-is-snapshot-manager.md) |
 | StorSimple 스냅샷 관리자 설치<br>StorSimple Snapshot Manager 다시 설치<br>StorSimple 스냅샷 관리자 제거 |[StorSimple 스냅샷 관리자 배포](storsimple-snapshot-manager-deployment.md) |
 | StorSimple 스냅샷 관리자 메뉴 및 기능 사용:<ul><li>메뉴 모음</li><li>도구 모음</li><li>범위 창</li><li>결과 창</li><li>작업 창</li><li>키보드 탐색 및 바로 가기</li></ul> |[StorSimple 스냅샷 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md) |
-| StorSimple 스냅샷 관리자에 포함된 일반적인 MMC 기능 사용:<ul><li>View</li><li>여기에서 창 새로 만들기</li><li>새로 고침</li><li>목록 내보내기</li><li>도움말</li></ul> |[StorSimple 스냅샷 관리자에서 MMC 메뉴 작업 사용](storsimple-snapshot-manager-mmc-menu.md) |
+| StorSimple 스냅샷 관리자에 포함된 일반적인 MMC 기능 사용:<ul><li>보기</li><li>여기에서 창 새로 만들기</li><li>새로 고침</li><li>목록 내보내기</li><li>도움말</li></ul> |[StorSimple 스냅샷 관리자에서 MMC 메뉴 작업 사용](storsimple-snapshot-manager-mmc-menu.md) |
 | 디바이스 추가 또는 교체<br>디바이스 연결<br>가져온 볼륨 그룹 확인<br>연결된 디바이스 새로 고침<br>디바이스 인증<br>디바이스 세부 정보 보기<br>디바이스 구성 삭제<br>디바이스 암호 변경<br>실패한 디바이스 바꾸기<br> |[StorSimple Snapshot Manager를 사용하여 StorSimple 디바이스 연결 및 관리](storsimple-snapshot-manager-manage-devices.md) |
 | 볼륨 탑재<br>볼륨에 대한 정보 보기<br>볼륨 삭제<br>볼륨 다시 검사<br>기본 볼륨 구성 및 백업<br>동적 미러 볼륨 구성 및 백업 |[StorSimple 스냅샷 관리자를 사용하여 볼륨 보기 및 관리](storsimple-snapshot-manager-manage-volumes.md) |
 | 볼륨 그룹 보기<br>볼륨 그룹 만들기<br>볼륨 그룹 백업<br>볼륨 그룹 편집<br>볼륨 그룹 삭제 |[StorSimple 스냅샷 관리자를 사용하여 볼륨 그룹 만들기 및 관리](storsimple-snapshot-manager-manage-volume-groups.md) |

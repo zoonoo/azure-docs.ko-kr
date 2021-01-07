@@ -9,22 +9,25 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67080494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011203"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
 
+> [!IMPORTANT]
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
+
 연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)를 참조하세요.
 
-솔루션에서 집계된 데이터의 예로 팩터리, 라인 및 스테이션 수준의 대시보드에서 볼 수 있는 OEE(Overall Equipment Efficiency) 및 KPI(핵심 성과 지표)를 들 수 있습니다. 다음 스크린샷은 **Munich** 공장, **Production line 1**의 **Assembly** 스테이션에 대한 OEE 및 KPI 값을 보여 줍니다.
+솔루션에서 집계된 데이터의 예로 팩터리, 라인 및 스테이션 수준의 대시보드에서 볼 수 있는 OEE(Overall Equipment Efficiency) 및 KPI(핵심 성과 지표)를 들 수 있습니다. 다음 스크린샷은 **Munich** 공장, **Production line 1** 의 **Assembly** 스테이션에 대한 OEE 및 KPI 값을 보여 줍니다.
 
 ![솔루션의 OEE 및 KPI 값의 예][img-oee-kpi]
 
-솔루션을 사용하면 *스테이션*이라는 OPC UA 서버에서 특정 데이터 항목의 자세한 정보를 볼 수 있습니다. 다음 스크린샷은 특정 스테이션에서 제조된 항목 수의 그림을 보여 줍니다.
+솔루션을 사용하면 *스테이션* 이라는 OPC UA 서버에서 특정 데이터 항목의 자세한 정보를 볼 수 있습니다. 다음 스크린샷은 특정 스테이션에서 제조된 항목 수의 그림을 보여 줍니다.
 
 ![제조된 항목 수 그림][img-manufactured-items]
 
@@ -43,11 +46,11 @@ ms.locfileid: "67080494"
 
 대시보드에서 연결된 OPC UA 서버가 솔루션에 보낼 수 있는 데이터 항목을 찾아볼 수 있습니다.
 
-1. **브라우저**를 선택하여 **OPC UA 서버 선택** 보기로 이동합니다.
+1. **브라우저** 를 선택하여 **OPC UA 서버 선택** 보기로 이동합니다.
 
     ![OPC UA 서버 선택 보기로 이동][img-select-server]
 
-1. 서버를 선택하고 **연결**을 클릭합니다. 보안 경고가 표시되면 **계속**을 클릭합니다.
+1. 서버를 선택하고 **연결** 을 클릭합니다. 보안 경고가 표시되면 **계속** 을 클릭합니다.
 
     > [!NOTE]
     > 이 경고는 각 서버에 대해 한 번만 표시되며 솔루션 대시보드와 서버 간에 트러스트 관계를 설정합니다.
